@@ -1,6 +1,6 @@
 # CS2 Clutch - Product Research Sprint
 
-> Live research HTML: **[https://sergiodesign4u-dot.github.io/cs2-clutch-research/research.html](https://sergiodesign4u-dot.github.io/cs2-clutch-research/research.html)**
+> Live research HTML: **[https://sergiodesign4u-dot.github.io/cs2-clutch/research.html](https://sergiodesign4u-dot.github.io/cs2-clutch/research.html)**
 
 A structured product research sprint for the redesign of a CS2 skin opening platform (baseline: daddyskins.com). Working placeholder name: CS2 Clutch. Brand assets are out of scope.
 
