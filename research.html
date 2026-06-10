@@ -17,864 +17,174 @@
       --text-muted: #534F72;
       --border: rgba(255,255,255,0.06);
       --border-strong: rgba(255,255,255,0.12);
-      --glow-pink: rgba(233, 77, 139, 0.15);
-      --glow-blue: rgba(101, 163, 255, 0.12);
+      --glow-pink: rgba(233,77,139,0.15);
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--bg);
       color: var(--text-primary);
-      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.6;
-      min-height: 100vh;
     }
-
-    /* Subtle background grid */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background-image:
-        linear-gradient(rgba(101,163,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(101,163,255,0.025) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
       z-index: 0;
     }
-
-    /* NAV */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 60px;
-      background: rgba(4,3,25,0.92);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      padding: 0 32px;
-      gap: 0;
+      position: fixed; top: 0; left: 0; right: 0; height: 60px;
+      background: rgba(4,3,25,0.92); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border); z-index: 100;
+      display: flex; align-items: center; padding: 0 32px; gap: 0;
     }
-
     .nav-brand {
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent-pink);
-      margin-right: 40px;
-      white-space: nowrap;
+      font-size: 13px; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent-pink); margin-right: 32px; white-space: nowrap;
     }
-
-    .nav-links {
-      display: flex;
-      gap: 4px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      flex: 1;
-    }
-
+    .nav-links { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
     .nav-links::-webkit-scrollbar { display: none; }
-
     .nav-links a {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      white-space: nowrap;
-      transition: color 0.2s, background 0.2s;
-      letter-spacing: 0.02em;
+      font-size: 12px; font-weight: 500; color: var(--text-secondary);
+      text-decoration: none; padding: 6px 10px; border-radius: 6px;
+      white-space: nowrap; transition: all 0.15s; letter-spacing: 0.02em;
     }
-
-    .nav-links a:hover {
-      color: var(--text-primary);
-      background: rgba(255,255,255,0.05);
+    .nav-links a:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 90px 40px 80px; }
+    section { margin-bottom: 88px; }
+    .section-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px;
     }
-
-    /* MAIN LAYOUT */
-    main {
-      position: relative;
-      z-index: 1;
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 100px 40px 80px;
-    }
-
-    /* SECTION */
-    section {
-      margin-bottom: 96px;
-    }
-
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent-pink);
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      font-size: clamp(32px, 5vw, 54px);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-    }
-
-    h3 {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-    }
-
-    h4 {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    p {
-      font-size: 16px;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 26px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 8px; }
+    h3 { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 6px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
     p:last-child { margin-bottom: 0; }
-
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .sep { height: 1px; background: var(--border); margin: 36px 0; }
     /* HERO */
-    .hero {
-      padding: 60px 0 40px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 80px;
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 72px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+    .conclusions-box {
+      margin-top: 36px; padding: 28px 30px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-pink); border-radius: 12px;
     }
-
-    .hero-meta {
-      display: flex;
-      gap: 24px;
-      margin-top: 32px;
-      flex-wrap: wrap;
-    }
-
-    .hero-stat {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .hero-stat-value {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .hero-stat-label {
-      font-size: 12px;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-    }
-
-    .hero-conclusions {
-      margin-top: 40px;
-      padding: 28px 32px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent-pink);
-      border-radius: 12px;
-    }
-
-    .hero-conclusions h4 {
-      color: var(--accent-pink);
-      margin-bottom: 16px;
-    }
-
-    .hero-conclusions ol {
-      padding-left: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .hero-conclusions li {
-      font-size: 15px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
+    .conclusions-box h4 { color: var(--accent-pink); margin-bottom: 14px; }
+    .conclusions-box ol { padding-left: 18px; display: flex; flex-direction: column; gap: 10px; }
+    .conclusions-box li { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
     /* CARDS */
-    .card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px;
-      transition: border-color 0.2s;
-    }
-
-    .card:hover {
-      border-color: var(--border-strong);
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .card-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 24px;
-    }
-
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 14px; margin-top: 20px; }
+    .card-grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 20px; }
     /* SEGMENT CARDS */
-    .segment-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
+    .segment-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 14px; margin-top: 20px; }
+    .segment-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .badge {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px;
+      border-radius: 20px; margin-bottom: 14px;
     }
-
-    .segment-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px;
-    }
-
-    .segment-badge {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-bottom: 16px;
-    }
-
-    .badge-primary {
-      background: rgba(233, 77, 139, 0.15);
-      color: var(--accent-pink);
-      border: 1px solid rgba(233, 77, 139, 0.3);
-    }
-
-    .badge-secondary {
-      background: rgba(101, 163, 255, 0.12);
-      color: var(--accent-blue);
-      border: 1px solid rgba(101, 163, 255, 0.25);
-    }
-
-    .jtbd-box {
-      margin-top: 16px;
-      padding: 14px 16px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      font-style: italic;
-    }
-
+    .badge-primary { background: rgba(233,77,139,0.12); color: var(--accent-pink); border: 1px solid rgba(233,77,139,0.25); }
+    .badge-secondary { background: rgba(101,163,255,0.1); color: var(--accent-blue); border: 1px solid rgba(101,163,255,0.2); }
+    .badge-tertiary { background: rgba(250,218,98,0.1); color: var(--accent-yellow); border: 1px solid rgba(250,218,98,0.2); }
+    .jtbd { margin-top: 14px; padding: 12px 14px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 8px; font-size: 13px; color: var(--text-secondary); line-height: 1.6; font-style: italic; }
     /* TABLES */
-    .table-wrap {
-      overflow-x: auto;
-      margin-top: 24px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-    }
-
-    thead {
-      background: rgba(255,255,255,0.03);
-    }
-
-    th {
-      padding: 14px 16px;
-      text-align: left;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      border-bottom: 1px solid var(--border);
-      white-space: nowrap;
-    }
-
-    td {
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-      color: var(--text-secondary);
-      vertical-align: top;
-      line-height: 1.5;
-    }
-
-    tr:last-child td {
-      border-bottom: none;
-    }
-
-    tr:hover td {
-      background: rgba(255,255,255,0.015);
-    }
-
-    /* Score colors */
-    .score-5 { color: #4ade80; font-weight: 700; }
-    .score-4 { color: #86efac; font-weight: 600; }
-    .score-3 { color: var(--accent-yellow); font-weight: 600; }
-    .score-2 { color: #f97316; font-weight: 600; }
-    .score-1 { color: #ef4444; font-weight: 600; }
-    .score-na { color: var(--text-muted); font-style: italic; }
-
-    /* AARRR TABLE */
-    .aarrr-stage {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 0;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 16px;
-    }
-
-    .aarrr-label {
-      padding: 24px;
-      background: rgba(233, 77, 139, 0.06);
-      border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 8px;
-    }
-
-    .aarrr-name {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .aarrr-metric {
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-
-    .aarrr-content {
-      padding: 24px;
-    }
-
-    .aarrr-content p {
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
-
-    /* IF/THEN HYPOTHESIS CARDS */
-    .hypothesis-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .hypothesis-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hypothesis-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent-pink), var(--accent-blue));
-    }
-
-    .hyp-if {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent-pink);
-      margin-bottom: 6px;
-    }
-
-    .hyp-then {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent-blue);
-      margin-bottom: 6px;
-      margin-top: 14px;
-    }
-
-    .hyp-because {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent-yellow);
-      margin-bottom: 6px;
-      margin-top: 14px;
-    }
-
-    .hyp-text {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    /* SCREENSHOT GALLERY */
-    .gallery-section {
-      margin-top: 32px;
-    }
-
-    .gallery-label {
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-    }
-
-    .gallery-scroll {
-      display: flex;
-      gap: 16px;
-      overflow-x: auto;
-      padding-bottom: 12px;
-      scrollbar-width: thin;
-      scrollbar-color: var(--border) transparent;
-    }
-
-    .gallery-scroll::-webkit-scrollbar {
-      height: 4px;
-    }
-
-    .gallery-scroll::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .gallery-scroll::-webkit-scrollbar-thumb {
-      background: var(--border-strong);
-      border-radius: 4px;
-    }
-
-    .gallery-item {
-      flex: 0 0 auto;
-      width: 320px;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: var(--bg-surface);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      object-position: top;
-      display: block;
-    }
-
-    .gallery-caption {
-      padding: 10px 14px;
-      font-size: 12px;
-      color: var(--text-muted);
-      border-top: 1px solid var(--border);
-    }
-
-    .gallery-placeholder {
-      width: 100%;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: var(--text-muted);
-      background: rgba(255,255,255,0.02);
-      font-style: italic;
-      text-align: center;
-      padding: 16px;
-    }
-
-    /* MECHANISM CARDS */
-    .mechanism-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px;
-      margin-bottom: 16px;
-    }
-
-    .mechanism-card.negative {
-      border-color: rgba(239, 68, 68, 0.2);
-      background: rgba(239, 68, 68, 0.04);
-    }
-
-    .mech-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 20px;
-      margin-bottom: 16px;
-    }
-
-    .mech-badge.carry {
-      background: rgba(74, 222, 128, 0.12);
-      color: #4ade80;
-      border: 1px solid rgba(74, 222, 128, 0.25);
-    }
-
-    .mech-badge.avoid {
-      background: rgba(239, 68, 68, 0.12);
-      color: #ef4444;
-      border: 1px solid rgba(239, 68, 68, 0.25);
-    }
-
-    .mech-row {
-      margin-top: 12px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .mech-key {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      white-space: nowrap;
-      min-width: 120px;
-      padding-top: 2px;
-    }
-
-    .mech-val {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      flex: 1;
-    }
-
-    /* COMPLIANCE SECTION */
-    .compliance-region {
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 12px;
-    }
-
-    .compliance-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 18px;
-      background: rgba(255,255,255,0.02);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .compliance-region-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .compliance-status {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 20px;
-    }
-
-    .status-restricted {
-      background: rgba(239, 68, 68, 0.15);
-      color: #ef4444;
-      border: 1px solid rgba(239, 68, 68, 0.3);
-    }
-
-    .status-regulated {
-      background: rgba(250, 218, 98, 0.12);
-      color: var(--accent-yellow);
-      border: 1px solid rgba(250, 218, 98, 0.25);
-    }
-
-    .status-unclear {
-      background: rgba(255,255,255,0.05);
-      color: var(--text-muted);
-      border: 1px solid var(--border);
-    }
-
-    .status-permissive {
-      background: rgba(74, 222, 128, 0.12);
-      color: #4ade80;
-      border: 1px solid rgba(74, 222, 128, 0.25);
-    }
-
-    .compliance-body {
-      padding: 14px 18px;
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    .compliance-body a {
-      color: var(--accent-blue);
-      text-decoration: none;
-      font-size: 12px;
-    }
-
-    .compliance-body a:hover {
-      text-decoration: underline;
-    }
-
-    /* GAPS TABLE */
-    .gap-row {
-      display: grid;
-      grid-template-columns: 2fr 1fr 2fr;
-      gap: 0;
-      border-bottom: 1px solid var(--border);
-    }
-
+    .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead { background: rgba(255,255,255,0.02); }
+    th { padding: 12px 14px; text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
+    td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; line-height: 1.5; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,0.01); }
+    .score-5 { color: #4ade80; font-weight: 800; font-size: 15px; }
+    .score-4 { color: #86efac; font-weight: 700; font-size: 15px; }
+    .score-3 { color: var(--accent-yellow); font-weight: 700; font-size: 15px; }
+    .score-2 { color: #f97316; font-weight: 700; font-size: 15px; }
+    .score-1 { color: #ef4444; font-weight: 700; font-size: 15px; }
+    .score-total { font-weight: 800; font-size: 15px; color: var(--text-primary); }
+    /* AARRR */
+    .aarrr-block { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 12px; display: grid; grid-template-columns: 180px 1fr; }
+    .aarrr-left { padding: 20px; background: rgba(233,77,139,0.04); border-right: 1px solid var(--border); display: flex; flex-direction: column; gap: 4px; }
+    .aarrr-stage-name { font-size: 15px; font-weight: 700; }
+    .aarrr-metric { font-size: 11px; color: var(--text-muted); }
+    .aarrr-right { padding: 20px; }
+    .aarrr-right p { font-size: 13px; margin-bottom: 10px; }
+    /* GALLERY */
+    .gallery-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 10px; }
+    .gallery-scroll { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+    .gallery-scroll::-webkit-scrollbar { height: 3px; }
+    .gallery-scroll::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 3px; }
+    .gallery-item { flex: 0 0 300px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); background: var(--bg-surface); }
+    .gallery-item img { width: 100%; height: 180px; object-fit: cover; object-position: top; display: block; }
+    .gallery-caption { padding: 8px 12px; font-size: 11px; color: var(--text-muted); border-top: 1px solid var(--border); }
+    .gallery-placeholder { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--text-muted); background: rgba(255,255,255,0.02); font-style: italic; text-align: center; padding: 14px; }
+    /* MECHANISMS */
+    .mech-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 14px; }
+    .mech-card.avoid { border-color: rgba(239,68,68,0.2); background: rgba(239,68,68,0.03); }
+    .mech-badge { display: inline-flex; align-items: center; font-size: 10px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 20px; margin-bottom: 14px; }
+    .mech-carry { background: rgba(74,222,128,0.1); color: #4ade80; border: 1px solid rgba(74,222,128,0.2); }
+    .mech-avoid { background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid rgba(239,68,68,0.2); }
+    .mech-row { display: flex; gap: 10px; margin-top: 10px; }
+    .mech-key { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); white-space: nowrap; min-width: 110px; padding-top: 2px; }
+    .mech-val { font-size: 13px; color: var(--text-secondary); line-height: 1.6; flex: 1; }
+    /* HYPOTHESIS CARDS */
+    .hyp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); gap: 14px; margin-top: 20px; }
+    .hyp-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 22px; position: relative; overflow: hidden; }
+    .hyp-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent-pink), var(--accent-blue)); }
+    .hyp-label { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px; }
+    .hyp-if { color: var(--accent-pink); }
+    .hyp-then { color: var(--accent-blue); margin-top: 12px; }
+    .hyp-because { color: var(--accent-yellow); margin-top: 12px; }
+    .hyp-text { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+    /* COMPLIANCE */
+    .compliance-block { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 10px; }
+    .compliance-header { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border); }
+    .compliance-name { font-size: 14px; font-weight: 600; }
+    .compliance-status { font-size: 10px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; }
+    .s-restricted { background: rgba(239,68,68,0.12); color: #ef4444; border: 1px solid rgba(239,68,68,0.25); }
+    .s-regulated { background: rgba(250,218,98,0.1); color: var(--accent-yellow); border: 1px solid rgba(250,218,98,0.2); }
+    .s-complex { background: rgba(255,255,255,0.05); color: var(--text-muted); border: 1px solid var(--border); }
+    .compliance-body { padding: 12px 16px; font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+    /* GAP TABLE */
+    .gap-row { display: grid; grid-template-columns: 2.5fr 1fr 2fr; border-bottom: 1px solid var(--border); }
     .gap-row:last-child { border-bottom: none; }
-
-    .gap-cell {
-      padding: 14px 16px;
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.5;
-      border-right: 1px solid var(--border);
-    }
-
+    .gap-cell { padding: 12px 14px; font-size: 13px; color: var(--text-secondary); line-height: 1.5; border-right: 1px solid var(--border); }
     .gap-cell:last-child { border-right: none; }
-
-    .gap-priority-high { color: var(--accent-pink); font-weight: 600; }
-    .gap-priority-med { color: var(--accent-yellow); font-weight: 600; }
-    .gap-priority-low { color: var(--text-muted); font-weight: 600; }
-
+    .p-critical { color: #ef4444; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .p-high { color: var(--accent-yellow); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .p-medium { color: var(--text-muted); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
     /* OPEN QUESTIONS */
-    .question-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
-    .question-item {
-      display: flex;
-      gap: 16px;
-      padding: 16px 20px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      align-items: flex-start;
-    }
-
-    .question-num {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--accent-pink);
-      opacity: 0.5;
-      line-height: 1.4;
-      min-width: 28px;
-    }
-
-    .question-text {
-      font-size: 14px;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    .question-category {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    /* SEPARATOR */
-    .sep {
-      height: 1px;
-      background: var(--border);
-      margin: 40px 0;
-    }
-
-    /* CITATION */
-    cite {
-      font-size: 11px;
-      color: var(--accent-blue);
-      font-style: normal;
-    }
-
-    cite a {
-      color: var(--accent-blue);
-      text-decoration: none;
-    }
-
-    cite a:hover {
-      text-decoration: underline;
-    }
-
-    /* UX PATTERN CARDS */
-    .pattern-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 28px;
-      margin-bottom: 16px;
-      position: relative;
-    }
-
-    .pattern-num {
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      font-size: 48px;
-      font-weight: 800;
-      color: rgba(255,255,255,0.04);
-      line-height: 1;
-    }
-
-    .pattern-chosen {
-      border-color: rgba(233, 77, 139, 0.3);
-      background: linear-gradient(135deg, rgba(233, 77, 139, 0.04), var(--bg-card));
-    }
-
-    .pattern-chosen::after {
-      content: 'SELECTED';
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      color: var(--accent-pink);
-      background: rgba(233, 77, 139, 0.12);
-      border: 1px solid rgba(233, 77, 139, 0.3);
-      padding: 4px 10px;
-      border-radius: 20px;
-    }
-
-    /* SUMMARY STATS STRIP */
-    .stats-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 32px;
-    }
-
-    .stat-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px 24px;
-      text-align: center;
-    }
-
-    .stat-box-value {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--text-primary);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .stat-box-label {
-      font-size: 12px;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-    }
-
+    .q-list { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+    .q-item { display: flex; gap: 14px; padding: 14px 18px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; }
+    .q-num { font-size: 16px; font-weight: 800; color: var(--accent-pink); opacity: 0.4; line-height: 1.5; min-width: 24px; }
+    .q-text { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+    .q-cat { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-top: 3px; }
+    /* UX PATTERN CARD */
+    .pattern-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 12px; position: relative; }
+    .pattern-chosen { border-color: rgba(233,77,139,0.3); }
+    .pattern-chosen::after { content: 'SELECTED'; position: absolute; top: 20px; right: 20px; font-size: 9px; font-weight: 800; letter-spacing: 0.12em; color: var(--accent-pink); background: rgba(233,77,139,0.1); border: 1px solid rgba(233,77,139,0.25); padding: 3px 8px; border-radius: 20px; }
     /* FOOTER */
-    footer {
-      position: relative;
-      z-index: 1;
-      border-top: 1px solid var(--border);
-      padding: 32px 40px;
-      max-width: 1160px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    footer p {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin: 0;
-    }
-
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero { animation: fadeUp 0.5s ease both; }
-
-    section {
-      animation: fadeUp 0.5s ease both;
-      animation-delay: calc(var(--order, 0) * 60ms);
-    }
-
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 12px; color: var(--text-muted); }
     /* RESPONSIVE */
-    @media (max-width: 900px) {
-      main { padding: 80px 24px 60px; }
+    @media (max-width: 860px) {
+      main { padding: 80px 20px 60px; }
       .card-grid-3 { grid-template-columns: 1fr; }
-      .stats-strip { grid-template-columns: repeat(2, 1fr); }
-      nav { padding: 0 20px; }
-    }
-
-    @media (max-width: 600px) {
-      main { padding: 80px 16px 60px; }
-      .aarrr-stage { grid-template-columns: 1fr; }
-      .aarrr-label { border-right: none; border-bottom: 1px solid var(--border); }
-      .stats-strip { grid-template-columns: 1fr 1fr; }
-      .hypothesis-grid { grid-template-columns: 1fr; }
-      .segment-grid { grid-template-columns: 1fr; }
+      .aarrr-block { grid-template-columns: 1fr; }
+      .aarrr-left { border-right: none; border-bottom: 1px solid var(--border); }
+      .gap-row { grid-template-columns: 1fr; }
+      .gap-cell { border-right: none; border-bottom: 1px solid var(--border); }
     }
   </style>
 </head>
@@ -896,783 +206,748 @@
 
 <main>
 
-  <!-- HERO / INTRO -->
-  <div class="hero" id="intro">
-    <div class="section-label">Product Research Sprint</div>
-    <h1>CS2 Clutch<br>Research Foundation</h1>
-    <p>A structured research sprint for the redesign of a CS2 skin case-opening platform. Baseline: daddyskins.com. Core scope: case opening, case battles, upgrades, in-platform exchange, real skin withdrawal.</p>
-
-    <div class="hero-meta">
-      <div class="hero-stat">
-        <div class="hero-stat-value">7</div>
-        <div class="hero-stat-label">Research Phases</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-value">15+</div>
-        <div class="hero-stat-label">Competitors Studied</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-value">3</div>
-        <div class="hero-stat-label">Motivation Segments</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-value">2026</div>
-        <div class="hero-stat-label">Sprint Date</div>
-      </div>
+<!-- HERO -->
+<div class="hero" id="intro">
+  <div class="section-eyebrow">Product Research Sprint - June 2026</div>
+  <h1>CS2 Clutch<br>Research Foundation</h1>
+  <p>A structured 7-phase research sprint for the redesign of a CS2 skin case-opening platform. Baseline: daddyskins.com. Core scope: case opening, case battles, upgrades, in-platform exchange, real skin withdrawal. Brand assets out of scope.</p>
+  <div class="hero-meta">
+    <div>
+      <div class="hero-stat-value">7</div>
+      <div class="hero-stat-label">Research Phases</div>
     </div>
+    <div>
+      <div class="hero-stat-value">15+</div>
+      <div class="hero-stat-label">Competitors Studied</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">30</div>
+      <div class="hero-stat-label">Screenshots Captured</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">35+</div>
+      <div class="hero-stat-label">Claims Verified</div>
+    </div>
+  </div>
+  <div class="conclusions-box">
+    <h4>5 Key Conclusions</h4>
+    <ol>
+      <li>Trust is the only unsolved market-wide gap. Every competitor claims provably fair; none has a named third-party RNG auditor, none has robust age verification, and all have visible bot activity. The platform that builds real trust infrastructure occupies an uncontested position.</li>
+      <li>The house edge hypothesis was materially wrong. v1 assumed 25-40% edge. Clash.gg published RTP data (90-92.8% on mini-games) shows the sustainable margin is 7-10%. Case RTP remains unknown - no competitor discloses it publicly.</li>
+      <li>Regulatory exposure is active and severe. UK, Netherlands, and Belgium classify this product as gambling. KSA levied EUR 280,000/week against Clash.gg in November 2025. NY AG sued Valve in February 2026.</li>
+      <li>The Collector segment does not drive platform design at scale. Zero major competitors lead with odds tables or EV calculators. All lead with win animations. Collector needs are served by table-stakes transparency, not dedicated feature investment.</li>
+      <li>Reveal animation quality is the most direct competitive surface available. The category uses the linear reveal universally, but execution varies enormously. DaddySkins is flat. Key-Drop's rarity-tiered animations and Clash.gg's Champion mode set the quality bar.</li>
+    </ol>
+  </div>
+</div>
 
-    <div class="hero-conclusions">
-      <h4>5 Key Conclusions</h4>
-      <ol id="key-conclusions">
-        <li>Trust is the product. The market competes on dopamine; the gap is radical transparency. Provable fairness, visible odds, and real withdrawal are the differentiators, not just feature checkboxes.</li>
-        <li>The Thrill Seeker drives volume; the Grinder drives LTV. Both must be served, but the reveal animation and the case mathematics serve very different needs and must be designed accordingly.</li>
-        <li>Regulatory classification is a genuine uncertainty across key Western markets. The staged regional rollout must be grounded in per-jurisdiction legal research, not assumptions about "not gambling."</li>
-        <li>The house edge and bonus levers are in direct tension. Better user conditions improve retention and LTV but reduce per-session margin. Calibration requires live cohort data, not pre-launch projections.</li>
-        <li>Near-miss and manipulation patterns are the single fastest way to destroy the trust differentiator. The reveal must create genuine excitement through honest means only.</li>
-      </ol>
+<!-- SECTION 1: PRODUCT MODEL -->
+<section id="product-model">
+  <div class="section-eyebrow">Section 1</div>
+  <h2>Product Model</h2>
+  <p>Motivation-based segmentation validated against research. v2 reflects real competitor data. Key hypothesis corrections documented.</p>
+  <div class="sep"></div>
+
+  <h3>Motivation Segments</h3>
+  <div class="segment-grid">
+    <div class="segment-card">
+      <span class="badge badge-primary">Primary</span>
+      <h3>The Thrill Seeker</h3>
+      <p>Active CS2 player who wants the dopamine loop. The reveal animation is the product. Outcome matters less than the experience. Confirmed by research: all six competitors lead with win animations, not odds tables.</p>
+      <div class="jtbd">"When I have downtime between CS2 matches, I want to open a case with a real drop animation and genuine unpredictability, so that I get the thrill of a reveal and a real shot at something exciting."</div>
+      <p style="margin-top:12px;font-size:12px;"><strong style="color:var(--text-primary)">Winning means:</strong> A drop that makes them react. A battle win worth screenshotting. The story, not the item.</p>
+    </div>
+    <div class="segment-card">
+      <span class="badge badge-secondary">Secondary</span>
+      <h3>The Grinder</h3>
+      <p>Regular user who sees upgrade routing and battle selection as a skill game. Seeks rakeback. Highest LTV if retained. Rakeback is now table stakes (Gamdom: 15% zero-wagering, Clash.gg has rakeback program).</p>
+      <div class="jtbd">"When I have built up a balance from regular play, I want to use upgrades, smart battle selection, and loyalty bonuses, so that I can maximize my chances of withdrawing a skin worth more than I put in."</div>
+      <p style="margin-top:12px;font-size:12px;"><strong style="color:var(--text-primary)">Winning means:</strong> A net-positive withdrawal session. Rakeback earnings that extend play.</p>
+    </div>
+    <div class="segment-card">
+      <span class="badge badge-tertiary">Tertiary</span>
+      <h3>The Collector</h3>
+      <p>Has a specific skin target. Researches odds before spending. Served by table-stakes transparency features (published odds, PF page). No major competitor has found this segment worth building primary features for. Downgraded from v1 Secondary.</p>
+      <div class="jtbd">"When I want a specific skin I cannot easily afford at market price, I want to see odds and expected cost clearly, so that I can make an informed decision about whether it is worth the spend."</div>
+      <p style="margin-top:12px;font-size:12px;"><strong style="color:var(--text-primary)">Winning means:</strong> Getting the target skin at below-market cost. A withdrawal that arrives fast.</p>
     </div>
   </div>
 
-  <!-- SECTION 1: PRODUCT MODEL -->
-  <section id="product-model" style="--order:1">
-    <div class="section-label">Section 1</div>
-    <h2>Product Model</h2>
-    <p>Motivation-based segmentation, JTBD, objectives, and the economy hypothesis. Updated to v2 after research validation.</p>
+  <div class="sep"></div>
+  <h3>Economy Hypothesis - v1 vs v2</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Item</th><th>v1 Hypothesis</th><th>v2 Status</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Mini-game house edge</td><td>25-40%</td><td style="color:#ef4444;font-weight:600;">CHANGED: 7-10%</td><td><a href="https://clash.gg/fairness">clash.gg/fairness</a> - Upgrader 92.7%, Plinko 92.8%, Mines 90.0% RTP</td></tr>
+        <tr><td>Case RTP (standard)</td><td>30-50% EV loss</td><td style="color:var(--accent-yellow);font-weight:600;">[?] UNKNOWN</td><td>No competitor publicly discloses standard case RTP</td></tr>
+        <tr><td>First deposit bonus</td><td>50-100% match</td><td style="color:#ef4444;font-weight:600;">CHANGED: 5-20% market actual</td><td>Clash.gg 5%, Key-Drop 20%, CSGORoll 10%, Hellcase 10%</td></tr>
+        <tr><td>Rakeback</td><td>Rare differentiator</td><td style="color:#ef4444;font-weight:600;">CHANGED: Table stakes</td><td><a href="https://gamdom.com/rewards">Gamdom 15% zero-wagering</a>, Clash.gg has rakeback program</td></tr>
+        <tr><td>Withdrawal as payoff</td><td>Hypothesis</td><td style="color:#4ade80;font-weight:600;">CONFIRMED</td><td>Steam Market 15% fee + wallet lock is the conversion argument</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-    <div class="sep"></div>
+<!-- SECTION 2: AARRR -->
+<section id="aarrr">
+  <div class="section-eyebrow">Section 2</div>
+  <h2>AARRR Funnel</h2>
+  <p>Channel hypotheses, primary metrics, and MVP product decisions per stage. All targets are hypotheses pending live data.</p>
+  <div class="sep"></div>
 
-    <h3>Motivation Segments</h3>
+  <div class="aarrr-block">
+    <div class="aarrr-left"><div class="aarrr-stage-name">Acquisition</div><div class="aarrr-metric">First-time depositors/week [?]</div></div>
+    <div class="aarrr-right">
+      <p><strong style="color:var(--text-primary)">Channels:</strong> Streamer seeding on Twitch and YouTube (highest-trust), affiliate and referral links, organic search for skin acquisition content, win sharing on Discord and Twitter/X.</p>
+      <p><strong style="color:var(--text-primary)">Key hypothesis:</strong> Authentic influencer play (no scripted outcomes) drives more durable trust than paid promotion. The CS2 community is highly sensitive to shill content.</p>
+      <p><strong style="color:var(--text-primary)">MVP decision:</strong> Build referral link generation from day one. Manual streamer seeding is sufficient to test the channel before building a full affiliate dashboard.</p>
+    </div>
+  </div>
+  <div class="aarrr-block">
+    <div class="aarrr-left"><div class="aarrr-stage-name">Activation</div><div class="aarrr-metric">First open completion [?] 40-60%</div></div>
+    <div class="aarrr-right">
+      <p><strong style="color:var(--text-primary)">Mechanics:</strong> No-deposit starter case ($0.50-$0.70 credit matching market), first-deposit 10-15% match with explicit wagering terms, age-gate as a trust signal and compliance requirement, under 3 clicks from landing to first open.</p>
+      <p><strong style="color:var(--text-primary)">Key hypothesis:</strong> A no-deposit first case increases activation by 15-25% by letting Thrill Seekers experience the product before committing. Users who complete provably fair verification in their first session have higher D7 retention.</p>
+      <p><strong style="color:var(--text-primary)">MVP decision:</strong> Build full opening experience first. Age-gate non-optional. Bonus can simplify for launch.</p>
+    </div>
+  </div>
+  <div class="aarrr-block">
+    <div class="aarrr-left"><div class="aarrr-stage-name">Retention</div><div class="aarrr-metric">D7 retention [?] 35%+</div></div>
+    <div class="aarrr-right">
+      <p><strong style="color:var(--text-primary)">Core loops:</strong> Case battles (scheduling behavior - users return when lobby fills), upgrades (session extension after sub-target drops), daily login bonus, rakeback payout notifications as high-intent re-engagement.</p>
+      <p><strong style="color:var(--text-primary)">Key hypothesis:</strong> Battles drive D7 retention for Thrill Seekers by adding competitive stakes. Upgrades extend session length by ~30% for Collectors and Grinders. Battles require organic lobby fill under 60 sec to work as designed - bots destroy the mechanic.</p>
+      <p><strong style="color:var(--text-primary)">MVP decision:</strong> 2-player battle lobbies first (fastest to fill). Daily bonus in MVP. 4-player format post-launch based on DAU.</p>
+    </div>
+  </div>
+  <div class="aarrr-block">
+    <div class="aarrr-left"><div class="aarrr-stage-name">Revenue</div><div class="aarrr-metric">GGR per depositing user/mo [?]</div></div>
+    <div class="aarrr-right">
+      <p><strong style="color:var(--text-primary)">Primary:</strong> House edge on cases (RTP [?]) and mini-games (7-10% edge, per Clash.gg public data). Wagering requirements on bonuses extend action and apply the edge multiple times before withdrawal is possible from bonus balance.</p>
+      <p><strong style="color:var(--text-primary)">Tension:</strong> Generosity vs. margin. Higher bonuses and rakeback improve LTV but reduce net GGR per user. The right balance requires live cohort data, not pre-launch projections.</p>
+      <p><strong style="color:var(--text-primary)">MVP decision:</strong> Model case mathematics first. Understand baseline GGR before layering rakeback. Rakeback is post-launch Phase 2.</p>
+    </div>
+  </div>
+  <div class="aarrr-block">
+    <div class="aarrr-left"><div class="aarrr-stage-name">Referral</div><div class="aarrr-metric">Referred/total depositors [?] 20-35%</div></div>
+    <div class="aarrr-right">
+      <p><strong style="color:var(--text-primary)">Natural channel:</strong> Win sharing from Thrill Seekers via Discord and Twitter/X. Grinder-segment affiliate links to CS2 communities. Steam and CS2 Discord servers as the primary social surfaces.</p>
+      <p><strong style="color:var(--text-primary)">Key hypothesis:</strong> Two-sided referral bonus (both parties receive value) outperforms one-sided. Win sharing is the primary organic referral trigger. Community-created cases (skin.club model) generate organic referral with stronger identity than promo codes.</p>
+      <p><strong style="color:var(--text-primary)">MVP decision:</strong> Referral links from day one. Sharing from wins must be one tap. Full affiliate dashboard is a Phase 2 feature.</p>
+    </div>
+  </div>
+</section>
 
-    <div class="segment-grid">
-      <div class="segment-card">
-        <span class="segment-badge badge-primary">Primary</span>
-        <h3>The Thrill Seeker</h3>
-        <p>Active CS2 player who wants the dopamine loop of opening. The ritual, the animation, the reveal. Outcome matters less than the experience of playing.</p>
-        <div class="jtbd-box">
-          "When I have downtime between CS2 matches, I want to open a case with a real drop animation and genuine unpredictability, so that I get the thrill of a reveal and a real shot at something exciting."
-        </div>
-        <p style="margin-top:14px; font-size:13px;"><strong style="color:var(--text-primary)">What fair means:</strong> The reveal feels unscripted. They can verify if they want to, even if they never do.</p>
-        <p style="font-size:13px;"><strong style="color:var(--text-primary)">What winning means:</strong> A drop that makes them react. A rare skin. A battle win worth screenshotting.</p>
-      </div>
+<!-- SECTION 3: COMPETITORS -->
+<section id="competitors">
+  <div class="section-eyebrow">Section 3</div>
+  <h2>Competitive Analysis</h2>
+  <p>HARD, SOFT, and ASPIRATIONAL competitor groups. Comparison matrix across 6 axes. Screenshots from direct Playwright research, June 2026. All data from public/pre-login pages only.</p>
+  <div class="sep"></div>
 
-      <div class="segment-card">
-        <span class="segment-badge badge-secondary">Secondary</span>
-        <h3>The Collector</h3>
-        <p>CS2 player with a specific skin wishlist. Researches case odds and expected values before spending. Treats case opening as an alternative acquisition path.</p>
-        <div class="jtbd-box">
-          "When I want a specific skin I cannot easily afford at market price, I want to open cases where I can see the odds and expected cost clearly, so that I can make an informed decision about whether it is worth the spend."
-        </div>
-        <p style="margin-top:14px; font-size:13px;"><strong style="color:var(--text-primary)">What fair means:</strong> Odds are published and verifiable. Expected value visible before opening.</p>
-        <p style="font-size:13px;"><strong style="color:var(--text-primary)">What winning means:</strong> Getting the target skin at below-market cost. A withdrawal that arrives fast.</p>
-      </div>
+  <h3>HARD Competitors - Same product, same audience</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Platform</th><th>Type</th><th>Why in this group</th><th>What to study</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Clash.gg</strong></td><td>Case opening, battles, upgrades, withdrawal</td><td>Closest product match, most transparent pre-login UX of all six. Cyprus-registered, sweepstakes framing. No formal gambling license.</td><td>Pre-login content strategy. Champion mode HP-from-value battle mechanic. RTP published per game mode (92.7% Upgrader). Free case CTA pre-login.</td></tr>
+        <tr><td><strong>Key-Drop</strong></td><td>Case opening, battles, upgrades, Skin Changer, casino modes</td><td>Broadest feature set. Curaçao licensed. 4.8/5 Trustpilot from 22,000+ reviews. 2.4M monthly visitors (Dec 2025).</td><td>Rarity-tiered animation (sparks and fire effects cited as top differentiator by users). 100+ deposit methods. Widest payment rail in category.</td></tr>
+        <tr><td><strong>CSGORoll</strong></td><td>Case opening, battles, upgrades, Crash, Roulette, Dice, Jackpot, Plinko, Mines, esports betting, P2P marketplace</td><td>Longest operating track record (2016). P2P marketplace as a genuine differentiator. Curaçao licensed.</td><td>Provably fair documentation at /info/provably-fair/ (fully public, no login). RTP per game mode published. P2P marketplace as retention and liquidity tool.</td></tr>
+        <tr><td><strong>skin.club</strong></td><td>Case opening, battles, upgrades, Community Cases, Missions, Case Competitions</td><td>Community Cases system is unique in category: any user can build and publish a case. Cyprus entity, no formal license.</td><td>Community case creator as engagement loop. Public roll history for all users (strongest transparency signal in set). Per-SKU odds to 4 decimal places.</td></tr>
+        <tr><td><strong>Hellcase</strong></td><td>Case opening, battles, upgrades, Shard system</td><td>Large scale (~2M MAU, 150,000+ daily opens). ShadowPay integration as only platform with indirect fiat path. Shard mechanic is unique in category.</td><td>Shard system mechanics. ShadowPay as withdrawal bridge to fiat. Broad traditional payment coverage including Apple Pay and UnionPay.</td></tr>
+      </tbody>
+    </table>
+  </div>
 
-      <div class="segment-card">
-        <span class="segment-badge badge-secondary">Secondary</span>
-        <h3>The Grinder</h3>
-        <p>Regular user who sees upgrades and battle selection as a skill game. Tracks their balance, seeks rakeback or bonus mechanics, and wants to withdraw real value.</p>
-        <div class="jtbd-box">
-          "When I have built up a balance from regular play, I want to use upgrades, smart battle selection, and any loyalty bonuses available, so that I can maximize my chances of withdrawing a skin worth more than I put in."
-        </div>
-        <p style="margin-top:14px; font-size:13px;"><strong style="color:var(--text-primary)">What fair means:</strong> Transparent odds on upgrades. Battle pots that match what was put in.</p>
-        <p style="font-size:13px;"><strong style="color:var(--text-primary)">What winning means:</strong> A net-positive withdrawal session. Rakeback earnings that extend play.</p>
+  <h3 style="margin-top:28px">SOFT Competitors - Same JTBD, different product</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Platform</th><th>URL</th><th>Why soft</th><th>What to study</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Steam Community Market</strong></td><td><a href="https://store.steampowered.com/market/">steam market</a></td><td>Default acquisition path for CS2 skins. 70,000+ items, no scam risk. But: 15% fee (5% Steam + 10% CS2 tax), Steam Wallet lock, zero entertainment value.</td><td>The 15% fee + wallet lock are the core conversion arguments for case platforms.</td></tr>
+        <tr><td><strong>Skinport</strong></td><td><a href="https://skinport.com">skinport.com</a></td><td>European-regulated P2P marketplace, zero buyer fee. Cheapest average prices in Western market. Acquired SkinBid Jan 2026.</td><td>Float, sticker, fade filtering as a collector toolset. EU regulatory compliance (German law) as a trust model worth studying.</td></tr>
+        <tr><td><strong>DMarket</strong></td><td><a href="https://dmarket.com">dmarket.com</a></td><td>Multi-game marketplace, 2% seller fee, blockchain-verified records, 500,000+ CS2 skins.</td><td>"Target" feature (buyer sets desired price, gets notified when available) as wish-fulfillment mechanic. Closest a pure marketplace gets to excitement.</td></tr>
+        <tr><td><strong>cs.money</strong></td><td><a href="https://cs.money">cs.money</a></td><td>Hybrid marketplace and trade bot. 1M+ skins in inventory. Instant cashout bypasses Steam trade lock.</td><td>Instant cashout architecture - bypassing Steam trade lock restrictions is relevant for withdrawal design.</td></tr>
+        <tr><td><strong>Gamdom</strong></td><td><a href="https://gamdom.com">gamdom.com</a></td><td>Originally CS2 skin gambling, now crypto casino. Lost CS2 identity by removing native skin deposits - the failure mode to avoid.</td><td>15% instant rakeback for first 7 days, zero wagering requirements - the benchmark to beat for Grinder segment.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:28px">ASPIRATIONAL Benchmarks - Best-in-class for craft and trust</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Platform</th><th>Why aspirational</th><th>What to study</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Clash.gg Champion mode</strong></td><td>Best competitive tension design in CS2 space. HP derived from item value. Per-weapon attack animations with variable timing. 30-second average matchmaking.</td><td>HP-from-value battle system. Pre-round hash shown inline at battle trigger. "CLASH KING" status as community gamification. Seed-based PF with post-round inline verification.</td></tr>
+        <tr><td><strong>Stake.com</strong></td><td>Brand prestige benchmark. UFC, Formula 1, Premier League partnerships. Real-time promotions lobby with live race standings, wager leaderboards, prize pool displays.</td><td>Real-time promotions lobby: live race + leaderboard + prize pool on a single view. Stake Originals: minimal chrome, maximum responsiveness.</td></tr>
+        <tr><td><strong>Roobet</strong></td><td>In-game provably fair display - verification accessible within the game interface, not requiring navigation away. Rated cleaner and simpler than Stake by independent reviewers.</td><td>In-game PF as UX pattern. Crash game as live/animated feel reference. Multi-login (Steam, Google, Twitch) reducing friction.</td></tr>
+        <tr><td><strong>skin.club Community Cases</strong></td><td>Best example of community creation as product loop. Any user builds a case, enters Case Competition, earns editorial spotlight. Per-SKU odds to 4 decimal places sets community transparency baseline.</td><td>User-built case creator tool. Competition leaderboard embedded in case browse flow. Case performance metrics as social proof.</td></tr>
+        <tr><td><strong>CSGOEmpire</strong></td><td>EOS blockchain verification - outcomes verified against immutable public ledger, highest transparency standard in category. 511,000 X followers. Curaçao licensed.</td><td>EOS blockchain outcome anchoring. Left-rail persistent chat as community signal. Fee-free marketplace integrated as a trust signal.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sep"></div>
+  <h3>Comparison Matrix - 5 Most Relevant Competitors</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Platform</th><th>Audience</th><th>Core Loops</th><th>Fairness / Trust</th><th>Withdrawal</th><th>Monetization</th><th>Responsible Play</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Clash.gg</strong></td>
+          <td>English-primary. Blocked: Idaho, Michigan, Nevada, Washington, Netherlands</td>
+          <td>Opening + battles (Champion mode) + upgrades (92.7% RTP public)</td>
+          <td>Full drop rates per case pre-login. RTP per mode public. Random.org randomness. Nov 2025 payout incident noted.</td>
+          <td>Skins via P2P/Waxpeer + crypto (BTC/ETH/LTC/USDC). KYC for crypto. Daily cap 99,000 Gems.</td>
+          <td>5% first deposit + 3 free cases. Rakeback. Daily Race 10K Gems pool.</td>
+          <td>No formal license. Sweepstakes framing. KYC for free-to-play access. Netherlands blocked Nov 2025.</td>
+        </tr>
+        <tr>
+          <td><strong>Key-Drop</strong></td>
+          <td>Brazil/Spain/Argentina top demographics. 2.4M/mo visitors. Curaçao licensed.</td>
+          <td>Opening + battles (Underdog mode) + upgrades + Skin Changer + Crash + HiLo + Baccarat</td>
+          <td>Seed-based. Some case odds pre-login. Incomplete disclosure in some modes. Crypto withdrawal delays 2026.</td>
+          <td>Skins to Steam avg 2-3 min claimed. External service fees may apply. Crypto delays reported.</td>
+          <td>20% first deposit match + $0.50 free. Promo codes. 100+ influencer partnerships.</td>
+          <td>Curaçao license. 18+. No dedicated responsible play page confirmed.</td>
+        </tr>
+        <tr>
+          <td><strong>CSGORoll</strong></td>
+          <td>Established 2016. CS2 team sponsorships. Curaçao licensed.</td>
+          <td>Opening + battles (PvP 2.0) + upgrades + Crash + Roulette + Dice + Jackpot + Plinko + Mines + esports betting + P2P marketplace</td>
+          <td>Best in category. SHA-256 docs at /info/provably-fair/ (public, no login). RTP per game mode published.</td>
+          <td>Skins P2P + crypto (BTC/ETH/USDT/USDC, late 2025). KYC required. Min withdrawal amounts apply.</td>
+          <td>10% via promo code. VIP daily cases. Marketplace rewards. CS2 team sponsorships.</td>
+          <td>Curaçao license. 18+. Adequate compliance structure.</td>
+        </tr>
+        <tr>
+          <td><strong>skin.club</strong></td>
+          <td>Washington and Nevada blocked. Cyprus entity (Moontain Limited). Community Cases targets creators.</td>
+          <td>Opening + battles (CRAZY MODE toggle) + upgrades (0.001%-80% odds range) + Community Cases + Missions + Case Competitions</td>
+          <td>Public roll history for ALL users. Per-item odds 1-100,000 scale. PF page public (no login). No formal license.</td>
+          <td>Skins to Steam via trade bot, "few minutes," no fees. No crypto or fiat path.</td>
+          <td>Promo codes for free balance. Daily cases by account level. Missions system. Case Competitions for creators.</td>
+          <td>No formal license. Washington and Nevada blocked. No dedicated responsible play page.</td>
+        </tr>
+        <tr>
+          <td><strong>Hellcase</strong></td>
+          <td>~2M MAU, 150,000+ daily opens. Accepts most countries including USA.</td>
+          <td>Opening + battles + upgrades. Shard system (partial skin collection - unique in category).</td>
+          <td>PF launched 2021. No standalone public PF page (404 on /provably-fair). Verification is a modal in opening flow only.</td>
+          <td>Skins to Steam + ShadowPay (crypto instant, bank 3-5 days, total 4-7% fees). Large withdrawals may delay 48h.</td>
+          <td>10% + $0.70 no-deposit credit. VIP cashback. Weekly rewards (up to 7 skins/week). Regional bonus cases.</td>
+          <td>No formal license. No dedicated responsible play page. No specific country blocklist visible publicly.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sep"></div>
+  <div class="card-grid-3">
+    <div class="card">
+      <h4>3 Common Patterns</h4>
+      <p><strong style="color:var(--text-primary)">1. Provably fair present, unevenly surfaced.</strong> Every hard competitor claims HMAC-SHA256 + seed system. CSGORoll publishes full docs publicly. Hellcase buries it in a modal. The gap between "we have PF" and "verify before you deposit" is wide.</p>
+      <p><strong style="color:var(--text-primary)">2. Pre-login wall cuts conversion.</strong> Most lock odds, upgrade interfaces, and battle lobbies behind login. Clash.gg is the outlier - payment options, game descriptions, and RTP values visible pre-login. Correlated with fastest growth in independent reviews.</p>
+      <p><strong style="color:var(--text-primary)">3. Bot activity normalized and visible.</strong> DaddySkins shows "[BOT] Darth Vader" in the live wins ticker. CSGORoll shows bot-filled battle slots. Platforms need bots for lobby fill, but visible bots undermine the social proof live feeds are supposed to generate.</p>
+    </div>
+    <div class="card">
+      <h4>3 Key Differences</h4>
+      <p><strong style="color:var(--text-primary)">1. Withdrawal architecture.</strong> skin.club and DaddySkins: skins to Steam only. Hellcase: indirect fiat via ShadowPay (4-7% fees, 3-5 days). Clash.gg and CSGORoll: crypto withdrawal. The architecture determines who can use the platform beyond casual players.</p>
+      <p><strong style="color:var(--text-primary)">2. Licensing creates geo stability.</strong> Key-Drop and CSGORoll hold Curaçao licenses. Clash.gg, skin.club, Hellcase use Cyprus registration or sweepstakes framing. KSA fined Clash.gg EUR 280,000/week in Nov 2025. Licensed platforms have more stable geo-coverage under scrutiny.</p>
+      <p><strong style="color:var(--text-primary)">3. Community features are rare and differentiated.</strong> skin.club's Community Cases is unique in the hard competitor set. Clash.gg's Champion mode is the most design-invested battle mechanic. These are the most-cited reasons users prefer specific platforms in review aggregators.</p>
+    </div>
+    <div class="card">
+      <h4>Our Gap / Opportunity</h4>
+      <p><strong style="color:var(--text-primary)">1. Responsible gambling is structurally absent.</strong> DCMS review (Oct 2025) found none of 20 sites implemented robust age checks. No competitor shows deposit limits, self-exclusion, or GamCare links on public pages. First to build this has a structural compliance and trust advantage as enforcement accelerates.</p>
+      <p><strong style="color:var(--text-primary)">2. Withdrawal transparency is pre-login invisible.</strong> No platform surfaces withdrawal speed, method, or fee information to anonymous visitors. A visible "withdraw to Steam in minutes" signal would convert skeptical visitors.</p>
+      <p><strong style="color:var(--text-primary)">3. Currency abstraction obscures real cost.</strong> All platforms use internal currencies with no visible real-money exchange rate pre-login. Transparent pricing or a visible conversion rate is a meaningful differentiator.</p>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+  <h3>Screenshots - Baseline (daddyskins.com)</h3>
+  <div class="gallery-scroll" id="baseline-gallery"></div>
+  <h3 style="margin-top:24px">Screenshots - Competitors</h3>
+  <div class="gallery-scroll" id="competitor-gallery"></div>
+</section>
+
+<!-- SECTION 4: BENCHMARK -->
+<section id="benchmark">
+  <div class="section-eyebrow">Section 4</div>
+  <h2>Benchmark: Trust and Fairness</h2>
+  <p>The most strategically important dimension. 8 criteria, 5 products scored. All data from public/pre-login research. The thrill and dopamine loop are secondary threads inside trust - not separate concerns.</p>
+  <div class="sep"></div>
+
+  <h3>Benchmark Scores</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th><th>Fairness</th><th>Odds</th><th>History</th>
+          <th>Withdrawal</th><th>Edge</th><th>Age-gate</th><th>Thrill</th><th>Speed</th><th>Total /40</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>CSGORoll</strong></td><td class="score-5">5</td><td class="score-4">4</td><td class="score-4">4</td><td class="score-3">3</td><td class="score-4">4</td><td class="score-3">3</td><td class="score-3">3</td><td class="score-4">4</td><td class="score-total">30</td></tr>
+        <tr><td><strong>skin.club</strong></td><td class="score-4">4</td><td class="score-5">5</td><td class="score-5">5</td><td class="score-3">3</td><td class="score-3">3</td><td class="score-2">2</td><td class="score-4">4</td><td class="score-4">4</td><td class="score-total">30</td></tr>
+        <tr><td><strong>Clash.gg</strong></td><td class="score-4">4</td><td class="score-4">4</td><td class="score-3">3</td><td class="score-3">3</td><td class="score-4">4</td><td class="score-3">3</td><td class="score-4">4</td><td class="score-4">4</td><td class="score-total">29</td></tr>
+        <tr><td><strong>Key-Drop</strong></td><td class="score-3">3</td><td class="score-3">3</td><td class="score-2">2</td><td class="score-3">3</td><td class="score-2">2</td><td class="score-3">3</td><td class="score-3">3</td><td class="score-4">4</td><td class="score-total">23</td></tr>
+        <tr style="background: rgba(239,68,68,0.04)"><td><strong>daddyskins.com</strong></td><td class="score-1">1</td><td class="score-3">3</td><td class="score-2">2</td><td class="score-1">1</td><td class="score-1">1</td><td class="score-1">1</td><td class="score-3">3</td><td class="score-3">3</td><td class="score-total" style="color:#ef4444">15</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:12px; font-size:12px; color:var(--text-muted)">Scoring: 1 = poor, 5 = excellent. MVP target: 25/40 at launch minimum. DaddySkins scores 1 on the fairness criterion because /en/provably-fair redirects to login rather than showing the mechanism - the most critical gap in the redesign.</p>
+
+  <div class="sep"></div>
+  <h3>Top 3 Mechanisms to Carry into MVP</h3>
+
+  <div class="mech-card">
+    <span class="mech-badge mech-carry">Carry Forward - 1</span>
+    <h3>Public Provably Fair Page with Working Verifier</h3>
+    <div class="mech-row"><span class="mech-key">Sourced from:</span><span class="mech-val"><a href="https://csgoroll.com/info/provably-fair/">CSGORoll /info/provably-fair/</a> (fully public, no login, per-game-mode SHA-256 documentation)</span></div>
+    <div class="mech-row"><span class="mech-key">Where to use:</span><span class="mech-val">Dedicated /fairness page, footer link, within the opening flow as a pre-round hash surfaced at spin trigger (Clash.gg Champion mode approach, extended to solo opening).</span></div>
+    <div class="mech-row"><span class="mech-key">Why it works:</span><span class="mech-val">Commitment and transparency. The hash is published before the open; the user can verify after. Most users never do, but knowing they could is the trust signal. Shifts mental model from "trusting a black box" to "I can check this."</span></div>
+    <div class="mech-row"><span class="mech-key">Thrill preserved:</span><span class="mech-val">Verification happens after the reveal, not during. The animation and anticipation are unchanged. Trust is built in the background; excitement is preserved in the foreground.</span></div>
+  </div>
+
+  <div class="mech-card">
+    <span class="mech-badge mech-carry">Carry Forward - 2</span>
+    <h3>Per-Case Odds Table Visible Before Purchase</h3>
+    <div class="mech-row"><span class="mech-key">Sourced from:</span><span class="mech-val">skin.club case pages (1-100,000 numeric range per item, no login required) and Clash.gg (full drop rates per case visible pre-login)</span></div>
+    <div class="mech-row"><span class="mech-key">Where to use:</span><span class="mech-val">Case detail page, above the Open button. Each possible skin with probability and approximate market value. Expected value calculated and shown. Accessible without login.</span></div>
+    <div class="mech-row"><span class="mech-key">Why it works:</span><span class="mech-val">Informed consent. A user who understands the odds and still chooses to open is not being deceived. Directly serves the Collector and builds long-term trust with the Thrill Seeker who may not read it but sees the platform does not hide it. Reduces regulatory risk in jurisdictions requiring odds disclosure.</span></div>
+    <div class="mech-row"><span class="mech-key">Thrill preserved:</span><span class="mech-val">The odds are known before the spin; the actual outcome is still unknown during the reveal. The excitement is genuine uncertainty within a transparent probability space.</span></div>
+  </div>
+
+  <div class="mech-card">
+    <span class="mech-badge mech-carry">Carry Forward - 3</span>
+    <h3>Authentic Live Drop Feed with Per-Outcome Verification Links</h3>
+    <div class="mech-row"><span class="mech-key">Sourced from:</span><span class="mech-val">skin.club public roll history - all user outcomes publicly visible and verifiable at skin.club without login</span></div>
+    <div class="mech-row"><span class="mech-key">Where to use:</span><span class="mech-val">Landing page hero or sidebar (social proof and activation). Individual case pages as "recent drops from this case." No bots, no fictional character names in the feed.</span></div>
+    <div class="mech-row"><span class="mech-key">Why it works:</span><span class="mech-val">Social proof plus verifiability. Seeing real drops reassures new visitors that drops actually happen. The verification link transforms a social proof claim into a checkable fact - the hardest trust signal to fake convincingly.</span></div>
+    <div class="mech-row"><span class="mech-key">Thrill preserved:</span><span class="mech-val">The live feed creates ambient excitement - wins happening in real time, right now. Thrill in the feed; trust in the verification link. Both served simultaneously without conflict.</span></div>
+  </div>
+
+  <h3 style="margin-top:24px">1 Mechanism That Will NOT Work</h3>
+  <div class="mech-card avoid">
+    <span class="mech-badge mech-avoid">Do Not Use</span>
+    <h3>Near-Miss Reveal Animation</h3>
+    <div class="mech-row"><span class="mech-key">What it is:</span><span class="mech-val">Animation technique where the case spin visually passes through high-value items just before landing on the actual (pre-determined) outcome, creating the illusion that the user "almost" won something better. Common in slot machines and some case-opening platforms.</span></div>
+    <div class="mech-row"><span class="mech-key">Why not here:</span><span class="mech-val">Directly contradicts the provably fair proposition. The outcome is determined before the animation; a near-miss that was pre-calculated as a loss is fabricated theatre. Creates regulatory risk (cited by UKGC as a manipulation technique in slot machine regulations). The CS2 community is technically literate and will identify and publicize it. Pride-based wins (from honest reveals) get shared; frustration from manipulation generates complaints and churn.</span></div>
+  </div>
+</section>
+
+<!-- SECTION 5: UX PATTERNS -->
+<section id="ux-patterns">
+  <div class="section-eyebrow">Section 5</div>
+  <h2>UX Patterns</h2>
+  <p>5 behavioral patterns from motivation segments, 5 fundamentally different UX approaches evaluated, and the selected architecture with 3 reasons.</p>
+  <div class="sep"></div>
+
+  <h3>Behavioral Patterns</h3>
+  <div class="card-grid" style="margin-bottom:20px">
+    <div class="card" style="border-left:3px solid var(--accent-pink)">
+      <h4>01 - ENTRY POINT</h4>
+      <h3>The Opener</h3>
+      <p>Thrill Seeker. Arrives from a stream clip or Discord link. Scans the landing for signs the platform is alive and real. Selects a low-cost case. The reveal animation IS the product. Triggered by external social proof plus a low-friction entry offer. Breaks when the reveal feels scripted or the platform looks visually dead.</p>
+    </div>
+    <div class="card">
+      <h4>02</h4>
+      <h3>The Targeter</h3>
+      <p>Collector. Has a specific skin in mind. Arrives via search, goes directly to case detail pages to read the odds table. Calculates expected cost to target. Uses upgrades as a precision path. Triggered by visible odds data. Breaks when odds are hidden or upgrade probability is unclear.</p>
+    </div>
+    <div class="card">
+      <h4>03</h4>
+      <h3>The Battler</h3>
+      <p>Thrill Seeker/Grinder overlap. Has already opened cases solo. Browses battle lobby for pot size and case selection. The opponent's drops are as interesting as their own - this is the social dimension solo opening lacks. Triggered by a live battle lobby with visible pot and an open slot. Breaks when bots fill the lobby without disclosure.</p>
+    </div>
+    <div class="card">
+      <h4>04</h4>
+      <h3>The Accumulator</h3>
+      <p>Grinder. Arrives with a clear budget and a plan. Checks rakeback dashboard first. Opens lower-cost cases, upgrades wins upward, tracks balance over the session. Withdraws at a meaningful high point. Triggered by rakeback notification or a balance high point. Breaks when rakeback mechanics are opaque or upgrade odds are not visible.</p>
+    </div>
+    <div class="card">
+      <h4>05 - Pre-activation</h4>
+      <h3>The Spectator</h3>
+      <p>Not yet mapped to a segment - the unconverted Opener. Arrives without intent to spend. Watches the live drops feed. If a "wow moment" happens within 90 seconds, that is the conversion trigger - not a CTA button. Breaks when the live feed contains obvious bots (DaddySkins "[BOT] Darth Vader" pattern), or the page is visually static or slow.</p>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+  <h3>5 Fundamentally Different UX Patterns</h3>
+
+  <div class="pattern-card pattern-chosen">
+    <h3>Pattern A - Linear Reveal (Slot Machine)</h3>
+    <p>The user selects a case, confirms, and triggers a horizontal strip of skins scrolling at high speed, decelerating, and landing on the outcome item. The outcome is determined server-side before the animation begins. Duration: 3-7 seconds. Used by: Hellcase (spinning wheel variant), Key-Drop (sparks and fire rarity punctuation), skin.club (odds visible on each card during spin), DaddySkins (flat, no rarity variation).</p>
+    <p><strong style="color:var(--text-primary)">Fits:</strong> Thrill Seeker wanting a clean, fast, repeatable reveal ritual. Any price point. Solo opening at any session frequency.</p>
+    <p><strong style="color:var(--text-primary)">Breaks when:</strong> Animation is visually flat regardless of outcome rarity, animation duration is too long for high-frequency sessions, or near-miss mechanics are applied (fabricated theatre in a provably fair context).</p>
+  </div>
+
+  <div class="pattern-card">
+    <h3>Pattern B - Card Flip (Instant Reveal)</h3>
+    <p>The user taps or clicks a card. The card flips or fades instantly to reveal the outcome. Duration: under 1 second. No buildup. Celebration happens after the reveal, not before. Used in mobile gacha (Genshin Impact), adjacent to Clash.gg Upgrader (near-instant dial sweep). No CS2 case platform uses this as its primary mechanic.</p>
+    <p><strong style="color:var(--text-primary)">Fits:</strong> Bulk-open flows (10 cases at once, results as a flipping card grid), mobile-primary contexts, bonus reward reveals.</p>
+    <p><strong style="color:var(--text-primary)">Breaks as primary:</strong> The Thrill Seeker is paying for the ritual of anticipation. Pattern B eliminates it. A $50 card flip feels cheap. Removes the psychological scaffolding that makes losses feel fair and wins feel earned.</p>
+  </div>
+
+  <div class="pattern-card">
+    <h3>Pattern C - Battle (Competitive Reveal)</h3>
+    <p>Two to four players open cases simultaneously. Results shown side-by-side. The player with the highest combined value wins the pot. Social tension: not just "what did I get" but "did I beat them." Advanced variant: Clash.gg Champion mode - HP derived from item value, per-weapon attack animations with variable timing, multiple rounds with comeback mechanics.</p>
+    <p><strong style="color:var(--text-primary)">Fits:</strong> Returning users who have already experienced solo opening. Competitive profiles. Creates scheduling behavior. Generates the most clip-worthy moments in the category.</p>
+    <p><strong style="color:var(--text-primary)">Breaks when:</strong> Lobby fills with bots - a battle against a bot is solo opening with extra steps. Lobby fill time exceeds 90 seconds. Opponent's result visible before the user's own.</p>
+  </div>
+
+  <div class="pattern-card">
+    <h3>Pattern D - Upgrade Path (Progressive Reveal)</h3>
+    <p>The user starts with a skin they own and chooses a target skin of higher value. The platform shows upgrade probability (e.g., "23.4% chance to get this knife"). The outcome is near-instant. The ritual is a chain of decisions, not a single reveal. Used by Clash.gg (Upgrader, 92.7% RTP public), skin.club (0.001%-80% odds range, 4 decimal places), Hellcase, Key-Drop, CSGORoll.</p>
+    <p><strong style="color:var(--text-primary)">Fits:</strong> Collector and Grinder segments. Users who already have skins on the platform. High-deliberation sessions. Session duration 5-20 minutes per session vs. 30 seconds per case open.</p>
+    <p><strong style="color:var(--text-primary)">Breaks when:</strong> Upgrade odds not visible, no consolation item on failure, interface less polished than case opening. Not appropriate for new users who have no skins to upgrade.</p>
+  </div>
+
+  <div class="pattern-card">
+    <h3>Pattern E - Community Discovery (Social Reveal)</h3>
+    <p>Two forms: (1) Live Feed Ambient Layer: a persistent real-time feed of drops visible during the user's own opening, creating ambient social proof and FOMO. (2) Community Cases (skin.club model): any user builds a case, publishes it, competes in public leaderboards. Used by skin.club Community Cases, CSGOEmpire left-rail chat, Roobet Crash crowd, Stake.com real-time promotions lobby.</p>
+    <p><strong style="color:var(--text-primary)">Fits:</strong> Landing page and pre-login experience (live feed as activation for the Spectator pattern). Building community identity beyond pure utility.</p>
+    <p><strong style="color:var(--text-primary)">Breaks when:</strong> Live feed contains bots - this directly destroys the social proof. Community Cases need a critical mass of quality creators before surfacing prominently.</p>
+  </div>
+
+  <div class="sep"></div>
+  <h3>Pattern Selection</h3>
+  <div class="card" style="border-left: 3px solid var(--accent-pink)">
+    <h3>Primary: Pattern A with Pattern E as the ambient layer</h3>
+    <p>This is a layered architecture, not a compromise. Pattern A handles the Thrill Seeker's core JTBD - the reveal animation. Pattern E (live drop feed) handles Spectator-to-Opener conversion and the Battler's social stakes. They occupy different layers of the same screen and do not conflict.</p>
+    <div class="sep" style="margin:16px 0"></div>
+    <p><strong style="color:var(--text-primary)">Reason 1 - JTBD alignment with the entry point:</strong> The Opener behavioral pattern (the critical activation event) is triggered by and satisfied by a high-quality reveal animation. The linear reveal maps directly to the core job: ritual of opening, anticipation of the spin, resolution of the outcome. No learning curve. Users from any competitor recognize it immediately.</p>
+    <p><strong style="color:var(--text-primary)">Reason 2 - Competitor gap in animation quality:</strong> The category uses Pattern A universally, but execution quality varies enormously. DaddySkins' current implementation is flat - no rarity-tiered animation variation. Key-Drop's sparks and fire effects (specifically cited as the most memorable visual differentiator in user reviews) and Clash.gg's Champion mode show the quality bar. The pattern is right; quality of execution is where the win is available.</p>
+    <p><strong style="color:var(--text-primary)">Reason 3 - Trust architecture compatibility:</strong> Pattern A is most compatible with the provably fair model. The pre-round hash can be surfaced at spin trigger as a UI element (a design approach from Clash.gg Champion mode, extended to solo opening). The animation is honest theatre over a pre-committed result - coherent with the fairness message.</p>
+    <div class="sep" style="margin:16px 0"></div>
+    <p><strong style="color:var(--accent-blue)">Alternative - Pattern C (Battle):</strong> When the platform reaches a minimum daily active user count to support lobby fill under 60 seconds without bots. The precondition is strict. If lobbies cannot fill organically, battles should be visible but not prominently featured. A bot-filled lobby is worse than not having the mode.</p>
+    <p><strong style="color:#ef4444">Does not fit:</strong> Pattern B (Card Flip) as the primary hero experience. Removes the ritual the Thrill Seeker is paying for. Appropriate for bulk-open flows and bonus rewards only.</p>
+  </div>
+</section>
+
+<!-- SECTION 6: COMPLIANCE -->
+<section id="compliance">
+  <div class="section-eyebrow">Section 6</div>
+  <h2>Responsible Play and Compliance</h2>
+  <p>How this product category is classified by regulators. How leading platforms handle geo and age-gate. What this means for the staged regional rollout. All facts are cited. This section makes no assertion that the product "is not gambling" - that is a jurisdiction-specific legal question.</p>
+  <div class="sep"></div>
+
+  <h3>Regulatory Classification by Region</h3>
+  <p style="margin-bottom:16px">The critical legal test in every jurisdiction is functional: can the item obtained be converted to real-world monetary value? If yes, most regulators classify the platform as a gambling service requiring a license. "Provably fair" technology is universally rejected as a substitute for licensing. The "not gambling" / "entertainment only" framing has been explicitly rejected by multiple regulators.</p>
+
+  <div class="compliance-block">
+    <div class="compliance-header"><div class="compliance-name">United Kingdom</div><span class="compliance-status s-restricted">Restricted - License Required</span></div>
+    <div class="compliance-body">
+      UKGC classification: platforms where skins "can be traded or are tradable, and can therefore act as a de facto virtual currency" require a UKGC operating license. Source: <a href="https://www.gov.uk/government/publications/a-rapid-evidence-review-of-skins-gambling/a-rapid-evidence-review-of-skins-gambling">Gov.uk Rapid Evidence Review</a>.
+      <br><br>
+      DCMS review (October 2025): 6.9 million global visits in February 2025 alone, approximately 3.93% from UK users. None of 20 audited skin gambling sites implemented robust age checks. 60% relied solely on Steam's age gate (minimum age 13, self-verified). Eight policy recommendations issued. Source: <a href="https://cms.law/en/gbr/legal-updates/inside-the-skins-gambling-surge-dcms-review-exposes-risks-and-regulatory-gaps-in-skins-gambling">CMS Law DCMS alert</a>.
+      <br><br>
+      Online Safety Act 2023: from July 25, 2025, checkbox age confirmation is no longer lawful. Robust identity-based age verification required. Source: <a href="https://shuftipro.com/blog/age-verification-laws-2025-update/">Shuftipro 2025</a>.
+    </div>
+  </div>
+
+  <div class="compliance-block">
+    <div class="compliance-header"><div class="compliance-name">Netherlands</div><span class="compliance-status s-restricted">Restricted - Active Enforcement</span></div>
+    <div class="compliance-body">
+      KSA classification: skin gambling is illegal gambling when skins have real-world monetary value. Active enforcement: EUR 280,000/week penalty against Clash.gg and Rustclash.com (November 2025) for operating without a license. KSA inspectors created accounts, deposited funds, and participated in games to document the violation. Source: <a href="https://tribuna.com/en/casino/news/2025-11-13-ksa-forces-unlicensed-skinbased-gambling-sites-to-block-dutch-players/">Tribuna.com KSA report</a>.
+      <br><br>
+      Note: Dutch Council of State (2022) ruled in-game loot boxes alone are not gambling. This ruling does NOT apply to third-party sites where items can be withdrawn and sold. The convertibility distinction is decisive.
+    </div>
+  </div>
+
+  <div class="compliance-block">
+    <div class="compliance-header"><div class="compliance-name">Belgium</div><span class="compliance-status s-restricted">Effectively Blocked - Strictest Globally</span></div>
+    <div class="compliance-body">
+      Belgian Gaming Commission (2018): CS:GO case opening violates the Belgian Gaming Act ("identical to roulette machines"). Valve disabled case opening and Steam Market trading for Belgian users. Persists in CS2 in 2026. Source: <a href="https://www.pcgamer.com/belgiums-gambling-commission-rules-against-loot-boxes-in-overwatch-fifa-18-and-csgo/">PC Gamer Belgium ruling</a>.
+      <br><br>
+      Minimum age raised from 18 to 21, effective September 1, 2024. Source: <a href="https://g2g.news/gaming/belgium-raises-legal-gambling-age-to-21-and-bans-bonuses/">G2G News</a>.
+      <br><br>
+      Active enforcement (2024): 101 unlicensed operators investigated, 34 blacklisted, 105 URLs blocked. Since June 2024, Belgium can obtain court orders requiring ISPs, Google, Meta, and Apple to block illegal gambling sites. Penalties: EUR 208 to EUR 960,000. Source: <a href="https://readwrite.com/belgian-gaming-commission-signs-agreement-dns-belgium-illegal-gambling/">ReadWrite</a>.
+    </div>
+  </div>
+
+  <div class="compliance-block">
+    <div class="compliance-header"><div class="compliance-name">European Union (Broadly)</div><span class="compliance-status s-regulated">Fragmented / Trending Toward Restriction</span></div>
+    <div class="compliance-body">
+      No harmonized EU gambling regulation. Member states apply national laws independently. EU Parliament IMCO Committee (October 2025) called for the Digital Fairness Act (expected Q4 2026) to ban loot boxes for minors EU-wide. Source: <a href="https://www.europarl.europa.eu/news/en/press-room/20251013IPR30892/new-eu-measures-needed-to-make-online-services-safer-for-minors">EU Parliament IMCO</a>.
+      <br><br>
+      Austrian Supreme Court (December 2025) ruled FIFA loot boxes not gambling - but this ruling explicitly does NOT apply to platforms where skins can be withdrawn and sold for cash. Source: <a href="https://www.dlapiper.com/en/insights/publications/2026/01/supreme-court-shifts-the-playing-field-lootboxes-fall-outside-the-austrian-gambling-act">DLA Piper analysis</a>.
+    </div>
+  </div>
+
+  <div class="compliance-block">
+    <div class="compliance-header"><div class="compliance-name">United States</div><span class="compliance-status s-complex">Complex - State-by-State, Active Litigation</span></div>
+    <div class="compliance-body">
+      No federal skin gambling law. New York AG sued Valve (February 2026) alleging CS2/TF2/Dota 2 loot boxes violate New York gambling law. Valve motion to dismiss pending. Source: <a href="https://ag.ny.gov/press-release/2026/attorney-general-james-sues-game-developer-promoting-illegal-gambling-through">NY AG Press Release</a>.
+      <br><br>
+      Washington State: first and most direct enforcement. Gambling Commission ordered Valve to stop allowing skin transfers for gambling (October 2016). skin.club explicitly blocks Washington and Nevada.
+      <br><br>
+      FTC: HoYoverse (Genshin Impact) settled for $20 million requiring verified parental consent for under-16s purchasing loot boxes. Source: <a href="https://esportslegal.news/2025/12/11/us-uk-and-eu-loot-box-strategies/">Esports Legal News</a>.
+    </div>
+  </div>
+
+  <div class="sep"></div>
+  <h3>How Leading Platforms Handle This</h3>
+  <div class="card-grid" style="margin-bottom:16px">
+    <div class="card">
+      <h4>Geo-blocking approach</h4>
+      <p>Industry pattern: (1) register in permissive jurisdictions (Cyprus, Curaçao), (2) block most actively enforcing jurisdictions reactively after enforcement action, (3) use IP-blocking as primary mechanism, (4) do NOT proactively block jurisdictions where enforcement is less certain. Clash.gg explicitly blocks: Idaho, Michigan, Nevada, Washington, Lithuania, Netherlands. skin.club explicitly blocks: Washington, Nevada.</p>
+    </div>
+    <div class="card">
+      <h4>Age gate (industry failure)</h4>
+      <p>DCMS review: none of 20 audited sites implemented robust age checks. 60% relied solely on Steam's age gate (minimum age 13, self-verified). Sites typically require ID only for withdrawals, not deposits - trapping underage users' winnings. UK now requires identity-based verification (Online Safety Act, July 2025). Belgium requires age 21 verification. Any serious compliance posture requires identity-based age verification at account creation.</p>
+    </div>
+    <div class="card">
+      <h4>Staged rollout recommendation</h4>
+      <p>Block Belgium and Netherlands at launch (active enforcement). Block UK unless a UKGC license is secured (UKGC actively blocks unlicensed sites). Geo-block US states with explicit enforcement history (Washington, Nevada minimum). Implement identity-based age verification (not checkbox) at account creation. Document every jurisdiction access decision with legal basis, not just IP block convenience.</p>
+    </div>
+  </div>
+
+  <div class="card" style="border-color: rgba(250,218,98,0.2); background: rgba(250,218,98,0.03)">
+    <h4>Critical note: "Provably Fair" has no regulatory standing</h4>
+    <p>"Provably fair" is a cryptographic transparency mechanism. It allows players to verify outcomes were not manipulated. It is a technical feature, not a legal status. No regulator accepts PF as a substitute for a gambling license. Malta, Isle of Man, and Curaçao require PF for licensed operators - meaning PF is a condition of licensing, not an alternative to it. Source: <a href="https://gamingtec.com/news/provably-fair-explained">GamingTec</a>.</p>
+    <p>The "not a gambling site" framing is explicitly rejected by all regulators who have addressed the question. The UKGC: "where virtual items can be converted to money or money's worth, using them for games of chance is gambling that requires a license" - regardless of what the platform calls itself. Source: <a href="https://cms.law/en/gbr/legal-updates/inside-the-skins-gambling-surge-dcms-review-exposes-risks-and-regulatory-gaps-in-skins-gambling">CMS Law analysis</a>.</p>
+  </div>
+</section>
+
+<!-- SECTION 7: CONCLUSIONS -->
+<section id="conclusions">
+  <div class="section-eyebrow">Section 7</div>
+  <h2>Conclusions and Next Steps</h2>
+  <div class="sep"></div>
+
+  <h3>Gaps Table</h3>
+  <div class="table-wrap">
+    <div class="gap-row" style="background:rgba(255,255,255,0.02)">
+      <div class="gap-cell" style="font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted)">Gap</div>
+      <div class="gap-cell" style="font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted)">Priority</div>
+      <div class="gap-cell" style="font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-muted)">Source</div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-cell">Provably fair page is login-gated (daddyskins.com specific)</div>
+      <div class="gap-cell"><span class="p-critical">Critical</span></div>
+      <div class="gap-cell">Direct research: daddyskins.com/en/provably-fair redirects to login, June 2026</div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-cell">No third-party RNG auditor named by any operator in the category</div>
+      <div class="gap-cell"><span class="p-critical">Critical / Opportunity</span></div>
+      <div class="gap-cell"><a href="https://www.betterchecked.com/the-state-of-provably-fair-in-2026-who-actually-proves-it-who-just-talks-about-it">betterchecked.com 2026 audit</a></div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-cell">No robust age verification in the entire category</div>
+      <div class="gap-cell"><span class="p-critical">Critical (regulatory)</span></div>
+      <div class="gap-cell"><a href="https://cms.law/en/gbr/legal-updates/inside-the-skins-gambling-surge-dcms-review-exposes-risks-and-regulatory-gaps-in-skins-gambling">DCMS review Oct 2025</a> - none of 20 sites implemented robust age checks</div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-cell">Bot activity visible in live feeds category-wide</div>
+      <div class="gap-cell"><span class="p-high">High</span></div>
+      <div class="gap-cell">Competitive research June 2026: DaddySkins "[BOT] Darth Vader," DatDrop majority-vote bots, CSGORoll bot-filled slots</div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-cell">Withdrawal architecture invisible to anonymous visitors on all platforms</div>
+      <div class="gap-cell"><span class="p-high">High</span></div>
+      <div class="gap-cell">Competitive research June 2026: no competitor surfaces withdrawal speed/method/fees pre-login</div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-cell">Battle lobbies fill with bots when DAU is low (launch risk)</div>
+      <div class="gap-cell"><span class="p-high">High (launch risk)</span></div>
+      <div class="gap-cell">Competitive research: Clash.gg 30-sec matchmaking vs. DatDrop majority-bot lobbies. No competitor has cleanly solved this.</div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-cell">Currency abstraction obscures real cost pre-login</div>
+      <div class="gap-cell"><span class="p-medium">Medium</span></div>
+      <div class="gap-cell">Competitive research June 2026: all platforms use internal coins with no fiat rate shown pre-login</div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-cell">Case RTP unknown - no public data from any competitor</div>
+      <div class="gap-cell"><span class="p-medium">Medium (economics)</span></div>
+      <div class="gap-cell">[?] No major competitor discloses standard case RTP publicly. Mini-game RTP only from Clash.gg.</div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-cell">Regulatory exposure in UK, Netherlands, Belgium requires legal strategy before launch</div>
+      <div class="gap-cell"><span class="p-critical">Critical</span></div>
+      <div class="gap-cell">KSA enforcement Nov 2025; UKGC classification; Belgian Gaming Commission 2024 enforcement</div>
+    </div>
+    <div class="gap-row">
+      <div class="gap-cell">House edge hypothesis was wrong: v1 assumed 25-40%, market standard is 7-10% on mini-games</div>
+      <div class="gap-cell"><span class="p-medium">Medium (economics)</span></div>
+      <div class="gap-cell"><a href="https://clash.gg/fairness">Clash.gg RTP disclosure</a>: 90-92.8% RTP on mini-games</div>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+  <h3>6 Hypotheses - If / Then / Because</h3>
+  <div class="hyp-grid">
+    <div class="hyp-card">
+      <div class="hyp-label hyp-if">If</div>
+      <div class="hyp-text">we make the Provably Fair page public with a working verifier and no login required</div>
+      <div class="hyp-label hyp-then">Then</div>
+      <div class="hyp-text">trust benchmark score improves from 1/5 to 4/5 on the fairness criterion and anonymous visitor trust increases measurably</div>
+      <div class="hyp-label hyp-because">Because</div>
+      <div class="hyp-text">KSA enforcement data and DCMS research both confirm trust is the primary unsatisfied need category-wide, and the fix for daddyskins.com costs a single configuration change</div>
+    </div>
+    <div class="hyp-card">
+      <div class="hyp-label hyp-if">If</div>
+      <div class="hyp-text">we publish per-case odds tables with probability per item and expected value visible before login</div>
+      <div class="hyp-label hyp-then">Then</div>
+      <div class="hyp-text">Collector-segment activation rate improves and abandonment before first deposit decreases for research-phase visitors</div>
+      <div class="hyp-label hyp-because">Because</div>
+      <div class="hyp-text">informed consent removes the primary reason to distrust the platform. The Collector researches before spending; visible odds answer their research question before asking for a deposit</div>
+    </div>
+    <div class="hyp-card">
+      <div class="hyp-label hyp-if">If</div>
+      <div class="hyp-text">the reveal animation uses rarity-differentiated visuals and sound with no near-miss mechanics</div>
+      <div class="hyp-label hyp-then">Then</div>
+      <div class="hyp-text">win sharing rates will be higher than competitors using flat reveals or manipulative mechanics</div>
+      <div class="hyp-label hyp-because">Because</div>
+      <div class="hyp-text">wins that feel genuinely earned generate pride; Key-Drop's sparks and fire effects are specifically cited as the most memorable visual differentiator in user reviews, confirming animation quality drives sharing behavior</div>
+    </div>
+    <div class="hyp-card">
+      <div class="hyp-label hyp-if">If</div>
+      <div class="hyp-text">case battle lobby fill is achieved without bots within 60 seconds, and battles are not prominently featured until this threshold is reached</div>
+      <div class="hyp-label hyp-then">Then</div>
+      <div class="hyp-text">battle mode D7 retention impact will match or exceed the category benchmark (Clash.gg's 30-second average matchmaking)</div>
+      <div class="hyp-label hyp-because">Because</div>
+      <div class="hyp-text">bots in battle lobbies destroy the social tension that makes battles valuable. A bot battle is solo opening with extra steps. Lobby fill time is the precondition for the feature working as designed.</div>
+    </div>
+    <div class="hyp-card">
+      <div class="hyp-label hyp-if">If</div>
+      <div class="hyp-text">the first deposit bonus is 10-15% match plus $0.50-$0.70 no-deposit credit, with bonus wagering requirements stated explicitly before deposit</div>
+      <div class="hyp-label hyp-then">Then</div>
+      <div class="hyp-text">activation rate for deposit-intent visitors will match or improve over competitors using less-transparent bonus structures</div>
+      <div class="hyp-label hyp-because">Because</div>
+      <div class="hyp-text">Collector and Grinder segments read terms. Clarity is a competitive advantage. The market ceiling is approximately 20% match (Key-Drop), making 10-15% a competitive-parity offer without margin risk.</div>
+    </div>
+    <div class="hyp-card">
+      <div class="hyp-label hyp-if">If</div>
+      <div class="hyp-text">identity-based age verification (not checkbox) is implemented at account creation, with a clear age-gate design framed as a trust signal</div>
+      <div class="hyp-label hyp-then">Then</div>
+      <div class="hyp-text">this serves as both a compliance mechanism and a trust differentiator, converting skeptical adult visitors who see age verification as evidence of a legitimate operation</div>
+      <div class="hyp-label hyp-because">Because</div>
+      <div class="hyp-text">DCMS review found none of 20 competitors implemented this. Being first to do so is both a regulatory necessity and a market-differentiation claim no competitor currently makes. UK Online Safety Act now requires it legally.</div>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+  <h3>Open Questions</h3>
+  <div class="q-list">
+    <div class="q-item">
+      <div class="q-num">01</div>
+      <div>
+        <div class="q-text">What jurisdiction strategy is legally viable at launch, and what licenses must be obtained before enabling UK, Netherlands, or Belgium? This question must be answered before jurisdiction access decisions are made.</div>
+        <div class="q-cat">Legal / Compliance - Pre-launch blocking</div>
       </div>
     </div>
-
-    <div class="sep"></div>
-
-    <h3>Product Objectives</h3>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Objective</th>
-            <th>Metric</th>
-            <th>Target</th>
-            <th>Primary Lever</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Convert visitors to depositing users</td>
-            <td>Visitor-to-first-deposit rate</td>
-            <td>[?] hypothesis</td>
-            <td>Trust signals, first-case experience quality</td>
-          </tr>
-          <tr>
-            <td>Grow retention through core loops</td>
-            <td>D7 retention, sessions/week</td>
-            <td>[?] hypothesis</td>
-            <td>Battles and upgrades as return drivers</td>
-          </tr>
-          <tr>
-            <td>Sustainable revenue from house edge</td>
-            <td>GGR margin per user</td>
-            <td>[?] hypothesis</td>
-            <td>Case math calibration, bonus wagering balance</td>
-          </tr>
-          <tr>
-            <td>Build trust as a retention differentiator</td>
-            <td>Withdrawal completion rate, NPS</td>
-            <td>[?] hypothesis</td>
-            <td>Provable fairness, fast withdrawal, odds transparency</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="sep"></div>
-
-    <h3>Economy Hypothesis</h3>
-    <p>All figures are hypotheses. To be calibrated against live data and competitor research.</p>
-
-    <div class="card-grid">
-      <div class="card">
-        <h4>House Edge on Cases</h4>
-        <p>Each case has an expected value below 100% of its cost. The gap is the gross gaming revenue. Volume times edge equals revenue. Hypothesis: market range is 25-40% edge (EV of 60-75% of face price). To be validated against published competitor odds.</p>
-      </div>
-      <div class="card">
-        <h4>Deposit Bonus Mechanics</h4>
-        <p>First-deposit bonus (50-100% match) drives activation. Wagering requirements (5-10x) protect margin while extending play. Hypothesis: 100% match with transparent wagering terms outperforms standard 50% offer as a differentiator.</p>
-      </div>
-      <div class="card">
-        <h4>Rakeback Hypothesis</h4>
-        <p>Returning 5-15% of GGR margin to high-volume Grinders extends LTV and reduces churn in the most valuable segment. Rare in the category - potential differentiator. Math requires careful modeling before implementation.</p>
+    <div class="q-item">
+      <div class="q-num">02</div>
+      <div>
+        <div class="q-text">What is the RTP on standard CS2 cases (not mini-games) across the market? No competitor publicly discloses this. Internal modeling required before case math is finalized.</div>
+        <div class="q-cat">Economics - Before case math is finalized</div>
       </div>
     </div>
-  </section>
-
-  <!-- SECTION 2: AARRR -->
-  <section id="aarrr" style="--order:2">
-    <div class="section-label">Section 2</div>
-    <h2>AARRR Funnel</h2>
-    <p>Channel hypotheses, key unknowns, primary metrics, and MVP product decisions per stage.</p>
-
-    <div class="sep"></div>
-
-    <div class="aarrr-stage">
-      <div class="aarrr-label">
-        <div class="aarrr-name">Acquisition</div>
-        <div class="aarrr-metric">Metric: First-time depositors/week [?]</div>
-      </div>
-      <div class="aarrr-content">
-        <p><strong style="color:var(--text-primary)">Primary channels:</strong> Streamer seeding on Twitch and YouTube (highest-trust), affiliate/referral network, organic search for skin acquisition content, win sharing on Discord and Twitter/X.</p>
-        <p><strong style="color:var(--text-primary)">Key hypothesis:</strong> Authentic influencer play (no scripted outcomes) drives more durable trust than paid promotion. The CS2 community is highly sensitive to shill content.</p>
-        <p><strong style="color:var(--text-primary)">MVP decision:</strong> Build referral link generation and basic affiliate tracking in MVP. Manual streamer seeding is sufficient to test the channel before building a full affiliate dashboard.</p>
+    <div class="q-item">
+      <div class="q-num">03</div>
+      <div>
+        <div class="q-text">What is the minimum daily active user count required to fill battle lobbies in under 60 seconds without bots in a new market? This threshold determines when battles should be prominently featured vs. visible but de-emphasized.</div>
+        <div class="q-cat">Product / Launch - Before battles are prominently featured</div>
       </div>
     </div>
-
-    <div class="aarrr-stage">
-      <div class="aarrr-label">
-        <div class="aarrr-name">Activation</div>
-        <div class="aarrr-metric">Metric: First open completion rate [?] 40-60%</div>
-      </div>
-      <div class="aarrr-content">
-        <p><strong style="color:var(--text-primary)">Primary mechanics:</strong> No-deposit starter case (non-withdrawable, for experience only), first-deposit bonus with clear wagering terms, age-gate as a trust signal not just compliance, under 3 clicks from landing to first open.</p>
-        <p><strong style="color:var(--text-primary)">Key hypothesis:</strong> A no-deposit first case increases activation by 15-25% by letting Thrill Seekers experience the product before committing money. Users who complete provable-fairness verification in their first session have higher D7 retention.</p>
-        <p><strong style="color:var(--text-primary)">MVP decision:</strong> Build the full opening experience first. Age-gate is non-optional. Bonus mechanics can be simplified for launch.</p>
+    <div class="q-item">
+      <div class="q-num">04</div>
+      <div>
+        <div class="q-text">Which payment processors will work with this product category in target markets, and at what cost and restrictions? Payments are a launch blocker and must be validated before deposit/withdrawal design is finalized.</div>
+        <div class="q-cat">Payments / Infrastructure - Pre-launch</div>
       </div>
     </div>
-
-    <div class="aarrr-stage">
-      <div class="aarrr-label">
-        <div class="aarrr-name">Retention</div>
-        <div class="aarrr-metric">Metric: D7 retention [?] 35%+</div>
-      </div>
-      <div class="aarrr-content">
-        <p><strong style="color:var(--text-primary)">Core loops:</strong> Case battles as a scheduling behavior (users return when a battle lobby fills), upgrades as session extension after sub-target drops, daily login bonus on cadence for Grinders, rakeback payout notifications as high-value re-engagement triggers.</p>
-        <p><strong style="color:var(--text-primary)">Key hypothesis:</strong> Case battles are the primary retention driver for Thrill Seekers because they add competitive stakes to the opening loop. Upgrades directly after a case open extend session length by 30%+ for Collectors and Grinders.</p>
-        <p><strong style="color:var(--text-primary)">MVP decision:</strong> Ship battles with 2-player lobbies first (fastest to fill). Daily bonus is low-effort, high-impact - include in MVP. 4-player and multi-case battles come post-launch based on data.</p>
+    <div class="q-item">
+      <div class="q-num">05</div>
+      <div>
+        <div class="q-text">Can a named public third-party RNG auditor relationship be secured before launch? This is the single most differentiated trust position currently unoccupied in the category. What is the cost and timeline?</div>
+        <div class="q-cat">Trust / Product - Before launch</div>
       </div>
     </div>
-
-    <div class="aarrr-stage">
-      <div class="aarrr-label">
-        <div class="aarrr-name">Revenue</div>
-        <div class="aarrr-metric">Metric: GGR per depositing user/month [?]</div>
-      </div>
-      <div class="aarrr-content">
-        <p><strong style="color:var(--text-primary)">Primary:</strong> House edge on cases and battles. Volume times edge equals revenue. Bonus wagering requirements extend action and apply the edge multiple times before withdrawal.</p>
-        <p><strong style="color:var(--text-primary)">Tension:</strong> Generosity vs. margin. Higher bonuses and rakeback improve activation and retention but reduce net GGR per user. The right balance requires live cohort data, not pre-launch projections.</p>
-        <p><strong style="color:var(--text-primary)">MVP decision:</strong> Launch with clearly designed case mathematics (defined edge) before building bonus and rakeback systems. Understand baseline GGR per user before layering incentives. Rakeback is post-launch.</p>
+    <div class="q-item">
+      <div class="q-num">06</div>
+      <div>
+        <div class="q-text">Is DatDrop operationally alive or defunct as of June 2026? The domain JS-redirects to competitors (observed during Phase 3 research). If defunct, the Battle Royale format (up to 72 players) may be open competitive territory.</div>
+        <div class="q-cat">Competitive - Before battle feature scope is finalized</div>
       </div>
     </div>
-
-    <div class="aarrr-stage">
-      <div class="aarrr-label">
-        <div class="aarrr-name">Referral</div>
-        <div class="aarrr-metric">Metric: Referred/total depositors [?] 20-35%</div>
-      </div>
-      <div class="aarrr-content">
-        <p><strong style="color:var(--text-primary)">Natural channel:</strong> Win sharing from Thrill Seekers via Discord and Twitter/X. Grinder-segment affiliate links to their communities. Steam and CS2 Discord servers as the primary social surfaces.</p>
-        <p><strong style="color:var(--text-primary)">Key hypothesis:</strong> A two-sided referral bonus (referrer AND referred both receive value) outperforms one-sided because the referred user has an additional reason to deposit. Win sharing is the primary organic referral trigger.</p>
-        <p><strong style="color:var(--text-primary)">MVP decision:</strong> Basic referral links and tracking from day one. The most important thing is that sharing a win generates a referral link. A full affiliate dashboard comes later.</p>
+    <div class="q-item">
+      <div class="q-num">07</div>
+      <div>
+        <div class="q-text">What is the actual Steam trade API risk if Valve restricts access further following the NY AG lawsuit (filed February 2026)? The entire case-opening ecosystem depends on Valve's trade API. No competitor appears to have a contingency plan.</div>
+        <div class="q-cat">Technical / Existential - Ongoing monitoring</div>
       </div>
     </div>
-
-    <div class="sep"></div>
-
-    <h3>Key AARRR Takeaways</h3>
-
-    <div class="card-grid">
-      <div class="card">
-        <h4>01</h4>
-        <p>The case opening reveal is the single most important product moment. Activation, retention, referral, and revenue all flow from the quality of this one experience.</p>
-      </div>
-      <div class="card">
-        <h4>02</h4>
-        <p>Battles and upgrades are retention mechanics, not acquisition mechanics. Build them for users who have already opened. They should not be the first thing a new user sees.</p>
-      </div>
-      <div class="card">
-        <h4>03</h4>
-        <p>Trust is not just a design principle - it is the acquisition and referral engine. A user who believes the drop is fair shares the win. A user who suspects it is rigged warns others.</p>
-      </div>
-      <div class="card">
-        <h4>04</h4>
-        <p>The economic model needs live data to calibrate. Launch with conservative bonuses and adjust based on early cohort behavior. Do not model this problem to death before launch.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 3: COMPETITORS -->
-  <section id="competitors" style="--order:3">
-    <div class="section-label">Section 3</div>
-    <h2>Competitive Analysis</h2>
-    <p>HARD, SOFT, and ASPIRATIONAL competitor groups. Comparison matrix across 6 axes. Patterns, gaps, and baseline comparison.</p>
-
-    <!-- Competitor tables will be populated from research -->
-    <div id="competitor-tables">
-      <!-- HARD competitors -->
-      <h3 style="margin-top:32px">HARD Competitors</h3>
-      <p>Same product, same audience, same market: case opening + battles + upgrades + skin withdrawal.</p>
-
-      <div class="table-wrap">
-        <table id="hard-competitors-table">
-          <thead>
-            <tr>
-              <th>Platform</th>
-              <th>Type</th>
-              <th>Why in this group</th>
-              <th>What to study</th>
-            </tr>
-          </thead>
-          <tbody id="hard-competitors-body">
-            <!-- Populated from research -->
-          </tbody>
-        </table>
-      </div>
-
-      <!-- SOFT competitors -->
-      <h3 style="margin-top:32px">SOFT Competitors</h3>
-      <p>Different product but same JTBD: skin acquisition, the thrill of chance, or both.</p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Platform</th>
-              <th>Type</th>
-              <th>Why in this group</th>
-              <th>What to study</th>
-            </tr>
-          </thead>
-          <tbody id="soft-competitors-body">
-            <!-- Populated from research -->
-          </tbody>
-        </table>
-      </div>
-
-      <!-- ASPIRATIONAL -->
-      <h3 style="margin-top:32px">ASPIRATIONAL Benchmarks</h3>
-      <p>Best-in-class for craft, trust presentation, and live / animated feel.</p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Platform</th>
-              <th>Type</th>
-              <th>Why aspirational</th>
-              <th>What to study</th>
-            </tr>
-          </thead>
-          <tbody id="aspirational-body">
-            <!-- Populated from research -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="sep"></div>
-
-    <!-- Comparison matrix -->
-    <h3>Comparison Matrix (Top 5 Most Relevant)</h3>
-
-    <div class="table-wrap">
-      <table id="comparison-matrix">
-        <thead>
-          <tr>
-            <th>Platform</th>
-            <th>Audience</th>
-            <th>Core Loops</th>
-            <th>Fairness / Trust</th>
-            <th>Withdrawal</th>
-            <th>Monetization / Bonuses</th>
-            <th>Responsible Play / Geo</th>
-          </tr>
-        </thead>
-        <tbody id="comparison-matrix-body">
-          <!-- Populated from research -->
-        </tbody>
-      </table>
-    </div>
-
-    <div class="sep"></div>
-
-    <!-- Screenshot gallery -->
-    <div class="gallery-section">
-      <div class="gallery-label">Baseline - daddyskins.com</div>
-      <div class="gallery-scroll" id="baseline-gallery">
-        <div class="gallery-item">
-          <div class="gallery-placeholder">Loading screenshots from research...</div>
-          <div class="gallery-caption">daddyskins.com - Landing</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="gallery-section" style="margin-top:24px">
-      <div class="gallery-label">Competitor Screens</div>
-      <div class="gallery-scroll" id="competitor-gallery">
-        <div class="gallery-item">
-          <div class="gallery-placeholder">Loading competitor screenshots...</div>
-          <div class="gallery-caption">Competitor screens</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sep"></div>
-
-    <div class="card-grid-3">
-      <div class="card">
-        <h4>3 Common Patterns</h4>
-        <div id="common-patterns">
-          <p>[? - to be populated from Phase 3 research]</p>
-        </div>
-      </div>
-      <div class="card">
-        <h4>3 Key Differences</h4>
-        <div id="key-differences">
-          <p>[? - to be populated from Phase 3 research]</p>
-        </div>
-      </div>
-      <div class="card">
-        <h4>Our Gap / Opportunity</h4>
-        <div id="our-gap">
-          <p>[? - to be populated from Phase 3 research]</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 4: BENCHMARK -->
-  <section id="benchmark" style="--order:4">
-    <div class="section-label">Section 4</div>
-    <h2>Benchmark: Trust and Fairness</h2>
-    <p>The most strategically important dimension. 8 criteria, 5 products scored. Top mechanisms to carry into MVP and one to avoid.</p>
-
-    <div class="sep"></div>
-
-    <h3>Evaluation Criteria</h3>
-
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Criterion</th>
-            <th>Description</th>
-            <th>1 - Poor</th>
-            <th>5 - Excellent</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Provable Fairness Mechanism</td>
-            <td>Is the mechanism clear? Can a non-technical user understand it? Is a verification tool available?</td>
-            <td>No claim or mechanism</td>
-            <td>Clear mechanism, plain language, working verifier, linked from opening flow</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Odds Visibility Before Opening</td>
-            <td>Are exact odds or EV shown before the user commits money? Easy to find?</td>
-            <td>No odds shown anywhere</td>
-            <td>Full odds table per case, visible before purchase, with EV calculation</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Drop and Outcome History</td>
-            <td>Does the platform show recent drops publicly? Can past outcomes be verified?</td>
-            <td>No history shown</td>
-            <td>Live public drop feed, per-outcome verification link, historical audit</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Withdrawal Reliability and Speed</td>
-            <td>How clearly is withdrawal explained? Is there evidence of speed and reliability?</td>
-            <td>No withdrawal info on public pages</td>
-            <td>Clear process, speed commitment, public track record</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Honesty About Edge and Cost</td>
-            <td>Is house edge or EV stated honestly? Are bonus wagering requirements clear upfront?</td>
-            <td>Edge completely hidden</td>
-            <td>Edge and EV stated explicitly, bonus terms clear and upfront</td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>Age-Gate and Responsible Play</td>
-            <td>Is there a meaningful age gate? Are responsible-play tools (limits, exclusion) present?</td>
-            <td>No age-gate, no responsible-play content</td>
-            <td>Clear age-gate, robust responsible-play page with working tools</td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>Thrill Without Manipulation</td>
-            <td>Does the reveal create excitement without near-miss effects or dark patterns?</td>
-            <td>Clear manipulation patterns</td>
-            <td>Genuinely exciting, no near-miss or false-win patterns, outcome is immediately clear</td>
-          </tr>
-          <tr>
-            <td>8</td>
-            <td>Speed and Reliability as Trust</td>
-            <td>Does the platform feel fast and stable? Does performance reinforce trust?</td>
-            <td>Slow, glitchy, feels unreliable</td>
-            <td>Sub-second loads, smooth animations, feels engineered to a high standard</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="sep"></div>
-
-    <h3>Benchmark Score Table</h3>
-
-    <div class="table-wrap">
-      <table id="benchmark-scores">
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Fairness</th>
-            <th>Odds</th>
-            <th>History</th>
-            <th>Withdrawal</th>
-            <th>Edge Honesty</th>
-            <th>Age-gate</th>
-            <th>Thrill</th>
-            <th>Speed</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody id="benchmark-scores-body">
-          <!-- To be populated from Phase 3+4 research -->
-        </tbody>
-      </table>
-    </div>
-
-    <div class="sep"></div>
-
-    <h3>Top 3 Mechanisms to Carry into MVP</h3>
-
-    <div class="mechanism-card">
-      <span class="mech-badge carry">Carry Forward - 1</span>
-      <h3>Server-Client Seed Provable Fairness with a Working Verifier</h3>
-      <div class="mech-row">
-        <span class="mech-key">Where to use:</span>
-        <span class="mech-val">At the moment of case opening (seed display), on a dedicated fairness page (full explanation and tool), and as a persistent trust signal in the site footer or help section.</span>
-      </div>
-      <div class="mech-row">
-        <span class="mech-key">Why it works:</span>
-        <span class="mech-val">The psychological mechanism is commitment and transparency. By publishing the hash before the open, the platform commits to an outcome the user can verify after the fact. Most users never verify - but knowing they could is the trust signal.</span>
-      </div>
-      <div class="mech-row">
-        <span class="mech-key">Thrill preserved:</span>
-        <span class="mech-val">Verification happens after the reveal, not during. The reveal moment is unchanged. Trust is built in the background; excitement is preserved in the foreground.</span>
-      </div>
-    </div>
-
-    <div class="mechanism-card">
-      <span class="mech-badge carry">Carry Forward - 2</span>
-      <h3>Per-Case Odds Table Visible Before Purchase</h3>
-      <div class="mech-row">
-        <span class="mech-key">Where to use:</span>
-        <span class="mech-val">On each case detail page, visible before clicking open. Each possible skin with its probability and approximate market value. Expected value ideally calculated and shown. Accessible without login.</span>
-      </div>
-      <div class="mech-row">
-        <span class="mech-key">Why it works:</span>
-        <span class="mech-val">Informed consent. A user who understands the odds and still chooses to open is not being deceived. Directly serves the Collector segment and builds long-term trust with the Thrill Seeker who may not read it but sees the platform does not hide it.</span>
-      </div>
-      <div class="mech-row">
-        <span class="mech-key">Thrill preserved:</span>
-        <span class="mech-val">Knowing the odds before opening does not reduce the excitement of the reveal. The reveal moment is still unknown and dramatic. The outcome is earned, not manipulated.</span>
-      </div>
-    </div>
-
-    <div class="mechanism-card">
-      <span class="mech-badge carry">Carry Forward - 3</span>
-      <h3>Live Public Drop Feed with Verification Links</h3>
-      <div class="mech-row">
-        <span class="mech-key">Where to use:</span>
-        <span class="mech-val">Landing page hero or sidebar for social proof and activation. Also on individual case pages as "recent drops from this case." Each drop item links to a verification page.</span>
-      </div>
-      <div class="mech-row">
-        <span class="mech-key">Why it works:</span>
-        <span class="mech-val">Social proof plus verifiability. Seeing real drops from real users reassures new visitors that drops actually happen. The verification link transforms a social proof claim into a checkable fact - the hardest trust signal to fake convincingly.</span>
-      </div>
-      <div class="mech-row">
-        <span class="mech-key">Thrill preserved:</span>
-        <span class="mech-val">The live feed creates ambient excitement on the landing page - wins happening in real time. Thrill in the feed; trust in the verification link. Both served simultaneously.</span>
-      </div>
-    </div>
-
-    <h3 style="margin-top:32px">1 Mechanism That Will NOT Work</h3>
-
-    <div class="mechanism-card negative">
-      <span class="mech-badge avoid">Do Not Use</span>
-      <h3>Near-Miss Reveal Animation</h3>
-      <div class="mech-row">
-        <span class="mech-key">What it is:</span>
-        <span class="mech-val">An animation technique where the case spin visually passes through high-value items just before landing on the actual outcome, creating the illusion that the user "almost" won something better. Common in slot machines and some case-opening platforms.</span>
-      </div>
-      <div class="mech-row">
-        <span class="mech-key">Why not here:</span>
-        <span class="mech-val">It directly contradicts the product's core differentiator. If the platform's value proposition is provable fairness, using a near-miss effect is a fundamental contradiction - the outcome is determined before the animation, making the near-miss deliberate theatre. It creates regulatory risk (cited by UKGC as a manipulation technique), and it generates community backlash in the technically literate CS2 audience who will identify and publicize it.</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION 5: UX PATTERNS -->
-  <section id="ux-patterns" style="--order:5">
-    <div class="section-label">Section 5</div>
-    <h2>UX Patterns</h2>
-    <p>Behavioral patterns from motivation segments, 5 fundamentally different UX approaches, and the selected pattern with reasoning.</p>
-
-    <div class="sep"></div>
-
-    <h3>Behavioral Patterns from Motivation Segments</h3>
-    <div id="behavioral-patterns">
-      <!-- To be populated from Phase 5 -->
-      <p>[? - to be populated after Phase 3 and 4 research completes]</p>
-    </div>
-
-    <div class="sep"></div>
-
-    <h3>5 Fundamentally Different UX Patterns</h3>
-    <div id="ux-pattern-cards">
-      <!-- To be populated from Phase 5 -->
-      <p>[? - to be populated after Phase 3 and 4 research completes]</p>
-    </div>
-  </section>
-
-  <!-- SECTION 6: COMPLIANCE -->
-  <section id="compliance" style="--order:6">
-    <div class="section-label">Section 6</div>
-    <h2>Responsible Play and Compliance</h2>
-    <p>How this product category is classified by regulators, how leading platforms handle geo and age-gate, and what this means for our staged rollout. All facts are cited. This section makes no assertion that the product "is not gambling" - that is a jurisdiction-specific legal question.</p>
-
-    <div class="sep"></div>
-
-    <h3>Regulatory Classification by Region</h3>
-    <div id="compliance-regions">
-      <!-- To be populated from Phase 3 regulatory research -->
-      <p>[? - to be populated from Phase 3 regulatory research]</p>
-    </div>
-
-    <div class="sep"></div>
-
-    <h3>How Leading Platforms Handle This</h3>
-    <div id="platform-compliance">
-      <!-- To be populated from Phase 3 research -->
-      <p>[? - to be populated from Phase 3 research]</p>
-    </div>
-  </section>
-
-  <!-- SECTION 7: CONCLUSIONS -->
-  <section id="conclusions" style="--order:7">
-    <div class="section-label">Section 7</div>
-    <h2>Conclusions and Next Steps</h2>
-
-    <div class="sep"></div>
-
-    <h3>Hypotheses (If / Then / Because)</h3>
-
-    <div class="hypothesis-grid">
-      <div class="hypothesis-card">
-        <div class="hyp-if">If</div>
-        <div class="hyp-text">We publish per-case odds tables and expected value calculations before purchase</div>
-        <div class="hyp-then">Then</div>
-        <div class="hyp-text">Collector-segment activation rate will exceed competitors' and overall churn will decrease</div>
-        <div class="hyp-because">Because</div>
-        <div class="hyp-text">Informed users who choose to open do not feel deceived. Transparency removes the primary reason to distrust the platform and shifts the mental model to informed risk-taking.</div>
-      </div>
-
-      <div class="hypothesis-card">
-        <div class="hyp-if">If</div>
-        <div class="hyp-text">We implement a live public drop feed with per-outcome verification links</div>
-        <div class="hyp-then">Then</div>
-        <div class="hyp-text">Visitor-to-first-deposit conversion will improve relative to landing pages without it</div>
-        <div class="hyp-because">Because</div>
-        <div class="hyp-text">Social proof plus verifiability is the hardest trust signal to fake. Seeing real drops happen in real time reduces the single biggest barrier to first deposit: not believing the platform is legitimate.</div>
-      </div>
-
-      <div class="hypothesis-card">
-        <div class="hyp-if">If</div>
-        <div class="hyp-text">Case battles are built with 2-player lobby first and notification re-engagement</div>
-        <div class="hyp-then">Then</div>
-        <div class="hyp-text">D7 retention will improve meaningfully relative to case-opening-only platforms</div>
-        <div class="hyp-because">Because</div>
-        <div class="hyp-text">Battles create a scheduling behavior - users return to see if their battle is starting. Notification triggers are high-intent re-engagement moments with direct monetary stakes.</div>
-      </div>
-
-      <div class="hypothesis-card">
-        <div class="hyp-if">If</div>
-        <div class="hyp-text">We offer a 100% first-deposit bonus with clearly stated wagering requirements</div>
-        <div class="hyp-then">Then</div>
-        <div class="hyp-text">Activation rate will exceed competitors offering 50% match with opaque terms</div>
-        <div class="hyp-because">Because</div>
-        <div class="hyp-text">The combination of a better headline number (100%) and visible terms addresses both the Thrill Seeker (excited by the bonus) and the Collector/Grinder (who reads the terms and trusts clear communication).</div>
-      </div>
-
-      <div class="hypothesis-card">
-        <div class="hyp-if">If</div>
-        <div class="hyp-text">We implement a rakeback-style mechanic returning 10% of GGR margin to top-volume users</div>
-        <div class="hyp-then">Then</div>
-        <div class="hyp-text">Grinder-segment 90-day LTV will exceed market average and churn will decrease in this segment</div>
-        <div class="hyp-because">Because</div>
-        <div class="hyp-text">Grinders are the most sensitive to feeling the edge is too high. Rakeback acknowledges their volume and shares the margin. If the LTV extension exceeds the rebate cost, this is net positive for the business.</div>
-      </div>
-
-      <div class="hypothesis-card">
-        <div class="hyp-if">If</div>
-        <div class="hyp-text">The reveal animation is honest (no near-miss) but dramatically staged with sound, motion, and celebration for high-value drops</div>
-        <div class="hyp-then">Then</div>
-        <div class="hyp-text">Win sharing rates will be higher than competitors using manipulative reveals</div>
-        <div class="hyp-because">Because</div>
-        <div class="hyp-text">Wins that feel earned generate pride. Near-miss manipulation generates frustration even when users cannot articulate why. Pride-based wins get shared. Frustration generates complaints and churn.</div>
-      </div>
-    </div>
-
-    <div class="sep"></div>
-
-    <h3>Open Questions</h3>
-
-    <div class="question-list" id="open-questions">
-      <div class="question-item">
-        <div class="question-num">01</div>
-        <div>
-          <div class="question-text">What is the exact legal classification of case-opening-with-withdrawal in each target market, and which jurisdictions require a gambling license vs. which permit operation without one?</div>
-          <div class="question-category">Compliance / Legal</div>
-        </div>
-      </div>
-      <div class="question-item">
-        <div class="question-num">02</div>
-        <div>
-          <div class="question-text">What house edge percentage is standard in the market and what EV range do users consider acceptable vs. exploitative? Is there evidence from competitor published odds?</div>
-          <div class="question-category">Economics / Competitor Research</div>
-        </div>
-      </div>
-      <div class="question-item">
-        <div class="question-num">03</div>
-        <div>
-          <div class="question-text">What deposit and withdrawal methods are available in the target markets, and which are restricted for this product category by payment processors?</div>
-          <div class="question-category">Payments / Infrastructure</div>
-        </div>
-      </div>
-      <div class="question-item">
-        <div class="question-num">04</div>
-        <div>
-          <div class="question-text">How do leading platforms handle Steam API rate limits and bot reliability for skin delivery, and what is the expected infrastructure cost for fast withdrawal?</div>
-          <div class="question-category">Technical / Infrastructure</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
 </main>
 
 <footer>
-  <p>CS2 Clutch Research Sprint - 2026. Baseline: daddyskins.com. Working placeholder name only.</p>
-  <p>Research conducted: June 2026. All competitor facts cited in source documents.</p>
+  <p>CS2 Clutch Research Sprint - June 2026. Baseline: daddyskins.com. Working placeholder name. Brand assets out of scope.</p>
+  <p>Research: Phases 0-7 completed. Ready for wireframe phase.</p>
 </footer>
 
 <script>
-  // Populate tables from research data
-  // This script will be updated when Phase 3 research completes
-
-  // Helper to add score class
-  function scoreClass(n) {
-    if (n === 5) return 'score-5';
-    if (n === 4) return 'score-4';
-    if (n === 3) return 'score-3';
-    if (n === 2) return 'score-2';
-    if (n === 1) return 'score-1';
-    return 'score-na';
+(function() {
+  var baseline = [
+    {src:'research/screens/baseline/baseline_landing.png',caption:'daddyskins.com - Landing'},
+    {src:'research/screens/baseline/baseline_cases.png',caption:'daddyskins.com - Cases'},
+    {src:'research/screens/baseline/baseline_battles.png',caption:'daddyskins.com - Battles'},
+    {src:'research/screens/baseline/baseline_upgrades.png',caption:'daddyskins.com - Upgrades'},
+    {src:'research/screens/baseline/baseline_fairness.png',caption:'daddyskins.com - Fairness (FAQ)'},
+    {src:'research/screens/baseline/baseline_withdrawal.png',caption:'daddyskins.com - Exchange/Withdrawal'},
+  ];
+  var competitors = [
+    {src:'research/screens/skinclub_landing.png',caption:'skin.club - Landing'},
+    {src:'research/screens/skinclub_cases.png',caption:'skin.club - Cases'},
+    {src:'research/screens/skinclub_battles.png',caption:'skin.club - Battles'},
+    {src:'research/screens/skinclub_upgrades.png',caption:'skin.club - Upgrades'},
+    {src:'research/screens/skinclub_fairness.png',caption:'skin.club - Fairness'},
+    {src:'research/screens/hellcase_landing.png',caption:'Hellcase - Landing'},
+    {src:'research/screens/hellcase_cases.png',caption:'Hellcase - Cases'},
+    {src:'research/screens/hellcase_battles.png',caption:'Hellcase - Battles'},
+    {src:'research/screens/hellcase_upgrades.png',caption:'Hellcase - Upgrades'},
+    {src:'research/screens/hellcase_fairness.png',caption:'Hellcase - Fairness'},
+    {src:'research/screens/datdrop_landing.png',caption:'Datdrop - Landing [? operational status unclear]'},
+    {src:'research/screens/datdrop_cases.png',caption:'Datdrop - Cases'},
+    {src:'research/screens/datdrop_battles.png',caption:'Datdrop - Battles'},
+    {src:'research/screens/keydrop_landing.png',caption:'Key-Drop - Landing'},
+    {src:'research/screens/keydrop_cases.png',caption:'Key-Drop - Cases'},
+    {src:'research/screens/keydrop_battles.png',caption:'Key-Drop - Battles'},
+    {src:'research/screens/csgoroll_landing.png',caption:'CSGORoll - Landing'},
+    {src:'research/screens/csgoroll_features.png',caption:'CSGORoll - Features'},
+    {src:'research/screens/csgoroll_fairness.png',caption:'CSGORoll - Fairness'},
+  ];
+  function buildGallery(id, items) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    items.forEach(function(item) {
+      var div = document.createElement('div');
+      div.className = 'gallery-item';
+      var img = document.createElement('img');
+      img.src = item.src;
+      img.alt = item.caption;
+      img.onerror = function() {
+        var ph = document.createElement('div');
+        ph.className = 'gallery-placeholder';
+        ph.textContent = item.caption + ' - [? screenshot not available]';
+        if (div.contains(img)) div.replaceChild(ph, img);
+      };
+      var cap = document.createElement('div');
+      cap.className = 'gallery-caption';
+      cap.textContent = item.caption;
+      div.appendChild(img);
+      div.appendChild(cap);
+      el.appendChild(div);
+    });
   }
-
-  // Gallery image loading
-  function loadScreenshots() {
-    const baselineItems = [
-      { src: 'research/screens/baseline/baseline_landing.png', caption: 'daddyskins.com - Landing' },
-      { src: 'research/screens/baseline/baseline_cases.png', caption: 'daddyskins.com - Cases' },
-      { src: 'research/screens/baseline/baseline_battles.png', caption: 'daddyskins.com - Battles' },
-      { src: 'research/screens/baseline/baseline_upgrades.png', caption: 'daddyskins.com - Upgrades' },
-      { src: 'research/screens/baseline/baseline_fairness.png', caption: 'daddyskins.com - Fairness' },
-    ];
-
-    const competitorItems = [
-      { src: 'research/screens/skinclub_landing.png', caption: 'skin.club - Landing' },
-      { src: 'research/screens/skinclub_cases.png', caption: 'skin.club - Cases' },
-      { src: 'research/screens/hellcase_landing.png', caption: 'hellcase.com - Landing' },
-      { src: 'research/screens/hellcase_cases.png', caption: 'hellcase.com - Cases' },
-      { src: 'research/screens/datdrop_landing.png', caption: 'datdrop.com - Landing' },
-      { src: 'research/screens/datdrop_battles.png', caption: 'datdrop.com - Battles' },
-      { src: 'research/screens/keydrop_landing.png', caption: 'key-drop.com - Landing' },
-      { src: 'research/screens/csgoroll_landing.png', caption: 'csgoroll.com - Landing' },
-    ];
-
-    function buildGallery(containerId, items) {
-      const container = document.getElementById(containerId);
-      if (!container) return;
-      container.innerHTML = '';
-      items.forEach(item => {
-        const div = document.createElement('div');
-        div.className = 'gallery-item';
-        const img = document.createElement('img');
-        img.src = item.src;
-        img.alt = item.caption;
-        img.onerror = function() {
-          const placeholder = document.createElement('div');
-          placeholder.className = 'gallery-placeholder';
-          placeholder.textContent = item.caption + ' [? screenshot pending or motion-heavy]';
-          div.replaceChild(placeholder, img);
-        };
-        const caption = document.createElement('div');
-        caption.className = 'gallery-caption';
-        caption.textContent = item.caption;
-        div.appendChild(img);
-        div.appendChild(caption);
-        container.appendChild(div);
-      });
-    }
-
-    buildGallery('baseline-gallery', baselineItems);
-    buildGallery('competitor-gallery', competitorItems);
-  }
-
-  loadScreenshots();
+  buildGallery('baseline-gallery', baseline);
+  buildGallery('competitor-gallery', competitors);
+})();
 </script>
-
 </body>
 </html>

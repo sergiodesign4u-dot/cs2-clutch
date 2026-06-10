@@ -1,6 +1,6 @@
 # CS2 Clutch - Product Research Sprint
 
-> Live research HTML: [Link will be added after Phase 7 when GitHub Pages is enabled]
+> Live research HTML: **[https://sergiodesign4u-dot.github.io/cs2-clutch-research/](https://sergiodesign4u-dot.github.io/cs2-clutch-research/)**
 
 A structured product research sprint for the redesign of a CS2 skin opening platform (baseline: daddyskins.com). Working placeholder name: CS2 Clutch. Brand assets are out of scope.
 
@@ -9,15 +9,15 @@ A structured product research sprint for the redesign of a CS2 skin opening plat
 | Phase | Deliverable | Status |
 |-------|-------------|--------|
 | 0 | Brief (CLAUDE.md, README.md) | Done |
-| 1 | Product Model v1 (research/product-model.md) | In progress |
-| 2 | AARRR Model (research/aarrr.md) | Pending |
-| 3 | Competitive Analysis (research/competitive-analysis.md) | Pending |
-| 4 | Benchmark: Trust and Fairness (research/benchmark.md) | Pending |
-| 4.5 | Product Model v2 - validated (research/product-model.md) | Pending |
-| 5 | UX Patterns (research/ux-patterns.md) | Pending |
-| 6 | Master Synthesis (research/master-research.md) | Pending |
-| 6.5 | Quality Gate (research/quality-check.md) | Pending |
-| 7 | Research HTML (research.html) + GitHub Pages | Pending |
+| 1 | Product Model v1 (research/product-model.md) | Done |
+| 2 | AARRR Model (research/aarrr.md) | Done |
+| 3 | Competitive Analysis (research/competitive-analysis.md) | Done |
+| 4 | Benchmark: Trust and Fairness (research/benchmark.md) | Done |
+| 4.5 | Product Model v2 - validated (research/product-model.md) | Done |
+| 5 | UX Patterns (research/ux-patterns.md) | Done |
+| 6 | Master Synthesis (research/master-research.md) | Done |
+| 6.5 | Quality Gate (research/quality-check.md) | Done |
+| 7 | Research HTML (research.html) + GitHub Pages | Done |
 | Wireframes | Next phase, follows research | Not started |
 
 ## Key Documents
