@@ -1,6 +1,6 @@
 # Master Research: CS2 Skin Platform Redesign
 
-**Single source of truth. Version: post-research (v2 model applied throughout).**
+**Single source of truth. Version: v_refresh (Strategy migration, competitor and AARRR updates applied).**
 **Date:** June 2026. Baseline: daddyskins.com. Placeholder name: CS2 Clutch.
 
 Every factual claim in this document cites its source. Unknowns are marked [?]. No assertion is made that this product is "not gambling" -- that is a jurisdiction-specific legal question addressed in Section 7.
@@ -49,9 +49,9 @@ Phases 0-7 of this sprint:
 
 ---
 
-## 2. Product Model
+## 2. Strategy
 
-*Source: research/product-model.md v2. Full detail in that document.*
+*Source: research/strategy.md v_refresh. Full detail in that document. Product Model v2 (research/product-model.md) kept in place for history.*
 
 ### Motivation Segments
 
@@ -78,31 +78,33 @@ JTBD: "When I want a specific skin at below-market cost, I want to see odds and 
 
 Priority: Tertiary. Served by table-stakes transparency (published odds, provable fair page). Does not justify dedicated primary feature investment. No major competitor has found it worth building for.
 
-### Economy Hypothesis (v2)
+### Business Model Hypothesis (v_refresh)
 
-| Item | v1 Hypothesis | v2 Status | Source |
-|------|--------------|-----------|--------|
-| Mini-game house edge | 25-40% | CHANGED: 7-10% | Clash.gg RTP disclosure (https://clash.gg/fairness): Upgrader 92.7%, Plinko 92.8%, Mines 90.0% |
+| Item | v1 Hypothesis | Status | Source |
+|------|--------------|--------|--------|
+| Mini-game house edge | 25-40% | CHANGED: 7-10% (confirmed) | Clash.gg RTP disclosure: Upgrader 92.7%, Plinko 92.8%, Mines 90.0% (https://clash.gg/fairness) |
 | Case RTP | 30-50% EV loss | [?] UNKNOWN | No competitor publicly discloses standard case RTP |
+| Tested vs stated RTP gap | Not in v1 | NEW RISK: Hellcase tested 82.1%, DatDrop tested 80.6% | Third-party testing 2026: https://skincasereviewer.com/reviews/hellcase, https://tech-insider.org/datdrop-review/ |
 | First deposit bonus | 50-100% match | CHANGED: 5-20% market actual | Clash.gg 5%, Key-Drop 20%, CSGORoll 10%, Hellcase 10% |
-| Rakeback | Rare, differentiator | CHANGED: Table stakes | Gamdom 15% zero-wagering (https://gamdom.com/rewards), Clash.gg has rakeback program |
+| Free-to-play pathway | Free starter case | CHALLENGED: Clash.gg Rain system (no deposit, ambient, continuous) is the new frontier | https://cs2wh.com/review/clashgg (2026) |
+| Rakeback | Rare, differentiator | CHANGED: Table stakes | Gamdom 15% zero-wagering (https://gamdom.com/rewards), Clash.gg up to 0.75% |
 | Withdrawal as payoff | Hypothesis | CONFIRMED | Steam Market 15% fee + wallet lock is the primary conversion argument |
 
 ---
 
 ## 3. AARRR Funnel
 
-*Source: research/aarrr.md. Full detail in that document.*
+*Source: research/aarrr.md v_refresh. Full detail in that document.*
 
 ### Summary Table
 
-| Stage | Primary Channel | Key Hypothesis | Primary Metric | MVP Decision |
-|-------|----------------|---------------|---------------|-------------|
-| Acquisition | Streamer seeding (Twitch, YouTube), referral links, organic search | Authentic influencer play drives more durable trust than paid promotion | First-time depositors/week [?] | Build referral links from day one; manual streamer seeding before full affiliate dashboard |
-| Activation | No-deposit first case ($0.50-$0.70 credit range), first-deposit 10-15% match, provable fair visible pre-login | No-deposit first case increases activation 15-25% by letting Thrill Seeker experience before committing | First open completion rate [?] 40-60% | Build full opening experience first; age-gate non-optional; bonus mechanics can simplify for launch |
-| Retention | Case battles (scheduling behavior), upgrade path (session extension), daily bonus, rakeback payout notification | Battles drive D7 retention for Thrill Seekers; upgrades extend sessions for Collectors and Grinders | D7 retention [?] 35%+ | 2-player battle lobbies first; daily bonus in MVP; 4-player format post-launch |
-| Revenue | House edge on cases and mini-games; wagering requirements extend action | Rakeback at zero wagering terms increases Grinder LTV beyond the cost of the rebate | GGR per depositing user/month [?] | Model case math before building bonus and rakeback systems; understand baseline GGR first |
-| Referral | Win sharing on Discord and Twitter/X; Grinder affiliate links | Two-sided referral bonus outperforms one-sided | Referred/total depositors [?] 20-35% | Referral link generation in MVP; sharing from wins must be one tap |
+| Stage | OMTM | Key update (v_refresh) | Target (hypothesis) | MVP Decision |
+|-------|------|----------------------|---------------------|-------------|
+| Acquisition | First-time depositors/week | Germany X-Ray Scanner (March 2026) restricts EU addressable market; paid social confirmed blocked; pre-login content transparency is an acquisition enabler (Clash.gg model) | [?] | Referral links from day one; public PF page and RTP values visible pre-login; manual streamer seeding before dashboard |
+| Activation | First open completion rate | Clash.gg Rain (ambient free gems, no deposit) raises the bar above a one-time starter credit; market bonus range 5-20% (100% was wrong in v1); age-gate is a compliance requirement (UK Online Safety Act July 2025) | [?] 40-60% of registered | Full opening experience first; age-gate non-optional; $0.50-$0.70 starter credit in MVP; Rain-style mechanic Phase 2 |
+| Retention | D7 retention rate | DatDrop DatPoints (5 pts/$1, redeemable up to $1,800) and Key-Drop Daily Case leveling show loyalty programs are now table stakes; Hellcase Mixxer adds a new hybrid mode | [?] 35%+ | 2-player battle lobbies first; daily bonus in MVP; loyalty points Phase 2 |
+| Revenue | GGR per depositing user/month | House edge confirmed 7-10% on mini-games (v1 25-40% was wrong); tested-vs-stated RTP gap (Hellcase 82.1%, DatDrop 80.6% tested) is a launch design requirement | [?] | Model case math before building bonus/rakeback; publish tested RTP from day one |
+| Referral | Referred depositors / total depositors | Clash.gg Rain creates ambient community referral (users bring friends for gems); win sharing is organic referral tied directly to reveal animation quality | [?] 20-35% | Referral links in MVP; one-tap win sharing from results screen |
 
 ### Key Insight
 
@@ -112,7 +114,7 @@ The first case open is the singular activation event. Everything in the AARRR mo
 
 ## 4. Competitive Analysis
 
-*Source: research/competitive-analysis.md. Full detail in that document.*
+*Source: research/competitive-analysis.md v_refresh. Full detail in that document.*
 
 ### Competitor Groups
 
@@ -121,6 +123,12 @@ The first case open is the singular activation event. Everything in the AARRR mo
 **SOFT (same JTBD, different product):** Steam Community Market, Skinport, DMarket, cs.money, Gamdom
 
 **ASPIRATIONAL (best-in-class for craft, trust, live feel):** Clash.gg Champion mode, Stake.com, Roobet, skin.club Community Cases, CSGOEmpire
+
+**DatDrop status resolved (was open question):** DatDrop is confirmed operational as of June 2026, described as "fastest-growing site of 2026" by independent reviewers. Operated by Meetic Group LP (London, LP20547). 80.6% tested RTP across 118 cases. DatPoints loyalty program: 5 points per $1 spent, redeemable for cases up to $1,800 value. Battle Royale format (up to 72 players) remains its primary differentiator. Source: https://cs2pulse.com/skins-gambling-guide/best-websites/datdrop-review/, https://tech-insider.org/datdrop-review/ (May 2026).
+
+**New 2026 Clash.gg features:** Rain system (free gems distributed to active chat every 30 minutes, no deposit required - a genuine ambient free-to-play pathway). Custom case creation (any user can build and publish cases, matching skin.club's Community Cases mechanic). Surveys section for free gem earning. Source: https://cs2wh.com/review/clashgg (2026).
+
+**Germany regulatory change (March 2026):** Valve mandated the X-Ray Scanner for native CS2 case opening in Germany from March 16, 2026, replacing the traditional key-based system. Third-party case platforms face increased geo-blocking in Germany as a result. This reduces the EU addressable market further beyond Netherlands and Belgium. Source: https://games.gg/counter-strike-2/guides/cs2-x-ray-scanner-explained/.
 
 ### Comparison Matrix (5 Most Relevant)
 
@@ -277,6 +285,12 @@ Penalties: operating unlicensed games: fines EUR 208 to EUR 960,000. Doubled for
 
 Status: EFFECTIVELY BLOCKED. Strictest jurisdiction globally. Age 21 minimum. Criminal penalties.
 
+**Germany**
+
+Valve mandated the CS X-Ray Scanner for native CS2 case opening in Germany from March 16, 2026. The Scanner replaces key-based case opening (which regulators treat as gambling under the Interstate Treaty on Gambling 2021). Third-party case-opening platforms are expected to face increased geo-blocking in Germany as a result of the same regulatory framework. Source: https://games.gg/counter-strike-2/guides/cs2-x-ray-scanner-explained/, https://escorenews.com/en/csgo/news/76459-german-players-will-have-to-use-x-ray-scanners-to-open-cases-in-cs2
+
+Status: RESTRICTED. Third-party platforms face de facto geo-blocking. Do not include Germany in initial launch market projections.
+
 **EU Broadly**
 
 No harmonized EU gambling regulation exists. Member states apply national laws independently. The European Parliament's IMCO Committee (October 2025) called for the Digital Fairness Act (expected Q4 2026) to ban loot boxes for minors across the EU. Austrian Supreme Court (December 2025) ruled FIFA loot boxes not gambling -- this ruling explicitly does NOT apply to platforms where skins can be withdrawn and sold for cash. Source: EU Parliament IMCO (https://www.europarl.europa.eu/news/en/press-room/20251013IPR30892/new-eu-measures-needed-to-make-online-services-safer-for-minors)
@@ -311,6 +325,7 @@ UK now requires identity-based verification (Online Safety Act, July 2025). Belg
 A staged rollout grounded in compliance evidence should:
 - Block Belgium and Netherlands at launch (active enforcement, no viable operating structure without license).
 - Block UK at launch unless a UKGC license is secured (UKGC actively blocks unlicensed sites).
+- Block Germany at launch (X-Ray Scanner mandate March 2026; same regulatory framework applies to third-party platforms).
 - Geo-block US states with explicit enforcement history (Washington, Nevada minimum).
 - Implement identity-based age verification (not checkbox) at account creation.
 - Maintain a legal review process for each new jurisdiction before enabling access.
@@ -341,11 +356,13 @@ The legal test in every jurisdiction is functional, not nominal. The UKGC: "wher
 | Withdrawal architecture invisible pre-login | High | Competitive research June 2026: no competitor surfaces withdrawal info pre-login |
 | Currency abstraction obscures real cost pre-login | Medium | Competitive research June 2026: all platforms use internal coins with no fiat rate shown |
 | Case RTP unknown (no public data) | Medium | [?] No major competitor discloses standard case RTP publicly |
+| Tested vs stated RTP gap (category-wide) | High (trust + compliance) | Hellcase 82.1%, DatDrop 80.6% tested (2026 third-party). Publish tested RTP from day one. |
 | Battle lobbies fill with bots when DAU is low | High (launch risk) | Competitive research: Clash.gg 30-sec matchmaking vs. DatDrop majority-bot lobbies |
-| Regulatory exposure in UK, Netherlands, Belgium | Critical | KSA enforcement Nov 2025; UKGC classification; Belgian Gaming Commission 2024 |
+| Regulatory exposure in UK, Netherlands, Belgium, Germany | Critical | KSA enforcement Nov 2025; UKGC classification; Belgian Gaming Commission 2024; Germany X-Ray Scanner mandate March 2026 |
 | House edge hypothesis was wrong (v1 assumed 25-40%) | Medium (economics) | Clash.gg RTP disclosure: 90-92.8% RTP on mini-games (https://clash.gg/fairness) |
+| Free-to-play pathway bar raised by Clash.gg Rain system | Medium (competitive) | A one-time starter credit is no longer sufficient to match the category leader's ambient free-to-play pathway |
 
-### 6 Hypotheses in If / Then / Because Format
+### 7 Hypotheses in If / Then / Because Format
 
 **Hypothesis 1**
 If: we make the Provably Fair page public and add a working verifier with no login required
@@ -377,6 +394,11 @@ If: identity-based age verification (not checkbox) is implemented at account cre
 Then: this serves as both a compliance mechanism and a trust signal, converting skeptical adult visitors who see age verification as evidence of a legitimate operation
 Because: the DCMS review found none of 20 competitors implemented this; being the first to do so is both a regulatory necessity and a market-differentiation claim that no competitor currently makes
 
+**Hypothesis 7 - RISKIEST ASSUMPTION (test this first, from research/strategy.md v_refresh)**
+If: landing page A/B test shows trust-first messaging ("the only platform with a named, verified RNG auditor - check the result yourself") produces measurably higher deposit-intent click-through than experience-first messaging ("the most electric case opening on the web")
+Then: the trust differentiation thesis holds at the acquisition stage and justifies continued primary investment in trust infrastructure as a positioning lever over bonus-size or streamer spending
+Because: Hellcase has the largest audience (2M MAU, 150,000 daily opens) in the category and the lowest trust score (no public PF page, 82.1% tested RTP, no formal license). If scale can be achieved with minimal trust investment, then trust infrastructure is a regulatory hedge and retention tool but NOT a primary acquisition driver. The smallest test - a landing page comparison measuring deposit-flow click-through, not just page engagement - answers this question before any additional trust infrastructure is built. Source: https://esports.gg/news/counter-strike-2/what-is-hellcase/, https://skincasereviewer.com/reviews/hellcase.
+
 ### Open Questions Table
 
 | Question | Category | Urgency |
@@ -386,7 +408,7 @@ Because: the DCMS review found none of 20 competitors implemented this; being th
 | What is the minimum daily active user count required to fill battle lobbies in under 60 seconds without bots in a new market? | Product / Launch | Before battles are prominently featured |
 | Which payment processors will work with this product category in target markets, and at what cost? | Payments / Infrastructure | Before deposit/withdrawal design is finalized |
 | Can a named public third-party RNG auditor relationship be secured before launch, and at what cost and timeline? | Trust / Product | Before launch to occupy the uncontested position |
-| Is DatDrop operationally alive or defunct as of June 2026, and if defunct, is the Battle Royale format now open competitive territory? | Competitive | Before battle feature scope is finalized |
+| [RESOLVED] DatDrop is confirmed operational June 2026 (fastest-growing per independent reviews, 80.6% tested RTP, Battle Royale up to 72 players, DatPoints program). Battle Royale format remains DatDrop's primary differentiator and is an active competitive consideration for battle feature design. | Competitive | Resolved - inform battle feature scope |
 | What is the actual Steam trade API risk if Valve restricts access further following the NY AG lawsuit? | Technical / Existential | Ongoing monitoring required |
 
 ---

@@ -13,7 +13,7 @@ A structured product research sprint for the redesign of a CS2 skin opening plat
 | 2 | AARRR Model (research/aarrr.md) | Done |
 | 3 | Competitive Analysis (research/competitive-analysis.md) | Done |
 | 4 | Benchmark: Trust and Fairness (research/benchmark.md) | Done |
-| 4.5 | Product Model v2 - validated (research/product-model.md) | Done |
+| 4.5 | Strategy v_refresh (research/strategy.md, migrated from product-model.md v2) | Done |
 | 5 | UX Patterns (research/ux-patterns.md) | Done |
 | 6 | Master Synthesis (research/master-research.md) | Done |
 | 6.5 | Quality Gate (research/quality-check.md) | Done |
@@ -23,7 +23,8 @@ A structured product research sprint for the redesign of a CS2 skin opening plat
 ## Key Documents
 
 - [CLAUDE.md](CLAUDE.md) - Product brief, scope, design principles, tech stack hypothesis
-- [research/product-model.md](research/product-model.md) - Objectives, motivation segments, JTBD, economy hypothesis
+- [research/strategy.md](research/strategy.md) - Objectives, audience segments, business model, riskiest assumption (v_refresh)
+- [research/product-model.md](research/product-model.md) - Prior version kept for history
 - [research/aarrr.md](research/aarrr.md) - AARRR funnel model with metrics and product decisions
 - [research/competitive-analysis.md](research/competitive-analysis.md) - HARD / SOFT / ASPIRATIONAL competitor groups and analysis matrix
 - [research/benchmark.md](research/benchmark.md) - Trust and fairness benchmark across best-in-class products
