@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - Jobs to Be Done</title>
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --glow-pink: rgba(233,77,139,0.15);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* SIDEBAR NAV */
+    .sidebar {
+      position: fixed; top: 0; left: 0; width: 220px; height: 100vh;
+      background: rgba(4,3,25,0.97); backdrop-filter: blur(20px);
+      border-right: 1px solid var(--border); z-index: 100;
+      display: flex; flex-direction: column; padding: 24px 14px 32px;
+      overflow-y: auto; transform: translateX(-100%);
+      transition: transform 0.24s cubic-bezier(0.4,0,0.2,1);
+    }
+    .sidebar.open { transform: translateX(0); }
+    .sidebar-brand {
+      font-size: 12px; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent-pink); padding: 0 6px;
+      margin-bottom: 24px; line-height: 1.4;
+    }
+    .sidebar-brand span { color: var(--text-muted); font-weight: 500; }
+    .sidebar-divider { height: 1px; background: var(--border); margin: 12px 0; }
+    .sidebar-section-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-muted); padding: 0 6px; margin-bottom: 6px;
+    }
+    .sidebar-links { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+    .sidebar-link {
+      font-size: 13px; font-weight: 500; color: var(--text-secondary);
+      text-decoration: none; padding: 7px 10px; border-radius: 7px;
+      transition: all 0.15s; letter-spacing: 0.01em; display: block;
+    }
+    .sidebar-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); text-decoration: none; }
+    .sidebar-link.active { color: var(--text-primary); background: rgba(233,77,139,0.08); }
+    .sidebar-coming-soon {
+      font-size: 13px; color: var(--text-muted); padding: 7px 10px;
+      border-radius: 7px; display: flex; align-items: center; gap: 8px;
+    }
+    .cs-tag {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-muted); background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border); padding: 2px 7px; border-radius: 20px;
+    }
+    .sidebar-next {
+      margin-top: auto; padding: 12px 10px; border: 1px solid var(--border);
+      border-radius: 8px; background: rgba(255,255,255,0.02);
+    }
+    .sidebar-next-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px;
+    }
+    .sidebar-next-items { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+    /* SIDEBAR SUBLINKS */
+    .sidebar-sublinks { display: flex; flex-direction: column; gap: 1px; margin-bottom: 4px; }
+    .sidebar-sublink {
+      font-size: 12px; font-weight: 400; color: var(--text-muted);
+      text-decoration: none; padding: 5px 10px 5px 20px; border-radius: 6px;
+      transition: color 0.15s; letter-spacing: 0.01em; display: block;
+    }
+    .sidebar-sublink:hover { color: var(--text-secondary); text-decoration: none; }
+    .sidebar-sublink.active { color: var(--text-secondary); }
+    /* HAMBURGER */
+    .hamburger {
+      position: fixed; top: 14px; left: 14px; z-index: 101;
+      background: var(--bg-card); border: 1px solid var(--border-strong);
+      border-radius: 8px; width: 40px; height: 40px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-secondary); font-size: 16px; transition: all 0.15s;
+    }
+    .hamburger:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); }
+    /* OVERLAY */
+    .sidebar-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55); z-index: 99;
+    }
+    .sidebar-overlay.active { display: block; }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 860px) {
+      .sidebar { transform: translateX(0); }
+      .hamburger { display: none; }
+      .sidebar-overlay { display: none !important; }
+      main { margin-left: 220px; padding-top: 48px; }
+      footer { margin-left: 220px; }
+    }
+    section { margin-bottom: 88px; }
+    .section-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px;
+    }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 26px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 8px; }
+    h3 { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 6px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .sep { height: 1px; background: var(--border); margin: 36px 0; }
+    /* HERO */
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 72px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+    /* CONCLUSIONS BOX */
+    .conclusions-box {
+      margin-top: 36px; padding: 28px 30px;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-pink); border-radius: 12px;
+    }
+    .conclusions-box h4 { color: var(--accent-pink); margin-bottom: 14px; }
+    .conclusions-box ol { padding-left: 18px; display: flex; flex-direction: column; gap: 10px; }
+    .conclusions-box li { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+    /* CARDS */
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 14px; margin-top: 20px; }
+    .card-grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 20px; }
+    /* TABLES */
+    .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead { background: rgba(255,255,255,0.02); }
+    th { padding: 12px 14px; text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
+    td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; line-height: 1.5; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,0.01); }
+    /* BADGE SYSTEM */
+    .badge {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px;
+      border-radius: 20px; margin-bottom: 14px;
+    }
+    .badge-primary { background: rgba(233,77,139,0.12); color: var(--accent-pink); border: 1px solid rgba(233,77,139,0.25); }
+    .badge-secondary { background: rgba(101,163,255,0.1); color: var(--accent-blue); border: 1px solid rgba(101,163,255,0.2); }
+    .badge-tertiary { background: rgba(250,218,98,0.1); color: var(--accent-yellow); border: 1px solid rgba(250,218,98,0.2); }
+    /* JTBD-SPECIFIC */
+    .hyp-tag {
+      display: inline-block; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.08em; padding: 2px 8px; border-radius: 12px;
+      background: rgba(250,218,98,0.12); color: var(--accent-yellow);
+      border: 1px solid rgba(250,218,98,0.25); margin-left: 4px; vertical-align: middle;
+    }
+    .status-confirmed {
+      display: inline-block; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.08em; padding: 3px 9px; border-radius: 12px;
+      background: rgba(74,222,128,0.1); color: #4ade80;
+      border: 1px solid rgba(74,222,128,0.25);
+    }
+    .status-closed {
+      display: inline-block; font-size: 10px; font-weight: 800;
+      letter-spacing: 0.08em; padding: 3px 9px; border-radius: 12px;
+      background: rgba(74,222,128,0.1); color: #4ade80;
+      border: 1px solid rgba(74,222,128,0.2);
+    }
+    /* JOB CARDS */
+    .job-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px; margin-bottom: 14px;
+      position: relative; overflow: hidden;
+    }
+    .job-card-header {
+      display: flex; align-items: flex-start; gap: 16px; margin-bottom: 14px;
+    }
+    .job-number {
+      font-size: 28px; font-weight: 800; color: var(--text-muted);
+      opacity: 0.35; line-height: 1; flex-shrink: 0; min-width: 32px;
+    }
+    .job-title { font-size: 16px; font-weight: 700; color: var(--text-primary); line-height: 1.3; }
+    .job-statement {
+      font-size: 14px; color: var(--text-secondary);
+      line-height: 1.75; font-style: italic;
+      padding: 14px 16px; margin: 12px 0;
+      background: rgba(255,255,255,0.03); border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .job-meta {
+      display: flex; flex-wrap: wrap; gap: 16px; margin-top: 10px;
+      font-size: 12px; color: var(--text-muted);
+    }
+    .job-meta-item { display: flex; align-items: flex-start; gap: 5px; flex-wrap: wrap; }
+    .job-meta-label { font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 10px; flex-shrink: 0; padding-top: 1px; }
+    /* EMOTIONAL CARD VARIANT */
+    .emotional-card {
+      background: rgba(255,255,255,0.015); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px; margin-bottom: 12px;
+    }
+    /* HYPOTHESIS CARD */
+    .hyp-job-card {
+      background: rgba(250,218,98,0.03); border: 1px solid rgba(250,218,98,0.15);
+      border-radius: 12px; padding: 22px; margin-bottom: 12px;
+    }
+    .hyp-job-label {
+      font-size: 10px; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent-yellow); margin-bottom: 8px;
+    }
+    /* MATRIX SCORE BADGES */
+    .score-badge-3 {
+      display: inline-block; font-size: 11px; font-weight: 800;
+      padding: 2px 8px; border-radius: 10px;
+      background: rgba(74,222,128,0.12); color: #4ade80;
+      border: 1px solid rgba(74,222,128,0.25); white-space: nowrap;
+    }
+    .score-badge-2 {
+      display: inline-block; font-size: 11px; font-weight: 800;
+      padding: 2px 8px; border-radius: 10px;
+      background: rgba(101,163,255,0.1); color: var(--accent-blue);
+      border: 1px solid rgba(101,163,255,0.2); white-space: nowrap;
+    }
+    .score-badge-1 {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      padding: 2px 8px; border-radius: 10px;
+      background: rgba(255,255,255,0.04); color: var(--text-muted);
+      border: 1px solid var(--border); white-space: nowrap;
+    }
+    .score-badge-q {
+      display: inline-block; font-size: 11px; font-weight: 800;
+      padding: 2px 8px; border-radius: 10px;
+      background: rgba(250,218,98,0.1); color: var(--accent-yellow);
+      border: 1px solid rgba(250,218,98,0.2); white-space: nowrap;
+    }
+    /* MATRIX STICKY COLUMN */
+    .job-col-sticky {
+      position: sticky; left: 0; background: var(--bg-card);
+      z-index: 2; min-width: 160px; max-width: 200px;
+      font-weight: 600; font-size: 12px; color: var(--text-primary);
+      border-right: 1px solid var(--border-strong);
+    }
+    .job-col-sticky-head {
+      position: sticky; left: 0; background: rgba(10,8,39,0.98);
+      z-index: 3; min-width: 160px;
+    }
+    /* MVP JOB CARDS */
+    .mvp-job-card {
+      background: rgba(74,222,128,0.04); border: 1px solid rgba(74,222,128,0.2);
+      border-left: 3px solid #4ade80; border-radius: 12px; padding: 20px 22px;
+      margin-bottom: 12px;
+    }
+    .mvp-job-title { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+    .mvp-job-body { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+    /* CANDIDATE FOR CUT */
+    .cut-list { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+    .cut-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 12px 16px; background: rgba(250,218,98,0.03);
+      border: 1px solid rgba(250,218,98,0.12); border-radius: 8px;
+      font-size: 13px; color: var(--text-secondary); line-height: 1.6;
+    }
+    .cut-marker {
+      font-size: 10px; font-weight: 800; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--accent-yellow);
+      flex-shrink: 0; padding-top: 2px;
+    }
+    /* DECISION CARDS */
+    .decision-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px; margin-bottom: 12px;
+    }
+    .decision-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 12px; flex-wrap: wrap; gap: 8px;
+    }
+    .decision-title { font-size: 15px; font-weight: 700; color: var(--text-primary); }
+    .decision-body { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+    /* SUBSECTION HEADER */
+    .subsection-label {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; margin-top: 28px;
+    }
+    /* FOOTER */
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      main { padding: 64px 20px 60px; }
+      .card-grid-3 { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 8px; align-items: flex-start; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<button class="hamburger" id="hamburger-btn" aria-label="Open navigation">&#9776;</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-brand">CS2 Clutch<br><span>Research</span></div>
+
+  <div class="sidebar-section-label">Research</div>
+  <div class="sidebar-links">
+    <a href="research.html#intro" class="sidebar-link">Intro</a>
+    <a href="research.html#lean-canvas" class="sidebar-link">Lean Canvas</a>
+    <a href="research.html#strategy" class="sidebar-link">Strategy</a>
+    <a href="research.html#aarrr" class="sidebar-link">AARRR</a>
+    <a href="research.html#competitors" class="sidebar-link">Competitors</a>
+    <a href="research.html#benchmark" class="sidebar-link">Benchmark</a>
+    <a href="research.html#ux-patterns" class="sidebar-link">UX Patterns</a>
+    <a href="research.html#compliance" class="sidebar-link">Compliance</a>
+    <a href="research.html#conclusions" class="sidebar-link">Conclusions</a>
+  </div>
+
+  <div class="sidebar-divider"></div>
+
+  <div class="sidebar-section-label">People</div>
+  <div class="sidebar-links">
+    <a href="personas.html" class="sidebar-link">Personas</a>
+    <a href="jtbd.html" class="sidebar-link active">JTBD</a>
+    <div class="sidebar-sublinks">
+      <a href="#main-job" class="sidebar-sublink" data-section="main-job">Main Job</a>
+      <a href="#related-jobs" class="sidebar-sublink" data-section="related-jobs">Related Jobs</a>
+      <a href="#emotional-social" class="sidebar-sublink" data-section="emotional-social">Emotional + Social</a>
+      <a href="#hypotheses" class="sidebar-sublink" data-section="hypotheses">Hypotheses</a>
+      <a href="#matrix" class="sidebar-sublink" data-section="matrix">JTBD Matrix</a>
+      <a href="#decisions" class="sidebar-sublink" data-section="decisions">Decisions</a>
+    </div>
+  </div>
+
+  <div class="sidebar-next">
+    <div class="sidebar-next-label">Next</div>
+    <div class="sidebar-next-items">Wireframes, Concept</div>
+  </div>
+</nav>
+
+<main>
+
+<!-- INTRO / HERO -->
+<div class="hero" id="intro">
+  <div class="section-eyebrow">People and JTBD - June 2026</div>
+  <h1>Jobs to Be Done</h1>
+  <p>A structured JTBD analysis for the CS2 skin platform redesign. Jobs are expressed as: "When [situation], I want [motivation], so that [outcome]." Every job is either backed by research data (FACT) or flagged as a hypothesis. No feature names appear in job statements - only the person's progress.</p>
+  <div class="hero-meta">
+    <div>
+      <div class="hero-stat-value">1</div>
+      <div class="hero-stat-label">Main Job</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">5</div>
+      <div class="hero-stat-label">Related Jobs</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">6</div>
+      <div class="hero-stat-label">Emotional / Social Jobs</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">4</div>
+      <div class="hero-stat-label">Decisions Locked</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN JOB -->
+<section id="main-job">
+  <div class="section-eyebrow">Section 1</div>
+  <h2>The Main Job</h2>
+  <p>The single job that defines the product. Every downstream feature exists to enable or enrich this moment. Synthesized from strategy, UX patterns, and the universal design signal from six competitor platforms.</p>
+
+  <div class="conclusions-box">
+    <h4>Main Job of the Product</h4>
+    <div class="job-statement" style="font-size:16px; padding: 20px 22px; margin-top: 14px;">
+      When I am embedded in the CS2 ecosystem and want excitement beyond the game itself, I want a chance at a rare skin I actually want - with a reveal that feels real and unpredictable - so that I get the rush of a genuine drop and potentially end up with something worth having.
+    </div>
+    <div class="job-meta" style="margin-top:16px">
+      <div class="job-meta-item">
+        <span class="job-meta-label">Source:</span>
+        <span>Synthesized from strategy.md, ux-patterns.md, master-research.md</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Persona:</span>
+        <span>Primary - The Opener. Sets the tone for every downstream feature.</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Confirmed by:</span>
+        <span>Universal design pattern - every major competitor leads with the reveal animation, not any other feature.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED JOBS -->
+<section id="related-jobs">
+  <div class="section-eyebrow">Section 2</div>
+  <h2>Related Jobs</h2>
+  <p>The functional jobs the platform must close before or alongside the main job. These are the steps on the path - the platform cannot deliver the main job without closing each of these.</p>
+
+  <div class="sep"></div>
+
+  <div class="job-card">
+    <div class="job-card-header">
+      <div class="job-number">1</div>
+      <div>
+        <div class="job-title">Arrive with enough confidence to try</div>
+      </div>
+    </div>
+    <div class="job-statement">
+      When I land on a new platform I have never used, I want to see enough evidence that it is legitimate and that drops actually happen, so that I feel safe enough to put in my first small amount of money.
+    </div>
+    <div class="job-meta">
+      <div class="job-meta-item">
+        <span class="job-meta-label">Persona:</span>
+        <span>The Opener (primary). Also The Researcher.</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Basis:</span>
+        <span>FACT. Pre-login wall is a confirmed conversion barrier. Clash.gg (outlier: RTP values, payment options, active battle previews all visible pre-login) correlates with fastest-growing status per independent reviewers. Source: competitive-analysis.md (Common Pattern 2); aarrr.md (Acquisition).</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-header">
+      <div class="job-number">2</div>
+      <div>
+        <div class="job-title">Complete the first open without friction</div>
+      </div>
+    </div>
+    <div class="job-statement">
+      When I am trying the platform for the first time with a free or low-cost credit, I want to get through the entire open-to-result experience in under 60 seconds without a confusing step, so that I know what opening here actually feels like before I deposit real money.
+    </div>
+    <div class="job-meta">
+      <div class="job-meta-item">
+        <span class="job-meta-label">Persona:</span>
+        <span>The Opener (primary).</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Basis:</span>
+        <span>FACT. The first case open is the singular activation event. "Everything in the AARRR model serves or depends on this moment." Source: master-research.md (AARRR Key Insight); aarrr.md (Activation). No-deposit credit range confirmed: $0.50-$1.00 from competitor data.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-header">
+      <div class="job-number">3</div>
+      <div>
+        <div class="job-title">Verify the outcome after I open</div>
+      </div>
+    </div>
+    <div class="job-statement">
+      When I have just received an outcome I did not expect (high or low), I want to be able to confirm that the result was not manipulated, so that I trust the platform enough to open again or to tell someone about my result.
+    </div>
+    <div class="job-meta">
+      <div class="job-meta-item">
+        <span class="job-meta-label">Persona:</span>
+        <span>The Opener (secondary motivation). The Researcher (primary motivation for this job).</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Basis:</span>
+        <span>FACT. The post-reveal verification link is a benchmark mechanism selected from skin.club's public roll history and CSGORoll's provably fair documentation. "Most users never do, but knowing they could is the trust signal." Source: master-research.md (Benchmark - Mechanism 3; Mechanism 1).</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-header">
+      <div class="job-number">4</div>
+      <div>
+        <div class="job-title">Convert my result into something more valuable</div>
+      </div>
+    </div>
+    <div class="job-statement">
+      When I have opened a case and landed on a skin I do not want but it has some value, I want to use an upgrade path or exchange to work toward a skin I actually care about, so that a "losing" open does not feel like a pure loss.
+    </div>
+    <div class="job-meta">
+      <div class="job-meta-item">
+        <span class="job-meta-label">Persona:</span>
+        <span>The Accumulator (primary). The Opener (when they stay past D1).</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Basis:</span>
+        <span>FACT. Upgrade mode is confirmed as a core retention loop. Pattern 4 (The Accumulator) explicitly describes this behavior: "Opens lower-cost cases with better EV, upgrades wins upward, re-opens proceeds rather than withdrawing immediately." Upgrade odds visibility is confirmed as a requirement. Source: ux-patterns.md (Pattern 4).</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-header">
+      <div class="job-number">5</div>
+      <div>
+        <div class="job-title">Withdraw and get what I earned</div>
+      </div>
+    </div>
+    <div class="job-statement">
+      When I have accumulated a skin worth withdrawing, I want to transfer it to my Steam inventory quickly and without unexpected fees, so that I can confirm the platform actually delivers real value and trust it with future deposits.
+    </div>
+    <div class="job-meta">
+      <div class="job-meta-item">
+        <span class="job-meta-label">Persona:</span>
+        <span>The Accumulator (primary). The Researcher (high-stakes - their conversion decision depends on this).</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Basis:</span>
+        <span>FACT. "Withdrawal reliability is the most-cited user pain point in review aggregator complaints across all five platforms." Steam Market's 15% fee and wallet lock are the primary conversion argument for case platforms. Source: strategy.md (Business Model); competitive-analysis.md.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMOTIONAL AND SOCIAL JOBS -->
+<section id="emotional-social">
+  <div class="section-eyebrow">Section 3</div>
+  <h2>Emotional and Social Jobs</h2>
+  <p>Emotional and social jobs exist in parallel with functional jobs. They are not separate features - they are the feeling the functional jobs must produce. Ignoring these dimensions produces a platform that works but does not retain.</p>
+
+  <div class="sep"></div>
+
+  <div class="subsection-label">Emotional Jobs - 3</div>
+
+  <div class="emotional-card">
+    <div class="job-card-header" style="margin-bottom:10px">
+      <div class="job-number" style="font-size:22px">E1</div>
+      <div>
+        <div class="job-title">Feel genuine suspense, not manufactured tension</div>
+      </div>
+    </div>
+    <div class="job-statement">
+      When the case starts spinning, I want the anticipation to feel real - not scripted - so that when the outcome lands I feel it honestly rather than wondering if I was played.
+    </div>
+    <div class="job-meta">
+      <div class="job-meta-item">
+        <span class="job-meta-label">Persona:</span>
+        <span>All personas, but The Opener most intensely.</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Basis:</span>
+        <span>FACT. Near-miss animations are confirmed as a dark pattern to avoid. "A near-miss that was pre-calculated as a loss is fabricated theatre, not tension." Source: master-research.md (Benchmark - 1 Mechanism That Will NOT Work).</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="emotional-card">
+    <div class="job-card-header" style="margin-bottom:10px">
+      <div class="job-number" style="font-size:22px">E2</div>
+      <div>
+        <div class="job-title">Feel like a winner worth talking about</div>
+      </div>
+    </div>
+    <div class="job-statement">
+      When I get a drop that surprises me - high or low - I want a moment that is visually and emotionally sharp enough to share, so that my win becomes a story I bring back to my CS2 friends.
+    </div>
+    <div class="job-meta">
+      <div class="job-meta-item">
+        <span class="job-meta-label">Persona:</span>
+        <span>The Opener (primary). The Battler for battle wins.</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Basis:</span>
+        <span>FACT. Win sharing is the organic acquisition channel with the highest trust signal. "Key-Drop's sparks and fire effects are specifically cited as the most memorable visual differentiator in user reviews, confirming that animation quality drives sharing behavior." Source: master-research.md (Hypothesis 3); aarrr.md (Referral).</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="emotional-card">
+    <div class="job-card-header" style="margin-bottom:10px">
+      <div class="job-number" style="font-size:22px">E3</div>
+      <div>
+        <div class="job-title">Feel that smart play is rewarded, not punished</div>
+      </div>
+    </div>
+    <div class="job-statement">
+      When I have put in consistent effort - opening regularly, using rakeback, making upgrade decisions - I want to feel that my pattern of play has given me a real edge, so that I stay on the platform by choice rather than habit.
+    </div>
+    <div class="job-meta">
+      <div class="job-meta-item">
+        <span class="job-meta-label">Persona:</span>
+        <span>The Accumulator (primary).</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Basis:</span>
+        <span>FACT (inferred from feature patterns, not direct user research). Rakeback programs (Gamdom 15% zero-wagering, DatDrop DatPoints 5 pts/$1) are confirmed as table stakes for retaining Grinder-type users. The design implication is that loyalty must feel like skill being rewarded, not like random gifts. Source: strategy.md (Segment B); competitive-analysis.md.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+  <div class="subsection-label">Social Jobs - 2</div>
+
+  <div class="emotional-card">
+    <div class="job-card-header" style="margin-bottom:10px">
+      <div class="job-number" style="font-size:22px">S1</div>
+      <div>
+        <div class="job-title">Beat a real person, not a bot</div>
+      </div>
+    </div>
+    <div class="job-statement">
+      When I join a case battle, I want to know my opponent is a real person with real stakes, so that the win feels like genuine competition and not a pre-scripted outcome.
+    </div>
+    <div class="job-meta">
+      <div class="job-meta-item">
+        <span class="job-meta-label">Persona:</span>
+        <span>The Battler (primary).</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Basis:</span>
+        <span>FACT. Bot activity in battle lobbies is confirmed as the most cited pain for battle mode users. "A bot battle is solo opening with extra steps - the social tension is gone." Source: master-research.md (Hypothesis 4); ux-patterns.md (Pattern 3 - The Battler).</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="emotional-card">
+    <div class="job-card-header" style="margin-bottom:10px">
+      <div class="job-number" style="font-size:22px">S2</div>
+      <div>
+        <div class="job-title">Be part of a platform that feels alive</div>
+      </div>
+    </div>
+    <div class="job-statement">
+      When I open a case or check the platform between sessions, I want to see real activity from real players - real drops, real battles happening - so that I feel part of something rather than alone in a dead interface.
+    </div>
+    <div class="job-meta">
+      <div class="job-meta-item">
+        <span class="job-meta-label">Persona:</span>
+        <span>All personas (ambient social context).</span>
+      </div>
+      <div class="job-meta-item">
+        <span class="job-meta-label">Basis:</span>
+        <span>FACT. Live drop feed (authentic, bot-free) is confirmed as both a trust mechanism and an acquisition tool. "Seeing real drops reassures the new visitor that drops actually happen." The combination of social proof and verifiability is the hardest trust signal to fake. Source: master-research.md (Benchmark - Mechanism 3).</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HYPOTHESES -->
+<section id="hypotheses">
+  <div class="section-eyebrow">Section 4</div>
+  <h2>Hypothesis Jobs <span class="hyp-tag">[?]</span></h2>
+  <p>These jobs were generated but are not backed by research data. They stay here until confirmed or discarded. Do not build features primarily for these jobs until one of the three targeted research questions (Section 6.3 of jtbd.md) is answered.</p>
+
+  <div class="sep"></div>
+
+  <div class="hyp-job-card">
+    <div class="hyp-job-label">Hypothesis Job A <span class="hyp-tag">[?]</span></div>
+    <div class="job-title" style="font-size:15px; color:var(--text-primary); margin-bottom:10px;">Exchange low-tier skins without Steam friction</div>
+    <div class="job-statement">
+      When I have a low-tier skin I no longer want, I want to exchange it for platform credit without the friction of a Steam trade, so that I can re-enter the opening loop without depositing new money.
+    </div>
+    <div class="job-meta">
+      <div class="job-meta-item">
+        <span class="job-meta-label">Basis:</span>
+        <span><span class="hyp-tag">[?]</span> skin.club and Clash.gg both offer in-platform exchange mechanics. This job is inferred from their existence, not from any user research. Whether this is a primary-mode behavior or a secondary convenience is unknown.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hyp-job-card">
+    <div class="hyp-job-label">Hypothesis Job B <span class="hyp-tag">[?]</span></div>
+    <div class="job-title" style="font-size:15px; color:var(--text-primary); margin-bottom:10px;">Observe live before committing</div>
+    <div class="job-statement">
+      When I am curious about the platform but not ready to deposit, I want to observe real matches or opens happening live before I commit, so that I can calibrate whether the drops are real before risking money.
+    </div>
+    <div class="job-meta">
+      <div class="job-meta-item">
+        <span class="job-meta-label">Basis:</span>
+        <span><span class="hyp-tag">[?]</span> Clash.gg's pre-login battle previews suggest this behavior is real. However, whether spectating alone converts to registration and deposit is unknown. Clash.gg's growth could be attributable to pre-login RTP values, free cases, or ambassador codes rather than spectating specifically.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hyp-job-card">
+    <div class="hyp-job-label">Hypothesis Job C <span class="hyp-tag">[?]</span></div>
+    <div class="job-title" style="font-size:15px; color:var(--text-primary); margin-bottom:10px;">Feel recognized as a loyal user</div>
+    <div class="job-statement">
+      When I have become a regular user and built up loyalty status, I want to see my status acknowledged visibly on the platform, so that I feel recognized for my history with it.
+    </div>
+    <div class="job-meta">
+      <div class="job-meta-item">
+        <span class="job-meta-label">Basis:</span>
+        <span><span class="hyp-tag">[?]</span> Clash.gg's "CLASH KING" designation and Hellcase's VIP cashback system suggest social status mechanics matter. Whether this is a primary job or an amplifier of an existing job is not confirmed.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JTBD MATRIX -->
+<section id="matrix">
+  <div class="section-eyebrow">Section 5</div>
+  <h2>JTBD Matrix</h2>
+  <p>Rows are jobs. Columns are personas plus product function and competitor coverage. Cell value: 1-3 importance for that persona. Score 3 = core to this persona (drives decisions). Score 2 = relevant (shapes behavior). Score 1 = peripheral (aware of, does not drive session behavior). <span class="hyp-tag">[?]</span> = importance unknown.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="job-col-sticky-head">Job</th>
+          <th>The Opener (P1)</th>
+          <th>The Accumulator (P2)</th>
+          <th>The Researcher (P3)</th>
+          <th>The Battler (P4)</th>
+          <th>Function in Product</th>
+          <th>Competitors Closing It</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="job-col-sticky">Main Job - Arrive, open, get the thrill</td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">Every design decision confirms this</span></td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Opens to accumulate</span></td>
+          <td><span class="score-badge-1">1</span><br><span style="font-size:11px;color:var(--text-muted)">Opens strategically</span></td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Was an opener first</span></td>
+          <td style="font-size:12px">Case opening flow, landing page, reveal animation</td>
+          <td style="font-size:12px">All 5 hard competitors. Gap: animation quality varies widely. DaddySkins flat; Key-Drop and Clash.gg set the bar.</td>
+        </tr>
+        <tr>
+          <td class="job-col-sticky">R1 - Arrive with confidence to try</td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">First barrier</span></td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Reads terms carefully</span></td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">Pre-deposit research is their whole mode</span></td>
+          <td><span class="score-badge-1">1</span><br><span style="font-size:11px;color:var(--text-muted)">Already past this stage</span></td>
+          <td style="font-size:12px">Pre-login landing page, trust signals, RTP visible, live feed</td>
+          <td style="font-size:12px">Clash.gg only (outlier). CSGORoll PF page public. All others hide key info behind login.</td>
+        </tr>
+        <tr>
+          <td class="job-col-sticky">R2 - Complete first open without friction</td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">Activation event</span></td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Cares but not primary</span></td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Tests the mechanism</span></td>
+          <td><span class="score-badge-1">1</span><br><span style="font-size:11px;color:var(--text-muted)">Already past this stage</span></td>
+          <td style="font-size:12px">Starter credit, case selection, opening flow, age-gate</td>
+          <td style="font-size:12px">All competitors offer free credit. Clash.gg + Hellcase closest to $0.50-$0.70 no-deposit. DaddySkins: none confirmed.</td>
+        </tr>
+        <tr>
+          <td class="job-col-sticky">R3 - Verify the outcome</td>
+          <td><span class="score-badge-1">1</span><br><span style="font-size:11px;color:var(--text-muted)">Most never do, but trust they could</span></td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Verifies after big wins</span></td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">Core to their decision to trust</span></td>
+          <td><span class="score-badge-1">1</span><br><span style="font-size:11px;color:var(--text-muted)">Low priority vs battle result</span></td>
+          <td style="font-size:12px">Provably fair page, post-reveal verification link, public roll history</td>
+          <td style="font-size:12px">CSGORoll (score 5), skin.club (score 5). DaddySkins: score 1 (login-gated).</td>
+        </tr>
+        <tr>
+          <td class="job-col-sticky">R4 - Convert result into higher value</td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Secondary, after D1</span></td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">Core behavior</span></td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Uses upgrades as precision tool</span></td>
+          <td><span class="score-badge-1">1</span><br><span style="font-size:11px;color:var(--text-muted)">Peripheral</span></td>
+          <td style="font-size:12px">Upgrade mode, in-platform exchange</td>
+          <td style="font-size:12px">All 5 hard competitors have upgrade mode. skin.club per-SKU odds are best. DaddySkins upgrade present but odds display unconfirmed.</td>
+        </tr>
+        <tr>
+          <td class="job-col-sticky">R5 - Withdraw cleanly</td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Payoff moment</span></td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">LTV-ending event if it fails</span></td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">Validates platform credibility</span></td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Wins must be real to matter</span></td>
+          <td style="font-size:12px">Withdrawal flow, Steam API integration, status tracking</td>
+          <td style="font-size:12px">skin.club: "few minutes," no fees (benchmark). Hellcase: 3-5 days, 4-7% fees (worst). DaddySkins: no withdrawal info visible pre-login (score 1).</td>
+        </tr>
+        <tr>
+          <td class="job-col-sticky">E1 - Genuine suspense, not manufactured</td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">Defines whether they return</span></td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Cares for economic reasons</span></td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">A manipulated animation would end trust permanently</span></td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Battles have their own suspense mechanic</span></td>
+          <td style="font-size:12px">Reveal animation (honest buildup, rarity-differentiated, no near-miss)</td>
+          <td style="font-size:12px">No competitor uses near-miss in stated design. Clash.gg Champion mode is most honest thrill. DaddySkins animation unconfirmed.</td>
+        </tr>
+        <tr>
+          <td class="job-col-sticky">E2 - A win worth sharing</td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">Sharing is the referral loop</span></td>
+          <td><span class="score-badge-1">1</span><br><span style="font-size:11px;color:var(--text-muted)">Shares selectively</span></td>
+          <td><span class="score-badge-1">1</span><br><span style="font-size:11px;color:var(--text-muted)">Not their primary focus</span></td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">Battle wins are prime shareable content</span></td>
+          <td style="font-size:12px">Share button on result state, rarity-differentiated animation, win display</td>
+          <td style="font-size:12px">Key-Drop and Clash.gg cited for most shareable moments. No competitor has one-tap result sharing confirmed.</td>
+        </tr>
+        <tr>
+          <td class="job-col-sticky">E3 - Smart play rewarded</td>
+          <td><span class="score-badge-1">1</span><br><span style="font-size:11px;color:var(--text-muted)">Peripheral</span></td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">This is why they stay</span></td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Feels validated when EV calculation was right</span></td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Strategic battle selection</span></td>
+          <td style="font-size:12px">Rakeback dashboard, upgrade odds, loyalty points visibility</td>
+          <td style="font-size:12px">Gamdom 15% rakeback (benchmark). DatDrop DatPoints. DaddySkins: no rakeback confirmed.</td>
+        </tr>
+        <tr>
+          <td class="job-col-sticky">S1 - Beat a real person</td>
+          <td><span class="score-badge-1">1</span><br><span style="font-size:11px;color:var(--text-muted)">Peripheral - solo mode</span></td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Competitive battles for high value</span></td>
+          <td><span class="score-badge-1">1</span><br><span style="font-size:11px;color:var(--text-muted)">Peripheral</span></td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">The entire point of battle mode</span></td>
+          <td style="font-size:12px">Battle lobby, real-user matchmaking, bot prevention</td>
+          <td style="font-size:12px">Clash.gg Champion mode (30-sec matchmaking). DatDrop 80% bot lobbies (worst). DaddySkins: <span class="hyp-tag">[?]</span> bot status in battles unconfirmed.</td>
+        </tr>
+        <tr>
+          <td class="job-col-sticky">S2 - Be part of a live platform</td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">Ambient context sets mood on arrival</span></td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Ambient reinforcement</span></td>
+          <td><span class="score-badge-2">2</span><br><span style="font-size:11px;color:var(--text-muted)">Social proof validates odds claims</span></td>
+          <td><span class="score-badge-3">3 - core</span><br><span style="font-size:11px;color:var(--text-muted)">Battle feed is core to battle mode</span></td>
+          <td style="font-size:12px">Live drop feed, player count, battle lobby visibility</td>
+          <td style="font-size:12px">skin.club public roll history (benchmark). DaddySkins: bot names visible (worst in category).</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sep"></div>
+  <h3>Matrix Conclusion - 3 Jobs for MVP Core</h3>
+  <p style="font-size:13px; color:var(--text-muted); margin-bottom:20px;">Jobs that score 3 (core) for the primary persona AND are not fully closed by any competitor. These three form the design target for the first release.</p>
+
+  <div class="mvp-job-card">
+    <div class="mvp-job-title">MVP Core Job 1 - Related Job 1: Arrive with confidence to try</div>
+    <div class="mvp-job-body">
+      Importance for The Opener: 3 (first barrier to entry). Competitor gap: Only Clash.gg closes this partially. No competitor surfaces provably fair information, tested RTP, AND live authentic activity pre-login simultaneously. DaddySkins scores 15/40 on the benchmark, lowest in category. The gap is open and the fix cost is low.
+    </div>
+  </div>
+
+  <div class="mvp-job-card">
+    <div class="mvp-job-title">MVP Core Job 2 - Main Job: Arrive, open, get the thrill (reveal quality)</div>
+    <div class="mvp-job-body">
+      Importance for The Opener: 3 (core). Competitor gap: All competitors close the basic job. The execution gap is in animation quality. DaddySkins is flat. Key-Drop and Clash.gg set the bar with rarity-differentiated animations. The gap is open in execution quality, not in feature existence.
+    </div>
+  </div>
+
+  <div class="mvp-job-card">
+    <div class="mvp-job-title">MVP Core Job 3 - Related Job 5: Withdraw cleanly</div>
+    <div class="mvp-job-body">
+      Importance for The Opener: 2. Importance for The Accumulator: 3. Importance for The Researcher: 3. Competitor gap: skin.club closes this best (few minutes, no fees, no login required for withdrawal info). DaddySkins score 1 - no withdrawal info visible pre-login. This is simultaneously a trust signal for acquisition AND the LTV-defining moment for the Accumulator.
+    </div>
+  </div>
+
+  <div class="sep" style="margin:28px 0"></div>
+  <h3 style="margin-bottom:10px">Candidate-for-Cut Functions</h3>
+  <p style="font-size:13px; color:var(--text-muted); margin-bottom:0">Functions that appear in the product scope but close no job scoring 3 for the primary persona.</p>
+
+  <div class="cut-list">
+    <div class="cut-item">
+      <span class="cut-marker">Deferred</span>
+      <span><strong style="color:var(--text-primary)">Rain-style ambient free-to-play mechanic.</strong> Closes Hypothesis Job B (spectating converts to deposit). Source is not confirmed. Clash.gg's Rain system is the frontier but was added in 2026 after establishing the core product. Decision: deferred to Phase 2. MVP free-to-play offer is starter credit plus daily free case.</span>
+    </div>
+    <div class="cut-item">
+      <span class="cut-marker">Deferred</span>
+      <span><strong style="color:var(--text-primary)">Community case creation.</strong> Closes no job in the current confirmed hierarchy. Addresses a social status job (Hypothesis Job C) with no data. Defer to Phase 2.</span>
+    </div>
+    <div class="cut-item">
+      <span class="cut-marker">Deferred</span>
+      <span><strong style="color:var(--text-primary)">Fiat and crypto withdrawal path beyond Steam.</strong> Closes Related Job 5 for a subset of users. Confirmed by Hellcase (ShadowPay) and Clash.gg (crypto). Decision: deferred to Phase 2. Steam-only withdrawal at launch.</span>
+    </div>
+    <div class="cut-item">
+      <span class="cut-marker">Deferred</span>
+      <span><strong style="color:var(--text-primary)">Battle mode with open matchmaking.</strong> Closes Social Job 1 (beat a real person) but only when lobby fill under 60 seconds is achievable. Decision: hidden at launch. Friends-only private lobbies are Phase 1.5. Open matchmaking activates when fill-time condition is met organically.</span>
+    </div>
+  </div>
+</section>
+
+<!-- DECISIONS -->
+<section id="decisions">
+  <div class="section-eyebrow">Section 6</div>
+  <h2>Locked Decisions</h2>
+  <p>Four founder decisions and two closed danger items from the critique section. These are not hypotheses - they are decisions made on the basis of research and are not re-opened during wireframe phase unless new data conflicts with the stated basis.</p>
+
+  <div class="sep"></div>
+
+  <div class="decision-card">
+    <div class="decision-header">
+      <div class="decision-title">Decision 1 - Rain-style ambient mechanic deferred to Phase 2</div>
+      <span class="status-closed">Decision Locked</span>
+    </div>
+    <div class="decision-body">
+      MVP free-to-play offer is starter credit ($0.50-$0.70) plus daily free case. Rain-style ambient mechanic (free tokens to active chat on a timer) is confirmed as the emerging category frontier but is a Phase 2 feature. Basis: closes only Hypothesis Job B, which has no confirmed conversion-to-deposit evidence. Source: strategy.md Section 5.
+    </div>
+  </div>
+
+  <div class="decision-card">
+    <div class="decision-header">
+      <div class="decision-title">Decision 2 - Open battle matchmaking hidden at launch, Phase 1.5 friends-only</div>
+      <span class="status-closed">Decision Locked</span>
+    </div>
+    <div class="decision-body">
+      Friends-only private battles launch as Phase 1.5. Open matchmaking activates only when lobby fill under 60 seconds is achievable without bots. The precise threshold (60 vs 90 vs 120 seconds) is operational input measured live, not pre-specified. The battle lobby design target is 60-second patience, with Clash.gg's 30-second benchmark as the standard to match. Source: strategy.md Section 5.
+    </div>
+  </div>
+
+  <div class="decision-card">
+    <div class="decision-header">
+      <div class="decision-title">Decision 3 - Steam-only withdrawal at launch</div>
+      <span class="status-closed">Decision Locked</span>
+    </div>
+    <div class="decision-body">
+      Fiat withdrawal (via ShadowPay or equivalent) and crypto withdrawal (BTC, ETH) are Phase 2. Steam-to-inventory withdrawal is the only withdrawal method at launch. Basis: closes Related Job 5 for the confirmed primary segments. Crypto and fiat paths close the same job for a subset - the implementation complexity and compliance surface do not justify the scope at launch. Source: strategy.md Section 5.
+    </div>
+  </div>
+
+  <div class="decision-card">
+    <div class="decision-header">
+      <div class="decision-title">Decision 4 - Community case creation is Phase 2</div>
+      <span class="status-closed">Decision Locked</span>
+    </div>
+    <div class="decision-body">
+      Community case creation (skin.club model) closes no job in the current confirmed job hierarchy. It addresses Hypothesis Job C (social status recognition) with no confirmed data. Requires a critical mass of quality creators before the feature produces value. Source: strategy.md Section 5.
+    </div>
+  </div>
+
+  <div class="sep"></div>
+  <div class="subsection-label">Closed Danger Items</div>
+
+  <div class="decision-card" style="border-color: rgba(74,222,128,0.2);">
+    <div class="decision-header">
+      <div class="decision-title">DANGER 1 - Do Thrill Seekers actively evaluate trust signals before depositing?</div>
+      <span class="status-confirmed">Confirmed Closed</span>
+    </div>
+    <div class="decision-body">
+      Closed by post-persona research (live-research.md KILLED-01) and founder Decision 1 (strategy.md Section 5). Resolution: mass-market Openers do NOT self-verify provably fair before depositing. They use institutional trust proxies (esports team endorsements, Trustpilot score, auditor badge, platform longevity). PF self-verification is a Researcher behavior. Design implication locked: landing page uses hybrid hero (animation leads plus institutional badge in the same hero unit). The A/B test is refined - hypothesis is now "auditor badge inline with animation vs animation alone" rather than "PF page vs animation page."
+    </div>
+  </div>
+
+  <div class="decision-card" style="border-color: rgba(74,222,128,0.2);">
+    <div class="decision-header">
+      <div class="decision-title">DANGER 2 - What is the actual lobby fill threshold before battle abandonment?</div>
+      <span class="status-confirmed">Confirmed Closed</span>
+    </div>
+    <div class="decision-body">
+      Closed by founder Decision 2 (strategy.md Section 5). Resolution: the precise threshold is not the blocking question. The decision is that open matchmaking is hidden at launch regardless of the exact number, and friends-only private battles launch as Phase 1.5. The threshold becomes operational input for when to promote open matchmaking - it will be measured live, not pre-specified. The battle lobby (fill timer, visible wait state, cancel mechanic) is architected for 60-second patience as the design target, knowing the Clash.gg benchmark is 30 seconds.
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<footer>
+  <p>CS2 Clutch Research Sprint - June 2026. Baseline: daddyskins.com. Working placeholder name. Brand assets out of scope.</p>
+  <p>People: Jobs to Be Done. Built from strategy.md, ux-patterns.md, master-research.md, personas.md.</p>
+</footer>
+
+<script>
+(function() {
+  var btn = document.getElementById('hamburger-btn');
+  var overlay = document.getElementById('sidebar-overlay');
+  var sidebar = document.getElementById('sidebar');
+  function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('active'); }
+  function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
+  if (btn) btn.addEventListener('click', function() { sidebar.classList.contains('open') ? closeSidebar() : openSidebar(); });
+  if (overlay) overlay.addEventListener('click', closeSidebar);
+  sidebar.querySelectorAll('.sidebar-link, .sidebar-sublink').forEach(function(link) {
+    link.addEventListener('click', function() { if (window.innerWidth < 860) closeSidebar(); });
+  });
+})();
+
+(function() {
+  var sublinks = document.querySelectorAll('.sidebar-sublink[data-section]');
+  if (!sublinks.length || !window.IntersectionObserver) return;
+
+  var sectionIds = [];
+  sublinks.forEach(function(link) { sectionIds.push(link.getAttribute('data-section')); });
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var activeId = entry.target.id;
+        sublinks.forEach(function(link) {
+          if (link.getAttribute('data-section') === activeId) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+
+  sectionIds.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+})();
+</script>
+</body>
+</html>

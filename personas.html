@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - Personas</title>
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --glow-pink: rgba(233,77,139,0.15);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    /* SIDEBAR NAV */
+    .sidebar {
+      position: fixed; top: 0; left: 0; width: 220px; height: 100vh;
+      background: rgba(4,3,25,0.97); backdrop-filter: blur(20px);
+      border-right: 1px solid var(--border); z-index: 100;
+      display: flex; flex-direction: column; padding: 24px 14px 32px;
+      overflow-y: auto; transform: translateX(-100%);
+      transition: transform 0.24s cubic-bezier(0.4,0,0.2,1);
+    }
+    .sidebar.open { transform: translateX(0); }
+    .sidebar-brand {
+      font-size: 12px; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent-pink); padding: 0 6px;
+      margin-bottom: 24px; line-height: 1.4;
+    }
+    .sidebar-brand span { color: var(--text-muted); font-weight: 500; }
+    .sidebar-divider { height: 1px; background: var(--border); margin: 12px 0; }
+    .sidebar-section-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-muted); padding: 0 6px; margin-bottom: 6px;
+    }
+    .sidebar-links { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+    .sidebar-link {
+      font-size: 13px; font-weight: 500; color: var(--text-secondary);
+      text-decoration: none; padding: 7px 10px; border-radius: 7px;
+      transition: all 0.15s; letter-spacing: 0.01em; display: block;
+    }
+    .sidebar-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); text-decoration: none; }
+    .sidebar-link.active { color: var(--text-primary); background: rgba(233,77,139,0.08); }
+    .sidebar-coming-soon {
+      font-size: 13px; color: var(--text-muted); padding: 7px 10px;
+      border-radius: 7px; display: flex; align-items: center; gap: 8px;
+    }
+    .cs-tag {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-muted); background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border); padding: 2px 7px; border-radius: 20px;
+    }
+    .sidebar-next {
+      margin-top: auto; padding: 12px 10px; border: 1px solid var(--border);
+      border-radius: 8px; background: rgba(255,255,255,0.02);
+    }
+    .sidebar-next-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px;
+    }
+    .sidebar-next-items { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+    /* SIDEBAR SUB-LINKS */
+    .sidebar-sublinks { display: flex; flex-direction: column; gap: 1px; margin-top: -2px; margin-bottom: 4px; }
+    .sidebar-sublink {
+      font-size: 12px; font-weight: 400; color: var(--text-muted);
+      text-decoration: none; padding: 5px 10px 5px 20px; border-radius: 6px;
+      transition: all 0.15s; display: block;
+    }
+    .sidebar-sublink:hover { color: var(--text-secondary); background: rgba(255,255,255,0.03); text-decoration: none; }
+    .sidebar-sublink.active { color: var(--accent-blue); }
+    /* HAMBURGER */
+    .hamburger {
+      position: fixed; top: 14px; left: 14px; z-index: 101;
+      background: var(--bg-card); border: 1px solid var(--border-strong);
+      border-radius: 8px; width: 40px; height: 40px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-secondary); font-size: 16px; transition: all 0.15s;
+    }
+    .hamburger:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); }
+    /* OVERLAY */
+    .sidebar-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55); z-index: 99;
+    }
+    .sidebar-overlay.active { display: block; }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 860px) {
+      .sidebar { transform: translateX(0); }
+      .hamburger { display: none; }
+      .sidebar-overlay { display: none !important; }
+      main { margin-left: 220px; padding-top: 48px; }
+      footer { margin-left: 220px; }
+    }
+    section { margin-bottom: 88px; }
+    .section-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px;
+    }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 26px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 8px; }
+    h3 { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 6px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .sep { height: 1px; background: var(--border); margin: 36px 0; }
+    /* HERO */
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 72px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+    /* BADGE SYSTEM */
+    .badge {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px;
+      border-radius: 20px; margin-bottom: 14px;
+    }
+    .badge-primary { background: rgba(233,77,139,0.12); color: var(--accent-pink); border: 1px solid rgba(233,77,139,0.25); }
+    .badge-secondary { background: rgba(101,163,255,0.1); color: var(--accent-blue); border: 1px solid rgba(101,163,255,0.2); }
+    .badge-tertiary { background: rgba(250,218,98,0.1); color: var(--accent-yellow); border: 1px solid rgba(250,218,98,0.2); }
+    /* HYPOTHESIS BADGE */
+    .hyp-tag {
+      display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+      color: var(--accent-yellow); background: rgba(250,218,98,0.08);
+      border: 1px solid rgba(250,218,98,0.25); padding: 1px 6px; border-radius: 4px;
+      margin-left: 4px; vertical-align: middle; white-space: nowrap;
+    }
+    /* CLAIM UPDATE / DECISION NOTE */
+    .claim-update {
+      margin-top: 12px; padding: 10px 14px;
+      border-left: 3px solid var(--accent-blue);
+      background: rgba(101,163,255,0.05);
+      border-radius: 0 6px 6px 0;
+      font-size: 12px; color: var(--text-secondary); line-height: 1.55;
+    }
+    .claim-update strong { color: var(--accent-blue); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px; }
+    .decision-note {
+      margin-top: 12px; padding: 10px 14px;
+      border-left: 3px solid #4ade80;
+      background: rgba(74,222,128,0.04);
+      border-radius: 0 6px 6px 0;
+      font-size: 12px; color: var(--text-secondary); line-height: 1.55;
+    }
+    .decision-note strong { color: #4ade80; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px; }
+    /* TABLES */
+    .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead { background: rgba(255,255,255,0.02); }
+    th { padding: 12px 14px; text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
+    td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; line-height: 1.5; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,0.01); }
+    /* OBSERVATION GRID */
+    .obs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+    @media (max-width: 600px) { .obs-grid { grid-template-columns: 1fr; } }
+    .obs-tile {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px 18px;
+    }
+    .obs-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 8px;
+    }
+    .obs-tile p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0; }
+    /* UNKNOWN TABLE */
+    .unknown-table { margin-top: 24px; }
+    .unknown-table .table-wrap { margin-top: 0; }
+    /* PERSONA CARDS */
+    .persona-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 32px 32px 28px; margin-top: 20px;
+    }
+    .persona-card.primary { border-color: rgba(233,77,139,0.2); }
+    .persona-card.secondary { border-color: rgba(101,163,255,0.15); }
+    .persona-card.tertiary { border-color: rgba(250,218,98,0.15); }
+    .persona-card.retention { border-color: rgba(101,163,255,0.15); }
+    .persona-name { font-size: 24px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px; color: var(--text-primary); }
+    .persona-why { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.5; }
+    .persona-row { padding: 20px 0; border-top: 1px solid var(--border); }
+    .persona-row-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 12px;
+    }
+    .persona-row p { font-size: 13px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 8px; }
+    .persona-row p:last-child { margin-bottom: 0; }
+    .persona-row ul { padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+    .persona-row ul li { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+    .persona-jtbd {
+      padding: 12px 16px; background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border); border-radius: 8px;
+      font-size: 13px; color: var(--text-secondary); line-height: 1.65;
+      font-style: italic; margin-bottom: 12px;
+    }
+    .persona-trust-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
+    @media (max-width: 600px) { .persona-trust-row { grid-template-columns: 1fr; } }
+    .persona-trust-item { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
+    .persona-trust-key { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px; }
+    .persona-trust-item p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0; }
+    /* MOOD QUOTE */
+    .persona-quote {
+      margin-top: 20px; padding: 16px 20px;
+      border-left: 3px solid var(--accent-pink);
+      background: rgba(233,77,139,0.04);
+      border-radius: 0 8px 8px 0;
+    }
+    .persona-quote p {
+      font-size: 13px; color: var(--text-secondary); line-height: 1.7;
+      font-style: italic; margin-bottom: 0;
+    }
+    .persona-quote cite { font-size: 11px; color: var(--text-muted); font-style: normal; display: block; margin-top: 8px; }
+    /* FOOTER */
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      main { padding: 64px 20px 60px; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; gap: 6px; }
+      .persona-card { padding: 24px 20px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<button class="hamburger" id="hamburger-btn" aria-label="Open navigation">&#9776;</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-brand">CS2 Clutch<br><span>Research</span></div>
+
+  <div class="sidebar-section-label">Research</div>
+  <div class="sidebar-links">
+    <a href="research.html#intro" class="sidebar-link">Intro</a>
+    <a href="research.html#lean-canvas" class="sidebar-link">Lean Canvas</a>
+    <a href="research.html#strategy" class="sidebar-link">Strategy</a>
+    <a href="research.html#aarrr" class="sidebar-link">AARRR</a>
+    <a href="research.html#competitors" class="sidebar-link">Competitors</a>
+    <a href="research.html#benchmark" class="sidebar-link">Benchmark</a>
+    <a href="research.html#ux-patterns" class="sidebar-link">UX Patterns</a>
+    <a href="research.html#compliance" class="sidebar-link">Compliance</a>
+    <a href="research.html#conclusions" class="sidebar-link">Conclusions</a>
+    <a href="research.html#live-research" class="sidebar-link">Live Research</a>
+  </div>
+
+  <div class="sidebar-divider"></div>
+
+  <div class="sidebar-section-label">People</div>
+  <div class="sidebar-links">
+    <span class="sidebar-link active" style="cursor:default;">Personas</span>
+    <div class="sidebar-sublinks">
+      <a href="#observations" class="sidebar-sublink" data-section="observations">Observations</a>
+      <a href="#opener" class="sidebar-sublink" data-section="opener">The Opener</a>
+      <a href="#accumulator" class="sidebar-sublink" data-section="accumulator">The Accumulator</a>
+      <a href="#researcher" class="sidebar-sublink" data-section="researcher">The Researcher</a>
+      <a href="#battler" class="sidebar-sublink" data-section="battler">The Battler</a>
+    </div>
+    <a href="jtbd.html" class="sidebar-link">JTBD</a>
+  </div>
+
+  <div class="sidebar-next">
+    <div class="sidebar-next-label">Next</div>
+    <div class="sidebar-next-items">Wireframes, Concept</div>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<div class="hero" id="intro">
+  <div class="section-eyebrow">People and JTBD - June 2026</div>
+  <h1>Personas</h1>
+  <p>Four behavioral archetypes built from the research corpus. One primary persona drives platform design at scale. Three secondary personas inform feature scope and retention design. Every claim is marked FACT (cited source) or HYPOTHESIS <span class="hyp-tag">[?]</span>.</p>
+  <div class="hero-meta">
+    <div>
+      <div class="hero-stat-value">4</div>
+      <div class="hero-stat-label">Personas</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">1</div>
+      <div class="hero-stat-label">Primary</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">3</div>
+      <div class="hero-stat-label">Secondary</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">8</div>
+      <div class="hero-stat-label">Claims Verified</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1: OBSERVATIONS -->
+<section id="observations">
+  <div class="section-eyebrow">Section 1</div>
+  <h2>People Observations</h2>
+  <p>What the research tells us about who is on these platforms, what drives them, and what hurts them today. All claims are sourced. Hypothesis claims are tagged.</p>
+  <div class="sep"></div>
+
+  <h3>Who Is on These Platforms</h3>
+  <div class="obs-grid">
+    <div class="obs-tile">
+      <div class="obs-label">Age Range</div>
+      <p>The primary audience is 18-30, skewing 18-25 at the core. Platform audience data and review aggregator demographics confirm this range. Source: research/strategy.md, Segment A profile.</p>
+    </div>
+    <div class="obs-tile">
+      <div class="obs-label">CS2 Player Base</div>
+      <p>Users arrive as active CS2 players who follow skin culture and streamers. They are already embedded in the CS2 ecosystem before arriving at a case platform. Source: research/strategy.md, Segment A.</p>
+    </div>
+    <div class="obs-tile">
+      <div class="obs-label">Scale Signals</div>
+      <p>Hellcase reaches approximately 2 million monthly active users and 150,000+ daily case opens. Key-Drop reaches 2.4 million monthly visitors (December 2025). Source: esports.gg; research/competitive-analysis.md.</p>
+    </div>
+    <div class="obs-tile">
+      <div class="obs-label">Geographic Concentration</div>
+      <p>Key-Drop's top demographics are Brazil, Spain, and Argentina - a Latin American skew. Clash.gg is English-language primary. Multiple platforms block Netherlands, Belgium, and Germany due to active enforcement. Source: research/competitive-analysis.md.</p>
+    </div>
+    <div class="obs-tile">
+      <div class="obs-label">Gender <span class="hyp-tag">[?]</span></div>
+      <p>No gender breakdown is publicly available for any competitor. The CS2 audience skews heavily male, but no platform-specific data exists. This remains a hypothesis only.</p>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+  <h3>What Drives Them</h3>
+  <div class="obs-grid">
+    <div class="obs-tile">
+      <div class="obs-label">The Reveal Is the Product</div>
+      <p>Every major competitor leads with win animations, live drop feeds, and big-win celebrations. No competitor leads with odds tables or EV calculators. This is design consensus, not an assumption. Source: platform design review of Clash.gg, Key-Drop, Hellcase, CSGORoll, skin.club (June 2026).</p>
+    </div>
+    <div class="obs-tile">
+      <div class="obs-label">Social Proof Is the Trigger</div>
+      <p>Users arrive from streams, clips, Discord links, and win shares. The platform does not create the desire to open - it captures desire already created externally. Source: research/ux-patterns.md, Pattern 1 (The Opener).</p>
+    </div>
+    <div class="obs-tile">
+      <div class="obs-label">Withdrawal Is the Payoff</div>
+      <p>Steam Market's 15% fee and wallet lock are the primary conversion argument for case platforms. Reliable, fast withdrawal to Steam is the moment users decide whether to return and refer. Source: research/strategy.md; research/aarrr.md (Retention).</p>
+    </div>
+    <div class="obs-tile">
+      <div class="obs-label">Rakeback Is Expected</div>
+      <p>Gamdom offers 15% instant rakeback with zero wagering requirements. DatDrop offers 5 points per $1, redeemable for cases up to $1,800. Key-Drop has Daily Case leveling. Grinder-oriented users see loyalty mechanics as table stakes. Source: research/strategy.md; research/competitive-analysis.md.</p>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+  <h3>What Hurts Them Today</h3>
+  <div class="obs-grid">
+    <div class="obs-tile">
+      <div class="obs-label">Trust Deficit - Category-Wide</div>
+      <p>No mystery box operator names a public third-party RNG auditor as of 2026. Source: betterchecked.com 2026 audit.</p>
+    </div>
+    <div class="obs-tile">
+      <div class="obs-label">Bot Activity Destroys Social Proof</div>
+      <p>DaddySkins shows "[BOT] Darth Vader" in the live wins ticker. DatDrop fills Battle Royale lobbies with bots. Visible bot names undermine the authenticity the feed is supposed to generate. Source: research/master-research.md, Gaps Table.</p>
+    </div>
+    <div class="obs-tile">
+      <div class="obs-label">Withdrawal Complaints - Top Pain Point</div>
+      <p>Withdrawal reliability is the most-cited user pain point across review aggregator complaints for all five platforms studied. Source: research/strategy.md (Business Model Validation).</p>
+    </div>
+    <div class="obs-tile">
+      <div class="obs-label">Pre-Login Information Wall</div>
+      <p>Most competitors lock odds, upgrade interfaces, and battle previews behind Steam login. Clash.gg is the outlier - payment options, RTP values, and active battle previews visible pre-login. Source: research/competitive-analysis.md.</p>
+    </div>
+    <div class="obs-tile">
+      <div class="obs-label">Tested vs Stated RTP Gap</div>
+      <p>Hellcase tested at 82.1% RTP (third-party, 2026) vs higher stated figures. DatDrop tested at 80.6% across 118 cases. This gap is a trust and regulatory risk that users cannot currently detect pre-play. Source: skincasereviewer.com/reviews/hellcase; tech-insider.org/datdrop-review/.</p>
+    </div>
+  </div>
+
+  <div class="sep"></div>
+  <h3>What We Do NOT Know About People</h3>
+  <div class="unknown-table">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Unknown</th>
+            <th>Why It Matters</th>
+            <th>Likely Source to Close It</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="hyp-tag">[?]</span> Gender breakdown of platform users</td>
+            <td>Informs tone and visual language decisions</td>
+            <td>CS2 audience data (Valve, Steam surveys)</td>
+          </tr>
+          <tr>
+            <td><span class="hyp-tag">[?]</span> Income range and disposable budget for typical depositor</td>
+            <td>Informs deposit bonus sizing and case price architecture</td>
+            <td>SteamSpy, third-party gaming audience research</td>
+          </tr>
+          <tr>
+            <td><span class="hyp-tag">[?]</span> Where in the registration-to-first-deposit flow drop-off peaks</td>
+            <td>Highest-leverage UX fix for activation</td>
+            <td>Platform analytics (post-launch only)</td>
+          </tr>
+          <tr>
+            <td><span class="hyp-tag">[?]</span> Which D7 retention mechanic has the highest return-visit causal effect</td>
+            <td>Guides which retention features to prioritize in MVP</td>
+            <td>Retention cohort analysis (post-launch only)</td>
+          </tr>
+          <tr>
+            <td><span class="hyp-tag">[?]</span> Whether Thrill Seekers actively research provably fair before depositing, or only care post-win</td>
+            <td>Determines whether trust messaging drives acquisition or only retention</td>
+            <td>Qualitative user interviews, Reddit/forum signals</td>
+          </tr>
+          <tr>
+            <td><span class="hyp-tag">[?]</span> Average session length and opens-per-session</td>
+            <td>Informs page architecture and interstitial design</td>
+            <td>Platform analytics (post-launch only)</td>
+          </tr>
+          <tr>
+            <td><span class="hyp-tag">[?]</span> How users evaluate platform credibility in the first 60 seconds</td>
+            <td>Determines landing page hierarchy</td>
+            <td>User research / session recordings</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONA 1: THE OPENER -->
+<section id="opener">
+  <div class="section-eyebrow">Persona 1 of 4</div>
+  <h2>The Opener</h2>
+
+  <div class="persona-card primary">
+    <span class="badge badge-primary">Primary</span>
+    <div class="persona-name">The Opener</div>
+    <div class="persona-why">Why primary: Every competitor design decision confirms this archetype. The reveal animation is the product. This person drives the most volume and is the first user any platform must succeed with. All six platforms lead with animations, not data. Source: research/strategy.md (Segment A); research/ux-patterns.md (Pattern 1).</div>
+
+    <!-- CONTEXT -->
+    <div class="persona-row">
+      <div class="persona-row-label">Context</div>
+      <p>Age 18-25, active CS2 player. Follows skin culture and streamers. Has disposable income for entertainment. Uses the platform as a content experience, not a financial strategy. Likely to share wins on social. Source: research/strategy.md, Segment A.</p>
+      <p>Arrives from a stream clip, YouTube video, or Discord link where someone else won something remarkable. Source: research/ux-patterns.md, Pattern 1.</p>
+      <p>The social proof loop is confirmed: one person posts a knife pull and someone else thinks "why not me." Esports team endorsements (Team Vitality/skin.club, MOUZ/G4Skins) serve as institutional trust proxies for casual users alongside creator clip virality. Source: gamerbolt.com; blix.gg (June 2026).</p>
+    </div>
+
+    <!-- JOBS -->
+    <div class="persona-row">
+      <div class="persona-row-label">Jobs</div>
+      <div class="persona-jtbd">When I have downtime between CS2 matches or want entertainment in the skin ecosystem, I want to open a case with a real drop animation and genuine unpredictability, so that I get the thrill of a reveal and a real shot at something exciting.</div>
+      <p>Secondary job: if the drop is shareable, get a moment worth posting. Win sharing is organic acquisition. Source: research/ux-patterns.md (Pattern 1, step 6).</p>
+    </div>
+
+    <!-- PAINS -->
+    <div class="persona-row">
+      <div class="persona-row-label">Pains</div>
+      <ul>
+        <li>Reveals that feel scripted, laggy, or visually flat. DaddySkins' current implementation is flat with no rarity-tiered animation variation. Source: research/master-research.md (Key Conclusion 5); research/benchmark.md.</li>
+        <li>Bot-flooded live feeds and chat. Visible bot names such as "[BOT] Darth Vader" signal inauthenticity to CS2-literate users. Source: research/master-research.md (Gaps Table).</li>
+        <li>Cannot easily share wins. No one-tap sharing from the result state on most competitors. Source: research/aarrr.md (Referral section).</li>
+        <li>Near-miss animations <span class="hyp-tag">[?]</span> may be perceived negatively by technically literate users but positively by casual openers. The benchmark research flags near-miss as a dark pattern to avoid, but no direct user sentiment data exists.</li>
+      </ul>
+    </div>
+
+    <!-- TRUST TRIGGERS -->
+    <div class="persona-row">
+      <div class="persona-row-label">Trust Triggers</div>
+      <div class="persona-trust-row">
+        <div class="persona-trust-item">
+          <div class="persona-trust-key">Convinces</div>
+          <p>A platform that feels alive - active wins ticker, live player count, visible drop feed. Source: research/ux-patterns.md (Pattern 1).</p>
+          <p style="margin-top:8px;">A starter offer they can act on immediately, without reading terms. Source: research/aarrr.md (Activation).</p>
+        </div>
+        <div class="persona-trust-item">
+          <div class="persona-trust-key">Scares Off</div>
+          <p>A platform that feels slow or visually dead. Speed as trust - lag feels dishonest in a randomized-outcome product. Source: research/master-research.md (Design Principles).</p>
+        </div>
+      </div>
+      <div class="claim-update">
+        <strong>Updated by Live Research</strong>
+        The Opener does NOT self-verify provably fair before depositing as a mass-market behavior. Hellcase has 2M MAU and 150,000 daily opens despite no public PF page and 82.1% tested RTP - the lowest trust posture in the category. Casual users use institutional trust proxies (team endorsements, Trustpilot score, platform longevity), not direct PF hash verification. A PF auditor badge is a visual trust proxy that works for this persona; a detailed PF page is a Researcher tool. Source: esports.gg/news/counter-strike-2/what-is-hellcase/.
+      </div>
+      <div class="decision-note">
+        <strong>Closed by Founder Decision - Decision 1</strong>
+        The landing page uses a hybrid hero: animation leads, institutional trust badge (auditor name + Trustpilot score) is present in the same hero unit. The badge is the Opener's permission slip; the PF page is the Researcher's verification tool.
+      </div>
+    </div>
+
+    <!-- MOOD QUOTE -->
+    <div class="persona-quote">
+      <p>"I was watching a clip of [streamer] open a 50k knife and just had to try it myself. The animation looked insane. I knew the odds were terrible but it didn't matter."</p>
+      <cite>Representative composite from CS2 gambling subreddit discussions, research/master-research.md (trust and fairness community signals). Not a direct verbatim quote - a direct verified quote is marked <span class="hyp-tag">[?]</span> and not yet found in cited sources.</cite>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONA 2: THE ACCUMULATOR -->
+<section id="accumulator">
+  <div class="section-eyebrow">Persona 2 of 4</div>
+  <h2>The Accumulator</h2>
+
+  <div class="persona-card secondary">
+    <span class="badge badge-secondary">Secondary</span>
+    <div class="persona-name">The Accumulator</div>
+    <div class="persona-why">Why secondary: highest LTV user if retained. Regular depositor who tracks rakeback and treats upgrade routing as a skill game. All top-3 platforms have built feature sets specifically for this person (rakeback, loyalty points, upgrade odds). Source: research/strategy.md (Segment B: Grinder).</div>
+
+    <!-- CONTEXT -->
+    <div class="persona-row">
+      <div class="persona-row-label">Context</div>
+      <p>Age 20-32, regular platform user. Tracks balance relative to entertainment budget. Actively seeks rakeback or bonus mechanics. More likely to deposit regularly if the platform rewards loyalty. Source: research/strategy.md, Segment B.</p>
+      <p>Arrives via comparison content, affiliate links, or referrals from other regular players. More likely to read terms and compare bonus wagering requirements before depositing. Source: research/aarrr.md (Acquisition - Organic Search).</p>
+    </div>
+
+    <!-- JOBS -->
+    <div class="persona-row">
+      <div class="persona-row-label">Jobs</div>
+      <div class="persona-jtbd">When I have built up a balance from regular play, I want to use upgrades, smart battle selection, and loyalty bonuses, so that I can maximize my chances of withdrawing a skin worth more than I put in.</div>
+      <p>Secondary job: when I have accumulated enough rakeback or loyalty points, I want to know exactly what I have earned and when I can redeem it, so that I can plan my session around the best value timing. Source: inferred from DatDrop DatPoints program and Gamdom rakeback design; research/competitive-analysis.md.</p>
+    </div>
+
+    <!-- PAINS -->
+    <div class="persona-row">
+      <div class="persona-row-label">Pains</div>
+      <ul>
+        <li>No rakeback or loyalty rewards - or loyalty programs with opaque wagering requirements. Gamdom's 15% zero-wagering rakeback sets the benchmark. Clash.gg's rakeback is up to 0.75%, significantly lower. Source: research/strategy.md (Business Model); research/competitive-analysis.md (Gamdom).</li>
+        <li>Upgrade interfaces without clear probability display at each step. Source: research/ux-patterns.md (Pattern 4 - Accumulator, step 4).</li>
+        <li>Withdrawal delays and fees. ShadowPay on Hellcase charges 4-7% total fees with 3-5 day bank transfer. Fast, commission-free withdrawal is what this persona demands. Source: research/competitive-analysis.md (Hellcase withdrawal).</li>
+        <li>Whether rakeback rate (e.g. 10% vs 15%) materially changes the Accumulator's platform choice, versus rakeback terms (wagering requirement), is not confirmed by research. <span class="hyp-tag">[?]</span> Rate vs terms comparison data does not exist in the current corpus.</li>
+      </ul>
+    </div>
+
+    <!-- TRUST TRIGGERS -->
+    <div class="persona-row">
+      <div class="persona-row-label">Trust Triggers</div>
+      <div class="persona-trust-row">
+        <div class="persona-trust-item">
+          <div class="persona-trust-key">Convinces</div>
+          <p>Published rakeback rate with explicit wagering terms stated before deposit. Source: research/aarrr.md (Activation).</p>
+          <p style="margin-top:8px;">Upgrade mode with visible probability per outcome before confirming the action. Source: research/ux-patterns.md (Pattern 4).</p>
+        </div>
+        <div class="persona-trust-item">
+          <div class="persona-trust-key">Scares Off</div>
+          <p>A withdrawal delay or fee on an expected payout amount. Withdrawal reliability is the most-cited complaint across review aggregators for all five platforms studied. Source: research/strategy.md (Business Model Validation).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOOD QUOTE -->
+    <div class="persona-quote">
+      <p>"I don't expect to beat the house long-term but if I get some rakeback and the upgrades are fair I can stretch a $20 deposit into a lot of entertainment. The moment withdrawal fails once, I'm gone."</p>
+      <cite>Composite from review aggregator complaints across Hellcase, DatDrop, Key-Drop; research/master-research.md. Not a verbatim cited post - a direct verified quote from a public forum is marked <span class="hyp-tag">[?]</span>.</cite>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONA 3: THE RESEARCHER -->
+<section id="researcher">
+  <div class="section-eyebrow">Persona 3 of 4</div>
+  <h2>The Researcher</h2>
+
+  <div class="persona-card tertiary">
+    <span class="badge badge-tertiary">Tertiary - Secondary Candidate</span>
+    <div class="persona-name">The Researcher</div>
+    <div class="persona-why">Why tertiary: no major competitor leads product design for this persona. All lead with animations, not odds tables. Collector needs are served by the same transparency features required for trust-gap objectives - they do not justify dedicated feature investment beyond that baseline. Source: research/strategy.md (Segment C: Collector, Decision Trace). Why "secondary candidate": if the trust differentiation thesis proves correct via the landing page test (per Riskiest Assumption in strategy.md), this persona's search-led arrival behavior may be the channel where trust messaging converts best, elevating acquisition significance without changing feature requirements.</div>
+
+    <!-- CONTEXT -->
+    <div class="persona-row">
+      <div class="persona-row-label">Context</div>
+      <p>Age 20-35, skewing older within the adult range. Researches case odds and expected values before spending. Has a specific skin wishlist. Source: research/strategy.md, Segment C.</p>
+      <p>Arrives via search ("best way to get [skin name]", "CS2 case odds") or skin comparison content. Source: research/aarrr.md (Acquisition - Organic Search).</p>
+    </div>
+
+    <!-- JOBS -->
+    <div class="persona-row">
+      <div class="persona-row-label">Jobs</div>
+      <div class="persona-jtbd">When I want a specific skin I cannot easily afford at market price, I want to open cases or run upgrades where odds are visible, so that I can make an informed decision about whether it is worth the spend relative to buying directly.</div>
+    </div>
+
+    <!-- PAINS -->
+    <div class="persona-row">
+      <div class="persona-row-label">Pains</div>
+      <ul>
+        <li>Hidden odds or no odds before deposit. Source: research/benchmark.md (Criterion 2: Odds Visibility).</li>
+        <li>No withdrawal transparency pre-login. Source: research/master-research.md (Gaps Table - Withdrawal architecture invisible pre-login).</li>
+        <li>Whether the Researcher converts at a materially higher rate when per-case EV is shown versus per-item odds alone is unknown. <span class="hyp-tag">[?]</span> The research confirms Collectors read odds but does not confirm which detail level converts them.</li>
+      </ul>
+    </div>
+
+    <!-- TRUST TRIGGERS -->
+    <div class="persona-row">
+      <div class="persona-row-label">Trust Triggers</div>
+      <div class="persona-trust-row">
+        <div class="persona-trust-item">
+          <div class="persona-trust-key">Convinces</div>
+          <p>Published per-item odds with expected value per case, visible before deposit. CSGORoll and skin.club lead the benchmark here. Source: research/benchmark.md.</p>
+          <p style="margin-top:8px;">A provably fair page accessible without login. Source: research/master-research.md (Hypothesis 1).</p>
+        </div>
+        <div class="persona-trust-item">
+          <div class="persona-trust-key">Scares Off</div>
+          <p>Hidden odds or any behavior suggesting the math is being concealed. If odds are not on the page, this persona assumes the worst and goes elsewhere.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOOD QUOTE -->
+    <div class="persona-quote">
+      <p>"Before I put any money in I want to know exactly what I'm buying. If the odds aren't on the page I assume the worst and go somewhere else."</p>
+      <cite>Representative sentiment from CS2 community research discussions. <span class="hyp-tag">[?]</span> Direct verified quote not yet in corpus.</cite>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONA 4: THE BATTLER -->
+<section id="battler">
+  <div class="section-eyebrow">Persona 4 of 4</div>
+  <h2>The Battler</h2>
+
+  <div class="persona-card retention">
+    <span class="badge badge-secondary">Secondary - Retention Stage</span>
+    <div class="persona-name">The Battler</div>
+    <div class="persona-why">Why a separate persona from the Opener: The Battler is not an acquisition persona - they are a retention persona. They have already opened cases solo and want a higher-stakes format with a real opponent. Battle mode is a retention mechanic, not an entry point. Source: research/ux-patterns.md (Pattern 3); research/aarrr.md (Retention). Why included despite not driving acquisition: battles are confirmed as the D7 and D14 retention lever. DatDrop's Battle Royale (up to 72 players) is its primary differentiator. Clash.gg's Champion mode is the most-cited reason users prefer it specifically. Source: research/competitive-analysis.md.</div>
+
+    <!-- CONTEXT -->
+    <div class="persona-row">
+      <div class="persona-row-label">Context</div>
+      <p>Segment overlap: Thrill Seeker primarily, with Grinder overlap for high-stakes formats. Source: research/ux-patterns.md (Pattern 3).</p>
+      <p>Has already opened cases solo and wants a higher-stakes format with a real opponent. Browses the battle lobby, looks at pot size and case selection before joining. Source: research/ux-patterns.md (Pattern 3, steps 1-2).</p>
+    </div>
+
+    <!-- JOBS -->
+    <div class="persona-row">
+      <div class="persona-row-label">Jobs</div>
+      <div class="persona-jtbd">When I have built up some wins and want a higher-stakes format, I want to fight a battle against a real opponent with real stakes, so that I can feel the competitive high of winning their loot under pressure.</div>
+    </div>
+
+    <!-- PAINS -->
+    <div class="persona-row">
+      <div class="persona-row-label">Pains</div>
+      <ul>
+        <li>Lobby fill with bots: the single biggest pain for this persona. A bot battle is solo opening with extra steps - the social tension is gone. Source: research/master-research.md (Hypothesis 4); research/ux-patterns.md (Pattern 3, "Breaks when").</li>
+        <li>Unsynchronized reveal timing: if one player's result is visible before the other's, the tension of simultaneous discovery is broken. Source: research/ux-patterns.md (Pattern 3).</li>
+      </ul>
+    </div>
+
+    <!-- TRUST TRIGGERS -->
+    <div class="persona-row">
+      <div class="persona-row-label">Trust Triggers</div>
+      <div class="persona-trust-row">
+        <div class="persona-trust-item">
+          <div class="persona-trust-key">Convinces</div>
+          <p>A lobby with a visible pot size and at least one real (non-bot) open slot. Source: research/ux-patterns.md (Pattern 3, step 2).</p>
+          <p style="margin-top:8px;">A battle result worth screenshotting and sharing. Source: research/ux-patterns.md (Pattern 3, step 5).</p>
+        </div>
+        <div class="persona-trust-item">
+          <div class="persona-trust-key">Scares Off</div>
+          <p>A lobby fill time over 60-90 seconds. Research sets 60 seconds as the hard limit before abandonment. Source: research/ux-patterns.md (Pattern 3, step 3).</p>
+        </div>
+      </div>
+      <div class="decision-note">
+        <strong>Closed by Founder Decision - Decision 2</strong>
+        Battles are hidden at launch and not prominently featured until organic lobby fill under 60 seconds is achievable without bots. Phase 1.5 introduces friends-only private battles as a stepping stone. Public battle lobbies are activated only when DAU supports it. A bot-filled lobby is worse than not having the mode.
+      </div>
+    </div>
+
+    <!-- MOOD QUOTE -->
+    <div class="persona-quote">
+      <p>"The bot lobbies are so obvious it's insulting. Half the accounts have robot names or zero level. I just want to play against actual people."</p>
+      <cite>Composite from community discussion of DatDrop and DaddySkins bot activity, research/master-research.md. Not a verbatim cited post. <span class="hyp-tag">[?]</span> Direct verified quote from a public post not yet in corpus.</cite>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>CS2 Clutch Research Sprint - June 2026. Personas built from research corpus. Baseline: daddyskins.com.</p>
+  <p>All claims marked FACT (cited) or HYPOTHESIS. Research: Phases 0-7 completed.</p>
+</footer>
+
+<script>
+(function() {
+  var btn = document.getElementById('hamburger-btn');
+  var overlay = document.getElementById('sidebar-overlay');
+  var sidebar = document.getElementById('sidebar');
+  function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('active'); }
+  function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
+  if (btn) btn.addEventListener('click', function() { sidebar.classList.contains('open') ? closeSidebar() : openSidebar(); });
+  if (overlay) overlay.addEventListener('click', closeSidebar);
+  sidebar.querySelectorAll('.sidebar-link, .sidebar-sublink').forEach(function(link) {
+    link.addEventListener('click', function() { if (window.innerWidth < 860) closeSidebar(); });
+  });
+})();
+
+(function() {
+  var sublinks = document.querySelectorAll('.sidebar-sublink[data-section]');
+  if (!sublinks.length || !('IntersectionObserver' in window)) return;
+  var sections = ['observations','opener','accumulator','researcher','battler'];
+  var active = null;
+  function setActive(id) {
+    if (active === id) return;
+    active = id;
+    sublinks.forEach(function(link) {
+      link.classList.toggle('active', link.getAttribute('data-section') === id);
+    });
+  }
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  sections.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+})();
+</script>
+</body>
+</html>

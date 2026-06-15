@@ -129,18 +129,19 @@ Hypothesis - to be validated and refined before wireframe phase.
 
 ## Timeline
 
-This is a research sprint. Phases 0 through 7 produce the research foundation for the wireframe phase that follows.
+This is a research sprint. Phases 0 through 7 produce the research foundation for the wireframe phase that follows. A People and JTBD phase was completed after Phase 7.
 
 | Phase | Deliverable | Status |
 |-------|-------------|--------|
-| 0 | Brief (CLAUDE.md, README) | In progress |
-| 1 | Product Model v1 | Pending |
-| 2 | AARRR Model | Pending |
-| 3 | Competitive Analysis | Pending |
-| 4 | Benchmark: Trust and Fairness | Pending |
-| 4.5 | Product Model v2 (validated) | Pending |
-| 5 | UX Patterns | Pending |
-| 6 | Master Synthesis | Pending |
-| 6.5 | Quality Gate | Pending |
-| 7 | Research HTML + GitHub Pages | Pending |
+| 0 | Brief (CLAUDE.md, README) | Done |
+| 1 | Product Model v1 (research/product-model.md) | Done |
+| 2 | AARRR Model (research/aarrr.md) | Done |
+| 3 | Competitive Analysis (research/competitive-analysis.md) | Done |
+| 4 | Benchmark: Trust and Fairness (research/benchmark.md) | Done |
+| 4.5 | Strategy v_refresh (research/strategy.md) | Done |
+| 5 | UX Patterns (research/ux-patterns.md) | Done |
+| 6 | Master Synthesis (research/master-research.md) | Done |
+| 6.5 | Quality Gate (research/quality-check.md) | Done |
+| 7 | Research HTML (research.html) + GitHub Pages | Done |
+| People + JTBD | Personas (research/personas.md, personas.html), JTBD (research/jtbd.md, jtbd.html), live verification (research/live-research.md), 4 founder decisions locked in research/strategy.md | Done |
 | Wireframes | Next phase, follows research | Not started |

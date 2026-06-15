@@ -302,14 +302,15 @@
     <a href="#ux-patterns" class="sidebar-link">UX Patterns</a>
     <a href="#compliance" class="sidebar-link">Compliance</a>
     <a href="#conclusions" class="sidebar-link">Conclusions</a>
+    <a href="#live-research" class="sidebar-link">Live Research</a>
   </div>
 
   <div class="sidebar-divider"></div>
 
   <div class="sidebar-section-label">People</div>
   <div class="sidebar-links">
-    <span class="sidebar-coming-soon">Personas <span class="cs-tag">Coming soon</span></span>
-    <span class="sidebar-coming-soon">JTBD <span class="cs-tag">Coming soon</span></span>
+    <a href="personas.html" class="sidebar-link">Personas</a>
+    <a href="jtbd.html" class="sidebar-link">JTBD</a>
   </div>
 
   <div class="sidebar-next">
@@ -1128,6 +1129,117 @@
   </div>
 </section>
 
+<!-- LIVE RESEARCH -->
+<section id="live-research">
+  <div class="section-eyebrow">Post-Persona Verification - June 2026</div>
+  <h2>Live Research</h2>
+  <p>Targeted re-research after personas and JTBD were built. All claims verified against live sources only. No memory or prior knowledge used. Full artifact: <a href="research/live-research.md">research/live-research.md</a>.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin:20px 0 32px;">
+    <div class="card" style="text-align:center;padding:18px 12px;">
+      <div class="hero-stat-value">8</div>
+      <div class="hero-stat-label">Claims Tested</div>
+    </div>
+    <div class="card" style="text-align:center;padding:18px 12px;">
+      <div class="hero-stat-value">14</div>
+      <div class="hero-stat-label">Sources</div>
+    </div>
+    <div class="card" style="text-align:center;padding:18px 12px;">
+      <div class="hero-stat-value" style="color:#4ade80;">5</div>
+      <div class="hero-stat-label">Confirmed</div>
+    </div>
+    <div class="card" style="text-align:center;padding:18px 12px;">
+      <div class="hero-stat-value" style="color:#ef4444;">1</div>
+      <div class="hero-stat-label">Killed</div>
+    </div>
+    <div class="card" style="text-align:center;padding:18px 12px;">
+      <div class="hero-stat-value" style="color:var(--accent-yellow);">2</div>
+      <div class="hero-stat-label">Unresolved</div>
+    </div>
+  </div>
+
+  <h3 style="margin-bottom:14px;">Confirmed Findings</h3>
+  <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
+
+    <div class="card" style="border-left:3px solid #4ade80;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px;">
+        <div style="font-size:13px;font-weight:700;color:var(--text-primary);">FINDING-01 - Streamer clips are the dominant acquisition trigger</div>
+        <span style="flex-shrink:0;font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:20px;background:rgba(74,222,128,0.1);color:#4ade80;border:1px solid rgba(74,222,128,0.2);">HIGH</span>
+      </div>
+      <p style="margin-bottom:8px;">32 million CS2 cases opened in March 2025 alone, generating $82M+ in key revenue. The social proof loop: "one person posts a knife pull and someone else thinks 'why not me.'" Esports team endorsements (MOUZ/G4Skins, Team Vitality/skin.club) are institutional trust proxies - not on-site PF infrastructure - that trigger the first visit.</p>
+      <div style="font-size:11px;color:var(--text-muted);">IMPACT: Confirms streamer seeding is the non-optional first-channel investment. Pre-login trust signals are an enabler for Researcher-mode visitors, not the mass-market Opener acquisition driver.</div>
+    </div>
+
+    <div class="card" style="border-left:3px solid #4ade80;">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px;">
+        <div style="font-size:13px;font-weight:700;color:var(--text-primary);">FINDING-02 - Withdrawal failure is the primary exit trigger</div>
+        <span style="flex-shrink:0;font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:20px;background:rgba(74,222,128,0.1);color:#4ade80;border:1px solid rgba(74,222,128,0.2);">HIGH</span>
+      </div>
+      <p style="margin-bottom:8px;">Most common Hellcase and Key-Drop complaints: items show full value but cannot be withdrawn, forced exchanges instead of direct withdrawal, "out of stock" blocking claimed prizes. User language: "extremely frustrated," "betrayal," "there is no live chat option." Withdrawal delays exceeding 48 hours are explicitly listed as the primary exit reason by platform ranking guides.</p>
+      <div style="font-size:11px;color:var(--text-muted);">IMPACT: Confirms withdrawal reliability as the most-cited pain point. Withdrawal is not a feature - it is the reputation at stake.</div>
+    </div>
+
+    <div class="card" style="border-left:3px solid rgba(101,163,255,0.5);">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px;">
+        <div style="font-size:13px;font-weight:700;color:var(--text-primary);">FINDING-03 - Animation quality is a named platform selection factor</div>
+        <span style="flex-shrink:0;font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:20px;background:rgba(101,163,255,0.1);color:var(--accent-blue);border:1px solid rgba(101,163,255,0.2);">MEDIUM</span>
+      </div>
+      <p style="margin-bottom:8px;">Key-Drop users specifically cite "flashy animations" and "visually striking" design as selection factors. The GamerBolt analysis describes the reveal: "the reel slows down. A red skin flashes past. Chat loses its mind." Animation quality is something users can name and articulate.</p>
+      <div style="font-size:11px;color:var(--text-muted);">IMPACT: Rarity-differentiated animation is the right redesign priority. Flat-to-tiered animation is a named competitive surface, not just a polish item.</div>
+    </div>
+
+    <div class="card" style="border-left:3px solid rgba(101,163,255,0.5);">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px;">
+        <div style="font-size:13px;font-weight:700;color:var(--text-primary);">FINDING-04 - Casual users use institutional trust proxies, not direct PF verification</div>
+        <span style="flex-shrink:0;font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:20px;background:rgba(101,163,255,0.1);color:var(--accent-blue);border:1px solid rgba(101,163,255,0.2);">MEDIUM</span>
+      </div>
+      <p style="margin-bottom:8px;">Platform selection for casual Openers goes: esports team endorsement, Trustpilot score, community reputation, operating longevity. Direct PF hash verification is a Researcher behavior, not a mass-market first-check. PF selection guides that rank it first are written for structured due-diligence users ("take 5 minutes to run this quick legitimacy audit"), not casual openers.</p>
+      <div style="font-size:11px;color:var(--text-muted);">IMPACT: Trust badge (auditor name, Trustpilot score) is the correct landing page signal - a visual proxy, not a reading requirement. Closed by Decision 1 (hybrid hero).</div>
+    </div>
+
+    <div class="card" style="border-left:3px solid rgba(101,163,255,0.5);">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px;">
+        <div style="font-size:13px;font-weight:700;color:var(--text-primary);">FINDING-05 - Case opening market: 32M opens in March 2025 alone</div>
+        <span style="flex-shrink:0;font-size:9px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:20px;background:rgba(101,163,255,0.1);color:var(--accent-blue);border:1px solid rgba(101,163,255,0.2);">MEDIUM</span>
+      </div>
+      <p style="margin-bottom:8px;">$82M+ in key revenue in a single month. Drop rates: Mil-Spec items 79.92%, knives/gloves 0.26%. Players lose approximately 30-40% on average. Market scale confirms a new entrant has addressable volume.</p>
+      <div style="font-size:11px;color:var(--text-muted);">IMPACT: Confirms the economic model is viable at 7-10% mini-game edge even without the v1 hypothesis of 25-40% edge.</div>
+    </div>
+
+  </div>
+
+  <h3 style="margin-bottom:14px;">Killed Claims</h3>
+  <div class="card" style="border-left:3px solid #ef4444;margin-bottom:32px;">
+    <div style="font-size:13px;font-weight:700;color:#ef4444;margin-bottom:8px;">KILLED-01 - Mass-market Thrill Seekers actively verify provably fair before depositing</div>
+    <p style="margin-bottom:8px;">What killed it: Hellcase has 2M MAU and 150,000 daily opens with no public PF page, 82.1% tested RTP, and no formal license - the lowest trust posture in the category. If mass-market casual users required PF verification, Hellcase could not hold the largest audience. PF evaluation is a Researcher behavior.</p>
+    <div style="font-size:11px;color:var(--text-muted);">Resolution: Repositioned as FLAG-01. Trust infrastructure is still built (regulatory hedge, Researcher acquisition, post-reveal verification). Trust signal for Openers is a visual badge - not a PF page visit. Closed by Decision 1.</div>
+  </div>
+
+  <h3 style="margin-bottom:14px;">Unresolved</h3>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
+    <div class="q-item">
+      <div class="q-num">?</div>
+      <div>
+        <div class="q-text">Whether an auditor badge inline with animation converts deposit flow click-through better than animation alone. Requires a landing page A/B test - no data exists pre-launch.</div>
+        <div class="q-cat">Acquisition - Riskiest Assumption (refined)</div>
+      </div>
+    </div>
+    <div class="q-item">
+      <div class="q-num">?</div>
+      <div>
+        <div class="q-text">Direct verbatim user quotes about first case open emotions. All searches returned aggregator guides rather than primary forum posts. Composite quotes in personas.md are behavior-inferred, not verbatim citations.</div>
+        <div class="q-cat">Personas - mood quote credibility</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="conclusions-box">
+    <h4>Key Implication</h4>
+    <p style="font-size:14px;margin-bottom:10px;">Trust infrastructure works via institutional proxies for casual users, not via on-site PF verification. A Trustpilot badge, an esports team endorsement, and a bot-free live feed are all trust signals the Opener processes in the first few seconds. A provably fair page that requires reading is a Researcher tool, not an Opener conversion tool.</p>
+    <p style="font-size:14px;margin-bottom:0;">Withdrawal failure is more critical than any other single UX moment. Every persona exits on withdrawal failure. The withdrawal experience must succeed consistently and communicate status clearly even when it takes longer than expected. This is not a feature - it is the reputation at stake.</p>
+  </div>
+</section>
+
 </main>
 
 <footer>
@@ -1197,11 +1309,30 @@
   var btn = document.getElementById('hamburger-btn');
   var overlay = document.getElementById('sidebar-overlay');
   var sidebar = document.getElementById('sidebar');
-  function open() { sidebar.classList.add('open'); overlay.classList.add('active'); }
-  function close() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
-  if (btn) btn.addEventListener('click', function() { sidebar.classList.contains('open') ? close() : open(); });
-  if (overlay) overlay.addEventListener('click', close);
-  sidebar.querySelectorAll('.sidebar-link').forEach(function(link) { link.addEventListener('click', function() { if (window.innerWidth < 860) close(); }); });
+  function openNav() { sidebar.classList.add('open'); overlay.classList.add('active'); }
+  function closeNav() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
+  if (btn) btn.addEventListener('click', function() { sidebar.classList.contains('open') ? closeNav() : openNav(); });
+  if (overlay) overlay.addEventListener('click', closeNav);
+  sidebar.querySelectorAll('.sidebar-link').forEach(function(link) { link.addEventListener('click', function() { if (window.innerWidth < 860) closeNav(); }); });
+
+  var sectionIds = ['intro','lean-canvas','strategy','aarrr','competitors','benchmark','ux-patterns','compliance','conclusions','live-research'];
+  var links = {};
+  sectionIds.forEach(function(id) {
+    var el = document.querySelector('.sidebar-link[href="#' + id + '"]');
+    if (el) links[id] = el;
+  });
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && links[entry.target.id]) {
+        Object.values(links).forEach(function(l) { l.classList.remove('active'); });
+        links[entry.target.id].classList.add('active');
+      }
+    });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  sectionIds.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
 })();
 </script>
 </body>

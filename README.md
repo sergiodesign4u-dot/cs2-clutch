@@ -1,6 +1,8 @@
 # CS2 Clutch - Product Research Sprint
 
 > Live research HTML: **[https://sergiodesign4u-dot.github.io/cs2-clutch/research.html](https://sergiodesign4u-dot.github.io/cs2-clutch/research.html)**
+> Personas: **[https://sergiodesign4u-dot.github.io/cs2-clutch/personas.html](https://sergiodesign4u-dot.github.io/cs2-clutch/personas.html)**
+> JTBD: **[https://sergiodesign4u-dot.github.io/cs2-clutch/jtbd.html](https://sergiodesign4u-dot.github.io/cs2-clutch/jtbd.html)**
 
 A structured product research sprint for the redesign of a CS2 skin opening platform (baseline: daddyskins.com). Working placeholder name: CS2 Clutch. Brand assets are out of scope.
 
@@ -18,12 +20,16 @@ A structured product research sprint for the redesign of a CS2 skin opening plat
 | 6 | Master Synthesis (research/master-research.md) | Done |
 | 6.5 | Quality Gate (research/quality-check.md) | Done |
 | 7 | Research HTML (research.html) + GitHub Pages | Done |
+| People and JTBD | Personas (personas.html), JTBD (jtbd.html), live verification (research/live-research.md), 4 founder decisions locked | Done |
 | Wireframes | Next phase, follows research | Not started |
 
 ## Key Documents
 
 - [CLAUDE.md](CLAUDE.md) - Product brief, scope, design principles, tech stack hypothesis
-- [research/strategy.md](research/strategy.md) - Objectives, audience segments, business model, riskiest assumption (v_refresh)
+- [research/strategy.md](research/strategy.md) - Objectives, audience segments, business model, riskiest assumption, 4 product decisions (v_people)
+- [research/personas.md](research/personas.md) - 4 personas with people inventory (v_people)
+- [research/jtbd.md](research/jtbd.md) - JTBD hierarchy, matrix, critique, decisions applied (v_people)
+- [research/live-research.md](research/live-research.md) - Post-persona verification artifact: 5 confirmed, 1 killed, 2 unresolved
 - [research/product-model.md](research/product-model.md) - Prior version kept for history
 - [research/aarrr.md](research/aarrr.md) - AARRR funnel model with metrics and product decisions
 - [research/competitive-analysis.md](research/competitive-analysis.md) - HARD / SOFT / ASPIRATIONAL competitor groups and analysis matrix
