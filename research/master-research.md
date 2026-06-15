@@ -413,4 +413,40 @@ Because: Hellcase has the largest audience (2M MAU, 150,000 daily opens) in the 
 
 ---
 
+---
+
+## 9. Post-Persona Research, June 2026
+
+*Added after persona and JTBD development. All claims cite live sources fetched in this round. Full verification artifact: research/live-research.md.*
+
+### Acquisition mechanism confirmed for Openers
+
+Streamer and social-proof clips are the dominant trigger for casual first-time depositors. The social proof loop is: someone posts a knife pull, others think "why not me," open cases, and frequently spend more than expected. In March 2025, 32 million CS2 cases were opened, generating $82 million+ in key revenue. Creators like Anomaly (3.35M subscribers) and Sparkles (2.51M subscribers) drive case opening behavior through clip virality. Esports team endorsements (Team Vitality/skin.club, MOUZ/G4Skins) serve as institutional trust proxies for casual users - they do not self-verify provably fair, they rely on team vetting. Source: https://www.gamerbolt.com/opening-cs2-cases/ (March 2025 volume data); https://skinrave.gg/en/blog/top-10-most-popular-cs2-youtubers-in-2025; https://blix.gg/blog/betting/best-cs2-gambling-sites/.
+
+### Withdrawal failure confirmed as the primary exit trigger
+
+The most common theme in Hellcase and Key-Drop complaint data is withdrawal failure. Specific patterns: items show full value but cannot be withdrawn, forced exchanges instead of direct withdrawal, "out of stock" preventing claimed prizes, crypto deposit delays of 3+ days. User emotional language includes "feeling scammed/trapped," "betrayal," and "there is no live chat option." Platform ranking guides explicitly list withdrawal delays over 48 hours as the primary reason users abandon platforms. Source: https://www.sikayetvar.com/en/hellcase-us; https://cs2wh.com/best-cs2-gambling-sites.
+
+### Casual users use institutional trust proxies, not direct PF verification
+
+Platform selection guides that rank provably fair first are written for "research-mode" users doing structured due diligence - not casual openers. For the casual Opener, the trust evaluation chain is: esports team endorsement, Trustpilot score, community reputation (Reddit, Discord), operating longevity. Direct cryptographic PF verification is not a first-check behavior for mass-market casual depositors. A third-party RNG auditor badge functions as a visual/institutional trust proxy - not a verification tool the Opener uses. Source: https://csgototem.com/blog/how-to-choose-a-reliable-cs2-case-opening-site/; https://egamersworld.com/counterstrike/betting/csgo-case-opening-sites.
+
+### Mass-market Openers do NOT self-verify PF before depositing - claim KILLED
+
+Hellcase (lowest trust score, no public PF page, 82.1% tested RTP, no license) has 2M MAU and 150,000 daily opens - the largest audience in the category. If mass-market Thrill Seekers made PF self-verification a prerequisite for depositing, Hellcase could not hold the largest audience. The acquisition mechanism for the Opener is streamer endorsement, not PF infrastructure. Trust infrastructure matters to the Researcher segment and as a regulatory hedge, but is not confirmed as a mass-market acquisition driver.
+
+This KILLS the claim that the Opener actively evaluates PF before depositing. It does NOT kill trust infrastructure investment (still required for regulatory compliance, Researcher-segment conversion, and institutional trust proxy signals like auditor badges). Source: https://esports.gg/news/counter-strike-2/what-is-hellcase/ (scale at low trust score); live-research.md KILLED-01.
+
+### Animation quality confirmed as a named platform selection factor
+
+Key-Drop users specifically cite "flashy animations" and "visually striking" presentation as positive attributes. The opening animation is described as "the whole show" - the reel slowing down, items flashing past, the moment of resolution. This confirms animation quality is not only a retention factor but a platform selection factor users can articulate. Source: https://www.psu.com/news/best-cs2-case-opening-platforms-in-2026-key-drop-and-alternatives/; https://www.gamerbolt.com/opening-cs2-cases/.
+
+### What remains unresolved after this round
+
+[?] Whether trust-first landing page messaging (badge, auditor name) converts Thrill Seekers at higher rates than experience-first messaging - requires A/B test, no data exists.
+
+[?] Direct verbatim user quotes about first case open emotions - all searches returned aggregator guides rather than primary forum posts. Composite quotes in personas.md are behavior-inferred, not verbatim citations.
+
+---
+
 *This document is the single source of truth for the wireframe phase. All design decisions should trace to a section here or note explicitly where and why they diverge.*

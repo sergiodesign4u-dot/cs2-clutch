@@ -100,7 +100,7 @@ FACT - Age 18-25, active CS2 player. Follows skin culture and streamers. Has dis
 
 FACT - Arrives from a stream clip, YouTube video, or Discord link where someone else won something remarkable. Source: research/ux-patterns.md, Pattern 1.
 
-HYPOTHESIS - [?] Whether "someone I follow on socials opened this" is more persuasive than "a random streamer won on a stream" is unknown. Both are covered by "arrived via external social proof" but the trust weighting may differ.
+FACT - The social proof loop is confirmed: "one person posts a knife pull and someone else thinks why not me." Esports team endorsements (Team Vitality/skin.club, MOUZ/G4Skins) serve as institutional trust proxies for casual users alongside creator clip virality. Source: https://www.gamerbolt.com/opening-cs2-cases/; https://blix.gg/blog/betting/best-cs2-gambling-sites/ (post-persona research, June 2026).
 
 **Jobs - what they are trying to get done**
 
@@ -126,7 +126,7 @@ FACT - Convinces: A starter offer they can act on immediately, without reading t
 
 FACT - Scares off: A platform that feels slow or visually dead. Speed as trust - lag feels dishonest in a randomized-outcome product. Source: research/master-research.md (Design Principles).
 
-HYPOTHESIS - [?] Whether the Opener reads or cares about provably fair information before their first deposit is unknown. The riskiest assumption in strategy.md is exactly this question.
+FACT (post-persona research) - The Opener does NOT self-verify provably fair before depositing as a mass-market behavior. Hellcase has 2M MAU and 150,000 daily opens despite no public PF page and 82.1% tested RTP - the lowest trust posture in the category. Casual users use institutional trust proxies (team endorsements, Trustpilot score, platform longevity) not direct PF hash verification. A PF auditor badge is a visual trust proxy that works for this persona; a detailed PF page is a Researcher tool. Source: live-research.md KILLED-01; https://esports.gg/news/counter-strike-2/what-is-hellcase/. Note: whether trust messaging as a landing page signal converts Openers at higher rates than experience-first messaging remains [?] UNRESOLVED (see live-research.md UNRESOLVED-01).
 
 **Mood quote from research**
 
