@@ -149,3 +149,65 @@ A false assumption does not invalidate the platform. It reframes the strategy. I
 - Compete on experience quality (animation, speed, reveal quality) rather than trust positioning.
 
 Source of the assumption: every competitor claim is that fairness matters; the counter-evidence is that Hellcase (lowest fairness score, no public PF page, 82.1% tested RTP) is also the platform with 2M MAU and 150,000 daily opens - the largest audience in the category. Users are not choosing primarily on trust evidence they can evaluate. Source: https://esports.gg/news/counter-strike-2/what-is-hellcase/, https://skincasereviewer.com/reviews/hellcase.
+
+---
+
+## 5. Product Decisions (v_people, June 2026)
+
+**Locked after persona, JTBD, and targeted re-research. Founder decisions. Not to be reopened without new evidence.**
+
+---
+
+### Decision 1 - Landing page trust signal approach - CLOSED
+
+**Question:** What goes in the hero position: experience-first, trust-first, or hybrid?
+
+**Decision: Hybrid (experience + trust badge inline in the hero unit).**
+
+The reveal animation leads as the hero. An institutional trust badge (third-party auditor name + Trustpilot score once established) is present in the hero unit, not relegated below the fold. Both elements are visible on first paint without scrolling.
+
+**Reasoning:** Post-persona re-research confirmed (FINDING-04 in live-research.md) that mass-market Openers do not self-verify PF before depositing - they use institutional trust proxies (team endorsements, Trustpilot score, auditor badge). A PF page that requires reading is a Researcher tool. An auditor badge in the hero is a visual shorthand that works for both Openers (permission slip) and Researchers (a named signal to look up). Experience-first messaging confirms the platform is in the right category; the trust badge confirms it is the trustworthy version of the category. These do not conflict if hierarchy is correct. The landing page A/B test from Section 4 still runs, but the hypothesis is now: "does an auditor BADGE inline with animation convert deposit flow click-through better than animation alone" - a more precise test than "PF page vs animation page."
+
+**What this closes:** FLAG-01. The trust-differentiation thesis is repositioned from PF self-verification to visual/institutional signal. Trust infrastructure (PF page, auditor badge, bot-free feed) is still built - it is expressed as a badge and as a post-reveal verification link, not as a pre-deposit reading requirement.
+
+---
+
+### Decision 2 - Battle mode at launch - CLOSED
+
+**Question:** How to handle battle mode given low DAU at launch?
+
+**Decision: Hide open matchmaking until organic DAU can fill lobbies under 60 seconds. Friends-only battles as Phase 1.5 soft launch.**
+
+Battle mode is not featured prominently in launch navigation. A friends-only private lobby mechanic (invite a specific user) launches as the first battle mode - no open matchmaking, no bots. Open matchmaking with public lobby browsing activates when the platform can reliably fill lobbies under 60 seconds without bot assistance, as a product gate not a calendar date.
+
+**Reasoning:** The condition in master-research.md Hypothesis 4 is strict: a bot battle is solo opening with extra steps. The D7 retention value of battles comes entirely from real human social tension. Friends-only removes the bot problem entirely while creating a viral mechanic (you need a friend on the platform to play a battle). DatDrop's majority-bot Battle Royale lobbies are the confirmed failure mode. Clash.gg's 30-second matchmaking is the benchmark for when open lobbies become the primary battle surface.
+
+**What this closes:** The "minimum DAU for battle prominence" open question in master-research.md Open Questions Table is now a product gate with a clear condition (60-second fill without bots), not a calendar question. Marked CLOSED as a design decision.
+
+---
+
+### Decision 3 - Free-to-play entry offer at launch - CLOSED
+
+**Question:** What is the MVP free-to-play activation offer?
+
+**Decision: $0.50-$0.70 no-deposit starter credit + daily free case that unlocks on D2+ return.**
+
+The starter credit is the table-stakes activation hook (non-withdrawable, enough to open one low-cost case). A daily free case - scaling in quality with engagement level over time, matching Key-Drop's Daily Case model - is the return incentive wired to D7 retention.
+
+**Reasoning:** Rain-style ambient distribution (Clash.gg model) requires DAU density to be meaningful - a new platform without concurrent users will have an empty ambient mechanic. Key-Drop's Daily Case leveling is confirmed as a working retention pattern (mentioned in research/competitive-analysis.md and aarrr.md). The combination of activation credit (D1) plus return incentive (D2+) closes both the activation gap and the first return-visit gap without requiring the engineering complexity of a real-time ambient distribution system. Rain-style mechanic is deferred to Phase 2 once concurrent user count makes it feel alive.
+
+**What this closes:** The "free-to-play pathway" hypothesis in strategy.md Business Model (marked CHALLENGED) is now resolved as a two-step mechanic: starter credit for activation, daily case for retention. The Clash.gg Rain mechanic remains aspirational Phase 2.
+
+---
+
+### Decision 4 - Withdrawal architecture at launch - CLOSED
+
+**Question:** Steam-only withdrawal or Steam + crypto at launch?
+
+**Decision: Steam skin withdrawal only at launch. Crypto is Phase 2.**
+
+The primary value proposition - bypass Steam's 15% fee and wallet lock by delivering directly to Steam inventory, commission-free - is fully delivered by Steam-only withdrawal. No crypto or fiat path at launch.
+
+**Reasoning:** Crypto adds KYC flow complexity, crypto payment processor integration, and a new complaint vector (crypto delays are already a Key-Drop Trustpilot complaint theme in 2026). Launching with crypto before the core opening loop is stress-tested introduces a high-visibility failure risk (a failed or delayed crypto withdrawal on a new platform is a reputation-ending early review). skin.club operates successfully Steam-only and scores well on the benchmark. The crypto expansion path (following Clash.gg and CSGORoll) is clearly mapped for Phase 2 without architectural risk.
+
+**What this closes:** The "withdrawal architecture" scope question is closed for MVP. Phase 2 crypto path to be specified when Phase 1 withdrawal reliability is confirmed.

@@ -90,6 +90,14 @@ The kill does raise a flag for strategy.md: the trust-differentiation thesis for
 
 ---
 
+## FLAG-01 Resolution (v_people, June 2026)
+
+**Killed claim:** Mass-market Thrill Seekers actively verify provably fair before depositing.
+**Locked item it broke:** strategy.md trust-differentiation thesis for acquisition.
+**Founder decision:** Option A - reposition trust as visual/institutional signal rather than PF self-verification UX feature.
+
+What changed: The landing page design uses a hybrid hero (animation leads, institutional trust badge in the same hero unit - not below fold). The trust investment is expressed as a badge (auditor name when secured, Trustpilot score) and as a post-reveal verification link. The PF page is the Researcher's tool, present and public, but not the Opener's acquisition signal. The A/B test hypothesis from strategy.md Section 4 is refined: "does auditor badge inline with animation convert deposit flow click-through better than animation alone" is now the smallest valid experiment. Recorded in strategy.md Section 5 Decision 1, master-research.md Section 9 decisions log.
+
 ## Key Implication
 
 The research confirms that trust infrastructure works via institutional proxies for casual users, not via on-site PF verification. A Trustpilot badge, an esports team endorsement, and a bot-free live feed all function as trust signals the Opener can process in the first few seconds. A provably fair page that requires reading is a Researcher tool, not an Opener conversion tool.

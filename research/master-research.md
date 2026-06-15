@@ -405,7 +405,7 @@ Because: Hellcase has the largest audience (2M MAU, 150,000 daily opens) in the 
 |----------|----------|---------|
 | What jurisdiction strategy is legally viable at launch, and what licenses must be obtained before enabling UK, Netherlands, or Belgium? | Legal / Compliance | Pre-launch blocking |
 | What is the RTP on standard CS2 cases (not mini-games) across the market? | Economics | Before case math is finalized |
-| What is the minimum daily active user count required to fill battle lobbies in under 60 seconds without bots in a new market? | Product / Launch | Before battles are prominently featured |
+| What is the minimum daily active user count required to fill battle lobbies in under 60 seconds without bots in a new market? | Product / Launch | CLOSED - founder decision: battles hidden until 60-sec fill condition is met organically. No specific DAU number required; condition is operational, not metric-based |
 | Which payment processors will work with this product category in target markets, and at what cost? | Payments / Infrastructure | Before deposit/withdrawal design is finalized |
 | Can a named public third-party RNG auditor relationship be secured before launch, and at what cost and timeline? | Trust / Product | Before launch to occupy the uncontested position |
 | [RESOLVED] DatDrop is confirmed operational June 2026 (fastest-growing per independent reviews, 80.6% tested RTP, Battle Royale up to 72 players, DatPoints program). Battle Royale format remains DatDrop's primary differentiator and is an active competitive consideration for battle feature design. | Competitive | Resolved - inform battle feature scope |
@@ -443,9 +443,25 @@ Key-Drop users specifically cite "flashy animations" and "visually striking" pre
 
 ### What remains unresolved after this round
 
-[?] Whether trust-first landing page messaging (badge, auditor name) converts Thrill Seekers at higher rates than experience-first messaging - requires A/B test, no data exists.
+[?] Whether an auditor BADGE inline with animation converts deposit flow click-through better than animation alone - requires a landing page A/B test, no data exists. (Note: the question has been refined from "PF page vs animation" to "badge in hero vs animation alone" following Decision 1 below.)
 
 [?] Direct verbatim user quotes about first case open emotions - all searches returned aggregator guides rather than primary forum posts. Composite quotes in personas.md are behavior-inferred, not verbatim citations.
+
+### Founder decisions log (v_people, June 2026)
+
+All four product decisions from the People and JTBD phase are CLOSED. Full rationale in research/strategy.md Section 5.
+
+| Decision | Choice | Closes |
+|----------|--------|--------|
+| Landing page trust signal | Hybrid: animation hero + institutional trust badge (auditor + Trustpilot) in same hero unit | FLAG-01. Repositions trust from PF self-verification to visual/institutional proxy. A/B test hypothesis refined to badge-in-hero vs animation-only |
+| Battle mode at launch | Open matchmaking hidden. Friends-only private battles as Phase 1.5. Open matchmaking gates on 60-second lobby fill without bots | "Minimum DAU for battle prominence" open question - now a product gate condition, not a calendar date. CLOSED |
+| Free-to-play entry offer | $0.50-$0.70 no-deposit starter credit + daily free case on D2+ return (Key-Drop Daily Case model). Rain-style mechanic deferred to Phase 2 | Free-to-play pathway hypothesis (CHALLENGED in strategy.md Business Model). CLOSED for MVP scope |
+| Withdrawal architecture | Steam skins only at launch. Crypto path is Phase 2 | Withdrawal scope for MVP. CLOSED |
+
+Questions that fall outside product scope and are deferred (not blockers):
+- Jurisdiction licensing strategy (UK, Netherlands, Belgium, Germany): legal decision, not a product gate for wireframes. Deferred with assumption that launch is in compliant or low-enforcement jurisdictions per strategy.md Section 7 staged rollout.
+- Payment processor selection: infrastructure decision, not a wireframe-phase blocker. Deferred to pre-launch engineering sprint.
+- Named third-party RNG auditor timeline and cost: business/legal question. Deferred. The badge placeholder in the hero unit can be built; the auditor name fills in when the relationship is secured.
 
 ---
 

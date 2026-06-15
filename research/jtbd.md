@@ -195,9 +195,10 @@ Competitor gap: skin.club closes this best (few minutes, no fees, no login requi
 
 Functions that appear in the product scope but close no job scoring 3 for the primary persona:
 
-- Rain-style ambient free-to-play mechanic: Closes Hypothesis Job B (spectating converts to deposit). Source is not confirmed. Clash.gg's Rain system is the frontier but was added in 2026 after establishing the core product. Defer to Phase 2.
+- Rain-style ambient free-to-play mechanic: Closes Hypothesis Job B (spectating converts to deposit). Source is not confirmed. Clash.gg's Rain system is the frontier but was added in 2026 after establishing the core product. DECISION: Deferred to Phase 2 (Decision 3, v_people). MVP free-to-play offer is starter credit + daily free case.
 - Community case creation: Closes no job in the current confirmed hierarchy. Addresses a social status job (Hypothesis Job C) with no data. Defer to Phase 2.
-- Fiat/crypto withdrawal path beyond Steam: Closes Related Job 5 for a subset of users. Confirmed by Hellcase (ShadowPay) and Clash.gg (crypto). Not a Day 1 requirement given the Steam-to-inventory argument is the primary value proposition. Defer to Phase 2.
+- Fiat/crypto withdrawal path beyond Steam: Closes Related Job 5 for a subset of users. Confirmed by Hellcase (ShadowPay) and Clash.gg (crypto). DECISION: Deferred to Phase 2 (Decision 4, v_people). Steam-only withdrawal at launch.
+- Battle mode with open matchmaking: Closes Social Job 1 (beat a real person) but only when lobby fill under 60 seconds is achievable. DECISION: Hidden at launch. Friends-only private lobbies are Phase 1.5 (Decision 2, v_people). Open matchmaking activates when fill-time condition is met organically.
 
 ---
 
@@ -228,19 +229,17 @@ Functions that appear in the product scope but close no job scoring 3 for the pr
 
 Priority order (highest design impact first):
 
-**DANGER 1 - Do Thrill Seekers actively evaluate trust signals before depositing?**
+**DANGER 1 - Do Thrill Seekers actively evaluate trust signals before depositing? - CLOSED**
 
-The claim: The Opener cares enough about provably fair and bot-free feeds to be meaningfully influenced by them before their first deposit.
-What it breaks: The entire trust-differentiation positioning thesis. If false, the extensive investment in provably fair page, live-feed authenticity, and third-party auditor produces acquisition advantage near zero. Trust becomes a retention and regulatory hedge, not a positioning lever.
-Where this surfaces in design: Landing page hierarchy (trust signals vs animation showcase). Budget allocation for PF page vs streamer seeding. Pre-login content strategy.
-Where to look for the answer: Reddit: r/GlobalOffensive, r/csgo, r/skinsite. Threads where users discuss why they chose a specific platform for the first time. Look for "I checked the fairness" vs "I tried it because [streamer] used it." Source to KILL or CONFIRM: strategy.md Riskiest Assumption test (landing page A/B on deposit flow click-through).
+CLOSED by post-persona research (live-research.md KILLED-01) and founder Decision 1 (strategy.md Section 5).
 
-**DANGER 2 - What is the actual lobby fill threshold before battle abandonment?**
+Resolution: Mass-market Openers do NOT self-verify PF before depositing. They use institutional trust proxies (esports team endorsements, Trustpilot score, auditor badge, platform longevity). PF self-verification is a Researcher behavior. Design implication locked: landing page uses hybrid hero (animation leads + institutional badge in the same hero unit). The A/B test is refined - hypothesis is now "auditor badge inline with animation vs animation alone" rather than "PF page vs animation page."
 
-The claim: 60-90 seconds is the abandonment threshold for battle lobbies.
-What it breaks: The condition for battle feature prominence. The product design specifies that battles should not be featured prominently until organic DAU can fill lobbies under 60 seconds. If the real threshold is 120 seconds, the condition changes. If it is 30 seconds, the condition tightens significantly.
-Where this surfaces in design: Battle mode navigation hierarchy. Bot policy at launch. DAU gate for featuring battles.
-Where to look: Clash.gg 30-sec matchmaking is the benchmark. DatDrop community threads on bot lobbies. Any published research on online game lobby fill patience.
+**DANGER 2 - What is the actual lobby fill threshold before battle abandonment? - CLOSED**
+
+CLOSED by founder Decision 2 (strategy.md Section 5).
+
+Resolution: The precise threshold (60 vs 90 vs 120 seconds) is not the blocking question. The decision is that open matchmaking is hidden at launch regardless of the exact number, and friends-only private battles launch as Phase 1.5. The threshold becomes operational input for when to promote open matchmaking - it will be measured live, not pre-specified. The design of the battle lobby (fill timer, visible wait state, cancel mechanic) should be architected for 60-second patience as the design target, knowing the Clash.gg benchmark is 30 seconds.
 
 **DANGER 3 - Does showing per-case EV materially change Researcher conversion?**
 
