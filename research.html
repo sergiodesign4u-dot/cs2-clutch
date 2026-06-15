@@ -37,25 +37,76 @@
       pointer-events: none;
       z-index: 0;
     }
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; height: 60px;
-      background: rgba(4,3,25,0.92); backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border); z-index: 100;
-      display: flex; align-items: center; padding: 0 32px; gap: 0;
+    /* SIDEBAR NAV */
+    .sidebar {
+      position: fixed; top: 0; left: 0; width: 220px; height: 100vh;
+      background: rgba(4,3,25,0.97); backdrop-filter: blur(20px);
+      border-right: 1px solid var(--border); z-index: 100;
+      display: flex; flex-direction: column; padding: 24px 14px 32px;
+      overflow-y: auto; transform: translateX(-100%);
+      transition: transform 0.24s cubic-bezier(0.4,0,0.2,1);
     }
-    .nav-brand {
-      font-size: 13px; font-weight: 800; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--accent-pink); margin-right: 32px; white-space: nowrap;
+    .sidebar.open { transform: translateX(0); }
+    .sidebar-brand {
+      font-size: 12px; font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent-pink); padding: 0 6px;
+      margin-bottom: 24px; line-height: 1.4;
     }
-    .nav-links { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; }
-    .nav-links::-webkit-scrollbar { display: none; }
-    .nav-links a {
-      font-size: 12px; font-weight: 500; color: var(--text-secondary);
-      text-decoration: none; padding: 6px 10px; border-radius: 6px;
-      white-space: nowrap; transition: all 0.15s; letter-spacing: 0.02em;
+    .sidebar-brand span { color: var(--text-muted); font-weight: 500; }
+    .sidebar-divider { height: 1px; background: var(--border); margin: 12px 0; }
+    .sidebar-section-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-muted); padding: 0 6px; margin-bottom: 6px;
     }
-    .nav-links a:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); }
-    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 90px 40px 80px; }
+    .sidebar-links { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+    .sidebar-link {
+      font-size: 13px; font-weight: 500; color: var(--text-secondary);
+      text-decoration: none; padding: 7px 10px; border-radius: 7px;
+      transition: all 0.15s; letter-spacing: 0.01em; display: block;
+    }
+    .sidebar-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); text-decoration: none; }
+    .sidebar-link.active { color: var(--text-primary); background: rgba(233,77,139,0.08); }
+    .sidebar-coming-soon {
+      font-size: 13px; color: var(--text-muted); padding: 7px 10px;
+      border-radius: 7px; display: flex; align-items: center; gap: 8px;
+    }
+    .cs-tag {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-muted); background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border); padding: 2px 7px; border-radius: 20px;
+    }
+    .sidebar-next {
+      margin-top: auto; padding: 12px 10px; border: 1px solid var(--border);
+      border-radius: 8px; background: rgba(255,255,255,0.02);
+    }
+    .sidebar-next-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px;
+    }
+    .sidebar-next-items { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+    /* HAMBURGER */
+    .hamburger {
+      position: fixed; top: 14px; left: 14px; z-index: 101;
+      background: var(--bg-card); border: 1px solid var(--border-strong);
+      border-radius: 8px; width: 40px; height: 40px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-secondary); font-size: 16px; transition: all 0.15s;
+    }
+    .hamburger:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); }
+    /* OVERLAY */
+    .sidebar-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55); z-index: 99;
+    }
+    .sidebar-overlay.active { display: block; }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 860px) {
+      .sidebar { transform: translateX(0); }
+      .hamburger { display: none; }
+      .sidebar-overlay { display: none !important; }
+      main { margin-left: 220px; padding-top: 48px; }
+      footer { margin-left: 220px; }
+    }
     section { margin-bottom: 88px; }
     .section-eyebrow {
       font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
@@ -223,7 +274,7 @@
     footer p { font-size: 12px; color: var(--text-muted); }
     /* RESPONSIVE */
     @media (max-width: 860px) {
-      main { padding: 80px 20px 60px; }
+      main { padding: 64px 20px 60px; }
       .card-grid-3 { grid-template-columns: 1fr; }
       .aarrr-block { grid-template-columns: 1fr; }
       .aarrr-left { border-right: none; border-bottom: 1px solid var(--border); }
@@ -234,18 +285,36 @@
 </head>
 <body>
 
-<nav>
-  <div class="nav-brand">CS2 Clutch Research</div>
-  <div class="nav-links">
-    <a href="#intro">Intro</a>
-    <a href="#lean-canvas">Lean Canvas</a>
-    <a href="#strategy">Strategy</a>
-    <a href="#aarrr">AARRR</a>
-    <a href="#competitors">Competitors</a>
-    <a href="#benchmark">Benchmark</a>
-    <a href="#ux-patterns">UX Patterns</a>
-    <a href="#compliance">Compliance</a>
-    <a href="#conclusions">Conclusions</a>
+<button class="hamburger" id="hamburger-btn" aria-label="Open navigation">&#9776;</button>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-brand">CS2 Clutch<br><span>Research</span></div>
+
+  <div class="sidebar-section-label">Research</div>
+  <div class="sidebar-links">
+    <a href="#intro" class="sidebar-link active">Intro</a>
+    <a href="#lean-canvas" class="sidebar-link">Lean Canvas</a>
+    <a href="#strategy" class="sidebar-link">Strategy</a>
+    <a href="#aarrr" class="sidebar-link">AARRR</a>
+    <a href="#competitors" class="sidebar-link">Competitors</a>
+    <a href="#benchmark" class="sidebar-link">Benchmark</a>
+    <a href="#ux-patterns" class="sidebar-link">UX Patterns</a>
+    <a href="#compliance" class="sidebar-link">Compliance</a>
+    <a href="#conclusions" class="sidebar-link">Conclusions</a>
+  </div>
+
+  <div class="sidebar-divider"></div>
+
+  <div class="sidebar-section-label">People</div>
+  <div class="sidebar-links">
+    <span class="sidebar-coming-soon">Personas <span class="cs-tag">Coming soon</span></span>
+    <span class="sidebar-coming-soon">JTBD <span class="cs-tag">Coming soon</span></span>
+  </div>
+
+  <div class="sidebar-next">
+    <div class="sidebar-next-label">Next</div>
+    <div class="sidebar-next-items">Wireframes, Concept</div>
   </div>
 </nav>
 
@@ -1122,6 +1191,17 @@
   }
   buildGallery('baseline-gallery', baseline);
   buildGallery('competitor-gallery', competitors);
+})();
+
+(function() {
+  var btn = document.getElementById('hamburger-btn');
+  var overlay = document.getElementById('sidebar-overlay');
+  var sidebar = document.getElementById('sidebar');
+  function open() { sidebar.classList.add('open'); overlay.classList.add('active'); }
+  function close() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
+  if (btn) btn.addEventListener('click', function() { sidebar.classList.contains('open') ? close() : open(); });
+  if (overlay) overlay.addEventListener('click', close);
+  sidebar.querySelectorAll('.sidebar-link').forEach(function(link) { link.addEventListener('click', function() { if (window.innerWidth < 860) close(); }); });
 })();
 </script>
 </body>
