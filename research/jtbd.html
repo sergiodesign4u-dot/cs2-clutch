@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CS2 Clutch - Jobs to Be Done</title>
+  <link rel="stylesheet" href="../_nav.css">
   <style>
     :root {
       --bg: #040319;
@@ -37,84 +38,10 @@
       pointer-events: none;
       z-index: 0;
     }
-    /* SIDEBAR NAV */
-    .sidebar {
-      position: fixed; top: 0; left: 0; width: 220px; height: 100vh;
-      background: rgba(4,3,25,0.97); backdrop-filter: blur(20px);
-      border-right: 1px solid var(--border); z-index: 100;
-      display: flex; flex-direction: column; padding: 24px 14px 32px;
-      overflow-y: auto; transform: translateX(-100%);
-      transition: transform 0.24s cubic-bezier(0.4,0,0.2,1);
-    }
-    .sidebar.open { transform: translateX(0); }
-    .sidebar-brand {
-      font-size: 12px; font-weight: 800; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--accent-pink); padding: 0 6px;
-      margin-bottom: 24px; line-height: 1.4;
-    }
-    .sidebar-brand span { color: var(--text-muted); font-weight: 500; }
-    .sidebar-divider { height: 1px; background: var(--border); margin: 12px 0; }
-    .sidebar-section-label {
-      font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--text-muted); padding: 0 6px; margin-bottom: 6px;
-    }
-    .sidebar-links { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
-    .sidebar-link {
-      font-size: 13px; font-weight: 500; color: var(--text-secondary);
-      text-decoration: none; padding: 7px 10px; border-radius: 7px;
-      transition: all 0.15s; letter-spacing: 0.01em; display: block;
-    }
-    .sidebar-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); text-decoration: none; }
-    .sidebar-link.active { color: var(--text-primary); background: rgba(233,77,139,0.08); }
-    .sidebar-coming-soon {
-      font-size: 13px; color: var(--text-muted); padding: 7px 10px;
-      border-radius: 7px; display: flex; align-items: center; gap: 8px;
-    }
-    .cs-tag {
-      font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--text-muted); background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border); padding: 2px 7px; border-radius: 20px;
-    }
-    .sidebar-next {
-      margin-top: auto; padding: 12px 10px; border: 1px solid var(--border);
-      border-radius: 8px; background: rgba(255,255,255,0.02);
-    }
-    .sidebar-next-label {
-      font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px;
-    }
-    .sidebar-next-items { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
-    /* SIDEBAR SUBLINKS */
-    .sidebar-sublinks { display: flex; flex-direction: column; gap: 1px; margin-bottom: 4px; }
-    .sidebar-sublink {
-      font-size: 12px; font-weight: 400; color: var(--text-muted);
-      text-decoration: none; padding: 5px 10px 5px 20px; border-radius: 6px;
-      transition: color 0.15s; letter-spacing: 0.01em; display: block;
-    }
-    .sidebar-sublink:hover { color: var(--text-secondary); text-decoration: none; }
-    .sidebar-sublink.active { color: var(--text-secondary); }
-    /* HAMBURGER */
-    .hamburger {
-      position: fixed; top: 14px; left: 14px; z-index: 101;
-      background: var(--bg-card); border: 1px solid var(--border-strong);
-      border-radius: 8px; width: 40px; height: 40px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-secondary); font-size: 16px; transition: all 0.15s;
-    }
-    .hamburger:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); }
-    /* OVERLAY */
-    .sidebar-overlay {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.55); z-index: 99;
-    }
-    .sidebar-overlay.active { display: block; }
     main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
-    @media (min-width: 860px) {
-      .sidebar { transform: translateX(0); }
-      .hamburger { display: none; }
-      .sidebar-overlay { display: none !important; }
-      main { margin-left: 220px; padding-top: 48px; }
-      footer { margin-left: 220px; }
+    @media (min-width: 900px) {
+      main { margin-left: var(--nav-w); padding-top: 48px; }
+      footer { margin-left: var(--nav-w); }
     }
     section { margin-bottom: 88px; }
     .section-eyebrow {
@@ -311,46 +238,7 @@
 </head>
 <body>
 
-<button class="hamburger" id="hamburger-btn" aria-label="Open navigation">&#9776;</button>
-<div class="sidebar-overlay" id="sidebar-overlay"></div>
-
-<nav class="sidebar" id="sidebar">
-  <div class="sidebar-brand">CS2 Clutch<br><span>Research</span></div>
-
-  <div class="sidebar-section-label">Research</div>
-  <div class="sidebar-links">
-    <a href="research.html#intro" class="sidebar-link">Intro</a>
-    <a href="research.html#lean-canvas" class="sidebar-link">Lean Canvas</a>
-    <a href="research.html#strategy" class="sidebar-link">Strategy</a>
-    <a href="research.html#aarrr" class="sidebar-link">AARRR</a>
-    <a href="research.html#competitors" class="sidebar-link">Competitors</a>
-    <a href="research.html#benchmark" class="sidebar-link">Benchmark</a>
-    <a href="research.html#ux-patterns" class="sidebar-link">UX Patterns</a>
-    <a href="research.html#compliance" class="sidebar-link">Compliance</a>
-    <a href="research.html#conclusions" class="sidebar-link">Conclusions</a>
-  </div>
-
-  <div class="sidebar-divider"></div>
-
-  <div class="sidebar-section-label">People</div>
-  <div class="sidebar-links">
-    <a href="personas.html" class="sidebar-link">Personas</a>
-    <a href="jtbd.html" class="sidebar-link active">JTBD</a>
-    <div class="sidebar-sublinks">
-      <a href="#main-job" class="sidebar-sublink" data-section="main-job">Main Job</a>
-      <a href="#related-jobs" class="sidebar-sublink" data-section="related-jobs">Related Jobs</a>
-      <a href="#emotional-social" class="sidebar-sublink" data-section="emotional-social">Emotional + Social</a>
-      <a href="#hypotheses" class="sidebar-sublink" data-section="hypotheses">Hypotheses</a>
-      <a href="#matrix" class="sidebar-sublink" data-section="matrix">JTBD Matrix</a>
-      <a href="#decisions" class="sidebar-sublink" data-section="decisions">Decisions</a>
-    </div>
-  </div>
-
-  <div class="sidebar-next">
-    <div class="sidebar-next-label">Next</div>
-    <div class="sidebar-next-items">Wireframes, Concept</div>
-  </div>
-</nav>
+<aside id="sidebar"></aside>
 
 <main>
 
@@ -393,7 +281,7 @@
     <div class="job-meta" style="margin-top:16px">
       <div class="job-meta-item">
         <span class="job-meta-label">Source:</span>
-        <span>Synthesized from strategy.md, ux-patterns.md, master-research.md</span>
+        <span>Synthesized from strategy.md, ux-patterns.md, research.md</span>
       </div>
       <div class="job-meta-item">
         <span class="job-meta-label">Persona:</span>
@@ -432,7 +320,7 @@
       </div>
       <div class="job-meta-item">
         <span class="job-meta-label">Basis:</span>
-        <span>FACT. Pre-login wall is a confirmed conversion barrier. Clash.gg (outlier: RTP values, payment options, active battle previews all visible pre-login) correlates with fastest-growing status per independent reviewers. Source: competitive-analysis.md (Common Pattern 2); aarrr.md (Acquisition).</span>
+        <span>FACT. Pre-login wall is a confirmed conversion barrier. Clash.gg (outlier: RTP values, payment options, active battle previews all visible pre-login) correlates with fastest-growing status per independent reviewers. Source: competitors.md (Common Pattern 2); aarrr.md (Acquisition).</span>
       </div>
     </div>
   </div>
@@ -454,7 +342,7 @@
       </div>
       <div class="job-meta-item">
         <span class="job-meta-label">Basis:</span>
-        <span>FACT. The first case open is the singular activation event. "Everything in the AARRR model serves or depends on this moment." Source: master-research.md (AARRR Key Insight); aarrr.md (Activation). No-deposit credit range confirmed: $0.50-$1.00 from competitor data.</span>
+        <span>FACT. The first case open is the singular activation event. "Everything in the AARRR model serves or depends on this moment." Source: research.md (AARRR Key Insight); aarrr.md (Activation). No-deposit credit range confirmed: $0.50-$1.00 from competitor data.</span>
       </div>
     </div>
   </div>
@@ -476,7 +364,7 @@
       </div>
       <div class="job-meta-item">
         <span class="job-meta-label">Basis:</span>
-        <span>FACT. The post-reveal verification link is a benchmark mechanism selected from skin.club's public roll history and CSGORoll's provably fair documentation. "Most users never do, but knowing they could is the trust signal." Source: master-research.md (Benchmark - Mechanism 3; Mechanism 1).</span>
+        <span>FACT. The post-reveal verification link is a benchmark mechanism selected from skin.club's public roll history and CSGORoll's provably fair documentation. "Most users never do, but knowing they could is the trust signal." Source: research.md (Benchmark - Mechanism 3; Mechanism 1).</span>
       </div>
     </div>
   </div>
@@ -520,7 +408,7 @@
       </div>
       <div class="job-meta-item">
         <span class="job-meta-label">Basis:</span>
-        <span>FACT. "Withdrawal reliability is the most-cited user pain point in review aggregator complaints across all five platforms." Steam Market's 15% fee and wallet lock are the primary conversion argument for case platforms. Source: strategy.md (Business Model); competitive-analysis.md.</span>
+        <span>FACT. "Withdrawal reliability is the most-cited user pain point in review aggregator complaints across all five platforms." Steam Market's 15% fee and wallet lock are the primary conversion argument for case platforms. Source: strategy.md (Business Model); competitors.md.</span>
       </div>
     </div>
   </div>
@@ -553,7 +441,7 @@
       </div>
       <div class="job-meta-item">
         <span class="job-meta-label">Basis:</span>
-        <span>FACT. Near-miss animations are confirmed as a dark pattern to avoid. "A near-miss that was pre-calculated as a loss is fabricated theatre, not tension." Source: master-research.md (Benchmark - 1 Mechanism That Will NOT Work).</span>
+        <span>FACT. Near-miss animations are confirmed as a dark pattern to avoid. "A near-miss that was pre-calculated as a loss is fabricated theatre, not tension." Source: research.md (Benchmark - 1 Mechanism That Will NOT Work).</span>
       </div>
     </div>
   </div>
@@ -575,7 +463,7 @@
       </div>
       <div class="job-meta-item">
         <span class="job-meta-label">Basis:</span>
-        <span>FACT. Win sharing is the organic acquisition channel with the highest trust signal. "Key-Drop's sparks and fire effects are specifically cited as the most memorable visual differentiator in user reviews, confirming that animation quality drives sharing behavior." Source: master-research.md (Hypothesis 3); aarrr.md (Referral).</span>
+        <span>FACT. Win sharing is the organic acquisition channel with the highest trust signal. "Key-Drop's sparks and fire effects are specifically cited as the most memorable visual differentiator in user reviews, confirming that animation quality drives sharing behavior." Source: research.md (Hypothesis 3); aarrr.md (Referral).</span>
       </div>
     </div>
   </div>
@@ -597,7 +485,7 @@
       </div>
       <div class="job-meta-item">
         <span class="job-meta-label">Basis:</span>
-        <span>FACT (inferred from feature patterns, not direct user research). Rakeback programs (Gamdom 15% zero-wagering, DatDrop DatPoints 5 pts/$1) are confirmed as table stakes for retaining Grinder-type users. The design implication is that loyalty must feel like skill being rewarded, not like random gifts. Source: strategy.md (Segment B); competitive-analysis.md.</span>
+        <span>FACT (inferred from feature patterns, not direct user research). Rakeback programs (Gamdom 15% zero-wagering, DatDrop DatPoints 5 pts/$1) are confirmed as table stakes for retaining Grinder-type users. The design implication is that loyalty must feel like skill being rewarded, not like random gifts. Source: strategy.md (Segment B); competitors.md.</span>
       </div>
     </div>
   </div>
@@ -622,7 +510,7 @@
       </div>
       <div class="job-meta-item">
         <span class="job-meta-label">Basis:</span>
-        <span>FACT. Bot activity in battle lobbies is confirmed as the most cited pain for battle mode users. "A bot battle is solo opening with extra steps - the social tension is gone." Source: master-research.md (Hypothesis 4); ux-patterns.md (Pattern 3 - The Battler).</span>
+        <span>FACT. Bot activity in battle lobbies is confirmed as the most cited pain for battle mode users. "A bot battle is solo opening with extra steps - the social tension is gone." Source: research.md (Hypothesis 4); ux-patterns.md (Pattern 3 - The Battler).</span>
       </div>
     </div>
   </div>
@@ -644,7 +532,7 @@
       </div>
       <div class="job-meta-item">
         <span class="job-meta-label">Basis:</span>
-        <span>FACT. Live drop feed (authentic, bot-free) is confirmed as both a trust mechanism and an acquisition tool. "Seeing real drops reassures the new visitor that drops actually happen." The combination of social proof and verifiability is the hardest trust signal to fake. Source: master-research.md (Benchmark - Mechanism 3).</span>
+        <span>FACT. Live drop feed (authentic, bot-free) is confirmed as both a trust mechanism and an acquisition tool. "Seeing real drops reassures the new visitor that drops actually happen." The combination of social proof and verifiability is the hardest trust signal to fake. Source: research.md (Benchmark - Mechanism 3).</span>
       </div>
     </div>
   </div>
@@ -949,51 +837,22 @@
 </main>
 
 <footer>
-  <p>CS2 Clutch Research Sprint - June 2026. Baseline: daddyskins.com. Working placeholder name. Brand assets out of scope.</p>
-  <p>People: Jobs to Be Done. Built from strategy.md, ux-patterns.md, master-research.md, personas.md.</p>
+  <p>CS2 Clutch, stage 02 of twelve. Baseline: daddyskins.com. Working placeholder name. Next stage: CJM.</p>
+  <p>People: Jobs to Be Done. Built from strategy.md, ux-patterns.md, research.md, personas.md.</p>
 </footer>
 
+
 <script>
-(function() {
-  var btn = document.getElementById('hamburger-btn');
-  var overlay = document.getElementById('sidebar-overlay');
-  var sidebar = document.getElementById('sidebar');
-  function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('active'); }
-  function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
-  if (btn) btn.addEventListener('click', function() { sidebar.classList.contains('open') ? closeSidebar() : openSidebar(); });
-  if (overlay) overlay.addEventListener('click', closeSidebar);
-  sidebar.querySelectorAll('.sidebar-link, .sidebar-sublink').forEach(function(link) {
-    link.addEventListener('click', function() { if (window.innerWidth < 860) closeSidebar(); });
-  });
-})();
-
-(function() {
-  var sublinks = document.querySelectorAll('.sidebar-sublink[data-section]');
-  if (!sublinks.length || !window.IntersectionObserver) return;
-
-  var sectionIds = [];
-  sublinks.forEach(function(link) { sectionIds.push(link.getAttribute('data-section')); });
-
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var activeId = entry.target.id;
-        sublinks.forEach(function(link) {
-          if (link.getAttribute('data-section') === activeId) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
-      }
-    });
-  }, { rootMargin: '-15% 0px -75% 0px' });
-
-  sectionIds.forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el) observer.observe(el);
-  });
-})();
+window.NAV_BASE = '../';
+window.NAV_SECTIONS = [
+  { id: 'main-job', label: 'Main Job' },
+  { id: 'related-jobs', label: 'Related Jobs' },
+  { id: 'emotional-social', label: 'Emotional + Social' },
+  { id: 'hypotheses', label: 'Hypotheses' },
+  { id: 'matrix', label: 'JTBD Matrix' },
+  { id: 'decisions', label: 'Decisions' },
+];
 </script>
+<script src="../_nav.js"></script>
 </body>
 </html>

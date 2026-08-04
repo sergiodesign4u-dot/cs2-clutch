@@ -3,7 +3,7 @@
 **Version:** 1.0
 **Date:** June 2026
 **Author:** Product Design
-**Input:** Competitive analysis (competitive-analysis.md), benchmark research (benchmark.md), product model (product-model.md)
+**Input:** Competitive analysis (competitors.md), benchmark research (benchmark.md), product model (product-model.md)
 
 ---
 
@@ -319,7 +319,7 @@ Single-case opens: 4-6 seconds (full spin, drama arc, resolution). Bulk opens (1
 
 ## Source Reference
 
-All platform citations in this document draw from competitive-analysis.md (June 2026). Specific source URLs cited in competitive-analysis.md Section: Source Index.
+All platform citations in this document draw from competitors.md (June 2026). Specific source URLs cited in competitors.md Section: Source Index.
 
 Key sources for pattern citations:
 - Clash.gg Champion mode mechanics: https://cs2gambling.com/reviews/clashgg/ and https://boxsniper.com/reviews/clash-gg
@@ -331,4 +331,4 @@ Key sources for pattern citations:
 - CSGOEmpire left-rail chat: https://fairness.gg/reviews/csgoempire/
 - Stake.com promotions lobby: https://pokerfuse.com/online-casinos/international/stake-casino-review/
 - Near-miss dark pattern regulatory note: UK Gambling Commission slot machine regulations (2020), cited in benchmark.md
-- Bot trust problem source: competitive-analysis.md Section 3.1 Pattern 3 and Section 3.5
+- Bot trust problem source: competitors.md Section 3.1 Pattern 3 and Section 3.5

@@ -1,12 +1,12 @@
 # Strategy
 
 **Version:** v_refresh
-**Prior version:** research/product-model.md (v2, June 2026) - kept in place for history
+**Prior version:** research/docs/product-model.md (v2, June 2026) - kept in place for history
 **Date:** June 2026
 
 **Changelog from product-model.md v2:**
 - File renamed from "Product Model" to "Strategy" to match updated research structure.
-- AIDA tables (all four) retired. Insights that were action-relevant folded into research/aarrr.md.
+- AIDA tables (all four) retired. Insights that were action-relevant folded into research/docs/aarrr.md.
 - Business Model extracted from "Economy Hypothesis" into its own section with cleaner structure.
 - Riskiest Assumption added as a dedicated section (new).
 - Age field added to each audience segment profile.
@@ -180,9 +180,9 @@ The reveal animation leads as the hero. An institutional trust badge (third-part
 
 Battle mode is not featured prominently in launch navigation. A friends-only private lobby mechanic (invite a specific user) launches as the first battle mode - no open matchmaking, no bots. Open matchmaking with public lobby browsing activates when the platform can reliably fill lobbies under 60 seconds without bot assistance, as a product gate not a calendar date.
 
-**Reasoning:** The condition in master-research.md Hypothesis 4 is strict: a bot battle is solo opening with extra steps. The D7 retention value of battles comes entirely from real human social tension. Friends-only removes the bot problem entirely while creating a viral mechanic (you need a friend on the platform to play a battle). DatDrop's majority-bot Battle Royale lobbies are the confirmed failure mode. Clash.gg's 30-second matchmaking is the benchmark for when open lobbies become the primary battle surface.
+**Reasoning:** The condition in research.md Hypothesis 4 is strict: a bot battle is solo opening with extra steps. The D7 retention value of battles comes entirely from real human social tension. Friends-only removes the bot problem entirely while creating a viral mechanic (you need a friend on the platform to play a battle). DatDrop's majority-bot Battle Royale lobbies are the confirmed failure mode. Clash.gg's 30-second matchmaking is the benchmark for when open lobbies become the primary battle surface.
 
-**What this closes:** The "minimum DAU for battle prominence" open question in master-research.md Open Questions Table is now a product gate with a clear condition (60-second fill without bots), not a calendar question. Marked CLOSED as a design decision.
+**What this closes:** The "minimum DAU for battle prominence" open question in research.md Open Questions Table is now a product gate with a clear condition (60-second fill without bots), not a calendar question. Marked CLOSED as a design decision.
 
 ---
 
@@ -194,7 +194,7 @@ Battle mode is not featured prominently in launch navigation. A friends-only pri
 
 The starter credit is the table-stakes activation hook (non-withdrawable, enough to open one low-cost case). A daily free case - scaling in quality with engagement level over time, matching Key-Drop's Daily Case model - is the return incentive wired to D7 retention.
 
-**Reasoning:** Rain-style ambient distribution (Clash.gg model) requires DAU density to be meaningful - a new platform without concurrent users will have an empty ambient mechanic. Key-Drop's Daily Case leveling is confirmed as a working retention pattern (mentioned in research/competitive-analysis.md and aarrr.md). The combination of activation credit (D1) plus return incentive (D2+) closes both the activation gap and the first return-visit gap without requiring the engineering complexity of a real-time ambient distribution system. Rain-style mechanic is deferred to Phase 2 once concurrent user count makes it feel alive.
+**Reasoning:** Rain-style ambient distribution (Clash.gg model) requires DAU density to be meaningful - a new platform without concurrent users will have an empty ambient mechanic. Key-Drop's Daily Case leveling is confirmed as a working retention pattern (mentioned in research/docs/competitors.md and aarrr.md). The combination of activation credit (D1) plus return incentive (D2+) closes both the activation gap and the first return-visit gap without requiring the engineering complexity of a real-time ambient distribution system. Rain-style mechanic is deferred to Phase 2 once concurrent user count makes it feel alive.
 
 **What this closes:** The "free-to-play pathway" hypothesis in strategy.md Business Model (marked CHALLENGED) is now resolved as a two-step mechanic: starter credit for activation, daily case for retention. The Clash.gg Rain mechanic remains aspirational Phase 2.
 

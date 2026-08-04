@@ -51,7 +51,7 @@ Phases 0-7 of this sprint:
 
 ## 2. Strategy
 
-*Source: research/strategy.md v_refresh. Full detail in that document. Product Model v2 (research/product-model.md) kept in place for history.*
+*Source: research/docs/strategy.md v_refresh. Full detail in that document. Product Model v2 (research/docs/product-model.md) kept in place for history.*
 
 ### Motivation Segments
 
@@ -94,7 +94,7 @@ Priority: Tertiary. Served by table-stakes transparency (published odds, provabl
 
 ## 3. AARRR Funnel
 
-*Source: research/aarrr.md v_refresh. Full detail in that document.*
+*Source: research/docs/aarrr.md v_refresh. Full detail in that document.*
 
 ### Summary Table
 
@@ -114,7 +114,7 @@ The first case open is the singular activation event. Everything in the AARRR mo
 
 ## 4. Competitive Analysis
 
-*Source: research/competitive-analysis.md v_refresh. Full detail in that document.*
+*Source: research/docs/competitors.md v_refresh. Full detail in that document.*
 
 ### Competitor Groups
 
@@ -172,7 +172,7 @@ DaddySkins scored 15/40 on the trust and fairness benchmark, the lowest in the c
 
 ## 5. Benchmark: Trust and Fairness
 
-*Source: research/benchmark.md. Full detail in that document.*
+*Source: research/docs/benchmark.md. Full detail in that document.*
 
 ### Score Table
 
@@ -220,7 +220,7 @@ Source: UK Gambling Commission slot machine regulations (2020); community discus
 
 ## 6. UX Patterns
 
-*Source: research/ux-patterns.md. Full detail in that document.*
+*Source: research/docs/ux-patterns.md. Full detail in that document.*
 
 ### Selected Primary Pattern: Pattern A (Linear Reveal) with Pattern E (Community Discovery) as the ambient layer
 
@@ -394,7 +394,7 @@ If: identity-based age verification (not checkbox) is implemented at account cre
 Then: this serves as both a compliance mechanism and a trust signal, converting skeptical adult visitors who see age verification as evidence of a legitimate operation
 Because: the DCMS review found none of 20 competitors implemented this; being the first to do so is both a regulatory necessity and a market-differentiation claim that no competitor currently makes
 
-**Hypothesis 7 - RISKIEST ASSUMPTION (test this first, from research/strategy.md v_refresh)**
+**Hypothesis 7 - RISKIEST ASSUMPTION (test this first, from research/docs/strategy.md v_refresh)**
 If: landing page A/B test shows trust-first messaging ("the only platform with a named, verified RNG auditor - check the result yourself") produces measurably higher deposit-intent click-through than experience-first messaging ("the most electric case opening on the web")
 Then: the trust differentiation thesis holds at the acquisition stage and justifies continued primary investment in trust infrastructure as a positioning lever over bonus-size or streamer spending
 Because: Hellcase has the largest audience (2M MAU, 150,000 daily opens) in the category and the lowest trust score (no public PF page, 82.1% tested RTP, no formal license). If scale can be achieved with minimal trust investment, then trust infrastructure is a regulatory hedge and retention tool but NOT a primary acquisition driver. The smallest test - a landing page comparison measuring deposit-flow click-through, not just page engagement - answers this question before any additional trust infrastructure is built. Source: https://esports.gg/news/counter-strike-2/what-is-hellcase/, https://skincasereviewer.com/reviews/hellcase.
@@ -417,7 +417,7 @@ Because: Hellcase has the largest audience (2M MAU, 150,000 daily opens) in the 
 
 ## 9. Post-Persona Research, June 2026
 
-*Added after persona and JTBD development. All claims cite live sources fetched in this round. Full verification artifact: research/live-research.md.*
+*Added after persona and JTBD development. All claims cite live sources fetched in this round. Full verification artifact: research/docs/live-research.md.*
 
 ### Acquisition mechanism confirmed for Openers
 
@@ -449,7 +449,7 @@ Key-Drop users specifically cite "flashy animations" and "visually striking" pre
 
 ### Founder decisions log (v_people, June 2026)
 
-All four product decisions from the People and JTBD phase are CLOSED. Full rationale in research/strategy.md Section 5.
+All four product decisions from the People and JTBD phase are CLOSED. Full rationale in research/docs/strategy.md Section 5.
 
 | Decision | Choice | Closes |
 |----------|--------|--------|

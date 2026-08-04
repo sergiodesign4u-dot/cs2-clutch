@@ -2,7 +2,7 @@
 
 **Version:** 1.0
 **Date:** June 2026
-**Built from:** research/personas.md, research/master-research.md, research/strategy.md, research/ux-patterns.md
+**Built from:** research/docs/personas.md, research/docs/research.md, research/docs/strategy.md, research/docs/ux-patterns.md
 
 Jobs are expressed in the format: "When [situation], I want [motivation], so that [outcome]."
 No feature names appear in job statements - only the person's progress.
@@ -16,7 +16,7 @@ Jobs backed by no research data are in the Hypotheses section, not the main list
 
 When I am embedded in the CS2 ecosystem and want excitement beyond the game itself, I want a chance at a rare skin I actually want - with a reveal that feels real and unpredictable - so that I get the rush of a genuine drop and potentially end up with something worth having.
 
-**Source:** Synthesized from research/strategy.md (Segment A primary JTBD); research/ux-patterns.md (Pattern 1 - The Opener); research/master-research.md (Key Conclusion 1, design consensus from six competitor platforms). Confirmed by the universal design pattern: every major competitor leads with the reveal animation, not any other feature.
+**Source:** Synthesized from research/docs/strategy.md (Segment A primary JTBD); research/docs/ux-patterns.md (Pattern 1 - The Opener); research/docs/research.md (Key Conclusion 1, design consensus from six competitor platforms). Confirmed by the universal design pattern: every major competitor leads with the reveal animation, not any other feature.
 
 **Persona mapping:** Primary persona - The Opener. This is the job that drives the highest volume and sets the tone for every downstream feature.
 
@@ -33,7 +33,7 @@ These are the functional jobs the platform must close before or alongside the ma
 When I land on a new platform I have never used, I want to see enough evidence that it is legitimate and that drops actually happen, so that I feel safe enough to put in my first small amount of money.
 
 - Persona: The Opener (primary). Also The Researcher.
-- Research basis: FACT. Pre-login wall is a confirmed conversion barrier. Clash.gg (outlier: RTP values, payment options, active battle previews all visible pre-login) correlates with fastest-growing status per independent reviewers. Source: research/competitive-analysis.md (Common Pattern 2); research/aarrr.md (Acquisition).
+- Research basis: FACT. Pre-login wall is a confirmed conversion barrier. Clash.gg (outlier: RTP values, payment options, active battle previews all visible pre-login) correlates with fastest-growing status per independent reviewers. Source: research/docs/competitors.md (Common Pattern 2); research/docs/aarrr.md (Acquisition).
 
 ---
 
@@ -42,7 +42,7 @@ When I land on a new platform I have never used, I want to see enough evidence t
 When I am trying the platform for the first time with a free or low-cost credit, I want to get through the entire open-to-result experience in under 60 seconds without a confusing step, so that I know what opening here actually feels like before I deposit real money.
 
 - Persona: The Opener (primary).
-- Research basis: FACT. The first case open is the singular activation event. "Everything in the AARRR model serves or depends on this moment." Source: research/master-research.md (AARRR Key Insight); research/aarrr.md (Activation). No-deposit credit range confirmed: $0.50-$1.00 from competitor data. Source: research/aarrr.md (Activation - What competitors reveal).
+- Research basis: FACT. The first case open is the singular activation event. "Everything in the AARRR model serves or depends on this moment." Source: research/docs/research.md (AARRR Key Insight); research/docs/aarrr.md (Activation). No-deposit credit range confirmed: $0.50-$1.00 from competitor data. Source: research/docs/aarrr.md (Activation - What competitors reveal).
 
 ---
 
@@ -51,7 +51,7 @@ When I am trying the platform for the first time with a free or low-cost credit,
 When I have just received an outcome I did not expect (high or low), I want to be able to confirm that the result was not manipulated, so that I trust the platform enough to open again or to tell someone about my result.
 
 - Persona: The Opener (secondary motivation), The Researcher (primary motivation for this job).
-- Research basis: FACT. The post-reveal verification link is a benchmark mechanism selected from skin.club's public roll history and CSGORoll's provably fair documentation. "Most users never do, but knowing they could is the trust signal." Source: research/master-research.md (Benchmark - Mechanism 3; Benchmark - Mechanism 1).
+- Research basis: FACT. The post-reveal verification link is a benchmark mechanism selected from skin.club's public roll history and CSGORoll's provably fair documentation. "Most users never do, but knowing they could is the trust signal." Source: research/docs/research.md (Benchmark - Mechanism 3; Benchmark - Mechanism 1).
 
 ---
 
@@ -60,7 +60,7 @@ When I have just received an outcome I did not expect (high or low), I want to b
 When I have opened a case and landed on a skin I do not want but it has some value, I want to use an upgrade path or exchange to work toward a skin I actually care about, so that a "losing" open does not feel like a pure loss.
 
 - Persona: The Accumulator (primary). The Opener (when they stay past D1).
-- Research basis: FACT. Upgrade mode is confirmed as a core retention loop. Pattern 4 (The Accumulator) explicitly describes this behavior: "Opens lower-cost cases with better EV, upgrades wins upward, re-opens proceeds rather than withdrawing immediately." Source: research/ux-patterns.md (Pattern 4). Upgrade odds visibility is confirmed as a requirement: upgrade probability per outcome must be shown before confirming. Source: research/ux-patterns.md.
+- Research basis: FACT. Upgrade mode is confirmed as a core retention loop. Pattern 4 (The Accumulator) explicitly describes this behavior: "Opens lower-cost cases with better EV, upgrades wins upward, re-opens proceeds rather than withdrawing immediately." Source: research/docs/ux-patterns.md (Pattern 4). Upgrade odds visibility is confirmed as a requirement: upgrade probability per outcome must be shown before confirming. Source: research/docs/ux-patterns.md.
 
 ---
 
@@ -69,7 +69,7 @@ When I have opened a case and landed on a skin I do not want but it has some val
 When I have accumulated a skin worth withdrawing, I want to transfer it to my Steam inventory quickly and without unexpected fees, so that I can confirm the platform actually delivers real value and trust it with future deposits.
 
 - Persona: The Accumulator (primary). The Researcher (high-stakes - their conversion decision depends on this).
-- Research basis: FACT. "Withdrawal reliability is the most-cited user pain point in review aggregator complaints across all five platforms." Steam Market's 15% fee and wallet lock are the primary conversion argument for case platforms - bypassing both by delivering directly to Steam inventory is the value exchange. Source: research/strategy.md (Business Model); research/competitive-analysis.md.
+- Research basis: FACT. "Withdrawal reliability is the most-cited user pain point in review aggregator complaints across all five platforms." Steam Market's 15% fee and wallet lock are the primary conversion argument for case platforms - bypassing both by delivering directly to Steam inventory is the value exchange. Source: research/docs/strategy.md (Business Model); research/docs/competitors.md.
 
 ---
 
@@ -84,7 +84,7 @@ Emotional and social jobs exist in parallel with functional jobs. They are not s
 When the case starts spinning, I want the anticipation to feel real - not scripted - so that when the outcome lands I feel it honestly rather than wondering if I was played.
 
 - Persona: All personas, but The Opener most intensely.
-- Research basis: FACT. Near-miss animations are confirmed as a dark pattern to avoid. "A near-miss that was pre-calculated as a loss is fabricated theatre, not tension." The benchmark mechanism says the animation must be honest buildup. Source: research/master-research.md (Benchmark - 1 Mechanism That Will NOT Work).
+- Research basis: FACT. Near-miss animations are confirmed as a dark pattern to avoid. "A near-miss that was pre-calculated as a loss is fabricated theatre, not tension." The benchmark mechanism says the animation must be honest buildup. Source: research/docs/research.md (Benchmark - 1 Mechanism That Will NOT Work).
 
 ---
 
@@ -93,7 +93,7 @@ When the case starts spinning, I want the anticipation to feel real - not script
 When I get a drop that surprises me - high or low - I want a moment that is visually and emotionally sharp enough to share, so that my win becomes a story I bring back to my CS2 friends.
 
 - Persona: The Opener (primary). The Battler for battle wins.
-- Research basis: FACT. Win sharing is the organic acquisition channel with the highest trust signal. "Key-Drop's sparks and fire effects are specifically cited as the most memorable visual differentiator in user reviews, confirming that animation quality drives sharing behavior." Source: research/master-research.md (Hypothesis 3); research/aarrr.md (Referral).
+- Research basis: FACT. Win sharing is the organic acquisition channel with the highest trust signal. "Key-Drop's sparks and fire effects are specifically cited as the most memorable visual differentiator in user reviews, confirming that animation quality drives sharing behavior." Source: research/docs/research.md (Hypothesis 3); research/docs/aarrr.md (Referral).
 
 ---
 
@@ -102,7 +102,7 @@ When I get a drop that surprises me - high or low - I want a moment that is visu
 When I have put in consistent effort - opening regularly, using rakeback, making upgrade decisions - I want to feel that my pattern of play has given me a real edge, so that I stay on the platform by choice rather than habit.
 
 - Persona: The Accumulator (primary).
-- Research basis: FACT (inferred from feature patterns, not direct user research). Rakeback programs (Gamdom 15% zero-wagering, DatDrop DatPoints 5 pts/$1) are confirmed as table stakes for retaining Grinder-type users. The design implication is that loyalty must feel like skill being rewarded, not like random gifts. Source: research/strategy.md (Segment B); research/competitive-analysis.md (Gamdom, DatDrop).
+- Research basis: FACT (inferred from feature patterns, not direct user research). Rakeback programs (Gamdom 15% zero-wagering, DatDrop DatPoints 5 pts/$1) are confirmed as table stakes for retaining Grinder-type users. The design implication is that loyalty must feel like skill being rewarded, not like random gifts. Source: research/docs/strategy.md (Segment B); research/docs/competitors.md (Gamdom, DatDrop).
 
 ---
 
@@ -111,7 +111,7 @@ When I have put in consistent effort - opening regularly, using rakeback, making
 When I join a case battle, I want to know my opponent is a real person with real stakes, so that the win feels like genuine competition and not a pre-scripted outcome.
 
 - Persona: The Battler (primary).
-- Research basis: FACT. Bot activity in battle lobbies is confirmed as the most cited pain for battle mode users. "A bot battle is solo opening with extra steps - the social tension is gone." Source: research/master-research.md (Hypothesis 4); research/ux-patterns.md (Pattern 3 - The Battler).
+- Research basis: FACT. Bot activity in battle lobbies is confirmed as the most cited pain for battle mode users. "A bot battle is solo opening with extra steps - the social tension is gone." Source: research/docs/research.md (Hypothesis 4); research/docs/ux-patterns.md (Pattern 3 - The Battler).
 
 ---
 
@@ -120,7 +120,7 @@ When I join a case battle, I want to know my opponent is a real person with real
 When I open a case or check the platform between sessions, I want to see real activity from real players - real drops, real battles happening - so that I feel part of something rather than alone in a dead interface.
 
 - Persona: All personas (ambient social context).
-- Research basis: FACT. Live drop feed (authentic, bot-free) is confirmed as both a trust mechanism and an acquisition tool. "Seeing real drops reassures the new visitor that drops actually happen." The combination of social proof and verifiability is the hardest trust signal to fake. Source: research/master-research.md (Benchmark - Mechanism 3).
+- Research basis: FACT. Live drop feed (authentic, bot-free) is confirmed as both a trust mechanism and an acquisition tool. "Seeing real drops reassures the new visitor that drops actually happen." The combination of social proof and verifiability is the hardest trust signal to fake. Source: research/docs/research.md (Benchmark - Mechanism 3).
 
 ---
 
@@ -209,12 +209,12 @@ Functions that appear in the product scope but close no job scoring 3 for the pr
 | Claim | Status | Basis |
 |-------|--------|-------|
 | Primary audience is 18-25, active CS2 players | FACT | Platform audience data, strategy.md Segment A profile |
-| All major competitors lead with animations, not data | FACT | Design review of 6 platforms, June 2026. Cited in strategy.md and master-research.md |
+| All major competitors lead with animations, not data | FACT | Design review of 6 platforms, June 2026. Cited in strategy.md and research.md |
 | Users arrive primarily via external social proof (streamers, clips) | FACT | ux-patterns.md Pattern 1, step 1 - confirmed by influencer-dominated acquisition spend across all competitors |
 | The reveal animation is the primary D1 retention moment | FACT | ux-patterns.md Pattern 1. Cross-referenced with AARRR model Key Insight |
 | Withdrawal reliability is the most common platform complaint | FACT | strategy.md Business Model Validation. Aggregated from competitor review analysis |
-| No competitor has a named third-party RNG auditor | FACT | betterchecked.com 2026 audit (cited URL in master-research.md) |
-| Bot activity is category-wide | FACT | Direct observation of DaddySkins, DatDrop, CSGORoll; cited in master-research.md Gaps Table |
+| No competitor has a named third-party RNG auditor | FACT | betterchecked.com 2026 audit (cited URL in research.md) |
+| Bot activity is category-wide | FACT | Direct observation of DaddySkins, DatDrop, CSGORoll; cited in research.md Gaps Table |
 | Lobby fill over 60-90 seconds causes battle abandonment | FACT | ux-patterns.md Pattern 3 ("Breaks when"). The 60-second figure is inferred from Clash.gg's 30-sec matchmaking as benchmark, not from user testing |
 | Rakeback is table stakes (not a differentiator) | FACT | Gamdom 15% zero-wagering, DatDrop DatPoints, Clash.gg rakeback all confirmed. strategy.md Business Model |
 | Thrill Seekers do not read provably fair info before depositing | HYPOTHESIS | This is the riskiest assumption in strategy.md. It is inferred from Hellcase's 2M MAU despite lowest trust score, not from direct user behavior data |

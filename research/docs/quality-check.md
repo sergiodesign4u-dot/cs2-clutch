@@ -14,7 +14,7 @@ Date: June 2026. Reviewer: automated self-review against Phase 6.5 criteria.
 | Clash.gg Upgrader: 92.7% RTP | https://clash.gg/fairness | VERIFIED |
 | Clash.gg Plinko: 92.8% RTP | https://clash.gg/fairness | VERIFIED |
 | Clash.gg Mines: 90.0% RTP | https://clash.gg/fairness | VERIFIED |
-| Key-Drop: 2.4M monthly visitors (Dec 2025) | Competitive intelligence report, cited in competitive-analysis.md | CITED (indirect) |
+| Key-Drop: 2.4M monthly visitors (Dec 2025) | Competitive intelligence report, cited in competitors.md | CITED (indirect) |
 | Key-Drop: 4.8/5 Trustpilot from 22,000+ reviews | https://cs2pulse.com/skins-gambling-guide/best-websites/keydrop-review/ | VERIFIED |
 | Hellcase: ~2M MAU, 150,000+ daily opens | https://esports.gg/news/counter-strike-2/what-is-hellcase/ | VERIFIED |
 | Hellcase withdrawal fees 4-7% total | https://cyber-sport.io/game_reviews/hellcase-withdrawal | VERIFIED |
@@ -55,19 +55,19 @@ Reviewing all documents for unsupported assertions:
 - Case RTP (not mini-game): labeled [?] throughout, explicitly noting no competitor data available. PASS.
 - "7-10% house edge": correctly sourced to Clash.gg mini-game RTP only, not extrapolated to standard cases. PASS.
 - Hellcase MAU (~2M): cited from https://esports.gg. PASS.
-- Key-Drop monthly visitors (2.4M): cited as "competitive intelligence report" - indirect. FLAGGED as low-confidence. Not a primary source. Used only in competitive-analysis.md context. Impact: low. No action required but note as indirect.
+- Key-Drop monthly visitors (2.4M): cited as "competitive intelligence report" - indirect. FLAGGED as low-confidence. Not a primary source. Used only in competitors.md context. Impact: low. No action required but note as indirect.
 - DatDrop operational status: flagged as [?] throughout. PASS.
 - Clash.gg Nov 2025 roulette payout incident: cited in benchmark.md as "attributed to technical glitch." Source is from competitive review. Not independently verified from primary source. FLAGGED as low-confidence.
 - "One skin sold for over $1 million" (NY AG lawsuit citation): cited correctly to NY AG press release. PASS.
 - Skinport acquired SkinBid assets Jan 2026: https://esportsinsider.com/2026/01/cs2-skinport-acquires-skinbid-assets. VERIFIED.
 
-**Two items flagged as low-confidence secondary sources, not primary:** Key-Drop 2.4M visitors figure and Clash.gg Nov 2025 roulette incident. Both are labeled with sources and not used as load-bearing claims in any recommendation. No content changes required. Both are contained within competitive-analysis.md and do not affect the conclusions or recommendations.
+**Two items flagged as low-confidence secondary sources, not primary:** Key-Drop 2.4M visitors figure and Clash.gg Nov 2025 roulette incident. Both are labeled with sources and not used as load-bearing claims in any recommendation. No content changes required. Both are contained within competitors.md and do not affect the conclusions or recommendations.
 
 ### 3. No Competitor or Regulatory Fact from Memory
 
 All competitor facts, regulatory findings, and market data in this research sprint were gathered via web search, web fetch, and Playwright direct observation during Phase 3. No fact was asserted from training data alone. All facts carry citation URLs or are marked [?] if verification was not possible.
 
-One exception: DatDrop's published case odds and provably fair mechanism were found via https://fairness.gg/reviews/datdrop/ from earlier indexing, not from a live site visit (since datdrop.com redirects to competitors). This is noted in competitive-analysis.md open questions (Q3). PASS with noted caveat.
+One exception: DatDrop's published case odds and provably fair mechanism were found via https://fairness.gg/reviews/datdrop/ from earlier indexing, not from a live site visit (since datdrop.com redirects to competitors). This is noted in competitors.md open questions (Q3). PASS with noted caveat.
 
 Status: PASS.
 
@@ -75,24 +75,24 @@ Status: PASS.
 
 Checking that the validated v2 product model changes are reflected in downstream documents:
 
-- House edge corrected to 7-10% (mini-games): reflected in master-research.md Section 2 Economy Hypothesis table. PASS.
-- Bonus ceiling corrected to 5-20%: reflected in master-research.md Section 2 and aarrr.md Activation. PASS.
-- Rakeback reclassified as table stakes: reflected in master-research.md Section 2 and ux-patterns.md Pattern 4 (Accumulator). PASS.
-- Collector downgraded to tertiary: reflected in master-research.md Section 2, ux-patterns.md (Collector served by Pattern D, not primary design driver), benchmark.md observations. PASS.
-- Regulatory constraint elevated to primary: reflected in master-research.md Section 7, aarrr.md Activation (age-gate noted as non-optional), conclusions table. PASS.
-- Trust gap elevated to structural market-wide finding: reflected throughout master-research.md, benchmark.md, and ux-patterns.md Pattern Selection. PASS.
+- House edge corrected to 7-10% (mini-games): reflected in research.md Section 2 Economy Hypothesis table. PASS.
+- Bonus ceiling corrected to 5-20%: reflected in research.md Section 2 and aarrr.md Activation. PASS.
+- Rakeback reclassified as table stakes: reflected in research.md Section 2 and ux-patterns.md Pattern 4 (Accumulator). PASS.
+- Collector downgraded to tertiary: reflected in research.md Section 2, ux-patterns.md (Collector served by Pattern D, not primary design driver), benchmark.md observations. PASS.
+- Regulatory constraint elevated to primary: reflected in research.md Section 7, aarrr.md Activation (age-gate noted as non-optional), conclusions table. PASS.
+- Trust gap elevated to structural market-wide finding: reflected throughout research.md, benchmark.md, and ux-patterns.md Pattern Selection. PASS.
 
 Status: PASS.
 
 ### 5. Compliance Section Makes No Unsupported "Not Gambling" Claim
 
-Review of all compliance references in research/master-research.md Section 7, research/competitive-analysis.md Section 3.6 (responsible play), and CLAUDE.md:
+Review of all compliance references in research/docs/research.md Section 7, research/docs/competitors.md Section 3.6 (responsible play), and CLAUDE.md:
 
-- master-research.md opens Section 7 with: "No assertion is made that this product is 'not gambling' -- that is a jurisdiction-specific legal question addressed in Section 7." PASS.
+- research.md opens Section 7 with: "No assertion is made that this product is 'not gambling' -- that is a jurisdiction-specific legal question addressed in Section 7." PASS.
 - CLAUDE.md states: "ASSUMPTION: Whether case opening with real-money deposits and withdrawal of tradeable skins constitutes gambling is not settled universally. It varies by jurisdiction and has triggered regulatory action in some markets." PASS.
 - aarrr.md does not make a "not gambling" assertion. PASS.
 - product-model.md v2 Section 6 explicitly notes: "Jurisdiction strategy [?] -- must be defined before economy and withdrawal design is finalized." PASS.
-- The "not gambling" framing by platforms is described in master-research.md Section 7 as rejected by regulators, with citations. PASS.
+- The "not gambling" framing by platforms is described in research.md Section 7 as rejected by regulators, with citations. PASS.
 - No document asserts or implies the platform is categorically outside gambling law. PASS.
 
 Status: PASS.
@@ -102,12 +102,12 @@ Status: PASS.
 Checking all research documents for em dash character (U+2014: -):
 
 - CLAUDE.md: scanned. No em dashes found. PASS.
-- research/product-model.md: scanned. No em dashes found. PASS.
-- research/aarrr.md: scanned. No em dashes found. PASS.
-- research/competitive-analysis.md: scanned. No em dashes found. PASS.
-- research/benchmark.md: scanned. No em dashes found. PASS.
-- research/ux-patterns.md: scanned. No em dashes found. PASS.
-- research/master-research.md: scanned. No em dashes found. PASS.
+- research/docs/product-model.md: scanned. No em dashes found. PASS.
+- research/docs/aarrr.md: scanned. No em dashes found. PASS.
+- research/docs/competitors.md: scanned. No em dashes found. PASS.
+- research/docs/benchmark.md: scanned. No em dashes found. PASS.
+- research/docs/ux-patterns.md: scanned. No em dashes found. PASS.
+- research/docs/research.md: scanned. No em dashes found. PASS.
 - README.md: scanned. No em dashes found. PASS.
 
 Status: PASS.

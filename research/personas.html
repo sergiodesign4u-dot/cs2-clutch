@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CS2 Clutch - Personas</title>
+  <link rel="stylesheet" href="../_nav.css">
   <style>
     :root {
       --bg: #040319;
@@ -37,84 +38,10 @@
       pointer-events: none;
       z-index: 0;
     }
-    /* SIDEBAR NAV */
-    .sidebar {
-      position: fixed; top: 0; left: 0; width: 220px; height: 100vh;
-      background: rgba(4,3,25,0.97); backdrop-filter: blur(20px);
-      border-right: 1px solid var(--border); z-index: 100;
-      display: flex; flex-direction: column; padding: 24px 14px 32px;
-      overflow-y: auto; transform: translateX(-100%);
-      transition: transform 0.24s cubic-bezier(0.4,0,0.2,1);
-    }
-    .sidebar.open { transform: translateX(0); }
-    .sidebar-brand {
-      font-size: 12px; font-weight: 800; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--accent-pink); padding: 0 6px;
-      margin-bottom: 24px; line-height: 1.4;
-    }
-    .sidebar-brand span { color: var(--text-muted); font-weight: 500; }
-    .sidebar-divider { height: 1px; background: var(--border); margin: 12px 0; }
-    .sidebar-section-label {
-      font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--text-muted); padding: 0 6px; margin-bottom: 6px;
-    }
-    .sidebar-links { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
-    .sidebar-link {
-      font-size: 13px; font-weight: 500; color: var(--text-secondary);
-      text-decoration: none; padding: 7px 10px; border-radius: 7px;
-      transition: all 0.15s; letter-spacing: 0.01em; display: block;
-    }
-    .sidebar-link:hover { color: var(--text-primary); background: rgba(255,255,255,0.05); text-decoration: none; }
-    .sidebar-link.active { color: var(--text-primary); background: rgba(233,77,139,0.08); }
-    .sidebar-coming-soon {
-      font-size: 13px; color: var(--text-muted); padding: 7px 10px;
-      border-radius: 7px; display: flex; align-items: center; gap: 8px;
-    }
-    .cs-tag {
-      font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--text-muted); background: rgba(255,255,255,0.04);
-      border: 1px solid var(--border); padding: 2px 7px; border-radius: 20px;
-    }
-    .sidebar-next {
-      margin-top: auto; padding: 12px 10px; border: 1px solid var(--border);
-      border-radius: 8px; background: rgba(255,255,255,0.02);
-    }
-    .sidebar-next-label {
-      font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px;
-    }
-    .sidebar-next-items { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
-    /* SIDEBAR SUB-LINKS */
-    .sidebar-sublinks { display: flex; flex-direction: column; gap: 1px; margin-top: -2px; margin-bottom: 4px; }
-    .sidebar-sublink {
-      font-size: 12px; font-weight: 400; color: var(--text-muted);
-      text-decoration: none; padding: 5px 10px 5px 20px; border-radius: 6px;
-      transition: all 0.15s; display: block;
-    }
-    .sidebar-sublink:hover { color: var(--text-secondary); background: rgba(255,255,255,0.03); text-decoration: none; }
-    .sidebar-sublink.active { color: var(--accent-blue); }
-    /* HAMBURGER */
-    .hamburger {
-      position: fixed; top: 14px; left: 14px; z-index: 101;
-      background: var(--bg-card); border: 1px solid var(--border-strong);
-      border-radius: 8px; width: 40px; height: 40px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-secondary); font-size: 16px; transition: all 0.15s;
-    }
-    .hamburger:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.2); }
-    /* OVERLAY */
-    .sidebar-overlay {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.55); z-index: 99;
-    }
-    .sidebar-overlay.active { display: block; }
     main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
-    @media (min-width: 860px) {
-      .sidebar { transform: translateX(0); }
-      .hamburger { display: none; }
-      .sidebar-overlay { display: none !important; }
-      main { margin-left: 220px; padding-top: 48px; }
-      footer { margin-left: 220px; }
+    @media (min-width: 900px) {
+      main { margin-left: var(--nav-w); padding-top: 48px; }
+      footer { margin-left: var(--nav-w); }
     }
     section { margin-bottom: 88px; }
     .section-eyebrow {
@@ -247,46 +174,7 @@
 </head>
 <body>
 
-<button class="hamburger" id="hamburger-btn" aria-label="Open navigation">&#9776;</button>
-<div class="sidebar-overlay" id="sidebar-overlay"></div>
-
-<nav class="sidebar" id="sidebar">
-  <div class="sidebar-brand">CS2 Clutch<br><span>Research</span></div>
-
-  <div class="sidebar-section-label">Research</div>
-  <div class="sidebar-links">
-    <a href="research.html#intro" class="sidebar-link">Intro</a>
-    <a href="research.html#lean-canvas" class="sidebar-link">Lean Canvas</a>
-    <a href="research.html#strategy" class="sidebar-link">Strategy</a>
-    <a href="research.html#aarrr" class="sidebar-link">AARRR</a>
-    <a href="research.html#competitors" class="sidebar-link">Competitors</a>
-    <a href="research.html#benchmark" class="sidebar-link">Benchmark</a>
-    <a href="research.html#ux-patterns" class="sidebar-link">UX Patterns</a>
-    <a href="research.html#compliance" class="sidebar-link">Compliance</a>
-    <a href="research.html#conclusions" class="sidebar-link">Conclusions</a>
-    <a href="research.html#live-research" class="sidebar-link">Live Research</a>
-  </div>
-
-  <div class="sidebar-divider"></div>
-
-  <div class="sidebar-section-label">People</div>
-  <div class="sidebar-links">
-    <span class="sidebar-link active" style="cursor:default;">Personas</span>
-    <div class="sidebar-sublinks">
-      <a href="#observations" class="sidebar-sublink" data-section="observations">Observations</a>
-      <a href="#opener" class="sidebar-sublink" data-section="opener">The Opener</a>
-      <a href="#accumulator" class="sidebar-sublink" data-section="accumulator">The Accumulator</a>
-      <a href="#researcher" class="sidebar-sublink" data-section="researcher">The Researcher</a>
-      <a href="#battler" class="sidebar-sublink" data-section="battler">The Battler</a>
-    </div>
-    <a href="jtbd.html" class="sidebar-link">JTBD</a>
-  </div>
-
-  <div class="sidebar-next">
-    <div class="sidebar-next-label">Next</div>
-    <div class="sidebar-next-items">Wireframes, Concept</div>
-  </div>
-</nav>
+<aside id="sidebar"></aside>
 
 <main>
 
@@ -326,19 +214,19 @@
   <div class="obs-grid">
     <div class="obs-tile">
       <div class="obs-label">Age Range</div>
-      <p>The primary audience is 18-30, skewing 18-25 at the core. Platform audience data and review aggregator demographics confirm this range. Source: research/strategy.md, Segment A profile.</p>
+      <p>The primary audience is 18-30, skewing 18-25 at the core. Platform audience data and review aggregator demographics confirm this range. Source: research/docs/strategy.md, Segment A profile.</p>
     </div>
     <div class="obs-tile">
       <div class="obs-label">CS2 Player Base</div>
-      <p>Users arrive as active CS2 players who follow skin culture and streamers. They are already embedded in the CS2 ecosystem before arriving at a case platform. Source: research/strategy.md, Segment A.</p>
+      <p>Users arrive as active CS2 players who follow skin culture and streamers. They are already embedded in the CS2 ecosystem before arriving at a case platform. Source: research/docs/strategy.md, Segment A.</p>
     </div>
     <div class="obs-tile">
       <div class="obs-label">Scale Signals</div>
-      <p>Hellcase reaches approximately 2 million monthly active users and 150,000+ daily case opens. Key-Drop reaches 2.4 million monthly visitors (December 2025). Source: esports.gg; research/competitive-analysis.md.</p>
+      <p>Hellcase reaches approximately 2 million monthly active users and 150,000+ daily case opens. Key-Drop reaches 2.4 million monthly visitors (December 2025). Source: esports.gg; research/docs/competitors.md.</p>
     </div>
     <div class="obs-tile">
       <div class="obs-label">Geographic Concentration</div>
-      <p>Key-Drop's top demographics are Brazil, Spain, and Argentina - a Latin American skew. Clash.gg is English-language primary. Multiple platforms block Netherlands, Belgium, and Germany due to active enforcement. Source: research/competitive-analysis.md.</p>
+      <p>Key-Drop's top demographics are Brazil, Spain, and Argentina - a Latin American skew. Clash.gg is English-language primary. Multiple platforms block Netherlands, Belgium, and Germany due to active enforcement. Source: research/docs/competitors.md.</p>
     </div>
     <div class="obs-tile">
       <div class="obs-label">Gender <span class="hyp-tag">[?]</span></div>
@@ -355,15 +243,15 @@
     </div>
     <div class="obs-tile">
       <div class="obs-label">Social Proof Is the Trigger</div>
-      <p>Users arrive from streams, clips, Discord links, and win shares. The platform does not create the desire to open - it captures desire already created externally. Source: research/ux-patterns.md, Pattern 1 (The Opener).</p>
+      <p>Users arrive from streams, clips, Discord links, and win shares. The platform does not create the desire to open - it captures desire already created externally. Source: research/docs/ux-patterns.md, Pattern 1 (The Opener).</p>
     </div>
     <div class="obs-tile">
       <div class="obs-label">Withdrawal Is the Payoff</div>
-      <p>Steam Market's 15% fee and wallet lock are the primary conversion argument for case platforms. Reliable, fast withdrawal to Steam is the moment users decide whether to return and refer. Source: research/strategy.md; research/aarrr.md (Retention).</p>
+      <p>Steam Market's 15% fee and wallet lock are the primary conversion argument for case platforms. Reliable, fast withdrawal to Steam is the moment users decide whether to return and refer. Source: research/docs/strategy.md; research/docs/aarrr.md (Retention).</p>
     </div>
     <div class="obs-tile">
       <div class="obs-label">Rakeback Is Expected</div>
-      <p>Gamdom offers 15% instant rakeback with zero wagering requirements. DatDrop offers 5 points per $1, redeemable for cases up to $1,800. Key-Drop has Daily Case leveling. Grinder-oriented users see loyalty mechanics as table stakes. Source: research/strategy.md; research/competitive-analysis.md.</p>
+      <p>Gamdom offers 15% instant rakeback with zero wagering requirements. DatDrop offers 5 points per $1, redeemable for cases up to $1,800. Key-Drop has Daily Case leveling. Grinder-oriented users see loyalty mechanics as table stakes. Source: research/docs/strategy.md; research/docs/competitors.md.</p>
     </div>
   </div>
 
@@ -376,15 +264,15 @@
     </div>
     <div class="obs-tile">
       <div class="obs-label">Bot Activity Destroys Social Proof</div>
-      <p>DaddySkins shows "[BOT] Darth Vader" in the live wins ticker. DatDrop fills Battle Royale lobbies with bots. Visible bot names undermine the authenticity the feed is supposed to generate. Source: research/master-research.md, Gaps Table.</p>
+      <p>DaddySkins shows "[BOT] Darth Vader" in the live wins ticker. DatDrop fills Battle Royale lobbies with bots. Visible bot names undermine the authenticity the feed is supposed to generate. Source: research/docs/research.md, Gaps Table.</p>
     </div>
     <div class="obs-tile">
       <div class="obs-label">Withdrawal Complaints - Top Pain Point</div>
-      <p>Withdrawal reliability is the most-cited user pain point across review aggregator complaints for all five platforms studied. Source: research/strategy.md (Business Model Validation).</p>
+      <p>Withdrawal reliability is the most-cited user pain point across review aggregator complaints for all five platforms studied. Source: research/docs/strategy.md (Business Model Validation).</p>
     </div>
     <div class="obs-tile">
       <div class="obs-label">Pre-Login Information Wall</div>
-      <p>Most competitors lock odds, upgrade interfaces, and battle previews behind Steam login. Clash.gg is the outlier - payment options, RTP values, and active battle previews visible pre-login. Source: research/competitive-analysis.md.</p>
+      <p>Most competitors lock odds, upgrade interfaces, and battle previews behind Steam login. Clash.gg is the outlier - payment options, RTP values, and active battle previews visible pre-login. Source: research/docs/competitors.md.</p>
     </div>
     <div class="obs-tile">
       <div class="obs-label">Tested vs Stated RTP Gap</div>
@@ -454,13 +342,13 @@
   <div class="persona-card primary">
     <span class="badge badge-primary">Primary</span>
     <div class="persona-name">The Opener</div>
-    <div class="persona-why">Why primary: Every competitor design decision confirms this archetype. The reveal animation is the product. This person drives the most volume and is the first user any platform must succeed with. All six platforms lead with animations, not data. Source: research/strategy.md (Segment A); research/ux-patterns.md (Pattern 1).</div>
+    <div class="persona-why">Why primary: Every competitor design decision confirms this archetype. The reveal animation is the product. This person drives the most volume and is the first user any platform must succeed with. All six platforms lead with animations, not data. Source: research/docs/strategy.md (Segment A); research/docs/ux-patterns.md (Pattern 1).</div>
 
     <!-- CONTEXT -->
     <div class="persona-row">
       <div class="persona-row-label">Context</div>
-      <p>Age 18-25, active CS2 player. Follows skin culture and streamers. Has disposable income for entertainment. Uses the platform as a content experience, not a financial strategy. Likely to share wins on social. Source: research/strategy.md, Segment A.</p>
-      <p>Arrives from a stream clip, YouTube video, or Discord link where someone else won something remarkable. Source: research/ux-patterns.md, Pattern 1.</p>
+      <p>Age 18-25, active CS2 player. Follows skin culture and streamers. Has disposable income for entertainment. Uses the platform as a content experience, not a financial strategy. Likely to share wins on social. Source: research/docs/strategy.md, Segment A.</p>
+      <p>Arrives from a stream clip, YouTube video, or Discord link where someone else won something remarkable. Source: research/docs/ux-patterns.md, Pattern 1.</p>
       <p>The social proof loop is confirmed: one person posts a knife pull and someone else thinks "why not me." Esports team endorsements (Team Vitality/skin.club, MOUZ/G4Skins) serve as institutional trust proxies for casual users alongside creator clip virality. Source: gamerbolt.com; blix.gg (June 2026).</p>
     </div>
 
@@ -468,16 +356,16 @@
     <div class="persona-row">
       <div class="persona-row-label">Jobs</div>
       <div class="persona-jtbd">When I have downtime between CS2 matches or want entertainment in the skin ecosystem, I want to open a case with a real drop animation and genuine unpredictability, so that I get the thrill of a reveal and a real shot at something exciting.</div>
-      <p>Secondary job: if the drop is shareable, get a moment worth posting. Win sharing is organic acquisition. Source: research/ux-patterns.md (Pattern 1, step 6).</p>
+      <p>Secondary job: if the drop is shareable, get a moment worth posting. Win sharing is organic acquisition. Source: research/docs/ux-patterns.md (Pattern 1, step 6).</p>
     </div>
 
     <!-- PAINS -->
     <div class="persona-row">
       <div class="persona-row-label">Pains</div>
       <ul>
-        <li>Reveals that feel scripted, laggy, or visually flat. DaddySkins' current implementation is flat with no rarity-tiered animation variation. Source: research/master-research.md (Key Conclusion 5); research/benchmark.md.</li>
-        <li>Bot-flooded live feeds and chat. Visible bot names such as "[BOT] Darth Vader" signal inauthenticity to CS2-literate users. Source: research/master-research.md (Gaps Table).</li>
-        <li>Cannot easily share wins. No one-tap sharing from the result state on most competitors. Source: research/aarrr.md (Referral section).</li>
+        <li>Reveals that feel scripted, laggy, or visually flat. DaddySkins' current implementation is flat with no rarity-tiered animation variation. Source: research/docs/research.md (Key Conclusion 5); research/docs/benchmark.md.</li>
+        <li>Bot-flooded live feeds and chat. Visible bot names such as "[BOT] Darth Vader" signal inauthenticity to CS2-literate users. Source: research/docs/research.md (Gaps Table).</li>
+        <li>Cannot easily share wins. No one-tap sharing from the result state on most competitors. Source: research/docs/aarrr.md (Referral section).</li>
         <li>Near-miss animations <span class="hyp-tag">[?]</span> may be perceived negatively by technically literate users but positively by casual openers. The benchmark research flags near-miss as a dark pattern to avoid, but no direct user sentiment data exists.</li>
       </ul>
     </div>
@@ -488,12 +376,12 @@
       <div class="persona-trust-row">
         <div class="persona-trust-item">
           <div class="persona-trust-key">Convinces</div>
-          <p>A platform that feels alive - active wins ticker, live player count, visible drop feed. Source: research/ux-patterns.md (Pattern 1).</p>
-          <p style="margin-top:8px;">A starter offer they can act on immediately, without reading terms. Source: research/aarrr.md (Activation).</p>
+          <p>A platform that feels alive - active wins ticker, live player count, visible drop feed. Source: research/docs/ux-patterns.md (Pattern 1).</p>
+          <p style="margin-top:8px;">A starter offer they can act on immediately, without reading terms. Source: research/docs/aarrr.md (Activation).</p>
         </div>
         <div class="persona-trust-item">
           <div class="persona-trust-key">Scares Off</div>
-          <p>A platform that feels slow or visually dead. Speed as trust - lag feels dishonest in a randomized-outcome product. Source: research/master-research.md (Design Principles).</p>
+          <p>A platform that feels slow or visually dead. Speed as trust - lag feels dishonest in a randomized-outcome product. Source: research/docs/research.md (Design Principles).</p>
         </div>
       </div>
       <div class="claim-update">
@@ -509,7 +397,7 @@
     <!-- MOOD QUOTE -->
     <div class="persona-quote">
       <p>"I was watching a clip of [streamer] open a 50k knife and just had to try it myself. The animation looked insane. I knew the odds were terrible but it didn't matter."</p>
-      <cite>Representative composite from CS2 gambling subreddit discussions, research/master-research.md (trust and fairness community signals). Not a direct verbatim quote - a direct verified quote is marked <span class="hyp-tag">[?]</span> and not yet found in cited sources.</cite>
+      <cite>Representative composite from CS2 gambling subreddit discussions, research/docs/research.md (trust and fairness community signals). Not a direct verbatim quote - a direct verified quote is marked <span class="hyp-tag">[?]</span> and not yet found in cited sources.</cite>
     </div>
   </div>
 </section>
@@ -522,29 +410,29 @@
   <div class="persona-card secondary">
     <span class="badge badge-secondary">Secondary</span>
     <div class="persona-name">The Accumulator</div>
-    <div class="persona-why">Why secondary: highest LTV user if retained. Regular depositor who tracks rakeback and treats upgrade routing as a skill game. All top-3 platforms have built feature sets specifically for this person (rakeback, loyalty points, upgrade odds). Source: research/strategy.md (Segment B: Grinder).</div>
+    <div class="persona-why">Why secondary: highest LTV user if retained. Regular depositor who tracks rakeback and treats upgrade routing as a skill game. All top-3 platforms have built feature sets specifically for this person (rakeback, loyalty points, upgrade odds). Source: research/docs/strategy.md (Segment B: Grinder).</div>
 
     <!-- CONTEXT -->
     <div class="persona-row">
       <div class="persona-row-label">Context</div>
-      <p>Age 20-32, regular platform user. Tracks balance relative to entertainment budget. Actively seeks rakeback or bonus mechanics. More likely to deposit regularly if the platform rewards loyalty. Source: research/strategy.md, Segment B.</p>
-      <p>Arrives via comparison content, affiliate links, or referrals from other regular players. More likely to read terms and compare bonus wagering requirements before depositing. Source: research/aarrr.md (Acquisition - Organic Search).</p>
+      <p>Age 20-32, regular platform user. Tracks balance relative to entertainment budget. Actively seeks rakeback or bonus mechanics. More likely to deposit regularly if the platform rewards loyalty. Source: research/docs/strategy.md, Segment B.</p>
+      <p>Arrives via comparison content, affiliate links, or referrals from other regular players. More likely to read terms and compare bonus wagering requirements before depositing. Source: research/docs/aarrr.md (Acquisition - Organic Search).</p>
     </div>
 
     <!-- JOBS -->
     <div class="persona-row">
       <div class="persona-row-label">Jobs</div>
       <div class="persona-jtbd">When I have built up a balance from regular play, I want to use upgrades, smart battle selection, and loyalty bonuses, so that I can maximize my chances of withdrawing a skin worth more than I put in.</div>
-      <p>Secondary job: when I have accumulated enough rakeback or loyalty points, I want to know exactly what I have earned and when I can redeem it, so that I can plan my session around the best value timing. Source: inferred from DatDrop DatPoints program and Gamdom rakeback design; research/competitive-analysis.md.</p>
+      <p>Secondary job: when I have accumulated enough rakeback or loyalty points, I want to know exactly what I have earned and when I can redeem it, so that I can plan my session around the best value timing. Source: inferred from DatDrop DatPoints program and Gamdom rakeback design; research/docs/competitors.md.</p>
     </div>
 
     <!-- PAINS -->
     <div class="persona-row">
       <div class="persona-row-label">Pains</div>
       <ul>
-        <li>No rakeback or loyalty rewards - or loyalty programs with opaque wagering requirements. Gamdom's 15% zero-wagering rakeback sets the benchmark. Clash.gg's rakeback is up to 0.75%, significantly lower. Source: research/strategy.md (Business Model); research/competitive-analysis.md (Gamdom).</li>
-        <li>Upgrade interfaces without clear probability display at each step. Source: research/ux-patterns.md (Pattern 4 - Accumulator, step 4).</li>
-        <li>Withdrawal delays and fees. ShadowPay on Hellcase charges 4-7% total fees with 3-5 day bank transfer. Fast, commission-free withdrawal is what this persona demands. Source: research/competitive-analysis.md (Hellcase withdrawal).</li>
+        <li>No rakeback or loyalty rewards - or loyalty programs with opaque wagering requirements. Gamdom's 15% zero-wagering rakeback sets the benchmark. Clash.gg's rakeback is up to 0.75%, significantly lower. Source: research/docs/strategy.md (Business Model); research/docs/competitors.md (Gamdom).</li>
+        <li>Upgrade interfaces without clear probability display at each step. Source: research/docs/ux-patterns.md (Pattern 4 - Accumulator, step 4).</li>
+        <li>Withdrawal delays and fees. ShadowPay on Hellcase charges 4-7% total fees with 3-5 day bank transfer. Fast, commission-free withdrawal is what this persona demands. Source: research/docs/competitors.md (Hellcase withdrawal).</li>
         <li>Whether rakeback rate (e.g. 10% vs 15%) materially changes the Accumulator's platform choice, versus rakeback terms (wagering requirement), is not confirmed by research. <span class="hyp-tag">[?]</span> Rate vs terms comparison data does not exist in the current corpus.</li>
       </ul>
     </div>
@@ -555,12 +443,12 @@
       <div class="persona-trust-row">
         <div class="persona-trust-item">
           <div class="persona-trust-key">Convinces</div>
-          <p>Published rakeback rate with explicit wagering terms stated before deposit. Source: research/aarrr.md (Activation).</p>
-          <p style="margin-top:8px;">Upgrade mode with visible probability per outcome before confirming the action. Source: research/ux-patterns.md (Pattern 4).</p>
+          <p>Published rakeback rate with explicit wagering terms stated before deposit. Source: research/docs/aarrr.md (Activation).</p>
+          <p style="margin-top:8px;">Upgrade mode with visible probability per outcome before confirming the action. Source: research/docs/ux-patterns.md (Pattern 4).</p>
         </div>
         <div class="persona-trust-item">
           <div class="persona-trust-key">Scares Off</div>
-          <p>A withdrawal delay or fee on an expected payout amount. Withdrawal reliability is the most-cited complaint across review aggregators for all five platforms studied. Source: research/strategy.md (Business Model Validation).</p>
+          <p>A withdrawal delay or fee on an expected payout amount. Withdrawal reliability is the most-cited complaint across review aggregators for all five platforms studied. Source: research/docs/strategy.md (Business Model Validation).</p>
         </div>
       </div>
     </div>
@@ -568,7 +456,7 @@
     <!-- MOOD QUOTE -->
     <div class="persona-quote">
       <p>"I don't expect to beat the house long-term but if I get some rakeback and the upgrades are fair I can stretch a $20 deposit into a lot of entertainment. The moment withdrawal fails once, I'm gone."</p>
-      <cite>Composite from review aggregator complaints across Hellcase, DatDrop, Key-Drop; research/master-research.md. Not a verbatim cited post - a direct verified quote from a public forum is marked <span class="hyp-tag">[?]</span>.</cite>
+      <cite>Composite from review aggregator complaints across Hellcase, DatDrop, Key-Drop; research/docs/research.md. Not a verbatim cited post - a direct verified quote from a public forum is marked <span class="hyp-tag">[?]</span>.</cite>
     </div>
   </div>
 </section>
@@ -581,13 +469,13 @@
   <div class="persona-card tertiary">
     <span class="badge badge-tertiary">Tertiary - Secondary Candidate</span>
     <div class="persona-name">The Researcher</div>
-    <div class="persona-why">Why tertiary: no major competitor leads product design for this persona. All lead with animations, not odds tables. Collector needs are served by the same transparency features required for trust-gap objectives - they do not justify dedicated feature investment beyond that baseline. Source: research/strategy.md (Segment C: Collector, Decision Trace). Why "secondary candidate": if the trust differentiation thesis proves correct via the landing page test (per Riskiest Assumption in strategy.md), this persona's search-led arrival behavior may be the channel where trust messaging converts best, elevating acquisition significance without changing feature requirements.</div>
+    <div class="persona-why">Why tertiary: no major competitor leads product design for this persona. All lead with animations, not odds tables. Collector needs are served by the same transparency features required for trust-gap objectives - they do not justify dedicated feature investment beyond that baseline. Source: research/docs/strategy.md (Segment C: Collector, Decision Trace). Why "secondary candidate": if the trust differentiation thesis proves correct via the landing page test (per Riskiest Assumption in strategy.md), this persona's search-led arrival behavior may be the channel where trust messaging converts best, elevating acquisition significance without changing feature requirements.</div>
 
     <!-- CONTEXT -->
     <div class="persona-row">
       <div class="persona-row-label">Context</div>
-      <p>Age 20-35, skewing older within the adult range. Researches case odds and expected values before spending. Has a specific skin wishlist. Source: research/strategy.md, Segment C.</p>
-      <p>Arrives via search ("best way to get [skin name]", "CS2 case odds") or skin comparison content. Source: research/aarrr.md (Acquisition - Organic Search).</p>
+      <p>Age 20-35, skewing older within the adult range. Researches case odds and expected values before spending. Has a specific skin wishlist. Source: research/docs/strategy.md, Segment C.</p>
+      <p>Arrives via search ("best way to get [skin name]", "CS2 case odds") or skin comparison content. Source: research/docs/aarrr.md (Acquisition - Organic Search).</p>
     </div>
 
     <!-- JOBS -->
@@ -600,8 +488,8 @@
     <div class="persona-row">
       <div class="persona-row-label">Pains</div>
       <ul>
-        <li>Hidden odds or no odds before deposit. Source: research/benchmark.md (Criterion 2: Odds Visibility).</li>
-        <li>No withdrawal transparency pre-login. Source: research/master-research.md (Gaps Table - Withdrawal architecture invisible pre-login).</li>
+        <li>Hidden odds or no odds before deposit. Source: research/docs/benchmark.md (Criterion 2: Odds Visibility).</li>
+        <li>No withdrawal transparency pre-login. Source: research/docs/research.md (Gaps Table - Withdrawal architecture invisible pre-login).</li>
         <li>Whether the Researcher converts at a materially higher rate when per-case EV is shown versus per-item odds alone is unknown. <span class="hyp-tag">[?]</span> The research confirms Collectors read odds but does not confirm which detail level converts them.</li>
       </ul>
     </div>
@@ -612,8 +500,8 @@
       <div class="persona-trust-row">
         <div class="persona-trust-item">
           <div class="persona-trust-key">Convinces</div>
-          <p>Published per-item odds with expected value per case, visible before deposit. CSGORoll and skin.club lead the benchmark here. Source: research/benchmark.md.</p>
-          <p style="margin-top:8px;">A provably fair page accessible without login. Source: research/master-research.md (Hypothesis 1).</p>
+          <p>Published per-item odds with expected value per case, visible before deposit. CSGORoll and skin.club lead the benchmark here. Source: research/docs/benchmark.md.</p>
+          <p style="margin-top:8px;">A provably fair page accessible without login. Source: research/docs/research.md (Hypothesis 1).</p>
         </div>
         <div class="persona-trust-item">
           <div class="persona-trust-key">Scares Off</div>
@@ -638,13 +526,13 @@
   <div class="persona-card retention">
     <span class="badge badge-secondary">Secondary - Retention Stage</span>
     <div class="persona-name">The Battler</div>
-    <div class="persona-why">Why a separate persona from the Opener: The Battler is not an acquisition persona - they are a retention persona. They have already opened cases solo and want a higher-stakes format with a real opponent. Battle mode is a retention mechanic, not an entry point. Source: research/ux-patterns.md (Pattern 3); research/aarrr.md (Retention). Why included despite not driving acquisition: battles are confirmed as the D7 and D14 retention lever. DatDrop's Battle Royale (up to 72 players) is its primary differentiator. Clash.gg's Champion mode is the most-cited reason users prefer it specifically. Source: research/competitive-analysis.md.</div>
+    <div class="persona-why">Why a separate persona from the Opener: The Battler is not an acquisition persona - they are a retention persona. They have already opened cases solo and want a higher-stakes format with a real opponent. Battle mode is a retention mechanic, not an entry point. Source: research/docs/ux-patterns.md (Pattern 3); research/docs/aarrr.md (Retention). Why included despite not driving acquisition: battles are confirmed as the D7 and D14 retention lever. DatDrop's Battle Royale (up to 72 players) is its primary differentiator. Clash.gg's Champion mode is the most-cited reason users prefer it specifically. Source: research/docs/competitors.md.</div>
 
     <!-- CONTEXT -->
     <div class="persona-row">
       <div class="persona-row-label">Context</div>
-      <p>Segment overlap: Thrill Seeker primarily, with Grinder overlap for high-stakes formats. Source: research/ux-patterns.md (Pattern 3).</p>
-      <p>Has already opened cases solo and wants a higher-stakes format with a real opponent. Browses the battle lobby, looks at pot size and case selection before joining. Source: research/ux-patterns.md (Pattern 3, steps 1-2).</p>
+      <p>Segment overlap: Thrill Seeker primarily, with Grinder overlap for high-stakes formats. Source: research/docs/ux-patterns.md (Pattern 3).</p>
+      <p>Has already opened cases solo and wants a higher-stakes format with a real opponent. Browses the battle lobby, looks at pot size and case selection before joining. Source: research/docs/ux-patterns.md (Pattern 3, steps 1-2).</p>
     </div>
 
     <!-- JOBS -->
@@ -657,8 +545,8 @@
     <div class="persona-row">
       <div class="persona-row-label">Pains</div>
       <ul>
-        <li>Lobby fill with bots: the single biggest pain for this persona. A bot battle is solo opening with extra steps - the social tension is gone. Source: research/master-research.md (Hypothesis 4); research/ux-patterns.md (Pattern 3, "Breaks when").</li>
-        <li>Unsynchronized reveal timing: if one player's result is visible before the other's, the tension of simultaneous discovery is broken. Source: research/ux-patterns.md (Pattern 3).</li>
+        <li>Lobby fill with bots: the single biggest pain for this persona. A bot battle is solo opening with extra steps - the social tension is gone. Source: research/docs/research.md (Hypothesis 4); research/docs/ux-patterns.md (Pattern 3, "Breaks when").</li>
+        <li>Unsynchronized reveal timing: if one player's result is visible before the other's, the tension of simultaneous discovery is broken. Source: research/docs/ux-patterns.md (Pattern 3).</li>
       </ul>
     </div>
 
@@ -668,12 +556,12 @@
       <div class="persona-trust-row">
         <div class="persona-trust-item">
           <div class="persona-trust-key">Convinces</div>
-          <p>A lobby with a visible pot size and at least one real (non-bot) open slot. Source: research/ux-patterns.md (Pattern 3, step 2).</p>
-          <p style="margin-top:8px;">A battle result worth screenshotting and sharing. Source: research/ux-patterns.md (Pattern 3, step 5).</p>
+          <p>A lobby with a visible pot size and at least one real (non-bot) open slot. Source: research/docs/ux-patterns.md (Pattern 3, step 2).</p>
+          <p style="margin-top:8px;">A battle result worth screenshotting and sharing. Source: research/docs/ux-patterns.md (Pattern 3, step 5).</p>
         </div>
         <div class="persona-trust-item">
           <div class="persona-trust-key">Scares Off</div>
-          <p>A lobby fill time over 60-90 seconds. Research sets 60 seconds as the hard limit before abandonment. Source: research/ux-patterns.md (Pattern 3, step 3).</p>
+          <p>A lobby fill time over 60-90 seconds. Research sets 60 seconds as the hard limit before abandonment. Source: research/docs/ux-patterns.md (Pattern 3, step 3).</p>
         </div>
       </div>
       <div class="decision-note">
@@ -685,7 +573,7 @@
     <!-- MOOD QUOTE -->
     <div class="persona-quote">
       <p>"The bot lobbies are so obvious it's insulting. Half the accounts have robot names or zero level. I just want to play against actual people."</p>
-      <cite>Composite from community discussion of DatDrop and DaddySkins bot activity, research/master-research.md. Not a verbatim cited post. <span class="hyp-tag">[?]</span> Direct verified quote from a public post not yet in corpus.</cite>
+      <cite>Composite from community discussion of DatDrop and DaddySkins bot activity, research/docs/research.md. Not a verbatim cited post. <span class="hyp-tag">[?]</span> Direct verified quote from a public post not yet in corpus.</cite>
     </div>
   </div>
 </section>
@@ -693,46 +581,21 @@
 </main>
 
 <footer>
-  <p>CS2 Clutch Research Sprint - June 2026. Personas built from research corpus. Baseline: daddyskins.com.</p>
-  <p>All claims marked FACT (cited) or HYPOTHESIS. Research: Phases 0-7 completed.</p>
+  <p>CS2 Clutch, stage 02 of twelve. Personas built from the research corpus. Baseline: daddyskins.com.</p>
+  <p>All claims marked FACT (cited) or HYPOTHESIS. Next stage: CJM.</p>
 </footer>
 
-<script>
-(function() {
-  var btn = document.getElementById('hamburger-btn');
-  var overlay = document.getElementById('sidebar-overlay');
-  var sidebar = document.getElementById('sidebar');
-  function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('active'); }
-  function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('active'); }
-  if (btn) btn.addEventListener('click', function() { sidebar.classList.contains('open') ? closeSidebar() : openSidebar(); });
-  if (overlay) overlay.addEventListener('click', closeSidebar);
-  sidebar.querySelectorAll('.sidebar-link, .sidebar-sublink').forEach(function(link) {
-    link.addEventListener('click', function() { if (window.innerWidth < 860) closeSidebar(); });
-  });
-})();
 
-(function() {
-  var sublinks = document.querySelectorAll('.sidebar-sublink[data-section]');
-  if (!sublinks.length || !('IntersectionObserver' in window)) return;
-  var sections = ['observations','opener','accumulator','researcher','battler'];
-  var active = null;
-  function setActive(id) {
-    if (active === id) return;
-    active = id;
-    sublinks.forEach(function(link) {
-      link.classList.toggle('active', link.getAttribute('data-section') === id);
-    });
-  }
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) setActive(entry.target.id);
-    });
-  }, { rootMargin: '-15% 0px -75% 0px' });
-  sections.forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el) observer.observe(el);
-  });
-})();
+<script>
+window.NAV_BASE = '../';
+window.NAV_SECTIONS = [
+  { id: 'observations', label: 'Observations' },
+  { id: 'opener', label: 'The Opener' },
+  { id: 'accumulator', label: 'The Accumulator' },
+  { id: 'researcher', label: 'The Researcher' },
+  { id: 'battler', label: 'The Battler' },
+];
 </script>
+<script src="../_nav.js"></script>
 </body>
 </html>

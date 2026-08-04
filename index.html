@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS2 Clutch - Project Roadmap</title>
+<link rel="stylesheet" href="_nav.css">
+<style>
+  :root {
+    --bg: #040319;
+    --bg-card: #0a0827;
+    --accent: #e94d8b;
+    --accent-2: #65a3ff;
+    --accent-3: #fada62;
+    --fg: #f0eef8;
+    --fg-dim: #8b89a8;
+    --fg-mute: #534f72;
+    --rule: rgba(255,255,255,0.07);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--fg); line-height: 1.6;
+    font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  main { position: relative; z-index: 1; margin-left: var(--nav-w); padding: 72px 40px 96px; max-width: 1080px; }
+  @media (max-width: 899px) { main { margin-left: 0; padding: 76px 20px 64px; } }
+
+  .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+  h1 { margin: 14px 0 18px; font-size: clamp(34px, 6vw, 58px); line-height: 1.05; font-weight: 800; letter-spacing: -0.02em; }
+  h1 em { font-style: normal; background: linear-gradient(96deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { max-width: 62ch; font-size: 17px; color: var(--fg-dim); }
+  .lede + .lede { margin-top: 12px; }
+
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin: 36px 0 8px; }
+  .fact { padding: 16px 18px; background: var(--bg-card); border: 1px solid var(--rule); border-radius: 12px; }
+  .fact dt { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-mute); }
+  .fact dd { margin-top: 6px; font-size: 14px; font-weight: 600; color: var(--fg); }
+  .fact dd small { display: block; margin-top: 3px; font-size: 12px; font-weight: 400; color: var(--fg-dim); }
+
+  h2 { margin: 64px 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-2); }
+  h2 + p { margin-bottom: 22px; font-size: 14px; color: var(--fg-dim); }
+
+  .stage { display: grid; grid-template-columns: 42px 1fr; gap: 0 16px; padding: 18px 0; border-top: 1px solid var(--rule); }
+  .stage:last-of-type { border-bottom: 1px solid var(--rule); }
+  .stage-no { font-size: 12px; font-weight: 700; color: var(--fg-mute); font-variant-numeric: tabular-nums; padding-top: 3px; }
+  .stage-name { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+  .stage.is-soon .stage-name, .stage.is-soon .stage-no { color: var(--fg-mute); }
+  .stage-pages { grid-column: 2; display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .page-chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; border: 1px solid var(--rule); font-size: 12px; color: var(--fg-dim); text-decoration: none; }
+  a.page-chip:hover { color: var(--fg); border-color: rgba(233,77,139,0.5); background: rgba(233,77,139,0.07); }
+  .page-chip::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--fg-mute); }
+  a.page-chip::before { background: #4ade80; }
+  .chip-head { font-size: 9px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--fg-mute); align-self: center; margin-right: 2px; }
+
+  .tag { padding: 3px 8px; border-radius: 5px; font-size: 9px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; }
+  .tag-next { background: var(--accent-3); color: #1a1400; }
+  .tag-done { border: 1px solid rgba(74,222,128,0.35); color: #4ade80; }
+  .tag-soon { border: 1px solid var(--rule); color: var(--fg-mute); }
+
+  footer { margin-top: 64px; padding-top: 22px; border-top: 1px solid var(--rule); font-size: 13px; color: var(--fg-mute); }
+  footer a { color: var(--fg-dim); }
+</style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+  <p class="eyebrow">Product design pipeline</p>
+  <h1>CS2 Clutch<br><em>research to design system</em></h1>
+  <p class="lede">A twelve stage pipeline that turns market research into a working design system. Every stage leaves two outputs: a markdown source of truth for the model, and a page in this browser for the person who decides.</p>
+  <p class="lede">The product is a redesign of a live CS2 skin platform. Structure and information architecture are inherited from the six year old baseline; the visual language is derived from scratch.</p>
+
+  <dl class="facts">
+    <div class="fact"><dt>Round 1 scope</dt><dd>Home, case opening, account<small>Plus deposit, withdrawal, provably fair, age and geo gate</small></dd></div>
+    <div class="fact"><dt>Language</dt><dd>English, single<small>Locked at stage 03a</small></dd></div>
+    <div class="fact"><dt>Baseline</dt><dd>daddyskins.com<small>Structure inherited, look is our own</small></dd></div>
+    <div class="fact"><dt>Brand</dt><dd>New<small>Own logo, own palette from stage 06</small></dd></div>
+  </dl>
+
+  <h2>Roadmap</h2>
+  <p>Status lives in two places only: this registry and the table in README. Green chips are live pages.</p>
+  <div id="stages"></div>
+
+  <footer>
+    Sources in <code>research/docs/</code>. Rules in <code>CLAUDE.md</code>. Decision records in <code>docs/decisions.md</code>.
+  </footer>
+</main>
+
+<script>window.NAV_BASE = '';</script>
+<script src="_nav.js"></script>
+<script>
+(function () {
+  var reg = window.NAV, host = document.getElementById('stages');
+  function leaves(s) {
+    if (!s.children) return s.page ? [s] : [];
+    var out = [];
+    s.children.forEach(function (c) { c.items ? c.items.forEach(function (i) { out.push(i); }) : out.push(c); });
+    return out;
+  }
+  var nextIdx = -1;
+  var rows = reg.map(function (s, i) {
+    var lv = leaves(s), done = lv.filter(function (l) { return l.done; }).length;
+    var complete = lv.length > 0 && done === lv.length;
+    if (!complete && nextIdx === -1) nextIdx = i;
+    return { stage: s, leaves: lv, done: done, complete: complete };
+  });
+
+  host.innerHTML = rows.map(function (r, i) {
+    var tag = r.complete ? '<span class="tag tag-done">Done</span>'
+            : i === nextIdx ? '<span class="tag tag-next">Next</span>'
+            : r.done > 0 ? '<span class="tag tag-soon">' + r.done + ' of ' + r.leaves.length + '</span>'
+            : '<span class="tag tag-soon">Soon</span>';
+    var chips = r.leaves.length
+      ? r.leaves.map(function (l) {
+          return l.done
+            ? '<a class="page-chip" href="' + l.page + '">' + (l.pageLabel || l.label) + '</a>'
+            : '<span class="page-chip">' + (l.pageLabel || l.label) + '</span>';
+        }).join('')
+      : '<span class="page-chip">pages defined by the stage itself</span>';
+    return '<div class="stage' + (r.complete || i === nextIdx ? '' : ' is-soon') + '">'
+      + '<div class="stage-no">' + String(i + 1).padStart(2, '0') + '</div>'
+      + '<div class="stage-name">' + r.stage.label + tag + '</div>'
+      + '<div class="stage-pages"><span class="chip-head">Pages</span>' + chips + '</div>'
+      + '</div>';
+  }).join('');
+})();
+</script>
+</body>
+</html>

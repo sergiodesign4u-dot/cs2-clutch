@@ -1,0 +1,99 @@
+/* Look of the roadmap sidebar. Structure comes from /_nav.js, look comes from here,
+   and no page describes nav-* rules of its own: one <link> is the whole contract.
+   Theme is nine variables. Eight are the course set; --nav-bg is added because the
+   panel is fixed over page content and needs an opaque plate of its own. */
+
+:root {
+  --nav-bg:     #050320;
+  --nav-fg:     #f0eef8;
+  --nav-active: #e94d8b;
+  --nav-muted:  #6f6b90;
+  --nav-rule:   rgba(255, 255, 255, 0.08);
+  --nav-badge:  #fada62;
+  --nav-w:      248px;
+  --nav-size:   13px;
+  --nav-lh:     1.45;
+}
+
+#sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 200;
+  width: var(--nav-w);
+  padding: 26px 14px 40px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--nav-bg);
+  border-right: 1px solid var(--nav-rule);
+  font-size: var(--nav-size);
+  line-height: var(--nav-lh);
+  color: var(--nav-muted);
+  font-family: inherit;
+  -webkit-font-smoothing: antialiased;
+}
+
+#sidebar::-webkit-scrollbar { width: 6px; }
+#sidebar::-webkit-scrollbar-thumb { background: var(--nav-rule); border-radius: 3px; }
+
+/* Brand plate */
+.nav-brand { display: flex; flex-direction: column; gap: 2px; padding: 0 8px 18px; margin-bottom: 14px; border-bottom: 1px solid var(--nav-rule); }
+.nav-brand strong { font-size: 14px; font-weight: 800; letter-spacing: 0.02em; color: var(--nav-fg); }
+.nav-brand span { font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--nav-muted); }
+.nav-home { margin-top: 10px; font-size: 11px; color: var(--nav-active); text-decoration: none; opacity: 0.85; }
+.nav-home:hover { opacity: 1; text-decoration: underline; }
+
+/* Roadmap */
+.nav-roadmap { display: flex; flex-direction: column; }
+.nav-item { position: relative; display: flex; flex-wrap: wrap; align-items: center; padding: 1px 0; }
+.nav-top { display: block; flex: 1 1 auto; min-width: 0; padding: 6px 8px; border-radius: 6px; color: var(--nav-muted); text-decoration: none; }
+a.nav-top:hover { color: var(--nav-fg); background: rgba(255, 255, 255, 0.05); }
+
+.nav-item.is-done > .nav-top { color: var(--nav-fg); }
+.nav-item.is-partial > .nav-top { color: var(--nav-fg); }
+.nav-item.is-soon > .nav-top { color: var(--nav-muted); cursor: default; }
+.nav-item.is-active > .nav-top { color: var(--nav-fg); font-weight: 700; }
+.nav-item.is-active::before {
+  content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+  width: 2px; border-radius: 2px; background: var(--nav-active);
+}
+.nav-item.is-active > a.nav-top.is-current { background: rgba(233, 77, 139, 0.1); }
+
+/* Badges */
+.nav-badge { flex: 0 0 auto; margin-left: 6px; padding: 2px 6px; border-radius: 4px; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.nav-badge-next { color: var(--nav-bg); background: var(--nav-badge); }
+.nav-badge-soon { color: var(--nav-muted); border: 1px solid var(--nav-rule); }
+
+/* Expanded group */
+.nav-sub { flex: 1 1 100%; display: flex; flex-direction: column; margin: 2px 0 6px; padding-left: 10px; border-left: 1px solid var(--nav-rule); }
+.nav-subhead { padding: 8px 8px 3px; font-size: 9px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--nav-muted); opacity: 0.75; }
+.nav-subitem { display: flex; align-items: center; padding: 5px 8px; border-radius: 6px; color: var(--nav-muted); text-decoration: none; }
+a.nav-subitem:hover { color: var(--nav-fg); background: rgba(255, 255, 255, 0.05); }
+a.nav-subitem { color: var(--nav-fg); opacity: 0.72; }
+a.nav-subitem.is-current { color: var(--nav-active); opacity: 1; font-weight: 600; background: rgba(233, 77, 139, 0.08); }
+.nav-subitem.is-soon { opacity: 1; cursor: default; }
+
+/* Sections of the page you are standing on */
+.nav-sections { flex: 1 1 100%; display: flex; flex-direction: column; margin: 1px 0 6px; padding-left: 12px; }
+.nav-item.is-active > .nav-sections { padding-left: 20px; }
+.nav-section { padding: 4px 8px; font-size: 12px; color: var(--nav-muted); text-decoration: none; border-left: 1px solid transparent; }
+.nav-section:hover { color: var(--nav-fg); }
+.nav-section.is-current { color: var(--nav-fg); border-left-color: var(--nav-active); }
+
+/* Off-canvas below 900px */
+.nav-toggle {
+  position: fixed; z-index: 202; top: 12px; left: 12px;
+  width: 38px; height: 38px; display: none;
+  align-items: center; justify-content: center;
+  font-size: 16px; line-height: 1; cursor: pointer;
+  color: var(--nav-fg); background: var(--nav-bg);
+  border: 1px solid var(--nav-rule); border-radius: 8px;
+}
+.nav-scrim { position: fixed; inset: 0; z-index: 199; display: none; background: rgba(0, 0, 0, 0.6); }
+.nav-scrim.is-open { display: block; }
+
+@media (max-width: 899px) {
+  /* the toggle sits at the top left corner, so the brand plate starts below it */
+  #sidebar { padding-top: 62px; transform: translateX(-100%); transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1); }
+  #sidebar.is-open { transform: translateX(0); }
+  .nav-toggle { display: flex; }
+}

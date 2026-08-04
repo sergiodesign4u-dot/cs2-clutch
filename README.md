@@ -1,62 +1,82 @@
-# CS2 Clutch - Product Research Sprint
+# CS2 Clutch
 
-> Live research HTML: **[https://sergiodesign4u-dot.github.io/cs2-clutch/research.html](https://sergiodesign4u-dot.github.io/cs2-clutch/research.html)**
-> Personas: **[https://sergiodesign4u-dot.github.io/cs2-clutch/personas.html](https://sergiodesign4u-dot.github.io/cs2-clutch/personas.html)**
-> JTBD: **[https://sergiodesign4u-dot.github.io/cs2-clutch/jtbd.html](https://sergiodesign4u-dot.github.io/cs2-clutch/jtbd.html)**
+Redesign of a live CS2 skin platform, built as a twelve stage product design pipeline. Working placeholder name. Baseline: daddyskins.com, the founder's own product, six years live.
 
-A structured product research sprint for the redesign of a CS2 skin opening platform (baseline: daddyskins.com). Working placeholder name: CS2 Clutch. Brand assets are out of scope.
+**Live: [project roadmap](https://sergiodesign4u-dot.github.io/cs2-clutch/)**
 
-## Sprint Status
+Every stage leaves two outputs: a markdown source of truth in `docs/` for the model, and an html page in the browser for the person who decides. Structure and information architecture are inherited from the baseline; the visual language is derived from scratch at stage 06.
 
-| Phase | Deliverable | Status |
-|-------|-------------|--------|
-| 0 | Brief (CLAUDE.md, README.md) | Done |
-| 1 | Product Model v1 (research/product-model.md) | Done |
-| 2 | AARRR Model (research/aarrr.md) | Done |
-| 3 | Competitive Analysis (research/competitive-analysis.md) | Done |
-| 4 | Benchmark: Trust and Fairness (research/benchmark.md) | Done |
-| 4.5 | Strategy v_refresh (research/strategy.md, migrated from product-model.md v2) | Done |
-| 5 | UX Patterns (research/ux-patterns.md) | Done |
-| 6 | Master Synthesis (research/master-research.md) | Done |
-| 6.5 | Quality Gate (research/quality-check.md) | Done |
-| 7 | Research HTML (research.html) + GitHub Pages | Done |
-| People and JTBD | Personas (personas.html), JTBD (jtbd.html), live verification (research/live-research.md), 4 founder decisions locked | Done |
-| Wireframes | Next phase, follows research | Not started |
+## Status
 
-## Key Documents
+This table and `_nav.js` are the only two places where status lives. Nothing else records it.
 
-- [CLAUDE.md](CLAUDE.md) - Product brief, scope, design principles, tech stack hypothesis
-- [research/strategy.md](research/strategy.md) - Objectives, audience segments, business model, riskiest assumption, 4 product decisions (v_people)
-- [research/personas.md](research/personas.md) - 4 personas with people inventory (v_people)
-- [research/jtbd.md](research/jtbd.md) - JTBD hierarchy, matrix, critique, decisions applied (v_people)
-- [research/live-research.md](research/live-research.md) - Post-persona verification artifact: 5 confirmed, 1 killed, 2 unresolved
-- [research/product-model.md](research/product-model.md) - Prior version kept for history
-- [research/aarrr.md](research/aarrr.md) - AARRR funnel model with metrics and product decisions
-- [research/competitive-analysis.md](research/competitive-analysis.md) - HARD / SOFT / ASPIRATIONAL competitor groups and analysis matrix
-- [research/benchmark.md](research/benchmark.md) - Trust and fairness benchmark across best-in-class products
-- [research/ux-patterns.md](research/ux-patterns.md) - Behavioral patterns and UX pattern selection
-- [research/master-research.md](research/master-research.md) - Master synthesis, single source of truth
-- [research/quality-check.md](research/quality-check.md) - Quality gate, claim verification
+| # | Stage | Pages | Status |
+|---|-------|-------|--------|
+| 01 | Foundation Research | [Research](https://sergiodesign4u-dot.github.io/cs2-clutch/research/research.html) | Done, 1 gap |
+| 02 | User Research (Personas, JTBD) | [Personas](https://sergiodesign4u-dot.github.io/cs2-clutch/research/personas.html), [JTBD](https://sergiodesign4u-dot.github.io/cs2-clutch/research/jtbd.html) | Done |
+| 02+ | CJM (As-Is, To-Be) | cjm-as-is, cjm-to-be | Next |
+| 03 | Information Architecture (Base, Detail) | flows, concept-map, sitemap, structure | Not started |
+| 04 | Wireframes | overview, index, screens | Not started |
+| 05 | Voice | voice | Not started |
+| 06 | Concept | directions, concept | Not started |
+| 07 | UI + Visual | overview, index, sample screens | Not started |
+| 08 | Tokens + Components | kit overview, foundations, component pages | Not started |
+| 09 | Design System | why, patterns, states | Not started |
+| 10 | Responsive | defined by the stage | Not started |
+| 11 | Animation | defined by the stage | Not started |
+| 12 | Handoff | defined by the stage | Not started |
 
-## Folder Structure
-
-```
-research/           - All research documents
-research/screens/   - Competitor and benchmark screenshots
-research/screens/baseline/ - daddyskins.com baseline screenshots
-wireframes/         - Wireframes (next phase)
-concept/            - Visual concepts (future phase)
-tokens/             - Design tokens (future phase)
-components/         - Component library (future phase)
-design-system/      - Design system documentation (future phase)
-handoff/            - Developer handoff (future phase)
-```
+**Named gap in stage 01.** The critique pass never ran on two instruments (Claude and Codex). It is carried openly rather than papered over, and closing it is the first work item of the next round. A second apparent gap turned out not to be one: the Lean UX Canvas was fully authored but lived only inside `research.html` with no markdown source. It has been extracted to `research/docs/lean-ux-canvas.md` cell for cell (D-08).
 
 ## Scope
 
-Core: case opening, case battles, upgrades, in-platform exchange, real skin withdrawal.
-Out of scope: general marketplace, third-party trading integrations beyond withdrawal.
+**Round 1:** home, case opening, registration and account, deposit, skin withdrawal to Steam, provably fair page with verification tool, age gate and geo block.
 
-## Baseline
+**Later:** case battles, gunfights, upgrades, in-platform exchange, giveaways, leaderboards, referral programme, rakeback.
 
-daddyskins.com is the existing product being redesigned. Research studies it as-is alongside competitors.
+## Locked decisions
+
+| Decision | Value |
+|---|---|
+| Language | One, English |
+| Existing brand | None inherited. Own logo, own palette from stage 06 |
+| Existing design system | None |
+| Baseline inheritance | Structure and IA only. Look is derived, not lifted |
+
+Full reasoning and consequences: `CLAUDE.md`. Decision records: `docs/decisions.md`.
+
+## Sources
+
+```
+research/docs/
+├── competitors.md      competitor groups (hard, soft, aspirational) and matrix
+├── benchmark.md        trust and fairness benchmark across best-in-class products
+├── aarrr.md            AARRR funnel, one metric and one decision per stage
+├── ux-patterns.md      behavioural patterns and the chosen pattern
+├── lean-ux-canvas.md   Lean UX Canvas v2 (Gothelf), glance view of the foundation
+├── research.md         synthesis, single source of truth
+├── personas.md         four behavioural personas, one primary
+├── jtbd.md             JTBD hierarchy, matrix, critique
+├── strategy.md         objectives, segments, business model, four locked founder decisions
+├── live-research.md    post-persona verification: 5 confirmed, 1 killed, 2 unresolved
+├── quality-check.md    quality gate, claim verification
+└── product-model.md    superseded by strategy.md, kept for history
+research/screens/            competitor screenshots
+research/screens/baseline/   daddyskins.com baseline screenshots
+```
+
+The last four files are migration residue: they carry real research but do not map onto a course artefact yet. Their fate is recorded in `docs/decisions.md` and settled in the next round.
+
+## Repo layout
+
+```
+index.html          project roadmap, entry point
+_nav.js             the one navigation registry: stages, pages, done flags
+_nav.css            the one sidebar theme
+CLAUDE.md           rules that must hold next session, no status
+AGENTS.md           entry point for the Codex critic
+docs/decisions.md   decision records, never auto loaded
+research/           stages 01, 02 and 02+
+```
+
+The stage packs live outside this repo, in `AI Design Workflow/`. Nothing from there is committed here.
