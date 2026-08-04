@@ -111,3 +111,34 @@ Stage 01 as the course defines it produces six documents, and `lean-ux-canvas.md
 Stage 01 requires a critique pass on two instruments, Claude and Codex, and it never ran on this material. Everything downstream rests on stage 01, so a fabricated number there poisons all eleven stages below it, and this is the cheapest place to catch one.
 
 **Chosen:** name the gap in `README.md` and in `AGENTS.md` so that no later audit reports it as a discovery, and make closing it the first work item of the next round. **Rejected:** running the critique inline during the structure migration. Critique is a stage step with its own log, its own verification pass and its own visible "before to after" section; folding it into a migration would produce findings with nowhere to live.
+
+---
+
+## D-10. Stage 01 critique, run on two instruments
+
+**Date:** 2026-08-05. **Closes:** D-09. **Leaves open:** one finding, carried deliberately (see the last section here).
+
+The stage 01 critique had never run. It ran now, following the stage pack: Codex first and read only, Claude's own pass in parallel on a different class, neither instrument seeing the other's table until both were complete, dedup afterwards on full data.
+
+**Dedup key:** file, line and statement. Where both instruments hit the same line with different defects, one row was kept and both defects named, because a single fix has to satisfy both.
+
+**Result:** 22 findings confirmed, 2 withdrawn on verification. Codex 12, Claude 8, both 2. No verdicts conflicted, so nothing had to be escalated.
+
+**Why the split fell that way, and what it says about the second instrument.** Codex took the entire class of unsourced facts, including nine sites that step 8 of stage 01 had already walked past with its own pass. That is the whole argument for a second instrument in one number: the author of the material, re-reading the material, believed the same things the second time. Claude took the entire class of conclusions that do not follow from any fact above them, which needs the product understood rather than the text read.
+
+**The pattern underneath both classes.** The level files were consistently more honest than the synthesis. `competitors.md` carried a `[?]` on the pre-login conversion claim and the synthesis dropped it. `benchmark.md` said in line 7 that Hellcase had been removed from scoring, and the synthesis then called Hellcase the lowest-scoring platform in the category. The defect is not born in the research. It is born on the merge, and that is where the next round should look first.
+
+**Withdrawn on verification, kept visible so they do not return:**
+
+- Codex reported Clash.gg's "Champion house edge 7.5%" as unsourced. The source index carries the row (skincasereviewer.com). Half the finding falls; "30-second average matchmaking" in the same cell had no source and was fixed.
+- Claude reported two source index rows citing "research compilation" instead of a source. One of the two carries a real URL. Corrected to one row, which was fixed.
+
+**Pre-critique wording of the canvas, preserved as promised in `lean-ux-canvas.md`:**
+
+> **Cell 7, riskiest assumption:** "Users who care about trust infrastructure will discover this platform through it, convert into depositors because of it, and stay longer because of it, at a rate meaningfully above what the same effort would achieve spent on a bigger first-deposit bonus, more streamers, or a Rain-style ambient mechanic." Counter-evidence: "Hellcase has 2M MAU and 150,000 daily opens with the lowest trust score in category."
+
+> **Cell 8, smallest test:** "Landing page A/B. Variant A, trust-first: 'the only platform with a named, verified RNG auditor, check the result yourself'. Variant B, experience-first: 'the most electric case opening on the web'."
+
+Both were retired because their premise had been killed in `research.md` section 9 and because Decision 1 had already chosen the hybrid hero. The assumption now lives in exactly one place, `strategy.md` section 4, and is quoted rather than restated elsewhere.
+
+**One finding stays open by decision:** `benchmark.md` scores five same-category competitors, while stage 01 step 4 defines the benchmark as one dimension measured against four to five best-in-class products from **other** categories, and warns against exactly this confusion in its own text. Stages 04, 06 and 07 read this file. Editing cannot fix it: the file measures the wrong population. It has to be re-run, and step 4 requires the founder to choose the dimension first from proposed candidates rather than the model deciding. Until then, stage 06 has nothing to aim at.

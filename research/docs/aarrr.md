@@ -291,7 +291,7 @@ All targets are hypotheses. Replace with live data at each stage.
 
 1. The case opening reveal is the single most important product moment. Activation, retention, referral, and revenue all flow from the quality of this one experience. The linear reveal (Pattern A from ux-patterns.md) is the correct choice; execution quality is where the redesign wins.
 
-2. The house edge hypothesis in v1 (25-40%) was materially wrong. The market operates at 7-10% on mini-games (confirmed from Clash.gg RTP disclosure). Case RTP is still unknown and must be modeled before launch. Do not design bonus and wagering structures before case math is set.
+2. The house edge hypothesis in v1 (25-40%) was materially wrong FOR MINI-GAMES. The market operates at 7-10% on mini-games (confirmed from Clash.gg RTP disclosure). Cases are a different surface: case RTP is still [?] unknown and must be modeled before launch, and round 1 ships cases, not mini-games. Do not design bonus and wagering structures before case math is set.
 
 3. Loyalty mechanics are now table stakes, not differentiators. Every competitor has some form of daily bonus, loyalty case, or points program. The design question is not whether to offer them, but whether to match (DatPoints, Key-Drop leveling) or exceed (Gamdom 15% zero-wagering rakeback) the current standard.
 

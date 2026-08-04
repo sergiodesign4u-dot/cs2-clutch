@@ -123,11 +123,15 @@ No true free tier exists in the baseline product (DaddySkins). The market is mov
 
 **Single riskiest assumption to value (not to feasibility):**
 
-Users who care about provably fair fairness and trust infrastructure will discover this platform through it, convert into depositors because of it, and remain longer because of it - at a rate meaningfully above what would be achieved by spending the same effort and money on a bigger first-deposit bonus, more streamers, or a Rain system.
+Institutional trust signals placed in the hero, a named third-party RNG auditor badge plus a visible Trustpilot score, move a first-time visitor into the deposit flow at a rate meaningfully above what the same hero space achieves with the reveal animation alone.
+
+**Counter-evidence.** Hellcase holds the largest audience in the category (2M MAU, 150,000 daily opens) with no public PF page, an 82.1% tested RTP and no formal licence. Be exact about what this shows and what it does not: it shows scale is reachable without trust infrastructure; it does not show that a trust badge fails to convert, because no platform in the set has ever run one. Source: https://esports.gg/news/counter-strike-2/what-is-hellcase/, https://skincasereviewer.com/reviews/hellcase.
+
+**One phrase deliberately removed.** Earlier versions of this paragraph called Hellcase "the lowest trust score in category". No such score exists: `benchmark.md` line 7 removed Hellcase from the benchmark pending dedicated research, and the lowest score actually assigned is daddyskins at 15/40. The argument stands on the three sourced attributes above and does not need the ranking.
 
 **Why this is the riskiest:**
 
-The entire product differentiation strategy rests on trust being a discoverable, learnable, and decision-changing attribute for the Thrill Seeker segment. If Thrill Seekers choose platforms based on streamer endorsements, social proof from friends, and bonus size (and never actively evaluate provably fair mechanisms, third-party auditors, or bot-free feeds), then:
+The differentiation strategy rests on trust being a VISIBLE and decision-changing signal at first contact. Note that this is the second version of this assumption, and it is deliberately weaker than the first. The original rested on the Thrill Seeker actively evaluating provably fair mechanisms before depositing. That version was killed in `research.md` section 9 (KILLED-01): mass-market openers do not self-verify. What survives is narrower: not that users verify, but that they read an institutional badge as a proxy for having verified. If even that is false, then:
 
 - The trust infrastructure costs time and money to build but does not return a proportionate acquisition or retention advantage.
 - Platforms with better streamers, bigger bonuses, or the Rain system will consistently outacquire and outretain this platform.
@@ -135,9 +139,9 @@ The entire product differentiation strategy rests on trust being a discoverable,
 
 **How to test it (smallest experiment):**
 
-Before building named third-party RNG auditor infrastructure, run a landing page test comparing two variants:
-- Variant A: trust-first messaging ("the only platform with a named, verified RNG auditor - check the result yourself")
-- Variant B: experience-first messaging ("the most electric case opening on the web")
+Before securing the named third-party RNG auditor relationship, run a hero test comparing two variants:
+- Variant A: reveal animation plus an institutional trust badge unit in the same hero (auditor name and Trustpilot score)
+- Variant B: reveal animation alone
 
 Measure: click-through to deposit flow, not just page engagement. If Variant A does not produce measurably higher deposit intent, the trust differentiation thesis has failed at the acquisition stage and must be repositioned (trust as a retention and regulatory hedge rather than a primary acquisition argument).
 

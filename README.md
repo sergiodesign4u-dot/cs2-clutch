@@ -12,7 +12,7 @@ This table and `_nav.js` are the only two places where status lives. Nothing els
 
 | # | Stage | Pages | Status |
 |---|-------|-------|--------|
-| 01 | Foundation Research | [Research](https://sergiodesign4u-dot.github.io/cs2-clutch/research/research.html) | Done, 1 gap |
+| 01 | Foundation Research | [Research](https://sergiodesign4u-dot.github.io/cs2-clutch/research/research.html) | Done, 1 open finding |
 | 02 | User Research (Personas, JTBD) | [Personas](https://sergiodesign4u-dot.github.io/cs2-clutch/research/personas.html), [JTBD](https://sergiodesign4u-dot.github.io/cs2-clutch/research/jtbd.html) | Done |
 | 02+ | CJM (As-Is, To-Be) | cjm-as-is, cjm-to-be | Next |
 | 03 | Information Architecture (Base, Detail) | flows, concept-map, sitemap, structure | Not started |
@@ -26,7 +26,9 @@ This table and `_nav.js` are the only two places where status lives. Nothing els
 | 11 | Animation | defined by the stage | Not started |
 | 12 | Handoff | defined by the stage | Not started |
 
-**Named gap in stage 01.** The critique pass never ran on two instruments (Claude and Codex). It is carried openly rather than papered over, and closing it is the first work item of the next round. A second apparent gap turned out not to be one: the Lean UX Canvas was fully authored but lived only inside `research.html` with no markdown source. It has been extracted to `research/docs/lean-ux-canvas.md` cell for cell (D-08).
+**Stage 01 critique: done.** It ran on two instruments in August 2026 and produced 22 confirmed findings, 2 withdrawn on verification. All are fixed except one, and the summary is visible on the research page under "Before and after" (D-10).
+
+**The one open finding.** `benchmark.md` scores five same-category competitors, while the stage defines the benchmark as one dimension measured against four to five best-in-class products from **other** categories. Stages 04, 06 and 07 read this file, so stage 06 currently has nothing to aim at. It cannot be edited into shape: it measures the wrong population and has to be re-run, starting with the founder choosing the dimension.
 
 ## Scope
 

@@ -187,7 +187,7 @@ Advanced variant (Clash.gg Champion mode): HP is derived from item value. Player
 
 **When it breaks:**
 - When lobby fill uses bots without labeling them - the social tension collapses. A battle against a bot is solo opening with extra steps. DatDrop's majority-vote-to-add-bots mechanic, and DaddySkins' openly named "[BOT] Darth Vader" entries, illustrate the trust cost of this tradeoff.
-- When lobby fill time exceeds 90 seconds - users abandon. This is a chicken-and-egg problem: battles need players to be fun, but new platforms do not have enough players to fill quickly. Clash.gg's 30-second average matchmaking is the benchmark worth targeting.
+- When lobby fill time exceeds [?] roughly 90 seconds - users abandon. The threshold is an estimate with no measured source; only Clash.gg's 30-second average is sourced. This is a chicken-and-egg problem: battles need players to be fun, but new platforms do not have enough players to fill quickly. Clash.gg's 30-second average matchmaking is the benchmark worth targeting.
 - When the split-screen layout is cluttered or the opponent's result is revealed before the user's own - information asymmetry in a PvP context destroys the fairness feel.
 - Not appropriate as the primary entry experience for new users - they have not yet established a baseline of solo opening to compare against.
 
@@ -210,7 +210,7 @@ The user starts with a skin they own (or won from a case) and chooses a target s
 **When it fits:**
 - Users who already have skins on the platform (from previous opens or deposits) and want to trade up.
 - High-deliberation sessions where the user wants to make a sequence of decisions rather than a single high-variance bet.
-- When the platform wants to capture a longer session duration per user - the upgrade chain keeps users on-platform for 5-20 minutes per session rather than 30 seconds per case open.
+- When the platform wants to capture a longer session duration per user - the upgrade chain keeps users on-platform for [?] an estimated 5-20 minutes per session rather than 30 seconds per case open. No session-duration data is published by any platform in the set.
 - As a progression path that gives the Collector a rational reason to use the platform repeatedly rather than just buying from Steam Market.
 
 **When it breaks:**
@@ -274,7 +274,7 @@ Pattern A is the most compatible with the provably fair trust model. The outcome
 
 ---
 
-### Alternative Pattern Under Condition: Pattern C (Battle) when the platform reaches a minimum viable daily active user count [?] to support lobby fill under 60 seconds
+### Alternative Pattern Under Condition: Pattern C (Battle) when lobby fill runs under 60 seconds organically, without bots
 
 Once the platform has enough concurrent users to fill battle lobbies in under 60 seconds without bots, Pattern C should be elevated from a secondary mode to a co-equal primary experience. The competitive reveal is the highest-shareable moment in the category - a narrow battle win is more clip-worthy than any solo open - and it is the strongest driver of Pattern 3 (Battler) behavior, which represents the highest-frequency returning user archetype.
 

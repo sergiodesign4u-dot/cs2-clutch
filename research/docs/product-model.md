@@ -7,7 +7,7 @@ Updated: 2026-06-10. Based on Phase 3 competitive analysis and regulatory resear
 
 ## Changelog from v1
 
-- **House edge hypothesis corrected downward:** v1 hypothesized 30-50% player EV loss (70-50% RTP). Competitor published data shows 7.3-10% house edge (90-92.8% RTP) on mini-games. The v1 hypothesis was materially wrong and would have led to uncompetitive case math.
+- **House edge hypothesis corrected downward:** v1 hypothesized 30-50% player EV loss (70-50% RTP). Competitor published data shows 7.3-10% house edge (90-92.8% RTP) on mini-games. The v1 hypothesis was materially wrong for mini-games and would have led to uncompetitive mini-game math. Case RTP was never measured, so the correction does not transfer to cases on its own.
 - **Deposit bonus ceiling corrected downward:** v1 hypothesized 50-100% match bonus as market entry standard. Actual market is 5-20% match + small free credits. A 100% match bonus would be a significant outlier, not a catch-up move.
 - **Rakeback reclassified from differentiator to table stakes:** v1 claimed rakeback was "rare in category." Research found Gamdom offers 15% instant rakeback with zero wagering for first 7 days, and Clash.gg has a rakeback program. Rakeback is already present among top competitors.
 - **Collector segment downgraded to tertiary:** Platform research found that no major competitor leads with odds tables or EV calculators. All lead with win animations. The Collector is real but does not drive volume or primary design decisions.

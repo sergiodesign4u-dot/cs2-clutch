@@ -260,9 +260,9 @@
     <h4>5 Key Conclusions</h4>
     <ol>
       <li>Trust is the only unsolved market-wide gap. Every competitor claims provably fair; none has a named third-party RNG auditor, none has robust age verification, and all have visible bot activity. The platform that builds real trust infrastructure occupies an uncontested position.</li>
-      <li>The house edge hypothesis was materially wrong. v1 assumed 25-40% edge. Clash.gg published RTP data (90-92.8% on mini-games) shows the sustainable margin is 7-10%. Case RTP remains unknown - no competitor discloses it publicly.</li>
+      <li>The house edge hypothesis was materially wrong <strong>for mini-games</strong>, and remains untested for cases. v1 assumed a 25-40% edge across the board. Clash.gg published RTP data (90-92.8% on mini-games) shows the sustainable mini-game margin is 7-10%. Cases are a different surface and no competitor discloses their RTP, so case economics stay unknown. Round 1 ships case opening and no mini-games, which makes the untested half the half that matters.</li>
       <li>Regulatory exposure is active and severe. UK, Netherlands, and Belgium classify this product as gambling. KSA levied EUR 280,000/week against Clash.gg in November 2025. NY AG sued Valve in February 2026.</li>
-      <li>The Collector segment does not drive platform design at scale. Zero major competitors lead with odds tables or EV calculators. All lead with win animations. Collector needs are served by table-stakes transparency, not dedicated feature investment.</li>
+      <li>The Collector segment does not drive platform design at scale. No platform in the studied set leads with odds tables or EV calculators; all lead with win animations. Source: direct observation of six landing pages, June 2026, screenshots below. This argues against a dedicated Collector feature track, not against odds transparency, which stays in the top three MVP mechanisms as table stakes.</li>
       <li>Reveal animation quality is the most direct competitive surface available. The category uses the linear reveal universally, but execution varies enormously. DaddySkins is flat. Key-Drop's rarity-tiered animations and Clash.gg's Champion mode set the quality bar.</li>
     </ol>
   </div>
@@ -281,7 +281,7 @@
       <div class="canvas-cell">
         <div class="canvas-label"><span>1</span>Business Problem</div>
         <div class="canvas-content">
-          The CS2 skin case-opening market is mature but undifferentiated on trust. Every competitor claims provably fair; none has a named third-party RNG auditor, none has robust age verification, and all have visible bot activity in live feeds. The platform being redesigned (daddyskins.com) scored 15/40 on the trust benchmark - lowest in category. Its highest-leverage gap (login-gated provably fair page) would cost one configuration change to fix.
+          The CS2 skin case-opening market is mature but undifferentiated on trust. Every competitor claims provably fair; none has a named third-party RNG auditor, none has robust age verification, and all have visible bot activity in live feeds. The platform being redesigned (daddyskins.com) scored 15/40 on the trust benchmark - lowest in category. Its highest-leverage gap is a login-gated provably fair page. The page is already built, since the route exists and redirects rather than returning 404; the cost of unlocking it is [?] unknown from the outside.
         </div>
       </div>
 
@@ -301,9 +301,9 @@
         <div class="canvas-label"><span>3</span>Users</div>
         <div class="canvas-content">
           <ul>
-            <li><strong>Thrill Seeker</strong> (primary) - Age 18-25 peak. CS2 player, skin culture, streamer-influenced. Experience over outcome.</li>
-            <li><strong>Grinder</strong> (secondary) - Age 20-32. Regular user, tracks balance, seeks rakeback, wants to withdraw real value.</li>
-            <li><strong>Collector</strong> (tertiary) - Age 20-35. Has a specific skin target, researches odds before spending. Served by transparency baseline.</li>
+            <li><strong>Thrill Seeker</strong> (primary) - [?] Age 18-25 peak. CS2 player, skin culture, streamer-influenced. Experience over outcome.</li>
+            <li><strong>Grinder</strong> (secondary) - [?] Age 20-32. Regular user, tracks balance, seeks rakeback, wants to withdraw real value.</li>
+            <li><strong>Collector</strong> (tertiary) - [?] Age 20-35. Has a specific skin target, researches odds before spending. Served by transparency baseline.</li>
           </ul>
         </div>
       </div>
@@ -355,7 +355,7 @@
         <div class="canvas-content">
           <strong>Users who care about trust infrastructure will discover this platform through it, convert into depositors because of it, and stay longer because of it - at a rate meaningfully above what would be achieved by spending the same effort on a bigger first-deposit bonus, more streamers, or a Rain-style ambient mechanic.</strong>
           <br><br>
-          Counter-evidence: Hellcase has 2M MAU and 150,000 daily opens with the lowest trust score in category (no public PF page, 82.1% tested RTP, no formal license). If scale can be achieved with minimal trust investment, trust infrastructure is a regulatory hedge and retention tool - but NOT a primary acquisition driver. The product strategy still requires it; the acquisition strategy must not depend on it alone.
+          Counter-evidence: Hellcase holds the largest audience in the category (2M MAU, 150,000 daily opens) with no public PF page, 82.1% tested RTP and no formal license. Be exact about what this shows: scale is reachable without trust infrastructure. It does not show that a trust badge fails to convert, because no platform in the set has ever run one.<br><br>Earlier versions of this paragraph called Hellcase "the lowest trust score in category". No such score exists: the benchmark removed Hellcase pending dedicated research, and the lowest score actually assigned is daddyskins at 15/40. The phrase was removed in the stage 01 critique.
         </div>
       </div>
 
@@ -363,7 +363,7 @@
       <div class="canvas-cell full">
         <div class="canvas-label"><span>8</span>Smallest Test</div>
         <div class="canvas-content">
-          Landing page A/B: <strong>Variant A</strong> - trust-first messaging ("the only platform with a named, verified RNG auditor - check the result yourself") vs. <strong>Variant B</strong> - experience-first messaging ("the most electric case opening on the web"). Measure: click-through to deposit flow, not just page engagement. If Variant A does not produce measurably higher deposit intent, the trust differentiation thesis fails at acquisition and must be repositioned as a retention and compliance play rather than a primary acquisition argument.
+          Hero A/B: <strong>Variant A</strong> - reveal animation plus an institutional trust badge unit in the same hero (auditor name and Trustpilot score) vs. <strong>Variant B</strong> - reveal animation alone. Measure: click-through into the deposit flow, not page engagement. If Variant A does not produce measurably higher deposit intent, the trust differentiation thesis fails at acquisition and is repositioned as a retention and compliance play.<br><br>The earlier version compared trust-first copy ("check the result yourself") against experience-first copy. It was retired in the stage 01 critique: its wording tested self-verification, which section 9 had already killed, and Decision 1 had already chosen the hybrid hero.
         </div>
       </div>
 
@@ -487,7 +487,7 @@
         <tr><td><strong>Key-Drop</strong></td><td>Case opening, battles, upgrades, Skin Changer, casino modes</td><td>Broadest feature set. Curaçao licensed. 4.8/5 Trustpilot from 22,000+ reviews. 2.4M monthly visitors (Dec 2025).</td><td>Rarity-tiered animation (sparks and fire effects cited as top differentiator by users). 100+ deposit methods. Widest payment rail in category.</td></tr>
         <tr><td><strong>CSGORoll</strong></td><td>Case opening, battles, upgrades, Crash, Roulette, Dice, Jackpot, Plinko, Mines, esports betting, P2P marketplace</td><td>Longest operating track record (2016). P2P marketplace as a genuine differentiator. Curaçao licensed.</td><td>Provably fair documentation at /info/provably-fair/ (fully public, no login). RTP per game mode published. P2P marketplace as retention and liquidity tool.</td></tr>
         <tr><td><strong>skin.club</strong></td><td>Case opening, battles, upgrades, Community Cases, Missions, Case Competitions</td><td>Community Cases system is unique in category: any user can build and publish a case. Cyprus entity, no formal license.</td><td>Community case creator as engagement loop. Public roll history for all users (strongest transparency signal in set). Per-SKU odds to 4 decimal places.</td></tr>
-        <tr><td><strong>Hellcase</strong></td><td>Case opening, battles, upgrades, Shard system, Mixxer (new 2026)</td><td>Largest audience (2M MAU, 150,000+ daily opens). ShadowPay is only platform with indirect fiat path. Shard mechanic and new Mixxer hybrid mode are unique.</td><td>Shard system mechanics. Mixxer (new 2026 hybrid mode). ShadowPay fiat path. <strong>Notable:</strong> third-party tested RTP 82.1% (2026) - significantly lower than stated figures. Largest audience with lowest trust score: relevant counter-evidence for the trust-as-acquisition thesis.</td></tr>
+        <tr><td><strong>Hellcase</strong></td><td>Case opening, battles, upgrades, Shard system, Mixxer (new 2026)</td><td>Largest audience (2M MAU, 150,000+ daily opens). ShadowPay is only platform with indirect fiat path. Shard mechanic and new Mixxer hybrid mode are unique.</td><td>Shard system mechanics. Mixxer (new 2026 hybrid mode). ShadowPay fiat path. <strong>Notable:</strong> third-party tested RTP 82.1% (2026) - significantly lower than stated figures. Largest audience with no public PF page, 82.1% tested RTP and no formal license: relevant counter-evidence for the trust-as-acquisition thesis. Hellcase carries no benchmark score, having been removed from it pending dedicated research.</td></tr>
       </tbody>
     </table>
   </div>
@@ -497,10 +497,10 @@
     <table>
       <thead><tr><th>Platform</th><th>URL</th><th>Why soft</th><th>What to study</th></tr></thead>
       <tbody>
-        <tr><td><strong>Steam Community Market</strong></td><td><a href="https://store.steampowered.com/market/">steam market</a></td><td>Default acquisition path for CS2 skins. 70,000+ items, no scam risk. But: 15% fee (5% Steam + 10% CS2 tax), Steam Wallet lock, zero entertainment value.</td><td>The 15% fee + wallet lock are the core conversion arguments for case platforms.</td></tr>
+        <tr><td><strong>Steam Community Market</strong></td><td><a href="https://store.steampowered.com/market/">steam market</a></td><td>Default acquisition path for CS2 skins. [?] 70,000+ items; [?] 15% fee (5% Steam + 10% CS2 tax). No scam risk beyond the platform itself. Steam Wallet lock, zero entertainment value.</td><td>The 15% fee + wallet lock are the core conversion arguments for case platforms.</td></tr>
         <tr><td><strong>Skinport</strong></td><td><a href="https://skinport.com">skinport.com</a></td><td>European-regulated P2P marketplace, zero buyer fee. Cheapest average prices in Western market. Acquired SkinBid Jan 2026.</td><td>Float, sticker, fade filtering as a collector toolset. EU regulatory compliance (German law) as a trust model worth studying.</td></tr>
-        <tr><td><strong>DMarket</strong></td><td><a href="https://dmarket.com">dmarket.com</a></td><td>Multi-game marketplace, 2% seller fee, blockchain-verified records, 500,000+ CS2 skins.</td><td>"Target" feature (buyer sets desired price, gets notified when available) as wish-fulfillment mechanic. Closest a pure marketplace gets to excitement.</td></tr>
-        <tr><td><strong>cs.money</strong></td><td><a href="https://cs.money">cs.money</a></td><td>Hybrid marketplace and trade bot. 1M+ skins in inventory. Instant cashout bypasses Steam trade lock.</td><td>Instant cashout architecture - bypassing Steam trade lock restrictions is relevant for withdrawal design.</td></tr>
+        <tr><td><strong>DMarket</strong></td><td><a href="https://dmarket.com">dmarket.com</a></td><td>Multi-game marketplace. [?] 2% seller fee; [?] 500,000+ CS2 skins. Blockchain-verified records.</td><td>"Target" feature (buyer sets desired price, gets notified when available) as wish-fulfillment mechanic. Closest a pure marketplace gets to excitement.</td></tr>
+        <tr><td><strong>cs.money</strong></td><td><a href="https://cs.money">cs.money</a></td><td>Hybrid marketplace and trade bot. [?] 1M+ skins in inventory. Instant cashout bypasses Steam trade lock.</td><td>Instant cashout architecture - bypassing Steam trade lock restrictions is relevant for withdrawal design.</td></tr>
         <tr><td><strong>Gamdom</strong></td><td><a href="https://gamdom.com">gamdom.com</a></td><td>Originally CS2 skin gambling, now crypto casino. Lost CS2 identity by removing native skin deposits - the failure mode to avoid.</td><td>15% instant rakeback for first 7 days, zero wagering requirements - the benchmark to beat for Grinder segment.</td></tr>
       </tbody>
     </table>
@@ -698,7 +698,7 @@
     <div class="card">
       <h4>05 - Pre-activation</h4>
       <h3>The Spectator</h3>
-      <p>Not yet mapped to a segment - the unconverted Opener. Arrives without intent to spend. Watches the live drops feed. If a "wow moment" happens within 90 seconds, that is the conversion trigger - not a CTA button. Breaks when the live feed contains obvious bots (DaddySkins "[BOT] Darth Vader" pattern), or the page is visually static or slow.</p>
+      <p>Not yet mapped to a segment - the unconverted Opener. Arrives without intent to spend. Watches the live drops feed. If a "wow moment" happens within [?] roughly 90 seconds, that is the conversion trigger rather than a CTA button. The threshold is an estimate with no measured source. Breaks when the live feed contains obvious bots (DaddySkins "[BOT] Darth Vader" pattern), or the page is visually static or slow.</p>
     </div>
   </div>
 
@@ -723,13 +723,13 @@
     <h3>Pattern C - Battle (Competitive Reveal)</h3>
     <p>Two to four players open cases simultaneously. Results shown side-by-side. The player with the highest combined value wins the pot. Social tension: not just "what did I get" but "did I beat them." Advanced variant: Clash.gg Champion mode - HP derived from item value, per-weapon attack animations with variable timing, multiple rounds with comeback mechanics.</p>
     <p><strong style="color:var(--text-primary)">Fits:</strong> Returning users who have already experienced solo opening. Competitive profiles. Creates scheduling behavior. Generates the most clip-worthy moments in the category.</p>
-    <p><strong style="color:var(--text-primary)">Breaks when:</strong> Lobby fills with bots - a battle against a bot is solo opening with extra steps. Lobby fill time exceeds 90 seconds. Opponent's result visible before the user's own.</p>
+    <p><strong style="color:var(--text-primary)">Breaks when:</strong> Lobby fills with bots - a battle against a bot is solo opening with extra steps. Lobby fill time exceeds [?] roughly 90 seconds; only Clash.gg's 30-second average is sourced. Opponent's result visible before the user's own.</p>
   </div>
 
   <div class="pattern-card">
     <h3>Pattern D - Upgrade Path (Progressive Reveal)</h3>
     <p>The user starts with a skin they own and chooses a target skin of higher value. The platform shows upgrade probability (e.g., "23.4% chance to get this knife"). The outcome is near-instant. The ritual is a chain of decisions, not a single reveal. Used by Clash.gg (Upgrader, 92.7% RTP public), skin.club (0.001%-80% odds range, 4 decimal places), Hellcase, Key-Drop, CSGORoll.</p>
-    <p><strong style="color:var(--text-primary)">Fits:</strong> Collector and Grinder segments. Users who already have skins on the platform. High-deliberation sessions. Session duration 5-20 minutes per session vs. 30 seconds per case open.</p>
+    <p><strong style="color:var(--text-primary)">Fits:</strong> Collector and Grinder segments. Users who already have skins on the platform. High-deliberation sessions. Session duration [?] an estimated 5-20 minutes per session vs. 30 seconds per case open; no platform publishes session data.</p>
     <p><strong style="color:var(--text-primary)">Breaks when:</strong> Upgrade odds not visible, no consolation item on failure, interface less polished than case opening. Not appropriate for new users who have no skins to upgrade.</p>
   </div>
 
@@ -750,7 +750,7 @@
     <p><strong style="color:var(--text-primary)">Reason 2 - Competitor gap in animation quality:</strong> The category uses Pattern A universally, but execution quality varies enormously. DaddySkins' current implementation is flat - no rarity-tiered animation variation. Key-Drop's sparks and fire effects (specifically cited as the most memorable visual differentiator in user reviews) and Clash.gg's Champion mode show the quality bar. The pattern is right; quality of execution is where the win is available.</p>
     <p><strong style="color:var(--text-primary)">Reason 3 - Trust architecture compatibility:</strong> Pattern A is most compatible with the provably fair model. The pre-round hash can be surfaced at spin trigger as a UI element (a design approach from Clash.gg Champion mode, extended to solo opening). The animation is honest theatre over a pre-committed result - coherent with the fairness message.</p>
     <div class="sep" style="margin:16px 0"></div>
-    <p><strong style="color:var(--accent-blue)">Alternative - Pattern C (Battle):</strong> When the platform reaches a minimum daily active user count to support lobby fill under 60 seconds without bots. The precondition is strict. If lobbies cannot fill organically, battles should be visible but not prominently featured. A bot-filled lobby is worse than not having the mode.</p>
+    <p><strong style="color:var(--accent-blue)">Alternative - Pattern C (Battle):</strong> When lobby fill runs under 60 seconds organically, without bots. The gate is operational, not a DAU number: that was closed as a founder decision. The precondition is strict. If lobbies cannot fill organically, battles should be visible but not prominently featured. A bot-filled lobby is worse than not having the mode.</p>
     <p><strong style="color:#ef4444">Does not fit:</strong> Pattern B (Card Flip) as the primary hero experience. Removes the ritual the Thrill Seeker is paying for. Appropriate for bulk-open flows and bonus rewards only.</p>
   </div>
 </section>
@@ -965,7 +965,7 @@
       <div class="hyp-label hyp-then">Then</div>
       <div class="hyp-text">activation rate for deposit-intent visitors will match or improve over competitors using less-transparent bonus structures</div>
       <div class="hyp-label hyp-because">Because</div>
-      <div class="hyp-text">Collector and Grinder segments read terms. Clarity is a competitive advantage. The market ceiling is approximately 20% match (Key-Drop), making 10-15% a competitive-parity offer without margin risk.</div>
+      <div class="hyp-text">Collector and Grinder segments read terms, and clarity is a competitive advantage. On the number: the market runs 5-20% (Clash.gg 5%, CSGORoll 10%, Hellcase 10%, Key-Drop 20%), so 10-15% sits at the median and above the fastest-growing platform in the set, not at parity with the ceiling. The ceiling is Key-Drop's 20% and we are deliberately under it.</div>
     </div>
     <div class="hyp-card">
       <div class="hyp-label hyp-if">If</div>
@@ -976,66 +976,68 @@
       <div class="hyp-text">DCMS review found none of 20 competitors implemented this. Being first to do so is both a regulatory necessity and a market-differentiation claim no competitor currently makes. UK Online Safety Act now requires it legally.</div>
     </div>
     <div class="hyp-card" style="border-color:rgba(233,77,139,0.4);background:rgba(233,77,139,0.03)">
-      <div class="hyp-label" style="color:var(--accent-pink);font-size:11px;margin-bottom:6px;">RISKIEST ASSUMPTION - Test This First (Hypothesis 7)</div>
+      <div class="hyp-label" style="color:var(--accent-pink);font-size:11px;margin-bottom:6px;">TEST OF THE RISKIEST ASSUMPTION (Hypothesis 7)</div>
+      <div class="hyp-text" style="margin-bottom:10px;">The label matters. The riskiest assumption is a statement about the world and lives in one place, strategy.md section 4. This is the experiment that tests it. Both used to be called "riskiest assumption", in three different wordings across three files.</div>
       <div class="hyp-label hyp-if">If</div>
-      <div class="hyp-text">landing page A/B test shows trust-first messaging ("the only platform with a named, verified RNG auditor") produces measurably higher deposit-intent click-through than experience-first messaging ("the most electric case opening on the web")</div>
+      <div class="hyp-text">a hero A/B test shows that the reveal animation plus an institutional trust badge unit (named auditor and Trustpilot score) produces measurably higher deposit-flow click-through than the reveal animation alone</div>
       <div class="hyp-label hyp-then">Then</div>
-      <div class="hyp-text">the trust differentiation thesis holds at acquisition and justifies continued primary investment in trust infrastructure as the main positioning lever over bonus-size or streamer spending</div>
+      <div class="hyp-text">institutional trust signals work as an acquisition lever, and trust infrastructure justifies primary investment over bonus size or streamer spend</div>
       <div class="hyp-label hyp-because">Because</div>
-      <div class="hyp-text">Hellcase has 2M MAU with the lowest trust score in category (no public PF page, 82.1% tested RTP, no formal license). If trust does not drive acquisition decisions - if users choose on streamers, bonuses, or aesthetics - then trust infrastructure is a regulatory hedge and retention tool but NOT a primary acquisition driver. Measure deposit-flow click-through, not just page engagement. A false result reframes strategy, not invalidates the product.</div>
+      <div class="hyp-text">Hellcase holds the largest audience in the category (2M MAU, 150,000 daily opens) with no public PF page, 82.1% tested RTP and no formal license, which shows scale is reachable without trust infrastructure. It does not show that a badge fails to convert, since no platform in the set has run one. Section 9 killed the stronger claim that mass-market openers self-verify PF, so this tests a badge read as a proxy, not verification. A false result reframes strategy, it does not invalidate the product.</div>
     </div>
   </div>
 
   <div class="sep"></div>
   <h3>Open Questions</h3>
+  <p>Four fields per question, and the addressee is not optional: stage 02 reads this list as candidate holes, and a question belonging to nobody produces nothing there. Where no such person exists yet, the addressee is the founder.</p>
   <div class="q-list">
     <div class="q-item">
       <div class="q-num">01</div>
       <div>
         <div class="q-text">What jurisdiction strategy is legally viable at launch, and what licenses must be obtained before enabling UK, Netherlands, or Belgium? This question must be answered before jurisdiction access decisions are made.</div>
-        <div class="q-cat">Legal / Compliance - Pre-launch blocking</div>
+        <div class="q-cat">Addressee: external gambling counsel, none engaged yet, so the founder until one is &middot; Changes: which markets the geo-block opens at launch, and whether the age gate needs identity verification at signup in each &middot; Status: open, blocking pre-launch, not blocking wireframes</div>
       </div>
     </div>
     <div class="q-item">
       <div class="q-num">02</div>
       <div>
         <div class="q-text">What is the RTP on standard CS2 cases (not mini-games) across the market? No competitor publicly discloses this. Internal modeling required before case math is finalized.</div>
-        <div class="q-cat">Economics - Before case math is finalized</div>
+        <div class="q-cat">Addressee: founder, since no competitor publishes it &middot; Changes: the case math, and whether publishing EV per case is a differentiator or a margin giveaway &middot; Status: open, before case math is finalised</div>
       </div>
     </div>
     <div class="q-item">
       <div class="q-num">03</div>
       <div>
         <div class="q-text">What is the minimum daily active user count required to fill battle lobbies in under 60 seconds without bots in a new market? This threshold determines when battles should be prominently featured vs. visible but de-emphasized.</div>
-        <div class="q-cat">Product / Launch - Before battles are prominently featured</div>
+        <div class="q-cat">Addressee: founder &middot; Changes: nothing further. Battles stay hidden until 60-second organic fill; the gate is operational, not a metric. Battles are LATER in round 1 &middot; Status: closed, founder decision</div>
       </div>
     </div>
     <div class="q-item">
       <div class="q-num">04</div>
       <div>
         <div class="q-text">Which payment processors will work with this product category in target markets, and at what cost and restrictions? Payments are a launch blocker and must be validated before deposit/withdrawal design is finalized.</div>
-        <div class="q-cat">Payments / Infrastructure - Pre-launch</div>
+        <div class="q-cat">Addressee: founder, against a payments provider shortlist &middot; Changes: the method list on the deposit screen and where KYC sits in the flow &middot; Status: open, before deposit and withdrawal design is finalised</div>
       </div>
     </div>
     <div class="q-item">
       <div class="q-num">05</div>
       <div>
         <div class="q-text">Can a named public third-party RNG auditor relationship be secured before launch? This is the single most differentiated trust position currently unoccupied in the category. What is the cost and timeline?</div>
-        <div class="q-cat">Trust / Product - Before launch</div>
+        <div class="q-cat">Addressee: founder, since this is a commercial relationship nobody else can open &middot; Changes: whether the hero trust badge carries a real auditor name or stays a placeholder, which is the whole of Decision 1 &middot; Status: open, before launch</div>
       </div>
     </div>
     <div class="q-item">
       <div class="q-num">06</div>
       <div>
         <div class="q-text">[RESOLVED] DatDrop is confirmed operational as of June 2026, described as "fastest-growing site of 2026" by independent reviewers. Operated by Meetic Group LP (London, LP20547). 80.6% tested RTP, 118 cases, Battle Royale up to 72 players, DatPoints loyalty program (5 pts per $1, redeemable for cases up to $1,800). The domain redirect observed in Phase 3 was likely a temporary technical issue. Battle Royale format remains an active competitive consideration for battle feature design.</div>
-        <div class="q-cat">Competitive - Before battle feature scope is finalized</div>
+        <div class="q-cat">Addressee: founder &middot; Changes: battle feature scope, whenever battles leave LATER &middot; Status: resolved</div>
       </div>
     </div>
     <div class="q-item">
       <div class="q-num">07</div>
       <div>
         <div class="q-text">What is the actual Steam trade API risk if Valve restricts access further following the NY AG lawsuit (filed February 2026)? The entire case-opening ecosystem depends on Valve's trade API. No competitor appears to have a contingency plan.</div>
-        <div class="q-cat">Technical / Existential - Ongoing monitoring</div>
+        <div class="q-cat">Addressee: founder, ongoing monitoring &middot; Changes: whether withdrawal can promise Steam delivery at all, which is the payoff the whole value loop exists to deliver &middot; Status: open, no end date</div>
       </div>
     </div>
   </div>
@@ -1152,11 +1154,48 @@
   </div>
 </section>
 
+<!-- CRITIQUE -->
+<section id="critique">
+  <div class="section-eyebrow">Stage 01 critique - August 2026</div>
+  <h2>Before and after</h2>
+  <p>The stage 01 critique was the one gap this research carried openly. It has now run, on two instruments: Claude and Codex, independently, neither seeing the other's table before both were complete. Codex ran read only. Dedup happened afterwards on full data, keyed on file, line and statement.</p>
+  <p><strong>22 findings confirmed, 2 withdrawn on verification with their reasons kept visible below.</strong> Codex found 12, Claude 8, both 2. The split is not accidental: Codex owns what is falsifiable in the text and took the entire class of unsourced facts, including nine sites our own pass at step 8 had already walked past. Claude owns what needs the product to be understood and took the entire class of conclusions that do not follow from any fact above them. No verdicts conflicted.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Edit type</th><th>Found</th><th>Found by</th><th>Became</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Fact without a source</strong></td><td>12 sites in 5 files: marketplace figures (Steam, Skinport, DMarket, cs.money), competitor stats (Clash.gg matchmaking, Roobet visitors), behavioural thresholds (90-second abandonment, 5-20 minute sessions), segment ages</td><td>Codex</td><td>Every unattributed number carries [?] or names its source. Nine of the twelve sites were missed by our own pass at step 8</td><td>Fixed</td></tr>
+        <tr><td><strong>Cost claim about code nobody has seen</strong></td><td>"It would cost a one-line configuration change", in research.md, competitors.md and the canvas</td><td>Both</td><td>Replaced with what the redirect actually proves (the route exists, so the page is built) and the cost marked [?]</td><td>Fixed</td></tr>
+        <tr><td><strong>Source index row citing itself</strong></td><td>One row gave "Research compilation (competitive intelligence)" instead of a source</td><td>Claude, while verifying a Codex finding</td><td>Marked [?] and carried as an estimate, not a fact</td><td>Fixed</td></tr>
+        <tr><td><strong>Contradiction between files</strong></td><td>The riskiest assumption existed in three wordings under one label; research.md had the label on the TEST, not on the assumption</td><td>Codex</td><td>One statement, owned by strategy.md section 4, quoted rather than restated elsewhere. The hypothesis is now labelled as its test</td><td>Fixed</td></tr>
+        <tr><td><strong>Orphan</strong></td><td>Five of seven open questions had no addressee, because the table had no addressee column at all</td><td>Codex found the symptom, Claude the cause</td><td>Table rebuilt to the four fields the stage requires: question, addressee, what changes in the product, status</td><td>Fixed</td></tr>
+        <tr><td><strong>Conclusion without grounds</strong></td><td>The riskiest assumption rested on Hellcase having "the lowest trust score in category". No such score exists: the benchmark removed Hellcase pending research, and the lowest assigned is daddyskins 15/40</td><td>Claude</td><td>Phrase removed in five files. The argument stands on the three sourced attributes instead, which is enough</td><td>Fixed</td></tr>
+        <tr><td><strong>Conclusion without grounds</strong></td><td>The assumption survived the death of its own premise: section 9 killed self-verification by mass-market openers, and Decision 1 moved trust to an institutional badge, but the assumption and its test never moved</td><td>Claude</td><td>Reformulated around a badge read as a proxy. The test became badge-in-hero against animation-only, which is what Decision 1 already implied</td><td>Fixed</td></tr>
+        <tr><td><strong>Conclusion without grounds</strong></td><td>"House edge hypothesis was materially wrong" was derived from mini-game RTP and applied to cases, while the same document marks case RTP unknown</td><td>Claude</td><td>Bounded to mini-games in four files. Case economics stay [?], and round 1 ships cases</td><td>Fixed</td></tr>
+        <tr><td><strong>Conclusion without grounds</strong></td><td>A [?] present in the level file disappeared in the synthesis: pre-login openness "correlates" with Clash.gg's growth</td><td>Claude</td><td>Hedge restored. Observed together in one case, no funnel data published by anyone</td><td>Fixed</td></tr>
+        <tr><td><strong>Conclusion without grounds</strong></td><td>A closed founder decision (the battle gate is operational, not a DAU number) never propagated back into two files that still framed it as a DAU threshold</td><td>Claude</td><td>Three sites rewritten to the operational condition</td><td>Fixed</td></tr>
+        <tr><td><strong>Conclusion without grounds</strong></td><td>Two audience vocabularies in one document, three motivation segments and four behavioural personas, with no mapping. Section 6 used both in adjacent paragraphs</td><td>Claude</td><td>Divergence named in place in two files. Not resolved here: personas.md has one writer and it is CJM step 4</td><td>Named, owner assigned</td></tr>
+        <tr><td><strong>Conclusion without grounds</strong></td><td>"Competitive parity" for the deposit bonus was measured against the ceiling (Key-Drop 20%) while the market runs 5-20% and the fastest-growing platform gives 5%</td><td>Claude</td><td>Restated against the actual spread: 10-15% is the median and above the fastest-growing platform, deliberately under the ceiling</td><td>Fixed</td></tr>
+        <tr><td><strong>Conclusion without grounds, structural</strong></td><td>The benchmark scores five same-category competitors. The stage defines it as one dimension measured against four to five best-in-class products from OTHER categories, and warns against exactly this confusion. Stages 04, 06 and 07 read it</td><td>Claude</td><td>Not fixed here. Scheduled as a re-run of stage 01 step 4, starting with the founder choosing the dimension</td><td>Open</td></tr>
+        <tr><td><strong>Withdrawn on verification</strong></td><td>Codex reported Clash.gg's "Champion house edge 7.5%" as unsourced</td><td>Codex</td><td>The source index carries the row (skincasereviewer.com). Half the finding falls; "30-second average matchmaking" in the same cell stands and was fixed</td><td>Withdrawn, reason recorded</td></tr>
+        <tr><td><strong>Withdrawn on verification</strong></td><td>Claude reported two source index rows citing "research compilation" instead of a source</td><td>Claude</td><td>One of the two carries a real URL. Corrected to one row, which was fixed</td><td>Withdrawn in part, reason recorded</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="conclusions-box">
+    <h4>What this cost and what it bought</h4>
+    <p style="font-size:14px;margin-bottom:10px;">The level files were consistently more honest than the synthesis. Two of the sharpest findings are the same shape: <code>competitors.md</code> carried a [?] on the pre-login conversion claim and the synthesis dropped it; <code>benchmark.md</code> said in line 7 that Hellcase was removed from scoring, and the synthesis went on to call Hellcase the lowest-scoring platform in the category anyway. The defect is not born in the research. It is born on the merge.</p>
+    <p style="font-size:14px;margin-bottom:0;">One finding stays open on purpose. The benchmark measures the wrong population, and no amount of editing fixes that: it has to be re-run against products outside this category, starting with a dimension the founder chooses rather than one the document assumed. Until then, stage 06 has nothing to aim at.</p>
+  </div>
+</section>
+
 </main>
 
 <footer>
   <p>CS2 Clutch, stage 01 of twelve. Research captured June 2026. Baseline: daddyskins.com. Working placeholder name.</p>
-  <p>Stage 01 done with one named gap: the critique pass never ran on two instruments. Next stage: CJM.</p>
+  <p>Stage 01 complete. The critique ran on two instruments in August 2026; one finding stays open by decision (the benchmark measures the wrong population). Next stage: CJM.</p>
 </footer>
 
 <script>
@@ -1232,6 +1271,7 @@ window.NAV_SECTIONS = [
   { id: 'compliance', label: 'Compliance' },
   { id: 'conclusions', label: 'Conclusions' },
   { id: 'live-research', label: 'Live Research' },
+  { id: 'critique', label: 'Critique' },
 ];
 </script>
 <script src="../_nav.js"></script>

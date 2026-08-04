@@ -17,7 +17,7 @@ This document is the synthesis of seven phases of structured product research in
 
 The market for CS2 skin case-opening platforms is mature but poorly differentiated on the dimensions that matter most. Every major platform offers case opening, case battles, and upgrades. None has solved the category's core trust deficit: no mystery box operator in the category names a public third-party RNG auditor (betterchecked.com 2026 audit, https://www.betterchecked.com/the-state-of-provably-fair-in-2026-who-actually-proves-it-who-just-talks-about-it), none has implemented robust age verification beyond self-declaration (DCMS review Oct 2025, https://cms.law/en/gbr/legal-updates/inside-the-skins-gambling-surge-dcms-review-exposes-risks-and-regulatory-gaps-in-skins-gambling), and every major platform's live feeds contain visible bot activity.
 
-The platform being redesigned (daddyskins.com) scored 15 out of 40 on the trust and fairness benchmark, the lowest in the competitive set. Its most critical gap -- a login-gated provably fair page that redirects to login rather than showing the mechanism -- is the highest-leverage single fix in the redesign, and it would cost a one-line configuration change to address.
+The platform being redesigned (daddyskins.com) scored 15 out of 40 on the trust and fairness benchmark, the lowest in the competitive set. Its most critical gap -- a login-gated provably fair page that redirects to login rather than showing the mechanism -- is the highest-leverage single fix in the redesign. The page is already built, since the route exists and redirects rather than returning 404; the cost of unlocking it is [?] unknown from the outside.
 
 The redesign hypothesis: a platform that builds genuine trust infrastructure (third-party RNG audit, real age verification, public provably fair page, bot-free live feeds) can differentiate on the dimension competitors have structurally failed to address, while matching or exceeding the category standard on core loop quality (animation, battles, upgrades).
 
@@ -39,11 +39,11 @@ Phases 0-7 of this sprint:
 
 1. Trust is the only unsolved market-wide gap. Every competitor claims provably fair; none has a named third-party RNG auditor, none has robust age verification, and all have visible bot activity in live feeds. The platform that builds real trust infrastructure -- not marketing copy -- occupies an uncontested position.
 
-2. The house edge hypothesis was materially wrong. v1 assumed 25-40% edge. Competitor published RTP data (Clash.gg: 90-92.8% RTP on mini-games, meaning 7.2-10% house edge) shows the sustainable margin is significantly lower. Case RTP remains [?] but the baseline for mini-game design must be reset.
+2. The house edge hypothesis was materially wrong for MINI-GAMES, and remains untested for CASES. v1 assumed a 25-40% edge across the board. Competitor published RTP data (Clash.gg: 90-92.8% RTP on mini-games, meaning 7.2-10% house edge) shows the sustainable mini-game margin is far lower. Cases are a different surface, no competitor discloses their RTP, and case economics stay [?] unknown. Round 1 ships case opening and no mini-games, which makes the untested half the half that matters.
 
 3. Regulatory exposure is active and severe, not hypothetical. UK, Netherlands, and Belgium classify this product as gambling. The KSA levied EUR 280,000/week against Clash.gg in November 2025. The NY AG sued Valve in February 2026. Operating without jurisdiction-specific legal review is not a viable position.
 
-4. The Collector segment does not drive platform design at scale. Zero major competitors lead with odds tables or EV calculators. All lead with win animations and big-drop social proof. Collector needs are served by table-stakes transparency features, not dedicated feature investment.
+4. The Collector segment does not drive platform design at scale. No platform in the studied set leads with odds tables or EV calculators; all lead with win animations and big-drop social proof. Source: direct observation of six landing pages, June 2026, screenshots in research/screens/. Collector needs are served by table-stakes transparency features, not by dedicated feature investment. Note the boundary: this argues against a dedicated Collector feature track, not against odds transparency, which stays in the top three MVP mechanisms as table stakes (benchmark.md, Mechanism 2).
 
 5. The reveal animation quality is the most direct competitive surface available to the redesign. The category uses the linear reveal universally, but execution quality varies enormously. DaddySkins' current implementation is flat. Key-Drop's rarity-tiered animations and Clash.gg's Champion mode mechanics show the quality bar. This is where the redesign can win without inventing a new mechanic.
 
@@ -70,6 +70,8 @@ Profile: Regular user who sees upgrade routing and battle selection as a skill g
 JTBD: "When I have built up a balance from regular play, I want to use upgrades, smart battle selection, and loyalty bonuses, so that I can maximize my chances of withdrawing a skin worth more than I put in."
 
 Priority: Secondary. Highest LTV if retained. Rakeback is table stakes (Gamdom: 15% zero-wagering rakeback; Clash.gg: rakeback program) -- the design question is terms quality, not whether to offer it.
+
+**Two vocabularies live in this document, and no mapping between them exists yet.** These three motivation segments are stage 01 work. Stage 02 later cut the same audience behaviourally into four personas: The Opener (primary), The Accumulator, The Researcher, The Battler. Section 6 below already uses the second vocabulary ("The Opener behavioral pattern") next to the first ("the Thrill Seeker's core JTBD"), which is how the divergence became visible. `personas.md` has exactly one writer and it is not this file, so the mapping is not written here. Owner: CJM step 4, the only step allowed to edit personas.
 
 **Collector (Tertiary)**
 Profile: Researches odds before spending. Has a specific skin target.
@@ -144,7 +146,7 @@ The first case open is the singular activation event. Everything in the AARRR mo
 
 1. **Provably fair is universally present but unevenly surfaced.** Every hard competitor claims HMAC-SHA256 + server seed + client seed + nonce. CSGORoll publishes full per-game documentation publicly. Hellcase buries verification in a modal. The gap between "we have PF" and "you can verify before you deposit" is wide. Source: betterchecked.com 2026 audit found no operator names a public third-party RNG auditor (https://www.betterchecked.com/the-state-of-provably-fair-in-2026-who-actually-proves-it-who-just-talks-about-it).
 
-2. **The pre-login wall cuts conversion.** Most competitors lock odds, upgrade interfaces, battle lobbies, and withdrawal flows behind Steam login. Clash.gg is the outlier: payment options, game descriptions, free case CTAs, RTP values, and active battle previews all visible pre-login. This correlates with it being the fastest-growing platform in independent reviews.
+2. **The pre-login wall cuts conversion.** Most competitors lock odds, upgrade interfaces, battle lobbies, and withdrawal flows behind Steam login. Clash.gg is the outlier: payment options, game descriptions, free case CTAs, RTP values, and active battle previews all visible pre-login. It is also described as the fastest-growing platform in independent reviews, but [?] the causal link is unverified: no competitor publishes funnel data, so pre-login openness and growth are observed together in one case and nothing more (competitors.md, Findings).
 
 3. **Bot activity is normalized and visible, which erodes authenticity.** DatDrop's Battle Royale fills with bots. DaddySkins' homepage shows "[BOT] Darth Vader" and "[BOT] HAL 9000" in the live wins ticker. CSGORoll shows bot-filled battle slots. Platforms need bots to fill lobbies, but visible bot activity undermines the social proof the live feeds are supposed to generate. No competitor has solved this cleanly.
 
@@ -234,7 +236,7 @@ This is a layered architecture, not a compromise. Pattern A handles the Thrill S
 
 3. Trust architecture compatibility. Pattern A is most compatible with the provably fair model. The pre-round hash can be surfaced at spin trigger as a UI element -- a design approach pioneered by Clash.gg Champion mode, worth extending to solo opening. The animation is honest theatre over a pre-committed result, and this framing is coherent with the fairness message.
 
-**Alternative under condition X:** Pattern C (Battle / Competitive Reveal) when the platform reaches a minimum daily active user count to support lobby fill under 60 seconds without bots. The condition is strict: bots in battles kill the social proof. The battle mode should be designed and built to be ready, but its prominence in navigation and landing page hierarchy should scale with organic daily active user count, not with the desire to show the feature.
+**Alternative under condition X:** Pattern C (Battle / Competitive Reveal) when lobby fill runs under 60 seconds organically, without bots. The gate is operational, not a DAU number: that was closed as a founder decision and the open questions table carries it. The condition is strict, because bots in battles kill the social proof. Battle mode should be designed ready, but its prominence in navigation and landing hierarchy scales with measured organic fill time, not with the desire to show the feature. Note that battles are LATER in round 1, so this condition is not on the critical path yet.
 
 **Pattern that does NOT fit:** Pattern B (Card Flip / Instant Reveal) as the primary hero experience. The Thrill Seeker is paying for the ritual of anticipation. Pattern B eliminates it. The 3-6 seconds of genuine tension during the spin are the emotional core of the product. An instant result is efficient but removes the perceived drama that justifies the price. Pattern B is correct for bulk-open flows and bonus rewards; it is wrong as the primary single-case reveal.
 
@@ -359,7 +361,7 @@ The legal test in every jurisdiction is functional, not nominal. The UKGC: "wher
 | Tested vs stated RTP gap (category-wide) | High (trust + compliance) | Hellcase 82.1%, DatDrop 80.6% tested (2026 third-party). Publish tested RTP from day one. |
 | Battle lobbies fill with bots when DAU is low | High (launch risk) | Competitive research: Clash.gg 30-sec matchmaking vs. DatDrop majority-bot lobbies |
 | Regulatory exposure in UK, Netherlands, Belgium, Germany | Critical | KSA enforcement Nov 2025; UKGC classification; Belgian Gaming Commission 2024; Germany X-Ray Scanner mandate March 2026 |
-| House edge hypothesis was wrong (v1 assumed 25-40%) | Medium (economics) | Clash.gg RTP disclosure: 90-92.8% RTP on mini-games (https://clash.gg/fairness) |
+| House edge hypothesis was wrong for mini-games (v1 assumed 25-40%); case edge still unmeasured | Medium (economics) | Clash.gg RTP disclosure: 90-92.8% RTP on mini-games only (https://clash.gg/fairness) |
 | Free-to-play pathway bar raised by Clash.gg Rain system | Medium (competitive) | A one-time starter credit is no longer sufficient to match the category leader's ambient free-to-play pathway |
 
 ### 7 Hypotheses in If / Then / Because Format
@@ -387,29 +389,32 @@ Because: bots in battle lobbies destroy the social tension that makes battles va
 **Hypothesis 5**
 If: the first deposit bonus is 10-15% match plus $0.50-$0.70 no-deposit credit, with bonus wagering requirements stated explicitly before deposit (not in ToS)
 Then: activation rate for deposit-intent visitors will match or improve over competitors using less-transparent bonus structures
-Because: the Collector and Grinder segments read terms; clarity is a competitive advantage; the market ceiling is approximately 20% match (Key-Drop), making 10-15% a competitive-parity offer without the margin risk of an outlier
+Because: the Collector and Grinder segments read terms, and clarity is a competitive advantage. On the number itself, be precise about what parity means: the market runs 5-20% (Clash.gg 5%, CSGORoll 10%, Hellcase 10%, Key-Drop 20%), so 10-15% sits at the median and ABOVE the fastest-growing platform in the set, not at parity with the ceiling. The ceiling is Key-Drop's 20% and we are deliberately under it
 
 **Hypothesis 6**
 If: identity-based age verification (not checkbox) is implemented at account creation, with a clear age-gate design
 Then: this serves as both a compliance mechanism and a trust signal, converting skeptical adult visitors who see age verification as evidence of a legitimate operation
 Because: the DCMS review found none of 20 competitors implemented this; being the first to do so is both a regulatory necessity and a market-differentiation claim that no competitor currently makes
 
-**Hypothesis 7 - RISKIEST ASSUMPTION (test this first, from research/docs/strategy.md v_refresh)**
-If: landing page A/B test shows trust-first messaging ("the only platform with a named, verified RNG auditor - check the result yourself") produces measurably higher deposit-intent click-through than experience-first messaging ("the most electric case opening on the web")
-Then: the trust differentiation thesis holds at the acquisition stage and justifies continued primary investment in trust infrastructure as a positioning lever over bonus-size or streamer spending
-Because: Hellcase has the largest audience (2M MAU, 150,000 daily opens) in the category and the lowest trust score (no public PF page, 82.1% tested RTP, no formal license). If scale can be achieved with minimal trust investment, then trust infrastructure is a regulatory hedge and retention tool but NOT a primary acquisition driver. The smallest test - a landing page comparison measuring deposit-flow click-through, not just page engagement - answers this question before any additional trust infrastructure is built. Source: https://esports.gg/news/counter-strike-2/what-is-hellcase/, https://skincasereviewer.com/reviews/hellcase.
+**Hypothesis 7 - test of the RISKIEST ASSUMPTION (assumption itself: research/docs/strategy.md section 4)**
+The label matters. The riskiest assumption is a statement about the world; this hypothesis is the experiment that tests it. Both were previously called "riskiest assumption", in different words, across three files. One statement now lives in `strategy.md` section 4 and is quoted, not restated, everywhere else.
+If: a hero A/B test shows that the reveal animation plus an institutional trust badge unit (named auditor and Trustpilot score) produces measurably higher deposit-flow click-through than the reveal animation alone
+Then: institutional trust signals work as an acquisition lever, and trust infrastructure justifies primary investment over bonus size or streamer spend
+Because: Hellcase holds the largest audience in the category (2M MAU, 150,000 daily opens) with no public PF page, 82.1% tested RTP and no formal licence, which shows scale is reachable without trust infrastructure. It does not show that a badge fails to convert, since no platform in the set has run one. Section 9 killed the stronger claim that mass-market openers self-verify PF, so the test is deliberately about a badge read as a proxy, not about verification. Source: https://esports.gg/news/counter-strike-2/what-is-hellcase/, https://skincasereviewer.com/reviews/hellcase.
 
 ### Open Questions Table
 
-| Question | Category | Urgency |
-|----------|----------|---------|
-| What jurisdiction strategy is legally viable at launch, and what licenses must be obtained before enabling UK, Netherlands, or Belgium? | Legal / Compliance | Pre-launch blocking |
-| What is the RTP on standard CS2 cases (not mini-games) across the market? | Economics | Before case math is finalized |
-| What is the minimum daily active user count required to fill battle lobbies in under 60 seconds without bots in a new market? | Product / Launch | CLOSED - founder decision: battles hidden until 60-sec fill condition is met organically. No specific DAU number required; condition is operational, not metric-based |
-| Which payment processors will work with this product category in target markets, and at what cost? | Payments / Infrastructure | Before deposit/withdrawal design is finalized |
-| Can a named public third-party RNG auditor relationship be secured before launch, and at what cost and timeline? | Trust / Product | Before launch to occupy the uncontested position |
-| [RESOLVED] DatDrop is confirmed operational June 2026 (fastest-growing per independent reviews, 80.6% tested RTP, Battle Royale up to 72 players, DatPoints program). Battle Royale format remains DatDrop's primary differentiator and is an active competitive consideration for battle feature design. | Competitive | Resolved - inform battle feature scope |
-| What is the actual Steam trade API risk if Valve restricts access further following the NY AG lawsuit? | Technical / Existential | Ongoing monitoring required |
+Four columns, and the addressee column is not optional: stage 02 step 1 reads this table as a list of candidate holes, and a question belonging to nobody produces nothing there. Where no such person exists yet, the addressee is the founder.
+
+| Question | Addressee | What changes in the product once it is answered | Status |
+|----------|-----------|--------------------------------------------------|--------|
+| What jurisdiction strategy is legally viable at launch, and what licences must be obtained before enabling UK, Netherlands or Belgium? | External gambling counsel. None engaged yet, so it sits with the founder until one is | Which markets the geo-block layer opens at launch, and whether the age gate needs identity verification at signup in each of them | Open. Blocking pre-launch, not blocking wireframes |
+| What is the RTP on standard CS2 cases (not mini-games) across the market? | Founder. No competitor publishes it, so no external party can answer it | The case math, and whether publishing EV per case is a differentiator or a margin giveaway | Open. Before case math is finalised |
+| What is the minimum daily active user count required to fill battle lobbies in under 60 seconds without bots? | Founder | Nothing further. Battles stay hidden until 60-second organic fill; the condition is operational, not a metric. Battles are LATER in round 1 anyway | Closed. Founder decision, v_people |
+| Which payment processors will work with this product category in target markets, and at what cost? | Founder, against a payments provider shortlist | The method list on the deposit screen, and where the KYC step sits in the deposit flow | Open. Before deposit and withdrawal design is finalised |
+| Can a named public third-party RNG auditor relationship be secured before launch, and at what cost and timeline? | Founder. This is a commercial relationship nobody else can open | Whether the hero trust badge carries a real auditor name or stays a placeholder. This is the whole of Decision 1 and of the riskiest assumption below | Open. Before launch |
+| Is DatDrop operational, and what is its differentiator? | Founder | Battle feature scope, whenever battles leave LATER. DatDrop is operational June 2026, 80.6% tested RTP, Battle Royale up to 72 players, DatPoints programme | Resolved |
+| What is the actual Steam trade API risk if Valve restricts access further following the NY AG lawsuit? | Founder, ongoing monitoring | Whether withdrawal can promise Steam delivery at all, which is the payoff the entire value loop exists to deliver | Open. Ongoing monitoring, no end date |
 
 ---
 
@@ -433,7 +438,7 @@ Platform selection guides that rank provably fair first are written for "researc
 
 ### Mass-market Openers do NOT self-verify PF before depositing - claim KILLED
 
-Hellcase (lowest trust score, no public PF page, 82.1% tested RTP, no license) has 2M MAU and 150,000 daily opens - the largest audience in the category. If mass-market Thrill Seekers made PF self-verification a prerequisite for depositing, Hellcase could not hold the largest audience. The acquisition mechanism for the Opener is streamer endorsement, not PF infrastructure. Trust infrastructure matters to the Researcher segment and as a regulatory hedge, but is not confirmed as a mass-market acquisition driver.
+Hellcase (no public PF page, 82.1% tested RTP, no formal licence) has 2M MAU and 150,000 daily opens - the largest audience in the category. If mass-market Thrill Seekers made PF self-verification a prerequisite for depositing, Hellcase could not hold the largest audience. The acquisition mechanism for the Opener is streamer endorsement, not PF infrastructure. Trust infrastructure matters to the Researcher segment and as a regulatory hedge, but is not confirmed as a mass-market acquisition driver.
 
 This KILLS the claim that the Opener actively evaluates PF before depositing. It does NOT kill trust infrastructure investment (still required for regulatory compliance, Researcher-segment conversion, and institutional trust proxy signals like auditor badges). Source: https://esports.gg/news/counter-strike-2/what-is-hellcase/ (scale at low trust score); live-research.md KILLED-01.
 

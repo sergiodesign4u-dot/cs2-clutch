@@ -217,7 +217,7 @@ Functions that appear in the product scope but close no job scoring 3 for the pr
 | Bot activity is category-wide | FACT | Direct observation of DaddySkins, DatDrop, CSGORoll; cited in research.md Gaps Table |
 | Lobby fill over 60-90 seconds causes battle abandonment | FACT | ux-patterns.md Pattern 3 ("Breaks when"). The 60-second figure is inferred from Clash.gg's 30-sec matchmaking as benchmark, not from user testing |
 | Rakeback is table stakes (not a differentiator) | FACT | Gamdom 15% zero-wagering, DatDrop DatPoints, Clash.gg rakeback all confirmed. strategy.md Business Model |
-| Thrill Seekers do not read provably fair info before depositing | HYPOTHESIS | This is the riskiest assumption in strategy.md. It is inferred from Hellcase's 2M MAU despite lowest trust score, not from direct user behavior data |
+| Thrill Seekers do not read provably fair info before depositing | HYPOTHESIS | This is the riskiest assumption in strategy.md. It is inferred from Hellcase's 2M MAU despite no public PF page, 82.1% tested RTP and no formal licence, not from direct user behavior data |
 | The Researcher converts at higher rates when EV is shown | HYPOTHESIS | Inferred from ux-patterns.md Pattern 2 (Targeter behavior). No conversion data exists |
 | Battle mode is a retention mechanic, not acquisition | HYPOTHESIS (strong) | Confirmed by competitive design (aarrr.md Retention section). Not proven by user data |
 | Mood quotes (composite) represent real user voice | HYPOTHESIS | Built from observed themes in research materials. Not verbatim cited posts |
