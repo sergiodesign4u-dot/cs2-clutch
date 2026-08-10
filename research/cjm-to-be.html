@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - CJM To-Be</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --glow-pink: rgba(233,77,139,0.15);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) {
+      main { margin-left: var(--nav-w); padding-top: 48px; }
+      footer { margin-left: var(--nav-w); }
+    }
+    section { margin-bottom: 88px; }
+    .section-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px;
+    }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 26px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 8px; }
+    h3 { font-size: 17px; font-weight: 600; margin-bottom: 6px; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 6px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .sep { height: 1px; background: var(--border); margin: 36px 0; }
+    /* HERO */
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 72px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+    /* BADGE SYSTEM */
+    .badge {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px;
+      border-radius: 20px; margin-bottom: 14px;
+    }
+    .badge-primary { background: rgba(233,77,139,0.12); color: var(--accent-pink); border: 1px solid rgba(233,77,139,0.25); }
+    .badge-secondary { background: rgba(101,163,255,0.1); color: var(--accent-blue); border: 1px solid rgba(101,163,255,0.2); }
+    .badge-tertiary { background: rgba(250,218,98,0.1); color: var(--accent-yellow); border: 1px solid rgba(250,218,98,0.2); }
+    /* HYPOTHESIS BADGE */
+    .hyp-tag {
+      display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+      color: var(--accent-yellow); background: rgba(250,218,98,0.08);
+      border: 1px solid rgba(250,218,98,0.25); padding: 1px 6px; border-radius: 4px;
+      margin-left: 4px; vertical-align: middle; white-space: nowrap;
+    }
+    /* CLAIM UPDATE / DECISION NOTE */
+    .claim-update {
+      margin-top: 12px; padding: 10px 14px;
+      border-left: 3px solid var(--accent-blue);
+      background: rgba(101,163,255,0.05);
+      border-radius: 0 6px 6px 0;
+      font-size: 12px; color: var(--text-secondary); line-height: 1.55;
+    }
+    .claim-update strong { color: var(--accent-blue); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px; }
+    .decision-note {
+      margin-top: 12px; padding: 10px 14px;
+      border-left: 3px solid #4ade80;
+      background: rgba(74,222,128,0.04);
+      border-radius: 0 6px 6px 0;
+      font-size: 12px; color: var(--text-secondary); line-height: 1.55;
+    }
+    .decision-note strong { color: #4ade80; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 4px; }
+    /* TABLES */
+    .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead { background: rgba(255,255,255,0.02); }
+    th { padding: 12px 14px; text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
+    td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; line-height: 1.5; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,0.01); }
+    /* FOOTER */
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      main { padding: 64px 20px 60px; }
+      footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; gap: 6px; }
+    }
+
+    /* ============ PAGE-SPECIFIC ============ */
+    p, li, td, th, summary { overflow-wrap: break-word; }
+    code, .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9em; color: var(--accent-blue);
+      background: rgba(101,163,255,0.07); border: 1px solid rgba(101,163,255,0.14);
+      padding: 1px 5px; border-radius: 4px; white-space: nowrap;
+    }
+    ul.plain { padding-left: 18px; display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+    ul.plain li { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+    .lede { font-size: 15px; color: var(--text-secondary); }
+    .subhead { font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 28px 0 6px; letter-spacing: -0.01em; }
+
+    /* ARCHITECTURAL CALLOUT */
+    .arch {
+      position: relative; z-index: 1;
+      border: 1px solid rgba(233,77,139,0.3);
+      background:
+        radial-gradient(120% 140% at 0% 0%, var(--glow-pink), transparent 60%),
+        var(--bg-card);
+      border-radius: 16px; padding: 34px 34px 30px; margin: 0 0 72px;
+      box-shadow: 0 0 0 1px rgba(233,77,139,0.05), 0 24px 60px -30px rgba(233,77,139,0.5);
+    }
+    .arch-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent-pink); margin-bottom: 14px;
+    }
+    .arch p { font-size: 14px; }
+    .arch-quote {
+      margin: 24px 0 22px; padding: 22px 24px;
+      border-left: 4px solid var(--accent-pink);
+      background: rgba(233,77,139,0.06);
+      border-radius: 0 10px 10px 0;
+      font-size: clamp(17px,2.4vw,25px); font-weight: 700; line-height: 1.35;
+      letter-spacing: -0.015em; color: var(--text-primary);
+    }
+    .arch-foot { font-size: 13px !important; color: var(--text-muted) !important; }
+    @media (max-width: 860px) { .arch { padding: 24px 20px 22px; } }
+
+    /* FOCUS CARD */
+    .focus-card {
+      background: var(--bg-card); border: 1px solid rgba(233,77,139,0.2);
+      border-radius: 14px; padding: 30px 30px 26px; margin-top: 20px;
+    }
+    .focus-title { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: var(--text-primary); margin-bottom: 6px; }
+    .focus-why { font-size: 13px; color: var(--text-muted); line-height: 1.55; margin-bottom: 20px; }
+    .focus-row { padding: 18px 0 0; border-top: 1px solid var(--border); margin-top: 18px; }
+    .focus-row-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+    .focus-row p { font-size: 13px; line-height: 1.65; }
+    .focus-job {
+      padding: 14px 18px; background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border); border-radius: 8px;
+      font-size: 13px; color: var(--text-secondary); line-height: 1.7; font-style: italic;
+    }
+    @media (max-width: 860px) { .focus-card { padding: 22px 18px 20px; } }
+    .parent-classes { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 14px; }
+    @media (max-width: 760px) { .parent-classes { grid-template-columns: 1fr; } }
+    .pc-tile { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 9px; padding: 14px 16px; }
+    .pc-num { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 6px; }
+    .pc-tile p { font-size: 12.5px; line-height: 1.6; }
+
+    /* CHIPS */
+    .chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip {
+      display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+      padding: 3px 8px; border-radius: 5px; white-space: nowrap;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+    .chip-barrier { color: var(--accent-pink); background: rgba(233,77,139,0.12); border: 1px solid rgba(233,77,139,0.32); }
+    .chip-partial { color: var(--accent-yellow); background: rgba(250,218,98,0.08); border: 1px solid rgba(250,218,98,0.25); }
+    .chip-not { color: var(--text-muted); background: rgba(255,255,255,0.02); border: 1px solid var(--border-strong); }
+    .chip-job { color: var(--accent-blue); background: rgba(101,163,255,0.1); border: 1px solid rgba(101,163,255,0.25); }
+    .chip-gloss { font-size: 12px; color: var(--text-muted); line-height: 1.55; margin-top: 7px; margin-bottom: 0; }
+
+    /* PHASE TRACK */
+    .track-wrap { overflow-x: auto; margin-top: 24px; padding-bottom: 12px; }
+    .track { display: flex; gap: 14px; align-items: stretch; }
+    .phase-card {
+      flex: 0 0 282px; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 18px 16px 16px; display: flex; flex-direction: column;
+    }
+    .phase-card.projected { border-color: rgba(250,218,98,0.22); }
+    .phase-code { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; color: var(--accent-pink); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .phase-name { font-size: 16px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; margin: 2px 0 14px; line-height: 1.25; }
+    .card-block { padding: 12px 0; border-top: 1px solid var(--border); }
+    .card-block:first-of-type { border-top: none; padding-top: 0; }
+    .card-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 7px; }
+    .card-block p { font-size: 12.5px; line-height: 1.6; margin-bottom: 0; }
+    .card-block p + p { margin-top: 8px; }
+    .cap-block { background: rgba(101,163,255,0.04); border-left: 2px solid rgba(101,163,255,0.35); border-radius: 0 6px 6px 0; padding: 10px 12px; margin-top: 12px; }
+    .cap-block .card-label { color: var(--accent-blue); margin-bottom: 5px; }
+    .emo-block { margin-top: 12px; padding: 10px 12px; border-radius: 6px; background: rgba(255,255,255,0.025); border: 1px solid var(--border); }
+    .emo-target { font-size: 12.5px; font-weight: 700; color: var(--text-primary); }
+    .emo-asis { font-size: 11.5px; color: var(--text-muted); margin-top: 5px; line-height: 1.5; }
+    .proj-flag {
+      display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent-yellow); background: rgba(250,218,98,0.09); border: 1px solid rgba(250,218,98,0.3);
+      padding: 3px 7px; border-radius: 5px; margin-bottom: 8px;
+    }
+    @media (max-width: 700px) {
+      .track-wrap { overflow-x: visible; }
+      .track { flex-direction: column; }
+      .phase-card { flex: 1 1 auto; min-width: 0; }
+    }
+
+    /* DIVERGENCE BLOCKS */
+    .dtc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; margin-top: 12px; }
+    .dtc summary {
+      cursor: pointer; padding: 14px 18px; font-size: 13.5px; font-weight: 600;
+      color: var(--text-primary); list-style: none; display: flex; gap: 10px; align-items: baseline;
+    }
+    .dtc summary::-webkit-details-marker { display: none; }
+    .dtc summary::before { content: '+'; color: var(--accent-pink); font-weight: 800; font-size: 15px; line-height: 1; }
+    .dtc[open] summary::before { content: '\2212'; }
+    .dtc[open] summary { border-bottom: 1px solid var(--border); }
+    .dtc-body { padding: 14px 18px 16px; }
+    .dtc-body p { font-size: 13px; }
+    .conv { margin-top: 10px; padding: 11px 14px; border-left: 3px solid; border-radius: 0 6px 6px 0; font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+    .conv .conv-k { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+    .conv-chosen { border-color: #4ade80; background: rgba(74,222,128,0.05); }
+    .conv-chosen .conv-k { color: #4ade80; }
+    .conv-drop { border-color: var(--text-muted); background: rgba(255,255,255,0.02); }
+    .conv-drop .conv-k { color: var(--text-muted); }
+    .conv-cost { border-color: var(--accent-yellow); background: rgba(250,218,98,0.05); }
+    .conv-cost .conv-k { color: var(--accent-yellow); }
+    .conv-hard { border-color: var(--accent-pink); background: rgba(233,77,139,0.05); }
+    .conv-hard .conv-k { color: var(--accent-pink); }
+
+    /* THE BIG REJECTION */
+    .rejection {
+      border: 1px solid rgba(233,77,139,0.28); background: rgba(233,77,139,0.05);
+      border-radius: 14px; padding: 26px 28px 24px; margin-top: 24px;
+    }
+    .rejection h3 { font-size: 19px; letter-spacing: -0.015em; margin-bottom: 12px; }
+    .rejection p { font-size: 13.5px; }
+    @media (max-width: 860px) { .rejection { padding: 20px 18px; } }
+
+    /* CHART */
+    .chart-wrap { overflow-x: auto; margin-top: 24px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); padding: 20px 16px 14px; }
+    .chart-inner { min-width: 680px; }
+    .chart-inner svg { width: 100%; height: auto; display: block; font-family: 'Inter','SF Pro Display',-apple-system,sans-serif; }
+    .chart-grid { stroke: rgba(255,255,255,0.045); stroke-width: 1; }
+    .chart-zero { stroke: rgba(255,255,255,0.24); stroke-width: 1.5; }
+    .chart-axis { stroke: rgba(255,255,255,0.12); stroke-width: 1; }
+    .chart-label { fill: var(--text-muted); font-size: 11px; }
+    .chart-sub { fill: var(--text-muted); font-size: 9.5px; opacity: 0.75; }
+    .chart-val-asis { fill: var(--accent-blue); font-size: 10.5px; font-weight: 700; }
+    .chart-val-tobe { fill: var(--accent-pink); font-size: 10.5px; font-weight: 700; }
+    .chart-qmark { fill: var(--text-muted); font-size: 10px; font-weight: 700; }
+    .chart-note { fill: var(--accent-yellow); font-size: 10px; font-weight: 700; }
+    .line-asis { fill: none; stroke: var(--accent-blue); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+    .dot-asis { fill: var(--accent-blue); }
+    .dot-break { fill: var(--bg-card); stroke: var(--text-muted); stroke-width: 1.5; stroke-dasharray: 2.5 2.5; }
+    .line-tobe { fill: none; stroke: var(--accent-pink); stroke-width: 2.5; stroke-dasharray: 8 5; stroke-linejoin: round; stroke-linecap: round; }
+    .dot-tobe { fill: var(--bg-card); stroke: var(--accent-pink); stroke-width: 2.2; }
+    .dot-t6 { fill: var(--accent-yellow); stroke: var(--bg-card); stroke-width: 2; }
+    .ring-t6 { fill: none; stroke: var(--accent-yellow); stroke-width: 1.4; stroke-dasharray: 3 3; opacity: 0.8; }
+    .legend { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 18px; }
+    .legend-item { display: flex; gap: 9px; align-items: flex-start; max-width: 330px; }
+    .legend-swatch { flex: 0 0 34px; margin-top: 6px; }
+    .legend-text { font-size: 12px; color: var(--text-secondary); line-height: 1.55; }
+    .legend-text b { color: var(--text-primary); font-weight: 700; }
+
+    /* BACKLOG */
+    .group-head { display: flex; align-items: baseline; gap: 12px; margin-top: 40px; flex-wrap: wrap; }
+    .group-num {
+      font-size: 11px; font-weight: 800; color: var(--accent-pink);
+      background: rgba(233,77,139,0.1); border: 1px solid rgba(233,77,139,0.28);
+      border-radius: 6px; padding: 3px 9px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .group-title { font-size: 18px; font-weight: 700; letter-spacing: -0.015em; color: var(--text-primary); }
+    tr.mvp td:first-child { box-shadow: inset 3px 0 0 var(--accent-pink); }
+    tr.mvp td:first-child strong { color: var(--text-primary); }
+    td.pri { white-space: normal; }
+    .pri-mvp {
+      display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 0.12em;
+      color: var(--accent-pink); background: rgba(233,77,139,0.14); border: 1px solid rgba(233,77,139,0.4);
+      padding: 3px 9px; border-radius: 5px;
+    }
+    .qual {
+      display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.04em;
+      color: var(--accent-yellow); background: rgba(250,218,98,0.08); border: 1px solid rgba(250,218,98,0.28);
+      padding: 3px 8px; border-radius: 5px; margin-top: 6px; line-height: 1.4;
+    }
+    .qual-arch { color: var(--accent-blue); background: rgba(101,163,255,0.08); border-color: rgba(101,163,255,0.28); }
+    .qual-scope { color: var(--text-secondary); background: rgba(255,255,255,0.03); border-color: var(--border-strong); }
+    .pri-stack { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+    td.parent { min-width: 150px; }
+
+    /* QUESTIONS + DECISIONS */
+    .qa { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px 20px; margin-top: 16px; }
+    .qa-q { font-size: 15px; font-weight: 700; color: var(--text-primary); line-height: 1.5; margin-bottom: 4px; }
+    .qa-a { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 12px; }
+    .qa p { font-size: 13.5px; }
+    .qa-risk { margin-top: 12px; padding: 11px 14px; border-left: 3px solid var(--accent-yellow); background: rgba(250,218,98,0.05); border-radius: 0 6px 6px 0; font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+    .dec { background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent-yellow); border-radius: 0 10px 10px 0; padding: 18px 20px; margin-top: 12px; }
+    .dec-code { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; color: var(--accent-yellow); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; margin-bottom: 6px; }
+    .dec h3 { font-size: 15px; margin-bottom: 8px; }
+    .dec p { font-size: 13px; }
+    @media (max-width: 860px) { .qa { padding: 18px 16px; } }
+
+    /* CRITIQUE STATUS */
+    .st { display: inline-block; font-size: 9px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 5px; margin-bottom: 6px; white-space: nowrap; }
+    .st-fixed { color: #4ade80; background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.3); }
+    .st-open { color: var(--accent-pink); background: rgba(233,77,139,0.12); border: 1px solid rgba(233,77,139,0.4); }
+    .st-withdrawn { color: var(--accent-yellow); background: rgba(250,218,98,0.08); border: 1px solid rgba(250,218,98,0.3); }
+    .st-resolved { color: var(--accent-blue); background: rgba(101,163,255,0.08); border: 1px solid rgba(101,163,255,0.28); }
+    .found-claude { color: var(--accent-blue); font-weight: 700; }
+    .found-codex { color: var(--accent-yellow); font-weight: 700; }
+    td.num { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11.5px; color: var(--text-muted); white-space: nowrap; }
+    .closing {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px 26px; margin-top: 24px;
+    }
+    @media (max-width: 860px) { .closing { padding: 20px 18px; } }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<!-- HERO -->
+<div class="hero" id="intro">
+  <div class="section-eyebrow">CJM To-Be - Stage 02+</div>
+  <h1>Customer Journey, To-Be</h1>
+  <p>The same person and the same job as the As-Is map, inside a product that does not exist yet. The rule of this half is the opposite of the other one. The future has to be designed, so "do not invent" does not apply. What applies instead is tracing: every step and every capability on this map points at a named As-Is barrier, a named job in <code>jtbd.md</code>, or one of the enumerated compliance constraints and design principles in <code>CLAUDE.md</code>. A step with no parent in one of the three is an orphan and gets cut, not kept because it looks good.</p>
+  <div class="hero-meta">
+    <div>
+      <div class="hero-stat-value">8</div>
+      <div class="hero-stat-label">Phases, T1 to T8</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">37</div>
+      <div class="hero-stat-label">MVP rows</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">4</div>
+      <div class="hero-stat-label">Open decisions</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">37</div>
+      <div class="hero-stat-label">Critique findings</div>
+    </div>
+  </div>
+</div>
+
+<!-- ARCHITECTURAL FINDING -->
+<div class="arch">
+  <div class="arch-eyebrow">The architectural finding, before the map</div>
+  <p>Three of the six divergences were run blind and two of them landed on the same operational precondition without knowing about each other: <strong style="color:var(--text-primary)">the product must hold the specific item before it awards it.</strong></p>
+  <p>Stock-backed drop tables need the unit to already be ours. Instance-level pricing needs the float and phase to be known before the reveal, which is only possible if the object is already in our inventory. This is not two features. It is one change of architecture with several visible consequences, and it answers a sentence that reframes the whole trust thesis of this product.</p>
+  <blockquote class="arch-quote">Provable fairness proves the roll, not the payout. A verifiable roll for an item that cannot be delivered is technically true and functionally a lie.</blockquote>
+  <p class="arch-foot">The As-Is floor is at P8, withdrawal, not at P6, the reveal. Everything below is built on that.</p>
+</div>
+
+<!-- 1. FOCUS -->
+<section id="focus">
+  <div class="section-eyebrow">01 - Focus</div>
+  <h2>Who this map is for, and what a step is allowed to stand on</h2>
+  <p class="lede">Focus, persona and job formula are carried from the As-Is map. They are not re-derived here. The open divergences recorded there, three wordings of the main job and three competing MVP core lists, are resolved by step 11, not on this page.</p>
+
+  <div class="focus-card">
+    <span class="badge badge-primary">Primary persona x main job</span>
+    <div class="focus-title">The Opener x "Arrive, open, get the thrill"</div>
+    <div class="focus-why">Why primary, <code>personas.md:95</code>: "Every competitor design decision confirms this archetype. The reveal animation is the product. This person drives the most volume and is the first user any platform must succeed with."</div>
+
+    <div class="focus-row">
+      <div class="focus-row-label">Main job, verbatim from <code>jtbd.md:17</code></div>
+      <div class="focus-job">When I am embedded in the CS2 ecosystem and want excitement beyond the game itself, I want a chance at a rare skin I actually want, with a reveal that feels real and unpredictable, so that I get the rush of a genuine drop and potentially end up with something worth having.</div>
+    </div>
+
+    <div class="focus-row">
+      <div class="focus-row-label">Carried from the As-Is map</div>
+      <p>Same eight phases, so the two curves overlay. Same person, same job, same numbering. Every row on the To-Be path names the parent it pays for, and the phase codes T1 to T8 sit directly over P1 to P8.</p>
+    </div>
+  </div>
+
+  <h3 class="subhead">Three legal parent classes, and only three</h3>
+  <p>Every row in the backlog names a parent. The third class was added by the step 9 critique, which found rows B4 and C5 already standing on it while the stated rule admitted only the first two. It is enumerated rather than open: only the five compliance constraints at <code>CLAUDE.md:58</code> and the five design principles at <code>CLAUDE.md:52</code> to <code>:56</code> qualify, and a row using it must quote which one.</p>
+  <div class="parent-classes">
+    <div class="pc-tile">
+      <div class="pc-num">Class 1</div>
+      <p>A barrier code from <code>cjm-as-is.md</code>, for example <span class="chip chip-barrier">B7-2</span> with its evidence count behind it.</p>
+    </div>
+    <div class="pc-tile">
+      <div class="pc-num">Class 2</div>
+      <p>A job from <code>jtbd.md</code>, named with its line, for example Related Job 5 at <code>jtbd.md:69</code>.</p>
+    </div>
+    <div class="pc-tile">
+      <div class="pc-num">Class 3</div>
+      <p>A named compliance constraint or design principle from <code>CLAUDE.md</code>, quoted, not gestured at.</p>
+    </div>
+  </div>
+  <p style="margin-top:16px">A capability with no parent in one of the three classes is not in the backlog table. It is in the cut list. One exception exists and it is named rather than assumed: an item already locked into <code>LATER</code> by the round 1 scope decision in <code>CLAUDE.md</code> cannot be cut by this stage even when it has no parent, so it is carried with the parent cell reading <code>None</code> and a standing requirement to acquire one before its own round opens.</p>
+
+  <h3 class="subhead">The priority test, applied literally</h3>
+  <p><strong style="color:var(--text-primary)"><code>MVP</code> means the To-Be path breaks without the row, where breaking means a documented As-Is barrier recurs</strong>, not merely that the mechanics still complete. The mechanical reading was tried first and it marked as LATER a set of rows that would each reproduce a recorded pain, so the barrier reading is the one that holds, and it is written here rather than applied silently.</p>
+  <div class="claim-update">
+    <strong>Seven rows do not clear even that test on their own</strong>
+    Every one of them says so in its own cell rather than hiding behind the label. F4, which the referral loop needs and the path does not. D3, which does not do its job until N grows. A3 and G6, which stand on a job with no barrier behind them. E4, F3 and H1, which are MVP by locked round 1 scope and by founder decision rather than by any persona score. The earlier text claimed one exception and had seven, and the critique was right to call that a double standard, since the daily bonus had been cut on a criterion three of these rows also fail.
+  </div>
+</section>
+
+<!-- 2. TO-BE PATH -->
+<section id="path">
+  <div class="section-eyebrow">02 - To-Be path</div>
+  <h2>T1 to T8, and what each phase closes</h2>
+  <p class="lede">Same eight phases as the As-Is map, so the two curves overlay. Every phase names the barrier it pays for. The <span class="chip chip-barrier" style="vertical-align:middle">Closes</span> row is the point of the whole page: a capability that names no barrier and no job does not survive to this track.</p>
+  <p><strong style="color:var(--text-primary)">How the capabilities were chosen.</strong> Six barriers had more than one plausible answer. For each of those, three candidate mechanisms were generated independently and blind to one another, each required to state its cost, its regulatory exposure and one specific way it could backfire. The chosen candidate and the reason each rival was dropped are recorded under the track. Where the answer was obvious, no divergence was run and none is invented for appearance.</p>
+
+  <div class="track-wrap">
+    <div class="track">
+
+      <!-- T1 -->
+      <div class="phase-card">
+        <div class="phase-code">T1</div>
+        <div class="phase-name">The pull from outside</div>
+        <div class="card-block">
+          <div class="card-label">Step in the product</div>
+          <p>Arrives from someone else's win on a clip, and lands on a page that survives the suspicion the category has earned. Nothing is asked of them yet.</p>
+          <p style="color:var(--text-muted)">Goal: decide whether this one is different. Job: main job trigger, <code>jtbd.md:17</code>.</p>
+        </div>
+        <div class="card-block">
+          <div class="card-label">Closes</div>
+          <div class="chip-row"><span class="chip chip-barrier">B1-1</span></div>
+          <p class="chip-gloss">The category arrives pre-suspected and the recommendation itself reads as a warning.</p>
+        </div>
+        <div class="cap-block">
+          <div class="card-label">Capability</div>
+          <p>The pre-login proof surface, defined at T2. T1 itself adds no capability; it is the phase we inherit rather than create.</p>
+        </div>
+        <div class="emo-block">
+          <div class="card-label">Target emotion</div>
+          <div class="emo-target">Curiosity that survives a second look</div>
+          <div class="emo-asis">As-Is at this phase was already positive, <strong style="color:var(--accent-blue)">+4</strong>, so this is the one phase we are not trying to move. The work is to not lose what arrives.</div>
+        </div>
+      </div>
+
+      <!-- T2 -->
+      <div class="phase-card">
+        <div class="phase-code">T2</div>
+        <div class="phase-name">First contact, before any account</div>
+        <div class="card-block">
+          <div class="card-label">Step in the product</div>
+          <p>Reads, without an account, what the case contains, what each item is worth right now, what the published chance is, and how many units of each item we actually hold.</p>
+          <p style="color:var(--text-muted)">Goal: decide the place is real. Job: Related Job 1, arrive with enough confidence to try, <code>jtbd.md:33</code>.</p>
+        </div>
+        <div class="card-block">
+          <div class="card-label">Closes</div>
+          <div class="chip-row">
+            <span class="chip chip-barrier">B2-1</span>
+            <span class="chip chip-partial">B1-2 partly</span>
+          </div>
+          <p class="chip-gloss">The pre-login information wall. And partly the buy-instead advice, by making our real offer legible before signup.</p>
+        </div>
+        <div class="cap-block">
+          <div class="card-label">Capabilities</div>
+          <p><strong style="color:var(--text-primary)">Two prices, one item.</strong> Every notable item carries its live market price with a timestamp beside the exact chance of pulling it at this entry cost, and the top item carries an outbound link to buy it on the market instead. The site states in its own voice, not in a disclaimer, that buying outright is cheaper on average.</p>
+          <p><strong style="color:var(--text-primary)">Live free-unit count</strong> per item, from the stock-backed table at T5.</p>
+        </div>
+        <div class="emo-block">
+          <div class="card-label">Target emotion</div>
+          <div class="emo-target">Disarmed</div>
+          <div class="emo-asis">As-Is was <strong style="color:var(--accent-blue)">-3</strong>, suspicion as the default posture with a named tell.</div>
+        </div>
+      </div>
+
+      <!-- T3 -->
+      <div class="phase-card">
+        <div class="phase-code">T3</div>
+        <div class="phase-name">Getting in</div>
+        <div class="card-block">
+          <div class="card-label">Step in the product</div>
+          <p>Age and identity are resolved here, once, before any case interaction and before any money moves. The account then carries a visible state: verified, withdrawals open.</p>
+          <p style="color:var(--text-muted)">Goal: reach the point of being able to open, and know what the exit looks like before entering. Job: Related Job 1.</p>
+        </div>
+        <div class="card-block">
+          <div class="card-label">Closes</div>
+          <div class="chip-row"><span class="chip chip-barrier">B8-4</span></div>
+          <p class="chip-gloss">Verification ambushes at the exit, by moving the check to the only place where it costs the user nothing they have already earned.</p>
+          <div class="chip-row" style="margin-top:9px">
+            <span class="chip chip-not">B3-1 not here</span>
+            <span class="chip chip-not">B3-2 not here</span>
+          </div>
+          <p class="chip-gloss">These are entry-phase barriers of a different kind, an unreadable Steam login failure and an onboarding demand that reads as an attack, and neither is closed by anything on this step. Backlog rows B5 and B6 close them.</p>
+        </div>
+        <div class="cap-block">
+          <div class="card-label">Capability</div>
+          <p><strong style="color:var(--text-primary)">Verification resolved before funding, and no verification branch on the withdrawal route at all</strong>, enforced in code and reviewable. The account state is shown on the deposit screen itself, so the promise describes a state the user can already see rather than a future behaviour we control.</p>
+        </div>
+        <div class="emo-block">
+          <div class="card-label">Target emotion</div>
+          <div class="emo-target">Settled</div>
+          <div class="emo-asis">As-Is was <span class="hyp-tag">[?]</span>, frictionless for some and blocking for others with no way to weigh them.</div>
+        </div>
+      </div>
+
+      <!-- T4 -->
+      <div class="phase-card">
+        <div class="phase-code">T4</div>
+        <div class="phase-name">Getting something to open with</div>
+        <div class="card-block">
+          <div class="card-label">Step in the product</div>
+          <p>Funds the account in real currency, and in the same step sets a spend ceiling for a named period.</p>
+          <p style="color:var(--text-muted)">Goal: reach an openable balance without committing money they would miss. Job: Related Job 2, complete the first open without friction, <code>jtbd.md:42</code>.</p>
+        </div>
+        <div class="card-block">
+          <div class="card-label">Closes</div>
+          <div class="chip-row">
+            <span class="chip chip-barrier">B4-1</span>
+            <span class="chip chip-barrier">B7-4</span>
+          </div>
+          <p class="chip-gloss">The escalating deposit gate, through backlog row C4. The escalation loop, through the ceiling below.</p>
+          <div class="chip-row" style="margin-top:9px"><span class="chip chip-not">B4-3 not here</span></div>
+          <p class="chip-gloss">Money leaves and does not arrive is a crediting failure that no capability on this step answers. Backlog row C3 answers it, and it is named here so the claim is not made twice.</p>
+        </div>
+        <div class="cap-block">
+          <div class="card-label">Capabilities</div>
+          <p><strong style="color:var(--text-primary)">One real currency throughout</strong>, no internal coin denomination anywhere, so no payout can wear a label that is not a price.</p>
+          <p><strong style="color:var(--text-primary)">Limit chosen at deposit</strong>: the amount just typed is pre-filled as a ceiling with a period selector, the deposit cannot be submitted until the user accepts or changes it, lowering it applies immediately and raising it applies 24 hours later. When the ceiling is reached, deposits stop while opening from existing balance and withdrawal stay fully open.</p>
+        </div>
+        <div class="emo-block">
+          <div class="card-label">Target emotion</div>
+          <div class="emo-target">In control of a decision already made</div>
+          <div class="emo-asis">As-Is was <strong style="color:var(--accent-blue)">-4</strong>.</div>
+        </div>
+      </div>
+
+      <!-- T5 -->
+      <div class="phase-card projected">
+        <div class="phase-code">T5</div>
+        <div class="phase-name">Picking a case</div>
+        <div class="card-block">
+          <div class="card-label">Step in the product</div>
+          <p>Chooses a case knowing what is in it, what each item is worth, what the chance is, and how many units are actually there.</p>
+          <p style="color:var(--text-muted)">Goal: find something worth opening inside a small budget. Job: main job, <code>jtbd.md:17</code>.</p>
+        </div>
+        <div class="card-block">
+          <div class="card-label">Closes</div>
+          <div class="chip-row">
+            <span class="chip chip-barrier">B8-1</span>
+            <span class="chip chip-partial">B1-2 partly</span>
+          </div>
+          <p class="chip-gloss">The item you won is not the item you can take, by moving the constraint to before the open.</p>
+        </div>
+        <div class="cap-block">
+          <div class="card-label">Capability</div>
+          <p><strong style="color:var(--text-primary)">Stock-backed drop tables.</strong> Every row in a case points at a specific unit in our own inventory. The roll can only select items with at least one free unit, and on reveal that unit is locked to the account in the same transaction that writes the roll. The case page shows a live free-unit count, and an item at zero is visibly out of the table before the open, never after it.</p>
+        </div>
+        <div class="emo-block">
+          <span class="proj-flag">Projected, not measured</span>
+          <div class="card-label">Target emotion</div>
+          <div class="emo-target">Informed appetite</div>
+          <div class="emo-asis">As-Is was <span class="hyp-tag">[?]</span>. Nobody in the corpus narrates choosing a case, so this target is projected rather than measured against a recorded emotion.</div>
+        </div>
+      </div>
+
+      <!-- T6 -->
+      <div class="phase-card projected">
+        <div class="phase-code">T6</div>
+        <div class="phase-name">The open</div>
+        <div class="card-block">
+          <div class="card-label">Step in the product</div>
+          <p>Triggers the reveal and watches. Nothing else happens in this phase.</p>
+          <p style="color:var(--text-muted)">Goal: the rush. Jobs: main job <code>jtbd.md:17</code>, plus Emotional Job 1, genuine suspense rather than manufactured tension, <code>jtbd.md:84</code>.</p>
+        </div>
+        <div class="card-block">
+          <div class="card-label">Closes</div>
+          <div class="chip-row">
+            <span class="chip chip-barrier">B6-1</span>
+            <span class="chip chip-barrier">B6-2</span>
+          </div>
+          <p class="chip-gloss">The animation and the credited item disagree. The belief that the reveal turns against you once you win.</p>
+        </div>
+        <div class="cap-block">
+          <div class="card-label">Capability</div>
+          <p>The reveal is bound to the settled roll, so what the animation shows is what the ledger wrote, and the two cannot diverge. No near-miss theatre: a near-miss pre-calculated as a loss is fabricated tension, already ruled out at <code>jtbd.md:87</code>.</p>
+        </div>
+        <div class="emo-block" style="border-color:rgba(250,218,98,0.3);background:rgba(250,218,98,0.05)">
+          <span class="proj-flag">Projected, not measured, and stated rather than hidden</span>
+          <div class="card-label">Target emotion</div>
+          <div class="emo-target">A design intention, not an inference</div>
+          <div class="emo-asis">As-Is at this phase is <span class="hyp-tag">[?]</span>. After targeted re-research in the source class that should hold it, no first-person account of joy at one's own reveal on a third-party site was found anywhere. There is no recorded emotion here to contrast against, so the target cannot be derived. Stage 06 produces it and tests it. Any timing, cut, sound or hold is a decision of this project, not a match to a benchmark.</div>
+        </div>
+      </div>
+
+      <!-- T7 -->
+      <div class="phase-card">
+        <div class="phase-code">T7</div>
+        <div class="phase-name">The outcome</div>
+        <div class="card-block">
+          <div class="card-label">Step in the product</div>
+          <p>Sees what they got, what it is actually worth, and how this case has behaved for everyone.</p>
+          <p style="color:var(--text-muted)">Goal: understand the result and know what to do next. Job: Emotional Job 2, a moment sharp enough to become a story, <code>jtbd.md:93</code>.</p>
+        </div>
+        <div class="card-block">
+          <div class="card-label">Closes</div>
+          <div class="chip-row">
+            <span class="chip chip-barrier">B7-1</span>
+            <span class="chip chip-barrier">B7-2</span>
+            <span class="chip chip-barrier">B7-3</span>
+          </div>
+          <p class="chip-gloss">The undervalued win. The published probability that did not behave. The consolation frame read as a trick.</p>
+        </div>
+        <div class="cap-block">
+          <div class="card-label">Capabilities</div>
+          <p><strong style="color:var(--text-primary)">Instance value receipt.</strong> We hold the exact asset before awarding it, so its float, paint seed and phase are known: the item is priced as that instance, never as the skin name. The reveal shows name, float, phase, current sell price for the comparable float band and phase on two named venues, the inspect link, and a link that opens the venue listing filtered to that float band so the user checks it themselves. The receipt stays attached to the item in inventory and on the withdrawal record.</p>
+          <p><strong style="color:var(--text-primary)">Observed rate counter.</strong> Beside every published tier percentage stands the outcome count from the same settlement ledger that pays users: published, observed, and N. Never reset. If weights are ever changed the counter forks, the old configuration keeps its history and stays visible, the new one starts at zero and says so.</p>
+        </div>
+        <div class="emo-block">
+          <div class="card-label">Target emotion</div>
+          <div class="emo-target">A result that is understood, whether it is good or bad</div>
+          <div class="emo-asis">As-Is was <strong style="color:var(--accent-blue)">-5</strong>, and the whole of that -5 was the discovery that the number was not real.</div>
+        </div>
+      </div>
+
+      <!-- T8 -->
+      <div class="phase-card">
+        <div class="phase-code">T8</div>
+        <div class="phase-name">Payoff or exit</div>
+        <div class="card-block">
+          <div class="card-label">Step in the product</div>
+          <p>Withdraws to Steam, and can see the state of that withdrawal and who it is waiting on at every moment.</p>
+          <p style="color:var(--text-muted)">Goal: turn the result into something real. Job: Related Job 5, withdraw and get what I earned, stated at <code>jtbd.md:69</code>.</p>
+        </div>
+        <div class="card-block">
+          <div class="card-label">Closes</div>
+          <div class="chip-row">
+            <span class="chip chip-barrier">B8-2</span>
+            <span class="chip chip-barrier">B8-3</span>
+          </div>
+          <p class="chip-gloss">Waiting with no attribution. Winning treated as suspicious behaviour.</p>
+          <div class="chip-row" style="margin-top:9px"><span class="chip chip-not">B8-1 closed upstream at T5</span></div>
+        </div>
+        <div class="cap-block">
+          <div class="card-label">Capabilities</div>
+          <p><strong style="color:var(--text-primary)">Public withdrawal clock.</strong> A withdrawal moves through named states with a per-state timer, each labelled with who it is waiting on: us, Steam, or you. Our own states carry a published ceiling and a live degraded banner driven by a Steam API health probe. Rolling median and p90 withdrawal times are published from our own logs.</p>
+          <p><strong style="color:var(--text-primary)">A restriction produces a written notice</strong> with a stated ground, a balance frozen rather than zeroed, and an appeal with a published response deadline.</p>
+        </div>
+        <div class="emo-block">
+          <div class="card-label">Target emotion</div>
+          <div class="emo-target">Waiting without suspicion</div>
+          <div class="emo-asis">As-Is was <strong style="color:var(--accent-blue)">-5</strong> and this was the floor of the entire map.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="conv conv-cost" style="margin-top:18px">
+    <span class="conv-k">Cost accepted at T8</span>
+    A published ceiling is a promise, so support must be staffed to meet it. Publishing our own p90 means one bad Steam week puts our own number on a competitor's page, and because we computed it ourselves we cannot dispute it. A public clock also tells an attacker how long the review window is.
+  </div>
+  <div class="claim-update" style="margin-top:12px">
+    <strong>Named limits at T8, because an unconditional promise would be a lie</strong>
+    Blocked countries, Steam trade holds and Steam-side bans are outside our control and are stated in plain words rather than discovered at the first delayed payout.
+  </div>
+
+  <h3 class="subhead">Diverge to converge, six records</h3>
+  <p>Six barriers had more than one plausible answer. Each block below names the barrier, the chosen mechanism, and every rival with the reason it was dropped. Costs accepted are stated where the file states them, not smoothed away.</p>
+
+  <details class="dtc">
+    <summary><span>Barrier <span class="chip chip-barrier">B1-2</span> at T2, the strongest pattern in the corpus, a pattern of 14</span></summary>
+    <div class="dtc-body">
+      <div class="conv conv-chosen"><span class="conv-k">Chosen: two prices, one item</span>It is the only one that engages the argument instead of working around it, and the buy-instead advice is correct on expected value, which the product must concede rather than contest. Printing the cheaper option next to our own removes the exact thing users were warned about.</div>
+      <div class="conv conv-drop"><span class="conv-k">Dropped: a declared loss ceiling as the answer here</span>It is a constraint, not an offer, and it never answers "why open at all". It ships anyway at T4 for its own reason.</div>
+      <div class="conv conv-drop"><span class="conv-k">Dropped: a free demo reveal on identical odds and seeds</span>It argues our case by demonstrating that the sceptic is right about the odds, and it spends the reveal, the one thing we sell, before anyone has decided anything.</div>
+      <div class="conv conv-cost"><span class="conv-k">Cost accepted</span>Some share of visitors will click the market link and buy instead. That is the price of the claim being believable.</div>
+    </div>
+  </details>
+
+  <details class="dtc">
+    <summary><span>Barrier <span class="chip chip-barrier">B8-4</span> at T3, and the convergence splits deliberately</span></summary>
+    <div class="dtc-body">
+      <div class="conv conv-chosen"><span class="conv-k">Chosen and locked: the sequencing rule</span>The injury in the evidence is not the weight of the check, it is that the check is a trap sprung after money is committed, including a user banned as a minor at cashout after already passing KYC. Sequence is the injury.</div>
+      <div class="conv conv-hard"><span class="conv-k">The method is not chosen here, and is carried as open decision D-A</span>All three candidate methods carry legal exposure that this project has not researched with citations. Facial age estimation is fast and is recognised as effective in strict regimes but is contested biometric data under GDPR and state statutes such as Illinois BIPA. Full document KYC before deposit removes the failure entirely but pays the largest conversion cost, creates a document trove and may itself be read as the operator self-classifying as a gambling business in a category where that classification is unsettled. Payment-instrument age attestation is nearly invisible but its coverage varies sharply by country and it can never be the only method, and <code>aarrr.md:105</code> has already discarded soft age gating on a cited statute, the UK Online Safety Act of July 2025, which requires robust identity-based verification and therefore rules this method out standing alone. Picking a biometric vendor from an unresearched comparison would be exactly the median-instead-of-a-source failure this project's rules exist to prevent.</div>
+    </div>
+  </details>
+
+  <details class="dtc">
+    <summary><span>Barrier <span class="chip chip-barrier">B7-4</span> at T4, the escalation loop, a pattern of 12</span></summary>
+    <div class="dtc-body">
+      <div class="conv conv-chosen"><span class="conv-k">Chosen: limit chosen at deposit</span>It is the only one that binds a user who does not read terms without requiring them to go looking and without accusing them of anything: one tap on a number they chose themselves, at the one moment they are calm. The evidence supports this precisely, because these users do not lose track of their totals, they recite them to the dollar. What was missing was anything binding between the tilt and the next deposit, and the one person who escaped used an external hard lock.</div>
+      <div class="conv conv-drop"><span class="conv-k">Dropped: a permanently visible net position</span>It addresses an information gap the evidence does not show, taxes every user for a problem concentrated in a few, and a running negative number becomes a target to play back to zero, which is the engine of the loop rather than a brake on it.</div>
+      <div class="conv conv-drop"><span class="conv-k">Dropped: a chase interrupt</span>Locking the open control after a detected tilt pattern intervenes when the user is least receptive, a false positive tells someone having a big night that an algorithm has classified them as an addict, and a rule users can learn is a rule users will route around.</div>
+      <div class="conv conv-cost"><span class="conv-k">Cost accepted, stated plainly</span>This caps the second and third deposit of a losing session, which is where the largest deposits in this category live, so the cost lands almost entirely on the top revenue decile. A user blocked for 24 hours can deposit on a site with no delay, so what is at risk is not one deposit but the account. That is the correct price for a product whose first principle is that trust is the product: proving the roll and then allowing unbounded deposits at 3am is proving the easy half.</div>
+      <div class="conv conv-hard"><span class="conv-k">Design constraint attached to this capability, and it is a hard one</span>The ceiling may be framed as a buy-in that gives a session a shape and an ending. It must never acquire completion mechanics, streaks or a session score, because at that point it stops being a boundary and becomes a reason to keep going, which is the dark pattern this product forbids.</div>
+    </div>
+  </details>
+
+  <details class="dtc">
+    <summary><span>Barriers <span class="chip chip-barrier">B8-1</span> <span class="chip chip-barrier">B8-2</span> <span class="chip chip-barrier">B8-3</span> at T5</span></summary>
+    <div class="dtc-body">
+      <div class="conv conv-chosen"><span class="conv-k">Chosen: stock-backed drop tables</span>Out-of-stock can still happen, but only before the win, where it is a published number instead of a claim made after we already owe someone a knife. It also reaches the good case in the evidence, the butterfly withdrawn in five minutes, because once the unit is ours and locked the remaining path is a single trade offer.</div>
+      <div class="conv conv-drop"><span class="conv-k">Dropped as the primary answer: a public withdrawal clock</span>It explains the failure honestly and cannot prevent it, and an honest clock on an undeliverable item is still an undeliverable item. It is cheap and it covers Steam-side waits that stock-backing cannot, so it is carried at T8 as a support capability rather than discarded.</div>
+      <div class="conv conv-drop"><span class="conv-k">Dropped: a pre-cleared payout limit</span>It fixes who gets paid rather than what gets paid, and puts its friction at deposit, which T3 and T4 already occupy.</div>
+      <div class="conv conv-drop"><span class="conv-k">Rejected before scoring: buying the item on the Steam Market at withdrawal time</span>A market-bought item carries a seven day trade lock for the buyer, which trades one pain for a guaranteed week of another.</div>
+      <div class="conv conv-cost"><span class="conv-k">Cost accepted</span>Capital, and it is recurring. Every headline item must be bought and held before it can be advertised, and the aspirational items that drive cheap-case opens are the most expensive to stock and the slowest to turn. The named risk is that to keep shelves full we quietly stock only cheap liquid items, and a case that promised a knife starts promising three grades of pistol skin, which kills the job the Opener came for. The catalogue gets smaller and honest rather than larger and unbacked.</div>
+    </div>
+  </details>
+
+  <details class="dtc">
+    <summary><span>Barrier <span class="chip chip-barrier">B7-1</span> at T7, the undervalued win, a pattern of 7</span></summary>
+    <div class="dtc-body">
+      <div class="conv conv-chosen"><span class="conv-k">Chosen: instance value receipt</span>The pain is not that a number was optimistic, it is that the number described a different object than the one received, a name instead of an instance. The two rivals both leave that substitution intact.</div>
+      <div class="conv conv-drop"><span class="conv-k">Dropped as the primary: sell price everywhere</span>It fixes the unit but not the number, although its load-bearing rule travels with the pick as a hard dependency: the receipt must be denominated in real currency, because a receipt in coins fails its own test.</div>
+      <div class="conv conv-drop"><span class="conv-k">Dropped: a published real payout per case</span>Expressing return per dollar at real prices fires before the reveal at the one moment this persona reads nothing, and it pays the highest margin exposure of the three for a gain the Opener will not register. <strong style="color:var(--accent-blue)">Restored by the step 9 critique as backlog row D4, on different grounds</strong>: not as an answer to <code>B7-1</code>, where this reasoning still holds, but as a disclosure that design principle 3 at <code>CLAUDE.md:54</code> and the acquisition decision at <code>aarrr.md:67</code> each require independently of whether the Opener reads it.</div>
+      <div class="conv conv-drop"><span class="conv-k">Rejected before scoring: a binding buyback at the displayed value</span>It adds a payout rail round 1 does not have. Round 1 has exactly one exit, withdrawal to Steam.</div>
+    </div>
+  </details>
+
+  <details class="dtc">
+    <summary><span>Barrier <span class="chip chip-barrier">B7-2</span> at T7, the published probability that did not behave</span></summary>
+    <div class="dtc-body">
+      <div class="conv conv-chosen"><span class="conv-k">Chosen: observed rate counter</span>It is the only one that speaks in the same unit as the complaint. The user is already counting, already comparing their count to a published claim, and already concluding fraud. This does not ask them to stop counting or to learn anything; it puts a much larger count from our own payment ledger next to the claim, in the place where the claim is made. It survives a persona who reads neither odds nor terms, because one line is read at a glance, and it is the only candidate that gets stronger every day it runs.</div>
+      <div class="conv conv-drop"><span class="conv-k">Dropped: a finite visible pool</span>Draws without replacement with remaining contents shown live is the strongest answer in principle and removes the need for trust entirely, but it re-prices the core product inside round 1, cannot be piloted, cannot be withdrawn once seen, and creates advantage play as a depleting pool's expected value rises.</div>
+      <div class="conv conv-drop"><span class="conv-k">Dropped: personal streak math</span>Telling the user how their own dry run compares to the published distribution is correct mathematics delivered next to a spend button to a losing user, which is loss-chasing encouragement and the single easiest artefact to hold up in a hearing.</div>
+    </div>
+  </details>
+
+  <details class="dtc">
+    <summary><span>T6 has no divergence, and that is a decision rather than an omission</span></summary>
+    <div class="dtc-body">
+      <p>With no barrier evidence and no emotional evidence, candidate generation would have produced three inventions dressed as options. What was refused here is the generation of a <em>target emotion</em> and of new mechanisms for it, not the reveal itself: backlog rows E3 and E4 belong to this phase and neither is invented. E3 carries the execution gap named at <code>jtbd.md:185</code> and the linear pattern chosen at <code>aarrr.md:292</code>, E4 carries Related Job 3. The honest move is to name it as the stage's open hole, which <code>cjm-as-is.md</code> records as U-13.</p>
+    </div>
+  </details>
+
+  <div class="rejection">
+    <span class="badge badge-primary">The most important rejection on the map</span>
+    <h3>Rejected as an answer to <code>B7-2</code>: making provable fairness automatic</h3>
+    <p>Auto-publishing the seed pair, recomputing in the browser and showing a verified badge is the obvious candidate and it fails on mechanism, not on effort.</p>
+    <p><strong style="color:var(--text-primary)">A commit-reveal scheme proves the outcome was not altered after the click. It says nothing about whether the weight table is the one we published, and the weight table is what users actually dispute.</strong> Automating a proof of the wrong proposition produces exactly the reaction already in the evidence: "they market the sentence Provably Fair which is totally fake". The verification tool stays, because it is a round 1 surface and its absence would be conspicuous, but it is not funded as the answer to this barrier.</p>
+    <div class="decision-note">
+      <strong>Confirmed by the founder, 11 August 2026, and recorded here so it stops being an inference</strong>
+      Provable fairness is built and shipped, positioned as a secondary proof. Its parent in the step 8 backlog is Related Job 3, <code>jtbd.md:51</code>, verify the outcome after I open, which scores 3 for The Researcher and 1 for The Opener. It is in MVP because it is a declared job and a locked round 1 surface, not because it converts a sceptic on the weight table. Carries into <code>docs/decisions.md</code> at step 11.
+    </div>
+    <div class="claim-update">
+      <strong>Reconciled with design principle 1, because the step 9 critique read this as a demotion</strong>
+      <code>CLAUDE.md:52</code> states that provable fairness is the brand, not a footnote, and nothing here contradicts it: the product ships three provable-fairness surfaces, a public page with a working verifier, a hash visible at the spin trigger and a post-reveal link, which is more of it and earlier than any platform in the benchmark set. What is demoted is not the feature, it is one claim about the feature, that it answers <code>B7-2</code>. Principle 1 says provable fairness is the brand; it does not say provable fairness proves the weight table, and this map says it does not. If that distinction needs to live in <code>CLAUDE.md</code> itself, step 11 owns the wording.
+    </div>
+  </div>
+</section>
+
+<!-- 3. EMOTIONAL CURVE -->
+<section id="curve">
+  <div class="section-eyebrow">03 - Emotional curve</div>
+  <h2>To-Be over As-Is, and they are not the same kind of object</h2>
+  <p class="lede">Assigned at step 10, when the curve had to be drawn and a qualitative target emotion could not be plotted. <strong style="color:var(--text-primary)">The whole of the To-Be curve is a projected target, not a measurement, and it never becomes evidence by being drawn.</strong> The As-Is curve rests on counted quotes with a ledger behind every number. This one rests on the target emotion named under each phase above. The two are plotted together for contrast.</p>
+
+  <div class="chart-wrap">
+    <div class="chart-inner">
+      <svg viewBox="0 0 800 420" role="img" aria-label="Line chart comparing the evidenced As-Is emotional curve with the projected To-Be target curve across eight journey phases, on a scale from minus five to plus five">
+        <!-- gridlines -->
+        <line class="chart-grid" x1="70" y1="24" x2="760" y2="24"></line>
+        <line class="chart-grid" x1="70" y1="58" x2="760" y2="58"></line>
+        <line class="chart-grid" x1="70" y1="92" x2="760" y2="92"></line>
+        <line class="chart-grid" x1="70" y1="126" x2="760" y2="126"></line>
+        <line class="chart-grid" x1="70" y1="160" x2="760" y2="160"></line>
+        <line class="chart-grid" x1="70" y1="228" x2="760" y2="228"></line>
+        <line class="chart-grid" x1="70" y1="262" x2="760" y2="262"></line>
+        <line class="chart-grid" x1="70" y1="296" x2="760" y2="296"></line>
+        <line class="chart-grid" x1="70" y1="330" x2="760" y2="330"></line>
+        <line class="chart-grid" x1="70" y1="364" x2="760" y2="364"></line>
+        <!-- zero line -->
+        <line class="chart-zero" x1="70" y1="194" x2="760" y2="194"></line>
+        <!-- y axis -->
+        <line class="chart-axis" x1="70" y1="24" x2="70" y2="364"></line>
+        <!-- y labels -->
+        <text class="chart-label" x="58" y="28" text-anchor="end">+5</text>
+        <text class="chart-label" x="58" y="62" text-anchor="end">+4</text>
+        <text class="chart-label" x="58" y="96" text-anchor="end">+3</text>
+        <text class="chart-label" x="58" y="130" text-anchor="end">+2</text>
+        <text class="chart-label" x="58" y="164" text-anchor="end">+1</text>
+        <text class="chart-label" x="58" y="198" text-anchor="end">0</text>
+        <text class="chart-label" x="58" y="232" text-anchor="end">-1</text>
+        <text class="chart-label" x="58" y="266" text-anchor="end">-2</text>
+        <text class="chart-label" x="58" y="300" text-anchor="end">-3</text>
+        <text class="chart-label" x="58" y="334" text-anchor="end">-4</text>
+        <text class="chart-label" x="58" y="368" text-anchor="end">-5</text>
+        <text class="chart-sub" x="20" y="194" text-anchor="middle" transform="rotate(-90 20 194)">emotion, -5 to +5</text>
+
+        <!-- x labels -->
+        <text class="chart-label" x="70" y="390" text-anchor="middle">T1 / P1</text>
+        <text class="chart-sub" x="70" y="406" text-anchor="middle">pull from outside</text>
+        <text class="chart-label" x="168.57" y="390" text-anchor="middle">T2 / P2</text>
+        <text class="chart-sub" x="168.57" y="406" text-anchor="middle">first contact</text>
+        <text class="chart-label" x="267.14" y="390" text-anchor="middle">T3 / P3</text>
+        <text class="chart-sub" x="267.14" y="406" text-anchor="middle">getting in</text>
+        <text class="chart-label" x="365.71" y="390" text-anchor="middle">T4 / P4</text>
+        <text class="chart-sub" x="365.71" y="406" text-anchor="middle">funding</text>
+        <text class="chart-label" x="464.29" y="390" text-anchor="middle">T5 / P5</text>
+        <text class="chart-sub" x="464.29" y="406" text-anchor="middle">picking a case</text>
+        <text class="chart-label" x="562.86" y="390" text-anchor="middle">T6 / P6</text>
+        <text class="chart-sub" x="562.86" y="406" text-anchor="middle">the open</text>
+        <text class="chart-label" x="661.43" y="390" text-anchor="middle">T7 / P7</text>
+        <text class="chart-sub" x="661.43" y="406" text-anchor="middle">the outcome</text>
+        <text class="chart-label" x="760" y="390" text-anchor="middle">T8 / P8</text>
+        <text class="chart-sub" x="760" y="406" text-anchor="middle">payoff or exit</text>
+
+        <!-- AS-IS: solid, broken at P3, P5, P6 -->
+        <polyline class="line-asis" points="70,58 168.57,296"></polyline>
+        <polyline class="line-asis" points="661.43,364 760,364"></polyline>
+        <circle class="dot-asis" cx="70" cy="58" r="4.5"></circle>
+        <circle class="dot-asis" cx="168.57" cy="296" r="4.5"></circle>
+        <circle class="dot-asis" cx="365.71" cy="330" r="4.5"></circle>
+        <circle class="dot-asis" cx="661.43" cy="364" r="4.5"></circle>
+        <circle class="dot-asis" cx="760" cy="364" r="4.5"></circle>
+        <!-- AS-IS breaks: no value, plotted on the zero line as hollow grey markers -->
+        <circle class="dot-break" cx="267.14" cy="194" r="5"></circle>
+        <circle class="dot-break" cx="464.29" cy="194" r="5"></circle>
+        <circle class="dot-break" cx="562.86" cy="194" r="5"></circle>
+        <text class="chart-qmark" x="267.14" y="213" text-anchor="middle">[?]</text>
+        <text class="chart-qmark" x="464.29" y="213" text-anchor="middle">[?]</text>
+        <text class="chart-qmark" x="562.86" y="213" text-anchor="middle">[?]</text>
+        <!-- AS-IS value labels -->
+        <text class="chart-val-asis" x="70" y="76" text-anchor="middle">+4</text>
+        <text class="chart-val-asis" x="168.57" y="286" text-anchor="middle">-3</text>
+        <text class="chart-val-asis" x="365.71" y="320" text-anchor="middle">-4</text>
+        <text class="chart-val-asis" x="661.43" y="354" text-anchor="middle">-5</text>
+        <text class="chart-val-asis" x="760" y="354" text-anchor="middle">-5</text>
+
+        <!-- TO-BE: dashed, all eight points -->
+        <polyline class="line-tobe" points="70,58 168.57,126 267.14,126 365.71,126 464.29,92 562.86,24 661.43,160 760,126"></polyline>
+        <circle class="dot-tobe" cx="70" cy="58" r="6.5"></circle>
+        <circle class="dot-tobe" cx="168.57" cy="126" r="4.5"></circle>
+        <circle class="dot-tobe" cx="267.14" cy="126" r="4.5"></circle>
+        <circle class="dot-tobe" cx="365.71" cy="126" r="4.5"></circle>
+        <circle class="dot-tobe" cx="464.29" cy="92" r="4.5"></circle>
+        <circle class="dot-tobe" cx="661.43" cy="160" r="4.5"></circle>
+        <circle class="dot-tobe" cx="760" cy="126" r="4.5"></circle>
+        <!-- T6, the doubly unanchored point -->
+        <circle class="ring-t6" cx="562.86" cy="24" r="11"></circle>
+        <circle class="dot-t6" cx="562.86" cy="24" r="6"></circle>
+        <text class="chart-note" x="548" y="18" text-anchor="end">T6: doubly unanchored</text>
+        <!-- TO-BE value labels -->
+        <text class="chart-val-tobe" x="70" y="44" text-anchor="middle">+4</text>
+        <text class="chart-val-tobe" x="168.57" y="114" text-anchor="middle">+2</text>
+        <text class="chart-val-tobe" x="267.14" y="114" text-anchor="middle">+2</text>
+        <text class="chart-val-tobe" x="365.71" y="114" text-anchor="middle">+2</text>
+        <text class="chart-val-tobe" x="464.29" y="80" text-anchor="middle">+3</text>
+        <text class="chart-val-tobe" x="583" y="30" text-anchor="start">+5</text>
+        <text class="chart-val-tobe" x="661.43" y="148" text-anchor="middle">+1</text>
+        <text class="chart-val-tobe" x="760" y="114" text-anchor="middle">+2</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item">
+      <svg class="legend-swatch" viewBox="0 0 34 12" aria-hidden="true"><line class="line-asis" x1="1" y1="6" x2="33" y2="6"></line><circle class="dot-asis" cx="17" cy="6" r="3.5"></circle></svg>
+      <div class="legend-text"><b>As-Is, solid: evidenced.</b> Every point is one emotion carried up from a phase section with its source attached, and every count matches <code>cjm-evidence.md</code>. This curve rests on counted quotes.</div>
+    </div>
+    <div class="legend-item">
+      <svg class="legend-swatch" viewBox="0 0 34 12" aria-hidden="true"><line class="line-tobe" x1="1" y1="6" x2="33" y2="6"></line><circle class="dot-tobe" cx="17" cy="6" r="3.5"></circle></svg>
+      <div class="legend-text"><b>To-Be, dashed: a projected target, not a measurement.</b> It rests on the target emotion named under each phase, nothing more. It does not become evidence by being drawn, and it must not be read as one.</div>
+    </div>
+    <div class="legend-item">
+      <svg class="legend-swatch" viewBox="0 0 34 12" aria-hidden="true"><circle class="dot-break" cx="17" cy="6" r="4.5"></circle></svg>
+      <div class="legend-text"><b>Hollow grey on the zero line: <span class="hyp-tag">[?]</span></b> No honest As-Is value exists at P3, P5 and P6. These are breaks in the line, never interpolated and never smoothed through. The marker sits on zero to be visible, not to claim zero.</div>
+    </div>
+    <div class="legend-item">
+      <svg class="legend-swatch" viewBox="0 0 34 12" aria-hidden="true"><circle class="ring-t6" cx="17" cy="6" r="5.2"></circle><circle class="dot-t6" cx="17" cy="6" r="3"></circle></svg>
+      <div class="legend-text"><b>T6, distinct marker.</b> Doubly unanchored: no As-Is value and no derivation. The one phase whose target is a design intention rather than an inference. Stage 06 produces it and tests it, and if the test fails this number is the first to go.</div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Phase</th><th>As-Is</th><th>To-Be target</th><th>Basis, and what it is worth</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>T1</strong> pull from outside</td><td>+4</td><td>+4</td><td>Not moved on purpose. The only As-Is phase with an evidenced positive emotion, and the work is to not lose it</td></tr>
+        <tr><td><strong>T2</strong> first contact</td><td>-3</td><td>+2</td><td>Disarmed. A1, A2 and A4 answer the suspicion with the thing the suspicion is about</td></tr>
+        <tr><td><strong>T3</strong> getting in</td><td><span class="hyp-tag">[?]</span></td><td>+2</td><td>Settled. <strong style="color:var(--text-primary)">No As-Is baseline</strong>, so no movement can be claimed, only a target stated</td></tr>
+        <tr><td><strong>T4</strong> getting something to open with</td><td>-4</td><td>+2</td><td>In control of a decision already made</td></tr>
+        <tr><td><strong>T5</strong> picking a case</td><td><span class="hyp-tag">[?]</span></td><td>+3</td><td>Informed appetite. <strong style="color:var(--text-primary)">No As-Is baseline</strong></td></tr>
+        <tr><td><strong>T6</strong> the open</td><td><span class="hyp-tag">[?]</span></td><td>+5</td><td><strong style="color:var(--accent-yellow)">Doubly unanchored: no As-Is value and no derivation.</strong> The one phase whose target is a design intention rather than an inference. Stage 06 produces it and tests it, and if the test fails this number is the first to go</td></tr>
+        <tr><td><strong>T7</strong> the outcome</td><td>-5</td><td>+1</td><td>A result that is understood, good or bad. Deliberately not a peak, because understanding a bad outcome is not joy and drawing it as joy would be the same dishonesty the map is built against</td></tr>
+        <tr><td><strong>T8</strong> payoff or exit</td><td>-5</td><td>+2</td><td>Waiting without suspicion</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="claim-update" style="margin-top:20px">
+    <strong>Three phases have no As-Is value, so no movement can be claimed there</strong>
+    T3, T5 and T6 are breaks. Movement can only be claimed where the As-Is has a value, which is five phases of eight. What is drawn at those three points is a target and nothing else.
+  </div>
+  <div class="decision-note">
+    <strong>The largest claimed movement is at T8, plus 7</strong>
+    T8 is also where the As-Is evidence is densest, a pattern of 12 across all seven platforms. That alignment is the point: the biggest promise sits on the biggest pile of evidence.
+  </div>
+  <div class="conv conv-cost" style="margin-top:12px">
+    <span class="conv-k">And the largest unclaimed movement is at T6</span>
+    The product's core moment has neither a starting value nor a derived target, and no amount of drawing fixes that.
+  </div>
+</section>
+
+<!-- 4. BACKLOG AND MVP -->
+<section id="backlog">
+  <div class="section-eyebrow">04 - Backlog and MVP</div>
+  <h2>One list, grouped by the round 1 screen each row lives on</h2>
+  <p class="lede">Produced by step 8. This is one list. It refines the MVP core already sketched at stages 01 and 02 rather than forking a second one, and where it disagrees with an older list the disagreement is printed rather than quietly resolved.</p>
+  <p><strong style="color:var(--text-primary)">Thirty seven MVP rows, thirty six distinct capabilities</strong>: A4 and G3 are one feature on two surfaces. Seven of the rows are rules or architecture rather than something anyone draws.</p>
+  <p><strong style="color:var(--text-primary)">Grouping.</strong> Rows are grouped by the round 1 screen they live on, because that grouping is itself the artefact that was missing. <code>cjm-as-is.md</code> recorded that no file in this repository maps the three MVP core jobs onto any scope item. This section is that map.</p>
+  <div class="claim-update">
+    <strong>Eight groups cover seven round 1 items, and the mapping is not one to one</strong>
+    The step 9 critique caught this being stated as if it were. Group 2 covers two round 1 items at once, registration and account together with the age gate and geo block layer. Groups 4, 5 and 6 are three phases of the single case opening screen. Group 8 holds the provably fair page and one item that is not a screen at all, I1 the starter credit, which is a component of the first open and is named as such rather than counted as a surface.
+  </div>
+
+  <!-- GROUP 1 -->
+  <div class="group-head"><span class="group-num">Group 1</span><span class="group-title">Home, before login</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Parent</th><th>Priority</th><th>Success signal</th></tr></thead>
+      <tbody>
+        <tr class="mvp">
+          <td><strong>A1. Two prices, one item</strong>: live market price with timestamp beside the exact chance at this entry cost, an outbound market link on the top item, and the cheaper-on-average statement in our own voice</td>
+          <td class="parent"><span class="chip chip-barrier">B1-2</span> pattern of 14, and <span class="chip chip-barrier">B2-1</span> the pre-login information wall</td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Acquisition OMTM, <code>aarrr.md:63</code>. Outbound market clicks are tracked as an accepted cost, never as a failure metric</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>A2. Live free-unit count per item</strong></td>
+          <td class="parent"><span class="chip chip-barrier">B8-1</span></td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>The number on the page matches the free-unit count in the ledger at read time. The guarantee that the out-of-stock state cannot occur after a win belongs to D1, not to a display, and the step 9 critique was right that this cell had borrowed it</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>A3. Live drop feed</strong> with no invented names, and any bot present in it labelled as one, carried from <code>aarrr.md:157</code></td>
+          <td class="parent"><span class="chip chip-job">Social Job 2</span> <code>jtbd.md:120</code></td>
+          <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual">job only, no barrier</span></div></td>
+          <td><span class="hyp-tag">[?]</span> No isolated signal exists. Measurable only inside the hero A/B, where it sits in every arm and therefore cannot be isolated by that instrument either</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>A4. Rolling median and p90 withdrawal time</strong> from our own logs, visible before login</td>
+          <td class="parent"><span class="chip chip-barrier">B8-2</span> pattern of 6, <span class="chip chip-job">Related Job 1</span></td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Our own p90 sits at or below the category median. Same feature as G3, two surfaces</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>A5. Institutional trust unit in the hero</strong>: named auditor plus Trustpilot score</td>
+          <td class="parent"><span class="chip chip-barrier">B1-1</span> the category arrives pre-suspected, <span class="chip chip-job">Related Job 1</span> <code>jtbd.md:33</code>, Decision 1 at <code>jtbd.md:236</code></td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>This row is the subject of the smallest test, <code>lean-ux-canvas.md:79</code> to <code>:84</code>, where the badge variant is described at <code>:81</code>. Measure click-through into the deposit flow, not page engagement. The test needs restating before it is run, see the reconciliation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GROUP 2 -->
+  <div class="group-head"><span class="group-num">Group 2</span><span class="group-title">Registration, account, age, geography</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Parent</th><th>Priority</th><th>Success signal</th></tr></thead>
+      <tbody>
+        <tr class="mvp">
+          <td><strong>B1. Verification resolved before funding</strong>, with account state shown on the deposit screen</td>
+          <td class="parent"><span class="chip chip-barrier">B8-4</span> pattern of 5</td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Zero cases where a check first meets the user on the withdrawal route</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>B2. No verification branch on the withdrawal route at all</strong></td>
+          <td class="parent"><span class="chip chip-barrier">B8-4</span></td>
+          <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual qual-arch">code rule</span></div></td>
+          <td>Proven by code review, not by a metric: the withdrawal route contains no verification call</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>B3. Age gate before any case interaction.</strong> Method open, see <code>D-A</code></td>
+          <td class="parent">Compliance constraint, <code>CLAUDE.md:58</code>, "age verification before any case interaction", plus <span class="chip chip-barrier">B8-4</span></td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Compliance, not conversion. The conversion cost of the gate is measured separately, target <span class="hyp-tag">[?]</span></td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>B4. Geo block with a cited legal ground per blocked market</strong>, and the staged regional rollout that same ground implies</td>
+          <td class="parent">Compliance constraint, <code>CLAUDE.md:58</code>, "geo blocking informed by cited legal research" and "staged regional rollout resting on cited law", sourced at <code>research.md</code> section 7</td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Every blocked market carries a row with a citation, and no market opens without one. Inherited starting list, carried <span class="hyp-tag">[?]</span> until re-verified against current law: Belgium, Netherlands, Germany, UK, Washington, Nevada, <code>lean-ux-canvas.md:55</code></td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>B5. Readable Steam login failure states</strong></td>
+          <td class="parent"><span class="chip chip-barrier">B3-1</span> <strong style="color:var(--text-primary)">one signal</strong></td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>One voice, and it is marked as one voice. A component state rather than a feature</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>B6. Onboarding asks for nothing unusual</strong>: no password anywhere outside Steam OpenID, no profile changes</td>
+          <td class="parent"><span class="chip chip-barrier">B3-2</span> <strong style="color:var(--text-primary)">one signal</strong></td>
+          <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual qual-arch">rule</span></div></td>
+          <td>Caught at review</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>B7. Account and inventory</strong>: what the user holds, each item carrying its F1 receipt, plus the account state, verified and withdrawals open</td>
+          <td class="parent"><span class="chip chip-barrier">B7-1</span>, <span class="chip chip-job">Related Job 5</span> <code>jtbd.md:69</code></td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>F2 has nowhere to persist without this row, and <code>CLAUDE.md:38</code> lists account as a round 1 item</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GROUP 3 -->
+  <div class="group-head"><span class="group-num">Group 3</span><span class="group-title">Deposit</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Parent</th><th>Priority</th><th>Success signal</th></tr></thead>
+      <tbody>
+        <tr class="mvp">
+          <td><strong>C1. One real currency throughout</strong>, no internal coin denomination anywhere</td>
+          <td class="parent"><span class="chip chip-barrier">B7-1</span> pattern of 7</td>
+          <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual qual-arch">architecture</span></div></td>
+          <td>No number renders anywhere without a currency mark. <code>B4-3</code> was named here in the first draft and both instruments removed it: that barrier is a deposit that never credits, and C3 answers it</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>C2. Spend ceiling chosen at deposit</strong></td>
+          <td class="parent"><span class="chip chip-barrier">B7-4</span> pattern of 12</td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Share of deposits where the pre-filled ceiling is accepted unchanged, and share of sessions stopped by the ceiling. Targets <span class="hyp-tag">[?]</span></td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>C3. Deposit crediting shown as a state with a timer</strong></td>
+          <td class="parent"><span class="chip chip-barrier">B4-3</span> pattern of 4</td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Tickets of the class "money left and never arrived" reach zero</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>C4. The amount required to withdraw is stated before the deposit and can never rise</strong></td>
+          <td class="parent"><span class="chip chip-barrier">B4-1</span></td>
+          <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual qual-arch">rule</span></div></td>
+          <td>No withdrawal ever demands a sum that was not named before the money went in</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>C5. Session limit, self exclusion, cool down</strong></td>
+          <td class="parent"><span class="chip chip-barrier">B7-4</span>, compliance constraint <code>CLAUDE.md:58</code>, "responsible play tooling"</td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Their surface is the responsible play page named at <code>lean-ux-canvas.md:54</code>, which the round 1 screen list dropped with no verdict recorded anywhere. Restoring that page is a scope question for step 11</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GROUP 4 -->
+  <div class="group-head"><span class="group-num">Group 4</span><span class="group-title">Choosing a case</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Parent</th><th>Priority</th><th>Success signal</th></tr></thead>
+      <tbody>
+        <tr class="mvp">
+          <td><strong>D1. Stock-backed drop tables</strong></td>
+          <td class="parent"><span class="chip chip-barrier">B8-1</span> pattern of 2</td>
+          <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual qual-arch">architecture</span><span class="qual">scale conditional on D-D</span></div></td>
+          <td>The roll cannot select an item with zero free units. Structural. How large a backed catalogue can be is a treasury question, and the step 9 critique was right that D3 carried its open decision in the priority cell while D1 did not</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>D2. Published chance and current value per item on the case page</strong></td>
+          <td class="parent"><span class="chip chip-barrier">B7-2</span>, <span class="chip chip-job">Related Job 1</span></td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Measured inside the case-page A/B</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>D3. Observed rate counter beside every published tier percentage</strong></td>
+          <td class="parent"><span class="chip chip-barrier">B7-2</span> pattern of 11, and <span class="chip chip-barrier">B6-2</span> the belief that the reveal turns against you once you win, pattern of 9</td>
+          <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual">conditional on D-B</span><span class="qual">and on D-C in common with every row on this map</span></div></td>
+          <td>See answer 2 below. At launch this row is infrastructure and it does not close <code>B7-2</code> until N is large enough to say so</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>D4. Published tested RTP for the case</strong>, and the expected value at this entry cost, on the case page and before login</td>
+          <td class="parent">Design principle 3, <code>CLAUDE.md:54</code>, "odds, cost and expected value are visible and legible", plus <span class="chip chip-barrier">B1-2</span></td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td><code>aarrr.md:67</code> requires RTP published from day one and <code>aarrr.md:205</code> makes matching or beating the tested figures in the category, Hellcase 82.1 percent and DatDrop 80.6 percent, both a trust position and a regulatory hedge. <code>jtbd.md:180</code> names published RTP as one of three things no competitor surfaces pre-login</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GROUP 5 -->
+  <div class="group-head"><span class="group-num">Group 5</span><span class="group-title">The open</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Parent</th><th>Priority</th><th>Success signal</th></tr></thead>
+      <tbody>
+        <tr class="mvp">
+          <td><strong>E1. The reveal renders the settled roll</strong>, with no separate client-side outcome</td>
+          <td class="parent"><span class="chip chip-barrier">B6-1</span> one signal, fatal class</td>
+          <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual qual-arch">architecture</span></div></td>
+          <td>Divergence between animation and credit is impossible by construction</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>E2. No near-miss theatre</strong></td>
+          <td class="parent"><span class="chip chip-job">Emotional Job 1</span> <code>jtbd.md:84</code></td>
+          <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual qual-arch">rule</span></div></td>
+          <td>Rule</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>E3. Rarity-differentiated reveal on the linear pattern</strong>, Pattern A, chosen at <code>aarrr.md:292</code> and in <code>ux-patterns.md</code></td>
+          <td class="parent"><span class="chip chip-job">Main Job</span> <code>jtbd.md:17</code>, <span class="chip chip-job">Emotional Job 2</span>, execution gap at <code>jtbd.md:185</code></td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Activation OMTM, first open completion rate, <span class="hyp-tag">[?]</span> 40 to 60 percent per <code>aarrr.md:115</code></td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>E4. Round hash visible at the spin trigger</strong></td>
+          <td class="parent"><span class="chip chip-job">Related Job 3</span> <code>jtbd.md:51</code></td>
+          <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual qual-scope">by locked round 1 scope and founder decision, not by persona score</span></div></td>
+          <td><strong style="color:var(--text-primary)">Secondary proof.</strong> Presence, not conversion</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GROUP 6 -->
+  <div class="group-head"><span class="group-num">Group 6</span><span class="group-title">The outcome</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Parent</th><th>Priority</th><th>Success signal</th></tr></thead>
+      <tbody>
+        <tr class="mvp">
+          <td><strong>F1. Instance value receipt</strong></td>
+          <td class="parent"><span class="chip chip-barrier">B7-1</span> pattern of 7, also closes <span class="chip chip-barrier">B7-3</span></td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Complaints of the class "it turned out to be worth less" reach zero, and the displayed price matches the market inside the float band</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>F2. The receipt stays on the item</strong> in inventory and on the withdrawal record</td>
+          <td class="parent"><span class="chip chip-barrier">B7-1</span></td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>The same receipt is retrievable a week later</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>F3. Post-reveal verification link</strong></td>
+          <td class="parent"><span class="chip chip-job">Related Job 3</span> <code>jtbd.md:51</code></td>
+          <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual qual-scope">by locked round 1 scope and founder decision, not by persona score</span></div></td>
+          <td>Secondary proof</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>F4. One-tap share of a result</strong></td>
+          <td class="parent"><span class="chip chip-job">Emotional Job 2</span> <code>jtbd.md:93</code></td>
+          <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual">the one exception to the priority test</span></div></td>
+          <td>Referral OMTM, <code>aarrr.md:268</code>. The path does not break without it, the loop does</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GROUP 7 -->
+  <div class="group-head"><span class="group-num">Group 7</span><span class="group-title">Withdrawal</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Parent</th><th>Priority</th><th>Success signal</th></tr></thead>
+      <tbody>
+        <tr class="mvp">
+          <td><strong>G1. Public withdrawal clock</strong>: named states, per-state timer, attribution to us, Steam or the user</td>
+          <td class="parent"><span class="chip chip-barrier">B8-2</span> pattern of 6</td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Share of withdrawals that generate a support ticket asking for status</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>G2. Published ceiling on our own states</strong>, plus a live degraded banner driven by a Steam API health probe</td>
+          <td class="parent"><span class="chip chip-barrier">B8-2</span></td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Our own states stay inside the published ceiling at p90</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>G3. Rolling median and p90 published from our own logs</strong></td>
+          <td class="parent"><span class="chip chip-barrier">B8-2</span>, <span class="chip chip-job">Related Job 1</span></td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Same feature as A4, two surfaces</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>G4. A restriction produces written notice</strong> with a stated ground, a frozen rather than zeroed balance, and an appeal with a published response deadline</td>
+          <td class="parent"><span class="chip chip-barrier">B8-3</span> pattern of 3</td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Every restriction carries a ground in text, and response time stays inside the published deadline</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>G5. Named limits stated in plain words</strong>: blocked countries, Steam trade holds, Steam-side bans</td>
+          <td class="parent"><span class="chip chip-barrier">B8-3</span>, <span class="chip chip-barrier">B8-2</span></td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>The user meets the limit before the first withdrawal rather than inside it</td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>G6. Commission-free withdrawal to Steam</strong></td>
+          <td class="parent"><span class="chip chip-job">Related Job 5</span> <code>jtbd.md:69</code></td>
+          <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual">job only, no barrier</span></div></td>
+          <td>This is the value exchange against Steam Market's 15 percent, <code>jtbd.md:72</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- GROUP 8 -->
+  <div class="group-head"><span class="group-num">Group 8</span><span class="group-title">Provably fair and the starter offer</span></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Parent</th><th>Priority</th><th>Success signal</th></tr></thead>
+      <tbody>
+        <tr class="mvp">
+          <td><strong>H1. Public provably fair page</strong>, no login, working verifier</td>
+          <td class="parent"><span class="chip chip-job">Related Job 3</span> <code>jtbd.md:51</code> after the open, and <span class="chip chip-job">Core Job 1</span> <code>jtbd.md:180</code> before login, where a public provably fair surface is one of the three things no competitor offers</td>
+          <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual qual-scope">by locked round 1 scope and founder decision, not by persona score</span></div></td>
+          <td>Opens with no login and the verifier recomputes real seeds. <strong style="color:var(--text-primary)">Secondary proof: neither parent is <code>B7-2</code></strong></td>
+        </tr>
+        <tr class="mvp">
+          <td><strong>I1. Bounded no-deposit starter credit</strong></td>
+          <td class="parent"><span class="chip chip-job">Related Job 2</span> <code>jtbd.md:42</code>, <code>aarrr.md:119</code></td>
+          <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual">with two constraints that are not optional, see answer 1</span></div></td>
+          <td>Activation OMTM, <code>aarrr.md:115</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- ORPHANS -->
+  <h3 class="subhead">Orphans, cut</h3>
+  <p>Every capability proposed during divergence that closes no As-Is barrier and serves no job in <code>jtbd.md</code> is listed here rather than parked in a LATER column. <code>LATER</code> is a priority for a feature that has a parent, not a shelter for one that does not. Three items sit under the named locked-scope exception, and both instruments of the step 9 critique flagged all three.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Proposed</th><th>Why it is an orphan</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>Free demo reveal on identical odds and seeds</td><td>Closes no recorded barrier. Its stated purpose is proving we are not hiding the odds, which <code>B7-2</code> already closes with evidence rather than with a simulation</td><td>Cut</td></tr>
+        <tr><td>Permanently visible net position</td><td>Addresses an information gap the evidence does not show. Users in the corpus recite their totals to the dollar</td><td>Cut</td></tr>
+        <tr><td>Personal streak math</td><td>Same, plus it creates a compliance liability the barrier does not require</td><td>Cut</td></tr>
+        <tr><td>Binding buyback at displayed value</td><td>Needs a payout rail that round 1 does not have</td><td>Cut, revisit only if a second exit is ever in scope</td></tr>
+        <tr><td>Chase interrupt on detected tilt</td><td>Has a parent, <span class="chip chip-barrier">B7-4</span>, but loses to the chosen capability on the same barrier</td><td><strong style="color:var(--text-primary)">Not an orphan.</strong> Dropped in convergence</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:14px">Four of the five rows above are orphans. The fifth is a convergence loser kept in the same table so that a rejected candidate with a real parent is not later mistaken for one without.</p>
+
+  <!-- LATER -->
+  <h3 class="subhead">LATER, and every parent named</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Parent</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td>Case battles</td><td class="parent"><span class="chip chip-job">Social Job 1</span> <code>jtbd.md:111</code></td><td>Sound parent</td></tr>
+        <tr><td>Upgrades</td><td class="parent"><span class="chip chip-job">Related Job 4</span> <code>jtbd.md:60</code></td><td>Sound parent</td></tr>
+        <tr><td>Rakeback</td><td class="parent"><span class="chip chip-job">Emotional Job 3</span> <code>jtbd.md:102</code></td><td>Sound parent</td></tr>
+        <tr><td>In-platform exchange</td><td class="parent"><span class="chip chip-job">Hypothesis Job A</span> <code>jtbd.md:133</code></td><td>Parent is a hypothesis marked <span class="hyp-tag">[?]</span></td></tr>
+        <tr><td>Leaderboards</td><td class="parent"><span class="chip chip-job">Hypothesis Job C</span> <code>jtbd.md:145</code></td><td>Parent is a hypothesis marked <span class="hyp-tag">[?]</span></td></tr>
+        <tr><td>Daily free case</td><td class="parent">Founder Decision 3 at <code>jtbd.md:198</code>, plus the retention decision at <code>aarrr.md:172</code></td><td><strong style="color:var(--accent-pink)">Placed here provisionally and it needs the founder.</strong> <code>jtbd.md:198</code> puts it inside the MVP free-to-play offer by an explicit founder decision, which is a stronger claim than a superseded canvas cell, and the round 1 screen list neither contains it nor rules it out</td></tr>
+        <tr><td>Referral programme</td><td class="parent"><span class="chip chip-not">None</span> in <code>jtbd.md</code>. A business line only, <code>aarrr.md:272</code></td><td><strong style="color:var(--text-primary)">No user job stands behind it.</strong> It is locked into LATER by scope, so this step cannot cut it. It has to acquire a parent before its own round opens</td></tr>
+        <tr><td>Giveaways</td><td class="parent"><span class="chip chip-not">None</span></td><td>Same</td></tr>
+        <tr><td>Gunfights</td><td class="parent"><span class="chip chip-not">None</span></td><td>Same</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="claim-update">
+    <strong>A distinction that is easy to lose and matters</strong>
+    One-tap sharing of a result is not the referral programme. Sharing is F4, it has a parent, and it is MVP. The referral and affiliate programme is a business mechanism with no job behind it and it is LATER.
+  </div>
+
+  <!-- CUT -->
+  <h3 class="subhead">Cut at this step</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Cut</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>First-deposit bonus carrying a wagering requirement</td><td>See answer 3. A wagering requirement is <code>B4-1</code> in better clothes and it contradicts C4 directly</td></tr>
+        <tr><td>Per-mode provably fair documentation</td><td>Round 1 ships one mode. The requirement degenerates, and it returns when a second mode does</td></tr>
+        <tr><td>Any first-deposit bonus in round 1, including the zero-wagering variant</td><td>The wagering variant is cut for the reason in answer 3. The zero-wagering variant at <code>aarrr.md:91</code> and <code>lean-ux-canvas.md:64</code> is not shipped either, because <code>aarrr.md:224</code> requires case mathematics to be modelled before any bonus is designed and that model does not exist. It returns when the model does, and until then it has a verdict rather than a silence</td></tr>
+        <tr><td>The finite visible pool, draws without replacement with remaining contents shown live</td><td>Rejected in the T7 convergence, and named at answer 2 as the fallback if <code>D-B</code> fails. Recorded here so that a capability the document says can return has a row to return to</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:14px">Rain-style ambient mechanics, community case creation and a fiat or crypto withdrawal path were already deferred at <code>jtbd.md:198</code> to <code>:200</code> and are not re-litigated here. The four capabilities cut during step 7 divergence stay in "Orphans, cut" above.</p>
+
+  <div class="sep"></div>
+
+  <!-- RECONCILIATION -->
+  <h3 class="subhead">Reconciliation with the existing MVP core</h3>
+  <p>Three lists carried the name of the MVP core and did not agree. <code>cjm-as-is.md</code> recorded the divergence and handed it to this step.</p>
+  <div class="decision-note">
+    <strong>Confirmed by the To-Be map</strong>
+    The pre-login trust surface on home, case opening, the provably fair page, the age gate and geo block, withdrawal to Steam, responsible play.
+  </div>
+
+  <h4 style="margin-top:26px">Sharpened</h4>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Old wording</th><th>What it became</th></tr></thead>
+      <tbody>
+        <tr><td>"trust signals visible pre-login", <code>lean-ux-canvas.md:48</code></td><td>A1 two prices, A2 free-unit count, A4 published p90</td></tr>
+        <tr><td>"rarity-differentiated animation", <code>lean-ux-canvas.md:49</code></td><td>E1 reveal bound to the settled roll, E2 no near-miss, E3 rarity differentiation on the linear pattern. The execution gap named at <code>jtbd.md:185</code> becomes three rows, one of them architectural</td></tr>
+        <tr><td>"identity-based age gate", <code>lean-ux-canvas.md:54</code></td><td>B1 to B3. The sequence is locked, the method is open as <code>D-A</code></td></tr>
+        <tr><td>"deposit limits", <code>lean-ux-canvas.md:54</code></td><td>C2 ceiling chosen at deposit, C5 the rest of the responsible play set</td></tr>
+        <tr><td>"live drops" in the same pre-login clause, <code>lean-ux-canvas.md:48</code></td><td>A3, which also carries the bot-labelling constraint from <code>aarrr.md:157</code>. The two were never stated as the same row until the step 9 critique asked</td></tr>
+        <tr><td>"Responsible play page", <code>lean-ux-canvas.md:54</code></td><td>C2 and C5. The page itself was dropped from the round 1 screen list with no verdict; see below</td></tr>
+        <tr><td>3 core jobs, <code>jtbd.md:173</code></td><td>Mapped onto scope for the first time, table below</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4 style="margin-top:30px">Disagreements, printed rather than resolved quietly</h4>
+  <ul class="plain">
+    <li>Case battles at <code>lean-ux-canvas.md:50</code>, upgrades at <code>:51</code> and in-platform exchange at <code>:52</code> are MVP in that cell and LATER in <code>CLAUDE.md</code>. The canvas marks itself superseded in part at <code>:57</code>. <code>CLAUDE.md</code> wins.</li>
+    <li>Daily bonus and referral programme are MVP product decisions at <code>aarrr.md:172</code> and <code>:272</code>, LATER in <code>CLAUDE.md</code>. <code>CLAUDE.md</code> wins.</li>
+    <li>Case battles sat in four states at once across four files. After this step they sit in one: LATER, parent Social Job 1.</li>
+    <li><strong style="color:var(--text-primary)">The daily free case is the one disagreement where <code>CLAUDE.md</code> does not obviously win, and it is the only one left open.</strong> <code>aarrr.md:172</code> is an analyst decision and loses to scope as the others do, but <code>jtbd.md:198</code> is founder Decision 3 and says "MVP free-to-play offer is starter credit + daily free case". A founder decision is not a superseded canvas cell. The row sits in LATER provisionally and the founder settles it.</li>
+    <li><code>jtbd.md:175</code> states the criterion "score 3 for the primary persona" and <code>jtbd.md:189</code> records the third core job at 2 for The Opener. The third core job fails the criterion its own block states. That is a defect of the core rather than of this backlog, and it belongs to step 11.</li>
+  </ul>
+
+  <h4 style="margin-top:30px">The gap this step closes: core jobs reach the scope</h4>
+  <p>A table now exists in which a capability is a row and MVP against LATER is a column, and the three core jobs reach the scope.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>MVP core job</th><th>Screens and rows that close it</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Core Job 1</strong>, arrive with confidence, <code>jtbd.md:177</code></td><td>Home, A1 to A5, plus D4 in its pre-login form. Provably fair, H1, which serves this job before login and Related Job 3 after the open</td></tr>
+        <tr><td><strong>Core Job 2</strong>, reveal quality, <code>jtbd.md:182</code></td><td>The open, E1 to E4, and nothing else. <code>jtbd.md:185</code> limits this gap to animation quality, so D1 to D4 are deliberately not counted here: they serve the main job, <code>B7-2</code> and <code>B8-1</code>, which is a different claim. Codex caught this being overstated</td></tr>
+        <tr><td><strong>Core Job 3</strong>, withdraw cleanly, <code>jtbd.md:187</code></td><td>Withdrawal, G1 to G6. Entry sequencing, B1 and B2</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:14px">Deposit closes none of the three core jobs, and registration reaches Core Job 3 only through B1 and B2, which the table above already credits. The first draft said both close none of them two lines after crediting B1 and B2, and the critique caught the contradiction. Both surfaces are justified by barriers, <code>B3-1</code>, <code>B3-2</code>, <code>B4-1</code>, <code>B4-3</code>, <code>B7-1</code>, <code>B7-4</code>, <code>B8-4</code>, and by the compliance constraints at <code>CLAUDE.md:58</code>, not by core jobs. The screen list is legitimately wider than the job list, and that is the reason.</p>
+
+  <div class="conv conv-cost" style="margin-top:20px">
+    <span class="conv-k">The gap this step does not open, it inherits: responsible play</span>
+    <code>cjm-as-is.md:125</code> had already recorded that a responsible play page exists in the canvas and in neither scope list, so presenting this as a fresh finding dressed an inherited one as new, and the critique said so. What this step adds is sharper and worse: <code>lean-ux-canvas.md:54</code> names an actual page, and the round 1 screen list dropped that page with no verdict recorded anywhere in the repository. C5 now points at it as its home. Whether the page re-enters round 1 is a scope question for step 11, not a design one.
+  </div>
+  <div class="conv conv-hard" style="margin-top:12px">
+    <span class="conv-k">A side effect worth naming before stage 03: the hero</span>
+    The hero now has three candidate occupants: the reveal animation, the institutional trust unit A5, and two prices A1, with the live drop feed A3 present in every arm and therefore invisible to that instrument. The smallest test at <code>lean-ux-canvas.md:79</code> to <code>:84</code> is written for two variants and measures one difference. It needs restating before it is run, and A5's success cell now says so.
+  </div>
+
+  <div class="sep"></div>
+
+  <!-- THREE DANGEROUS QUESTIONS -->
+  <h3 class="subhead">The three dangerous questions, answered</h3>
+
+  <div class="qa">
+    <div class="qa-q">1. The starter credit is the mechanism that produced the worst single narrative in the corpus.</div>
+    <div class="qa-a">Answer: it ships, bound to two rows that are not optional</div>
+    <p><code>B4-1</code> is a user whose withdrawal threshold rose from 5 to 12 to 15 dollars after a free open. <code>B4-2</code> is a pattern of 2 in which an implausibly generous starter gift is read as proof of a scam. The first failure mode is closed outright: C4 forbids a withdrawal threshold that rises, which is the whole of <code>B4-1</code>.</p>
+    <p><strong style="color:var(--text-primary)">The second guard is weaker than this document first claimed, and Codex was right to catch it.</strong> The original wording said stock-backing makes a 4 dollar case physically incapable of producing 1,200 dollars of gloves. It does not. D1 constrains what we must own, not what a case may contain, so an implausible starter payout is made expensive rather than impossible: every glove such a case could award is already bought and held before anyone opens anything, and A1 prints its market price beside the chance so the offer reads as an offer rather than as magic. That is an economic disincentive plus a legibility guarantee, not a physical impossibility, and the credit ships bound to C4, D1 and A1 on that weaker basis.</p>
+    <div class="qa-risk"><strong style="color:var(--accent-yellow);display:block;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">Residual risk, stated rather than smoothed</strong>The credit still teaches a first-session user that opening is free, which is the one impression the rest of this map spends its whole budget contradicting.</div>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">2. The observed rate counter depends on a migration that is not ours to promise.</div>
+    <div class="qa-a">Answer: demote the claim, keep the row</div>
+    <p>D3 stays in MVP as infrastructure, because a counter that starts at launch is worth building on day one and worthless to retrofit. What is withdrawn is the claim that it closes <code>B7-2</code> at launch. At small N the counter is honest and weak, and since it prints its own N it says so itself.</p>
+    <p>Until <code>D-B</code> is resolved, <code>B7-2</code>, a pattern of 11 people across 6 sources rather than 11 sources, is answered at launch by D2 and D4 and by nothing else. That is a materially weaker answer and it is recorded as one rather than assumed away. If <code>D-B</code> comes back negative, the candidate rejected at step 7, the finite visible pool, returns to the table by default rather than by preference.</p>
+  </div>
+
+  <div class="qa">
+    <div class="qa-q">3. A first-deposit bonus with a wagering requirement is <code>B4-1</code> wearing better clothes.</div>
+    <div class="qa-a">Answer: cut</div>
+    <p><code>aarrr.md:196</code> describes the wagering requirement as margin protection, which is accurate from the operator's side. From the user's side it is money described as theirs that cannot be taken until they spend more, which is the exact shape of <code>B4-1</code> and the exact thing C4 forbids. The two cannot both ship. Either the bonus carries zero wagering or there is no bonus in round 1. The revenue consequence is real and it belongs to whoever owns case mathematics, per <code>aarrr.md:224</code>.</p>
+  </div>
+
+  <!-- OPEN DECISIONS -->
+  <h3 class="subhead">Open decisions this map cannot close</h3>
+  <p>Four, named rather than answered, because answering them from inside a model would produce a median where a source is required.</p>
+
+  <div class="dec">
+    <div class="dec-code">D-A</div>
+    <h3>The age and identity method</h3>
+    <p>The sequencing rule is locked: verification resolved before funding, no verification branch on the withdrawal route. The method is open between facial age estimation, full document KYC before deposit, and payment-instrument attestation. Each carries legal exposure this project has not researched with citations, and one of them touches biometric data law directly. Needs cited legal research and counsel, per the compliance rule already in <code>CLAUDE.md</code>. Owner: stage 03a input gate at the latest.</p>
+  </div>
+  <div class="dec">
+    <div class="dec-code">D-B</div>
+    <h3>The observed rate counter is worth nothing at N = 0</h3>
+    <p>It assumes six years of roll history from the live platform migrates into the new ledger and can be published. If that history cannot come across, or cannot be published for a legal reason, the capability is disqualified by its own evidence rule until volume accrues, and the finite visible pool becomes the fallback by default rather than by preference. Confirm the ledger migration before this reaches information architecture.</p>
+  </div>
+  <div class="dec">
+    <div class="dec-code">D-C</div>
+    <h3>The internal check that must run before any of this is drawn</h3>
+    <p>Every capability above is a commitment device that only works for an operator whose published weights are already true. The observed-against-published check ships to the public and is never taken down. It has to be run internally on the live platform's data first, and if it does not hold, that is a business decision that precedes the design one.</p>
+  </div>
+  <div class="dec">
+    <div class="dec-code">D-D</div>
+    <h3>Inventory capital for stock-backed tables</h3>
+    <p>The catalogue becomes smaller and backed rather than larger and unbacked. How much smaller is a treasury question, not a design one, and it sets the ceiling on what the case grid at T5 can contain.</p>
+  </div>
+</section>
+
+<!-- 5. CRITIQUE -->
+<section id="critique">
+  <div class="section-eyebrow">05 - Critique</div>
+  <h2>Two instruments, taken blind, merged afterwards</h2>
+  <p class="lede">Step 9, on two instruments, as the rule in <code>CLAUDE.md</code> requires. Codex ran read only through the <code>codex</code> plugin against this local working folder and returned findings rather than edits. Three Claude passes ran in parallel and blind to it, each on a different lens: parent and citation verification, fork against refinement with an item-by-item tick-off of the three old core lists, and the path-break test with internal coherence. <strong style="color:var(--text-primary)">Fifty one raw findings, thirty seven after dedup on complete sets.</strong> Every confirmed row was re-read in place before it was edited.</p>
+
+  <h3 class="subhead">Divergences between the instruments, shown first, because a merged table hides them</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>What</th><th>Claude</th><th>Codex</th></tr></thead>
+      <tbody>
+        <tr><td>T4 declares it closes <code>B4-3</code> and no capability there does</td><td class="found-claude">found</td><td>not found</td></tr>
+        <tr><td><code>B1-1</code>, <code>B2-1</code> and <code>B6-2</code> declared closed on the T path with no backlog row naming them</td><td class="found-claude">found</td><td>not found</td></tr>
+        <tr><td>B4 is the only MVP row whose parent is neither a barrier nor a job</td><td class="found-claude">found</td><td>not found</td></tr>
+        <tr><td>The daily bonus was moved without a parent being named</td><td>not found</td><td class="found-codex">found</td></tr>
+        <tr><td>Core Job 2 mapped onto D1 to D3 although <code>jtbd.md:185</code> limits that gap to animation quality</td><td>not found</td><td class="found-codex">found</td></tr>
+        <tr><td>The claim that D1 makes a cheap case incapable of producing an expensive item</td><td>not found</td><td class="found-codex">found, and the claim was false</td></tr>
+        <tr><td><code>jtbd.md:67</code> is a heading and the job statement is at <code>:69</code></td><td class="found-claude">judged the citation sound</td><td class="found-codex">judged it unusable</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:14px">The last row is a difference of strictness rather than a contradiction of fact: the heading does name the job. It is recorded as a divergence rather than voted on, and the citation was tightened anyway.</p>
+
+  <h3 class="subhead">Merged findings, thirty seven</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Class</th><th>Where</th><th>What</th><th>Found by</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td class="num">M-01</td><td>Locked rule</td><td><code>:52</code> of <code>CLAUDE.md</code> against four rows here</td><td>"Provable fairness is the brand, not a footnote" against the secondary-proof framing, with the reconciliation still listing PF under "Confirmed"</td><td class="found-claude">Claude</td><td><span class="st st-resolved">Resolved by reframing</span> The feature is not demoted, one claim about it is. Wording in <code>CLAUDE.md</code> is step 11's if it is wanted</td></tr>
+        <tr><td class="num">M-02</td><td>Locked rule</td><td>design principle 3, <code>CLAUDE.md:54</code></td><td>Expected value left the product. Step 7 dropped the only EV capability and nothing replaced it, while DANGER 3 at <code>jtbd.md:244</code> is open on exactly this</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span> Row D4 added and the T7 rejection annotated with the different grounds</td></tr>
+        <tr><td class="num">M-03</td><td>Locked rule</td><td><code>CLAUDE.md:58</code></td><td>Staged regional rollout is a named first class compliance constraint and was absent from the file entirely</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span> Inside B4</td></tr>
+        <tr><td class="num">M-04</td><td>Lost without a verdict</td><td>whole file, zero occurrences of RTP</td><td>Publishing tested RTP pre-login is an MVP decision at <code>aarrr.md:67</code>, a takeaway at <code>:300</code>, and one of three things <code>jtbd.md:180</code> says no competitor does. Not MVP, not LATER, not cut</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span> By D4</td></tr>
+        <tr><td class="num">M-05</td><td>Lost without a verdict</td><td><code>lean-ux-canvas.md:55</code></td><td>The six blocked markets vanished while B4's success signal demands a citation for each one</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span> The list is carried in B4 with <span class="hyp-tag">[?]</span> until re-verified</td></tr>
+        <tr><td class="num">M-06</td><td>Lost without a verdict</td><td><code>aarrr.md:292</code></td><td>The linear reveal, Pattern A, was chosen in two older files and recorded nowhere in the new list</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span> Inside E3</td></tr>
+        <tr><td class="num">M-07</td><td>Lost without a verdict</td><td><code>aarrr.md:91</code>, <code>lean-ux-canvas.md:64</code></td><td>Only the wagering variant of the first-deposit bonus was cut; the zero-wagering variant had no owner</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span> The cut table now covers both and states what would bring it back</td></tr>
+        <tr><td class="num">M-08</td><td>Label mismatch</td><td><code>jtbd.md:198</code></td><td>The daily free case is inside the MVP free-to-play offer by founder Decision 3, which outranks a superseded canvas cell, and it was adjudicated only against <code>aarrr.md:172</code></td><td><span class="found-claude">Claude</span>, <span class="found-codex">Codex</span></td><td><span class="st st-open">Open</span> Placed in LATER provisionally and named as the one disagreement the founder settles</td></tr>
+        <tr><td class="num">M-09</td><td>Lost without a verdict</td><td><code>CLAUDE.md:38</code></td><td>Account is a round 1 item, had a group heading and no row, and F2 assumes an inventory exists</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span> Row B7 added</td></tr>
+        <tr><td class="num">M-10</td><td>Lost without a verdict</td><td>answer 2</td><td>The finite visible pool is named as the <code>D-B</code> fallback and existed in no table to return to</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span> Recorded in the cut table</td></tr>
+        <tr><td class="num">M-11</td><td>Wrong parent</td><td>C1</td><td><code>B4-3</code> is a crediting failure, C1 is a denomination rule, and C3 already carries <code>B4-3</code></td><td><span class="found-claude">Claude</span>, <span class="found-codex">Codex</span></td><td><span class="st st-fixed">Fixed</span></td></tr>
+        <tr><td class="num">M-12</td><td>Wrong parent</td><td>T3</td><td><code>B3-1</code> and <code>B3-2</code> are an unreadable login error and an onboarding demand, not sequence legibility</td><td><span class="found-claude">Claude</span>, <span class="found-codex">Codex</span></td><td><span class="st st-fixed">Fixed</span> B5 and B6 named instead</td></tr>
+        <tr><td class="num">M-13</td><td>Wrong parent</td><td>T4</td><td>Declares <code>B4-3</code> closed while no capability there addresses it</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span></td></tr>
+        <tr><td class="num">M-14</td><td>Missing parent</td><td>A1, A5, D3</td><td><code>B1-1</code>, <code>B2-1</code> and <code>B6-2</code> were declared closed on the T path and named by no backlog row. <code>B6-2</code> is a pattern of 9</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span> Parents added to the three rows that answer them</td></tr>
+        <tr><td class="num">M-15</td><td>Rule defect</td><td><code>:145</code></td><td>B4 and C5 stood on a compliance constraint while the stated rule admitted only barriers and jobs</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span> Three enumerated parent classes, with the third restricted to named lines of <code>CLAUDE.md</code></td></tr>
+        <tr><td class="num">M-16</td><td>Rule defect</td><td><code>:129</code></td><td>Three LATER rows carry parent <code>None</code>, against the rule that LATER is not a shelter</td><td><span class="found-claude">Claude</span>, <span class="found-codex">Codex</span></td><td><span class="st st-fixed">Fixed</span> The locked-scope exception is written into the rule instead of being practised silently</td></tr>
+        <tr><td class="num">M-17</td><td>Missing parent</td><td>the daily bonus</td><td>Moved to LATER with no barrier and no job named</td><td class="found-codex">Codex</td><td><span class="st st-fixed">Fixed</span> And see M-08</td></tr>
+        <tr><td class="num">M-18</td><td>Priority test</td><td>A3, C3, F2, G2, G4, G5, G6</td><td>Rows that improve the path without breaking it, none flagged as an exception</td><td class="found-claude">Claude</td><td><span class="st st-withdrawn">Partly withdrawn on verification</span> <strong style="color:var(--text-primary)">Reason:</strong> under the corrected test, C3, F2, G2, G4 and G5 each prevent a documented barrier from recurring, <code>B4-3</code>, <code>B7-1</code>, <code>B8-2</code>, <code>B8-3</code>, <code>B8-3</code>, and stay MVP. A3 and G6 survive the finding and are labelled <code>job only, no barrier</code></td></tr>
+        <tr><td class="num">M-19</td><td>Priority test</td><td>E4, F3, H1</td><td>The daily bonus was cut for having no job scoring 3 for the primary persona, while three MVP rows stand on Related Job 3, which scores 1 for The Opener</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span> All three now state that they are MVP by locked scope and founder decision, not by score</td></tr>
+        <tr><td class="num">M-20</td><td>Priority test</td><td>D3</td><td>A second row that fails the test, while the text claimed exactly one</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span> Seven are now named</td></tr>
+        <tr><td class="num">M-21</td><td>Priority test</td><td>D1</td><td>D3 carried its open decision in the priority cell and D1 did not, although <code>D-D</code> sets D1's ceiling</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span></td></tr>
+        <tr><td class="num">M-22</td><td>Arithmetic</td><td><code>:151</code></td><td>Seven screens in prose against eight groups in the table, and group 8 holds an item that is not a screen</td><td><span class="found-claude">Claude</span>, <span class="found-codex">Codex</span></td><td><span class="st st-fixed">Fixed</span> The mapping is written out and is not one to one</td></tr>
+        <tr><td class="num">M-23</td><td>Contradiction</td><td><code>:284</code> against <code>:286</code></td><td>B1 and B2 credited with Core Job 3 and declared to close no core job, two lines apart</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span></td></tr>
+        <tr><td class="num">M-24</td><td>Contradiction</td><td>H1</td><td>Mapped to Core Job 1 while its own row named Related Job 3, opposite ends of the journey</td><td><span class="found-claude">Claude</span>, <span class="found-codex">Codex</span></td><td><span class="st st-fixed">Fixed</span> Both parents named, each with its moment</td></tr>
+        <tr><td class="num">M-25</td><td>Divergence from core</td><td><code>:283</code></td><td>Core Job 2 is reveal quality and <code>jtbd.md:185</code> limits that gap to animation quality; stock-backing is not reveal quality</td><td class="found-codex">Codex</td><td><span class="st st-fixed">Fixed</span> D rows removed from that mapping</td></tr>
+        <tr><td class="num">M-26</td><td>Contradiction</td><td>A2</td><td>A display cannot make a state impossible; that guarantee is D1's</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span></td></tr>
+        <tr><td class="num">M-27</td><td>Contradiction</td><td><code>:288</code></td><td>The responsible play gap was presented as newly opened, while <code>cjm-as-is.md:125</code> recorded it and <code>lean-ux-canvas.md:54</code> names an actual page that was dropped without a verdict</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span> And the finding got worse in the correction</td></tr>
+        <tr><td class="num">M-28</td><td>Contradiction</td><td>T6 against E3, E4</td><td>T6 refuses to generate capabilities for lack of evidence while the backlog ships two rows for that phase</td><td class="found-claude">Claude</td><td><span class="st st-withdrawn">Partly withdrawn on verification</span> <strong style="color:var(--text-primary)">Reason:</strong> the refusal was of a target emotion and of new mechanisms, not of the reveal, and neither E3 nor E4 is invented. The layer gap was real and is fixed: T6 now names both rows and their origins</td></tr>
+        <tr><td class="num">M-29</td><td>Contradiction</td><td><code>:137</code></td><td>The table headed "Orphans, cut" holds a row that states it is not an orphan</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span> By a note. Step 7 artefact, kept rather than rewritten</td></tr>
+        <tr><td class="num">M-30</td><td>Contradiction</td><td>A5</td><td>Declared to be the smallest test while the same document says that test cannot be run as written</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span> A5 is the subject of the test, and the restatement requirement is in both places</td></tr>
+        <tr><td class="num">M-31</td><td>Citation</td><td><code>:266</code></td><td><code>jtbd.md:182</code> is a heading; the execution gap is at <code>:185</code></td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span></td></tr>
+        <tr><td class="num">M-32</td><td>Citation</td><td><code>:273</code></td><td><code>lean-ux-canvas.md:46</code> is a cell heading; the three items are at <code>:50</code>, <code>:51</code>, <code>:52</code></td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span></td></tr>
+        <tr><td class="num">M-33</td><td>Citation</td><td><code>:302</code></td><td>"11 sources" is 11 people across 6 sources, and "densest pattern in the corpus" is false: <code>B1-2</code> is 14 and <code>B7-4</code> is 12</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span></td></tr>
+        <tr><td class="num">M-34</td><td>Citation</td><td><code>:161</code></td><td><code>lean-ux-canvas.md:79</code> reads "Hero A/B."; the badge variant is at <code>:81</code></td><td class="found-codex">Codex</td><td><span class="st st-fixed">Fixed</span></td></tr>
+        <tr><td class="num">M-35</td><td>Citation</td><td><code>:116</code></td><td><code>jtbd.md:67</code> is a heading; the job statement is at <code>:69</code></td><td class="found-codex">Codex</td><td><span class="st st-fixed">Fixed</span> See the divergence table</td></tr>
+        <tr><td class="num">M-36</td><td>False claim</td><td>answer 1</td><td>Stock-backing does not make a cheap case incapable of awarding an expensive item; it only requires we own the unit</td><td class="found-codex">Codex</td><td><span class="st st-fixed">Fixed</span> The guarantee is restated as economic and legibility-based, which is weaker than what was claimed</td></tr>
+        <tr><td class="num">M-37</td><td>Missing source</td><td><code>D-A</code></td><td><code>aarrr.md:105</code> already discarded soft age gating on the UK Online Safety Act and required identity-based verification, which narrows the open method</td><td class="found-claude">Claude</td><td><span class="st st-fixed">Fixed</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="closing">
+    <h3 style="font-size:19px;letter-spacing:-0.015em;margin-bottom:12px">What the critique changed</h3>
+    <p>Two rows were added, D4 and B7, because two things the old core owned had left the repository with no verdict at all: published RTP and the account with its inventory. Two rules were rewritten rather than patched, the parent rule and the priority test, because in both cases the document was already practising something wider than it declared, which is the failure the two-instrument pass exists to catch. One claim was withdrawn outright: stock-backed tables make an implausible starter payout expensive, not impossible, and the argument that rested on it now rests on something weaker and true. One finding is not closed and is not mine to close: the daily free case sits in LATER against a founder decision that says otherwise.</p>
+    <p>The instruments split the way the rule predicts. <strong style="color:var(--accent-yellow)">Codex</strong> found what is falsifiable inside the files and found the one false mechanism claim in the whole document. <strong style="color:var(--accent-blue)">The Claude passes</strong> found what needs a judgement across files: an inflated MVP, a double standard, and five items that had quietly left the repository.</p>
+  </div>
+</section>
+
+<!-- CARRIES FORWARD -->
+<div class="closing" style="margin-bottom:20px">
+  <div class="section-eyebrow">Carries into voice and into concept</div>
+  <p>Two lines produced during this step belong to later stages and are recorded here so they are not lost.</p>
+  <div class="claim-update">
+    <strong>For stage 05, voice</strong>
+    The honest answer to "why open instead of just buying the skin", written to be accepted rather than dismissed by a sceptical CS2 player: <em>"If you can afford the skin, buy it; opening is for the one you were never going to buy, and what you are paying for is the chance and the reveal, not a cheaper route to the same item."</em> It concedes the expected-value argument in its first clause, which is the only way a sceptic keeps reading, and it makes no financial claim at all, which is why it cannot be refuted with a spreadsheet.
+  </div>
+  <div class="claim-update">
+    <strong>For stage 06, concept</strong>
+    The only user observation about the visual treatment of a reveal anywhere in this research, recorded in <code>cjm-evidence.md</code> under U-13c: a gold rare-item display on a blue background, which the user says "puts me off", stated in the same breath as the intended payoff, "ill scream like a monkey if i ever get one". One mention, marked as one mention, and the only pixel-level signal the corpus contains.
+  </div>
+</div>
+
+
+</main>
+
+<footer>
+  <p>CS2 Clutch, stage 02+ of twelve. CJM To-Be: every capability traced to a named barrier, a named job or a named constraint.</p>
+  <p>Targets on this map are projected, not measured. Next stage: Information Architecture.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_SECTIONS = [
+  { id: 'focus', label: 'Focus' },
+  { id: 'path', label: 'To-Be Path' },
+  { id: 'curve', label: 'Emotional Curve' },
+  { id: 'backlog', label: 'Backlog and MVP' },
+  { id: 'critique', label: 'Critique' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

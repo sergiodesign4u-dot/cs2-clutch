@@ -20,8 +20,8 @@ window.NAV = [
   { label: 'User Research', children: [
       { label: 'Personas',   page: 'research/personas.html',   done: true },
       { label: 'JTBD',       page: 'research/jtbd.html',       done: true },
-      { label: 'CJM As-Is',  page: 'research/cjm-as-is.html',  done: false },
-      { label: 'CJM To-Be',  page: 'research/cjm-to-be.html',  done: false }
+      { label: 'CJM As-Is',  page: 'research/cjm-as-is.html',  done: true  },
+      { label: 'CJM To-Be',  page: 'research/cjm-to-be.html',  done: true  }
   ]},
 
   { label: 'Information Architecture (IA)', children: [

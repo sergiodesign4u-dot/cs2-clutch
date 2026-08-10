@@ -126,6 +126,27 @@ Same eight phases as the As-Is map, so the two curves overlay. Every row names t
 
 ---
 
+## Emotional curve, To-Be
+
+Assigned at step 10, when the curve had to be drawn and a qualitative target emotion could not be plotted. Written here rather than only on the page, because markdown is the source and html is the visualisation.
+
+**The whole of this curve is a projected target, not a measurement, and it never becomes evidence by being drawn.** The As-Is curve in `cjm-as-is.md` rests on counted quotes with a ledger behind every number. This one rests on the target emotion named under each phase above. The two are plotted together for contrast and they are not the same kind of object.
+
+| Phase | As-Is | To-Be target | Basis, and what it is worth |
+|---|---|---|---|
+| T1 pull from outside | +4 | +4 | Not moved on purpose. The only As-Is phase with an evidenced positive emotion, and the work is to not lose it |
+| T2 first contact | -3 | +2 | Disarmed. A1, A2 and A4 answer the suspicion with the thing the suspicion is about |
+| T3 getting in | `[?]` | +2 | Settled. **No As-Is baseline**, so no movement can be claimed, only a target stated |
+| T4 getting something to open with | -4 | +2 | In control of a decision already made |
+| T5 picking a case | `[?]` | +3 | Informed appetite. **No As-Is baseline** |
+| T6 the open | `[?]` | +5 | **Doubly unanchored: no As-Is value and no derivation.** The one phase whose target is a design intention rather than an inference. Stage 06 produces it and tests it, and if the test fails this number is the first to go |
+| T7 the outcome | -5 | +1 | A result that is understood, good or bad. Deliberately not a peak, because understanding a bad outcome is not joy and drawing it as joy would be the same dishonesty the map is built against |
+| T8 payoff or exit | -5 | +2 | Waiting without suspicion |
+
+**Movement can only be claimed where the As-Is has a value**, which is five phases of eight. The largest claimed movement is at T8, +7, and T8 is also where the As-Is evidence is densest, a pattern of 12 across all seven platforms. That alignment is the point: the biggest promise sits on the biggest pile of evidence. The largest *unclaimed* movement is at T6, where the product's core moment has neither a starting value nor a derived target, and no amount of drawing fixes that.
+
+---
+
 ## Orphans, cut
 
 Every capability proposed during divergence that closes no As-Is barrier and serves no job in `jtbd.md` is listed here rather than parked in a LATER column. `LATER` is a priority for a feature that has a parent, not a shelter for one that does not. One exception exists and it is named rather than assumed: an item already locked into `LATER` by the round 1 scope decision in `CLAUDE.md` cannot be cut by this stage even when it has no parent, so it is carried with the parent cell reading `None` and a standing requirement to acquire one before its own round opens. Three items sit there, and both instruments of the step 9 critique flagged all three.

@@ -567,7 +567,9 @@ B-1 is the systemic finding and both instruments reached it from different direc
 
 ### What the critique changed
 
-All 38 rows are closed. Line numbers in the table above point at the file as it stood on 10 August 2026, before the fixes; they are kept as the record of what was found, not as live pointers.
+All 40 rows are closed, plus the 4 cross-instrument disagreement rows above them. Line numbers in the table above point at the file as it stood on 10 August 2026, before the fixes; they are kept as the record of what was found, not as live pointers.
+
+**The count was wrong until step 10 and it is printed by class here so it stays checkable.** This paragraph said 38 from the day it was written, while the merged log has always carried 40 numbered rows: A 4, B 5, C 6, D 5, E 7, F 4, G 8, H 1. The error was found while building `cjm-as-is.html`, by the pass that had to count the rows to render them, and it is exactly the class of defect this file's own rule about unverifiable numbers exists to prevent. Corrected on 11 August 2026.
 
 **Withdrawn on verification: one row, and it was the map's highest point.** The `+5` at P6 rested on "i went from crazy when i saw the yellow knife icon to completely pissed when it honestly was a gut knife forest ddpat from a phoenix case". Re-read in place, both objections held: the sentence's own outcome is negative, and a Phoenix case is a Valve in-game case, not a third-party platform. The quote is withdrawn as evidence of a positive emotion, kept in `cjm-evidence.md` as what it is, and the phase is now `[?]`.
 
