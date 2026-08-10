@@ -603,11 +603,197 @@
 <!-- SECTION 4: BENCHMARK -->
 <section id="benchmark">
   <div class="section-eyebrow">Section 4</div>
-  <h2>Benchmark: Trust and Fairness</h2>
-  <p>The most strategically important dimension. 8 criteria, 5 products scored. All data from public/pre-login research. The thrill and dopamine loop are secondary threads inside trust - not separate concerns.</p>
+  <h2>Benchmark: The Reveal Moment</h2>
+  <p>Stage 01 step 4 as the course defines it: one dimension, scored against best-in-class products from <strong>other</strong> categories. The dimension was chosen by the founder on 5 August 2026. The in-category trust scoring that used to sit here is retained below as Part 2, renamed for what it actually is.</p>
   <div class="sep"></div>
 
-  <h3>Benchmark Scores</h3>
+  <h3>The dimension</h3>
+  <p><strong>The reveal moment:</strong> the span that begins when the user commits to a randomised outcome and ends when they have understood what they got and know what to do next. Chosen over the two alternatives offered (the trust and verification layer, the money in-and-out loop) because it is the one span the whole product exists to deliver. Everything else on the platform is a corridor leading to it or away from it.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Product</th><th>Category</th><th>Reveal being scored</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Pok&eacute;mon TCG Pocket</strong></td><td>Digital collectible cards</td><td>Booster pack opening and Wonder Pick</td></tr>
+        <tr><td><strong>MONOPOLY GO!</strong></td><td>Casual mobile game</td><td>Sticker packs, swap packs, vaults</td></tr>
+        <tr><td><strong>EA SPORTS FC 26 Ultimate Team</strong></td><td>Sports video game</td><td>Pack opening bought with FC Points</td></tr>
+        <tr><td><strong>Genshin Impact</strong></td><td>Action RPG</td><td>Wish, the gacha pull</td></tr>
+        <tr><td><strong>Nike SNKRS</strong></td><td>Retail commerce</td><td>Exclusive Access and Exclusive Draw</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:12px; font-size:12px; color:var(--text-muted)">None of them sells CS2 skins. Every one has solved, at scale, the problem of making a randomised outcome feel worth paying for. That is the point of looking outside the category: the direct competitors in Part 2 all solved it the same way, so comparing against them teaches nothing new.</p>
+
+  <div class="sep"></div>
+  <h3>What the public record can and cannot show</h3>
+  <p>Every score rests on a page opened in a browser on 5 August 2026, listed in the source index below. That constrains what could be scored honestly. Odds, floors, rarity ladders and duplicate economies are documented publicly, because in several jurisdictions probability disclosure is a legal requirement and publishers write those pages themselves. The craft of the reveal is documented nowhere: the length of the build-up, where the cut lands, what sound does at the payoff, how long the hold is. All of it lives inside a game client behind a login.</p>
+  <p>So the six criteria are the ones a person outside the product can verify. The craft questions are carried separately and marked [?]. This is not a gap in the research, it is the finding: <strong>the mechanics of a reveal can be copied from documentation, the craft cannot, and stage 06 has to design it rather than lift it.</strong></p>
+
+  <div class="sep"></div>
+  <h3>Criteria</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Criterion</th><th>1</th><th>5</th></tr></thead>
+      <tbody>
+        <tr><td><strong>C1</strong></td><td><strong>Odds at the point of commitment.</strong> Are the real probabilities on the same screen where the user commits, before they commit, without login?</td><td>No odds published, or disclosure refused as policy</td><td>Full odds on the commitment screen, per item, no login</td></tr>
+        <tr><td><strong>C2</strong></td><td><strong>Guaranteed floor, and visible progress toward it.</strong> Is there a published mechanism that bounds the worst run, and can the user see how close they are?</td><td>Nothing bounds a bad run</td><td>Published floor, exact numbers, visible counter, user chooses the payout</td></tr>
+        <tr><td><strong>C3</strong></td><td><strong>Rarity ladder as a learnable language.</strong> A fixed, named, small set of tiers, read instantly, in the same place every time.</td><td>No ladder, scarcity is ad hoc</td><td>One glyph in a fixed position carries the ladder, and the odds screen teaches it</td></tr>
+        <tr><td><strong>C4</strong></td><td><strong>Agency inside the reveal.</strong> Does the user do anything between commit and outcome, or only watch?</td><td>Watch only</td><td>Real choices inside the reveal, reversible until confirmed</td></tr>
+        <tr><td><strong>C5</strong></td><td><strong>Value of the ordinary outcome.</strong> The modal result is common. Does it carry forward or is it a dead end?</td><td>A common outcome is worth nothing</td><td>Every outcome converts into visible progress toward something chosen</td></tr>
+        <tr><td><strong>C6</strong></td><td><strong>Cadence and cost of a reveal.</strong> How often can a user have this experience, and does it always cost money?</td><td>Money only, irregular</td><td>A free reveal on a fixed rhythm, money compresses the timer</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sep"></div>
+  <h3>Score table</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Product</th><th>C1 Odds</th><th>C2 Floor</th><th>C3 Ladder</th><th>C4 Agency</th><th>C5 Ordinary</th><th>C6 Cadence</th><th>Total /30</th></tr>
+      </thead>
+      <tbody>
+        <tr style="background: rgba(34,197,94,0.05)"><td><strong>Pok&eacute;mon TCG Pocket</strong></td><td class="score-5">5</td><td class="score-5">5</td><td class="score-5">5</td><td class="score-5">5</td><td class="score-4">4</td><td class="score-5">5</td><td class="score-total">29</td></tr>
+        <tr><td><strong>MONOPOLY GO!</strong></td><td class="score-2">2</td><td class="score-4">4</td><td class="score-4">4</td><td class="score-5">5</td><td class="score-5">5</td><td class="score-5">5</td><td class="score-total">25</td></tr>
+        <tr><td><strong>EA SPORTS FC 26 UT</strong></td><td class="score-4">4</td><td class="score-3">3</td><td class="score-4">4</td><td class="score-3">3 <span class="hyp-tag">[?]</span></td><td class="score-3">3 <span class="hyp-tag">[?]</span></td><td class="score-2">2</td><td class="score-total">19</td></tr>
+        <tr><td><strong>Genshin Impact</strong></td><td class="score-3">3</td><td class="score-5">5</td><td class="score-5">5</td><td class="score-1">1</td><td class="score-3">3 <span class="hyp-tag">[?]</span></td><td class="score-2">2 <span class="hyp-tag">[?]</span></td><td class="score-total">19</td></tr>
+        <tr style="background: rgba(239,68,68,0.04)"><td><strong>Nike SNKRS</strong></td><td class="score-1">1</td><td class="score-1">1</td><td class="score-2">2</td><td class="score-1">1</td><td class="score-1">1</td><td class="score-3">3</td><td class="score-total" style="color:#ef4444">9</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:12px; font-size:12px; color:var(--text-muted)">[?] marks a cell whose evidence is inside a game client and could not be verified from a public page. The number is the best reading available and is not a fact.</p>
+
+  <div class="sep"></div>
+  <h3>Observations</h3>
+
+  <div class="mech-card">
+    <span class="mech-badge mech-carry">29 / 30</span>
+    <h3>Pok&eacute;mon TCG Pocket</h3>
+    <div class="mech-row"><span class="mech-key">Odds:</span><span class="mech-val">The offering rates sit on the pack selection screen, which is the exact moment of commitment: "On the pack selection screen, you can check each booster pack's offering rates to learn which cards can be found within each set."</span></div>
+    <div class="mech-row"><span class="mech-key">Ladder:</span><span class="mech-val">One glyph in a fixed position, "one to four diamonds, one to three stars, or a crown", ordered rarest to most common. The three-star tier holds the immersive cards, so the ladder has a motion tier built in rather than bolted on.</span></div>
+    <div class="mech-row"><span class="mech-key">Floor:</span><span class="mech-val">The strongest design in the set. Pack points accrue on every pack opened and are exchanged for cards of the player's choice, rarer cards costing more. A run of bad luck becomes visible progress toward a specific card the player names.</span></div>
+    <div class="mech-row"><span class="mech-key">Agency:</span><span class="mech-val">Doubled. The player chooses which booster of an expansion to open knowing the packs hold different card sets, and Wonder Pick makes the player perform the randomisation: "the five available cards will be turned face down and shuffled. You'll then pick one of those cards".</span></div>
+    <div class="mech-row"><span class="mech-key">Cadence:</span><span class="mech-val">The quiet reason it works. "Every 12 hours, you can choose a booster pack to open at no cost", with a stamina meter on the home screen. Money compresses the timer, it does not unlock the ritual. The lost point is C5: duplicates convert to flair, a cosmetic, which is real but thinner than a currency.</span></div>
+  </div>
+
+  <div class="mech-card">
+    <span class="mech-badge mech-carry">25 / 30</span>
+    <h3>MONOPOLY GO!</h3>
+    <div class="mech-row"><span class="mech-key">Ordinary outcome:</span><span class="mech-val">The best treatment anywhere in the set, fully documented. "Every duplicate sticker you collect gives you stars based on its rarity", stars open vaults, "The more stars you exchange, the better the reward you'll get", and duplicates are simultaneously the trading currency. Even album completion does not strand them: "your duplicate stickers are not completely gone, they turned into stars".</span></div>
+    <div class="mech-row"><span class="mech-key">Ladder:</span><span class="mech-val">Rarity and value are the same number, which is unusually legible: "a 4&#9733; sticker has a value of 4&#9733;. A gold 4&#9733; sticker has a value of 8&#9733;".</span></div>
+    <div class="mech-row"><span class="mech-key">Agency:</span><span class="mech-val">The sharpest mechanic in the benchmark. A Swap Pack gives "up to 3 swaps per pack. Swap 3 different stickers once each, or one sticker up to 3 times", nothing is final until confirmed, and the confirmation warns against the player's own impulse: "Are you sure? This new sticker could help you complete your Album." The reveal is negotiated, not received.</span></div>
+    <div class="mech-row"><span class="mech-key">Where it fails:</span><span class="mech-val">C1. The public help centre documents composition ("4 stickers, all 3&#9733; or higher") and publishes no probabilities at all. A product this generous about duplicates is silent about odds, which suggests the generosity is doing the work transparency would otherwise have to do.</span></div>
+  </div>
+
+  <div class="mech-card">
+    <span class="mech-badge mech-carry">19 / 30</span>
+    <h3>EA SPORTS FC 26 Ultimate Team</h3>
+    <div class="mech-row"><span class="mech-key">Odds:</span><span class="mech-val">The most deliberate disclosure in the set, placed correctly: "On the EA SPORTS FC&trade; Ultimate Team Store screen, you'll see an option under every pack available for FC Points that reads 'Show Pack Probabilities.'" Methodology is published too, "calculated by simulating the opening of a very large number of packs", re-run "with every content update". Two things cost the fifth point: figures are category-level minimums, and "the probability of receiving a particular individual item ... is often less than 1%".</span></div>
+    <div class="mech-row"><span class="mech-key">Floor:</span><span class="mech-val">Per pack, and nothing bounds a run: "A pack will always contain one or more items of the minimum guaranteed rarity or rating", but "each pack opening is an independent event ... If you flip a coin three times and get heads each time, you still have a 50% chance of getting heads if you flip the coin again." Honest, and also the design: there is no pity here, and the honesty justifies its absence.</span></div>
+    <div class="mech-row"><span class="mech-key">Ladder:</span><span class="mech-val">Strong because the odds screen teaches it. Gold, Rare, OVR bands (75+, 82+, 84+) and named special types are the same vocabulary in the probability table and on the item.</span></div>
+    <div class="mech-row"><span class="mech-key">Cadence:</span><span class="mech-val">Low, because the disclosed reveals are the paid ones: "every pack available for FC Points".</span></div>
+  </div>
+
+  <div class="mech-card">
+    <span class="mech-badge mech-carry">19 / 30</span>
+    <h3>Genshin Impact</h3>
+    <div class="mech-row"><span class="mech-key">Why it is here:</span><span class="mech-val">It holds the most influential published floor in games, and it also shows the exact failure our product must avoid.</span></div>
+    <div class="mech-row"><span class="mech-key">Floor:</span><span class="mech-val">The 0.6% base rate and the 90-pull guarantee are both announced by the publisher. The curve between them is not. Soft pity, where the rate climbs from 0.6% to roughly 6.6% at pull 74 and rises about six points per pull until certainty at 90, was reconstructed by the community from a database of 25 million pulls and published on HoYoverse's own community platform in 2021.</span></div>
+    <div class="mech-row"><span class="mech-key">Read plainly:</span><span class="mech-val">The most successful pity system in the world is one where players had to build a statistical model of 25 million outcomes to learn how the product they were paying for actually behaves. It works commercially. It is the precise opposite of a provably fair claim, and it is the gap our product exists to close: publish the whole curve, not the two endpoints.</span></div>
+    <div class="mech-row"><span class="mech-key">Caveats:</span><span class="mech-val">Agency is 1, the player watches. C5 and C6 carry [?]: duplicate conversion and per-wish cost are inside the client and no public page was opened for them. The model is dated 2021 and the system may have changed.</span></div>
+  </div>
+
+  <div class="mech-card avoid">
+    <span class="mech-badge mech-avoid">9 / 30</span>
+    <h3>Nike SNKRS</h3>
+    <div class="mech-row"><span class="mech-key">On the record:</span><span class="mech-val">Nike states non-disclosure as policy in its own voice: "You can't game the system and be guaranteed Exclusive Access." And: "The criteria used to determine Exclusive Access is constantly changing. We look at things like past losses as one of the many factors ... Trying to figure out the secret sauce and how to influence the recipe will not increase your chances." Selection is confirmed random, "Today, winner selection for Exclusive Access is randomized", and the newer Exclusive Draw is "also an invite-only, randomized selection Launch".</span></div>
+    <div class="mech-row"><span class="mech-key">What that means:</span><span class="mech-val">There is a consolation mechanism (past losses feed the model) and the user is told explicitly they may not see it, count it, or influence it. The reveal is a push notification.</span></div>
+    <div class="mech-row"><span class="mech-key">Stated clearly:</span><span class="mech-val">Nike scores 9 out of 30 on this dimension and remains one of the most desirable launch platforms in retail. Opacity is a viable strategy under conditions Nike has and we do not, and those conditions are named below.</span></div>
+  </div>
+
+  <div class="sep"></div>
+  <h3>Top 3 Mechanisms to Carry into MVP</h3>
+
+  <div class="mech-card">
+    <span class="mech-badge mech-carry">Carry Forward - R1</span>
+    <h3>Odds on the commitment screen, and the ladder taught by that screen</h3>
+    <div class="mech-row"><span class="mech-key">Sourced from:</span><span class="mech-val">Pok&eacute;mon TCG Pocket (offering rates on the pack selection screen). Supported by EA SPORTS FC ("Show Pack Probabilities" under every pack in the store).</span></div>
+    <div class="mech-row"><span class="mech-key">For us:</span><span class="mech-val">The per-item odds table lives on the case detail page, above the open button, visible pre-login, with no expand step needed to see that it exists. The rarity glyph in the odds table is the identical glyph on the item in the reveal and in the drop feed. One symbol, one position, three surfaces.</span></div>
+    <div class="mech-row"><span class="mech-key">Why it works:</span><span class="mech-val">The odds screen stops being a compliance artefact and becomes the tutorial for the whole visual language. A user who reads the table once can read every reveal afterwards at a glance, without text. That is the cheapest way to buy instant legibility at the payoff moment, which is where Part 2's Mechanism 2 stops short: that one argued odds as informed consent, this adds that odds are also how the rarity language gets taught.</span></div>
+    <div class="mech-row"><span class="mech-key">Depends on:</span><span class="mech-val">Stage 06 producing the rarity glyph set before the case detail page is designed.</span></div>
+  </div>
+
+  <div class="mech-card">
+    <span class="mech-badge mech-carry">Carry Forward - R2</span>
+    <h3>A published floor with a visible counter, and the whole curve published</h3>
+    <div class="mech-row"><span class="mech-key">Sourced from:</span><span class="mech-val">Pok&eacute;mon TCG Pocket pack points for the shape (accrue on every open, spend on a chosen item, rarer costs more). Genshin Impact for the proof that a published guarantee changes behaviour, and for the failure to avoid.</span></div>
+    <div class="mech-row"><span class="mech-key">For us:</span><span class="mech-val">Every open accrues points on a visible counter that does not reset on a win. Points buy a named item the user chooses. The full probability curve is published, including any variation by open count, not only the base rate and the guarantee. If our system has no variation by open count, that is published too, in those words.</span></div>
+    <div class="mech-row"><span class="mech-key">Why it works:</span><span class="mech-val">It converts the worst run into visible progress, which is the biggest emotional failure mode of a paid reveal. Publishing the curve rather than the endpoints is our differentiator expressed as a mechanic instead of as a badge. Genshin proves the demand exists: players built a 25 million pull database because the publisher would not tell them.</span></div>
+    <div class="mech-row"><span class="mech-key">Danger to name at 03a:</span><span class="mech-val">A pity counter is a commitment device and interacts with responsible play tooling. It must not be designed as a reason to keep spending to avoid losing progress. Carried as an open constraint into the compliance layer.</span></div>
+  </div>
+
+  <div class="mech-card">
+    <span class="mech-badge mech-carry">Carry Forward - R3</span>
+    <h3>The ordinary outcome always carries forward</h3>
+    <div class="mech-row"><span class="mech-key">Sourced from:</span><span class="mech-val">MONOPOLY GO!, the duplicate to star to vault chain, plus duplicates as the trading currency.</span></div>
+    <div class="mech-row"><span class="mech-key">For us:</span><span class="mech-val">Any drop below a stated threshold converts, at the user's option and at a rate published in advance, into the same counter R2 uses. The conversion offer appears in the reveal result state, not in a menu three taps away.</span></div>
+    <div class="mech-row"><span class="mech-key">Why it works:</span><span class="mech-val">The modal outcome of a case open is an item the user does not want. Today that is a loss with a picture on it. Monopoly GO! demonstrates that the same outcome, given a forward path, stops reading as a loss without changing the odds at all. It costs nothing in fairness and it is the difference between a reveal that can be repeated and one that cannot.</span></div>
+    <div class="mech-row"><span class="mech-key">Interaction:</span><span class="mech-val">R2 and R3 share one counter deliberately. Two currencies would be a second thing to learn at the exact moment the user is least able to learn anything.</span></div>
+  </div>
+
+  <h3 style="margin-top:24px">1 Mechanism That Will NOT Work</h3>
+  <div class="mech-card avoid">
+    <span class="mech-badge mech-avoid">Do Not Use</span>
+    <h3>Undisclosed selection criteria as a scarcity amplifier</h3>
+    <div class="mech-row"><span class="mech-key">What it is:</span><span class="mech-val">Nike's model. Randomised allocation with the criteria deliberately withheld, stated as policy, with the mystery itself doing marketing work.</span></div>
+    <div class="mech-row"><span class="mech-key">Inversion 1:</span><span class="mech-val">Nike's scarcity is physical and external. A shoe run is genuinely finite and Nike did not invent the constraint at the moment of sale. Our scarcity is manufactured by us, in software, and a user who suspects the numbers were chosen to suit us has no counter-evidence unless we supply it.</span></div>
+    <div class="mech-row"><span class="mech-key">Inversion 2:</span><span class="mech-val">Nike's brand is the guarantee. Six decades of product underwrite the claim that the process is fair even though it is opaque. Our brand does not exist yet, and the brief makes verifiability the differentiator. Opacity would spend trust we have not earned on an effect we do not need.</span></div>
+    <div class="mech-row"><span class="mech-key">Inversion 3:</span><span class="mech-val">Nike's loser pays nothing. A failed SNKRS entry costs a notification. Every one of our outcomes is paid for in advance, including the bad ones. Opacity where money has already changed hands is not mystique, it is the thing regulators and reviewers look for first.</span></div>
+    <div class="mech-row"><span class="mech-key">Relation to the other one:</span><span class="mech-val">This sits against principle 1 (trust is the product) and principle 3 (clarity at every risk moment). It is the second entry on the do-not-use list for the reveal, alongside the near-miss animation retained in Part 2. The two are the same error at different depths: near-miss fakes the tension inside one reveal, undisclosed criteria fake it across the whole relationship.</span></div>
+  </div>
+
+  <div class="sep"></div>
+  <h3>What the public record cannot tell us</h3>
+  <p>These are the craft questions the dimension actually turns on, and not one of the five products answers them from a public page. All carry [?] and none is a fact.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Question</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>How long is the build-up between commit and outcome, and does it scale with the value of the outcome</td><td><span class="hyp-tag">[?]</span> client-side in all five</td></tr>
+        <tr><td>Where the cut lands: continuous motion, staged reveals, or jump cuts between stages</td><td><span class="hyp-tag">[?]</span> client-side in all five</td></tr>
+        <tr><td>What sound does at the moment of payoff, and whether the rare tier has its own audio signature</td><td><span class="hyp-tag">[?]</span> client-side in all five</td></tr>
+        <tr><td>How long the hold is before a rare outcome resolves, and whether it differs from a common one</td><td><span class="hyp-tag">[?]</span> client-side in all five</td></tr>
+        <tr><td>Whether a good outcome is designed to leave the app, and through what surface</td><td><span class="hyp-tag">[?]</span> partially observable, not verified this session</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:12px"><strong>Consequence, and it is an input to stage 06 rather than a gap to apologise for.</strong> The mechanics of a reveal are copyable from documentation. The craft is not. Stage 06 gets its rules for C1 to C6 from this benchmark and has to derive the timing, the cut, the sound and the hold itself, then test them. Stage 11 inherits the same list. Any number that appears later for build-up duration or hold length is a decision this project made, not a benchmark it matched, and it gets recorded that way.</p>
+
+  <div class="sep"></div>
+  <h3>Source index</h3>
+  <p>Every URL below was opened in a browser on 5 August 2026. Screenshots are in <code>research/screens/benchmark/</code>.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Source</th><th>What it supports</th></tr></thead>
+      <tbody>
+        <tr><td><a href="https://www.ea.com/games/ea-sports-fc/news/fc-pack-probabilities">EA SPORTS FC 26 pack probabilities</a></td><td>C1, C2, C3 for EA. All EA quotations</td></tr>
+        <tr><td><a href="https://tcgpocket.pokemon.com/en-us/">Pok&eacute;mon TCG Pocket official site</a></td><td>Two free packs a day, immersive cards, "Cards may vary by pack"</td></tr>
+        <tr><td><a href="https://www.pokemon.com/us/features/a-guide-to-collecting-cards-and-using-wonder-picks-in-pokemon-trading-card-game-pocket">Pok&eacute;mon collecting and Wonder Pick guide</a></td><td>C1 to C6 for TCG Pocket. All Pok&eacute;mon quotations</td></tr>
+        <tr><td><a href="https://support.monopolygo.com/article/0a97b998-cb88-48bd-941d-a5b7a22c3725">MONOPOLY GO! help, ways to get stickers</a></td><td>C4 and C6 for Monopoly. Swap pack and wild sticker quotations</td></tr>
+        <tr><td><a href="https://support.monopolygo.com/article/609d2f4e-e8c2-459a-82f3-33387da50135">MONOPOLY GO! help, duplicate stickers and stars</a></td><td>C5 and C3 for Monopoly. Star value quotations</td></tr>
+        <tr><td><a href="https://www.hoyolab.com/article/497840">Genshin drop rate statistical model, HoYoLAB</a></td><td>C1 and C2 for Genshin. Base rate, 90-pull guarantee, soft pity from 25M pulls</td></tr>
+        <tr><td><a href="https://www.nike.com/launch/t/inside-snkrs-exclusive-access">Nike SNKRS, Inside Exclusive Access</a></td><td>All five Nike criteria. All Nike quotations</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:12px; font-size:12px; color:var(--text-muted)"><strong>One access failure, recorded rather than worked around.</strong> The in-client Genshin announcement viewer at webstatic.hoyoverse.com returns HTTP 403 to an outside browser, which is why the Genshin figures rest on a community statistical model published on the official community platform rather than on a first-party disclosure page. The model states the 0.6% base rate and the 90-pull limit as publisher-announced and derives everything between them from data. That distinction must not be flattened later.</p>
+
+  <h3 style="margin-top:24px">Screenshots - Benchmark</h3>
+  <div class="gallery-scroll" id="benchmark-gallery"></div>
+
+  <div class="sep"></div>
+  <h3>Part 2. Trust and fairness matrix, retained in-category scoring</h3>
+  <p>This is not a benchmark. It scores five direct competitors on trust and fairness, which is step 3 material, and calling it a benchmark is what the stage 01 critique caught. It stays for one reason with a date on it: twelve citations across <code>personas.md</code>, <code>jtbd.md</code>, <code>ux-patterns.md</code>, <code>research.md</code> and <code>quality-check.md</code> resolve into it by name. <code>personas.md</code> has exactly one writer and it is CJM step 4, so those citations cannot all be repointed in this round without breaking that rule. <strong>Owner:</strong> the round that runs CJM step 4 moves this into <code>competitors.md</code> and repoints every citation in the same pass. Until then its section and mechanism numbering stays unchanged, so every existing citation still resolves.</p>
   <div class="table-wrap">
     <table>
       <thead>
@@ -627,11 +813,8 @@
   </div>
   <p style="margin-top:12px; font-size:12px; color:var(--text-muted)">Scoring: 1 = poor, 5 = excellent. MVP target: 25/40 at launch minimum. DaddySkins scores 1 on the fairness criterion because /en/provably-fair redirects to login rather than showing the mechanism - the most critical gap in the redesign.</p>
 
-  <div class="sep"></div>
-  <h3>Top 3 Mechanisms to Carry into MVP</h3>
-
   <div class="mech-card">
-    <span class="mech-badge mech-carry">Carry Forward - 1</span>
+    <span class="mech-badge mech-carry">Part 2 - Mechanism 1</span>
     <h3>Public Provably Fair Page with Working Verifier</h3>
     <div class="mech-row"><span class="mech-key">Sourced from:</span><span class="mech-val"><a href="https://csgoroll.com/info/provably-fair/">CSGORoll /info/provably-fair/</a> (fully public, no login, per-game-mode SHA-256 documentation)</span></div>
     <div class="mech-row"><span class="mech-key">Where to use:</span><span class="mech-val">Dedicated /fairness page, footer link, within the opening flow as a pre-round hash surfaced at spin trigger (Clash.gg Champion mode approach, extended to solo opening).</span></div>
@@ -640,7 +823,7 @@
   </div>
 
   <div class="mech-card">
-    <span class="mech-badge mech-carry">Carry Forward - 2</span>
+    <span class="mech-badge mech-carry">Part 2 - Mechanism 2</span>
     <h3>Per-Case Odds Table Visible Before Purchase</h3>
     <div class="mech-row"><span class="mech-key">Sourced from:</span><span class="mech-val">skin.club case pages (1-100,000 numeric range per item, no login required) and Clash.gg (full drop rates per case visible pre-login)</span></div>
     <div class="mech-row"><span class="mech-key">Where to use:</span><span class="mech-val">Case detail page, above the Open button. Each possible skin with probability and approximate market value. Expected value calculated and shown. Accessible without login.</span></div>
@@ -649,7 +832,7 @@
   </div>
 
   <div class="mech-card">
-    <span class="mech-badge mech-carry">Carry Forward - 3</span>
+    <span class="mech-badge mech-carry">Part 2 - Mechanism 3</span>
     <h3>Authentic Live Drop Feed with Per-Outcome Verification Links</h3>
     <div class="mech-row"><span class="mech-key">Sourced from:</span><span class="mech-val">skin.club public roll history - all user outcomes publicly visible and verifiable at skin.club without login</span></div>
     <div class="mech-row"><span class="mech-key">Where to use:</span><span class="mech-val">Landing page hero or sidebar (social proof and activation). Individual case pages as "recent drops from this case." No bots, no fictional character names in the feed.</span></div>
@@ -657,9 +840,8 @@
     <div class="mech-row"><span class="mech-key">Thrill preserved:</span><span class="mech-val">The live feed creates ambient excitement - wins happening in real time, right now. Thrill in the feed; trust in the verification link. Both served simultaneously without conflict.</span></div>
   </div>
 
-  <h3 style="margin-top:24px">1 Mechanism That Will NOT Work</h3>
   <div class="mech-card avoid">
-    <span class="mech-badge mech-avoid">Do Not Use</span>
+    <span class="mech-badge mech-avoid">Part 2 - Do Not Use</span>
     <h3>Near-Miss Reveal Animation</h3>
     <div class="mech-row"><span class="mech-key">What it is:</span><span class="mech-val">Animation technique where the case spin visually passes through high-value items just before landing on the actual (pre-determined) outcome, creating the illusion that the user "almost" won something better. Common in slot machines and some case-opening platforms.</span></div>
     <div class="mech-row"><span class="mech-key">Why not here:</span><span class="mech-val">Directly contradicts the provably fair proposition. The outcome is determined before the animation; a near-miss that was pre-calculated as a loss is fabricated theatre. Creates regulatory risk (cited by UKGC as a manipulation technique in slot machine regulations). The CS2 community is technically literate and will identify and publicize it. Pride-based wins (from honest reveals) get shared; frustration from manipulation generates complaints and churn.</span></div>
@@ -1177,7 +1359,7 @@
         <tr><td><strong>Conclusion without grounds</strong></td><td>A closed founder decision (the battle gate is operational, not a DAU number) never propagated back into two files that still framed it as a DAU threshold</td><td>Claude</td><td>Three sites rewritten to the operational condition</td><td>Fixed</td></tr>
         <tr><td><strong>Conclusion without grounds</strong></td><td>Two audience vocabularies in one document, three motivation segments and four behavioural personas, with no mapping. Section 6 used both in adjacent paragraphs</td><td>Claude</td><td>Divergence named in place in two files. Not resolved here: personas.md has one writer and it is CJM step 4</td><td>Named, owner assigned</td></tr>
         <tr><td><strong>Conclusion without grounds</strong></td><td>"Competitive parity" for the deposit bonus was measured against the ceiling (Key-Drop 20%) while the market runs 5-20% and the fastest-growing platform gives 5%</td><td>Claude</td><td>Restated against the actual spread: 10-15% is the median and above the fastest-growing platform, deliberately under the ceiling</td><td>Fixed</td></tr>
-        <tr><td><strong>Conclusion without grounds, structural</strong></td><td>The benchmark scores five same-category competitors. The stage defines it as one dimension measured against four to five best-in-class products from OTHER categories, and warns against exactly this confusion. Stages 04, 06 and 07 read it</td><td>Claude</td><td>Not fixed here. Scheduled as a re-run of stage 01 step 4, starting with the founder choosing the dimension</td><td>Open</td></tr>
+        <tr><td><strong>Conclusion without grounds, structural</strong></td><td>The benchmark scores five same-category competitors. The stage defines it as one dimension measured against four to five best-in-class products from OTHER categories, and warns against exactly this confusion. Stages 04, 06 and 07 read it</td><td>Claude</td><td>Re-run. The founder chose the dimension (the reveal moment) and step 4 was executed against five products from other categories, on live sources opened 5 August 2026. The in-category scoring is retained as Part 2, renamed, with its relocation owned by CJM step 4</td><td>Fixed</td></tr>
         <tr><td><strong>Withdrawn on verification</strong></td><td>Codex reported Clash.gg's "Champion house edge 7.5%" as unsourced</td><td>Codex</td><td>The source index carries the row (skincasereviewer.com). Half the finding falls; "30-second average matchmaking" in the same cell stands and was fixed</td><td>Withdrawn, reason recorded</td></tr>
         <tr><td><strong>Withdrawn on verification</strong></td><td>Claude reported two source index rows citing "research compilation" instead of a source</td><td>Claude</td><td>One of the two carries a real URL. Corrected to one row, which was fixed</td><td>Withdrawn in part, reason recorded</td></tr>
       </tbody>
@@ -1187,7 +1369,7 @@
   <div class="conclusions-box">
     <h4>What this cost and what it bought</h4>
     <p style="font-size:14px;margin-bottom:10px;">The level files were consistently more honest than the synthesis. Two of the sharpest findings are the same shape: <code>competitors.md</code> carried a [?] on the pre-login conversion claim and the synthesis dropped it; <code>benchmark.md</code> said in line 7 that Hellcase was removed from scoring, and the synthesis went on to call Hellcase the lowest-scoring platform in the category anyway. The defect is not born in the research. It is born on the merge.</p>
-    <p style="font-size:14px;margin-bottom:0;">One finding stays open on purpose. The benchmark measures the wrong population, and no amount of editing fixes that: it has to be re-run against products outside this category, starting with a dimension the founder chooses rather than one the document assumed. Until then, stage 06 has nothing to aim at.</p>
+    <p style="font-size:14px;margin-bottom:0;">The last finding is now closed. It was the only one editing could not fix, because the benchmark measured the wrong population: it had to be re-run against products outside this category, on a dimension the founder chose rather than one the document assumed. That happened on 5 August 2026. The dimension is the reveal moment, the five products are Pokemon TCG Pocket, MONOPOLY GO!, EA SPORTS FC 26 Ultimate Team, Genshin Impact and Nike SNKRS, and stage 06 now has something to aim at. One thing the re-run could not deliver is named in the benchmark rather than hidden: no product in the set documents the craft of its reveal publicly, so timing, cut, sound and hold have to be designed at stage 06 instead of matched.</p>
   </div>
 </section>
 
@@ -1195,7 +1377,7 @@
 
 <footer>
   <p>CS2 Clutch, stage 01 of twelve. Research captured June 2026. Baseline: daddyskins.com. Working placeholder name.</p>
-  <p>Stage 01 complete. The critique ran on two instruments in August 2026; one finding stays open by decision (the benchmark measures the wrong population). Next stage: CJM.</p>
+  <p>Stage 01 complete. The critique ran on two instruments in August 2026 and all 22 confirmed findings are closed, the last of them by re-running step 4 against products from other categories. Next stage: CJM.</p>
 </footer>
 
 <script>
@@ -1252,7 +1434,18 @@
       el.appendChild(div);
     });
   }
+  var benchmarks = [
+    {src:'screens/benchmark/ptcg_pocket_collecting_guide.png',caption:'Pokemon TCG Pocket - collecting and Wonder Pick guide (pokemon.com)'},
+    {src:'screens/benchmark/ptcg_pocket_official.png',caption:'Pokemon TCG Pocket - official site'},
+    {src:'screens/benchmark/monopolygo_ways_to_get_stickers.png',caption:'MONOPOLY GO! - ways to get stickers (official help)'},
+    {src:'screens/benchmark/monopolygo_duplicate_stickers.png',caption:'MONOPOLY GO! - duplicate stickers and stars (official help)'},
+    {src:'screens/benchmark/eafc_pack_probabilities.png',caption:'EA SPORTS FC 26 - pack probabilities (ea.com)'},
+    {src:'screens/benchmark/genshin_droprate_model_hoyolab.png',caption:'Genshin Impact - droprate statistical model (HoYoLAB)'},
+    {src:'screens/benchmark/genshin_official.png',caption:'Genshin Impact - official site'},
+    {src:'screens/benchmark/snkrs_exclusive_access.png',caption:'Nike SNKRS - Inside Exclusive Access'},
+  ];
   buildGallery('baseline-gallery', baseline);
+  buildGallery('benchmark-gallery', benchmarks);
   buildGallery('competitor-gallery', competitors);
 })();
 

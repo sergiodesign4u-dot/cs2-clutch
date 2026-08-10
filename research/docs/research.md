@@ -172,9 +172,35 @@ DaddySkins scored 15/40 on the trust and fairness benchmark, the lowest in the c
 
 ---
 
-## 5. Benchmark: Trust and Fairness
+## 5. Benchmark
 
 *Source: research/docs/benchmark.md. Full detail in that document.*
+
+This section carries two instruments. **5a** is the stage 01 step 4 benchmark as the course defines it: one dimension, best-in-class products from other categories. **5b** is the in-category trust scoring that this section used to be, retained under its original headings so that existing citations still resolve, and renamed for what it actually is.
+
+### 5a. The reveal moment, five products from other categories
+
+Dimension chosen by the founder on 5 August 2026: **the reveal moment**, the span from committing to a randomised outcome to understanding what you got and knowing what to do next.
+
+| Product | Category | C1 Odds | C2 Floor | C3 Ladder | C4 Agency | C5 Ordinary | C6 Cadence | Total /30 |
+|---|---|---|---|---|---|---|---|---|
+| Pokémon TCG Pocket | Digital cards | 5 | 5 | 5 | 5 | 4 | 5 | 29 |
+| MONOPOLY GO! | Casual mobile | 2 | 4 | 4 | 5 | 5 | 5 | 25 |
+| EA SPORTS FC 26 UT | Sports game | 4 | 3 | 4 | 3 [?] | 3 [?] | 2 | 19 |
+| Genshin Impact | Action RPG | 3 | 5 | 5 | 1 | 3 [?] | 2 [?] | 19 |
+| Nike SNKRS | Retail commerce | 1 | 1 | 2 | 1 | 1 | 3 | 9 |
+
+Criteria: C1 odds at the point of commitment, C2 guaranteed floor with visible progress, C3 rarity ladder as a learnable language, C4 agency inside the reveal, C5 value of the ordinary outcome, C6 cadence and cost of a reveal. `[?]` marks a cell whose evidence is inside a game client and could not be verified from a public page.
+
+**Three mechanisms carried into the MVP.** R1: the per-item odds table sits on the case detail page above the open button, pre-login, and the rarity glyph it uses is the identical glyph in the reveal and in the drop feed, so the odds screen doubles as the tutorial for the visual language (Pokémon TCG Pocket, EA SPORTS FC). R2: a visible counter that accrues on every open, never resets on a win, and buys an item the user names, with the full probability curve published rather than only the base rate and the guarantee (Pokémon TCG Pocket pack points, Genshin Impact's published floor and unpublished curve). R3: any drop below a stated threshold converts, at the user's option and at a published rate, into that same counter, offered in the reveal result state itself (MONOPOLY GO! duplicate to star to vault).
+
+**One mechanism that will not work:** undisclosed selection criteria as a scarcity amplifier, the Nike SNKRS model. Three inversions kill it here: our scarcity is manufactured in software rather than physical, our brand is unproven where Nike's underwrites the opacity, and our user has already paid before the outcome where a failed SNKRS entry costs nothing. It is the same error as the near-miss animation in 5b at a different depth: near-miss fakes the tension inside one reveal, undisclosed criteria fake it across the whole relationship.
+
+**What the benchmark could not measure, carried as an input to stage 06.** None of the five products documents the craft of its reveal publicly: build-up length, where the cut lands, what sound does at the payoff, how long the hold is. Odds disclosure is legally forced in several jurisdictions and craft is not. The mechanics of a reveal are copyable from documentation, the craft is not, and stage 06 has to derive the timing, the cut, the sound and the hold itself and test them. Any number that appears later for those is a decision this project made, not a benchmark it matched.
+
+### 5b. Trust and fairness, five in-category competitors
+
+Retained scoring. Not a benchmark in the course's sense: it scores direct competitors, which is step 3 material. It stays under its original headings because twelve downstream citations resolve into them by name. Its relocation into `competitors.md` is owned by the round that runs CJM step 4, which is the one step permitted to rewrite `personas.md` and repoint the citations that live there.
 
 ### Score Table
 

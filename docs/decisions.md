@@ -141,4 +141,26 @@ The stage 01 critique had never run. It ran now, following the stage pack: Codex
 
 Both were retired because their premise had been killed in `research.md` section 9 and because Decision 1 had already chosen the hybrid hero. The assumption now lives in exactly one place, `strategy.md` section 4, and is quoted rather than restated elsewhere.
 
-**One finding stays open by decision:** `benchmark.md` scores five same-category competitors, while stage 01 step 4 defines the benchmark as one dimension measured against four to five best-in-class products from **other** categories, and warns against exactly this confusion in its own text. Stages 04, 06 and 07 read this file. Editing cannot fix it: the file measures the wrong population. It has to be re-run, and step 4 requires the founder to choose the dimension first from proposed candidates rather than the model deciding. Until then, stage 06 has nothing to aim at.
+**One finding stayed open by decision, and is closed by D-11:** `benchmark.md` scored five same-category competitors, while stage 01 step 4 defines the benchmark as one dimension measured against four to five best-in-class products from **other** categories, and warns against exactly this confusion in its own text. Stages 04, 06 and 07 read this file. Editing could not fix it: the file measured the wrong population. It had to be re-run, and step 4 requires the founder to choose the dimension first from proposed candidates rather than the model deciding.
+
+---
+
+## D-11. Step 4 re-run. The benchmark measures the reveal moment
+
+**Date:** 2026-08-05. **Closes:** the last open finding of D-10. **Leaves open:** one relocation, owned and dated below.
+
+**Dimension, chosen by the founder** from three candidates offered (the reveal moment, the trust and verification layer, the money in-and-out loop): **the reveal moment**, the span from committing to a randomised outcome to understanding what you got and knowing what to do next. It is the one span the product exists to deliver, and the primary JTBD names it directly.
+
+**Five products, none of them in our category:** Pokémon TCG Pocket (digital collectible cards), MONOPOLY GO! (casual mobile), EA SPORTS FC 26 Ultimate Team (sports game), Genshin Impact (action RPG), Nike SNKRS (retail commerce). Six criteria on a 1 to 5 scale. Scores: 29, 25, 19, 19, 9 out of 30.
+
+**Every score rests on a page opened in a browser on 2026-08-05,** listed with URL and screenshot in the file's own source index, screenshots in `research/screens/benchmark/`.
+
+**The criteria were chosen to be verifiable from outside the product, and that constraint produced the sharpest finding in the step.** Odds, floors, rarity ladders and duplicate economies are documented publicly, because probability disclosure is a legal requirement in several jurisdictions and publishers write those pages themselves. The craft of a reveal is documented nowhere: build-up length, where the cut lands, what sound does at the payoff, how long the hold is. So the mechanics of a reveal are copyable from documentation and the craft is not. Stage 06 gets C1 to C6 from the benchmark and has to derive the timing, the cut, the sound and the hold itself, then test them. Any number that appears later for those is a decision this project made, not a benchmark it matched, and it gets recorded that way. Stage 11 inherits the same list.
+
+**Rejected: scoring the craft criteria anyway from secondary write-ups and model memory.** That would have produced a table with no `[?]` in it and no way to tell which cells were facts. Cells that could not be verified from a public page carry `[?]` and say so.
+
+**One access failure recorded rather than worked around:** the in-client Genshin announcement viewer at `webstatic.hoyoverse.com` returns HTTP 403 to an outside browser. The Genshin figures therefore rest on a community statistical model published on HoYoverse's own community platform in 2021, which states the 0.6% base rate and the 90-pull limit as publisher-announced and derives the curve between them from 25 million recorded pulls. That distinction is preserved in the observation and must not be flattened later. It is also the finding that matters most for us: the most successful pity system in games is one whose actual behaviour players had to reverse engineer, which is the exact gap this product exists to close.
+
+**Kept, not deleted: the old trust and fairness scoring.** It is now Part 2 of the same file, renamed for what it is, an in-category competitor matrix and therefore step 3 material. It stays in `benchmark.md` rather than moving because twelve citations across `personas.md`, `jtbd.md`, `ux-patterns.md`, `research.md` and `quality-check.md` resolve into it by name, including `benchmark.md (Criterion 2: Odds Visibility)` and `benchmark.md Mechanism 1`, and `personas.md` has exactly one writer. Its section and mechanism numbering is unchanged, so every existing citation still resolves.
+
+**Open, with an owner and a trigger:** the round that runs CJM step 4 moves Part 2 into `competitors.md` and repoints every citation in the same pass, including those in `personas.md`, which that step is permitted to touch. **Rejected:** doing it now by rewriting `personas.md`, which would have broken the single-writer rule to save one round of waiting.
