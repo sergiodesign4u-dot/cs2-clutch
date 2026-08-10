@@ -108,6 +108,8 @@ Same eight phases as the As-Is map, so the two curves overlay. Every row names t
 
 **Rejected as an answer to `B7-2`, and this is the most important rejection on the map: making provable fairness automatic.** Auto-publishing the seed pair, recomputing in the browser and showing a verified badge is the obvious candidate and it fails on mechanism, not on effort. **A commit-reveal scheme proves the outcome was not altered after the click. It says nothing about whether the weight table is the one we published, and the weight table is what users actually dispute.** Automating a proof of the wrong proposition produces exactly the reaction already in the evidence: "they market the sentence Provably Fair which is totally fake". The verification tool stays, because it is a round 1 surface and its absence would be conspicuous, but it is not funded as the answer to this barrier.
 
+**Confirmed by the founder, 11 August 2026, and recorded here so it stops being an inference.** Provable fairness is built and shipped, positioned as a secondary proof. Its parent in the step 8 backlog is Related Job 3, `jtbd.md:51`, verify the outcome after I open, which scores 3 for The Researcher and 1 for The Opener. It is in MVP because it is a declared job and a locked round 1 surface, not because it converts a sceptic on the weight table. Carries into `docs/decisions.md` at step 11.
+
 ### T8. Payoff or exit
 
 - **Step in the product.** Withdraws to Steam, and can see the state of that withdrawal and who it is waiting on at every moment.
@@ -133,6 +135,175 @@ Every capability proposed during divergence that closes no As-Is barrier and ser
 | Personal streak math | Same, plus it creates a compliance liability the barrier does not require | Cut |
 | Binding buyback at displayed value | Needs a payout rail that round 1 does not have | Cut, revisit only if a second exit is ever in scope |
 | Chase interrupt on detected tilt | Has a parent, `B7-4`, but loses to the chosen capability on the same barrier | Not an orphan. Dropped in convergence |
+
+---
+
+## Backlog and MVP core
+
+Produced by step 8. This is one list. It refines the MVP core already sketched at stages 01 and 02 rather than forking a second one, and where it disagrees with an older list the disagreement is printed rather than quietly resolved.
+
+**Every row names a parent**: a barrier code from `cjm-as-is.md` or a job from `jtbd.md`. A capability with no parent is not in this table, it is in the cut list below.
+
+**Priority test, applied literally.** `MVP` means the To-Be path breaks without the row. `LATER` means the path still runs. One row is marked MVP although it passes the LATER test, and it says so in its own cell instead of hiding behind the label.
+
+**Grouping.** Rows are grouped by the round 1 screen they live on, because that grouping is itself the artefact that was missing. `cjm-as-is.md` recorded that no file in this repository maps the three MVP core jobs onto any scope item. This section is that map.
+
+Thirty five MVP rows across the seven round 1 screens, thirty four distinct capabilities: A4 and G3 are one feature on two surfaces. Seven of the rows are rules or architecture rather than something anyone draws.
+
+### 1. Home, before login
+
+| Feature | Parent | Priority | Success signal |
+|---|---|---|---|
+| A1. Two prices, one item: live market price with timestamp beside the exact chance at this entry cost, an outbound market link on the top item, and the cheaper-on-average statement in our own voice | `B1-2`, pattern of 14 | MVP | Acquisition OMTM, `aarrr.md:63`. Outbound market clicks are tracked as an accepted cost, never as a failure metric |
+| A2. Live free-unit count per item | `B8-1` | MVP | Structural rather than statistical: the out-of-stock state cannot occur after a win, so tickets of that class are zero by construction |
+| A3. Live drop feed with no invented names | Social Job 2, `jtbd.md:120` | MVP | `[?]` No isolated signal exists. Measurable only inside the hero A/B |
+| A4. Rolling median and p90 withdrawal time from our own logs, visible before login | `B8-2` pattern of 6, Related Job 1 | MVP | Our own p90 sits at or below the category median. Same feature as G3, two surfaces |
+| A5. Institutional trust unit in the hero: named auditor plus Trustpilot score | Related Job 1 `jtbd.md:33`, plus Decision 1 at `jtbd.md:236` | MVP | This row is the smallest test at `lean-ux-canvas.md:79`. Measure click-through into the deposit flow, not page engagement |
+
+### 2. Registration, account, age, geography
+
+| Feature | Parent | Priority | Success signal |
+|---|---|---|---|
+| B1. Verification resolved before funding, with account state shown on the deposit screen | `B8-4`, pattern of 5 | MVP | Zero cases where a check first meets the user on the withdrawal route |
+| B2. No verification branch on the withdrawal route at all | `B8-4` | MVP, code rule | Proven by code review, not by a metric: the withdrawal route contains no verification call |
+| B3. Age gate before any case interaction. Method open, see `D-A` | Compliance constraint in `CLAUDE.md`, plus `B8-4` | MVP | Compliance, not conversion. The conversion cost of the gate is measured separately, target `[?]` |
+| B4. Geo block with a cited legal ground per blocked market | Compliance constraint, `research.md` section 7 | MVP | Every blocked market carries a row with a citation |
+| B5. Readable Steam login failure states | `B3-1`, **one signal** | MVP | One voice, and it is marked as one voice. A component state rather than a feature |
+| B6. Onboarding asks for nothing unusual: no password anywhere outside Steam OpenID, no profile changes | `B3-2`, **one signal** | MVP, rule | Caught at review |
+
+### 3. Deposit
+
+| Feature | Parent | Priority | Success signal |
+|---|---|---|---|
+| C1. One real currency throughout, no internal coin denomination anywhere | `B7-1` pattern of 7, `B4-3` | MVP, architecture | No number renders anywhere without a currency mark |
+| C2. Spend ceiling chosen at deposit | `B7-4`, pattern of 12 | MVP | Share of deposits where the pre-filled ceiling is accepted unchanged, and share of sessions stopped by the ceiling. Targets `[?]` |
+| C3. Deposit crediting shown as a state with a timer | `B4-3`, pattern of 4 | MVP | Tickets of the class "money left and never arrived" reach zero |
+| C4. The amount required to withdraw is stated before the deposit and can never rise | `B4-1` | MVP, rule | No withdrawal ever demands a sum that was not named before the money went in |
+| C5. Session limit, self exclusion, cool down | `B7-4`, compliance constraint | MVP | **The round 1 screen list has no surface for this. Gap opened here, see the reconciliation below** |
+
+### 4. Choosing a case
+
+| Feature | Parent | Priority | Success signal |
+|---|---|---|---|
+| D1. Stock-backed drop tables | `B8-1`, pattern of 2 | MVP, architecture | The roll cannot select an item with zero free units. Structural |
+| D2. Published chance and current value per item on the case page | `B7-2`, Related Job 1 | MVP | Measured inside the case-page A/B |
+| D3. Observed rate counter beside every published tier percentage | `B7-2`, pattern of 11 | MVP, **conditional on `D-B`** | See answer 2 below. At launch this row is infrastructure and it does not close `B7-2` until N is large enough to say so |
+
+### 5. The open
+
+| Feature | Parent | Priority | Success signal |
+|---|---|---|---|
+| E1. The reveal renders the settled roll, with no separate client-side outcome | `B6-1`, one signal, fatal class | MVP, architecture | Divergence between animation and credit is impossible by construction |
+| E2. No near-miss theatre | Emotional Job 1, `jtbd.md:84` | MVP, rule | Rule |
+| E3. Rarity-differentiated reveal | Main Job `jtbd.md:17`, Emotional Job 2 | MVP | Activation OMTM, first open completion rate, `[?]` 40 to 60 percent per `aarrr.md:115` |
+| E4. Round hash visible at the spin trigger | Related Job 3, `jtbd.md:51` | MVP | **Secondary proof, founder decision.** Presence, not conversion |
+
+### 6. The outcome
+
+| Feature | Parent | Priority | Success signal |
+|---|---|---|---|
+| F1. Instance value receipt | `B7-1` pattern of 7, also closes `B7-3` | MVP | Complaints of the class "it turned out to be worth less" reach zero, and the displayed price matches the market inside the float band |
+| F2. The receipt stays on the item in inventory and on the withdrawal record | `B7-1` | MVP | The same receipt is retrievable a week later |
+| F3. Post-reveal verification link | Related Job 3, `jtbd.md:51` | MVP | Secondary proof |
+| F4. One-tap share of a result | Emotional Job 2, `jtbd.md:93` | MVP, **the one exception to the priority test** | Referral OMTM, `aarrr.md:268`. The path does not break without it, the loop does |
+
+### 7. Withdrawal
+
+| Feature | Parent | Priority | Success signal |
+|---|---|---|---|
+| G1. Public withdrawal clock: named states, per-state timer, attribution to us, Steam or the user | `B8-2`, pattern of 6 | MVP | Share of withdrawals that generate a support ticket asking for status |
+| G2. Published ceiling on our own states, plus a live degraded banner driven by a Steam API health probe | `B8-2` | MVP | Our own states stay inside the published ceiling at p90 |
+| G3. Rolling median and p90 published from our own logs | `B8-2`, Related Job 1 | MVP | Same feature as A4, two surfaces |
+| G4. A restriction produces written notice with a stated ground, a frozen rather than zeroed balance, and an appeal with a published response deadline | `B8-3`, pattern of 3 | MVP | Every restriction carries a ground in text, and response time stays inside the published deadline |
+| G5. Named limits stated in plain words: blocked countries, Steam trade holds, Steam-side bans | `B8-3`, `B8-2` | MVP | The user meets the limit before the first withdrawal rather than inside it |
+| G6. Commission-free withdrawal to Steam | Related Job 5, `jtbd.md:69` | MVP | This is the value exchange against Steam Market's 15 percent, `jtbd.md:72` |
+
+### 8. Provably fair and the starter offer
+
+| Feature | Parent | Priority | Success signal |
+|---|---|---|---|
+| H1. Public provably fair page, no login, working verifier | Related Job 3, `jtbd.md:51` | MVP | Opens with no login and the verifier recomputes real seeds. **Secondary proof: its parent is Related Job 3, not `B7-2`** |
+| I1. Bounded no-deposit starter credit | Related Job 2 `jtbd.md:42`, `aarrr.md:119` | MVP, **with two constraints that are not optional, see answer 1** | Activation OMTM, `aarrr.md:115` |
+
+### LATER, and every parent named
+
+| Feature | Parent | Note |
+|---|---|---|
+| Case battles | Social Job 1, `jtbd.md:111` | Sound parent |
+| Upgrades | Related Job 4, `jtbd.md:60` | Sound parent |
+| Rakeback | Emotional Job 3, `jtbd.md:102` | Sound parent |
+| In-platform exchange | Hypothesis Job A, `jtbd.md:133` | Parent is a hypothesis marked `[?]` |
+| Leaderboards | Hypothesis Job C, `jtbd.md:145` | Parent is a hypothesis marked `[?]` |
+| Referral programme | None in `jtbd.md`. A business line only, `aarrr.md:272` | **No user job stands behind it.** It is locked into LATER by scope, so this step cannot cut it. It has to acquire a parent before its own round opens |
+| Giveaways | None | Same |
+| Gunfights | None | Same |
+
+A distinction that is easy to lose and matters: **one-tap sharing of a result is not the referral programme.** Sharing is F4, it has a parent, and it is MVP. The referral and affiliate programme is a business mechanism with no job behind it and it is LATER.
+
+### Cut at this step
+
+| Cut | Why |
+|---|---|
+| First-deposit bonus carrying a wagering requirement | See answer 3. A wagering requirement is `B4-1` in better clothes and it contradicts C4 directly |
+| Per-mode provably fair documentation | Round 1 ships one mode. The requirement degenerates, and it returns when a second mode does |
+| Daily bonus in MVP | `aarrr.md:172` places it in MVP. No job scoring 3 for the primary persona stands behind it and the To-Be path does not break without it. Moved to LATER |
+
+Rain-style ambient mechanics, community case creation and a fiat or crypto withdrawal path were already deferred at `jtbd.md:198` to `:200` and are not re-litigated here. The four capabilities cut during step 7 divergence stay in "Orphans, cut" above.
+
+---
+
+## Reconciliation with the existing MVP core
+
+Three lists carried the name of the MVP core and did not agree. `cjm-as-is.md` recorded the divergence and handed it to this step.
+
+**Confirmed by the To-Be map.** The pre-login trust surface on home, case opening, the provably fair page, the age gate and geo block, withdrawal to Steam, responsible play.
+
+**Sharpened.**
+
+| Old wording | What it became |
+|---|---|
+| "trust signals visible pre-login", `lean-ux-canvas.md:48` | A1 two prices, A2 free-unit count, A4 published p90 |
+| "rarity-differentiated animation", `lean-ux-canvas.md:49` | E1 reveal bound to the settled roll, E2 no near-miss, E3 rarity differentiation. The execution gap named at `jtbd.md:182` becomes three rows, one of them architectural |
+| "identity-based age gate", `lean-ux-canvas.md:54` | B1 to B3. The sequence is locked, the method is open as `D-A` |
+| "deposit limits", `lean-ux-canvas.md:54` | C2 ceiling chosen at deposit, C5 the rest of the responsible play set |
+| 3 core jobs, `jtbd.md:173` | Mapped onto scope for the first time, table below |
+
+**Disagreements, printed rather than resolved quietly.**
+
+- Case battles, upgrades and in-platform exchange are MVP at `lean-ux-canvas.md:46` and LATER in `CLAUDE.md`. The canvas marks itself superseded in part at `:57`. `CLAUDE.md` wins.
+- Daily bonus and referral programme are MVP product decisions at `aarrr.md:172` and `:272`, LATER in `CLAUDE.md`. `CLAUDE.md` wins.
+- Case battles sat in four states at once across four files. After this step they sit in one: LATER, parent Social Job 1.
+- `jtbd.md:175` states the criterion "score 3 for the primary persona" and `jtbd.md:189` records the third core job at 2 for The Opener. The third core job fails the criterion its own block states. That is a defect of the core rather than of this backlog, and it belongs to step 11.
+
+**The gap this step closes.** A table now exists in which a capability is a row and MVP against LATER is a column, and the three core jobs reach the scope:
+
+| MVP core job | Screens and rows that close it |
+|---|---|
+| Core Job 1, arrive with confidence, `jtbd.md:177` | Home, A1 to A5. Provably fair, H1 |
+| Core Job 2, reveal quality, `jtbd.md:182` | Choosing a case, D1 to D3. The open, E1 to E4 |
+| Core Job 3, withdraw cleanly, `jtbd.md:187` | Withdrawal, G1 to G6. Entry sequencing, B1 and B2 |
+
+Registration and deposit close none of the three core jobs. They are justified by barriers, `B3-1`, `B3-2`, `B4-1`, `B4-3`, `B7-4`, not by core jobs. The screen list is legitimately wider than the job list, and that is the reason.
+
+**The gap this step opens.** Responsible play has nowhere to live. `CLAUDE.md` names it a first class product constraint and the round 1 screen list contains no surface for it. C5 has a parent and a priority and no home. This goes to step 11 as a scope question, not as a design one.
+
+**A side effect worth naming before stage 03.** The hero now has three candidate occupants: the reveal animation, the institutional trust unit A5, and two prices A1. The smallest test at `lean-ux-canvas.md:79` is written for two variants. It needs restating before it is run.
+
+---
+
+## The three dangerous questions, answered
+
+**1. The starter credit is the mechanism that produced the worst single narrative in the corpus. Answer: it ships, bound to two rows that are not optional.**
+
+`B4-1` is a user whose withdrawal threshold rose from 5 to 12 to 15 dollars after a free open. `B4-2` is a pattern of 2 in which an implausibly generous starter gift is read as proof of a scam. Both failure modes have a named mechanism, and both mechanisms are already closed by rows in this backlog rather than by good intentions: C4 forbids a withdrawal threshold that rises, and D1 makes a 4 dollar case physically incapable of producing 1,200 dollars of gloves, because the units have to be ours before they can be in the table. The credit therefore ships bound to C4 and D1, and it does not ship before them. **Residual risk, stated rather than smoothed: the credit still teaches a first-session user that opening is free, which is the one impression the rest of this map spends its whole budget contradicting.**
+
+**2. The observed rate counter depends on a migration that is not ours to promise. Answer: demote the claim, keep the row.**
+
+D3 stays in MVP as infrastructure, because a counter that starts at launch is worth building on day one and worthless to retrofit. What is withdrawn is the claim that it closes `B7-2` at launch. At small N the counter is honest and weak, and since it prints its own N it says so itself. Until `D-B` is resolved, `B7-2`, the densest pattern in the corpus at 11 sources, is answered at launch by D2 and by nothing else. That is a materially weaker answer and it is recorded as one rather than assumed away. If `D-B` comes back negative, the candidate rejected at step 7, the finite visible pool, returns to the table by default rather than by preference.
+
+**3. A first-deposit bonus with a wagering requirement is `B4-1` wearing better clothes. Answer: cut.**
+
+`aarrr.md:196` describes the wagering requirement as margin protection, which is accurate from the operator's side. From the user's side it is money described as theirs that cannot be taken until they spend more, which is the exact shape of `B4-1` and the exact thing C4 forbids. The two cannot both ship. Either the bonus carries zero wagering or there is no bonus in round 1. The revenue consequence is real and it belongs to whoever owns case mathematics, per `aarrr.md:224`.
 
 ---
 
