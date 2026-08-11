@@ -30,8 +30,8 @@ window.NAV = [
           { label: 'Concept map', page: 'ia/concept-map.html',  done: true  }
       ]},
       { subhead: 'Detail layer', items: [
-          { label: 'Sitemap',   page: 'ia/sitemap.html',   done: false },
-          { label: 'Structure', page: 'ia/structure.html', done: false }
+          { label: 'Sitemap',   page: 'ia/sitemap.html',   done: true  },
+          { label: 'Structure', page: 'ia/structure.html', done: true  }
       ]}
   ]},
 

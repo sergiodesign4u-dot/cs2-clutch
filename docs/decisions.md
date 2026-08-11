@@ -357,3 +357,64 @@ All twelve screen codes collided with backlog capability codes: `C1` was the cat
 **Six of the fourteen findings in the second pass were damage the first pass caused**, three of them by a single rename regex. Critique 1 found what the map was missing, critique 2 found what fixing it broke. A stage that runs one critique and stops ships that damage, and this is the first time in the project that the second pass paid for itself in a way that can be counted.
 
 **The second critique split with zero overlap between instruments**, which is the strongest evidence for the two instrument rule the project has produced. Codex owned every mechanical inconsistency including the three defects the rename had just created; Claude owned the consequences of its own edits, an axis Codex cannot have because it did not make them.
+
+---
+
+## D-20. The 03b input gate: three answers, and one structural input that changed the shape of Home
+
+**Date:** 2026-08-11. **Stage:** 03b input gate. **Decided by:** the founder. **Closes:** `D-D`, and the ninth surface question `sitemap.md` raised and refused to answer. **Schedules:** `D-C` together with `D-B`, as one request to the live platform. **Amends:** the round 1 scope list in `CLAUDE.md`, from eight surfaces to nine.
+
+The gate found no missing file. All five declared inputs exist and are substantive. What it found instead were three decisions 03a had deliberately left, all three landing inside the first steps of this stage, and all three were answered in one move.
+
+### The structural input, which was not asked for and mattered most
+
+The founder described the target architecture without being asked: **Home routes to several game modes, and round 1 ships case opening plus the account with deposit and withdrawal plus the supporting pages.** The scope half of that matches the locked round 1 list exactly. The other half is a statement about the shape of Home, and nothing in this repository had one.
+
+The baseline confirms both halves as an existing product rather than as a plan. `baseline.md` section 4: Home carries a row of four game mode cards, Cases, Case Battles, Gunfights and Upgrade, and the case catalogue is a separate page at `/en/cases` with a category bar, a search and filter control, the daily cases ladder and rows of case tiles.
+
+### `D-D`. Answered by structure rather than by a number, and the number is no longer in the way
+
+**Chosen: `S-C1` Case catalogue stays a node, and it comes off the main path.** Home in round 1 carries the case grid directly. The mode hub row is inherited as a pattern and deferred as a shipment, with the second mode as its trigger. The catalogue is reached as "all cases" from Home and owns what Home cannot hold: the categories, the search, the filters and the daily entry.
+
+**Why the mode hub cannot ship in round 1, and it is the same reason as the rail.** Exactly one mode exists in round 1. A four card mode row with one live card and three dead ones is the left icon rail's defect at a different scale, and `D-19` already ruled on that shape. Deferring rather than deleting is the same verdict for the same reason, which is why this enters `CLAUDE.md` as one generalised rule and not as a second one beside it.
+
+**And there is an arithmetic reason that is harder to argue with.** A mode hub layer inserts a tap. `CLAUDE.md` locks the main job at three taps with one of them the age gate: case tile, gate, open. Through a hub it reads mode card, case tile, gate, open, which is four. A locked number would have been broken by a routing layer serving one destination.
+
+**Rejected: cutting `S-C1` entirely and letting Home hold everything.** The baseline runs 239 distinct cases across thirteen categories. Even a fraction of that needs a page with a category bar and a search, and Home is already carrying three loads by `D-19`'s own count.
+
+**The inventory figure stays `[?]` and no longer blocks anything.** Whatever the backed count turns out to be, Home shows a curated subset and the catalogue holds all of it. The question returns at step 4 of this stage, where the grid's capacity is a block decision rather than a map decision, which is where `D-17` said it belonged.
+
+**Cost carried, stated rather than absorbed.** Home now has a fourth load on top of the three `D-19` recorded: it is also the structural placeholder for a mode hub that ships later. Handed to stage 04 as a named constraint.
+
+### The ninth surface. Option 1, the public result page
+
+**Chosen: the public result page exists, and round 1 becomes nine surfaces.** `sitemap.md` raised this at step 5 and refused to decide it, because `CLAUDE.md` locks the list at eight and the rule outranks the step. The founder amended the list.
+
+Reasoning taken as recommended and already written at `ia/docs/sitemap.md`: row `F4` is the single exception to the priority test in the whole backlog, the path does not break without it but the referral loop does, and landing a shared result on a verifier form gives that loop the least emotionally sharp object the product owns. Option 2 was rejected for that reason. Option 3, moving `F4` out of round 1, was rejected because `F4`'s own row says that is exactly what breaks.
+
+**Consequence:** the scope line in `CLAUDE.md` changes from eight surfaces to nine. That is a rule edit and it goes through the budget, not around it.
+
+### `D-C` and `D-B` go to the platform as one request
+
+**Chosen: send now, in parallel with steps 1 to 3, because it costs calendar rather than session time.** `D-17` scheduled `D-C` before stage 04, and 03b is the last stage before it, so the deadline is real rather than nominal.
+
+Both questions are answered by the same query against the live platform's roll history, which is why they travel together:
+
+1. For each live case, the published per item drop chance against the observed per item hit rate, with `N`, and the difference.
+2. The aggregate observed RTP against the RTP the platform publishes or claims.
+3. Whether roll history is retained per roll with its server seed, client seed and nonce, which is what makes it migratable into a published ledger. This part is `D-B`.
+4. Whether any legal or contractual reason prevents publishing it. Also `D-B`.
+
+A negative answer to 1 or 2 changes no node and no route. It changes whether the routes are worth drawing at all, which is the pairing `D-17` described as the cheapest test in the project with the largest blast radius.
+
+### What stays open, and does not block
+
+`D-A`, the method inside identity verification, stays with counsel. The flow is drawn as a superset per `D-17`, and `S-B3`'s specification will carry the method as `[?]`. The free entry withdrawal hole rides on the same answer.
+
+**One cost this stage will pay, named here first.** The canonical skin card needs the rarity ladder, and the baseline walk deliberately did not walk it. `CLAUDE.md` gives that walk to the stage that needs it, which is this one, before step 5.
+
+### Dependencies, checked rather than assumed
+
+Refero answered a live call at the gate. Its index is weighted toward SaaS and AI tools, so a domain flavoured query returns noise, which is the practical reason the pack demands searching by page type and job rather than by industry. Playwright is proven and 32 competitor screenshots already sit in `research/screens/`.
+
+**One stop is predicted now so it is not a surprise at step 4.** Deposit, account with inventory, and withdrawal sit behind login at all five hard competitors, and this project does not log in. The domain half of the block bank will be absent for those three types, and the bank will say so in place of substituting a marketing landing page of a different type.
