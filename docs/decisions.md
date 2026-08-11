@@ -80,6 +80,10 @@ The founder named home, one game (case opening) and registration with an account
 
 Carrying them unresolved is the smaller error. The larger one would be to leave them looking like current artefacts with no reader, which is exactly how the museum problem starts.
 
+**Amended on 2026-08-11 at the stage 03a input gate. Narrowed, and the narrowing has a reason.** The resolution above cannot be executed as written: repointing the citations that the merge produces means editing `personas.md`, and that file has had no writer since CJM step 4. The merge of `quality-check.md` and `live-research.md` into `critique.md` is therefore dropped. It was tidiness, and tidiness bought with a broken rule is the trade this project keeps refusing. **Rejected with it:** naming stage 03a as a new writer for `personas.md` to get the merge through.
+
+**What survives, and is executed by this round:** each of the four files carries a header saying what it is, which artefact superseded it, and who may still read it, and the four get one visible place in the browser. `product-model.md` is the urgent one. `ux-patterns.md:6` still cites it as a live input while this record calls it superseded history, so a dead file holds a living citation into a declared stage 03a input.
+
 ---
 
 ## D-07. Nine theme variables in `_nav.css`, not eight
@@ -234,4 +238,72 @@ Both were retired because their premise had been killed in `research.md` section
 
 **A third thing closed with them.** Critique finding M-01 had handed the wording of design principle 1 to this step. `CLAUDE.md` said "provable fairness is the brand, not a footnote" while the map framed it as a secondary proof, and only one of the two could be read literally. Principle 1 now carries the limit in its own text, so the rule file and the map say the same thing. See D-14.
 
-**Open, inherited, and not closed here.** D-11 handed the relocation of `benchmark.md` Part 2 into `competitors.md` to the round that runs CJM step 4, on the ground that this step may touch `personas.md`. Step 4 ran and did not do it. The relocation is now unowned, and `personas.md` returns to having no writer at all once this stage closes.
+**Open, inherited, and not closed here.** D-11 handed the relocation of `benchmark.md` Part 2 into `competitors.md` to the round that runs CJM step 4, on the ground that this step may touch `personas.md`. Step 4 ran and did not do it. The relocation is now unowned, and `personas.md` returns to having no writer at all once this stage closes. **Closed by D-16.**
+
+---
+
+## D-16. The relocation of `benchmark.md` Part 2 is cancelled
+
+**Date:** 2026-08-11. **Stage:** 03a input gate. **Closes:** the only thread in the project with no owner. **Status: closed, will not do.**
+
+D-11 handed the move of Part 2 into `competitors.md` to the round that runs CJM step 4, because only that round was permitted to touch `personas.md` and repoint the citations the move would break. Step 4 ran and did not do it. The thread has been unowned since, and the window it depended on closed with the stage.
+
+**Chosen: do not move it.** Part 2 was already renamed for what it is, an in-category competitor matrix and therefore step 3 material, and its section and mechanism numbering never changed. All twelve citations across `personas.md`, `jtbd.md`, `ux-patterns.md`, `research.md` and `quality-check.md` still resolve by name. Nothing downstream is broken by the section living where it lives. The move buys shelf order and nothing else.
+
+**Rejected: handing it to stage 03a with a new writer for `personas.md`.** The only thing the move actually requires is editing citations inside a file whose single-writer rule this project wrote down on purpose. A rule bent once for a cosmetic gain is bent later for a real one, and the gain here is cosmetic by its own description.
+
+**Cost accepted:** one file keeps two populations under one name, and a reader who opens `benchmark.md` expecting only out-of-category products meets an in-category matrix in Part 2. The header of that section says which it is, so the cost is a moment of surprise rather than a wrong conclusion.
+
+---
+
+## D-17. The four open map decisions, answered at the input gate
+
+**Date:** 2026-08-11. **Stage:** 03a input gate. **Decided by:** the founder, with the shape of `D-A` recommended and accepted. **Closes:** `D-A` in shape and `D-C` in schedule. **Leaves conditional:** `D-B` and `D-D`, both with owners.
+
+The To-Be map closed carrying four decisions it had no right to take by itself. `cjm-to-be.md:351` names the stage 03a input gate as their latest owner. They came due here and all four were answered.
+
+### `D-A`. The age and identity method: two layers, not one
+
+**Chosen.** Layer 1 is an 18+ self-declaration at registration. Layer 2 is identity verification before funding, which is the sequence that was already locked.
+
+**The founder's answer is taken as an addition, not as a replacement, and the reason is in this repository rather than in anyone's judgement.** `aarrr.md:105` already discarded soft and optional age gating by name, citing the UK Online Safety Act of July 2025 and its requirement of robust identity-based verification. A declaration on its own would put this product below its own cited research and below the compliance constraint in `CLAUDE.md`. It sits above the baseline either way: `research.md:171` records daddyskins.com as having no age verification beyond FAQ text at all.
+
+**What the split buys is the one thing `aarrr.md:110` marks unknown,** the conversion cost of identity verification, `[?]`. The cheap declaration meets every visitor at the door, where conversion is most fragile and where a heavy gate would be paid for by people who never reach a deposit. The expensive verification meets the person at the money moment, where they are already committed and where the law actually attaches. B1 to B3 stay intact, verification still resolves before funding, and the withdrawal route still carries no verification branch.
+
+**The method inside layer 2 stays open, and the flow is drawn as a superset instead of waiting for it.** Facial age estimation as the fast path, document KYC as the escalation when estimation is inconclusive. That shape contains both candidate methods, including the asynchronous "pending review" state that only KYC has and that changes the shape of the flow rather than its screen count. If cited legal research later forces document KYC for everyone, one branch is deleted rather than the whole flow redrawn. **Rejected: picking one method now to keep the flow simple.** The simpler flow would have been redrawn once, and a redrawn flow loses the reason it had its original shape.
+
+**Owners.** The method inside layer 2: stage 03b. The cited legal research and counsel: the founder, running in parallel because it costs calendar rather than session time.
+
+### `D-B`. The roll history migration is a question to the platform, not a decision by the design
+
+**Chosen: ask, and proceed with the fallback recorded rather than wait.** Two parts, both factual: whether six years of roll history exists in a form that migrates into a new ledger, and whether any legal or contractual reason prevents publishing it.
+
+Until an answer arrives, 03a proceeds with D3, the observed rate counter, in the map, because a counter that starts at launch is worth building on day one and worthless to retrofit. If the answer is negative, the capability is disqualified by its own evidence rule until volume accrues, and the finite visible pool returns from the cut table by default rather than by preference. That fallback is already written at `cjm-to-be.md:283` and has a row to return to.
+
+### `D-C`. The internal check runs before stage 04, not before 03a
+
+**Chosen: scheduled, with the reason stated in full.** Every trust capability on the To-Be map is a commitment device that only works for an operator whose published weights are already true. The observed-against-published check ships to the public and is never taken down.
+
+It is placed before stage 04 rather than before 03a because it changes no node and no route: it changes whether the routes are worth drawing at all. It costs one query now, and it costs the entire visual half of the project if it comes back negative after stage 07. **This is the cheapest test in the project and the one with the largest blast radius, and that pairing is the whole reason it gets a date instead of a mention.**
+
+### `D-D`. Inventory capital is deferred to 03b on purpose
+
+**Chosen: defer, and say why rather than letting it drift.** It sets the ceiling on what the case grid can contain, and a grid is a block, which is detail-layer material. On the base layer the case grid is one node and its capacity is not measured.
+
+**Rejected: asking now because it is cheap to ask.** A treasury question asked five weeks before it is needed comes back as a guess, and a guess written into a document is indistinguishable from a figure a month later. Owner: 03b.
+
+---
+
+## D-18. The baseline is inherited visually as well, and D-03 loses its palette clause
+
+**Date:** 2026-08-11. **Stage:** 03a input gate. **Decided by:** the founder. **Amends:** D-03 and D-04.
+
+**Chosen.** The structure of daddyskins.com is matched closely, with improvements, which D-04 already said and which this record only confirms. What is new: **the colour register is taken from the baseline rather than derived to sit near it.**
+
+**What this overturns, stated rather than quietly reinterpreted.** D-03 chose the full "no brand yet" route and explicitly rejected "the brand already exists route with one collected plate and values lifted from the baseline". D-04 listed the palette under "not inherited". `CLAUDE.md` said the register enters stage 06 as an attribute feeding the plates, "adjacent by derivation, not by copy". Those clauses no longer hold as written. The founder owns the product and the brand and the call is theirs; what this record refuses to do is leave two files saying opposite things and let stage 06 pick whichever it reads first.
+
+**What is deliberately not decided yet, and why later is better than now.** Whether "take the colours" means the exact values or the register carried by our own values cannot be answered today, because **no file in this repository holds a single colour value from the baseline.** The corpus documents daddyskins at the trust and competitive level: eleven mentions in `research.md`, a benchmark score of 15 out of 40, six screenshots in `research/screens/baseline/`. Not one hex value anywhere. Answering now would be choosing between two descriptions. Answering after the values are extracted is choosing between two things on the table, which is a different quality of decision for the same price.
+
+**Limits of this record, so that it is not read wider than it is.** The logo stays not inherited. Typography, shape language, motion and component look are not covered here and stay where D-04 put them. The consequence for stage 06 is that its route shifts from three brand plates toward one collected plate plus a named list of what the founder wants changed, and that shift is recorded here rather than discovered by stage 06 as a surprise.
+
+**The consequence for 03a, and it is why this record exists before step 1 rather than after it.** "Inherit the structure" currently has **no source document.** `CLAUDE.md` names what is inherited, the navigation model, the page inventory, the page composition, the flows, the left icon rail, the live drop ticker and the placement of the money and account actions, and not one of those seven is written down anywhere in this repository. Six screenshots are not an inventory. Building the concept sitemap on them would mean reconstructing a six-year-old product from images plus model memory, which is exactly the median the input gate exists to prevent, and it would look convincing right up until someone asked where a node came from. The baseline therefore gets its own documented walk, on public and pre-login pages, before step 1 of the stage.

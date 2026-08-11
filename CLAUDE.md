@@ -13,21 +13,22 @@ These are the stage 01 boundary answers. They were asked, not assumed, and they 
 | Decision | Value | Consequence |
 |---|---|---|
 | Language | One, English | One IA node is one page. Microcopy is strings, not keys. Voice and glossary run once. |
-| Existing brand | None inherited | Own logo, own palette. Stage 06 runs the full "no brand yet" route: three plates, own visual language. |
+| Existing brand | Own logo, inherited colour | Amended 11 August 2026, `D-18`. Logo is ours. The colour register comes from the baseline, so stage 06 collects before it derives. |
 | Existing design system | None | Stages 06 to 08 run as written. |
 | Product size | Above the 8 screen floor | Stages 07 to 09 pay their full price and are worth it. |
-| Baseline inheritance | Structure and IA only | See "Baseline" below. |
+| Baseline inheritance | Structure, IA and colour | See "Baseline" below. |
 
 ## Baseline
 
 daddyskins.com is the product being redesigned. It is the founder's own product, six years live, and its structure carries six years of validated behaviour. Therefore:
 
 - **Inherited, deliberately close to identical:** navigation model, page inventory, page composition, flows, the left icon rail, the live drop ticker, the placement of the money and account actions.
-- **Not inherited:** logo, palette, typography, shape language, motion, component look, copy.
+- **Also inherited, by founder decision of 11 August 2026:** the colour register. Stage 06 collects the baseline values before it derives anything, and its route becomes one collected plate plus a named list of what the founder wants changed, not three plates from nothing. Reasoning and limits: `docs/decisions.md` D-18.
+- **Not inherited:** logo, typography, shape language, motion, component look, copy. That list is a limit, not an omission: nothing else follows the colour across.
 
 The rule of the course still holds and outranks the resemblance target: a reference is an input, never an output. No screen is carried over whole. Where the inherited structure loses to research, research wins and the divergence is named out loud in the IA node.
 
-One nuance carried from the founder and not to be lost at stage 06: the colour register should read as adjacent to the baseline, not as a break from it. Dark near black ground, a hot accent, neon energy. That enters stage 06 as an **attribute** feeding the plates, never as a palette lifted from the baseline. Adjacent by derivation, not by copy. If the derived palette lands far from that register, it gets said out loud and decided, not quietly accepted.
+**Inheriting a thing means having it written down first.** Not one of the inherited items above exists as a document in this repo, and six screenshots are not a page inventory. Anything taken from the baseline is walked live on public pre-login pages and recorded with its source before a stage builds on it. Reconstructing the baseline from images plus model memory is the median this project's input gate exists to prevent, and it reads as knowledge until someone asks where a node came from.
 
 ## Scope
 

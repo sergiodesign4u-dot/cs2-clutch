@@ -97,6 +97,8 @@
     .dec-title { font-size: 17px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; }
     .dec-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 14px; letter-spacing: 0.02em; }
     .dec-body p { font-size: 14px; }
+    /* Sub-decisions inside one record: they divide the card, so they must not read as captions. */
+    .dec-body h4 { font-size: 12px; letter-spacing: 0.08em; color: var(--accent-blue); padding-top: 4px; border-top: 1px solid var(--border); }
     .st {
       display: inline-block; font-size: 10px; font-weight: 700;
       letter-spacing: 0.09em; text-transform: uppercase;
@@ -147,12 +149,12 @@
 <div class="hero" id="intro">
   <div class="section-eyebrow">Decision records - August 2026</div>
   <h1>What was decided, and what it cost</h1>
-  <p class="lede">Fifteen records. Each one holds what was done, why it was done that way, what was rejected and on what grounds. This file is never auto loaded into a session: it is referenced by path, read by a person, and it is the only place where the reasoning behind a locked decision survives. Rules live in <code>CLAUDE.md</code>. Status lives in <code>README.md</code> and <code>_nav.js</code>. Neither of those two says why.</p>
+  <p class="lede">Eighteen records. Each one holds what was done, why it was done that way, what was rejected and on what grounds. This file is never auto loaded into a session: it is referenced by path, read by a person, and it is the only place where the reasoning behind a locked decision survives. Rules live in <code>CLAUDE.md</code>. Status lives in <code>README.md</code> and <code>_nav.js</code>. Neither of those two says why.</p>
   <div class="hero-meta">
-    <div><div class="hero-stat-value">15</div><div class="hero-stat-label">Records</div></div>
-    <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Founder calls</div></div>
+    <div><div class="hero-stat-value">18</div><div class="hero-stat-label">Records</div></div>
+    <div><div class="hero-stat-value">8</div><div class="hero-stat-label">Founder calls</div></div>
     <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Still open</div></div>
-    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Thread with no owner</div></div>
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Threads with no owner</div></div>
   </div>
   <div class="hero-note">
     <strong>Why a rejected option is written down at all.</strong> A decision with no rejected alternatives beside it reads, one stage later, as the only thing anyone could have done. It then gets re-derived by the next model that reaches it, usually differently. Every record here keeps what lost, so that reopening a question costs an argument rather than a guess.
@@ -188,24 +190,27 @@
   </div>
 
   <div class="dec is-locked">
-    <div class="dec-head"><span class="dec-num">D-03</span><span class="dec-title">No brand inherited</span><span class="st st-locked">Locked by the founder</span></div>
-    <div class="dec-meta">2026-08-05 - stage 01 boundary question, binding on stage 06</div>
+    <div class="dec-head"><span class="dec-num">D-03</span><span class="dec-title">No brand inherited</span><span class="st st-locked">Amended by D-18</span></div>
+    <div class="dec-meta">2026-08-05, amended 2026-08-11 - stage 01 boundary question, binding on stage 06</div>
     <div class="dec-body">
       <p>The baseline has a live brand: dark violet ground, hot pink accent, a top hat skull mark. The founder wants a new logo and a look of its own.</p>
       <span class="pick"><span class="k">Chosen</span>Stage 06 runs the full "no brand yet" route: three brand plates, own palette, own typography, own shape language.</span>
       <span class="drop"><span class="k">Rejected</span>The "brand already exists" route with one collected plate and values lifted from the baseline.</span>
       <span class="carry"><span class="k">Constraint carried forward, not to be lost</span>The founder asked for a colour register adjacent to the baseline: dark near black, a hot accent, neon energy. That enters stage 06 as an attribute feeding the plates, never as a lifted palette. If the derived palette lands far from that register, it gets said out loud and decided, not quietly accepted.</span>
+      <span class="carry"><span class="k">Amended 2026-08-11 at the stage 03 input gate</span>The palette clause above no longer holds. The founder decided that the colour register is taken from the baseline rather than derived to sit near it, which reverses the option this record rejected. The logo stays not inherited. See D-18 for what is overturned, what is not, and why the exact question of lifted values against carried register is deliberately held until any values exist at all.</span>
     </div>
   </div>
 
   <div class="dec is-locked">
-    <div class="dec-head"><span class="dec-num">D-04</span><span class="dec-title">The baseline is inherited structurally, not visually</span><span class="st st-locked">Locked</span></div>
-    <div class="dec-meta">2026-08-05 - migration, binding on 03a and 03b</div>
+    <div class="dec-head"><span class="dec-num">D-04</span><span class="dec-title">The baseline is inherited structurally, not visually</span><span class="st st-locked">Amended by D-18</span></div>
+    <div class="dec-meta">2026-08-05, amended 2026-08-11 - migration, binding on 03a and 03b</div>
     <div class="dec-body">
       <p>daddyskins.com is the founder's own product, six years live. Its structure carries six years of validated behaviour, which is a stronger input than anything a fresh IA exercise could produce.</p>
       <span class="pick"><span class="k">Inherited, deliberately close to identical</span>Navigation model, page inventory, page composition, flows, the left icon rail, the live drop ticker, the placement of money and account actions.</span>
       <span class="drop"><span class="k">Not inherited</span>Logo, palette, typography, shape language, motion, component look, copy.</span>
       <p style="margin-top:14px">The course rule that a reference is an input and never an output still outranks the resemblance target. No screen is carried over whole. Where the inherited structure loses to research, research wins and the divergence is named in the IA node rather than absorbed silently.</p>
+      <span class="carry"><span class="k">Amended 2026-08-11</span>The palette leaves the "not inherited" list and joins the inherited side, by founder decision at the stage 03 input gate. Typography, shape language, motion, component look and copy stay exactly where this record put them, and the logo stays not inherited. See D-18.</span>
+      <span class="carry"><span class="k">The hole this record did not notice it had</span>Seven things are listed here as inherited and not one of them is written down anywhere in this repository. Six screenshots in <code>research/screens/baseline/</code> are not a page inventory. Found at the stage 03 input gate on 2026-08-11 and answered by a documented baseline walk before step 1, rather than by reconstructing a six year old product from images and memory.</span>
     </div>
   </div>
 
@@ -230,12 +235,14 @@
   </div>
 
   <div class="dec is-open">
-    <div class="dec-head"><span class="dec-num">D-06</span><span class="dec-title">Four residue files kept, with their fate named</span><span class="st st-open">Open</span></div>
-    <div class="dec-meta">2026-08-05 - owner: the round that closes the stage 01 gaps</div>
+    <div class="dec-head"><span class="dec-num">D-06</span><span class="dec-title">Four residue files kept, with their fate named</span><span class="st st-open">Open, narrowed, owner named</span></div>
+    <div class="dec-meta">2026-08-05, narrowed 2026-08-11 - owner: this round, at the stage 03 input gate</div>
     <div class="dec-body">
       <p><code>strategy.md</code>, <code>product-model.md</code>, <code>quality-check.md</code> and <code>live-research.md</code> moved into <code>research/docs/</code> but do not map onto any course artefact. They carry real research and cannot simply be deleted.</p>
       <span class="carry"><span class="k">Intended resolution, not yet executed</span>The strategic layer of <code>strategy.md</code> folds into <code>research.md</code> and into <code>lean-ux-canvas.md</code>; the four locked founder decisions inside it move into this file; <code>quality-check.md</code> and <code>live-research.md</code> merge into a single <code>critique.md</code>, which then earns a visible "before to after" section on <code>research.html</code>; <code>product-model.md</code> is superseded history and survives in git.</span>
       <p style="margin-top:14px">Carrying them unresolved is the smaller error. The larger one would be to leave them looking like current artefacts with no reader, which is exactly how the museum problem starts.</p>
+      <span class="drop"><span class="k">Narrowed 2026-08-11, and the narrowing has a reason</span>The resolution above cannot be executed as written. Repointing the citations the merge produces means editing <code>personas.md</code>, and that file has had no writer since CJM step 4. The merge of <code>quality-check.md</code> and <code>live-research.md</code> into <code>critique.md</code> is dropped: it was tidiness, and tidiness bought with a broken rule is the trade this project keeps refusing. Rejected with it: naming stage 03a as a new writer for <code>personas.md</code> to get the merge through.</span>
+      <span class="pick"><span class="k">What survives and is executed by this round</span>Each of the four files carries a header saying what it is, which artefact superseded it and who may still read it, and the four get one visible place in the browser. <code>product-model.md</code> is the urgent one: <code>ux-patterns.md:6</code> still cites it as a live input while this record calls it superseded history, so a dead file holds a living citation into a declared stage 03a input.</span>
     </div>
   </div>
 
@@ -294,7 +301,7 @@
   </div>
 
   <div class="dec is-closed">
-    <div class="dec-head"><span class="dec-num">D-11</span><span class="dec-title">Step 4 re-run. The benchmark measures the reveal moment</span><span class="st st-closed">Closed, one thread now unowned</span></div>
+    <div class="dec-head"><span class="dec-num">D-11</span><span class="dec-title">Step 4 re-run. The benchmark measures the reveal moment</span><span class="st st-closed">Closed, and its loose thread closed by D-16</span></div>
     <div class="dec-meta">2026-08-05 - closes the last open finding of D-10</div>
     <div class="dec-body">
       <p><strong>Dimension, chosen by the founder</strong> from three candidates offered, the reveal moment, the trust and verification layer, and the money in-and-out loop: the reveal moment, the span from committing to a randomised outcome to understanding what you got and knowing what to do next. It is the one span the product exists to deliver, and the primary JTBD names it directly.</p>
@@ -302,7 +309,7 @@
       <span class="pick"><span class="k">The sharpest finding, produced by the constraint itself</span>Odds, floors, rarity ladders and duplicate economies are documented publicly, because probability disclosure is a legal requirement in several jurisdictions and publishers write those pages themselves. The craft of a reveal is documented nowhere: build-up length, where the cut lands, what sound does at the payoff, how long the hold is. Stage 06 has to derive the timing, the cut, the sound and the hold itself, then test them. Any number that appears later for those is a decision this project made, not a benchmark it matched.</span>
       <span class="drop"><span class="k">Rejected</span>Scoring the craft criteria anyway from secondary write-ups and model memory. That would have produced a table with no <span style="color:var(--accent-yellow)">[?]</span> in it and no way to tell which cells were facts.</span>
       <span class="carry"><span class="k">One access failure recorded rather than worked around</span>The in-client Genshin announcement viewer returns HTTP 403 to an outside browser. The Genshin figures therefore rest on a community statistical model published on the publisher's own community platform in 2021, which states the 0.6% base rate and the 90-pull limit as publisher-announced and derives the curve between them from 25 million recorded pulls. That distinction must not be flattened later. It is also the finding that matters most: the most successful pity system in games is one whose actual behaviour players had to reverse engineer, which is the exact gap this product exists to close.</span>
-      <span class="carry"><span class="k">The thread that lost its owner</span>This record handed the relocation of <code>benchmark.md</code> Part 2 into <code>competitors.md</code> to the round that runs CJM step 4, on the ground that this step may touch <code>personas.md</code>. Step 4 ran and did not do it, so the relocation is unowned as of 2026-08-11 and <code>personas.md</code> has no writer at all. See D-15.</span>
+      <span class="carry"><span class="k">The thread that lost its owner</span>This record handed the relocation of <code>benchmark.md</code> Part 2 into <code>competitors.md</code> to the round that runs CJM step 4, on the ground that this step may touch <code>personas.md</code>. Step 4 ran and did not do it, so the relocation was unowned as of 2026-08-11 and <code>personas.md</code> has no writer at all. See D-15. <strong>Closed on 2026-08-11 by D-16: the move is cancelled rather than reassigned</strong>, because every citation already resolves and the only thing the move required was editing a file whose single-writer rule exists on purpose.</span>
     </div>
   </div>
 </section>
@@ -363,6 +370,64 @@
   </div>
 </section>
 
+<!-- INPUT GATE -->
+<section id="gate">
+  <div class="sec-head">
+    <h2>The stage 03 input gate</h2>
+    <p>Three records written before step 1 of the IA stage. One closes the project's last unowned thread, one answers the four decisions the CJM map could not take by itself, and one records a founder call that reverses part of a locked boundary.</p>
+  </div>
+
+  <div class="dec is-closed">
+    <div class="dec-head"><span class="dec-num">D-16</span><span class="dec-title">The relocation of <code>benchmark.md</code> Part 2 is cancelled</span><span class="st st-closed">Closed, will not do</span></div>
+    <div class="dec-meta">2026-08-11 - stage 03a input gate, closes the only thread in the project with no owner</div>
+    <div class="dec-body">
+      <p>D-11 handed the move of Part 2 into <code>competitors.md</code> to the round that runs CJM step 4, because only that round was permitted to touch <code>personas.md</code> and repoint the citations the move would break. Step 4 ran and did not do it. The thread has been unowned since, and the window it depended on closed with the stage.</p>
+      <span class="pick"><span class="k">Chosen: do not move it</span>Part 2 was already renamed for what it is, an in-category competitor matrix and therefore step 3 material, and its section and mechanism numbering never changed. All twelve citations across <code>personas.md</code>, <code>jtbd.md</code>, <code>ux-patterns.md</code>, <code>research.md</code> and <code>quality-check.md</code> still resolve by name. Nothing downstream is broken by the section living where it lives. The move buys shelf order and nothing else.</span>
+      <span class="drop"><span class="k">Rejected: handing it to stage 03a with a new writer for <code>personas.md</code></span>The only thing the move actually requires is editing citations inside a file whose single-writer rule this project wrote down on purpose. A rule bent once for a cosmetic gain is bent later for a real one, and the gain here is cosmetic by its own description.</span>
+      <span class="carry"><span class="k">Cost accepted</span>One file keeps two populations under one name, and a reader opening <code>benchmark.md</code> expecting only out-of-category products meets an in-category matrix in Part 2. The header of that section says which it is, so the cost is a moment of surprise rather than a wrong conclusion.</span>
+    </div>
+  </div>
+
+  <div class="dec is-locked">
+    <div class="dec-head"><span class="dec-num">D-17</span><span class="dec-title">The four open map decisions, answered at the input gate</span><span class="st st-locked">Locked by the founder</span></div>
+    <div class="dec-meta">2026-08-11 - stage 03a input gate. Closes D-A in shape and D-C in schedule, leaves D-B and D-D conditional with owners</div>
+    <div class="dec-body">
+      <p>The To-Be map closed carrying four decisions it had no right to take by itself, and <code>cjm-to-be.md:351</code> names this gate as their latest owner. They came due here and all four were answered.</p>
+
+      <h4 style="margin-top:20px">D-A. The age and identity method: two layers, not one</h4>
+      <span class="pick"><span class="k">Chosen</span>Layer 1 is an 18+ self-declaration at registration. Layer 2 is identity verification before funding, which is the sequence that was already locked.</span>
+      <p style="margin-top:14px"><strong>The founder's answer is taken as an addition, not as a replacement, and the reason is in this repository rather than in anyone's judgement.</strong> <code>aarrr.md:105</code> already discarded soft and optional age gating by name, citing the UK Online Safety Act of July 2025 and its requirement of robust identity-based verification. A declaration on its own would put this product below its own cited research and below the compliance constraint in <code>CLAUDE.md</code>. It sits above the baseline either way: <code>research.md:171</code> records daddyskins.com as having no age verification beyond FAQ text at all.</p>
+      <p><strong>What the split buys is the one thing <code>aarrr.md:110</code> marks unknown</strong>, the conversion cost of identity verification, <span style="color:var(--accent-yellow)">[?]</span>. The cheap declaration meets every visitor at the door, where conversion is most fragile and where a heavy gate would be paid for by people who never reach a deposit. The expensive verification meets the person at the money moment, where they are already committed and where the law actually attaches. B1 to B3 stay intact, verification still resolves before funding, and the withdrawal route still carries no verification branch.</p>
+      <span class="carry"><span class="k">The method inside layer 2 stays open, and the flow is drawn as a superset instead of waiting for it</span>Facial age estimation as the fast path, document KYC as the escalation when estimation is inconclusive. That shape contains both candidate methods, including the asynchronous "pending review" state that only KYC has and that changes the shape of the flow rather than its screen count. If cited legal research later forces document KYC for everyone, one branch is deleted rather than the whole flow redrawn. Owners: the method belongs to 03b, the cited legal research and counsel belong to the founder, running in parallel because it costs calendar rather than session time.</span>
+      <span class="drop"><span class="k">Rejected: picking one method now to keep the flow simple</span>The simpler flow would have been redrawn once, and a redrawn flow loses the reason it had its original shape.</span>
+
+      <h4 style="margin-top:24px">D-B. The roll history migration is a question to the platform, not a decision by the design</h4>
+      <span class="pick"><span class="k">Chosen: ask, and proceed with the fallback recorded rather than wait</span>Two parts, both factual: whether six years of roll history exists in a form that migrates into a new ledger, and whether any legal or contractual reason prevents publishing it.</span>
+      <p style="margin-top:14px">Until an answer arrives, 03a proceeds with D3, the observed rate counter, in the map, because a counter that starts at launch is worth building on day one and worthless to retrofit. If the answer is negative, the capability is disqualified by its own evidence rule until volume accrues, and the finite visible pool returns from the cut table by default rather than by preference. That fallback is already written at <code>cjm-to-be.md:283</code> and has a row to return to.</p>
+
+      <h4 style="margin-top:24px">D-C. The internal check runs before stage 04, not before 03a</h4>
+      <span class="pick"><span class="k">Chosen: scheduled, with the reason stated in full</span>Every trust capability on the To-Be map is a commitment device that only works for an operator whose published weights are already true. The observed-against-published check ships to the public and is never taken down.</span>
+      <p style="margin-top:14px">It is placed before stage 04 rather than before 03a because it changes no node and no route: it changes whether the routes are worth drawing at all. It costs one query now, and it costs the entire visual half of the project if it comes back negative after stage 07. <strong>This is the cheapest test in the project and the one with the largest blast radius, and that pairing is the whole reason it gets a date instead of a mention.</strong></p>
+
+      <h4 style="margin-top:24px">D-D. Inventory capital is deferred to 03b on purpose</h4>
+      <span class="pick"><span class="k">Chosen: defer, and say why rather than letting it drift</span>It sets the ceiling on what the case grid can contain, and a grid is a block, which is detail-layer material. On the base layer the case grid is one node and its capacity is not measured. Owner: 03b.</span>
+      <span class="drop"><span class="k">Rejected: asking now because it is cheap to ask</span>A treasury question asked five weeks before it is needed comes back as a guess, and a guess written into a document is indistinguishable from a figure a month later.</span>
+    </div>
+  </div>
+
+  <div class="dec is-locked">
+    <div class="dec-head"><span class="dec-num">D-18</span><span class="dec-title">The baseline is inherited visually as well, and D-03 loses its palette clause</span><span class="st st-locked">Locked by the founder</span></div>
+    <div class="dec-meta">2026-08-11 - stage 03a input gate, amends D-03 and D-04, binding on stage 06</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Chosen</span>The structure of daddyskins.com is matched closely, with improvements, which D-04 already said and which this record only confirms. What is new: the colour register is taken from the baseline rather than derived to sit near it.</span>
+      <p style="margin-top:14px"><strong>What this overturns, stated rather than quietly reinterpreted.</strong> D-03 chose the full "no brand yet" route and explicitly rejected "the brand already exists route with one collected plate and values lifted from the baseline". D-04 listed the palette under "not inherited". <code>CLAUDE.md</code> said the register enters stage 06 as an attribute feeding the plates, adjacent by derivation and not by copy. Those clauses no longer hold as written. The founder owns the product and the brand and the call is theirs; what this record refuses to do is leave two files saying opposite things and let stage 06 pick whichever it reads first.</p>
+      <span class="carry"><span class="k">Deliberately not decided yet, and why later is better than now</span>Whether "take the colours" means the exact values or the register carried by our own values cannot be answered today, because <strong>no file in this repository holds a single colour value from the baseline.</strong> The corpus documents daddyskins at the trust and competitive level: eleven mentions in <code>research.md</code>, a benchmark score of 15 out of 40, six screenshots in <code>research/screens/baseline/</code>. Not one hex value anywhere. Answering now would be choosing between two descriptions. Answering after the values are extracted is choosing between two things on the table, which is a different quality of decision for the same price.</span>
+      <span class="drop"><span class="k">Limits of this record, so it is not read wider than it is</span>The logo stays not inherited. Typography, shape language, motion and component look are not covered here and stay where D-04 put them. The consequence for stage 06 is that its route shifts from three brand plates toward one collected plate plus a named list of what the founder wants changed, and that shift is recorded here rather than discovered by stage 06 as a surprise.</span>
+      <p style="margin-top:14px"><strong>The consequence for 03a, and it is why this record exists before step 1 rather than after it.</strong> "Inherit the structure" currently has no source document. <code>CLAUDE.md</code> names what is inherited, the navigation model, the page inventory, the page composition, the flows, the left icon rail, the live drop ticker and the placement of the money and account actions, and not one of those seven is written down anywhere in this repository. Six screenshots are not an inventory. Building the concept sitemap on them would mean reconstructing a six year old product from images plus model memory, which is exactly the median the input gate exists to prevent, and it would look convincing right up until someone asked where a node came from. The baseline therefore gets its own documented walk, on public and pre-login pages, before step 1 of the stage.</p>
+    </div>
+  </div>
+</section>
+
 <!-- OPEN -->
 <section id="open">
   <div class="sec-head">
@@ -377,18 +442,18 @@
       <tbody>
         <tr>
           <td><strong>D-06</strong></td>
-          <td>Four residue files carry real research and map onto no course artefact. The intended resolution is written and not executed.</td>
-          <td>The round that closes the stage 01 gaps</td>
+          <td>Four residue files carry real research and map onto no course artefact. Narrowed on 2026-08-11: the merge into <code>critique.md</code> is dropped because it needed a writer for <code>personas.md</code>. What remains is a superseded-by header on each of the four and one visible place for them.</td>
+          <td>This round, at the stage 03 input gate</td>
         </tr>
-        <tr>
-          <td><strong>D-11, D-15</strong></td>
-          <td>Relocation of <code>benchmark.md</code> Part 2 into <code>competitors.md</code>, with every citation repointed. It was assigned to CJM step 4 because that step could touch <code>personas.md</code>. Step 4 ran and did not do it.</td>
-          <td><strong>None.</strong> The window closed with the stage, and <code>personas.md</code> now has no writer at all</td>
+        <tr style="opacity:0.62">
+          <td><strong><s>D-11, D-15</s></strong></td>
+          <td><s>Relocation of <code>benchmark.md</code> Part 2 into <code>competitors.md</code>, with every citation repointed. It was assigned to CJM step 4 because that step could touch <code>personas.md</code>. Step 4 ran and did not do it.</s><br><strong>Closed 2026-08-11 by D-16: cancelled, not reassigned.</strong></td>
+          <td>No longer needs one</td>
         </tr>
       </tbody>
     </table>
   </div>
-  <p style="margin-top:20px">Four more open decisions exist that are not records here, because they are design questions rather than project ones and they belong to the map that raised them: the age and identity method, the roll history migration behind the observed rate counter, the internal check that must run on live data before any of it is drawn, and the inventory capital behind stock-backed drop tables. They live in <a href="../research/cjm-to-be.html#backlog">CJM To-Be</a> and are due at the stage 03 input gate.</p>
+  <p style="margin-top:20px">The four design decisions the CJM map left open, the age and identity method, the roll history migration, the internal check on live data and the inventory capital, were answered on 2026-08-11 and are recorded above as <strong>D-17</strong>. Two of them are answered outright, two are conditional with a named owner and a written fallback. Their original wording lives in <a href="../research/cjm-to-be.html#backlog">CJM To-Be</a>.</p>
 </section>
 
 </main>
@@ -405,6 +470,7 @@ window.NAV_SECTIONS = [
   { id: 'residue', label: 'Residue and craft' },
   { id: 'critique', label: 'Critique' },
   { id: 'cjm', label: 'The CJM stage' },
+  { id: 'gate', label: 'The 03 input gate' },
   { id: 'open', label: 'Still open' },
 ];
 </script>
