@@ -14,7 +14,7 @@
 
 The first version of 0.1 shipped a **bottom tab bar** on mobile and a single header row on desktop. The founder rejected it, supplied three screenshots of the baseline's own navigation, and named the model: two menus, filled with round 1 content, with the header changing on login and carrying two money figures.
 
-**The founder is right, and the failure was structural rather than a matter of taste.** `CLAUDE.md:25` lists the **navigation model** first among the things inherited "deliberately close to identical". The first version replaced that model with a different one, and the justification was a component guideline about navigation bars. **A component guideline can tell you how to build a component well. It cannot tell you which component to build.** The research was sound and the conclusion it was used for was outside what it could support. That is the class, and it is recorded in `D-21` so that a later stage does not repeat it on a different component.
+**The founder is right, and the failure was structural rather than a matter of taste.** `CLAUDE.md` lists the **navigation model** first among the things inherited "deliberately close to identical". The first version replaced that model with a different one, and the justification was a component guideline about navigation bars. **A component guideline can tell you how to build a component well. It cannot tell you which component to build.** The research was sound and the conclusion it was used for was outside what it could support. That is the class, and it is recorded in `D-21` so that a later stage does not repeat it on a different component.
 
 What survives from the first version is listed rather than quietly reused: the three sources, the 44 by 44 target decision, the Provably fair position argument, and the transient state table.
 
@@ -86,7 +86,7 @@ Two sources are new to this rebuild because the component changed. Three are car
 - "**Don't use a navigation bar for fewer than three destinations.**"
 - "**For products with more than five navigation items, don't use a navigation bar**; the elements may collide and there likely won't be enough space for translated text."
 
-**These two sentences point in opposite directions at two different moments in this product's life.** At round 1's count, three destinations for a guest and four with an account, Material would pick a bar. At the scope this product is locked to, nine rail destinations in the baseline and eight LATER surfaces in `CLAUDE.md:39`, Material forbids a bar outright. **The primary carrier is therefore built for the destination rather than for the round**, which is why it is the rail. The cost is named in section 3 rather than absorbed.
+**These two sentences point in opposite directions at two different moments in this product's life.** At round 1's count, three destinations for a guest and four with an account, Material would pick a bar. At the scope this product is locked to, nine rail destinations in the baseline and eight LATER surfaces in `CLAUDE.md`, Material forbids a bar outright. **The primary carrier is therefore built for the destination rather than for the round**, which is why it is the rail. The cost is named in section 3 rather than absorbed.
 
 **`D-22` did not overturn that conclusion, it added a second carrier beside it.** The floor sentence is what the mobile bar has to clear, and it clears it exactly: three destinations before an account. The ceiling sentence is the reason the bar can never become the primary carrier: at six destinations Material forbids it and the rail is still legal to seven. **The bar is a shortcut over the model, not the model.**
 
@@ -130,7 +130,7 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 
 **Three items for a guest, four with an account.** Material's collapsed rail wants 3 to 7. The guest state clears the floor exactly and the product has room to grow to seven before the component itself is the constraint.
 
-**Responsible play in the rail is an addition to the base layer and it is named rather than absorbed.** The base layer gave it a persistent entry inside the Balance control and a footer link, `sitemap.md:553`, on the argument that a brake which has to be searched for at the worst moment is not a brake. That entry is unchanged. This adds a second one, in the rail's lower group, and it is affordable now for the same reason the rail is: there is space. **Parent:** `B7-4`, pattern of 12, plus the compliance constraint at `CLAUDE.md:69`, "responsible play tooling". Both legal.
+**Responsible play in the rail is an addition to the base layer and it is named rather than absorbed.** The base layer gave it a persistent entry inside the Balance control and a footer link, `sitemap.md:553`, on the argument that a brake which has to be searched for at the worst moment is not a brake. That entry is unchanged. This adds a second one, in the rail's lower group, and it is affordable now for the same reason the rail is: there is space. **Parent:** `B7-4`, pattern of 12, plus the compliance constraint at `CLAUDE.md`, "responsible play tooling". Both legal.
 
 **The logo sits at the top of the rail and routes to 1.0**, which is the baseline's placement, `baseline.md:64`. It is inside the rail rather than above it: the rail is the full-height carrier and the logo is its first row.
 
@@ -138,7 +138,7 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 
 | Baseline item | Verdict | Why |
 |---|---|---|
-| Case Battles, Gunfights, Upgrade, Giveaways, Rewards Hub, Top wins, Partnership, Exchange | Not in round 1 | All LATER, `CLAUDE.md:39`. They enter the rail as they ship. The rail is the carrier designed to receive them, which is the whole point of building it now |
+| Case Battles, Gunfights, Upgrade, Giveaways, Rewards Hub, Top wins, Partnership, Exchange | Not in round 1 | All LATER, `CLAUDE.md`. They enter the rail as they ship. The rail is the carrier designed to receive them, which is the whole point of building it now |
 | All Races and the race pot | Not in round 1 | Cluster 8, orphan `8.9`, no parent in the three legal classes |
 | The promotional partner tile above the destinations | Cut from round 1 | A paid third party placement. No barrier, no job, no constraint behind it. If it returns it returns as a revenue decision with a named owner, not as inherited furniture |
 | The language switcher | Cut permanently | `D-02`, one language, English. `baseline.md:80` already recorded this divergence |
@@ -149,7 +149,7 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 
 On mobile the rail is a modal drawer behind a menu icon, which is the baseline's own behaviour, `baseline.md:90`. **`D-21` accepted a named cost for that: on mobile, from any screen that is not Home, reaching the catalogue cost two taps rather than one.** That was the price of Material's compact-window advice being declined.
 
-It was affordable for one reason and the reason is checkable: **the main job never routes through the rail.** `CLAUDE.md:51` fixes the main flow as home, case screen, age gate, open, and `D-20` put the featured case grid on Home directly. Tap 1 is a case tile on Home, tap 2 is the gate, tap 3 is Open. **The three tap budget was untouched by that change**, and it is untouched by this one. The browsing route was already four taps and already not the main-job route, `sitemap.md:533`.
+It was affordable for one reason and the reason is checkable: **the main job never routes through the rail.** `CLAUDE.md` fixes the main flow as home, case screen, age gate, open, and `D-20` put the featured case grid on Home directly. Tap 1 is a case tile on Home, tap 2 is the gate, tap 3 is Open. **The three tap budget was untouched by that change**, and it is untouched by this one. The browsing route was already four taps and already not the main-job route, `sitemap.md:533`.
 
 **`D-22` paid the cost off rather than re-argued it.** The mobile bar carries Cases in position 2, so from any screen the catalogue is one tap again. **This is the founder answering a cost the previous decision wrote down**, which is the whole reason `D-21` was required to write it down.
 
@@ -179,6 +179,8 @@ Two disjoint sets would be two competing menus, which is the ambiguity Material'
 
 **The superset holds literally rather than nearly, and the logo is why.** The drawer's first row is the logo and the logo routes to 1.0, so Home is in the rail as well as in the bar. Section 9 records that the logo moved back into the drawer for this reason among others.
 
+**And the superset is about labels as much as about hrefs: one destination carries one label in every carrier.** The first draft of the bar shortened Provably fair to "Fairness" to meet Material's "all navigation items require a one word label text". Two labels for one destination, rendered on the same 360px screen in the bar and in the drawer, is the superset rule failing where a person actually reads it. **The bar says Provably fair.** Material's one-word preference loses here to a rule this node already carries: the word "provably" is what holds design principle 1 and the `D-14` limit, and "My items" is already two words in the same bar, so the preference was being bent one item along regardless.
+
 ### What the bar carries
 
 | Position | Item | Guest | Account | Leads to |
@@ -194,13 +196,13 @@ Two disjoint sets would be two competing menus, which is the ambiguity Material'
 
 **Provably fair holds position 3 in both states.** Same structural claim the rail makes, on the same parents: `jtbd.md:180` names a public provably fair surface as one of three things no competitor offers pre-login, and design principle 1 says trust is the product. It carries the `D-14` limit with it: its position is not a claim that a verifier converts a sceptic.
 
-**Balance stays out of the bar in both states.** Unchanged from `D-21`, and two reasons point the same way. Apple: "Use a tab bar to support navigation, not to provide actions." Design principle 3 at `CLAUDE.md:65`: cost never hides inside excitement, and making money a permanent navigation destination is the mechanism by which spending stops being a decision and becomes a place you go. **The money stays in the header.**
+**Balance stays out of the bar in both states.** Unchanged from `D-21`, and two reasons point the same way. Apple: "Use a tab bar to support navigation, not to provide actions." Design principle 3 at `CLAUDE.md`: cost never hides inside excitement, and making money a permanent navigation destination is the mechanism by which spending stops being a decision and becomes a place you go. **The money stays in the header.**
 
 ### The honest cost of carrying both, named rather than defended
 
 In round 1 the rail holds three or four destinations and the bar holds three or four of the same ones. **So in round 1 the drawer's unique contribution is thin.** What it adds over the bar is Responsible play, the sound control and the logo row, and little else. Two carriers holding nearly the same list is redundancy at this size, and calling it anything else would be dressing it up.
 
-**What makes it a cost paid for a reason rather than an oversight is the roadmap.** `CLAUDE.md:39` lists eight LATER surfaces. Material's bar ceiling is five and the rail's is seven, so the bar runs out first and the drawer is what absorbs the modes as they ship. The founder is choosing to carry both from day one so that the mobile shortcut exists immediately **and** the drawer is already in place to receive the modes, rather than introducing it later as a change of navigation model in front of people who already learned one.
+**What makes it a cost paid for a reason rather than an oversight is the roadmap.** `CLAUDE.md` lists eight LATER surfaces. Material's bar ceiling is five and the rail's is seven, so the bar runs out first and the drawer is what absorbs the modes as they ship. The founder is choosing to carry both from day one so that the mobile shortcut exists immediately **and** the drawer is already in place to receive the modes, rather than introducing it later as a change of navigation model in front of people who already learned one.
 
 **It stops being redundancy at the fifth destination.** That is inside this product's own roadmap, not a hypothetical.
 
@@ -247,7 +249,7 @@ This is the state the founder specified. Left to right: rail toggle, logo, then 
 
 **4. No percentage badge on the deposit control in round 1.** The baseline runs a green 5 percent badge on its add control. `cjm-to-be.md:282` cuts **any** first-deposit bonus in round 1, including the zero-wagering variant, because `aarrr.md:224` requires case mathematics to be modelled before any bonus is designed and that model does not exist. The control ships without the badge. The badge is not forbidden forever, it is blocked behind a named model with a named owner.
 
-**A fifth thing this node refuses on its own.** No counter, no streak, no progress bar and no session score appears anywhere in either carrier. `CLAUDE.md:69` binds this stage: a limit that acquires completion mechanics stops being a boundary. Two live money figures in a persistent header is exactly where that pressure arrives.
+**A fifth thing this node refuses on its own.** No counter, no streak, no progress bar and no session score appears anywhere in either carrier. `CLAUDE.md` binds this stage: a limit that acquires completion mechanics stops being a boundary. Two live money figures in a persistent header is exactly where that pressure arrives.
 
 ---
 
@@ -278,7 +280,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 | **Balance crediting**, `C3` | The figure carries a named timer beside it rather than a spinner, and does not silently change | Deposit node 4.4 owns the timer, the navigation renders the state |
 | **Item value stale or unavailable** | The lower figure states that it is stale with its timestamp. It never renders a stale number as current, and never renders zero for unknown | Rule 3 above. `[?]` is a legal value in this project and a wrong number is not |
 | **Boundary in force**, `6.3` | The money control opens to the limits rather than to add funds. Both figures stay visible, the deposit route closes, the withdrawal route stays open | `flows.md` flow 2a: a boundary stops money going in and never traps what the person already holds |
-| **Ceiling reached**, `4.2` | Same, and no counter, no progress bar, no streak and no session score appears anywhere | `CLAUDE.md:69`. This binds this node too |
+| **Ceiling reached**, `4.2` | Same, and no counter, no progress bar, no streak and no session score appears anywhere | `CLAUDE.md`. This binds this node too |
 | **Gate open**, `2.1` | Every carrier is inert behind the gate layer and none is removed | Removing them would make the gate feel like an ejection rather than a check |
 | **Steam unavailable**, `2.6` | Sign in stays present and states the failure on 2.4 | Reading the product stays open for a person who cannot sign in |
 

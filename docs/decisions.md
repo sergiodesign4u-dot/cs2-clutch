@@ -433,7 +433,7 @@ The founder rejected it with three screenshots of the baseline's own navigation 
 
 ### The failure was structural, and the class matters more than the node
 
-`CLAUDE.md:25` lists the **navigation model** first among the things inherited "deliberately close to identical". The first version replaced that model with a different one, and the justification was a Material Design guideline about navigation bars.
+`CLAUDE.md` lists the **navigation model** first among the things inherited "deliberately close to identical". The first version replaced that model with a different one, and the justification was a Material Design guideline about navigation bars.
 
 **A component guideline can tell you how to build a component well. It cannot tell you which component to build.** The research was correct and the conclusion drawn from it was outside what it could support. A locked inheritance decision was overturned by a source with no standing to overturn it, and the divergence was never named as one, which is the specific thing `CLAUDE.md` requires of every divergence.
 
@@ -456,7 +456,7 @@ Material's two rules point opposite ways at two moments in this product's life, 
 - "Don't use a navigation bar for fewer than three destinations."
 - "For products with more than five navigation items, don't use a navigation bar."
 
-At round 1's count Material would pick a bar. At the locked scope, nine baseline rail destinations and eight LATER surfaces in `CLAUDE.md:41`, Material forbids a bar outright. **Chosen: the rail, because the rail is the carrier that receives the roadmap.** A bar would be replaced rather than extended.
+At round 1's count Material would pick a bar. At the locked scope, nine baseline rail destinations and eight LATER surfaces in `CLAUDE.md`, Material forbids a bar outright. **Chosen: the rail, because the rail is the carrier that receives the roadmap.** A bar would be replaced rather than extended.
 
 **Cost, accepted and named.** On mobile the rail is a modal drawer behind a menu icon, the baseline's own behaviour. From any screen that is not Home, the catalogue costs two taps rather than one. Material's compact-window advice is declined knowingly. **The three tap budget for the main job is untouched**, because the main flow never routes through the rail: tap 1 is a case tile on Home, tap 2 is the gate, tap 3 is Open.
 
@@ -481,7 +481,7 @@ The founder specified the pair. Four rules were derived from files that already 
 3. **The lower figure is a current market value, never profit, gain or growth.** It moves without the person acting. A figure that can fall is honest only if it never claimed to be a score. **Parent:** design principle 1 as limited by `D-14`, "published chance, current value and tested RTP", plus row `B7`, the account and inventory with each item carrying its receipt. The header figure is the sum of those receipts and reconciles with 5.1 exactly.
 4. **No percentage badge on the deposit control in round 1.** The baseline runs a green 5 percent badge on its add control. `cjm-to-be.md:282` cuts any first-deposit bonus in round 1, including the zero-wagering variant, because `aarrr.md:224` requires case mathematics to be modelled first and that model does not exist. Blocked behind a named model with a named owner, not forbidden forever.
 
-**And one refusal the node makes on its own.** No counter, no streak, no progress bar and no session score anywhere in either carrier. `CLAUDE.md:58` binds this stage, and two live money figures in a persistent header is exactly where that pressure arrives.
+**And one refusal the node makes on its own.** No counter, no streak, no progress bar and no session score anywhere in either carrier. `CLAUDE.md` binds this stage, and two live money figures in a persistent header is exactly where that pressure arrives.
 
 ### What did not come across from the baseline, each with a reason
 
@@ -501,7 +501,7 @@ The founder specified the pair. Four rules were derived from files that already 
 
 ### Consequence for the rule file
 
-`CLAUDE.md:25` and `CLAUDE.md:51` both change. The generalised mode-switcher rule from `D-20` is narrowed to what it actually established, and the global navigation sentence is rewritten from a flat count of four items into the two carrier model. That is a rule edit and it goes through the budget, not around it.
+`CLAUDE.md` and `CLAUDE.md` both change. The generalised mode-switcher rule from `D-20` is narrowed to what it actually established, and the global navigation sentence is rewritten from a flat count of four items into the two carrier model. That is a rule edit and it goes through the budget, not around it.
 
 ---
 
@@ -554,13 +554,13 @@ Two disjoint sets would be two competing menus, which is the ambiguity Material'
 
 **Provably fair holds position 3 in both states**, the same structural claim the rail makes on the same parents: `jtbd.md:180` plus design principle 1, carrying the `D-14` limit that its position is not a claim that a verifier converts a sceptic.
 
-**Balance stays out of the bar in both states**, unchanged from `D-21`. Apple: a tab bar supports navigation, not actions. Design principle 3 at `CLAUDE.md:65`: cost never hides inside excitement, and making money a permanent navigation destination is the mechanism by which spending stops being a decision and becomes a place you go. The money stays in the header.
+**Balance stays out of the bar in both states**, unchanged from `D-21`. Apple: a tab bar supports navigation, not actions. Design principle 3 at `CLAUDE.md`: cost never hides inside excitement, and making money a permanent navigation destination is the mechanism by which spending stops being a decision and becomes a place you go. The money stays in the header.
 
 ### The honest cost of carrying both, named rather than defended
 
 In round 1 the rail holds three or four destinations and the bar holds three or four of the same ones. **The drawer's unique contribution in round 1 is therefore thin:** Responsible play, the sound control and the logo row, and little else. Two carriers holding nearly the same list is redundancy at this size and calling it anything else would be dressing it up.
 
-**What makes it a cost paid for a reason is the roadmap.** `CLAUDE.md:39` lists eight LATER surfaces. Material's bar ceiling is five and the rail's is seven, so the bar runs out first and the drawer is what absorbs the modes as they ship. The founder is choosing to carry both from day one so that the mobile shortcut exists immediately **and** the drawer is already in place to receive the modes, rather than introducing it later as a change of navigation model in front of people who already learned one.
+**What makes it a cost paid for a reason is the roadmap.** `CLAUDE.md` lists eight LATER surfaces. Material's bar ceiling is five and the rail's is seven, so the bar runs out first and the drawer is what absorbs the modes as they ship. The founder is choosing to carry both from day one so that the mobile shortcut exists immediately **and** the drawer is already in place to receive the modes, rather than introducing it later as a change of navigation model in front of people who already learned one.
 
 **It stops being redundancy at the fifth destination**, which is inside this product's own roadmap rather than a hypothetical.
 
@@ -578,4 +578,4 @@ The bar does not hide or condense on scroll, for the same reason the header and 
 
 ### Consequence for the rule file
 
-`CLAUDE.md:25` and `CLAUDE.md:51` both change again. The inherited navigation model stays two carriers, because the bar is not inherited: `baseline.md:90` records that the baseline has no bottom tab bar at all. What is added is that mobile carries a third carrier the baseline does not have, and that it is a subset of the rail rather than a second model. That is a rule edit and it goes through the budget, not around it.
+`CLAUDE.md` and `CLAUDE.md` both change again. The inherited navigation model stays two carriers, because the bar is not inherited: `baseline.md:90` records that the baseline has no bottom tab bar at all. What is added is that mobile carries a third carrier the baseline does not have, and that it is a subset of the rail rather than a second model. That is a rule edit and it goes through the budget, not around it.

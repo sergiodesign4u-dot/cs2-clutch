@@ -106,13 +106,13 @@ Three non-identical wordings of the same main job exist:
 |---|---|---|
 | `jtbd.md:17` | "embedded in the CS2 ecosystem", dispositional | "a rare skin I actually want", "something worth having" |
 | `personas.md:107` | "downtime between CS2 matches", situational | "the thrill of a reveal and a real shot at something exciting" |
-| `CLAUDE.md:46` | "between CS2 sessions", situational | "a skin I actually want", "something worth having" |
+| `CLAUDE.md`, Product substance | "between CS2 sessions", situational | "a skin I actually want", "something worth having" |
 
 `CLAUDE.md` carries a hybrid: the trigger of the persona file with the object of the JTBD file. This map uses `jtbd.md:17`, because the pack takes the main job from `jtbd.md` and because the JTBD file is the artefact that owns job formulas. The divergence is not resolved here. It goes to step 11, which owns the one-version-per-repository rule.
 
 ### MVP core divergence, open
 
-The pack declares "the MVP core block in `CLAUDE.md`" as an input to this stage. That block does not exist. `CLAUDE.md:34-42` carries a scope list whose units are screens, not jobs and not capabilities. The three MVP core jobs derived at stage 02 were never written into it.
+The pack declares "the MVP core block in `CLAUDE.md`" as an input to this stage. That block does not exist. `CLAUDE.md` carries a scope list whose units are screens, not jobs and not capabilities. The three MVP core jobs derived at stage 02 were never written into it.
 
 Three different lists currently carry the name of the MVP core:
 
@@ -120,7 +120,7 @@ Three different lists currently carry the name of the MVP core:
 |---|---|---|
 | `jtbd.md:173`, mirrored on `jtbd.html:716` | jobs | 3 jobs: arrive with confidence, reveal quality, withdraw cleanly |
 | `lean-ux-canvas.md:46` | surface plus capability | 8 bullets, self-marked superseded in part at `:57` |
-| `CLAUDE.md:38-40` | screens | 7 Round 1 items against 8 LATER items |
+| `CLAUDE.md`, Scope | screens | 7 Round 1 items against 8 LATER items |
 
 They do not agree item by item. Case battles sit in four states at once: MVP in the canvas, LATER in `CLAUDE.md`, Phase 1.5 on the cut list at `jtbd.md:201`, and an MVP product decision at `aarrr.md:172`. A responsible play page exists in the canvas and in neither scope list. Registration and deposit exist in `CLAUDE.md` and in neither of the others. No file anywhere maps the three core jobs onto any scope item.
 
@@ -386,7 +386,7 @@ Kept so the finding is not one-sided: "The provably fair system is also very goo
 | U-06 device | **Partly closed.** Real-money Android apps exist: Hellcase 100,000+ installs, Skin.Club 500,000+, GGDROP 1,000,000+ with a Russian-language listing, all via the AppBrain mirror, ledger U-06. Three quoted reviewers attack Hellcase's Play listing title, "CS2 Case Simulator", as a lie. Mobile web is therefore a first-class surface. Two claims are `[?]`: what actually breaks on a phone beyond two button-placement complaints, and the absence of any real-money iOS app, which was reported by the mining pass but never checked in a browser. |
 | U-07 switching | **Closed with a negative result that matters.** No user anywhere says "I left X for Y because Z". Sites are named several at a time, as a portfolio. |
 | U-10 first-visit friction | **Closed with a shape.** Every abandonment found is trust-driven: the withdrawal gate, the implausible promo, the forced avatar change, the Steam login screen. Not one person left because of a layout, a load time or a confusing control. |
-| U-12 geography | **`[?]`, downgraded at step 6.** The country distribution came from HLTV country flags with no capture, and the regulatory actions in Sweden, Australia, Poland and Turkey came from pages the mining pass read but did not screenshot. Under `CLAUDE.md:66` these are leads, not facts. Listed in the ledger as leads. Market size by country: nothing found. |
+| U-12 geography | **`[?]`, downgraded at step 6.** The country distribution came from HLTV country flags with no capture, and the regulatory actions in Sweden, Australia, Poland and Turkey came from pages the mining pass read but did not screenshot. Under `CLAUDE.md` these are leads, not facts. Listed in the ledger as leads. Market size by country: nothing found. |
 | U-09 timings | **Closed on the barrier side**, 6 people with hard numbers in the ledger. No number for time-on-landing or decision time before deposit. `[?]` |
 
 ---
@@ -538,7 +538,7 @@ Classes: **A** drawn emotion or invented number, **B** count claimed beyond coun
 | E-5 | `:158` | "Screenshots of all of these are in `research/screens/`" names seven landing pages. There is no clash.gg landing screenshot anywhere in the tree, and clash.gg is the file's load-bearing pre-login outlier | Claude, verified against the filesystem | fixed |
 | E-6 | `:23` | "the entire existing corpus contains two review-source URLs". `live-research.md:35` carries four, two of them complaint sources | Claude, verified against the file | fixed |
 | E-7 | `:429` | Z3 says "Gap in stage 01: none. This is new." `research.md:167` records "Gap 3: Currency abstraction obscures real-money stakes", the same shown-value-against-real-value problem in another form | Claude, verified against the file | fixed |
-| F-1 | `:350` | Four dated regulatory claims about four named competitors, Sweden, Australia, Poland, Turkey, with no URL, no screenshot and no access date. `CLAUDE.md:66` makes such a fact `[?]`, not a fact | Claude, both agents | fixed |
+| F-1 | `:350` | Four dated regulatory claims about four named competitors, Sweden, Australia, Poland, Turkey, with no URL, no screenshot and no access date. `CLAUDE.md` makes such a fact `[?]`, not a fact | Claude, both agents | fixed |
 | F-2 | `:347` | "No real-money app on iOS for any of the seven" is a negative claim across seven competitors on a store that is not in the list of sources opened at `:231` | Claude | fixed |
 | F-3 | `:347` | Install counts and "4 distinct reviewers attack that name as a lie" carry no citation and no quote | Claude and Codex | fixed |
 | F-4 | `:350` | The HLTV country list is asserted with no thread, no capture, no quote | Claude | fixed |

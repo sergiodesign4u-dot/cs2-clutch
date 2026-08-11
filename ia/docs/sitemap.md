@@ -504,7 +504,7 @@ Written at step 3, on 11 August 2026. The concept sitemap says which screens exi
 |---|---|---|---|
 | **Cases** | S-C1, the catalogue | yes | Main Job, `jtbd.md:17`. The one mode round 1 ships |
 | **Provably fair** | A2 | yes | Related Job 1, `jtbd.md:33`, before login, and Related Job 3, `jtbd.md:51`, after the open |
-| **Responsible play** | S-F1 | yes | `B7-4`, pattern of 12, plus the compliance constraint at `CLAUDE.md:58`. **Barrier and constraint class, no job**, and nobody arrives wanting it |
+| **Responsible play** | S-F1 | yes | `B7-4`, pattern of 12, plus the compliance constraint at `CLAUDE.md`. **Barrier and constraint class, no job**, and nobody arrives wanting it |
 | **My items** | S-E1, account and inventory | no | Related Job 5, `jtbd.md:69`. Inventory, receipts, and the way into withdrawal |
 
 **Three destinations for a guest and four with an account.** Material's collapsed rail range is 3 to 7, so the guest state clears the floor exactly and five of the eight LATER destinations fit before the component itself is the constraint.
