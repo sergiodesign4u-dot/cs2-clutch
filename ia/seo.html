@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 0.13 SEO and indexation</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 14px; }
+
+    .wf-fig { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-fig-state { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); border-bottom: 1px dashed var(--wf-line-soft); padding-bottom: 7px; margin-bottom: 10px; }
+    .wf-val { font-family: 'SF Mono', Menlo, monospace; font-size: 21px; font-weight: 700; color: var(--wf-ink); letter-spacing: -0.01em; line-height: 1.2; }
+    .wf-val.is-off { font-size: 13px; color: var(--wf-ink-dim); }
+    .wf-unit { font-size: 11px; color: var(--wf-ink); margin-top: 3px; }
+    .wf-asof { font-family: 'SF Mono', Menlo, monospace; font-size: 9.5px; color: var(--wf-ink-dim); margin-top: 6px; letter-spacing: 0.02em; }
+    .wf-route { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; }
+    .wf-note { font-size: 10px; color: var(--wf-ink-dim); margin-top: 8px; line-height: 1.5; }
+    .wf-fork { border-top: 1px dashed var(--wf-line-soft); margin-top: 9px; padding-top: 8px; }
+
+    .wf-anat { display: flex; gap: 0; align-items: stretch; flex-wrap: wrap; }
+    .wf-anat .wf-fig { flex: 0 0 268px; }
+    .wf-legend { flex: 1 1 260px; padding-left: 26px; display: flex; flex-direction: column; justify-content: center; gap: 9px; }
+    .wf-leg { display: flex; gap: 10px; align-items: baseline; }
+    .wf-leg-n { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; font-weight: 700; color: var(--wf-ink-dim); border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 1px 5px; flex: 0 0 auto; }
+    .wf-leg-t { font-size: 11.5px; color: var(--wf-ink-dim); line-height: 1.5; }
+    .wf-leg-t b { color: var(--wf-ink); font-weight: 700; }
+
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+    .wf-phone .wf-fig { border: none; background: none; padding: 0 0 12px; border-bottom: 1px dashed var(--wf-line-soft); border-radius: 0; margin-bottom: 12px; }
+    .wf-phone .wf-fig:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+
+    .wf-serp { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 15px; max-width: 600px; }
+    .wf-serp-url { font-family: 'SF Mono', Menlo, monospace; font-size: 10.5px; color: var(--wf-ink-dim); letter-spacing: 0.02em; }
+    .wf-serp-title { font-size: 17px; color: var(--wf-ink); margin: 5px 0 4px; line-height: 1.3; }
+    .wf-serp-desc { font-size: 11.5px; color: var(--wf-ink-dim); line-height: 1.55; }
+    .wf-count { font-family: 'SF Mono', Menlo, monospace; font-size: 9px; color: var(--wf-ink-dim); border: 1px dashed var(--wf-line-soft); border-radius: 3px; padding: 1px 5px; margin-left: 6px; white-space: nowrap; }
+    .wf-card { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); overflow: hidden; }
+    .wf-card-img { height: 116px; border-bottom: 1px solid var(--wf-line); display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--wf-ink-dim); background: repeating-linear-gradient(45deg, #1a1a1a, #1a1a1a 8px, #202020 8px, #202020 16px); }
+    .wf-card-body { padding: 11px 12px; }
+    .wf-card-dom { font-family: 'SF Mono', Menlo, monospace; font-size: 9.5px; color: var(--wf-ink-dim); text-transform: uppercase; letter-spacing: 0.06em; }
+    .wf-card-title { font-size: 12.5px; font-weight: 700; color: var(--wf-ink); margin: 4px 0 3px; }
+    .wf-card-desc { font-size: 10.5px; color: var(--wf-ink-dim); line-height: 1.5; }
+    .wf-chat { width: 360px; max-width: 100%; }
+    .wf-bubble { border: 1px dashed var(--wf-line-soft); border-radius: 6px; padding: 9px 10px; margin-bottom: 9px; font-size: 11px; color: var(--wf-ink-dim); }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid { grid-template-columns: 1fr; }
+      .wf-legend { padding-left: 0; padding-top: 18px; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 0.13</div>
+  <h1>SEO and indexation</h1>
+  <p class="lede">The structural SEO layer, held once: URL and slug conventions, one indexation row per node, the schema map, the single H1 rule, breadcrumbs and the internal linking planes. Every A to E block on every node inherits from here instead of deriving it a second time, and stage 04 validates against this table rather than against twenty six private opinions.</p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">9</div><div class="hero-stat-label">Indexed surfaces</div></div>
+    <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Deliberately not</div></div>
+    <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Linking planes</div></div>
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">hreflang tags, ever</div></div>
+  </div>
+</div>
+
+<!-- SCOPE -->
+<section id="scope">
+  <div class="sec-head">
+    <h2>What this register is, and what it is not</h2>
+    <p><code>CLAUDE.md</code> splits SEO across three stages. This is the first of them.</p>
+  </div>
+
+  <div class="card">
+    <p><strong>1. Structural, here and now:</strong> URL and slug, H1 and H2, breadcrumbs, schema, indexation and internal linking.<br>
+    <strong>2. Layout validation, at stage 04:</strong> every SEO block has a visible place.<br>
+    <strong>3. Final copy and real query volumes, in production.</strong></p>
+    <p><strong>Mixing them means a missing block is discovered as a redraw.</strong> So this node holds no keyword list, no title copy beyond the pattern, and no traffic estimate. Each node's A to E block still carries its own finished copy, and stage 05 syncs the voice-aligned version back into it.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The parent, in its honest form</h4>
+    <p><code>CLAUDE.md</code> says the structural layer of SEO "is IA and belongs here", which is a rule of this project rather than one of the three capability classes. <strong>A register of decisions is not a capability, so the three-class test applies to what the register decides, not to the register.</strong> Pre-login crawlability serves <code>B2-1</code>, the pre-login information wall, and Related Job 1. The noindex set serves the privacy of a transactional zone. The linking planes serve <code>F4</code> and the ticker's destination.</p>
+  </div>
+</section>
+
+<!-- LANGUAGE -->
+<section id="language">
+  <div class="sec-head">
+    <h2>What one language buys, and the single cost it carries</h2>
+    <p>The locked decision in <code>CLAUDE.md</code> is one language, English. It pays out here more than anywhere else.</p>
+  </div>
+
+  <div class="card is-good">
+    <p><strong>No hreflang anywhere.</strong> Not on any node, not in any sitemap. The most common structural SEO defect in this category does not exist for us.</p>
+    <p><strong>No language prefix.</strong> The baseline runs <code>/en/faq</code>, <code>/en/terms</code>, <code>/en/profile/&lt;id&gt;</code>. <strong>We run root paths.</strong> A prefix that only ever holds one value is a segment every URL pays for and nothing reads.</p>
+    <p><strong>One IA node is one page</strong>, which the same locked decision already states, so a URL is a node and the register below is one row per node without exception.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The cost, named rather than hidden</h4>
+    <p>If a second language ever arrives, root paths have to acquire one. The resolution is decided now so it is not improvised then: <strong>English stays at the root and the new language takes the prefix.</strong> Nothing migrates, nothing redirects, and the decision costs nothing today.</p>
+  </div>
+</section>
+
+<!-- URLS -->
+<section id="urls">
+  <div class="sec-head">
+    <h2>URL and slug conventions</h2>
+    <p>Seven rules, then the map.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Rule</th><th>Value</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Case</strong></td><td>Lowercase only</td><td>One canonical form. Mixed case is two URLs for one page on any case-sensitive host</td></tr>
+        <tr><td><strong>Words</strong></td><td>Hyphens, never underscores or camel case</td><td></td></tr>
+        <tr><td><strong>Trailing slash</strong></td><td>None. The other form 301s to it</td><td>Both forms resolving is duplication nobody notices until it is in the index twice</td></tr>
+        <tr><td><strong>Slug source</strong></td><td>The object's own name, in the product language, which is English</td><td></td></tr>
+        <tr><td><strong>Slug stability</strong></td><td><strong>A rename is a 301 and the old slug is never reused.</strong> A slug is not edited in place</td><td>A silently changed slug is a dead link in every share, every chat and every index</td></tr>
+        <tr><td><strong>IDs</strong></td><td>Never in a slug, with one exception: <code>/r/&lt;id&gt;</code>, where the object is a record and has no name</td><td></td></tr>
+        <tr><td><strong>Reserved first segments</strong></td><td><code>cases</code>, <code>legal</code>, <code>r</code>, <code>support</code>, and the transactional set</td><td>Without this rule <code>/cases/category</code> collides with a case named "category"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4><code>/my-items</code> is not a styling choice</h4>
+    <p>The rail's label for that destination is My items, and node <code>0.1</code> fixed the rule that one destination carries one label in every carrier. <strong>The URL is a carrier too</strong>, and a person who reads <code>/account</code> in the address bar after tapping My items has met a second name for one place.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>A state has no URL of its own unless a person can arrive at it from outside</h4>
+    <p><code>7.1</code> can, so it has one. The geo block <code>2.2</code>, the empty catalogue <code>3.2</code> and the empty inventory <code>5.2</code> cannot, so they render at the URL the person is already on. <strong>This is the same rule the map uses to decide which dialogs are file-level nodes, applied to addresses.</strong></p>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section id="register">
+  <div class="sec-head">
+    <h2>The indexation register</h2>
+    <p>One row per node with a URL. The table stage 04 checks against, and the table each A to E block inherits from.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Node</th><th>URL</th><th>Indexed</th><th>Canonical</th><th>Schema</th><th>Breadcrumb</th></tr></thead>
+      <tbody>
+        <tr><td><span class="surf">1.0</span> Home</td><td><code>/</code></td><td>Yes</td><td>Self</td><td><code>Organization</code> + <code>WebSite</code></td><td>None. It is the root</td></tr>
+        <tr><td><span class="surf">3.1</span> Catalogue</td><td><code>/cases</code></td><td>Yes</td><td>Self</td><td><code>CollectionPage</code> + <code>ItemList</code></td><td>Home &gt; Cases</td></tr>
+        <tr><td><span class="surf">3.1</span> Category</td><td><code>/cases/category/&lt;slug&gt;</code></td><td><strong>Yes, conditional on <code>D-D</code></strong></td><td>Self</td><td><code>CollectionPage</code> + <code>ItemList</code></td><td>Home &gt; Cases &gt; Category</td></tr>
+        <tr><td><span class="surf">3.1</span> Filtered or searched</td><td><code>/cases?...</code></td><td><strong>No.</strong> noindex, follow</td><td><strong>To <code>/cases</code></strong></td><td>None</td><td>Home &gt; Cases</td></tr>
+        <tr><td><span class="surf">3.3</span> Case screen</td><td><code>/cases/&lt;slug&gt;</code></td><td>Yes</td><td>Self</td><td><code>Product</code> + <code>Offer</code></td><td>Home &gt; Cases &gt; Case</td></tr>
+        <tr><td><span class="surf">1.2</span> Provably fair</td><td><code>/provably-fair</code></td><td>Yes</td><td>Self</td><td><code>WebPage</code></td><td>Home &gt; Provably fair</td></tr>
+        <tr><td><span class="surf">6.1</span> Responsible play</td><td><code>/responsible-play</code></td><td>Yes</td><td>Self</td><td><code>WebPage</code></td><td>Home &gt; Responsible play</td></tr>
+        <tr><td><span class="surf">7.1</span> Public result</td><td><code>/r/&lt;id&gt;</code></td><td><strong>No.</strong> noindex, follow</td><td>Self</td><td>None</td><td>None</td></tr>
+        <tr><td><span class="surf">0.9</span> Legal, each of four</td><td><code>/legal/&lt;doc&gt;</code></td><td>Yes</td><td>Self</td><td><code>WebPage</code></td><td>Home &gt; Legal &gt; Document</td></tr>
+        <tr><td><span class="surf">0.10</span> Support</td><td><code>/support</code></td><td>Yes</td><td>Self</td><td><code>WebPage</code> + <code>ContactPage</code></td><td>Home &gt; Support</td></tr>
+        <tr><td><span class="surf">2.4</span> Sign in</td><td><code>/signin</code></td><td><strong>No</strong></td><td>Self</td><td>None</td><td>None</td></tr>
+        <tr><td><span class="surf">2.7</span> Identity</td><td><code>/verify-identity</code></td><td><strong>No</strong></td><td>Self</td><td>None</td><td>None</td></tr>
+        <tr><td><span class="surf">4.1</span> Deposit</td><td><code>/deposit</code></td><td><strong>No</strong></td><td>Self</td><td>None</td><td>None</td></tr>
+        <tr><td><span class="surf">5.1</span> My items</td><td><code>/my-items</code></td><td><strong>No</strong></td><td>Self</td><td>None</td><td>None</td></tr>
+        <tr><td><span class="surf">5.3</span> Withdrawal</td><td><code>/withdraw</code></td><td><strong>No</strong></td><td>Self</td><td>None</td><td>None</td></tr>
+        <tr><td><span class="surf">0.3</span> System pages</td><td>No URL of their own</td><td><strong>No</strong></td><td>n/a</td><td>None</td><td>None</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <p><strong>Nine indexed surfaces and six that are not</strong>, and the split is not a preference: everything in the transactional zone is personal or pointless in a result page, and everything outside it is the pre-login argument.</p>
+  </div>
+</section>
+
+<!-- DECISIONS -->
+<section id="decisions">
+  <div class="sec-head">
+    <h2>Six decisions that are not obvious</h2>
+    <p>Each one would otherwise be taken twenty six times, differently.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>1. The public result is noindex, follow, and the share card is what it actually ships for</h4>
+    <p>Node <code>7.1</code> is the ninth surface, approved by <code>D-20</code>, and the destination of every ticker tile. It is kept out of the index for three reasons that compound.</p>
+    <p><strong>Scale.</strong> One page per win is thousands of near-identical templated pages. Thin content by construction, and it dilutes the surfaces that carry the argument.</p>
+    <p><strong>Where the object actually travels.</strong> <code>F4</code> exists for the referral loop. A shared result lands in a chat, a Discord, a clip description. <strong>The unfurl preview is the product, not a search position</strong>, so the OG and Twitter card is a hard requirement on this node while the meta description is nearly irrelevant.</p>
+    <p><strong>Consent.</strong> <code>0.8</code> already says the winning account appears "as it chooses to appear". Indexing turns public-if-you-have-the-link into findable-by-name, which is a different promise from the one the share button makes.</p>
+    <p><strong>follow rather than nofollow, deliberately.</strong> Every result links to <code>1.2</code> and <code>1.0</code>, and those are the pages that should collect whatever the link is worth.</p>
+  </div>
+
+  <div class="card">
+    <h4>2. Filters and search do not get indexed, categories do</h4>
+    <p>Facet combinations multiply URLs without multiplying content, so they are noindex, follow and canonical to <code>/cases</code>. <strong>Category views are a real grouping of real objects</strong>, so they are indexed, and whether they exist at all rides on <code>D-D</code>.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>3. The age gate does not block crawlers, and that is architecture rather than a trick</h4>
+    <p><code>2.1</code> fires at <strong>first case interaction</strong>, not on arrival, by <code>B3</code> and <code>D-17</code>. Every public surface is readable by anyone from anywhere, crawler included, <strong>without serving a crawler anything different from a person</strong>. Cloaking is not needed, which is worth saying out loud because the category's usual pattern makes it tempting: <strong>a login wall in front of the provably fair page is also an indexation wall</strong>, and <code>jtbd.md</code> names a public provably fair surface as one of three things no competitor offers pre-login. The competitor's wall costs them the index. Ours does not exist.</p>
+  </div>
+
+  <div class="card">
+    <h4>4. The geo block cannot be indexed, because it is not a page</h4>
+    <p>From node <code>0.12</code>: the block is a state rendering at the URL the person is already on, with HTTP 200. There is no URL to index, and no crawler from any market can be served a blocked page instead of the real one.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>5. Disallow is not noindex, and the private zone uses the right one</h4>
+    <p>The six unindexed nodes carry a <code>noindex</code> meta tag and <strong>are not disallowed in <code>robots.txt</code></strong>. The mechanism, in one line: <strong>a page a crawler is forbidden to read is a page whose noindex the crawler cannot read</strong>, so a disallowed URL can still be listed from inbound links while the instruction that would have prevented it sits unread inside. Disallow is for crawl budget. Noindex is for indexation. The private zone needs the second.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>6. Rich results in this category are <span class="q">[?]</span></h4>
+    <p>Whether an age-restricted, gambling-adjacent product is granted rich results at all is a policy question this project cannot answer from outside. The markup is correct either way and <strong>eligibility is production's to verify</strong>. Nothing here depends on getting them.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - what the case page is allowed to look like in a result, and where the limits bite</div>
+    <div class="wf-serp">
+      <div class="wf-serp-url">example.com &gt; cases &gt; case-name</div>
+      <div class="wf-serp-title">Case name: every drop chance and value before you open<span class="wf-count">title, 60 max</span></div>
+      <div class="wf-serp-desc">Published chance and current value on every item, tested RTP for this case and the expected value at this entry cost. Verify any round yourself. <span class="wf-count">description, 155 max</span></div>
+    </div>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - what 7.1 actually ships for, and it is not a search result</div>
+    <div class="wf-chat">
+      <div class="wf-bubble">a message, from one person to another</div>
+      <div class="wf-card">
+        <div class="wf-card-img">image, the item as it was won</div>
+        <div class="wf-card-body">
+          <div class="wf-card-dom">example.com</div>
+          <div class="wf-card-title">Item name, won from Case name</div>
+          <div class="wf-card-desc">Value at the moment it was won, and the round anyone can verify.</div>
+        </div>
+      </div>
+      <div class="wf-bubble">the unfurl is the product here. The meta description is nearly irrelevant</div>
+    </div>
+  </div>
+</section>
+
+<!-- HEADINGS -->
+<section id="headings">
+  <div class="sec-head">
+    <h2>Headings and breadcrumbs</h2>
+    <p>Two short rules, and one fact about depth that makes the second one cheap.</p>
+  </div>
+
+  <div class="card">
+    <h4>Exactly one H1 per page, and it is the page's job in words</h4>
+    <p>Never the logo, never the product name alone, never a slogan. On <span class="surf">3.3</span> it is the case name, because that is what the person came for and what the query matches.</p>
+    <p><strong>The H2 list is the block order.</strong> Each node's block B lists its H2s in the order the blocks appear, which makes the stage 04 check mechanical: read the block order, read the H2 list, they match or the node is wrong.</p>
+    <p><strong>Headings are not a styling ladder.</strong> A visually smaller heading that is structurally an H2 stays an H2. Stated here because stages 06 and 07 will be tempted to reorder by size.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Breadcrumbs are short here, and that is a result rather than a shortcut</h4>
+    <p><code>sitemap.md</code> records that <strong>level 3 is empty in round 1</strong>, so no breadcrumb is longer than three items and most are two. Deepest: Home &gt; Cases &gt; case name, and with categories on, Home &gt; Cases &gt; category &gt; case name. Legal: Home &gt; Legal &gt; document. Home has none, because a breadcrumb to yourself is decoration.</p>
+    <p><strong><code>BreadcrumbList</code> markup only where a visible breadcrumb exists</strong>, which is the next section's rule applied to the one type most often marked up invisibly.</p>
+  </div>
+</section>
+
+<!-- SCHEMA -->
+<section id="schema">
+  <div class="sec-head">
+    <h2>The schema map, and the two refusals</h2>
+    <p>Google's structured data policies, opened 12 August 2026.</p>
+  </div>
+
+  <div class="card is-note">
+    <p>"Your structured data must be a true representation of the page content."<br>
+    "Don't mark up content that is not visible to readers of the page."<br>
+    "Don't mark up irrelevant or misleading content, such as fake reviews or content unrelated to the focus of a page."<br>
+    "Don't use structured data to deceive or mislead users. Don't impersonate any person or organization, or misrepresent your ownership, affiliation, or primary purpose."</p>
+    <p><strong>Those four lines are the whole policy this register needs</strong>, and they land on this product harder than on most, because design principle 1 says the same thing in the interface.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Page type</th><th>Type</th><th>What it carries</th></tr></thead>
+      <tbody>
+        <tr><td>Home</td><td><code>Organization</code>, <code>WebSite</code></td><td>Who we are, the site name. <code>Organization</code> matches the identification block <code>0.2</code> already carries</td></tr>
+        <tr><td>Catalogue and category</td><td><code>CollectionPage</code>, <code>ItemList</code></td><td>The list that is visibly on the page, in the order it is visibly in</td></tr>
+        <tr><td>Case screen</td><td><code>Product</code>, <code>Offer</code></td><td>The case is the thing bought and the entry cost is its price. <code>schema.org/Product</code>, opened 12 August 2026, defines a product as "any offered product or service", and <code>Offer</code> as a transaction opportunity including pricing</td></tr>
+        <tr><td>Provably fair, responsible play, legal</td><td><code>WebPage</code></td><td>Nothing more. There is nothing on those pages a richer type would truthfully describe</td></tr>
+        <tr><td>Support</td><td><code>WebPage</code>, <code>ContactPage</code></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Refusal 1: no aggregateRating or Review, anywhere, for the Trustpilot score</h4>
+    <p>Row <code>A5</code> puts a Trustpilot score in the hero. <strong>Marking it up as our own rating is the "fake reviews" line of the policy above</strong>, plus the misrepresentation-of-affiliation line: they are a third party's reviews, held by that third party, and structured data presenting them as ours claims something we do not own. Node <code>0.11</code> already requires that score to be live or absent. This register adds: <strong>live, absent, and never marked up.</strong></p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Refusal 2: the case is the offer, the skin is not</h4>
+    <p>The case page shows drop table items with current values. <strong>Those are not offers.</strong> We do not sell that skin at that price, and marking each item as a <code>Product</code> with an <code>Offer</code> would state that we do. The items are content of the case, and the only <code>Offer</code> on the page is the entry cost.</p>
+    <p><strong>Both refusals are the same rule twice:</strong> markup describes what the page truly is, and this product has already promised, in principle 1, not to look more credentialled than it is.</p>
+  </div>
+</section>
+
+<!-- LINKING -->
+<section id="linking">
+  <div class="sec-head">
+    <h2>The internal linking planes, and outbound links</h2>
+    <p>Four planes, and every one of them is a crawlable anchor rather than a JavaScript handler.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Plane</th><th>Owner</th><th>What it carries</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The rail</strong></td><td><span class="surf">0.1</span></td><td>Three destinations for a guest, four with an account. Present on every page, which makes it the strongest internal signal in the product</td></tr>
+        <tr><td><strong>The footer</strong></td><td><span class="surf">0.2</span></td><td>Four link columns, the legal set, support, plus the interlinking block whose structure is fixed and whose contents are <span class="q">[?]</span></td></tr>
+        <tr><td><strong>The ticker</strong></td><td><span class="surf">0.8</span></td><td>Every tile lands on <span class="surf">7.1</span>. High volume, and it is why 7.1 is follow</td></tr>
+        <tr><td><strong>Content links</strong></td><td>The nodes themselves</td><td>Home tiles into a case, catalogue into cases, the outcome into <span class="surf">1.2</span> and <span class="surf">7.1</span>, the footer statistic into the surface that proves it, <span class="surf">0.11</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>A destination reachable only by script does not exist for a crawler</strong>, and often not for a person with a keyboard either.</p>
+    <p><strong>The interlinking block is the one plane with an open input.</strong> Its structure is fixed by <code>0.2</code>; the list it holds needs the category structure from <span class="surf">3.1</span> and real query volumes from production. It is <span class="q">[?]</span> here on purpose rather than filled with a guess.</p>
+  </div>
+
+  <div class="card">
+    <h4>Outbound links</h4>
+    <p>Row <code>A1</code> puts an outbound market link on the top item, and <code>F1</code> links the venue listing filtered to the float band. <strong>These are editorial links to evidence, not paid placements</strong>, so they carry no sponsored marking unless a commercial relationship exists, at which point the marking becomes mandatory rather than optional. The backlog already records that outbound clicks are an accepted cost and never a failure metric, which is the same decision seen from the analytics side.</p>
+  </div>
+</section>
+
+<!-- VALIDATE -->
+<section id="validate">
+  <div class="sec-head">
+    <h2>What stage 04 validates, which is its half of the job</h2>
+    <p><code>CLAUDE.md</code>: stage 04 "validates only that every SEO block has a visible place". Concretely, per node.</p>
+  </div>
+
+  <div class="card">
+    <p><strong>1.</strong> Exactly one H1, and it is the page's job in words.<br>
+    <strong>2.</strong> The H2s exist, in block order, matching block B of that node.<br>
+    <strong>3.</strong> A breadcrumb is drawn wherever the register says one exists.<br>
+    <strong>4.</strong> The interlinking block has room in the footer at both widths.<br>
+    <strong>5.</strong> The meta description has a source on the page rather than being invented at production time.<br>
+    <strong>6.</strong> Nothing marked indexed is rendered as an image: the pre-login figures especially, per <code>0.11</code> rule 8.</p>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+    <p>Six open items, and one of them is a decision taken here that the founder can reverse.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Open item</th><th style="width:46%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td>The interlinking block contents</td><td>Needs the category structure from <span class="surf">3.1</span> and real query volumes</td><td>Node <span class="surf">3.1</span>, then production</td></tr>
+        <tr><td>Whether category URLs ship at all</td><td>Rides on <code>D-D</code>, catalogue size</td><td>Founder, with the treasury answer</td></tr>
+        <tr><td>The canonical host</td><td>Apex against www, and the domain itself is not chosen</td><td>Founder, before stage 04</td></tr>
+        <tr><td>Rich result eligibility</td><td>Policy for an age-restricted category, unknowable from outside</td><td>Production</td></tr>
+        <tr><td>Final titles and descriptions</td><td>Pattern here, copy in each node's A to E block, voice at stage 05</td><td>Stage 05, then production</td></tr>
+        <tr><td><strong>Whether 7.1 should be indexed after all</strong></td><td>Decided here as noindex, follow with three reasons. <strong>Reversible, and it is the founder's if they want wins in search results</strong></td><td>Founder, if they disagree</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>Page speed and Core Web Vitals.</strong> Production, though design principle 5 already makes speed a product rule.</p>
+    <p><strong>Sitemap XML generation.</strong> Production.</p>
+    <p><strong>The words in any title.</strong> Stage 05.</p>
+  </div>
+
+  <a class="backlink" href="structure.html#0.13">Back to Structure (0.13)</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/seo.md</code>. Policy quotes: Google structured data policies and schema.org, both opened 12 August 2026. Node data: <code>ia/docs/sitemap.md</code>, cluster 0.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map: <a href="sitemap.html">Sitemap</a>. The routes: <a href="flows.html">Flows</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '0.13 SEO and indexation';
+window.NAV_SECTIONS = [
+  { id: 'overview',  label: 'Overview' },
+  { id: 'scope',     label: 'What it is not' },
+  { id: 'language',  label: 'One language' },
+  { id: 'urls',      label: 'URLs and slugs' },
+  { id: 'register',  label: 'The indexation register' },
+  { id: 'decisions', label: 'Six decisions' },
+  { id: 'headings',  label: 'Headings and breadcrumbs' },
+  { id: 'schema',    label: 'Schema, and two refusals' },
+  { id: 'linking',   label: 'Linking planes' },
+  { id: 'validate',  label: 'What stage 04 checks' },
+  { id: 'open',      label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

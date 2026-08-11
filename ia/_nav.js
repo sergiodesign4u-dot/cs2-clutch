@@ -43,7 +43,7 @@ window.IA_NAV = [
   // Type 'register' is a node read by several nodes and drawn by none. Stage 04 does not wireframe it.
   { node: '0.11', label: 'Published numbers',        file: 'numbers.html',    group: 'global', type: 'register',       states: 0, done: true  },
   { node: '0.12', label: 'Markets and jurisdictions', file: 'markets.html',   group: 'global', type: 'register',       states: 0, done: true  },
-  { node: '0.13', label: 'SEO and indexation',       file: 'seo.html',        group: 'global', type: 'register',       states: 0, done: false },
+  { node: '0.13', label: 'SEO and indexation',       file: 'seo.html',        group: 'global', type: 'register',       states: 0, done: true  },
   { node: '0.14', label: 'Canonical round proof',    file: 'round-proof.html', group: 'global', type: 'component',     states: 0, done: false },
 
   // Cluster 1. Decide whether this place is real.
