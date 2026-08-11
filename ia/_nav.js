@@ -36,6 +36,13 @@ window.IA_NAV = [
   // Registered by node 0.2 on 11 August 2026. A carrier may not promise a destination the map does not hold.
   { node: '0.9', label: 'Legal and policy pages',   file: 'legal.html',      group: 'global', type: 'page',           states: 4, done: false },
   { node: '0.10', label: 'Support and contact',     file: 'support.html',    group: 'global', type: 'page',           states: 0, done: false },
+  // Registered by the global sweep on 12 August 2026. Not new surfaces: three are structures the nine
+  // surfaces already read, the fourth is the component that renders the product's evidence.
+  // Type 'register' is a node read by several nodes and drawn by none. Stage 04 does not wireframe it.
+  { node: '0.11', label: 'Published numbers',        file: 'numbers.html',    group: 'global', type: 'register',       states: 0, done: false },
+  { node: '0.12', label: 'Markets and jurisdictions', file: 'markets.html',   group: 'global', type: 'register',       states: 0, done: false },
+  { node: '0.13', label: 'SEO and indexation',       file: 'seo.html',        group: 'global', type: 'register',       states: 0, done: false },
+  { node: '0.14', label: 'Canonical round proof',    file: 'round-proof.html', group: 'global', type: 'component',     states: 0, done: false },
 
   // Cluster 1. Decide whether this place is real.
   { node: '1.0', label: 'Home',                    file: 'home.html',       group: 'pages',  type: 'page',           states: 1, done: false },

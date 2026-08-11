@@ -83,6 +83,17 @@
     .ia-chip-states { font-size: 10px; font-weight: 700; letter-spacing: 0.05em; color: var(--accent-yellow); background: rgba(250,218,98,0.1); padding: 2px 6px; border-radius: 4px; }
     .ia-total { font-size: 13.5px; color: var(--text-secondary); background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent-blue); border-radius: 10px; padding: 15px 18px; margin-top: 6px; }
 
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 520px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .n { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .cons { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+    .verdict-no { color: var(--text-muted); font-weight: 700; text-transform: uppercase; font-size: 10px; letter-spacing: 0.08em; display: block; margin-bottom: 3px; }
+
     footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
     footer p { font-size: 12px; color: var(--text-muted); }
     @media (max-width: 900px) {
@@ -104,7 +115,7 @@
   <h1>Structure</h1>
   <p class="lede">The launcher for the detail layer. Every node of the product gets one specification and one black and white visual, and every one of them is a chip here. The sidebar stays two links at any project size: the list of nodes lives in this hub, not in the navigation panel. Nodes that are planned but not yet built are shown dim rather than hidden, because a hub that lists only what exists cannot show what is missing.</p>
   <div class="hero-meta">
-    <div><div class="hero-stat-value">22</div><div class="hero-stat-label">File-level nodes</div></div>
+    <div><div class="hero-stat-value">26</div><div class="hero-stat-label">File-level nodes</div></div>
     <div><div class="hero-stat-value">27</div><div class="hero-stat-label">States inside them</div></div>
     <div><div class="hero-stat-value" id="ia-built">0</div><div class="hero-stat-label">Built so far</div></div>
     <div><div class="hero-stat-value">B/W</div><div class="hero-stat-label">Until stage 06</div></div>
@@ -119,6 +130,80 @@
   </div>
 
   <div id="ia-structure"></div>
+</section>
+
+<!-- SWEEP -->
+<section id="sweep">
+  <div class="sec-head">
+    <h2>The global sweep</h2>
+    <p>Step 3, 12 August 2026. What else in this product is global, answered by counting consumers rather than by naming components.</p>
+  </div>
+
+  <div class="card">
+    <h4>The two tests, and the one thing that decided every row</h4>
+    <p>A candidate is global when it <strong>appears on many pages</strong>, or when it is a <strong>shared structure or dataset that several pages consume</strong>. Everything else is specified inside the single node that uses it. For every candidate the list of consuming nodes was written down <strong>before</strong> the verdict rather than after: a candidate with one consumer is not global however large it is, and a candidate with five is global even when it renders nothing at all.</p>
+    <p><strong>Four nodes came out of it and not one is a new surface.</strong> Round 1 is still the nine surfaces <code>D-20</code> locked. Three of the four render nothing: they are structures the nine already read, described once instead of nine times.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>One new node type, named rather than smuggled in</h4>
+    <p><code>register</code>: a node holding a structure or a dataset read by several nodes, described once and drawn by none. Not a page, because nobody navigates to it. Not a component, because nothing renders it. Calling it either would misfile it in the hub above and, worse, would enter it into stage 04's coverage check as a screen with no wireframe. <strong>Registers are not wireframed at stage 04.</strong> The nodes that read them are.</p>
+  </div>
+
+  <h4 style="margin-top:26px">Kept, four</h4>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Node</th><th>Consumers</th><th>Why it is global</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="n">0.11</span><br>Published numbers</td>
+          <td><span class="cons">1.0, 1.2, 3.3, 5.3, 0.2</span></td>
+          <td>Five surfaces read one family of numbers and every one of them is a claim under design principle 1. The backlog already says two of the rows are "the same feature, two surfaces", <code>A4</code> and <code>G3</code>. The footer made it a third within one step of that sentence. A number defined at each surface is a number that will disagree with itself.</td>
+        </tr>
+        <tr>
+          <td><span class="n">0.12</span><br>Markets and jurisdictions</td>
+          <td><span class="cons">2.1, 2.2, 5.3, 0.2, 0.9</span></td>
+          <td>Five surfaces read one legal fact, and it is the kind the pack names explicitly: a real structure of the world, grounded rather than invented. The entity inventory already argues it, the ground has to be a stored citable thing rather than a sentence someone writes once. <strong>Every verdict stays [?] until re-verified against current law, and it belongs to counsel under <code>D-A</code>.</strong></td>
+        </tr>
+        <tr>
+          <td><span class="n">0.13</span><br>SEO and indexation</td>
+          <td><span class="cons">every indexed node</span></td>
+          <td><code>CLAUDE.md</code> puts the structural SEO layer inside IA and lists what it holds. Without one place holding it, twenty six A to E blocks derive indexation, canonical and schema independently, and stage 04 ends up validating a layout against twenty six private opinions.</td>
+        </tr>
+        <tr>
+          <td><span class="n">0.14</span><br>Canonical round proof</td>
+          <td><span class="cons">1.2, 3.3 phases 2 and 3, 7.1</span></td>
+          <td>One object rendered at four sites with one field set. The same class as the skin card and the case tile, and the highest-stakes repeated component the product owns: design principle 1 makes the evidence the thing that has to look identical everywhere.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4 style="margin-top:26px">Not kept, with the consumer count that decided it</h4>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Candidate</th><th>Consumers</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>Case taxonomy, the categories the baseline runs</td><td><span class="cons">3.1 only</span></td><td><span class="verdict-no">Not global</span>A [?] part of the Case entity, with its scale riding on <code>D-D</code>. The baseline's thirteen categories are an observation, not an inherited structure.</td></tr>
+        <tr><td>Facet and filter system</td><td><span class="cons">3.1 only</span></td><td><span class="verdict-no">Not global</span>Specified inside 3.1. Revisit at step 6 if 5.1 acquires filters of its own: two listings sharing a facet set makes it canonical, one does not.</td></tr>
+        <tr><td>Global dialog set</td><td><span class="cons">0.4, 2.1, 6.2</span></td><td><span class="verdict-no">Nothing left over</span>Two are already file-level nodes and the third lives inside its owner. Sign in is a page rather than a dialog, because Steam OpenID leaves the site.</td></tr>
+        <tr><td>Interrupt order, cookie banner against the age gate</td><td><span class="cons">whole map</span></td><td><span class="verdict-no">No conflict</span>0.4 fires on arrival, 2.1 fires at first case interaction by <code>B3</code>. They never contend for the same moment. Recorded so nobody derives it twice.</td></tr>
+        <tr><td>Canonical value receipt, <code>F1</code> and <code>F2</code></td><td><span class="cons">3.6, 5.1, 5.3, 7.1</span></td><td><span class="verdict-no">Four consumers, still not a node</span>It is a part of <code>0.6</code>, and all four already render <code>0.6</code>. Written once inside that node and referenced.</td></tr>
+        <tr><td>Global search</td><td><span class="cons">3.1, plus 0.3</span></td><td><span class="verdict-no">Not global</span>The baseline keeps its own search icon inside the catalogue's category bar, and our header holds no actions at all by <code>D-21</code>.</td></tr>
+        <tr><td>Money and currency formatting</td><td><span class="cons">many</span></td><td><span class="verdict-no">Not an IA node</span><code>C1</code> is already a rule at entity level and the rendering belongs to stage 08.</td></tr>
+        <tr><td>Empty, loading and error state canon</td><td><span class="cons">many</span></td><td><span class="verdict-no">Not a node</span>It belongs in the step 5 page template, where every node inherits it by construction rather than by reference.</td></tr>
+        <tr><td>Out-of-product notification channel</td><td><span class="cons">5.3, 5.8</span></td><td><span class="verdict-no">No parent</span>A withdrawal running for hours with a per-state timer implies a signal reaching the person outside the page, and there is no notification, email or push row anywhere in the backlog. Named here so nobody later reports it as a discovery.</td></tr>
+        <tr><td>Trust strip</td><td><span class="cons">1.0, 0.2</span></td><td><span class="verdict-no">Two objects, one word</span>Home carries the trust proposition <code>A1</code> to <code>A5</code>, the footer carries the compliance strip. Named so a later step does not merge them on the strength of the label.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix" style="margin-top:22px">
+    <h4>What the sweep found, and it found it in our own week-old prose</h4>
+    <p><strong>Node 0.2 claimed a capability that does not exist.</strong> Its statistics verdict said cases opened "becomes checkable by reconciling with the published round ledger on 1.2". There is no published round ledger. The backlog uses the word ledger four times and every one is the internal settlement ledger; node 1.2 holds a verifier and a round input and publishes no rounds in bulk.</p>
+    <p><strong>The rule that catches it was already written.</strong> A block with no parent in the three legal classes is cut, or carried with its orphan status printed. What was missing was pointing that rule at a sentence written one step earlier, which is the same failure mode as the base layer's count drift: the instrument existed, nobody aimed it at the new prose.</p>
+    <p><strong>Corrected, not deleted.</strong> The route that does exist is the observed rate counter, row <code>D3</code>, whose N comes from the same settlement ledger that pays users. It reconciles <strong>per case rather than as one auditable total</strong>, and it is conditional on <code>D-B</code>, whether six years of roll history can migrate and be published at all. If <code>D-B</code> fails, cases opened loses its route and the slot goes to a number that has one. A browsable public round ledger would be a new backlog row and is not one today. Both sit in the open items of <code>0.11</code>.</p>
+  </div>
 </section>
 
 <!-- HOW -->
@@ -176,6 +261,7 @@ window.NAV_BASE = '../';
 window.NAV_SECTIONS = [
   { id: 'overview', label: 'Overview' },
   { id: 'nodes',    label: 'Nodes' },
+  { id: 'sweep',    label: 'The global sweep' },
   { id: 'how',      label: 'How a node is specified' },
   { id: 'coming',   label: 'Still owed' },
 ];

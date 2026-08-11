@@ -99,6 +99,7 @@
     }
     .nd-name .tag.t-page { background: rgba(101,163,255,0.14); color: var(--accent-blue); }
     .nd-name .tag.t-dialog { background: rgba(233,77,139,0.14); color: var(--accent-pink); }
+    .nd-name .tag.t-reg { background: rgba(74,222,128,0.14); color: var(--green); }
     .nd-name .tag.t-dead { background: rgba(229,72,77,0.16); color: #ff9b9e; }
     .nd-desc { grid-column: 2; font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; }
 
@@ -131,9 +132,9 @@
   <p class="lede">The concept map said which screens exist and by what intent they group. This is that same map expanded into nodes. Every screen, dialog and state now carries a number, a type, a group and its transitions, and the count it produces is the number the rest of this stage has to plan against. It is not a second map beside the first: the node map replaced the concept sitemap inside <code>ia/docs/sitemap.md</code>, so this project holds one list of screens.</p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">9</div><div class="hero-stat-label">Clusters</div></div>
-    <div><div class="hero-stat-value">62</div><div class="hero-stat-label">Nodes</div></div>
-    <div><div class="hero-stat-value">49</div><div class="hero-stat-label">Of them MVP</div></div>
-    <div><div class="hero-stat-value">22</div><div class="hero-stat-label">File-level nodes to build</div></div>
+    <div><div class="hero-stat-value">66</div><div class="hero-stat-label">Nodes</div></div>
+    <div><div class="hero-stat-value">53</div><div class="hero-stat-label">Of them MVP</div></div>
+    <div><div class="hero-stat-value">26</div><div class="hero-stat-label">File-level nodes to build</div></div>
     <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Taps to the main job</div></div>
   </div>
 
@@ -177,7 +178,7 @@ flowchart TD
     C4 -->|"balance available"| C3
     C4 -->|"ceiling set where money is spent"| C6
     C5 -->|"withdrawal stays open under every boundary"| C6
-    C0["Cluster 0<br/>Global shell<br/>Navigation, footer, system, cookie, toasts,<br/>skin card, case tile, ticker, legal, support"]
+    C0["Cluster 0<br/>Global shell<br/>Navigation, footer, system, cookie, toasts, skin card,<br/>case tile, ticker, legal, support,<br/>three registers and the round proof block"]
     C0 -.->|"inherited by every cluster below"| C1
     C8 -.->|"battles arrive, both mode switchers return to the shell"| C0
 
@@ -203,7 +204,7 @@ flowchart TD
 <section id="tree">
   <div class="sec-head">
     <h2>The node tree</h2>
-    <p>Hierarchy only, no routes. The twenty file-level nodes are what step 6 actually builds, one md plus one html each. States are counted on their parent rather than drawn, because a state has no file of its own.</p>
+    <p>Hierarchy only, no routes. The twenty six file-level nodes are what step 6 actually builds, one md plus one html each. States are counted on their parent rather than drawn, because a state has no file of its own.</p>
   </div>
 
   <div class="diagram">
@@ -229,6 +230,10 @@ flowchart LR
     G0 --> N08["0.8 Live drop ticker"]
     G0 --> N09["0.9 Legal and policy"]
     G0 --> N010["0.10 Support and contact"]
+    G0 --> N011["0.11 Published numbers"]
+    G0 --> N012["0.12 Markets and jurisdictions"]
+    G0 --> N013["0.13 SEO and indexation"]
+    G0 --> N014["0.14 Canonical round proof"]
 
     G1 --> N10["1.0 Home<br/>+1 state"]
     G1 --> N12["1.2 Provably fair<br/>+2 states"]
@@ -258,7 +263,7 @@ flowchart LR
     class G0 shell;
     class G8 later;
     class G1,G2,G3,G4,G5,G6,G7 group;
-    class N01,N02,N03,N04,N05,N06,N07,N08 shell;
+    class N01,N02,N03,N04,N05,N06,N07,N08,N09,N010,N011,N012,N013,N014 shell;
     class N10,N12,N21,N24,N27,N31,N33,N41,N51,N53,N61,N71 node;
     </pre>
   </div>
@@ -272,7 +277,7 @@ flowchart LR
   </div>
 
   <div class="pills" id="pills">
-    <button class="pill is-on" data-cl="all">All 60</button>
+    <button class="pill is-on" data-cl="all">All 66</button>
     <button class="pill" data-cl="0">0. Global shell</button>
     <button class="pill" data-cl="1">1. Is this real</button>
     <button class="pill" data-cl="2">2. Through the door</button>
@@ -285,8 +290,8 @@ flowchart LR
   </div>
 
   <div class="cl is-global" data-cl="0">
-    <div class="cl-head"><span class="cl-num">Cluster 0</span><span class="cl-title">Global shell</span><span class="cl-count">10 nodes, 10 MVP, group global</span></div>
-    <p class="cl-intent">What every intent cluster inherits. A shell that is LATER is a shell that does not exist, so all eight are MVP.</p>
+    <div class="cl-head"><span class="cl-num">Cluster 0</span><span class="cl-title">Global shell</span><span class="cl-count">14 nodes, 14 MVP, group global</span></div>
+    <p class="cl-intent">What every intent cluster inherits. A shell that is LATER is a shell that does not exist, so all fourteen are MVP. Four of them were added by the global sweep at step 3 and none is a new surface.</p>
     <div class="nd"><span class="nd-num">0.1</span><span class="nd-name">Navigation, rail, header and mobile bar<span class="tag t-page">global element</span></span><span class="nd-desc">Three carriers on mobile, two on desktop, and no carrier holds another's kind. A full height rail owning the logo, three destinations rising to four, and its own toggle on the seam. A header owning money as two figures, balance and value of items held, both in real currency, and no destination at all. A mobile bottom bar carrying a shortcut subset of the rail, Home plus Cases plus Provably fair rising to four with My items, never money and never an action. Rail restored by D-21, bar restored by D-22.</span></div>
     <div class="nd"><span class="nd-num">0.2</span><span class="nd-name">Footer<span class="tag t-page">global element</span></span><span class="nd-desc">A trust strip that never collapses, carrying the 18+ statement, the responsible play link and the market statement, none of which the baseline has at all. Four link columns, the interlinking block with its structure fixed and contents <span style="color:var(--accent-yellow)">[?]</span>, and the Article 5 identification block. Links no private transactional node.</span></div>
     <div class="nd"><span class="nd-num">0.3</span><span class="nd-name">System pages<span class="tag t-page">page</span></span><span class="nd-desc">404 as a full page with HTTP 404, 500 as a backend-independent template, maintenance as 503 with Retry-After. Never a soft 404, never a dead end.</span></div>
@@ -297,6 +302,10 @@ flowchart LR
     <div class="nd"><span class="nd-num">0.8</span><span class="nd-name">Live drop ticker<span class="tag">component</span></span><span class="nd-desc">Renders on 1.0 and 3.3 only, never everywhere: a feed on every screen is wallpaper rather than context. Every tile now lands on 7.1 rather than on a user profile.</span></div>
     <div class="nd"><span class="nd-num">0.9</span><span class="nd-name">Legal and policy pages<span class="tag t-page">page</span></span><span class="nd-desc">Terms of use, Privacy policy, Cookie policy, Refund and payments policy. Four documents on one template, each with its own URL and its own indexation. <strong>Registered by node 0.2</strong>, because a carrier may not promise a destination the map does not hold.</span></div>
     <div class="nd"><span class="nd-num">0.10</span><span class="nd-name">Support and contact<span class="tag t-page">page</span></span><span class="nd-desc">The contact route Article 5(c) requires, plus the appeal route row G4 requires with its published response deadline. Not a policy page: it has a function and a service level. <strong>Registered by node 0.2.</strong></span></div>
+    <div class="nd"><span class="nd-num">0.11</span><span class="nd-name">Published numbers register<span class="tag t-reg">register</span></span><span class="nd-desc">Every number the product publishes about itself, described once with its computation, its refresh, what it shows when the data is missing and the surfaces that read it: median and p90 withdrawal time A4 and G3, per-state ceilings and the Steam health probe G2, tested RTP and expected value D4, chance and current value per item D2, the observed rate counter D3 conditional on D-B, live free-unit count A2. Read by 1.0, 1.2, 3.3, 5.3 and 0.2.</span></div>
+    <div class="nd"><span class="nd-num">0.12</span><span class="nd-name">Market and jurisdiction register<span class="tag t-reg">register</span></span><span class="nd-desc">One row per market: the verdict, the cited legal ground, the position in the staged rollout. Asymmetric by design, the full record is operator-side and what reaches a person is the verdict and the ground in readable words. Every verdict is <span style="color:var(--accent-yellow)">[?]</span> until re-verified against current law and belongs to counsel under D-A. Read by 2.1, 2.2, 5.3, 0.2 and 0.9.</span></div>
+    <div class="nd"><span class="nd-num">0.13</span><span class="nd-name">SEO and indexation register<span class="tag t-reg">register</span></span><span class="nd-desc">URL and slug conventions, one row per node for indexation and canonical, the schema map by page type, the single H1 rule, breadcrumbs where depth allows any, and the internal linking planes. One language, so no hreflang anywhere. Every A to E block inherits from here rather than deriving a second time.</span></div>
+    <div class="nd"><span class="nd-num">0.14</span><span class="nd-name">Canonical round proof block<span class="tag">component</span></span><span class="nd-desc">One rendering of a round proof and its variants: the hash chip at the spin trigger E4, the verification link after the reveal F3, the full proof carried into a stranger's browser on 7.1, and the same fields inside the verifier. Used by 1.2, 3.3 phases 2 and 3, and 7.1.</span></div>
   </div>
 
   <div class="cl" data-cl="1">
@@ -405,7 +414,7 @@ flowchart LR
         <tr><th>Cluster</th><th>Nodes</th><th>Of them MVP</th><th>File-level</th></tr>
       </thead>
       <tbody>
-        <tr><td>0. Global shell</td><td>10</td><td>10</td><td>10</td></tr>
+        <tr><td>0. Global shell</td><td>14</td><td>14</td><td>14</td></tr>
         <tr><td>1. Decide whether this place is real</td><td>5</td><td>5</td><td>2</td></tr>
         <tr><td>2. Get through the door</td><td>9</td><td>9</td><td>3</td></tr>
         <tr><td>3. Choose what to open, and open it</td><td>7</td><td>7</td><td>2</td></tr>
@@ -414,15 +423,16 @@ flowchart LR
         <tr><td>6. Keep myself in check</td><td>3</td><td>3</td><td>1</td></tr>
         <tr><td>7. Tell someone</td><td>2</td><td>2</td><td>1</td></tr>
         <tr><td>8. LATER</td><td>13</td><td>0</td><td>0</td></tr>
-        <tr class="is-total"><td>Total</td><td>62</td><td>49</td><td>22</td></tr>
+        <tr class="is-total"><td>Total</td><td>66</td><td>53</td><td>26</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="card is-note" style="margin-top:22px">
-    <h4>Forty-nine MVP nodes against twelve MVP screens, and the ratio is the point</h4>
-    <p>Each screen carries roughly three states or dialogs that need their own specification, plus ten shell nodes nobody counted as screens at all. Twenty two of the forty-nine are file-level, which is what step 6 actually builds, one md plus one html each. The remaining 27 are states specified inside their parent under their own anchor.</p>
-    <p><strong>The count moved on 11 August 2026, and it moved from a page rather than from the map.</strong> Node 0.2 promised six destinations and the map held four, so <code>0.9</code> and <code>0.10</code> were registered before that specification was written. This is the growth the pack calls discover-as-you-go, and it is the reason the rule is worded as a prohibition: a carrier may not promise a destination the map does not hold.</p>
+    <h4>Fifty-three MVP nodes against twelve MVP screens, and the ratio is the point</h4>
+    <p>Each screen carries roughly three states or dialogs that need their own specification, plus fourteen shell nodes nobody counted as screens at all. Twenty six of the fifty-three are file-level, which is what step 6 actually builds, one md plus one html each. The remaining 27 are states specified inside their parent under their own anchor.</p>
+    <p><strong>The count has moved twice, and both times from work rather than from a recount.</strong> On 11 August node 0.2 promised six destinations and the map held four, so <code>0.9</code> and <code>0.10</code> were registered before that specification was written. This is the growth the pack calls discover-as-you-go, and it is the reason the rule is worded as a prohibition: a carrier may not promise a destination the map does not hold.</p>
+    <p><strong>On 12 August the global sweep added <code>0.11</code> to <code>0.14</code>, and not one of them is a new surface.</strong> Round 1 is still the nine surfaces <code>D-20</code> locked. Three are structures those nine already read, described once instead of nine times, and the fourth is the component that renders the product's evidence. The verdict on every candidate, kept and rejected, with the consumer count that decided it, is on <a href="structure.html#sweep">Structure</a>.</p>
     <p><strong>A dialog is file-level only when it is a destination.</strong> The age and geo gate and the cookie banner are: they carry their own content, they fire across the whole product, and they have routes out. The self exclusion confirmation is not: it guards one action on one screen. Without that line the word dialog would have produced two different file counts depending on who read it.</p>
   </div>
 

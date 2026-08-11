@@ -8,7 +8,7 @@
 
 **Sitemap transitions:** 1.0, 1.2, 3.1, 6.1, 2.2, 0.4, 0.9, 0.10.
 
-**This node grew the map.** A carrier may not promise a destination the map does not hold, and this one promised six. **`0.9` Legal and policy pages** and **`0.10` Support and contact** were registered before this specification was written. The map is 62 nodes, 49 MVP.
+**This node grew the map.** A carrier may not promise a destination the map does not hold, and this one promised six. **`0.9` Legal and policy pages** and **`0.10` Support and contact** were registered before this specification was written. The map is 66 nodes, 53 MVP, after the global sweep at step 3 added four more.
 
 ---
 
@@ -80,7 +80,7 @@ And the risk is documented rather than hypothetical: the bot-name concern record
 
 | Slot | Verdict | Reasoning |
 |---|---|---|
-| **Cases opened** | **Keep, and make it checkable** | It is the product's real volume and it answers `B1-1` directly, the visitor arriving pre-suspected. It becomes checkable by reconciling with the published round ledger on `1.2`: a total that equals the count of published rounds is a number a stranger can audit. That is the difference between this strip and every other one in the category |
+| **Cases opened** | **Keep, and make it checkable, and the route is narrower than this cell first claimed** | It is the product's real volume and it answers `B1-1` directly, the visitor arriving pre-suspected. **Corrected by the global sweep on 12 August 2026:** the first version of this cell reconciled the figure against a published round ledger on `1.2`, and no such object exists. `cjm-to-be.md` uses the word ledger four times and every one is the internal settlement ledger, and node `1.2` publishes no rounds in bulk. The route that does exist is the observed rate counter, row `D3`, whose N comes from that same settlement ledger. It reconciles **per case rather than as one auditable total** and it is conditional on `D-B`. If `D-B` fails the figure loses its route and the slot goes to a number that has one |
 | **Upgrades** | **Cut** | Upgrades is a LATER mode. A counter for a mode that does not exist advertises absence with a number, which is `D-19`'s rail defect in a different costume |
 | **Total users** | **Cut as drawn, replacement needed** | Not checkable by anyone outside the company, and it is the category's classic inflated figure. Keeping it would put the least verifiable number in the product next to the most verifiable one and teach a reader that neither can be trusted |
 | **Online users** | **Carried with a condition** | Same problem, and worse: a live human count on a platform where the drop feed's authenticity is already questioned in our own research. It ships only if it counts humans in real time. **If it cannot, it does not ship** |
@@ -101,7 +101,7 @@ And the risk is documented rather than hypothetical: the bot-name concern record
 
 ### Band 1: the statistics strip
 
-Full width, above the footer proper, four cells, each an icon plus a figure plus a caption. Contents per section 2. **Every figure that claims to be checkable carries its route:** cases opened links to the ledger on `1.2`, the withdrawal figure links to `5.3`.
+Full width, above the footer proper, four cells, each an icon plus a figure plus a caption. Contents per section 2. **Every figure that claims to be checkable carries its route:** cases opened links to the case screens carrying the observed rate counters `D3`, the withdrawal figure links to `5.3`. The route for cases opened is per case rather than one total, per the correction in section 2.
 
 ### Band 2: the main footer, four columns
 
@@ -216,6 +216,7 @@ The baseline runs a fixed circular headset button, bottom right, above the foote
 | Open item | What is missing | Owner |
 |---|---|---|
 | **Statistics slots 2 and 4** | Slot 2 recommended: median and p90 withdrawal time, `A4` and `G3`, which needs a yes because the footer is a third surface. Slot 4: online users ships only if it counts humans in real time, otherwise aggregate RTP, which needs its own backlog row | **Founder, before stage 04** |
+| **Whether cases opened keeps its route at all** | Added by the global sweep, 12 August 2026. Its reconciliation runs through `D3` and therefore through `D-B`, whether six years of roll history can migrate and be published. A browsable public round ledger would restore a single auditable total and it is not a backlog row today | Node `0.11`, then the founder |
 | The identification block contents | Operating entity, registered address, register and number, VAT number, supervisory authority. Structure fixed, every value unresolved | Founder with counsel, on the same answer as `D-A` |
 | Whether a support form satisfies Article 5(c) | The Article asks for an email address by name. The baseline prints none | Counsel |
 | The interlinking block contents | The catalogue's category structure | Node `3.1`, then production for the queries |

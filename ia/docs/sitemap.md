@@ -241,7 +241,7 @@ Written at step 1 of the detail layer, on 11 August 2026. **This section replace
 
 **File granularity, so that the step 8 audit has a rule to read against.** One md and one html per file-level node, which means per page, per dialog and per global element. A state is a numbered node in this map and is specified inside its parent's md under its own number and anchor. The chip in the hub belongs to the file-level node. A state therefore never gets lost and never gets an orphan file, and `specced-but-not-drawn` is measured against that rule rather than against the raw node count.
 
-**Scope marks are inherited, not re-derived.** They come from the concept sitemap, which took them from the backlog in `cjm-to-be.md`. A state inherits the mark of its parent screen. Two nodes acquired a mark here for the first time because they had no parent to inherit from, and both are called out where they sit: `0.6` the canonical skin card and `0.7` the canonical case tile, both MVP, because every MVP listing in the map uses them.
+**Scope marks are inherited, not re-derived.** They come from the concept sitemap, which took them from the backlog in `cjm-to-be.md`. A state inherits the mark of its parent screen. Six nodes acquired a mark here for the first time because they had no parent to inherit from, and each is called out where it sits: `0.6` the canonical skin card and `0.7` the canonical case tile, both MVP because every MVP listing in the map uses them, and the four the global sweep added, `0.11` to `0.14`, all MVP because **every node that reads them is MVP**. That is the whole of the derivation and it is said out loud rather than assumed, as the pack requires for a node with no parent to inherit from.
 
 **Groups.** `global` puts a node in the Global elements section of the hub, `pages` puts it in Pages. Cluster 0 is `global` throughout, clusters 1 to 8 are `pages`.
 
@@ -263,6 +263,10 @@ What every intent cluster inherits. Group `global`, all MVP, because a shell tha
 | **0.8** | Live drop ticker | component | MVP | Continuous tile strip, source mode label, weapon and skin, rarity tint, and a destination on every tile | renders on 1.0 and 3.3 only, and every tile lands on 7.1 |
 | **0.9** | Legal and policy pages | page | MVP | Four documents on one template: Terms of use, Privacy policy, Cookie policy, Refund and payments policy. Each has its own URL and its own indexation. The template is the node: last updated date, a plain-language summary above the document, the document, the version history | 0.10, and 0.4 links the cookie policy |
 | **0.10** | Support and contact | page | MVP | The contact route Article 5(c) requires, "contacted rapidly and communicated with in a direct and effective manner", plus the appeal route row `G4` requires with its **published response deadline**. Not a policy page: it has a function and a service level | 0.9, 5.3 |
+| **0.11** | Published numbers register | register | MVP | Every number this product publishes about itself, described once, each with its computation, its refresh interval, what it shows when the data is missing, and the surfaces that read it: rolling median and p90 withdrawal time `A4` and `G3`, per-state ceilings and the Steam health probe `G2`, published tested RTP and expected value at this entry cost `D4`, published chance and current value per item `D2`, the observed rate counter `D3` conditional on `D-B`, live free-unit count `A2` | Read by 1.0, 1.2, 3.3, 5.3 and 0.2. **Entered from nowhere:** a register is read, not visited |
+| **0.12** | Market and jurisdiction register | register | MVP | One row per market: the verdict, the cited legal ground, the position in the staged rollout. Asymmetric by design, the full record is operator-side and what reaches a person is the verdict and the ground in readable words. **Every verdict is `[?]` until re-verified against current law, and the decision belongs to counsel under `D-A`.** The node specifies the register, never the law | Read by 2.1, 2.2, 5.3, 0.2 and 0.9 |
+| **0.13** | SEO and indexation register | register | MVP | URL and slug conventions, one row per node for indexation and canonical, the schema map by page type, the single H1 rule, breadcrumbs where depth allows any, and the internal linking planes. **One language, so no hreflang anywhere**, per the locked decision in `CLAUDE.md` | Read by every indexed node. The A to E block on each of them inherits from here rather than deriving a second time |
+| **0.14** | Canonical round proof block | component | MVP | One rendering of a round proof and its variants: the hash chip at the spin trigger `E4`, the verification link after the reveal `F3`, the full proof carried into a stranger's browser on `7.1`, and the same fields inside the verifier. Server seed hash, client seed, nonce, settled result, recompute route | used by 1.2, 3.3 at phases 2 and 3, and 7.1 |
 
 **Two nodes were registered by node 0.2 on 11 August 2026**, and they are the first case of this map growing out of a page rather than the other way round. The footer promised six destinations; four already existed and two did not. The rule the pack and `CLAUDE.md` agree on is that a carrier may not promise a destination the map does not hold, and the fix is a node, never a link that resolves to nothing.
 
@@ -271,6 +275,52 @@ What every intent cluster inherits. Group `global`, all MVP, because a shell tha
 **The ticker gained a destination it did not have.** The baseline links every tile to `/en/profile/<id>`, `baseline.md` section 3, and no job in this repository requires a profile object at all. `D-20` approved the public result page, so tiles land on `7.1`, which carries its own round proof. The social-proof surface now points at something checkable instead of at a stranger's trophy shelf.
 
 **And it is deliberately not global.** `A3` renders on Home and on the case screen and nowhere else, `ux-patterns.md:262`: a feed on every screen is wallpaper rather than context. It is a canonical component with a restricted placement, which is why it sits in cluster 0 while appearing on two nodes.
+
+---
+
+### The global sweep
+
+Run at step 3 on 12 August 2026, after node `0.2` closed. The pack asks one question here and it is not "what else could be global". It is what **appears on many pages**, or is a **shared structure or dataset that several pages consume**. Two tests, and whatever passes neither is specified inside the single node that uses it.
+
+**How it was run, so the result can be checked rather than believed.** Every candidate was taken through the map cluster by cluster and through the entity inventory in this file, and **the list of consuming nodes was written down before the verdict rather than after**. A candidate with one consumer is not global however large it is. A candidate with five is global even when it renders nothing at all.
+
+**Four nodes came out of it, and not one of them is a new surface.** Round 1 is still the nine surfaces `D-20` locked. Three of the four render nothing: they are the shared structures the nine already read, described once instead of nine times.
+
+#### One new node type, named rather than smuggled in
+
+`register`: a node that holds a structure or a dataset read by several nodes, described once and never drawn. It is not a page, because nobody navigates to it, and not a component, because nothing renders it. Calling it either would misfile it in the hub and, worse, would put it into stage 04's coverage check as a screen with no wireframe. **Registers are not drawn at stage 04.** The nodes that read them are.
+
+#### Kept
+
+| No | Name | Consumers | Why it is global |
+|---|---|---|---|
+| **0.11** Published numbers register | `register` | 1.0, 1.2, 3.3, 5.3, 0.2 | Five surfaces read one family of numbers, and every one of them is a claim under design principle 1. `cjm-to-be.md` already says two of the rows are "the same feature, two surfaces", rows `A4` and `G3`. The footer made it a third within one step of that sentence being written. A number defined at each surface is a number that will disagree with itself |
+| **0.12** Market and jurisdiction register | `register` | 2.1, 2.2, 5.3, 0.2, 0.9 | Five surfaces read one legal fact, and it is the kind the pack names explicitly, a real structure of the world that gets grounded rather than invented. Entity 16 above already argues it: the ground has to be a stored, citable thing rather than a sentence someone writes once |
+| **0.13** SEO and indexation register | `register` | every indexed node | `CLAUDE.md` puts the structural SEO layer inside IA and lists what it holds. Without one place holding it, twenty two A to E blocks derive indexation, canonical and schema independently, and stage 04 validates a layout against twenty two private opinions |
+| **0.14** Canonical round proof block | `component` | 1.2, 3.3 phases 2 and 3, 7.1 | One object rendered at four sites with one field set. It is the same class as `0.6` and `0.7`, and it is the highest-stakes repeated component the product owns: design principle 1 makes the evidence the thing that must look identical everywhere |
+
+#### Not kept, with the reason and the consumer count that decided it
+
+| Candidate | Consumers | Verdict |
+|---|---|---|
+| Case taxonomy, the categories the baseline runs | 3.1 only | **Not global.** Carried as a `[?]` part of the Case entity, with its scale riding on `D-D`. The baseline's thirteen categories are an observation, `baseline.md` section 4, not an inherited structure |
+| Facet and filter system | 3.1 only | **Not global.** Specified inside 3.1. Revisit at step 6 if 5.1 acquires filters of its own: two listings sharing a facet set makes it canonical, one listing does not |
+| Global dialog set | 0.4 and 2.1 are already file-level nodes, 6.2 lives inside 6.1 | **Nothing left over.** The set the pack imagines, sign in plus confirm plus pick a place, is three dialogs here and each already has a home. Sign in is a page rather than a dialog because Steam OpenID leaves the site |
+| Interrupt order, the cookie banner against the age gate | checked across the whole map | **No node and no conflict.** `0.4` fires on arrival, `2.1` fires at first case interaction by `B3`, so they never contend for the same moment. Recorded because a reader would otherwise have to derive it again |
+| Canonical value receipt, `F1` and `F2` | 3.6, 5.1, 5.3, 7.1 | **Four consumers and still not a node.** It is a part of `0.6`, and all four of those already render `0.6`. Written once inside that node and referenced, per the one canonical component rule |
+| Global search | 3.1, plus quick links on 0.3 | **Not global.** The baseline itself keeps its search icon inside the catalogue's category bar, `baseline.md` section 4, and our header holds no actions at all by `D-21` |
+| Money and currency formatting | many | **Not an IA node.** `C1` is already a rule at entity level and the rendering belongs to stage 08 |
+| Empty, loading and error state canon | many | **Not a node.** It belongs in the step 5 page template, where every node inherits it by construction instead of by reference |
+| Out-of-product notification channel | 5.3, 5.8 | **No node, because it has no parent.** A withdrawal that runs for hours with a per-state timer implies a signal that reaches the person outside the page, and there is no notification, email or push row anywhere in `cjm-to-be.md`. Named here in the treatment the multi-open orphan got, so nobody later reports it as a discovery |
+| Trust strip | 1.0 and 0.2 | **Two different objects sharing one word.** Home carries the trust proposition `A1` to `A5`, the footer carries the compliance strip, 18+, responsible play and the market statement. Named so that a later step does not merge them on the strength of the label |
+
+#### What the sweep found, and it found it in our own week-old prose
+
+**Node `0.2` claimed a capability that does not exist.** The statistics strip verdict says cases opened "becomes checkable by reconciling with the published round ledger on `1.2`". There is no published round ledger. `cjm-to-be.md` uses the word ledger four times and every one of them is the internal settlement ledger; `1.2` holds a verifier and a round input, and nothing in its `INCLUDES` publishes rounds in bulk.
+
+**The rule that catches it was already written.** `CLAUDE.md`: a block with no parent in the three legal classes is cut or carried with its orphan status printed. What was missing was running that rule against a sentence written one step earlier, which is the same failure mode as the base layer's count drift: the instrument existed, nobody pointed it at the new prose.
+
+**Corrected rather than deleted.** The route that does exist is the observed rate counter, row `D3`, whose N comes from the same settlement ledger that pays users. It reconciles **per case rather than as one auditable total**, and it is conditional on `D-B`, the question of whether six years of roll history can migrate and be published at all. If `D-B` fails, cases opened loses its route and the slot goes to a number that has one. A public round ledger as a browsable object would be a new backlog row and it is not one today. Both are in the open items of `0.11`.
 
 ---
 
@@ -406,7 +456,7 @@ Seven orphans. Six of them are the destinations behind eight of the nine items i
 
 | Group | Nodes | Of them MVP |
 |---|---|---|
-| Cluster 0, global shell | 10 | 10 |
+| Cluster 0, global shell | 14 | 14 |
 | Cluster 1, is this place real | 5 | 5 |
 | Cluster 2, get through the door | 9 | 9 |
 | Cluster 3, choose and open | 7 | 7 |
@@ -415,11 +465,11 @@ Seven orphans. Six of them are the destinations behind eight of the nine items i
 | Cluster 6, keep myself in check | 3 | 3 |
 | Cluster 7, tell someone | 2 | 2 |
 | Cluster 8, LATER | 13 | 0 |
-| **Total** | **62** | **49** |
+| **Total** | **66** | **53** |
 
-**Forty-nine MVP nodes against twelve MVP screens, and the ratio is the point.** Each screen carries roughly three states or dialogs that need their own specification, plus ten shell nodes nobody counted as screens at all. This is the number step 6 has to plan against, and it is why the pack says a step 6 estimate that ignores states lies by multiples.
+**Fifty-three MVP nodes against twelve MVP screens, and the ratio is the point.** Each screen carries roughly three states or dialogs that need their own specification, plus fourteen shell nodes nobody counted as screens at all. This is the number step 6 has to plan against, and it is why the pack says a step 6 estimate that ignores states lies by multiples.
 
-**Twenty two of the forty-nine are file-level nodes**, which is what step 6 actually builds: 10 in cluster 0 and 12 across clusters 1 to 7. The remaining 27 are states and confirmations specified inside them. Those twenty two are the chips in `ia/_nav.js`. **The count moved on 11 August 2026 and it moved from a page**: node 0.2 registered `0.9` and `0.10` because it promised them.
+**Twenty six of the fifty-three are file-level nodes**, which is what step 6 actually builds: 14 in cluster 0 and 12 across clusters 1 to 7. The remaining 27 are states and confirmations specified inside them. Those twenty six are the chips in `ia/_nav.js`. **The count has moved twice, and both times from work rather than from a recount.** On 11 August node 0.2 registered `0.9` and `0.10` because it promised them. On 12 August the global sweep registered `0.11` to `0.14`, none of which is a new surface: three are structures the nine surfaces already read and the fourth is the component that renders the product's evidence.
 
 **A dialog is file-level only when it is a destination.** The age and geo gate `2.1` and the cookie banner `0.4` are: they carry their own content, they fire across the whole product, and they have routes out. The self exclusion confirmation `6.2` is not: it guards one action on one screen and belongs inside `6.1`. Without this line the word dialog would have produced two different file counts depending on who read it.
 
