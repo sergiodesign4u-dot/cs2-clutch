@@ -8,6 +8,8 @@ Stage 03a, step 6, run on 11 August 2026 on `ia/docs/sitemap.md` and `ia/docs/fl
 
 **Result: 16 findings. Codex 4, Claude 7, both 5.** No verdicts conflicted, so nothing had to be escalated as a disagreement. Two findings changed class on verification and say so in their own rows.
 
+**Status after the fix pass, applied on 11 August 2026 with the three decisions taken by the founder's instruction to pick what is optimal:** 13 fixed, 2 carried with an owner, 1 recorded and outside this stage. Nothing was deleted, and the two carried rows are carried for reasons written in their own cells rather than because they were hard.
+
 **Visible place.** This log gets its closed form as the "Before to after" section of `ia/concept-map.html`, assembled at step 7 when the second critique closes, with a status on every row and the withdrawn rows visible with their reasons. Named here by the step that created the file.
 
 ---
@@ -73,7 +75,17 @@ Placed first with missing states, as the pack requires: these are the two most d
 
 ---
 
-## Three findings are decisions rather than fixes
+## The three decisions, taken
+
+**D-06, the catalogue with no flow. Decided: a minimal flow, not a browsing route.** Flow 1a in `flows.md` draws exactly the three things the screen needs whether it turns out to be a page or a section of Home: loading with the live free-unit counts as the thing being waited on, an empty state whose rule is that zero-stock items stay visible rather than being filtered out, and the exit into the case screen. **Nothing in it can be made worthless by `D-D`**, which is what made this the optimal shape rather than the complete one. A full browse-and-filter route would have committed depth to a node that may not survive.
+
+**D-13, the depth of self exclusion. Decided: promoted, with the constraint written beside it.** It now carries a persistent entry inside the Balance control, two taps rather than three or more, and it sits at the place the person already goes when they are about to spend, which is where design principle 3 puts clarity. The footer link stays. **The distinction that makes this safe is reachability against prominence:** the route carries no counters, no streaks, no status and no session score, which is the same hard rule T4 attaches to the spend ceiling at `cjm-to-be.md:73`. Making a brake easy to find is not the same as making it a thing to engage with.
+
+**D-14, where Free entry lives. Decided: an obligation on two nodes, not a surface of its own.** `cjm-to-be.md:180` already calls `I1` and `I2` components rather than screens, so a surface would have been scope nobody asked for. Instead S-A1 Home is obliged to carry the starter credit offer pre-login and S-C1 Catalogue is obliged to carry the daily free case as an addressable case, both written for 03b to honour. An object that only appears as another object's state is how a capability quietly disappears, and the answer is not always a screen: sometimes it is naming who owes it.
+
+---
+
+## The original framing of those three, kept because a decision with no rejected alternative reads later as the only option
 
 **D-06, the catalogue with no flow.** Two honest resolutions and they are not equivalent. Either the catalogue earns a flow of its own, browse and filter, which admits it is a real route with real empty states and a four tap depth, or it is accepted as a secondary entry that the main job does not use, in which case `sitemap.md` should say so where it currently implies otherwise. There is a third possibility that neither instrument can settle: `D-D` may collapse the catalogue into Home entirely, and drawing a flow for a node that may not survive is work with a known chance of being thrown away.
 

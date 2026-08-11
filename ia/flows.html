@@ -101,13 +101,13 @@
 <main>
 
 <div class="hero" id="intro">
-  <div class="section-eyebrow">Information architecture, base layer - step 4</div>
+  <div class="section-eyebrow">Information architecture, base layer - steps 4 and 6</div>
   <h1>User flows</h1>
-  <p class="lede">Four routes through the product, drawn as decisions and states rather than as happy paths. The skeleton of every one is the eight phase To-Be journey from the CJM stage, and every decision point and dead end is an As-Is barrier, because a barrier is exactly a place where a real person stopped. Screen names come from the concept sitemap and no flow here introduces a screen that does not already exist in it.</p>
+  <p class="lede">Five routes through the product, drawn as decisions and states rather than as happy paths. The skeleton of every one is the eight phase To-Be journey from the CJM stage, and every decision point and dead end is an As-Is barrier, because a barrier is exactly a place where a real person stopped. Screen names come from the concept sitemap and no flow here introduces a screen that does not already exist in it.</p>
   <div class="hero-meta">
-    <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Flows</div></div>
-    <div><div class="hero-stat-value">7</div><div class="hero-stat-label">Dead ends</div></div>
-    <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Of them deliberate</div></div>
+    <div><div class="hero-stat-value">5</div><div class="hero-stat-label">Flows</div></div>
+    <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Dead ends</div></div>
+    <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Of them deliberate</div></div>
     <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Screens before activation</div></div>
   </div>
 
@@ -127,8 +127,9 @@
   </div>
 
   <div class="card is-red" style="margin-top:16px">
-    <h4>Three of the seven red nodes are deliberate</h4>
-    <p>The rule is applied mechanically: no path to the goal means red, whatever the intent. The market exit in flow 1, the ceiling stop in flow 2 and the upheld restriction in flow 3 are designed outcomes rather than defects, and each is explained under its own diagram. Painting them grey to make the map look healthier would be the same dishonesty the product is built against.</p>
+    <h4>Four of the six red nodes are deliberate, and step 6 removed three that were not</h4>
+    <p>The rule is applied mechanically: no path to the goal means red, whatever the intent. The market exit and the two compliance exits in flow 1, the ceiling stop in flow 2 and the upheld restriction in flow 3 are designed outcomes rather than defects, and each is explained under its own diagram. <strong>The two instrument critique found three red nodes that were defects rather than decisions and all three now carry an exit:</strong> a failed identity check, a Steam outage and a failed proof. Painting them grey to make the map look healthier would be the same dishonesty the product is built against.</p>
+    <p><strong>Screen codes carry an <code>S-</code> prefix and backlog capability codes do not.</strong> Before step 6 they shared one namespace and collided on all twelve codes: <code>C1</code> meant both the catalogue and "one real currency throughout", <code>E1</code> meant both the account and "the reveal renders the settled roll". Both readings parsed, which is why it survived four steps.</p>
     <p><strong>Arrow colour is left out on purpose.</strong> The pack makes node colour mandatory and arrow colour a bonus, and <code>linkStyle</code> indexes arrows by position, so a single edit silently repaints the wrong path. The node classes carry the whole signal.</p>
   </div>
 </div>
@@ -142,12 +143,12 @@
 
   <div class="diagram"><pre class="mermaid">
 flowchart TD
-    Start(["Sees someone else's win on a clip"]) --> Home["A1 Home"]
+    Start(["Sees someone else's win on a clip"]) --> Home["S-A1 Home"]
     Home --> Real{"Does this place survive a second look?"}
     Real -->|no| Leave["Dead end: leaves still pre-suspected, B1-1 unanswered"]
     Real -->|"buys on the market instead"| Market["Leaves through our own outbound market link, A1"]
-    Real -->|yes| Case["C2 Case screen, phase 1 choosing"]
-    Case --> Gate["B1 Age and geo gate, fires at first case interaction"]
+    Real -->|yes| Case["S-C2 Case screen, phase 1 choosing"]
+    Case --> Gate["S-B1 Age and geo gate, fires at first case interaction"]
     Gate --> Geo{"Is this market open?"}
     Geo -->|no| Blocked["Dead end: geo blocked, with the legal ground cited, B4"]
     Geo -->|yes| Age{"18 or over, declared?"}
@@ -157,25 +158,33 @@ flowchart TD
     Stock -->|no| Out["Empty: the item shows zero free units before the open, never after, D1"]
     Out --> Case
     Stock -->|yes| Funds{"Anything to open with?"}
-    Funds -->|no| Signin["B2 Sign in with Steam"]
+    Funds -->|no| Signin["S-B2 Sign in with Steam"]
     Signin --> SteamWait["Loading: Steam OpenID redirect out and back"]
     SteamWait --> SteamOk{"Did Steam return?"}
-    SteamOk -->|no| SteamErr["Error: readable Steam login failure, B5"]
+    SteamOk -->|"refused"| SteamErr["Error: readable Steam login failure, B5"]
     SteamErr --> Signin
+    SteamOk -->|"Steam is down"| SteamDown["Error: Steam unavailable, try later. Reading the product stays open"]
+    SteamDown --> Case
     SteamOk -->|yes| Credit["Bounded no-deposit starter credit granted, I1"]
-    Credit --> Open["C2 phase 2, the open. Round hash visible at the spin trigger, E4"]
+    Credit --> Open["S-C2 phase 2, the open. Round hash visible at the spin trigger, E4"]
     Funds -->|yes| Open
     Open --> Reveal["Loading: the reveal renders the settled roll and computes nothing again, E1"]
-    Reveal --> Outcome["C2 phase 3, the outcome. Instance value receipt, F1"]
+    Reveal --> Landed{"Did the reveal finish on this device?"}
+    Landed -->|no| Resume["Interrupted: the roll was settled before the animation, so the result is waiting on return"]
+    Resume --> Outcome
+    Landed -->|yes| Outcome["S-C2 phase 3, the outcome. Instance value receipt, F1"]
     Outcome --> Win(["Job closed: the rush landed and the result is understood"])
-    Outcome --> Share["G1 Public result, one-tap share, F4. Ninth surface, scope question open"]
+    Outcome --> Share["S-G1 Public result, one-tap share, F4"]
+    Share --> Alive{"Does the shared result still resolve?"}
+    Alive -->|no| Gone["Empty: the result is gone or private, with a route into S-A2"]
+    Alive -->|yes| Story(["Emotional Job 2 closed: the story survives being checked"])
 
     classDef success fill:#12351f,stroke:#4ade80,color:#eafff9;
     classDef dead fill:#3a1618,stroke:#e5484d,color:#ffd7d7;
     classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
-    class Start,Win success;
+    class Start,Win,Story success;
     class Leave,Market,Blocked,Under dead;
-    class Home,Real,Case,Gate,Geo,Age,Read,Stock,Out,Funds,Signin,SteamWait,SteamOk,SteamErr,Credit,Open,Reveal,Outcome,Share neutral;
+    class Home,Real,Case,Gate,Geo,Age,Read,Stock,Out,Funds,Signin,SteamWait,SteamOk,SteamErr,SteamDown,Credit,Open,Reveal,Landed,Resume,Outcome,Share,Alive,Gone neutral;
   </pre></div>
 
   <div class="card is-activation">
@@ -192,7 +201,7 @@ flowchart TD
   <div class="card">
     <dl class="kv">
       <dt>Decisions</dt><dd>Does this place survive a second look, T1 and T2, barrier <code>B1-1</code>. Is this market open, <code>B4</code>. Is the person 18 or over, <code>B3</code>. Are there free units on the wanted item, <code>B8-1</code>. Is there anything to open with, T4. Did Steam return, <code>B3-1</code>.</dd>
-      <dt>States</dt><dd><strong>Empty:</strong> the item at zero free units, returning to the case screen. <strong>Error:</strong> a readable Steam login failure, returning to sign in. <strong>Loading:</strong> the Steam redirect, and the reveal itself.</dd>
+      <dt>States</dt><dd><strong>Empty</strong>, twice: the item at zero free units returning to the case screen, and a shared result that no longer resolves, routed into the public provably fair page rather than into nothing. <strong>Error</strong>, twice: a readable Steam refusal returning to sign in, and Steam being unavailable, which returns to the case screen so a person who cannot sign in can still read the product. <strong>Loading:</strong> the Steam redirect, and the reveal. <strong>Interrupted:</strong> the reveal that did not finish on this device.</dd>
     </dl>
   </div>
 
@@ -200,6 +209,43 @@ flowchart TD
     <h4>The red node the map put there on purpose</h4>
     <p><code>Market</code> is the outbound link to buy the item on the open market instead, capability A1. It has no path to our goal, so the rule paints it red. T2 accepted that cost in writing: some share of visitors will click it and buy instead, and that is the price of the claim being believable. A map that hid this exit would be hiding the capability that makes the whole pre-login page credible.</p>
     <p><strong>Two more red nodes are the compliance layer working correctly.</strong> <code>Blocked</code> and <code>Under</code> are people the product must not serve. They are dead ends in the diagram and successes in the constraint.</p>
+    <p><strong><code>Leave</code> is the visitor who evaluated the product and declined</strong>, which is the null result of a free evaluation rather than a broken route. It is red because the rule is mechanical, and it is the one red node a reader should not try to fix. Codex flagged it as an unexplained dead end and it was right about the explanation, not about the route.</p>
+  </div>
+</section>
+
+<!-- FLOW 1a -->
+<section id="catalogue">
+  <div class="sec-head">
+    <h2>Flow 1a. Browsing the catalogue</h2>
+    <p class="flow-meta">Added at step 6 - To-Be phase T5 - the catalogue was an MVP screen with no route through it and therefore no states</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Deliberately minimal, and here is why</h4>
+    <p>A full browse-and-filter route would commit depth and structure that decision <code>D-D</code> may delete: if the backed catalogue is small enough, Home absorbs the catalogue and this node stops existing. What is drawn are the three states the screen needs <strong>whether it is a page or a section of Home</strong>, so none of this work can be thrown away by that decision.</p>
+  </div>
+
+  <div class="diagram"><pre class="mermaid">
+flowchart TD
+    K0(["Wants to see what is on offer"]) --> Cat["S-C1 Case catalogue"]
+    Cat --> Load["Loading: catalogue with live free-unit counts, A2"]
+    Load --> Any{"Anything in stock worth opening inside their budget?"}
+    Any -->|no| Empty2["Empty: nothing matches. Zero-stock items stay visible rather than hidden, D1, so the shelf is legibly empty rather than silently short"]
+    Empty2 --> Cat
+    Any -->|yes| Pick(["Continues into flow 1 at the choosing phase of S-C2"])
+
+    classDef success fill:#12351f,stroke:#4ade80,color:#eafff9;
+    classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
+    class K0,Pick success;
+    class Cat,Load,Any,Empty2 neutral;
+  </pre></div>
+
+  <div class="card">
+    <dl class="kv">
+      <dt>Decisions</dt><dd>Is anything in stock worth opening inside this budget, which is <code>B8-1</code> read forward rather than backward.</dd>
+      <dt>States</dt><dd><strong>Loading</strong>, with the live free-unit counts as the thing being waited on rather than a generic spinner. <strong>Empty</strong>, and its rule matters: an item at zero stock stays visible and marked rather than being filtered out, because <code>D1</code> exists to make the constraint legible before the open, and hiding sold-out items would restore exactly the surprise it removes.</dd>
+      <dt>Dead ends</dt><dd>None. A person who finds nothing can always widen what they are looking at, and the catalogue never traps.</dd>
+    </dl>
   </div>
 </section>
 
@@ -214,18 +260,24 @@ flowchart TD
 
   <div class="diagram"><pre class="mermaid">
 flowchart TD
-    D0(["Starter credit is spent and they want to keep opening"]) --> Dep["D1 Deposit"]
+    D0(["Starter credit is spent and they want to keep opening"]) --> Dep["S-D1 Deposit"]
     Dep --> Hit{"Spend ceiling already reached this period?"}
     Hit -->|yes| Stop["Deposits stop. Opening from balance and withdrawal stay fully open, C2"]
     Hit -->|no| Ver{"Identity verified?"}
-    Ver -->|no| Ident["B3 Identity verification, before funding and never on the withdrawal route"]
+    Ver -->|no| Ident["S-B3 Identity verification, before funding and never on the withdrawal route"]
     Ident --> IdWait["Loading: pending review, hours rather than seconds"]
     IdWait --> IdOk{"Passed?"}
-    IdOk -->|no| IdFail["Dead end: verification failed. No funding route, and no money was at risk"]
+    IdOk -->|no| IdFail["Error: verification failed. Funding stays closed"]
+    IdFail --> IdAppeal["Appeal with a stated ground and a published response deadline, mirroring G4"]
+    IdAppeal --> IdOk
+    IdFail --> Exit2(["Withdrawal stays open regardless: B2 puts no verification branch on the exit route. Flow 3"])
     IdOk -->|yes| Amount["Chooses an amount in one real currency, no coin denomination, C1"]
     Ver -->|yes| Amount
     Amount --> Ceiling["Sets a spend ceiling for a named period, pre-filled, accepted or changed, C2"]
-    Ceiling --> Threshold["The sum required to withdraw is stated here and can never rise, C4"]
+    Ceiling --> Dir{"Changed the ceiling, and in which direction?"}
+    Dir -->|"lower, or unchanged"| Threshold["The sum required to withdraw is stated here and can never rise, C4"]
+    Dir -->|higher| Pending24["Pending: a raise applies 24 hours later. The old ceiling holds until then"]
+    Pending24 --> Threshold
     Threshold --> Pay["Loading: payment in progress"]
     Pay --> Credited{"Credited?"}
     Credited -->|"not yet"| Pending["Crediting shown as a state with a named timer, C3"]
@@ -237,20 +289,25 @@ flowchart TD
     classDef success fill:#12351f,stroke:#4ade80,color:#eafff9;
     classDef dead fill:#3a1618,stroke:#e5484d,color:#ffd7d7;
     classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
-    class D0,Bal success;
-    class Stop,IdFail dead;
-    class Dep,Hit,Ver,Ident,IdWait,IdOk,Amount,Ceiling,Threshold,Pay,Credited,Pending,PayErr neutral;
+    class D0,Bal,Exit2 success;
+    class Stop dead;
+    class Dep,Hit,Ver,Ident,IdWait,IdOk,IdFail,IdAppeal,Amount,Ceiling,Dir,Pending24,Threshold,Pay,Credited,Pending,PayErr neutral;
   </pre></div>
 
   <div class="card">
     <dl class="kv">
       <dt>Decisions</dt><dd>Has the ceiling been reached this period, <code>B7-4</code>. Is identity verified, <code>B8-4</code>. Did the payment credit, <code>B4-3</code>.</dd>
-      <dt>States</dt><dd><strong>Loading:</strong> identity review, which is the asynchronous state only the document KYC branch of <code>D-A</code> has, and payment in progress. <strong>Error:</strong> a declined payment returning to the amount with the ceiling and threshold intact. <strong>Pending:</strong> crediting with a named timer, which is the whole of <code>C3</code>.</dd>
+      <dt>States</dt><dd><strong>Loading:</strong> identity review, the asynchronous state only the document KYC branch of <code>D-A</code> has, and payment in progress. <strong>Error:</strong> a failed verification, which now has both an appeal and an exit rather than being a wall, and a declined payment returning to the amount with the ceiling and threshold intact. <strong>Pending:</strong> crediting with a named timer, <code>C3</code>, and <strong>a ceiling raise waiting out its 24 hours</strong>, which <code>cjm-to-be.md:66</code> specifies and which was in no flow until step 6. Without that state a later stage would write the ceiling as instantaneous in both directions, which deletes the whole point of it.</dd>
     </dl>
   </div>
 
   <div class="card is-red">
-    <h4>The second deliberate red node</h4>
+    <h4>The failed identity check is no longer a dead end, and the fix came from a contradiction</h4>
+    <p>It was drawn as absolute while capability <code>B2</code> guarantees the withdrawal route carries no verification branch at all. So a person whose check fails can still take out what they already hold, and the diagram was contradicting a shipped capability. It now carries both exits: an appeal that mirrors <code>G4</code>, and the withdrawal route that was open the whole time.</p>
+  </div>
+
+  <div class="card is-red">
+    <h4>The one deliberate red node that remains</h4>
     <p><code>Stop</code> is the ceiling doing its job. It is red because this flow's goal is more balance and there is no path to it this period. It is not a failure: opening from existing balance and withdrawing both stay open, which <code>cjm-to-be.md:66</code> specifies.</p>
     <p><strong>A hard design constraint belongs beside this node and is repeated here so it cannot get lost.</strong> The ceiling may never acquire completion mechanics, streaks or a session score, because at that point it stops being a boundary and becomes a reason to keep going, which is the dark pattern this product forbids.</p>
   </div>
@@ -270,13 +327,16 @@ flowchart TD
 
   <div class="diagram"><pre class="mermaid">
 flowchart TD
-    W0(["Holds a skin worth taking out"]) --> Inv["E1 Account and inventory"]
-    Inv --> Rec["Every item carries its instance value receipt, F2"]
+    W0(["Opened something and wants to see what they hold"]) --> Inv["S-E1 Account and inventory"]
+    Inv --> Has{"Anything in the inventory?"}
+    Has -->|no| Empty3["Empty: nothing held yet, with the route back to the catalogue"]
+    Empty3 --> Cat3["S-C1 Case catalogue"]
+    Has -->|yes| Rec["Every item carries its instance value receipt, F2"]
     Rec --> Limits["Named limits stated before entry: blocked countries, Steam trade holds, Steam-side bans, G5"]
     Limits --> Elig{"Eligible to withdraw?"}
     Elig -->|no| NotYet["Empty: the limit is met before the withdrawal rather than inside it, G5"]
     NotYet --> Inv
-    Elig -->|yes| Start2["E2 Withdrawal, with the public clock"]
+    Elig -->|yes| Start2["S-E2 Withdrawal, with the public clock"]
     Start2 --> Clock["Named states, per-state timer, each labelled waiting on us, Steam or you, G1"]
     Clock --> Health{"Steam API healthy?"}
     Health -->|no| Degraded["Live degraded banner driven by the health probe, G2"]
@@ -298,13 +358,13 @@ flowchart TD
     classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
     class W0,Done success;
     class Refused dead;
-    class Inv,Rec,Limits,Elig,NotYet,Start2,Clock,Health,Degraded,Review,Notice,Appeal,Resolved,Send,Accept,Expired neutral;
+    class Inv,Has,Empty3,Cat3,Rec,Limits,Elig,NotYet,Start2,Clock,Health,Degraded,Review,Notice,Appeal,Resolved,Send,Accept,Expired neutral;
   </pre></div>
 
   <div class="card">
     <dl class="kv">
       <dt>Decisions</dt><dd>Eligible to withdraw, <code>B8-3</code> and <code>G5</code>. Steam API healthy, <code>B8-2</code>. Account restricted, <code>B8-3</code>. Offer accepted in Steam, which is outside our system entirely.</dd>
-      <dt>States</dt><dd><strong>Empty:</strong> a limit met before entry rather than inside the withdrawal, which is the whole point of <code>G5</code>. <strong>Error:</strong> an expired trade offer, recoverable from the same record. <strong>Loading</strong> has no node here on purpose: every wait in this flow is a named state with a timer rather than a spinner.</dd>
+      <dt>States</dt><dd><strong>Empty</strong>, twice and for different reasons: an inventory that holds nothing, which is where every new account starts and where a low-value first open leaves someone, routed back into the catalogue rather than into a blank page; and a limit met before entry rather than inside the withdrawal, which is the whole point of <code>G5</code>. <strong>Error:</strong> an expired trade offer, recoverable from the same record. <strong>Loading</strong> has no node here on purpose: every wait in this flow is a named state with a timer rather than a spinner.</dd>
     </dl>
   </div>
 
@@ -328,15 +388,20 @@ flowchart TD
 
   <div class="diagram"><pre class="mermaid">
 flowchart TD
-    V0(["Got a result they did not expect, high or low"]) --> Out2["C2 phase 3, the outcome"]
+    V0(["Got a result they did not expect, high or low"]) --> Out2["S-C2 phase 3, the outcome"]
     Out2 --> Link["Post-reveal verification link, F3"]
-    Link --> PF["A2 Provably fair, public, no login, H1"]
+    Link --> PF["S-A2 Provably fair, public, no login, H1"]
     V1(["Arrives from outside with no account at all"]) --> PF
     PF --> Explain["Reads what is proven and what is not, the D-14 limit stated on the page itself"]
     Explain --> Verify["Pastes the round: server seed, client seed, nonce"]
-    Verify --> Compute["Loading: the verifier recomputes from real seeds"]
+    Verify --> Wellformed{"Is the round well formed?"}
+    Wellformed -->|no| BadInput["Error: incomplete or malformed round, with the missing part named"]
+    BadInput --> Verify
+    Wellformed -->|yes| Compute["Loading: the verifier recomputes from real seeds"]
     Compute --> Match{"Does it recompute to the same result?"}
-    Match -->|no| Broken["Dead end: our own proof failed. Nothing in the product recovers this"]
+    Match -->|no| Broken["Our own proof failed"]
+    Broken --> Report["Report it. The person gets a route rather than a wall"]
+    Report --> Incident["Dead end for the job: logged as an incident with a published response deadline. Nothing in the product can close this job while the proof is wrong"]
     Match -->|yes| Proven["Proven: the roll was not altered after the click"]
     Proven --> Doubt{"Was the doubt about the weight table?"}
     Doubt -->|no| Closed(["Job closed: the outcome is confirmed unmanipulated"])
@@ -347,14 +412,14 @@ flowchart TD
     classDef dead fill:#3a1618,stroke:#e5484d,color:#ffd7d7;
     classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
     class V0,V1,Closed success;
-    class Broken dead;
-    class Out2,Link,PF,Explain,Verify,Compute,Match,Proven,Doubt,Counter neutral;
+    class Incident dead;
+    class Out2,Link,PF,Explain,Verify,Wellformed,BadInput,Compute,Match,Broken,Report,Proven,Doubt,Counter neutral;
   </pre></div>
 
   <div class="card">
     <dl class="kv">
       <dt>Decisions</dt><dd>Does the round recompute to the same result. <strong>Was the doubt about the weight table</strong>, which is the structural expression of decision <code>D-14</code>.</dd>
-      <dt>States</dt><dd><strong>Loading:</strong> the recomputation. There is no empty state, because the page opens and explains before it asks anyone to paste anything.</dd>
+      <dt>States</dt><dd><strong>Loading:</strong> the recomputation. <strong>Error:</strong> an incomplete or malformed round, which names what is missing and returns to the input rather than rejecting silently. There is no empty state, because the page opens and explains before it asks anyone to paste anything.</dd>
     </dl>
   </div>
 
@@ -364,8 +429,8 @@ flowchart TD
   </div>
 
   <div class="card is-red">
-    <h4>The only dead end in this file that belongs to us and not to the person</h4>
-    <p><code>Broken</code> is the verifier disagreeing with the ledger. It has no recovery by design, because that is not a UX state, it is an incident.</p>
+    <h4>The only dead end in this file that belongs to us, and it now has a route through it</h4>
+    <p><code>Broken</code> was a wall: the verifier disagreeing with the ledger left the person with no action at all. It now leads to a report and to an incident with a published response deadline. <strong>The job still cannot be closed</strong>, and <code>Incident</code> stays red for exactly that reason: nothing in the product can confirm an outcome while the proof of it is wrong. What changed is that the person is no longer standing in front of a wall while we call it an incident on our own side.</p>
   </div>
 </section>
 
@@ -377,7 +442,8 @@ flowchart TD
   </div>
   <div class="card">
     <p>Every screen node here already existed in the concept sitemap. No flow needed a screen that was missing, which is what the second slice at step 2, checking every entity against a screen, was for.</p>
-    <p><strong>One screen appears in a flow while its scope is unsettled.</strong> <code>G1 Public result</code> is drawn as a branch off the outcome in flow 1 and carries the scope question raised at step 2: it is a ninth public surface against a round locked at eight by <code>CLAUDE.md</code>. It stays drawn and marked until the founder answers, because a screen deleted by silence is exactly what the CJM stage caught last time.</p>
+    <p><strong>Step 6 changed two things.</strong> All twelve screen codes gained the <code>S-</code> prefix, and the catalogue gained flow 1a, which it needed because it was an MVP screen with no route through it and therefore no states. The full defect log is in <code>ia/docs/critique.md</code>.</p>
+    <p><strong>One screen appears in a flow while its scope is unsettled.</strong> <code>S-G1 Public result</code> is drawn as a branch off the outcome in flow 1 and carries the scope question raised at step 2: it is a ninth public surface against a round locked at eight by <code>CLAUDE.md</code>. It stays drawn and marked until the founder answers, because a screen deleted by silence is exactly what the CJM stage caught last time.</p>
   </div>
 </section>
 
@@ -413,6 +479,7 @@ flowchart TD
 window.NAV_BASE = '../';
 window.NAV_SECTIONS = [
   { id: 'main-job', label: 'Flow 1. Main job' },
+  { id: 'catalogue', label: 'Flow 1a. Catalogue' },
   { id: 'deposit', label: 'Flow 2. Funding' },
   { id: 'withdraw', label: 'Flow 3. Withdraw' },
   { id: 'verify', label: 'Flow 4. Verify' },

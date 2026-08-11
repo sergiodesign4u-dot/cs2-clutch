@@ -115,7 +115,7 @@
 <main>
 
 <div class="hero" id="intro">
-  <div class="section-eyebrow">Information architecture, base layer - steps 1, 2, 3 and 5</div>
+  <div class="section-eyebrow">Information architecture, base layer - steps 1, 2, 3, 5 and 6</div>
   <h1>Concept map</h1>
   <p class="lede">Objects before screens, screens grouped by what the person is trying to do, a navigation model with the taps counted, and a matrix that proves the coverage. Four sections, in the order the structure was actually built: the entity inventory is the foundation everything else stands on, and until now it existed only in markdown.</p>
   <div class="hero-meta">
@@ -154,7 +154,7 @@
         <tr><td><strong>Withdrawal</strong></td><td>The Skin instances and their receipts <code>F2</code>, named states with per-state timers and attribution <code>G1</code>, published ceilings <code>G2</code>, named limits <code>G5</code>, written notice with a ground and an appeal <code>G4</code>, zero commission <code>G6</code></td><td>Related Job 5 <code>:69</code>, <code>B8-2</code>, <code>B8-3</code>. <strong>Job and barrier</strong></td><td>Consumes Skin instances, delivers into the Steam inventory, which is outside our system</td></tr>
         <tr><td><strong>Published performance record</strong></td><td>Rolling median and p90 from our own logs <code>A4</code> <code>G3</code>, per-state ceilings <code>G2</code>, a live degraded flag from a Steam API probe, published tested RTP per case <code>D4</code></td><td><code>B8-2</code>, Related Job 1 <code>:33</code>. <strong>Barrier and job</strong></td><td>Derived from Withdrawals. Read before login on Home and after login on Withdrawal</td></tr>
         <tr><td><strong>Play limits</strong></td><td>Spend ceiling at deposit <code>C2</code>, session limit, self exclusion, cool down <code>C5</code>, each with a state and an effective period <span class="q">[?]</span></td><td><code>B7-4</code> pattern of 12, compliance constraint. <strong>Barrier and constraint</strong></td><td>Belongs to an Account, set at Deposit, constrains Balance and Open. <strong>Zero inherited from the baseline</strong></td></tr>
-        <tr><td><strong>Free entry</strong></td><td>Type, starter credit <code>I1</code> or daily free case <code>I2</code>, the bound constraints, what it unlocks, availability and reset <span class="q">[?]</span></td><td><code>I1</code> on Related Job 2 <code>:42</code>. <strong><code>I2</code> has no parent in any legal class</strong> and is MVP by founder decision of 11 August 2026, printed rather than given a borrowed parent</td><td>Unlocks an Open without consuming Balance. Appears on two screens and owns neither</td></tr>
+        <tr><td><strong>Free entry</strong></td><td>Type, starter credit <code>I1</code> or daily free case <code>I2</code>, the bound constraints, what it unlocks, availability and reset <span class="q">[?]</span></td><td><code>I1</code> on Related Job 2 <code>:42</code>. <strong><code>I2</code> has no parent in any legal class</strong> and is MVP by founder decision of 11 August 2026, printed rather than given a borrowed parent</td><td>Unlocks an Open without consuming Balance. <strong>Step 6 gave it an obligation rather than a surface:</strong> S-A1 Home is obliged to carry the starter credit offer pre-login, S-C1 Catalogue is obliged to carry the daily free case as an addressable case. An object that only appears as another object's state is how a capability quietly disappears, and the answer is not always a screen, sometimes it is naming who owes it</td></tr>
         <tr><td><strong>Live drop event</strong></td><td>The winning account as it chooses to appear, the Skin, the Case or mode, timestamp, bot labelling where present <code>A3</code></td><td>Social Job 2 <code>:120</code>. <strong>Job only, no barrier</strong></td><td>Emitted by an Open, points at a Public result rather than at a profile</td></tr>
         <tr><td><strong>Shared result</strong></td><td>Resolved at step 2: one Open with its Skin, its Case and its Round proof</td><td>Emotional Job 2 <code>:93</code> and Related Job 3 <code>:51</code>. <strong>Job</strong></td><td>Produced by <code>F4</code>, lands on G1, and gives the Live drop event a destination</td></tr>
         <tr><td><strong>Market rule</strong></td><td>The market, the verdict, a cited legal ground per blocked market <code>B4</code>, the staged rollout it implies. Inherited list carried <span class="q">[?]</span> until re-verified</td><td>Compliance constraint, <code>research.md</code> section 7. <strong>Constraint</strong></td><td>Binds an Account. Met by a visitor before anything else. Asymmetric: the record is operator-side, only the verdict and its ground reach the person</td></tr>
@@ -179,30 +179,30 @@
   <div class="diagram"><pre class="mermaid">
 graph TD
     subgraph A["A. Decide whether this place is real"]
-        A1["A1 Home<br/><small>RJ1, Social Job 2</small>"]
-        A2["A2 Provably fair, public verifier<br/><small>RJ3 and Core Job 1</small>"]
+        A1["S-A1 Home<br/><small>RJ1, Social Job 2</small>"]
+        A2["S-A2 Provably fair, public verifier<br/><small>RJ3 and Core Job 1</small>"]
     end
     subgraph B["B. Get through the door"]
-        B1["B1 Age and geo gate<br/><small>compliance constraint</small>"]
-        B2["B2 Sign in with Steam<br/><small>RJ2</small>"]
-        B3["B3 Identity verification<br/><small>B8-4, before funding</small>"]
+        B1["S-B1 Age and geo gate<br/><small>compliance constraint</small>"]
+        B2["S-B2 Sign in with Steam<br/><small>RJ2</small>"]
+        B3["S-B3 Identity verification<br/><small>B8-4, before funding</small>"]
     end
     subgraph C["C. Choose what to open, and open it"]
-        C1["C1 Case catalogue<br/><small>Main Job</small>"]
-        C2["C2 Case screen, three phases<br/><small>Main Job, RJ1, RJ3, EJ1</small>"]
+        C1["S-C1 Case catalogue<br/><small>Main Job</small>"]
+        C2["S-C2 Case screen, three phases<br/><small>Main Job, RJ1, RJ3, EJ1</small>"]
     end
     subgraph D["D. Put money in"]
-        D1["D1 Deposit<br/><small>barrier only, no job</small>"]
+        D1["S-D1 Deposit<br/><small>barrier only, no job</small>"]
     end
     subgraph E["E. Take out what I earned"]
-        E1["E1 Account and inventory<br/><small>RJ5</small>"]
-        E2["E2 Withdrawal with public clock<br/><small>RJ5</small>"]
+        E1["S-E1 Account and inventory<br/><small>RJ5</small>"]
+        E2["S-E2 Withdrawal with public clock<br/><small>RJ5</small>"]
     end
     subgraph F["F. Keep myself in check"]
-        F1["F1 Responsible play<br/><small>constraint, no job</small>"]
+        F1["S-F1 Responsible play<br/><small>constraint, no job</small>"]
     end
     subgraph G["G. Tell someone"]
-        G1["G1 Public result<br/><small>EJ2 and RJ3, ninth surface</small>"]
+        G1["S-G1 Public result<br/><small>EJ2 and RJ3, ninth surface</small>"]
     end
 
     A1 --> C1
@@ -274,8 +274,8 @@ graph TD
 
   <div class="card">
     <dl class="kv">
-      <dt>Level 1</dt><dd>A1 Home, C1 Catalogue, A2 Provably fair, E1 Account and inventory, D1 Deposit.</dd>
-      <dt>Level 2</dt><dd>C2 Case screen, E2 Withdrawal, F1 Responsible play.</dd>
+      <dt>Level 1</dt><dd>S-A1 Home, S-C1 Catalogue, S-A2 Provably fair, S-E1 Account and inventory, S-D1 Deposit.</dd>
+      <dt>Level 2</dt><dd>S-C2 Case screen, S-E2 Withdrawal, S-F1 Responsible play.</dd>
       <dt>Level 3</dt><dd><strong>Empty in round 1</strong>, which is a result rather than an omission.</dd>
       <dt>No level</dt><dd>B1, B2 and B3 are interrupts that fire inside a flow rather than destinations. G1 is a landing entered from outside the product. Giving any of them a level would inflate the depth count with things nobody chooses.</dd>
     </dl>
@@ -292,8 +292,9 @@ graph TD
   <div class="card">
     <dl class="kv">
       <dt>Global</dt><dd>The four navigation items in their two states, the Balance figure once an account exists, and a footer carrying responsible play and the legal pages. <strong>Responsible play in the footer of every screen is deliberate rather than inherited:</strong> the baseline has zero responsible play routes and zero matches for self exclusion, deposit limit or cool down anywhere.</dd>
+      <dt>Moved at step 6</dt><dd><strong>Responsible play is no longer deep.</strong> It was reachable through the footer, then the page, then inside it: three taps or more. <code>B7-4</code> describes a pattern of 12 people inside an escalation loop, and a brake that has to be searched for at the worst moment is not a brake. It now carries a persistent entry inside the Balance control, two taps away and at the place the person already goes when they are about to spend. <strong>The constraint that makes this safe:</strong> promotion is reachability, not prominence. This route carries no counters, no streaks, no status and no session score, which is the same hard rule T4 attaches to the spend ceiling. The moment a limit acquires completion mechanics it stops being a boundary and becomes a reason to keep going.</dd>
       <dt>Contextual</dt><dd>The age and geo gate at first case interaction, sign in at the first point needing an account, identity verification before funding, the post-reveal verification link and the one-tap share in the outcome phase, the spend ceiling at deposit.</dd>
-      <dt>Deep</dt><dd>Self exclusion and cool down inside F1, the withdrawal restriction appeal inside E2, the verifier form itself inside A2, since the page has to open and explain before it asks anyone to paste a seed.</dd>
+      <dt>Deep</dt><dd>The withdrawal restriction appeal inside S-E2, and the verifier form itself inside S-A2, since the page has to open and explain before it asks anyone to paste a seed.</dd>
       <dt>Not global</dt><dd>The live drop feed renders on A1 and C2 and nowhere else. Pattern E requires it to be a layer on the screens where the core happens, and a feed on every screen would be wallpaper rather than context.</dd>
     </dl>
   </div>
@@ -311,7 +312,7 @@ graph TD
       <thead>
         <tr>
           <th>Functional job</th>
-          <th>A1<br>Home</th><th>A2<br>Prov. fair</th><th>B1<br>Gate</th><th>B2<br>Sign in</th><th>B3<br>Identity</th><th>C1<br>Catalogue</th><th>C2<br>Case</th><th>D1<br>Deposit</th><th>E1<br>Account</th><th>E2<br>Withdraw</th><th>F1<br>Resp. play</th><th>G1<br>Result</th>
+          <th>S-A1<br>Home</th><th>S-A2<br>Prov. fair</th><th>S-B1<br>Gate</th><th>S-B2<br>Sign in</th><th>S-B3<br>Identity</th><th>S-C1<br>Catalogue</th><th>S-C2<br>Case</th><th>S-D1<br>Deposit</th><th>S-E1<br>Account</th><th>S-E2<br>Withdraw</th><th>S-F1<br>Resp. play</th><th>S-G1<br>Result</th>
         </tr>
       </thead>
       <tbody>
@@ -359,14 +360,14 @@ graph TD
 
   <div class="card is-note">
     <h4>Orphan screen, and the thing the matrix cannot see</h4>
-    <p><strong>F1 Responsible play has no tick anywhere.</strong> Decision: <strong>keep the screen. The matrix is what is incomplete.</strong> F1 has no functional job and never will, because nobody arrives wanting to limit themselves. Its parents are barrier <code>B7-4</code>, a pattern of 12 people, and the compliance constraint in <code>CLAUDE.md</code>. Both are legal parent classes in this project.</p>
-    <p><strong>This is a defect in the instrument and it is worth naming precisely.</strong> The matrix measures exactly one of the three legal parent classes this project uses, so any screen parented on a barrier or on a constraint shows up as an orphan. <strong>D1 Deposit escapes only by accident</strong>, because the CJM mapped phase T4 onto RJ2. Had it not, the matrix would have flagged the deposit screen of a money product as ballast.</p>
+    <p><strong>S-F1 Responsible play has no tick anywhere.</strong> Decision: <strong>keep the screen. The matrix is what is incomplete.</strong> F1 has no functional job and never will, because nobody arrives wanting to limit themselves. Its parents are barrier <code>B7-4</code>, a pattern of 12 people, and the compliance constraint in <code>CLAUDE.md</code>. Both are legal parent classes in this project.</p>
+    <p><strong>This is a defect in the instrument and it is worth naming precisely.</strong> The matrix measures exactly one of the three legal parent classes this project uses, so any screen parented on a barrier or on a constraint shows up as an orphan. <strong>S-D1 Deposit escapes only by accident</strong>, because the CJM mapped phase T4 onto RJ2. Had it not, the matrix would have flagged the deposit screen of a money product as ballast.</p>
     <p><strong>The contradiction check the pack asks for, answered.</strong> F1 is marked MVP with no tick, which the pack says means either the mark is inflated or a job was not described. It is neither: the mark is correct and the job does not exist, because the parent is a constraint.</p>
   </div>
 
   <div class="card is-keep">
     <h4>What the matrix found that step 2 had missed</h4>
-    <p><strong>G1 Public result closes Related Job 3, in that job's own words.</strong> Step 2 gave it a single emotional parent, which puts a screen outside this matrix entirely and would have made G1 a genuine orphan, weakening the case for it. Reading RJ3 in full closes that: "so that I trust the platform enough to open again <strong>or to tell someone about my result</strong>", <code>jtbd.md:53</code>. Telling someone is in the functional job's own outcome clause.</p>
+    <p><strong>S-G1 Public result closes Related Job 3, in that job's own words.</strong> Step 2 gave it a single emotional parent, which puts a screen outside this matrix entirely and would have made G1 a genuine orphan, weakening the case for it. Reading RJ3 in full closes that: "so that I trust the platform enough to open again <strong>or to tell someone about my result</strong>", <code>jtbd.md:53</code>. Telling someone is in the functional job's own outcome clause.</p>
     <p>This is not a tick placed to rescue a screen. It is a line that has been in <code>jtbd.md</code> since stage 02 and that nobody had traced. The scope question about the ninth surface stands unchanged, and it now stands on two jobs instead of one.</p>
   </div>
 
@@ -380,13 +381,13 @@ graph TD
         <tr>
           <td><strong>Emotional Job 1</strong><br>genuine suspense, not manufactured tension <code>:84</code></td>
           <td>The reveal renders the settled roll and computes nothing again, <code>E1</code>, so animation and credited item cannot diverge. No near-miss theatre, <code>E2</code>: the deceleration lands on the actual result without visually passing better items first. The round hash is visible at the spin trigger, <code>E4</code>, which reframes the buildup as watching a settled outcome rather than waiting for one to be decided</td>
-          <td>C2 phase 2, as behaviour of the reveal itself rather than as a component</td>
+          <td>S-C2 phase 2, as behaviour of the reveal itself rather than as a component</td>
           <td><code>B6-1</code>, <code>B6-2</code> pattern of 9. <code>jtbd.md:89</code> names near-miss as a confirmed dark pattern. <code>ux-patterns.md:303</code></td>
         </tr>
         <tr>
           <td><strong>Emotional Job 2</strong><br>a win worth talking about <code>:93</code></td>
           <td>One-tap share, <code>F4</code>, producing an object that carries its own proof, G1. The instance value receipt, <code>F1</code>, makes the number inside the story true, so the story survives being checked by the person it is told to</td>
-          <td>C2 phase 3, then G1</td>
+          <td>S-C2 phase 3, then G1</td>
           <td><code>jtbd.md:98</code>. <code>aarrr.md</code> Referral. <code>B7-1</code> pattern of 7, which is what makes an unchecked story collapse</td>
         </tr>
         <tr>

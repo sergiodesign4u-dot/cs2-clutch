@@ -245,41 +245,41 @@ The visitor has arrived pre-suspected, `B1-1`, and is deciding whether to give t
 
 | Screen | Parent | Persona | Scope |
 |---|---|---|---|
-| **A1. Home** | Related Job 1, `jtbd.md:33`, and Social Job 2, `jtbd.md:120`. Carries A1 to A5 of the backlog | P, and S The Researcher | MVP |
-| **A2. Provably fair, public, with a working verifier** | Related Job 3, `jtbd.md:51`, after the open, and Core Job 1, `jtbd.md:180`, before login. Row H1 | S The Researcher, P only after an open | MVP, locked surface |
+| **S-A1. Home** | Related Job 1, `jtbd.md:33`, and Social Job 2, `jtbd.md:120`. Carries A1 to A5 of the backlog | P, and S The Researcher | MVP |
+| **S-A2. Provably fair, public, with a working verifier** | Related Job 3, `jtbd.md:51`, after the open, and Core Job 1, `jtbd.md:180`, before login. Row H1 | S The Researcher, P only after an open | MVP, locked surface |
 
-A2 is reachable both from here and from the outcome phase of C2. One screen, two intents, and that is the reason it is a public surface rather than a panel inside the account.
+S-A2 is reachable both from here and from the outcome phase of C2. One screen, two intents, and that is the reason it is a public surface rather than a panel inside the account.
 
 ### B. Get through the door
 
 | Screen | Parent | Persona | Scope |
 |---|---|---|---|
-| **B1. Age and geo gate** | Compliance constraint, `CLAUDE.md`, "age verification before any case interaction" and "geo blocking informed by cited legal research". Rows B3 and B4 | P | MVP, locked surface |
-| **B2. Sign in with Steam** | Related Job 2, `jtbd.md:42`, plus `B3-1` and `B3-2`. Rows B5 and B6 | P | MVP |
-| **B3. Identity verification** | `B8-4`, pattern of 5, plus rows B1 and B2, verification resolved before funding and never on the withdrawal route | P | MVP, method open per `D-A`, shape locked by `D-17` |
+| **S-B1. Age and geo gate** | Compliance constraint, `CLAUDE.md`, "age verification before any case interaction" and "geo blocking informed by cited legal research". Rows B3 and B4 | P | MVP, locked surface |
+| **S-B2. Sign in with Steam** | Related Job 2, `jtbd.md:42`, plus `B3-1` and `B3-2`. Rows B5 and B6 | P | MVP |
+| **S-B3. Identity verification** | `B8-4`, pattern of 5, plus rows B1 and B2, verification resolved before funding and never on the withdrawal route | P | MVP, method open per `D-A`, shape locked by `D-17` |
 
-**B1 and B3 are two different screens and that separation is load bearing.** B1 is the 18+ declaration at the door, cheap, met by everyone. B3 is identity verification and it stands between the person and funding, not between the person and their first open. Decision `D-17` set that shape. The UX pattern reconciliation below arrives at the same shape from a completely different direction, which is the strongest thing that happened in this step.
+**S-B1 and S-B3 are two different screens and that separation is load bearing.** B1 is the 18+ declaration at the door, cheap, met by everyone. B3 is identity verification and it stands between the person and funding, not between the person and their first open. Decision `D-17` set that shape. The UX pattern reconciliation below arrives at the same shape from a completely different direction, which is the strongest thing that happened in this step.
 
 ### C. Choose what to open, and open it
 
 | Screen | Parent | Persona | Scope |
 |---|---|---|---|
-| **C1. Case catalogue** | Main Job, `jtbd.md:17` | P | MVP |
-| **C2. Case screen** | Main Job, `jtbd.md:17`, Related Job 1, `jtbd.md:33`, Emotional Job 1, `jtbd.md:84`, Related Job 3, `jtbd.md:51`. Carries backlog groups 4, 5 and 6 | P | MVP |
+| **S-C1. Case catalogue** | Main Job, `jtbd.md:17` | P | MVP |
+| **S-C2. Case screen** | Main Job, `jtbd.md:17`, Related Job 1, `jtbd.md:33`, Emotional Job 1, `jtbd.md:84`, Related Job 3, `jtbd.md:51`. Carries backlog groups 4, 5 and 6 | P | MVP |
 
-**C2 is one screen with three phases, not three screens.** `cjm-to-be.md:180` states it: groups 4, 5 and 6 are three phases of the single case opening screen. The phases are named here because step 4 needs them as flow steps, and they are not nodes:
+**S-C2 is one screen with three phases, not three screens.** `cjm-to-be.md:180` states it: groups 4, 5 and 6 are three phases of the single case opening screen. The phases are named here because step 4 needs them as flow steps, and they are not nodes:
 
 - **Phase 1, choosing.** Published chance and current value per item, D2. The observed rate counter beside the published percentage, D3, conditional on `D-B`. Published tested RTP and expected value at this entry cost, D4. Stock-backed table, D1.
 - **Phase 2, the open.** The round hash at the spin trigger, E4. The reveal renders the settled roll and computes nothing again, E1. No near-miss theatre, E2. Rarity-differentiated linear reveal, E3.
 - **Phase 3, the outcome.** Instance value receipt, F1. The receipt persists onto the item, F2. Post-reveal verification link, F3. One-tap share, F4.
 
-**C1 and C2 are two nodes and not one**, which the baseline walk established independently: a catalogue and a case detail page carry different jobs, `baseline.md` section 1.
+**S-C1 and S-C2 are two nodes and not one**, which the baseline walk established independently: a catalogue and a case detail page carry different jobs, `baseline.md` section 1.
 
 ### D. Put money in
 
 | Screen | Parent | Persona | Scope |
 |---|---|---|---|
-| **D1. Deposit** | `B4-3` pattern of 4, `B7-4` pattern of 12, `B4-1`. **Barrier only, no job**, per `jtbd.md:201`. Rows C1 to C4 | P | MVP, locked surface |
+| **S-D1. Deposit** | `B4-3` pattern of 4, `B7-4` pattern of 12, `B4-1`. **Barrier only, no job**, per `jtbd.md:201`. Rows C1 to C4 | P | MVP, locked surface |
 
 The spend ceiling is chosen here, C2, because this is where the money decision is made. Its management lives on F1.
 
@@ -287,22 +287,22 @@ The spend ceiling is chosen here, C2, because this is where the money decision i
 
 | Screen | Parent | Persona | Scope |
 |---|---|---|---|
-| **E1. Account and inventory** | Row B7, `B7-1`, and Related Job 5, `jtbd.md:69` | P, and S The Accumulator | MVP, locked surface |
-| **E2. Withdrawal, with the public clock** | Related Job 5, `jtbd.md:69`, `B8-2` pattern of 6, `B8-3` pattern of 3. Rows G1 to G6 | S The Accumulator and The Researcher score 3, P scores 2 | MVP, locked surface |
+| **S-E1. Account and inventory** | Row B7, `B7-1`, and Related Job 5, `jtbd.md:69` | P, and S The Accumulator | MVP, locked surface |
+| **S-E2. Withdrawal, with the public clock** | Related Job 5, `jtbd.md:69`, `B8-2` pattern of 6, `B8-3` pattern of 3. Rows G1 to G6 | S The Accumulator and The Researcher score 3, P scores 2 | MVP, locked surface |
 
-E2 is the one round 1 screen where the primary persona is not the highest scorer, and `jtbd.md:181` already carries the reason it stays in the core anyway: it is the only job whose failure ends the relationship rather than degrading it.
+S-E2 is the one round 1 screen where the primary persona is not the highest scorer, and `jtbd.md:181` already carries the reason it stays in the core anyway: it is the only job whose failure ends the relationship rather than degrading it.
 
 ### F. Keep myself in check
 
 | Screen | Parent | Persona | Scope |
 |---|---|---|---|
-| **F1. Responsible play** | `B7-4` pattern of 12, plus the compliance constraint, "responsible play tooling". Rows C2 and C5 | P and all | MVP, locked surface, restored by founder decision 11 August 2026 |
+| **S-F1. Responsible play** | `B7-4` pattern of 12, plus the compliance constraint, "responsible play tooling". Rows C2 and C5 | P and all | MVP, locked surface, restored by founder decision 11 August 2026 |
 
 ### G. Tell someone
 
 | Screen | Parent | Persona | Scope |
 |---|---|---|---|
-| **G1. Public result** | Emotional Job 2, `jtbd.md:93`, closed by row F4. **And Related Job 3, `jtbd.md:51`, in its own words**, found by the step 5 matrix and recorded here rather than in the tracing section alone | P | **MVP, and it raises a scope question, see below** |
+| **S-G1. Public result** | Emotional Job 2, `jtbd.md:93`, closed by row F4. **And Related Job 3, `jtbd.md:51`, in its own words**, found by the step 5 matrix and recorded here rather than in the tracing section alone | P | **MVP, and it raises a scope question, see below** |
 
 ### LATER, so that the map shows the product and not only round 1
 
@@ -321,11 +321,11 @@ Seven orphan screens. Six of them are the destinations behind eight of the nine 
 
 The chosen pattern is **Pattern A, linear reveal, as the core, with Pattern E, community and social, as an ambient layer**, `ux-patterns.md:258`. Explicitly not a compromise: "they do not compete, they occupy different layers of the same screen".
 
-**Where the map implements it.** C2 phase 2 is Pattern A exactly, including the thing reason 3 of that section asks for: the pre-round hash surfaced as a UI element at the spin trigger, row E4. Pattern E has **no screen of its own anywhere in this map**, which is the correct implementation rather than an omission: the live drop feed is a layer on A1 and on C2, never a destination. A screen for the live feed would have broken the pattern by turning a layer into a place.
+**Where the map implements it.** S-C2 phase 2 is Pattern A exactly, including the thing reason 3 of that section asks for: the pre-round hash surfaced as a UI element at the spin trigger, row E4. Pattern E has **no screen of its own anywhere in this map**, which is the correct implementation rather than an omission: the live drop feed is a layer on A1 and on C2, never a destination. A screen for the live feed would have broken the pattern by turning a layer into a place.
 
 **Where something works against it, named directly.** Pattern A's first reason is that the linear reveal needs zero explanation, so a new user can begin the first session with no learning curve, "this reduces friction at the moment that matters most". A full identity check standing between arrival and the first open is friction at exactly that moment, and row B3 says "age gate before any case interaction". Read as one heavy gate, the compliance requirement and the chosen pattern contradict each other.
 
-**The map resolves it rather than choosing a side, and it did not invent the resolution.** B1 carries the declaration and meets every arrival. B3 carries identity verification and stands before funding, not before the first open, so a first open on a Free entry passes only through B1. That is decision `D-17`, taken on 11 August 2026 from a compliance argument with no reference to Pattern A. Two instruments, a legal sequence and a UX pattern, converge on the same two-screen split. The pattern stays ours, unchanged, and `ux-patterns.md` needs no paragraph appended.
+**The map resolves it rather than choosing a side, and it did not invent the resolution.** S-B1 carries the declaration and meets every arrival. S-B3 carries identity verification and stands before funding, not before the first open, so a first open on a Free entry passes only through B1. That is decision `D-17`, taken on 11 August 2026 from a compliance argument with no reference to Pattern A. Two instruments, a legal sequence and a UX pattern, converge on the same two-screen split. The pattern stays ours, unchanged, and `ux-patterns.md` needs no paragraph appended.
 
 **Two reductions in Pattern E, stated rather than absorbed.** Pattern E as described covers a live feed plus community signals, and round 1 ships exactly one of those, the live drop feed, row A3. Community case creation and leaderboards are deferred at `jtbd.md:210` and in the LATER table above. Pattern E is therefore thinner in round 1 than its own description, and this is a scope consequence rather than a change of pattern.
 
@@ -337,22 +337,22 @@ The first slice, by intent, catches holes in the person's path. This one catches
 
 | Entity | Where it is seen or acted on |
 |---|---|
-| Case | C1, C2 |
-| Drop table entry | C2 phase 1 |
-| Skin | C1, C2 |
-| Skin instance | C2 phase 3, E1, E2 |
-| Open | C2 phases 2 and 3 |
-| Round proof | A2, C2 phase 3, G1 |
-| Account | E1, B3 |
-| Balance | E1, D1, C2 phase 1 |
+| Case | S-C1, S-C2 |
+| Drop table entry | S-S-C2 phase 1 |
+| Skin | S-C1, S-C2 |
+| Skin instance | S-C2 phase 3, E1, E2 |
+| Open | S-S-C2 phases 2 and 3 |
+| Round proof | A2, S-C2 phase 3, G1 |
+| Account | S-E1, S-B3 |
+| Balance | E1, D1, S-S-C2 phase 1 |
 | Deposit | D1 |
-| Withdrawal | E2 |
-| Published performance record | A1 pre-login, E2 after |
-| Play limits | F1, set at D1 |
-| Free entry | C1 as an available case, A1 as an offer. **No place of its own, `[?]`** |
-| Live drop event | A1 and C2, as a layer |
+| Withdrawal | S-E2 |
+| Published performance record | S-A1 pre-login, S-E2 after |
+| Play limits | S-F1, set at S-D1 |
+| Free entry | S-C1 as an available case, S-A1 as an offer. **No place of its own, `[?]`** |
+| Live drop event | S-A1 and S-C2, as a layer |
 | Shared result | **G1, which this slice is what produced** |
-| Market rule | B1 |
+| Market rule | S-B1 |
 
 **Sixteen of sixteen have a screen, and the slice earned its place by producing one.** Shared result entered step 1 with every part empty and no destination. Nothing was removed: no entity turned out to be surplus.
 
@@ -360,7 +360,7 @@ The first slice, by intent, catches holes in the person's path. This one catches
 
 ### The scope question this step raises, and does not answer
 
-G1, the public result, is **a ninth public surface**, and `CLAUDE.md` locks round 1 to eight. The rule that `CLAUDE.md` wins every disagreement about scope means this step names the question rather than deciding it.
+S-G1, the public result, is **a ninth public surface**, and `CLAUDE.md` locks round 1 to eight. The rule that `CLAUDE.md` wins every disagreement about scope means this step names the question rather than deciding it.
 
 **Why the screen exists.** Row F4, one-tap share of a result, is the single exception to the priority test in the entire backlog: the path does not break without it, the referral loop does, `cjm-to-be.md`. A share emits an object into the world, and step 1 found that nothing in this repository says what that object is.
 
@@ -372,7 +372,7 @@ G1, the public result, is **a ninth public surface**, and `CLAUDE.md` locks roun
 
 **Recommendation: option 1.** F4 is in MVP for the loop, and a verifier form converts nobody. But it is a scope change to a locked list, so it goes to the founder the same way the responsible play page did rather than being absorbed into a table.
 
-Until it is answered, G1 stays drawn and marked, because a screen deleted by silence is exactly what the CJM stage found last time.
+Until it is answered, S-G1 stays drawn and marked, because a screen deleted by silence is exactly what the CJM stage found last time.
 
 ---
 
@@ -394,10 +394,10 @@ The baseline runs a fixed 70px left icon rail with nine destinations. `baseline.
 
 | Item | Enters | Job behind it |
 |---|---|---|
-| **Cases** | C1, the catalogue | Main Job, `jtbd.md:17`. The one mode round 1 ships |
+| **Cases** | S-C1, the catalogue | Main Job, `jtbd.md:17`. The one mode round 1 ships |
 | **Provably fair** | A2 | Related Job 1, `jtbd.md:33`, before login, and Related Job 3, `jtbd.md:51`, after the open |
-| **My items** | E1, account and inventory | Related Job 5, `jtbd.md:69`. Inventory, receipts, and the way into withdrawal |
-| **Balance** | D1, deposit, and the spend ceiling | `B4-3`, `B7-4`, `B4-1`. **Barrier class, no job**, consistent with `jtbd.md:201` |
+| **My items** | S-E1, account and inventory | Related Job 5, `jtbd.md:69`. Inventory, receipts, and the way into withdrawal |
+| **Balance** | S-D1, deposit, and the spend ceiling | `B4-3`, `B7-4`, `B4-1`. **Barrier class, no job**, consistent with `jtbd.md:201` |
 
 **Provably fair in the global navigation is a deliberate structural claim and no competitor makes it.** `jtbd.md:180` names a public provably fair surface as one of three things no competitor offers pre-login, and `baseline.md` verified on 11 August 2026 that our own baseline still redirects that route to login. Design principle 1 says trust is the product. A principle that does not reach the navigation is a slogan, and this is the cheapest place it becomes structure.
 
@@ -409,13 +409,13 @@ The baseline runs a fixed 70px left icon rail with nine destinations. `baseline.
 
 Assigned deliberately, and this is the minimum depth marking rather than the full tree, which the detail layer builds.
 
-**Level 1**, reachable directly from global navigation: A1 Home, C1 Catalogue, A2 Provably fair, E1 Account and inventory, D1 Deposit.
+**Level 1**, reachable directly from global navigation: S-S-A1 Home, S-C1 Catalogue, S-A2 Provably fair, S-E1 Account and inventory, S-S-D1 Deposit.
 
-**Level 2**, opened from level 1: C2 Case screen, from a Home tile or from the catalogue. E2 Withdrawal, from inventory. F1 Responsible play, from the footer and from the Balance control.
+**Level 2**, opened from level 1: S-C2 Case screen, from a Home tile or from the catalogue. S-E2 Withdrawal, from inventory. S-S-F1 Responsible play, from the footer and from the Balance control.
 
 **Level 3:** empty in round 1. Nothing in this scope needs a third level, and that is a result rather than an omission.
 
-**Not levels at all.** Three screens are interrupts that fire inside a flow rather than destinations anyone navigates to: B1 the age and geo gate, B2 sign in, B3 identity verification. One screen is a landing entered from outside the product entirely: G1 the public result. Giving any of these a level would inflate the depth count with things nobody chooses.
+**Not levels at all.** Three screens are interrupts that fire inside a flow rather than destinations anyone navigates to: S-B1 the age and geo gate, S-B2 sign in, S-B3 identity verification. One screen is a landing entered from outside the product entirely: S-G1 the public result. Giving any of these a level would inflate the depth count with things nobody chooses.
 
 ### Depth to the main job, counted
 
@@ -436,7 +436,7 @@ Primary persona The Opener, main job `jtbd.md:17`, arrive and open with a reveal
 
 **What was paid for three taps, stated as the pack requires rather than defended.** Featured cases sit on Home, so Home carries two loads at once: the trust evaluation, A1 to A5, and the entry to the main job. That is a crowded screen, and design principle 3 says cost never hides inside excitement. A home that is simultaneously a trust page and a shop is exactly where that risk lives. The compromise is accepted here and handed forward as a named constraint for the wireframe stage, not as a solved problem.
 
-**One structural condition inherited from an open decision.** Whether C1 stays a separate node at all depends on `D-D`. The baseline runs 239 distinct cases, which needs a catalogue with categories, search and filters. Our own map says the catalogue becomes smaller and backed. If `D-D` returns a small enough number, Home absorbs the catalogue, C1 disappears as a node and both routes become three taps. That is a real fork and it is deferred, not guessed. Owner: 03b, the same owner `D-D` already has.
+**One structural condition inherited from an open decision.** Whether C1 stays a separate node at all depends on `D-D`. The baseline runs 239 distinct cases, which needs a catalogue with categories, search and filters. Our own map says the catalogue becomes smaller and backed. If `D-D` returns a small enough number, Home absorbs the catalogue, S-C1 disappears as a node and both routes become three taps. That is a real fork and it is deferred, not guessed. Owner: 03b, the same owner `D-D` already has.
 
 ### Global, contextual, deep
 
@@ -444,15 +444,27 @@ Primary persona The Opener, main job `jtbd.md:17`, arrive and open with a reveal
 
 **Responsible play sits in the footer of every screen and again at the deposit**, which is a deliberate placement rather than an inherited one: `baseline.md` records zero responsible play routes, zero footer links and zero matches for self exclusion, deposit limit or cool down anywhere on the baseline. `C2` sets the spend ceiling where the money decision is made and `C5` lives on the page itself.
 
-**The ambient social layer is not global.** The live drop feed, `A3`, renders on A1 and on C2 and nowhere else. `ux-patterns.md:262` requires Pattern E to be a layer on the screens where the core happens, and a feed on every screen would make it wallpaper rather than context.
+**The ambient social layer is not global.** The live drop feed, `A3`, renders on S-A1 and on S-C2 and nowhere else. `ux-patterns.md:262` requires Pattern E to be a layer on the screens where the core happens, and a feed on every screen would make it wallpaper rather than context.
 
 **Contextual, appearing inside a flow:** the age and geo gate at first case interaction; sign in at the first point that needs an account; identity verification before funding; the post-reveal verification link and the one-tap share in the outcome phase; the spend ceiling at deposit.
 
-**Deep, rare and deliberately not surfaced:** self exclusion and cool down inside F1; the withdrawal restriction appeal, `G4`, inside E2; the verifier form itself inside A2, since the page has to open and explain before it asks anyone to paste a seed.
+**Deep, rare and deliberately not surfaced:** the withdrawal restriction appeal, `G4`, inside S-E2; the verifier form itself inside S-A2, since the page has to open and explain before it asks anyone to paste a seed.
+
+**Responsible play is not deep, and step 6 moved it.** It was classed deep, reachable through the footer and then the page and then inside it, three taps or more. `B7-4` describes a pattern of 12 people inside an escalation loop, and a brake that has to be searched for at the worst moment is not a brake. It now carries **a persistent entry inside the Balance control**, which puts it two taps away and, more importantly, at the place the person already goes when they are about to spend, which is where design principle 3 says clarity belongs. The footer link stays.
+
+**And the constraint that makes this safe is written here rather than assumed.** Promotion is reachability, not prominence. The responsible play route carries **no counters, no streaks, no status and no session score**, which is the same hard rule T4 attaches to the spend ceiling at `cjm-to-be.md:73`: the moment a limit acquires completion mechanics it stops being a boundary and becomes a reason to keep going. Making a brake easy to find is not the same as making it a thing to engage with, and the difference is exactly this list.
+
+### Free entry gets an obligation rather than a surface
+
+Carried from step 2, flagged for step 6, and answered here. The starter credit reads as a Balance state and the daily free case reads as an available case, so the entitlement appears on two screens and owns neither. `cjm-to-be.md:180` already calls `I1` and `I2` components rather than screens, so inventing a surface for them would be scope nobody asked for.
+
+**What is added instead is a debt on two nodes, so the capability cannot vanish between stages.** S-A1 Home is obliged to carry the starter credit offer as a pre-login element, because it is the activation lever and `aarrr.md:119` puts it there. S-C1 Catalogue is obliged to carry the daily free case as an addressable case rather than as a banner. Both obligations are written for 03b to honour when it expands those nodes.
+
+**An object that only appears as another object's state is how a capability quietly disappears**, and the answer is not always a screen. Sometimes it is naming who owes it.
 
 ### What this section does not decide
 
-The full tree with page contents, which is the detail layer. And the position of Free entry, carried from step 2 as an object that appears on two screens and owns neither: the starter credit reads as a Balance state and the daily free case reads as an available case in the catalogue, so both are contextual and neither is global. That is recorded as the answer this step owed, and it is a weak one: an entitlement that only ever appears as someone else's state is how a capability quietly disappears. Flagged for step 6, the defect audit, rather than closed here.
+The full tree with page contents, which is the detail layer.
 
 ---
 
@@ -462,7 +474,7 @@ Written at step 5, on 11 August 2026. Rows are the functional jobs from `jtbd.md
 
 ### Matrix: functional jobs against MVP screens
 
-| Job | A1 Home | A2 Prov. fair | B1 Gate | B2 Sign in | B3 Identity | C1 Catalogue | C2 Case | D1 Deposit | E1 Account | E2 Withdraw | F1 Resp. play | G1 Public result |
+| Job | S-A1 Home | S-A2 Prov. fair | S-B1 Gate | S-B2 Sign in | S-B3 Identity | S-C1 Catalogue | S-C2 Case | S-D1 Deposit | S-E1 Account | S-E2 Withdraw | S-F1 Resp. play | S-G1 Result |
 |---|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
 | **Main Job**, `jtbd.md:17` | ✓ T1, T2 | | ✓ T3 | ✓ T3 | | ✓ T5 | ✓ T5, T6, T7 | | | | | |
 | **RJ1** arrive with confidence, `:33` | ✓ | ✓ | | | | | ✓ | | | | | |
@@ -474,7 +486,7 @@ Written at step 5, on 11 August 2026. Rows are the functional jobs from `jtbd.md
 
 **Budget: 12 MVP screens, 12 LATER screens, 24 in the map.** Half the product as mapped is round 1. The MVP subset is the input for 03b, which writes the nodes, for stage 04, which draws them, and for stage 07, which colours them, and all three start from it rather than from the whole map.
 
-**Four cells carry a CJM phase rather than a separate job**, which is the rule the pack states: a screen that is a step of the main path closes a phase of the main job and is not an orphan for lacking a related job of its own. A1 carries T1 the pull and T2 first contact. B1 and B2 carry T3 getting in. C1 carries T5 picking a case. C2 carries T5, T6 and T7 at once, which is why `cjm-to-be.md:180` calls it one screen with three phases.
+**Four cells carry a CJM phase rather than a separate job**, which is the rule the pack states: a screen that is a step of the main path closes a phase of the main job and is not an orphan for lacking a related job of its own. S-A1 carries T1 the pull and T2 first contact. S-B1 and S-B2 carry T3 getting in. S-C1 carries T5 picking a case. S-C2 carries T5, T6 and T7 at once, which is why `cjm-to-be.md:180` calls it one screen with three phases.
 
 ### LATER screens, traced in one block
 
@@ -501,19 +513,19 @@ One orphan job, and it is resolved rather than merely noticed.
 
 | Orphan screen | Decision |
 |---|---|
-| **F1 Responsible play** | **Keep the screen. The matrix is what is incomplete, not the screen.** F1 has no functional job and never will: nobody arrives wanting to limit themselves. Its parents are barrier `B7-4`, a pattern of 12 people, and the compliance constraint in `CLAUDE.md`, "responsible play tooling (deposit limits, session limits, self exclusion, cool down)". Both are legal parent classes in this project. |
+| **S-F1 Responsible play** | **Keep the screen. The matrix is what is incomplete, not the screen.** S-F1 has no functional job and never will: nobody arrives wanting to limit themselves. Its parents are barrier `B7-4`, a pattern of 12 people, and the compliance constraint in `CLAUDE.md`, "responsible play tooling (deposit limits, session limits, self exclusion, cool down)". Both are legal parent classes in this project. |
 
-**This is a defect in the instrument, and it is worth naming precisely.** The pack's matrix measures exactly one of the three legal parent classes this project uses. A screen parented on a barrier or on a compliance constraint is invisible to it and shows up as an orphan. F1 is caught by it. **D1 Deposit escapes only by accident**, because the CJM mapped phase T4 onto RJ2, and `jtbd.md:201` says in as many words that deposit closes none of the core jobs. Had the CJM not made that mapping, the matrix would have flagged the deposit screen of a money product as ballast.
+**This is a defect in the instrument, and it is worth naming precisely.** The pack's matrix measures exactly one of the three legal parent classes this project uses. A screen parented on a barrier or on a compliance constraint is invisible to it and shows up as an orphan. S-F1 is caught by it. **S-D1 Deposit escapes only by accident**, because the CJM mapped phase T4 onto RJ2, and `jtbd.md:201` says in as many words that deposit closes none of the core jobs. Had the CJM not made that mapping, the matrix would have flagged the deposit screen of a money product as ballast.
 
 The matrix is kept as the pack specifies, because it does catch the thing it was built for. What is added is this paragraph, so that a later reader does not read one empty column as a mistake.
 
-**The contradiction check the pack asks for, answered.** F1 is marked MVP and has no tick. The pack says this means either the mark is inflated or a job was not described. It is neither: the mark is correct and the job does not exist, because the parent is a constraint. Named out loud rather than resolved by putting a tick somewhere.
+**The contradiction check the pack asks for, answered.** S-F1 is marked MVP and has no tick. The pack says this means either the mark is inflated or a job was not described. It is neither: the mark is correct and the job does not exist, because the parent is a constraint. Named out loud rather than resolved by putting a tick somewhere.
 
 ### What the matrix found that step 2 had missed
 
-**G1 Public result closes Related Job 3, in that job's own words.** Step 2 gave G1 a single parent, Emotional Job 2, and an emotional parent puts a screen outside this matrix entirely, which would have made G1 a genuine orphan and weakened the case for it. Reading RJ3 in full closes that: "so that I trust the platform enough to open again **or to tell someone about my result**", `jtbd.md:53`. Telling someone is in the functional job's own outcome clause.
+**S-G1 Public result closes Related Job 3, in that job's own words.** Step 2 gave S-G1 a single parent, Emotional Job 2, and an emotional parent puts a screen outside this matrix entirely, which would have made S-G1 a genuine orphan and weakened the case for it. Reading RJ3 in full closes that: "so that I trust the platform enough to open again **or to tell someone about my result**", `jtbd.md:53`. Telling someone is in the functional job's own outcome clause.
 
-This is not a tick placed to rescue a screen. It is a line that was in `jtbd.md` since stage 02 and that nobody had traced. The concept sitemap row for G1 was corrected in the same step. The scope question about the ninth surface stands unchanged, and it now stands on two jobs instead of one.
+This is not a tick placed to rescue a screen. It is a line that was in `jtbd.md` since stage 02 and that nobody had traced. The concept sitemap row for S-G1 was corrected in the same step. The scope question about the ninth surface stands unchanged, and it now stands on two jobs instead of one.
 
 ### Emotional and social jobs: what carries them
 
@@ -521,14 +533,20 @@ These are not closed by a screen. Asking where a person goes to feel genuine sus
 
 | Job | Mechanism | Where it lives | Confirmed by |
 |---|---|---|---|
-| **Emotional Job 1**, genuine suspense rather than manufactured tension, `jtbd.md:84` | The reveal renders the settled roll and computes nothing again, `E1`, so animation and credited item cannot diverge. No near-miss theatre, `E2`: the deceleration lands on the actual result without visually passing better items first. The round hash is visible at the spin trigger, `E4`, which reframes the buildup as watching a settled outcome rather than waiting for one to be decided | C2 phase 2, as behaviour of the reveal itself rather than as a component | `B6-1` the animation and the credited item disagree, `B6-2` the belief that the reveal turns against you once you win, pattern of 9. `jtbd.md:89` names near-miss as a confirmed dark pattern. `ux-patterns.md:303`, "honest buildup, not manufactured near-miss" |
-| **Emotional Job 2**, a win worth talking about, `jtbd.md:93` | One-tap share, `F4`, producing an object that carries its own proof, G1. The instance value receipt, `F1`, makes the number inside the story true, so the story survives being checked by the person it is told to | C2 phase 3, then G1 | `jtbd.md:98`, Key-Drop's effects cited in user reviews as the most memorable differentiator. `aarrr.md` Referral. `B7-1` the undervalued win, pattern of 7, which is what makes an unchecked story collapse |
+| **Emotional Job 1**, genuine suspense rather than manufactured tension, `jtbd.md:84` | The reveal renders the settled roll and computes nothing again, `E1`, so animation and credited item cannot diverge. No near-miss theatre, `E2`: the deceleration lands on the actual result without visually passing better items first. The round hash is visible at the spin trigger, `E4`, which reframes the buildup as watching a settled outcome rather than waiting for one to be decided | S-C2 phase 2, as behaviour of the reveal itself rather than as a component | `B6-1` the animation and the credited item disagree, `B6-2` the belief that the reveal turns against you once you win, pattern of 9. `jtbd.md:89` names near-miss as a confirmed dark pattern. `ux-patterns.md:303`, "honest buildup, not manufactured near-miss" |
+| **Emotional Job 2**, a win worth talking about, `jtbd.md:93` | One-tap share, `F4`, producing an object that carries its own proof, S-G1. The instance value receipt, `F1`, makes the number inside the story true, so the story survives being checked by the person it is told to | S-C2 phase 3, then S-G1 | `jtbd.md:98`, Key-Drop's effects cited in user reviews as the most memorable differentiator. `aarrr.md` Referral. `B7-1` the undervalued win, pattern of 7, which is what makes an unchecked story collapse |
 | **Emotional Job 3**, smart play rewarded rather than punished, `jtbd.md:102` | **Nothing yet, and this is an honest empty rather than an oversight.** Rakeback and loyalty are LATER. Round 1 ships no mechanism for this job at all | Nowhere | Open. Direct entry to the backlog. `jtbd.md:169` scores it 1 for the primary persona and 3 for The Accumulator, which is why round 1 can carry the gap |
 | **Social Job 1**, beat a real person rather than a bot, `jtbd.md:111` | **Nothing yet, and deliberately.** Battle mode is hidden at launch by founder Decision 2, `jtbd.md:212`, because a bot-filled lobby is solo opening with extra steps | Nowhere | Open by decision, not by omission |
-| **Social Job 2**, be part of a platform that feels alive, `jtbd.md:120` | Live drop feed with no invented names, and any bot present in it labelled as one, `A3`. Every tile links to a public result rather than to a user profile, so the social proof is checkable rather than decorative | A1 and C2, as an ambient layer and never as a destination, per Pattern E at `ux-patterns.md:262` | `jtbd.md:125`. `research.md:151`, bot visibility as the worst-in-category failure, with the baseline itself showing "[BOT] Darth Vader" in its own ticker. `baseline.md` section 3 for the tile-to-profile link the baseline uses |
+| **Social Job 2**, be part of a platform that feels alive, `jtbd.md:120` | Live drop feed with no invented names, and any bot present in it labelled as one, `A3`. Every tile links to a public result rather than to a user profile, so the social proof is checkable rather than decorative | S-A1 and S-C2, as an ambient layer and never as a destination, per Pattern E at `ux-patterns.md:262` | `jtbd.md:125`. `research.md:151`, bot visibility as the worst-in-category failure, with the baseline itself showing "[BOT] Darth Vader" in its own ticker. `baseline.md` section 3 for the tile-to-profile link the baseline uses |
 
 **Two rows read "nothing yet" and both are correct.** Emotional Job 3 and Social Job 1 are the jobs of secondary personas whose surfaces are LATER by decision. A mechanism invented here to fill the cell would be a round 1 commitment nobody made.
 
 ### Reconciliation of the concept sitemap against the flows
 
-Step 4 introduced no screen the concept sitemap did not already hold, so the map needed no additions. One row was corrected, G1, and the correction came from this matrix rather than from the flows.
+Step 4 introduced no screen the concept sitemap did not already hold, so the map needed no additions. One row was corrected, S-G1, and the correction came from this matrix rather than from the flows.
+
+**Step 6 changed the map in four ways, all recorded above rather than applied silently.** Every screen code gained the `S-` prefix, because the screen namespace and the backlog capability namespace collided on all twelve codes and both readings parsed. S-C1 Catalogue gained a route, flow 1a in `flows.md`, deliberately minimal so that decision `D-D` cannot make the work worthless. Responsible play moved out of the deep classification into the Balance control, with the no-mechanics constraint written beside it. And Free entry gained an obligation on two nodes instead of a surface of its own.
+
+**One thing this stage found and cannot close.** A person who only ever uses free entry can reach the withdrawal route and take out a real skin without ever meeting an identity check, because `B1` gates funding and `B2` forbids the check at the exit. The shape that closes it without reopening `B8-4` is proposed in `flows.md` under flow 3 and deliberately not drawn: it is a compliance decision riding on `D-A`, which counsel already owns.
+
+The full defect log with both instruments, the merge and the verification notes is in `ia/docs/critique.md`.
