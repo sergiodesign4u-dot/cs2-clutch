@@ -25,7 +25,7 @@
 
 window.IA_NAV = [
   // Cluster 0. Global shell. What every intent cluster inherits.
-  { node: '0.1', label: 'Navigation',              file: 'navigation.html', group: 'global', type: 'global element', states: 0, done: false },
+  { node: '0.1', label: 'Navigation',              file: 'navigation.html', group: 'global', type: 'global element', states: 0, done: true  },
   { node: '0.2', label: 'Footer',                  file: 'footer.html',     group: 'global', type: 'global element', states: 0, done: false },
   { node: '0.3', label: 'System pages',            file: 'system.html',     group: 'global', type: 'page',           states: 0, done: false },
   { node: '0.4', label: 'Cookie consent',          file: 'cookie.html',     group: 'global', type: 'dialog',         states: 0, done: false },
@@ -120,6 +120,10 @@ window.IA_NAV = [
   var all = window.IA_NAV;
   var doneCount = all.filter(function (n) { return n.done; }).length;
   var stateCount = all.reduce(function (a, n) { return a + (n.states || 0); }, 0);
+
+  // The hero stat is derived from the registry too, so it can never drift from the chips.
+  var heroBuilt = document.getElementById('ia-built');
+  if (heroBuilt) heroBuilt.textContent = String(doneCount);
 
   var tot = document.createElement('p');
   tot.className = 'ia-total';
