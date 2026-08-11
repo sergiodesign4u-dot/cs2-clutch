@@ -253,7 +253,7 @@ What every intent cluster inherits. Group `global`, all MVP, because a shell tha
 
 | No | Name | Type | Scope | INCLUDES | Transitions |
 |---|---|---|---|---|---|
-| **0.1** | Navigation, rail and header | global element | MVP | Two carriers, and neither holds the other's kind. The rail owns destinations, three for a guest and four with an account, and is a modal drawer on mobile. The header owns the logo, the rail toggle, the account control and the money as **two figures**, balance and value of items held, plus the responsible play entry inside the money control. No mode hub row on Home, `D-20`. Rail restored and the model returned to the baseline by `D-21` | 1.0, 1.2, 2.4, 3.1, 4.1, 5.1, 6.1 |
+| **0.1** | Navigation, rail, header and mobile bar | global element | MVP | Three carriers on mobile, two on desktop, and no carrier holds another's kind. The rail owns the logo, every destination and its own toggle, three for a guest and four with an account, and is a modal drawer on mobile. The header owns the account control and the money as **two figures**, balance and value of items held, plus the responsible play entry inside the money control, and no destination at all. **A mobile bottom bar carries a shortcut subset of the rail**, Home, Cases and Provably fair rising to four with My items, and never money and never an action. No mode hub row on Home, `D-20`. Rail restored by `D-21`, bar restored by `D-22` | 1.0, 1.2, 2.4, 3.1, 4.1, 5.1, 6.1 |
 | **0.2** | Footer | global element | MVP | Trust strip that never collapses, carrying the 18+ statement, the responsible play link and the market statement, none of which the baseline has at all. Four link columns, the interlinking block with its structure fixed and contents `[?]`, and the Article 5 identification block. **Links no private transactional node.** One account state, because everything in it is public | 1.2, 3.1, 6.1, 2.2, 0.4, 0.9, 0.10 |
 | **0.3** | System pages | page | MVP | 404 as a full page with search and quick links and HTTP 404, 500 as a backend-independent template, maintenance as 503 with `Retry-After`. Never a soft 404, never a dead end | 1.0, 3.1 |
 | **0.4** | Cookie consent | dialog | MVP | Prior consent rather than default-on, reject as easy as accept, analytics and marketing off until opted in, link to the policy. Grounded in law at step 7, not written from memory | 0.2 policy |
@@ -490,12 +490,13 @@ Written at step 3, on 11 August 2026. The concept sitemap says which screens exi
 
 **Reversed on 11 August 2026 by founder decision `D-21`, and the reversal does not contradict the reasoning, it removes its subject.** The objection was to a list of nine with eight dead items. It was never an objection to the rail as a component, and that distinction was available at the time and not made. **The rail ships, carrying round 1's own destinations, and every item in it is live.**
 
-**Two carriers, and neither holds the other's kind.** This is the baseline's own model, `baseline.md:48` and `:78`, and it is what node 0.1 specifies in full.
+**Three carriers on mobile, two on desktop, and no carrier holds another's kind.** The first two are the baseline's own model, `baseline.md:48` and `:78`. The third is not inherited: `baseline.md:90` records that the baseline has no bottom tab bar at all, and `D-22` adds one as a shortcut over the rail rather than as a second model. Node 0.1 specifies all three in full.
 
 | Carrier | Owns | Never holds |
 |---|---|---|
-| **The rail**, full height at the leading edge, collapsible, a modal drawer on mobile | The logo at its top, every destination, and its own toggle on the seam | Money, actions, the account control |
+| **The rail**, full height at the leading edge, collapsible, a modal drawer on mobile | The logo at its top, **every** destination, and its own toggle on the seam. It is the complete list | Money, actions, the account control |
 | **The header**, starting at the rail's edge | Money, the account control, ambient controls | **Any destination at all.** No exception, not even the logo |
+| **The mobile bar**, below 900px only, added by `D-22` | A subset of the rail's destinations, plus Home | Money, actions, and any item the rail does not hold |
 
 ### Global navigation: the rail's destinations and the job behind each
 

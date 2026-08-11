@@ -502,3 +502,80 @@ The founder specified the pair. Four rules were derived from files that already 
 ### Consequence for the rule file
 
 `CLAUDE.md:25` and `CLAUDE.md:51` both change. The generalised mode-switcher rule from `D-20` is narrowed to what it actually established, and the global navigation sentence is rewritten from a flat count of four items into the two carrier model. That is a rule edit and it goes through the budget, not around it.
+
+---
+
+## D-22. The mobile bottom bar returns, as a shortcut over the rail and not as a second model
+
+**Date:** 2026-08-11. **Stage:** 03b, node 0.1, one step after `D-21`. **Decided by:** the founder. **Binds:** node 0.1, stage 04 which draws it, stage 07 which colours it, and it amends `D-21`.
+
+### What the founder decided
+
+**Keep a bottom navigation bar on mobile, in addition to the rail and its drawer.** Their words: the bottom bar is a good improvement on the current project and should stay. `D-21` had removed it from the mobile resolution one step earlier, and this puts it back.
+
+### This answers a cost the previous decision wrote down
+
+`D-21` accepted a price in as many words, and the sentence is quoted here rather than paraphrased: **"On mobile the rail is a modal drawer behind a menu icon. From any screen that is not Home, the catalogue costs two taps rather than one."**
+
+**The bar removes exactly that cost.** Cases sits in position 2, so the catalogue is one tap from anywhere again. This is not a reversal out of nowhere: it is the founder responding to a cost the previous decision was required to name, which is the whole reason the project makes decisions name their costs.
+
+### The conflict, stated rather than buried
+
+Material's navigation drawer guidance, opened live on 11 August 2026 and quoted in full in node 0.1:
+
+> "**Avoid using a navigation drawer with other primary navigation components, such as a navigation bar.** Avoid using two navigation components on the same screen."
+
+That is an explicit "don't", it names this exact configuration, and **this decision declines it.** Material does not permit what we are building on mobile. The quote is not deleted from the node, it is not softened, and no reading of it makes the two compatible.
+
+**Desktop is unaffected and stays inside the supported configuration:** one primary navigation component, the rail, plus one app bar, which is not a navigation component in that taxonomy.
+
+### The condition the decision rests on, and it is the whole of its defence
+
+**The bar is a shortcut layer over the rail, never a second navigation model.**
+
+> **Every item in the bar also exists in the rail, and the rail is always a superset.**
+
+Two disjoint sets would be two competing menus, which is the ambiguity Material's sentence exists to prevent: a person who finds something in one place and not the other cannot tell which list is the product. One complete list plus one shortcut set drawn from it is a different object. There is one navigation model with two ways into it.
+
+**If a later stage puts an item in the bar that the rail does not hold, the model is broken rather than extended.** That is the acceptance test and it is checkable by reading two lists.
+
+### What the bar carries
+
+| Position | Item | Guest | Account | Leads to |
+|---|---|---|---|---|
+| 1 | Home | yes | yes | 1.0 |
+| 2 | Cases | yes | yes | 3.1 |
+| 3 | Provably fair | yes | yes | 1.2 |
+| 4 | My items | no | yes | 5.1 |
+
+**Three before an account, four after.** Three clears Material's own floor exactly, "don't use a navigation bar for fewer than three destinations", and four sits well inside its ceiling of five.
+
+**Positions 1 to 3 never move and nothing is ever removed.** Exactly one slot is added, at the moment the person creates the thing it describes. **This puts Apple's stability rule back in force**, the rule `D-21` retired: "Don't disable or hide tab bar buttons, even when their content is unavailable." It was correct to retire it when nothing we shipped was a tab bar. Something we ship is one again.
+
+**Provably fair holds position 3 in both states**, the same structural claim the rail makes on the same parents: `jtbd.md:180` plus design principle 1, carrying the `D-14` limit that its position is not a claim that a verifier converts a sceptic.
+
+**Balance stays out of the bar in both states**, unchanged from `D-21`. Apple: a tab bar supports navigation, not actions. Design principle 3 at `CLAUDE.md:65`: cost never hides inside excitement, and making money a permanent navigation destination is the mechanism by which spending stops being a decision and becomes a place you go. The money stays in the header.
+
+### The honest cost of carrying both, named rather than defended
+
+In round 1 the rail holds three or four destinations and the bar holds three or four of the same ones. **The drawer's unique contribution in round 1 is therefore thin:** Responsible play, the sound control and the logo row, and little else. Two carriers holding nearly the same list is redundancy at this size and calling it anything else would be dressing it up.
+
+**What makes it a cost paid for a reason is the roadmap.** `CLAUDE.md:39` lists eight LATER surfaces. Material's bar ceiling is five and the rail's is seven, so the bar runs out first and the drawer is what absorbs the modes as they ship. The founder is choosing to carry both from day one so that the mobile shortcut exists immediately **and** the drawer is already in place to receive the modes, rather than introducing it later as a change of navigation model in front of people who already learned one.
+
+**It stops being redundancy at the fifth destination**, which is inside this product's own roadmap rather than a hypothetical.
+
+### The logo leaves the mobile header, and `D-21` supplies the reason
+
+`D-21` moved the logo into the mobile header for exactly one stated reason: the rail sits behind a menu icon and a route home may not. **Bar item 1 is now that route**, permanently visible, labelled, and never removed in either state.
+
+**The reason has been met by a better carrier**, so keeping the logo in the header as well would be two controls doing one job on the narrowest width the product supports. The logo returns to the drawer's first row, where the rail keeps it at every other width, and that is also what makes the superset rule hold literally: Home is in the rail because the logo is.
+
+**It returns the mobile header to the baseline's own composition.** `baseline.md:90` records that the baseline's mobile header keeps the hamburger, the money slot and the account control, and carries no logo.
+
+### Behaviour fixed here so a later stage does not invent it
+
+The bar does not hide or condense on scroll, for the same reason the header and the rail do not. When the modal drawer is open the bar sits **behind the scrim** with the rest of the content: a bar left live above a scrim is content the scrim failed to block. Labels are never removed. Every target is at least 44 by 44 CSS pixels, the node's AAA choice. **Exactly one item is active across the bar and the drawer together, never one in each**, which two carriers rendering overlapping lists makes the easiest thing in this node to ship wrong. The bar does not exist above 900px.
+
+### Consequence for the rule file
+
+`CLAUDE.md:25` and `CLAUDE.md:51` both change again. The inherited navigation model stays two carriers, because the bar is not inherited: `baseline.md:90` records that the baseline has no bottom tab bar at all. What is added is that mobile carries a third carrier the baseline does not have, and that it is a subset of the rail rather than a second model. That is a rule edit and it goes through the budget, not around it.

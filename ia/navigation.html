@@ -143,6 +143,16 @@
     .wf-drawer { position: absolute; top: 0; left: 0; bottom: 0; width: 132px; background: var(--wf-surface); border: 1px solid var(--wf-line); border-radius: 4px; padding: 8px 7px; z-index: 3; overflow: hidden; }
     .wf-scrim-tag { position: absolute; right: 8px; bottom: 6px; z-index: 4; font-size: 8.5px; letter-spacing: 0.08em; text-transform: uppercase; color: #9a9a9a; }
 
+    /* Mobile bottom bar, CSS reinstated unchanged from the pre-D-21 version of this file */
+    .wf-tabs { display: flex; background: var(--wf-surface); border: 1px solid var(--wf-line); border-radius: 4px; height: 58px; margin-top: 8px; }
+    .wf-tab { flex: 1 1 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; border-right: 1px solid var(--wf-line-soft); }
+    .wf-tab:last-child { border-right: none; }
+    .wf-tab-ico { width: 20px; height: 20px; border: 1px solid var(--wf-line); border-radius: 3px; }
+    .wf-tab-lbl { font-size: 9.5px; color: var(--wf-ink-dim); letter-spacing: 0.02em; }
+    .wf-tab.is-on .wf-tab-ico { background: var(--wf-line); }
+    .wf-tab.is-on .wf-tab-lbl { color: var(--wf-ink); font-weight: 700; }
+    .wf-tab.is-new { border: 1px dashed var(--wf-ink-dim); border-radius: 3px; }
+
     .wf-phone { width: 100%; max-width: 300px; margin: 0 auto; }
     .wf-note { font-size: 11px; color: var(--text-muted); margin-top: 10px; line-height: 1.55; }
     .wf-note b { color: var(--text-secondary); font-weight: 600; }
@@ -170,10 +180,10 @@
 <div class="hero" id="overview">
   <div class="section-eyebrow">Node 0.1 - global element - cluster 0 - MVP</div>
   <h1>Navigation</h1>
-  <p class="lede">The shell every screen inherits, in the two carrier model the baseline runs: a rail on the left that owns destinations, and a header on top that owns money, the account and the rail toggle. Neither ever holds the other's kind. It has no job of its own, because a carrier is not a destination. It is the surface on which four jobs and one compliance constraint reach their screens.</p>
+  <p class="lede">The shell every screen inherits: a rail on the left that owns every destination, a header on top that owns money and the account, and on mobile a bottom bar that is a shortcut subset of the rail. No carrier holds another's kind. It has no job of its own, because a carrier is not a destination. It is the surface on which four jobs and one compliance constraint reach their screens.</p>
   <div class="hero-meta">
-    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Carriers</div></div>
-    <div><div class="hero-stat-value">3 to 4</div><div class="hero-stat-label">Rail destinations by state</div></div>
+    <div><div class="hero-stat-value">3 / 2</div><div class="hero-stat-label">Carriers, mobile / desktop</div></div>
+    <div><div class="hero-stat-value">3 to 4</div><div class="hero-stat-label">Destinations by state</div></div>
     <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Money figures, both in currency</div></div>
     <div><div class="hero-stat-value">44px</div><div class="hero-stat-label">Minimum target, AAA</div></div>
   </div>
@@ -195,31 +205,40 @@
 
   <div class="card is-pick">
     <h4>What survives the rebuild, listed rather than quietly reused</h4>
-    <p>The three original sources, the 44 by 44 target decision, the argument for Provably fair's position, and the transient state table. <strong>What is deleted:</strong> the tab bar, the "Home as tab 1" resolution, and the claim that round 1 ships no drawer.</p>
+    <p>The three original sources, the 44 by 44 target decision, the argument for Provably fair's position, and the transient state table.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>What D-21 deleted, and what D-22 put back one step later</h4>
+    <p><code>D-21</code> deleted the bottom tab bar, the "Home as tab 1" resolution and the claim that round 1 ships no drawer. On the same day the founder restored the first two as <code>D-22</code>: <strong>the bar returns, and it returns as a shortcut over the rail rather than as the product's navigation model.</strong></p>
+    <p><strong>What stays deleted:</strong> the claim that round 1 ships no drawer, and the claim that a bar can be the primary carrier. The section below owns the bar and the conflict it creates.</p>
   </div>
 </section>
 
 <!-- MODEL -->
 <section id="model">
   <div class="sec-head">
-    <h2>The model: two carriers, and neither holds the other's kind</h2>
-    <p>The rule that makes "two menus" rigorous instead of ambiguous.</p>
+    <h2>The model: three carriers on mobile, two on desktop, and no carrier holds another's kind</h2>
+    <p>The rule that makes "two menus" rigorous instead of ambiguous, and what the third carrier does and does not change about it.</p>
   </div>
 
   <div class="table-wrap">
     <table>
       <thead><tr><th style="width:24%">Carrier</th><th style="width:38%">Owns</th><th>Never holds</th></tr></thead>
       <tbody>
-        <tr><td>The rail, full height at the leading edge, collapsible</td><td>The logo at its top, every destination, and its own toggle on the seam</td><td>Money. Actions. The account control</td></tr>
+        <tr><td>The rail, full height at the leading edge, collapsible, a modal drawer on mobile</td><td>The logo at its top, <strong>every</strong> destination, and its own toggle on the seam. It is the complete list</td><td>Money. Actions. The account control</td></tr>
         <tr><td>The header, starting at the rail's edge</td><td>Money, the account control, ambient controls</td><td><strong>Any destination at all.</strong> No exception, not even the logo</td></tr>
+        <tr><td>The mobile bar, below 900px only, added by <code>D-22</code></td><td>A subset of the rail's destinations, plus Home</td><td>Money. Actions. Any item the rail does not hold</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="card is-note">
-    <h4>This is what the baseline already practises, and what Material actually supports</h4>
-    <p><code>baseline.md:78</code>: "the header is where money and account live." Material's drawer guidance says <strong>"avoid using two navigation components on the same screen"</strong>, and a top app bar is not a navigation component in that taxonomy: it is the thing the drawer is opened from. "Modal navigation drawers are always opened by an action outside of the drawer, such as clicking a navigation menu icon."</p>
-    <p>So the count is <strong>one primary navigation component plus one app bar</strong>, which is the standard shape. The founder's "two menus" is the correct reading of it.</p>
+    <h4>The kind separation survives the third carrier intact</h4>
+    <p>The wording is exact on purpose: <strong>the bar holds destinations and nothing else.</strong> Not the balance, not the deposit control, not the account, not the sound toggle. <strong>A control that is not a destination has never belonged in a navigation carrier in this node, and the arrival of a second destination carrier does not create a place for one.</strong></p>
+    <p><code>baseline.md:78</code>: "the header is where money and account live."</p>
+    <p><strong>On desktop the product sits inside Material's supported configuration.</strong> The drawer guidance says "avoid using two navigation components on the same screen", and a top app bar is not a navigation component in that taxonomy: it is the thing the drawer is opened from. So above 900px the count is one primary navigation component plus one app bar, which is the standard shape.</p>
+    <p><strong>On mobile it does not, and that is stated here rather than left for a reader to notice.</strong> <code>D-22</code> adds a navigation bar beside a navigation drawer, which is the configuration that sentence forbids by name. <strong>The section on the bar carries the conflict, the condition the decision rests on, and its cost.</strong> It is not resolved by reinterpretation.</p>
     <p><strong>The geometry is what makes the rule absolute.</strong> The rail runs the full height and the logo sits at the top of it, so the header starts at the rail's edge and holds no destination at all, not even a route home. The earlier version put the logo in the header and needed the words "except the logo" to stay true. It no longer does. <strong>The toggle sits on the junction of the two seams</strong>, which also settles Material's caution structurally: "avoid using logos that could be mistaken as buttons, don't use a logo as a menu button to expand the navigation rail." Here the logo cannot be mistaken for the toggle, because the toggle is a separate control in a different place.</p>
   </div>
 </section>
@@ -227,7 +246,7 @@
 <!-- MOCKUPS -->
 <section id="mockups">
   <div class="sec-head">
-    <h2>The two carriers at both widths and both states</h2>
+    <h2>The carriers at both widths and both states</h2>
     <p>Monochrome by rule. Colour, brand and imagery arrive at stage 06. Boxes are relationships and priority, never pixels.</p>
   </div>
 
@@ -333,7 +352,6 @@
         <div class="wf-inner wf-phone">
           <div class="wf-bar is-thin">
             <div class="wf-ico is-menu">&#9776;</div>
-            <div class="wf-logo is-mark">C</div>
             <div class="wf-spacer"></div>
             <div class="wf-avatar"></div>
             <div class="wf-money2">
@@ -343,9 +361,16 @@
             <div class="wf-plus">+</div>
           </div>
           <div class="wf-stage">
-            <div class="wf-body" style="min-height:178px">Page content</div>
+            <div class="wf-body" style="min-height:172px">Page content</div>
+            <div class="wf-tabs">
+              <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Home</span></div>
+              <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Cases</span></div>
+              <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Fairness</span></div>
+              <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">My items</span></div>
+            </div>
             <div class="wf-scrim"></div>
             <div class="wf-drawer">
+              <div class="wf-railhead" style="margin:0 -7px 8px"><div class="wf-logo">LOGO</div></div>
               <div class="wf-item is-on"><span class="wf-item-ico"></span><span class="wf-item-lbl">Cases</span></div>
               <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Provably fair</span></div>
               <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">My items</span></div>
@@ -356,7 +381,77 @@
           </div>
         </div>
       </div>
-      <p class="wf-note"><b>Modal drawer with a scrim,</b> dismissed three ways per Material: selecting an item, tapping the scrim, swiping toward the left edge. A keyboard user gets a fourth, Escape, and focus returns to the menu icon. <b>At 360px the logo becomes a mark, the display name drops and the sound control drops</b>, which is what the baseline itself already does at 390px, <code>baseline.md:90</code>. The two figures survive, because they are what the header is designed around.</p>
+      <p class="wf-note"><b>Modal drawer with a scrim,</b> dismissed three ways per Material: selecting an item, tapping the scrim, swiping toward the left edge. A keyboard user gets a fourth, Escape, and focus returns to the menu icon. <b>The bar sits behind the scrim with the content and is not raised above it</b>: a bar left live above a scrim is content the scrim failed to block. <b>The drawer's first row is the logo</b>, which is what makes Home exist in the rail as well as in the bar. The display name and the sound control drop at this width, which is what the baseline itself does at 390px, <code>baseline.md:90</code>.</p>
+    </div>
+  </div>
+
+  <div class="wf-row">
+    <div class="wf-col">
+      <div class="wf-cap">5. Mobile 360px, drawer closed, guest then account</div>
+      <div class="wf">
+        <div class="wf-inner wf-phone">
+          <div class="wf-bar is-thin">
+            <div class="wf-ico is-menu">&#9776;</div>
+            <div class="wf-spacer"></div>
+            <div class="wf-btn is-solid">Sign in</div>
+          </div>
+          <div class="wf-body" style="min-height:74px">Page content</div>
+          <div class="wf-tabs">
+            <div class="wf-tab is-on"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Home</span></div>
+            <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Cases</span></div>
+            <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Fairness</span></div>
+          </div>
+          <div style="height:14px"></div>
+          <div class="wf-bar is-thin">
+            <div class="wf-ico is-menu">&#9776;</div>
+            <div class="wf-spacer"></div>
+            <div class="wf-avatar"></div>
+            <div class="wf-money2">
+              <div class="wf-m-row">$588.08</div>
+              <div class="wf-m-row is-dim">$35.91</div>
+            </div>
+            <div class="wf-plus">+</div>
+          </div>
+          <div class="wf-body" style="min-height:74px">Page content</div>
+          <div class="wf-tabs">
+            <div class="wf-tab is-on"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Home</span></div>
+            <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Cases</span></div>
+            <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Fairness</span></div>
+            <div class="wf-tab is-new"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">My items</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="wf-note"><b>Three before an account, four after, and the dashed slot is the only thing that changes.</b> Positions 1 to 3 never move and nothing is ever removed, which is Apple's stability rule answered rather than argued with. Three clears Material's own floor exactly. <b>The logo is gone from the header</b>: bar item 1 is the persistent route home, and the brand mark lives at the top of the drawer. <b>Balance is not a tab in either state.</b> Money stays in the header.</p>
+    </div>
+
+    <div class="wf-col">
+      <div class="wf-cap">6. The superset rule, drawn</div>
+      <div class="wf">
+        <div class="wf-inner">
+          <div class="wf-frame" style="border-style:dashed">
+            <div class="wf-rail" style="border-right-style:dashed">
+              <div class="wf-railhead"><div class="wf-logo">LOGO</div></div>
+              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Home, via logo</span></div>
+              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Cases</span></div>
+              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Provably fair</span></div>
+              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">My items</span></div>
+              <div class="wf-div"></div>
+              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Responsible</span></div>
+              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Sound</span></div>
+            </div>
+            <div class="wf-right">
+              <div class="wf-body" style="min-height:0;padding:14px 10px">The rail is the complete list</div>
+              <div class="wf-tabs" style="margin:0 8px 8px">
+                <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Home</span></div>
+                <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Cases</span></div>
+                <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Fairness</span></div>
+                <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">My items</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="wf-note"><b>Not a layout, a constraint.</b> Every item in the bar exists in the rail, and the rail is always a superset. Two disjoint sets would be two competing menus, which is the ambiguity Material's rule exists to prevent. One complete list plus one shortcut set drawn from it is one navigation model with two ways into it. <b>If a later stage puts an item in the bar that the rail does not hold, the model is broken rather than extended.</b> That is the acceptance test, and it is checkable by reading two lists.</p>
     </div>
   </div>
 </section>
@@ -390,23 +485,27 @@
   </div>
 
   <div class="card is-src">
-    <h4>Material Design 3, navigation bar guidelines - carried, and it now proves the opposite</h4>
+    <h4>Material Design 3, navigation bar guidelines - carried, and used for three different conclusions</h4>
     <span class="src-url">https://m3.material.io/components/navigation-bar/guidelines</span>
     <blockquote>"<strong>Don't use a navigation bar for fewer than three destinations.</strong>"</blockquote>
     <blockquote>"<strong>For products with more than five navigation items, don't use a navigation bar</strong>; the elements may collide and there likely won't be enough space for translated text."</blockquote>
+    <p style="margin-top:12px">This source selected the carrier in the first version, ruled that carrier out in the second, and in the third sets the floor and the ceiling the mobile bar has to live inside. <strong>Stating that is cheaper than letting a later reader discover it.</strong></p>
   </div>
 
   <div class="card is-note">
-    <h4>These two sentences are the whole argument for the carrier, and they point opposite ways at two moments in this product's life</h4>
-    <p>At round 1's count, three destinations for a guest and four with an account, Material would pick a bar. At the scope this product is locked to, nine rail destinations in the baseline and eight LATER modes and surfaces in <code>CLAUDE.md:41</code>, Material forbids a bar outright.</p>
-    <p><strong>The carrier is built for the destination rather than for the round.</strong> The cost is named below rather than absorbed.</p>
+    <h4>These two sentences point opposite ways at two moments in this product's life</h4>
+    <p>At round 1's count, three destinations for a guest and four with an account, Material would pick a bar. At the scope this product is locked to, nine rail destinations in the baseline and eight LATER surfaces in <code>CLAUDE.md:39</code>, Material forbids a bar outright.</p>
+    <p><strong>The primary carrier is therefore built for the destination rather than for the round</strong>, which is why it is the rail. The cost is named below rather than absorbed.</p>
+    <p><strong><code>D-22</code> did not overturn that conclusion, it added a second carrier beside it.</strong> The floor sentence is what the mobile bar has to clear, and it clears it exactly: three destinations before an account. The ceiling sentence is the reason the bar can never become the primary carrier: at six destinations Material forbids it and the rail is still legal to seven. <strong>The bar is a shortcut over the model, not the model.</strong></p>
   </div>
 
   <div class="card is-src">
     <h4>Apple Human Interface Guidelines, tab bars - carried</h4>
     <span class="src-url">https://developer.apple.com/design/human-interface-guidelines/tab-bars</span>
     <blockquote>"Use a tab bar to support <strong>navigation, not to provide actions</strong>."</blockquote>
-    <p>The first rule survives the carrier change intact and still binds this node: it is why the deposit control is not a destination. Apple's second rule, the one about never hiding tab buttons, was the first version's main lever and no longer applies to anything we ship.</p>
+    <blockquote>"<strong>Don't disable or hide tab bar buttons, even when their content is unavailable.</strong>"</blockquote>
+    <p>The first rule survives every revision of this node and still binds it: it is why the deposit control is not a destination, and why Balance never becomes a bar item.</p>
+    <p><strong>The second rule was retired by <code>D-21</code> and is back in force under <code>D-22</code>.</strong> The mobile bar adds a fourth item when an account exists and removes none, ever, which is the shape this rule asks for. It was correct to retire it when nothing we shipped was a tab bar. Something we ship is one again.</p>
   </div>
 
   <div class="card is-src">
@@ -445,7 +544,7 @@
 
   <div class="card">
     <h4>Responsible play in the rail is an addition to the base layer, named rather than absorbed</h4>
-    <p>The base layer gave it a persistent entry inside the Balance control and a footer link, <code>sitemap.md:553</code>, on the argument that a brake which has to be searched for at the worst moment is not a brake. <strong>That entry is unchanged.</strong> This adds a second one, in the rail's lower group, affordable now for the same reason the rail is: there is space. <strong>Parent:</strong> <code>B7-4</code>, pattern of 12, plus the compliance constraint at <code>CLAUDE.md:58</code>. Both legal.</p>
+    <p>The base layer gave it a persistent entry inside the Balance control and a footer link, <code>sitemap.md:553</code>, on the argument that a brake which has to be searched for at the worst moment is not a brake. <strong>That entry is unchanged.</strong> This adds a second one, in the rail's lower group, affordable now for the same reason the rail is: there is space. <strong>Parent:</strong> <code>B7-4</code>, pattern of 12, plus the compliance constraint at <code>CLAUDE.md:69</code>. Both legal.</p>
   </div>
 
   <h3>What is not in it, each with its reason</h3>
@@ -453,7 +552,7 @@
     <table>
       <thead><tr><th style="width:26%">Baseline item</th><th style="width:18%">Verdict</th><th>Why</th></tr></thead>
       <tbody>
-        <tr><td>Case Battles, Gunfights, Upgrade, Giveaways, Rewards Hub, Top wins, Partnership, Exchange</td><td>Not in round 1</td><td>All LATER, <code>CLAUDE.md:41</code>. They enter the rail as they ship. The rail is the carrier designed to receive them, which is the whole point of building it now</td></tr>
+        <tr><td>Case Battles, Gunfights, Upgrade, Giveaways, Rewards Hub, Top wins, Partnership, Exchange</td><td>Not in round 1</td><td>All LATER, <code>CLAUDE.md:39</code>. They enter the rail as they ship. The rail is the carrier designed to receive them, which is the whole point of building it now</td></tr>
         <tr><td>All Races and the race pot</td><td>Not in round 1</td><td>Cluster 8, orphan <code>8.9</code>, no parent in the three legal classes</td></tr>
         <tr><td>The promotional partner tile above the destinations</td><td>Cut from round 1</td><td>A paid third party placement. No barrier, no job, no constraint behind it. If it returns it returns as a revenue decision with a named owner, not as inherited furniture</td></tr>
         <tr><td>The language switcher</td><td>Cut permanently</td><td><code>D-02</code>, one language, English. <code>baseline.md:80</code> already recorded this divergence</td></tr>
@@ -464,9 +563,82 @@
   </div>
 
   <div class="card is-note">
-    <h4>The cost of the carrier choice, stated rather than defended</h4>
-    <p>On mobile the rail is a modal drawer behind a menu icon, which is the baseline's own behaviour, <code>baseline.md:90</code>. <strong>So on mobile, from any screen that is not Home, reaching the catalogue costs two taps rather than one.</strong> That is the price of Material's compact-window advice being declined.</p>
-    <p>It is affordable for one reason and the reason is checkable: <strong>the main job never routes through the rail.</strong> <code>CLAUDE.md:51</code> fixes the main flow as home, case screen, age gate, open, and <code>D-20</code> put the featured case grid on Home directly. Tap 1 is a case tile on Home, tap 2 is the gate, tap 3 is Open. <strong>The three tap budget is untouched by this change.</strong> The browsing route was already four taps and already not the main-job route, <code>sitemap.md:533</code>.</p>
+    <h4>The cost of the carrier choice, and what paid it down</h4>
+    <p>On mobile the rail is a modal drawer behind a menu icon, which is the baseline's own behaviour, <code>baseline.md:90</code>. <strong><code>D-21</code> accepted a named cost for that: on mobile, from any screen that is not Home, reaching the catalogue cost two taps rather than one.</strong> That was the price of Material's compact-window advice being declined.</p>
+    <p>It was affordable for one reason and the reason is checkable: <strong>the main job never routes through the rail.</strong> <code>CLAUDE.md:51</code> fixes the main flow as home, case screen, age gate, open, and <code>D-20</code> put the featured case grid on Home directly. Tap 1 is a case tile on Home, tap 2 is the gate, tap 3 is Open. <strong>The three tap budget was untouched by that change, and it is untouched by this one.</strong> The browsing route was already four taps and already not the main-job route, <code>sitemap.md:533</code>.</p>
+    <p><strong><code>D-22</code> paid the cost off rather than re-argued it.</strong> The mobile bar carries Cases in position 2, so from any screen the catalogue is one tap again. This is the founder answering a cost the previous decision wrote down, <strong>which is the whole reason <code>D-21</code> was required to write it down.</strong></p>
+  </div>
+</section>
+
+<!-- BAR -->
+<section id="bar">
+  <div class="sec-head">
+    <h2>The mobile bar, and the rule it rests on</h2>
+    <p>Added by founder decision <code>D-22</code>, one step after <code>D-21</code> removed it. Not a reversal out of nowhere: it answers a cost <code>D-21</code> accepted in writing.</p>
+  </div>
+
+  <div class="card is-drop">
+    <h4>The conflict, stated rather than buried</h4>
+    <p>Material's navigation drawer guidance, quoted in full in the research section and opened live on 11 August 2026:</p>
+    <blockquote>"<strong>Avoid using a navigation drawer with other primary navigation components, such as a navigation bar.</strong> Avoid using two navigation components on the same screen."</blockquote>
+    <p style="margin-top:12px">That is an explicit "don't", it names this exact configuration, and <strong>this decision declines it.</strong> Material does not permit what we are building on mobile. The quote stays in the research section unedited, and no reading of it makes the two compatible.</p>
+    <p><strong>What follows is the condition that makes the decision defensible, not an argument that the guideline allows it.</strong></p>
+  </div>
+
+  <div class="card is-pick">
+    <h4>The condition the decision rests on</h4>
+    <p><strong>The bar is a shortcut layer over the rail, never a second navigation model.</strong> The rule that carries the whole weight:</p>
+    <blockquote><strong>Every item in the bar also exists in the rail, and the rail is always a superset.</strong></blockquote>
+    <p style="margin-top:12px">Two disjoint sets would be two competing menus, which is the ambiguity Material's sentence exists to prevent: a person who found something in one place and not the other cannot tell which list is the product. One complete list plus one shortcut set drawn from it is a different object. <strong>There is one navigation model and two ways into it.</strong></p>
+    <p><strong>If a later stage puts an item in the bar that the rail does not hold, the model is broken rather than extended</strong>, and this node has been violated. That is the acceptance test, and it is checkable by reading two lists.</p>
+    <p>The superset holds literally rather than nearly, and the logo is why: <strong>the drawer's first row is the logo and the logo routes to 1.0</strong>, so Home is in the rail as well as in the bar.</p>
+  </div>
+
+  <h3>What the bar carries</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:12%">Position</th><th style="width:26%">Item</th><th>Guest</th><th>Account</th><th>Leads to</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Home</td><td>yes</td><td>yes</td><td>1.0</td></tr>
+        <tr><td>2</td><td>Cases</td><td>yes</td><td>yes</td><td>3.1</td></tr>
+        <tr><td>3</td><td>Provably fair</td><td>yes</td><td>yes</td><td>1.2</td></tr>
+        <tr><td>4</td><td>My items</td><td>no</td><td>yes</td><td>5.1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h4>Three before an account, four after</h4>
+    <p>Three clears Material's own floor exactly: "Don't use a navigation bar for fewer than three destinations." Four sits well inside its ceiling of five.</p>
+    <p><strong>Positions 1 to 3 never move and nothing is ever removed.</strong> Exactly one slot is added, and it is added at the moment the person creates the thing it describes. That answers Apple's stability rule rather than arguing with it: "Don't disable or hide tab bar buttons, even when their content is unavailable."</p>
+    <p><strong>Provably fair holds position 3 in both states</strong>, the same structural claim the rail makes on the same parents: <code>jtbd.md:180</code> plus design principle 1, carrying the <code>D-14</code> limit that its position is not a claim that a verifier converts a sceptic.</p>
+  </div>
+
+  <div class="card is-drop">
+    <h4>Balance stays out of the bar in both states</h4>
+    <p>Unchanged from <code>D-21</code>, and two reasons point the same way. Apple: "Use a tab bar to support navigation, not to provide actions." Design principle 3 at <code>CLAUDE.md:65</code>: cost never hides inside excitement, and <strong>making money a permanent navigation destination is the mechanism by which spending stops being a decision and becomes a place you go.</strong> The money stays in the header.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The honest cost of carrying both, named rather than defended</h4>
+    <p>In round 1 the rail holds three or four destinations and the bar holds three or four of the same ones. <strong>So in round 1 the drawer's unique contribution is thin.</strong> What it adds over the bar is Responsible play, the sound control and the logo row, and little else. Two carriers holding nearly the same list is redundancy at this size, and calling it anything else would be dressing it up.</p>
+    <p><strong>What makes it a cost paid for a reason rather than an oversight is the roadmap.</strong> <code>CLAUDE.md:39</code> lists eight LATER surfaces. Material's bar ceiling is five and the rail's is seven, so the bar runs out first and the drawer is what absorbs the modes as they ship. The founder is choosing to carry both from day one so that the mobile shortcut exists immediately <strong>and</strong> the drawer is already in place to receive the modes, rather than introducing it later as a change of navigation model in front of people who already learned one.</p>
+    <p><strong>It stops being redundancy at the fifth destination.</strong> That is inside this product's own roadmap, not a hypothetical.</p>
+  </div>
+
+  <h3>Behaviour</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:18%">Aspect</th><th style="width:40%">Rule</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Scroll</td><td>The bar does not hide and does not condense</td><td>The same reasoning the header and the rail already carry: hiding navigation to buy pixels costs orientation on the one surface that provides it</td></tr>
+        <tr><td>Drawer open</td><td>The bar sits behind the scrim with the rest of the content and is not raised above it</td><td>Material: a modal drawer "uses a scrim to block interaction with the rest of an app's content". A navigation bar left live above the scrim is content the scrim failed to block</td></tr>
+        <tr><td>Labels</td><td>Never removed, at any width or in any state</td><td>Material: "All navigation items require a one word label text." The collapsed rail is the only place in this node where a label may be absent, and the bar is not it</td></tr>
+        <tr><td>Targets</td><td>At least 44 by 44 CSS pixels</td><td>The node's AAA choice, unchanged and applied here too</td></tr>
+        <tr><td>Active item</td><td>Exactly one item is active <strong>across the bar and the drawer together</strong>, never one in each</td><td>Material: "Don't use the active indicator for more than one navigation item at a time." Two carriers rendering overlapping lists makes this the single easiest thing in this node to ship wrong</td></tr>
+        <tr><td>Desktop</td><td>The bar does not exist above 900px</td><td>The rail is beside the content at that width and a shortcut has nothing to shorten</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -516,7 +688,7 @@
 
   <div class="card is-note">
     <h4>A fifth thing this node refuses on its own</h4>
-    <p>No counter, no streak, no progress bar and no session score appears anywhere in either carrier. <code>CLAUDE.md:58</code> binds this stage: a limit that acquires completion mechanics stops being a boundary. <strong>Two live money figures in a persistent header is exactly where that pressure arrives.</strong></p>
+    <p>No counter, no streak, no progress bar and no session score appears anywhere in either carrier. <code>CLAUDE.md:69</code> binds this stage: a limit that acquires completion mechanics stops being a boundary. <strong>Two live money figures in a persistent header is exactly where that pressure arrives.</strong></p>
   </div>
 </section>
 
@@ -532,7 +704,8 @@
       <thead><tr><th>Zone</th><th>Guest, desktop</th><th>Guest, mobile</th><th>Account, desktop</th><th>Account, mobile</th></tr></thead>
       <tbody>
         <tr><td>Rail</td><td>Standard, beside content. Cases, Provably fair, divider, Responsible play</td><td>Modal drawer behind the menu icon, same items</td><td>Same plus My items</td><td>Modal drawer, same four</td></tr>
-        <tr><td>Brand and home</td><td>Top of the rail, above the destinations, routes to 1.0</td><td>Header, because the rail is a drawer. Routes to 1.0</td><td>Same</td><td>Same, narrowed to a mark</td></tr>
+        <tr><td>Mobile bar</td><td>Does not exist at this width</td><td>Home, Cases, Provably fair</td><td>Does not exist at this width</td><td>Same three plus My items in slot 4</td></tr>
+        <tr><td>Brand and home</td><td>Logo at the top of the rail, routes to 1.0</td><td><strong>Logo is the drawer's first row.</strong> The persistent route home is bar item 1</td><td>Same</td><td>Same</td></tr>
         <tr><td>Rail toggle</td><td>On the junction of the two seams. Collapses to icons</td><td>Header, leading edge. Opens the modal drawer</td><td>Same</td><td>Same</td></tr>
         <tr><td>Money</td><td>Nothing. There is no balance before an account</td><td>Nothing</td><td>Balance and value of items held, two lines, with the deposit control</td><td>Both figures, condensed, deposit control kept</td></tr>
         <tr><td>Account</td><td>Sign in, routes to 2.4</td><td>Sign in, routes to 2.4</td><td>Avatar and name, routes to 5.1</td><td>Avatar only, routes to 5.1</td></tr>
@@ -550,13 +723,13 @@
       <thead><tr><th style="width:24%">State</th><th style="width:40%">What the navigation does</th><th>Why</th></tr></thead>
       <tbody>
         <tr><td>Rail collapsed</td><td>Icons with the active indicator, labels gone, tooltips on hover and on focus</td><td>Material: collapsed and expanded transform into each other from the menu button. The collapsed rail is never hidden on desktop</td></tr>
-        <tr><td>Drawer open, mobile</td><td>Scrim blocks the content behind. Dismissed by selecting an item, tapping the scrim, or swiping toward the left edge</td><td>Material's modal drawer contract, all three dismissals</td></tr>
-        <tr><td>Scrolled</td><td>Header stays fixed. The rail stays. Neither condenses nor hides</td><td>Hiding navigation to buy pixels costs orientation on the one surface that provides it</td></tr>
+        <tr><td>Drawer open, mobile</td><td>Scrim blocks the content behind. Dismissed by selecting an item, tapping the scrim, or swiping toward the left edge. <strong>The bar sits behind the scrim with the content and is not raised above it</strong></td><td>Material's modal drawer contract, all three dismissals. A bar left live above the scrim is content the scrim failed to block</td></tr>
+        <tr><td>Scrolled</td><td>Header stays fixed. The rail stays. The mobile bar stays. None of the three condenses or hides</td><td>Hiding navigation to buy pixels costs orientation on the one surface that provides it</td></tr>
         <tr><td>Balance crediting, <code>C3</code></td><td>The figure carries a named timer beside it rather than a spinner, and does not silently change</td><td>Deposit node 4.4 owns the timer, the navigation renders the state</td></tr>
         <tr><td>Item value stale or unavailable</td><td>The lower figure states that it is stale with its timestamp. It never renders a stale number as current, and never renders zero for unknown</td><td>Rule 3 above. <code>[?]</code> is a legal value in this project and a wrong number is not</td></tr>
         <tr><td>Boundary in force, <code>6.3</code></td><td>The money control opens to the limits rather than to add funds. Both figures stay visible, the deposit route closes, the withdrawal route stays open</td><td><code>flows.md</code> flow 2a: a boundary stops money going in and never traps what the person already holds</td></tr>
-        <tr><td>Ceiling reached, <code>4.2</code></td><td>Same, and no counter, no progress bar, no streak and no session score appears anywhere</td><td><code>CLAUDE.md:58</code>. This binds this node too</td></tr>
-        <tr><td>Gate open, <code>2.1</code></td><td>Both carriers are inert behind the gate layer and neither is removed</td><td>Removing them would make the gate feel like an ejection rather than a check</td></tr>
+        <tr><td>Ceiling reached, <code>4.2</code></td><td>Same, and no counter, no progress bar, no streak and no session score appears anywhere</td><td><code>CLAUDE.md:69</code>. This binds this node too</td></tr>
+        <tr><td>Gate open, <code>2.1</code></td><td>Every carrier is inert behind the gate layer and none is removed</td><td>Removing them would make the gate feel like an ejection rather than a check</td></tr>
         <tr><td>Steam unavailable, <code>2.6</code></td><td>Sign in stays present and states the failure on 2.4</td><td>Reading the product stays open for a person who cannot sign in</td></tr>
       </tbody>
     </table>
@@ -574,8 +747,10 @@
     <table>
       <thead><tr><th style="width:26%">Element</th><th>Behaviour</th><th style="width:14%">Leads to</th></tr></thead>
       <tbody>
-        <tr><td>Logo</td><td>Top of the rail on desktop, in the header on mobile where the rail is a drawer. Always the route home, never the control that expands the rail</td><td>1.0</td></tr>
+        <tr><td>Logo</td><td>Top of the rail on desktop, and the drawer's first row on mobile. Always the route home, never the control that expands the rail</td><td>1.0</td></tr>
         <tr><td>Rail toggle</td><td>Anchored to the junction of the two seams and tracks the rail's width. Desktop: collapse to icons and back, and the choice persists. Mobile: leading edge of the header, opens the modal drawer</td><td>current node</td></tr>
+        <tr><td>Mobile bar, below 900px only</td><td>Positions 1 to 3 fixed, one slot added with an account and none ever removed. Destinations only, never money and never an action</td><td>1.0, 3.1, 1.2, 5.1</td></tr>
+        <tr><td>Home, mobile bar only</td><td>Position 1, active on arrival. <strong>The only persistent route home at 360px</strong></td><td>1.0</td></tr>
         <tr><td>Cases</td><td>Enters the catalogue, not a case</td><td>3.1</td></tr>
         <tr><td>Provably fair</td><td>Public, works with no account, and holds its position after login</td><td>1.2</td></tr>
         <tr><td>My items, account only</td><td>Inventory with receipts, and the entry to withdrawal</td><td>5.1</td></tr>
@@ -586,7 +761,7 @@
         <tr><td>Balance figure, account only</td><td>Spendable funds, real currency</td><td>4.1</td></tr>
         <tr><td>Value of items held, account only</td><td>Current market value, real currency, timestamped when stale</td><td>5.1</td></tr>
         <tr><td>Deposit control, account only</td><td>One add control. No badge in round 1</td><td>4.1</td></tr>
-        <tr><td>Active indicator</td><td>Exactly one destination is active at any time, in both rail variants</td><td>current node</td></tr>
+        <tr><td>Active indicator</td><td>Exactly one destination is active at any time, <strong>across the rail, the drawer and the mobile bar together</strong>, never one in each</td><td>current node</td></tr>
       </tbody>
     </table>
   </div>
@@ -608,6 +783,7 @@
     <h4>No H1, and the main internal linking plane</h4>
     <p><strong>This node carries no H1.</strong> A global element is not a page and never owns the document heading. Every node that renders it supplies its own single H1.</p>
     <p>Every destination is a crawlable <code>&lt;a&gt;</code> with a real href, never a script handler, so the global routes are reachable by a crawler from every page. The footer, node 0.2, is the second plane and carries the long tail.</p>
+    <p><strong>The mobile bar renders four of those hrefs a second time in the same document, and that is fine as long as it is the same set.</strong> Duplicate internal links between a header and a footer are ordinary and cost nothing. What would cost something is a <strong>different</strong> set: a bar pointing somewhere the rail does not, which is the superset rule stated as an SEO consequence rather than a navigation one.</p>
     <p><strong>Nothing here is indexed as its own URL.</strong> Nodes it links into carry their own rules: 1.0, 1.2, 3.1, 6.1 and 7.1 are indexed, and 2.4, 2.7, 4.1, 5.1 and 5.3 are noindex.</p>
   </div>
 
@@ -619,8 +795,8 @@
   <div class="card">
     <h4>Accessibility, and every line is a requirement rather than an aspiration</h4>
     <ul>
-      <li>Semantics: <code>&lt;nav&gt;</code> on the rail with an accessible name. The header is <code>&lt;header&gt;</code> with a <code>&lt;nav&gt;</code> only around the logo link, because it holds no other destination</li>
-      <li><code>aria-current="page"</code> on the active destination. Material's "one destination is always active" is a visual statement; this is the same statement for a screen reader</li>
+      <li>Semantics: <code>&lt;nav&gt;</code> on the rail with an accessible name, and a second <code>&lt;nav&gt;</code> with its own name on the mobile bar. The header is <code>&lt;header&gt;</code> and carries no <code>&lt;nav&gt;</code> at all, because it holds no destination. <strong>Below 900px the page has two navigation landmarks and both must be named</strong>, since a screen reader listing two unnamed ones tells a person nothing about which is which</li>
+      <li><code>aria-current="page"</code> on the active destination, <strong>on exactly one element in the whole document</strong>. When the same destination appears in the bar and in the drawer, only one of the two carries it, and the drawer is closed while the bar is visible, so the bar carries it. Material's "one destination is always active" is a visual statement; this is the same statement for a screen reader</li>
       <li>The modal drawer traps focus while open, returns focus to the menu icon on close, closes on Escape, and the menu icon carries <code>aria-expanded</code>. Material names three dismissals and a keyboard user gets a fourth</li>
       <li>Every target at least <strong>44 by 44 CSS pixels</strong>, WCAG 2.5.5 AAA, chosen deliberately</li>
       <li><strong>Labels are never removed except in the collapsed rail variant</strong>, where Material sanctions icon-only presentation and the expanded variant is one control away. Labels are one word</li>
@@ -641,7 +817,8 @@
   <div class="split">
     <div class="card">
       <h4>Mobile, base, 360px</h4>
-      <p>One header row: menu icon, logo mark, then the money and account zone. <strong>The logo moves into the header at this width and only at this width</strong>, because the rail is a drawer and a route home may not be behind a menu. The drawer is closed by default and carries no logo row of its own. No bottom bar at any width, in either state.</p>
+      <p>One header row: menu icon, then the money and account zone. A bottom bar with three destinations before an account and four after. The rail is a modal drawer, closed by default, and its first row is the logo.</p>
+      <p><strong>The logo leaves the mobile header, which reverses <code>D-21</code>, and <code>D-21</code> supplies the reason.</strong> It was moved into the header for exactly one stated reason: the rail sits behind a menu icon and a route home may not. <strong>Bar item 1 is now that route</strong>, permanently visible, labelled and never removed. Keeping the logo there as well would be two controls doing one job on the narrowest width the product supports. <strong>It also returns the mobile header to the baseline's own composition:</strong> <code>baseline.md:90</code> records that the baseline's mobile header keeps the hamburger, the money slot and the account control, and carries no logo.</p>
       <p><strong>The two figures survive at 360px</strong>, which is why the header's right group is designed before its left one.</p>
     </div>
     <div class="card">
@@ -653,8 +830,9 @@
 
   <div class="card is-note">
     <h4>Growth is bounded and the bound is written now</h4>
-    <p>Material's collapsed rail tops out at seven. Round 1 uses three or four, so <strong>five of the eight LATER destinations fit before the component is the constraint</strong>. At eight the rail needs section labels and a scroll, which is what the baseline does at nine. That ceiling arrives inside this product's own roadmap, so it is handed to whichever round ships the fifth mode rather than discovered there.</p>
-    <p>Between the two widths the drawer becomes standard rather than modal, and <strong>no destination is added or removed at any breakpoint</strong>. A person who resizes a window changes how the rail is presented and keeps every route.</p>
+    <p>Material's collapsed rail tops out at seven and its bar at five. Round 1 uses three or four in both, so <strong>five of the eight LATER destinations fit in the rail before the component is the constraint, and the bar runs out two destinations earlier</strong>. At eight the rail needs section labels and a scroll, which is what the baseline does at nine.</p>
+    <p><strong>So the bar is the first carrier to stop growing, and it is supposed to.</strong> It is a shortcut set, not the list. Whichever round ships the fifth destination decides which of them earns the bar's slots, and decides it against the primary persona rather than by adding a slot. That ceiling arrives inside this product's own roadmap, so it is handed forward rather than discovered there.</p>
+    <p>Between the two widths the drawer becomes standard rather than modal and the bar disappears. <strong>No destination is added or removed at any breakpoint, only the carrier that presents it changes.</strong> A person who resizes a window loses a bar and keeps every route, because everything the bar held is in the rail by the superset rule.</p>
   </div>
 </section>
 
@@ -689,7 +867,7 @@
 </main>
 
 <footer>
-  <p>Source of truth: <code>ia/docs/pages/navigation.md</code>. Rebuilt by founder decision <code>D-21</code>, 11 August 2026. Stage 03b step 2.</p>
+  <p>Source of truth: <code>ia/docs/pages/navigation.md</code>. Rebuilt by founder decision <code>D-21</code> and amended by <code>D-22</code>, 11 August 2026. Stage 03b step 2.</p>
   <p>The hub: <a href="structure.html">Structure</a>. The map this node routes into: <a href="sitemap.html">Sitemap</a>. Routes and dead ends: <a href="flows.html">Flows</a>.</p>
 </footer>
 
@@ -700,10 +878,11 @@ window.NAV_ACTIVE_LABEL = '0.1 Navigation';
 window.NAV_SECTIONS = [
   { id: 'overview', label: 'Overview' },
   { id: 'rebuilt',  label: 'Why it was rebuilt' },
-  { id: 'model',    label: 'Two carriers' },
+  { id: 'model',    label: 'The carriers' },
   { id: 'mockups',  label: 'Mockups' },
   { id: 'research', label: 'Research' },
   { id: 'rail',     label: 'The rail' },
+  { id: 'bar',      label: 'The mobile bar' },
   { id: 'header',   label: 'The header' },
   { id: 'matrix',   label: 'State matrix' },
   { id: 'anatomy',  label: 'Anatomy' },
