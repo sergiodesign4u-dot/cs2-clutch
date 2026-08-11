@@ -146,6 +146,8 @@ Verdict: **blocked, and no longer a copied row.** `[?] text not opened`, citatio
 
 **The question from 3.1 has an answer, and it is one jurisdiction rather than a shortlist.**
 
+> **Decided on 12 August 2026 as `D-23`, at the founder's instruction to the research seat: the Isle of Man, as a direction and not as a filing.** The rejected jurisdictions and the reason each one lost are in that record. What follows is the research the decision rests on, left as it was written.
+
 **Recommended: the Isle of Man, under the Online Gambling Regulation Act 2001.** It is the only regulator whose statutory hook was written around the thing this product actually does. Appleby's 2026 guide to Isle of Man gambling law, opened live, states that the Online Gambling (Registration and Account) Regulations 2008 let Isle of Man operators **"accept deposits in money or value in money's worth, including virtual assets"**, and that the GSC controls the use of virtual assets through policy, guidance and licence conditions. An independent search in this session corroborates the reading further: the 2017 changes permitted accounts funded with anything of value in money's worth, **expressly including non-convertible virtual currencies such as in-game skins**, and the GSC is reported as issuer of the first skin betting licence in the category.
 
 **That matters more than the fee.** Everywhere else covers this product generically or not at all, which means the classification question gets answered by an official who has never been asked it before.
@@ -203,7 +205,9 @@ How a market moves, mapped onto the six verdict values already in section 11 so 
 
 ### Resolved in the research seat, 12 August 2026, and the evidence moved since this section was written
 
-**Recommendation upgraded to a verdict, pending the founder's word: allowlist, staged.** Section 3 changed the balance of the argument rather than restating it.
+**Decided on 12 August 2026 as `D-23`: allowlist, staged.** Section 3 changed the balance of the argument rather than restating it, and the founder delegated the choice to this seat rather than reopening it.
+
+**One consequence lands on a state rather than on a paragraph, and it is the reason this fork belongs in an IA stage at all.** Under a blocklist the person most likely to meet a refusal meets `blocked`. **Under an allowlist they meet `not launched`**, which is the default for every market nobody has paid to review. Section 11 already separates the two verdicts and section 9 already requires a ground in readable words. What changes is **which of them is the common case**, so node `2.2` draws both and `not launched` is the one it is designed around.
 
 **And the second pass found the property that actually decides it, which is not caution.** **Under a blocklist, a missing row grants access.** So "we have never looked at this market" and "we looked and it is fine" produce identical behaviour in the product, and the confidence field specified in section 1 becomes decoration: nothing reads it, because absence already decided. **Under an allowlist, a missing row denies access, so ignorance is free and only knowledge costs money.** That is the correct direction for a liability that is criminal in at least two of the rows we already hold.
 
@@ -317,14 +321,16 @@ The full record is operator-side. What reaches a person is **the verdict and the
 
 ## 12. What this node does not decide
 
-**Four items closed by the research pass in section 3, and they are struck rather than deleted so the change is visible.**
+**Six items closed, four by the research pass in section 3 and two by `D-23` on 12 August 2026. They are struck rather than deleted so the change is visible.**
 
 | Closed | What it was | What settled it |
 |---|---|---|
 | ~~Nevada's ground~~ | Blocked because two competitors block it | NRS 463.0152 with NRS 463.01862, and the second definition does not need convertibility at all. `[?] text not opened` |
 | ~~Idaho, Michigan, Lithuania~~ | Absent from our list with no ground either way | All three now carry a ground and a recommended verdict of blocked. Michigan's was opened live |
-| ~~Allowlist or blocklist~~ | The structural fork | Answered in section 4 as a verdict pending the founder's word: **allowlist, staged** |
+| ~~Allowlist or blocklist~~ | The structural fork | **`D-23`: allowlist, closed by default.** The property that decided it is that a missing row grants access under the other one, which makes never having looked behave exactly like having looked |
 | ~~Where we may operate from~~ | Never asked in this repository at all | Cyprus issues no licence for a game of chance and becomes a blocked market. Opened live |
+| ~~The licence~~ | One decision with the fork above | **`D-23`: the Isle of Man, as a direction and not as a filing.** Curacao, Anjouan, Malta, Costa Rica and no licence at all were each rejected with a reason on the record |
+| ~~The first memo batch~~ | Which markets are worth paying counsel for | **`D-23`: three memos in order, and the first is not about a market at all.** M1 the operating structure and its current exposure, M2 Isle of Man licensability of our exact mechanics, M3 the first allowlist row with its target chosen after M2. **The fee per memo is still `[?]`** and three quotes come before the first instruction |
 
 **Still open, and the list is shorter and sharper.**
 
@@ -332,9 +338,9 @@ The full record is operator-side. What reaches a person is **the verdict and the
 |---|---|---|
 | **The signature** | Every verdict in section 3 is research, not advice. Belgium is criminal and Michigan escalates to criminal, so a licensed lawyer confirms before a market is opened or closed | Counsel, under `D-A` |
 | **The classification question** | Is this product a game of chance in each market we intend to open. Legal judgment rather than research, and every row rests on it | Counsel |
-| **The licence, and it is one decision with the fork above** | **Recommendation on file: the Isle of Man**, whose definition of money's worth was written to include virtual assets and is reported to name skins. Fees are secondary sources and unverified against the regulator's own schedule | **Founder with counsel.** Take it in the same sitting as the allowlist, because a tier one licence supervises which markets we serve |
+| **The licence fees, and only the fees** | The direction is decided by `D-23`. **Not one figure in the comparison was checked against a regulator's own schedule**, and two of the Curacao figures disagree with each other | **Counsel, as the first item in M2.** The direction does not rest on the fee, so a surprise there changes the budget rather than the jurisdiction |
 | **Cyprus: what stays and what goes** | Cyprus cannot hold the licence. It can plausibly hold a holding, IP or employment company. Whether a Cypriot contracting entity attracts exposure for gambling offered outside Cyprus is `[?]` | Cypriot counsel plus a tax adviser |
-| **The first memo batch and its budget** | Which three to five markets are worth paying counsel to answer for. **There is no clean launch set to hand over**, and inventing one is the failure this project's rules exist to prevent. The queue: Brazil, which has a known priced route at R$30 million for five years, then Canada outside Ontario, then LatAm as one regional memo, then a small EU state to prove the mechanic | **Founder.** Budget before list |
+| **The budget, now that the batch is fixed** | `D-23` sets three memos and their order. **The fee per memo is `[?]`: no cited figure was found in this session and inventing one is the failure this project's rules exist to prevent.** Three quotes come before the first instruction | **Founder.** The queue behind M3 stays as researched: Brazil at R$30 million for five years, then Canada outside Ontario, then LatAm as one regional memo, then a small EU state to prove the mechanic |
 | **Three grounds whose text was not opened** | Nevada, Idaho and Lithuania were read from search results because those hosts refused this environment. The citations are exact, so this is one pull each | Counsel, or a second pass from a different network |
 | **The exit window when a market closes** | Nothing in this repository sets it | Founder with counsel |
 | **The geolocation provider and its accuracy** | Detection quality decides how often section 6 runs | Production. `[?]` |

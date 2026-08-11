@@ -579,3 +579,61 @@ The bar does not hide or condense on scroll, for the same reason the header and 
 ### Consequence for the rule file
 
 `CLAUDE.md` and `CLAUDE.md` both change again. The inherited navigation model stays two carriers, because the bar is not inherited: `baseline.md` records that the baseline has no bottom tab bar at all. What is added is that mobile carries a third carrier the baseline does not have, and that it is a subset of the rail rather than a second model. That is a rule edit and it goes through the budget, not around it.
+
+---
+
+## D-23. The licence, the allowlist and the first memo batch
+
+**Date:** 2026-08-12. **Stage:** 03b, node `0.12`, after the two research forks returned. **Decided by:** the founder, who delegated the choice to the research seat in as many words, give me the option you consider best. **Binds:** node `0.12` and its register, nodes `2.1` and `2.2` which render the verdict, node `0.2` whose market statement quotes it, stage 04 which draws the states, and the operating side of the business.
+
+**What this decision is and is not.** It fixes a direction and it binds the design. **It is not legal advice and it files nothing.** Every ground under it is research rather than an opinion, and each of the three parts names the moment a licensed lawyer has to sign before anything real happens. That distinction is `D-A`'s and it is not weakened here.
+
+### Part 1. The allowlist, closed by default
+
+**Decided: allowlist.** A market is closed until a row opens it.
+
+**The property that decides it is not caution.** Under a blocklist a missing row **grants** access, so "we have never looked at this market" and "we looked and it is fine" produce identical behaviour in the product, and the confidence field in the register becomes decoration: nothing reads it, because absence already decided. Under an allowlist a missing row **denies** access, so ignorance is free and only knowledge costs money. For a liability that is criminal in at least two of the rows we already hold, Belgium and Michigan, that is the correct direction.
+
+**The cost, named rather than softened:** every market is work before it is revenue, and there is no market we can open this month. The staged rollout is slow by construction and the delay is the price.
+
+**And the blocklist stops growing.** India, New Zealand, Ireland and Australia need no rows. They are `not launched` like everywhere else nobody has paid to review. The ten explicit blocks stay explicit only because they carry exposure we already know about.
+
+### Part 2. The licence direction: the Isle of Man
+
+**Decided as a direction, not as a filing.**
+
+**Why it, and not a cheaper one.** It is the only regulator on the comparison whose statutory hook was written around what this product actually does: Isle of Man operators may accept deposits **"in money or value in money's worth, including virtual assets"**, Appleby's 2026 guide, opened live. Everywhere else covers this product generically or not at all, and generic cover means the classification question is answered by an official who has never been asked it.
+
+| Rejected | Why |
+|---|---|
+| **Curacao, LOK** | The category's route and the obvious cheap answer. **Local substance from 1 January 2026**, a physical office, a local managing director and up to three local staff by year five, removes most of the price advantage, and it still answers the classification question generically. The two fee figures found for it disagree, so the saving is `[?]` as well |
+| **Anjouan, Tobique, Kahnawake** | Generic cover only, no skins provision found. Cheapest, and the cheapness is the whole of the case for them |
+| **Malta, MGA** | Virtual tokens as payment need prior approval case by case. That is the classification question again, with the heaviest process on the list attached to it |
+| **Costa Rica** | There is no gambling licence to hold. A structure, not a permission |
+| **No licence at all** | **This is the status quo of the live product**, and it is what makes every row in the register a guess. It is also what the Netherlands is fining at EUR 280,000 a week and what Michigan wrote to forty five operators about |
+
+**Every fee in that comparison is a secondary source and none was checked against a regulator's own schedule. Counsel checks that first, and the direction survives a surprise on the fee because it does not rest on the fee.**
+
+**What follows immediately is a design consequence rather than a corporate one:** a tier one regulator supervises which markets its licensees serve, so parts 1 and 2 are one decision. The allowlist is not an extra caution stacked on top of the licence. It is what the licence would require anyway.
+
+### Part 3. The first memo batch: three, in order, and the second waits for the first
+
+**No budget figure is set here, because none was found and inventing one is the failure this project's rules exist to prevent.** What is fixed is the shape and the order.
+
+| # | Memo | Why it sits in this position |
+|---|---|---|
+| **M1** | **The operating structure and its current exposure.** Who contracts with players today, what the Cypriot entity is exposed to for gambling offered outside Cyprus, and what has to move | **It is about a product that is already live.** Every other question is about a market we have not entered. This one is about six years that already happened |
+| **M2** | **Isle of Man licensability of our exact mechanics**, taken to a pre-application conversation: paid entry, randomised outcome, withdrawal of a tradable item to Steam. Not online casino in general | It decides whether part 2 survives contact with the regulator. **Nothing downstream is worth paying for until it does** |
+| **M3** | **The first allowlist row.** The target is chosen after M2 returns, not now | Because the licence constrains the market list rather than the other way round. Choosing the market first is how a plan gets built on the wrong permission |
+
+**Three quotes before the first instruction**, and the number that shapes the plan is not the memo fee, it is the licence application. **The first market memo is as much a test of the register's mechanic end to end as it is revenue.**
+
+**Brazil stays at the head of the queue and does not become M3.** Its route is known and priced, R$30 million for five years, which makes it a post-funding decision rather than a first one.
+
+### What this decision does not do
+
+It opens no market. It verifies no fee. It does not answer whether a Cypriot contracting entity attracts Cypriot exposure, which is M1's first question. **Every verdict in the register stays `[?]` until counsel signs the row**, and the two signature fields added to the schema on 12 August 2026 are where that lands.
+
+### Consequence for the map, and it changes a state rather than a paragraph
+
+**Under a blocklist the person most likely to meet a refusal meets `blocked`. Under an allowlist they meet `not launched`, and those are two different messages.** `not launched` says we have not reviewed this market, which is not a legal verdict and must not be dressed as one. Section 11 of node `0.12` already separates the two verdicts and section 9 already requires a ground in readable words. **What changes is which of them is the common case**, so node `2.2` draws both, with `not launched` as the default rather than the exception. That is the acceptance test at stage 04.
