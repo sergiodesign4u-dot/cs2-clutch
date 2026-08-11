@@ -34,7 +34,9 @@ window.IA_NAV = [
   { node: '0.7', label: 'Canonical case tile',     file: 'case-tile.html',  group: 'global', type: 'component',      states: 0, done: false },
   { node: '0.8', label: 'Live drop ticker',        file: 'ticker.html',     group: 'global', type: 'component',      states: 0, done: false },
   // Registered by node 0.2 on 11 August 2026. A carrier may not promise a destination the map does not hold.
-  { node: '0.9', label: 'Legal and policy pages',   file: 'legal.html',      group: 'global', type: 'page',           states: 4, done: false },
+  // 0.9 holds four documents on one template. They are INCLUDES of one node, not four state nodes in the
+  // map, so `states` is 0: the hub's derived state total has to equal the 27 in ia/docs/sitemap.md.
+  { node: '0.9', label: 'Legal and policy pages',   file: 'legal.html',      group: 'global', type: 'page',           states: 0, done: false },
   { node: '0.10', label: 'Support and contact',     file: 'support.html',    group: 'global', type: 'page',           states: 0, done: false },
   // Registered by the global sweep on 12 August 2026. Not new surfaces: three are structures the nine
   // surfaces already read, the fourth is the component that renders the product's evidence.
