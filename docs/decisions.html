@@ -58,7 +58,7 @@
     code {
       font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em;
       color: var(--text-primary); background: rgba(255,255,255,0.04);
-      padding: 1px 5px; border-radius: 4px;
+      padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere;
     }
     strong { color: var(--text-primary); font-weight: 600; }
     blockquote {
@@ -513,7 +513,7 @@
       <h4 style="margin-top:24px">The geometry, specified by the founder in the same sitting</h4>
       <span class="pick"><span class="k">The rail runs the full height and the logo sits at the top of it</span>The header starts at the rail's right edge rather than spanning the window, and <strong>the toggle sits on the junction of the two seams</strong>, anchored there rather than placed in either carrier, so it tracks the rail's width when the rail collapses instead of jumping.</span>
       <p style="margin-top:14px"><strong>This is what makes the carrier rule absolute.</strong> The first draft of the rebuilt node put the logo in the header and needed the words "except the logo" to stay true. It no longer does. The header holds no destination at all, and a rule with no exception is a rule a later stage cannot erode. It also settles Material's caution structurally rather than by instruction: "avoid using logos that could be mistaken as buttons, don't use a logo as a menu button to expand the navigation rail." The logo cannot be mistaken for the toggle when the toggle is a separate control in a different place.</p>
-      <span class="carry"><span class="k">One inherited fact does not match and is marked rather than overwritten</span><code>baseline.md:70</code> records the baseline header as full width with the logo at <code>x=5</code> and the toggle at <code>x=51</code>. Either the walk captured the collapsed state or this is a deliberate divergence. <span style="color:var(--accent-yellow)">[?]</span>, resolved by the next baseline walk. <code>baseline.md</code> says what was walked and is not edited from a screenshot.</span>
+      <span class="carry"><span class="k">One inherited fact does not match and is marked rather than overwritten</span><code>baseline.md</code> records the baseline header as full width with the logo at <code>x=5</code> and the toggle at <code>x=51</code>. Either the walk captured the collapsed state or this is a deliberate divergence. <span style="color:var(--accent-yellow)">[?]</span>, resolved by the next baseline walk. <code>baseline.md</code> says what was walked and is not edited from a screenshot.</span>
       <p style="margin-top:14px"><strong>The one place the logo leaves the rail is 360px</strong>, where the rail is a drawer behind a menu icon. A route home may not sit behind a menu, so the logo mark moves into the header and the drawer carries no logo row of its own. <strong style="color:var(--accent-yellow)">Reversed by D-22 on the same reasoning:</strong> bar item 1 is now that route, so the logo returns to the drawer's first row and leaves the mobile header.</p>
 
       <h4 style="margin-top:24px">The two figures, and the four rules they acquired on the way in</h4>
@@ -566,13 +566,13 @@
 
       <h4 style="margin-top:24px">The logo leaves the mobile header, and D-21 supplies the reason</h4>
       <span class="pick"><span class="k">The reason has been met by a better carrier</span>D-21 moved the logo into the mobile header for exactly one stated reason: the rail sits behind a menu icon and a route home may not. <strong>Bar item 1 is now that route</strong>, permanently visible, labelled and never removed. Keeping the logo there as well would be two controls doing one job on the narrowest width the product supports.</span>
-      <span class="carry"><span class="k">And it makes the superset rule hold literally</span>The logo returns to the drawer's first row, where the rail keeps it at every other width, so Home is in the rail because the logo is. <strong>It also returns the mobile header to the baseline's own composition:</strong> <code>baseline.md:90</code> records that the baseline's mobile header keeps the hamburger, the money slot and the account control, and carries no logo.</span>
+      <span class="carry"><span class="k">And it makes the superset rule hold literally</span>The logo returns to the drawer's first row, where the rail keeps it at every other width, so Home is in the rail because the logo is. <strong>It also returns the mobile header to the baseline's own composition:</strong> <code>baseline.md</code> records that the baseline's mobile header keeps the hamburger, the money slot and the account control, and carries no logo.</span>
 
       <h4 style="margin-top:24px">Behaviour fixed here so a later stage does not invent it</h4>
       <p>The bar does not hide or condense on scroll, for the same reason the header and the rail do not. When the modal drawer is open the bar sits <strong>behind the scrim</strong> with the rest of the content: a bar left live above a scrim is content the scrim failed to block. Labels are never removed. Every target is at least 44 by 44 CSS pixels. <strong>Exactly one item is active across the bar and the drawer together, never one in each</strong>, which two carriers rendering overlapping lists makes the easiest thing in this node to ship wrong. The bar does not exist above 900px.</p>
 
       <h4 style="margin-top:24px">Consequence for the rule file</h4>
-      <p><code>CLAUDE.md</code> and <code>CLAUDE.md</code> both change again. <strong>The inherited navigation model stays two carriers, because the bar is not inherited:</strong> <code>baseline.md:90</code> records that the baseline has no bottom tab bar at all. What is added is that mobile carries a third carrier the baseline does not have, and that it is a subset of the rail rather than a second model.</p>
+      <p><code>CLAUDE.md</code> and <code>CLAUDE.md</code> both change again. <strong>The inherited navigation model stays two carriers, because the bar is not inherited:</strong> <code>baseline.md</code> records that the baseline has no bottom tab bar at all. What is added is that mobile carries a third carrier the baseline does not have, and that it is a subset of the rail rather than a second model.</p>
     </div>
   </div>
 </section>

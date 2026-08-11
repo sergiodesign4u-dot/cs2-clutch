@@ -81,9 +81,35 @@ The header is where money and account live, and pre-login there is no balance wi
 
 ### The footer
 
-Thirteen links: Support, Partnership, Contacts and Corporate Information, FAQ, **Provably Fair**, Counter-Strike Guides, Terms of use, Privacy Policy, Cookie Policy, Refund Policy, Gift cards, Marketing Assets, CS2 Pickems.
+**Re-walked on 11 August 2026, and the first pass had recorded the link list and almost nothing else.** Screenshot `walk_footer_1440.png`. The correction is kept visible rather than smoothed, because the gap is the useful part: a list of thirteen links read as a complete footer record for three steps, and the footer is four bands.
 
-No responsible play link. No age statement. See section 6.
+**Band 1, a statistics strip**, full width, above the footer proper, separated by a 1px accent line. Four counters, each an icon plus a large figure plus a caption:
+
+| Figure | Caption | Read at |
+|---|---|---|
+| 363 010 503 | CASES OPENED | 20:49 UTC |
+| 3 328 108 | UPGRADES | same read |
+| 1 862 837 | TOTAL USERS | same read |
+| 905 | ONLINE USERS | same read |
+
+**Cases opened increments continuously.** Three reads minutes apart returned 363 010 473, then 363 010 503, then 363 010 551. Whether the increment tracks real opens or is scripted is `[?]` and not decidable from outside. Total users did not move across the three reads.
+
+**Band 2, the main footer, four columns.**
+
+- **Left, brand and help:** the logo, linking to `/en/`. A "NEED HELP?" heading over a **SUPPORT button**, an outlined pill, linking to `/en/support`. A tagline, "You can get your favorite skin at the best prices." Then the legal identification line in small muted text: **"MIXABIT LTD, ΗΕ 470887, Elettherias, 19 Lakatamia, 2312, Nicosia, Cyprus"**. Registered name, Cyprus registrar number, geographic address. No email address is printed anywhere in the footer.
+- **PLATFORM:** Partnership `/en/affiliate-program`, Contacts & Corporate Information `/en/contacts`, FAQ `/en/faq`, Provably Fair `/en/provably-fair`, Counter-Strike Guides `https://daddyskins.com/blog/`
+- **COMPANY:** Terms of use `/en/terms`, Privacy Policy `/en/privacy-policy`, Cookie Policy `/en/cookie-policy`, Refund Policy `/en/refund-policy`
+- **ADDITIONAL:** Gift cards `/en/gift-cards`, Marketing Assets `/en/marketing-assets`, CS2 Pickems `https://daddyskins.com/king-of-the-pick`
+
+Each column heading carries a short accent underline. Thirteen named links, which is what the first pass counted, plus the logo and the support button.
+
+**Band 3, the bottom row.** "DADDYSKINS © 2016-2026. ALL RIGHTS RESERVED" on the left. On the right, three payment and provider marks: **ZEN, Visa, Mastercard**.
+
+**Band 4 is not in the footer but sits against it:** a floating circular support control, headset icon, fixed bottom right above the footer.
+
+**There is no SEO interlinking block anywhere in the footer.**
+
+**And the two absences the first pass did get right, restated because they are the finding:** no responsible play link, no age statement, nowhere in any of the four bands. See section 6.
 
 ### Mobile, at 390px
 
@@ -271,4 +297,5 @@ Every row was opened in a live browser on 11 August 2026, pre-login, in one sess
 | Drop table, per item chance and ticket range | `https://daddyskins.com/en/case/premium` | `walk_case_droptable_1440.png` |
 | Provably fair redirects to login, sign-in composition, footer | `https://daddyskins.com/en/provably-fair` to `/en/login?redirect=%2Fen%2Fprovably-fair` | `walk_pf_redirects_to_login_1440.png` |
 | Age answer, absence of responsible play | `https://daddyskins.com/en/faq` | `walk_faq_age_1440.png` |
+| Footer re-walk: statistics strip, four columns, identification line, payment marks | `https://daddyskins.com/en` | `walk_footer_1440.png` |
 | Colour values, type, geometry | computed styles on the pages above | values in section 5 |

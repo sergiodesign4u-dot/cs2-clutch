@@ -55,7 +55,7 @@
     li { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 5px; }
     a { color: var(--accent-blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px;  overflow-wrap: anywhere; }
     strong { color: var(--text-primary); font-weight: 600; }
 
     .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
@@ -98,12 +98,28 @@
 
     .wf-foot { border: 1px solid var(--wf-line); border-radius: 4px; background: var(--wf-surface); }
 
+    .wf-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 12px; border-bottom: 1px solid var(--wf-line); background: #191919; }
+    .wf-stats.is-2x2 { grid-template-columns: repeat(2, 1fr); }
+    .wf-stat { display: flex; align-items: center; gap: 8px; min-width: 0; }
+    .wf-stat-ico { width: 22px; height: 22px; border: 1px solid var(--wf-line); border-radius: 3px; flex: 0 0 auto; }
+    .wf-stat-n { display: block; font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--wf-ink); line-height: 1.2; white-space: nowrap; }
+    .wf-stat-l { display: block; font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); line-height: 1.3; }
+    .wf-stat.is-open .wf-stat-n { border-bottom: 1px dashed var(--wf-ink-dim); }
+    .wf-stat-chk { display: block; font-size: 7.5px; letter-spacing: 0.06em; text-transform: uppercase; color: #6f6f6f; }
+
+    .wf-brandcol { min-width: 0; }
+    .wf-brandlogo { width: 52px; height: 30px; border: 1px solid var(--wf-line); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 8px; letter-spacing: 0.1em; color: var(--wf-ink-dim); margin-bottom: 9px; }
+    .wf-supportbtn { display: inline-block; border: 1px solid var(--wf-ink); border-radius: 999px; padding: 5px 16px; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; color: var(--wf-ink); margin-bottom: 8px; }
+    .wf-tagline { font-size: 9.5px; color: var(--wf-ink-dim); margin-bottom: 7px; line-height: 1.4; }
+    .wf-pay { display: flex; gap: 5px; flex: 0 0 auto; }
+    .wf-pm { width: 26px; height: 16px; border: 1px dashed var(--wf-line); border-radius: 2px; }
+
     .wf-trust { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 9px 12px; border-bottom: 1px solid var(--wf-line); }
     .wf-badge { border: 1px solid var(--wf-ink); border-radius: 3px; padding: 3px 7px; font-size: 10px; font-weight: 700; color: var(--wf-ink); white-space: nowrap; }
     .wf-tlink { font-size: 10.5px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-ink-dim); white-space: nowrap; }
     .wf-ttext { font-size: 10.5px; color: var(--wf-ink-dim); }
 
-    .wf-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 12px; border-bottom: 1px solid var(--wf-line-soft); }
+    .wf-cols { display: grid; grid-template-columns: 1.25fr 1fr 1fr 1.05fr; gap: 10px; padding: 12px; border-bottom: 1px solid var(--wf-line-soft); }
     .wf-cl-head { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--wf-ink); margin-bottom: 7px; }
     .wf-cl-link { font-size: 10px; color: var(--wf-ink-dim); margin-bottom: 5px; line-height: 1.35; }
 
@@ -152,11 +168,31 @@
   <p class="lede">The product's legal identity, its compliance statements, its support route and its second interlinking plane, on every screen, in one account state. The rail carries three or four destinations. This carries everything the rail cannot hold, plus the legal set, which is what makes every indexed page reachable from every other page in at most two hops.</p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Nodes it added to the map</div></div>
-    <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Link columns</div></div>
+    <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Bands</div></div>
     <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Account state, deliberately</div></div>
     <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Private routes linked</div></div>
   </div>
 </div>
+
+<!-- REBUILT -->
+<section id="rebuilt">
+  <div class="sec-head">
+    <h2>Rebuilt on 11 August 2026, and the input was the problem</h2>
+    <p>The founder supplied a screenshot of the real baseline footer. It is four bands. <code>baseline.md</code> had recorded one.</p>
+  </div>
+
+  <div class="card is-drop">
+    <h4>What the source said, and what was actually there</h4>
+    <p>The first version of this node was built against <code>baseline.md</code>, which recorded the baseline footer as <strong>"thirteen links"</strong> and nothing else. The real thing is a statistics strip, a four column footer whose first column is brand plus a support button plus the legal identification line, a bottom row with payment marks, and a floating support control beside it.</p>
+    <p><strong>The lesson is about the input, not the footer.</strong> A list of thirteen links read as a complete footer record for three steps, and it was one band out of four. The link inventory was correct and the structural record was absent, which is the hardest kind of gap to notice: <strong>nothing in it was wrong.</strong></p>
+  </div>
+
+  <div class="card is-pick">
+    <h4>So the footer was re-walked live, and the source corrected</h4>
+    <p>11 August 2026, <code>https://daddyskins.com/en</code>, public and pre-login, proof at <code>research/screens/baseline/walk_footer_1440.png</code>. <code>baseline.md</code> now carries the full record with the correction visible rather than smoothed, and the screenshot is on the <a href="../research/baseline.html">Baseline</a> page.</p>
+    <p><strong>A fact about the baseline comes from a page opened in this session, not from a screenshot pasted into a document.</strong> The rule that keeps <code>baseline.md</code> honest is that it says what was walked, so the fix for a gap in it is another walk.</p>
+  </div>
+</section>
 
 <!-- GREW THE MAP -->
 <section id="grew">
@@ -209,30 +245,32 @@
 
   <div class="wf-row">
     <div class="wf-col">
-      <div class="wf-cap">1. Desktop, from 900px</div>
+      <div class="wf-cap">1. Desktop, from 900px - four bands</div>
       <div class="wf">
         <div class="wf-inner">
           <div class="wf-pagestub">End of page content</div>
           <div class="wf-foot">
-            <div class="wf-trust">
-              <span class="wf-badge">18+</span>
-              <span class="wf-tlink">Play responsibly</span>
-              <span class="wf-ttext">Not available in some markets</span>
-              <span class="wf-tlink">See the list</span>
+            <div class="wf-stats">
+              <div class="wf-stat"><span class="wf-stat-ico"></span><span><span class="wf-stat-n">363 010 503</span><span class="wf-stat-l">Cases opened</span><span class="wf-stat-chk">reconciles with the ledger</span></span></div>
+              <div class="wf-stat is-open"><span class="wf-stat-ico"></span><span><span class="wf-stat-n">[?]</span><span class="wf-stat-l">Median withdrawal</span><span class="wf-stat-chk">A4 / G3, needs a yes</span></span></div>
+              <div class="wf-stat is-open"><span class="wf-stat-ico"></span><span><span class="wf-stat-n">[?]</span><span class="wf-stat-l">Slot open</span><span class="wf-stat-chk">online now, or RTP</span></span></div>
+              <div class="wf-stat"><span class="wf-stat-ico" style="border-style:dotted"></span><span><span class="wf-stat-l" style="text-decoration:line-through">Upgrades</span><span class="wf-stat-chk">cut, LATER mode</span></span></div>
             </div>
             <div class="wf-cols">
+              <div class="wf-brandcol">
+                <div class="wf-brandlogo">LOGO</div>
+                <div class="wf-cl-head">Need help?</div>
+                <div class="wf-supportbtn">SUPPORT</div>
+                <div class="wf-tagline">One line tagline</div>
+                <div class="wf-ident">Registered name [?]<br>Address [?] - Register and no. [?]<br>VAT [?] - Supervisory authority [?]</div>
+              </div>
               <div>
                 <div class="wf-cl-head">Play</div>
                 <div class="wf-cl-link">Cases</div>
                 <div class="wf-cl-link">Provably fair</div>
               </div>
               <div>
-                <div class="wf-cl-head">Help</div>
-                <div class="wf-cl-link">Support and contact</div>
-                <div class="wf-cl-link">Appeal a restriction</div>
-              </div>
-              <div>
-                <div class="wf-cl-head">Legal</div>
+                <div class="wf-cl-head">Company</div>
                 <div class="wf-cl-link">Terms of use</div>
                 <div class="wf-cl-link">Privacy policy</div>
                 <div class="wf-cl-link">Cookie policy</div>
@@ -254,31 +292,44 @@
               </div>
             </div>
             <div class="wf-bottom">
-              <div class="wf-ident">Registered name [?]<br>Address [?] - Register and no. [?]<br>VAT [?] - Supervisory authority [?]</div>
+              <div class="wf-trust" style="border:none;padding:0;flex:1 1 260px">
+                <span class="wf-badge">18+</span>
+                <span class="wf-tlink">Play responsibly</span>
+                <span class="wf-ttext">Not available in some markets</span>
+              </div>
               <div class="wf-spacer"></div>
-              <div class="wf-social"><span class="wf-si"></span><span class="wf-si"></span><span class="wf-si"></span><span class="wf-si"></span></div>
+              <div style="display:flex;align-items:center;gap:10px;flex:0 0 auto">
+                <div class="wf-social"><span class="wf-si"></span><span class="wf-si"></span><span class="wf-si"></span></div>
+                <div class="wf-pay"><span class="wf-pm"></span><span class="wf-pm"></span><span class="wf-pm"></span></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <p class="wf-note"><b>The trust strip is the part with no baseline.</b> <code>baseline.md</code> section 6: the baseline has no responsible play link and no age statement anywhere, and a FAQ search for self exclusion, deposit limit, cool down and gambling returned zero matches. <b>No private route appears.</b> Deposit, account, withdrawal, sign in and identity are all noindex and all absent, so no <code>nofollow</code> is needed anywhere: the correct way not to pass a link is not to draw it.</p>
+      <p class="wf-note"><b>Four bands, and the fourth column is the one the baseline does not have.</b> Its three are Platform, Company and Additional; there is no compliance column anywhere in its footer, because there is no responsible play page and no age statement on the product at all. <b>The support button is inherited deliberately:</b> <code>G4</code> requires an appeal with a published response deadline and Article 5(c) requires rapid contact, and neither is served by a link that looks like a policy. <b>No private route appears.</b> Deposit, account, withdrawal, sign in and identity are all noindex and all absent, so no <code>nofollow</code> is needed anywhere: the correct way not to pass a link is not to draw it.</p>
     </div>
 
     <div class="wf-col">
-      <div class="wf-cap">2. Mobile 360px, accordions collapsed</div>
+      <div class="wf-cap">2. Mobile 360px, stats 2x2, accordions collapsed</div>
       <div class="wf">
         <div class="wf-inner wf-phone">
           <div class="wf-pagestub">End of page content</div>
           <div class="wf-foot">
-            <div class="wf-trust">
-              <span class="wf-badge">18+</span>
-              <span class="wf-tlink">Play responsibly</span>
-              <span class="wf-ttext">Not available in some markets</span>
+            <div class="wf-stats is-2x2">
+              <div class="wf-stat"><span class="wf-stat-ico"></span><span><span class="wf-stat-n">363 010 503</span><span class="wf-stat-l">Cases opened</span></span></div>
+              <div class="wf-stat is-open"><span class="wf-stat-ico"></span><span><span class="wf-stat-n">[?]</span><span class="wf-stat-l">Median withdrawal</span></span></div>
+              <div class="wf-stat is-open"><span class="wf-stat-ico"></span><span><span class="wf-stat-n">[?]</span><span class="wf-stat-l">Slot open</span></span></div>
+              <div class="wf-stat"><span class="wf-stat-ico" style="border-style:dotted"></span><span><span class="wf-stat-l">Fourth cell</span></span></div>
+            </div>
+            <div style="padding:12px;border-bottom:1px solid var(--wf-line-soft)">
+              <div class="wf-brandlogo">LOGO</div>
+              <div class="wf-cl-head">Need help?</div>
+              <div class="wf-supportbtn" style="display:block;text-align:center">SUPPORT</div>
+              <div class="wf-ident" style="margin-top:8px">Registered name [?]<br>Address [?] - Register and no. [?]<br>VAT [?] - Supervisory authority [?]</div>
             </div>
             <div class="wf-acc"><div class="wf-acc-head">Play<span class="wf-acc-sign">+</span></div></div>
-            <div class="wf-acc"><div class="wf-acc-head">Help<span class="wf-acc-sign">+</span></div></div>
             <div class="wf-acc is-open">
-              <div class="wf-acc-head">Legal<span class="wf-acc-sign">&minus;</span></div>
+              <div class="wf-acc-head">Company<span class="wf-acc-sign">&minus;</span></div>
               <div class="wf-acc-body">
                 <div class="wf-cl-link">Terms of use</div>
                 <div class="wf-cl-link">Privacy policy</div>
@@ -289,15 +340,66 @@
             <div class="wf-acc"><div class="wf-acc-head">Play responsibly<span class="wf-acc-sign">+</span></div></div>
             <div class="wf-acc"><div class="wf-acc-head">Interlinking block<span class="wf-acc-sign">+</span></div></div>
             <div class="wf-dom">All collapsed links stay in the DOM</div>
-            <div class="wf-bottom">
-              <div class="wf-ident">Registered name [?]<br>Address [?] - Register and no. [?]<br>VAT [?] - Supervisory authority [?]</div>
-              <div class="wf-social"><span class="wf-si"></span><span class="wf-si"></span><span class="wf-si"></span><span class="wf-si"></span></div>
+            <div class="wf-bottom" style="flex-direction:column;align-items:stretch;gap:9px">
+              <div class="wf-trust" style="border:none;padding:0">
+                <span class="wf-badge">18+</span>
+                <span class="wf-tlink">Play responsibly</span>
+                <span class="wf-ttext">Not available in some markets</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px">
+                <div class="wf-social"><span class="wf-si"></span><span class="wf-si"></span><span class="wf-si"></span></div>
+                <div class="wf-spacer"></div>
+                <div class="wf-pay"><span class="wf-pm"></span><span class="wf-pm"></span><span class="wf-pm"></span></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <p class="wf-note"><b>The trust strip never becomes an accordion at any width.</b> A compliance statement a person has to open is not a statement. It is the one element in this node with a rule that holds everywhere. <b>The identification block sits above the copyright</b> on mobile, because it is the part with a legal obligation attached. Accordions are collapsed for reading, never for existence.</p>
+      <p class="wf-note"><b>Statistics go two by two, never a horizontal scroll and never a carousel:</b> four numbers a person cannot see at once are four numbers that prove nothing. <b>The compliance line never becomes an accordion at any width</b>, which is the one rule in this node that holds everywhere: a compliance statement a person has to open is not a statement. Accordions are collapsed for reading, never for existence.</p>
     </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="sec-head">
+    <h2>The statistics strip, and the question it forces</h2>
+    <p>The founder asked for the baseline's strip. It is inherited as a band and its contents are decided here, because a counter is a claim and this product has a rule about claims.</p>
+  </div>
+
+  <div class="card">
+    <h4>What the baseline runs, read live on 11 August 2026</h4>
+    <p><strong>363 010 503</strong> cases opened, <strong>3 328 108</strong> upgrades, <strong>1 862 837</strong> total users, <strong>905</strong> online users.</p>
+    <p><strong>Cases opened increments continuously.</strong> Three reads minutes apart returned 363 010 473, then 363 010 503, then 363 010 551. Total users did not move across the three.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The rule the strip has to meet</h4>
+    <p><code>D-14</code> states the limit this project put on the word brand: it means <strong>the product is built so that its own numbers are checkable</strong>, not that a verifier is what persuades a sceptic. A strip of four large numbers is the single densest concentration of claims in the product. <strong>Every number in it either reconciles against something a stranger can open, or it is decoration that looks like evidence.</strong></p>
+    <p>And the risk is documented rather than hypothetical: the bot-name concern recorded at <code>competitors.md:146</code> and <code>research.md:151</code> is precisely the reading an unverifiable user count invites.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:18%">Slot</th><th style="width:24%">Verdict</th><th>Reasoning</th></tr></thead>
+      <tbody>
+        <tr><td>Cases opened</td><td><strong>Keep, and make it checkable</strong></td><td>It is the product's real volume and it answers <code>B1-1</code> directly, the visitor arriving pre-suspected. It becomes checkable by reconciling with the published round ledger on <code>1.2</code>: a total that equals the count of published rounds is a number a stranger can audit. <strong>That is the difference between this strip and every other one in the category</strong></td></tr>
+        <tr><td>Upgrades</td><td><strong>Cut</strong></td><td>Upgrades is a LATER mode. A counter for a mode that does not exist advertises absence with a number, which is <code>D-19</code>'s rail defect in a different costume</td></tr>
+        <tr><td>Total users</td><td><strong>Cut as drawn, replacement needed</strong></td><td>Not checkable by anyone outside the company, and it is the category's classic inflated figure. Keeping it would put the least verifiable number in the product next to the most verifiable one and teach a reader that neither can be trusted</td></tr>
+        <tr><td>Online users</td><td><strong>Carried with a condition</strong></td><td>Same problem, and worse: a live human count on a platform where the drop feed's authenticity is already questioned in our own research. It ships only if it counts humans in real time. <strong>If it cannot, it does not ship</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-pick">
+    <h4>Slot 2, recommended: the median and p90 withdrawal time, and the ask just got better</h4>
+    <p>Rows <code>A4</code> and <code>G3</code>, already MVP, already required to be visible before login. It is the strongest trust signal the product owns and it is checkable in the only way that matters, by the person who withdraws.</p>
+    <p><strong>This is the same question the first version of this node handed to the founder, and it now has a better answer.</strong> Both rows say "same feature as A4, two surfaces", and those two are the entry surface and the withdrawal surface, so the footer is a third. <strong>The founder's own request created the surface that wants it.</strong> The ask is no longer "add a band", it is "fill a slot that would otherwise hold a number nobody can check". <strong>Owner: the founder. Cost: one line in the backlog.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Slot 4, if online-users cannot be made honest: published aggregate tested RTP</h4>
+    <p><code>aarrr.md:205</code> makes matching or beating the tested category figures, Hellcase 82.1 percent and DatDrop 80.6 percent, both a trust position and a regulatory hedge, and <code>D4</code> already publishes RTP per case. An aggregate is <strong>adjacent to <code>D4</code> rather than inside it</strong>, so it needs its own backlog row before it can ship. Marked as a proposal, not asserted as a capability.</p>
   </div>
 </section>
 
@@ -305,7 +407,7 @@
 <section id="baseline">
   <div class="sec-head">
     <h2>What crosses from the baseline, and what does not</h2>
-    <p><code>baseline.md:84</code> records thirteen footer links. Four cross, five become two nodes, and one is cut on a real argument.</p>
+    <p>The re-walk found four bands where <code>baseline.md</code> had recorded one. Of the thirteen named links, four cross, five become two nodes, and one is cut on a real argument. The bands themselves are covered above.</p>
   </div>
 
   <div class="table-wrap">
@@ -321,15 +423,17 @@
     </table>
   </div>
 
-  <div class="card is-note">
-    <h4>One candidate for the trust strip was considered and declined</h4>
-    <p>The rolling median and p90 withdrawal time from our own logs, rows <code>A4</code> and <code>G3</code>, is the strongest trust signal the product owns and it is visible before login. Both rows say in their own cells <strong>"same feature as A4, two surfaces"</strong>, and those two are the entry surface and the withdrawal surface. Putting it on every page makes a third.</p>
-    <p><strong>That is a scope change, not a layout choice</strong>, so it is named here with an owner rather than added quietly or dropped silently. <strong>Owner: the founder</strong>, and it costs one line in the backlog if the answer is yes.</p>
+  <div class="card is-pick">
+    <h4>Four things the re-walk added that the first version of this node had marked unknown</h4>
+    <p><strong>The identification block is proven to fit.</strong> The baseline prints "MIXABIT LTD, ΗΕ 470887, Elettherias, 19 Lakatamia, 2312, Nicosia, Cyprus" in small muted text under its tagline, which is Article 5(a), (b) and (d) in one line in the first column. <strong>None of those values crosses</strong>, the operating entity is a founder decision and every field stays <span style="color:var(--accent-yellow)">[?]</span>. What crosses is the proof that the block fits and where it goes.</p>
+    <p><strong>And one gap the re-walk opened.</strong> The baseline prints <strong>no email address anywhere in the footer</strong>, and Article 5(c) asks for one by name; the support button stands in its place. Whether a route to a form satisfies "contacted rapidly and communicated with in a direct and effective manner" is a question for counsel, and it is carried rather than answered.</p>
+    <p><strong>Payment marks are a real slot.</strong> The baseline runs three, ZEN, Visa and Mastercard. The slot is inherited; which providers we run is a contract and stays <span style="color:var(--accent-yellow)">[?]</span>.</p>
+    <p><strong>The support button replaces a link.</strong> The first version had support as one link among four in a column. <code>G4</code> requires an appeal with a published response deadline and Article 5(c) requires rapid contact, and neither is served well by something that looks like a policy.</p>
   </div>
 
   <div class="card is-drop">
-    <h4>The strip is not a badge row</h4>
-    <p>No trust seals, no "100% secure", no invented certifications. Design principle 1 says trust is the product, and <code>D-14</code> names the limit on what a trust claim can do: what answers the doubt people actually record is published chance, current value and tested RTP. <strong>A seal answers none of it.</strong></p>
+    <h4>Not inherited: the floating support control, and the reason is D-22</h4>
+    <p>The baseline runs a fixed circular headset button, bottom right, above the footer. Round 1 ships a <strong>bottom navigation bar on mobile</strong>, and a floating control anchored bottom right sits on top of it at 360px. <strong>A support affordance that covers a navigation destination is worse than no floating affordance.</strong> The support route is the button in band 2 and node <code>0.10</code>.</p>
   </div>
 </section>
 
@@ -504,9 +608,11 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.2 Footer';
 window.NAV_SECTIONS = [
   { id: 'overview', label: 'Overview' },
+  { id: 'rebuilt',  label: 'Why it was rebuilt' },
   { id: 'grew',     label: 'It grew the map' },
   { id: 'law',      label: 'The legal ground' },
   { id: 'mockups',  label: 'Mockups' },
+  { id: 'stats',    label: 'The statistics strip' },
   { id: 'baseline', label: 'What crosses' },
   { id: 'anatomy',  label: 'Anatomy' },
   { id: 'matrix',   label: 'State matrix' },

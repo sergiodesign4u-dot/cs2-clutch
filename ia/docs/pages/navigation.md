@@ -24,7 +24,7 @@ What survives from the first version is listed rather than quietly reused: the t
 
 ## 1. The model: three carriers on mobile, two on desktop, and no carrier holds another's kind
 
-The baseline runs **three** carriers that do not overlap, `baseline.md:48`: the left icon rail, the header, the footer. The footer is node 0.2. This node owns the first two, and adds one the baseline does not have.
+The baseline runs **three** carriers that do not overlap, `baseline.md`: the left icon rail, the header, the footer. The footer is node 0.2. This node owns the first two, and adds one the baseline does not have.
 
 | Carrier | Owns | Never holds |
 |---|---|---|
@@ -34,7 +34,7 @@ The baseline runs **three** carriers that do not overlap, `baseline.md:48`: the 
 
 **The kind separation survives the third carrier intact**, and the wording is exact on purpose: the bar holds destinations and nothing else. Not the balance, not the deposit control, not the account, not the sound toggle. **A control that is not a destination has never belonged in a navigation carrier in this node, and the arrival of a second destination carrier does not create a place for one.**
 
-**This rule is what makes "two menus" rigorous instead of ambiguous**, and it is exactly what the baseline already practises: `baseline.md:78`, "the header is where money and account live".
+**This rule is what makes "two menus" rigorous instead of ambiguous**, and it is exactly what the baseline already practises: `baseline.md`, "the header is where money and account live".
 
 **On desktop the product sits inside Material's supported configuration.** The drawer guidance says "**avoid using two navigation components on the same screen**", and a top app bar is not a navigation component in that taxonomy: it is the thing the drawer is opened from. "Modal navigation drawers are always opened by an action outside of the drawer, such as clicking a navigation menu icon." So above 900px the count is one primary navigation component plus one app bar, which is the standard shape.
 
@@ -46,7 +46,7 @@ The baseline runs **three** carriers that do not overlap, `baseline.md:48`: the 
 
 **The toggle sits on the junction of the two seams**, straddling the vertical edge of the rail and the horizontal edge of the header. It is anchored there rather than placed in either carrier, so when the rail collapses the toggle tracks its width instead of jumping. This also settles Material's caution structurally rather than by instruction: "avoid using logos that could be mistaken as buttons, don't use a logo as a menu button to expand the navigation rail." Here the logo cannot be mistaken for the toggle, because the toggle is a separate control in a different place.
 
-**One inherited fact does not match, and it is marked rather than overwritten.** `baseline.md:70` records the baseline header as full width with the logo at `x=5` and the toggle at `x=51`, which is not this geometry. Either the walk captured the collapsed state, or the founder is diverging from the baseline deliberately here. **`[?]`, and the next baseline walk resolves it.** `baseline.md` is not edited from a screenshot: it says what was walked.
+**One inherited fact does not match, and it is marked rather than overwritten.** `baseline.md` records the baseline header as full width with the logo at `x=5` and the toggle at `x=51`, which is not this geometry. Either the walk captured the collapsed state, or the founder is diverging from the baseline deliberately here. **`[?]`, and the next baseline walk resolves it.** `baseline.md` is not edited from a screenshot: it says what was walked.
 
 ---
 
@@ -132,7 +132,7 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 
 **Responsible play in the rail is an addition to the base layer and it is named rather than absorbed.** The base layer gave it a persistent entry inside the Balance control and a footer link, `sitemap.md:553`, on the argument that a brake which has to be searched for at the worst moment is not a brake. That entry is unchanged. This adds a second one, in the rail's lower group, and it is affordable now for the same reason the rail is: there is space. **Parent:** `B7-4`, pattern of 12, plus the compliance constraint at `CLAUDE.md`, "responsible play tooling". Both legal.
 
-**The logo sits at the top of the rail and routes to 1.0**, which is the baseline's placement, `baseline.md:64`. It is inside the rail rather than above it: the rail is the full-height carrier and the logo is its first row.
+**The logo sits at the top of the rail and routes to 1.0**, which is the baseline's placement, `baseline.md`. It is inside the rail rather than above it: the rail is the full-height carrier and the logo is its first row.
 
 ### What is not in it, each with its reason
 
@@ -141,13 +141,13 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 | Case Battles, Gunfights, Upgrade, Giveaways, Rewards Hub, Top wins, Partnership, Exchange | Not in round 1 | All LATER, `CLAUDE.md`. They enter the rail as they ship. The rail is the carrier designed to receive them, which is the whole point of building it now |
 | All Races and the race pot | Not in round 1 | Cluster 8, orphan `8.9`, no parent in the three legal classes |
 | The promotional partner tile above the destinations | Cut from round 1 | A paid third party placement. No barrier, no job, no constraint behind it. If it returns it returns as a revenue decision with a named owner, not as inherited furniture |
-| The language switcher | Cut permanently | `D-02`, one language, English. `baseline.md:80` already recorded this divergence |
+| The language switcher | Cut permanently | `D-02`, one language, English. `baseline.md` already recorded this divergence |
 | The social icon row at the foot of the drawer | Deferred to 0.2 | The footer owns the canonical social set. The drawer may render it, from that one source and never a second list |
 | The daily free case, `I2` | Deliberately absent, and this is the interesting one | It is MVP by founder decision and it is the product's only free entry point, so a rail slot is tempting. It is **not a node in `sitemap.md`**: `sitemap.md:537` places it inside the catalogue as an addressable case. The rule this stage applies to the footer applies here too. A carrier may not promise a destination the map does not hold. Either it becomes a node or it stays inside 3.1. **Owed a decision before step 5** |
 
 ### The cost of the carrier choice, and what paid it down
 
-On mobile the rail is a modal drawer behind a menu icon, which is the baseline's own behaviour, `baseline.md:90`. **`D-21` accepted a named cost for that: on mobile, from any screen that is not Home, reaching the catalogue cost two taps rather than one.** That was the price of Material's compact-window advice being declined.
+On mobile the rail is a modal drawer behind a menu icon, which is the baseline's own behaviour, `baseline.md`. **`D-21` accepted a named cost for that: on mobile, from any screen that is not Home, reaching the catalogue cost two taps rather than one.** That was the price of Material's compact-window advice being declined.
 
 It was affordable for one reason and the reason is checkable: **the main job never routes through the rail.** `CLAUDE.md` fixes the main flow as home, case screen, age gate, open, and `D-20` put the featured case grid on Home directly. Tap 1 is a case tile on Home, tap 2 is the gate, tap 3 is Open. **The three tap budget was untouched by that change**, and it is untouched by this one. The browsing route was already four taps and already not the main-job route, `sitemap.md:533`.
 
@@ -225,7 +225,7 @@ In round 1 the rail holds three or four destinations and the bar holds three or 
 
 Left to right: rail toggle, logo, then the right group: **Sign in**, routing to 2.4, and the sound control.
 
-**The slot the baseline fills with the race pot stays empty.** `baseline.md:78` records that pre-login there is no balance widget at all and that a promotion occupies its place. That promotion is `8.9` and has no parent. Nothing is invented to fill the gap.
+**The slot the baseline fills with the race pot stays empty.** `baseline.md` records that pre-login there is no balance widget at all and that a promotion occupies its place. That promotion is `8.9` and has no parent. Nothing is invented to fill the gap.
 
 ### Account exists
 
@@ -306,7 +306,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 | Deposit control, account only | One add control. No badge in round 1 | 4.1 |
 | Active indicator | Exactly one destination is active at any time, **across the rail, the drawer and the mobile bar together**, never one in each | current node |
 
-**Provably fair holds its rail position in both states, and that is the structural claim of this node.** `jtbd.md:180` names a public provably fair surface as one of three things no competitor offers pre-login, and `baseline.md` verified that our own baseline still redirects that route to login and demotes it to a footer link, `baseline.md:84`. Design principle 1 says trust is the product. Letting the item slide down or out when the account arrives would say the proof was a sales argument. It carries the `D-14` limit with it: its position is not a claim that a verifier converts a sceptic.
+**Provably fair holds its rail position in both states, and that is the structural claim of this node.** `jtbd.md:180` names a public provably fair surface as one of three things no competitor offers pre-login, and `baseline.md` verified that our own baseline still redirects that route to login and demotes it to a footer link, `baseline.md`. Design principle 1 says trust is the product. Letting the item slide down or out when the account arrives would say the proof was a sales argument. It carries the `D-14` limit with it: its position is not a claim that a verifier converts a sceptic.
 
 ---
 
@@ -340,7 +340,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 
 **Mobile is the base, 360px.** One header row: menu icon, then the money and account zone. A bottom bar with three destinations before an account and four after. The rail is a modal drawer, closed by default, and its first row is the logo.
 
-**The logo leaves the mobile header, which reverses `D-21`, and `D-21` supplies the reason.** It was moved into the header for exactly one stated reason: the rail sits behind a menu icon and a route home may not. **Bar item 1 is now that route**, permanently visible, labelled, and never removed in either state. The reason has been met by a better carrier, so keeping the logo in the header as well would be two controls doing one job on the narrowest width the product supports. **It also returns the mobile header to the baseline's own composition:** `baseline.md:90` records that the baseline's mobile header keeps the hamburger, the money slot and the account control, and carries no logo. The brand mark is one tap away at the top of the drawer, where the rail keeps it at every other width.
+**The logo leaves the mobile header, which reverses `D-21`, and `D-21` supplies the reason.** It was moved into the header for exactly one stated reason: the rail sits behind a menu icon and a route home may not. **Bar item 1 is now that route**, permanently visible, labelled, and never removed in either state. The reason has been met by a better carrier, so keeping the logo in the header as well would be two controls doing one job on the narrowest width the product supports. **It also returns the mobile header to the baseline's own composition:** `baseline.md` records that the baseline's mobile header keeps the hamburger, the money slot and the account control, and carries no logo. The brand mark is one tap away at the top of the drawer, where the rail keeps it at every other width.
 
 **The two figures survive at 360px**, which is the width this node was reasoned from rather than checked against afterwards: they are the reason the header's right group is designed before its left one. Measured in the mockup before the logo was removed, the whole mobile header group needed 298px and still left a 77px flexible gap. Removing the logo mark returns roughly 31px of that budget.
 
@@ -362,7 +362,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 
 | Open item | What is missing | Owner and when |
 |---|---|---|
-| **The sound control** | It is in the baseline header and drawer, `baseline.md:76`, and dropped by the baseline itself at 390px, `baseline.md:90`. It has **no parent in any of the three legal classes**. Design principle 2 covers motion, not audio, and no backlog row mentions sound. It is drawn here because the reveal has audio and a person needs to be able to stop it, which is an argument this stage cannot ratify on its own | Founder, before stage 04. It ships with a stated parent or it does not ship |
+| **The sound control** | It is in the baseline header and drawer, `baseline.md`, and dropped by the baseline itself at 390px, `baseline.md`. It has **no parent in any of the three legal classes**. Design principle 2 covers motion, not audio, and no backlog row mentions sound. It is drawn here because the reveal has audio and a person needs to be able to stop it, which is an argument this stage cannot ratify on its own | Founder, before stage 04. It ships with a stated parent or it does not ship |
 | **The daily free case, `I2`, in the rail** | It is MVP and it is the only free entry point, but it is not a node in `sitemap.md`. A carrier may not promise a destination the map does not hold | This stage, before step 5. Either it becomes a node or it stays inside 3.1 |
 
 **What this node does not decide.**

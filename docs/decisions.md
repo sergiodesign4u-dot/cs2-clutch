@@ -468,7 +468,7 @@ At round 1's count Material would pick a bar. At the locked scope, nine baseline
 
 It also settles Material's caution structurally rather than by instruction: "avoid using logos that could be mistaken as buttons, don't use a logo as a menu button to expand the navigation rail." The logo cannot be mistaken for the toggle when the toggle is a separate control in a different place.
 
-**One inherited fact does not match, and it is marked rather than overwritten.** `baseline.md:70` records the baseline header as full width with the logo at `x=5` and the toggle at `x=51`. Either the walk captured the collapsed state or this is a deliberate divergence. **`[?]`, resolved by the next baseline walk.** `baseline.md` says what was walked and is not edited from a screenshot.
+**One inherited fact does not match, and it is marked rather than overwritten.** `baseline.md` records the baseline header as full width with the logo at `x=5` and the toggle at `x=51`. Either the walk captured the collapsed state or this is a deliberate divergence. **`[?]`, resolved by the next baseline walk.** `baseline.md` says what was walked and is not edited from a screenshot.
 
 **The one place the logo leaves the rail is 360px**, where the rail is a drawer behind a menu icon. A route home may not sit behind a menu, so the logo mark moves into the header and the drawer carries no logo row of its own.
 
@@ -570,7 +570,7 @@ In round 1 the rail holds three or four destinations and the bar holds three or 
 
 **The reason has been met by a better carrier**, so keeping the logo in the header as well would be two controls doing one job on the narrowest width the product supports. The logo returns to the drawer's first row, where the rail keeps it at every other width, and that is also what makes the superset rule hold literally: Home is in the rail because the logo is.
 
-**It returns the mobile header to the baseline's own composition.** `baseline.md:90` records that the baseline's mobile header keeps the hamburger, the money slot and the account control, and carries no logo.
+**It returns the mobile header to the baseline's own composition.** `baseline.md` records that the baseline's mobile header keeps the hamburger, the money slot and the account control, and carries no logo.
 
 ### Behaviour fixed here so a later stage does not invent it
 
@@ -578,4 +578,4 @@ The bar does not hide or condense on scroll, for the same reason the header and 
 
 ### Consequence for the rule file
 
-`CLAUDE.md` and `CLAUDE.md` both change again. The inherited navigation model stays two carriers, because the bar is not inherited: `baseline.md:90` records that the baseline has no bottom tab bar at all. What is added is that mobile carries a third carrier the baseline does not have, and that it is a subset of the rail rather than a second model. That is a rule edit and it goes through the budget, not around it.
+`CLAUDE.md` and `CLAUDE.md` both change again. The inherited navigation model stays two carriers, because the bar is not inherited: `baseline.md` records that the baseline has no bottom tab bar at all. What is added is that mobile carries a third carrier the baseline does not have, and that it is a subset of the rail rather than a second model. That is a rule edit and it goes through the budget, not around it.

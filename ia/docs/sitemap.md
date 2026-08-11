@@ -490,7 +490,7 @@ Written at step 3, on 11 August 2026. The concept sitemap says which screens exi
 
 **Reversed on 11 August 2026 by founder decision `D-21`, and the reversal does not contradict the reasoning, it removes its subject.** The objection was to a list of nine with eight dead items. It was never an objection to the rail as a component, and that distinction was available at the time and not made. **The rail ships, carrying round 1's own destinations, and every item in it is live.**
 
-**Three carriers on mobile, two on desktop, and no carrier holds another's kind.** The first two are the baseline's own model, `baseline.md:48` and `:78`. The third is not inherited: `baseline.md:90` records that the baseline has no bottom tab bar at all, and `D-22` adds one as a shortcut over the rail rather than as a second model. Node 0.1 specifies all three in full.
+**Three carriers on mobile, two on desktop, and no carrier holds another's kind.** The first two are the baseline's own model, `baseline.md` and `:78`. The third is not inherited: `baseline.md` records that the baseline has no bottom tab bar at all, and `D-22` adds one as a shortcut over the rail rather than as a second model. Node 0.1 specifies all three in full.
 
 | Carrier | Owns | Never holds |
 |---|---|---|
@@ -513,7 +513,7 @@ Written at step 3, on 11 August 2026. The concept sitemap says which screens exi
 
 **Responsible play gains a rail entry and keeps the one it had.** The entry inside the money control, decided below at step 6, is unchanged. The rail entry is an addition, affordable because the rail has space.
 
-**Provably fair in the global navigation is a deliberate structural claim and no competitor makes it.** `jtbd.md:180` names a public provably fair surface as one of three things no competitor offers pre-login, and `baseline.md` verified on 11 August 2026 that our own baseline still redirects that route to login and demotes it to a footer link, `baseline.md:84`. Design principle 1 says trust is the product. A principle that does not reach the navigation is a slogan, and this is the cheapest place it becomes structure.
+**Provably fair in the global navigation is a deliberate structural claim and no competitor makes it.** `jtbd.md:180` names a public provably fair surface as one of three things no competitor offers pre-login, and `baseline.md` verified on 11 August 2026 that our own baseline still redirects that route to login and demotes it to a footer link, `baseline.md`. Design principle 1 says trust is the product. A principle that does not reach the navigation is a slogan, and this is the cheapest place it becomes structure.
 
 **It carries the limit `D-14` attached to it.** Its position is not a claim that a verifier converts a sceptic. What answers the recorded doubt is D2 and D4 on the case screen. This item is where the product proves its own numbers are checkable, which is a different job.
 

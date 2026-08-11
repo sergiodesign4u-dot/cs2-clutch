@@ -47,7 +47,7 @@
     li { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 5px; }
     a { color: var(--accent-blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px;  overflow-wrap: anywhere; }
     strong { color: var(--text-primary); font-weight: 600; }
     blockquote { border-left: 2px solid var(--accent-yellow); padding: 4px 0 4px 16px; margin: 16px 0; font-size: 14.5px; color: var(--text-secondary); font-style: italic; }
     .q { color: var(--accent-yellow); font-weight: 700; }
@@ -197,7 +197,14 @@
   <p>The header is where money and account live, and <strong>pre-login there is no balance widget at all</strong>. Its slot is occupied by the race pot. What replaces or joins it after login is <span class="q">[?]</span>. The nine language options are a divergence by decision: <code>D-02</code> locks this project to one language, so our header inherits one control fewer.</p>
 
   <h3>The footer</h3>
-  <p>Thirteen links: Support, Partnership, Contacts and Corporate Information, FAQ, <strong>Provably Fair</strong>, Counter-Strike Guides, Terms of use, Privacy Policy, Cookie Policy, Refund Policy, Gift cards, Marketing Assets, CS2 Pickems. No responsible play link. No age statement.</p>
+  <p><strong>Re-walked on 11 August 2026, and the first pass had recorded the link list and almost nothing else.</strong> The correction is kept visible rather than smoothed, because the gap is the useful part: a list of thirteen links read as a complete footer record for three steps, and the footer is four bands.</p>
+  <p><strong>Band 1, a statistics strip</strong>, full width, above the footer proper, separated by a 1px accent line. Four counters, each an icon plus a large figure plus a caption: <strong>363 010 503</strong> cases opened, <strong>3 328 108</strong> upgrades, <strong>1 862 837</strong> total users, <strong>905</strong> online users, all read at 20:49 UTC. <strong>Cases opened increments continuously:</strong> three reads minutes apart returned 363 010 473, 363 010 503, 363 010 551. Whether the increment tracks real opens or is scripted is <span class="q">[?]</span>. Total users did not move.</p>
+  <p><strong>Band 2, the main footer, four columns.</strong> <strong>Left, brand and help:</strong> the logo linking to <code>/en/</code>, a "NEED HELP?" heading over an outlined <strong>SUPPORT</strong> pill linking to <code>/en/support</code>, a tagline "You can get your favorite skin at the best prices.", then the legal identification line in small muted text: <strong>"MIXABIT LTD, ΗΕ 470887, Elettherias, 19 Lakatamia, 2312, Nicosia, Cyprus"</strong>. Registered name, Cyprus registrar number, geographic address. <strong>No email address is printed anywhere in the footer.</strong> Then <strong>PLATFORM</strong> (Partnership, Contacts &amp; Corporate Information, FAQ, Provably Fair, Counter-Strike Guides), <strong>COMPANY</strong> (Terms of use, Privacy Policy, Cookie Policy, Refund Policy) and <strong>ADDITIONAL</strong> (Gift cards, Marketing Assets, CS2 Pickems). Each column heading carries a short accent underline.</p>
+  <p><strong>Band 3, the bottom row.</strong> "DADDYSKINS © 2016-2026. ALL RIGHTS RESERVED" on the left, and on the right three payment and provider marks: <strong>ZEN, Visa, Mastercard</strong>. Against the footer but not in it sits a floating circular support control, headset icon, fixed bottom right.</p>
+  <p><strong>There is no SEO interlinking block anywhere in the footer.</strong> And the two absences the first pass did get right, restated because they are the finding: <strong>no responsible play link, no age statement</strong>, nowhere in any of the bands.</p>
+  <figure style="margin-top:18px">
+    <img src="screens/baseline/walk_footer_1440.png" alt="daddyskins.com footer at 1440px: statistics strip, four columns, identification line and payment marks" style="width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.1)">
+  </figure>
 
   <h3>Mobile, at 390px</h3>
   <p>The left rail is <strong>removed entirely</strong> and replaced by a hamburger at the top left. The header keeps three things: the hamburger, the race pot and the Sign in pill. The sound toggle is dropped. The drop ticker persists with fewer items, content cards go single column, and there is no bottom tab bar, so all nine rail destinations sit one tap behind a drawer.</p>
@@ -376,6 +383,7 @@
       <thead><tr><th>What it gave</th><th>URL</th><th>Proof</th></tr></thead>
       <tbody>
         <tr><td>Page inventory, header, rail, ticker</td><td><code>daddyskins.com/en</code></td><td><code>walk_home_1440.png</code></td></tr>
+        <tr><td>Footer re-walk: statistics strip, four columns, identification line, payment marks</td><td><code>daddyskins.com/en</code></td><td><code>walk_footer_1440.png</code></td></tr>
         <tr><td>Mobile navigation model</td><td><code>daddyskins.com/en</code> at 390px</td><td><code>walk_home_390.png</code></td></tr>
         <tr><td>Categories, daily ladder, 239 slugs, risk labels</td><td><code>daddyskins.com/en/cases</code></td><td><code>walk_cases_1440.png</code></td></tr>
         <tr><td>Case detail, pre-login state, risk meter, multi-open</td><td><code>daddyskins.com/en/case/premium</code></td><td><code>walk_case_detail_1440.png</code></td></tr>
