@@ -15,7 +15,7 @@ This table and `_nav.js` are the only two places where status lives. Nothing els
 | 01 | Foundation Research | [Research](https://sergiodesign4u-dot.github.io/cs2-clutch/research/research.html) | Done |
 | 02 | User Research (Personas, JTBD) | [Personas](https://sergiodesign4u-dot.github.io/cs2-clutch/research/personas.html), [JTBD](https://sergiodesign4u-dot.github.io/cs2-clutch/research/jtbd.html) | Done |
 | 02+ | CJM (As-Is, To-Be) | [CJM As-Is](https://sergiodesign4u-dot.github.io/cs2-clutch/research/cjm-as-is.html), [CJM To-Be](https://sergiodesign4u-dot.github.io/cs2-clutch/research/cjm-to-be.html) | Done |
-| 03 | Information Architecture (Base, Detail) | flows, concept-map, sitemap, structure | Next |
+| 03 | Information Architecture (Base, Detail) | [Baseline walk](https://sergiodesign4u-dot.github.io/cs2-clutch/research/baseline.html), then flows, concept-map, sitemap, structure | Input gate passed |
 | 04 | Wireframes | overview, index, screens | Not started |
 | 05 | Voice | voice | Not started |
 | 06 | Concept | directions, concept | Not started |
@@ -35,6 +35,8 @@ One thing the re-run could not deliver, named rather than hidden: no product in 
 **CJM stage: done, August 2026.** `cjm-as-is.md` is the research half: the input inventory, the eight phases of the real path, and on each phase an emotion with a counted source or a `[?]`, plus 8 barrier classes, an emotional curve that breaks rather than interpolates where no signal exists, and 5 growth zones. `cjm-evidence.md` holds the quotes each pattern is counted from. `cjm-to-be.md` is the design half: the same eight phases rebuilt, six divergences run diverge-then-converge, every capability traced to a barrier, a job or a named constraint, and one backlog of 38 MVP rows over 37 distinct capabilities that refines the MVP core instead of forking it. Both halves went through a two instrument critique, 40 rows on As-Is and 37 on To-Be. The stage closed with two founder decisions on 11 August 2026: the responsible play page returns to round 1, and the daily free case enters the MVP as row I2 with its missing parent stated rather than dressed up.
 
 **The one line conclusion.** The deepest pit is not the open, it is everything after it: P7 the outcome and P8 payoff or exit both sit at -5, on patterns of 7, 11 and 12 people, while the open itself has no counted signal at all. To-Be closes that end of the path with the instance value receipt that follows the item into inventory and onto the withdrawal record, a public withdrawal clock with per-state timers and our own published p90, and the rule that the sum required to withdraw is stated before the deposit and can never rise.
+
+**Stage 03 input gate: passed on 11 August 2026, and it found more than it expected.** All seven declared inputs exist. The four decisions the CJM map could not close were answered (D-17): the age gate becomes two layers, a declaration at registration plus identity verification before funding; the roll history migration goes to the platform as a question of fact; the internal weights check is scheduled before stage 04; inventory capital is deferred to 03b. The founder also decided the colour register is taken from the baseline rather than derived near it (D-18), which reverses part of D-03. Then the gate found that "the structure is inherited" had no source document: seven things were listed as inherited and none of them was written down. That produced `baseline.md`, a live walk of daddyskins.com on public pre-login pages, whose sharpest finding is that **only one of the nine left rail destinations is in round 1**.
 
 ## Scope
 
@@ -68,6 +70,7 @@ research/docs/
 ├── cjm-as-is.md        As-Is journey: 8 phases, emotions with sources, barriers, growth zones
 ├── cjm-evidence.md     the counted quotes behind every As-Is pattern
 ├── cjm-to-be.md        To-Be journey, divergences, backlog and MVP core
+├── baseline.md         daddyskins.com walked live: inventory, navigation, composition, colour
 ├── strategy.md         objectives, segments, business model, four locked founder decisions
 ├── live-research.md    post-persona verification: 5 confirmed, 1 killed, 2 unresolved
 ├── quality-check.md    quality gate, claim verification
