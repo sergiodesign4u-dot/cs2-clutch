@@ -15,7 +15,7 @@ This table and `_nav.js` are the only two places where status lives. Nothing els
 | 01 | Foundation Research | [Research](https://sergiodesign4u-dot.github.io/cs2-clutch/research/research.html) | Done |
 | 02 | User Research (Personas, JTBD) | [Personas](https://sergiodesign4u-dot.github.io/cs2-clutch/research/personas.html), [JTBD](https://sergiodesign4u-dot.github.io/cs2-clutch/research/jtbd.html) | Done |
 | 02+ | CJM (As-Is, To-Be) | [CJM As-Is](https://sergiodesign4u-dot.github.io/cs2-clutch/research/cjm-as-is.html), [CJM To-Be](https://sergiodesign4u-dot.github.io/cs2-clutch/research/cjm-to-be.html) | Done |
-| 03 | Information Architecture (Base, Detail) | [Flows](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/flows.html), [Concept map](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/concept-map.html), [Sitemap](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/sitemap.html), [Structure](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/structure.html) | In progress. Base layer done, Detail layer at node 1 of 20, rebuilt by D-21 |
+| 03 | Information Architecture (Base, Detail) | [Flows](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/flows.html), [Concept map](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/concept-map.html), [Sitemap](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/sitemap.html), [Structure](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/structure.html), [0.1 Navigation](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/navigation.html), [0.2 Footer](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/footer.html) | In progress. Base layer done, Detail layer at node 2 of 22 |
 | 04 | Wireframes | overview, index, screens | Not started |
 | 05 | Voice | voice | Not started |
 | 06 | Concept | directions, concept | Not started |
@@ -81,8 +81,9 @@ ia/docs/
 ├── sitemap.md          entities, detailed node map (clusters 0..8), navigation, tracing matrix
 ├── flows.md            six user flows in Mermaid: decisions, states, both ends
 ├── critique.md         both critique passes, two instruments, with a found-by column
-└── pages/              one md per file-level node, 20 planned
-    └── navigation.md   node 0.1, the global shell: state matrix, anatomy, SEO and a11y
+└── pages/              one md per file-level node, 22 planned
+    ├── navigation.md   node 0.1, the two carriers: rail and header, state matrix, anatomy, SEO and a11y
+    └── footer.md       node 0.2, the second interlinking plane, the trust strip and the legal ground
 research/screens/            competitor screenshots
 research/screens/baseline/   daddyskins.com baseline screenshots
 research/screens/benchmark/  out-of-category reveal-moment sources

@@ -254,13 +254,19 @@ What every intent cluster inherits. Group `global`, all MVP, because a shell tha
 | No | Name | Type | Scope | INCLUDES | Transitions |
 |---|---|---|---|---|---|
 | **0.1** | Navigation, rail and header | global element | MVP | Two carriers, and neither holds the other's kind. The rail owns destinations, three for a guest and four with an account, and is a modal drawer on mobile. The header owns the logo, the rail toggle, the account control and the money as **two figures**, balance and value of items held, plus the responsible play entry inside the money control. No mode hub row on Home, `D-20`. Rail restored and the model returned to the baseline by `D-21` | 1.0, 1.2, 2.4, 3.1, 4.1, 5.1, 6.1 |
-| **0.2** | Footer | global element | MVP | Trust strip above it, service and legal columns, responsible play link, SEO interlinking block, bottom row. Second interlinking plane | 1.2, 6.1, and every legal destination it names |
+| **0.2** | Footer | global element | MVP | Trust strip that never collapses, carrying the 18+ statement, the responsible play link and the market statement, none of which the baseline has at all. Four link columns, the interlinking block with its structure fixed and contents `[?]`, and the Article 5 identification block. **Links no private transactional node.** One account state, because everything in it is public | 1.2, 3.1, 6.1, 2.2, 0.4, 0.9, 0.10 |
 | **0.3** | System pages | page | MVP | 404 as a full page with search and quick links and HTTP 404, 500 as a backend-independent template, maintenance as 503 with `Retry-After`. Never a soft 404, never a dead end | 1.0, 3.1 |
 | **0.4** | Cookie consent | dialog | MVP | Prior consent rather than default-on, reject as easy as accept, analytics and marketing off until opted in, link to the policy. Grounded in law at step 7, not written from memory | 0.2 policy |
 | **0.5** | Toasts and notifications | component | MVP | `aria-live` region, transient confirmations and failures, no SEO weight, never the only place a state is announced | none |
 | **0.6** | Canonical skin item card | component | MVP | Weapon name, skin name, wear grade, image, current value, drop chance, ticket range, rarity treatment. **Rarity is `[?]` until the ladder is walked**, which this stage owes before step 5 | used by 3.1, 3.3, 5.1, 5.3, 7.1 |
 | **0.7** | Canonical case tile | component | MVP | Case name, item count, entry cost, live free-unit counter, daily marker where it applies | used by 1.0, 3.1 |
 | **0.8** | Live drop ticker | component | MVP | Continuous tile strip, source mode label, weapon and skin, rarity tint, and a destination on every tile | renders on 1.0 and 3.3 only, and every tile lands on 7.1 |
+| **0.9** | Legal and policy pages | page | MVP | Four documents on one template: Terms of use, Privacy policy, Cookie policy, Refund and payments policy. Each has its own URL and its own indexation. The template is the node: last updated date, a plain-language summary above the document, the document, the version history | 0.10, and 0.4 links the cookie policy |
+| **0.10** | Support and contact | page | MVP | The contact route Article 5(c) requires, "contacted rapidly and communicated with in a direct and effective manner", plus the appeal route row `G4` requires with its **published response deadline**. Not a policy page: it has a function and a service level | 0.9, 5.3 |
+
+**Two nodes were registered by node 0.2 on 11 August 2026**, and they are the first case of this map growing out of a page rather than the other way round. The footer promised six destinations; four already existed and two did not. The rule the pack and `CLAUDE.md` agree on is that a carrier may not promise a destination the map does not hold, and the fix is a node, never a link that resolves to nothing.
+
+**One baseline footer link was cut on an argument rather than on scope.** The FAQ is load bearing on the baseline: `baseline.md` section 6 records that it is the whole of the age control and the whole of the geo statement. In our product both jobs move to real surfaces, `2.1` and `6.1`. A page whose one load-bearing job has been taken over by two dedicated surfaces is not inherited for the residue, and the residue goes to `0.10`.
 
 **The ticker gained a destination it did not have.** The baseline links every tile to `/en/profile/<id>`, `baseline.md` section 3, and no job in this repository requires a profile object at all. `D-20` approved the public result page, so tiles land on `7.1`, which carries its own round proof. The social-proof surface now points at something checkable instead of at a stranger's trophy shelf.
 
@@ -400,7 +406,7 @@ Seven orphans. Six of them are the destinations behind eight of the nine items i
 
 | Group | Nodes | Of them MVP |
 |---|---|---|
-| Cluster 0, global shell | 8 | 8 |
+| Cluster 0, global shell | 10 | 10 |
 | Cluster 1, is this place real | 5 | 5 |
 | Cluster 2, get through the door | 9 | 9 |
 | Cluster 3, choose and open | 7 | 7 |
@@ -409,11 +415,11 @@ Seven orphans. Six of them are the destinations behind eight of the nine items i
 | Cluster 6, keep myself in check | 3 | 3 |
 | Cluster 7, tell someone | 2 | 2 |
 | Cluster 8, LATER | 13 | 0 |
-| **Total** | **60** | **47** |
+| **Total** | **62** | **49** |
 
-**Forty-seven MVP nodes against twelve MVP screens, and the ratio is the point.** Each screen carries roughly three states or dialogs that need their own specification, plus eight shell nodes nobody counted as screens at all. This is the number step 6 has to plan against, and it is why the pack says a step 6 estimate that ignores states lies by multiples.
+**Forty-nine MVP nodes against twelve MVP screens, and the ratio is the point.** Each screen carries roughly three states or dialogs that need their own specification, plus ten shell nodes nobody counted as screens at all. This is the number step 6 has to plan against, and it is why the pack says a step 6 estimate that ignores states lies by multiples.
 
-**Twenty of the forty-seven are file-level nodes**, which is what step 6 actually builds: 8 in cluster 0 and 12 across clusters 1 to 7. The remaining 27 are states and confirmations specified inside them. Those twenty are the chips in `ia/_nav.js`.
+**Twenty two of the forty-nine are file-level nodes**, which is what step 6 actually builds: 10 in cluster 0 and 12 across clusters 1 to 7. The remaining 27 are states and confirmations specified inside them. Those twenty two are the chips in `ia/_nav.js`. **The count moved on 11 August 2026 and it moved from a page**: node 0.2 registered `0.9` and `0.10` because it promised them.
 
 **A dialog is file-level only when it is a destination.** The age and geo gate `2.1` and the cookie banner `0.4` are: they carry their own content, they fire across the whole product, and they have routes out. The self exclusion confirmation `6.2` is not: it guards one action on one screen and belongs inside `6.1`. Without this line the word dialog would have produced two different file counts depending on who read it.
 

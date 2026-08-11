@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 0.2 Footer</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      /* Wireframe palette: greyscale only. No brand colour reaches a mockup before stage 06. */
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ul { margin: 0 0 14px 20px; }
+    li { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 5px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; }
+    strong { color: var(--text-primary); font-weight: 600; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-pick { border-left: 3px solid var(--green); }
+    .card.is-drop { border-left: 3px solid var(--red); }
+    .card.is-src { border-left: 3px solid var(--accent-blue); }
+    .src-url { display: block; font-family: 'SF Mono', Menlo, monospace; font-size: 11.5px; color: var(--text-muted); margin-bottom: 12px; word-break: break-all; }
+    blockquote { border-left: 2px solid var(--border-strong); padding-left: 14px; margin: 0 0 10px; font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+    blockquote:last-child { margin-bottom: 0; }
+    blockquote strong { color: var(--text-primary); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 12px; }
+    table { width: 100%; border-collapse: collapse; min-width: 620px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 15px; border-bottom: 1px solid var(--border-strong); }
+    td { font-size: 13px; color: var(--text-secondary); padding: 11px 15px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    td:first-child { color: var(--text-primary); font-weight: 600; }
+    tbody tr:last-child td { border-bottom: none; }
+
+    /* WIREFRAME */
+    .wf-row { display: flex; gap: 20px; flex-wrap: wrap; margin: 20px 0 8px; }
+    .wf-col { flex: 1 1 400px; min-width: 0; }
+    .wf-cap { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; color: var(--text-muted); margin-bottom: 9px; }
+    .wf { background: var(--wf-bg); border: 1px solid var(--wf-line-soft); border-radius: 8px; padding: 14px; overflow-x: auto; }
+    .wf-inner { min-width: 320px; }
+    .wf-phone { width: 100%; max-width: 300px; margin: 0 auto; min-width: 0; }
+    .wf-note { font-size: 11px; color: var(--text-muted); margin-top: 10px; line-height: 1.55; }
+    .wf-note b { color: var(--text-secondary); font-weight: 600; }
+
+    .wf-pagestub { border: 1px dashed var(--wf-line-soft); border-radius: 4px; height: 46px; display: flex; align-items: center; justify-content: center; font-size: 9.5px; letter-spacing: 0.1em; color: #565656; text-transform: uppercase; margin-bottom: 8px; }
+
+    .wf-foot { border: 1px solid var(--wf-line); border-radius: 4px; background: var(--wf-surface); }
+
+    .wf-trust { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 9px 12px; border-bottom: 1px solid var(--wf-line); }
+    .wf-badge { border: 1px solid var(--wf-ink); border-radius: 3px; padding: 3px 7px; font-size: 10px; font-weight: 700; color: var(--wf-ink); white-space: nowrap; }
+    .wf-tlink { font-size: 10.5px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-ink-dim); white-space: nowrap; }
+    .wf-ttext { font-size: 10.5px; color: var(--wf-ink-dim); }
+
+    .wf-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 12px; border-bottom: 1px solid var(--wf-line-soft); }
+    .wf-cl-head { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--wf-ink); margin-bottom: 7px; }
+    .wf-cl-link { font-size: 10px; color: var(--wf-ink-dim); margin-bottom: 5px; line-height: 1.35; }
+
+    .wf-seo { padding: 11px 12px; border-bottom: 1px solid var(--wf-line-soft); }
+    .wf-seo-head { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--wf-ink); margin-bottom: 8px; }
+    .wf-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+    .wf-chip { border: 1px dashed var(--wf-line); border-radius: 3px; padding: 3px 7px; font-size: 9.5px; color: #6f6f6f; }
+
+    .wf-bottom { display: flex; align-items: flex-start; gap: 12px; padding: 11px 12px; flex-wrap: wrap; }
+    .wf-ident { border: 1px dashed var(--wf-line); border-radius: 3px; padding: 6px 8px; font-size: 9.5px; color: var(--wf-ink-dim); line-height: 1.5; flex: 1 1 200px; min-width: 0; }
+    .wf-social { display: flex; gap: 5px; flex: 0 0 auto; }
+    .wf-si { width: 18px; height: 18px; border: 1px solid var(--wf-line); border-radius: 3px; }
+    .wf-spacer { flex: 1 1 auto; }
+
+    /* Mobile accordions */
+    .wf-acc { border-bottom: 1px solid var(--wf-line-soft); }
+    .wf-acc-head { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--wf-ink); }
+    .wf-acc-sign { font-size: 12px; color: var(--wf-ink-dim); }
+    .wf-acc-body { padding: 0 12px 10px; }
+    .wf-acc.is-open .wf-acc-head { color: var(--wf-ink); }
+    .wf-dom { font-size: 8.5px; letter-spacing: 0.06em; text-transform: uppercase; color: #5c5c5c; padding: 0 12px 8px; }
+
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 780px) { .split { grid-template-columns: 1fr; } }
+
+    .backlink { display: inline-block; margin-top: 26px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card { padding: 17px 15px; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Node 0.2 - global element - cluster 0 - MVP</div>
+  <h1>Footer</h1>
+  <p class="lede">The product's legal identity, its compliance statements, its support route and its second interlinking plane, on every screen, in one account state. The rail carries three or four destinations. This carries everything the rail cannot hold, plus the legal set, which is what makes every indexed page reachable from every other page in at most two hops.</p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Nodes it added to the map</div></div>
+    <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Link columns</div></div>
+    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Account state, deliberately</div></div>
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Private routes linked</div></div>
+  </div>
+</div>
+
+<!-- GREW THE MAP -->
+<section id="grew">
+  <div class="sec-head">
+    <h2>This node grew the map before it was specified</h2>
+    <p>The pack's rule: a carrier may not promise a destination the map does not hold. This one promised six.</p>
+  </div>
+
+  <div class="card is-pick">
+    <h4>Two new nodes, registered before this specification was written</h4>
+    <p><strong><code>0.9</code> Legal and policy pages.</strong> Terms of use, Privacy policy, Cookie policy, Refund and payments policy. Four documents, one template: last updated date, a plain-language summary above the document, the document, the version history. <strong>They are one node because they are one template.</strong> Four specifications of the same page shape would be three copies. Each keeps its own URL and its own indexation.</p>
+    <p><strong><code>0.10</code> Support and contact.</strong> The contact route Article 5(c) requires, plus the appeal route row <code>G4</code> requires with its published response deadline. <strong>Not a policy page:</strong> it has a function and a service-level commitment, and <code>G4</code> makes the deadline a testable acceptance criterion rather than a promise.</p>
+    <p>The map is now <strong>62 nodes, 49 MVP, 22 file-level</strong>.</p>
+  </div>
+</section>
+
+<!-- LAW -->
+<section id="law">
+  <div class="sec-head">
+    <h2>The legal ground, opened live rather than recalled</h2>
+    <p>A legal requirement is read from the text of the law. Both quotes from EUR-Lex, opened 11 August 2026.</p>
+  </div>
+
+  <div class="card is-src">
+    <h4>Directive 2000/31/EC, Article 5(1), general information to be provided</h4>
+    <span class="src-url">https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32000L0031</span>
+    <blockquote>"Member States shall ensure that the service provider shall render <strong>easily, directly and permanently accessible</strong> to the recipients of the service and competent authorities, at least the following information: <strong>(a)</strong> the name of the service provider; <strong>(b)</strong> the geographic address at which the service provider is established; <strong>(c)</strong> the details of the service provider, including his electronic mail address, which allow him to be <strong>contacted rapidly</strong> and communicated with in a direct and effective manner; <strong>(d)</strong> where the service provider is registered in a trade or similar public register, the trade register in which the service provider is entered and his registration number; <strong>(e) where the activity is subject to an authorisation scheme, the particulars of the relevant supervisory authority</strong>; <strong>(g)</strong> where the service provider undertakes an activity that is subject to VAT, the identification number."</blockquote>
+    <p style="margin-top:12px"><strong>"Easily, directly and permanently accessible" is the footer's legal job description.</strong> Permanently accessible is what makes it a global element rather than an About page.</p>
+  </div>
+
+  <div class="card is-src">
+    <h4>Article 1(5)(d), the exclusion</h4>
+    <blockquote>"This Directive shall not apply to: ... <strong>gambling activities which involve wagering a stake with monetary value in games of chance</strong>, including lotteries and betting transactions."</blockquote>
+  </div>
+
+  <div class="card is-pick">
+    <h4>The open question does not have to be answered for this node to be built</h4>
+    <p><code>CLAUDE.md</code> records that whether this category counts as gambling is unsettled and varies by jurisdiction. That question is open, has an owner, and is not this node's to answer.</p>
+    <p><strong>If the product is not gambling</strong>, Article 5 applies in full and the footer carries the identification block. <strong>If the product is gambling</strong>, this Directive does not apply, but then an authorisation regime does, and Article 5(e) already names the shape that regime demands: the particulars of the supervisory authority.</p>
+    <p><strong>Both readings land on the same block in the same place.</strong> The structure is decided; only its contents wait, and what waits is written down: operating entity, registered address, register and number, VAT number, supervisory authority if there is one. All <span style="color:var(--accent-yellow)">[?]</span>, all owned by the founder with counsel, riding on the same answer as <code>D-A</code>.</p>
+  </div>
+</section>
+
+<!-- MOCKUPS -->
+<section id="mockups">
+  <div class="sec-head">
+    <h2>The footer at both widths</h2>
+    <p>Monochrome by rule. One account state, because everything in it is public.</p>
+  </div>
+
+  <div class="wf-row">
+    <div class="wf-col">
+      <div class="wf-cap">1. Desktop, from 900px</div>
+      <div class="wf">
+        <div class="wf-inner">
+          <div class="wf-pagestub">End of page content</div>
+          <div class="wf-foot">
+            <div class="wf-trust">
+              <span class="wf-badge">18+</span>
+              <span class="wf-tlink">Play responsibly</span>
+              <span class="wf-ttext">Not available in some markets</span>
+              <span class="wf-tlink">See the list</span>
+            </div>
+            <div class="wf-cols">
+              <div>
+                <div class="wf-cl-head">Play</div>
+                <div class="wf-cl-link">Cases</div>
+                <div class="wf-cl-link">Provably fair</div>
+              </div>
+              <div>
+                <div class="wf-cl-head">Help</div>
+                <div class="wf-cl-link">Support and contact</div>
+                <div class="wf-cl-link">Appeal a restriction</div>
+              </div>
+              <div>
+                <div class="wf-cl-head">Legal</div>
+                <div class="wf-cl-link">Terms of use</div>
+                <div class="wf-cl-link">Privacy policy</div>
+                <div class="wf-cl-link">Cookie policy</div>
+                <div class="wf-cl-link">Refund and payments</div>
+              </div>
+              <div>
+                <div class="wf-cl-head">Play responsibly</div>
+                <div class="wf-cl-link">Limits and self exclusion</div>
+                <div class="wf-cl-link">Age statement</div>
+                <div class="wf-cl-link">Blocked markets</div>
+              </div>
+            </div>
+            <div class="wf-seo">
+              <div class="wf-seo-head">Interlinking block</div>
+              <div class="wf-chips">
+                <span class="wf-chip">[?]</span><span class="wf-chip">[?]</span><span class="wf-chip">[?]</span>
+                <span class="wf-chip">[?]</span><span class="wf-chip">[?]</span><span class="wf-chip">[?]</span>
+                <span class="wf-chip">structure fixed, contents pending 3.1</span>
+              </div>
+            </div>
+            <div class="wf-bottom">
+              <div class="wf-ident">Registered name [?]<br>Address [?] - Register and no. [?]<br>VAT [?] - Supervisory authority [?]</div>
+              <div class="wf-spacer"></div>
+              <div class="wf-social"><span class="wf-si"></span><span class="wf-si"></span><span class="wf-si"></span><span class="wf-si"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="wf-note"><b>The trust strip is the part with no baseline.</b> <code>baseline.md</code> section 6: the baseline has no responsible play link and no age statement anywhere, and a FAQ search for self exclusion, deposit limit, cool down and gambling returned zero matches. <b>No private route appears.</b> Deposit, account, withdrawal, sign in and identity are all noindex and all absent, so no <code>nofollow</code> is needed anywhere: the correct way not to pass a link is not to draw it.</p>
+    </div>
+
+    <div class="wf-col">
+      <div class="wf-cap">2. Mobile 360px, accordions collapsed</div>
+      <div class="wf">
+        <div class="wf-inner wf-phone">
+          <div class="wf-pagestub">End of page content</div>
+          <div class="wf-foot">
+            <div class="wf-trust">
+              <span class="wf-badge">18+</span>
+              <span class="wf-tlink">Play responsibly</span>
+              <span class="wf-ttext">Not available in some markets</span>
+            </div>
+            <div class="wf-acc"><div class="wf-acc-head">Play<span class="wf-acc-sign">+</span></div></div>
+            <div class="wf-acc"><div class="wf-acc-head">Help<span class="wf-acc-sign">+</span></div></div>
+            <div class="wf-acc is-open">
+              <div class="wf-acc-head">Legal<span class="wf-acc-sign">&minus;</span></div>
+              <div class="wf-acc-body">
+                <div class="wf-cl-link">Terms of use</div>
+                <div class="wf-cl-link">Privacy policy</div>
+                <div class="wf-cl-link">Cookie policy</div>
+                <div class="wf-cl-link">Refund and payments</div>
+              </div>
+            </div>
+            <div class="wf-acc"><div class="wf-acc-head">Play responsibly<span class="wf-acc-sign">+</span></div></div>
+            <div class="wf-acc"><div class="wf-acc-head">Interlinking block<span class="wf-acc-sign">+</span></div></div>
+            <div class="wf-dom">All collapsed links stay in the DOM</div>
+            <div class="wf-bottom">
+              <div class="wf-ident">Registered name [?]<br>Address [?] - Register and no. [?]<br>VAT [?] - Supervisory authority [?]</div>
+              <div class="wf-social"><span class="wf-si"></span><span class="wf-si"></span><span class="wf-si"></span><span class="wf-si"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="wf-note"><b>The trust strip never becomes an accordion at any width.</b> A compliance statement a person has to open is not a statement. It is the one element in this node with a rule that holds everywhere. <b>The identification block sits above the copyright</b> on mobile, because it is the part with a legal obligation attached. Accordions are collapsed for reading, never for existence.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BASELINE -->
+<section id="baseline">
+  <div class="sec-head">
+    <h2>What crosses from the baseline, and what does not</h2>
+    <p><code>baseline.md:84</code> records thirteen footer links. Four cross, five become two nodes, and one is cut on a real argument.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Baseline link</th><th style="width:20%">Verdict</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Provably Fair</td><td>Crosses, and moves up</td><td>Already in the rail by <code>D-21</code>. In the footer it is the crawlable duplicate that a second interlinking plane exists to provide</td></tr>
+        <tr><td>Terms of use, Privacy Policy, Cookie Policy, Refund Policy</td><td>Cross, as node <code>0.9</code></td><td>Four documents, one template, one node. Article 5 and the cookie regime both demand them</td></tr>
+        <tr><td>Support, Contacts and Corporate Information</td><td>Cross, merged into <code>0.10</code></td><td>Article 5(c) requires contact details allowing rapid communication, and row <code>G4</code> requires an appeal with a published response deadline. One route serves both</td></tr>
+        <tr><td><strong>FAQ</strong></td><td><strong>Cut from round 1</strong></td><td>The sharpest call in this node. On the baseline the FAQ is <strong>load bearing</strong>: it is the whole of the age control and the whole of the geo statement, <code>baseline.md</code> section 6. In our product both jobs move to real surfaces, the age gate <code>2.1</code> and responsible play <code>6.1</code>. <strong>A page whose one load-bearing job has been taken over by two dedicated surfaces is not inherited for the residue.</strong> The residue goes to <code>0.10</code>. A real FAQ returns with a keyword-research parent, at production</td></tr>
+        <tr><td>Partnership, Counter-Strike Guides, Gift cards, Marketing Assets, CS2 Pickems</td><td>Not in round 1</td><td>LATER or no parent in any of the three legal classes</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>One candidate for the trust strip was considered and declined</h4>
+    <p>The rolling median and p90 withdrawal time from our own logs, rows <code>A4</code> and <code>G3</code>, is the strongest trust signal the product owns and it is visible before login. Both rows say in their own cells <strong>"same feature as A4, two surfaces"</strong>, and those two are the entry surface and the withdrawal surface. Putting it on every page makes a third.</p>
+    <p><strong>That is a scope change, not a layout choice</strong>, so it is named here with an owner rather than added quietly or dropped silently. <strong>Owner: the founder</strong>, and it costs one line in the backlog if the answer is yes.</p>
+  </div>
+
+  <div class="card is-drop">
+    <h4>The strip is not a badge row</h4>
+    <p>No trust seals, no "100% secure", no invented certifications. Design principle 1 says trust is the product, and <code>D-14</code> names the limit on what a trust claim can do: what answers the doubt people actually record is published chance, current value and tested RTP. <strong>A seal answers none of it.</strong></p>
+  </div>
+</section>
+
+<!-- ANATOMY -->
+<section id="anatomy">
+  <div class="sec-head">
+    <h2>Anatomy, top to bottom</h2>
+    <p>Every element, its content, and the parent it stands on.</p>
+  </div>
+
+  <h3>The trust strip</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">Element</th><th style="width:38%">Content</th><th>Parent</th></tr></thead>
+      <tbody>
+        <tr><td>Age statement</td><td>18+ only, stated as a fact rather than as a link</td><td>Compliance constraint, "age verification before any case interaction"</td></tr>
+        <tr><td>Responsible play</td><td>A link, not a sentence. Third entry after the rail and the money control</td><td>Compliance constraint, "responsible play tooling", plus <code>B7-4</code>, pattern of 12</td></tr>
+        <tr><td>Market statement</td><td>That the service is unavailable in some markets, with the route to the list</td><td>Compliance constraint, "geo blocking informed by cited legal research". Row <code>B4</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>The four columns, and the rule about what is missing from them</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">Column</th><th style="width:52%">Contents</th><th>Leads to</th></tr></thead>
+      <tbody>
+        <tr><td>Play</td><td>Cases, Provably fair</td><td>3.1, 1.2</td></tr>
+        <tr><td>Help</td><td>Support and contact, the appeal route with its published response deadline</td><td>0.10</td></tr>
+        <tr><td>Legal</td><td>Terms of use, Privacy policy, Cookie policy, Refund and payments policy</td><td>0.9, and dialog 0.4 links the cookie policy</td></tr>
+        <tr><td>Play responsibly</td><td>Responsible play, the age statement in full, the blocked market list with its cited ground</td><td>6.1, 2.2</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>The footer links no private transactional node</h4>
+    <p>Deposit <code>4.1</code>, account <code>5.1</code>, withdrawal <code>5.3</code>, sign in <code>2.4</code> and identity <code>2.7</code> are all noindex and none appears here. A global footer is crawled on every page, and pointing it at noindex routes spends crawl budget on pages that decline to be indexed while putting private routes on every screen a stranger sees. <strong>The rail already carries the ones a person needs.</strong></p>
+  </div>
+
+  <h3>The interlinking block: structure fixed, contents pending</h3>
+  <div class="card">
+    <p><strong>What is fixed now:</strong> the block exists, it sits below the columns, it holds one flat list rather than a nested one, and every entry is a real crawlable <code>&lt;a&gt;</code>.</p>
+    <p><strong>What is not, with the reason:</strong> the natural contents are case categories, and the catalogue's category structure is <span style="color:var(--accent-yellow)">[?]</span>. The entities section records category membership as unresolved, present on the baseline as thirteen categories and not yet required by any job. Node <code>3.1</code> decides it. Real query volumes belong to production, per the three-layer SEO split in <code>CLAUDE.md</code>.</p>
+    <p><strong>Writing a plausible list now would be the exact failure the input gate exists to prevent:</strong> it would read as keyword research and would be model memory.</p>
+  </div>
+
+  <h3>The bottom row</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">Element</th><th style="width:44%">Content</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Copyright</td><td>Year and the operating entity name</td><td>Entity name <span style="color:var(--accent-yellow)">[?]</span>, Article 5(a)</td></tr>
+        <tr><td>Identification block</td><td>Registered name, geographic address, trade register and number, VAT number, supervisory authority where one exists</td><td><strong>Structure fixed, every value <span style="color:var(--accent-yellow)">[?]</span>.</strong> Article 5(1)(a) to (g), founder with counsel</td></tr>
+        <tr><td>Social links</td><td>The canonical set. <strong>This node owns it</strong>, and the rail's drawer renders it from here rather than keeping a second list</td><td>The set itself is <span style="color:var(--accent-yellow)">[?]</span>: <code>baseline.md</code> records seven icons in the drawer foot, and which are ours in round 1 is not decided</td></tr>
+        <tr><td>Payment method marks</td><td>Deferred</td><td>Which providers we run is <span style="color:var(--accent-yellow)">[?]</span>. A payment badge is a claim about a contract, and this project does not draw claims it cannot source</td></tr>
+        <tr><td>Language</td><td>Absent</td><td><code>D-02</code>, one language. The baseline's nine-language switcher does not cross</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- MATRIX -->
+<section id="matrix">
+  <div class="sec-head">
+    <h2>State matrix</h2>
+    <p>A footer has fewer states than a header, and saying so is more useful than manufacturing some.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Zone</th><th>Guest, desktop</th><th>Guest, mobile</th><th>Account, desktop</th><th>Account, mobile</th></tr></thead>
+      <tbody>
+        <tr><td>Trust strip</td><td>One row, always visible</td><td>One row, wrapping to two lines, never an accordion</td><td>Same</td><td>Same</td></tr>
+        <tr><td>Columns</td><td>Four columns side by side, all expanded</td><td>Four accordions, collapsed by default and present in the DOM</td><td>Same</td><td>Same</td></tr>
+        <tr><td>Interlinking block</td><td>Flat list, expanded</td><td>One accordion, collapsed by default, present in the DOM</td><td>Same</td><td>Same</td></tr>
+        <tr><td>Bottom row</td><td>Identification, copyright, social</td><td>Stacked, identification first</td><td>Same</td><td>Same</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-pick">
+    <h4>No account dimension, and that is the finding rather than a gap</h4>
+    <p>The footer is identical in both account states. Everything in it is public: legal identity, compliance statements, support, and indexed routes. <strong>A footer that changed on login would mean it held something private</strong>, which the rule above forbids.</p>
+  </div>
+
+  <h3>Transient states</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">State</th><th style="width:38%">What the footer does</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Geo blocked, <code>2.2</code></td><td>Renders in full, and the market statement carries the cited ground for this visitor's market</td><td><code>2.2</code> is a dead end by design. A dead end that also removes the legal identity and the support route is how a person with a legitimate complaint loses the ability to make it</td></tr>
+        <tr><td>Gate open, <code>2.1</code></td><td>Inert behind the gate layer, not removed</td><td>Same rule as 0.1</td></tr>
+        <tr><td>Cookie consent pending, <code>0.4</code></td><td>The cookie policy link works before consent is given</td><td>A consent dialog that links to a policy the consent gate blocks is circular</td></tr>
+        <tr><td>Boundary in force, <code>6.3</code></td><td>Unchanged. The responsible play link keeps its place and its label</td><td>A boundary is not an error state and the footer does not editorialise about it</td></tr>
+        <tr><td>404 and 500, <code>0.3</code></td><td>The full footer renders on both</td><td><code>0.3</code> says never a dead end. The footer is what makes that true on an error page: legal identity, support, and a route back</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SEO -->
+<section id="seo">
+  <div class="sec-head">
+    <h2>SEO and accessibility</h2>
+    <p>The second interlinking plane, and the one that carries the long tail.</p>
+  </div>
+
+  <div class="card">
+    <h4>Two planes, two hops</h4>
+    <p>The rail carries three or four destinations. The footer carries every indexed node the rail cannot hold, plus the legal set. Together they mean <strong>every indexed page is reachable from every other page in at most two hops</strong>.</p>
+    <p><strong>No H1.</strong> A global element is not a page. <strong><code>&lt;footer&gt;</code> with <code>&lt;nav&gt;</code> around each link column, each with an accessible name.</strong> Four unnamed navigation landmarks in one region is worse than none.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The accordions are collapsed for reading, never for existence</h4>
+    <p>Every link is in the DOM at every width and the accordion toggles visibility. <strong>This is the same rule 0.1 applies to the mobile drawer, and it is stated twice on purpose:</strong> it is the single most common way both patterns are shipped wrong.</p>
+  </div>
+
+  <div class="card">
+    <h4>Accessibility</h4>
+    <ul>
+      <li>Each accordion header is a <code>&lt;button&gt;</code> with <code>aria-expanded</code> and <code>aria-controls</code>, not a styled <code>&lt;div&gt;</code></li>
+      <li>Every target at least <strong>44 by 44 CSS pixels</strong>, matching 0.1's AAA choice</li>
+      <li>The identification block is text, not an image. A registered address in a graphic satisfies nobody, including Article 5's "easily, directly and permanently accessible"</li>
+      <li>Link text is descriptive on its own: "Refund and payments policy", never "read more" or "here"</li>
+      <li>The trust strip is not <code>aria-hidden</code> and not decorative. It carries the age statement, which is a compliance statement and not ornament</li>
+    </ul>
+    <p><strong>Indexation of what it points at.</strong> <code>0.9</code> and <code>0.10</code> are indexed and carry schema. The private nodes are absent entirely, so no <code>nofollow</code> is needed anywhere: <strong>the correct way not to pass a link is not to draw it.</strong></p>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+    <p>Four values are open. Each has an owner and a moment.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">Open item</th><th style="width:40%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td>The identification block contents</td><td>Operating entity, registered address, register and number, VAT number, supervisory authority. Structure fixed, every value unresolved</td><td>Founder with counsel, on the same answer as <code>D-A</code></td></tr>
+        <tr><td>The interlinking block contents</td><td>The catalogue's category structure</td><td>Node <code>3.1</code>, then production for the queries</td></tr>
+        <tr><td>The withdrawal p90 in the trust strip</td><td>It would be a third surface for a row that says two</td><td>Founder. One line in the backlog if yes</td></tr>
+        <tr><td>The canonical social set</td><td>Seven icons on the baseline; which are ours in round 1 is not decided</td><td>Founder, before stage 04</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>The text of any legal document.</strong> <code>0.9</code> specifies the page shape. The documents are drafted by counsel and are not a design artefact.</p>
+    <p><strong>Visual treatment.</strong> Monochrome wireframes only. Column widths, type scale, the treatment of the trust strip and whether it sits on a different ground are stage 06 and 07.</p>
+    <p><strong>Microcopy.</strong> Labels here are structural. Stage 05 owns the final strings and syncs them back.</p>
+  </div>
+
+  <a class="backlink" href="structure.html#0.2">Back to Structure (0.2)</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/footer.md</code>. Stage 03b step 3, 11 August 2026. Legal ground: Directive 2000/31/EC, EUR-Lex, opened live.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map this node grew: <a href="sitemap.html">Sitemap</a>. The other carrier: <a href="navigation.html">0.1 Navigation</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '0.2 Footer';
+window.NAV_SECTIONS = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'grew',     label: 'It grew the map' },
+  { id: 'law',      label: 'The legal ground' },
+  { id: 'mockups',  label: 'Mockups' },
+  { id: 'baseline', label: 'What crosses' },
+  { id: 'anatomy',  label: 'Anatomy' },
+  { id: 'matrix',   label: 'State matrix' },
+  { id: 'seo',      label: 'SEO and a11y' },
+  { id: 'open',     label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
