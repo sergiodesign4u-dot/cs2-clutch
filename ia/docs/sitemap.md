@@ -302,7 +302,7 @@ E2 is the one round 1 screen where the primary persona is not the highest scorer
 
 | Screen | Parent | Persona | Scope |
 |---|---|---|---|
-| **G1. Public result** | Emotional Job 2, `jtbd.md:93`, closed by row F4. Carries the Round proof, so it also touches Related Job 3, `jtbd.md:51` | P | **MVP, and it raises a scope question, see below** |
+| **G1. Public result** | Emotional Job 2, `jtbd.md:93`, closed by row F4. **And Related Job 3, `jtbd.md:51`, in its own words**, found by the step 5 matrix and recorded here rather than in the tracing section alone | P | **MVP, and it raises a scope question, see below** |
 
 ### LATER, so that the map shows the product and not only round 1
 
@@ -453,3 +453,82 @@ Primary persona The Opener, main job `jtbd.md:17`, arrive and open with a reveal
 ### What this section does not decide
 
 The full tree with page contents, which is the detail layer. And the position of Free entry, carried from step 2 as an object that appears on two screens and owns neither: the starter credit reads as a Balance state and the daily free case reads as an available case in the catalogue, so both are contextual and neither is global. That is recorded as the answer this step owed, and it is a weak one: an entitlement that only ever appears as someone else's state is how a capability quietly disappears. Flagged for step 6, the defect audit, rather than closed here.
+
+---
+
+## Tracing
+
+Written at step 5, on 11 August 2026. Rows are the functional jobs from `jtbd.md`, main and related. Columns are the screens from the concept sitemap. A tick means the screen genuinely takes part in closing that job. Emotional and social jobs are not in this matrix and have their own table below, because they are not closed by a screen.
+
+### Matrix: functional jobs against MVP screens
+
+| Job | A1 Home | A2 Prov. fair | B1 Gate | B2 Sign in | B3 Identity | C1 Catalogue | C2 Case | D1 Deposit | E1 Account | E2 Withdraw | F1 Resp. play | G1 Public result |
+|---|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| **Main Job**, `jtbd.md:17` | ✓ T1, T2 | | ✓ T3 | ✓ T3 | | ✓ T5 | ✓ T5, T6, T7 | | | | | |
+| **RJ1** arrive with confidence, `:33` | ✓ | ✓ | | | | | ✓ | | | | | |
+| **RJ2** first open without friction, `:42` | | | ✓ | ✓ | ✓ | | ✓ | ✓ | | | | |
+| **RJ3** verify the outcome, `:51` | | ✓ | | | | | ✓ | | | | | ✓ |
+| **RJ4** convert result into more value, `:60` | | | | | | | | | | | | |
+| **RJ5** withdraw cleanly, `:69` | | | | | ✓ | | | ✓ | ✓ | ✓ | | |
+| **SCOPE** | MVP | MVP | MVP | MVP | MVP | MVP | MVP | MVP | MVP | MVP | MVP | MVP |
+
+**Budget: 12 MVP screens, 12 LATER screens, 24 in the map.** Half the product as mapped is round 1. The MVP subset is the input for 03b, which writes the nodes, for stage 04, which draws them, and for stage 07, which colours them, and all three start from it rather than from the whole map.
+
+**Four cells carry a CJM phase rather than a separate job**, which is the rule the pack states: a screen that is a step of the main path closes a phase of the main job and is not an orphan for lacking a related job of its own. A1 carries T1 the pull and T2 first contact. B1 and B2 carry T3 getting in. C1 carries T5 picking a case. C2 carries T5, T6 and T7 at once, which is why `cjm-to-be.md:180` calls it one screen with three phases.
+
+### LATER screens, traced in one block
+
+| Screen | Job | Note |
+|---|---|---|
+| Battle list, Battle lobby | Social Job 1, `jtbd.md:111` | Social job, so it appears in the second table rather than this matrix |
+| Upgrade | RJ4, `jtbd.md:60` | The only pair of screens that closes RJ4 |
+| Exchange | Hypothesis Job A, `jtbd.md:133` | Parent is marked `[?]` at its own source |
+| Rakeback and loyalty | Emotional Job 3, `jtbd.md:102` | Emotional job, second table |
+| Leaderboard | Hypothesis Job C, `jtbd.md:145` | Parent is marked `[?]` |
+| Gunfights, Giveaways, Race and prize pot, Rewards hub, Gift cards, Referral and affiliate | **None** | Six declared orphans, already carried in the concept sitemap. Locked into LATER by scope, so no step may cut them |
+
+### Orphan jobs, first, because they cost more
+
+A job with no screen is a hole in the product: the person has nowhere to do their work. A screen with no job is ballast. The expensive one goes first.
+
+| Orphan job | Decision |
+|---|---|
+| **RJ4, convert my result into something more valuable**, `jtbd.md:60` | **Backlog, deliberately.** Its two screens exist in the map and are marked LATER: Upgrade, whose parent is RJ4 directly, and Exchange, whose parent is a hypothesis. The row stays empty and marked rather than being given a tick somewhere plausible. `jtbd.md:165` scores RJ4 at 2 for The Opener and 3 for The Accumulator, a secondary persona, and `CLAUDE.md` says the interface is not built around secondary scenarios even though they must work. This is that rule producing an empty row on purpose. |
+
+One orphan job, and it is resolved rather than merely noticed.
+
+### Orphan screens, and the thing the matrix cannot see
+
+| Orphan screen | Decision |
+|---|---|
+| **F1 Responsible play** | **Keep the screen. The matrix is what is incomplete, not the screen.** F1 has no functional job and never will: nobody arrives wanting to limit themselves. Its parents are barrier `B7-4`, a pattern of 12 people, and the compliance constraint in `CLAUDE.md`, "responsible play tooling (deposit limits, session limits, self exclusion, cool down)". Both are legal parent classes in this project. |
+
+**This is a defect in the instrument, and it is worth naming precisely.** The pack's matrix measures exactly one of the three legal parent classes this project uses. A screen parented on a barrier or on a compliance constraint is invisible to it and shows up as an orphan. F1 is caught by it. **D1 Deposit escapes only by accident**, because the CJM mapped phase T4 onto RJ2, and `jtbd.md:201` says in as many words that deposit closes none of the core jobs. Had the CJM not made that mapping, the matrix would have flagged the deposit screen of a money product as ballast.
+
+The matrix is kept as the pack specifies, because it does catch the thing it was built for. What is added is this paragraph, so that a later reader does not read one empty column as a mistake.
+
+**The contradiction check the pack asks for, answered.** F1 is marked MVP and has no tick. The pack says this means either the mark is inflated or a job was not described. It is neither: the mark is correct and the job does not exist, because the parent is a constraint. Named out loud rather than resolved by putting a tick somewhere.
+
+### What the matrix found that step 2 had missed
+
+**G1 Public result closes Related Job 3, in that job's own words.** Step 2 gave G1 a single parent, Emotional Job 2, and an emotional parent puts a screen outside this matrix entirely, which would have made G1 a genuine orphan and weakened the case for it. Reading RJ3 in full closes that: "so that I trust the platform enough to open again **or to tell someone about my result**", `jtbd.md:53`. Telling someone is in the functional job's own outcome clause.
+
+This is not a tick placed to rescue a screen. It is a line that was in `jtbd.md` since stage 02 and that nobody had traced. The concept sitemap row for G1 was corrected in the same step. The scope question about the ninth surface stands unchanged, and it now stands on two jobs instead of one.
+
+### Emotional and social jobs: what carries them
+
+These are not closed by a screen. Asking where a person goes to feel genuine suspense is a category error, and inventing a "trust page" to fill a cell is worse than an honest empty. Columns are the mechanism, where it lives, and what confirms it. This table is read twice more: the detail layer takes states and trust proofs from it, and stage 05 takes it as the brief for tone.
+
+| Job | Mechanism | Where it lives | Confirmed by |
+|---|---|---|---|
+| **Emotional Job 1**, genuine suspense rather than manufactured tension, `jtbd.md:84` | The reveal renders the settled roll and computes nothing again, `E1`, so animation and credited item cannot diverge. No near-miss theatre, `E2`: the deceleration lands on the actual result without visually passing better items first. The round hash is visible at the spin trigger, `E4`, which reframes the buildup as watching a settled outcome rather than waiting for one to be decided | C2 phase 2, as behaviour of the reveal itself rather than as a component | `B6-1` the animation and the credited item disagree, `B6-2` the belief that the reveal turns against you once you win, pattern of 9. `jtbd.md:89` names near-miss as a confirmed dark pattern. `ux-patterns.md:303`, "honest buildup, not manufactured near-miss" |
+| **Emotional Job 2**, a win worth talking about, `jtbd.md:93` | One-tap share, `F4`, producing an object that carries its own proof, G1. The instance value receipt, `F1`, makes the number inside the story true, so the story survives being checked by the person it is told to | C2 phase 3, then G1 | `jtbd.md:98`, Key-Drop's effects cited in user reviews as the most memorable differentiator. `aarrr.md` Referral. `B7-1` the undervalued win, pattern of 7, which is what makes an unchecked story collapse |
+| **Emotional Job 3**, smart play rewarded rather than punished, `jtbd.md:102` | **Nothing yet, and this is an honest empty rather than an oversight.** Rakeback and loyalty are LATER. Round 1 ships no mechanism for this job at all | Nowhere | Open. Direct entry to the backlog. `jtbd.md:169` scores it 1 for the primary persona and 3 for The Accumulator, which is why round 1 can carry the gap |
+| **Social Job 1**, beat a real person rather than a bot, `jtbd.md:111` | **Nothing yet, and deliberately.** Battle mode is hidden at launch by founder Decision 2, `jtbd.md:212`, because a bot-filled lobby is solo opening with extra steps | Nowhere | Open by decision, not by omission |
+| **Social Job 2**, be part of a platform that feels alive, `jtbd.md:120` | Live drop feed with no invented names, and any bot present in it labelled as one, `A3`. Every tile links to a public result rather than to a user profile, so the social proof is checkable rather than decorative | A1 and C2, as an ambient layer and never as a destination, per Pattern E at `ux-patterns.md:262` | `jtbd.md:125`. `research.md:151`, bot visibility as the worst-in-category failure, with the baseline itself showing "[BOT] Darth Vader" in its own ticker. `baseline.md` section 3 for the tile-to-profile link the baseline uses |
+
+**Two rows read "nothing yet" and both are correct.** Emotional Job 3 and Social Job 1 are the jobs of secondary personas whose surfaces are LATER by decision. A mechanism invented here to fill the cell would be a round 1 commitment nobody made.
+
+### Reconciliation of the concept sitemap against the flows
+
+Step 4 introduced no screen the concept sitemap did not already hold, so the map needed no additions. One row was corrected, G1, and the correction came from this matrix rather than from the flows.

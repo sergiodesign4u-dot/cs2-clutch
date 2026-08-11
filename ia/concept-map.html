@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - Concept map</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 28px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ul { margin: 0 0 14px 20px; }
+    li { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 5px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 830px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-defect { border-left: 3px solid var(--accent-pink); }
+    .card.is-keep { border-left: 3px solid var(--green); }
+    .card.is-muted { opacity: 0.72; border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); margin: 18px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead { background: rgba(255,255,255,0.025); }
+    th { padding: 11px 12px; text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; vertical-align: bottom; }
+    td { padding: 11px 12px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; line-height: 1.55; }
+    tr:last-child td { border-bottom: none; }
+    td strong { color: var(--text-primary); }
+
+    /* MATRIX */
+    .matrix th, .matrix td { text-align: center; }
+    .matrix th:first-child, .matrix td:first-child { text-align: left; white-space: normal; min-width: 210px; }
+    .matrix .tick { color: var(--green); font-weight: 700; font-size: 14px; }
+    .matrix .ph { display: block; font-size: 9px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 1px; }
+    .matrix tr.is-orphan td { background: rgba(233,77,139,0.07); }
+    .matrix td.is-orphan-col { background: rgba(233,77,139,0.07); }
+    .matrix tr.scope td, .matrix tr.scope th { border-top: 2px solid var(--border-strong); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); font-weight: 700; }
+    .budget { margin-top: 14px; padding: 14px 16px; border-radius: 10px; background: rgba(101,163,255,0.06); border: 1px solid rgba(101,163,255,0.22); font-size: 14px; color: var(--text-secondary); }
+    .budget strong { color: var(--accent-blue); }
+
+    .open-cell { color: var(--accent-yellow); font-weight: 600; }
+
+    /* DIAGRAM */
+    .diagram { margin: 20px 0; padding: 22px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; overflow-x: auto; }
+    .diagram .mermaid { display: flex; justify-content: center; min-width: 620px; }
+    .diagram svg { max-width: 100%; height: auto; }
+
+    .kv { display: grid; grid-template-columns: 130px 1fr; gap: 6px 16px; font-size: 13.5px; }
+    .kv dt { color: var(--text-muted); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding-top: 4px; }
+    .kv dd { color: var(--text-secondary); line-height: 1.6; }
+
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1180px; margin: 0 auto; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card { padding: 17px 15px; }
+      .kv { grid-template-columns: 1fr; gap: 2px 0; }
+      .kv dd { margin-bottom: 10px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="intro">
+  <div class="section-eyebrow">Information architecture, base layer - steps 1, 2, 3 and 5</div>
+  <h1>Concept map</h1>
+  <p class="lede">Objects before screens, screens grouped by what the person is trying to do, a navigation model with the taps counted, and a matrix that proves the coverage. Four sections, in the order the structure was actually built: the entity inventory is the foundation everything else stands on, and until now it existed only in markdown.</p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">16</div><div class="hero-stat-label">Entities</div></div>
+    <div><div class="hero-stat-value">12</div><div class="hero-stat-label">MVP screens</div></div>
+    <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Taps to the main job</div></div>
+    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Orphans, both resolved</div></div>
+  </div>
+</div>
+
+<!-- ENTITIES -->
+<section id="entities">
+  <div class="sec-head">
+    <h2>Entities</h2>
+    <p>The objects a person deals with to close their jobs. Screens only show objects, and objects grow out of jobs, so this comes first.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The parent rule, and where it departs from the pack</h4>
+    <p>The pack asks for one parent class, a job, and sends everything else to "Under question". <code>CLAUDE.md</code> defines <strong>three</strong> legal classes: a barrier code from the CJM As-Is map, a job from <code>jtbd.md</code>, or a named compliance constraint or design principle quoted by which one. The project rule outranks the pack, and the CJM stage already proved the case: deposit closes no core job and stands entirely on documented barriers, <code>jtbd.md:201</code>. Every entity below names a parent and its class.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Object</th><th>What it is made of</th><th>Parent, and class</th><th>Related to</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Case</strong></td><td>Name and artwork, entry cost in one real currency <code>C1</code>, risk band, the drop table, published tested RTP and expected value at this cost <code>D4</code>, free-unit availability <code>A2</code>, category <span class="q">[?]</span></td><td>Main Job <code>jtbd.md:17</code>, Related Job 1 <code>:33</code>. <strong>Job</strong></td><td>Contains Drop table entries. An Open consumes one. A Free entry may unlock one</td></tr>
+        <tr><td><strong>Drop table entry</strong></td><td>The Skin it points at, published chance <code>D2</code>, current value, live market price with timestamp and outbound link <code>A1</code>, live free-unit count <code>A2</code>, observed rate <code>D3</code>, the roll interval</td><td><code>B7-2</code> pattern of 11, <code>B8-1</code>. <strong>Barrier</strong></td><td>Belongs to one Case, points at one Skin. The settled roll lands on exactly one entry</td></tr>
+        <tr><td><strong>Skin</strong></td><td>Weapon, finish, wear grade, live market price with timestamp, outbound market link, rarity tier whose values are <span class="q">[?]</span> and owned by stage 06</td><td>Main Job <code>jtbd.md:17</code>. <strong>Job</strong></td><td>Appears in Drop table entries across many Cases</td></tr>
+        <tr><td><strong>Skin instance</strong></td><td>Which Skin, the instance value receipt <code>F1</code>, the Open it came from, state held or withdrawing or withdrawn, free-unit backing <code>D1</code>, float specifics <span class="q">[?]</span></td><td><code>B7-1</code> pattern of 7, Related Job 5 <code>:69</code>. <strong>Barrier with a job behind it</strong></td><td>Produced by one Open, held in an Account, consumed by a Withdrawal, carries its receipt into both</td></tr>
+        <tr><td><strong>Open</strong></td><td>The Case, entry cost paid, round hash <code>E4</code>, the settled roll <code>E1</code>, the resulting Skin instance, timestamp, verification link <code>F3</code></td><td>Main Job <code>:17</code>, Emotional Job 1 <code>:84</code>, Related Job 3 <code>:51</code>. <strong>Job</strong></td><td>Belongs to an Account, consumes Balance or a Free entry, carries one Round proof, emits one Live drop event</td></tr>
+        <tr><td><strong>Round proof</strong></td><td>Server seed hash published before the roll, client seed, nonce, the settled result, the recomputation</td><td>Related Job 3 <code>:51</code>, Core Job 1 <code>:180</code>. <strong>Job</strong></td><td>One Open has one. The public page reads them with no Account attached, which is why it is a public surface</td></tr>
+        <tr><td><strong>Account</strong></td><td>Steam identity with no password outside OpenID <code>B6</code>, verification state <code>B1</code> and <code>B2</code>, the age declaration and the identity check <code>B3</code>, withdrawals open or restricted <code>B7</code> <code>G4</code>, the market it sits in <code>B4</code>, readable Steam failure states <code>B5</code></td><td>Related Job 5 <code>:69</code>, <code>B7-1</code>, compliance constraint. <strong>All three classes</strong></td><td>Holds Balance and Skin instances. Owns Opens, Deposits, Withdrawals. Carries Play limits, bound by one Market rule</td></tr>
+        <tr><td><strong>Balance</strong></td><td>Amount in one real currency, no coin denomination <code>C1</code>, pending credit with a timer <code>C3</code>, the withdrawal threshold stated before deposit <code>C4</code>, remaining spend ceiling <code>C2</code></td><td><code>B7-1</code> pattern of 7, <code>B4-1</code>. <strong>Barrier</strong></td><td>Belongs to an Account, fed by Deposits, spent by Opens, constrained by Play limits</td></tr>
+        <tr><td><strong>Deposit</strong></td><td>Amount, method <span class="q">[?]</span>, crediting state with a timer <code>C3</code>, the ceiling chosen here <code>C2</code>, the withdrawal threshold as stated <code>C4</code></td><td><code>B4-3</code>, <code>B7-4</code>, <code>B4-1</code>. <strong>Barrier only, no job</strong>, per <code>jtbd.md:201</code></td><td>Belongs to an Account, credits Balance, sets Play limits at the money decision</td></tr>
+        <tr><td><strong>Withdrawal</strong></td><td>The Skin instances and their receipts <code>F2</code>, named states with per-state timers and attribution <code>G1</code>, published ceilings <code>G2</code>, named limits <code>G5</code>, written notice with a ground and an appeal <code>G4</code>, zero commission <code>G6</code></td><td>Related Job 5 <code>:69</code>, <code>B8-2</code>, <code>B8-3</code>. <strong>Job and barrier</strong></td><td>Consumes Skin instances, delivers into the Steam inventory, which is outside our system</td></tr>
+        <tr><td><strong>Published performance record</strong></td><td>Rolling median and p90 from our own logs <code>A4</code> <code>G3</code>, per-state ceilings <code>G2</code>, a live degraded flag from a Steam API probe, published tested RTP per case <code>D4</code></td><td><code>B8-2</code>, Related Job 1 <code>:33</code>. <strong>Barrier and job</strong></td><td>Derived from Withdrawals. Read before login on Home and after login on Withdrawal</td></tr>
+        <tr><td><strong>Play limits</strong></td><td>Spend ceiling at deposit <code>C2</code>, session limit, self exclusion, cool down <code>C5</code>, each with a state and an effective period <span class="q">[?]</span></td><td><code>B7-4</code> pattern of 12, compliance constraint. <strong>Barrier and constraint</strong></td><td>Belongs to an Account, set at Deposit, constrains Balance and Open. <strong>Zero inherited from the baseline</strong></td></tr>
+        <tr><td><strong>Free entry</strong></td><td>Type, starter credit <code>I1</code> or daily free case <code>I2</code>, the bound constraints, what it unlocks, availability and reset <span class="q">[?]</span></td><td><code>I1</code> on Related Job 2 <code>:42</code>. <strong><code>I2</code> has no parent in any legal class</strong> and is MVP by founder decision of 11 August 2026, printed rather than given a borrowed parent</td><td>Unlocks an Open without consuming Balance. Appears on two screens and owns neither</td></tr>
+        <tr><td><strong>Live drop event</strong></td><td>The winning account as it chooses to appear, the Skin, the Case or mode, timestamp, bot labelling where present <code>A3</code></td><td>Social Job 2 <code>:120</code>. <strong>Job only, no barrier</strong></td><td>Emitted by an Open, points at a Public result rather than at a profile</td></tr>
+        <tr><td><strong>Shared result</strong></td><td>Resolved at step 2: one Open with its Skin, its Case and its Round proof</td><td>Emotional Job 2 <code>:93</code> and Related Job 3 <code>:51</code>. <strong>Job</strong></td><td>Produced by <code>F4</code>, lands on G1, and gives the Live drop event a destination</td></tr>
+        <tr><td><strong>Market rule</strong></td><td>The market, the verdict, a cited legal ground per blocked market <code>B4</code>, the staged rollout it implies. Inherited list carried <span class="q">[?]</span> until re-verified</td><td>Compliance constraint, <code>research.md</code> section 7. <strong>Constraint</strong></td><td>Binds an Account. Met by a visitor before anything else. Asymmetric: the record is operator-side, only the verdict and its ground reach the person</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-muted">
+    <h4>Under question: objects with no parent in any of the three classes</h4>
+    <p>They are not in the inventory and they do not enter the concept sitemap without acquiring a parent: <strong>referral and affiliate standing</strong> (a business line at <code>aarrr.md:272</code>, no user job), <strong>giveaway entry</strong>, <strong>gunfight</strong>, <strong>race and prize pot</strong> (which occupies the most prominent slot in the baseline's header and has no parent at all), <strong>rewards hub</strong>, <strong>top wins</strong>, <strong>gift cards</strong>. Plus <strong>case category</strong>, which no job requires and which becomes necessary only if the catalogue stays large, a question <code>D-D</code> owns.</p>
+    <p><strong>Six of these seven are the objects behind eight of the nine destinations in the baseline's left icon rail.</strong> The baseline walk reached the same finding from the opposite end.</p>
+  </div>
+</section>
+
+<!-- INTENT SCHEMA -->
+<section id="schema">
+  <div class="sec-head">
+    <h2>Screens by intent</h2>
+    <p>A concept, not a tree. States live in the flows, page contents live in the detail layer, and neither is here.</p>
+  </div>
+
+  <div class="diagram"><pre class="mermaid">
+graph TD
+    subgraph A["A. Decide whether this place is real"]
+        A1["A1 Home<br/><small>RJ1, Social Job 2</small>"]
+        A2["A2 Provably fair, public verifier<br/><small>RJ3 and Core Job 1</small>"]
+    end
+    subgraph B["B. Get through the door"]
+        B1["B1 Age and geo gate<br/><small>compliance constraint</small>"]
+        B2["B2 Sign in with Steam<br/><small>RJ2</small>"]
+        B3["B3 Identity verification<br/><small>B8-4, before funding</small>"]
+    end
+    subgraph C["C. Choose what to open, and open it"]
+        C1["C1 Case catalogue<br/><small>Main Job</small>"]
+        C2["C2 Case screen, three phases<br/><small>Main Job, RJ1, RJ3, EJ1</small>"]
+    end
+    subgraph D["D. Put money in"]
+        D1["D1 Deposit<br/><small>barrier only, no job</small>"]
+    end
+    subgraph E["E. Take out what I earned"]
+        E1["E1 Account and inventory<br/><small>RJ5</small>"]
+        E2["E2 Withdrawal with public clock<br/><small>RJ5</small>"]
+    end
+    subgraph F["F. Keep myself in check"]
+        F1["F1 Responsible play<br/><small>constraint, no job</small>"]
+    end
+    subgraph G["G. Tell someone"]
+        G1["G1 Public result<br/><small>EJ2 and RJ3, ninth surface</small>"]
+    end
+
+    A1 --> C1
+    A1 --> C2
+    A1 --> A2
+    C1 --> C2
+    C2 --> B1
+    B1 --> B2
+    C2 --> G1
+    C2 --> A2
+    B2 --> E1
+    E1 --> E2
+    D1 --> B3
+    E1 --> D1
+    D1 --> F1
+
+    classDef mvp fill:#0f0c35,stroke:#65A3FF,color:#F0EEF8;
+    classDef gate fill:#1a0f2e,stroke:#E94D8B,color:#F0EEF8;
+    classDef open fill:#231a12,stroke:#FADA62,color:#F0EEF8;
+    class A1,A2,C1,C2,E1,E2 mvp;
+    class B1,B2,B3,F1,D1 gate;
+    class G1 open;
+  </pre></div>
+
+  <div class="card">
+    <dl class="kv">
+      <dt>Blue</dt><dd>Screens a person chooses to go to.</dd>
+      <dt>Pink</dt><dd>Screens the product requires: gates, identity, money, limits. Four of the five have no functional job and stand on barriers or on the compliance constraint.</dd>
+      <dt>Yellow</dt><dd>The one screen whose scope is not settled.</dd>
+    </dl>
+  </div>
+
+  <div class="card is-muted">
+    <h4>LATER, so that the map shows the product and not only round 1</h4>
+    <p><strong>With a parent:</strong> Battle list and Battle lobby (Social Job 1), Upgrade (RJ4), Exchange (Hypothesis Job A, <span class="q">[?]</span>), Rakeback and loyalty (Emotional Job 3), Leaderboard (Hypothesis Job C, <span class="q">[?]</span>).</p>
+    <p><strong>Orphans, seven screens with no parent in any class:</strong> Gunfights, Giveaways, Race and prize pot, Rewards hub, Gift cards, Referral and affiliate. Locked into LATER by scope, so no step may cut them. Each has to acquire a parent before its own round opens.</p>
+  </div>
+</section>
+
+<!-- NAVIGATION -->
+<section id="navigation">
+  <div class="sec-head">
+    <h2>Navigation model</h2>
+    <p>Four global items in two states, levels assigned deliberately, and the taps counted.</p>
+  </div>
+
+  <div class="card is-defect">
+    <h4>Round 1 ships no left icon rail</h4>
+    <p>The baseline runs a fixed 70px rail with nine destinations and <strong>exactly one of the nine is in our round 1</strong>. A rail carrying one live item and eight dead ones is not navigation, it is a promise the product cannot keep, advertised on every screen. Deferred with its trigger named, battles at Phase 1.5, rather than deleted. Removing it is also the flattening this step needed: the horizontal space it occupied returns to the reveal, which is the surface the product competes on.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Global item</th><th>Enters</th><th>The job behind it</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cases</strong></td><td>C1, the catalogue</td><td>Main Job <code>jtbd.md:17</code>. The one mode round 1 ships</td></tr>
+        <tr><td><strong>Provably fair</strong></td><td>A2</td><td>Related Job 1 before login, Related Job 3 after the open</td></tr>
+        <tr><td><strong>My items</strong></td><td>E1</td><td>Related Job 5 <code>:69</code>. Inventory, receipts, the way into withdrawal</td></tr>
+        <tr><td><strong>Balance</strong></td><td>D1 and the spend ceiling</td><td><code>B4-3</code>, <code>B7-4</code>, <code>B4-1</code>. Barrier class, no job</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-keep">
+    <h4>Provably fair in the global navigation is a structural claim no competitor makes</h4>
+    <p><code>jtbd.md:180</code> names a public provably fair surface as one of three things no competitor offers pre-login, and the <a href="../research/baseline.html">baseline walk</a> verified on 11 August 2026 that our own baseline still redirects that route to login. Design principle 1 says trust is the product, and a principle that does not reach the navigation is a slogan. <strong>It carries the limit <code>D-14</code> attached to it:</strong> its position is not a claim that a verifier converts a sceptic. What answers the recorded doubt is D2 and D4 on the case screen.</p>
+    <p><strong>Pre-login the header is two items.</strong> My items and Balance describe nothing that exists before an account, so the pre-login navigation is Cases and Provably fair and nothing else. That is the shortest global navigation in the category and it matches what the pre-login job actually is: evaluate, then open.</p>
+  </div>
+
+  <div class="card">
+    <dl class="kv">
+      <dt>Level 1</dt><dd>A1 Home, C1 Catalogue, A2 Provably fair, E1 Account and inventory, D1 Deposit.</dd>
+      <dt>Level 2</dt><dd>C2 Case screen, E2 Withdrawal, F1 Responsible play.</dd>
+      <dt>Level 3</dt><dd><strong>Empty in round 1</strong>, which is a result rather than an omission.</dd>
+      <dt>No level</dt><dd>B1, B2 and B3 are interrupts that fire inside a flow rather than destinations. G1 is a landing entered from outside the product. Giving any of them a level would inflate the depth count with things nobody chooses.</dd>
+    </dl>
+  </div>
+
+  <div class="card is-defect">
+    <h4>Main job in 3 taps, and one of the three is the gate</h4>
+    <p>Home, then a featured case tile, then the age gate, then Open. <strong>The compliance layer eats a third of the budget for the main job.</strong> It is also exactly why the gate carries only the declaration: <code>D-17</code> puts identity verification before funding instead of here, and if that check sat at this tap the main job would be unreachable inside the budget for a first-time visitor.</p>
+    <p><strong>The gate fires at first case interaction, not on arrival, and that placement is load bearing.</strong> <code>B3</code> says "before any case interaction", not before any interaction. The tap count is identical either way. What differs is whether the product gets to answer <code>B1-1</code>, the category arrives pre-suspected, before it starts asking for things.</p>
+    <p><strong>The browsing route is 4 taps and it is not the main job route.</strong> The Opener arrives from a clip wanting to open, not to browse 239 cases.</p>
+    <p><strong>What was paid for three taps, stated rather than defended.</strong> Featured cases sit on Home, so Home carries the trust evaluation and the entry to the main job at once. Design principle 3 says cost never hides inside excitement, and a home that is both a trust page and a shop is where that risk lives. Handed forward to the wireframe stage as a named constraint. <strong>And one structural fork stays open:</strong> whether C1 survives as a separate node depends on <code>D-D</code>. A small enough backed catalogue means Home absorbs it and both routes become three taps.</p>
+  </div>
+
+  <div class="card">
+    <dl class="kv">
+      <dt>Global</dt><dd>The four navigation items in their two states, the Balance figure once an account exists, and a footer carrying responsible play and the legal pages. <strong>Responsible play in the footer of every screen is deliberate rather than inherited:</strong> the baseline has zero responsible play routes and zero matches for self exclusion, deposit limit or cool down anywhere.</dd>
+      <dt>Contextual</dt><dd>The age and geo gate at first case interaction, sign in at the first point needing an account, identity verification before funding, the post-reveal verification link and the one-tap share in the outcome phase, the spend ceiling at deposit.</dd>
+      <dt>Deep</dt><dd>Self exclusion and cool down inside F1, the withdrawal restriction appeal inside E2, the verifier form itself inside A2, since the page has to open and explain before it asks anyone to paste a seed.</dd>
+      <dt>Not global</dt><dd>The live drop feed renders on A1 and C2 and nowhere else. Pattern E requires it to be a layer on the screens where the core happens, and a feed on every screen would be wallpaper rather than context.</dd>
+    </dl>
+  </div>
+</section>
+
+<!-- MATRIX -->
+<section id="matrix">
+  <div class="sec-head">
+    <h2>Tracing matrix</h2>
+    <p>Functional jobs against screens. A tick means the screen genuinely takes part in closing that job. Emotional and social jobs are not here and have their own table below.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th>Functional job</th>
+          <th>A1<br>Home</th><th>A2<br>Prov. fair</th><th>B1<br>Gate</th><th>B2<br>Sign in</th><th>B3<br>Identity</th><th>C1<br>Catalogue</th><th>C2<br>Case</th><th>D1<br>Deposit</th><th>E1<br>Account</th><th>E2<br>Withdraw</th><th>F1<br>Resp. play</th><th>G1<br>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Main Job</strong> <code>:17</code><br>arrive, open, get the thrill</td>
+          <td><span class="tick">✓</span><span class="ph">T1, T2</span></td><td></td><td><span class="tick">✓</span><span class="ph">T3</span></td><td><span class="tick">✓</span><span class="ph">T3</span></td><td></td><td><span class="tick">✓</span><span class="ph">T5</span></td><td><span class="tick">✓</span><span class="ph">T5 T6 T7</span></td><td></td><td></td><td></td><td class="is-orphan-col"></td><td></td>
+        </tr>
+        <tr>
+          <td><strong>RJ1</strong> <code>:33</code><br>arrive with confidence to try</td>
+          <td><span class="tick">✓</span></td><td><span class="tick">✓</span></td><td></td><td></td><td></td><td></td><td><span class="tick">✓</span></td><td></td><td></td><td></td><td class="is-orphan-col"></td><td></td>
+        </tr>
+        <tr>
+          <td><strong>RJ2</strong> <code>:42</code><br>first open without friction</td>
+          <td></td><td></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td><td></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td><td></td><td></td><td class="is-orphan-col"></td><td></td>
+        </tr>
+        <tr>
+          <td><strong>RJ3</strong> <code>:51</code><br>verify the outcome</td>
+          <td></td><td><span class="tick">✓</span></td><td></td><td></td><td></td><td></td><td><span class="tick">✓</span></td><td></td><td></td><td></td><td class="is-orphan-col"></td><td><span class="tick">✓</span></td>
+        </tr>
+        <tr class="is-orphan">
+          <td><strong>RJ4</strong> <code>:60</code><br>convert result into more value</td>
+          <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+          <td><strong>RJ5</strong> <code>:69</code><br>withdraw cleanly</td>
+          <td></td><td></td><td></td><td></td><td><span class="tick">✓</span></td><td></td><td></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td><td><span class="tick">✓</span></td><td class="is-orphan-col"></td><td></td>
+        </tr>
+        <tr class="scope">
+          <td>Scope</td>
+          <td>MVP</td><td>MVP</td><td>MVP</td><td>MVP</td><td>MVP</td><td>MVP</td><td>MVP</td><td>MVP</td><td>MVP</td><td>MVP</td><td>MVP</td><td>MVP</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="budget">
+    <strong>Budget: 12 MVP screens, 12 LATER screens, 24 in the map.</strong> Half the product as mapped is round 1. The MVP subset is the input for 03b, which writes the nodes, for stage 04, which draws them, and for stage 07, which colours them. All three start from it rather than from the whole map.
+  </div>
+
+  <div class="card is-defect">
+    <h4>Orphan job, first, because it costs more than an orphan screen</h4>
+    <p>A job with no screen is a hole in the product: the person has nowhere to do their work. A screen with no job is ballast. <strong>RJ4, convert my result into something more valuable</strong>, has no screen in round 1.</p>
+    <p><strong>Decision: backlog, deliberately, and the row stays empty and marked rather than being given a tick somewhere plausible.</strong> Its two screens exist in the map as LATER: Upgrade, whose parent is RJ4 directly, and Exchange, whose parent is a hypothesis. <code>jtbd.md:165</code> scores RJ4 at 2 for The Opener and 3 for The Accumulator, a secondary persona, and <code>CLAUDE.md</code> says the interface is not built around secondary scenarios even though they must work. This is that rule producing an empty row on purpose.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Orphan screen, and the thing the matrix cannot see</h4>
+    <p><strong>F1 Responsible play has no tick anywhere.</strong> Decision: <strong>keep the screen. The matrix is what is incomplete.</strong> F1 has no functional job and never will, because nobody arrives wanting to limit themselves. Its parents are barrier <code>B7-4</code>, a pattern of 12 people, and the compliance constraint in <code>CLAUDE.md</code>. Both are legal parent classes in this project.</p>
+    <p><strong>This is a defect in the instrument and it is worth naming precisely.</strong> The matrix measures exactly one of the three legal parent classes this project uses, so any screen parented on a barrier or on a constraint shows up as an orphan. <strong>D1 Deposit escapes only by accident</strong>, because the CJM mapped phase T4 onto RJ2. Had it not, the matrix would have flagged the deposit screen of a money product as ballast.</p>
+    <p><strong>The contradiction check the pack asks for, answered.</strong> F1 is marked MVP with no tick, which the pack says means either the mark is inflated or a job was not described. It is neither: the mark is correct and the job does not exist, because the parent is a constraint.</p>
+  </div>
+
+  <div class="card is-keep">
+    <h4>What the matrix found that step 2 had missed</h4>
+    <p><strong>G1 Public result closes Related Job 3, in that job's own words.</strong> Step 2 gave it a single emotional parent, which puts a screen outside this matrix entirely and would have made G1 a genuine orphan, weakening the case for it. Reading RJ3 in full closes that: "so that I trust the platform enough to open again <strong>or to tell someone about my result</strong>", <code>jtbd.md:53</code>. Telling someone is in the functional job's own outcome clause.</p>
+    <p>This is not a tick placed to rescue a screen. It is a line that has been in <code>jtbd.md</code> since stage 02 and that nobody had traced. The scope question about the ninth surface stands unchanged, and it now stands on two jobs instead of one.</p>
+  </div>
+
+  <h3>Emotional and social jobs: what carries them</h3>
+  <p>These are not closed by a screen. Asking where a person goes to feel genuine suspense is a category error, and inventing a "trust page" to fill a cell is worse than an honest empty. This table is read twice more: the detail layer takes states and trust proofs from it, and stage 05 takes it as the brief for tone.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Job</th><th>Mechanism</th><th>Where it lives</th><th>Confirmed by</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Emotional Job 1</strong><br>genuine suspense, not manufactured tension <code>:84</code></td>
+          <td>The reveal renders the settled roll and computes nothing again, <code>E1</code>, so animation and credited item cannot diverge. No near-miss theatre, <code>E2</code>: the deceleration lands on the actual result without visually passing better items first. The round hash is visible at the spin trigger, <code>E4</code>, which reframes the buildup as watching a settled outcome rather than waiting for one to be decided</td>
+          <td>C2 phase 2, as behaviour of the reveal itself rather than as a component</td>
+          <td><code>B6-1</code>, <code>B6-2</code> pattern of 9. <code>jtbd.md:89</code> names near-miss as a confirmed dark pattern. <code>ux-patterns.md:303</code></td>
+        </tr>
+        <tr>
+          <td><strong>Emotional Job 2</strong><br>a win worth talking about <code>:93</code></td>
+          <td>One-tap share, <code>F4</code>, producing an object that carries its own proof, G1. The instance value receipt, <code>F1</code>, makes the number inside the story true, so the story survives being checked by the person it is told to</td>
+          <td>C2 phase 3, then G1</td>
+          <td><code>jtbd.md:98</code>. <code>aarrr.md</code> Referral. <code>B7-1</code> pattern of 7, which is what makes an unchecked story collapse</td>
+        </tr>
+        <tr>
+          <td><strong>Emotional Job 3</strong><br>smart play rewarded <code>:102</code></td>
+          <td class="open-cell">Nothing yet, and this is an honest empty rather than an oversight. Rakeback and loyalty are LATER. Round 1 ships no mechanism for this job at all</td>
+          <td class="open-cell">Nowhere</td>
+          <td>Open. Direct entry to the backlog. <code>jtbd.md:169</code> scores it 1 for the primary persona and 3 for The Accumulator, which is why round 1 can carry the gap</td>
+        </tr>
+        <tr>
+          <td><strong>Social Job 1</strong><br>beat a real person, not a bot <code>:111</code></td>
+          <td class="open-cell">Nothing yet, and deliberately. Battle mode is hidden at launch by founder Decision 2, because a bot-filled lobby is solo opening with extra steps</td>
+          <td class="open-cell">Nowhere</td>
+          <td>Open by decision, not by omission. <code>jtbd.md:212</code></td>
+        </tr>
+        <tr>
+          <td><strong>Social Job 2</strong><br>a platform that feels alive <code>:120</code></td>
+          <td>Live drop feed with no invented names, and any bot present in it labelled as one, <code>A3</code>. Every tile links to a public result rather than to a user profile, so the social proof is checkable rather than decorative</td>
+          <td>A1 and C2, as an ambient layer and never as a destination</td>
+          <td><code>jtbd.md:125</code>. <code>research.md:151</code>, bot visibility as the worst-in-category failure, with the baseline showing "[BOT] Darth Vader" in its own ticker</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>Two rows read "nothing yet" and both are correct.</strong> Emotional Job 3 and Social Job 1 belong to secondary personas whose surfaces are LATER by decision. A mechanism invented here to fill the cell would be a round 1 commitment nobody made.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Source of truth: <code>ia/docs/sitemap.md</code>. Stage 03a steps 1, 2, 3 and 5, 11 August 2026. Routes and states are on the <a href="flows.html">Flows</a> page. Decisions are in <a href="../docs/decisions.html">Decision records</a>.</p>
+</footer>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'dark',
+    darkMode: true,
+    securityLevel: 'loose',
+    themeVariables: {
+      background: '#0a0827',
+      primaryColor: '#0f0c35',
+      primaryTextColor: '#F0EEF8',
+      primaryBorderColor: '#5a5a5a',
+      lineColor: '#8B89A8',
+      clusterBkg: '#080620',
+      clusterBorder: '#2a2750',
+      fontFamily: "'Inter', -apple-system, sans-serif",
+      fontSize: '14px'
+    },
+    flowchart: { curve: 'basis', padding: 16, nodeSpacing: 40, rankSpacing: 56, useMaxWidth: true }
+  });
+</script>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_SECTIONS = [
+  { id: 'entities', label: 'Entities' },
+  { id: 'schema', label: 'Screens by intent' },
+  { id: 'navigation', label: 'Navigation model' },
+  { id: 'matrix', label: 'Tracing matrix' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
