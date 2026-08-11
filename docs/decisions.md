@@ -309,3 +309,51 @@ It is placed before stage 04 rather than before 03a because it changes no node a
 **The consequence for 03a, and it is why this record exists before step 1 rather than after it.** "Inherit the structure" currently has **no source document.** `CLAUDE.md` names what is inherited, the navigation model, the page inventory, the page composition, the flows, the left icon rail, the live drop ticker and the placement of the money and account actions, and not one of those seven is written down anywhere in this repository. Six screenshots are not an inventory. Building the concept sitemap on them would mean reconstructing a six-year-old product from images plus model memory, which is exactly the median the input gate exists to prevent, and it would look convincing right up until someone asked where a node came from. The baseline therefore gets its own documented walk, on public and pre-login pages, before step 1 of the stage.
 
 **Executed the same day.** `research/docs/baseline.md`, visible at `research/baseline.html`, seven pages opened live with proof screenshots in `research/screens/baseline/`. It found more than the inventory it was sent for. **Of the nine destinations in the left icon rail, exactly one is in our round 1**, which means the navigation model cannot be inherited as drawn without shipping a round 1 that is eight-ninths empty. Backlog row D2 turns out to be inherited rather than added, because the baseline already publishes per item chance and the roll interval pre-login. The daily free case, our parentless row I2, already exists there gated behind a wager requirement rather than given away, which is an inherited answer to the exact risk I2 carries in the open. The age gate and the responsible play page are the only two round 1 surfaces with no baseline at all: age is one FAQ sentence and responsible play returns zero matches anywhere on the product. And the walk answered this record's own held question with a fact rather than an argument: **every documentation page in this repository already runs the baseline's three accent values**, `#E94D8B`, `#65A3FF` and `#FADA62`, with a card ground one hex digit from the baseline's. That went unrecorded for three stages while D-03 said the palette was not inherited.
+
+---
+
+## D-19. The base layer of the information architecture
+
+**Date:** 2026-08-11. **Stage:** 03a, closed at step 8. **Binds:** 03b, which expands every node, stage 04, which draws them, and stage 07, which colours them.
+
+### Why the clusters formed this way
+
+**Chosen: seven clusters by intent**, each named for what the person is trying to do. Decide whether this place is real. Get through the door. Choose what to open and open it. Put money in. Take out what I earned. Keep myself in check. Tell someone.
+
+**Rejected: grouping by site section**, which is what the baseline runs and what every competitor runs. It produces a map whose top level is the operator's org chart rather than anyone's intent, and it hides the fact that four of the twelve screens exist because a barrier or a constraint demands them rather than because a person wants them. Cluster B, get through the door, is three screens nobody chooses to visit, and naming it by intent is what makes that visible instead of burying it under "Account".
+
+**Rejected: grouping by persona.** The Opener is primary and `CLAUDE.md` says the interface is not built around secondary scenarios, so a persona-shaped map would have had one full branch and three stubs. The secondary personas are represented in the matrix and in the emotional and social table, which is where they belong.
+
+### Why this navigation model, and what was flattened for three taps
+
+**Chosen: four global items in two states**, and pre-login it is two. Cases, Provably fair, and after an account exists My items and Balance.
+
+**Provably fair in the global navigation is the one structural claim here that no competitor makes.** `jtbd.md:180` names a public provably fair surface as one of three things no competitor offers pre-login, and the baseline walk verified on 11 August 2026 that our own baseline still redirects that route to login. A principle that does not reach the navigation is a slogan. It carries the limit `D-14` attached to it: the position is not a claim that a verifier converts a sceptic.
+
+**Rejected: keeping the baseline's left icon rail.** The rail is a mode switcher with nine destinations and **exactly one of them is in our round 1**. A rail carrying one live item and eight dead ones advertises absence on every screen. Deferred with its trigger named, battles at Phase 1.5, rather than deleted. This is the largest single divergence from the inherited structure and it is named here because `CLAUDE.md` requires divergences to be named rather than absorbed.
+
+**What was flattened, stated as a cost rather than defended.** Featured cases sit on Home, which is what buys the three tap route to the main job. Home therefore carries three loads at once: the trust evaluation that rows A1 to A5 exist for, the entry to the main job, and after step 6 the starter credit offer as well. Design principle 3 says cost never hides inside excitement, and a home that is simultaneously a trust page and a shop is exactly where that risk lives. Handed to stage 04 as a named constraint rather than as a solved problem.
+
+**One of the three taps is the age gate**, which is the reason that gate carries only the 18+ declaration. If identity verification sat at that tap the main job would be unreachable inside budget for a first-time visitor. The two layer split came from `D-17`, a compliance argument, and the Pattern A reconciliation at step 2 arrived at the same shape from a completely different direction. Two instruments converging on one answer is the strongest thing that happened in this stage.
+
+**One structural fork stays open.** Whether the catalogue survives as a separate node depends on `D-D`. A small enough backed catalogue means Home absorbs it. Deferred, not guessed.
+
+### How the orphans were resolved
+
+**One orphan job, RJ4, convert my result into something more valuable.** Backlog, deliberately. Its two screens exist in the map marked LATER, it scores 2 for the primary persona and 3 for a secondary one, and the row stays empty and marked rather than being given a tick somewhere plausible.
+
+**One orphan screen, responsible play, and the finding was about the instrument.** It has no functional job and never will, because nobody arrives wanting to limit themselves. Its parents are a barrier and a compliance constraint, both legal classes in this project. **The pack's tracing matrix measures exactly one of the three**, so any screen parented on a barrier or a constraint reads as ballast. Deposit escapes only by accident, because the CJM mapped phase T4 onto Related Job 2. Kept the matrix, added the paragraph, and named the limit rather than putting a tick somewhere to make the table look clean.
+
+**Seven orphan screens in LATER, carried rather than cut**, because scope locks them in and no step may cut a locked item. Each has to acquire a parent before its own round opens. One of them, Top wins, had fallen out of the screen list between two steps and was restored at step 7 when the count disagreed with its own list.
+
+### The screen code namespace, and why it is a rule rather than a note
+
+All twelve screen codes collided with backlog capability codes: `C1` was the catalogue and also "one real currency throughout", `E1` was the account and also "the reveal renders the settled roll". Both readings parsed, which is why it survived four steps and produced ambiguous sentences in shipped files. Screens now carry an `S-` prefix and backlog codes are untouched, because they belong to `cjm-to-be.md` and this stage does not rewrite an upstream file. **03b writes one node per screen from these codes**, so the rule enters `CLAUDE.md` rather than staying here.
+
+### What both critiques cost and what they bought
+
+31 findings across two passes on two instruments. Codex 13, Claude 13, both 5. 25 fixed, 2 withdrawn on verification with their reasons kept visible, 3 carried with an owner, 1 outside this stage.
+
+**Six of the fourteen findings in the second pass were damage the first pass caused**, three of them by a single rename regex. Critique 1 found what the map was missing, critique 2 found what fixing it broke. A stage that runs one critique and stops ships that damage, and this is the first time in the project that the second pass paid for itself in a way that can be counted.
+
+**The second critique split with zero overlap between instruments**, which is the strongest evidence for the two instrument rule the project has produced. Codex owned every mechanical inconsistency including the three defects the rename had just created; Claude owned the consequences of its own edits, an axis Codex cannot have because it did not make them.

@@ -4,7 +4,7 @@ Redesign of a live CS2 skin platform, built as a twelve stage product design pip
 
 **Live: [project roadmap](https://sergiodesign4u-dot.github.io/cs2-clutch/)**
 
-Every stage leaves two outputs: a markdown source of truth in `docs/` for the model, and an html page in the browser for the person who decides. Structure and information architecture are inherited from the baseline; the visual language is derived from scratch at stage 06.
+Every stage leaves two outputs: a markdown source of truth in `docs/` for the model, and an html page in the browser for the person who decides. Structure and information architecture are inherited from the baseline, and so is the colour register since 11 August 2026. Typography, shape language, motion and copy are derived at stage 06.
 
 ## Status
 
@@ -15,7 +15,7 @@ This table and `_nav.js` are the only two places where status lives. Nothing els
 | 01 | Foundation Research | [Research](https://sergiodesign4u-dot.github.io/cs2-clutch/research/research.html) | Done |
 | 02 | User Research (Personas, JTBD) | [Personas](https://sergiodesign4u-dot.github.io/cs2-clutch/research/personas.html), [JTBD](https://sergiodesign4u-dot.github.io/cs2-clutch/research/jtbd.html) | Done |
 | 02+ | CJM (As-Is, To-Be) | [CJM As-Is](https://sergiodesign4u-dot.github.io/cs2-clutch/research/cjm-as-is.html), [CJM To-Be](https://sergiodesign4u-dot.github.io/cs2-clutch/research/cjm-to-be.html) | Done |
-| 03 | Information Architecture (Base, Detail) | [Baseline walk](https://sergiodesign4u-dot.github.io/cs2-clutch/research/baseline.html), [Flows](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/flows.html), [Concept map](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/concept-map.html), then sitemap, structure | In progress, base layer 5 of 8 steps |
+| 03 | Information Architecture (Base, Detail) | [Flows](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/flows.html), [Concept map](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/concept-map.html) | In progress. Base layer done, Detail next |
 | 04 | Wireframes | overview, index, screens | Not started |
 | 05 | Voice | voice | Not started |
 | 06 | Concept | directions, concept | Not started |
@@ -36,6 +36,8 @@ One thing the re-run could not deliver, named rather than hidden: no product in 
 
 **The one line conclusion.** The deepest pit is not the open, it is everything after it: P7 the outcome and P8 payoff or exit both sit at -5, on patterns of 7, 11 and 12 people, while the open itself has no counted signal at all. To-Be closes that end of the path with the instance value receipt that follows the item into inventory and onto the withdrawal record, a public withdrawal clock with per-state timers and our own published p90, and the rule that the sum required to withdraw is stated before the deposit and can never rise.
 
+**IA base layer: done, August 2026.** Sixteen entities before any screen, twelve MVP screens in seven intent clusters against twelve LATER, six flows in Mermaid with states and dead ends rather than happy paths, a navigation model of four global items in two states, and the main job at three taps. The tracing matrix carries a scope row and a budget line, and both critiques ran on two instruments: 31 findings, Codex 13, Claude 13, both 5, with 25 fixed and the withdrawn ones visible with their reasons. **The single largest divergence from the inherited structure:** round 1 ships no left icon rail, because the baseline rail has nine destinations and exactly one of them is in our round 1. Reasoning: `docs/decisions.md` D-19.
+
 **Stage 03 input gate: passed on 11 August 2026, and it found more than it expected.** All seven declared inputs exist. The four decisions the CJM map could not close were answered (D-17): the age gate becomes two layers, a declaration at registration plus identity verification before funding; the roll history migration goes to the platform as a question of fact; the internal weights check is scheduled before stage 04; inventory capital is deferred to 03b. The founder also decided the colour register is taken from the baseline rather than derived near it (D-18), which reverses part of D-03. Then the gate found that "the structure is inherited" had no source document: seven things were listed as inherited and none of them was written down. That produced `baseline.md`, a live walk of daddyskins.com on public pre-login pages, whose sharpest finding is that **only one of the nine left rail destinations is in round 1**.
 
 ## Scope
@@ -49,9 +51,9 @@ One thing the re-run could not deliver, named rather than hidden: no product in 
 | Decision | Value |
 |---|---|
 | Language | One, English |
-| Existing brand | None inherited. Own logo, own palette from stage 06 |
+| Existing brand | Own logo. **Colour register inherited from the baseline** by founder decision, 11 Aug 2026, D-18 |
 | Existing design system | None |
-| Baseline inheritance | Structure and IA only. Look is derived, not lifted |
+| Baseline inheritance | Structure, IA and colour. Typography, shape, motion and copy are ours |
 
 Full reasoning and consequences: `CLAUDE.md`. Decision records: `docs/decisions.md`.
 
@@ -75,6 +77,10 @@ research/docs/
 ├── live-research.md    post-persona verification: 5 confirmed, 1 killed, 2 unresolved
 ├── quality-check.md    quality gate, claim verification
 └── product-model.md    superseded by strategy.md, kept for history
+ia/docs/
+├── sitemap.md          entities, concept sitemap, navigation, tracing matrix
+├── flows.md            six user flows in Mermaid: decisions, states, both ends
+└── critique.md         both critique passes, two instruments, with a found-by column
 research/screens/            competitor screenshots
 research/screens/baseline/   daddyskins.com baseline screenshots
 research/screens/benchmark/  out-of-category reveal-moment sources

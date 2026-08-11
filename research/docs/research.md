@@ -497,3 +497,17 @@ Questions that fall outside product scope and are deferred (not blockers):
 ---
 
 *This document is the single source of truth for the wireframe phase. All design decisions should trace to a section here or note explicitly where and why they diverge.*
+
+---
+
+## 10. Route holes found while building the information architecture, August 2026
+
+Appended by stage 03a step 8. Nothing above this line was edited. These are gaps in the data about how a person moves, found by drawing the routes rather than by researching them, and each one is a place where a later stage will otherwise fill a hole with a median.
+
+**Nobody in the corpus narrates browsing.** `cjm-to-be.md` records at phase T5 that no one describes choosing a case. Drawing the catalogue at step 6 showed how far that reaches: the browsing route, its empty state and the question of whether a catalogue should exist as a screen at all rest on no user evidence whatsoever. The catalogue was drawn to the minimum that survives decision `D-D` for exactly this reason. If `D-D` returns a small backed catalogue and Home absorbs it, the hole closes by the screen disappearing rather than by being filled. **Owner: 03b, and the honest instruction is to keep the browsing surface small until evidence exists for a larger one.**
+
+**Nobody describes an interrupted open.** The reveal settles the roll before the animation, so a dropped connection produces a state that exists in the ledger and not on the screen. That state was missing from the flows until the step 6 critique, and there is no user account anywhere in the corpus of meeting it. What it should say and where the person should land are design decisions with no evidence behind them, and stage 04 owns them.
+
+**Nobody describes meeting a limit they set themselves.** The responsible play flow was drawn from `B7-4`, a pattern of 12 people inside an escalation loop, and from the compliance constraint. The barrier evidence describes the loop; it does not describe anyone using a tool to stop, because on the baseline and across the competitor set there is nothing to use. `research.md` section 7 carries the legal requirement; the behaviour behind it is `[?]`.
+
+**One question the routes raised that is not a research hole but a compliance one.** A person who only ever uses free entry can reach the withdrawal route and take out a real skin without ever meeting an identity check, because verification gates funding and is forbidden on the exit route. Recorded in `ia/docs/flows.md` under flow 3 with a proposed shape and no route drawn, because it rides on decision `D-A`, which counsel owns.
