@@ -196,6 +196,21 @@
     }
     .mvp-job-title { font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
     .mvp-job-body { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+    .mvp-closed-by {
+      margin-top: 12px; padding-top: 12px;
+      border-top: 1px solid rgba(74,222,128,0.18);
+      font-size: 12.5px; color: var(--text-secondary); line-height: 1.6;
+    }
+    .mvp-closed-by strong { color: #4ade80; font-weight: 700; }
+    .refined-note {
+      padding: 16px 18px; border-radius: 10px; margin-bottom: 18px;
+      border: 1px solid rgba(250,218,98,0.28); background: rgba(250,218,98,0.06);
+      font-size: 13px; color: var(--text-secondary); line-height: 1.65;
+    }
+    .refined-note strong { color: var(--accent-yellow); }
+    .refined-note p + p { margin-top: 10px; }
+    .refined-note code, .mvp-closed-by code, .refined-note a { color: var(--text-primary); }
+    .refined-note code, .mvp-closed-by code { font-size: 12px; }
     /* CANDIDATE FOR CUT */
     .cut-list { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
     .cut-item {
@@ -714,12 +729,21 @@
 
   <div class="sep"></div>
   <h3>Matrix Conclusion - 3 Jobs for MVP Core</h3>
-  <p style="font-size:13px; color:var(--text-muted); margin-bottom:20px;">Jobs that score 3 (core) for the primary persona AND are not fully closed by any competitor. These three form the design target for the first release.</p>
+  <p style="font-size:13px; color:var(--text-muted); margin-bottom:20px;">The three jobs that form the design target for the first release. Refined at the CJM stage: each one now names the capabilities that close it, and the selection criterion is corrected below.</p>
+
+  <div class="refined-note">
+    <p><strong>Refined at the CJM stage, 11 August 2026, and this is the current version.</strong> The three jobs survived the To-Be map unchanged as jobs. Two things changed. Each now names the capabilities that close it, which no file in this project did before. And the criterion this section used to state was found to be false, so it is corrected rather than left standing.</p>
+    <p>The capability list is not repeated here. It lives once, as the backlog in <a href="cjm-to-be.html#backlog">CJM To-Be</a>: 38 MVP rows, 37 distinct capabilities, grouped by the round 1 surface each one lives on. This section points at that list and holds no competing copy of it.</p>
+    <p><strong>The criterion, corrected.</strong> This section used to read "jobs that score 3 for the primary persona AND are not fully closed by any competitor". Two of the three clear that bar. Core Job 3 does not: the matrix above scores Withdraw cleanly at 2 for The Opener. It stays in the core, and the honest reason is that it is the only one of the three whose failure ends the relationship rather than degrading it, and that it scores 3 for two secondary personas. That is a stated exception to the criterion, not an instance of it.</p>
+  </div>
 
   <div class="mvp-job-card">
     <div class="mvp-job-title">MVP Core Job 1 - Related Job 1: Arrive with confidence to try</div>
     <div class="mvp-job-body">
       Importance for The Opener: 3 (first barrier to entry). Competitor gap: Only Clash.gg closes this partially. No competitor surfaces provably fair information, tested RTP, AND live authentic activity pre-login simultaneously. DaddySkins scores 15/40 on the benchmark, lowest in category. The gap is open and the fix cost is low.
+    </div>
+    <div class="mvp-closed-by">
+      <strong>Closed by:</strong> home rows A1 to A5, plus D4 in its pre-login form, plus H1, the public provably fair page, which serves this job before login and Related Job 3 after the open. A3, the live drop feed, carries <span class="hyp-tag">[?]</span> on its success signal: it sits in every arm of the hero test, so no instrument isolates it.
     </div>
   </div>
 
@@ -728,6 +752,9 @@
     <div class="mvp-job-body">
       Importance for The Opener: 3 (core). Competitor gap: All competitors close the basic job. The execution gap is in animation quality. DaddySkins is flat. Key-Drop and Clash.gg set the bar with rarity-differentiated animations. The gap is open in execution quality, not in feature existence.
     </div>
+    <div class="mvp-closed-by">
+      <strong>Closed by:</strong> the open, rows E1 to E4, and nothing else. The case-page rows D1 to D4 are deliberately not counted here: they serve the main job and the barriers behind it, which is a different claim from reveal quality. E4, the round hash at the spin trigger, is MVP by locked round 1 scope and by founder decision, not by any persona score. E3 carries its activation target as <span class="hyp-tag">[?]</span>, 40 to 60 percent.
+    </div>
   </div>
 
   <div class="mvp-job-card">
@@ -735,6 +762,14 @@
     <div class="mvp-job-body">
       Importance for The Opener: 2. Importance for The Accumulator: 3. Importance for The Researcher: 3. Competitor gap: skin.club closes this best (few minutes, no fees, no login required for withdrawal info). DaddySkins score 1 - no withdrawal info visible pre-login. This is simultaneously a trust signal for acquisition AND the LTV-defining moment for the Accumulator.
     </div>
+    <div class="mvp-closed-by">
+      <strong>Closed by:</strong> withdrawal rows G1 to G6, plus the entry sequencing B1 and B2, which move verification off the withdrawal route. G6, commission-free withdrawal to Steam, stands on this job with no As-Is barrier behind it and says so in its own row.
+    </div>
+  </div>
+
+  <div class="refined-note" style="margin-top:18px; margin-bottom:0">
+    <p><strong>What the backlog added that this section could not see.</strong> Deposit closes none of the three core jobs, and registration reaches Core Job 3 only through B1 and B2. Both surfaces are justified by documented barriers and by the compliance constraints in the project rules, not by core jobs. The round 1 surface list is legitimately wider than the job list, and that is the reason. One row goes further and closes nothing at all: I2, the daily free case, has no parent in any legal class and is in MVP by founder decision.</p>
+    <p>Four more marks travel with the backlog and are not smoothed here. D3, the observed rate counter, is conditional on decision <code>D-B</code>. The scale of D1, stock-backed drop tables, is conditional on <code>D-D</code>. The blocked-market list behind B4 is <span class="hyp-tag">[?]</span> until re-verified against current law. The conversion cost of the age gate B3 has no target yet.</p>
   </div>
 
   <div class="sep" style="margin:28px 0"></div>
@@ -744,7 +779,7 @@
   <div class="cut-list">
     <div class="cut-item">
       <span class="cut-marker">Deferred</span>
-      <span><strong style="color:var(--text-primary)">Rain-style ambient free-to-play mechanic.</strong> Closes Hypothesis Job B (spectating converts to deposit). Source is not confirmed. Clash.gg's Rain system is the frontier but was added in 2026 after establishing the core product. Decision: deferred to Phase 2. MVP free-to-play offer is starter credit plus daily free case.</span>
+      <span><strong style="color:var(--text-primary)">Rain-style ambient free-to-play mechanic.</strong> Closes Hypothesis Job B (spectating converts to deposit). Source is not confirmed. Clash.gg's Rain system is the frontier but was added in 2026 after establishing the core product. Decision: deferred to Phase 2. MVP free-to-play offer is starter credit plus daily free case. <strong style="color:var(--accent-yellow)">Half of that was reopened and is now settled.</strong> The starter credit ships as backlog row I1. The daily free case appeared in neither scope list, was held in LATER for one step, and entered round 1 by founder decision on 11 August 2026 as row I2, which carries in the open the two things the decision does not resolve: no parent in any legal class, and a daily repeat of the "opening is free" impression.</span>
     </div>
     <div class="cut-item">
       <span class="cut-marker">Deferred</span>
@@ -776,6 +811,7 @@
     </div>
     <div class="decision-body">
       MVP free-to-play offer is starter credit ($0.50-$0.70) plus daily free case. Rain-style ambient mechanic (free tokens to active chat on a timer) is confirmed as the emerging category frontier but is a Phase 2 feature. Basis: closes only Hypothesis Job B, which has no confirmed conversion-to-deposit evidence. Source: strategy.md Section 5.
+      <p style="margin-top:10px; color:var(--text-muted)"><strong style="color:var(--accent-yellow)">Reopened in part at the CJM stage, 11 August 2026.</strong> What this decision defers, the rain mechanic, stays deferred. What it asserts is now split: the starter credit ships as backlog row I1, bound to C4, D1 and A1. The daily free case appeared in neither the round 1 scope list nor the LATER list, so the backlog held it in LATER for one step and sent it to the founder, because this decision outranks the canvas cell that would otherwise settle it. <strong style="color:var(--accent-yellow)">Settled on 11 August 2026: it enters round 1 as row I2</strong>, carrying its own warning, since it is the only capability on the map with no parent in the three legal classes.</p>
     </div>
   </div>
 

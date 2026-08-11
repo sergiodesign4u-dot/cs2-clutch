@@ -32,9 +32,13 @@ This table and `_nav.js` are the only two places where status lives. Nothing els
 
 One thing the re-run could not deliver, named rather than hidden: no product in the set documents the craft of its reveal publicly, because probability disclosure is legally forced in several jurisdictions and craft is not. Timing, cut, sound and hold get designed at stage 06, not matched.
 
+**CJM stage: done, August 2026.** `cjm-as-is.md` is the research half: the input inventory, the eight phases of the real path, and on each phase an emotion with a counted source or a `[?]`, plus 8 barrier classes, an emotional curve that breaks rather than interpolates where no signal exists, and 5 growth zones. `cjm-evidence.md` holds the quotes each pattern is counted from. `cjm-to-be.md` is the design half: the same eight phases rebuilt, six divergences run diverge-then-converge, every capability traced to a barrier, a job or a named constraint, and one backlog of 38 MVP rows over 37 distinct capabilities that refines the MVP core instead of forking it. Both halves went through a two instrument critique, 40 rows on As-Is and 37 on To-Be. The stage closed with two founder decisions on 11 August 2026: the responsible play page returns to round 1, and the daily free case enters the MVP as row I2 with its missing parent stated rather than dressed up.
+
+**The one line conclusion.** The deepest pit is not the open, it is everything after it: P7 the outcome and P8 payoff or exit both sit at -5, on patterns of 7, 11 and 12 people, while the open itself has no counted signal at all. To-Be closes that end of the path with the instance value receipt that follows the item into inventory and onto the withdrawal record, a public withdrawal clock with per-state timers and our own published p90, and the rule that the sum required to withdraw is stated before the deposit and can never rise.
+
 ## Scope
 
-**Round 1:** home, case opening, registration and account, deposit, skin withdrawal to Steam, provably fair page with verification tool, age gate and geo block.
+**Round 1:** home, case opening, registration and account, deposit, skin withdrawal to Steam, provably fair page with verification tool, age gate and geo block, responsible play page. The eighth surface was restored on 11 August 2026 after the CJM stage found it named in the Lean UX canvas and dropped from both scope lists with no verdict.
 
 **Later:** case battles, gunfights, upgrades, in-platform exchange, giveaways, leaderboards, referral programme, rakeback.
 
@@ -60,7 +64,10 @@ research/docs/
 ├── lean-ux-canvas.md   Lean UX Canvas v2 (Gothelf), glance view of the foundation
 ├── research.md         synthesis, single source of truth
 ├── personas.md         four behavioural personas, one primary
-├── jtbd.md             JTBD hierarchy, matrix, critique
+├── jtbd.md             JTBD hierarchy, matrix, MVP core refined at the CJM stage
+├── cjm-as-is.md        As-Is journey: 8 phases, emotions with sources, barriers, growth zones
+├── cjm-evidence.md     the counted quotes behind every As-Is pattern
+├── cjm-to-be.md        To-Be journey, divergences, backlog and MVP core
 ├── strategy.md         objectives, segments, business model, four locked founder decisions
 ├── live-research.md    post-persona verification: 5 confirmed, 1 killed, 2 unresolved
 ├── quality-check.md    quality gate, claim verification

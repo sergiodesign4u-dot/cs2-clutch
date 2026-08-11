@@ -164,3 +164,72 @@ Both were retired because their premise had been killed in `research.md` section
 **Kept, not deleted: the old trust and fairness scoring.** It is now Part 2 of the same file, renamed for what it is, an in-category competitor matrix and therefore step 3 material. It stays in `benchmark.md` rather than moving because twelve citations across `personas.md`, `jtbd.md`, `ux-patterns.md`, `research.md` and `quality-check.md` resolve into it by name, including `benchmark.md (Criterion 2: Odds Visibility)` and `benchmark.md Mechanism 1`, and `personas.md` has exactly one writer. Its section and mechanism numbering is unchanged, so every existing citation still resolves.
 
 **Open, with an owner and a trigger:** the round that runs CJM step 4 moves Part 2 into `competitors.md` and repoints every citation in the same pass, including those in `personas.md`, which that step is permitted to touch. **Rejected:** doing it now by rewriting `personas.md`, which would have broken the single-writer rule to save one round of waiting.
+
+---
+
+## D-12. CJM focus: one map, The Opener x the main job
+
+**Date:** 2026-08-11. **Stage:** 02+, step 1.
+
+**Chosen:** a single As-Is and To-Be map for the primary persona doing the main job, `personas.md:93` x `jtbd.md:17`. The map describes how that person does that job today, on the platforms that exist, without our product.
+
+**Why that pair and not another.** `personas.md:95` states the reason the Opener is primary in terms the map needs: this person drives the most volume and is the first user any platform must succeed with. The rule in `CLAUDE.md` that the primary persona wins a conflict is the same rule that makes a second map a cost rather than a courtesy.
+
+**Rejected: a map per persona.** The Battler's path diverges structurally, lobby, human opponent, simultaneous reveal, and would genuinely need its own map, but battle mode is hidden at launch (`jtbd.md:201`), so it earns that map in the round that opens it. The Researcher diverges by channel rather than by structure, search-led and reads odds before committing, which the pack answers with one marked line rather than a second full map. The Accumulator's path is a post-D1 loop and sits outside this job entirely.
+
+**Consequence carried into stage 03.** Three of the four personas are represented in the map by a line, not by a path. The IA has to keep them working without being built around them, which is the same instruction `CLAUDE.md` already gives about the primary persona, now with a named place where it applies.
+
+---
+
+## D-13. Mining depth: Deep, chosen before step 3
+
+**Date:** 2026-08-11. **Stage:** 02+, step 3. **Decided by:** the founder, before the mining pass ran.
+
+**Chosen:** Deep. Full voice-of-customer mining under this focus: review aggregators, Reddit and topical forums, YouTube comments, discussions under the competitors in `competitors.md`. Public and pre-login pages only, no accounts. Anything behind a login stays `[?]`.
+
+**What the fork actually bought, and it is not more quotes.** It bought the central finding of step 4: **the loss is almost never described as losing.** People describe one of two other things instead, and neither had appeared in any stage 01 or 02 artefact. That finding is what moved the floor of the emotional curve away from the open, where every competitor puts its design budget, and onto the outcome and the exit, P7 and P8, both at -5.
+
+**It also bought a discipline that outlived it.** The mining pass read more than the evidence ledger can show. Rather than quoting the pass total, every count in the map was reduced to what `cjm-evidence.md` holds as a row with platform, rating, date and URL, and the wider pass total is named as a pass total. Where the pass reported something with no verbatim line, it is `[?]`: two of three named self-exclusion tools, the absence of a real-money iOS app, the whole of the country distribution.
+
+**Rejected: Shallow.** It would have produced the same eight phases with emotions inferred from the stage 01 corpus, which is exactly the median this project's input gate exists to prevent. The cost of Deep, admitted: one full pass plus a targeted re-research on 11 August 2026 that opened video comment threads, the one source class the first pass could not reach.
+
+**What it did not buy.** The age gate as a rendered screen is still `[?]` after both passes. Not one user anywhere describes meeting an age gate on arrival; age appears only as a ban reason at withdrawal. That hole is inherited by stage 03 with no evidence behind the screen it has to draw.
+
+---
+
+## D-14. Provable fairness ships, positioned as a secondary proof
+
+**Date:** 2026-08-11. **Stage:** 02+, step 8. **Decided by:** the founder, in the step 8 conversation.
+
+**The problem this closes.** `CLAUDE.md` design principle 1 says provable fairness is the brand, not a footnote. The mining says something else: the barrier that actually recurs is `B7-2`, the belief that the numbers shown are not the numbers used, a pattern of 11 people, and a cryptographic verifier is not what those 11 people ask for. The three provably fair rows in the backlog, E4 the round hash, F3 the post-reveal link, H1 the public page, trace to Related Job 3, which scores 3 for The Researcher and 1 for The Opener.
+
+**Chosen:** build and ship all three, and stop claiming they convert a sceptic.
+
+**What is demoted is a claim, not a feature.** Nothing is cut. The reframing is that provable fairness is evidence that our own numbers are honest, which is a different job from making a sceptic believe them at all. What answers `B7-2` at launch is D2, the published chance and current value per item, and D4, the published tested RTP and expected value at this entry cost. D3, the observed rate counter, is infrastructure at launch and does not close `B7-2` until N is large enough, which depends on decision `D-B`.
+
+**Rejected: cutting the provably fair page from round 1.** It is a locked round 1 surface and a declared job, and `jtbd.md:180` names a public provably fair surface as one of three things no competitor offers before login. **Also rejected:** leaving principle 1 as written and letting three rows quietly stand on a claim the evidence does not support.
+
+**Consequence for stage 06 and after.** Principle 1 keeps its priority, and the word "brand" in it now has a stated limit: it means the product is built so that its own numbers are checkable, not that a verifier is the thing that persuades. Whoever designs the hero reads that limit before deciding what occupies it.
+
+---
+
+## D-15. The MVP core is refined once, in one place, and two questions are left for the founder
+
+**Date:** 2026-08-11. **Stage:** 02+, steps 8 and 11.
+
+**The problem.** Three lists in this repository carried the name of the MVP core and did not agree: 3 jobs at `jtbd.md`, 8 solution bullets in the Lean UX canvas, and a 7 item round 1 screen list in `CLAUDE.md` against an 8 item LATER list. No file mapped any of them onto the others.
+
+**Chosen:** one backlog at capability level, in `cjm-to-be.md`, 38 MVP rows over 37 distinct capabilities, grouped by the round 1 surface each row lives on. Every other file points at it and none of them holds a competing copy. `CLAUDE.md` wins every disagreement about scope, and the canvas cell is kept as drawn because a canvas records what was believed when it was drawn.
+
+**Rejected: a second list.** The failure mode the pack names is "naming, not forking", and the way it happens is that each stage writes its own MVP list next to the last one. `jtbd.md`, `jtbd.html`, `lean-ux-canvas.md` and `research.html` were all edited in the same step so that no file was left holding the old version.
+
+**Two things this stage found and did not smooth.** The criterion stated in `jtbd.md` for choosing the three core jobs, score 3 for the primary persona, is failed by the third of its own three: withdraw cleanly scores 2 for The Opener. It stays in the core as a stated exception, because it is the only one whose failure ends the relationship rather than degrading it. And the priority test for MVP had to be restated as "a documented As-Is barrier recurs" rather than "the mechanics still complete", after which seven rows declared themselves exceptions rather than hiding behind the label.
+
+**Two questions went to the founder and both came back on 11 August 2026. Both were answered the same way: take them.**
+
+1. **The daily free case enters round 1 as backlog row I2.** `jtbd.md:198` is founder Decision 3 and says the MVP free-to-play offer is starter credit plus daily free case. The round 1 list neither contained it nor ruled it out, and a founder decision is not settled by a superseded canvas cell, so the row was held in LATER for exactly one step and then decided by the person whose decision it was. **What the decision does not resolve is printed in the row rather than closed by it.** I2 is the only capability on the map with no parent in any of the three legal classes: not a barrier, not a job, not a named constraint. It stands on this decision and on the MVP product decision at `aarrr.md:172`. And it repeats daily the impression that answer 1 of the To-Be map records as the starter credit's residual risk, that opening is free, which is the one impression the rest of the map spends its budget contradicting. Its success signal is the D7 retention rate at `aarrr.md:167`, target `[?]` 35 percent, marked a hypothesis at its own source. **Rejected: giving it a borrowed parent to make the table look clean.** A fourth parent class was not invented either. The row is an exception that declares itself, which is the same treatment the other seven exceptions get.
+2. **The responsible play page returns to round 1, taking the surface count from seven to eight.** `lean-ux-canvas.md:54` names an actual page. Both scope lists dropped it with no verdict recorded anywhere in the repository, and `cjm-as-is.md:125` had already noticed. Its tooling survives as C2 and C5, session limit, self exclusion, cool down, and the compliance constraint in `CLAUDE.md` requires that tooling to exist regardless. The contribution of the CJM stage here was not a design answer: it was finding a page that had been deleted by silence and naming who had to decide. The page has no group of its own in the backlog, because its capabilities live where the money decision is made, at the deposit.
+
+**A third thing closed with them.** Critique finding M-01 had handed the wording of design principle 1 to this step. `CLAUDE.md` said "provable fairness is the brand, not a footnote" while the map framed it as a secondary proof, and only one of the two could be read literally. Principle 1 now carries the limit in its own text, so the rule file and the map say the same thing. See D-14.
+
+**Open, inherited, and not closed here.** D-11 handed the relocation of `benchmark.md` Part 2 into `competitors.md` to the round that runs CJM step 4, on the ground that this step may touch `personas.md`. Step 4 ran and did not do it. The relocation is now unowned, and `personas.md` returns to having no writer at all once this stage closes.

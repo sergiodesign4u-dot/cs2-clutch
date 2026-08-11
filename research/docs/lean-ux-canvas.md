@@ -56,6 +56,8 @@ The age ranges carry [?] because their root, `strategy.md` line 30, names a cate
 
 **Superseded in part.** This cell is the v_refresh MVP, which carried five games. The round 1 scope decided in August 2026 is narrower: home, case opening, registration and account, deposit, withdrawal, provably fair, age gate and geo block. Case battles and upgrades moved to LATER. The authoritative scope is in `CLAUDE.md` and `docs/decisions.md` (D-05); this cell is kept as written because a canvas records what was believed at the time it was drawn.
 
+**And superseded in detail, from 11 August 2026.** Where this cell names a solution, the current version of that solution is a numbered row in `cjm-to-be.md`, section "Backlog and MVP core", which traces every capability to a barrier, a job or a named constraint. Four of these bullets were sharpened there rather than kept: "trust signals visible pre-login" became A1, A2 and A4; "rarity-differentiated animation" became E1, E2 and E3; "identity-based age gate" became B1 to B3 with the method left open as decision `D-A`; "deposit limits" became C2 and C5. One bullet has no verdict anywhere and the CJM stage found the silence rather than created it: the **responsible play page** is named here and is absent from both the round 1 list and the LATER list in `CLAUDE.md`. Its tooling survives as C5, and the page itself was restored to round 1 by founder decision on 11 August 2026, which took round 1 from seven surfaces to eight. This cell named a page that had been deleted by silence, and the CJM stage is what found the silence.
+
 ## 6. Hypotheses
 
 - If the PF page is public with a working verifier, then trust score improves from 1/5 to 4/5 and dwell time increases

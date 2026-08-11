@@ -149,7 +149,7 @@ The single most repeated statement in the whole corpus, and the most stable over
 | 13 | "just buy and sell on buff, it will cost you 1.5% fee but its not that bad." | BUFF | 2023-02-22 | hltv.org/forums/threads/2742461, Bak2BED (Canada) |
 | 14 | "I like dmarket. It's really easy to sell and there are plenty of deposit & withdrawal options." | DMarket | 2023-02-22 | same thread, trump_will_win_2024 |
 
-Distinct threads: **6** (Steam 135512625249236651, Steam 135507780429576521, Steam 3247562523080165493, Steam 4637113788886266443, Steam 1744469130467379459, Steam 2969519680696343202, HLTV 2860488, HLTV 2742461 — eight, of which six are the ones carrying the "buy instead" advice directly). Date span: **2017 to 2024**.
+Distinct threads: **6** (Steam 135512625249236651, Steam 135507780429576521, Steam 3247562523080165493, Steam 4637113788886266443, Steam 1744469130467379459, Steam 2969519680696343202, HLTV 2860488, HLTV 2742461, eight in total, of which six are the ones carrying the "buy instead" advice directly). Date span: **2017 to 2024**.
 
 **The counter-argument, stated by users in the same threads, kept because omitting it would flatter the finding.** "people be saying buy your skins, yeah lemme just go buy a £500 skin." (HLTV, Matt Freeman, 2020-08-02). "If you know what particular skin you are looking for it would be cheaper to buy it from the Market, but the chances are always given to get something pricey from a case even when its near the impossible" (Steam, Street Yeezus, 2020-10-25).
 

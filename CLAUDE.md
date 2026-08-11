@@ -4,9 +4,7 @@ Redesign of a live CS2 skin platform. Working placeholder name. This file holds 
 
 ## Pipeline
 
-The stage packs live outside this repo, in `/Users/sergiyshevchenko/Claud Projects/AI Design Workflow/`: `CLAUDE.md` (course source of truth) plus `01 - Research.md` through `09 - Design System.md`. Read the pack of the stage being worked on before its first step. Nothing from that folder is copied into this repo.
-
-Twelve stages: Foundation Research, User Research (Personas, JTBD, CJM As-Is, CJM To-Be), Information Architecture (Base layer, Detail layer), Wireframes, Voice, Concept, UI + Visual, Tokens + Components, Design System, Responsive, Animation, Handoff.
+The stage packs live outside this repo, in `/Users/sergiyshevchenko/Claud Projects/AI Design Workflow/`: `CLAUDE.md` (course source of truth) plus `01 - Research.md` through `10 - Responsive.md`. Read the pack of the stage being worked on before its first step. Nothing from that folder is copied into this repo. The twelve stage list is not repeated here: it lives in `/_nav.js`, which is the roadmap every page in the project renders from.
 
 ## Locked decisions
 
@@ -35,21 +33,23 @@ One nuance carried from the founder and not to be lost at stage 06: the colour r
 
 Round 1 is what gets designed to colour first. Everything else carries the `LATER` mark in the IA and waits for its own round.
 
-**Round 1:** home, case opening, registration and account, deposit, skin withdrawal to Steam, provably fair page with verification tool, age gate and geo block layer.
+**Round 1:** home, case opening, registration and account, deposit, skin withdrawal to Steam, provably fair page with verification tool, age gate and geo block layer, responsible play page. Eight surfaces. The last of them was restored by founder decision on 11 August 2026, after the CJM stage found it named in the canvas and dropped from both scope lists with no verdict recorded anywhere.
 
 **LATER:** case battles, gunfights, upgrades, in-platform exchange, giveaways, leaderboards, referral programme, rakeback.
 
-The MVP mark lives in one place: stage 03a puts `MVP` or `LATER` on every screen, and 03b puts it on every block. An MVP that was never cut is not an MVP.
+The MVP core is refined at capability level exactly once, in `research/docs/cjm-to-be.md`: 38 MVP rows over 37 distinct capabilities, grouped by the surface each one lives on. No other file holds a competing list. Stage 03a puts `MVP` or `LATER` on every screen and 03b on every block, and both inherit that mark rather than deriving it a second time. `MVP` means a documented As-Is barrier recurs without the row, not merely that the mechanics still complete. An MVP that was never cut is not an MVP.
+
+Marks travel with that backlog and are carried, not smoothed: the observed rate counter is conditional on decision `D-B`, the scale of stock-backed drop tables on `D-D`, the blocked-market list is `[?]` until re-verified against current law, the conversion cost of the age gate has no target, and one capability sits in MVP with no parent in the three legal classes at all, the daily free case, placed there by founder decision and carrying that cost in the open. Reasoning: `docs/decisions.md` D-15.
 
 ## Product substance
 
-Primary JTBD: when I am between CS2 sessions and want more excitement in the ecosystem, I want to open a case with a real chance at a skin I actually want, so that I get the rush of a drop and possibly end up with something worth having.
+Primary JTBD, canonical wording, not paraphrased anywhere: when I am embedded in the CS2 ecosystem and want excitement beyond the game itself, I want a chance at a rare skin I actually want, with a reveal that feels real and unpredictable, so that I get the rush of a genuine drop and potentially end up with something worth having. Single owner: `research/docs/jtbd.md`. The reveal clause is load bearing, it is the whole of MVP core job 2 and of design principle 2, and it is exactly what three earlier paraphrases of this job dropped.
 
 Primary persona is The Opener. `primary` does work, it does not only label: when two decisions conflict, the primary persona wins, and the interface is not built around secondary scenarios even though they must work. Sources: `research/docs/personas.md`, `research/docs/jtbd.md`.
 
 Design principles, in priority order:
 
-1. **Trust is the product.** Every visual and interaction decision answers first: does this help the user believe the drop is honest. Provable fairness is the brand, not a footnote.
+1. **Trust is the product.** Every visual and interaction decision answers first: does this help the user believe the drop is honest. Provable fairness is the brand, not a footnote, and since 11 August 2026 the word brand carries a stated limit: it means the product is built so that its own numbers are checkable, not that a verifier is what persuades a sceptic. What answers the doubt people actually record is published chance, current value and tested RTP at the moment of spending. Nothing is cut by this limit, one claim is. `docs/decisions.md` D-14.
 2. **Motion serves emotion, not decoration.** Animation amplifies the reveal, signals outcomes, keeps the platform alive. Motion without an emotional or informational job gets cut.
 3. **Clarity at every risk moment.** Where money is about to be spent, odds, cost and expected value are visible and legible. Cost never hides inside excitement.
 4. **Dark and electric, never heavy.** High energy, neon accented, premium dark. The main stage, not a back room.
@@ -65,9 +65,11 @@ Compliance is a first class product constraint, not a later feature: age verific
 
 **Quality of research output.** Cite the source of every fact. Never invent a number: unknown is `[?]`. Diverge then converge: several options, then the chosen one and why the others were dropped. Public and pre-login pages only, never log in. A fact about a competitor comes from a page opened in this session, not from model memory; taken from memory or from an undated article it is `[?]`, not a fact.
 
+**Every capability names a parent, and there are exactly three legal classes:** a barrier code from the CJM As-Is map, a job from `jtbd.md`, or a named compliance constraint or design principle from this file, quoted by which one. A screen, a block or a component with no parent is cut, or carried with its orphan status printed in its own row. This holds from stage 03 on. Untraceable work is what gets defended later on taste alone.
+
 **Live data.** Playwright first: it renders JS, navigates, scrolls, and saves proof screenshots into the stage `screens/` folder. Web fetch is the fallback for simple static pages.
 
-**Acceptance happens on screen, not in a table.** Where a stage produces a screen or text on a screen, open it in the browser, walk every state, narrow to 360px, and only then say it is done. Deliver a fix as a prompt, not as a hand edit: a hand edit does not survive the next clone and takes the repeatability of the process with it.
+**Acceptance happens on screen, not in a table, and on the published address, not only on localhost.** Where a stage produces a screen or text on a screen, open it in the browser, walk every state, narrow to 360px, then open the live URL and check the same page there before saying it is done. Local acceptance on its own hid a dead sidebar on every published page for three stages, because GitHub Pages excludes underscore-prefixed files unless `.nojekyll` exists at the root. Deliver a fix as a prompt, not as a hand edit: a hand edit does not survive the next clone and takes the repeatability of the process with it.
 
 **Critique runs on two instruments.** Every critique and audit step goes through Claude and through Codex (plugin `codex`, read only, stated explicitly on every call, reading this local working folder). Sets are taken independently and in full before any merge; dedup happens afterwards on complete data. Codex owns what is falsifiable in the source: contradiction between files, orphan without a parent, state absent from code, value drifted from its token, broken link, violated rule, fact without a source. Claude with a browser keeps what breaks at 360px, what breaks a layout as a string, and pixel comparisons. Every critique log carries a "found by" column. Codex unavailable means stop and ask, never a quiet single instrument pass. Its entry point is `AGENTS.md` in this root.
 
@@ -87,7 +89,7 @@ Folder convention per stage: `docs/` for markdown sources of truth, the html pag
 
 **Markdown stays alive, html does not freeze.** Changing a markdown file that already has a deployed page means rebuilding the affected section of that page in the same step. If the page structure cannot hold the new material, put a visible "Updated after publication" block on it and say so out loud.
 
-`research/docs/personas.md` has exactly one writer after stage 02: CJM step 4. Every other stage reads it read only and returns a contradiction as a finding instead of describing people its own way.
+`research/docs/personas.md` has no writer left. Stage 02 wrote it, CJM step 4 spent the one window to correct it, and that window is closed. Every stage from here reads it read only and returns a contradiction as a finding instead of describing people its own way. Reopening it is a decision named out loud, with the new writer named in `docs/decisions.md`.
 
 **Sidebar comes from the root registry.** Every page carries an empty `<aside id="sidebar">`, declares `window.NAV_BASE`, optionally `NAV_SECTIONS` / `NAV_ACTIVE` / `NAV_ACTIVE_LABEL`, links `_nav.css` and loads `_nav.js`. The renderer computes active, Next, SOON, the accordion and every relative link. The single manual act is `done: true` in `/_nav.js` when a page is finished. No page writes `nav-*` rules of its own.
 

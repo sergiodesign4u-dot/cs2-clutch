@@ -20,6 +20,8 @@ When I am embedded in the CS2 ecosystem and want excitement beyond the game itse
 
 **Persona mapping:** Primary persona - The Opener. This is the job that drives the highest volume and sets the tone for every downstream feature.
 
+**One job, three wordings, and this one is canonical.** The same main job is written three different ways in this repository: here, at `personas.md:107`, and in `CLAUDE.md`. All three trace to the same source, `strategy.md` Segment A, and they are not identical claims. This wording is the only one that carries the reveal clause, "a reveal that feels real and unpredictable", which is the whole of Core Job 2 and of design principle 2. The `CLAUDE.md` wording drops that clause; the `personas.md` wording leads with the animation and drops "rare". The trigger also drifts across the three: embedded in the ecosystem, between sessions, downtime between matches. Recorded at CJM step 11. This file is the JTBD source of truth, so the formula here wins, `CLAUDE.md` is aligned to it at the same step, and `personas.md` keeps its wording because after stage 02 it has exactly one writer and that writer is CJM step 4, which is closed. Whoever opens the stage 03 input gate inherits that one line.
+
 ---
 
 ## Section 2: Related Jobs on the Way to the Main Job
@@ -172,22 +174,31 @@ Legend: 3 = core to this persona (drives decisions), 2 = relevant (shapes behavi
 
 ### Matrix Conclusion: 3 Jobs for MVP Core
 
-These are jobs that score 3 (core) for the primary persona AND are not fully closed by any competitor:
+**Refined at the CJM stage on 11 August 2026, and this is the current version.** The three jobs below survived the To-Be map unchanged as jobs. Two things changed. Each one now names the capabilities that close it, which no file in this repository did before. And the selection criterion this block used to state was found to be false by the CJM step 9 critique, so it is corrected below rather than left standing.
+
+The capability list is not repeated here. It lives once, as the backlog in `research/docs/cjm-to-be.md`, section "Backlog and MVP core": 38 MVP rows, 37 distinct capabilities, grouped by the round 1 surface each one lives on. This section points at that list and holds no competing copy of it.
+
+**The criterion, corrected.** This block used to read "jobs that score 3 (core) for the primary persona AND are not fully closed by any competitor". Two of the three clear that bar. Core Job 3 does not: the matrix in Section 5 scores Withdraw cleanly at 2 for The Opener. It stays in the core, and the honest reason is that it is the only one of the three whose failure ends the relationship rather than degrading it, and that it scores 3 for two secondary personas. That is a stated exception to the criterion, not an instance of it.
 
 **MVP Core Job 1 - Related Job 1: Arrive with confidence to try**
 
 Importance for The Opener: 3 (first barrier to entry).
 Competitor gap: Only Clash.gg closes this partially. No competitor surfaces provably fair information, tested RTP, AND live authentic activity pre-login simultaneously. DaddySkins scores 15/40 on the benchmark, lowest in category. The gap is open and the fix cost is low.
+Closed by: home rows A1 to A5, plus D4 in its pre-login form, plus H1, the public provably fair page, which serves this job before login and Related Job 3 after the open. Source: `cjm-to-be.md`, "Reconciliation with the existing MVP core". A3, the live drop feed, carries `[?]` on its success signal: it sits in every arm of the hero test and no instrument isolates it.
 
 **MVP Core Job 2 - Main Job: Arrive, open, get the thrill (reveal quality)**
 
 Importance for The Opener: 3 (core).
 Competitor gap: All competitors close the basic job. The execution gap is in animation quality. DaddySkins is flat. Key-Drop and Clash.gg set the bar with rarity-differentiated animations. The gap is open in execution quality, not in feature existence.
+Closed by: the open, rows E1 to E4, and nothing else. The case-page rows D1 to D4 are deliberately not counted here: they serve the main job and the barriers behind it, which is a different claim from reveal quality. E4, the round hash at the spin trigger, is MVP by locked round 1 scope and by founder decision, not by any persona score. E3 carries its activation target as `[?]`, 40 to 60 percent per `aarrr.md:115`.
 
 **MVP Core Job 3 - Related Job 5: Withdraw cleanly**
 
 Importance for The Opener: 2. Importance for The Accumulator: 3. Importance for The Researcher: 3.
 Competitor gap: skin.club closes this best (few minutes, no fees, no login required for withdrawal info). DaddySkins score 1 - no withdrawal info visible pre-login. This is simultaneously a trust signal for acquisition AND the LTV-defining moment for the Accumulator.
+Closed by: withdrawal rows G1 to G6, plus the entry sequencing B1 and B2, which move verification off the withdrawal route. G6, commission-free withdrawal to Steam, stands on this job with no As-Is barrier behind it and says so in its own row.
+
+**What the backlog added that this section could not see.** Deposit closes none of the three core jobs, and registration reaches Core Job 3 only through B1 and B2. Both surfaces are justified by documented barriers and by the compliance constraints in `CLAUDE.md`, not by core jobs. The round 1 surface list is legitimately wider than the job list, and that is the reason. One row goes further and closes nothing at all: I2, the daily free case, has no parent in any legal class and is in MVP by founder decision. Four more marks travel with the backlog and are not smoothed here: D3, the observed rate counter, is conditional on decision `D-B`; the scale of D1, stock-backed drop tables, is conditional on `D-D`; the blocked-market list behind B4 is `[?]` until re-verified against current law; the conversion cost of the age gate B3 has no target yet.
 
 ---
 
@@ -195,7 +206,7 @@ Competitor gap: skin.club closes this best (few minutes, no fees, no login requi
 
 Functions that appear in the product scope but close no job scoring 3 for the primary persona:
 
-- Rain-style ambient free-to-play mechanic: Closes Hypothesis Job B (spectating converts to deposit). Source is not confirmed. Clash.gg's Rain system is the frontier but was added in 2026 after establishing the core product. DECISION: Deferred to Phase 2 (Decision 3, v_people). MVP free-to-play offer is starter credit + daily free case.
+- Rain-style ambient free-to-play mechanic: Closes Hypothesis Job B (spectating converts to deposit). Source is not confirmed. Clash.gg's Rain system is the frontier but was added in 2026 after establishing the core product. DECISION: Deferred to Phase 2 (Decision 3, v_people). MVP free-to-play offer is starter credit + daily free case. **Half of this decision was reopened at CJM step 8 and closed at step 11.** The starter credit ships as row I1 of the backlog, bound to C4, D1 and A1. The daily free case appeared in neither the round 1 screen list nor its LATER list, so the backlog held it in LATER for one step and said out loud that only the founder could settle it. **Settled on 11 August 2026: it enters round 1 as row I2.** Two things survive the decision and are printed in that row rather than resolved by it. It is the only capability on the map with no parent in the three legal classes, standing on this decision and on `aarrr.md:172` alone. And it repeats daily the impression that the starter credit's residual risk names once, that opening is free.
 - Community case creation: Closes no job in the current confirmed hierarchy. Addresses a social status job (Hypothesis Job C) with no data. Defer to Phase 2.
 - Fiat/crypto withdrawal path beyond Steam: Closes Related Job 5 for a subset of users. Confirmed by Hellcase (ShadowPay) and Clash.gg (crypto). DECISION: Deferred to Phase 2 (Decision 4, v_people). Steam-only withdrawal at launch.
 - Battle mode with open matchmaking: Closes Social Job 1 (beat a real person) but only when lobby fill under 60 seconds is achievable. DECISION: Hidden at launch. Friends-only private lobbies are Phase 1.5 (Decision 2, v_people). Open matchmaking activates when fill-time condition is met organically.
