@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 0.11 Published numbers</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 14px; }
+
+    .wf-fig { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-fig-state { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); border-bottom: 1px dashed var(--wf-line-soft); padding-bottom: 7px; margin-bottom: 10px; }
+    .wf-val { font-family: 'SF Mono', Menlo, monospace; font-size: 21px; font-weight: 700; color: var(--wf-ink); letter-spacing: -0.01em; line-height: 1.2; }
+    .wf-val.is-off { font-size: 13px; color: var(--wf-ink-dim); }
+    .wf-unit { font-size: 11px; color: var(--wf-ink); margin-top: 3px; }
+    .wf-asof { font-family: 'SF Mono', Menlo, monospace; font-size: 9.5px; color: var(--wf-ink-dim); margin-top: 6px; letter-spacing: 0.02em; }
+    .wf-route { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; }
+    .wf-note { font-size: 10px; color: var(--wf-ink-dim); margin-top: 8px; line-height: 1.5; }
+    .wf-fork { border-top: 1px dashed var(--wf-line-soft); margin-top: 9px; padding-top: 8px; }
+
+    .wf-anat { display: flex; gap: 0; align-items: stretch; flex-wrap: wrap; }
+    .wf-anat .wf-fig { flex: 0 0 268px; }
+    .wf-legend { flex: 1 1 260px; padding-left: 26px; display: flex; flex-direction: column; justify-content: center; gap: 9px; }
+    .wf-leg { display: flex; gap: 10px; align-items: baseline; }
+    .wf-leg-n { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; font-weight: 700; color: var(--wf-ink-dim); border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 1px 5px; flex: 0 0 auto; }
+    .wf-leg-t { font-size: 11.5px; color: var(--wf-ink-dim); line-height: 1.5; }
+    .wf-leg-t b { color: var(--wf-ink); font-weight: 700; }
+
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+    .wf-phone .wf-fig { border: none; background: none; padding: 0 0 12px; border-bottom: 1px dashed var(--wf-line-soft); border-radius: 0; margin-bottom: 12px; }
+    .wf-phone .wf-fig:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid { grid-template-columns: 1fr; }
+      .wf-legend { padding-left: 0; padding-top: 18px; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 0.11</div>
+  <h1>Published numbers</h1>
+  <p class="lede">Every number this product publishes about itself, in one place, with its computation, its refresh, its behaviour when the data is missing and the surfaces that read it. A register is read by several nodes and drawn by none. It exists because a figure defined at each surface is a figure that will eventually disagree with itself, and the disagreement lands on the one claim this product cannot afford to get wrong.</p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">13</div><div class="hero-stat-label">Numbers we compute</div></div>
+    <div><div class="hero-stat-value">6</div><div class="hero-stat-label">We quote from outside</div></div>
+    <div><div class="hero-stat-value">7</div><div class="hero-stat-label">States each one has</div></div>
+    <div><div class="hero-stat-value">5</div><div class="hero-stat-label">Surfaces reading it</div></div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section id="why">
+  <div class="sec-head">
+    <h2>Why this is a node</h2>
+    <p>Registered by the global sweep at step 3 on 12 August 2026, after it counted five consumers.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The backlog argues for it, and the footer proved it within a week</h4>
+    <p>Rows <code>A4</code> and <code>G3</code> are described in <code>cjm-to-be.md</code> as <strong>"the same feature, two surfaces"</strong>. Node <code>0.2</code> made it a third one step after that sentence was written, and did so while asserting a reconciliation route that does not exist.</p>
+    <p><strong>That is the failure mode a register prevents.</strong> A number defined at each surface is a number that will eventually disagree with itself, and on this product the disagreement lands on design principle 1.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>What a register is, and what stage 04 does with it</h4>
+    <p>A node read by several nodes and drawn by none. Not a page, because nobody navigates to it. Not a component, because nothing renders it. <strong>Stage 04 does not wireframe this node.</strong> What it inherits from here is the state set and the anatomy below, and each consuming node carries its own figures into its own wireframe.</p>
+    <p>Read by <span class="surf">1.0</span> Home, <span class="surf">1.2</span> Provably fair, <span class="surf">3.3</span> Case screen, <span class="surf">5.3</span> Withdrawal and <span class="surf">0.2</span> Footer. Rendered by <span class="surf">0.6</span> and <span class="surf">0.7</span> where a number sits on a card.</p>
+  </div>
+</section>
+
+<!-- D-C -->
+<section id="dc">
+  <div class="sec-head">
+    <h2>The condition standing above every row</h2>
+    <p><code>D-C</code>, from the open decisions in <code>cjm-to-be.md</code>. It is not a design question and it outranks all of them.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The observed-against-published check runs first, and once published it never comes down</h4>
+    <p>Every capability in this register is a commitment device that <strong>only works for an operator whose published weights are already true</strong>. The check has to run internally on the live platform's data first, and if it does not hold, that is a business decision preceding the design one. <code>cjm-to-be.md</code> also records the other half: once the check ships to the public, <strong>it is never taken down</strong>.</p>
+    <p><strong>Which makes this the node where the cost of principle 1 becomes concrete.</strong> Publishing a number here is not a display decision, it is a permanent commitment. The work below assumes the answer is yes. If it is not, the rows conditional on it are not redesigned, they are withdrawn, which is why the state matrix carries a withdrawn state.</p>
+    <p><code>D-C</code> is scheduled before stage 04. Nothing in this register is drawn until it returns.</p>
+  </div>
+</section>
+
+<!-- OURS -->
+<section id="ours">
+  <div class="sec-head">
+    <h2>Group A: numbers we compute about ourselves</h2>
+    <p>We are the source, so for each of these the method has to be publishable, not only the result.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Number</th><th>Parent</th><th>Read on</th><th>Its route to something checkable</th><th>Refresh</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cases opened, running total</strong></td><td>Founder decision of 11 August 2026, plus <code>B1-1</code></td><td><span class="surf">0.2</span></td><td>The per-case observed rate counters, row <span class="row-code">D3</span>, whose N comes from the settlement ledger that pays users. <strong>Per case, not one auditable total</strong>, and conditional on <code>D-B</code></td><td>Per round</td></tr>
+        <tr><td><strong>Observed rate per tier: published, observed, N</strong></td><td><span class="row-code">D3</span>, on <code>B7-2</code> pattern of 11 and <code>B6-2</code> pattern of 9</td><td><span class="surf">3.3</span></td><td>It is itself the route: the published percentage stands beside it, in the unit the complaint is made in. <strong>Never reset.</strong> A weights change forks it, the old configuration keeps its history and stays visible, the new one starts at zero and says so</td><td>Per round</td></tr>
+        <tr><td><strong>Published chance per item</strong></td><td><span class="row-code">D2</span>, on <code>B7-2</code></td><td><span class="surf">3.3</span>, rendered by <span class="surf">0.6</span></td><td>The observed counter beside it, and the ticket range the roll resolves against</td><td>Static until configuration</td></tr>
+        <tr><td><strong>Current value per item</strong></td><td><span class="row-code">D2</span>, with price and timestamp from <span class="row-code">A1</span></td><td><span class="surf">1.0, 3.1, 3.3</span></td><td>The outbound market link on the item</td><td>Per read</td></tr>
+        <tr><td><strong>Published tested RTP for this case</strong></td><td><span class="row-code">D4</span>, design principle 3 and <code>B1-2</code></td><td><span class="surf">3.3</span>, and before login on <span class="surf">1.0</span></td><td><strong>The test itself, named and dated: who tested, when, over how many opens.</strong> Open, see below</td><td>Static until configuration</td></tr>
+        <tr><td><strong>Expected value at this entry cost</strong></td><td><span class="row-code">D4</span>, design principle 3, "odds, cost and expected value are visible and legible"</td><td><span class="surf">3.3</span></td><td><strong>The strongest row here: recomputable with arithmetic from the chances and values printed on the same screen.</strong> A reader who distrusts it can derive it without leaving the page</td><td>Static until configuration</td></tr>
+        <tr><td><strong>Live free-unit count per item</strong></td><td><span class="row-code">A2</span>, on <code>B8-1</code></td><td><span class="surf">1.0, 3.1, 3.3</span>, rendered by <span class="surf">0.6, 0.7</span></td><td>Its own success signal: the number on the page matches the free-unit count in the ledger at read time</td><td>Real time</td></tr>
+        <tr><td><strong>Rolling median and p90 withdrawal time</strong></td><td><span class="row-code">A4</span> and <span class="row-code">G3</span>, on <code>B8-2</code> pattern of 6, Related Job 1</td><td><span class="surf">1.0</span> pre-login, <span class="surf">5.3</span>, and <span class="surf">0.2</span> if slot 2 is approved</td><td>The person's own clock on their own withdrawal, row <span class="row-code">G1</span>, which either lands inside the published figure or does not</td><td>Rolling window, length <span class="q">[?]</span></td></tr>
+        <tr><td><strong>Published ceiling per withdrawal state</strong></td><td><span class="row-code">G2</span>, on <code>B8-2</code></td><td><span class="surf">5.3</span></td><td>The same clock. The row's success signal is that our states stay inside the published ceiling at p90</td><td>Static until republished</td></tr>
+        <tr><td><strong>Per-state timer, attributed to us, Steam or you</strong></td><td><span class="row-code">G1</span>, on <code>B8-2</code></td><td><span class="surf">5.3</span></td><td>It is the check for the two rows above</td><td>Real time</td></tr>
+        <tr><td><strong>Published appeal response deadline</strong></td><td><span class="row-code">G4</span>, on <code>B8-3</code> pattern of 3</td><td><span class="surf">5.3, 2.9, 0.10</span></td><td>The person's own appeal, which either gets an answer inside the deadline or does not</td><td>Static until republished</td></tr>
+        <tr><td><strong>Commission, zero to Steam</strong></td><td><span class="row-code">G6</span>, Related Job 5, job only, no barrier</td><td><span class="surf">1.0, 5.3</span></td><td>The withdrawal itself. Zero is the one figure a person verifies by finishing the transaction</td><td>Static</td></tr>
+        <tr><td><strong>Steam API health, the degraded flag</strong></td><td><span class="row-code">G2</span></td><td><span class="surf">5.3</span> as a banner</td><td>A published state rather than a figure, driven by a measurement, and here because it obeys the same missing-data rules as the numbers it protects</td><td>Real time probe</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- QUOTED -->
+<section id="quoted">
+  <div class="sec-head">
+    <h2>Group B: numbers we quote from outside</h2>
+    <p>The source is somebody else's. The rule is not "publish the method", it is <strong>name the source and the date, or do not print the number</strong>.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Number</th><th>Source</th><th>Read on</th><th>The rule it carries</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Live market price with timestamp, plus an outbound market link on the top item</strong></td><td>A named market venue</td><td><span class="surf">1.0, 3.3</span></td><td>Row <span class="row-code">A1</span>. The timestamp is visible, not implied. The link is genuinely outbound, and the backlog records that outbound clicks are tracked as an accepted cost and never as a failure metric, which is what stops the link being quietly weakened later</td></tr>
+        <tr><td><strong>Instance value receipt: current sell price for the comparable float band and phase, on two named venues</strong></td><td>Two venues, <span class="q">[?]</span> which</td><td><span class="surf">3.6</span>, carried by <span class="row-code">F2</span> onto <span class="surf">5.1, 5.3</span></td><td>Row <span class="row-code">F1</span>. Priced as <strong>that instance</strong>, never as the skin name, and the link opens the venue listing filtered to that float band so the person checks it themselves rather than taking our word</td></tr>
+        <tr><td><strong>Trustpilot score</strong></td><td>Trustpilot, live</td><td><span class="surf">1.0</span> hero</td><td>Row <span class="row-code">A5</span>. <strong>Live or not at all.</strong> A hardcoded score is a fabricated review claim, which is a different category of wrong from a stale number</td></tr>
+        <tr><td><strong>Named third-party RNG auditor</strong></td><td>An auditor we have not engaged</td><td><span class="surf">1.0</span> hero</td><td>Row <span class="row-code">A5</span>, and <strong>it cannot render today.</strong> <code>lean-ux-canvas.md</code> records that nobody in the category has a named auditor, which is the opportunity and also the fact: we do not have one either. A placeholder badge is the invented certification node <code>0.2</code> refused</td></tr>
+        <tr><td><strong>Steam Market's 15 percent fee</strong></td><td><code>jtbd.md</code>, Related Job 5 research basis, sourced there to <code>strategy.md</code> and <code>competitors.md</code></td><td><span class="surf">1.0, 5.3</span></td><td>A number about a third party that can change. Dated and sourced wherever it is printed</td></tr>
+        <tr><td><strong>Category tested RTP figures</strong></td><td><code>aarrr.md</code>, "What competitors reveal": Hellcase 82.1 percent tested, DatDrop 80.6 percent tested across 118 cases, Key-Drop 89 percent <strong>stated</strong>, Clash.gg 90 to 92.8 percent platform-disclosed</td><td>Only where a comparison is printed</td><td><strong>Never mix a tested figure with a stated one in the same comparison.</strong> Two of those four are third-party tests and two are platform claims. A row printing them side by side as one measurement is doing the thing this product exists to stop</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PROPOSED -->
+<section id="proposed">
+  <div class="sec-head">
+    <h2>Group C: proposed, and not capabilities yet</h2>
+    <p>Kept visible so nobody ships one later by assuming it was approved.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Candidate</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Aggregate tested RTP across all cases</strong></td><td>Proposed by node <code>0.2</code> as the fallback for statistics slot 4. Adjacent to <span class="row-code">D4</span> rather than inside it, so <strong>it needs its own backlog row before it can ship</strong></td></tr>
+        <tr><td><strong>Online users</strong></td><td>Carried with a condition by <code>0.2</code>: it ships only if it counts humans in real time. If it cannot, it does not ship</td></tr>
+        <tr><td><strong>Total users, Upgrades</strong></td><td><strong>Cut by <code>0.2</code></strong>, one as unverifiable from outside and one as a counter for a LATER mode. Recorded here so they are not restored by habit at stage 04</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- RULES -->
+<section id="rules">
+  <div class="sec-head">
+    <h2>Nine rules every published number obeys</h2>
+    <p>Each one derived from a row, a decision or a principle, never from taste.</p>
+  </div>
+
+  <div class="card">
+    <ol>
+      <li><strong>A route, or it does not ship.</strong> Every figure points at something a stranger can open, compute or wait for. <code>D-14</code>: a number without one is decoration that looks like evidence.</li>
+      <li><strong>An as-of moment on anything that moves.</strong> Row <span class="row-code">A1</span> requires the timestamp by name, and the rule generalises: a figure with no time attached is read as current forever.</li>
+      <li><strong>Missing is a state, never a zero.</strong> A dash that reads as zero and a zero meaning "we do not know" are the same lie in two typefaces. <code>CLAUDE.md</code>: unknown is <span class="q">[?]</span>.</li>
+      <li><strong>Below the sample floor, print N rather than a percentage.</strong> <code>D-B</code> says the observed rate counter is worth nothing at N = 0. A percentage over a handful of rolls is not a smaller truth, it is a different claim.</li>
+      <li><strong>A configuration change forks the counter.</strong> From row <span class="row-code">D3</span> verbatim: the old configuration keeps its history and stays visible, the new one starts at zero and says so. A counter that silently absorbs a weights change is worse than no counter.</li>
+      <li><strong>A failed source is marked degraded, never frozen at its last good value.</strong> The Steam health probe in <span class="row-code">G2</span> is the pattern, and it applies to every real-time figure here.</li>
+      <li><strong>A number is never a score.</strong> No summing across kinds, which is why the header's two money figures are never added, node <code>0.1</code>. No streaks, no progress, no celebration, the rule <span class="row-code">C5</span> attaches to limits: the moment a figure acquires completion mechanics it stops describing and starts encouraging.</li>
+      <li><strong>Text, never an image.</strong> A figure baked into a picture is invisible to search, to a screen reader, and to a person copying it into a complaint.</li>
+      <li><strong>A number about someone else carries its source and its date, or it is <span class="q">[?]</span>.</strong> The rule this project applies to its own research, applied to product copy, because a comparative claim in the interface is a claim about a third party.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- REFRESH -->
+<section id="refresh">
+  <div class="sec-head">
+    <h2>Refresh classes</h2>
+    <p>Five, and every row above belongs to exactly one. The class decides both the staleness rule and the cost.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Class</th><th>Rows</th><th>What staleness means here</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Real time</strong></td><td>Free-unit count <span class="row-code">A2</span>, withdrawal clock <span class="row-code">G1</span>, Steam health probe <span class="row-code">G2</span></td><td>Any lag is a wrong answer. Degraded rather than stale</td></tr>
+        <tr><td><strong>Per round</strong></td><td>Observed rate counter <span class="row-code">D3</span>, cases opened</td><td>Moves with the product. Never rewritten backwards</td></tr>
+        <tr><td><strong>Rolling window</strong></td><td>Median and p90 <span class="row-code">A4</span> and <span class="row-code">G3</span></td><td>The window length is part of the claim and is printed with it. Length <span class="q">[?]</span></td></tr>
+        <tr><td><strong>Per read</strong></td><td>Market price <span class="row-code">A1</span>, instance value <span class="row-code">F1</span>, Trustpilot score <span class="row-code">A5</span></td><td>Fetched when the page is read, and carries the moment it was fetched</td></tr>
+        <tr><td><strong>Static until the configuration changes</strong></td><td>Published chance <span class="row-code">D2</span>, tested RTP and EV <span class="row-code">D4</span>, ceilings <span class="row-code">G2</span>, deadlines <span class="row-code">G4</span>, commission <span class="row-code">G6</span></td><td>Changing one is a republication, with rule 5 applying wherever a counter is attached</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- STATES -->
+<section id="states">
+  <div class="sec-head">
+    <h2>State matrix, and the mockup of all seven</h2>
+    <p>Every consuming node inherits all seven. This is the practical reason the register exists, and the only thing stage 04 renders from it.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - one published figure in each of its seven states, black and white until stage 06</div>
+    <div class="wf-grid">
+
+      <div class="wf-fig">
+        <div class="wf-fig-state">1 - Live</div>
+        <div class="wf-val">4 h 12 m</div>
+        <div class="wf-unit">Median withdrawal time, last 30 days</div>
+        <div class="wf-asof">as of 14:02 today</div>
+        <div class="wf-route">How this is measured</div>
+      </div>
+
+      <div class="wf-fig">
+        <div class="wf-fig-state">2 - Stale</div>
+        <div class="wf-val">4 h 12 m</div>
+        <div class="wf-unit">Median withdrawal time, last 30 days</div>
+        <div class="wf-asof">as of 09:40 yesterday</div>
+        <div class="wf-note">Older than this figure updates. Shown with its real time, never alone.</div>
+        <div class="wf-route">How this is measured</div>
+      </div>
+
+      <div class="wf-fig">
+        <div class="wf-fig-state">3 - Degraded</div>
+        <div class="wf-val is-off">Source failing</div>
+        <div class="wf-unit">Steam trade API</div>
+        <div class="wf-asof">last good read 11:18</div>
+        <div class="wf-note">Last known value shown only where a wrong number is not worse than none. On 5.3 this is also a banner.</div>
+        <div class="wf-route">What we are checking</div>
+      </div>
+
+      <div class="wf-fig">
+        <div class="wf-fig-state">4 - Below the sample floor</div>
+        <div class="wf-val">N = 214</div>
+        <div class="wf-unit">Observed rolls on this tier. Published chance 4.10 percent</div>
+        <div class="wf-note">No observed percentage yet. The count is shown instead of a figure that would read as a claim.</div>
+        <div class="wf-route">Why a count and not a rate</div>
+      </div>
+
+      <div class="wf-fig">
+        <div class="wf-fig-state">5 - Missing</div>
+        <div class="wf-val is-off">Not available</div>
+        <div class="wf-unit">Tested RTP for this case</div>
+        <div class="wf-note">Never a zero, never a dash. The route still points at what would produce it.</div>
+        <div class="wf-route">What this figure needs</div>
+      </div>
+
+      <div class="wf-fig">
+        <div class="wf-fig-state">6 - Forked</div>
+        <div class="wf-val">0.00 percent</div>
+        <div class="wf-unit">Observed, current table since 12 Aug. N = 0</div>
+        <div class="wf-fork">
+          <div class="wf-val is-off">4.02 percent, N = 118 430</div>
+          <div class="wf-unit">Previous table, kept and still readable</div>
+        </div>
+        <div class="wf-route">Why the counter forked</div>
+      </div>
+
+      <div class="wf-fig">
+        <div class="wf-fig-state">7 - Withdrawn</div>
+        <div class="wf-val is-off">Removed</div>
+        <div class="wf-unit">A figure used to be here</div>
+        <div class="wf-note">Said out loud where it was load bearing, with the reason. The row stays in this register with its reason too.</div>
+        <div class="wf-route">Why it is gone</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>State</th><th>The figure shows</th><th>The route</th><th>Who is told</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Live</strong></td><td>Value, unit, as-of where the class requires one</td><td>Works</td><td>Nobody. The normal case</td></tr>
+        <tr><td><strong>Stale</strong></td><td>The value with its real as-of, marked as older than its refresh promise</td><td>Works</td><td>The reader, in the same block. Never the value alone</td></tr>
+        <tr><td><strong>Degraded</strong></td><td>The last known value <strong>and</strong> the fact that the source is failing, or nothing at all where a wrong number is worse than no number</td><td>Works, and says what it is checking</td><td>The reader on the surface, plus the banner on <span class="surf">5.3</span> for the Steam case</td></tr>
+        <tr><td><strong>Below the sample floor</strong></td><td>N and the published figure. <strong>No observed percentage</strong></td><td>Works</td><td>The reader, in the counter's own words</td></tr>
+        <tr><td><strong>Missing</strong></td><td>An explicit "not available". Never a zero, never a dash</td><td>Points at what would produce it</td><td>The reader</td></tr>
+        <tr><td><strong>Forked</strong></td><td>The new configuration from zero, and the previous configuration with its full history beside it</td><td>Both work</td><td>The reader, because the fork is the disclosure</td></tr>
+        <tr><td><strong>Withdrawn</strong></td><td>Nothing. Where it was load bearing, the surface says a number used to be here and why it is not</td><td>Gone</td><td>The reader, and this register, which keeps the row with its reason</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>The withdrawn state is not decoration</h4>
+    <p><code>D-B</code> can disqualify the observed rate counter. <code>D-C</code> can disqualify the whole class. Row <span class="row-code">A5</span> cannot render until an auditor exists. <strong>A register whose only states are working ones would have to be redrawn on the first no.</strong></p>
+  </div>
+</section>
+
+<!-- ANATOMY -->
+<section id="anatomy">
+  <div class="sec-head">
+    <h2>Anatomy of a figure block</h2>
+    <p>One shape, five parts. Stage 04 renders it rather than inventing one per surface.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - the parts, and what each one is for</div>
+    <div class="wf-anat">
+      <div class="wf-fig">
+        <div class="wf-fig-state">Anatomy</div>
+        <div class="wf-val">82.1 percent</div>
+        <div class="wf-unit">Tested RTP for this case, over 40 000 opens</div>
+        <div class="wf-asof">tested 04 Aug 2026, republished 12 Aug</div>
+        <div class="wf-route">Read the test</div>
+        <div class="wf-note">Category median 80.6 percent, third-party tested</div>
+      </div>
+      <div class="wf-legend">
+        <div class="wf-leg"><span class="wf-leg-n">1</span><span class="wf-leg-t"><b>Value.</b> Text, never an image. The largest element in the block and never the only one.</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">2</span><span class="wf-leg-t"><b>Unit and caption.</b> No unit, no claim. "82.1" is not a figure; "82.1 percent tested RTP for this case" is.</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">3</span><span class="wf-leg-t"><b>As-of.</b> Required for real time, per round, rolling window and per read. Omitted only for static rows.</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">4</span><span class="wf-leg-t"><b>Route.</b> The link, the recomputation or the named wait that checks it. Part of the block, never a footnote elsewhere on the page.</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">5</span><span class="wf-leg-t"><b>Comparison.</b> Optional. Only where both sides carry a source and are the same kind of measurement: tested against tested, never tested against stated.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - what folds, and what never does</div>
+    <div class="wf-phone">
+      <div class="wf-fig">
+        <div class="wf-val">82.1 percent</div>
+        <div class="wf-unit">Tested RTP for this case</div>
+        <div class="wf-asof">tested 04 Aug 2026</div>
+        <div class="wf-route">Read the test</div>
+      </div>
+      <div class="wf-fig">
+        <div class="wf-val">4 h 12 m</div>
+        <div class="wf-unit">Median withdrawal, last 30 days</div>
+        <div class="wf-asof">as of 14:02</div>
+        <div class="wf-route">How this is measured</div>
+      </div>
+      <div class="wf-fig">
+        <div class="wf-val">N = 214</div>
+        <div class="wf-unit">Observed rolls. Published 4.10 percent</div>
+        <div class="wf-route">Why a count and not a rate</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card is-good">
+    <h4>What folds at 360 and what does not</h4>
+    <p><strong>The comparison folds first</strong>, then the caption shortens. <strong>The as-of and the route never fold</strong>, because those two are exactly what turns a number into evidence. A figure stripped to value and caption on mobile is the category's own habit and it is the one thing this register forbids.</p>
+  </div>
+</section>
+
+<!-- SEO -->
+<section id="seo">
+  <div class="sec-head">
+    <h2>SEO and accessibility</h2>
+    <p>The register has no public URL. It constrains how figures behave on the indexed pages that read it.</p>
+  </div>
+
+  <div class="card">
+    <p><strong>Every figure is crawlable text</strong>, rule 8, which is also the "text not in images" line in the A to E checklist. The pre-login figures on <span class="surf">1.0</span> and <span class="surf">3.3</span> are the product's entire pre-login argument, and an image would remove them from search and from a screen reader in one stroke.</p>
+    <p><strong>The accessible name carries the unit and the as-of</strong>, not the bare digits. A screen reader announcing "82.1" has announced nothing.</p>
+    <p><strong>Real-time counters do not shout.</strong> A live region firing on every round is a denial of service to a screen reader. Real-time figures update silently by default with the current value always available on demand, and where an update genuinely changes what a person can do the announcement is polite and rate limited. A design rule with a stated reason, not a quoted success criterion.</p>
+    <p><strong>A degraded or missing figure is announced as such</strong>, in text, in the block. Colour alone never carries that state, which also survives stage 06 turning the colour on.</p>
+    <p><strong>Numbers carry no schema of their own.</strong> Where a page type takes structured data, node <code>0.13</code> assigns it.</p>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+    <p>Nine open items. Two of them can remove rows from the register rather than change them.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Open item</th><th style="width:46%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong><code>D-C</code>, the observed-against-published check</strong></td><td>It runs on live platform data before any of this is drawn, and the publication is permanent once made. Scheduled before stage 04</td><td>Founder, on the live platform</td></tr>
+        <tr><td><strong><code>D-B</code>, whether roll history migrates and can be published</strong></td><td>Decides the observed rate counter, and with it the route for cases opened</td><td>Founder, question of fact to the live platform</td></tr>
+        <tr><td>The rolling window for median and p90</td><td>Seven days, thirty, ninety. The length is part of the claim</td><td>Founder with the data, before stage 04</td></tr>
+        <tr><td>The sample floor for the observed counter</td><td>The N below which the counter shows N and no percentage</td><td>Founder with the data</td></tr>
+        <tr><td>Who tests our RTP</td><td><span class="row-code">D4</span> says "published tested RTP". Tested by whom, over how many opens, republished when</td><td>Founder. Same answer as the auditor below</td></tr>
+        <tr><td>The named auditor</td><td>Row <span class="row-code">A5</span> prints a name we do not have. Nobody in the category has one, which is the opportunity and also the fact</td><td>Founder</td></tr>
+        <tr><td>The two venues for the instance value receipt</td><td>Row <span class="row-code">F1</span> says two named venues. Which two is not decided anywhere</td><td>Founder, before stage 04</td></tr>
+        <tr><td>Statistics slots 2 and 4</td><td>Carried from <code>0.2</code>. Slot 2 recommended: median and p90. Slot 4: online users only if honest, otherwise an aggregate RTP needing its own backlog row</td><td>Founder, before stage 04</td></tr>
+        <tr><td>A browsable public round ledger</td><td>It would give cases opened a single auditable total instead of a per-case reconciliation. <strong>Not a backlog row today</strong></td><td>Founder. One row if yes</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>Where each figure sits on a screen.</strong> The node that reads it, at steps 5 and 6.</p>
+    <p><strong>How a figure is styled, sized or coloured.</strong> Stages 06 and 07. The mockups here are black and white on purpose.</p>
+    <p><strong>The words around it.</strong> Stage 05 owns microcopy and syncs the final strings back.</p>
+    <p><strong>Whether a figure is true.</strong> <code>D-C</code>, and that one is not a design question at all.</p>
+  </div>
+
+  <a class="backlink" href="structure.html#0.11">Back to Structure (0.11)</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/numbers.md</code>. Node data: <code>ia/docs/sitemap.md</code>, Detailed node map, cluster 0. Registered by the global sweep, 12 August 2026.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map: <a href="sitemap.html">Sitemap</a>. The routes: <a href="flows.html">Flows</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '0.11 Published numbers';
+window.NAV_SECTIONS = [
+  { id: 'overview',  label: 'Overview' },
+  { id: 'why',       label: 'Why this is a node' },
+  { id: 'dc',        label: 'The condition above every row' },
+  { id: 'ours',      label: 'Group A: ours' },
+  { id: 'quoted',    label: 'Group B: quoted' },
+  { id: 'proposed',  label: 'Group C: proposed' },
+  { id: 'rules',     label: 'Nine rules' },
+  { id: 'refresh',   label: 'Refresh classes' },
+  { id: 'states',    label: 'States, and the mockup' },
+  { id: 'anatomy',   label: 'Anatomy' },
+  { id: 'seo',       label: 'SEO and a11y' },
+  { id: 'open',      label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
