@@ -140,10 +140,22 @@ window.NAV = [
   var brand = el('div', 'nav-brand');
   brand.appendChild(el('strong', null, 'CS2 Clutch'));
   brand.appendChild(el('span', null, 'Product design pipeline'));
-  var home = el('a', 'nav-home', 'Project roadmap');
-  home.href = BASE + 'index.html';
-  brand.appendChild(home);
+  // Root level pages: they belong to no stage and are reachable from every page.
+  [
+    { label: 'Project roadmap', page: 'index.html' },
+    { label: 'Decision records', page: 'docs/decisions.html' }
+  ].forEach(function (r) {
+    var a = el('a', 'nav-home' + (r.page === active && !isSatellite ? ' is-current' : ''), r.label);
+    a.href = BASE + r.page;
+    brand.appendChild(a);
+  });
   root.appendChild(brand);
+
+  // A page outside the roadmap still shows its own sections, at root level.
+  if (!meta.some(function (m) { return m.owns; })) {
+    var sbRoot = sectionsBlock();
+    if (sbRoot) root.appendChild(sbRoot);
+  }
 
   REG.forEach(function (stage, i) {
     var m = meta[i];

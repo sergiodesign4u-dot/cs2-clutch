@@ -66,6 +66,8 @@ The founder named home, one game (case opening) and registration with an account
 
 **Reasoning for the additions beyond the three named:** deposit, because a case cannot be paid for without it and the loop breaks on the first step. Withdrawal, because the research names it the primary exit trigger and it is the payoff the whole value loop exists to deliver. Provably fair, because the brief makes fairness the differentiator rather than a footnote. Age gate and geo block, because the brief makes compliance a first class constraint.
 
+**Amended on 2026-08-11, at the close of the CJM stage.** An eighth surface joins round 1: the responsible play page. It was named in `lean-ux-canvas.md:54` and dropped from this list with no verdict recorded anywhere, which the CJM map found and could not settle on its own. Reasoning and the second decision taken with it, the daily free case, are in D-15.
+
 ---
 
 ## D-06. Four residue files kept, with their fate named

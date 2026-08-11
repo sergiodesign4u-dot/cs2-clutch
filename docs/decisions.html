@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - Decision records</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --glow-pink: rgba(233,77,139,0.15);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) {
+      main { margin-left: var(--nav-w); padding-top: 48px; }
+      footer { margin-left: var(--nav-w); }
+    }
+    section { margin-bottom: 72px; }
+    .section-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px;
+    }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 26px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 8px; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 6px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em;
+      color: var(--text-primary); background: rgba(255,255,255,0.04);
+      padding: 1px 5px; border-radius: 4px;
+    }
+    strong { color: var(--text-primary); font-weight: 600; }
+    blockquote {
+      border-left: 2px solid var(--border-strong); padding-left: 16px;
+      margin: 14px 0; font-size: 14px; color: var(--text-secondary); font-style: italic;
+    }
+    /* HERO */
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 64px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 800px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+    .hero-note {
+      margin-top: 30px; padding: 18px 20px; border-radius: 10px;
+      background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent-blue);
+      font-size: 14px; color: var(--text-secondary); line-height: 1.65;
+    }
+    .hero-note strong { color: var(--accent-blue); }
+    /* SECTION HEAD */
+    .sec-head { margin-bottom: 26px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+    /* DECISION CARD */
+    .dec {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-left: 3px solid var(--border-strong); border-radius: 12px;
+      padding: 22px 24px; margin-bottom: 14px;
+    }
+    .dec.is-open { border-left-color: var(--accent-pink); }
+    .dec.is-locked { border-left-color: var(--accent-yellow); }
+    .dec.is-closed { border-left-color: #4ade80; }
+    .dec-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+    .dec-num {
+      font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700;
+      color: var(--accent-pink); letter-spacing: 0.04em;
+    }
+    .dec-title { font-size: 17px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; }
+    .dec-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 14px; letter-spacing: 0.02em; }
+    .dec-body p { font-size: 14px; }
+    .st {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      padding: 3px 9px; border-radius: 5px; white-space: nowrap;
+    }
+    .st-open { color: var(--accent-pink); background: rgba(233,77,139,0.12); border: 1px solid rgba(233,77,139,0.4); }
+    .st-locked { color: var(--accent-yellow); background: rgba(250,218,98,0.08); border: 1px solid rgba(250,218,98,0.3); }
+    .st-closed { color: #4ade80; background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.3); }
+    /* PICK / DROP / CARRY */
+    .pick, .drop, .carry {
+      display: block; margin-top: 12px; padding: 11px 14px;
+      border-radius: 8px; font-size: 13.5px; line-height: 1.6; color: var(--text-secondary);
+    }
+    .pick { background: rgba(74,222,128,0.05); border: 1px solid rgba(74,222,128,0.18); }
+    .drop { background: rgba(255,255,255,0.02); border: 1px solid var(--border); }
+    .carry { background: rgba(250,218,98,0.05); border: 1px solid rgba(250,218,98,0.22); }
+    .k {
+      display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 5px;
+    }
+    .pick .k { color: #4ade80; }
+    .drop .k { color: var(--text-muted); }
+    .carry .k { color: var(--accent-yellow); }
+    /* OPEN LEDGER */
+    .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead { background: rgba(255,255,255,0.02); }
+    th { padding: 12px 14px; text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
+    td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; line-height: 1.55; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,0.01); }
+    td strong { color: var(--text-primary); }
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .dec { padding: 18px 16px; }
+      footer { flex-direction: column; gap: 8px; align-items: flex-start; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="intro">
+  <div class="section-eyebrow">Decision records - August 2026</div>
+  <h1>What was decided, and what it cost</h1>
+  <p class="lede">Fifteen records. Each one holds what was done, why it was done that way, what was rejected and on what grounds. This file is never auto loaded into a session: it is referenced by path, read by a person, and it is the only place where the reasoning behind a locked decision survives. Rules live in <code>CLAUDE.md</code>. Status lives in <code>README.md</code> and <code>_nav.js</code>. Neither of those two says why.</p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">15</div><div class="hero-stat-label">Records</div></div>
+    <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Founder calls</div></div>
+    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Still open</div></div>
+    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Thread with no owner</div></div>
+  </div>
+  <div class="hero-note">
+    <strong>Why a rejected option is written down at all.</strong> A decision with no rejected alternatives beside it reads, one stage later, as the only thing anyone could have done. It then gets re-derived by the next model that reaches it, usually differently. Every record here keeps what lost, so that reopening a question costs an argument rather than a guess.
+  </div>
+</div>
+
+<!-- BOUNDARIES -->
+<section id="boundaries">
+  <div class="sec-head">
+    <h2>Boundaries</h2>
+    <p>The answers that fix the shape of the whole project. Asked, not assumed, and not re-derived by any later stage.</p>
+  </div>
+
+  <div class="dec is-closed">
+    <div class="dec-head"><span class="dec-num">D-01</span><span class="dec-title">Migrate the old project onto the course structure</span><span class="st st-closed">Closed</span></div>
+    <div class="dec-meta">2026-08-05 - migration, before stage 02+</div>
+    <div class="dec-body">
+      <p>The repo was built under an ad hoc scheme: eleven markdown files flat in <code>research/</code>, three html pages at the root, an inline sidebar copied into each page, six empty placeholder folders with <code>.gitkeep</code>, and a <code>CLAUDE.md</code> carrying status tables. The pipeline expects <code>research/docs/</code> with fixed names, pages flat inside the stage folder, one root navigation registry, and a <code>CLAUDE.md</code> of rules with no status in it at all.</p>
+      <span class="pick"><span class="k">Chosen</span>Full migration.</span>
+      <span class="drop"><span class="k">Rejected</span>A hybrid keeping the old file locations and adding only navigation. Every later pack declares its inputs by exact path, and the input gate would then fail by hand on every stage, twelve times, for the life of the project. Also rejected: a fresh repository, which would have thrown away the git history of the research.</span>
+      <span class="carry"><span class="k">Cost accepted</span>Roughly 175 lines of source path citations inside the research corpus had to be rewritten, since the files those lines cite moved.</span>
+    </div>
+  </div>
+
+  <div class="dec is-locked">
+    <div class="dec-head"><span class="dec-num">D-02</span><span class="dec-title">One language, English</span><span class="st st-locked">Locked by the founder</span></div>
+    <div class="dec-meta">2026-08-05 - stage 01 boundary question</div>
+    <div class="dec-body">
+      <p>Multilingual multiplies the IA node count by language, pulls in hreflang and URL structure, forces microcopy into keys instead of strings, runs voice and glossary separately per language, and requires layouts that survive text a third longer. It is decided at 03a because after 03a it means rewriting every IA node.</p>
+      <span class="pick"><span class="k">Chosen</span>One language, English.</span>
+      <span class="drop"><span class="k">Rejected</span>English plus Russian, and full multilingual matching the baseline.</span>
+    </div>
+  </div>
+
+  <div class="dec is-locked">
+    <div class="dec-head"><span class="dec-num">D-03</span><span class="dec-title">No brand inherited</span><span class="st st-locked">Locked by the founder</span></div>
+    <div class="dec-meta">2026-08-05 - stage 01 boundary question, binding on stage 06</div>
+    <div class="dec-body">
+      <p>The baseline has a live brand: dark violet ground, hot pink accent, a top hat skull mark. The founder wants a new logo and a look of its own.</p>
+      <span class="pick"><span class="k">Chosen</span>Stage 06 runs the full "no brand yet" route: three brand plates, own palette, own typography, own shape language.</span>
+      <span class="drop"><span class="k">Rejected</span>The "brand already exists" route with one collected plate and values lifted from the baseline.</span>
+      <span class="carry"><span class="k">Constraint carried forward, not to be lost</span>The founder asked for a colour register adjacent to the baseline: dark near black, a hot accent, neon energy. That enters stage 06 as an attribute feeding the plates, never as a lifted palette. If the derived palette lands far from that register, it gets said out loud and decided, not quietly accepted.</span>
+    </div>
+  </div>
+
+  <div class="dec is-locked">
+    <div class="dec-head"><span class="dec-num">D-04</span><span class="dec-title">The baseline is inherited structurally, not visually</span><span class="st st-locked">Locked</span></div>
+    <div class="dec-meta">2026-08-05 - migration, binding on 03a and 03b</div>
+    <div class="dec-body">
+      <p>daddyskins.com is the founder's own product, six years live. Its structure carries six years of validated behaviour, which is a stronger input than anything a fresh IA exercise could produce.</p>
+      <span class="pick"><span class="k">Inherited, deliberately close to identical</span>Navigation model, page inventory, page composition, flows, the left icon rail, the live drop ticker, the placement of money and account actions.</span>
+      <span class="drop"><span class="k">Not inherited</span>Logo, palette, typography, shape language, motion, component look, copy.</span>
+      <p style="margin-top:14px">The course rule that a reference is an input and never an output still outranks the resemblance target. No screen is carried over whole. Where the inherited structure loses to research, research wins and the divergence is named in the IA node rather than absorbed silently.</p>
+    </div>
+  </div>
+
+  <div class="dec is-locked">
+    <div class="dec-head"><span class="dec-num">D-05</span><span class="dec-title">Round 1 scope</span><span class="st st-locked">Locked, amended once</span></div>
+    <div class="dec-meta">2026-08-05, amended 2026-08-11 - binding on 03a, which marks every screen MVP or LATER</div>
+    <div class="dec-body">
+      <p>The founder named home, one game and registration with an account as the starting point, then chose to close the money loop and the compliance layer in the same round.</p>
+      <span class="pick"><span class="k">Round 1</span>Home, case opening, registration and account, deposit, skin withdrawal to Steam, provably fair page with verification tool, age gate and geo block, responsible play page.</span>
+      <span class="drop"><span class="k">Later</span>Case battles, gunfights, upgrades, in-platform exchange, giveaways, leaderboards, referral programme, rakeback.</span>
+      <p style="margin-top:14px"><strong>Reasoning for the additions beyond the three named.</strong> Deposit, because a case cannot be paid for without it and the loop breaks on the first step. Withdrawal, because the research names it the primary exit trigger and it is the payoff the whole value loop exists to deliver. Provably fair, because the brief makes fairness the differentiator rather than a footnote. Age gate and geo block, because the brief makes compliance a first class constraint.</p>
+      <span class="carry"><span class="k">Amended 2026-08-11, at the close of the CJM stage</span>An eighth surface joins round 1: the responsible play page. It was named in <code>lean-ux-canvas.md:54</code> and dropped from this list with no verdict recorded anywhere, which the CJM map found and could not settle on its own. Reasoning, and the second decision taken with it, are in D-15.</span>
+    </div>
+  </div>
+</section>
+
+<!-- RESIDUE AND CRAFT -->
+<section id="residue">
+  <div class="sec-head">
+    <h2>Residue and craft</h2>
+    <p>Three records about the repository itself: what was kept without a home, where a rule was deliberately bent, and where html had quietly become the source.</p>
+  </div>
+
+  <div class="dec is-open">
+    <div class="dec-head"><span class="dec-num">D-06</span><span class="dec-title">Four residue files kept, with their fate named</span><span class="st st-open">Open</span></div>
+    <div class="dec-meta">2026-08-05 - owner: the round that closes the stage 01 gaps</div>
+    <div class="dec-body">
+      <p><code>strategy.md</code>, <code>product-model.md</code>, <code>quality-check.md</code> and <code>live-research.md</code> moved into <code>research/docs/</code> but do not map onto any course artefact. They carry real research and cannot simply be deleted.</p>
+      <span class="carry"><span class="k">Intended resolution, not yet executed</span>The strategic layer of <code>strategy.md</code> folds into <code>research.md</code> and into <code>lean-ux-canvas.md</code>; the four locked founder decisions inside it move into this file; <code>quality-check.md</code> and <code>live-research.md</code> merge into a single <code>critique.md</code>, which then earns a visible "before to after" section on <code>research.html</code>; <code>product-model.md</code> is superseded history and survives in git.</span>
+      <p style="margin-top:14px">Carrying them unresolved is the smaller error. The larger one would be to leave them looking like current artefacts with no reader, which is exactly how the museum problem starts.</p>
+    </div>
+  </div>
+
+  <div class="dec is-closed">
+    <div class="dec-head"><span class="dec-num">D-07</span><span class="dec-title">Nine theme variables in <code>_nav.css</code>, not eight</span><span class="st st-closed">Closed</span></div>
+    <div class="dec-meta">2026-08-05 - migration</div>
+    <div class="dec-body">
+      <p>The course specifies eight variables at the top of <code>_nav.css</code>. The panel is fixed over scrolling page content and needs an opaque plate of its own, so it also needs a background value.</p>
+      <span class="pick"><span class="k">Chosen</span>Add <code>--nav-bg</code> as a ninth variable in the same block. The intent of the rule holds: the theme lives in one file and pages never write <code>nav-*</code> rules of their own. Naming the deviation beats diverging quietly.</span>
+    </div>
+  </div>
+
+  <div class="dec is-closed">
+    <div class="dec-head"><span class="dec-num">D-08</span><span class="dec-title">The Lean UX Canvas had no markdown source, and that is now fixed</span><span class="st st-closed">Closed</span></div>
+    <div class="dec-meta">2026-08-05 - stage 01</div>
+    <div class="dec-body">
+      <p>Stage 01 produces six documents, and <code>lean-ux-canvas.md</code> appeared to be missing. It was not missing: the canvas was fully authored, all eight cells, but it lived only inside <code>research.html</code>. Html was the source and markdown did not exist, which is the ownership rule inverted.</p>
+      <span class="pick"><span class="k">Chosen</span>Extract it cell for cell into <code>research/docs/lean-ux-canvas.md</code>, with nothing added, removed or reworded, and record the provenance of the extraction inside the file. Markdown is the source again, html is the visualisation.</span>
+      <span class="drop"><span class="k">Rejected</span>Writing a fresh canvas from <code>research.md</code>. That would have produced a stage 01 artefact reverse engineered from its own downstream summary, which is exactly the "both sides derived from one source" failure, and it would have thrown away the authored one.</span>
+      <span class="carry"><span class="k">Two divergences found during the extraction, carried rather than patched</span>Cell 3 names three motivation segments while stage 02 later cut the audience behaviourally into four personas, with no mapping ever written between the two models. Cell 5 carries the old five game MVP, which round 1 has since narrowed. A canvas records what was believed when it was drawn, with the authoritative source named next to each.</span>
+    </div>
+  </div>
+</section>
+
+<!-- CRITIQUE -->
+<section id="critique">
+  <div class="sec-head">
+    <h2>Critique</h2>
+    <p>The gap that was named before it was closed, the two instrument pass that closed it, and the one finding that could not be edited into shape and had to be re-run.</p>
+  </div>
+
+  <div class="dec is-closed">
+    <div class="dec-head"><span class="dec-num">D-09</span><span class="dec-title">The remaining stage 01 gap is carried openly</span><span class="st st-closed">Closed by D-10</span></div>
+    <div class="dec-meta">2026-08-05 - stage 01</div>
+    <div class="dec-body">
+      <p>Stage 01 requires a critique pass on two instruments and it never ran on this material. Everything downstream rests on stage 01, so a fabricated number there poisons all eleven stages below it, and this is the cheapest place to catch one.</p>
+      <span class="pick"><span class="k">Chosen</span>Name the gap in <code>README.md</code> and in <code>AGENTS.md</code> so that no later audit reports it as a discovery, and make closing it the first work item of the next round.</span>
+      <span class="drop"><span class="k">Rejected</span>Running the critique inline during the structure migration. Critique is a stage step with its own log, its own verification pass and its own visible "before to after" section; folding it into a migration would produce findings with nowhere to live.</span>
+    </div>
+  </div>
+
+  <div class="dec is-closed">
+    <div class="dec-head"><span class="dec-num">D-10</span><span class="dec-title">Stage 01 critique, run on two instruments</span><span class="st st-closed">Closed</span></div>
+    <div class="dec-meta">2026-08-05 - closes D-09, leaves one finding to D-11</div>
+    <div class="dec-body">
+      <p>Codex first and read only, Claude's own pass in parallel on a different class, neither instrument seeing the other's table until both were complete, dedup afterwards on full data. Dedup key: file, line and statement. Where both instruments hit the same line with different defects, one row was kept and both defects named, because a single fix has to satisfy both.</p>
+      <span class="pick"><span class="k">Result</span>22 findings confirmed, 2 withdrawn on verification. Codex 12, Claude 8, both 2. No verdicts conflicted, so nothing had to be escalated.</span>
+      <p style="margin-top:14px"><strong>Why the split fell that way, and what it says about the second instrument.</strong> Codex took the entire class of unsourced facts, including nine sites that stage 01 had already walked past with its own pass. That is the whole argument for a second instrument in one number: the author of the material, re-reading the material, believed the same things the second time. Claude took the entire class of conclusions that do not follow from any fact above them, which needs the product understood rather than the text read.</p>
+      <p><strong>The pattern underneath both classes.</strong> The level files were consistently more honest than the synthesis. <code>competitors.md</code> carried a <span style="color:var(--accent-yellow)">[?]</span> on the pre-login conversion claim and the synthesis dropped it. <code>benchmark.md</code> said in line 7 that Hellcase had been removed from scoring, and the synthesis then called Hellcase the lowest-scoring platform in the category. The defect is not born in the research. It is born on the merge, and that is where the next round should look first.</p>
+      <span class="drop"><span class="k">Withdrawn on verification, kept visible so they do not return</span>Codex reported Clash.gg's "Champion house edge 7.5%" as unsourced; the source index carries the row, so half the finding falls and the unsourced "30-second average matchmaking" beside it was fixed. Claude reported two source index rows citing "research compilation" instead of a source; one of the two carries a real URL, so the finding was corrected to one row and fixed.</span>
+      <p style="margin-top:14px"><strong>Pre-critique wording of the canvas, preserved as promised.</strong></p>
+      <blockquote>Cell 7, riskiest assumption: users who care about trust infrastructure will discover this platform through it, convert into depositors because of it, and stay longer because of it, at a rate meaningfully above what the same effort would achieve spent on a bigger first-deposit bonus, more streamers, or a Rain-style ambient mechanic. Counter-evidence: Hellcase has 2M MAU and 150,000 daily opens with the lowest trust score in category.</blockquote>
+      <blockquote>Cell 8, smallest test: landing page A/B. Variant A, trust-first, the only platform with a named, verified RNG auditor, check the result yourself. Variant B, experience-first, the most electric case opening on the web.</blockquote>
+      <p>Both were retired because their premise had been killed in <code>research.md</code> section 9 and because Decision 1 had already chosen the hybrid hero. The assumption now lives in exactly one place and is quoted rather than restated elsewhere.</p>
+    </div>
+  </div>
+
+  <div class="dec is-closed">
+    <div class="dec-head"><span class="dec-num">D-11</span><span class="dec-title">Step 4 re-run. The benchmark measures the reveal moment</span><span class="st st-closed">Closed, one thread now unowned</span></div>
+    <div class="dec-meta">2026-08-05 - closes the last open finding of D-10</div>
+    <div class="dec-body">
+      <p><strong>Dimension, chosen by the founder</strong> from three candidates offered, the reveal moment, the trust and verification layer, and the money in-and-out loop: the reveal moment, the span from committing to a randomised outcome to understanding what you got and knowing what to do next. It is the one span the product exists to deliver, and the primary JTBD names it directly.</p>
+      <p><strong>Five products, none of them in our category:</strong> Pokemon TCG Pocket, MONOPOLY GO!, EA SPORTS FC 26 Ultimate Team, Genshin Impact, Nike SNKRS. Six criteria on a 1 to 5 scale. Scores: 29, 25, 19, 19, 9 out of 30. Every score rests on a page opened in a browser on 2026-08-05, listed with URL and screenshot.</p>
+      <span class="pick"><span class="k">The sharpest finding, produced by the constraint itself</span>Odds, floors, rarity ladders and duplicate economies are documented publicly, because probability disclosure is a legal requirement in several jurisdictions and publishers write those pages themselves. The craft of a reveal is documented nowhere: build-up length, where the cut lands, what sound does at the payoff, how long the hold is. Stage 06 has to derive the timing, the cut, the sound and the hold itself, then test them. Any number that appears later for those is a decision this project made, not a benchmark it matched.</span>
+      <span class="drop"><span class="k">Rejected</span>Scoring the craft criteria anyway from secondary write-ups and model memory. That would have produced a table with no <span style="color:var(--accent-yellow)">[?]</span> in it and no way to tell which cells were facts.</span>
+      <span class="carry"><span class="k">One access failure recorded rather than worked around</span>The in-client Genshin announcement viewer returns HTTP 403 to an outside browser. The Genshin figures therefore rest on a community statistical model published on the publisher's own community platform in 2021, which states the 0.6% base rate and the 90-pull limit as publisher-announced and derives the curve between them from 25 million recorded pulls. That distinction must not be flattened later. It is also the finding that matters most: the most successful pity system in games is one whose actual behaviour players had to reverse engineer, which is the exact gap this product exists to close.</span>
+      <span class="carry"><span class="k">The thread that lost its owner</span>This record handed the relocation of <code>benchmark.md</code> Part 2 into <code>competitors.md</code> to the round that runs CJM step 4, on the ground that this step may touch <code>personas.md</code>. Step 4 ran and did not do it, so the relocation is unowned as of 2026-08-11 and <code>personas.md</code> has no writer at all. See D-15.</span>
+    </div>
+  </div>
+</section>
+
+<!-- CJM -->
+<section id="cjm">
+  <div class="sec-head">
+    <h2>The CJM stage</h2>
+    <p>Four records from stage 02+: what the map was drawn for, how deep the mining went and what that bought, the one claim that had to be demoted, and the single MVP core the stage left behind.</p>
+  </div>
+
+  <div class="dec is-closed">
+    <div class="dec-head"><span class="dec-num">D-12</span><span class="dec-title">CJM focus: one map, The Opener x the main job</span><span class="st st-closed">Closed</span></div>
+    <div class="dec-meta">2026-08-11 - stage 02+, step 1</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Chosen</span>A single As-Is and To-Be map for the primary persona doing the main job. The map describes how that person does that job today, on the platforms that exist, without our product.</span>
+      <p style="margin-top:14px"><strong>Why that pair and not another.</strong> <code>personas.md:95</code> states the reason the Opener is primary in terms the map needs: this person drives the most volume and is the first user any platform must succeed with. The rule that the primary persona wins a conflict is the same rule that makes a second map a cost rather than a courtesy.</p>
+      <span class="drop"><span class="k">Rejected: a map per persona</span>The Battler's path diverges structurally, lobby, human opponent, simultaneous reveal, and would genuinely need its own map, but battle mode is hidden at launch, so it earns that map in the round that opens it. The Researcher diverges by channel rather than by structure, which the pack answers with one marked line rather than a second full map. The Accumulator's path is a post-D1 loop and sits outside this job entirely.</span>
+      <span class="carry"><span class="k">Consequence carried into stage 03</span>Three of the four personas are represented in the map by a line, not by a path. The IA has to keep them working without being built around them.</span>
+    </div>
+  </div>
+
+  <div class="dec is-locked">
+    <div class="dec-head"><span class="dec-num">D-13</span><span class="dec-title">Mining depth: Deep, chosen before step 3</span><span class="st st-locked">Locked by the founder</span></div>
+    <div class="dec-meta">2026-08-11 - stage 02+, step 3, decided before the mining pass ran</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Chosen</span>Deep. Full voice-of-customer mining under this focus: review aggregators, Reddit and topical forums, YouTube comments, discussions under the listed competitors. Public and pre-login pages only, no accounts. Anything behind a login stays <span style="color:var(--accent-yellow)">[?]</span>.</span>
+      <p style="margin-top:14px"><strong>What the fork actually bought, and it is not more quotes.</strong> It bought the central finding of step 4: the loss is almost never described as losing. People describe one of two other things instead, and neither had appeared in any stage 01 or 02 artefact. That finding is what moved the floor of the emotional curve away from the open, where every competitor puts its design budget, and onto the outcome and the exit.</p>
+      <p><strong>It also bought a discipline that outlived it.</strong> The mining pass read more than the evidence ledger can show. Rather than quoting the pass total, every count in the map was reduced to what <code>cjm-evidence.md</code> holds as a row with platform, rating, date and URL, and the wider pass total is named as a pass total.</p>
+      <span class="drop"><span class="k">Rejected: Shallow</span>It would have produced the same eight phases with emotions inferred from the stage 01 corpus, which is exactly the median the input gate exists to prevent. The cost of Deep, admitted: one full pass plus a targeted re-research that opened video comment threads, the one source class the first pass could not reach.</span>
+      <span class="carry"><span class="k">What it did not buy</span>The age gate as a rendered screen is still <span style="color:var(--accent-yellow)">[?]</span> after both passes. Not one user anywhere describes meeting an age gate on arrival; age appears only as a ban reason at withdrawal. Stage 03 inherits that hole behind a screen it has to draw.</span>
+    </div>
+  </div>
+
+  <div class="dec is-locked">
+    <div class="dec-head"><span class="dec-num">D-14</span><span class="dec-title">Provable fairness ships, positioned as a secondary proof</span><span class="st st-locked">Locked by the founder</span></div>
+    <div class="dec-meta">2026-08-11 - stage 02+, step 8</div>
+    <div class="dec-body">
+      <p><strong>The problem this closes.</strong> Design principle 1 says provable fairness is the brand, not a footnote. The mining says something else: the barrier that actually recurs is the belief that the numbers shown are not the numbers used, a pattern of 11 people, and a cryptographic verifier is not what those 11 people ask for. The three provably fair rows in the backlog trace to a job that scores 3 for The Researcher and 1 for The Opener.</p>
+      <span class="pick"><span class="k">Chosen</span>Build and ship all three, and stop claiming they convert a sceptic.</span>
+      <p style="margin-top:14px"><strong>What is demoted is a claim, not a feature.</strong> Nothing is cut. Provable fairness is evidence that our own numbers are honest, which is a different job from making a sceptic believe them at all. What answers the recorded doubt at launch is the published chance and current value per item, and the published tested RTP and expected value at this entry cost.</p>
+      <span class="drop"><span class="k">Rejected</span>Cutting the provably fair page from round 1. It is a locked round 1 surface and a declared job, and a public provably fair surface is one of three things no competitor offers before login. Also rejected: leaving principle 1 as written and letting three rows quietly stand on a claim the evidence does not support.</span>
+      <span class="carry"><span class="k">Consequence for stage 06 and after</span>Principle 1 keeps its priority, and the word brand in it now has a stated limit written into <code>CLAUDE.md</code> itself: the product is built so that its own numbers are checkable, not that a verifier is the thing that persuades. Whoever designs the hero reads that limit before deciding what occupies it.</span>
+    </div>
+  </div>
+
+  <div class="dec is-closed">
+    <div class="dec-head"><span class="dec-num">D-15</span><span class="dec-title">The MVP core is refined once, in one place</span><span class="st st-closed">Closed, two founder answers</span></div>
+    <div class="dec-meta">2026-08-11 - stage 02+, steps 8 and 11</div>
+    <div class="dec-body">
+      <p><strong>The problem.</strong> Three lists in this repository carried the name of the MVP core and did not agree: 3 jobs in <code>jtbd.md</code>, 8 solution bullets in the Lean UX canvas, and a 7 item round 1 screen list in <code>CLAUDE.md</code> against an 8 item LATER list. No file mapped any of them onto the others.</p>
+      <span class="pick"><span class="k">Chosen</span>One backlog at capability level, in <code>cjm-to-be.md</code>: 38 MVP rows over 37 distinct capabilities, grouped by the round 1 surface each row lives on. Every other file points at it and none of them holds a competing copy. <code>CLAUDE.md</code> wins every disagreement about scope, and the canvas cell is kept as drawn.</span>
+      <span class="drop"><span class="k">Rejected: a second list</span>The failure mode is that each stage writes its own MVP list next to the last one. <code>jtbd.md</code>, <code>jtbd.html</code>, <code>lean-ux-canvas.md</code> and <code>research.html</code> were all edited in the same step so that no file was left holding the old version.</span>
+      <p style="margin-top:14px"><strong>Two things this stage found and did not smooth.</strong> The criterion stated in <code>jtbd.md</code> for choosing the three core jobs, score 3 for the primary persona, is failed by the third of its own three: withdraw cleanly scores 2 for The Opener. It stays as a stated exception, because it is the only one whose failure ends the relationship rather than degrading it. And the priority test for MVP had to be restated as "a documented As-Is barrier recurs" rather than "the mechanics still complete", after which seven rows declared themselves exceptions rather than hiding behind the label.</p>
+      <span class="carry"><span class="k">Two questions went to the founder and both came back on 2026-08-11. Both answered the same way: take them</span><strong>The daily free case enters round 1 as backlog row I2.</strong> It appeared in neither scope list, and a founder decision is not settled by a superseded canvas cell, so the row was held in LATER for exactly one step and then decided by the person whose decision it was. What the decision does not resolve is printed in the row rather than closed by it: I2 is the only capability on the map with no parent in any of the three legal classes, and it repeats daily the impression that the starter credit's residual risk names once, that opening is free. A borrowed parent was rejected, and a fourth parent class was not invented. <br><br><strong>The responsible play page returns to round 1</strong>, taking the surface count from seven to eight. Both scope lists had dropped a page the canvas names, with no verdict recorded anywhere. The contribution of the CJM stage here was not a design answer: it was finding a page that had been deleted by silence and naming who had to decide.</span>
+      <p style="margin-top:14px"><strong>A third thing closed with them.</strong> Critique finding M-01 had handed the wording of design principle 1 to step 11. <code>CLAUDE.md</code> said provable fairness is the brand while the map framed it as a secondary proof, and only one of the two could be read literally. Principle 1 now carries the limit in its own text. See D-14.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>Still open</h2>
+    <p>Everything on this page that has not been answered, in one place, with an owner or with the admission that there is not one.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Record</th><th>What is open</th><th>Owner</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>D-06</strong></td>
+          <td>Four residue files carry real research and map onto no course artefact. The intended resolution is written and not executed.</td>
+          <td>The round that closes the stage 01 gaps</td>
+        </tr>
+        <tr>
+          <td><strong>D-11, D-15</strong></td>
+          <td>Relocation of <code>benchmark.md</code> Part 2 into <code>competitors.md</code>, with every citation repointed. It was assigned to CJM step 4 because that step could touch <code>personas.md</code>. Step 4 ran and did not do it.</td>
+          <td><strong>None.</strong> The window closed with the stage, and <code>personas.md</code> now has no writer at all</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:20px">Four more open decisions exist that are not records here, because they are design questions rather than project ones and they belong to the map that raised them: the age and identity method, the roll history migration behind the observed rate counter, the internal check that must run on live data before any of it is drawn, and the inventory capital behind stock-backed drop tables. They live in <a href="../research/cjm-to-be.html#backlog">CJM To-Be</a> and are due at the stage 03 input gate.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>CS2 Clutch. Decision records, never auto loaded. Referenced by path, read by a person.</p>
+  <p>Rules: <code>CLAUDE.md</code>. Status: <code>README.md</code> and <code>_nav.js</code>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_SECTIONS = [
+  { id: 'boundaries', label: 'Boundaries' },
+  { id: 'residue', label: 'Residue and craft' },
+  { id: 'critique', label: 'Critique' },
+  { id: 'cjm', label: 'The CJM stage' },
+  { id: 'open', label: 'Still open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

@@ -41,6 +41,8 @@
 .nav-brand span { font-size: 10px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--nav-muted); }
 .nav-home { margin-top: 10px; font-size: 11px; color: var(--nav-active); text-decoration: none; opacity: 0.85; }
 .nav-home:hover { opacity: 1; text-decoration: underline; }
+.nav-home + .nav-home { margin-top: 4px; }
+.nav-home.is-current { opacity: 1; font-weight: 700; }
 
 /* Roadmap */
 .nav-roadmap { display: flex; flex-direction: column; }
