@@ -4,7 +4,7 @@
 
 **Purpose.** Carry the product's destinations, its money figures and its account control on every screen, in two account states and at two widths, in the carrier model the baseline runs plus one shortcut layer on mobile, without ever advertising a destination that does not exist yet.
 
-**Jobs served.** No job of its own: a global element is a carrier. It is the surface on which Main Job `jtbd.md:17` reaches the case grid, on which Related Job 1 `jtbd.md:33` and Related Job 3 `jtbd.md:51` reach the public provably fair page, on which Related Job 5 `jtbd.md:69` reaches inventory, and on which the compliance constraint in `CLAUDE.md`, responsible play tooling, gets its persistent entry. **Parent class:** design principle 1 for the provably fair item, design principle 1 as limited by `D-14` for the value figure, the compliance constraint for the boundary entry. All three are legal parents under the three class rule.
+**Jobs served.** No job of its own: a global element is a carrier. It is the surface on which Main Job `jtbd.md` "Section 1" reaches the case grid, on which Related Job 1 `jtbd.md` Section 2, Related Jobs and Related Job 3 `jtbd.md` Section 2, Related Jobs reach the public provably fair page, on which Related Job 5 `jtbd.md` "Section 2" reaches inventory, and on which the compliance constraint in `CLAUDE.md`, responsible play tooling, gets its persistent entry. **Parent class:** design principle 1 for the provably fair item, design principle 1 as limited by `D-14` for the value figure, the compliance constraint for the boundary entry. All three are legal parents under the three class rule.
 
 **Sitemap transitions:** 1.0, 1.2, 2.4, 3.1, 4.1, 5.1, 6.1.
 
@@ -130,7 +130,7 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 
 **Three items for a guest, four with an account.** Material's collapsed rail wants 3 to 7. The guest state clears the floor exactly and the product has room to grow to seven before the component itself is the constraint.
 
-**Responsible play in the rail is an addition to the base layer and it is named rather than absorbed.** The base layer gave it a persistent entry inside the Balance control and a footer link, `sitemap.md:553`, on the argument that a brake which has to be searched for at the worst moment is not a brake. That entry is unchanged. This adds a second one, in the rail's lower group, and it is affordable now for the same reason the rail is: there is space. **Parent:** `B7-4`, pattern of 12, plus the compliance constraint at `CLAUDE.md`, "responsible play tooling". Both legal.
+**Responsible play in the rail is an addition to the base layer and it is named rather than absorbed.** The base layer gave it a persistent entry inside the Balance control and a footer link, `sitemap.md` section "Global navigation: the rail's destinations and the job behind each"`, on the argument that a brake which has to be searched for at the worst moment is not a brake. That entry is unchanged. This adds a second one, in the rail's lower group, and it is affordable now for the same reason the rail is: there is space. **Parent:** `B7-4`, pattern of 12, plus the compliance constraint at `CLAUDE.md`, "responsible play tooling". Both legal.
 
 **The logo sits at the top of the rail and routes to 1.0**, which is the baseline's placement, `baseline.md`. It is inside the rail rather than above it: the rail is the full-height carrier and the logo is its first row.
 
@@ -143,13 +143,13 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 | The promotional partner tile above the destinations | Cut from round 1 | A paid third party placement. No barrier, no job, no constraint behind it. If it returns it returns as a revenue decision with a named owner, not as inherited furniture |
 | The language switcher | Cut permanently | `D-02`, one language, English. `baseline.md` already recorded this divergence |
 | The social icon row at the foot of the drawer | Deferred to 0.2 | The footer owns the canonical social set. The drawer may render it, from that one source and never a second list |
-| The daily free case, `I2` | Deliberately absent, and this is the interesting one | It is MVP by founder decision and it is the product's only free entry point, so a rail slot is tempting. It is **not a node in `sitemap.md`**: `sitemap.md:537` places it inside the catalogue as an addressable case. The rule this stage applies to the footer applies here too. A carrier may not promise a destination the map does not hold. Either it becomes a node or it stays inside 3.1. **Owed a decision before step 5** |
+| The daily free case, `I2` | Deliberately absent, and this is the interesting one | It is MVP by founder decision and it is the product's only free entry point, so a rail slot is tempting. It is **not a node in `sitemap.md`**: `sitemap.md` section "Global navigation: the rail's destinations and the job behind each"` places it inside the catalogue as an addressable case. The rule this stage applies to the footer applies here too. A carrier may not promise a destination the map does not hold. Either it becomes a node or it stays inside 3.1. **Owed a decision before step 5** |
 
 ### The cost of the carrier choice, and what paid it down
 
 On mobile the rail is a modal drawer behind a menu icon, which is the baseline's own behaviour, `baseline.md`. **`D-21` accepted a named cost for that: on mobile, from any screen that is not Home, reaching the catalogue cost two taps rather than one.** That was the price of Material's compact-window advice being declined.
 
-It was affordable for one reason and the reason is checkable: **the main job never routes through the rail.** `CLAUDE.md` fixes the main flow as home, case screen, age gate, open, and `D-20` put the featured case grid on Home directly. Tap 1 is a case tile on Home, tap 2 is the gate, tap 3 is Open. **The three tap budget was untouched by that change**, and it is untouched by this one. The browsing route was already four taps and already not the main-job route, `sitemap.md:533`.
+It was affordable for one reason and the reason is checkable: **the main job never routes through the rail.** `CLAUDE.md` fixes the main flow as home, case screen, age gate, open, and `D-20` put the featured case grid on Home directly. Tap 1 is a case tile on Home, tap 2 is the gate, tap 3 is Open. **The three tap budget was untouched by that change**, and it is untouched by this one. The browsing route was already four taps and already not the main-job route, `sitemap.md` section "Global navigation".
 
 **`D-22` paid the cost off rather than re-argued it.** The mobile bar carries Cases in position 2, so from any screen the catalogue is one tap again. **This is the founder answering a cost the previous decision wrote down**, which is the whole reason `D-21` was required to write it down.
 
@@ -194,7 +194,7 @@ Two disjoint sets would be two competing menus, which is the ambiguity Material'
 
 **Positions 1 to 3 never move and nothing is ever removed.** Exactly one slot is added, and it is added at the moment the person creates the thing it describes. That answers Apple's stability rule rather than arguing with it: "Don't disable or hide tab bar buttons, even when their content is unavailable." Section 2 records that this rule had been retired by `D-21` and is now back in force.
 
-**Provably fair holds position 3 in both states.** Same structural claim the rail makes, on the same parents: `jtbd.md:180` names a public provably fair surface as one of three things no competitor offers pre-login, and design principle 1 says trust is the product. It carries the `D-14` limit with it: its position is not a claim that a verifier converts a sceptic.
+**Provably fair holds position 3 in both states.** Same structural claim the rail makes, on the same parents: `jtbd.md` Section 3, Emotional and Social Jobs names a public provably fair surface as one of three things no competitor offers pre-login, and design principle 1 says trust is the product. It carries the `D-14` limit with it: its position is not a claim that a verifier converts a sceptic.
 
 **Balance stays out of the bar in both states.** Unchanged from `D-21`, and two reasons point the same way. Apple: "Use a tab bar to support navigation, not to provide actions." Design principle 3 at `CLAUDE.md`: cost never hides inside excitement, and making money a permanent navigation destination is the mechanism by which spending stops being a decision and becomes a place you go. **The money stays in the header.**
 
@@ -241,13 +241,13 @@ This is the state the founder specified. Left to right: rail toggle, logo, then 
 
 ### Four rules the two figures carry, and every one of them is derived rather than styled
 
-**1. Both figures are in real currency and neither wears a coin.** `cjm-to-be.md:208`, row `C1`: "one real currency throughout, no internal coin denomination anywhere", MVP and architecture, with the acceptance rule "no number renders anywhere without a currency mark". The baseline shows both of its figures against a branded coin glyph. **That glyph cannot cross.** This is the single hardest divergence in this node and it is not negotiable at IA level, because `C1` exists to make `B7-1` impossible: a payout cannot wear a label that is not a price.
+**1. Both figures are in real currency and neither wears a coin.** `cjm-to-be.md` "3. Deposit", row `C1`: "one real currency throughout, no internal coin denomination anywhere", MVP and architecture, with the acceptance rule "no number renders anywhere without a currency mark". The baseline shows both of its figures against a branded coin glyph. **That glyph cannot cross.** This is the single hardest divergence in this node and it is not negotiable at IA level, because `C1` exists to make `B7-1` impossible: a payout cannot wear a label that is not a price.
 
-**2. The two figures are never summed and never presented as a total.** They are different kinds. The upper one is spendable now. The lower one is an estimate of what a set of objects would fetch, and the only exit for those objects in round 1 is withdrawal to Steam, `cjm-to-be.md:105`. A combined number would read as net worth, which is a claim the product cannot honour, and it would sit one line above a deposit control.
+**2. The two figures are never summed and never presented as a total.** They are different kinds. The upper one is spendable now. The lower one is an estimate of what a set of objects would fetch, and the only exit for those objects in round 1 is withdrawal to Steam, `cjm-to-be.md` "T7. The outcome". A combined number would read as net worth, which is a claim the product cannot honour, and it would sit one line above a deposit control.
 
-**3. The lower figure is labelled as a current market value and never as profit, gain or growth.** It moves without the person acting, because skin prices move. A figure that can fall is honest only if it never claimed to be a score. **Parent:** design principle 1 as limited by `D-14`, "what answers the doubt people actually record is published chance, **current value** and tested RTP", plus row `B7` at `cjm-to-be.md:202`, the account and inventory with each item carrying its receipt. The header figure is the sum of those receipts and must reconcile with 5.1 exactly.
+**3. The lower figure is labelled as a current market value and never as profit, gain or growth.** It moves without the person acting, because skin prices move. A figure that can fall is honest only if it never claimed to be a score. **Parent:** design principle 1 as limited by `D-14`, "what answers the doubt people actually record is published chance, **current value** and tested RTP", plus row `B7` at `cjm-to-be.md` "2. Registration, account, age, geography", the account and inventory with each item carrying its receipt. The header figure is the sum of those receipts and must reconcile with 5.1 exactly.
 
-**4. No percentage badge on the deposit control in round 1.** The baseline runs a green 5 percent badge on its add control. `cjm-to-be.md:282` cuts **any** first-deposit bonus in round 1, including the zero-wagering variant, because `aarrr.md:224` requires case mathematics to be modelled before any bonus is designed and that model does not exist. The control ships without the badge. The badge is not forbidden forever, it is blocked behind a named model with a named owner.
+**4. No percentage badge on the deposit control in round 1.** The baseline runs a green 5 percent badge on its add control. `cjm-to-be.md` "Cut at this step" cuts **any** first-deposit bonus in round 1, including the zero-wagering variant, because `aarrr.md` "MVP product decision" requires case mathematics to be modelled before any bonus is designed and that model does not exist. The control ships without the badge. The badge is not forbidden forever, it is blocked behind a named model with a named owner.
 
 **A fifth thing this node refuses on its own.** No counter, no streak, no progress bar and no session score appears anywhere in either carrier. `CLAUDE.md` binds this stage: a limit that acquires completion mechanics stops being a boundary. Two live money figures in a persistent header is exactly where that pressure arrives.
 
@@ -306,7 +306,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 | Deposit control, account only | One add control. No badge in round 1 | 4.1 |
 | Active indicator | Exactly one destination is active at any time, **across the rail, the drawer and the mobile bar together**, never one in each | current node |
 
-**Provably fair holds its rail position in both states, and that is the structural claim of this node.** `jtbd.md:180` names a public provably fair surface as one of three things no competitor offers pre-login, and `baseline.md` verified that our own baseline still redirects that route to login and demotes it to a footer link, `baseline.md`. Design principle 1 says trust is the product. Letting the item slide down or out when the account arrives would say the proof was a sales argument. It carries the `D-14` limit with it: its position is not a claim that a verifier converts a sceptic.
+**Provably fair holds its rail position in both states, and that is the structural claim of this node.** `jtbd.md` Section 3, Emotional and Social Jobs names a public provably fair surface as one of three things no competitor offers pre-login, and `baseline.md` verified that our own baseline still redirects that route to login and demotes it to a footer link, `baseline.md`. Design principle 1 says trust is the product. Letting the item slide down or out when the account arrives would say the proof was a sales argument. It carries the `D-14` limit with it: its position is not a claim that a verifier converts a sceptic.
 
 ---
 
@@ -320,7 +320,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 
 **The mobile drawer is a display concern and never a crawl concern.** The rail's links are present in the markup at every width, and the menu icon toggles their visibility rather than their existence. A drawer that renders its links only after a click hides the product's main linking plane from a crawler, which is the standard way this pattern is shipped wrong.
 
-**Nothing here is indexed as its own URL.** The navigation has no route of its own. Nodes it links into carry their own indexation rules: 1.0, 1.2, 3.1, 6.1 and 7.1 are indexed, and 2.4, 2.7, 4.1, 5.1 and 5.3 are noindex.
+**Nothing here is indexed as its own URL.** The navigation has no route of its own. Nodes it links into carry their own indexation rules, and **node `0.13` owns them**: 1.0, 1.2, 3.1 and 6.1 are indexed, and 2.4, 2.7, 4.1, 5.1, 5.3 and **7.1** are noindex. **Corrected by the step 8 audit:** this line previously listed 7.1 as indexed, which contradicted the register that decides it.
 
 **Accessibility, and every line is a requirement rather than an aspiration.**
 
@@ -332,7 +332,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 - Both money figures announce as text with their currency mark, never as an image or a background, so a crediting or stale state is readable rather than merely visible
 - The scrim is not the only affordance: the drawer is dismissible by keyboard and by an explicit close control, because a scrim is invisible to a screen reader user
 
-**No breadcrumbs in this node.** They belong to nodes with a parent to point at, 3.3 under 3.1 and 7.1 under 1.2. A global element cannot know where it is.
+**No breadcrumbs in this node.** They belong to nodes with a parent to point at, 3.3 under 3.1. A global element cannot know where it is. **Corrected by the step 8 audit:** this line previously gave 7.1 a breadcrumb under 1.2, which `0.13` does not, and a result is not a child of the verifier.
 
 ---
 

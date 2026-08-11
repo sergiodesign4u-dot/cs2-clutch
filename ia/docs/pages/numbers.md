@@ -49,6 +49,7 @@ We are the source. For each of these the method has to be publishable, not only 
 | **Published ceiling per withdrawal state** | `G2`, on `B8-2` | 5.3 | The same clock. The row's own success signal is that our states stay inside the published ceiling at p90 | Static until republished |
 | **Per-state timer with attribution to us, Steam or you** | `G1`, on `B8-2` | 5.3 | It is the check for the two rows above | Real time |
 | **Published appeal response deadline** | `G4`, on `B8-3` pattern of 3 | 5.3, 2.9, 0.10 | The person's own appeal, which either gets an answer inside the deadline or does not | Static until republished |
+| **Published deposit crediting window** | `C3`, on `B4-3`. **Added by the step 8 audit:** `C3` promises a named timer and this register held no deposit row at all, so `4.1` had a promise with no owner | 4.1, and the crediting state 4.4 | The person's own deposit, which either credits inside the published window or does not. **Value `[?]`**, and a competitor states the same figure only in an FAQ, which is the placement this row exists to refuse | Rolling window, length `[?]` |
 | **Commission, zero to Steam** | `G6`, Related Job 5, job only, no barrier | 1.0, 5.3 | The withdrawal itself. A commission of zero is the one figure a person verifies by finishing the transaction | Static |
 | **Steam API health, the degraded flag** | `G2` | 5.3 as a banner | A published state rather than a figure, driven by a measurement, and it is in this register because it obeys the same missing-data rules as the numbers it protects | Real time probe |
 

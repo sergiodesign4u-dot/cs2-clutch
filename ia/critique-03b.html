@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - Detail layer critique</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 14px; }
+
+    .wf-fig { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-fig-state { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); border-bottom: 1px dashed var(--wf-line-soft); padding-bottom: 7px; margin-bottom: 10px; }
+    .wf-val { font-family: 'SF Mono', Menlo, monospace; font-size: 21px; font-weight: 700; color: var(--wf-ink); letter-spacing: -0.01em; line-height: 1.2; }
+    .wf-val.is-off { font-size: 13px; color: var(--wf-ink-dim); }
+    .wf-unit { font-size: 11px; color: var(--wf-ink); margin-top: 3px; }
+    .wf-asof { font-family: 'SF Mono', Menlo, monospace; font-size: 9.5px; color: var(--wf-ink-dim); margin-top: 6px; letter-spacing: 0.02em; }
+    .wf-route { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; }
+    .wf-note { font-size: 10px; color: var(--wf-ink-dim); margin-top: 8px; line-height: 1.5; }
+    .wf-fork { border-top: 1px dashed var(--wf-line-soft); margin-top: 9px; padding-top: 8px; }
+
+    .wf-anat { display: flex; gap: 0; align-items: stretch; flex-wrap: wrap; }
+    .wf-anat .wf-fig { flex: 0 0 268px; }
+    .wf-legend { flex: 1 1 260px; padding-left: 26px; display: flex; flex-direction: column; justify-content: center; gap: 9px; }
+    .wf-leg { display: flex; gap: 10px; align-items: baseline; }
+    .wf-leg-n { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; font-weight: 700; color: var(--wf-ink-dim); border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 1px 5px; flex: 0 0 auto; }
+    .wf-leg-t { font-size: 11.5px; color: var(--wf-ink-dim); line-height: 1.5; }
+    .wf-leg-t b { color: var(--wf-ink); font-weight: 700; }
+
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+    .wf-phone .wf-fig { border: none; background: none; padding: 0 0 12px; border-bottom: 1px dashed var(--wf-line-soft); border-radius: 0; margin-bottom: 12px; }
+    .wf-phone .wf-fig:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+
+    .wf-proof { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-proof-lbl { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 9px; padding-bottom: 7px; border-bottom: 1px dashed var(--wf-line-soft); }
+    .wf-kv { display: flex; gap: 9px; margin-bottom: 6px; align-items: baseline; }
+    .wf-k { flex: 0 0 74px; font-family: 'SF Mono', Menlo, monospace; font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-v { font-family: 'SF Mono', Menlo, monospace; font-size: 10.5px; color: var(--wf-ink); word-break: break-all; }
+    .wf-v.is-dim { color: var(--wf-ink-dim); font-style: italic; font-family: inherit; }
+    .wf-copy { display: inline-block; border: 1px solid var(--wf-line); border-radius: 3px; font-size: 8.5px; padding: 1px 5px; color: var(--wf-ink-dim); margin-left: 5px; white-space: nowrap; }
+    .wf-scope { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; border-top: 1px dashed var(--wf-line-soft); margin-top: 10px; padding-top: 9px; }
+    .wf-scope b { color: var(--wf-ink); font-weight: 700; }
+    .wf-link { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; }
+    .wf-chip { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--wf-line); border-radius: 999px; padding: 6px 12px; background: var(--wf-surface); }
+    .wf-chip-k { font-size: 8.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-chip-v { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; color: var(--wf-ink); }
+    .wf-spin { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px; text-align: center; }
+    .wf-spin-strip { height: 44px; border: 1px dashed var(--wf-line-soft); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--wf-ink-dim); margin-bottom: 11px; }
+    .wf-mismatch { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .wf-mismatch > div { border: 1px solid var(--wf-line-soft); border-radius: 4px; padding: 8px 9px; }
+    .wf-mm-h { font-size: 8.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 5px; }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid { grid-template-columns: 1fr; }
+      .wf-legend { padding-left: 0; padding-top: 18px; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - step 8</div>
+  <h1>Detail layer critique</h1>
+  <p class="lede">Twenty nodes were written in parallel by ten authors against one template, one block bank and one map. None of them could edit a shared file, so every cross-file problem they met arrived as a finding instead of as a silent edit in somebody else's node. Two instruments then went over the result, independently and in full before any merge.</p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">42</div><div class="hero-stat-label">Findings raised</div></div>
+    <div><div class="hero-stat-value">15</div><div class="hero-stat-label">Confirmed</div></div>
+    <div><div class="hero-stat-value">15</div><div class="hero-stat-label">Withdrawn on verification</div></div>
+    <div><div class="hero-stat-value">13</div><div class="hero-stat-label">Fixed in this pass</div></div>
+  </div>
+</div>
+
+<section id="instruments">
+  <div class="sec-head">
+    <h2>Two instruments</h2>
+    <p>Sets taken independently and in full before any merge. Dedup afterwards, on complete data.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">Instrument</th><th>What it owns</th><th style="width:30%">How it ran</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Codex</strong>, plugin <code>codex</code>, <strong>read only, stated on the call</strong></td><td>What is falsifiable in the source: contradiction between files, orphan without a parent, state absent from code, value drifted from its token, broken link, violated rule, count reconciliation</td><td>One pass over the whole repository from <code>AGENTS.md</code>, with ten suspected claims handed to it by name for confirm or withdraw</td></tr>
+        <tr><td><strong>Claude with a browser</strong></td><td>What breaks at 360px, what breaks a layout as a string, what only the published address shows</td><td>All twenty pages fetched from the live URL, plus a layout walk at 360px on the heaviest page</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="classes">
+  <div class="sec-head">
+    <h2>Before and after, by class</h2>
+    <p>Fifteen findings did not survive verification and none was deleted. A critique log that keeps only its wins is a marketing document.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Class</th><th>Raised</th><th>Confirmed</th><th>Withdrawn</th><th>Fixed now</th><th>Carried</th></tr></thead>
+      <tbody>
+        <tr><td>Contradiction between files</td><td>8</td><td>6</td><td>2</td><td>6</td><td>0</td></tr>
+        <tr><td>Orphan without a parent</td><td>5</td><td>2</td><td>3</td><td>0</td><td>2</td></tr>
+        <tr><td>State absent from code</td><td>4</td><td>0</td><td>4</td><td>0</td><td>0</td></tr>
+        <tr><td>Value drifted from its source</td><td>4</td><td>2</td><td>2</td><td>2</td><td>0</td></tr>
+        <tr><td>Broken link</td><td>2</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+        <tr><td>Violated rule</td><td>3</td><td>1</td><td>2</td><td>1</td><td>0</td></tr>
+        <tr><td>Count reconciliation</td><td>4</td><td>3</td><td>1</td><td>3</td><td>0</td></tr>
+        <tr><td>Product and legal questions raised by authors</td><td>12</td><td>n/a</td><td>n/a</td><td>0</td><td>12</td></tr>
+        <tr><td><strong>Total</strong></td><td><strong>42</strong></td><td><strong>15</strong></td><td><strong>15</strong></td><td><strong>13</strong></td><td><strong>14</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="pairs">
+  <div class="sec-head">
+    <h2>Five telling pairs</h2>
+    <p>Assembled after the critique closed, not collected as it ran.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>1. Twenty three backlinks that led nowhere</h4>
+    <p><strong>Before.</strong> Every node page ends with a link home to the hub, <code>href="structure.html#5.1"</code>. <strong>The hub renders its chips from a registry and gave them no id at all</strong>, so all twenty three links resolved to the top of the page and nothing else.</p>
+    <p><strong>After.</strong> One line in <code>ia/_nav.js</code>: the chip carries its node number as its id. Twenty three links start working at once.</p>
+    <p><strong>Why it matters.</strong> No author could have found this. Each checked their own page and their own page was correct. <strong>The defect lived in the space between twenty three files and one renderer</strong>, which is exactly the class a parallel build creates and a single-instrument review misses.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>2. The register that decides indexation was overruled by a file that does not</h4>
+    <p><strong>Before.</strong> <code>navigation.md</code> stated that <code>7.1</code> is indexed and sits under <code>1.2</code> as a breadcrumb. <code>seo.md</code>, node <code>0.13</code>, the register that owns indexation, states <code>noindex, follow</code> with three reasons and gives it no breadcrumb.</p>
+    <p><strong>After.</strong> Corrected in both places, with the correction printed rather than swapped in silently. <strong>A result is not a child of the verifier</strong>, and the register decides.</p>
+    <p><strong>Why it matters.</strong> The author of <code>7.1</code> found this, inherited <code>0.13</code>, and refused to edit somebody else's file. Two files disagreed for a whole step and both read as authoritative.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>3. A promise that a pattern exists, standing in for the pattern</h4>
+    <p><strong>Before.</strong> <code>seo.md</code> assigned final titles to stage 05 and left the shape here, printed as the literal words <strong>"Pattern here"</strong>.</p>
+    <p><strong>After.</strong> The pattern is written: the node's H1 subject first, then a separator, then the product name, one line, subject first because the tail truncates.</p>
+    <p><strong>Why it matters.</strong> A placeholder that reads like a decision is worse than a blank. Every node inherited a title rule that did not exist, and nobody noticed <strong>because the cell was not empty.</strong></p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>4. The proof of the round claimed a universality its own table denied</h4>
+    <p><strong>Before.</strong> Node <code>0.14</code> said "seven states, and every site that renders the block inherits all seven". <strong>Its own scope column restricts gone or private to <code>7.1</code></strong>, and pre-roll has no moment on a verifier at all.</p>
+    <p><strong>After.</strong> Corrected to seven in the object and none in any single site, with the scope column named as what decides.</p>
+    <p><strong>Why it matters.</strong> This is the node that carries the product's central claim. <strong>A specification of the evidence that overstates itself in its own second paragraph is the same defect the node was written to prevent</strong>, one level up.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>5. One hundred and thirty one citations into files that are still moving</h4>
+    <p><strong>Before.</strong> <code>jtbd.md:93</code>, <code>aarrr.md:157</code>, <code>cjm-to-be.md</code> by line, across ten files. <code>CLAUDE.md</code> forbids it in as many words: cite by section name rather than by line any file a later step may still edit, <strong>because a line citation into a moving file rots silently and still reads as sourced.</strong></p>
+    <p><strong>After.</strong> All one hundred and thirty one converted to section names, computed from each source file's own heading positions rather than guessed. Zero line citations remain anywhere in <code>ia/</code>.</p>
+    <p><strong>Why it matters.</strong> Not one of them was wrong today. <strong>All of them would have been wrong the first time somebody inserted a paragraph into <code>jtbd.md</code></strong>, and nothing would have flagged it.</p>
+  </div>
+</section>
+
+<section id="withdrawn">
+  <div class="sec-head">
+    <h2>Withdrawn on verification, with the reason</h2>
+    <p>Never deleted, per the project rule. Two of these were relayed to the founder before verification and are corrected here.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">Finding</th><th style="width:26%">Why it was raised</th><th>Why it did not survive</th></tr></thead>
+      <tbody>
+        <tr><td><strong>0.14 cites two facts to research.md section 5b that live in section 4</strong></td><td>Raised by the author of 1.2</td><td><strong>Withdrawn.</strong> The material is in fact in section 5b, "Trust and fairness". The pointers were correct. <strong>This was relayed to the founder as a finding before it was checked, and it was wrong</strong></td></tr>
+        <tr><td><strong>0.11 has no row for the appeal response deadline</strong></td><td>Raised alongside the deposit row, which was real</td><td><strong>Withdrawn.</strong> The row exists, read on 5.3, 2.9 and 0.10. Only the deposit row was missing</td></tr>
+        <tr><td><strong>0.11 names consumers that do not read it</strong></td><td>Raised by two authors independently</td><td><strong>Withdrawn.</strong> Each named consumer has a corresponding figure, and the conditional footer slots are openly marked conditional</td></tr>
+        <tr><td><strong>0.2 puts a statistics strip under the self-exclusion controls on 6.1</strong></td><td>Raised by the author of 6.1 and 7.1</td><td><strong>Withdrawn as a falsifiable contradiction, kept as a design concern.</strong> No file forbids the combination, so it is product judgement. It stays on the founder list</td></tr>
+        <tr><td><strong>Live chat on 0.10 is an orphan</strong></td><td>No parent, no backlog row</td><td><strong>Withdrawn.</strong> The node cut it rather than shipping it, which is the rule satisfied by cutting</td></tr>
+        <tr><td><strong>Float and pattern on 0.6, daily marker on 0.7</strong></td><td>Both have no parent</td><td><strong>Withdrawn as defects.</strong> Both are printed as [ORPHAN] in their own rows, which is exactly what the rule requires instead of a silent drop</td></tr>
+        <tr><td><strong>Four states named in specs but missing from the html</strong></td><td>Suspected after a parallel build</td><td><strong>Withdrawn, all four.</strong> Each is present in both the markdown and the page</td></tr>
+        <tr><td><strong>An em dash or en dash somewhere in the output</strong></td><td>The project bans both</td><td><strong>Withdrawn.</strong> A character search found none anywhere in ia/</td></tr>
+        <tr><td><strong>A markdown artefact with no visible place</strong></td><td>The project requires one for every file</td><td><strong>Withdrawn.</strong> All twenty six specifications have a page and all twenty six are registered</td></tr>
+        <tr><td><strong>The map's 66 / 53 / 26 arithmetic is stale</strong></td><td>Step 6 added states</td><td><strong>Withdrawn on the arithmetic, confirmed as a different finding.</strong> 26 files plus 27 numbered states is 53, plus 13 LATER is 66, and that holds. What is true is that the specs hold eight internal states the map does not number, now printed as its own count</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="carried">
+  <div class="sec-head">
+    <h2>Confirmed and carried, with an owner</h2>
+    <p>Two orphans that are real and are the founder's, not this stage's, plus the twelve questions the authors raised rather than answered.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The cookie node has no legal parent class at all</h4>
+    <p><code>CLAUDE.md</code> enumerates exactly five compliance constraints, and <strong>data protection is not one of them.</strong> Node <code>0.4</code> stands entirely on GDPR and ePrivacy, both opened live and quoted, and neither is a member of any of the three legal parent classes. The author refused to widen the third class quietly and raised it as a stage-close candidate. <strong>Either the rule file gains a data-protection constraint, or the cookie node is officially an orphan.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The sound control still has no parent</h4>
+    <p>Carried since the base layer and drawn in <code>0.1</code>. Node <code>3.3</code> has now supplied a candidate, row <code>E3</code> plus design principle 2. The decision stays with <code>0.1</code> and the founder.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Three product questions the authors would not answer for you</h4>
+    <p><strong>1. D1, D2 and D3 are not simultaneously satisfiable as written.</strong> Nothing says what the published chance <strong>is</strong> while an item sits at zero free units. Recomputing forks the observed counter on every stock change and destroys its N. Not recomputing prints a number that is not the number used, which is barrier <code>B7-2</code> in our own drop table. Closing the case costs availability. Three readings tabled, recommendation on file, rides with <code>D-D</code>.</p>
+    <p><strong>2. The withdrawal-right exception cannot be created by a policy.</strong> 2011/83/EU Articles 16(a) and 16(m), opened live on EUR-Lex, each require prior express consent <strong>and</strong> a separate acknowledgement that the right is lost, captured at the transaction. <strong>A block is owed at 4.1 and at the open, and no node holds one today.</strong></p>
+    <p><strong>3. F4 does not publish, the ticker already did.</strong> <code>0.8</code> lands every tile on <code>7.1</code>, and a tile is a win nobody shared, so for any ticker-eligible open the public page exists before any consent. <strong>Revoke stops being a nicety and becomes the only consent instrument on the node.</strong></p>
+  </div>
+</section>
+
+<section id="split">
+  <div class="sec-head">
+    <h2>What each instrument caught that the other could not</h2>
+  </div>
+  <div class="card is-good">
+    <h4>Codex alone</h4>
+    <p>The twenty three broken anchors, the one hundred and thirty one line citations, the six file-to-file contradictions, and the count reconciliation. <strong>None of these is visible in a browser and none is visible from inside a single file.</strong></p>
+  </div>
+  <div class="card is-good">
+    <h4>The browser alone</h4>
+    <p>That all twenty pages serve on the published address, that each has exactly one H1, that every declared section anchor resolves, and that the heaviest page holds at 345 pixels inside a 360 pixel viewport.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Neither, and it is worth saying</h4>
+    <p>The twelve product and legal questions came from the authors while writing, not from either audit. <strong>The audit checks that the work is consistent. It does not check that the work is right</strong>, and this stage's best findings arrived from someone trying to specify a screen and discovering that the map could not answer a question the screen forced.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>CS2 Clutch. Stage 03b step 8, two-instrument critique. Source: <code>ia/docs/critique-03b.md</code>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = 'Detail layer critique';
+window.NAV_SECTIONS = [
+  { id: 'overview',    label: 'Overview' },
+  { id: 'instruments', label: 'Two instruments' },
+  { id: 'classes',     label: 'By class' },
+  { id: 'pairs',       label: 'Five telling pairs' },
+  { id: 'withdrawn',   label: 'Withdrawn' },
+  { id: 'carried',     label: 'Carried' },
+  { id: 'split',       label: 'What each caught' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

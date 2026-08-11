@@ -229,7 +229,7 @@ Row `A1` puts an outbound market link on the top item, and `F1` links the venue 
 | **Whether category URLs ship at all** | Rides on `D-D`, catalogue size | Founder, with the treasury answer |
 | **The canonical host** | Apex against `www`, and the domain itself is not chosen | Founder, before stage 04 |
 | **Rich result eligibility** | Policy for an age-restricted category, unknowable from outside | Production |
-| **Final titles and descriptions** | Pattern here, copy in each node's A to E block, voice at stage 05 | Stage 05, then production |
+| **Final titles and descriptions** | **The pattern, written here rather than promised:** `<node H1 subject>` then a separator then `CS2 Clutch`, one line, the subject first because the tail truncates. Copy in each node's A to E block, voice at stage 05 | Stage 05, then production |
 | **Whether `7.1` should be indexed after all** | Decided here as `noindex, follow` with three reasons. It is reversible and it is the founder's if they want wins in search results | Founder, if they disagree |
 
 **And what belongs elsewhere.** Page speed and Core Web Vitals: production, though design principle 5 already makes speed a product rule. Sitemap XML generation: production. The words in any title: stage 05.

@@ -116,7 +116,8 @@
   <p class="lede">The launcher for the detail layer. Every node of the product gets one specification and one black and white visual, and every one of them is a chip here. The sidebar stays two links at any project size: the list of nodes lives in this hub, not in the navigation panel. Nodes that are planned but not yet built are shown dim rather than hidden, because a hub that lists only what exists cannot show what is missing.</p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">26</div><div class="hero-stat-label">File-level nodes</div></div>
-    <div><div class="hero-stat-value">27</div><div class="hero-stat-label">States inside them</div></div>
+    <div><div class="hero-stat-value">27</div><div class="hero-stat-label">Numbered states</div></div>
+    <div><div class="hero-stat-value">8</div><div class="hero-stat-label">Internal states added at step 6</div></div>
     <div><div class="hero-stat-value" id="ia-built">0</div><div class="hero-stat-label">Built so far</div></div>
     <div><div class="hero-stat-value">B/W</div><div class="hero-stat-label">Until stage 06</div></div>
   </div>
@@ -267,6 +268,31 @@
   </div>
 </section>
 
+<section id="counts">
+  <div class="sec-head">
+    <h2>Counts, reconciled after step 6</h2>
+    <p>Two numbers that are easy to confuse, separated here so neither is quoted for the other.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Nodes and states are not the same count, and step 6 made the difference visible</h4>
+    <p><strong>The map holds 66 numbered nodes, 53 of them MVP, 26 of them file-level.</strong> That arithmetic still reconciles: 26 files plus 27 numbered states is 53, plus the 13 LATER screens of cluster 8 is 66. Nothing about it changed.</p>
+    <p><strong>What changed is that the specifications now hold more states than the map numbers.</strong> Writing cluster 2 needed eight internal states the map does not carry a number for: the market lookup, detection unavailable and declined on <code>2.1</code>, returning from Steam, cancelled at Steam and already signed in on <code>2.4</code>, and session expired and market refused on the document on <code>2.7</code>. Each was printed with its parent and with the map's own not-a-node test applied, which is why none of them became a numbered node.</p>
+    <p><strong>The distinction is load bearing for stage 04.</strong> A numbered state is a thing the map routes to and the coverage check counts. An internal state is a condition inside one screen that the wireframe must still draw. Merging the two counts would either inflate the map or hide eight screens' worth of work. <strong>Found by the step 8 audit, Codex, class "count reconciliation".</strong></p>
+  </div>
+</section>
+
+<section id="critique">
+  <div class="sec-head">
+    <h2>Critique, step 8</h2>
+    <p>Two instruments, forty two findings, fifteen confirmed and fifteen withdrawn on verification with their reasons kept.</p>
+  </div>
+  <div class="card is-good">
+    <h4>The closed form lives on its own page</h4>
+    <p><strong><a href="critique-03b.html">Detail layer critique</a>.</strong> Before and after by class, five telling pairs, every withdrawn finding with the reason it did not survive, and the split between what Codex caught and what only a browser could.</p>
+    <p><strong>The headline pair:</strong> every node page links home as <code>structure.html#&lt;node&gt;</code> and this hub gave its chips no id at all, so twenty three backlinks resolved to nothing. No author could have found it, because each one's own page was correct. <strong>The defect lived between twenty three files and one renderer.</strong></p>
+  </div>
+</section>
+
 <!-- HOW -->
 <section id="how">
   <div class="sec-head">
@@ -324,6 +350,8 @@ window.NAV_SECTIONS = [
   { id: 'nodes',    label: 'Nodes' },
   { id: 'sweep',    label: 'The global sweep' },
   { id: 'bank',     label: 'Block bank by type' },
+  { id: 'counts',   label: 'Counts, reconciled' },
+  { id: 'critique', label: 'Critique, step 8' },
   { id: 'how',      label: 'How a node is specified' },
   { id: 'coming',   label: 'Still owed' },
 ];

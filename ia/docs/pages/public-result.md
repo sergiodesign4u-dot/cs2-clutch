@@ -8,8 +8,8 @@
 
 **Jobs served, and there are two.**
 
-- **Emotional Job 2**, a win worth talking about, `jtbd.md:93`, closed by row `F4`, one-tap share of a result. This is the parent `D-20` acted on.
-- **Related Job 3**, verify the outcome after I open, `jtbd.md:51`. The tracing matrix found this one late and it is not a tick placed to rescue a screen: the job's own outcome clause reads "so that I trust the platform enough to open again **or to tell someone about my result**". That line had been in `jtbd.md` since stage 02 and nobody had traced it.
+- **Emotional Job 2**, a win worth talking about, `jtbd.md` Section 3, Emotional and Social Jobs, closed by row `F4`, one-tap share of a result. This is the parent `D-20` acted on.
+- **Related Job 3**, verify the outcome after I open, `jtbd.md` Section 2, Related Jobs. The tracing matrix found this one late and it is not a tick placed to rescue a screen: the job's own outcome clause reads "so that I trust the platform enough to open again **or to tell someone about my result**". That line had been in `jtbd.md` since stage 02 and nobody had traced it.
 
 **Also the destination of every ticker tile in `0.8`**, which is the second job this node acquired. The baseline sends every tile to a stranger's profile at `/en/profile/<id>`, `baseline.md` section 3, and no job in this repository requires a profile object at all. **The social-proof surface now points at something checkable instead of at a trophy shelf.**
 
@@ -52,11 +52,11 @@ Composition from `blocks.md` section 4, type T3, plus what the two jobs require.
 | **1** | **The result.** The skin instance as `0.6`: weapon, skin, wear, StatTrak, rarity, image, **and its instance value receipt with the moment it was won** | Refero MWM product detail `e0369d2b`, hero card taken | `F1` and `F2` on barrier `B7-1`, the undervalued win, pattern of 7. **The receipt is what makes the number inside the story true**, so the story survives being checked by the person it is told to | MVP |
 | **2** | **Current value, as a second figure with its own as-of stamp**, never merged with the receipt figure and never summed with it | skin.club's "UPDATED 11 MINUTES AGO", freshness taken, its hidden-odds door refused | `0.11` rule 2, an as-of moment on anything that moves | MVP |
 | **3** | **Which case, and when.** `0.7` case tile plus the timestamp of the open | Own research, and `0.14` requires it: a ticket range resolves against a drop table entry, and an entry belongs to a case | `0.14` section 1, plus Related Job 3 | MVP |
-| **4** | **The round proof, `0.14` variant V3, full panel**, with the scope line in full and the route to the observed rate counter `D3` | `0.14` | Related Job 3, `jtbd.md:51`, and design principle 1 | MVP |
+| **4** | **The round proof, `0.14` variant V3, full panel**, with the scope line in full and the route to the observed rate counter `D3` | `0.14` | Related Job 3, `jtbd.md` Section 2, Related Jobs, and design principle 1 | MVP |
 | **5** | **Recompute this yourself**, the primary action, leading into `1.2` with the round carried | `0.14` recompute route | Design principle 1 as limited by `D-14`: the product is built so that its own numbers are checkable | MVP |
-| **6** | **Who won it, as they choose to appear.** A display name or nothing. **Not a profile, not a link, not a follow** | `0.8`, "the winning account as it chooses to appear" | Social Job 2, `jtbd.md:120`, plus the consent reasoning in `0.13` section 4.1 | MVP |
+| **6** | **Who won it, as they choose to appear.** A display name or nothing. **Not a profile, not a link, not a follow** | `0.8`, "the winning account as it chooses to appear" | Social Job 2, `jtbd.md` Section 3, Emotional and Social Jobs, plus the consent reasoning in `0.13` section 4.1 | MVP |
 | **7** | **Owner controls: share and revoke.** Rendered only to the account that owns the open | `F4` | Emotional Job 2 through `F4`, plus consent | MVP |
-| **8** | **Two routes out for a stranger:** `1.2` provably fair, and `1.0` home | `0.13` section 4.1, which is why this page is `follow` rather than `nofollow` | Related Job 1, arrive with confidence, `jtbd.md:33` | MVP |
+| **8** | **Two routes out for a stranger:** `1.2` provably fair, and `1.0` home | `0.13` section 4.1, which is why this page is `follow` rather than `nofollow` | Related Job 1, arrive with confidence, `jtbd.md` Section 2, Related Jobs | MVP |
 
 **Block order is reasoned from mobile and from the arrival.** A stranger arrives from a chat message having been told something. The first screen answers what was won and what it is worth, because that is the claim they were sent to check. The proof is second, not first: a page that opens with a hash panel answers a question the visitor has not asked yet.
 

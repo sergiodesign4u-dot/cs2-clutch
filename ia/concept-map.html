@@ -135,22 +135,22 @@
 
   <div class="card is-note">
     <h4>The parent rule, and where it departs from the pack</h4>
-    <p>The pack asks for one parent class, a job, and sends everything else to "Under question". <code>CLAUDE.md</code> defines <strong>three</strong> legal classes: a barrier code from the CJM As-Is map, a job from <code>jtbd.md</code>, or a named compliance constraint or design principle quoted by which one. The project rule outranks the pack, and the CJM stage already proved the case: deposit closes no core job and stands entirely on documented barriers, <code>jtbd.md:201</code>. Every entity below names a parent and its class.</p>
+    <p>The pack asks for one parent class, a job, and sends everything else to "Under question". <code>CLAUDE.md</code> defines <strong>three</strong> legal classes: a barrier code from the CJM As-Is map, a job from <code>jtbd.md</code>, or a named compliance constraint or design principle quoted by which one. The project rule outranks the pack, and the CJM stage already proved the case: deposit closes no core job and stands entirely on documented barriers, <code>`jtbd.md` Section 5, JTBD Matrix</code>. Every entity below names a parent and its class.</p>
   </div>
 
   <div class="table-wrap">
     <table>
       <thead><tr><th>Object</th><th>What it is made of</th><th>Parent, and class</th><th>Related to</th></tr></thead>
       <tbody>
-        <tr><td><strong>Case</strong></td><td>Name and artwork, entry cost in one real currency <code>C1</code>, risk band, the drop table, published tested RTP and expected value at this cost <code>D4</code>, free-unit availability <code>A2</code>, category <span class="q">[?]</span></td><td>Main Job <code>jtbd.md:17</code>, Related Job 1 <code>:33</code>. <strong>Job</strong></td><td>Contains Drop table entries. An Open consumes one. A Free entry may unlock one</td></tr>
+        <tr><td><strong>Case</strong></td><td>Name and artwork, entry cost in one real currency <code>C1</code>, risk band, the drop table, published tested RTP and expected value at this cost <code>D4</code>, free-unit availability <code>A2</code>, category <span class="q">[?]</span></td><td>Main Job <code>`jtbd.md` "Section 1"</code>, Related Job 1 <code>:33</code>. <strong>Job</strong></td><td>Contains Drop table entries. An Open consumes one. A Free entry may unlock one</td></tr>
         <tr><td><strong>Drop table entry</strong></td><td>The Skin it points at, published chance <code>D2</code>, current value, live market price with timestamp and outbound link <code>A1</code>, live free-unit count <code>A2</code>, observed rate <code>D3</code>, the roll interval</td><td><code>B7-2</code> pattern of 11, <code>B8-1</code>. <strong>Barrier</strong></td><td>Belongs to one Case, points at one Skin. The settled roll lands on exactly one entry</td></tr>
-        <tr><td><strong>Skin</strong></td><td>Weapon, finish, wear grade, live market price with timestamp, outbound market link, rarity tier whose values are <span class="q">[?]</span> and owned by stage 06</td><td>Main Job <code>jtbd.md:17</code>. <strong>Job</strong></td><td>Appears in Drop table entries across many Cases</td></tr>
+        <tr><td><strong>Skin</strong></td><td>Weapon, finish, wear grade, live market price with timestamp, outbound market link, rarity tier whose values are <span class="q">[?]</span> and owned by stage 06</td><td>Main Job <code>`jtbd.md` "Section 1"</code>. <strong>Job</strong></td><td>Appears in Drop table entries across many Cases</td></tr>
         <tr><td><strong>Skin instance</strong></td><td>Which Skin, the instance value receipt <code>F1</code>, the Open it came from, state held or withdrawing or withdrawn, free-unit backing <code>D1</code>, float specifics <span class="q">[?]</span></td><td><code>B7-1</code> pattern of 7, Related Job 5 <code>:69</code>. <strong>Barrier with a job behind it</strong></td><td>Produced by one Open, held in an Account, consumed by a Withdrawal, carries its receipt into both</td></tr>
         <tr><td><strong>Open</strong></td><td>The Case, entry cost paid, round hash <code>E4</code>, the settled roll <code>E1</code>, the resulting Skin instance, timestamp, verification link <code>F3</code></td><td>Main Job <code>:17</code>, Emotional Job 1 <code>:84</code>, Related Job 3 <code>:51</code>. <strong>Job</strong></td><td>Belongs to an Account, consumes Balance or a Free entry, carries one Round proof, emits one Live drop event</td></tr>
         <tr><td><strong>Round proof</strong></td><td>Server seed hash published before the roll, client seed, nonce, the settled result, the recomputation</td><td>Related Job 3 <code>:51</code>, Core Job 1 <code>:180</code>. <strong>Job</strong></td><td>One Open has one. The public page reads them with no Account attached, which is why it is a public surface</td></tr>
         <tr><td><strong>Account</strong></td><td>Steam identity with no password outside OpenID <code>B6</code>, verification state <code>B1</code> and <code>B2</code>, the age declaration and the identity check <code>B3</code>, withdrawals open or restricted <code>B7</code> <code>G4</code>, the market it sits in <code>B4</code>, readable Steam failure states <code>B5</code></td><td>Related Job 5 <code>:69</code>, <code>B7-1</code>, compliance constraint. <strong>All three classes</strong></td><td>Holds Balance and Skin instances. Owns Opens, Deposits, Withdrawals. Carries Play limits, bound by one Market rule</td></tr>
         <tr><td><strong>Balance</strong></td><td>Amount in one real currency, no coin denomination <code>C1</code>, pending credit with a timer <code>C3</code>, the withdrawal threshold stated before deposit <code>C4</code>, remaining spend ceiling <code>C2</code></td><td><code>B7-1</code> pattern of 7, <code>B4-1</code>. <strong>Barrier</strong></td><td>Belongs to an Account, fed by Deposits, spent by Opens, constrained by Play limits</td></tr>
-        <tr><td><strong>Deposit</strong></td><td>Amount, method <span class="q">[?]</span>, crediting state with a timer <code>C3</code>, the ceiling chosen here <code>C2</code>, the withdrawal threshold as stated <code>C4</code></td><td><code>B4-3</code>, <code>B7-4</code>, <code>B4-1</code>. <strong>Barrier only, no job</strong>, per <code>jtbd.md:201</code></td><td>Belongs to an Account, credits Balance, sets Play limits at the money decision</td></tr>
+        <tr><td><strong>Deposit</strong></td><td>Amount, method <span class="q">[?]</span>, crediting state with a timer <code>C3</code>, the ceiling chosen here <code>C2</code>, the withdrawal threshold as stated <code>C4</code></td><td><code>B4-3</code>, <code>B7-4</code>, <code>B4-1</code>. <strong>Barrier only, no job</strong>, per <code>`jtbd.md` Section 5, JTBD Matrix</code></td><td>Belongs to an Account, credits Balance, sets Play limits at the money decision</td></tr>
         <tr><td><strong>Withdrawal</strong></td><td>The Skin instances and their receipts <code>F2</code>, named states with per-state timers and attribution <code>G1</code>, published ceilings <code>G2</code>, named limits <code>G5</code>, written notice with a ground and an appeal <code>G4</code>, zero commission <code>G6</code></td><td>Related Job 5 <code>:69</code>, <code>B8-2</code>, <code>B8-3</code>. <strong>Job and barrier</strong></td><td>Consumes Skin instances, delivers into the Steam inventory, which is outside our system</td></tr>
         <tr><td><strong>Published performance record</strong></td><td>Rolling median and p90 from our own logs <code>A4</code> <code>G3</code>, per-state ceilings <code>G2</code>, a live degraded flag from a Steam API probe, published tested RTP per case <code>D4</code></td><td><code>B8-2</code>, Related Job 1 <code>:33</code>. <strong>Barrier and job</strong></td><td>Derived from Withdrawals. Read before login on Home and after login on Withdrawal</td></tr>
         <tr><td><strong>Play limits</strong></td><td>Spend ceiling at deposit <code>C2</code>, session limit, self exclusion, cool down <code>C5</code>, each with a state and an effective period <span class="q">[?]</span></td><td><code>B7-4</code> pattern of 12, compliance constraint. <strong>Barrier and constraint</strong></td><td>Belongs to an Account, set at Deposit, constrains Balance and Open. <strong>Zero inherited from the baseline</strong></td></tr>
@@ -164,7 +164,7 @@
 
   <div class="card is-muted">
     <h4>Under question: objects with no parent in any of the three classes</h4>
-    <p>They are not in the inventory and they do not enter the concept sitemap without acquiring a parent: <strong>referral and affiliate standing</strong> (a business line at <code>aarrr.md:272</code>, no user job), <strong>giveaway entry</strong>, <strong>gunfight</strong>, <strong>race and prize pot</strong> (which occupies the most prominent slot in the baseline's header and has no parent at all), <strong>rewards hub</strong>, <strong>top wins</strong>, <strong>gift cards</strong>. Plus <strong>case category</strong>, which no job requires and which becomes necessary only if the catalogue stays large, a question <code>D-D</code> owns.</p>
+    <p>They are not in the inventory and they do not enter the concept sitemap without acquiring a parent: <strong>referral and affiliate standing</strong> (a business line at <code>`aarrr.md` "MVP product decision"</code>, no user job), <strong>giveaway entry</strong>, <strong>gunfight</strong>, <strong>race and prize pot</strong> (which occupies the most prominent slot in the baseline's header and has no parent at all), <strong>rewards hub</strong>, <strong>top wins</strong>, <strong>gift cards</strong>. Plus <strong>case category</strong>, which no job requires and which becomes necessary only if the catalogue stays large, a question <code>D-D</code> owns.</p>
     <p><strong>Six of these seven are the objects behind eight of the nine destinations in the baseline's left icon rail.</strong> The baseline walk reached the same finding from the opposite end.</p>
   </div>
 </section>
@@ -272,7 +272,7 @@ graph TD
     <table>
       <thead><tr><th>Global item</th><th>Enters</th><th>The job behind it</th></tr></thead>
       <tbody>
-        <tr><td><strong>Cases</strong></td><td>C1, the catalogue</td><td>Main Job <code>jtbd.md:17</code>. The one mode round 1 ships</td></tr>
+        <tr><td><strong>Cases</strong></td><td>C1, the catalogue</td><td>Main Job <code>`jtbd.md` "Section 1"</code>. The one mode round 1 ships</td></tr>
         <tr><td><strong>Provably fair</strong></td><td>A2</td><td>Related Job 1 before login, Related Job 3 after the open</td></tr>
         <tr><td><strong>My items</strong></td><td>E1</td><td>Related Job 5 <code>:69</code>. Inventory, receipts, the way into withdrawal</td></tr>
         <tr><td><strong>Balance</strong></td><td>D1 and the spend ceiling</td><td><code>B4-3</code>, <code>B7-4</code>, <code>B4-1</code>. Barrier class, no job</td></tr>
@@ -282,7 +282,7 @@ graph TD
 
   <div class="card is-keep">
     <h4>Provably fair in the global navigation is a structural claim no competitor makes</h4>
-    <p><code>jtbd.md:180</code> names a public provably fair surface as one of three things no competitor offers pre-login, and the <a href="../research/baseline.html">baseline walk</a> verified on 11 August 2026 that our own baseline still redirects that route to login. Design principle 1 says trust is the product, and a principle that does not reach the navigation is a slogan. <strong>It carries the limit <code>D-14</code> attached to it:</strong> its position is not a claim that a verifier converts a sceptic. What answers the recorded doubt is D2 and D4 on the case screen.</p>
+    <p><code>`jtbd.md` Section 3, Emotional and Social Jobs</code> names a public provably fair surface as one of three things no competitor offers pre-login, and the <a href="../research/baseline.html">baseline walk</a> verified on 11 August 2026 that our own baseline still redirects that route to login. Design principle 1 says trust is the product, and a principle that does not reach the navigation is a slogan. <strong>It carries the limit <code>D-14</code> attached to it:</strong> its position is not a claim that a verifier converts a sceptic. What answers the recorded doubt is D2 and D4 on the case screen.</p>
     <p><strong>Pre-login the header is two items.</strong> My items and Balance describe nothing that exists before an account, so the pre-login navigation is Cases and Provably fair and nothing else. That is the shortest global navigation in the category and it matches what the pre-login job actually is: evaluate, then open.</p>
   </div>
 
@@ -438,7 +438,7 @@ graph TD
   <div class="card is-defect">
     <h4>Orphan job, first, because it costs more than an orphan screen</h4>
     <p>A job with no screen is a hole in the product: the person has nowhere to do their work. A screen with no job is ballast. <strong>RJ4, convert my result into something more valuable</strong>, has no screen in round 1.</p>
-    <p><strong>Decision: backlog, deliberately, and the row stays empty and marked rather than being given a tick somewhere plausible.</strong> Its two screens exist in the map as LATER: Upgrade, whose parent is RJ4 directly, and Exchange, whose parent is a hypothesis. <code>jtbd.md:165</code> scores RJ4 at 2 for The Opener and 3 for The Accumulator, a secondary persona, and <code>CLAUDE.md</code> says the interface is not built around secondary scenarios even though they must work. This is that rule producing an empty row on purpose.</p>
+    <p><strong>Decision: backlog, deliberately, and the row stays empty and marked rather than being given a tick somewhere plausible.</strong> Its two screens exist in the map as LATER: Upgrade, whose parent is RJ4 directly, and Exchange, whose parent is a hypothesis. <code>`jtbd.md` "Section 5"</code> scores RJ4 at 2 for The Opener and 3 for The Accumulator, a secondary persona, and <code>CLAUDE.md</code> says the interface is not built around secondary scenarios even though they must work. This is that rule producing an empty row on purpose.</p>
   </div>
 
   <div class="card is-note">
@@ -450,7 +450,7 @@ graph TD
 
   <div class="card is-keep">
     <h4>What the matrix found that step 2 had missed</h4>
-    <p><strong>S-G1 Public result closes Related Job 3, in that job's own words.</strong> Step 2 gave it a single emotional parent, which puts a screen outside this matrix entirely and would have made G1 a genuine orphan, weakening the case for it. Reading RJ3 in full closes that: "so that I trust the platform enough to open again <strong>or to tell someone about my result</strong>", <code>jtbd.md:53</code>. Telling someone is in the functional job's own outcome clause.</p>
+    <p><strong>S-G1 Public result closes Related Job 3, in that job's own words.</strong> Step 2 gave it a single emotional parent, which puts a screen outside this matrix entirely and would have made G1 a genuine orphan, weakening the case for it. Reading RJ3 in full closes that: "so that I trust the platform enough to open again <strong>or to tell someone about my result</strong>", <code>`jtbd.md` "Section 2"</code>. Telling someone is in the functional job's own outcome clause.</p>
     <p>This is not a tick placed to rescue a screen. It is a line that has been in <code>jtbd.md</code> since stage 02 and that nobody had traced. The scope question about the ninth surface stands unchanged, and it now stands on two jobs instead of one.</p>
   </div>
 
@@ -465,31 +465,31 @@ graph TD
           <td><strong>Emotional Job 1</strong><br>genuine suspense, not manufactured tension <code>:84</code></td>
           <td>The reveal renders the settled roll and computes nothing again, <code>E1</code>, so animation and credited item cannot diverge. No near-miss theatre, <code>E2</code>: the deceleration lands on the actual result without visually passing better items first. The round hash is visible at the spin trigger, <code>E4</code>, which reframes the buildup as watching a settled outcome rather than waiting for one to be decided</td>
           <td>S-C2 phase 2, as behaviour of the reveal itself rather than as a component</td>
-          <td><code>B6-1</code>, <code>B6-2</code> pattern of 9. <code>jtbd.md:89</code> names near-miss as a confirmed dark pattern. <code>ux-patterns.md:303</code></td>
+          <td><code>B6-1</code>, <code>B6-2</code> pattern of 9. <code>`jtbd.md` "Section 3"</code> names near-miss as a confirmed dark pattern. <code>`ux-patterns.md` "How the Chosen Pattern Maintains Animated Feel While Protecting Clarity and Trust"</code></td>
         </tr>
         <tr>
           <td><strong>Emotional Job 2</strong><br>a win worth talking about <code>:93</code></td>
           <td>One-tap share, <code>F4</code>, producing an object that carries its own proof, G1. The instance value receipt, <code>F1</code>, makes the number inside the story true, so the story survives being checked by the person it is told to</td>
           <td>S-C2 phase 3, then G1</td>
-          <td><code>jtbd.md:98</code>. <code>aarrr.md</code> Referral. <code>B7-1</code> pattern of 7, which is what makes an unchecked story collapse</td>
+          <td><code>`jtbd.md` "Section 3"</code>. <code>aarrr.md</code> Referral. <code>B7-1</code> pattern of 7, which is what makes an unchecked story collapse</td>
         </tr>
         <tr>
           <td><strong>Emotional Job 3</strong><br>smart play rewarded <code>:102</code></td>
           <td class="open-cell">Nothing yet, and this is an honest empty rather than an oversight. Rakeback and loyalty are LATER. Round 1 ships no mechanism for this job at all</td>
           <td class="open-cell">Nowhere</td>
-          <td>Open. Direct entry to the backlog. <code>jtbd.md:169</code> scores it 1 for the primary persona and 3 for The Accumulator, which is why round 1 can carry the gap</td>
+          <td>Open. Direct entry to the backlog. <code>`jtbd.md` "Section 5"</code> scores it 1 for the primary persona and 3 for The Accumulator, which is why round 1 can carry the gap</td>
         </tr>
         <tr>
           <td><strong>Social Job 1</strong><br>beat a real person, not a bot <code>:111</code></td>
           <td class="open-cell">Nothing yet, and deliberately. Battle mode is hidden at launch by founder Decision 2, because a bot-filled lobby is solo opening with extra steps</td>
           <td class="open-cell">Nowhere</td>
-          <td>Open by decision, not by omission. <code>jtbd.md:212</code></td>
+          <td>Open by decision, not by omission. <code>`jtbd.md` "Candidate-for-Cut Functions"</code></td>
         </tr>
         <tr>
           <td><strong>Social Job 2</strong><br>a platform that feels alive <code>:120</code></td>
           <td>Live drop feed with no invented names, and any bot present in it labelled as one, <code>A3</code>. Every tile links to a public result rather than to a user profile, so the social proof is checkable rather than decorative</td>
           <td>A1 and C2, as an ambient layer and never as a destination</td>
-          <td><code>jtbd.md:125</code>. <code>research.md:151</code>, bot visibility as the worst-in-category failure, with the baseline showing "[BOT] Darth Vader" in its own ticker</td>
+          <td><code>`jtbd.md` "Section 3"</code>. <code>`research.md` "3 Common Patterns"</code>, bot visibility as the worst-in-category failure, with the baseline showing "[BOT] Darth Vader" in its own ticker</td>
         </tr>
       </tbody>
     </table>

@@ -32,7 +32,7 @@
 | 2 | **Weapon name** | Skin | Main Job, `jtbd.md` Section 1 | job |
 | 3 | **Skin name** | Skin | Main Job | job |
 | 4 | **Rarity treatment** | Skin | Row `E3`, and `blocks.md` section 10, the seven tier ladder walked live. The same slot as `0.6`, carrying the same `[?]` | job |
-| 5 | **The winner, as they choose to appear** | Live drop event | Row `A3`, **no invented names**, carried from `aarrr.md:157` | job |
+| 5 | **The winner, as they choose to appear** | Live drop event | Row `A3`, **no invented names**, carried from `aarrr.md` Referral | job |
 | 6 | **Bot label, where a bot is present** | Live drop event | Row `A3` verbatim: any bot present in it labelled as one | job |
 | 7 | **The destination** | Shared result | `D-20`, which approved `7.1`, and `sitemap.md`: every tile lands on `7.1` | constraint, founder decision |
 
@@ -65,7 +65,7 @@
 
 **`1.0` Home and `3.3` Case screen. Nowhere else.**
 
-`sitemap.md` gives the reason in cluster 0 and repeats it in the reconciliation with the chosen UX pattern: a feed on every screen is wallpaper rather than context, `ux-patterns.md:262`. Pattern E is an ambient layer and it has **no screen of its own anywhere in the map**, which is the correct implementation of the pattern rather than an omission. A screen for the live feed would turn a layer into a place.
+`sitemap.md` gives the reason in cluster 0 and repeats it in the reconciliation with the chosen UX pattern: a feed on every screen is wallpaper rather than context, `ux-patterns.md` section 3, Pattern Selection. Pattern E is an ambient layer and it has **no screen of its own anywhere in the map**, which is the correct implementation of the pattern rather than an omission. A screen for the live feed would turn a layer into a place.
 
 **The baseline puts it on every page walked**, 120px tall, directly under the header and above the hero, `baseline.md` section 3. That is the divergence, and it is named here rather than absorbed.
 

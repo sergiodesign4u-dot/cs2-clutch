@@ -74,7 +74,7 @@ The founder asked for the baseline's strip. It is inherited as a band and its co
 
 `D-14` states the limit this project put on the word brand: it means **the product is built so that its own numbers are checkable**, not that a verifier is what persuades a sceptic. A strip of four large numbers is the single densest concentration of claims in the product. **Every number in it either reconciles against something a stranger can open, or it is decoration that looks like evidence.**
 
-And the risk is documented rather than hypothetical: the bot-name concern recorded at `competitors.md:146` and `research.md:151` is precisely the reading that an unverifiable user count invites.
+And the risk is documented rather than hypothetical: the bot-name concern recorded at `competitors.md` "3.1 Three Common Patterns Across Competitors" and `research.md` "3 Common Patterns" is precisely the reading that an unverifiable user count invites.
 
 ### Verdict per slot
 
@@ -91,7 +91,7 @@ And the risk is documented rather than hypothetical: the bot-name concern record
 
 **This is the same question the first version of this node handed to the founder and it now has a better answer.** Both rows say "same feature as A4, two surfaces", and those two are the entry surface and the withdrawal surface, so the footer is a third. **The founder's own request created the surface that wants it.** The ask is no longer "add a band", it is "fill a slot that would otherwise hold a number nobody can check". **Owner: the founder. Cost: one line in the backlog.**
 
-**Slot 4, if online-users cannot be made honest: published aggregate tested RTP.** `aarrr.md:205` makes matching or beating the tested category figures, Hellcase 82.1 percent and DatDrop 80.6 percent, both a trust position and a regulatory hedge, and `D4` already publishes RTP per case. An aggregate is adjacent to `D4` rather than inside it, so **it needs its own backlog row before it can ship.** Marked as a proposal, not asserted as a capability.
+**Slot 4, if online-users cannot be made honest: published aggregate tested RTP.** `aarrr.md` "Key hypotheses" makes matching or beating the tested category figures, Hellcase 82.1 percent and DatDrop 80.6 percent, both a trust position and a regulatory hedge, and `D4` already publishes RTP per case. An aggregate is adjacent to `D4` rather than inside it, so **it needs its own backlog row before it can ship.** Marked as a proposal, not asserted as a capability.
 
 **What the strip is not.** Not a badge row. No trust seals, no "100% secure", no invented certifications. `D-14` names what answers the recorded doubt: published chance, current value and tested RTP. A seal answers none of it.
 
@@ -109,7 +109,7 @@ Full width, above the footer proper, four cells, each an icon plus a figure plus
 |---|---|---|
 | **Brand and help** | Logo. A "Need help?" heading over a **Support button**, an outlined pill rather than a text link. A one line tagline. Then the **identification block** in small text | 1.0, 0.10 |
 | **Play** | Cases, Provably fair | 3.1, 1.2 |
-| **Company** | Terms of use, Privacy policy, Cookie policy, Refund and payments policy | 0.9, and dialog 0.4 links the cookie policy |
+| **Company** | Terms of use, Privacy policy, Cookie policy, Refund and payments policy, **Cookie settings** | 0.9, and dialog 0.4 links the cookie policy. **Cookie settings added by the step 8 audit:** GDPR Article 7(3), quoted in node `0.4`, says "It shall be as easy to withdraw as to give consent", and a banner shown once is not a route back. It is a control rather than a link, it reopens `0.4` in its settings state, and it is the only control in this column |
 | **Play responsibly** | Responsible play, the age statement in full, the blocked market list with its cited ground | 6.1, 2.2 |
 
 **The support button is inherited deliberately and it is an upgrade on the first version of this node**, which had support as one link among four in a column. `G4` requires an appeal with a published response deadline and Article 5(c) requires rapid contact. Neither is served well by a link that looks like a policy.

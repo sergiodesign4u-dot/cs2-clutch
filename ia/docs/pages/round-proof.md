@@ -61,7 +61,7 @@ From the Round proof entity in `ia/docs/sitemap.md`:
 
 ## 3. States
 
-Seven, and every site that renders the block inherits all seven.
+Seven in the object, and **no site renders all seven**. **Corrected by the step 8 audit:** this line claimed universal inheritance and its own table contradicts it, since gone or private exists on `7.1` only and pre-roll has no moment on a verifier. Each variant inherits the states its own moment can reach, and the table's scope column is what decides.
 
 | State | What the block shows | Route out |
 |---|---|---|

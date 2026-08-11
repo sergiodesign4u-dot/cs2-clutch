@@ -20,7 +20,7 @@ Stage 03a, step 4, written on 11 August 2026. **Revised at step 6** after the tw
 
 ## Flow 1. Main job: arrive, open, get the thrill
 
-`jtbd.md:17`. Primary persona The Opener. Covers phases T1, T2, T3, T5, T6 and T7.
+`jtbd.md` "Section 1". Primary persona The Opener. Covers phases T1, T2, T3, T5, T6 and T7.
 
 ```mermaid
 flowchart TD
@@ -69,11 +69,11 @@ flowchart TD
     class Home,Real,Case,Gate,Geo,Age,Read,Stock,Out,Funds,Signin,SteamWait,SteamOk,SteamErr,SteamDown,Credit,Open,Reveal,Landed,Resume,Outcome,Share,Alive,Gone neutral;
 ```
 
-**ACTIVATION NODE: `Outcome`.** `aarrr.md:114` defines activation as users who arrive and complete at least one case open, so the promised value first lands when the reveal resolves and the receipt appears. It is a concrete node in the diagram rather than an implication.
+**ACTIVATION NODE: `Outcome`.** `aarrr.md` "Primary metric (OMTM)" defines activation as users who arrive and complete at least one case open, so the promised value first lands when the reveal resolves and the receipt appears. It is a concrete node in the diagram rather than an implication.
 
-**And it is a route defect, named as the pack requires.** A first-time visitor touches four distinct screens before that node: Home, the age gate, the case screen and sign in. The threshold is three. **The product defers its first value further than the research promised**, and Related Job 2 at `jtbd.md:42` asks for the entire open-to-result experience in under 60 seconds without a confusing step, which a Steam OpenID round trip is not.
+**And it is a route defect, named as the pack requires.** A first-time visitor touches four distinct screens before that node: Home, the age gate, the case screen and sign in. The threshold is three. **The product defers its first value further than the research promised**, and Related Job 2 at `jtbd.md` "Section 2" asks for the entire open-to-result experience in under 60 seconds without a confusing step, which a Steam OpenID round trip is not.
 
-**The obvious fix is already rejected on the record, so this is carried rather than solved.** A free demo reveal on identical odds and seeds was dropped in the T2 divergence, `cjm-to-be.md:47`, on the grounds that it argues our case by demonstrating the sceptic is right about the odds and it spends the reveal, the one thing we sell, before anyone has decided anything. Reopening that here would be re-litigating a converged decision.
+**The obvious fix is already rejected on the record, so this is carried rather than solved.** A free demo reveal on identical odds and seeds was dropped in the T2 divergence, `cjm-to-be.md` "T2. First contact, before any account", on the grounds that it argues our case by demonstrating the sceptic is right about the odds and it spends the reveal, the one thing we sell, before anyone has decided anything. Reopening that here would be re-litigating a converged decision.
 
 **Decisions in this flow.** Does this place survive a second look, T1 and T2, barrier `B1-1`. Is this market open, `B4`. Is the person 18 or over, `B3`. Are there free units on the wanted item, `B8-1`. Is there anything to open with, T4. Did Steam return, and in which of the two ways it can fail, `B3-1`. Did the reveal finish on this device. Does the shared result still resolve.
 
@@ -116,7 +116,7 @@ flowchart TD
 
 ## Flow 2. Funding the account and setting the ceiling
 
-Phase T4. **This flow closes no job and says so.** Its parents are barriers `B4-3`, `B4-1` and `B7-4`, and `jtbd.md:201` records that deposit closes none of the three core jobs and is justified by documented barriers and compliance. It gets a flow because it is a locked round 1 surface with real dead ends, not because a job asked for it.
+Phase T4. **This flow closes no job and says so.** Its parents are barriers `B4-3`, `B4-1` and `B7-4`, and `jtbd.md` "Matrix Conclusion: 3 Jobs for MVP Core" records that deposit closes none of the three core jobs and is justified by documented barriers and compliance. It gets a flow because it is a locked round 1 surface with real dead ends, not because a job asked for it.
 
 ```mermaid
 flowchart TD
@@ -159,11 +159,11 @@ flowchart TD
 
 **Decisions.** Has the ceiling been reached this period, `B7-4`. Is identity verified, `B8-4`. Did the check pass, and if not, is it appealed. Which direction the ceiling moved. Did the payment credit, `B4-3`.
 
-**States.** Loading: identity review, which is the asynchronous state only the document KYC branch of `D-A` has, and payment in progress. Error: a failed verification, which now has both an appeal and an exit rather than being a wall, and a declined payment that returns to the amount with the ceiling and threshold intact. Pending: crediting with a named timer, `C3`, and **a ceiling raise waiting out its 24 hours**, which `cjm-to-be.md:66` specifies and which was in no flow until step 6. Without that state a later stage would write the ceiling as instantaneous in both directions, which deletes the whole point of it.
+**States.** Loading: identity review, which is the asynchronous state only the document KYC branch of `D-A` has, and payment in progress. Error: a failed verification, which now has both an appeal and an exit rather than being a wall, and a declined payment that returns to the amount with the ceiling and threshold intact. Pending: crediting with a named timer, `C3`, and **a ceiling raise waiting out its 24 hours**, which `cjm-to-be.md` "T4. Getting something to open with" specifies and which was in no flow until step 6. Without that state a later stage would write the ceiling as instantaneous in both directions, which deletes the whole point of it.
 
 **The failed identity check is no longer a dead end, and the fix came from a contradiction rather than from taste.** It was drawn as absolute while capability `B2` guarantees the withdrawal route carries no verification branch at all. So a person whose check fails can still take out what they already hold, and the diagram was contradicting a shipped capability. It now carries both exits: an appeal that mirrors `G4`, and the withdrawal route that was open the whole time.
 
-**One deliberate red node remains.** `Stop` is the ceiling doing its job. It is red because this flow's goal is more balance and there is no path to it this period. It is not a failure: opening from existing balance and withdrawing both stay open, which `cjm-to-be.md:66` specifies. T4 carries a hard design constraint that belongs beside this node and is repeated here so it does not get lost: **the ceiling may never acquire completion mechanics, streaks or a session score**, because at that point it stops being a boundary and becomes a reason to keep going.
+**One deliberate red node remains.** `Stop` is the ceiling doing its job. It is red because this flow's goal is more balance and there is no path to it this period. It is not a failure: opening from existing balance and withdrawing both stay open, which `cjm-to-be.md` "T4. Getting something to open with" specifies. T4 carries a hard design constraint that belongs beside this node and is repeated here so it does not get lost: **the ceiling may never acquire completion mechanics, streaks or a session score**, because at that point it stops being a boundary and becomes a reason to keep going.
 
 ---
 
@@ -200,17 +200,17 @@ flowchart TD
 
 **States.** In force, for each boundary. **No loading and no error node**, and that is deliberate rather than an omission: every action on this screen is a local state change, and a brake that can fail to apply is not a brake.
 
-**Withdrawal stays open under self exclusion**, which is the same rule the ceiling follows at `cjm-to-be.md:66`. A boundary stops money going in and stops play. It never traps what the person already holds, because a limit that also locks the exit would be a punishment rather than a brake, and it would give anyone a reason never to set one.
+**Withdrawal stays open under self exclusion**, which is the same rule the ceiling follows at `cjm-to-be.md` "T4. Getting something to open with". A boundary stops money going in and stops play. It never traps what the person already holds, because a limit that also locks the exit would be a punishment rather than a brake, and it would give anyone a reason never to set one.
 
 **No dead ends, and no red nodes at all.** This is the only flow in the file with none. A person can always leave a boundary screen without setting anything, and every boundary they do set is reversible except self exclusion, which is reversible only by waiting out the period they chose themselves.
 
-**The constraint that governs this whole screen, repeated here because it is the thing most likely to be lost.** No counters, no streaks, no status, no session score, no celebration of staying inside a limit. T4 attaches the same rule to the spend ceiling at `cjm-to-be.md:73`: the moment a limit acquires completion mechanics it stops being a boundary and becomes a reason to keep going.
+**The constraint that governs this whole screen, repeated here because it is the thing most likely to be lost.** No counters, no streaks, no status, no session score, no celebration of staying inside a limit. T4 attaches the same rule to the spend ceiling at `cjm-to-be.md` "T4. Getting something to open with": the moment a limit acquires completion mechanics it stops being a boundary and becomes a reason to keep going.
 
 ---
 
 ## Flow 3. Related Job 5: withdraw and get what I earned
 
-`jtbd.md:69`. Phase T8, the floor of the entire As-Is map at -5.
+`jtbd.md` "Section 2". Phase T8, the floor of the entire As-Is map at -5.
 
 ```mermaid
 flowchart TD
@@ -262,7 +262,7 @@ flowchart TD
 
 ## Flow 4. Related Job 3: verify the outcome after I open
 
-`jtbd.md:51`. Primary motivation for The Researcher, secondary for The Opener. Two entries, one of them from outside the product with no account at all.
+`jtbd.md` "Section 2". Primary motivation for The Researcher, secondary for The Opener. Two entries, one of them from outside the product with no account at all.
 
 ```mermaid
 flowchart TD
@@ -298,7 +298,7 @@ flowchart TD
 
 **States.** Loading: the recomputation. Error: an incomplete or malformed round, which names what is missing and returns to the input rather than rejecting silently. There is no empty state, because the page opens and explains before it asks anyone to paste anything.
 
-**This flow draws a decision instead of describing it.** `cjm-to-be.md:109` calls it the most important rejection on the map: a commit-reveal scheme proves the outcome was not altered after the click, and says nothing about whether the weight table is the one we published, which is what users actually dispute. The `Doubt` diamond is that sentence as a route. The verifier closes one branch, and the other branch is closed by `D3` and `D4` on the case screen, which are different capabilities on a different surface. Anyone who later proposes that the verifier answers `B7-2` has to delete a node to do it.
+**This flow draws a decision instead of describing it.** `cjm-to-be.md` "T7. The outcome" calls it the most important rejection on the map: a commit-reveal scheme proves the outcome was not altered after the click, and says nothing about whether the weight table is the one we published, which is what users actually dispute. The `Doubt` diamond is that sentence as a route. The verifier closes one branch, and the other branch is closed by `D3` and `D4` on the case screen, which are different capabilities on a different surface. Anyone who later proposes that the verifier answers `B7-2` has to delete a node to do it.
 
 **The one dead end in this file that belongs to us and not to the person, and it now has a route through it.** `Broken` was a wall: the verifier disagreeing with the ledger left the person with no action at all. It now leads to a report and to an incident with a published response deadline. **The job still cannot be closed**, and `Incident` stays red for exactly that reason: nothing in the product can confirm an outcome while the proof of it is wrong. What changed is that the person is no longer standing in front of a wall while we call it an incident on our own side.
 
