@@ -253,7 +253,7 @@ What every intent cluster inherits. Group `global`, all MVP, because a shell tha
 
 | No | Name | Type | Scope | INCLUDES | Transitions |
 |---|---|---|---|---|---|
-| **0.1** | Navigation, header and mobile tabs | global element | MVP | Logo, the four global items in their two states, the balance figure once an account exists, the responsible play entry inside the balance control. No left icon rail and no mode hub row, `D-19` and `D-20` | 1.0, 1.2, 3.1, 4.1, 5.1, 6.1 |
+| **0.1** | Navigation, rail and header | global element | MVP | Two carriers, and neither holds the other's kind. The rail owns destinations, three for a guest and four with an account, and is a modal drawer on mobile. The header owns the logo, the rail toggle, the account control and the money as **two figures**, balance and value of items held, plus the responsible play entry inside the money control. No mode hub row on Home, `D-20`. Rail restored and the model returned to the baseline by `D-21` | 1.0, 1.2, 2.4, 3.1, 4.1, 5.1, 6.1 |
 | **0.2** | Footer | global element | MVP | Trust strip above it, service and legal columns, responsible play link, SEO interlinking block, bottom row. Second interlinking plane | 1.2, 6.1, and every legal destination it names |
 | **0.3** | System pages | page | MVP | 404 as a full page with search and quick links and HTTP 404, 500 as a backend-independent template, maintenance as 503 with `Retry-After`. Never a soft 404, never a dead end | 1.0, 3.1 |
 | **0.4** | Cookie consent | dialog | MVP | Prior consent rather than default-on, reject as easy as accept, analytics and marketing off until opted in, link to the policy. Grounded in law at step 7, not written from memory | 0.2 policy |
@@ -478,30 +478,39 @@ S-G1, the public result, is **a ninth public surface** against a round `CLAUDE.m
 
 Written at step 3, on 11 August 2026. The concept sitemap says which screens exist and by what intent they group. This section says how a person moves between them, assigns levels so that depth can be counted at all, and counts the taps from arrival to the main job.
 
-### The first decision: round 1 ships no icon rail
+### The first decision, taken at step 3 and reversed at 03b step 2
 
-The baseline runs a fixed 70px left icon rail with nine destinations. `baseline.md` established that **exactly one of the nine is in our round 1**. This is the divergence that walk demanded an answer for, and the answer is that the rail does not ship.
+**What step 3 decided, kept visible because the reasoning is still half right.** The baseline runs a fixed 70px left icon rail with nine destinations, and `baseline.md` established that **exactly one of the nine is in our round 1**. Step 3 answered that the rail does not ship, on this reasoning: a rail carrying one live item and eight dead ones is not navigation, it is a promise the product cannot keep, and it advertises absence on every screen. It was deferred with its trigger named, battles at Phase 1.5, `jtbd.md:212`, not deleted.
 
-**Reasoning.** The rail is a mode switcher. Round 1 has one mode. A rail carrying one live item and eight dead ones is not navigation, it is a promise the product cannot keep, and it advertises absence on every screen. `CLAUDE.md` permits exactly this: where the inherited structure loses to research, research wins and the divergence is named out loud.
+**Reversed on 11 August 2026 by founder decision `D-21`, and the reversal does not contradict the reasoning, it removes its subject.** The objection was to a list of nine with eight dead items. It was never an objection to the rail as a component, and that distinction was available at the time and not made. **The rail ships, carrying round 1's own destinations, and every item in it is live.**
 
-**What it is not.** Not a rejection of the rail as a pattern. It returns when a second mode does, and battles are already scheduled as Phase 1.5 at `jtbd.md:212`. The rail is deferred with its trigger named, not deleted.
+**Two carriers, and neither holds the other's kind.** This is the baseline's own model, `baseline.md:48` and `:78`, and it is what node 0.1 specifies in full.
 
-**What it buys.** The removal is the flattening this step needed. Global navigation becomes a header of four items instead of a rail of nine, and the horizontal space the rail occupied returns to the reveal, which is the surface the product competes on.
-
-### Global navigation, four items, and the job behind each
-
-| Item | Enters | Job behind it |
+| Carrier | Owns | Never holds |
 |---|---|---|
-| **Cases** | S-C1, the catalogue | Main Job, `jtbd.md:17`. The one mode round 1 ships |
-| **Provably fair** | A2 | Related Job 1, `jtbd.md:33`, before login, and Related Job 3, `jtbd.md:51`, after the open |
-| **My items** | S-E1, account and inventory | Related Job 5, `jtbd.md:69`. Inventory, receipts, and the way into withdrawal |
-| **Balance** | S-D1, deposit, and the spend ceiling | `B4-3`, `B7-4`, `B4-1`. **Barrier class, no job**, consistent with `jtbd.md:201` |
+| **The rail**, left edge, collapsible, a modal drawer on mobile | Destinations | Money, actions, the account control |
+| **The header**, fixed top | Money, the account control, the rail toggle, ambient controls | Destinations, except the logo |
 
-**Provably fair in the global navigation is a deliberate structural claim and no competitor makes it.** `jtbd.md:180` names a public provably fair surface as one of three things no competitor offers pre-login, and `baseline.md` verified on 11 August 2026 that our own baseline still redirects that route to login. Design principle 1 says trust is the product. A principle that does not reach the navigation is a slogan, and this is the cheapest place it becomes structure.
+### Global navigation: the rail's destinations and the job behind each
+
+| Item | Enters | Guest | Job behind it |
+|---|---|---|---|
+| **Cases** | S-C1, the catalogue | yes | Main Job, `jtbd.md:17`. The one mode round 1 ships |
+| **Provably fair** | A2 | yes | Related Job 1, `jtbd.md:33`, before login, and Related Job 3, `jtbd.md:51`, after the open |
+| **Responsible play** | S-F1 | yes | `B7-4`, pattern of 12, plus the compliance constraint at `CLAUDE.md:58`. **Barrier and constraint class, no job**, and nobody arrives wanting it |
+| **My items** | S-E1, account and inventory | no | Related Job 5, `jtbd.md:69`. Inventory, receipts, and the way into withdrawal |
+
+**Three destinations for a guest and four with an account.** Material's collapsed rail range is 3 to 7, so the guest state clears the floor exactly and five of the eight LATER destinations fit before the component itself is the constraint.
+
+**Balance leaves the destination list and becomes the header's money zone**, in **two figures**: the balance and the value of items held, both in real currency by row `C1`, never summed, and never rendered as a score. It still enters S-D1 and still carries `B4-3`, `B7-4` and `B4-1`. What changed is that it is not a destination, per Apple's rule that navigation carries navigation and not actions.
+
+**Responsible play gains a rail entry and keeps the one it had.** The entry inside the money control, decided below at step 6, is unchanged. The rail entry is an addition, affordable because the rail has space.
+
+**Provably fair in the global navigation is a deliberate structural claim and no competitor makes it.** `jtbd.md:180` names a public provably fair surface as one of three things no competitor offers pre-login, and `baseline.md` verified on 11 August 2026 that our own baseline still redirects that route to login and demotes it to a footer link, `baseline.md:84`. Design principle 1 says trust is the product. A principle that does not reach the navigation is a slogan, and this is the cheapest place it becomes structure.
 
 **It carries the limit `D-14` attached to it.** Its position is not a claim that a verifier converts a sceptic. What answers the recorded doubt is D2 and D4 on the case screen. This item is where the product proves its own numbers are checkable, which is a different job.
 
-**The navigation has two states, and pre-login it is two items.** My items and Balance describe nothing that exists before an account, so pre-login the header carries Cases and Provably fair and nothing else. That is the shortest global navigation in the category, and it matches what the pre-login job actually is: evaluate, then open.
+**The navigation has two states and it holds its shape across the boundary.** One slot is added when an account exists and nothing moves, is removed or is greyed out. Pre-login the product still shows three live destinations, which matches what the pre-login job actually is: evaluate, then open.
 
 ### Levels
 

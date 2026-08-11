@@ -418,3 +418,75 @@ A negative answer to 1 or 2 changes no node and no route. It changes whether the
 Refero answered a live call at the gate. Its index is weighted toward SaaS and AI tools, so a domain flavoured query returns noise, which is the practical reason the pack demands searching by page type and job rather than by industry. Playwright is proven and 32 competitor screenshots already sit in `research/screens/`.
 
 **One stop is predicted now so it is not a surprise at step 4.** Deposit, account with inventory, and withdrawal sit behind login at all five hard competitors, and this project does not log in. The domain half of the block bank will be absent for those three types, and the bank will say so in place of substituting a marketing landing page of a different type.
+
+---
+
+## D-21. The navigation model returns to the baseline: two carriers, and the rail ships
+
+**Date:** 2026-08-11. **Stage:** 03b, step 2, node 0.1. **Decided by:** the founder, on rejecting the first version of the node. **Binds:** every node from here, stage 04 which draws them, stage 07 which colours them, and it amends `D-19`.
+
+### What was rejected and what was named instead
+
+The first version of node 0.1 shipped a **bottom tab bar** on mobile and a single header row on desktop, with four global destinations in two account states.
+
+The founder rejected it with three screenshots of the baseline's own navigation and named the model directly: **two menus**, filled with the content round 1 is ready to ship, with the **header changing on login** and carrying **two money figures**, the upper one the balance and the lower one the value of what is held in skins.
+
+### The failure was structural, and the class matters more than the node
+
+`CLAUDE.md:25` lists the **navigation model** first among the things inherited "deliberately close to identical". The first version replaced that model with a different one, and the justification was a Material Design guideline about navigation bars.
+
+**A component guideline can tell you how to build a component well. It cannot tell you which component to build.** The research was correct and the conclusion drawn from it was outside what it could support. A locked inheritance decision was overturned by a source with no standing to overturn it, and the divergence was never named as one, which is the specific thing `CLAUDE.md` requires of every divergence.
+
+Recorded as a class so that a later stage does not repeat the move on a different component: **a guideline about a component may not be used to select that component.**
+
+### How this sits with `D-19`, which deferred the rail
+
+`D-19` rejected the baseline rail on one ground, quoted exactly: "a rail carrying one live item and eight dead ones advertises absence on every screen."
+
+**The founder's instruction does not overrule that objection, it removes its subject.** The rail ships with round 1's own destinations and every item in it is live: Cases, Provably fair, Responsible play, and My items once an account exists. Three for a guest, four with an account, against Material's collapsed rail range of 3 to 7. Nothing in it is dead, so nothing in it advertises absence.
+
+**What `D-19` measured was the baseline's nine item list, not the rail as a component.** That distinction was available at the time and was not made.
+
+**`D-20`'s ruling on the mode hub on Home is untouched.** Home still carries the case grid directly. The rail is not a mode switcher in round 1, it is the product's destination list, and the modes join it as they ship.
+
+### Why the carrier is built for the destination rather than for the round
+
+Material's two rules point opposite ways at two moments in this product's life, and both were opened live on 11 August 2026.
+
+- "Don't use a navigation bar for fewer than three destinations."
+- "For products with more than five navigation items, don't use a navigation bar."
+
+At round 1's count Material would pick a bar. At the locked scope, nine baseline rail destinations and eight LATER surfaces in `CLAUDE.md:41`, Material forbids a bar outright. **Chosen: the rail, because the rail is the carrier that receives the roadmap.** A bar would be replaced rather than extended.
+
+**Cost, accepted and named.** On mobile the rail is a modal drawer behind a menu icon, the baseline's own behaviour. From any screen that is not Home, the catalogue costs two taps rather than one. Material's compact-window advice is declined knowingly. **The three tap budget for the main job is untouched**, because the main flow never routes through the rail: tap 1 is a case tile on Home, tap 2 is the gate, tap 3 is Open.
+
+### The two figures, and the four rules they acquired on the way in
+
+The founder specified the pair. Four rules were derived from files that already exist, and each one is a constraint the baseline's own version does not meet.
+
+1. **Both figures are in real currency and neither wears a coin.** `cjm-to-be.md:208`, row `C1`, MVP and architecture: "one real currency throughout, no internal coin denomination anywhere". The baseline renders both figures against a branded coin glyph. That glyph cannot cross. `C1` exists to make `B7-1` impossible: a payout cannot wear a label that is not a price.
+2. **The two are never summed and never presented as a total.** The upper one is spendable now, the lower one is an estimate of what a set of objects would fetch, and round 1 has exactly one exit for those objects, withdrawal to Steam. A combined number would read as net worth, one line above a deposit control.
+3. **The lower figure is a current market value, never profit, gain or growth.** It moves without the person acting. A figure that can fall is honest only if it never claimed to be a score. **Parent:** design principle 1 as limited by `D-14`, "published chance, current value and tested RTP", plus row `B7`, the account and inventory with each item carrying its receipt. The header figure is the sum of those receipts and reconciles with 5.1 exactly.
+4. **No percentage badge on the deposit control in round 1.** The baseline runs a green 5 percent badge on its add control. `cjm-to-be.md:282` cuts any first-deposit bonus in round 1, including the zero-wagering variant, because `aarrr.md:224` requires case mathematics to be modelled first and that model does not exist. Blocked behind a named model with a named owner, not forbidden forever.
+
+**And one refusal the node makes on its own.** No counter, no streak, no progress bar and no session score anywhere in either carrier. `CLAUDE.md:58` binds this stage, and two live money figures in a persistent header is exactly where that pressure arrives.
+
+### What did not come across from the baseline, each with a reason
+
+| Baseline item | Verdict | Reason |
+|---|---|---|
+| The promotional partner tile above the rail destinations | Cut from round 1 | A paid third party placement with no barrier, no job and no constraint behind it |
+| The language switcher, nine languages | Cut permanently | `D-02`, one language |
+| The race pot in the pre-login header slot | Not in round 1 | Cluster 8, orphan `8.9`, no parent in the three legal classes. The slot stays empty rather than being filled with an invention |
+| The social icon row at the foot of the drawer | Deferred to node 0.2 | The footer owns the canonical set. The drawer may render it, from that one source and never a second list |
+| Eight LATER rail destinations | Enter as they ship | The rail is the carrier designed to receive them |
+
+### Two things this decision leaves open
+
+**The sound control** is in the baseline header and drawer and has **no parent in any of the three legal classes**. Design principle 2 covers motion, not audio, and no backlog row mentions sound. **Owner: the founder, before stage 04.** It ships with a stated parent or it does not ship.
+
+**The daily free case, `I2`, in the rail.** It is MVP by founder decision and it is the product's only free entry point, so a rail slot is tempting. It is not a node in `sitemap.md`, which places it inside the catalogue as an addressable case. A carrier may not promise a destination the map does not hold. **Owner: this stage, before step 5.** Either it becomes a node or it stays inside 3.1.
+
+### Consequence for the rule file
+
+`CLAUDE.md:25` and `CLAUDE.md:51` both change. The generalised mode-switcher rule from `D-20` is narrowed to what it actually established, and the global navigation sentence is rewritten from a flat count of four items into the two carrier model. That is a rule edit and it goes through the budget, not around it.

@@ -77,7 +77,7 @@
     blockquote:last-child { margin-bottom: 0; }
     blockquote strong { color: var(--text-primary); }
 
-    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 12px; }
     table { width: 100%; border-collapse: collapse; min-width: 620px; }
     th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 15px; border-bottom: 1px solid var(--border-strong); }
     td { font-size: 13px; color: var(--text-secondary); padding: 11px 15px; border-bottom: 1px solid var(--border); vertical-align: top; }
@@ -96,30 +96,52 @@
       background: var(--wf-surface); border: 1px solid var(--wf-line);
       border-radius: 4px; padding: 0 12px; height: 52px;
     }
-    .wf-bar.is-thin { height: 44px; padding: 0 10px; }
+    .wf-bar.is-thin { height: 46px; padding: 0 8px; gap: 7px; }
     .wf-logo { width: 58px; height: 20px; border: 1px solid var(--wf-line); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 9px; letter-spacing: 0.12em; color: var(--wf-ink-dim); flex: 0 0 auto; }
-    .wf-link { font-size: 12px; color: var(--wf-ink); padding: 6px 2px; white-space: nowrap; }
-    .wf-link.is-on { border-bottom: 2px solid var(--wf-ink); font-weight: 700; }
+    .wf-logo.is-mark { width: 24px; letter-spacing: 0; }
     .wf-spacer { flex: 1 1 auto; }
     .wf-btn { border: 1px solid var(--wf-line); border-radius: 3px; padding: 7px 12px; font-size: 11px; color: var(--wf-ink); white-space: nowrap; }
     .wf-btn.is-solid { background: var(--wf-line); color: #101010; font-weight: 700; }
-    .wf-money { border: 1px dashed var(--wf-line); border-radius: 3px; padding: 6px 11px; font-size: 11px; color: var(--wf-ink); font-family: 'SF Mono', Menlo, monospace; white-space: nowrap; }
     .wf-avatar { width: 26px; height: 26px; border: 1px solid var(--wf-line); border-radius: 50%; flex: 0 0 auto; }
+    .wf-ico { width: 26px; height: 26px; border: 1px solid var(--wf-line); border-radius: 3px; flex: 0 0 auto; display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--wf-ink-dim); }
+    .wf-ico.is-menu { border-radius: 4px; }
+    .wf-name { font-size: 11px; color: var(--wf-ink); white-space: nowrap; }
 
-    .wf-body { border: 1px dashed var(--wf-line-soft); border-radius: 4px; margin: 8px 0; height: 118px; display: flex; align-items: center; justify-content: center; font-size: 10px; letter-spacing: 0.1em; color: #565656; text-transform: uppercase; }
+    /* Two figures, the founder's shape, in one dashed money block */
+    .wf-money2 { border: 1px dashed var(--wf-line); border-radius: 3px; padding: 4px 9px; flex: 0 0 auto; }
+    .wf-m-row { display: flex; align-items: center; gap: 5px; font-family: 'SF Mono', Menlo, monospace; font-size: 11px; color: var(--wf-ink); line-height: 1.35; white-space: nowrap; }
+    .wf-m-row.is-dim { color: var(--wf-ink-dim); font-size: 10px; }
+    .wf-m-tag { font-size: 8px; letter-spacing: 0.06em; color: #6f6f6f; text-transform: uppercase; }
+    .wf-plus { width: 28px; height: 28px; border: 1px solid var(--wf-line); border-radius: 50%; flex: 0 0 auto; display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--wf-ink); line-height: 1; }
 
-    .wf-tabs { display: flex; background: var(--wf-surface); border: 1px solid var(--wf-line); border-radius: 4px; height: 58px; }
-    .wf-tab { flex: 1 1 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; border-right: 1px solid var(--wf-line-soft); }
-    .wf-tab:last-child { border-right: none; }
-    .wf-tab-ico { width: 20px; height: 20px; border: 1px solid var(--wf-line); border-radius: 3px; }
-    .wf-tab-lbl { font-size: 9.5px; color: var(--wf-ink-dim); letter-spacing: 0.02em; }
-    .wf-tab.is-on .wf-tab-ico { background: var(--wf-line); }
-    .wf-tab.is-on .wf-tab-lbl { color: var(--wf-ink); font-weight: 700; }
-    .wf-tab.is-new { border: 1px dashed var(--wf-ink-dim); border-radius: 3px; }
+    /* App frame: rail beside content */
+    .wf-app { display: flex; gap: 8px; margin-top: 8px; }
+    .wf-rail { width: 128px; flex: 0 0 auto; background: var(--wf-surface); border: 1px solid var(--wf-line); border-radius: 4px; padding: 8px 7px; }
+    .wf-rail.is-narrow { width: 46px; padding: 8px 6px; }
+    .wf-item { display: flex; align-items: center; gap: 8px; padding: 7px 7px; border-radius: 4px; margin-bottom: 3px; }
+    .wf-item-ico { width: 17px; height: 17px; border: 1px solid var(--wf-line); border-radius: 3px; flex: 0 0 auto; }
+    .wf-item-lbl { font-size: 10.5px; color: var(--wf-ink-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .wf-item.is-on { background: var(--wf-line); }
+    .wf-item.is-on .wf-item-ico { background: #101010; border-color: #101010; }
+    .wf-item.is-on .wf-item-lbl { color: #101010; font-weight: 700; }
+    .wf-item.is-narrow { justify-content: center; padding: 7px 0; }
+    .wf-div { height: 1px; background: var(--wf-line-soft); margin: 8px -7px; }
+    .wf-railtop { display: flex; align-items: center; justify-content: center; height: 26px; margin-bottom: 8px; }
+
+    .wf-body { border: 1px dashed var(--wf-line-soft); border-radius: 4px; flex: 1 1 auto; min-height: 128px; display: flex; align-items: center; justify-content: center; font-size: 10px; letter-spacing: 0.1em; color: #565656; text-transform: uppercase; text-align: center; padding: 8px; }
+
+    /* Modal drawer with scrim */
+    .wf-stage { position: relative; margin-top: 8px; }
+    .wf-scrim { position: absolute; inset: 0; background: rgba(0,0,0,0.55); border-radius: 4px; z-index: 2; }
+    .wf-drawer { position: absolute; top: 0; left: 0; bottom: 0; width: 132px; background: var(--wf-surface); border: 1px solid var(--wf-line); border-radius: 4px; padding: 8px 7px; z-index: 3; overflow: hidden; }
+    .wf-scrim-tag { position: absolute; right: 8px; bottom: 6px; z-index: 4; font-size: 8.5px; letter-spacing: 0.08em; text-transform: uppercase; color: #9a9a9a; }
 
     .wf-phone { width: 100%; max-width: 300px; margin: 0 auto; }
     .wf-note { font-size: 11px; color: var(--text-muted); margin-top: 10px; line-height: 1.55; }
     .wf-note b { color: var(--text-secondary); font-weight: 600; }
+
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 780px) { .split { grid-template-columns: 1fr; } }
 
     .backlink { display: inline-block; margin-top: 26px; font-size: 13px; }
 
@@ -141,165 +163,346 @@
 <div class="hero" id="overview">
   <div class="section-eyebrow">Node 0.1 - global element - cluster 0 - MVP</div>
   <h1>Navigation</h1>
-  <p class="lede">The shell every screen inherits: four global destinations, the money figure and the account control, in two account states and at two widths, without ever advertising something that does not exist yet. It has no job of its own, because a carrier is not a destination. It is the surface on which four jobs and one compliance constraint reach their screens.</p>
+  <p class="lede">The shell every screen inherits, in the two carrier model the baseline runs: a rail on the left that owns destinations, and a header on top that owns money, the account and the rail toggle. Neither ever holds the other's kind. It has no job of its own, because a carrier is not a destination. It is the surface on which four jobs and one compliance constraint reach their screens.</p>
   <div class="hero-meta">
-    <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Global destinations</div></div>
-    <div><div class="hero-stat-value">3 to 4</div><div class="hero-stat-label">Mobile tabs by state</div></div>
+    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Carriers</div></div>
+    <div><div class="hero-stat-value">3 to 4</div><div class="hero-stat-label">Rail destinations by state</div></div>
+    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Money figures, both in currency</div></div>
     <div><div class="hero-stat-value">44px</div><div class="hero-stat-label">Minimum target, AAA</div></div>
-    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Drawers and hamburgers</div></div>
   </div>
 </div>
 
-<!-- RESEARCH -->
-<section id="research">
+<!-- REBUILT -->
+<section id="rebuilt">
   <div class="sec-head">
-    <h2>What the set was chosen from</h2>
-    <p>Three sources, all opened in a browser on 11 August 2026 rather than recalled. What each one changed is stated, because a source that changed nothing was decoration.</p>
-  </div>
-
-  <div class="card is-src">
-    <h4>Material Design 3, navigation bar guidelines</h4>
-    <span class="src-url">https://m3.material.io/components/navigation-bar/guidelines - opened with a rendered browser, because the page is a JS application and a plain fetch returns only its title</span>
-    <blockquote>"Navigation bars provide access to <strong>three to five destinations</strong>."</blockquote>
-    <blockquote>"<strong>Don't use a navigation bar for fewer than three destinations.</strong> Instead, use tabs."</blockquote>
-    <blockquote>"<strong>Don't remove the labels from navigation items.</strong>"</blockquote>
-    <blockquote>"Each destination is represented by an icon and label text. <strong>One navigation destination is always active.</strong>"</blockquote>
-    <blockquote>"Navigation bar destinations have <strong>fixed positions</strong>. Don't scroll them or modify their positions."</blockquote>
-  </div>
-
-  <div class="card is-src">
-    <h4>Apple Human Interface Guidelines, tab bars</h4>
-    <span class="src-url">https://developer.apple.com/design/human-interface-guidelines/tab-bars</span>
-    <blockquote>"Use a tab bar to support <strong>navigation, not to provide actions</strong>."</blockquote>
-    <blockquote>"<strong>Don't disable or hide tab bar buttons, even when their content is unavailable.</strong> Having tab bar buttons available in some cases but not others makes your app's interface appear unstable and unpredictable. If a section is empty, explain why its content is unavailable."</blockquote>
-    <blockquote>"<strong>Include tab labels</strong> to help with navigation. Use single words whenever possible."</blockquote>
-  </div>
-
-  <div class="card is-src">
-    <h4>WCAG 2.2, target size</h4>
-    <span class="src-url">https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html and .../target-size-enhanced.html</span>
-    <blockquote><strong>2.5.8 Minimum, Level AA:</strong> "The size of the target for pointer inputs is at least <strong>24 by 24 CSS pixels</strong>", with five exceptions.</blockquote>
-    <blockquote><strong>2.5.5 Enhanced, Level AAA:</strong> "The size of the target for pointer inputs is at least <strong>44 by 44 CSS pixels</strong>", with four exceptions.</blockquote>
-    <p style="margin-top:12px"><strong>This node takes 44, the AAA figure, and it is a choice rather than an inheritance.</strong> Nothing obliges an AA product to meet a AAA criterion. Global navigation is the one surface every screen carries and the one a person hits while moving, so the enhanced figure is cheap here and expensive to retrofit. Recorded so that a later stage does not read 44 as a WCAG obligation and apply it everywhere by mistake.</p>
-  </div>
-</section>
-
-<!-- CONFLICT -->
-<section id="conflict">
-  <div class="sec-head">
-    <h2>The conflict the research produced</h2>
-    <p>The base layer decided four global items in two states. On mobile that model breaks two documented rules at once, and the resolution is designed rather than fudged.</p>
+    <h2>This node was rebuilt, and the reason is worth more than the node</h2>
+    <p>11 August 2026. Recorded as <code>D-21</code> so that a later stage does not repeat the same move on a different component.</p>
   </div>
 
   <div class="card is-drop">
-    <h4>Rendered literally, the model would break both sources</h4>
-    <p>As a bottom bar it is <strong>two items pre-login</strong>, which is below Material's floor of three and carries its explicit "don't". And two of the four would appear only after login, which is precisely what Apple's stability rule forbids: a tab that exists sometimes and not others.</p>
-  </div>
-
-  <div class="card is-drop">
-    <h4>Option 1, rejected. Four tabs always, the account tabs routing into sign in</h4>
-    <p>Satisfies Apple exactly, including its own remedy, "if a section is empty, explain why its content is unavailable". <strong>Cost:</strong> it advertises two destinations that hold nothing, which is the same defect that removed the baseline's nine item rail from round 1. <code>D-19</code> already ruled on that shape.</p>
-  </div>
-
-  <div class="card is-drop">
-    <h4>Option 2, rejected. No bottom bar pre-login, one appears after login</h4>
-    <p>Satisfies Material by never drawing a bar below three. <strong>Cost:</strong> the pre-login person, the one this product must convince, gets the weakest navigation of the two, and Related Job 1 lives entirely pre-login.</p>
+    <h4>What the first version shipped, and why it was wrong</h4>
+    <p>The first version of 0.1 put a <strong>bottom tab bar</strong> on mobile and a single header row on desktop. The founder rejected it, supplied three screenshots of the baseline's own navigation, and named the model: two menus, filled with round 1 content, with the header changing on login and carrying two money figures.</p>
+    <p><strong>The founder is right, and the failure was structural rather than a matter of taste.</strong> <code>CLAUDE.md:25</code> lists the <strong>navigation model</strong> first among the things inherited "deliberately close to identical". The first version replaced that model with a different one, and the justification was a component guideline about navigation bars.</p>
+    <p><strong>A component guideline can tell you how to build a component well. It cannot tell you which component to build.</strong> The research was sound and the conclusion it was used for was outside what it could support. That is the class.</p>
   </div>
 
   <div class="card is-pick">
-    <h4>Option 3, chosen. Home becomes a tab on mobile</h4>
-    <p>Mobile carries <strong>Home, Cases, Provably fair</strong> before an account and the same three plus <strong>My items</strong> after. Three meets Material's floor exactly. Positions 1 to 3 never move, which is Material's fixed-position rule honoured across the one boundary that matters. Nothing that existed disappears, which is Apple's objection answered rather than argued with. Only one slot is ever added, and it is added at the moment the person creates the thing it describes.</p>
-    <p><strong>Balance stays out of the tab bar in both states and both widths.</strong> Apple: a tab bar supports navigation, not actions, and adding funds is an action. Design principle 3: cost never hides inside excitement, and making money a permanent navigation destination is the mechanism by which spending becomes a place you go rather than a decision you take. The figure lives in the top bar, visible always, and it is the entry to 4.1 and to 6.1.</p>
+    <h4>What survives the rebuild, listed rather than quietly reused</h4>
+    <p>The three original sources, the 44 by 44 target decision, the argument for Provably fair's position, and the transient state table. <strong>What is deleted:</strong> the tab bar, the "Home as tab 1" resolution, and the claim that round 1 ships no drawer.</p>
+  </div>
+</section>
+
+<!-- MODEL -->
+<section id="model">
+  <div class="sec-head">
+    <h2>The model: two carriers, and neither holds the other's kind</h2>
+    <p>The rule that makes "two menus" rigorous instead of ambiguous.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">Carrier</th><th style="width:38%">Owns</th><th>Never holds</th></tr></thead>
+      <tbody>
+        <tr><td>The rail, left edge, collapsible</td><td>Destinations. Every place a person can go</td><td>Money. Actions. The account control</td></tr>
+        <tr><td>The header, fixed top</td><td>Money, the account control, the rail toggle, ambient controls</td><td>Destinations, except the logo</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="card is-note">
-    <h4>What this changes in the base layer's wording, stated rather than absorbed</h4>
-    <p>The four global items are unchanged and this node adds none. What changes is <strong>which carrier renders each one</strong>: the desktop header renders all four plus the brand mark, and the mobile bottom bar renders three of them plus Home, with Balance held in the mobile top bar. Home is the logo on desktop and a tab on mobile. <strong>Without Home as a tab the pre-login bar is two items and below the documented floor</strong>, so this dependency is written down rather than left as a layout preference.</p>
-    <p><strong>One thing round 1 does not need and the baseline does.</strong> There is no drawer and no hamburger anywhere in this node. The baseline drops its nine item rail into a hamburger on mobile, so all nine destinations sit one tap behind a drawer. Three destinations do not need a drawer. It returns when the mode switchers do, and not before.</p>
+    <h4>This is what the baseline already practises, and what Material actually supports</h4>
+    <p><code>baseline.md:78</code>: "the header is where money and account live." Material's drawer guidance says <strong>"avoid using two navigation components on the same screen"</strong>, and a top app bar is not a navigation component in that taxonomy: it is the thing the drawer is opened from. "Modal navigation drawers are always opened by an action outside of the drawer, such as clicking a navigation menu icon."</p>
+    <p>So the count is <strong>one primary navigation component plus one app bar</strong>, which is the standard shape. The founder's "two menus" is the correct reading of it.</p>
   </div>
 </section>
 
 <!-- MOCKUPS -->
 <section id="mockups">
   <div class="sec-head">
-    <h2>Wireframes</h2>
-    <p>Monochrome, wireframe level, both account states at both widths. No colour, no brand, no imagery: those arrive at stage 06. A dashed outline marks something that is new in that state.</p>
+    <h2>The two carriers at both widths and both states</h2>
+    <p>Monochrome by rule. Colour, brand and imagery arrive at stage 06. Boxes are relationships and priority, never pixels.</p>
   </div>
 
-  <h3>Desktop, from 900px</h3>
   <div class="wf-row">
     <div class="wf-col">
-      <div class="wf-cap">Guest</div>
-      <div class="wf"><div class="wf-inner">
-        <div class="wf-bar">
-          <div class="wf-logo">LOGO</div>
-          <span class="wf-link is-on">Cases</span>
-          <span class="wf-link">Provably fair</span>
-          <span class="wf-spacer"></span>
-          <span class="wf-btn is-solid">Sign in</span>
+      <div class="wf-cap">1. Desktop, guest, rail expanded</div>
+      <div class="wf">
+        <div class="wf-inner">
+          <div class="wf-bar">
+            <div class="wf-ico is-menu">&#9776;</div>
+            <div class="wf-logo">LOGO</div>
+            <div class="wf-spacer"></div>
+            <div class="wf-btn is-solid">Sign in</div>
+            <div class="wf-ico">&#9834;</div>
+          </div>
+          <div class="wf-app">
+            <div class="wf-rail">
+              <div class="wf-item is-on"><span class="wf-item-ico"></span><span class="wf-item-lbl">Cases</span></div>
+              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Provably fair</span></div>
+              <div class="wf-div"></div>
+              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Responsible</span></div>
+            </div>
+            <div class="wf-body">Page content</div>
+          </div>
         </div>
-        <div class="wf-body">page content, own H1</div>
-      </div></div>
-      <p class="wf-note">Money zone is <b>empty</b>, and deliberately. The baseline fills the same slot with a race pot promotion pre-login; that destination is node 8.9 and it is an orphan with no parent in any of the three legal classes.</p>
+      </div>
+      <p class="wf-note"><b>Three destinations.</b> Material's collapsed rail wants 3 to 7, so the guest state clears the floor exactly. One full-width divider separates the two groups, never individual items. The money zone is empty because there is no balance before an account.</p>
     </div>
 
     <div class="wf-col">
-      <div class="wf-cap">Account exists</div>
-      <div class="wf"><div class="wf-inner">
-        <div class="wf-bar">
-          <div class="wf-logo">LOGO</div>
-          <span class="wf-link is-on">Cases</span>
-          <span class="wf-link">Provably fair</span>
-          <span class="wf-link">My items</span>
-          <span class="wf-spacer"></span>
-          <span class="wf-money">000.00</span>
-          <span class="wf-avatar"></span>
+      <div class="wf-cap">2. Desktop, account exists</div>
+      <div class="wf">
+        <div class="wf-inner">
+          <div class="wf-bar">
+            <div class="wf-ico is-menu">&#9776;</div>
+            <div class="wf-logo">LOGO</div>
+            <div class="wf-spacer"></div>
+            <div class="wf-avatar"></div>
+            <div class="wf-name">Player</div>
+            <div class="wf-money2">
+              <div class="wf-m-row">$588.08 <span class="wf-m-tag">balance</span></div>
+              <div class="wf-m-row is-dim">$35.91 <span class="wf-m-tag">in items</span></div>
+            </div>
+            <div class="wf-plus">+</div>
+            <div class="wf-ico">&#9834;</div>
+          </div>
+          <div class="wf-app">
+            <div class="wf-rail">
+              <div class="wf-item is-on"><span class="wf-item-ico"></span><span class="wf-item-lbl">Cases</span></div>
+              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Provably fair</span></div>
+              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">My items</span></div>
+              <div class="wf-div"></div>
+              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Responsible</span></div>
+            </div>
+            <div class="wf-body">Page content</div>
+          </div>
         </div>
-        <div class="wf-body">page content, own H1</div>
-      </div></div>
-      <p class="wf-note">The balance figure opens the money panel: deposit 4.1 and, inside it, <b>responsible play 6.1</b>. Two taps from anywhere, which is the promotion base-layer step 6 made after B7-4 showed a pattern of 12 inside an escalation loop.</p>
+      </div>
+      <p class="wf-note"><b>One slot is added to the rail and nothing moves.</b> My items joins the destination group at the moment the person creates the thing it describes. In the header, the two figures and the deposit control appear. <b>Both figures carry a currency mark and neither wears a coin.</b></p>
     </div>
   </div>
 
-  <h3>Mobile, base 360px</h3>
   <div class="wf-row">
     <div class="wf-col">
-      <div class="wf-cap">Guest, three tabs</div>
-      <div class="wf"><div class="wf-inner wf-phone">
-        <div class="wf-bar is-thin">
-          <div class="wf-logo">LOGO</div>
-          <span class="wf-spacer"></span>
-          <span class="wf-btn is-solid">Sign in</span>
+      <div class="wf-cap">3. Desktop, rail collapsed by the toggle</div>
+      <div class="wf">
+        <div class="wf-inner">
+          <div class="wf-bar">
+            <div class="wf-ico is-menu">&#9776;</div>
+            <div class="wf-logo">LOGO</div>
+            <div class="wf-spacer"></div>
+            <div class="wf-avatar"></div>
+            <div class="wf-money2">
+              <div class="wf-m-row">$588.08 <span class="wf-m-tag">balance</span></div>
+              <div class="wf-m-row is-dim">$35.91 <span class="wf-m-tag">in items</span></div>
+            </div>
+            <div class="wf-plus">+</div>
+          </div>
+          <div class="wf-app">
+            <div class="wf-rail is-narrow">
+              <div class="wf-item is-on is-narrow"><span class="wf-item-ico"></span></div>
+              <div class="wf-item is-narrow"><span class="wf-item-ico"></span></div>
+              <div class="wf-item is-narrow"><span class="wf-item-ico"></span></div>
+              <div class="wf-div"></div>
+              <div class="wf-item is-narrow"><span class="wf-item-ico"></span></div>
+            </div>
+            <div class="wf-body">Page content, wider</div>
+          </div>
         </div>
-        <div class="wf-body">page content</div>
-        <div class="wf-tabs">
-          <div class="wf-tab is-on"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Home</span></div>
-          <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Cases</span></div>
-          <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Fairness</span></div>
-        </div>
-      </div></div>
-      <p class="wf-note">Three is Material's floor exactly, and it is met <b>only because Home is a tab</b>. Every target 44 by 44 minimum. Labels never removed at any width.</p>
+      </div>
+      <p class="wf-note"><b>The only place a label may be absent.</b> Material sanctions icon-only presentation in the collapsed variant and the expanded variant is one control away. Tooltips on hover and on focus. The choice persists. <b>The collapsed rail is never hidden on desktop.</b></p>
     </div>
 
     <div class="wf-col">
-      <div class="wf-cap">Account exists, four tabs</div>
-      <div class="wf"><div class="wf-inner wf-phone">
-        <div class="wf-bar is-thin">
-          <div class="wf-logo">LOGO</div>
-          <span class="wf-spacer"></span>
-          <span class="wf-money">000.00</span>
-          <span class="wf-avatar"></span>
+      <div class="wf-cap">4. Mobile 360px, drawer open, account state</div>
+      <div class="wf">
+        <div class="wf-inner wf-phone">
+          <div class="wf-bar is-thin">
+            <div class="wf-ico is-menu">&#9776;</div>
+            <div class="wf-logo is-mark">C</div>
+            <div class="wf-spacer"></div>
+            <div class="wf-avatar"></div>
+            <div class="wf-money2">
+              <div class="wf-m-row">$588.08</div>
+              <div class="wf-m-row is-dim">$35.91</div>
+            </div>
+            <div class="wf-plus">+</div>
+          </div>
+          <div class="wf-stage">
+            <div class="wf-body" style="min-height:178px">Page content</div>
+            <div class="wf-scrim"></div>
+            <div class="wf-drawer">
+              <div class="wf-item is-on"><span class="wf-item-ico"></span><span class="wf-item-lbl">Cases</span></div>
+              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Provably fair</span></div>
+              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">My items</span></div>
+              <div class="wf-div"></div>
+              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Responsible</span></div>
+            </div>
+            <div class="wf-scrim-tag">scrim, tap to dismiss</div>
+          </div>
         </div>
-        <div class="wf-body">page content</div>
-        <div class="wf-tabs">
-          <div class="wf-tab is-on"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Home</span></div>
-          <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Cases</span></div>
-          <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Fairness</span></div>
-          <div class="wf-tab is-new"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">My items</span></div>
-        </div>
-      </div></div>
-      <p class="wf-note">Only the fourth slot is added, dashed here to show it. <b>Nothing that existed is removed and nothing moves.</b> Provably fair holds position 3 in both states, which is design principle 1 reaching the navigation instead of staying a slogan.</p>
+      </div>
+      <p class="wf-note"><b>Modal drawer with a scrim,</b> dismissed three ways per Material: selecting an item, tapping the scrim, swiping toward the left edge. A keyboard user gets a fourth, Escape, and focus returns to the menu icon. <b>At 360px the logo becomes a mark, the display name drops and the sound control drops</b>, which is what the baseline itself already does at 390px, <code>baseline.md:90</code>. The two figures survive, because they are what the header is designed around.</p>
     </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="sec-head">
+    <h2>Research, all opened in a browser on 11 August 2026</h2>
+    <p>Two sources are new to this rebuild because the component changed. Three are carried, and what each one now proves is restated, because a source kept for its conclusion after the conclusion moved is decoration.</p>
+  </div>
+
+  <div class="card is-src">
+    <h4>Material Design 3, navigation rail guidelines - new</h4>
+    <span class="src-url">https://m3.material.io/components/navigation-rail/guidelines</span>
+    <blockquote>"The collapsed nav rail runs along the leading edge of the window, and should contain <strong>3 to 7 navigation items</strong>. <strong>It should not be hidden.</strong>"</blockquote>
+    <blockquote>"The expanded navigation rail can be standard or modal, and <strong>should always open from a menu icon</strong>."</blockquote>
+    <blockquote>"A navigation rail should be <strong>the only visible navigation element</strong>."</blockquote>
+    <blockquote>"<strong>Compact windows should always use a navigation bar.</strong>"</blockquote>
+    <blockquote>"The top of the rail can also be used for a logo, however <strong>avoid using logos that could be mistaken as buttons</strong>. Don't use a logo as a menu button to expand the navigation rail."</blockquote>
+    <blockquote>"<strong>All navigation items require a one word label text.</strong>" "Don't use the active indicator for more than one navigation item at a time."</blockquote>
+  </div>
+
+  <div class="card is-src">
+    <h4>Material Design 3, navigation drawer guidelines - new</h4>
+    <span class="src-url">https://m3.material.io/components/navigation-drawer/guidelines</span>
+    <blockquote>"Navigation drawers are recommended for: apps with <strong>5 or more top-level destinations</strong>; apps with 2 or more levels of navigation hierarchy; quick navigation between unrelated destinations."</blockquote>
+    <blockquote>"<strong>Avoid using a navigation drawer with other primary navigation components, such as a navigation bar.</strong> Avoid using two navigation components on the same screen."</blockquote>
+    <blockquote>"<strong>Modal navigation drawers use a scrim to block interaction</strong> with the rest of an app's content. Modal navigation drawers can be used in any breakpoint, but are <strong>primarily used in compact and medium sizes</strong>."</blockquote>
+    <blockquote>Modal drawers "can be dismissed by: selecting a drawer item; tapping the scrim; <strong>swiping toward the drawer's anchoring edge</strong>."</blockquote>
+    <blockquote>"Use <strong>full-width dividers</strong> to separate <strong>groups</strong> of destinations." "<strong>Don't use dividers to separate individual destinations.</strong>"</blockquote>
+  </div>
+
+  <div class="card is-src">
+    <h4>Material Design 3, navigation bar guidelines - carried, and it now proves the opposite</h4>
+    <span class="src-url">https://m3.material.io/components/navigation-bar/guidelines</span>
+    <blockquote>"<strong>Don't use a navigation bar for fewer than three destinations.</strong>"</blockquote>
+    <blockquote>"<strong>For products with more than five navigation items, don't use a navigation bar</strong>; the elements may collide and there likely won't be enough space for translated text."</blockquote>
+  </div>
+
+  <div class="card is-note">
+    <h4>These two sentences are the whole argument for the carrier, and they point opposite ways at two moments in this product's life</h4>
+    <p>At round 1's count, three destinations for a guest and four with an account, Material would pick a bar. At the scope this product is locked to, nine rail destinations in the baseline and eight LATER modes and surfaces in <code>CLAUDE.md:41</code>, Material forbids a bar outright.</p>
+    <p><strong>The carrier is built for the destination rather than for the round.</strong> The cost is named below rather than absorbed.</p>
+  </div>
+
+  <div class="card is-src">
+    <h4>Apple Human Interface Guidelines, tab bars - carried</h4>
+    <span class="src-url">https://developer.apple.com/design/human-interface-guidelines/tab-bars</span>
+    <blockquote>"Use a tab bar to support <strong>navigation, not to provide actions</strong>."</blockquote>
+    <p>The first rule survives the carrier change intact and still binds this node: it is why the deposit control is not a destination. Apple's second rule, the one about never hiding tab buttons, was the first version's main lever and no longer applies to anything we ship.</p>
+  </div>
+
+  <div class="card is-src">
+    <h4>WCAG 2.2, target size - carried</h4>
+    <span class="src-url">https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html</span>
+    <blockquote><strong>2.5.8 Minimum, AA:</strong> at least 24 by 24 CSS pixels. <strong>2.5.5 Enhanced, AAA:</strong> at least 44 by 44 CSS pixels.</blockquote>
+    <p><strong>This node takes 44 by 44, the AAA figure, and it is a choice rather than an inheritance.</strong> Nothing obliges an AA product to meet a AAA criterion. Recorded so that a later stage does not read 44 as a WCAG obligation and apply it everywhere by mistake.</p>
+  </div>
+</section>
+
+<!-- RAIL -->
+<section id="rail">
+  <div class="sec-head">
+    <h2>The rail, and how it answers the objection that deferred it</h2>
+    <p><code>D-19</code> rejected the baseline rail on one ground. The founder's instruction does not overrule that objection, it removes its subject.</p>
+  </div>
+
+  <div class="card is-pick">
+    <h4>The objection, quoted exactly, and what happened to it</h4>
+    <p><code>D-19</code>: "a rail carrying one live item and eight dead ones advertises absence on every screen."</p>
+    <p><strong>The rail now ships with the content round 1 actually has, and every item in it is live.</strong> Nothing in it is dead, so nothing in it advertises absence. What <code>D-19</code> measured was the baseline's nine item list, not the rail as a component.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Group</th><th>Item</th><th>Guest</th><th>Account</th><th>Leads to</th></tr></thead>
+      <tbody>
+        <tr><td>Destinations</td><td>Cases</td><td>yes</td><td>yes</td><td>3.1</td></tr>
+        <tr><td></td><td>Provably fair</td><td>yes</td><td>yes</td><td>1.2</td></tr>
+        <tr><td></td><td>My items</td><td>no</td><td>yes</td><td>5.1</td></tr>
+        <tr><td>Boundary and ambient</td><td>Responsible play</td><td>yes</td><td>yes</td><td>6.1</td></tr>
+        <tr><td></td><td>Sound</td><td>yes</td><td>yes</td><td>no destination, open below</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h4>Responsible play in the rail is an addition to the base layer, named rather than absorbed</h4>
+    <p>The base layer gave it a persistent entry inside the Balance control and a footer link, <code>sitemap.md:553</code>, on the argument that a brake which has to be searched for at the worst moment is not a brake. <strong>That entry is unchanged.</strong> This adds a second one, in the rail's lower group, affordable now for the same reason the rail is: there is space. <strong>Parent:</strong> <code>B7-4</code>, pattern of 12, plus the compliance constraint at <code>CLAUDE.md:58</code>. Both legal.</p>
+  </div>
+
+  <h3>What is not in it, each with its reason</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Baseline item</th><th style="width:18%">Verdict</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Case Battles, Gunfights, Upgrade, Giveaways, Rewards Hub, Top wins, Partnership, Exchange</td><td>Not in round 1</td><td>All LATER, <code>CLAUDE.md:41</code>. They enter the rail as they ship. The rail is the carrier designed to receive them, which is the whole point of building it now</td></tr>
+        <tr><td>All Races and the race pot</td><td>Not in round 1</td><td>Cluster 8, orphan <code>8.9</code>, no parent in the three legal classes</td></tr>
+        <tr><td>The promotional partner tile above the destinations</td><td>Cut from round 1</td><td>A paid third party placement. No barrier, no job, no constraint behind it. If it returns it returns as a revenue decision with a named owner, not as inherited furniture</td></tr>
+        <tr><td>The language switcher</td><td>Cut permanently</td><td><code>D-02</code>, one language, English. <code>baseline.md:80</code> already recorded this divergence</td></tr>
+        <tr><td>The social icon row at the foot of the drawer</td><td>Deferred to 0.2</td><td>The footer owns the canonical social set. The drawer may render it, from that one source and never a second list</td></tr>
+        <tr><td>The daily free case, <code>I2</code></td><td>Deliberately absent</td><td>MVP by founder decision and the product's only free entry point, so a rail slot is tempting. But it is <strong>not a node in <code>sitemap.md</code></strong>: <code>sitemap.md:537</code> places it inside the catalogue as an addressable case. A carrier may not promise a destination the map does not hold. <strong>Owed a decision before step 5</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>The cost of the carrier choice, stated rather than defended</h4>
+    <p>On mobile the rail is a modal drawer behind a menu icon, which is the baseline's own behaviour, <code>baseline.md:90</code>. <strong>So on mobile, from any screen that is not Home, reaching the catalogue costs two taps rather than one.</strong> That is the price of Material's compact-window advice being declined.</p>
+    <p>It is affordable for one reason and the reason is checkable: <strong>the main job never routes through the rail.</strong> <code>CLAUDE.md:51</code> fixes the main flow as home, case screen, age gate, open, and <code>D-20</code> put the featured case grid on Home directly. Tap 1 is a case tile on Home, tap 2 is the gate, tap 3 is Open. <strong>The three tap budget is untouched by this change.</strong> The browsing route was already four taps and already not the main-job route, <code>sitemap.md:533</code>.</p>
+  </div>
+</section>
+
+<!-- HEADER -->
+<section id="header">
+  <div class="sec-head">
+    <h2>The header, and the two figures</h2>
+    <p>The state the founder specified: upper figure is the money, lower figure is the value of what is held in skins.</p>
+  </div>
+
+  <div class="split">
+    <div class="card">
+      <h4>Guest</h4>
+      <p>Rail toggle, logo, then the right group: <strong>Sign in</strong> routing to 2.4, and the sound control.</p>
+      <p><strong>The slot the baseline fills with the race pot stays empty.</strong> <code>baseline.md:78</code> records that pre-login there is no balance widget at all and that a promotion occupies its place. That promotion is <code>8.9</code> and has no parent. Nothing is invented to fill the gap.</p>
+    </div>
+    <div class="card">
+      <h4>Account exists</h4>
+      <p>Rail toggle, logo, then the right group: the account control routing to 5.1, the <strong>two figures</strong>, the <strong>deposit control</strong> routing to 4.1, and the sound control.</p>
+      <p>Responsible play keeps its entry inside the money control, unchanged from <code>D-19</code>, routing to 6.1.</p>
+    </div>
+  </div>
+
+  <h3>Four rules the two figures carry, and every one is derived rather than styled</h3>
+
+  <div class="card is-drop">
+    <h4>1. Both figures are in real currency and neither wears a coin</h4>
+    <p><code>cjm-to-be.md:208</code>, row <code>C1</code>: "one real currency throughout, no internal coin denomination anywhere", MVP and architecture, with the acceptance rule "no number renders anywhere without a currency mark". The baseline shows both of its figures against a branded coin glyph. <strong>That glyph cannot cross.</strong></p>
+    <p>This is the single hardest divergence in this node and it is not negotiable at IA level, because <code>C1</code> exists to make <code>B7-1</code> impossible: a payout cannot wear a label that is not a price.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>2. The two figures are never summed and never presented as a total</h4>
+    <p>They are different kinds. The upper one is spendable now. The lower one is an estimate of what a set of objects would fetch, and the only exit for those objects in round 1 is withdrawal to Steam, <code>cjm-to-be.md:105</code>. A combined number would read as net worth, which is a claim the product cannot honour, and it would sit one line above a deposit control.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>3. The lower figure is a current market value, never profit, gain or growth</h4>
+    <p>It moves without the person acting, because skin prices move. <strong>A figure that can fall is honest only if it never claimed to be a score.</strong> <strong>Parent:</strong> design principle 1 as limited by <code>D-14</code>, "what answers the doubt people actually record is published chance, <strong>current value</strong> and tested RTP", plus row <code>B7</code> at <code>cjm-to-be.md:202</code>, the account and inventory with each item carrying its receipt. The header figure is the sum of those receipts and must reconcile with 5.1 exactly.</p>
+  </div>
+
+  <div class="card is-drop">
+    <h4>4. No percentage badge on the deposit control in round 1</h4>
+    <p>The baseline runs a green 5 percent badge on its add control. <code>cjm-to-be.md:282</code> cuts <strong>any</strong> first-deposit bonus in round 1, including the zero-wagering variant, because <code>aarrr.md:224</code> requires case mathematics to be modelled before any bonus is designed and that model does not exist.</p>
+    <p>The control ships without the badge. <strong>The badge is not forbidden forever, it is blocked behind a named model with a named owner.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <h4>A fifth thing this node refuses on its own</h4>
+    <p>No counter, no streak, no progress bar and no session score appears anywhere in either carrier. <code>CLAUDE.md:58</code> binds this stage: a limit that acquires completion mechanics stops being a boundary. <strong>Two live money figures in a persistent header is exactly where that pressure arrives.</strong></p>
   </div>
 </section>
 
@@ -307,74 +510,76 @@
 <section id="matrix">
   <div class="sec-head">
     <h2>State matrix</h2>
-    <p>Rows are navigation zones, columns are account state by width. A cell says what is shown.</p>
+    <p>Rows are zones. Columns are account state by width. A cell says what is shown.</p>
   </div>
 
   <div class="table-wrap">
     <table>
-      <thead>
-        <tr><th>Zone</th><th>Guest, desktop</th><th>Guest, mobile</th><th>Account, desktop</th><th>Account, mobile</th></tr>
-      </thead>
+      <thead><tr><th>Zone</th><th>Guest, desktop</th><th>Guest, mobile</th><th>Account, desktop</th><th>Account, mobile</th></tr></thead>
       <tbody>
-        <tr><td>Brand and home</td><td>Logo, routes to 1.0</td><td>Logo, and Home as tab 1</td><td>Logo, routes to 1.0</td><td>Logo, and Home as tab 1</td></tr>
-        <tr><td>Primary destinations</td><td>Cases, Provably fair</td><td>Tabs: Cases, Provably fair</td><td>Cases, Provably fair, My items</td><td>Tabs: Cases, Provably fair, My items</td></tr>
-        <tr><td>Money</td><td>Nothing. There is no balance before an account</td><td>Nothing</td><td>Balance figure with its value, entry to 4.1</td><td>Balance figure in the top bar, entry to 4.1</td></tr>
-        <tr><td>Account</td><td>Sign in, routes to 2.4</td><td>Sign in in the top bar</td><td>Account control, routes to 5.1</td><td>Account control in the top bar</td></tr>
-        <tr><td>Boundary</td><td>Not present. Nothing to limit yet</td><td>Not present</td><td>Responsible play inside the balance control, routes to 6.1</td><td>Same, inside the balance control</td></tr>
-        <tr><td>Ambient</td><td>Ticker 0.8, on 1.0 and 3.3 only</td><td>Same two nodes only</td><td>Same</td><td>Same</td></tr>
+        <tr><td>Rail</td><td>Standard, beside content. Cases, Provably fair, divider, Responsible play</td><td>Modal drawer behind the menu icon, same items</td><td>Same plus My items</td><td>Modal drawer, same four</td></tr>
+        <tr><td>Brand and home</td><td>Logo, routes to 1.0</td><td>Logo in the header, routes to 1.0</td><td>Same</td><td>Logo becomes a mark</td></tr>
+        <tr><td>Rail toggle</td><td>Header, leading edge. Collapses to icons</td><td>Header, leading edge. Opens the modal drawer</td><td>Same</td><td>Same</td></tr>
+        <tr><td>Money</td><td>Nothing. There is no balance before an account</td><td>Nothing</td><td>Balance and value of items held, two lines, with the deposit control</td><td>Both figures, condensed, deposit control kept</td></tr>
+        <tr><td>Account</td><td>Sign in, routes to 2.4</td><td>Sign in, routes to 2.4</td><td>Avatar and name, routes to 5.1</td><td>Avatar only, routes to 5.1</td></tr>
+        <tr><td>Boundary</td><td>Rail entry only. Nothing to limit yet</td><td>Rail entry only</td><td>Rail entry plus the entry inside the money control</td><td>Same</td></tr>
+        <tr><td>Ambient</td><td>Sound control. Ticker 0.8 on 1.0 and 3.3 only</td><td>Sound control, open question at this width</td><td>Same</td><td>Same</td></tr>
       </tbody>
     </table>
   </div>
+
+  <p><strong>No role dimension.</strong> One user role in round 1. No operator, moderator or seller view is in scope, so the matrix has two account states and nothing else. Stated so that a later stage does not read the absence as an oversight.</p>
 
   <h3>Transient states</h3>
   <div class="table-wrap">
     <table>
-      <thead><tr><th>State</th><th>What the navigation does</th><th>Why</th></tr></thead>
+      <thead><tr><th style="width:24%">State</th><th style="width:40%">What the navigation does</th><th>Why</th></tr></thead>
       <tbody>
-        <tr><td>Scrolled</td><td>Both bars stay fixed and do not condense or hide</td><td>Apple: the tab bar stays visible when people navigate. Hiding it to buy pixels costs orientation on the one surface that provides it</td></tr>
-        <tr><td>Balance crediting, C3</td><td>The figure carries a named timer beside it rather than a spinner, and does not silently change</td><td>Node 4.4 owns the timer, the navigation only renders the state</td></tr>
-        <tr><td>Boundary in force, 6.3</td><td>The balance control opens to the limits rather than to add funds. The figure stays visible, the deposit route closes, the withdrawal route stays open</td><td>A boundary stops money going in and never traps what the person already holds</td></tr>
-        <tr><td>Ceiling reached, 4.2</td><td>Same as above, and no counter, progress bar, streak or session score appears anywhere in the navigation</td><td><code>CLAUDE.md</code>: a limit that acquires completion mechanics stops being a boundary. This binds this node too</td></tr>
-        <tr><td>Gate open, 2.1</td><td>The navigation is inert behind the gate layer and is not removed</td><td>Removing it would make the gate feel like an ejection rather than a check</td></tr>
-        <tr><td>Steam unavailable, 2.6</td><td>Sign in stays present and states the failure on 2.4. The navigation itself does not change</td><td>Reading the product stays open for a person who cannot sign in</td></tr>
+        <tr><td>Rail collapsed</td><td>Icons with the active indicator, labels gone, tooltips on hover and on focus</td><td>Material: collapsed and expanded transform into each other from the menu button. The collapsed rail is never hidden on desktop</td></tr>
+        <tr><td>Drawer open, mobile</td><td>Scrim blocks the content behind. Dismissed by selecting an item, tapping the scrim, or swiping toward the left edge</td><td>Material's modal drawer contract, all three dismissals</td></tr>
+        <tr><td>Scrolled</td><td>Header stays fixed. The rail stays. Neither condenses nor hides</td><td>Hiding navigation to buy pixels costs orientation on the one surface that provides it</td></tr>
+        <tr><td>Balance crediting, <code>C3</code></td><td>The figure carries a named timer beside it rather than a spinner, and does not silently change</td><td>Deposit node 4.4 owns the timer, the navigation renders the state</td></tr>
+        <tr><td>Item value stale or unavailable</td><td>The lower figure states that it is stale with its timestamp. It never renders a stale number as current, and never renders zero for unknown</td><td>Rule 3 above. <code>[?]</code> is a legal value in this project and a wrong number is not</td></tr>
+        <tr><td>Boundary in force, <code>6.3</code></td><td>The money control opens to the limits rather than to add funds. Both figures stay visible, the deposit route closes, the withdrawal route stays open</td><td><code>flows.md</code> flow 2a: a boundary stops money going in and never traps what the person already holds</td></tr>
+        <tr><td>Ceiling reached, <code>4.2</code></td><td>Same, and no counter, no progress bar, no streak and no session score appears anywhere</td><td><code>CLAUDE.md:58</code>. This binds this node too</td></tr>
+        <tr><td>Gate open, <code>2.1</code></td><td>Both carriers are inert behind the gate layer and neither is removed</td><td>Removing them would make the gate feel like an ejection rather than a check</td></tr>
+        <tr><td>Steam unavailable, <code>2.6</code></td><td>Sign in stays present and states the failure on 2.4</td><td>Reading the product stays open for a person who cannot sign in</td></tr>
       </tbody>
     </table>
-  </div>
-
-  <div class="card is-note" style="margin-top:20px">
-    <h4>No role dimension, and that is a result rather than an omission</h4>
-    <p>This product has one user role in round 1. There is no operator, moderator or seller view in scope, so the matrix has two account states and nothing else.</p>
   </div>
 </section>
 
 <!-- ANATOMY -->
 <section id="anatomy">
   <div class="sec-head">
-    <h2>Anatomy and transitions</h2>
-    <p>Element, behaviour, and the node it leads to. Node numbers are from <a href="sitemap.html">the sitemap</a>.</p>
+    <h2>Anatomy</h2>
+    <p>Every element, what it does, and where it goes.</p>
   </div>
 
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Element</th><th>Behaviour</th><th>Leads to</th></tr></thead>
+      <thead><tr><th style="width:26%">Element</th><th>Behaviour</th><th style="width:14%">Leads to</th></tr></thead>
       <tbody>
-        <tr><td>Logo</td><td>Always the route home. On mobile it does not duplicate tab 1: it is the brand mark and it is still tappable</td><td>1.0</td></tr>
-        <tr><td>Home tab, mobile only</td><td>Active by default on arrival</td><td>1.0</td></tr>
+        <tr><td>Logo</td><td>Always the route home. Never the control that expands the rail</td><td>1.0</td></tr>
+        <tr><td>Rail toggle</td><td>Desktop: collapse to icons and back, and the choice persists. Mobile: opens the modal drawer</td><td>current node</td></tr>
         <tr><td>Cases</td><td>Enters the catalogue, not a case</td><td>3.1</td></tr>
-        <tr><td>Provably fair</td><td>Public, works with no account, and stays in the same position after login</td><td>1.2</td></tr>
-        <tr><td>My items</td><td>Inventory with receipts, and the entry to withdrawal</td><td>5.1</td></tr>
-        <tr><td>Balance figure</td><td>Shows the value. Opens the money panel</td><td>4.1</td></tr>
-        <tr><td>Responsible play</td><td>Inside the money panel, persistent, two taps from anywhere</td><td>6.1</td></tr>
-        <tr><td>Sign in, guest only</td><td>A single control, never a tab</td><td>2.4</td></tr>
-        <tr><td>Account control</td><td>Opens the account</td><td>5.1</td></tr>
-        <tr><td>Active indicator</td><td>Exactly one destination is active at any time</td><td>Current node</td></tr>
+        <tr><td>Provably fair</td><td>Public, works with no account, and holds its position after login</td><td>1.2</td></tr>
+        <tr><td>My items, account only</td><td>Inventory with receipts, and the entry to withdrawal</td><td>5.1</td></tr>
+        <tr><td>Responsible play</td><td>Rail, lower group, both states</td><td>6.1</td></tr>
+        <tr><td>Sound</td><td>Toggle only. Not a destination and never in the destination group</td><td>none</td></tr>
+        <tr><td>Sign in, guest only</td><td>A single control in the header</td><td>2.4</td></tr>
+        <tr><td>Account control, account only</td><td>Avatar and name</td><td>5.1</td></tr>
+        <tr><td>Balance figure, account only</td><td>Spendable funds, real currency</td><td>4.1</td></tr>
+        <tr><td>Value of items held, account only</td><td>Current market value, real currency, timestamped when stale</td><td>5.1</td></tr>
+        <tr><td>Deposit control, account only</td><td>One add control. No badge in round 1</td><td>4.1</td></tr>
+        <tr><td>Active indicator</td><td>Exactly one destination is active at any time, in both rail variants</td><td>current node</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="card is-pick" style="margin-top:20px">
-    <h4>Provably fair holds position 3 on mobile in both states, and that is the structural claim</h4>
-    <p><code>jtbd.md:180</code> names a public provably fair surface as one of three things no competitor offers pre-login, and the baseline walk verified that our own baseline still redirects that route to login. Design principle 1 says trust is the product. Letting the item slide down or out when the account arrives would say the proof was a sales argument. It carries the <code>D-14</code> limit with it: its position is not a claim that a verifier converts a sceptic.</p>
+  <div class="card is-pick">
+    <h4>Provably fair holds its rail position in both states, and that is the structural claim of this node</h4>
+    <p><code>jtbd.md:180</code> names a public provably fair surface as one of three things no competitor offers pre-login, and the baseline walk verified that our own baseline still redirects that route to login and demotes it to a footer link, <code>baseline.md:84</code>. Design principle 1 says trust is the product. Letting the item slide down or out when the account arrives would say the proof was a sales argument. It carries the <code>D-14</code> limit with it: its position is not a claim that a verifier converts a sceptic.</p>
   </div>
 </section>
 
@@ -382,41 +587,86 @@
 <section id="seo">
   <div class="sec-head">
     <h2>SEO and accessibility</h2>
-    <p>A global element has no page of its own, so it carries obligations rather than a full A to E block.</p>
+    <p>A global element has no URL of its own, which is exactly why what it does for crawling and for assistive technology is decided here rather than per page.</p>
   </div>
 
   <div class="card">
-    <h4>SEO</h4>
+    <h4>No H1, and the main internal linking plane</h4>
     <p><strong>This node carries no H1.</strong> A global element is not a page and never owns the document heading. Every node that renders it supplies its own single H1.</p>
-    <p><strong>It is the product's main internal linking plane.</strong> Every destination is a crawlable <code>&lt;a&gt;</code> with a real href, never a script handler, so the four global routes are reachable by a crawler from every page. The footer, node 0.2, is the second plane and carries the long tail.</p>
-    <p><strong>Nothing here is indexed as its own URL.</strong> The navigation has no route. Nodes it links into carry their own rules: 1.0, 1.2, 3.1 and 7.1 are indexed, and 2.4, 2.7, 4.1, 5.1 and 5.3 are noindex.</p>
+    <p>Every destination is a crawlable <code>&lt;a&gt;</code> with a real href, never a script handler, so the global routes are reachable by a crawler from every page. The footer, node 0.2, is the second plane and carries the long tail.</p>
+    <p><strong>Nothing here is indexed as its own URL.</strong> Nodes it links into carry their own rules: 1.0, 1.2, 3.1, 6.1 and 7.1 are indexed, and 2.4, 2.7, 4.1, 5.1 and 5.3 are noindex.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The mobile drawer is a display concern and never a crawl concern</h4>
+    <p>The rail's links are present in the markup at every width, and the menu icon toggles their visibility rather than their existence. <strong>A drawer that renders its links only after a click hides the product's main linking plane from a crawler</strong>, which is the standard way this pattern is shipped wrong.</p>
   </div>
 
   <div class="card">
-    <h4>Accessibility, every line a requirement rather than an aspiration</h4>
+    <h4>Accessibility, and every line is a requirement rather than an aspiration</h4>
     <ul>
-      <li><code>&lt;nav&gt;</code> on both carriers, each with an accessible name, because two navigation landmarks on one page are ambiguous without one</li>
-      <li><code>aria-current="page"</code> on the active destination. Material's "one navigation destination is always active" is a visual statement; this is the same statement for a screen reader</li>
-      <li>Every target at least <strong>44 by 44 CSS pixels</strong>, WCAG 2.5.5 AAA, chosen deliberately as recorded above</li>
-      <li>Labels never removed from tabs at any width, per Material's explicit "don't". Icon-only navigation is not a compact variant here, it is a different and worse component</li>
-      <li>Focus order follows visual order, and the tab bar is keyboard reachable, because a mobile browser with a keyboard is not a special case</li>
-      <li>The balance figure announces its value as text, not as an image or a background, so a crediting state is readable rather than merely visible</li>
+      <li>Semantics: <code>&lt;nav&gt;</code> on the rail with an accessible name. The header is <code>&lt;header&gt;</code> with a <code>&lt;nav&gt;</code> only around the logo link, because it holds no other destination</li>
+      <li><code>aria-current="page"</code> on the active destination. Material's "one destination is always active" is a visual statement; this is the same statement for a screen reader</li>
+      <li>The modal drawer traps focus while open, returns focus to the menu icon on close, closes on Escape, and the menu icon carries <code>aria-expanded</code>. Material names three dismissals and a keyboard user gets a fourth</li>
+      <li>Every target at least <strong>44 by 44 CSS pixels</strong>, WCAG 2.5.5 AAA, chosen deliberately</li>
+      <li><strong>Labels are never removed except in the collapsed rail variant</strong>, where Material sanctions icon-only presentation and the expanded variant is one control away. Labels are one word</li>
+      <li>Both money figures announce as text with their currency mark, never as an image or a background, so a crediting or stale state is readable rather than merely visible</li>
+      <li>The scrim is not the only affordance: the drawer is dismissible by keyboard and by an explicit close control, because a scrim is invisible to a screen reader user</li>
     </ul>
     <p><strong>No breadcrumbs in this node.</strong> They belong to nodes with a parent to point at, 3.3 under 3.1 and 7.1 under 1.2. A global element cannot know where it is.</p>
   </div>
 </section>
 
-<!-- LIMITS -->
-<section id="limits">
+<!-- ADAPTIVE -->
+<section id="adaptive">
   <div class="sec-head">
-    <h2>What this node does not decide</h2>
+    <h2>Adaptive behaviour</h2>
+    <p>Mobile is the base, 360px, and it is what this node was reasoned from rather than checked against afterwards.</p>
   </div>
-  <div class="card">
+
+  <div class="split">
+    <div class="card">
+      <h4>Mobile, base, 360px</h4>
+      <p>One header row: menu icon, logo mark, then the money and account zone. The rail is a modal drawer, closed by default. No bottom bar at any width, in either state.</p>
+      <p><strong>The two figures survive at 360px</strong>, which is why the header's right group is designed before its left one.</p>
+    </div>
+    <div class="card">
+      <h4>Desktop, from 900px</h4>
+      <p>Standard rail beside the content, expanded by default with labels, collapsible to icons and the choice persists. Header holds the toggle, the logo, and the money and account group on the right.</p>
+      <p><strong>Expanded by default is a decision, not a default.</strong> Material allows either. With three or four items there is no space pressure, and the collapsed variant exists for a person who wants the width back.</p>
+    </div>
+  </div>
+
+  <div class="card is-note">
+    <h4>Growth is bounded and the bound is written now</h4>
+    <p>Material's collapsed rail tops out at seven. Round 1 uses three or four, so <strong>five of the eight LATER destinations fit before the component is the constraint</strong>. At eight the rail needs section labels and a scroll, which is what the baseline does at nine. That ceiling arrives inside this product's own roadmap, so it is handed to whichever round ships the fifth mode rather than discovered there.</p>
+    <p>Between the two widths the drawer becomes standard rather than modal, and <strong>no destination is added or removed at any breakpoint</strong>. A person who resizes a window changes how the rail is presented and keeps every route.</p>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>Open, carried, and what this node does not decide</h2>
+    <p>Two items are open and both are named rather than filled with a median.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">Open item</th><th>What is missing</th><th style="width:22%">Owner and when</th></tr></thead>
+      <tbody>
+        <tr><td>The sound control</td><td>It is in the baseline header and drawer, <code>baseline.md:76</code>, and dropped by the baseline itself at 390px. It has <strong>no parent in any of the three legal classes</strong>. Design principle 2 covers motion, not audio, and no backlog row mentions sound. It is drawn here because the reveal has audio and a person needs to be able to stop it, which is an argument this stage cannot ratify on its own</td><td>Founder, before stage 04. It ships with a stated parent or it does not ship</td></tr>
+        <tr><td>The daily free case, <code>I2</code>, in the rail</td><td>MVP and the only free entry point, but not a node in <code>sitemap.md</code>. A carrier may not promise a destination the map does not hold</td><td>This stage, before step 5. Either it becomes a node or it stays inside 3.1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-soon" style="border-left:3px solid var(--text-muted)">
+    <h4>What this node does not decide</h4>
     <p><strong>Block composition of any page.</strong> This node is the shell. What sits inside a page comes from the block bank at step 4 and from nothing else.</p>
-    <p><strong>Visual treatment.</strong> Icon style, weight, motion on the active indicator and the treatment of the balance figure are stage 06 and stage 11.</p>
-    <p><strong>Icon set.</strong> Which glyph carries which destination is a stage 07 decision. This node fixes that there are icons <strong>and</strong> labels, never icons alone.</p>
-    <p><strong>Microcopy.</strong> The labels here are single words held to Apple's "use single words whenever possible". Stage 05 owns the final strings and syncs them back into <code>ia/docs/pages/navigation.md</code>.</p>
-    <p><strong>Growth is bounded, and the bound is written now.</strong> Material's ceiling is five and the round 2 mode switcher will want a slot. At five destinations this bar is full, and the sixth forces the rail back rather than a sixth tab. That is the same trigger <code>D-20</code> names, arrived at from a second direction.</p>
+    <p><strong>Visual treatment.</strong> The mockups are wireframe level and monochrome. Icon style, rail width in pixels, the treatment of the two figures and motion on the active indicator are stage 06, 07 and 11.</p>
+    <p><strong>Icon set.</strong> Which glyph carries which destination is a stage 07 decision. This node fixes that there are icons <strong>and</strong> labels, and that the collapsed variant is the only place a label may be absent.</p>
+    <p><strong>Microcopy.</strong> The labels here are single words, held to Material's "all navigation items require a one word label text". "Value of items held" is a description of the figure and not its final label. Stage 05 owns the final strings and syncs them back.</p>
   </div>
 
   <a class="backlink" href="structure.html#0.1">Back to Structure (0.1)</a>
@@ -425,8 +675,8 @@
 </main>
 
 <footer>
-  <p>Source of truth: <code>ia/docs/pages/navigation.md</code>. Node data: <code>ia/docs/sitemap.md</code>, cluster 0. Stage 03b step 2, 11 August 2026.</p>
-  <p>Sources opened live on 11 August 2026: Material Design 3 navigation bar guidelines, Apple HIG tab bars, WCAG 2.2 SC 2.5.8 and 2.5.5.</p>
+  <p>Source of truth: <code>ia/docs/pages/navigation.md</code>. Rebuilt by founder decision <code>D-21</code>, 11 August 2026. Stage 03b step 2.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map this node routes into: <a href="sitemap.html">Sitemap</a>. Routes and dead ends: <a href="flows.html">Flows</a>.</p>
 </footer>
 
 <script>
@@ -435,13 +685,17 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.1 Navigation';
 window.NAV_SECTIONS = [
   { id: 'overview', label: 'Overview' },
+  { id: 'rebuilt',  label: 'Why it was rebuilt' },
+  { id: 'model',    label: 'Two carriers' },
+  { id: 'mockups',  label: 'Mockups' },
   { id: 'research', label: 'Research' },
-  { id: 'conflict', label: 'The conflict' },
-  { id: 'mockups',  label: 'Wireframes' },
+  { id: 'rail',     label: 'The rail' },
+  { id: 'header',   label: 'The header' },
   { id: 'matrix',   label: 'State matrix' },
   { id: 'anatomy',  label: 'Anatomy' },
   { id: 'seo',      label: 'SEO and a11y' },
-  { id: 'limits',   label: 'What it does not decide' },
+  { id: 'adaptive', label: 'Adaptive' },
+  { id: 'open',     label: 'Open' },
 ];
 </script>
 <script src="../_nav.js"></script>
