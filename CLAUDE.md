@@ -22,13 +22,13 @@ These are the stage 01 boundary answers. They were asked, not assumed, and they 
 
 daddyskins.com is the product being redesigned. It is the founder's own product, six years live, and its structure carries six years of validated behaviour. Therefore:
 
-- **Inherited, deliberately close to identical:** navigation model, page inventory, page composition, flows, the left icon rail, the live drop ticker, the placement of the money and account actions.
+- **Inherited, deliberately close to identical:** navigation model, page inventory, page composition, flows, the live drop ticker, the placement of the money and account actions. The left icon rail is inherited as a pattern and deferred as a shipment: the baseline rail has nine destinations, exactly one is in round 1, and a rail with eight dead items advertises absence on every screen. It returns with the second mode. `docs/decisions.md` D-19.
 - **Also inherited, by founder decision of 11 August 2026:** the colour register. Stage 06 collects the baseline values before it derives anything, and its route becomes one collected plate plus a named list of what the founder wants changed, not three plates from nothing. Reasoning and limits: `docs/decisions.md` D-18.
 - **Not inherited:** logo, typography, shape language, motion, component look, copy. That list is a limit, not an omission: nothing else follows the colour across.
 
 The rule of the course still holds and outranks the resemblance target: a reference is an input, never an output. No screen is carried over whole. Where the inherited structure loses to research, research wins and the divergence is named out loud in the IA node.
 
-**Inheriting a thing means having it written down first.** Not one of the inherited items above exists as a document in this repo, and six screenshots are not a page inventory. Anything taken from the baseline is walked live on public pre-login pages and recorded with its source before a stage builds on it. Reconstructing the baseline from images plus model memory is the median this project's input gate exists to prevent, and it reads as knowledge until someone asks where a node came from.
+**Inheriting a thing means having it written down first.** Everything in the list above is in `research/docs/baseline.md`, walked live on public pre-login pages on 11 August 2026 with proof screenshots. What is not in it is the rarity ladder, and the stage that needs it walks it the same way before building on it. Reconstructing the baseline from images plus model memory is the median the input gate exists to prevent, and it reads as knowledge until someone asks where a node came from.
 
 ## Scope
 
@@ -38,9 +38,17 @@ Round 1 is what gets designed to colour first. Everything else carries the `LATE
 
 **LATER:** case battles, gunfights, upgrades, in-platform exchange, giveaways, leaderboards, referral programme, rakeback.
 
-The MVP core is refined at capability level exactly once, in `research/docs/cjm-to-be.md`: 38 MVP rows over 37 distinct capabilities, grouped by the surface each one lives on. No other file holds a competing list. Stage 03a puts `MVP` or `LATER` on every screen and 03b on every block, and both inherit that mark rather than deriving it a second time. `MVP` means a documented As-Is barrier recurs without the row, not merely that the mechanics still complete. An MVP that was never cut is not an MVP.
+The MVP core is refined at capability level exactly once, in `research/docs/cjm-to-be.md`: 38 MVP rows over 37 distinct capabilities, grouped by the surface each one lives on. No other file holds a competing list. Stage 03a marked every screen and 03b marks every block, both inheriting that mark rather than deriving it a second time. `MVP` means a documented As-Is barrier recurs without the row, not merely that the mechanics still complete. An MVP that was never cut is not an MVP.
 
 Marks travel with that backlog and are carried, not smoothed: the observed rate counter is conditional on decision `D-B`, the scale of stock-backed drop tables on `D-D`, the blocked-market list is `[?]` until re-verified against current law, the conversion cost of the age gate has no target, and one capability sits in MVP with no parent in the three legal classes at all, the daily free case, placed there by founder decision and carrying that cost in the open. Reasoning: `docs/decisions.md` D-15.
+
+## Information architecture, base layer
+
+Seven clusters by intent, not by site section: decide whether this place is real, get through the door, choose what to open and open it, put money in, take out what I earned, keep myself in check, tell someone. Twelve MVP screens against twelve LATER, listed once in `ia/docs/sitemap.md` and never derived a second time. Routes, states and dead ends are in `ia/docs/flows.md`.
+
+**Main flow:** home, case screen, age gate, open, outcome. **Global navigation is four items in two states**, pre-login Cases and Provably fair only, and after an account exists My items and Balance. **Depth to the main job is three taps and one of them is the age gate**, which is why that gate carries only the 18+ declaration while identity verification sits before funding, `docs/decisions.md` D-17 and D-19.
+
+**Screen codes carry an `S-` prefix, backlog capability codes do not.** They shared one namespace through four steps and collided on all twelve, and both readings parsed. 03b writes one node and one page per screen from these codes, 04 draws them and 07 colours them.
 
 ## Product substance
 
@@ -56,7 +64,7 @@ Design principles, in priority order:
 4. **Dark and electric, never heavy.** High energy, neon accented, premium dark. The main stage, not a back room.
 5. **Speed is trust.** Fast load, fast reveal, fast withdrawal status. Lag reads as dishonesty on a platform built on randomised outcomes.
 
-Compliance is a first class product constraint, not a later feature: age verification before any case interaction, geo blocking informed by cited legal research, responsible play tooling (deposit limits, session limits, self exclusion, cool down), provable fairness as a legal and trust requirement, staged regional rollout resting on cited law. Whether this category counts as gambling is unsettled and varies by jurisdiction. Sources and citations: `research/docs/research.md`, section 7.
+Compliance is a first class product constraint, not a later feature: age verification before any case interaction, geo blocking informed by cited legal research, responsible play tooling (deposit limits, session limits, self exclusion, cool down), provable fairness as a legal and trust requirement, staged regional rollout resting on cited law. **A limit never acquires completion mechanics, streaks, status or a session score:** at that point it stops being a boundary and becomes a reason to keep going, and that binds stages 04, 07 and 11 as much as this one. Whether this category counts as gambling is unsettled and varies by jurisdiction. Sources and citations: `research/docs/research.md`, section 7.
 
 ## How we work
 
@@ -70,7 +78,7 @@ Compliance is a first class product constraint, not a later feature: age verific
 
 **Live data.** Playwright first: it renders JS, navigates, scrolls, and saves proof screenshots into the stage `screens/` folder. Web fetch is the fallback for simple static pages.
 
-**Acceptance happens on screen, not in a table, and on the published address, not only on localhost.** Where a stage produces a screen or text on a screen, open it in the browser, walk every state, narrow to 360px, then open the live URL and check the same page there before saying it is done. Local acceptance on its own hid a dead sidebar on every published page for three stages, because GitHub Pages excludes underscore-prefixed files unless `.nojekyll` exists at the root. Deliver a fix as a prompt, not as a hand edit: a hand edit does not survive the next clone and takes the repeatability of the process with it.
+**Acceptance happens on screen, not in a table, and on the published address, not only on localhost.** Where a stage produces a screen or text on a screen, open it in the browser, walk every state, narrow to 360px, then open the live URL and check the same page there before saying it is done. Local acceptance on its own once hid a dead sidebar on every published page for three stages. Deliver a fix as a prompt, not as a hand edit: a hand edit does not survive the next clone and takes the repeatability of the process with it.
 
 **Critique runs on two instruments.** Every critique and audit step goes through Claude and through Codex (plugin `codex`, read only, stated explicitly on every call, reading this local working folder). Sets are taken independently and in full before any merge; dedup happens afterwards on complete data. Codex owns what is falsifiable in the source: contradiction between files, orphan without a parent, state absent from code, value drifted from its token, broken link, violated rule, fact without a source. Claude with a browser keeps what breaks at 360px, what breaks a layout as a string, and pixel comparisons. Every critique log carries a "found by" column. Codex unavailable means stop and ask, never a quiet single instrument pass. Its entry point is `AGENTS.md` in this root.
 
@@ -82,7 +90,7 @@ Compliance is a first class product constraint, not a later feature: age verific
 
 Folder convention per stage: `docs/` for markdown sources of truth, the html page flat in the stage folder, `screens/` where proof images are needed. No `html/` subfolder. `research/` holds stages 01, 02 and 02+ together; `design/` holds the whole visual half from stage 06 on. A folder is created by the stage that first writes into it. No empty folders ahead of time and no `.gitkeep`.
 
-`index.html` is the entry point of the folder you opened, and nothing else: at the repo root it is the project roadmap, in a stage folder it is the product home screen. The hub listing every page of a stage is always `overview.html`.
+`index.html` is the entry point of the folder you opened, and nothing else: at the repo root it is the project roadmap, in a stage folder it is the product home screen. Where a stage has a hub listing its pages, that hub is `overview.html`. A stage may have none: 03a shipped two equal pages and no hub.
 
 **Every markdown file gets a visible place in the browser, named by the same step that creates it.** Four legal forms: its own page registered in a nav registry, a named section on the stage page registered in that page's `NAV_SECTIONS`, a satellite page outside the roadmap registry declaring `NAV_ACTIVE`, or a root level page for an artefact that belongs to no stage, listed in the brand block of `/_nav.js` beside the roadmap link and rendering its own `NAV_SECTIONS` at root level. `docs/decisions.html` is the only page of the fourth kind and the form exists because that artefact spans every stage and attaching it to one would have been a lie. An artefact no one can see in a browser does not exist for the person who decides. Service files (`CLAUDE.md`, `README.md`, `AGENTS.md`) need no page.
 
