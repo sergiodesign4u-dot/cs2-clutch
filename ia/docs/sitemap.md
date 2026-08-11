@@ -373,3 +373,83 @@ G1, the public result, is **a ninth public surface**, and `CLAUDE.md` locks roun
 **Recommendation: option 1.** F4 is in MVP for the loop, and a verifier form converts nobody. But it is a scope change to a locked list, so it goes to the founder the same way the responsible play page did rather than being absorbed into a table.
 
 Until it is answered, G1 stays drawn and marked, because a screen deleted by silence is exactly what the CJM stage found last time.
+
+---
+
+## Navigation
+
+Written at step 3, on 11 August 2026. The concept sitemap says which screens exist and by what intent they group. This section says how a person moves between them, assigns levels so that depth can be counted at all, and counts the taps from arrival to the main job.
+
+### The first decision: round 1 ships no icon rail
+
+The baseline runs a fixed 70px left icon rail with nine destinations. `baseline.md` established that **exactly one of the nine is in our round 1**. This is the divergence that walk demanded an answer for, and the answer is that the rail does not ship.
+
+**Reasoning.** The rail is a mode switcher. Round 1 has one mode. A rail carrying one live item and eight dead ones is not navigation, it is a promise the product cannot keep, and it advertises absence on every screen. `CLAUDE.md` permits exactly this: where the inherited structure loses to research, research wins and the divergence is named out loud.
+
+**What it is not.** Not a rejection of the rail as a pattern. It returns when a second mode does, and battles are already scheduled as Phase 1.5 at `jtbd.md:212`. The rail is deferred with its trigger named, not deleted.
+
+**What it buys.** The removal is the flattening this step needed. Global navigation becomes a header of four items instead of a rail of nine, and the horizontal space the rail occupied returns to the reveal, which is the surface the product competes on.
+
+### Global navigation, four items, and the job behind each
+
+| Item | Enters | Job behind it |
+|---|---|---|
+| **Cases** | C1, the catalogue | Main Job, `jtbd.md:17`. The one mode round 1 ships |
+| **Provably fair** | A2 | Related Job 1, `jtbd.md:33`, before login, and Related Job 3, `jtbd.md:51`, after the open |
+| **My items** | E1, account and inventory | Related Job 5, `jtbd.md:69`. Inventory, receipts, and the way into withdrawal |
+| **Balance** | D1, deposit, and the spend ceiling | `B4-3`, `B7-4`, `B4-1`. **Barrier class, no job**, consistent with `jtbd.md:201` |
+
+**Provably fair in the global navigation is a deliberate structural claim and no competitor makes it.** `jtbd.md:180` names a public provably fair surface as one of three things no competitor offers pre-login, and `baseline.md` verified on 11 August 2026 that our own baseline still redirects that route to login. Design principle 1 says trust is the product. A principle that does not reach the navigation is a slogan, and this is the cheapest place it becomes structure.
+
+**It carries the limit `D-14` attached to it.** Its position is not a claim that a verifier converts a sceptic. What answers the recorded doubt is D2 and D4 on the case screen. This item is where the product proves its own numbers are checkable, which is a different job.
+
+**The navigation has two states, and pre-login it is two items.** My items and Balance describe nothing that exists before an account, so pre-login the header carries Cases and Provably fair and nothing else. That is the shortest global navigation in the category, and it matches what the pre-login job actually is: evaluate, then open.
+
+### Levels
+
+Assigned deliberately, and this is the minimum depth marking rather than the full tree, which the detail layer builds.
+
+**Level 1**, reachable directly from global navigation: A1 Home, C1 Catalogue, A2 Provably fair, E1 Account and inventory, D1 Deposit.
+
+**Level 2**, opened from level 1: C2 Case screen, from a Home tile or from the catalogue. E2 Withdrawal, from inventory. F1 Responsible play, from the footer and from the Balance control.
+
+**Level 3:** empty in round 1. Nothing in this scope needs a third level, and that is a result rather than an omission.
+
+**Not levels at all.** Three screens are interrupts that fire inside a flow rather than destinations anyone navigates to: B1 the age and geo gate, B2 sign in, B3 identity verification. One screen is a landing entered from outside the product entirely: G1 the public result. Giving any of these a level would inflate the depth count with things nobody chooses.
+
+### Depth to the main job, counted
+
+Primary persona The Opener, main job `jtbd.md:17`, arrive and open with a reveal that feels real.
+
+**The main job route, 3 taps.**
+
+1. Home, arrival, tap 0. A featured case tile is on it.
+2. Tap 1, the case tile, lands on C2 the case screen.
+3. Tap 2, the age gate fires, `B3`, before any case interaction. The 18+ declaration is confirmed.
+4. Tap 3, Open. The main job is reached.
+
+**Three taps, and one of them is the gate.** The compliance layer eats a third of the budget for the main job, which is a real cost and it is stated here rather than discovered at the wireframe. It is also why the gate carries only the declaration: decision `D-17` puts identity verification before funding instead of here, and if that check sat at this tap the main job would be unreachable inside the budget for a first-time visitor.
+
+**The gate fires at first case interaction, not on arrival, and that placement is load bearing.** `B3` says "before any case interaction", not before any interaction. A gate on arrival would block the pre-login trust evaluation that Related Job 1 and the entire hero strategy depend on, and A1 to A5 exist precisely so a suspicious visitor can read the product before committing anything. The tap count is the same either way. What differs is whether the product gets to answer `B1-1`, the category arrives pre-suspected, before it starts asking for things.
+
+**The browsing route, 4 taps, and it is not the main-job route.** Home, then Cases, then a case tile, then the gate, then Open. Four taps and over budget. The Opener arrives from a streamer clip wanting to open, not to browse 239 cases, so the catalogue is the browsing route for a person who already trusts the place. Naming the difference is the honest version; pretending both are three taps is not.
+
+**What was paid for three taps, stated as the pack requires rather than defended.** Featured cases sit on Home, so Home carries two loads at once: the trust evaluation, A1 to A5, and the entry to the main job. That is a crowded screen, and design principle 3 says cost never hides inside excitement. A home that is simultaneously a trust page and a shop is exactly where that risk lives. The compromise is accepted here and handed forward as a named constraint for the wireframe stage, not as a solved problem.
+
+**One structural condition inherited from an open decision.** Whether C1 stays a separate node at all depends on `D-D`. The baseline runs 239 distinct cases, which needs a catalogue with categories, search and filters. Our own map says the catalogue becomes smaller and backed. If `D-D` returns a small enough number, Home absorbs the catalogue, C1 disappears as a node and both routes become three taps. That is a real fork and it is deferred, not guessed. Owner: 03b, the same owner `D-D` already has.
+
+### Global, contextual, deep
+
+**Global, visible everywhere:** the four navigation items in their two states, the Balance figure once an account exists, and a footer carrying responsible play and the legal pages.
+
+**Responsible play sits in the footer of every screen and again at the deposit**, which is a deliberate placement rather than an inherited one: `baseline.md` records zero responsible play routes, zero footer links and zero matches for self exclusion, deposit limit or cool down anywhere on the baseline. `C2` sets the spend ceiling where the money decision is made and `C5` lives on the page itself.
+
+**The ambient social layer is not global.** The live drop feed, `A3`, renders on A1 and on C2 and nowhere else. `ux-patterns.md:262` requires Pattern E to be a layer on the screens where the core happens, and a feed on every screen would make it wallpaper rather than context.
+
+**Contextual, appearing inside a flow:** the age and geo gate at first case interaction; sign in at the first point that needs an account; identity verification before funding; the post-reveal verification link and the one-tap share in the outcome phase; the spend ceiling at deposit.
+
+**Deep, rare and deliberately not surfaced:** self exclusion and cool down inside F1; the withdrawal restriction appeal, `G4`, inside E2; the verifier form itself inside A2, since the page has to open and explain before it asks anyone to paste a seed.
+
+### What this section does not decide
+
+The full tree with page contents, which is the detail layer. And the position of Free entry, carried from step 2 as an object that appears on two screens and owns neither: the starter credit reads as a Balance state and the daily free case reads as an available case in the catalogue, so both are contextual and neither is global. That is recorded as the answer this step owed, and it is a weak one: an entitlement that only ever appears as someone else's state is how a capability quietly disappears. Flagged for step 6, the defect audit, rather than closed here.
