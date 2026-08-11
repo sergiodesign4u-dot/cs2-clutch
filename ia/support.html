@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 0.10 Support and contact</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+    .card blockquote { border-left: 2px solid var(--border-strong); padding-left: 14px; margin: 0 0 12px; }
+    .card blockquote p { font-size: 14px; }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 14px; }
+
+    .wf-anat { display: flex; gap: 0; align-items: stretch; flex-wrap: wrap; }
+    .wf-anat .wf-doc { flex: 1 1 340px; }
+    .wf-legend { flex: 1 1 260px; padding-left: 26px; display: flex; flex-direction: column; justify-content: center; gap: 9px; }
+    .wf-leg { display: flex; gap: 10px; align-items: baseline; }
+    .wf-leg-n { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; font-weight: 700; color: var(--wf-ink-dim); border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 1px 5px; flex: 0 0 auto; }
+    .wf-leg-t { font-size: 11.5px; color: var(--wf-ink-dim); line-height: 1.5; }
+    .wf-leg-t b { color: var(--wf-ink); font-weight: 700; }
+
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+
+    .wf-doc { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-doc.is-bare { border: none; background: none; padding: 0; }
+    .wf-sec { border: 1px dashed var(--wf-line-soft); border-radius: 4px; padding: 9px 10px; margin-bottom: 8px; }
+    .wf-sec:last-child { margin-bottom: 0; }
+    .wf-sec.is-solid { border-style: solid; border-color: var(--wf-line); }
+    .wf-sec-h { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 7px; }
+    .wf-title { font-size: 14px; font-weight: 700; color: var(--wf-ink); line-height: 1.3; margin-bottom: 4px; }
+    .wf-meta { font-family: 'SF Mono', Menlo, monospace; font-size: 9.5px; color: var(--wf-ink-dim); letter-spacing: 0.02em; }
+    .wf-txt { height: 5px; background: var(--wf-line-soft); border-radius: 3px; margin-bottom: 5px; }
+    .wf-txt:last-child { margin-bottom: 0; }
+    .w95 { width: 95%; } .w80 { width: 80%; } .w60 { width: 60%; } .w40 { width: 40%; }
+    .wf-body { font-size: 10.5px; color: var(--wf-ink); line-height: 1.55; }
+    .wf-note { font-size: 10px; color: var(--wf-ink-dim); margin-top: 8px; line-height: 1.5; }
+    .wf-note b { color: var(--wf-ink); font-weight: 700; }
+    .wf-link { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; }
+    .wf-btn { display: inline-block; border: 1px solid var(--wf-line); border-radius: 4px; font-size: 10px; padding: 5px 11px; color: var(--wf-ink); margin-top: 9px; }
+    .wf-two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
+    .wf-kv { display: flex; gap: 9px; margin-bottom: 6px; align-items: baseline; }
+    .wf-k { flex: 0 0 78px; font-family: 'SF Mono', Menlo, monospace; font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-v { font-family: 'SF Mono', Menlo, monospace; font-size: 10.5px; color: var(--wf-ink); overflow-wrap: anywhere; }
+    .wf-v.is-dim { color: var(--wf-ink-dim); font-style: italic; font-family: inherit; }
+    .wf-v.is-lock { color: var(--wf-ink-dim); font-family: inherit; font-style: normal; }
+    .wf-copy { display: inline-block; border: 1px solid var(--wf-line); border-radius: 3px; font-size: 8.5px; padding: 1px 5px; color: var(--wf-ink-dim); margin-left: 5px; white-space: nowrap; }
+    .wf-scope { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; border-top: 1px dashed var(--wf-line-soft); margin-top: 10px; padding-top: 9px; }
+    .wf-scope b { color: var(--wf-ink); font-weight: 700; }
+    .wf-chip { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--wf-line); border-radius: 999px; padding: 6px 12px; background: var(--wf-surface); }
+    .wf-chip-k { font-size: 8.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-chip-v { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; color: var(--wf-ink); }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid { grid-template-columns: 1fr; }
+      .wf-two { grid-template-columns: 1fr; }
+      .wf-legend { padding-left: 0; padding-top: 18px; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 0.10</div>
+  <h1>Support and contact</h1>
+  <p class="lede">Not a policy page. <span class="surf">0.9</span> holds documents; <strong>this one has a function and a service level.</strong> It carries the contact route Article 5(1)(c) asks for and the appeal route row <span class="row-code">G4</span> requires, with a published response deadline, so that a restriction, a failed check or a broken proof has somewhere to go that answers inside a stated time.</p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Entry points, one queue</div></div>
+    <div><div class="hero-stat-value">7</div><div class="hero-stat-label">Fields the appeal captures</div></div>
+    <div><div class="hero-stat-value">7</div><div class="hero-stat-label">States, one for our own failure</div></div>
+    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Published number, value <span class="q">[?]</span></div></div>
+  </div>
+</div>
+
+<!-- SPINE -->
+<section id="spine">
+  <div class="sec-head">
+    <h2>The one thing that separates this from a help page</h2>
+    <p>Barrier <span class="row-code">B8-3</span> is three reviews, and the second one names the defect exactly.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>What the evidence actually complains about</h4>
+    <blockquote>
+      <p>"My account was suddenly banned, excluded from the Rain system, and my balance of over 160 coins was completely wiped out... <strong>they refused to provide any specific explanation.</strong>"</p>
+      <p>"as soon as I tried to withdraw my winnings, the site permanently banned me. They took my deposited skins and locked my account."</p>
+      <p>"banning a user just to avoid paying out a small $80 prize."</p>
+    </blockquote>
+    <p><strong>Not one of those three is a complaint about slow support.</strong> They are complaints about a decision with no ground and no route.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>So the answer is four things, not a help centre with a form at the bottom</h4>
+    <ol>
+      <li><strong>A written ground</strong>, produced by the surface that took the decision, <span class="row-code">G4</span></li>
+      <li><strong>A route to dispute it</strong>, public, on this page</li>
+      <li><strong>A published deadline for an answer</strong>, and <code>0.11</code> already holds the row</li>
+      <li><strong>A state for the deadline being missed</strong>, because a success signal with no failure state is a metric nobody has to meet</li>
+    </ol>
+  </div>
+
+  <div class="card is-note">
+    <p><code>blocks.md</code> section 8 takes Hellcase's public FAQ structure and refuses its placement. <strong>Their FAQ holds real product rules</strong>, the thirty day holding deadline and the crediting window, which a person meets in the product and reads about afterwards. <strong>The FAQ repeats a rule. It never owns one.</strong></p>
+  </div>
+</section>
+
+<!-- CHANNELS -->
+<section id="channels">
+  <div class="sec-head">
+    <h2>The channels, and which one is authoritative</h2>
+    <p>The authoritative object is the ticket, not the channel. Whichever route opened it, the ticket id is what both sides cite and what the deadline is measured against.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:20%">Channel</th><th style="width:10%">Round 1</th><th style="width:26%">What it is for</th><th>Rule</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The form on this page</strong></td><td>Yes</td><td>Everything. The route the interface points at</td><td><strong>It creates a ticket with an id and starts the clock.</strong> A contact route that produces no record cannot have a deadline</td></tr>
+        <tr><td><strong>A printed email address</strong></td><td>Yes</td><td>Article 5(1)(c) asks for an electronic mail address by name</td><td><strong>Mail to it enters the same queue, with the same kind of id and the same clock.</strong> Two channels with two service levels is one channel plus a decoy</td></tr>
+        <tr><td><strong>The appeal form</strong></td><td>Yes</td><td>A decision, not a question</td><td>Public, and it needs no account</td></tr>
+        <tr><td><strong>Live chat</strong></td><td><strong>No</strong></td><td>Immediate contact</td><td><strong>No parent and no backlog row today.</strong> Named here rather than left to be reported later as a discovery. If it ships it ships with a published availability window, because an unstaffed chat control promises an immediacy the deadline does not back</td></tr>
+        <tr><td><strong>Social channels</strong></td><td><strong>Never a support route</strong></td><td>Reach, not support</td><td>An account, a balance and an appeal are not discussed in public, <strong>and a direct message produces no ticket and no clock</strong></td></tr>
+        <tr><td><strong>A floating headset control</strong></td><td><strong>No</strong></td><td>The baseline runs one</td><td>Already decided in <span class="surf">0.2</span> by <code>D-22</code>: at 360px it sits on top of the mobile bar, and a support affordance that covers a navigation destination is worse than none</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <p><strong>Whether the printed address alone satisfies Article 5(1)(c) is counsel's</strong>, and <span class="surf">0.2</span> section 8 already carries that open item. This node's resolution survives either answer: <strong>print the address and run the form.</strong> The address satisfies the Article by its own words. The form is what produces the id, the clock and the record.</p>
+  </div>
+</section>
+
+<!-- SERVICE -->
+<section id="service">
+  <div class="sec-head">
+    <h2>The service level, which is one number and four rules</h2>
+    <p><code>0.11</code> section 2 already holds the row: published appeal response deadline, parent <span class="row-code">G4</span> on <span class="row-code">B8-3</span>, read on <span class="surf">5.3</span>, <span class="surf">2.9</span> and <span class="surf">0.10</span>, static until republished. <strong>Its value is <span class="q">[?]</span> and this node does not invent one.</strong></p>
+  </div>
+
+  <div class="card is-good">
+    <h4>1. One number, one unit, everywhere it is rendered</h4>
+    <p><span class="surf">5.6</span>, <span class="surf">2.9</span>, <span class="surf">1.4</span>, <span class="surf">2.2</span> and this page all print the same figure from the same row. <strong>A deadline restated per surface is a deadline that will disagree with itself</strong>, which is the whole argument for <code>0.11</code> existing.</p>
+  </div>
+
+  <div class="card">
+    <h4>2. It counts from ticket creation, not from the first time a human reads it</h4>
+    <p>A clock that starts when we pick the ticket up is a clock we control.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>3. It is a deadline for an answer, not for a resolution, and the difference is printed</h4>
+    <p>An answer is substantive: what we decided, on what ground, and what happens next. <strong>"We are looking into it" does not stop the clock</strong>, because an autoresponder that satisfies the deadline reproduces the exact sentence <span class="row-code">B8-3</span> records: they refused to provide any specific explanation.</p>
+  </div>
+
+  <div class="card">
+    <h4>4. If no deadline is published, the page says so</h4>
+    <p><code>0.11</code> rule 3: missing is a state, never a zero, and never a plausible placeholder. <strong>Nobody will ship that sentence, which is precisely why the rule is worth writing.</strong></p>
+  </div>
+
+  <div class="card is-soon">
+    <h4>And one number proposed rather than asserted</h4>
+    <p><strong>Our own median time to answer, published from our own logs</strong>, which is the <span class="row-code">A4</span> and <span class="row-code">G3</span> treatment applied to support. <strong>It is not a backlog row today</strong>, and it is recorded in the treatment <code>0.11</code> section 4 gives every proposal, so nobody later ships it as though it had been approved.</p>
+  </div>
+</section>
+
+<!-- APPEAL -->
+<section id="appeal">
+  <div class="sec-head">
+    <h2>The appeal form, and what it must capture</h2>
+    <p><span class="row-code">G4</span> requires an appeal. An appeal against a ground the person has to remember is an appeal against a memory, so the form's first job is to carry the decision into itself.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Field</th><th style="width:24%">Filled by</th><th>Why it is required</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The decision being appealed</strong></td><td>The product, from the route in</td><td>Never typed by a person when the product already knows it. Prefilled from <span class="surf">5.6</span>, <span class="surf">2.9</span>, <span class="surf">1.4</span> or <span class="surf">2.2</span></td></tr>
+        <tr><td><strong>The ground we gave</strong></td><td>The product, read-only, quoted back</td><td><span class="row-code">G4</span> says a restriction produces written notice with a stated ground. <strong>This field is what makes that testable: if the product cannot render the ground here, the ground was never written</strong></td></tr>
+        <tr><td><strong>The round id or the transaction id</strong></td><td>The product where the route carries it, pasteable where it does not</td><td>The object under dispute. A round id from <code>0.14</code>, a transaction id from the deposit or withdrawal record. <strong>A stranger arriving from a shared <span class="surf">7.1</span> link has neither prefilled and must be able to paste one</strong></td></tr>
+        <tr><td><strong>The document version the decision was taken under</strong></td><td>The product, linked into <span class="surf">0.9</span></td><td><strong>A restriction taken under version 3 of the terms is not answered by version 4.</strong> This is the join between the two nodes and it is why the version history is not decorative</td></tr>
+        <tr><td><strong>What the person says</strong></td><td>The person</td><td>The only field they have to write</td></tr>
+        <tr><td>Evidence, optional</td><td>The person</td><td>Attachment limits and accepted types are <span class="q">[?]</span></td></tr>
+        <tr><td><strong>Where to send the answer</strong></td><td>The account's address, or one they give</td><td><strong>A geo-blocked person has no account.</strong> The form cannot assume one exists</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - the appeal form as it arrives from <span style="color:var(--wf-ink)">1.4</span>, our own proof having failed</div>
+    <div class="wf-anat">
+      <div class="wf-doc">
+        <div class="wf-sec is-solid">
+          <div class="wf-sec-h">Appeal a decision</div>
+          <div class="wf-kv"><span class="wf-k">Decision</span><span class="wf-v is-lock">Round proof did not match, reported automatically</span></div>
+          <div class="wf-kv"><span class="wf-k">Our ground</span><span class="wf-v is-lock">The written notice, quoted back, read only</span></div>
+          <div class="wf-kv"><span class="wf-k">Round</span><span class="wf-v">a41f...e07c<span class="wf-copy">copy</span></span></div>
+          <div class="wf-kv"><span class="wf-k">Terms</span><span class="wf-v is-lock">Version 3, the one in force that day</span></div>
+          <div class="wf-kv"><span class="wf-k">You say</span><span class="wf-v is-dim">the only field you have to write</span></div>
+          <div class="wf-kv"><span class="wf-k">Answer to</span><span class="wf-v is-dim">your account, or an address you give</span></div>
+          <div class="wf-btn">Send</div>
+          <div class="wf-scope"><b>Answered within the published deadline.</b> Withdrawal stays open the whole time.</div>
+        </div>
+      </div>
+      <div class="wf-legend">
+        <div class="wf-leg"><span class="wf-leg-n">1</span><span class="wf-leg-t"><b>Four fields arrive filled.</b> The person adds one sentence. From <span class="surf">1.4</span> the ticket exists before they reach the form at all</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">2</span><span class="wf-leg-t"><b>No account required.</b> <span class="surf">2.2</span> has none and <span class="surf">1.4</span> can be a stranger with a public result link. Public for the same reason <span class="surf">1.2</span> and <span class="surf">7.1</span> are public</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">3</span><span class="wf-leg-t"><b>No identity document, ever.</b> <span class="row-code">B2</span> on <span class="row-code">B8-4</span>: an appeal form that asks for a passport has moved the exit ambush to the complaints desk</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">4</span><span class="wf-leg-t"><b>Not one form with a dropdown.</b> A type selector that rewrites the required fields under a person is how the prefill gets lost</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="sec-head">
+    <h2>The FAQ, and the rule the bank demands of it</h2>
+    <p>Structure taken from Hellcase, opened live 12 August 2026: sectioned accordions. Half their section list is LATER here, so the sections are ours and each one names the surface that owns it.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:34%">Section</th><th style="width:34%">Owning surfaces</th><th>Barrier it serves</th></tr></thead>
+      <tbody>
+        <tr><td>Getting in</td><td><span class="surf">2.4</span>, <span class="surf">2.5</span>, <span class="surf">2.6</span>, <span class="surf">2.1</span></td><td><span class="row-code">B3-1</span> by way of <span class="row-code">B5</span>, and <span class="row-code">B3-2</span> by way of <span class="row-code">B6</span></td></tr>
+        <tr><td>Opening a case</td><td><span class="surf">3.3</span>, <span class="surf">1.2</span>, <code>0.14</code></td><td><span class="row-code">B7-2</span>, <span class="row-code">B6-2</span></td></tr>
+        <tr><td>Putting money in</td><td><span class="surf">4.1</span>, <span class="surf">4.4</span>, <span class="surf">4.5</span></td><td><span class="row-code">B4-3</span>, <span class="row-code">B4-1</span></td></tr>
+        <tr><td>Getting your items out</td><td><span class="surf">5.3</span>, <span class="surf">5.4</span>, <span class="surf">5.5</span>, <span class="surf">5.8</span></td><td><span class="row-code">B8-2</span>, <span class="row-code">B8-1</span></td></tr>
+        <tr><td>Limits and self exclusion</td><td><span class="surf">6.1</span>, <span class="surf">6.2</span>, <span class="surf">6.3</span></td><td><span class="row-code">B7-4</span>, and the compliance constraint</td></tr>
+        <tr><td>Your account and your data</td><td><span class="surf">0.9</span>, <span class="surf">2.7</span>, <span class="surf">5.1</span></td><td><span class="row-code">B8-4</span></td></tr>
+        <tr><td>When something goes wrong</td><td>This page, <span class="surf">5.6</span>, <span class="surf">2.9</span>, <span class="surf">1.4</span></td><td><span class="row-code">B8-3</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>1. The FAQ holds no number of its own</h4>
+    <p>Every figure in an answer is read from <code>0.11</code>, or the answer links to the surface and prints none. <strong>Hellcase's FAQ carries the thirty day holding deadline and the crediting window as facts</strong>, and <code>blocks.md</code> section 5 records both as real product rules living in a document.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>2. No answer is the only place a rule appears</h4>
+    <p>If it is, the rule is missing from the product and that FAQ entry is a bug report. <strong>This is a mechanical acceptance criterion for stage 04</strong>, not a sentiment.</p>
+  </div>
+
+  <div class="card">
+    <h4>3. The FAQ is below the substance, never instead of it</h4>
+    <p>Refero Ableton, TAKE. The contact route, the appeal route and the deadline come first. <strong>The FAQ is not the page</strong>, and <code>sitemap.md</code> records why: the baseline's FAQ was the whole of its age control and the whole of its geo statement, both jobs moved to <span class="surf">2.1</span> and <span class="surf">6.1</span>, and what arrived here is the residue.</p>
+  </div>
+
+  <div class="card">
+    <h4>4. Collapsed for reading, never for existence</h4>
+    <p>Every accordion is a <code>&lt;button&gt;</code> with <code>aria-expanded</code> and <code>aria-controls</code>, and every answer is in the DOM at every width. Same rule as <span class="surf">0.2</span> and <span class="surf">0.1</span>.</p>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>Which questions exist is not written here.</strong> They are derived at stage 05 from the As-Is barrier ledger, one question per documented barrier that survives its surface. This node fixes the sections and the four rules.</p>
+  </div>
+</section>
+
+<!-- STATES -->
+<section id="states">
+  <div class="sec-head">
+    <h2>Seven states, and the last one is the reason this is a node rather than a form</h2>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">State</th><th style="width:52%">What the page shows</th><th>Route out</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Entry</strong></td><td>The two routes, the printed email address, the published deadline above the fold, the FAQ below</td><td>Either form, or the surface that owns the rule</td></tr>
+        <tr><td><strong>Appeal submitted</strong></td><td>The ticket id, copyable. The clock started. The deadline as <strong>both</strong> the published duration and this ticket's own date. <strong>What is still open, in the same breath:</strong> withdrawal stays open under every boundary</td><td><span class="surf">5.3</span>, which stays reachable</td></tr>
+        <tr><td><strong>Waiting, with attribution</strong></td><td>Whose turn it is: <strong>waiting on us, waiting on you, or waiting on Steam.</strong> The same three-way attribution <span class="row-code">G1</span> puts on the withdrawal clock, because a wait with no owner is the silence <span class="row-code">B8-2</span> records</td><td>Back to the ticket, or the thing we asked for</td></tr>
+        <tr><td><strong>Appeal answered</strong></td><td>The answer with its ground, on the record and retrievable. <strong>Not only an email</strong>, which vanishes into a mailbox the product cannot cite</td><td>Upheld, or refused</td></tr>
+        <tr><td><strong>Appeal upheld</strong></td><td>The decision reversed. The restriction lifts and <strong>the frozen balance unfreezes</strong>, which is only possible because <span class="row-code">G4</span> froze it rather than zeroing it</td><td><span class="surf">5.3</span>, <span class="surf">4.1</span>, or <span class="surf">3.3</span></td></tr>
+        <tr><td><strong>Appeal refused</strong></td><td>The ground stays on the record. <strong>A dead end, and a different dead end from silence.</strong> <span class="surf">5.7</span> is its sibling on the withdrawal side</td><td><strong>Dead end in product, by design.</strong> Beyond it is a regulator, and naming one depends on the licence, <span class="q">[?]</span></td></tr>
+        <tr><td><strong>Deadline missed</strong></td><td><strong>That the deadline passed, by how long, and what that means.</strong> Our own published number failing in front of the person it was published to</td><td>The ticket stays open and the clock keeps running visibly</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - the state that earns the node</div>
+    <div class="wf-doc" style="max-width:520px">
+      <div class="wf-sec is-solid">
+        <div class="wf-sec-h">Deadline missed</div>
+        <div class="wf-two">
+          <div class="wf-sec" style="margin-bottom:0"><div class="wf-sec-h">We said</div><span class="wf-v">by 15 Aug, 09:20</span></div>
+          <div class="wf-sec" style="margin-bottom:0"><div class="wf-sec-h">It is now</div><span class="wf-v">16 Aug, 11:05</span></div>
+        </div>
+        <div class="wf-scope"><b>We are past our own published deadline on this ticket, by 25 hours and 45 minutes.</b> The ticket is still open and the clock is still running.</div>
+        <div class="wf-link">What happens now</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Why that state exists at all</h4>
+    <p><span class="row-code">G4</span>'s success signal is that response time stays inside the published deadline. <strong>A signal with no state for its own failure is a number nobody has to meet</strong>, and the failure would then be met as an incident with no interface. It is the same argument <code>0.14</code> makes about its mismatch state, in a different place, and it ends in the same sentence from the evidence: they refused to provide any specific explanation.</p>
+  </div>
+
+  <h3>Transient behaviours</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:32%">Situation</th><th style="width:38%">What the page does</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The appeal route reached with no decision to appeal</strong></td><td>Routes into the contact form rather than presenting required fields nothing can fill</td><td>An empty required field is not an empty state</td></tr>
+        <tr><td>Ticket id not found</td><td>Says so, and offers the contact route. Never a 404</td><td><span class="surf">0.3</span>: never a dead end</td></tr>
+        <tr><td><strong>Geo blocked</strong>, <span class="surf">2.2</span></td><td>Renders in full. <code>markets.md</code> section 6 routes a wrongly blocked person here by name</td><td>A dead end that also removes the route to complain about the dead end</td></tr>
+        <tr><td>Boundary in force, <span class="surf">6.3</span></td><td>Unchanged, and the page does not editorialise about it</td><td>Same rule <span class="surf">0.2</span> applies to the footer</td></tr>
+        <tr><td>404 and 500, <span class="surf">0.3</span></td><td>The footer's support button reaches this page from both</td><td><span class="surf">0.3</span> says never a dead end</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ROUTES -->
+<section id="routes">
+  <div class="sec-head">
+    <h2>The nodes that route here, and what each one must carry</h2>
+    <p>Five routes in, and only one of them is a person browsing.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:18%">Route in</th><th style="width:26%">What it is</th><th style="width:26%">What it hands over</th><th>What must be true</th></tr></thead>
+      <tbody>
+        <tr><td><strong><span class="surf">5.6</span> Account restricted</strong></td><td>The <span class="row-code">G4</span> case in full: a written ground, the balance frozen and never zeroed, an appeal with a published deadline</td><td>The restriction id, the ground text, the account, the balance state</td><td>The frozen balance is stated in the appeal, not only on <span class="surf">5.3</span>. <strong><span class="surf">5.7</span> restriction upheld is the refused state here</strong>, and the two are one object seen from two surfaces rather than two decisions</td></tr>
+        <tr><td><strong><span class="surf">2.9</span> Identity failed</strong></td><td>An appeal with a stated ground and a published deadline <strong>mirroring <span class="row-code">G4</span></strong>, plus the withdrawal route that was open the whole time</td><td>The check id and the ground. <strong>Not the documents</strong></td><td>The appeal form asks for no identity document. <span class="surf">2.7</span> owns that surface, and <span class="row-code">B2</span> on <span class="row-code">B8-4</span> is why the exit never acquires a verification branch while the appeal runs</td></tr>
+        <tr><td><strong><span class="surf">1.4</span> Our own proof failed</strong></td><td>The deliberate dead end for the job. Nothing can close it while the proof is wrong</td><td>The round id, our published value and the recomputed value, <strong>both, automatically</strong></td><td><strong>The person adds nothing.</strong> <code>0.14</code>'s mismatch state already says "reported automatically, with the round attached". The form is public because a stranger holding a <span class="surf">7.1</span> link can reach this state</td></tr>
+        <tr><td><span class="surf">2.2</span> Geo blocked</td><td>A dead end by design, and wrong in both directions</td><td>The market, the verdict, and the ground in readable words</td><td>The person has no account, so the form takes an address for the answer. Registered by <code>markets.md</code> section 6, not by the sitemap's own transition column</td></tr>
+        <tr><td><span class="surf">0.2</span> Footer support button</td><td>An outlined pill on every screen, in one account state</td><td>Nothing. A person browsing</td><td>It is a real <code>&lt;a&gt;</code> styled as a button, and the reason it is a button rather than a link in a column is that <span class="row-code">G4</span> and Article 5(1)(c) are not served by something that looks like a policy</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- LAYOUT -->
+<section id="layout">
+  <div class="sec-head">
+    <h2>Blocks, at 360px and above</h2>
+    <p>Composition from <code>blocks.md</code> section 8. The deadline is on the first screen because it is the entire difference between this page and a help page.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - one column, and the deadline above the fold</div>
+    <div class="wf-phone">
+      <div class="wf-doc is-bare">
+        <div class="wf-sec is-solid">
+          <div class="wf-sec-h">1 - support</div>
+          <div class="wf-body">Two routes. Both go to the same queue.</div>
+          <div class="wf-chip" style="margin-top:9px"><span class="wf-chip-k">answered within</span><span class="wf-chip-v">[?]</span></div>
+          <div class="wf-note"><b>The unit travels with the number.</b> "72" is not a figure, "an answer within 72 hours" is.</div>
+        </div>
+        <div class="wf-sec"><div class="wf-sec-h">2 - ask us something</div><div class="wf-txt w95"></div><div class="wf-txt w60"></div></div>
+        <div class="wf-sec"><div class="wf-sec-h">2 - appeal a decision</div><div class="wf-txt w95"></div><div class="wf-txt w80"></div></div>
+        <div class="wf-sec"><div class="wf-sec-h">3 - email us</div><span class="wf-v is-dim">printed as text and as a mailto link</span></div>
+        <div class="wf-sec"><div class="wf-sec-h">4 - your tickets</div><div class="wf-kv"><span class="wf-k">TKT-8841</span><span class="wf-v is-lock">waiting on us</span></div></div>
+        <div class="wf-sec"><div class="wf-sec-h">5 - questions and answers</div><div class="wf-txt w80"></div><div class="wf-txt w60"></div><div class="wf-txt w80"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>Five rules that are layout rather than styling</h4>
+    <p><strong>The prefilled ground wraps and never truncates</strong>, and never sits in a fixed-height scroller. A ground a person has to scroll inside a box is a ground they will not read, and <span class="row-code">G4</span> exists so it gets read.</p>
+    <p><strong>The ticket id follows <code>0.14</code> section 5:</strong> monospace, always text and never an image, copy as a first-class control rather than a hover affordance, truncated in the middle if it must truncate at all. <strong>It exists to be pasted somewhere else, exactly like a hash.</strong></p>
+    <p><strong>The deadline carries its unit in the accessible name</strong>, not only in the visual, per <code>0.11</code> section 8.</p>
+    <p><strong>The form's errors name the field and the fix</strong>, which is <span class="row-code">B5</span>'s rule for readable failure states applied to our own form. A support form that fails unreadably is the barrier arriving on the page built to answer it.</p>
+    <p><strong>The two entry points are two headings and two forms, not tabs.</strong> A tab hides one of two routes from a person who arrived needing the other. Every target at least 44 by 44 CSS pixels, matching <span class="surf">0.1</span>.</p>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>Desktop, from 900px.</strong> The two routes sit side by side, the FAQ stays one column with its section list beside it per the Refero WhatsApp row in the bank, and <strong>the deadline stays with the H1 and never moves into a margin.</strong></p>
+  </div>
+</section>
+
+<!-- SEO -->
+<section id="seo">
+  <div class="sec-head">
+    <h2>SEO block, A to E</h2>
+    <p>Inherited from <code>0.13</code> section 3: <code>/support</code>, indexed, canonical self, <code>WebPage</code> and <code>ContactPage</code>, breadcrumb Home &gt; Support.</p>
+  </div>
+
+  <h3>A. Meta tags, ready copy</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:20%">Field</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Title, &lt;= 60</td><td>Support and appeals - CS2 Clutch</td></tr>
+        <tr><td>Description, &lt;= 155</td><td>Contact us or appeal a decision, with a published deadline for an answer. Every restriction carries a written ground and a route to dispute it.</td></tr>
+        <tr><td>Canonical</td><td>Self. Robots <code>index, follow</code>. <strong>No hreflang</strong>, <code>0.13</code> section 1</td></tr>
+        <tr><td>OG and Twitter</td><td>The same title and description. <strong>No per-ticket card:</strong> a ticket is private and has no public URL</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>B. Headings</h3>
+  <p><strong>H1: Support.</strong> It matches the footer's button label exactly, which is <span class="surf">0.1</span>'s rule that one destination carries one label in every carrier, applied to the heading and the address bar together. The title tag carries the longer form because a title is not a carrier label.</p>
+  <ol>
+    <li>Contact us</li>
+    <li>Appeal a decision</li>
+    <li>When you get an answer</li>
+    <li>Your tickets</li>
+    <li>Questions and answers</li>
+  </ol>
+  <p>The seven FAQ sections are H3s under heading 5.</p>
+
+  <h3>C. Ready page text</h3>
+  <div class="card">
+    <p><strong>Lead.</strong> "Two routes: ask us something, or appeal a decision we took. Both go to the same queue, both get an id, and both are answered inside the deadline below."</p>
+    <p><strong>Above the deadline.</strong> "We answer every ticket within {deadline}. That is a deadline for an answer with a reason in it, not for a resolution, and it starts when the ticket is created."</p>
+    <p><strong>Above the appeal form.</strong> "If we restricted your account, refused a check, or our own proof did not match, this is where you dispute it. We carry the decision and the ground we gave into the form, so you do not have to remember either."</p>
+    <p><strong>Above the FAQ.</strong> "Answers to the questions people ask most. Every rule here also lives on the screen where you meet it, and that screen is the one that governs."</p>
+    <p><span class="q">{deadline}</span> <strong>is a slot read from <code>0.11</code>, and its value is <span class="q">[?]</span>.</strong> It is written as a slot rather than filled with a plausible number, which is the failure this project's rules exist to prevent.</p>
+  </div>
+
+  <h3>D. Structured data</h3>
+  <p><code>WebPage</code> and <code>ContactPage</code>, exactly as <code>0.13</code> section 7 assigns them, and <strong>nothing added here.</strong></p>
+  <p><strong><code>FAQPage</code> is deliberately not added</strong>, and the reason is procedural rather than aesthetic: <code>0.13</code> exists so that twenty two nodes do not each derive their own schema, and a node that adds a type its register did not assign has done the thing the register was built to stop. If it is wanted, it is a change to <code>0.13</code>. Whether rich results are available to this category at all is already <span class="q">[?]</span> there, section 4.6. <strong>No <code>Organization</code>:</strong> Home carries it.</p>
+
+  <h3>E. Optimisation checklist</h3>
+  <ol>
+    <li>Exactly one H1, and it is the page's job in words</li>
+    <li>The H2s exist in block order and match list B</li>
+    <li>A visible breadcrumb is drawn and its markup matches it</li>
+    <li>The email address is a crawlable <code>mailto:</code> link and is also selectable text</li>
+    <li>Canonical self, no hreflang</li>
+    <li><strong>No text in images</strong>, the deadline above all: it is the page's one published number</li>
+    <li>Every FAQ answer is in the DOM at every width, collapsed rather than absent</li>
+    <li><strong>The page renders without script.</strong> A support route behind a client-side renderer is unreachable exactly when the product is failing</li>
+  </ol>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+    <p>Ten open items, and the first two are about the same number.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Open item</th><th style="width:48%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The deadline value</strong></td><td><code>0.11</code> holds the row and its value is <span class="q">[?]</span>. <strong>Everything in the service level section is specified around a number that does not exist yet</strong>, which is the correct order: the rules do not change when the number arrives</td><td>Founder, with whoever staffs the queue, before stage 04</td></tr>
+        <tr><td><strong>Whether the clock runs on non-working days</strong></td><td>A deadline in hours means two different things with and without weekend cover, <strong>and the difference is larger than most arguments about the number itself</strong></td><td>Founder. It changes the meaning of the published figure, not only its size</td></tr>
+        <tr><td>The email address, and whether it alone satisfies Article 5(1)(c)</td><td>The address depends on the operating entity, <code>D-A</code> and <code>D-23</code>. Whether a form discharges the Article is counsel's, and <span class="surf">0.2</span> section 8 already carries that question</td><td>Founder for the address, counsel for the reading</td></tr>
+        <tr><td><strong>The escalation route past a refused appeal</strong></td><td>The refused state is a dead end in product. What lies beyond it is a regulator or an ombudsman, and which one depends on the licence. <code>D-23</code> chose the Isle of Man <strong>as a direction and not as a filing</strong>, so there is no authority to name yet</td><td>Counsel, once the licence is more than a direction</td></tr>
+        <tr><td>Live chat</td><td>No parent, no backlog row. Named as a candidate rather than left to be discovered later</td><td>Founder. One backlog row if yes</td></tr>
+        <tr><td>Publishing our own response performance</td><td>The <span class="row-code">A4</span> and <span class="row-code">G3</span> treatment applied to support. <strong>Adjacent to <span class="row-code">G4</span> rather than inside it, so it needs its own backlog row before it can ship</strong></td><td>Founder</td></tr>
+        <tr><td>Attachment limits and accepted evidence</td><td>Types, sizes, and what happens to a file after the ticket closes. The last part is a privacy fact, so it lands in <span class="surf">0.9</span></td><td>Production, then counsel</td></tr>
+        <tr><td>Ticket retention</td><td>How long a ticket and its answer stay retrievable. The answered state requires that they do</td><td>Counsel, in the privacy document</td></tr>
+        <tr><td>The FAQ question list</td><td>Sections and rules are fixed here. The questions are derived from the As-Is barrier ledger, one per documented barrier that survives its surface</td><td>Stage 05</td></tr>
+        <tr><td>Staffing and hours</td><td>A published deadline is a commitment about people. One language is locked, so there is no language axis, and everything else is <span class="q">[?]</span></td><td>Founder</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>The written ground itself.</strong> The surface that takes the decision: <span class="surf">5.6</span>, <span class="surf">2.9</span>, <span class="surf">1.4</span> and <span class="surf">2.2</span>, each under <span class="row-code">G4</span>.</p>
+    <p><strong>The documents a question might be about.</strong> Node <span class="surf">0.9</span>.</p>
+    <p><strong>Indexation and URL.</strong> Node <code>0.13</code>. <strong>The words of every interface string.</strong> Stage 05, which syncs the voice-aligned version back. <strong>How it looks.</strong> Stages 06 and 07.</p>
+  </div>
+
+  <a class="backlink" href="structure.html#0.10">Back to Structure (0.10)</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/support.md</code>. The barrier this node is built around: <code>research/docs/cjm-as-is.md</code>, <code>B8-3</code>. The capability: <code>research/docs/cjm-to-be.md</code>, row <code>G4</code>. Block composition: <code>ia/docs/blocks.md</code> section 8. The number: <code>ia/docs/pages/numbers.md</code>.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map: <a href="sitemap.html">Sitemap</a>. The routes: <a href="flows.html">Flows</a>. Legal: <a href="legal.html">0.9</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '0.10 Support and contact';
+window.NAV_SECTIONS = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'spine',    label: 'Not a help page' },
+  { id: 'channels', label: 'Channels' },
+  { id: 'service',  label: 'Service level' },
+  { id: 'appeal',   label: 'The appeal form' },
+  { id: 'faq',      label: 'The FAQ' },
+  { id: 'states',   label: 'Seven states' },
+  { id: 'routes',   label: 'Routes in' },
+  { id: 'layout',   label: 'Blocks at 360px' },
+  { id: 'seo',      label: 'SEO A to E' },
+  { id: 'open',     label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

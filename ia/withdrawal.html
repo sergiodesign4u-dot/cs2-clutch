@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 5.3 Withdrawal, with the public clock</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-dead { border-left: 3px solid var(--red); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 14px; }
+
+    .wf-proof { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-proof-lbl { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 9px; padding-bottom: 7px; border-bottom: 1px dashed var(--wf-line-soft); }
+    .wf-kv { display: flex; gap: 9px; margin-bottom: 6px; align-items: baseline; flex-wrap: wrap; }
+    .wf-k { flex: 0 0 74px; font-family: 'SF Mono', Menlo, monospace; font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-v { font-family: 'SF Mono', Menlo, monospace; font-size: 10.5px; color: var(--wf-ink); overflow-wrap: anywhere; }
+    .wf-v.is-dim { color: var(--wf-ink-dim); font-style: italic; font-family: inherit; }
+    .wf-scope { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; border-top: 1px dashed var(--wf-line-soft); margin-top: 10px; padding-top: 9px; }
+    .wf-scope b { color: var(--wf-ink); font-weight: 700; }
+    .wf-link { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; }
+
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+    .wf-band { border: 1px dashed var(--wf-line-soft); border-radius: 4px; padding: 8px 9px; margin-bottom: 10px; }
+    .wf-band:last-child { margin-bottom: 0; }
+    .wf-band-h { font-size: 8.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 6px; }
+    .wf-txt { font-size: 11px; color: var(--wf-ink); line-height: 1.5; }
+    .wf-txt.is-dim { color: var(--wf-ink-dim); }
+    .wf-btn { display: block; border: 1px solid var(--wf-line); border-radius: 4px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; color: var(--wf-ink); padding: 9px 8px; }
+    .wf-thumb { border: 1px dashed var(--wf-line-soft); border-radius: 3px; height: 42px; display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--wf-ink-dim); margin-bottom: 7px; }
+    .wf-asof { font-family: 'SF Mono', Menlo, monospace; font-size: 8.5px; color: var(--wf-ink-dim); margin-top: 3px; }
+
+    /* the clock */
+    .wf-stg { border: 1px solid var(--wf-line-soft); border-radius: 4px; padding: 8px 9px; margin-bottom: 7px; }
+    .wf-stg:last-child { margin-bottom: 0; }
+    .wf-stg.is-live { border-color: var(--wf-line); border-left-width: 3px; }
+    .wf-stg-n { font-size: 11px; color: var(--wf-ink); font-weight: 700; line-height: 1.4; }
+    .wf-stg-own { font-size: 8.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); border: 1px solid var(--wf-line-soft); border-radius: 999px; padding: 1px 7px; display: inline-block; margin-top: 5px; }
+    .wf-stg-rows { margin-top: 6px; }
+    .wf-stg-row { display: flex; gap: 8px; align-items: baseline; }
+    .wf-stg-lbl { flex: 0 0 62px; font-size: 8.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-stg-val { font-family: 'SF Mono', Menlo, monospace; font-size: 11px; color: var(--wf-ink); }
+    .wf-strike { color: var(--wf-ink-dim); text-decoration: line-through; }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid { grid-template-columns: 1fr; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 5.3</div>
+  <h1>Withdrawal, with the public clock</h1>
+  <p class="lede">Phase T8, the floor of the entire As-Is emotional map at <strong>-5</strong>. <code>B8-2</code> is the densest numeric barrier on that map, and <strong>the injury is not the duration, it is the unattributed silence.</strong> So this page does not promise speed. It names every state, gives every timer an owner, publishes the ceiling it is measured against, and lets a person check our number against their own clock.</p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">5</div><div class="hero-stat-label">Clock stages, three owners</div></div>
+    <div><div class="hero-stat-value">5</div><div class="hero-stat-label">States, 5.4 to 5.8</div></div>
+    <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Named limits, list closed</div></div>
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Verification calls, by rule</div></div>
+  </div>
+</div>
+
+<!-- BARRIER -->
+<section id="barrier">
+  <div class="sec-head">
+    <h2>The barrier, with its own figures</h2>
+    <p>Ledger U-09 in the As-Is map, phase P8. Six waits, each with a hard number attached by the person who lived it.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>B8-2, waiting with numbers, pattern of 6</h4>
+    <p><strong>30 hours. 7 days. 2 to 3 days. 9 days from last deposit. 16 hours. Almost 3 weeks.</strong></p>
+    <p>And the positive pole, worth as much and recorded in the same section: "Recently I won and withdrew a butterfly gamma doppler p2 within 5 minutes of winning", five stars. <strong>The category can do this. Most of it does not.</strong></p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Which is why the page's job is legibility, not speed</h4>
+    <p>Row <code>G1</code>'s success signal is <strong>the share of withdrawals that generate a support ticket asking for status</strong>, which is a measurement of how many people had to ask a human what their own transaction was doing.</p>
+    <p>Three published figures do the work and all three already have an owner in <code>0.11</code>: <strong>the rolling median and p90</strong>, rows <code>A4</code> and <code>G3</code>; <strong>the ceiling on each of our own states</strong>, row <code>G2</code>; <strong>the per-state timer with attribution</strong>, row <code>G1</code>. <strong>None of their values is decided here.</strong></p>
+  </div>
+</section>
+
+<!-- BLOCKS -->
+<section id="blocks">
+  <div class="sec-head">
+    <h2>Eight blocks, and a declared gap behind them</h2>
+    <p>Composition from the block bank, type <strong>T4, transactional form with named states</strong>.</p>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>The gap the bank declares out loud:</strong> no competitor screens of this type exist that we may open. Deposit, withdrawal and identity are behind login on all five hard competitors and this project never logs in. <strong>The substitute is public documentation of the same mechanics</strong>, which turned out to carry the domain rules in plain words, plus Refero for the craft and the As-Is barriers for what is missing.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Block</th><th>What it holds</th><th>Parent</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td><strong>The record</strong></td><td>The item as a <span class="surf">0.6</span> card with its receipt, both dated figures intact</td><td>Row <span class="row-code">F2</span> on <span class="row-code">B7-1</span></td></tr>
+        <tr><td><strong>2</strong></td><td>Destination</td><td>The Steam account it goes to, named</td><td>Related Job 5</td></tr>
+        <tr><td><strong>3</strong></td><td><strong>The total, commission on its own line</strong></td><td>Zero to Steam</td><td>Row <span class="row-code">G6</span>, <strong>job only, no barrier</strong></td></tr>
+        <tr><td><strong>4</strong></td><td><strong>The named limits, before the request</strong></td><td>Three limits in plain words</td><td>Row <span class="row-code">G5</span> on <span class="row-code">B8-3</span> and <span class="row-code">B8-2</span></td></tr>
+        <tr><td><strong>5</strong></td><td><strong>The clock</strong></td><td>Named states, elapsed per state, owner label on each</td><td>Row <span class="row-code">G1</span> on <span class="row-code">B8-2</span></td></tr>
+        <tr><td><strong>6</strong></td><td>Our published numbers</td><td>Median and p90, and the ceiling for the state that is live</td><td>Rows <span class="row-code">A4</span>, <span class="row-code">G3</span>, <span class="row-code">G2</span></td></tr>
+        <tr><td><strong>7</strong></td><td><strong>The history of this record</strong></td><td>Every state it has been in, its elapsed and its owner, <strong>kept and not replaced</strong></td><td>Row <span class="row-code">G1</span>. Required by <span class="surf">5.8</span></td></tr>
+        <tr><td><strong>8</strong></td><td>Support and appeal</td><td>The route to <span class="surf">0.10</span>, which carries the published response deadline</td><td>Row <span class="row-code">G4</span> on <span class="row-code">B8-3</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h4>Two arrivals, one page, and the first screen belongs to whichever is live</h4>
+    <p><strong>Before the request</strong> the first screen is the record, the limits, the commission line and the one control. <strong>After the request</strong> the clock takes the first screen and the record moves under it. This is a priority rule and not a second node: <span class="surf">1.0</span> and <span class="surf">1.1</span> already settle that a state-dependent first screen is a state, not a different page.</p>
+  </div>
+</section>
+
+<!-- CLOCK -->
+<section id="clock">
+  <div class="sec-head">
+    <h2>The clock</h2>
+    <p>Five stages, taken from the node order of flow 3 rather than from a generic queue model. Nothing is added to it.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Stage</th><th style="width:17%">Owner label</th><th>What it means</th><th style="width:16%">Ceiling</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Requested</strong></td><td><strong>waiting on us</strong></td><td>In our queue, and nothing has been asked of anyone else yet</td><td><span class="q">[?]</span>, row <span class="row-code">G2</span></td></tr>
+        <tr><td><strong>Our checks</strong></td><td><strong>waiting on us</strong></td><td>The restriction check. Exits to <span class="surf">5.6</span> if it bites</td><td><span class="q">[?]</span>, row <span class="row-code">G2</span></td></tr>
+        <tr><td><strong>Offer sent, waiting for you in Steam</strong></td><td><strong>waiting on you</strong></td><td>The trade offer exists and the person accepts it inside Steam. Expiry is <span class="surf">5.8</span></td><td>Set by Steam, <span class="q">[?]</span></td></tr>
+        <tr><td><strong>Steam completing the trade</strong></td><td><strong>waiting on Steam</strong></td><td>Out of our hands. <span class="row-code">G2</span> and <span class="surf">5.5</span> govern this stage</td><td><span class="q">[?]</span>, suspended while degraded</td></tr>
+        <tr><td><strong>Delivered</strong></td><td>closed</td><td>The item is in the Steam inventory. Related Job 5 closed</td><td>The person's own elapsed, against our published p90</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - the clock stacks, it does not run sideways</div>
+    <div class="wf-phone">
+      <div class="wf-band">
+        <div class="wf-band-h">the clock</div>
+        <div class="wf-stg">
+          <div class="wf-stg-n">Requested</div>
+          <span class="wf-stg-own">waiting on us</span>
+          <div class="wf-stg-rows"><div class="wf-stg-row"><span class="wf-stg-lbl">elapsed</span><span class="wf-stg-val wf-strike">00:00</span></div></div>
+        </div>
+        <div class="wf-stg is-live">
+          <div class="wf-stg-n">Our checks</div>
+          <span class="wf-stg-own">waiting on us</span>
+          <div class="wf-stg-rows">
+            <div class="wf-stg-row"><span class="wf-stg-lbl">elapsed</span><span class="wf-stg-val">00:00</span></div>
+            <div class="wf-stg-row"><span class="wf-stg-lbl">ceiling</span><span class="wf-stg-val" style="color:var(--accent-yellow)">[?]</span></div>
+          </div>
+        </div>
+        <div class="wf-stg">
+          <div class="wf-stg-n">Offer sent, waiting for you in Steam</div>
+          <span class="wf-stg-own">waiting on you</span>
+        </div>
+        <div class="wf-stg">
+          <div class="wf-stg-n">Steam completing the trade</div>
+          <span class="wf-stg-own">waiting on Steam</span>
+        </div>
+        <div class="wf-stg">
+          <div class="wf-stg-n">Delivered</div>
+          <span class="wf-stg-own">closed</span>
+        </div>
+      </div>
+      <div class="wf-band">
+        <div class="wf-band-h">our published times</div>
+        <div class="wf-txt">Median <span style="color:var(--accent-yellow)">[?]</span> | p90 <span style="color:var(--accent-yellow)">[?]</span></div>
+        <div class="wf-asof">rolling window [?], from 0.11</div>
+      </div>
+      <div class="wf-band">
+        <div class="wf-band-h">no primary action while waiting</div>
+        <div class="wf-txt is-dim">The next act belongs to us, to Steam, or to you inside Steam.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card is-good">
+    <h4>Two stages share the owner "us" and they are still two stages</h4>
+    <p>A single block reading "waiting on us" for forty hours is the unattributed silence again, one label thinner. Two names and two timers cost nothing and are the difference between a queue and a black box.</p>
+    <p><strong>Where the interruptions sit is fixed by the flow, not chosen here.</strong> The health check sits before the restriction check, and the restriction check sits before the offer is sent. So a degraded Steam never hides a restriction, and a restriction is never discovered after an offer has been made.</p>
+  </div>
+
+  <h3>What the timer shows, and the four things it never shows</h3>
+  <p><strong>Shows, and all three are real:</strong> elapsed time in the current state, the published ceiling for that state, and who is being waited on.</p>
+
+  <div class="card is-fix">
+    <p><strong>Never an estimated time remaining.</strong> We cannot compute one, and an ETA that slips is <code>B8-2</code> with a number attached to it, which is worse than no number. <strong>Three real figures beat four when the fourth is invented.</strong></p>
+    <p><strong>Never a progress bar.</strong> A bar implies a rate, and nothing here measures a rate.</p>
+    <p><strong>Never a spinner.</strong> The flow says it itself: loading has no node here on purpose, because every wait in this flow is a named state with a timer.</p>
+    <p><strong>Never a score, a streak or a celebration.</strong> <code>0.11</code> rule 7, and the limits rule. A withdrawal is not an achievement and a fast one is not a level.</p>
+  </div>
+
+  <div class="card">
+    <p>Three more rules arrive whole from <code>0.11</code> and are not re-derived: <strong>degraded rather than frozen at the last good value</strong>, rule 6, which is <span class="surf">5.5</span>; <strong>missing is a state and never a zero</strong>, rule 3, which is <span class="surf">5.6</span>; <strong>text and never an image</strong>, rule 8, so that a state and its elapsed can be pasted into a complaint.</p>
+  </div>
+
+  <h3>One definitional hole in the published p90, and it is not written down anywhere</h3>
+
+  <div class="card is-note">
+    <p><code>0.11</code> carries the rolling window length as <span class="q">[?]</span>. <strong>The second half of the same claim is carried nowhere: whether the median and p90 measure the whole elapsed time end to end, or only the stretches attributed to us.</strong></p>
+    <p>The attribution machinery in <code>G1</code> makes both computable, and <strong>the two diverge most exactly in the cases people complain about</strong>, where a long stretch sat on the person or on Steam. Printing one figure while the words imply the other is what <code>0.11</code> rule 1 and rule 9 exist to stop, and design principle 1 under its <code>D-14</code> limit says the product is built so that its own numbers are checkable. <strong>A p90 whose definition is ambiguous is not checkable by the person holding the clock.</strong></p>
+    <p><strong>Owner: <code>0.11</code> and the founder, before stage 04.</strong> This node names the hole and does not fill it.</p>
+  </div>
+
+  <div class="card is-good">
+    <p><strong>And one rule that follows whichever way it goes: outage days are not excluded from the window.</strong> A rolling figure that drops its bad days is not a measurement. <span class="surf">5.5</span> is a state of the product, not an exemption from its own numbers.</p>
+  </div>
+</section>
+
+<!-- MONEY -->
+<section id="money">
+  <div class="sec-head">
+    <h2>Commission free, and how a zero is rendered</h2>
+    <p>Row <code>G6</code>. MVP, <strong>job only, no barrier</strong>, and the backlog prints that rather than dressing it in a borrowed parent.</p>
+  </div>
+
+  <div class="card is-good">
+    <p><strong>It renders as a line in the total, never as a badge.</strong> <code>0.11</code> gives this row its route verbatim: the withdrawal itself, because <strong>a commission of zero is the one figure a person verifies by finishing the transaction.</strong> A badge asserts. A line in a sum gets checked.</p>
+    <p><strong>It is stated before the request, not after.</strong> <code>C4</code> already fixed that the sum required to withdraw is stated before the deposit and can never rise. <strong>This line must agree with what <span class="surf">4.1</span> said</strong>, and a disagreement between the two is <code>B4-1</code> arriving late.</p>
+    <p><strong>Steam Market's fee is a number about a third party.</strong> Where it is printed as the comparison it carries its source and its date, <code>0.11</code> rule 9, and it can change.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - the record, before the request</div>
+    <div class="wf-phone">
+      <div class="wf-band">
+        <div class="wf-band-h">1 - the record</div>
+        <div class="wf-thumb">item image</div>
+        <div class="wf-txt"><b>Weapon</b> | Skin name</div>
+        <div class="wf-kv" style="margin-top:6px"><span class="wf-k">Receipt</span><span class="wf-v">000.00 <span class="wf-v is-dim">as of the open</span></span></div>
+        <div class="wf-kv"><span class="wf-k">Current</span><span class="wf-v">000.00 <span class="wf-v is-dim">as of this read</span></span></div>
+      </div>
+      <div class="wf-band">
+        <div class="wf-band-h">2 and 3 - destination and total</div>
+        <div class="wf-kv"><span class="wf-k">To</span><span class="wf-v">steam account name</span></div>
+        <div class="wf-kv"><span class="wf-k">Commission</span><span class="wf-v">0.00</span></div>
+        <div class="wf-kv"><span class="wf-k">You receive</span><span class="wf-v">the item</span></div>
+      </div>
+      <div class="wf-band">
+        <div class="wf-band-h">4 - the named limits, before the request</div>
+        <div class="wf-txt">Blocked countries. Steam trade holds. Steam-side bans.</div>
+        <div class="wf-txt is-dim" style="margin-top:4px">Same three sentences as on 5.1, word for word.</div>
+      </div>
+      <div class="wf-btn">Withdraw to Steam</div>
+    </div>
+  </div>
+</section>
+
+<!-- LIMITS -->
+<section id="limits">
+  <div class="sec-head">
+    <h2>The named limits, stated before entry</h2>
+    <p>Row <code>G5</code>, in its own words: named limits stated in plain words, blocked countries, Steam trade holds, Steam-side bans. Its success signal is that <strong>the user meets the limit before the first withdrawal rather than inside it.</strong></p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:20%">Limit</th><th style="width:12%">Whose</th><th>In plain words</th><th style="width:24%">Does it lift</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Blocked country</strong></td><td>Ours</td><td>The verdict and its ground in readable words, from <span class="surf">0.12</span>. Under an allowlist the common refusal is <strong>not launched</strong> rather than blocked, <code>D-23</code></td><td>With the staged rollout. <strong>Every verdict is <span class="q">[?]</span> until re-verified against current law</strong></td></tr>
+        <tr><td><strong>Steam trade hold</strong></td><td>Steam's</td><td>Steam holds a trade for a period it sets, on conditions it sets</td><td>Yes, after a duration that is Steam's. <span class="q">[?]</span>, and it needs a source and a date before it is printed</td></tr>
+        <tr><td><strong>Steam-side ban</strong></td><td>Steam's</td><td>The Steam account cannot receive a trade. <strong>Not ours and we cannot lift it</strong></td><td>Not by us. The route is Steam's</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <p><strong>Three limits, and the list is closed by the row.</strong> A fourth cannot appear in the interface without a backlog row first.</p>
+    <p><strong>Authored once, rendered twice, in the same words:</strong> on <span class="surf">5.1</span> beside the withdrawal entry, which is what "before entry" means in the flow's node order, and here on the record. The same discipline <code>0.14</code> applies to its field set: no site may show a limit the other does not, name one differently, or order them differently.</p>
+    <p><strong>The third row is why this block sits before the request and not inside it.</strong> The sharpest quotes under <code>B8-4</code> are people whose Steam accounts were banned through a platform's process. A limit that is Steam's is named as Steam's before anyone commits, rather than surfacing as our refusal after they have.</p>
+  </div>
+</section>
+
+<!-- OPEN UNDER -->
+<section id="stays-open">
+  <div class="sec-head">
+    <h2>What stays open here, and it is the cluster's answer to B8-4</h2>
+    <p>Verification ambushes at the exit, pattern of 5 across 4 platforms. The answer is an absence, and an absence has to be stated or it gets filled in later by somebody being helpful.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>No verification appears anywhere in this cluster</h4>
+    <p>That absence is capability <code>B2</code>. The backlog states how it is proven: <strong>by code review, not by a metric. The withdrawal route contains no verification call.</strong></p>
+    <p>The design consequence is concrete: <strong>there is no slot for a check on this page, in any state.</strong> Not in <span class="surf">5.4</span>, not in <span class="surf">5.6</span>, not behind a "resolve this" control. A state that would require one is not drawn.</p>
+  </div>
+
+  <p><strong>Three ways a person can be constrained, and none of them closes this page.</strong></p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:28%">Constraint</th><th>What happens to withdrawal</th><th style="width:22%">Source</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Every boundary in <span class="surf">6.1</span>, self exclusion included</strong></td><td><strong>Stays open.</strong> A boundary stops spending, never retrieval. <strong>A self exclusion that traps the balance is a penalty for asking for protection</strong>, and it teaches the next person not to ask</td><td><span class="surf">6.3</span>, transition "5.3 stays reachable". The responsible play compliance constraint, plus the limits rule</td></tr>
+        <tr><td><strong>A failed identity check, <span class="surf">2.9</span></strong></td><td><strong>Stays open.</strong> Funding closes with the ground on record. Retrieval does not. The failed check was once drawn as an absolute dead end while <span class="row-code">B2</span> guarantees no verification branch on this route at all, and the contradiction was fixed rather than the rule bent</td><td><span class="surf">2.9</span>, transition "5.3 stays open regardless". <code>flows.md</code></td></tr>
+        <tr><td><strong>A restriction on the account, <span class="surf">5.6</span></strong></td><td><strong>The only one that stops a withdrawal</strong>, and it is the account being restricted rather than the person being limited. It arrives with a written ground, a frozen rather than zeroed balance and an appeal with a published deadline</td><td>Row <span class="row-code">G4</span> on <span class="row-code">B8-3</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- STATES -->
+<section id="states">
+  <div class="sec-head">
+    <h2>Five states, all numbered in the map</h2>
+    <p>None of them has a URL. They render at <code>/withdraw</code>, because none can be arrived at from outside.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - the five states</div>
+    <div class="wf-grid">
+
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">5.4 - not eligible</div>
+        <div class="wf-txt">This item cannot be withdrawn right now.</div>
+        <div class="wf-kv" style="margin-top:8px"><span class="wf-k">Limit</span><span class="wf-v">Steam trade hold</span></div>
+        <div class="wf-kv"><span class="wf-k">Whose</span><span class="wf-v">Steam's</span></div>
+        <div class="wf-kv"><span class="wf-k">Lifts</span><span class="wf-v" style="color:var(--accent-yellow)">[?]</span></div>
+        <div class="wf-link">Back to my items</div>
+        <div class="wf-scope"><b>No substitute offer.</b> The item is untouched and stays in the inventory.</div>
+      </div>
+
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">5.5 - Steam degraded</div>
+        <div class="wf-txt">Steam is not accepting trades normally.</div>
+        <div class="wf-asof">health probe, as of [?]</div>
+        <div class="wf-kv" style="margin-top:8px"><span class="wf-k">In flight</span><span class="wf-v">stays queued</span></div>
+        <div class="wf-kv"><span class="wf-k">New</span><span class="wf-v">accepted, waits</span></div>
+        <div class="wf-kv"><span class="wf-k">Ceiling</span><span class="wf-v">suspended</span></div>
+        <div class="wf-scope"><b>Degraded, never frozen at the last good value.</b> Recovery time is Steam's and is not invented.</div>
+      </div>
+
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">5.6 - account restricted</div>
+        <div class="wf-txt">A written ground, in readable words, as text.</div>
+        <div class="wf-kv" style="margin-top:8px"><span class="wf-k">Balance</span><span class="wf-v">000.00 frozen</span></div>
+        <div class="wf-kv"><span class="wf-k">Items</span><span class="wf-v">held, still listed</span></div>
+        <div class="wf-kv"><span class="wf-k">Appeal by</span><span class="wf-v" style="color:var(--accent-yellow)">[?]</span></div>
+        <div class="wf-link">Appeal, via 0.10</div>
+        <div class="wf-scope"><b>Frozen, never zeroed.</b> The clock keeps running, owned by us, and the appeal deadline is its ceiling.</div>
+      </div>
+
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">5.7 - restriction upheld</div>
+        <div class="wf-txt">The restriction stands.</div>
+        <div class="wf-kv" style="margin-top:8px"><span class="wf-k">Ground</span><span class="wf-v">on the record</span></div>
+        <div class="wf-kv"><span class="wf-k">Appeal</span><span class="wf-v">ran, answered</span></div>
+        <div class="wf-kv"><span class="wf-k">Balance</span><span class="wf-v" style="color:var(--accent-yellow)">[?]</span></div>
+        <div class="wf-link">Support</div>
+        <div class="wf-scope"><b>The dead end remains. The silence does not.</b> No re-application countdown, no status feed.</div>
+      </div>
+
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">5.8 - trade offer expired</div>
+        <div class="wf-txt">The offer expired in Steam before it was accepted.</div>
+        <div class="wf-kv" style="margin-top:8px"><span class="wf-k">Attempt 1</span><span class="wf-v">expired, waiting on you</span></div>
+        <div class="wf-kv"><span class="wf-k">Record</span><span class="wf-v">unchanged</span></div>
+        <div class="wf-link">Resend the offer</div>
+        <div class="wf-scope"><b>Resend, never restart.</b> The elapsed is the evidence, and a new record would erase it.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <h3 id="5.4">5.4 Not eligible, limit stated before entry</h3>
+  <p><strong>Transition:</strong> <span class="surf">5.1</span>. <strong>A state a person should mostly never reach, and that is the point.</strong> <code>G5</code> puts the limits on <span class="surf">5.1</span> beside the entry, so this state exists for the narrow cases: eligibility changed between the statement and the request, or the limit belongs to this particular item rather than to the account.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:28%">Element</th><th>Behaviour</th><th style="width:20%">Parent</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Which limit, same words</strong></td><td>The identical sentence used on <span class="surf">5.1</span>. A limit reworded at the moment it bites reads as a new rule</td><td>Row <span class="row-code">G5</span></td></tr>
+        <tr><td>Whose it is, and whether it lifts</td><td>Ours, or Steam's. A date if we have one, <span class="q">[?]</span> if the answer belongs to Steam. <strong>Never a countdown to a moment we invented</strong></td><td>Row <span class="row-code">G5</span>, <code>0.11</code> rule 9</td></tr>
+        <tr><td>The item is untouched</td><td>Still held, still in <span class="surf">5.1</span>, still carrying both dated figures</td><td>Row <span class="row-code">F2</span></td></tr>
+        <tr><td><strong>No verification branch</strong></td><td>An ineligibility is never resolved by asking for documents here</td><td>Row <span class="row-code">B2</span> on <span class="row-code">B8-4</span></td></tr>
+        <tr><td><strong>No substitute offer</strong></td><td>See below</td><td>Barrier <span class="row-code">B8-1</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The refusal that matters here is the substitute</h4>
+    <p><code>B8-1</code> is the out-of-stock substitution barrier, in a user's own words: <strong>"they force you to exchange it for much lower-value skins or 'site balance'".</strong> A not-eligible state that offers to convert the item into balance is that barrier arriving at a different door, and it would be dressed as helpfulness. <strong>The state offers nothing. It names the limit and routes back.</strong></p>
+  </div>
+
+  <h3 id="5.5">5.5 Steam degraded</h3>
+  <p><strong>Transition:</strong> back into the clock on <span class="surf">5.3</span>, per the flow. <strong>A live banner driven by the health probe, not a generic error.</strong> The probe is row <code>G2</code>, refresh class real time, and <code>0.11</code> puts it in the register precisely because it obeys the same missing-data rules as the figures it protects.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:28%">Element</th><th>Behaviour</th><th style="width:20%">Parent</th></tr></thead>
+      <tbody>
+        <tr><td>What is degraded, and as of when</td><td>The probe's own as-of, visible</td><td>Row <span class="row-code">G2</span>, <code>0.11</code> rule 2</td></tr>
+        <tr><td>A withdrawal already in flight</td><td><strong>Stays in the queue. Nothing is lost</strong>, and its stage becomes waiting on Steam</td><td>The flow: degraded returns to the clock</td></tr>
+        <tr><td>A new request</td><td>Accepted and queued. The flow refuses it nowhere</td><td>The flow</td></tr>
+        <tr><td><strong>The Steam ceiling</strong></td><td><strong>Suspended, and it says it is suspended</strong></td><td>Row <span class="row-code">G2</span></td></tr>
+        <tr><td>Recovery time</td><td><span class="q">[?]</span>. It is Steam's outage and we do not have the number</td><td>Never invent a number</td></tr>
+        <tr><td>Never frozen at the last good value</td><td>Degraded is its own state</td><td><code>0.11</code> rule 6</td></tr>
+        <tr><td>Colour never carries it alone</td><td>The state is in text, in the block</td><td><code>0.11</code> section 9</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <p><strong>Suspending the ceiling out loud is the whole design here.</strong> A published ceiling that keeps running through a third-party outage is a promise we cannot keep, and letting it lapse quietly is the unattributed silence with a number on top of it. Saying "this ceiling does not apply while Steam is degraded" is what keeps the ceiling meaningful the rest of the time.</p>
+  </div>
+
+  <h3 id="5.6">5.6 Account restricted, notice and appeal</h3>
+  <p><strong>Transitions:</strong> <span class="surf">5.7</span>, or back to <span class="surf">5.3</span> if the appeal is upheld. <code>B8-3</code> in the corpus's own words: <strong>"as soon as I tried to withdraw my winnings, the site permanently banned me"</strong>; "my balance of over 160 coins was completely wiped out... they refused to provide any specific explanation".</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Element</th><th>Behaviour</th><th style="width:20%">Parent</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A written ground</strong></td><td>The reason in readable words. <strong>Never a code alone, never "violation of terms" with nothing under it.</strong> Text and never an image, so it can be copied into a complaint</td><td>Row <span class="row-code">G4</span>, <code>0.11</code> rule 8</td></tr>
+        <tr><td><strong>The balance frozen and never zeroed</strong></td><td>Both money figures still render, with their real values, marked frozen. <strong>A zero here is not a display bug, it is the barrier itself</strong></td><td>Row <span class="row-code">G4</span>, <code>0.11</code> rule 3</td></tr>
+        <tr><td>The items stay held</td><td>Still listed on <span class="surf">5.1</span>, still carrying their receipts. A frozen account is not an emptied one</td><td>Row <span class="row-code">F2</span></td></tr>
+        <tr><td><strong>An appeal with a published deadline</strong></td><td>Routed into <span class="surf">0.10</span>, which owns the route and the service level. <strong>The deadline value is <span class="q">[?]</span></strong></td><td>Row <span class="row-code">G4</span></td></tr>
+        <tr><td>The clock keeps running, owned by us</td><td>While an appeal is open the state is waiting on us, and <strong>the published appeal deadline is that state's ceiling</strong></td><td>Rows <span class="row-code">G1</span> and <span class="row-code">G4</span></td></tr>
+        <tr><td><strong>No verification branch</strong></td><td>See below</td><td>Row <span class="row-code">B2</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>Two decisions worth stating</h4>
+    <p><strong>The appeal deadline is reused as the clock's ceiling</strong>, so <code>G1</code> and <code>G4</code> run on one mechanism instead of two. A person waiting on an appeal sees the same three things they saw waiting on Steam: elapsed, ceiling, owner.</p>
+    <p><strong>A restriction whose ground is about identity is still not a check on this route.</strong> It is stated as a restriction, with its ground, and the appeal is handled through <span class="surf">0.10</span> rather than as an inline document upload. <code>B2</code> is a rule about this route, not a claim that the situation cannot arise, and honouring it here is what keeps <code>B8-4</code> closed at the exact moment the category reopens it.</p>
+  </div>
+
+  <h3 id="5.7">5.7 Restriction upheld</h3>
+  <p><strong>Transition: none. A dead end, by design, and the map says so.</strong> The whole specification is one sentence that appears in both the map and the flows: <strong>the dead end remains, the silence does not.</strong></p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">Element</th><th>Behaviour</th><th style="width:20%">Parent</th></tr></thead>
+      <tbody>
+        <tr><td>The ground stays on the record</td><td>The same words as the notice in <span class="surf">5.6</span>. The record does not vanish and the page does not become a bare "account closed"</td><td>Row <span class="row-code">G4</span></td></tr>
+        <tr><td>It stays retrievable</td><td>Text, copyable, available after the decision rather than only at the moment of it</td><td><code>0.11</code> rule 8</td></tr>
+        <tr><td>The appeal that already ran is visible</td><td>With its dates. The person can see that it happened and when it was answered</td><td>Row <span class="row-code">G4</span></td></tr>
+        <tr><td><span class="surf">0.10</span> stays reachable</td><td>Support is not part of the job and is not closed with it</td><td>Node <span class="surf">0.10</span></td></tr>
+        <tr><td><strong>The frozen balance and the held items</strong></td><td><strong><span class="q">[?]</span>, and it is the largest open item in this cluster.</strong> Decided: never silently zeroed, and the disposition is stated in the notice rather than discovered</td><td>Row <span class="row-code">G4</span> for the decided half. The rest: founder and counsel</td></tr>
+        <tr><td>No re-application countdown, no status feed</td><td>It is a record, not a channel. A dead end that updates becomes a thing to check</td><td>The limits rule</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-dead">
+    <p><strong>This is not the dead end <span class="surf">0.3</span> forbids.</strong> <span class="surf">0.3</span> forbids a system page with no route out. This is a deliberate red node approved in <code>flows.md</code> with its reason: the restriction stands, and what <code>G4</code> changes is what kind of red it is. Recorded here so an auditor does not read it as a violation.</p>
+  </div>
+
+  <h3 id="5.8">5.8 Trade offer expired</h3>
+  <p><strong>Transition:</strong> <span class="surf">5.3</span>, back into the offer stage. <strong>Resend from the same record rather than restart</strong>, and the reason is the clock.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Element</th><th>Behaviour</th><th style="width:20%">Parent</th></tr></thead>
+      <tbody>
+        <tr><td>The same record</td><td>Same item, same receipt, same commission line, same history</td><td>Rows <span class="row-code">F2</span> and <span class="row-code">G1</span></td></tr>
+        <tr><td><strong>The expired attempt stays in the history</strong></td><td>Not erased. <strong>The elapsed is the evidence of how long this has taken</strong>, and <span class="row-code">G1</span> is measured on exactly that</td><td>Row <span class="row-code">G1</span> on <span class="row-code">B8-2</span></td></tr>
+        <tr><td><strong>Attribution is not reassigned</strong></td><td>The expired stretch stays labelled <strong>waiting on you</strong>. It is not quietly moved onto Steam or onto us</td><td>Row <span class="row-code">G1</span></td></tr>
+        <tr><td>Why it expired</td><td>Steam expires a trade offer after a period Steam sets. <span class="q">[?]</span>, and it carries a source and a date before it is printed</td><td><code>0.11</code> rule 9</td></tr>
+        <tr><td>Resend is one control</td><td>It re-enters the offer stage. The limits are evaluated again because they can change, and if one now bites the person meets <span class="surf">5.4</span> with the record intact rather than a generic failure</td><td>Row <span class="row-code">G5</span></td></tr>
+        <tr><td><strong>A restart is refused</strong></td><td>A new record would reset the elapsed and lose the history, which is the one thing this page has that the category does not</td><td>Row <span class="row-code">G1</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>This state is the concrete case behind the definitional hole above.</strong> A withdrawal that sat four days on the person and forty minutes on us is one number end to end and a different number by attribution, and nothing yet says which one our published p90 is.</p>
+    <p><strong>And it is the state that most needs a signal outside the page.</strong> The global sweep already recorded that there is <strong>no notification, email or push row anywhere in the backlog</strong>, and therefore no node. It is carried here in the same treatment, so that nobody later reports it as a discovery.</p>
+  </div>
+</section>
+
+<!-- SHELL -->
+<section id="shell">
+  <div class="sec-head">
+    <h2>Components, CTA, emotional support, responsive</h2>
+  </div>
+
+  <div class="card">
+    <h4>Components</h4>
+    <p><span class="surf">0.1</span> navigation in its account state. <span class="surf">0.2</span> footer, which by its own rule links no private transactional node and therefore never links back here. <span class="surf">0.5</span> toasts for transient confirmations such as an offer sent or resent, never the only place a state is announced. <span class="surf">0.6</span> skin card, rendering the same two dated figures it renders on <span class="surf">5.1</span>. <span class="surf">0.11</span> figure anatomy for the clock, the ceilings and the p90.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Main CTA, and the deliberate absence of one</h4>
+    <p>Before the request: <strong>Withdraw to Steam</strong>, one control. <strong>After the request there is no primary action at all</strong>, because the next act belongs to us, to Steam or to the person inside Steam. <strong>A page whose main control during a wait is another action is a page that sells during a wait</strong>, and this is the phase at -5. The two exceptions are the states that need one: resend on <span class="surf">5.8</span>, appeal on <span class="surf">5.6</span>.</p>
+  </div>
+
+  <div class="card">
+    <h4>Emotional support</h4>
+    <p><strong>None, and it is checked rather than assumed.</strong> No row of the emotional and social table in <code>sitemap.md</code> places a mechanism on <code>S-E2</code>. Nothing is added here for completeness.</p>
+  </div>
+
+  <div class="card">
+    <h4>Responsive</h4>
+    <p>Mobile base 360px, one column. <strong>The clock stacks vertically</strong>, one stage per row, each carrying three labelled lines: owner, elapsed, ceiling. <strong>Not a horizontal timeline</strong>, which at 360px either scrolls sideways or drops the labels, and dropping the owner label deletes the whole of <code>G1</code>. Desktop keeps the vertical stack, because the stage list reads as a history rather than as a progress track, and places the record and the total in a column beside it.</p>
+  </div>
+</section>
+
+<!-- SEO -->
+<section id="seo">
+  <div class="sec-head">
+    <h2>SEO, inherited and reduced</h2>
+    <p><code>5.3</code> is <strong>noindex with no schema</strong> and that was decided in <code>0.13</code>. Inherited, not re-derived.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:14%">Layer</th><th>What it holds here</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A. Meta</strong></td><td><code>title</code>: Withdraw. <code>robots</code>: <code>noindex</code>. <code>canonical</code>: self. <code>description</code>: none. <strong>No hreflang anywhere</strong>, one language, locked. <strong>No OG image and no Twitter card:</strong> a pasted <code>/withdraw</code> link must not unfurl a transaction into a chat, which is the inverse of the reason <code>0.13</code> makes the unfurl a hard requirement on <span class="surf">7.1</span></td></tr>
+        <tr><td><strong>B. Headings</strong></td><td>One H1, Withdraw. H2 in block order: the record, the limits, the clock, our published times. The single H1 rule is structural and binds on an unindexed page</td></tr>
+        <tr><td><strong>C. SEO text</strong></td><td>None, and there is no query behind it</td></tr>
+        <tr><td><strong>D. Schema</strong></td><td>None</td></tr>
+        <tr><td><strong>E. Checklist</strong></td><td>Crawlable <code>&lt;a&gt;</code> for real routes, <strong>text never in images</strong> so a state and its elapsed can be pasted into a support ticket, LCP and Core Web Vitals, one H1. <strong>On this page design principle 5 is not a preference: lag on the surface that reports a wait reads as the wait.</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+    <p>Eleven open items. Six of them are numbers this node refuses to invent, and one of them is a definition nobody has written.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">Open item</th><th style="width:50%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong>What p90 measures</strong></td><td>End to end, or only the stretches attributed to us. <strong>Not written anywhere today</strong>, and the two answers diverge exactly where people complain</td><td><code>0.11</code> and founder, before stage 04</td></tr>
+        <tr><td>The rolling window length</td><td>Seven days, thirty, ninety. Carried from <code>0.11</code>, where it is already <span class="q">[?]</span>, because the window is part of the claim</td><td>Founder with the data</td></tr>
+        <tr><td><strong>Every per-state ceiling</strong></td><td>Row <span class="row-code">G2</span> publishes a ceiling per state and no file holds a value. <strong>Five stages, five <span class="q">[?]</span></strong></td><td>Founder with the data, before stage 04</td></tr>
+        <tr><td>The published appeal response deadline</td><td>Row <span class="row-code">G4</span> requires one and <code>0.11</code> carries it as <span class="q">[?]</span>. It is also this page's ceiling for the appeal state</td><td>Founder</td></tr>
+        <tr><td>Steam's trade offer expiry period</td><td>A third-party fact. <span class="q">[?]</span> until a page is opened and dated, per <code>0.11</code> rule 9</td><td>Production, one sourced check</td></tr>
+        <tr><td>Steam's trade hold duration</td><td>Same class, same rule</td><td>Production, one sourced check</td></tr>
+        <tr><td>The blocked market list</td><td><span class="q">[?]</span> until re-verified against current law. <span class="surf">0.12</span> owns the register and counsel owns the verdicts</td><td>Counsel, under <code>D-A</code></td></tr>
+        <tr><td><strong>A frozen balance and held items on an upheld restriction</strong></td><td><span class="surf">5.7</span>. <strong>The largest hole in this cluster.</strong> Decided: never silently zeroed, and stated in the notice. Undecided: everything else</td><td>Founder and counsel</td></tr>
+        <tr><td>Whether a balance can leave the platform at all</td><td><span class="row-code">G6</span> withdraws an <strong>item</strong> to Steam. Nothing withdraws a balance. It decides how strong "frozen, not zeroed" actually is. Carried from <span class="surf">5.1</span></td><td>Founder</td></tr>
+        <tr><td><strong>An out-of-product signal</strong></td><td>A withdrawal that runs for hours implies a message that reaches the person off the page, and <strong>no notification, email or push row exists anywhere in the backlog</strong>. No parent, so no node. Recorded, not invented</td><td>Founder. One backlog row if yes</td></tr>
+        <tr><td>The identity hole on the free-entry path</td><td><span class="row-code">B1</span> gates funding, <span class="row-code">B2</span> forbids the check at the exit, and a person who only ever used free entry meets neither. The proposed shape raises it at the outcome, with the item in hand. <strong>Proposed and not drawn</strong></td><td>Counsel, under <code>D-A</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>The words on every state and every control.</strong> Stage 05.</p>
+    <p><strong>How a state, a ceiling or an owner label looks.</strong> Stages 06 and 07.</p>
+    <p><strong>The values of every published figure.</strong> <code>0.11</code>, and <code>D-C</code> above all of them, which decides whether this class of number is published at all.</p>
+    <p><strong>The legal ground behind a blocked market.</strong> <span class="surf">0.12</span>. <strong>The appeal's own surface.</strong> <span class="surf">0.10</span>.</p>
+  </div>
+
+  <a class="backlink" href="structure.html#5.3">Back to Structure (5.3)</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/withdrawal.md</code>. Node data: <code>ia/docs/sitemap.md</code>, cluster 5. Parents: <code>research/docs/cjm-to-be.md</code> rows <code>G1</code> to <code>G6</code>, <code>B2</code>, <code>F2</code>. Barriers: <code>research/docs/cjm-as-is.md</code>, phase P8. Composition: <code>ia/docs/blocks.md</code>, type T4.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map: <a href="sitemap.html">Sitemap</a>. The routes: <a href="flows.html">Flows</a>. Entered from: <a href="account.html">5.1 Account and inventory</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '5.3 Withdrawal, with the public clock';
+window.NAV_SECTIONS = [
+  { id: 'overview',    label: 'Overview' },
+  { id: 'barrier',     label: 'The barrier' },
+  { id: 'blocks',      label: 'Eight blocks' },
+  { id: 'clock',       label: 'The clock' },
+  { id: 'money',       label: 'Commission free' },
+  { id: 'limits',      label: 'The named limits' },
+  { id: 'stays-open',  label: 'What stays open' },
+  { id: 'states',      label: 'Five states' },
+  { id: 'shell',       label: 'Components and CTA' },
+  { id: 'seo',         label: 'SEO' },
+  { id: 'open',        label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

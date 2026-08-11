@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 5.1 Account and inventory</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(252px, 1fr)); gap: 14px; }
+
+    .wf-proof { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-proof-lbl { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 9px; padding-bottom: 7px; border-bottom: 1px dashed var(--wf-line-soft); }
+    .wf-kv { display: flex; gap: 9px; margin-bottom: 6px; align-items: baseline; flex-wrap: wrap; }
+    .wf-k { flex: 0 0 74px; font-family: 'SF Mono', Menlo, monospace; font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-v { font-family: 'SF Mono', Menlo, monospace; font-size: 10.5px; color: var(--wf-ink); overflow-wrap: anywhere; }
+    .wf-v.is-dim { color: var(--wf-ink-dim); font-style: italic; font-family: inherit; }
+    .wf-scope { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; border-top: 1px dashed var(--wf-line-soft); margin-top: 10px; padding-top: 9px; }
+    .wf-scope b { color: var(--wf-ink); font-weight: 700; }
+    .wf-link { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; }
+    .wf-note { font-size: 10px; color: var(--wf-ink-dim); margin-top: 8px; line-height: 1.5; }
+
+    .wf-anat { display: flex; gap: 0; align-items: stretch; flex-wrap: wrap; }
+    .wf-anat .wf-fig-col { flex: 0 0 288px; max-width: 100%; }
+    .wf-legend { flex: 1 1 260px; padding-left: 26px; display: flex; flex-direction: column; justify-content: center; gap: 9px; }
+    .wf-leg { display: flex; gap: 10px; align-items: baseline; }
+    .wf-leg-n { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; font-weight: 700; color: var(--wf-ink-dim); border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 1px 5px; flex: 0 0 auto; }
+    .wf-leg-t { font-size: 11.5px; color: var(--wf-ink-dim); line-height: 1.5; }
+    .wf-leg-t b { color: var(--wf-ink); font-weight: 700; }
+
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+    .wf-band { border: 1px dashed var(--wf-line-soft); border-radius: 4px; padding: 8px 9px; margin-bottom: 10px; }
+    .wf-band:last-child { margin-bottom: 0; }
+    .wf-band-h { font-size: 8.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 6px; }
+    .wf-txt { font-size: 11px; color: var(--wf-ink); line-height: 1.5; }
+    .wf-txt.is-dim { color: var(--wf-ink-dim); }
+    .wf-money { display: flex; gap: 10px; flex-wrap: wrap; }
+    .wf-money > div { flex: 1 1 108px; border: 1px solid var(--wf-line-soft); border-radius: 4px; padding: 7px 8px; }
+    .wf-fig-lbl { font-size: 8.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-fig-val { font-family: 'SF Mono', Menlo, monospace; font-size: 15px; font-weight: 700; color: var(--wf-ink); margin-top: 2px; }
+    .wf-btn { display: block; border: 1px solid var(--wf-line); border-radius: 4px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; color: var(--wf-ink); padding: 9px 8px; }
+    .wf-item { border: 1px solid var(--wf-line); border-radius: 4px; padding: 9px 10px; margin-bottom: 8px; background: var(--wf-bg); }
+    .wf-item:last-child { margin-bottom: 0; }
+    .wf-thumb { border: 1px dashed var(--wf-line-soft); border-radius: 3px; height: 46px; display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--wf-ink-dim); margin-bottom: 8px; }
+    .wf-chips { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 5px; }
+    .wf-chip-s { font-size: 8.5px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--wf-ink-dim); border: 1px solid var(--wf-line-soft); border-radius: 999px; padding: 1px 7px; }
+    .wf-two { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 8px; }
+    .wf-two > div { border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 6px 7px; }
+    .wf-two-h { font-size: 8px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 3px; }
+    .wf-two-v { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--wf-ink); }
+    .wf-asof { font-family: 'SF Mono', Menlo, monospace; font-size: 8.5px; color: var(--wf-ink-dim); margin-top: 3px; }
+    .wf-x { border: 1px solid var(--wf-line-soft); border-radius: 4px; padding: 8px 9px; }
+    .wf-x-h { font-size: 8.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 5px; }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid { grid-template-columns: 1fr; }
+      .wf-legend { padding-left: 0; padding-top: 18px; }
+      .wf-anat .wf-fig-col { flex: 1 1 100%; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 5.1</div>
+  <h1>Account and inventory</h1>
+  <p class="lede">Phase T8, the floor of the entire As-Is emotional map at <strong>-5</strong>. This is the page where a win either stays checkable or quietly stops being one. It holds what the person owns, the money in the two figures the header already uses, and the one route out of the product. <strong>Row <code>F2</code> is the whole node: the receipt stays on the item, and the same receipt is retrievable a week later.</strong></p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">7</div><div class="hero-stat-label">Blocks, two conditional</div></div>
+    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Dated figures, never merged</div></div>
+    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">State, 5.2 empty</div></div>
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Verification steps, anywhere</div></div>
+  </div>
+</div>
+
+<!-- SPINE -->
+<section id="spine">
+  <div class="sec-head">
+    <h2>The sentence this page is built around</h2>
+    <p>One line of the backlog, and it decides the whole composition.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Row F2, with its own success signal</h4>
+    <p>"The receipt stays on the item in inventory and on the withdrawal record." Signal: <strong>the same receipt is retrievable a week later.</strong></p>
+    <p>Barrier <code>B7-1</code> is not a complaint about losing. It is a complaint about a number that stopped being true and left nothing behind to check: <strong>"a knife that Hellcase displayed as being worth about $1,600. After withdrawing it, I found out that on CSFloat and even on Steam it is worth only around $550-600."</strong></p>
+    <p><strong>The injury is retrospective.</strong> A page that shows today's price and nothing else cannot be wrong a week later, because there is nothing left to compare it against.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>So the page holds two dated figures per item and never merges them</h4>
+    <p>The receipt as captured at the open, with its own as-of. The current value, with its own as-of. Overwrite the first and the person cannot check what we told them. Show only the first and we are printing a stale price as current, which is the barrier itself.</p>
+  </div>
+</section>
+
+<!-- BLOCKS -->
+<section id="blocks">
+  <div class="sec-head">
+    <h2>Seven blocks, ordered from 360px</h2>
+    <p>Composition from the block bank, type <strong>T2, listing with an empty state</strong>, plus the rows this node's own parents require. Order is the barrier order, not the order of the sources.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Block</th><th>What it holds</th><th>Parent</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td><strong>Account state, one line</strong></td><td>Verified, withdrawals open. A statement of a fact resolved earlier, <strong>never a task raised here</strong></td><td>Row <span class="row-code">B7</span> on <span class="row-code">B7-1</span>. Row <span class="row-code">B1</span> on <span class="row-code">B8-4</span></td></tr>
+        <tr><td><strong>2</strong></td><td><strong>The money, two figures</strong></td><td>Balance and value of items held, both in real currency, <strong>never summed and never a score</strong></td><td><code>D-19</code> by way of <span class="surf">0.1</span>. Row <span class="row-code">C1</span></td></tr>
+        <tr><td><strong>3</strong></td><td><strong>Withdraw, limits beside it</strong></td><td>The one CTA, and the three named limits in plain words <strong>before</strong> the person enters the route</td><td>Row <span class="row-code">G5</span> on <span class="row-code">B8-3</span> and <span class="row-code">B8-2</span></td></tr>
+        <tr><td><strong>4</strong></td><td><strong>Items held, cards 0.6</strong></td><td>Each carrying its <span class="row-code">F2</span> receipt. The substance of the page</td><td>Row <span class="row-code">F2</span> on <span class="row-code">B7-1</span>. Row <span class="row-code">B7</span></td></tr>
+        <tr><td><strong>5</strong></td><td><strong>The holding statement</strong></td><td>Whether this item has a deadline, from the moment it exists. Value <span class="q">[?]</span></td><td>Row <span class="row-code">G5</span></td></tr>
+        <tr><td><strong>6</strong></td><td>A legible bottom to the list</td><td>Count, and pagination if the count needs it. <strong>Conditional</strong>, threshold <span class="q">[?]</span></td><td>Related Job 5</td></tr>
+        <tr><td><strong>7</strong></td><td>Sort by value or by date</td><td><strong>Conditional and named out loud</strong>, not taken from the bank</td><td>Related Job 5</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - blocks 1 to 4 are the first screen</div>
+    <div class="wf-phone">
+      <div class="wf-band">
+        <div class="wf-band-h">1 - account state</div>
+        <div class="wf-txt">Verified. Withdrawals open.</div>
+        <div class="wf-txt is-dim" style="margin-top:4px">A statement, not a step. Nothing here asks for a document.</div>
+      </div>
+      <div class="wf-band">
+        <div class="wf-band-h">2 - the money, two figures</div>
+        <div class="wf-money">
+          <div><div class="wf-fig-lbl">Balance</div><div class="wf-fig-val">000.00</div></div>
+          <div><div class="wf-fig-lbl">Value of items held</div><div class="wf-fig-val">000.00</div></div>
+        </div>
+        <div class="wf-txt is-dim" style="margin-top:6px">Never summed. Never a total.</div>
+      </div>
+      <div class="wf-band">
+        <div class="wf-band-h">3 - withdraw, limits beside it</div>
+        <div class="wf-btn">Withdraw to Steam</div>
+        <div class="wf-txt is-dim" style="margin-top:7px">Blocked countries. Steam trade holds. Steam-side bans. Stated here, before the route.</div>
+      </div>
+      <div class="wf-band">
+        <div class="wf-band-h">4 - items held</div>
+        <div class="wf-item">
+          <div class="wf-thumb">item image</div>
+          <div class="wf-txt"><b>Weapon</b> | Skin name</div>
+          <div class="wf-chips"><span class="wf-chip-s">wear</span><span class="wf-chip-s">rarity</span><span class="wf-chip-s">StatTrak</span></div>
+          <div class="wf-two">
+            <div><div class="wf-two-h">Receipt as captured</div><div class="wf-two-v">000.00</div><div class="wf-asof">as of the open</div></div>
+            <div><div class="wf-two-h">Current value</div><div class="wf-two-v">000.00</div><div class="wf-asof">as of this read</div></div>
+          </div>
+          <div class="wf-txt is-dim" style="margin-top:6px">Held with no time limit. <span style="color:var(--accent-yellow)">[?]</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>Two blocks the shell already carries, and one deliberately refused</h4>
+    <p><strong>Not repeated:</strong> the responsible play entry lives inside the money control in <span class="surf">0.1</span>, and the support route lives in <span class="surf">0.2</span> and <span class="surf">0.10</span>. Two entries into one destination is the defect <span class="surf">0.1</span> was written to prevent.</p>
+    <p><strong>Refused:</strong> no re-entry offer, no daily free case, no "open another". The reason is in the empty state below, where the temptation is strongest.</p>
+  </div>
+</section>
+
+<!-- CARD -->
+<section id="card">
+  <div class="sec-head">
+    <h2>The item card here, and the two figures it must never merge</h2>
+    <p><code>0.6</code> is one component with one field set and the context decides which fields render. The same rule <code>0.14</code> uses for its four variants, applied to the card.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - anatomy of a held item</div>
+    <div class="wf-anat">
+      <div class="wf-fig-col">
+        <div class="wf-item">
+          <div class="wf-thumb">item image</div>
+          <div class="wf-txt"><b>Weapon</b> | Skin name</div>
+          <div class="wf-chips"><span class="wf-chip-s">1 wear</span><span class="wf-chip-s">2 rarity</span><span class="wf-chip-s">3 StatTrak</span></div>
+          <div class="wf-two">
+            <div><div class="wf-two-h">4 Receipt as captured</div><div class="wf-two-v">000.00</div><div class="wf-asof">as of the open</div></div>
+            <div><div class="wf-two-h">5 Current value</div><div class="wf-two-v">000.00</div><div class="wf-asof">as of this read</div></div>
+          </div>
+          <div class="wf-link">6 Check this price on the venue</div>
+          <div class="wf-txt is-dim" style="margin-top:7px">7 Held with no time limit. <span style="color:var(--accent-yellow)">[?]</span></div>
+        </div>
+      </div>
+      <div class="wf-legend">
+        <div class="wf-leg"><span class="wf-leg-n">1</span><span class="wf-leg-t"><b>Wear grade.</b> A separate axis from rarity, walked live in the block bank</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">2</span><span class="wf-leg-t"><b>Rarity.</b> Seven tiers, the seventh conditional on the case</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">3</span><span class="wf-leg-t"><b>StatTrak.</b> The third axis. Three fields, not one</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">4</span><span class="wf-leg-t"><b>The receipt as captured, never overwritten.</b> Overwrite it and there is nothing left to check</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">5</span><span class="wf-leg-t"><b>Current value, its own as-of.</b> Show only the captured figure and a stale price is being printed as current</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">6</span><span class="wf-leg-t">The venue listing, <b>filtered to that float band</b>, so the person checks it rather than taking our word</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">7</span><span class="wf-leg-t">The holding statement. Present either way, value <span style="color:var(--accent-yellow)">[?]</span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card is-fix">
+    <h4>And no delta</h4>
+    <p>No arrow, no percentage, no up-or-down colour, no badge. Two dated figures let a reader do the subtraction. <strong>A rendered delta turns a held skin into a position and the page into a portfolio.</strong> In-platform exchange is LATER by scope, <code>0.11</code> rule 7 forbids a figure that becomes a score, and a gain indicator on an inventory is a reason to keep going, which is the defect the limits rule names for boundaries.</p>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>Two fields of <code>0.6</code> are deliberately not rendered here:</strong> drop chance and ticket range. Both are properties of a case, not of a held instance. <strong>The two venues on the receipt are <span class="q">[?]</span></strong> and that stays with <code>0.11</code>, which owns row <code>F1</code>.</p>
+  </div>
+</section>
+
+<!-- DEADLINE -->
+<section id="deadline">
+  <div class="sec-head">
+    <h2>The thirty day question</h2>
+    <p>The block bank opened Hellcase's public FAQ on 12 August 2026 and found a real product rule living in a document.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The rule, verbatim, from a page opened live</h4>
+    <p>"Your drop is waiting for up to 30 days. <strong>Full cost of the item will be returned to your balance if you don't withdraw it within 30 days.</strong>"</p>
+    <p>A deadline that converts an item into balance is the difference between holding a skin and holding a countdown, and <strong>the person meets it by having already missed it.</strong></p>
+  </div>
+
+  <p><strong>Whether we carry any such deadline is <span class="q">[?]</span> and it is a product decision, not a design one.</strong> What is decided here is the slot and its behaviour, because row <code>G5</code> requires a limit to be stated before it runs rather than discovered afterwards.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">Part of the slot</th><th>Rule</th><th style="width:18%">Value</th></tr></thead>
+      <tbody>
+        <tr><td>Does a deadline exist at all</td><td>Product decision</td><td><span class="q">[?]</span></td></tr>
+        <tr><td>Its length</td><td>Never invented</td><td><span class="q">[?]</span></td></tr>
+        <tr><td>What the item converts to</td><td>Hellcase converts to balance at full cost. Ours is not chosen</td><td><span class="q">[?]</span></td></tr>
+        <tr><td><strong>When the statement renders</strong></td><td><strong>From the moment the item exists</strong>, not when it is nearly expired. A statement that appears at day 27 is a warning, and <span class="row-code">G5</span> asks for a limit</td><td>Decided</td></tr>
+        <tr><td><strong>Where it renders</strong></td><td><strong>On the item</strong>, inside the <span class="surf">0.6</span> card, and repeated on the withdrawal record. Not in a policy page and not in an FAQ</td><td>Decided</td></tr>
+        <tr><td><strong>If the answer is no deadline</strong></td><td><strong>The slot still renders</strong>, saying the item is held with no time limit</td><td>Decided</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">The slot, both ways. One line either way</div>
+    <div class="wf-grid">
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">If there is no deadline</div>
+        <div class="wf-txt">Held with no time limit.</div>
+        <div class="wf-scope">Costs one line and removes the whole class of failure.</div>
+      </div>
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">If there is one</div>
+        <div class="wf-txt">Withdraw within <span style="color:var(--accent-yellow)">[?]</span> days. After that this item becomes <span style="color:var(--accent-yellow)">[?]</span>.</div>
+        <div class="wf-scope">Rendered <b>from day one</b>, not from the last day.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card is-good">
+    <p><strong>The last row is the one that matters.</strong> Hellcase's rule became a discovery because nothing on the item said anything at all, and <strong>silence about a deadline reads identically to there being none.</strong> A positive statement costs one line and settles it whichever way the decision goes.</p>
+    <p>If the answer is yes, an item inside its final stretch is a display variant of <span class="surf">0.6</span> and adding it is that component's to authorise. Recorded here as a requirement this node places on it.</p>
+  </div>
+</section>
+
+<!-- FACETS -->
+<section id="facets">
+  <div class="sec-head">
+    <h2>The facet question the sweep left open, answered</h2>
+    <p>The global sweep left exactly one instruction for this step, and it is answered rather than carried further.</p>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>The instruction:</strong> "Facet and filter system, 3.1 only. Not global. <strong>Revisit at step 6 if 5.1 acquires filters of its own:</strong> two listings sharing a facet set makes it canonical, one listing does not."</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Answered: 5.1 does not take the 3.1 facet set, so the facet system stays local to the catalogue</h4>
+    <p><strong>An inventory is bounded by what one person opened.</strong> The catalogue's filters exist because a shelf of hundreds cannot be read. A holding of a handful can.</p>
+    <p><strong>A filter on an inventory manufactures a second empty state with no parent.</strong> An empty filtered inventory would need removable chips to escape a problem the page does not have, and <span class="surf">5.2</span> is an empty with a completely different meaning: nothing held, route to the catalogue.</p>
+  </div>
+
+  <div class="card">
+    <h4>What is proposed instead, named out loud rather than added quietly</h4>
+    <p>A sort by value or by date acquired, parent Related Job 5, because a person opening this page to withdraw is looking for one item and value is how they name it. <strong>It is conditional and its trigger is <span class="q">[?]</span>:</strong> it ships when a typical holding does not fit one screen, and typical holding size is not a number anyone has. Until then the list is ordered most recent first, which is the order the person acquired them in and the only order this node can justify.</p>
+  </div>
+</section>
+
+<!-- EMPTY -->
+<section id="empty">
+  <div class="sec-head">
+    <h2>State 5.2, inventory empty</h2>
+    <p>No URL of its own: it renders at <code>/my-items</code>, because a person cannot arrive at it from outside. Transition: <span class="surf">3.1</span>.</p>
+  </div>
+
+  <p><strong>Two different people arrive here</strong> and the map names both: where every new account starts, and where a low-value first open leaves someone. <strong>The second one has already spent.</strong></p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">Element</th><th>Behaviour</th><th style="width:24%">Parent</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The money still renders</strong></td><td>Balance can be non-zero while items are zero. "You hold nothing" is false in that case, and the empty is <strong>of items only</strong></td><td>Row <span class="row-code">C1</span>. <code>0.11</code> rule 3</td></tr>
+        <tr><td>What would be here, said plainly</td><td>Items you open appear here with their value receipt. The page says what it is for rather than apologising</td><td>Row <span class="row-code">B7</span></td></tr>
+        <tr><td>One route, into <span class="surf">3.1</span></td><td>The catalogue. Not a blank page and not the home page</td><td>The map's own transition</td></tr>
+        <tr><td><strong>The withdrawal entry is absent, not disabled</strong></td><td>There is nothing to withdraw. A disabled control on an empty page is a promise of a wall</td><td>Design principle 3</td></tr>
+        <tr><td><strong>No offer, no free case, no nudge</strong></td><td>The refusal is the design. See below</td><td>The limits rule, and <span class="row-code">B7-3</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - the empty that is not blank</div>
+    <div class="wf-phone">
+      <div class="wf-band">
+        <div class="wf-band-h">the money still renders</div>
+        <div class="wf-money">
+          <div><div class="wf-fig-lbl">Balance</div><div class="wf-fig-val">000.00</div></div>
+          <div><div class="wf-fig-lbl">Value of items held</div><div class="wf-fig-val">0.00</div></div>
+        </div>
+      </div>
+      <div class="wf-band">
+        <div class="wf-band-h">what would be here</div>
+        <div class="wf-txt">Items you open appear here, each with its value receipt.</div>
+        <div class="wf-btn" style="margin-top:10px">Browse cases</div>
+      </div>
+      <div class="wf-band">
+        <div class="wf-band-h">what is not here</div>
+        <div class="wf-txt is-dim">No offer. No free case. No "open another". No disabled withdraw control.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The refusal is the design</h4>
+    <p>The obvious move on an empty inventory is a re-entry offer, and the daily free case <code>I2</code> and the starter credit <code>I1</code> are both sitting in the backlog waiting to be placed. <strong>They are not placed here.</strong></p>
+    <p><strong>The person arriving after a low-value first open is at the emotional floor of the whole map.</strong> Barrier <code>B7-3</code> records the one voice in the corpus that criticises the consolation frame itself: "it just gives incentive to people in spending more and fools them into thinking that the end result isn't that bad". <strong>An empty inventory answered with an offer to open again is that pattern with a different label.</strong></p>
+    <p><strong>Free entry already has its homes</strong>, on <span class="surf">1.0</span> as an offer and in <span class="surf">3.1</span> as an available case. A third one invented here would be a page specification placing a capability the map already placed. And <code>I2</code> is <strong>the only row on the whole backlog with no parent in the three legal classes</strong>, which makes it the last capability that should be given a new site by a node.</p>
+    <p><strong>The route to the catalogue is the offer.</strong></p>
+  </div>
+</section>
+
+<!-- SEO -->
+<section id="seo">
+  <div class="sec-head">
+    <h2>SEO, inherited and reduced</h2>
+    <p><code>5.1</code> is <strong>noindex with no schema</strong> and that was decided in <code>0.13</code>. This section inherits it and records only what still binds.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:14%">Layer</th><th>What it holds here</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A. Meta</strong></td><td><code>title</code>: My items. <code>robots</code>: <code>noindex</code>. <code>canonical</code>: self. <code>description</code>: none, it has no reader. <strong>No hreflang anywhere</strong>, one language, locked. <strong>No OG image and no Twitter card:</strong> <code>0.13</code> makes the unfurl the product for <span class="surf">7.1</span> because a result is meant to travel, and the inverse holds exactly as hard here. A pasted <code>/my-items</code> link must never unfurl a person's holdings into a chat</td></tr>
+        <tr><td><strong>B. Headings</strong></td><td>One H1, My items. H2 in block order: the money, withdraw, items held. <strong>The single H1 rule is structural, not an SEO rule</strong>, so it binds on an unindexed page too</td></tr>
+        <tr><td><strong>C. SEO text</strong></td><td>None. There is no query behind a private page, and a keyword paragraph on an inventory is a block with no reader and no parent</td></tr>
+        <tr><td><strong>D. Schema</strong></td><td>None. <code>0.13</code> assigns schema by page type and assigns this one nothing</td></tr>
+        <tr><td><strong>E. Checklist</strong></td><td><strong>A to D collapse on an unindexed page and E does not:</strong> crawlable <code>&lt;a&gt;</code> for real routes, <strong>text never in images</strong> per <code>0.11</code> rule 8 so the receipt can be copied into a complaint, LCP and Core Web Vitals under design principle 5, and one H1. <strong>An unindexed page is not an unbuilt page</strong>, and this row exists so stage 04 does not read noindex as permission to skip the structure</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+    <p>Seven open items, and two of them are bigger than this page.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">Open item</th><th style="width:50%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The holding deadline</strong></td><td>Whether any deadline exists, how long, and what the item converts to. The slot is specified and the value is <span class="q">[?]</span> in three places</td><td>Founder, product decision</td></tr>
+        <tr><td>The two venues on the receipt</td><td>Row <span class="row-code">F1</span> says two named venues and no file names them. Carried from <code>0.11</code> rather than re-opened</td><td>Founder, before stage 04</td></tr>
+        <tr><td>The sort threshold</td><td>Sort is conditional on a typical holding not fitting one screen, and typical holding size is <span class="q">[?]</span></td><td>Founder, question of fact to the live platform</td></tr>
+        <tr><td><strong>A route from a held item back to its round</strong></td><td>The proof of the open lives on <span class="surf">7.1</span> and <span class="surf">1.2</span>. The map gives <span class="surf">5.1</span> two transitions and <code>0.14</code> fixes four rendering sites, of which this is not one. <strong>The route is plausible and it is not drawn</strong>, because adding it changes two files this node may not edit</td><td><code>sitemap.md</code> and <code>0.14</code>, one row each if approved</td></tr>
+        <tr><td><strong>Whether a balance can leave the platform at all</strong></td><td><span class="row-code">G6</span> is commission-free withdrawal of an <strong>item</strong> to Steam. Nothing in the backlog or the map withdraws a balance. It matters more on <span class="surf">5.6</span>, where <span class="row-code">G4</span> freezes a balance rather than zeroing it: <strong>a balance that can never leave is a weaker promise than "frozen, not zeroed" reads as</strong></td><td>Founder</td></tr>
+        <tr><td>The identity hole on the free-entry path</td><td><code>flows.md</code> records it in full: <span class="row-code">B1</span> gates funding, <span class="row-code">B2</span> forbids the check at the exit, and a person who never funds meets neither. The proposed shape raises it at the outcome, with the item in hand. <strong>Proposed and not drawn</strong></td><td>Counsel, under <code>D-A</code></td></tr>
+        <tr><td>Card states for a deadline</td><td>If a deadline exists, an item inside its final stretch is a display variant of <span class="surf">0.6</span></td><td>Node <span class="surf">0.6</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>The words on every control.</strong> Stage 05, which owns microcopy and syncs it back.</p>
+    <p><strong>How the card looks, how rarity is coloured.</strong> Stages 06 and 07. The ladder itself is already walked in the block bank, section 10.</p>
+    <p><strong>What the receipt is.</strong> Row <code>F1</code> and <code>0.11</code>.</p>
+    <p><strong>Where the withdrawal states are named.</strong> Node <span class="surf">5.3</span>.</p>
+  </div>
+
+  <a class="backlink" href="structure.html#5.1">Back to Structure (5.1)</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/account.md</code>. Node data: <code>ia/docs/sitemap.md</code>, cluster 5. Parents: <code>research/docs/cjm-to-be.md</code> rows <code>B7</code>, <code>F2</code>, <code>G5</code>. Composition: <code>ia/docs/blocks.md</code>, type T2 and type T4.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map: <a href="sitemap.html">Sitemap</a>. The routes: <a href="flows.html">Flows</a>. Next in this cluster: <a href="withdrawal.html">5.3 Withdrawal</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '5.1 Account and inventory';
+window.NAV_SECTIONS = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'spine',    label: 'The sentence' },
+  { id: 'blocks',   label: 'Seven blocks' },
+  { id: 'card',     label: 'The item card' },
+  { id: 'deadline', label: 'The thirty day question' },
+  { id: 'facets',   label: 'The facet question' },
+  { id: 'empty',    label: '5.2 Inventory empty' },
+  { id: 'seo',      label: 'SEO' },
+  { id: 'open',     label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 0.6 Canonical skin item card</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+    td.on { color: var(--text-primary); font-weight: 700; text-align: center; }
+    td.off { color: var(--text-muted); text-align: center; }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 14px; }
+
+    .wf-fig { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-fig-state { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); border-bottom: 1px dashed var(--wf-line-soft); padding-bottom: 7px; margin-bottom: 10px; }
+    .wf-val { font-family: 'SF Mono', Menlo, monospace; font-size: 21px; font-weight: 700; color: var(--wf-ink); letter-spacing: -0.01em; line-height: 1.2; }
+    .wf-val.is-off { font-size: 13px; color: var(--wf-ink-dim); }
+    .wf-unit { font-size: 11px; color: var(--wf-ink); margin-top: 3px; }
+    .wf-asof { font-family: 'SF Mono', Menlo, monospace; font-size: 9.5px; color: var(--wf-ink-dim); margin-top: 6px; letter-spacing: 0.02em; }
+    .wf-route { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; }
+    .wf-note { font-size: 10px; color: var(--wf-ink-dim); margin-top: 8px; line-height: 1.5; }
+    .wf-fork { border-top: 1px dashed var(--wf-line-soft); margin-top: 9px; padding-top: 8px; }
+
+    .wf-anat { display: flex; gap: 0; align-items: stretch; flex-wrap: wrap; }
+    .wf-anat .wf-card { flex: 0 0 268px; }
+    .wf-legend { flex: 1 1 260px; padding-left: 26px; display: flex; flex-direction: column; justify-content: center; gap: 9px; }
+    .wf-leg { display: flex; gap: 10px; align-items: baseline; }
+    .wf-leg-n { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; font-weight: 700; color: var(--wf-ink-dim); border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 1px 5px; flex: 0 0 auto; }
+    .wf-leg-t { font-size: 11.5px; color: var(--wf-ink-dim); line-height: 1.5; }
+    .wf-leg-t b { color: var(--wf-ink); font-weight: 700; }
+
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+
+    /* THE CARD ITSELF */
+    .wf-card { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 12px 13px; }
+    .wf-card-lbl { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 9px; padding-bottom: 7px; border-bottom: 1px dashed var(--wf-line-soft); }
+    .wf-rar { height: 4px; border-radius: 2px; background: repeating-linear-gradient(90deg, var(--wf-line) 0 7px, transparent 7px 11px); margin-bottom: 10px; }
+    .wf-img { height: 62px; border: 1px dashed var(--wf-line-soft); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 10px; }
+    .wf-wpn { font-size: 10px; color: var(--wf-ink-dim); letter-spacing: 0.05em; text-transform: uppercase; }
+    .wf-skn { font-size: 14px; font-weight: 700; color: var(--wf-ink); line-height: 1.25; margin-bottom: 7px; }
+    .wf-tags { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 9px; }
+    .wf-tag { font-size: 8.5px; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 2px 5px; color: var(--wf-ink-dim); }
+    .wf-tag.is-on { color: var(--wf-ink); border-color: var(--wf-line); }
+    .wf-kv { display: flex; gap: 9px; margin-bottom: 6px; align-items: baseline; }
+    .wf-k { flex: 0 0 74px; font-family: 'SF Mono', Menlo, monospace; font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-v { font-family: 'SF Mono', Menlo, monospace; font-size: 10.5px; color: var(--wf-ink); word-break: break-word; }
+    .wf-v.is-dim { color: var(--wf-ink-dim); font-style: italic; font-family: inherit; }
+    .wf-scope { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; border-top: 1px dashed var(--wf-line-soft); margin-top: 10px; padding-top: 9px; }
+    .wf-scope b { color: var(--wf-ink); font-weight: 700; }
+    .wf-link { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; }
+    .wf-row { display: flex; gap: 10px; align-items: flex-start; border: 1px solid var(--wf-line-soft); border-radius: 4px; padding: 9px 10px; margin-bottom: 7px; }
+    .wf-row .wf-thumb { flex: 0 0 40px; height: 34px; border: 1px dashed var(--wf-line-soft); border-radius: 3px; }
+    .wf-row-body { flex: 1 1 auto; min-width: 0; }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid { grid-template-columns: 1fr; }
+      .wf-legend { padding-left: 0; padding-top: 18px; }
+      .wf-anat .wf-card { flex: 1 1 100%; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 0.6</div>
+  <h1>Canonical skin item card</h1>
+  <p class="lede">One rendering of one thing, the skin, at five sites, so that the item a person compares, wins, holds and takes out is recognisably the same object every time and <strong>never gains or loses a field on the way</strong>. Design principle 3 is what makes it canonical rather than five implementations: a field that appears on one surface and quietly leaves on another is a field that hides.</p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">15</div><div class="hero-stat-label">Fields, one set</div></div>
+    <div><div class="hero-stat-value">5</div><div class="hero-stat-label">Densities, five nodes</div></div>
+    <div><div class="hero-stat-value">8</div><div class="hero-stat-label">States, all inherited</div></div>
+    <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Axes, never one chip</div></div>
+    <div><div class="hero-stat-value">7</div><div class="hero-stat-label">Rarity tiers, one conditional</div></div>
+  </div>
+</div>
+
+<!-- OBJECTS -->
+<section id="objects">
+  <div class="sec-head">
+    <h2>Three objects, one card, and this is the thing to settle first</h2>
+    <p>The entity inventory holds three separate objects and this one card renders all three.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Where</th><th>Object it renders</th><th>What that object is</th></tr></thead>
+      <tbody>
+        <tr><td><span class="surf">3.3</span> phase 1</td><td><strong>Drop table entry</strong></td><td>This skin, at this chance, at this value, with this many free units, in this ticket range</td></tr>
+        <tr><td><span class="surf">3.3</span> phase 3, <span class="surf">5.1</span>, <span class="surf">5.3</span>, <span class="surf">7.1</span></td><td><strong>Skin instance</strong></td><td>The specific unit somebody owns, carrying the receipt that says what it was worth when it was won</td></tr>
+        <tr><td><span class="surf">3.1</span>, and inside both of the above</td><td><strong>Skin</strong></td><td>The item type as the market knows it: weapon, finish, wear, rarity</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>A card that changed shape between the three would be three components with one name</h4>
+    <p>The rule this node exists to hold is the rule <code>0.14</code> holds for the proof: <strong>one field set, several densities. No site adds a field the others do not have, names a field differently, or orders them differently.</strong></p>
+    <p><strong>Why that rule is not cosmetic here.</strong> <code>B7-1</code> is the gap between what a win appears to be worth and what it is worth, pattern of 7. It is a barrier about a number changing between two screens. <strong>A component whose fields change between two screens is the same defect one level down.</strong></p>
+  </div>
+</section>
+
+<!-- FIELDS -->
+<section id="fields">
+  <div class="sec-head">
+    <h2>The field set</h2>
+    <p>Fifteen fields. Fourteen ship and one is carried with its orphan status printed, which is the treatment the rules require rather than a quiet deletion.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Field</th><th>Object</th><th>Parent</th><th>Class</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Image</strong></td><td>Skin</td><td>Main Job, a rare skin I actually want</td><td>job</td></tr>
+        <tr><td>2</td><td><strong>Weapon name</strong></td><td>Skin</td><td>Main Job</td><td>job</td></tr>
+        <tr><td>3</td><td><strong>Skin name</strong></td><td>Skin</td><td>Main Job</td><td>job</td></tr>
+        <tr><td>4</td><td><strong>Wear grade</strong></td><td>Skin</td><td>Row <span class="row-code">F1</span> on <span class="row-code">B7-1</span>. Wear is most of what a unit is worth, so a value with no wear beside it is a value with no subject</td><td>barrier</td></tr>
+        <tr><td>5</td><td><strong>StatTrak flag</strong></td><td>Skin</td><td>Row <span class="row-code">F1</span>, <span class="row-code">B7-1</span>. A separate axis by the block bank, section 10</td><td>barrier</td></tr>
+        <tr><td>6</td><td><strong>Rarity treatment</strong></td><td>Skin</td><td>Row <span class="row-code">E3</span>, which stands on the Main Job and Emotional Job 2</td><td>job</td></tr>
+        <tr><td>7</td><td><strong>Published drop chance</strong></td><td>Drop table entry</td><td>Row <span class="row-code">D2</span> on <span class="row-code">B7-2</span>, the belief that the numbers shown are not the numbers used</td><td>barrier</td></tr>
+        <tr><td>8</td><td><strong>Current value</strong></td><td>Drop table entry</td><td>Row <span class="row-code">D2</span>, same parent. Paired with field 7 by rule 2</td><td>barrier</td></tr>
+        <tr><td>9</td><td><strong>Ticket range</strong></td><td>Drop table entry</td><td>Rows <span class="row-code">E4</span> and <span class="row-code">F3</span> on Related Job 3. The proof resolves against something, and <code>0.14</code> lists it as a proof field</td><td>job</td></tr>
+        <tr><td>10</td><td><strong>Live free-unit count</strong></td><td>Drop table entry</td><td>Row <span class="row-code">A2</span> on <span class="row-code">B8-1</span>, the stock question</td><td>barrier</td></tr>
+        <tr><td>11</td><td><strong>Observed rate</strong></td><td>Read from <code>0.11</code></td><td>Row <span class="row-code">D3</span> on <span class="row-code">B7-2</span> and <span class="row-code">B6-2</span>. <strong>Conditional on <code>D-B</code></strong></td><td>barrier</td></tr>
+        <tr><td>12</td><td><strong>Market price, as-of, outbound link</strong></td><td>Skin</td><td>Row <span class="row-code">A1</span> on <span class="row-code">B1-2</span> and <span class="row-code">B2-1</span>. <code>A1</code> puts it <strong>on the top item</strong>, and that wording is carried rather than generalised</td><td>barrier</td></tr>
+        <tr><td>13</td><td><strong>Instance value receipt</strong></td><td>Skin instance</td><td>Rows <span class="row-code">F1</span> and <span class="row-code">F2</span> on <span class="row-code">B7-1</span>. What this unit was worth when it was won, with that moment attached</td><td>barrier</td></tr>
+        <tr><td>14</td><td><strong>Instance state</strong>, held, withdrawing, withdrawn</td><td>Skin instance</td><td>Row <span class="row-code">G1</span>, named states, on <span class="row-code">B8-2</span></td><td>barrier</td></tr>
+        <tr><td>15</td><td><strong>Float and pattern</strong></td><td>Skin instance</td><td><strong>None. <span class="q">[ORPHAN]</span></strong></td><td>none</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - anatomy of the fullest density. Black and white until stage 06</div>
+    <div class="wf-anat">
+      <div class="wf-card">
+        <div class="wf-rar"></div>
+        <div class="wf-img">item image</div>
+        <div class="wf-wpn">AK-47</div>
+        <div class="wf-skn">Redline</div>
+        <div class="wf-tags"><span class="wf-tag is-on">Field-Tested</span><span class="wf-tag">StatTrak</span><span class="wf-tag">Classified</span></div>
+        <div class="wf-kv"><span class="wf-k">Chance</span><span class="wf-v">3.180 %</span></div>
+        <div class="wf-kv"><span class="wf-k">Observed</span><span class="wf-v">3.04 % over N</span></div>
+        <div class="wf-kv"><span class="wf-k">Value</span><span class="wf-v">value, currency</span></div>
+        <div class="wf-kv"><span class="wf-k">Tickets</span><span class="wf-v">7 300 - 7 420</span></div>
+        <div class="wf-kv"><span class="wf-k">In stock</span><span class="wf-v">4 free units</span></div>
+        <div class="wf-scope">Market price with its as-of and an outbound link, <b>on the top item only</b>.</div>
+      </div>
+      <div class="wf-legend">
+        <div class="wf-leg"><span class="wf-leg-n">6</span><span class="wf-leg-t"><b>Rarity slot, seven values.</b> Never colour alone. The tier has a name and the name is in the card or in its accessible name</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">2 3</span><span class="wf-leg-t"><b>Weapon and skin are two fields</b>, never one string. One is scanned for, the other is wanted</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">4 5</span><span class="wf-leg-t"><b>Wear and StatTrak are the other two axes.</b> They are what move the value, and they are what a single badge loses</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">7 8</span><span class="wf-leg-t"><b>Chance and value never travel alone.</b> No competitor in the bank puts both on one item</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">11</span><span class="wf-leg-t"><b>Observed rate, conditional on <code>D-B</code>.</b> Below the sample floor it prints N and no percentage</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">10</span><span class="wf-leg-t"><b>Free units, live.</b> The only place a person meets the <code>D1</code> architecture</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>Field 15 is carried and not shipped.</strong> The entity inventory already marks float and pattern specifics <span class="q">[?]</span> and says no job in the current list requires them. They are the most requested thing in the category that our own map has no parent for, <strong>so the row exists here with an empty parent cell</strong> rather than being discovered later as an omission.</p>
+    <p><strong>Field 11 is conditional and stays conditional.</strong> <code>D3</code> does not do its job until N is large enough, and <code>0.11</code> rule 4 says that below the sample floor the counter prints N and no percentage. The card reserves the slot; the register owns the behaviour.</p>
+  </div>
+</section>
+
+<!-- AXES -->
+<section id="axes">
+  <div class="sec-head">
+    <h2>Three axes, and the block bank settled it</h2>
+    <p>Walked live on 12 August 2026 on two Hellcase case pages by reading the computed background colour of every rarity chip.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Observed value</th><th>Chips counted on the two pages</th></tr></thead>
+      <tbody>
+        <tr><td><code>#b0c3d9</code></td><td>2</td></tr>
+        <tr><td><code>#5e98d9</code></td><td>5</td></tr>
+        <tr><td><code>#4b69ff</code></td><td>20 and 17</td></tr>
+        <tr><td><code>#8847ff</code></td><td>5 and 4</td></tr>
+        <tr><td><code>#d32ce6</code></td><td>16 and 3</td></tr>
+        <tr><td><code>#eb4b4b</code></td><td>10 and 11</td></tr>
+        <tr><td><code>#f7b62d</code></td><td>16, <strong>only on the case that contains knives and gloves</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>One claim is deliberately not made, and it is the mark this node inherits</h4>
+    <p>Six of the seven look like the CS2 client's own rarity palette, which would mean the ladder belongs to the game rather than to any platform, and that we may not restyle it freely because a player already reads it without a legend. <strong>That reading is model memory and is <span class="q">[?]</span></strong> until a Valve or Steam page is opened and the values are compared. The check is one page. It is not this node's to run and it is not stage 06's to skip.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>And the three axes are three</h4>
+    <p>The bank records wear printed as Factory New, Minimal Wear, Field-Tested and Battle-Scarred on skin.club and as FN, MW, FT and BS on Hellcase, with StatTrak as a further flag on top of both. Rarity, wear and StatTrak vary independently, so they are fields 4, 5 and 6 and not one badge. <strong>Collapsing them loses the two that move the value</strong>, which is exactly the money <code>F1</code> exists to be honest about.</p>
+  </div>
+</section>
+
+<!-- DENSITIES -->
+<section id="densities">
+  <div class="sec-head">
+    <h2>Five densities, one field set</h2>
+    <p><code>x</code> means the field renders. <code>p1</code> and <code>p3</code> are the two phases of 3.3, which is one page.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Field</th><th>3.1</th><th>3.3</th><th>5.1</th><th>5.3</th><th>7.1</th></tr></thead>
+      <tbody>
+        <tr><td>Image</td><td class="on">x</td><td class="on">x</td><td class="on">x</td><td class="on">x</td><td class="on">x</td></tr>
+        <tr><td>Weapon name</td><td class="on">x</td><td class="on">x</td><td class="on">x</td><td class="on">x</td><td class="on">x</td></tr>
+        <tr><td>Skin name</td><td class="on">x</td><td class="on">x</td><td class="on">x</td><td class="on">x</td><td class="on">x</td></tr>
+        <tr><td>Wear grade</td><td class="on">x</td><td class="on">x</td><td class="on">x</td><td class="on">x</td><td class="on">x</td></tr>
+        <tr><td>StatTrak flag</td><td class="on">x</td><td class="on">x</td><td class="on">x</td><td class="on">x</td><td class="on">x</td></tr>
+        <tr><td>Rarity treatment</td><td class="on">x</td><td class="on">x</td><td class="on">x</td><td class="on">x</td><td class="on">x</td></tr>
+        <tr><td>Published drop chance</td><td class="off">-</td><td class="on">p1</td><td class="off">-</td><td class="off">-</td><td class="on">x</td></tr>
+        <tr><td>Current value</td><td class="off">-</td><td class="on">p1</td><td class="off">-</td><td class="off">-</td><td class="off">-</td></tr>
+        <tr><td>Ticket range</td><td class="off">-</td><td class="on">p1</td><td class="off">-</td><td class="off">-</td><td class="on">x</td></tr>
+        <tr><td>Live free-unit count</td><td class="on">x</td><td class="on">p1</td><td class="off">-</td><td class="off">-</td><td class="off">-</td></tr>
+        <tr><td>Observed rate</td><td class="off">-</td><td class="on">p1</td><td class="off">-</td><td class="off">-</td><td class="off">-</td></tr>
+        <tr><td>Market price with as-of and link</td><td class="off">-</td><td class="on">p1</td><td class="off">-</td><td class="off">-</td><td class="off">-</td></tr>
+        <tr><td>Instance value receipt</td><td class="off">-</td><td class="on">p3</td><td class="on">x</td><td class="on">x</td><td class="on">x</td></tr>
+        <tr><td>Instance state</td><td class="off">-</td><td class="off">-</td><td class="on">x</td><td class="on">x</td><td class="off">-</td></tr>
+        <tr><td>Float and pattern</td><td class="off">-</td><td class="off">-</td><td class="off">-</td><td class="off">-</td><td class="off">-</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - the five densities</div>
+    <div class="wf-grid">
+
+      <div class="wf-card">
+        <div class="wf-card-lbl">V1 - preview, on 3.1</div>
+        <div class="wf-rar"></div>
+        <div class="wf-img">item image</div>
+        <div class="wf-wpn">AWP</div>
+        <div class="wf-skn">Asiimov</div>
+        <div class="wf-tags"><span class="wf-tag is-on">Field-Tested</span><span class="wf-tag">Covert</span></div>
+        <div class="wf-kv"><span class="wf-k">In stock</span><span class="wf-v">2 free units</span></div>
+        <div class="wf-scope"><b>Identification only.</b> No chance and no value: 3.1 does not show an entry cost beside each item, and a chance without its cost is not a decision.</div>
+      </div>
+
+      <div class="wf-card">
+        <div class="wf-card-lbl">V2 - drop table row, on 3.3 phase 1</div>
+        <div class="wf-rar"></div>
+        <div class="wf-img">item image</div>
+        <div class="wf-wpn">AK-47</div>
+        <div class="wf-skn">Redline</div>
+        <div class="wf-tags"><span class="wf-tag is-on">Field-Tested</span><span class="wf-tag">Classified</span></div>
+        <div class="wf-kv"><span class="wf-k">Chance</span><span class="wf-v">3.180 %</span></div>
+        <div class="wf-kv"><span class="wf-k">Value</span><span class="wf-v">value, currency</span></div>
+        <div class="wf-kv"><span class="wf-k">Tickets</span><span class="wf-v">7 300 - 7 420</span></div>
+        <div class="wf-scope"><b>Must not hide the chance behind a control.</b> skin.club puts its odds behind a door, and this is the one place where the number a person came for has to be on the surface.</div>
+      </div>
+
+      <div class="wf-card">
+        <div class="wf-card-lbl">V2 again - the won item, 3.3 phase 3</div>
+        <div class="wf-rar"></div>
+        <div class="wf-img">item image</div>
+        <div class="wf-wpn">AK-47</div>
+        <div class="wf-skn">Redline</div>
+        <div class="wf-tags"><span class="wf-tag is-on">Field-Tested</span><span class="wf-tag">Classified</span></div>
+        <div class="wf-kv"><span class="wf-k">Receipt</span><span class="wf-v">worth at the moment won</span></div>
+        <div class="wf-kv"><span class="wf-k">As of</span><span class="wf-v">the moment of the win</span></div>
+        <div class="wf-link">Check this round</div>
+        <div class="wf-scope">The chance, the value and the market price leave: the decision is over. <b>No sell, no repeat, no upgrade, and no key bound to any of them.</b></div>
+      </div>
+
+      <div class="wf-card">
+        <div class="wf-card-lbl">V3 - inventory item, on 5.1</div>
+        <div class="wf-rar"></div>
+        <div class="wf-img">item image</div>
+        <div class="wf-wpn">AK-47</div>
+        <div class="wf-skn">Redline</div>
+        <div class="wf-tags"><span class="wf-tag is-on">Field-Tested</span><span class="wf-tag is-on">Held</span></div>
+        <div class="wf-kv"><span class="wf-k">Receipt</span><span class="wf-v">worth at the moment won</span></div>
+        <div class="wf-kv"><span class="wf-k">From</span><span class="wf-v">the open it came from</span></div>
+        <div class="wf-link">Withdraw</div>
+        <div class="wf-scope">Where <code>F2</code> proves itself: <b>the same receipt is retrievable a week later.</b></div>
+      </div>
+
+      <div class="wf-card">
+        <div class="wf-card-lbl">V4 - withdrawal line, on 5.3</div>
+        <div class="wf-rar"></div>
+        <div class="wf-img">item image</div>
+        <div class="wf-wpn">AK-47</div>
+        <div class="wf-skn">Redline</div>
+        <div class="wf-tags"><span class="wf-tag is-on">Field-Tested</span><span class="wf-tag is-on">Withdrawing</span></div>
+        <div class="wf-kv"><span class="wf-k">Receipt</span><span class="wf-v">worth at the moment won</span></div>
+        <div class="wf-scope">The card holds the instance state. <b>The page holds the clock</b>: the per-state timer and its attribution belong to the withdrawal, not to the item.</div>
+      </div>
+
+      <div class="wf-card">
+        <div class="wf-card-lbl">V5 - public item, on 7.1</div>
+        <div class="wf-rar"></div>
+        <div class="wf-img">item image</div>
+        <div class="wf-wpn">AK-47</div>
+        <div class="wf-skn">Redline</div>
+        <div class="wf-tags"><span class="wf-tag is-on">Field-Tested</span><span class="wf-tag">Classified</span></div>
+        <div class="wf-kv"><span class="wf-k">Receipt</span><span class="wf-v">worth at the moment won</span></div>
+        <div class="wf-kv"><span class="wf-k">Chance</span><span class="wf-v">3.180 %</span></div>
+        <div class="wf-kv"><span class="wf-k">Tickets</span><span class="wf-v">7 300 - 7 420</span></div>
+        <div class="wf-scope"><b>No account required and no route into another case.</b> A shared result that recommends another case is an advertisement wearing a receipt.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STATES -->
+<section id="states">
+  <div class="sec-head">
+    <h2>Eight states, and every site inherits all eight</h2>
+    <p>One of them is the only place in the product where a person ever sees the <code>D1</code> architecture working.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>State</th><th>What the card shows</th><th>Route out</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Available</strong></td><td>The density's full field set</td><td>Its own destination</td></tr>
+        <tr><td><strong>Zero free units</strong>, node <span class="surf">3.4</span></td><td>The card <strong>stays visible and is marked</strong>, never filtered out. <code>D1</code> makes the roll unable to select it, so the state is a fact about the shelf rather than a warning about a risk</td><td>Back into the rest of the table. <strong>Shown before the open and never after</strong></td></tr>
+        <tr><td><strong>Value unavailable</strong></td><td>An explicit "not available" and what would produce it. <strong>Never a zero, never a dash.</strong> <code>0.11</code> rule 3: a dash that reads as zero and a zero that means we do not know are the same lie in two typefaces</td><td>The route that would produce the figure</td></tr>
+        <tr><td><strong>Value stale</strong></td><td>The value with its real as-of, marked as older than its refresh promise. Value is a per-read figure, so its as-of is not optional</td><td>Refresh, and the market link on the top item where <code>A1</code> applies</td></tr>
+        <tr><td><strong>Observed rate below the sample floor</strong></td><td>N and the published chance. <strong>No observed percentage</strong>, <code>0.11</code> rule 4</td><td>The explanation on <span class="surf">1.2</span></td></tr>
+        <tr><td><strong>Won, receipt minted</strong></td><td>The item plus <code>F1</code>, its value and its moment. The chance and the market price are gone: they were inputs to a decision that has been taken</td><td><span class="surf">5.1</span>, <span class="surf">7.1</span>, and the proof through <code>0.14</code></td></tr>
+        <tr><td><strong>Withdrawing or withdrawn</strong></td><td>The instance state, and the receipt still attached. <strong>A withdrawn item does not lose its receipt</strong>, which is the whole of <code>F2</code></td><td><span class="surf">5.3</span></td></tr>
+        <tr><td><strong>Image unavailable</strong></td><td>Every load-bearing field is text and the card is still complete: weapon, skin, wear, rarity in words, value. <code>0.11</code> rule 8 is the reason the identity was never in the picture</td><td>None needed. The card is not broken, it is plainer</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - the two states that earn the node</div>
+    <div class="wf-grid">
+      <div class="wf-card">
+        <div class="wf-card-lbl">Zero free units, node 3.4</div>
+        <div class="wf-rar"></div>
+        <div class="wf-img">item image</div>
+        <div class="wf-wpn">M4A4</div>
+        <div class="wf-skn">Howl</div>
+        <div class="wf-tags"><span class="wf-tag is-on">Minimal Wear</span><span class="wf-tag is-on">Out of stock</span></div>
+        <div class="wf-kv"><span class="wf-k">Chance</span><span class="wf-v">0.207 %</span></div>
+        <div class="wf-kv"><span class="wf-k">In stock</span><span class="wf-v">0 free units</span></div>
+        <div class="wf-scope"><b>The roll cannot select this item.</b> It stays on the shelf and says so, rather than disappearing and leaving a shelf that looks full.</div>
+      </div>
+      <div class="wf-card">
+        <div class="wf-card-lbl">Value unavailable</div>
+        <div class="wf-rar"></div>
+        <div class="wf-img">item image</div>
+        <div class="wf-wpn">AWP</div>
+        <div class="wf-skn">Asiimov</div>
+        <div class="wf-tags"><span class="wf-tag is-on">Field-Tested</span><span class="wf-tag">Covert</span></div>
+        <div class="wf-kv"><span class="wf-k">Chance</span><span class="wf-v">1.480 %</span></div>
+        <div class="wf-kv"><span class="wf-k">Value</span><span class="wf-v is-dim">not available</span></div>
+        <div class="wf-scope"><b>Never a zero and never a dash.</b> The block says what is missing and points at what would produce it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RULES -->
+<section id="rules">
+  <div class="sec-head">
+    <h2>Five rules that are not styling</h2>
+  </div>
+
+  <div class="card is-good">
+    <h4>1. Three axes, never one chip</h4>
+    <p>Rarity, wear and StatTrak vary independently. A single "covert" badge tells a person nothing about whether this unit is Factory New or Battle-Scarred, and <strong>those are different amounts of money.</strong> <code>F1</code> exists because they are.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>2. A chance and a value never travel alone</h4>
+    <p>The bank records the finding plainly: <strong>neither Hellcase nor skin.club shows chance and current value on the same item.</strong> Hellcase gives the chance in the table and the value only in a "last 7 days top drop" strip; skin.club gives the value in "last top skins" and hides the odds behind a control. <code>D2</code> requires both, on the card, at the same moment.</p>
+    <p><strong>A chance without a value is a lottery ticket with no prize printed on it. A value without a chance is a shop window.</strong> Where one of the two is missing, the state is "value unavailable" and the card says so, rather than the pair silently becoming a single number.</p>
+  </div>
+
+  <div class="card">
+    <h4>3. The rarity slot has seven values and no colour decision</h4>
+    <p>Seven tiers are established. The treatment is stage 06's, and it is constrained by a <span class="q">[?]</span> stage 06 has to close first: whether this ladder is the game's rather than any platform's.</p>
+    <p><strong>And rarity is never carried by colour alone, in any density.</strong> Seven hues with no text is a ladder only a player who already knows it can read, and it disappears entirely for anyone who cannot separate the hues. The rarity has a name, and the name is in the card or in its accessible name.</p>
+  </div>
+
+  <div class="card">
+    <h4>4. The card renders, it never computes</h4>
+    <p>Same rule as <code>0.14</code> rule 2, for the same reason. The chance is published configuration, the value is fetched, the receipt is a settled fact, the ticket range comes with the entry. <strong>No field on this card is derived in the browser.</strong> <code>E1</code> makes divergence between what is animated and what is credited impossible by construction, and a card that recomputes a value reintroduces that class of divergence one screen later.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>5. No sell, no repeat, no upgrade, and no key bound to any of them</h4>
+    <p>The bank calls Hellcase's keyboard row the single most telling block it collected: <strong>GET on ENTER, QUICK STOP on SPACE, SELL on S, REPEAT on R.</strong> One key liquidates what you won and one key spends again.</p>
+    <p>None of the three is a capability in round 1. There is no sell row, no repeat row and no upgrade row in the MVP backlog, and upgrades are <code>LATER</code> on Related Job 4. <strong>If one arrives it arrives with a parent and with a confirmation, not with a keystroke.</strong> The rule sits on the card rather than on 3.6 because the card is where such a control would naturally be added by somebody who had not read this.</p>
+  </div>
+</section>
+
+<!-- LAYOUT -->
+<section id="layout">
+  <div class="sec-head">
+    <h2>The three-part name, and it is a real layout problem at 360px</h2>
+    <p>A skin's identity is three fields and sometimes four. Beside it sit a value, a chance and a ticket range. At 360px that is a paragraph pretending to be a label.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - the drop table reads as rows, never as a two-across grid</div>
+    <div class="wf-phone">
+      <div class="wf-row">
+        <div class="wf-thumb"></div>
+        <div class="wf-row-body">
+          <div class="wf-wpn">AK-47</div>
+          <div class="wf-skn" style="font-size:12.5px;margin-bottom:5px">Redline</div>
+          <div class="wf-tags" style="margin-bottom:6px"><span class="wf-tag is-on">FT</span><span class="wf-tag">Classified</span></div>
+          <div class="wf-kv"><span class="wf-k" style="flex:0 0 56px">Chance</span><span class="wf-v">3.180 %</span></div>
+          <div class="wf-kv"><span class="wf-k" style="flex:0 0 56px">Value</span><span class="wf-v">value, currency</span></div>
+          <div class="wf-kv"><span class="wf-k" style="flex:0 0 56px">Tickets</span><span class="wf-v">7 300 - 7 420</span></div>
+        </div>
+      </div>
+      <div class="wf-row">
+        <div class="wf-thumb"></div>
+        <div class="wf-row-body">
+          <div class="wf-wpn">M4A4</div>
+          <div class="wf-skn" style="font-size:12.5px;margin-bottom:5px">Howl</div>
+          <div class="wf-tags" style="margin-bottom:6px"><span class="wf-tag is-on">MW</span><span class="wf-tag is-on">Out of stock</span></div>
+          <div class="wf-kv"><span class="wf-k" style="flex:0 0 56px">Chance</span><span class="wf-v">0.207 %</span></div>
+          <div class="wf-kv"><span class="wf-k" style="flex:0 0 56px">Value</span><span class="wf-v">value, currency</span></div>
+        </div>
+      </div>
+      <div class="wf-note">The value never truncates and never shrinks below the name. Wear abbreviates on the card and spells itself out in the accessible name.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p><strong>Weapon and skin are two fields, never one string.</strong> A person scans for the weapon and wants the finish, and a single concatenated line makes both unscannable. It also survives the day a filter needs to sort on one of them.</p>
+    <p><strong>Wear abbreviates and its accessible name does not.</strong> FN, MW, FT, BS on the card, per the bank which found both conventions live; the full form in the accessible name, because "FT" read aloud is not a wear grade.</p>
+    <p><strong>The value never truncates, never wraps and never shrinks below the name.</strong> It is the one field that must be legible at every density. Truncated money is not a smaller truth, it is a different number.</p>
+    <p><strong>The drop table is a table and reads as rows at 360px</strong>, not as a two-across grid that halves every field. The bank takes Ableton's wide comparison table for exactly this reason: the drop table <strong>is</strong> a comparison table and should be built as one.</p>
+    <p><strong>Chance precision is <span class="q">[?]</span> and the card reserves room for the widest observed form.</strong> Hellcase publishes to three decimals, 0.207 percent to 13.386 percent. The baseline publishes to two and in one observed case to three. Ours is not chosen, and a layout that fits 0.21 percent and breaks on 0.207 percent has been drawn against a guess.</p>
+    <p><strong>The card never scrolls the page sideways.</strong> Any density that overflows scrolls inside its own container, which at 360px is the drop table and nothing else.</p>
+    <p><strong>The accessible name is the item, not the row.</strong> Weapon, skin, wear, rarity in words, then the numbers. A screen reader that opens with a percentage has announced a statistic rather than an object.</p>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+    <p>Seven open items, and two of them would each add a sixteenth field.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Open item</th><th style="width:46%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Is the seven-tier ladder the game's palette</strong></td><td>Six of the seven values look like the CS2 client's own, which would decide whether the ladder may be restyled at all. <strong>Model memory, <span class="q">[?]</span></strong>, and the check is one Valve or Steam page compared against the seven values in the bank</td><td>Stage 06, before it derives any rarity treatment</td></tr>
+        <tr><td>Chance precision</td><td>Two decimals or three. The card's widest field depends on it, and so does whether 0.025 percent is expressible at all</td><td>Production, with the weight table, before stage 04 treats the row as final</td></tr>
+        <tr><td><strong>A live current value beside the receipt in inventory</strong></td><td>The entity lists the receipt and no second value, so 5.1 carries one number and not two. A person deciding whether to withdraw today plausibly wants today's figure, <strong>and no row in the backlog covers it.</strong> Adding it here would be a capability with no parent</td><td>Founder, one backlog row, or it does not ship</td></tr>
+        <tr><td>Float and pattern</td><td>Field 15. <span class="q">[ORPHAN]</span>, no parent in any of the three classes, carried rather than cut</td><td>Founder, if a job ever appears</td></tr>
+        <tr><td>Where the preview density sits on 3.1</td><td>The map's <code>used by</code> line names 3.1, and 3.1's own INCLUDES names case tiles and not item cards. Inside the tile, on expansion, or in a search result is a placement question rather than a field question</td><td>Node <span class="surf">3.1</span> at step 6</td></tr>
+        <tr><td>A holding deadline on an unwithdrawn item</td><td>Hellcase converts an unwithdrawn drop to balance after thirty days, stated only in its public FAQ. Whether we carry any such rule is <span class="q">[?]</span>. <strong>If we do, <code>G5</code> puts it on this card before it runs</strong>, which makes it a sixteenth field</td><td>Founder, product decision</td></tr>
+        <tr><td>The rarity treatment itself</td><td>Colour, shape, weight. Seven values exist; what they look like is not IA</td><td>Stages 06 and 07</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>The words on the card.</strong> Stage 05.</p>
+    <p><strong>Where the card sits on each screen, and how many render at once.</strong> Nodes <span class="surf">3.1</span>, <span class="surf">3.3</span>, <span class="surf">5.1</span>, <span class="surf">5.3</span> and <span class="surf">7.1</span> at steps 5 and 6.</p>
+    <p><strong>The definition, refresh class and failure behaviour of every number it shows.</strong> Node <code>0.11</code>.</p>
+    <p><strong>Indexation of the pages that render it.</strong> Node <code>0.13</code>. <strong>The proof beside it on 7.1.</strong> Node <code>0.14</code>.</p>
+  </div>
+
+  <a class="backlink" href="structure.html#0.6">Back to Structure (0.6)</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/skin-card.md</code>. The rarity ladder it reads: <code>ia/docs/blocks.md</code>, section 10. Node data: <code>ia/docs/sitemap.md</code>, cluster 0 and the Entities section.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The tile that leads to it: <a href="case-tile.html">0.7 Case tile</a>. The proof beside it: <a href="round-proof.html">0.14 Round proof</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '0.6 Canonical skin card';
+window.NAV_SECTIONS = [
+  { id: 'overview',  label: 'Overview' },
+  { id: 'objects',   label: 'Three objects' },
+  { id: 'fields',    label: 'The field set' },
+  { id: 'axes',      label: 'Three axes' },
+  { id: 'densities', label: 'Five densities' },
+  { id: 'states',    label: 'Eight states' },
+  { id: 'rules',     label: 'Five rules' },
+  { id: 'layout',    label: 'The three-part name' },
+  { id: 'open',      label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

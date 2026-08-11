@@ -27,17 +27,17 @@ window.IA_NAV = [
   // Cluster 0. Global shell. What every intent cluster inherits.
   { node: '0.1', label: 'Navigation',              file: 'navigation.html', group: 'global', type: 'global element', states: 0, done: true  },
   { node: '0.2', label: 'Footer',                  file: 'footer.html',     group: 'global', type: 'global element', states: 0, done: true  },
-  { node: '0.3', label: 'System pages',            file: 'system.html',     group: 'global', type: 'page',           states: 0, done: false },
-  { node: '0.4', label: 'Cookie consent',          file: 'cookie.html',     group: 'global', type: 'dialog',         states: 0, done: false },
-  { node: '0.5', label: 'Toasts',                  file: 'toasts.html',     group: 'global', type: 'component',      states: 0, done: false },
-  { node: '0.6', label: 'Canonical skin card',     file: 'skin-card.html',  group: 'global', type: 'component',      states: 0, done: false },
-  { node: '0.7', label: 'Canonical case tile',     file: 'case-tile.html',  group: 'global', type: 'component',      states: 0, done: false },
-  { node: '0.8', label: 'Live drop ticker',        file: 'ticker.html',     group: 'global', type: 'component',      states: 0, done: false },
+  { node: '0.3', label: 'System pages',            file: 'system.html',     group: 'global', type: 'page',           states: 0, done: true  },
+  { node: '0.4', label: 'Cookie consent',          file: 'cookie.html',     group: 'global', type: 'dialog',         states: 0, done: true  },
+  { node: '0.5', label: 'Toasts',                  file: 'toasts.html',     group: 'global', type: 'component',      states: 0, done: true  },
+  { node: '0.6', label: 'Canonical skin card',     file: 'skin-card.html',  group: 'global', type: 'component',      states: 0, done: true  },
+  { node: '0.7', label: 'Canonical case tile',     file: 'case-tile.html',  group: 'global', type: 'component',      states: 0, done: true  },
+  { node: '0.8', label: 'Live drop ticker',        file: 'ticker.html',     group: 'global', type: 'component',      states: 0, done: true  },
   // Registered by node 0.2 on 11 August 2026. A carrier may not promise a destination the map does not hold.
   // 0.9 holds four documents on one template. They are INCLUDES of one node, not four state nodes in the
   // map, so `states` is 0: the hub's derived state total has to equal the 27 in ia/docs/sitemap.md.
-  { node: '0.9', label: 'Legal and policy pages',   file: 'legal.html',      group: 'global', type: 'page',           states: 0, done: false },
-  { node: '0.10', label: 'Support and contact',     file: 'support.html',    group: 'global', type: 'page',           states: 0, done: false },
+  { node: '0.9', label: 'Legal and policy pages',   file: 'legal.html',      group: 'global', type: 'page',           states: 0, done: true  },
+  { node: '0.10', label: 'Support and contact',     file: 'support.html',    group: 'global', type: 'page',           states: 0, done: true  },
   // Registered by the global sweep on 12 August 2026. Not new surfaces: three are structures the nine
   // surfaces already read, the fourth is the component that renders the product's evidence.
   // Type 'register' is a node read by several nodes and drawn by none. Stage 04 does not wireframe it.
@@ -47,30 +47,30 @@ window.IA_NAV = [
   { node: '0.14', label: 'Canonical round proof',    file: 'round-proof.html', group: 'global', type: 'component',     states: 0, done: true  },
 
   // Cluster 1. Decide whether this place is real.
-  { node: '1.0', label: 'Home',                    file: 'home.html',       group: 'pages',  type: 'page',           states: 1, done: false },
-  { node: '1.2', label: 'Provably fair',           file: 'provably-fair.html', group: 'pages', type: 'page',        states: 2, done: false },
+  { node: '1.0', label: 'Home',                    file: 'home.html',       group: 'pages',  type: 'page',           states: 1, done: true  },
+  { node: '1.2', label: 'Provably fair',           file: 'provably-fair.html', group: 'pages', type: 'page',        states: 2, done: true  },
 
   // Cluster 2. Get through the door.
-  { node: '2.1', label: 'Age and geo gate',        file: 'gate.html',       group: 'pages',  type: 'dialog',         states: 2, done: false },
-  { node: '2.4', label: 'Sign in with Steam',      file: 'signin.html',     group: 'pages',  type: 'page',           states: 2, done: false },
-  { node: '2.7', label: 'Identity verification',   file: 'identity.html',   group: 'pages',  type: 'page',           states: 2, done: false },
+  { node: '2.1', label: 'Age and geo gate',        file: 'gate.html',       group: 'pages',  type: 'dialog',         states: 2, done: true  },
+  { node: '2.4', label: 'Sign in with Steam',      file: 'signin.html',     group: 'pages',  type: 'page',           states: 2, done: true  },
+  { node: '2.7', label: 'Identity verification',   file: 'identity.html',   group: 'pages',  type: 'page',           states: 2, done: true  },
 
   // Cluster 3. Choose what to open, and open it.
-  { node: '3.1', label: 'Case catalogue',          file: 'catalogue.html',  group: 'pages',  type: 'page',           states: 1, done: false },
-  { node: '3.3', label: 'Case screen',             file: 'case.html',       group: 'pages',  type: 'page',           states: 4, done: false },
+  { node: '3.1', label: 'Case catalogue',          file: 'catalogue.html',  group: 'pages',  type: 'page',           states: 1, done: true  },
+  { node: '3.3', label: 'Case screen',             file: 'case.html',       group: 'pages',  type: 'page',           states: 4, done: true  },
 
   // Cluster 4. Put money in.
-  { node: '4.1', label: 'Deposit',                 file: 'deposit.html',    group: 'pages',  type: 'page',           states: 4, done: false },
+  { node: '4.1', label: 'Deposit',                 file: 'deposit.html',    group: 'pages',  type: 'page',           states: 4, done: true  },
 
   // Cluster 5. Take out what I earned.
-  { node: '5.1', label: 'Account and inventory',   file: 'account.html',    group: 'pages',  type: 'page',           states: 1, done: false },
-  { node: '5.3', label: 'Withdrawal',              file: 'withdrawal.html', group: 'pages',  type: 'page',           states: 5, done: false },
+  { node: '5.1', label: 'Account and inventory',   file: 'account.html',    group: 'pages',  type: 'page',           states: 1, done: true  },
+  { node: '5.3', label: 'Withdrawal',              file: 'withdrawal.html', group: 'pages',  type: 'page',           states: 5, done: true  },
 
   // Cluster 6. Keep myself in check.
-  { node: '6.1', label: 'Responsible play',        file: 'responsible.html', group: 'pages', type: 'page',           states: 2, done: false },
+  { node: '6.1', label: 'Responsible play',        file: 'responsible.html', group: 'pages', type: 'page',           states: 2, done: true  },
 
   // Cluster 7. Tell someone.
-  { node: '7.1', label: 'Public result',           file: 'public-result.html', group: 'pages', type: 'page',         states: 1, done: false },
+  { node: '7.1', label: 'Public result',           file: 'public-result.html', group: 'pages', type: 'page',         states: 1, done: true  },
 ];
 
 (function () {

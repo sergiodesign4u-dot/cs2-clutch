@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 0.4 Cookie consent</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    blockquote { border-left: 2px solid var(--border-strong); padding-left: 16px; margin: 0 0 14px; }
+    blockquote p { font-size: 14px; color: var(--text-secondary); }
+    .src { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 14px; }
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+
+    .wf-proof { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-proof-lbl { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 9px; padding-bottom: 7px; border-bottom: 1px dashed var(--wf-line-soft); }
+    .wf-kv { display: flex; gap: 9px; margin-bottom: 6px; align-items: baseline; }
+    .wf-k { flex: 0 0 74px; font-family: 'SF Mono', Menlo, monospace; font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-v { font-family: 'SF Mono', Menlo, monospace; font-size: 10.5px; color: var(--wf-ink); word-break: break-word; }
+    .wf-v.is-dim { color: var(--wf-ink-dim); font-style: italic; font-family: inherit; }
+    .wf-scope { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; border-top: 1px dashed var(--wf-line-soft); margin-top: 10px; padding-top: 9px; }
+    .wf-scope b { color: var(--wf-ink); font-weight: 700; }
+    .wf-link { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; margin-right: 12px; }
+
+    /* page specific, same idiom */
+    .wf-h1 { font-size: 13px; font-weight: 700; color: var(--wf-ink); line-height: 1.35; }
+    .wf-sub { font-size: 10.5px; color: var(--wf-ink-dim); margin-top: 5px; line-height: 1.5; }
+    .wf-btnrow { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+    .wf-btn { flex: 1 1 96px; text-align: center; border: 1px solid var(--wf-line); border-radius: 4px; padding: 8px 10px; font-size: 10px; color: var(--wf-ink); }
+    .wf-btn.is-ghost { border-style: dashed; color: var(--wf-ink-dim); flex: 1 1 100%; }
+    .wf-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; border-top: 1px dashed var(--wf-line-soft); padding: 8px 0; }
+    .wf-row-t { font-size: 10.5px; color: var(--wf-ink); }
+    .wf-row-s { font-size: 9px; color: var(--wf-ink-dim); font-family: 'SF Mono', Menlo, monospace; white-space: nowrap; }
+    .wf-foot { border-top: 1px dashed var(--wf-line-soft); margin-top: 12px; padding-top: 8px; font-size: 9px; color: var(--wf-ink-dim); line-height: 1.6; }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid { grid-template-columns: 1fr; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 0.4</div>
+  <h1>Cookie consent</h1>
+  <p class="lede">Ask before storing, offer refusal at the same cost as acceptance, keep analytics and marketing off until somebody opts in, and leave a route back to change the answer. <strong>It is the first interactive object a visitor meets, and this product's first barrier is that the visitor already suspects the category.</strong></p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Sources opened live</div></div>
+    <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Rules, each tied to a text</div></div>
+    <div><div class="hero-stat-value">2 of 2</div><div class="hero-stat-label">Competitors ship accept only</div></div>
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Pre-ticked toggles</div></div>
+  </div>
+</div>
+
+<!-- SCOPE -->
+<section id="scope">
+  <div class="sec-head">
+    <h2>What this node decides, and what it refuses to</h2>
+    <p>Plus the one gap it found in the project's own parent rule.</p>
+  </div>
+
+  <div class="card is-good">
+    <p><strong>It decides the interaction:</strong> which blocks exist, what is on by default, what the states are, what may never happen in markup.</p>
+    <p><strong>It refuses to decide which law binds us.</strong> That is <code>0.12</code>, the market and jurisdiction register, and that register's own verdicts are <span class="q">[?]</span> until counsel signs them under <code>D-A</code>. Section 3.1 of that node records that where we operate <strong>from</strong> was a question nobody in this repository had asked, and the establishment answer is part of what decides whose implementation of the texts below applies.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The law is not one of the three parent classes, and that gap is a finding rather than a technicality</h4>
+    <p><code>CLAUDE.md</code> enumerates five compliance constraints and none of them is data protection, so the legal ground below has no class to sit in. <strong>This node's declared parents are barrier <span class="row-code">B1-1</span>, the category arrives pre-suspected, and design principle 1</strong>, quoted: "Every visual and interaction decision answers first: does this help the user believe the drop is honest."</p>
+    <p>The ground is carried here in full and cited, and the missing constraint is raised in the open items as a candidate for the stage close. <strong>The alternative, quietly widening the third class, is the thing that rule exists to stop.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>Fires on arrival, and the interrupt order is already settled.</strong> The map records it rather than this node re-deriving it: <code>0.4</code> fires on arrival, <span class="surf">2.1</span> fires at first case interaction by <span class="row-code">B3</span> and <code>D-17</code>, so the two never contend for the same moment.</p>
+  </div>
+</section>
+
+<!-- GROUND -->
+<section id="ground">
+  <div class="sec-head">
+    <h2>The legal ground, opened in a browser on 12 August 2026</h2>
+    <p>Four sources, each opened this session. Nothing here is written from memory, and what could not be opened is named at the end of it.</p>
+  </div>
+
+  <h3>The storage rule: ePrivacy Directive, Article 5(3)</h3>
+  <p class="src">Directive 2002/58/EC as amended, consolidated text <code>32002L0058 EN 19.12.2009</code>, EUR-Lex.</p>
+  <blockquote>
+    <p>"Member States shall ensure that the storing of information, or the gaining of access to information already stored, in the terminal equipment of a subscriber or user is only allowed on condition that the subscriber or user concerned has given his or her consent, having been provided with clear and comprehensive information, in accordance with Directive 95/46/EC, inter alia, about the purposes of the processing. This shall not prevent any technical storage or access for the sole purpose of carrying out the transmission of a communication over an electronic communications network, or as strictly necessary in order for the provider of an information society service explicitly requested by the subscriber or user to provide the service."</p>
+  </blockquote>
+  <div class="card">
+    <p><strong>Two things this text settles for us.</strong> Consent comes <strong>before</strong> the storing or the reading, not after, and it covers storing <strong>and</strong> access, so a technique that reads what is already on the device is inside the rule rather than around it. The exception is narrow and is written in terms of the service the person explicitly requested, which is the sentence the purposes table uses to decide what counts as strictly necessary.</p>
+  </div>
+
+  <h3>What consent is: GDPR Article 4(11), Article 7, recital 32</h3>
+  <p class="src">Regulation (EU) 2016/679, EUR-Lex <code>CELEX:32016R0679</code>, read in the browser on 12 August 2026.</p>
+  <blockquote>
+    <p><strong>Article 4(11).</strong> "'consent' of the data subject means any freely given, specific, informed and unambiguous indication of the data subject's wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her"</p>
+    <p><strong>Article 7(1).</strong> "Where processing is based on consent, the controller shall be able to demonstrate that the data subject has consented to processing of his or her personal data."</p>
+    <p><strong>Article 7(3).</strong> "The data subject shall have the right to withdraw his or her consent at any time. The withdrawal of consent shall not affect the lawfulness of processing based on consent before its withdrawal. Prior to giving consent, the data subject shall be informed thereof. <strong>It shall be as easy to withdraw as to give consent.</strong>"</p>
+    <p><strong>Article 7(4).</strong> "When assessing whether consent is freely given, utmost account shall be taken of whether, inter alia, the performance of a contract, including the provision of a service, is conditional on consent to the processing of personal data that is not necessary for the performance of that contract."</p>
+    <p><strong>Recital 32.</strong> "Consent should be given by a clear affirmative act establishing a freely given, specific, informed and unambiguous indication of the data subject's agreement to the processing of personal data relating to him or her, such as by a written statement, including by electronic means, or an oral statement. This could include ticking a box when visiting an internet website, choosing technical settings for information society services or another statement or conduct which clearly indicates in this context the data subject's acceptance of the proposed processing of his or her personal data. <strong>Silence, pre-ticked boxes or inactivity should not therefore constitute consent.</strong> Consent should cover all processing activities carried out for the same purpose or purposes. When the processing has multiple purposes, consent should be given for all of them. If the data subject's consent is to be given following a request by electronic means, the request must be clear, concise and not unnecessarily disruptive to the use of the service for which it is provided."</p>
+  </blockquote>
+
+  <h3>A regulator applying it to banners: CNIL</h3>
+  <p class="src">Two pages on cnil.fr, English versions, opened 12 August 2026.</p>
+  <blockquote>
+    <p><strong>"Cookies and other tracking devices: the CNIL publishes new guidelines", 19 July 2019.</strong> "the scrolling down or swiping through a website or application can no longer be viewed as a valid expression of consent", and "operators must not read or write any data in the terminal of the users before obtaining consent".</p>
+    <p><strong>"Refusing cookies should be as easy as accepting them: the CNIL continues its action and issues new orders", 14 December 2021.</strong> The requirement is stated as banners that "offer the user a means of refusing cookies as easily as accepting them", and the three failures found are that "cookies subject to consent were automatically deposited on the user's terminal before acceptance by the user", that "information banners are still not compliant because they do not allow the user to refuse the deposit of cookies as easily as to accept it", and that "cookies subject to consent are still deposited after the refusal expressed by the user".</p>
+  </blockquote>
+  <div class="card is-good">
+    <p><strong>Those three failures are the state list of this node, written by a regulator from live sites.</strong> The rules and the states below answer them one by one.</p>
+  </div>
+
+  <h3>What could not be opened, and therefore stays [?]</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Source</th><th>What happened</th><th>Consequence</th></tr></thead>
+      <tbody>
+        <tr><td><strong>EDPB Guidelines 05/2020 on consent</strong></td><td>The landing page opened and confirms the title and an adoption date of 4 May 2020. <strong>The PDF itself could not be parsed in this environment</strong></td><td>Its paragraph numbers and its wording on cookie walls and on scrolling are <span class="q">[?]</span> here. <strong>Nothing below rests on it.</strong> The cookie wall rule is grounded on Article 7(4), which was read in full</td></tr>
+        <tr><td>ICO guidance on cookies and similar technologies</td><td>HTTP 403 to this environment</td><td>The UK position is <span class="q">[?]</span>. It also matters less than it looks: the UK is on the inherited market list <code>0.12</code> carries as <span class="q">[?]</span></td></tr>
+        <tr><td>A consent lifetime</td><td>No source opened this session states one</td><td>The re-ask interval is <span class="q">[?]</span> with an owner, rather than a plausible number</td></tr>
+        <tr><td>Which national implementation binds us</td><td>Depends on establishment and on the market verdicts, both open in <code>0.12</code></td><td>The dialog is designed to <strong>one behaviour everywhere</strong>, which is what makes the open question survivable</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- RULES -->
+<section id="rules">
+  <div class="sec-head">
+    <h2>Six rules, each tied to the text it comes from</h2>
+    <p>The right-hand column is the one stage 04 checks against, because it is written as markup rather than as intent.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Rule</th><th>Where it comes from</th><th>What it forbids in markup</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Prior.</strong> Nothing non-essential is written or read before a choice</td><td>Article 5(3), and CNIL 19 July 2019</td><td>No tag, pixel, SDK or storage write on first paint. <strong>The analytics script is not loaded and then held back, it is not loaded</strong></td></tr>
+        <tr><td><strong>Symmetric.</strong> Refusing is one control, in the first layer, at the same cost as accepting</td><td>CNIL 14 December 2021, and "freely given" in Article 4(11)</td><td>No accept-only first layer. No reject buried one layer down. No reject as text while accept is a button</td></tr>
+        <tr><td><strong>Specific.</strong> One decision per purpose, and purposes are not bundled</td><td>"specific" in Article 4(11), recital 32</td><td>No single toggle covering analytics and marketing together</td></tr>
+        <tr><td><strong>Affirmative.</strong> Only an act is consent</td><td>Recital 32, "Silence, pre-ticked boxes or inactivity should not therefore constitute consent", and CNIL on scrolling and swiping</td><td>No pre-ticked toggles. <strong>No consent by browsing, by scrolling or by closing the banner.</strong> Dismissing leaves the pending state</td></tr>
+        <tr><td><strong>Withdrawable.</strong> The answer can be changed later, as easily as it was given</td><td>Article 7(3), verbatim</td><td>No consent that can only be given and never taken back, and no withdrawal route longer than the giving route was</td></tr>
+        <tr><td><strong>Demonstrable.</strong> We can show what was consented to, and when</td><td>Article 7(1)</td><td>The consent record is itself a block, not an implementation detail</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>And one rule about the shape of the dialog rather than its controls</h4>
+    <p>Article 7(4) makes conditionality a factor in whether consent is free at all. <strong>So this is not a wall.</strong> The page renders, scrolls and can be read with the dialog still pending, the cookie policy link works, and refusing costs the person nothing except the analytics we would have collected.</p>
+    <p>That is also the only version compatible with <span class="row-code">B1-1</span>: <strong>a visitor who has arrived pre-suspected and is deciding whether this place is real cannot be asked to pay a toll before reading.</strong></p>
+  </div>
+</section>
+
+<!-- BLOCKS -->
+<section id="blocks">
+  <div class="sec-head">
+    <h2>Blocks, and the parent of each</h2>
+    <p>Two layers, one invisible block, and one block this node cannot place by itself.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Block</th><th>Layer</th><th>Parent</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>B1. What this is, in two sentences</strong></td><td>1</td><td>Article 5(3), "clear and comprehensive information", plus <span class="row-code">B1-1</span></td><td>What is stored, for what, and that the choice can be changed later. The full account is on <span class="surf">0.9</span> and this is the summary that links to it</td></tr>
+        <tr><td><strong>B2. Accept all</strong></td><td>1</td><td>Article 4(11)</td><td>One control</td></tr>
+        <tr><td><strong>B3. Reject all</strong></td><td>1</td><td>CNIL 14 December 2021</td><td><strong>The same size, the same weight, the same number of taps.</strong> A hard constraint on stages 06 and 07, written here because it is the single most common place it is lost</td></tr>
+        <tr><td><strong>B4. Manage purposes</strong></td><td>1</td><td>Recital 32, specific consent</td><td>Opens layer 2. Deliberately quieter than the two decisions, which is legitimate because it is not a decision</td></tr>
+        <tr><td><strong>B5. Link to the cookie policy</strong></td><td>1</td><td>Article 5(3), and node <span class="surf">0.9</span></td><td>To <code>/legal/cookies</code>. <strong>Works before consent</strong>, per <span class="surf">0.2</span></td></tr>
+        <tr><td><strong>B6. Purpose list with toggles</strong></td><td>2</td><td>Recital 32</td><td>One row per purpose. <strong>Every non-essential toggle is off</strong>, and it is off because nothing was chosen, not because we chose for them</td></tr>
+        <tr><td><strong>B7. Strictly necessary, stated and not a toggle</strong></td><td>2</td><td>Article 5(3), the exception clause</td><td>A disabled switch that cannot move is theatre. The row says what it covers and why it needs no consent</td></tr>
+        <tr><td><strong>B8. Save my choices</strong></td><td>2</td><td>Article 4(11)</td><td>Layer 2 also carries accept all and reject all, so a person who opened it to read does not have to build an answer by hand</td></tr>
+        <tr><td><strong>B9. The consent record</strong></td><td>invisible</td><td>Article 7(1)</td><td>What was chosen, when, against which version of the policy. <strong>A policy that changes silently invalidates the consent given under the old one</strong>, the same argument <span class="surf">0.9</span> makes for version history and <code>0.14</code> for the proof scheme</td></tr>
+        <tr><td><strong>B10. The persistent re-open route</strong></td><td>outside</td><td>Article 7(3), verbatim</td><td>The block this node cannot place. See access, below</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - layer 1 and layer 2. Black and white until stage 06</div>
+    <div class="wf-grid">
+
+      <div class="wf-phone">
+        <div class="wf-proof-lbl">Layer 1, pending</div>
+        <div class="wf-h1">We store what the site needs to work. Analytics only if you say yes.</div>
+        <div class="wf-sub">You can change this later.</div>
+        <div class="wf-btnrow">
+          <div class="wf-btn">Accept all</div>
+          <div class="wf-btn">Reject all</div>
+          <div class="wf-btn is-ghost">Manage purposes</div>
+        </div>
+        <div class="wf-link">Cookie policy</div>
+        <div class="wf-scope"><b>Two decisions, one weight.</b> The page behind stays readable and scrollable. Closing this is not an answer.</div>
+      </div>
+
+      <div class="wf-phone">
+        <div class="wf-proof-lbl">Layer 2, purposes</div>
+        <div class="wf-row"><span class="wf-row-t">Strictly necessary</span><span class="wf-row-s">always, stated</span></div>
+        <div class="wf-row"><span class="wf-row-t">Analytics</span><span class="wf-row-s">[ off ]</span></div>
+        <div class="wf-row"><span class="wf-row-t">Marketing</span><span class="wf-row-s">[ off ]</span></div>
+        <div class="wf-btnrow">
+          <div class="wf-btn">Save</div>
+          <div class="wf-btn">Reject all</div>
+          <div class="wf-btn is-ghost">Accept all</div>
+        </div>
+        <div class="wf-scope"><b>Off is the default because nothing was chosen</b>, not because we chose. Strictly necessary is a sentence, never a switch that cannot move.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PURPOSES -->
+<section id="purposes">
+  <div class="sec-head">
+    <h2>The purposes, and the one that is not a choice</h2>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Purpose</th><th>Default</th><th>Ground</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Strictly necessary</strong></td><td>On, and not a choice</td><td>Article 5(3)'s exception, "strictly necessary in order for the provider of an information society service explicitly requested by the subscriber or user to provide the service". Session, security, load balancing, <strong>and the consent record itself</strong>, because a record of a refusal that cannot be stored produces a banner that asks forever</td></tr>
+        <tr><td><strong>Analytics</strong></td><td><strong>Off until opted in</strong></td><td>Not covered by the exception. This is the purpose the whole node exists for</td></tr>
+        <tr><td><strong>Marketing</strong></td><td><strong>Off until opted in</strong></td><td>Same, and it may be empty at launch</td></tr>
+        <tr><td>A purpose with nothing in it is not shown</td><td>n/a</td><td>Round 1 has no referral programme, which is LATER with no parent, so <strong>whether any marketing tag exists at launch is <span class="q">[?]</span></strong>. Printing an empty choice invites a decision about nothing</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>One question this node will not answer from memory: what the age gate stores</h4>
+    <p><span class="surf">2.1</span> takes an 18 plus declaration and something has to remember it, which is storage in terminal equipment and therefore inside Article 5(3). Whether a compliance-mandated declaration falls inside the "strictly necessary" exception is a legal reading, not a design one.</p>
+    <p><strong>The safe default this node designs to:</strong> it is treated as strictly necessary and named in the policy on that basis.</p>
+    <p><strong>If counsel disagrees</strong>, the gate stores nothing and re-asks on every visit, which costs conversion and is not otherwise fatal, since <span class="surf">2.1</span> already fires at first case interaction rather than on arrival.</p>
+    <p><strong>Owner:</strong> counsel under <code>D-A</code>, with <code>0.12</code>. <span class="q">[?]</span> until then.</p>
+  </div>
+</section>
+
+<!-- CATEGORY -->
+<section id="category">
+  <div class="sec-head">
+    <h2>The category's banner, and why two of two is worth saying</h2>
+    <p>From the block bank, type T5, opened live on 12 August 2026.</p>
+  </div>
+
+  <div class="card is-fix">
+    <p><strong>Hellcase and skin.club both ship a cookie banner with ACCEPT only, and the text "if you continue to use this site, you consent".</strong></p>
+    <p><strong>Both halves fail, and against different texts.</strong> Accept-only fails the symmetry the CNIL states. Consent by continuing to browse fails recital 32 directly, "Silence, pre-ticked boxes or inactivity should not therefore constitute consent", and the CNIL's 2019 wording on scrolling and swiping is the same finding applied to the same gesture.</p>
+  </div>
+
+  <div class="card is-good">
+    <p><strong>Two of two is a competitive fact and not only a compliance one.</strong> The first interactive object in this category is a banner that takes an answer nobody gave. <span class="row-code">B1-1</span> says the visitor arrives already expecting to be handled. <strong>A reject button of the same size is the cheapest evidence in the whole product that the expectation is wrong</strong>, and it costs a button.</p>
+  </div>
+</section>
+
+<!-- STATES -->
+<section id="states">
+  <div class="sec-head">
+    <h2>States</h2>
+    <p>Nine, and three of them are the CNIL's three findings turned into interface behaviour.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>State</th><th>What the product does</th><th>What the person sees</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Pending, no answer yet</strong></td><td>Strictly necessary only. <strong>No analytics, no marketing, nothing deferred and fired later</strong></td><td>The dialog, and a page that reads and scrolls behind it</td></tr>
+        <tr><td><strong>Accepted all</strong></td><td>Every purpose on</td><td>The dialog is gone. The re-open route stays</td></tr>
+        <tr><td><strong>Rejected all</strong></td><td>Strictly necessary only, permanently, until changed</td><td>Same. <strong>Nothing is asked again on the next page</strong>, which is the third CNIL failure in its interface form</td></tr>
+        <tr><td><strong>Partial</strong></td><td>Exactly the purposes chosen</td><td>Same</td></tr>
+        <tr><td><strong>Changed later</strong></td><td>The new answer applies from that moment. Article 7(3) is explicit that withdrawal does not undo the lawfulness of what came before, so nothing is retroactive and nothing pretends to be</td><td>The dialog reopens with the current answer shown, never blank</td></tr>
+        <tr><td><strong>Storage unavailable</strong>, private mode or blocked</td><td>The dialog cannot remember, so it asks again. <strong>Nothing non-essential fires in the meantime</strong>, and the page never breaks</td><td>The dialog, again. It says the choice could not be saved rather than silently re-asking</td></tr>
+        <tr><td><strong>Consent expired</strong></td><td>Re-ask after a stated period</td><td>The dialog again. <strong>The period is <span class="q">[?]</span></strong></td></tr>
+        <tr><td><strong>Geo blocked</strong>, <span class="surf">2.2</span></td><td>The dialog renders as everywhere else</td><td><span class="surf">0.2</span> keeps the footer and the policy links alive in this state, and a dead end that also removes the legal routes is how a person with a complaint loses the ability to make it</td></tr>
+        <tr><td><strong>Gate open</strong>, <span class="surf">2.1</span></td><td>They cannot collide: <code>0.4</code> is on arrival, <span class="surf">2.1</span> at first case interaction</td><td>If both were somehow live, the gate is on top and the banner does not render above it</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>One behaviour in every market, and that is a decision with a reason</h4>
+    <p>Under <code>D-23</code> the market allowlist is closed by default, the verdicts in <code>0.12</code> are <span class="q">[?]</span>, and where we are established is open. <strong>Building a second, lighter banner for markets where the rule may not apply means shipping two behaviours and finding out later which one was served to whom.</strong></p>
+    <p>One behaviour is also the only one that is honest under <span class="row-code">B1-1</span>: a person who learns that the choice depends on where they are learns that the choice was a formality.</p>
+  </div>
+</section>
+
+<!-- SEO AND ACCESS -->
+<section id="access">
+  <div class="sec-head">
+    <h2>Indexation, performance and access</h2>
+    <p>Plus the one block this node cannot place by itself.</p>
+  </div>
+
+  <div class="card">
+    <p><strong>The dialog has no URL and no schema.</strong> <code>0.13</code> holds no row for it, which is correct: it is not a page, and nobody navigates to it.</p>
+    <p><strong>It never hides the content from a crawler or from a person.</strong> It is not an interstitial covering the viewport, the page beneath is fully rendered, and there is no version of this dialog that decides what a crawler sees. <code>0.13</code> already makes this product's public surfaces readable by anyone from anywhere without serving a crawler anything different, and a consent wall would take that back.</p>
+    <p><strong>It is not the reason the first paint is late.</strong> Design principle 5, speed is trust. It is part of the first render rather than a script that arrives afterwards and repaints the page.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Access</h4>
+    <p><strong>Not a focus trap, and not aria-modal.</strong> It is a region with an accessible name, early in the DOM and early in the tab order. Trapping focus is the interaction form of the conditionality Article 7(4) warns about.</p>
+    <p><strong>Escape and dismissal are not answers.</strong> Recital 32 again: inactivity is not consent, so closing the dialog leaves the pending state and the strictly necessary set.</p>
+    <p><strong>Both decisions are real buttons</strong>, each at least 44 by 44 CSS pixels, matching the AAA target size <code>0.1</code> chose for every carrier.</p>
+    <p><strong>Symmetry is not only about size.</strong> Colour, contrast and prominence carry it too, and this is the line that binds stages 06 and 07: <strong>a reject button that is technically the same size and visually a ghost has failed the same rule with better plausible deniability.</strong></p>
+    <p><strong>Announced politely, never assertively.</strong> <code>0.5</code> owns the live region contract and this dialog is not an alert.</p>
+    <p><strong>At 360px it never covers the mobile bar.</strong> <code>0.1</code> carries three live destinations down there, and <span class="surf">0.2</span> already cut the baseline's floating support control for exactly this reason, <code>D-22</code>.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The block this node cannot place: the persistent re-open route</h4>
+    <p>Article 7(3) requires withdrawal to be as easy as giving, so there has to be a permanent entry that reopens the dialog. <strong>Node 0.2 does not have one.</strong> Its band 2 Company column holds the four policy links and its band 4 bottom row holds the compliance line, the copyright, the payment marks and the social set. None of them reopens a dialog.</p>
+    <p><strong>Recommended:</strong> a cookie settings control in the footer, beside the policy links, present on every page in both account states.</p>
+    <p><strong>The alternative that needs no new control</strong> is to host the re-open control on the cookie policy page itself, <span class="surf">0.9</span>. It satisfies the text and it is one hop longer than accepting was, which is exactly what Article 7(3) is measuring.</p>
+    <p><strong>This is recorded rather than applied.</strong> <span class="surf">0.2</span> is a published node with its own page, and the bank already fixed the rule for this case: a block a carrier lacks is a finding for the step 8 audit, never a quiet edit in another node's file.</p>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+    <p>Eight open items, and the first one is a gap in this project's own rule file.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Open item</th><th style="width:46%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The missing compliance constraint</strong></td><td><code>CLAUDE.md</code> enumerates five compliance constraints and none of them is data protection, so this node's legal ground has no parent class. It is carried on <span class="row-code">B1-1</span> and design principle 1, which is true and is not the whole reason the node exists</td><td>The stage close, as a candidate line in <code>CLAUDE.md</code>. Founder decides</td></tr>
+        <tr><td>Which law applies, per market</td><td><code>0.12</code>'s verdicts are <span class="q">[?]</span> and where we are established is open</td><td>Counsel under <code>D-A</code>, with <code>0.12</code></td></tr>
+        <tr><td><strong>The consent lifetime</strong></td><td>No source opened this session states a re-ask interval. <strong>A number invented here would read as sourced</strong></td><td>Counsel, or a cited regulator page, before stage 04</td></tr>
+        <tr><td>Whether the age declaration is strictly necessary</td><td>The safe default is designed and the fallback is drawn</td><td>Counsel under <code>D-A</code></td></tr>
+        <tr><td>Whether any marketing purpose exists at launch</td><td>The referral programme is LATER. A purpose with no vendor behind it is not shown</td><td>Founder, with production</td></tr>
+        <tr><td>The vendor list per purpose</td><td><span class="surf">0.9</span> holds the document and it needs actual names. Nothing here invents one</td><td>Production, with <span class="surf">0.9</span></td></tr>
+        <tr><td>The persistent re-open route</td><td><span class="surf">0.2</span> has no control for it and <code>0.4</code> cannot add one to another node's file</td><td>The step 8 audit, then node <span class="surf">0.2</span></td></tr>
+        <tr><td>A consent management platform, or our own</td><td>Not an IA question. What is fixed here is the behaviour any implementation has to produce</td><td>Production</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>The words in the dialog.</strong> Stage 05.</p>
+    <p><strong>How it looks, including the symmetry that decides whether this node worked.</strong> Stages 06 and 07.</p>
+    <p><strong>The policy text itself.</strong> Node <span class="surf">0.9</span>.</p>
+    <p><strong>The live region that announces it.</strong> Node <code>0.5</code>.</p>
+    <p><strong>The order against the age gate.</strong> Already settled in the map and not reopened here.</p>
+  </div>
+
+  <a class="backlink" href="structure.html">Back to Structure</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/cookie.md</code>. Legal ground: EUR-Lex <code>32002L0058</code> and <code>CELEX:32016R0679</code>, plus two CNIL pages, all opened 12 August 2026. Competitor evidence: <code>ia/docs/blocks.md</code>, type T5. Node data: <code>ia/docs/sitemap.md</code>, cluster 0.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map: <a href="sitemap.html">Sitemap</a>. The routes: <a href="flows.html">Flows</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '0.4 Cookie consent';
+window.NAV_SECTIONS = [
+  { id: 'overview',  label: 'Overview' },
+  { id: 'scope',     label: 'What it decides' },
+  { id: 'ground',    label: 'The legal ground' },
+  { id: 'rules',     label: 'Six rules' },
+  { id: 'blocks',    label: 'Blocks and parents' },
+  { id: 'purposes',  label: 'The purposes' },
+  { id: 'category',  label: 'The category banner' },
+  { id: 'states',    label: 'States' },
+  { id: 'access',    label: 'Index and access' },
+  { id: 'open',      label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

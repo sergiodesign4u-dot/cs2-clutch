@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 0.3 System pages</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    blockquote { border-left: 2px solid var(--border-strong); padding-left: 16px; margin: 0 0 14px; }
+    blockquote p { font-size: 14px; color: var(--text-secondary); }
+    blockquote p b, blockquote p strong { color: var(--text-primary); }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 14px; }
+
+    .wf-note { font-size: 10px; color: var(--wf-ink-dim); margin-top: 8px; line-height: 1.5; }
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+
+    .wf-proof { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-proof-lbl { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 9px; padding-bottom: 7px; border-bottom: 1px dashed var(--wf-line-soft); }
+    .wf-kv { display: flex; gap: 9px; margin-bottom: 6px; align-items: baseline; }
+    .wf-k { flex: 0 0 74px; font-family: 'SF Mono', Menlo, monospace; font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-v { font-family: 'SF Mono', Menlo, monospace; font-size: 10.5px; color: var(--wf-ink); word-break: break-word; }
+    .wf-v.is-dim { color: var(--wf-ink-dim); font-style: italic; font-family: inherit; }
+    .wf-scope { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; border-top: 1px dashed var(--wf-line-soft); margin-top: 10px; padding-top: 9px; }
+    .wf-scope b { color: var(--wf-ink); font-weight: 700; }
+    .wf-link { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; margin-right: 12px; }
+    .wf-mismatch { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .wf-mismatch > div { border: 1px solid var(--wf-line-soft); border-radius: 4px; padding: 8px 9px; }
+    .wf-mm-h { font-size: 8.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 5px; }
+
+    /* page specific, same idiom */
+    .wf-h1 { font-size: 15px; font-weight: 700; color: var(--wf-ink); line-height: 1.3; }
+    .wf-sub { font-size: 10.5px; color: var(--wf-ink-dim); margin-top: 5px; line-height: 1.5; }
+    .wf-field { border: 1px solid var(--wf-line-soft); border-radius: 4px; padding: 8px 9px; font-size: 10px; color: var(--wf-ink-dim); margin-top: 12px; }
+    .wf-btn { display: inline-block; border: 1px solid var(--wf-line); border-radius: 4px; padding: 5px 10px; font-size: 10px; color: var(--wf-ink); margin: 10px 6px 0 0; }
+    .wf-foot { border-top: 1px dashed var(--wf-line-soft); margin-top: 12px; padding-top: 8px; font-size: 9px; color: var(--wf-ink-dim); line-height: 1.6; }
+    .wf-status { display: inline-block; font-family: 'SF Mono', Menlo, monospace; font-size: 9px; border: 1px solid var(--wf-line); border-radius: 3px; padding: 1px 5px; color: var(--wf-ink-dim); margin-bottom: 9px; }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid { grid-template-columns: 1fr; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 0.3</div>
+  <h1>System pages</h1>
+  <p class="lede">Three failure surfaces on one template, 404, 500 and 503, so that a request this product cannot answer still gets an answer: what happened in words a person reads, an honest status code for the machine reading the same response, and a route onward that is inside the body rather than only in the footer. <strong>Never a soft 404, never a dead end.</strong></p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Surfaces, one template</div></div>
+    <div><div class="hero-stat-value">9</div><div class="hero-stat-label">Blocks, each with a parent</div></div>
+    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Live competitor failures</div></div>
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Marketing lines</div></div>
+  </div>
+</div>
+
+<!-- FAILURES -->
+<section id="failures">
+  <div class="sec-head">
+    <h2>Two live failures, and they fail in opposite directions</h2>
+    <p>Both opened in a browser on 12 August 2026 and recorded in the block bank, type T8. Between them they use up both ways this page goes wrong.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Competitor</th><th>What the response does</th><th>What it costs</th></tr></thead>
+      <tbody>
+        <tr><td><strong>skin.club</strong></td><td>Correct HTTP 404. One error line, one marketing sentence, <strong>no search and no route out of the body.</strong> The only navigation is the footer</td><td>The machine is told the truth and the person is told nothing they can act on. The status is right and the page is a wall</td></tr>
+        <tr><td><strong>Key-Drop</strong></td><td><strong>HTTP 404 with the home page rendered in the body</strong>: home title, home ticker, no H1, no error message anywhere</td><td><strong>Both readers are misled by the same response.</strong> The person sees the home page and never learns the URL was wrong. The crawler sees 404 and drops the URL</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The two axes this node has to hold at once</h4>
+    <p>A response speaks to two readers, a person and a machine, and the same response can lie to either one independently.</p>
+    <p><strong>A soft 404</strong> is HTTP 200 with a "not found" body. The person is told the truth, the crawler is told the page is fine, and the index fills with pages that do not exist.</p>
+    <p><strong>Key-Drop's inversion</strong> is HTTP 404 with a working body. The crawler is told the truth and the person is told nothing.</p>
+    <p><strong>Both are the same defect, which is that the status and the body disagree.</strong> The rule for this node is one line: the status code is the machine-readable half of the sentence the body says to the person, and the two never say different things.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - the two live failures against ours. Black and white until stage 06</div>
+    <div class="wf-grid">
+
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">skin.club, as opened</div>
+        <div class="wf-status">HTTP 404</div>
+        <div class="wf-h1">Error</div>
+        <div class="wf-sub">One marketing sentence.</div>
+        <div class="wf-foot">Footer only. <b>No search. No links in the body.</b></div>
+      </div>
+
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">Key-Drop, as opened</div>
+        <div class="wf-status">HTTP 404</div>
+        <div class="wf-h1 is-dim" style="color:var(--wf-ink-dim)">the home page</div>
+        <div class="wf-sub">Home title, home ticker, no H1, no error message anywhere.</div>
+        <div class="wf-foot"><b>The person is never told the URL was wrong.</b></div>
+      </div>
+
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">Ours</div>
+        <div class="wf-status">HTTP 404</div>
+        <div class="wf-h1">There is nothing at this address</div>
+        <div class="wf-sub">Two ways on from here.</div>
+        <div class="wf-field">Search cases</div>
+        <div class="wf-link">Home</div><div class="wf-link">All cases</div>
+        <div class="wf-foot">Full footer: legal identity, compliance line, support.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CODES -->
+<section id="codes">
+  <div class="sec-head">
+    <h2>The status codes, quoted rather than remembered</h2>
+    <p>RFC 9110, HTTP Semantics, June 2022, opened at rfc-editor.org on 12 August 2026.</p>
+  </div>
+
+  <blockquote>
+    <p><strong>15.5.5. 404 Not Found.</strong> "The 404 (Not Found) status code indicates that the origin server did not find a current representation for the target resource or is not willing to disclose that one exists. A 404 status code does not indicate whether this lack of representation is temporary or permanent; the 410 (Gone) status code is preferred over 404 if the origin server knows, presumably through some configurable means, that the condition is likely to be permanent."</p>
+    <p><strong>15.6.1. 500 Internal Server Error.</strong> "The 500 (Internal Server Error) status code indicates that the server encountered an unexpected condition that prevented it from fulfilling the request."</p>
+    <p><strong>15.6.4. 503 Service Unavailable.</strong> "The 503 (Service Unavailable) status code indicates that the server is currently unable to handle the request due to a temporary overload or scheduled maintenance, which will likely be alleviated after some delay. The server MAY send a Retry-After header field (Section 10.2.3) to suggest an appropriate amount of time for the client to wait before retrying the request."</p>
+    <p><strong>10.2.3. Retry-After.</strong> "Servers send the "Retry-After" header field to indicate how long the user agent ought to wait before making a follow-up request. When sent with a 503 (Service Unavailable) response, Retry-After indicates how long the service is expected to be unavailable to the client." The value "can be either an HTTP-date or a number of seconds to delay after receiving the response."</p>
+  </blockquote>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Surface</th><th>Status</th><th>Retry-After</th><th>Body must say</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Not found</strong></td><td><code>404</code></td><td>No</td><td>This address has nothing at it, and here is how to find what you wanted</td></tr>
+        <tr><td><strong>Our fault</strong></td><td><code>500</code></td><td>No</td><td>Something on our side failed, we know, and here is the reference and the way to reach us</td></tr>
+        <tr><td><strong>Planned or temporary stop</strong></td><td><code>503</code></td><td><strong>Yes, and the same figure in words in the body</strong></td><td>We are down on purpose or under load, this is who it is waiting on, and this is when to come back</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>Retry-After is a promise, not a hint</h4>
+    <p>It is the same class of object as the published ceiling on a withdrawal state, row <span class="row-code">G2</span>, and it is measured the same way: the response either comes back inside the figure it published or it does not. <strong>That is why the header alone is not enough.</strong> A figure only a machine can read is not a published figure, <code>0.11</code> rule 1.</p>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>410 is a real decision and it is not this node's.</strong> The RFC prefers it where the condition is known to be permanent. <code>0.13</code> already rules that a rename is a 301 and an old slug is never reused, so the case that needs a verdict is a case that is retired rather than renamed. Open, below.</p>
+  </div>
+</section>
+
+<!-- BLOCKS -->
+<section id="blocks">
+  <div class="sec-head">
+    <h2>The blocks, and the parent of each</h2>
+    <p>One template, three fillings. A block that is absent on a surface is absent for a stated reason rather than by omission.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Block</th><th>404</th><th>500</th><th>503</th><th>Parent</th><th>Why it is here</th></tr></thead>
+      <tbody>
+        <tr><td><strong>B1. Status statement</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Row <span class="row-code">B5</span>, on <span class="row-code">B3-1</span></td><td>The H1 is what happened in words. <strong>The number is secondary text, never the heading.</strong> Key-Drop's page has no H1 at all</td></tr>
+        <tr><td><strong>B2. Attribution: who it is waiting on</strong></td><td>n/a</td><td>Yes</td><td>Yes</td><td>Rows <span class="row-code">G1</span> and <span class="row-code">G2</span>, on <span class="row-code">B8-2</span></td><td>The withdrawal clock's rule at site scale. A wait with no owner is the pattern of 6 that made T8 the floor of the As-Is map</td></tr>
+        <tr><td><strong>B3. Search</strong></td><td><strong>Yes, the block skin.club lacks</strong></td><td>No</td><td>No</td><td>Core Job 1, <code>jtbd.md</code></td><td>A 404 has two kinds of arrival. Search answers the one that knows what it wanted. Absent on 500 and 503 because search needs the backend that is down</td></tr>
+        <tr><td><strong>B4. Quick links</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>The map's transitions, <span class="surf">1.0</span> and <span class="surf">3.1</span>, and Core Job 1</td><td>The other kind of arrival. <strong>Real anchors</strong>, per the linking planes in <code>0.13</code>: a destination reachable only by script does not exist for a crawler or for a keyboard</td></tr>
+        <tr><td><strong>B5. Support route</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Row <span class="row-code">G4</span>, and node <span class="surf">0.10</span> for Article 5(c) rapid contact</td><td>Reached through the footer, which <span class="surf">0.2</span> already declares renders in full on 404 and 500. On 500 it is the only route certainly not broken by the same failure</td></tr>
+        <tr><td><strong>B6. Reference</strong></td><td>No</td><td><strong>Yes</strong></td><td>No</td><td>Row <span class="row-code">B5</span>, plus <span class="row-code">G4</span>'s published deadline</td><td>One short identifier a person can paste into a ticket. A failure with no handle is one support cannot look up, which makes the deadline unmeetable</td></tr>
+        <tr><td><strong>B7. Retry control and the stated end</strong></td><td>No</td><td>No</td><td><strong>Yes</strong></td><td>Row <span class="row-code">G2</span>, on <span class="row-code">B8-2</span></td><td>The Retry-After figure said in words, with a control that retries. Never an automatic reload loop</td></tr>
+        <tr><td><strong>B8. Footer 0.2, in full</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="surf">0.2</span> transient states, which name <span class="surf">0.3</span> by number</td><td>Legal identity, compliance line, market statement, support button. It is what makes "never a dead end" true rather than asserted. <strong>0.2 names 404 and 500 explicitly and not 503, so the third surface inherits the same treatment and the extension is named here</strong></td></tr>
+        <tr><td><strong>B9. Navigation carriers 0.1</strong></td><td>Yes</td><td><strong>Conditional</strong></td><td>Conditional</td><td><code>D-21</code> and <code>D-22</code></td><td>Removing the carriers would make an error read as an ejection. On 500 they render only if they can render without the backend</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Three blocks are refused, each with the row that refuses it</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Refused</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The marketing sentence</strong></td><td>skin.club spends its one error line on one. <code>0.11</code> rule 1: a claim without a route is decoration that looks like evidence, and an error page is the worst place in the product to make one</td></tr>
+        <tr><td><strong>The ticker 0.8</strong></td><td>It renders on <span class="surf">1.0</span> and <span class="surf">3.3</span> only. A live feed of other people's wins beside our own failure is a tone this product does not have</td></tr>
+        <tr><td><strong>Any live figure from 0.11</strong></td><td>On 500 and 503 the source of those figures is the thing that failed. Rule 6 of that register makes a failed source degraded rather than frozen, and the cheapest way to obey it is not to print the figure</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>And that refusal meets one thing 0.2 already decided</h4>
+    <p>The footer renders in full on these pages <strong>including its statistics strip</strong>, which is four live figures. <span class="surf">0.2</span>'s own transient table already answers it: a statistic that is unavailable states that it is unavailable with its last known timestamp and never renders a stale number as current.</p>
+    <p><strong>So the strip renders in the unavailable state rather than being removed</strong>, which is the same rule this node applies to the money figures on the 500, and neither node has to change.</p>
+  </div>
+</section>
+
+<!-- ARRIVALS -->
+<section id="arrivals">
+  <div class="sec-head">
+    <h2>The two arrivals, which is why the 404 carries both blocks</h2>
+    <p>A person reaching a 404 is in one of two states, and each needs a different block.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Arrival</th><th>What they know</th><th>The block that answers it</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Rot or a typo, no referrer</strong></td><td>They know what they wanted: a case name, a policy, a result they were sent</td><td><strong>Search.</strong> They can name it</td></tr>
+        <tr><td><strong>Our own dead link, internal referrer</strong></td><td>They know nothing except that we sent them here. <strong>This is our defect, not theirs</strong></td><td><strong>Quick links.</strong> There is nothing to search for, and the honest move is to put the two live destinations in front of them</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <p><strong>One of those two is a signal we own.</strong> A 404 with an internal referrer means a link inside this product points at nothing, which is exactly the defect the rule against phantom destinations exists to catch. The page looks the same to the person either way. What differs is that the internal case is worth counting, and that instrumentation belongs to production.</p>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>Quick links are the map's two transitions, 1.0 and 3.1, and no more.</strong> Not because two is elegant: a carrier may not promise a destination the map does not hold, and this node's transitions row holds those two. <strong>If the body should also carry 1.2 or 0.10 as a third link, that is a change to the map</strong>, and it belongs to the step 8 audit rather than to a quiet edit here. Support is present either way, through the footer.</p>
+  </div>
+</section>
+
+<!-- 500 -->
+<section id="five-hundred">
+  <div class="sec-head">
+    <h2>The 500 is backend-independent, and that is the one rule that costs something</h2>
+    <p>The block bank states it in one line: an error page that needs the broken backend to render is not an error page.</p>
+  </div>
+
+  <div class="card is-fix">
+    <p><strong>No template engine call, no API call, no database read.</strong> The 500 is a static document.</p>
+    <p><strong>No live figure.</strong> On 500 the money figures in the header have no source. <code>0.11</code> rule 3 decides what happens then: <strong>missing is a state, never a zero.</strong> They are absent with a reason, never rendered as 0.00.</p>
+    <p><strong>Styling inline or already cached</strong>, because the asset pipeline is part of what may be broken. Design principle 5: a failure page that is itself slow says the failure is worse than it is.</p>
+    <p><strong>The carriers render from a static copy or not at all.</strong> A drawer whose contents come from a session that just failed is worse than a page without one, and the quick links block is what makes their absence survivable. <strong>This is why B4 is a body block and not a footer link.</strong></p>
+    <p><strong>The reference is generated at the edge</strong>, not by the failed application, or it does not exist.</p>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>And the same argument runs one level up on the 503.</strong> If the origin is down, the origin cannot serve its own 503. <strong>Serving these three responses from the edge is a requirement this node states and does not own.</strong> The IA's part is to say what has to be true. Where it is served from is production's.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - 500 and 503, and what each one is allowed to contain</div>
+    <div class="wf-grid">
+
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">500, our fault</div>
+        <div class="wf-status">HTTP 500</div>
+        <div class="wf-h1">Something on our side failed</div>
+        <div class="wf-sub">We know. Nothing you did caused it.</div>
+        <div class="wf-kv" style="margin-top:12px"><span class="wf-k">Waiting on</span><span class="wf-v">us</span></div>
+        <div class="wf-kv"><span class="wf-k">Reference</span><span class="wf-v">7f2a ... 91c4</span></div>
+        <div class="wf-link">Home</div><div class="wf-link">All cases</div>
+        <div class="wf-scope"><b>No figures. No search. No ticker.</b> Static document, no backend call.</div>
+      </div>
+
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">503, planned</div>
+        <div class="wf-status">HTTP 503 + Retry-After</div>
+        <div class="wf-h1">We are down on purpose</div>
+        <div class="wf-sub">Maintenance. Waiting on us.</div>
+        <div class="wf-kv" style="margin-top:12px"><span class="wf-k">Back at</span><span class="wf-v">the published time, in words</span></div>
+        <div class="wf-btn">Try again</div>
+        <div class="wf-scope">The header figure and the words are <b>the same figure</b>. No automatic reload.</div>
+      </div>
+
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">503, unplanned</div>
+        <div class="wf-status">HTTP 503 + Retry-After</div>
+        <div class="wf-h1">We are under load and refusing requests</div>
+        <div class="wf-sub">Waiting on us. No end time yet.</div>
+        <div class="wf-btn">Try again</div>
+        <div class="wf-link">Support</div>
+        <div class="wf-scope"><b>No invented end time.</b> Rule 3 of the numbers register forbids it everywhere else, and it forbids it here.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 503 -->
+<section id="five-oh-three">
+  <div class="sec-head">
+    <h2>The 503, and what it inherits from the withdrawal clock</h2>
+    <p>A maintenance page that says nothing about duration is barrier B8-2 at the scale of the whole product: waiting, with no attribution and no figure.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>From the clock</th><th>On the 503</th></tr></thead>
+      <tbody>
+        <tr><td>Named states rather than a spinner, row <span class="row-code">G1</span></td><td><strong>Two states and they are named: planned and unplanned.</strong> The page says which</td></tr>
+        <tr><td>Attribution to us, Steam or you, row <span class="row-code">G1</span></td><td>On a 503 the owner is always us, and the page says so in those words</td></tr>
+        <tr><td>A published ceiling on our own states, row <span class="row-code">G2</span></td><td><code>Retry-After</code>, in the header and in the body, in the same figure</td></tr>
+        <tr><td>A degraded banner driven by a health probe, row <span class="row-code">G2</span></td><td>A 503 is our own degraded state. Where only a part is down, the correct response is the degraded banner on the working surface, not a 503 on everything</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <p><strong>Planned and unplanned are different pages of the same template.</strong> Planned states the end time. Unplanned states that there is no end time yet and gives the support route rather than a number invented to look reassuring, which <code>0.11</code> rule 3 forbids in every other place in this product.</p>
+    <p><strong>No automatic reload loop.</strong> A page that refreshes itself takes the choice away, keeps hammering a server that is already refusing, and on a screen reader restarts the page on every cycle. The retry is a control, and the person presses it.</p>
+  </div>
+
+  <div class="card is-soon">
+    <p><strong>Nobody learns about a 503 from a 503, and this node cannot fix that.</strong> The global sweep already recorded it: there is no notification, email or push row anywhere in <code>cjm-to-be.md</code>, so there is no channel that reaches a person who is not on the site. Recorded in the open items in the treatment that hole already has, so it is not later reported as a discovery.</p>
+  </div>
+</section>
+
+<!-- INDEXATION -->
+<section id="indexation">
+  <div class="sec-head">
+    <h2>Indexation, read from 0.13 rather than decided again</h2>
+    <p>The register carries one row for this node: no URL of their own, not indexed, no canonical, no schema, no breadcrumb.</p>
+  </div>
+
+  <div class="card is-good">
+    <p><strong>No URL of its own is the mechanism, not an omission.</strong> The response renders <strong>at the address that was requested</strong>. That is what makes the status honest: a redirect to <code>/404</code> would answer the request somewhere else, and the address the person typed would vanish from the browser bar along with any chance of correcting it.</p>
+    <p><strong>The status code is the instrument here, not the meta tag.</strong> A <code>noindex</code> on a 404 is belt and braces at best. What removes the URL from an index is the 404 itself, and what keeps a maintenance window from removing the whole site is that a 503 is temporary by definition.</p>
+    <p><strong>robots.txt disallows nothing for this node.</strong> <code>0.13</code> already explains why in general: a page a crawler is forbidden to read is a page whose instructions the crawler cannot read. Here it is simpler still, because there are no error paths to disallow.</p>
+    <p><strong>The search on the 404 must not mint indexable URLs.</strong> <code>0.13</code> marks <code>/cases?...</code> as <code>noindex, follow</code>, canonical to <code>/cases</code>. The 404's search field submits into that same route rather than inventing a second search surface.</p>
+    <p><strong>The geo block is not one of these pages and must never become one.</strong> <code>0.12</code> section 9: the block returns 200 with content, is a state rather than a failure, and renders at the URL the person is on. A market we do not serve is not a missing page.</p>
+  </div>
+</section>
+
+<!-- STATES -->
+<section id="states">
+  <div class="sec-head">
+    <h2>States</h2>
+    <p>Every state below is a state of this node. None is a separate node in the map, because none has its own copy, its own route out and a specification that differs from this template's default.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>State</th><th>What renders</th><th>Route out</th></tr></thead>
+      <tbody>
+        <tr><td><strong>404, external arrival</strong></td><td>Statement, search, quick links, footer</td><td>Search into <span class="surf">3.1</span>, or the two quick links</td></tr>
+        <tr><td><strong>404, internal referrer</strong></td><td>Identical to the person</td><td>The same, plus a counted signal that a link inside the product is dead</td></tr>
+        <tr><td><strong>404 on a retired case slug</strong></td><td>The statement names that the case is gone rather than mistyped, <strong>if the product knows that</strong>, which is the 410 question</td><td><span class="surf">3.1</span>, where the rest of the shelf is</td></tr>
+        <tr><td><strong>500</strong></td><td>Statement, attribution, reference, quick links, footer. <strong>No figures, no search</strong></td><td>Support through the footer, quick links, retry by reloading the address they wanted</td></tr>
+        <tr><td><strong>503, planned</strong></td><td>Statement, owner, the end time, the retry control</td><td>The retry control, support</td></tr>
+        <tr><td><strong>503, unplanned</strong></td><td>Statement, owner, <strong>no invented end time</strong>, the retry control, support</td><td>Support, which is the only route that is not the thing that is down</td></tr>
+        <tr><td><strong>Search returns nothing</strong>, inside the 404</td><td>The empty result, in the same block, with the quick links still under it</td><td><span class="surf">3.1</span>, the full shelf, never a blank page</td></tr>
+        <tr><td><strong>Boundary in force</strong>, <span class="surf">6.3</span></td><td>Unchanged. A system page does not editorialise about a limit</td><td>Same as its base state</td></tr>
+        <tr><td><strong>Consent pending</strong>, <span class="surf">0.4</span></td><td>The banner renders here too, and nothing non-essential fires on an error page any more than anywhere else</td><td>Same as its base state</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- A11Y -->
+<section id="a11y">
+  <div class="sec-head">
+    <h2>Adaptive behaviour and accessibility</h2>
+    <p>Mobile base 360px, and the one thing that breaks at that width is a two-tile quick link grid.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - the 404, and why the quick links are a stacked list</div>
+    <div class="wf-phone">
+      <div class="wf-proof" style="border:none;background:none;padding:0">
+        <div class="wf-status">HTTP 404</div>
+        <div class="wf-h1">There is nothing at this address</div>
+        <div class="wf-sub">It may have moved, or the link that sent you here was ours and was wrong.</div>
+        <div class="wf-field">Search cases</div>
+        <div class="wf-kv" style="margin-top:12px"><span class="wf-k">Go to</span><span class="wf-v">Home</span></div>
+        <div class="wf-kv"><span class="wf-k"></span><span class="wf-v">All cases</span></div>
+        <div class="wf-foot">Footer below: legal identity, compliance line, support button.<br><b>Two tiles side by side at this width truncate the longer label, and a truncated route is the defect the block exists to remove.</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p><strong>Exactly one H1, and it is what happened in words</strong>, per <code>0.13</code>. Never the numeral alone. The numeral is present, because a person reporting the problem needs it, and it is secondary text.</p>
+    <p><strong>The title carries the same statement.</strong> It is what a person sees in the tab and in their history, and it is the one part of an error page that survives being left open in a background tab.</p>
+    <p><strong>The search field is not autofocused.</strong> Autofocus jumps a screen reader past the statement, which is the one sentence the page exists to deliver.</p>
+    <p><strong>Focus starts at the top of the main landmark</strong>, so the statement is the first thing read.</p>
+    <p><strong>The statement is text, never an image</strong>, generalising <code>0.11</code> rule 8. An error a person cannot select, copy or have read aloud cannot be reported.</p>
+    <p><strong>Colour never carries the state.</strong> The words carry it.</p>
+    <p><strong>The reference is a copyable string</strong>, and it obeys the truncation rule <code>0.14</code> writes for the hash: middle truncation and the full value always retrievable, never truncation at the end.</p>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+    <p>Seven open items, and two of them are requirements this node states and does not own.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Open item</th><th style="width:46%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong>404 against 410 for a retired case</strong></td><td>RFC 9110 15.5.5 prefers 410 where the condition is known to be permanent. <code>0.13</code> covers renames with a 301 and says nothing about retirement, and whether a retired case is permanent is a product answer, not a technical one</td><td>Node <span class="surf">0.13</span>, with the founder on whether a case can return</td></tr>
+        <tr><td><strong>Where the three responses are served from</strong></td><td>A 500 that must not touch the backend and a 503 that must survive the origin being down both point at the edge. This node states the requirement and does not own the answer</td><td>Production, before stage 04 draws the template as final</td></tr>
+        <tr><td>Whether the carriers can render on a 500 at all</td><td>They are conditional on being renderable without the backend. Whether the shell is static enough for that is unknown here</td><td>Production, and stage 04 draws both versions</td></tr>
+        <tr><td>The reference format</td><td>One short identifier, correlatable with a log, short enough to read over the phone. The format is <span class="q">[?]</span></td><td>Production, with <span class="surf">0.10</span> which has to look it up inside the published deadline</td></tr>
+        <tr><td><strong>How a person learns about a planned 503 before it starts</strong></td><td>There is <strong>no notification, email or push row anywhere in cjm-to-be.md</strong>, which the global sweep already recorded as a hole with no parent. A person off the site cannot be told, so a planned window is discovered by arriving at it. <strong>Named, not invented</strong></td><td>Founder, one backlog row if it is wanted</td></tr>
+        <tr><td>Whether the quick links should carry a third destination</td><td>The map's transitions hold <span class="surf">1.0</span> and <span class="surf">3.1</span>. Adding <span class="surf">1.2</span> or <span class="surf">0.10</span> to the body is a change to the map</td><td>The step 8 audit of this stage</td></tr>
+        <tr><td>Rate limiting and its status code</td><td>429 exists and is not in this node's INCLUDES. Whether the product ever returns one, and whether it reuses this template, is undecided</td><td>Production</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>The words on these pages.</strong> Stage 05, which owns microcopy.</p>
+    <p><strong>How they look.</strong> Stages 06 and 07.</p>
+    <p><strong>Which figures may appear anywhere.</strong> Node <code>0.11</code>.</p>
+    <p><strong>Indexation.</strong> Node <code>0.13</code>, read here rather than decided.</p>
+    <p><strong>The geo refusal, which is not an error at all.</strong> Node <code>0.12</code> and node <span class="surf">2.2</span>.</p>
+  </div>
+
+  <a class="backlink" href="structure.html">Back to Structure</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/system.md</code>. Competitor evidence: <code>ia/docs/blocks.md</code>, type T8, opened 12 August 2026. Status codes: RFC 9110, opened 12 August 2026. Node data: <code>ia/docs/sitemap.md</code>, cluster 0.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map: <a href="sitemap.html">Sitemap</a>. The routes: <a href="flows.html">Flows</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '0.3 System pages';
+window.NAV_SECTIONS = [
+  { id: 'overview',      label: 'Overview' },
+  { id: 'failures',      label: 'Two live failures' },
+  { id: 'codes',         label: 'The status codes' },
+  { id: 'blocks',        label: 'Blocks and parents' },
+  { id: 'arrivals',      label: 'The two arrivals' },
+  { id: 'five-hundred',  label: 'The 500' },
+  { id: 'five-oh-three', label: 'The 503' },
+  { id: 'indexation',    label: 'Indexation' },
+  { id: 'states',        label: 'States' },
+  { id: 'a11y',          label: '360px and access' },
+  { id: 'open',          label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

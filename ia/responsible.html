@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 6.1 Responsible play</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 14px; }
+
+    .wf-fig { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-fig-state { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); border-bottom: 1px dashed var(--wf-line-soft); padding-bottom: 7px; margin-bottom: 10px; }
+    .wf-note { font-size: 10px; color: var(--wf-ink-dim); margin-top: 8px; line-height: 1.5; }
+    .wf-link { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; }
+    .wf-scope { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; border-top: 1px dashed var(--wf-line-soft); margin-top: 10px; padding-top: 9px; }
+    .wf-scope b { color: var(--wf-ink); font-weight: 700; }
+
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+
+    /* T6 settings shapes */
+    .wf-page { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 15px 16px; }
+    .wf-h1 { font-size: 15px; font-weight: 800; color: var(--wf-ink); letter-spacing: -0.01em; }
+    .wf-sub { font-size: 10.5px; color: var(--wf-ink-dim); margin-top: 4px; line-height: 1.5; }
+    .wf-band { border: 1px dashed var(--wf-line-soft); border-radius: 4px; padding: 9px 10px; margin-top: 11px; }
+    .wf-band-h { font-size: 8.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 7px; }
+    .wf-row { display: flex; gap: 10px; align-items: center; justify-content: space-between; border-top: 1px solid var(--wf-line-soft); padding: 10px 0; flex-wrap: wrap; }
+    .wf-row:first-of-type { border-top: none; }
+    .wf-row-t { flex: 1 1 130px; min-width: 0; }
+    .wf-row-k { font-size: 11.5px; font-weight: 700; color: var(--wf-ink); }
+    .wf-row-d { font-size: 9.5px; color: var(--wf-ink-dim); line-height: 1.45; margin-top: 2px; }
+    .wf-ctl { flex: 0 0 auto; display: flex; gap: 6px; align-items: center; }
+    .wf-btn { display: inline-block; font-size: 9.5px; color: var(--wf-ink); border: 1px solid var(--wf-line); border-radius: 3px; padding: 4px 9px; white-space: nowrap; }
+    .wf-btn.is-off { color: var(--wf-ink-dim); border-style: dashed; }
+    .wf-btn.is-solid { background: var(--wf-line); color: #141414; font-weight: 700; border-color: var(--wf-line); }
+    .wf-val { font-family: 'SF Mono', Menlo, monospace; font-size: 11px; color: var(--wf-ink); }
+    .wf-dialog { border: 2px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 15px; max-width: 380px; }
+    .wf-dialog-h { font-size: 13px; font-weight: 800; color: var(--wf-ink); margin-bottom: 7px; }
+    .wf-line { font-size: 10.5px; color: var(--wf-ink-dim); line-height: 1.55; margin-bottom: 5px; }
+    .wf-line b { color: var(--wf-ink); font-weight: 700; }
+    .wf-acts { display: flex; gap: 8px; margin-top: 12px; }
+    .wf-x { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; margin-top: 4px; }
+    .wf-x::before { content: 'x  '; color: var(--wf-line); font-weight: 700; }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid { grid-template-columns: 1fr; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 6.1</div>
+  <h1>Responsible play</h1>
+  <p class="lede">Four brakes over a person's own spending and their own time, in the room where the spending happens, in a form that keeps working without ever becoming a thing to engage with. <strong>This node has no job behind it and never will: nobody arrives wanting to limit themselves.</strong> Its parents are barrier <code>B7-4</code>, the escalation loop, and the compliance constraint in <code>CLAUDE.md</code>.</p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Jobs, now and ever</div></div>
+    <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Boundaries, the category floor</div></div>
+    <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Entries to the page</div></div>
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Counters, streaks or scores</div></div>
+  </div>
+</div>
+
+<!-- NO JOB -->
+<section id="nojob">
+  <div class="sec-head">
+    <h2>The node with no job, said out loud</h2>
+    <p>Every other page in this product is entered by somebody who wants what is on it. This one is not.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Both parents, and neither is a job</h4>
+    <p><strong>Barrier <code>B7-4</code>,</strong> the escalation loop, pattern of 12 who gave a concrete loss figure unprompted, growth zone Z5 in <code>cjm-as-is.md</code>. One user in that ledger names his own brake and <strong>it is a third-party tool</strong>, which is the evidence that the need is real rather than assumed.</p>
+    <p><strong>The compliance constraint in <code>CLAUDE.md</code>,</strong> quoted: "responsible play tooling (deposit limits, session limits, self exclusion, cool down)".</p>
+    <p><strong>Capabilities:</strong> <code>C2</code> spend ceiling chosen at deposit, <code>C5</code> session limit, cool down and self exclusion.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Three consequences that run through every section below</h4>
+    <p><strong>1. Nothing here persuades.</strong> A page arguing that limits are good is a page arguing with the person who already opened it.</p>
+    <p><strong>2. Nothing here rewards.</strong> The rule from <code>CLAUDE.md</code>: "A limit never acquires completion mechanics, streaks, status or a session score: at that point it stops being a boundary and becomes a reason to keep going."</p>
+    <p><strong>3. Nothing here can fail.</strong> <code>flows.md</code> flow 2a: no loading node and no error node, deliberately, because <strong>a brake that can fail to apply is not a brake.</strong></p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Reachability is not prominence</h4>
+    <p>Three entries: the rail in its lower group, a persistent entry inside the money control two taps from anywhere, and the footer's fourth column. Three entries are how a person finds a brake at the worst moment. <strong>None of them is a promotion, and none of them is a number.</strong></p>
+  </div>
+</section>
+
+<!-- COMPETITOR -->
+<section id="competitor">
+  <div class="sec-head">
+    <h2>The only surface of this kind in the category, walked</h2>
+    <p>Key-Drop's safety portal, <code>safety.key-drop.com</code>, opened live on 12 August 2026 and recorded in the block bank. Proof: <code>research/screens/blocks/t6-keydrop-safety.jpeg</code>.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>What it settles</h4>
+    <p>Its four tools are deposit limits by day, week and month; session reminders; time-outs from 24 hours to 7 days; and self exclusion up to permanent. <strong>Near identical to ours, which settles that these four are the category floor rather than our invention.</strong> Hellcase's footer carries no link of the kind at all, and <code>baseline.md</code> section 6 records zero responsible play routes anywhere on our own baseline.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">What Key-Drop does</th><th style="width:16%">Verdict</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Calls its session control <strong>"session reminders: gentle alerts during long play sessions"</strong></td><td><strong>Refused</strong></td><td>A reminder a person can ignore forever is not a limit. <code>C5</code> is a limit: when the session limit is reached the session ends and <span class="surf">6.3</span> holds it. <strong>A gentle alert is the interface admitting it does not intend to stop anything</strong></td></tr>
+        <tr><td><strong>Puts the whole surface on a separate subdomain</strong></td><td><strong>Refused</strong></td><td>The brake lives outside the room where the spending happens. Ours is a node of this product at <code>/responsible-play</code>, entered from the rail, from the money control and from the footer, rendering the same shell as every other page</td></tr>
+        <tr><td>Carries a <strong>decorative verifier widget</strong> printing a fake server seed, a fake client seed and <strong>"Outcome Verified: DRAGON LORE (FN)"</strong> for a round that never happened</td><td><strong>Refused, and it is the live instance of a rule we already wrote</strong></td><td><span class="surf">0.14</span> section 0 forbids a verified badge in any variant, because it asserts the one proposition the scheme does not prove. <strong>A responsible play page is the last surface in a product that should carry a fabricated proof, and it is where this one carries it</strong></td></tr>
+        <tr><td>Three principle cards: fun first, collectibles not investments, healthy play mindset</td><td>Take the second, leave the framing</td><td>"Collectibles, not investments" is a true and useful sentence. The other two are mood</td></tr>
+        <tr><td>18+ badges: NO MINORS, ID MATCH REQUIRED, KYC VERIFICATION</td><td><strong>Refused</strong></td><td>Claims about a mechanism, printed as badges, with nothing to check. <code>0.11</code> rule 9 and <code>D-A</code>: our identity method is <span class="q">[?]</span> and will be described rather than badged</td></tr>
+        <tr><td>Refero, Kraken <code>b7ae7d3a</code> and Stocktwits <code>e47ee59e</code>: grouped settings, one column, right-aligned controls</td><td><strong>Taken</strong></td><td><strong>A limit is a setting and it must look like one rather than like an achievement</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- BLOCKS -->
+<section id="blocks">
+  <div class="sec-head">
+    <h2>Blocks, mobile first</h2>
+    <p>Composition from the block bank, type T6, rows marked TAKE, plus what the two parents require. Nothing was added for completeness.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:5%">#</th><th style="width:34%">Block</th><th style="width:22%">Source</th><th>Traces to</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td><strong>H1 and one plain statement of what these tools do.</strong> Not a case for using them, not a warning, not a mood card</td><td>Key-Drop principle card 2, framing refused</td><td>Compliance constraint, <code>CLAUDE.md</code></td></tr>
+        <tr><td><strong>2</strong></td><td><strong>What is in force now</strong>, if anything: each boundary, its period, the moment it ends, and the route to change it. Absent entirely when nothing is set</td><td>Own research</td><td><code>B7-4</code>, <code>C2</code>, <code>C5</code></td></tr>
+        <tr><td><strong>3</strong></td><td><strong>Spend ceiling</strong>, <code>C2</code>. Lowering applies immediately, raising waits 24 hours</td><td>Key-Drop deposit limits, Refero grouped settings</td><td><code>B7-4</code>, pattern of 12, through <code>C2</code></td></tr>
+        <tr><td><strong>4</strong></td><td><strong>Session limit</strong>, <code>C5</code>. The session ends when the length is reached</td><td>Key-Drop session reminders, <strong>refused as a reminder, taken as a limit</strong></td><td><code>B7-4</code>, plus the compliance constraint</td></tr>
+        <tr><td><strong>5</strong></td><td><strong>Cool down</strong>, <code>C5</code>. Opening and depositing close for a chosen period. Ends by running out</td><td>Key-Drop time-outs</td><td><code>B7-4</code>, plus the compliance constraint</td></tr>
+        <tr><td><strong>6</strong></td><td><strong>Self exclusion</strong>, <code>C5</code>. The one control here a person cannot undo on impulse. Opens <span class="surf">6.2</span></td><td>Key-Drop self exclusion</td><td><code>B7-4</code>, plus the compliance constraint</td></tr>
+        <tr><td><strong>7</strong></td><td><strong>What every boundary does and does not close</strong>, stated <strong>above</strong> the controls. Withdrawal stays open under every one of them</td><td>Own research, <code>flows.md</code> flow 2a</td><td><code>B7-4</code>, and <code>B2</code> by consequence</td></tr>
+        <tr><td><strong>8</strong></td><td><strong>Routes that are not us:</strong> external help. Structure fixed, contents <span class="q">[?]</span></td><td><code>cjm-as-is.md</code> Z5, where one user names a third-party tool as his own brake</td><td><code>B7-4</code></td></tr>
+        <tr><td><strong>9</strong></td><td><strong>Support route</strong>, <span class="surf">0.10</span>, for the person inside a boundary who needs something from us</td><td>Block bank T7, Article 5(c), row <code>G4</code></td><td><code>B8-3</code> by way of <code>G4</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Block 7 sits above the controls, and the order is the decision</h4>
+    <p>A person who does not know that self exclusion leaves the exit open cannot evaluate self exclusion. <strong>Putting that sentence under the controls means it is read after the choice</strong>, which is the placement <code>G5</code> exists to forbid one cluster over.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Block 8 is fixed in structure and empty in contents on purpose</h4>
+    <p>Which organisations are named depends on the market, and every market verdict in <span class="surf">0.12</span> is <span class="q">[?]</span> until re-verified against current law. <strong>A plausible list of helplines written now would be model memory presented as a legal fact</strong>, in the one place in the product where that would do the most damage.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - the page, account state, nothing set. Black and white until stage 06</div>
+    <div class="wf-page" style="max-width:620px">
+      <div class="wf-h1">Responsible play</div>
+      <div class="wf-sub">Four boundaries. You set them, they hold, and none of them is a game.</div>
+
+      <div class="wf-band">
+        <div class="wf-band-h">Block 7 - what a boundary closes, and what it never closes</div>
+        <div class="wf-line"><b>Withdrawal stays open under every boundary, self exclusion included.</b> A limit stops money going in. It never traps what you already hold.</div>
+      </div>
+
+      <div class="wf-band">
+        <div class="wf-band-h">Blocks 3 to 6 - the four boundaries</div>
+        <div class="wf-row">
+          <div class="wf-row-t"><div class="wf-row-k">Spend ceiling</div><div class="wf-row-d">Caps deposits over a period you choose. Lowering applies now, raising waits 24 hours</div></div>
+          <div class="wf-ctl"><span class="wf-val">not set</span><span class="wf-btn">Set</span></div>
+        </div>
+        <div class="wf-row">
+          <div class="wf-row-t"><div class="wf-row-k">Session limit</div><div class="wf-row-d">Ends a session at a length you choose</div></div>
+          <div class="wf-ctl"><span class="wf-val">not set</span><span class="wf-btn">Set</span></div>
+        </div>
+        <div class="wf-row">
+          <div class="wf-row-t"><div class="wf-row-k">Cool down</div><div class="wf-row-d">Closes opening and depositing for a period. Cannot be shortened</div></div>
+          <div class="wf-ctl"><span class="wf-val">not set</span><span class="wf-btn">Set</span></div>
+        </div>
+        <div class="wf-row">
+          <div class="wf-row-t"><div class="wf-row-k">Self exclusion</div><div class="wf-row-d">Closes opening and depositing for longer. Cannot be lifted early</div></div>
+          <div class="wf-ctl"><span class="wf-val">not set</span><span class="wf-btn">Set</span></div>
+        </div>
+      </div>
+
+      <div class="wf-band">
+        <div class="wf-band-h">Blocks 8 and 9 - routes that are not a limit</div>
+        <div class="wf-line">External help: <b>structure fixed, contents [?]</b> until the market verdicts resolve</div>
+        <div class="wf-link">Support, with a published response deadline</div>
+      </div>
+
+      <div class="wf-scope"><b>Block 2 is absent because nothing is set.</b> Not an empty state with an illustration and an invitation: that would be the product suggesting a limit as a thing to acquire.</div>
+    </div>
+  </div>
+
+  <h3>What this page refuses to carry, and each refusal has a parent</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:38%">Refused</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Any counter, streak, status, level or session score</strong></td><td>The rule in <code>CLAUDE.md</code>. This is why the list is written out rather than summarised</td></tr>
+        <tr><td><strong>Any celebration of staying inside a limit</strong></td><td>A boundary that congratulates is a boundary that has started measuring, and a measurement is something to improve</td></tr>
+        <tr><td><strong>A progress bar on a cool down or a self exclusion</strong></td><td>The same rule in its most tempting form. <strong>A bar filling toward the end of a boundary is a countdown to spending again, drawn as an achievement</strong></td></tr>
+        <tr><td><strong>The live drop ticker <span class="surf">0.8</span></strong></td><td>Already forbidden: the ticker renders on 1.0 and 3.3 only. Named here because this is the page where it would do harm rather than merely be noise</td></tr>
+        <tr><td><strong>Any case tile, any deposit control, any spend route</strong></td><td>No parent, and the opposite of both parents</td></tr>
+        <tr><td><strong>A "not now", "remind me later" or "skip" control</strong></td><td>There is nothing to skip. This page asks for nothing, so it has nothing to defer</td></tr>
+        <tr><td><strong>A sign-in wall</strong></td><td>The bank records Key-Drop putting provably fair behind login and <span class="surf">1.2</span> refusing it. Same refusal: the page reads in full for a guest, only the controls need an account</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-soon">
+    <h4>One absence, named so nobody reports it as a discovery</h4>
+    <p><strong>There is no single primary call to action on this page.</strong> The template asks every page for one clear next step. Four independent boundaries with none promoted over the others is the honest shape, because <strong>promoting one is the product choosing which brake a person should want.</strong> Stated rather than solved.</p>
+  </div>
+</section>
+
+<!-- BOUNDARIES -->
+<section id="boundaries">
+  <div class="sec-head">
+    <h2>The four boundaries, and the rules that are not styling</h2>
+    <p>Every period below is <span class="q">[?]</span> and none is invented.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Boundary</th><th>Row</th><th>Closes</th><th>Stays open</th><th>Direction rule</th><th>Period</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Spend ceiling</strong></td><td><code>C2</code></td><td>Deposits, once the ceiling for the period is reached, state <span class="surf">4.2</span></td><td>Opening from existing balance, and withdrawal</td><td><strong>Lowering applies immediately. Raising applies 24 hours later</strong>, state <span class="surf">4.3</span></td><td>A named period, chosen at the deposit. Set of periods <span class="q">[?]</span></td></tr>
+        <tr><td><strong>Session limit</strong></td><td><code>C5</code></td><td>The session, at the chosen length</td><td>Withdrawal, support, reading</td><td>Shortening immediate. Lengthening waits 24 hours</td><td><span class="q">[?]</span></td></tr>
+        <tr><td><strong>Cool down</strong></td><td><code>C5</code></td><td>Opening and depositing, for the chosen period</td><td>Withdrawal, support, reading</td><td>Extending immediate. Cannot be shortened or lifted early</td><td><span class="q">[?]</span></td></tr>
+        <tr><td><strong>Self exclusion</strong></td><td><code>C5</code></td><td>Opening and depositing</td><td><strong>Withdrawal, support, reading</strong></td><td><strong>No early exit at all.</strong> It ends by running out, which is the point of it</td><td><span class="q">[?]</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>The direction asymmetry is one rule with four instances, and it comes from C2</h4>
+    <p><code>cjm-to-be.md</code> T4: lowering applies immediately and raising applies 24 hours later. Generalised here: <strong>a change that tightens a boundary takes effect at once, and a change that loosens one waits.</strong> Without that rule every control on this page is a setting a person can undo in the same minute they set it, which is the definition of not being a brake.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Key-Drop's numbers are recorded, not adopted</h4>
+    <p>24 hours to 7 days for time-outs and up to permanent for self exclusion are <strong>their</strong> values, read from their page. Ours are a founder decision with counsel, because in several markets the minimum self exclusion period is set by law rather than by product.</p>
+  </div>
+
+  <div class="card">
+    <h4>Two surfaces, one value</h4>
+    <p><code>C2</code> puts the ceiling at the money decision, where the person is calm and the number is one they typed themselves. <strong>This page is where the same ceiling is read and lowered later</strong>, and <span class="surf">4.1</span> owns the moment it is first chosen.</p>
+  </div>
+</section>
+
+<!-- 6.2 -->
+<section id="state-6-2">
+  <div class="sec-head">
+    <h2>Node 6.2. Self exclusion confirmation</h2>
+    <p>Dialog. MVP. Route out: <span class="surf">6.3</span>, or back to <span class="surf">6.1</span>. It is the one choice on this screen a person cannot undo on impulse, which is what makes the confirmation hard to write: it has to be certain without being a discouragement.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop and mobile - the confirmation. Craft source: Refero Parallel confirmation modal <code>80a30705</code></div>
+    <div class="wf-dialog">
+      <div class="wf-dialog-h">Self exclusion, [?] period</div>
+      <div class="wf-line">Starts now. Ends <b>[date and time]</b>.</div>
+      <div class="wf-line"><b>Closes:</b> opening and depositing.</div>
+      <div class="wf-line"><b>Stays open:</b> withdrawal, support, and reading the product.</div>
+      <div class="wf-line">It cannot be lifted early.</div>
+      <div class="wf-acts"><span class="wf-btn">Confirm</span><span class="wf-btn">Cancel</span></div>
+      <div class="wf-note">Two controls of equal weight. Cancel returns to 6.1 unchanged.</div>
+      <div class="wf-scope"><b>The dialog states the period. It does not ask for it again.</b> Choosing happens on 6.1, confirming happens here.</div>
+    </div>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Four refusals, each with its reason</h4>
+    <p><strong>1. No second confirmation and no typed phrase.</strong> Escalating friction on a brake is discouragement wearing a safety label. The product does not make it harder to stop than it made it to start.</p>
+    <p><strong>2. No period pre-selected in the dialog</strong>, because the dialog carries no period control at all.</p>
+    <p><strong>3. No consequence framed as a loss.</strong> "You will lose your daily free case" is the product bargaining, and <code>I2</code> already carries its own recorded risk without being used as leverage here.</p>
+    <p><strong>4. No cool-off delay before the confirmation takes effect.</strong> Self exclusion tightens a boundary, and a tightening change applies at once.</p>
+  </div>
+
+  <div class="card">
+    <h4>Behaviour</h4>
+    <p>Focus trapped while open, Escape closes back to <span class="surf">6.1</span>, focus returns to the control that opened it, and the dialog carries an accessible name. Same modal rules as the drawer in <span class="surf">0.1</span>, restated rather than referenced because <strong>this is the one place in the product where a mis-dismissal costs a person a decision they had made.</strong></p>
+    <p><strong>On confirm the boundary is in force immediately</strong>, <span class="surf">6.3</span>. No interstitial, no success animation, no congratulation.</p>
+  </div>
+</section>
+
+<!-- 6.3 -->
+<section id="state-6-3">
+  <div class="sec-head">
+    <h2>Node 6.3. Boundary in force</h2>
+    <p>State. MVP. The whole specification in one line: <strong>the boundary holds without being a thing to engage with.</strong></p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - where 6.3 renders, and it is not only on this page</div>
+    <div class="wf-grid">
+
+      <div class="wf-fig">
+        <div class="wf-fig-state">On 6.1, block 2</div>
+        <div class="wf-row" style="border-top:none;padding-top:0">
+          <div class="wf-row-t"><div class="wf-row-k">Cool down</div><div class="wf-row-d">Ends [date and time]</div></div>
+          <div class="wf-ctl"><span class="wf-btn">Extend</span></div>
+        </div>
+        <div class="wf-note">Tightening direction only. <b>A stated end, never a live countdown.</b></div>
+      </div>
+
+      <div class="wf-fig">
+        <div class="wf-fig-state">The money control, 0.1</div>
+        <div class="wf-line"><b>Balance</b> [figure] &nbsp; <b>Items held</b> [figure]</div>
+        <div class="wf-line">Opens to the limits rather than to add funds</div>
+        <div class="wf-note">Deposit route closed. <b>Withdrawal route open.</b> Both figures stay visible and are never summed.</div>
+      </div>
+
+      <div class="wf-fig">
+        <div class="wf-fig-state">4.1 deposit, state 4.2</div>
+        <div class="wf-line">Ceiling reached this period</div>
+        <div class="wf-note">Deposits stop. <b>Opening from balance and withdrawal stay fully open.</b> A dead end for this flow, by design.</div>
+      </div>
+
+      <div class="wf-fig">
+        <div class="wf-fig-state">3.3 case screen</div>
+        <div class="wf-line"><span class="wf-btn is-off">Open</span> closed, with the boundary named</div>
+        <div class="wf-note"><b>The closed control stays visible and says why.</b> A control that vanishes is a control a person hunts for.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="card is-fix">
+    <h4>One rule that is easy to get wrong</h4>
+    <p><strong>The end is a stated date and time, never a live countdown.</strong> A countdown is a clock a person comes back to watch, and watching a boundary expire is engagement with a boundary. Same rule as the refusal of a progress bar, in the form most likely to be shipped by accident.</p>
+    <p><strong>No elapsed time, no days survived, no "you have stayed inside your limit for", no badge, no total saved.</strong> Every one of those is the completion mechanic the rule in <code>CLAUDE.md</code> forbids, and each is a plausible thing to build.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>What stays open under every boundary, self exclusion included</h4>
+    <p><strong>Withdrawal, <span class="surf">5.3</span>.</strong> Stated three times in this repository and once more here, because it is the rule most likely to be traded away for a cleaner implementation. <strong>Support, <span class="surf">0.10</span>,</strong> including the appeal route with its published response deadline. <strong>Reading</strong>, subject to the open item below.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The open item this state cannot close on its own</h4>
+    <p><strong>Whether self exclusion also removes the case grid and the ticker from what the person sees.</strong> The map closes opening and depositing. It does not say the product becomes unreadable, and nothing in this repository decides whether a self-excluded person should still be shown a reveal-driven shelf.</p>
+    <p><strong>Recommendation, not a decision:</strong> the case grid and the ticker are removed for the duration of a self exclusion and of a cool down, and are unaffected by a spend ceiling or a session limit, because the first two are the person removing themselves from the activity and the last two are the person sizing it. Founder, possibly counsel.</p>
+  </div>
+</section>
+
+<!-- STATES -->
+<section id="states">
+  <div class="sec-head">
+    <h2>State matrix, and the mobile stack</h2>
+    <p>The page reads in full for a guest, which is the same refusal <span class="surf">1.2</span> makes of the login wall.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Zone</th><th>Guest</th><th>Account, nothing set</th><th>Boundary in force</th><th>Self excluded</th></tr></thead>
+      <tbody>
+        <tr><td>Block 1, statement</td><td>Full</td><td>Full</td><td>Full</td><td>Full</td></tr>
+        <tr><td>Block 2, what is in force</td><td>Absent</td><td>Absent</td><td>Present, per <span class="surf">6.3</span></td><td>Present, with the end date</td></tr>
+        <tr><td>Blocks 3 to 6, the controls</td><td><strong>Visible and inert, with the reason.</strong> Never a sign-in wall over the page</td><td>Live, nothing set</td><td>Live. Tightening immediate, loosening waits 24 hours</td><td><strong>Locked for the duration.</strong> Other boundaries can still be tightened</td></tr>
+        <tr><td>Block 7, what is never closed</td><td>Full</td><td>Full</td><td>Full</td><td>Full</td></tr>
+        <tr><td>Blocks 8 and 9, external and support</td><td>Full</td><td>Full</td><td>Full</td><td>Full</td></tr>
+        <tr><td>The money control in <span class="surf">0.1</span></td><td>Absent, no account</td><td>Balance and value of items held</td><td>Opens to the limits rather than to add funds</td><td>Same</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:20%">Transient state</th><th style="width:40%">What happens</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Loading</strong></td><td>None. The page renders its own skeleton with the shell</td><td><code>flows.md</code> flow 2a: every action here is a local state change</td></tr>
+        <tr><td><strong>Error</strong></td><td><strong>None, by design.</strong> A brake that can fail to apply is not a brake</td><td>Stated as deliberate rather than as an omission</td></tr>
+        <tr><td><strong>Empty</strong></td><td>Block 2 is absent when nothing is set. <strong>Not an empty state with an illustration and an invitation</strong></td><td>That would be the product suggesting a limit as a thing to acquire</td></tr>
+        <tr><td><strong>Geo blocked</strong>, <span class="surf">2.2</span></td><td>The page renders in full</td><td>Same reasoning as <span class="surf">0.2</span>: a person the product will not serve keeps the routes that let them act on their own account</td></tr>
+        <tr><td><strong>Gate open</strong>, <span class="surf">2.1</span></td><td>Not reachable from here</td><td><span class="surf">2.1</span> fires at first case interaction and nothing on this page is one</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - the full stack, guest state, and no horizontal scroll anywhere</div>
+    <div class="wf-phone">
+      <div class="wf-h1">Responsible play</div>
+      <div class="wf-sub">Four boundaries. You set them, they hold, and none of them is a game.</div>
+
+      <div class="wf-band">
+        <div class="wf-band-h">Block 7</div>
+        <div class="wf-line"><b>Withdrawal stays open under every boundary, self exclusion included.</b></div>
+      </div>
+
+      <div class="wf-band">
+        <div class="wf-band-h">Blocks 3 to 6</div>
+        <div class="wf-row" style="border-top:none;padding-top:4px">
+          <div class="wf-row-t"><div class="wf-row-k">Spend ceiling</div><div class="wf-row-d">Sign in to set one</div></div>
+          <div class="wf-ctl"><span class="wf-btn is-off">Set</span></div>
+        </div>
+        <div class="wf-row">
+          <div class="wf-row-t"><div class="wf-row-k">Session limit</div><div class="wf-row-d">Sign in to set one</div></div>
+          <div class="wf-ctl"><span class="wf-btn is-off">Set</span></div>
+        </div>
+        <div class="wf-row">
+          <div class="wf-row-t"><div class="wf-row-k">Cool down</div><div class="wf-row-d">Sign in to set one</div></div>
+          <div class="wf-ctl"><span class="wf-btn is-off">Set</span></div>
+        </div>
+        <div class="wf-row">
+          <div class="wf-row-t"><div class="wf-row-k">Self exclusion</div><div class="wf-row-d">Sign in to set one</div></div>
+          <div class="wf-ctl"><span class="wf-btn is-off">Set</span></div>
+        </div>
+      </div>
+
+      <div class="wf-band">
+        <div class="wf-band-h">Blocks 8 and 9</div>
+        <div class="wf-line">External help [?]</div>
+        <div class="wf-link">Support</div>
+      </div>
+
+      <div class="wf-scope"><b>The period selector stacks or becomes a select.</b> Four or five periods as a horizontal chip row is a scroll at 360px, decided here rather than discovered at stage 04.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>Desktop, from 900px</h4>
+    <p>The same single column, held to a readable measure rather than stretched to the viewport. <strong>Nothing on this page becomes a multi-column dashboard at width</strong>, because a dashboard of limits is a dashboard, and a dashboard is a thing to check.</p>
+  </div>
+</section>
+
+<!-- SEO -->
+<section id="seo">
+  <div class="sec-head">
+    <h2>SEO and accessibility, block A to E</h2>
+    <p>Indexed, canonical self, schema <code>WebPage</code>, breadcrumb Home &gt; Responsible play. All four inherited from <span class="surf">0.13</span> section 3 rather than argued here.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>A. Meta tags, finished copy</h4>
+    <ul>
+      <li><strong>Title, 54 characters:</strong> <code>Responsible play: limits, cool down and self exclusion</code></li>
+      <li><strong>Description, 144 characters:</strong> <code>Set a spend ceiling, a session limit, a cool down or a self exclusion. Withdrawal stays open under every one of them. No account needed to read.</code></li>
+      <li><strong>Canonical:</strong> <code>https://&lt;host&gt;/responsible-play</code>, self. Host is <span class="q">[?]</span></li>
+      <li><strong>Robots:</strong> <code>index, follow</code>. <strong>hreflang:</strong> none, anywhere. One language</li>
+      <li><strong>OG and Twitter:</strong> title and description as above, summary card. <strong>No image of a skin and no image of a case</strong>, for the obvious reason</li>
+    </ul>
+  </div>
+
+  <div class="card is-note">
+    <h4>One thing 0.13 was supposed to give this node and does not</h4>
+    <p>Its open items row says "Pattern here, copy in each node's A to E block", and <strong>no title pattern is written anywhere in it.</strong> This node writes a title with no brand suffix, because the product name is a working placeholder and baking a placeholder into finished copy is how a placeholder ships. <strong>Finding for <span class="surf">0.13</span>, not fixed here.</strong></p>
+  </div>
+
+  <div class="card">
+    <h4>B. Heading structure, in block order</h4>
+    <p><strong>H1:</strong> Responsible play</p>
+    <p><strong>H2:</strong> What these tools do &middot; What is in force now <em>(only when something is)</em> &middot; Spend ceiling &middot; Session limit &middot; Cool down &middot; Self exclusion &middot; What a boundary closes, and what it never closes &middot; Support that is not a limit</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>C. Finished SEO text</h4>
+    <p><strong>Responsible play</strong></p>
+    <p>Four boundaries. You set them, they hold, and none of them is a game.</p>
+    <p>A spend ceiling caps what you can put in over a period you choose. A session limit ends a session at a length you choose. A cool down closes opening and depositing for a period. Self exclusion closes them for longer, and it cannot be lifted early.</p>
+    <p>Tightening a boundary takes effect immediately. Loosening one takes 24 hours, and the old boundary holds until then.</p>
+    <p><strong>Withdrawal stays open under every boundary, self exclusion included.</strong> A limit stops money going in. It never traps what you already hold.</p>
+    <p>There is no score here, no streak and no reward for staying inside a limit. A boundary that congratulates you is a boundary that has started keeping count.</p>
+    <p class="wf-x" style="color:var(--text-muted)">Stage 05 aligns this to voice and syncs the final version back into block C of the md.</p>
+  </div>
+
+  <div class="card">
+    <h4>D and E. Structured data, and the checklist</h4>
+    <p><strong><code>WebPage</code> and nothing more</strong>, per <span class="surf">0.13</span> section 7. <strong>No <code>FAQPage</code> schema</strong>, even though the four controls read like questions and answers: the policy <span class="surf">0.13</span> quotes requires markup to be a true representation, and these are controls rather than answers.</p>
+    <p>One H1. LCP is text, since the page has no hero image. Every route a crawlable <code>&lt;a&gt;</code>. Canonical self, no hreflang. <strong>No text in images</strong>, and here the reason is that a person may need to quote this page to somebody who is helping them. Core Web Vitals to production.</p>
+    <p><strong>Accessibility.</strong> Every control is a real control, never a styled <code>div</code>. Targets at least 44 by 44 CSS pixels, matching <span class="surf">0.1</span> and <span class="surf">0.2</span>. <strong>The boundary in force is announced once, not continuously:</strong> <span class="surf">6.3</span> is not an <code>aria-live</code> region and the end time is not a live-updating string, which is the accessibility form of the countdown refusal.</p>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+    <p>Six open items, and every period on the page is one of them.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Open item</th><th style="width:48%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Every period, on all four boundaries</strong></td><td>Ceiling periods, session lengths, cool down lengths and self exclusion lengths are all <span class="q">[?]</span>. In several markets the minimum self exclusion period is set by law rather than by product. <strong>Key-Drop's 24 hours to 7 days and up to permanent are their numbers, recorded, not adopted</strong></td><td>Founder with counsel, on the same answer as <code>D-A</code> and <span class="surf">0.12</span></td></tr>
+        <tr><td><strong>Whether self exclusion also removes the case grid and the ticker</strong></td><td>The map closes opening and depositing and says nothing about reading. Recommendation carried in <span class="surf">6.3</span>, not drawn</td><td>Founder, possibly counsel</td></tr>
+        <tr><td><strong>The external help routes, block 8</strong></td><td>Which organisations are named, per market. Every market verdict in <span class="surf">0.12</span> is <span class="q">[?]</span>, and a plausible list here would be model memory presented as a legal fact</td><td>Founder with counsel</td></tr>
+        <tr><td><strong>Whether a boundary is announced outside the product</strong></td><td>A self exclusion running for months implies a signal reaching the person off the page. The global sweep already recorded that <strong>no notification, email or push row exists anywhere in <code>cjm-to-be.md</code></strong>. Named in the same treatment rather than invented</td><td>Backlog, then the founder</td></tr>
+        <tr><td><strong>Whether the ceiling is per deposit, per period, or both</strong></td><td><code>C2</code> says "a spend ceiling for a named period", pre-filled from the amount just typed. The two readings behave differently at the boundary</td><td>Node <span class="surf">4.1</span>, which owns the moment it is set</td></tr>
+        <tr><td><strong>The conversion cost of any of this</strong></td><td><code>CLAUDE.md</code> carries the age gate's cost with no target. The same is true here and worse measured: <code>C2</code>'s own success signal reads "targets <span class="q">[?]</span>"</td><td>Production</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Two findings for other nodes, raised rather than edited</h4>
+    <p><strong>1. <span class="surf">0.2</span> renders its statistics strip on this page.</strong> The footer has no account dimension and no per-node dimension, by its own rule, so a cases-opened figure in the hundreds of millions sits below a self exclusion control. Inherited rather than chosen, and the kind of adjacency this stage should notice out loud. Owner: <span class="surf">0.2</span>, then stage 04.</p>
+    <p><strong>2. <span class="surf">0.1</span> gives responsible play three entries and <code>sitemap.md</code> names two.</strong> The base layer wrote the money control plus the footer; <code>navigation.md</code> added the rail entry and said so; <code>footer.md</code> counts three. No contradiction, but the two-entry sentence is still in <code>sitemap.md</code>, at cluster 6 and again in its navigation section.</p>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>The words.</strong> Structural here, stage 05 owns the final strings and syncs them back into block C.</p>
+    <p><strong>How any of it looks.</strong> Stages 06 and 07.</p>
+    <p><strong>The moment the ceiling is first chosen.</strong> Node <span class="surf">4.1</span>.</p>
+    <p><strong>The behaviour of the exit under a boundary.</strong> Node <span class="surf">5.3</span>, which changes nothing, which is the point.</p>
+  </div>
+
+  <a class="backlink" href="structure.html#6.1">Back to Structure (6.1)</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/responsible.md</code>. Parents: barrier <code>B7-4</code> in <code>research/docs/cjm-as-is.md</code>, growth zone Z5, and the responsible play tooling constraint in <code>CLAUDE.md</code>. Capabilities <code>C2</code> and <code>C5</code> in <code>research/docs/cjm-to-be.md</code>. Competitor walk: <code>ia/docs/blocks.md</code> section 7.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map: <a href="sitemap.html">Sitemap</a>. The routes: <a href="flows.html">Flows</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '6.1 Responsible play';
+window.NAV_SECTIONS = [
+  { id: 'overview',   label: 'Overview' },
+  { id: 'nojob',      label: 'The node with no job' },
+  { id: 'competitor', label: 'The one competitor surface' },
+  { id: 'blocks',     label: 'Blocks and refusals' },
+  { id: 'boundaries', label: 'The four boundaries' },
+  { id: 'state-6-2',  label: '6.2 Self exclusion' },
+  { id: 'state-6-3',  label: '6.3 Boundary in force' },
+  { id: 'states',     label: 'States and mobile' },
+  { id: 'seo',        label: 'SEO block A to E' },
+  { id: 'open',       label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

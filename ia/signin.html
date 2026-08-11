@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 2.4 Sign in with Steam</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+    blockquote { border-left: 2px solid var(--wf-line); padding-left: 14px; margin: 0 0 12px; }
+    blockquote p { font-style: italic; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); gap: 14px; }
+    .wf-grid.is-two { grid-template-columns: repeat(auto-fit, minmax(288px, 1fr)); }
+
+    .wf-fig { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-fig-state { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); border-bottom: 1px dashed var(--wf-line-soft); padding-bottom: 7px; margin-bottom: 10px; }
+    .wf-note { font-size: 10px; color: var(--wf-ink-dim); margin-top: 8px; line-height: 1.5; }
+    .wf-note b { color: var(--wf-ink); font-weight: 700; }
+
+    .wf-anat { display: flex; gap: 0; align-items: stretch; flex-wrap: wrap; }
+    .wf-anat .wf-fig { flex: 0 0 320px; max-width: 100%; }
+    .wf-legend { flex: 1 1 260px; padding-left: 26px; display: flex; flex-direction: column; justify-content: center; gap: 9px; }
+    .wf-leg { display: flex; gap: 10px; align-items: baseline; }
+    .wf-leg-n { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; font-weight: 700; color: var(--wf-ink-dim); border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 1px 5px; flex: 0 0 auto; }
+    .wf-leg-t { font-size: 11.5px; color: var(--wf-ink-dim); line-height: 1.5; }
+    .wf-leg-t b { color: var(--wf-ink); font-weight: 700; }
+
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+    .wf-fold { border-top: 1px dashed var(--wf-line); margin: 12px 0 10px; padding-top: 8px; font-family: 'SF Mono', Menlo, monospace; font-size: 8.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); }
+
+    .wf-block { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 16px 15px; }
+    .wf-block-h { font-size: 14px; font-weight: 700; color: var(--wf-ink); margin-bottom: 8px; line-height: 1.35; }
+    .wf-block-p { font-size: 11px; color: var(--wf-ink); line-height: 1.6; margin-bottom: 12px; }
+    .wf-block-p.is-dim { color: var(--wf-ink-dim); }
+    .wf-btn { display: block; border: 1px solid var(--wf-line); border-radius: 4px; text-align: center; font-size: 10.5px; color: var(--wf-ink); padding: 9px 8px; margin-bottom: 7px; }
+    .wf-btn.is-ghost { border-style: dashed; color: var(--wf-ink-dim); }
+    .wf-list { border: 1px solid var(--wf-line-soft); border-radius: 4px; padding: 10px 11px; margin-bottom: 9px; }
+    .wf-list-h { font-family: 'SF Mono', Menlo, monospace; font-size: 8.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 7px; }
+    .wf-li { display: flex; gap: 8px; font-size: 10.5px; color: var(--wf-ink); line-height: 1.55; margin-bottom: 4px; }
+    .wf-li-m { flex: 0 0 12px; font-family: 'SF Mono', Menlo, monospace; color: var(--wf-ink-dim); }
+    .wf-li-r { color: var(--wf-ink-dim); }
+    .wf-open { border-top: 1px dashed var(--wf-line-soft); margin-top: 11px; padding-top: 9px; font-size: 10px; color: var(--wf-ink-dim); line-height: 1.55; }
+    .wf-open b { color: var(--wf-ink); font-weight: 700; }
+    .wf-ref { display: inline-block; font-family: 'SF Mono', Menlo, monospace; font-size: 9px; color: var(--wf-ink-dim); border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 2px 6px; margin-top: 8px; }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid, .wf-grid.is-two { grid-template-columns: 1fr; }
+      .wf-legend { padding-left: 0; padding-top: 18px; }
+      .wf-anat .wf-fig { flex: 1 1 100%; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 2.4</div>
+  <h1>Sign in with Steam</h1>
+  <p class="lede">Steam OpenID, out and back, and <strong>a statement of what this product will and will not read from a Steam account, printed on the page before the person leaves it.</strong> The block bank walked five competitors' sign-in surfaces live and recorded that no competitor prints one. The barrier behind it has a voice: a site that required a Steam avatar change to unlock a free case, and a person who concluded from that alone that it was a scam.</p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Provider, and it follows from the exit</div></div>
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Password fields, in any state</div></div>
+    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Failure states, both readable</div></div>
+    <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Screens before activation, over budget</div></div>
+  </div>
+</div>
+
+<!-- STATEMENT -->
+<section id="statement">
+  <div class="sec-head">
+    <h2>The statement no competitor prints</h2>
+    <p>This is the block the node exists for, and its shape is fixed by the evidence rather than by preference.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The person arriving here has already been taught a test</h4>
+    <blockquote><p>"To open the one of the free daily cases it requires you to change your avatar to a certain thing. But now I've realised the site is a scam"</p></blockquote>
+    <p>Barrier <span class="row-code">B3-2</span>, one signal. And the community's own security rule, from <span class="row-code">B3-1</span>'s thread, quoted once:</p>
+    <blockquote><p>"Log in steam community first. If any site asks for password etc though, its fake"</p></blockquote>
+    <p><strong>The page either passes that test visibly or it fails it silently.</strong> There is no third outcome.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - the two lists, and the asymmetry between them is deliberate</div>
+    <div class="wf-grid is-two">
+      <div class="wf-fig">
+        <div class="wf-fig-state">Will read</div>
+        <div class="wf-list">
+          <div class="wf-list-h">one row per field, each with what it is for</div>
+          <div class="wf-li"><span class="wf-li-m">1</span><span>Field <span class="q">[?]</span> <span class="wf-li-r">, so that ...</span></span></div>
+          <div class="wf-li"><span class="wf-li-m">2</span><span>Field <span class="q">[?]</span> <span class="wf-li-r">, so that ...</span></span></div>
+          <div class="wf-li"><span class="wf-li-m">3</span><span>Field <span class="q">[?]</span> <span class="wf-li-r">, so that ...</span></span></div>
+        </div>
+        <div class="wf-open"><b>Deliberately incomplete, and it says so.</b> What OpenID returns and what the Web API returns are technical facts with no source opened here, and <b>a permission list invented from memory is a permission invented from memory</b>. The requirement handed to production: one row per field, each with the thing it is for, and no row whose reason is a feature not in round 1.</div>
+      </div>
+      <div class="wf-fig">
+        <div class="wf-fig-state">Will not read or do</div>
+        <div class="wf-list">
+          <div class="wf-list-h">absolute, and each line is a rule elsewhere</div>
+          <div class="wf-li"><span class="wf-li-m">x</span><span>Never a password, on this page or anywhere in this product</span></div>
+          <div class="wf-li"><span class="wf-li-m">x</span><span>Never a change to your Steam profile, avatar, name or friends</span></div>
+          <div class="wf-li"><span class="wf-li-m">x</span><span>Never a post, a comment or an invite in your name</span></div>
+          <div class="wf-li"><span class="wf-li-m">x</span><span>Never a demand that you join, add or follow anything to unlock anything</span></div>
+        </div>
+        <div class="wf-open"><b>This side is firm because it is row <span class="row-code">B6</span> written out</b>, marked MVP and a rule, with the success signal "caught at review". <b>This page is where a person can see the rule instead of taking our word for it.</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOT -->
+<section id="not">
+  <div class="sec-head">
+    <h2>What this page is not, and one absence that is a known orphan</h2>
+  </div>
+
+  <div class="card">
+    <p><strong>It is not registration in the ordinary sense.</strong> No password field, no email field, no username, no profile step and no second provider. Hellcase's arrival modal offers three providers. This product offers one.</p>
+    <p><strong>One route, and it follows from the exit rather than from simplicity.</strong> Withdrawal is to Steam and Steam only at launch, so an account not tied to a Steam identity cannot receive what it wins. A second provider would create accounts that can pay in and cannot take out, <strong>which is barrier <span class="row-code">B4-1</span>'s shape built into the sign-up.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <h4>There is no email anywhere on this map, and that is carried rather than fixed here</h4>
+    <p>The global sweep already records it in the open: an out-of-product notification channel has <strong>no node, because it has no parent.</strong> There is no notification, email or push row anywhere in the backlog, while <span class="surf">5.3</span> and <span class="surf">5.8</span> imply a signal that reaches a person outside the page. <strong>This node does not fix that by quietly adding an email field.</strong></p>
+  </div>
+</section>
+
+<!-- ROUTE -->
+<section id="route">
+  <div class="sec-head">
+    <h2>When this page is reached, and the route defect it sits inside</h2>
+    <p>Sign in never precedes the gate. That ordering is the whole of node 2.1.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Four screens before the activation node, and the threshold is three</h4>
+    <p>The flows name it: a first-time visitor touches Home, the case screen, the gate and sign in before the first reveal resolves. <strong>The product defers its first value further than the research promised</strong>, and Related Job 2 asks for the entire open-to-result experience in under 60 seconds without a confusing step, which a Steam OpenID round trip is not.</p>
+    <p><strong>The obvious fix is already rejected on the record</strong>, so this node carries the cost rather than reopening it. A free demo reveal on identical odds and seeds was dropped in the T2 divergence, because it argues our case by demonstrating that the sceptic is right about the odds, <strong>and it spends the reveal, the one thing we sell, before anyone has decided anything.</strong></p>
+    <p><strong>What this node can do about it is narrow, and it is done:</strong> make the round trip predictable, so the one confusing step is not ours.</p>
+  </div>
+</section>
+
+<!-- BLOCKS -->
+<section id="blocks">
+  <div class="sec-head">
+    <h2>Six blocks, and the second one is the node</h2>
+    <p>Composition from the block bank, type T5. Refero ShareWillow gives the craft floor, a centred single card in one column. Every other row is ours with a barrier behind it.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - default state. Black and white until stage 06</div>
+    <div class="wf-anat">
+      <div class="wf-fig">
+        <div class="wf-fig-state">2.4 default</div>
+        <div class="wf-block">
+          <div class="wf-block-h">Sign in with Steam</div>
+          <div class="wf-block-p is-dim">One step. You will not type a password here.</div>
+          <div class="wf-btn">Continue with Steam</div>
+          <div class="wf-list">
+            <div class="wf-list-h">what we read, and what we never do</div>
+            <div class="wf-li"><span class="wf-li-m">+</span><span>Fields <span class="q">[?]</span>, each with what it is for</span></div>
+            <div class="wf-li"><span class="wf-li-m">x</span><span>Never your password. Never a change to your Steam account</span></div>
+          </div>
+          <div class="wf-list">
+            <div class="wf-list-h">what happens next</div>
+            <div class="wf-li"><span class="wf-li-m">1</span><span>You land on Steam</span></div>
+            <div class="wf-li"><span class="wf-li-m">2</span><span>You type your password there, and never here</span></div>
+            <div class="wf-li"><span class="wf-li-m">3</span><span>You come back</span></div>
+          </div>
+          <div class="wf-block-p is-dim">Your starter credit, and the sum you need before you can withdraw. <b>That sum never rises.</b></div>
+          <div class="wf-btn is-ghost">Keep looking around without an account</div>
+          <div class="wf-open">Footer 0.2: 18+ only. Playing safely. Where we operate.</div>
+        </div>
+      </div>
+      <div class="wf-legend">
+        <div class="wf-leg"><span class="wf-leg-n">1</span><span class="wf-leg-t"><b>What this is, and the one control.</b> Refero ShareWillow, Related Job 2</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">2</span><span class="wf-leg-t"><b>The will and will not read statement</b>, on the page. Not behind a link, not in a modal, not in the terms. <span class="row-code">B3-2</span> by way of row <span class="row-code">B6</span></span></div>
+        <div class="wf-leg"><span class="wf-leg-n">3</span><span class="wf-leg-t"><b>What happens next</b>, three steps in one line. The round trip is the confusing step Related Job 2 forbids, so it is described before it starts</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">4</span><span class="wf-leg-t"><b>The starter credit, with its terms.</b> Row <span class="row-code">I1</span>, bound to <span class="row-code">C4</span>, <span class="row-code">D1</span> and <span class="row-code">A1</span>, which is not optional</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">5</span><span class="wf-leg-t"><b>The route back into reading without signing in.</b> <span class="surf">2.6</span>'s principle applied to the default state</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">6</span><span class="wf-leg-t"><b>The footer</b> <span class="surf">0.2</span>, inherited rather than specified here</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card is-note">
+    <h4>Block 4 carries a constraint it does not get to soften</h4>
+    <p><span class="row-code">C4</span>: the amount required to withdraw is stated before the deposit and <strong>can never rise.</strong> Barrier <span class="row-code">B4-1</span> is the narrative that makes it non-negotiable, a threshold that climbed from 5 to 12 to 15 dollars after a free open. <strong>If the starter credit is mentioned on this page, its withdrawal threshold is mentioned in the same block.</strong></p>
+    <p>And the residual risk travels with it, unsmoothed: <strong>the credit teaches a first-session user that opening is free</strong>, which is the one impression the rest of the map spends its budget contradicting.</p>
+  </div>
+
+  <div class="card">
+    <p><strong>No block for:</strong> a password field, an email field, a second provider, a case image, a ticker, a countdown, or a bonus larger than the one <span class="surf">1.0</span> already promised.</p>
+  </div>
+</section>
+
+<!-- STATES -->
+<section id="states">
+  <div class="sec-head">
+    <h2>Seven states, two of them nodes</h2>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>State</th><th style="width:12%">Node?</th><th>Behaviour</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Default</strong></td><td>no</td><td>The blocks above</td></tr>
+        <tr><td><strong>Redirecting to Steam</strong></td><td>no</td><td>One of the five loading states the map specifies inside their parents. It renders the parent's own skeleton and names the destination</td></tr>
+        <tr><td><strong>Returning from Steam</strong></td><td>no</td><td>The second half of the round trip. Named because the first half is already on the map's list and <strong>the return is where both failures below are detected</strong></td></tr>
+        <tr><td><strong>Cancelled at Steam</strong></td><td>no</td><td>Back or decline on Steam's own page. Returns them where they came from, nothing lost, nothing recorded. <strong>Not a node</strong>, by the map's own test: no copy and no route that differs from the parent's default</td></tr>
+        <tr><td><strong>Already signed in</strong></td><td>no</td><td>A person can type <code>/signin</code>, so the page answers in every account state. It routes them on rather than showing a sign-in control for an account they have</td></tr>
+        <tr><td><strong><span class="surf">2.5</span> Steam refused</strong></td><td><strong>yes</strong></td><td>Below</td></tr>
+        <tr><td><strong><span class="surf">2.6</span> Steam unavailable</strong></td><td><strong>yes</strong></td><td>Below</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>Three states added to the map, named rather than smuggled in</h4>
+    <p>Returning from Steam, cancelled at Steam, already signed in. None is a numbered node, and each is declared because the map fixed a specific list of five internal loading states and these sit outside it.</p>
+    <p><strong>Cancelled and refused are different events and the map holds only the second.</strong> The flows draw two branches out of the round trip, refused and down. A deliberate cancel is neither: nothing failed. <strong>Folding it into <span class="surf">2.5</span> would tell a person who changed their mind that something went wrong.</strong></p>
+  </div>
+</section>
+
+<!-- REFUSED -->
+<section id="refused">
+  <div class="sec-head">
+    <h2>State 2.5. Steam refused, and the requirement is readable rather than handled</h2>
+    <p>Row <span class="row-code">B5</span>, parent barrier <span class="row-code">B3-1</span>. <strong>One signal, and the row marks it as one voice</strong> rather than a pattern.</p>
+  </div>
+
+  <div class="card is-fix">
+    <blockquote><p>"its weird as my password and username are correct but every time i try to 'sign in through steam' on a third party website for CSGO it says 'incorrect account name or password'"</p></blockquote>
+    <p><strong>The failure told the person something false about themselves. That is the defect, not the failure.</strong></p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - the four causes, and the fourth is the honest one</div>
+    <div class="wf-grid">
+      <div class="wf-fig">
+        <div class="wf-fig-state">2.5 cause 1</div>
+        <div class="wf-block-p"><b>Steam did not accept the sign in.</b> Nothing about your account here changed.</div>
+        <div class="wf-btn is-ghost">Try again</div>
+        <div class="wf-note">Or open Steam directly first</div>
+      </div>
+      <div class="wf-fig">
+        <div class="wf-fig-state">2.5 cause 2</div>
+        <div class="wf-block-p">We got an answer from Steam and could not confirm it was you. <b>This one is on our side.</b></div>
+        <div class="wf-btn is-ghost">Try again</div>
+        <span class="wf-ref">ref for support</span>
+      </div>
+      <div class="wf-fig">
+        <div class="wf-fig-state">2.5 cause 3</div>
+        <div class="wf-block-p">The round trip took too long and the link went stale.</div>
+        <div class="wf-btn is-ghost">Start again from here</div>
+      </div>
+      <div class="wf-fig">
+        <div class="wf-fig-state">2.5 cause 4</div>
+        <div class="wf-block-p"><b>We do not know why this failed.</b> Said plainly rather than dressed as one of the other three.</div>
+        <div class="wf-btn is-ghost">Support</div>
+        <span class="wf-ref">ref for support</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p><strong>Never:</strong> a raw provider code as the whole message, the bare word error, a number alone, or a sentence that tells the person their credentials are wrong when we have no way of knowing that. A reference code may sit as a secondary line for support. <strong>It is not the message.</strong></p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The rule that outranks the copy</h4>
+    <p><strong>No password field appears in this state, or in any state of this page.</strong> A failed third-party sign in followed by a password form is the exact shape the community warns about in <span class="row-code">B3-1</span>'s own thread, and it is <span class="row-code">B6</span>'s rule. <strong>A retry re-runs the OpenID round trip. It never asks for a credential.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Retry is allowed here, and that is the opposite of 2.3</h4>
+    <p>A failed sign in is a fact about an identity provider, so trying again is a legitimate second attempt at the same question. An under-age declaration at <span class="surf">2.3</span> is a statement the person made about themselves, so re-asking it is coaching rather than a retry. <strong>The two states look similar and behave in opposite directions</strong>, and that is written down so stage 04 does not build one component for both.</p>
+  </div>
+</section>
+
+<!-- DOWN -->
+<section id="down">
+  <div class="sec-head">
+    <h2>State 2.6. Steam unavailable, and the job is to keep the product readable</h2>
+    <p>The flows route this state back to the case screen for exactly that reason: <strong>a person who cannot sign in is not ejected.</strong></p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - a failure with a source behind it, not an inference</div>
+    <div class="wf-anat">
+      <div class="wf-fig">
+        <div class="wf-fig-state">2.6 steam unavailable</div>
+        <div class="wf-block">
+          <div class="wf-block-h">Steam is not answering right now</div>
+          <div class="wf-block-p"><b>This is on Steam's side, not yours.</b> Signing in needs Steam, so it is not available until Steam is back.</div>
+          <div class="wf-list">
+            <div class="wf-list-h">what still works with no account</div>
+            <div class="wf-li"><span class="wf-li-m">+</span><span>Every page here, including the case you were looking at</span></div>
+            <div class="wf-li"><span class="wf-li-m">+</span><span>How drops are proven, and the verifier</span></div>
+            <div class="wf-li"><span class="wf-li-m">+</span><span>Any public result, the legal pages, support</span></div>
+          </div>
+          <div class="wf-btn is-ghost">Back to the case</div>
+          <div class="wf-open"><b>No promised retry time unless the probe gives one.</b> A countdown that expires into the same failure is worse than no countdown.</div>
+        </div>
+      </div>
+      <div class="wf-legend">
+        <div class="wf-leg"><span class="wf-leg-n">src</span><span class="wf-leg-t"><b><span class="surf">0.11</span> holds a Steam health probe</b>, row <span class="row-code">G2</span>. So this state is entered on evidence that Steam is down rather than on one failed request. <b>If the probe is not built, this state degrades to a guess, and <span class="surf">2.5</span> already covers guesses</b></span></div>
+        <div class="wf-leg"><span class="wf-leg-n">r6</span><span class="wf-leg-t"><span class="surf">0.11</span> rule 6: <b>a failed source is marked degraded, never frozen at its last good value</b></span></div>
+        <div class="wf-leg"><span class="wf-leg-n">p5</span><span class="wf-leg-t">Design principle 5, and it lands here specifically: <b>"Lag reads as dishonesty on a platform built on randomised outcomes"</b></span></div>
+        <div class="wf-leg"><span class="wf-leg-n">no</span><span class="wf-leg-t"><b>No automatic retry loop</b> against a provider that is already down. The interval, if any, is <span class="q">[?]</span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The one thing it must never be</h4>
+    <p><strong>A spinner.</strong> A person waiting on an indefinite loader against a dead provider has been given a failure with the failure removed, and this is the product whose first principle is that its claims are checkable.</p>
+  </div>
+</section>
+
+<!-- ADAPTIVE -->
+<section id="adaptive">
+  <div class="sec-head">
+    <h2>360px, and the one block that may not fall below the fold</h2>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - blocks 1 and 2 are both above the fold, and that is the acceptance test</div>
+    <div class="wf-phone">
+      <div class="wf-block">
+        <div class="wf-block-h">Sign in with Steam</div>
+        <div class="wf-block-p is-dim">One step. You will not type a password here.</div>
+        <div class="wf-btn">Continue with Steam</div>
+        <div class="wf-list">
+          <div class="wf-list-h">what we read, and what we never do</div>
+          <div class="wf-li"><span class="wf-li-m">+</span><span>Fields <span class="q">[?]</span>, each with what it is for</span></div>
+          <div class="wf-li"><span class="wf-li-m">x</span><span>Never your password. Never a change to your Steam account</span></div>
+        </div>
+      </div>
+      <div class="wf-fold">fold at 360px</div>
+      <div class="wf-block">
+        <div class="wf-list">
+          <div class="wf-list-h">what happens next</div>
+          <div class="wf-li"><span class="wf-li-m">1</span><span>You land on Steam</span></div>
+          <div class="wf-li"><span class="wf-li-m">2</span><span>You type your password there</span></div>
+          <div class="wf-li"><span class="wf-li-m">3</span><span>You come back</span></div>
+        </div>
+        <div class="wf-block-p is-dim">Starter credit, and the sum you need before you can withdraw.</div>
+        <div class="wf-btn is-ghost">Keep looking around</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p><strong>One column at every width</strong>, a centred single card with a measure that does not stretch on desktop. The block order is the mobile order and it does not change.</p>
+    <p><strong>The hard requirement: blocks 1 and 2 are both above the fold at 360px.</strong> The statement is what answers <span class="row-code">B3-2</span>, and a statement a person has to scroll to reach has been designed as fine print. If something must fall below the fold it is block 4 or block 5, never block 2.</p>
+    <p><strong><span class="surf">2.5</span> and <span class="surf">2.6</span> replace blocks 1 and 3 in place and keep block 2 visible</strong>, because the moment a sign in fails is exactly when a person re-reads what the site wanted from them.</p>
+  </div>
+</section>
+
+<!-- SEO -->
+<section id="seo">
+  <div class="sec-head">
+    <h2>SEO block, A to E</h2>
+    <p>A <code>noindex</code> page still gets this block, in reduced form, because B is what stage 04 checks the block order against.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:20%">A. Meta</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td><code>title</code></td><td>Sign in with Steam. CS2 Clutch <span class="wf-li-r">(33 characters, under 60)</span></td></tr>
+        <tr><td><code>description</code></td><td>Sign in with Steam OpenID. We never ask for your password and we never change anything on your Steam account. <span class="wf-li-r">(110 characters, under 155)</span></td></tr>
+        <tr><td><code>canonical</code></td><td>Self, <code>/signin</code></td></tr>
+        <tr><td><code>robots</code></td><td><strong><code>noindex, follow</code></strong></td></tr>
+        <tr><td><code>hreflang</code></td><td><strong>None.</strong> One language</td></tr>
+        <tr><td>OG and Twitter</td><td><strong>Deliberately absent.</strong> A share card for a sign-in page is a card for a page nobody should be sharing, and nothing links here from outside on purpose</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h4>B. Headings, and the H2 list is the block order</h4>
+    <p><strong>H1:</strong> Sign in with Steam</p>
+    <p><strong>H2:</strong> What we read from your Steam account &middot; What happens next &middot; Your starter credit &middot; Or keep looking around without an account</p>
+  </div>
+
+  <div class="card">
+    <h4>C. SEO body text</h4>
+    <p><strong>None, and that is the correct answer for a <code>noindex</code> page rather than a gap.</strong> What the node owes instead is the requirement of which information must be present: the two lists, and the four causes in <span class="surf">2.5</span>. Stage 05 writes the words and syncs them back here. Interface strings move to <code>voice/docs/microcopy.md</code> after stage 05; the requirement stays here.</p>
+  </div>
+
+  <div class="card">
+    <h4>D. Structured data</h4>
+    <p><strong>None.</strong> The register gives <span class="surf">2.4</span> no schema, and its rule is that markup describes what a page truly is. <strong>There is no type that truthfully describes a sign-in redirect.</strong></p>
+  </div>
+
+  <div class="card">
+    <h4>E. Checklist</h4>
+    <ul>
+      <li>Exactly one H1.</li>
+      <li>The route back into the product is a crawlable <code>&lt;a href&gt;</code>, not a script handler.</li>
+      <li><strong><code>noindex</code> is a meta tag and <code>/signin</code> is not disallowed in <code>robots.txt</code></strong>: a page a crawler may not read is a page whose <code>noindex</code> it cannot read.</li>
+      <li>The statement in block 2 is text, never an image, so a screen reader can read it and a person can quote it.</li>
+      <li>No cloaking. The page is identical for a person and a crawler.</li>
+      <li>LCP is the card, and there is no hero image to make it anything else.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">Open item</th><th style="width:48%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The exact Steam field list</strong></td><td>What OpenID returns and what the Web API returns are technical facts with no source opened in this repository, and <strong>a permission list invented from memory is a permission invented from memory</strong></td><td>Production, before stage 04 treats the rows as final</td></tr>
+        <tr><td><strong>The Steam health probe</strong></td><td><span class="surf">2.6</span> depends on row <span class="row-code">G2</span>. Without it this state is a guess, and <span class="surf">2.5</span> already covers guesses</td><td><span class="surf">0.11</span>, then production</td></tr>
+        <tr><td><strong>The out-of-product notification channel</strong></td><td>No email, push or notification row exists anywhere in the backlog while <span class="surf">5.3</span> and <span class="surf">5.8</span> imply one. <strong>Carried as an orphan, not solved by adding a field here</strong></td><td>Founder. Already named in the global sweep</td></tr>
+        <tr><td><strong>The retry interval in 2.6</strong></td><td>Whether the page retries at all against a down provider, and how often</td><td>Production. <span class="q">[?]</span></td></tr>
+        <tr><td><strong>The starter credit's amount and threshold</strong></td><td>Row <span class="row-code">I1</span> is bounded and the bound is not a number in this repository. <span class="row-code">C4</span> fixes that whatever it is, it is stated before the money and never rises</td><td>Founder, with case mathematics</td></tr>
+        <tr><td><strong>The four-screen route defect</strong></td><td>Named in the flows and carried here. The one rejected fix stays rejected</td><td>Stage 04, as a constraint on the wireframe</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>The wording of every string.</strong> Stage 05.</p>
+    <p><strong>How the page looks.</strong> Stages 06 and 07.</p>
+    <p><strong>What the gate asks before this page is reached.</strong> Node <span class="surf">2.1</span>.</p>
+    <p><strong>What happens after the account exists and before money moves.</strong> Node <span class="surf">2.7</span>.</p>
+  </div>
+
+  <a class="backlink" href="structure.html#2.4">Back to Structure (2.4)</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/signin.md</code>. Node data: <code>ia/docs/sitemap.md</code>, cluster 2. Blocks: <code>ia/docs/blocks.md</code> section 6, T5. Barriers: <code>research/docs/cjm-as-is.md</code>, B3-1 and B3-2. Rows: <code>research/docs/cjm-to-be.md</code>, B5 and B6.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map: <a href="sitemap.html">Sitemap</a>. The routes: <a href="flows.html">Flows</a>. Indexation: <a href="seo.html">SEO</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '2.4 Sign in with Steam';
+window.NAV_SECTIONS = [
+  { id: 'overview',  label: 'Overview' },
+  { id: 'statement', label: 'The statement' },
+  { id: 'not',       label: 'What it is not' },
+  { id: 'route',     label: 'The route defect' },
+  { id: 'blocks',    label: 'Blocks' },
+  { id: 'states',    label: 'States' },
+  { id: 'refused',   label: '2.5 Steam refused' },
+  { id: 'down',      label: '2.6 Steam unavailable' },
+  { id: 'adaptive',  label: '360px' },
+  { id: 'seo',       label: 'SEO A to E' },
+  { id: 'open',      label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

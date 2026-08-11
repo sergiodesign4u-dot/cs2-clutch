@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 3.1 Case catalogue</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 14px; }
+
+    .wf-fig { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-fig-state { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); border-bottom: 1px dashed var(--wf-line-soft); padding-bottom: 7px; margin-bottom: 10px; }
+    .wf-note { font-size: 10px; color: var(--wf-ink-dim); margin-top: 8px; line-height: 1.5; }
+
+    .wf-legend { flex: 1 1 260px; padding-left: 26px; display: flex; flex-direction: column; justify-content: center; gap: 9px; }
+    .wf-anat { display: flex; gap: 0; align-items: stretch; flex-wrap: wrap; }
+    .wf-anat .wf-screen { flex: 0 0 268px; }
+    .wf-leg { display: flex; gap: 10px; align-items: baseline; }
+    .wf-leg-n { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; font-weight: 700; color: var(--wf-ink-dim); border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 1px 5px; flex: 0 0 auto; }
+    .wf-leg-t { font-size: 11.5px; color: var(--wf-ink-dim); line-height: 1.5; }
+    .wf-leg-t b { color: var(--wf-ink); font-weight: 700; }
+
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+
+    /* listing primitives */
+    .wf-scroll { overflow-x: auto; }
+    .wf-scroll .wf-screen { min-width: 520px; }
+    .wf-screen { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px; }
+    .wf-shell { font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-dim); border: 1px dashed var(--wf-line-soft); border-radius: 3px; padding: 5px 8px; margin-bottom: 11px; }
+    .wf-crumb { font-family: 'SF Mono', Menlo, monospace; font-size: 9px; color: var(--wf-ink-dim); margin-bottom: 6px; }
+    .wf-h1m { font-size: 14px; font-weight: 700; color: var(--wf-ink); line-height: 1.3; }
+    .wf-sub { font-size: 10px; color: var(--wf-ink-dim); margin-top: 4px; margin-bottom: 12px; line-height: 1.5; }
+    .wf-row { display: flex; gap: 7px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+    .wf-ctl { border: 1px solid var(--wf-line); border-radius: 4px; padding: 6px 9px; font-size: 9.5px; color: var(--wf-ink-dim); white-space: nowrap; }
+    .wf-ctl.is-grow { flex: 1 1 110px; }
+    .wf-ctl.is-strong { color: var(--wf-ink); }
+    .wf-badge { display: inline-block; border: 1px solid var(--wf-line); border-radius: 999px; font-size: 8px; padding: 0 5px; color: var(--wf-ink); margin-left: 5px; }
+    .wf-cats { display: flex; gap: 6px; margin-bottom: 10px; overflow: hidden; }
+    .wf-cat { border: 1px solid var(--wf-line-soft); border-radius: 999px; padding: 4px 9px; font-size: 9px; color: var(--wf-ink-dim); white-space: nowrap; }
+    .wf-cat.is-on { border-color: var(--wf-line); color: var(--wf-ink); }
+    .wf-fchip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--wf-line); border-radius: 999px; padding: 3px 8px; font-size: 9px; color: var(--wf-ink); }
+    .wf-fchip span { color: var(--wf-ink-dim); font-size: 10px; }
+    .wf-count { font-size: 9.5px; color: var(--wf-ink-dim); margin-bottom: 9px; font-family: 'SF Mono', Menlo, monospace; }
+    .wf-tiles { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; }
+    .wf-tiles.is-one { grid-template-columns: minmax(0,1fr); }
+    .wf-tile { border: 1px solid var(--wf-line-soft); border-radius: 4px; padding: 9px; min-width: 0; }
+    .wf-tile.is-daily { border-color: var(--wf-line); }
+    .wf-tile-art { height: 34px; border: 1px dashed var(--wf-line-soft); border-radius: 3px; margin-bottom: 8px; }
+    .wf-tile-n { font-size: 10.5px; color: var(--wf-ink); font-weight: 700; line-height: 1.3; overflow-wrap: anywhere; }
+    .wf-tile-f { font-family: 'SF Mono', Menlo, monospace; font-size: 8.5px; color: var(--wf-ink-dim); margin-top: 4px; line-height: 1.5; overflow-wrap: anywhere; }
+    .wf-mark { display: inline-block; border: 1px solid var(--wf-line); border-radius: 2px; font-size: 7.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 0 4px; color: var(--wf-ink); }
+    .wf-end { font-size: 9px; color: var(--wf-ink-dim); border-top: 1px dashed var(--wf-line-soft); margin-top: 10px; padding-top: 8px; text-align: center; }
+    .wf-empty { border: 1px dashed var(--wf-line); border-radius: 4px; padding: 14px 12px; }
+    .wf-empty-h { font-size: 11px; color: var(--wf-ink); font-weight: 700; margin-bottom: 6px; }
+    .wf-empty-t { font-size: 9.5px; color: var(--wf-ink-dim); line-height: 1.6; }
+    .wf-link { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid { grid-template-columns: 1fr; }
+      .wf-legend { padding-left: 0; padding-top: 18px; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 3.1</div>
+  <h1>Case catalogue</h1>
+  <p class="lede">The whole backed shelf, in a form where a person can narrow it to what they can afford and see what is really in stock before committing to anything. <strong>Deliberately off the main path:</strong> <code>D-20</code> put the featured grid on Home, so this node is reached as all cases rather than as a compulsory hop, and its target is legibility rather than speed to the trigger.</p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">9</div><div class="hero-stat-label">Blocks, mobile order</div></div>
+    <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Facets, one conditional</div></div>
+    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">CTA, open a case</div></div>
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Cases hidden by zero stock</div></div>
+  </div>
+</div>
+
+<!-- OFF PATH -->
+<section id="offpath">
+  <div class="sec-head">
+    <h2>What this node is not, and it is a decision rather than a preference</h2>
+    <p>The browsing route is four taps. The main job route is three, and it does not pass through here.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Off the main path, by D-20</h4>
+    <p>Home carries the featured case grid directly, which is what keeps the main job at three taps, and <strong>this node holds what Home cannot</strong>: the categories, the search, the filters and the daily free case as an addressable case. The map prices the difference out loud: the browsing route is four taps and over budget, and it is not the main-job route.</p>
+    <p><strong>So the design target here is not speed to the trigger.</strong> The Opener who arrived from a clip is already on <span class="surf">3.3</span> by tap 1. The person on this page has a different question, which is what is on the shelf and what fits inside a budget, and that is answered by legibility.</p>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>The catalogue's size is <span class="q">[?]</span> and no longer blocks anything.</strong> <code>D-20</code>: whatever the backed count turns out to be, Home shows a curated subset and this node holds all of it. <code>D-D</code> still sets that count, and it decides exactly one thing here, whether the category bar exists at all.</p>
+  </div>
+</section>
+
+<!-- BLOCKS -->
+<section id="blocks">
+  <div class="sec-head">
+    <h2>Nine blocks in mobile order, each with its parent</h2>
+    <p>Composition from the block bank, T2 listing with an empty state. Every row names the bank row or the backlog row it comes from.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Block</th><th>What it holds</th><th>Parent</th><th>Source in the bank</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Breadcrumb and H1</strong></td><td>Home &gt; Cases, exactly one H1, then one line stating what this shelf is</td><td><code>0.13</code>. The line: <span class="row-code">D1</span></td><td>Hellcase's H1 below the fold, <strong>LEAVE</strong></td></tr>
+        <tr><td>2</td><td><strong>Search and filter</strong></td><td>A search field and a filter control carrying an <strong>active count badge</strong></td><td><span class="row-code">D1</span>, MVP Core Job 1</td><td><strong>TAKE</strong>, Hellcase's active count badge</td></tr>
+        <tr><td>3</td><td><strong>Category bar</strong></td><td>One horizontal row with an overflow control. <strong>Conditional on <code>D-D</code></strong></td><td>MVP Core Job 1</td><td><strong>DIFFERENT</strong>: Hellcase ships 25 chips, Key-Drop 18 stacked rows</td></tr>
+        <tr><td>4</td><td><strong>Active filter chips</strong></td><td>One removable chip per filter in force, plus clear all</td><td><span class="row-code">D1</span>, and node <span class="surf">3.2</span></td><td><strong>TAKE</strong>, Refero New Balance. <strong>No competitor here provides it</strong></td></tr>
+        <tr><td>5</td><td><strong>Result count</strong></td><td>How many cases match, in text, above the grid</td><td>Node <span class="surf">3.2</span></td><td><strong>LEAVE</strong>: skin.club's 248 links on 28,160px with no count</td></tr>
+        <tr><td>6</td><td><strong>The grid</strong></td><td>Case tiles <code>0.7</code>. <strong>Position 1 is the daily free case</strong> when nothing filters it out</td><td><code>0.7</code> on <span class="row-code">D1</span>, <span class="row-code">D2</span>, <span class="row-code">A2</span>. Daily: <span class="row-code">I2</span>, <strong>orphan</strong></td><td><strong>DIFFERENT</strong>: their tile makes you open the case to learn what is in it</td></tr>
+        <tr><td>7</td><td><strong>End of the list</strong></td><td>Pagination as crawlable links, and a visible end</td><td>Node <span class="surf">3.2</span></td><td><strong>LEAVE</strong>, the infinite shelf</td></tr>
+        <tr><td>8</td><td><strong>SEO text</strong></td><td>The H2 and H3 block <code>0.13</code> places</td><td><code>0.13</code></td><td><strong>TAKE</strong>, four of four competitors carry it</td></tr>
+        <tr><td>9</td><td><strong>Footer</strong></td><td>Node <code>0.2</code>, unchanged</td><td>Global shell</td><td>Global</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - phase order as drawn. Black and white until stage 06</div>
+    <div class="wf-scroll">
+      <div class="wf-screen">
+        <div class="wf-shell">0.1 rail + header with the two figures</div>
+        <div class="wf-crumb">Home / Cases</div>
+        <div class="wf-h1m">All CS2 cases, with published chances and real stock</div>
+        <div class="wf-sub">Every case here is backed by stock we hold.</div>
+        <div class="wf-row">
+          <div class="wf-ctl is-grow">Search a case</div>
+          <div class="wf-ctl is-strong">Filters<span class="wf-badge">2</span></div>
+        </div>
+        <div class="wf-cats">
+          <div class="wf-cat is-on">All</div><div class="wf-cat">Budget</div><div class="wf-cat">Knives</div><div class="wf-cat">Gloves</div><div class="wf-cat">Classic</div><div class="wf-cat">more</div>
+        </div>
+        <div class="wf-row">
+          <div class="wf-fchip">under 5.00 <span>x</span></div>
+          <div class="wf-fchip">Knives <span>x</span></div>
+          <div class="wf-ctl">clear all</div>
+        </div>
+        <div class="wf-count">18 cases</div>
+        <div class="wf-tiles">
+          <div class="wf-tile is-daily">
+            <div class="wf-tile-art"></div>
+            <div class="wf-tile-n">Daily free case</div>
+            <div class="wf-tile-f">24 items<br>free, once a day<br>free units 24 / 24</div>
+            <div class="wf-tile-f"><span class="wf-mark">daily</span></div>
+          </div>
+          <div class="wf-tile">
+            <div class="wf-tile-art"></div>
+            <div class="wf-tile-n">Case name</div>
+            <div class="wf-tile-f">31 items<br>2.40<br>free units 27 / 31</div>
+          </div>
+          <div class="wf-tile">
+            <div class="wf-tile-art"></div>
+            <div class="wf-tile-n">Case name</div>
+            <div class="wf-tile-f">18 items<br>9.90<br>free units 14 / 18</div>
+          </div>
+        </div>
+        <div class="wf-end">1 / 2 . end of the list</div>
+        <div class="wf-shell" style="margin-top:11px;margin-bottom:0">SEO text block, then footer 0.2</div>
+      </div>
+    </div>
+    <div class="wf-note">The daily free case sits at position 1 <strong>inside the grid</strong>, not above it. It carries the same five fields as every other tile plus the daily marker.</div>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">The tile, node 0.7, five fields and no sixth</div>
+    <div class="wf-anat">
+      <div class="wf-screen" style="flex:0 0 268px">
+        <div class="wf-tile" style="border-color:var(--wf-line)">
+          <div class="wf-tile-art"></div>
+          <div class="wf-tile-n">Case name</div>
+          <div class="wf-tile-f">31 items<br>2.40<br>free units 27 / 31<br><span class="wf-mark">daily</span></div>
+        </div>
+      </div>
+      <div class="wf-legend">
+        <div class="wf-leg"><span class="wf-leg-n">1</span><span class="wf-leg-t"><b>Case name.</b> The link. Crawlable, always</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">2</span><span class="wf-leg-t"><b>Item count.</b> What their tile makes you open the case to learn</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">3</span><span class="wf-leg-t"><b>Entry cost.</b> One real currency, <code>C1</code>. Never coins</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">4</span><span class="wf-leg-t"><b>Live free-unit count</b>, <span class="row-code">A2</span>. Case level, across the whole table. Real time, so degraded rather than frozen</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">5</span><span class="wf-leg-t"><b>Daily marker</b>, where it applies</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">no</span><span class="wf-leg-t"><b>No risk band.</b> The baseline prints High-risk, Medium-risk or Low-risk here, and no computation for it exists anywhere in this repository</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - one column, and nothing scrolls sideways except the category bar</div>
+    <div class="wf-phone">
+      <div class="wf-shell">0.1 header: menu, money, account</div>
+      <div class="wf-crumb">Home / Cases</div>
+      <div class="wf-h1m">All CS2 cases, with published chances and real stock</div>
+      <div class="wf-sub">Every case here is backed by stock we hold.</div>
+      <div class="wf-row">
+        <div class="wf-ctl is-grow">Search</div>
+        <div class="wf-ctl is-strong">Filters<span class="wf-badge">2</span></div>
+      </div>
+      <div class="wf-cats"><div class="wf-cat is-on">All</div><div class="wf-cat">Budget</div><div class="wf-cat">Knives</div><div class="wf-cat">more</div></div>
+      <div class="wf-row"><div class="wf-fchip">under 5.00 <span>x</span></div><div class="wf-fchip">Knives <span>x</span></div></div>
+      <div class="wf-count">18 cases</div>
+      <div class="wf-tiles is-one">
+        <div class="wf-tile is-daily">
+          <div class="wf-tile-art"></div>
+          <div class="wf-tile-n">Daily free case</div>
+          <div class="wf-tile-f">24 items . free, once a day . free units 24 / 24 <span class="wf-mark">daily</span></div>
+        </div>
+        <div class="wf-tile">
+          <div class="wf-tile-art"></div>
+          <div class="wf-tile-n">Case name</div>
+          <div class="wf-tile-f">31 items . 2.40 . free units 27 / 31</div>
+        </div>
+      </div>
+      <div class="wf-end">1 / 2 . end of the list</div>
+      <div class="wf-shell" style="margin-top:11px;margin-bottom:0">0.1 bottom bar: Home . Cases . Provably fair</div>
+    </div>
+    <div class="wf-note">All five tile fields survive at 360px. None is dropped for width, because the free-unit count and the entry cost are the two the page exists to show.</div>
+  </div>
+</section>
+
+<!-- DAILY -->
+<section id="daily">
+  <div class="sec-head">
+    <h2>The daily free case is an addressable case, and the consequence is not free</h2>
+    <p>An obligation written down before this node existed, and an orphan carried onto it rather than lost here.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>What addressable means, concretely</h4>
+    <p>It is a case. It has a tile, it sits in the grid, it carries the same five fields plus the daily marker <code>0.7</code> already holds, and it routes to <span class="surf">3.3</span> like any other case. The map's own words: <span class="row-code">I1</span> and <span class="row-code">I2</span> are components rather than screens, so <strong>the answer is not a surface, it is naming who owes it.</strong> Home owes the starter credit. This node owes the daily free case.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>And the consequence, which is the part worth writing down: it can be filtered out of view</h4>
+    <p>A banner survives every filter because it is not part of the list. A case does not. Filter to one category or to a price range and the daily free case leaves the grid with everything else that does not match. <strong>That is the price of the decision rather than a defect in it</strong>, and it is stated so that stage 04 does not quietly promote it back into a banner to keep it always visible.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Row I2 carries its orphan status onto this page</h4>
+    <p>The daily free case is <strong>the only capability on the map with no parent in any of the three legal classes</strong>, placed in round 1 by founder decision of 11 August 2026. It runs against the residual risk named in the same document: a daily free open teaches, on a repeating schedule, the impression the rest of the map spends its budget contradicting, that opening is free. <code>CLAUDE.md</code> requires an orphan to be carried with its status printed in its own row. This is that row.</p>
+    <p><strong>An inherited answer exists and is not adopted here.</strong> The baseline gates its daily reward behind a wager requirement, 0.00 / 5.00, and presents it as a five tier ladder. That is an answer to exactly this risk and it is the founder's to take or refuse. <strong>This node ships the case ungated</strong> and hands the question on, because adopting a wager requirement would be a product decision taken inside an IA node.</p>
+  </div>
+</section>
+
+<!-- STOCK -->
+<section id="stock">
+  <div class="sec-head">
+    <h2>Zero stock stays visible, which is the whole of D1 on this surface</h2>
+    <p>The one row in the bank that no competitor matches, and the reason is one sentence long.</p>
+  </div>
+
+  <div class="card is-good">
+    <p>An item at zero free units stays visible and marked rather than being filtered out, so <strong>the shelf is legibly empty instead of silently short.</strong> The flows state the reason in a line: hiding sold-out items would restore exactly the surprise <span class="row-code">D1</span> exists to remove.</p>
+  </div>
+
+  <div class="card">
+    <h4>On this page the figure is case level, and that distinction matters</h4>
+    <p>The Case entity carries "free-unit availability across its table", <span class="row-code">A2</span>, and the tile's counter is that figure. <strong>A single item at zero free units is not a case level state</strong>, it is node <span class="surf">3.4</span> and it lives on the case screen, where the item card is. A case whose top item is out is still a case a person can open.</p>
+    <p><strong>So there is no in-stock-only facet.</strong> At case level the predicate has no clean definition, and at item level the answer is already printed on the card.</p>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>The count obeys the register rather than a rule of its own.</strong> Every consumer of a published figure inherits all seven states of <code>0.11</code>. The live free-unit count is a real-time row: a failing source renders as <strong>degraded</strong> and never as a frozen last good value, and missing renders as missing and never as a zero.</p>
+  </div>
+</section>
+
+<!-- FILTERS -->
+<section id="filters">
+  <div class="sec-head">
+    <h2>Three facets, one of them conditional</h2>
+    <p>Every facet in force appears as a removable chip, and that is not a convenience. It is the route out of 3.2.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Facet</th><th>Values</th><th>Parent</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Category</strong></td><td>The category list, <span class="q">[?]</span></td><td>MVP Core Job 1</td><td><strong>Exists only if <code>D-D</code> returns a catalogue large enough to need it.</strong> The one facet with an indexed URL</td></tr>
+        <tr><td><strong>Price range</strong></td><td>Minimum and maximum entry cost, one real currency</td><td>MVP Core Job 1, and <span class="row-code">C2</span></td><td><strong>TAKE</strong>, Key-Drop's min and max. Same control, different job: for us a price filter is also a way to stay under a ceiling</td></tr>
+        <tr><td><strong>Search</strong></td><td>Free text over case names</td><td>MVP Core Job 1</td><td>Results are <code>noindex, follow</code>, canonical to <code>/cases</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Refused facet</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>In-stock only</strong></td><td>At case level the predicate has no clean definition. At item level the free-unit count is already printed on the card, and <span class="row-code">D1</span> requires it visible rather than filterable away</td></tr>
+        <tr><td><strong>Sort by cost, chance or value</strong></td><td>No parent. The price range facet already answers the budget question, and the bank has no T2 row for sorting. The drop table on <span class="surf">3.3</span> is sortable, and there the parent is the comparison-table row</td></tr>
+        <tr><td><strong>Risk band</strong></td><td>The Case entity carries "risk band as a legible label" and <strong>nothing in this repository says how it is computed.</strong> <code>0.11</code> rule 1: a figure ships with a route or it does not ship</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- STATES -->
+<section id="states">
+  <div class="sec-head">
+    <h2>States, and node 3.2 under its own anchor</h2>
+    <p>Six states of the page itself, then the one that is a numbered node.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>State</th><th>What renders</th><th>Route out</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Guest</strong></td><td>The whole page. Every figure, every tile, every count. <strong>No wall of any kind</strong></td><td>A tile, into <span class="surf">3.3</span></td></tr>
+        <tr><td><strong>Account</strong></td><td>Identical, plus the daily free case showing its own availability</td><td>A tile, into <span class="surf">3.3</span></td></tr>
+        <tr><td><strong>Loading</strong></td><td>The grid skeleton with <strong>the live free-unit counts as the thing being waited on</strong>, not a generic spinner. Specified here rather than as a node</td><td>Into the grid</td></tr>
+        <tr><td><strong>Filtered</strong></td><td>The grid, the result count and the active chips. Chips are the only route back to everything</td><td><span class="surf">3.2</span> if empty</td></tr>
+        <tr><td><strong>Degraded</strong></td><td>Tiles render with the free-unit count marked degraded and the rest intact. <strong>A tile with an unknown count is still a tile a person can open</strong></td><td>Unchanged</td></tr>
+        <tr><td><strong>Nothing matches</strong></td><td>Node <span class="surf">3.2</span> below</td><td>Back through a chip</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>The age gate does not fire on this page.</strong> <span class="row-code">B3</span> requires it before any case interaction, and flow 1a passes through the whole catalogue without one. Choosing which case to look at is not a case interaction. The gate fires on <span class="surf">3.3</span>, and that node owns the condition.</p>
+  </div>
+
+  <h3 id="3.2">Node 3.2. Catalogue, nothing matches</h3>
+  <p><strong>Type:</strong> state. <strong>Scope:</strong> MVP. <strong>Parent node:</strong> 3.1. <strong>No URL of its own</strong>: a state gets an address only if a person can arrive at it from outside, and this one cannot.</p>
+
+  <div class="card is-good">
+    <h4>What it is not</h4>
+    <p>It is not the shelf being empty. <span class="row-code">D1</span> guarantees zero-stock cases stay on the shelf, so <strong>an empty result is always the result of a filter, a search or a category, never of stock.</strong></p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">3.2 at 360px - the chips are the state, not decoration around it</div>
+    <div class="wf-phone">
+      <div class="wf-row">
+        <div class="wf-ctl is-grow">Search: "butterfly"</div>
+        <div class="wf-ctl is-strong">Filters<span class="wf-badge">2</span></div>
+      </div>
+      <div class="wf-row"><div class="wf-fchip">under 2.00 <span>x</span></div><div class="wf-fchip">Knives <span>x</span></div><div class="wf-ctl">clear all</div></div>
+      <div class="wf-count">0 cases</div>
+      <div class="wf-empty">
+        <div class="wf-empty-h">Nothing matches these two filters</div>
+        <div class="wf-empty-t">The cheapest case with knives in it is 4.90. Lift the price ceiling, or drop one filter above.</div>
+        <div class="wf-link">Show all 42 cases</div>
+      </div>
+    </div>
+    <div class="wf-note">Every route out is a chip or a link, never a browser back. No recommendations block: a case suggested because a filter failed is an advertisement in the place where the person just said what they wanted.</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Block</th><th>What it holds</th><th>Parent</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The statement</strong></td><td>That nothing matches these filters, naming which ones, in text</td><td>Node <span class="surf">3.2</span></td></tr>
+        <tr><td><strong>The chips, still there</strong></td><td>Every chip in force, still removable, plus clear all. <strong>This is the route out and it is the block that makes this state a designed thing rather than an accident</strong></td><td><strong>TAKE</strong>, Refero New Balance and Rork</td></tr>
+        <tr><td><strong>What would widen it</strong></td><td>The nearest facet to relax, named. If a price ceiling excludes everything, say the lowest entry cost on the shelf</td><td>MVP Core Job 1</td></tr>
+        <tr><td><strong>The shelf's own size</strong></td><td>How many cases exist in total, as the way back to all of them</td><td>Node <span class="surf">3.2</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- SEO -->
+<section id="seo">
+  <div class="sec-head">
+    <h2>SEO block, A to E</h2>
+    <p>Inherited from node 0.13. Nothing here re-decides a row of that register.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">A. Meta</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Title</strong>, 52 characters</td><td><code>All CS2 cases, with published chances and real stock</code></td></tr>
+        <tr><td><strong>Description</strong>, 150 characters</td><td><code>Every case here is backed by stock we hold. Each tile shows the entry cost and how many units are free, and every item shows its chance and its value.</code></td></tr>
+        <tr><td><strong>Canonical</strong></td><td>Self, <code>/cases</code>. Categories self-canonical. <strong>Filtered, searched and paginated views canonical to <code>/cases</code></strong></td></tr>
+        <tr><td><strong>hreflang</strong></td><td>None, anywhere. One language</td></tr>
+        <tr><td><strong>Robots</strong></td><td><code>index, follow</code>. <code>/cases?...</code> is <code>noindex, follow</code></td></tr>
+        <tr><td><strong>OG and Twitter</strong></td><td>Image is the shelf rather than one case, because the object of this page is the list</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>The brand suffix is <span class="q">[?]</span>.</strong> CS2 Clutch is a working placeholder name. Both strings above are sized to take a suffix of up to seven characters when the name settles.</p>
+  </div>
+
+  <div class="card">
+    <h4>B. Headings, exactly one H1 and the H2 list in block order</h4>
+    <p><strong>H1:</strong> All CS2 cases, with published chances and real stock</p>
+    <p><strong>H2:</strong> Find a case . <strong>H2:</strong> All cases . <strong>H2:</strong> What a backed case means . <strong>H3:</strong> Why an item can show zero free units . <strong>H3:</strong> The daily free case</p>
+    <p>The H2 list is the block order, which makes the stage 04 check mechanical: read the block order, read the H2 list, they match or the node is wrong.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>C. SEO text, finished copy</h4>
+    <p><strong>What a backed case means.</strong> Every item in every case here points at a unit we already hold. The roll can only land on an item that has at least one free unit, and the moment it lands, that unit is locked to the account in the same transaction that records the roll. This is why each tile shows how many units are free right now, and why that number can fall while you are reading it.</p>
+    <p><strong>Why an item can show zero free units.</strong> When the last unit of an item is won, the item stays in the case and shows zero. It is not hidden. A shelf that quietly removes what it has run out of looks full at every moment and tells you nothing, and finding out afterwards is the thing this shelf is built to prevent.</p>
+    <p><strong>The daily free case.</strong> One case a day opens without a balance. It sits in the grid with everything else rather than in a banner, so it is filtered and searched like any other case, and it shows the same chances and the same values as the ones that cost money.</p>
+    <p><strong>This block stays the property of this node.</strong> Stage 05 aligns it to voice and syncs the final version back here. Interface strings do not move into it.</p>
+  </div>
+
+  <div class="card">
+    <h4>D. Structured data</h4>
+    <p><code>CollectionPage</code> plus <code>ItemList</code>. The members are the cases visibly in the grid, in the order they are visibly in. <strong>No <code>Offer</code> on this page:</strong> a list of links to cases is not a list of offers, and <code>0.13</code> places the offer on the case screen where the entry cost is the price of the thing bought.</p>
+  </div>
+
+  <div class="card">
+    <h4>E. Optimisation checklist</h4>
+    <ol>
+      <li>Exactly one H1, and it is the page's job in words.</li>
+      <li>H2s exist in block order, matching block B.</li>
+      <li>Breadcrumb drawn, Home &gt; Cases, with <code>BreadcrumbList</code> because it is visible.</li>
+      <li><strong>Every tile is a crawlable <code>&lt;a href&gt;</code></strong>, and so is every pagination control.</li>
+      <li><strong>No figure is an image.</strong> Entry cost, item count and free-unit count are text.</li>
+      <li>LCP is the first row of tiles. Below it, lazy.</li>
+      <li>Canonical present, no hreflang anywhere.</li>
+      <li>A category slug is real or the response is a real 404, node <code>0.3</code>.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- REFUSED -->
+<section id="refused">
+  <div class="sec-head">
+    <h2>What was refused, with the reason on the row</h2>
+    <p>Every entry was on a live page opened on 12 August 2026, or on the baseline walked on 11 August 2026.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">Refused</th><th style="width:28%">Where it is live</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Twenty five category chips</strong></td><td>Hellcase</td><td>A taxonomy nobody reads. Key-Drop's eighteen stacked rows is the same problem vertically</td></tr>
+        <tr><td><strong>The shelf as the home page</strong></td><td>Key-Drop, 18 rows, 15,119px tall</td><td><code>D-20</code>: Home carries a featured grid, this node holds the shelf. Eighteen rows on the first surface is a catalogue pretending to be a decision</td></tr>
+        <tr><td><strong>An infinite shelf</strong></td><td>skin.club, 248 links and 612 images, 28,160px</td><td><span class="surf">3.2</span> requires a legible bottom to the list and a result count, and this has neither</td></tr>
+        <tr><td><strong>H1 below the shelf</strong></td><td>Hellcase, H1 after 1,400px of product</td><td>The single H1 rule. The heading that names the page is the first thing after the shell</td></tr>
+        <tr><td><strong>A daily reward as a wager ladder</strong></td><td>The baseline, 0.00 / 5.00 across five tiers</td><td><strong>Not refused on merit.</strong> It is an inherited answer to <span class="row-code">I2</span>'s recorded risk and it belongs in front of the founder</td></tr>
+        <tr><td><strong>A risk band on the tile</strong></td><td>The baseline prints High-risk, Medium-risk, Low-risk</td><td>No computation exists for it anywhere in this repository, so it has no route. <code>0.7</code> does not carry the field</td></tr>
+        <tr><td><strong>Sort controls</strong></td><td>Common in the category</td><td>No parent</td></tr>
+        <tr><td><strong>A vanity stats bar</strong></td><td>skin.club and Hellcase carry one, Key-Drop and skin.club a concurrency counter</td><td><code>0.11</code> rule 7, never a score, and rule 1, no route. Refused on <span class="surf">1.0</span> already and it does not return by a side door</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+    <p>Six open items, and the first one is still the treasury question that has been deferred twice.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">Open item</th><th style="width:48%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong><code>D-D</code>, how large the backed catalogue is</strong></td><td>It decides whether the category bar and the category URLs exist at all. <code>D-17</code> deferred it to this stage and it is still open</td><td>Founder, with the treasury answer, before stage 04</td></tr>
+        <tr><td>The category list itself</td><td>If categories ship, which ones. The baseline runs thirteen and none is derived from a job. <code>0.13</code> is waiting on this same list for the interlinking block</td><td>Founder plus production, after <code>D-D</code></td></tr>
+        <tr><td>Whether the daily free case is gated</td><td>The baseline gates its daily reward behind a wager requirement, which is a live answer to <span class="row-code">I2</span>'s recorded risk. Adopting it is a product decision, not an IA one</td><td>Founder</td></tr>
+        <tr><td>Page size and pagination length</td><td>How many tiles per page. It rides on <code>D-D</code> and on image weight</td><td>Stage 04, then production</td></tr>
+        <tr><td>Whether paginated pages should be self-canonical</td><td><code>0.13</code> puts every <code>/cases?...</code> view canonical to <code>/cases</code> and pagination inherits it. Cases beyond page 1 are then discovered through <code>follow</code> rather than through an indexed listing, which is acceptable because every case page is indexed on its own. <strong>If that trade is wrong it is <code>0.13</code>'s row to change</strong></td><td>Node <code>0.13</code>, if the founder disagrees</td></tr>
+        <tr><td>The rarity ladder's origin</td><td>Seven tiers were walked live, and one claim is <span class="q">[?]</span>: whether six of the values are the CS2 client's own palette, which would mean we may not restyle them freely. It does not touch this page, and it is carried because <code>0.6</code> on <span class="surf">3.3</span> does</td><td>Whoever specifies <code>0.6</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>How a tile looks.</strong> Node <code>0.7</code>, then stages 06 and 07.</p>
+    <p><strong>The words on the controls.</strong> Stage 05.</p>
+    <p><strong>Where the shelf sits relative to Home.</strong> <code>D-20</code>, already decided.</p>
+    <p><strong>What happens after the tap.</strong> Node <a href="case.html">3.3</a>.</p>
+  </div>
+
+  <a class="backlink" href="structure.html#3.1">Back to Structure (3.1)</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/catalogue.md</code>. Block composition: <code>ia/docs/blocks.md</code>, section 3, T2 listing with an empty state. Node data: <code>ia/docs/sitemap.md</code>, cluster 3. Routes: <code>ia/docs/flows.md</code>, flow 1a.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map: <a href="sitemap.html">Sitemap</a>. The routes: <a href="flows.html">Flows</a>. Next node: <a href="case.html">3.3 Case screen</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '3.1 Case catalogue';
+window.NAV_SECTIONS = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'offpath',  label: 'Off the main path' },
+  { id: 'blocks',   label: 'Nine blocks' },
+  { id: 'daily',    label: 'The daily free case' },
+  { id: 'stock',    label: 'Zero stock stays visible' },
+  { id: 'filters',  label: 'Facets' },
+  { id: 'states',   label: 'States and 3.2' },
+  { id: 'seo',      label: 'SEO A to E' },
+  { id: 'refused',  label: 'Refused' },
+  { id: 'open',     label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

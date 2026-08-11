@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 7.1 Public result</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(248px, 1fr)); gap: 14px; align-items: start; }
+    .wf-two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+
+    .wf-fig { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-fig-state { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); border-bottom: 1px dashed var(--wf-line-soft); padding-bottom: 7px; margin-bottom: 10px; }
+    .wf-note { font-size: 10px; color: var(--wf-ink-dim); margin-top: 8px; line-height: 1.5; }
+    .wf-scope { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; border-top: 1px dashed var(--wf-line-soft); margin-top: 10px; padding-top: 9px; }
+    .wf-scope b { color: var(--wf-ink); font-weight: 700; }
+    .wf-link { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; }
+
+    .wf-kv { display: flex; gap: 9px; margin-bottom: 6px; align-items: baseline; }
+    .wf-k { flex: 0 0 74px; font-family: 'SF Mono', Menlo, monospace; font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-v { font-family: 'SF Mono', Menlo, monospace; font-size: 10.5px; color: var(--wf-ink); word-break: break-all; min-width: 0; }
+    .wf-v.is-dim { color: var(--wf-ink-dim); font-style: italic; font-family: inherit; }
+    .wf-copy { display: inline-block; border: 1px solid var(--wf-line); border-radius: 3px; font-size: 8.5px; padding: 1px 5px; color: var(--wf-ink-dim); margin-left: 5px; white-space: nowrap; }
+
+    .wf-h1 { font-size: 15px; font-weight: 800; color: var(--wf-ink); letter-spacing: -0.01em; }
+    .wf-sub { font-size: 10.5px; color: var(--wf-ink-dim); margin-top: 4px; line-height: 1.5; }
+    .wf-band { border: 1px dashed var(--wf-line-soft); border-radius: 4px; padding: 9px 10px; margin-top: 11px; }
+    .wf-band-h { font-size: 8.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 7px; }
+    .wf-line { font-size: 10.5px; color: var(--wf-ink-dim); line-height: 1.55; margin-bottom: 5px; }
+    .wf-line b { color: var(--wf-ink); font-weight: 700; }
+    .wf-btn { display: inline-block; font-size: 9.5px; color: var(--wf-ink); border: 1px solid var(--wf-line); border-radius: 3px; padding: 4px 9px; white-space: nowrap; }
+    .wf-btn.is-solid { background: var(--wf-line); color: #141414; font-weight: 700; }
+    .wf-btn.is-off { color: var(--wf-ink-dim); border-style: dashed; }
+    .wf-acts { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .wf-img { border: 1px dashed var(--wf-line-soft); border-radius: 4px; height: 78px; display: flex; align-items: center; justify-content: center; font-size: 9.5px; color: var(--wf-ink-dim); margin-bottom: 9px; }
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+    .wf-page { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 15px 16px; }
+    .wf-card { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 12px 13px; max-width: 340px; }
+    .wf-x { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; margin-top: 5px; }
+    .wf-x::before { content: 'refused: '; color: var(--wf-line); font-weight: 700; text-transform: uppercase; font-size: 8px; letter-spacing: 0.1em; }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid, .wf-two { grid-template-columns: 1fr; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 7.1</div>
+  <h1>Public result</h1>
+  <p class="lede">One open, with its skin, its case and its round proof, carried into a stranger's browser, and <strong>no account required to check any of it.</strong> The ninth surface, approved by founder decision <code>D-20</code>, which took the round 1 scope line from eight surfaces to nine. Also the destination of every ticker tile in <span class="surf">0.8</span>, replacing the baseline's link to a stranger's profile.</p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Open, per page</div></div>
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Accounts needed</div></div>
+    <div><div class="hero-stat-value">V3</div><div class="hero-stat-label">Round proof variant, from 0.14</div></div>
+    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Commercial route, and it is third</div></div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section id="why">
+  <div class="sec-head">
+    <h2>What this page is, because the object was undefined for four steps</h2>
+    <p>Entity 15 in the map, Shared result, entered with every part marked <span class="q">[?]</span>.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The gap this node closes</h4>
+    <p>Nothing in this repository said what leaves the platform when a person shares a win. <code>F4</code> is the single exception to the priority test in the whole backlog, the path does not break without it but the referral loop does, and <strong>a capability that emits an object into the world with no definition of what that object is, is a gap.</strong></p>
+    <p><strong>This node is the definition.</strong> One open, one page: the skin instance that was won, the case it came from, and the round proof that settles it, all readable by somebody with no account, from a link they were sent.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Two jobs, and the second one was found late</h4>
+    <p><strong>Emotional Job 2</strong>, a win worth talking about, <code>jtbd.md:93</code>, closed by row <code>F4</code>. This is the parent <code>D-20</code> acted on.</p>
+    <p><strong>Related Job 3</strong>, verify the outcome after I open, <code>jtbd.md:51</code>. Not a tick placed to rescue a screen: the job's own outcome clause reads "so that I trust the platform enough to open again <strong>or to tell someone about my result</strong>". That line had been in <code>jtbd.md</code> since stage 02 and nobody had traced it.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The primary action on this page is a verification, not a purchase</h4>
+    <p>The most-shared surface the product owns leads with "check this round yourself" rather than with "open this case". <strong>That is design principle 1 arriving at the one place where it costs revenue</strong>, and it is the reason this page is worth building rather than pointing the share at a landing page.</p>
+  </div>
+
+  <div class="card">
+    <h4>What it inherits and does not restate</h4>
+    <p><strong><span class="surf">0.14</span>, the canonical round proof, variant V3.</strong> Every field, the result, the ticket range, the recompute route and the scope line in full. Its rule for this site is one line and it is why this node is public: <strong>it must not require an account.</strong> All seven of the component's states are inherited here, and this node adds no field, renames none and reorders none.</p>
+    <p><strong><span class="surf">0.6</span>, the canonical skin card, with the value receipt inside it.</strong> The global sweep found the receipt has four consumers and still refused to make it a node, because all four render <span class="surf">0.6</span> already. Rarity, wear and StatTrak are three fields on that card and not one.</p>
+  </div>
+</section>
+
+<!-- BLOCKS -->
+<section id="blocks">
+  <div class="sec-head">
+    <h2>Blocks, mobile first</h2>
+    <p>Composition from the block bank, type T3. That pass is weighted toward <span class="surf">3.3</span>, the live-event half of the type, and the bank says outright that Refero holds no page whose centre is an outcome happening now.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:5%">#</th><th style="width:33%">Block</th><th style="width:22%">Source</th><th>Traces to</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td><strong>The result.</strong> The skin instance as <span class="surf">0.6</span>: weapon, skin, wear, StatTrak, rarity, image, <strong>and its instance value receipt with the moment it was won</strong></td><td>Refero MWM <code>e0369d2b</code>, hero card taken</td><td><code>F1</code> and <code>F2</code> on barrier <code>B7-1</code>, the undervalued win, pattern of 7. <strong>The receipt is what makes the number inside the story true</strong></td></tr>
+        <tr><td><strong>2</strong></td><td><strong>Current value, as a second figure with its own as-of stamp</strong>, never merged with the receipt figure and never summed with it</td><td>skin.club's "UPDATED 11 MINUTES AGO", freshness taken, hidden-odds door refused</td><td><span class="surf">0.11</span> rule 2, an as-of moment on anything that moves</td></tr>
+        <tr><td><strong>3</strong></td><td><strong>Which case, and when.</strong> <span class="surf">0.7</span> case tile plus the timestamp of the open</td><td>Own research, and <span class="surf">0.14</span> requires it</td><td>A ticket range resolves against a drop table entry, and an entry belongs to a case</td></tr>
+        <tr><td><strong>4</strong></td><td><strong>The round proof, <span class="surf">0.14</span> variant V3, full panel</strong>, scope line in full, route to the observed rate counter <code>D3</code></td><td><span class="surf">0.14</span></td><td>Related Job 3, <code>jtbd.md:51</code>, and design principle 1</td></tr>
+        <tr><td><strong>5</strong></td><td><strong>Recompute this yourself</strong>, the primary action, into <span class="surf">1.2</span> with the round carried</td><td><span class="surf">0.14</span> recompute route</td><td>Design principle 1 as limited by <code>D-14</code>: the product is built so that its own numbers are checkable</td></tr>
+        <tr><td><strong>6</strong></td><td><strong>Who won it, as they choose to appear.</strong> A display name or nothing. <strong>Not a profile, not a link, not a follow</strong></td><td><span class="surf">0.8</span></td><td>Social Job 2, <code>jtbd.md:120</code>, plus the consent reasoning in <span class="surf">0.13</span></td></tr>
+        <tr><td><strong>7</strong></td><td><strong>Owner controls: share and revoke.</strong> Rendered only to the account that owns the open</td><td><code>F4</code></td><td>Emotional Job 2 through <code>F4</code>, plus consent</td></tr>
+        <tr><td><strong>8</strong></td><td><strong>Two routes out for a stranger:</strong> <span class="surf">1.2</span> and <span class="surf">1.0</span></td><td><span class="surf">0.13</span> section 4.1, which is why this page is <code>follow</code></td><td>Related Job 1, arrive with confidence, <code>jtbd.md:33</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>Block order is reasoned from mobile and from the arrival</h4>
+    <p>A stranger arrives from a chat message having been told something. The first screen answers what was won and what it is worth, because that is the claim they were sent to check. <strong>The proof is second, not first: a page that opens with a hash panel answers a question the visitor has not asked yet.</strong></p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - the stranger's view. Black and white until stage 06</div>
+    <div class="wf-two">
+
+      <div class="wf-fig">
+        <div class="wf-fig-state">Blocks 1 to 3 - the result</div>
+        <div class="wf-img">skin image, 0.6</div>
+        <div class="wf-h1">[Skin name] (FN)</div>
+        <div class="wf-sub">StatTrak flag &middot; rarity tier &middot; wear grade, three fields not one</div>
+        <div class="wf-band">
+          <div class="wf-band-h">Two figures, never summed</div>
+          <div class="wf-kv"><span class="wf-k">Receipt</span><span class="wf-v">[value] as at [won at]</span></div>
+          <div class="wf-kv"><span class="wf-k">Now</span><span class="wf-v">[value] as at [fetched]</span></div>
+        </div>
+        <div class="wf-band">
+          <div class="wf-band-h">Block 3 - provenance</div>
+          <div class="wf-line">From <b>[Case name]</b>, opened [timestamp]</div>
+          <div class="wf-note">The one commercial route on this page. The gate fires at first case interaction on 3.3, exactly as from Home.</div>
+        </div>
+        <div class="wf-line" style="margin-top:11px">Won by <b>[as they choose to appear]</b></div>
+        <div class="wf-x">profile, follow, other wins by this user</div>
+      </div>
+
+      <div class="wf-fig">
+        <div class="wf-fig-state">Block 4 - 0.14 variant V3, full proof panel</div>
+        <div class="wf-kv"><span class="wf-k">Hash</span><span class="wf-v">a41f9b2c ... 77e07c<span class="wf-copy">copy</span></span></div>
+        <div class="wf-kv"><span class="wf-k">Client seed</span><span class="wf-v">tW3k ... 9pQ2<span class="wf-copy">copy</span></span></div>
+        <div class="wf-kv"><span class="wf-k">Nonce</span><span class="wf-v">418</span></div>
+        <div class="wf-kv"><span class="wf-k">Result</span><span class="wf-v">7 341</span></div>
+        <div class="wf-kv"><span class="wf-k">Ticket range</span><span class="wf-v">7 300 - 7 420</span></div>
+        <div class="wf-btn is-solid" style="margin-top:10px">Recompute this yourself</div>
+        <div class="wf-scope"><b>Proves:</b> the outcome was fixed before the click and not altered after. <b>Does not prove:</b> that the published chances are the chances used. That is the observed rate counter.</div>
+        <div class="wf-x">verified badge, in any form</div>
+        <div class="wf-band" style="margin-top:12px">
+          <div class="wf-band-h">Block 8 - routes out</div>
+          <div class="wf-line">Provably fair, 1.2 &nbsp;&middot;&nbsp; Home, 1.0</div>
+          <div class="wf-note">Both crawlable. This page is noindex and <b>follow</b>, so these two collect whatever the link is worth.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <h3>What this page deliberately does not carry</h3>
+  <p>Each refusal has a parent or an explicit no-parent verdict. This table is half the specification.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:36%">Refused</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>An owner profile, a follow control, or "other wins by this user"</strong></td><td><strong>No job in this repository requires a profile object at all.</strong> The baseline links every ticker tile to one and that is an observation, not a decision. Adding it would rebuild the trophy shelf this node was created to replace</td></tr>
+        <tr><td><strong>A "similar cases" or recommended-cases block</strong></td><td>The block bank, T3, the MWM row, verbatim: <strong>a shared result that recommends another case is an advertisement wearing a receipt.</strong> Refused even though the craft reference carries it</td></tr>
+        <tr><td><strong>A multiplier, an "x38.8", or a "top drop" frame</strong></td><td>The Hellcase row: survivorship by construction. <strong>The top drops of the week are not what happens</strong>, and this page is one result rather than a highlight reel</td></tr>
+        <tr><td><strong>Comments, reactions, likes, a view counter or a share counter</strong></td><td>No parent, and <span class="surf">0.11</span> rule 7: a number is never a score. <strong>A view count on a win is the page keeping score of attention</strong></td></tr>
+        <tr><td><strong>A leaderboard placement or a rank</strong></td><td>Leaderboards are LATER by scope, and their parent is a hypothesis marked <span class="q">[?]</span> at its own source</td></tr>
+        <tr><td><strong>A verified badge, in any form</strong></td><td><span class="surf">0.14</span> section 0. The badge asserts the one proposition the scheme does not prove, and the bank records a live competitor instance printing "Outcome Verified" for a round that never happened</td></tr>
+        <tr><td><strong>"100% case fairness transparency" and every sentence of that shape</strong></td><td>Recorded live on skin.club. <code>D-14</code> bounds our claim, and <strong>an unfalsifiable sentence on the surface that travels furthest is the worst possible place for one</strong></td></tr>
+        <tr><td><strong>A spend control of any kind: no open button, no deposit route, no balance</strong></td><td>This page is read by strangers with no account, no age declaration and no market check. <strong>The only commercial route is the case name in block 3</strong>, and it is a navigation, not a purchase</td></tr>
+        <tr><td><strong>An age gate on arrival</strong></td><td><span class="surf">2.1</span> fires at <strong>first case interaction</strong>, and reading a settled result is not one. <span class="surf">0.13</span> section 4.3 already depends on this being true</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- READERS -->
+<section id="readers">
+  <div class="sec-head">
+    <h2>Three arrivals, one page</h2>
+    <p>The only dimension that changes anything is ownership.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Reader</th><th>Arrives from</th><th>Came for</th><th>What the page owes them</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A stranger with no account</strong></td><td>A chat, a Discord, a clip description</td><td>To see whether the thing they were told is real</td><td>The result, the receipt, the proof, and a route to check it without taking our word. <strong>No account, at any point</strong></td></tr>
+        <tr><td><strong>A stranger already inside the product</strong></td><td>A ticker tile on <span class="surf">1.0</span> or <span class="surf">3.3</span></td><td>Curiosity about a win scrolling past</td><td>The same page. <strong>A tile that lands on something checkable is the whole reason the ticker's destination changed</strong></td></tr>
+        <tr><td><strong>The owner of the result</strong></td><td>Their own outcome, <span class="surf">3.6</span>, through <code>F4</code></td><td>To send it, and later to unsend it</td><td>The share affordance, the revoke control, and their appearance</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - what the owner sees that a stranger does not, block 7</div>
+    <div class="wf-fig" style="max-width:480px">
+      <div class="wf-fig-state">Block 7 - owner only</div>
+      <div class="wf-line">Your link: <b>/r/&lt;id&gt;</b> <span class="wf-copy">copy</span></div>
+      <div class="wf-acts" style="margin-top:10px"><span class="wf-btn is-solid">Share</span> <span class="wf-btn">Revoke</span> <span class="wf-btn">How you appear</span></div>
+      <div class="wf-scope"><b>Revoking stops the link resolving, including copies already sitting in a chat.</b> It cannot unsend a screenshot, and the page says so rather than implying a power it does not have.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SHARE -->
+<section id="share">
+  <div class="sec-head">
+    <h2>The share affordance F4, and what publication actually means here</h2>
+    <p>The thing this node found, and it is a real one.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>F4 reads as though sharing is what makes a result public. The ticker says otherwise</h4>
+    <p><span class="surf">0.8</span> says every ticker tile lands on <span class="surf">7.1</span>, and <strong>a ticker tile is a win the person did not share.</strong> So for any open the ticker carries, the page exists before anybody taps anything, and <code>F4</code> hands the person a link to an object that is already public.</p>
+    <p><strong>Both readings were live in the map at once and neither was written down.</strong> The node is specified as the superset, which is the treatment <span class="surf">2.7</span> got for the same reason: one branch is deleted later rather than the whole node redrawn.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">Question</th><th style="width:42%">What the map says today</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Does every settled open get a page?</td><td><span class="surf">0.8</span>: a destination on every tile, and every tile lands on <span class="surf">7.1</span></td><td><strong>Follows for ticker-eligible opens</strong></td></tr>
+        <tr><td>Which opens enter the ticker?</td><td>Nothing. <span class="surf">0.8</span> specifies the tile, not the selection</td><td><span class="q">[?]</span>, owner node <span class="surf">0.8</span></td></tr>
+        <tr><td>So does <code>F4</code> publish, or only hand over a link?</td><td>Unresolved. For a ticker open it hands over a link. For an open the ticker never carried, it is the publication</td><td><strong>Specified as both, superset</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>The consent consequence, stated plainly rather than smoothed</h4>
+    <p>If the ticker publishes an open the person did not share, then the page exists before any act of consent, and <strong>the revoke control in block 7 is the only consent instrument on this node.</strong> That raises revoke from a nicety to a requirement.</p>
+    <p><span class="surf">0.13</span> section 4.1 already reasons from the same place when it keeps this page out of the index: indexing turns public-if-you-have-the-link into findable-by-name, "which is a different promise from the one the share button makes".</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">Action</th><th style="width:48%">Effect</th><th>Rule</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Revoke</strong></td><td>The URL stops resolving as a result and renders <span class="surf">7.2</span>. Copies already sitting in a chat resolve to <span class="surf">7.2</span> too, which is the point</td><td>One response for every reason, below</td></tr>
+        <tr><td><strong>The ticker tile</strong></td><td>Stops linking here. Whether the tile itself is removed is <span class="q">[?]</span></td><td>Owner <span class="surf">0.8</span></td></tr>
+        <tr><td><strong>Publish again</strong></td><td><strong>Restores the same URL.</strong> A second id for one round would put two proof pages for one object into the world</td><td>Derived from the one-canonical-rendering rule in <span class="surf">0.14</span>, not invented here</td></tr>
+        <tr><td><strong>What it cannot do</strong></td><td>Unsend a screenshot, or retract an unfurl preview already rendered in somebody's chat client</td><td><strong>The page says so rather than implying a power it does not have</strong></td></tr>
+        <tr><td><strong>Appearance</strong></td><td>How the account appears is the person's. Changing it changes it here</td><td><span class="surf">0.8</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- UNFURL -->
+<section id="unfurl">
+  <div class="sec-head">
+    <h2>The unfurl card, which is the product on this node</h2>
+    <p><span class="surf">0.13</span> section 4.1: a shared result lands in a chat rather than in a search result, so <strong>"the unfurl preview is the product, not a search position"</strong>, and the OG and Twitter card is a hard requirement here while the meta description is nearly irrelevant.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">What travels, and what it refuses to carry</div>
+    <div class="wf-card">
+      <div class="wf-img">skin image, and the case</div>
+      <div class="wf-line"><b>[Skin name] (FN) from [Case name]</b></div>
+      <div class="wf-line">One open, with the case it came from and the proof of the round. Check it yourself. No account needed.</div>
+      <div class="wf-x">any value figure</div>
+      <div class="wf-x">any multiplier, "insane", or rarity boast</div>
+      <div class="wf-x">any verified mark</div>
+    </div>
+  </div>
+
+  <div class="card is-fix">
+    <h4>One rule applied three times</h4>
+    <p><strong>No value figure of any kind.</strong> An unfurl image is frozen at render time and cannot carry an as-of, and <span class="surf">0.11</span> rule 2 requires one on anything that moves. <strong>A price baked into a card rots silently while still reading as current</strong>, and that is exactly what <code>B7-1</code> describes: a number that describes a different object than the one received.</p>
+    <p><strong>No multiplier and no boast</strong>, per <span class="surf">0.11</span> rule 7 and the survivorship refusal above. <strong>No verified mark</strong>, per <span class="surf">0.14</span> section 0, and an image cannot be checked, which makes it the worst possible carrier for a proof claim.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The cost of this rule, stated rather than hidden</h4>
+    <p>The story a person wants to tell has a number in it, and the card refuses to carry the number. <strong>The card is weaker for it.</strong> The page is one tap away and carries the receipt with its as-of, in text, where it can be read, copied and checked. A card that travelled further by carrying a figure nobody can check would be trading design principle 1 for a click.</p>
+  </div>
+</section>
+
+<!-- 7.2 -->
+<section id="state-7-2">
+  <div class="sec-head">
+    <h2>Node 7.2. Result gone or private</h2>
+    <p>State. MVP. Three ways to arrive: the owner revoked it, the account is closed or restricted, or the id never existed at all.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>One response for all three, and it is a privacy decision rather than a shortcut</h4>
+    <p>Distinguishing "revoked" from "never existed" tells a stranger whether a particular person ever had a particular result, <strong>which is precisely what a revoke was meant to stop telling them.</strong> So the three arrivals render one state with one message.</p>
+    <p><strong>HTTP 404, not 410 and not 200.</strong> <code>410 Gone</code> states that the resource existed, which leaks the same fact the message refuses to leak. <code>200</code> would be a soft 404, which <span class="surf">0.3</span> forbids outright. The page is <code>noindex</code> either way, so nothing here is an indexation trick.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop and mobile - 7.2, with the shell rendering in full around it</div>
+    <div class="wf-fig" style="max-width:480px">
+      <div class="wf-fig-state">7.2 - gone or private</div>
+      <div class="wf-line"><b>This result is not public.</b></div>
+      <div class="wf-line">A round proof does not depend on this page. Provably fair, 1.2, checks any round from its server seed hash, client seed and nonce.</div>
+      <div class="wf-line"><b>The person who sent you this link still holds those fields.</b></div>
+      <div class="wf-acts"><span class="wf-btn is-solid">Provably fair</span><span class="wf-btn">Home</span></div>
+      <div class="wf-x">search, browse other results, recommended case</div>
+      <div class="wf-x">a suggestion to contact the owner</div>
+      <div class="wf-scope">Whether the id in the URL is enough to look the round up on 1.2 is <b>[?]</b>. If it is, this state becomes a real continuation rather than a redirect.</div>
+    </div>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The limit, named rather than glossed</h4>
+    <p>It routes into <span class="surf">1.2</span>, where the round can still be checked without this page. That is <span class="surf">0.14</span> state seven, inherited, and it is right: a round proof does not depend on this page existing.</p>
+    <p><strong>And a stranger who arrives from a dead link is holding no server seed, no client seed and no nonce, so the verifier form is a form they cannot fill.</strong> Routing them there without saying what it needs is a route to a wall with a friendlier colour. So <span class="surf">7.2</span> states what <span class="surf">1.2</span> requires and who has it.</p>
+    <p><strong>Whether the id alone can look a round up on <span class="surf">1.2</span> is <span class="q">[?]</span>.</strong> The map gives <span class="surf">1.2</span> "the verifier form, the round input", and whether a round input accepts an id or only a seed set is not settled anywhere. Owner: node <span class="surf">1.2</span>. This node does not decide another node's input field.</p>
+  </div>
+</section>
+
+<!-- STATES -->
+<section id="states">
+  <div class="sec-head">
+    <h2>State matrix, and the mobile stack</h2>
+    <p>The proof block's own seven states are inherited whole from <span class="surf">0.14</span> and not redescribed here.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Zone</th><th>Stranger, no account</th><th>Stranger, signed in</th><th>Owner</th><th>7.2 gone or private</th></tr></thead>
+      <tbody>
+        <tr><td>Block 1, the result</td><td>Full, <span class="surf">0.6</span> with the receipt</td><td>Full</td><td>Full</td><td>Absent</td></tr>
+        <tr><td>Block 2, current value</td><td>Full, with its as-of</td><td>Full</td><td>Full</td><td>Absent</td></tr>
+        <tr><td>Block 3, the case</td><td>Full, links into <span class="surf">3.3</span></td><td>Full</td><td>Full</td><td>Absent</td></tr>
+        <tr><td>Block 4, the proof, V3</td><td><strong>Full, and this is the whole reason the page is public</strong></td><td>Full</td><td>Full</td><td>Absent</td></tr>
+        <tr><td>Block 5, recompute</td><td>Full, into <span class="surf">1.2</span></td><td>Full</td><td>Full</td><td>Replaced by the honest version</td></tr>
+        <tr><td>Block 6, who won it</td><td>As they choose to appear</td><td>Same</td><td>Same</td><td>Absent</td></tr>
+        <tr><td>Block 7, share and revoke</td><td>Absent</td><td>Absent</td><td><strong>Present, and only here</strong></td><td>Absent</td></tr>
+        <tr><td>Block 8, routes out</td><td>Full</td><td>Full</td><td>Full</td><td>Full</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Two inherited proof states worth naming for this surface in particular</h4>
+    <p><strong>Proof unavailable.</strong> <span class="surf">0.14</span> says the real case is rounds predating the published ledger, and whether six years of history can migrate at all is <code>D-B</code>. <strong>On this node that means a shared result may render with no proof to show</strong>, which is the one thing this page exists to carry. It states that the round predates the published ledger and routes to the explanation on <span class="surf">1.2</span>. It does not hide the page and it does not pretend.</p>
+    <p><strong>Checked and mismatched.</strong> Our own proof failing, in a stranger's browser, on the surface that travels furthest. It renders exactly as <span class="surf">0.14</span> specifies, report route and published response deadline included. <strong>It is the state this page is least likely to be built for and the one where building it late costs the most.</strong></p>
+  </div>
+
+  <div class="card">
+    <h4>Two more, and neither is a numbered node</h4>
+    <p><strong>Loading</strong> renders the page's own skeleton, which the map specifies inside the parent rather than as a node.</p>
+    <p><strong>Geo blocked, <span class="surf">2.2</span>.</strong> This node reads no market rule of its own and <span class="surf">0.12</span> does not list it as a consumer. The market check happens where it always happens, at first case interaction through <span class="surf">2.1</span> on <span class="surf">3.3</span>. <strong>Whether a person in a blocked market should read a public result at all is an open item below, not a decision taken quietly here.</strong></p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - the full stack, stranger view, and no horizontal scroll anywhere</div>
+    <div class="wf-phone">
+      <div class="wf-img">skin image</div>
+      <div class="wf-h1">[Skin name] (FN)</div>
+      <div class="wf-sub">rarity &middot; wear &middot; StatTrak</div>
+      <div class="wf-band">
+        <div class="wf-band-h">Two figures, stacked, each with its stamp</div>
+        <div class="wf-kv"><span class="wf-k">Receipt</span><span class="wf-v">[value] as at [won at]</span></div>
+        <div class="wf-kv"><span class="wf-k">Now</span><span class="wf-v">[value] as at [fetched]</span></div>
+      </div>
+      <div class="wf-band">
+        <div class="wf-band-h">From</div>
+        <div class="wf-line"><b>[Case name]</b>, opened [timestamp]</div>
+      </div>
+      <div class="wf-band">
+        <div class="wf-band-h">Round proof, V3</div>
+        <div class="wf-kv"><span class="wf-k">Hash</span><span class="wf-v">a41f9b2c ... 77e07c<span class="wf-copy">copy</span></span></div>
+        <div class="wf-kv"><span class="wf-k">Client seed</span><span class="wf-v">tW3k ... 9pQ2<span class="wf-copy">copy</span></span></div>
+        <div class="wf-kv"><span class="wf-k">Nonce</span><span class="wf-v">418</span></div>
+        <div class="wf-kv"><span class="wf-k">Result</span><span class="wf-v">7 341</span></div>
+        <div class="wf-kv"><span class="wf-k">Range</span><span class="wf-v">7 300 - 7 420</span></div>
+        <div class="wf-btn is-solid" style="margin-top:9px">Recompute this yourself</div>
+        <div class="wf-scope"><b>Proves:</b> fixed before the click, unaltered after. <b>Does not prove:</b> the published chances. That is the observed rate counter.</div>
+      </div>
+      <div class="wf-line" style="margin-top:10px">Won by <b>[as they choose to appear]</b></div>
+      <div class="wf-line">Provably fair &middot; Home</div>
+      <div class="wf-scope"><b>The ticket range wraps to its own row</b> rather than pushing the panel wide. The hash truncates in the middle and never at the end, per 0.14 section 5.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>Desktop, from 900px</h4>
+    <p>The result and the proof panel can sit side by side, and <strong>the proof does not shrink into a footnote when there is room for two columns. Width is not permission to demote the evidence.</strong></p>
+  </div>
+</section>
+
+<!-- SEO -->
+<section id="seo">
+  <div class="sec-head">
+    <h2>SEO block A to E, in the reduced form a noindex node gets</h2>
+    <p>The template gives a full block to indexed pages and <code>noindex</code>, no schema to private zones. <strong>This node is neither, and it says so rather than picking the closer of the two:</strong> unindexed and public, so A and B are written in full because the card and the heading structure are the product.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>A. Meta tags, finished copy</h4>
+    <ul>
+      <li><strong>Title, a pattern rather than a string, because every instance is a different object:</strong> <code>&lt;Skin name&gt; (&lt;wear&gt;) from &lt;Case name&gt;</code>. The template is 37 characters before substitution. <strong>Whether every real instance stays inside 60 is <span class="q">[?]</span></strong>, because the values come from the catalogue and no name lengths are recorded anywhere in this repository. Truncation rule owed by production</li>
+      <li><strong>Description:</strong> nearly irrelevant per <span class="surf">0.13</span>. It renders the OG description rather than being written twice</li>
+      <li><strong>Canonical:</strong> <code>https://&lt;host&gt;/r/&lt;id&gt;</code>, self. Host is <span class="q">[?]</span></li>
+      <li><strong>Robots:</strong> <code>noindex, follow</code>. <strong>hreflang:</strong> none, anywhere</li>
+      <li><strong>OG and Twitter, the hard requirement on this node:</strong> <code>og:type</code> article, <code>og:url</code> the canonical, <code>twitter:card</code> summary_large_image</li>
+      <li><strong>og:title:</strong> <code>&lt;Skin name&gt; (&lt;wear&gt;) from &lt;Case name&gt;</code></li>
+      <li><strong>og:description, 102 characters:</strong> <code>One open, with the case it came from and the proof of the round. Check it yourself. No account needed.</code></li>
+      <li><strong>og:image:</strong> the skin and the case. <strong>No value, no multiplier, no verified mark</strong></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4>B. Heading structure, in block order</h4>
+    <p><strong>H1:</strong> &lt;Skin name&gt; (&lt;wear&gt;)</p>
+    <p><strong>H2:</strong> What it was worth &middot; The case it came from &middot; The proof of this round &middot; Check it yourself &middot; Won by <em>(only where the account chooses to appear)</em> &middot; Your share link <em>(owner only)</em></p>
+  </div>
+
+  <div class="card is-good">
+    <h4>C. The strings that travel</h4>
+    <p><strong>One open, and everything behind it.</strong></p>
+    <p>This is a single result: the item, what it was worth at the moment it was won, the case it came from, and the round that produced it.</p>
+    <p><strong>The proof is on this page and it needs no account.</strong> The server seed hash was published before the roll. Take the fields, recompute them yourself, with our tool or with anyone's.</p>
+    <p>What that proves: this round's outcome was fixed before the click and was not altered afterwards. What it does not prove: that the published chances are the chances used. That question has a different answer, and it is the observed rate beside every published percentage.</p>
+    <p style="color:var(--text-muted);font-size:12px">Stage 05 aligns this to voice and syncs the final version back into block C of the md.</p>
+  </div>
+
+  <div class="card">
+    <h4>D and E. Structured data, and the checklist</h4>
+    <p><strong>None</strong>, per <span class="surf">0.13</span> section 3. The reason is worth carrying: the two refusals in its section 7 are the same rule twice, markup describes what a page truly is, and <strong>there is no schema type that truthfully describes one settled roll.</strong> The skin is not an <code>Offer</code>, because we do not sell that skin at that price, and nothing here is a <code>Review</code> or an <code>aggregateRating</code>.</p>
+    <p>One H1. LCP is the skin image, so it is the one image on this page that is preloaded and sized. Every route a crawlable <code>&lt;a&gt;</code>, including the two routes out, because <code>follow</code> is doing work here. Canonical self, no hreflang. <strong>The proof is text, never an image:</strong> a hash in a picture cannot be pasted into anyone's verifier, which is the point of the whole node.</p>
+    <p><strong>Accessibility.</strong> The unfurl image carries <code>alt</code> text and the page never depends on the image to state anything. <strong>Both value figures are programmatically paired with their labels and their as-of stamps</strong>, so a screen reader never reads a number with no idea what it is or when it was true. The accessible name of the hash field is the field, not the value. The owner's controls are real controls, and revoke is not a hover affordance.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>No breadcrumb, and 0.1 says the opposite</h4>
+    <p><span class="surf">0.13</span> gives this node none. <code>navigation.md</code> says breadcrumbs "belong to nodes with a parent to point at, 3.3 under 3.1 and 7.1 under 1.2". <strong>A result is not a child of the verifier</strong>, it is a record that links to one. This node inherits <span class="surf">0.13</span>, and the contradiction is a finding below rather than a decision taken here.</p>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+    <p>Seven open items, and the first one decides what consent means on this page.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Open item</th><th style="width:48%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Which opens get a page at all</strong></td><td><span class="surf">0.8</span> says every tile lands here and does not say which opens become tiles. The answer decides whether <code>F4</code> publishes or only hands over a link, <strong>and therefore what consent means on this node</strong></td><td>Node <span class="surf">0.8</span>, then the founder</td></tr>
+        <tr><td><strong>Whether the id alone can look up a round on <span class="surf">1.2</span></strong></td><td>It decides whether <span class="surf">7.2</span> is a continuation or a polite dead end</td><td>Node <span class="surf">1.2</span></td></tr>
+        <tr><td><strong>Whether a blocked market can read a public result</strong></td><td>This node reads no market rule and <span class="surf">0.12</span> does not list it as a consumer. Reading is open everywhere else in the product and this page sells nothing. <strong>Recommendation: reading stays open and the case link resolves into <span class="surf">2.2</span>.</strong> Not drawn</td><td>Node <span class="surf">0.12</span>, with counsel</td></tr>
+        <tr><td><strong>The id format</strong></td><td><span class="surf">0.13</span> allows an id in this one slug because the object is a record with no name. Whether it is sequential, <strong>which would make the product's total open count enumerable by a stranger</strong>, or opaque, is not decided anywhere. Recommendation: opaque, and this is a real leak rather than a preference</td><td>Production, before stage 04 treats <code>/r/&lt;id&gt;</code> as final</td></tr>
+        <tr><td><strong>Whether the appearance is a name, a Steam avatar, or anonymous by default</strong></td><td><span class="surf">0.8</span> says "as it chooses to appear" and nothing says what the choices are or which is the default. <strong>A default of the person's Steam name is a publication decision made by omission</strong></td><td>Node <span class="surf">0.8</span>, then the founder</td></tr>
+        <tr><td><strong>Whether a revoked result can be republished, and how often</strong></td><td>Republishing restores the same URL. Whether there is any limit on the cycle is not decided</td><td>Production</td></tr>
+        <tr><td><strong>Everything <span class="surf">0.14</span> leaves open</strong></td><td>The exact scheme, whether the person controls the client seed, where the published algorithm lives, and pre-migration rounds under <code>D-B</code>. <strong>All four land on this page because this page renders the proof</strong></td><td><span class="surf">0.14</span>, founder, production</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Two findings for other nodes, raised rather than edited, and both are the same contradiction seen twice</h4>
+    <p><strong>1. <span class="surf">0.1</span> says this node is indexed. <span class="surf">0.13</span> says it is not.</strong> <code>navigation.md</code>: "1.0, 1.2, 3.1, 6.1 and 7.1 are indexed". <span class="surf">0.13</span> sections 3 and 4.1: <code>noindex, follow</code>, with three reasons and an open item naming the founder as the person who could reverse it. <strong>This node inherits <span class="surf">0.13</span></strong>, which is the register that owns indexation. Owner: <span class="surf">0.1</span>.</p>
+    <p><strong>2. <span class="surf">0.1</span> gives this node a breadcrumb and <span class="surf">0.13</span> gives it none.</strong> Same resolution, same owner.</p>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>The words in any of it.</strong> Stage 05, which syncs the final version back into block C.</p>
+    <p><strong>How it looks, including how a rarity tier reads without a legend.</strong> Stages 06 and 07, on the ladder walked in the block bank.</p>
+    <p><strong>The reveal that produces the object.</strong> Node <span class="surf">3.6</span>.</p>
+    <p><strong>The explanation of what a proof does and does not cover.</strong> Node <span class="surf">1.2</span>, and the component that renders it, <span class="surf">0.14</span>.</p>
+  </div>
+
+  <a class="backlink" href="structure.html#7.1">Back to Structure (7.1)</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/public-result.md</code>. Approved by <code>D-20</code> in <code>docs/decisions.md</code>. Parents: <code>F4</code> on Emotional Job 2 and Related Job 3, <code>research/docs/cjm-to-be.md</code> and <code>research/docs/jtbd.md</code>. Renders <code>0.14</code> variant V3 and <code>0.6</code>. Indexation inherited from <code>0.13</code>.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map: <a href="sitemap.html">Sitemap</a>. The routes: <a href="flows.html">Flows</a>. The proof: <a href="round-proof.html">0.14</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '7.1 Public result';
+window.NAV_SECTIONS = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'why',      label: 'What this page is' },
+  { id: 'blocks',   label: 'Blocks and refusals' },
+  { id: 'readers',  label: 'Three arrivals' },
+  { id: 'share',    label: 'F4 and publication' },
+  { id: 'unfurl',   label: 'The unfurl card' },
+  { id: 'state-7-2', label: '7.2 Gone or private' },
+  { id: 'states',   label: 'States and mobile' },
+  { id: 'seo',      label: 'SEO block A to E' },
+  { id: 'open',     label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

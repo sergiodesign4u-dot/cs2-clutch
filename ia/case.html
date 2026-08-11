@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 3.3 Case screen</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 14px; }
+    .wf-note { font-size: 10px; color: var(--wf-ink-dim); margin-top: 10px; line-height: 1.6; }
+    .wf-note b { color: var(--wf-ink); }
+
+    .wf-anat { display: flex; gap: 0; align-items: stretch; flex-wrap: wrap; }
+    .wf-anat .wf-screen { flex: 0 0 268px; }
+    .wf-legend { flex: 1 1 260px; padding-left: 26px; display: flex; flex-direction: column; justify-content: center; gap: 9px; }
+    .wf-leg { display: flex; gap: 10px; align-items: baseline; }
+    .wf-leg-n { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; font-weight: 700; color: var(--wf-ink-dim); border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 1px 5px; flex: 0 0 auto; }
+    .wf-leg-t { font-size: 11.5px; color: var(--wf-ink-dim); line-height: 1.5; }
+    .wf-leg-t b { color: var(--wf-ink); font-weight: 700; }
+
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+    .wf-scroll { overflow-x: auto; }
+    .wf-scroll .wf-screen { min-width: 520px; }
+    .wf-screen { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px; }
+    .wf-shell { font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-dim); border: 1px dashed var(--wf-line-soft); border-radius: 3px; padding: 5px 8px; margin-bottom: 11px; }
+    .wf-crumb { font-family: 'SF Mono', Menlo, monospace; font-size: 9px; color: var(--wf-ink-dim); margin-bottom: 6px; }
+    .wf-h1m { font-size: 14px; font-weight: 700; color: var(--wf-ink); line-height: 1.3; }
+    .wf-sub { font-size: 10px; color: var(--wf-ink-dim); margin-top: 4px; margin-bottom: 12px; line-height: 1.5; }
+    .wf-art { height: 46px; border: 1px dashed var(--wf-line-soft); border-radius: 3px; margin-bottom: 11px; }
+    .wf-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+    .wf-ctl { border: 1px solid var(--wf-line); border-radius: 4px; padding: 6px 9px; font-size: 9.5px; color: var(--wf-ink-dim); white-space: nowrap; }
+    .wf-cta { border: 1px solid var(--wf-line); border-radius: 4px; padding: 9px; text-align: center; font-size: 11px; color: var(--wf-ink); font-weight: 700; flex: 1 1 120px; }
+    .wf-cost { font-family: 'SF Mono', Menlo, monospace; font-size: 15px; font-weight: 700; color: var(--wf-ink); }
+    .wf-costl { font-size: 8.5px; color: var(--wf-ink-dim); letter-spacing: 0.06em; text-transform: uppercase; }
+    .wf-commit { border: 1px solid var(--wf-line); border-radius: 4px; padding: 10px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 11px; }
+
+    .wf-num { display: flex; gap: 16px; flex-wrap: wrap; border: 1px dashed var(--wf-line-soft); border-radius: 4px; padding: 10px; margin-bottom: 11px; }
+    .wf-numi { flex: 1 1 110px; min-width: 0; }
+    .wf-numv { font-family: 'SF Mono', Menlo, monospace; font-size: 15px; font-weight: 700; color: var(--wf-ink); }
+    .wf-numl { font-size: 8.5px; color: var(--wf-ink-dim); line-height: 1.45; margin-top: 3px; }
+    .wf-numr { font-size: 8.5px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); display: inline-block; margin-top: 5px; }
+
+    .wf-tier { display: flex; justify-content: space-between; gap: 10px; font-family: 'SF Mono', Menlo, monospace; font-size: 8.5px; color: var(--wf-ink-dim); border-top: 1px dashed var(--wf-line-soft); padding: 6px 0 6px; }
+    .wf-tier b { color: var(--wf-ink); font-weight: 700; }
+    .wf-items { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 6px; margin-bottom: 4px; }
+    .wf-items.is-two { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .wf-item { border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 7px; min-width: 0; }
+    .wf-item.is-zero { border-style: dashed; }
+    .wf-item-img { height: 24px; border: 1px dashed var(--wf-line-soft); border-radius: 2px; margin-bottom: 6px; }
+    .wf-item-n { font-size: 9px; color: var(--wf-ink); line-height: 1.35; overflow-wrap: anywhere; }
+    .wf-item-f { font-family: 'SF Mono', Menlo, monospace; font-size: 8px; color: var(--wf-ink-dim); margin-top: 4px; line-height: 1.55; overflow-wrap: anywhere; }
+    .wf-item-f b { color: var(--wf-ink); font-weight: 700; }
+    .wf-mark { display: inline-block; border: 1px solid var(--wf-line); border-radius: 2px; font-size: 7.5px; letter-spacing: 0.08em; text-transform: uppercase; padding: 0 4px; color: var(--wf-ink); }
+    .wf-asof { font-family: 'SF Mono', Menlo, monospace; font-size: 8.5px; color: var(--wf-ink-dim); margin: 8px 0; }
+
+    .wf-spin { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px; text-align: center; }
+    .wf-spin-strip { height: 52px; border: 1px dashed var(--wf-line-soft); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--wf-ink-dim); margin-bottom: 11px; }
+    .wf-chip { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--wf-line); border-radius: 999px; padding: 6px 12px; background: var(--wf-surface); }
+    .wf-chip-k { font-size: 8.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-chip-v { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; color: var(--wf-ink); }
+    .wf-copy { display: inline-block; border: 1px solid var(--wf-line); border-radius: 3px; font-size: 8.5px; padding: 1px 5px; color: var(--wf-ink-dim); margin-left: 5px; white-space: nowrap; }
+    .wf-scope { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; border-top: 1px dashed var(--wf-line-soft); margin-top: 10px; padding-top: 9px; }
+    .wf-scope b { color: var(--wf-ink); font-weight: 700; }
+    .wf-kv { display: flex; gap: 9px; margin-bottom: 6px; align-items: baseline; }
+    .wf-k { flex: 0 0 74px; font-family: 'SF Mono', Menlo, monospace; font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-v { font-family: 'SF Mono', Menlo, monospace; font-size: 10.5px; color: var(--wf-ink); overflow-wrap: anywhere; }
+    .wf-v.is-dim { color: var(--wf-ink-dim); font-style: italic; font-family: inherit; }
+    .wf-link { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; margin-right: 12px; }
+    .wf-proof-lbl { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 9px; padding-bottom: 7px; border-bottom: 1px dashed var(--wf-line-soft); }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid { grid-template-columns: 1fr; }
+      .wf-legend { padding-left: 0; padding-top: 18px; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 3.3</div>
+  <h1>Case screen</h1>
+  <p class="lede">The node where the main job completes and where the money is spent. Three phases on one address: read what a case costs, contains and pays, open it, then understand the result well enough to check it or to tell someone about it. <strong>Phase 3 is the activation node of the whole product.</strong></p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Phases, one URL</div></div>
+    <div><div class="hero-stat-value">4</div><div class="hero-stat-label">State nodes inside it</div></div>
+    <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Numbers no competitor prints</div></div>
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Keys that spend or liquidate</div></div>
+  </div>
+</div>
+
+<!-- PHASES -->
+<section id="phases">
+  <div class="sec-head">
+    <h2>Three phases, one page, and the phases are states rather than routes</h2>
+    <p>The backlog states it and both IA layers carried it. The person never navigates during the main job.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Phase</th><th>Node</th><th>What is on the stage</th><th>What the person is deciding</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1, choosing</strong></td><td><span class="surf">3.3</span></td><td>Cost, chances, values, tested RTP, expected value, the whole drop table</td><td>Whether this case, at this cost, is worth it</td></tr>
+        <tr><td><strong>2, the open</strong></td><td><span class="surf">3.5</span></td><td>The reveal, the hash chip, nothing else</td><td>Nothing. "Triggers the reveal and watches. Nothing else happens in this phase"</td></tr>
+        <tr><td><strong>3, the outcome</strong></td><td><span class="surf">3.6</span></td><td>The item, its receipt, the route to the proof, the route out</td><td>What this is worth, and what to do next</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>One consequence that is structural rather than editorial</h4>
+    <p>Phase 1 is the document. Phases 2 and 3 exist only after an interaction, so <strong>a crawler and a first-time reader see exactly the same thing, and that thing is the full drop table with every number on it.</strong> Node <code>0.13</code> makes it the product's position against the category: a login wall in front of the numbers is also an indexation wall, and ours does not exist.</p>
+  </div>
+</section>
+
+<!-- BLOCKS -->
+<section id="blocks">
+  <div class="sec-head">
+    <h2>Phase 1, ten blocks in mobile order</h2>
+    <p>Composition from the block bank, T3 object detail with a live event. Refero holds no page of this type, so the reveal has no external craft reference and the bank says so rather than inventing one.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Block</th><th>What it holds</th><th>Parent</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Breadcrumb and H1</strong></td><td>Home &gt; Cases &gt; case name. <strong>The H1 is the case name</strong>, because that is what the person came for and what the query matches</td><td><code>0.13</code></td></tr>
+        <tr><td>2</td><td><strong>The case</strong></td><td>Artwork, item count, one line of what kind of case this is</td><td>Main Job</td></tr>
+        <tr><td>3</td><td><strong>The commit block</strong></td><td>Entry cost in one real currency, the <strong>Open</strong> trigger, the balance relationship stated. <strong>Persistent: the cost is on screen while the choice is made, never only after it</strong></td><td>Design principle 3, plus <span class="row-code">C2</span></td></tr>
+        <tr><td>4</td><td><strong>The case numbers</strong></td><td><strong>Published tested RTP</strong> and <strong>expected value at this entry cost</strong>, each with its unit, its as-of and its route</td><td><span class="row-code">D4</span></td></tr>
+        <tr><td>5</td><td><strong>The tier ladder</strong></td><td>Per rarity tier: <strong>published, observed, N</strong>. <strong>Conditional on <code>D-B</code></strong></td><td><span class="row-code">D3</span></td></tr>
+        <tr><td>6</td><td><strong>The drop table</strong></td><td>Item cards <code>0.6</code>, grouped by tier, in ticket order. <strong>Chance and value on the same card</strong>, plus wear, StatTrak, ticket range, free-unit count, the outbound market link on the top item</td><td><span class="row-code">D2</span>, <span class="row-code">D1</span>, <span class="row-code">A1</span>, <span class="row-code">A2</span></td></tr>
+        <tr><td>7</td><td><strong>The freshness stamp</strong></td><td>When the values on this table were last read</td><td><code>0.11</code> rule 2</td></tr>
+        <tr><td>8</td><td><strong>Ticker <code>0.8</code></strong></td><td>The live drop strip with its pause control, every tile landing on <span class="surf">7.1</span></td><td><span class="row-code">A3</span>, Social Job 2</td></tr>
+        <tr><td>9</td><td><strong>SEO text</strong></td><td>The H2 and H3 block <code>0.13</code> places</td><td><code>0.13</code></td></tr>
+        <tr><td>10</td><td><strong>Footer</strong></td><td>Node <code>0.2</code>, unchanged</td><td>Global shell</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h4>Why the numbers sit above the table rather than under it</h4>
+    <p>Blocks 4 and 5 are two figures and three figures. Block 6 is the whole inventory of the case and at 360px it is the longest thing on the page. <strong>Putting the summary under the list means the cost of the case is read after its contents</strong>, which is design principle 3 failing on layout rather than on content.</p>
+    <p><strong>And why the ticker is at position 8.</strong> The baseline puts its ticker under the header, and on <span class="surf">1.0</span> that placement is <span class="surf">1.0</span>'s to keep. Here the top of the page is the commit block. Pattern E is a layer on the screen where the core happens, not the event itself, and <strong>a strip of other people's wins directly beside this product's own spend trigger is the ambient layer competing with the thing it is ambient to.</strong></p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Phase 1, desktop. Black and white until stage 06</div>
+    <div class="wf-scroll">
+      <div class="wf-screen">
+        <div class="wf-shell">0.1 rail + header with the two figures</div>
+        <div class="wf-crumb">Home / Cases / Case name</div>
+        <div class="wf-h1m">Case name</div>
+        <div class="wf-sub">31 items, every one of them backed by a unit we hold.</div>
+        <div class="wf-art"></div>
+        <div class="wf-commit">
+          <div><div class="wf-costl">Entry cost</div><div class="wf-cost">2.40</div></div>
+          <div class="wf-cta">Open</div>
+          <div style="font-size:9px;color:var(--wf-ink-dim);flex:1 1 130px">Balance 6.10. After this open, 3.70</div>
+        </div>
+        <div class="wf-num">
+          <div class="wf-numi">
+            <div class="wf-numv">82.6%</div>
+            <div class="wf-numl">Tested RTP for this case. Tested by <span style="color:var(--accent-yellow)">[?]</span>, over <span style="color:var(--accent-yellow)">[?]</span> opens</div>
+            <div class="wf-numr">How this was tested</div>
+          </div>
+          <div class="wf-numi">
+            <div class="wf-numv">1.98</div>
+            <div class="wf-numl">Expected value at this entry cost. Recomputable from the chances and values on this page</div>
+            <div class="wf-numr">Recompute it yourself</div>
+          </div>
+        </div>
+        <div class="wf-tier"><span><b>Covert</b> . published 2.10%</span><span>observed 2.04% . N 118,402</span></div>
+        <div class="wf-tier"><span><b>Classified</b> . published 8.40%</span><span>observed 8.51% . N 118,402</span></div>
+        <div class="wf-tier"><span><b>Restricted</b> . published 19.90%</span><span>observed N 412 . no percentage yet</span></div>
+        <div class="wf-asof">Values read 11 minutes ago . chances static until the configuration changes</div>
+        <div class="wf-items">
+          <div class="wf-item">
+            <div class="wf-item-img"></div>
+            <div class="wf-item-n">Weapon . Skin name</div>
+            <div class="wf-item-f">FN . StatTrak<br><b>0.41%</b> chance<br><b>184.20</b> value<br>tickets 1 - 41<br>free units 2</div>
+          </div>
+          <div class="wf-item">
+            <div class="wf-item-img"></div>
+            <div class="wf-item-n">Weapon . Skin name</div>
+            <div class="wf-item-f">MW<br><b>1.69%</b> chance<br><b>52.90</b> value<br>tickets 42 - 210<br>free units 5</div>
+          </div>
+          <div class="wf-item is-zero">
+            <div class="wf-item-img"></div>
+            <div class="wf-item-n">Weapon . Skin name</div>
+            <div class="wf-item-f">FT<br><b>3.00%</b> chance<br><b>21.40</b> value<br>tickets 211 - 510<br><span class="wf-mark">0 free units</span></div>
+          </div>
+          <div class="wf-item">
+            <div class="wf-item-img"></div>
+            <div class="wf-item-n">Weapon . Skin name</div>
+            <div class="wf-item-f">BS<br><b>7.20%</b> chance<br><b>4.15</b> value<br>tickets 511 - 1230<br>free units 61</div>
+          </div>
+        </div>
+        <div class="wf-shell" style="margin-top:11px">0.8 ticker, with pause. Every tile lands on 7.1</div>
+        <div class="wf-shell" style="margin-bottom:0">SEO text block, then footer 0.2</div>
+      </div>
+    </div>
+    <div class="wf-note"><b>Chance and value on the same card is the whole of D2</b>, and the bank proved on live pages that no competitor does both. The third card is node 3.4, shown before the open and never after.</div>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Phase 1 at 360px - one column, and the commit block is the sticky layer above the bar</div>
+    <div class="wf-phone">
+      <div class="wf-shell">0.1 header: menu, money, account</div>
+      <div class="wf-crumb">Home / Cases / Case name</div>
+      <div class="wf-h1m">Case name</div>
+      <div class="wf-sub">31 items, every one backed by a unit we hold.</div>
+      <div class="wf-art"></div>
+      <div class="wf-commit">
+        <div><div class="wf-costl">Entry cost</div><div class="wf-cost">2.40</div></div>
+        <div class="wf-cta">Open</div>
+      </div>
+      <div class="wf-num">
+        <div class="wf-numi"><div class="wf-numv">82.6%</div><div class="wf-numl">Tested RTP</div></div>
+        <div class="wf-numi"><div class="wf-numv">1.98</div><div class="wf-numl">EV at 2.40</div></div>
+      </div>
+      <div class="wf-tier"><span><b>Covert</b> 2.10%</span><span>obs 2.04% . N 118k</span></div>
+      <div class="wf-asof">Values read 11 minutes ago</div>
+      <div class="wf-items is-two">
+        <div class="wf-item">
+          <div class="wf-item-img"></div>
+          <div class="wf-item-n">Weapon . Skin</div>
+          <div class="wf-item-f">FN . ST<br><b>0.41%</b> . <b>184.20</b><br>tickets 1 - 41<br>free units 2</div>
+        </div>
+        <div class="wf-item is-zero">
+          <div class="wf-item-img"></div>
+          <div class="wf-item-n">Weapon . Skin</div>
+          <div class="wf-item-f">FT<br><b>3.00%</b> . <b>21.40</b><br>tickets 211 - 510<br><span class="wf-mark">0 free</span></div>
+        </div>
+      </div>
+      <div class="wf-shell" style="margin-top:11px;margin-bottom:6px">sticky: entry cost 2.40 . Open</div>
+      <div class="wf-shell" style="margin-bottom:0">0.1 bottom bar: Home . Cases . Provably fair</div>
+    </div>
+    <div class="wf-note"><b>Two fixed layers at 360px is a real cost and it is named rather than absorbed.</b> Node 0.1 fixes that the bar does not hide and does not condense, so the commit bar is the layer that has to fit above it. It never drops the entry cost to save the height, because that is exactly what design principle 3 forbids.</div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section id="numbers">
+  <div class="sec-head">
+    <h2>The numbers, and what the category does with each of them</h2>
+    <p>Three figures no competitor prints at the moment of spending, and one pairing nobody puts on one card.</p>
+  </div>
+
+  <h3>D2. The two numbers no competitor prints together</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Product</th><th>Chance</th><th>Value</th><th>Together</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Hellcase</strong></td><td>Yes, per item, pre-login, to three decimals, 0.207% to 13.386%</td><td>Only in a "last 7 days top drop" strip</td><td><strong>No</strong></td></tr>
+        <tr><td><strong>skin.club</strong></td><td>Behind a <strong>[ CHECK ODDS RANGE ]</strong> control</td><td>In a "last top skins" strip</td><td><strong>No</strong></td></tr>
+        <tr><td><strong>The baseline</strong></td><td>Yes, per item, pre-login, down to 0.01 and in one case 0.025, with the ticket range beside it</td><td>The price, in coins</td><td>Yes, in coins</td></tr>
+        <tr><td><strong>Here</strong></td><td>Yes, per item</td><td>Yes, per item, in one real currency</td><td><strong>Yes</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>The one thing the baseline already does, and what it changes</h4>
+    <p><code>baseline.md</code> records the finding in its own words: <strong><span class="row-code">D2</span> is not a new capability, it is an inherited one.</strong> The baseline publishes chance, price and ticket range per item, pre-login, on every card. What it publishes the price in is coins, and <span class="row-code">C1</span> deletes that denomination entirely, so the pairing survives the migration only if the value is denominated in real currency. <strong>The real distance between the baseline and this map is <span class="row-code">D3</span>, <span class="row-code">D4</span> and a provably fair page a logged-out person can open</strong>, not <span class="row-code">D2</span>.</p>
+    <p>Why the pairing is the point rather than either number, from the bank verbatim: <strong>a chance without a value is a lottery ticket with no prize printed on it, and a value without a chance is a shop window.</strong></p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The freshness stamp, and the door it comes attached to</h4>
+    <p>skin.club stamps its odds panel "UPDATED 11 MINUTES AGO" and puts the panel behind a control. <code>0.11</code> rule 2 requires the stamp on anything that moves, so <strong>the stamp is taken and the door is refused.</strong> Their freshness discipline is real, and their default is to hide the number the person came for.</p>
+    <p><strong>What the stamp covers, precisely.</strong> One stamp on the drop table, covering the value column, which is the per-read figure. The published chance is static until the configuration changes and carries no stamp. <strong>Two figures on one card with different refresh classes must not share one as-of</strong>, because a stamp that covers both quietly claims the chance was re-read too.</p>
+  </div>
+
+  <h3>D3. The observed rate counter, and the condition travels with it</h3>
+  <div class="card is-fix">
+    <p><strong>Conditional on <code>D-B</code>, and on <code>D-C</code> in common with every published figure on this map.</strong> Both conditions are printed here rather than in a footnote, because this is the block that does not ship if either comes back negative.</p>
+    <p><strong>Published, observed, N.</strong> The observed figure is the outcome count from the same settlement ledger that pays users. <strong>N is printed always, and printed alone below the sample floor</strong>, because a percentage over a handful of rolls is not a smaller truth, it is a different claim.</p>
+    <p><strong>Never reset, and a configuration change forks it:</strong> the old configuration keeps its history and stays visible, the new one starts at zero and says so.</p>
+    <p><strong>The honest limit.</strong> At launch this row is infrastructure and <strong>it does not close <span class="row-code">B7-2</span> until N is large enough to say so.</strong> Until <code>D-B</code> returns, that barrier is answered by <span class="row-code">D2</span> and <span class="row-code">D4</span> and by nothing else, which the map records as a materially weaker answer rather than assuming it away.</p>
+  </div>
+
+  <div class="card">
+    <h4>It is not a personal figure and never becomes one</h4>
+    <p>Personal streak math was dropped in the same divergence that chose this row: <strong>correct mathematics delivered next to a spend button to a losing user is loss-chasing encouragement and the single easiest artefact to hold up in a hearing.</strong> Nothing on this page compares a person's own results to the published distribution, in any phase, including the outcome.</p>
+    <p><strong>And it is where the round proof stops.</strong> Node <code>0.14</code> sends the weight-table question here by name. The proof block proves the roll was fixed before the click. <strong>This block is the other question</strong>, and the two are never merged into one claim.</p>
+  </div>
+
+  <h3>D4. Tested RTP and expected value, and one of them is recomputable on the page</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Figure</th><th>What it needs beside it</th><th>State when it is missing</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Published tested RTP for this case</strong></td><td><strong>Who tested, when, over how many opens.</strong> <code>0.11</code> carries this as open: <span class="row-code">D4</span> says "published tested RTP" and does not say tested by whom</td><td>Missing, explicitly. Never a zero, never a dash</td></tr>
+        <tr><td><strong>Expected value at this entry cost</strong></td><td>Nothing external. <strong>It is recomputable with arithmetic from the chances and the values printed on the same screen</strong></td><td>Missing only if the values are missing</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <p><code>0.11</code> calls the EV row the strongest in the register, because a reader who distrusts the figure can derive it without leaving the page. <strong>That property is a layout requirement rather than a nicety:</strong> the EV figure and the drop table have to be on one page, which they are, and the values in the table have to be the values the EV was computed from, which is a production rule this node states and stage 04 carries.</p>
+    <p><strong>A named comparison is allowed and bounded.</strong> Hellcase 82.1 percent and DatDrop 80.6 percent across 118 cases are <strong>tested</strong> figures; Key-Drop 89 percent and Clash.gg 90 to 92.8 percent are <strong>stated</strong> ones. A comparison never mixes the two, and if only a stated figure exists for a competitor, no comparison is printed at all.</p>
+  </div>
+</section>
+
+<!-- TABLE -->
+<section id="table">
+  <div class="sec-head">
+    <h2>The drop table is a comparison table, and it has an order for a reason</h2>
+    <p>Built as a table, not as a decorated carousel. Grouped by tier, ordered by ticket range.</p>
+  </div>
+
+  <div class="card">
+    <p><strong>Grouped by rarity tier.</strong> The bank walked the ladder live on two Hellcase case pages: <strong>seven tiers, and the seventh appears only on a case that contains knives or gloves.</strong> Grouping is not decoration here: <span class="row-code">D3</span> puts the observed rate counter "beside every published tier percentage", so the tier is the unit the counter attaches to, and a table with no tier grouping has nowhere to put block 5.</p>
+    <p><strong>Ordered by ticket range inside each tier, and that is the default.</strong> The ticket range is the interval the roll resolves against. <strong>An order a person can reconstruct is an order they can check</strong>, which is the same argument node <code>0.14</code> makes about the hash. Sorting by chance or by value is a control the person may apply, and every row keeps its ticket range, so the checkable order is never lost.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">The item card, node 0.6, and the three axes it carries</div>
+    <div class="wf-anat">
+      <div class="wf-screen" style="flex:0 0 268px">
+        <div class="wf-item" style="border-color:var(--wf-line)">
+          <div class="wf-item-img"></div>
+          <div class="wf-item-n">Weapon . Skin name</div>
+          <div class="wf-item-f">Field-Tested . StatTrak . Covert<br><b>0.41%</b> chance<br><b>184.20</b> current value<br>tickets 1 - 41<br>free units 2<br><span class="wf-mark">market link</span></div>
+        </div>
+      </div>
+      <div class="wf-legend">
+        <div class="wf-leg"><span class="wf-leg-n">1</span><span class="wf-leg-t"><b>Rarity, wear and StatTrak are three fields, not one.</b> The bank pass added the third</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">2</span><span class="wf-leg-t"><b>Published chance</b>, <span class="row-code">D2</span>. Static until the configuration changes, so no as-of</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">3</span><span class="wf-leg-t"><b>Current value</b>, <span class="row-code">D2</span>, in real currency. Per read, so the table's stamp covers it</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">4</span><span class="wf-leg-t"><b>Ticket range.</b> Inherited from the baseline, and it is what makes E4 and F3 checkable rather than decorative</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">5</span><span class="wf-leg-t"><b>Live free-unit count</b>, <span class="row-code">A2</span>. Zero is node 3.4</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">6</span><span class="wf-leg-t"><b>Outbound market link, on the top item only</b>, <span class="row-code">A1</span>. Genuinely outbound, and the clicks are an accepted cost rather than a failure metric</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3.4 -->
+<section id="zero">
+  <div class="sec-head">
+    <h2 id="3.4">Node 3.4. Item at zero free units</h2>
+    <p>State. MVP. No URL. Shown before the open and never after, which is the whole point of D1.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">3.4 - the card stays in the table, marked, and stays legible</div>
+    <div class="wf-grid">
+      <div class="wf-item" style="border-color:var(--wf-line);border-style:solid">
+        <div class="wf-item-img"></div>
+        <div class="wf-item-n">Weapon . Skin name . in stock</div>
+        <div class="wf-item-f">MW<br><b>1.69%</b> chance . <b>52.90</b> value<br>tickets 42 - 210<br>free units 5</div>
+      </div>
+      <div class="wf-item is-zero" style="border-color:var(--wf-line)">
+        <div class="wf-item-img"></div>
+        <div class="wf-item-n">Weapon . Skin name . node 3.4</div>
+        <div class="wf-item-f">FT<br><b>3.00%</b> chance . <b>21.40</b> value<br>tickets 211 - 510<br><span class="wf-mark">0 free units</span><br>cannot be rolled right now</div>
+      </div>
+    </div>
+    <div class="wf-note"><b>Not greyed into illegibility.</b> The person is deciding whether the case is still worth opening, and this item's value and chance are inputs to that decision. D1 exists so that out-of-stock happens before the win, where it is a published number, instead of after it, where it is a claim made when we already owe someone a knife.</div>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The contradiction this state exposes, and it is not resolvable inside this node</h4>
+    <p><strong>Three backlog rows are not simultaneously satisfiable as written, and nothing in this repository has said so.</strong> <span class="row-code">D1</span> says the roll can only select items with at least one free unit. <span class="row-code">D2</span> says a published chance is printed per item. <span class="row-code">D3</span> says a weights change forks the counter. <strong>So what is the published chance of the other items while this one is at zero?</strong></p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Reading</th><th>What it means</th><th>What it costs</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A. Recomputed over the selectable entries</strong></td><td>The table's percentages move whenever stock moves, and the person always reads the chance actually used</td><td><strong>Every stock change is a weights change</strong>, so <span class="row-code">D3</span>'s fork rule fires, and at any real volume the observed counter forks itself into uselessness. <span class="row-code">D1</span> and <span class="row-code">D3</span> cancel</td></tr>
+        <tr><td><strong>B. The configuration's chance, with the zero item unreachable</strong></td><td>The table is stable and the counter accumulates</td><td><strong>The printed number is not the number used</strong>, which is barrier <span class="row-code">B7-2</span> printed in our own drop table. This is the thing the product exists not to do</td></tr>
+        <tr><td><strong>C. The case is closed while any entry is at zero</strong></td><td>Both numbers stay true and the counter keeps its N</td><td>Availability. A large case is unopenable most of the time, and it makes <code>D-D</code> a harder treasury question than it already is</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>Recommendation: C for a small backed catalogue, A with a stated recomputation for a large one, and B never.</strong> The choice is not a design decision. It is a settlement and treasury decision that changes the meaning of two published numbers, so it goes to the open table with an owner, and stage 04 draws the card the same way under all three.</p>
+    <p><strong>This is what a state node is for.</strong> Without <span class="surf">3.4</span> this question arrives at implementation as a bug report about a percentage that moved.</p>
+  </div>
+</section>
+
+<!-- 3.5 -->
+<section id="reveal">
+  <div class="sec-head">
+    <h2 id="3.5">Node 3.5. Phase 2, the open</h2>
+    <p>State. MVP. No URL. Routes out: 3.6, and 3.7 if the animation does not finish on this device. One sentence governs the phase: the person triggers the reveal and watches, and nothing else happens.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">3.5 at 360px - the reveal, and the chip that never interrupts it</div>
+    <div class="wf-phone">
+      <div class="wf-spin" style="border:none;background:none;padding:0">
+        <div class="wf-spin-strip">the reveal, uninterrupted, 4 to 6 seconds</div>
+        <div class="wf-chip"><span class="wf-chip-k">round hash</span><span class="wf-chip-v">a41f...e07c</span><span class="wf-copy">copy</span></div>
+        <div class="wf-scope" style="text-align:left"><b>Fixed before you tapped.</b> Check it after.</div>
+        <div style="text-align:left;margin-top:10px"><span class="wf-costl">Paid</span> <span class="wf-cost" style="font-size:12px">2.40</span></div>
+      </div>
+    </div>
+    <div class="wf-note"><b>Variant V1 of node 0.14</b>, in its pre-roll state, specified there and placed here. It never blocks, never modals and never asks. The drop table stays in the document below rather than being unmounted for the animation, which is what "states of one page" means structurally.</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Block</th><th>What it does</th><th>Parent</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>The reveal</strong></td><td>Renders the settled roll. <strong>Computes nothing</strong></td><td><span class="row-code">E1</span>, on <span class="row-code">B6-1</span>, one signal, fatal class</td></tr>
+        <tr><td>2</td><td><strong>The hash chip</strong></td><td><code>0.14</code> variant <strong>V1</strong> at the spin trigger. Never interrupts</td><td><span class="row-code">E4</span>, Related Job 3</td></tr>
+        <tr><td>3</td><td><strong>The cost, spent</strong></td><td>The entry cost stays legible as a thing that has been paid, not removed the moment it is taken</td><td>Design principle 3</td></tr>
+        <tr><td>4</td><td><strong>Rarity differentiation</strong></td><td>Speed, particles, audio and screen emphasis scale with outcome rarity over the seven tier ladder</td><td><span class="row-code">E3</span></td></tr>
+        <tr><td>5</td><td><strong>The reduced-motion path</strong></td><td>The same phase, honouring the system preference</td><td>Design principle 2 and accessibility</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>The three rules that make the buildup honest</h4>
+    <p><strong>The reveal renders and never computes, <span class="row-code">E1</span>.</strong> The roll is settled before the animation begins, and node <code>0.14</code> carries the implementation half: recomputation is verification of a settled fact, and the two must not share a code path. Divergence between the animation and the credit is impossible by construction.</p>
+    <p><strong>No near-miss theatre, <span class="row-code">E2</span>.</strong> The deceleration lands on the actual result <strong>without visually passing better items first.</strong> A near-miss pre-calculated as a loss is fabricated tension, named as a confirmed dark pattern in the research and refused in the jobs file.</p>
+    <p><strong>The hash reframes the wait, and that is the design claim <span class="row-code">E4</span> actually makes.</strong> The animation is honest theatre over a pre-committed result. The chip is what makes the buildup legible as <strong>watching a settled outcome rather than waiting for one to be decided.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Timing, and the two figures the research gives</h4>
+    <p><code>research.md</code> section 6 carries both, and this node prints both rather than picking one silently: <strong>"4-6 seconds for single-case (full ritual)"</strong> in the duration calibration line, and <strong>"the 3-6 seconds of genuine tension during the spin are the emotional core of the product"</strong> in the Pattern B rejection.</p>
+    <p><strong>Taken here: 4 to 6 seconds for a single open</strong>, the figure from the line that is about calibration. The discrepancy is small and it is recorded rather than smoothed, because stage 04 will time an animation against one of these numbers.</p>
+  </div>
+
+  <h3>Reduced motion is an accessibility setting, and it is not a speed-up control</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th></th><th>Fast mode, Hellcase and the baseline</th><th>Reduced motion, here</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Where it lives</strong></td><td>Beside the spend trigger</td><td>In the system preference the browser reports</td></tr>
+        <tr><td><strong>What it optimises</strong></td><td>Time to the next spend</td><td>Whether motion makes the product usable for this person</td></tr>
+        <tr><td><strong>What it says about cost</strong></td><td>That the ritual is overhead</td><td>Nothing about cost at all</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <p><strong>Same mechanism, opposite reason.</strong> The reduced-motion path shows the same settled outcome, in the same order, with the animation stilled or shortened, and <strong>it never changes the cost, the odds or the result.</strong></p>
+    <p><strong>Audio, and the open item it answers.</strong> <span class="row-code">E3</span> makes audio one of the four channels that scale with rarity. Node <code>0.1</code> carries a sound control with a stated open item: it has no parent in any of the three legal classes, and "it ships with a stated parent or it does not ship". <strong>The parent it was missing is on this page:</strong> the reveal has audio because <span class="row-code">E3</span> requires it, and a person needs to be able to stop it. <strong>That is an argument this node can supply and cannot ratify</strong>, so it goes to <code>0.1</code>'s owner as a candidate parent rather than as a decision taken here.</p>
+    <p><strong>The trigger does not re-arm.</strong> There is no second Open control on screen during a reveal and no queued open. That is the same rule that refuses the multi-open selector, applied to time instead of to quantity.</p>
+  </div>
+</section>
+
+<!-- 3.6 -->
+<section id="outcome">
+  <div class="sec-head">
+    <h2 id="3.6">Node 3.6. Phase 3, the outcome</h2>
+    <p>State. MVP. No URL. Routes out: 1.2, 5.1, 7.1, and back into phase 1. This is the activation node of the product.</p>
+  </div>
+
+  <div class="card is-good">
+    <p>The flows name it as a node in the diagram rather than as an implication, and the funnel defines activation as arriving and completing at least one case open. <strong>The promised value first lands here</strong>, when the reveal resolves and the receipt appears.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">3.6 at 360px - the win, its receipt, and one tap to check it</div>
+    <div class="wf-phone">
+      <div class="wf-art" style="height:60px"></div>
+      <div class="wf-item-n" style="font-size:12px">Weapon . Skin name</div>
+      <div class="wf-item-f" style="font-size:9px">Field-Tested . StatTrak . Covert . float 0.2314 . phase <span style="color:var(--accent-yellow)">[?]</span></div>
+      <div style="border:1px solid var(--wf-line);border-radius:4px;padding:10px;margin-top:11px">
+        <div class="wf-proof-lbl">Instance value receipt, F1</div>
+        <div class="wf-kv"><span class="wf-k">Venue 1</span><span class="wf-v">184.20</span></div>
+        <div class="wf-kv"><span class="wf-k">Venue 2</span><span class="wf-v">179.05</span></div>
+        <div class="wf-kv"><span class="wf-k">Priced as</span><span class="wf-v is-dim">this float band and phase, not the skin name</span></div>
+        <span class="wf-link">Open the listing filtered to this float band</span>
+        <span class="wf-link">Inspect in game</span>
+      </div>
+      <div style="border:1px solid var(--wf-line);border-radius:4px;padding:10px;margin-top:8px">
+        <div class="wf-proof-lbl">Round proof, 0.14 variant V2</div>
+        <span class="wf-link">Check this round</span>
+        <div class="wf-scope">Opens in place. <b>The win is not interrupted for paperwork.</b></div>
+      </div>
+      <div class="wf-row" style="margin-top:11px;margin-bottom:0">
+        <div class="wf-ctl">Share this result</div>
+        <div class="wf-ctl">Keep it, My items</div>
+        <div class="wf-ctl">Open again, 2.40</div>
+      </div>
+    </div>
+    <div class="wf-note"><b>Open again is a full control and not a repeat.</b> It re-enters phase 1, where the entry cost, the tested RTP and the expected value are all on screen again. There is no sell control at all, because round 1 has exactly one exit, withdrawal to Steam.</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Block</th><th>What it holds</th><th>Parent</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>The item</strong></td><td>Rendered by <code>0.6</code> at full stage: weapon, skin, wear, StatTrak, rarity</td><td>Main Job</td></tr>
+        <tr><td>2</td><td><strong>The instance value receipt</strong></td><td>Name, float, phase, <strong>current sell price for the comparable float band and phase on two named venues</strong> <span class="q">[?]</span>, the inspect link, and a link that opens the venue listing <strong>filtered to that float band</strong></td><td><span class="row-code">F1</span>, on <span class="row-code">B7-1</span> pattern of 7, also closing <span class="row-code">B7-3</span></td></tr>
+        <tr><td>3</td><td><strong>The verification link</strong></td><td><code>0.14</code> variant <strong>V2</strong>. One tap to check this round, <strong>opening in place</strong></td><td><span class="row-code">F3</span>, Related Job 3</td></tr>
+        <tr><td>4</td><td><strong>The share</strong></td><td>One tap, producing an object that carries its own proof, landing on <span class="surf">7.1</span></td><td><span class="row-code">F4</span>, Emotional Job 2</td></tr>
+        <tr><td>5</td><td><strong>Two routes onward</strong></td><td>Keep it, into <span class="surf">5.1</span>. Or open again, which re-enters phase 1 <strong>with the cost visible again</strong></td><td>Related Job 5, and design principle 3 for the shape of the second</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>The receipt is priced as an instance, and that is the whole of F1</h4>
+    <p>The pain is not that a number was optimistic. It is that the number described <strong>a different object than the one received, a name instead of an instance.</strong> We hold the exact asset before awarding it, so its float, paint seed and phase are known, and it is priced as that unit.</p>
+    <p><strong>Two hard dependencies travel with it.</strong> It is denominated in real currency, because the dropped rival left that rule attached to the pick: a receipt in coins fails its own test. And the venue link is filtered to the float band, so the person checks it themselves rather than taking our word. <strong>Which two venues is <span class="q">[?]</span></strong>, owner founder, before stage 04.</p>
+    <p><strong>And it persists, which is row <span class="row-code">F2</span>.</strong> The receipt stays attached to the item in inventory <span class="surf">5.1</span> and on the withdrawal record <span class="surf">5.3</span>. The success signal is that the same receipt is retrievable a week later. This node does not own those surfaces, it owns the obligation that what it renders here is the same object they render later.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:28%">Deliberately absent</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A sell control</strong></td><td><strong>Round 1 has exactly one exit, withdrawal to Steam.</strong> A binding buyback at the displayed value was rejected before scoring, because it adds a payout rail round 1 does not have. Hellcase's <code>SELL &rarr; S</code> has no counterpart here because the capability does not exist</td></tr>
+        <tr><td><strong>A one-key repeat</strong></td><td><code>REPEAT &rarr; R</code> on Hellcase's controls. <strong>One key to liquidate and one key to spend again.</strong> The bank calls it the single most telling block in the whole set</td></tr>
+        <tr><td><strong>A personal streak or session tally</strong></td><td>Dropped in the <span class="row-code">B7-2</span> divergence, and <code>0.11</code> rule 7: a number is never a score, no streaks, no progress, no celebration</td></tr>
+        <tr><td><strong>A "you were due" line, in any wording</strong></td><td>The same rejection. It is loss-chasing encouragement whichever way the last result went</td></tr>
+        <tr><td><strong>Similar cases</strong></td><td>A shared result that recommends another case is an advertisement wearing a receipt. The rule was written for <span class="surf">7.1</span> and it applies with more force here, where the person has just spent</td></tr>
+        <tr><td><strong>A celebration that scales with our margin</strong></td><td>Nothing in <span class="row-code">E3</span> scales with anything except outcome rarity, which is the person's result and not our revenue</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>The brake for the session is <span class="row-code">C2</span>, the spend ceiling chosen at deposit</strong>, and it is not this node's to duplicate. What this node owes is that opening again costs the same number of deliberate acts as opening the first time.</p>
+  </div>
+</section>
+
+<!-- 3.7 -->
+<section id="interrupted">
+  <div class="sec-head">
+    <h2 id="3.7">Node 3.7. Interrupted reveal</h2>
+    <p>State. MVP. No URL. Route out: 3.6. The same result is also in 5.1.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Why it exists, and it was the sharpest thing the flows critique found</h4>
+    <p><span class="row-code">E1</span> settles the roll before the animation begins, so at the moment a connection drops <strong>the result already exists in the ledger.</strong> Without a return path the person sees an animation that never resolved beside a balance that says they won, which is <span class="row-code">B6-1</span>, the animation and the credited item disagreeing, <strong>arriving through the back door of a missing state rather than through the front door of a bug.</strong></p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">3.7 at 360px - the result was decided before the animation, so it waits here</div>
+    <div class="wf-phone">
+      <div style="border:1px dashed var(--wf-line);border-radius:4px;padding:12px">
+        <div class="wf-item-n" style="font-size:11px">This round did not finish on this device</div>
+        <div class="wf-item-f" style="font-size:9px">The result was decided before the animation started. It has not changed.</div>
+      </div>
+      <div style="margin-top:11px">
+        <div class="wf-art" style="height:44px"></div>
+        <div class="wf-item-n" style="font-size:11px">Weapon . Skin name</div>
+        <div class="wf-item-f" style="font-size:8.5px">the outcome in full: receipt, proof link, share</div>
+      </div>
+      <span class="wf-link">See it in My items</span>
+    </div>
+    <div class="wf-note"><b>The reveal is not re-run by default.</b> The person may already have seen the header figures change, and replaying a suspense animation over a result they can already read is the near-miss problem in a different costume. <b>It is a state and not an error:</b> nothing failed on our side, and the copy does not apologise for a system fault that did not occur.</div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:38%">What it shows</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>That this round did not finish on this device, and that <strong>the result was decided before the animation started</strong></td><td>It is the same sentence <span class="row-code">E1</span> and <span class="row-code">E4</span> already make. The interruption changes nothing about the outcome and the state says so plainly</td></tr>
+        <tr><td><strong>The outcome itself</strong>, which is <span class="surf">3.6</span> in full</td><td>The person has already paid and already won. Making them re-watch to collect would be theatre attached to a settled fact</td></tr>
+        <tr><td>That the same result is in My items, <span class="surf">5.1</span></td><td>A second route to the same object, for the case where this device is not the one they come back on</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>How the interruption is detected is <span class="q">[?]</span></strong> and belongs to production. This node specifies what the person meets, not the mechanism that routes them here.</p>
+  </div>
+</section>
+
+<!-- STATES -->
+<section id="states">
+  <div class="sec-head">
+    <h2>The age gate fires here, and the full state matrix</h2>
+    <p>One of the three taps to the main job is this gate, and the map records that cost out loud.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>What this node owns about the gate, and what it does not</h4>
+    <p><span class="surf">2.1</span> fires at first case interaction, from the compliance constraint in <code>CLAUDE.md</code>, "age verification before any case interaction", plus <code>D-17</code>. Two files fix the ordering and agree: the flows put the gate between the case screen and reading the numbers, and the tap count puts it at tap 2, between landing here and the Open at tap 3.</p>
+    <p><strong>It is why the gate carries only the 18+ declaration.</strong> <code>D-17</code> puts identity verification before funding instead, and if that check sat at this tap the main job would be unreachable inside budget for a first-time visitor.</p>
+    <p><strong>This node owns the condition and what renders behind it.</strong> <span class="surf">2.1</span> owns the gate itself, its copy, its decline route and how long a declaration is remembered. <code>0.12</code> owns the market verdict the same layer checks, and every verdict in it is <span class="q">[?]</span> until re-verified against current law.</p>
+    <p><strong>The gate is not an indexation wall.</strong> Every public surface is readable by anyone from anywhere without serving a crawler anything different from a person. The category's usual pattern is a login wall, and skin.club runs one on this exact screen.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>State</th><th>Phase 1</th><th>The trigger</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Guest, undeclared</strong></td><td>Full page, every figure</td><td>Tapping it raises <span class="surf">2.1</span></td><td><code>D-17</code>, and the numbers are readable behind it</td></tr>
+        <tr><td><strong>Guest, declared</strong></td><td>Full page</td><td>Routes to <span class="surf">2.4</span> sign in, then back here</td><td>Steam refusal and Steam unavailable are <span class="surf">2.4</span>'s states, and the second returns here so a person who cannot sign in can still read the product</td></tr>
+        <tr><td><strong>Account, funded</strong></td><td>Full page</td><td>Opens. Phase 2</td><td>The main path</td></tr>
+        <tr><td><strong>Account, nothing to open with</strong></td><td>Full page</td><td>Routes to <span class="surf">4.1</span>, or consumes a free entry if one is available</td><td><span class="row-code">I1</span> and <span class="row-code">I2</span> are entitlements, not surfaces. The trigger states which it will consume before it is tapped</td></tr>
+        <tr><td><strong>Item at zero free units</strong></td><td>Node <span class="surf">3.4</span></td><td>Unchanged. The case is still openable</td><td>Section above</td></tr>
+        <tr><td><strong>Loading the table</strong></td><td>Skeleton with the free-unit counts as the thing being waited on</td><td>Not yet armed</td><td>Specified here, not a node</td></tr>
+        <tr><td><strong>Values degraded</strong></td><td>The table renders, the value column marked degraded</td><td>Armed</td><td><strong>A case with unknown values is still openable, and the EV figure is not printed from stale values</strong></td></tr>
+        <tr><td><strong><code>D-B</code> negative</strong></td><td>The tier ladder does not render, and the page says a figure used to be here and why</td><td>Armed</td><td><code>0.11</code> withdrawn state. This is the state that keeps the page honest if the counter never ships</td></tr>
+        <tr><td><strong>Reveal running</strong></td><td>Node <span class="surf">3.5</span></td><td>Spent, not re-armed</td><td></td></tr>
+        <tr><td><strong>Outcome</strong></td><td>Node <span class="surf">3.6</span></td><td>Open again re-enters phase 1</td><td></td></tr>
+        <tr><td><strong>Interrupted</strong></td><td>Node <span class="surf">3.7</span></td><td>Not shown until the outcome is acknowledged</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Emotional support, from the table that already assigns it</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Job</th><th>Mechanism</th><th>Where exactly on this page</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Emotional Job 1</strong>, genuine suspense rather than manufactured tension</td><td><span class="row-code">E1</span>, <span class="row-code">E2</span>, and <span class="row-code">E4</span> reframing the buildup</td><td><span class="surf">3.5</span>, <strong>as behaviour of the reveal itself rather than as a component</strong></td></tr>
+        <tr><td><strong>Emotional Job 2</strong>, a win worth talking about</td><td><span class="row-code">F4</span> producing an object that carries its own proof, plus <span class="row-code">F1</span>, which <strong>makes the number inside the story true so the story survives being checked</strong></td><td><span class="surf">3.6</span>, then <span class="surf">7.1</span></td></tr>
+        <tr><td><strong>Social Job 2</strong>, a platform that feels alive</td><td><span class="row-code">A3</span>, no invented names, any bot labelled as one, every tile landing on a checkable result</td><td>Phase 1, block 8, <strong>as an ambient layer and never as a destination</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>Microcopy is a placeholder with a reserved place, not a blank.</strong> Stage 05 writes the words for the reveal, the outcome and the interrupted state. What this node fixes is that each has a place in the block order already, so stage 05 is a rewrite and not a redraw.</p>
+  </div>
+</section>
+
+<!-- SEO -->
+<section id="seo">
+  <div class="sec-head">
+    <h2>SEO block, A to E</h2>
+    <p>Inherited from node 0.13. Nothing here re-decides a row of that register.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">A. Meta</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Title</strong>, pattern, 37 characters plus the case name</td><td><code>&lt;Case name&gt;: drop chances, values and tested RTP</code></td></tr>
+        <tr><td><strong>Description</strong>, pattern, 134 characters plus the case name</td><td><code>Every item in &lt;Case name&gt; with its chance, its current value and its ticket range, plus the tested RTP and the expected value at this entry cost.</code></td></tr>
+        <tr><td><strong>Canonical</strong></td><td>Self, <code>/cases/&lt;case-slug&gt;</code></td></tr>
+        <tr><td><strong>hreflang</strong></td><td>None. One language</td></tr>
+        <tr><td><strong>Robots</strong></td><td><code>index, follow</code></td></tr>
+        <tr><td><strong>OG and Twitter</strong></td><td>The case, its item count and its entry cost. <strong>Not a win.</strong> A share card built from someone's outcome belongs to <span class="surf">7.1</span>, which owns that object</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>Name budget.</strong> The title pattern leaves 23 characters for the case name inside 60, and the description leaves 21 inside 155. <strong>Longer names truncate the pattern from the right rather than the name</strong>, since the name is what the query matches.</p>
+    <p><strong>A slug rename is a 301 and the old slug is never reused.</strong> That rule matters more on this node than anywhere else, because a case URL is in every share and every clip description that <span class="row-code">F4</span> produced.</p>
+  </div>
+
+  <div class="card">
+    <h4>B. Headings, exactly one H1 and the H2 list in block order</h4>
+    <p><strong>H1:</strong> the case name, and nothing else.</p>
+    <p><strong>H2:</strong> What is in this case . <strong>H2:</strong> What this case pays . <strong>H2:</strong> Published against observed . <strong>H2:</strong> Live drops . <strong>H2:</strong> How this case works . <strong>H3:</strong> How a chance and a ticket range fit together . <strong>H3:</strong> What happens when an item runs out</p>
+    <p><strong>One H1 per page across all three phases.</strong> The phases do not each get one, because they are states of one document. The "Published against observed" heading does not render if <code>D-B</code> is negative, and the block order closes over it.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>C. SEO text, finished copy</h4>
+    <p><strong>How this case works.</strong> The entry cost buys one roll. The roll lands on one item, and every item's share of the possible outcomes is printed on its card as a percentage and as a ticket range. The two say the same thing twice: the percentage is easy to read, and the ticket range is the interval the roll actually resolves against, which is what makes a result checkable afterwards.</p>
+    <p><strong>How a chance and a ticket range fit together.</strong> A roll produces a number. That number falls inside exactly one ticket range, and the item holding that range is the item you get. The round is fixed before the animation starts, and the hash of it is on screen at the moment you open. After the reveal, one link checks that round against the number that was published before it ran.</p>
+    <p><strong>What happens when an item runs out.</strong> Every item in this case points at a unit we hold. When the last unit of an item is won, the item stays on this page showing zero free units and cannot be rolled. It is not removed, because a table that quietly loses rows is a table you cannot check against what you read a minute ago.</p>
+    <p><strong>This block stays the property of this node.</strong> Stage 05 aligns it to voice and syncs the final version back here. Interface strings do not move into it.</p>
+  </div>
+
+  <div class="card">
+    <h4>D. Structured data</h4>
+    <p><code>Product</code> plus <code>Offer</code>. <strong>The case is the thing bought and the entry cost is its price.</strong></p>
+    <p><strong>The refusal, inherited and restated because this is the node it constrains.</strong> The drop table items are <strong>not</strong> offers. We do not sell that skin at that price, and marking each item as a <code>Product</code> with an <code>Offer</code> would state that we do. The items are content of the case, and <strong>the only <code>Offer</code> on this page is the entry cost.</strong></p>
+    <p><code>BreadcrumbList</code> on the visible breadcrumb. No <code>aggregateRating</code> and no <code>Review</code> anywhere.</p>
+  </div>
+
+  <div class="card">
+    <h4>E. Optimisation checklist</h4>
+    <ol>
+      <li>Exactly one H1, and it is the case name.</li>
+      <li>H2s exist in block order, matching block B.</li>
+      <li>Breadcrumb drawn and marked up.</li>
+      <li><strong>Every figure is crawlable text, none is an image.</strong> The pre-login figures on this page are the product's entire pre-login argument, and an image would remove them from search and from a screen reader in the same stroke.</li>
+      <li>LCP is the case artwork plus the commit block. The drop table images are lazy below the fold.</li>
+      <li><strong>The accessible name of every figure carries the unit and the as-of</strong>, not the bare digits. A screen reader that announces "82.1" has announced nothing.</li>
+      <li><strong>The reveal does not shout.</strong> Real-time figures update silently by default, and an announcement is polite and rate limited only where an update changes what a person can do. The outcome is such a moment. The ticker is not.</li>
+      <li>The hash's accessible name is the field, not the value.</li>
+      <li>Canonical present, no hreflang anywhere.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- REFUSED -->
+<section id="refused">
+  <div class="sec-head">
+    <h2>What was refused, with the reason on the row</h2>
+    <p>Every entry was on a live page opened on 12 August 2026, or on the baseline walked on 11 August 2026.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">Refused</th><th style="width:28%">Where it is live</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Multi-open selector, 1 / 2 / 3 / 4 / 5 / 10</strong></td><td>Hellcase. The baseline runs five hexagon slots</td><td><strong>No parent.</strong> Design principle 3: a spend multiplier next to the trigger, before any ceiling is visible. <strong>If multi-open ever ships it ships behind <span class="row-code">C2</span></strong></td></tr>
+        <tr><td><strong>Keyboard shortcuts: <code>SELL &rarr; S</code>, <code>REPEAT &rarr; R</code></strong></td><td>Hellcase, printed on the controls beside <code>GET &rarr; ENTER</code> and <code>QUICK STOP &rarr; SPACE</code></td><td><strong>One key to liquidate what you won and one key to spend again.</strong> Speed here is not service. The bank calls it the single most telling block in the whole set</td></tr>
+        <tr><td><strong>"Fast mode"</strong></td><td>Hellcase. The baseline ships a speed control beside its multi-open slots</td><td>A control that makes spending faster, sold as a preference. <strong>The mechanism is kept as reduced motion honouring the system preference</strong></td></tr>
+        <tr><td><strong>A sign-in wall over the open control</strong></td><td>skin.club, "Authorization is required to open cases". The baseline, "You must log in to be able to Open cases and get your winnings chance"</td><td><span class="row-code">B1-1</span> and <span class="row-code">B3</span>. <strong>A person deciding whether this place is real cannot see the mechanic.</strong> We show the whole screen and gate at the first case interaction</td></tr>
+        <tr><td><strong>"Last 7 days top drop" with a multiplier, x38.8</strong></td><td>Hellcase. The baseline runs a "Best drops" row with coin values</td><td><strong>Survivorship by construction:</strong> the top drops of the week are not what happens. The same curiosity is answered by <span class="row-code">D3</span>, which can disappoint and is therefore worth reading</td></tr>
+        <tr><td><strong>"100% case fairness transparency"</strong></td><td>skin.club</td><td>An unfalsifiable sentence. <code>D-14</code> bounds the claim and <code>0.14</code> carries a scope line saying what the proof does <strong>not</strong> cover, which is the opposite move</td></tr>
+        <tr><td><strong>A risk meter of three skull icons</strong></td><td>The baseline, two filled of three, beside "Medium-risk"</td><td>The Case entity carries a risk band and <strong>no computation for it exists anywhere in this repository</strong>, so it has no route. <span class="row-code">D4</span> is the checkable version and it ships instead. A figure in an icon is also not text</td></tr>
+        <tr><td><strong>The "Skin prices" explainer and the exchange route</strong></td><td>The baseline</td><td>It exists to explain a coin denomination and an exchange surface. <span class="row-code">C1</span> deletes the first and in-platform exchange is LATER, so the block explains two things we do not have</td></tr>
+        <tr><td><strong>A like count on the case</strong></td><td>The baseline, a thumb icon with a count</td><td>No parent. <code>0.11</code> rule 7: a number is never a score</td></tr>
+        <tr><td><strong>Bulk-open timing, 0.5 to 1 second per card</strong></td><td><code>research.md</code> section 6, as Pattern B for bulk flows</td><td>Nothing in round 1 opens in bulk, because multi-open is refused above. The figure has nothing to attach to and is recorded rather than used</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+    <p>Twelve open items, and the first one is a contradiction between three backlog rows that nothing in this repository had written down.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">Open item</th><th style="width:48%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong>What the published chance is while an item is at zero</strong></td><td><strong>Three readings, and <span class="row-code">D1</span>, <span class="row-code">D2</span> and <span class="row-code">D3</span> are not simultaneously satisfiable as written.</strong> It changes the meaning of two published numbers. Recommendation: C for a small backed catalogue, A with a stated recomputation for a large one, B never</td><td>Founder plus whoever owns settlement, before stage 04. It rides with <code>D-D</code></td></tr>
+        <tr><td><code>D-C</code>, the internal observed-against-published check</td><td>Scheduled before stage 04, and <strong>nothing in the numbers register is drawn until it returns.</strong> Every published figure on this page is conditional on it</td><td>Founder, on the live platform</td></tr>
+        <tr><td><code>D-B</code>, whether roll history migrates and can be published</td><td>Decides whether the tier ladder renders at all, and how common <code>0.14</code>'s proof-unavailable state is on day one</td><td>Founder, question of fact to the live platform</td></tr>
+        <tr><td>The sample floor for the observed counter</td><td>The N below which the counter shows N and no percentage</td><td>Founder with the data</td></tr>
+        <tr><td>Who tests our RTP, and over how many opens</td><td><span class="row-code">D4</span> says "published tested RTP" and does not say by whom. Without it the figure is a claim rather than a test</td><td>Founder</td></tr>
+        <tr><td>The two venues for the instance value receipt</td><td><span class="row-code">F1</span> says two named venues. Which two is not decided anywhere</td><td>Founder, before stage 04</td></tr>
+        <tr><td>Whether the person controls the client seed</td><td><code>0.14</code> recommends user-settable and records that <strong>no backlog row covers it today</strong></td><td>Founder, one backlog row</td></tr>
+        <tr><td>The exact provably fair scheme</td><td>The category standard is HMAC-SHA256 over server seed, client seed and nonce; ours is not chosen</td><td>Production, before stage 04 treats the field list as final</td></tr>
+        <tr><td>Whether the rarity ladder is the game's palette</td><td>Seven tiers were walked live and one claim is <span class="q">[?]</span>: if the values are the CS2 client's own, <strong>we may not restyle them freely because the player already reads them without a legend</strong></td><td>Whoever specifies <code>0.6</code>, one page to check</td></tr>
+        <tr><td><strong>Float, paint seed and phase as fields</strong></td><td>The Skin instance entity marks them <span class="q">[?]</span> and "not required by any job in the current list", while <span class="row-code">F1</span> requires float and phase on the receipt. <strong>The receipt therefore needs them and the entity does not know it</strong>, which is a contradiction this node reports rather than edits</td><td><code>sitemap.md</code> at its next pass</td></tr>
+        <tr><td>The sound control's parent</td><td><code>0.1</code> carries it with no parent and a standing condition. <strong>The candidate parent is here</strong>, <span class="row-code">E3</span> plus design principle 2</td><td>Founder, before stage 04, and the decision belongs to <code>0.1</code></td></tr>
+        <tr><td>The exact reveal timing inside 4 to 6 seconds</td><td>The research gives two ranges. The chosen curve, the deceleration and the hold are stage 06's, tested there</td><td>Stage 06</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>How the reveal looks and sounds.</strong> Stages 06 and 07. The backlog states plainly that the target emotion for phase 2 is projected rather than measured, because <strong>no first-person account of joy at one's own reveal was found anywhere in the corpus.</strong></p>
+    <p><strong>The words.</strong> Stage 05. <strong>The gate.</strong> Node <span class="surf">2.1</span>. <strong>The market verdict behind it.</strong> Node <code>0.12</code>. <strong>The shared object.</strong> Node <span class="surf">7.1</span>. <strong>Where the receipt lives afterwards.</strong> Nodes <span class="surf">5.1</span> and <span class="surf">5.3</span>.</p>
+  </div>
+
+  <a class="backlink" href="structure.html#3.3">Back to Structure (3.3)</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/case.md</code>. Block composition: <code>ia/docs/blocks.md</code>, section 4, T3 object detail with a live event. Node data: <code>ia/docs/sitemap.md</code>, cluster 3. Routes: <code>ia/docs/flows.md</code>, flows 1 and 4. The reveal pattern: <code>research/docs/research.md</code>, section 6.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map: <a href="sitemap.html">Sitemap</a>. The routes: <a href="flows.html">Flows</a>. The proof block: <a href="round-proof.html">0.14</a>. The shelf: <a href="catalogue.html">3.1 Case catalogue</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '3.3 Case screen';
+window.NAV_SECTIONS = [
+  { id: 'overview',    label: 'Overview' },
+  { id: 'phases',      label: 'Three phases' },
+  { id: 'blocks',      label: 'Phase 1 blocks' },
+  { id: 'numbers',     label: 'The numbers' },
+  { id: 'table',       label: 'The drop table' },
+  { id: 'zero',        label: '3.4 Zero free units' },
+  { id: 'reveal',      label: '3.5 The open' },
+  { id: 'outcome',     label: '3.6 The outcome' },
+  { id: 'interrupted', label: '3.7 Interrupted' },
+  { id: 'states',      label: 'Gate and states' },
+  { id: 'seo',         label: 'SEO A to E' },
+  { id: 'refused',     label: 'Refused' },
+  { id: 'open',        label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

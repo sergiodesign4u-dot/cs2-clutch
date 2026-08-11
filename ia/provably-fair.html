@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 1.2 Provably fair</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+    .card.is-dead { border-left: 3px solid var(--red); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 14px; }
+
+    .wf-fig-state { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); border-bottom: 1px dashed var(--wf-line-soft); padding-bottom: 7px; margin-bottom: 10px; }
+    .wf-note { font-size: 10px; color: var(--wf-ink-dim); margin-top: 8px; line-height: 1.5; }
+
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+
+    .wf-proof { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-proof-lbl { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 9px; padding-bottom: 7px; border-bottom: 1px dashed var(--wf-line-soft); }
+    .wf-kv { display: flex; gap: 9px; margin-bottom: 6px; align-items: baseline; }
+    .wf-k { flex: 0 0 74px; font-family: 'SF Mono', Menlo, monospace; font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-v { font-family: 'SF Mono', Menlo, monospace; font-size: 10.5px; color: var(--wf-ink); word-break: break-all; }
+    .wf-v.is-dim { color: var(--wf-ink-dim); font-style: italic; font-family: inherit; }
+    .wf-copy { display: inline-block; border: 1px solid var(--wf-line); border-radius: 3px; font-size: 8.5px; padding: 1px 5px; color: var(--wf-ink-dim); margin-left: 5px; white-space: nowrap; }
+    .wf-scope { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; border-top: 1px dashed var(--wf-line-soft); margin-top: 10px; padding-top: 9px; }
+    .wf-scope b { color: var(--wf-ink); font-weight: 700; }
+    .wf-link { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; }
+    .wf-mismatch { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .wf-mismatch > div { border: 1px solid var(--wf-line-soft); border-radius: 4px; padding: 8px 9px; }
+    .wf-mm-h { font-size: 8.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 5px; }
+
+    /* page-level wireframe parts, this node */
+    .wf-blk { border: 1px dashed var(--wf-line-soft); border-radius: 4px; padding: 9px 10px; margin-bottom: 8px; }
+    .wf-blk:last-child { margin-bottom: 0; }
+    .wf-blk.is-cta { border-style: solid; border-color: var(--wf-line); }
+    .wf-blk-n { font-size: 8.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 6px; }
+    .wf-h1 { font-size: 15px; font-weight: 700; color: var(--wf-ink); line-height: 1.25; }
+    .wf-h2 { font-size: 11.5px; font-weight: 700; color: var(--wf-ink); line-height: 1.3; }
+    .wf-txt { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.55; margin-top: 5px; }
+    .wf-txt b { color: var(--wf-ink); font-weight: 700; }
+    .wf-lbl { font-size: 8.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--wf-ink-dim); margin-top: 7px; }
+    .wf-input { border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 6px 8px; font-family: 'SF Mono', Menlo, monospace; font-size: 9.5px; color: var(--wf-ink-dim); margin-top: 3px; word-break: break-all; }
+    .wf-input.is-filled { color: var(--wf-ink); border-color: var(--wf-line); }
+    .wf-input.is-bad { border-color: var(--wf-ink); border-style: dashed; }
+    .wf-btn { display: inline-block; border: 1px solid var(--wf-line); border-radius: 3px; padding: 6px 14px; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; color: var(--wf-ink); margin-top: 9px; }
+    .wf-btn.is-off { color: var(--wf-ink-dim); border-style: dashed; }
+    .wf-err { border-left: 2px solid var(--wf-ink); padding-left: 8px; font-size: 9.5px; color: var(--wf-ink); margin-top: 5px; line-height: 1.5; }
+    .wf-toc { border: 1px solid var(--wf-line-soft); border-radius: 4px; padding: 10px 11px; font-size: 9.5px; color: var(--wf-ink-dim); line-height: 1.95; }
+    .wf-toc b { color: var(--wf-ink); font-weight: 700; display: block; margin-bottom: 4px; font-size: 8.5px; letter-spacing: 0.1em; text-transform: uppercase; }
+    .wf-two { display: grid; grid-template-columns: 160px 1fr; gap: 14px; align-items: start; }
+    .wf-bar { border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 6px 9px; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 8px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+    .wf-stack > div { border: 1px solid var(--wf-line-soft); border-radius: 4px; padding: 8px 9px; margin-bottom: 6px; }
+    .wf-stack > div:last-child { margin-bottom: 0; }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid { grid-template-columns: 1fr; }
+      .wf-two { grid-template-columns: 1fr; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 1.2</div>
+  <h1>Provably fair, public, with the verifier</h1>
+  <p class="lede">The page explains what a round proof does and does not prove, in public and with no account, and then lets anyone recompute a round with our algorithm or with somebody else's. It carries the <code>D-14</code> limit in long form: <strong>the proof shows the outcome was fixed before you clicked, and it does not show that the published chances are the chances used.</strong> The second question has a different answer in this product, and this page routes to it rather than pretending to cover it.</p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Accounts required, ever</div></div>
+    <div><div class="hero-stat-value">8</div><div class="hero-stat-label">Blocks, mobile first</div></div>
+    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">States that are nodes: 1.3, 1.4</div></div>
+    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Call to action</div></div>
+  </div>
+</div>
+
+<!-- PUBLIC -->
+<section id="public">
+  <div class="sec-head">
+    <h2>The property that is the whole node</h2>
+    <p>Public, with no account, and no account state of its own. The category supplies the live counter-example.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Key-Drop's provably fair route redirects to the login page</h4>
+    <p>Opened live on 12 August 2026 and recorded in <code>blocks.md</code> sections 6 and 8. <strong>That is not a stylistic difference, it is the failure this node exists to avoid:</strong> the proof of fairness sits behind the thing a person has not yet decided to do. Not logged in, per the project rule, so the redirect itself is the finding.</p>
+    <p><code>research.md</code> section 4 puts the same result across the whole category in one sentence, <strong>"the gap between we have PF and you can verify before you deposit is wide"</strong>, and section 5b scores CSGORoll's public per-game documentation at the top of the fairness column for the opposite reason.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>So the account state matrix of this page has one row</h4>
+    <p>A signed-in person sees the same page as a stranger. No extra fields, no history, no personalisation. That is a decision rather than an omission, and the refusals table below records what was turned down to keep it true.</p>
+    <p><strong>The second property decides the block order.</strong> The node's own INCLUDES reads "opens and explains before it asks anyone to paste a seed", and the base layer already classes the verifier form as deep, "rare and deliberately not surfaced".</p>
+  </div>
+</section>
+
+<!-- READER -->
+<section id="reader">
+  <div class="sec-head">
+    <h2>Who this page is built for, and the rule that settles it</h2>
+    <p>Two readers, and the research says plainly that they are not the same size.</p>
+  </div>
+
+  <div class="card">
+    <p><strong>The Researcher will paste a seed.</strong> Related Job 3 scores 3 for that persona, <code>D-14</code>.</p>
+    <p><strong>The Opener will not.</strong> <code>research.md</code> section 9 records the claim as killed by name: "Mass-market Openers do NOT self-verify PF before depositing", and the same section records that casual users run on institutional trust proxies instead. Related Job 3 scores 1 for The Opener.</p>
+    <p><code>CLAUDE.md</code> says the primary persona wins when two decisions conflict, and the primary persona is The Opener. <strong>So this page is built to be read by someone who will never use its form</strong>, and the form is built to be complete for the person who will. <code>research.md</code> section 5b says the same thing from the benchmark side: "Most users never do, but knowing they could is the trust signal."</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>What that buys, concretely</h4>
+    <p>The limit and the claim sit on the first screen, where a five second reader meets them. The explanation is prose a non-technical person can finish. The form sits below both, and the algorithm and its version history sit below the form. <strong>None of that order is a courtesy. It is the priority test applied to two readers of different sizes.</strong></p>
+  </div>
+</section>
+
+<!-- LIMIT -->
+<section id="limit">
+  <div class="sec-head">
+    <h2>The D-14 limit, stated on the page itself</h2>
+    <p>Node 0.14 carries the scope line as part of the component, in one short clause, everywhere the proof renders. This page carries the long form, and neither may drift from the other.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">On the page</th><th>What it says</th></tr></thead>
+      <tbody>
+        <tr><td><strong>What this proves</strong></td><td>The result of this round was fixed before you clicked, and it was not changed afterwards</td></tr>
+        <tr><td><strong>What this does not prove</strong></td><td>That the chances we publish are the chances the roll used</td></tr>
+        <tr><td><strong>Where that question is answered</strong></td><td>The observed rate counter beside every published percentage on the case screen, row <span class="row-code">D3</span>, plus the published chance and current value on every item, row <span class="row-code">D2</span>, plus the published tested RTP and the expected value at that entry cost, row <span class="row-code">D4</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The source of the limit, and it is not this node's opinion</h4>
+    <p><code>cjm-to-be.md</code>, phase T7, records it as the most important rejection on the map: <strong>"A commit-reveal scheme proves the outcome was not altered after the click. It says nothing about whether the weight table is the one we published, and the weight table is what users actually dispute."</strong></p>
+    <p><strong>No verified badge, in any state, anywhere on this page.</strong> Node <code>0.14</code> forbids it in every variant, and this is the page where the temptation is largest, because it is the page with the form.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The route out of the limit has a condition on it, and the page survives the condition failing</h4>
+    <p>Row <span class="row-code">D3</span> is conditional on <code>D-B</code>, whether six years of roll history can migrate and be published at all. <code>cjm-to-be.md</code> answer 2 records what happens if it comes back negative: at launch <code>B7-2</code> is answered by <span class="row-code">D2</span> and <span class="row-code">D4</span> and by nothing else. <strong>So the third row above is written as a list rather than as a single destination.</strong> If <span class="row-code">D3</span> is withdrawn under <code>0.11</code>'s withdrawn state, the block loses one route and keeps two instead of losing its only one.</p>
+  </div>
+
+  <div class="card is-soon">
+    <h4>Two barriers this page deliberately does not claim</h4>
+    <p>It does not close <code>B7-2</code>, the published probability that did not behave, and it does not close <code>B1-1</code>, the category arrives pre-suspected. <code>D-14</code> withdrew exactly that claim. Its parents are row <span class="row-code">H1</span> by way of Related Job 3 and Core Job 1, barrier <code>B2-1</code> the pre-login information wall, and the compliance constraint in <code>CLAUDE.md</code>, "provable fairness as a legal and trust requirement".</p>
+  </div>
+</section>
+
+<!-- BLOCKS -->
+<section id="blocks">
+  <div class="sec-head">
+    <h2>Eight blocks, mobile first</h2>
+    <p>Composition from <code>blocks.md</code> section 8, type T7, document and explainer, plus what the jobs of this node require. Order reasoned from 360px.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Block</th><th>First screen</th><th>Parent</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td><strong>What this proves, and what it does not.</strong> H1, one line saying the page is public, the two part scope statement, two jump links</td><td><strong>Yes</strong></td><td>Design principle 1 as limited by <code>D-14</code>; row <span class="row-code">H1</span></td></tr>
+        <tr><td><strong>2</strong></td><td><strong>How a round is fixed before you click.</strong> Four steps in plain words, plus the two reasons a round may have no proof to check yet</td><td>No</td><td>Related Job 3; rows <span class="row-code">E4</span> and <span class="row-code">E1</span></td></tr>
+        <tr><td><strong>3</strong></td><td><strong>What a round proof is made of.</strong> The field set from <span class="surf">0.14</span>, read only, no inputs</td><td>No</td><td><span class="surf">0.14</span>, whose parents are Related Job 3 and Core Job 1</td></tr>
+        <tr><td><strong>4</strong></td><td><strong>Check a round.</strong> Variant V4 of <span class="surf">0.14</span>. The page's one call to action</td><td>No</td><td>Row <span class="row-code">H1</span>, "public provably fair page, no login, working verifier"</td></tr>
+        <tr><td><strong>5</strong></td><td><strong>If your check does not match ours.</strong> What we do, what you get, the published response deadline</td><td>No</td><td>Row <span class="row-code">G4</span>; node <span class="surf">1.4</span></td></tr>
+        <tr><td><strong>6</strong></td><td><strong>The question this page does not answer.</strong> The limit again, this time as routes</td><td>No</td><td><code>D-14</code>; rows <span class="row-code">D3</span>, <span class="row-code">D2</span>, <span class="row-code">D4</span></td></tr>
+        <tr><td><strong>7</strong></td><td><strong>The algorithm, published in full.</strong> The computation, a worked example, the version history</td><td>No</td><td><span class="surf">0.14</span> rule 4.1 and section 6</td></tr>
+        <tr><td><strong>8</strong></td><td><strong>Questions.</strong> Accordion for the tail only</td><td>No</td><td><code>B2-1</code>, the pre-login information wall</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - the whole page, top to bottom. Black and white until stage 06</div>
+    <div class="wf-phone">
+
+      <div class="wf-bar"><span>rail</span><span>balance / account</span></div>
+
+      <div class="wf-blk">
+        <div class="wf-blk-n">Block 1 - first screen</div>
+        <div class="wf-txt" style="margin-top:0">Home &gt; Provably fair</div>
+        <div class="wf-h1">Provably fair: check any round yourself</div>
+        <div class="wf-txt">This page is public. You do not need an account to read it, and you do not need one to check a round.</div>
+        <div class="wf-stack" style="margin-top:9px">
+          <div><div class="wf-mm-h">What this proves</div><div class="wf-txt" style="margin-top:0">The result was fixed before you clicked and was not changed afterwards</div></div>
+          <div><div class="wf-mm-h">What this does not prove</div><div class="wf-txt" style="margin-top:0">That the chances we publish are the chances the roll used. <b>That question is answered on the case screen.</b></div></div>
+        </div>
+        <div class="wf-link">Check a round</div>
+        <div class="wf-link" style="margin-left:14px">Read the algorithm</div>
+      </div>
+
+      <div class="wf-blk">
+        <div class="wf-blk-n">Block 2</div>
+        <div class="wf-h2">How a round is fixed before you click</div>
+        <div class="wf-txt">1. We publish the hash of a server seed before the round is offered.<br>2. A client seed and a nonce are attached to it.<br>3. You click. The roll is settled once, and the reveal plays back a result that already exists.<br>4. The server seed is revealed on rotation, and from then on anyone can recompute.</div>
+        <div class="wf-txt"><b>Two reasons a round may have no proof to check yet:</b> it predates the published ledger, or its rotation has not happened.</div>
+      </div>
+
+      <div class="wf-blk">
+        <div class="wf-blk-n">Block 3 - renders 0.14, read only</div>
+        <div class="wf-h2">What a round proof is made of</div>
+        <div class="wf-txt"><b>Server seed hash.</b> Published before the roll. The commitment.</div>
+        <div class="wf-txt"><b>Client seed.</b> The other half of the pair.</div>
+        <div class="wf-txt"><b>Nonce.</b> Which roll in the sequence.</div>
+        <div class="wf-txt"><b>Settled result and ticket range.</b> The roll, and the interval it fell in.</div>
+        <div class="wf-note">Definition list at this width, not a three column table.</div>
+      </div>
+
+      <div class="wf-blk is-cta">
+        <div class="wf-blk-n">Block 4 - variant V4 of 0.14. The one call to action</div>
+        <div class="wf-h2">Check a round</div>
+        <div class="wf-lbl">Server seed hash</div>
+        <div class="wf-input">paste</div>
+        <div class="wf-lbl">Client seed</div>
+        <div class="wf-input">paste</div>
+        <div class="wf-lbl">Nonce</div>
+        <div class="wf-input">paste</div>
+        <div class="wf-btn">Check this round</div>
+        <div class="wf-note">Labels above the fields, never a placeholder as the only label.</div>
+      </div>
+
+      <div class="wf-blk">
+        <div class="wf-blk-n">Block 5</div>
+        <div class="wf-h2">If your check does not match ours</div>
+        <div class="wf-txt">What we do, what you get, and the deadline we answer inside. This is the block state <b>1.4</b> links into.</div>
+      </div>
+
+      <div class="wf-blk">
+        <div class="wf-blk-n">Block 6</div>
+        <div class="wf-h2">The question this page does not answer</div>
+        <div class="wf-txt">Whether the published chances are the chances used. <b>Three routes:</b> the observed rate counter beside the published percentage, the chance and value on every item, the tested RTP and expected value at the entry cost.</div>
+        <div class="wf-link">Open a case screen and see all three</div>
+      </div>
+
+      <div class="wf-blk">
+        <div class="wf-blk-n">Block 7</div>
+        <div class="wf-h2">The algorithm, published in full</div>
+        <div class="wf-txt"><b>The computation.</b> Function, inputs, order, encoding.<br><b>A worked example.</b> One real round, every input, the result, a link to its public result.<br><b>Version history.</b> Version, dates, what changed, which rounds it governs.</div>
+      </div>
+
+      <div class="wf-blk">
+        <div class="wf-blk-n">Block 8</div>
+        <div class="wf-h2">Questions</div>
+        <div class="wf-txt">Accordion, tail only. A question answerable by block 2 is a defect in block 2.</div>
+      </div>
+
+      <div class="wf-bar" style="margin-top:8px;margin-bottom:0"><span>footer 0.2</span></div>
+      <div class="wf-bar" style="margin-bottom:0"><span>home</span><span>cases</span><span>provably fair</span></div>
+
+    </div>
+    <div class="wf-note" style="margin-top:12px">The bottom bar carries Provably fair as one of three, a shortcut subset of the rail, node <code>0.1</code>. Values in every mockup on this page are wireframe placeholders carried from <code>0.14</code>'s own mockup, not data.</div>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - a contents column and a measured content column</div>
+    <div class="wf-two">
+      <div class="wf-toc">
+        <b>On this page</b>
+        1. What this proves<br>
+        2. How a round is fixed<br>
+        3. What a proof is made of<br>
+        4. Check a round<br>
+        5. If it does not match<br>
+        6. The question this page does not answer<br>
+        7. The algorithm<br>
+        8. Questions
+      </div>
+      <div>
+        <div class="wf-blk">
+          <div class="wf-h1">Provably fair: check any round yourself</div>
+          <div class="wf-txt">This page is public. You do not need an account to read it, and you do not need one to check a round.</div>
+          <div class="wf-mismatch" style="margin-top:9px">
+            <div><div class="wf-mm-h">What this proves</div><div class="wf-txt" style="margin-top:0">Fixed before you clicked, unchanged after</div></div>
+            <div><div class="wf-mm-h">What it does not prove</div><div class="wf-txt" style="margin-top:0">That the published chances are the chances used</div></div>
+          </div>
+        </div>
+        <div class="wf-blk">
+          <div class="wf-h2">Check a round</div>
+          <div class="wf-txt">The form is the full width of the content column. <b>It never becomes a sidebar widget</b>, which is the shape the Key-Drop mock verifier takes and the shape that reads as decoration.</div>
+          <div class="wf-input" style="margin-top:8px">server seed hash</div>
+          <div class="wf-input">client seed</div>
+          <div class="wf-input">nonce</div>
+          <div class="wf-btn">Check this round</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card is-note">
+    <h4>Two blocks the bank supplied and the jobs did not, plus one borrowed across nodes</h4>
+    <p><strong>Block 8</strong> is the Refero Ableton row in <code>blocks.md</code> section 8, "FAQ accordion below the substance rather than instead of it", plus the Hellcase sectioned FAQ structure on the same table.</p>
+    <p><strong>The desktop contents column</strong> is the Refero WhatsApp two column help article, which the bank assigns to node <span class="surf">0.10</span>. It is reused here at desktop width only, and it is named rather than smuggled in.</p>
+    <p><strong>And one block was refused although the bank offers it.</strong> The skin.club About block with an H3 "Provably Fair" inside a marketing section is marked DIFFERENT against design principle 1. Nothing on this page restates the product's virtues.</p>
+  </div>
+</section>
+
+<!-- STATES -->
+<section id="states">
+  <div class="sec-head">
+    <h2>States, and the three failures that are not the same failure</h2>
+    <p>Two of them are numbered nodes, 1.3 and 1.4, and they are numbered because they route out of the verifier rather than resolving inside it.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>State</th><th>What the page shows</th><th>Route out</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Default, guest</strong></td><td>The whole page. The normal case</td><td>Anywhere</td></tr>
+        <tr><td><strong>Account exists</strong></td><td><strong>The same page.</strong> No extra fields, no history, no personalisation</td><td>The same</td></tr>
+        <tr><td><strong>Verifier idle</strong></td><td>Empty inputs with visible labels, the explanation above them already read</td><td>Into the check</td></tr>
+        <tr><td><strong>Verifier prefilled</strong></td><td>A round arrived in the address. The fields carry it and <strong>nothing has been computed yet</strong></td><td>The person presses the control</td></tr>
+        <tr><td><strong>Recomputing</strong></td><td>The parent's own skeleton on the result area only. The inputs stay readable and editable</td><td>Into a result</td></tr>
+        <tr><td><strong>Checked and matched</strong></td><td>The recomputation and its inputs, plainly, <strong>and not a badge</strong></td><td>Back, or block 6 for the other question</td></tr>
+        <tr><td><strong>Checked and mismatched</strong></td><td>Ours and the recomputation side by side, and the report route</td><td><strong>Node <span class="surf">1.4</span></strong></td></tr>
+        <tr><td><strong>Malformed round</strong></td><td>Which part is missing or unreadable, and the input again</td><td><strong>Node <span class="surf">1.3</span></strong></td></tr>
+        <tr><td><strong>Proof unavailable</strong></td><td>That the round has no proof to check yet, and which of two reasons applies</td><td>Block 2, which is where the page explains the shape</td></tr>
+        <tr><td><strong>Script unavailable</strong></td><td>Blocks 1, 2, 3, 5, 6, 7 and 8 in full. The control says it needs script instead of rendering dead</td><td>The published algorithm, which is the point</td></tr>
+        <tr><td><strong><span class="row-code">D3</span> withdrawn</strong></td><td>Block 6 loses the observed rate counter and keeps <span class="row-code">D2</span> and <span class="row-code">D4</span></td><td>The case screen anyway</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Three failures, three states, and conflating any two of them is the defect</h4>
+    <p><strong>Malformed</strong> is a round we could not read. <strong>Unavailable</strong> is a round we can read and cannot prove yet. <strong>Mismatched</strong> is a round we can read, can prove, and our proof is wrong. Three causes, three routes, three owners.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Two of 0.14's seven states do not appear above, and that is named rather than left as an omission</h4>
+    <p><code>0.14</code> says every site that renders the block inherits all seven, and its own table then scopes "gone or private" to <span class="surf">7.1</span>. <strong>Pre-roll is the second one:</strong> a verifier only ever receives a round that has already been rolled, so a state that shows a hash with no result has no moment on this page. Five of the seven are inherited whole, two have no site here, and the "all seven" sentence is a small finding for <code>0.14</code> rather than something this node quietly disobeys.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - the verifier, three of its outcomes</div>
+    <div class="wf-grid">
+
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">Prefilled, arriving from row F3</div>
+        <div class="wf-lbl" style="margin-top:0">Server seed hash</div>
+        <div class="wf-input is-filled">a41f9b2c ... 77e07c</div>
+        <div class="wf-lbl">Client seed</div>
+        <div class="wf-input is-filled">tW3k ... 9pQ2</div>
+        <div class="wf-lbl">Nonce</div>
+        <div class="wf-input is-filled">418</div>
+        <div class="wf-btn">Check this round</div>
+        <div class="wf-scope"><b>Prefilled, not run.</b> Carrying inputs is not asserting a verdict. The person presses the control.</div>
+      </div>
+
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">Checked and matched</div>
+        <div class="wf-kv"><span class="wf-k">Inputs</span><span class="wf-v">a41f9b2c ... 77e07c<span class="wf-copy">copy</span></span></div>
+        <div class="wf-kv"><span class="wf-k">Recomputes</span><span class="wf-v">7 341</span></div>
+        <div class="wf-kv"><span class="wf-k">We published</span><span class="wf-v">7 341, in 7 300 - 7 420</span></div>
+        <div class="wf-scope"><b>No badge, no tick, no counter.</b> The recomputation and its inputs, plainly. A person who verifies once is not rewarded for verifying twice.</div>
+        <div class="wf-link">The question this does not answer</div>
+      </div>
+
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">Proof unavailable</div>
+        <div class="wf-txt" style="margin-top:0">This round has no proof to check yet, and here is which of the two reasons applies.</div>
+        <div class="wf-txt"><b>It predates the published ledger</b>, which rides on <code>D-B</code>. Or <b>its rotation has not happened</b>, so the server seed is not revealed.</div>
+        <div class="wf-scope">The second route out is <span class="q">[?]</span>: it depends on whether a person can force a rotation, which is <code>0.14</code>'s open question about who controls the client seed.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <h3 id="1.3">Node 1.3. Verifier, malformed round</h3>
+
+  <div class="card">
+    <p><strong>Type:</strong> state. <strong>Scope:</strong> MVP. <strong>Parent:</strong> node 1.2, and <code>0.14</code>'s malformed input state. <code>sitemap.md</code> row 1.3: names which part is missing, returns to the input rather than rejecting silently. <code>flows.md</code> flow 4 draws it as a loop back into the input rather than as an exit.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:38%">Failure</th><th>What the state says</th></tr></thead>
+      <tbody>
+        <tr><td>A field is empty</td><td>Which one, and what it is for</td></tr>
+        <tr><td>The server seed hash is the wrong length or is not hexadecimal</td><td>Which of the two, and the expected length, whose value is <span class="q">[?]</span> until the scheme is chosen</td></tr>
+        <tr><td>The nonce is not a whole number</td><td>That, and nothing else</td></tr>
+        <tr><td>The round identifier does not resolve to any round</td><td><strong>That it does not resolve</strong>, which is a different thing from the round having no proof</td></tr>
+        <tr><td>Several fields failed at once</td><td>All of them, at once. Never one at a time on repeated presses</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - node 1.3, malformed round</div>
+    <div class="wf-phone">
+      <div class="wf-blk is-cta" style="margin-bottom:0">
+        <div class="wf-h2">Check a round</div>
+        <div class="wf-lbl">Server seed hash</div>
+        <div class="wf-input is-bad">a41f9b2c77e0</div>
+        <div class="wf-err">This hash is 12 characters and we expect <span class="q">[?]</span>. Nothing has been cleared, so you can paste the rest.</div>
+        <div class="wf-lbl">Client seed</div>
+        <div class="wf-input is-bad"></div>
+        <div class="wf-err">This one is empty. It is the half of the pair that is not ours.</div>
+        <div class="wf-lbl">Nonce</div>
+        <div class="wf-input is-filled">418</div>
+        <div class="wf-btn">Check this round</div>
+        <div class="wf-note">Both failures are named at once, each on its own field, and every character the person pasted is still in the input.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card is-good">
+    <h4>Four hard rules on this state</h4>
+    <p><strong>1. Nothing the person typed is cleared.</strong> A form that empties itself on error asks for the 64 characters twice.</p>
+    <p><strong>2. Whitespace, line breaks and a pasted label are trimmed rather than refused.</strong> People paste from a chat window. A proof that fails on a trailing space is a proof that fails on the way it travels.</p>
+    <p><strong>3. No generic message.</strong> "Invalid input" is a silent rejection with a sentence on it, which is the shape the row in <code>sitemap.md</code> exists to forbid.</p>
+    <p><strong>4. This state never reaches 1.4.</strong> A round we could not read is not evidence that our proof is wrong, and routing it there would manufacture incidents out of typing errors.</p>
+    <p><strong>It is not a dead end.</strong> The route out is the input, one field away.</p>
+  </div>
+
+  <h3 id="1.4">Node 1.4. Verifier, our own proof failed</h3>
+
+  <div class="card is-dead">
+    <p><strong>Type:</strong> state. <strong>Scope:</strong> MVP. <strong>Parent:</strong> node 1.2, row <span class="row-code">G4</span> for the response deadline, and <code>0.14</code>'s checked and mismatched state.</p>
+    <p><code>flows.md</code> flow 4 marks it a deliberate dead end for the job and the note there is exact: <strong>"The job still cannot be closed, and Incident stays red for exactly that reason: nothing in the product can confirm an outcome while the proof of it is wrong. What changed is that the person is no longer standing in front of a wall while we call it an incident on our own side."</strong></p>
+    <p>So the state has to do two things that pull against each other: <strong>give the person a real route, and not pretend the route closes anything.</strong></p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - node 1.4, our own proof failed. Stacked, with a full label on each value</div>
+    <div class="wf-phone">
+      <div class="wf-proof" style="border:none;background:none;padding:0">
+        <div class="wf-proof-lbl">Your check does not match ours</div>
+        <div class="wf-stack">
+          <div><div class="wf-mm-h">What we published</div><span class="wf-v">7 341</span></div>
+          <div><div class="wf-mm-h">What your recomputation gives</div><span class="wf-v">7 118</span></div>
+        </div>
+        <div class="wf-txt"><b>These do not agree, and that is ours to explain rather than yours to prove.</b></div>
+        <div class="wf-btn">Report this round</div>
+        <div class="wf-txt">The round is attached automatically. There is no form to fill in.</div>
+        <div class="wf-scope"><b>Reference:</b> given on report. <b>You get an answer inside</b> <span class="q">[?]</span>, the published deadline. <b>It arrives at</b> support, node 0.10.</div>
+        <div class="wf-note">No open a case. No try another round. No next. The dead end keeps its shape.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:44%">What it shows</th><th>What it must not show</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The two values, ours and the recomputation</strong>, side by side on desktop and stacked with an explicit label on each at 360px. Never one value with a mark on it</td><td><strong>No route back into spending.</strong> No open a case, no try another round, no next</td></tr>
+        <tr><td><strong>The sentence that assigns the fault.</strong> These do not agree, and that is ours to explain</td><td><strong>No retry that silently re-runs and hopes.</strong> The inputs stay, the control stays, the report route does not disappear on a second disagreement</td></tr>
+        <tr><td><strong>One report control.</strong> The round is attached automatically. <strong>No form to fill in</strong></td><td><strong>No apology in place of a deadline.</strong> A deadline is checkable and an apology is not, which is <code>0.11</code> rule 1 applied to a state</td></tr>
+        <tr><td><strong>A reference and a published response deadline</strong>, which is what row <span class="row-code">G4</span> requires of an appeal and what node <span class="surf">0.10</span> carries as a service level</td><td><strong>No claim about what happened.</strong> Bug, migration, rotation or real failure is unknown at that moment, and unknown is <span class="q">[?]</span></td></tr>
+        <tr><td><strong>Where the answer arrives</strong>, which is <span class="surf">0.10</span></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>Three things are open on this state and are carried rather than smoothed</h4>
+    <p>The deadline's value. Whether a mismatch report pauses anything on our side. And whether the queue is the same one row <span class="row-code">G4</span> publishes a deadline for, which is an appeal against a withdrawal restriction, or a queue of its own. All three are in the open table below with owners.</p>
+  </div>
+</section>
+
+<!-- ALGORITHM -->
+<section id="algorithm">
+  <div class="sec-head">
+    <h2>The algorithm, and where it lives</h2>
+    <p>Node 0.14 section 6 hands this decision to node 1.2 at step 6, and this is it.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:34%">Option</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>A fifth document on the <span class="surf">0.9</span> legal template</td><td><strong>Dropped.</strong> The four documents on that template are things a person agrees to. This is a specification a person computes with. Filing it under legal puts the one artefact we ask to be checked in the zone nobody opens, and <code>sitemap.md</code> names <span class="surf">0.9</span> as four documents, so a fifth changes another node's INCLUDES</td></tr>
+        <tr><td>A node of its own</td><td><strong>Dropped.</strong> One reader, one entry point, this page. <span class="surf">0.13</span> gives one URL per node and a new node would need a reason beyond tidiness</td></tr>
+        <tr><td><strong>A named section on this page</strong> at <code>/provably-fair#algorithm</code>, built on the <span class="surf">0.9</span> template's four parts</td><td><strong>Chosen.</strong> The bank's own research row for T7 is that template: last updated date, plain language summary above the document, the document, version history. <strong>The shape is borrowed, the node is not</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>A named divergence</h4>
+    <p>Node <code>0.14</code> section 6 reads "1.2 explains, 0.9 holds documents", which points at the first option. This node takes the third and prints the disagreement rather than resolving it silently. If the founder prefers legal, the change is a fifth document on the <span class="surf">0.9</span> template plus one row in <span class="surf">0.13</span>, and this page keeps the anchor as a link.</p>
+  </div>
+
+  <h3>What the published statement has to contain</h3>
+  <p>The rule it answers is <code>0.14</code> rule 4.1: <strong>a verifier that only works on our page is not proof.</strong> A statement is complete when a stranger can write their own tool from it and get our answer.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:40%">Part</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>The function, named, with its exact input order and encoding</td><td><span class="q">[?]</span> The category standard is HMAC-SHA256 over server seed, client seed and nonce, <code>research.md</code> sections 4 and 5b. <strong>Ours is not chosen</strong> and it is not this stage's to choose</td></tr>
+        <tr><td>How the server seed is committed, and when it is revealed</td><td>Shape known: hash published before the round, seed revealed on rotation rather than per round. Scheme <span class="q">[?]</span></td></tr>
+        <tr><td>Who sets the client seed, and whether a person can change or rotate it</td><td><span class="q">[?]</span>, and it is <code>0.14</code>'s first open item. The recommendation on record is user settable, and no backlog row covers it</td></tr>
+        <tr><td>How the nonce advances</td><td><span class="q">[?]</span></td></tr>
+        <tr><td>How the output maps onto the ticket range</td><td><span class="q">[?]</span>. The ticket range itself is inherited: the baseline prints one on every item and <span class="surf">0.6</span> carries it</td></tr>
+        <tr><td><strong>The drop table in force at that round, versioned</strong></td><td><strong>Missing from the field set, and this node found it.</strong> See the open table below</td></tr>
+        <tr><td>A worked example on a real round</td><td>Required</td></tr>
+        <tr><td>Version history</td><td>Required</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Nothing above is drafted with a plausible value</h4>
+    <p>A published algorithm with an invented function in it would be the exact defect this project's input gate exists to prevent, one level more dangerous than usual <strong>because a reader would compute against it.</strong></p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The worked example, and what it refuses</h4>
+    <p>One real round, resolvable, with every input, the intermediate value and the result, <strong>so that a person can check their own third-party tool against a known answer before they trust it on their own round.</strong> It carries a link to that round's public result on <span class="surf">7.1</span>, where variant V3 of <code>0.14</code> renders the same fields.</p>
+    <p><strong>This is the direct refusal of the anti-pattern the bank recorded.</strong> Key-Drop's safety portal carries a mock verifier widget with a fake server seed, a fake client seed and the line <strong>"Outcome Verified: DRAGON LORE (FN)"</strong>, <code>blocks.md</code> section 7. That is a verified verdict for a round that never happened. <strong>Our example is a round that did happen, at a URL a stranger can open</strong>, or there is no example block.</p>
+    <p><strong>And no fifth variant of 0.14 is created for it.</strong> The example renders V4 carrying a real round's values instead of empty inputs, which is the settled state of the same variant.</p>
+  </div>
+
+  <div class="card">
+    <h4>Version history, required for one reason 0.14 already states</h4>
+    <p><strong>A scheme that changes silently invalidates every proof before it.</strong> The table holds the version, the dates it was in force, what changed in words rather than as a diff, and which rounds it governs, so a person checking an old round knows which statement to read. Every value is <span class="q">[?]</span>, because nothing has shipped.</p>
+    <p><strong>And the version is not decoration on the page, it is a field of the round.</strong> A round proof that does not say which algorithm version settled it cannot be recomputed once a second version exists.</p>
+  </div>
+</section>
+
+<!-- REFUSES -->
+<section id="refuses">
+  <div class="sec-head">
+    <h2>What this page refuses, with the reason on the row</h2>
+    <p>Nine, and four of them were opened in a live browser by the block bank on 12 August 2026.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Refused</th><th style="width:24%">Where it was seen</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A provably fair page behind login</strong></td><td>Key-Drop, live, <code>blocks.md</code> sections 6 and 8</td><td>The proof is behind the decision it exists to inform. This page has no account state at all</td></tr>
+        <tr><td><strong>"Skin.Club guarantees 100% case fairness transparency"</strong></td><td>skin.club case page, <code>blocks.md</code> section 4</td><td><strong>An unfalsifiable sentence:</strong> nothing on it can be checked, so nothing on it can fail. Block 1 states what the proof does <strong>not</strong> cover, which is the opposite move. <code>D-14</code></td></tr>
+        <tr><td><strong>A decorative verifier widget printing "Outcome Verified: DRAGON LORE (FN)"</strong></td><td>Key-Drop safety portal, <code>blocks.md</code> section 7</td><td>A verified verdict for a round that never happened. <code>0.14</code> forbids a verified badge in any variant, and the worked example replaces the shape with a real round at a real URL</td></tr>
+        <tr><td><strong>Verification buried in a modal inside the opening flow</strong></td><td>Hellcase, <code>research.md</code> section 4</td><td>A modal inside the flow is reachable only by someone already spending, which is the wrong half of the funnel for <code>B2-1</code></td></tr>
+        <tr><td><strong>Auto-recomputing on arrival and printing the verdict</strong></td><td>The obvious version, rejected at <code>cjm-to-be.md</code> phase T7</td><td>Automating a proof of the wrong proposition. The prefilled state draws the line that keeps convenience on the safe side of it</td></tr>
+        <tr><td><strong>A counter of rounds verified, a streak, or any score</strong></td><td>Own</td><td><code>0.14</code> rule 4.3 and the limits rule in <code>CLAUDE.md</code>. A person who verifies once is not rewarded for verifying twice</td></tr>
+        <tr><td><strong>An "Open a case" call to action</strong></td><td>The category's habit</td><td>A page that answers doubt and then sells is a sales page with a form on it. The one call to action is Check a round</td></tr>
+        <tr><td><strong>"Provably fair" as a paragraph in a marketing About section</strong></td><td>skin.club, <code>blocks.md</code> section 8</td><td>Marked DIFFERENT in the bank against design principle 1: fairness is a page with a working verifier</td></tr>
+        <tr><td><strong>A signed-in person's own round history on this page</strong></td><td>Own proposal, refused</td><td>No backlog row publishes rounds in bulk, and the global sweep already caught node <span class="surf">0.2</span> asserting a published round ledger that does not exist. A person's own rounds belong to <span class="surf">5.1</span> and would need a row of their own first</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-soon">
+    <h4>One call to action, and no second one</h4>
+    <p><strong>Check a round</strong>, the control inside block 4. Not sign in, not deposit, not open a case. Every other route out of this page is a link inside prose or in a carrier that is already global, <span class="surf">0.1</span> and <span class="surf">0.2</span>.</p>
+    <p><strong>Emotional support mechanism: none</strong>, and that is read from the base layer's table rather than left out. It puts mechanisms on S-C2, S-A1 and S-G1 and none on S-A2. Inventing one here would be a round 1 commitment nobody made.</p>
+  </div>
+</section>
+
+<!-- SEO -->
+<section id="seo">
+  <div class="sec-head">
+    <h2>SEO block, A to E</h2>
+    <p>Everything structural is inherited from node 0.13. What is below is this node's own copy and its own checklist.</p>
+  </div>
+
+  <h3>A. Meta tags, finished copy</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">Tag</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td><code>title</code></td><td><code>Provably fair: check any round yourself | CS2 Clutch</code> <strong>52 characters.</strong> The product name is a working placeholder, so half of it is <span class="q">[?]</span> until naming happens</td></tr>
+        <tr><td><code>description</code></td><td><code>See what a commit-reveal proof does and does not show, then paste a round and recompute it yourself. Public page, no account, algorithm published in full.</code> <strong>154 characters</strong></td></tr>
+        <tr><td><code>canonical</code></td><td>Self, <code>/provably-fair</code>. The host is <span class="q">[?]</span>, and it is <span class="surf">0.13</span>'s open item</td></tr>
+        <tr><td><code>robots</code></td><td><code>index, follow</code></td></tr>
+        <tr><td><code>hreflang</code></td><td><strong>None.</strong> One language, <span class="surf">0.13</span> section 1</td></tr>
+        <tr><td>OG and Twitter</td><td>Type website, plus the title, description and URL above. <code>og:image</code> is <span class="q">[?]</span> and belongs to stage 06. <strong>Unlike 7.1, the unfurl is not the product here</strong>, so an absent image costs this node little</td></tr>
+        <tr><td>Parameterised form</td><td><code>/provably-fair?round=&lt;id&gt;</code> is <code>noindex, follow</code>, canonical to <code>/provably-fair</code>, which is the rule <span class="surf">0.13</span> section 4.2 already applies to a parameterised view of an indexed page. <strong>Inherited, not re-decided</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>B. Headings</h3>
+  <div class="card">
+    <p><strong>One H1:</strong> Provably fair: check any round yourself. It carries the destination's own label, which node <span class="surf">0.1</span> fixes as one label per destination in every carrier, and it says the page's job in words, which <span class="surf">0.13</span> section 5 requires.</p>
+    <p><strong>H2 list, in block order, which is the mechanical check at stage 04:</strong> 1. What this proves, and what it does not. 2. How a round is fixed before you click. 3. What a round proof is made of. 4. Check a round. 5. If your check does not match ours. 6. The question this page does not answer. 7. The algorithm, published in full. 8. Questions.</p>
+    <p>H3s exist only under H2 7: the computation, a worked example, version history.</p>
+  </div>
+
+  <h3>C. SEO text, finished</h3>
+  <div class="card is-good">
+    <p>This page is public. You do not need an account to read it, and you do not need one to check a round.</p>
+    <p>Before a round is offered, we publish the hash of a server seed. The hash is a commitment: the seed behind it cannot be swapped later without the hash changing. Your round is settled once from that seed, a client seed and a nonce, and the reveal plays back a result that already exists rather than deciding one while you watch.</p>
+    <p>That is what a proof of this kind shows: the outcome was fixed before you clicked and was not changed afterwards. It is worth saying what it does not show. It does not show that the chances we publish are the chances the roll used. That is a different question with a different answer, and it lives on the case screen, where the observed rate stands beside the published one and the tested return is printed at the entry cost.</p>
+    <p>The algorithm is published in full, with a worked example and a version history, so you can recompute a round with our tool, with somebody else's, or with your own.</p>
+  </div>
+  <div class="card is-note">
+    <p><strong>This block stays the property of this node to the end of the pipeline.</strong> Stage 05 aligns it to voice and syncs the final version back here. Interface strings, the field labels, the control and the state messages, do not move into it: after stage 05 they live in <code>voice/docs/microcopy.md</code>, and this node keeps the requirement of what information has to be in each place.</p>
+  </div>
+
+  <h3>D. Structured data</h3>
+  <div class="card">
+    <p><strong><code>WebPage</code>, and nothing more</strong>, inherited from <span class="surf">0.13</span> section 7, whose wording is that there is nothing on this page a richer type would truthfully describe.</p>
+    <p><strong>Two refusals restated, because this page invites both.</strong> The questions block <strong>does not acquire <code>FAQPage</code></strong>: <span class="surf">0.13</span> assigned WebPage and nothing more, and rich result eligibility in this category is <span class="q">[?]</span> there anyway. And nothing here carries <code>aggregateRating</code> or <code>Review</code>, which is <span class="surf">0.13</span>'s refusal 1 applied to a page about trust.</p>
+  </div>
+
+  <h3>E. Optimisation checklist</h3>
+  <div class="card">
+    <p>1. Exactly one H1, and the eight H2s in block order. 2. The breadcrumb Home &gt; Provably fair is drawn, and <code>BreadcrumbList</code> markup only because it is visible. 3. Every route out is a crawlable <code>&lt;a href&gt;</code>: the case screen, <span class="surf">0.10</span>, <span class="surf">7.1</span>, <span class="surf">1.0</span>. 4. Canonical present, no hreflang anywhere.</p>
+    <p>5. <strong>Every field value is text, never an image</strong>, <code>0.11</code> rule 8 and <code>0.14</code> section 5. A hash in a picture cannot be pasted into anyone's verifier, and it is invisible to a screen reader in the same stroke. 6. <strong>LCP is the first screen text block</strong>, so block 1 carries no image that could take that slot from it, design principle 5. 7. <strong>Blocks 1, 2, 3, 5, 6, 7 and 8 render without script.</strong> Only the recompute control needs it, and it says so rather than rendering dead. 8. The description has a source on the page, which is block 1.</p>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+    <p>Ten items, and four of them are findings this node hands back to a node that is already built.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">Open item</th><th style="width:50%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The exact commit reveal scheme</strong></td><td>The category standard is HMAC-SHA256 over server seed, client seed and nonce, <code>research.md</code> sections 4 and 5b. Ours is not chosen, and the algorithm section holds the shape of the statement with the value empty</td><td>Production, before stage 04 treats the field list as final. Inherited from <span class="surf">0.14</span></td></tr>
+        <tr><td><strong>Who sets the client seed</strong></td><td><span class="surf">0.14</span>'s first open item, recommendation user settable, no backlog row. <strong>This node adds a consequence:</strong> it also decides whether a person can force a rotation and make their own round checkable today, rather than waiting on us</td><td>Founder, one backlog row</td></tr>
+        <tr><td><strong>The drop table in force at a round is not a field</strong></td><td>An independent recomputation needs the whole table as it stood at that round, not only the winning entry's ticket range, and <span class="surf">0.14</span>'s field set carries the latter. <strong>The same gap covers the algorithm version</strong>, which a round proof has to point at once a second version exists</td><td><strong>Finding for <span class="surf">0.14</span></strong>, plus production</td></tr>
+        <tr><td><strong>The response deadline for a proof failure</strong></td><td>The value is <span class="q">[?]</span>, and so is the queue: row <span class="row-code">G4</span> publishes a deadline for an appeal against a withdrawal restriction, and a mismatch report is not that. <span class="surf">0.10</span> holds the service level</td><td>Founder, with <span class="surf">0.10</span></td></tr>
+        <tr><td><strong>Whether pre-migration rounds carry proofs, <code>D-B</code></strong></td><td>Decides how common the unavailable state is on day one, and whether row <span class="row-code">D3</span> exists to be linked to at all in block 6</td><td>Founder, question of fact to the live platform</td></tr>
+        <tr><td><strong><span class="surf">0.11</span> names 1.2 as a consumer and no row in it lists 1.2</strong></td><td>Two figures this page needs have no row in the register: the published response deadline as it applies here, and the date from which published proofs exist, which the unavailable state reads</td><td><strong>Finding for <span class="surf">0.11</span></strong></td></tr>
+        <tr><td><strong><span class="surf">0.13</span> holds no row for <code>/provably-fair?round=&lt;id&gt;</code></strong></td><td>This node uses <span class="surf">0.13</span>'s own rule for a parameterised view of an indexed page rather than inventing one. The row belongs there</td><td><strong>Finding for <span class="surf">0.13</span></strong></td></tr>
+        <tr><td><strong>Where the algorithm document lives</strong></td><td>Decided here as a named section on this page, which diverges from <code>0.14</code> section 6. Reversible at the cost of one document on the <span class="surf">0.9</span> template and one row in <span class="surf">0.13</span></td><td>Founder, if they disagree</td></tr>
+        <tr><td><strong>A named third-party auditor</strong></td><td>Row <span class="row-code">A5</span>, and <code>research.md</code> section 4 cites a 2026 audit finding that no operator in the category names one. We do not have one either. <strong>This page badges nobody</strong></td><td>Founder</td></tr>
+        <tr><td><strong>A citation drift, found while writing this node</strong></td><td><code>0.14</code> cites the "we have PF against you can verify before you deposit" sentence and the 2026 auditor audit to <code>research.md</code> section 5b. Both live in section 4, "3 Common Patterns". <strong>The facts are unchanged and the pointers are wrong</strong></td><td><strong>Finding for <span class="surf">0.14</span></strong>, not edited here</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>Final copy</strong>, including every string in 1.3 and 1.4: stage 05. <strong>How any of it looks:</strong> stages 06 and 07. <strong>Whether a mismatch pauses anything on the platform side:</strong> production, and it is not an interface decision. <strong>The wording of the algorithm once it is chosen:</strong> production, with this node holding the shape it has to arrive in.</p>
+  </div>
+
+  <a class="backlink" href="structure.html#1.2">Back to Structure (1.2)</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/provably-fair.md</code>. The component it renders: <code>ia/docs/pages/round-proof.md</code>, node 0.14, variant V4. The limit it states: <code>docs/decisions.md</code> D-14. Node data: <code>ia/docs/sitemap.md</code>, cluster 1.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map: <a href="sitemap.html">Sitemap</a>. The routes: <a href="flows.html">Flows</a>. The component: <a href="round-proof.html">Canonical round proof</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '1.2 Provably fair';
+window.NAV_SECTIONS = [
+  { id: 'overview',  label: 'Overview' },
+  { id: 'public',    label: 'Public, no account' },
+  { id: 'reader',    label: 'Who it is built for' },
+  { id: 'limit',     label: 'The D-14 limit' },
+  { id: 'blocks',    label: 'Eight blocks' },
+  { id: 'states',    label: 'States, 1.3 and 1.4' },
+  { id: 'algorithm', label: 'The algorithm' },
+  { id: 'refuses',   label: 'What it refuses' },
+  { id: 'seo',       label: 'SEO A to E' },
+  { id: 'open',      label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

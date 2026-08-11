@@ -1,0 +1,360 @@
+# Node 4.1. Deposit
+
+**Type:** page. **Group:** `pages`. **Scope:** MVP. **Cluster:** 4, put money in.
+**States specified inside this file:** `4.2` ceiling reached this period, `4.3` ceiling raise pending 24 hours, `4.4` crediting with a named timer, `4.5` payment declined.
+
+**Purpose.** Turn money into balance once, in one real currency, while the two numbers that decide what this costs and what it takes to get out again are on the screen before the payment rather than after it.
+
+**Jobs served: none.** **Parent class: barrier**, `B4-3` a deposit that never credits, pattern of 4; `B4-1` the escalating deposit gate; `B7-4` the escalation loop, pattern of 12. Plus one compliance constraint from `CLAUDE.md`, "responsible play tooling (deposit limits, session limits, self exclusion, cool down)", which is what puts the responsible play entry on a money screen at all.
+
+**URL:** `/deposit`. **Indexed:** no. **Canonical:** self. **Schema:** none. **Breadcrumb:** none. All four inherited from node `0.13`, section "The indexation register", and not re-derived here.
+
+**Reached from:** the deposit control and the balance figure in the header, node `0.1`; the state-dependent strip on `1.1`; `3.3` when the balance will not cover an entry cost; and `2.7`, which stands in front of it. **Never reached from the rail:** money is not a destination, `D-19`.
+
+**Leads to:** `4.2` to `4.5` as its own states, `2.7` when identity is unresolved, `6.1` for the other three limits, `3.3` or `1.1` on credit, `5.3` which stays open in every state on this page, and `0.10` when a named window passes.
+
+---
+
+## 0. The cluster that closes no job, and the two rules that bind it hardest
+
+**This cluster closes no job and says so.** `ia/docs/sitemap.md`, cluster 4, and `ia/docs/flows.md` flow 2 both carry the sentence, and `jtbd.md`, section "Matrix Conclusion: 3 Jobs for MVP Core", is where it comes from: "Deposit closes none of the three core jobs, and registration reaches Core Job 3 only through B1 and B2. Both surfaces are justified by documented barriers and by the compliance constraints in `CLAUDE.md`, not by core jobs."
+
+**Zero of the eight blocks below name a job as parent.** That is the finding rather than an omission, and it is worth one more line because there is a job standing nearby that looks like it would fit. `cjm-to-be.md` phase T4 names Related Job 2, complete the first open without friction, as the goal of the step. **Read in full, that job ends where this screen begins:** "so that I know what opening here actually feels like **before I deposit real money**", `jtbd.md` Related Job 2. A job whose own outcome clause stops at the deposit cannot parent a block on the deposit screen. So the parents stay barriers, and the screen exists because three documented pains recur without it.
+
+**Two rules from `CLAUDE.md` bind this node harder than they bind any other page in the map.**
+
+**Design principle 3, clarity at every risk moment:** "Where money is about to be spent, odds, cost and expected value are visible and legible. **Cost never hides inside excitement.**" On `3.3` that principle fights an animation. Here it fights nothing at all, which is why failing it here would be inexcusable: there is no reveal to compete with, only a form, and the whole cost of the transaction is knowable at the moment it is typed.
+
+**The limits rule:** "A limit never acquires completion mechanics, streaks, status or a session score: at that point it stops being a boundary and becomes a reason to keep going." The spend ceiling `C2` is set on this screen, is reached on this screen, and is raised on this screen. **Three of the five nodes in this cluster are the limit doing something**, so this is the node where that rule is most likely to be broken by a well-meaning addition, and every state below carries its own forbidden list rather than a reference to this paragraph.
+
+---
+
+## 1. Reached through `2.7`, and what that puts on this screen
+
+Identity verification sits **before funding and never on the exit route**, `sitemap.md` row `2.7`, capability `B1` and code rule `B2`, closing `B8-4`, verification ambushes at the exit, pattern of 5. `flows.md` flow 2 draws the sequence: the ceiling check, then the identity check, then the amount.
+
+**So this screen never carries a verification step, and it does carry the verification state.** Capability `B1` in `cjm-to-be.md` phase T3 says why in its own words: "the account state is shown on the deposit screen itself, so the promise describes a state the user can already see rather than a future behaviour we control."
+
+**The order is the flow's, not this node's preference.** `flows.md` flow 2 runs the ceiling check first, then the verification decision, then the amount, and node `2.7` reads the same order back: "fires before funding, entered from `4.1`". So `4.2` can be reached without the identity question being asked at all, which is correct rather than a gap: a ceiling can only be reached by someone who has already funded, and funding already required the check.
+
+| Arriving state | What `4.1` does | Where the rule is |
+|---|---|---|
+| Identity resolved | Renders the form, with the account state strip stating that funding is open and that the exit carries no check | `B1` |
+| Identity unresolved | Routes to `2.7` before the amount field exists. **The form is not rendered greyed out**, because a disabled money form is an invitation to work out how to enable it | `flows.md` flow 2, `2.7` |
+| Identity failed, appeal open | Funding stays closed with the ground on record, `2.9`. **Withdrawal stays open and is stated here**, not only on `2.9` | `B2`, `2.9` |
+
+**The one thing this node adds to that sequence.** The account state strip states the exit rule in the positive: withdrawals are open and are never checked again. `B2` is a code rule with no interface anywhere in the map, and a rule nobody can see does not answer a barrier about being ambushed. **This is the surface where `B2` becomes readable**, and it is here rather than on `5.3` because `B8-4`'s injury is discovering the check late, so the promise has to arrive early.
+
+---
+
+## 2. Block order, reasoned from 360px
+
+Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with named states, `TAKE` rows only, plus what the barriers of this node require. **Nothing was added silently:** every row names its parent and the two blocks that are not in the bank as blocks are marked as such.
+
+| # | Block | What it holds | Parent | First screen at 360px |
+|---|---|---|---|---|
+| 1 | **H1 and account state** | The page's job in words, plus funding open, plus the exit carries no check | `B1`, `B2`, on `B8-4` | Yes |
+| 2 | **Amount, in one real currency** | One input, one currency mark, no coin, no conversion, no second unit anywhere | `C1`, on `B7-1` pattern of 7 | Yes |
+| 3 | **Spend ceiling for a named period** | Pre-filled with the amount just typed, period selector, and the asymmetry stated in the interface: lowering applies immediately, raising waits 24 hours | `C2`, on `B7-4` pattern of 12 | Yes |
+| 4 | **The other three limits live on `6.1`** | One plain line, one link, to session limit, cool down and self exclusion | `C5`, and the compliance constraint quoted above | Partly |
+| 5 | **Withdrawal threshold** | The sum required to withdraw, stated here, frozen from this moment, and never able to rise | `C4`, on `B4-1` | No, and section 5 explains why that is not a demotion |
+| 6 | **Payment methods** | Cards, one per method, **with every exclusion printed on the card it excludes**, and an empty state for the first deposit | `B4-3`, plus the bank's Navan and Hellcase FAQ rows | No |
+| 7 | **What happens after you pay** | The crediting window as a published number, stated **before** the payment, and what to do if it passes | `C3`, on `B4-3` pattern of 4, plus design principle 3 | No |
+| 8 | **Persistent summary and the one control** | Amount, ceiling in force after this deposit, withdrawal threshold, total charged. Docked, so it is on screen while blocks 5 to 7 are read | Design principle 3, and the Fresha row in the bank, which traces to `C2` | **Persistent**, see below |
+| 9 | Footer, node `0.2` | Trust strip, 18+, responsible play, market statement | `0.2` | No |
+
+**Block 8 is not in the scroll order.** It docks to the bottom edge at 360px from the moment an amount exists, and it is the right column on desktop. In the document it sits after block 7, so that a person reading linearly, with a screen reader or with styles off, meets the summary after everything it summarises rather than before.
+
+**Why this order and not the category's.** The category's order is method, then amount, then pay. Ours puts the amount first because the ceiling is pre-filled from it, `cjm-to-be.md` T4: "the amount just typed is pre-filled as a ceiling with a period selector". **A method chosen before an amount makes the ceiling arrive as an interruption at the end**, which is exactly the shape that turns a brake into an obstacle. The two brakes therefore sit between the amount and the method, in the gap where a person is deciding rather than committing.
+
+**One block the bank has and this page does not.** The step indicator from the Wealthsimple row. This is one screen with one control, so a step indicator would be drawing a process that does not exist. It stays with `2.7`, where the branch that needs it lives, and that node already names the overlap: the code card, the step indicator and the review card are shared T4 candidates for the stage 07 inventory rather than IA nodes, since a candidate with one consumer is not global.
+
+---
+
+## 3. The four capabilities, and what makes each one a brake rather than a setting
+
+### 3.1 `C1`. One real currency, and no coin denomination anywhere
+
+**Parent:** `B7-1`, pattern of 7 across 3 platforms, the win that turned out to be worth less than it looked. `cjm-to-be.md` marks `C1` "MVP, architecture" with the acceptance rule "no number renders anywhere without a currency mark".
+
+**What it deletes.** The baseline runs an internal coin denomination with no visible conversion rate, `baseline.md` section 4, where case prices are quoted from 0.53 to 161.36 coins. `sitemap.md` entity 8 names this the first inherited structure that research overturns. **Every competitor in the bank does it too:** Clash.gg prices in Gems, Hellcase in a bare number with no unit at all, Key-Drop in local currency, `blocks.md` section 5. A second currency hides the price, and a hidden price is what makes a payout able to wear a label that is not a price.
+
+**What it means on this screen, concretely.** One input, one unit, one number. No conversion preview, no "you will receive", no bonus units, no rounding to a package. **A deposit screen that prints two numbers with two units is the defect**, whatever the second unit is called, and that includes a helpful equivalence.
+
+### 3.2 `C2`. The spend ceiling, and the asymmetry that makes it a brake
+
+**Parent:** `B7-4`, the escalation loop, pattern of 12 who gave a concrete figure unprompted. Figures in the As-Is ledger run from 350 dollars to 50,000 dollars on a single site.
+
+**The mechanism, from `cjm-to-be.md` T4 verbatim:** "the amount just typed is pre-filled as a ceiling with a period selector, the deposit cannot be submitted until the user accepts or changes it, lowering it applies immediately and raising it applies 24 hours later. When the ceiling is reached, deposits stop while opening from existing balance and withdrawal stay fully open."
+
+**Four properties, and each one is load bearing.**
+
+1. **Pre-filled from the amount just typed.** Not from a default we chose, and not from a list of suggested tiers. `cjm-to-be.md` is precise about why this binds where a terms page does not: "one tap on a number they chose themselves, at the one moment they are calm."
+2. **Blocking, and it is the only blocking element on the page.** The control does not submit until the ceiling is accepted or changed. This is the Wealthsimple pattern in the bank, submit disabled until the condition is met, used once and for the one thing that earns it.
+3. **The asymmetry is stated in the interface, not in terms.** Lowering applies immediately. Raising waits 24 hours. **No competitor has this**, `blocks.md` section 5, and a ceiling that can be raised on impulse in the moment it binds is a setting rather than a brake.
+4. **It is never a score.** No progress bar toward it, no share of it consumed, no periods survived. See the forbidden list under `4.2`.
+
+**Per period, not per deposit, and this node was asked the question by name.** Node `6.1` carries it as an open item with the owner stated: "whether the spend ceiling is per deposit, per period, or both... Node `4.1`, which owns the moment the ceiling is set". **Answered here from the map rather than by preference: one ceiling is in force at a time and it belongs to the named period.** A ceiling that reset per deposit could never be reached, and `4.2`, ceiling reached this period, is a numbered node in `sitemap.md`, so that reading is already excluded by the map.
+
+**What that makes the second deposit inside one period.** The pre-fill still offers the amount just typed, because that is `C2`'s mechanism, and **the pre-filled value is then a change to the ceiling in force and takes the direction rule with it.** Below the current ceiling it applies immediately. Above it, it is a raise and waits 24 hours while the old ceiling holds, which is state `4.3`. **Without this line the second deposit of a session would quietly raise the ceiling by being typed**, which is the exact behaviour `C2` exists to prevent.
+
+**The cost, carried openly rather than discovered later.** `cjm-to-be.md`: this caps the second and third deposit of a losing session, "so the cost lands almost entirely on the top revenue decile", and a user blocked for 24 hours can deposit somewhere with no delay, so what is at risk is the account and not one deposit. That is on the record at the CJM stage and this node does not soften it.
+
+### 3.3 `C4`. The withdrawal threshold, stated here and never rising
+
+**Parent:** `B4-1`, one full narrative, quoted in `cjm-as-is.md` at length because it is the whole phase in one voice: a threshold that went from 5 dollars to 12 to 15 while the person kept depositing to reach it. `cjm-to-be.md` marks `C4` "MVP, rule" with the acceptance rule "no withdrawal ever demands a sum that was not named before the money went in".
+
+**The exit is priced where the entry is paid.** `blocks.md` section 5 records this as the block the category most consistently omits, and `blocks.md` section 2 already put the same rule on Home: the payment method strip is inherited from Clash.gg "and ours names the withdrawal threshold in the same breath".
+
+**Three properties.**
+
+- **Stated before the payment, on this screen, in the summary.** Not on `5.3`, not in a policy, not on first attempt to withdraw.
+- **Frozen at this moment.** The figure stated at this deposit is the figure that applies to what this deposit funds. A later change may lower it and may never raise it, for money already in.
+- **A first-deposit bonus with a wagering requirement cannot ship beside it.** `cjm-to-be.md` answer 3: "a wagering requirement is `B4-1` in better clothes and it contradicts C4 directly". The two cannot both exist, and the cut is already taken. `navigation.md` rule 4 carries the same decision on the header's deposit control, which ships without the baseline's 5 percent badge.
+
+### 3.4 `C3`. The crediting window, in the interface rather than in an FAQ
+
+**Parent:** `B4-3`, money leaves and does not arrive, pattern of 4 across 3 platforms. From the As-Is evidence: "I've deposited $25 throw Crypto, nothing. I've waited a few hours, nothing... The ticket is closed, still $0 added to balance."
+
+**The substitute source found the rule living in a document.** `blocks.md` section 5, from Hellcase's public FAQ opened live on 12 August 2026: "Your payment might be delayed for 5-10 minutes. If funds didn't get transferred within an hour, contact support." **The timing exists and it is real product behaviour. It is just not in the product.** The bank's verdict is `DIFFERENT`: ours is a named state with the timer in the interface, which is the whole of `C3`.
+
+**On this screen, before the payment**, block 7 states the window and what happens if it passes. **After the payment**, state `4.4` is that window running. A person who has to open a help page to learn how long their money is missing has already met `B4-3`.
+
+**Our own number is `[?]`, and the register that should hold it has no row for it.** See section 8.
+
+---
+
+## 4. Method cards, exclusions, and the empty first deposit
+
+**No competitor screen of this type exists that we may open.** `blocks.md` section 0 declares the gap before the tables: deposit, withdrawal and identity verification are behind login on all five hard competitors, and this project never logs in. The substitute is public documentation plus the As-Is barriers plus Refero for the craft. **This section inherits that gap rather than covering it**, which is why the method list itself is `[?]` instead of a plausible list of five.
+
+**The craft, from the bank.** Payment methods as cards with an empty state, Refero Navan `803e703a`: "the empty first deposit is the common case and is designed rather than met."
+
+**The rule this node adds, and it comes from an FAQ.** Hellcase publishes "Steam Balance is not appropriate on this site" **only in its FAQ**, `blocks.md` section 5. The bank's verdict is to take the disclosure and place it earlier. Written as a rule:
+
+> **An exclusion renders on the card of the method it excludes, in the same block, before the method is chosen. A document may repeat an exclusion. A document may never be the only place it exists.**
+
+`blocks.md` section 8 states the general form of this on the `0.9` and `0.10` pass: "a rule a person meets in the product is stated in the product. The FAQ repeats it, it does not own it."
+
+**Empty state, first deposit.** No saved methods is the normal case for the account this screen is designed for, since `flows.md` flow 2 opens on "the starter credit is spent and they want to keep opening". The empty state is the default composition of block 6, and the populated state is the variant. **Stated in that order deliberately:** a screen designed for the returning depositor and patched for the first one puts its worst layout in front of the person with the least reason to trust it.
+
+**What is `[?]` and stays `[?]`:** the method list, any fee, any minimum, any maximum per method, and whether a method carries its own crediting window different from the published one. `baseline.md` section 2 records deposit as `[?]` with no pre-login route found, and no source in this repository names a method. **None of these is invented here**, and block 6 is specified as a shape with an unknown list, which is a drawable instruction: one card per method, exclusions on the card, empty state first.
+
+---
+
+## 5. The persistent summary, and the single control
+
+**Craft parent:** Refero Fresha `3d6c5b9f` in the bank, "persistent summary card carrying the total, beside the choice, with a full width continue", verdict `TAKE`, traced to `C2` and design principle 3: "cost stays on screen while the choice is made rather than appearing after it."
+
+**Four figures, and they are the answer to why block 5 is not on the first screen.** The withdrawal threshold sits fifth in the scroll order and **is on the first screen anyway**, because the summary docks and carries it. The block below is the full statement with its rule; the summary is the figure, present continuously from the moment an amount exists.
+
+| Line in the summary | Where the number comes from | Rule it carries |
+|---|---|---|
+| Amount | Block 2 | One currency mark, `C1` |
+| Total charged | Amount plus any fee. **Fee is `[?]`** | If the two ever differ, both are shown. A total that silently differs from the typed amount is the defect |
+| Ceiling in force after this deposit | Block 3, and `4.3` if a raise is pending | The value in force **now**, never the pending one, `4.3` |
+| Withdrawal threshold | Block 5 | Frozen at this moment, `C4` |
+
+**One control, and one next step.** The primary control submits the deposit, and it is inert until the ceiling is accepted or changed. **Nothing else on this page is a primary control.** The responsible play entry is a link, the method cards are a choice inside block 6, and the amount presets, if any ship, are inputs into block 2 rather than actions.
+
+**Two things the summary must never do.** It never sums the deposit with the value of items held, which is `navigation.md` rule 2 applied one level down: they are different kinds, and a combined figure reads as net worth. And it never renders a projected balance as an achievement, a tier or a threshold crossed.
+
+---
+
+## 6. Components
+
+| Component | Where | Variant |
+|---|---|---|
+| Navigation `0.1` | Shell | Account exists. The deposit control in the header is the current destination and reads as such |
+| Footer `0.2` | Below the form | Full, one account state |
+| Toasts `0.5` | `aria-live` region | Never the only place a state is announced, which binds `4.4` and `4.5` |
+| Money figure, from `0.11` section 8 | Summary, ceiling, threshold | Value, unit and caption, as-of where the class requires it, route where one exists |
+| Confirmation dialog | Not here | The Parallel destructive-confirmation row in the bank belongs to `6.2`. **A deposit is not confirmed twice**, and asking twice would be a friction tax dressed as care |
+
+---
+
+## 7. States
+
+**Page-level states first**, then the four numbered nodes. A state is a numbered node when it has its own copy, its own route out and a specification that differs from the page's default, `sitemap.md`, "Which states became nodes, and which did not".
+
+| State | What the page does | Node |
+|---|---|---|
+| Guest, no account | Never rendered. Routes to `2.4` | `2.4` |
+| Identity unresolved | Never rendered. Routes to `2.7` | `2.7` |
+| Identity failed, appeal open | Funding closed with the ground on record. **Withdrawal stated as open** | `2.9` |
+| First deposit, no saved method | The default composition of block 6, not a fallback | inside `4.1` |
+| Payment in progress | The page's own skeleton on the control only. **Specified inside this node rather than as a node**, per the five listed in `sitemap.md` | inside `4.1` |
+| Ceiling reached this period | Deposits stop | **`4.2`** |
+| Ceiling raise pending | The old ceiling holds | **`4.3`** |
+| Crediting | Named state with a timer | **`4.4`** |
+| Payment declined | Ceiling and threshold preserved | **`4.5`** |
+| Boundary in force, `6.3` | Deposits close, opening closes, **withdrawal stays open**. The money control opens to the limits rather than to add funds | `6.3` |
+| Market closing on the payment instrument | Deposits stop, exit stays open, written ground, appeal route | `0.12` section 7 |
+
+---
+
+<a id="4.2"></a>
+### `4.2` Ceiling reached this period
+
+**Type:** state. **Scope:** MVP. **Parent:** `C2`, on `B7-4`, plus the limits rule in `CLAUDE.md`. **Route out: none for this flow, by design.**
+
+**This is the node the whole cluster is for.** `flows.md` flow 2 draws it as one of four deliberate red nodes in the file and explains the colour: "`Stop` is the ceiling doing its job. It is red because this flow's goal is more balance and there is no path to it this period. It is not a failure."
+
+**What is closed, and what is open.** Deposits stop. **Opening from existing balance stays fully open. Withdrawal stays fully open.** Both are stated on the screen rather than left to be discovered, because a person who reads "you have reached your limit" and assumes the account is frozen has been given a worse answer than the truth.
+
+| What it shows | Why |
+|---|---|
+| The ceiling, its period, and that it is reached | The fact, in the person's own number |
+| The moment the period resets, **as a stated date and time, never as a live countdown** | A ticking counter beside a disabled deposit control is an invitation with a timer on it. The reset is information a person needs in order to plan, and it stops being that the moment it moves |
+| The route into `3.3`, opening from the balance they already hold | Open, and saying so is not encouragement, it is the true state |
+| The route into `5.3`, withdrawal | Open in every state on this page |
+| The route into `6.1`, **where the ceiling can be lowered further and takes effect immediately** | `C2`'s asymmetry, and `flows.md` flow 2a: "lowering applies immediately" |
+| That raising the ceiling from here **will not lift this period's stop**, because a raise waits 24 hours | Otherwise the person spends the moment discovering the rule instead of being told it |
+
+**Forbidden on this state, enumerated rather than referenced.** `CLAUDE.md`: "A limit never acquires completion mechanics, streaks, status or a session score."
+
+- No progress bar, ring, meter or fill of any kind, whether it shows what is consumed or what is left.
+- No streak of periods that ended inside the ceiling. No count of them. No badge.
+- No status, tier, level or label attached to the person for having a ceiling or for reaching one.
+- No session score, no session summary, no total for the period presented as a result.
+- **No congratulation and no encouragement.** "Well done for staying in control" turns a boundary into a thing that can be won at, and the next move after winning is playing again.
+- No countdown to the reset, per the table above.
+- No offer of any kind: no alternative funding route, no reminder when the period resets, no invitation to raise the ceiling with the raise pre-filled.
+
+**The one thing that is easy to get wrong and is not on the forbidden list.** The screen may state the ceiling and the period, because those are the facts of the boundary the person set. **What it may not do is present them as a quantity of anything.** The difference is between "your ceiling is X for this period and it is reached" and any rendering where X is a capacity with a level in it.
+
+---
+
+<a id="4.3"></a>
+### `4.3` Ceiling raise pending 24 hours
+
+**Type:** state. **Scope:** MVP. **Parent:** `C2`, on `B7-4`. **Route out:** `4.1`.
+
+**The old ceiling holds until then**, and that is the entire content of the state. `flows.md` records that this state was in no flow until step 6 and says what its absence would have cost: "without that state a later stage would write the ceiling as instantaneous in both directions, which deletes the whole point of it."
+
+| What it shows | Rule |
+|---|---|
+| The ceiling **in force now**, which is the old one | The summary in section 5 always carries the value in force, never the pending one |
+| The pending value and the moment it takes effect, as a stated moment | Same rule as `4.2`: a moment, not a live counter |
+| That lowering still applies immediately, **including cancelling this raise** | **Derived, and stated because nothing else in the repository says it:** cancelling a pending raise is a lowering, so it takes effect immediately, at any time, with no second wait |
+| That deposits inside the current ceiling continue normally | A pending raise does not freeze funding. It only fails to enlarge it |
+
+**Forbidden.** No countdown as anticipation. No "your new limit unlocks in", which frames a brake as a reward arriving. No notification when it lands that carries a route back into depositing: **the raise taking effect is not an event worth announcing**, and a reminder that funding just got easier is the escalation loop with a scheduler attached.
+
+---
+
+<a id="4.4"></a>
+### `4.4` Crediting, with a named timer
+
+**Type:** state. **Scope:** MVP. **Parent:** `C3`, on `B4-3` pattern of 4. **Route out:** `4.1`, then `3.3` or `1.1` on credit; `0.10` when the published window passes.
+
+**A named state rather than a spinner**, which is the whole of `C3`. The category's version is a spinner plus a document, and the document is where the number lives.
+
+| What it shows | Rule |
+|---|---|
+| The state, by name, in words | Not a spinner, not a percentage, not an indeterminate bar |
+| The published crediting window, **the same figure block 7 stated before the payment** | If the two ever differ, the pre-payment statement was a marketing number. They are one value read twice |
+| Elapsed time against that window | `0.11` section 8: value, unit and caption, as-of, route |
+| What happens when the window passes, stated **before** it passes | `0.10` carries the appeal route with a published response deadline, `G4` |
+| The amount and the method, so the record is legible while it is pending | `B4-3`'s injury is a payment that becomes untraceable, and a support ticket that starts with "which deposit" has already lost |
+
+**The rule that answers the barrier directly.** **A deposit that has left a person's account never stops having a state.** It does not resolve into silence, it does not disappear on reload, it does not become a cleared form, and it is never replaced by a generic error. If the window passes, the state stays named and gains the support route. This is the interface half of `C3`'s success signal, "tickets of the class money left and never arrived reach zero".
+
+**Where else this state renders.** `navigation.md`, transient states: "Balance crediting, `C3`. The figure carries a named timer beside it rather than a spinner, and does not silently change. **Deposit node `4.4` owns the timer, the navigation renders the state.**" So a person who leaves this page keeps the state in the header.
+
+**Two things carried rather than decided.**
+
+- **The number is `[?]`.** Section 8 records that node `0.11` holds no row for it, which is a finding rather than a gap in this node.
+- **Attribution is a recommendation, not a row.** `C3` says "a state with a timer" and nothing about who the wait belongs to. `G1` has that shape for withdrawal, named states with a per-state timer labelled waiting on us, on Steam, or on you, and it is the obvious donor. **Carried as a recommendation with its status printed** rather than imported quietly, owner in section 12.
+
+---
+
+<a id="4.5"></a>
+### `4.5` Payment declined
+
+**Type:** state. **Scope:** MVP. **Parent:** `C4` and `C2`, both by preservation. **Route out:** `4.1`, back to the amount.
+
+**The ceiling and the threshold are preserved through the failure**, `flows.md` flow 2. That is not a convenience: a decline that resets the withdrawal threshold would let it come back higher, which is `B4-1` arriving through a failure path instead of through a policy.
+
+| What it shows | Rule |
+|---|---|
+| That the payment did not go through, in words | Readable failure states are already the product's habit, `B5` on `B3-1` for Steam. The same standard applies here |
+| What we know and what we do not | **If it is unknown whether money left, this is not this state.** An unknown outcome is `4.4` with the window running, because `B4-3` is precisely the case of money that left with nothing to show for it |
+| The amount, exactly as typed | Never cleared, never rounded, never replaced |
+| The ceiling and the threshold, unchanged | `C2` and `C4` |
+| The route to `0.10` where the decline came from us | Support with a published deadline, `G4` |
+
+**Forbidden.** No invented reason: a decline reason we did not receive is not printed as though we had. **No suggested smaller amount**, and no pre-filled alternative amount of any kind: the number on this screen is the person's own, which is the property `C2` rests its whole argument on, and a product that proposes a different one at the moment of failure has taken that back. No retry counter, no escalating prompt, and no alternative method promoted as more likely to work unless that is a fact we hold.
+
+---
+
+## 8. Three registers this node reads, and one finding
+
+**`0.13`, SEO and indexation.** `/deposit`, not indexed, canonical self, no schema, no breadcrumb. Inherited whole, section 11 below carries it into the A to E block.
+
+**`0.12`, markets and jurisdiction.** `markets.md` lists `4.1` among its seven consumers and explains why: "`2.7` and `4.1` are consumers because the document and the payment instrument are evidence of where a person is". The register's evidence table rates the payment instrument country as **strong**, and its precedence rule is that "the strongest evidence available wins, and later evidence overrides earlier evidence".
+
+**What that puts on this screen.** The case `markets.md` calls the expensive one: a person passes the IP gate at `2.1`, arrives here, and the card says a blocked market. The procedure is the register's, not this node's, and `4.1` renders steps 1, 2 and 4 of it: deposits stop and opening stops, **withdrawal stays open**, and a written notice with the ground in words plus the appeal route through `0.10`. **This node invents nothing for that case and defers the exit window length**, which `markets.md` records as `[?]`.
+
+**`0.11`, published numbers, and here is the finding.**
+
+**The crediting window is a published number, and `0.11` holds no row for it.** The register's group A lists withdrawal median and p90, per-state ceilings, the health probe, chances, values, RTP, EV, free-unit counts, appeal deadlines and commission. **There is no deposit row anywhere in it**, and `4.1` is not among the five consumers the register names.
+
+**The rules it would have to obey are already written**, which is what makes this an omission rather than a design question. `0.11` rule 1: "a route, or it does not ship". `0.11` rule 2: an as-of on anything that moves. `0.11` section 7 gives it a state set, and a published crediting window that our own payment provider misses is precisely the **stale** and **degraded** case that section handles.
+
+**Not fixed here, on the project's own rule.** `0.11` is another node's file and `CLAUDE.md` requires a contradiction to come back as a finding rather than as a quiet edit by a reader. **Recorded as a finding for the step 8 audit**, with the shape of the row it needs: number, published crediting window; parent, `C3` on `B4-3`; read on, `4.1` and the header via `0.1`; route, the person's own deposit, which either lands inside the window or does not, exactly as `A4` is checked by `G1`; refresh, static until republished. This is the same class the sweep already caught once in this stage, a surface claiming a number the register does not hold.
+
+---
+
+## 9. Responsive
+
+**Mobile 360px, the base.** One column. Blocks 1 to 7 stack in the order of section 2. The summary docks to the bottom edge from the moment an amount exists and is the last element in the document. **No horizontal scroll at any point**: the method cards stack rather than scrolling sideways, and the only element permitted its own horizontal overflow is a table, inside its own container.
+
+**The amount field.** The currency mark is text beside the input, never a glyph baked into an image, `0.11` rule 8, and never a placeholder that disappears on focus. A person who focuses the field must still be able to see what unit they are typing.
+
+**Desktop.** Two columns. Blocks 1 to 7 on the left, the summary and the control as a sticky right column, which is the Fresha shape at its native width. **The block order does not change**, because the order is derived from the sequence of the decision rather than from the space available.
+
+**Between the two.** The ceiling control is the one element whose form changes: a stacked value and period at 360px, one row on desktop. Nothing else re-orders.
+
+---
+
+## 10. Emotional support: none, and that is the honest answer
+
+`sitemap.md`, "Emotional and social jobs: what carries them", places no mechanism on this node. Emotional Job 1 lives in the reveal, Emotional Job 2 in the outcome and `7.1`, Social Job 2 in the ticker, and Emotional Job 3 and Social Job 1 read "nothing yet" for round 1 as a whole.
+
+**So this node adds nothing to that table**, and the absence is the correct entry rather than a cell to fill. `sitemap.md` states the standard in the same section: "inventing a trust page to fill a cell is worse than an honest empty."
+
+**One microcopy placeholder is reserved, and it is not emotional support.** The account state strip in block 1 states that the exit carries no check, `B2`. That is a factual promise about a code rule, its place in the layout is fixed by this node, and its words belong to stage 05.
+
+---
+
+## 11. SEO block A to E
+
+**Reduced by indexation, not by neglect.** `0.13` puts `/deposit` in the private transactional zone: not indexed, no schema. What survives is everything that serves the second reader, which is a screen reader rather than a crawler.
+
+**A. Meta.** `robots: noindex, follow`. Canonical: self. Title and description exist for the browser tab and for history, not for a result page, so they follow the pattern in `0.13` section 2 and carry no keyword work. **No OG or Twitter card:** nothing here is shareable, and an unfurl preview for a private money screen is a card that should never be generated. One language, so no `hreflang`, per the locked decision in `CLAUDE.md`.
+
+**B. Headings.** Exactly one H1, and it is the page's job in words. The H2 list is the block order from section 2, which is what makes the stage 04 check mechanical: account state, amount, spend ceiling, other limits, withdrawal threshold, payment method, what happens after you pay. The summary in block 8 is not an H2: it is a persistent element rather than a section of the document.
+
+**C. SEO text.** None, and the reason is `noindex`. **What the node holds instead is the requirement of which information must be present**, which is sections 3 to 5 and the state tables in section 7. Interface strings do not live here: after stage 05 they live in `voice/docs/microcopy.md`, and this node keeps the requirement rather than the words.
+
+**D. Structured data.** None. Private transactional zone, `0.13` section 3.
+
+**E. Checklist.** One H1. **`noindex` as a meta tag and not a `robots.txt` disallow**, `0.13` section 4.5: a page a crawler may not read is a page whose `noindex` it cannot read. Every figure is crawlable text and never an image, `0.11` rule 8, which here is an accessibility requirement rather than a search one. The accessible name of every figure carries its unit, `0.11` section 9. LCP is the form, not an illustration. No horizontal scroll at 360px. Colour alone never carries the crediting, declined or ceiling-reached state.
+
+---
+
+## 12. What this node does not decide
+
+| Open item | What is missing | Owner |
+|---|---|---|
+| **Payment methods, fees, minimums and maximums** | No source in this repository names one. No competitor screen of this type may be opened, `blocks.md` section 0, and `baseline.md` section 2 records deposit as `[?]` with no pre-login route. **Block 6 is specified as a shape with an unknown list** | Founder, then production |
+| **The published crediting window** | The number `C3` promises. `0.11` has no row for it and does not list `4.1` as a consumer. Section 8 carries the finding and the shape of the row | Node `0.11` at the step 8 audit, then the founder for the value |
+| **Attribution on the crediting timer** | Whether the state names who the wait belongs to, as `G1` does for withdrawal. Recommended, and it is not in any row | Founder, one line on row `C3` |
+| **The default pre-filled period for the ceiling, and the list of periods offered** | `C2` says "a named period" and a period selector. Which periods is nowhere. Key-Drop's safety portal runs daily, weekly and monthly, `blocks.md` section 7, and that is a competitor observation rather than our decision | Founder, with `6.1` |
+| **The withdrawal threshold value** | `C4` fixes the rule, that it is stated before the deposit and can never rise. The number is `[?]` | Founder |
+| **Whether a deposit can be reversed while crediting** | Refunds are a document on `0.9`, Refund and payments policy, and no capability row covers a reversal. **Named rather than assumed either way** | Founder, then `0.9` |
+| **The exit window when a market closes on the payment instrument** | `markets.md` section 7 step 6: "the window length is `[?]`" | Counsel, under `D-A` |
+| **The identity method** | `[?]` pending `D-A`. It does not change this node's blocks, and it changes how often a person meets `2.8` before reaching them | Counsel, then node `2.7` |
+
+**And what belongs elsewhere.** The words: stage 05, then `voice/docs/microcopy.md`. How it looks: stages 06 and 07. Where the header's deposit control sits: `0.1`, already decided. The other three limits: `6.1`. The verification branch: `2.7`, and it is not on this screen by rule. The market verdicts and their grounds: `0.12`, which this node reads and never edits.

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 0.5 Toasts and notifications</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    blockquote { border-left: 2px solid var(--border-strong); padding-left: 16px; margin: 0 0 14px; }
+    blockquote p { font-size: 14px; color: var(--text-secondary); }
+    .src { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 14px; }
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+
+    .wf-proof { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-proof-lbl { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 9px; padding-bottom: 7px; border-bottom: 1px dashed var(--wf-line-soft); }
+    .wf-scope { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; border-top: 1px dashed var(--wf-line-soft); margin-top: 10px; padding-top: 9px; }
+    .wf-scope b { color: var(--wf-ink); font-weight: 700; }
+
+    /* page specific, same idiom */
+    .wf-screen { border: 1px dashed var(--wf-line-soft); border-radius: 4px; height: 92px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--wf-ink-dim); text-align: center; padding: 0 10px; }
+    .wf-toast { border: 1px solid var(--wf-line); border-radius: 4px; padding: 8px 10px; margin-top: 8px; display: flex; gap: 10px; align-items: flex-start; }
+    .wf-toast-t { font-size: 10.5px; color: var(--wf-ink); line-height: 1.45; flex: 1 1 auto; }
+    .wf-toast-x { font-size: 9px; color: var(--wf-ink-dim); border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 1px 5px; flex: 0 0 auto; }
+    .wf-toast-k { font-size: 8.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-dim); display: block; margin-bottom: 3px; }
+    .wf-barmock { border: 1px solid var(--wf-line); border-radius: 4px; margin-top: 10px; padding: 7px 8px; display: flex; gap: 8px; justify-content: space-between; font-size: 9px; color: var(--wf-ink-dim); }
+    .wf-foot { border-top: 1px dashed var(--wf-line-soft); margin-top: 12px; padding-top: 8px; font-size: 9px; color: var(--wf-ink-dim); line-height: 1.6; }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid { grid-template-columns: 1fr; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 0.5</div>
+  <h1>Toasts and notifications</h1>
+  <p class="lede">One live region and one transient message shape, for confirmations and failures that need to be noticed and do not need to be kept. <strong>Its specification is mostly a list of what may not go in it, and that is the correct shape for this node in this product.</strong></p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Severities, and no fourth</div></div>
+    <div><div class="hero-stat-value">11</div><div class="hero-stat-label">Things that are never a toast</div></div>
+    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Live region, from first paint</div></div>
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Toasts about money</div></div>
+  </div>
+</div>
+
+<!-- SENTENCE -->
+<section id="sentence">
+  <div class="sec-head">
+    <h2>The sentence this node is built around</h2>
+    <p>From the map's own INCLUDES line: never the only place a state is announced.</p>
+  </div>
+
+  <div class="card is-fix">
+    <p><strong>That is not an accessibility footnote, it is the product's history.</strong> The two deepest barriers in the As-Is map are states that went silent: <span class="row-code">B4-3</span>, money that left and did not arrive, a pattern of 4, and <span class="row-code">B8-2</span>, waiting with no attribution, a pattern of 6 with a hard figure attached to every one.</p>
+    <p>The answers this product chose for both are <strong>durable</strong>: row <span class="row-code">C3</span> makes crediting a named state with a timer, rows <span class="row-code">G1</span> and <span class="row-code">G2</span> make a withdrawal a sequence of named states with an owner and a published ceiling.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Which produces the rule that decides most of this node</h4>
+    <p><strong>A transient message is the opposite kind of object from a record.</strong> It appears, it is not requested, it cannot be found again, and it is gone in seconds.</p>
+    <p><strong>So a toast may only ever be a second copy of something that is already visible and permanent on the surface the person is on.</strong> If removing the toast loses information, the toast was wrong, and so was the surface.</p>
+  </div>
+</section>
+
+<!-- SEVERITY -->
+<section id="severity">
+  <div class="sec-head">
+    <h2>The severity set: three, and why not four</h2>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Severity</th><th>What raises it</th><th>Live region</th><th>Dismissal</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Confirmation</strong></td><td>A thing the person just did, which succeeded, and which needs no action from them</td><td><code>polite</code></td><td>Auto, plus a dismiss control</td></tr>
+        <tr><td><strong>Failure</strong></td><td>A thing the person just did, which did not succeed, whose cause and recovery are already on the surface</td><td><code>assertive</code>, by <code>role="alert"</code></td><td><strong>No auto dismissal.</strong> Dismiss control only</td></tr>
+        <tr><td><strong>Connection</strong></td><td>The product lost or regained its connection to its own backend</td><td><code>polite</code></td><td>Auto on regain. <strong>Persistent while lost</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h4>Why there is no fourth</h4>
+    <p><strong>Progress</strong> is a named state with a timer in this product, <span class="row-code">C3</span> and <span class="row-code">G1</span>, and a timer that disappears is not a timer.</p>
+    <p><strong>Warning</strong> in practice means "you are about to spend" or "you are near a limit", and both are risk moments. Design principle 3 puts cost and consequence where the decision is made, not in a corner that fades.</p>
+    <p><strong>Promotional and achievement</strong> are cut by the limits rule in <code>CLAUDE.md</code> and by <code>0.11</code> rule 7, a number is never a score. <strong>A toast that congratulates is a completion mechanic wearing a system message.</strong></p>
+    <p><strong>Connection is a severity rather than a case of failure</strong> because it is the one message not raised by an action the person took, so it obeys different timing: it stays while the condition holds and clears itself when the condition ends.</p>
+  </div>
+</section>
+
+<!-- DURATION -->
+<section id="duration">
+  <div class="sec-head">
+    <h2>Duration, and it is derived rather than chosen</h2>
+    <p>Two sources, opened in a browser on 12 August 2026.</p>
+  </div>
+
+  <blockquote>
+    <p><strong>ARIA Authoring Practices Guide, Alert Pattern</strong>, <code>w3.org/WAI/ARIA/apg/patterns/alert/</code>: "An alert is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task." And: "It is also important to avoid designing alerts that disappear automatically. An alert that disappears too quickly can lead to failure to meet WCAG 2.0 success criterion 2.2.3."</p>
+    <p><strong>WCAG 2.2, Success Criterion 2.2.1 Timing Adjustable, Level A</strong>: "For each time limit that is set by the content, at least one of the following is true", the first of which is "The user is allowed to turn off the time limit before encountering it".</p>
+  </blockquote>
+
+  <div class="card is-fix">
+    <p><strong>An auto-dismissing message is a time limit set by the content.</strong> That is the whole reason this section exists, and it is why the rules below are not preferences.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Rule</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A confirmation auto-dismisses. A failure does not</strong></td><td>The APG line, applied. A confirmation carries nothing that is lost when it goes, because the durable copy is guaranteed. A failure names a cause, and a cause that vanishes is <span class="row-code">B3-1</span> again</td></tr>
+        <tr><td><strong>The duration scales with the length of the string, it is not a constant</strong></td><td>A fixed timer punishes the longest message, which is always the one carrying the most information. <strong>The exact constant is <span class="q">[?]</span> and belongs to stage 04</strong>, measured against reading speed rather than chosen</td></tr>
+        <tr><td><strong>Pause on hover, on focus, and while the pointer is inside the region.</strong> The timer restarts, it does not resume</td><td>A person who reached for it was reading it</td></tr>
+        <tr><td><strong>Never counts down while the tab is hidden</strong>, and nothing queues up to fire on return</td><td>A message that expired unseen was never delivered, and a burst on return is worse than silence</td></tr>
+        <tr><td><strong>Every toast has a dismiss control</strong></td><td>The "turn off" branch of 2.2.1, in the only form that fits a component with no settings</td></tr>
+        <tr><td><strong>prefers-reduced-motion removes the transition, never the message and never the time</strong></td><td>Design principle 2. Motion here has one informational job, arrival, and nothing else. The same treatment the ticker <code>0.8</code> gets with its pause control</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- STACKING -->
+<section id="stacking">
+  <div class="sec-head">
+    <h2>Stacking, and the cap is a measurement</h2>
+    <p>One region, one position, newest nearest the edge it enters from. Not per surface, not per component.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The cap is not a taste number. It is the number that fits above the mobile bar at 360px without covering it</h4>
+    <p><code>0.1</code> puts three live destinations in the bottom bar, rising to four with an account, and they are the only persistent route home at that width.</p>
+    <p><span class="surf">0.2</span> already cut the baseline's floating support control for exactly this reason, <code>D-22</code>: an affordance anchored bottom right sits on top of the bar at 360px, and a control that covers a navigation destination is worse than no control.</p>
+    <p><strong>So the cap is whatever count clears the bar with the tallest message this product actually sends.</strong> The integer is <span class="q">[?]</span> and stage 04 measures it rather than this node guessing it.</p>
+  </div>
+
+  <div class="card">
+    <p><strong>Beyond the cap, the oldest is removed rather than the newest suppressed.</strong> The newest is the one describing what just happened.</p>
+    <p><strong>Identical repeats replace rather than stack.</strong> The same failure raised three times is one failure. It does not acquire a count, because a count on a system message is a number with no route, which <code>0.11</code> rule 1 forbids.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Mobile 360px - the region, the cap and the bar it may never cover</div>
+    <div class="wf-phone">
+      <div class="wf-screen">the surface, where the durable copy of every state lives</div>
+      <div class="wf-toast">
+        <span class="wf-toast-t"><span class="wf-toast-k">Confirmation</span>Link copied</span>
+        <span class="wf-toast-x">close</span>
+      </div>
+      <div class="wf-toast">
+        <span class="wf-toast-t"><span class="wf-toast-k">Failure</span>That did not save. The reason is on the field above.</span>
+        <span class="wf-toast-x">close</span>
+      </div>
+      <div class="wf-barmock"><span>Home</span><span>Cases</span><span>Provably fair</span><span>My items</span></div>
+      <div class="wf-foot"><b>The bar is never covered.</b> The cap is whatever count clears it with the tallest real message, measured at stage 04. Text wraps, it never truncates.</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEVER -->
+<section id="never">
+  <div class="sec-head">
+    <h2>What is never a toast</h2>
+    <p>The list is the node. Each row names where the state lives instead, and the parent that put it there.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Never a toast</th><th>Where it lives</th><th>Parent</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Anything a person must act on</strong></td><td>On the surface, beside the thing they act on</td><td>The APG line, "without interrupting the user's task", read the other way: a message that must be acted on is not the pattern</td></tr>
+        <tr><td><strong>Anything about money moving.</strong> Deposit crediting, a balance change, a withdrawal state, the ceiling being reached, the withdrawal threshold</td><td><span class="surf">4.1</span> and <span class="surf">4.4</span>, <span class="surf">5.3</span> and its states, and the header money control, which <code>0.1</code> says carries a named timer and <strong>does not silently change</strong></td><td>Rows <span class="row-code">C3</span>, <span class="row-code">C2</span>, <span class="row-code">C4</span>, <span class="row-code">G1</span>, on <span class="row-code">B4-3</span> and <span class="row-code">B8-2</span></td></tr>
+        <tr><td><strong>The outcome of a round</strong></td><td><span class="surf">3.3</span> phase 3, the outcome itself, with the instance value receipt</td><td>Rows <span class="row-code">E1</span> and <span class="row-code">F1</span>, on <span class="row-code">B6-1</span>, the animation and the credited item disagreeing. <strong>A win announced twice in two places is that barrier's own mechanism</strong></td></tr>
+        <tr><td><strong>Anything legal or compliance.</strong> The age gate, the geo verdict, self exclusion, cookie consent</td><td><span class="surf">2.1</span>, <span class="surf">2.2</span>, <span class="surf">6.2</span> and <span class="surf">6.3</span>, <span class="surf">0.4</span></td><td>The compliance constraints in <code>CLAUDE.md</code>, and <code>0.12</code>, which requires the geo verdict to carry a ground in readable words rather than being an error</td></tr>
+        <tr><td><strong>Identity review</strong></td><td><span class="surf">2.7</span> and its state <span class="surf">2.8</span></td><td>Row <span class="row-code">B1</span>. The state runs for hours. A message measured in seconds cannot carry it</td></tr>
+        <tr><td><strong>A failed proof</strong></td><td><span class="surf">1.4</span>, which the flows mark a deliberate dead end for the job</td><td><code>0.14</code>, the mismatch state. Our own proof failing is not a notification</td></tr>
+        <tr><td><strong>Field level validation</strong></td><td>At the field</td><td>Row <span class="row-code">B5</span>, on <span class="row-code">B3-1</span>. A cause announced away from the input is a cause the person has to carry back</td></tr>
+        <tr><td><strong>Any published number</strong></td><td>The figure block on the surface that owns it</td><td><code>0.11</code> rule 1, a figure ships with its route, and rule 2, an as-of moment on anything that moves. <strong>Neither survives being transient</strong></td></tr>
+        <tr><td><strong>Anything with a long string to copy</strong></td><td>The block that owns it</td><td><code>0.14</code>. A hash exists to be pasted somewhere else, and a value that disappears cannot be</td></tr>
+        <tr><td><strong>Progress of anything</strong></td><td>A named state with a timer</td><td>Rows <span class="row-code">C3</span> and <span class="row-code">G1</span></td></tr>
+        <tr><td><strong>Praise, streaks, milestones, session summaries</strong></td><td>Nowhere. They do not ship</td><td>The limits rule in <code>CLAUDE.md</code>, and <code>0.11</code> rule 7</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <p><strong>What is left, and it is a short list on purpose:</strong> a preference saved, a link copied, a filter cleared, a form submitted whose result is already on screen, a retry that failed, the connection lost and regained.</p>
+    <p><strong>Every one of them is a second copy of something visible, and none of them is money, an outcome, a limit or a legal statement.</strong></p>
+  </div>
+</section>
+
+<!-- NAMED -->
+<section id="named">
+  <div class="sec-head">
+    <h2>The three named states this node has to stay out of</h2>
+    <p>Each one is exactly the kind of thing a toast is usually used for, and in this product none of them may be one.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>State</th><th>Its durable home</th><th>What a toast may do</th><th>What it may never do</th></tr></thead>
+      <tbody>
+        <tr><td><strong><span class="surf">4.4</span> Crediting, with a named timer</strong>, row <span class="row-code">C3</span></td><td>The deposit surface <span class="surf">4.1</span>, and the header money control, which shows the state with its timer rather than a spinner</td><td><strong>Nothing.</strong> The person is on the surface that owns it, or the header carries it wherever they went</td><td>Announce that money arrived. Carry the timer. Be the reason a person leaves the page thinking it is done</td></tr>
+        <tr><td><strong><span class="surf">5.5</span> Steam degraded</strong>, row <span class="row-code">G2</span></td><td>A live banner on <span class="surf">5.3</span>, driven by the health probe</td><td><strong>Nothing.</strong> A degraded dependency is a condition, not an event, and it lasts as long as it lasts</td><td>Fire once and disappear while the condition is still true. That is the exact shape of <span class="row-code">B8-2</span>, a wait with no attribution</td></tr>
+        <tr><td><strong><span class="surf">2.8</span> Identity pending review</strong></td><td><span class="surf">2.7</span>, and the account state shown on the deposit screen, which row <span class="row-code">B1</span> requires</td><td><strong>Nothing.</strong> It resolves in hours</td><td>Announce the submission as if it were the answer</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The general rule these three produce</h4>
+    <p><strong>When a state is durable, the carrier reflects it and the toast stays silent.</strong> When the person is elsewhere, the answer is the carrier, <code>0.1</code>, not a message that expires before they look.</p>
+    <p><strong>And where the person is off the site entirely there is no answer at all</strong>, because there is no notification, email or push row anywhere in <code>cjm-to-be.md</code>. The global sweep already recorded that hole with no parent, and this node names it again rather than filling it with an invention.</p>
+  </div>
+
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - the same event, drawn the wrong way and the right way</div>
+    <div class="wf-grid">
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">The wrong way, and it is the category default</div>
+        <div class="wf-screen">any screen</div>
+        <div class="wf-toast"><span class="wf-toast-t"><span class="wf-toast-k">Toast</span>Deposit credited</span><span class="wf-toast-x">close</span></div>
+        <div class="wf-scope"><b>Gone in seconds, findable never.</b> The one class of message this product's evidence says people re-read, re-check and screenshot.</div>
+      </div>
+      <div class="wf-proof">
+        <div class="wf-proof-lbl">Ours</div>
+        <div class="wf-screen">the header money control carries the state, with its named timer</div>
+        <div class="wf-toast" style="border-style:dashed;opacity:0.45"><span class="wf-toast-t"><span class="wf-toast-k">Toast</span>nothing fires</span></div>
+        <div class="wf-scope">The state is durable, so <b>the carrier reflects it and the toast stays silent</b>. Row <b>C3</b> owns the timer, node 0.1 renders it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGION -->
+<section id="region">
+  <div class="sec-head">
+    <h2>The live region contract</h2>
+  </div>
+
+  <blockquote>
+    <p><strong>WCAG 2.2, Success Criterion 4.1.3 Status Messages, Level AA</strong>, <code>w3.org/WAI/WCAG22/Understanding/status-messages.html</code>: "In content implemented using markup languages, status messages can be programmatically determined through role or properties such that they can be presented to the user by assistive technologies without receiving focus."</p>
+  </blockquote>
+
+  <div class="card">
+    <p><strong>One region, in the DOM from first paint, empty.</strong> A live region injected at the moment of the message is unreliable: what is announced is a change inside a region that was already being watched.</p>
+    <p><strong>polite by default.</strong> <code>assertive</code>, through <code>role="alert"</code>, only for a failure of an action the person just took. Nothing else in this product earns an interruption.</p>
+    <p><strong>The region never receives focus</strong>, per the criterion above. Focus stays where the person put it.</p>
+    <p><strong>Real-time figures never announce.</strong> <code>0.11</code> states it as a rule and <span class="surf">0.2</span> repeats it for the footer counters: a live region that fires on every round is a denial of service to a screen reader. <strong>The ticker <code>0.8</code> is not a live region.</strong> Neither is the free unit count, the observed rate counter or either money figure.</p>
+    <p><strong>The dismiss control is reachable</strong>, as a real button in the tab order, and does not pull focus when the message arrives.</p>
+    <p><strong>Text, never an icon alone, and never colour alone.</strong> Severity is in the words. The same rule as <code>0.11</code> rule 8, applied to a message rather than to a number.</p>
+    <p><strong>One language, so no announcement of a language change</strong>, per the locked decision in <code>CLAUDE.md</code>.</p>
+  </div>
+</section>
+
+<!-- STATES -->
+<section id="states">
+  <div class="sec-head">
+    <h2>States of the component itself</h2>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>State</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Idle</strong></td><td>The region exists and is empty. This is almost always the state</td></tr>
+        <tr><td><strong>One message</strong></td><td>Normal case</td></tr>
+        <tr><td><strong>At the cap</strong></td><td>Stacked, newest nearest the entering edge</td></tr>
+        <tr><td><strong>Over the cap</strong></td><td>The oldest is removed. Nothing is queued to appear later</td></tr>
+        <tr><td><strong>Reduced motion</strong></td><td>No transition. Same content, same timing</td></tr>
+        <tr><td><strong>Connection lost</strong></td><td>The connection message persists while the condition holds, and other toasts do not fire, <strong>because a confirmation raised while the backend is unreachable is a claim we cannot make</strong></td></tr>
+        <tr><td><strong>A layer is open</strong>, <span class="surf">2.1</span> or <span class="surf">0.4</span></td><td><strong>The region does not render above the layer.</strong> The same rule <code>0.1</code> applies to the mobile bar behind the drawer scrim: an element left live above a scrim is content the scrim failed to block</td></tr>
+        <tr><td><strong>On a system page</strong>, <span class="surf">0.3</span></td><td>Nothing fires. Nothing on those pages raises one, and on a 500 nothing is running that could</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ADAPTIVE -->
+<section id="adaptive">
+  <div class="sec-head">
+    <h2>Adaptive behaviour</h2>
+  </div>
+
+  <div class="card">
+    <p><strong>Mobile, base, 360px.</strong> Full width inside the page margins, above the bottom bar and never over it. <strong>Text wraps, it never truncates:</strong> a truncated cause is an unreadable failure, which is the barrier <span class="row-code">B5</span> exists to close. The dismiss control keeps 44 by 44 CSS pixels, matching the target size <code>0.1</code> chose for every carrier.</p>
+    <p><strong>Desktop, from 900px.</strong> One corner, one column, a maximum width at a readable measure rather than the full window. It never overlaps the rail and never covers the header's money figures, which <code>0.1</code> requires to stay visible in every state including a boundary in force.</p>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+    <p>Six open items, and two of them are numbers this node deliberately refuses to invent.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Open item</th><th style="width:46%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The auto-dismiss constant</strong></td><td>The rule is fixed, that duration scales with the string and pauses on attention. <strong>The constant itself is a measurement against reading speed</strong></td><td>Stage 04, then stage 05 when the strings exist</td></tr>
+        <tr><td><strong>The stack cap</strong></td><td>It is whatever clears the mobile bar at 360px with our tallest real message</td><td>Stage 04, by measurement</td></tr>
+        <tr><td>The corner and the entering edge</td><td>Bottom on mobile is forced by the bar. Which corner on desktop is a layout decision with no consequence for this node</td><td>Stage 04</td></tr>
+        <tr><td><strong>Out-of-product notification</strong></td><td>There is no notification, email or push row anywhere in <code>cjm-to-be.md</code>, so a person who is not on the site learns nothing. <strong>Named, not filled.</strong> It needs a backlog row before it needs a design</td><td>Founder, one row if it is wanted</td></tr>
+        <tr><td>Whether a connection message is even reachable in round 1</td><td>It depends on how much of the product is a live connection rather than a page load</td><td>Production, with stage 04</td></tr>
+        <tr><td>The words</td><td>Every string here is microcopy, and one voice is what makes a failure readable at all, which is the whole of row <span class="row-code">B5</span></td><td>Stage 05</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>And what belongs elsewhere</h4>
+    <p><strong>How a toast looks, including its severity treatment.</strong> Stages 06 and 07.</p>
+    <p><strong>Which states exist at all.</strong> The nodes that own them, <span class="surf">4.1</span>, <span class="surf">5.3</span>, <span class="surf">2.7</span>, <span class="surf">1.2</span>, <span class="surf">3.3</span>.</p>
+    <p><strong>Whether a figure may be shown anywhere.</strong> Node <code>0.11</code>.</p>
+    <p><strong>The dialog this component must not announce assertively.</strong> Node <code>0.4</code>.</p>
+  </div>
+
+  <a class="backlink" href="structure.html">Back to Structure</a>
+</section>
+
+</main>
+
+<footer class="doc">
+  <p>Source of truth: <code>ia/docs/pages/toasts.md</code>. Access sources: ARIA APG Alert Pattern, WCAG 2.2 SC 2.2.1 and SC 4.1.3, all opened 12 August 2026. Node data: <code>ia/docs/sitemap.md</code>, cluster 0.</p>
+  <p>The hub: <a href="structure.html">Structure</a>. The map: <a href="sitemap.html">Sitemap</a>. The routes: <a href="flows.html">Flows</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '0.5 Toasts and notifications';
+window.NAV_SECTIONS = [
+  { id: 'overview',  label: 'Overview' },
+  { id: 'sentence',  label: 'The one sentence' },
+  { id: 'severity',  label: 'Three severities' },
+  { id: 'duration',  label: 'Duration' },
+  { id: 'stacking',  label: 'Stacking' },
+  { id: 'never',     label: 'Never a toast' },
+  { id: 'named',     label: '4.4, 5.5 and 2.8' },
+  { id: 'region',    label: 'The live region' },
+  { id: 'states',    label: 'States' },
+  { id: 'adaptive',  label: 'Adaptive' },
+  { id: 'open',      label: 'Open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>
