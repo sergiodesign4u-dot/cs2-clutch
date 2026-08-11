@@ -313,9 +313,9 @@ S-E2 is the one round 1 screen where the primary persona is not the highest scor
 | Turn what I got into credit | Exchange | Hypothesis Job A, `jtbd.md:133` | LATER, parent is a hypothesis marked `[?]` at its source |
 | Be rewarded for staying | Rakeback and loyalty | Emotional Job 3, `jtbd.md:102` | LATER |
 | Be seen for staying | Leaderboard | Hypothesis Job C, `jtbd.md:145` | LATER, parent is a hypothesis marked `[?]` |
-| No intent found | Gunfights, giveaways, race and prize pot, rewards hub, gift cards, referral and affiliate | None in any of the three classes | LATER **`[ORPHAN]`**. Locked into LATER by scope, so this step cannot cut them. Each has to acquire a parent before its own round opens |
+| No intent found | Gunfights, giveaways, race and prize pot, rewards hub, **top wins**, gift cards, referral and affiliate | None in any of the three classes | LATER **`[ORPHAN]`**. Locked into LATER by scope, so this step cannot cut them. Each has to acquire a parent before its own round opens |
 
-Seven orphan screens. Six of them are the destinations behind eight of the nine items in the baseline's left icon rail. The concept map and the baseline walk reached that from opposite ends.
+Seven orphan screens, and the seventh was missing from this list until step 7 found the count disagreeing with it. Six of them are the destinations behind eight of the nine items in the baseline's left icon rail. The concept map and the baseline walk reached that from opposite ends.
 
 ### Reconciliation with the chosen UX pattern
 
@@ -338,20 +338,20 @@ The first slice, by intent, catches holes in the person's path. This one catches
 | Entity | Where it is seen or acted on |
 |---|---|
 | Case | S-C1, S-C2 |
-| Drop table entry | S-S-C2 phase 1 |
+| Drop table entry | S-C2 phase 1 |
 | Skin | S-C1, S-C2 |
-| Skin instance | S-C2 phase 3, E1, E2 |
-| Open | S-S-C2 phases 2 and 3 |
-| Round proof | A2, S-C2 phase 3, G1 |
+| Skin instance | S-C2 phase 3, S-E1, S-E2 |
+| Open | S-C2 phases 2 and 3 |
+| Round proof | S-A2, S-C2 phase 3, S-G1 |
 | Account | S-E1, S-B3 |
-| Balance | E1, D1, S-S-C2 phase 1 |
-| Deposit | D1 |
+| Balance | S-E1, S-D1, S-C2 phase 1 |
+| Deposit | S-D1 |
 | Withdrawal | S-E2 |
 | Published performance record | S-A1 pre-login, S-E2 after |
 | Play limits | S-F1, set at S-D1 |
-| Free entry | S-C1 as an available case, S-A1 as an offer. **No place of its own, `[?]`** |
+| Free entry | S-C1 as an available case, S-A1 as an offer. **No place of its own, and step 6 answered that with an obligation on both nodes rather than a surface** |
 | Live drop event | S-A1 and S-C2, as a layer |
-| Shared result | **G1, which this slice is what produced** |
+| Shared result | **S-G1, which this slice is what produced** |
 | Market rule | S-B1 |
 
 **Sixteen of sixteen have a screen, and the slice earned its place by producing one.** Shared result entered step 1 with every part empty and no destination. Nothing was removed: no entity turned out to be surplus.
@@ -409,9 +409,9 @@ The baseline runs a fixed 70px left icon rail with nine destinations. `baseline.
 
 Assigned deliberately, and this is the minimum depth marking rather than the full tree, which the detail layer builds.
 
-**Level 1**, reachable directly from global navigation: S-S-A1 Home, S-C1 Catalogue, S-A2 Provably fair, S-E1 Account and inventory, S-S-D1 Deposit.
+**Level 1**, reachable directly from global navigation: S-A1 Home, S-C1 Catalogue, S-A2 Provably fair, S-E1 Account and inventory, S-D1 Deposit.
 
-**Level 2**, opened from level 1: S-C2 Case screen, from a Home tile or from the catalogue. S-E2 Withdrawal, from inventory. S-S-F1 Responsible play, from the footer and from the Balance control.
+**Level 2**, opened from level 1: S-C2 Case screen, from a Home tile or from the catalogue. S-E2 Withdrawal, from inventory. S-F1 Responsible play, from the footer and from the Balance control.
 
 **Level 3:** empty in round 1. Nothing in this scope needs a third level, and that is a result rather than an omission.
 
@@ -497,7 +497,7 @@ Written at step 5, on 11 August 2026. Rows are the functional jobs from `jtbd.md
 | Exchange | Hypothesis Job A, `jtbd.md:133` | Parent is marked `[?]` at its own source |
 | Rakeback and loyalty | Emotional Job 3, `jtbd.md:102` | Emotional job, second table |
 | Leaderboard | Hypothesis Job C, `jtbd.md:145` | Parent is marked `[?]` |
-| Gunfights, Giveaways, Race and prize pot, Rewards hub, Gift cards, Referral and affiliate | **None** | Six declared orphans, already carried in the concept sitemap. Locked into LATER by scope, so no step may cut them |
+| Gunfights, Giveaways, Race and prize pot, Rewards hub, Top wins, Gift cards, Referral and affiliate | **None** | Seven declared orphans, already carried in the concept sitemap. Locked into LATER by scope, so no step may cut them. **Top wins was restored here at step 7:** it was in the step 1 object list and vanished from the step 2 screen list, which is why the count read seven while six were named |
 
 ### Orphan jobs, first, because they cost more
 

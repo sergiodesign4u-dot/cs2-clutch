@@ -103,9 +103,9 @@
 <div class="hero" id="intro">
   <div class="section-eyebrow">Information architecture, base layer - steps 4 and 6</div>
   <h1>User flows</h1>
-  <p class="lede">Five routes through the product, drawn as decisions and states rather than as happy paths. The skeleton of every one is the eight phase To-Be journey from the CJM stage, and every decision point and dead end is an As-Is barrier, because a barrier is exactly a place where a real person stopped. Screen names come from the concept sitemap and no flow here introduces a screen that does not already exist in it.</p>
+  <p class="lede">Six routes through the product, drawn as decisions and states rather than as happy paths. The skeleton of every one is the eight phase To-Be journey from the CJM stage, and every decision point and dead end is an As-Is barrier, because a barrier is exactly a place where a real person stopped. Screen names come from the concept sitemap and no flow here introduces a screen that does not already exist in it.</p>
   <div class="hero-meta">
-    <div><div class="hero-stat-value">5</div><div class="hero-stat-label">Flows</div></div>
+    <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Flows</div></div>
     <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Dead ends</div></div>
     <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Of them deliberate</div></div>
     <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Screens before activation</div></div>
@@ -170,19 +170,20 @@ flowchart TD
     Funds -->|yes| Open
     Open --> Reveal["Loading: the reveal renders the settled roll and computes nothing again, E1"]
     Reveal --> Landed{"Did the reveal finish on this device?"}
-    Landed -->|no| Resume["Interrupted: the roll was settled before the animation, so the result is waiting on return"]
+    Landed -->|no| Resume["Interrupted: the roll was settled before the animation, so the result waits on S-C2 phase 3 and is also in S-E1"]
     Resume --> Outcome
     Landed -->|yes| Outcome["S-C2 phase 3, the outcome. Instance value receipt, F1"]
     Outcome --> Win(["Job closed: the rush landed and the result is understood"])
     Outcome --> Share["S-G1 Public result, one-tap share, F4"]
     Share --> Alive{"Does the shared result still resolve?"}
-    Alive -->|no| Gone["Empty: the result is gone or private, with a route into S-A2"]
+    Alive -->|no| Gone["Empty: the result is gone or private"]
+    Gone --> PFout(["Routed into S-A2, where the round can still be checked without the page"])
     Alive -->|yes| Story(["Emotional Job 2 closed: the story survives being checked"])
 
     classDef success fill:#12351f,stroke:#4ade80,color:#eafff9;
     classDef dead fill:#3a1618,stroke:#e5484d,color:#ffd7d7;
     classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
-    class Start,Win,Story success;
+    class Start,Win,Story,PFout success;
     class Leave,Market,Blocked,Under dead;
     class Home,Real,Case,Gate,Geo,Age,Read,Stock,Out,Funds,Signin,SteamWait,SteamOk,SteamErr,SteamDown,Credit,Open,Reveal,Landed,Resume,Outcome,Share,Alive,Gone neutral;
   </pre></div>
@@ -232,7 +233,7 @@ flowchart TD
     Load --> Any{"Anything in stock worth opening inside their budget?"}
     Any -->|no| Empty2["Empty: nothing matches. Zero-stock items stay visible rather than hidden, D1, so the shelf is legibly empty rather than silently short"]
     Empty2 --> Cat
-    Any -->|yes| Pick(["Continues into flow 1 at the choosing phase of S-C2"])
+    Any -->|yes| Pick(["Enters flow 1 at the node Case, S-C2 phase 1 choosing"])
 
     classDef success fill:#12351f,stroke:#4ade80,color:#eafff9;
     classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
@@ -269,14 +270,17 @@ flowchart TD
     IdWait --> IdOk{"Passed?"}
     IdOk -->|no| IdFail["Error: verification failed. Funding stays closed"]
     IdFail --> IdAppeal["Appeal with a stated ground and a published response deadline, mirroring G4"]
-    IdAppeal --> IdOk
+    IdAppeal --> Upheld{"Appeal upheld?"}
+    Upheld -->|yes| Amount
+    Upheld -->|no| Closed2["Funding stays closed, with the ground on the record"]
+    Closed2 --> Exit2
     IdFail --> Exit2(["Withdrawal stays open regardless: B2 puts no verification branch on the exit route. Flow 3"])
     IdOk -->|yes| Amount["Chooses an amount in one real currency, no coin denomination, C1"]
     Ver -->|yes| Amount
     Amount --> Ceiling["Sets a spend ceiling for a named period, pre-filled, accepted or changed, C2"]
-    Ceiling --> Dir{"Changed the ceiling, and in which direction?"}
-    Dir -->|"lower, or unchanged"| Threshold["The sum required to withdraw is stated here and can never rise, C4"]
-    Dir -->|higher| Pending24["Pending: a raise applies 24 hours later. The old ceiling holds until then"]
+    Ceiling --> Dir{"First ceiling, or a change to an existing one?"}
+    Dir -->|"first, lower, or unchanged"| Threshold["The sum required to withdraw is stated here and can never rise, C4"]
+    Dir -->|"raising an existing ceiling"| Pending24["Pending: a raise applies 24 hours later. The old ceiling holds until then"]
     Pending24 --> Threshold
     Threshold --> Pay["Loading: payment in progress"]
     Pay --> Credited{"Credited?"}
@@ -291,7 +295,7 @@ flowchart TD
     classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
     class D0,Bal,Exit2 success;
     class Stop dead;
-    class Dep,Hit,Ver,Ident,IdWait,IdOk,IdFail,IdAppeal,Amount,Ceiling,Dir,Pending24,Threshold,Pay,Credited,Pending,PayErr neutral;
+    class Dep,Hit,Ver,Ident,IdWait,IdOk,IdFail,IdAppeal,Upheld,Closed2,Amount,Ceiling,Dir,Pending24,Threshold,Pay,Credited,Pending,PayErr neutral;
   </pre></div>
 
   <div class="card">
@@ -318,6 +322,53 @@ flowchart TD
   </div>
 </section>
 
+<!-- FLOW 2a -->
+<section id="limits">
+  <div class="sec-head">
+    <h2>Flow 2a. Setting a limit and stopping</h2>
+    <p class="flow-meta">Added at step 7 - parents <code>B7-4</code> pattern of 12 and the compliance constraint - <strong>no job, and there never will be one</strong></p>
+  </div>
+
+  <p><code>S-F1 Responsible play</code> was the last MVP screen with no route through it, which is the same defect step 6 fixed for the catalogue and left standing here. Step 6 also promoted it out of the deep classification into the Balance control, so it now has an entry point and needs a route to match. Nobody arrives wanting to limit themselves, which is why this screen will never have a job and why the matrix will always show it as an orphan.</p>
+
+  <div class="diagram"><pre class="mermaid">
+flowchart TD
+    R0(["Decides to put a boundary on this, or is told about one"]) --> Bal["Balance control, persistent once an account exists"]
+    Bal --> RP["S-F1 Responsible play"]
+    RP --> Which{"Which boundary?"}
+    Which -->|"spend ceiling"| Ceil2["Set or lower the ceiling, C2. Lowering applies immediately"]
+    Which -->|"session limit"| Sess["Set a session limit, C5"]
+    Which -->|"cool down"| Cool["Cool down for a chosen period, C5"]
+    Which -->|"self exclusion"| Self["Self exclusion, C5"]
+    Self --> Confirm{"Confirmed, with the period stated?"}
+    Confirm -->|no| RP
+    Confirm -->|yes| Excluded["In force: opening and deposits close. Withdrawal stays open"]
+    Ceil2 --> InForce(["In force. The boundary holds without being a thing to engage with"])
+    Sess --> InForce
+    Cool --> InForce
+    Excluded --> InForce
+
+    classDef success fill:#12351f,stroke:#4ade80,color:#eafff9;
+    classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
+    class R0,InForce success;
+    class Bal,RP,Which,Ceil2,Sess,Cool,Self,Confirm,Excluded neutral;
+  </pre></div>
+
+  <div class="card">
+    <dl class="kv">
+      <dt>Decisions</dt><dd>Which boundary, and for self exclusion only, an explicit confirmation with the period stated, because it is the one choice here that a person cannot undo on impulse.</dd>
+      <dt>States</dt><dd>In force, for each boundary. <strong>No loading and no error node</strong>, and that is deliberate rather than an omission: every action on this screen is a local state change, and a brake that can fail to apply is not a brake.</dd>
+      <dt>Dead ends</dt><dd><strong>None, and this is the only flow in the file with none.</strong> A person can always leave a boundary screen without setting anything, and every boundary they set is reversible except self exclusion, which is reversible only by waiting out the period they chose themselves.</dd>
+    </dl>
+  </div>
+
+  <div class="card is-note">
+    <h4>Withdrawal stays open under self exclusion</h4>
+    <p>The same rule the ceiling follows at <code>cjm-to-be.md:66</code>. A boundary stops money going in and stops play. It never traps what the person already holds, because a limit that also locks the exit would be a punishment rather than a brake, and it would give anyone a reason never to set one.</p>
+    <p><strong>The constraint that governs this whole screen, repeated because it is the thing most likely to be lost.</strong> No counters, no streaks, no status, no session score, no celebration of staying inside a limit. T4 attaches the same rule to the spend ceiling at <code>cjm-to-be.md:73</code>: the moment a limit acquires completion mechanics it stops being a boundary and becomes a reason to keep going.</p>
+  </div>
+</section>
+
 <!-- FLOW 3 -->
 <section id="withdraw">
   <div class="sec-head">
@@ -336,7 +387,7 @@ flowchart TD
     Limits --> Elig{"Eligible to withdraw?"}
     Elig -->|no| NotYet["Empty: the limit is met before the withdrawal rather than inside it, G5"]
     NotYet --> Inv
-    Elig -->|yes| Start2["S-E2 Withdrawal, with the public clock"]
+    Elig -->|yes| Start2["S-E2 Withdrawal"]
     Start2 --> Clock["Named states, per-state timer, each labelled waiting on us, Steam or you, G1"]
     Clock --> Health{"Steam API healthy?"}
     Health -->|no| Degraded["Live degraded banner driven by the health probe, G2"]
@@ -390,7 +441,7 @@ flowchart TD
 flowchart TD
     V0(["Got a result they did not expect, high or low"]) --> Out2["S-C2 phase 3, the outcome"]
     Out2 --> Link["Post-reveal verification link, F3"]
-    Link --> PF["S-A2 Provably fair, public, no login, H1"]
+    Link --> PF["S-A2 Provably fair, the public page with the verifier, H1"]
     V1(["Arrives from outside with no account at all"]) --> PF
     PF --> Explain["Reads what is proven and what is not, the D-14 limit stated on the page itself"]
     Explain --> Verify["Pastes the round: server seed, client seed, nonce"]
@@ -481,6 +532,7 @@ window.NAV_SECTIONS = [
   { id: 'main-job', label: 'Flow 1. Main job' },
   { id: 'catalogue', label: 'Flow 1a. Catalogue' },
   { id: 'deposit', label: 'Flow 2. Funding' },
+  { id: 'limits', label: 'Flow 2a. Limits' },
   { id: 'withdraw', label: 'Flow 3. Withdraw' },
   { id: 'verify', label: 'Flow 4. Verify' },
   { id: 'changes', label: 'What changed' },

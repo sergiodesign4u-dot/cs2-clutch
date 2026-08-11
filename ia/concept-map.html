@@ -180,7 +180,7 @@
 graph TD
     subgraph A["A. Decide whether this place is real"]
         A1["S-A1 Home<br/><small>RJ1, Social Job 2</small>"]
-        A2["S-A2 Provably fair, public verifier<br/><small>RJ3 and Core Job 1</small>"]
+        A2["S-A2 Provably fair<br/><small>RJ3 and Core Job 1</small>"]
     end
     subgraph B["B. Get through the door"]
         B1["S-B1 Age and geo gate<br/><small>compliance constraint</small>"]
@@ -196,7 +196,7 @@ graph TD
     end
     subgraph E["E. Take out what I earned"]
         E1["S-E1 Account and inventory<br/><small>RJ5</small>"]
-        E2["S-E2 Withdrawal with public clock<br/><small>RJ5</small>"]
+        E2["S-E2 Withdrawal<br/><small>RJ5</small>"]
     end
     subgraph F["F. Keep myself in check"]
         F1["S-F1 Responsible play<br/><small>constraint, no job</small>"]
@@ -235,10 +235,18 @@ graph TD
     </dl>
   </div>
 
+</section>
+
+<!-- SCOPE OUTSIDE THE SCHEMA -->
+<section id="later">
+  <div class="sec-head">
+    <h2>What the schema deliberately does not draw</h2>
+    <p>Moved out of the concept schema at step 7. The schema stays screens and job tags only; scope analysis is analysis and belongs beside it, not inside it.</p>
+  </div>
   <div class="card is-muted">
     <h4>LATER, so that the map shows the product and not only round 1</h4>
     <p><strong>With a parent:</strong> Battle list and Battle lobby (Social Job 1), Upgrade (RJ4), Exchange (Hypothesis Job A, <span class="q">[?]</span>), Rakeback and loyalty (Emotional Job 3), Leaderboard (Hypothesis Job C, <span class="q">[?]</span>).</p>
-    <p><strong>Orphans, seven screens with no parent in any class:</strong> Gunfights, Giveaways, Race and prize pot, Rewards hub, Gift cards, Referral and affiliate. Locked into LATER by scope, so no step may cut them. Each has to acquire a parent before its own round opens.</p>
+    <p><strong>Orphans, seven screens with no parent in any class:</strong> Gunfights, Giveaways, Race and prize pot, Rewards hub, <strong>Top wins</strong>, Gift cards, Referral and affiliate. Top wins was in the step 1 object list and had vanished from the step 2 screen list, which is why the count read seven while six were named. Restored at step 7. Locked into LATER by scope, so no step may cut them. Each has to acquire a parent before its own round opens.</p>
   </div>
 </section>
 
@@ -297,6 +305,75 @@ graph TD
       <dt>Deep</dt><dd>The withdrawal restriction appeal inside S-E2, and the verifier form itself inside S-A2, since the page has to open and explain before it asks anyone to paste a seed.</dd>
       <dt>Not global</dt><dd>The live drop feed renders on A1 and C2 and nowhere else. Pattern E requires it to be a layer on the screens where the core happens, and a feed on every screen would be wallpaper rather than context.</dd>
     </dl>
+  </div>
+</section>
+
+<!-- BEFORE TO AFTER -->
+<section id="before-after">
+  <div class="sec-head">
+    <h2>Before to after</h2>
+    <p>Two critiques, both on two instruments, assembled after the second one closed rather than during it. Assembled earlier it would have lied on every iteration.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Class</th><th>Found</th><th>Codex</th><th>Claude</th><th>Both</th><th>Fixed</th><th>Withdrawn</th><th>Carried</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Namespace collision</strong><br><span style="font-size:11px;color:var(--text-muted)">outside the four classes</span></td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+        <tr><td><strong>Dead ends</strong></td><td>4</td><td>1</td><td>1</td><td>2</td><td>3</td><td>1 reclassified</td><td>0</td></tr>
+        <tr><td><strong>Missing states</strong></td><td>6</td><td>3</td><td>2</td><td>1</td><td>6</td><td>0</td><td>0</td></tr>
+        <tr><td><strong>Excess depth</strong></td><td>3</td><td>0</td><td>1</td><td>2</td><td>1</td><td>0</td><td>2</td></tr>
+        <tr><td><strong>Orphans</strong></td><td>2</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+        <tr><td><strong>Outside the classes</strong></td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td><strong>Consistency</strong><br><span style="font-size:11px;color:var(--text-muted)">critique 2</span></td><td>6</td><td>6</td><td>0</td><td>0</td><td>6</td><td>0</td><td>0</td></tr>
+        <tr><td><strong>Cleanliness</strong><br><span style="font-size:11px;color:var(--text-muted)">critique 2</span></td><td>2</td><td>2</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+        <tr><td><strong>Consequences of the fixes</strong><br><span style="font-size:11px;color:var(--text-muted)">critique 2, axis 3</span></td><td>6</td><td>0</td><td>6</td><td>0</td><td>6</td><td>0</td><td>0</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="budget" style="background:rgba(74,222,128,0.06);border-color:rgba(74,222,128,0.22)">
+    <strong style="color:var(--green)">31 findings across both critiques. Codex 13, Claude 13, both 5. 25 fixed, 2 withdrawn on verification with their reasons kept, 3 carried with an owner, 1 outside this stage.</strong>
+  </div>
+
+  <div class="card is-note">
+    <h4>The second critique split cleanly by instrument radius, and that is the strongest evidence for the rule</h4>
+    <p>Zero overlap. Codex owned every mechanical inconsistency, <strong>including three defects my own rename regex had just created</strong>. I owned every finding about the consequences of my own edits, which is the axis Codex cannot have because it did not make them. Neither instrument could have produced the other's list.</p>
+  </div>
+
+  <h3>Five pairs worth reading</h3>
+
+  <div class="card is-keep">
+    <h4>1. Twelve screen codes meant two things each</h4>
+    <p><strong>Before:</strong> <code>C1</code> was the case catalogue and also "one real currency throughout". <code>E1</code> was account and inventory and also "the reveal renders the settled roll". All twelve of twelve collided, and both readings parsed, which is why it survived four steps.</p>
+    <p><strong>After:</strong> screens carry <code>S-</code>, backlog codes do not. Found by neither original pass: it surfaced while verifying a different claim against the file, which is the step the rules require before fixing anything.</p>
+  </div>
+
+  <div class="card is-keep">
+    <h4>2. The reveal could finish in the ledger and not on the screen</h4>
+    <p><strong>Before:</strong> the open went straight to the outcome. <code>E1</code> settles the roll before the animation, so a dropped connection left a person watching an animation that never resolved beside a balance that said they won.</p>
+    <p><strong>After:</strong> an interrupted state that names where the settled result waits. That is <code>B6-1</code>, the animation and the credited item disagreeing, which the whole of phase T6 exists to prevent, and it was arriving through the back door of a missing state rather than the front door of a bug.</p>
+  </div>
+
+  <div class="card is-keep">
+    <h4>3. A failed identity check contradicted a shipped capability</h4>
+    <p><strong>Before:</strong> drawn as an absolute dead end. <strong>After:</strong> an appeal that mirrors <code>G4</code> and terminates, plus the withdrawal exit that <code>B2</code> had guaranteed all along by forbidding any verification branch on the exit route. The diagram had been contradicting the map.</p>
+  </div>
+
+  <div class="card is-keep">
+    <h4>4. Two MVP screens had no route at all</h4>
+    <p><strong>Before:</strong> the catalogue and responsible play were both MVP screens that no flow passed through, so neither had a loading, an empty or an exit. <strong>After:</strong> flow 1a and flow 2a, both deliberately minimal. The catalogue draws only what survives decision <code>D-D</code>; responsible play draws the only flow in the file with no red node in it.</p>
+  </div>
+
+  <div class="card is-keep">
+    <h4>5. A screen disappeared between two steps and the count caught it</h4>
+    <p><strong>Before:</strong> the text read "seven orphan screens" and named six. <strong>After:</strong> Top wins restored. It was in the step 1 object list and had fallen out of the step 2 screen list, so the miscount was the symptom rather than the defect.</p>
+  </div>
+
+  <div class="card is-defect">
+    <h4>Withdrawn on verification, kept visible with their reasons</h4>
+    <p><strong>The <code>Leave</code> exit was filed as a dead-end defect and is not one.</strong> A visitor who evaluates the product and declines is the null result of a free evaluation, not a broken route. The finding was real about the documentation, not about the route: it was the only red node with no explanation under its diagram. Kept with the class corrected rather than deleted, because a silently discarded finding returns next round in the same words.</p>
+    <p><strong>The colour legend inside the concept schema was filed as a page-content leak and is not one.</strong> A legend for reading a diagram is part of the diagram. The other card in the same section was analysis and did leak, and it was moved out.</p>
   </div>
 </section>
 
@@ -450,8 +527,10 @@ window.NAV_BASE = '../';
 window.NAV_SECTIONS = [
   { id: 'entities', label: 'Entities' },
   { id: 'schema', label: 'Screens by intent' },
+  { id: 'later', label: 'What it does not draw' },
   { id: 'navigation', label: 'Navigation model' },
   { id: 'matrix', label: 'Tracing matrix' },
+  { id: 'before-after', label: 'Before to after' },
 ];
 </script>
 <script src="../_nav.js"></script>

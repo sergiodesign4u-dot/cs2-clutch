@@ -101,3 +101,54 @@ Every finding above was checked against the file before being written into this 
 
 - **D-03 changed class.** Codex filed it under dead ends. Reading the node confirmed the route is correct and the gap is in the explanation, so it is kept with the class corrected and the reason stated. Deleting it silently would have let it return next round in the same words.
 - **Finding 0 was not in either original set.** It surfaced while verifying whether any flow touches C1, when a grep for `C1` in `flows.md` returned a line about currency rather than a catalogue. The instrument that found it was neither pass: it was the act of checking a claim against the file, which is the step the rules require before fixing anything.
+
+
+---
+
+# Critique 2: consistency and cleanliness
+
+Stage 03a, step 7, run on 11 August 2026 on `ia/docs/sitemap.md`, `ia/docs/flows.md`, `ia/flows.html` and `ia/concept-map.html`, after the step 6 fixes.
+
+**Same order, same rule.** Codex first, read only, stated on the call, on axes 1 and 2 which are mechanical and therefore inside its radius. My own pass ran on axis 3, the one Codex cannot have because it is about the consequences of my own edits.
+
+**Result: 14 findings. Codex 8, Claude 6, both 0.**
+
+**Zero overlap, and it is the strongest evidence for the two instrument rule this project has produced.** Codex owned every mechanical inconsistency, **including three defects my own rename regex had just created**: a doubled `S-S-` prefix in five places, five screen references the regex missed entirely in the second slice, and a screen count that disagreed with its own list. I owned every finding about what my step 6 fixes did to their neighbours. Neither instrument could have produced the other's list.
+
+## Axis 1, consistency, all Codex
+
+| # | Where | What | Status |
+|---|---|---|---|
+| **C-01** | `sitemap.md` five places | `S-S-` doubled prefix, produced by the step 6 rename regex | Fixed |
+| **C-02** | `sitemap.md`, the second slice | Five screen references the regex missed: `E1, E2`, `A2 ... G1`, `E1, D1`, `D1`, `**G1`. The slice claimed 16 of 16 coverage in a namespace it was no longer using | Fixed |
+| **C-03** | three files | `S-A2` named three different ways: "public, with a working verifier", "public, no login, H1", "public verifier" | Fixed, canonical name is `S-A2 Provably fair` |
+| **C-04** | three files | `S-E2` punctuation drift between "Withdrawal, with the public clock" and "Withdrawal with public clock" | Fixed, canonical name is `S-E2 Withdrawal` |
+| **C-05** | matrix headers against the sitemap | The matrix abbreviates screen names while the sitemap spells them out | **Fixed by declaring the canonical name once** and treating matrix headers as abbreviations of it. A twelve column matrix cannot carry full names and stay readable, so the fix is a stated convention rather than a rename |
+| **C-06** | `sitemap.md` and the page | "Seven orphan screens" with six named. **The miscount was the symptom.** Top wins was in the step 1 object list and had fallen out of the step 2 screen list | Fixed, Top wins restored as the seventh |
+| **C-07** | `sitemap.md` against `flows.md` | `S-F1 Responsible play` was the last MVP screen with no route through it, the same defect step 6 fixed for the catalogue and left standing here | Fixed by flow 2a |
+
+## Axis 2, cleanliness of the concept map, all Codex
+
+| # | Where | What | Status |
+|---|---|---|---|
+| **C-08** | `concept-map.html`, the schema section | Two cards inside a section whose own header says page contents live in the detail layer | **Half fixed, half withdrawn.** The LATER and orphans card was analysis and did leak: moved out into its own section, "What the schema deliberately does not draw". The colour legend stays, because a legend for reading a diagram is part of the diagram rather than page content. Withdrawn with the reason rather than obeyed wholesale |
+| **C-09** | `concept-map.html`, the schema section | No states leaked into the schema | Clean. Recorded because a clean result from the instrument that owns the axis is itself evidence |
+
+## Axis 3, did the step 6 fixes break anything, all Claude
+
+Walked by name through every fix step 6 applied and asked what it touched next to it.
+
+| # | Where | What | Status |
+|---|---|---|---|
+| **C-10** | `flows.md` flow 1, node `Gone` | The empty state added for a vanished public result **had no outgoing edge**. A neutral terminal with no exit is a grey dead end, which is exactly the class this critique exists to catch, created by my own fix | Fixed with a route into `S-A2`, where the round can still be checked without the page |
+| **C-11** | `flows.md` flow 2, node `IdAppeal` | The appeal added for the failed identity check looped straight back to the same decision **with no terminal**, unlike the equivalent in flow 3 which ends at `Refused`. An unbounded loop created by a fix for a dead end | Fixed with an upheld decision and a terminal |
+| **C-12** | `flows.md` flow 2, node `Dir` | The ceiling direction split **mislabels the first deposit**, where the ceiling is being set rather than raised or lowered and there is no previous value to compare | Fixed, the branch now names the first ceiling explicitly |
+| **C-13** | `flows.md` flow 1, node `Resume` | The interrupted reveal said the result was "waiting on return" **without naming the screen it waits on**, which 03b would have had to guess | Fixed, it names `S-C2` phase 3 and `S-E1` |
+| **C-14** | `sitemap.md`, S-A1 Home | The Free entry obligation added at step 6 gives Home **a third load**: trust evaluation, main job entry, and now the starter credit offer. Step 3 already paid for three taps with the first two and handed the crowding forward as a constraint | **Carried, and the constraint restated as heavier.** Not a fix, an honest weight added to what the wireframe stage inherits |
+| **C-15** | `flows.md` flow 1a against flow 1 | Flow 1a ended "continues into flow 1 at the choosing phase" while flow 1 had no named entry from the catalogue: the two diagrams did not join at a node | Fixed, it names the node |
+
+## What both critiques cost and bought
+
+**31 findings across the two. Codex 13, Claude 13, both 5. 25 fixed, 2 withdrawn on verification with their reasons kept visible, 3 carried with an owner, 1 outside this stage.**
+
+The pattern underneath: **critique 1 found what the map was missing, critique 2 found what fixing it broke.** Six of the fourteen findings in the second pass are damage the first pass caused, three of them by a single regex. A stage that runs one critique and stops ships that damage.
