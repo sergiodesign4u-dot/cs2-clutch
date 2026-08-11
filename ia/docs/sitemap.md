@@ -488,8 +488,8 @@ Written at step 3, on 11 August 2026. The concept sitemap says which screens exi
 
 | Carrier | Owns | Never holds |
 |---|---|---|
-| **The rail**, left edge, collapsible, a modal drawer on mobile | Destinations | Money, actions, the account control |
-| **The header**, fixed top | Money, the account control, the rail toggle, ambient controls | Destinations, except the logo |
+| **The rail**, full height at the leading edge, collapsible, a modal drawer on mobile | The logo at its top, every destination, and its own toggle on the seam | Money, actions, the account control |
+| **The header**, starting at the rail's edge | Money, the account control, ambient controls | **Any destination at all.** No exception, not even the logo |
 
 ### Global navigation: the rail's destinations and the job behind each
 

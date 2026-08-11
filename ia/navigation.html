@@ -96,6 +96,7 @@
       background: var(--wf-surface); border: 1px solid var(--wf-line);
       border-radius: 4px; padding: 0 12px; height: 52px;
     }
+    .wf-bar.is-seamed { border: none; border-bottom: 1px solid var(--wf-line); border-radius: 0 4px 0 0; flex: 0 0 auto; }
     .wf-bar.is-thin { height: 46px; padding: 0 8px; gap: 7px; }
     .wf-logo { width: 58px; height: 20px; border: 1px solid var(--wf-line); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 9px; letter-spacing: 0.12em; color: var(--wf-ink-dim); flex: 0 0 auto; }
     .wf-logo.is-mark { width: 24px; letter-spacing: 0; }
@@ -114,10 +115,16 @@
     .wf-m-tag { font-size: 8px; letter-spacing: 0.06em; color: #6f6f6f; text-transform: uppercase; }
     .wf-plus { width: 28px; height: 28px; border: 1px solid var(--wf-line); border-radius: 50%; flex: 0 0 auto; display: flex; align-items: center; justify-content: center; font-size: 15px; color: var(--wf-ink); line-height: 1; }
 
-    /* App frame: rail beside content */
-    .wf-app { display: flex; gap: 8px; margin-top: 8px; }
-    .wf-rail { width: 128px; flex: 0 0 auto; background: var(--wf-surface); border: 1px solid var(--wf-line); border-radius: 4px; padding: 8px 7px; }
-    .wf-rail.is-narrow { width: 46px; padding: 8px 6px; }
+    /* App frame: the rail runs the full height and the header starts at its edge */
+    .wf-frame { display: flex; border: 1px solid var(--wf-line); border-radius: 4px; background: var(--wf-bg); }
+    .wf-rail { width: 128px; flex: 0 0 auto; position: relative; background: var(--wf-surface); border-right: 1px solid var(--wf-line); border-radius: 4px 0 0 4px; padding: 0 7px 8px; }
+    .wf-rail.is-narrow { width: 46px; padding: 0 6px 8px; }
+    .wf-railhead { height: 52px; display: flex; align-items: center; border-bottom: 1px solid var(--wf-line-soft); margin: 0 -7px 8px; padding: 0 7px; }
+    .wf-rail.is-narrow .wf-railhead { margin: 0 -6px 8px; padding: 0 6px; justify-content: center; }
+    /* The toggle sits on the junction of the two seams, straddling both */
+    .wf-seam { position: absolute; right: -13px; top: 39px; z-index: 5; width: 26px; height: 26px; border: 1px solid var(--wf-line); border-radius: 50%; background: var(--wf-bg); display: flex; align-items: center; justify-content: center; font-size: 11px; color: var(--wf-ink); }
+    .wf-right { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; }
+    .wf-right .wf-body { margin: 8px; }
     .wf-item { display: flex; align-items: center; gap: 8px; padding: 7px 7px; border-radius: 4px; margin-bottom: 3px; }
     .wf-item-ico { width: 17px; height: 17px; border: 1px solid var(--wf-line); border-radius: 3px; flex: 0 0 auto; }
     .wf-item-lbl { font-size: 10.5px; color: var(--wf-ink-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -203,8 +210,8 @@
     <table>
       <thead><tr><th style="width:24%">Carrier</th><th style="width:38%">Owns</th><th>Never holds</th></tr></thead>
       <tbody>
-        <tr><td>The rail, left edge, collapsible</td><td>Destinations. Every place a person can go</td><td>Money. Actions. The account control</td></tr>
-        <tr><td>The header, fixed top</td><td>Money, the account control, the rail toggle, ambient controls</td><td>Destinations, except the logo</td></tr>
+        <tr><td>The rail, full height at the leading edge, collapsible</td><td>The logo at its top, every destination, and its own toggle on the seam</td><td>Money. Actions. The account control</td></tr>
+        <tr><td>The header, starting at the rail's edge</td><td>Money, the account control, ambient controls</td><td><strong>Any destination at all.</strong> No exception, not even the logo</td></tr>
       </tbody>
     </table>
   </div>
@@ -213,6 +220,7 @@
     <h4>This is what the baseline already practises, and what Material actually supports</h4>
     <p><code>baseline.md:78</code>: "the header is where money and account live." Material's drawer guidance says <strong>"avoid using two navigation components on the same screen"</strong>, and a top app bar is not a navigation component in that taxonomy: it is the thing the drawer is opened from. "Modal navigation drawers are always opened by an action outside of the drawer, such as clicking a navigation menu icon."</p>
     <p>So the count is <strong>one primary navigation component plus one app bar</strong>, which is the standard shape. The founder's "two menus" is the correct reading of it.</p>
+    <p><strong>The geometry is what makes the rule absolute.</strong> The rail runs the full height and the logo sits at the top of it, so the header starts at the rail's edge and holds no destination at all, not even a route home. The earlier version put the logo in the header and needed the words "except the logo" to stay true. It no longer does. <strong>The toggle sits on the junction of the two seams</strong>, which also settles Material's caution structurally: "avoid using logos that could be mistaken as buttons, don't use a logo as a menu button to expand the navigation rail." Here the logo cannot be mistaken for the toggle, because the toggle is a separate control in a different place.</p>
   </div>
 </section>
 
@@ -228,53 +236,57 @@
       <div class="wf-cap">1. Desktop, guest, rail expanded</div>
       <div class="wf">
         <div class="wf-inner">
-          <div class="wf-bar">
-            <div class="wf-ico is-menu">&#9776;</div>
-            <div class="wf-logo">LOGO</div>
-            <div class="wf-spacer"></div>
-            <div class="wf-btn is-solid">Sign in</div>
-            <div class="wf-ico">&#9834;</div>
-          </div>
-          <div class="wf-app">
+          <div class="wf-frame">
             <div class="wf-rail">
+              <div class="wf-railhead"><div class="wf-logo">LOGO</div></div>
+              <div class="wf-seam">&#9776;</div>
               <div class="wf-item is-on"><span class="wf-item-ico"></span><span class="wf-item-lbl">Cases</span></div>
               <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Provably fair</span></div>
               <div class="wf-div"></div>
               <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Responsible</span></div>
             </div>
-            <div class="wf-body">Page content</div>
+            <div class="wf-right">
+              <div class="wf-bar is-seamed">
+                <div class="wf-spacer"></div>
+                <div class="wf-btn is-solid">Sign in</div>
+                <div class="wf-ico">&#9834;</div>
+              </div>
+              <div class="wf-body">Page content</div>
+            </div>
           </div>
         </div>
       </div>
-      <p class="wf-note"><b>Three destinations.</b> Material's collapsed rail wants 3 to 7, so the guest state clears the floor exactly. One full-width divider separates the two groups, never individual items. The money zone is empty because there is no balance before an account.</p>
+      <p class="wf-note"><b>The rail runs the full height and the logo lives at the top of it.</b> The header starts at the rail's edge rather than spanning the window, and <b>the toggle sits on the junction of the two seams</b>, straddling both. <b>Three destinations.</b> Material's collapsed rail wants 3 to 7, so the guest state clears the floor exactly. One full-width divider separates the two groups, never individual items. The money zone is empty because there is no balance before an account.</p>
     </div>
 
     <div class="wf-col">
       <div class="wf-cap">2. Desktop, account exists</div>
       <div class="wf">
         <div class="wf-inner">
-          <div class="wf-bar">
-            <div class="wf-ico is-menu">&#9776;</div>
-            <div class="wf-logo">LOGO</div>
-            <div class="wf-spacer"></div>
-            <div class="wf-avatar"></div>
-            <div class="wf-name">Player</div>
-            <div class="wf-money2">
-              <div class="wf-m-row">$588.08 <span class="wf-m-tag">balance</span></div>
-              <div class="wf-m-row is-dim">$35.91 <span class="wf-m-tag">in items</span></div>
-            </div>
-            <div class="wf-plus">+</div>
-            <div class="wf-ico">&#9834;</div>
-          </div>
-          <div class="wf-app">
+          <div class="wf-frame">
             <div class="wf-rail">
+              <div class="wf-railhead"><div class="wf-logo">LOGO</div></div>
+              <div class="wf-seam">&#9776;</div>
               <div class="wf-item is-on"><span class="wf-item-ico"></span><span class="wf-item-lbl">Cases</span></div>
               <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Provably fair</span></div>
               <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">My items</span></div>
               <div class="wf-div"></div>
               <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Responsible</span></div>
             </div>
-            <div class="wf-body">Page content</div>
+            <div class="wf-right">
+              <div class="wf-bar is-seamed">
+                <div class="wf-spacer"></div>
+                <div class="wf-avatar"></div>
+                <div class="wf-name">Player</div>
+                <div class="wf-money2">
+                  <div class="wf-m-row">$588.08 <span class="wf-m-tag">balance</span></div>
+                  <div class="wf-m-row is-dim">$35.91 <span class="wf-m-tag">in items</span></div>
+                </div>
+                <div class="wf-plus">+</div>
+                <div class="wf-ico">&#9834;</div>
+              </div>
+              <div class="wf-body">Page content</div>
+            </div>
           </div>
         </div>
       </div>
@@ -287,30 +299,32 @@
       <div class="wf-cap">3. Desktop, rail collapsed by the toggle</div>
       <div class="wf">
         <div class="wf-inner">
-          <div class="wf-bar">
-            <div class="wf-ico is-menu">&#9776;</div>
-            <div class="wf-logo">LOGO</div>
-            <div class="wf-spacer"></div>
-            <div class="wf-avatar"></div>
-            <div class="wf-money2">
-              <div class="wf-m-row">$588.08 <span class="wf-m-tag">balance</span></div>
-              <div class="wf-m-row is-dim">$35.91 <span class="wf-m-tag">in items</span></div>
-            </div>
-            <div class="wf-plus">+</div>
-          </div>
-          <div class="wf-app">
+          <div class="wf-frame">
             <div class="wf-rail is-narrow">
+              <div class="wf-railhead"><div class="wf-logo is-mark">C</div></div>
+              <div class="wf-seam">&#9776;</div>
               <div class="wf-item is-on is-narrow"><span class="wf-item-ico"></span></div>
               <div class="wf-item is-narrow"><span class="wf-item-ico"></span></div>
               <div class="wf-item is-narrow"><span class="wf-item-ico"></span></div>
               <div class="wf-div"></div>
               <div class="wf-item is-narrow"><span class="wf-item-ico"></span></div>
             </div>
-            <div class="wf-body">Page content, wider</div>
+            <div class="wf-right">
+              <div class="wf-bar is-seamed">
+                <div class="wf-spacer"></div>
+                <div class="wf-avatar"></div>
+                <div class="wf-money2">
+                  <div class="wf-m-row">$588.08 <span class="wf-m-tag">balance</span></div>
+                  <div class="wf-m-row is-dim">$35.91 <span class="wf-m-tag">in items</span></div>
+                </div>
+                <div class="wf-plus">+</div>
+              </div>
+              <div class="wf-body">Page content, wider</div>
+            </div>
           </div>
         </div>
       </div>
-      <p class="wf-note"><b>The only place a label may be absent.</b> Material sanctions icon-only presentation in the collapsed variant and the expanded variant is one control away. Tooltips on hover and on focus. The choice persists. <b>The collapsed rail is never hidden on desktop.</b></p>
+      <p class="wf-note"><b>The only place a label may be absent.</b> Material sanctions icon-only presentation in the collapsed variant and the expanded variant is one control away. Tooltips on hover and on focus. The choice persists. <b>The collapsed rail is never hidden on desktop.</b> The logo narrows to a mark and stays where it was, and the toggle does not move: it is anchored to the seam, so it tracks the rail's width instead of jumping.</p>
     </div>
 
     <div class="wf-col">
@@ -518,8 +532,8 @@
       <thead><tr><th>Zone</th><th>Guest, desktop</th><th>Guest, mobile</th><th>Account, desktop</th><th>Account, mobile</th></tr></thead>
       <tbody>
         <tr><td>Rail</td><td>Standard, beside content. Cases, Provably fair, divider, Responsible play</td><td>Modal drawer behind the menu icon, same items</td><td>Same plus My items</td><td>Modal drawer, same four</td></tr>
-        <tr><td>Brand and home</td><td>Logo, routes to 1.0</td><td>Logo in the header, routes to 1.0</td><td>Same</td><td>Logo becomes a mark</td></tr>
-        <tr><td>Rail toggle</td><td>Header, leading edge. Collapses to icons</td><td>Header, leading edge. Opens the modal drawer</td><td>Same</td><td>Same</td></tr>
+        <tr><td>Brand and home</td><td>Top of the rail, above the destinations, routes to 1.0</td><td>Header, because the rail is a drawer. Routes to 1.0</td><td>Same</td><td>Same, narrowed to a mark</td></tr>
+        <tr><td>Rail toggle</td><td>On the junction of the two seams. Collapses to icons</td><td>Header, leading edge. Opens the modal drawer</td><td>Same</td><td>Same</td></tr>
         <tr><td>Money</td><td>Nothing. There is no balance before an account</td><td>Nothing</td><td>Balance and value of items held, two lines, with the deposit control</td><td>Both figures, condensed, deposit control kept</td></tr>
         <tr><td>Account</td><td>Sign in, routes to 2.4</td><td>Sign in, routes to 2.4</td><td>Avatar and name, routes to 5.1</td><td>Avatar only, routes to 5.1</td></tr>
         <tr><td>Boundary</td><td>Rail entry only. Nothing to limit yet</td><td>Rail entry only</td><td>Rail entry plus the entry inside the money control</td><td>Same</td></tr>
@@ -560,8 +574,8 @@
     <table>
       <thead><tr><th style="width:26%">Element</th><th>Behaviour</th><th style="width:14%">Leads to</th></tr></thead>
       <tbody>
-        <tr><td>Logo</td><td>Always the route home. Never the control that expands the rail</td><td>1.0</td></tr>
-        <tr><td>Rail toggle</td><td>Desktop: collapse to icons and back, and the choice persists. Mobile: opens the modal drawer</td><td>current node</td></tr>
+        <tr><td>Logo</td><td>Top of the rail on desktop, in the header on mobile where the rail is a drawer. Always the route home, never the control that expands the rail</td><td>1.0</td></tr>
+        <tr><td>Rail toggle</td><td>Anchored to the junction of the two seams and tracks the rail's width. Desktop: collapse to icons and back, and the choice persists. Mobile: leading edge of the header, opens the modal drawer</td><td>current node</td></tr>
         <tr><td>Cases</td><td>Enters the catalogue, not a case</td><td>3.1</td></tr>
         <tr><td>Provably fair</td><td>Public, works with no account, and holds its position after login</td><td>1.2</td></tr>
         <tr><td>My items, account only</td><td>Inventory with receipts, and the entry to withdrawal</td><td>5.1</td></tr>
@@ -627,12 +641,12 @@
   <div class="split">
     <div class="card">
       <h4>Mobile, base, 360px</h4>
-      <p>One header row: menu icon, logo mark, then the money and account zone. The rail is a modal drawer, closed by default. No bottom bar at any width, in either state.</p>
+      <p>One header row: menu icon, logo mark, then the money and account zone. <strong>The logo moves into the header at this width and only at this width</strong>, because the rail is a drawer and a route home may not be behind a menu. The drawer is closed by default and carries no logo row of its own. No bottom bar at any width, in either state.</p>
       <p><strong>The two figures survive at 360px</strong>, which is why the header's right group is designed before its left one.</p>
     </div>
     <div class="card">
       <h4>Desktop, from 900px</h4>
-      <p>Standard rail beside the content, expanded by default with labels, collapsible to icons and the choice persists. Header holds the toggle, the logo, and the money and account group on the right.</p>
+      <p>Rail at the full height of the window, logo at its top, expanded by default with labels, collapsible to icons and the choice persists. The header starts at the rail's edge and holds only the money and account group. The toggle is on the seam between them.</p>
       <p><strong>Expanded by default is a decision, not a default.</strong> Material allows either. With three or four items there is no space pressure, and the collapsed variant exists for a person who wants the width back.</p>
     </div>
   </div>

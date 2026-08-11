@@ -26,12 +26,20 @@ The baseline runs **three** carriers that do not overlap, `baseline.md:48`: the 
 
 | Carrier | Owns | Never holds |
 |---|---|---|
-| **The rail**, left edge, collapsible | Destinations. Every place a person can go | Money. Actions. The account control |
-| **The header**, fixed top | Money, the account control, the rail toggle, and ambient controls | Destinations, except the logo |
+| **The rail**, full height at the leading edge, collapsible | The logo at its top, every destination, and its own toggle on the seam | Money. Actions. The account control |
+| **The header**, starting at the rail's edge | Money, the account control, and ambient controls | **Any destination at all.** No exception, not even the logo |
 
 **This rule is what makes "two menus" rigorous instead of ambiguous**, and it is exactly what the baseline already practises: `baseline.md:78`, "the header is where money and account live". It also lands the product on Material's supported configuration rather than beside it. Material's navigation drawer guidance says "**avoid using two navigation components on the same screen**", and a top app bar is not a navigation component in that taxonomy: it is the thing the drawer is opened from. "Modal navigation drawers are always opened by an action outside of the drawer, such as clicking a navigation menu icon."
 
 So the count is one primary navigation component plus one app bar, which is the standard shape, and the founder's "two menus" is the correct reading of it.
+
+### The geometry, and why it makes the rule absolute
+
+**The rail runs the full height of the window and the logo sits at the top of it.** The header therefore starts at the rail's right edge rather than spanning the window, and it holds no destination at all, not even a route home. The first draft of this node put the logo in the header and needed the words "except the logo" to keep the rule true. It no longer does, and a rule with no exception is a rule a later stage cannot erode.
+
+**The toggle sits on the junction of the two seams**, straddling the vertical edge of the rail and the horizontal edge of the header. It is anchored there rather than placed in either carrier, so when the rail collapses the toggle tracks its width instead of jumping. This also settles Material's caution structurally rather than by instruction: "avoid using logos that could be mistaken as buttons, don't use a logo as a menu button to expand the navigation rail." Here the logo cannot be mistaken for the toggle, because the toggle is a separate control in a different place.
+
+**One inherited fact does not match, and it is marked rather than overwritten.** `baseline.md:70` records the baseline header as full width with the logo at `x=5` and the toggle at `x=51`, which is not this geometry. Either the walk captured the collapsed state, or the founder is diverging from the baseline deliberately here. **`[?]`, and the next baseline walk resolves it.** `baseline.md` is not edited from a screenshot: it says what was walked.
 
 ---
 
@@ -113,7 +121,7 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 
 **Responsible play in the rail is an addition to the base layer and it is named rather than absorbed.** The base layer gave it a persistent entry inside the Balance control and a footer link, `sitemap.md:553`, on the argument that a brake which has to be searched for at the worst moment is not a brake. That entry is unchanged. This adds a second one, in the rail's lower group, and it is affordable now for the same reason the rail is: there is space. **Parent:** `B7-4`, pattern of 12, plus the compliance constraint at `CLAUDE.md:58`, "responsible play tooling". Both legal.
 
-**The logo sits above the rail and routes to 1.0**, which is the baseline's placement, `baseline.md:64`. Material's caution applies and is honoured: the logo is a link home and never the control that expands the rail. That control is the toggle, and it lives in the header.
+**The logo sits at the top of the rail and routes to 1.0**, which is the baseline's placement, `baseline.md:64`. It is inside the rail rather than above it: the rail is the full-height carrier and the logo is its first row.
 
 ### What is not in it, each with its reason
 
@@ -175,8 +183,8 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 | Zone | Guest, desktop | Guest, mobile | Account, desktop | Account, mobile |
 |---|---|---|---|---|
 | **Rail** | Standard, beside content. Cases, Provably fair, divider, Responsible play | Modal drawer behind the menu icon, same items | Same plus My items | Modal drawer, same four |
-| **Brand and home** | Logo above the rail, routes to 1.0 | Logo in the header, routes to 1.0 | Same | Same |
-| **Rail toggle** | Header, leading edge. Collapses to icons | Header, leading edge. Opens the modal drawer | Same | Same |
+| **Brand and home** | Top of the rail, above the destinations, routes to 1.0 | Header, because the rail is a drawer. Routes to 1.0 | Same | Same, narrowed to a mark |
+| **Rail toggle** | On the junction of the two seams. Collapses to icons | Header, leading edge. Opens the modal drawer | Same | Same |
 | **Money** | Nothing. There is no balance before an account | Nothing | Balance and value of items held, two lines, with the deposit control | Both figures, condensed to one line each, deposit control kept |
 | **Account** | Sign in, routes to 2.4 | Sign in, routes to 2.4 | Avatar and name, routes to 5.1 | Avatar only, routes to 5.1 |
 | **Boundary** | Rail entry only. Nothing to limit yet | Rail entry only | Rail entry plus the entry inside the money control | Same |
@@ -204,8 +212,8 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 
 | Element | Behaviour | Leads to |
 |---|---|---|
-| Logo | Always the route home. Never the control that expands the rail | 1.0 |
-| Rail toggle | Desktop: collapse to icons and back, and the choice persists. Mobile: opens the modal drawer | current node |
+| Logo | Top of the rail on desktop, in the header on mobile where the rail is a drawer. Always the route home, never the control that expands the rail | 1.0 |
+| Rail toggle | Anchored to the junction of the two seams and tracks the rail's width. Desktop: collapse to icons and back, and the choice persists. Mobile: leading edge of the header, opens the modal drawer | current node |
 | Cases | Enters the catalogue, not a case | 3.1 |
 | Provably fair | Public, works with no account, and holds its position after login | 1.2 |
 | My items, account only | Inventory with receipts, and the entry to withdrawal | 5.1 |
@@ -248,9 +256,9 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 
 ## 8. Adaptive behaviour
 
-**Mobile is the base, 360px.** One header row: menu icon, logo, then the money and account zone. The rail is a modal drawer, closed by default. No bottom bar at any width, in either state. **The two figures survive at 360px**, which is the width this node was reasoned from rather than checked against afterwards: they are the reason the header's right group is designed before its left one.
+**Mobile is the base, 360px.** One header row: menu icon, logo mark, then the money and account zone. The rail is a modal drawer, closed by default. No bottom bar at any width, in either state. **The logo moves into the header at this width and only at this width**, because the rail is behind a menu icon and a route home may not be. The drawer therefore carries no logo row of its own. **The two figures survive at 360px**, which is the width this node was reasoned from rather than checked against afterwards: they are the reason the header's right group is designed before its left one. Measured in the mockup, the whole mobile header group needs 298px and still leaves a 77px flexible gap.
 
-**Desktop, from 900px.** Standard rail beside the content, expanded by default with labels, collapsible to icons and the choice persists. Header holds the toggle, the logo, and the money and account group on the right.
+**Desktop, from 900px.** Rail at the full height of the window, logo at its top, expanded by default with labels, collapsible to icons and the choice persists. The header starts at the rail's edge and holds only the money and account group. The toggle is on the seam between them.
 
 **Between the two,** the drawer becomes standard rather than modal, and no destination is added or removed at any breakpoint. A person who resizes a window changes how the rail is presented and keeps every route.
 

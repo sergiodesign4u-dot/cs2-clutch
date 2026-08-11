@@ -460,6 +460,18 @@ At round 1's count Material would pick a bar. At the locked scope, nine baseline
 
 **Cost, accepted and named.** On mobile the rail is a modal drawer behind a menu icon, the baseline's own behaviour. From any screen that is not Home, the catalogue costs two taps rather than one. Material's compact-window advice is declined knowingly. **The three tap budget for the main job is untouched**, because the main flow never routes through the rail: tap 1 is a case tile on Home, tap 2 is the gate, tap 3 is Open.
 
+### The geometry, specified by the founder in the same sitting
+
+**The rail runs the full height of the window and the logo sits at the top of it.** The header therefore starts at the rail's right edge rather than spanning the window, and **the toggle sits on the junction of the two seams**, anchored there rather than placed in either carrier, so it tracks the rail's width when the rail collapses instead of jumping.
+
+**This is what makes the carrier rule absolute.** The first draft of the rebuilt node put the logo in the header and needed the words "except the logo" to stay true. It no longer does. The header holds no destination at all, and a rule with no exception is a rule a later stage cannot erode.
+
+It also settles Material's caution structurally rather than by instruction: "avoid using logos that could be mistaken as buttons, don't use a logo as a menu button to expand the navigation rail." The logo cannot be mistaken for the toggle when the toggle is a separate control in a different place.
+
+**One inherited fact does not match, and it is marked rather than overwritten.** `baseline.md:70` records the baseline header as full width with the logo at `x=5` and the toggle at `x=51`. Either the walk captured the collapsed state or this is a deliberate divergence. **`[?]`, resolved by the next baseline walk.** `baseline.md` says what was walked and is not edited from a screenshot.
+
+**The one place the logo leaves the rail is 360px**, where the rail is a drawer behind a menu icon. A route home may not sit behind a menu, so the logo mark moves into the header and the drawer carries no logo row of its own.
+
 ### The two figures, and the four rules they acquired on the way in
 
 The founder specified the pair. Four rules were derived from files that already exist, and each one is a constraint the baseline's own version does not meet.
