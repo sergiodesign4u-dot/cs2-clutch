@@ -15,7 +15,7 @@ This table and `_nav.js` are the only two places where status lives. Nothing els
 | 01 | Foundation Research | [Research](https://sergiodesign4u-dot.github.io/cs2-clutch/research/research.html) | Done |
 | 02 | User Research (Personas, JTBD) | [Personas](https://sergiodesign4u-dot.github.io/cs2-clutch/research/personas.html), [JTBD](https://sergiodesign4u-dot.github.io/cs2-clutch/research/jtbd.html) | Done |
 | 02+ | CJM (As-Is, To-Be) | [CJM As-Is](https://sergiodesign4u-dot.github.io/cs2-clutch/research/cjm-as-is.html), [CJM To-Be](https://sergiodesign4u-dot.github.io/cs2-clutch/research/cjm-to-be.html) | Done |
-| 03 | Information Architecture (Base, Detail) | [Baseline walk](https://sergiodesign4u-dot.github.io/cs2-clutch/research/baseline.html), then flows, concept-map, sitemap, structure | Input gate passed |
+| 03 | Information Architecture (Base, Detail) | [Baseline walk](https://sergiodesign4u-dot.github.io/cs2-clutch/research/baseline.html), [Flows](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/flows.html), then concept-map, sitemap, structure | In progress, base layer 4 of 8 steps |
 | 04 | Wireframes | overview, index, screens | Not started |
 | 05 | Voice | voice | Not started |
 | 06 | Concept | directions, concept | Not started |
