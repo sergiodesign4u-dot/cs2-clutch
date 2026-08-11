@@ -26,7 +26,7 @@ Every verdict below is `[?]` until re-verified against current law, and the deci
 
 ## 1. The row schema
 
-Nine fields. Each one is a field rather than a sentence because something in the product reads it separately.
+Eleven fields. Each one is a field rather than a sentence because something in the product reads it separately. **Nine at first writing, and the last two were added the same day by the research pass in section 3.**
 
 | Field | What it holds | Why it is a field |
 |---|---|---|
@@ -39,6 +39,8 @@ Nine fields. Each one is a field rather than a sentence because something in the
 | **Age method** | Declaration, identity-based verification, or a stricter local requirement | The UK Online Safety Act 2023 made checkbox age confirmation unlawful for gambling sites from 25 July 2025, `research.md` section 7. A market can be open and still forbid the method our gate uses |
 | **Last verified** | The date a human last checked this row | A register with no decay date is a snapshot that reads as current forever, section 8 |
 | **Re-verification trigger** | The named event that invalidates this row early | Two are already known and dated, section 8 |
+| **Signed by** | The name of the person who took the verdict | Added 12 August 2026 by the second research pass. **The register recorded what was decided and not who is accountable for it**, and under an allowlist the whole point is that somebody chose |
+| **Signed on** | The date they took it | A verdict with no signature is a draft. It is also what makes the twelve month re-verification measurable |
 
 ---
 
@@ -70,6 +72,8 @@ The starting list is inherited from `lean-ux-canvas.md`: **Belgium, Netherlands,
 ---
 
 ## 3. Legal research pass, 12 August 2026, taken at the founder's instruction
+
+**Second wave, later the same day.** Two research passes ran in parallel at the founder's instruction, one on the allowlist fork and one on the operating entity. Their findings are folded into sections 3.6, 3.7 and 4 below, each carrying the provenance its brief gave it: **opened live** or **search summary**. The full briefs with their source tables were produced outside the repository and their content lives here, where the decision lives.
 
 **The founder asked me to take the lawyer's seat and settle the open questions.** What that seat can do here is cited legal research and a defensible verdict per market with its ground attached. What it cannot do is sign. Belgium's penalties are criminal and Michigan's letters escalate to civil and criminal measures, so a licensed lawyer confirms before a market is opened or closed. `D-A` already says this in its own words, "needs cited legal research and counsel": **this pass delivers the first half in full and turns the second from a discovery into a review.**
 
@@ -138,6 +142,50 @@ Verdict: **blocked, and no longer a copied row.** `[?] text not opened`, citatio
 4. **The operating entity.** Node `0.2` carries it as an open item with every value unresolved. This pass turns that from a form field into a decision with a legal consequence attached.
 
 
+### 3.6 The licence, and it decides more than where the company sits
+
+**The question from 3.1 has an answer, and it is one jurisdiction rather than a shortlist.**
+
+**Recommended: the Isle of Man, under the Online Gambling Regulation Act 2001.** It is the only regulator whose statutory hook was written around the thing this product actually does. Appleby's 2026 guide to Isle of Man gambling law, opened live, states that the Online Gambling (Registration and Account) Regulations 2008 let Isle of Man operators **"accept deposits in money or value in money's worth, including virtual assets"**, and that the GSC controls the use of virtual assets through policy, guidance and licence conditions. An independent search in this session corroborates the reading further: the 2017 changes permitted accounts funded with anything of value in money's worth, **expressly including non-convertible virtual currencies such as in-game skins**, and the GSC is reported as issuer of the first skin betting licence in the category.
+
+**That matters more than the fee.** Everywhere else covers this product generically or not at all, which means the classification question gets answered by an official who has never been asked it before.
+
+| Jurisdiction | Covers this product | Substance | Reported fees | Provenance |
+|---|---|---|---|---|
+| **Isle of Man, GSC** | **Yes, by a definition written for money's worth and virtual assets** | An Isle of Man company and a hearing before the Commission. Full local substance `[?]` | £5,250 application, £36,750 annual, five year term, duty tiered on yield from 1.5 percent | Act and fees opened live. The skins wording is a search summary |
+| **Curacao, LOK** | Yes, generically. One B2C licence over every vertical | **Physical office, local managing director, up to three local staff by year five** | Two sources give figures near EUR 47,000 a year that **do not reconcile**, so `[?]` | Consultancy pages only |
+| **Malta, MGA** | **Maybe, case by case.** Virtual tokens as payment need prior approval | The heaviest on this list `[?]` | `[?]` | Search summary |
+| **Anjouan, Tobique, Kahnawake** | Generic only. No skins provision found | Light to none | Anjouan reported around EUR 18,000 first year | Consultancy pages |
+| **Costa Rica** | **No. There is no gambling licence to hold** | A municipal data processing permit, and local players blocked | n/a | Search summary |
+
+**Every fee above is reported by a secondary source and none was verified against a regulator's own schedule. That is the first thing for counsel to check.**
+
+**Three consequences, and the third one is the one nobody expects.**
+
+1. **A licence does not open a blocked market.** Not one of the ten rows in 3.4 opens under any licence in that table. The UK needs a UKGC licence, the Netherlands a KSA licence, the four US states license individually, and **Cyprus has no licence to obtain at all**. A licence decides where we may operate **from**, and which unlisted markets we may serve.
+2. **Cyprus can stay in the group, but not as the operator.** Nothing in the NBA finding stops a Cypriot holding, intellectual property or employment company existing, **provided the licensed entity is the one that contracts with players, holds balances and runs the games**. Whether a Cypriot contracting entity attracts Cypriot exposure for gambling offered outside Cyprus is `[?]` and is the first question for Cypriot counsel.
+3. **A tier one licence makes the allowlist close to compulsory.** A top tier regulator supervises which markets its licensees serve. **So the licence decision and the fork in section 4 are one decision, not two**, and they should be taken in one sitting.
+
+**And a corroboration from the category, read live.** Hellcase's terms of use, opened 12 August 2026, name **no licence, no restricted jurisdiction list and no allowlist anywhere in fifty six thousand characters**. What they have instead is blanket discretion plus **two contracting entities split by region: a Cypriot company for EU users and a Singapore company for everyone else.** A second category leader routes EU users through Cyprus. That corroborates our Cyprus finding as the normal structure of the category, and says nothing at all about whether it is lawful.
+
+### 3.7 The staged rollout ladder
+
+How a market moves, mapped onto the six verdict values already in section 11 so that nothing new has to be invented at stage 04.
+
+| Step | Verdict after | What has to exist |
+|---|---|---|
+| **0. Default** | `not launched` | Nothing. **This is the state of every market on earth until someone spends money on it**, and the product must not imply a legal verdict |
+| **1. Queued** | `under review` | A business case: why this market, what it is worth, who asked. One line with a named owner |
+| **2. Memo** | still `under review` | A written opinion from counsel qualified there, answering the classification question **for our exact mechanics**: paid entry, randomised outcome, withdrawal of a tradable item to Steam. Not for online casino in general |
+| **3. Row complete** | `open` or `staged` | Ground, source, date, minimum age, age method, payment rails, and confirmation that our licence permits serving this market. **A row missing any one of them stays `under review`** |
+| **4. Signature** | recorded on the row | Counsel writes it, the founder signs it, both names and the date sit in the row. This is what the two new fields in section 1 hold |
+| **5. Launch shape** | `staged` where useful | Cohort cap, spend cap or a limited surface. `staged` exists so a first market is not an all-or-nothing bet |
+| **6. Decay** | `under review` on a fired trigger | **Scheduled re-verification every twelve months**, plus immediately on any trigger from section 8 |
+| **7. Exit** | `closing`, then `blocked` | The procedure in section 7, with the exit window still `[?]` |
+
+**Under an allowlist the blocklist stops growing.** India banned real-money games outright from 1 May 2026, New Zealand closes to all but fifteen licensees from 1 December 2026, Ireland began licensing on 1 July 2026, and Australia is reported to have blocked at least one platform in this category. **None of those needs a row.** They are `not launched` like everywhere else we have not paid to review, and the ten explicit blocks stay explicit only because they carry exposure we already know about. All four dates are search summaries.
+
+
 ## 4. The structural fork, and how it was resolved
 
 **Allowlist or blocklist.** Is a market closed until a row opens it, or open until a row blocks it?
@@ -157,10 +205,17 @@ Verdict: **blocked, and no longer a copied row.** `[?] text not opened`, citatio
 
 **Recommendation upgraded to a verdict, pending the founder's word: allowlist, staged.** Section 3 changed the balance of the argument rather than restating it.
 
+**And the second pass found the property that actually decides it, which is not caution.** **Under a blocklist, a missing row grants access.** So "we have never looked at this market" and "we looked and it is fine" produce identical behaviour in the product, and the confidence field specified in section 1 becomes decoration: nothing reads it, because absence already decided. **Under an allowlist, a missing row denies access, so ignorance is free and only knowledge costs money.** That is the correct direction for a liability that is criminal in at least two of the rows we already hold.
+
 - **Michigan issued 45 cease-and-desist orders in four months to 7 April 2026**, and the release says non-compliance escalates to civil and criminal measures.
 - **The Netherlands is fining at EUR 280,000 per week**, and the operator being fined is the one whose blocklist ours was partly copied from.
 - **Lithuania blocks by DNS and by payments**, and the only exit from its blacklist is a local licence.
 - **Belgium can compel ISPs, Google, Meta and Apple to block**, since June 2024.
+- **India banned real-money online games outright** from 1 May 2026, skill or chance alike, with payment blocking and a reported 7,800 platforms shut down. Search summary.
+- **New Zealand** closes to all but fifteen licensed platforms from 1 December 2026, and a new offshore entrant is already prohibited. Search summary.
+- **Ireland** began issuing remote licences on 1 July 2026. Search summary.
+
+**Four of those changed inside this project's own build window.** A blocklist has to be updated faster than the founder reads the news, by someone whose job that is. An allowlist changes only when we decide to enter somewhere, which is a thing we schedule.
 
 **A blocklist is a bet that you will be told before you are fined.** In 2025 and 2026 the regulators in this file are not writing first in every case, and the one that does write is writing to forty five operators at a time. The allowlist's cost is real and it is a delay. The blocklist's cost is unbounded and it arrives as a number per week.
 
@@ -277,7 +332,9 @@ The full record is operator-side. What reaches a person is **the verdict and the
 |---|---|---|
 | **The signature** | Every verdict in section 3 is research, not advice. Belgium is criminal and Michigan escalates to criminal, so a licensed lawyer confirms before a market is opened or closed | Counsel, under `D-A` |
 | **The classification question** | Is this product a game of chance in each market we intend to open. Legal judgment rather than research, and every row rests on it | Counsel |
-| **The operating entity and its licence** | Cyprus is out for this product type. Curacao under the new ordinance is the category's route and demands local substance from 1 January 2026. Malta and the Isle of Man not researched | **Founder with counsel.** It is now a decision with a legal consequence rather than a form field |
+| **The licence, and it is one decision with the fork above** | **Recommendation on file: the Isle of Man**, whose definition of money's worth was written to include virtual assets and is reported to name skins. Fees are secondary sources and unverified against the regulator's own schedule | **Founder with counsel.** Take it in the same sitting as the allowlist, because a tier one licence supervises which markets we serve |
+| **Cyprus: what stays and what goes** | Cyprus cannot hold the licence. It can plausibly hold a holding, IP or employment company. Whether a Cypriot contracting entity attracts exposure for gambling offered outside Cyprus is `[?]` | Cypriot counsel plus a tax adviser |
+| **The first memo batch and its budget** | Which three to five markets are worth paying counsel to answer for. **There is no clean launch set to hand over**, and inventing one is the failure this project's rules exist to prevent. The queue: Brazil, which has a known priced route at R$30 million for five years, then Canada outside Ontario, then LatAm as one regional memo, then a small EU state to prove the mechanic | **Founder.** Budget before list |
 | **Three grounds whose text was not opened** | Nevada, Idaho and Lithuania were read from search results because those hosts refused this environment. The citations are exact, so this is one pull each | Counsel, or a second pass from a different network |
 | **The exit window when a market closes** | Nothing in this repository sets it | Founder with counsel |
 | **The geolocation provider and its accuracy** | Detection quality decides how often section 6 runs | Production. `[?]` |
