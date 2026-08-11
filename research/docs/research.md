@@ -348,6 +348,8 @@ None of 20 audited skin gambling sites implemented robust age checks beyond self
 
 UK now requires identity-based verification (Online Safety Act, July 2025). Belgium requires age 21 verification. Any serious compliance posture requires identity-based age verification at account creation, not only at withdrawal.
 
+**Extended on 12 August 2026, and the extension lives in the information architecture rather than here.** Node `0.12` in `ia/docs/pages/markets.md` turns this section into a per-market register with a fixed row schema, adds Michigan, Idaho, Lithuania and Cyprus with grounds, gives Nevada the ground it never had, and records which pages were opened live and which were read from search results. This section is unchanged and is not superseded: the register cites it.
+
 ### Implications for Staged Regional Rollout
 
 A staged rollout grounded in compliance evidence should:

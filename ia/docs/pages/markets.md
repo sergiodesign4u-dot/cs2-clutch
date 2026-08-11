@@ -10,7 +10,7 @@
 
 **The sweep registered five, and this node found two more.** `2.7` and `4.1` are consumers because the document and the payment instrument are evidence of where a person is, and evidence is half of what a verdict is made of. The map row for `0.12` is corrected in the same step, which is the discover-as-you-go rule working in the direction it was written for.
 
-**Not drawn at stage 04.** A register has no screen. What stage 04 inherits is the state set in section 10 and the person-side message in section 9.
+**Not drawn at stage 04.** A register has no screen. What stage 04 inherits is the state set in section 11 and the person-side message in section 9.
 
 ---
 
@@ -31,7 +31,7 @@ Nine fields. Each one is a field rather than a sentence because something in the
 | Field | What it holds | Why it is a field |
 |---|---|---|
 | **Market** | The jurisdiction, at the granularity that jurisdiction actually has | **The key is not "country".** The United States regulates by state, `research.md` section 7, so a country-keyed register cannot express Washington. Getting this wrong is a schema error that surfaces as a compliance failure |
-| **Verdict** | Open, staged, blocked, not launched, under review, closing | Six values, section 10. Two of them are not a blocked-or-not binary and both are load bearing |
+| **Verdict** | Open, staged, blocked, not launched, under review, closing | Six values, section 11. Two of them are not a blocked-or-not binary and both are load bearing |
 | **Ground** | The instrument or authority and what it says | Row `B4`'s success signal in `cjm-to-be.md`: every blocked market carries a row with a citation, and no market opens without one |
 | **Source** | The named source and its date | A ground with no source is an opinion. `CLAUDE.md`: a fact from memory or from an undated article is `[?]`, not a fact |
 | **Confidence** | Cited, inferred, or inherited with no ground | **The field that makes the audit in section 2 possible.** Without it, a row copied from a competitor reads exactly like a row read out of a statute |
@@ -69,7 +69,76 @@ The starting list is inherited from `lean-ux-canvas.md`: **Belgium, Netherlands,
 
 ---
 
-## 3. The structural fork this register cannot decide alone
+## 3. Legal research pass, 12 August 2026, taken at the founder's instruction
+
+**The founder asked me to take the lawyer's seat and settle the open questions.** What that seat can do here is cited legal research and a defensible verdict per market with its ground attached. What it cannot do is sign. Belgium's penalties are criminal and Michigan's letters escalate to civil and criminal measures, so a licensed lawyer confirms before a market is opened or closed. `D-A` already says this in its own words, "needs cited legal research and counsel": **this pass delivers the first half in full and turns the second from a discovery into a review.**
+
+### How each ground below was obtained, because that distinction is this project's own rule
+
+- **Opened live in this session, 12 August 2026:** the Cyprus National Betting Authority FAQ, `https://nba.gov.cy/en/frequently-asked-questions/`, and the Michigan Gaming Control Board release of 7 April 2026, `https://www.michigan.gov/mgcb/news/2026/04/07/mgcb-issues-cease-and-desist-orders-to-45-illegal-offshore-gambling-operators`.
+- **Read from search results, page not opened:** the Nevada, Idaho and Lithuania grounds. Justia, the Nevada Legislature and the Lithuanian regulator all returned 403 to this environment and Idaho's legislature host was unreachable. **They are marked `[?] text not opened` rather than presented as read**, and each carries its exact statutory citation so counsel pulls the text in one step.
+
+### 3.1 The question nobody in this repository had asked: where may we operate from
+
+Every open item in this node until now was about which markets we block. **Not one asked which jurisdiction we may lawfully operate from, and that question outranks the blocklist**, because it decides which markets can ever be open at all.
+
+**The baseline answers it one way, and the answer does not survive reading.** `baseline.md` records the footer's identification line: MIXABIT LTD, Nicosia, Cyprus. `research.md` section 7 records the category's pattern as "register in permissive jurisdictions (Cyprus, Curacao, Isle of Man)".
+
+**Cyprus is not permissive for this product.** The National Betting Authority licenses two classes, and the online class B covers "the provision of electronic betting services **excluding slot machines, on-line casino games of chance provided with a direct link** and electronic horse racing". The same page records that the NBA maintains a blocking list of illegal operators offering "poker, online casino, spread bet services, betting exchanges etc." Opened live, 12 August 2026.
+
+**Three consequences, and they are precise rather than dramatic:**
+
+1. **A Cypriot company is not a Cypriot gambling licence.** Incorporation is company law. Offering a game of chance to persons in Cyprus is betting law, and Cyprus issues no licence for it.
+2. **Cyprus becomes a blocked market for us**, whatever we incorporate as, if our product is a game of chance. **The inherited list has no Cyprus row at all**, and the baseline's own entity is Cypriot.
+3. **The licensing route has to be found somewhere else.** The one the category actually uses is Curacao, whose National Ordinance on Games of Chance replaced the old master and sub-licence system with direct licensing by the Curacao Gaming Authority, one licence covering all verticals, and which **from 1 January 2026 requires local substance: a physical office and local personnel.** Secondary sources only, read from search results, so this is a direction rather than a verdict. Malta and the Isle of Man were not researched in this session and are `[?]`.
+
+### 3.2 Nevada has a ground, and it is stronger than the copied row implied
+
+The audit above found Nevada in our list because two competitors block it. The ground exists, and it is statutory rather than an enforcement action:
+
+- **NRS 463.0152** defines a game or gambling game as any game played with cards, dice, equipment or any mechanical or electronic device or machine **"for money, property, checks, credit or any representative of value"**.
+- **NRS 463.01862** defines "representative of value" as **"any instrumentality used by a patron in a game whether or not the instrumentality may be redeemed for cash"**.
+
+**That second definition is the finding, and it inverts the analysis this repository has been running.** `research.md` section 7 opens with the functional test every other jurisdiction turns on: can the item be converted to real-world monetary value. **Nevada's definition does not need convertibility at all.** A skin staked in a game is an instrumentality used by a patron, redeemable or not. Whatever a case-opening product argues about withdrawal, Nevada's statutory hook closes in front of the argument rather than behind it.
+
+Verdict: **blocked, and no longer a copied row.** `[?] text not opened`, citation given.
+
+### 3.3 Three markets our list omitted, and one is the most active regulator in the whole file
+
+| Market | Ground | How obtained |
+|---|---|---|
+| **Michigan** | The MGCB announced on **7 April 2026** that **over the past four months it issued cease-and-desist orders to 45 offshore gambling operators** for offering online casino games and sports wagering to Michigan residents without a licence, naming each. Basis: **the Lawful Internet Gaming Act, the Lawful Sports Betting Act and associated Michigan statutes**, under which "any entity offering online casino gaming or sports wagering to persons located within Michigan must be licensed and authorized by the MGCB". Non-compliance faces "potential escalation to additional civil and criminal enforcement measures" | **Opened live**, 12 August 2026 |
+| **Idaho** | Idaho Code **18-3801** defines gambling as risking any money, credit, deposit or other thing of value for gain contingent in whole or in part upon lot or chance. The state constitution declares gambling contrary to public policy with three narrow exceptions, so **legalisation would require a constitutional amendment rather than a statute** | Search results. `[?] text not opened` |
+| **Lithuania** | The Gaming Law requires a permit for remote gambling. The Gaming Control Authority publishes a blacklist of illegal online operators and applies **DNS blocking and payment blocking**, and the only route off the list is obtaining a Lithuanian licence | Search results. `[?] text not opened` |
+
+**Michigan is the finding that changes the shape of the list.** Forty five orders in four months, from an official source, dated four months ago. Our inherited list carries neither Michigan nor the two beside it, and the audit above showed why: the list was assembled from a competitor's blocklist rather than from law, so it inherited that competitor's blind spots along with its verdicts.
+
+### 3.4 The recommended register: ten rows, every one with a ground
+
+| Market | Verdict | Ground, in one line | How obtained |
+|---|---|---|---|
+| **Belgium** | Blocked | Gaming Commission 2018, case opening "identical to roulette machines"; minimum age 21 since 1 September 2024; ISP and platform blocking orders since June 2024 | `research.md` section 7, cited there |
+| **Netherlands** | Blocked | KSA treats convertible skin gambling as illegal gambling; EUR 280,000 per week penalty against Clash.gg and Rustclash.com, November 2025 | `research.md` section 7, cited there |
+| **United Kingdom** | Blocked absent a UKGC licence | Tradable skins act as a de facto virtual currency and bring the platform inside the Gambling Act 2005; checkbox age confirmation unlawful since 25 July 2025 | `research.md` section 7, cited there |
+| **Germany** | Blocked | Interstate Treaty on Gambling 2021, plus the CS X-Ray Scanner mandate from 16 March 2026. The consequence for third-party platforms is an expectation in our source rather than an order addressed to us | `research.md` section 7, cited there |
+| **Washington** | Blocked | Washington State Gambling Commission order to Valve, October 2016 | `research.md` section 7, cited there |
+| **Nevada** | Blocked | NRS 463.0152 with NRS 463.01862: a representative of value is an instrumentality used in a game **whether or not it may be redeemed for cash** | Search results. `[?] text not opened` |
+| **Michigan** | **Blocked. New** | Lawful Internet Gaming Act and Lawful Sports Betting Act; 45 cease-and-desist orders in four months to 7 April 2026 | **Opened live** |
+| **Idaho** | **Blocked. New** | Idaho Code 18-3801 plus a constitutional prohibition with three narrow exceptions | Search results. `[?] text not opened` |
+| **Lithuania** | **Blocked. New** | Permit required for remote gambling; regulator blacklist with DNS and payment blocking | Search results. `[?] text not opened` |
+| **Cyprus** | **Blocked. New, and it is where our own entity sits** | Betting Law class B excludes online casino games of chance; the NBA blocks operators offering them | **Opened live** |
+
+**Six became ten, and the shape of the change is the point.** Not one row was added by copying anyone. Three came from law, one came from reading our own footer, and the one row that was a copy turned out to have a stronger ground than the copy knew.
+
+### 3.5 What still needs a signature, and it is a narrower question now
+
+1. **The classification question, per market.** Is this product a game of chance where we intend to operate. It is legal judgment rather than research, and every row above rests on it.
+2. **The licensing route and its cost.** Curacao under the new ordinance is the category's route and it now demands local substance from 1 January 2026. That is an operating decision with a real budget, not a filing.
+3. **Whether the category's posture survives at all.** Licence in one permissive place, block the loud jurisdictions, is exactly the model the Netherlands fined and Michigan is writing to. Our own research already recorded it as what competitors do rather than as advice.
+4. **The operating entity.** Node `0.2` carries it as an open item with every value unresolved. This pass turns that from a form field into a decision with a legal consequence attached.
+
+
+## 4. The structural fork, and how it was resolved
 
 **Allowlist or blocklist.** Is a market closed until a row opens it, or open until a row blocks it?
 
@@ -84,9 +153,20 @@ The starting list is inherited from `lean-ux-canvas.md`: **Belgium, Netherlands,
 
 **This is a business decision with a revenue cost and it is the founder's, with counsel.** It is stated here rather than assumed because the register's whole shape depends on it: an allowlist register with a missing row denies access, a blocklist register with a missing row grants it, and those are the same file behaving in opposite directions.
 
+### Resolved in the research seat, 12 August 2026, and the evidence moved since this section was written
+
+**Recommendation upgraded to a verdict, pending the founder's word: allowlist, staged.** Section 3 changed the balance of the argument rather than restating it.
+
+- **Michigan issued 45 cease-and-desist orders in four months to 7 April 2026**, and the release says non-compliance escalates to civil and criminal measures.
+- **The Netherlands is fining at EUR 280,000 per week**, and the operator being fined is the one whose blocklist ours was partly copied from.
+- **Lithuania blocks by DNS and by payments**, and the only exit from its blacklist is a local licence.
+- **Belgium can compel ISPs, Google, Meta and Apple to block**, since June 2024.
+
+**A blocklist is a bet that you will be told before you are fined.** In 2025 and 2026 the regulators in this file are not writing first in every case, and the one that does write is writing to forty five operators at a time. The allowlist's cost is real and it is a delay. The blocklist's cost is unbounded and it arrives as a number per week.
+
 ---
 
-## 4. Evidence, and precedence when it disagrees
+## 5. Evidence, and precedence when it disagrees
 
 A verdict is a rule plus evidence about where a person is. The evidence arrives at four different moments, and it can contradict itself.
 
@@ -97,13 +177,13 @@ A verdict is a rule plus evidence about where a person is. The evidence arrives 
 | **Identity document** | `2.7`, before funding | Strongest, and it arrives at the same stage as the money |
 | **Declared residence** | Wherever we ask | Weakest alone. Useful as the thing a person is held to, rather than as detection |
 
-**Precedence, and it is a rule rather than a preference: the strongest evidence available wins, and later evidence overrides earlier evidence.** The register is what the check runs against; this line is what stops three surfaces from each deciding for themselves. The consequence is the case the product has to handle by design rather than by incident: **a person passes the IP gate, deposits, and then the document or the card says a blocked market.** Section 6 is that case.
+**Precedence, and it is a rule rather than a preference: the strongest evidence available wins, and later evidence overrides earlier evidence.** The register is what the check runs against; this line is what stops three surfaces from each deciding for themselves. The consequence is the case the product has to handle by design rather than by incident: **a person passes the IP gate, deposits, and then the document or the card says a blocked market.** Section 7 is that case.
 
 **What is not decided here:** which provider does the IP lookup, and its accuracy. That is production, and `[?]`.
 
 ---
 
-## 5. Being wrong in both directions
+## 6. Being wrong in both directions
 
 A geo verdict is a probabilistic guess presented as a fact. It will be wrong in both directions, and both need a route.
 
@@ -113,7 +193,7 @@ A geo verdict is a probabilistic guess presented as a fact. It will be wrong in 
 
 ---
 
-## 6. Closing a market without trapping the money
+## 7. Closing a market without trapping the money
 
 A market can close after people are already inside it. The law changes, the verdict is corrected, or the evidence resolves the other way. **The register carries the procedure, because otherwise it gets improvised at the worst moment.**
 
@@ -130,7 +210,7 @@ A market can close after people are already inside it. The law changes, the verd
 
 ---
 
-## 7. Re-verification, because the register decays
+## 8. Re-verification, because the register decays
 
 Every row carries a last-verified date and a trigger. Two triggers are already known and dated in `research.md` section 7, and both fall inside this project's own timeline:
 
@@ -141,7 +221,7 @@ Every row carries a last-verified date and a trigger. Two triggers are already k
 
 ---
 
-## 8. What the person sees, and the asymmetry
+## 9. What the person sees, and the asymmetry
 
 The full record is operator-side. What reaches a person is **the verdict and the ground in readable words**, plus what they can still do.
 
@@ -154,7 +234,7 @@ The full record is operator-side. What reaches a person is **the verdict and the
 
 ---
 
-## 9. SEO and accessibility
+## 10. SEO and accessibility
 
 **The register has no public URL.** What it constrains is how the blocked state behaves on the surfaces that render it, and node `0.13` owns indexation for those surfaces.
 
@@ -165,7 +245,7 @@ The full record is operator-side. What reaches a person is **the verdict and the
 
 ---
 
-## 10. State matrix: the six verdicts
+## 11. State matrix: the six verdicts
 
 | Verdict | What the product does | What the person sees | Who can set it |
 |---|---|---|---|
@@ -173,24 +253,35 @@ The full record is operator-side. What reaches a person is **the verdict and the
 | **Staged** | Access with a named limit, for example a launch cohort or a capped market | The limit, in words, and what changes it | Founder with counsel |
 | **Blocked** | No access to case interaction, deposit or opening. Reading stays open | The ground in readable words, and the route to `0.10` | Counsel, with a cited ground |
 | **Not launched** | No access. **Different from blocked and the difference is honest:** we have not reviewed this market, rather than the market forbids us | That we do not serve this market yet, without implying a legal verdict that does not exist | The default under an allowlist |
-| **Under review** | Behaves as its previous verdict, and is flagged operator-side | Nothing new | Any fired re-verification trigger, section 7 |
-| **Closing** | Deposits and opening stop, withdrawal stays open, section 6 | Notice with the ground, the exit window, and the appeal route | Counsel, or evidence that overrides an earlier verdict |
+| **Under review** | Behaves as its previous verdict, and is flagged operator-side | Nothing new | Any fired re-verification trigger, section 8 |
+| **Closing** | Deposits and opening stop, withdrawal stays open, section 7 | Notice with the ground, the exit window, and the appeal route | Counsel, or evidence that overrides an earlier verdict |
 
 **Not launched is not a euphemism.** Merging it into blocked would state a legal verdict we do not hold, in a register whose entire purpose is that verdicts are held rather than implied.
 
 ---
 
-## 11. What this node does not decide
+## 12. What this node does not decide
+
+**Four items closed by the research pass in section 3, and they are struck rather than deleted so the change is visible.**
+
+| Closed | What it was | What settled it |
+|---|---|---|
+| ~~Nevada's ground~~ | Blocked because two competitors block it | NRS 463.0152 with NRS 463.01862, and the second definition does not need convertibility at all. `[?] text not opened` |
+| ~~Idaho, Michigan, Lithuania~~ | Absent from our list with no ground either way | All three now carry a ground and a recommended verdict of blocked. Michigan's was opened live |
+| ~~Allowlist or blocklist~~ | The structural fork | Answered in section 4 as a verdict pending the founder's word: **allowlist, staged** |
+| ~~Where we may operate from~~ | Never asked in this repository at all | Cyprus issues no licence for a game of chance and becomes a blocked market. Opened live |
+
+**Still open, and the list is shorter and sharper.**
 
 | Open item | What is missing | Owner |
 |---|---|---|
-| **Every verdict in section 2** | Re-verification against current law. The audit here is about grounds in our own file, not about the law | Counsel, under `D-A` |
-| **Allowlist or blocklist** | The structural fork in section 3. The register behaves in opposite directions on a missing row | **Founder with counsel.** Recommendation on file |
-| **Nevada's ground** | It is blocked because two competitors block it. Either a ground exists and belongs in the row, or the verdict does not | Counsel |
-| **Idaho, Michigan, Lithuania** | Blocked by a competitor, absent from our list, and we hold no ground either way | Counsel |
+| **The signature** | Every verdict in section 3 is research, not advice. Belgium is criminal and Michigan escalates to criminal, so a licensed lawyer confirms before a market is opened or closed | Counsel, under `D-A` |
+| **The classification question** | Is this product a game of chance in each market we intend to open. Legal judgment rather than research, and every row rests on it | Counsel |
+| **The operating entity and its licence** | Cyprus is out for this product type. Curacao under the new ordinance is the category's route and demands local substance from 1 January 2026. Malta and the Isle of Man not researched | **Founder with counsel.** It is now a decision with a legal consequence rather than a form field |
+| **Three grounds whose text was not opened** | Nevada, Idaho and Lithuania were read from search results because those hosts refused this environment. The citations are exact, so this is one pull each | Counsel, or a second pass from a different network |
 | **The exit window when a market closes** | Nothing in this repository sets it | Founder with counsel |
-| **The geolocation provider and its accuracy** | Detection quality decides how often section 5 runs | Production. `[?]` |
-| **Minimum age and age method per open market** | Only two markets in our file carry a value, and both are blocked at launch | Counsel, as each market opens |
+| **The geolocation provider and its accuracy** | Detection quality decides how often section 6 runs | Production. `[?]` |
+| **Minimum age and age method per open market** | Two markets in our file carry a value and both are blocked, so the first open market will be the first row that needs one | Counsel, as each market opens |
 | **Whether this category is gambling** | Unsettled and varies by jurisdiction, `CLAUDE.md`. The register is built so that the answer is a field rather than an assumption | Nobody. It stays open by design |
 
 **And what belongs elsewhere.** The wording of the blocked message: stage 05. How the blocked state looks: stages 06 and 07. Where the market statement sits in the footer: node `0.2`, already specified. What the gate asks: node `2.1`, which reads three fields from here rather than holding its own constants.

@@ -148,12 +148,12 @@
 <div class="hero" id="overview">
   <div class="section-eyebrow">Information architecture, detail layer - node 0.12</div>
   <h1>Markets and jurisdictions</h1>
-  <p class="lede">One row per market: the verdict, the cited ground, the minimum age, the age method that market requires, the evidence the verdict rests on, and the date a human last checked it. Read by seven nodes and re-derived at none of them. This node specifies the register. It does not decide the law: every verdict is <span class="q">[?]</span> until re-verified, and that belongs to counsel under <code>D-A</code>.</p>
+  <p class="lede">One row per market: the verdict, the cited ground, the minimum age, the age method that market requires, the evidence the verdict rests on, and the date a human last checked it. Read by seven nodes and re-derived at none of them. <strong>Updated 12 August 2026 with a legal research pass taken at the founder's instruction:</strong> the inherited list of six becomes a recommended ten, every row carries a ground, and the question nobody had asked turns out to be where we may operate from.</p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">9</div><div class="hero-stat-label">Fields per row</div></div>
     <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Verdict values</div></div>
     <div><div class="hero-stat-value">7</div><div class="hero-stat-label">Nodes reading it</div></div>
-    <div><div class="hero-stat-value">1 of 6</div><div class="hero-stat-label">Inherited markets with no ground</div></div>
+    <div><div class="hero-stat-value">10</div><div class="hero-stat-label">Markets recommended, each with a ground</div></div>
   </div>
 </div>
 
@@ -272,6 +272,99 @@
   </div>
 </section>
 
+<!-- RESEARCH -->
+<section id="research">
+  <div class="sec-head">
+    <h2>Legal research pass, 12 August 2026</h2>
+    <p>Taken at the founder's instruction: sit in the lawyer's seat and settle the open questions.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>What this seat can do, and what it cannot</h4>
+    <p>It can do <strong>cited legal research and a defensible verdict per market with its ground attached</strong>. It cannot sign. Belgium's penalties are criminal and Michigan's letters escalate to civil and criminal measures, so a licensed lawyer confirms before a market is opened or closed.</p>
+    <p><code>D-A</code> already says this in its own words, "needs cited legal research and counsel". <strong>This pass delivers the first half in full and turns the second from a discovery into a review.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <h4>How each ground was obtained, because that distinction is this project's own rule</h4>
+    <p><strong>Opened live in this session, 12 August 2026:</strong> the Cyprus National Betting Authority FAQ, and the Michigan Gaming Control Board release of 7 April 2026.</p>
+    <p><strong>Read from search results, page not opened:</strong> the Nevada, Idaho and Lithuania grounds. Justia, the Nevada Legislature and the Lithuanian regulator all returned 403 to this environment and Idaho's legislature host was unreachable. <strong>They are marked <span class="q">[?] text not opened</span> rather than presented as read</strong>, and each carries its exact statutory citation so counsel pulls the text in one step.</p>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;color:var(--text-primary);margin:28px 0 10px">The question nobody in this repository had asked: where may we operate from</h3>
+
+  <div class="card is-fix">
+    <p>Every open item in this node until now was about which markets we block. <strong>Not one asked which jurisdiction we may lawfully operate from, and that question outranks the blocklist</strong>, because it decides which markets can ever be open at all.</p>
+    <p><strong>The baseline answers it one way, and the answer does not survive reading.</strong> <code>baseline.md</code> records the footer's identification line: MIXABIT LTD, Nicosia, Cyprus. <code>research.md</code> section 7 records the category's pattern as "register in permissive jurisdictions (Cyprus, Curacao, Isle of Man)".</p>
+    <p><strong>Cyprus is not permissive for this product.</strong> The National Betting Authority licenses two classes, and the online class B covers "the provision of electronic betting services <strong>excluding slot machines, on-line casino games of chance provided with a direct link</strong> and electronic horse racing". The same page records that the NBA maintains a blocking list of illegal operators offering "poker, online casino, spread bet services, betting exchanges etc." <strong>Opened live, 12 August 2026.</strong></p>
+  </div>
+
+  <div class="card">
+    <h4>Three consequences, precise rather than dramatic</h4>
+    <p><strong>1. A Cypriot company is not a Cypriot gambling licence.</strong> Incorporation is company law. Offering a game of chance to persons in Cyprus is betting law, and Cyprus issues no licence for it.</p>
+    <p><strong>2. Cyprus becomes a blocked market for us</strong>, whatever we incorporate as, if our product is a game of chance. <strong>The inherited list has no Cyprus row at all</strong>, and the baseline's own entity is Cypriot.</p>
+    <p><strong>3. The licensing route has to be found somewhere else.</strong> The one the category actually uses is Curacao, whose National Ordinance on Games of Chance replaced the old master and sub-licence system with direct licensing by the Curacao Gaming Authority, one licence covering all verticals, and which <strong>from 1 January 2026 requires local substance: a physical office and local personnel</strong>. Secondary sources only, so this is a direction rather than a verdict. Malta and the Isle of Man were not researched in this session and are <span class="q">[?]</span>.</p>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;color:var(--text-primary);margin:28px 0 10px">Nevada has a ground, and it is stronger than the copied row implied</h3>
+
+  <div class="card is-good">
+    <p><strong>NRS 463.0152</strong> defines a game or gambling game as any game played with cards, dice, equipment or any mechanical or electronic device or machine <strong>"for money, property, checks, credit or any representative of value"</strong>. <strong>NRS 463.01862</strong> then defines "representative of value" as <strong>"any instrumentality used by a patron in a game whether or not the instrumentality may be redeemed for cash"</strong>.</p>
+    <p><strong>That second definition is the finding, and it inverts the analysis this repository has been running.</strong> <code>research.md</code> section 7 opens with the functional test every other jurisdiction turns on: can the item be converted to real-world monetary value. <strong>Nevada's definition does not need convertibility at all.</strong> A skin staked in a game is an instrumentality used by a patron, redeemable or not. Whatever a case-opening product argues about withdrawal, Nevada's statutory hook closes in front of the argument rather than behind it.</p>
+    <p>Verdict: <strong>blocked, and no longer a copied row.</strong> <span class="q">[?] text not opened</span>, citation given.</p>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;color:var(--text-primary);margin:28px 0 10px">Three markets our list omitted, and one is the most active regulator in the whole file</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Market</th><th>Ground</th><th>How obtained</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Michigan</strong></td><td>The MGCB announced on <strong>7 April 2026</strong> that <strong>over the past four months it issued cease-and-desist orders to 45 offshore gambling operators</strong> for offering online casino games and sports wagering to Michigan residents without a licence, naming each. Basis: <strong>the Lawful Internet Gaming Act, the Lawful Sports Betting Act and associated Michigan statutes</strong>, under which "any entity offering online casino gaming or sports wagering to persons located within Michigan must be licensed and authorized by the MGCB". Non-compliance faces "potential escalation to additional civil and criminal enforcement measures"</td><td><strong>Opened live</strong>, 12 Aug 2026</td></tr>
+        <tr><td><strong>Idaho</strong></td><td>Idaho Code <strong>18-3801</strong> defines gambling as risking any money, credit, deposit or other thing of value for gain contingent in whole or in part upon lot or chance. The state constitution declares gambling contrary to public policy with three narrow exceptions, so <strong>legalisation would require a constitutional amendment rather than a statute</strong></td><td>Search results. <span class="q">[?] text not opened</span></td></tr>
+        <tr><td><strong>Lithuania</strong></td><td>The Gaming Law requires a permit for remote gambling. The Gaming Control Authority publishes a blacklist of illegal online operators and applies <strong>DNS blocking and payment blocking</strong>, and the only route off the list is obtaining a Lithuanian licence</td><td>Search results. <span class="q">[?] text not opened</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>Michigan is the finding that changes the shape of the list.</strong> Forty five orders in four months, from an official source, dated four months ago. Our inherited list carries neither Michigan nor the two beside it, and the audit above showed why: <strong>the list was assembled from a competitor's blocklist rather than from law</strong>, so it inherited that competitor's blind spots along with its verdicts.</p>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:700;color:var(--text-primary);margin:28px 0 10px">The recommended register: ten rows, every one with a ground</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Market</th><th>Verdict</th><th>Ground, in one line</th><th>How obtained</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Belgium</strong></td><td>Blocked</td><td>Gaming Commission 2018, case opening "identical to roulette machines"; minimum age 21 since 1 September 2024; ISP and platform blocking orders since June 2024</td><td><code>research.md</code> s7, cited there</td></tr>
+        <tr><td><strong>Netherlands</strong></td><td>Blocked</td><td>KSA treats convertible skin gambling as illegal gambling; EUR 280,000 per week penalty against Clash.gg and Rustclash.com, November 2025</td><td><code>research.md</code> s7, cited there</td></tr>
+        <tr><td><strong>United Kingdom</strong></td><td>Blocked absent a UKGC licence</td><td>Tradable skins act as a de facto virtual currency and bring the platform inside the Gambling Act 2005; checkbox age confirmation unlawful since 25 July 2025</td><td><code>research.md</code> s7, cited there</td></tr>
+        <tr><td><strong>Germany</strong></td><td>Blocked</td><td>Interstate Treaty on Gambling 2021, plus the CS X-Ray Scanner mandate from 16 March 2026. The consequence for third-party platforms is an expectation in our source rather than an order addressed to us</td><td><code>research.md</code> s7, cited there</td></tr>
+        <tr><td><strong>Washington</strong></td><td>Blocked</td><td>Washington State Gambling Commission order to Valve, October 2016</td><td><code>research.md</code> s7, cited there</td></tr>
+        <tr><td><strong>Nevada</strong></td><td>Blocked</td><td>NRS 463.0152 with NRS 463.01862: a representative of value is an instrumentality used in a game <strong>whether or not it may be redeemed for cash</strong></td><td>Search results. <span class="q">[?]</span></td></tr>
+        <tr><td><strong>Michigan</strong></td><td><strong>Blocked. New</strong></td><td>Lawful Internet Gaming Act and Lawful Sports Betting Act; 45 cease-and-desist orders in four months to 7 April 2026</td><td><strong>Opened live</strong></td></tr>
+        <tr><td><strong>Idaho</strong></td><td><strong>Blocked. New</strong></td><td>Idaho Code 18-3801 plus a constitutional prohibition with three narrow exceptions</td><td>Search results. <span class="q">[?]</span></td></tr>
+        <tr><td><strong>Lithuania</strong></td><td><strong>Blocked. New</strong></td><td>Permit required for remote gambling; regulator blacklist with DNS and payment blocking</td><td>Search results. <span class="q">[?]</span></td></tr>
+        <tr><td><strong>Cyprus</strong></td><td><strong>Blocked. New, and it is where our own entity sits</strong></td><td>Betting Law class B excludes online casino games of chance; the NBA blocks operators offering them</td><td><strong>Opened live</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>Six became ten, and the shape of the change is the point</h4>
+    <p><strong>Not one row was added by copying anyone.</strong> Three came from law, one came from reading our own footer, and the one row that was a copy turned out to have a stronger ground than the copy knew.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>What still needs a signature, and it is a narrower question now</h4>
+    <p><strong>1. The classification question, per market.</strong> Is this product a game of chance where we intend to operate. Legal judgment rather than research, and every row above rests on it.</p>
+    <p><strong>2. The licensing route and its cost.</strong> Curacao under the new ordinance is the category's route and it now demands local substance from 1 January 2026. An operating decision with a real budget, not a filing.</p>
+    <p><strong>3. Whether the category's posture survives at all.</strong> Licence in one permissive place, block the loud jurisdictions, is exactly the model the Netherlands fined and Michigan is writing to. Our own research already recorded it as what competitors do rather than as advice.</p>
+    <p><strong>4. The operating entity.</strong> Node <code>0.2</code> carries it as an open item with every value unresolved. This pass turns that from a form field into a decision with a legal consequence attached.</p>
+  </div>
+</section>
+
 <!-- FORK -->
 <section id="fork">
   <div class="sec-head">
@@ -295,6 +388,13 @@
     <h4>Recommendation: allowlist, staged. And the decision is not mine</h4>
     <p>It is what <code>research.md</code> section 7 already recommends, it is the only structure in which the confidence field means anything, and the same section names the prize directly: the platform that builds this infrastructure proactively is the first in category to do so.</p>
     <p><strong>This is a business decision with a revenue cost, and it is the founder's, with counsel.</strong> It is stated here rather than assumed because the register's whole shape depends on it: <strong>an allowlist register with a missing row denies access, a blocklist register with a missing row grants it.</strong> Same file, opposite directions.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Resolved in the research seat, 12 August 2026, and the evidence moved</h4>
+    <p><strong>Recommendation upgraded to a verdict, pending the founder's word: allowlist, staged.</strong> The pass above changed the balance of the argument rather than restating it.</p>
+    <p><strong>Michigan issued 45 cease-and-desist orders in four months</strong> to 7 April 2026, with escalation to civil and criminal measures named in the release. <strong>The Netherlands is fining at EUR 280,000 per week</strong>, and the operator being fined is the one whose blocklist ours was partly copied from. <strong>Lithuania blocks by DNS and by payments</strong>, with a local licence the only exit. <strong>Belgium can compel ISPs, Google, Meta and Apple to block</strong> since June 2024.</p>
+    <p><strong>A blocklist is a bet that you will be told before you are fined.</strong> The regulators in this file are not all writing first, and the one that does write is writing to forty five operators at a time. The allowlist's cost is real and it is a delay. The blocklist's cost is unbounded and it arrives as a number per week.</p>
   </div>
 </section>
 
@@ -452,20 +552,32 @@
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
-    <p>Eight open items. One of them is structural and the register behaves in opposite directions until it is answered.</p>
+    <p>Four items closed by the research pass and struck below rather than deleted. Eight remain, and the list is shorter and sharper than it was this morning.</p>
   </div>
 
   <div class="table-wrap">
     <table>
-      <thead><tr><th style="width:26%">Open item</th><th style="width:46%">What is missing</th><th>Owner</th></tr></thead>
+      <thead><tr><th style="width:26%">Closed by the research pass</th><th style="width:46%">What it was</th><th>What settled it</th></tr></thead>
       <tbody>
-        <tr><td><strong>Every verdict in the audit</strong></td><td>Re-verification against current law. The audit here is about grounds in our own file, not about the law</td><td>Counsel, under <code>D-A</code></td></tr>
-        <tr><td><strong>Allowlist or blocklist</strong></td><td>The structural fork. The register behaves in opposite directions on a missing row</td><td><strong>Founder with counsel.</strong> Recommendation on file</td></tr>
-        <tr><td>Nevada's ground</td><td>It is blocked because two competitors block it. Either a ground exists and belongs in the row, or the verdict does not</td><td>Counsel</td></tr>
-        <tr><td>Idaho, Michigan, Lithuania</td><td>Blocked by a competitor, absent from our list, and we hold no ground either way</td><td>Counsel</td></tr>
+        <tr><td><strong>Nevada's ground</strong></td><td>Blocked because two competitors block it</td><td>NRS 463.0152 with NRS 463.01862, and the second definition does not need convertibility at all</td></tr>
+        <tr><td><strong>Idaho, Michigan, Lithuania</strong></td><td>Absent from our list with no ground either way</td><td>All three now carry a ground and a recommended verdict of blocked. Michigan's was opened live</td></tr>
+        <tr><td><strong>Allowlist or blocklist</strong></td><td>The structural fork</td><td>Answered as a verdict pending the founder's word: <strong>allowlist, staged</strong></td></tr>
+        <tr><td><strong>Where we may operate from</strong></td><td>Never asked in this repository at all</td><td>Cyprus issues no licence for a game of chance and becomes a blocked market. Opened live</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Still open</th><th style="width:46%">What is missing</th><th>Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The signature</strong></td><td>Every verdict in the research pass is research, not advice. Belgium is criminal and Michigan escalates to criminal, so a licensed lawyer confirms before a market is opened or closed</td><td>Counsel, under <code>D-A</code></td></tr>
+        <tr><td><strong>The classification question</strong></td><td>Is this product a game of chance in each market we intend to open. Legal judgment rather than research, and every row rests on it</td><td>Counsel</td></tr>
+        <tr><td><strong>The operating entity and its licence</strong></td><td>Cyprus is out for this product type. Curacao under the new ordinance is the category's route and demands local substance from 1 January 2026. Malta and the Isle of Man not researched</td><td><strong>Founder with counsel.</strong> Now a decision with a legal consequence rather than a form field</td></tr>
+        <tr><td>Three grounds whose text was not opened</td><td>Nevada, Idaho and Lithuania were read from search results because those hosts refused this environment. The citations are exact, so this is one pull each</td><td>Counsel, or a second pass from a different network</td></tr>
         <tr><td>The exit window when a market closes</td><td>Nothing in this repository sets it</td><td>Founder with counsel</td></tr>
         <tr><td>The geolocation provider and its accuracy</td><td>Detection quality decides how often the wrong-verdict routes run</td><td>Production. <span class="q">[?]</span></td></tr>
-        <tr><td>Minimum age and age method per open market</td><td>Only two markets in our file carry a value, and both are blocked at launch</td><td>Counsel, as each market opens</td></tr>
+        <tr><td>Minimum age and age method per open market</td><td>Two markets in our file carry a value and both are blocked, so the first open market is the first row that needs one</td><td>Counsel, as each market opens</td></tr>
         <tr><td>Whether this category is gambling</td><td>Unsettled and varies by jurisdiction, <code>CLAUDE.md</code>. <strong>The register is built so that the answer is a field rather than an assumption</strong></td><td>Nobody. It stays open by design</td></tr>
       </tbody>
     </table>
@@ -498,6 +610,7 @@ window.NAV_SECTIONS = [
   { id: 'scope',    label: 'What it refuses to decide' },
   { id: 'schema',   label: 'The row schema' },
   { id: 'audit',    label: 'The inherited list, audited' },
+  { id: 'research', label: 'Legal research pass' },
   { id: 'fork',     label: 'Allowlist or blocklist' },
   { id: 'evidence', label: 'Evidence and precedence' },
   { id: 'wrong',    label: 'Being wrong both ways' },
