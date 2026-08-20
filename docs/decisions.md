@@ -1164,3 +1164,29 @@ Since `D-36` the account menu carries **My items as its first row**. `CLAUDE.md`
 - **The bar is below Material's floor of three for a signed-in person as well as for a guest.** `D-29` printed that violation when it applied to one state. **It now applies to both, and the way out `D-29` named is still not taken.**
 - **One extra tap from a case screen to the inventory on desktop**, through the account menu instead of the rail.
 - **`CLAUDE.md`'s navigation paragraph still reads "one destination before an account and two after".** That sentence is now wrong and **is not edited here**, because that file changes only on an explicit go.
+
+---
+
+## D-41. The language switcher ships as a carrier, and no second language ships with it
+
+**Date:** 2026-08-20. **Stage:** 04, raised against nodes `0.1` and `0.2`. **Decided by:** the founder, asked directly. **Binds:** node `0.1`'s ambient foot, node `0.2`'s "Language, absent" row, the shell in `wireframes/_nav.js`, and the reading of `D-02` in `CLAUDE.md`.
+
+**What was decided.** **The language control is a real switcher, in the rail's foot and in the footer.** **No translation is produced and round 1 still ships one language.**
+
+### The question this settles, and why it was worth asking
+
+`0.2` refused a language control on a **locked boundary decision** rather than on a preference: "Language, absent. `D-02`, one language. The baseline's nine-language switcher does not cross." `0.1` drew the rail's `EN` deliberately as **not a control**, in its own words: "the half that reports rather than acts, no press state, and not a button element. One language is locked, so there is nothing to pick."
+
+**The founder's answer separates two things those rows had welded together:** the live product has a switcher, so the carrier is inherited; and this project has no translations, so the content does not follow. **`D-02` is untouched. Its consequences all still hold**, and they are the reason it was worth being exact: one IA node is still one page, microcopy is still strings rather than keys, and voice and glossary still run once. **None of that depends on whether a control exists. All of it depends on whether a second language exists, and none does.**
+
+### The rule that decides what the control opens
+
+`CLAUDE.md`: **a carrier is inherited and filled with live items, and only a dead item is deferred, never the carrier that would have held it.** The baseline's switcher lists nine languages. **Eight rows for languages that do not exist would be the dead item defect inside a control**, which is the same defect the rail of nine was cut down to avoid.
+
+So it opens **one live option, English, and a printed sentence naming what is absent**: the others arrive with their translations, and **the product carries no hreflang until they do**. That last clause is not decoration: a switcher in the interface is the usual reason a crawler is told a page has alternates, and saying so here stops a later stage inferring it.
+
+### What this costs, stated
+
+- **A control with one option is a control a person can press and get nothing from.** That is real and it is the price of inheriting the carrier before the content. **The sentence inside it is what keeps that honest** rather than a menu that opens onto itself.
+- **It is in two carriers**, the rail's foot and the footer, at the founder's request and on the same argument that puts responsible play in three: each answers a different moment. **It is the same control in both, not a copy with different behaviour.**
+- **`CLAUDE.md`'s locked table still reads "Language, One, English", and that stays true.** What a future reader could take from it wrongly is that no switcher may be drawn. **The proposed amendment is one clause on that row and it is not made here**, because that file changes only on an explicit go.

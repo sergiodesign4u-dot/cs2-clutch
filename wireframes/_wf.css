@@ -317,14 +317,34 @@ a.wfp-state:hover { color: var(--wf-ink); }
   min-width: 0; padding: 0 var(--wf-s-1); font-size: var(--wf-t-s);
   border: 0; border-radius: 0; background: none; min-height: var(--wf-tap);
 }
-/* The half that reports rather than acts: same size, no press state, and not a button
-   element. One language is locked, so there is nothing to pick. */
+/* A REAL CONTROL SINCE D-41, reversing the line that used to stand here: "the half that
+   reports rather than acts, no press state, and not a button element". The live product
+   carries a switcher, the carrier is inherited, and a carrier is filled with live items
+   rather than deferred. WHAT IT NEVER DOES IS IMPLY A TRANSLATION: round 1 ships one
+   language, and what it opens says so instead of listing eight rows that do not exist. */
+.wf-lang-wrap { position: relative; display: flex; min-width: 0; }
 .wf-rail-lang {
-  min-width: 0;
+  min-width: 0; width: 100%;
   display: flex; align-items: center; justify-content: center;
-  border-left: 1px solid var(--wf-line-soft);
+  border: 0; border-left: 1px solid var(--wf-line-soft); border-radius: 0;
+  background: none; min-height: var(--wf-tap);
   font-size: var(--wf-t-s); color: var(--wf-ink-dim);
 }
+.wf-rail-lang:hover { color: var(--wf-ink); }
+.wf-lang-pop { display: none; }
+.wf-lang-wrap.is-open .wf-lang-pop {
+  display: flex; flex-direction: column; gap: var(--wf-s-1);
+  position: absolute; z-index: 70; bottom: calc(100% + var(--wf-s-1)); left: 0;
+  width: max-content; max-width: min(240px, calc(100vw - var(--wf-s-4))); padding: var(--wf-s-2);
+  background: var(--wf-raised); border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
+  text-align: left; font-size: var(--wf-t-xs);
+}
+.wf-lang-opt {
+  min-height: var(--wf-tap); padding: 0 var(--wf-s-1); text-align: left;
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: var(--wf-bg); color: var(--wf-ink-dim); font-size: var(--wf-t-s);
+}
+.wf-lang-opt.is-on { border-color: var(--wf-ink); color: var(--wf-ink); }
 .wf-rail-soc { display: flex; flex-direction: column; gap: var(--wf-s-1); }
 .wf-rail-soc-h { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-faint); }
 .wf-rail-soc-row { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
@@ -365,6 +385,11 @@ a.wfp-state:hover { color: var(--wf-ink); }
    band beside the payment marks: both are the same kind of thing, a reserved row whose
    contents are decided elsewhere, and neither is a destination. */
 .wf-foot-soc { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-1) var(--wf-s-2); }
+.wf-foot-soc .wf-lang-wrap { border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2); }
+.wf-foot-soc .wf-rail-lang { border-left: 0; padding: 0 var(--wf-s-2); }
+/* In the footer the control sits well to the right of a 360px screen, so the panel
+   opens from its right edge instead of its left and stays on the screen. */
+.wf-foot-soc .wf-lang-wrap.is-open .wf-lang-pop { left: auto; right: 0; }
 .wf-foot-soc .wf-rail-ico { flex: 0 0 20px; }
 
 .wf-marks { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); margin: var(--wf-s-2) 0 0; padding: 0; list-style: none; }
@@ -798,9 +823,11 @@ a.wfp-state:hover { color: var(--wf-ink); }
   .is-rail-collapsed .wf-rail-amb { grid-template-columns: 1fr; }
   .is-rail-collapsed .wf-rail-snd { font-size: 0; min-width: 0; padding: 0; min-height: 40px; }
   .is-rail-collapsed .wf-rail-snd::before { content: '\266A'; font-size: var(--wf-t-m); }
+  .is-rail-collapsed .wf-lang-wrap { width: 100%; }
   .is-rail-collapsed .wf-rail-lang {
-    border-left: 0; border-top: 1px solid var(--wf-line-soft); min-height: 32px;
+    border-left: 0; border-top: 1px solid var(--wf-line-soft); min-height: 40px;
   }
+  .is-rail-collapsed .wf-lang-wrap.is-open .wf-lang-pop { left: calc(100% + var(--wf-s-2)); bottom: 0; }
   .is-rail-collapsed .wf-rail-soc-row { justify-content: center; }
 
   /* THE TOOLTIP IS THE LABEL AND NOTHING ELSE. A tooltip that says something the

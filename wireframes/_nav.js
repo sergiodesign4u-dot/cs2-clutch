@@ -477,6 +477,37 @@ window.WF_NAV = {
     ];
   }
 
+  // The language control. One live option and the rest named as absent, which is the
+  // same treatment the rail itself gets: a carrier is inherited and filled with what is
+  // live, and only a dead item is deferred. Eight rows for languages that do not exist
+  // would be the dead item defect inside a control.
+  function langControl() {
+    var wrap = el('div', 'wf-lang-wrap');
+    var btn = el('button', 'wf-rail-lang', 'EN');
+    btn.type = 'button';
+    btn.setAttribute('aria-haspopup', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Language, English');
+    btn.setAttribute('data-lbl', 'Language: English');
+    var pop = el('div', 'wf-lang-pop');
+    var cur = el('button', 'wf-lang-opt is-on', 'English');
+    cur.type = 'button';
+    cur.setAttribute('aria-current', 'true');
+    pop.appendChild(cur);
+    pop.appendChild(el('span', 'wf-fig-missing',
+      'Round 1 ships one language. The others arrive with their translations, and the product carries no hreflang until they do.'));
+    function setOpen(on) {
+      wrap.classList.toggle('is-open', on);
+      btn.setAttribute('aria-expanded', on ? 'true' : 'false');
+    }
+    btn.addEventListener('click', function () { setOpen(!wrap.classList.contains('is-open')); });
+    wrap.addEventListener('keydown', function (e) { if (e.key === 'Escape') { setOpen(false); btn.focus(); } });
+    document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) setOpen(false); });
+    wrap.appendChild(btn);
+    wrap.appendChild(pop);
+    return wrap;
+  }
+
   // THE ACCOUNT CONTROL OPENS A MENU RATHER THAN NAVIGATING, 0.1 section 5, added by
   // founder decision on 19 August 2026 from the baseline capture. The control keeps its
   // route target as the menu's first row, so nothing reachable becomes unreachable.
@@ -598,8 +629,12 @@ window.WF_NAV = {
     // carries no menu, because a picker with one option is a dead control. It shares
     // the row with the sound control but NOT its affordance: no border, no press
     // state, so the half that acts and the half that reports do not look alike.
-    var lang = el('span', 'wf-rail-lang', 'EN');
-    lang.setAttribute('data-lbl', 'Language: English');
+    // A REAL CONTROL SINCE D-41, and the reason is the baseline rather than a
+    // preference: the live product has a switcher, the carrier is inherited, and a
+    // carrier is filled with live items rather than deferred. WHAT IT DOES NOT DO IS
+    // IMPLY A TRANSLATION. Round 1 ships one language, D-02 is untouched, and the
+    // absence is printed inside the control instead of drawn as eight dead rows.
+    var lang = langControl();
     lang.setAttribute('aria-label', 'Language: English. One language, so no switcher');
     amb.appendChild(lang);
     foot.appendChild(amb);
@@ -910,6 +945,11 @@ window.WF_NAV = {
       fsocNav.appendChild(fa);
     }
     fsoc.appendChild(fsocNav);
+    // THE LANGUAGE CONTROL IS HERE TOO, D-41. 0.2 used to read "Language, absent, D-02,
+    // one language" and the founder reversed that: the live product carries a switcher
+    // in both places and the carrier is inherited. It is the same control, not a copy
+    // with different behaviour, which is the superset rule applied to a control.
+    fsoc.appendChild(langControl());
     fsoc.appendChild(el('span', 'wf-fig-missing', 'Which channels are ours in round 1 is not decided'));
     band4.appendChild(fsoc);
     host.appendChild(band4);

@@ -140,7 +140,7 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 | | Provably fair | **no** since `D-29` | **no** | 1.2, from the footer's Play column |
 | | My items | **no** since `D-40` | **no**. It is the account menu's first row | 5.1, from the menu |
 | **Ambient**, at the foot | Sound | yes | yes | no destination, `[?]` below |
-| | Language | yes | yes | no destination |
+| | Language | yes | yes | no destination. **A switcher since `D-41`**, opening one live option and printing what is absent. **`D-02` is untouched: no second language ships** |
 | | Social links | yes | yes | outbound |
 | **Boundary** | Responsible play | **no** since `D-29` | **no** | 6.1, from the footer, the money control and the account menu |
 

@@ -687,7 +687,13 @@ Twelve findings raised, **ten confirmed and fixed, two withdrawn on verification
 
 **It sits in band 4, beside the payment marks**, because both are the same kind of object: a reserved row whose contents are decided elsewhere, and neither is a destination. **Which channels are ours in round 1 is `[?]`, owner founder**, so the row draws the reserved set and prints the hole rather than guessing at networks.
 
-**The language was asked for in the footer and is not drawn.** `0.2` refuses it on a **locked boundary decision** rather than a preference: "Language, absent. `D-02`, one language." Reversing it reopens a stage 01 answer, so it is named on the node and left to the founder rather than taken quietly.
+**The language was asked for in the footer, refused by the node, and the founder answered the question that refusal raised.** `0.2` read "Language, absent. `D-02`, one language", and `0.1` drew the rail's `EN` deliberately as **not a control**: "the half that reports rather than acts, no press state, and not a button element." The founder's answer: **the real product has a switcher, so it should exist, and this project has no translations.** `docs/decisions.md` `D-41`.
+
+**That separates two things those rows had welded together.** The carrier is inherited from the live product; the content does not follow. **`D-02` is untouched and every consequence of it still holds:** one IA node is still one page, microcopy is still strings rather than keys, voice and glossary still run once. **None of that depends on whether a control exists.**
+
+**What it opens is decided by the rule that shaped the rail itself.** A carrier is filled with live items and only a dead item is deferred, so **eight rows for languages that do not exist would be the dead item defect inside a control**. It opens **one live option and a printed sentence**: the others arrive with their translations, and **the product carries no hreflang until they do**. A switcher is the usual reason a crawler is told a page has alternates, and saying so here stops a later stage inferring it.
+
+**The cost is printed rather than absorbed: a control with one option is a control a person can press and get nothing from.** The sentence inside it is what keeps that honest rather than a menu opening onto itself.
 
 **Measured.** Rail 220 to 64 and back, the content column 985 to 1141 at 1440, `aria-expanded` and the accessible name both flipping, the tooltip rendering clear of the rail's own edge, the toggle absent below 900 while the header's menu icon stays, and no page scrolling sideways in either state at any width.
 
