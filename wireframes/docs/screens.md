@@ -1096,3 +1096,35 @@ The rail has followed it since it was drawn, in its own words: **"a destination 
 
 **Measured.** Seven slots in the menu at 20px, two zones in the bar at 22px with the bar still 56px tall, two coin slots against the two figures, at 1440 and at 360. **224 checks, no sideways scroll, no collapsed leaf.**
 
+---
+
+## 33. The batch receipt becomes a disclosure beside the acts
+
+**Founder, 20 August 2026:** this has to leave the page, maybe into a tooltip or behind an icon beside the buttons.
+
+### The cards are the result, the buttons are the act, and this is the paperwork
+
+`D-48` took the receipt out of the stage frame because it made the five-roll outcome the tallest stage on the page. **It was still in the flow**, and at five rolls that is five lines of float and pattern **standing between the results and the two acts**. The last thing read before a person spends again was machine detail.
+
+**A drawer is the right carrier for it**, because what it holds is **how to check a result later, not what the result is.**
+
+### What the drawer holds, and what it may never hold
+
+| | |
+|---|---|
+| **In it** | Float, pattern and phase per roll, because `F1` owes them on this screen and a control on this screen is on this screen. A proof link per roll |
+| **Still in the open** | **`F3`'s aggregate route, "Check all N rolls"**, in the link row, so the per-roll links are a convenience rather than the only way |
+| **Never in it** | **The cost, the odds and the sell prices.** Design principle 3 binds those and none of them moved |
+
+**The single outcome keeps its line in the open, deliberately.** One item has one line and it sits directly under the thing it describes. **A drawer for one line would be a control that hides less than it costs.**
+
+### Escape had to beat `:focus-within`, and the account menu had the same defect
+
+The control opens on hover, on click, on Enter and on Space, and it carries the bridge `D-49` gave the account menu. **Escape then failed on both, and for the same reason:** Escape closes the panel and returns focus to the control, **which is inside the wrapper, so `:focus-within` reopened it in the same frame.** The class came off and the panel stayed.
+
+**A dismissal is a state and not an event**, held now until the pointer leaves or focus does. **The account menu was fixed in the same pass, because it was the same bug and it had already shipped.**
+
+### Measured
+
+At 1440 and at 360, on both batch pages: no `.wf-rolls` left in the page flow, the panel closed on load, **open on hover at 1440 and on click at both widths**, two rows and two links at a count of two, five and five at a count of five, **the panel fully on screen at both widths**, still open when the pointer crosses the gap below it, and **closed by Escape**. The stage frame is still 460 and 380. **224 checks, no sideways scroll, no collapsed leaf.**
+

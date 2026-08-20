@@ -1035,6 +1035,34 @@
   </div>
 </section>
 
+<section id="drawer">
+  <div class="sec-head">
+    <h2>The batch receipt becomes a disclosure beside the acts</h2>
+    <p>Founder, 20 August 2026: this has to leave the page, maybe into a tooltip or behind an icon beside the buttons. Live from <code>wireframes/docs/screens.md</code> section 33. <code>D-51</code>.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The cards are the result, the buttons are the act, and this is the paperwork</h4>
+    <p>D-48 took the receipt out of the stage frame because it made the five-roll outcome the tallest stage on the page. <strong>It was still in the flow</strong>, and at five rolls that is five lines of float and pattern <strong>standing between the results and the two acts</strong>. The last thing read before a person spends again was machine detail.</p>
+    <p><strong>A drawer is the right carrier for it</strong>, because what it holds is <strong>how to check a result later, not what the result is</strong>.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>What the drawer holds, and what it may never hold</h4>
+    <p><b>In it:</b> float, pattern and phase per roll, because F1 owes them on this screen and a control on this screen is on this screen. A proof link per roll.</p>
+    <p><b>Still in the open:</b> <strong>F3's aggregate route, "Check all N rolls"</strong>, in the link row, so the per-roll links are a convenience rather than the only way.</p>
+    <p><b>Never in it:</b> <strong>the cost, the odds and the sell prices.</strong> Design principle 3 binds those and none of them moved.</p>
+    <p><strong>The single outcome keeps its line in the open, deliberately.</strong> One item has one line and it sits directly under the thing it describes, and <strong>a drawer for one line would be a control that hides less than it costs</strong>.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Escape had to beat :focus-within, and the account menu had the same defect</h4>
+    <p>The control opens on hover, on click, on Enter and on Space, and it carries the bridge D-49 gave the account menu. <strong>Escape then failed on both, and for the same reason:</strong> Escape closes the panel and returns focus to the control, <strong>which is inside the wrapper, so <code>:focus-within</code> reopened it in the same frame</strong>. The class came off and the panel stayed.</p>
+    <p><strong>A dismissal is a state and not an event</strong>, held now until the pointer leaves or focus does. <strong>The account menu was fixed in the same pass, because it was the same bug and it had already shipped.</strong></p>
+    <p><strong>Measured.</strong> At 1440 and at 360, on both batch pages: no roll list left in the page flow, the panel closed on load, <strong>open on hover at 1440 and on click at both widths</strong>, two rows and two links at a count of two, five and five at a count of five, the panel fully on screen at both widths, still open when the pointer crosses the gap below it, and <strong>closed by Escape</strong>. The stage frame is still 460 and 380. <strong>224 checks, no sideways scroll, no collapsed leaf.</strong></p>
+  </div>
+</section>
+
 </main>
 
 <footer class="doc">
@@ -1073,6 +1101,7 @@ window.NAV_SECTIONS = [
   { id: 'frame',       label: 'D-48 one stage size' },
   { id: 'acct',        label: 'D-49 account control' },
   { id: 'icons',       label: 'D-50 icon zones' },
+  { id: 'drawer',      label: 'D-51 roll drawer' },
 ];
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';

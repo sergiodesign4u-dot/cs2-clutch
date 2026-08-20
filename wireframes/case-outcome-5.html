@@ -160,25 +160,6 @@
           </li>
         </ul>
       </div>
-      <!-- THE RECEIPT SITS BELOW THE FRAME, D-48, and it used to sit inside it. The frame
-           is the stage and it is the same size in every phase of this page; a list that
-           grows one line per roll made the five-roll outcome the tallest frame on the
-           screen and the one-roll outcome the shortest. THE RECEIPT IS NOT THE STAGE: it
-           is what the stage produced, and it belongs under it the way a receipt belongs
-           under a purchase. Nothing is removed and no field is lost. -->
-      <!-- THE RECEIPT FOR THE BATCH, ONE LINE PER ROLL, AND IT IS THE ONLY PLACE THESE
-         FIELDS ARE PRINTED, D-39. F1 owes float and phase on this screen, and a card
-         narrow enough to sit five-across cannot hold them. They were never worth two
-         printings anyway: the card is the thing that landed, this is what it is.
-         The order matches the row above, which matches the reels it came from. -->
-      <p class="wf-fig-c wf-rolls-l">Every roll, in the order of the row above, which is the order of the reels it came out of.</p>
-      <ol class="wf-rolls">
-        <li>P250 Asiimov &#183; float <b>0.5312</b> &#183; pattern <b>611</b> &#183; phase <b>not applicable</b> &#183; <a href="provably-fair.html">check this roll</a></li>
-        <li>Nova Koi &#183; float <b>0.0342</b> &#183; pattern <b>207</b> &#183; phase <b>not applicable</b> &#183; <a href="provably-fair.html">check this roll</a></li>
-        <li>MP9 Rose Iron &#183; float <b>0.2691</b> &#183; pattern <b>092</b> &#183; phase <b>not applicable</b> &#183; <a href="provably-fair.html">check this roll</a></li>
-        <li>USP-S Kill Confirmed &#183; float <b>0.1058</b> &#183; pattern <b>334</b> &#183; phase <b>not applicable</b> &#183; <a href="provably-fair.html">check this roll</a></li>
-        <li>M4A1-S Hyper Beast &#183; float <b>0.0219</b> &#183; pattern <b>755</b> &#183; phase <b>not applicable</b> &#183; <a href="provably-fair.html">check this roll</a></li>
-      </ol>
     </section>
 
     <!-- THE COMMIT BLOCK, and D-31 cut it to the act and the cost of the act.
@@ -234,6 +215,35 @@
       <div class="wf-outcome-acts wf-outcome-acts--big">
         <a class="wf-btn wf-btn--primary" href="case-account.html">Open again for 62.00 coins</a>
         <button type="button" class="wf-btn wf-btn--primary">Sell all 5 for 61.00 coins</button>
+        <!-- THE ROLL DETAIL, D-51, AND IT IS A DISCLOSURE RATHER THAN A DELETION.
+             F1 owes float and phase on this screen and F3 owes a verification route, and
+             both are still here: the route to all of them is in the link row below, in
+             the open, and the per-roll fields are one control away.
+             WHY IT MOVED. At five rolls the list was five lines of float and pattern
+             standing between the results and the two acts, so the last thing read before
+             a person spends again was machine detail. THE CARDS ARE THE RESULT AND THE
+             BUTTONS ARE THE ACT; this is the paperwork and it belongs in a drawer.
+             WHAT IS NOT IN THE DRAWER: the cost, the odds and the sell prices. Design
+             principle 3 binds those and none of them moved.
+             IT OPENS ON HOVER, ON CLICK, ON ENTER AND ON SPACE, and it carries the same
+             bridge across its own gap that D-49 gave the account menu, for the same
+             reason: a panel you cannot move the pointer into only works by click. -->
+        <div class="wf-detail-wrap">
+          <button type="button" class="wf-btn wf-detail-b" aria-expanded="false" aria-haspopup="true" aria-controls="wf-rolls-pop">
+            <span class="wf-mi" aria-hidden="true"></span>
+            <span class="wf-sr">Roll details, 5 rolls</span>
+          </button>
+          <div class="wf-detail-pop" id="wf-rolls-pop">
+            <p class="wf-fig-c wf-rolls-l">Every roll, in the order of the row above, which is the order of the reels it came out of.</p>
+    <ol class="wf-rolls">
+    <li>P250 Asiimov &#183; float <b>0.5312</b> &#183; pattern <b>611</b> &#183; phase <b>not applicable</b> &#183; <a href="provably-fair.html">check this roll</a></li>
+    <li>Nova Koi &#183; float <b>0.0342</b> &#183; pattern <b>207</b> &#183; phase <b>not applicable</b> &#183; <a href="provably-fair.html">check this roll</a></li>
+    <li>MP9 Rose Iron &#183; float <b>0.2691</b> &#183; pattern <b>092</b> &#183; phase <b>not applicable</b> &#183; <a href="provably-fair.html">check this roll</a></li>
+    <li>USP-S Kill Confirmed &#183; float <b>0.1058</b> &#183; pattern <b>334</b> &#183; phase <b>not applicable</b> &#183; <a href="provably-fair.html">check this roll</a></li>
+    <li>M4A1-S Hyper Beast &#183; float <b>0.0219</b> &#183; pattern <b>755</b> &#183; phase <b>not applicable</b> &#183; <a href="provably-fair.html">check this roll</a></li>
+    </ol>
+          </div>
+        </div>
       </div>
       <p class="wf-fig-c">All 5 are already in <a href="account.html">My items</a>, so keeping them is what happens if nothing is tapped. <strong>Selling is instant and cannot be undone</strong>, and <span class="wf-fig-missing">whether the sell price carries a spread against the current value is not decided.</span></p>
       <p class="wf-fig-c">Values as of 20 Aug 2026 11:12.</p>

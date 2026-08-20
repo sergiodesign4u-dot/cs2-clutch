@@ -1520,3 +1520,34 @@ The rail has followed it since it was drawn, in its own words: **"a destination 
 **"This is a game site and it has to be interactive and engaging."** Design principle 4 says it: high energy, neon accented, premium dark, **the main stage, not a back room**. What was missing was the operational consequence at this stage, which is that a stage 04 drawing that leaves no room for the icons a stage 06 will add is a drawing that will be redrawn.
 
 **The rule is written into `conventions.md` rather than into `CLAUDE.md`**, because it is how this stage draws rather than a rule that must hold across the project, and because it generalises a line that file already carries rather than sitting beside it.
+
+---
+
+## D-51. The batch receipt becomes a disclosure beside the acts
+
+**Date:** 2026-08-20. **Stage:** 04, raised against node `3.3` section 8. **Decided by:** the founder, reading the two batch outcomes. **Binds:** node `3.3`, the two batch outcome pages, and the account menu, which had the same latent defect.
+
+**What was decided.** **The per-roll receipt moves out of the page's flow into a control beside the two acts.** **Nothing is deleted and `F1` and `F3` stay satisfied on this screen.**
+
+### The cards are the result, the buttons are the act, and this is the paperwork
+
+`D-48` took the receipt out of the stage frame because it made the five-roll outcome the tallest stage on the page. **It was still in the flow, and at five rolls that is five lines of float and pattern standing between the results and the two acts.** The last thing read before a person spends again was machine detail.
+
+**A drawer is the right carrier for it** because what it holds is how to check a result later, not what the result is.
+
+### What the drawer holds and what it may never hold
+
+| In the drawer | Why |
+|---|---|
+| Float, pattern, phase, per roll | `F1` owes them on this screen and a control on this screen is on this screen |
+| A proof link per roll | `F3`'s aggregate route, **Check all N rolls, stays in the open** in the link row, so the per-roll links are a convenience rather than the only way |
+
+**Never in a drawer: the cost, the odds and the sell prices.** Design principle 3 binds those, and none of them moved.
+
+**The single outcome keeps its line in the open**, deliberately: one item has one line and it sits directly under the thing it describes. **A drawer for one line would be a control that hides less than it costs.**
+
+### Escape had to beat `:focus-within`, and the account menu had the same defect
+
+The panel opens on hover, on click, on Enter and on Space, and it carries the bridge `D-49` gave the account menu. **Escape then failed on both**, and for the same reason: **Escape closes the panel and returns focus to the control, which is inside the wrapper, so `:focus-within` reopened it in the same frame.** The class came off and the panel stayed.
+
+**A dismissal is a state and not an event.** It is held now until the pointer leaves or focus does. **The account menu was fixed in the same pass, because it was the same bug and it had been shipped.**

@@ -661,8 +661,12 @@ window.WF_NAV = {
 
     function set(open) {
       wrap.classList.toggle('is-open', open);
+      // Same dismissal state as the roll detail, D-51: Escape put focus back on the
+      // control inside the wrapper and :focus-within reopened the menu it had closed.
+      wrap.classList.toggle('is-shut', !open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
+    wrap.addEventListener('mouseleave', function () { wrap.classList.remove('is-shut'); });
     // HOVER IS CSS AND THE STATE IS JS, and separating them is not tidiness. Bound as
     // two JS handlers, hover opened the menu and the click that followed it toggled the
     // same flag straight back to closed, so the control appeared dead to a mouse. Hover
@@ -1214,6 +1218,31 @@ window.WF_NAV = {
   // node quoting design principle 3. The sentence explaining what the trigger will ask
   // for has already been read by the time this appears, so it is the part that goes.
   // Generic on purpose: 4.1 and 5.3 put a cost and a trigger in the same relationship.
+  // THE ROLL DETAIL DISCLOSURE, D-51. Hover is handled in CSS where a pointer exists;
+  // this is the half hover cannot do: click, Enter and Space to open, Escape and an
+  // outside click to close. Same contract as the account menu, 0.1 section 5.
+  function mountRollDetail() {
+    var wrap = document.querySelector('.wf-detail-wrap');
+    if (!wrap) return;
+    var btn = wrap.querySelector('.wf-detail-b');
+    function set(open) {
+      wrap.classList.toggle('is-open', open);
+      // A DISMISSAL IS A STATE AND NOT AN EVENT. Escape returns focus to the control,
+      // which is inside the wrapper, so :focus-within would reopen the panel in the same
+      // frame. is-shut holds the dismissal until the pointer leaves or focus does.
+      wrap.classList.toggle('is-shut', !open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    function unshut() { wrap.classList.remove('is-shut'); }
+    btn.addEventListener('click', function () { set(btn.getAttribute('aria-expanded') !== 'true'); });
+    wrap.addEventListener('mouseleave', unshut);
+    wrap.addEventListener('focusout', function (e) { if (!wrap.contains(e.relatedTarget)) unshut(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { set(false); btn.focus(); }
+    });
+    document.addEventListener('click', function (e) { if (!wrap.contains(e.target)) { set(false); unshut(); } });
+  }
+
   function mountCommitBar() {
     var src = document.querySelector('.wf-commit');
     if (!src || !window.IntersectionObserver) return;
@@ -1287,6 +1316,7 @@ window.WF_NAV = {
     renderPanel(document.getElementById('wf-panel'));
     renderShell(document.getElementById('wf-shell'));
     renderFooter(document.getElementById('wf-footer'));
+    mountRollDetail();
     renderBar(document.getElementById('wf-bar'));
     mountCommitBar();
   });

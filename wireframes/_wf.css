@@ -1232,8 +1232,12 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-acct-wrap.is-open .wf-acct-menu { display: flex; }
 /* Hover only where a pointer can hover, so a touch device never inherits a rule it can
    only trigger by tapping, which is the tap it already spends on opening the menu. */
+/* The same dismissal state as the roll detail, D-51, and the account menu had the same
+   latent defect: Escape returned focus to the control inside the wrapper and
+   :focus-within reopened the menu it had just closed. */
 @media (hover: hover) {
-  .wf-acct-wrap:hover .wf-acct-menu, .wf-acct-wrap:focus-within .wf-acct-menu { display: flex; }
+  .wf-acct-wrap:not(.is-shut):hover .wf-acct-menu,
+  .wf-acct-wrap:not(.is-shut):focus-within .wf-acct-menu { display: flex; }
 }
 .wf-acct-menu nav { display: flex; flex-direction: column; }
 /* A SLOT, NOT AN ICON, D-50, and it is the rule the rail has followed since it was
@@ -1544,6 +1548,56 @@ a.wfp-state:hover { color: var(--wf-ink); }
 }
 @media (min-width: 900px) {
   .wf-lanes--v.wf-lanes--5 > .wf-lane > li { flex-basis: 76px; }
+}
+
+/* THE ROLL DETAIL, D-51. A DISCLOSURE RATHER THAN A DELETION: F1 owes float and phase
+   on this screen and F3 owes a verification route, and both are still here. The route to
+   all the rolls is in the link row below, in the open; the per-roll fields are one
+   control away.
+   WHY IT MOVED. At five rolls the list was five lines of float and pattern standing
+   between the results and the two acts, so the last thing read before a person spends
+   again was machine detail. THE CARDS ARE THE RESULT AND THE BUTTONS ARE THE ACT; this
+   is the paperwork and it belongs in a drawer.
+   WHAT IS NOT IN THE DRAWER: the cost, the odds and the sell prices. Design principle 3
+   binds those and none of them moved. */
+.wf-detail-wrap { position: relative; flex: 0 0 auto; }
+.wf-detail-b { width: 52px; min-width: 52px; padding: 0; justify-content: center; }
+.wf-detail-b .wf-mi { flex-basis: 18px; height: 18px; }
+.wf-detail-pop {
+  display: none; position: absolute; z-index: 60;
+  bottom: calc(100% + var(--wf-s-1)); right: 0;
+  width: max-content; max-width: min(560px, calc(100vw - var(--wf-s-4)));
+  padding: var(--wf-s-2); text-align: left;
+  background: var(--wf-raised); border: 1px solid var(--wf-line);
+  border-radius: var(--wf-r-2);
+}
+/* The same bridge D-49 gave the account menu, for the same reason: a panel you cannot
+   move the pointer into only works by click. */
+.wf-detail-pop::before {
+  content: ''; position: absolute; left: 0; right: 0;
+  bottom: calc(var(--wf-s-1) * -1 - 1px); height: calc(var(--wf-s-1) + 2px);
+}
+.wf-detail-wrap.is-open .wf-detail-pop { display: block; }
+/* ESCAPE HAS TO BEAT :focus-within, D-51, and it did not. Escape closes the panel and
+   returns focus to the control, which is inside the wrapper, so :focus-within reopened
+   it in the same frame: the class came off and the panel stayed. A DISMISSAL IS A STATE
+   AND NOT AN EVENT, so it is held until the pointer leaves or focus does. */
+@media (hover: hover) {
+  .wf-detail-wrap:not(.is-shut):hover .wf-detail-pop,
+  .wf-detail-wrap:not(.is-shut):focus-within .wf-detail-pop { display: block; }
+}
+.wf-detail-pop .wf-rolls-l { margin-bottom: var(--wf-s-1); }
+@media (max-width: 599px) {
+  .wf-detail-b { width: 100%; min-width: 0; }
+  .wf-detail-wrap { flex: 1 1 100%; }
+  .wf-detail-pop { right: auto; left: 0; max-width: calc(100vw - var(--wf-s-4)); }
+}
+/* A label that is read and not seen. The control is an icon zone in grey, so its name
+   has to live somewhere, and an aria-label on a button with a child element is the one
+   the node's own accessibility rule keeps warning about. */
+.wf-sr {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip-path: inset(50%); white-space: nowrap;
 }
 
 /* THE BATCH OUTCOME. Cards, not rows: each one is the same object the single outcome

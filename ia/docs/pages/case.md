@@ -30,7 +30,13 @@
 
 **The content is centred in the box rather than stretched to fill it.** A phase with less to show shows less, **in the same place**. What does stretch is the thing the phase is actually about: the case artwork in phase 1, the reels in phase 2, the item cards in phase 3, each taking whatever the box has left after the labels around it.
 
-**And the batch receipt moved out of the box.** One line per roll made the five-roll outcome the tallest stage on the page and the one-roll outcome the shortest. **The receipt is not the stage: it is what the stage produced**, and it belongs under it the way a receipt belongs under a purchase. **No field was removed** and the order still matches the row above it.
+**And the batch receipt left the page's flow entirely, `D-48` then `D-51`.** One line per roll made the five-roll outcome the tallest stage on the page and the one-roll outcome the shortest, so it came out of the frame. **Then it came out of the flow**, because at five rolls it was five lines of float and pattern **standing between the results and the two acts**, and the last thing read before a person spends again was machine detail.
+
+**It is a disclosure and not a deletion.** A control beside the two acts opens it, on hover, on click, on Enter and on Space. **`F1` and `F3` are both still satisfied on this screen:** the route to every roll is in the link row, in the open, and the per-roll float, pattern, phase and proof link are one control away.
+
+**What is never in a drawer:** the cost, the odds and the sell prices. **Design principle 3 binds those and none of them moved.** The distinction the drawer draws is between **the result and the paperwork**: the cards are what happened, the buttons are what to do next, and the instance fields are how to check it later.
+
+**The single outcome keeps its line in the open, and that is deliberate rather than an oversight.** One item has one line and it sits directly under the thing it describes. **A drawer for one line would be a control that hides less than it costs.**
 
 **One consequence that belongs in the SEO block and is written here because it is structural.** Phase 1 is the document. Phases 2 and 3 exist only after an interaction, so **a crawler and a first-time reader see exactly the same thing, and that thing is the full drop table with every number on it.** `0.13` section 4.3 makes this the product's position against the category: a login wall in front of the numbers is also an indexation wall, and ours does not exist.
 
