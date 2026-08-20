@@ -179,7 +179,14 @@ window.NAV = [
             .concat(sc.states || []);
           pages.forEach(function (p) {
             if (p.status !== 'built') return;
-            out.push({ node: sc.node, label: sc.name + (p.isBase ? '' : ', ' + p.label.replace(/^\d\.\d\s*/, '')), file: p.file, done: true });
+            // ONE NAMING SCHEME, D-46. This list used to print sc.node for every page
+            // and fold the state's own name into "Case screen, <state>" after stripping
+            // the code out of its label, while the sidebar on the screens themselves
+            // printed 3.4 through 3.7 for the same pages. Two renderers, two answers,
+            // one set of files. Both read the same two fields now: the state's own node
+            // code where it has one, the host's where it does not, and the state's own
+            // label untouched.
+            out.push({ node: p.node || sc.node, label: p.label, file: p.file, done: true });
           });
         });
         return out;

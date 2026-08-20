@@ -220,6 +220,12 @@ a.wfp-screen:hover { color: var(--wf-ink); background: var(--wf-raised); }
   font-size: 12px; color: var(--wf-ink-dim); text-decoration: none;
   border-left: 1px solid var(--wf-line-soft); margin-left: var(--wf-s-2);
 }
+/* The state row is a code and a name, the same two fields the screen row above it uses
+   and the same two the roadmap prints, D-46. Before that the code lived typed inside
+   the label and the two renderers disagreed about it. */
+.wfp-state { display: flex; gap: var(--wf-s-1); align-items: baseline; }
+.wfp-snode { flex: 0 0 30px; font-size: 10px; color: var(--wf-ink-faint); font-variant-numeric: tabular-nums; }
+.wfp-sname { flex: 1 1 auto; min-width: 0; }
 a.wfp-state:hover { color: var(--wf-ink); }
 .wfp-state.is-current { color: var(--wf-ink); border-left-color: var(--wf-ink); }
 .wfp-state.is-spec { color: var(--wf-ink-faint); }
@@ -1354,6 +1360,56 @@ a.wfp-state:hover { color: var(--wf-ink); }
   background: var(--wf-bg);
 }
 
+/* PHASE 1, THE STAGE AT REST, D-46. The lane at rest carries THIS CASE'S ITEMS and it
+   drifts. What 19 August refused was FIGURES on the lane, and that stays refused: no
+   value, no chance, no name, no pointer. What was lost with them was the items
+   themselves, and nothing required that, so the first screen answers what is in this
+   case again in the region that will show the same objects moving one tap later.
+   THE DRIFT HAS A JOB, which is the test CLAUDE.md sets for motion. Informational: a
+   strip that moves is legibly longer than its frame, so it reads as a sample of a set
+   rather than as the set. Emotional: principle 4, the platform alive rather than at
+   rest. IT IS NOT A SPIN. A spin is a settled roll being revealed, it has a pointer and
+   it ends; this has neither and never resolves on anything.
+   ONE LANE PER CHOSEN ROLL, on the axis the reveal will use: one horizontal, two or
+   five vertical and side by side. The matrix used to read "count switch at more than
+   one: phase 1 unchanged", which made the stage the reveal's lane standing still only
+   at a count of one, and a stage that shows one lane and then opens five is a layout
+   trading places at the moment of the tap.
+   THE TRACK HOLDS THE ITEM SET TWICE and shifts by exactly half, which is what makes
+   the loop seamless without a second copy being visible as a repeat. */
+.wf-rest { display: flex; gap: var(--wf-s-1); width: 100%; justify-content: center; align-items: stretch; }
+.wf-rest-lane { position: relative; overflow: hidden; }
+.wf-rest--x .wf-rest-lane { width: 100%; height: 72px; }
+.wf-rest--y .wf-rest-lane { flex: 1 1 0; min-width: 0; max-width: 168px; height: 244px; }
+.wf-rest-run { display: flex; gap: var(--wf-s-1); list-style: none; margin: 0; padding: 0; }
+.wf-rest--x .wf-rest-run { flex-direction: row; width: max-content; animation: wf-drift-x 44s linear infinite; }
+.wf-rest--y .wf-rest-run { flex-direction: column; height: max-content; animation: wf-drift-y 44s linear infinite; }
+/* The lanes do not move in lockstep. Five tracks sharing one phase read as one object
+   sliding behind five windows rather than as five samples of the same set. */
+.wf-rest-lane:nth-child(2) .wf-rest-run { animation-duration: 53s; }
+.wf-rest-lane:nth-child(3) .wf-rest-run { animation-duration: 38s; }
+.wf-rest-lane:nth-child(4) .wf-rest-run { animation-duration: 61s; }
+.wf-rest-lane:nth-child(5) .wf-rest-run { animation-duration: 47s; }
+.wf-rest-run > li { border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2); background: var(--wf-bg); }
+.wf-rest--x .wf-rest-run > li { flex: 0 0 104px; height: 72px; }
+.wf-rest--y .wf-rest-run > li { flex: 0 0 76px; width: 100%; }
+.wf-rest--y.wf-rest--5 .wf-rest-run > li { flex-basis: 60px; }
+@keyframes wf-drift-x { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+@keyframes wf-drift-y { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, -50%, 0); } }
+/* THE LANES ARE SHORTER FROM THREE UP, and that is the cost of the switch printed
+   rather than absorbed: five full height lanes plus the artwork do not fit above the
+   fold at 360 and the stage may not scroll while it is being read. */
+@media (max-width: 599px) {
+  .wf-rest--y .wf-rest-lane { height: 200px; }
+  .wf-rest--y.wf-rest--5 .wf-rest-run > li { flex-basis: 52px; }
+}
+/* A drift a person cannot switch off is decoration with a job description. Section 7.3
+   of the node: reduced motion is an accessibility setting, not a speed control, so the
+   strip renders the same items still rather than faster. */
+@media (prefers-reduced-motion: reduce) {
+  .wf-rest-run { animation: none; }
+}
+
 /* PHASE 2. THE POINTER EXISTS ONLY HERE, because only here is there a roll to point at.
    E2 forbids near-miss theatre, so what this marks is where the settled result lands, not
    a run past better items on the way. */
@@ -1680,6 +1736,14 @@ a.wfp-state:hover { color: var(--wf-ink); }
    again. THE TRIGGER BESIDE IT CARRIES THE TOTAL AND NEVER THE UNIT. */
 .wf-count { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-half); }
 .wf-count-l { font-size: var(--wf-t-s); color: var(--wf-ink-dim); margin-right: var(--wf-s-half); }
+/* The five buttons and the label do not fit one row of a 360px screen: the label wrapped
+   and pushed the fifth button onto a line of its own. The group carries the same words
+   as its accessible name, so removing the visible label costs a reader nothing. */
+@media (max-width: 419px) { .wf-count-l { display: none; } }
+/* Since D-46 the counts that have a page behind them are links rather than buttons, so
+   the switch walks the prototype instead of only looking like it would. */
+a.wf-count-b { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); }
 .wf-count-b {
   min-width: var(--wf-tap); min-height: var(--wf-tap); padding: 0;
   font-family: var(--wf-mono); font-size: var(--wf-t-s);

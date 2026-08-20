@@ -1355,3 +1355,43 @@ Band 4 by `D-42`, the brand column by `D-43`, above the payment marks now. **Tha
 **The rail's collapsed tooltip rule matched by attribute and was not scoped to the rail.** The footer's language control carries the same `data-lbl`, because it is the same control, so **focusing it in the footer drew a rail tooltip off the right edge of the last band and pushed the page 105px sideways** in the collapsed state.
 
 **`D-42` fixed the identical leak in the panel rule two days ago.** A rule written for the rail, matching by class or by attribute, reaching a copy of the control somewhere else on the page. **Both are scoped now**, and the pattern is the one to look for the next time a control exists in two carriers.
+
+---
+
+## D-46. The stage at rest carries the case, follows the count, and the state list gets one naming scheme
+
+**Date:** 2026-08-20. **Stage:** 04, raised against node `3.3` and the screen registry. **Decided by:** the founder, reading the drawn case screen and the two navigation lists beside it. **Binds:** node `3.3` sections 1, 7.2b and 12, `wireframes/_nav.js`, `_nav.js` and the grey contract.
+
+**What was decided.** **The lane at rest carries this case's items and drifts.** **Choosing a count redraws the stage into that many lanes on the axis the reveal will use, drawn at two and at five.** **Every state carries its node code as a field, and both renderers read it.**
+
+### The cost the lane's refusal printed has now been paid
+
+On 19 August the lane was cut from nine tiles carrying a value and a chance each down to nothing at all, and **the node printed what that cost in its own words**: "the stage now shows what the reveal will look like rather than what is in the case, so a person who reads only the first screen learns the case's name, its cost, its tested RTP and its expected value, and nothing about its contents."
+
+**The founder's answer separates the two things that refusal had welded together.** What was refused was **figures on the lane**, and it stays refused. What was lost with them was **the items themselves**, and nothing required that. **An artwork is not a claim**, so no value, no chance, no name and no pointer, and the first screen answers what is in this case again.
+
+**The drift has a job, which is the test `CLAUDE.md` sets for motion.** Design principle 2 cuts motion without an emotional or informational job. **Informational: a strip that moves is legibly longer than its frame**, so it reads as a sample of a set rather than as the set. **Emotional: principle 4**, the platform alive rather than a page at rest.
+
+**It is not a spin, and three limits keep it from becoming one.** No pointer, ever, in phase 1, which is `E2`'s near-miss objection arriving one phase early. **It stops under `prefers-reduced-motion`** and renders the same items still, because section 7.3 makes that an accessibility setting rather than a speed control. **And it never accelerates into the reveal**, which would be the interface pretending the roll is happening now when `E1` says it is already settled.
+
+### Phase 1 follows the count, and the matrix used to say it did not
+
+The node has said since it was written that the stage is "the reveal lane standing still" and "the same region holding the same object in two states rather than two layouts trading places". **Its own state matrix then said "count switch at more than one: phase 1 unchanged"**, which made that true only at a count of one.
+
+**A stage that shows one lane and then opens five is a layout trading places at the moment of the tap**, which is exactly what the paragraph exists to forbid. So the stage at rest takes the axis and the count the reveal will use: **one horizontal, two or five vertical and side by side.** **What a person sees before the tap is what they will see during it, minus the motion that decides anything.**
+
+**Drawn at two and at five**, the same pair `D-35` chose for the reveal and the outcome: two is the shape and five is the load. **One, two and five are walkable in the prototype and three and four are not**, which is a prototype fact rather than a product one.
+
+### Two navigation lists, two answers, one set of files
+
+The founder asked what the difference was between the flat list of screens and the list on the screen itself. **There was no difference in the files and every difference in the reading.**
+
+| | |
+|---|---|
+| **The flat list** | Printed the host's code for every page, so eleven states of the case screen all read `3.3`, and folded the state's own name into "Case screen, <state>" after **stripping the code out of its own label** |
+| **The list on the screen** | Printed `3.4` through `3.7` for the same eleven pages, because those codes were **typed into the label text** |
+| **The flow walker** | Found a state by **searching for its code inside a string**, so a state could only take part in a flow if somebody had remembered to prefix its label |
+
+**The code is a field now and both renderers read the same two fields:** the state's own node code where it has one, the host's where it does not, and the state's own label untouched. **A state with no code of its own is a variation of its host node and is shown as one**, rather than borrowing a number it does not have.
+
+**And the rows are in flow order**, which they were not: the two phase 1 states at a chosen count had been appended after `3.4` because they were added last.

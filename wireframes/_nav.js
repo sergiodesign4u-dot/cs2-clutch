@@ -93,20 +93,20 @@ window.WF_NAV = {
     { node: '1.0',  cluster: '1', name: 'Home',                file: 'index.html',      ia: 'home.html',          status: 'built',
       base: 'Guest', etalon: true,
       states: [
-        { label: '1.1 Account exists', file: 'index-account.html', status: 'built' }
+        { node: '1.1', label: 'Account exists', file: 'index-account.html', status: 'built' }
       ] },
 
     { node: '1.2',  cluster: '1', name: 'Provably fair',       file: 'fair.html',       ia: 'provably-fair.html', status: 'spec',
       base: 'Default, with the verifier idle',
       states: [
-        { label: '1.3 Verifier, malformed round',   file: 'fair-malformed.html',    status: 'spec' },
-        { label: '1.4 Verifier, our own proof failed', file: 'fair-proof-failed.html', status: 'spec' }
+        { node: '1.3', label: 'Verifier, malformed round',   file: 'fair-malformed.html',    status: 'spec' },
+        { node: '1.4', label: 'Verifier, our own proof failed', file: 'fair-proof-failed.html', status: 'spec' }
       ] },
 
     { node: '2.1',  cluster: '2', name: 'Geo gate',            file: 'gate.html',       ia: 'gate.html',          status: 'spec',
       base: 'Checking the market',
       states: [
-        { label: '2.2 Geo blocked', file: 'gate-blocked.html', status: 'spec', dead: true }
+        { node: '2.2', label: 'Geo blocked', file: 'gate-blocked.html', status: 'spec', dead: true }
       ] },
 
     { node: '2.4',  cluster: '2', name: 'Sign in with Steam',  file: 'signin.html',     ia: 'signin.html',        status: 'spec',
@@ -114,36 +114,47 @@ window.WF_NAV = {
       states: [
         { label: 'One of two given',        file: 'signin-consent-partial.html', status: 'spec' },
         { label: 'Consent given',           file: 'signin-consent-given.html',   status: 'spec' },
-        { label: '2.5 Steam refused',       file: 'signin-steam-refused.html',   status: 'spec' },
-        { label: '2.6 Steam unavailable',   file: 'signin-steam-unavailable.html', status: 'spec' }
+        { node: '2.5', label: 'Steam refused',       file: 'signin-steam-refused.html',   status: 'spec' },
+        { node: '2.6', label: 'Steam unavailable',   file: 'signin-steam-unavailable.html', status: 'spec' }
       ] },
 
     { node: '3.1',  cluster: '3', name: 'Case catalogue',      file: 'catalogue.html',  ia: 'catalogue.html',     status: 'spec',
       base: 'Guest, unfiltered',
       states: [
-        { label: '3.2 Nothing matches', file: 'catalogue-empty.html', status: 'spec' }
+        { node: '3.2', label: 'Nothing matches', file: 'catalogue-empty.html', status: 'spec' }
       ] },
 
     { node: '3.3',  cluster: '3', name: 'Case screen',         file: 'case.html',       ia: 'case.html',          status: 'built',
       base: 'Phase 1, choosing',
       states: [
+        // THE ORDER IS THE ORDER OF THE FLOW, and it was not until D-46: the two phase 1
+        // states at a chosen count were appended after 3.4 because they were added last.
+        // Phase 1 first, all of it, then 3.4, then the open, then the outcome, then the
+        // interruption, then the two figure conditions that are not phases at all.
         // The signed-in state is a page rather than a note because D-32 made it differ in
         // three places at once: the lane renders, the trigger names a different act, and
-        // the balance relationship is stated. The four node-level states follow it, then
-        // two figure conditions the node's own state matrix names and that only a render
-        // can be judged on: D-B negative and values degraded.
-        { label: '3.3 Signed in, funded',       file: 'case-account.html',     status: 'built' },
-        { label: '3.4 Item at zero free units', file: 'case-item-out.html',    status: 'built' },
-        { label: '3.5 Phase 2, the open',       file: 'case-open.html',        status: 'built' },
+        // the balance relationship is stated.
+        // A STATE WITH NO NODE FIELD IS A VARIATION OF 3.3 and renders as one, D-46. The
+        // code used to be typed into the label text, so one renderer printed 3.3 for all
+        // eleven pages and another printed 3.4 through 3.7 for the same eleven.
+        { node: '3.3', label: 'Signed in, funded',       file: 'case-account.html',     status: 'built' },
+        // PHASE 1 WITH THE COUNT ALREADY CHOSEN, D-46. The matrix used to read "count
+        // switch at more than one: phase 1 unchanged", which made the stage the reveal's
+        // lane standing still only at a count of one. Two is the shape and five is the
+        // load, the same pair D-35 drew for the reveal and the outcome.
+        { label: 'Two chosen, stage at rest',   file: 'case-account-2.html',   status: 'built' },
+        { label: 'Five chosen, stage at rest',  file: 'case-account-5.html',   status: 'built' },
+        { node: '3.4', label: 'Item at zero free units', file: 'case-item-out.html',    status: 'built' },
+        { node: '3.5', label: 'Phase 2, the open',       file: 'case-open.html',        status: 'built' },
         // Multi-open, D-35. The count switch shipped in D-31 and neither phase had a
         // state above one roll, so the two phases it changes are drawn at both ends of
         // the range: two is the shape and five is the load.
-        { label: '3.5 The open, 2 rolls',       file: 'case-open-2.html',      status: 'built' },
-        { label: '3.5 The open, 5 rolls',       file: 'case-open-5.html',      status: 'built' },
-        { label: '3.6 Phase 3, the outcome',    file: 'case-outcome.html',     status: 'built' },
-        { label: '3.6 The outcome, 2 items',    file: 'case-outcome-2.html',   status: 'built' },
-        { label: '3.6 The outcome, 5 items',    file: 'case-outcome-5.html',   status: 'built' },
-        { label: '3.7 Interrupted reveal',      file: 'case-interrupted.html', status: 'built' },
+        { node: '3.5', label: 'The open, 2 rolls',       file: 'case-open-2.html',      status: 'built' },
+        { node: '3.5', label: 'The open, 5 rolls',       file: 'case-open-5.html',      status: 'built' },
+        { node: '3.6', label: 'Phase 3, the outcome',    file: 'case-outcome.html',     status: 'built' },
+        { node: '3.6', label: 'The outcome, 2 items',    file: 'case-outcome-2.html',   status: 'built' },
+        { node: '3.6', label: 'The outcome, 5 items',    file: 'case-outcome-5.html',   status: 'built' },
+        { node: '3.7', label: 'Interrupted reveal',      file: 'case-interrupted.html', status: 'built' },
         { label: 'D-B negative, no counter',    file: 'case-nocounter.html',   status: 'built' },
         { label: 'Values degraded',             file: 'case-degraded.html',    status: 'built' }
       ] },
@@ -151,26 +162,26 @@ window.WF_NAV = {
     { node: '4.1',  cluster: '4', name: 'Deposit',             file: 'deposit.html',    ia: 'deposit.html',       status: 'spec',
       base: 'First deposit, no saved method',
       states: [
-        { label: '4.2 Ceiling reached this period', file: 'deposit-ceiling-reached.html', status: 'spec' },
-        { label: '4.3 Ceiling raise pending',       file: 'deposit-ceiling-pending.html', status: 'spec' },
-        { label: '4.4 Crediting, named timer',      file: 'deposit-crediting.html',       status: 'spec' },
-        { label: '4.5 Payment declined',            file: 'deposit-declined.html',        status: 'spec' }
+        { node: '4.2', label: 'Ceiling reached this period', file: 'deposit-ceiling-reached.html', status: 'spec' },
+        { node: '4.3', label: 'Ceiling raise pending',       file: 'deposit-ceiling-pending.html', status: 'spec' },
+        { node: '4.4', label: 'Crediting, named timer',      file: 'deposit-crediting.html',       status: 'spec' },
+        { node: '4.5', label: 'Payment declined',            file: 'deposit-declined.html',        status: 'spec' }
       ] },
 
     { node: '5.1',  cluster: '5', name: 'Account and inventory', file: 'account.html',  ia: 'account.html',       status: 'spec',
       base: 'Items held',
       states: [
-        { label: '5.2 Inventory empty', file: 'account-empty.html', status: 'spec' }
+        { node: '5.2', label: 'Inventory empty', file: 'account-empty.html', status: 'spec' }
       ] },
 
     { node: '5.3',  cluster: '5', name: 'Withdrawal',          file: 'withdraw.html',   ia: 'withdrawal.html',    status: 'spec',
       base: 'Requested, with the public clock',
       states: [
-        { label: '5.4 Not eligible, limit stated', file: 'withdraw-not-eligible.html',      status: 'spec' },
-        { label: '5.5 Steam degraded',             file: 'withdraw-steam-degraded.html',    status: 'spec' },
-        { label: '5.6 Account restricted, appeal', file: 'withdraw-restricted.html',        status: 'spec' },
-        { label: '5.7 Restriction upheld',         file: 'withdraw-restriction-upheld.html',status: 'spec', dead: true },
-        { label: '5.8 Trade offer expired',        file: 'withdraw-offer-expired.html',     status: 'spec' }
+        { node: '5.4', label: 'Not eligible, limit stated', file: 'withdraw-not-eligible.html',      status: 'spec' },
+        { node: '5.5', label: 'Steam degraded',             file: 'withdraw-steam-degraded.html',    status: 'spec' },
+        { node: '5.6', label: 'Account restricted, appeal', file: 'withdraw-restricted.html',        status: 'spec' },
+        { node: '5.7', label: 'Restriction upheld',         file: 'withdraw-restriction-upheld.html',status: 'spec', dead: true },
+        { node: '5.8', label: 'Trade offer expired',        file: 'withdraw-offer-expired.html',     status: 'spec' }
       ] },
 
     // THREE NODES THE MAP GAINED ON 20 AUGUST 2026, D-36. The account menu carried four
@@ -189,14 +200,14 @@ window.WF_NAV = {
     { node: '6.1',  cluster: '6', name: 'Responsible play',    file: 'responsible.html', ia: 'responsible.html',  status: 'spec',
       base: 'No boundary in force',
       states: [
-        { label: '6.2 Self exclusion confirmation', file: 'responsible-confirm.html',  status: 'spec' },
-        { label: '6.3 Boundary in force',           file: 'responsible-in-force.html', status: 'spec' }
+        { node: '6.2', label: 'Self exclusion confirmation', file: 'responsible-confirm.html',  status: 'spec' },
+        { node: '6.3', label: 'Boundary in force',           file: 'responsible-in-force.html', status: 'spec' }
       ] },
 
     { node: '7.1',  cluster: '7', name: 'Public result',       file: 'result.html',     ia: 'public-result.html', status: 'spec',
       base: 'Result visible',
       states: [
-        { label: '7.2 Result gone or private', file: 'result-gone.html', status: 'spec' }
+        { node: '7.2', label: 'Result gone or private', file: 'result-gone.html', status: 'spec' }
       ] }
   ]
 };
@@ -245,6 +256,10 @@ window.WF_NAV = {
   // like 3.5 and 3.6, which are states of 3.3 rather than screens of their own.
   // Resolving only screens would drop them silently, which is the defect this
   // registry exists to prevent.
+  // IT MATCHES A FIELD RATHER THAN SEARCHING INSIDE A STRING, D-46. Until then the
+  // code lived typed into the label text, so a state could only be found by a flow if
+  // somebody had remembered to prefix its label, and two renderers disagreed about
+  // which code every state on 3.3 carried.
   function stepByNode(code) {
     var sc = screenByNode(code);
     if (sc) return { screen: sc, page: null };
@@ -252,7 +267,7 @@ window.WF_NAV = {
       var host = WF.screens[i];
       var sts = host.states || [];
       for (var j = 0; j < sts.length; j++) {
-        if (sts[j].label.indexOf(code + ' ') === 0) return { screen: host, page: sts[j] };
+        if (sts[j].node === code) return { screen: host, page: sts[j] };
       }
     }
     return null;
@@ -285,7 +300,7 @@ window.WF_NAV = {
         } else {
           var chips = el('span', 'wf-chips');
           pagesOf(step.screen).forEach(function (p) {
-            chips.appendChild(el('span', 'wf-chip' + (p.status === 'built' ? ' is-built' : ''), p.isBase ? 'base' : p.label.replace(/^\d\.\d\s*/, '')));
+            chips.appendChild(el('span', 'wf-chip' + (p.status === 'built' ? ' is-built' : ''), p.isBase ? 'base' : p.label));
           });
           a.appendChild(chips);
         }
@@ -365,8 +380,8 @@ window.WF_NAV = {
       done.forEach(function (d) {
         var a = el('a', 'wfp-done' + (d.p.file === cur ? ' is-current' : ''));
         a.href = BASE + d.p.file;
-        a.appendChild(el('span', 'wfp-node', d.sc.node));
-        a.appendChild(el('span', 'wfp-name', d.sc.name + (d.p.isBase ? '' : ', ' + d.p.label.replace(/^\d\.\d\s*/, ''))));
+        a.appendChild(el('span', 'wfp-node', d.p.node || d.sc.node));
+        a.appendChild(el('span', 'wfp-name', d.p.label));
         root.appendChild(a);
       });
     }
@@ -394,7 +409,11 @@ window.WF_NAV = {
           var st = el(p.status === 'built' ? 'a' : 'span', 'wfp-state' + (p.file === cur ? ' is-current' : '') + (p.status === 'built' ? '' : ' is-spec'));
           if (p.status === 'built') st.href = BASE + p.file;
           if (p.file === cur) st.setAttribute('data-active', 'true');
-          st.textContent = p.isBase ? p.label : p.label;
+          // THE CODE IS A FIELD AND IT IS SHOWN, D-46. Every state row carries its own
+          // node code where it has one and the host's where it does not, so a variation
+          // is legibly a variation of this node rather than a number of its own.
+          st.appendChild(el('span', 'wfp-snode', p.node || sc.node));
+          st.appendChild(el('span', 'wfp-sname', p.label));
           if (p.dead) st.appendChild(el('span', 'wfp-dead', 'dead end'));
           root.appendChild(st);
         });

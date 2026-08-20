@@ -889,3 +889,56 @@ Band 4 by `D-42`, the brand column by `D-43`, above the payment marks now. **Tha
 
 **Measured.** 196 checks over 15 pages, 7 widths and both rail states, no sideways scroll. The language panel fully on screen at 360, 900, 1440 and 2000 in both rail states, the control matching the marks under it at every width above the stacked step, and the rail's own tooltip still firing on hover and on focus.
 
+---
+
+## 28. The stage at rest, the count it follows, and one naming scheme for the states
+
+**Founder, 20 August 2026, three things in one message.** The state list is chaos and two lists disagree. The screen is missing phase 1 at two and at five. And the strip under the artwork could carry the case's own skins, moving.
+
+### The strip: a refusal paid off rather than reversed
+
+On 19 August the lane went from nine tiles carrying a value and a chance each to nothing at all, and **the node printed what that cost in its own words**: "the stage now shows what the reveal will look like rather than what is in the case, so a person who reads only the first screen learns the case's name, its cost, its tested RTP and its expected value, and nothing about its contents."
+
+**The founder's idea separates the two things that refusal had welded together.** What was refused was **figures on the lane**, and it stays refused. What was lost with them was **the items themselves**, and nothing required that. **An artwork is not a claim.** No value, no chance, no name, no pointer, and the first screen answers what is in this case again, in the region that will show the same objects moving one tap later.
+
+**The drift has a job, which is the test `CLAUDE.md` sets for motion.** Principle 2 cuts motion without an emotional or informational job. **Informational: a strip that moves is legibly longer than its frame**, so it reads as a sample of a set rather than as the set. **Emotional: principle 4.**
+
+| Limit | Why |
+|---|---|
+| **No pointer, ever, in phase 1** | A marker over an item before a roll exists points at a result nobody has decided, which is `E2`'s near-miss objection arriving one phase early |
+| **It stops under `prefers-reduced-motion`** and renders the same items still | Section 7.3. **A drift a person cannot switch off is decoration with a job description** |
+| **It never accelerates into the reveal** | `E1`: the roll is settled before the animation. A stage that speeds up on the trigger is the interface pretending the roll is happening now |
+
+**The track holds the item set twice and shifts by exactly half**, which is what makes the loop seamless without the second copy reading as a repeat. **The lanes do not share a phase:** five tracks moving in lockstep read as one object sliding behind five windows rather than as five samples of the same set.
+
+### Phase 1 at two and at five, and the matrix had said it was unchanged
+
+The node has said since it was written that the stage is "the reveal lane standing still" and "the same region holding the same object in two states rather than two layouts trading places". **Its own state matrix then said "count switch at more than one: phase 1 unchanged"**, which made that true only at a count of one.
+
+**A stage that shows one lane and then opens five is a layout trading places at the moment of the tap**, which is the thing that paragraph exists to forbid. **So the stage at rest takes the axis and the count the reveal will use**, and the geometry is the reveal's own: one horizontal, two or five vertical and side by side, shorter from three up.
+
+**One, two and five are walkable and three and four are not**, which is a prototype fact rather than a product one: two is the shape and five is the load, the same pair `D-35` drew for the reveal and the outcome, so three and four would be two more pages saying what these two already say. **The counts that have a page behind them are links now**, so the switch walks the prototype instead of only looking like it would.
+
+### Two lists, two answers, one set of files
+
+**The founder asked what the difference was between them. There was none in the files and every difference in the reading.**
+
+| Reader | What it printed | Why |
+|---|---|---|
+| The flat "built so far" list | `3.3` for **all eleven** states of the case screen, as "Case screen, <state>" | It used the host's code and **stripped the code out of the state's own label** |
+| The list on the screen itself | `3.4` through `3.7` for the same eleven pages | Those codes were **typed into the label text** |
+| The flow walker | Resolved a state by **searching for its code inside a string** | So a state could only take part in a flow if somebody had remembered to prefix its label |
+
+**The code is a field now.** Both renderers read the same two fields: the state's own node code where it has one, the host's where it does not, and the state's own label untouched. **A state with no code of its own is a variation of its host node and is shown as one**, rather than borrowing a number it does not have. **Twenty-nine states across the registry gained the field in one pass.**
+
+**And the rows are in flow order**, which they were not: the two phase 1 states at a chosen count had been appended after `3.4` because they were added last. Phase 1 first, all of it, then `3.4`, then the open, then the outcome, then the interruption, then the two figure conditions that are not phases at all.
+
+### Two small defects fixed while measuring
+
+- **The five count buttons and their label did not fit one row of a 360px screen**, so the label wrapped and pushed the fifth button onto a line of its own. The group carries the same words as its accessible name, so the visible label leaves below 420px and a reader loses nothing.
+- **The roll count line above the stage still read "one roll" at two and at five.**
+
+**Measured.** 17 pages x 7 widths x both rail states, **224 checks, no sideways scroll**. Both navigation lists print the same code and the same label for all fourteen pages of `3.3`, the stage carries one, two and five lanes with no pointer in any of them, the drift stops under reduced motion, and the trigger reads 12.40, 24.80 and 62.00 against a balance of 74.20.
+
+**Still open, unchanged:** `2.4`, `2.5`, `2.6` and `2.1` are `spec`. The sold state and the count above the balance are still not drawn, and `D-38` and `D-35` named both as gaps rather than leaving them to be discovered.
+
