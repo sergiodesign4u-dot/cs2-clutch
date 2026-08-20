@@ -613,11 +613,21 @@ window.WF_NAV = {
     btn.setAttribute('aria-expanded', 'false');
     btn.setAttribute('aria-haspopup', 'true');
     btn.setAttribute('aria-controls', 'wf-acct-menu');
+    // THE AVATAR ALONE AT EVERY WIDTH, D-49. The control carried the display name on
+    // desktop and dropped it at 360, which was one control in two forms for no reason a
+    // person could see. THE NAME IS NOT INFORMATION A SIGNED-IN PERSON NEEDS ON EVERY
+    // SCREEN: they know who they are. What it is for is confirming WHICH account you are
+    // in, and that question is asked at the moment the menu opens, so the name moved
+    // there. It stays in the accessible name here, so nothing is lost to a reader.
     btn.appendChild(el('span', 'wf-avatar'));
-    btn.appendChild(el('span', 'wf-acct-name wf-hide-narrow', 'Spectacle'));
+    btn.setAttribute('aria-label', 'Account, Spectacle');
 
     var menu = el('div', 'wf-acct-menu');
     menu.id = 'wf-acct-menu';
+    // WHICH ACCOUNT YOU ARE IN, ASKED AND ANSWERED WHERE IT IS ASKED, D-49. The name
+    // left the persistent control and arrives here, at the moment a person opens the
+    // menu, which is the moment the question exists.
+    menu.appendChild(el('div', 'wf-acct-who', 'Spectacle'));
     var nav = el('nav', null);
     nav.setAttribute('aria-label', 'Account');
     [['My items', 'account.html'], ['Roll history', 'history.html'],
@@ -775,10 +785,14 @@ window.WF_NAV = {
 
     var right = el('div', 'wf-row');
     if (cfg.account) {
-      // ORDER, AND IT IS THE NODE'S: "the account control, the two figures, the deposit
-      // control". Rendered the other way round, money first and the account last, which
-      // is also the reverse of the baseline capture the founder specified this zone from.
-      right.appendChild(accountControl());
+      // ORDER, AND IT CHANGED ON 20 AUGUST 2026, D-49: money, the deposit control, then
+      // the account control at the far right. It read "the account control, the two
+      // figures, the deposit control" from the founder's first reading of a baseline
+      // capture. THE BASELINE ITSELF PUTS THE USER PANEL AT THE RIGHT EDGE, baseline.md
+      // section on the header: ".user-panel-right, right aligned at x=1174".
+      // AND THE ORDER IS NOW THE ORDER OF THE JOB: what I have, how to add to it, who I
+      // am. The account control is the least used of the three and it is the one that
+      // opens a menu, so it belongs at the edge the menu hangs from.
 
       // THE TWO FIGURES ARE ONE STACKED BLOCK, NOT A ROW. 0.1 section 5 has said upper
       // and lower since it was written, and the state matrix says "two lines" on desktop
@@ -811,6 +825,7 @@ window.WF_NAV = {
       dep.href = BASE + 'deposit.html';
       dep.setAttribute('aria-label', 'Deposit');
       right.appendChild(dep);
+      right.appendChild(accountControl());
     } else {
       var si = el('a', 'wf-btn', 'Sign in');
       si.href = BASE + 'signin.html';

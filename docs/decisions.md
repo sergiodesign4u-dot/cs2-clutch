@@ -1464,3 +1464,31 @@ The node has said since it was written that choosing, opening and the outcome ar
 One line per roll made the five-roll outcome the tallest stage on the page and the one-roll outcome the shortest. **The receipt is what the stage produced**, and it belongs under it the way a receipt belongs under a purchase.
 
 **No field was removed.** Float, pattern, phase and the per-roll proof link are all still printed, still one line per roll, still in the order of the row above, which is the order of the reels they came out of. **`F1` and `F3` are satisfied exactly as they were.**
+
+---
+
+## D-49. The account control moves to the right edge, loses its name, and its menu becomes reachable
+
+**Date:** 2026-08-20. **Stage:** 04, raised against node `0.1` sections 5 and 9. **Decided by:** the founder, reading the drawn header. **Binds:** node `0.1` and the shell.
+
+**What was decided.** **The account control sits at the far right of the header.** **It is the avatar alone at every width, and the display name is the menu's first line.** **The menu can be moved into.**
+
+### The order was the founder's first reading of a capture, and the baseline disagrees with it
+
+The node has said since it was written: "the account control, the **two figures**, the **deposit control**". **`baseline.md` records the opposite**, in the section on the header: "`.user-panel-right`, right aligned at `x=1174`". The live product puts the user panel at the right edge.
+
+**And the new order is the order of the job:** what I have, how to add to it, who I am. **The account control is the least used of the three and it is the one that opens a menu**, so it belongs at the edge the menu hangs from.
+
+### One control in two forms was the defect
+
+It carried the display name on desktop and dropped it at 360. **That is a difference a person can see and cannot explain**, and the node's own state matrix printed it as two rows: "Avatar and name" against "Avatar only".
+
+**The name is not information a signed-in person needs on every screen: they know who they are.** What it is for is confirming **which** account you are in, and **that question is asked at the moment the menu opens**, so the answer moved there as the menu's first line. **It stays in the control's accessible name**, so nothing is lost to a reader. **Desktop and mobile are now one control in one form.**
+
+### A hover menu you cannot move into is a menu that only works by click
+
+The panel hung **four pixels** below the control, and those four pixels are outside the control's own box. **Moving the pointer down towards the menu left the control and closed the menu before it could be entered.**
+
+**The gap is a visual decision and the hover target is a functional one, and they were the same box.** The panel keeps its gap and carries an invisible bridge across it, belonging to the menu, which is inside the wrapper, so hovering the gap is still hovering the wrapper.
+
+**This was never a keyboard or touch defect:** `0.1` section 5 already requires hover, click, Enter and Space to open it and Escape, an outside click and focus leaving to close it, and all of those worked. **It was the one input the drawing appeared to support and did not.**

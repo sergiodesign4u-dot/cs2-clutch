@@ -249,7 +249,9 @@ Left to right: rail toggle, logo, then the right group: **Sign in**, routing to 
 
 ### Account exists
 
-This is the state the founder specified. Left to right: rail toggle, logo, then the right group: the account control, the **two figures**, the **deposit control**, and the sound control.
+This is the state the founder specified. Left to right: rail toggle, logo, then the right group: the **two figures**, the **deposit control**, and **the account control at the far right, `D-49`**.
+
+**The order changed on 20 August 2026 and it was "the account control, the two figures, the deposit control".** That came from the founder's first reading of a baseline capture. **The baseline itself puts the user panel at the right edge**, `baseline.md` section on the header: "`.user-panel-right`, right aligned at `x=1174`". **And the new order is the order of the job:** what I have, how to add to it, who I am. The account control is the least used of the three and it is the one that opens a menu, so it belongs at the edge the menu hangs from.
 
 | Element | What it shows | Leads to |
 |---|---|---|
@@ -265,7 +267,9 @@ This is the state the founder specified. Left to right: rail toggle, logo, then 
 
 ### The account menu, added 19 August 2026 by founder decision
 
-**The account control opens a menu instead of navigating.** The baseline does this and the founder specified it from the baseline capture: avatar and display name, and the menu opens under them. The control keeps its accessible name and its route target as the menu's first item, so nothing that was reachable becomes unreachable.
+**The account control opens a menu instead of navigating.** The baseline does this and the founder specified it from the baseline capture. **It is the avatar alone at every width since `D-49`, and the display name is the menu's first line.**
+
+**One control in two forms was the defect.** It carried the name on desktop and dropped it at 360, which is a difference a person can see and cannot explain. **The name is not information a signed-in person needs on every screen: they know who they are.** What it is for is confirming **which** account you are in, and that question is asked at the moment the menu opens, so the answer moved there. **It stays in the control's accessible name**, so nothing is lost to a reader. The control keeps its accessible name and its route target as the menu's first item, so nothing that was reachable becomes unreachable.
 
 | Row | Node | Parent |
 |---|---|---|
@@ -320,7 +324,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 | **Brand and home** | Logo at the top of the rail, routes to 1.0 | **Logo is the drawer's first row.** The persistent route home is bar item 1 | Same | Same |
 | **Rail toggle** | On the junction of the two seams. Collapses to icons | Header, leading edge. Opens the modal drawer | Same | Same |
 | **Money** | Nothing. There is no balance before an account | Nothing | Balance and value of items held, two lines, with the deposit control | Both figures, condensed to one line each, deposit control kept |
-| **Account** | Sign in, routes to 2.4 | Sign in, routes to 2.4 | Avatar and name, routes to 5.1 | Avatar only, routes to 5.1 |
+| **Account** | Sign in, routes to 2.4 | Sign in, routes to 2.4 | **Avatar only, `D-49`**, opens the menu, whose first row routes to 5.1 | **Avatar only. Identical to desktop since `D-49`** |
 | **Boundary** | Rail entry only. Nothing to limit yet | Rail entry only | Rail entry plus the entry inside the money control | Same |
 | **Ambient**, at the foot of the rail since `D-29`, never in the header | Sound control, language, social links. Ticker 0.8 on 1.0 only since `D-31` | **No sound control at this width**, answered by stage 04 on 18 August 2026: the one row rule in section 9 does not fit menu plus two figures plus deposit plus avatar plus sound at 360px, and the baseline makes the same cut at 390px. The ticker is unchanged | Same as guest desktop | **Same cut.** The control that matters during a reveal belongs to `3.5`, on the screen where the sound plays |
 
@@ -395,6 +399,8 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 ## 9. Adaptive behaviour
 
 **Mobile is the base, 360px.** One header row: menu icon, then the money and account zone, **and no sound control since `D-29` moved it to the foot of the rail**. A bottom bar with **two destinations before an account and three after**, `D-29`. The rail is a modal drawer, closed by default, its first row is the logo, and its foot carries the sound control, the language and the social links.
+
+**The menu has to be reachable, and it was not, `D-49`.** It hung four pixels below the control, and those four pixels are outside the control's own box, so **moving the pointer down towards the menu left the control and closed it before it could be entered.** A hover menu a person cannot move into is a menu that only works by click. The panel keeps its gap and carries an invisible bridge across it. **The gap is a visual decision and the hover target is a functional one, and they were the same box.**
 
 **The order inside the foot is a rule, not a layout preference.** The ambient pair sits **above** the social row: sound and language are controls of the session in progress, the social links are an **exit from the product**, and a control used inside does not sit below a link that leads out. On mobile the drawer scrolls, so the lowest row is the hardest to reach and belongs to what is needed least. **The pair shares one strip and, since `D-41`, one affordance:** both are buttons. **The sentence that stood here said the language was a label with no press state because one language is locked and there is nothing to pick**, and it stayed after `D-41` had already made it a control, which is how a node contradicts itself in two places at once. It is corrected rather than deleted: **the reasoning was sound and the premise moved.** There are nine options now, `D-42`, one of them live.
 

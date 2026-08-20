@@ -987,6 +987,33 @@
   </div>
 </section>
 
+<section id="acct">
+  <div class="sec-head">
+    <h2>The account control moves to the right edge, loses its name, and its menu becomes reachable</h2>
+    <p>Founder, 20 August 2026, reading the drawn header. Live from <code>wireframes/docs/screens.md</code> section 31. <code>D-49</code>.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The order was a first reading of a capture, and the baseline disagrees with it</h4>
+    <p>Node 0.1 has said since it was written: "the account control, the <strong>two figures</strong>, the <strong>deposit control</strong>". <strong><code>baseline.md</code> records the opposite</strong>, in the section on the header: "<code>.user-panel-right</code>, right aligned at x=1174". <strong>The live product puts the user panel at the right edge.</strong></p>
+    <p><strong>And the new order is the order of the job:</strong> what I have, how to add to it, who I am. <strong>The account control is the least used of the three and it is the one that opens a menu</strong>, so it belongs at the edge the menu hangs from.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>One control in two forms was the defect</h4>
+    <p>It carried the display name on desktop and dropped it at 360. <strong>That is a difference a person can see and cannot explain</strong>, and the node's own state matrix printed it as two rows: "Avatar and name" against "Avatar only".</p>
+    <p><strong>The name is not information a signed-in person needs on every screen: they know who they are.</strong> What it is for is confirming <b>which</b> account you are in, and <strong>that question is asked at the moment the menu opens</strong>, so the answer moved there as the menu's first line. <strong>It stays in the control's accessible name</strong>, so nothing is lost to a reader. Desktop and mobile are one control in one form now: 44 by 44 at both widths.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>A hover menu you cannot move into is a menu that only works by click</h4>
+    <p>The panel hung <strong>four pixels</strong> below the control, and those four pixels are outside the control's own box. <strong>Moving the pointer down towards the menu left the control and closed the menu before it could be entered.</strong></p>
+    <p><strong>The gap is a visual decision and the hover target is a functional one, and they were the same box.</strong> The panel keeps its gap and grows an invisible bridge across it, and because the bridge belongs to the menu and the menu is inside the wrapper, hovering the gap is still hovering the wrapper.</p>
+    <p><strong>This was never a keyboard or touch defect.</strong> 0.1 section 5 already requires hover, click, Enter and Space to open it and Escape, an outside click and focus leaving to close it, and every one of those worked. <strong>It was the one input the drawing appeared to support and did not.</strong></p>
+    <p><strong>Measured.</strong> The pointer walked from the centre of the avatar, through the gap, into the panel: <strong>the menu reports display: flex at all three points</strong>, at 1440 and at 360. Order in the header row is money, deposit, account, with the account control's left edge at 1372 of 1440 and 300 of 360. <strong>224 checks, no sideways scroll, no collapsed leaf.</strong></p>
+  </div>
+</section>
+
 </main>
 
 <footer class="doc">
@@ -1023,6 +1050,7 @@ window.NAV_SECTIONS = [
   { id: 'rest',        label: 'D-46 stage at rest' },
   { id: 'two',         label: 'D-47 boxes and showcase' },
   { id: 'frame',       label: 'D-48 one stage size' },
+  { id: 'acct',        label: 'D-49 account control' },
 ];
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';

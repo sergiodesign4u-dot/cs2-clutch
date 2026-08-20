@@ -1181,7 +1181,25 @@ a.wfp-state:hover { color: var(--wf-ink); }
    touch entirely and the keyboard almost entirely. */
 .wf-acct-wrap { position: relative; flex: 0 0 auto; }
 .wf-acct { gap: var(--wf-s-1); }
-.wf-acct-name { white-space: nowrap; }
+/* THE CONTROL IS THE AVATAR AT EVERY WIDTH, D-49, so the two forms it had are one. */
+.wf-acct { width: var(--wf-tap); min-width: var(--wf-tap); padding: 0; justify-content: center; }
+.wf-acct .wf-avatar { margin-right: 0; }
+/* Who you are, at the top of the menu, which is where the question is asked. */
+.wf-acct-who {
+  padding: var(--wf-s-half) var(--wf-s-1) var(--wf-s-1);
+  border-bottom: 1px solid var(--wf-line-soft); margin-bottom: var(--wf-s-half);
+  font-size: var(--wf-t-s); color: var(--wf-ink-dim);
+}
+/* THE MENU IS REACHABLE, D-49, and it was not. It hung 4px below the control, and that
+   4px is outside .wf-acct-wrap, so moving the pointer down towards the menu left the
+   wrap and closed it before it could be entered. A HOVER MENU YOU CANNOT MOVE INTO IS A
+   MENU THAT ONLY WORKS BY CLICK. The panel keeps its gap and grows an invisible bridge
+   across it: the bridge belongs to the menu, the menu is inside the wrap, so hovering
+   the gap is still hovering the wrap. */
+.wf-acct-menu::before {
+  content: ''; position: absolute; left: 0; right: 0;
+  top: calc(var(--wf-s-half) * -1 - 1px); height: calc(var(--wf-s-half) + 2px);
+}
 .wf-acct-menu {
   position: absolute; top: calc(100% + var(--wf-s-half)); right: 0; z-index: 60;
   display: none; flex-direction: column; gap: var(--wf-s-half); min-width: 200px;
@@ -1245,9 +1263,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
   .wf-money .wf-fig-c { display: none; }
   .wf-hide-narrow { display: none; }
   .wf-only-narrow { display: inline; }
-  .wf-acct .wf-avatar { margin-right: 0; }
   .wf-header .wf-btn { padding: var(--wf-s-half); }
-  .wf-acct { width: var(--wf-tap); min-width: var(--wf-tap); padding: 0; justify-content: center; }
   .wf-dep { width: 36px; min-width: 36px; height: 36px; min-height: 36px; }
   .wf-menu { width: var(--wf-tap); min-width: var(--wf-tap); padding: 0; flex: 0 0 auto; }
   /* The menu is anchored to the right edge of the screen rather than to a 44px avatar,

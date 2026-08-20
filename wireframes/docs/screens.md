@@ -1036,3 +1036,35 @@ One line per roll made the five-roll outcome the tallest stage on the page and t
 | **Before** | boxes 239x420 reported as the row, each box **2x420** |
 | **After** | boxes 239x420, each box **239x420** at one, **239x168** at five, **182x56** at five on 360 |
 
+---
+
+## 31. The account control moves to the right edge, loses its name, and its menu becomes reachable
+
+**Founder, 20 August 2026, reading the drawn header.** Move the profile to the right side. Drop the nickname, avatar only. And make the hover menu reachable, because the pointer moving down towards it closes it.
+
+### The order was a first reading of a capture, and the baseline disagrees with it
+
+Node `0.1` has said since it was written: "the account control, the **two figures**, the **deposit control**". **`baseline.md` records the opposite**, in the section on the header: "`.user-panel-right`, right aligned at `x=1174`". **The live product puts the user panel at the right edge.**
+
+**And the new order is the order of the job:** what I have, how to add to it, who I am. **The account control is the least used of the three and it is the one that opens a menu**, so it belongs at the edge the menu hangs from.
+
+### One control in two forms was the defect
+
+It carried the display name on desktop and dropped it at 360. **That is a difference a person can see and cannot explain**, and the node's own state matrix printed it as two rows: "Avatar and name" against "Avatar only".
+
+**The name is not information a signed-in person needs on every screen: they know who they are.** What it is for is confirming **which** account you are in, and **that question is asked at the moment the menu opens**, so the answer moved there as the menu's first line. **It stays in the control's accessible name**, so nothing is lost to a reader.
+
+**Desktop and mobile are one control in one form now:** 44 by 44 at both widths.
+
+### A hover menu you cannot move into is a menu that only works by click
+
+The panel hung **four pixels** below the control, and those four pixels are outside the control's own box. **Moving the pointer down towards the menu left the control and closed the menu before it could be entered.**
+
+**The gap is a visual decision and the hover target is a functional one, and they were the same box.** The panel keeps its gap and grows an invisible bridge across it, and because the bridge belongs to the menu and the menu is inside the wrapper, hovering the gap is still hovering the wrapper.
+
+**This was never a keyboard or touch defect.** `0.1` section 5 already requires hover, click, Enter and Space to open it and Escape, an outside click and focus leaving to close it, and every one of those worked. **It was the one input the drawing appeared to support and did not.**
+
+### Measured
+
+The pointer walked from the centre of the avatar, through the gap, into the panel: **the menu reports `display: flex` at all three points**, at 1440 and at 360. Order in the header row is money, deposit, account, with the account control's left edge at 1372 of 1440 and 300 of 360. The control is 44 by 44 at both widths, carries no `.wf-acct-name`, and its accessible name is still "Account, Spectacle". **224 checks, no sideways scroll, no collapsed leaf.**
+
