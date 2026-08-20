@@ -966,21 +966,50 @@ window.WF_NAV = {
     c1.appendChild(langControl());
     cols.appendChild(c1);
 
-    // COLUMNS 2 TO 4. THE COLUMN IS INHERITED AND FILLED WITH WHAT IS LIVE. Play holds
-    // two because round 1 has two public play destinations; the LATER modes enter this
+    // FIVE LINK COLUMNS SINCE D-44, and each one is filled with what is live.
+    //
+    // PLAY HOLDS ONE GAME BECAUSE THE PRODUCT HAS ONE. The LATER modes enter this
     // column as they ship, exactly as they enter the rail. A short column is the truth
     // about the round, and padding it with a route the map does not hold would be the
     // dead item defect one carrier down.
+    //
+    // CASES IS THE CURATED FEW, and its rows are the four cases this prototype actually
+    // holds, the same four Home draws. WHICH CASES BELONG HERE IS A MERCHANDISING
+    // DECISION, not a design one: it is printed as open rather than answered by picking
+    // four names that look plausible.
+    //
+    // HELP CARRIES PROVABLY FAIR AND THE CONTACT ROUTE. Provably fair moved here from
+    // Play at the founder's request: a person looking for the proof is checking us, not
+    // choosing a mode. CLAUDE.md's rule still holds, "Provably fair and Responsible play
+    // are carried by the footer, which holds each in its own column" - each still has
+    // one, they are just not the same two columns as before.
+    // THERE IS NO FAQ ROW AND THAT IS NOT AN OVERSIGHT. sitemap.md cut the baseline's
+    // FAQ on an argument rather than on scope: its two load bearing jobs, the age
+    // control and the geo statement, moved to 2.1 and 6.1, and the residue went to 0.10.
+    // A row for it would be a carrier promising a destination the map does not hold.
+    // The absence is printed in the column so the founder can reverse it deliberately.
+    //
+    // PLAY RESPONSIBLY KEEPS ITS COLUMN. It is the divergence this node is built on:
+    // the baseline has no responsible play route and no age statement anywhere in its
+    // footer, baseline.md section 6.
     [
-      ['Play', [['Cases', 'catalogue.html'], ['Provably fair', 'fair.html']]],
+      ['Play', [['Cases', 'catalogue.html']],
+       'One game in round 1. The other modes enter this column as they ship.'],
+      ['Cases', [['All cases', 'catalogue.html'], ['Ironbound', 'case.html'],
+                 ['Warsteel', 'case.html'], ['Coldfront', 'case.html'],
+                 ['Nightfall', 'case.html']],
+       'Which cases belong here is a merchandising decision and it is not made.'],
       ['Company', [['Terms of use', 'legal.html'], ['Privacy policy', 'legal.html'],
                    ['Cookie policy', 'legal.html'], ['Refund and payments policy', 'legal.html']]],
+      ['Help', [['Provably fair', 'fair.html'], ['Contact support', 'support.html']],
+       'No FAQ: its two jobs moved to the geo gate and to Responsible play, and the rest went to Support.'],
       ['Play responsibly', [['Responsible play', 'responsible.html'], ['Where we operate', 'markets.html']]]
     ].forEach(function (col) {
       var c = el('div', 'wf-foot-col');
       var nav = el('nav', 'wf-foot-list');
       nav.setAttribute('aria-label', col[0]);
       col[1].forEach(function (r) { var a = el('a', null, r[0]); a.href = BASE + r[1]; nav.appendChild(a); });
+      if (col[2]) { nav.appendChild(el('span', 'wf-fig-missing wf-foot-hole', col[2])); }
       accordion(c, col[0], nav);
       cols.appendChild(c);
     });
@@ -990,12 +1019,13 @@ window.WF_NAV = {
     // banner shown once is not a route back.
     var ck = el('button', 'wf-linklike', 'Cookie settings');
     ck.type = 'button';
-    cols.children[2].querySelector('.wf-foot-list').appendChild(ck);
+    cols.children[3].querySelector('.wf-foot-list').appendChild(ck);
 
     // THE BRAND ART SLOT, founder request of 20 August 2026. It carries no information
     // and it says so: it is a reserved place for stage 06, the same kind of object as
     // the logo slot above it. BECAUSE IT CARRIES NOTHING IT IS THE FIRST THING TO GO,
-    // and it goes below 1200 rather than competing with four columns of real routes.
+    // and it goes when the column can no longer hold seven rather than competing with
+    // five columns of real routes.
     var art = el('div', 'wf-foot-art');
     art.setAttribute('aria-hidden', 'true');
     art.appendChild(el('span', 'wf-foot-art-l', 'Brand art, stage 06'));

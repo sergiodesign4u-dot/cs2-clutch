@@ -805,3 +805,47 @@ All three were left standing by `D-41` earlier the same day. **All three are cor
 
 **Not done, unchanged:** `2.4`, `2.5`, `2.6` and `2.1` are all `spec`. And `CLAUDE.md`'s locked row "Language | One, English" still carries the reading risk `D-41` named, with `D-42`'s eight inert options to add to it. That clause is still not written.
 
+---
+
+## 26. Five link columns, and one row that is not drawn
+
+**Founder, same day, reading the drawn band.** Three asks: one game in Play, a Cases column with the cases we put forward, and a Help column carrying FAQ, Provably fair and contact.
+
+### The one place the ask collided with a rule, and how it dissolved
+
+The founder asked for Help **instead of** Play responsibly. **`CLAUDE.md` says the opposite in as many words:** "Provably fair and Responsible play are carried by the footer, which holds each in its own column." **Responsible play has had no other carrier since `D-40` took it off the rail.**
+
+**Separating the halves dissolved it.** Of the three things wanted in Help, only Provably fair was already placed, **and it was not in Play responsibly, it was in Play**. So Help is built from Provably fair plus the contact route, **Play responsibly keeps its column untouched**, and nothing is displaced. The rule holds: each still has a column, they are just not the same two columns as before.
+
+**Provably fair earns the move on its own merits.** A person looking for the proof is checking us, not choosing a mode.
+
+### The FAQ row is not drawn, and the reason is on the page
+
+`sitemap.md` cut the baseline's FAQ **on an argument rather than on scope**, and the argument is recorded: on the live product the FAQ is the whole of the age control and the whole of the geo statement, both of which move to real surfaces here, `2.1` and `6.1`, and the residue goes to `0.10` Support.
+
+**A row for it would be a carrier promising a destination the map does not hold**, which is the rule applied to the rail, the account menu and the mobile bar in turn. **So the absence is printed in the column instead**, in the smallest type in the footer: "No FAQ: its two jobs moved to the geo gate and to Responsible play, and the rest went to Support."
+
+**That is a question handed back rather than a refusal.** Reopening the FAQ needs a node before it needs a link, and the founder can decide it with the argument in front of them instead of discovering the row missing.
+
+### Play holds one, Cases holds the few
+
+| Column | What is in it | Why |
+|---|---|---|
+| **Play** | Cases | **One game, because the product has one.** The LATER modes enter as they ship, exactly as they enter the rail. A short column is the truth about the round |
+| **Cases** | All cases, then Ironbound, Warsteel, Coldfront, Nightfall | **The four this prototype already draws** on Home and on `3.3`, not four plausible-sounding new ones. **Which four deserve the slot is a merchandising decision and it is not made**, printed beside them |
+| **Help** | Provably fair, Contact support | Plus the FAQ absence, printed |
+| **Company** | Four legal documents and Cookie settings | Unchanged |
+| **Play responsibly** | Responsible play, Where we operate | Unchanged. It is the divergence this node is built on |
+
+**The Cases column is not the interlinking row.** The row points a crawler at the priority indexed set; the column points a person at the cases we are putting forward. **They may turn out to be one list**, in which case the row goes and the column stays. `3.1` decides that.
+
+### What it cost in layout
+
+Six tracks plus the art slot is seven inside a measure of 1220. **Every step is asked of the content column, never of the window:** one column, then two with the brand block taking the whole row, then three, then six, then seven with the art.
+
+**One defect, and it was mine to make twice.** The art slot's own breakpoint and the seventh track's were set to different numbers, so between them the art wrapped to a row of its own under the brand block and stood there as a 240px empty box. **They switch at exactly the same width now.**
+
+**Measured.** 15 pages x 7 widths x both rail states, 196 checks, **no page scrolling sideways anywhere.** Six columns at a 952px content column, seven from 1180, three from 760, two from 480, one below that, and the accordions still collapse below 900 with every link in the DOM.
+
+**Still open and now printed on the page rather than only here:** whether an FAQ node is reopened, and which four cases the column carries.
+

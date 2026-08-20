@@ -117,15 +117,29 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 
 **The figure never breaks across lines.** A number read down two lines is a different number, so the type steps down when the column narrows instead of wrapping.
 
-### Band 2: the main band, the brand block, three link columns and one reserved slot
+### Band 2: the main band, the brand block, five link columns and one reserved slot
+
+**Five link columns since `D-44`, and they were three.** The founder read the drawn band and asked for the shape the category actually uses: one game in Play, a Cases column, and a Help column.
 
 | Column | Contents | Leads to |
 |---|---|---|
 | **Brand and help** | **The logo slot**, at the size the live product gives a footer logo. Then the **about line**, one sentence. Then the **identification block** in small text. Then a "Need help?" label over a **Support button**, an outlined pill rather than a text link. Then the **language switcher**, drawn wide with the full language name | 1.0, 0.10 |
-| **Play** | Cases, Provably fair | 3.1, 1.2 |
-| **Company** | Terms of use, Privacy policy, Cookie policy, Refund and payments policy, **Cookie settings** | 0.9, and dialog 0.4 links the cookie policy. **Cookie settings added by the step 8 audit:** GDPR Article 7(3), quoted in node `0.4`, says "It shall be as easy to withdraw as to give consent", and a banner shown once is not a route back. It is a control rather than a link, it reopens `0.4` in its settings state, and it is the only control in this column |
+| **Play** | Cases, and nothing else. **One game, because the product has one** | 3.1 |
+| **Cases** | All cases, then the four cases this prototype holds: Ironbound, Warsteel, Coldfront, Nightfall. **Which cases belong here is a merchandising decision and it is `[?]`**, printed in the column | 3.1, 3.3 |
+| **Company** | Terms of use, Privacy policy, Cookie policy, Refund and payments policy, **Cookie settings** | 0.9, and dialog 0.4 links the cookie policy. **Cookie settings added by the step 8 audit:** GDPR Article 7(3), quoted in node `0.4`, says "It shall be as easy to withdraw as to give consent", and a banner shown once is not a route back. It is a control rather than a link and the only control in this column |
+| **Help** | Provably fair, Contact support. **No FAQ row, and the absence is printed** | 1.2, 0.10 |
 | **Play responsibly** | Responsible play, Where we operate | 6.1, 2.2 |
 | **Brand art** | **A reserved slot, founder request of 20 August 2026, `D-43`.** Same kind of object as the logo slot: an area whose content arrives at stage 06 | Nothing. It is not a route |
+
+**Play holds one game because the product has one.** The column is inherited and filled with what is live, and the LATER modes enter it as they ship, exactly as they enter the rail. **A short column is the truth about the round**, and padding it with a route the map does not hold would be the dead item defect one carrier down, which is the rule that took the rail from nine to one.
+
+**The Cases column is the curated few, and it is not the interlinking row.** The row below it points a crawler at the priority indexed set; this column points a person at the cases we are putting forward. **They are different jobs and they may turn out to be one list**, in which case the row goes and the column stays. `3.1` decides that. **The four names are the ones this prototype already draws** on Home and on `3.3` rather than four plausible-sounding new ones, and **which four deserve the slot is a merchandising decision that is not made**, printed inside the column.
+
+**Provably fair moved from Play into Help, `D-44`.** A person looking for the proof is checking us, not choosing a mode. **`CLAUDE.md`'s rule is untouched:** "Provably fair and Responsible play are carried by the footer, which holds each in its own column." Each still has one. They are not the same two columns as before.
+
+**There is no FAQ row and that is not an oversight.** `sitemap.md`, section on what was cut from the baseline's footer, cut the FAQ **on an argument rather than on scope**: its two load bearing jobs on the baseline are the whole of the age control and the whole of the geo statement, both of which move to real surfaces here, `2.1` and `6.1`, and the residue goes to `0.10`. **A row for it would be a carrier promising a destination the map does not hold.** The absence is printed in the column in the smallest type in this footer, so the founder can reverse it deliberately rather than discover it missing.
+
+**Play responsibly keeps its column and that is not negotiable inside this node.** It is the divergence the node is built on: `baseline.md` section 6 records no responsible play route, no footer link and no age statement anywhere on the live product.
 
 **The logo leads the column rather than a wordmark, and that is a change of 20 August 2026.** The column opened with the words "CS2 Clutch" set in bold, which is a placeholder pretending to be finished. **The logo is an asset stage 06 draws, and what this stage owes it is the space it will occupy**, so it arrives as an image in a place rather than as a new element in a finished column. Both references the founder supplied lead with a large logo and so does the baseline.
 
@@ -135,9 +149,7 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 
 **The support button is inherited deliberately and it is an upgrade on the first version of this node**, which had support as one link among four in a column. `G4` requires an appeal with a published response deadline and Article 5(c) requires rapid contact. Neither is served well by a link that looks like a policy.
 
-**Play holds two because round 1 has two public play destinations.** The column is inherited and filled with what is live, and the LATER modes enter it as they ship, exactly as they enter the rail. **A short column is the truth about the round.** Padding it with a route the map does not hold would be the dead item defect one carrier down, which is the rule that took the rail from nine to one.
-
-**The fourth column is the one the baseline does not have.** Its three columns are Platform, Company and Additional. There is no compliance column anywhere in its footer, because there is no responsible play page and no age statement anywhere on the product, `baseline.md` section 6. **This column is the divergence.** It carries the two routes and no longer carries the statements: those are in band 3, see below.
+**The compliance column is the one the baseline does not have.** Its three columns are Platform, Company and Additional. There is no compliance column anywhere in its footer, because there is no responsible play page and no age statement anywhere on the product, `baseline.md` section 6. **This column is the divergence.** It carries the two routes and no longer carries the statements: those are in band 3, see below.
 
 **The brand art slot carries no information and says so.** It is `aria-hidden`, it is labelled as stage 06's, and **because it carries nothing it is the first thing to go**: it leaves when the column can no longer hold five, rather than competing with four columns of real routes. **It is the one element in this footer with no parent in the three legal classes**, and it is carried with that printed rather than argued into one.
 

@@ -837,6 +837,40 @@
   </div>
 </section>
 
+<section id="cols">
+  <div class="sec-head">
+    <h2>Five link columns, and one row that is not drawn</h2>
+    <p>Founder, 20 August 2026, reading the drawn band. Live from <code>wireframes/docs/screens.md</code> section 26. <code>D-44</code>.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The one place the ask collided with a rule, and how it dissolved</h4>
+    <p>The founder asked for Help <strong>instead of</strong> Play responsibly. <strong>CLAUDE.md says the opposite in as many words:</strong> "Provably fair and Responsible play are carried by the footer, which holds each in its own column", and <strong>Responsible play has had no other carrier since D-40 took it off the rail</strong>.</p>
+    <p><strong>Separating the halves dissolved it.</strong> Of the three things wanted in Help, only Provably fair was already placed, <strong>and it was not in Play responsibly, it was in Play</strong>. So Help is built from Provably fair plus the contact route, <strong>Play responsibly keeps its column untouched</strong>, and nothing is displaced. The rule holds: each still has a column, they are just not the same two columns as before. <strong>Provably fair earns the move on its own merits</strong> - a person looking for the proof is checking us, not choosing a mode.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The FAQ row is not drawn, and the reason is on the page</h4>
+    <p><code>sitemap.md</code> cut the baseline's FAQ <strong>on an argument rather than on scope</strong>: on the live product it is the whole of the age control and the whole of the geo statement, both of which move to real surfaces here, 2.1 and 6.1, and the residue goes to 0.10 Support.</p>
+    <p><strong>A row for it would be a carrier promising a destination the map does not hold</strong> - the rule applied to the rail, the account menu and the mobile bar in turn. So the absence is printed in the column instead, in the smallest type in the footer: <em>"No FAQ: its two jobs moved to the geo gate and to Responsible play, and the rest went to Support."</em></p>
+    <p><strong>That is a question handed back rather than a refusal.</strong> Reopening the FAQ needs a node before it needs a link, and the founder can decide it with the argument in front of them instead of discovering the row missing.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Play holds one, Cases holds the few</h4>
+    <p><strong>Play: Cases.</strong> One game, because the product has one. The LATER modes enter as they ship, exactly as they enter the rail, and a short column is the truth about the round.</p>
+    <p><strong>Cases: All cases, then Ironbound, Warsteel, Coldfront, Nightfall</strong> - the four this prototype already draws on Home and on 3.3, not four plausible-sounding new ones. <strong>Which four deserve the slot is a merchandising decision and it is not made</strong>, printed beside them.</p>
+    <p><strong>The Cases column is not the interlinking row.</strong> The row points a crawler at the priority indexed set; the column points a person at the cases we are putting forward. <strong>They may turn out to be one list</strong>, in which case the row goes and the column stays. 3.1 decides that.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>What it cost in layout, and the one defect it produced</h4>
+    <p>Six tracks plus the art slot is seven inside a measure of 1220. <strong>Every step is asked of the content column, never of the window:</strong> one column, then two with the brand block taking the whole row, then three, then six, then seven with the art.</p>
+    <p><strong>The art slot's own breakpoint and the seventh track's were set to different numbers</strong>, so between them the art wrapped to a row of its own under the brand block and stood there as a 240px empty box. They switch at exactly the same width now.</p>
+    <p><strong>Measured.</strong> 15 pages x 7 widths x both rail states, 196 checks, <strong>no page scrolling sideways anywhere</strong>. Six columns at a 952px content column, seven from 1180, three from 760, two from 480, one below that, and the accordions still collapse below 900 with every link in the DOM. <strong>Still open and now printed on the page rather than only here:</strong> whether an FAQ node is reopened, and which four cases the column carries.</p>
+  </div>
+</section>
+
 </main>
 
 <footer class="doc">
@@ -868,6 +902,7 @@ window.NAV_SECTIONS = [
   { id: 'railcol',     label: 'Collapsed rail' },
   { id: 'footkind',    label: 'D-42 footer kinds' },
   { id: 'measure',     label: 'D-43 measure and footer' },
+  { id: 'cols',        label: 'D-44 five columns' },
 ];
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';

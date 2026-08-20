@@ -1281,3 +1281,39 @@ Both were left standing by `D-41` and both are kept in place with their reasons 
 ### Play holds two, and that is not an omission
 
 The column is inherited and filled with what is live, and the LATER modes enter it as they ship, exactly as they enter the rail. **A short column is the truth about the round.** Padding it with a route the map does not hold would be the dead item defect one carrier down, which is the rule that took the rail from nine to one and the same rule `D-42` suspended for the language control alone.
+
+---
+
+## D-44. Five link columns: Play holds one game, Cases gets its own, and Help replaces nothing
+
+**Date:** 2026-08-20. **Stage:** 04, raised against node `0.2` section 3. **Decided by:** the founder, reading the drawn band. **Binds:** node `0.2` band 2 and the shell in `wireframes/_nav.js`. **Amends** `D-43` one day old.
+
+**What was decided.** **Play holds one game. A Cases column is added. A Help column is added and carries Provably fair and the contact route. Play responsibly keeps its column.**
+
+### The ask, and the one place it collided with a rule
+
+The founder asked for a Help column **instead of** Play responsibly. **That collides with `CLAUDE.md` directly:** "Provably fair and Responsible play are carried by the footer, which holds each in its own column." Responsible play has no other carrier since `D-40` took it off the rail.
+
+**The collision dissolves once the two halves are separated.** What the founder wants in Help is FAQ, Provably fair and contact. **Only one of those was in Play responsibly**, and it was not there: Provably fair was in Play. So Help is built from Provably fair plus the contact route, **Play responsibly keeps its column untouched**, and nothing is displaced. **The rule holds: each still has a column. They are just not the same two columns as before.**
+
+**Provably fair belongs in Help rather than in Play on its own merits.** A person looking for the proof is checking us, not choosing a mode.
+
+### There is no FAQ row, and the founder should know why
+
+`sitemap.md` cut the baseline's FAQ **on an argument rather than on scope**, and the argument is recorded: on the live product the FAQ is the whole of the age control and the whole of the geo statement, both of which move to real surfaces here, `2.1` and `6.1`, and the residue goes to `0.10` Support.
+
+**A row for it would be a carrier promising a destination the map does not hold**, which is the rule this project has applied to the rail, the account menu and the mobile bar in turn. **So the row is not drawn and the absence is printed inside the column** in the smallest type in this footer: "No FAQ: its two jobs moved to the geo gate and to Responsible play, and the rest went to Support."
+
+**That is a question handed back rather than a refusal.** Reopening the FAQ is a decision, it needs a node before it needs a link, and the founder can make it with the argument in front of them instead of discovering the row missing.
+
+### Play holds one game, and Cases holds the few
+
+**One game, because the product has one.** The column is inherited and filled with what is live, and the LATER modes enter it as they ship, exactly as they enter the rail. **A short column is the truth about the round.**
+
+**The Cases column is not the interlinking row.** The row points a crawler at the priority indexed set; the column points a person at the cases we are putting forward. **They may turn out to be one list**, in which case the row goes and the column stays, and `3.1` decides that.
+
+**The four names are the four this prototype already draws** on Home and on `3.3`, Ironbound, Warsteel, Coldfront and Nightfall, rather than four plausible-sounding new ones. **Which four deserve the slot is a merchandising decision and it is not made**, printed in the column beside them.
+
+### What it cost in layout, and it was paid rather than absorbed
+
+Six tracks plus the art slot is seven, in a measure of 1220. **The ladder is asked of the content column at every step:** one column, then two with the brand block taking the whole row, then three, then six, then seven with the art. **The art slot and the seventh track switch at exactly the same width**, because for one measurement pass they did not and the art wrapped to a row of its own under the brand block.
