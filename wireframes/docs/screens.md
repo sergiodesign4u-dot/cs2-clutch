@@ -1023,3 +1023,16 @@ One line per roll made the five-roll outcome the tallest stage on the page and t
 
 **Measured.** 17 pages x 7 widths x both rail states, 224 checks, no sideways scroll. **All fourteen pages of `3.3` report a stage frame of 460 at 1440 and 380 at 360**, against a range of 179 to 501 and 128 to 469 before.
 
+### One defect shipped in section 30 and the founder found it, not the sweep
+
+**The case boxes rendered as 2px lines.** `height: 100%` on a flex item whose parent's height comes from `flex-grow`: several engines treat that parent height as indefinite, so the percentage resolved to `auto`, and the `min-height: 0` set in the same change removed the only fallback. Every box collapsed to its own border. **`align-items: stretch` on the row was already doing the job**, and the percentage was overriding the thing that worked.
+
+**Why 224 checks did not catch it, and this is the part worth keeping.** The sweep measured **the stage frame**, and the stage frame was exactly right: 460 at 1440, 380 at 360, on all fourteen pages. **The row inside it was 239px tall and every box in that row was 2px.** A container measurement cannot see a collapsed leaf, and the whole finding of section 30 was about container heights, so the instrument was pointed at the one thing that was already fine.
+
+**The sweep now asserts leaves as well.** Any statically positioned element inside the stage frame that is wider than 40px and shorter than 6px is a collapse: nothing in this prototype legitimately looks like that.
+
+| | |
+|---|---|
+| **Before** | boxes 239x420 reported as the row, each box **2x420** |
+| **After** | boxes 239x420, each box **239x420** at one, **239x168** at five, **182x56** at five on 360 |
+

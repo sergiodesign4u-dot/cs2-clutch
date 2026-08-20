@@ -1393,7 +1393,13 @@ a.wfp-state:hover { color: var(--wf-ink); }
 /* The boxes take whatever the frame has left after the showcase and its route, so
    phase 1 fills the box exactly rather than overshooting it by the height of a caption. */
 .wf-boxes { display: flex; gap: var(--wf-s-2); width: 100%; flex: 1 1 auto; min-height: 120px; justify-content: center; align-items: stretch; }
-.wf-boxes > .wf-case-art { flex: 1 1 0; min-width: 0; max-width: 420px; min-height: 0; height: 100%; }
+/* NO height: 100% HERE, and that is the fix rather than the style. The parent is a flex
+   item whose height comes from flex-grow, which several engines treat as indefinite, so
+   a percentage height resolved to auto and, with the base min-height removed, every box
+   collapsed to its own 2px of border. align-items: stretch on the row already does the
+   job: an item left at height auto stretches to the line, and setting a percentage was
+   overriding the thing that was already working. */
+.wf-boxes > .wf-case-art { flex: 1 1 0; min-width: 0; max-width: 420px; min-height: 0; }
 /* The cost of the switch, printed rather than absorbed: five boxes on a 360px screen are
    about 59px wide each, so they get shorter as well as narrower. */
 
