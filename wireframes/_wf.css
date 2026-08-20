@@ -232,15 +232,23 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wfp-ia { font-size: var(--wf-t-xs); color: var(--wf-ink-faint); text-decoration: none; }
 .wfp-ia:hover { color: var(--wf-ink-dim); }
 
-/* The screen sits beside the panel from 900px and the panel goes off-canvas below it. */
+/* THE PANEL TAKES THE LEFT EDGE FROM 1200px, NOT FROM 900, and the change is the root
+   half of the audit finding of 20 August 2026. This panel is SCAFFOLDING: it is the
+   prototype's own index and no part of the product. Docked from 900 it took 220px at the
+   same width the product's rail also stopped being a drawer and took 220, so at a 900px
+   window the screen under test was measured in a 445px column, NARROWER THAN THE 665 IT
+   would really have. Every desktop rule fired against that fiction, and the whole
+   prototype scrolled sideways from 900 to about 1100 on every page including Home.
+   THE SCAFFOLDING MAY NOT TAKE A THIRD OF THE SCREEN FROM THE THING IT IS SHOWING.
+   Below 1200 it is behind its handle, exactly as it is on mobile. */
 .wf-screen-body { padding: var(--wf-s-2); }
-@media (min-width: 900px) { .wfp-toggle { display: none; } }
-@media (min-width: 900px) {
+@media (min-width: 1200px) { .wfp-toggle { display: none; } }
+@media (min-width: 1200px) {
   /* The scaffolding panel holds the left edge; the screen starts at its seam. The grid
      that lays the screen out is further down, at SCREEN STRUCTURE. */
   .wf-screen-body { margin-left: var(--wf-rail-w); }
 }
-@media (max-width: 899px) {
+@media (max-width: 1199px) {
   .wfp { transform: translateX(-100%); transition: transform .2s ease; }
   .wfp.is-open { transform: translateX(0); }
   /* The scaffolding handle docks to the middle of the right edge. Top left is the
@@ -615,6 +623,9 @@ a.wfp-state:hover { color: var(--wf-ink); }
   display: grid; grid-template-columns: 1fr; gap: var(--wf-s-2);
   padding-bottom: var(--wf-s-3); border-bottom: 1px solid var(--wf-line-soft);
 }
+/* Two up, then four, when the column can hold them rather than when the window can. */
+@container col (min-width: 420px) { .wf-foot-stats { grid-template-columns: repeat(2, 1fr); gap: var(--wf-s-3); } }
+@container col (min-width: 720px) { .wf-foot-stats { grid-template-columns: repeat(4, 1fr); } }
 /* The route is what separates a checkable figure from a number that looks like one,
    0.2 section 2. It is smaller than the caption and it is never absent silently. */
 .wf-fig-route { color: var(--wf-ink-faint); font-style: italic; }
@@ -689,7 +700,12 @@ a.wfp-state:hover { color: var(--wf-ink); }
    =========================================================================== */
 @media (min-width: 900px) {
   .wf-bar { display: none; }
-  .wf-foot-stats { grid-template-columns: repeat(4, 1fr); gap: var(--wf-s-3); }
+  /* THE FOOTER ROWS ARE ASKED OF THE COLUMN, NOT THE VIEWPORT, and this is the second
+     half of the same audit finding. Four fixed fractions here were what pinned every page
+     in the prototype, Home included, to a scroll width of 1040 from a 900px viewport up:
+     each figure carries a 28px icon zone and its own caption, and four of them will not
+     fold below about 600px of column. The footer is a global element, which is why one
+     rule in it put a horizontal scrollbar on every screen at once. */
   .wf-foot-cols { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: var(--wf-s-4); }
 
   .wf-screen-body {
@@ -1110,7 +1126,12 @@ a.wfp-state:hover { color: var(--wf-ink); }
   display: grid; grid-template-columns: 1fr; gap: var(--wf-s-2);
   list-style: none; margin: 0; padding: 0; width: 100%;
 }
+/* THE CARD ASKS ITS OWN WIDTH, not the viewport's. Same finding and the same cause: at
+   a 900px viewport a fifth of the content column is 57px, narrower than the 88px it gets
+   at 899, so a tier keyed to the viewport thinned the card at 360 and fattened it back
+   at exactly the width where it had least room. */
 .wf-won-card {
+  container-type: inline-size; container-name: card;
   display: flex; flex-direction: column; align-items: center; gap: var(--wf-s-half);
   text-align: center; padding: var(--wf-s-2);
   border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
@@ -1153,33 +1174,30 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-won-card .wf-won-name, .wf-won-card .wf-won-name > span {
   min-width: 0; max-width: 100%; overflow-wrap: anywhere;
 }
-@media (max-width: 599px) {
-  .wf-won-grid--3 .wf-sell-w { display: none; }
-  /* Three columns of a 360 screen is about 95px, which is the same problem one step
-     later. Two columns keep their names: 160px is a line a skin name fits on. */
-  .wf-won-grid--3 .wf-won-name { display: none; }
-}
-@media (max-width: 899px) {
-  .wf-won-grid { gap: var(--wf-s-1); }
+/* Below 180px of card the words around the number go. THE VERB STAYS AT EVERY WIDTH:
+   a control whose whole label is a number is not a control, it reads as another figure
+   in a box, on the one screen where reading and acting must not be confused. */
+@container card (max-width: 180px) {
+  .wf-sell-w { display: none; }
+  .wf-won-card .wf-btn { font-size: var(--wf-t-xs); min-height: 40px; }
   .wf-won-card { padding: var(--wf-s-1); gap: 2px; }
   .wf-won-card .wf-won-art { min-height: 72px; }
-  .wf-won-card .wf-won-v { font-size: var(--wf-t-s); }
-  /* AT FOUR COLUMNS AND UP BELOW 900 THE NAME LEAVES THE CARD ENTIRELY, and this is the
-     honest end of the one-row decision rather than a place to stop carrying it. A fifth
-     of 360px is about 55px: a skin name there does not wrap, it breaks mid-word, and a
-     name broken into "Asii mo v" is not a name. What a person recognises a skin by at
-     that size is the picture, so the card keeps the artwork, the chance it landed
-     against and its price, and THE NAME IS ON THE RECEIPT LINE UNDER THE ROW, in the
-     same order, where it has a full line to sit on. */
-  .wf-won-grid--4 .wf-won-name, .wf-won-grid--5 .wf-won-name { display: none; }
-  .wf-won-grid--4 .wf-won-odds, .wf-won-grid--5 .wf-won-odds { font-size: 10px; }
-  .wf-won-grid--4 .wf-won-odds b, .wf-won-grid--5 .wf-won-odds b { font-size: var(--wf-t-xs); }
-  /* THE VERB STAYS AT EVERY WIDTH and only the words around the number go. A control
-     whose whole label is a number is not a control: it reads as another figure in a box,
-     on the one screen where the difference between reading and acting matters most. */
-  .wf-won-grid--4 .wf-sell-w, .wf-won-grid--5 .wf-sell-w { display: none; }
-  .wf-won-grid--4 .wf-btn, .wf-won-grid--5 .wf-btn { font-size: var(--wf-t-xs); min-height: 40px; }
 }
+/* BELOW 110px OF CARD THE NAME LEAVES IT ENTIRELY, and this is the honest end of the
+   one-row decision rather than a place to stop carrying it. A skin name at that width
+   does not wrap, it breaks mid-word, and a name broken into "Asii mo v" is not a name.
+   What a person recognises a skin by at that size is the picture, so the card keeps the
+   artwork, the chance it landed against and its price, and THE NAME IS ON THE RECEIPT
+   LINE UNDER THE ROW, in the same order, where it has a full line to sit on. */
+@container card (max-width: 110px) {
+  .wf-won-name { display: none; }
+  /* THE CHANCE HOLDS AT 11px AND NEVER BELOW. It was set to 10px when this tier was
+     keyed to the viewport, under the floor every other figure on the page holds. THE
+     WORD GOES INSTEAD OF THE SIZE: the per cent sign carries the reading, and the roll's
+     own line under the row names it in full. */
+  .wf-won-odds .wf-odds-w { display: none; }
+}
+@media (max-width: 899px) { .wf-won-grid { gap: var(--wf-s-1); } }
 
 /* The batch receipt. One line per roll, in the order of the row above, which is the
    order of the reels. It is the only place float, pattern and phase are printed, so the
@@ -1239,10 +1257,14 @@ a.wfp-state:hover { color: var(--wf-ink); }
 /* Blocks 3 and 4, the proof and the share, plus the inspect link F1 owes. Three routes
    on one row rather than three sentences: they are destinations, and prose around a
    destination is the page talking on a screen where the person has just won. */
+/* Blocks 3 and 4 as a row of routes. THE TARGETS ARE AT LEAST 24px TALL, found by the
+   audit: they were rendering at 20, and node 0.1 section 2 carries WCAG 2.2 target size,
+   whose minimum is 24 by 24. The row is the same row; the tap area is not. */
 .wf-outcome-links {
-  display: flex; flex-wrap: wrap; justify-content: center;
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
   gap: var(--wf-s-half) var(--wf-s-2); margin: 0; font-size: var(--wf-t-s);
 }
+.wf-outcome-links a { display: inline-flex; align-items: center; min-height: 24px; }
 
 /* TWO ROUTES ONWARD AND NEITHER IS A REPEAT KEY. Open again is a full control that
    re-enters phase 1 with the cost visible, and Keep it is the one exit round 1 has. */
@@ -1452,6 +1474,17 @@ a.wfp-state:hover { color: var(--wf-ink); }
    not beside its value is not a header. */
 .wf-drops thead { display: none; }
 .wf-drops, .wf-drops tbody, .wf-drops tr, .wf-drops th, .wf-drops td { display: block; }
+/* THE CONTENT COLUMN IS THE CONTAINER, NOT THE VIEWPORT, found by the two-instrument
+   audit on 20 August 2026. At a 899px viewport this column is 852px wide. At 900px it is
+   445px, because the rail stops being a drawer and takes 220 and the prototype panel
+   takes another 220. EVERY min-width: 900px RULE THEREFORE FIRED AT THE EXACT WIDTH
+   WHERE THE CONTENT GOT HALF THE ROOM IT HAD ONE PIXEL EARLIER. Three symptoms, one
+   cause: the drop grid asked for 628px inside 445 and the page scrolled sideways from
+   900 to about 1100 on every screen including Home, and the batch card's sell control
+   collapsed to 23px wide with its full label restored. Container queries ask the column
+   itself, so a breakpoint means what it says. */
+.wf-main, .wf-footer { container-type: inline-size; container-name: col; }
+
 .wf-drops tbody { display: grid; grid-template-columns: 1fr; gap: var(--wf-s-1); }
 /* THE IMAGE IS THE PRIORITY AND THE INFORMATION SITS BESIDE IT, founder, 19 August
    2026. A skin is recognised by its finish before it is recognised by its name, so the
@@ -1501,8 +1534,8 @@ a.wfp-state:hover { color: var(--wf-ink); }
    Each tier is its own grid, and the ladder walked for this node runs two or three items
    in a tier. At four columns the fourth cell was empty in every tier on the page, which
    reads as a broken layout rather than as a tier that holds two items. */
-@media (min-width: 600px) { .wf-drops tbody { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 900px) { .wf-drops tbody { grid-template-columns: repeat(3, 1fr); } }
+@container col (min-width: 560px) { .wf-drops tbody { grid-template-columns: repeat(2, 1fr); } }
+@container col (min-width: 840px) { .wf-drops tbody { grid-template-columns: repeat(3, 1fr); } }
 .wf-drops .wf-item-art { height: 100%; min-height: 96px; width: 100%; margin: 0; }
 .wf-d-name { display: block; min-width: 0; }
 .wf-d-weapon, .wf-d-skin, .wf-d-axes { display: block; }

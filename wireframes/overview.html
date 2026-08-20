@@ -390,7 +390,7 @@
 
   <div class="card is-gap">
     <h4>Withdrawn on verification, kept with their reasons</h4>
-    <p><strong>"Links point at pages that do not exist."</strong> True and not a defect: two of 63 pages are built and the panel prints that count on every screen. What would be a defect is a route to a file no node names, and there is none.</p>
+    <p><strong>"Links point at pages that do not exist."</strong> True and not a defect: the panel prints the built count against the whole list on every screen, and both numbers are computed from the registry rather than typed. What would be a defect is a route to a file no node names, and there is none. <strong>The figures in this row were "two of 63" when it was written on 19 August 2026</strong>, and they are left as the record of that moment rather than edited each time a page is built.</p>
     <p><strong>"The ticker does not move and there is no reduced-motion state."</strong> Motion is not this stage&#39;s. The control is a real element because the grey contract requires real elements, and a reduced-motion state has nothing to reduce until there is motion to reduce.</p>
     <p><strong>"The favourite has no behaviour."</strong> Every state is its own page here, not a live script. The on state is drawn on a tile of its own, and the signed-out press routes to 2.4, which step 6 builds.</p>
   </div>
@@ -686,6 +686,46 @@
   </div>
 </section>
 
+<section id="audit33">
+  <div class="sec-head">
+    <h2>The two-instrument audit of 3.3, closed</h2>
+    <p><strong>Twelve raised, ten confirmed and fixed, two withdrawn on verification with their reasons kept.</strong> Codex read only over the source, Claude with a browser over nine widths and twelve pages, both sets taken in full before either was read against the other. Live from <code>wireframes/docs/screens.md</code> section 22.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:12%">Class</th><th style="width:12%">Found by</th><th>Before</th><th>After</th></tr></thead>
+      <tbody>
+        <tr><td>Contradiction</td><td><strong>Codex</strong>, 2</td><td>The node said the RTP and the expected value were "already on the commit block"; the same node said D-31 had moved them back. All twelve pages repeated the wrong half under <em>What this case pays</em>.</td><td>One sentence, one place: nothing else on the page prints these two figures, and the commit block owes a route to them.</td></tr>
+        <tr><td>Decision not carried</td><td><strong>Codex</strong>, 3</td><td>The rail table and the bar table were <strong>two decisions out of date</strong>, amended for D-40 and not for D-29. The sitemap row for 3.3 still listed the ticker D-31 removed.</td><td>Both tables carry what the carriers hold now, with the date each item left. The ticker row is corrected, and the rendered page had already been right.</td></tr>
+        <tr><td>Counts</td><td><strong>Codex and Claude</strong>, 2</td><td>The sitemap totalled 65 / 49 against its own rows summing to 68 / 52. The 63 page floor of 18 August was being quoted as a live count in three places.</td><td>Totals derived from the rows rather than typed. The floor stays as history; the count stays computed from the registry.</td></tr>
+        <tr><td>Layout</td><td><strong>Claude</strong>, 1</td><td><strong>Every page in the prototype, Home included, scrolled sideways from 900 to about 1100px.</strong></td><td>No page scrolls sideways at any of nine widths from 360 to 1440.</td></tr>
+        <tr><td>Accessibility and legibility</td><td><strong>Claude</strong>, 2</td><td>Outcome route targets at 20px against WCAG 2.2's 24. The chance on a batch card at 10px.</td><td>24px targets. 11px chance, with the word dropped instead of the size.</td></tr>
+        <tr><td>Withdrawn</td><td><strong>Claude</strong>, 2</td><td>"The Best drops row overflows every page." "Tier headings overflow at 900."</td><td><strong>Neither survived.</strong> The first is a deliberate <code>overflow-x: auto</code> scroller, and a scroller is not an overflow. The second was a symptom of the layout finding, not a finding.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The telling pair: the scaffolding was standing inside the measurement</h4>
+    <p><strong>This panel takes 220px of the left edge.</strong> It used to take it from 900px, which is the same width at which the product's own rail stops being a drawer and takes another 220. So at a 900px window <strong>the screen under test was being measured in a 445px column, narrower than the 665 it would really have</strong>.</p>
+    <p>Every desktop rule fired against that fiction. The drop grid asked for 628px inside 445. The footer statistics row would not fold. <strong>The whole prototype scrolled sideways from 900 to about 1100 on every page, including the one that had already closed its own audit.</strong></p>
+    <p><strong>The scaffolding may not take a third of the screen from the thing it is showing.</strong> Below 1200px it is behind its handle now, exactly as it is on mobile. The lesson is bigger than the fix: <strong>the product's desktop layout between 900 and 1200 had never actually been seen by anyone</strong>, because both acceptance passes ran at 360 and at 1440.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The telling pair: correcting a stale table printed a cost no decision had</h4>
+    <p>The rail's contents table was two decisions out of date. Writing what the rail now holds meant writing <strong>one destination, in both states</strong>.</p>
+    <p><strong>Material's collapsed rail wants 3 to 7.</strong> This node used to say the guest state "clears the floor exactly", on three. <strong>At one it does not clear it at all.</strong> D-29 printed the mobile bar's floor violation and D-40 widened that one to both states. <strong>Neither said the same thing about the rail itself, and it is the same violation one carrier up.</strong> It is on node 0.1 now, printed rather than absorbed.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The telling pair: two fixes that key on the thing instead of the window</h4>
+    <p>The drop grid and the outcome cards asked the viewport how much room they had. <strong>The viewport was the wrong thing to ask</strong>, which is what finding 8 proves: at 900px the window grew and the column halved.</p>
+    <p>They ask their own container now. <strong>The same card is the same card at 900 and at 1440</strong>, and the tier that drops a skin name fires when the card is actually too narrow for one rather than when the window happens to be.</p>
+  </div>
+</section>
+
 
 
 
@@ -716,6 +756,7 @@ window.NAV_SECTIONS = [
   { id: 'multi',       label: 'D-33 to D-35' },
   { id: 'sell',        label: 'D-37 and D-38' },
   { id: 'onerow',      label: 'D-39 and D-40' },
+  { id: 'audit33',     label: '3.3 audit closed' },
 ];
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';

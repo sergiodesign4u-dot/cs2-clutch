@@ -113,7 +113,7 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 | Sign-in consent states the spec adds and the map does not number | **2** |
 | **Floor for the prototype** | **63 pages** |
 
-**Sixty three is a floor and not an estimate.** Internal states that a spec declares without numbering, catalogue's guest, account, loading, filtered and degraded among them, are drawn where the node says they change the screen. **The number goes up at step 6, never down**, and a state that is not in this matrix does not get drawn.
+**Sixty three is a floor and not an estimate, and the live list has since passed it.** `wireframes/_nav.js` is that list and every count the prototype prints is computed from it. The floor stays here as what the matrix produced on 18 August 2026. Internal states that a spec declares without numbering, catalogue's guest, account, loading, filtered and degraded among them, are drawn where the node says they change the screen. **The number goes up at step 6, never down**, and a state that is not in this matrix does not get drawn.
 
 ---
 
@@ -278,7 +278,7 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 
 | Finding | Why it does not stand |
 |---|---|
-| **Links point at pages that do not exist**, `case.html`, `catalogue.html`, `signin.html` and the rest | True and not a defect. Two of 63 pages are built and the panel prints that count on every screen. The routes are the map's, and they resolve as the map is drawn. What would be a defect is a route to a file no node names, and there is none |
+| **Links point at pages that do not exist**, `case.html`, `catalogue.html`, `signin.html` and the rest | True and not a defect. The panel prints the built count against the whole list on every screen, both computed from the registry rather than typed. **The figures here were two of 63 when this row was written on 19 August 2026** and they are left as the record of that moment. The routes are the map's, and they resolve as the map is drawn. What would be a defect is a route to a file no node names, and there is none |
 | **The ticker does not move, the pause control does nothing, and there is no reduced-motion state** | Motion is not this stage's. `conventions.md` section 7 defers finished UI and the pipeline puts motion later; the control is a real element because section 2 requires real elements, and a reduced-motion state has nothing to reduce until there is motion to reduce |
 | **The favourite has no behaviour: no toggle, no count change, no route while signed out** | `conventions.md` section 4: every state is its own page, not a live script. The on state is drawn on a tile of its own. The signed-out press routes to `2.4`, which step 6 builds |
 
@@ -621,4 +621,38 @@ Two more founder captures the same day. `docs/decisions.md` `D-37`, `D-38`.
 
 **The IA caught up in the same step, and the debt is worth naming because it was mine.** Node `3.3`'s own page had stopped at `D-32` while its markdown carried `D-33` to `D-39`. **The decisions were never made at the wireframe level:** every one of them was written into the node before the render moved, which is the rule. **What had frozen was the node's published page**, which is exactly the failure "markdown stays alive, html does not freeze" exists to catch, and it happened because the corrections came in a chain and the render of the node was deferred each time. Rebuilt from the node: the block table, the reveal section, the outcome section with its 360px mock redrawn, the refusals table, and **the entire state matrix regenerated from the markdown rather than edited by hand**, so the two cannot drift again in that table. `ia/sitemap.html` gained `5.9`, `5.10` and `5.11` and **a line saying none of them has a node page**, since `D-36` created them at stage 04 after 03b had closed.
 
-**Not done, and it is still the next thing:** the two-instrument audit of `3.3` and its eleven states. Codex owns what is falsifiable in the source.
+---
+
+## 22. The two-instrument audit of `3.3`, closed
+
+Twelve findings raised, **ten confirmed and fixed, two withdrawn on verification with their reasons kept.** Codex ran read only over the source, Claude ran a browser over nine widths and twelve pages, **both sets taken in full before either was read against the other.** One finding came from both instruments and is merged into one row rather than counted twice.
+
+| # | Class | Found by | Finding | Status |
+|---|---|---|---|---|
+| 1 | Contradiction | **Codex** | Block 7 of the node read "the figures themselves are already on the commit block" while section 5 of the same node read "both render here rather than on the commit block, `D-31`". `D-30` moved them, `D-31` moved them back, and block 7 kept `D-30`'s sentence | **Fixed** |
+| 2 | Contradiction | **Codex** | All twelve pages printed "The first two are already on the trigger above" under `What this case pays`. The trigger carries the cost and the peg and nothing else | **Fixed on all twelve** |
+| 3 | Decision not carried | **Codex** | `sitemap.md` row `3.3` still listed `ticker 0.8` among its components. `D-31` took the ticker off this screen and six other files were corrected at the time. This one was missed, **and the rendered `ia/sitemap.html` was already right**, which is the drift running in the unusual direction | **Fixed** |
+| 4 | Decision not carried | **Codex** | The rail's contents table was **two decisions out of date**: `D-29` moved Provably fair and Responsible play to the footer, `D-40` moved My items to the account menu, and only the second had been applied. In `navigation.md` and on the published page | **Fixed, and see below** |
+| 5 | Decision not carried | **Codex** | The mobile bar's table, the same two decisions, the same half-correction, plus "exactly one slot is added" describing a bar that no longer changes on sign in | **Fixed** |
+| 6 | Counts | **Codex and Claude** | `sitemap.md` totalled **65 / 49** while its own cluster rows summed to 68 / 52 and the published hero already read 68 / 52. Claude had printed half of this the day before, the 69-against-68 on the html; Codex found the other half, the stale Total row and the cluster 2 header still carrying pre-`D-26` numbers | **Fixed by derivation, not by typing:** adding the cluster rows gives 68 and 52 |
+| 7 | Counts | **Codex** | The **63 page floor** derived on 18 August was being quoted as a live count in `_nav.js`, on `overview.html` and in the critique table here, while the registry held 73 and every printed count is computed | **Fixed:** the floor stays as history, the count stays computed |
+| 8 | Layout | **Claude** | **The scaffolding panel took the left edge from 900px**, 220px of it, at the same width the product's rail also stopped being a drawer and took 220. So at a 900px window **the screen under test was measured in a 445px column, narrower than the 665 it would really have.** Every desktop rule fired against that fiction: the drop grid asked for 628px inside 445, the footer statistics row would not fold, and **every page in the prototype including Home scrolled sideways from 900 to about 1100** | **Fixed** |
+| 9 | Accessibility | **Claude** | The outcome's row of routes rendered its targets at **20px tall** at every width. Node `0.1` section 2 carries WCAG 2.2 target size, whose minimum is 24 by 24 | **Fixed at 24** |
+| 10 | Legibility | **Claude** | The chance on a batch card rendered at **10px** in the compact tier, under the floor every other figure on the page holds | **Fixed. The word goes instead of the size:** the per cent sign carries the reading and the roll's own line names it in full |
+
+### Withdrawn on verification, with the reason
+
+| Finding | Why it did not survive |
+|---|---|
+| **The `Best drops` row overflows its column on every page at every width** | `.wf-recent` is `overflow-x: auto` by design, scroll width 856 against a client width of 313. **A scroller is not an overflow**, and the detector was reading the children of a deliberate one |
+| **Tier headings and drop table cells overflow at 900 and 1024** | **A symptom of finding 8 rather than a finding of its own.** They stopped overflowing the moment the scaffolding gave the column its real width, and reporting them separately would have produced two fixes for one cause |
+
+### What the audit produced that neither instrument was looking for
+
+**Finding 4 surfaced a cost no decision record had printed.** Correcting the rail table meant writing down what the rail now holds, which is **one destination in both states.** Material's collapsed rail wants **3 to 7**, and this node used to say the guest state "clears the floor exactly", on three. **At one it does not clear it at all.** `D-29` printed the mobile bar's floor violation and `D-40` widened that one to both states; **neither said the same thing about the rail itself, and it is the same violation one carrier up.** It is printed on node `0.1` now.
+
+**Finding 8 is the one worth keeping in mind for every stage after this.** The prototype's own furniture was standing inside the measurement. **The scaffolding may not take a third of the screen from the thing it is showing**, and while it did, the product's desktop layout had never actually been seen at 900 to 1200 by anyone, including the two acceptance passes that ran at 360 and 1440 and found nothing.
+
+**Measured after the fixes.** Nine widths from 360 to 1440 across twelve case pages plus Home, Home with an account and the overview: **no page scrolls sideways at any of them.** The card tiers now key on the card's own width rather than the window's, so the same card is the same card at 900 and at 1440.
+
+**Not done:** `3.3` is closed. The rest of the main flow is not: `2.4` sign in with its consent states, `2.5`, `2.6` and `2.1` the geo gate are all `spec`.

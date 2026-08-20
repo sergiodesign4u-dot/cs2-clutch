@@ -135,12 +135,16 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 | Group | Item | Guest | Account | Leads to |
 |---|---|---|---|---|
 | **Destinations** | Cases | yes | yes | 3.1 |
-| | Provably fair | yes | yes | 1.2 |
-| | My items | **no**, `D-40` | **no**, `D-40`. It is in the account menu | 5.1 |
-| **Boundary and ambient** | Responsible play | yes | yes | 6.1 |
-| | Sound | yes | yes | no destination, `[?]` below |
+| | Provably fair | **no** since `D-29` | **no** | 1.2, from the footer's Play column |
+| | My items | **no** since `D-40` | **no**. It is the account menu's first row | 5.1, from the menu |
+| **Ambient**, at the foot | Sound | yes | yes | no destination, `[?]` below |
+| | Language | yes | yes | no destination |
+| | Social links | yes | yes | outbound |
+| **Boundary** | Responsible play | **no** since `D-29` | **no** | 6.1, from the footer, the money control and the account menu |
 
-**Three items for a guest, four with an account.** Material's collapsed rail wants 3 to 7. The guest state clears the floor exactly and the product has room to grow to seven before the component itself is the constraint.
+**One destination in both states, and the count has to be printed rather than let stand.** This table read "three items for a guest, four with an account" until 20 August 2026, and it was **two decisions out of date**: `D-29` moved Provably fair and Responsible play to the footer on 19 August, `D-40` moved My items into the account menu on 20 August, and the table was amended for the second only. **Found by the two-instrument audit rather than by either decision**, which is the point of running it.
+
+**And correcting it surfaces a cost neither record printed.** Material's collapsed rail wants **3 to 7** destinations. This table used to say the guest state "clears the floor exactly", on three. **At one it does not clear it at all.** `D-29` printed the mobile bar's floor violation and `D-40` widened that one to both states; **neither of them said the same thing about the rail itself**, and it is the same violation one carrier up. It is printed here rather than absorbed, and the way out is the same one `D-29` named and did not take: round 1 ships one way to play, and the rail fills as modes arrive.
 
 **Responsible play in the rail is an addition to the base layer and it is named rather than absorbed.** The base layer gave it a persistent entry inside the Balance control and a footer link, `sitemap.md` section "Global navigation: the rail's destinations and the job behind each"`, on the argument that a brake which has to be searched for at the worst moment is not a brake. That entry is unchanged. This adds a second one, in the rail's lower group, and it is affordable now for the same reason the rail is: there is space. **Parent:** `B7-4`, pattern of 12, plus the compliance constraint at `CLAUDE.md`, "responsible play tooling". Both legal.
 
@@ -199,12 +203,14 @@ Two disjoint sets would be two competing menus, which is the ambiguity Material'
 |---|---|---|---|---|
 | 1 | Home | yes | yes | 1.0 |
 | 2 | Cases | yes | yes | 3.1 |
-| 3 | Provably fair | yes | yes | 1.2 |
-| 4 | My items | **no**, `D-40` | **no**, `D-40`. It is in the account menu | 5.1 |
+| 3 | Provably fair | **no** since `D-29` | **no** | 1.2, from the footer |
+| 4 | My items | **no** since `D-40` | **no**. It is the account menu's first row | 5.1, from the menu |
 
-**Three before an account, four after.** **Two and three since `D-29`, which is below the floor and is printed as a violation in that record.** Three used to clear Material's own floor exactly: "Don't use a navigation bar for fewer than three destinations." Four sits well inside its ceiling of five.
+**Two items, in both states.** This table also read "three before an account, four after" until 20 August 2026 and it was out of date by the same two decisions, for the same reason: **the superset rule means an item leaving the rail leaves the bar in the same step**, and only the My items row had been amended.
 
-**Positions 1 to 3 never move and nothing is ever removed.** Exactly one slot is added, and it is added at the moment the person creates the thing it describes. That answers Apple's stability rule rather than arguing with it: "Don't disable or hide tab bar buttons, even when their content is unavailable." Section 2 records that this rule had been retired by `D-21` and is now back in force.
+**Below Material's floor in both states.** "Don't use a navigation bar for fewer than three destinations." `D-29` printed that violation when it applied to a guest; `D-40` widened it to both. **The way out both records name and neither takes** is unchanged.
+
+**Positions never move and nothing is ever removed, and now nothing is ever added either.** Apple's stability rule, "don't disable or hide tab bar buttons, even when their content is unavailable", is met the strongest way available: **the bar is identical before and after sign in**, so there is no slot appearing at the moment an account is created. Section 2 records that this rule had been retired by `D-21` and is now back in force.
 
 **Provably fair holds position 3 in both states.** Same structural claim the rail makes, on the same parents: `jtbd.md` Section 3, Emotional and Social Jobs names a public provably fair surface as one of three things no competitor offers pre-login, and design principle 1 says trust is the product. It carries the `D-14` limit with it: its position is not a claim that a verifier converts a sceptic.
 

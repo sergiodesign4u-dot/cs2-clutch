@@ -14,8 +14,11 @@
  * missing file is not.
  *
  * Derived from ia/docs/sitemap.md, ia/docs/flows.md and wireframes/docs/screens.md
- * on 18 August 2026. Nothing here is invented: 63 pages, which is the floor the
- * matrix computed. Flipping a status is the only manual edit this file takes.
+ * on 18 August 2026. Nothing here is invented: the matrix computed a FLOOR of 63
+ * pages, and this registry is the live list, which is longer and only ever gets
+ * longer. Every count printed anywhere in the prototype is computed from the list
+ * below and never typed: allPages() and builtPages() are the only two sources.
+ * Flipping a status is the only manual edit this file takes.
  */
 
 window.WF_NAV = {

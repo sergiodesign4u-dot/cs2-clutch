@@ -362,7 +362,7 @@ Three screens nobody chooses to visit. Naming the cluster by intent is what keep
 |---|---|---|---|---|---|
 | **3.1** | Case catalogue | page | MVP | `S-C1`. Category bar, search and filters, **the daily free case as an addressable case rather than a banner**, case tiles 0.7, live free-unit counts. **Off the main path** by `D-20`: reached as all cases, not as a compulsory hop | 3.2, 3.3 |
 | **3.2** | Catalogue, nothing matches | state | MVP | Zero-stock items stay visible and marked rather than filtered out, `D1`, so the shelf is legibly empty rather than silently short | 3.1 |
-| **3.3** | Case screen, phase 1 choosing | page | MVP | `S-C2`. Published chance and current value per item `D2`, the observed rate counter `D3` **conditional on `D-B`**, published tested RTP and EV at this entry cost `D4`, stock-backed table `D1`, item cards 0.6, ticker 0.8 | 2.1, 3.4, 3.5 |
+| **3.3** | Case screen, phase 1 choosing | page | MVP | `S-C2`. Published chance and current value per item `D2`, the observed rate counter `D3` **conditional on `D-B`**, published tested RTP and EV at this entry cost `D4`, stock-backed table `D1`, item cards 0.6. **The ticker `0.8` left this screen on 19 August 2026, `D-31`**, and renders on `1.0` only | 2.1, 3.4, 3.5 |
 | **3.4** | Item at zero free units | state | MVP | Shown before the open and never after, `D1` | 3.3 |
 | **3.5** | Case screen, phase 2, the open | state | MVP | The round hash at the spin trigger `E4`, the reveal renders the settled roll and computes nothing again `E1`, no near-miss theatre `E2`, rarity-differentiated linear reveal `E3` | 3.6, 3.7 |
 | **3.6** | Case screen, phase 3, the outcome | state | MVP | Instance value receipt `F1`, the receipt persists onto the item `F2`, post-reveal verification link `F3`, one-tap share `F4`. **The activation node**, `aarrr.md` "Primary metric (OMTM)" | 1.2, 5.1, 7.1 |
@@ -466,13 +466,15 @@ Seven orphans. Six of them are the destinations behind eight of the nine items i
 | Cluster 2, get through the door | 8 | 5 |
 | Cluster 3, choose and open | 7 | 7 |
 | Cluster 4, put money in | 5 | 5 |
-| Cluster 5, take out what I earned | 8 | 8 |
+| Cluster 5, take out what I earned | 11 | 11 |
 | Cluster 6, keep myself in check | 3 | 3 |
 | Cluster 7, tell someone | 2 | 2 |
 | Cluster 8, LATER | 13 | 0 |
-| **Total** | **65** | **49** |
+| **Total** | **68** | **52** |
 
 **Amended on 18 August 2026 by `D-26`.** Cluster 2 was 9 nodes and 9 MVP. It is now **8 and 5**: `2.3` dissolved because the age control became a checkbox rather than a screen, and `2.7`, `2.8` and `2.9` went `LATER` with identity verification. **Sixteen LATER nodes now, not thirteen**, and the three new ones are carried on the map rather than deleted so the free-entry withdrawal hole stays visible.
+
+**Amended again on 20 August 2026 by `D-36`, and found by the two-instrument audit rather than by the step that should have done it.** Cluster 5 went from 8 to 11 with `5.9`, `5.10` and `5.11`, and **the total row was left at 65 and 49 while the hero figures on `ia/sitemap.html` were already reading 68 and 52.** The corrected numbers are not typed in: adding the cluster rows above gives **68 and 52**, which is what `CLAUDE.md` carries and what the sum has to be for the table to be a derivation rather than a claim.
 
 **Forty-nine MVP nodes against twelve MVP screens, and the ratio is still the point.** Each screen carries roughly three states or dialogs that need their own specification, plus fourteen shell nodes nobody counted as screens at all. This is the number step 6 has to plan against, and it is why the pack says a step 6 estimate that ignores states lies by multiples.
 
