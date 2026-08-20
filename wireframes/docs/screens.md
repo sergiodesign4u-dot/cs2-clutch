@@ -986,3 +986,40 @@ The ticket range, the free-unit count, the wear axes and the outbound market lin
 
 **Still open, unchanged:** the sold state and the count above the balance, both named as gaps by `D-38` and `D-35` rather than left to be discovered.
 
+---
+
+## 30. One stage, one size, in every phase
+
+**Founder, 20 August 2026, six drawn states side by side.** The frame that holds the case, the reels and the skins has to be the same block in all of them.
+
+### The measurement, before
+
+| Page | Frame at 1440 | Frame at 360 |
+|---|---|---|
+| `3.5` the reveal, one roll | **179** | **128** |
+| the three figure conditions | 330 | 146 |
+| `3.6` the outcome, one item | 370 | 338 |
+| `3.5` the reveal, two and five | 335 | 260 |
+| `3.6` the outcome, five items | 479 | 469 |
+| `3.3` phase 1 | **501** | 380 |
+
+**The node has said since it was written that choosing, opening and the outcome are one address** and that the person never navigates during the main job. **A region that changes height when a state changes is three layouts wearing one URL**, and everything below it, the commit block, the Best drops row and the whole drop table, moved up and down under a person walking one flow.
+
+**One token now, `--wf-frame-h`: 460px from 900 and 380 below it.** All fourteen pages measure exactly that at both widths.
+
+### The content is centred, and what stretches is what the phase is about
+
+**A phase with less to show shows less, in the same place.** What does stretch is the thing the phase is for, and two of them grew because the box stopped being their size.
+
+- **The single-roll reveal was a row of 72px tiles floating in the middle of a 460px frame**, smaller than a card in the Best drops row underneath it, while the vertical reels already filled theirs. It is one lane of 360 by 260 now, which is what section 7.2b means by "the wide axis is the one that gives the artwork its room".
+- **The outcome cards sized to their own content**, leaving the difference as empty grey inside a bordered box. The grid fills the stage and the artwork takes what is left after the chance, the name and the control.
+- **Phase 1's boxes take whatever the frame has left** after the showcase and its route, so choosing one, two or five gives the same frame with differently shaped boxes in it.
+
+### The batch receipt left the frame
+
+One line per roll made the five-roll outcome the tallest stage on the page and the one-roll outcome the shortest. **The receipt is not the stage: it is what the stage produced**, and it belongs under it the way a receipt belongs under a purchase.
+
+**No field was removed.** Float, pattern, phase and the per-roll proof link are still printed, still one line per roll, still in the order of the row above, which is the order of the reels they came out of. **`F1` and `F3` are satisfied exactly as they were.**
+
+**Measured.** 17 pages x 7 widths x both rail states, 224 checks, no sideways scroll. **All fourteen pages of `3.3` report a stage frame of 460 at 1440 and 380 at 360**, against a range of 179 to 501 and 128 to 469 before.
+

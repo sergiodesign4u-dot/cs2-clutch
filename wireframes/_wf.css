@@ -53,6 +53,13 @@
      baseline.md walked and the width home.md section 7 computes its third-column
      argument at, so 1440 minus the rail is the column this stage draws into.
      Without it the argument blocks ran 1900px wide on the founder's monitor. */
+  /* ONE STAGE, ONE SIZE, EVERY PHASE, D-48. The frame that holds the case, the reels
+     and the outcome is the same box on all fourteen pages of 3.3. It ranged from 128px
+     to 501px before, so the page grew and shrank under a person walking one flow, and
+     the header, the commit block and everything below them moved with it. The content
+     is CENTRED in the box rather than stretched to fill it: a phase with less to show
+     shows less, in the same place. */
+  --wf-frame-h: 380px;
   --wf-rail-w: 220px;
   --wf-content: 1220px;
   --wf-rail-w-collapsed: 64px;
@@ -1330,10 +1337,12 @@ a.wfp-state:hover { color: var(--wf-ink); }
    the moment a person has just spent. The frame is drawn rather than implied because it
    is the thing phase 2 inherits: an unframed picture would leave 3.5 nothing to take. */
 .wf-stage-frame {
-  display: flex; flex-direction: column; align-items: center; gap: var(--wf-s-2);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: var(--wf-s-2); min-height: var(--wf-frame-h);
   padding: var(--wf-s-2);
   border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
 }
+@media (min-width: 900px) { .wf-stage-frame { --wf-frame-h: 460px; } }
 .wf-case-art {
   width: 100%; max-width: 420px; min-height: 200px; border-radius: var(--wf-r-3);
   background: var(--wf-surface); border: 1px dashed var(--wf-line-soft);
@@ -1359,6 +1368,14 @@ a.wfp-state:hover { color: var(--wf-ink); }
   border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
   background: var(--wf-bg);
 }
+/* THE SINGLE ROLL FILLS THE STAGE, D-48. One horizontal lane of 72px tiles sat in the
+   middle of a 460px frame with nothing above or below it, and the tile a person is
+   about to watch was smaller than a card in the Best drops row underneath. The vertical
+   lanes already fill their frame; this is the same object at the same weight on the
+   other axis, which is what 7.2b means by "the wide axis is the one that gives the
+   artwork its room". Scoped away from .wf-lane--v, which sets its own geometry. */
+.wf-lane:not(.wf-lane--v) > li { flex: 0 0 220px; height: 160px; }
+@media (min-width: 900px) { .wf-lane:not(.wf-lane--v) > li { flex: 0 0 360px; height: 260px; } }
 
 /* PHASE 1, THE STAGE AT REST. TWO OBJECTS, AND UNTIL D-47 THEY WERE ONE.
    D-46 made the drifting strip multiply with the count, on the reasoning that the stage
@@ -1373,16 +1390,14 @@ a.wfp-state:hover { color: var(--wf-ink); }
    the exact rule the 19 August cut was enforcing: "the rule against a value with no
    chance beside it binds any surface that PRINTS a value". That cut removed the figures
    because the strip was then the reveal's track. It is not any more. */
-.wf-boxes { display: flex; gap: var(--wf-s-2); width: 100%; justify-content: center; align-items: stretch; }
-.wf-boxes > .wf-case-art { flex: 1 1 0; min-width: 0; max-width: 420px; }
+/* The boxes take whatever the frame has left after the showcase and its route, so
+   phase 1 fills the box exactly rather than overshooting it by the height of a caption. */
+.wf-boxes { display: flex; gap: var(--wf-s-2); width: 100%; flex: 1 1 auto; min-height: 120px; justify-content: center; align-items: stretch; }
+.wf-boxes > .wf-case-art { flex: 1 1 0; min-width: 0; max-width: 420px; min-height: 0; height: 100%; }
 /* The cost of the switch, printed rather than absorbed: five boxes on a 360px screen are
    about 59px wide each, so they get shorter as well as narrower. */
-.wf-boxes--5 > .wf-case-art { min-height: 150px; }
-@media (max-width: 599px) {
-  .wf-boxes { gap: var(--wf-s-1); }
-  .wf-boxes--2 > .wf-case-art { min-height: 140px; }
-  .wf-boxes--5 > .wf-case-art { min-height: 90px; }
-}
+
+@media (max-width: 599px) { .wf-boxes { gap: var(--wf-s-1); min-height: 90px; } }
 
 /* THE SHOWCASE. Artwork, name, value, chance, and nothing else: the ticket range, the
    free unit count, the wear axes and the market link stay in block 5, which is the
@@ -1486,6 +1501,11 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-won-grid {
   display: grid; grid-template-columns: 1fr; gap: var(--wf-s-2);
   list-style: none; margin: 0; padding: 0; width: 100%;
+  /* IT FILLS THE STAGE, D-48. The frame is one size on every phase of this page, so a
+     grid that sizes to its own content leaves the difference as empty grey inside a
+     bordered box. The row grows into the frame and the artwork takes what is left after
+     the chance, the name and the control. */
+  flex: 1 1 auto; min-height: 0;
 }
 /* THE CARD ASKS ITS OWN WIDTH, not the viewport's. Same finding and the same cause: at
    a 900px viewport a fifth of the content column is 57px, narrower than the 88px it gets
@@ -1497,7 +1517,10 @@ a.wfp-state:hover { color: var(--wf-ink); }
   text-align: center; padding: var(--wf-s-2);
   border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
 }
-.wf-won-card .wf-won-art { min-height: 120px; }
+.wf-won-card .wf-won-art { flex: 1 1 auto; min-height: 80px; }}
+/* The single outcome fills the same frame the batch does, for the same reason. */
+.wf-won { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+.wf-won > .wf-won-art { flex: 1 1 auto; }
 .wf-won-card .wf-won-v { font-size: var(--wf-t-m); }
 
 /* ONE ROW AT EVERY WIDTH, D-39, and it is carried all the way rather than kept for the
@@ -1542,7 +1565,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
   .wf-sell-w { display: none; }
   .wf-won-card .wf-btn { font-size: var(--wf-t-xs); min-height: 40px; }
   .wf-won-card { padding: var(--wf-s-1); gap: 2px; }
-  .wf-won-card .wf-won-art { min-height: 72px; }
+  .wf-won-card .wf-won-art { min-height: 60px; }
 }
 /* BELOW 110px OF CARD THE NAME LEAVES IT ENTIRELY, and this is the honest end of the
    one-row decision rather than a place to stop carrying it. A skin name at that width

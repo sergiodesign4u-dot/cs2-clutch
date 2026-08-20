@@ -1436,3 +1436,31 @@ The ticket range, the free-unit count, the wear axes and the outbound market lin
 **A guest is the person most deciding whether this case is worth it**, which is design principle 1 and design principle 3 pointing the same way. **Nothing in `D-32` required the contents to be hidden from a guest; it required the track to be.** The guest still sees one box rather than a lane, because a guest has no count to choose.
 
 **This half was not asked for and it is marked as such**, so reversing it is one word rather than an archaeology exercise.
+
+---
+
+## D-48. One stage, one size, in every phase of the case page
+
+**Date:** 2026-08-20. **Stage:** 04, raised against node `3.3`. **Decided by:** the founder, comparing six drawn states side by side. **Binds:** node `3.3` section 0 and the grey contract.
+
+**What was decided.** **The stage frame is the same box on all fourteen pages of `3.3`.** **The batch receipt moves out of it.** **The content of each phase fills the box rather than sitting in the middle of it.**
+
+### If the phases are states of one page, the region they happen in is one region
+
+The node has said since it was written that choosing, opening and the outcome are **one address** and that the person never navigates during the main job. **A region that changes height when a state changes is three layouts wearing one URL.**
+
+**Measured before the fix, at 1440:** 179px on the reveal, 330 on the three figure conditions, 370 on the outcome, 460 on the batch, 501 on phase 1. **At 360 it ran from 128 to 469.** The commit block, the Best drops row and the whole drop table moved up and down under a person walking one flow.
+
+**One token now, `--wf-frame-h`, 460px from 900 and 380 below it**, and every phase is asked to fit it.
+
+### The content is centred, and what stretches is what the phase is about
+
+**A phase with less to show shows less, in the same place.** What does stretch is the thing the phase is actually for: the case artwork in phase 1, the reels in phase 2, the item cards in phase 3, each taking whatever the box has left after the labels around it.
+
+**Two things grew because the box stopped being their size.** The single-roll reveal was a row of 72px tiles floating in the middle of a 460px frame, **smaller than a card in the Best drops row underneath it**, and the vertical reels already filled their frame. And the outcome cards sized to their own content, leaving the difference as empty grey inside a bordered box.
+
+### The batch receipt is not the stage
+
+One line per roll made the five-roll outcome the tallest stage on the page and the one-roll outcome the shortest. **The receipt is what the stage produced**, and it belongs under it the way a receipt belongs under a purchase.
+
+**No field was removed.** Float, pattern, phase and the per-roll proof link are all still printed, still one line per roll, still in the order of the row above, which is the order of the reels they came out of. **`F1` and `F3` are satisfied exactly as they were.**

@@ -26,6 +26,12 @@
 | **2, the open** | `3.5` | The reveal, the hash chip, nothing else | Nothing. `cjm-to-be.md` T6: "Triggers the reveal and watches. Nothing else happens in this phase" |
 | **3, the outcome** | `3.6` | The item, its receipt, the route to the proof, the route out | What this is worth, and what to do next |
 
+**The stage is one box and it is the same size in every phase, `D-48`.** If the phases are states of one page rather than three pages, then **the region they happen in is one region**, and a region that changes height when a state changes is three layouts wearing one URL. It ranged from 128px to 501px across the fourteen drawn pages before this rule, so the commit block, the Best drops row and the whole drop table moved up and down under a person walking one flow.
+
+**The content is centred in the box rather than stretched to fill it.** A phase with less to show shows less, **in the same place**. What does stretch is the thing the phase is actually about: the case artwork in phase 1, the reels in phase 2, the item cards in phase 3, each taking whatever the box has left after the labels around it.
+
+**And the batch receipt moved out of the box.** One line per roll made the five-roll outcome the tallest stage on the page and the one-roll outcome the shortest. **The receipt is not the stage: it is what the stage produced**, and it belongs under it the way a receipt belongs under a purchase. **No field was removed** and the order still matches the row above it.
+
 **One consequence that belongs in the SEO block and is written here because it is structural.** Phase 1 is the document. Phases 2 and 3 exist only after an interaction, so **a crawler and a first-time reader see exactly the same thing, and that thing is the full drop table with every number on it.** `0.13` section 4.3 makes this the product's position against the category: a login wall in front of the numbers is also an indexation wall, and ours does not exist.
 
 ---
