@@ -932,7 +932,7 @@ It does not touch `CLAUDE.md`. It does not remove `2.7` from `sitemap.md`, and i
 
 ### The ticker leaving costs a component its second consumer
 
-Stage 04 argued against this a few hours earlier, when `D-30` considered it and kept the ticker. **The founder cut it.** `0.8` now renders on `1.0` alone, against its own node's sentence that two surfaces was "a decision rather than an oversight", and **a component with one consumer is a component, or it is that screen's block** — a question `0.8` now carries open.
+Stage 04 argued against this a few hours earlier, when `D-30` considered it and kept the ticker. **The founder cut it.** `0.8` now renders on `1.0` alone, against its own node's sentence that two surfaces was "a decision rather than an oversight", and **a component with one consumer is a component, or it is that screen's block** - a question `0.8` now carries open.
 
 **Social Job 2 was carried on this page by the ticker.** What carries it now is the `Last drops` row, which lands every tile on the same `7.1` and is about this case rather than about the platform. **That is a narrower answer and it is recorded as narrower.**
 
@@ -1190,3 +1190,52 @@ So it opens **one live option, English, and a printed sentence naming what is ab
 - **A control with one option is a control a person can press and get nothing from.** That is real and it is the price of inheriting the carrier before the content. **The sentence inside it is what keeps that honest** rather than a menu that opens onto itself.
 - **It is in two carriers**, the rail's foot and the footer, at the founder's request and on the same argument that puts responsible play in three: each answers a different moment. **It is the same control in both, not a copy with different behaviour.**
 - **`CLAUDE.md`'s locked table still reads "Language, One, English", and that stays true.** What a future reader could take from it wrongly is that no switcher may be drawn. **The proposed amendment is one clause on that row and it is not made here**, because that file changes only on an explicit go.
+
+---
+
+## D-42. The footer's kinds get sorted: the social set joins the brand column, the language stays in the bottom row and gains eight stubs
+
+**Date:** 2026-08-20. **Stage:** 04, raised against node `0.2` and reaching `0.1`. **Decided by:** the founder, from the rendered footer and one competitor reference supplied as an image. **Binds:** node `0.2` bands 2 and 4, node `0.1`'s ambient foot, `wireframes/_nav.js`, and it amends `D-41` without reversing it.
+
+**What was decided.** **The social set moves out of the bottom row and into the brand column.** **The language switcher stays in the bottom row and opens nine options, the baseline's own set, of which one is live and eight are stubs that change nothing.**
+
+### Part one: the social set moves, and the reason is kind
+
+`D-41`'s render put the social icons and the language control side by side in band 4, next to the payment marks. **That row then held three kinds at once:** a payment mark is a claim about a contract, a social link is an exit from the product, and a language is a preference of the session.
+
+**The brand column already holds every way to reach us**, the Support button and the identification block. The social set is another one, so it joins its own kind. **Ownership does not move with the drawing:** `0.2` still owns the canonical set and the rail's drawer renders it from here, which is the rule that put it in the footer in the first place.
+
+**The language does not follow it.** A preference of the session is not a way to reach us. The bottom row is where a product keeps the meta of the page a person is on, who owns it, what it accepts, what language it is in, and that is the row it stays in.
+
+### Part two: eight dead options ship, and this is the interesting half
+
+`D-41` refused exactly this, in writing: **"Eight rows for languages that do not exist would be the dead item defect inside a control."** That refusal followed the rule that shaped every other carrier in this project, the rule that took the baseline's rail of nine down to one live destination.
+
+**The founder reverses it, and the reversal is scoped rather than general.** The argument is that the prototype is a portfolio artefact rather than a release, and that a reader should see the shape the live product actually has, which is nine.
+
+**What is bought.** The footer reads as the real product's footer rather than a reduced one, and the carrier is drawn ahead of its content on purpose.
+
+**What is paid, and it is not small.** **A control that changes nothing is a promise the product does not keep.** In anything shipped that is a defect, not a placeholder. It is carried in the open: the panel itself says the interface stays English and that the other eight switch the control and nothing else.
+
+**It does not become a precedent.** The rule stands everywhere else. No other carrier in this project gets dead items on the "it is a portfolio" argument, and if one is proposed, this record is the reason to refuse it rather than the reason to allow it.
+
+### The nine are sourced, not invented
+
+`en de` Chinese `fr pl tr pt es ru`, from `baseline.md` section "Header", walked live on 11 August 2026 with the switcher itself as evidence. **This project does not invent a list of languages any more than it invents a number.**
+
+### Three things the stubs deliberately do not do
+
+- **The page keeps `lang="en"` in every option.** English text announced to a screen reader as German is an accessibility defect, not a placeholder. The one attribute that would make the stub look real is the one that makes it harmful.
+- **No hreflang, no localised URL, no second IA node.** `D-02`'s three consequences stay exactly as they are: one node is one page, microcopy is strings rather than keys, voice and glossary run once.
+- **No flag icons.** A flag is a country and a language is not, and the baseline's own list proves the point: Chinese, Portuguese and Spanish each have no single flag that is not a claim about who counts.
+
+### Two contradictions inside `0.1`, found while writing this and corrected
+
+Both were left standing by `D-41` and both are kept in place with their reasons rather than deleted.
+
+- **The rejected-items table still read "The language switcher, cut permanently".** `D-41` had reversed it hours earlier. What it was right about survives: no second language ships. What it got wrong was reading a decision about content as a decision about a control.
+- **Section 9 still read that the language "is a label with no border and no press state, because one language is locked and there is nothing to pick".** `D-41` had already made it a button. **The reasoning was sound and the premise moved under it**, which is the failure mode this project's "markdown stays alive" rule exists to catch, appearing twice in one node on the same day.
+
+### Still open, unchanged by this record
+
+`CLAUDE.md`'s locked row "Language | One, English" is still true and still carries the reading risk `D-41` named. **The proposed clause is not written here either**, and it now has more to say than it did: not only that a switcher may be drawn, but that eight of its options are deliberately inert.

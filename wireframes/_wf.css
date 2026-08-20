@@ -320,8 +320,9 @@ a.wfp-state:hover { color: var(--wf-ink); }
 /* A REAL CONTROL SINCE D-41, reversing the line that used to stand here: "the half that
    reports rather than acts, no press state, and not a button element". The live product
    carries a switcher, the carrier is inherited, and a carrier is filled with live items
-   rather than deferred. WHAT IT NEVER DOES IS IMPLY A TRANSLATION: round 1 ships one
-   language, and what it opens says so instead of listing eight rows that do not exist. */
+   rather than deferred. NINE OPTIONS SINCE D-42, EIGHT OF THEM INERT, which is the one
+   place in this project where a dead item ships on purpose. What it never does is imply
+   a translation: the panel prints the absence in its own words. */
 .wf-lang-wrap { position: relative; display: flex; min-width: 0; }
 .wf-rail-lang {
   min-width: 0; width: 100%;
@@ -339,12 +340,19 @@ a.wfp-state:hover { color: var(--wf-ink); }
   background: var(--wf-raised); border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
   text-align: left; font-size: var(--wf-t-xs);
 }
+/* Nine options in two columns rather than nine stacked rows: stacked, the panel is
+   taller than a 360px screen has room for above a control anchored to the bottom row. */
+.wf-lang-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--wf-s-half); }
 .wf-lang-opt {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--wf-s-1);
   min-height: var(--wf-tap); padding: 0 var(--wf-s-1); text-align: left;
   border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
   background: var(--wf-bg); color: var(--wf-ink-dim); font-size: var(--wf-t-s);
 }
+.wf-lang-opt:hover { color: var(--wf-ink); }
 .wf-lang-opt.is-on { border-color: var(--wf-ink); color: var(--wf-ink); }
+.wf-lang-code { font-size: var(--wf-t-xs); color: var(--wf-ink-faint); }
+.wf-lang-opt.is-on .wf-lang-code { color: var(--wf-ink-dim); }
 .wf-rail-soc { display: flex; flex-direction: column; gap: var(--wf-s-1); }
 .wf-rail-soc-h { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-faint); }
 .wf-rail-soc-row { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
@@ -381,16 +389,30 @@ a.wfp-state:hover { color: var(--wf-ink); }
   justify-content: space-between; min-height: var(--wf-header-h);
   padding: var(--wf-s-1); border-bottom: 1px solid var(--wf-line-soft);
 }
-/* The social set in the footer, which is the node that owns it. It sits in the base
-   band beside the payment marks: both are the same kind of thing, a reserved row whose
-   contents are decided elsewhere, and neither is a destination. */
-.wf-foot-soc { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-1) var(--wf-s-2); }
-.wf-foot-soc .wf-lang-wrap { border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2); }
-.wf-foot-soc .wf-rail-lang { border-left: 0; padding: 0 var(--wf-s-2); }
-/* In the footer the control sits well to the right of a 360px screen, so the panel
-   opens from its right edge instead of its left and stays on the screen. */
-.wf-foot-soc .wf-lang-wrap.is-open .wf-lang-pop { left: auto; right: 0; }
+/* The social set in the footer, which is the node that owns it. SINCE D-42 IT SITS IN
+   THE BRAND COLUMN rather than the base band: that column already holds every way to
+   reach us, the Support button and the identification block, and a social link is one
+   more of those. It is a stack here, not a row, because the column is narrow. */
+.wf-foot-soc {
+  display: flex; flex-direction: column; align-items: flex-start;
+  gap: var(--wf-s-1); margin-top: var(--wf-s-2);
+}
 .wf-foot-soc .wf-rail-ico { flex: 0 0 20px; }
+
+/* The right end of the base band: payment marks and the language, the two things in
+   that row that are about the page rather than about us. */
+.wf-foot-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-1) var(--wf-s-2); }
+.wf-foot-meta .wf-lang-wrap { border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2); }
+.wf-foot-meta .wf-rail-lang { border-left: 0; padding: 0 var(--wf-s-2); }
+/* WHERE THE PANEL OPENS FROM DEPENDS ON WHERE THE ROW PUT THE CONTROL, and the row
+   wraps. Wide, the base band is space-between and the control sits at the far right, so
+   the panel opens leftward from its right edge. Narrow, the band has wrapped and the
+   control is at the LEFT margin, where opening leftward put the panel at x=-174 on a
+   360px screen. Keyed on the content column rather than the viewport, which is what
+   every other wrap rule in this file is keyed on since the scaffolding audit. */
+@container col (min-width: 640px) {
+  .wf-foot-meta .wf-lang-wrap.is-open .wf-lang-pop { left: auto; right: 0; }
+}
 
 .wf-marks { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); margin: var(--wf-s-2) 0 0; padding: 0; list-style: none; }
 .wf-marks li { padding: var(--wf-s-half) var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1); font-size: var(--wf-t-xs); }
@@ -708,6 +730,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
   padding-top: var(--wf-s-2); border-top: 1px solid var(--wf-line-soft);
 }
 .wf-foot-base .wf-marks { margin: 0; }
+.wf-foot-meta .wf-marks { margin: 0; }
 .wf-compliance { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); margin: 0; }
 
 /* 0.1 The mobile bar. A shortcut subset of the rail, never a second model.
@@ -806,20 +829,16 @@ a.wfp-state:hover { color: var(--wf-ink); }
   /* The ambient foot collapses the same way rather than being dropped: D-29 put the
      sound control, the language and the social links here, and a state that loses them
      would be a different rail rather than the same one narrower. */
-  /* STACKED, AND EACH ONE A CONTROL RATHER THAN A ROW OF TWO. Side by side in 64px they
-     were two half width targets; vertically each gets the full width of the rail and a
-     tap area of its own. The language keeps its two characters and says the rest in the
-     tooltip, which is what the tooltip is for on every other item in this rail. */
-  /* STACKED, ONE PER ROW. The strip is a two column grid at full width; in 64px those
-     were two half width targets side by side. It becomes one column and the divider
-     turns from a left edge into a top edge, which is the same object rotated rather
-     than a second component.
-     THE SOUND IS A CONTROL AND THE LANGUAGE IS NOT, and that is not a styling choice:
-     the rule above says it in the node's own words, "the half that reports rather than
-     acts, no press state, and not a button element. One language is locked, so there
-     is nothing to pick." Making it look like a button would be the interface promising
-     a choice that does not exist. It keeps its two characters and says the rest in the
-     tooltip, which is what every other item in this rail does when collapsed. */
+  /* STACKED, ONE PER ROW, AND BOTH ARE CONTROLS. The strip is a two column grid at
+     full width; in 64px those were two half width targets side by side. It becomes one
+     column and the divider turns from a left edge into a top edge, which is the same
+     object rotated rather than a second component.
+     TWO COMMENTS STOOD HERE UNTIL 20 AUGUST 2026, one of them saying "the sound is a
+     control and the language is not", quoting the node's own words about a label with
+     no press state. D-41 had already made it a button and D-42 gave it nine options,
+     so the quote had outlived its premise in the CSS as well as in the node. Both are
+     replaced by this one. The language keeps its two characters and says the rest in
+     the tooltip, which is what every other item in this rail does when collapsed. */
   .is-rail-collapsed .wf-rail-amb { grid-template-columns: 1fr; }
   .is-rail-collapsed .wf-rail-snd { font-size: 0; min-width: 0; padding: 0; min-height: 40px; }
   .is-rail-collapsed .wf-rail-snd::before { content: '\266A'; font-size: var(--wf-t-m); }
@@ -827,7 +846,12 @@ a.wfp-state:hover { color: var(--wf-ink); }
   .is-rail-collapsed .wf-rail-lang {
     border-left: 0; border-top: 1px solid var(--wf-line-soft); min-height: 40px;
   }
-  .is-rail-collapsed .wf-lang-wrap.is-open .wf-lang-pop { left: calc(100% + var(--wf-s-2)); bottom: 0; }
+  /* SCOPED TO THE RAIL, and it was not until 20 August 2026. Written for the collapsed
+     rail, it matched every .wf-lang-wrap on the page including the footer's, and beat
+     the footer's own rule on source order, so in the collapsed state the footer panel
+     opened past the right edge of the screen. Found by measuring the footer control in
+     the collapsed state, which the D-41 pass had not opened. */
+  .is-rail-collapsed .wf-rail-amb .wf-lang-wrap.is-open .wf-lang-pop { left: calc(100% + var(--wf-s-2)); bottom: 0; }
   .is-rail-collapsed .wf-rail-soc-row { justify-content: center; }
 
   /* THE TOOLTIP IS THE LABEL AND NOTHING ELSE. A tooltip that says something the

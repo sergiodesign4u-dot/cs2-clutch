@@ -681,6 +681,8 @@ Twelve findings raised, **ten confirmed and fixed, two withdrawn on verification
 
 **The sound is a control and the language is not, and that is not a styling choice.** `0.1` says it in its own words: **"the half that reports rather than acts, no press state, and not a button element. One language is locked, so there is nothing to pick."** Drawing it as a button would be the interface promising a choice that does not exist. It keeps its two characters and says the rest in the tooltip, which is what every other item in this rail does when collapsed.
 
+**Superseded the same day, and left standing here as the record of what was believed at the time.** `D-41` made the language a button hours later and `D-42` gave it nine options. **The paragraph above was quoting `0.1` accurately: the node still said it, and went on saying it in two more places until section 24 found them.** See section 24.
+
 ### The social set was in the rail's foot and not in the node that owns it
 
 **`0.2`'s own row is explicit:** "Social links. **This node owns it**, and the rail's drawer renders it from here rather than keeping a second list." **The footer had never rendered it.** So the owning node was the one carrier not showing the thing it owns, and the rail was holding what it was supposed to be borrowing. **Found by the founder's eye, in the same class as the collapsed rail:** a specification ahead of its render.
@@ -698,3 +700,57 @@ Twelve findings raised, **ten confirmed and fixed, two withdrawn on verification
 **Measured.** Rail 220 to 64 and back, the content column 985 to 1141 at 1440, `aria-expanded` and the accessible name both flipping, the tooltip rendering clear of the rail's own edge, the toggle absent below 900 while the header's menu icon stays, and no page scrolling sideways in either state at any width.
 
 **Not done:** `3.3` is closed. The rest of the main flow is not: `2.4` sign in with its consent states, `2.5`, `2.6` and `2.1` the geo gate are all `spec`.
+
+---
+
+## 24. The footer's kinds get sorted, and a control gets eight options that do nothing
+
+**Founder request of 20 August 2026, from the rendered footer plus one competitor footer supplied as an image.** Two asks: move the social icons under the brand column, and decide where the language goes. **The reference is an input, not an output**, and it is a founder-supplied screenshot rather than a page walked in this session, so nothing in it is cited as a fact about anyone. What it contributed is a question, and the question was good.
+
+### The row was holding three kinds
+
+`D-41`'s render put the social set and the language side by side in band 4, next to the payment marks. Stated plainly, that row held **a claim about a contract** (a payment mark), **an exit from the product** (a social link) and **a preference of the session** (a language), and called them one group.
+
+**The brand column already holds every way to reach us:** the Support button, the tagline, the identification block. The social set is one more of those, so it moves there and joins its own kind. **The language does not follow it**, because a preference of the session is not a way to reach us. It stays in the bottom row, which is where a product keeps the meta of the page a person is on: who owns it, what it accepts as payment, what language it is in. **Kind, not convenience, is what decides the row.**
+
+**Ownership did not move with the drawing.** `0.2` still owns the canonical set and the rail's drawer still renders it from here rather than keeping a second list, which is the rule that put it in the footer at all.
+
+### Eight options that change nothing, on purpose
+
+**`D-41` refused exactly this, in writing:** "Eight rows for languages that do not exist would be the dead item defect inside a control." That refusal followed the rule that fills every other carrier in this project, the rule that took the baseline's rail of nine down to one live destination.
+
+**The founder reverses it, and the reversal is scoped rather than general.** The prototype is a portfolio artefact rather than a release, and a reader should see the shape the live product has, which is nine.
+
+| | |
+|---|---|
+| **What is bought** | The footer reads as the real product's footer rather than a reduced one, and the carrier is drawn ahead of its content on purpose |
+| **What is paid** | **A control that changes nothing is a promise the product does not keep.** In anything shipped that is a defect, not a placeholder |
+| **How it is kept honest** | The panel says it in its own words: English is the only one that does anything, the other eight switch the control and leave the interface in English, the page stays `lang="en"`, and there is no hreflang until real translations arrive |
+| **Why it is not a precedent** | The rule stands everywhere else. `D-42` is the reason to refuse the next carrier that asks for dead items on the "it is a portfolio" argument, not the reason to allow it |
+
+**The nine are sourced.** `en de zh fr pl tr pt es ru`, `baseline.md` section "Header", walked live on 11 August 2026 with the switcher itself as evidence. **This project does not invent a list of languages any more than it invents a number.** The names render in English because the interface is English; endonyms are final copy and belong to production.
+
+**Three things the stubs deliberately do not do.** The page keeps `lang="en"` in every option, because **English announced to a screen reader as German is an accessibility defect** and it is the one change that would make the stub look real. **No hreflang, no localised URL, no second IA node**, so `D-02`'s three consequences stand untouched. **No flag icons**, because a flag is a country and a language is not, and Chinese, Portuguese and Spanish each have no single flag that is not a claim about who counts.
+
+### Three stale places, found by writing the record rather than by either instrument
+
+All three were left standing by `D-41` earlier the same day. **All three are corrected in place with the reason kept, never deleted.**
+
+| Where | What it still said | Found by |
+|---|---|---|
+| `0.1` rejected-items table | "The language switcher, **cut permanently**, `D-02`" | Claude, writing `D-42` |
+| `0.1` section 9 | The language "is a label with no border and no press state, **because one language is locked and there is nothing to pick**" | Claude, writing `D-42` |
+| `_wf.css` collapsed-rail block | Two comment blocks, one of them quoting the same sentence as a styling rule, the other a near duplicate of the first | Claude, reading the block to scope a selector |
+
+**What "permanently" was right about is still right:** no second language ships. What it got wrong was **reading a decision about content as a decision about a control**. And section 9's reasoning was sound while its premise moved under it, which is the failure the "markdown stays alive" rule exists to catch, appearing twice in one node on one day.
+
+### Two rendering defects, both found by measuring rather than by looking
+
+| Defect | Cause | Fix |
+|---|---|---|
+| In the **collapsed rail**, the footer's panel opened past the right edge of the screen at 1280 and 1440 | `.is-rail-collapsed .wf-lang-wrap.is-open .wf-lang-pop` was written for the rail and **matched every language control on the page**, beating the footer's own rule on source order. **It shipped in `D-41`:** that pass measured both rail states but never opened the footer control in the collapsed one | Selector scoped to `.wf-rail-amb` |
+| At 360px the footer panel opened at **x = -174** | The base band wraps, so the control that sits at the far right on desktop sits at the **left margin** on a phone, where opening leftward from its right edge leaves the screen. The right-edge anchor was a `D-41` fix for the opposite failure | Keyed on the **content column** with `@container col (min-width: 640px)`, which is what every wrap rule in this file has been keyed on since the scaffolding audit |
+
+**Measured.** 4 pages x 7 widths, no page scrolling sideways anywhere. The social set in the brand column and absent from the base band on every page. Two controls per page, nine options in each, both moving together when either is used, `lang` staying `en`, and every panel fully on screen at 360, 900, 1280 and 1440 in both rail states.
+
+**Not done, unchanged:** `2.4`, `2.5`, `2.6` and `2.1` are all `spec`. And `CLAUDE.md`'s locked row "Language | One, English" still carries the reading risk `D-41` named, now with more to say: **not only that a switcher may be drawn, but that eight of its options are deliberately inert.** That clause is still not written, because that file changes only on an explicit go.

@@ -477,25 +477,68 @@ window.WF_NAV = {
     ];
   }
 
-  // The language control. One live option and the rest named as absent, which is the
-  // same treatment the rail itself gets: a carrier is inherited and filled with what is
-  // live, and only a dead item is deferred. Eight rows for languages that do not exist
-  // would be the dead item defect inside a control.
+  // THE LANGUAGE CONTROL. NINE OPTIONS SINCE D-42, ONE OF THEM LIVE.
+  // D-41 shipped one option and refused the other eight by the rule that fills every
+  // other carrier in this project: a carrier is inherited and filled with live items,
+  // and only a dead item is deferred. THE FOUNDER REVERSED THAT FOR THIS CONTROL ALONE,
+  // so the prototype shows the shape the live product has. The eight are inert, the
+  // panel says so in its own words, and D-42 records what that costs. It is not a
+  // precedent: no other carrier here gets dead items on this argument.
+  // THE NINE ARE SOURCED, NOT INVENTED: baseline.md section "Header", walked live on
+  // 11 August 2026, "a language switcher offering nine languages, en de zh fr pl tr pt
+  // es ru". The names are written in English because the interface is English, and the
+  // endonyms are final copy, which belongs to production.
+  // WHAT THE STUBS NEVER DO IS TOUCH THE PAGE'S lang ATTRIBUTE. English text announced
+  // to a screen reader as German is an accessibility defect rather than a placeholder,
+  // and it is the one change that would make the stub look real.
+  var LANGS = [['en', 'English'], ['de', 'German'], ['zh', 'Chinese'], ['fr', 'French'],
+               ['pl', 'Polish'], ['tr', 'Turkish'], ['pt', 'Portuguese'],
+               ['es', 'Spanish'], ['ru', 'Russian']];
+  var langCur = 'en';
+  var langSubs = [];
+  // The rail's control and the footer's control are one control in two places, the
+  // superset rule applied to a control. Picking in either moves both, because a rail
+  // reading EN above a footer reading DE is two controls with one name.
+  function setLang(code) { langCur = code; langSubs.forEach(function (f) { f(code); }); }
+
   function langControl() {
     var wrap = el('div', 'wf-lang-wrap');
     var btn = el('button', 'wf-rail-lang', 'EN');
     btn.type = 'button';
     btn.setAttribute('aria-haspopup', 'true');
     btn.setAttribute('aria-expanded', 'false');
-    btn.setAttribute('aria-label', 'Language, English');
-    btn.setAttribute('data-lbl', 'Language: English');
     var pop = el('div', 'wf-lang-pop');
-    var cur = el('button', 'wf-lang-opt is-on', 'English');
-    cur.type = 'button';
-    cur.setAttribute('aria-current', 'true');
-    pop.appendChild(cur);
+    var list = el('div', 'wf-lang-list');
+    list.setAttribute('role', 'group');
+    list.setAttribute('aria-label', 'Language');
+    var opts = LANGS.map(function (L) {
+      var o = el('button', 'wf-lang-opt', L[1]);
+      o.type = 'button';
+      o.appendChild(el('span', 'wf-lang-code', L[0].toUpperCase()));
+      o.addEventListener('click', function () { setLang(L[0]); setOpen(false); btn.focus(); });
+      list.appendChild(o);
+      return o;
+    });
+    pop.appendChild(list);
     pop.appendChild(el('span', 'wf-fig-missing',
-      'Round 1 ships one language. The others arrive with their translations, and the product carries no hreflang until they do.'));
+      'English is the only one that does anything. The other eight switch this control and leave the interface in English: round 1 ships one language, the page stays lang="en", and the product carries no hreflang until real translations arrive.'));
+
+    function paint(code) {
+      btn.textContent = code.toUpperCase();
+      var name = 'English';
+      LANGS.forEach(function (L, i) {
+        var on = L[0] === code;
+        if (on) name = L[1];
+        opts[i].classList.toggle('is-on', on);
+        if (on) { opts[i].setAttribute('aria-current', 'true'); }
+        else { opts[i].removeAttribute('aria-current'); }
+      });
+      btn.setAttribute('aria-label', 'Language, ' + name);
+      btn.setAttribute('data-lbl', 'Language: ' + name);
+    }
+    langSubs.push(paint);
+    paint(langCur);
+
     function setOpen(on) {
       wrap.classList.toggle('is-open', on);
       btn.setAttribute('aria-expanded', on ? 'true' : 'false');
@@ -506,6 +549,24 @@ window.WF_NAV = {
     wrap.appendChild(btn);
     wrap.appendChild(pop);
     return wrap;
+  }
+
+  // The reserved social row. Which channels are ours in round 1 is [?], owner founder,
+  // so the count is a reserved set rather than a guess at which networks.
+  function socialSet() {
+    var box = el('div', 'wf-foot-soc');
+    var nav = el('nav', 'wf-rail-soc-row');
+    nav.setAttribute('aria-label', 'Social');
+    for (var i = 0; i < 6; i++) {
+      var a = el('a', 'wf-rail-ico');
+      a.href = '#';
+      a.setAttribute('rel', 'external nofollow');
+      a.setAttribute('aria-label', 'Social channel, set not decided');
+      nav.appendChild(a);
+    }
+    box.appendChild(nav);
+    box.appendChild(el('span', 'wf-fig-missing', 'Which channels are ours in round 1 is not decided'));
+    return box;
   }
 
   // THE ACCOUNT CONTROL OPENS A MENU RATHER THAN NAVIGATING, 0.1 section 5, added by
@@ -871,6 +932,14 @@ window.WF_NAV = {
     var ident = el('p', 'wf-foot-ident');
     ident.appendChild(el('span', 'wf-fig-missing', 'Operating company, registration number and address not available'));
     c1.appendChild(ident);
+    // THE SOCIAL SET LIVES IN THIS COLUMN SINCE D-42. It was drawn in band 4 for a few
+    // hours on 20 August 2026, beside the payment marks, and that row then held three
+    // kinds at once: a payment mark is a claim about a contract, a social link is an
+    // exit from the product, a language is a preference of the session. This column
+    // already holds every way to reach us, the Support button and the identification
+    // block, so the set joins its own kind. OWNERSHIP DOES NOT MOVE WITH THE DRAWING:
+    // 0.2 still owns the canonical set and the rail's drawer renders it from here.
+    c1.appendChild(socialSet());
     band2.appendChild(c1);
 
     [
@@ -920,38 +989,21 @@ window.WF_NAV = {
     accordion(band3, 'Links to priority indexed pages', seoBody);
     host.appendChild(band3);
 
-    // BAND 4. Copyright and the payment marks, pre-login.
+    // BAND 4. Copyright, the payment marks and the language, pre-login. THE LANGUAGE
+    // STAYS IN THIS ROW WHILE THE SOCIAL SET LEFT IT, D-42, and the reason is kind
+    // rather than convenience: a preference of the session is not a way to reach us,
+    // and the bottom row is where a product keeps the meta of the page a person is on,
+    // who owns it, what it accepts as payment, what language it is in.
     var band4 = el('div', 'wf-foot-base');
     band4.appendChild(el('span', 'wf-fig-c', 'CS2 Clutch, working name. Copyright range not set'));
+    var meta4 = el('div', 'wf-foot-meta');
     var marks = el('ul', 'wf-marks');
     marks.setAttribute('aria-label', 'Payment methods');
     ['Card', 'Wallet', 'Crypto'].forEach(function (m) { marks.appendChild(el('li', null, m)); });
     marks.appendChild(el('li', 'wf-fig-missing', 'Provider list not available'));
-    band4.appendChild(marks);
-    // THE SOCIAL SET BELONGS TO THIS NODE AND HAD NEVER RENDERED HERE. 0.2's own row is
-    // explicit: "Social links. THIS NODE OWNS IT, and the rail's drawer renders it from
-    // here rather than keeping a second list." The wireframe had it in the rail's foot
-    // only, so the owner was the one carrier not showing it. Which icons are ours in
-    // round 1 is [?], owner founder, so the count is the same reserved set the rail
-    // draws rather than a guess at which networks.
-    var fsoc = el('div', 'wf-foot-soc');
-    var fsocNav = el('nav', 'wf-rail-soc-row');
-    fsocNav.setAttribute('aria-label', 'Social');
-    for (var fi = 0; fi < 6; fi++) {
-      var fa = el('a', 'wf-rail-ico');
-      fa.href = '#';
-      fa.setAttribute('rel', 'external nofollow');
-      fa.setAttribute('aria-label', 'Social channel, set not decided');
-      fsocNav.appendChild(fa);
-    }
-    fsoc.appendChild(fsocNav);
-    // THE LANGUAGE CONTROL IS HERE TOO, D-41. 0.2 used to read "Language, absent, D-02,
-    // one language" and the founder reversed that: the live product carries a switcher
-    // in both places and the carrier is inherited. It is the same control, not a copy
-    // with different behaviour, which is the superset rule applied to a control.
-    fsoc.appendChild(langControl());
-    fsoc.appendChild(el('span', 'wf-fig-missing', 'Which channels are ours in round 1 is not decided'));
-    band4.appendChild(fsoc);
+    meta4.appendChild(marks);
+    meta4.appendChild(langControl());
+    band4.appendChild(meta4);
     host.appendChild(band4);
 
     // Collapsed is a MOBILE default, not a state the desktop inherits. Above 900 the
