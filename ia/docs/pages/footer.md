@@ -126,8 +126,8 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 | **Brand and help** | **The logo slot**, at the size the live product gives a footer logo. Then the **about line**, one sentence. Then the **identification block** in small text. Then a "Need help?" label over a **Support button**, an outlined pill rather than a text link. Then the **language switcher**, drawn wide with the full language name | 1.0, 0.10 |
 | **Play** | Cases, and nothing else. **One game, because the product has one** | 3.1 |
 | **Cases** | All cases, then the four cases this prototype holds: Ironbound, Warsteel, Coldfront, Nightfall. **Which cases belong here is a merchandising decision and it is `[?]`**, printed in the column | 3.1, 3.3 |
-| **Company** | Terms of use, Privacy policy, Cookie policy, Refund and payments policy, **Cookie settings** | 0.9, and dialog 0.4 links the cookie policy. **Cookie settings added by the step 8 audit:** GDPR Article 7(3), quoted in node `0.4`, says "It shall be as easy to withdraw as to give consent", and a banner shown once is not a route back. It is a control rather than a link and the only control in this column |
 | **Help** | Provably fair, Contact support. **No FAQ row, and the absence is printed** | 1.2, 0.10 |
+| **Company** | Terms of use, Privacy policy, Cookie policy, Refund and payments policy, **Cookie settings** | 0.9, and dialog 0.4 links the cookie policy. **Cookie settings added by the step 8 audit:** GDPR Article 7(3), quoted in node `0.4`, says "It shall be as easy to withdraw as to give consent", and a banner shown once is not a route back. It is a control rather than a link and the only control in this column |
 | **Play responsibly** | Responsible play, Where we operate | 6.1, 2.2 |
 | **Brand art** | **A reserved slot, founder request of 20 August 2026, `D-43`.** Same kind of object as the logo slot: an area whose content arrives at stage 06 | Nothing. It is not a route |
 
@@ -138,6 +138,16 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 **Provably fair moved from Play into Help, `D-44`.** A person looking for the proof is checking us, not choosing a mode. **`CLAUDE.md`'s rule is untouched:** "Provably fair and Responsible play are carried by the footer, which holds each in its own column." Each still has one. They are not the same two columns as before.
 
 **There is no FAQ row and that is not an oversight.** `sitemap.md`, section on what was cut from the baseline's footer, cut the FAQ **on an argument rather than on scope**: its two load bearing jobs on the baseline are the whole of the age control and the whole of the geo statement, both of which move to real surfaces here, `2.1` and `6.1`, and the residue goes to `0.10`. **A row for it would be a carrier promising a destination the map does not hold.** The absence is printed in the column in the smallest type in this footer, so the founder can reverse it deliberately rather than discover it missing.
+
+**Asked directly on 20 August: should Help and Play responsibly merge? No, and there are three reasons rather than one.**
+
+| | |
+|---|---|
+| **The rule** | `CLAUDE.md`: "Provably fair and Responsible play are carried by the footer, **which holds each in its own column**." One column holding both is the thing that sentence forbids, and **Responsible play has had no other carrier since `D-40` took it off the rail** |
+| **The kind** | Help is *I have a problem, help me*. **A limit you set on yourself is not help**, it is a boundary. Filing self exclusion under a support heading reframes a compliance instrument as customer service, and this project has a rule about the direction that reframing runs: a limit never acquires the vocabulary of something you engage with |
+| **The divergence** | The compliance column is the whole reason this band diverges from the baseline. `baseline.md` section 6: no responsible play route, no footer link, no age statement anywhere on the live product. **Dissolving it into Help gives the divergence away** for two saved rows |
+
+**What the question was actually pointing at was real, and it is fixed.** Both columns hold two rows and **they were adjacent**, so the pair read as one half empty block. **The order is product, us, legal, compliance now**, Play, Cases, Help, Company, Play responsibly, so the two short columns are no longer neighbours. **And the compliance track is sized so "Play responsibly" fits on one line:** wrapped, its column began lower than the five beside it and the accent bars stopped being a row.
 
 **Play responsibly keeps its column and that is not negotiable inside this node.** It is the divergence the node is built on: `baseline.md` section 6 records no responsible play route, no footer link and no age statement anywhere on the live product.
 

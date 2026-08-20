@@ -989,6 +989,11 @@ window.WF_NAV = {
     // A row for it would be a carrier promising a destination the map does not hold.
     // The absence is printed in the column so the founder can reverse it deliberately.
     //
+    // THE ORDER IS PRODUCT, US, LEGAL, COMPLIANCE, and it was not until the founder
+    // asked whether Help and Play responsibly should merge. They should not, and the
+    // reason the question came up is that both hold two rows and they were adjacent,
+    // so the pair read as one half empty block. Company sits between them now.
+    //
     // PLAY RESPONSIBLY KEEPS ITS COLUMN. It is the divergence this node is built on:
     // the baseline has no responsible play route and no age statement anywhere in its
     // footer, baseline.md section 6.
@@ -999,10 +1004,10 @@ window.WF_NAV = {
                  ['Warsteel', 'case.html'], ['Coldfront', 'case.html'],
                  ['Nightfall', 'case.html']],
        'Which cases belong here is a merchandising decision and it is not made.'],
+      ['Help', [['Provably fair', 'fair.html'], ['Contact support', 'support.html']],
+       'No FAQ page: its jobs live on the geo gate, on Responsible play and in Support.'],
       ['Company', [['Terms of use', 'legal.html'], ['Privacy policy', 'legal.html'],
                    ['Cookie policy', 'legal.html'], ['Refund and payments policy', 'legal.html']]],
-      ['Help', [['Provably fair', 'fair.html'], ['Contact support', 'support.html']],
-       'No FAQ: its two jobs moved to the geo gate and to Responsible play, and the rest went to Support.'],
       ['Play responsibly', [['Responsible play', 'responsible.html'], ['Where we operate', 'markets.html']]]
     ].forEach(function (col) {
       var c = el('div', 'wf-foot-col');
@@ -1019,7 +1024,7 @@ window.WF_NAV = {
     // banner shown once is not a route back.
     var ck = el('button', 'wf-linklike', 'Cookie settings');
     ck.type = 'button';
-    cols.children[3].querySelector('.wf-foot-list').appendChild(ck);
+    cols.children[4].querySelector('.wf-foot-list').appendChild(ck);
 
     // THE BRAND ART SLOT, founder request of 20 August 2026. It carries no information
     // and it says so: it is a reserved place for stage 06, the same kind of object as

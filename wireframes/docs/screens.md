@@ -849,3 +849,21 @@ Six tracks plus the art slot is seven inside a measure of 1220. **Every step is 
 
 **Still open and now printed on the page rather than only here:** whether an FAQ node is reopened, and which four cases the column carries.
 
+### Asked again the same day: should Help and Play responsibly merge?
+
+**No, and there are three reasons rather than one.**
+
+| | |
+|---|---|
+| **The rule** | `CLAUDE.md`: "Provably fair and Responsible play are carried by the footer, **which holds each in its own column**." One column holding both is the thing that sentence forbids |
+| **The kind** | Help is *I have a problem, help me*. **A limit you set on yourself is not help, it is a boundary.** Filing self exclusion under a support heading reframes a compliance instrument as customer service |
+| **The divergence** | The compliance column is the whole reason this band diverges from the baseline: `baseline.md` section 6 records no responsible play route, no footer link and no age statement anywhere on the live product |
+
+**What the question was pointing at was real and it is fixed.** Both columns hold two rows and **they were adjacent**, so the pair read as one half empty block.
+
+- **The order is product, us, legal, compliance now:** Play, Cases, Help, Company, Play responsibly. The two short columns are no longer neighbours.
+- **The compliance track is sized so "Play responsibly" fits on one line.** Wrapped, its column began lower than the five beside it and **the accent bars stopped being a row**. A `min-height` on the label holds that alignment if a later label wraps anyway.
+- The FAQ note is one sentence rather than three lines, so the Help column stops looking padded by its own hole.
+
+**Re-measured.** 196 checks, no sideways scroll, and every column's first link now starts on the same line at every width from the six column step up.
+

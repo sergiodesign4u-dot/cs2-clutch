@@ -1317,3 +1317,13 @@ The founder asked for a Help column **instead of** Play responsibly. **That coll
 ### What it cost in layout, and it was paid rather than absorbed
 
 Six tracks plus the art slot is seven, in a measure of 1220. **The ladder is asked of the content column at every step:** one column, then two with the brand block taking the whole row, then three, then six, then seven with the art. **The art slot and the seventh track switch at exactly the same width**, because for one measurement pass they did not and the art wrapped to a row of its own under the brand block.
+
+### Asked again the same day: should Help and Play responsibly merge?
+
+**No, and there are three reasons rather than one.**
+
+- **The rule.** `CLAUDE.md`: "Provably fair and Responsible play are carried by the footer, **which holds each in its own column**." One column holding both is the thing that sentence forbids.
+- **The kind.** Help is *I have a problem, help me*. **A limit you set on yourself is not help, it is a boundary.** Filing self exclusion under a support heading reframes a compliance instrument as customer service, and this project already has a rule about the direction that reframing runs.
+- **The divergence.** The compliance column is the whole reason this band diverges from the baseline: `baseline.md` section 6 records no responsible play route, no footer link and no age statement anywhere on the live product. **Dissolving it into Help gives that away for two saved rows.**
+
+**What the question was pointing at was real and it is fixed.** Both columns hold two rows and **they were adjacent**, so the pair read as one half empty block. **The order is product, us, legal, compliance now** - Play, Cases, Help, Company, Play responsibly - so the two short columns are no longer neighbours. **And the compliance track is sized so "Play responsibly" fits on one line:** wrapped, its column began lower than the five beside it and the accent bars stopped being a row. A `min-height` on the label holds that alignment if a later label wraps anyway.

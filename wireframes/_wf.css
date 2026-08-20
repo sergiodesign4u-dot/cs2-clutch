@@ -729,11 +729,11 @@ a.wfp-state:hover { color: var(--wf-ink); }
 }
 @container col (min-width: 690px) { .wf-foot-cols { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @container col (min-width: 900px) {
-  .wf-foot-cols { grid-template-columns: 1.5fr 0.75fr 1fr 1.15fr 0.95fr 1.05fr; gap: var(--wf-s-3); }
+  .wf-foot-cols { grid-template-columns: 1.5fr 0.6fr 1.05fr 0.85fr 1.2fr 1.15fr; gap: var(--wf-s-3); }
   .wf-foot-col--brand { grid-column: auto; }
 }
 @container col (min-width: 1180px) {
-  .wf-foot-cols { grid-template-columns: 1.5fr 0.75fr 1fr 1.15fr 0.95fr 1.05fr 1.25fr; }
+  .wf-foot-cols { grid-template-columns: 1.5fr 0.6fr 1.05fr 0.85fr 1.2fr 1.15fr 1.15fr; }
 }
 .wf-foot-col { display: flex; flex-direction: column; align-items: flex-start; gap: var(--wf-s-1); min-width: 0; }
 .wf-foot-col--brand { gap: var(--wf-s-2); }
@@ -805,7 +805,12 @@ a.wfp-state:hover { color: var(--wf-ink); }
    an obvious thing to colour. It follows the labels that head a list, never "Need
    help?", which heads a control. */
 @media (min-width: 900px) {
-  .wf-foot-h[aria-expanded] { position: relative; padding-bottom: var(--wf-s-2); }
+  /* EVERY COLUMN'S FIRST LINK STARTS ON THE SAME LINE. "Play responsibly" is the one
+     label that can take two lines, and when it did, its column began lower than the
+     five beside it and the accent bars stopped being a row. The track is sized so the
+     label fits on one line, and this height holds the alignment if a later label does
+     not. */
+  .wf-foot-h[aria-expanded] { position: relative; align-items: flex-start; min-height: calc(2.6em + var(--wf-s-2)); padding-bottom: var(--wf-s-2); }
   .wf-foot-h[aria-expanded]::before {
     content: ''; position: absolute; left: 0; bottom: 0;
     width: 28px; height: 2px; background: var(--wf-line);
