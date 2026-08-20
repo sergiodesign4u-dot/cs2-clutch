@@ -1360,55 +1360,72 @@ a.wfp-state:hover { color: var(--wf-ink); }
   background: var(--wf-bg);
 }
 
-/* PHASE 1, THE STAGE AT REST, D-46. The lane at rest carries THIS CASE'S ITEMS and it
-   drifts. What 19 August refused was FIGURES on the lane, and that stays refused: no
-   value, no chance, no name, no pointer. What was lost with them was the items
-   themselves, and nothing required that, so the first screen answers what is in this
-   case again in the region that will show the same objects moving one tap later.
-   THE DRIFT HAS A JOB, which is the test CLAUDE.md sets for motion. Informational: a
-   strip that moves is legibly longer than its frame, so it reads as a sample of a set
-   rather than as the set. Emotional: principle 4, the platform alive rather than at
-   rest. IT IS NOT A SPIN. A spin is a settled roll being revealed, it has a pointer and
-   it ends; this has neither and never resolves on anything.
-   ONE LANE PER CHOSEN ROLL, on the axis the reveal will use: one horizontal, two or
-   five vertical and side by side. The matrix used to read "count switch at more than
-   one: phase 1 unchanged", which made the stage the reveal's lane standing still only
-   at a count of one, and a stage that shows one lane and then opens five is a layout
-   trading places at the moment of the tap.
-   THE TRACK HOLDS THE ITEM SET TWICE and shifts by exactly half, which is what makes
-   the loop seamless without a second copy being visible as a repeat. */
-.wf-rest { display: flex; gap: var(--wf-s-1); width: 100%; justify-content: center; align-items: stretch; }
-.wf-rest-lane { position: relative; overflow: hidden; }
-.wf-rest--x .wf-rest-lane { width: 100%; height: 72px; }
-.wf-rest--y .wf-rest-lane { flex: 1 1 0; min-width: 0; max-width: 168px; height: 244px; }
-.wf-rest-run { display: flex; gap: var(--wf-s-1); list-style: none; margin: 0; padding: 0; }
-.wf-rest--x .wf-rest-run { flex-direction: row; width: max-content; animation: wf-drift-x 44s linear infinite; }
-.wf-rest--y .wf-rest-run { flex-direction: column; height: max-content; animation: wf-drift-y 44s linear infinite; }
-/* The lanes do not move in lockstep. Five tracks sharing one phase read as one object
-   sliding behind five windows rather than as five samples of the same set. */
-.wf-rest-lane:nth-child(2) .wf-rest-run { animation-duration: 53s; }
-.wf-rest-lane:nth-child(3) .wf-rest-run { animation-duration: 38s; }
-.wf-rest-lane:nth-child(4) .wf-rest-run { animation-duration: 61s; }
-.wf-rest-lane:nth-child(5) .wf-rest-run { animation-duration: 47s; }
-.wf-rest-run > li { border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2); background: var(--wf-bg); }
-.wf-rest--x .wf-rest-run > li { flex: 0 0 104px; height: 72px; }
-.wf-rest--y .wf-rest-run > li { flex: 0 0 76px; width: 100%; }
-.wf-rest--y.wf-rest--5 .wf-rest-run > li { flex-basis: 60px; }
-@keyframes wf-drift-x { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
-@keyframes wf-drift-y { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, -50%, 0); } }
-/* THE LANES ARE SHORTER FROM THREE UP, and that is the cost of the switch printed
-   rather than absorbed: five full height lanes plus the artwork do not fit above the
-   fold at 360 and the stage may not scroll while it is being read. */
+/* PHASE 1, THE STAGE AT REST. TWO OBJECTS, AND UNTIL D-47 THEY WERE ONE.
+   D-46 made the drifting strip multiply with the count, on the reasoning that the stage
+   is the reveal lane standing still. THE FOUNDER SPLIT IT AND THE SPLIT DISSOLVES THE
+   CONFLICT THAT REFUSAL OF 19 AUGUST WAS ABOUT.
+   THE BOXES ARE THE REVEAL, N OF THEM, ONE PER CHOSEN ROLL. Each is where one roll's
+   artwork lands, so choosing two draws two and choosing five draws five. They print
+   nothing, because a track is not a listing.
+   THE SHOWCASE IS ONE HORIZONTAL STRIP AND IT NEVER MULTIPLIES. It is what is in this
+   case, and what is in the case does not change because a person asked for two of them.
+   BECAUSE IT IS A LISTING IT MUST PRINT THE CHANCE BESIDE THE VALUE, D2, and that is
+   the exact rule the 19 August cut was enforcing: "the rule against a value with no
+   chance beside it binds any surface that PRINTS a value". That cut removed the figures
+   because the strip was then the reveal's track. It is not any more. */
+.wf-boxes { display: flex; gap: var(--wf-s-2); width: 100%; justify-content: center; align-items: stretch; }
+.wf-boxes > .wf-case-art { flex: 1 1 0; min-width: 0; max-width: 420px; }
+/* The cost of the switch, printed rather than absorbed: five boxes on a 360px screen are
+   about 59px wide each, so they get shorter as well as narrower. */
+.wf-boxes--5 > .wf-case-art { min-height: 150px; }
 @media (max-width: 599px) {
-  .wf-rest--y .wf-rest-lane { height: 200px; }
-  .wf-rest--y.wf-rest--5 .wf-rest-run > li { flex-basis: 52px; }
+  .wf-boxes { gap: var(--wf-s-1); }
+  .wf-boxes--2 > .wf-case-art { min-height: 140px; }
+  .wf-boxes--5 > .wf-case-art { min-height: 90px; }
 }
+
+/* THE SHOWCASE. Artwork, name, value, chance, and nothing else: the ticket range, the
+   free unit count, the wear axes and the market link stay in block 5, which is the
+   surface that makes those figures checkable. THE STRIP IS A SAMPLE OF THAT TABLE AND
+   ROUTES TO IT rather than trying to be a second one.
+   IT CARRIES aria-hidden AND THE TABLE BELOW IT DOES NOT. Nine items read twice is nine
+   items read twice, and a moving region is a poor thing to make a screen reader walk.
+   The complete, grouped, checkable listing is one block down and is not hidden. */
+.wf-show { width: 100%; overflow: hidden; }
+.wf-show-run {
+  display: flex; gap: var(--wf-s-1); width: max-content;
+  margin: 0; padding: 0; list-style: none;
+  animation: wf-drift-x 60s linear infinite;
+}
+.wf-show-i {
+  flex: 0 0 148px; display: flex; flex-direction: column; gap: 3px;
+  padding: var(--wf-s-1); border: 1px solid var(--wf-line-soft);
+  border-radius: var(--wf-r-2); background: var(--wf-surface);
+}
+.wf-show-i .wf-item-art { width: 100%; height: 56px; border-radius: var(--wf-r-1); }
+.wf-show-n {
+  font-size: var(--wf-t-xs); color: var(--wf-ink);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+/* The pair is one line and the value leads it: the value is what a person is looking
+   for and the chance is what stops the value being a promise. */
+.wf-show-f { display: flex; align-items: baseline; justify-content: space-between; gap: var(--wf-s-1); }
+.wf-show-v { font-family: var(--wf-mono); font-size: var(--wf-t-xs); color: var(--wf-ink); }
+.wf-show-c { font-size: 10px; color: var(--wf-ink-dim); white-space: nowrap; }
+.wf-show-route { margin: 0; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); text-align: center; }
+/* At a phone width the pair does not fit one line, and "47.30 coins" broken across two
+   is a figure a person has to reassemble. The pair stacks instead: the unit stays,
+   because a figure without its unit is 0.11 rule 1 broken to save a word. */
+@media (max-width: 599px) {
+  .wf-show-i { flex-basis: 136px; }
+  .wf-show-i .wf-item-art { height: 48px; }
+  .wf-show-f { flex-direction: column; align-items: flex-start; gap: 0; }
+}
+@keyframes wf-drift-x { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
 /* A drift a person cannot switch off is decoration with a job description. Section 7.3
    of the node: reduced motion is an accessibility setting, not a speed control, so the
    strip renders the same items still rather than faster. */
-@media (prefers-reduced-motion: reduce) {
-  .wf-rest-run { animation: none; }
-}
+@media (prefers-reduced-motion: reduce) { .wf-show-run { animation: none; } }
 
 /* PHASE 2. THE POINTER EXISTS ONLY HERE, because only here is there a roll to point at.
    E2 forbids near-miss theatre, so what this marks is where the settled result lands, not

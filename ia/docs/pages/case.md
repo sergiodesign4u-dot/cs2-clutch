@@ -53,19 +53,32 @@ Composition from `blocks.md` section 4, T3 object detail with a live event. Orde
 
 **The lane prints no figures at all, and that is the correction of 19 August 2026 rather than the first draft.** It was first drawn as nine tiles carrying a value and a chance each, on the reasoning that a strip of values alone is the shop window section 2 names. **The founder read the result as too much information on the stage and the reading is right:** the rule against a value with no chance beside it binds any surface that prints a value, and **the honest way to satisfy it here is to print no value, not to print two.** The lane is the reveal's track, not a second listing, so it makes no claim and needs no pairing. **Every figure about this case lives in block 5**, where it sits beside the ticket range, the free-unit count, the tier grouping and the market link that make it checkable.
 
-**The cost that refusal printed has now been paid, `D-46`.** The paragraph that stood here said it in advance: "the stage now shows what the reveal will look like rather than what is in the case, so a person who reads only the first screen learns the case's name, its cost, its tested RTP and its expected value, and nothing about its contents." **The founder's answer separates the two things that refusal had welded together.** What was refused was **figures on the lane**, and it stays refused. What was lost with them was **the items themselves**, and nothing required that.
+**The cost that refusal printed has now been paid, and `D-47` is what pays it.** The paragraph that stood here said it in advance: "the stage now shows what the reveal will look like rather than what is in the case, so a person who reads only the first screen learns the case's name, its cost, its tested RTP and its expected value, and nothing about its contents."
 
-**So the lane at rest carries this case's item artwork, and it drifts.** No value, no chance, no name, no pointer: the refusal of 19 August is untouched, because an artwork is not a claim. **The first screen answers what is in this case again**, and it answers it in the region that will show the same objects moving one tap later.
+**The stage is two objects, and until `D-47` it was one.** That is the whole of it, and separating them dissolves the conflict the 19 August cut was about.
 
-**The drift has a job, and that is the test `CLAUDE.md` sets for motion.** Design principle 2: motion without an emotional or informational job gets cut. **Its informational job is that a strip which moves is legibly longer than the frame**, so a person reads it as a sample of a set rather than as the set. **Its emotional job is principle 4**, the platform being alive rather than a page at rest. **It is not a spin.** A spin is a settled roll being revealed, it has a pointer and it ends; this has neither and never resolves on anything.
+| Object | What it is | What it prints |
+|---|---|---|
+| **The reveal boxes** | **One per chosen roll.** Each is where one roll's artwork lands, so choosing two draws two and choosing five draws five | **Nothing.** A track is not a listing, and there is no pointer on any of them |
+| **The showcase** | **One horizontal strip, and it never multiplies.** It is what is in this case, and what is in the case does not change because a person asked for two of them | **Artwork, name, current value and published chance.** Nothing else |
+
+**The cut of 19 August removed figures from an object that was the reveal's track. The showcase is not that object.** `D2` requires a published chance beside a current value, and the cut was enforcing exactly that rule in the only way available at the time: "the rule against a value with no chance beside it binds any surface that **prints** a value, and the honest way to satisfy it here is to print no value, not to print two." **Once the strip is a listing rather than a track, printing both is not the compromise, it is the requirement.**
+
+**Four fields and no fifth, and the limit is the point.** The ticket range, the free-unit count, the wear axes and the outbound market link stay in block 5, which is the surface that makes those figures checkable. **The strip is a sample of that table and routes to it** rather than trying to be a second one. **Two surfaces printing one pair is a real cost:** they render from one source, and if they ever disagree the page is broken rather than merely untidy.
+
+**It carries `aria-hidden` and the table below it does not.** Nine items read twice is nine items read twice, and a moving region is a poor thing to make a screen reader walk. **The complete, grouped, checkable listing is one block down and is not hidden.**
+
+**The drift has a job, which is the test `CLAUDE.md` sets for motion.** Design principle 2 cuts motion without an emotional or informational job. **Its informational job is that a strip which moves is legibly longer than the frame**, so a person reads it as a sample of a set rather than as the set. **Its emotional job is principle 4**, the platform being alive rather than a page at rest. **It is not a spin.** A spin is a settled roll being revealed, it has a pointer and it ends; this has neither and never resolves on anything.
 
 **Three limits on it, and each closes a way it could lie.**
 
 | Limit | Why |
 |---|---|
-| **No pointer, ever, in phase 1** | Unchanged from the first version of this node. A marker over an item before a roll exists points at a result that has not been decided, which is `E2`'s near-miss objection arriving one phase early |
+| **No pointer, ever, in phase 1**, on the boxes or on the strip | A marker over an item before a roll exists points at a result that has not been decided, which is `E2`'s near-miss objection arriving one phase early |
 | **It stops under `prefers-reduced-motion`** and renders the same items still | Section 7.3. **A drift a person cannot switch off is decoration with a job description**, and the setting is an accessibility setting rather than a speed control |
 | **It is not the reveal's speed and never accelerates into one** | The reveal starts from the settled roll, `E1`. A stage that speeds up on the trigger would be the interface pretending the roll is happening now |
+
+**The guest gets the showcase too, `D-47`.** `D-32` kept the **lane** off the guest screen because a lane is the reveal's track and a guest is two steps from a reveal. **The showcase is not that object.** A guest is the person most deciding whether this case is worth it, which is principle 1 and principle 3 pointing the same way. **Nothing in `D-32` required the contents to be hidden from a guest; it required the track to be.** The guest still sees one box rather than a lane, because a guest has no count to choose.
 
 **No pointer on the lane in phase 1.** All three competitor captures draw a marker over the centre of the strip. Before a roll exists, a marker over an item points at a result that has not been decided, which is the near-miss objection of `E2` arriving one phase early.
 
@@ -252,7 +265,9 @@ Composition from `blocks.md` section 4, T3 object detail with a live event. Orde
 
 **Phase 1 follows the same rule, `D-46`, and it did not until then.** The node already said the stage is "the reveal lane standing still" and "the same region holding the same object in two states rather than two layouts trading places". **The state matrix then said phase 1 was unchanged when the count moved**, which made the stage the reveal's lane standing still only at a count of one. **A stage that shows one lane and then opens five is a layout trading places at the moment of the tap**, which is the thing the paragraph above exists to forbid.
 
-**So choosing a count redraws the stage at rest into that many lanes on that axis:** one horizontal, two or five vertical and side by side, drifting. **What a person sees before the tap is what they will see during it**, minus the motion that decides anything.
+**So choosing a count redraws the stage at rest into that many boxes**, one per roll, and **`D-47` corrected what the count moves.** `D-46` had multiplied the drifting strip along with them, which made the case's contents appear to double when a person asked for two openings. **What is in the case does not change because somebody wants two of them.** The boxes are the reveal and they multiply; the showcase is the contents and it does not.
+
+**What a person sees before the tap is what they will see during it**, minus the motion that decides anything.
 
 ### 7.3 Reduced motion is an accessibility setting, and it is not a speed-up control
 
@@ -389,8 +404,8 @@ Rows are what varies. Every published figure on this page additionally inherits 
 | **Guest, undeclared** | Full page, every figure. **The stage carries the artwork alone: no lane**, `D-32` | **The trigger reads `Sign in with Steam`** and routes into `2.1`, which is where the journey actually starts | `D-17`, and the numbers are readable behind it. **The label is the act that is available**, not the act the person cannot perform yet. The entry cost stays beside it, because a guest deciding whether this case is worth it needs the price and cannot read it off a button that no longer carries it |
 | **Guest, declared** | Full page, no lane | The trigger reads `Sign in with Steam` and routes to `2.4`, then back here | `flows.md` flow 1. Steam refusal and Steam unavailable are `2.4`'s states, and the second returns here so a person who cannot sign in can still read the product |
 | **Account, funded** | Full page. **The lane renders**, because from here the reveal is one tap away and the stage is its stage | **`Open for <total>`**, and the total moves with the count switch | The main path |
-| **Count switch at two** | **The stage redraws into two lanes at rest, vertical and side by side, `D-46`**, each drifting through this case's items | The trigger restates the **total**, `2 × 12.40 coins`, and the balance relationship is stated against that total | **Drawn.** `D-31` for the switch, `D-46` for the stage following it. **The switch never persists across visits.** A remembered five is a multiplier that spends without being chosen again |
-| **Count switch at five** | **Five lanes at rest, vertical and side by side**, the same geometry the reveal will use | The trigger restates `5 × 12.40 coins` | **Drawn.** Two is the shape and five is the load, the same pair `D-35` drew for the reveal and the outcome |
+| **Count switch at two** | **Two reveal boxes, `D-46` as corrected by `D-47`. The showcase stays one strip** | The trigger restates the **total**, `2 × 12.40 coins`, and the balance relationship is stated against that total | **Drawn.** `D-31` for the switch, `D-46` for the stage following it. **The switch never persists across visits.** A remembered five is a multiplier that spends without being chosen again |
+| **Count switch at five** | **Five reveal boxes**, shorter as well as narrower at 360. **The showcase is unchanged: the contents are the contents** | The trigger restates `5 × 12.40 coins` | **Drawn.** Two is the shape and five is the load, the same pair `D-35` drew for the reveal and the outcome |
 | **Account, nothing to open with** | Full page | Routes to `4.1` deposit, or consumes a free entry if one is available | `I1` and `I2` are entitlements, not surfaces. The trigger states which it will consume before it is tapped |
 | **Item at zero free units** | Node `3.4` | Unchanged. The case is still openable | Section 6 |
 | **Loading the table** | Skeleton with the free-unit counts as the thing being waited on | Not yet armed | Specified here, not a node, per `sitemap.md` |

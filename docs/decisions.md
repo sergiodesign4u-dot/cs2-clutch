@@ -1395,3 +1395,44 @@ The founder asked what the difference was between the flat list of screens and t
 **The code is a field now and both renderers read the same two fields:** the state's own node code where it has one, the host's where it does not, and the state's own label untouched. **A state with no code of its own is a variation of its host node and is shown as one**, rather than borrowing a number it does not have.
 
 **And the rows are in flow order**, which they were not: the two phase 1 states at a chosen count had been appended after `3.4` because they were added last.
+
+---
+
+## D-47. The stage is two objects: the boxes multiply, the showcase does not
+
+**Date:** 2026-08-20. **Stage:** 04, raised against node `3.3` section 1. **Decided by:** the founder, reading the drawn stage at a count of two. **Binds:** node `3.3` sections 1, 7.2b and 12, and the three phase 1 pages. **Corrects `D-46`, hours old**, and **reopens the figures the 19 August cut removed**.
+
+**What was decided.** **The reveal boxes multiply with the count, one per roll.** **The showcase is one horizontal strip that never multiplies, and it prints artwork, name, current value and published chance.**
+
+### One object was doing two jobs, and separating them dissolves the older conflict
+
+`D-46` made the drifting strip multiply with the count, on the node's own reasoning that the stage is "the reveal lane standing still". **The founder read the result and the reading is the correction: the contents of a case appeared to double because somebody asked for two openings.** What is in the case does not change because a person wants two of them.
+
+| Object | What it is | What it prints |
+|---|---|---|
+| **The reveal boxes** | **One per chosen roll.** Each is where one roll's artwork lands | **Nothing.** A track is not a listing, and no box carries a pointer |
+| **The showcase** | **One horizontal strip, and it never multiplies** | **Artwork, name, current value, published chance.** Nothing else |
+
+### This is what reopens the figures, and it is not a reversal of the reading behind the cut
+
+On 19 August the lane went from nine tiles carrying a value and a chance each to nothing at all. **The founder's reading then was that it was too much information on the stage, and that reading stands: the stage carries none of it.**
+
+**What the cut was actually enforcing was `D2`**, in the node's own words: "the rule against a value with no chance beside it binds any surface that **prints** a value, and the honest way to satisfy it here is to print no value, not to print two." **That was the honest answer for an object that was the reveal's track.** The showcase is not that object. **Once the strip is a listing rather than a track, printing both is not the compromise, it is the requirement.**
+
+**And it pays a cost the node has been carrying in writing since 19 August:** "the stage now shows what the reveal will look like rather than what is in the case, so a person who reads only the first screen learns the case's name, its cost, its tested RTP and its expected value, and nothing about its contents."
+
+### Four fields and no fifth
+
+The ticket range, the free-unit count, the wear axes and the outbound market link stay in block 5, which is the surface that makes those figures checkable. **The strip is a sample of that table and routes to it** rather than trying to be a second one.
+
+**Two surfaces printing one pair is a real cost and it is stated rather than absorbed:** they render from one source, and if they ever disagree the page is broken rather than merely untidy.
+
+**The strip carries `aria-hidden` and the table below it does not.** Nine items read twice is nine items read twice, and a moving region is a poor thing to make a screen reader walk. The complete, grouped, checkable listing is one block down and is not hidden.
+
+### The guest gets it too, and that part is a derivation rather than an instruction
+
+`D-32` kept the **lane** off the guest screen because a lane is the reveal's track and a guest is two steps from a reveal. **The showcase is not that object.**
+
+**A guest is the person most deciding whether this case is worth it**, which is design principle 1 and design principle 3 pointing the same way. **Nothing in `D-32` required the contents to be hidden from a guest; it required the track to be.** The guest still sees one box rather than a lane, because a guest has no count to choose.
+
+**This half was not asked for and it is marked as such**, so reversing it is one word rather than an archaeology exercise.

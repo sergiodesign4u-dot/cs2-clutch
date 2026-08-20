@@ -942,3 +942,47 @@ The node has said since it was written that the stage is "the reveal lane standi
 
 **Still open, unchanged:** `2.4`, `2.5`, `2.6` and `2.1` are `spec`. The sold state and the count above the balance are still not drawn, and `D-38` and `D-35` named both as gaps rather than leaving them to be discovered.
 
+---
+
+## 29. The stage is two objects, and one of them stopped multiplying
+
+**Founder, same day, reading the drawn stage at a count of two.** The big box should multiply with the count. **The strip below should not:** it is the showcase of this case, and what is in the case does not change because somebody asked for two openings. And it should carry the picture, the name, the price and the chance, **and nothing else.**
+
+### One object was doing two jobs
+
+`D-46` had made the drifting strip multiply along with the boxes, on the node's own reasoning that the stage is "the reveal lane standing still". **Splitting them dissolves the conflict the 19 August cut was about.**
+
+| Object | What it is | What it prints |
+|---|---|---|
+| **The reveal boxes** | **One per chosen roll**, each the place one roll's artwork lands | **Nothing.** A track is not a listing, and no box carries a pointer |
+| **The showcase** | **One horizontal strip, and it never multiplies** | **Artwork, name, current value, published chance.** Nothing else |
+
+### Why the figures come back without the reading behind the cut being reversed
+
+On 19 August the lane went from nine tiles carrying a value and a chance each to nothing at all. **The founder's reading then was that it was too much information on the stage, and that reading stands: the stage carries none of it.**
+
+**What the cut was enforcing was `D2`**, in the node's own words: "the rule against a value with no chance beside it binds any surface that **prints** a value, and the honest way to satisfy it here is to print no value, not to print two." **That was the honest answer for an object that was the reveal's track.** The showcase is not that object. **Once the strip is a listing rather than a track, printing both is not the compromise, it is the requirement.**
+
+**And it pays a cost the node has carried in writing since 19 August:** that a person who reads only the first screen learns the case's name, its cost, its tested RTP and its expected value, **and nothing about its contents**.
+
+### Four fields and no fifth, and two costs stated
+
+The ticket range, the free-unit count, the wear axes and the outbound market link stay in block 5, the surface that makes those figures checkable, and **the strip routes to it** rather than trying to be a second one.
+
+- **Two surfaces printing one pair is a real cost.** They render from one source, and if they ever disagree the page is broken rather than merely untidy.
+- **The strip carries `aria-hidden` and the table below it does not.** Nine items read twice is nine items read twice, and a moving region is a poor thing to make a screen reader walk.
+
+### The guest gets the showcase, and that half was a derivation
+
+`D-32` kept the **lane** off the guest screen because a lane is the reveal's track and a guest is two steps from a reveal. **The showcase is not that object.** A guest is the person most deciding whether this case is worth it, which is principle 1 and principle 3 pointing the same way. **Nothing in `D-32` required the contents to be hidden from a guest; it required the track to be.** The guest still sees one box rather than a lane, because a guest has no count to choose.
+
+**It was not asked for and it is marked as such**, so reversing it is one word.
+
+### Measured
+
+**17 pages x 7 widths x both rail states, 224 checks, no sideways scroll.** One box at a count of one, two at two, five at five, on all four pages that carry a stage. **One showcase strip on every one of them**, nine items rendered twice so the loop is seamless, no pointer anywhere in phase 1, and the drift stopping under reduced motion.
+
+**One defect fixed while measuring:** at 360 the value and the chance did not fit one line of a 136px card and "47.30 coins" broke across two, which is a figure a person has to reassemble. **The pair stacks at phone widths and the unit stays**, because a figure without its unit is `0.11` rule 1 broken to save a word.
+
+**Still open, unchanged:** the sold state and the count above the balance, both named as gaps by `D-38` and `D-35` rather than left to be discovered.
+
