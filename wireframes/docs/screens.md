@@ -675,6 +675,20 @@ Twelve findings raised, **ten confirmed and fixed, two withdrawn on verification
 
 **The choice persists across a walk through the prototype**, which the node also already asked for: "collapse to icons and back, **and the choice persists**".
 
+### The ambient pair stacks, and one half of it may not become a button
+
+**The founder read the collapsed rail and asked for the sound and the language stacked as controls rather than side by side.** Stacked they are: the strip is a two column grid at full width and becomes one column when the rail narrows, the divider turning from a left edge into a top edge, which is the same object rotated rather than a second component. In 64px, two halves were two half width targets.
+
+**The sound is a control and the language is not, and that is not a styling choice.** `0.1` says it in its own words: **"the half that reports rather than acts, no press state, and not a button element. One language is locked, so there is nothing to pick."** Drawing it as a button would be the interface promising a choice that does not exist. It keeps its two characters and says the rest in the tooltip, which is what every other item in this rail does when collapsed.
+
+### The social set was in the rail's foot and not in the node that owns it
+
+**`0.2`'s own row is explicit:** "Social links. **This node owns it**, and the rail's drawer renders it from here rather than keeping a second list." **The footer had never rendered it.** So the owning node was the one carrier not showing the thing it owns, and the rail was holding what it was supposed to be borrowing. **Found by the founder's eye, in the same class as the collapsed rail:** a specification ahead of its render.
+
+**It sits in band 4, beside the payment marks**, because both are the same kind of object: a reserved row whose contents are decided elsewhere, and neither is a destination. **Which channels are ours in round 1 is `[?]`, owner founder**, so the row draws the reserved set and prints the hole rather than guessing at networks.
+
+**The language was asked for in the footer and is not drawn.** `0.2` refuses it on a **locked boundary decision** rather than a preference: "Language, absent. `D-02`, one language." Reversing it reopens a stage 01 answer, so it is named on the node and left to the founder rather than taken quietly.
+
 **Measured.** Rail 220 to 64 and back, the content column 985 to 1141 at 1440, `aria-expanded` and the accessible name both flipping, the tooltip rendering clear of the rail's own edge, the toggle absent below 900 while the header's menu icon stays, and no page scrolling sideways in either state at any width.
 
 **Not done:** `3.3` is closed. The rest of the main flow is not: `2.4` sign in with its consent states, `2.5`, `2.6` and `2.1` the geo gate are all `spec`.

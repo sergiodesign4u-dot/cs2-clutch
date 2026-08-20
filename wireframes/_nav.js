@@ -893,6 +893,25 @@ window.WF_NAV = {
     ['Card', 'Wallet', 'Crypto'].forEach(function (m) { marks.appendChild(el('li', null, m)); });
     marks.appendChild(el('li', 'wf-fig-missing', 'Provider list not available'));
     band4.appendChild(marks);
+    // THE SOCIAL SET BELONGS TO THIS NODE AND HAD NEVER RENDERED HERE. 0.2's own row is
+    // explicit: "Social links. THIS NODE OWNS IT, and the rail's drawer renders it from
+    // here rather than keeping a second list." The wireframe had it in the rail's foot
+    // only, so the owner was the one carrier not showing it. Which icons are ours in
+    // round 1 is [?], owner founder, so the count is the same reserved set the rail
+    // draws rather than a guess at which networks.
+    var fsoc = el('div', 'wf-foot-soc');
+    var fsocNav = el('nav', 'wf-rail-soc-row');
+    fsocNav.setAttribute('aria-label', 'Social');
+    for (var fi = 0; fi < 6; fi++) {
+      var fa = el('a', 'wf-rail-ico');
+      fa.href = '#';
+      fa.setAttribute('rel', 'external nofollow');
+      fa.setAttribute('aria-label', 'Social channel, set not decided');
+      fsocNav.appendChild(fa);
+    }
+    fsoc.appendChild(fsocNav);
+    fsoc.appendChild(el('span', 'wf-fig-missing', 'Which channels are ours in round 1 is not decided'));
+    band4.appendChild(fsoc);
     host.appendChild(band4);
 
     // Collapsed is a MOBILE default, not a state the desktop inherits. Above 900 the

@@ -361,6 +361,12 @@ a.wfp-state:hover { color: var(--wf-ink); }
   justify-content: space-between; min-height: var(--wf-header-h);
   padding: var(--wf-s-1); border-bottom: 1px solid var(--wf-line-soft);
 }
+/* The social set in the footer, which is the node that owns it. It sits in the base
+   band beside the payment marks: both are the same kind of thing, a reserved row whose
+   contents are decided elsewhere, and neither is a destination. */
+.wf-foot-soc { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-1) var(--wf-s-2); }
+.wf-foot-soc .wf-rail-ico { flex: 0 0 20px; }
+
 .wf-marks { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); margin: var(--wf-s-2) 0 0; padding: 0; list-style: none; }
 .wf-marks li { padding: var(--wf-s-half) var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1); font-size: var(--wf-t-xs); }
 
@@ -775,9 +781,26 @@ a.wfp-state:hover { color: var(--wf-ink); }
   /* The ambient foot collapses the same way rather than being dropped: D-29 put the
      sound control, the language and the social links here, and a state that loses them
      would be a different rail rather than the same one narrower. */
-  .is-rail-collapsed .wf-rail-amb { flex-direction: column; }
-  .is-rail-collapsed .wf-rail-snd { font-size: 0; min-width: 0; padding: 0; height: 36px; }
-  .is-rail-collapsed .wf-rail-snd::before { content: '\266A'; font-size: var(--wf-t-s); }
+  /* STACKED, AND EACH ONE A CONTROL RATHER THAN A ROW OF TWO. Side by side in 64px they
+     were two half width targets; vertically each gets the full width of the rail and a
+     tap area of its own. The language keeps its two characters and says the rest in the
+     tooltip, which is what the tooltip is for on every other item in this rail. */
+  /* STACKED, ONE PER ROW. The strip is a two column grid at full width; in 64px those
+     were two half width targets side by side. It becomes one column and the divider
+     turns from a left edge into a top edge, which is the same object rotated rather
+     than a second component.
+     THE SOUND IS A CONTROL AND THE LANGUAGE IS NOT, and that is not a styling choice:
+     the rule above says it in the node's own words, "the half that reports rather than
+     acts, no press state, and not a button element. One language is locked, so there
+     is nothing to pick." Making it look like a button would be the interface promising
+     a choice that does not exist. It keeps its two characters and says the rest in the
+     tooltip, which is what every other item in this rail does when collapsed. */
+  .is-rail-collapsed .wf-rail-amb { grid-template-columns: 1fr; }
+  .is-rail-collapsed .wf-rail-snd { font-size: 0; min-width: 0; padding: 0; min-height: 40px; }
+  .is-rail-collapsed .wf-rail-snd::before { content: '\266A'; font-size: var(--wf-t-m); }
+  .is-rail-collapsed .wf-rail-lang {
+    border-left: 0; border-top: 1px solid var(--wf-line-soft); min-height: 32px;
+  }
   .is-rail-collapsed .wf-rail-soc-row { justify-content: center; }
 
   /* THE TOOLTIP IS THE LABEL AND NOTHING ELSE. A tooltip that says something the
