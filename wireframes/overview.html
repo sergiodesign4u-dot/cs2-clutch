@@ -726,6 +726,31 @@
   </div>
 </section>
 
+<section id="railcol">
+  <div class="sec-head">
+    <h2>The collapsed rail, which the node had specified and nothing had drawn</h2>
+    <p>Founder request of 20 August 2026, answered by the node before the render. Live from <code>wireframes/docs/screens.md</code> section 23.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The specification was already there</h4>
+    <p>0.1's state matrix has carried this row since the node was written: <strong>"rail collapsed, icons with the active indicator, labels gone, tooltips on hover and on focus"</strong>, with Material's "collapsed and expanded transform into each other when the menu button is selected" beside it. <strong>No page had ever rendered it.</strong> That is class 3 of an audit - a state the specification holds and no page shows - and neither instrument caught it, because the audit was scoped to 3.3's states rather than 0.1's.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Three defects went with it, and none of them is a decision</h4>
+    <p><strong>The toggle rendered a chevron.</strong> Section 3 of 0.1 quotes Material: "the expanded navigation rail should always open from a menu icon". <strong>A chevron names a direction; a menu icon names what is behind the control</strong>, and it is the same glyph the mobile header uses for the same job. The wireframe had invented the chevron against this node's own source.</p>
+    <p><strong>The collapsed state did not exist</strong>, though the state matrix specifies it. 220px to 64px, active indicator kept, labels gone.</p>
+    <p><strong>The rail carried the toggle below 900 as well</strong>, where it collapsed nothing. The anatomy row is explicit: "Desktop: collapse to icons and back. Mobile: leading edge of the header." Below 900 the rail is a modal drawer the header's menu icon opens, so a second toggle inside it was <strong>a dead control in a carrier</strong>.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The labels go and the controls do not</h4>
+    <p>The destination labels and the SOCIAL heading are names for things still on screen. <strong>The sound control becomes its glyph and the language keeps its two characters</strong>, because a control that disappears is a control that was removed, and D-29 put both of them at the foot of this rail on purpose.</p>
+    <p><strong>The tooltip is the label and nothing else.</strong> A tooltip saying something the expanded rail does not say would be a second name for one destination, which the superset rule forbids one carrier down. <strong>It fires on hover and on focus</strong>, because hover alone excludes touch entirely and the keyboard almost entirely - the same limit 0.1 applies to the account menu. And the choice persists across a walk through the prototype, which the node also already asked for.</p>
+  </div>
+</section>
+
 
 
 
@@ -757,6 +782,7 @@ window.NAV_SECTIONS = [
   { id: 'sell',        label: 'D-37 and D-38' },
   { id: 'onerow',      label: 'D-39 and D-40' },
   { id: 'audit33',     label: '3.3 audit closed' },
+  { id: 'railcol',     label: 'Collapsed rail' },
 ];
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';

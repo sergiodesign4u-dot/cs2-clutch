@@ -655,4 +655,26 @@ Twelve findings raised, **ten confirmed and fixed, two withdrawn on verification
 
 **Measured after the fixes.** Nine widths from 360 to 1440 across twelve case pages plus Home, Home with an account and the overview: **no page scrolls sideways at any of them.** The card tiers now key on the card's own width rather than the window's, so the same card is the same card at 900 and at 1440.
 
+---
+
+## 23. The collapsed rail, which the node had specified and nothing had drawn
+
+**Founder request of 20 August 2026, and the node answered it before the render did.** `0.1`'s state matrix has carried this row since the node was written: **"rail collapsed, icons with the active indicator, labels gone, tooltips on hover and on focus"**, with Material's "collapsed and expanded transform into each other when the menu button is selected" beside it. **No page had ever rendered it.** That is class 3 of the audit, a state the specification holds and no page shows, and neither instrument caught it because the audit was scoped to `3.3`'s states rather than `0.1`'s.
+
+**Three defects went with it, and none of them is a decision.**
+
+| Defect | What the node already said |
+|---|---|
+| The toggle rendered a **chevron** | Section 3 of `0.1` quotes Material: "the expanded navigation rail **should always open from a menu icon**". **A chevron names a direction; a menu icon names what is behind the control**, and it is the same glyph the mobile header uses for the same job. The wireframe had invented the chevron **against this node's own source** |
+| The collapsed state did not exist | The state matrix specifies it. 220px to 64px, the active indicator kept, the labels gone |
+| The rail carried the toggle **below 900 as well**, where it collapsed nothing | The anatomy row is explicit: "Desktop: collapse to icons and back. **Mobile: leading edge of the header**". Below 900 the rail is a modal drawer that the header's own menu icon opens, so a second toggle inside it was **a dead control in a carrier** |
+
+**The labels go and the controls do not, and that line is the whole of the state.** The destination labels and the SOCIAL heading are names for things still on screen. **The sound control becomes its glyph and the language keeps its two characters**, because a control that disappears is a control that was removed, and `D-29` put both of them at the foot of this rail on purpose.
+
+**The tooltip is the label and nothing else.** A tooltip saying something the expanded rail does not say would be a second name for one destination, which the superset rule forbids one carrier down. **It fires on hover and on focus**, because hover alone excludes touch entirely and the keyboard almost entirely, which is the same accessibility limit `0.1` section 5 already applies to the account menu.
+
+**The choice persists across a walk through the prototype**, which the node also already asked for: "collapse to icons and back, **and the choice persists**".
+
+**Measured.** Rail 220 to 64 and back, the content column 985 to 1141 at 1440, `aria-expanded` and the accessible name both flipping, the tooltip rendering clear of the rail's own edge, the toggle absent below 900 while the header's menu icon stays, and no page scrolling sideways in either state at any width.
+
 **Not done:** `3.3` is closed. The rest of the main flow is not: `2.4` sign in with its consent states, `2.5`, `2.6` and `2.1` the geo gate are all `spec`.

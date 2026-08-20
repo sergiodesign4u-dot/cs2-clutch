@@ -568,6 +568,11 @@ window.WF_NAV = {
       // moves every label in the carrier on the day it arrives.
       a.appendChild(el('span', 'wf-rail-ico'));
       a.appendChild(el('span', 'wf-rail-lbl', it.label));
+      // THE TOOLTIP IS THE LABEL, not a second string. 0.1 section 7 gives the collapsed
+      // rail "icons with the active indicator, labels gone, tooltips on hover and on
+      // focus", and a tooltip that says something the expanded rail does not say would
+      // be a second name for one destination, which the superset rule forbids.
+      a.setAttribute('data-lbl', it.label);
       a.href = BASE + it.file;
       if (it.file === cfg.active) a.setAttribute('aria-current', 'page');
       nav.appendChild(a);
@@ -585,6 +590,7 @@ window.WF_NAV = {
     // reach and belongs to what is needed least. The baseline runs the same order.
     var amb = el('div', 'wf-rail-amb');
     var snd = el('button', 'wf-btn wf-rail-snd', 'Sound on');
+    snd.setAttribute('data-lbl', 'Sound on');
     snd.type = 'button';
     snd.setAttribute('aria-pressed', 'true');
     amb.appendChild(snd);
@@ -593,6 +599,7 @@ window.WF_NAV = {
     // the row with the sound control but NOT its affordance: no border, no press
     // state, so the half that acts and the half that reports do not look alike.
     var lang = el('span', 'wf-rail-lang', 'EN');
+    lang.setAttribute('data-lbl', 'Language: English');
     lang.setAttribute('aria-label', 'Language: English. One language, so no switcher');
     amb.appendChild(lang);
     foot.appendChild(amb);
@@ -606,10 +613,37 @@ window.WF_NAV = {
     foot.appendChild(soc);
     nav.appendChild(foot);
 
-    var toggle = el('button', 'wf-rail-toggle', '\u2039');
+    // A MENU ICON AND NOT A CHEVRON, founder capture of 20 August 2026, and Material
+    // says the same thing: "the expanded navigation rail should always open from a menu
+    // icon". A chevron names a direction; this control names what is behind it, and it
+    // is the same glyph the mobile header uses for the same job, so one control reads as
+    // one control at every width.
+    var toggle = el('button', 'wf-rail-toggle', '\u2261');
     toggle.type = 'button';
-    toggle.setAttribute('aria-label', 'Collapse the rail');
+    toggle.setAttribute('aria-controls', 'wf-rail');
     nav.appendChild(toggle);
+
+    // THE COLLAPSED RAIL IS A STATE 0.1 ALREADY SPECIFIES AND NOTHING HAD DRAWN:
+    // "icons with the active indicator, labels gone, tooltips on hover and on focus",
+    // and Material's "collapsed and expanded transform into each other from the menu
+    // button". IT IS NEVER HIDDEN ON DESKTOP, which is what separates this from the
+    // mobile drawer: below 900 the same rail is modal and the header's menu opens it.
+    var COLLAPSE_KEY = 'wf-rail-collapsed';
+    function applyRail(on) {
+      document.documentElement.classList.toggle('is-rail-collapsed', on);
+      toggle.setAttribute('aria-expanded', on ? 'false' : 'true');
+      toggle.setAttribute('aria-label', on ? 'Expand the rail' : 'Collapse the rail');
+    }
+    var stored = false;
+    try { stored = sessionStorage.getItem(COLLAPSE_KEY) === '1'; } catch (e) {}
+    applyRail(stored);
+    toggle.addEventListener('click', function () {
+      var on = !document.documentElement.classList.contains('is-rail-collapsed');
+      applyRail(on);
+      // The choice survives a click through the prototype. That is scaffolding
+      // convenience and not a product claim: nothing in 0.1 says the state persists.
+      try { sessionStorage.setItem(COLLAPSE_KEY, on ? '1' : '0'); } catch (e) {}
+    });
 
     var head = el('header', 'wf-header');
     var menu = el('button', 'wf-menu', '\u2261');

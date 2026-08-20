@@ -347,7 +347,10 @@ a.wfp-state:hover { color: var(--wf-ink); }
 }
 .wf-rail-item:hover { color: var(--wf-ink); }
 .wf-rail-item.is-current { color: var(--wf-ink); background: var(--wf-raised); }
-.wf-rail-toggle { margin-left: auto; min-height: auto; padding: 2px var(--wf-s-1); }
+/* Below 900 the rail is a modal drawer that the header's own menu icon opens and closes,
+   so this control has nothing to collapse and is not shown. It was rendering there as a
+   chevron that did nothing, which is a dead control in a carrier. */
+.wf-rail-toggle { display: none; }
 /* 0.1 section 6: the rail is "Cases, Provably fair, divider, Responsible play". The
    break is carried as SPACE rather than as a second hairline: every row already ends in
    one, so a drawn divider put two lines four pixels apart and read as a fault. The
@@ -739,11 +742,63 @@ a.wfp-state:hover { color: var(--wf-ink); }
      full width block that read as a fifth destination, which is the one thing this
      control may not look like. */
   .wf-rail-toggle {
+    display: block;
     position: absolute; z-index: 2;
     top: calc(var(--wf-header-h) - 16px); right: -16px;
     width: 32px; height: 32px; min-height: 0; margin: 0; padding: 0;
     border-radius: 50%; background: var(--wf-raised);
+    font-size: var(--wf-t-m); line-height: 1;
   }
+
+  /* ============================================================================
+     THE COLLAPSED RAIL. 0.1 section 7 has specified this state since the node was
+     written and nothing had drawn it: "icons with the active indicator, labels gone,
+     tooltips on hover and on focus", and Material's "collapsed and expanded transform
+     into each other when the menu button is selected". IT IS NEVER HIDDEN ON DESKTOP,
+     which is exactly what separates it from the mobile drawer: below 900 the same rail
+     is modal and the header's own menu icon opens it.
+     THE TOGGLE DOES NOT MOVE WHEN THE RAIL DOES. It straddles the junction of the two
+     seams, so it tracks the rail's width instead of jumping, which is the reason 0.1
+     put it there rather than inside either carrier.
+     ============================================================================ */
+  .is-rail-collapsed .wf-screen-body { grid-template-columns: var(--wf-rail-w-collapsed) minmax(0, 1fr); }
+  .is-rail-collapsed .wf-rail { padding-left: var(--wf-s-half); padding-right: var(--wf-s-half); }
+  /* THE LABELS GO AND THE CONTROLS DO NOT. The destination labels and the SOCIAL
+     heading are names for things still on screen; the language is a control, two
+     characters wide, and hiding it would leave a tooltip on nothing. */
+  .is-rail-collapsed .wf-rail-lbl,
+  .is-rail-collapsed .wf-rail-soc-h { display: none; }
+  .is-rail-collapsed .wf-rail-lang { padding: 0; text-align: center; }
+  .is-rail-collapsed .wf-rail-item { justify-content: center; padding-left: 0; padding-right: 0; }
+  .is-rail-collapsed .wf-rail-logo { margin: 0 0 var(--wf-s-3); }
+  .is-rail-collapsed .wf-logo-mark { height: 48px; font-size: 0; }
+  /* The ambient foot collapses the same way rather than being dropped: D-29 put the
+     sound control, the language and the social links here, and a state that loses them
+     would be a different rail rather than the same one narrower. */
+  .is-rail-collapsed .wf-rail-amb { flex-direction: column; }
+  .is-rail-collapsed .wf-rail-snd { font-size: 0; min-width: 0; padding: 0; height: 36px; }
+  .is-rail-collapsed .wf-rail-snd::before { content: '\266A'; font-size: var(--wf-t-s); }
+  .is-rail-collapsed .wf-rail-soc-row { justify-content: center; }
+
+  /* THE TOOLTIP IS THE LABEL AND NOTHING ELSE. A tooltip that says something the
+     expanded rail does not say would be a second name for one destination, which the
+     superset rule forbids one carrier down. It appears on hover AND on focus, because
+     hover alone excludes touch entirely and the keyboard almost entirely, which is the
+     same accessibility limit 0.1 section 5 applies to the account menu. */
+  .is-rail-collapsed [data-lbl] { position: relative; }
+  .is-rail-collapsed [data-lbl]:hover::after,
+  .is-rail-collapsed [data-lbl]:focus-visible::after {
+    content: attr(data-lbl);
+    position: absolute; z-index: 60; left: calc(100% + var(--wf-s-2)); top: 50%;
+    transform: translateY(-50%);
+    padding: 4px var(--wf-s-1); white-space: nowrap;
+    font-size: var(--wf-t-xs); color: var(--wf-ink);
+    background: var(--wf-raised); border: 1px solid var(--wf-line);
+    border-radius: var(--wf-r-2);
+  }
+  /* The rail is a sticky column, so it opens a stacking context and would clip a
+     tooltip against its own edge if it were left to overflow: hidden. */
+  .is-rail-collapsed .wf-rail { overflow: visible; }
 
   .wf-header {
     grid-area: header; position: sticky; top: 0; z-index: 30;
