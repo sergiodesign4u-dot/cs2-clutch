@@ -864,18 +864,39 @@
   </div>
 
   <div class="card is-fix">
-    <h4>Asked again the same day: should Help and Play responsibly merge? No</h4>
-    <p><strong>The rule.</strong> CLAUDE.md: the footer "holds each in its own column". One column holding both is the thing that sentence forbids, and Responsible play has had no other carrier since D-40 took it off the rail.</p>
-    <p><strong>The kind.</strong> Help is "I have a problem, help me". <strong>A limit you set on yourself is not help, it is a boundary</strong> - filing self exclusion under a support heading reframes a compliance instrument as customer service.</p>
-    <p><strong>The divergence.</strong> The compliance column is the whole reason this band diverges from the baseline, which has no responsible play route and no age statement anywhere. Dissolving it into Help gives that away for two saved rows.</p>
-    <p><strong>What the question was pointing at was real and it is fixed.</strong> Both columns hold two rows and <strong>they were adjacent</strong>, so the pair read as one half empty block. The order is <strong>product, us, legal, compliance</strong> now - Play, Cases, Help, Company, Play responsibly. The compliance track is sized so its label fits on one line: wrapped, its column began lower than the five beside it and <strong>the accent bars stopped being a row</strong>. And the FAQ note is one sentence rather than three lines, so Help stops looking padded by its own hole.</p>
-  </div>
-
-  <div class="card is-fix">
     <h4>What it cost in layout, and the one defect it produced</h4>
     <p>Six tracks plus the art slot is seven inside a measure of 1220. <strong>Every step is asked of the content column, never of the window:</strong> one column, then two with the brand block taking the whole row, then three, then six, then seven with the art.</p>
     <p><strong>The art slot's own breakpoint and the seventh track's were set to different numbers</strong>, so between them the art wrapped to a row of its own under the brand block and stood there as a 240px empty box. They switch at exactly the same width now.</p>
     <p><strong>Measured.</strong> 15 pages x 7 widths x both rail states, 196 checks, <strong>no page scrolling sideways anywhere</strong>. Six columns at a 952px content column, seven from 1180, three from 760, two from 480, one below that, and the accordions still collapse below 900 with every link in the DOM. <strong>Still open and now printed on the page rather than only here:</strong> whether an FAQ node is reopened, and which four cases the column carries.</p>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="sec-head">
+    <h2>Stacking is not merging, and the language finds its third address</h2>
+    <p>Founder, 20 August 2026, two messages. Live from <code>wireframes/docs/screens.md</code> section 27. <code>D-45</code>.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Merging was refused. Stacking is not merging</h4>
+    <p>The question before this one was whether Help and Play responsibly should <strong>merge</strong>, and the answer was no on three grounds - <b>the rule</b> (CLAUDE.md holds each of Provably fair and Responsible play "in its own column", and Responsible play has had no other carrier since D-40), <b>the kind</b> (a limit you set on yourself is not help, it is a boundary), <b>the divergence</b> (the compliance section is the whole reason this band differs from the baseline). <strong>All three are about taxonomy.</strong></p>
+    <p><strong>Stacked, it keeps its own heading, its own accent bar and its own list. What it shares is a grid track</strong>, which is a layout fact. <strong>The section is still nobody's subheading.</strong></p>
+    <p><strong>The literal wording is bent by this and it is said out loud rather than reasoned away.</strong> "Its own column" becomes "its own titled section in a shared track". What the rule protects is intact; what it happens to say about geometry is not. <strong>If that distinction ever stops being obvious in the drawing, the stack goes back to a column.</strong></p>
+    <p><strong>What it fixes:</strong> two sections of two rows each, side by side, read as one half empty block. Stacked, the track fills and the row of column headings stays a row. Four tracks of links instead of five, so every one of them gets more width.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The language switcher's third address in two days</h4>
+    <p>Band 4 by D-42, the brand column by D-43, above the payment marks now. <strong>That is a lot of moving for one control, and what settles it is a reason rather than a preference.</strong></p>
+    <p><strong>This cell is already the page's meta corner:</strong> what we accept as payment, and now what language you are reading. <strong>The brand column answers who we are</strong>, and a preference of the session is not part of that answer. D-43 put it there on two references that do - <strong>the references were right about the shape and wrong about the kind</strong>. It is drawn to the width of the marks under it, so a control and a row of marks read as one cell.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>One defect, and it is the second of exactly the same shape</h4>
+    <p><strong>The rail's collapsed tooltip rule matched by attribute and was not scoped to the rail.</strong> The footer's language control carries the same <code>data-lbl</code>, because it is the same control, so focusing it in the footer <strong>drew a rail tooltip off the right edge of the last band and pushed the page 105px sideways</strong> in the collapsed state.</p>
+    <p><strong>D-42 fixed the identical leak in the panel rule two days ago:</strong> a rule written for the rail, matching by class or by attribute, reaching a copy of the control somewhere else on the page. <strong>Both are scoped now</strong>, and the pattern is the one to look for the next time a control exists in two carriers.</p>
+    <p><strong>It was found by opening the control rather than by loading the page.</strong> The page sweep at that width and that state was clean: the tooltip needs focus, and nothing in a load-and-measure pass focuses anything.</p>
+    <p><strong>Measured.</strong> 196 checks over 15 pages, 7 widths and both rail states, no sideways scroll. The language panel fully on screen at 360, 900, 1440 and 2000 in both rail states, the control matching the marks under it, and the rail's own tooltip still firing on hover and on focus.</p>
   </div>
 </section>
 
@@ -911,6 +932,7 @@ window.NAV_SECTIONS = [
   { id: 'footkind',    label: 'D-42 footer kinds' },
   { id: 'measure',     label: 'D-43 measure and footer' },
   { id: 'cols',        label: 'D-44 five columns' },
+  { id: 'stack',       label: 'D-45 stack and language' },
 ];
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';

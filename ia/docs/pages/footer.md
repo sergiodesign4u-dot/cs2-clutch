@@ -123,12 +123,11 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 
 | Column | Contents | Leads to |
 |---|---|---|
-| **Brand and help** | **The logo slot**, at the size the live product gives a footer logo. Then the **about line**, one sentence. Then the **identification block** in small text. Then a "Need help?" label over a **Support button**, an outlined pill rather than a text link. Then the **language switcher**, drawn wide with the full language name | 1.0, 0.10 |
+| **Brand and help** | **The logo slot**, at the size the live product gives a footer logo. Then the **about line**, one sentence. Then the **identification block** in small text. Then a "Need help?" label over a **Support button**, an outlined pill rather than a text link | 1.0, 0.10 |
 | **Play** | Cases, and nothing else. **One game, because the product has one** | 3.1 |
 | **Cases** | All cases, then the four cases this prototype holds: Ironbound, Warsteel, Coldfront, Nightfall. **Which cases belong here is a merchandising decision and it is `[?]`**, printed in the column | 3.1, 3.3 |
-| **Help** | Provably fair, Contact support. **No FAQ row, and the absence is printed** | 1.2, 0.10 |
 | **Company** | Terms of use, Privacy policy, Cookie policy, Refund and payments policy, **Cookie settings** | 0.9, and dialog 0.4 links the cookie policy. **Cookie settings added by the step 8 audit:** GDPR Article 7(3), quoted in node `0.4`, says "It shall be as easy to withdraw as to give consent", and a banner shown once is not a route back. It is a control rather than a link and the only control in this column |
-| **Play responsibly** | Responsible play, Where we operate | 6.1, 2.2 |
+| **Help**, and **Play responsibly under it in the same track**, `D-45` | Help: Provably fair, Contact support. **No FAQ row, and the absence is printed.** Then Play responsibly: Responsible play, Where we operate | 1.2, 0.10, then 6.1, 2.2 |
 | **Brand art** | **A reserved slot, founder request of 20 August 2026, `D-43`.** Same kind of object as the logo slot: an area whose content arrives at stage 06 | Nothing. It is not a route |
 
 **Play holds one game because the product has one.** The column is inherited and filled with what is live, and the LATER modes enter it as they ship, exactly as they enter the rail. **A short column is the truth about the round**, and padding it with a route the map does not hold would be the dead item defect one carrier down, which is the rule that took the rail from nine to one.
@@ -139,17 +138,23 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 
 **There is no FAQ row and that is not an oversight.** `sitemap.md`, section on what was cut from the baseline's footer, cut the FAQ **on an argument rather than on scope**: its two load bearing jobs on the baseline are the whole of the age control and the whole of the geo statement, both of which move to real surfaces here, `2.1` and `6.1`, and the residue goes to `0.10`. **A row for it would be a carrier promising a destination the map does not hold.** The absence is printed in the column in the smallest type in this footer, so the founder can reverse it deliberately rather than discover it missing.
 
-**Asked directly on 20 August: should Help and Play responsibly merge? No, and there are three reasons rather than one.**
+**Asked directly on 20 August: should Help and Play responsibly merge? No. Should Play responsibly sit under Help? Yes, and the difference between those two answers is the whole of `D-45`.**
+
+**Merged, Responsible play becomes a row under a support heading**, and that reframes a compliance instrument as customer service. Three things forbid it:
 
 | | |
 |---|---|
-| **The rule** | `CLAUDE.md`: "Provably fair and Responsible play are carried by the footer, **which holds each in its own column**." One column holding both is the thing that sentence forbids, and **Responsible play has had no other carrier since `D-40` took it off the rail** |
-| **The kind** | Help is *I have a problem, help me*. **A limit you set on yourself is not help**, it is a boundary. Filing self exclusion under a support heading reframes a compliance instrument as customer service, and this project has a rule about the direction that reframing runs: a limit never acquires the vocabulary of something you engage with |
-| **The divergence** | The compliance column is the whole reason this band diverges from the baseline. `baseline.md` section 6: no responsible play route, no footer link, no age statement anywhere on the live product. **Dissolving it into Help gives the divergence away** for two saved rows |
+| **The rule** | `CLAUDE.md`: "Provably fair and Responsible play are carried by the footer, **which holds each in its own column**." **Responsible play has had no other carrier since `D-40` took it off the rail** |
+| **The kind** | Help is *I have a problem, help me*. **A limit you set on yourself is not help, it is a boundary** |
+| **The divergence** | The compliance section is the whole reason this band diverges from the baseline. `baseline.md` section 6: no responsible play route, no footer link, no age statement anywhere on the live product |
 
-**What the question was actually pointing at was real, and it is fixed.** Both columns hold two rows and **they were adjacent**, so the pair read as one half empty block. **The order is product, us, legal, compliance now**, Play, Cases, Help, Company, Play responsibly, so the two short columns are no longer neighbours. **And the compliance track is sized so "Play responsibly" fits on one line:** wrapped, its column began lower than the five beside it and the accent bars stopped being a row.
+**Stacked, it keeps its own heading, its own accent bar and its own list, and what it shares is a grid track.** That is a layout fact rather than a taxonomy one, and every one of the three objections above is about taxonomy. **The section is still nobody's subheading.**
 
-**Play responsibly keeps its column and that is not negotiable inside this node.** It is the divergence the node is built on: `baseline.md` section 6 records no responsible play route, no footer link and no age statement anywhere on the live product.
+**The literal wording is bent by this and it is said out loud rather than reasoned away.** "Its own column" is now "its own titled section in a shared track". **What the rule protects is intact; what it happens to say about geometry is not.** If that distinction ever stops being obvious in the drawing, the stack goes back to a column, `D-45`.
+
+**What it fixes:** the two sections hold two rows each, and side by side they read as one half empty block. Stacked, the track fills and **the row of column headings stays a row**.
+
+**Play responsibly keeps its own titled section and that is not negotiable inside this node.** It is the divergence the node is built on: `baseline.md` section 6 records no responsible play route, no footer link and no age statement anywhere on the live product.
 
 **The logo leads the column rather than a wordmark, and that is a change of 20 August 2026.** The column opened with the words "CS2 Clutch" set in bold, which is a placeholder pretending to be finished. **The logo is an asset stage 06 draws, and what this stage owes it is the space it will occupy**, so it arrives as an image in a place rather than as a new element in a finished column. Both references the founder supplied lead with a large logo and so does the baseline.
 
@@ -172,6 +177,7 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 | Element | Content | Status |
 |---|---|---|
 | **Social links** | The canonical set. **This node owns it**, and the rail's drawer renders it from here rather than keeping a second list | The set is `[?]`, owner founder. Drawn as a reserved row with the hole printed |
+| **Language** | The switcher, **above the payment marks since `D-45`** | Its third address in two days: band 4 by `D-42`, the brand column by `D-43`, here now. **What settles it is that this cell is already the page's meta corner**, what we accept as payment and now what language you are reading. The brand column says who we are, and a preference of the session is not part of that answer. Nine options, one live, `D-42` |
 | **The age mark and the compliance statements** | An 18+ mark, the age and limits statement, the allowlist statement | **A mark and not a gate.** The gate is two checkboxes at sign in, `D-26`. Anything pressable here would be a second age gate that lets a person past |
 | Payment and provider marks | The baseline runs three, ZEN, Visa and Mastercard, read live | **Structure fixed, contents `[?]`.** Which providers we run is a contract, and a payment mark is a claim about one |
 | Copyright | Year and the operating entity name | Entity name `[?]`, Article 5(a) |

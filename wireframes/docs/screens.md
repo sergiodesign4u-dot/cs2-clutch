@@ -849,21 +849,43 @@ Six tracks plus the art slot is seven inside a measure of 1220. **Every step is 
 
 **Still open and now printed on the page rather than only here:** whether an FAQ node is reopened, and which four cases the column carries.
 
-### Asked again the same day: should Help and Play responsibly merge?
+---
 
-**No, and there are three reasons rather than one.**
+## 27. Stacking is not merging, and the language finds its third address
+
+**Founder, same day, two messages.** Put the order back to Company then Help, **and put Play responsibly under Help** rather than beside it. Then: move the language above the payment marks.
+
+### Merging was refused. Stacking is not merging
+
+The question before this one was whether Help and Play responsibly should **merge**. **The answer was no, on three grounds, and all three are about taxonomy.**
 
 | | |
 |---|---|
-| **The rule** | `CLAUDE.md`: "Provably fair and Responsible play are carried by the footer, **which holds each in its own column**." One column holding both is the thing that sentence forbids |
+| **The rule** | `CLAUDE.md`: "Provably fair and Responsible play are carried by the footer, **which holds each in its own column**." Responsible play has had no other carrier since `D-40` took it off the rail |
 | **The kind** | Help is *I have a problem, help me*. **A limit you set on yourself is not help, it is a boundary.** Filing self exclusion under a support heading reframes a compliance instrument as customer service |
-| **The divergence** | The compliance column is the whole reason this band diverges from the baseline: `baseline.md` section 6 records no responsible play route, no footer link and no age statement anywhere on the live product |
+| **The divergence** | The compliance section is the whole reason this band diverges from the baseline: no responsible play route, no footer link, no age statement anywhere, `baseline.md` section 6 |
 
-**What the question was pointing at was real and it is fixed.** Both columns hold two rows and **they were adjacent**, so the pair read as one half empty block.
+**Stacked, it keeps its own heading, its own accent bar and its own list. What it shares is a grid track**, which is a layout fact. **The section is still nobody's subheading.**
 
-- **The order is product, us, legal, compliance now:** Play, Cases, Help, Company, Play responsibly. The two short columns are no longer neighbours.
-- **The compliance track is sized so "Play responsibly" fits on one line.** Wrapped, its column began lower than the five beside it and **the accent bars stopped being a row**. A `min-height` on the label holds that alignment if a later label wraps anyway.
-- The FAQ note is one sentence rather than three lines, so the Help column stops looking padded by its own hole.
+**The literal wording is bent by this and it is said out loud rather than reasoned away.** "Its own column" becomes "its own titled section in a shared track". **What the rule protects is intact; what it happens to say about geometry is not.** If that distinction ever stops being obvious in the drawing, the stack goes back to a column.
 
-**Re-measured.** 196 checks, no sideways scroll, and every column's first link now starts on the same line at every width from the six column step up.
+**What it fixes:** two sections of two rows each, side by side, read as one half empty block. **Stacked, the track fills and the row of column headings stays a row.** Four tracks of links now instead of five, so every one of them gets more width.
+
+### The language switcher's third address in two days
+
+Band 4 by `D-42`, the brand column by `D-43`, above the payment marks now. **That is a lot of moving for one control, and what settles it is a reason rather than a preference.**
+
+**This cell is already the page's meta corner:** what we accept as payment, and now what language you are reading. **The brand column answers who we are**, and a preference of the session is not part of that answer. `D-43` put it there on two references that do; **the references were right about the shape and wrong about the kind.**
+
+**It is drawn to the width of the marks under it**, so a control and a row of marks read as one cell rather than two things that happen to be near each other.
+
+### One defect, and it is the second of exactly the same shape
+
+**The rail's collapsed tooltip rule matched by attribute and was not scoped to the rail.** The footer's language control carries the same `data-lbl`, because it is the same control, so **focusing it in the footer drew a rail tooltip off the right edge of the last band and pushed the page 105px sideways** in the collapsed state.
+
+**`D-42` fixed the identical leak in the panel rule two days ago.** A rule written for the rail, matching by class or by attribute, reaching a copy of the control somewhere else on the page. **Both are scoped now**, and the pattern is the one to look for the next time a control exists in two carriers.
+
+**It was found by opening the control rather than by loading the page.** The page sweep at that width and that state was clean: the tooltip needs focus, and nothing in a load-and-measure pass focuses anything.
+
+**Measured.** 196 checks over 15 pages, 7 widths and both rail states, no sideways scroll. The language panel fully on screen at 360, 900, 1440 and 2000 in both rail states, the control matching the marks under it at every width above the stacked step, and the rail's own tooltip still firing on hover and on focus.
 

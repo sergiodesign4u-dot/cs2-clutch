@@ -958,18 +958,12 @@ window.WF_NAV = {
     sup.href = BASE + 'support.html';
     help.appendChild(sup);
     c1.appendChild(help);
-    // THE LANGUAGE MOVED INTO THIS COLUMN, D-43, and it is drawn wide rather than as a
-    // two character chip. Both references the founder supplied put it here, under the
-    // about text, and the reason survives the reference: it is the one control in the
-    // footer that changes how the whole page reads, so it belongs where the page says
-    // who it is rather than in a row of fine print.
-    c1.appendChild(langControl());
     cols.appendChild(c1);
 
-    // FIVE LINK COLUMNS SINCE D-44, and each one is filled with what is live.
+    // FIVE LINK GROUPS IN FOUR TRACKS SINCE D-45, and the fourth track holds two.
     //
     // PLAY HOLDS ONE GAME BECAUSE THE PRODUCT HAS ONE. The LATER modes enter this
-    // column as they ship, exactly as they enter the rail. A short column is the truth
+    // group as they ship, exactly as they enter the rail. A short list is the truth
     // about the round, and padding it with a route the map does not hold would be the
     // dead item defect one carrier down.
     //
@@ -980,42 +974,45 @@ window.WF_NAV = {
     //
     // HELP CARRIES PROVABLY FAIR AND THE CONTACT ROUTE. Provably fair moved here from
     // Play at the founder's request: a person looking for the proof is checking us, not
-    // choosing a mode. CLAUDE.md's rule still holds, "Provably fair and Responsible play
-    // are carried by the footer, which holds each in its own column" - each still has
-    // one, they are just not the same two columns as before.
+    // choosing a mode.
     // THERE IS NO FAQ ROW AND THAT IS NOT AN OVERSIGHT. sitemap.md cut the baseline's
     // FAQ on an argument rather than on scope: its two load bearing jobs, the age
     // control and the geo statement, moved to 2.1 and 6.1, and the residue went to 0.10.
     // A row for it would be a carrier promising a destination the map does not hold.
-    // The absence is printed in the column so the founder can reverse it deliberately.
+    // The absence is printed in the group so the founder can reverse it deliberately.
     //
-    // THE ORDER IS PRODUCT, US, LEGAL, COMPLIANCE, and it was not until the founder
-    // asked whether Help and Play responsibly should merge. They should not, and the
-    // reason the question came up is that both hold two rows and they were adjacent,
-    // so the pair read as one half empty block. Company sits between them now.
-    //
-    // PLAY RESPONSIBLY KEEPS ITS COLUMN. It is the divergence this node is built on:
-    // the baseline has no responsible play route and no age statement anywhere in its
-    // footer, baseline.md section 6.
+    // PLAY RESPONSIBLY SITS UNDER HELP RATHER THAN BESIDE IT, founder, D-45, and this
+    // is stacking rather than merging. IT KEEPS ITS OWN HEADING, its own accent bar and
+    // its own list; what it shares is a grid track, which is a layout fact rather than
+    // a taxonomy one. The distinction is the whole answer to the question asked before
+    // it: MERGED, self exclusion becomes a row under a support heading, which reframes
+    // a compliance instrument as customer service. STACKED, it is still the titled
+    // section the baseline does not have at all, baseline.md section 6.
+    // The literal wording of CLAUDE.md's rule, "holds each in its own column", is bent
+    // by this and that is said out loud in D-45 rather than reasoned away: what the
+    // rule protects, a titled section that is nobody's subheading, is intact.
     [
-      ['Play', [['Cases', 'catalogue.html']],
-       'One game in round 1. The other modes enter this column as they ship.'],
-      ['Cases', [['All cases', 'catalogue.html'], ['Ironbound', 'case.html'],
-                 ['Warsteel', 'case.html'], ['Coldfront', 'case.html'],
-                 ['Nightfall', 'case.html']],
-       'Which cases belong here is a merchandising decision and it is not made.'],
-      ['Help', [['Provably fair', 'fair.html'], ['Contact support', 'support.html']],
-       'No FAQ page: its jobs live on the geo gate, on Responsible play and in Support.'],
-      ['Company', [['Terms of use', 'legal.html'], ['Privacy policy', 'legal.html'],
-                   ['Cookie policy', 'legal.html'], ['Refund and payments policy', 'legal.html']]],
-      ['Play responsibly', [['Responsible play', 'responsible.html'], ['Where we operate', 'markets.html']]]
-    ].forEach(function (col) {
-      var c = el('div', 'wf-foot-col');
-      var nav = el('nav', 'wf-foot-list');
-      nav.setAttribute('aria-label', col[0]);
-      col[1].forEach(function (r) { var a = el('a', null, r[0]); a.href = BASE + r[1]; nav.appendChild(a); });
-      if (col[2]) { nav.appendChild(el('span', 'wf-fig-missing wf-foot-hole', col[2])); }
-      accordion(c, col[0], nav);
+      [['Play', [['Cases', 'catalogue.html']],
+        'One game in round 1. The other modes enter this column as they ship.']],
+      [['Cases', [['All cases', 'catalogue.html'], ['Ironbound', 'case.html'],
+                  ['Warsteel', 'case.html'], ['Coldfront', 'case.html'],
+                  ['Nightfall', 'case.html']],
+        'Which cases belong here is a merchandising decision and it is not made.']],
+      [['Company', [['Terms of use', 'legal.html'], ['Privacy policy', 'legal.html'],
+                    ['Cookie policy', 'legal.html'], ['Refund and payments policy', 'legal.html']]]],
+      [['Help', [['Provably fair', 'fair.html'], ['Contact support', 'support.html']],
+        'No FAQ page: its jobs live on the geo gate, on Responsible play and in Support.'],
+       ['Play responsibly', [['Responsible play', 'responsible.html'],
+                             ['Where we operate', 'markets.html']]]]
+    ].forEach(function (track) {
+      var c = el('div', 'wf-foot-col' + (track.length > 1 ? ' wf-foot-col--stack' : ''));
+      track.forEach(function (col) {
+        var nav = el('nav', 'wf-foot-list');
+        nav.setAttribute('aria-label', col[0]);
+        col[1].forEach(function (r) { var a = el('a', null, r[0]); a.href = BASE + r[1]; nav.appendChild(a); });
+        if (col[2]) { nav.appendChild(el('span', 'wf-fig-missing wf-foot-hole', col[2])); }
+        accordion(c, col[0], nav);
+      });
       cols.appendChild(c);
     });
 
@@ -1024,7 +1021,7 @@ window.WF_NAV = {
     // banner shown once is not a route back.
     var ck = el('button', 'wf-linklike', 'Cookie settings');
     ck.type = 'button';
-    cols.children[4].querySelector('.wf-foot-list').appendChild(ck);
+    cols.children[3].querySelector('.wf-foot-list').appendChild(ck);
 
     // THE BRAND ART SLOT, founder request of 20 August 2026. It carries no information
     // and it says so: it is a reserved place for stage 06, the same kind of object as
@@ -1092,11 +1089,19 @@ window.WF_NAV = {
     age.appendChild(ageTxt);
     trust.appendChild(age);
 
+    // THE LANGUAGE SITS ABOVE THE PAYMENT MARKS, founder, D-45, and it is its third
+    // address in two days: band 4 by D-42, the brand column by D-43, here now. What
+    // settles it is that this cell is already the page's meta corner - what we accept
+    // as payment, and now what language you are reading. The brand column says who we
+    // are; a preference of the session is not part of that answer.
+    var pay = el('div', 'wf-foot-pay');
+    pay.appendChild(langControl());
     var marks = el('ul', 'wf-marks');
     marks.setAttribute('aria-label', 'Payment methods');
     ['Card', 'Wallet', 'Crypto'].forEach(function (m) { marks.appendChild(el('li', null, m)); });
     marks.appendChild(el('li', 'wf-fig-missing', 'Provider list not available'));
-    trust.appendChild(marks);
+    pay.appendChild(marks);
+    trust.appendChild(pay);
     b3.appendChild(trust);
 
     var fine = el('div', 'wf-foot-fine');

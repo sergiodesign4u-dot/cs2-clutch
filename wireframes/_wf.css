@@ -406,18 +406,23 @@ a.wfp-state:hover { color: var(--wf-ink); }
   justify-content: space-between; min-height: var(--wf-header-h);
   padding-block: var(--wf-s-1); border-bottom: 1px solid var(--wf-line-soft);
 }
-/* The language control in the brand column of the footer, D-43. Drawn WIDE, with the
-   full language name and a caret, because it is the one control in the footer that
-   changes how the whole page reads. The rail keeps the two character form: same
+/* The language control in the footer, above the payment marks since D-45. Drawn WIDE,
+   with the full language name and a caret, because it is the one control in the footer
+   that changes how the whole page reads. The rail keeps the two character form: same
    control, two labels, and paint() writes both so they can never disagree. */
-.wf-foot-col--brand .wf-lang-wrap { width: 100%; max-width: 260px; border: 1px solid var(--wf-line); border-radius: var(--wf-r-2); background: var(--wf-surface); }
-.wf-foot-col--brand .wf-rail-lang { border-left: 0; justify-content: space-between; gap: var(--wf-s-2); padding: 0 var(--wf-s-2); color: var(--wf-ink); }
-.wf-foot-col--brand .wf-rail-lang::after { content: '\25BE'; color: var(--wf-ink-dim); }
-.wf-foot-col--brand .wf-lang-wrap.is-open .wf-lang-pop { left: 0; right: auto; bottom: calc(100% + var(--wf-s-1)); }
+.wf-foot-pay { display: flex; flex-direction: column; align-items: flex-start; gap: var(--wf-s-2); }
+@container col (min-width: 700px) { .wf-foot-pay { align-items: flex-end; } }
+.wf-foot-pay .wf-lang-wrap { width: 100%; min-width: 180px; max-width: 340px; border: 1px solid var(--wf-line); border-radius: var(--wf-r-2); background: var(--wf-surface); }
+.wf-foot-pay .wf-rail-lang { border-left: 0; justify-content: space-between; gap: var(--wf-s-2); padding: 0 var(--wf-s-2); color: var(--wf-ink); }
+.wf-foot-pay .wf-rail-lang::after { content: '\25BE'; color: var(--wf-ink-dim); }
+/* It sits at the right end of the last band, so the panel opens leftward from its own
+   right edge and upward, which is the only pair of directions that stays on a screen
+   from that corner. */
+.wf-foot-pay .wf-lang-wrap.is-open .wf-lang-pop { left: auto; right: 0; bottom: calc(100% + var(--wf-s-1)); }
 .wf-lang-ab { display: inline; }
 .wf-lang-full { display: none; }
-.wf-foot-col--brand .wf-lang-ab { display: none; }
-.wf-foot-col--brand .wf-lang-full { display: inline; }
+.wf-foot-pay .wf-lang-ab { display: none; }
+.wf-foot-pay .wf-lang-full { display: inline; }
 
 /* 0.8 The live drop ticker. One visual row at 360px and never more.
    THE GEOMETRY IS MEASURED, NOT CHOSEN: baseline.md section 3 records 92px tiles in a
@@ -729,14 +734,18 @@ a.wfp-state:hover { color: var(--wf-ink); }
 }
 @container col (min-width: 690px) { .wf-foot-cols { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @container col (min-width: 900px) {
-  .wf-foot-cols { grid-template-columns: 1.5fr 0.6fr 1.05fr 0.85fr 1.2fr 1.15fr; gap: var(--wf-s-3); }
+  .wf-foot-cols { grid-template-columns: 1.5fr 0.6fr 1.05fr 1.25fr 1.2fr; gap: var(--wf-s-3); }
   .wf-foot-col--brand { grid-column: auto; }
 }
 @container col (min-width: 1180px) {
-  .wf-foot-cols { grid-template-columns: 1.5fr 0.6fr 1.05fr 0.85fr 1.2fr 1.15fr 1.15fr; }
+  .wf-foot-cols { grid-template-columns: 1.5fr 0.6fr 1.05fr 1.25fr 1.2fr 1.2fr; }
 }
 .wf-foot-col { display: flex; flex-direction: column; align-items: flex-start; gap: var(--wf-s-1); min-width: 0; }
 .wf-foot-col--brand { gap: var(--wf-s-2); }
+/* TWO GROUPS IN ONE TRACK, D-45, and the gap between them is what keeps it stacking
+   rather than merging: the second heading has to read as a heading and not as the last
+   row of the list above it. */
+.wf-foot-col--stack > .wf-foot-h ~ .wf-foot-h { margin-top: var(--wf-s-3); }
 /* A HOLE PRINTED INSIDE THE COLUMN IT BELONGS TO, not collected in a note at the foot
    of the page. It sits under the live rows, in the smallest type in this footer, and it
    is the difference between a short column and a column somebody forgot to finish. */
@@ -868,7 +877,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-foot-age-t { display: flex; flex-direction: column; gap: var(--wf-s-half); min-width: 0; }
 .wf-compliance { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); margin: 0; max-width: 78ch; }
 
-.wf-marks { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); margin: 0; padding: 0; list-style: none; }
+.wf-marks { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); margin: 0; padding: 0; list-style: none; justify-content: inherit; }
 .wf-marks li { padding: var(--wf-s-half) var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1); font-size: var(--wf-t-xs); }
 
 .wf-foot-fine {
@@ -999,9 +1008,15 @@ a.wfp-state:hover { color: var(--wf-ink); }
      superset rule forbids one carrier down. It appears on hover AND on focus, because
      hover alone excludes touch entirely and the keyboard almost entirely, which is the
      same accessibility limit 0.1 section 5 applies to the account menu. */
-  .is-rail-collapsed [data-lbl] { position: relative; }
-  .is-rail-collapsed [data-lbl]:hover::after,
-  .is-rail-collapsed [data-lbl]:focus-visible::after {
+  /* SCOPED TO THE RAIL, and it was not. The footer's language control carries the same
+     data-lbl attribute, because it is the same control, so in the collapsed state
+     focusing it in the footer drew a rail tooltip at the far right of the last band and
+     pushed the page 105px sideways. THE SECOND LEAK OF EXACTLY THIS SHAPE: a rule
+     written for the rail, matching by attribute or by class, and reaching a copy of the
+     control somewhere else on the page. Both are scoped now. */
+  .is-rail-collapsed .wf-rail [data-lbl] { position: relative; }
+  .is-rail-collapsed .wf-rail [data-lbl]:hover::after,
+  .is-rail-collapsed .wf-rail [data-lbl]:focus-visible::after {
     content: attr(data-lbl);
     position: absolute; z-index: 60; left: calc(100% + var(--wf-s-2)); top: 50%;
     transform: translateY(-50%);
