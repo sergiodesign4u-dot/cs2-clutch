@@ -1068,3 +1068,31 @@ The panel hung **four pixels** below the control, and those four pixels are outs
 
 The pointer walked from the centre of the avatar, through the gap, into the panel: **the menu reports `display: flex` at all three points**, at 1440 and at 360. Order in the header row is money, deposit, account, with the account control's left edge at 1372 of 1440 and 300 of 360. The control is 44 by 44 at both widths, carries no `.wf-acct-name`, and its accessible name is still "Account, Spectacle". **224 checks, no sideways scroll, no collapsed leaf.**
 
+---
+
+## 32. An icon is stage 06's. Its space is this stage's
+
+**Founder, 20 August 2026:** reserve room for icons, there should be many of them, **and remember this is a game site that has to be interactive and engaging.**
+
+### It is not a new rule, it is an existing one applied where it was not
+
+The rail has followed it since it was drawn, in its own words: **"a destination whose icon has no reserved space gets one bolted on later, which moves every label in the carrier on the day it arrives."** The footer statistics strip follows it. The case tiles, the item cards and the showcase all follow it.
+
+**Three carriers did not, and all three are the ones a person sees on every screen.**
+
+| Carrier | Drew | Draws now |
+|---|---|---|
+| **The account menu** | Seven rows of bare text | A **20px** slot per row, Sign out included |
+| **The mobile bar** | Bare text labels | A **22px** zone over the label, solid on the current item |
+| **The two money figures** | A number and a caption | A **coin slot against the value**, not against the caption, because it is a unit mark rather than a decoration on a label |
+
+**A carrier drawn without its icon zones is not simpler, it is unfinished.** The grey contract's "no icons" line was being read as "no icon zones", **which is the opposite of what it is for: the zone is structure and the glyph is look.**
+
+### The founder's framing is already in `CLAUDE.md`
+
+**"This is a game site and it has to be interactive and engaging."** Design principle 4 says it: high energy, neon accented, premium dark, **the main stage, not a back room**. What was missing was the operational consequence at this stage: **a stage 04 drawing that leaves no room for the icons stage 06 will add is a drawing that will be redrawn.**
+
+**Written into `conventions.md` section 2 rather than into `CLAUDE.md`**, because it is how this stage draws rather than a rule that must hold across the project, and because it generalises a line that file already carries rather than sitting beside it.
+
+**Measured.** Seven slots in the menu at 20px, two zones in the bar at 22px with the bar still 56px tall, two coin slots against the two figures, at 1440 and at 360. **224 checks, no sideways scroll, no collapsed leaf.**
+

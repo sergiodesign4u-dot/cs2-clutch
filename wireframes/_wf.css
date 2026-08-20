@@ -906,7 +906,19 @@ a.wfp-state:hover { color: var(--wf-ink); }
   display: flex; align-items: center; justify-content: space-around;
   background: var(--wf-surface); border-top: 1px solid var(--wf-line-soft); z-index: 40;
 }
-.wf-bar a { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); text-decoration: none; padding: var(--wf-s-1); }
+/* AN ICON ZONE OVER THE LABEL, D-50. The bar was drawing bare text while the rail
+   beside it already reserved a slot per destination, so the day the icons arrive every
+   label in this carrier moves. The zone is the size the icon will be. */
+.wf-bar a {
+  display: flex; flex-direction: column; align-items: center; gap: 3px;
+  min-width: var(--wf-tap); font-size: var(--wf-t-xs); color: var(--wf-ink-dim);
+  text-decoration: none; padding: var(--wf-s-half) var(--wf-s-1);
+}
+.wf-bar-i {
+  width: 22px; height: 22px;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
+}
+.wf-bar a.is-current .wf-bar-i { border-style: solid; border-color: var(--wf-ink); }
 .wf-bar a.is-current { color: var(--wf-ink); }
 
 /* ===========================================================================
@@ -1160,6 +1172,15 @@ a.wfp-state:hover { color: var(--wf-ink); }
    the two captions line up, which is what makes the pair read as two kinds rather than
    as two lines of one total. */
 .wf-money .wf-fig { flex-direction: row; align-items: baseline; gap: var(--wf-s-1); }
+/* THE COIN SLOT, D-50. The baseline sets a coin mark against both figures and this
+   stage owes it the space. It sits with the VALUE and not with the caption, because it
+   is a unit mark rather than a decoration on a label. */
+.wf-fig-line { display: flex; align-items: center; gap: var(--wf-s-1); }
+.wf-coin {
+  flex: 0 0 16px; height: 16px;
+  border: 1px dashed var(--wf-line-soft); border-radius: 50%;
+}
+.wf-money-2 .wf-coin { width: 13px; flex-basis: 13px; height: 13px; }
 .wf-money .wf-fig-v { min-width: 11ch; }
 .wf-money-1 .wf-fig-v { font-size: var(--wf-t-m); }
 .wf-money-2 .wf-fig-v { font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
@@ -1187,6 +1208,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
 /* Who you are, at the top of the menu, which is where the question is asked. */
 .wf-acct-who {
   padding: var(--wf-s-half) var(--wf-s-1) var(--wf-s-1);
+  display: flex; align-items: center; gap: var(--wf-s-2);
   border-bottom: 1px solid var(--wf-line-soft); margin-bottom: var(--wf-s-half);
   font-size: var(--wf-t-s); color: var(--wf-ink-dim);
 }
@@ -1214,8 +1236,16 @@ a.wfp-state:hover { color: var(--wf-ink); }
   .wf-acct-wrap:hover .wf-acct-menu, .wf-acct-wrap:focus-within .wf-acct-menu { display: flex; }
 }
 .wf-acct-menu nav { display: flex; flex-direction: column; }
+/* A SLOT, NOT AN ICON, D-50, and it is the rule the rail has followed since it was
+   drawn. A row whose icon has no reserved space gets one bolted on later, and every
+   label in the carrier moves on the day it arrives. THIS IS A GAME PRODUCT AND ITS
+   CARRIERS CARRY ICONS: the space is owed wherever a row is drawn. */
+.wf-mi {
+  flex: 0 0 20px; height: 20px;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
+}
 .wf-acct-menu a, .wf-acct-out {
-  display: flex; align-items: center; min-height: var(--wf-tap);
+  display: flex; align-items: center; gap: var(--wf-s-2); min-height: var(--wf-tap);
   padding: 0 var(--wf-s-1); border-radius: var(--wf-r-1);
   color: var(--wf-ink); text-decoration: none; text-align: left;
 }

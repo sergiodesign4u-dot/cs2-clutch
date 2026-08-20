@@ -633,13 +633,27 @@ window.WF_NAV = {
     [['My items', 'account.html'], ['Roll history', 'history.html'],
      ['Withdrawals', 'withdraw.html'], ['Profile', 'profile.html'],
      ['Settings', 'settings.html'], ['Responsible play', 'responsible.html']].forEach(function (r) {
-      var a = el('a', null, r[0]);
+      // A SLOT, NOT AN ICON, D-50, and it is the rule the rail has followed since it was
+      // drawn: "the grey contract defers icons to stages 06 to 08, and a destination
+      // whose icon has no reserved space gets one bolted on later, which moves every
+      // label in the carrier on the day it arrives." This menu was the carrier that did
+      // not follow it. THIS IS A GAME PRODUCT AND ITS CARRIERS CARRY ICONS, so the space
+      // is owed everywhere a row is drawn, not only where one is convenient.
+      var a = el('a', null);
       a.href = BASE + r[1];
+      var ic = el('span', 'wf-mi');
+      ic.setAttribute('aria-hidden', 'true');
+      a.appendChild(ic);
+      a.appendChild(document.createTextNode(r[0]));
       nav.appendChild(a);
     });
     menu.appendChild(nav);
-    var out = el('button', 'wf-linklike wf-acct-out', 'Sign out');
+    var out = el('button', 'wf-linklike wf-acct-out');
     out.type = 'button';
+    var oi = el('span', 'wf-mi');
+    oi.setAttribute('aria-hidden', 'true');
+    out.appendChild(oi);
+    out.appendChild(document.createTextNode('Sign out'));
     menu.appendChild(out);
 
     wrap.appendChild(btn);
@@ -811,7 +825,15 @@ window.WF_NAV = {
         var d = el('a', 'wf-fig wf-fig-a ' + f[3]);
         d.href = BASE + f[2];
         d.setAttribute('aria-label', f[1] + ', ' + f[0]);
-        d.appendChild(el('span', 'wf-fig-v', f[0]));
+        // THE COIN SLOT, D-50. The baseline sets a coin mark against both figures and
+        // this stage owes it the space. It sits with the VALUE and not with the caption,
+        // because it is a unit mark rather than a decoration on a label.
+        var line = el('span', 'wf-fig-line');
+        var ci = el('span', 'wf-coin');
+        ci.setAttribute('aria-hidden', 'true');
+        line.appendChild(ci);
+        line.appendChild(el('span', 'wf-fig-v', f[0]));
+        d.appendChild(line);
         d.appendChild(el('span', 'wf-fig-c', f[1]));
         money.appendChild(d);
       });
@@ -1164,9 +1186,17 @@ window.WF_NAV = {
     if (!host) return;
     var cfg = shellCfg();
     host.setAttribute('aria-label', 'Shortcuts');
+    // AN ICON ZONE OVER THE LABEL, D-50. Every bottom bar in this category carries one
+    // and the rail already reserves its own; this carrier was drawing bare text, so the
+    // day the icons arrive every label in it moves. The zone is the size the icon will
+    // be, so what arrives is an image in a place rather than a new element in a full row.
     barItems().forEach(function (it) {
-      var a = el('a', it.file === cfg.active ? 'is-current' : null, it.label);
+      var a = el('a', it.file === cfg.active ? 'is-current' : null);
       a.href = BASE + it.file;
+      var ic = el('span', 'wf-bar-i');
+      ic.setAttribute('aria-hidden', 'true');
+      a.appendChild(ic);
+      a.appendChild(el('span', 'wf-bar-l', it.label));
       if (it.file === cfg.active) a.setAttribute('aria-current', 'page');
       host.appendChild(a);
     });

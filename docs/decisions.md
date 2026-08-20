@@ -1492,3 +1492,31 @@ The panel hung **four pixels** below the control, and those four pixels are outs
 **The gap is a visual decision and the hover target is a functional one, and they were the same box.** The panel keeps its gap and carries an invisible bridge across it, belonging to the menu, which is inside the wrapper, so hovering the gap is still hovering the wrapper.
 
 **This was never a keyboard or touch defect:** `0.1` section 5 already requires hover, click, Enter and Space to open it and Escape, an outside click and focus leaving to close it, and all of those worked. **It was the one input the drawing appeared to support and did not.**
+
+---
+
+## D-50. An icon is stage 06's. Its space is this stage's
+
+**Date:** 2026-08-20. **Stage:** 04, raised against the grey contract and node `0.1`. **Decided by:** the founder, reading the drawn account menu. **Binds:** `wireframes/docs/conventions.md` section 2, node `0.1`, and every carrier drawn from here.
+
+**What was decided.** **Every row, every destination and every figure with a unit mark reserves the space its icon will occupy.** **This is a game product and its carriers carry icons.**
+
+### It is not a new rule, it is an existing one applied where it was not
+
+The rail has followed it since it was drawn, in its own words: **"a destination whose icon has no reserved space gets one bolted on later, which moves every label in the carrier on the day it arrives."** The statistics strip in the footer follows it. The case tiles, the item cards and the showcase all follow it.
+
+**Three carriers did not**, and all three are the ones a person sees on every screen:
+
+| Carrier | What it drew | What it draws now |
+|---|---|---|
+| **The account menu** | Seven rows of bare text | A 20px slot per row, including Sign out |
+| **The mobile bar** | Bare text labels | A 22px zone over the label, solid on the current item |
+| **The two money figures** | A number and a caption | A coin slot against the value, and **against the value rather than the caption**, because it is a unit mark rather than a decoration on a label |
+
+**A carrier drawn without its icon zones is not simpler, it is unfinished.** The grey contract's "no icons" line was being read as "no icon zones", which is the opposite of what it is for: **the zone is structure and the glyph is look.**
+
+### The founder's framing, and it is already in `CLAUDE.md`
+
+**"This is a game site and it has to be interactive and engaging."** Design principle 4 says it: high energy, neon accented, premium dark, **the main stage, not a back room**. What was missing was the operational consequence at this stage, which is that a stage 04 drawing that leaves no room for the icons a stage 06 will add is a drawing that will be redrawn.
+
+**The rule is written into `conventions.md` rather than into `CLAUDE.md`**, because it is how this stage draws rather than a rule that must hold across the project, and because it generalises a line that file already carries rather than sitting beside it.

@@ -269,6 +269,8 @@ This is the state the founder specified. Left to right: rail toggle, logo, then 
 
 **The account control opens a menu instead of navigating.** The baseline does this and the founder specified it from the baseline capture. **It is the avatar alone at every width since `D-49`, and the display name is the menu's first line.**
 
+**Every row of the menu reserves its icon slot, `D-50`**, and so does the mobile bar and each of the two money figures. It is the rule the rail has followed since it was drawn, applied to the three carriers that were not following it. `wireframes/docs/conventions.md` section 2.
+
 **One control in two forms was the defect.** It carried the name on desktop and dropped it at 360, which is a difference a person can see and cannot explain. **The name is not information a signed-in person needs on every screen: they know who they are.** What it is for is confirming **which** account you are in, and that question is asked at the moment the menu opens, so the answer moved there. **It stays in the control's accessible name**, so nothing is lost to a reader. The control keeps its accessible name and its route target as the menu's first item, so nothing that was reachable becomes unreachable.
 
 | Row | Node | Parent |
