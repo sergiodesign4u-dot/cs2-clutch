@@ -55,7 +55,6 @@
      Without it the argument blocks ran 1900px wide on the founder's monitor. */
   --wf-rail-w: 220px;
   --wf-content: 1220px;
-  --wf-app-w: 1440px;
   --wf-rail-w-collapsed: 64px;
   --wf-header-h: 56px;
   --wf-bar-h: 56px;
@@ -241,7 +240,25 @@ a.wfp-state:hover { color: var(--wf-ink); }
    prototype scrolled sideways from 900 to about 1100 on every page including Home.
    THE SCAFFOLDING MAY NOT TAKE A THIRD OF THE SCREEN FROM THE THING IT IS SHOWING.
    Below 1200 it is behind its handle, exactly as it is on mobile. */
-.wf-screen-body { padding: var(--wf-s-2); }
+/* ONE MEASURE, THREE PLACES, AND IT IS CENTRED. The header, the main column and every
+   footer band share one declaration, so their content edges line up on any monitor.
+   UNTIL 20 AUGUST 2026 THE WHOLE APP WAS CAPPED AT 1440 AND PINNED LEFT: max-width was
+   set on .wf-screen-body with no auto margin, so a 2000px monitor got 560px of dead
+   strip on the right rather than a centred page. The cap was right, the centring was
+   missing, and capping the app also meant the header rule and the footer bands could
+   never reach the edges of the screen.
+   The gutter is the max() of a minimum and half the overflow, which is what makes one
+   declaration serve a 360px phone and a 2560px monitor without a breakpoint. */
+.wf-screen-body { padding: 0; }
+.wf-header, .wf-main, .wf-fin {
+  padding-inline: max(var(--wf-s-2), (100% - var(--wf-content)) / 2);
+}
+.wf-fin { width: 100%; }
+@media (min-width: 900px) {
+  .wf-header, .wf-main, .wf-fin {
+    padding-inline: max(var(--wf-s-3), (100% - var(--wf-content)) / 2);
+  }
+}
 @media (min-width: 1200px) { .wfp-toggle { display: none; } }
 @media (min-width: 1200px) {
   /* The scaffolding panel holds the left edge; the screen starts at its seam. The grid
@@ -387,35 +404,20 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-header {
   display: flex; flex-wrap: wrap; gap: var(--wf-s-1); align-items: center;
   justify-content: space-between; min-height: var(--wf-header-h);
-  padding: var(--wf-s-1); border-bottom: 1px solid var(--wf-line-soft);
+  padding-block: var(--wf-s-1); border-bottom: 1px solid var(--wf-line-soft);
 }
-/* The social set in the footer, which is the node that owns it. SINCE D-42 IT SITS IN
-   THE BRAND COLUMN rather than the base band: that column already holds every way to
-   reach us, the Support button and the identification block, and a social link is one
-   more of those. It is a stack here, not a row, because the column is narrow. */
-.wf-foot-soc {
-  display: flex; flex-direction: column; align-items: flex-start;
-  gap: var(--wf-s-1); margin-top: var(--wf-s-2);
-}
-.wf-foot-soc .wf-rail-ico { flex: 0 0 20px; }
-
-/* The right end of the base band: payment marks and the language, the two things in
-   that row that are about the page rather than about us. */
-.wf-foot-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-1) var(--wf-s-2); }
-.wf-foot-meta .wf-lang-wrap { border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2); }
-.wf-foot-meta .wf-rail-lang { border-left: 0; padding: 0 var(--wf-s-2); }
-/* WHERE THE PANEL OPENS FROM DEPENDS ON WHERE THE ROW PUT THE CONTROL, and the row
-   wraps. Wide, the base band is space-between and the control sits at the far right, so
-   the panel opens leftward from its right edge. Narrow, the band has wrapped and the
-   control is at the LEFT margin, where opening leftward put the panel at x=-174 on a
-   360px screen. Keyed on the content column rather than the viewport, which is what
-   every other wrap rule in this file is keyed on since the scaffolding audit. */
-@container col (min-width: 640px) {
-  .wf-foot-meta .wf-lang-wrap.is-open .wf-lang-pop { left: auto; right: 0; }
-}
-
-.wf-marks { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); margin: var(--wf-s-2) 0 0; padding: 0; list-style: none; }
-.wf-marks li { padding: var(--wf-s-half) var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1); font-size: var(--wf-t-xs); }
+/* The language control in the brand column of the footer, D-43. Drawn WIDE, with the
+   full language name and a caret, because it is the one control in the footer that
+   changes how the whole page reads. The rail keeps the two character form: same
+   control, two labels, and paint() writes both so they can never disagree. */
+.wf-foot-col--brand .wf-lang-wrap { width: 100%; max-width: 260px; border: 1px solid var(--wf-line); border-radius: var(--wf-r-2); background: var(--wf-surface); }
+.wf-foot-col--brand .wf-rail-lang { border-left: 0; justify-content: space-between; gap: var(--wf-s-2); padding: 0 var(--wf-s-2); color: var(--wf-ink); }
+.wf-foot-col--brand .wf-rail-lang::after { content: '\25BE'; color: var(--wf-ink-dim); }
+.wf-foot-col--brand .wf-lang-wrap.is-open .wf-lang-pop { left: 0; right: auto; bottom: calc(100% + var(--wf-s-1)); }
+.wf-lang-ab { display: inline; }
+.wf-lang-full { display: none; }
+.wf-foot-col--brand .wf-lang-ab { display: none; }
+.wf-foot-col--brand .wf-lang-full { display: inline; }
 
 /* 0.8 The live drop ticker. One visual row at 360px and never more.
    THE GEOMETRY IS MEASURED, NOT CHOSEN: baseline.md section 3 records 92px tiles in a
@@ -455,7 +457,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
    read as a control for the page rather than for the strip. */
 .wf-ticker-pause { flex: 0 0 auto; align-self: center; }
 
-.wf-main { padding: var(--wf-s-2) 0; }
+.wf-main { padding-block: var(--wf-s-2); }
 /* Blocks are separated by space, not by a rule. A hairline between every section made
    the page read as a document with headings rather than as a product surface, which is
    the first thing the founder said when they saw it beside the live product. Space is
@@ -671,24 +673,96 @@ a.wfp-state:hover { color: var(--wf-ink); }
   .wf-prose-cols > * { break-inside: avoid; }
 }
 
-/* 0.2 The footer, FOUR BANDS, node 0.2 section 3. Band 1 the statistics strip, band 2
-   the four columns, band 3 the interlinking block, band 4 copyright and the marks. */
-.wf-footer { padding: var(--wf-s-4) 0 calc(var(--wf-bar-h) + var(--wf-s-3)); border-top: 1px solid var(--wf-line); }
-
-.wf-foot-stats {
-  display: grid; grid-template-columns: 1fr; gap: var(--wf-s-2);
-  padding-bottom: var(--wf-s-3); border-bottom: 1px solid var(--wf-line-soft);
+/* 0.2 THE FOOTER. THREE FULL BLEED BANDS, node 0.2 section 3.
+   Band 1 the statistics strip, band 2 the columns and the interlinking row, band 3 the
+   trust row and the fine print. THE BAND PAINTS EDGE TO EDGE AND .wf-fin HOLDS THE
+   CONTENT at the same measure as the main column above it, which is the only way a
+   band can carry its own surface and still line up with the page. It shipped as four
+   bands inside one capped box until 20 August 2026, so no band could reach the edges. */
+.wf-footer { border-top: 1px solid var(--wf-line); }
+.wf-fband { width: 100%; }
+.wf-fband--stats { background: var(--wf-raised); border-bottom: 1px solid var(--wf-line-soft); }
+.wf-fband--stats .wf-fin { padding-block: var(--wf-s-3); }
+.wf-fband--main .wf-fin { padding-block: var(--wf-s-4); }
+.wf-fband--base { background: var(--wf-raised); border-top: 1px solid var(--wf-line-soft); }
+.wf-fband--base .wf-fin { padding-block: var(--wf-s-3); }
+@media (max-width: 899px) {
+  /* The mobile bar is fixed over the foot of the page, so the last band owes it room. */
+  .wf-fband--base .wf-fin { padding-bottom: calc(var(--wf-bar-h) + var(--wf-s-3)); }
 }
+
+.wf-foot-stats { display: grid; grid-template-columns: 1fr; gap: var(--wf-s-2); }
 /* Two up, then four, when the column can hold them rather than when the window can. */
-@container col (min-width: 420px) { .wf-foot-stats { grid-template-columns: repeat(2, 1fr); gap: var(--wf-s-3); } }
-@container col (min-width: 720px) { .wf-foot-stats { grid-template-columns: repeat(4, 1fr); } }
+@container col (min-width: 460px) { .wf-foot-stats { grid-template-columns: repeat(2, 1fr); gap: var(--wf-s-3); } }
+@container col (min-width: 760px) { .wf-foot-stats { grid-template-columns: repeat(4, 1fr); } }
+/* The strip is the loudest row in the footer on the live product and it is the loudest
+   here: the icon zone is bigger than the one 3.3 reserves, because these four are the
+   only figures in the footer and they are what a stranger reads first. */
+.wf-foot-stats .wf-fig-ico { grid-template-columns: 40px 1fr; }
+.wf-foot-stats .wf-icon { width: 40px; height: 40px; }
+/* THE FIGURE NEVER BREAKS ACROSS LINES. "363 777 660" split after the second group at
+   1440 in this prototype, where the scaffolding panel leaves a 952px column: a number
+   read down two lines is a different number. It steps down instead of wrapping, and the
+   step is asked of the column. */
+.wf-foot-stats .wf-fig-v { font-size: var(--wf-t-l); }
+/* THE RULE IS FOR A NUMBER, NOT FOR THE WORDS THAT STAND IN FOR ONE. Unscoped it also
+   held "Not available" on one line, and that string is wider in mono than the track a
+   four column strip leaves at 900 with the rail collapsed: it put a 26px sideways
+   scroll on every page in exactly that one state. A figure may not break, a printed
+   absence may. */
+.wf-foot-stats .wf-fig-v:not(.wf-fig-missing) { white-space: nowrap; }
+@container col (min-width: 1000px) { .wf-foot-stats .wf-fig-v { font-size: var(--wf-t-xl); } }
 /* The route is what separates a checkable figure from a number that looks like one,
    0.2 section 2. It is smaller than the caption and it is never absent silently. */
 .wf-fig-route { color: var(--wf-ink-faint); font-style: italic; }
 
-.wf-foot-cols { display: grid; grid-template-columns: 1fr; gap: var(--wf-s-3); padding: var(--wf-s-3) 0; }
+.wf-foot-cols { display: grid; grid-template-columns: 1fr; gap: var(--wf-s-3); }
+/* THE TWO COLUMN STEP GIVES THE BRAND BLOCK THE FULL ROW. Beside one short list it
+   left a column of dead space as tall as the logo, the about text, the support control
+   and the language stacked together, which is most of the band. */
+@container col (min-width: 480px) {
+  .wf-foot-cols { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--wf-s-3) var(--wf-s-4); }
+  .wf-foot-col--brand { grid-column: 1 / -1; }
+}
+@container col (min-width: 700px) {
+  .wf-foot-cols { grid-template-columns: 1.6fr 1fr 1.1fr 1.1fr; gap: var(--wf-s-4); }
+  .wf-foot-col--brand { grid-column: auto; }
+}
+@container col (min-width: 1080px) { .wf-foot-cols { grid-template-columns: 1.5fr 0.9fr 1fr 1fr 1.25fr; } }
 .wf-foot-col { display: flex; flex-direction: column; align-items: flex-start; gap: var(--wf-s-1); }
-.wf-foot-brand { font-weight: 700; text-decoration: none; }
+.wf-foot-col--brand { gap: var(--wf-s-2); }
+
+/* THE LOGO IS AN ASSET AND THIS IS THE SPACE IT WILL OCCUPY. Same object as the rail's
+   slot, at the size the live product gives it in a footer, so stage 06 drops an image
+   into a place rather than adding an element to a finished column. */
+.wf-foot-logo {
+  display: flex; width: 100%; max-width: 180px; min-height: 84px;
+  text-decoration: none;
+}
+.wf-foot-logo .wf-logo-mark {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; border-radius: var(--wf-r-3);
+  font-size: var(--wf-t-xs); letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--wf-ink-faint);
+}
+.wf-foot-about { font-size: var(--wf-t-s); color: var(--wf-ink-dim); max-width: 46ch; margin: 0; }
+.wf-foot-ident { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); margin: 0; }
+.wf-foot-help { display: flex; flex-direction: column; align-items: flex-start; gap: var(--wf-s-1); }
+
+/* THE BRAND ART SLOT. It carries no information, so it is the first thing to go and it
+   goes when the column can no longer hold five, rather than competing with four columns
+   of real routes. aria-hidden, because an empty box announces nothing. */
+.wf-foot-art { display: none; }
+@container col (min-width: 1080px) {
+  .wf-foot-art {
+    display: flex; align-items: flex-end; justify-content: center;
+    align-self: end; min-height: 240px; padding: var(--wf-s-2);
+    background: var(--wf-surface); border: 1px dashed var(--wf-line-soft);
+    border-radius: var(--wf-r-3);
+  }
+}
+.wf-foot-art-l { font-size: var(--wf-t-xs); color: var(--wf-ink-faint); font-style: italic; }
+
 /* The column label is a real <button> at every width, because footer.md requires the
    accordion header to be one and a control that exists only below 900 is a control the
    desktop DOM cannot be checked for. Above 900 it is stripped back to a label: no box,
@@ -698,40 +772,95 @@ a.wfp-state:hover { color: var(--wf-ink); }
   font-size: var(--wf-t-s); letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--wf-ink-dim); margin: 0;
   display: flex; align-items: center; justify-content: space-between; gap: var(--wf-s-1);
-  width: 100%; min-height: auto; padding: 0; text-align: left;
+  width: 100%; min-height: auto; padding: 0 0 var(--wf-s-1); text-align: left;
   background: none; border: 0; border-radius: 0; cursor: default;
 }
-.wf-foot-list { display: flex; flex-direction: column; align-items: flex-start; gap: var(--wf-s-half); }
+.wf-foot-list { display: flex; flex-direction: column; align-items: flex-start; gap: var(--wf-s-1); }
+/* A CONTROL THAT READS AS A LINK, and it is the honest shape for exactly one thing:
+   Cookie settings reopens a dialog rather than navigating, so it must be a <button>,
+   and it sits in a list of links so it must not look like a submit. Its base rule was
+   lost in the 20 August rebuild of this block and it rendered as a filled button in the
+   middle of a link column for one measurement pass. */
+.wf-linklike {
+  padding: 0; min-height: auto; text-align: left;
+  background: none; border: 0; border-radius: 0;
+  color: inherit; text-decoration: underline; text-underline-offset: 3px;
+  cursor: pointer;
+}
+.wf-linklike:hover { color: var(--wf-ink); }
+.wf-foot-list a, .wf-foot-list .wf-linklike { font-size: var(--wf-t-s); }
+
+/* THE ACCENT BAR UNDER A COLUMN LABEL. A short rule rather than a full width border:
+   the live product draws one and it is the one place in this footer where stage 07 has
+   an obvious thing to colour. It follows the labels that head a list, never "Need
+   help?", which heads a control. */
+@media (min-width: 900px) {
+  .wf-foot-h[aria-expanded] { position: relative; padding-bottom: var(--wf-s-2); }
+  .wf-foot-h[aria-expanded]::before {
+    content: ''; position: absolute; left: 0; bottom: 0;
+    width: 28px; height: 2px; background: var(--wf-line);
+  }
+}
 @media (max-width: 899px) {
   /* Scoped to the ones that actually toggle. "Need help?" is a label above a support
      control and shares the class: unscoped, it grew a plus sign and a rule and read as
      an accordion that does nothing when pressed. */
-  .wf-foot-h[aria-expanded] { min-height: var(--wf-tap); cursor: pointer; border-bottom: 1px solid var(--wf-line-soft); }
+  .wf-foot-h[aria-expanded] { min-height: var(--wf-tap); cursor: pointer; padding-bottom: 0; border-bottom: 1px solid var(--wf-line-soft); }
   .wf-foot-h[aria-expanded]::after { content: '+'; font-size: var(--wf-t-m); line-height: 1; }
   .wf-foot-h[aria-expanded="true"]::after { content: '\2212'; }
   .wf-foot-h[aria-expanded="false"] + .wf-foot-list { display: none; }
   .wf-foot-h[aria-expanded="true"] + .wf-foot-list { padding: var(--wf-s-1) 0; }
 }
-.wf-foot-ident { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); margin: 0; }
-/* Cookie settings is a control and it is the only one in its column, so it is a real
-   button that reads as a link rather than a link that pretends to act. */
-.wf-linklike {
-  min-height: auto; padding: 0; background: none; border: 0;
-  text-decoration: underline; text-underline-offset: 3px; font: inherit; color: var(--wf-ink);
-}
 
 .wf-foot-seo {
   display: flex; flex-direction: column; gap: 2px;
-  padding: var(--wf-s-2) 0; border-top: 1px solid var(--wf-line-soft);
+  margin-top: var(--wf-s-4); padding-top: var(--wf-s-3);
+  border-top: 1px solid var(--wf-line-soft);
 }
-.wf-foot-base {
-  display: flex; flex-wrap: wrap; gap: var(--wf-s-2); align-items: center;
-  justify-content: space-between;
-  padding-top: var(--wf-s-2); border-top: 1px solid var(--wf-line-soft);
+/* Below 900 every column label already carries its own rule as an accordion header, so
+   this band's separator landed a second hairline a few pixels under the last one and
+   read as an empty row. The band is still a band, it just stops drawing its own line. */
+@media (max-width: 899px) { .wf-foot-seo { margin-top: 0; padding-top: 0; border-top: 0; } }
+
+/* THE TRUST ROW. Three cells, and each is a different kind on purpose: a way to reach
+   us, a statement about who may be here, a claim about what we accept. They share one
+   row because a stranger checks all three in one look, which is what this row is for. */
+.wf-foot-trust { display: grid; grid-template-columns: 1fr; gap: var(--wf-s-3); align-items: start; }
+/* THE STATEMENT TAKES THE ROW BEFORE IT TAKES A COLUMN. Two compliance paragraphs in a
+   third of a 952px column became a ribbon eleven lines tall beside two short cells, so
+   between these two steps the statement gets the full width and the other two share the
+   row under it. One row of three only when the middle cell can hold 420px, which is
+   where the paragraphs read as paragraphs. */
+@container col (min-width: 700px) {
+  .wf-foot-trust { grid-template-columns: auto auto; justify-content: space-between; align-items: center; gap: var(--wf-s-3) var(--wf-s-4); }
+  .wf-foot-age { grid-column: 1 / -1; order: -1; }
 }
-.wf-foot-base .wf-marks { margin: 0; }
-.wf-foot-meta .wf-marks { margin: 0; }
-.wf-compliance { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); margin: 0; }
+@container col (min-width: 1120px) {
+  .wf-foot-trust { grid-template-columns: auto minmax(420px, 1fr) auto; justify-content: stretch; gap: var(--wf-s-4); }
+  .wf-foot-age { grid-column: auto; order: 0; }
+}
+.wf-foot-soc { display: flex; flex-direction: column; align-items: flex-start; gap: var(--wf-s-1); }
+.wf-foot-soc .wf-rail-ico { flex: 0 0 28px; height: 28px; }
+
+/* THE AGE MARK IS A MARK AND NOT A GATE. The gate is two checkboxes at sign in, D-26.
+   Anything pressable here would be a second age gate that lets a person past. */
+.wf-foot-age { display: flex; align-items: flex-start; gap: var(--wf-s-2); }
+.wf-age-mark {
+  flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border: 2px solid var(--wf-line); border-radius: 50%;
+  font-size: var(--wf-t-s); font-weight: 700; color: var(--wf-ink-dim);
+}
+.wf-foot-age-t { display: flex; flex-direction: column; gap: var(--wf-s-half); min-width: 0; }
+.wf-compliance { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); margin: 0; max-width: 78ch; }
+
+.wf-marks { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); margin: 0; padding: 0; list-style: none; }
+.wf-marks li { padding: var(--wf-s-half) var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1); font-size: var(--wf-t-xs); }
+
+.wf-foot-fine {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--wf-s-1) var(--wf-s-3);
+  margin-top: var(--wf-s-3); padding-top: var(--wf-s-2);
+  border-top: 1px solid var(--wf-line-soft);
+}
 
 /* 0.1 The mobile bar. A shortcut subset of the rail, never a second model.
    It does not exist above 900px. */
@@ -757,13 +886,10 @@ a.wfp-state:hover { color: var(--wf-ink); }
    =========================================================================== */
 @media (min-width: 900px) {
   .wf-bar { display: none; }
-  /* THE FOOTER ROWS ARE ASKED OF THE COLUMN, NOT THE VIEWPORT, and this is the second
-     half of the same audit finding. Four fixed fractions here were what pinned every page
-     in the prototype, Home included, to a scroll width of 1040 from a 900px viewport up:
-     each figure carries a 28px icon zone and its own caption, and four of them will not
-     fold below about 600px of column. The footer is a global element, which is why one
-     rule in it put a horizontal scrollbar on every screen at once. */
-  .wf-foot-cols { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: var(--wf-s-4); }
+  /* The four fraction rule that stood here is gone: the column grid is asked of the
+     column now, in the footer block above, and a viewport keyed copy this far down the
+     file beat the container query silently. Keeping both is how a container query stops
+     working without anything reporting an error. */
 
   .wf-screen-body {
     display: grid;
@@ -771,7 +897,6 @@ a.wfp-state:hover { color: var(--wf-ink); }
     grid-template-rows: auto 1fr auto;
     grid-template-areas: "rail header" "rail main" "rail footer";
     min-height: 100vh;
-    max-width: var(--wf-app-w);
     padding: 0;
   }
   .wf-shell { display: contents; }
@@ -876,10 +1001,10 @@ a.wfp-state:hover { color: var(--wf-ink); }
 
   .wf-header {
     grid-area: header; position: sticky; top: 0; z-index: 30;
-    background: var(--wf-bg); padding: var(--wf-s-1) var(--wf-s-3);
+    background: var(--wf-bg); padding-block: var(--wf-s-1);
   }
-  .wf-main { grid-area: main; max-width: var(--wf-content); padding: 0 var(--wf-s-3) var(--wf-s-4); }
-  .wf-footer { grid-area: footer; max-width: var(--wf-content); padding: var(--wf-s-3); }
+  .wf-main { grid-area: main; padding-bottom: var(--wf-s-4); }
+  .wf-footer { grid-area: footer; }
 
   /* B2, full bleed at the baseline's proportion, with the line and the one control on
      the art and the countdown slot in the far corner. */
@@ -1055,10 +1180,14 @@ a.wfp-state:hover { color: var(--wf-ink); }
    is what the header gives back, which is also how the baseline draws it, and the menu
    drops to a square tap target. Both are measured, not chosen. */
 @media (max-width: 899px) {
+  /* THE NEGATIVE MARGIN IS GONE, and it is gone because what it cancelled is gone.
+     It pulled the header out of .wf-screen-body's own 16px padding to reach the edges.
+     That padding was removed on 20 August 2026 when every band started reaching the
+     edges by itself, and the margin then pushed the header 16px PAST both edges and
+     put a 16px sideways scroll on every page below 1200. */
   .wf-header {
     flex-wrap: nowrap; gap: var(--wf-s-1);
-    margin: calc(var(--wf-s-2) * -1) calc(var(--wf-s-2) * -1) 0;
-    padding: var(--wf-s-1) var(--wf-s-2);
+    padding-block: var(--wf-s-1);
   }
   .wf-header .wf-row { flex-wrap: nowrap; gap: var(--wf-s-1); min-width: 0; }
   /* 0.1 state matrix, account on mobile: "Both figures, condensed to ONE LINE EACH,
@@ -1612,7 +1741,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
    900 to about 1100 on every screen including Home, and the batch card's sell control
    collapsed to 23px wide with its full label restored. Container queries ask the column
    itself, so a breakpoint means what it says. */
-.wf-main, .wf-footer { container-type: inline-size; container-name: col; }
+.wf-main, .wf-fin { container-type: inline-size; container-name: col; }
 
 .wf-drops tbody { display: grid; grid-template-columns: 1fr; gap: var(--wf-s-1); }
 /* THE IMAGE IS THE PRIORITY AND THE INFORMATION SITS BESIDE IT, founder, 19 August

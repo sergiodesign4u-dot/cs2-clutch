@@ -503,8 +503,12 @@ window.WF_NAV = {
 
   function langControl() {
     var wrap = el('div', 'wf-lang-wrap');
-    var btn = el('button', 'wf-rail-lang', 'EN');
+    var btn = el('button', 'wf-rail-lang');
     btn.type = 'button';
+    var abbr = el('span', 'wf-lang-ab', 'EN');
+    var full = el('span', 'wf-lang-full', 'English');
+    btn.appendChild(abbr);
+    btn.appendChild(full);
     btn.setAttribute('aria-haspopup', 'true');
     btn.setAttribute('aria-expanded', 'false');
     var pop = el('div', 'wf-lang-pop');
@@ -524,7 +528,7 @@ window.WF_NAV = {
       'English is the only one that does anything. The other eight switch this control and leave the interface in English: round 1 ships one language, the page stays lang="en", and the product carries no hreflang until real translations arrive.'));
 
     function paint(code) {
-      btn.textContent = code.toUpperCase();
+      abbr.textContent = code.toUpperCase();
       var name = 'English';
       LANGS.forEach(function (L, i) {
         var on = L[0] === code;
@@ -533,6 +537,7 @@ window.WF_NAV = {
         if (on) { opts[i].setAttribute('aria-current', 'true'); }
         else { opts[i].removeAttribute('aria-current'); }
       });
+      full.textContent = name;
       btn.setAttribute('aria-label', 'Language, ' + name);
       btn.setAttribute('data-lbl', 'Language: ' + name);
     }
@@ -844,59 +849,68 @@ window.WF_NAV = {
      fifth of band 2, and none of bands 3 and 4. The founder put the live footer in
      front of this stage on 18 August 2026 and the gap is structural rather than
      visual: the fourth column is the compliance divergence and it was missing whole. */
+  // 0.2 THE FOOTER. THREE FULL BLEED BANDS, EACH WITH ITS CONTENT AT THE SAME MAX
+  // WIDTH AS THE PAGE ABOVE IT. The band paints edge to edge and .wf-fin holds the
+  // content, which is the only way a band can carry its own surface and still line up
+  // with the columns above. Until 20 August 2026 the whole app was capped at 1440 and
+  // pinned to the LEFT, so a wide monitor got a dead strip on the right instead of a
+  // centred page: the cap was there and the centring was not.
+  //   Band 1 the statistics strip, band 2 the columns and the interlinking row,
+  //   band 3 the trust row and the fine print.
   function renderFooter(host) {
     if (!host) return;
-
-    // BAND 1. The statistics strip. Every figure that claims to be checkable carries
-    // its route, node 0.2 section 3. Slot 2 is the founder's open recommendation and
-    // slot 4 ships only if it can count humans in real time, section 2.
-    // A ROUTE IS RENDERED, A PROCESS NOTE IS NOT. Each of these four carried a second
-    // italic line reading "Conditional on D-B", "Slot 2, filled with a figure that has
-    // a route", "it needs its own backlog row". Those are notes we wrote to ourselves
-    // about why a slot is filled the way it is, and every one of them is already in
-    // footer.md, sections "Statistics band" and "Open items". Printed in the lowest
-    // band of every page they made the footer the densest text on the screen and put
-    // our backlog in front of a visitor. The route survives where a figure actually
-    // claims to be checkable against something else, which is slot 1 alone: slot 2
-    // names its source inside its own caption and slots 3 and 4 are absent.
     var accBtns = [];
-    var band1 = el('div', 'wf-foot-stats');
+
+    function band(cls) {
+      var b = el('div', 'wf-fband' + (cls ? ' ' + cls : ''));
+      var inner = el('div', 'wf-fin');
+      b.appendChild(inner);
+      host.appendChild(b);
+      return inner;
+    }
+
+    // ---------------------------------------------------------------- BAND 1, stats.
+    // Every figure that claims to be checkable carries its route, node 0.2 section 3.
+    // Slot 2 is the founder's open recommendation and slot 4 ships only if it can count
+    // humans in real time, section 2.
+    // A ROUTE IS RENDERED, A PROCESS NOTE IS NOT. Each of these four once carried a
+    // second italic line about why the slot is filled the way it is. Those belong in
+    // footer.md, and in the lowest band of every page they put our backlog in front of
+    // a visitor. The route survives where a figure claims to be checkable against
+    // something else, which is slot 1 alone.
+    var b1 = band('wf-fband--stats');
+    var stats = el('div', 'wf-foot-stats');
     [
       ['363 777 660', 'Cases opened', 'Checkable per case, against the observed rate on each case screen', 'catalogue.html'],
       ['1 h 40 m', 'Middle withdrawal time, from our own logs', null, 'withdrawal.html'],
       [null, 'Online now, if it can count humans in real time', null, null],
       [null, 'Aggregate tested return to player', null, null]
     ].forEach(function (f) {
-      // The fourth field is the route and it was passed here from the first version
-      // and never read: both filled figures rendered as plain text. A figure whose
-      // route exists in the data and not in the DOM is the exact shape of a claim
-      // nobody can check, 0.11 rule 1.
       var d = el(f[3] ? 'a' : 'div', 'wf-fig wf-fig-ico' + (f[3] ? ' wf-fig-a' : ''));
       if (f[3]) { d.href = BASE + f[3]; }
-      // A RESERVED ZONE FOR THE ICON, founder 19 August 2026, and it is a zone rather
-      // than a glyph on purpose: stage 04 draws no icons, 0.11 rule 8 keeps every figure
-      // as text, and a slot that is already the right size means the icon arrives as an
-      // asset in a place rather than as a new element in a finished row.
+      // A RESERVED ZONE FOR THE ICON rather than a glyph: stage 04 draws no icons, so
+      // a slot already the right size means the icon arrives as an asset in a place
+      // rather than as a new element in a finished row.
       var ic = el('span', 'wf-icon');
       ic.setAttribute('aria-hidden', 'true');
       d.appendChild(ic);
+      // NOT WRAPPED IN A TEXT BOX: .wf-fig-ico is a grid whose icon spans three rows,
+      // so the three spans are its direct children by contract. A wrapper here would
+      // have collapsed the row span and it is a shared rule, used by 3.3 as well.
       d.appendChild(el('span', 'wf-fig-v' + (f[0] ? '' : ' wf-fig-missing'), f[0] || 'Not available'));
       d.appendChild(el('span', 'wf-fig-c', f[1]));
       if (f[2]) { d.appendChild(el('span', 'wf-fig-c wf-fig-route', f[2])); }
-      band1.appendChild(d);
+      stats.appendChild(d);
     });
-    host.appendChild(band1);
+    b1.appendChild(stats);
 
     // THE LINK COLUMNS ARE ACCORDIONS BELOW 900 AND FLAT ABOVE IT, one DOM for both.
-    // footer.md, state matrix: "Three accordions, COLLAPSED BY DEFAULT AND PRESENT IN
-    // THE DOM", and section "The accordions are collapsed for reading, never for
-    // existence" requires each header to be a button carrying aria-expanded and
-    // aria-controls rather than a styled div. They shipped as four open lists at every
-    // width, which is the wrong half of the pattern: the links were all there and the
-    // control was not. The compliance lines stay outside every accordion, which is the
+    // footer.md requires each header to be a button carrying aria-expanded and
+    // aria-controls rather than a styled div, and the links to be present in the DOM
+    // at every width. The compliance lines stay outside every accordion, which is the
     // one rule in that node that holds at every width.
     var accId = 0;
-    function accordion(host, label, body) {
+    function accordion(hostEl, label, body) {
       accId += 1;
       var id = 'wf-acc-' + accId;
       var b = el('button', 'wf-foot-h');
@@ -908,103 +922,152 @@ window.WF_NAV = {
       b.addEventListener('click', function () {
         b.setAttribute('aria-expanded', b.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
       });
-      host.appendChild(b);
-      host.appendChild(body);
+      hostEl.appendChild(b);
+      hostEl.appendChild(body);
       accBtns.push(b);
       return body;
     }
 
-    // BAND 2. Four columns. The fourth is the one the baseline does not have.
-    var band2 = el('div', 'wf-foot-cols');
+    // ----------------------------------------------------------------- BAND 2, main.
+    var b2 = band('wf-fband--main');
+    var cols = el('div', 'wf-foot-cols');
 
-    var c1 = el('div', 'wf-foot-col');
-    var brand = el('a', 'wf-foot-brand', 'CS2 Clutch');
+    // COLUMN 1, the brand block, and it leads with the LOGO SLOT rather than with a
+    // wordmark. The logo is an asset stage 06 draws; what this stage owes it is the
+    // space it will occupy, at the size the live product gives it, so it arrives as an
+    // image in a place rather than as a new element in a finished column.
+    var c1 = el('div', 'wf-foot-col wf-foot-col--brand');
+    var brand = el('a', 'wf-foot-logo');
     brand.href = BASE + 'index.html';
+    brand.setAttribute('aria-label', 'CS2 Clutch, home');
+    brand.appendChild(el('span', 'wf-logo-mark', 'Logo'));
     c1.appendChild(brand);
-    c1.appendChild(el('p', 'wf-foot-h', 'Need help?'));
+    // The about line. One sentence, and it is the promise this product is built on
+    // rather than a description of the category.
+    c1.appendChild(el('p', 'wf-foot-about', 'Every case shows the chance, the current value and the tested return before you open it. Every round can be checked after it.'));
+    var ident = el('p', 'wf-foot-ident');
+    ident.appendChild(el('span', 'wf-fig-missing', 'Operating company, registration number and registered address not available'));
+    c1.appendChild(ident);
+    // Need help sits with the brand block because an appeal route is a way to reach us.
     // An outlined pill rather than a text link: G4 requires an appeal with a published
-    // deadline and Article 5(c) requires rapid contact. Neither is served by a link
+    // deadline and Article 5(c) requires rapid contact, and neither is served by a link
     // that looks like a policy.
+    var help = el('div', 'wf-foot-help');
+    help.appendChild(el('p', 'wf-foot-h', 'Need help?'));
     var sup = el('a', 'wf-btn', 'Support');
     sup.href = BASE + 'support.html';
-    c1.appendChild(sup);
-    c1.appendChild(el('p', null, 'Every case shows what it costs before you open it.'));
-    var ident = el('p', 'wf-foot-ident');
-    ident.appendChild(el('span', 'wf-fig-missing', 'Operating company, registration number and address not available'));
-    c1.appendChild(ident);
-    // THE SOCIAL SET LIVES IN THIS COLUMN SINCE D-42. It was drawn in band 4 for a few
-    // hours on 20 August 2026, beside the payment marks, and that row then held three
-    // kinds at once: a payment mark is a claim about a contract, a social link is an
-    // exit from the product, a language is a preference of the session. This column
-    // already holds every way to reach us, the Support button and the identification
-    // block, so the set joins its own kind. OWNERSHIP DOES NOT MOVE WITH THE DRAWING:
-    // 0.2 still owns the canonical set and the rail's drawer renders it from here.
-    c1.appendChild(socialSet());
-    band2.appendChild(c1);
+    help.appendChild(sup);
+    c1.appendChild(help);
+    // THE LANGUAGE MOVED INTO THIS COLUMN, D-43, and it is drawn wide rather than as a
+    // two character chip. Both references the founder supplied put it here, under the
+    // about text, and the reason survives the reference: it is the one control in the
+    // footer that changes how the whole page reads, so it belongs where the page says
+    // who it is rather than in a row of fine print.
+    c1.appendChild(langControl());
+    cols.appendChild(c1);
 
+    // COLUMNS 2 TO 4. THE COLUMN IS INHERITED AND FILLED WITH WHAT IS LIVE. Play holds
+    // two because round 1 has two public play destinations; the LATER modes enter this
+    // column as they ship, exactly as they enter the rail. A short column is the truth
+    // about the round, and padding it with a route the map does not hold would be the
+    // dead item defect one carrier down.
     [
       ['Play', [['Cases', 'catalogue.html'], ['Provably fair', 'fair.html']]],
       ['Company', [['Terms of use', 'legal.html'], ['Privacy policy', 'legal.html'],
-                   ['Cookie policy', 'legal.html'], ['Refund and payments policy', 'legal.html']]]
+                   ['Cookie policy', 'legal.html'], ['Refund and payments policy', 'legal.html']]],
+      ['Play responsibly', [['Responsible play', 'responsible.html'], ['Where we operate', 'markets.html']]]
     ].forEach(function (col) {
       var c = el('div', 'wf-foot-col');
       var nav = el('nav', 'wf-foot-list');
       nav.setAttribute('aria-label', col[0]);
       col[1].forEach(function (r) { var a = el('a', null, r[0]); a.href = BASE + r[1]; nav.appendChild(a); });
       accordion(c, col[0], nav);
-      band2.appendChild(c);
+      cols.appendChild(c);
     });
 
     // Cookie settings is a CONTROL, not a link, and the only control in that column:
     // GDPR Article 7(3), withdrawing consent must be as easy as giving it, and a
     // banner shown once is not a route back.
-    var comp = band2.children[2];
     var ck = el('button', 'wf-linklike', 'Cookie settings');
     ck.type = 'button';
-    comp.querySelector('.wf-foot-list').appendChild(ck);
+    cols.children[2].querySelector('.wf-foot-list').appendChild(ck);
 
-    // COLUMN 4, the divergence, and it is a whole column rather than a line. The
-    // baseline has no responsible play page and no age statement anywhere.
-    var c4 = el('div', 'wf-foot-col');
-    var n4 = el('nav', 'wf-foot-list');
-    n4.setAttribute('aria-label', 'Play responsibly');
-    [['Responsible play', 'responsible.html'], ['Where we operate', 'markets.html']].forEach(function (r) {
-      var a = el('a', null, r[0]); a.href = BASE + r[1]; n4.appendChild(a);
-    });
-    accordion(c4, 'Play responsibly', n4);
-    c4.appendChild(el('p', 'wf-compliance',
-      '18+ only. Opening a case is a paid chance and never an investment. Set a deposit or session limit before you start, and a limit you set never carries a streak, a status or a score.'));
-    c4.appendChild(el('p', 'wf-compliance',
-      'The market allowlist is closed by default: a market with no row is not launched rather than open. The list and the law it rests on are on Where we operate.'));
-    band2.appendChild(c4);
-    host.appendChild(band2);
+    // THE BRAND ART SLOT, founder request of 20 August 2026. It carries no information
+    // and it says so: it is a reserved place for stage 06, the same kind of object as
+    // the logo slot above it. BECAUSE IT CARRIES NOTHING IT IS THE FIRST THING TO GO,
+    // and it goes below 1200 rather than competing with four columns of real routes.
+    var art = el('div', 'wf-foot-art');
+    art.setAttribute('aria-hidden', 'true');
+    art.appendChild(el('span', 'wf-foot-art-l', 'Brand art, stage 06'));
+    cols.appendChild(art);
+    b2.appendChild(cols);
 
-    // BAND 3. The interlinking block. The baseline has none, this one is ours, and its
-    // CONTENTS are [?] on purpose: the categories are 3.1's to decide and real query
-    // volumes belong to production. Writing a plausible list now is model memory.
-    var band3 = el('div', 'wf-foot-seo');
+    // The interlinking row. The baseline has none, this one is ours, and its CONTENTS
+    // are [?] on purpose: the categories are 3.1's to decide and real query volumes
+    // belong to production. Writing a plausible list now is model memory.
+    var seo = el('div', 'wf-foot-seo');
     var seoBody = el('div', 'wf-foot-list');
     seoBody.appendChild(el('span', 'wf-fig-missing',
       'Not available: the catalogue category structure is decided on 3.1 and the query volumes belong to production'));
-    accordion(band3, 'Links to priority indexed pages', seoBody);
-    host.appendChild(band3);
+    accordion(seo, 'Links to priority indexed pages', seoBody);
+    b2.appendChild(seo);
 
-    // BAND 4. Copyright, the payment marks and the language, pre-login. THE LANGUAGE
-    // STAYS IN THIS ROW WHILE THE SOCIAL SET LEFT IT, D-42, and the reason is kind
-    // rather than convenience: a preference of the session is not a way to reach us,
-    // and the bottom row is where a product keeps the meta of the page a person is on,
-    // who owns it, what it accepts as payment, what language it is in.
-    var band4 = el('div', 'wf-foot-base');
-    band4.appendChild(el('span', 'wf-fig-c', 'CS2 Clutch, working name. Copyright range not set'));
-    var meta4 = el('div', 'wf-foot-meta');
+    // ----------------------------------------------------------------- BAND 3, base.
+    // THE COMPLIANCE LINES ARE HERE AND NOT IN A COLUMN, which is what node 0.2 has
+    // said since it was written: "the compliance line moved out of its own band and
+    // into the bottom row, and that is a promotion rather than a demotion. It now sits
+    // beside the legal identity and the copyright, which is where a compliance
+    // statement belongs and where a regulated operator puts it." The render had them
+    // stacked inside column 4 instead, where they made that column three times the
+    // height of every other one. NEVER AN ACCORDION: a statement a person has to open
+    // is not a statement, and that is the one rule in this node that holds at every
+    // width.
+    var b3 = band('wf-fband--base');
+    var trust = el('div', 'wf-foot-trust');
+
+    // THE SOCIAL SET. This node owns it and the rail's drawer renders it from here
+    // rather than keeping a second list. Which channels are ours in round 1 is [?],
+    // owner founder, so the row draws the reserved set and prints the hole.
+    var soc = el('div', 'wf-foot-soc');
+    var socNav = el('nav', 'wf-rail-soc-row');
+    socNav.setAttribute('aria-label', 'Social');
+    for (var si = 0; si < 6; si++) {
+      var sa = el('a', 'wf-rail-ico');
+      sa.href = '#';
+      sa.setAttribute('rel', 'external nofollow');
+      sa.setAttribute('aria-label', 'Social channel, set not decided');
+      socNav.appendChild(sa);
+    }
+    soc.appendChild(socNav);
+    soc.appendChild(el('span', 'wf-fig-missing', 'Which channels are ours in round 1 is not decided'));
+    trust.appendChild(soc);
+
+    // THE AGE MARK IS A MARK AND NOT A GATE. The gate is two checkboxes at sign in,
+    // D-26, and this states the rule rather than enforcing it. Drawing it as anything
+    // pressable here would be a second age gate that lets a person past.
+    var age = el('div', 'wf-foot-age');
+    var mark = el('span', 'wf-age-mark', '18+');
+    mark.setAttribute('aria-hidden', 'true');
+    age.appendChild(mark);
+    var ageTxt = el('div', 'wf-foot-age-t');
+    ageTxt.appendChild(el('p', 'wf-compliance',
+      'Over 18 only. Opening a case is a paid chance and never an investment. Set a deposit or session limit before you start, and a limit you set never carries a streak, a status or a score.'));
+    ageTxt.appendChild(el('p', 'wf-compliance',
+      'The market allowlist is closed by default: a market with no row is not launched rather than open. The list and the law it rests on are on Where we operate.'));
+    age.appendChild(ageTxt);
+    trust.appendChild(age);
+
     var marks = el('ul', 'wf-marks');
     marks.setAttribute('aria-label', 'Payment methods');
     ['Card', 'Wallet', 'Crypto'].forEach(function (m) { marks.appendChild(el('li', null, m)); });
     marks.appendChild(el('li', 'wf-fig-missing', 'Provider list not available'));
-    meta4.appendChild(marks);
-    meta4.appendChild(langControl());
-    band4.appendChild(meta4);
-    host.appendChild(band4);
+    trust.appendChild(marks);
+    b3.appendChild(trust);
+
+    var fine = el('div', 'wf-foot-fine');
+    fine.appendChild(el('span', 'wf-fig-c', 'CS2 Clutch, working name. Copyright range not set'));
+    fine.appendChild(el('span', 'wf-fig-c', 'Prices are in coins. What one coin is worth in real money is published wherever money is spent, D-28.'));
+    b3.appendChild(fine);
 
     // Collapsed is a MOBILE default, not a state the desktop inherits. Above 900 the
     // lists are open and the button reads as the column label; below it they start

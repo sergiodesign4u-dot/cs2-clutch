@@ -285,7 +285,7 @@
     <p><strong>The rail is full height</strong>, 100vh and sticky at 220px, holding the left edge from 900px. <strong>The header starts at the rail&#39;s edge</strong> and never spans the window, and it holds no destination at all.</p>
     <p><strong>The toggle sits on the junction of the two seams</strong>, node 0.1 section 1, not at the foot of the rail. At the foot it read as a fifth destination, which is the one thing this control may not look like.</p>
     <p><strong>The mobile header is one row</strong>, 61px at 360px, node 0.1 section 9. Rendered with full figures, captions and two-word controls it was three rows and 230px tall, which pushed the state strip of 1.1 off the first screen.</p>
-    <p><strong>The content column is capped at 1220px, the app at 1440px.</strong> 1440 is the width <code>baseline.md</code> walked and the width <code>home.md</code> section 7 computes its third-column argument at.</p>
+    <p><strong>The content column is capped at 1220px and centred, D-43.</strong> 1220 is what 1440 leaves after the rail, and 1440 is the width <code>baseline.md</code> walked. <strong>The cap used to sit on the app box with no auto margin</strong>, so a 2000px monitor got the whole page pinned left with a 560px dead strip on the right. The app is full width now, and the header, the main column and every footer band share one <code>padding-inline: max(gutter, (100% - 1220px) / 2)</code> - <strong>one declaration in three places, so their content edges cannot drift apart</strong>, and a band can paint edge to edge while its content still lines up with the columns above it.</p>
     <p><strong>No screen HTML changed to get any of this.</strong> The screen is laid out by a grid on <code>.wf-screen-body</code> with <code>.wf-shell</code> as <code>display: contents</code>, so a new screen inherits the shell by rendering <code>#wf-shell</code> exactly as the etalon does.</p>
   </div>
 
@@ -800,6 +800,43 @@
   </div>
 </section>
 
+<section id="measure">
+  <div class="sec-head">
+    <h2>The page gets centred, and the footer is rebuilt as three bands</h2>
+    <p>Founder, 20 August 2026, reading the rendered page on a wide monitor. Live from <code>wireframes/docs/screens.md</code> section 25. <code>D-43</code>.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The measure was capped and never centred, and it was one missing declaration</h4>
+    <p><code>.wf-screen-body</code> carried <code>max-width: 1440px</code> <strong>and no auto margin</strong>. On a 2000px monitor the whole application sat against the left edge with 560px of dead grey on the right. <strong>The cap was right. The centring was missing.</strong> And because the cap sat on the app box rather than on the measure, no band inside it could ever reach the edges of the screen either. <strong>One missing declaration doing two kinds of damage.</strong></p>
+    <p><strong>The fix is one declaration in three places rather than three declarations.</strong> The header, the main column and every footer band share <code>padding-inline: max(gutter, (100% - 1220px) / 2)</code>. Their content edges cannot drift apart because there is nothing to keep in sync, and it serves 360px and 2560px with no breakpoint of its own.</p>
+    <p><strong>Three rules had to be removed, and each had been correct when it was written.</strong> A <code>padding</code> shorthand on the header beat the later <code>padding-inline</code>, so the header alone stayed uncentred. A <code>margin: -16px</code> below 900 pulled the header out of a page padding that no longer exists and <strong>pushed it 16px past both edges instead</strong>. And a viewport-keyed copy of the footer column grid sat later in the file than the container query that replaced it and <strong>beat it silently</strong> - which is how a container query stops working with nothing reporting an error.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Four bands became three, and nothing left the footer</h4>
+    <p>The interlinking block is one hairline and one sentence; a band is a promise of weight it does not have, so it is the last row of the main band now.</p>
+    <p><strong>The brand block leads with the logo slot.</strong> It opened with "CS2 Clutch" set in bold, which is a placeholder pretending to be finished. The logo is an asset stage 06 draws and what this stage owes it is <strong>the space it will occupy</strong>. <strong>The about line is one sentence</strong> and it is the product's promise: published chance, current value, tested return before the spend, and a round checkable after it.</p>
+    <p><strong>The language switcher moves into that block</strong>, one day after D-42 put it in the bottom row. Both supplied references put it there and the reason survives the reference: <strong>it is the only control in the footer that changes how the whole page reads.</strong> Wide with the full name here, two characters in the rail, one function writing both so they cannot disagree.</p>
+    <p><strong>The compliance statements leave column 4, and that is not a decision.</strong> 0.2 has said since it was written that the statement belongs "beside the legal identity and the copyright". The render had it stacked in a column where it made that column three times the height of every other one. <strong>A render catching up with its node.</strong></p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Play holds two, and one slot is an orphan that says so</h4>
+    <p><strong>Play holds two because round 1 has two public play destinations.</strong> The column is inherited and filled with what is live, and the LATER modes enter it as they ship, exactly as they enter the rail. <strong>A short column is the truth about the round.</strong> Padding it with a route the map does not hold would be the dead item defect one carrier down.</p>
+    <p><strong>The brand art slot has no barrier code, no job and no compliance constraint</strong>, and it ships with that printed rather than argued into a parent. It is <code>aria-hidden</code>, and <strong>because it carries nothing it is the first thing to go</strong> - it leaves when the column can no longer hold five, rather than competing with four columns of real routes. A decorative slot that survived a narrowing which killed a route would be the wrong order of loss.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Four layout defects found by measuring, all fixed</h4>
+    <p><strong>Every page scrolled sideways 16px below 1200:</strong> the header's negative margin outliving the padding it cancelled.</p>
+    <p><strong>363 777 660 broke after the second group at 1440.</strong> The scaffolding panel leaves a 952px column there and four cells at 28px mono do not fit it. The figure steps down instead of wrapping, and the step is asked of the column.</p>
+    <p><strong>A 26px sideways scroll at exactly 900 with the rail collapsed.</strong> The nowrap that stopped the figure breaking <strong>also held "Not available" on one line</strong>, and in mono that string is wider than the track four columns leave at that width. <strong>A figure may not break, a printed absence may.</strong></p>
+    <p><strong>Cookie settings rendered as a filled button in a column of links:</strong> its base rule was lost in the rebuild of the footer block and it fell back to the generic button styling.</p>
+    <p><strong>Measured.</strong> 15 pages x 7 widths x both rail states, 196 checks, <strong>no page scrolling sideways anywhere</strong>. The header, the main column and the footer bands share one content edge at every width from 360 to 2560, the measure caps at 1220 and centres from 1920 up, and the brand art slot appears only where the column can hold five. <strong>One known dead link, not new:</strong> the footer's Cases route points at <code>catalogue.html</code>, which is 3.1 and still spec.</p>
+  </div>
+</section>
+
 </main>
 
 <footer class="doc">
@@ -830,6 +867,7 @@ window.NAV_SECTIONS = [
   { id: 'audit33',     label: '3.3 audit closed' },
   { id: 'railcol',     label: 'Collapsed rail' },
   { id: 'footkind',    label: 'D-42 footer kinds' },
+  { id: 'measure',     label: 'D-43 measure and footer' },
 ];
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';

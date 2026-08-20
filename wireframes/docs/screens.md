@@ -754,3 +754,54 @@ All three were left standing by `D-41` earlier the same day. **All three are cor
 **Measured.** 4 pages x 7 widths, no page scrolling sideways anywhere. The social set in the brand column and absent from the base band on every page. Two controls per page, nine options in each, both moving together when either is used, `lang` staying `en`, and every panel fully on screen at 360, 900, 1280 and 1440 in both rail states.
 
 **Not done, unchanged:** `2.4`, `2.5`, `2.6` and `2.1` are all `spec`. And `CLAUDE.md`'s locked row "Language | One, English" still carries the reading risk `D-41` named, now with more to say: **not only that a switcher may be drawn, but that eight of its options are deliberately inert.** That clause is still not written, because that file changes only on an explicit go.
+
+---
+
+## 25. The page gets centred, and the footer is rebuilt
+
+**Founder, 20 August 2026, reading the rendered page on a wide monitor.** Two things in one message: the page does not stretch, and the footer is weak. Both were right and the first one was a single missing declaration.
+
+### The measure was capped and never centred
+
+`.wf-screen-body` carried `max-width: 1440px` **and no auto margin**. On a 2000px monitor the whole application sat against the left edge with 560px of dead grey on the right. **The cap was right. The centring was missing.** And because the cap sat on the app box rather than on the measure, no band inside it could ever reach the edges of the screen either, so the header rule and the footer bands stopped short of both sides. **One missing declaration was doing two kinds of damage.**
+
+**The fix is one declaration in three places rather than three declarations.** The header, the main column and every footer band share `padding-inline: max(gutter, (100% - var(--wf-content)) / 2)`. Their content edges cannot drift apart because there is nothing to keep in sync, and it serves 360px and 2560px with no breakpoint of its own.
+
+**Three rules had to be removed, and each had been correct when it was written.**
+
+| Rule | What it was for | Why it had to go |
+|---|---|---|
+| `.wf-header { padding: var(--wf-s-1) }` | The header's own inset | A `padding` shorthand beats a later `padding-inline`, so the header alone stayed uncentred while main and footer moved |
+| `.wf-header { margin: -16px -16px 0 }` below 900 | Pulling the header out of `.wf-screen-body`'s 16px padding to reach the edges | That padding is gone. The margin then pushed the header **16px past both edges** and put a sideways scroll on every page below 1200 |
+| `.wf-foot-cols` fractions inside `@media (min-width: 900px)` | The 19 August scaffolding audit's fix | It sat later in the file than the container query that replaced it and **beat it silently.** This is how a container query stops working with nothing reporting an error |
+
+### The footer, rebuilt as three bands
+
+**Four became three.** The interlinking block is one hairline and one sentence; a band is a promise of weight it does not have, so it is the last row of the main band. **Nothing left the footer.**
+
+| Change | Why |
+|---|---|
+| **The brand block leads with the logo slot** | It opened with "CS2 Clutch" set in bold, which is a placeholder pretending to be finished. The logo is an asset stage 06 draws and what this stage owes it is **the space it will occupy** |
+| **The about line is one sentence** | Published chance, current value, tested return before the spend, and a round checkable after it. Principle 1 and `D-14`'s stated limit in one line |
+| **The language switcher moves into that block** | One day after `D-42` put it in the bottom row. Both supplied references put it here and the reason survives the reference: **it is the only control in the footer that changes how the whole page reads.** Wide with the full name here, two characters in the rail, **one function writing both so they cannot disagree** |
+| **The compliance statements leave column 4** | **Not a decision.** `0.2` has said since it was written that the statement belongs "beside the legal identity and the copyright". The render had it stacked in a column where it made that column three times the height of every other one |
+| **The trust row is three kinds on purpose** | A way to reach us, a statement about who may be here, a claim about what we accept. A stranger checks all three in one look |
+| **One brand art slot, and it is an orphan** | Founder request. No barrier code, no job, no compliance constraint, and it ships with that printed. `aria-hidden`, and **because it carries nothing it is the first thing to go** when the column can no longer hold five |
+
+**Play holds two, and that is not an omission.** The column is inherited and filled with what is live, and the LATER modes enter it as they ship, exactly as they enter the rail. **A short column is the truth about the round.**
+
+### Four layout defects found by measuring, all fixed
+
+| Defect | Cause | Fix |
+|---|---|---|
+| Every page scrolled sideways 16px below 1200 | The header's negative margin outliving the padding it cancelled | The margin removed with the padding |
+| `363 777 660` **broke after the second group** at 1440 | The scaffolding panel leaves a 952px column there, and four cells at 28px mono do not fit it | The figure steps down instead of wrapping, and the step is asked of the column |
+| A 26px sideways scroll at exactly 900 with the rail collapsed | The nowrap that stopped the figure breaking **also held "Not available" on one line**, and in mono that string is wider than the track four columns leave at that width | Scoped with `:not(.wf-fig-missing)`. **A figure may not break, a printed absence may** |
+| Cookie settings rendered as a filled button in a column of links | Its base rule was **lost in the rebuild of the footer block** and it fell back to the generic button styling | The rule restored, with the reason it exists written above it |
+
+**Measured.** 15 pages x 7 widths x both rail states, 196 checks, **no page scrolling sideways anywhere.** The header, the main column and the footer bands share one content edge at every one of nine widths from 360 to 2560, the measure caps at 1220 and centres from 1920 up, and the brand art slot appears only where the column can hold five.
+
+**One known dead link, and it is not new:** the footer's Cases route points at `catalogue.html`, which is `3.1` and still `spec`. It was there before this rebuild.
+
+**Not done, unchanged:** `2.4`, `2.5`, `2.6` and `2.1` are all `spec`. And `CLAUDE.md`'s locked row "Language | One, English" still carries the reading risk `D-41` named, with `D-42`'s eight inert options to add to it. That clause is still not written.
+

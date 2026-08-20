@@ -107,53 +107,61 @@ And the risk is documented rather than hypothetical: the bot-name concern record
 
 ## 3. Anatomy, band by band
 
+**Three bands since 20 August 2026, `D-43`, and they were four.** The interlinking block stopped being a band of its own and became the last row of the main band, because it is one hairline and one sentence and a band is a promise of weight. Nothing left the footer in the change.
+
+**Every band paints edge to edge and its content sits at the page measure.** That is the rule the whole shell now follows: the header, the main column and every footer band share one `padding-inline: max(gutter, (100% - 1220px) / 2)` declaration, so a band can carry its own surface across the full screen while its content still lines up with the columns above it. **Before `D-43` the cap sat on the app box with no auto margin**, so a wide monitor got the page pinned to the left with a dead strip on the right, and no band could reach either edge. `wireframes/docs/conventions.md` section 8.
+
 ### Band 1: the statistics strip
 
-Full width, above the footer proper, four cells, each an icon plus a figure plus a caption. Contents per section 2. **Every figure that claims to be checkable carries its route:** cases opened links to the case screens carrying the observed rate counters `D3`, the withdrawal figure links to `5.3`. The route for cases opened is per case rather than one total, per the correction in section 2.
+Full width, its own surface, four cells, each an icon zone plus a figure plus a caption. Contents per section 2. **Every figure that claims to be checkable carries its route:** cases opened links to the case screens carrying the observed rate counters `D3`, the withdrawal figure links to `5.3`. The route for cases opened is per case rather than one total, per the correction in section 2.
 
-### Band 2: the main footer, four columns
+**The figure never breaks across lines.** A number read down two lines is a different number, so the type steps down when the column narrows instead of wrapping.
+
+### Band 2: the main band, the brand block, three link columns and one reserved slot
 
 | Column | Contents | Leads to |
 |---|---|---|
-| **Brand and help** | Logo. A "Need help?" heading over a **Support button**, an outlined pill rather than a text link. A one line tagline. Then the **identification block** in small text. **Then the social set, moved here from band 4 on 20 August 2026, `D-42`** | 1.0, 0.10 |
+| **Brand and help** | **The logo slot**, at the size the live product gives a footer logo. Then the **about line**, one sentence. Then the **identification block** in small text. Then a "Need help?" label over a **Support button**, an outlined pill rather than a text link. Then the **language switcher**, drawn wide with the full language name | 1.0, 0.10 |
 | **Play** | Cases, Provably fair | 3.1, 1.2 |
 | **Company** | Terms of use, Privacy policy, Cookie policy, Refund and payments policy, **Cookie settings** | 0.9, and dialog 0.4 links the cookie policy. **Cookie settings added by the step 8 audit:** GDPR Article 7(3), quoted in node `0.4`, says "It shall be as easy to withdraw as to give consent", and a banner shown once is not a route back. It is a control rather than a link, it reopens `0.4` in its settings state, and it is the only control in this column |
-| **Play responsibly** | Responsible play, the age statement in full, the blocked market list with its cited ground | 6.1, 2.2 |
+| **Play responsibly** | Responsible play, Where we operate | 6.1, 2.2 |
+| **Brand art** | **A reserved slot, founder request of 20 August 2026, `D-43`.** Same kind of object as the logo slot: an area whose content arrives at stage 06 | Nothing. It is not a route |
 
-**The social set lives in this column, and it moved here on 20 August 2026, `D-42`.** It was drawn in band 4 earlier the same day, beside the payment marks, and that placement put two kinds in one row: a payment mark is a claim about a contract and a social link is a way to reach us. **This column already holds every way to reach us**, the Support button and the identification block, so the set joins its own kind instead of sitting beside a kind it is not. **Ownership does not move with it:** this node still owns the canonical set and the rail's drawer renders it from here rather than keeping a second list. The set itself is `[?]`, owner founder.
+**The logo leads the column rather than a wordmark, and that is a change of 20 August 2026.** The column opened with the words "CS2 Clutch" set in bold, which is a placeholder pretending to be finished. **The logo is an asset stage 06 draws, and what this stage owes it is the space it will occupy**, so it arrives as an image in a place rather than as a new element in a finished column. Both references the founder supplied lead with a large logo and so does the baseline.
+
+**The about line is one sentence and it is the product's promise, not the category's description.** "Every case shows the chance, the current value and the tested return before you open it. Every round can be checked after it." That is design principle 1 and `D-14`'s stated limit in one line: **what answers the doubt people record is published chance, current value and tested RTP at the moment of spending.**
+
+**The language switcher moved into this column, `D-43`, and it was in the bottom row for one day.** Both supplied references put it here and the reason survives the reference: **it is the only control in the footer that changes how the whole page reads**, so it belongs where the page says who it is, not in a row of fine print. It is drawn wide with the full language name and a caret, while the rail keeps the two character form. **Same control, two labels, written by one function so they cannot disagree.** Nine options, one live, `D-42`.
 
 **The support button is inherited deliberately and it is an upgrade on the first version of this node**, which had support as one link among four in a column. `G4` requires an appeal with a published response deadline and Article 5(c) requires rapid contact. Neither is served well by a link that looks like a policy.
 
-**The fourth column is the one the baseline does not have.** Its three columns are Platform, Company and Additional. There is no compliance column anywhere in its footer, because there is no responsible play page and no age statement anywhere on the product, `baseline.md` section 6. **This column is the divergence, and it is a whole column rather than a line.**
+**Play holds two because round 1 has two public play destinations.** The column is inherited and filled with what is live, and the LATER modes enter it as they ship, exactly as they enter the rail. **A short column is the truth about the round.** Padding it with a route the map does not hold would be the dead item defect one carrier down, which is the rule that took the rail from nine to one.
+
+**The fourth column is the one the baseline does not have.** Its three columns are Platform, Company and Additional. There is no compliance column anywhere in its footer, because there is no responsible play page and no age statement anywhere on the product, `baseline.md` section 6. **This column is the divergence.** It carries the two routes and no longer carries the statements: those are in band 3, see below.
+
+**The brand art slot carries no information and says so.** It is `aria-hidden`, it is labelled as stage 06's, and **because it carries nothing it is the first thing to go**: it leaves when the column can no longer hold five, rather than competing with four columns of real routes. **It is the one element in this footer with no parent in the three legal classes**, and it is carried with that printed rather than argued into one.
+
+**The interlinking row closes the band.** The baseline has none, this one is ours. **The structure is fixed here and the contents are `[?]`, which is correct rather than unfinished:** the natural contents are case categories, node `3.1` decides them, and real query volumes belong to production. **Writing a plausible list now would read as keyword research and would be model memory.**
 
 **The footer links no private transactional node.** Deposit `4.1`, account `5.1`, withdrawal `5.3`, sign in `2.4` and identity `2.7` are all noindex and none appears here. A global footer is crawled on every page, and pointing it at noindex routes spends crawl budget on pages that decline to be indexed while putting private routes on every screen a stranger sees. **The correct way not to pass a link is not to draw it**, so no `nofollow` is needed anywhere.
 
-### Band 3: the interlinking block
-
-**The baseline has none. This is ours.**
-
-**The structure is fixed here. The contents are `[?]` and that is correct rather than unfinished.** Crawlable `<a>` elements pointing at priority indexed nodes, one flat list rather than a nested one, sitting below the columns.
-
-What cannot be fixed now, with the reason: the natural contents are case categories, and the catalogue's category structure is `[?]`. Node `3.1` decides it. Real query volumes belong to production, per the three-layer SEO split in `CLAUDE.md`. **Writing a plausible list now would read as keyword research and would be model memory.**
-
-### Band 4: the bottom row
+### Band 3: the trust row and the fine print
 
 | Element | Content | Status |
 |---|---|---|
-| **Compliance line** | 18+, the responsible play link, the market statement | Moved here from its own band, see below |
-| Copyright | Year and the operating entity name | Entity name `[?]`, Article 5(a) |
+| **Social links** | The canonical set. **This node owns it**, and the rail's drawer renders it from here rather than keeping a second list | The set is `[?]`, owner founder. Drawn as a reserved row with the hole printed |
+| **The age mark and the compliance statements** | An 18+ mark, the age and limits statement, the allowlist statement | **A mark and not a gate.** The gate is two checkboxes at sign in, `D-26`. Anything pressable here would be a second age gate that lets a person past |
 | Payment and provider marks | The baseline runs three, ZEN, Visa and Mastercard, read live | **Structure fixed, contents `[?]`.** Which providers we run is a contract, and a payment mark is a claim about one |
-| Language | **A switcher with nine options, `D-41` of 20 August 2026 as amended by `D-42` the same day.** It sits at the right end of this row, beside the payment marks. **English is live. The other eight switch this control and leave the interface in English**, and the panel says exactly that | The nine are the baseline's own, `en de` Chinese `fr pl tr pt es ru`, `baseline.md` section "Header", walked 11 August 2026. **`D-02` is untouched: no second language ships, the page keeps `lang="en"` and the product carries no hreflang.** The cost is printed rather than hidden, see below |
+| Copyright | Year and the operating entity name | Entity name `[?]`, Article 5(a) |
+| The coin note | What one coin is worth in real money is published wherever money is spent | `D-28`. The peg rate itself is `[?]` |
 
-**Why the language sits here and the social set does not, `D-42`.** The two arrived in this row together and they are not the same kind. A social link is an exit from the product and belongs with the other ways to reach us. **A language is a preference of the session**, the same kind as the sound control the rail carries, and the bottom row is where a product keeps the meta of the page it is on: who owns it, what it accepts as payment, what language it is in. **Kind, not convenience, is what decides the row.**
+**The compliance statements are in this band and not in a column, which is what this node has said since it was written.** Its own words: "the compliance line moved out of its own band and into the bottom row, and that is a promotion rather than a demotion. It now sits beside the legal identity and the copyright, which is where a compliance statement belongs and where a regulated operator puts it." **The render had them stacked inside column 4 instead**, where they made that column three times the height of every other one. **This is a render catching up with the node rather than a decision**, and it was found by looking at the drawing rather than by either instrument.
 
-**The eight stub options are a founder decision and they carry a stated cost.** `D-41` shipped one live option and refused the rest by the rule that fills every other carrier in this project: a carrier is inherited and filled with live items, and only a dead item is deferred. **Eight options that return the same English interface are dead items inside a control, and they ship anyway.** The founder wants the carrier drawn ahead of its content because the live product has nine and the prototype is a portfolio artefact rather than a release. **What is bought: a reader sees the shape the real product has.** What is paid: **a control that changes nothing is a promise the product does not keep**, and in a shipped product that is a defect rather than a placeholder. It is carried in the open, printed inside the control itself, and it does not become a precedent: no other carrier in this project gets dead items on this argument.
+**Its rule is unchanged and it is the one rule in this node that holds at every width: the compliance statement never becomes an accordion.** A compliance statement a person has to open is not a statement.
 
-**Three things the stubs deliberately do not do.** The page keeps `lang="en"` in every option, because English text announced as German is an accessibility defect rather than a placeholder. **No hreflang, no localised URL and no second IA node**, so `D-02`'s three consequences are untouched: one node is one page, microcopy stays strings rather than keys, voice and glossary still run once. **And no flag icons.** A flag is a country, a language is not, and the baseline's own list makes the point: Chinese, Portuguese and Spanish each have no single flag that is not a claim about who counts.
+**Responsible play loses nothing by any of this.** It has three entries: the rail, the money control, and this band.
 
-**The compliance line moved out of its own band and into the bottom row, and that is a promotion rather than a demotion.** The first version gave it a dedicated strip above the columns. With the statistics strip taking that position, stacking two full width bands above the footer would have made a wall. It now sits beside the legal identity and the copyright, which is where a compliance statement belongs and where a regulated operator puts it. **Its rule is unchanged and it is the one rule in this node that holds at every width: the compliance line never becomes an accordion.** A compliance statement a person has to open is not a statement.
-
-**Responsible play loses nothing by the move.** It has three entries: the rail, the money control, and this line.
+**The three cells of the trust row are three different kinds on purpose:** a way to reach us, a statement about who may be here, a claim about what we accept. They share one row because **a stranger checks all three in one look**, which is what the row is for. **The statement takes the whole row before it takes a column**: two paragraphs in a third of a narrow column became a ribbon eleven lines tall, so one row of three happens only where the middle cell can hold 420px.
 
 ### Not inherited: the floating support control
 

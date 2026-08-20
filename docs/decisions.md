@@ -1239,3 +1239,45 @@ Both were left standing by `D-41` and both are kept in place with their reasons 
 ### Still open, unchanged by this record
 
 `CLAUDE.md`'s locked row "Language | One, English" is still true and still carries the reading risk `D-41` named. **The proposed clause is not written here either**, and it now has more to say than it did: not only that a switcher may be drawn, but that eight of its options are deliberately inert.
+
+---
+
+## D-43. The page gets centred, and the footer gets rebuilt as three full bleed bands
+
+**Date:** 2026-08-20. **Stage:** 04, raised against node `0.2` and the shell contract. **Decided by:** the founder, from the rendered page on a wide monitor plus two competitor footers supplied as images. **Binds:** `wireframes/docs/conventions.md` section 8, node `0.2` section 3, `_wf.css` and the shell in `wireframes/_nav.js`. **Amends** `D-42`'s placement of the language without touching what `D-42` decided about its options.
+
+**What was decided.** **The app is full width and the content measure is centred inside it.** **The footer becomes three bands that paint edge to edge with their content at that same measure.** **The brand block leads with the logo slot and carries the language switcher.** **The compliance statements leave column 4 for the trust row.** **One reserved brand art slot ships with no parent, printed.**
+
+### The defect the founder saw, and it was one line
+
+`.wf-screen-body` carried `max-width: 1440px` **and no auto margin**. On a 2000px monitor the whole application sat against the left edge with 560px of dead grey on the right. **The cap was right and the centring was missing**, and because the cap was on the app box rather than on the measure, no band inside it could ever reach the edges of the screen either. One missing declaration was doing two kinds of damage at once.
+
+**The fix is one declaration in three places rather than three declarations.** The header, the main column and every footer band share `padding-inline: max(gutter, (100% - var(--wf-content)) / 2)`. **Their content edges cannot drift apart, because there is nothing to keep in sync.** It serves a 360px phone and a 2560px monitor with no breakpoint of its own.
+
+**Three rules had to be removed for it to work, and each had been correct when it was written.**
+
+| Rule | What it was for | Why it had to go |
+|---|---|---|
+| `.wf-header { padding: var(--wf-s-1) }` | The header's own inset | A shorthand `padding` beats a later `padding-inline`, so the header alone stayed uncentred while main and footer moved |
+| `.wf-header { margin: -16px -16px 0 }` below 900 | Pulling the header out of `.wf-screen-body`'s 16px padding to reach the edges | That padding is gone. The margin then pushed the header 16px **past** both edges and put a sideways scroll on every page below 1200 |
+| `.wf-foot-cols { grid-template-columns: 1.4fr 1fr 1fr 1.2fr }` inside `@media (min-width: 900px)` | The 19 August scaffolding audit's fix | It sat later in the file than the container query that replaced it and **beat it silently**. This is how a container query stops working with nothing reporting an error |
+
+### The footer, rebuilt
+
+**Four bands became three.** The interlinking block is one hairline and one sentence; a band is a promise of weight it does not have, so it is the last row of the main band now. **Nothing left the footer.**
+
+- **The brand block leads with the logo slot.** It opened with the words "CS2 Clutch" in bold, which is a placeholder pretending to be finished. **The logo is an asset stage 06 draws and what this stage owes it is the space it will occupy**, at the size the live product gives a footer logo, so it arrives as an image in a place rather than as a new element in a finished column.
+- **The about line is one sentence and it is the product's promise:** published chance, current value, tested return before the spend, and a round that can be checked after it. That is principle 1 and `D-14`'s stated limit in one line.
+- **The language switcher moves into that block**, one day after `D-42` put it in the bottom row. Both supplied references put it here and the reason survives the reference: **it is the only control in the footer that changes how the whole page reads.** It is drawn wide with the full language name while the rail keeps the two character form. **Same control, two labels, written by one function so they cannot disagree.**
+- **The compliance statements leave column 4**, which is not a decision at all: **this node has said since it was written** that the compliance line "moved out of its own band and into the bottom row, and that is a promotion rather than a demotion. It now sits beside the legal identity and the copyright." The render had them stacked in a column where they made it three times the height of every other one. **A render catching up with its node, found by looking at the drawing.**
+- **The trust row is three kinds on purpose**, a way to reach us, a statement about who may be here, a claim about what we accept, because a stranger checks all three in one look.
+
+### The brand art slot, and it is an orphan
+
+**Founder request, and it ships with its orphan status printed rather than argued into a parent.** It has no barrier code, no job and no compliance constraint behind it. What it has is the shape both references use and the space a visual stage will want.
+
+**Because it carries nothing, it is the first thing to go:** `aria-hidden`, and it leaves the layout when the column can no longer hold five, rather than competing with four columns of real routes. **A decorative slot that survives a narrowing that kills a route would be the wrong order of loss.**
+
+### Play holds two, and that is not an omission
+
+The column is inherited and filled with what is live, and the LATER modes enter it as they ship, exactly as they enter the rail. **A short column is the truth about the round.** Padding it with a route the map does not hold would be the dead item defect one carrier down, which is the rule that took the rail from nine to one and the same rule `D-42` suspended for the language control alone.
