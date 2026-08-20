@@ -164,6 +164,19 @@
 </div>
 
 <!-- SPINE -->
+<section id="baseline-row">
+  <div class="sec-head">
+    <h2>Baseline row</h2>
+    <p>The rule in <code>CLAUDE.md</code>: every node carries one baseline row, what the live product does, what we keep, what we change and why.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:36%">What the live product does</th><th style="width:22%">What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody><tr><td>Four tabs as peers on one page, <code>INVENTORY</code>, <code>HISTORY</code>, <code>PROFILE</code>, <code>SETTINGS</code>. The inventory grid has two sorts, no filters and no search, and a sticky bar carrying a count, a sum and <strong>four exits</strong>: send to Steam, sell to site, cash out, exchange. History is <strong>five separate histories</strong>, three of which are empty and all three say only <code>History is empty...</code>. <code>baseline-account.md</code> sections 2 to 4.</td><td>The count and the sum of the selection, which are the same pair the header carries, and the per-item action set.</td><td><strong>Our map gives this node one exit and the canon has four.</strong> The other three are not competitor features to dismiss: they are the live product's answer to what a person does with a skin they do not want, and this node has no answer at all. <strong>That is an open item rather than a divergence.</strong> And <code>History is empty...</code> with no route is the empty state <code>3.2</code> refuses.</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
 <section id="spine">
   <div class="sec-head">
     <h2>The sentence this page is built around</h2>
@@ -195,7 +208,7 @@
       <thead><tr><th>#</th><th>Block</th><th>What it holds</th><th>Parent</th></tr></thead>
       <tbody>
         <tr><td><strong>1</strong></td><td><strong>Account state, one line</strong></td><td>Verified, withdrawals open. A statement of a fact resolved earlier, <strong>never a task raised here</strong></td><td>Row <span class="row-code">B7</span> on <span class="row-code">B7-1</span>. Row <span class="row-code">B1</span> on <span class="row-code">B8-4</span></td></tr>
-        <tr><td><strong>2</strong></td><td><strong>The money, two figures</strong></td><td>Balance and value of items held, both in real currency, <strong>never summed and never a score</strong></td><td><code>D-19</code> by way of <span class="surf">0.1</span>. Row <span class="row-code">C1</span></td></tr>
+        <tr><td><strong>2</strong></td><td><strong>The money, two figures</strong></td><td>Balance and value of items held, both in coins, <code>D-28</code>, <strong>never summed and never a score</strong></td><td><code>D-19</code> by way of <span class="surf">0.1</span>. Row <span class="row-code">C1</span> as <code>D-28</code> rewrote it</td></tr>
         <tr><td><strong>3</strong></td><td><strong>Withdraw, limits beside it</strong></td><td>The one CTA, and the three named limits in plain words <strong>before</strong> the person enters the route</td><td>Row <span class="row-code">G5</span> on <span class="row-code">B8-3</span> and <span class="row-code">B8-2</span></td></tr>
         <tr><td><strong>4</strong></td><td><strong>Items held, cards 0.6</strong></td><td>Each carrying its <span class="row-code">F2</span> receipt. The substance of the page</td><td>Row <span class="row-code">F2</span> on <span class="row-code">B7-1</span>. Row <span class="row-code">B7</span></td></tr>
         <tr><td><strong>5</strong></td><td><strong>The holding statement</strong></td><td>Whether this item has a deadline, from the moment it exists. Value <span class="q">[?]</span></td><td>Row <span class="row-code">G5</span></td></tr>
@@ -487,6 +500,7 @@ window.NAV_BASE = '../';
 window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '5.1 Account and inventory';
 window.NAV_SECTIONS = [
+  { id: 'baseline-row', label: 'Baseline row' },
   { id: 'overview', label: 'Overview' },
   { id: 'spine',    label: 'The sentence' },
   { id: 'blocks',   label: 'Seven blocks' },
@@ -498,6 +512,7 @@ window.NAV_SECTIONS = [
   { id: 'open',     label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

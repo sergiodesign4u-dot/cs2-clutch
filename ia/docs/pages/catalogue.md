@@ -44,7 +44,7 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 
 **Two blocks that are on the baseline and are not here.** The baseline's catalogue carries a Back control beside the breadcrumb, `baseline.md` section 4, which duplicates the browser and the rail. And its Daily Cases block is a five tier ladder with a wager counter and four mode shortcuts, which is section 2's subject.
 
-**The ticker `0.8` is not on this page.** It renders on `1.0` and `3.3` only, `sitemap.md` cluster 0, because a feed on every screen is wallpaper rather than context. That is inherited, not decided here.
+**The ticker `0.8` is not on this page.** It renders on `1.0` only since `D-31`, `sitemap.md` cluster 0, because a feed on every screen is wallpaper rather than context. That is inherited, not decided here.
 
 ---
 
@@ -52,7 +52,7 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 
 **The obligation is written down, and it predates this node.** `sitemap.md`, "Free entry gets an obligation rather than a surface": `I1` and `I2` are components rather than screens, so inventing a surface for them would be scope nobody asked for, and instead two nodes carry a debt. Home owes the starter credit `I1`. **This node owes the daily free case as an addressable case rather than as a banner.**
 
-**What addressable means, concretely.** It is a case. It has a tile, it sits in the grid, it carries the same five fields as every other tile plus the daily marker `0.7` already holds, and it routes to `3.3` like any other case.
+**What addressable means, concretely.** It is a case. It has a tile, it sits in the grid, it carries the same four fields as every other tile plus the daily marker `0.7` already holds, and it routes to `3.3` like any other case.
 
 **And the consequence, which is the part worth writing down: it can be filtered out of view.** A banner survives every filter because it is not part of the list. A case does not. If a person filters to one category or to a price range, the daily free case leaves the grid with everything else that does not match. **That is the price of the decision rather than a defect in it**, and it is stated here so that stage 04 does not quietly promote it back into a banner to keep it always visible.
 
@@ -79,7 +79,7 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 | Facet | Values | Parent | Note |
 |---|---|---|---|
 | **Category** | The category list, `[?]` | MVP Core Job 1 | **Exists only if `D-D` returns a catalogue large enough to need it.** It is also the one facet with an indexed URL, `0.13` section 4.2 |
-| **Price range** | Minimum and maximum entry cost, in one real currency, `C1` | MVP Core Job 1, and `C2`, the spend ceiling | Bank T2 **TAKE**, Key-Drop's min and max. **Same control, different job:** for us a price filter is also a way to stay under a ceiling, so it is placed where the ceiling is visible |
+| **Price range** | Minimum and maximum entry cost, in coins, `C1` as `D-28` rewrote it. **The peg renders once on the shelf**, not on every tile, `0.7` section 5.1 | MVP Core Job 1, and `C2`, the spend ceiling | Bank T2 **TAKE**, Key-Drop's min and max. **Same control, different job:** for us a price filter is also a way to stay under a ceiling, so it is placed where the ceiling is visible |
 | **Search** | Free text over case names | MVP Core Job 1 | `S-C1` in `sitemap.md`. Results are `noindex, follow`, canonical to `/cases` |
 
 **Every facet in force appears as a removable chip**, block 4, and that is not a convenience. It is the route out of `3.2`, and `3.2` is the reason the chips are specified before the empty state that needs them.
@@ -100,12 +100,12 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 |---|---|
 | `0.1` Navigation | Rail with Cases active, header with the two figures, mobile bar with position 2 active. Exactly one active item across the bar and the drawer together |
 | `0.2` Footer | Full, unchanged |
-| `0.7` Canonical case tile | The full five field tile: case name, item count, entry cost, live free-unit counter, daily marker where it applies |
+| `0.7` Canonical case tile | The tile as `D-24` rewrote it: case artwork as the largest element, case name, entry cost, risk band, plus a stock marker and a daily marker where each applies, plus the favourite control |
 | `0.11` Published numbers register | Read, not rendered. The free-unit count is a real-time row and the entry cost is static until the configuration changes |
 | `0.5` Toasts | A failed filter fetch is announced in the block, not only in a toast |
 | `0.3` System pages | A category slug that does not exist is a real 404, never an empty catalogue pretending to be one |
 
-**No node `0.6` on this page.** The skin item card belongs to the drop table on `3.3`. A catalogue that renders item cards is a catalogue showing the contents of every case at once, which is what the tile's item count field exists to summarise.
+**No node `0.6` on this page.** The skin item card belongs to the drop table on `3.3`. A catalogue that renders item cards is a catalogue showing the contents of every case at once, which is what the tile's risk band exists to summarise since `D-24` replaced the item count with it.
 
 ---
 
@@ -167,7 +167,7 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 - The category bar scrolls horizontally **with its overflow visible rather than hidden**, and the page itself never scrolls sideways.
 - Search and filter share one row. The filter's active count badge stays visible at every width, because it is the only signal that the grid is narrowed.
 - Active filter chips wrap onto as many rows as they need. **A chip never truncates its removal control**, since the control is the route out of `3.2`.
-- Tiles are one column. All five fields of `0.7` stay on the tile; none is dropped for width, because the free-unit count and the entry cost are the two the page exists to show.
+- Tiles are **two columns at 360px, which `D-24` made possible** by taking the tile down to four fields. All four stay on the tile and none is dropped for width, because the risk band and the entry cost are the two the page exists to show.
 
 **Desktop, from 900px.** The rail sits beside the content, `0.1`. The grid becomes multi column. **Filters may move into a sidebar**, Refero New Balance, and the active chips stay above the grid where the result count is, because chips beside the grid and a count above it splits one answer into two places.
 
@@ -223,7 +223,7 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 2. H2s exist in block order, matching block B.
 3. Breadcrumb drawn, Home > Cases, with `BreadcrumbList` markup because it is visible, `0.13` section 6.
 4. **Every tile is a crawlable `<a href>`**, and so is every pagination control. `0.13` section 8: a destination reachable only by script does not exist for a crawler and often not for a keyboard either.
-5. **No figure is an image.** The entry cost, the item count and the free-unit count are text, `0.11` rule 8.
+5. **No figure is an image.** The entry cost, the risk band, the stock marker and the favourite count are text, `0.11` rule 8. The risk band is words and never an icon alone, `0.7` rule 5.5.
 6. LCP is the first row of tiles. The images below the fold are lazy, the first row is not.
 7. Canonical present, no hreflang anywhere.
 8. The category slug is real or the response is a real 404, `0.3`.

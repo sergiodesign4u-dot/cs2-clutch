@@ -158,6 +158,19 @@
 </div>
 
 <!-- SCOPE -->
+<section id="baseline-row">
+  <div class="sec-head">
+    <h2>Baseline row</h2>
+    <p>The rule in <code>CLAUDE.md</code>: every node carries one baseline row, what the live product does, what we keep, what we change and why.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:36%">What the live product does</th><th style="width:22%">What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody><tr><td>The entire market control of the live product is one sentence in the terms, &quot;services exclusively to residents of countries where such activities are not prohibited&quot;, plus a self-selected country in the settings with a <code>CHANGE</code> button. <code>baseline.md</code> section 9.4 and <code>baseline-account.md</code> section 7.2.</td><td>Nothing. There is no register to inherit.</td><td><strong>Everything, and <code>D-23</code> is the largest single divergence in the project.</strong> Theirs is a blocklist enforced by the person's own declaration with no list published. <strong>And it does not even hold itself together:</strong> the settings country reads United States while the deposit country selector, in the same account on the same day, reads Ukraine. <strong>Two independent self-declared values, unreconciled.</strong></td></tr></tbody>
+    </table>
+  </div>
+</section>
+
 <section id="scope">
   <div class="sec-head">
     <h2>What this node specifies, and what it refuses to</h2>
@@ -366,6 +379,7 @@
     <p><strong>2. The licensing route and its cost.</strong> Curacao under the new ordinance is the category's route and it now demands local substance from 1 January 2026. An operating decision with a real budget, not a filing.</p>
     <p><strong>3. Whether the category's posture survives at all.</strong> Licence in one permissive place, block the loud jurisdictions, is exactly the model the Netherlands fined and Michigan is writing to. Our own research already recorded it as what competitors do rather than as advice.</p>
     <p><strong>4. The operating entity.</strong> Node <code>0.2</code> carries it as an open item with every value unresolved. This pass turns that from a form field into a decision with a legal consequence attached.</p>
+  </div>
 
   <h3 style="font-size:16px;font-weight:700;color:var(--text-primary);margin:28px 0 10px">The licence, and it decides more than where the company sits</h3>
 
@@ -678,6 +692,7 @@ window.NAV_BASE = '../';
 window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.12 Markets and jurisdictions';
 window.NAV_SECTIONS = [
+  { id: 'baseline-row', label: 'Baseline row' },
   { id: 'overview', label: 'Overview' },
   { id: 'scope',    label: 'What it refuses to decide' },
   { id: 'schema',   label: 'The row schema' },
@@ -693,6 +708,7 @@ window.NAV_SECTIONS = [
   { id: 'open',     label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

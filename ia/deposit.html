@@ -148,7 +148,7 @@
 <div class="hero" id="overview">
   <div class="section-eyebrow">Information architecture, detail layer - node 4.1, with states 4.2 to 4.5</div>
   <h1>Deposit</h1>
-  <p class="lede">Turn money into balance once, in one real currency, while the two numbers that decide what this costs and what it takes to get out again are on the screen <strong>before</strong> the payment rather than after it. <strong>This cluster closes no job and says so:</strong> its parents are barriers <code>B4-3</code>, <code>B4-1</code> and <code>B7-4</code>, plus one named compliance constraint.</p>
+  <p class="lede">Turn money into balance once, in coins with the rate on the screen, while the two numbers that decide what this costs and what it takes to get out again are on the screen <strong>before</strong> the payment rather than after it. <strong>This cluster closes no job and says so:</strong> its parents are barriers <code>B4-3</code>, <code>B4-1</code> and <code>B7-4</code>, plus one named compliance constraint.</p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Jobs closed, and it is not an omission</div></div>
     <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Capabilities, C1 C2 C4 C3</div></div>
@@ -159,6 +159,19 @@
 </div>
 
 <!-- NO JOB -->
+<section id="baseline-row">
+  <div class="sec-head">
+    <h2>Baseline row</h2>
+    <p>The rule in <code>CLAUDE.md</code>: every node carries one baseline row, what the live product does, what we keep, what we change and why.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:36%">What the live product does</th><th style="width:22%">What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody><tr><td>Two numbered steps. Step 1: a partner promo code already applied, a country selector that filters the grid, then <strong>17 fiat methods and 8 crypto</strong>. Step 2 for card: amount, email, a terms checkbox, six presets, and a panel reading <code>Rate 1.00 = $1.00</code> with a standing <strong>+5.00% bonus capped at 100 per 24 hours</strong>. Crypto gives an address per network with a live rate and a minimum, and no amount field. <code>baseline-account.md</code> section 5b.</td><td>The two step shape, the published rate at the moment of funding, and the amount presets.</td><td><strong>No crediting time is published anywhere in that flow</strong>, which is the whole of row <code>C3</code>, and the deposit history's most common status is REJECTED. <strong>Ours publishes the window before the money moves.</strong> The standing bonus and its header badge are refused, <code>0.1</code>. And one route, gift cards, leaves the product entirely to six third party resellers with no crediting story at all.</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
 <section id="nojob">
   <div class="sec-head">
     <h2>The cluster that closes no job, and the two rules that bind it hardest</h2>
@@ -225,7 +238,7 @@
       <thead><tr><th style="width:4%">#</th><th style="width:22%">Block</th><th>What it holds</th><th style="width:15%">Parent</th><th style="width:13%">First screen</th></tr></thead>
       <tbody>
         <tr><td><strong>1</strong></td><td><strong>H1 and account state</strong></td><td>The page's job in words, funding open, and the exit carries no check</td><td><span class="row-code">B1</span> <span class="row-code">B2</span>, on <span class="row-code">B8-4</span></td><td>Yes</td></tr>
-        <tr><td><strong>2</strong></td><td><strong>Amount, one real currency</strong></td><td>One input, one currency mark, no coin, no conversion, no second unit anywhere</td><td><span class="row-code">C1</span>, on <span class="row-code">B7-1</span></td><td>Yes</td></tr>
+        <tr><td><strong>2</strong></td><td><strong>Amount, and the rate beside it</strong></td><td>One input. <strong>Since <code>D-28</code> this block is where the conversion lives rather than where it is forbidden:</strong> the person types in real money, the coins it buys render beside it, and the rate is published with its as-of</td><td><span class="row-code">C1</span> as <code>D-28</code> rewrote it, on <span class="row-code">B7-1</span>, plus <span class="surf">0.11</span> rule 10</td><td>Yes</td></tr>
         <tr><td><strong>3</strong></td><td><strong>Spend ceiling for a named period</strong></td><td>Pre-filled with the amount just typed, period selector, and <strong>the asymmetry stated in the interface</strong></td><td><span class="row-code">C2</span>, on <span class="row-code">B7-4</span></td><td>Yes</td></tr>
         <tr><td><strong>4</strong></td><td>The other three limits live on <span class="surf">6.1</span></td><td>One plain line, one link, to session limit, cool down and self exclusion</td><td><span class="row-code">C5</span>, compliance constraint</td><td>Partly</td></tr>
         <tr><td><strong>5</strong></td><td><strong>Withdrawal threshold</strong></td><td>The sum required to withdraw, stated here, frozen from this moment, never able to rise</td><td><span class="row-code">C4</span>, on <span class="row-code">B4-1</span></td><td>No, and the summary carries the figure anyway</td></tr>
@@ -254,7 +267,7 @@
         <div class="wf-t"><b>Withdrawals are open and are never checked again.</b></div>
       </div>
       <div class="wf-blk">
-        <div class="wf-blk-n">2 - Amount, one real currency</div>
+        <div class="wf-blk-n">2 - Amount, and the rate beside it</div>
         <div class="wf-input"><span class="wf-num">25.00</span><span class="wf-cur">CUR</span></div>
         <div class="wf-t is-dim">One unit. No coin, no conversion, no second number.</div>
       </div>
@@ -335,9 +348,10 @@
   </div>
 
   <div class="card">
-    <h4>C1. One real currency, and no coin denomination anywhere</h4>
-    <p><strong>Parent:</strong> <code>B7-1</code>, pattern of 7 across 3 platforms, the win that turned out to be worth less than it looked. Marked "MVP, architecture" with the acceptance rule <strong>"no number renders anywhere without a currency mark"</strong>.</p>
-    <p><strong>What it deletes.</strong> The baseline runs an internal coin denomination with no visible conversion rate, with case prices quoted from 0.53 to 161.36 coins, <code>baseline.md</code> section 4. Every competitor in the bank does it too: Clash.gg prices in Gems, Hellcase in a bare number with no unit at all, Key-Drop in local currency. <strong>A second currency hides the price, and a hidden price is what lets a payout wear a label that is not a price.</strong></p>
+    <h4>C1. The coin, and the rate that has to be on this screen</h4>
+    <p><strong>Parent:</strong> <code>B7-1</code>, pattern of 7 across 3 platforms, the win that turned out to be worth less than it looked. <strong>Rewritten on 19 August 2026 by <code>D-28</code></strong>, which reversed <code>C1</code> and printed in its own record that this row was the whole structural answer to that pattern. The acceptance rule is now <strong>"no coin figure renders anywhere without the peg beside it at the moment of spending"</strong>.</p>
+    <p><strong>What it now deletes, and it is a much smaller thing than before.</strong> The baseline runs an internal coin denomination <strong>with no visible conversion rate</strong>, with case prices quoted from 0.53 to 161.36 coins, <code>baseline.md</code> section 4. <strong><code>D-28</code> takes the denomination and refuses the second half.</strong> Every competitor in the bank runs the same abstraction: Clash.gg in Gems, Hellcase in a bare number with no unit at all, Key-Drop in local currency, <strong>and not one of them publishes a rate at the moment of spending.</strong></p>
+    <p><strong>So the divergence moved rather than disappeared.</strong> It used to be the unit. It is now the rate: a coin with a published, timestamped rate against real money, on this screen where the conversion happens and on 3.3 where it is spent. A second currency still hides the price when nobody can convert it, and a hidden price is still what lets a payout wear a label that is not a price. <strong><code>D-28</code> accepted the unit and kept the argument.</strong></p>
     <p><strong>Concretely, on this screen.</strong> One input, one unit, one number. No conversion preview, no "you will receive", no bonus units, no rounding to a package. <strong>A deposit screen that prints two numbers with two units is the defect, whatever the second unit is called</strong>, and that includes a helpful equivalence.</p>
   </div>
 
@@ -427,7 +441,7 @@
     <table>
       <thead><tr><th>Line</th><th>Where the number comes from</th><th>Rule it carries</th></tr></thead>
       <tbody>
-        <tr><td><strong>Amount</strong></td><td>Block 2</td><td>One currency mark, <span class="row-code">C1</span></td></tr>
+        <tr><td><strong>Amount</strong></td><td>Block 2</td><td>Real money in, coins out, and the rate with its as-of, <span class="row-code">C1</span> as <code>D-28</code> rewrote it</td></tr>
         <tr><td><strong>Total charged</strong></td><td>Amount plus any fee. <strong>Fee is <span class="q">[?]</span></strong></td><td>If the two ever differ, both are shown. <strong>A total that silently differs from the typed amount is the defect</strong></td></tr>
         <tr><td><strong>Ceiling in force after this deposit</strong></td><td>Block 3, and <span class="surf">4.3</span> if a raise is pending</td><td>The value in force <strong>now</strong>, never the pending one</td></tr>
         <tr><td><strong>Withdrawal threshold</strong></td><td>Block 5</td><td>Frozen at this moment, <span class="row-code">C4</span></td></tr>
@@ -641,7 +655,7 @@
   <div class="card">
     <h4>Responsive</h4>
     <p><strong>Mobile 360px is the base.</strong> One column, blocks 1 to 7 in the order above, the summary docked to the bottom edge from the moment an amount exists and last in the document. <strong>No horizontal scroll at any point:</strong> the method cards stack rather than scrolling sideways, and the only element permitted its own horizontal overflow is a table, inside its own container.</p>
-    <p><strong>The amount field.</strong> The currency mark is text beside the input, never a glyph baked into an image, and never a placeholder that disappears on focus. A person who focuses the field must still be able to see what unit they are typing.</p>
+    <p><strong>The amount field.</strong> The unit is text beside the input, never a glyph baked into an image, and never a placeholder that disappears on focus. A person who focuses the field must still be able to see what unit they are typing. <strong>And since <code>D-28</code> there are two units on this screen rather than one</strong>, so the field states which one it takes and the converted figure is never editable: two editable money fields on one form is where a person types into the wrong one.</p>
     <p><strong>Desktop.</strong> Two columns, the summary as a sticky right column. <strong>The block order does not change</strong>, because it is derived from the sequence of the decision rather than from the space available. The ceiling control is the one element whose form changes: stacked at 360px, one row on desktop.</p>
   </div>
 
@@ -713,6 +727,7 @@ window.NAV_BASE = '../';
 window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '4.1 Deposit';
 window.NAV_SECTIONS = [
+  { id: 'baseline-row', label: 'Baseline row' },
   { id: 'overview',  label: 'Overview' },
   { id: 'nojob',     label: 'Closes no job' },
   { id: 'entry',     label: 'Reached through 2.7' },
@@ -726,6 +741,7 @@ window.NAV_SECTIONS = [
   { id: 'open',      label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

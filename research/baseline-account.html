@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - Baseline behind the account</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer { margin-left: var(--nav-w); } }
+    section { margin-bottom: 72px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 26px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 8px; }
+    h3 { font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 28px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ul { margin: 0 0 14px 20px; }
+    li { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 5px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px;  overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    blockquote { border-left: 2px solid var(--accent-yellow); padding: 4px 0 4px 16px; margin: 16px 0; font-size: 14.5px; color: var(--text-secondary); font-style: italic; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 64px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+    .hero-note { margin-top: 30px; padding: 18px 20px; border-radius: 10px; background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent-yellow); font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
+    .hero-note strong { color: var(--accent-yellow); }
+
+    .sec-head { margin-bottom: 26px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; margin-bottom: 14px; }
+    .card.is-gap { border-left: 3px solid var(--accent-pink); }
+    .card.is-keep { border-left: 3px solid var(--green); }
+    .card.is-open { border-left: 3px solid var(--accent-yellow); }
+
+    .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); margin: 20px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead { background: rgba(255,255,255,0.02); }
+    th { padding: 12px 14px; text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
+    td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; line-height: 1.55; }
+    tr:last-child td { border-bottom: none; }
+    td strong { color: var(--text-primary); }
+    .row-gap td { background: rgba(233,77,139,0.045); }
+
+    /* Colour swatches */
+    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin: 18px 0 8px; }
+    .sw { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--bg-card); }
+    .sw-chip { height: 62px; border-bottom: 1px solid var(--border); }
+    .sw-body { padding: 9px 11px 11px; }
+    .sw-hex { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--text-primary); letter-spacing: 0.02em; }
+    .sw-role { font-size: 11px; color: var(--text-muted); margin-top: 3px; line-height: 1.4; }
+    .sw.is-ours .sw-hex::after { content: ' • in use here'; color: var(--accent-pink); font-weight: 700; font-size: 10px; letter-spacing: 0; }
+
+    .rail { display: grid; grid-template-columns: 34px 1fr 92px; gap: 0 12px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+    .rail:last-child { border-bottom: none; }
+    .rail-no { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--text-muted); }
+    .rail-name { color: var(--text-primary); font-weight: 600; }
+    .rail-name span { display: block; font-family: 'SF Mono', Menlo, monospace; font-size: 11px; font-weight: 400; color: var(--text-muted); margin-top: 1px; }
+    .pill { justify-self: end; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: 5px; white-space: nowrap; }
+    .pill-r1 { color: var(--green); background: rgba(74,222,128,0.09); border: 1px solid rgba(74,222,128,0.32); }
+    .pill-later { color: var(--text-muted); border: 1px solid var(--border-strong); }
+
+    figure { margin: 20px 0; }
+    figure img { width: 100%; display: block; border-radius: 10px; border: 1px solid var(--border-strong); }
+    figcaption { font-size: 12px; color: var(--text-muted); margin-top: 8px; line-height: 1.5; }
+
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card { padding: 18px 16px; }
+      .rail { grid-template-columns: 26px 1fr; }
+      .pill { grid-column: 2; justify-self: start; margin-top: 4px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Research - baseline, behind the account</div>
+  <h1>Baseline behind the account</h1>
+  <p class="lede">Nineteen screenshots captured by the founder on <strong>18 August 2026</strong> and filed in <code>research/screens/baseline-account/</code>. Admitted as a source by the <code>CLAUDE.md</code> rule of the same day: the founder captures the signed-in surfaces, files dated screenshots, and from then on they are a source in the same class as a walked page. <strong>Nothing here is model memory and nothing is inferred from a competitor.</strong></p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">27</div><div class="hero-stat-label">Shots, in two batches</div></div>
+    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Earlier records corrected</div></div>
+    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Mechanic our map did not have</div></div>
+    <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Things still <span class="q">[?]</span></div></div>
+  </div>
+</div>
+
+<!-- SHELL -->
+<section id="shell">
+  <div class="sec-head">
+    <h2>The account shell, and the two money figures are exactly ours</h2>
+    <p>Breadcrumb <code>HOME / MY ACCOUNT / INVENTORY</code>. The header is one unit and it carries two figures side by side.</p>
+  </div>
+
+  <div class="card is-keep">
+    <h4>The money rule of node 0.1, live, in the canon</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Figure</th><th>Label under it</th></tr></thead>
+        <tbody>
+          <tr><td><code>35.91</code></td><td><strong>INVENTORY</strong></td></tr>
+          <tr><td><code>588.08</code></td><td><strong>BALANCE</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><code>CLAUDE.md</code> fixes it as "two figures, balance and value of items held, both in real currency, never summed and never a score". <strong>The baseline runs the same two figures with the same relationship.</strong> The one divergence stays the denomination, <code>C1</code>: theirs are in coins. <strong>Amended 19 August 2026:</strong> <code>D-28</code> reversed <code>C1</code> and took the coin, so this is no longer a divergence at all. What was walked here is unchanged; the sentence that called it a divergence was an inference and it is corrected rather than deleted. A round <code>+</code> beside them is the deposit entry, carrying a <code>5%</code> badge.</p>
+    <figure><img src="screens/baseline-account/acct_inventory_top.png" alt="The account header with two money figures and four tabs"></figure>
+  </div>
+
+  <div class="card is-open">
+    <h4>Four tabs are the whole account, and our map splits them differently</h4>
+    <p><code>INVENTORY</code>, <code>HISTORY</code>, <code>PROFILE</code>, <code>SETTINGS</code>, as four peers on one page. Our map makes <span class="pill pill-r1">5.1</span> account and inventory the node and pushes the rest into it as states. <strong>That is a structure decision 5.1 has to answer rather than inherit silently.</strong></p>
+  </div>
+</section>
+
+<!-- INVENTORY -->
+<section id="inventory">
+  <div class="sec-head">
+    <h2>Inventory, and four exits where our map has one</h2>
+    <p>Sticky action bar at the foot of the grid, carrying a count and a sum.</p>
+  </div>
+
+  <div class="card">
+    <p><strong>The bar reads:</strong> <code>55 ITEMS</code> · <code>35.91</code> · SELECT ALL / DESELECT ALL · <strong>SEND TO STEAM</strong> · <strong>SELL TO SITE</strong> · <strong>CASH-OUT</strong> · <strong>EXCHANGE</strong>. With four items selected it reads <code>4 ITEMS</code> · <code>11.39</code>. <strong>The count and the value of the selection are the same pair as the header.</strong></p>
+    <p>Block header carries a Steam connection state as a green <code>ONLINE</code> chip, a legend "- Distributed drops", and the instruction "Click on the item to select". Sort by <code>Created At</code> or <code>Price</code>. <strong>No filters, no search.</strong></p>
+  </div>
+
+  <div class="card is-gap">
+    <h4>Four exits, and our round 1 has one</h4>
+    <p><code>sitemap.md</code> gives 5.1 a single route, to 5.3 withdrawal. The baseline offers <strong>send to Steam, sell back to the site, cash out to money, and exchange for another skin.</strong></p>
+    <p>Only the first is in our round 1. <strong>The other three are not competitor features to be dismissed: they are the live product&#39;s answer to what a person does with a skin they do not want</strong>, and 5.1 currently has no answer at all.</p>
+  </div>
+</section>
+
+<!-- CARD -->
+<section id="card">
+  <div class="sec-head">
+    <h2>The item card, and what it adds to node 0.6</h2>
+    <p>Image, weapon, skin, wear in parentheses, price, then a two column foot: <code>Starting at:</code> and <code>Offers:</code>.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Item</th><th>Site price</th><th>Starting at</th><th>Offers</th></tr></thead>
+      <tbody>
+        <tr><td>M4A4 The Emperor (Battle-Scarred)</td><td><code>11.86</code></td><td><code>51.50</code></td><td>86</td></tr>
+        <tr><td>M4A4 Desert-Strike (Field-Tested)</td><td><code>4.48</code></td><td><code>27.52</code></td><td>124</td></tr>
+        <tr><td>AK-47 Emerald Pinstripe (Field-Tested)</td><td><code>4.28</code></td><td><code>1.94</code></td><td>873</td></tr>
+        <tr><td>Desert Eagle Naga (Field-Tested)</td><td><code>1.61</code></td><td><code>1.84</code></td><td>314</td></tr>
+        <tr><td>Galil AR Connexion (Minimal Wear)</td><td><code>1.02</code></td><td><code>0.77</code></td><td>191</td></tr>
+        <tr><td>ST Glock-18 Off World (Minimal Wear)</td><td><code>0.84</code></td><td><code>0.91</code></td><td>81</td></tr>
+        <tr><td>Dual Berettas Heist (Field-Tested)</td><td><code>0.59</code></td><td><code>0.87</code></td><td>60</td></tr>
+        <tr><td>SSG 08 Blue Spruce (Field-Tested)</td><td><code>0.03</code></td><td><code>0.00</code></td><td><strong>0</strong></td></tr>
+        <tr><td>Sticker, huNter Antwerp 2022</td><td><code>0.02</code></td><td><code>0.00</code></td><td><strong>0</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-keep">
+    <h4>Three things this settles</h4>
+    <p><strong>1. StatTrak is a prefix on the name</strong>, an orange <code>ST</code> before the weapon. Field 5 of 0.6 is inherited, and its rendering is inherited too.</p>
+    <p><strong>2. The card already carries a market reference and a liquidity signal</strong>, "starting at" and an offer count. Our field 12 asks for a market price with an as-of and an outbound link. <strong>The baseline has the price and the depth and has neither the timestamp nor the link.</strong> That is the gap <code>A1</code> exists to close, and it is now measured.</p>
+    <p><strong>3. The site price is not a discount on the market price. It goes both ways.</strong> Four of the nine rows have a site price <strong>above</strong> the market start, and two have <strong>no market at all</strong>. A card design that assumes the market number is always the bigger one is wrong on this data.</p>
+  </div>
+
+  <div class="card">
+    <p>Selecting one card reveals three actions on it, <strong>SELL</strong>, <strong>SEND TO STEAM</strong>, <strong>EXCHANGE</strong>, plus a <strong>share</strong> control top right. <strong>So the share of a single owned item exists in the live product</strong>, which is the object node <span class="pill pill-r1">7.1</span> was created for.</p>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section id="history">
+  <div class="sec-head">
+    <h2>Five histories, not one</h2>
+    <p>INVENTORY · DEPOSIT · WITHDRAW · CASH-OUT · CS:GO SKINS DEPOSITS. Each prints its own item count.</p>
+  </div>
+
+  <div class="card">
+    <p><strong>Inventory history renders as cards</strong>, 50 items, each with a <strong>status ribbon across its head</strong>: observed <code>SOLD</code> and <code>PENDING</code>. The ribbon is a word, not a colour alone.</p>
+    <p><strong>Deposit history renders as a table</strong>, 17 items: <code>ID</code>, <code>AMOUNT</code>, <code>METHOD</code>, <code>STATUS</code>, <code>TRANSACTION ID</code>, <code>CREATED AT</code>. Statuses <strong>REJECTED</strong> and <strong>COMPLETE</strong>. Methods <code>skinsback</code> and an <code>ethereum</code> mark. Timestamps to the second. Rows span 2022 to 2026.</p>
+  </div>
+
+  <div class="card is-gap">
+    <h4>Three of the five empty states say only "History is empty..."</h4>
+    <p>No explanation, no route, no next step. <strong>That is the pattern nodes 0.5 and 3.2 refuse</strong>, and three of five histories in the canon do exactly it.</p>
+    <p>Node 5.3 is specified with named states and a published ceiling, <code>G1</code> and <code>G2</code>. <strong>The baseline&#39;s withdraw history is empty in this account, so its state vocabulary stays <span class="q">[?]</span>.</strong></p>
+  </div>
+</section>
+
+<!-- WITHDRAW -->
+<section id="withdraw">
+  <div class="sec-head">
+    <h2>Send to Steam, and this is the most important screenshot in the set</h2>
+    <p>Two numbered steps on one page. The instruction is printed at the top, verbatim: "Choose any of the offers below for the skin withdrawal. Your balance amount may be increased or decreased, based on the market price selected".</p>
+  </div>
+
+  <div class="card">
+    <p><strong>Step 1</strong> puts the selected skin on the left showing <strong>two prices on one card</strong>: <code>4.48</code>, what the site says it is worth, and a Steam-badged <code>44.87</code> beside it. On the right, market offers with a From and To filter and a search. <strong>Each offer card carries a green <code>-39%</code> badge, a float printed to seven decimals, a three-segment band bar, and a price.</strong> Observed floats: <code>0.2171338</code>, <code>0.3494841</code>, <code>0.1776853</code>, <code>0.2473470</code>, <code>0.3059902</code>, <code>0.1688540</code>. Every offer shown is priced <code>27.52</code>.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>SKIN NAME</th><th>YOUR SKIN PRICE</th><th>MARKET SKIN PRICE</th><th>YOUR BALANCE IMPACT</th></tr></thead>
+      <tbody>
+        <tr><td>M4A4 Desert-Strike (Field-Tested)</td><td><code>4.48</code></td><td><code>27.52</code></td><td><strong style="color:var(--accent-pink)">-23.04</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure><img src="screens/baseline-account/acct_withdraw_step2_total.png" alt="Total price step: your skin price, market skin price, and the balance impact"></figure>
+
+  <div class="card is-gap">
+    <h4>The arithmetic closes exactly, and it is worth stating out loud</h4>
+    <p><code>27.52 − 4.48 = 23.04</code>, so <strong>you pay the difference between what a real copy costs on the market and what the site says your win was worth.</strong> And <code>27.52 ÷ 44.87 = 0.613</code>, which is the <code>-39%</code> badge: the offers are market copies priced 39 percent under the Steam price.</p>
+  </div>
+
+  <div class="card is-gap">
+    <h4>What this means for our map, and it is not small</h4>
+    <p><strong>1. Withdrawal on the baseline is a purchase, not a delivery.</strong> The item you won is a credit note, and taking a real skin out costs the difference. <strong>Nothing in <code>cjm-to-be.md</code>, in <code>sitemap.md</code> or in node 5.3 models this.</strong> Our whole withdrawal story assumes the thing you won is the thing you receive.</p>
+    <p><strong>2. <code>B7-1</code> is not a perception problem here, it is the product.</strong> The barrier reads: the gap between what a win appears to be worth and what it is worth. On this screen that gap is a number printed by the product itself, and in the observed row it is <strong>six times</strong> the value of the win.</p>
+    <p><strong>3. Float is shown, and at the only moment it decides anything.</strong> Entity 4 marks float <span class="q">[?]</span> and field 15 of 0.6 is carried as <span class="q">[ORPHAN]</span> because no job in our list needs it. <strong>Choosing between six copies at the same price is exactly a job that needs it.</strong></p>
+    <p><strong>4. This is the strongest argument in the project for <code>A1</code>, two prices on one item.</strong> The live product already prints two prices, at the moment of withdrawal. Ours prints them at the moment of the decision to spend, which is one screen earlier and the whole point.</p>
+  </div>
+</section>
+
+<!-- DEPOSIT -->
+<section id="deposit">
+  <div class="sec-head">
+    <h2>Deposit, node 4.1, captured the same day in a second batch</h2>
+    <p>Breadcrumb <code>HOME / BALANCE REFILL</code>. Two numbered steps, and step 1 turns into a green tick carrying the chosen method&#39;s name.</p>
+  </div>
+
+  <div class="card">
+    <h4>Step 1: a partner code already applied, a country that filters the grid, and twenty five methods</h4>
+    <p>Above the grids: <strong>"HAVE A PROMO CODE?"</strong> with a <code>Partner/Promo Code</code> field <strong>pre-filled with a partner code</strong>, a green tick and an APPLY button. <strong>Affiliate attribution is surfaced at the moment of funding, already applied.</strong> Beside it a country selector labelled <code>Choose Payment Method</code>, and <strong>the method grid is filtered by it.</strong></p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Group</th><th>Count</th><th>Methods, as named on the tiles</th></tr></thead>
+        <tbody>
+          <tr><td><strong>FIAT</strong></td><td><strong>17</strong></td><td>Visa Or Mastercard, carrying a <strong>BEST CHOICE</strong> ribbon; CS:GO Skins, marked <strong>INSTANT</strong>; UnionPay; Neosurf; Skrill; Paysafecard; Alipay; Wechat Pay; Neteller; Sofort; Google Pay; Apple Pay; Wise; Gift Cards; GrabPay; Fawry; Volet</td></tr>
+          <tr><td><strong>CRYPTO</strong></td><td><strong>8</strong></td><td>Bitcoin, Ethereum, Litecoin, Tether, Tron, Xrp, Solana, and an <strong>Other</strong> tile carrying seven more marks</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Twenty five funding routes on one screen, and our node 4.1 was drawn against a method list that is <span class="q">[?]</span>.</strong> It now has a real one, and the shape of the problem changes: the design question is not which providers to show, it is <strong>how a person chooses among twenty five without a recommendation</strong>, and the baseline answers it with one ribbon on one tile.</p>
+    <figure><img src="screens/baseline-account/acct_deposit_step1_methods.png" alt="Deposit step one: promo code, country selector, and the fiat method grid"></figure>
+  </div>
+
+  <div class="card is-open">
+    <h4>Step 2, card: the rate is published, and so is the bonus</h4>
+    <p><strong>Left, the form:</strong> payment marks, <code>Enter The Amount</code>, an <strong>Email</strong> under "Billing information", and a checkbox <strong>"I have read and accept the Terms and Conditions"</strong>, unchecked. Six presets, <code>$5</code> to <code>$200</code>.</p>
+    <p><strong>Right, what you get:</strong> <code>Rate 1.00 = $1.00</code> · <code>20.00 + 1.00 Bonus</code> · "Your deposit bonus is <strong>+5.00%</strong>, but max <strong>100 per 24 hours</strong>".</p>
+    <p><strong>This corrects our own framing, and the correction makes the claim narrower and truer.</strong> <code>sitemap.md</code> says "the baseline prices cases in coins with no visible conversion rate". <strong>On the spending surfaces that is true. At the deposit step it is false: the rate is printed.</strong> The honest version: <strong>the rate is published once, where money enters, and never again on any surface where money is spent.</strong> <code>C1</code> deletes the denomination for exactly that reason, and the reason is now precise rather than approximate.</p>
+    <p><strong>And the header badge is sourced.</strong> The bonus is a standing +5.00% with a cap, and the <code>+</code> control in the header carries a permanent <code>5%</code> badge advertising it. <strong>Node 0.1 specifies that control with no badge.</strong> That divergence now has a source.</p>
+    <figure><img src="screens/baseline-account/acct_deposit_card_form.png" alt="Deposit step two: amount, email, terms checkbox, and the bonus panel"></figure>
+  </div>
+
+  <div class="card">
+    <h4>Crypto: an address per network, a live rate, a minimum, and a precondition state</h4>
+    <p>A network dropdown, a QR, a crypto address with COPY, then <code>Current deposit rate: 1 BTC = 64,185.74</code>, <code>Promo bonus: +5.00%</code> and <strong>"Attention! Minimal deposit 0.0001 BTC"</strong>. <strong>There is no amount field:</strong> the person sends what they send, and the rate at the top is what it converts at.</p>
+    <p>The Solana screen is the state worth keeping: <strong>the same screen with the QR blurred out and an overlay, "In order to continue you need to create your solana wallet address", with a CREATE NEW ADDRESS button.</strong> The deposit address is generated per network on demand, and until it exists <strong>the screen shows the shape of itself with the payload removed rather than an error.</strong></p>
+  </div>
+
+  <div class="card">
+    <h4>Gift cards leave the product</h4>
+    <p>Six accordions, <code>DIFMARK</code>, <code>PULSE</code>, <code>KINGUIN</code>, <code>OFF GAMERS</code>, <code>KARTE DIREKT</code>, <code>ENEBA</code>, each with denominations from <code>$5</code> to <code>$200</code> and a <strong>BUY ON DIFMARK</strong> style outbound control. <strong>One of the twenty five funding routes is a set of outbound purchases on six third party resellers</strong>, and nothing says what happens after, how long a code takes to credit, or who to ask if it does not.</p>
+  </div>
+
+  <div class="card is-gap">
+    <h4>What the deposit screens do not say, and it is the whole of C3</h4>
+    <p><strong>No crediting time is published anywhere in this flow.</strong> Not on the card form, not on the crypto screen, not on the gift card accordions. Row <code>C3</code> requires a named crediting window and node 4.1 builds a state on it.</p>
+    <p><strong>And the deposit history makes that absence expensive.</strong> Seventeen rows, and the most common status is <strong>REJECTED</strong>, on <code>skinsback</code> deposits of <code>1.00</code>, across 2024, 2025 and 2026. <strong>A person meets a rejection with no published window to measure it against and no route from the history row to an explanation.</strong> That is <code>B4-3</code> and <code>B8-3</code> in one table, and it is now a walked fact.</p>
+  </div>
+
+  <div class="card is-gap">
+    <h4>Two self-declared countries in one account, and they disagree</h4>
+    <p>Settings reads <strong>"Your Selected Country: United States"</strong>. The deposit country selector, <strong>in the same account on the same day</strong>, reads <strong>Ukraine</strong>.</p>
+    <p><strong>So the live product carries two independent self-declared country values and does not reconcile them.</strong> One filters payment methods, the other sits in the profile, and neither is evidence of anything. Node 0.12 can now cite a walked contradiction rather than argue from the terms clause alone, and <code>D-23</code>&#39;s allowlist has a concrete failure mode to be measured against: <strong>a market control the person sets twice, differently, in two places.</strong></p>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section id="profile">
+  <div class="sec-head">
+    <h2>Profile, and the daily ladder gets its number</h2>
+  </div>
+
+  <div class="card is-open">
+    <p>A card headed <strong>DAILY CASES</strong>: a ring with <code>0</code> in it, the line <strong>"Next level up at <code>5.00</code> wager"</strong>, and an <code>OPEN</code> button. <strong>This answers one of the four questions the shot list could not: the wager cost of the next tier is 5.00</strong>, and available cases sit at zero until it is met.</p>
+    <p><strong>And it names something <code>D-25</code> did not know it was buying.</strong> The ladder is not only a home page block: <strong>it has a second rendering in the account.</strong> Node 1.0 rule 1 of section 2.5 keeps the ladder off responsible play surfaces. The profile is not one of those, <strong>so this is legal under the rule as written</strong>, and it is recorded so the second rendering is a decision rather than a discovery at stage 04.</p>
+    <figure><img src="screens/baseline-account/acct_profile_daily.png" alt="Daily cases block on the profile with the wager line"></figure>
+  </div>
+</section>
+
+<!-- SETTINGS -->
+<section id="settings">
+  <div class="sec-head">
+    <h2>Settings, and the responsible play tool that exists and cannot be found</h2>
+    <p>Two columns: General, Security and Linked profiles on the left, Notifications on the right.</p>
+  </div>
+
+  <div class="card is-gap">
+    <h4>The correction this forces, and it is the most useful finding in the set</h4>
+    <p><strong>The baseline record said "Responsible play: zero". The search was right and the conclusion was wrong. The tool exists.</strong></p>
+    <p>It is called <strong>TAKE A BREAK</strong>, it does <strong>deposit restriction or full account restriction</strong>, and it is the second row of the <code>SECURITY</code> block inside the settings tab of the account.</p>
+    <p><strong>What is actually true, stated precisely:</strong> there is no responsible play page; <strong>there is no route to the tool from anywhere</strong>, not the footer, not the rail, not the header, not the home page, all four re-checked on 18 August 2026; it is filed under Security beside Logout and an anonymity toggle, <strong>which is the vocabulary of account protection rather than of self protection</strong>; and a person who does not already know it exists cannot find it.</p>
+    <p><strong>So the finding is stronger than the absence would have been.</strong> An absence can be answered with "nobody in the category has it". This cannot: <strong>they built it and then filed it where nobody looks.</strong></p>
+    <figure><img src="screens/baseline-account/acct_settings_full.png" alt="Settings: general, security with TAKE A BREAK, and the notification toggles"></figure>
+  </div>
+
+  <div class="card is-gap">
+    <h4>The geo control is a dropdown the person sets themselves</h4>
+    <p><strong>"Your Selected Country: United States" with a CHANGE button.</strong> Together with the terms clause found on the second public walk, "services exclusively to residents of countries where such activities are not prohibited", this is the entire market control of the live product: <strong>the person declares their own country and can change it at any time.</strong></p>
+    <p><code>D-23</code> chose an allowlist closed by default. <strong>The distance between the two is now fully documented</strong>, and node 0.12 can cite a walked control rather than an inference.</p>
+  </div>
+
+  <div class="card">
+    <h4>What else is in there</h4>
+    <p><strong>General:</strong> username, country, Steam trade URL with a helper link, language, sound. <strong>Security:</strong> Make me Anonymous, Take a break, Logout. <strong>Linked profiles:</strong> Steam linked with a tick, then Facebook, Twitter and Google, unlinked, which confirms the four providers found in the sign-in modal.</p>
+    <p><strong>Notifications:</strong> two game toggles, and <strong>six confirmation toggles</strong>: joining bots to case battles, joining bots to gunfights, skins selling, upgrade, crypto withdrawal, skins withdrawal. <strong>So a confirmation dialog family exists, six of them by name</strong>, and none was captured. Node 0.5 has a list to build from.</p>
+  </div>
+</section>
+
+<!-- CORRECTIONS -->
+<section id="corrections">
+  <div class="sec-head">
+    <h2>Two corrections this capture forces, and they are the same class of error</h2>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Record</th><th>What it said</th><th>What is true</th></tr></thead>
+      <tbody>
+        <tr><td><code>baseline.md</code> section 6</td><td>"Responsible play: zero... no route anywhere in the inventory"</td><td><strong>A tool exists, TAKE A BREAK, with no route to it.</strong> Corrected in place, both readings kept</td></tr>
+        <tr><td><code>baseline.md</code> section 9.3, the second walk</td><td>"There is no cookie consent... no banner, no dialog, no drawer"</td><td><strong>A cookie banner exists.</strong> The second walk read a browser that had already accepted it, so the DOM probe was accurate and the conclusion was wrong. Corrected in place</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-gap">
+    <h4>The rule that comes out of both</h4>
+    <p><strong>A probe answers the question it was given.</strong> "Is there a cookie element in this DOM" and "does this product have a cookie consent" are different questions, and one browser profile cannot answer the second. <strong>Any state remembered per browser or per account is captured on a fresh one from now on.</strong></p>
+    <figure><img src="screens/baseline-account/acct_cookie_banner.png" alt="The cookie consent bar with an accept control and a dismiss cross"></figure>
+  </div>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>Still <span class="q">[?]</span> after this capture</h2>
+    <p>Four of the twenty three shots did not come back, and what they would have answered is named rather than filled.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>What</th><th>Why it matters</th><th>How it gets answered</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The deposit flow</strong></td><td>Node 4.1 is specified with a crediting window <code>C3</code> and a published timer. The history proves the methods, <code>skinsback</code> and <code>ethereum</code>, and that a REJECTED state exists and is common</td><td>A capture of the <code>+</code> control and its screens</td></tr>
+        <tr><td><strong>The open and the reveal</strong></td><td>The single most important sequence in the product for design principle 2, and <strong>no frame of it exists in this repository</strong></td><td>Before, during and after one open</td></tr>
+        <tr><td>Identity verification</td><td>Node 2.7. Nothing in the settings suggests it exists at all, which is itself a finding but not a confirmed one</td><td>Search the account for any KYC step</td></tr>
+        <tr><td>Toasts and errors</td><td>Node 0.5. Six confirmation dialogs are named in the settings and none was captured</td><td>One capture of any confirmation dialog</td></tr>
+        <tr><td>The withdraw state model</td><td><code>G1</code> names states and a per-state timer. The baseline&#39;s withdraw history is empty in this account</td><td>A capture from an account with a withdrawal in it</td></tr>
+        <tr><td>Whether the 18+ checkbox is enforced</td><td>Carried from the second public walk</td><td><strong>Stays <span class="q">[?]</span>.</strong> Testing it means creating an account</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Source of truth: <code>research/docs/baseline-account.md</code>. Screenshots: <code>research/screens/baseline-account/</code>, captured 18 August 2026.</p>
+  <p>The public half: <a href="baseline.html">Baseline walk</a>. The detail layer that reads both: <a href="../ia/structure.html">Structure</a>.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'research/research.html';
+window.NAV_ACTIVE_LABEL = 'Baseline, behind the account';
+window.NAV_SECTIONS = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'shell', label: 'The account shell' },
+  { id: 'inventory', label: 'Inventory' },
+  { id: 'card', label: 'The item card' },
+  { id: 'history', label: 'Five histories' },
+  { id: 'withdraw', label: 'Send to Steam' },
+  { id: 'deposit', label: 'Deposit' },
+  { id: 'profile', label: 'Profile and the ladder' },
+  { id: 'settings', label: 'Settings' },
+  { id: 'corrections', label: 'Two corrections' },
+  { id: 'open', label: 'Still open' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

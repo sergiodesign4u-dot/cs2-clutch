@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CS2 Clutch - 2.1 Age and geo gate</title>
+  <title>CS2 Clutch - 2.1 Geo gate</title>
   <link rel="stylesheet" href="../_nav.css">
   <style>
     :root {
@@ -143,11 +143,11 @@
 
 <div class="hero" id="overview">
   <div class="section-eyebrow">Information architecture, detail layer - node 2.1</div>
-  <h1>Age and geo gate</h1>
-  <p class="lede">Two questions, once, at the first case interaction: is this market open, and does this person declare they are old enough. <strong>It fires at the first case interaction and never on arrival</strong>, so the pre-login trust evaluation runs before the product starts asking for things. Identity verification is a different node at a different moment, which is <code>D-17</code>, and it is why the depth to the main job stays at three taps with this gate as one of them.</p>
+  <h1>Geo gate</h1>
+  <p class="lede"><strong>Rescoped on 18 August 2026 by <code>D-26</code>: the 18+ declaration left this node</strong> and now lives in the consent gate of <span class="surf">2.4</span>, two separate checkboxes with the provider control inert until both are set. <strong>What this node keeps is the market question</strong>, which <code>D-23</code> requires a surface for. One question, once, at the first case interaction: is this market open. <strong>It fires at the first case interaction and never on arrival</strong>, so the pre-login trust evaluation runs before the product starts asking for things. Identity verification is a different node at a different moment, which is <code>D-17</code>, and it is why the depth to the main job stays at three taps with this gate as one of them.</p>
   <div class="hero-meta">
-    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Questions, and nothing else</div></div>
-    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">States, both dead ends by design</div></div>
+    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Question, since <code>D-26</code></div></div>
+    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">State, a dead end by design</div></div>
     <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Register fields read, none held</div></div>
     <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Identity checks, here</div></div>
   </div>
@@ -207,7 +207,8 @@
 <!-- ORDER -->
 <section id="order">
   <div class="sec-head">
-    <h2>Market first, then age</h2>
+    <h2>Market first, then age. The second half left with D-26, and the argument is kept</h2>
+    <p style="font-size:14px;margin-top:6px"><strong>The 18+ declaration moved to the sign-in consent gate on <span class="surf">2.4</span>.</strong> The ordering argument below is kept because it is the first thing anyone re-derives if the decision is revisited.</p>
     <p>Two reasons, both structural.</p>
   </div>
 
@@ -388,7 +389,17 @@
 <!-- UNDER AGE -->
 <section id="underage">
   <div class="sec-head">
-    <h2>State 2.3. Under age, no route onward and no retry loop</h2>
+    <h2>State 2.3. Under age. Dissolved by D-26, and kept for the argument</h2>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Why it is gone, and why the section stays</h4>
+    <p>The age control is now two checkboxes on <span class="surf">2.4</span> that a person either ticks or does not. <strong>A declaration you decline to make is not a refusal that can be recorded</strong>, so there is no under-age event, nothing to store and no screen to draw. What replaces it is 2.4&#39;s own state, consent not given.</p>
+    <p><strong>The section stays because the distinction it drew, between declining to answer and declaring under 18, is the reason this node existed at all</strong>, and it is the first thing anyone will re-derive if the decision is revisited. <strong>A deleted argument cannot be reread.</strong></p>
+  </div>
+
+  <div class="sec-head" style="margin-top:26px">
+    <h3 style="margin:0">The original specification, no longer built</h3>
     <p>The loop is what the design is against: a gate that can be re-answered by reloading is a gate that teaches the answer.</p>
   </div>
 
@@ -453,7 +464,7 @@
   <div class="card">
     <p><strong>The two controls stack and never differ in visual weight.</strong> That is <span class="surf">0.4</span>'s reject-as-easy-as-accept rule applied to the second interrupt, and stacking is what stops the decline control from landing under a thumb that is already moving.</p>
     <p><strong>Desktop</strong> is the same order in a centred dialog, focus trapped, Escape closing it, the page behind it dimmed rather than removed: what the person was reading is the context for why they are being asked.</p>
-    <p><strong><span class="surf">2.2</span> and <span class="surf">2.3</span> are not dialogs at 360px.</strong> They replace the dialog's content in place, because there is nothing to return to behind them.</p>
+    <p><strong><span class="surf">2.2</span> is not a dialog at 360px.</strong> They replace the dialog's content in place, because there is nothing to return to behind them.</p>
   </div>
 
   <div class="card is-note">
@@ -506,7 +517,7 @@
 <script>
 window.NAV_BASE = '../';
 window.NAV_ACTIVE = 'ia/structure.html';
-window.NAV_ACTIVE_LABEL = '2.1 Age and geo gate';
+window.NAV_ACTIVE_LABEL = '2.1 Geo gate';
 window.NAV_SECTIONS = [
   { id: 'overview',  label: 'Overview' },
   { id: 'scope',     label: 'What it is not' },
@@ -520,6 +531,7 @@ window.NAV_SECTIONS = [
   { id: 'open',      label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

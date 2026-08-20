@@ -1,16 +1,18 @@
-# Node 2.1. Age and geo gate
+# Node 2.1. Geo gate
 
 **Type:** dialog. **Group:** `pages`. **Scope:** MVP. **Cluster:** 2, get through the door. **Alias:** `S-B1`.
 
-**Purpose.** Resolve two questions once, at the first case interaction: is this market open, and does this person declare they are old enough. Nothing else is asked here, and the word only in "the 18+ declaration only" is about scope rather than about the number.
+**Rescoped on 18 August 2026 by `D-26`. The 18+ declaration left this node.** It now lives in the consent gate of `2.4`, as two separate checkboxes with the provider control inert until both are set. **What this node keeps is the market question**, which `D-23` requires a surface for, and the reasoning below is unchanged for that half. The paragraphs that argued the two questions belong together are kept and marked, because the argument was sound and the founder overrode it knowingly, and a deleted argument cannot be reread when the decision is revisited.
 
-**Jobs served.** None of its own. **Parent class:** the compliance constraint in `CLAUDE.md`, quoted, "age verification before any case interaction", by way of row `B3`, whose own parent cell also names barrier `B8-4`; and the compliance constraints "geo blocking informed by cited legal research" and "staged regional rollout resting on cited law", by way of row `B4`. Constraint class throughout, and that is the third of the three legal classes rather than an absence of a parent.
+**Purpose.** Resolve one question once, at the first case interaction: is this market open. Nothing else is asked here, and the word only in "the 18+ declaration only" is about scope rather than about the number.
+
+**Jobs served.** None of its own. **Parent class:** the compliance constraint in `CLAUDE.md`, quoted, **"a market allowlist closed by default, so a market with no row is `not launched`"**, `D-23`, by way of row `B3`, whose own parent cell also names barrier `B8-4`; and the compliance constraints "geo blocking informed by cited legal research" and "staged regional rollout resting on cited law", by way of row `B4`. Constraint class throughout, and that is the third of the three legal classes rather than an absence of a parent.
 
 **URL.** None. It is a dialog and it renders at the URL the person is already on, which is `0.13` section 2's rule: a state has no URL of its own unless a person can arrive at it from outside, and nobody arrives at a gate from outside.
 
-**States:** `2.2` geo blocked and `2.3` under age, both specified below under their own anchors.
+**States:** `2.2` geo blocked, specified below under its own anchor. **`2.3` under age was dissolved by `D-26` and its section is kept below, marked, rather than deleted.**
 
-**Transitions:** `2.2`, `2.3`, back into `3.3`.
+**Transitions:** `2.2`, back into `3.3`.
 
 **Reads `0.12` rather than holding its own constants:** the verdict, the ground, the minimum age and the age method all come from the market row. Three of those four are values this node would otherwise have hard-coded, and `markets.md` section 2 records what that costs.
 
@@ -51,7 +53,7 @@
 
 ## 2. The order of the two checks, and why the market runs first
 
-**Market first, then age.** Two reasons and both are structural rather than aesthetic.
+**Market first, then age. **The second half left with `D-26` and the argument is kept**.** Two reasons and both are structural rather than aesthetic.
 
 1. **The minimum age is a property of the market row.** `0.12` section 1 makes minimum age and age method fields precisely because they are not universal: Belgium is 21 from 1 September 2024. We cannot ask the correct question before we know which row applies.
 2. **Asking a person to declare their age and then refusing them the market spends their statement for nothing**, and collects a declaration we have no basis to hold. A refusal that arrives after a person has answered reads as a bait, which is the shape of barrier `B8-4` at a smaller scale.
@@ -190,7 +192,13 @@ From `markets.md` section 9, and they are the register's rules rather than this 
 
 ---
 
-## 8. State 2.3. Under age
+## 8. State 2.3. Under age. **Dissolved by `D-26`, 18 August 2026, and kept for the argument**
+
+**Why it is gone.** The age control is now two checkboxes on `2.4` that a person either ticks or does not. **A declaration you decline to make is not a refusal that can be recorded**, so there is no under-age event, nothing to store and no screen to draw. What replaces it is `2.4`'s own state, consent not given, where the provider controls stay inert and nothing is written.
+
+**Why the section stays.** The distinction it drew, between declining to answer and declaring under 18, is the reason this node existed at all, and it is the first thing anyone will re-derive if the decision is revisited. **A deleted argument cannot be reread.**
+
+### 8.1 The original specification, no longer built
 
 **Type:** state. **Scope:** MVP. **Parent:** `2.1`. **Transitions:** none onward. **Dead end, by design, and no retry loop.**
 
@@ -237,7 +245,7 @@ From `markets.md` section 9, and they are the register's rules rather than this 
 
 **Desktop** is the same order in a centred dialog, focus trapped, Escape closing it, and the page behind it dimmed rather than removed: what the person was reading is the context for why they are being asked.
 
-`2.2` and `2.3` are not dialogs at 360px. They replace the dialog's content in place, because there is nothing to return to behind them.
+`2.2` is not a dialog at 360px. They replace the dialog's content in place, because there is nothing to return to behind them.
 
 ---
 
@@ -255,7 +263,7 @@ From `markets.md` section 9, and they are the register's rules rather than this 
 - **The declaration is a real control with an accessible name that states the age**, not a styled div and not a label the control does not carry.
 - **Focus moves into the dialog on open and is trapped**, and returns to the control that triggered it on dismissal.
 - **Escape closes it**, and closing records nothing.
-- **The route out of `2.2` and `2.3` is a crawlable `<a href>`**, `0.13` section 8. A destination reachable only by script does not exist for a keyboard either.
+- **The route out of `2.2` is a crawlable `<a href>`**, `0.13` section 8. A destination reachable only by script does not exist for a keyboard either.
 
 ---
 

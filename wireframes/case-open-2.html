@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ironbound: drop chances, values and tested RTP</title>
+  <meta name="description" content="Every item in Ironbound with its chance, its current value and its ticket range, plus the tested RTP and the expected value at this entry cost.">
+  <!-- PHASE 2, node 3.5. A state of the same address: the URL does not change between reading the drop table and holding the item.
+       3.3 section 15B: ONE H1 ACROSS ALL THREE PHASES, because they are states of one
+       document rather than three documents. The state has no URL of its own, so it is not
+       a second indexable page and says so here. -->
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">≡</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <!-- BLOCK 1. Breadcrumb and H1. 3.3 section 1: the H1 IS THE CASE NAME and nothing
+         else, 0.13 section 5, because that is what the person came for and what the
+         query matches. Bank T2 LEAVE on Hellcase's buried H1. The breadcrumb is real
+         markup rather than a decorative string: 0.13 section 6 marks it up. -->
+    <nav class="wf-crumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalogue.html">Cases</a></li>
+        <li><span aria-current="page">Ironbound</span></li>
+      </ol>
+    </nav>
+
+    <!-- BLOCKS 2 AND 3, drawn as one centred stage after the founder put two live case
+         screens beside this one on 19 August 2026.
+         THE STAGE IN PHASE 1 IS THE REVEAL'S STAGE IN PHASE 2, and that is structural
+         rather than visual. Section 0: the phases are states of one page and the person
+         never navigates during the main job. A frame that holds the artwork while the
+         choice is made, and the reveal once it is made, is what makes that true in the
+         layout rather than only in the routing: nothing is unmounted, one region changes
+         what it holds. Artwork in one column with the trigger in another would make
+         phase 2 build a stage phase 1 never showed, so the page would rearrange itself
+         at the exact moment the person has just spent.
+         Section 14 allows either placement, "the commit block MAY sit beside the case
+         artwork rather than under it". Centred is taken: the trigger belongs directly
+         under the thing it acts on, and the reveal replaces the thing, not the trigger.
+         WHAT THE TWO CAPTURES CARRY THAT THIS DOES NOT, each refused in section 16 with
+         its reason: the multi-open selector, 1 to 5 on one and x1 to x30 on the other,
+         AUTO, FAST OPEN, ADD TO BATTLE, the like count, and the risk band drawn as
+         skulls or bars. The flanks they occupy are inherited and filled with live items:
+         the risk band as a word on one, the favourite on the other. -->
+    <div class="wf-top">
+
+    <section class="wf-case" aria-labelledby="h1">
+      <div class="wf-case-head">
+        <!-- Left flank. D-24 made the band computable from this screen's own drop table
+             and 0.11 owns the method. Neither the thresholds nor the method is set, so
+             the band renders as the hole it is, exactly as every tile on 1.0 does. The
+             figure it is derived from is printed below, beside D4, which is where the
+             node puts it. NEVER SKULLS AND NEVER BARS: 0.11 rule 8, a figure in an icon
+             is not text, and 0.7 rule 5.5, the tier has a name and the name is in the
+             markup. -->
+        <div class="wf-flank wf-risk">
+          <span class="wf-risk-l">Risk band</span>
+          <span class="wf-fig-missing">Not available</span>
+        </div>
+        <div class="wf-case-say">
+          <h1 id="h1">Ironbound</h1>
+          <!-- Block 2 asks for the item count and "the one line that says what kind of
+               case this is", and that is all this line is. It ran three lines at 360 and
+               pushed the entry cost off the first screen, which section 14 forbids; what
+               it was saying beyond the count is already the drop table's own section
+               head, two blocks down, where it is read beside the numbers it describes. -->
+          <p class="wf-case-line">Nine items, one roll.</p>
+        </div>
+        <!-- Right flank. The favourite, 0.7 field 7, in MVP by founder decision D-24
+             with NO PARENT IN THE THREE LEGAL CLASSES, carried with that cell printed.
+             It is not the like count section 16 refuses: a favourite is the person's own
+             press on their own shelf and claims nothing beyond itself, while a like
+             count is a popularity figure printed beside a spend trigger. -->
+        <button class="wf-flank wf-fav-case" type="button" aria-pressed="false" aria-label="Favourite this case">
+          <span class="wf-fav-i" aria-hidden="true"></span><span>Favourite</span>
+        </button>
+      </div>
+
+      <!-- THE STAGE. It is the reveal lane at rest, with the case artwork large on it.
+           In phase 2 the lane is the thing that MOVES, so phase 1 and phase 2 are one
+           region holding one object in two states rather than two layouts trading places.
+           THE LANE PRINTS NO FIGURES AT ALL, and that is the correction of D-31 rather
+           than the first draft. It was first drawn as nine tiles carrying a value and a
+           chance each, on the reasoning that a strip of values alone is the shop window.
+           The founder read it as too much information on the stage and the reading is
+           right: the rule against a value with no chance beside it binds any surface that
+           PRINTS a value, and the honest way to satisfy it here is to print no value, not
+           to print two. Every figure about this case is one block down, beside the ticket
+           range, the free units and the market link that make it checkable.
+           NO POINTER. All three competitor captures draw a marker over the centre of the
+           lane. Before a roll exists, a marker over a slot points at a result that has not
+           been decided, which is E2's objection arriving one phase early. -->
+      <div class="wf-stage-frame">
+        <!-- PHASE 2 TAKES THE STAGE, and this is the whole argument for drawing the
+             frame in phase 1: nothing is unmounted and no layout is rebuilt. The lane that
+             stood still is the lane that runs, and the artwork it held is the thing it is
+             running past. THE POINTER EXISTS ONLY HERE, because only here is there a roll
+             to point at. -->
+        <!-- N REELS, ONE PER ROLL, AND THEY STAND UP FROM TWO, D-37.
+             THE AXIS IS NOT DECORATION, it is what makes several rolls readable at once.
+             Stacked horizontal lanes put every extra roll below the previous one, so the
+             second one is further from the eye than the first and the fifth is off the
+             first screen. Standing them side by side puts every roll at the same distance
+             from the eye and gives the batch ONE pointer line across all of them instead
+             of five lines at five heights. A single roll stays horizontal: with nothing to
+             compare it to, the wide axis is the one that gives the artwork its room.
+             N LANES, ONE PER ROLL, D-35. Each roll is its own settled result with its own
+             hash, so each gets its own track and its own pointer: one lane carrying five
+             results in turn would be five waits, and the second of them is a person
+             watching a machine rather than their own roll.
+             THEY RUN AT ONCE AND SETTLE IN ORDER. research.md Pattern B carries 0.5 to 1
+             second per card for bulk reveals, and section 16 of this node recorded that
+             figure as having nothing to attach to because multi-open was refused. D-31
+             gave it something. It is spent on the SETTLING and not on the running: the
+             lanes move together, then lock one after another, so five results can be read
+             one at a time without five separate waits for them.
+             THE LANES ARE SHORTER AT THREE AND ABOVE, and that is the cost of the switch
+             printed rather than absorbed: five full height lanes do not fit above the
+             fold at 360 and the stage would scroll during the one moment it may not. -->
+        <div class="wf-lanes wf-lanes--v wf-lanes--2">
+          <ul class="wf-lane wf-lane--v wf-lane--live" aria-hidden="true">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <ul class="wf-lane wf-lane--v wf-lane--live" aria-hidden="true">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <p class="wf-fig-c">Opening 2 rolls. All 2 results were settled before this animation started.</p>
+      </div>
+    </section>
+
+    <!-- THE COMMIT BLOCK, and D-31 cut it to the act and the cost of the act.
+         D-30 had moved the tested RTP and the expected value onto it a few hours
+         earlier, reasoning that design principle 3 asks for odds, cost and expected value
+         WHERE MONEY IS ABOUT TO BE SPENT. The founder read the result and the reading is
+         the correction: three figures, two explanatory paragraphs and a trigger in one box
+         is not a place where money is about to be spent, it is a page arguing. The two
+         figures went back to the block that carries their derivation, their as-of, their
+         route and the named hole beside them, and this block keeps a route to it.
+         WHAT STAYS, AND NONE OF IT IS NEGOTIABLE. The switch, because it is now part of
+         the act. THE TOTAL COST ON THE TRIGGER, the one figure design principle 3 actually
+         protects and the one thing that may never be dropped for height. The peg, 0.11
+         rule 10, wherever money is spent. The state, because a person who is not signed in
+         learns it here rather than after tapping.
+         THE COUNT SWITCH IS FOUNDER DECISION D-31 AND IT REVERSES A REFUSAL THIS NODE
+         MADE TWICE. Section 16 had said "if multi-open ever ships it ships behind C2", and
+         C2, the spend ceiling chosen at deposit, does not exist yet: that condition is now
+         a printed cost rather than a satisfied one. What the design owes in exchange:
+         THE TRIGGER CARRIES THE TOTAL AND NEVER THE UNIT, so the multiplier cannot hide
+         the amount; the switch defaults to one on every visit and remembers nothing,
+         because a remembered five is a multiplier that spends without being chosen again;
+         and there is one deliberate act per open request. x10, x20 and x30 stay refused,
+         and AUTO stays refused for the sharper reason: it removes the act entirely. -->
+    <!-- PHASE 2. One sentence from cjm-to-be.md T6 governs the whole phase: the person
+         triggers the reveal and watches, AND NOTHING ELSE HAPPENS.
+         THE TRIGGER DOES NOT RE-ARM. There is no second Open control on screen during a
+         reveal and no queued open: the same rule that refuses the multi-open selector,
+         applied to time instead of to quantity.
+         THE COST STAYS LEGIBLE AS A THING THAT HAS BEEN PAID, not removed the moment it
+         is taken, design principle 3.
+         THE HASH CHIP IS 0.14 VARIANT V1 in its pre-roll state. It never interrupts, never
+         modals and never asks. It is what makes the wait legible as WATCHING A SETTLED
+         OUTCOME RATHER THAN WAITING FOR ONE TO BE DECIDED, which is E4's actual claim. -->
+    <section class="wf-commit wf-commit--bare" aria-label="This round">
+      <div class="wf-fig wf-commit-cost">
+        <span class="wf-fig-v">24.80 coins</span>
+        <span class="wf-fig-c">Spent on 2 rolls, 2 &#215; 12.40 coins. Balance 49.40 coins</span>
+      </div>
+      <div class="wf-hash">
+        <span class="wf-hash-l">2 round hashes</span>
+        <span class="wf-hash-v">a3f91c&#8230;7d20e4</span>
+        <button type="button" class="wf-btn wf-btn--small">Copy</button>
+      </div>
+      <p class="wf-fig-c">Each of the 2 rolls was fixed before you clicked, and each has its own hash. After the reveal, every roll is checked on its own.</p>
+      <p class="wf-fig-c">Where the system asks for reduced motion, the same settled outcome arrives with the animation stilled. It never changes the cost, the odds or the result.</p>
+    </section>
+
+    </div>
+
+    <!-- BLOCK 4. WHAT HAS COME OUT OF THIS CASE. New on 19 August 2026, founder
+         decision D-30, and it is half of a refusal reversed rather than a new idea.
+         Section 16 refused Hellcase's "last 7 days top drop" and the baseline's "Best
+         drops" as SURVIVORSHIP BY CONSTRUCTION, and that reasoning was not wrong. What
+         it did was defer a carrier because the item inside it was dead, which CLAUDE.md
+         names as the defect in the other direction: a carrier is inherited and filled
+         with live items, and only a dead item is deferred. THE DEAD ITEM HERE IS THE
+         RANKING, NOT THE ROW.
+         SO: time order, never sorted by value. No multiplier, x38.8 on one capture and
+         x536.2 on another. No seven-day window, because a window that can be tuned
+         upward is a claim. No word "best". NO PERSON, which is the clean line between
+         this row and the ticker at the foot of the page: the ticker carries people and
+         no values, this row carries values and no people, and neither is the other with
+         a different sort order.
+         THE COST STAYS ON IT AND IS PRINTED. Six outcomes are six outcomes and nothing
+         about them is a distribution, so the caption routes to the tier ladder, which is
+         the block that can disappoint. -->
+    <section class="wf-sec" aria-labelledby="h2-recent">
+      <div class="wf-sec-head">
+        <h2 id="h2-recent">Best drops</h2>
+        <p class="wf-sec-sub">The six biggest out of this case, by value. <a href="#h2-observed">What the rates actually are</a></p>
+      </div>
+      <ul class="wf-recent">
+        <li><a href="result.html"><span class="wf-r-art" aria-hidden="true"></span><span class="wf-r-w">AK-47</span><span class="wf-r-s">Redline</span><span class="wf-r-v">47.30 coins</span><span class="wf-r-t">18 Aug, 14:44</span></a></li>
+        <li><a href="result.html"><span class="wf-r-art" aria-hidden="true"></span><span class="wf-r-w">USP-S</span><span class="wf-r-s">Kill Confirmed</span><span class="wf-r-v">14.20 coins</span><span class="wf-r-t">18 Aug, 14:22</span></a></li>
+        <li><a href="result.html"><span class="wf-r-art" aria-hidden="true"></span><span class="wf-r-w">Glock-18</span><span class="wf-r-s">Water Elemental</span><span class="wf-r-v">12.90 coins</span><span class="wf-r-t">18 Aug, 14:58</span></a></li>
+        <li><a href="result.html"><span class="wf-r-art" aria-hidden="true"></span><span class="wf-r-w">Nova</span><span class="wf-r-s">Koi</span><span class="wf-r-v">7.90 coins</span><span class="wf-r-t">18 Aug, 14:39</span></a></li>
+        <li><a href="result.html"><span class="wf-r-art" aria-hidden="true"></span><span class="wf-r-w">MP9</span><span class="wf-r-s">Rose Iron</span><span class="wf-r-v">7.40 coins</span><span class="wf-r-t">18 Aug, 14:51</span></a></li>
+        <li><a href="result.html"><span class="wf-r-art" aria-hidden="true"></span><span class="wf-r-w">P250</span><span class="wf-r-s">Asiimov</span><span class="wf-r-v">6.90 coins</span><span class="wf-r-t">18 Aug, 14:31</span></a></li>
+      </ul>
+      <!-- RANKED BY VALUE AND CALLED BEST DROPS, D-32, and this is the third pass on one
+           block. D-30 took the carrier and refused the ranking. D-31 refused the label,
+           because a heading claiming a rank over a list in time order lies about the list.
+           THE FOUNDER ASKED FOR THE RANKED ROW A THIRD TIME, and a request repeated three
+           times is a decision rather than a misunderstanding. The ranking arrives with the
+           label and the two now agree.
+           THE COST IS NOT REDUCED BY HAVING BEEN PREDICTED. This is survivorship by
+           construction in this node's own words: the biggest drops of a period are not
+           what happens. The block that says what does happen is the tier ladder, one tap
+           away in the caption, AND IT DOES NOT RENDER IF D-B COMES BACK NEGATIVE, which is
+           the state this row should be reconsidered in.
+           STILL REFUSED INSIDE THE ROW: the multiplier, the window chosen to flatter, and
+           any person's name. -->
+      <p class="wf-note">Sorted by value, so this row is the top of the distribution and not the middle of it. <a href="#h2-observed">The published rate against the observed rate</a> is the block that says what usually happens, and it is the one that can disappoint. <span class="wf-fig-missing">How many this row shows, and over what window, is not decided.</span></p>
+    </section>
+
+    <!-- BLOCKS 5 AND 6. The drop table and its freshness stamp. D2 and D1, with A1 and A2. Bank T3 TAKE Hellcase's
+         full pre-login drop table, DIFFERENT on the pairing: NEITHER HELLCASE NOR
+         SKIN.CLUB SHOWS CHANCE AND CURRENT VALUE ON THE SAME ITEM. A chance without a
+         value is a lottery ticket with no prize printed on it, 0.6 rule 5.2.
+         GROUPED BY RARITY TIER and ordered by ticket range inside each tier, section 3.
+         The grouping is not decoration: D3 attaches the counter above to the tier, so a
+         table with no grouping has nowhere to put block 5. An order a person can
+         reconstruct is an order they can check.
+         RENDERED AS A UNIFORM CARD GRID AT EVERY WIDTH since D-30, one column at 360
+         and four from 1200. Section 1 always said item cards 0.6 and section 14 granted
+         desktop a multi column table, and the two had never been made to agree; all four
+         live pages walked for this node render a grid. WHAT MAKES A GRID A COMPARISON
+         RATHER THAN A WALL IS A RULE AND NOT A SHAPE: every field sits in the same place
+         on every card and no card omits one, so it is read column-major exactly as a
+         table is. The markup stays a table: a grid of divs would throw away the row
+         group, the caption and the header association in exchange for a layout CSS
+         produces from the table anyway.
+         THE GROUP HEADINGS ARE NOT HEADINGS. Four H3s here would break the mechanical
+         check in section 15E, which reads the H2 and H3 list against the block order.
+         Their name travels in the row group's own accessible name instead. -->
+    <section class="wf-sec" aria-labelledby="h2-contents">
+      <div class="wf-sec-head">
+        <h2 id="h2-contents">What is in this case</h2>
+        <p class="wf-sec-sub">Nine items, grouped by tier and ordered by ticket range. Chance and current value on the same card, never one without the other. Same items as the strip on the stage, with the ticket range, the free units and the market link the strip does not carry.</p>
+      </div>
+
+      <p class="wf-stamp">Values last read 18 Aug 2026 14:02. <span class="wf-fig-c">The published chance carries no stamp: it is static until the configuration changes, and one stamp over both would quietly claim the chance was re-read too.</span></p>
+
+      <div class="wf-tablewrap">
+        <table class="wf-table wf-drops">
+          <caption class="wf-vh">Every item in Ironbound with its chance, value, ticket range and free units</caption>
+          <thead>
+            <tr>
+              <th scope="col">Item image</th>
+              <th scope="col">Item</th>
+              <th scope="col">Chance</th>
+              <th scope="col">Value</th>
+              <th scope="col">Tickets</th>
+              <th scope="col">Free units</th>
+            </tr>
+          </thead>
+
+          <tbody class="wf-tier" aria-label="Covert, 4.200 percent published">
+            <tr class="wf-tier-h"><td colspan="6"><span class="wf-tier-n">Covert</span> <span class="wf-fig-c">2 items · 4.200 % published</span></td></tr>
+            <tr>
+              <td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>
+              <th scope="row">
+                <span class="wf-d-name">
+                  <span class="wf-d-weapon">AK-47</span>
+                  <span class="wf-d-skin">Redline</span>
+                  <span class="wf-d-axes">Field-Tested · StatTrak · Covert</span>
+                </span>
+              </th>
+              <td data-l="Chance">3.180 %</td>
+              <td data-l="Value">47.30 coins</td>
+              <td data-l="Tickets">1 to 3 180</td>
+              <td data-l="Free units">4</td>
+            </tr>
+            <tr>
+              <td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>
+              <th scope="row">
+                <span class="wf-d-name">
+                  <span class="wf-d-weapon">AWP</span>
+                  <span class="wf-d-skin">Asiimov</span>
+                  <span class="wf-d-axes">Well-Worn · Covert</span>
+                </span>
+              </th>
+              <td data-l="Chance">1.020 %</td>
+              <td data-l="Value">38.90 coins</td>
+              <td data-l="Tickets">3 181 to 4 200</td>
+              <td data-l="Free units">2</td>
+            </tr>
+          </tbody>
+
+          <tbody class="wf-tier" aria-label="Classified, 6.800 percent published">
+            <tr class="wf-tier-h"><td colspan="6"><span class="wf-tier-n">Classified</span> <span class="wf-fig-c">2 items · 6.800 % published</span></td></tr>
+            <tr>
+              <td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>
+              <th scope="row">
+                <span class="wf-d-name">
+                  <span class="wf-d-weapon">M4A1-S</span>
+                  <span class="wf-d-skin">Hyper Beast</span>
+                  <span class="wf-d-axes">Factory New · Classified</span>
+                </span>
+              </th>
+              <td data-l="Chance">4.600 %</td>
+              <td data-l="Value">24.60 coins</td>
+              <td data-l="Tickets">4 201 to 8 800</td>
+              <td data-l="Free units">6</td>
+            </tr>
+            <tr>
+              <td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>
+              <th scope="row">
+                <span class="wf-d-name">
+                  <span class="wf-d-weapon">Desert Eagle</span>
+                  <span class="wf-d-skin">Blaze</span>
+                  <span class="wf-d-axes">Factory New · Classified</span>
+                </span>
+              </th>
+              <td data-l="Chance">2.200 %</td>
+              <td data-l="Value">21.80 coins</td>
+              <td data-l="Tickets">8 801 to 11 000</td>
+              <td data-l="Free units">3</td>
+            </tr>
+          </tbody>
+
+          <tbody class="wf-tier" aria-label="Restricted, 26.000 percent published">
+            <tr class="wf-tier-h"><td colspan="6"><span class="wf-tier-n">Restricted</span> <span class="wf-fig-c">2 items · 26.000 % published</span></td></tr>
+            <tr>
+              <td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>
+              <th scope="row">
+                <span class="wf-d-name">
+                  <span class="wf-d-weapon">USP-S</span>
+                  <span class="wf-d-skin">Kill Confirmed</span>
+                  <span class="wf-d-axes">Minimal Wear · Restricted</span>
+                </span>
+              </th>
+              <td data-l="Chance">12.000 %</td>
+              <td data-l="Value">14.20 coins</td>
+              <td data-l="Tickets">11 001 to 23 000</td>
+              <td data-l="Free units">11</td>
+            </tr>
+            <tr>
+              <td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>
+              <th scope="row">
+                <span class="wf-d-name">
+                  <span class="wf-d-weapon">Glock-18</span>
+                  <span class="wf-d-skin">Water Elemental</span>
+                  <span class="wf-d-axes">Minimal Wear · Restricted</span>
+                </span>
+              </th>
+              <td data-l="Chance">14.000 %</td>
+              <td data-l="Value">12.90 coins</td>
+              <td data-l="Tickets">23 001 to 37 000</td>
+              <td data-l="Free units">14</td>
+            </tr>
+          </tbody>
+
+          <tbody class="wf-tier" aria-label="Mil-Spec, 63.000 percent published">
+            <tr class="wf-tier-h"><td colspan="6"><span class="wf-tier-n">Mil-Spec</span> <span class="wf-fig-c">3 items · 63.000 % published</span></td></tr>
+            <tr>
+              <td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>
+              <th scope="row">
+                <span class="wf-d-name">
+                  <span class="wf-d-weapon">MP9</span>
+                  <span class="wf-d-skin">Rose Iron</span>
+                  <span class="wf-d-axes">Field-Tested · Mil-Spec</span>
+                </span>
+              </th>
+              <td data-l="Chance">22.000 %</td>
+              <td data-l="Value">7.40 coins</td>
+              <td data-l="Tickets">37 001 to 59 000</td>
+              <td data-l="Free units">27</td>
+            </tr>
+            <tr>
+              <td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>
+              <th scope="row">
+                <span class="wf-d-name">
+                  <span class="wf-d-weapon">P250</span>
+                  <span class="wf-d-skin">Asiimov</span>
+                  <span class="wf-d-axes">Battle-Scarred · Mil-Spec</span>
+                </span>
+              </th>
+              <td data-l="Chance">21.000 %</td>
+              <td data-l="Value">6.90 coins</td>
+              <td data-l="Tickets">59 001 to 80 000</td>
+              <td data-l="Free units">22</td>
+            </tr>
+            <tr>
+              <td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>
+              <th scope="row">
+                <span class="wf-d-name">
+                  <span class="wf-d-weapon">Nova</span>
+                  <span class="wf-d-skin">Koi</span>
+                  <span class="wf-d-axes">Factory New · Mil-Spec</span>
+                </span>
+              </th>
+              <td data-l="Chance">20.000 %</td>
+              <td data-l="Value">7.90 coins</td>
+              <td data-l="Tickets">80 001 to 100 000</td>
+              <td data-l="Free units">19</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- A1 puts the outbound market link ON THE TOP ITEM, and that wording is carried
+           rather than generalised, 0.6 field 12. It is genuinely outbound: cjm-to-be.md
+           records outbound clicks as an accepted cost and never as a failure metric,
+           which is what stops the link being quietly weakened later. -->
+      <p class="wf-note">Top item, AK-47 Redline: market price on Steam 22.15 EUR, as of 18 Aug 2026 14:02. <span class="wf-fig-missing">Not comparable to the value above until the coin peg is published, D-28.</span> <a href="https://steamcommunity.com/market/" rel="external nofollow">Open on the market</a></p>
+      <p class="wf-note wf-fig-missing">Whether this rarity ladder is the game's own rather than any platform's is not checked. It was walked by colour on two live case pages and the names were not captured with it, so the treatment is not free to change until one page is opened and compared.</p>
+    </section>
+
+    <!-- BLOCK 7. The case numbers, and since D-30 this section EXPLAINS figures the
+         commit block already printed. D4 on design principle 3 and B1-2. Bank T3 TAKE THE
+         ABSENCE AS THE OPPORTUNITY: neither Hellcase nor skin.club prints RTP, EV or an
+         observed rate anywhere on a case page.
+         IT SITS AFTER THE TABLE BECAUSE THE DERIVATION IS THE TABLE. The old rule put
+         this block above it, reasoning that a summary under a list is read after the
+         list. D-30 replaced the remedy rather than the danger: the two figures now sit
+         on the commit block, where design principle 3 actually asks for them, and this
+         block carries what a figure beside a trigger cannot, which is the derivation, the
+         as-of, the route and the named hole.
+         THE EV IS RECOMPUTABLE ON THIS PAGE and that is a layout requirement rather
+         than a nicety, section 5: 0.11 calls it the strongest row in the register
+         because a reader who distrusts it can derive it without leaving the page. The
+         table below is the table it was computed from. -->
+    <section class="wf-sec" aria-labelledby="h2-pays">
+      <div class="wf-sec-head">
+        <h2 id="h2-pays">What this case pays</h2>
+        <p class="wf-sec-sub">The first two are already on the trigger above. Here is where they come from, what is missing behind them, and the arithmetic you can do yourself.</p>
+      </div>
+      <div class="wf-figs">
+        <div class="wf-fig">
+          <span class="wf-fig-v">94.2 %</span>
+          <span class="wf-fig-c">Tested return to player for this case</span>
+          <span class="wf-fig-c wf-fig-missing">Who tested it, when, and over how many opens is not published yet</span>
+        </div>
+        <div class="wf-fig">
+          <span class="wf-fig-v">11.68 coins</span>
+          <span class="wf-fig-c">Expected value at this entry cost. Add every chance below multiplied by its value and you get this number</span>
+        </div>
+        <div class="wf-fig">
+          <span class="wf-fig-v">37.000 %</span>
+          <span class="wf-fig-c">Share of outcomes worth at least the entry cost. Tickets 1 to 37 000 of 100 000</span>
+          <span class="wf-fig-c wf-fig-missing">Risk band not available: neither the thresholds between the three named values nor the method behind them is set</span>
+        </div>
+        <div class="wf-fig">
+          <span class="wf-fig-v">100 000</span>
+          <span class="wf-fig-c">Tickets in this case. Every range below falls inside it and none of them overlap</span>
+        </div>
+      </div>
+      <p class="wf-note">If you can afford an item outright, buying it is cheaper on average than opening for it. Opening buys the chance and the reveal, not a discount.</p>
+    </section>
+
+    <!-- BLOCK 8. The tier ladder. D3, on B7-2 pattern of 11 and B6-2 pattern of 9.
+         Bank T3 DIFFERENT against Hellcase's "last 7 days top drop": survivorship by
+         construction, where this can disappoint and is therefore worth reading.
+         BOTH CONDITIONS ARE PRINTED HERE RATHER THAN IN A FOOTNOTE, section 4, because
+         this is the block that does not ship if either comes back negative.
+         N IS PRINTED ALWAYS, 0.11 rule 4, and never dropped for width. -->
+    <section class="wf-sec" aria-labelledby="h2-observed">
+      <div class="wf-sec-head">
+        <h2 id="h2-observed">Published against observed</h2>
+        <p class="wf-sec-sub">The percentage we publish for each tier, and the percentage that actually came out, from the same ledger that pays people.</p>
+      </div>
+      <div class="wf-tablewrap">
+        <table class="wf-table">
+          <caption class="wf-vh">Published and observed rate per rarity tier</caption>
+          <thead>
+            <tr><th scope="col">Tier</th><th scope="col">Published</th><th scope="col">Observed</th><th scope="col">Rolls</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Covert</th><td>4.200 %</td><td>4.06 %</td><td>41 208</td></tr>
+            <tr><th scope="row">Classified</th><td>6.800 %</td><td>6.94 %</td><td>41 208</td></tr>
+            <tr><th scope="row">Restricted</th><td>26.000 %</td><td>25.71 %</td><td>41 208</td></tr>
+            <tr><th scope="row">Mil-Spec</th><td>63.000 %</td><td>63.29 %</td><td>41 208</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="wf-note">Never reset. If the weights of this case change, this counter forks: the old configuration keeps its history and the new one starts at zero and says so.</p>
+      <p class="wf-note wf-fig-missing">Two conditions travel with this block and both are printed rather than footnoted. It renders only if six years of roll history can be migrated and published, D-B, and only if the internal check of observed against published returns, D-C. Neither is answered. The sample floor, the N below which a tier shows its rolls and no percentage, is not set either.</p>
+      <p class="wf-note">This block is not the round proof and the two are never merged. The proof shows a round was fixed before the click. This shows whether the published chances are the chances used, which is a different question with a different answer.</p>
+    </section>
+
+    <!-- THE TICKER IS NOT ON THIS PAGE, founder decision D-31, 19 August 2026.
+         It rendered here and on 1.0 and nowhere else, and this node argued its place at
+         the foot rather than at the top. The founder cut it from this screen entirely.
+         WHAT THAT COSTS, and it is the thing this stage argued against a few hours
+         earlier: 0.8 is now a component with ONE consumer, and its own node says "used by
+         two surfaces and that is a decision rather than an oversight". Social Job 2 was
+         carried on this page by the ticker; what carries it here now is block 4, which
+         lands every tile on the same public result the ticker did.
+         The claim "renders on 1.0 and 3.3 only" is written in five other files and every
+         one of them is corrected in the same step, because a rule that survives in four
+         files is the rule a later stage will follow. -->
+
+    <!-- BLOCK 10. The SEO text. One H2 and two H3s, and the copy is the node's own,
+         finished, section 15C. Phase 1 IS the document: a crawler and a first-time
+         reader see the same thing, and that thing is the full drop table with every
+         number on it. -->
+    <section class="wf-sec wf-prose" aria-labelledby="h2-how">
+      <div class="wf-sec-head">
+        <h2 id="h2-how">How this case works</h2>
+      </div>
+      <div class="wf-prose-cols">
+        <p>The entry cost buys one roll. The roll lands on one item, and every item's share of the possible outcomes is printed on its row as a percentage and as a ticket range. The two say the same thing twice: the percentage is easy to read, and the ticket range is the interval the roll actually resolves against, which is what makes a result checkable afterwards.</p>
+        <h3>How a chance and a ticket range fit together</h3>
+        <p>A roll produces a number. That number falls inside exactly one ticket range, and the item holding that range is the item you get. The round is fixed before the animation starts, and the hash of it is on screen at the moment you open. After the reveal, one link checks that round against the number that was published before it ran.</p>
+        <h3>What happens when an item runs out</h3>
+        <p>Every item in this case points at a unit we hold. When the last unit of an item is won, the item stays on this page showing zero free units and cannot be rolled. It is not removed, because a table that quietly loses rows is a table you cannot check against what you read a minute ago.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: 'case-open-2.html' };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

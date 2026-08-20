@@ -16,6 +16,12 @@
 
 **Four documents, one node, because they are one template.** Four specifications of the same page shape would be three copies. Each document keeps its own URL and its own indexation, and `0.13` already set both.
 
+**Baseline row, `0.9`.** The rule in `CLAUDE.md`: every node carries one baseline row, what the live product does, what we keep, what we change and why.
+
+| What the live product does | What we keep | What we change, and why |
+|---|---|---|
+| Four documents, all `noindex,nofollow`, each **one H1 and zero H2**. The terms run about 7,270 words as a single wall, last updated 08/01/2025; the cookie policy is dated April 2019. All carry a breadcrumb. `baseline.md` section 9.4. | The breadcrumb, and the document set itself. | **The wall.** Zero H2 in a 7,270 word contract is the defect this node exists to fix, and it is now measured rather than asserted. **And the dates:** a policy from 2019 sitting under a product that changed every year since is a document nobody re-read. |
+
 ---
 
 ## 0. The template is the node

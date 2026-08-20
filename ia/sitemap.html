@@ -132,9 +132,9 @@
   <p class="lede">The concept map said which screens exist and by what intent they group. This is that same map expanded into nodes. Every screen, dialog and state now carries a number, a type, a group and its transitions, and the count it produces is the number the rest of this stage has to plan against. It is not a second map beside the first: the node map replaced the concept sitemap inside <code>ia/docs/sitemap.md</code>, so this project holds one list of screens.</p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">9</div><div class="hero-stat-label">Clusters</div></div>
-    <div><div class="hero-stat-value">66</div><div class="hero-stat-label">Nodes</div></div>
-    <div><div class="hero-stat-value">53</div><div class="hero-stat-label">Of them MVP</div></div>
-    <div><div class="hero-stat-value">26</div><div class="hero-stat-label">File-level nodes to build</div></div>
+    <div><div class="hero-stat-value">68</div><div class="hero-stat-label">Nodes</div></div>
+    <div><div class="hero-stat-value">52</div><div class="hero-stat-label">Of them MVP</div></div>
+    <div><div class="hero-stat-value">29</div><div class="hero-stat-label">File-level nodes to build</div></div>
     <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Taps to the main job</div></div>
   </div>
 
@@ -238,7 +238,7 @@ flowchart LR
     G1 --> N10["1.0 Home<br/>+1 state"]
     G1 --> N12["1.2 Provably fair<br/>+2 states"]
 
-    G2 --> N21["2.1 Age and geo gate<br/>+2 states"]
+    G2 --> N21["2.1 Geo gate<br/>+2 states"]
     G2 --> N24["2.4 Sign in with Steam<br/>+2 states"]
     G2 --> N27["2.7 Identity verification<br/>+2 states"]
 
@@ -292,14 +292,14 @@ flowchart LR
   <div class="cl is-global" data-cl="0">
     <div class="cl-head"><span class="cl-num">Cluster 0</span><span class="cl-title">Global shell</span><span class="cl-count">14 nodes, 14 MVP, group global</span></div>
     <p class="cl-intent">What every intent cluster inherits. A shell that is LATER is a shell that does not exist, so all fourteen are MVP. Four of them were added by the global sweep at step 3 and none is a new surface.</p>
-    <div class="nd"><span class="nd-num">0.1</span><span class="nd-name">Navigation, rail, header and mobile bar<span class="tag t-page">global element</span></span><span class="nd-desc">Three carriers on mobile, two on desktop, and no carrier holds another's kind. A full height rail owning the logo, three destinations rising to four, and its own toggle on the seam. A header owning money as two figures, balance and value of items held, both in real currency, and no destination at all. A mobile bottom bar carrying a shortcut subset of the rail, Home plus Cases plus Provably fair rising to four with My items, never money and never an action. Rail restored by D-21, bar restored by D-22.</span></div>
+    <div class="nd"><span class="nd-num">0.1</span><span class="nd-name">Navigation, rail, header and mobile bar<span class="tag t-page">global element</span></span><span class="nd-desc">Three carriers on mobile, two on desktop, and no carrier holds another's kind. A full height rail owning the logo, one destination in both states since D-40, the ambient controls and social links at its foot, and its own toggle on the seam. A header owning money as two figures, balance and value of items held, both in coins since D-28, and no destination at all. A mobile bottom bar carrying a shortcut subset of the rail, Home plus Cases in both states since D-40, never money and never an action. Rail restored by D-21, bar restored by D-22.</span></div>
     <div class="nd"><span class="nd-num">0.2</span><span class="nd-name">Footer<span class="tag t-page">global element</span></span><span class="nd-desc">A trust strip that never collapses, carrying the 18+ statement, the responsible play link and the market statement, none of which the baseline has at all. Four link columns, the interlinking block with its structure fixed and contents <span style="color:var(--accent-yellow)">[?]</span>, and the Article 5 identification block. Links no private transactional node.</span></div>
     <div class="nd"><span class="nd-num">0.3</span><span class="nd-name">System pages<span class="tag t-page">page</span></span><span class="nd-desc">404 as a full page with HTTP 404, 500 as a backend-independent template, maintenance as 503 with Retry-After. Never a soft 404, never a dead end.</span></div>
     <div class="nd"><span class="nd-num">0.4</span><span class="nd-name">Cookie consent<span class="tag t-dialog">dialog</span></span><span class="nd-desc">Prior consent rather than default-on, reject as easy as accept. Grounded in law at step 7, not written from memory.</span></div>
     <div class="nd"><span class="nd-num">0.5</span><span class="nd-name">Toasts<span class="tag">component</span></span><span class="nd-desc">aria-live region. Never the only place a state is announced.</span></div>
     <div class="nd"><span class="nd-num">0.6</span><span class="nd-name">Canonical skin item card<span class="tag">component</span></span><span class="nd-desc">Weapon, skin, wear grade, image, current value, drop chance, ticket range, rarity treatment. The rarity ladder was walked at step 4: seven tiers, the seventh conditional on the case containing knives. Rarity, wear and StatTrak are three axes, not one. Used by <strong>1.0</strong>, 3.1, 3.3, 5.1, 5.3, 7.1.</span></div>
-    <div class="nd"><span class="nd-num">0.7</span><span class="nd-name">Canonical case tile<span class="tag">component</span></span><span class="nd-desc">Case name, item count, entry cost, live free-unit counter, daily marker. Used by 1.0 and 3.1.</span></div>
-    <div class="nd"><span class="nd-num">0.8</span><span class="nd-name">Live drop ticker<span class="tag">component</span></span><span class="nd-desc">Renders on 1.0 and 3.3 only, never everywhere: a feed on every screen is wallpaper rather than context. Every tile now lands on 7.1 rather than on a user profile.</span></div>
+    <div class="nd"><span class="nd-num">0.7</span><span class="nd-name">Canonical case tile<span class="tag">component</span></span><span class="nd-desc">Case artwork, case name, entry cost, risk band, plus a stock marker and a daily marker where each applies, plus the favourite control. Rewritten by D-24. Used by 1.0 and 3.1.</span></div>
+    <div class="nd"><span class="nd-num">0.8</span><span class="nd-name">Live drop ticker<span class="tag">component</span></span><span class="nd-desc">Renders on 1.0 only since <code>D-31</code>, and never everywhere: a feed on every screen is wallpaper rather than context. Every tile now lands on 7.1 rather than on a user profile.</span></div>
     <div class="nd"><span class="nd-num">0.9</span><span class="nd-name">Legal and policy pages<span class="tag t-page">page</span></span><span class="nd-desc">Terms of use, Privacy policy, Cookie policy, Refund and payments policy. Four documents on one template, each with its own URL and its own indexation. <strong>Registered by node 0.2</strong>, because a carrier may not promise a destination the map does not hold.</span></div>
     <div class="nd"><span class="nd-num">0.10</span><span class="nd-name">Support and contact<span class="tag t-page">page</span></span><span class="nd-desc">The contact route Article 5(c) requires, plus the appeal route row G4 requires with its published response deadline. Not a policy page: it has a function and a service level. <strong>Registered by node 0.2.</strong></span></div>
     <div class="nd"><span class="nd-num">0.11</span><span class="nd-name">Published numbers register<span class="tag t-reg">register</span></span><span class="nd-desc">Every number the product publishes about itself, described once with its computation, its refresh, what it shows when the data is missing and the surfaces that read it: median and p90 withdrawal time A4 and G3, per-state ceilings and the Steam health probe G2, tested RTP and expected value D4, chance and current value per item D2, the observed rate counter D3 conditional on D-B, live free-unit count A2. Read by 1.0, 1.2, 3.3, 5.3 and 0.2.</span></div>
@@ -321,13 +321,13 @@ flowchart LR
   <div class="cl" data-cl="2">
     <div class="cl-head"><span class="cl-num">Cluster 2</span><span class="cl-title">Get through the door</span><span class="cl-count">9 nodes, 9 MVP</span></div>
     <p class="cl-intent">Three screens nobody chooses to visit. Naming the cluster by intent is what keeps that visible instead of burying it under Account.</p>
-    <div class="nd"><span class="nd-num">2.1</span><span class="nd-name">Age and geo gate<span class="tag t-dialog">dialog</span></span><span class="nd-desc">S-B1. The 18+ declaration only. Fires at first case interaction, never on arrival, so the pre-login trust evaluation runs first.</span></div>
+    <div class="nd"><span class="nd-num">2.1</span><span class="nd-name">Geo gate<span class="tag t-dialog">dialog</span></span><span class="nd-desc">S-B1. <strong>The market check and the cited legal ground. The 18+ declaration left this node on 18 August 2026, D-26, and now lives in the sign-in consent gate on 2.4.</strong> Fires at first case interaction, never on arrival, so the pre-login trust evaluation runs first.</span></div>
     <div class="nd is-state"><span class="nd-num">2.2</span><span class="nd-name">Geo blocked<span class="tag t-dead">dead end by design</span></span><span class="nd-desc">Legal ground cited. The blocked-market list is <span style="color:var(--accent-yellow)">[?]</span> until re-verified against current law.</span></div>
-    <div class="nd is-state"><span class="nd-num">2.3</span><span class="nd-name">Under age<span class="tag t-dead">dead end by design</span></span><span class="nd-desc">No route onward and no retry loop.</span></div>
-    <div class="nd"><span class="nd-num">2.4</span><span class="nd-name">Sign in with Steam<span class="tag t-page">page</span></span><span class="nd-desc">S-B2. Steam OpenID plus a statement of what the product will and will not read. noindex.</span></div>
+    <div class="nd is-state" style="opacity:0.6"><span class="nd-num">2.3</span><span class="nd-name"><s>Under age</s><span class="tag">dissolved by D-26</span></span><span class="nd-desc"><strong>The age control is now a checkbox a person either ticks or does not. A declaration you decline to make is not a refusal that can be recorded</strong>, so there is no under-age event and no screen to draw. What replaces it is 2.4's own state, consent not given.</span></div>
+    <div class="nd"><span class="nd-num">2.4</span><span class="nd-name">Sign in with Steam<span class="tag t-page">page</span></span><span class="nd-desc">S-B2. Steam OpenID, a statement of what the product will and will not read, and <strong>the consent gate D-26 added: two separate checkboxes, terms and the 18+ declaration, with the provider control inert until both are set</strong>. noindex.</span></div>
     <div class="nd is-state"><span class="nd-num">2.5</span><span class="nd-name">Steam refused<span class="tag">state</span></span><span class="nd-desc">A readable failure rather than a code.</span></div>
     <div class="nd is-state"><span class="nd-num">2.6</span><span class="nd-name">Steam unavailable<span class="tag">state</span></span><span class="nd-desc">Reading the product stays open, so a person who cannot sign in is not ejected.</span></div>
-    <div class="nd"><span class="nd-num">2.7</span><span class="nd-name">Identity verification<span class="tag t-page">page</span></span><span class="nd-desc">S-B3. Before funding and never on the exit route. Method is <span style="color:var(--accent-yellow)">[?]</span> pending D-A, so the node is specified as a superset and one branch is deleted later rather than the whole node redrawn.</span></div>
+    <div class="nd"><span class="nd-num">2.7</span><span class="nd-name">Identity verification<span class="tag t-page">page</span></span><span class="nd-name-later"></span><span class="nd-desc"><strong>LATER since D-26.</strong> Before <strong>withdrawal</strong> rather than funding, and never on the exit route. <strong>Kept on the map rather than deleted so the free-entry withdrawal hole stays visible.</strong> Method is <span style="color:var(--accent-yellow)">[?]</span> pending D-A, so the node is specified as a superset and one branch is deleted later rather than the whole node redrawn.</span></div>
     <div class="nd is-state"><span class="nd-num">2.8</span><span class="nd-name">Identity pending review<span class="tag">state</span></span><span class="nd-desc">Hours rather than seconds. The asynchronous state only the document KYC branch has.</span></div>
     <div class="nd is-state"><span class="nd-num">2.9</span><span class="nd-name">Identity failed, appeal and exit<span class="tag">state</span></span><span class="nd-desc">An appeal with a stated ground and a published deadline, and the withdrawal route that was open the whole time.</span></div>
   </div>
@@ -347,7 +347,7 @@ flowchart LR
   <div class="cl" data-cl="4">
     <div class="cl-head"><span class="cl-num">Cluster 4</span><span class="cl-title">Put money in</span><span class="cl-count">5 nodes, 5 MVP</span></div>
     <p class="cl-intent">Closes no job and says so. Parents are barriers B4-3, B4-1 and B7-4.</p>
-    <div class="nd"><span class="nd-num">4.1</span><span class="nd-name">Deposit<span class="tag t-page">page</span></span><span class="nd-desc">S-D1. One real currency with no coin denomination C1, the spend ceiling for a named period C2, the withdrawal threshold stated here and never rising C4. noindex.</span></div>
+    <div class="nd"><span class="nd-num">4.1</span><span class="nd-name">Deposit<span class="tag t-page">page</span></span><span class="nd-desc">S-D1. Coins with the published rate on the screen, C1 as D-28 rewrote it, the spend ceiling for a named period C2, the withdrawal threshold stated here and never rising C4. noindex.</span></div>
     <div class="nd is-state"><span class="nd-num">4.2</span><span class="nd-name">Ceiling reached this period<span class="tag t-dead">dead end by design</span></span><span class="nd-desc">Deposits stop. Opening from balance and withdrawal stay fully open. No completion mechanics, no streak, no status, no session score.</span></div>
     <div class="nd is-state"><span class="nd-num">4.3</span><span class="nd-name">Ceiling raise pending 24 hours<span class="tag">state</span></span><span class="nd-desc">The old ceiling holds until then. Lowering applies immediately, which is the asymmetry that makes it a brake.</span></div>
     <div class="nd is-state"><span class="nd-num">4.4</span><span class="nd-name">Crediting, with a named timer<span class="tag">state</span></span><span class="nd-desc">C3. A named state rather than a spinner.</span></div>
@@ -355,8 +355,9 @@ flowchart LR
   </div>
 
   <div class="cl" data-cl="5">
-    <div class="cl-head"><span class="cl-num">Cluster 5</span><span class="cl-title">Take out what I earned</span><span class="cl-count">8 nodes, 8 MVP</span></div>
+    <div class="cl-head"><span class="cl-num">Cluster 5</span><span class="cl-title">Take out what I earned</span><span class="cl-count">11 nodes, 11 MVP</span></div>
     <p class="cl-intent">Phase T8, the floor of the entire As-Is map at -5. No verification appears anywhere in this cluster, which is capability B2.</p>
+    <div class="cl-note" style="margin:0 0 14px;padding:12px 14px;border:1px solid var(--border);border-radius:8px;font-size:13px;line-height:1.6"><b>Three nodes the map did not have until the account menu asked for them, and none of them has a node page.</b> D-36 created 5.9, 5.10 and 5.11 at stage 04, after 03b had closed, so the file-level count reads 29 while <b>26 pages exist</b>. <b>The rule works in both directions:</b> a carrier may not promise a destination the map does not hold, and until 20 August 2026 that was an argument for cutting three rows from the account menu. The founder answered it the other way, so the map gained the nodes rather than the menu losing the rows. <b>What does not change is that each one still has to name a parent or print an empty cell, and two of them print it.</b> The three pages are owed by whoever reopens 03b, and this line exists so that is a debt rather than a discovery.</div>
     <div class="nd"><span class="nd-num">5.1</span><span class="nd-name">Account and inventory<span class="tag t-page">page</span></span><span class="nd-desc">S-E1. Item cards each carrying their instance value receipt F2, the balance, the entry into withdrawal. noindex, no schema.</span></div>
     <div class="nd is-state"><span class="nd-num">5.2</span><span class="nd-name">Inventory empty<span class="tag">state</span></span><span class="nd-desc">Where every new account starts and where a low-value first open leaves someone. Routed back into the catalogue rather than into a blank page.</span></div>
     <div class="nd"><span class="nd-num">5.3</span><span class="nd-name">Withdrawal, with the public clock<span class="tag t-page">page</span></span><span class="nd-desc">S-E2. Named states with a per-state timer labelled waiting on us, Steam or you G1, our own published p90, commission free G6, the named limits stated before entry G5. noindex.</span></div>
@@ -365,6 +366,9 @@ flowchart LR
     <div class="nd is-state"><span class="nd-num">5.6</span><span class="nd-name">Account restricted, notice and appeal<span class="tag">state</span></span><span class="nd-desc">A written ground, the balance frozen and never zeroed, an appeal with a published response deadline G4.</span></div>
     <div class="nd is-state"><span class="nd-num">5.7</span><span class="nd-name">Restriction upheld<span class="tag t-dead">dead end by design</span></span><span class="nd-desc">The ground stays on the record. The dead end remains; the silence does not.</span></div>
     <div class="nd is-state"><span class="nd-num">5.8</span><span class="nd-name">Trade offer expired<span class="tag">state</span></span><span class="nd-desc">Resend from the same record rather than restart.</span></div>
+    <div class="nd"><span class="nd-num">5.9</span><span class="nd-name">Roll history<span class="tag t-page">page</span></span><span class="nd-desc"><b>Added 20 August 2026 by D-36.</b> Every roll this account has made, each with its hash, its seed and nonce once revealed, what it cost and what it returned, and one route per row into 1.2. <b>It rides on D-C</b>, which asks whether roll history is retained per roll in a publishable form: if the answer is no, the page renders the rolls without the seed material and says so. noindex. <b>No page of its own yet.</b></span></div>
+    <div class="nd"><span class="nd-num">5.10</span><span class="nd-name">Profile<span class="tag t-page">page</span></span><span class="nd-desc"><b>Added 20 August 2026 by D-36, and it carries an empty parent cell.</b> Avatar, display name and the Steam link the account was made from. <b>No capability asks for it and no job needs it</b>, so it ships as an orphan with that printed, the treatment D6 the favourite got. noindex. <b>No page of its own yet.</b></span></div>
+    <div class="nd"><span class="nd-num">5.11</span><span class="nd-name">Settings<span class="tag t-page">page</span></span><span class="nd-desc"><b>Added 20 August 2026 by D-36, and most of what it would hold is already somewhere else or has no parent.</b> Sound is at the foot of the rail and has no parent of its own, language is one language by the locked decision, and no notification row exists anywhere in the backlog. <b>What it holds in round 1 is [?] and the node owes that answer before it is drawn.</b> <b>No page of its own yet.</b></span></div>
   </div>
 
   <div class="cl" data-cl="6">
@@ -416,16 +420,22 @@ flowchart LR
       <tbody>
         <tr><td>0. Global shell</td><td>14</td><td>14</td><td>14</td></tr>
         <tr><td>1. Decide whether this place is real</td><td>5</td><td>5</td><td>2</td></tr>
-        <tr><td>2. Get through the door</td><td>9</td><td>9</td><td>3</td></tr>
+        <tr><td>2. Get through the door</td><td>8</td><td>5</td><td>3</td></tr>
         <tr><td>3. Choose what to open, and open it</td><td>7</td><td>7</td><td>2</td></tr>
         <tr><td>4. Put money in</td><td>5</td><td>5</td><td>1</td></tr>
         <tr><td>5. Take out what I earned</td><td>8</td><td>8</td><td>2</td></tr>
         <tr><td>6. Keep myself in check</td><td>3</td><td>3</td><td>1</td></tr>
         <tr><td>7. Tell someone</td><td>2</td><td>2</td><td>1</td></tr>
         <tr><td>8. LATER</td><td>13</td><td>0</td><td>0</td></tr>
-        <tr class="is-total"><td>Total</td><td>66</td><td>53</td><td>26</td></tr>
+        <tr class="is-total"><td>Total</td><td>65</td><td>49</td><td>26</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>Amended on 18 August 2026 by D-26</h4>
+    <p>Cluster 2 was 9 nodes and 9 MVP. It is now <strong>8 and 5</strong>: <strong>2.3 dissolved</strong> because the age control became a checkbox rather than a screen, and <strong>2.7, 2.8 and 2.9 went LATER</strong> with identity verification.</p>
+    <p><strong>Sixteen LATER nodes now, not thirteen</strong>, and the three new ones sit in cluster 2 rather than moving to cluster 8, because they are parked rather than reclassified. <strong>They are carried on the map rather than deleted so the free-entry withdrawal hole stays visible.</strong></p>
   </div>
 
   <div class="card is-note" style="margin-top:22px">

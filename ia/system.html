@@ -146,6 +146,19 @@
 </div>
 
 <!-- FAILURES -->
+<section id="baseline-row">
+  <div class="sec-head">
+    <h2>Baseline row</h2>
+    <p>The rule in <code>CLAUDE.md</code>: every node carries one baseline row, what the live product does, what we keep, what we change and why.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:36%">What the live product does</th><th style="width:22%">What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody><tr><td>A probe URL returns <strong>HTTP 404</strong> with a real page: illustration, PAGE NOT FOUND, one line, one control. <code>baseline.md</code> section 9.6.</td><td><strong>The status code and the fact that a real page exists</strong>, which is more than several competitors manage.</td><td><strong>The shell removal.</strong> Their 404 has no rail, no header, no ticker and no footer, so a person who mistypes a URL loses every route in the product except home. <strong>Ours keeps the shell</strong>, because a wrong address is not a reason to strand someone.</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
 <section id="failures">
   <div class="sec-head">
     <h2>Two live failures, and they fail in opposite directions</h2>
@@ -515,6 +528,7 @@ window.NAV_BASE = '../';
 window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.3 System pages';
 window.NAV_SECTIONS = [
+  { id: 'baseline-row', label: 'Baseline row' },
   { id: 'overview',      label: 'Overview' },
   { id: 'failures',      label: 'Two live failures' },
   { id: 'codes',         label: 'The status codes' },
@@ -528,6 +542,7 @@ window.NAV_SECTIONS = [
   { id: 'open',          label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

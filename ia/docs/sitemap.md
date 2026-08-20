@@ -22,7 +22,7 @@ So every entity below names a parent and the class it belongs to. An entity with
 
 The object a person chooses and pays to open. The unit of the main job.
 
-**Parts:** name and artwork; entry cost in one real currency, `C1`; risk band as a legible label; the drop table as a list of entries; published tested RTP for this case and the expected value at this entry cost, `D4`; free-unit availability across its table, `A2`; category or collection membership `[?]`, present on the baseline as 13 categories and not yet required by any job here.
+**Parts:** name and artwork; entry cost in coins, `C1` as `D-28` rewrote it; risk band as a legible label, **computed from the drop table and no longer parentless since `D-24`**; the drop table as a list of entries; published tested RTP for this case and the expected value at this entry cost, `D4`; free-unit availability across its table, `A2`; category or collection membership `[?]`, present on the baseline as 13 categories and not yet required by any job here.
 
 **Parent:** Main Job, `jtbd.md` "Section 1", a chance at a rare skin the person actually wants. Also Related Job 1, `jtbd.md` "Section 2", because the case page is where cost, chance and expected value are read before any money moves. Class: job.
 
@@ -94,15 +94,15 @@ The person's own record on the platform.
 
 ### 8. Balance
 
-Money on the platform, in one real currency. An entity rather than a field on the Account, because three rules attach to it and none of them is a display concern.
+Money on the platform, denominated in coins since `D-28`. An entity rather than a field on the Account, because three rules attach to it and none of them is a display concern.
 
-**Parts:** amount, in one real currency with no internal coin denomination anywhere, `C1`; pending credit shown as a state with a timer, `C3`; the sum required to withdraw, stated before the deposit and unable to rise afterwards, `C4`; the remaining spend ceiling for this deposit, `C2`.
+**Parts:** amount, in coins, with the rate against real money published wherever money is spent, `C1` as `D-28` rewrote it and `0.11` rule 10; pending credit shown as a state with a timer, `C3`; the sum required to withdraw, stated before the deposit and unable to rise afterwards, `C4`; the remaining spend ceiling for this deposit, `C2`.
 
 **Parent:** `B7-1`, pattern of 7, the currency abstraction that hides what things cost, and `B4-1`, the withdrawal threshold that moves after the money is in. Class: barrier.
 
 **Related to:** belongs to an Account; fed by Deposits; spent by Opens; constrained by Play limits.
 
-**Baseline divergence, named now rather than at the wireframe.** The baseline runs an internal coin denomination with no visible conversion rate, `research.md` and `baseline.md`. `C1` deletes that object entirely. This is the first inherited structure that research overturns, and per `CLAUDE.md` it gets named in the IA node rather than absorbed.
+**Baseline divergence, and it was reversed in the open on 19 August 2026 rather than quietly narrowed.** The baseline runs an internal coin denomination with no visible conversion rate, `research.md` and `baseline.md`. `C1` used to delete that object entirely, and this entry called it the first inherited structure that research overturns. **`D-28` took the founder's answer instead: the coin is inherited and the missing rate is not.** The divergence is now the published peg rather than the unit, and the cost of the change is printed in the decision record rather than absorbed here.
 
 ### 9. Deposit
 
@@ -253,14 +253,14 @@ What every intent cluster inherits. Group `global`, all MVP, because a shell tha
 
 | No | Name | Type | Scope | INCLUDES | Transitions |
 |---|---|---|---|---|---|
-| **0.1** | Navigation, rail, header and mobile bar | global element | MVP | Three carriers on mobile, two on desktop, and no carrier holds another's kind. The rail owns the logo, every destination and its own toggle, three for a guest and four with an account, and is a modal drawer on mobile. The header owns the account control and the money as **two figures**, balance and value of items held, plus the responsible play entry inside the money control, and no destination at all. **A mobile bottom bar carries a shortcut subset of the rail**, Home, Cases and Provably fair rising to four with My items, and never money and never an action. No mode hub row on Home, `D-20`. Rail restored by `D-21`, bar restored by `D-22` | 1.0, 1.2, 2.4, 3.1, 4.1, 5.1, 6.1 |
+| **0.1** | Navigation, rail, header and mobile bar | global element | MVP | Three carriers on mobile, two on desktop, and no carrier holds another's kind. The rail owns the logo, every destination and its own toggle, **one in both states since `D-40`**, and is a modal drawer on mobile. The header owns the account control and the money as **two figures**, balance and value of items held, plus the responsible play entry inside the money control, and no destination at all. **A mobile bottom bar carries a shortcut subset of the rail**, **Home and Cases in both states since `D-40`**, and never money and never an action. No mode hub row on Home, `D-20`. Rail restored by `D-21`, bar restored by `D-22` | 1.0, 1.2, 2.4, 3.1, 4.1, 5.1, 6.1 |
 | **0.2** | Footer | global element | MVP | Trust strip that never collapses, carrying the 18+ statement, the responsible play link and the market statement, none of which the baseline has at all. Four link columns, the interlinking block with its structure fixed and contents `[?]`, and the Article 5 identification block. **Links no private transactional node.** One account state, because everything in it is public | 1.2, 3.1, 6.1, 2.2, 0.4, 0.9, 0.10 |
 | **0.3** | System pages | page | MVP | 404 as a full page with search and quick links and HTTP 404, 500 as a backend-independent template, maintenance as 503 with `Retry-After`. Never a soft 404, never a dead end | 1.0, 3.1 |
 | **0.4** | Cookie consent | dialog | MVP | Prior consent rather than default-on, reject as easy as accept, analytics and marketing off until opted in, link to the policy. Grounded in law at step 7, not written from memory | 0.2 policy |
 | **0.5** | Toasts and notifications | component | MVP | `aria-live` region, transient confirmations and failures, no SEO weight, never the only place a state is announced | none |
 | **0.6** | Canonical skin item card | component | MVP | Weapon name, skin name, wear grade, image, current value, drop chance, ticket range, rarity treatment. **Rarity is `[?]` until the ladder is walked**, which this stage owes before step 5 | used by **1.0**, 3.1, 3.3, 5.1, 5.3, 7.1. **1.0 added by the step 8 audit:** `numbers.md` places this card on Home twice, for current value `D2` and the free unit count `A2`, and this row did not hold it |
-| **0.7** | Canonical case tile | component | MVP | Case name, item count, entry cost, live free-unit counter, daily marker where it applies | used by 1.0, 3.1 |
-| **0.8** | Live drop ticker | component | MVP | Continuous tile strip, source mode label, weapon and skin, rarity tint, and a destination on every tile | renders on 1.0 and 3.3 only, and every tile lands on 7.1 |
+| **0.7** | Canonical case tile | component | MVP | Case artwork as the largest element, case name, entry cost, risk band, plus a stock marker and a daily marker where each applies, plus the favourite control. **Rewritten by `D-24`, 18 August 2026:** the item count left the tile and the risk band and the favourite arrived | used by 1.0, 3.1 |
+| **0.8** | Live drop ticker | component | MVP | Continuous tile strip, source mode label, weapon and skin, rarity tint, and a destination on every tile | **renders on 1.0 only since `D-31`, 19 August 2026**, and every tile lands on 7.1. It left 3.3 by founder decision, and the cost is that this component now has one consumer |
 | **0.9** | Legal and policy pages | page | MVP | Four documents on one template: Terms of use, Privacy policy, Cookie policy, Refund and payments policy. Each has its own URL and its own indexation. The template is the node: last updated date, a plain-language summary above the document, the document, the version history | 0.10, and 0.4 links the cookie policy |
 | **0.10** | Support and contact | page | MVP | The contact route Article 5(c) requires, "contacted rapidly and communicated with in a direct and effective manner", plus the appeal route row `G4` requires with its **published response deadline**. Not a policy page: it has a function and a service level | 0.9, 5.3 |
 | **0.11** | Published numbers register | register | MVP | Every number this product publishes about itself, described once, each with its computation, its refresh interval, what it shows when the data is missing, and the surfaces that read it: rolling median and p90 withdrawal time `A4` and `G3`, per-state ceilings and the Steam health probe `G2`, published tested RTP and expected value at this entry cost `D4`, published chance and current value per item `D2`, the observed rate counter `D3` conditional on `D-B`, live free-unit count `A2` | Read by 1.0, 1.2, 3.3, 5.3 and 0.2. **Entered from nowhere:** a register is read, not visited |
@@ -344,15 +344,15 @@ Three screens nobody chooses to visit. Naming the cluster by intent is what keep
 
 | No | Name | Type | Scope | INCLUDES | Transitions |
 |---|---|---|---|---|---|
-| **2.1** | Age and geo gate | dialog | MVP | `S-B1`. The 18+ declaration only, the market check, the cited legal ground. **Fires at first case interaction, never on arrival**, so the pre-login trust evaluation runs first | 2.2, 2.3, back into 3.3 |
+| **2.1** | Geo gate | dialog | MVP | `S-B1`. **The market check and the cited legal ground. The 18+ declaration left this node on 18 August 2026, `D-26`, and now lives in the sign-in consent gate on `2.4`.** Fires at first case interaction, never on arrival, so the pre-login trust evaluation runs first | 2.2, back into 3.3 |
 | **2.2** | Geo blocked | state | MVP | Legal ground cited. The blocked-market list is `[?]` until re-verified against current law | **Dead end, by design.** A person the product must not serve |
-| **2.3** | Under age | state | MVP | No route onward and no retry loop | **Dead end, by design** |
-| **2.4** | Sign in with Steam | page | MVP | `S-B2`. Steam OpenID, and a statement of what the product will and will not read. noindex | 2.5, 2.6, then the starter credit into 3.5 |
+| ~~**2.3**~~ | ~~Under age~~ | ~~state~~ | **dissolved** | **Removed by `D-26`, and the reason is not a preference.** The age control is now a checkbox a person either ticks or does not. **A declaration you decline to make is not a refusal that can be recorded**, so there is no under-age event and no screen to draw. What replaces it is `2.4`'s own state, consent not given, where the provider controls stay inert and nothing is stored | Gone. `2.4` holds the behaviour |
+| **2.4** | Sign in with Steam | page | MVP | `S-B2`. Steam OpenID, a statement of what the product will and will not read, and **the consent gate `D-26` added: two separate checkboxes, terms and the 18+ declaration, with the provider control inert until both are set**. noindex | 2.5, 2.6, then the starter credit into 3.5 |
 | **2.5** | Steam refused | state | MVP | A readable failure rather than a code, `B5` | 2.4 |
 | **2.6** | Steam unavailable | state | MVP | Reading the product stays open, so a person who cannot sign in is not ejected | 3.3 |
-| **2.7** | Identity verification | page | MVP | `S-B3`. Before funding and never on the exit route, `B2`. **Method is `[?]` pending `D-A`** and the node is specified as a superset so one branch is deleted later rather than the whole node redrawn. noindex | 2.8, 2.9, 4.1 |
-| **2.8** | Identity pending review | state | MVP | Hours rather than seconds. The asynchronous state only the document KYC branch has | 2.7 |
-| **2.9** | Identity failed, appeal and exit | state | MVP | An appeal with a stated ground and a published deadline mirroring `G4`, and the withdrawal route that was open the whole time | 5.3 stays open regardless, or funding closed with the ground on record |
+| **2.7** | Identity verification | page | **LATER** | `S-B3`. **Out of round 1 by `D-26`, 18 August 2026, and kept on the map rather than deleted so the hole stays visible.** It sits **before withdrawal** rather than before funding, `B2`, and the free-entry hole `D-A` recorded stays open in writing: a person who only ever took free entries reaches a real withdrawal with no identity check. **The licence direction `D-23` is what reclaims it**, because a tier one regulator requires identity before withdrawal. Method still `[?]`. noindex | 2.8, 2.9, 5.3 |
+| **2.8** | Identity pending review | state | **LATER** | Hours rather than seconds. The asynchronous state only the document KYC branch has. LATER with its parent, `D-26` | 2.7 |
+| **2.9** | Identity failed, appeal and exit | state | **LATER** | An appeal with a stated ground and a published deadline mirroring `G4`, and the withdrawal route that was open the whole time. LATER with its parent, `D-26`. **`G4` itself is unaffected: it lives on `5.3`** | 5.3 stays open regardless |
 
 ---
 
@@ -378,7 +378,7 @@ Three screens nobody chooses to visit. Naming the cluster by intent is what keep
 
 | No | Name | Type | Scope | INCLUDES | Transitions |
 |---|---|---|---|---|---|
-| **4.1** | Deposit | page | MVP | `S-D1`. One real currency with no coin denomination `C1`, the spend ceiling for a named period `C2`, the withdrawal threshold stated here and never rising `C4`, the responsible play entry. noindex | 2.7, 4.2, 4.3, 4.4, 4.5 |
+| **4.1** | Deposit | page | MVP | `S-D1`. Coins with the published rate on the screen, `C1` as `D-28` rewrote it, the spend ceiling for a named period `C2`, the withdrawal threshold stated here and never rising `C4`, the responsible play entry. noindex | 2.7, 4.2, 4.3, 4.4, 4.5 |
 | **4.2** | Ceiling reached this period | state | MVP | Deposits stop. Opening from balance and withdrawal stay fully open. **No completion mechanics, no streak, no status, no session score** | **Dead end for this flow, by design.** The ceiling doing its job |
 | **4.3** | Ceiling raise pending 24 hours | state | MVP | The old ceiling holds until then. Lowering applies immediately, which is the asymmetry that makes it a brake | 4.1 |
 | **4.4** | Crediting, with a named timer | state | MVP | `C3`. A named state rather than a spinner | 4.1 |
@@ -400,6 +400,11 @@ Phase T8, the floor of the entire As-Is map at -5.
 | **5.6** | Account restricted, notice and appeal | state | MVP | A written ground, the balance frozen and never zeroed, an appeal with a published response deadline `G4` | 5.7 or 5.3 |
 | **5.7** | Restriction upheld | state | MVP | The ground stays on the record. The dead end remains; the silence does not | **Dead end, by design** |
 | **5.8** | Trade offer expired | state | MVP | Resend from the same record rather than restart | 5.3 |
+| **5.9** | Roll history | page | MVP | **Added 20 August 2026 by `D-36`.** Every roll this account has made, each with its hash, its seed and nonce once revealed, what it cost and what it returned, and one route per row into `1.2`. **It rides on `D-C`**, which asks whether roll history is retained per roll in a publishable form: if the answer is no, the page renders the rolls without the seed material and says so. noindex | 1.2, 7.1, 5.1 |
+| **5.10** | Profile | page | MVP | **Added 20 August 2026 by `D-36`, and it carries an empty parent cell.** Avatar, display name and the Steam link the account was made from. **No capability in `cjm-to-be.md` asks for it and no job in `jtbd.md` needs it**, so it ships as an orphan with that printed, the treatment `D6` the favourite got. noindex | 5.1, 5.11 |
+| **5.11** | Settings | page | MVP | **Added 20 August 2026 by `D-36`, and most of what it would hold is already somewhere else or has no parent.** Sound is at the foot of the rail and has no parent of its own, language is one language by the locked decision, and no notification row exists anywhere in the backlog. **What it holds in round 1 is `[?]` and the node owes that answer before it is drawn** | 5.10, 6.1 |
+
+**Three nodes the map did not have until the account menu asked for them.** `D-36`: the founder specified that the menu carries Profile, Settings and History, which the baseline's own menu carries and this map held none of. **The rule works in both directions.** A carrier may not promise a destination the map does not hold, and until 20 August 2026 that was an argument for cutting three rows from the menu. The founder answered it the other way, so the map gains the three nodes rather than the menu losing the three rows. **What does not change is that each one still has to name a parent or print an empty cell**, and two of them print it.
 
 **No verification appears anywhere in this cluster**, which is capability `B2` and the direct answer to `B8-4`, verification ambushes at the exit, pattern of 5.
 
@@ -458,18 +463,20 @@ Seven orphans. Six of them are the destinations behind eight of the nine items i
 |---|---|---|
 | Cluster 0, global shell | 14 | 14 |
 | Cluster 1, is this place real | 5 | 5 |
-| Cluster 2, get through the door | 9 | 9 |
+| Cluster 2, get through the door | 8 | 5 |
 | Cluster 3, choose and open | 7 | 7 |
 | Cluster 4, put money in | 5 | 5 |
 | Cluster 5, take out what I earned | 8 | 8 |
 | Cluster 6, keep myself in check | 3 | 3 |
 | Cluster 7, tell someone | 2 | 2 |
 | Cluster 8, LATER | 13 | 0 |
-| **Total** | **66** | **53** |
+| **Total** | **65** | **49** |
 
-**Fifty-three MVP nodes against twelve MVP screens, and the ratio is the point.** Each screen carries roughly three states or dialogs that need their own specification, plus fourteen shell nodes nobody counted as screens at all. This is the number step 6 has to plan against, and it is why the pack says a step 6 estimate that ignores states lies by multiples.
+**Amended on 18 August 2026 by `D-26`.** Cluster 2 was 9 nodes and 9 MVP. It is now **8 and 5**: `2.3` dissolved because the age control became a checkbox rather than a screen, and `2.7`, `2.8` and `2.9` went `LATER` with identity verification. **Sixteen LATER nodes now, not thirteen**, and the three new ones are carried on the map rather than deleted so the free-entry withdrawal hole stays visible.
 
-**Twenty six of the fifty-three are file-level nodes**, which is what step 6 actually builds: 14 in cluster 0 and 12 across clusters 1 to 7. The remaining 27 are states and confirmations specified inside them. Those twenty six are the chips in `ia/_nav.js`. **The count has moved twice, and both times from work rather than from a recount.** On 11 August node 0.2 registered `0.9` and `0.10` because it promised them. On 12 August the global sweep registered `0.11` to `0.14`, none of which is a new surface: three are structures the nine surfaces already read and the fourth is the component that renders the product's evidence.
+**Forty-nine MVP nodes against twelve MVP screens, and the ratio is still the point.** Each screen carries roughly three states or dialogs that need their own specification, plus fourteen shell nodes nobody counted as screens at all. This is the number step 6 has to plan against, and it is why the pack says a step 6 estimate that ignores states lies by multiples.
+
+**Twenty six of them are file-level nodes**, which is what step 6 actually builds: 14 in cluster 0 and 12 across clusters 1 to 7. The remaining 27 are states and confirmations specified inside them. Those twenty six are the chips in `ia/_nav.js`. **The count has moved twice, and both times from work rather than from a recount.** On 11 August node 0.2 registered `0.9` and `0.10` because it promised them. On 12 August the global sweep registered `0.11` to `0.14`, none of which is a new surface: three are structures the nine surfaces already read and the fourth is the component that renders the product's evidence.
 
 **A dialog is file-level only when it is a destination.** The age and geo gate `2.1` and the cookie banner `0.4` are: they carry their own content, they fire across the whole product, and they have routes out. The self exclusion confirmation `6.2` is not: it guards one action on one screen and belongs inside `6.1`. Without this line the word dialog would have produced two different file counts depending on who read it.
 
@@ -561,7 +568,7 @@ Written at step 3, on 11 August 2026. The concept sitemap says which screens exi
 
 **Three destinations for a guest and four with an account.** Material's collapsed rail range is 3 to 7, so the guest state clears the floor exactly and five of the eight LATER destinations fit before the component itself is the constraint.
 
-**Balance leaves the destination list and becomes the header's money zone**, in **two figures**: the balance and the value of items held, both in real currency by row `C1`, never summed, and never rendered as a score. It still enters S-D1 and still carries `B4-3`, `B7-4` and `B4-1`. What changed is that it is not a destination, per Apple's rule that navigation carries navigation and not actions.
+**Balance leaves the destination list and becomes the header's money zone**, in **two figures**: the balance and the value of items held, both in coins by row `C1` as `D-28` rewrote it, never summed, and never rendered as a score. It still enters S-D1 and still carries `B4-3`, `B7-4` and `B4-1`. What changed is that it is not a destination, per Apple's rule that navigation carries navigation and not actions.
 
 **Responsible play gains a rail entry and keeps the one it had.** The entry inside the money control, decided below at step 6, is unchanged. The rail entry is an addition, affordable because the rail has space.
 

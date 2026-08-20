@@ -10,6 +10,12 @@
 
 **This node grew the map.** A carrier may not promise a destination the map does not hold, and this one promised six. **`0.9` Legal and policy pages** and **`0.10` Support and contact** were registered before this specification was written. The map is 66 nodes, 53 MVP, after the global sweep at step 3 added four more.
 
+**Baseline row, `0.2`.** The rule in `CLAUDE.md`: every node carries one baseline row, what the live product does, what we keep, what we change and why.
+
+| What the live product does | What we keep | What we change, and why |
+|---|---|---|
+| A statistics strip of four counters above four link columns, an identification line naming the operating company, a copyright range and three payment marks. `baseline.md` section 9.7. | The strip and the four column shape, and the identification line, which is the one piece of institutional evidence the footer already carries. | **Three absences, all re-checked on 18 August 2026: no 18+ mark, no responsible play route, no licence statement anywhere in the footer.** Ours carries all three, and that is the compliance constraint in `CLAUDE.md` rather than a preference. |
+
 ---
 
 ## 0. Rebuilt on 11 August 2026, and the input was the problem
@@ -67,6 +73,8 @@ The founder asked for the baseline's strip. It is inherited as a band and its co
 | 3 328 108 | Upgrades |
 | 1 862 837 | Total users |
 | 905 | Online users |
+
+**Each statistic carries a reserved icon zone, founder decision `D-31`, 19 August 2026.** It is a zone and not a glyph: stage 04 draws no icons, `0.11` rule 8 keeps every figure as crawlable text, and **a slot that is already the right size means the icon arrives as an asset in a place rather than as a new element in a finished row.** The zone is `aria-hidden`, because an empty box announces nothing the caption has not already said, and **it never becomes the figure**: an icon beside a number is decoration, an icon carrying a number is `0.11` rule 8 broken.
 
 **Cases opened increments continuously.** Three reads minutes apart returned 363 010 473, 363 010 503, 363 010 551. Total users did not move across the three.
 

@@ -3,7 +3,7 @@
 **Type:** page. **Group:** `pages`. **Scope:** MVP. **Cluster:** 4, put money in.
 **States specified inside this file:** `4.2` ceiling reached this period, `4.3` ceiling raise pending 24 hours, `4.4` crediting with a named timer, `4.5` payment declined.
 
-**Purpose.** Turn money into balance once, in one real currency, while the two numbers that decide what this costs and what it takes to get out again are on the screen before the payment rather than after it.
+**Purpose.** Turn money into balance once, in coins with the rate on the screen, while the two numbers that decide what this costs and what it takes to get out again are on the screen before the payment rather than after it.
 
 **Jobs served: none.** **Parent class: barrier**, `B4-3` a deposit that never credits, pattern of 4; `B4-1` the escalating deposit gate; `B7-4` the escalation loop, pattern of 12. Plus one compliance constraint from `CLAUDE.md`, "responsible play tooling (deposit limits, session limits, self exclusion, cool down)", which is what puts the responsible play entry on a money screen at all.
 
@@ -12,6 +12,12 @@
 **Reached from:** the deposit control and the balance figure in the header, node `0.1`; the state-dependent strip on `1.1`; `3.3` when the balance will not cover an entry cost; and `2.7`, which stands in front of it. **Never reached from the rail:** money is not a destination, `D-19`.
 
 **Leads to:** `4.2` to `4.5` as its own states, `2.7` when identity is unresolved, `6.1` for the other three limits, `3.3` or `1.1` on credit, `5.3` which stays open in every state on this page, and `0.10` when a named window passes.
+
+**Baseline row, `4.1`.** The rule in `CLAUDE.md`: every node carries one baseline row, what the live product does, what we keep, what we change and why.
+
+| What the live product does | What we keep | What we change, and why |
+|---|---|---|
+| Two numbered steps. Step 1: a partner promo code already applied, a country selector that filters the grid, then **17 fiat methods and 8 crypto**. Step 2 for card: amount, email, a terms checkbox, six presets, and a panel reading `Rate 1.00 = $1.00` with a standing **+5.00% bonus capped at 100 per 24 hours**. Crypto gives an address per network with a live rate and a minimum, and no amount field. `baseline-account.md` section 5b. | The two step shape, the published rate at the moment of funding, and the amount presets. | **No crediting time is published anywhere in that flow**, which is the whole of row `C3`, and the deposit history's most common status is REJECTED. **Ours publishes the window before the money moves.** The standing bonus and its header badge are refused, `0.1`. And one route, gift cards, leaves the product entirely to six third party resellers with no crediting story at all. |
 
 ---
 
@@ -54,7 +60,7 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 | # | Block | What it holds | Parent | First screen at 360px |
 |---|---|---|---|---|
 | 1 | **H1 and account state** | The page's job in words, plus funding open, plus the exit carries no check | `B1`, `B2`, on `B8-4` | Yes |
-| 2 | **Amount, in one real currency** | One input, one currency mark, no coin, no conversion, no second unit anywhere | `C1`, on `B7-1` pattern of 7 | Yes |
+| 2 | **Amount, and the rate beside it** | One input. **Since `D-28` this block is where the conversion lives rather than where it is forbidden:** the person types in real money, the coins it buys render beside it, and the rate is published with its as-of | `C1` as `D-28` rewrote it, still on `B7-1` pattern of 7, plus `0.11` rule 10 | Yes |
 | 3 | **Spend ceiling for a named period** | Pre-filled with the amount just typed, period selector, and the asymmetry stated in the interface: lowering applies immediately, raising waits 24 hours | `C2`, on `B7-4` pattern of 12 | Yes |
 | 4 | **The other three limits live on `6.1`** | One plain line, one link, to session limit, cool down and self exclusion | `C5`, and the compliance constraint quoted above | Partly |
 | 5 | **Withdrawal threshold** | The sum required to withdraw, stated here, frozen from this moment, and never able to rise | `C4`, on `B4-1` | No, and section 5 explains why that is not a demotion |
@@ -73,11 +79,13 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 ## 3. The four capabilities, and what makes each one a brake rather than a setting
 
-### 3.1 `C1`. One real currency, and no coin denomination anywhere
+### 3.1 `C1`. The coin, and the rate that has to be on this screen
 
-**Parent:** `B7-1`, pattern of 7 across 3 platforms, the win that turned out to be worth less than it looked. `cjm-to-be.md` marks `C1` "MVP, architecture" with the acceptance rule "no number renders anywhere without a currency mark".
+**Parent:** `B7-1`, pattern of 7 across 3 platforms, the win that turned out to be worth less than it looked. **Rewritten on 19 August 2026 by `D-28`**, which reversed `C1` and printed in its own record that this row was the whole structural answer to that pattern. `cjm-to-be.md` now marks `C1` "MVP, architecture" with the acceptance rule "no coin figure renders anywhere without the peg beside it at the moment of spending".
 
-**What it deletes.** The baseline runs an internal coin denomination with no visible conversion rate, `baseline.md` section 4, where case prices are quoted from 0.53 to 161.36 coins. `sitemap.md` entity 8 names this the first inherited structure that research overturns. **Every competitor in the bank does it too:** Clash.gg prices in Gems, Hellcase in a bare number with no unit at all, Key-Drop in local currency, `blocks.md` section 5. A second currency hides the price, and a hidden price is what makes a payout able to wear a label that is not a price.
+**What it now deletes, and it is a much smaller thing than before.** The baseline runs an internal coin denomination **with no visible conversion rate**, `baseline.md` section 4, where case prices are quoted from 0.53 to 161.36 coins. **`D-28` takes the denomination and refuses the second half.** Every competitor in the bank runs the same abstraction: Clash.gg in Gems, Hellcase in a bare number with no unit at all, Key-Drop in local currency, `blocks.md` section 5, **and not one of them publishes a rate at the moment of spending.**
+
+**So the divergence moved rather than disappeared.** It used to be the unit. It is now the rate: a coin with a published, timestamped rate against real money, on this screen where the conversion actually happens and on `3.3` where it is spent. A second currency still hides the price when nobody can convert it, and a hidden price is still what lets a payout wear a label that is not a price. **`D-28` accepted the unit and kept the argument.**
 
 **What it means on this screen, concretely.** One input, one unit, one number. No conversion preview, no "you will receive", no bonus units, no rounding to a package. **A deposit screen that prints two numbers with two units is the defect**, whatever the second unit is called, and that includes a helpful equivalence.
 
@@ -150,7 +158,7 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 | Line in the summary | Where the number comes from | Rule it carries |
 |---|---|---|
-| Amount | Block 2 | One currency mark, `C1` |
+| Amount | Block 2 | Real money in, coins out, and the rate with its as-of, `C1` as `D-28` rewrote it |
 | Total charged | Amount plus any fee. **Fee is `[?]`** | If the two ever differ, both are shown. A total that silently differs from the typed amount is the defect |
 | Ceiling in force after this deposit | Block 3, and `4.3` if a raise is pending | The value in force **now**, never the pending one, `4.3` |
 | Withdrawal threshold | Block 5 | Frozen at this moment, `C4` |
@@ -310,7 +318,7 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 **Mobile 360px, the base.** One column. Blocks 1 to 7 stack in the order of section 2. The summary docks to the bottom edge from the moment an amount exists and is the last element in the document. **No horizontal scroll at any point**: the method cards stack rather than scrolling sideways, and the only element permitted its own horizontal overflow is a table, inside its own container.
 
-**The amount field.** The currency mark is text beside the input, never a glyph baked into an image, `0.11` rule 8, and never a placeholder that disappears on focus. A person who focuses the field must still be able to see what unit they are typing.
+**The amount field.** The unit is text beside the input, never a glyph baked into an image, `0.11` rule 8, and never a placeholder that disappears on focus. A person who focuses the field must still be able to see what unit they are typing. **And since `D-28` there are two units on this screen rather than one**, so the field states which one it takes and the converted figure is never editable: two editable money fields on one form is where a person types into the wrong one.
 
 **Desktop.** Two columns. Blocks 1 to 7 on the left, the summary and the control as a sticky right column, which is the Fresha shape at its native width. **The block order does not change**, because the order is derived from the sequence of the decision rather than from the space available.
 

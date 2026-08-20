@@ -29,7 +29,7 @@ flowchart TD
     Real -->|no| Leave["Dead end: leaves still pre-suspected, B1-1 unanswered"]
     Real -->|"buys on the market instead"| Market["Leaves through our own outbound market link, A1"]
     Real -->|yes| Case["S-C2 Case screen, phase 1 choosing"]
-    Case --> Gate["S-B1 Age and geo gate, fires at first case interaction"]
+    Case --> Gate["S-B1 Geo gate, fires at first case interaction"]
     Gate --> Geo{"Is this market open?"}
     Geo -->|no| Blocked["Dead end: geo blocked, with the legal ground cited, B4"]
     Geo -->|yes| Age{"18 or over, declared?"}
@@ -134,7 +134,7 @@ flowchart TD
     Upheld -->|no| Closed2["Funding stays closed, with the ground on the record"]
     Closed2 --> Exit2
     IdFail --> Exit2(["Withdrawal stays open regardless: B2 puts no verification branch on the exit route. Flow 3"])
-    IdOk -->|yes| Amount["Chooses an amount in one real currency, no coin denomination, C1"]
+    IdOk -->|yes| Amount["Chooses an amount, sees the coins it buys and the rate, C1 after D-28"]
     Ver -->|yes| Amount
     Amount --> Ceiling["Sets a spend ceiling for a named period, pre-filled, accepted or changed, C2"]
     Ceiling --> Dir{"First ceiling, or a change to an existing one?"}

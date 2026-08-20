@@ -199,6 +199,8 @@
         <tr><td><strong>Published appeal response deadline</strong></td><td><span class="row-code">G4</span>, on <code>B8-3</code> pattern of 3</td><td><span class="surf">5.3, 2.9, 0.10</span></td><td>The person's own appeal, which either gets an answer inside the deadline or does not</td><td>Static until republished</td></tr>
         <tr><td><strong>Published deposit crediting window</strong></td><td><span class="row-code">C3</span>, on <span class="row-code">B4-3</span>. <strong>Added by the step 8 audit:</strong> C3 promises a named timer and this register held no deposit row at all</td><td><span class="surf">4.1, state 4.4</span></td><td>The person's own deposit, which either credits inside the published window or does not. <strong>Value [?]</strong>, and a competitor states the same figure only in an FAQ, which is the placement this row refuses</td><td>Rolling window, length [?]</td></tr>
         <tr><td><strong>Commission, zero to Steam</strong></td><td><span class="row-code">G6</span>, Related Job 5, job only, no barrier</td><td><span class="surf">1.0, 5.3</span></td><td>The withdrawal itself. Zero is the one figure a person verifies by finishing the transaction</td><td>Static</td></tr>
+        <tr><td><strong>Risk band per case</strong>, three named values</td><td>Design principle 3, quoted. Placed on the tile by <code>D-24</code>. <strong>No backlog row yet</strong></td><td><span class="surf">1.0</span> <span class="surf">3.1</span> as a band by 0.7, <span class="surf">3.3</span> as the figure</td><td><strong>The method reads the same drop table whose chances and values are printed on 3.3</strong>, so a reader recomputes the band without leaving the page. <strong>Thresholds <span class="q">[?]</span>, and the band cannot render until they are set</strong></td><td>Static until the configuration changes</td></tr>
+        <tr><td><strong>Favourite count per case</strong></td><td><strong>None in the three legal classes.</strong> In by founder decision <code>D-24</code>, which is what amends rule 7 to admit it</td><td><span class="surf">1.0</span> <span class="surf">3.1</span>, rendered by 0.7</td><td>The person's own press, which moves the count by one in front of them. It has no other route and claims nothing beyond itself</td><td>Real time</td></tr>
         <tr><td><strong>Steam API health, the degraded flag</strong></td><td><span class="row-code">G2</span></td><td><span class="surf">5.3</span> as a banner</td><td>A published state rather than a figure, driven by a measurement, and here because it obeys the same missing-data rules as the numbers it protects</td><td>Real time probe</td></tr>
       </tbody>
     </table>
@@ -249,7 +251,7 @@
 <!-- RULES -->
 <section id="rules">
   <div class="sec-head">
-    <h2>Nine rules every published number obeys</h2>
+    <h2>Ten rules every published number obeys</h2>
     <p>Each one derived from a row, a decision or a principle, never from taste.</p>
   </div>
 
@@ -261,9 +263,10 @@
       <li><strong>Below the sample floor, print N rather than a percentage.</strong> <code>D-B</code> says the observed rate counter is worth nothing at N = 0. A percentage over a handful of rolls is not a smaller truth, it is a different claim.</li>
       <li><strong>A configuration change forks the counter.</strong> From row <span class="row-code">D3</span> verbatim: the old configuration keeps its history and stays visible, the new one starts at zero and says so. A counter that silently absorbs a weights change is worse than no counter.</li>
       <li><strong>A failed source is marked degraded, never frozen at its last good value.</strong> The Steam health probe in <span class="row-code">G2</span> is the pattern, and it applies to every real-time figure here.</li>
-      <li><strong>A number is never a score.</strong> No summing across kinds, which is why the header's two money figures are never added, node <code>0.1</code>. No streaks, no progress, no celebration, the rule <span class="row-code">C5</span> attaches to limits: the moment a figure acquires completion mechanics it stops describing and starts encouraging.</li>
+      <li><strong>A number is never a score.</strong> No summing across kinds, which is why the header's two money figures are never added, node <code>0.1</code>. No streaks, no progress, no celebration, the rule <span class="row-code">C5</span> attaches to limits: the moment a figure acquires completion mechanics it stops describing and starts encouraging. <strong>One named exception, and it is named rather than quietly allowed: the favourite count on node 0.7, founder decision <code>D-24</code> of 18 August 2026.</strong> It is a count of accounts that marked a case, not a rank and not a rating. Still refused: a rank, a default sort, a most-popular strip, a badge on a top tile, or the count beside an open control on 3.3. <strong>One count in one place, and not a precedent for a second.</strong></li>
       <li><strong>Text, never an image.</strong> A figure baked into a picture is invisible to search, to a screen reader, and to a person copying it into a complaint.</li>
       <li><strong>A number about someone else carries its source and its date, or it is <span class="q">[?]</span>.</strong> The rule this project applies to its own research, applied to product copy, because a comparative claim in the interface is a claim about a third party.</li>
+      <li><strong>A money figure carries its unit, and a coin figure carries its peg wherever money is spent.</strong> <code>D-28</code> of 19 August 2026 reversed <span class="row-code">C1</span> and made the coin the product's denomination, which removed the structural answer to <span class="row-code">B7-1</span>, the currency abstraction that hides what things cost. <strong>What is left of that answer is this rule, and the decision ships on it rather than beside it.</strong> Wherever a person is about to spend, commit or withdraw, the coin figure renders with what one coin is worth in real money, from a published rate carrying its own as-of under rule 2. <strong>Three consequences, and each is a place this rule is checked.</strong> A coin figure with no peg within reach of the spend is the abstraction <span class="row-code">B7-1</span> names, not a shorter label. <strong>Time and ratios do not become coins:</strong> <span class="row-code">A4</span> and <span class="row-code">G3</span> stay minutes, <span class="row-code">D4</span> stays a percentage, and converting either would be summing across kinds under rule 7. <strong>A figure quoted from outside stays in its own unit:</strong> <span class="row-code">A1</span>'s Steam market price is real money, and until the peg is published it is marked as not comparable rather than set silently beside a coin value.</li>
     </ol>
   </div>
 </section>
@@ -511,7 +514,7 @@ window.NAV_SECTIONS = [
   { id: 'ours',      label: 'Group A: ours' },
   { id: 'quoted',    label: 'Group B: quoted' },
   { id: 'proposed',  label: 'Group C: proposed' },
-  { id: 'rules',     label: 'Nine rules' },
+  { id: 'rules',     label: 'Ten rules' },
   { id: 'refresh',   label: 'Refresh classes' },
   { id: 'states',    label: 'States, and the mockup' },
   { id: 'anatomy',   label: 'Anatomy' },
@@ -519,6 +522,7 @@ window.NAV_SECTIONS = [
   { id: 'open',      label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

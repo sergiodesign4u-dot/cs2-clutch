@@ -14,6 +14,12 @@
 
 **Phase.** T8, the floor of the entire As-Is emotional map at `-5`. This cluster is where the product either keeps its promise or does not, and this page is its front door.
 
+**Baseline row, `5.1`.** The rule in `CLAUDE.md`: every node carries one baseline row, what the live product does, what we keep, what we change and why.
+
+| What the live product does | What we keep | What we change, and why |
+|---|---|---|
+| Four tabs as peers on one page, `INVENTORY`, `HISTORY`, `PROFILE`, `SETTINGS`. The inventory grid has two sorts, no filters and no search, and a sticky bar carrying a count, a sum and **four exits**: send to Steam, sell to site, cash out, exchange. History is **five separate histories**, three of which are empty and all three say only `History is empty...`. `baseline-account.md` sections 2 to 4. | The count and the sum of the selection, which are the same pair the header carries, and the per-item action set. | **Our map gives this node one exit and the canon has four.** The other three are not competitor features to dismiss: they are the live product's answer to what a person does with a skin they do not want, and this node has no answer at all. **That is an open item rather than a divergence.** And `History is empty...` with no route is the empty state `3.2` refuses. |
+
 ---
 
 ## 0. The sentence this page is built around
@@ -33,7 +39,7 @@ Order is reasoned from 360px and from the barriers, not from the order of the so
 | # | Block | What it holds | Parent | From |
 |---|---|---|---|---|
 | **1** | **Account state, one line** | Verified, withdrawals open. A statement of a fact resolved earlier, never a task raised here | Row `B7`, on `B7-1`. Row `B1`, on `B8-4` | Backlog group 2 |
-| **2** | **The money, two figures** | Balance and value of items held, both in real currency, **never summed and never a score** | `D-19` in `CLAUDE.md` by way of `0.1`. Row `C1`, on `B7-1` | Node `0.1`, Refero Kraken Pro row in T1 |
+| **2** | **The money, two figures** | Balance and value of items held, both in coins, `D-28`, **never summed and never a score** | `D-19` in `CLAUDE.md` by way of `0.1`. Row `C1` as `D-28` rewrote it, still on `B7-1` | Node `0.1`, Refero Kraken Pro row in T1 |
 | **3** | **Withdraw, with the named limits stated beside it** | The one CTA, and the three limits in plain words before the person enters the route | Row `G5`, on `B8-3` and `B8-2` | `flows.md` flow 3, node order |
 | **4** | **Items held: `0.6` cards, each carrying its `F2` receipt** | The list, and the substance of the page | Row `F2`, on `B7-1`. Row `B7` | Backlog group 6 |
 | **5** | **The holding statement on each item** | Whether this item has a deadline, stated from the moment it exists. Value `[?]`, section 3 | Row `G5` | `blocks.md` T4, Hellcase FAQ row |

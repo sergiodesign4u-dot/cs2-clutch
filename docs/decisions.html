@@ -518,7 +518,7 @@
 
       <h4 style="margin-top:24px">The two figures, and the four rules they acquired on the way in</h4>
       <p>The founder specified the pair. Four rules were derived from files that already exist, and each one is a constraint the baseline's own version does not meet.</p>
-      <span class="drop"><span class="k">1. Both figures are in real currency and neither wears a coin</span><code>cjm-to-be.md:208</code>, row <code>C1</code>, MVP and architecture: "one real currency throughout, no internal coin denomination anywhere". The baseline renders both figures against a branded coin glyph. That glyph cannot cross. <code>C1</code> exists to make <code>B7-1</code> impossible: a payout cannot wear a label that is not a price.</span>
+      <span class="drop"><span class="k">1. Both figures are in real currency and neither wears a coin</span><code>cjm-to-be.md:208</code>, row <code>C1</code>, MVP and architecture: "one real currency throughout, no internal coin denomination anywhere". The baseline renders both figures against a branded coin glyph. That glyph cannot cross. <code>C1</code> exists to make <code>B7-1</code> impossible: a payout cannot wear a label that is not a price. <strong>Superseded on 19 August 2026 by <code>D-28</code>, which reversed <code>C1</code>.</strong> The record stands as written, because a decision record says what was decided then; what the product does now is in <code>D-28</code> and in 0.11 rule 10.</span>
       <span class="carry"><span class="k">2. The two are never summed and never presented as a total</span>The upper one is spendable now, the lower one is an estimate of what a set of objects would fetch, and round 1 has exactly one exit for those objects, withdrawal to Steam. A combined number would read as net worth, one line above a deposit control.</span>
       <span class="carry"><span class="k">3. The lower figure is a current market value, never profit, gain or growth</span>It moves without the person acting. A figure that can fall is honest only if it never claimed to be a score. <strong>Parent:</strong> design principle 1 as limited by D-14, "published chance, current value and tested RTP", plus row <code>B7</code>. The header figure is the sum of those receipts and reconciles with node 5.1 exactly.</span>
       <span class="drop"><span class="k">4. No percentage badge on the deposit control in round 1</span>The baseline runs a green 5 percent badge on its add control. <code>cjm-to-be.md:282</code> cuts any first-deposit bonus in round 1, including the zero-wagering variant, because <code>aarrr.md:224</code> requires case mathematics to be modelled first and that model does not exist. Blocked behind a named model with a named owner, not forbidden forever.</span>
@@ -624,6 +624,390 @@
       <p><strong>Under a blocklist the person most likely to meet a refusal meets <code>blocked</code>. Under an allowlist they meet <code>not launched</code>, and those are two different messages.</strong> <code>not launched</code> says we have not reviewed this market, which is not a legal verdict and must not be dressed as one. Section 11 of node 0.12 already separates the two verdicts and section 9 already requires a ground in readable words. <strong>What changes is which of them is the common case</strong>, so node 2.2 draws both, with <code>not launched</code> as the default rather than the exception. That is the acceptance test at stage 04.</p>
     </div>
   </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-24</span><span class="dec-title">The case tile is rebuilt around the image, gains a risk band and a favourite, and loses the item count</span><span class="st st-locked">Founder, three questions</span></div>
+    <div class="dec-meta">2026-08-18 - stage 03b, node 0.7, after the founder compared the anatomy page against the live baseline. Binds 0.7, register 0.11 whose rule 7 is amended, 3.3, 1.0, 3.1 and stage 04</div>
+    <div class="dec-body">
+      <span class="carry"><span class="k">What was asked</span>The tile specified in the first version carried six always-on fields: artwork, name, item count, entry cost, live free-unit state and a daily marker. The instruction was to make it simpler and closer to the baseline: <strong>a large case image, the name, the price, a risk level, and the favourite control the baseline puts on its tile.</strong> Three things in that instruction had no source in this repository, so three questions were put rather than filled with a median.</span>
+
+      <h4 style="margin-top:24px">Part 1. The risk band is computed from the drop table</h4>
+      <span class="pick"><span class="k">Decided: computed, and the register owns the method</span>The band is derived from the case's own drop table, the figure it comes from is published on 3.3 beside <code>D4</code>, and the tile carries only the three-value label. <strong>This answers a sentence that has stood since the entity list:</strong> node 3.3 refused the risk meter because <strong>no computation for it existed anywhere in this repository</strong>. It now has a parent, design principle 3 quoted directly, and a route in the sense of rule 1: the same table whose chances and values are already printed on 3.3, so a reader recomputes the band without leaving the page.</span>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Rejected</th><th>Why</th></tr></thead>
+          <tbody>
+            <tr><td><strong>A label set by hand per case</strong></td><td>The baseline's own answer. It is a claim about risk with nothing behind it, printed by a product whose first design principle is that its own numbers are checkable. <strong>The weakest possible sentence on the busiest surface</strong></td></tr>
+            <tr><td><strong>Not on the tile at all, only on 3.3</strong></td><td>The cheapest answer and the one the first version took. It leaves the tile with three fields, which is exactly what the category ships, and it puts the whole "what is this case shaped like" question one tap away</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <span class="drop"><span class="k">What is still missing and is not invented here</span><strong>The thresholds.</strong> Where High stops and Medium begins is <code>[?]</code>, it is a treasury question, and <strong>the band does not render until the founder sets them.</strong> Naming a boundary here would be the exact failure the research rules exist to prevent.</span>
+
+      <h4 style="margin-top:24px">Part 2. The favourite ships with a public count, and rule 7 gains its first exception</h4>
+      <span class="pick"><span class="k">Decided: as the baseline does it</span>A toggle that marks the case, and a count of the accounts that marked it, visible to everyone.</span>
+      <span class="carry"><span class="k">The cost, stated before the decision and taken anyway</span>Register rule 7 says <strong>a number is never a score</strong>, and it was written to keep the interface from telling a person which case to open. A public count beside a price is social proof next to a spend. The founder was shown that and chose the baseline's behaviour, so <strong>the rule is amended out loud rather than quietly worked around</strong>, which is the only form of this the repository allows.</span>
+      <span class="drop"><span class="k">What the amendment permits, and the line it draws</span>One count, in one place, of a thing people did. <strong>Still refused:</strong> a rank, a default sort by favourites, a most-popular strip, a TOP badge, an opened counter, and any appearance of the count beside the open control on 3.3. The line is between <strong>data about what others did</strong> and <strong>the platform recommending a spend</strong>, and everything on the second side of it stays out. The favourite has <strong>no parent in the three legal classes</strong> and is carried with an empty parent cell, printed, exactly as <code>I2</code> is.</span>
+
+      <h4 style="margin-top:24px">Part 3. The item count and the free-unit state stop being fields and become a marker</h4>
+      <span class="pick"><span class="k">Decided: silence is the available state</span>In the normal case the tile shows four things. The stock marker appears only when there is something to say, "3 items out of stock" or "every item out of stock". <strong>The barrier survives the change:</strong> <code>A2</code> and <code>D1</code> stand on <code>B8-1</code>, and what that barrier needs is that a short shelf is legibly short. A marker that appears exactly when the shelf is short does that better than a line reading "all items in stock" on every tile in the grid, <strong>because a message printed everywhere is read nowhere.</strong></span>
+      <span class="carry"><span class="k">The item count leaves the tile entirely, and this is a real loss, priced</span>It was the field that let a person see how much is in the case without opening it. <strong>The risk band replaces it and is a better answer from the same table:</strong> the count says how long the table is, the band says what it is shaped like. The count still renders on 3.3, on the table it describes.</span>
+
+      <h4 style="margin-top:24px">What this decision does not do</h4>
+      <span class="drop"><span class="k">It writes no backlog row</span>The risk band and the favourite are two new capabilities and <strong><code>cjm-to-be.md</code> is the single owner of that list</strong>, so adding them moves its count and the line in <code>CLAUDE.md</code> that quotes it, 38 MVP rows over 37 capabilities. <strong>That is its own go and it has not been given.</strong> Until it is, both elements carry their parent status in node 0.7's own table and the gap is visible rather than assumed. It also sets no threshold, decides no grid, and does not say where the list of favourited cases lives.</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-25</span><span class="dec-title">Home takes the baseline's shape: a promotion banner above the H1, and the daily case as a tier ladder</span><span class="st st-locked">Founder, four questions</span></div>
+    <div class="dec-meta">2026-08-18 - stage 03b, node 1.0, same session as D-24. Binds 1.0 and 1.1, narrows 0.7 rule 5.3, names 6.1 as the surface the ladder may never reach, and binds stage 04</div>
+    <div class="dec-body">
+      <span class="carry"><span class="k">Two of the four answers changed nothing, and they are recorded because a decision not to move is still a decision</span>The mode card row stays deferred. <code>D-20</code> deferred the row of four because three of the four modes are LATER and <strong>one live card of four is the dead item defect</strong>. It was put in front of the founder again with three ways to ship it and left deferred. <strong>Home keeps the case grid directly on the page and the main job keeps its three taps.</strong> The row arrives when a second mode is live.</span>
+
+      <h4 style="margin-top:24px">Part 2. The promotion banner ships, with its countdown, above the H1</h4>
+      <span class="pick"><span class="k">Decided: as the baseline does it</span>One promotion, an image, one line, one control, and a countdown. <strong>This reverses a refusal rather than filling a gap.</strong> The block bank recorded the Key-Drop and Hellcase event banner as DIFFERENT with a reason in its own row: "no parent in round 1, and a countdown is urgency attached to spending". <strong>That reason is not withdrawn. The banner ships with it printed</strong>, and it is the third element in this repository carried with an empty parent cell, after <code>I2</code> and the favourite from <code>D-24</code>.</span>
+      <span class="carry"><span class="k">Six rules bound the reversal</span>One promotion, never a carousel. <strong>The countdown counts to a real published end, because a time is a number and <code>CLAUDE.md</code> says never invent one.</strong> No odds, no price and no chance on the banner. It never takes H1 or H2 markup. <strong>Its empty state is that it does not render at all</strong>, the same rule <code>A5</code> obeys for the auditor we do not have. And it obeys the 360px height budget the ticker already obeys.</span>
+      <span class="drop"><span class="k">One thing is refused by name inside the same decision</span>A promotion tile inside the featured grid. The baseline drops a paid Triple Fun tile into its own case shelf, <strong>an advertisement shaped exactly like a case tile in a grid of case tiles.</strong> The grid holds cases.</span>
+
+      <h4 style="margin-top:24px">Part 3. The H1 goes under the banner, and the cost lands at 360px</h4>
+      <span class="pick"><span class="k">Decided: banner first, H1 second, at every width</span>A different order by width was rejected on the spot: node 1.0 fixes one block order for all widths, and <strong>a page that reorders itself has two orders and defends neither.</strong></span>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Width</th><th>What it costs</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Desktop, 1440px</strong></td><td><strong>Nothing.</strong> Ticker, banner, hero with the H1 and the first grid row all sit on the first screen. This is the composition the baseline runs</td></tr>
+            <tr><td><strong>360px</strong></td><td><strong>Two things.</strong> The H1 is no longer the first thing after the shell, and the first grid row no longer crests the fold. <code>D-24</code> bought part of the second one back: four fields per tile means two tiles across at 360px</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <span class="carry"><span class="k">The rule that survives is narrower and harder rather than dropped</span>The H1 must still begin on the first screen at 360px, and the banner is what gets measured against it. <strong>Stage 04 accepting a banner that pushes the H1 out of the first screen is a failed acceptance, not a layout preference.</strong> And the first visit is worse: 0.4 fires on arrival, so a cookie dialog and a banner can cover the H1 between them. <strong>That exact combination is an acceptance step at stage 04.</strong></span>
+
+      <h4 style="margin-top:24px">Part 4. The daily case becomes the baseline's tier ladder, and 0.7 rule 5.3 is narrowed</h4>
+      <span class="pick"><span class="k">Decided: the five tier ladder, the wager remaining figure and the reset countdown</span>The largest reversal in the session, and the one with a responsible play surface on the other side of it, so what moves and what does not is written line by line.</span>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Rule</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><strong><code>CLAUDE.md</code>: a limit never acquires completion mechanics, streaks, status or a session score</strong></td><td><strong>Untouched and absolute.</strong> It binds deposit limits, session limits, self exclusion and cool down. Nothing in this decision reaches them</td></tr>
+            <tr><td><strong>0.7 rule 5.3, which generalised that rule from limits to entitlements</strong></td><td><strong>Narrowed back to what <code>CLAUDE.md</code> actually binds.</strong> The daily case is an entitlement, not a limit. The generalisation was this repository's own extension and it is withdrawn by name</td></tr>
+            <tr><td><strong>0.11 rule 7, a number is never a score</strong></td><td><strong>Holds.</strong> The wager figure is money in one real currency, <code>C1</code>, not points and not a level. <strong>Superseded on 19 August 2026 by <code>D-28</code>, which reversed <code>C1</code>.</strong> The record stands as written, because a decision record says what was decided then; what the product does now is in <code>D-28</code> and in 0.11 rule 10. The rule itself still holds: the figure is money in coins, and a coin ladder is exactly where a currency turns into a score if nobody is watching</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <span class="carry"><span class="k">The cost, stated in full because it is the whole of the objection</span><code>baseline.md</code> flagged the ladder as an inherited answer to the risk recorded in row <code>I2</code>: that a daily free open teaches a first-session user that opening is free. The ladder answers that risk <strong>by making the daily case not free but earned, and the thing it is earned with is spending.</strong> One risk is traded for another. Neither <code>I2</code> nor the ladder has a parent in the three legal classes, and both are carried with empty parent cells, printed.</span>
+      <span class="drop"><span class="k">Four rules bound it</span>The ladder never appears on a responsible play surface and never beside a limit, <strong>because the place a person goes to stop is the one place progress may not follow them.</strong> It never tells a person with a limit in force what they would need to wager to advance. A tier gives a case and nothing else: no badge, no title, no rank. And the reset countdown does not render until the reset moment is a real published figure rather than <code>[?]</code>.</span>
+
+      <h4 style="margin-top:24px">What this decision does not do</h4>
+      <span class="drop"><span class="k">It does not review its own trade</span><strong>Whether the ladder is the right answer to <code>I2</code> is now an open item on node 1.0 with the founder's name on it</strong>, and it is open before stage 04 draws it rather than after. It sets no threshold, names no promotion, and does not decide the daily reset.</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-26</span><span class="dec-title">A blocking consent gate on sign in, and identity verification proposed out of round 1</span><span class="st st-open">Part 1 decided, part 2 waiting</span></div>
+    <div class="dec-meta">2026-08-18 - stage 03b, after the account capture returned the deposit flow and confirmed the live product has no identity verification. Binds 2.4, 2.1, 2.7 and the compliance constraint in CLAUDE.md</div>
+    <div class="dec-body">
+      <span class="carry"><span class="k">Two halves, deliberately not the same weight</span><strong>Part 1 is decided and applied. Part 2 is proposed with its cost printed and it is not applied</strong>, because it collides with a line in <code>CLAUDE.md</code> and with <code>D-17</code>, and a component edit is not allowed to move either.</span>
+
+      <h4 style="margin-top:24px">Part 1. The sign-in surface gains a blocking consent gate, two declarations rather than one</h4>
+      <span class="pick"><span class="k">Decided: nothing works until both are ticked</span>Before any provider control can be used, the person ticks <strong>two separate checkboxes</strong>: the <strong>terms consent</strong>, naming the documents it covers and linking each one, and the <strong>age declaration</strong>, "I am at least 18 years old", <strong>on its own line and as its own act</strong>. The provider controls are unavailable until both are set, and the surface says why in words rather than only by dimming a button.</span>
+      <span class="carry"><span class="k">Why two and not one, because the baseline runs one</span>The live product's version is a single line, "I'm 18+ and I agree to the Terms and Conditions", <strong>with no <code>required</code> attribute and with the provider buttons not disabled while it is unchecked</strong>. One checkbox bundles a contract consent with an age declaration, and <strong>a person who ticks it to get past it has made one gesture that answers two questions.</strong> Splitting them costs one line and makes the age declaration a separate deliberate act, which is the only property that makes it worth anything.</span>
+      <span class="drop"><span class="k">What the reference is, and what it is not</span>The founder supplied a screenshot of another product's sign-in dialog, filed as <code>acct_ref_signin_18plus.png</code>. <strong>The site is not identified in the capture, so this is a design reference and not a fact about a named competitor</strong>, and nothing in this repository cites it as one. And a self-declaration is not verification: this is layer 1 of <code>D-A</code> and it always was. <strong>What changed is that it is enforced rather than decorative</strong>, which is stronger than the canon and weaker than <code>D-17</code>.</span>
+
+      <h4 style="margin-top:24px">Part 2. Identity verification out of round 1, proposed rather than applied</h4>
+      <span class="carry"><span class="k">The founder's position</span>The live product has no identity verification, so round 1 does not need to build one either, and the 18+ checkbox on sign in is the whole of the age control. <strong>The first half is now a walked fact:</strong> the entire settings surface was captured and there is no KYC step anywhere in it.</span>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>What it collides with</th><th>The collision</th></tr></thead>
+          <tbody>
+            <tr><td><strong><code>CLAUDE.md</code>, compliance</strong></td><td>"age verification before any case interaction... <strong>identity verification before funding</strong>". Deferring 2.7 deletes the second clause, and moving the age declaration into sign in changes the first from "before any case interaction" to "before an account exists"</td></tr>
+            <tr><td><strong><code>D-17</code>, decision <code>D-A</code></strong></td><td>It locked <strong>two layers</strong> and took the founder's own answer as "an addition, not as a replacement". This keeps layer 1 and drops layer 2</td></tr>
+            <tr><td><strong><code>D-23</code>, the Isle of Man direction</strong></td><td><strong>A tier one regulator requires identity before withdrawal.</strong> Without layer 2 the licence direction has no enforcement point in the product, and memo <code>M2</code> would be asking a regulator about mechanics the design has already removed</td></tr>
+            <tr><td><strong>The free-entry withdrawal hole</strong></td><td><code>D-A</code> recorded it in the open: a person who only ever took free entries can reach a real withdrawal without meeting an identity check. <strong>Layer 2 was the answer. Dropping it makes the hole permanent rather than open</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <span class="pick"><span class="k">What is recommended instead of a straight deletion, and it costs nothing to take</span><strong>Keep 2.7 on the map, marked LATER, with the reason printed in its own row.</strong> Round 1 does not draw it, which is what the founder asked for. The map keeps the node, so the hole stays visible, the licence route can reclaim it without an archaeology pass, and the compliance line changes from "before funding" to "before withdrawal, and not in round 1" rather than disappearing.</span>
+      <span class="carry"><span class="k">One consequence that is structural rather than legal</span>Node 2.1 is the <strong>age and geo</strong> gate. If the age declaration moves into sign in, <strong>2.1 does not disappear: it becomes the geo gate alone</strong>, and it still has to exist because <code>D-23</code> needs a surface on which a market with no row meets <code>not launched</code>. Renaming it is part of the same go.</span>
+
+      <h4 style="margin-top:24px">What this decision does not do</h4>
+      <span class="drop"><span class="k">It touches neither of the two files a component edit may not move</span>It does not change <code>CLAUDE.md</code>, it does not remove 2.7 from <code>sitemap.md</code>, and it does not move the MVP counts. <strong>Part 2 waits for an explicit go.</strong></span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-27</span><span class="dec-title">The row of four ways to play returns to Home, and it carries three unlaunched cards saying so</span><span class="st st-locked">Founder</span></div>
+    <div class="dec-meta">2026-08-19 - stage 04, node 1.0, after the founder read the etalon beside five screens of the live product and asked where the four categories were. Binds 1.0 and 1.1, partly reverses D-20, and binds stage 04</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Decided: the carrier ships, the dead items say they are dead</span>Home carries the baseline's row of four entry cards, directly under the hero, as block <strong>B4</strong>, and B4 to B10 renumber to B5 to B11. <strong>One card is live, Cases, and it carries a control. Three are not launched and render as not launched:</strong> a name, one line of what the mode will be, and the words "Not launched yet". No control, no link, no badge, no waiting list, no date.</span>
+
+      <span class="carry"><span class="k">A partial reversal, not a total one</span><code>D-20</code> deferred this row because "one live card of four is the dead item defect", and node 1.0 refuses a hub of nine when we would ship one. <strong>That reasoning stands and it is what shapes the three deferred cards.</strong> What changes is the conclusion: the carrier ships and the dead items are marked dead. This is <code>CLAUDE.md</code>'s own rule applied to a case D-20 decided the other way: <strong>"A carrier is inherited and filled with live items. Only a dead item is deferred, never the carrier that would have held it."</strong></span>
+
+      <h4 style="margin-top:24px">The cost, printed rather than argued away</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:32%">Cost</th><th>What it is</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Three quarters of a block advertises absence</strong></td><td>Three of four cards name something a person cannot do. <code>D-19</code> calls that the rail defect. Accepted here because the cards say so <strong>in words</strong> rather than implying availability, which the rail's nine icons did not</td></tr>
+            <tr><td><strong>The first screen moves again</strong></td><td>The featured grid drops further down the page, at every width. Node 1.0 section 1.2 had already recorded the grid losing the fold to <code>D-25</code></td></tr>
+            <tr><td><strong>A third carrier for one destination</strong></td><td>The rail, the mobile bar and now this row all reach 3.1. Duplicate internal links cost a crawler nothing, and this is the baseline's own primary entry, but it is worth knowing</td></tr>
+            <tr><td><strong>No parent in the three legal classes</strong></td><td>Like <code>D-25</code>'s banner. The row in node 1.0 prints an empty parent cell rather than borrowing one</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 style="margin-top:24px">What this decision does not do</h4>
+      <span class="drop"><span class="k">It adds no mode to the map</span>Case battles, gunfights and upgrades stay <strong>LATER</strong> in <code>CLAUDE.md</code> scope, with no node, no route and no page. <strong>The row is a promise of a shape, not of a surface</strong>, and a card gains its link on the day its node exists.</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-28</span><span class="dec-title">The product denominates in coins, and C1 is reversed</span><span class="st st-locked">Founder, cost shown first</span></div>
+    <div class="dec-meta">2026-08-19 - stage 04, from the founder reading the etalon and asking why every figure was in EUR. Binds row C1 in the To-Be backlog, the money rule in CLAUDE.md, register 0.11, and every node that renders a figure</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Decided: the coin, as the live product runs it</span>Every price, balance, item value and threshold renders in coins.</span>
+
+      <span class="carry"><span class="k">What it reverses, and this is the most evidence-backed row the project has moved</span>Row <code>C1</code> reads "One real currency throughout, <strong>no internal coin denomination anywhere</strong>", status MVP and architecture, parent <code>B7-1</code>, <strong>a pattern of 7</strong>. The To-Be map states the harder version in its own reasoning: <strong>"the receipt must be denominated in real currency, because a receipt in coins fails its own test."</strong></span>
+
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:32%">Cost</th><th>What it is</th></tr></thead>
+          <tbody>
+            <tr><td><strong>A pattern of 7 loses its answer</strong></td><td><code>B7-1</code>, the currency abstraction that hides what things cost, is the second densest barrier pattern in the corpus. <code>C1</code> was the whole of the structural answer to it</td></tr>
+            <tr><td><strong>Block B7 loses a sentence it was built on</strong></td><td>"Nothing here is priced in a coin or a token: every figure on this page is in real currency, so what you read is what it costs." <strong>Deleted, not rewritten</strong></td></tr>
+            <tr><td><strong>Design principle 3 loses its sharpest edge</strong></td><td>"Odds, cost and expected value are visible and legible" is weaker when the unit is one the reader has to convert</td></tr>
+            <tr><td><strong>The market comparison stops being direct</strong></td><td><code>A1</code> prints a Steam price in real money beside our value. In coins the two are no longer the same unit</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 style="margin-top:24px">The condition it ships under, and it is not optional</h4>
+      <span class="pick"><span class="k">The coin is pegged and the peg is printed wherever money is spent</span>A coin whose rate is not published is exactly the abstraction <code>B7-1</code> describes. What that means concretely belongs to the nodes: <strong>0.11 owns the anatomy of a coin figure</strong>, and the peg belongs beside the entry cost, in the deposit flow, and on the withdrawal record. <strong>Two things do not become coins:</strong> the withdrawal time figures are time, and tested RTP and expected value are ratios.</span>
+
+      <h4 style="margin-top:24px">Propagation, and the split that matters</h4>
+      <span class="drop"><span class="k">Records of the world are never edited</span>The baseline walks, the account capture, the competitor set and the research file <strong>say what was walked</strong>. A competitor pricing in coins is a fact about that competitor. <strong>Only our own rule is rewritten:</strong> <code>CLAUDE.md</code>, row <code>C1</code>, and the nodes that state the unit.</span>
+
+      <span class="pick"><span class="k">Closed on 19 August 2026, in the same session</span>Every file in the second list was rewritten with its page in the same step: <code>CLAUDE.md</code>, row <code>C1</code>, and nodes 0.11, 0.7, 0.1, 1.0, 3.1, 3.3, 4.1 and 5.1, plus the sitemap, the block bank, the flows and the concept map. <strong>0.11 gained rule 10</strong>, which is where the peg now lives as a rule rather than as a sentence in a decision record. <strong>Three kinds of file were deliberately left alone:</strong> the walked records, the earlier decision records <code>D-21</code> and <code>D-25</code> which carry a <strong>superseded</strong> marker instead of new wording, and the critique entries that quote <code>C1</code>'s old name as evidence of a namespace collision.</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-29</span><span class="dec-title">The rail carries one destination, and its foot carries the ambient controls and the social links</span><span class="st st-locked">Founder</span></div>
+    <div class="dec-meta">2026-08-19 - stage 04, node 0.1, after the founder read the drawn rail beside the live product. Binds 0.1, the navigation line in CLAUDE.md, node 0.2 which now carries two destinations the rail used to, and partly supersedes D-21 and D-22</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Decided: the rail is the ways-to-play carrier, and round 1 ships one way to play</span>It holds <strong>Cases</strong>, plus <strong>My items</strong> once an account exists, and nothing else. <strong>Provably fair and Responsible play leave the rail for the footer</strong>, which already carries each in a column of its own: Provably fair in <strong>Play</strong>, Responsible play in <strong>Play responsibly</strong>. Neither destination is lost and neither loses a route, and the baseline keeps its own Provably Fair link in exactly that place. <strong>The foot of the rail carries the sound control, the language and the social row</strong>, as the baseline runs them, and the logo slot says <code>Logo</code> with no wordmark beside it.</span>
+
+      <span class="carry"><span class="k">The sound control finally has a home, though it still has no parent</span>0.1 recorded it with no parent in the three legal classes, and it has spent two revisions in a header that 0.1 fixes at one row on mobile. <strong>It is now at the foot of the rail</strong>, where the baseline keeps it and where it competes with nothing. <strong>That is a placement, not a parent:</strong> the founder still owes it one, or it goes.</span>
+
+      <span class="drop"><span class="k">The language is not a switcher</span>One language is locked in <code>CLAUDE.md</code>. It states <code>EN</code> and carries no menu, because <strong>a picker with one option is a dead control</strong>. It becomes a control on the day a second language ships, which is the same rule the rail applies to a mode that does not exist.</span>
+
+      <h4 style="margin-top:24px">The cost, printed rather than argued away</h4>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:32%">Cost</th><th>What it is</th></tr></thead>
+          <tbody>
+            <tr><td><strong>The mobile bar falls below Material's floor</strong></td><td>0.1 quotes it: "Don't use a navigation bar for fewer than three destinations." <code>D-22</code>'s justification was that the bar "clears it exactly: three destinations before an account". <strong>With Cases and Home it is two, and that justification is void.</strong> The bar is kept as drawn and the violation is printed. The honest options are to retire the bar, which the baseline does not have at all, or to carry it below the floor. <strong>Neither is decided here</strong></td></tr>
+            <tr><td><strong>Two trust destinations drop one carrier</strong></td><td>Provably fair and Responsible play were in the rail because design principle 1 makes trust the product and because a limit has to be reachable. They are footer-only now, which is one carrier rather than two, and on mobile that means scrolling to the end of a page rather than opening a drawer</td></tr>
+            <tr><td><strong><code>D-21</code>'s argument is partly superseded</strong></td><td>It restored the rail as the primary carrier "built for the destination rather than for the round". That still holds for the shape. What no longer holds is its count</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 style="margin-top:24px">What this decision does not do</h4>
+      <span class="drop"><span class="k">It removes nothing from the map</span>No node leaves, no route changes, and the footer's four-column structure is untouched: <strong>it was already carrying both destinations before this decision was taken</strong>.</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-30</span><span class="dec-title">The case screen takes the reference's shape: contents on the stage, the numbers on the trigger, and the refused drops row back as a carrier</span><span class="st st-locked">Founder, cost shown</span></div>
+    <div class="dec-meta">2026-08-19 - stage 04, node 3.3, after the founder put six live captures beside the drawn screen: three of the baseline and of two competitors' case pages, and three of our own wireframe. Binds 3.3 sections 1, 3, 11, 12, 14, 15 and 16, node 0.6 at its next pass, and the render of 3.3 and its four states</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Decided: the stage carries the case's contents</span>The framed region holds the artwork and, standing still beneath it, the strip of what is in the case. <strong>In phase 2 that strip is the thing that moves</strong>, so the region changes what it holds rather than the page changing its layout at the moment a person has just spent. It carries <strong>chance and value on every tile</strong>, never value alone, and it carries no figure the drop table does not.</span>
+
+      <span class="pick"><span class="k">Decided: the two case numbers move onto the commit block</span>Tested RTP and expected value sit beside the entry cost, inside the block 0.11 rule 10 calls <strong>the last surface before money moves</strong>. Design principle 3 asks that odds, cost and expected value be legible where money is about to be spent, and the section that used to carry them sat eight hundred pixels above the table. <strong>The figures are earlier than they were, not later.</strong> Their section keeps the derivation, the as-of, the route and the printed hole where the tester's name is missing, and it moves below the drop table, because the derivation is the table.</span>
+
+      <span class="pick"><span class="k">Decided: the drop table renders as a uniform card grid at every width</span>One column at 360 and four from 1200, with the table markup, the caption and the tier row groups intact. What keeps it a comparison rather than a wall is a rule and not a shape: <strong>every field sits in the same place on every card and no card omits one</strong>. What the grid buys is the artwork at a size where the item is recognisable, and a skin is recognised by its finish before its name.</span>
+
+      <span class="pick"><span class="k">Decided: the commit block is condensed</span>It was a display figure, a caption, a hole, a trigger and a sentence stacked in a 500px box. The founder's word was that the wireframe's parts are simply too large, and <strong>the size of a block is not neutral: a commit block that fills the screen is the page arguing for the act.</strong></span>
+
+      <h4 style="margin-top:24px">The row under the trigger is half of a refusal reversed</h4>
+      <p>3.3 section 16 refused Hellcase's "last 7 days top drop" and the baseline's "Best drops" as <strong>survivorship by construction</strong>, and that reasoning was not wrong. What it did was defer a carrier because the item inside it was dead, which <code>CLAUDE.md</code> names as the defect in the opposite direction: <strong>a carrier is inherited and filled with live items, and only a dead item is deferred.</strong></p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:44%">What came back</th><th>What stayed refused</th></tr></thead>
+          <tbody>
+            <tr><td>The row itself, in the place all three references put it: directly under the trigger and above the contents</td><td><strong>The ranking by value.</strong> The moment it sorts by value it is the refused block wearing our own name</td></tr>
+            <tr><td>The item, its value in coins, and the moment it happened</td><td><strong>The multiplier</strong>, x38.8 on one capture and x536.2 on another. A multiplier is the survivorship claim compressed into one number</td></tr>
+            <tr><td>A destination on every tile, 7.1, which the ticker already required</td><td><strong>The window chosen to flatter.</strong> Seven days is a parameter, and a parameter that can be tuned upward is a claim</td></tr>
+            <tr><td>Related Job 1 read at this node: drops actually happen, and they happen in <em>this</em> case</td><td><strong>The word "best", and any person's name.</strong> This row carries values and no people; the ticker carries people and no values</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <span class="carry"><span class="k">The cost, printed rather than argued away</span>It is still a sample. Six recent outcomes are six outcomes and nothing about them is a distribution, and a person reading them directly under a spend trigger is reading <strong>the most favourable class of evidence this product has</strong>. The counterweight is on the same page and one link away: the row's caption routes to the tier ladder, <code>D3</code>, which is the block that can disappoint. <strong>If <code>D-B</code> comes back negative the ladder does not render, and then this row stands with no counterweight at all.</strong> That is the condition under which the row itself should be reconsidered, written here so the question is asked rather than discovered.</span>
+
+      <span class="drop"><span class="k">Rejected on the way: retiring the global ticker from this node</span>It would have left the page one strip instead of two, and left 0.8 with a single consumer against its own "used by two surfaces and that is a decision rather than an oversight". It also reached into <code>sitemap.md</code>, 0.8, 0.12, 0.3 and 0.1. <strong>The two strips are kept apart by what they carry instead of by where they sit:</strong> people and no values at the foot of the page, values and no people under the trigger.</span>
+
+      <span class="carry"><span class="k">Amended the same day by D-31, and two of these four did not survive the founder reading them on screen</span>The contents strip on the stage lost its figures and became the reveal lane, and the tested RTP and the expected value left the commit block again. <strong>The record stands as written, because a decision record says what was decided then.</strong> What the product does now is in <code>D-31</code>.</span>
+
+      <span class="drop"><span class="k">Repeated by the captures, and still refused without amendment</span>The multi-open selector at x1 to x30, AUTO, FAST OPEN, ADD TO BATTLE, the like count, and the risk band drawn as skulls or bars. <strong>A reference repeating a pattern is not an argument for it</strong>, and 3.3 section 16 carries each with its reason.</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-31</span><span class="dec-title">The case screen is cut back to what a person reads first, and the multi-open switch ships before its ceiling</span><span class="st st-locked">Founder, cost shown</span></div>
+    <div class="dec-meta">2026-08-19 - stage 04, node 3.3, hours after D-30 and in the same session: the founder read the drawn screen block by block and sent six corrections. Binds 3.3 sections 1, 5, 11, 12, 13, 15, 16 and 17, node 0.8 and the five files that carried its placement rule, node 0.2, and the render</div>
+    <div class="dec-body">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th style="width:46%">Decided, in the order the screen reads</th><th>What it replaces</th></tr></thead>
+          <tbody>
+            <tr><td><strong>The risk band gets a reserved zone</strong> on its flank instead of a line of italic text</td><td>A hole drawn as a sentence in the corner is <strong>a hole that has no size</strong>, and the block that lands there later has to find its own room</td></tr>
+            <tr><td><strong>The stage is the reveal lane at rest with the case artwork large on it, and the lane prints nothing</strong></td><td>D-30's strip of nine tiles carrying a value and a chance each. <strong>Too much information on the stage</strong>, and the founder is right</td></tr>
+            <tr><td><strong>The commit block is the act and the cost of the act, and nothing else</strong></td><td>Three figures, two explanatory paragraphs and a trigger in one box. D-30's move of the RTP and the EV onto it is reversed</td></tr>
+            <tr><td><strong>A count switch, one to five, beside the trigger</strong></td><td>The refusal 3.3 section 16 made twice</td></tr>
+            <tr><td><strong>The drops row is called "Last drops"</strong>, and the drop card puts the image first with the information beside it</td><td>"What has come out of this case", read as unclear, and a card that led with a name</td></tr>
+            <tr><td><strong>The ticker 0.8 leaves this screen</strong>, and each footer statistic gains a reserved icon zone</td><td>A component on two surfaces, and a statistics band with no room for the icons that are coming</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <span class="pick"><span class="k">The lane prints nothing, and that corrects an argument rather than a taste</span>D-30 put chance and value on every tile, reasoning that <strong>a strip of values alone is the shop window</strong>. The reasoning was sound and the conclusion was wrong: <strong>the rule binds any surface that PRINTS a value, so the honest way to satisfy it on the stage is to print no value, not to print two.</strong> The lane is the reveal's track, not a second listing. <strong>The cost:</strong> the first screen now shows the case's name, its cost and its risk zone and nothing about its contents, which are one block down on a page that is one document.</span>
+
+      <span class="carry"><span class="k">The switch ships before C2 exists, and that is the cost this record carries</span>3.3 section 16 refused the selector twice and wrote the condition itself: <strong>"if multi-open ever ships it ships behind C2"</strong>, the spend ceiling chosen at deposit. C2 does not exist. <strong>The switch ships anyway and the condition becomes a printed cost rather than a satisfied one.</strong> What the design owes in exchange, each a rule and not a preference: <strong>the trigger carries the total and never the unit</strong>; <strong>it defaults to one on every visit and remembers nothing</strong>, because a remembered five is a multiplier that spends without being chosen again; <strong>one deliberate act per open request</strong>, which is exactly why AUTO stays refused; and <strong>one to five and no further</strong>, because five is a number a person can hold and thirty is a number they accept.</span>
+
+      <span class="carry"><span class="k">The ticker leaving costs a component its second consumer</span>Stage 04 argued against this a few hours earlier and D-30 kept the ticker. <strong>The founder cut it.</strong> 0.8 now renders on 1.0 alone, against its own node's sentence that two surfaces was "a decision rather than an oversight", and <strong>a component with one consumer is a component, or it is that screen's block</strong> - a question 0.8 now carries open. <strong>Social Job 2 was carried here by the ticker</strong>; what carries it now is the Last drops row, which lands on the same 7.1 and is about this case rather than the platform. <strong>A narrower answer, recorded as narrower.</strong> The claim "renders on 1.0 and 3.3 only" was written in five other files and all five were corrected in the same step.</span>
+
+      <span class="carry"><span class="k">Superseded the same day by D-32</span>The founder asked for the ranked row a third time. <strong>A request repeated three times is a decision, not a misunderstanding</strong>, and block 4 now ranks by value under the name Best drops. The record stands as written; what the product does is in <code>D-32</code>.</span>
+
+      <span class="drop"><span class="k">Refused inside the founder's own instruction: the word "top"</span>The founder named the category's two labels, skin.club's <strong>Last top skins</strong> and Hellcase's <strong>Last 7 days top drop</strong>. <strong>The length was the right complaint and the word is the problem:</strong> both claim a ranking and this row is in time order, so either label would be a heading that lies about the list under it. <strong>Taken: the short form. Refused: the claim.</strong> If the word "top" is wanted, the row has to actually rank by value and D-30's survivorship cost comes back with it. That is a decision and not a rename, and it sits in 3.3 section 17 with the founder as its owner.</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-32</span><span class="dec-title">Best drops ranks, the guest stage is one picture, and the trigger says the act that is available</span><span class="st st-locked">Founder, third pass</span></div>
+    <div class="dec-meta">2026-08-19 - stage 04, node 3.3, third pass in one session. Binds 3.3 sections 1, 12, 15 and 16, and the render of 3.3 and its states</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Decided: block 4 ranks by value and is called Best drops</span>D-30 took the carrier and refused the ranking. D-31 refused the label for the same reason. <strong>The founder asked for the ranked row a third time and asked what had to change for it to happen. Nothing had to change except this record.</strong> A request repeated three times is a decision, and the design's job from here is to make it honest rather than to keep relitigating it. <strong>The label and the sort now agree.</strong></span>
+
+      <span class="carry"><span class="k">The cost is not reduced by having been predicted</span>This is <strong>survivorship by construction</strong>: the biggest drops of a period are not what happens. What makes it survivable is that <strong>the block saying what does happen is on the same page and one tap from this row's caption</strong>, the published rate against the observed rate. <strong>And the dependency is sharper than it was: D-B decides whether that block renders at all.</strong> If it comes back negative, a ranked row of the biggest wins stands here with no counterweight, and that is the state to reconsider the row in rather than a footnote to it. Still refused inside the row: <strong>the multiplier</strong>, x38.8 and x536.2 on the captures; <strong>the window chosen to flatter</strong>; and <strong>any person's name</strong>.</span>
+
+      <span class="pick"><span class="k">Decided: the guest sees the case, not the machine</span>The lane is the reveal's track, and <strong>a guest is two steps from a reveal</strong> - the geo layer and Steam - so the track shows them the mechanics of something they cannot start. <strong>What a guest gets is the object they came to look at</strong>, at the size the stage can give it once the lane is not sharing the room. The lane renders from the moment a person can open.</span>
+
+      <span class="pick"><span class="k">Decided: the trigger names the act that exists, and the frame goes</span>A button reading <code>Open</code> in front of a person who cannot open <strong>names an act they cannot perform, and the page tells them so only after the tap</strong>. It reads <code>Sign in with Steam</code> for a guest and <code>Open for &lt;total&gt;</code> once an account exists. The route is unchanged: 2.1 first, because the gate fires at the first case interaction. <strong>The consequence paid immediately:</strong> the total left the button, so <strong>the entry cost is a figure again above the switch</strong> - design principle 3 does not stop applying because the trigger changed its wording. <strong>And the frame goes:</strong> a bordered box around the trigger was the block insisting on itself, on a screen that already has exactly one main action.</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-33</span><span class="dec-title">The price and the act sit in one row, and each state puts a different thing beside the trigger</span><span class="st st-locked">Founder, from a capture</span></div>
+    <div class="dec-meta">2026-08-20 - stage 04, node 3.3. Binds 3.3 sections 1 and 12, and every drawn state of 3.3</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Decided: the commit block is a row of two, and the second is always the trigger</span>The price and the act are one decision - what this costs and what happens if I agree. <strong>Stacked they are two glances, and the second one is the button</strong>, so the number is behind the eye by the time the hand moves. The founder's capture puts them beside each other and the baseline does the same on this exact surface.</span>
+
+      <span class="pick"><span class="k">Decided: the guest state gets the cost beside the trigger, and no count switch at all</span>The switch sets a quantity for an act this person cannot perform, and <strong>nothing carries the choice across the sign in because there is no session yet to hold it</strong>. A control whose only effect is discarded at the next step is a control that was answering nobody. It arrives with the account, which is where D-31 put it.</span>
+
+      <span class="pick"><span class="k">Decided: the signed-in state loses the cost figure and gains the switch in the row</span>At the default count the figure and the trigger printed the same number twice, and <strong>a number printed twice is not twice as clear</strong>. The switch belongs beside the trigger anyway: it is the thing that changes the number on it.</span>
+
+      <span class="carry"><span class="k">The consequence paid immediately</span>D-31 fixed that the trigger carries the total and never the unit, so removing the figure left the unit price with nowhere to live once the switch goes above one. <strong>The unit moved into the caption and prints at every count</strong>, <code>1 &#215; 12.40 coins</code>, rather than appearing conditionally. A total with no unit beside it is a cost a person cannot check against the drop table.</span>
+
+      <span class="drop"><span class="k">What this costs</span>The guest state now shows the entry cost for one roll and <strong>no way to see the cost of five</strong>. Deliberate, and the smaller of two prices: the alternative is a switch that quietly resets. At 360 the row becomes two rows and both halves keep their full width, because the one thing that may not be dropped for height is the cost.</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-34</span><span class="dec-title">The outcome is the item, and the receipt is a line</span><span class="st st-locked">Founder, reading the drawn state</span></div>
+    <div class="dec-meta">2026-08-20 - stage 04, node 3.6 inside 3.3. Binds 3.3 section 8 and the drawn outcome and interrupted states</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Decided: the instance value receipt is one caption line, not a four column table</span>The founder's words were that ours is overloaded and complicated, next to a capture where the item, its chance, its name and three controls are the entire screen. <strong>On the one surface where the item is supposed to be the event, ours led with an object around four fields, one of which was a three line hole.</strong> F1 asks for the fields that make this <strong>this unit rather than a name</strong>; it never asked for a container around them.</span>
+
+      <span class="carry"><span class="k">Nothing was dropped to make it lighter</span>Four fields became one line and two paragraphs became one. <strong>Every route and every named hole survived the move:</strong> check this round, share it and inspect in game are three destinations on one row, and the two venues that are not chosen and the peg that is not published are still printed as the holes they are.</span>
+
+      <span class="pick"><span class="k">Decided: the item's own chance prints above it</span>It is the one thing the capture carried that this screen did not. Read off this page's own drop table two blocks down, so it is <strong>checkable rather than flattering</strong>. 0.11 rule 7 forbids a number that is a score; this is a property of what landed, not of the person who landed it, and it is what makes a win legible as a win rather than as an item appearing.</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-35</span><span class="dec-title">Multi-open gets its own states, at both ends of the range</span><span class="st st-locked">Founder</span></div>
+    <div class="dec-meta">2026-08-20 - stage 04, nodes 3.5 and 3.6 inside 3.3. Binds 3.3 sections 7, 8, 12 and 16</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Decided: four state pages - the reveal at 2 and at 5, the outcome at 2 and at 5</span>D-31 shipped a count switch of one to five and <strong>neither phase had a state above one roll</strong>, so the switch changed a number on a button and nothing else in the drawn product.</span>
+
+      <span class="pick"><span class="k">Decided: one lane per roll, running at once and settling in order</span>Each roll is a separate settled result with its own hash, so each gets its own track and its own pointer. One lane resolving five results in turn would be five waits, and the second of them is a person watching a machine rather than their own roll. <strong>research.md carries 0.5 to 1 second per card for bulk reveals, and 3.3 section 16 recorded that figure as having nothing to attach to because multi-open was refused. D-31 gave it something.</strong> It is spent on the settling and not on the running, and that sentence in section 16 is now false and is amended rather than left standing.</span>
+
+      <span class="carry"><span class="k">The lanes are shorter from three up</span>Five at full height do not fit above the fold at 360 and the stage would scroll during the one moment it may not. <strong>That is the cost of the switch, printed rather than absorbed.</strong></span>
+
+      <span class="pick"><span class="k">Decided: the batch outcome is items, not a summary</span>Five results are five events, so there are five cards, each carrying what the single outcome carries and <strong>its own route to its own proof</strong>, because each roll is its own round with its own hash. The share stays per item: 7.1 owns one object per result, and a batch card would be a shared object nothing on the map defines.</span>
+
+      <span class="drop"><span class="k">Refused: the net</span>What was spent and what landed are both printed, because design principle 3 puts them where the money moved. <strong>The difference between them is not, and never will be.</strong> A plus or minus on a batch is a score, 0.11 rule 7, and a red number after five rolls is the loss-chasing prompt the B7-2 divergence dropped. A person who wants the difference can subtract; the page does not do it for them and does not colour the answer.</span>
+
+      <span class="carry"><span class="k">What this leaves open</span>The balance in the drawn shell rose to 74.20 coins so five rolls at 12.40 are affordable in the state being drawn. <strong>The state where they are not affordable is not drawn</strong>, and it is a real one: the switch can name a total above the balance. Named here so it is a gap rather than a discovery.</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-36</span><span class="dec-title">The account menu keeps the reference's rows, and the map gains three nodes to hold them</span><span class="st st-locked">Founder, asked directly</span></div>
+    <div class="dec-meta">2026-08-20 - stage 04, raised against node 0.1 section 5. Binds sitemap cluster 5, 0.1 section 5, the wireframe shell, and the round 1 scope list in CLAUDE.md</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Decided: seven rows, and three new nodes to hold them</span>The menu carries <strong>Roll history, Profile and Settings</strong> as well as the four rows it had, and the map gains 5.9, 5.10 and 5.11.</span>
+
+      <span class="carry"><span class="k">The rule pointed at the gap without saying which side closes it</span>On 19 August the menu shipped with four rows and a stated refusal: the reference carries PROFILE and SETTINGS, no node held either, and a carrier is filled with live items while only a dead item is deferred. <strong>That reasoning is unchanged and it is still why the rows could not simply be drawn.</strong> What it never said is which side of the gap moves. The founder was asked which of the three would exist in the real product and answered all three. <strong>So the map moved, not the rule:</strong> the rows are live items now because the destinations exist.</span>
+
+      <span class="carry"><span class="k">The three are not equal, and the record says so rather than levelling them</span><strong>5.9 Roll history has a real parent</strong> - F3 and Related Job 3 - and is arguably the strongest of the three: the product's whole trust claim is that a round is checkable afterwards, and until now <strong>the only trace of a roll a person could reach was the item it produced</strong>. It inherits a real dependency too: D-C decides whether roll history is retained per roll in a publishable form. <strong>5.10 Profile has no parent in the three legal classes</strong> and ships with the empty cell printed, the treatment D6 got. <strong>5.11 Settings has no parent and no contents yet:</strong> sound is at the foot of the rail with no parent of its own, language is one language by the locked decision, and no notification row exists anywhere in the backlog.</span>
+
+      <span class="drop"><span class="k">What this costs, stated rather than absorbed</span><strong>Round 1 grows from nine surfaces to twelve</strong>, and the scope list in CLAUDE.md is the one place that records it. <strong>The map goes from 65 nodes to 68 and from 49 MVP to 52.</strong> Stage 04 owes three more screens, and 5.11 cannot be drawn at all until its contents are decided. <strong>One older sentence was also wrong and is corrected rather than left standing:</strong> 0.1's Withdrawals row read "the map has no separate history node". It has one now, and the two are different records - withdrawals are what left, rolls are what happened.</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-37</span><span class="dec-title">The reveal stands up from two rolls</span><span class="st st-locked">Founder</span></div>
+    <div class="dec-meta">2026-08-20 - stage 04, node 3.5 inside 3.3. Binds 3.3 section 7 and the drawn reveal states</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Decided: one roll horizontal, two or more vertical</span>Reels side by side rather than lanes stacked on top of each other.</span>
+
+      <span class="carry"><span class="k">The axis is doing work rather than decorating</span>Stacked horizontal lanes put every extra roll <strong>below</strong> the previous one: the second is further from the eye than the first, the fifth is off the first screen at 360, and <strong>the batch acquires an order it does not have</strong> - every roll was settled at the same moment and none of them is first. Side by side puts every roll at the same distance from the eye and gives the batch <strong>one pointer line across all the reels</strong> instead of five markers at five heights. D-35 had already had to shorten the lanes to fit five, <strong>which was the axis telling us it was the wrong one</strong>.</span>
+
+      <span class="carry"><span class="k">A single roll stays horizontal, and that is not an inconsistency</span>With nothing beside it to compare against, the wide axis is the one that gives the artwork its room, and phase 1's lane is horizontal because it is the same region at rest. <strong>The axis changes at the only condition that makes the vertical reel better: more than one thing to line up.</strong></span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-38</span><span class="dec-title">The sell control arrives, and two refusals are reversed with their reasons kept</span><span class="st st-locked">Founder</span></div>
+    <div class="dec-meta">2026-08-20 - stage 04, node 3.6 inside 3.3. Binds 3.3 sections 8 and 8.3, the drawn outcome states, and the LATER list in CLAUDE.md</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Decided: sell on the item, sell all on the batch, and the acts become the accent</span>Two big controls - <code>Open again for &lt;cost&gt;</code> and <code>Sell</code>. <strong>The reference carries three and the third is UPGRADE, a capability that does not exist here</strong>, so there are two rather than a placeholder. <strong>Keeping stops being a button:</strong> E1 credits the item before the animation starts, so keeping is what happens if nothing is tapped, and it is a line of text with a route to 5.1. The two figure chips go, because the two controls print the same two numbers a line later - D-33's argument, applied after the spend rather than before it.</span>
+
+      <span class="drop"><span class="k">Reversed: the refusal of a sell control, and its ground is kept as a cost</span>Section 8.3 refused it because <strong>round 1 has exactly one exit, withdrawal to Steam</strong>, and cjm-to-be T7 rejected a binding buyback at the displayed value before scoring - it adds a payout rail round 1 does not have. <strong>That ground is unchanged; it is now a cost rather than a refusal.</strong> The capability is in no backlog row, so it ships <strong>with no parent in the three legal classes</strong>, the treatment the daily free case and the favourite already carry.</span>
+
+      <span class="drop"><span class="k">Half reversed: the one-key repeat, and this is the sharpest thing on the page</span>Section 8.3 named exactly this pair - <strong>one key to liquidate and one key to spend again</strong> - and blocks.md section 12 calls it the single most telling block in the whole bank. <strong>The half that survives is the half doing the work:</strong> Open again is a full control that re-enters phase 1 with the entry cost, the tested RTP and the expected value all on screen again. It never becomes a key that re-rolls in place. <strong>The other half is spent, and this record is where the argument against it stays intact.</strong></span>
+
+      <span class="carry"><span class="k">Three things left undecided, and one should block closing the node</span><strong>The sold state is not drawn.</strong> Selling is instant and irreversible; what the screen becomes afterwards, whether it confirms first, and what the balance does are all open. <strong>A control that cannot be undone with no drawn confirmation is the one thing this node should not close without.</strong> <strong>Whether the sell price carries a spread against the published current value is open</strong> - they are drawn as the same number, and if they differ, design principle 1 makes printing the difference mandatory: a buyback below a figure we published on the same screen is a cut the reader can see us take. <strong>And CLAUDE.md lists in-platform exchange as LATER</strong>: a buyback for coins is not that capability but is close enough that the scope list should say which it is. That line needs a founder decision and is not edited here.</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-39</span><span class="dec-title">The batch outcome is one row at every width, and the card is cut down until that is true</span><span class="st st-locked">Founder</span></div>
+    <div class="dec-meta">2026-08-20 - stage 04, node 3.6 inside 3.3. Binds 3.3 section 8 and the drawn batch outcomes</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Decided: N items in N columns at 360 exactly as at 1440</span>No wrapping to a second row at any width, and <strong>the card sheds fields until that holds</strong> rather than the row breaking.</span>
+
+      <span class="carry"><span class="k">The argument is structural, not a preference</span>Since D-37 the reveal is N reels side by side. An outcome in N columns means <strong>column i of the result is column i of the reel it came out of</strong>. Wrapping at 600 broke that correspondence at the exact width where it is hardest to hold five things in the head, and it gave five results a two-then-three shape they do not have.</span>
+
+      <span class="drop"><span class="k">What it costs, because a fifth of 360px is about 55px</span><strong>The value figure leaves every card at every width:</strong> it and the number inside the sell control were the same number, and while the sell price equals the published current value there is nothing for a second printing to say. <strong>The moment a spread exists the figure comes back</strong> - that is D-38's open question. <strong>Float, pattern and phase leave the card</strong> and become one receipt line per roll under the row, in the order of the row, which is the order of the reels, so F1 is satisfied at every width instead of at wide ones. <strong>Below 900 at four columns and up the name leaves the card too:</strong> at 55px a skin name does not wrap, it breaks mid-word, and a name broken into "Asii mo v" is not a name.</span>
+
+      <span class="carry"><span class="k">What the card never loses</span>The artwork, the chance it landed against, and its price on a control. <strong>The verb stays on that control at every width and only the words around the number go</strong>, because a control whose whole label is a number reads as another figure in a box.</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-40</span><span class="dec-title">My items leaves the rail, and both carriers stop changing on sign in</span><span class="st st-locked">Founder</span></div>
+    <div class="dec-meta">2026-08-20 - stage 04, raised against node 0.1. Binds 0.1, sitemap row 0.1, the wireframe shell, and the navigation paragraph in CLAUDE.md</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">Decided: My items is removed from the rail, and by the superset rule from the bar with it</span><strong>It did not lose a destination, it stopped holding one twice.</strong> Since D-36 the account menu carries My items as its first row, and the navigation model says <strong>no carrier holds another's kind</strong>: My items is an account thing and the header owns the account. The rail is the ways-to-play carrier and round 1 ships one way to play.</span>
+
+      <span class="carry"><span class="k">The superset rule forces the second half</span>Every bar item exists in the rail and the rail is always the superset, so an item leaving the rail leaves the bar in the same step. <strong>The same mechanism D-29 used when Provably fair left.</strong></span>
+
+      <span class="drop"><span class="k">The cost, and it is bigger than the one D-29 printed</span>The rail now carries one destination and the bar two, <strong>identically in both states</strong> - neither carrier changes on sign in at all. <strong>The bar is below Material's floor of three for a signed-in person as well as for a guest:</strong> D-29 printed that violation when it applied to one state, it now applies to both, and the way out it named is still not taken. <strong>One extra tap from a case screen to the inventory on desktop.</strong> And CLAUDE.md's navigation paragraph still reads "one destination before an account and two after" - that sentence is now wrong and is not edited here, because that file changes only on an explicit go.</span>
+    </div>
+  </div>
 </section>
 
 <!-- OPEN -->
@@ -650,13 +1034,38 @@
         </tr>
         <tr>
           <td><strong>D-A</strong></td>
-          <td>The method inside identity verification: facial age estimation with document KYC as the escalation, or document KYC for everyone. The shape is locked by D-17 and the flow is drawn as a superset, so this changes one branch rather than the flow. The free entry withdrawal hole, where a user who only ever took free entries can reach a real withdrawal without meeting an identity check, rides on the same answer.</td>
+          <td>The method inside identity verification: facial age estimation with document KYC as the escalation, or document KYC for everyone. The shape is locked by D-17 and the flow is drawn as a superset, so this changes one branch rather than the flow. The free entry withdrawal hole, where a user who only ever took free entries can reach a real withdrawal without meeting an identity check, rides on the same answer. <br><strong>Amended 2026-08-18 by <code>D-26</code>:</strong> layer 1, the 18+ declaration, is now enforced on 2.4 as two separate checkboxes. <strong>Layer 2 is parked as LATER</strong> and the free-entry withdrawal hole it was meant to close stays open, printed on node 2.7.</td>
           <td>The founder and counsel. Runs on calendar time, in parallel</td>
         </tr>
         <tr>
           <td><strong>D-B, D-C</strong></td>
           <td>Published against observed drop rates with <code>N</code>, aggregate observed RTP against the published figure, and whether roll history is retained per roll with seed and nonce in a publishable form. Four questions, one query. Scheduled by D-20 to run alongside steps 1 to 3 of the detail layer, and due before stage 04.</td>
           <td>The founder, as a request to the live platform</td>
+        </tr>
+        <tr style="opacity:0.62">
+          <td><strong><s>D-26, part 2</s></strong></td>
+          <td><s>Identity verification out of round 1, proposed with four collisions printed.</s><br><strong>Closed 2026-08-18: the go was given and it is applied.</strong> <code>CLAUDE.md</code> now reads identity before withdrawal and not in round 1, 2.7 with 2.8 and 2.9 are LATER on the map rather than deleted, 2.1 is the geo gate, 2.3 is dissolved, and the counts moved to 65 nodes and 49 MVP.</td>
+          <td>No longer needs one</td>
+        </tr>
+        <tr>
+          <td><strong>D-25, the ladder's own trade</strong></td>
+          <td>The daily tier ladder removes the impression that opening is free by making spending the route to a free case. <strong>Nobody has reviewed that trade against the responsible play surface it deliberately never touches.</strong> Open before stage 04 draws it, not after.</td>
+          <td>The founder, before stage 04</td>
+        </tr>
+        <tr>
+          <td><strong>D-25, the reset and the tiers</strong></td>
+          <td>The daily reset moment is <code>[?]</code> and no tier boundary is written anywhere. The countdown does not render and the ladder cannot state a target until both are set. What the banner promotes in round 1 is also empty, and its empty state is to render nothing.</td>
+          <td>The founder, with the treasury</td>
+        </tr>
+        <tr>
+          <td><strong>D-24, the thresholds</strong></td>
+          <td>The risk band has a method and no boundaries. Where High stops and Medium begins is <code>[?]</code>, it is a treasury question rather than a design one, and <strong>the band cannot render on any tile until it is answered.</strong></td>
+          <td>The founder, with register 0.11</td>
+        </tr>
+        <tr style="opacity:0.62">
+          <td><strong><s>D-24, the two backlog rows</s></strong></td>
+          <td><s>The risk band and the favourite were on the tile with no row in the capability backlog.</s><br><strong>Closed 2026-08-18: D5 and D6 written into <code>cjm-to-be.md</code></strong>, group 4, and the counts moved to 40 MVP rows over 39 capabilities in the backlog, on its page and in <code>CLAUDE.md</code>. D6 carries an empty parent cell, printed.</td>
+          <td>No longer needs one</td>
         </tr>
         <tr>
           <td><strong>The sound control</strong></td>

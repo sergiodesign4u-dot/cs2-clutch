@@ -161,6 +161,19 @@
 </div>
 
 <!-- SPINE -->
+<section id="baseline-row">
+  <div class="sec-head">
+    <h2>Baseline row</h2>
+    <p>The rule in <code>CLAUDE.md</code>: every node carries one baseline row, what the live product does, what we keep, what we change and why.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:36%">What the live product does</th><th style="width:22%">What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody><tr><td>A ticket form of three fields, Subject defaulting to Deposits, Email and Message, under an ATTENTION block pushing the FAQ first. <code>baseline.md</code> section 9.5.</td><td>The three field shape and the deflection to articles, which is reasonable and cheap.</td><td><strong>The submit button reads SIGN IN.</strong> A guest can fill the form and cannot send it, so <strong>a person locked out of their account cannot use the product's own support channel to say so.</strong> That is the strongest single argument in this repository for the appeal route <code>G4</code> and its published deadline, and it is now a walked fact rather than an inference.</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
 <section id="spine">
   <div class="sec-head">
     <h2>The one thing that separates this from a help page</h2>
@@ -567,6 +580,7 @@ window.NAV_BASE = '../';
 window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.10 Support and contact';
 window.NAV_SECTIONS = [
+  { id: 'baseline-row', label: 'Baseline row' },
   { id: 'overview', label: 'Overview' },
   { id: 'spine',    label: 'Not a help page' },
   { id: 'channels', label: 'Channels' },
@@ -580,6 +594,7 @@ window.NAV_SECTIONS = [
   { id: 'open',     label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

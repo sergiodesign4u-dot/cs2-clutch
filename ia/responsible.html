@@ -152,6 +152,19 @@
 </div>
 
 <!-- NO JOB -->
+<section id="baseline-row">
+  <div class="sec-head">
+    <h2>Baseline row</h2>
+    <p>The rule in <code>CLAUDE.md</code>: every node carries one baseline row, what the live product does, what we keep, what we change and why.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:36%">What the live product does</th><th style="width:22%">What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody><tr><td><strong>One tool exists</strong>, called <strong>TAKE A BREAK</strong>, doing deposit restriction or full account restriction. It is the second row of the <code>SECURITY</code> block inside the settings tab of the account. <code>baseline-account.md</code> section 7.1.</td><td><strong>Nothing structural</strong>, and that is the finding rather than a gap in the reading.</td><td><strong>Everything about where it lives.</strong> There is no responsible play page and <strong>no route to the tool from anywhere</strong>: not the footer, not the rail, not the header, not the home page, all four re-checked on 18 August 2026. It sits beside Logout and an anonymity toggle, in the vocabulary of account protection rather than self protection. <strong>An absence could be answered with &quot;nobody in the category has it&quot;. This cannot: they built it and then filed it where nobody looks.</strong></td></tr></tbody>
+    </table>
+  </div>
+</section>
+
 <section id="nojob">
   <div class="sec-head">
     <h2>The node with no job, said out loud</h2>
@@ -289,7 +302,7 @@
         <tr><td><strong>Any counter, streak, status, level or session score</strong></td><td>The rule in <code>CLAUDE.md</code>. This is why the list is written out rather than summarised</td></tr>
         <tr><td><strong>Any celebration of staying inside a limit</strong></td><td>A boundary that congratulates is a boundary that has started measuring, and a measurement is something to improve</td></tr>
         <tr><td><strong>A progress bar on a cool down or a self exclusion</strong></td><td>The same rule in its most tempting form. <strong>A bar filling toward the end of a boundary is a countdown to spending again, drawn as an achievement</strong></td></tr>
-        <tr><td><strong>The live drop ticker <span class="surf">0.8</span></strong></td><td>Already forbidden: the ticker renders on 1.0 and 3.3 only. Named here because this is the page where it would do harm rather than merely be noise</td></tr>
+        <tr><td><strong>The live drop ticker <span class="surf">0.8</span></strong></td><td>Already forbidden: the ticker renders on 1.0 only, and on 3.3 until <code>D-31</code> removed it. Named here because this is the page where it would do harm rather than merely be noise</td></tr>
         <tr><td><strong>Any case tile, any deposit control, any spend route</strong></td><td>No parent, and the opposite of both parents</td></tr>
         <tr><td><strong>A "not now", "remind me later" or "skip" control</strong></td><td>There is nothing to skip. This page asks for nothing, so it has nothing to defer</td></tr>
         <tr><td><strong>A sign-in wall</strong></td><td>The bank records Key-Drop putting provably fair behind login and <span class="surf">1.2</span> refusing it. Same refusal: the page reads in full for a guest, only the controls need an account</td></tr>
@@ -613,6 +626,7 @@ window.NAV_BASE = '../';
 window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '6.1 Responsible play';
 window.NAV_SECTIONS = [
+  { id: 'baseline-row', label: 'Baseline row' },
   { id: 'overview',   label: 'Overview' },
   { id: 'nojob',      label: 'The node with no job' },
   { id: 'competitor', label: 'The one competitor surface' },
@@ -625,6 +639,7 @@ window.NAV_SECTIONS = [
   { id: 'open',       label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

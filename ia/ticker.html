@@ -94,6 +94,7 @@
     .wf-ctl { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--wf-line); border-radius: 4px; padding: 4px 9px; font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--wf-ink); }
     .wf-strip { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
     .wf-tick { flex: 0 0 108px; border: 1px solid var(--wf-line-soft); border-radius: 4px; padding: 8px 8px 9px; }
+    .wf-tick-art { height: 34px; border: 1px dashed var(--wf-line-soft); border-radius: 3px; margin-bottom: 6px; }
     .wf-tick-rar { height: 3px; border-radius: 2px; background: repeating-linear-gradient(90deg, var(--wf-line) 0 6px, transparent 6px 10px); margin-bottom: 7px; }
     .wf-tick-src { font-size: 8px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .wf-tick-wpn { font-size: 9px; color: var(--wf-ink-dim); }
@@ -161,7 +162,7 @@
 <section id="tile">
   <div class="sec-head">
     <h2>The tile</h2>
-    <p>Seven fields, and the fifth was the one real fork on this node.</p>
+    <p>Eight fields, and the fifth was the one real fork on this node. <strong>Field 8 arrived from stage 04</strong>, which drew the strip and answered the question this node left open.</p>
   </div>
 
   <div class="table-wrap">
@@ -175,6 +176,7 @@
         <tr><td>5</td><td><strong>The winner, as they choose to appear</strong></td><td>Live drop event</td><td>Row <span class="row-code">A3</span>, <strong>no invented names</strong></td><td>job</td></tr>
         <tr><td>6</td><td><strong>Bot label, where a bot is present</strong></td><td>Live drop event</td><td>Row <span class="row-code">A3</span> verbatim: any bot present in it labelled as one</td><td>job</td></tr>
         <tr><td>7</td><td><strong>The destination</strong></td><td>Shared result</td><td><code>D-20</code>, which approved 7.1, and the map: every tile lands on 7.1</td><td>constraint, founder decision</td></tr>
+        <tr><td>8</td><td><strong>The item image</strong></td><td>Skin</td><td>Main Job, the same parent fields 2 and 3 carry: a skin is recognised by its finish before it is recognised by its name, and the strip is looked at rather than read. <strong>Added 18 August 2026 by stage 04</strong>, which the open table named as this question's owner</td><td>job</td></tr>
       </tbody>
     </table>
   </div>
@@ -187,12 +189,12 @@
         <span class="wf-ctl">Pause</span>
       </div>
       <div class="wf-strip">
-        <div class="wf-tick"><div class="wf-tick-rar"></div><div class="wf-tick-src">Ironbound</div><div class="wf-tick-wpn">AK-47</div><div class="wf-tick-skn">Redline</div><div class="wf-tick-who">winner, as shown</div></div>
-        <div class="wf-tick"><div class="wf-tick-rar"></div><div class="wf-tick-src">Warsteel</div><div class="wf-tick-wpn">AWP</div><div class="wf-tick-skn">Asiimov</div><div class="wf-tick-who">winner, as shown</div></div>
-        <div class="wf-tick"><div class="wf-tick-rar"></div><div class="wf-tick-src">Ironbound</div><div class="wf-tick-wpn">Glock-18</div><div class="wf-tick-skn">Fade</div><div class="wf-tick-who">winner, as shown</div><span class="wf-tick-bot">bot</span></div>
-        <div class="wf-tick"><div class="wf-tick-rar"></div><div class="wf-tick-src">Daily case</div><div class="wf-tick-wpn">USP-S</div><div class="wf-tick-skn">Kill Confirmed</div><div class="wf-tick-who">winner, as shown</div></div>
-        <div class="wf-tick"><div class="wf-tick-rar"></div><div class="wf-tick-src">Warsteel</div><div class="wf-tick-wpn">M4A1-S</div><div class="wf-tick-skn">Printstream</div><div class="wf-tick-who">winner, as shown</div></div>
-        <div class="wf-tick"><div class="wf-tick-rar"></div><div class="wf-tick-src">Ironbound</div><div class="wf-tick-wpn">Desert Eagle</div><div class="wf-tick-skn">Blaze</div><div class="wf-tick-who">winner, as shown</div></div>
+        <div class="wf-tick"><div class="wf-tick-art"></div><div class="wf-tick-rar"></div><div class="wf-tick-src">Ironbound</div><div class="wf-tick-wpn">AK-47</div><div class="wf-tick-skn">Redline</div><div class="wf-tick-who">winner, as shown</div></div>
+        <div class="wf-tick"><div class="wf-tick-art"></div><div class="wf-tick-rar"></div><div class="wf-tick-src">Warsteel</div><div class="wf-tick-wpn">AWP</div><div class="wf-tick-skn">Asiimov</div><div class="wf-tick-who">winner, as shown</div></div>
+        <div class="wf-tick"><div class="wf-tick-art"></div><div class="wf-tick-rar"></div><div class="wf-tick-src">Ironbound</div><div class="wf-tick-wpn">Glock-18</div><div class="wf-tick-skn">Fade</div><div class="wf-tick-who">winner, as shown</div><span class="wf-tick-bot">bot</span></div>
+        <div class="wf-tick"><div class="wf-tick-art"></div><div class="wf-tick-rar"></div><div class="wf-tick-src">Daily case</div><div class="wf-tick-wpn">USP-S</div><div class="wf-tick-skn">Kill Confirmed</div><div class="wf-tick-who">winner, as shown</div></div>
+        <div class="wf-tick"><div class="wf-tick-art"></div><div class="wf-tick-rar"></div><div class="wf-tick-src">Warsteel</div><div class="wf-tick-wpn">M4A1-S</div><div class="wf-tick-skn">Printstream</div><div class="wf-tick-who">winner, as shown</div></div>
+        <div class="wf-tick"><div class="wf-tick-art"></div><div class="wf-tick-rar"></div><div class="wf-tick-src">Ironbound</div><div class="wf-tick-wpn">Desert Eagle</div><div class="wf-tick-skn">Blaze</div><div class="wf-tick-who">winner, as shown</div></div>
       </div>
       <div class="wf-scope">No value, no multiplier, no crowd figure, no sort. <b>Every tile is a link to 7.1</b>, which carries the item, its receipt and its round proof.</div>
     </div>
@@ -241,10 +243,10 @@
         <span class="wf-ctl">Resume</span>
       </div>
       <div class="wf-strip">
-        <div class="wf-tick"><div class="wf-tick-rar"></div><div class="wf-tick-src">Ironbound</div><div class="wf-tick-wpn">AK-47</div><div class="wf-tick-skn">Redline</div><div class="wf-tick-who">winner, as shown</div></div>
-        <div class="wf-tick"><div class="wf-tick-rar"></div><div class="wf-tick-src">Warsteel</div><div class="wf-tick-wpn">AWP</div><div class="wf-tick-skn">Asiimov</div><div class="wf-tick-who">winner, as shown</div></div>
-        <div class="wf-tick"><div class="wf-tick-rar"></div><div class="wf-tick-src">Daily case</div><div class="wf-tick-wpn">USP-S</div><div class="wf-tick-skn">Kill Confirmed</div><div class="wf-tick-who">winner, as shown</div></div>
-        <div class="wf-tick"><div class="wf-tick-rar"></div><div class="wf-tick-src">Warsteel</div><div class="wf-tick-wpn">M4A1-S</div><div class="wf-tick-skn">Printstream</div><div class="wf-tick-who">winner, as shown</div></div>
+        <div class="wf-tick"><div class="wf-tick-art"></div><div class="wf-tick-rar"></div><div class="wf-tick-src">Ironbound</div><div class="wf-tick-wpn">AK-47</div><div class="wf-tick-skn">Redline</div><div class="wf-tick-who">winner, as shown</div></div>
+        <div class="wf-tick"><div class="wf-tick-art"></div><div class="wf-tick-rar"></div><div class="wf-tick-src">Warsteel</div><div class="wf-tick-wpn">AWP</div><div class="wf-tick-skn">Asiimov</div><div class="wf-tick-who">winner, as shown</div></div>
+        <div class="wf-tick"><div class="wf-tick-art"></div><div class="wf-tick-rar"></div><div class="wf-tick-src">Daily case</div><div class="wf-tick-wpn">USP-S</div><div class="wf-tick-skn">Kill Confirmed</div><div class="wf-tick-who">winner, as shown</div></div>
+        <div class="wf-tick"><div class="wf-tick-art"></div><div class="wf-tick-rar"></div><div class="wf-tick-src">Warsteel</div><div class="wf-tick-wpn">M4A1-S</div><div class="wf-tick-skn">Printstream</div><div class="wf-tick-who">winner, as shown</div></div>
       </div>
       <div class="wf-scope"><b>Paused is readable, not frozen out.</b> The system preference sets this state on arrival where it is declared, and nothing overrides it silently.</div>
     </div>
@@ -265,7 +267,8 @@
 <section id="placement">
   <div class="sec-head">
     <h2>Two surfaces, and the placement is the specification</h2>
-    <p>1.0 Home and 3.3 Case screen. Nowhere else.</p>
+    <p><strong>1.0 Home. Nowhere else since <code>D-31</code>, 19 August 2026</strong>, which cut it from 3.3 by founder decision.</p>
+    <p><strong>That leaves this component with one consumer</strong>, against this node's own sentence that two surfaces was a decision rather than an oversight. <strong>A component with one consumer is a component, or it is that screen's block</strong>, and this node does not resolve that: the answer belongs with whoever specifies 1.0's shell, and 3.3 may take it back.</p>
   </div>
 
   <div class="card is-good">
@@ -296,7 +299,7 @@
         <tr><td><strong>Paused</strong></td><td>The same tiles, stopped, fully readable and fully linked. By the control, by the system preference, by a touch, or by phase 2 on <span class="surf">3.3</span></td><td><span class="surf">7.1</span>, and the control back to running</td></tr>
         <tr><td><strong>Empty</strong></td><td><strong>The strip holds its space and says, in text, that no drops have landed yet</strong>, with the route into the case grid on the same page. It does not collapse and it does not invent a tile</td><td><span class="surf">3.1</span> from 1.0, the drop table from 3.3</td></tr>
         <tr><td><strong>Degraded</strong>, the feed is not updating</td><td>It <strong>stops</strong> and says the feed is not updating. The tiles already on screen stay readable and stay linked, because they are real settled events. <code>0.11</code> rule 6: a failed source is marked degraded, <strong>never frozen at its last good value</strong>, and a strip that keeps scrolling stale events is precisely a frozen value pretending to be live</td><td><span class="surf">7.1</span> from the tiles that are there. The staleness threshold is <span class="q">[?]</span></td></tr>
-        <tr><td><strong>Too few to move</strong></td><td>Below the minimum tile count the strip is <strong>a static row, not a loop</strong>. The minimum is <span class="q">[?]</span></td><td><span class="surf">7.1</span> from any tile</td></tr>
+        <tr><td><strong>Too few to move</strong></td><td>Below the minimum tile count the strip is <strong>a static row, not a loop</strong>. <strong>The minimum is eight</strong>, answered by stage 04 from the drawn width</td><td><span class="surf">7.1</span> from any tile</td></tr>
       </tbody>
     </table>
   </div>
@@ -317,9 +320,9 @@
       <div class="wf-strip-wrap">
         <div class="wf-strip-head"><span class="wf-strip-lbl">Degraded, the feed is not updating</span><span class="wf-ctl">Stopped</span></div>
         <div class="wf-strip">
-          <div class="wf-tick"><div class="wf-tick-rar"></div><div class="wf-tick-src">Ironbound</div><div class="wf-tick-wpn">AK-47</div><div class="wf-tick-skn">Redline</div><div class="wf-tick-who">winner, as shown</div></div>
-          <div class="wf-tick"><div class="wf-tick-rar"></div><div class="wf-tick-src">Warsteel</div><div class="wf-tick-wpn">AWP</div><div class="wf-tick-skn">Asiimov</div><div class="wf-tick-who">winner, as shown</div></div>
-          <div class="wf-tick"><div class="wf-tick-rar"></div><div class="wf-tick-src">Daily case</div><div class="wf-tick-wpn">USP-S</div><div class="wf-tick-skn">Kill Confirmed</div><div class="wf-tick-who">winner, as shown</div></div>
+          <div class="wf-tick"><div class="wf-tick-art"></div><div class="wf-tick-rar"></div><div class="wf-tick-src">Ironbound</div><div class="wf-tick-wpn">AK-47</div><div class="wf-tick-skn">Redline</div><div class="wf-tick-who">winner, as shown</div></div>
+          <div class="wf-tick"><div class="wf-tick-art"></div><div class="wf-tick-rar"></div><div class="wf-tick-src">Warsteel</div><div class="wf-tick-wpn">AWP</div><div class="wf-tick-skn">Asiimov</div><div class="wf-tick-who">winner, as shown</div></div>
+          <div class="wf-tick"><div class="wf-tick-art"></div><div class="wf-tick-rar"></div><div class="wf-tick-src">Daily case</div><div class="wf-tick-wpn">USP-S</div><div class="wf-tick-skn">Kill Confirmed</div><div class="wf-tick-who">winner, as shown</div></div>
         </div>
         <div class="wf-scope"><b>These drops are real and still checkable.</b> What is not live is the feed, and the strip says that rather than scrolling stale events as if they were new.</div>
       </div>
@@ -409,7 +412,7 @@
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
-    <p>Seven open items, and the first one can reverse a decision this node has taken.</p>
+    <p>Five open items, and the first one can reverse a decision this node has taken. <strong>Two more were here until 18 August 2026</strong>, and they left the table because the owner they named has drawn them.</p>
   </div>
 
   <div class="table-wrap">
@@ -418,13 +421,19 @@
       <tbody>
         <tr><td><strong>Whether the winner appears at all</strong></td><td>The fork converges on yes and keeps the no. <strong>The decision reverses if <code>A3</code>'s bot labelling cannot be enforced at the data layer</strong>, and the baseline walk marks the current state of that question <span class="q">[?]</span></td><td>Founder, plus whoever owns the feed data</td></tr>
         <tr><td>The staleness threshold</td><td>How long a silent feed stays running before it is degraded. <code>0.11</code> puts the strip in the real-time class, where any lag is a wrong answer, and gives no number</td><td>Production, with the feed</td></tr>
-        <tr><td>The minimum tile count</td><td>The N below which the strip stops moving rather than looping, rule 2</td><td>Stage 04, from the drawn width</td></tr>
-        <tr><td>Whether the tile carries the item image</td><td>The map's field list has none and the baseline walk does not record one either. Whether artwork is legible at 92px is a drawing question rather than a field question</td><td>Stage 04</td></tr>
         <tr><td>Volume and rate</td><td>How many events per minute a real feed produces at launch, which decides whether the empty state or the running state is the common one on day one</td><td>Founder, question of fact to the live platform</td></tr>
         <tr><td>Pause persistence beyond the session</td><td>A remembered preference is a setting, and this product has one settings surface, 6.1, which is not the place for it</td><td>Production</td></tr>
         <tr><td>The rarity treatment</td><td>Seven tiers exist, one is conditional on the case, and whether the ladder is the game's own palette is <span class="q">[?]</span></td><td>Stage 06</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>Answered by stage 04, 18 August 2026</h4>
+    <p>Two rows left the table above rather than being deleted from it, because both were handed to a named owner and that owner has now drawn them. Both answers are measured on the etalon at 360px and 1440px, and both carry their working in <code>wireframes/docs/screens.md</code> section 7.</p>
+    <p><strong>The minimum tile count is eight.</strong> One row at 360px holds 3.9 tiles of 92px, so a loop needs two screenfuls of tiles before it can run without a visible gap. Below eight the strip is a static row and says so. The etalon draws twelve, the first count that still reads as a feed at 1440px.</p>
+    <p><strong>The tile carries the item image</strong>, field 8 above. The strip is read at a glance rather than read, and the baseline runs artwork at exactly the 92 by 120 this component inherits, so legibility at that size is walked rather than assumed. Four text fields alone at 92px read as a list.</p>
+    <p><strong>Neither answer touches rule 4 or rule 5.</strong> The tile still offers exactly one destination and no second action, and rarity is still a tint plus a word in the accessible name. <strong>An image is not a route and it is not a rarity label.</strong></p>
   </div>
 
   <div class="card" style="border-left:3px solid var(--text-muted)">
@@ -461,6 +470,7 @@ window.NAV_SECTIONS = [
   { id: 'open',      label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

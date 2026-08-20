@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - Wireframes, all screens</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px;  overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    /* CHIPS, rendered by ia/_nav.js */
+    .ia-group { margin-bottom: 34px; }
+    .ia-group-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+    .ia-group-title { font-size: 17px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; }
+    .ia-group-count { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); }
+    .ia-group-hint { font-size: 13px; color: var(--text-secondary); margin: 6px 0 16px; }
+    .ia-chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(215px, 1fr)); gap: 10px; }
+    .ia-chip {
+      display: block; padding: 13px 15px; border-radius: 10px;
+      background: var(--bg-card); border: 1px solid var(--border-strong);
+      text-decoration: none; transition: all 0.14s ease;
+    }
+    a.ia-chip:hover { border-color: var(--accent-blue); background: var(--bg-surface); text-decoration: none; }
+    .ia-chip.is-planned { opacity: 0.44; border-style: dashed; cursor: default; }
+    .ia-chip.is-active { border-color: var(--accent-pink); background: var(--bg-surface); }
+    .ia-chip-num { display: block; font-family: 'SF Mono', Menlo, monospace; font-size: 11px; font-weight: 700; color: var(--accent-pink); letter-spacing: 0.04em; }
+    .ia-chip-label { display: block; font-size: 14.5px; font-weight: 600; color: var(--text-primary); margin: 3px 0 6px; }
+    .ia-chip-meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .ia-chip-type { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); }
+    .ia-chip-states { font-size: 10px; font-weight: 700; letter-spacing: 0.05em; color: var(--accent-yellow); background: rgba(250,218,98,0.1); padding: 2px 6px; border-radius: 4px; }
+    .ia-total { font-size: 13.5px; color: var(--text-secondary); background: var(--bg-card); border: 1px solid var(--border); border-left: 3px solid var(--accent-blue); border-radius: 10px; padding: 15px 18px; margin-top: 6px; }
+
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 520px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .n { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .cons { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+    .verdict-no { color: var(--text-muted); font-weight: 700; text-transform: uppercase; font-size: 10px; letter-spacing: 0.08em; display: block; margin-bottom: 3px; }
+
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer p { font-size: 12px; color: var(--text-muted); }
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card { padding: 17px 15px; }
+      .ia-chips { grid-template-columns: 1fr; }
+      footer { padding: 24px 20px; }
+    }
+
+    /* ---- stage 04 hub: flows, coverage, matrix, conventions ---- */
+    .wf-flow { border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); padding: 16px 18px; margin-bottom: 12px; }
+    .wf-flow-h { font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; }
+    .wf-flow-line { display: flex; flex-wrap: wrap; gap: 8px; align-items: stretch; }
+    .wf-flow-arrow { align-self: center; color: var(--text-muted); font-size: 13px; }
+    .wf-flow-screen { display: flex; flex-direction: column; gap: 4px; min-width: 150px; padding: 9px 11px; border: 1px dashed var(--border-strong); border-radius: 8px; text-decoration: none; color: var(--text-secondary); }
+    .wf-flow-screen.is-built { border-style: solid; border-color: var(--accent-blue); color: var(--text-primary); }
+    .wf-flow-screen:hover { background: rgba(255,255,255,0.03); text-decoration: none; }
+    .wf-flow-node { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; color: var(--accent-pink); }
+    .wf-chips { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 3px; }
+    .wf-chip { font-size: 9px; padding: 1px 5px; border: 1px solid var(--border-strong); border-radius: 3px; color: var(--text-muted); }
+    .wf-chip.is-built { color: var(--text-primary); border-color: var(--accent-blue); }
+    .wf-flow-of { font-size: 9px; color: var(--text-muted); font-style: italic; }
+    .wf-flow-warn { margin-top: 10px; font-size: 12px; color: var(--accent-yellow); }
+
+    .wf-legend { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-bottom: 18px; font-size: 12px; color: var(--text-muted); }
+    .wf-key::before { content: ''; display: inline-block; width: 16px; height: 0; border-top: 2px solid var(--text-muted); margin-right: 6px; vertical-align: middle; }
+    .wf-key-built::before { border-top-style: solid; border-color: var(--accent-blue); }
+    .wf-key-spec::before { border-top-style: dashed; }
+    .wf-count { margin-left: auto; color: var(--text-secondary); font-weight: 600; }
+    .wf-cov-group { margin-bottom: 20px; }
+    .wf-cov-head { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 8px; }
+    .wf-cov-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+    .wf-cov { display: flex; flex-direction: column; gap: 2px; padding: 11px 12px; border-radius: 8px; text-decoration: none; }
+    .wf-cov.is-spec { border: 1px dashed var(--border-strong); color: var(--text-muted); }
+    .wf-cov.is-built { border: 1px solid var(--accent-blue); color: var(--text-primary); }
+    .wf-cov-node { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; color: var(--accent-pink); }
+    .wf-cov-name { font-size: 13px; color: var(--text-primary); }
+    .wf-cov-meta { font-size: 10px; color: var(--text-muted); }
+
+    .sw-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0; }
+    .sw { width: 108px; }
+    .sw-chip { height: 46px; border-radius: 8px; border: 1px solid var(--border-strong); }
+    .sw-name { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; color: var(--text-secondary); margin-top: 5px; }
+    .sw-hex { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Stage 04, wireframes - the hub</div>
+  <h1>All screens</h1>
+  <p class="lede">The grey clickable prototype of the whole product. <strong>This registry was filled before the first screen was drawn</strong>, so it is a coverage tracker rather than a table of contents: every screen on the map sits here from day one with its status, and each finished one lights up. <strong>How much is left is visible in the browser at every step instead of being counted at the end.</strong></p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">15</div><div class="hero-stat-label">Screens</div></div>
+    <div><div class="hero-stat-value" id="wf-total">63</div><div class="hero-stat-label">Pages, the floor</div></div>
+    <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Flows</div></div>
+    <div><div class="hero-stat-value" id="wf-built">0</div><div class="hero-stat-label">Pages built</div></div>
+  </div>
+</div>
+
+<!-- FLOWS -->
+<section id="flows">
+  <div class="sec-head">
+    <h2>Entries by flow</h2>
+    <p>Six flows, from <code>ia/docs/flows.md</code>. Each screen carries a chip per page it owes: base plus every real state.</p>
+  </div>
+  <div id="wf-flows"></div>
+  <div class="card is-note">
+    <h4>The first flow to assemble, and it is flow 1</h4>
+    <p><strong>Home → case screen → sign in with the consent gate → the open → the outcome.</strong> It crosses three clusters, it ends on the product&#39;s emotional peak, and <strong>it is the only flow where every screen is load-bearing</strong>. It also forces the two hardest problems early: the reveal, which has no baseline reference at all, and the consent gate, which is two days old.</p>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section id="coverage">
+  <div class="sec-head">
+    <h2>Full coverage map</h2>
+    <p>Every node of the product by IA cluster. <strong>Solid means built. Dashed with an IA mark means specification only.</strong></p>
+  </div>
+  <div id="wf-coverage"></div>
+  <div class="card">
+    <p><strong>Eleven nodes of the map are not here, and each absence is the map&#39;s own rule rather than a gap.</strong> Three registers, <span class="surf">0.11</span> <span class="surf">0.12</span> <span class="surf">0.13</span>, are read by several nodes and drawn by none. Two global elements, <span class="surf">0.1</span> and <span class="surf">0.2</span>, and five components, <span class="surf">0.5</span> <span class="surf">0.6</span> <span class="surf">0.7</span> <span class="surf">0.8</span> <span class="surf">0.14</span>, render inside the screens that use them and are built once on the etalon. And <span class="surf">2.7</span> with its two states is <code>LATER</code> since <code>D-26</code>.</p>
+  </div>
+</section>
+
+<!-- MATRIX -->
+<section id="matrix">
+  <div class="sec-head">
+    <h2>State matrix</h2>
+    <p>The coverage map answers "what is built". <strong>This answers "what has to exist at all"</strong>, and until now it lived only in markdown. Stage 05 step 4 and stage 07 step 2 both read this table.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:16%">Node</th><th style="width:22%">Screen</th><th>Pages it owes</th><th style="width:12%">Scope</th></tr></thead>
+      <tbody>
+        <tr><td><span class="n">0.3</span></td><td>System pages</td><td>404 external · 404 internal · 404 retired slug · 500 · 503 planned · 503 unplanned</td><td>MVP</td></tr>
+        <tr><td><span class="n">0.4</span></td><td>Cookie consent</td><td>pending · accepted · rejected · partial · changed later · expired. <strong>Six pages or two with four variants is step 5</strong></td><td>MVP</td></tr>
+        <tr><td><span class="n">0.9</span></td><td>Legal and policy</td><td>current · changed since you agreed · guest never agreed · superseded · not yet published</td><td>MVP</td></tr>
+        <tr><td><span class="n">0.10</span></td><td>Support and contact</td><td>entry · submitted · waiting · answered · upheld · refused · deadline missed · no dispute · ticket not found</td><td>MVP</td></tr>
+        <tr><td><span class="n">1.0</span></td><td><strong>Home</strong> <span class="pill pill-r1">etalon</span></td><td>guest · account exists</td><td>MVP</td></tr>
+        <tr><td><span class="n">1.2</span></td><td>Provably fair</td><td>verifier idle · 1.3 malformed round · 1.4 our own proof failed</td><td>MVP</td></tr>
+        <tr><td><span class="n">2.1</span></td><td>Geo gate</td><td>checking the market · 2.2 geo blocked <em>dead end by design</em></td><td>MVP</td></tr>
+        <tr><td><span class="n">2.4</span></td><td>Sign in with Steam</td><td>consent not given · one of two given · consent given · 2.5 Steam refused · 2.6 Steam unavailable</td><td>MVP</td></tr>
+        <tr><td><span class="n">3.1</span></td><td>Case catalogue</td><td>guest unfiltered · 3.2 nothing matches</td><td>MVP</td></tr>
+        <tr><td><span class="n">3.3</span></td><td>Case screen</td><td>phase 1 choosing · 3.4 item at zero · 3.5 the open · 3.6 the outcome · 3.7 interrupted reveal</td><td>MVP</td></tr>
+        <tr><td><span class="n">4.1</span></td><td>Deposit</td><td>first deposit · 4.2 ceiling reached · 4.3 raise pending · 4.4 crediting · 4.5 declined</td><td>MVP</td></tr>
+        <tr><td><span class="n">5.1</span></td><td>Account and inventory</td><td>items held · 5.2 inventory empty</td><td>MVP</td></tr>
+        <tr><td><span class="n">5.3</span></td><td>Withdrawal</td><td>requested · 5.4 not eligible · 5.5 Steam degraded · 5.6 restricted · 5.7 upheld <em>dead end by design</em> · 5.8 offer expired</td><td>MVP</td></tr>
+        <tr><td><span class="n">6.1</span></td><td>Responsible play</td><td>no boundary · 6.2 self exclusion confirmation · 6.3 boundary in force</td><td>MVP</td></tr>
+        <tr><td><span class="n">7.1</span></td><td>Public result</td><td>result visible · 7.2 result gone or private</td><td>MVP</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>Eight holes travel with this matrix, and each renders rather than blanks</h4>
+    <p>Named at the stage 04 input gate and accepted. <strong><code>D-C</code></strong>, the internal check on live data, decides whether row <code>D3</code> exists on <span class="surf">3.3</span>, and it is the reason 3.3 is not the etalon. <strong>The withdrawal question</strong>, delivery or purchase, is drawn against option B until answered. The other six, <strong>risk band thresholds, daily reset and tier wager, the deposit crediting window, the withdrawal ceilings and p90 window and appeal deadline, the starter credit and its threshold, and the featured grid size</strong>, each render as the "not available" state their own node already specifies.</p>
+    <p><strong>Missing is a state, never a zero</strong>, and that is why <code>_wf.css</code> carries <code>.wf-fig-missing</code>. Full detail in <code>wireframes/docs/screens.md</code> section 5.</p>
+  </div>
+</section>
+
+<!-- CONVENTIONS -->
+<section id="conventions">
+  <div class="sec-head">
+    <h2>Conventions</h2>
+    <p>The grey contract every screen and every subagent obeys, live from <code>wireframes/docs/conventions.md</code>. <strong>This is the file the step 9 critique checks against, so it has to be in front of you at the moment of checking.</strong></p>
+  </div>
+
+  <div class="card">
+    <h4>The grey palette, inherited rather than invented</h4>
+    <p>The six greys are the exact values the 27 IA node pages already use for their black and white anatomies. <strong>The wireframes continue that surface rather than opening a second one.</strong></p>
+    <div class="sw-grid">
+      <div class="sw"><div class="sw-chip" style="background:#141414"></div><div class="sw-name">--wf-bg</div><div class="sw-hex">#141414</div></div>
+      <div class="sw"><div class="sw-chip" style="background:#1e1e1e"></div><div class="sw-name">--wf-surface</div><div class="sw-hex">#1e1e1e</div></div>
+      <div class="sw"><div class="sw-chip" style="background:#272727"></div><div class="sw-name">--wf-raised</div><div class="sw-hex">#272727</div></div>
+      <div class="sw"><div class="sw-chip" style="background:#3a3a3a"></div><div class="sw-name">--wf-line-soft</div><div class="sw-hex">#3a3a3a</div></div>
+      <div class="sw"><div class="sw-chip" style="background:#6b6b6b"></div><div class="sw-name">--wf-line</div><div class="sw-hex">#6b6b6b</div></div>
+      <div class="sw"><div class="sw-chip" style="background:#8a8a8a"></div><div class="sw-name">--wf-ink-dim</div><div class="sw-hex">#8a8a8a</div></div>
+      <div class="sw"><div class="sw-chip" style="background:#dcdcdc"></div><div class="sw-name">--wf-ink</div><div class="sw-hex">#dcdcdc</div></div>
+    </div>
+  </div>
+
+  <div class="card is-gap">
+    <h4>Inline CSS is transport, not a home, and this is where the stage breaks quietly</h4>
+    <p>At step 8 parallel subagents write screens and cannot all write into <code>_wf.css</code>. So an agent puts its screen&#39;s rules inline, <strong>and the reconcile pass of the same step folds them back.</strong> Two criteria decide every rule:</p>
+    <p><strong>1. A token value never lives inline. Not even on one screen.</strong> Screens write <code>var(--wf-...)</code>. A literal inline is where drift starts. <strong>2. A rule on two or more screens moves into <code>_wf.css</code></strong>, the same "two or more occurrences" test stage 07 uses to decide what is a component.</p>
+    <p><strong>Why this is not pedantry.</strong> Stage 07 extracts the component kit from these screens. If the structure of twenty screens lives in twenty inline blocks, the extract honestly collects a kit made of the differences: three versions of one card, two grids, four spacings where there should be one. <strong>The defect becomes visible three stages after it was created.</strong></p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The rules that are checked rather than admired</h4>
+    <p><strong>A live screen, not a diagram.</strong> A real page at full viewport that clicks and scrolls. No annotation labels on zones, no mockup frames, no skeleton placeholders standing in for a screen.</p>
+    <p><strong>One viewport, mobile first.</strong> One live screen that rebuilds itself wider. <strong>Mobile is checked by narrowing the browser</strong>, never by a second file.</p>
+    <p><strong>Every zone has a role and every screen has exactly one main action.</strong> A zone that cannot answer "why is it here" is a defect, not filler. The footer never competes with the main action.</p>
+    <p><strong>Every state is its own page, and every state has a way out.</strong> The floor is four, the real set is the node&#39;s own. <strong>Two dead ends exist by design and the map names both:</strong> 2.2 geo blocked and 5.7 restriction upheld.</p>
+    <p><strong>Body text comes from the node&#39;s A to E block, so no lorem ipsum.</strong> Interface strings are drafts here and <strong>stage 05 owns the final wording</strong>.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Deferred by name</h4>
+    <p><strong>Colour, type choices, shadows, icons, images and finished UI.</strong> Stages 06 to 08, and they land on copies of these screens inside <code>design/</code>, never on <code>_wf.css</code>.</p>
+  </div>
+
+  <div class="card" style="border-left:3px solid var(--text-muted)">
+    <h4>Three readers, named by step, because a usage rule with no executing step dies on the stage that wrote it</h4>
+    <p><strong>Stage 05 step 4</strong> takes the one-main-action rule and the state rules: microcopy must not create a second competing action, and that is checked in the text rather than in the layout. <strong>Stage 07</strong> takes what is inherited from the IA and does not change when the screens are coloured. <strong>Stage 09 step 1</strong> reformulates the same rule in system class terms, "no more than one <code>.btn--primary</code> per screen", into <code>design/kit/docs/architecture.md</code>.</p>
+  </div>
+</section>
+
+<section id="shell">
+  <div class="sec-head">
+    <h2>Shell contract, and three items this stage answered</h2>
+    <p>Added after the founder read the etalon on 18 August 2026 and reported that the home screen was wrong and enormous. Both are correct readings and both had one cause. Live from <code>wireframes/docs/conventions.md</code> section 8 and <code>wireframes/docs/screens.md</code> section 7.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>What was wrong: the rail was 90px tall and the page ran the full width of the monitor</h4>
+    <p>The rail and the header were drawn as two boxes stacked <strong>above</strong> the content, so the rail ended after four items and every block ran the full window width underneath it. <code>CLAUDE.md</code> fixes the opposite as an inherited decision: <strong>a full height left rail, and a header starting at the rail&#39;s edge</strong>. A rail that stops after four items is a third carrier nobody decided on.</p>
+    <p>And nothing capped the content, so on a 1997px monitor the H1 and the argument blocks ran about 1900px wide. That is the "enormous" half of the report, and it is a separate defect with the same fix.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The contract, and it holds for every screen from here</h4>
+    <p><strong>The rail is full height</strong>, 100vh and sticky at 220px, holding the left edge from 900px. <strong>The header starts at the rail&#39;s edge</strong> and never spans the window, and it holds no destination at all.</p>
+    <p><strong>The toggle sits on the junction of the two seams</strong>, node 0.1 section 1, not at the foot of the rail. At the foot it read as a fifth destination, which is the one thing this control may not look like.</p>
+    <p><strong>The mobile header is one row</strong>, 61px at 360px, node 0.1 section 9. Rendered with full figures, captions and two-word controls it was three rows and 230px tall, which pushed the state strip of 1.1 off the first screen.</p>
+    <p><strong>The content column is capped at 1220px, the app at 1440px.</strong> 1440 is the width <code>baseline.md</code> walked and the width <code>home.md</code> section 7 computes its third-column argument at.</p>
+    <p><strong>No screen HTML changed to get any of this.</strong> The screen is laid out by a grid on <code>.wf-screen-body</code> with <code>.wf-shell</code> as <code>display: contents</code>, so a new screen inherits the shell by rendering <code>#wf-shell</code> exactly as the etalon does.</p>
+  </div>
+
+  <div class="card">
+    <h4>Three open items handed to this stage by name, answered at the etalon</h4>
+    <p><strong>Whether the ticker tile carries the item image</strong>, 0.8 section 6. <strong>It carries one.</strong> The strip is read at a glance rather than read, the baseline runs artwork at exactly 92 by 120 and it is legible there, and four text fields alone at 92px read as a list rather than as a feed.</p>
+    <p><strong>The minimum tile count</strong>, 0.8 rule 5.2. <strong>Eight.</strong> One row at 360px holds 3.9 tiles of 92px, so a loop needs two screenfuls before it runs without a visible gap. The etalon draws twelve, the first count that still reads as a feed at 1440px.</p>
+    <p><strong>The ambient sound control at 360px</strong>, 0.1 section 6, a cell left <code>[?]</code>. <strong>It leaves the header below 900px:</strong> menu plus two figures plus deposit plus avatar plus sound does not fit one row at 360px, and the baseline makes the same cut at 390px. <strong>This does not give the control a parent</strong>, which is still the founder&#39;s to give.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Second pass, after five baseline screens were put beside the etalon</h4>
+    <p>The report was three things at once: the block composition, the proportions, and the weight of text. <strong>Four of the five references turned out to be blocks whose own node already specified the shape we were not drawing</strong>, which makes them defects rather than preferences.</p>
+    <p><strong>The footer had one band of four.</strong> Node 0.2 section 3 specifies a statistics strip, four columns, an interlinking block, and a copyright and marks row. We were drawing the strip, a row of five links and one compliance line. <strong>The fourth column, Play responsibly, is the whole divergence from the baseline and it was missing entirely.</strong></p>
+    <p><strong>The daily block was five boxes in a column.</strong> <code>home.md</code> section 7 says it in words: the wager figure at one end, the reset at the other, five tiers as one horizontal run, the control on its own.</p>
+    <p><strong>Two things came from the reference rather than from a node:</strong> a section head is a title plus one line of what the block is for, and the route out of a shelf is one centred control. A bare H2 above a grid is what made the page read as a document.</p>
+    <p><strong>And the rail reads as rows.</strong> Three floating text links in a 220px column is not the carrier that was inherited.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>One block demoted, and one still not drawn</h4>
+    <p><strong>The SEO text block B10 was set at the weight of the argument blocks</strong>, which doubled the page&#39;s apparent text. It is the SEO layer, node 0.13, not the page&#39;s case, so it renders smaller and dimmer now. <strong>No word of it was cut:</strong> the node owns that copy and stage 05 owns its final wording.</p>
+    <p><strong>The row of four game mode cards is the one thing in the reference we still do not draw.</strong> <code>D-20</code> defers it because one live card of four is the dead item defect, and <code>home.md</code> refuses a hub of nine when we would ship one. It comes back when a second mode exists, or when the founder reverses <code>D-20</code> in writing.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Two founder decisions taken during step 5</h4>
+    <p><strong><code>D-27</code>, the row of four ways to play.</strong> Drawn on 1.0 and 1.1 as block B4: one live card with a control, three reading "Not launched yet" with no control, no link, no badge and no date. It partly reverses <code>D-20</code>: the carrier ships and the dead items are marked dead. <strong>Node 1.0 took it in the same step</strong>, with B4 to B10 renumbered to B5 to B11 on both the markdown and the page.</p>
+    <p><strong><code>D-28</code>, the coin.</strong> Row <code>C1</code>, "one real currency throughout, no internal coin denomination anywhere", is reversed. It was the whole structural answer to <code>B7-1</code>, <strong>a pattern of 7</strong>, and the decision record prints that cost rather than arguing it away. <strong>It ships on one condition and the wireframes render the condition:</strong> the peg is printed wherever money is spent, and here it renders as its missing state because the rate is not published yet.</p>
+    <p><strong>Two things did not become coins.</strong> The withdrawal times are time, and tested RTP and expected value are ratios. <strong>And the Steam market price stays in EUR, marked as not comparable</strong>, which is the consequence <code>D-28</code> names for <code>A1</code>.</p>
+    <p><strong>Propagation closed in the same session.</strong> <code>CLAUDE.md</code>, row <code>C1</code> and every node that states the unit were rewritten with their pages: 0.11, 0.7, 0.1, 1.0, 3.1, 3.3, 4.1, 5.1, plus the sitemap, the block bank, the flows and the concept map. <strong>0.11 gained rule 10</strong>, so the peg is a rule of the register rather than a sentence in a decision record. <strong>Left alone on purpose:</strong> the walked records, which say what was walked; <code>D-21</code> and <code>D-25</code>, which carry a <strong>superseded</strong> marker rather than new wording; and the critique entries where <code>C1</code>'s old name is the evidence. <strong>0.2 was checked and needed nothing</strong>: its strip carries a count, two times and a ratio.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4><code>D-29</code>, the rail</h4>
+    <p><strong>The rail is the ways-to-play carrier and round 1 ships one way to play.</strong> It holds <strong>Cases</strong>, plus <strong>My items</strong> once an account exists. <strong>Provably fair and Responsible play moved to the footer</strong>, which already held each in a column of its own, so neither destination is lost.</p>
+    <p><strong>The foot of the rail carries the sound control, the language and the social row</strong>, as the baseline runs them. The sound control leaving the header is what finally clears 0.1's one-row rule at 360px. <strong>The language is not a switcher:</strong> one language is locked, so it states <code>EN</code> and carries no menu, because a picker with one option is a dead control.</p>
+    <p><strong>One cost is a rule violation and it is drawn rather than hidden.</strong> The mobile bar is Home plus Cases, two before an account, and 0.1 quotes Material's floor of three. <code>D-22</code>'s justification was that the bar cleared it exactly. <strong>That justification is void, and <code>D-29</code> prints it instead of reinterpreting the quote.</strong></p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The control contract, and one thing the node specified that this stage never drew</h4>
+    <p><strong>A link styled as a button is still a link</strong>, so it kept the browser&#39;s underline, and an underline running under a label inside a border is what made every control look slapped together. Controls are drawn once now: <code>inline-flex</code> centred by construction, no underline inside a control, <strong>two sizes and no third</strong>, and still one primary per screen.</p>
+    <p><strong>The mobile drawer was in node 0.1 all along and had never been drawn.</strong> The node carries the modal contract in full: the scrim blocks the content, three dismissals, and "the bar sits behind the scrim with the content and is not raised above it". Stage 04 was rendering the rail <strong>inline</strong>, above the header, pushing the whole screen down, which is a disclosure rather than a drawer. It is now fixed, overlaid and animated in, with the scrim created on open and removed on close.</p>
+    <p><strong>The finding worth carrying is not about the drawer.</strong> A contract written in a node and not read at the drawing step produced a defect the founder found by opening the page. <strong>Every node section titled "transient states" is now a checklist item for the screen that renders it</strong>, not background reading.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The case tile, cut back to four fields and a corner mark</h4>
+    <p>The favourite was a full width control under the fields, which made a tile whose job is four fields look like a tile whose job is one button: <strong>the one element with no parent in the three legal classes was the largest thing on the card</strong>. It is now a count and a mark in the corner, as the baseline runs it, and it keeps its focus stop, its accessible name and its own tap target.</p>
+    <p><strong>The four fields run in the baseline&#39;s visual order:</strong> artwork, name, risk, cost. The price last is what makes it the thing the eye lands on, and it takes the slack at the foot of the tile so a tile with a stock marker and a tile without one still line their prices up across a row. Both rules are now in node 0.7, as 5.6 and 5.7.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The quality pass on 1.0, run as an instrumented sweep</h4>
+    <p>Heading outline, landmarks, controls without an accessible name, links without a destination, duplicate ids, and the measured height of every block. <strong>Six findings, and the first was invisible on this page and wrong on every page.</strong></p>
+    <p><strong>The footer spent four H2s on its column labels.</strong> Node 1.0 makes the H2 list the block order and the check mechanical: read the block order, read the H2 list, they match or the node is wrong. <strong>Four headings injected by a global break that check on every screen in the product</strong>, not on the one where it was noticed. The labels are text now, and each column&#39;s name is carried by its own <code>nav aria-label</code>, which is what a screen reader announces anyway.</p>
+    <p><strong>Two placeholder treatments became one.</strong> Half the reserved areas were an outline on the page background and half an outline on a surface, which reads as two kinds of missing thing. <strong>Stage 07 extracts components from these files, so two treatments here become two components there.</strong></p>
+    <p><strong>A5 was two figures floating in an empty column</strong>, and the node calls it the institutional trust <em>unit</em>. It is a unit now. <strong>The SEO block was the tallest on the page</strong> at 555px and it is the lowest-priority block: two columns from 900px takes it to 357. Multi-column rather than grid, because a grid pairs a heading with the paragraph beside it and breaks the one thing prose depends on.</p>
+    <p><strong>Two controls were lying about themselves.</strong> The daily control was a link carrying <code>aria-disabled</code>, and a link with <code>aria-disabled</code> still navigates when clicked; it is a real disabled button now. And the ladder had a drawn track running behind markers that carry their own surface: <strong>something drawn that renders invisible is a defect, not decoration.</strong></p>
+    <p><strong>Measured after the pass.</strong> Desktop height 4,326 to 4,123. At 360px the H1 begins at 500 against a fold of 584. No horizontal overflow at either width, in either account state, drawer open or closed.</p>
+  </div>
+
+  <div class="card is-gap">
+    <h4>Measured, not asserted</h4>
+    <p><code>home.md</code> section 1.2 sets the H1 target at 360px: it has to begin above the fold, which the same section measures at 584px once the fixed bottom bar takes its 56px. <strong>The H1 begins at 500px.</strong> The ticker and the banner spend the rest of that between them, which is the budget D-25 said it would spend.</p>
+  </div>
+</section>
+
+<section id="audit">
+  <div class="sec-head">
+    <h2>The two-instrument audit of 1.0, 19 August 2026</h2>
+    <p>Run because the founder asked for one more pass over Home. Claude took the browser and measured at 1440 and 360 in both account states; Codex ran read only over the four Home files against the nodes that own them. <strong>Twelve findings came back, nine confirmed, three withdrawn on verification with their reasons kept.</strong> Live from <code>wireframes/docs/screens.md</code> section 11.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Three things the render said that the node did not</h4>
+    <p><strong>The guest daily block showed progress and a wager figure.</strong> The state matrix says the ladder renders as a description of what exists, with no progress and no wager figure, because a guest has none. It shipped as <code>0.00 of 5.00</code> with Silver marked reached: the account render with its numbers zeroed. <strong>A zero is not the guest state, it is a claim that this person has wagered nothing</strong>, and 0.11 rule 3 refuses exactly that reading.</p>
+    <p><strong>A5 rendered twice on 1.1.</strong> The comment above the second copy said "the same unit, not a second one" while the code drew both. The node says the unit <em>moves</em> below the grid.</p>
+    <p><strong>1.1 had replaced B10 with a second withdrawal-threshold block.</strong> Same missing figure twice on one page, the starter credit dropped from the account render, nothing in <code>decisions.md</code>. Put back to the matrix, and the product question it was silently answering is now an open item on the node.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Four claims with nothing behind them</h4>
+    <p><strong>The Trustpilot score was hardcoded at 4.3 of 5.</strong> 0.11 group B: live or not at all, because a hardcoded score is a fabricated review claim rather than a stale number. Whether we have a score at all is still the founder&#39;s. It renders as the missing state, like the auditor beside it.</p>
+    <p><strong>The median and p90 carried no window length</strong>, which <code>home.md</code> section 2.8 makes part of the claim. <strong>And the Steam Market fee carried no source:</strong> <code>competitors.md</code> marks 15 percent <code>[?]</code> in the record itself, so the comparison does not render at all until it has a source and a date. Nothing was cut; one claim was.</p>
+    <p><strong>The footer statistics passed a route and never rendered it</strong>, and <strong>neither money figure in the header was a link</strong> though the node gives each its own destination. A route that exists in the data and not in the DOM is the exact shape of a claim nobody can check.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Three carriers that were half built</h4>
+    <p><strong>The favourite was a 28px target</strong> against the node&#39;s 44. A corner mark is a decision about the visible chip, not a licence to shrink the target: the chip is drawn by the button&#39;s own <code>::before</code>, so the target is 44 and the mark stays small.</p>
+    <p><strong>The footer link columns were open lists at every width.</strong> The node asks for accordions collapsed by default at 360 and <strong>present in the DOM</strong>, each header a real button carrying <code>aria-expanded</code> and <code>aria-controls</code>. The links were all there and the control was not, which is the wrong half of the pattern. The compliance lines stay outside every accordion at every width.</p>
+    <p><strong>The featured grid carried no peg.</strong> 0.7 puts it on the grid once, and the first mention of the missing peg was two blocks lower, after four coin prices had already been read.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>And the footer was carrying our backlog in front of the visitor</h4>
+    <p>Each of the four statistics had a second italic line reading "Conditional on D-B", "Slot 2, filled with a figure that has a route", "it needs its own backlog row before it can ship". Every one of those sentences is already in <code>footer.md</code>. <strong>A route is rendered, a process note is not.</strong> The route survives on the one figure that claims to be checkable against something else.</p>
+    <p>Two more, both measured rather than noticed: <strong>the section head rule collapsed to a 15px stub</strong> when the title was long, which reads as a rendering fault rather than a rule, and <strong>the account control ran 8px past the right edge at 360</strong> because the header row needed 320px inside 297. The header runs edge to edge below 900 now, which is also how the baseline draws it.</p>
+  </div>
+
+  <div class="card is-gap">
+    <h4>Withdrawn on verification, kept with their reasons</h4>
+    <p><strong>"Links point at pages that do not exist."</strong> True and not a defect: two of 63 pages are built and the panel prints that count on every screen. What would be a defect is a route to a file no node names, and there is none.</p>
+    <p><strong>"The ticker does not move and there is no reduced-motion state."</strong> Motion is not this stage&#39;s. The control is a real element because the grey contract requires real elements, and a reduced-motion state has nothing to reduce until there is motion to reduce.</p>
+    <p><strong>"The favourite has no behaviour."</strong> Every state is its own page here, not a live script. The on state is drawn on a tile of its own, and the signed-out press routes to 2.4, which step 6 builds.</p>
+  </div>
+</section>
+
+<section id="case">
+  <div class="sec-head">
+    <h2>3.3 Case screen, phase 1</h2>
+    <p>The second screen, and the first that is not Home. Node <span class="surf">3.3</span> holds three phases and four states; this step draws phase 1, the document a crawler and a first-time reader both see. Live from <code>wireframes/docs/screens.md</code> section 12.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Every figure on the page is recomputable from the table under it</h4>
+    <p><code>0.11</code> calls the expected value the strongest row in the register, and the reason is that a reader who distrusts it can derive it without leaving the page. <strong>That is an arithmetic requirement as well as a layout one, so the drawn table was built to satisfy it rather than filled with plausible numbers.</strong> Checked in the browser against the rendered DOM: expected value <strong>11.68 coins</strong> is the sum of chance times value across the nine rows; tested RTP <strong>94.2 %</strong> is that over the 12.40 entry cost; the chances add to <strong>100.000 %</strong>; the ticket ranges add to <strong>100 000</strong> with no gap and no overlap.</p>
+    <p><strong>Tickets 1 to 37 000 are exactly the outcomes worth at least the entry cost</strong>, which is the third figure on the page. The percentage and the ticket range say the same thing twice, which is what the node's own copy claims and what makes a result checkable afterwards.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>One figure on Home changed to keep that true</h4>
+    <p>Home's worked example carried the AK-47 Redline at 18.60 coins over tickets 7 300 to 7 420: a range of 121 tickets printed beside a chance of 3.180 per cent. <strong>A drop table whose ticket ranges contradict its percentages is the defect this product exists to prevent, printed in our own copy.</strong> Home now carries 47.30 coins over tickets 1 to 3 180, which is the same row the case screen prints.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Two contradictions inside the node, found by drawing it</h4>
+    <p><strong>The heading list and the block order disagreed.</strong> The SEO block listed the H2s as drop table, then what this case pays, then published against observed; the block order runs the other way, the summary above the list. The node's own checklist makes that match mechanical, so both could not be right. <strong>The block order wins because it carries an argument and the heading list carried only an order:</strong> putting the summary under the list means the cost of the case is read after its contents.</p>
+    <p><strong>The risk band has no method, not only no thresholds.</strong> <code>0.11</code> says the method reads this drop table so a reader can recompute it, and never says what it computes. The screen renders the one figure that satisfies the stated property, the share of outcomes worth at least the entry cost, and names it a candidate rather than the method. New open item, owner founder.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>What the node asked for that the browser refused</h4>
+    <p><strong>Sticky cannot do what the responsive section describes.</strong> The commit block "becomes sticky once it scrolls out of view". <code>position: sticky</code> with <code>bottom</code> holds a block you are scrolling down towards and releases it the moment you pass it; it never drags one down from above. The behaviour is a second, condensed carrier, shown by an observer once the real block leaves the screen. <strong>The entry cost and the trigger are on it always</strong>, because "it never drops the entry cost to save the height" is the node quoting design principle 3. It is <code>aria-hidden</code>: a screen reader meeting the same trigger twice is being told there are two ways to spend, and there is one.</p>
+    <p><strong>The drop table stops being a table at 360.</strong> Drawn as one it needed 445px inside 313 and scrolled inside its own box. Each row is a card now: the item full width, then chance beside value, then tickets beside free units, so the pairing survives the width. <strong>And the four tier groups are not four headings</strong> — that would break the same mechanical check the footer's four H2s broke on every page.</p>
+  </div>
+
+  <div class="card is-gap">
+    <h4>Drawn as named holes rather than as numbers</h4>
+    <p>The coin peg. Who tested the RTP and over how many opens. The risk band's thresholds and its method. The sample floor under the observed counter. And the two conditions, <code>D-B</code> and <code>D-C</code>, that decide whether the tier ladder ships at all, printed on the block rather than footnoted because it is the block that does not ship if either comes back negative.</p>
+    <p><strong>One is a hole in the record rather than in the product.</strong> Whether this rarity ladder is the game's own is unchecked: the block bank walked seven tiers by reading colours and did not capture their names, and <code>CLAUDE.md</code> already says the ladder is the one inherited thing nobody wrote down.</p>
+  </div>
+</section>
+
+<section id="account-zone">
+  <div class="sec-head">
+    <h2>The header's account zone</h2>
+    <p>Reported by the founder against the baseline capture on 19 August 2026, and the node had already said most of it: three of the four findings are the render contradicting <span class="surf">0.1</span> rather than a new decision. Live from <code>wireframes/docs/screens.md</code> section 13.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Three things the render said that the node did not</h4>
+    <p><strong>The two money figures were side by side with a hairline between them.</strong> The node names them the <em>upper</em> and the <em>lower</em> figure and the state matrix says "two lines" on desktop and "one line each" on mobile. It has said that since the node was written.</p>
+    <p><strong>Money came first and the account control last.</strong> The node's order is the account control, the two figures, the deposit control, which is also the capture's order.</p>
+    <p><strong>The deposit control was a word-labelled button.</strong> The node asks for "a single add control beside the figures" and the capture is one compact round control at every width. <strong>No badge:</strong> the capture shows exactly what rule 4 refuses, a green 5 per cent welded to a money control, which is an advertisement that never stops running.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>What replaced the hairline, and why the caption moved beside the figure</h4>
+    <p>The vertical rule was not decoration: rule 2 says the two figures are never summed and never a total, and the rule enforced it. Stacked, that job falls to weight and caption. The balance leads, the value of items held is smaller and dimmer, and each keeps its own caption. <strong>Two figures of equal weight in a column is a receipt</strong>, which is the one reading this zone may not produce.</p>
+    <p><strong>Figure over caption twice put the header at 96px against the 61 the node measures for one row</strong>, and every screen in the product would have lost that difference from its first screen. Dropping the captions would have been cheaper and is refused: rule 3 says the lower figure is labelled a current market value and never profit or growth, and <strong>a label only a screen reader gets is not doing that job for the person looking at it.</strong> Header back to 62px at 1440 and 61px at 360.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The menu carries four rows, and the two the reference has that we do not are refused</h4>
+    <p>The capture's menu is INVENTORY, HISTORY, PROFILE, SETTINGS, LOGOUT. Ours is <strong>My items</strong> <span class="surf">5.1</span>, <strong>Withdrawals</strong> <span class="surf">5.3</span>, <strong>Responsible play</strong> <span class="surf">6.1</span>, <strong>Sign out</strong>. <strong>No node in the map holds a profile or a settings page</strong>, and the rule is that a carrier is inherited and filled with live items while only a dead item is deferred. <strong>A row for a page nobody has specified is the dead item defect inside a menu.</strong></p>
+    <p><strong>Responsible play now has three persistent entries and that is deliberate.</strong> The footer column since <code>D-29</code>, the entry inside the money control, and this menu: reading the site, being about to spend, managing the account. A brake that has to be searched for at the worst moment is not a brake.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Hover, and the bug that separating it fixed</h4>
+    <p>The reference opens on hover. <strong>Hover alone excludes touch entirely and the keyboard almost entirely</strong>, so the control opens on hover, on click and on Enter or Space, and closes on Escape, on a click outside and when focus leaves.</p>
+    <p><strong>Bound as two JS handlers writing the same flag, the control appeared dead to a mouse:</strong> hover opened the menu and the click that followed toggled it straight back to closed. <strong>Hover is a pointer affordance with no state behind it.</strong> CSS shows the panel and records nothing, inside a <code>(hover: hover)</code> query so a touch device never inherits a rule it can only fire with the tap it already spent. Click and keyboard set the class, and that class is the only thing <code>aria-expanded</code> reports, because hover is not a state a screen reader has.</p>
+  </div>
+</section>
+
+<section id="stage">
+  <div class="sec-head">
+    <h2>The case stage</h2>
+    <p>Two founder captures put beside <span class="surf">3.3</span> on 19 August 2026: the baseline's own case screen, and a second product the founder prefers. Both run the same composition and this screen now runs it too. Live from <code>wireframes/docs/screens.md</code> section 14.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The stage is the argument, not the decoration</h4>
+    <p>The node says the phases are states of one page and the person never navigates during the main job. <strong>A frame that holds the artwork while the choice is made, and the reveal once it is made, is what makes that true in the layout</strong> rather than only in the routing: nothing is unmounted, one region changes what it holds.</p>
+    <p>Drawn as artwork in one column with the trigger in another, which is how it shipped first, <strong>phase 2 would have to build a stage phase 1 never showed, and the person would watch the page rearrange itself at the exact moment they have just spent.</strong> The responsive section allows either placement, so nothing was overruled; the centred reading is taken and the reason is now written into the node.</p>
+  </div>
+
+  <div class="card is-drop">
+    <h4>What the captures carry that this screen refuses</h4>
+    <p><strong>Multi-open, 1 to 5 on one capture and x1 to x30 on the other.</strong> No parent: a spend multiplier next to the trigger before any ceiling is visible. The second capture strengthens the refusal rather than reopening it, because x30 behind one tap is thirty spends behind one deliberate act and the spend ceiling chosen at deposit does not exist yet. <strong>AUTO</strong> is the same refusal with the deliberate act removed entirely. <strong>FAST OPEN</strong> is a control that makes spending faster sold as a preference; the mechanism is kept as reduced motion honouring the system preference, the same mechanism for the opposite reason.</p>
+    <p><strong>ADD TO BATTLE:</strong> case battles are LATER, and a control that enters a mode round 1 does not have is the dead item defect on a spend surface. <strong>The risk band as skulls or bars:</strong> a figure in an icon is not text, and the tier has a name that belongs in the markup. The word is taken and the glyph is not. <strong>The like count:</strong> a number is never a score, and a favourite is not the same object, which is the whole of <code>D-24</code>.</p>
+    <p><strong>The flanks they occupy are inherited and filled with live items.</strong> One carries the risk band as a word, currently its named hole because neither the thresholds nor the method is set. The other carries the favourite, in MVP with <strong>no parent in the three legal classes and that cell printed</strong>.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The entry cost was thirty pixels under the fold</h4>
+    <p>The node asks for the commit block on the first screen <strong>with the entry cost and the trigger together</strong>. At 360 the head, the stage and the cost fit above 584 and the trigger landed at 614.</p>
+    <p>The description line ran three lines; block 2 asks for the item count and "the one line that says what kind of case this is", and everything beyond that is already the drop table's own section head <strong>where it is read beside the numbers it describes</strong>. The stage gave up its padding at this width. <strong>And the condensed commit bar now watches the trigger rather than the block:</strong> watching the block it stayed hidden because the block was partly in view, so the one control the screen exists for was the thing below the line. The rule is literal now, and its bottom margin is the mobile bar's height, because a control behind a fixed carrier is not visible however much of it intersects the viewport.</p>
+    <p><strong>A note on how that was found, because it cost two false readings.</strong> The first two attempts appeared not to work and were not wrong: the browser was serving a cached <code>_nav.js</code>, which the page's own cache-busting query does not touch. <strong>A behaviour that is not in the file the browser loaded cannot be measured</strong>, and the rule of a fresh port for every acceptance pass exists for exactly this.</p>
+  </div>
+</section>
+
+<section id="shape">
+  <div class="sec-head">
+    <h2>D-30. The reference's shape</h2>
+    <p>Six captures went in front of <span class="surf">3.3</span> at once on 19 August 2026: three of the live product and of two competitors' case pages, three of our own wireframe. <strong>Nothing was drawn before the node and the decision record were amended.</strong> Live from <code>wireframes/docs/screens.md</code> section 15.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The stage carries the case's contents, and the two case numbers carry the trigger</h4>
+    <p><strong>In phase 2 the strip on the stage is the thing that moves.</strong> In phase 1 it stands still and shows what is in the case, which is one region holding one object in two states rather than two layouts trading places. It carries <strong>chance and value on every tile</strong>, because a strip of values alone is the shop window, and it carries no figure the drop table does not. <strong>No pointer:</strong> all three competitor captures draw a marker over the centre of the strip, and before a roll exists that marker points at a result nobody has decided.</p>
+    <p><strong>Tested RTP and expected value moved onto the commit block.</strong> Design principle 3 asks for odds, cost and expected value <em>where money is about to be spent</em>, and 0.11 rule 10 calls that block the last surface before money moves. The old rule defended a position eight hundred pixels above the drop table with the same principle. <strong>The figures are earlier than they were, not later</strong>, and the section below the table keeps the derivation, the as-of, the route and the printed hole where the tester's name is missing.</p>
+    <p><strong>And the block shrank, 500px to 253 at 1440 and 290 at 360.</strong> The founder's word was that the wireframe's parts are simply too large. <strong>The size of a block is not neutral: a commit block that fills the screen is the page arguing for the act.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The drop table is a card grid now, and one rule is what keeps it a comparison</h4>
+    <p>Block 5 always said item cards; the responsive section granted desktop a multi column table, and the two had never been made to agree. <strong>All four live pages walked for this node render a grid.</strong> What makes a grid a comparison rather than a wall is a rule and not a shape: <strong>every field sits in the same place on every card and no card omits one</strong>, so it is read column-major exactly as a table is. What it buys is the artwork at a size where the item is recognisable.</p>
+    <p><strong>Three columns and not four.</strong> Each tier is its own grid and the ladder runs two or three items per tier, so at four the fourth cell was empty in every tier on the page, which reads as a broken layout rather than as a tier holding two items. <strong>The markup stays a table:</strong> a grid of divs would throw away the row group, the caption and the header association in exchange for a layout CSS produces from the table anyway.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The row under the trigger is half of a refusal reversed</h4>
+    <p>The node refused Hellcase's "last 7 days top drop" and the baseline's "Best drops" as <strong>survivorship by construction</strong>, and that reasoning was not wrong. What it did was defer a carrier because the item inside it was dead, which <code>CLAUDE.md</code> names as the defect in the other direction: a carrier is inherited and filled with live items. <strong>The dead item here is the ranking, not the row.</strong></p>
+    <p><strong>Still refused:</strong> the ranking by value, the multiplier (x38.8 on one capture, x536.2 on another), the seven-day window chosen to flatter, the word "best", and any person's name. <strong>Taken:</strong> the row, the item, its value in coins, its moment, and a destination on every tile. <strong>The line between it and the ticker is what each carries:</strong> the ticker carries people and no values, this row carries values and no people.</p>
+    <p><strong>The drawn row is five outcomes below the entry cost out of six, and the page says so.</strong> That is what an unranked row looks like. A row sorted by value would have shown six wins and told a reader nothing about the sixth. Its caption routes to the tier ladder, which is the block that can disappoint, <strong>and if <code>D-B</code> comes back negative that ladder does not render and this row stands with no counterweight at all</strong>.</p>
+  </div>
+
+  <div class="card is-drop">
+    <h4>Two defects that only measuring found, and one cost that stays</h4>
+    <p><strong>The strip wrapped instead of scrolling.</strong> A global rule sets <code>flex-wrap: wrap</code>, so nine tiles became two rows and the stage ran 577px tall at 1440. With <code>nowrap</code> the nine share the width at desktop, so <strong>nothing scrolls and no item is cut off at an edge, which none of the three references manage</strong>.</p>
+    <p><strong>The mobile stage overrides never applied.</strong> They sat in a media block <em>above</em> the base rules they were meant to override. Equal specificity, later rule wins: <strong>a media query is not specificity.</strong> And the cache trap fired again, this time on the stylesheet: <code>_wf.css</code> is linked with no version query, so a <code>?v=</code> on the page does not touch it, and two measurements came back byte-identical after a real edit.</p>
+    <p><strong>The cost that stays, named rather than absorbed.</strong> At 360 by 640 the trigger cannot be on the first screen: head plus stage ends at 567 and the trigger sits at 684 against a budget of 584. <strong>The condensed commit bar is the answer the node already specified</strong> and it is on at load, carrying the entry cost and the trigger. What the strip cost is the real block's place on the first screen, and that is the trade the contents on the stage buys.</p>
+  </div>
+</section>
+
+<section id="cutback">
+  <div class="sec-head">
+    <h2>D-31. Six corrections</h2>
+    <p>Same session, hours after D-30. The founder read the drawn screen block by block and sent six corrections in a row, and <strong>two of D-30's four decisions did not survive them</strong>. Live from <code>wireframes/docs/screens.md</code> section 16.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The stage is the reveal lane at rest, and the lane prints nothing</h4>
+    <p>D-30 put chance and value on every strip tile because <strong>a strip of values alone is the shop window</strong>. That rule is real, and the conclusion was still wrong: <strong>it binds any surface that PRINTS a value, so the honest way to satisfy it on the stage is to print no value, not to print two.</strong> The lane is the reveal's track, not a second listing. It makes no claim and needs no pairing, and every figure about the case lives one block down beside the ticket range, the free units and the market link that make it checkable.</p>
+    <p><strong>The risk band gets a reserved zone instead of a line of italic text</strong>, and the footer statistics each gain one for an icon. Same move both times: <strong>a hole drawn as a sentence is a hole that has no size</strong>, and what lands there later has to find its own room. A slot that is already the right size means the thing arrives as an asset in a place rather than as a new element in a finished row.</p>
+    <p><strong>The cost:</strong> the first screen now shows the case's name, its cost and its risk zone, and nothing about its contents.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The commit block is the act and the cost of the act, and the switch ships before its ceiling</h4>
+    <p>D-30 moved the tested RTP and the expected value onto it earlier the same day. <strong>Three figures, two explanatory paragraphs and a trigger in one box is not a place where money is about to be spent, it is a page arguing.</strong> What stays: the switch, <strong>the total cost on the trigger</strong>, the peg, and the state. <strong>D-30's argument against that position still stands and is not answered:</strong> a summary under a list is read after the list. What changed is which risk the founder ranks higher.</p>
+    <p><strong>The count switch reverses a refusal 3.3 made twice.</strong> That row had written its own condition, "if multi-open ever ships it ships behind C2", and C2, the spend ceiling chosen at deposit, does not exist. <strong>The switch ships anyway and the condition becomes a printed cost.</strong> What the design owes in exchange: <strong>the trigger carries the total and never the unit</strong>; it <strong>defaults to one on every visit and remembers nothing</strong>, because a remembered five spends without being chosen again; <strong>one deliberate act per open request</strong>, which is why AUTO stays refused; and <strong>one to five and no further</strong>, because five is a number a person can hold and thirty is a number they accept.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The image is the priority on a drop card, and the row is called Last drops</h4>
+    <p>The card put its name under the picture in a 96px column and "Field-Tested . StatTrak . Covert" ran three lines. <strong>The artwork became its own cell</strong> so it holds the left column at the card's full height while the name sits with the figures it belongs to, and the head gained the matching column: <strong>a body cell with no column is a table that only looks like one.</strong></p>
+    <p><strong>The founder named the category's two labels</strong>, skin.club's "Last top skins" and Hellcase's "Last 7 days top drop". The length was the right complaint and <strong>the word is the problem</strong>: both claim a ranking and this row is in time order, so either label would be a heading that lies about the list under it. <strong>Taken: the short form. Refused: the claim.</strong> If the word "top" is wanted the row has to actually rank, and the survivorship cost comes back with it.</p>
+  </div>
+
+  <div class="card is-drop">
+    <h4>The ticker leaves, and it costs a component its second consumer</h4>
+    <p>Stage 04 argued against exactly this a few hours earlier and D-30 kept the ticker for that reason. <strong>The founder cut it.</strong> 0.8 now renders on 1.0 alone, against its own node's sentence that two surfaces was "a decision rather than an oversight". <strong>Social Job 2 was carried on this page by the ticker</strong>; it is now carried by Last drops, which lands on the same public result but is about this case rather than the platform. <strong>A narrower answer, recorded as narrower.</strong></p>
+    <p><strong>And the change broke the one control the responsive section requires.</strong> The condensed commit bar looked for a figure inside the commit block, and D-31 removed the last one: the total now lives on the trigger label alone. At 360 the bar simply did not mount. It mounts on the trigger now and carries a figure only where one exists.</p>
+  </div>
+</section>
+
+<section id="ranked">
+  <div class="sec-head">
+    <h2>D-32. Best drops ranks</h2>
+    <p>Third pass on one block in one session. The founder asked for the ranked row a third time and asked what would have to change for it to happen. <strong>Nothing had to change except the record.</strong> Live from <code>wireframes/docs/screens.md</code> section 17.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The label and the sort now agree</h4>
+    <p>D-30 took the carrier and refused the ranking. D-31 refused the label, because a heading claiming a rank over a list in time order lies about the list. <strong>A request repeated three times is a decision, not a misunderstanding</strong>, and the design's job from here is to make the decision honest rather than to keep relitigating it. Block 4 ranks by value and is called <strong>Best drops</strong>.</p>
+    <p><strong>The cost is not reduced by having been predicted.</strong> This is survivorship by construction, in the node's own words: the biggest drops of a period are not what happens. <strong>What makes it survivable is that the block saying what does happen is on the same page and one tap from this row's caption.</strong> Still refused inside the row: the multiplier, x38.8 and x536.2 on the captures; the window chosen to flatter; and any person's name.</p>
+    <p><strong>And the dependency is sharper than it was.</strong> D-B decides whether that counterweight renders at all. <strong>If it returns negative, a ranked row of the biggest wins stands on this page with nothing beside it</strong> - the state to reconsider the row in, written down rather than assumed.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The guest sees the case, and the trigger names the act that exists</h4>
+    <p><strong>The lane is the reveal's track and a guest is two steps from a reveal</strong>, the geo layer and Steam, so it was showing them the mechanics of something they cannot start. What a guest gets is the object they came to look at, at the size the stage can give it once the lane is not sharing the room.</p>
+    <p><strong>A button reading "Open" in front of a person who cannot open names an act they cannot perform, and the page tells them so only after the tap.</strong> It reads <strong>Sign in with Steam</strong> for a guest and <strong>Open for the total</strong> once an account exists; the route is unchanged, 2.1 first, because the gate fires at the first case interaction. <strong>The consequence paid immediately:</strong> the total left the button, so the entry cost is a figure again above the switch. Design principle 3 does not stop applying because the trigger changed its wording.</p>
+    <p><strong>And the frame goes.</strong> A bordered box around the trigger was the block insisting on itself, on a screen that already has exactly one main action. The unit still reads as one thing because its parts are stacked and centred on one axis, which was doing the work the border took credit for.</p>
+  </div>
+</section>
+
+<section id="states">
+  <div class="sec-head">
+    <h2>3.3 closes: seven states</h2>
+    <p>The pack's rule and the reason these were not deferred: <strong>a screen is not ready until its states are closed</strong>, and the gate before moving to the next screen is that question. <strong>States are where a specification is tested</strong> - a base page can look right, and its states are what prove the blocks have somewhere to go. Live from <code>wireframes/docs/screens.md</code> section 18.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>What only the render could answer</h4>
+    <p><strong>Signed in and funded had no page.</strong> D-32 created the state and left it undrawn: the lane renders, the trigger names a different act, and the balance relationship is finally stated, which section 1 block 3 had asked for since the node was written.</p>
+    <p><strong>Item at zero prints its own contradiction.</strong> D1, D2 and D3 are not simultaneously satisfiable while an item sits at zero, so the card is drawn the same way under all three readings and the question is on the page rather than in a footnote. The card keeps every field and is marked rather than greyed: its value and its chance are inputs to whether the case is still worth opening.</p>
+    <p><strong>Phase 2 proves the frame.</strong> The lane that stood still is the lane that runs, nothing is unmounted, and the pointer exists only here because only here is there a roll to point at. Phase 3 lands the item in the same region: <strong>the third state of one region rather than a third layout.</strong></p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Three defects the states found</h4>
+    <p><strong>The receipt linked to nowhere.</strong> F1 requires a venue listing filtered to the float band and the two venues are undecided, so the first render drew two links to <code>#</code>. <strong>A link to nothing is a dead end; a named absence is a question with an owner.</strong> Both became printed holes.</p>
+    <p><strong>The condensed commit bar mounted on the outcome</strong>, producing a sticky <code>12.90 coins / Keep it</code> over a control already on screen. Section 14 specifies that bar for the surface where money is <em>about to be</em> spent. Suppressed there. <strong>Phase 2 needed no opt-out, and that is the check that the rule is right:</strong> it has no primary trigger at all, because the trigger does not re-arm during a reveal.</p>
+    <p><strong>The won item rendered as a narrow column</strong>, a flex column collapsing a full-width child to its content.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The state that decides a live question</h4>
+    <p><code>case-nocounter.html</code> is D-B negative: the tier ladder does not render, the page says a figure was expected there and why, and the heading list closes over it. <strong>It is also the state D-32 made expensive</strong>, because the counterweight to a ranked Best drops row is exactly the block that disappears. <strong>That page is the thing to look at before deciding whether the ranked row survives the condition</strong>, and it exists now rather than being imagined.</p>
+    <p><strong>Measured across all eight pages.</strong> One H1 each and the same H1 in every phase, because they are states of one document. No duplicate ids, no hrefless links, no nameless controls, no dead in-page anchors. Every state page is <code>noindex</code>: a state has no URL of its own. At 360 no page scrolls sideways.</p>
+  </div>
+</section>
+
+<section id="multi">
+  <div class="sec-head">
+    <h2>D-33 to D-35: the pair, the lighter outcome, and multi-open</h2>
+    <p>Three founder captures in one session on 20 August 2026, each a decision before it is a render. Live from <code>wireframes/docs/screens.md</code> section 19 and <code>docs/decisions.md</code>.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The commit block is a row of two, and the two differ by state</h4>
+    <p><strong>The price and the act are one decision</strong> - what this costs and what happens if I agree - so they sit side by side. Stacked, the second glance is the button and the number is already behind the eye.</p>
+    <p><strong>The guest gets the cost and no count switch at all.</strong> A switch there sets a quantity for an act this person cannot perform, and nothing carries the choice across the sign in because there is no session yet to hold it.</p>
+    <p><strong>The account holder gets the switch and loses the cost figure</strong>, because the trigger already carries the total and the figure printed the same number twice. <strong>The unit price moved into the caption and prints at every count:</strong> a total with no unit beside it cannot be checked against the drop table.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The outcome lost everything that was not the item</h4>
+    <p>The founder's word was overloaded, next to a capture where the item, its chance, its name and three controls are the whole screen. <strong>F1 asks for the fields that make this this unit rather than a name. It never asked for a bordered table around them, with a three line hole in its last cell.</strong></p>
+    <p>Four fields became one caption line and two paragraphs became one. <strong>Every route and every named hole survived the move.</strong> The item's own published chance now prints above it, read off this page's own drop table, which is the one thing the capture carried that this screen did not.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Multi-open finally has states</h4>
+    <p>D-31 shipped a count switch of one to five and <strong>neither phase had a state above one roll</strong>, so the switch changed a number on a button and nothing else in the drawn product. Four pages now: the reveal at two and at five, the outcome at two and at five.</p>
+    <p><strong>One lane per roll, running together and settling in order.</strong> One lane resolving five results in turn is five waits, and by the second the person is watching a machine rather than their own roll. The lanes are shorter from three up, because five at full height do not fit above the fold at 360 and the stage may not scroll during the one moment it is being watched.</p>
+    <p><strong>Two figures on the batch, total value and total spent, and never the difference.</strong> A net is a score, and a red number after five rolls is the loss-chasing prompt this node dropped in the B7-2 divergence. A person who wants it can subtract.</p>
+    <p><strong>One research figure came back off the shelf</strong> - 0.5 to 1 second per card for bulk reveals, recorded in the node as having nothing to attach to. D-31 had already made that false; it is amended in place and spent on the settling between lanes rather than on the running. <strong>One gap is named rather than drawn:</strong> what the trigger does when the count names a total above the balance.</p>
+  </div>
+</section>
+
+<section id="sell">
+  <div class="sec-head">
+    <h2>D-37 and D-38: the reveal stands up, the outcome gets controls it had refused</h2>
+    <p>Two more founder captures on 20 August 2026. Live from <code>wireframes/docs/screens.md</code> section 20.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The reels turned vertical from two rolls</h4>
+    <p>Stacked horizontal lanes put every extra roll <strong>below</strong> the previous one: the second is further from the eye than the first, the fifth is off the first screen at 360, and <strong>the batch acquires an order it does not have</strong> - every roll was settled at the same moment and none of them is first.</p>
+    <p>Side by side, every roll is the same distance from the eye and the batch gets <strong>one pointer line across all the reels</strong> rather than five markers at five heights. <strong>D-35 had already had to shorten the lanes to fit five, and that was the axis saying it was the wrong one.</strong> A single roll stays horizontal: with nothing beside it, the wide axis is the one that gives the artwork its room.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Two refusals reversed, and both reasons kept</h4>
+    <p><strong>A sell control</strong> was refused because round 1 has exactly one exit, withdrawal to Steam, and cjm-to-be T7 rejected a binding buyback before scoring. <strong>Reversed. The ground is unchanged and is now a cost:</strong> no backlog row holds the capability, so it ships with no parent in the three legal classes - the treatment the daily free case and the favourite carry.</p>
+    <p><strong>A one-key repeat</strong> was refused in words that name exactly this pair: one key to liquidate and one key to spend again, the single most telling block in the whole bank. <strong>Half reversed, and the surviving half is the one doing the work:</strong> Open again re-enters phase 1 with the entry cost, the tested RTP and the expected value all on screen again. It never becomes a key that re-rolls in place.</p>
+    <p><strong>Two controls, not three.</strong> The reference carries OPEN AGAIN, UPGRADE ALL and SELL. Upgrade does not exist here, so the row has two rather than a placeholder holding its place. <strong>And keeping stopped being a button:</strong> E1 credits the item before the animation starts, so keeping is what happens if nothing is tapped, and a button for the default is a control that cannot fail.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Three things left open, and one should block closing the node</h4>
+    <p><strong>The sold state is not drawn.</strong> Selling is instant and irreversible, and what the screen becomes afterwards, whether it confirms first, and what the balance does are all undecided. <strong>A control that cannot be undone with no drawn confirmation is the one thing this node should not close without.</strong></p>
+    <p><strong>Whether the sell price carries a spread against the published current value is undecided.</strong> They are drawn as the same number. If they differ, design principle 1 makes printing the difference mandatory rather than optional: a buyback below a figure we published on the same screen is a cut the reader can see us take.</p>
+    <p><strong>CLAUDE.md lists in-platform exchange as LATER</strong>, and a buyback for coins is close enough to it that the scope list should say which of the two it is.</p>
+  </div>
+</section>
+
+<section id="onerow">
+  <div class="sec-head">
+    <h2>D-39 and D-40: one row carried to the end, and My items leaves the rail</h2>
+    <p>Live from <code>wireframes/docs/screens.md</code> section 21.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The batch outcome is one row at every width</h4>
+    <p>N items in N columns at 360 exactly as at 1440. <strong>The argument is structural rather than a preference:</strong> since D-37 the reveal is N reels side by side, so <strong>column i of the result is column i of the reel it came out of</strong>. Wrapping at 600 broke that correspondence at the exact width where it is hardest to hold five things in the head, and it gave five results a two-then-three shape they do not have.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Carrying it to the end meant cutting the card, and each cut removed a duplication first</h4>
+    <p><strong>The value figure left every card at every width.</strong> It and the sell control printed the same number a line apart. While the sell price equals the published current value there is nothing for a second printing to say - and the figure returns the moment a spread exists, because then they are two numbers.</p>
+    <p><strong>Float, pattern, phase and the proof route became one receipt line per roll under the row</strong>, in the row's order. F1 is now satisfied at every width instead of at wide ones.</p>
+    <p><strong>Below 900 at four columns and up, the name left the card too.</strong> At 55px a skin name does not wrap, it breaks mid-word, and "Asii mo v" is not a name. <strong>What the card never loses:</strong> the artwork, the chance it landed against, and its price on a control - and the verb stays on that control at every width, because a control whose whole label is a number reads as another figure in a box.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>My items leaves the rail, and one defect is written down rather than fixed</h4>
+    <p><strong>It did not lose a destination, it stopped holding one twice:</strong> since D-36 the account menu carries My items as its first row, and no carrier holds another's kind. The superset rule forces the rest, so it leaves the bar in the same step. <strong>The rail now carries one destination and the bar two, identically in both states</strong>, and neither changes on sign in. <strong>The cost is bigger than the one D-29 printed:</strong> the bar is below Material's floor of three for a signed-in person as well as for a guest now.</p>
+    <p><strong>And two defects found, not fixed.</strong> Every page in the prototype, Home included, reports a scroll width of 1040px from a 900px viewport up: <strong>between 900 and 1040 the whole prototype scrolls sideways</strong>. And the nine cluster headers on the IA sitemap add to 69 against a hero figure of 68 - <strong>a discrepancy that predates today by exactly one</strong>, since before D-36 they added to 66 against 65. Both are in shared surfaces rather than in any one screen and both predate this session, so they belong to the audit rather than to a founder correction. <strong>Written down so they are findings rather than discoveries.</strong></p>
+    <p><strong>The IA caught up in the same step.</strong> Node 3.3's own page had stopped at D-32 while its markdown carried D-33 to D-39: the block table, the reveal, the outcome, the refusals and the whole state matrix were rebuilt from the node, the 360px outcome mock was redrawn, and the sitemap gained 5.9, 5.10 and 5.11 with the line that says none of them has a page yet. <strong>The decisions were never made at the wireframe level - every one of them was written into the node before the render moved - but the node's published page had frozen, which is the failure the "html does not freeze" rule exists to catch.</strong></p>
+  </div>
+</section>
+
+
+
+
+</main>
+
+<footer class="doc">
+  <p>Sources of truth: <code>wireframes/docs/screens.md</code> and <code>wireframes/docs/conventions.md</code>. The screen registry: <code>wireframes/_nav.js</code>. The grey contract: <code>wireframes/_wf.css</code>.</p>
+  <p>Where these screens come from: <a href="../ia/structure.html">IA structure</a>, <a href="../ia/flows.md">flows</a>. The stage that colours copies of them: 06.</p>
+</footer>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_SECTIONS = [
+  { id: 'overview',    label: 'Overview' },
+  { id: 'flows',       label: 'Entries by flow' },
+  { id: 'coverage',    label: 'Coverage map' },
+  { id: 'matrix',      label: 'State matrix' },
+  { id: 'conventions', label: 'Conventions' },
+  { id: 'shell',       label: 'Shell contract' },
+  { id: 'audit',       label: 'Home audit' },
+  { id: 'case',        label: '3.3 Case screen' },
+  { id: 'account-zone', label: 'Account zone' },
+  { id: 'stage',       label: 'Case stage' },
+  { id: 'shape',       label: 'D-30 shape' },
+  { id: 'cutback',     label: 'D-31 cutback' },
+  { id: 'ranked',      label: 'D-32 ranked' },
+  { id: 'states',      label: '3.3 states' },
+  { id: 'multi',       label: 'D-33 to D-35' },
+  { id: 'sell',        label: 'D-37 and D-38' },
+  { id: 'onerow',      label: 'D-39 and D-40' },
+];
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+</script>
+<!-- The local registry loads FIRST: the root renderer reads window.WF_NAV to build
+     the built-screens list in the sidebar, so it has to exist by then. -->
+<script src="_nav.js"></script>
+<script src="../_nav.js"></script>
+</body>
+</html>

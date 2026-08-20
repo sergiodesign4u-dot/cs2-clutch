@@ -19,6 +19,12 @@
 
 **States specified inside this node, under their own anchors:** `6.2` self exclusion confirmation, a dialog, and `6.3` boundary in force, a state. Neither gets a file: `sitemap.md` fixes that `6.2` guards one action on one screen and is therefore not a destination.
 
+**Baseline row, `6.1`.** The rule in `CLAUDE.md`: every node carries one baseline row, what the live product does, what we keep, what we change and why.
+
+| What the live product does | What we keep | What we change, and why |
+|---|---|---|
+| **One tool exists**, called **TAKE A BREAK**, doing deposit restriction or full account restriction. It is the second row of the `SECURITY` block inside the settings tab of the account. `baseline-account.md` section 7.1. | **Nothing structural**, and that is the finding rather than a gap in the reading. | **Everything about where it lives.** There is no responsible play page and **no route to the tool from anywhere**: not the footer, not the rail, not the header, not the home page, all four re-checked on 18 August 2026. It sits beside Logout and an anonymity toggle, in the vocabulary of account protection rather than self protection. **An absence could be answered with "nobody in the category has it". This cannot: they built it and then filed it where nobody looks.** |
+
 ---
 
 ## 0. The node with no job, and why that is written at the top rather than buried

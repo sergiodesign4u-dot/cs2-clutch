@@ -157,6 +157,19 @@
 </div>
 
 <!-- TEMPLATE -->
+<section id="baseline-row">
+  <div class="sec-head">
+    <h2>Baseline row</h2>
+    <p>The rule in <code>CLAUDE.md</code>: every node carries one baseline row, what the live product does, what we keep, what we change and why.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:36%">What the live product does</th><th style="width:22%">What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody><tr><td>Four documents, all <code>noindex,nofollow</code>, each <strong>one H1 and zero H2</strong>. The terms run about 7,270 words as a single wall, last updated 08/01/2025; the cookie policy is dated April 2019. All carry a breadcrumb. <code>baseline.md</code> section 9.4.</td><td>The breadcrumb, and the document set itself.</td><td><strong>The wall.</strong> Zero H2 in a 7,270 word contract is the defect this node exists to fix, and it is now measured rather than asserted. <strong>And the dates:</strong> a policy from 2019 sitting under a product that changed every year since is a document nobody re-read.</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
 <section id="template">
   <div class="sec-head">
     <h2>The template is the node</h2>
@@ -577,6 +590,7 @@ window.NAV_BASE = '../';
 window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.9 Legal and policy pages';
 window.NAV_SECTIONS = [
+  { id: 'baseline-row', label: 'Baseline row' },
   { id: 'overview', label: 'Overview' },
   { id: 'template', label: 'The template' },
   { id: 'ground',   label: 'The legal ground' },
@@ -590,6 +604,7 @@ window.NAV_SECTIONS = [
   { id: 'open',     label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

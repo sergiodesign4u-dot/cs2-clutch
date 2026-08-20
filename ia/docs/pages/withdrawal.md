@@ -26,6 +26,37 @@ Three published figures do that work and all three already have an owner in `0.1
 
 ---
 
+## 0b. The mechanic this node did not know the baseline had, found 18 August 2026
+
+**The account capture broke an assumption that runs under this whole node**, `research/docs/baseline-account.md` section 5, screenshot `acct_withdraw_step2_total.png`.
+
+**On the live product, withdrawal is a purchase and not a delivery.** The screen prints it in a four column table of its own:
+
+| SKIN NAME | YOUR SKIN PRICE | MARKET SKIN PRICE | YOUR BALANCE IMPACT |
+|---|---|---|---|
+| M4A4 Desert-Strike, Field-Tested | `4.48` | `27.52` | **`-23.04`** |
+
+> "Based on the market price, `23.04` will be taken from your balance"
+
+**The arithmetic closes exactly:** `27.52 − 4.48 = 23.04`. The item a person won is valued at `4.48` by the site, a real copy on the market costs `27.52`, and **the difference is charged to their balance at the moment they ask for the real thing.** In the observed row that difference is **six times** the value of the win.
+
+**What this node currently assumes, and why the assumption is now visibly untested.** Every block, state and figure below is written as though **the thing you won is the thing you receive**, and the only cost between them is time. `cjm-to-be.md` has no row for a settlement difference. `sitemap.md` has no state for it. `0.11` has no figure for it. **The gap is not an omission in this node: it is a mechanic the whole map does not model.**
+
+**And it is `B7-1` stopping being a perception problem.** The barrier reads: the gap between what a win appears to be worth and what it is worth. **On this screen the gap is a number the product prints itself**, at the last possible moment, after the person has already decided they want the item.
+
+### 0b.1 Two ways out, and this node may not pick between them
+
+| Option | What it means | What it costs |
+|---|---|---|
+| **A. Inherit the mechanic and move it forward** | The won item stays a credit note valued at the site price, and the settlement difference is disclosed **at the moment of the win and on the case page**, not at the checkout. `A1`'s two prices stop being a trust feature and become the spine of the product | **The reveal has to carry a second number**, and the outcome screen has to say what the win is worth against what a real copy costs. Emotional Job 2 and design principle 2 both take the hit, and stage 04 draws it |
+| **B. Refuse it** | What you win is what you receive, and the drop table's values are real market values | **It rewrites the treasury model**, because the published chances and the RTP would then have to hold against real market prices rather than site prices. **This is a business decision and not a design one**, and no row in this repository can take it |
+
+**The recommendation on the record, and it is a recommendation rather than a decision.** **A**, because B rewrites the economics of the product and A is what makes our trust positioning actually differentiated: we would be the platform that names the gap **before** a person spends rather than at the till. Design principle 1 and `D-14` both point the same way, and `A1` already exists to carry it.
+
+**Owner: the founder, before stage 04 draws this node.** Until it is answered, **every figure below is specified against option B by default**, because that is what the node was written against, and the difference between the two is a block and a state rather than a redraw.
+
+---
+
 ## 1. Blocks, mobile first
 
 Composition from `blocks.md`, type **T4 Transactional form with named states**, which carries a declared gap: **no competitor screens of this type exist that we may open**, because all five put deposit, withdrawal and identity behind login and this project never logs in. The substitute source is public documentation of the same mechanics plus Refero for the craft, and it found real product rules living in an FAQ.
@@ -264,6 +295,7 @@ Five, all numbered in the map, all specified here under their own anchors.
 
 | Open item | What is missing | Owner |
 |---|---|---|
+| **Whether withdrawal is a delivery or a purchase** | **The largest open item on this node and it arrived on 18 August 2026.** The live product charges the difference between the market price of a real copy and the site value of the win, section 0b. **Nothing in this map models it.** Two options, A inherit and disclose early, B refuse and rewrite the treasury. **A is recommended and neither is decided** | Founder, before stage 04 draws this node |
 | **What p90 measures** | End to end, or only the stretches attributed to us. Section 2.3. **Not written anywhere today**, and the two answers diverge exactly where people complain | `0.11` and the founder, before stage 04 |
 | **The rolling window length** | Seven days, thirty, ninety. Carried from `0.11`, where it is already `[?]`, because the window is part of the claim | Founder with the data |
 | **Every per-state ceiling** | Row `G2` publishes a ceiling per state and no file holds a value. Five stages, five `[?]` | Founder with the data, before stage 04 |

@@ -12,6 +12,12 @@
 
 **Transitions:** the cookie policy on `0.9`, at `/legal/cookies` per `0.13`. `0.2` already guarantees that link works before consent is given, because a consent dialog that links to a policy the consent gate blocks is circular.
 
+**Baseline row, `0.4`.** The rule in `CLAUDE.md`: every node carries one baseline row, what the live product does, what we keep, what we change and why.
+
+| What the live product does | What we keep | What we change, and why |
+|---|---|---|
+| A bar across the bottom of the page: an icon, the consent text, links to the Cookie Policy and the Privacy Policy, an **ACCEPT** button and an **X**. `baseline.md` section 9.3, corrected there on 18 August 2026 after a first reading missed it. | The placement and the restraint of a bar rather than a blocking modal. | **Consent is assumed by continued use, there is no reject control, and the X dismisses without a recorded choice.** All three are refused here. A dialog whose only control is accept has not asked a question. |
+
 ---
 
 ## 0. What this node decides, and what it refuses to

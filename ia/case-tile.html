@@ -110,6 +110,16 @@
     .wf-tags { display: flex; gap: 5px; flex-wrap: wrap; margin: 9px 0 0; }
     .wf-tag { font-size: 8.5px; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 2px 5px; color: var(--wf-ink-dim); }
     .wf-tag.is-on { color: var(--wf-ink); border-color: var(--wf-line); }
+    .wf-art.is-big { height: 132px; margin-bottom: 12px; }
+    .wf-risk { display: flex; gap: 4px; align-items: center; margin: 7px 0 9px; }
+    .wf-risk-w { font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--wf-ink); font-weight: 700; }
+    .wf-risk-m { display: flex; gap: 3px; }
+    .wf-risk-d { width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--wf-line); }
+    .wf-risk-d.is-on { background: var(--wf-line); }
+    .wf-fav { display: flex; align-items: center; gap: 6px; border: 1px dashed var(--wf-line-soft); border-radius: 4px; padding: 5px 8px; margin-top: 10px; }
+    .wf-fav-i { font-size: 11px; color: var(--wf-ink); }
+    .wf-fav-n { font-family: 'SF Mono', Menlo, monospace; font-size: 11px; color: var(--wf-ink-dim); }
+    .wf-fav-t { font-size: 9.5px; color: var(--wf-ink-dim); margin-left: auto; }
     .wf-scope { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; border-top: 1px dashed var(--wf-line-soft); margin-top: 10px; padding-top: 9px; }
     .wf-scope b { color: var(--wf-ink); font-weight: 700; }
     .wf-flow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
@@ -141,103 +151,116 @@
 <div class="hero" id="overview">
   <div class="section-eyebrow">Information architecture, detail layer - node 0.7</div>
   <h1>Canonical case tile</h1>
-  <p class="lede">One rendering of one Case, at two sites, carrying enough for a person to decide whether to open the case screen at all. <strong>It is the first object of the main job and it is tap one of three.</strong> The category ships three fields on this tile. Ours ships six, and the two extra ones are the two that remove a step.</p>
+  <p class="lede">One rendering of one Case, at two sites, carrying enough for a person to decide whether to open the case screen at all. <strong>It is the first object of the main job and it is tap one of three.</strong> Rewritten on 18 August 2026 by founder decision <code>D-24</code>: six always-on fields became four fields, two conditional markers and one control.</p>
   <div class="hero-meta">
-    <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Fields, one set</div></div>
-    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Densities, two nodes</div></div>
-    <div><div class="hero-stat-value">6</div><div class="hero-stat-label">States, all inherited</div></div>
+    <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Fields, always on</div></div>
+    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Markers, only when true</div></div>
+    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Control, the favourite</div></div>
+    <div><div class="hero-stat-value">8</div><div class="hero-stat-label">States</div></div>
     <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Destination, ever</div></div>
-    <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Fields the category ships</div></div>
   </div>
 </div>
 
 <!-- WHY -->
 <section id="why">
   <div class="sec-head">
-    <h2>What the category ships, and the one extra step it costs</h2>
-    <p>The block bank opened Hellcase and Key-Drop live on 12 August 2026 and recorded the tile.</p>
+    <h2>What the category ships, what the baseline ships, and what we ship</h2>
+    <p>Two sources walked live, and a third column that is a decision rather than an average of them.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Source</th><th>Tile carries</th><th>What we take</th></tr></thead>
+      <tbody>
+        <tr><td>Hellcase, Key-Drop<br><span style="font-size:11px;color:var(--text-muted)">blocks.md section 3, 12 Aug 2026</span></td><td>Name, price, image</td><td>The shape. <strong>Not the TOP badge</strong>, <code>0.11</code> rule 7</td></tr>
+        <tr><td>Baseline, daddyskins<br><span style="font-size:11px;color:var(--text-muted)">baseline.md section 4, 11 Aug 2026</span></td><td>Item count, name, a risk label of High-risk, Medium-risk or Low-risk, price <strong>in coins</strong>, and a favourite control with a public count</td><td>Name, image, <strong>risk band</strong>, price, favourite. <strong>Not coins</strong>, <code>C1</code> deletes the denomination</td></tr>
+        <tr><td><strong>This node</strong></td><td><strong>Artwork, name, entry cost, risk band</strong>, plus a stock marker and a daily marker where each applies, plus the favourite control</td><td>Four things a person reads before deciding, and nothing that reads as a statistic</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="card is-fix">
-    <h4>The finding</h4>
-    <p>"Case tile fields: <strong>name, price, image</strong>, and on Hellcase a TOP badge and one bare number."</p>
-    <p><strong>Three fields, and the consequence is a step.</strong> A person who wants to know what is in the case has to open it. The baseline does better and prints an item count and a risk label, and it prices in coins, which <code>C1</code> deletes.</p>
-  </div>
-
-  <div class="card is-good">
-    <h4>So the tile carries six fields rather than three</h4>
-    <p>The two the category does not have are the two that remove the extra step: <strong>the item count says how much is in there, and the free-unit state says how much of it is actually available right now.</strong></p>
-    <p>That second one is <code>D1</code> becoming visible. <code>D1</code> is an architecture row, the roll cannot select an item with zero free units, and <strong>a person only ever meets architecture through a field.</strong></p>
+    <h4>The one thing the first version had that this one drops is the item count</h4>
+    <p>It is dropped because the risk band answers the same question better. <strong>"Forty items" says how long the table is. The risk band says what the table is shaped like</strong>, it is computed from the same table, and it is the version of that fact a person can act on.</p>
+    <p>The count still renders on 3.3, on the table it describes, <strong>so no fact is lost, only an early and weaker rendering of it.</strong></p>
   </div>
 </section>
 
 <!-- FIELDS -->
 <section id="fields">
   <div class="sec-head">
-    <h2>Six fields</h2>
-    <p>Five come from the node's own row in the map. The sixth, the artwork, comes from the Case entity, which lists name and artwork together.</p>
+    <h2>Four fields, two markers, one control</h2>
+    <p>Two of the seven carry an empty parent cell, and neither of them borrows one.</p>
   </div>
 
   <div class="table-wrap">
     <table>
-      <thead><tr><th>#</th><th>Field</th><th>Object</th><th>Parent</th><th>Class</th></tr></thead>
+      <thead><tr><th>#</th><th>Element</th><th>Kind</th><th>Parent</th><th>Class</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td><strong>Case artwork</strong></td><td>Case</td><td>Main Job. The entity lists name and artwork together</td><td>job</td></tr>
-        <tr><td>2</td><td><strong>Case name</strong></td><td>Case</td><td>Main Job. It is also the accessible name of the whole tile</td><td>job</td></tr>
-        <tr><td>3</td><td><strong>Item count</strong></td><td>Case, over its drop table</td><td>Row <span class="row-code">D1</span> on <span class="row-code">B8-1</span>. <strong>Inherited too:</strong> the baseline already prints it</td><td>barrier</td></tr>
-        <tr><td>4</td><td><strong>Entry cost</strong>, one real currency</td><td>Case</td><td>Row <span class="row-code">C1</span> on <span class="row-code">B7-1</span>, pattern of 7, the currency abstraction that hides what things cost</td><td>barrier</td></tr>
-        <tr><td>5</td><td><strong>Live free-unit state</strong></td><td>Case, over its drop table</td><td>Rows <span class="row-code">A2</span> and <span class="row-code">D1</span>, both on <span class="row-code">B8-1</span></td><td>barrier</td></tr>
-        <tr><td>6</td><td><strong>Daily marker</strong>, where it applies</td><td>Free entry</td><td>Row <span class="row-code">I2</span>. <strong>No parent in any of the three legal classes.</strong> In MVP by founder decision of 11 August 2026, <code>D-15</code></td><td><span class="q">none, printed</span></td></tr>
+        <tr><td>1</td><td><strong>Case artwork</strong></td><td>Field, always</td><td>Main Job. The entity lists name and artwork together. <strong>By <code>D-24</code> it is the largest element on the tile</strong></td><td>job</td></tr>
+        <tr><td>2</td><td><strong>Case name</strong></td><td>Field, always</td><td>Main Job. It is also the accessible name of the whole tile</td><td>job</td></tr>
+        <tr><td>3</td><td><strong>Entry cost</strong>, in coins</td><td>Field, always</td><td>Row <span class="row-code">C1</span> as <code>D-28</code> rewrote it, still on <span class="row-code">B7-1</span>, pattern of 7. <strong>The barrier is now answered by the peg rather than by the denomination</strong></td><td>barrier</td></tr>
+        <tr><td>4</td><td><strong>Risk band</strong>, three values in words</td><td>Field, always</td><td><strong>Design principle 3, quoted:</strong> odds, cost and expected value are visible and legible. Computed from the drop table, <code>0.11</code> owns the method. <strong>No backlog row yet</strong></td><td>principle</td></tr>
+        <tr><td>5</td><td><strong>Stock shortfall marker</strong></td><td>Marker, only when true</td><td>Rows <span class="row-code">A2</span> and <span class="row-code">D1</span>, both on <span class="row-code">B8-1</span></td><td>barrier</td></tr>
+        <tr><td>6</td><td><strong>Daily marker</strong></td><td>Marker, where it applies</td><td>Row <span class="row-code">I2</span>. <strong>No parent in any of the three legal classes</strong>, <code>D-15</code></td><td><span class="q">none, printed</span></td></tr>
+        <tr><td>7</td><td><strong>Favourite control</strong>, toggle and public count</td><td>Control</td><td><strong>None in the three legal classes.</strong> In by founder decision <code>D-24</code>, which also amends <code>0.11</code> rule 7 to let it exist</td><td><span class="q">none, printed</span></td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="wf-stage">
-    <div class="wf-cap">Desktop - anatomy of the tile. Black and white until stage 06</div>
+    <div class="wf-cap">Desktop - anatomy after D-24. Black and white until stage 06</div>
     <div class="wf-anat">
       <div class="wf-tile">
-        <div class="wf-art">case artwork</div>
+        <div class="wf-art is-big">case artwork, the largest element</div>
         <div class="wf-name">Ironbound</div>
-        <div class="wf-sub">40 items</div>
+        <div class="wf-risk"><span class="wf-risk-w">Medium-risk</span><span class="wf-risk-m"><span class="wf-risk-d is-on"></span><span class="wf-risk-d is-on"></span><span class="wf-risk-d"></span></span></div>
         <div class="wf-price">entry cost</div>
-        <div class="wf-cur">one real currency, always</div>
-        <div class="wf-tags"><span class="wf-tag is-on">All items in stock</span></div>
+        <div class="wf-cur">coins, D-28</div>
+        <div class="wf-fav"><span class="wf-fav-i">[ ] favourite</span><span class="wf-fav-n">829</span><span class="wf-fav-t">own focus stop</span></div>
       </div>
       <div class="wf-legend">
+        <div class="wf-leg"><span class="wf-leg-n">1</span><span class="wf-leg-t"><b>Artwork, the largest element.</b> It carries the visual weight and it still carries no fact</span></div>
         <div class="wf-leg"><span class="wf-leg-n">2</span><span class="wf-leg-t"><b>Case name.</b> The identity of the object and the accessible name of the whole tile</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">3</span><span class="wf-leg-t"><b>Item count</b>, read from the drop table at read time. A tile that says forty over a table that shows thirty eight is the defect the rule exists to prevent</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">4</span><span class="wf-leg-t"><b>Entry cost, one real currency.</b> The tile is where the price is first read, so it is where a second currency would first hide it</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">5</span><span class="wf-leg-t"><b>Free-unit state, in text.</b> It counts entries at zero, never units summed across kinds</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">6</span><span class="wf-leg-t"><b>Daily marker, where it applies.</b> A label, never a ladder, never a counter</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">4</span><span class="wf-leg-t"><b>Risk band, three named values.</b> The meter never carries it alone. The figure it is derived from is published on 3.3</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">3</span><span class="wf-leg-t"><b>Entry cost, in coins</b>, <code>D-28</code>. The tile is where the price is first read, so it is where an unconvertible price would first hide. <b>The peg renders once on the grid</b>, not on every card, and again on 3.3 beside the commit block</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">7</span><span class="wf-leg-t"><b>Favourite, a toggle and a count.</b> Nested button, own name, own focus stop, 44px, and it never steals the tile's tap</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">5 6</span><span class="wf-leg-t"><b>The two markers are absent here</b>, because everything is in stock and this is not the daily case. <b>Silence is the available state</b></span></div>
       </div>
     </div>
   </div>
 
   <div class="card is-note">
-    <h4>Field 6 carries its orphan status in its own row, and this node does not lend it one</h4>
-    <p>The backlog prints <code>I2</code> the same way: <strong>the only row on the map with no barrier, no job and no named constraint behind it.</strong> Node 3.1 treats the daily free case as an addressable case rather than a banner, which is why it is a marker on a tile at all instead of a block of its own.</p>
+    <h4>Field 4 is a label over a number, and the number is not on the tile</h4>
+    <p>The band is derived from the drop table, register <code>0.11</code> owns the definition, and the figure is published on 3.3 beside RTP and expected value. <strong>The tile says High, Medium or Low. The case screen says what that meant.</strong></p>
+    <p>A band with no published number behind it is an adjective, and <strong>an adjective about risk on a page that sells risk is marketing.</strong></p>
   </div>
 
   <div class="card is-good">
-    <h4>Field 5 counts items, not units, and the derivation matters</h4>
-    <p><code>A2</code> is a live free-unit count <strong>per item</strong>, and that number belongs on <code>0.6</code> at 3.3 where a person is looking at one item. Summing free units across items of different value into one tile figure would be summing across kinds, <strong>which <code>0.11</code> rule 7 forbids in as many words.</strong></p>
-    <p><strong>So the tile counts entries at zero:</strong> all items available, or n items out of stock. One kind, one count, and it is the number that changes what a person does next.</p>
+    <h4>Field 5 counts entries at zero, and says nothing when there is nothing to say</h4>
+    <p><code>A2</code> is a live free-unit count <strong>per item</strong>, and that number belongs on <code>0.6</code> at 3.3. Summing free units across items of different value into one tile figure would be summing across kinds, which <code>0.11</code> rule 7 forbids in as many words.</p>
+    <p><strong>Silence is the available state</strong>, which is what makes the marker readable when it appears. A line that says "all items in stock" on every tile in the grid is read on none of them.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Two empty parent cells, both printed</h4>
+    <p><code>I2</code> and the favourite are the only two things on this tile that no barrier, job or named constraint asks for. <code>cjm-to-be.md</code> prints <code>I2</code> that way already. <strong><code>D-24</code> prints the favourite the same way rather than inventing a job for it after the fact</strong>, because a parent written to justify a decision already taken is the thing the three legal classes exist to stop.</p>
   </div>
 </section>
 
 <!-- DENSITIES -->
 <section id="densities">
   <div class="sec-head">
-    <h2>Two densities, one field set</h2>
-    <p>They differ in size and in neighbours, never in fields.</p>
+    <h2>Two densities, one element set</h2>
+    <p>They differ in size and in neighbours, never in elements.</p>
   </div>
 
   <div class="table-wrap">
     <table>
       <thead><tr><th>Variant</th><th>Where</th><th>Shows</th><th>Must not</th></tr></thead>
       <tbody>
-        <tr><td><strong>V1, the featured tile</strong></td><td><span class="surf">1.0</span> Home, in the case grid that sits <strong>directly on the page</strong> rather than behind a mode hub, <code>D-20</code></td><td>All six fields, at the largest size the grid allows</td><td><strong>Carry urgency.</strong> The bank leaves the Key-Drop and Hellcase event banner with its countdown: no parent in round 1, and a countdown is urgency attached to spending. <strong>And no TOP badge</strong>, <code>0.11</code> rule 7</td></tr>
-        <tr><td><strong>V2, the catalogue tile</strong></td><td><span class="surf">3.1</span> Case catalogue, in the full shelf with the category bar, search and filters</td><td>The same six fields, denser, in a grid that has to survive <span class="surf">3.2</span></td><td><strong>Disappear when it is out of stock.</strong> Zero-stock items stay visible and marked, which is the one row in the bank no competitor matches</td></tr>
+        <tr><td><strong>V1, the featured tile</strong></td><td><span class="surf">1.0</span> Home, in the case grid that sits <strong>directly on the page</strong> rather than behind a mode hub, <code>D-20</code></td><td>All four fields, the markers that apply, the control. Largest size the grid allows</td><td><strong>Carry urgency.</strong> The bank leaves the Key-Drop and Hellcase event banner with its countdown: no parent in round 1, and a countdown is urgency attached to spending. <strong>And no TOP badge</strong>, <code>0.11</code> rule 7</td></tr>
+        <tr><td><strong>V2, the catalogue tile</strong></td><td><span class="surf">3.1</span> Case catalogue, in the full shelf with the category bar, search and filters</td><td>The same set, denser, in a grid that has to survive <span class="surf">3.2</span></td><td><strong>Disappear when it is out of stock.</strong> Zero-stock items stay visible and marked, which is the one row in the bank no competitor matches</td></tr>
       </tbody>
     </table>
   </div>
@@ -247,50 +270,54 @@
     <div class="wf-grid">
       <div class="wf-tile">
         <div class="wf-tile-lbl">V1 - featured, on 1.0</div>
-        <div class="wf-art">case artwork</div>
+        <div class="wf-art is-big">case artwork</div>
         <div class="wf-name">Ironbound</div>
-        <div class="wf-sub">40 items</div>
+        <div class="wf-risk"><span class="wf-risk-w">Low-risk</span><span class="wf-risk-m"><span class="wf-risk-d is-on"></span><span class="wf-risk-d"></span><span class="wf-risk-d"></span></span></div>
         <div class="wf-price">entry cost</div>
-        <div class="wf-cur">one real currency</div>
-        <div class="wf-tags"><span class="wf-tag is-on">All items in stock</span></div>
+        <div class="wf-cur">coins</div>
+        <div class="wf-fav"><span class="wf-fav-i">[ ] favourite</span><span class="wf-fav-n">829</span></div>
         <div class="wf-scope">The first spend-shaped object a pre-suspected visitor meets. <b>No countdown, no badge, no urgency.</b></div>
       </div>
       <div class="wf-tile">
         <div class="wf-tile-lbl">V2 - catalogue, on 3.1</div>
-        <div class="wf-art">case artwork</div>
+        <div class="wf-art is-big">case artwork</div>
         <div class="wf-name">Warsteel</div>
-        <div class="wf-sub">38 items</div>
+        <div class="wf-risk"><span class="wf-risk-w">High-risk</span><span class="wf-risk-m"><span class="wf-risk-d is-on"></span><span class="wf-risk-d is-on"></span><span class="wf-risk-d is-on"></span></span></div>
         <div class="wf-price">entry cost</div>
-        <div class="wf-cur">one real currency</div>
+        <div class="wf-cur">coins</div>
         <div class="wf-tags"><span class="wf-tag is-on">3 items out of stock</span></div>
-        <div class="wf-scope">Same six fields, denser grid. <b>It survives 3.2 and it never leaves the shelf.</b></div>
+        <div class="wf-fav"><span class="wf-fav-i">[x] favourite</span><span class="wf-fav-n">1 204</span></div>
+        <div class="wf-scope">Same set, denser grid. <b>It survives 3.2 and it never leaves the shelf.</b></div>
       </div>
     </div>
   </div>
 
   <div class="card">
-    <p><strong>One field set, two densities, and no third.</strong> 1.1 is the same page as 1.0 in a different account state, and <strong>the tile has no signed-in variant at all</strong>, because not one of its six fields depends on the account. That is the practical reason 1.1 is a state-dependent strip on one page rather than a second page.</p>
-    <p>On 1.0 the tile is doing trust work, <code>B1-1</code>. On 3.1 it is doing comparison work. The same six fields serve both, and <strong>a tile that dropped its entry cost in the denser grid would be hiding the cost exactly where comparison happens.</strong></p>
+    <p><strong>The tile still has no signed-in variant, and the favourite does not create one.</strong> The control renders in both states. Signed out it renders unpressed and its press routes to <span class="surf">2.4</span>, sign in with Steam, and returns to the tile it was pressed from.</p>
+    <p><strong>What differs by account is the pressed state of one control, not the composition of the tile</strong>, and that distinction is what keeps 1.1 a state-dependent strip on one page rather than a second page.</p>
+    <p>On 1.0 the tile is doing trust work, <code>B1-1</code>. On 3.1 it is doing comparison work. <strong>A tile that dropped its entry cost or its risk band in the denser grid would be hiding the two decision fields exactly where comparison happens.</strong></p>
   </div>
 </section>
 
 <!-- STATES -->
 <section id="states">
   <div class="sec-head">
-    <h2>Six states</h2>
-    <p>One of them is a state of the tile and not a reason to delete it.</p>
+    <h2>Eight states</h2>
+    <p>Two of them are new with the favourite, and one of them is the one the category gets wrong.</p>
   </div>
 
   <div class="table-wrap">
     <table>
       <thead><tr><th>State</th><th>What the tile shows</th><th>Route out</th></tr></thead>
       <tbody>
-        <tr><td><strong>Available</strong></td><td>All six fields. The normal case</td><td><span class="surf">3.3</span></td></tr>
-        <tr><td><strong>Free units exhausted on some items</strong></td><td>The count of entries at zero, as text beside the item count. <strong>A shelf that is legibly short</strong>, <code>D1</code></td><td><span class="surf">3.3</span>, where <code>0.6</code> marks each one and node <span class="surf">3.4</span> owns the per-item state</td></tr>
-        <tr><td><strong>Sold out</strong>, every entry at zero</td><td>The tile <strong>stays in the grid and says so</strong>. Not removed, not filtered out, not faded past reading. The shelf is legibly empty instead of silently short</td><td><span class="surf">3.3</span> still opens and shows which items are out. <strong>The open control is what is unavailable, not the case</strong></td></tr>
+        <tr><td><strong>Available</strong></td><td>Four fields, no markers. The normal case, and the quiet one</td><td><span class="surf">3.3</span></td></tr>
+        <tr><td><strong>Free units exhausted on some items</strong></td><td>The stock marker appears with the count of entries at zero. <strong>A shelf that is legibly short</strong>, <code>D1</code></td><td><span class="surf">3.3</span>, where <code>0.6</code> marks each one and node <span class="surf">3.4</span> owns the per-item state</td></tr>
+        <tr><td><strong>Sold out</strong>, every entry at zero</td><td>The marker says so and the tile <strong>stays in the grid</strong>. Not removed, not filtered out, not faded past reading</td><td><span class="surf">3.3</span> still opens and shows which items are out. <strong>The open control is what is unavailable, not the case</strong></td></tr>
         <tr><td><strong>Daily case, available today</strong></td><td>The daily marker in its available form, on a tile that is otherwise a normal case</td><td><span class="surf">3.3</span></td></tr>
-        <tr><td><strong>Daily case, taken today</strong></td><td>The marker states that it is taken and when it returns. <strong>The reset moment is <span class="q">[?]</span></strong>, the entity marks availability and reset unknown</td><td><span class="surf">3.3</span>, and the rest of the shelf</td></tr>
-        <tr><td><strong>Entry cost or item count unavailable</strong></td><td>An explicit "not available" in the field's place. <strong>Never a zero and never a blank</strong>, <code>0.11</code> rule 3. A tile with no price does not render a price of nothing</td><td><span class="surf">3.3</span>, which is where the authoritative figures live</td></tr>
+        <tr><td><strong>Daily case, taken today</strong></td><td>The marker states that it is taken and when it returns. <strong>The reset moment is <span class="q">[?]</span></strong></td><td><span class="surf">3.3</span>, and the rest of the shelf</td></tr>
+        <tr><td><strong>Entry cost or risk band unavailable</strong></td><td>An explicit "not available" in the element's place. <strong>Never a zero, never a blank and never a default band</strong>, <code>0.11</code> rule 3. <strong>A case whose table cannot be read does not get called Low-risk</strong></td><td><span class="surf">3.3</span>, which is where the authoritative figures live</td></tr>
+        <tr><td><strong>Favourite off or on</strong>, signed in</td><td>The control states which it is <strong>in text as well as in shape</strong>, and the count moves by one when it is pressed. Optimistic, and it reverts visibly if the write fails</td><td>Stays on the page. <strong>The favourite never navigates</strong></td></tr>
+        <tr><td><strong>Favourite pressed while signed out</strong></td><td>The press routes to 2.4 and <strong>the intent survives the round trip</strong>: on return the case is marked. A control that silently does nothing is the failure this state exists to name</td><td><span class="surf">2.4</span>, then back to the tile</td></tr>
       </tbody>
     </table>
   </div>
@@ -300,22 +327,20 @@
     <div class="wf-grid">
       <div class="wf-tile">
         <div class="wf-tile-lbl">Sold out</div>
-        <div class="wf-art">case artwork</div>
+        <div class="wf-art is-big">case artwork</div>
         <div class="wf-name">Warsteel</div>
-        <div class="wf-sub">38 items</div>
+        <div class="wf-risk"><span class="wf-risk-w">High-risk</span><span class="wf-risk-m"><span class="wf-risk-d is-on"></span><span class="wf-risk-d is-on"></span><span class="wf-risk-d is-on"></span></span></div>
         <div class="wf-price">entry cost</div>
-        <div class="wf-cur">one real currency</div>
         <div class="wf-tags"><span class="wf-tag is-on">Every item out of stock</span></div>
         <div class="wf-scope"><b>It stays in the grid.</b> The case screen still opens and shows which items are out. What is unavailable is the open control, not the case.</div>
       </div>
       <div class="wf-tile">
-        <div class="wf-tile-lbl">Daily case, taken today</div>
-        <div class="wf-art">case artwork</div>
-        <div class="wf-name">Daily case</div>
-        <div class="wf-sub">12 items</div>
-        <div class="wf-price is-off">free today</div>
-        <div class="wf-tags"><span class="wf-tag is-on">Taken. Returns at [?]</span></div>
-        <div class="wf-scope">A label, never a ladder and never a counter. <b>The reset moment is [?]</b> and the marker cannot state it until the founder does.</div>
+        <div class="wf-tile-lbl">Risk band unreadable</div>
+        <div class="wf-art is-big">case artwork</div>
+        <div class="wf-name">Ironbound</div>
+        <div class="wf-risk"><span class="wf-risk-w" style="color:var(--wf-ink-dim)">Risk not available</span></div>
+        <div class="wf-price">entry cost</div>
+        <div class="wf-scope"><b>Never a default band.</b> A case whose table cannot be read does not get called Low-risk, and it does not render an empty meter either.</div>
       </div>
     </div>
   </div>
@@ -330,7 +355,7 @@
 <section id="screen">
   <div class="sec-head">
     <h2>The tile and the screen it opens</h2>
-    <p>One tile, one case, one destination. There is no second control on the tile, no quick open, no open from the grid.</p>
+    <p>One tile, one case, one destination, and one control that is not a destination.</p>
   </div>
 
   <div class="wf-stage">
@@ -338,25 +363,29 @@
     <div class="wf-flow">
       <div class="wf-step"><small>tap 1</small>the tile, on 1.0</div>
       <span class="wf-arrow">-&gt;</span>
-      <div class="wf-step"><small>the screen</small>3.3, where chance, value, RTP and EV live</div>
+      <div class="wf-step"><small>the screen</small>3.3, where chance, value, RTP, EV and the risk figure live</div>
       <span class="wf-arrow">-&gt;</span>
       <div class="wf-step"><small>tap 2</small>2.1, the age gate</div>
       <span class="wf-arrow">-&gt;</span>
       <div class="wf-step"><small>tap 3</small>the open</div>
     </div>
-    <div class="wf-note">Anything added to the tile that costs a tap costs the whole depth budget, which is why 3.1 is off the main path and reached as "all cases" rather than as a compulsory hop.</div>
+    <div class="wf-note">The favourite costs no tap on this path. It moves no money and it changes nothing about what the open costs, which is the whole of why it is allowed on the tile.</div>
+  </div>
+
+  <div class="card is-good">
+    <h4>The rule that used to say "no second control" now says what it always meant</h4>
+    <p><code>D-24</code> restates it: <strong>no control on the tile may start a spend or shorten the path to one.</strong> The favourite does neither.</p>
   </div>
 
   <div class="card is-fix">
-    <h4>Why there is no open control on the tile</h4>
-    <p>The numbers that make an open a decision live on 3.3 and nowhere else: published chance and current value per item <code>D2</code>, published tested RTP and the expected value at this entry cost <code>D4</code>, the observed rate counter <code>D3</code>. <strong>An open control on a tile puts the spend before all three</strong>, which is design principle 3 read backwards.</p>
-    <p>The bank leaves Hellcase's multi-open selector for the same reason: a spend multiplier next to the trigger, before any ceiling is visible.</p>
+    <h4>Why there is still no open control on the tile</h4>
+    <p>The numbers that make an open a decision live on 3.3 and nowhere else: published chance and current value per item <code>D2</code>, published tested RTP and the expected value at this entry cost <code>D4</code>, the observed rate counter <code>D3</code>, <strong>and now the figure the risk band is derived from.</strong> An open control on a tile puts the spend before all of them, which is design principle 3 read backwards.</p>
   </div>
 
   <div class="card is-good">
     <h4>The tile is a strict subset of the screen it opens, from one source</h4>
-    <p>Same rule as <code>0.14</code> and <code>0.6</code>: no field on the tile that the case screen does not have, no field named differently, no field ordered against it. <strong>The item count and the free-unit state are read from the drop table at read time</strong>, not stored beside the case.</p>
-    <p><strong>A tile that says forty items over a table that shows thirty eight is the defect this rule exists to prevent</strong>, and it is the same class of defect as <code>B7-2</code>: the numbers shown are not the numbers used.</p>
+    <p>Same rule as <code>0.14</code> and <code>0.6</code>: nothing on the tile that the case screen does not have, nothing named differently, nothing ordered against it. <strong>The risk band and the stock marker are read from the drop table at read time</strong>, not stored beside the case.</p>
+    <p><strong>A tile that says Low-risk over a table that computes High is the defect this rule exists to prevent</strong>, and it is the same class of defect as <code>B7-2</code>: the numbers shown are not the numbers used.</p>
   </div>
 
   <h3>What the tile does not carry, and why each one was considered</h3>
@@ -365,11 +394,12 @@
     <table>
       <thead><tr><th>Not on the tile</th><th>Why it was considered</th><th>Verdict</th></tr></thead>
       <tbody>
-        <tr><td><strong>Risk band</strong></td><td>The Case entity lists "risk band as a legible label" as a part, and the baseline prints High-risk, Medium-risk or Low-risk on the tile plus a three-skull meter on the case page</td><td><strong>Not on the tile, and it has no backlog row anywhere.</strong> Inherited from the baseline and parentless in our map. Carried to node <span class="surf">3.3</span> with that status rather than shipped here on the strength of the baseline having it</td></tr>
-        <tr><td><strong>Published tested RTP and EV</strong>, <code>D4</code></td><td>The strongest trust number the product owns, and design principle 3 wants it where money is decided</td><td><strong>Not on the tile.</strong> <code>D4</code>'s own row places it on the case page and before login. The tile is the route to that page, not a second publication of the same figure, and <code>0.11</code> exists so that one number has one definition</td></tr>
-        <tr><td>Category or collection</td><td>The baseline groups 239 cases into thirteen categories</td><td><strong>Not on the tile.</strong> A <span class="q">[?]</span> part of the Case entity whose scale rides on <code>D-D</code>, and the category bar on 3.1 is where grouping renders</td></tr>
+        <tr><td><strong>Item count</strong></td><td>It was field 3 of the first version, it is parented on <code>D1</code> and <code>B8-1</code>, and the baseline prints it</td><td><strong>Dropped by <code>D-24</code>.</strong> The risk band answers the same question from the same table and answers it better. The count renders on 3.3, on the table it describes</td></tr>
+        <tr><td><strong>Published tested RTP and EV</strong>, <code>D4</code></td><td>The strongest trust numbers the product owns</td><td><strong>Not on the tile.</strong> <code>D4</code>'s own row places them on the case page and before login. The tile carries the band, the case page carries the figures, and <code>0.11</code> exists so that one number has one definition</td></tr>
+        <tr><td><strong>The percentage behind the risk band</strong></td><td>It is the number that makes the band honest</td><td><strong>Not on the tile, and this is deliberate.</strong> Four fields is the whole point of <code>D-24</code></td></tr>
+        <tr><td>Category or collection</td><td>The baseline groups 239 cases into thirteen categories</td><td><strong>Not on the tile.</strong> A <span class="q">[?]</span> part of the Case entity whose scale rides on <code>D-D</code></td></tr>
         <tr><td>A "best drops" strip</td><td>Hellcase and the baseline both put recent wins on the case surface</td><td><strong>Refused.</strong> Survivorship by construction. The top drops of the week are not what happens</td></tr>
-        <tr><td>A like count, a TOP badge, an opened counter</td><td>All three exist in the category</td><td><strong>Refused.</strong> <code>0.11</code> rule 7: a number is never a score, no streaks, no status</td></tr>
+        <tr><td><strong>A TOP badge, an opened counter, a "most popular" rank</strong></td><td>All three exist in the category, and the favourite count makes them look adjacent</td><td><strong>Still refused, and <code>D-24</code> draws the line explicitly.</strong> A favourite count is a count of people who marked this case. A badge, a rank and an opened counter are the platform telling a person which case is better. <strong>The first is data about others, the second is a recommendation to spend</strong></td></tr>
       </tbody>
     </table>
   </div>
@@ -378,29 +408,48 @@
 <!-- RULES -->
 <section id="rules">
   <div class="sec-head">
-    <h2>Four rules that are not styling</h2>
+    <h2>Seven rules that are not styling</h2>
   </div>
 
-  <div class="card is-good">
-    <h4>1. The price is in one real currency, always</h4>
-    <p><code>C1</code> deletes the coin denomination entirely, and the map names this the first inherited structure that research overturns: <strong>the baseline prices cases in coins with no visible conversion rate.</strong> The bank records the same in the wider category, Clash.gg in Gems, Key-Drop in local currency, Hellcase in a bare number.</p>
+  <div class="card">
+    <h4>1. The price is in coins, and the peg is never further away than the spend</h4>
+    <p><strong>Rewritten on 19 August 2026 by <code>D-28</code>, which reversed <code>C1</code> and printed its cost in full.</strong> The rule used to delete the coin denomination entirely. It no longer does: the product denominates in coins, as the live product and the whole category do, Clash.gg in Gems, Key-Drop in local currency, Hellcase in a bare number.</p>
+    <p><strong>What survives is the reason the old rule existed.</strong> <code>B7-1</code> is a pattern of 7 and it is not about the word on the price, it is about a price a person cannot convert. So the rule is narrower and harder to satisfy: <strong>the entry cost renders in coins, and the peg is never further from it than the spend it precedes.</strong> Not on every card, because a grid of twenty pegs is noise rather than disclosure: <strong>once on the grid, and again on 3.3 beside the commit block</strong>, which is the last surface before money moves.</p>
     <p><strong>A tile is where the price is first read, so it is where a second currency would first hide it.</strong></p>
   </div>
 
   <div class="card">
-    <h4>2. The free-unit state is text, never a colour</h4>
-    <p>Same rule as <code>0.6</code> rule 3 and for the same reason. A dimmed tile does not say "three items are out of stock", it says "something is wrong with this tile", and it says nothing at all to a person who cannot separate the two treatments.</p>
+    <h4>2. The stock marker is text, never a colour</h4>
+    <p>Same rule as <code>0.6</code> rule 3. A dimmed tile does not say "three items are out of stock", it says "something is wrong with this tile", and it says nothing at all to a person who cannot separate the two treatments.</p>
   </div>
 
   <div class="card is-fix">
     <h4>3. The daily marker is a label, not a mechanic</h4>
-    <p>It says the case is free today, or that it is taken and when it returns. <strong>It never becomes a streak, a ladder, a counter or a status.</strong> The limits rule binds this stage and stages 04, 07 and 11: the moment a boundary or an entitlement acquires completion mechanics it stops describing and starts encouraging.</p>
-    <p>The baseline's own answer to <code>I2</code> is a five tier ladder with a wager remaining counter, <strong>which is an inherited answer to an open risk and belongs in front of the founder rather than inside this component.</strong></p>
+    <p>It says the case is free today, or that it is taken and when it returns. <strong>The marker itself never becomes a streak, a ladder, a counter or a status</strong>, at either density, on either page that renders this tile.</p>
+    <p><strong>Narrowed on 18 August 2026 by <code>D-25</code>, and the narrowing is named rather than stepped over.</strong> This rule used to read "a boundary or an entitlement", which generalised <code>CLAUDE.md</code>'s limits rule from limits to entitlements. <strong>That generalisation was this repository's own extension and it is withdrawn.</strong> The limits rule is untouched and absolute. The founder chose the baseline's five tier ladder, and <strong>it lives in block B5 of node 1.0 under four rules of its own, never on this tile.</strong></p>
   </div>
 
   <div class="card">
-    <h4>4. The artwork is an enhancement and the tile survives without it</h4>
-    <p>Every load-bearing field is text: name, item count, entry cost, stock state, daily marker. <code>0.11</code> rule 8. A tile whose image fails is plainer and still a complete offer, and <strong>the pre-login case grid is a large part of the product's argument to search and to a screen reader.</strong></p>
+    <h4>4. The artwork is the largest element and still carries no fact</h4>
+    <p><code>D-24</code> makes the image the visual weight of the tile, which is what the baseline and the whole category do and what makes a shelf of cases readable at a glance. <strong>The rule underneath it does not move:</strong> every load-bearing element is text, <code>0.11</code> rule 8, and that is now name, entry cost, risk band and the markers.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>5. The risk band is three named values, and never an icon alone</h4>
+    <p>Same rule as the rarity slot on <code>0.6</code>: <strong>the tier has a name and the name is in the tile or in its accessible name.</strong> The baseline draws three skulls, two filled and one empty. A meter may render, but it never carries the band by itself, <strong>because a person who cannot separate a filled skull from an empty one has been told nothing.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <h4>6. The favourite is a mark, never a leaderboard, and never the largest thing on the tile</h4>
+    <p>The count is the number of accounts that have marked this case, it is text, and it obeys the register: missing is a state and not a zero, a failed read is marked degraded rather than frozen, <code>0.11</code> rules 3 and 6.</p>
+    <p><strong>What it may never become:</strong> a rank, a default sort, a "most popular" strip, a badge on the top tile, or a number that sits next to the open control on 3.3. <strong><code>D-24</code> allows one public count on the tile and allows nothing that turns it into a recommendation to spend.</strong></p>
+    <p><strong>And a size, added by stage 04 on 19 August 2026 after the founder read the drawn tile beside the live one.</strong> It is <strong>a count and a mark in the corner of the artwork</strong>. Stage 04 first drew it as a full width control under the fields, which made a tile whose job is four fields look like a tile whose job is one button: <strong>the one element with no parent in the three legal classes was the largest thing on the card.</strong> <code>D-24</code> admitted it with its orphan status printed, and the weight it is drawn at has to match that status. It keeps its own focus stop, its own accessible name carrying the count in words, and it never swallows the tile's own tap.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>7. The four fields run in the baseline's visual order, artwork, name, risk, cost</h4>
+    <p><strong>The field table lists the fields. It does not order them on screen</strong>, and stage 04 owns that. The order is the baseline's: name, risk, price. <strong>The price last is what makes it the thing the eye lands on</strong>, because the cost is the last fact before the decision rather than one of four facts in a column, and design principle 3 says cost never hides inside excitement.</p>
+    <p><strong>The entry cost also takes the slack at the foot of the tile</strong>, so a tile carrying a stock marker and a tile carrying none still line their prices up across a row. A price that floats to a different height in every cell is a price the eye has to hunt for.</p>
   </div>
 </section>
 
@@ -408,39 +457,39 @@
 <section id="width">
   <div class="sec-head">
     <h2>The tile at 360px</h2>
-    <p>Six fields in a grid cell, and the grid is the densest surface in the product.</p>
+    <p>Four fields and a control in a grid cell, and the grid is the densest surface in the product.</p>
   </div>
 
   <div class="wf-stage">
-    <div class="wf-cap">Mobile 360px - one column, and the price stays at full size</div>
+    <div class="wf-cap">Mobile 360px - two across becomes possible, and that is what D-24 bought</div>
     <div class="wf-phone">
-      <div class="wf-tile" style="border:none;background:none;padding:0;margin-bottom:14px">
-        <div class="wf-art">case artwork</div>
-        <div class="wf-name">Ironbound</div>
-        <div class="wf-sub">40 items</div>
-        <div class="wf-price">entry cost</div>
-        <div class="wf-cur">one real currency</div>
-        <div class="wf-tags"><span class="wf-tag is-on">All items in stock</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div class="wf-tile" style="padding:9px 10px">
+          <div class="wf-art" style="height:74px">artwork</div>
+          <div class="wf-name" style="font-size:13px">Ironbound</div>
+          <div class="wf-risk"><span class="wf-risk-w" style="font-size:9.5px">Low-risk</span><span class="wf-risk-m"><span class="wf-risk-d is-on"></span><span class="wf-risk-d"></span><span class="wf-risk-d"></span></span></div>
+          <div class="wf-price" style="font-size:16px">cost</div>
+          <div class="wf-fav" style="padding:4px 6px"><span class="wf-fav-i" style="font-size:10px">[ ]</span><span class="wf-fav-n">829</span></div>
+        </div>
+        <div class="wf-tile" style="padding:9px 10px">
+          <div class="wf-art" style="height:74px">artwork</div>
+          <div class="wf-name" style="font-size:13px">Warsteel</div>
+          <div class="wf-risk"><span class="wf-risk-w" style="font-size:9.5px">High-risk</span><span class="wf-risk-m"><span class="wf-risk-d is-on"></span><span class="wf-risk-d is-on"></span><span class="wf-risk-d is-on"></span></span></div>
+          <div class="wf-price" style="font-size:16px">cost</div>
+          <div class="wf-tags"><span class="wf-tag is-on">3 out of stock</span></div>
+          <div class="wf-fav" style="padding:4px 6px"><span class="wf-fav-i" style="font-size:10px">[x]</span><span class="wf-fav-n">1 204</span></div>
+        </div>
       </div>
-      <div class="wf-tile" style="border:none;background:none;padding:0;border-top:1px dashed var(--wf-line-soft);padding-top:14px">
-        <div class="wf-art">case artwork</div>
-        <div class="wf-name">Warsteel</div>
-        <div class="wf-sub">38 items</div>
-        <div class="wf-price">entry cost</div>
-        <div class="wf-cur">one real currency</div>
-        <div class="wf-tags"><span class="wf-tag is-on">3 items out of stock</span></div>
-      </div>
-      <div class="wf-note">Two across at 360px gives each tile about 160px, and the first thing to die is the price.</div>
+      <div class="wf-note">The first version needed one column because six fields in 160px killed the price. <b>Whether the grid actually goes two across is node 1.0's and 3.1's decision at their own steps.</b></div>
     </div>
   </div>
 
   <div class="card">
-    <p><strong>One column at 360px</strong> unless the entry cost stays at full size and the case name survives two lines.</p>
-    <p><strong>The case name truncates on the second line, never mid-word, and the full name is the accessible name.</strong> The name is the identity of the object, and a truncated identity in a grid of similar artwork is unusable.</p>
+    <p><strong>The case name truncates on the second line, never mid-word, and the full name is the accessible name.</strong> The baseline truncates to "ESPORTS WO..." and "THE 100 CS2 ...", walked on 11 August 2026, and <strong>a truncated identity in a grid of similar artwork is the defect we are not inheriting.</strong></p>
     <p><strong>The entry cost never truncates and never shrinks below the name.</strong> Money is the field the tile exists to state. Design principle 3.</p>
-    <p><strong>The item count and the stock state are one line, in words.</strong> "40 items" and "3 out of stock" read; "40 / 3" does not.</p>
-    <p><strong>The tile is the whole target.</strong> The card is a link, the link is the tile, and there is no small hotspot inside it.</p>
-    <p><strong>The accessible name is name, then cost, then count, then stock.</strong> The order is the decision order, and a screen reader that opens with a number has announced a statistic rather than a case.</p>
+    <p><strong>The risk band is words, and it holds its size beside the price.</strong> If a width cannot hold both, the width is wrong, not the band.</p>
+    <p><strong>The tile is the whole target and the favourite is the one exception.</strong> The card is a link, and the favourite is a nested button with its own name, its own focus stop and a target no smaller than 44px that does not overlap the link's tap area at any width. <strong>A control that steals the tile's tap on a phone is worse than no control.</strong></p>
+    <p><strong>The accessible name is name, then cost, then risk band, then the markers.</strong> The favourite announces separately, as a toggle with a pressed state and its own count.</p>
   </div>
 </section>
 
@@ -448,19 +497,21 @@
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
-    <p>Six open items, and three of them are the same founder decision seen from three sides.</p>
+    <p>Eight open items, and the first two are what <code>D-24</code> deliberately left open.</p>
   </div>
 
   <div class="table-wrap">
     <table>
       <thead><tr><th style="width:26%">Open item</th><th style="width:46%">What is missing</th><th>Owner</th></tr></thead>
       <tbody>
-        <tr><td><strong>The parent of the daily free case</strong></td><td><code>I2</code> sits in MVP with no parent in any of the three legal classes, by founder decision. Field 6 exists because of that decision and carries its cost in the open, <code>D-15</code></td><td>Founder</td></tr>
+        <tr><td><strong>The backlog rows for the risk band and the favourite</strong></td><td>Both are on the tile with a parent named, and <strong>neither has a row in <code>cjm-to-be.md</code></strong>, which is the single owner of the MVP capability list. Adding two rows moves that file's count and the line in <code>CLAUDE.md</code> that quotes it, <strong>and that is a named decision rather than a side effect of a component edit</strong></td><td>Founder, and the go is explicit</td></tr>
+        <tr><td><strong>The thresholds of the risk band</strong></td><td>The method is owned by <code>0.11</code>. <strong>Where High stops and Medium begins is <span class="q">[?]</span></strong>, and it is a treasury question rather than a design one. <strong>The band cannot render until it is answered</strong></td><td>Founder, with <code>0.11</code></td></tr>
+        <tr><td>Where the favourite list renders</td><td>The mark exists; the list of marked cases has no home. A filter on 3.1 and a section on 5.1 are the two candidates</td><td>Nodes <span class="surf">3.1</span> and <span class="surf">5.1</span></td></tr>
+        <tr><td><strong>The parent of the daily free case</strong></td><td><code>I2</code> sits in MVP with no parent in any of the three legal classes, by founder decision, <code>D-15</code></td><td>Founder</td></tr>
         <tr><td>Reset and availability of the daily case</td><td>The entity marks both <span class="q">[?]</span>. The taken state cannot say when the case returns until this is answered</td><td>Founder, product decision</td></tr>
-        <tr><td><strong>Whether the daily case is gated the way the baseline gates it</strong></td><td>The baseline puts a wager requirement and a five tier ladder in front of its daily reward, which is an answer to the recorded risk in <code>I2</code> that a daily free open teaches that opening is free. <strong>Adopting it would contradict rule 3 of this node</strong></td><td>Founder, and the decision is named rather than pre-empted here</td></tr>
-        <tr><td>Where the risk band renders</td><td>The entity lists it, the baseline prints it, no backlog row requires it. <span class="q">[ORPHAN]</span> and not on the tile</td><td>Node <span class="surf">3.3</span> at step 6</td></tr>
-        <tr><td>How many tiles a grid holds, and the sort order</td><td>Featured on 1.0 and the full shelf on 3.1 are different problems. skin.club runs 248 case links on one page with no pagination and no result count, which 3.2 already refuses</td><td>Nodes <span class="surf">1.0</span> and <span class="surf">3.1</span> at steps 5 and 6</td></tr>
-        <tr><td>The catalogue's scale</td><td><code>D-D</code>. How large a stock-backed catalogue can be is a treasury question, and it decides whether category grouping is required at all</td><td>Founder</td></tr>
+        <tr><td><strong>Whether the daily case is gated the way the baseline gates it</strong></td><td><strong>Answered on 18 August 2026 by <code>D-25</code>: yes, as the baseline gates it.</strong> The ladder lives on node 1.0 block B5 and rule 3 above was narrowed to admit it. <strong>What is still open is the trade it makes</strong>, that a free entry is now earned by wagering</td><td>Founder, before stage 04</td></tr>
+        <tr><td>How many tiles a grid holds, and the sort order</td><td>Featured on 1.0 and the full shelf on 3.1 are different problems. skin.club runs 248 case links on one page with no pagination, which 3.2 already refuses</td><td>Nodes <span class="surf">1.0</span> and <span class="surf">3.1</span></td></tr>
+        <tr><td>The catalogue's scale</td><td><code>D-D</code>. How large a stock-backed catalogue can be is a treasury question</td><td>Founder</td></tr>
       </tbody>
     </table>
   </div>
@@ -469,7 +520,7 @@
     <h4>And what belongs elsewhere</h4>
     <p><strong>The words on the tile.</strong> Stage 05.</p>
     <p><strong>The grid, the filters and the empty result.</strong> Nodes <span class="surf">1.0</span>, <span class="surf">3.1</span> and <span class="surf">3.2</span>.</p>
-    <p><strong>The definition and failure behaviour of the free-unit figure.</strong> Node <code>0.11</code>. <strong>The items inside the case.</strong> Node <code>0.6</code>.</p>
+    <p><strong>The definition and failure behaviour of the free-unit figure, of the risk band and of the favourite count.</strong> Node <code>0.11</code>. <strong>The items inside the case.</strong> Node <code>0.6</code>.</p>
     <p><strong>Indexation and the collection schema of the pages that render the tile.</strong> Node <code>0.13</code>.</p>
   </div>
 
@@ -489,16 +540,17 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.7 Canonical case tile';
 window.NAV_SECTIONS = [
   { id: 'overview',  label: 'Overview' },
-  { id: 'why',       label: 'The extra step' },
-  { id: 'fields',    label: 'Six fields' },
+  { id: 'why',       label: 'Three sources' },
+  { id: 'fields',    label: 'Four fields' },
   { id: 'densities', label: 'Two densities' },
-  { id: 'states',    label: 'Six states' },
+  { id: 'states',    label: 'Eight states' },
   { id: 'screen',    label: 'The screen it opens' },
-  { id: 'rules',     label: 'Four rules' },
+  { id: 'rules',     label: 'Six rules' },
   { id: 'width',     label: 'The tile at 360px' },
   { id: 'open',      label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

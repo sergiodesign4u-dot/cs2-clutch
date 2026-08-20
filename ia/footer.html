@@ -175,6 +175,19 @@
 </div>
 
 <!-- REBUILT -->
+<section id="baseline-row">
+  <div class="sec-head">
+    <h2>Baseline row</h2>
+    <p>The rule in <code>CLAUDE.md</code>: every node carries one baseline row, what the live product does, what we keep, what we change and why.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:36%">What the live product does</th><th style="width:22%">What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody><tr><td>A statistics strip of four counters above four link columns, an identification line naming the operating company, a copyright range and three payment marks. <code>baseline.md</code> section 9.7.</td><td>The strip and the four column shape, and the identification line, which is the one piece of institutional evidence the footer already carries.</td><td><strong>Three absences, all re-checked on 18 August 2026: no 18+ mark, no responsible play route, no licence statement anywhere in the footer.</strong> Ours carries all three, and that is the compliance constraint in <code>CLAUDE.md</code> rather than a preference.</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
 <section id="rebuilt">
   <div class="sec-head">
     <h2>Rebuilt on 11 August 2026, and the input was the problem</h2>
@@ -370,6 +383,7 @@
   <div class="card">
     <h4>What the baseline runs, read live on 11 August 2026</h4>
     <p><strong>363 010 503</strong> cases opened, <strong>3 328 108</strong> upgrades, <strong>1 862 837</strong> total users, <strong>905</strong> online users.</p>
+    <p><strong>Each statistic carries a reserved icon zone, founder decision <code>D-31</code>, 19 August 2026.</strong> It is a zone and not a glyph: stage 04 draws no icons, 0.11 rule 8 keeps every figure as crawlable text, and <strong>a slot that is already the right size means the icon arrives as an asset in a place rather than as a new element in a finished row</strong>. It is <code>aria-hidden</code>, and <strong>it never becomes the figure</strong>: an icon beside a number is decoration, an icon carrying a number is 0.11 rule 8 broken. The anatomy above already drew the slot; the wireframe did not, and now does.</p>
     <p><strong>Cases opened increments continuously.</strong> Three reads minutes apart returned 363 010 473, then 363 010 503, then 363 010 551. Total users did not move across the three.</p>
   </div>
 
@@ -610,6 +624,7 @@ window.NAV_BASE = '../';
 window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.2 Footer';
 window.NAV_SECTIONS = [
+  { id: 'baseline-row', label: 'Baseline row' },
   { id: 'overview', label: 'Overview' },
   { id: 'rebuilt',  label: 'Why it was rebuilt' },
   { id: 'grew',     label: 'It grew the map' },
@@ -623,6 +638,7 @@ window.NAV_SECTIONS = [
   { id: 'open',     label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

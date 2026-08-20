@@ -331,8 +331,9 @@
   </div>
 
   <div class="card is-gap">
-    <h4>Age: there is no gate</h4>
-    <p>No interstitial, no birth date field, no checkbox, nothing on the sign-in page. The entire age control on the product is one FAQ answer, quoted verbatim as read on 11 August 2026:</p>
+    <h4>Age: there is no gate, and one clause of this was corrected on 18 August 2026</h4>
+    <p><strong>The original reading said "no checkbox, nothing on the sign-in page". The last clause is false and is kept here rather than overwritten.</strong> Sign in is not a page, it is a modal, and inside it there is a checkbox reading "I'm 18+ and I agree to the Terms and Conditions". The first walk looked for a sign-in page, and the product does not have one. <strong>What survives is most of it:</strong> there is still no gate between arrival and the case page. See the second walk below.</p>
+    <p>No interstitial, no birth date field, nothing before the case page. The entire age control on the product is one FAQ answer, quoted verbatim as read on 11 August 2026:</p>
     <blockquote>WHO CAN PLAY ON DADDYSKINS? Only people who are at least the age of 18+ are allowed to play on our site. In addition, some countries may have restrictions to accessing sites like ours, we strongly recommend you follow those government laws, as we cannot always apply technical methods for restricted access.</blockquote>
     <p>The word "18" appears exactly twice in the text layer of the sign-in page, and both instances are the weapon Glock-18 in the drop ticker.</p>
     <p><strong>This closes part of an evidence hole rather than leaving it open.</strong> Decision <code>D-13</code> recorded that after two mining passes not one user anywhere describes meeting an age gate on arrival. The reason is now on the record: on this product there is nothing to meet. The hole was not a gap in the mining, it was an accurate reading of a product that has no such screen.</p>
@@ -344,9 +345,93 @@
   </div>
 
   <div class="card is-gap">
-    <h4>Responsible play: zero</h4>
+    <h4>Responsible play: corrected on 18 August 2026, and the correction is worse for them than the error was</h4>
+    <p><strong>The original reading said zero: no matches in the FAQ, no footer link, no route anywhere. The search was right and the conclusion was wrong. The tool exists.</strong> It is called <strong>TAKE A BREAK</strong>, it does deposit restriction or full account restriction, and it is the second row of the SECURITY block inside the settings tab of the account. <strong>What survives is that there is no route to it from anywhere</strong>, and that it is filed beside Logout and an anonymity toggle, in the vocabulary of account protection rather than self protection. <strong>An absence can be answered with "nobody in the category has it". This cannot: they built it and then filed it where nobody looks.</strong></p>
     <p>A search of the FAQ text for responsible play, self exclusion, deposit limit, cool down and gambling returned <strong>zero matches</strong>. There is no responsible play link in the footer and no route anywhere in the inventory.</p>
     <p><strong>Consequence for round 1.</strong> The responsible play page, restored to round 1 by founder decision on 11 August 2026, and the age gate are the <strong>only two round 1 surfaces with no baseline to inherit from at all</strong>. Everything else has a structure to start from. These two are drawn from the compliance constraint in <code>CLAUDE.md</code> and from cited law, or they are not drawn honestly.</p>
+  </div>
+</section>
+
+<!-- WALK 2 -->
+<section id="walk2">
+  <div class="sec-head">
+    <h2>Second walk, 18 August 2026</h2>
+    <p>The shell, the gates and the pages the first walk did not open. All public, nothing logged into. Screenshots in <code>research/screens/baseline/</code>, prefix <code>walk2_</code>. <strong>What is behind the account is a separate record: <a href="baseline-account.html">Baseline behind the account</a>.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Why it ran</h4>
+    <p><code>CLAUDE.md</code> gained a rule the same day: <strong>every node carries a baseline row, what the live product does, what we keep, what we change and why.</strong> Eleven of the twenty six detail-layer nodes cited no baseline at all. Six of those eleven are reachable without an account, so they were walked rather than assumed.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Sign in is a modal, with four providers, an email arm and the age checkbox</h4>
+    <div class="table-wrap">
+      <table>
+        <tbody>
+          <tr><td><strong>Form</strong></td><td>A <strong>modal</strong>, not a page. The page behind it stays loaded</td></tr>
+          <tr><td><strong>Providers</strong></td><td><strong>Four</strong>: Steam, Facebook, X, Google. Not Steam only</td></tr>
+          <tr><td><strong>Credentials</strong></td><td><strong>Email and password as well</strong>, with "Forgot password?" and "Sign up new account"</td></tr>
+          <tr><td><strong>Age and terms</strong></td><td>One checkbox, verbatim: <strong>"I&#39;m 18+ and I agree to the Terms and Conditions"</strong>. Unchecked on open</td></tr>
+          <tr><td><strong>Enforcement</strong></td><td>No <code>required</code> attribute, and the four provider buttons are <strong>not disabled</strong> while it is unchecked. Whether the handler enforces it is <span class="q">[?]</span> and was not tested, because testing it means signing in</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Three things this contradicts in our map, and each is a decision rather than a defect.</strong> The sitemap says sign in is a page rather than a dialog because Steam OpenID leaves the site: <strong>the baseline uses a dialog</strong>, and our reason holds for the Steam arm but not for the email arm we do not have. Node 2.4 is written around Steam OpenID only. And the age declaration bundled into the sign-in consent is <strong>exactly the Hellcase pattern the block bank records and node 2.1 refuses</strong>: two barriers at once, and the declaration lands after the decision to spend rather than before.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The case page signed out: a sign-in wall where the open control belongs</h4>
+    <p><strong>What a guest sees:</strong> breadcrumb <code>HOME / CASES / PREMIUM CASE</code>, the artwork, a <strong>"CASES TO OPEN" multi-open selector of five</strong>, a <strong>like count of 186</strong> with a thumb, and the risk meter as <strong>the words "Medium-risk" beside three skulls, two filled</strong>.</p>
+    <p><strong>What a guest does not see: the price.</strong> Where the open control belongs there is a line, verbatim: "You must log in to be able to Open cases and get your winnings chance". <strong>The entry cost is not on the screen at all before login.</strong></p>
+    <p><strong>What a guest does see, and it is the important half:</strong> the whole drop table, pre-login, <strong>fifty published percentages on this one case</strong>. Each card carries image, value in coins, chance, <strong>ticket range</strong> as <code>41 - 60</code>, then <code>weapon | skin</code> and the wear code in parentheses.</p>
+    <p><strong>Consequence for node 0.6.</strong> Eight of our fifteen fields are the baseline&#39;s own set in the baseline&#39;s own order. What we add is the free-unit count, the observed rate, the market price with its as-of and the instance receipt. What we change is the denomination. <strong>The card is inherited far more closely than the first walk could show.</strong></p>
+  </div>
+
+  <div class="card is-gap">
+    <h4>The cookie consent, and a correction made the same week</h4>
+    <p><strong>This card originally read "There is no cookie consent". That is wrong, corrected 18 August 2026 by the account capture.</strong> A banner exists: a bar across the bottom with an icon, the consent text, links to the Cookie Policy and the Privacy Policy, an ACCEPT button and an X. <strong>Consent is assumed by continued use, there is no reject control, and the X dismisses without a recorded choice.</strong></p>
+    <p><strong>Why the walk got it wrong, because the mechanism matters more than the error.</strong> The browser profile had already accepted the banner. The DOM probe was accurate. <strong>"Is there a cookie element in this DOM" and "does this product have a cookie consent" are different questions, and one browser profile cannot answer the second.</strong> Any state remembered per browser or per account is captured on a fresh one from now on.</p>
+    <p>The policy itself is <code>noindex,nofollow</code>, one H1, <strong>zero H2</strong>, about 1,420 words, and states <strong>"effective from April 11, 2019"</strong>.</p>
+    <p><strong>Consequence for node 0.4.</strong> The cookie dialog joins the age gate and responsible play as a surface with <strong>no baseline to inherit</strong>. It is drawn from the compliance constraint or it is not drawn honestly.</p>
+  </div>
+
+  <div class="card is-gap">
+    <h4>The legal pages are one H1 and a wall</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Page</th><th>Robots</th><th>Headings</th><th>Size</th><th>Dated</th></tr></thead>
+        <tbody>
+          <tr><td><code>/en/terms</code></td><td>noindex,nofollow</td><td><strong>1 H1, zero H2, zero H3</strong></td><td>~7,270 words</td><td>Last updated 08/01/2025</td></tr>
+          <tr><td><code>/en/cookie-policy</code></td><td>noindex,nofollow</td><td>1 H1, zero H2</td><td>~1,420 words</td><td>effective April 11, 2019</td></tr>
+          <tr><td><code>/en/support</code></td><td>noindex,nofollow</td><td>1 H1</td><td>form</td><td>none</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Geography, verbatim from the terms:</strong> "The Company commits to providing services exclusively to residents of countries where such activities are not prohibited by local laws and regulations." That one sentence is the entire market control of the live product: <strong>a blocklist enforced by the user&#39;s own declaration, with no list published.</strong> Our allowlist closed by default, <code>D-23</code>, is the largest single divergence from the canon in the project, and it is a divergence toward the regulator.</p>
+    <p><strong>And a clause worth reading twice:</strong> "Prohibition of gambling... You will not resell the Skins received from daddyskins.com on third-party marketplaces or otherwise trade such Skins for anything of value."</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Support cannot be reached without an account</h4>
+    <p>The ticket form has three fields, Subject defaulting to "Deposits", Email and Message. <strong>The submit button reads SIGN IN.</strong> A guest can fill the form and cannot send it.</p>
+    <p><strong>Consequence for node 0.10 and barrier <code>B8-3</code>.</strong> A person locked out of their account cannot use the product&#39;s own support channel to say so. This is the strongest argument in the repository for the appeal route <code>G4</code> and its published deadline, and it is now a walked fact rather than an inference.</p>
+  </div>
+
+  <div class="card">
+    <h4>The 404 drops the entire shell</h4>
+    <p>A probe URL returns <strong>HTTP 404</strong> with a real page: illustration, "PAGE NOT FOUND", one line, one control. <strong>No rail, no header, no ticker, no footer.</strong> The status code is right, which is more than several competitors manage. The shell removal is a decision to inherit or refuse deliberately: a person who mistypes a URL loses every route except home.</p>
+  </div>
+
+  <div class="card">
+    <h4>The footer re-read, and what is still not in it</h4>
+    <p>Statistics strip: <strong>363,775,507 cases opened · 3,330,137 upgrades · 1,863,286 total users · 659 online users.</strong> Four columns, the identification line "MIXABIT LTD, HE 470887, Elettherias, 19 Lakatamia, 2312, Nicosia, Cyprus", copyright 2016 to 2026, payment marks ZEN, VISA, Mastercard.</p>
+    <p><strong>Searched for and absent from the entire home page, header, footer and rail: any 18+ mark, any responsible play route, any licence statement.</strong> Re-confirmed on a second reading a week later.</p>
+  </div>
+
+  <div class="card is-soon">
+    <h4>What the second walk could not reach</h4>
+    <p>Account and inventory, withdrawal and identity are behind sign-in. Toasts need an action that produces one. The published numbers register lives on signed-in surfaces. <strong>Those go to the founder&#39;s own capture, shot list P1.</strong> And whether the 18+ checkbox is enforced stays <span class="q">[?]</span>, because testing it means signing in.</p>
   </div>
 </section>
 
@@ -412,6 +497,7 @@ window.NAV_SECTIONS = [
   { id: 'composition', label: 'Page composition' },
   { id: 'colour', label: 'Colour' },
   { id: 'compliance', label: 'Compliance today' },
+  { id: 'walk2', label: 'Second walk, 18 Aug' },
   { id: 'findings', label: 'What it changes' },
   { id: 'sources', label: 'Sources' },
 ];

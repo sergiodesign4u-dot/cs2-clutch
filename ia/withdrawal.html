@@ -172,6 +172,44 @@
 </section>
 
 <!-- BLOCKS -->
+<section id="settlement">
+  <div class="sec-head">
+    <h2>The mechanic this node did not know the baseline had</h2>
+    <p>Found 18 August 2026 in the <a href="../research/baseline-account.html">account capture</a>. It breaks an assumption that runs under this whole node.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>On the live product, withdrawal is a purchase and not a delivery</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>SKIN NAME</th><th>YOUR SKIN PRICE</th><th>MARKET SKIN PRICE</th><th>YOUR BALANCE IMPACT</th></tr></thead>
+        <tbody>
+          <tr><td>M4A4 Desert-Strike, Field-Tested</td><td><code>4.48</code></td><td><code>27.52</code></td><td><strong style="color:var(--accent-pink)">-23.04</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The screen says it in words: <strong>"Based on the market price, 23.04 will be taken from your balance"</strong>. <strong>The arithmetic closes exactly:</strong> <code>27.52 &minus; 4.48 = 23.04</code>. The item a person won is valued at 4.48 by the site, a real copy costs 27.52, and <strong>the difference is charged to their balance at the moment they ask for the real thing.</strong> In the observed row that difference is <strong>six times</strong> the value of the win.</p>
+    <p><strong>What this node assumes, and why the assumption is now visibly untested.</strong> Every block, state and figure here is written as though <strong>the thing you won is the thing you receive</strong>, and the only cost between them is time. The backlog has no row for a settlement difference, the map has no state for it, and <code>0.11</code> has no figure for it. <strong>The gap is not an omission in this node: it is a mechanic the whole map does not model.</strong></p>
+    <p><strong>And it is <code>B7-1</code> stopping being a perception problem.</strong> The barrier reads: the gap between what a win appears to be worth and what it is worth. <strong>On this screen the gap is a number the product prints itself</strong>, at the last possible moment, after the person has already decided they want the item.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">Option</th><th>What it means</th><th>What it costs</th></tr></thead>
+      <tbody>
+        <tr><td><strong>A. Inherit the mechanic and move it forward</strong></td><td>The won item stays a credit note valued at the site price, and the settlement difference is disclosed <strong>at the moment of the win and on the case page</strong>, not at the checkout. <code>A1</code>&#39;s two prices stop being a trust feature and become the spine of the product</td><td><strong>The reveal has to carry a second number</strong>, and the outcome screen has to say what the win is worth against what a real copy costs. Emotional Job 2 and design principle 2 both take the hit, and stage 04 draws it</td></tr>
+        <tr><td><strong>B. Refuse it</strong></td><td>What you win is what you receive, and the drop table&#39;s values are real market values</td><td><strong>It rewrites the treasury model</strong>, because the published chances and the RTP would have to hold against real market prices rather than site prices. <strong>This is a business decision and not a design one</strong>, and no row in this repository can take it</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>The recommendation on the record, and it is a recommendation rather than a decision</h4>
+    <p><strong>A</strong>, because B rewrites the economics of the product and A is what makes our trust positioning actually differentiated: <strong>we would be the platform that names the gap before a person spends rather than at the till.</strong> Design principle 1 and <code>D-14</code> both point the same way, and <code>A1</code> already exists to carry it.</p>
+    <p><strong>Owner: the founder, before stage 04 draws this node.</strong> Until it is answered, <strong>every figure below is specified against option B by default</strong>, because that is what the node was written against, and the difference between the two is a block and a state rather than a redraw.</p>
+  </div>
+</section>
+
 <section id="blocks">
   <div class="sec-head">
     <h2>Eight blocks, and a declared gap behind them</h2>
@@ -663,6 +701,7 @@ window.NAV_ACTIVE_LABEL = '5.3 Withdrawal, with the public clock';
 window.NAV_SECTIONS = [
   { id: 'overview',    label: 'Overview' },
   { id: 'barrier',     label: 'The barrier' },
+  { id: 'settlement', label: 'Delivery or purchase' },
   { id: 'blocks',      label: 'Eight blocks' },
   { id: 'clock',       label: 'The clock' },
   { id: 'money',       label: 'Commission free' },
@@ -674,6 +713,7 @@ window.NAV_SECTIONS = [
   { id: 'open',        label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

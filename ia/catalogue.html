@@ -232,44 +232,46 @@
           <div class="wf-tile is-daily">
             <div class="wf-tile-art"></div>
             <div class="wf-tile-n">Daily free case</div>
-            <div class="wf-tile-f">24 items<br>free, once a day<br>free units 24 / 24</div>
+            <div class="wf-tile-f">Low-risk<br>free, once a day</div>
             <div class="wf-tile-f"><span class="wf-mark">daily</span></div>
           </div>
           <div class="wf-tile">
             <div class="wf-tile-art"></div>
             <div class="wf-tile-n">Case name</div>
-            <div class="wf-tile-f">31 items<br>2.40<br>free units 27 / 31</div>
+            <div class="wf-tile-f">Medium-risk<br>2.40</div>
           </div>
           <div class="wf-tile">
             <div class="wf-tile-art"></div>
             <div class="wf-tile-n">Case name</div>
-            <div class="wf-tile-f">18 items<br>9.90<br>free units 14 / 18</div>
+            <div class="wf-tile-f">Low-risk<br>9.90</div>
           </div>
         </div>
         <div class="wf-end">1 / 2 . end of the list</div>
         <div class="wf-shell" style="margin-top:11px;margin-bottom:0">SEO text block, then footer 0.2</div>
       </div>
     </div>
-    <div class="wf-note">The daily free case sits at position 1 <strong>inside the grid</strong>, not above it. It carries the same five fields as every other tile plus the daily marker.</div>
+    <div class="wf-note">The daily free case sits at position 1 <strong>inside the grid</strong>, not above it. It carries the same four fields as every other tile plus the daily marker.</div>
   </div>
 
   <div class="wf-stage">
-    <div class="wf-cap">The tile, node 0.7, five fields and no sixth</div>
+    <div class="wf-cap">The tile, node 0.7, after D-24: four fields, two markers, one control</div>
     <div class="wf-anat">
       <div class="wf-screen" style="flex:0 0 268px">
         <div class="wf-tile" style="border-color:var(--wf-line)">
-          <div class="wf-tile-art"></div>
+          <div class="wf-tile-art" style="height:118px"></div>
           <div class="wf-tile-n">Case name</div>
-          <div class="wf-tile-f">31 items<br>2.40<br>free units 27 / 31<br><span class="wf-mark">daily</span></div>
+          <div class="wf-tile-f">Medium-risk<br>2.40<br><span class="wf-mark">daily</span><br>[ ] favourite . 829</div>
         </div>
       </div>
       <div class="wf-legend">
-        <div class="wf-leg"><span class="wf-leg-n">1</span><span class="wf-leg-t"><b>Case name.</b> The link. Crawlable, always</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">2</span><span class="wf-leg-t"><b>Item count.</b> What their tile makes you open the case to learn</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">3</span><span class="wf-leg-t"><b>Entry cost.</b> One real currency, <code>C1</code>. Never coins</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">4</span><span class="wf-leg-t"><b>Live free-unit count</b>, <span class="row-code">A2</span>. Case level, across the whole table. Real time, so degraded rather than frozen</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">5</span><span class="wf-leg-t"><b>Daily marker</b>, where it applies</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">no</span><span class="wf-leg-t"><b>No risk band.</b> The baseline prints High-risk, Medium-risk or Low-risk here, and no computation for it exists anywhere in this repository</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">1</span><span class="wf-leg-t"><b>Case artwork, the largest element.</b> Visual weight, and it still carries no fact</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">2</span><span class="wf-leg-t"><b>Case name.</b> The link. Crawlable, always</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">3</span><span class="wf-leg-t"><b>Risk band</b>, three named values, computed from the drop table. <b>Never an icon alone.</b> The figure it comes from is published on 3.3</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">4</span><span class="wf-leg-t"><b>Entry cost, in coins</b>, <code>C1</code> as <code>D-28</code> rewrote it. <b>The peg renders once on the shelf</b>, not on every tile</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">5</span><span class="wf-leg-t"><b>Stock marker</b>, <span class="row-code">A2</span>, <b>only when there is something to say</b>. "3 items out of stock" or "every item out of stock". Silence is the available state</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">6</span><span class="wf-leg-t"><b>Daily marker</b>, where it applies</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">7</span><span class="wf-leg-t"><b>Favourite, a toggle and a public count.</b> In by <code>D-24</code>, which amends <code>0.11</code> rule 7 to admit it. Never a rank and never a sort</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">out</span><span class="wf-leg-t"><b>The item count left the tile.</b> The risk band answers the same question from the same table and answers it better. The count renders on 3.3</span></div>
       </div>
     </div>
   </div>
@@ -292,12 +294,12 @@
         <div class="wf-tile is-daily">
           <div class="wf-tile-art"></div>
           <div class="wf-tile-n">Daily free case</div>
-          <div class="wf-tile-f">24 items . free, once a day . free units 24 / 24 <span class="wf-mark">daily</span></div>
+          <div class="wf-tile-f">Low-risk . free, once a day <span class="wf-mark">daily</span></div>
         </div>
         <div class="wf-tile">
           <div class="wf-tile-art"></div>
           <div class="wf-tile-n">Case name</div>
-          <div class="wf-tile-f">31 items . 2.40 . free units 27 / 31</div>
+          <div class="wf-tile-f">Medium-risk . 2.40</div>
         </div>
       </div>
       <div class="wf-end">1 / 2 . end of the list</div>
@@ -316,7 +318,7 @@
 
   <div class="card is-good">
     <h4>What addressable means, concretely</h4>
-    <p>It is a case. It has a tile, it sits in the grid, it carries the same five fields plus the daily marker <code>0.7</code> already holds, and it routes to <span class="surf">3.3</span> like any other case. The map's own words: <span class="row-code">I1</span> and <span class="row-code">I2</span> are components rather than screens, so <strong>the answer is not a surface, it is naming who owes it.</strong> Home owes the starter credit. This node owes the daily free case.</p>
+    <p>It is a case. It has a tile, it sits in the grid, it carries the same four fields plus the daily marker <code>0.7</code> already holds, and it routes to <span class="surf">3.3</span> like any other case. The map's own words: <span class="row-code">I1</span> and <span class="row-code">I2</span> are components rather than screens, so <strong>the answer is not a surface, it is naming who owes it.</strong> Home owes the starter credit. This node owes the daily free case.</p>
   </div>
 
   <div class="card is-fix">
@@ -344,7 +346,7 @@
 
   <div class="card">
     <h4>On this page the figure is case level, and that distinction matters</h4>
-    <p>The Case entity carries "free-unit availability across its table", <span class="row-code">A2</span>, and the tile's counter is that figure. <strong>A single item at zero free units is not a case level state</strong>, it is node <span class="surf">3.4</span> and it lives on the case screen, where the item card is. A case whose top item is out is still a case a person can open.</p>
+    <p>The Case entity carries "free-unit availability across its table", <span class="row-code">A2</span>, and <strong>the tile's stock marker is that figure, printed only when the shelf is short</strong>, <code>D-24</code>. <strong>A single item at zero free units is not a case level state</strong>, it is node <span class="surf">3.4</span> and it lives on the case screen, where the item card is. A case whose top item is out is still a case a person can open.</p>
     <p><strong>So there is no in-stock-only facet.</strong> At case level the predicate has no clean definition, and at item level the answer is already printed on the card.</p>
   </div>
 
@@ -365,7 +367,7 @@
       <thead><tr><th>Facet</th><th>Values</th><th>Parent</th><th>Note</th></tr></thead>
       <tbody>
         <tr><td><strong>Category</strong></td><td>The category list, <span class="q">[?]</span></td><td>MVP Core Job 1</td><td><strong>Exists only if <code>D-D</code> returns a catalogue large enough to need it.</strong> The one facet with an indexed URL</td></tr>
-        <tr><td><strong>Price range</strong></td><td>Minimum and maximum entry cost, one real currency</td><td>MVP Core Job 1, and <span class="row-code">C2</span></td><td><strong>TAKE</strong>, Key-Drop's min and max. Same control, different job: for us a price filter is also a way to stay under a ceiling</td></tr>
+        <tr><td><strong>Price range</strong></td><td>Minimum and maximum entry cost, in coins, <code>D-28</code></td><td>MVP Core Job 1, and <span class="row-code">C2</span></td><td><strong>TAKE</strong>, Key-Drop's min and max. Same control, different job: for us a price filter is also a way to stay under a ceiling</td></tr>
         <tr><td><strong>Search</strong></td><td>Free text over case names</td><td>MVP Core Job 1</td><td>Results are <code>noindex, follow</code>, canonical to <code>/cases</code></td></tr>
       </tbody>
     </table>
@@ -587,6 +589,7 @@ window.NAV_SECTIONS = [
   { id: 'open',     label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

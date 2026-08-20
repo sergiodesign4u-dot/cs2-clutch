@@ -66,13 +66,18 @@ Composition from `blocks.md` section 6, T5. Refero ShareWillow gives the craft f
 | # | Block | Traces to |
 |---|---|---|
 | 1 | **What this is, and the one control.** One line, one button. Centred single card, one column | Refero ShareWillow, `blocks.md` T5. Related Job 2 |
-| 2 | **The will and will not read statement**, on the page, not behind a link, not in a modal, not in the terms | `B3-2` by way of row `B6`. **This is the node's reason for existing**, section 0 |
-| 3 | **What happens next**, three steps in one line: you land on Steam, you type your password there and never here, you come back | `B3-1` by way of row `B5`. The round trip is the confusing step Related Job 2 forbids, so it is described before it starts |
-| 4 | **The starter credit, stated as an offer with its terms**, because `1.0` already made it pre-login and this is where it is met | Row `I1`, bound to `C4`, `D1` and `A1`, which is not optional, `cjm-to-be.md` answer 1 |
-| 5 | **The route back into reading without signing in** | `2.6`'s principle applied to the default state: a person who will not sign in is not ejected. Related Job 1 |
-| 6 | **The footer** `0.2`, carrying the 18+ statement, the responsible play link and the market statement | The compliance constraints in `CLAUDE.md`. Inherited, not specified here |
+| 2 | **The consent gate: two declarations, and nothing works until both are made.** The terms consent naming and linking each document it covers, and **the age declaration on its own line as its own act**. The provider control in block 1 is **unavailable** until both are set, and this block says why in words rather than only by dimming a button | `D-26`, and the compliance constraint in `CLAUDE.md`. **This is layer 1 of `D-A` and it always was: what `D-26` changed is that it is enforced rather than decorative** |
+| 3 | **The will and will not read statement**, on the page, not behind a link, not in a modal, not in the terms | `B3-2` by way of row `B6`. **This is the node's reason for existing**, section 0 |
+| 4 | **What happens next**, three steps in one line: you land on Steam, you type your password there and never here, you come back | `B3-1` by way of row `B5`. The round trip is the confusing step Related Job 2 forbids, so it is described before it starts |
+| 5 | **The starter credit, stated as an offer with its terms**, because `1.0` already made it pre-login and this is where it is met | Row `I1`, bound to `C4`, `D1` and `A1`, which is not optional, `cjm-to-be.md` answer 1 |
+| 6 | **The route back into reading without signing in** | `2.6`'s principle applied to the default state: a person who will not sign in is not ejected. Related Job 1 |
+| 7 | **The footer** `0.2`, carrying the 18+ statement, the responsible play link and the market statement | The compliance constraints in `CLAUDE.md`. Inherited, not specified here |
 
-**Block 4 carries a constraint it does not get to soften.** `C4`: the amount required to withdraw is stated before the deposit and **can never rise**. `cjm-to-be.md` records the narrative that makes this non-negotiable, barrier `B4-1`, a threshold that climbed from 5 to 12 to 15 dollars after a free open. If the starter credit is mentioned on this page, its withdrawal threshold is mentioned in the same block. And the residual risk travels with it, unsmoothed: **the credit teaches a first-session user that opening is free**, which is the one impression the rest of the map spends its budget contradicting.
+**Block 5 carries a constraint it does not get to soften.** `C4`: the amount required to withdraw is stated before the deposit and **can never rise**. `cjm-to-be.md` records the narrative that makes this non-negotiable, barrier `B4-1`, a threshold that climbed from 5 to 12 to 15 dollars after a free open. If the starter credit is mentioned on this page, its withdrawal threshold is mentioned in the same block. And the residual risk travels with it, unsmoothed: **the credit teaches a first-session user that opening is free**, which is the one impression the rest of the map spends its budget contradicting.
+
+**Block 2 is two checkboxes and not one, and the reason is in the canon rather than in taste.** `baseline-account.md` records the live product's version: a single line, "I'm 18+ and I agree to the Terms and Conditions", **with no `required` attribute and with the provider buttons not disabled while it is unchecked.** One checkbox bundles a contract consent with an age declaration, and **a person who ticks it to get past it has made one gesture that answered two questions.** Splitting them costs one line and makes the age declaration a separate deliberate act, which is the only property that makes it worth anything at all.
+
+**And block 2 does not claim to be verification.** It is a self-declaration, the surface says so, and `2.7` is where the other layer lives. `D-26` part 2 proposes taking `2.7` out of round 1 and prints what that costs; **until that go is given this node assumes `2.7` still exists.**
 
 **No block for:** a password field, an email field, a second provider, a case image, a ticker, a countdown, or a bonus larger than the one `1.0` already promised.
 
@@ -82,7 +87,9 @@ Composition from `blocks.md` section 6, T5. Refero ShareWillow gives the craft f
 
 | State | Node? | Behaviour |
 |---|---|---|
-| **Default** | no | Section 3 |
+| **Default, consent not given** | no | **The landing state.** Both checkboxes clear, the provider control **inert and marked as such to a screen reader, not merely dimmed**, and the reason stated in text above it. `D-26` |
+| **Consent given** | no | The provider control becomes available. **Nothing else on the page changes**, because a page that rearranges itself when a box is ticked has moved the target a person was aiming at |
+| **One of two given** | no | The control stays inert and **the text names which declaration is still missing**, rather than repeating the general instruction. Two declarations means two failure messages |
 | **Redirecting to Steam** | no | One of the five loading states `sitemap.md` specifies inside their parents rather than as nodes. It renders the parent's own skeleton and names the destination |
 | **Returning from Steam** | no | The second half of the round trip. Named because the first half is already on the map's list and the return is where the two failures below are detected |
 | **Cancelled at Steam** | no | The person pressed back or declined on Steam's own page. Returns them where they came from, nothing lost, nothing recorded. **Not a node**, by the map's own test: it needs no copy and no route that differs from the parent's default |

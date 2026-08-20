@@ -12,6 +12,12 @@
 
 **Not drawn at stage 04.** A register has no screen. What stage 04 inherits is the state set in section 11 and the person-side message in section 9.
 
+**Baseline row, `0.12`.** The rule in `CLAUDE.md`: every node carries one baseline row, what the live product does, what we keep, what we change and why.
+
+| What the live product does | What we keep | What we change, and why |
+|---|---|---|
+| The entire market control of the live product is one sentence in the terms, "services exclusively to residents of countries where such activities are not prohibited", plus a self-selected country in the settings with a `CHANGE` button. `baseline.md` section 9.4 and `baseline-account.md` section 7.2. | Nothing. There is no register to inherit. | **Everything, and `D-23` is the largest single divergence in the project.** Theirs is a blocklist enforced by the person's own declaration with no list published. **And it does not even hold itself together:** the settings country reads United States while the deposit country selector, in the same account on the same day, reads Ukraine. **Two independent self-declared values, unreconciled.** |
+
 ---
 
 ## 0. What this node specifies, and what it refuses to

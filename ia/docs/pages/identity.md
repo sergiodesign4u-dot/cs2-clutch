@@ -1,8 +1,17 @@
 # Node 2.7. Identity verification
 
-**Type:** page. **Group:** `pages`. **Scope:** MVP. **Cluster:** 2, get through the door. **Alias:** `S-B3`.
+**Type:** page. **Group:** `pages`. **Scope:** `LATER`. **Cluster:** 2, get through the door. **Alias:** `S-B3`.
 
-**Purpose.** Resolve identity once, **before funding**, and never on the route out. The node is specified as a superset of both candidate methods so that one branch is deleted when `D-A` lands, rather than the whole node being redrawn.
+> **Out of round 1 by `D-26`, 18 August 2026, and kept on the map rather than deleted.** The founder's ground is a walked fact: `research/docs/baseline-account.md` section 7 records the entire settings surface of the live product and there is no identity step anywhere in it. **The specification below is not withdrawn. It is parked**, and four costs travel with it in the open:
+>
+> 1. **The free-entry withdrawal hole stays open.** `D-A` recorded it: a person who only ever took free entries reaches a real withdrawal with no identity check. This node was the answer. Without it the hole is permanent rather than pending.
+> 2. **The licence direction loses its enforcement point.** `D-23` chose the Isle of Man, and a tier one regulator requires identity **before withdrawal**. Memo `M2` would be asking a regulator about mechanics the design has removed.
+> 3. **`D-17` locked two layers** and took the founder's own answer as "an addition, not as a replacement". Layer 1, the 18+ declaration, now sits enforced on `2.4`. **Layer 2 is this node and it is parked.**
+> 4. **The sequence changed with the scope.** It was "before funding". It is now **before withdrawal**, which is where a regulator would put it anyway and which is what makes the parking survivable: round 1 has no withdrawal without it only because round 1 has no identity at all.
+>
+> **What reclaims it:** `D-23`'s licence route, or the first market row that requires it. Nothing else.
+
+**Purpose.** Resolve identity once, **before withdrawal** since `D-26`, and never as a trap on the route out. The node is specified as a superset of both candidate methods so that one branch is deleted when `D-A` lands, rather than the whole node being redrawn.
 
 **Jobs served.** None directly. `jtbd.md` records that registration reaches Core Job 3, withdraw cleanly, **only through rows `B1` and `B2`**, and those two rows are this node. **Parent class:** barrier `B8-4`, verification ambushes at the exit, pattern of 5 across 4 platforms, by way of row `B1`, verification resolved before funding, and row `B2`, no verification branch on the withdrawal route at all. Barrier class for both.
 

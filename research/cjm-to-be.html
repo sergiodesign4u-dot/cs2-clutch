@@ -346,7 +346,7 @@
       <div class="hero-stat-label">Phases, T1 to T8</div>
     </div>
     <div>
-      <div class="hero-stat-value">37</div>
+      <div class="hero-stat-value">40</div>
       <div class="hero-stat-label">MVP rows</div>
     </div>
     <div>
@@ -517,7 +517,7 @@
         <div class="phase-name">Getting something to open with</div>
         <div class="card-block">
           <div class="card-label">Step in the product</div>
-          <p>Funds the account in real currency, and in the same step sets a spend ceiling for a named period.</p>
+          <p>Funds the account, paying in real money and receiving coins at a published rate since <code>D-28</code>, and in the same step sets a spend ceiling for a named period.</p>
           <p style="color:var(--text-muted)">Goal: reach an openable balance without committing money they would miss. Job: Related Job 2, complete the first open without friction, <code>jtbd.md:42</code>.</p>
         </div>
         <div class="card-block">
@@ -532,7 +532,7 @@
         </div>
         <div class="cap-block">
           <div class="card-label">Capabilities</div>
-          <p><strong style="color:var(--text-primary)">One real currency throughout</strong>, no internal coin denomination anywhere, so no payout can wear a label that is not a price.</p>
+          <p><strong style="color:var(--text-primary)">One coin denomination throughout, pegged and published</strong>, <code>D-28</code>, so a payout can be converted back to a price by the person reading it rather than only by us.</p>
           <p><strong style="color:var(--text-primary)">Limit chosen at deposit</strong>: the amount just typed is pre-filled as a ceiling with a period selector, the deposit cannot be submitted until the user accepts or changes it, lowering it applies immediately and raising it applies 24 hours later. When the ceiling is reached, deposits stop while opening from existing balance and withdrawal stay fully open.</p>
         </div>
         <div class="emo-block">
@@ -719,7 +719,7 @@
     <summary><span>Barrier <span class="chip chip-barrier">B7-1</span> at T7, the undervalued win, a pattern of 7</span></summary>
     <div class="dtc-body">
       <div class="conv conv-chosen"><span class="conv-k">Chosen: instance value receipt</span>The pain is not that a number was optimistic, it is that the number described a different object than the one received, a name instead of an instance. The two rivals both leave that substitution intact.</div>
-      <div class="conv conv-drop"><span class="conv-k">Dropped as the primary: sell price everywhere</span>It fixes the unit but not the number, although its load-bearing rule travels with the pick as a hard dependency: the receipt must be denominated in real currency, because a receipt in coins fails its own test.</div>
+      <div class="conv conv-drop"><span class="conv-k">Dropped as the primary: sell price everywhere</span>It fixes the unit but not the number, although its load-bearing rule travels with the pick as a hard dependency: the receipt must be denominated in a unit the reader can price, and a receipt in coins fails that test unless the peg is on the receipt. <strong>D-28 chose coins on 19 August 2026 and the dependency is what survives: the peg travels with the receipt.</strong></div>
       <div class="conv conv-drop"><span class="conv-k">Dropped: a published real payout per case</span>Expressing return per dollar at real prices fires before the reveal at the one moment this persona reads nothing, and it pays the highest margin exposure of the three for a gain the Opener will not register. <strong style="color:var(--accent-blue)">Restored by the step 9 critique as backlog row D4, on different grounds</strong>: not as an answer to <code>B7-1</code>, where this reasoning still holds, but as a disclosure that design principle 3 at <code>CLAUDE.md</code> and the acquisition decision at <code>aarrr.md:67</code> each require independently of whether the Opener reads it.</div>
       <div class="conv conv-drop"><span class="conv-k">Rejected before scoring: a binding buyback at the displayed value</span>It adds a payout rail round 1 does not have. Round 1 has exactly one exit, withdrawal to Steam.</div>
     </div>
@@ -917,7 +917,7 @@
   <div class="section-eyebrow">04 - Backlog and MVP</div>
   <h2>One list, grouped by the round 1 screen each row lives on</h2>
   <p class="lede">Produced by step 8. This is one list. It refines the MVP core already sketched at stages 01 and 02 rather than forking a second one, and where it disagrees with an older list the disagreement is printed rather than quietly resolved.</p>
-  <p><strong style="color:var(--text-primary)">Thirty eight MVP rows, thirty seven distinct capabilities</strong>: A4 and G3 are one feature on two surfaces. Seven of the rows are rules or architecture rather than something anyone draws. The counts moved from thirty seven and thirty six on 11 August 2026, when the founder returned the daily free case to round 1 as I2.</p>
+  <p><strong style="color:var(--text-primary)">Forty MVP rows, thirty nine distinct capabilities</strong> since <code>D-24</code> added D5 and D6 on 18 August 2026: A4 and G3 are one feature on two surfaces. Seven of the rows are rules or architecture rather than something anyone draws. The counts moved from thirty seven and thirty six on 11 August 2026, when the founder returned the daily free case to round 1 as I2.</p>
   <p><strong style="color:var(--text-primary)">Grouping.</strong> Rows are grouped by the round 1 screen they live on, because that grouping is itself the artefact that was missing. <code>cjm-as-is.md</code> recorded that no file in this repository maps the three MVP core jobs onto any scope item. This section is that map.</p>
   <div class="claim-update">
     <strong>Eight groups cover eight round 1 surfaces, and the mapping is not one to one</strong>
@@ -1023,10 +1023,10 @@
       <thead><tr><th>Feature</th><th>Parent</th><th>Priority</th><th>Success signal</th></tr></thead>
       <tbody>
         <tr class="mvp">
-          <td><strong>C1. One real currency throughout</strong>, no internal coin denomination anywhere</td>
-          <td class="parent"><span class="chip chip-barrier">B7-1</span> pattern of 7</td>
+          <td><strong>C1. One coin denomination throughout, pegged, and the peg printed wherever money is spent.</strong> <strong>Reversed on 19 August 2026 by <code>D-28</code></strong>, which prints the cost in full: this row was the whole structural answer to <code>B7-1</code>, a pattern of 7, and the founder took the live product's denomination instead. <strong>The peg is what is left of the answer and it is not optional</strong></td>
+          <td class="parent"><span class="chip chip-barrier">B7-1</span> pattern of 7, <strong>now only partly answered</strong></td>
           <td class="pri"><div class="pri-stack"><span class="pri-mvp">MVP</span><span class="qual qual-arch">architecture</span></div></td>
-          <td>No number renders anywhere without a currency mark. <code>B4-3</code> was named here in the first draft and both instruments removed it: that barrier is a deposit that never credits, and C3 answers it</td>
+          <td>No number renders anywhere without its unit, and <strong>no coin figure renders anywhere without the peg beside it at the moment of spending</strong>. Time figures and ratios do not become coins: <code>A4</code>, <code>G3</code> and <code>D4</code> stay minutes and percentages</td>
         </tr>
         <tr class="mvp">
           <td><strong>C2. Spend ceiling chosen at deposit</strong></td>
@@ -1085,6 +1085,18 @@
           <td class="parent">Design principle 3, <code>CLAUDE.md</code>, "odds, cost and expected value are visible and legible", plus <span class="chip chip-barrier">B1-2</span></td>
           <td class="pri"><span class="pri-mvp">MVP</span></td>
           <td><code>aarrr.md:67</code> requires RTP published from day one and <code>aarrr.md:205</code> makes matching or beating the tested figures in the category, Hellcase 82.1 percent and DatDrop 80.6 percent, both a trust position and a regulatory hedge. <code>jtbd.md:180</code> names published RTP as one of three things no competitor surfaces pre-login</td>
+        </tr>
+        <tr>
+          <td><strong>D5. Risk band per case</strong>, three named values computed from the drop table, on the tile and as the published figure it comes from on the case page</td>
+          <td class="parent">Design principle 3, <code>CLAUDE.md</code>, quoted. Added by founder decision <code>D-24</code>, 18 August 2026</td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>Recomputable by a reader from the chances and values printed on the same screen, the same route <code>D4</code> has. <strong>Thresholds <span class="q">[?]</span>, and the band does not render until they are set</strong></td>
+        </tr>
+        <tr>
+          <td><strong>D6. Favourite a case:</strong> a per-account mark with a public count</td>
+          <td class="parent"><strong>None in the three legal classes.</strong> In by founder decision <code>D-24</code>, which also amends <code>0.11</code> rule 7 to admit one public count. <strong>Orphan, printed</strong></td>
+          <td class="pri"><span class="pri-mvp">MVP</span></td>
+          <td>The person's own press moves the count by one in front of them. <strong>Never a rank, never a default sort, never a most-popular strip, and never beside the open control</strong></td>
         </tr>
       </tbody>
     </table>

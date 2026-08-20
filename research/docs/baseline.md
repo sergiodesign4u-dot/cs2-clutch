@@ -240,7 +240,11 @@ This section is short because the subject is.
 
 ### Age
 
-There is **no age gate**. No interstitial, no birth date field, no checkbox, nothing on the sign-in page. The entire age control on the product is one FAQ answer, quoted verbatim from `/en/faq` as read on 11 August 2026, screenshot `walk_faq_age_1440.png`:
+**Corrected on 18 August 2026 by the second walk. The 11 August reading was wrong on one clause and it is kept here rather than overwritten.**
+
+The original record read: "There is no age gate. No interstitial, no birth date field, **no checkbox, nothing on the sign-in page**." The last clause is false. **Sign in is not a page, it is a modal**, and inside that modal there is a checkbox reading "I'm 18+ and I agree to the Terms and Conditions". Section 9 records it in full. The first walk looked for a sign-in page, and the product does not have one, so the modal and its checkbox were never opened.
+
+**What survives the correction, and it is most of it.** There is still **no age gate**: no interstitial, no birth date field, and nothing between arrival and the case page. What exists is one unchecked checkbox bundled with the terms consent at the moment of sign-in, which is the Hellcase pattern `blocks.md` records and which node `2.1` refused for the reason it gives. The rest of the age control on the product is one FAQ answer, quoted verbatim from `/en/faq` as read on 11 August 2026, screenshot `walk_faq_age_1440.png`:
 
 > "WHO CAN PLAY ON DADDYSKINS? Only people who are at least the age of 18+ are allowed to play on our site. In addition, some countries may have restrictions to accessing sites like ours, we strongly recommend you follow those government laws, as we cannot always apply technical methods for restricted access."
 
@@ -254,7 +258,15 @@ The same FAQ sentence is the whole of it, and it contains an explicit admission:
 
 ### Responsible play
 
-A search of the FAQ text for responsible play, self exclusion, deposit limit, cool down and gambling returned **zero matches**. There is no responsible play link in the footer and no route anywhere in the inventory.
+**Corrected on 18 August 2026 by the account capture. The original reading is kept and it was wrong in an instructive way.**
+
+It read: "A search of the FAQ text for responsible play, self exclusion, deposit limit, cool down and gambling returned zero matches. There is no responsible play link in the footer and no route anywhere in the inventory."
+
+**The search was right and the conclusion was wrong. The tool exists.** It is called **TAKE A BREAK**, it does **deposit restriction or full account restriction**, and it is the second row of the `SECURITY` block inside the settings tab of the account. `baseline-account.md` section 7.1, screenshot `acct_settings_full.png`.
+
+**What survives, and it is the part that matters:** there is no responsible play page, and **there is no route to the tool from anywhere**, not the footer, not the rail, not the header, not the home page, all four re-checked on 18 August 2026. It sits under Security beside Logout and an anonymity toggle, which is the vocabulary of account protection rather than of self protection.
+
+**The finding is stronger than the absence would have been.** An absence can be answered with "nobody in the category has it". This cannot: they built it and then filed it where nobody looks.
 
 **Consequence for our round 1.** The responsible play page, restored to round 1 by founder decision on 11 August 2026, and the age gate, are the **only two round 1 surfaces with no baseline to inherit from at all**. Everything else in round 1 has a structure to start from. These two are drawn from the compliance constraint in `CLAUDE.md` and from cited law, or they are not drawn honestly.
 
@@ -284,6 +296,111 @@ The project's own pages have been running the baseline palette since the structu
 
 ---
 
+## 9. Second walk, 18 August 2026: the shell, the gates and the pages the first walk did not open
+
+**Why this walk ran.** `CLAUDE.md` gained a rule the same day: every node carries a baseline row, what the live product does, what we keep, what we change and why. Eleven of the twenty six detail-layer nodes cited no baseline at all. Six of those eleven are reachable without an account, so they were walked rather than assumed. **All of it is public. Nothing was logged into.** Widths: 1440. Screenshots in `research/screens/baseline/`, prefix `walk2_`.
+
+### 9.1 Sign in is a modal, and it carries four providers and the age checkbox
+
+Screenshot `walk2_signin_1440.png`. Opened from the Sign in control in the header, on `/en/support`.
+
+| What it is | Recorded |
+|---|---|
+| **Form** | A **modal**, not a page. It opens over whatever page you are on and the page behind it stays loaded |
+| **Providers** | **Four**: Steam, Facebook, X, Google. Not Steam only |
+| **Credentials** | **Email and password as well**, with "Forgot password?" and "Sign up new account" |
+| **Age and terms** | One checkbox, label verbatim: **"I'm 18+ and I agree to the Terms and Conditions"**. Unchecked on open |
+| **Enforcement** | The checkbox has **no `required` attribute** and the four provider buttons are **not disabled** while it is unchecked. Whether the click handler enforces it is `[?]` and was not tested, because testing it means signing in |
+
+**Three things this contradicts in our map, and each is a decision rather than a defect.**
+
+1. `sitemap.md` says "Sign in is a page rather than a dialog because Steam OpenID leaves the site". **The baseline uses a dialog.** Our reason still holds for the Steam arm, which does leave the site; it does not hold for the email arm, which the baseline has and our map does not.
+2. Node `2.4` is written around **Steam OpenID only**. The baseline has four providers plus credentials. **Nothing in our backlog asks for the other three**, so adopting them would be a capability with no parent.
+3. The age declaration bundled into the sign-in consent is **exactly the Hellcase pattern** `blocks.md` records and node `2.1` refuses: two barriers at once, and it puts the declaration after the person has decided to spend rather than before. **Our divergence is deliberate and it is now measured against the canon rather than against a competitor.**
+
+### 9.2 The case page, signed out: a sign-in wall where the open control is
+
+Screenshots `walk2_case-guest_1440.png`, `walk2_droptable-guest_1440.png`. Page: `/en/case/premium`.
+
+**What a guest sees above the fold:** breadcrumb `HOME / CASES / PREMIUM CASE`, the case name and its collection line, the case artwork, a **"CASES TO OPEN:" multi-open selector of five**, a **like count of 186 with a thumb icon**, and the risk meter as **the words "Medium-risk" beside three skull icons, two filled**.
+
+**What a guest does not see: the price.** Where the open control belongs there is a line, verbatim: **"You must log in to be able to Open cases and get your winnings chance"**, and a Sign in button. **The entry cost of the case is not on the screen at all before login.**
+
+**What a guest does see, and it is the important half:** the **whole drop table**, pre-login, with **fifty published percentages on this case**. Each item card carries: image, **value in coins**, **chance as a percentage**, **ticket range** as `41 - 60`, then `weapon | skin` and the **wear code in parentheses**, `(FN)`, `(MW)`, `(FT)`, `(WW)`. Rarity is carried by the card's tint. Ranges observed on this case run from `0.01%` to `0.2%` in the top segment.
+
+**Consequence for node `0.6`.** Eight of our fifteen fields are the baseline's own field set, in the baseline's own order. What we add is the free-unit count `A2`, the observed rate `D3`, the market price with its as-of `A1`, and the instance receipt `F1`. What we change is the denomination, `C1`. **The card is inherited far more closely than the first walk could show, and that is an argument for it rather than against.**
+
+**And one block of copy worth keeping in view**, verbatim from the same page: "The chances of obtaining skins are tied to their prices, which collectively determine the final price of a case. Therefore, the prices of skins in a case are fixed. If the market price significantly differs, you can exchange the skin for another one on the exchange page, where all the current odds are listed."
+
+### 9.3 The cookie consent, and a correction to this section made the same week
+
+**Corrected on 18 August 2026 by the account capture, `acct_cookie_banner.png`. This section originally read "There is no cookie consent". That is wrong.**
+
+**A cookie banner exists:** a bar across the bottom of the page with an icon, the consent text, links to the Cookie Policy and the Privacy Policy, an **ACCEPT** button and an **X**. Text verbatim: "We use cookies to offer you a better browsing experience, analyze site traffic, personalize content, and serve targeted advertisements... If you continue to use this site, you consent to our use of cookies."
+
+**Why the walk got it wrong, because the mechanism matters more than the error.** The walk ran in a browser profile that had already accepted the banner. The DOM probe was accurate: there genuinely was no cookie element in that document. **"Is there a cookie element in this DOM" and "does this product have a cookie consent" are different questions, and one browser profile cannot answer the second.** Any state remembered per browser or per account has to be captured on a fresh one, and that is now a rule for the next walk rather than a lesson.
+
+**What the banner is, read as a design:** consent is assumed by continued use, there is no reject control, and the X dismisses without a recorded choice. The word "cookie" otherwise appears on the page once, as the footer link.
+
+The policy page itself, `/en/cookie-policy`, is `noindex,nofollow`, carries one H1 and **no H2 at all**, runs about 1,420 words, and states: **"This Cookie Policy is effective from April 11, 2019."**
+
+**Consequence for node `0.4`.** The cookie dialog is one of the surfaces with **no baseline to inherit**, in the same class as the age gate and responsible play. It is drawn from the compliance constraint or it is not drawn honestly.
+
+### 9.4 The legal and support pages are one H1 and a wall
+
+| Page | Robots | Headings | Size | Dated |
+|---|---|---|---|---|
+| `/en/terms` | `noindex,nofollow` | **1 H1, zero H2, zero H3** | ~7,270 words | "Last updated - 08/01/2025" |
+| `/en/cookie-policy` | `noindex,nofollow` | **1 H1, zero H2** | ~1,420 words | "effective from April 11, 2019" |
+| `/en/support` | `noindex,nofollow` | 1 H1 | form | none |
+
+**All of them carry a breadcrumb.** All of them are excluded from search entirely.
+
+**Three clauses out of the terms, verbatim, because each one lands on a node.**
+
+- **Age:** "FURTHERMORE, YOU ACKNOWLEDGE AND AGREE THAT THE WEBSITE IS NOT INTENDED FOR USE BY MINORS (INDIVIDUALS UNDER THE AGE OF 18). BY ACCESSING OR USING THE WEBSITE, YOU CONFIRM THAT YOU ARE AT LEAST 18 YEARS OLD..."
+- **Gambling:** "Prohibition of gambling. It is forbidden to use daddyskins.com in any way that violates any law or regulation, including those prohibiting illegal gambling... You will not resell the Skins received from daddyskins.com on third-party marketplaces or otherwise trade such Skins for anything of value."
+- **Geography:** "The Company commits to providing services exclusively to residents of countries where such activities are not prohibited by local laws and regulations."
+
+**Consequence for `D-23` and node `0.12`.** The live product's entire market control is that one sentence, and it is **a blocklist enforced by the user's own declaration with no list published**. Our allowlist closed by default is the largest single divergence from the canon in the whole project, and it is a divergence toward the regulator rather than away from it.
+
+**Consequence for `0.9`.** Zero H2 in a 7,270 word contract is the defect our node exists to fix, and it is now measured rather than asserted.
+
+### 9.5 Support cannot be reached without an account
+
+Screenshot `walk2_support_1440.png`. `/en/support` renders a ticket form with three fields: a **Subject** dropdown defaulting to "Deposits", **Email**, and **Message**. Above it a block headed "ATTENTION!!!" pushes the FAQ articles first.
+
+**The submit button reads SIGN IN.** A guest can fill the form and cannot send it.
+
+**Consequence for node `0.10` and for barrier `B8-3`.** A person locked out of their account cannot use the product's own support channel to say so. This is the strongest single argument in the repository for the appeal route `G4` and its published deadline, and it is now a walked fact rather than an inference.
+
+### 9.6 The 404 drops the entire shell
+
+Screenshot `walk2_404_1440.png`. A probe URL returns **HTTP 404** with a real page: illustration, "PAGE NOT FOUND", one line, one control, "GO BACK HOME".
+
+**No rail, no header, no ticker, no footer.** The only navigation on the page is the logo and the one button.
+
+**Consequence for node `0.3`.** The status code is right and the page exists, which is more than several competitors manage. The shell removal is a decision to inherit or refuse deliberately: a person who mistypes a URL loses every route in the product except home.
+
+### 9.7 The footer, re-read, and what is still not in it
+
+Screenshot `walk2_footer_1440.png`. Statistics strip above it: **363,775,507 cases opened · 3,330,137 upgrades · 1,863,286 total users · 659 online users.**
+
+Four columns: **NEED HELP?** with a Support button and the identification line "MIXABIT LTD, HE 470887, Elettherias, 19 Lakatamia, 2312, Nicosia, Cyprus" · **PLATFORM**: Partnership, Contacts & Corporate Information, FAQ, Provably Fair, Counter-Strike Guides · **COMPANY**: Terms of use, Privacy Policy, Cookie Policy, Refund Policy · **ADDITIONAL**: Gift cards, Marketing Assets, CS2 Pickems. Copyright "DADDYSKINS © 2016-2026". Payment marks: **ZEN, VISA, Mastercard**.
+
+**Searched for and absent from the entire home page, header, footer and rail: any "18+" mark, any responsible play route, any licence statement.** This re-confirms section 6 on a second reading a week later.
+
+### 9.8 What the second walk did not reach
+
+| Node | Why | Owner |
+|---|---|---|
+| `5.1` account and inventory, `5.3` withdrawal, `2.7` identity | Behind sign-in | The founder's capture, shot list P1 |
+| `0.5` toasts | Needs an action that produces one | Same |
+| `0.11` published numbers | The register's figures live on signed-in surfaces | Same |
+| Whether the 18+ checkbox is enforced | Testing it means signing in | `[?]`, and it stays `[?]` |
+
+---
+
 ## Source index
 
 Every row was opened in a live browser on 11 August 2026, pre-login, in one session.
@@ -299,3 +416,11 @@ Every row was opened in a live browser on 11 August 2026, pre-login, in one sess
 | Age answer, absence of responsible play | `https://daddyskins.com/en/faq` | `walk_faq_age_1440.png` |
 | Footer re-walk: statistics strip, four columns, identification line, payment marks | `https://daddyskins.com/en` | `walk_footer_1440.png` |
 | Colour values, type, geometry | computed styles on the pages above | values in section 5 |
+| **Second walk, 18 August 2026.** Home on arrival, no cookie dialog | `https://daddyskins.com/en` | `walk2_arrival_1440.png` |
+| Footer, statistics strip, four columns, payment marks | `https://daddyskins.com/en` | `walk2_footer_1440.png` |
+| Case page signed out: sign-in wall, risk meter, like count, multi-open | `https://daddyskins.com/en/case/premium` | `walk2_case-guest_1440.png` |
+| Drop table signed out: chance, value, ticket range, wear per item | `https://daddyskins.com/en/case/premium` | `walk2_droptable-guest_1440.png` |
+| Sign-in modal: four providers, email arm, the 18+ checkbox | opened from the header control | `walk2_signin_1440.png` |
+| Support: ticket form whose submit is Sign in | `https://daddyskins.com/en/support` | `walk2_support_1440.png` |
+| 404 with no shell, HTTP 404 | probe URL under `https://daddyskins.com/en/` | `walk2_404_1440.png` |
+| Terms, cookie policy: robots, heading counts, dates, three clauses | `/en/terms`, `/en/cookie-policy` | values in section 9.4 |

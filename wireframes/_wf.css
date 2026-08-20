@@ -1,0 +1,1570 @@
+/* wireframes/_wf.css
+ * The grey contract of stage 04. ONE stylesheet, linked by every wireframe screen.
+ *
+ * INHERITED, NOT INVENTED. The six greys below are the exact values the IA node pages
+ * already use for their black and white anatomies, --wf-bg through --wf-ink-dim, read
+ * from ia/*.html on 18 August 2026. Twenty seven pages carry them identically. The
+ * wireframes continue that surface rather than opening a second one.
+ *
+ * THIS FILE STAYS GREY FOREVER. Colour arrives at stage 06 and it lands on COPIES of
+ * these screens inside design/, never here. A colour value in this file is a defect
+ * that three later stages inherit.
+ *
+ * ONE MORE RULE, AND IT IS THE ONE THIS STAGE BREAKS QUIETLY: a token VALUE never
+ * lives inline on a screen, not even on one screen. Screens write var(--wf-...).
+ * A literal inline is where drift starts, and stage 07 extracts the component kit
+ * from these screens: twenty inline blocks become twenty variants of one card.
+ */
+
+:root {
+  /* Surfaces and ink, inherited verbatim from the IA pages */
+  --wf-bg: #141414;
+  --wf-surface: #1e1e1e;
+  --wf-raised: #272727;
+  --wf-line: #6b6b6b;
+  --wf-line-soft: #3a3a3a;
+  --wf-ink: #dcdcdc;
+  --wf-ink-dim: #8a8a8a;
+  --wf-ink-faint: #5f5f5f;
+
+  /* Space. One scale, four steps plus a half, because a fifth invites a sixth */
+  --wf-s-half: 4px;
+  --wf-s-1: 8px;
+  --wf-s-2: 16px;
+  --wf-s-3: 24px;
+  --wf-s-4: 40px;
+
+  /* Radius. Three, and the third is only for the full-bleed surfaces */
+  --wf-r-1: 3px;
+  --wf-r-2: 6px;
+  --wf-r-3: 12px;
+
+  /* Type. One family for prose, one mono for figures, five sizes */
+  --wf-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --wf-mono: 'SF Mono', Menlo, monospace;
+  --wf-t-xs: 11px;
+  --wf-t-s: 13px;
+  --wf-t-m: 15px;
+  --wf-t-l: 20px;
+  --wf-t-xl: 28px;
+
+  /* Shell. The rail and header widths the IA navigation node fixed.
+     --wf-content is the content column at the reference width: 1440px is what
+     baseline.md walked and the width home.md section 7 computes its third-column
+     argument at, so 1440 minus the rail is the column this stage draws into.
+     Without it the argument blocks ran 1900px wide on the founder's monitor. */
+  --wf-rail-w: 220px;
+  --wf-content: 1220px;
+  --wf-app-w: 1440px;
+  --wf-rail-w-collapsed: 64px;
+  --wf-header-h: 56px;
+  --wf-bar-h: 56px;
+  --wf-measure: 68ch;
+  --wf-tap: 44px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--wf-bg);
+  color: var(--wf-ink);
+  font-family: var(--wf-font);
+  font-size: var(--wf-t-m);
+  line-height: 1.55;
+}
+
+/* Semantics carry the structure. These rules exist so a screen can be written as
+   header / nav / main / section / article / form / button and still read as a screen. */
+h1 { font-size: var(--wf-t-xl); line-height: 1.15; margin: 0 0 var(--wf-s-2); }
+h2 { font-size: var(--wf-t-l); line-height: 1.25; margin: var(--wf-s-3) 0 var(--wf-s-1); }
+h3 { font-size: var(--wf-t-m); line-height: 1.3; margin: var(--wf-s-2) 0 var(--wf-s-half); }
+p  { margin: 0 0 var(--wf-s-1); max-width: var(--wf-measure); }
+a  { color: var(--wf-ink); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--wf-ink);
+  outline-offset: 2px;
+}
+
+/* Controls are real elements, never styled spans. Grey means grey: one border weight
+   separates the primary control from the rest, and that is the whole hierarchy. */
+/* A LINK STYLED AS A BUTTON IS STILL A LINK, so it keeps the browser's underline
+   unless it is told otherwise, and an underline inside a border is what made every
+   control on this page look unfinished. Centred by construction rather than by the
+   accident of line-height, and the padding is horizontal-generous so a one word label
+   and a four word label read as the same component. */
+button, .wf-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--wf-s-1);
+  min-height: var(--wf-tap);
+  padding: var(--wf-s-1) var(--wf-s-3);
+  font: inherit;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  color: var(--wf-ink);
+  background: var(--wf-surface);
+  border: 1px solid var(--wf-line-soft);
+  border-radius: var(--wf-r-2);
+  cursor: pointer;
+}
+button:hover, .wf-btn:hover { border-color: var(--wf-line); }
+/* One smaller size, for controls that sit inside another component rather than under
+   one. A third size needs a reason written in conventions.md. */
+.wf-btn--small { min-height: 32px; padding: var(--wf-s-half) var(--wf-s-1); font-size: var(--wf-t-xs); }
+.wf-btn--primary { border-color: var(--wf-ink); background: var(--wf-raised); }
+button[disabled], .wf-btn[aria-disabled="true"] {
+  color: var(--wf-ink-faint);
+  border-color: var(--wf-line-soft);
+  cursor: not-allowed;
+}
+
+input, select, textarea {
+  min-height: var(--wf-tap);
+  width: 100%;
+  padding: var(--wf-s-1);
+  font: inherit;
+  color: var(--wf-ink);
+  background: var(--wf-surface);
+  border: 1px solid var(--wf-line-soft);
+  border-radius: var(--wf-r-2);
+}
+
+/* Figures. Every published number on this product renders through one anatomy,
+   node 0.11: value, unit and caption, as-of, route, comparison. */
+.wf-fig { display: flex; flex-direction: column; gap: 2px; }
+/* A figure that is also its own route. It stays a figure: the underline goes on the
+   value alone, so the caption does not turn into a second link beside it. */
+.wf-fig-a { color: inherit; text-decoration: none; }
+.wf-fig-a .wf-fig-v { text-decoration: underline; text-underline-offset: 3px; }
+.wf-panel-line { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); max-width: 46ch; }
+.wf-fig-v { font-family: var(--wf-mono); font-size: var(--wf-t-l); }
+.wf-fig-c { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-fig-missing { color: var(--wf-ink-faint); font-style: italic; }
+
+/* ONE PLACEHOLDER TREATMENT FOR EVERY RESERVED AREA. Half the placeholders on this
+   page were an outline on the page's own background and half were an outline on a
+   surface, which reads as two different kinds of missing thing. It is one kind: an area
+   whose content arrives at stage 06. Stage 07 extracts components from these files, so
+   two treatments here become two components there. */
+.wf-tile-art, .wf-item-art, .wf-banner-art, .wf-mode-art, .wf-t-art,
+.wf-ladder-art, .wf-logo-mark, .wf-rail-ico, .wf-fav-i, .wf-clock-v {
+  background: var(--wf-surface);
+  border: 1px dashed var(--wf-line-soft);
+}
+
+/* Layout primitives. Four, and a fifth needs a reason written in conventions.md. */
+.wf-stack > * + * { margin-top: var(--wf-s-2); }
+.wf-row { display: flex; gap: var(--wf-s-1); align-items: center; flex-wrap: wrap; }
+.wf-grid { display: grid; gap: var(--wf-s-2); grid-template-columns: 1fr 1fr; }
+.wf-pad { padding: var(--wf-s-2); }
+.wf-card {
+  background: var(--wf-surface);
+  border: 1px solid var(--wf-line-soft);
+  border-radius: var(--wf-r-3);
+  padding: var(--wf-s-2);
+}
+
+/* Mobile first. The screen is one live page; the wider viewport rebuilds it. */
+@media (min-width: 900px) {
+  .wf-grid { grid-template-columns: repeat(4, 1fr); }
+  h1 { font-size: 36px; }
+  h2 { font-size: 24px; }
+}
+
+/* ---------------------------------------------------------------------------
+   The wireframe-only side panel, rendered by wireframes/_nav.js on screen pages.
+   It carries screens and states and nothing else: the roadmap lives on overview.
+   There is no thin status strip above a screen. Everything lives here, at the side.
+   --------------------------------------------------------------------------- */
+.wfp {
+  position: fixed; top: 0; left: 0; bottom: 0; width: var(--wf-rail-w);
+  overflow-y: auto; padding: var(--wf-s-2) var(--wf-s-1) var(--wf-s-3);
+  background: var(--wf-surface); border-right: 1px solid var(--wf-line-soft);
+  font-size: var(--wf-t-s); z-index: 50;
+}
+.wfp-head { padding: 0 var(--wf-s-1) var(--wf-s-2); border-bottom: 1px solid var(--wf-line-soft); margin-bottom: var(--wf-s-1); }
+.wfp-back {
+  display: block; padding: var(--wf-s-1); margin-bottom: var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  text-decoration: none; color: var(--wf-ink); font-size: var(--wf-t-xs);
+}
+.wfp-back:hover { border-color: var(--wf-line); }
+.wfp-badge {
+  display: inline-block; padding: 2px var(--wf-s-1);
+  border: 1px solid var(--wf-line); border-radius: var(--wf-r-1);
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+}
+.wfp-sub { margin-top: 4px; font-size: 10px; color: var(--wf-ink-dim); }
+
+.wfp-cluster {
+  padding: var(--wf-s-2) var(--wf-s-1) var(--wf-s-half);
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-faint);
+}
+.wfp-screen {
+  display: flex; gap: var(--wf-s-1); align-items: baseline;
+  padding: 5px var(--wf-s-1); border-radius: var(--wf-r-1);
+  text-decoration: none; color: var(--wf-ink-dim);
+}
+a.wfp-screen:hover { color: var(--wf-ink); background: var(--wf-raised); }
+.wfp-screen.is-current { color: var(--wf-ink); background: var(--wf-raised); }
+.wfp-screen.is-spec { color: var(--wf-ink-faint); }
+.wfp-node { font-family: var(--wf-mono); font-size: 10px; flex: 0 0 28px; }
+.wfp-name { flex: 1 1 auto; min-width: 0; }
+
+.wfp-state {
+  display: block; padding: 4px var(--wf-s-1) 4px var(--wf-s-3);
+  font-size: 12px; color: var(--wf-ink-dim); text-decoration: none;
+  border-left: 1px solid var(--wf-line-soft); margin-left: var(--wf-s-2);
+}
+a.wfp-state:hover { color: var(--wf-ink); }
+.wfp-state.is-current { color: var(--wf-ink); border-left-color: var(--wf-ink); }
+.wfp-state.is-spec { color: var(--wf-ink-faint); }
+.wfp-dead { margin-left: var(--wf-s-1); font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--wf-ink-faint); }
+
+/* The cross-link out of the prototype sits at the bottom, dimmed, on its own.
+   It is the exit from the prototype, not an item in it. */
+.wfp-foot { margin-top: var(--wf-s-3); padding: var(--wf-s-1); border-top: 1px solid var(--wf-line-soft); }
+.wfp-ia { font-size: var(--wf-t-xs); color: var(--wf-ink-faint); text-decoration: none; }
+.wfp-ia:hover { color: var(--wf-ink-dim); }
+
+/* The screen sits beside the panel from 900px and the panel goes off-canvas below it. */
+.wf-screen-body { padding: var(--wf-s-2); }
+@media (min-width: 900px) { .wfp-toggle { display: none; } }
+@media (min-width: 900px) {
+  /* The scaffolding panel holds the left edge; the screen starts at its seam. The grid
+     that lays the screen out is further down, at SCREEN STRUCTURE. */
+  .wf-screen-body { margin-left: var(--wf-rail-w); }
+}
+@media (max-width: 899px) {
+  .wfp { transform: translateX(-100%); transition: transform .2s ease; }
+  .wfp.is-open { transform: translateX(0); }
+  /* The scaffolding handle docks to the middle of the right edge. Top left is the
+     product's own menu control and top right is its sound control: at 360px the handle
+     sat on top of the second one, which is scaffolding covering the thing under test.
+     The vertical middle of the right edge is the one strip no carrier claims. */
+  .wfp-toggle {
+    position: fixed; z-index: 60; top: 50%; right: 0; transform: translateY(-50%);
+    width: 28px; height: 56px; padding: 0;
+    border-radius: var(--wf-r-2) 0 0 var(--wf-r-2);
+  }
+}
+
+/* ===========================================================================
+   SCREEN STRUCTURE. Written on the etalon, 1.0 Home, and shared from the start
+   because every rule below appears on two or more screens by the map's own
+   component list. Home-only rules are marked; the first screen that claims one
+   makes the mark obsolete rather than moving the rule.
+
+   Nothing here carries colour, type choice, icon or shadow. Grey only.
+   =========================================================================== */
+
+/* 0.1 The shell: two carriers on desktop, three on mobile. The rail owns the
+   destinations, the header owns money and the account and holds no destination. */
+.wf-shell { display: flex; flex-direction: column; }
+.wf-rail {
+  display: flex; flex-wrap: wrap; gap: var(--wf-s-1); align-items: center;
+  padding: var(--wf-s-1); border-bottom: 1px solid var(--wf-line-soft);
+}
+/* The brand slot. The mark is stage 06's asset; the space it needs is this stage's. */
+.wf-rail-logo {
+  display: flex; align-items: center; gap: var(--wf-s-1);
+  text-decoration: none; color: var(--wf-ink); margin-right: var(--wf-s-2);
+}
+/* The slot says what it is. The mark is stage 06's asset and the wordmark is part of
+   it, so the wireframe reserves one area rather than drawing a name beside a box. */
+.wf-logo-mark {
+  display: flex; align-items: center; justify-content: center;
+  flex: 1 1 auto; height: 44px; background: var(--wf-surface);
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
+  font-size: var(--wf-t-xs); letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--wf-ink-faint);
+}
+@media (min-width: 900px) {
+  .wf-rail-logo { margin-right: 0; }
+  .wf-logo-mark { height: 96px; }
+}
+
+/* The foot of the rail: the ambient controls and the social links, pushed to the
+   bottom and separated from the destinations by the space, not by a second line. */
+.wf-rail-foot {
+  margin-top: auto; padding-top: var(--wf-s-3);
+  display: flex; flex-direction: column; gap: var(--wf-s-2);
+}
+/* One row of two halves, the way the baseline runs it, with a hairline on the seam so
+   the pair reads as one strip rather than as a button with something stuck beside it. */
+/* Grid rather than flex, so the two halves are equal by construction and cannot be
+   pulled apart by whatever stage 05 does to the labels. */
+.wf-rail-amb {
+  display: grid; grid-template-columns: 1fr 1fr; align-items: stretch;
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+}
+/* Two equal halves. Same basis, same minimum, so the strip splits down the middle
+   whatever the labels turn out to be after stage 05 rewrites them. */
+.wf-rail-snd {
+  min-width: 0; padding: 0 var(--wf-s-1); font-size: var(--wf-t-s);
+  border: 0; border-radius: 0; background: none; min-height: var(--wf-tap);
+}
+/* The half that reports rather than acts: same size, no press state, and not a button
+   element. One language is locked, so there is nothing to pick. */
+.wf-rail-lang {
+  min-width: 0;
+  display: flex; align-items: center; justify-content: center;
+  border-left: 1px solid var(--wf-line-soft);
+  font-size: var(--wf-t-s); color: var(--wf-ink-dim);
+}
+.wf-rail-soc { display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-rail-soc-h { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-faint); }
+.wf-rail-soc-row { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
+.wf-rail-soc-row .wf-rail-ico { flex: 0 0 20px; }
+.wf-rail-item {
+  display: flex; align-items: center; gap: var(--wf-s-2);
+  padding: var(--wf-s-half) var(--wf-s-1); border-radius: var(--wf-r-1);
+  color: var(--wf-ink-dim); text-decoration: none;
+}
+.wf-rail-ico { flex: 0 0 20px; height: 20px; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1); }
+.wf-rail-lbl { flex: 1 1 auto; min-width: 0; }
+@media (min-width: 900px) {
+  /* Full width rows with a hairline between them, which is the inherited carrier's own
+     shape. As free floating text links three destinations read as a leftover list in a
+     220px column rather than as the product's navigation. */
+  .wf-rail { gap: 0; }
+  .wf-rail-item { padding: var(--wf-s-2) var(--wf-s-1); border-bottom: 1px solid var(--wf-line-soft); border-radius: 0; }
+  .wf-rail-item:first-of-type { border-top: 1px solid var(--wf-line-soft); }
+  .wf-rail-div { height: var(--wf-s-3); }
+}
+.wf-rail-item:hover { color: var(--wf-ink); }
+.wf-rail-item.is-current { color: var(--wf-ink); background: var(--wf-raised); }
+.wf-rail-toggle { margin-left: auto; min-height: auto; padding: 2px var(--wf-s-1); }
+/* 0.1 section 6: the rail is "Cases, Provably fair, divider, Responsible play". The
+   break is carried as SPACE rather than as a second hairline: every row already ends in
+   one, so a drawn divider put two lines four pixels apart and read as a fault. The
+   group break survives, which is the part of the rule that was load bearing. */
+.wf-rail-div { display: block; height: var(--wf-s-2); }
+.wf-header {
+  display: flex; flex-wrap: wrap; gap: var(--wf-s-1); align-items: center;
+  justify-content: space-between; min-height: var(--wf-header-h);
+  padding: var(--wf-s-1); border-bottom: 1px solid var(--wf-line-soft);
+}
+.wf-marks { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); margin: var(--wf-s-2) 0 0; padding: 0; list-style: none; }
+.wf-marks li { padding: var(--wf-s-half) var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1); font-size: var(--wf-t-xs); }
+
+/* 0.8 The live drop ticker. One visual row at 360px and never more.
+   THE GEOMETRY IS MEASURED, NOT CHOSEN: baseline.md section 3 records 92px tiles in a
+   strip 120px tall, and 0.8 section 6 handed stage 04 the two open items answered here.
+   Tiles of 148px carrying four text fields read as four cards rather than as a feed. */
+.wf-ticker {
+  display: flex; gap: var(--wf-s-1); align-items: stretch;
+  padding: var(--wf-s-1) 0; border-bottom: 1px solid var(--wf-line-soft);
+}
+.wf-ticker-strip {
+  display: flex; gap: var(--wf-s-half); margin: 0; padding: 0; list-style: none;
+  flex: 1 1 auto; min-width: 0; overflow: hidden;
+}
+/* min-width:0 is load bearing, not tidying: a flex item's automatic minimum size is
+   its min-content, so "Desert Eagle" alone pushed a 92px tile to 117px and the strip
+   drifted a quarter wider than the measured baseline. */
+.wf-ticker-strip li { flex: 0 0 92px; min-width: 0; }
+.wf-ticker-strip a {
+  display: block; height: 100%; padding: var(--wf-s-half);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  text-decoration: none; overflow: hidden;
+}
+/* ANSWER TO 0.8's OPEN ITEM "whether the tile carries the item image": it does. The
+   strip is read at a glance rather than read, the baseline runs artwork at exactly this
+   92 by 120 and it is legible there, and four text fields alone at 92px read as a list. */
+.wf-t-art {
+  display: block; height: 44px; margin-bottom: 2px;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
+}
+.wf-t-weapon, .wf-t-skin, .wf-t-meta {
+  display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.wf-t-weapon { font-size: 10px; color: var(--wf-ink-dim); }
+.wf-t-skin { font-size: var(--wf-t-xs); }
+.wf-t-meta { font-size: 9px; color: var(--wf-ink-faint); }
+/* The pause sits beside the strip, not under it: under it, it cost the fold 60px and
+   read as a control for the page rather than for the strip. */
+.wf-ticker-pause { flex: 0 0 auto; align-self: center; }
+
+.wf-main { padding: var(--wf-s-2) 0; }
+/* Blocks are separated by space, not by a rule. A hairline between every section made
+   the page read as a document with headings rather than as a product surface, which is
+   the first thing the founder said when they saw it beside the live product. Space is
+   also what stage 07 can carry forward; a divider line is a component nobody asked for. */
+.wf-sec { padding: var(--wf-s-4) 0 0; }
+/* The section head is title plus one line of what the block is for, with a rule
+   running to the right edge. The baseline runs the same anatomy on every row of its
+   home page, and a bare H2 above a grid is what made this page read as a document. */
+.wf-sec-head { margin-bottom: var(--wf-s-2); }
+.wf-sec-head h2 { margin-top: 0; }
+.wf-sec-sub { margin: 0; color: var(--wf-ink-dim); font-size: var(--wf-t-s); }
+@media (min-width: 900px) {
+  /* The baseline runs one line per section: the title, the description beside it, and a
+     rule running out to the edge. Stacked, a two line head above every block made the
+     page read as a document with subheadings. The rule is drawn by the head itself
+     rather than by a divider element, so a section cannot acquire one by accident. */
+  .wf-sec-head { display: flex; align-items: baseline; gap: var(--wf-s-2); }
+  .wf-sec-head h2 { flex: 0 0 auto; }
+  /* THE RULE HAS A FLOOR AND THE DESCRIPTION PAYS FOR IT. With the description taking
+     what it wanted, a long title left the rule 15 pixels wide, and a 15 pixel hairline
+     at the edge of a heading does not read as a rule, it reads as a rendering fault.
+     Both flex now, so the description gives up width before the rule falls below 96. */
+  .wf-sec-sub { flex: 1 1 auto; min-width: 0; }
+  .wf-sec-head::after {
+    content: ''; flex: 1 1 96px; min-width: 96px; height: 1px;
+    background: var(--wf-line-soft);
+  }
+}
+/* The route out of a block sits under it and centred, the way the baseline runs
+   ALL CASES. On the left it read as one more link in a paragraph. */
+.wf-sec-foot { display: flex; justify-content: center; margin-top: var(--wf-s-3); }
+.wf-note { font-size: var(--wf-t-xs); color: var(--wf-ink-faint); }
+/* B8's figures are the same institutional claim A5 makes, and they were made the same
+   way A5 was before the last pass: four figures loose on the page ground, each caption
+   running to whatever width was left. A figure with no edge is a sentence in a large
+   font. One unit, one edge, and each figure bounded so the caption wraps inside it. */
+.wf-figs {
+  display: grid; grid-template-columns: 1fr 1fr; gap: var(--wf-s-2) var(--wf-s-3);
+  align-items: start; padding: var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+}
+@media (min-width: 900px) { .wf-figs { grid-template-columns: repeat(4, 1fr); } }
+
+/* B2 the promotion banner. Home only for now. One promotion, never a carousel.
+   At 360px it is a stack and it is bound by the fold budget below. From 900px it is
+   full bleed across the content column at the baseline's own proportion, home.md
+   section 7: art the whole width, the line and the one control on it, the countdown
+   slot at the far corner. A third of the width with text beside it was a card, and a
+   card is not what D-25 approved. */
+.wf-banner { margin: var(--wf-s-2) 0; }
+/* The art carries a surface rather than nothing. An empty outline the size of a hero
+   read as a hole in the page instead of as the image that will fill it. */
+.wf-banner-art {
+  min-height: 96px; background: var(--wf-surface);
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-3);
+}
+.wf-banner-clock { margin: var(--wf-s-1) 0 0; font-size: var(--wf-t-xs); }
+.wf-banner-clock p { margin: var(--wf-s-half) 0 0; font-size: var(--wf-t-xs); }
+.wf-clock { display: flex; gap: var(--wf-s-1); }
+.wf-clock-cell { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+/* An empty value slot, reserving the height the figure will take. Not a dash and not a
+   zero: 0.11 forbids both for a value nobody knows yet. */
+.wf-clock-v {
+  display: block; width: 34px; height: 22px;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
+}
+.wf-clock-l { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-faint); }
+.wf-banner-body { margin-top: var(--wf-s-1); }
+.wf-banner-line { font-size: var(--wf-t-m); line-height: 1.3; margin-bottom: var(--wf-s-1); }
+
+/* B3a the entry row, pending D-27. A card per way to play, and the ones that do not
+   exist say so instead of carrying a control. is-later is the whole mechanism: no
+   link, no button, no badge, and it never becomes a waiting list. */
+.wf-mode {
+  display: flex; flex-direction: column; align-items: flex-start; gap: var(--wf-s-1);
+  padding: var(--wf-s-2); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+}
+.wf-mode h3 { margin: 0; }
+.wf-mode p { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-mode-art { width: 100%; height: 64px; background: var(--wf-surface); border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2); }
+.wf-mode p:last-of-type { margin-top: auto; }
+.wf-mode .wf-btn { margin-top: auto; }
+.wf-mode.is-later { border-style: dashed; }
+.wf-mode.is-later h3 { color: var(--wf-ink-dim); }
+
+/* B3 the hero. The H1, the proposition, one route into the main job and the A5 unit,
+   all in one unit. From 900px it splits into two columns, home.md section 7. */
+.wf-hero { padding: var(--wf-s-3) 0; }
+.wf-hero h1 { max-width: 24ch; }
+.wf-hero-line { color: var(--wf-ink-dim); }
+/* A5 is "the institutional trust unit" in the node's own words, and DANGER 1's locked
+   implication is a hybrid hero: the badge in the same hero unit rather than a section
+   further down. Two figures floating in an empty column is not a unit, it is two
+   figures. The box is what makes it one thing the eye can find. */
+.wf-hero-trust {
+  display: flex; flex-wrap: wrap; gap: var(--wf-s-3); margin-top: var(--wf-s-3);
+  padding: var(--wf-s-2); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+}
+
+/* 0.7 The case tile. Four fields in D-24's order, two markers where true, one control.
+   ONE CARD, NOT TWO OBJECTS. The border used to sit on the link, which left the
+   favourite outside the tile it belongs to, at a different height on every tile in the
+   row because the markers are conditional. A control that floats below the thing it
+   acts on is not that thing's control. */
+.wf-grid { align-items: stretch; }
+.wf-tile {
+  display: flex; flex-direction: column; position: relative;
+  padding: var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+}
+.wf-tile:hover { border-color: var(--wf-line); }
+.wf-tile-link {
+  display: flex; flex-direction: column; gap: 2px; flex: 1 1 auto;
+  text-decoration: none;
+}
+/* The artwork is the largest field on the tile, D-24, so it is a ratio rather than a
+   fixed height: at 120px in a 290px column the name outweighed it and the rule broke. */
+.wf-tile-art { aspect-ratio: 4 / 3; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2); margin-bottom: var(--wf-s-1); }
+.wf-tile-name { font-weight: 700; }
+/* The cost and its unit are one figure and they read on one line. Stacked, the unit
+   read as a second field and the tile looked like it carried five. 0.11 rule 1. */
+.wf-tile-price { display: flex; align-items: baseline; gap: var(--wf-s-half); }
+.wf-tile-cost { font-family: var(--wf-mono); font-size: var(--wf-t-l); }
+.wf-tile-cur { font-size: 10px; color: var(--wf-ink-dim); }
+.wf-tile-risk { font-size: var(--wf-t-xs); }
+.wf-tile-mark { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+/* The price is the last thing read and it takes the slack, so a tile with a stock
+   marker and a tile without one still line their prices up across the row. */
+.wf-tile-price { margin-top: auto; padding-top: var(--wf-s-1); }
+/* THE FAVOURITE IS A CORNER MARK, NOT A BAND. It was a full width control under the
+   artwork, which made a tile whose job is four fields look like a tile whose job is one
+   button, and it read as the primary action of the card it sits in. The baseline puts a
+   count and a thumb in the top corner of the artwork and nothing else, and that is the
+   weight this control has earned: it has no parent in the three legal classes, D-24.
+   Still its own focus stop, its own accessible name, and it never swallows the tile. */
+/* 0.7 section 6: the favourite is "a nested button with its own name, its own focus
+   stop and A TARGET NO SMALLER THAN 44PX that does not overlap the link's own tap area
+   at any width". It shipped at 28. A corner mark is a size decision about the visible
+   chip, not a licence to shrink the target: the chip stays small and the button that
+   carries it is a full tap target with the chip centred in it. */
+.wf-fav {
+  position: absolute; top: var(--wf-s-half); right: var(--wf-s-half); z-index: 2;
+  min-height: var(--wf-tap); min-width: var(--wf-tap);
+  padding: var(--wf-s-1); gap: var(--wf-s-half);
+  font-size: var(--wf-t-xs); border: 0; background: none; border-radius: 0;
+}
+.wf-fav > * { position: relative; }
+/* The chip is drawn behind the two marks rather than on the button, so the target can
+   be 44 while the thing a person sees stays a corner mark. */
+.wf-fav::before {
+  content: ''; position: absolute; inset: var(--wf-s-1);
+  background: var(--wf-bg); border: 1px solid var(--wf-line-soft);
+  border-radius: var(--wf-r-1);
+}
+.wf-fav[aria-pressed="true"]::before { border-color: var(--wf-ink); }
+/* THE MARK LEADS, NOT THE COUNT. Number first, "829" then a small square, reads as a
+   stock figure with an icon after it, which is the one thing this control must not be
+   mistaken for on a tile that already carries stock. 0.7 field 7 names it a favourite
+   mark carrying a count, in that order. */
+.wf-fav-n { font-family: var(--wf-mono); color: var(--wf-ink-dim); }
+.wf-fav-i { width: 12px; height: 12px; border: 1px dashed var(--wf-line-soft); border-radius: 2px; }
+
+
+/* B5 the daily tier ladder, drawn as one panel: the two figures at the ends of a head
+   row, the five tiers as one run, the control on its own line under them. Home only.
+   A vertical run at 360px and never a horizontal scroll, home.md section 7. */
+.wf-panel { padding: var(--wf-s-2); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3); }
+.wf-panel-head {
+  display: flex; flex-wrap: wrap; gap: var(--wf-s-2); justify-content: space-between;
+  margin-bottom: var(--wf-s-2);
+}
+.wf-panel-foot { display: flex; justify-content: center; margin-top: var(--wf-s-2); }
+.wf-ladder {
+  display: flex; flex-direction: column; gap: var(--wf-s-half);
+  margin: 0; padding: 0; list-style: none;
+}
+.wf-ladder li {
+  display: flex; align-items: center; gap: var(--wf-s-1);
+  padding: var(--wf-s-1); border: 1px solid var(--wf-line-soft);
+  border-radius: var(--wf-r-1); color: var(--wf-ink-faint); font-size: var(--wf-t-s);
+}
+.wf-ladder li.is-reached { color: var(--wf-ink); border-color: var(--wf-line); }
+.wf-ladder-art { flex: 0 0 32px; height: 24px; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1); }
+
+/* B6 the worked example. 0.6 skin card beside the four figures. */
+.wf-worked { display: flex; flex-wrap: wrap; gap: var(--wf-s-2); }
+.wf-item { flex: 1 1 260px; }
+.wf-item-art { display: block; height: 132px; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2); margin-bottom: var(--wf-s-1); }
+.wf-item-weapon { margin: 0; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-item-skin { margin: 0 0 var(--wf-s-1); font-weight: 700; }
+.wf-item-axes { display: flex; flex-wrap: wrap; gap: var(--wf-s-half); margin: 0 0 var(--wf-s-1); padding: 0; list-style: none; }
+.wf-item-axes li { padding: 1px var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1); font-size: 10px; }
+.wf-item-figs { display: grid; grid-template-columns: auto 1fr; gap: 2px var(--wf-s-1); margin: 0 0 var(--wf-s-1); }
+.wf-item-figs dt { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-item-figs dd { margin: 0; font-family: var(--wf-mono); font-size: var(--wf-t-s); }
+.wf-item-market { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); margin: 0; }
+.wf-worked .wf-stack { flex: 1 1 260px; }
+
+/* B10 prose sits at a readable measure, never full width, AND it is set below the
+   argument blocks rather than beside them. It is the SEO layer, node 0.13, not the
+   page's case: at the same weight as B6 to B9 it doubled the page's apparent text. */
+.wf-prose p { max-width: var(--wf-measure); font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-prose h3 { color: var(--wf-ink-dim); }
+@media (min-width: 900px) {
+  /* Two columns, because at one it was the tallest block on the page and it is the
+     lowest priority one. The measure rule still holds: two columns of 60ch read better
+     than one column of 60ch followed by 400px of scrolling. */
+  /* MULTI-COLUMN, NOT GRID. A grid pairs a heading with the paragraph beside it and
+     breaks the one thing prose depends on, that a heading introduces what follows it.
+     Multi-column flows the run and wraps it, so the reading order survives. */
+  .wf-prose-cols { column-count: 2; column-gap: var(--wf-s-4); }
+  .wf-prose-cols p { max-width: none; }
+  .wf-prose-cols h3 { break-after: avoid; margin-top: 0; }
+  .wf-prose-cols > * { break-inside: avoid; }
+}
+
+/* 0.2 The footer, FOUR BANDS, node 0.2 section 3. Band 1 the statistics strip, band 2
+   the four columns, band 3 the interlinking block, band 4 copyright and the marks. */
+.wf-footer { padding: var(--wf-s-4) 0 calc(var(--wf-bar-h) + var(--wf-s-3)); border-top: 1px solid var(--wf-line); }
+
+.wf-foot-stats {
+  display: grid; grid-template-columns: 1fr; gap: var(--wf-s-2);
+  padding-bottom: var(--wf-s-3); border-bottom: 1px solid var(--wf-line-soft);
+}
+/* The route is what separates a checkable figure from a number that looks like one,
+   0.2 section 2. It is smaller than the caption and it is never absent silently. */
+.wf-fig-route { color: var(--wf-ink-faint); font-style: italic; }
+
+.wf-foot-cols { display: grid; grid-template-columns: 1fr; gap: var(--wf-s-3); padding: var(--wf-s-3) 0; }
+.wf-foot-col { display: flex; flex-direction: column; align-items: flex-start; gap: var(--wf-s-1); }
+.wf-foot-brand { font-weight: 700; text-decoration: none; }
+/* The column label is a real <button> at every width, because footer.md requires the
+   accordion header to be one and a control that exists only below 900 is a control the
+   desktop DOM cannot be checked for. Above 900 it is stripped back to a label: no box,
+   no target padding, and aria-expanded held at true so a reader is never told a visible
+   list is collapsed. */
+.wf-foot-h {
+  font-size: var(--wf-t-s); letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--wf-ink-dim); margin: 0;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--wf-s-1);
+  width: 100%; min-height: auto; padding: 0; text-align: left;
+  background: none; border: 0; border-radius: 0; cursor: default;
+}
+.wf-foot-list { display: flex; flex-direction: column; align-items: flex-start; gap: var(--wf-s-half); }
+@media (max-width: 899px) {
+  /* Scoped to the ones that actually toggle. "Need help?" is a label above a support
+     control and shares the class: unscoped, it grew a plus sign and a rule and read as
+     an accordion that does nothing when pressed. */
+  .wf-foot-h[aria-expanded] { min-height: var(--wf-tap); cursor: pointer; border-bottom: 1px solid var(--wf-line-soft); }
+  .wf-foot-h[aria-expanded]::after { content: '+'; font-size: var(--wf-t-m); line-height: 1; }
+  .wf-foot-h[aria-expanded="true"]::after { content: '\2212'; }
+  .wf-foot-h[aria-expanded="false"] + .wf-foot-list { display: none; }
+  .wf-foot-h[aria-expanded="true"] + .wf-foot-list { padding: var(--wf-s-1) 0; }
+}
+.wf-foot-ident { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); margin: 0; }
+/* Cookie settings is a control and it is the only one in its column, so it is a real
+   button that reads as a link rather than a link that pretends to act. */
+.wf-linklike {
+  min-height: auto; padding: 0; background: none; border: 0;
+  text-decoration: underline; text-underline-offset: 3px; font: inherit; color: var(--wf-ink);
+}
+
+.wf-foot-seo {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: var(--wf-s-2) 0; border-top: 1px solid var(--wf-line-soft);
+}
+.wf-foot-base {
+  display: flex; flex-wrap: wrap; gap: var(--wf-s-2); align-items: center;
+  justify-content: space-between;
+  padding-top: var(--wf-s-2); border-top: 1px solid var(--wf-line-soft);
+}
+.wf-foot-base .wf-marks { margin: 0; }
+.wf-compliance { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); margin: 0; }
+
+/* 0.1 The mobile bar. A shortcut subset of the rail, never a second model.
+   It does not exist above 900px. */
+.wf-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; height: var(--wf-bar-h);
+  display: flex; align-items: center; justify-content: space-around;
+  background: var(--wf-surface); border-top: 1px solid var(--wf-line-soft); z-index: 40;
+}
+.wf-bar a { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); text-decoration: none; padding: var(--wf-s-1); }
+.wf-bar a.is-current { color: var(--wf-ink); }
+
+/* ===========================================================================
+   DESKTOP, FROM 900px. THE TWO CARRIERS DRAWN AS THE MODEL DESCRIBES THEM.
+
+   CLAUDE.md, Baseline: "a full height left rail owning the logo, the destinations and
+   its own toggle on the seam, and a header starting at the rail's edge". The rail and
+   the header were siblings inside one flex row that sat ABOVE the content, so the rail
+   was 90px tall and the page ran full width underneath it. That is a third carrier
+   nobody decided on, and it is the defect the founder saw first.
+
+   .wf-shell is display:contents here so its two children become items of this grid
+   instead of a box between them. No screen HTML changes to get it.
+   =========================================================================== */
+@media (min-width: 900px) {
+  .wf-bar { display: none; }
+  .wf-foot-stats { grid-template-columns: repeat(4, 1fr); gap: var(--wf-s-3); }
+  .wf-foot-cols { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: var(--wf-s-4); }
+
+  .wf-screen-body {
+    display: grid;
+    grid-template-columns: var(--wf-rail-w) minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "rail header" "rail main" "rail footer";
+    min-height: 100vh;
+    max-width: var(--wf-app-w);
+    padding: 0;
+  }
+  .wf-shell { display: contents; }
+
+  /* THE RAIL OUTRANKS THE HEADER IN PAINT ORDER, and that is not a preference. Its
+     only overlap with the header is the toggle, which by 0.1 section 1 straddles the
+     seam and therefore leaves the rail's own column. `position: sticky` opens a
+     stacking context, so the toggle's z-index is resolved INSIDE the rail: with the
+     rail at auto the header's 30 covered a control the node requires to be visible.
+     The rail carries the number, the toggle keeps its own above the rail's contents. */
+  .wf-rail {
+    grid-area: rail; z-index: 35;
+    flex-direction: column; flex-wrap: nowrap; align-items: stretch;
+    position: sticky; top: 0; height: 100vh;
+    padding: var(--wf-s-2) var(--wf-s-1);
+    border-bottom: 0; border-right: 1px solid var(--wf-line-soft);
+  }
+  .wf-rail-logo { margin: 0 var(--wf-s-1) var(--wf-s-3); }
+  /* 0.1 section 1: the toggle sits ON THE JUNCTION OF THE TWO SEAMS, straddling the
+     rail's vertical edge and the header's horizontal one, so that it tracks the rail's
+     width when the rail collapses instead of jumping. At the foot of the rail it was a
+     full width block that read as a fifth destination, which is the one thing this
+     control may not look like. */
+  .wf-rail-toggle {
+    position: absolute; z-index: 2;
+    top: calc(var(--wf-header-h) - 16px); right: -16px;
+    width: 32px; height: 32px; min-height: 0; margin: 0; padding: 0;
+    border-radius: 50%; background: var(--wf-raised);
+  }
+
+  .wf-header {
+    grid-area: header; position: sticky; top: 0; z-index: 30;
+    background: var(--wf-bg); padding: var(--wf-s-1) var(--wf-s-3);
+  }
+  .wf-main { grid-area: main; max-width: var(--wf-content); padding: 0 var(--wf-s-3) var(--wf-s-4); }
+  .wf-footer { grid-area: footer; max-width: var(--wf-content); padding: var(--wf-s-3); }
+
+  /* B2, full bleed at the baseline's proportion, with the line and the one control on
+     the art and the countdown slot in the far corner. */
+  .wf-banner { position: relative; }
+  .wf-banner-art { min-height: 0; aspect-ratio: 1000 / 220; }
+  .wf-banner-clock { position: absolute; top: var(--wf-s-2); right: var(--wf-s-2); margin: 0; text-align: right; }
+  /* The line and the one control sit together at the foot of the art, centred, which
+     is where the baseline puts JOIN EVENT. In the corner they read as a caption. */
+  .wf-banner-body {
+    position: absolute; left: 0; right: 0; bottom: var(--wf-s-3); margin: 0;
+    display: flex; flex-direction: column; align-items: center; gap: var(--wf-s-1);
+  }
+  .wf-banner-line { font-size: var(--wf-t-l); margin: 0; text-align: center; }
+
+  /* B3 splits into two: what we say on one side, the institutional unit on the other. */
+  .wf-hero {
+    display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: var(--wf-s-4); align-items: start;
+  }
+  .wf-hero-trust { flex-direction: column; gap: var(--wf-s-2); margin-top: 0; }
+
+  /* One horizontal run of five tiers, with the track behind them. The track is the
+     thing that makes it a ladder rather than five boxes in a row. */
+  /* No drawn track. It ran behind the tier markers, which carry a surface of their own
+     since the placeholder treatment was unified, so it was a rule nobody could see.
+     Something drawn that renders invisible is a defect, not decoration. The run of five
+     equal cells is what makes it a ladder. */
+  .wf-ladder { flex-direction: row; gap: var(--wf-s-2); }
+  .wf-ladder li {
+    flex: 1 1 0; flex-direction: column; text-align: center; gap: var(--wf-s-1);
+    border: 0; background: none; position: relative; padding: 0;
+  }
+  .wf-ladder-art { flex: 0 0 auto; width: 100%; height: 56px; }
+}
+
+/* Below 900px the rail is the third carrier and it lives behind the header's menu
+   control, node 0.1. Rendering it inline pushed the H1 past the fold at 360px, which
+   D-25 calls a failed acceptance rather than a layout preference. */
+/* 0.1 section 6, transient states: "Modal drawer contract, all three dismissals. Scrim
+   blocks the content behind. The bar sits behind the scrim with the content and is not
+   raised above it." That was specified and never drawn: the rail rendered INLINE, above
+   the header, pushing the whole screen down and leaving the header stranded under it.
+   An inline drawer is not a drawer, it is a disclosure. */
+@media (max-width: 899px) {
+  .wf-rail {
+    position: fixed; top: 0; left: 0; bottom: 0; z-index: 70;
+    width: 280px; max-width: 86vw;
+    display: flex; flex-direction: column; align-items: stretch;
+    padding: var(--wf-s-2) var(--wf-s-2) var(--wf-s-3);
+    background: var(--wf-bg); border-right: 1px solid var(--wf-line-soft); border-bottom: 0;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform .2s ease;
+  }
+  .wf-rail.is-open { transform: none; }
+  /* The scrim blocks the content, and the bar is content. It is below the scrim on
+     purpose, z 40 against 65: a bar left live above a scrim is content the scrim
+     failed to block. */
+  .wf-scrim { position: fixed; inset: 0; z-index: 65; background: rgba(0, 0, 0, 0.66); }
+  .wf-rail .wf-rail-toggle { display: none; }
+}
+@media (min-width: 900px) { .wf-menu { display: none; } }
+.wf-menu { min-height: var(--wf-tap); min-width: var(--wf-tap); }
+
+/* THE FOLD, MEASURED RATHER THAN ASSUMED. At 360 x 640 the bottom bar is a fixed
+   carrier 56px tall, so the usable first screen ends at 584, not at 640. The H1 has to
+   begin above that line: an H1 behind a fixed carrier has not begun on the first
+   screen. The banner gives up the height, which is exactly what D-25 says it does. */
+@media (max-width: 899px) {
+  .wf-banner-art { min-height: 64px; }
+  .wf-banner { margin: var(--wf-s-1) 0; }
+  .wf-banner-line { font-size: var(--wf-t-m); }
+  /* One row at 360px is 3.9 tiles of 92px, so the strip cannot loop without a gap
+     below 8 tiles: that is the answer to 0.8's other open item, the minimum count. */
+}
+
+/* 1.1 The state strip. Three slots and no fourth, inserted directly under the ticker.
+   It is the only thing the account state adds to this page. */
+.wf-strip {
+  display: flex; flex-wrap: wrap; gap: var(--wf-s-2); align-items: center;
+  padding: var(--wf-s-2); margin: var(--wf-s-2) 0;
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+}
+.wf-strip .wf-btn { margin-left: auto; }
+/* home.md section 7: "The state strip in 1.1 is ONE ROW THAT WRAPS TO TWO rather than
+   scrolling sideways." At 360 it was four, 227px of the 584px first screen, because
+   each figure took a full row of its own. Two figures share row one, the next step
+   takes row two, and the strip stops being the reason the H1 falls below the fold. */
+@media (max-width: 899px) {
+  .wf-strip { align-items: start; }
+  .wf-strip .wf-fig { flex: 1 1 40%; min-width: 0; }
+  .wf-strip .wf-btn { margin-left: 0; flex: 1 1 100%; }
+}
+
+/* THE MONEY BLOCK IS STACKED: balance above, value of items held below. 0.1 section 5
+   has said upper and lower since it was written and the state matrix says two lines.
+   The two figures are never summed and never a score, CLAUDE.md and 0.11 rule 7, and
+   side by side that was enforced by a vertical hairline. Stacked, the same job is done
+   by weight and by caption: TWO FIGURES OF EQUAL WEIGHT IN A COLUMN IS A RECEIPT, which
+   is the one reading this zone may not produce, so the balance leads and the value of
+   items held is smaller and dimmer with its own caption on its own line. */
+.wf-money { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+/* THE CAPTION SITS BESIDE ITS FIGURE, NOT UNDER IT, and that is a height decision with
+   a rule behind it. Stacked figure over caption twice, the header stood at 96px against
+   the 61 that 0.1 section 9 measures for one row, and every screen in the product loses
+   that difference from its first screen. Dropping the captions instead would have been
+   cheaper and is refused: rule 3 says the lower figure is labelled a current market
+   value and never profit or growth, and a label that only a screen reader gets is not
+   doing that job for the person looking at it. The mono value takes a fixed measure so
+   the two captions line up, which is what makes the pair read as two kinds rather than
+   as two lines of one total. */
+.wf-money .wf-fig { flex-direction: row; align-items: baseline; gap: var(--wf-s-1); }
+.wf-money .wf-fig-v { min-width: 11ch; }
+.wf-money-1 .wf-fig-v { font-size: var(--wf-t-m); }
+.wf-money-2 .wf-fig-v { font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-money .wf-fig-c { font-size: var(--wf-t-xs); }
+.wf-header .wf-row { gap: var(--wf-s-2); margin-left: auto; align-items: center; }
+
+/* One compact add control beside the figures, the baseline's own shape. No badge:
+   rule 4 blocks any first-deposit bonus in round 1 behind a model that does not exist,
+   and a promotional percentage welded to a money control is an advertisement that never
+   stops running. */
+.wf-dep {
+  flex: 0 0 auto; width: var(--wf-tap); min-width: var(--wf-tap); padding: 0;
+  border-radius: 50%; font-size: var(--wf-t-l); line-height: 1;
+}
+
+/* The account control and its menu. The control is a button because it opens something
+   rather than going somewhere, and the menu's first row is the destination it used to
+   be. Hover opens it, and so do click, Enter and Space, because hover alone excludes
+   touch entirely and the keyboard almost entirely. */
+.wf-acct-wrap { position: relative; flex: 0 0 auto; }
+.wf-acct { gap: var(--wf-s-1); }
+.wf-acct-name { white-space: nowrap; }
+.wf-acct-menu {
+  position: absolute; top: calc(100% + var(--wf-s-half)); right: 0; z-index: 60;
+  display: none; flex-direction: column; gap: var(--wf-s-half); min-width: 200px;
+  padding: var(--wf-s-1);
+  background: var(--wf-raised); border: 1px solid var(--wf-line);
+  border-radius: var(--wf-r-2);
+}
+.wf-acct-wrap.is-open .wf-acct-menu { display: flex; }
+/* Hover only where a pointer can hover, so a touch device never inherits a rule it can
+   only trigger by tapping, which is the tap it already spends on opening the menu. */
+@media (hover: hover) {
+  .wf-acct-wrap:hover .wf-acct-menu, .wf-acct-wrap:focus-within .wf-acct-menu { display: flex; }
+}
+.wf-acct-menu nav { display: flex; flex-direction: column; }
+.wf-acct-menu a, .wf-acct-out {
+  display: flex; align-items: center; min-height: var(--wf-tap);
+  padding: 0 var(--wf-s-1); border-radius: var(--wf-r-1);
+  color: var(--wf-ink); text-decoration: none; text-align: left;
+}
+.wf-acct-menu a:hover, .wf-acct-out:hover { background: var(--wf-surface); }
+.wf-acct-out { width: 100%; border-top: 1px solid var(--wf-line-soft); border-radius: 0; }
+
+/* The two visibility switches the header needs, and they are the only two in this
+   file. A hidden caption is hidden, never deleted: it travels in the accessible name. */
+.wf-only-narrow { display: none; }
+.wf-avatar {
+  display: inline-block; width: 20px; height: 20px; vertical-align: -4px;
+  border: 1px dashed var(--wf-line-soft); border-radius: 50%; margin-right: var(--wf-s-1);
+}
+
+/* 0.1 section 9: "Mobile is the base, 360px. ONE header row: menu icon, then the money
+   and account zone." Rendered as full figures with captions and two word controls, it
+   was three rows and 230px tall, which pushed the ticker and the state strip of 1.1 off
+   the first screen. Condensed here exactly as the state matrix specifies. */
+/* THE HEADER RUNS EDGE TO EDGE BELOW 900, and that is width rather than taste. In the
+   account state its row is a menu, two money figures, a deposit control and the account
+   control, and at 360 that needed 320px inside 297: the account control ran 8px past
+   the right edge of the screen and sat flush against it. The screen's own 16px gutter
+   is what the header gives back, which is also how the baseline draws it, and the menu
+   drops to a square tap target. Both are measured, not chosen. */
+@media (max-width: 899px) {
+  .wf-header {
+    flex-wrap: nowrap; gap: var(--wf-s-1);
+    margin: calc(var(--wf-s-2) * -1) calc(var(--wf-s-2) * -1) 0;
+    padding: var(--wf-s-1) var(--wf-s-2);
+  }
+  .wf-header .wf-row { flex-wrap: nowrap; gap: var(--wf-s-1); min-width: 0; }
+  /* 0.1 state matrix, account on mobile: "Both figures, condensed to ONE LINE EACH,
+     deposit control kept" and "Avatar only". Condensed means the caption leaves the
+     visible line, never the document: it travels in the figure's accessible name, and
+     0.11 section 9 says that name carries the unit rather than bare digits. */
+  .wf-header .wf-fig-v { white-space: nowrap; }
+  .wf-money-1 .wf-fig-v { font-size: var(--wf-t-s); }
+  .wf-money-2 .wf-fig-v { font-size: var(--wf-t-xs); }
+  .wf-money .wf-fig { gap: 0; }
+  .wf-money .wf-fig-v { min-width: 0; }
+  .wf-money .wf-fig-c { display: none; }
+  .wf-hide-narrow { display: none; }
+  .wf-only-narrow { display: inline; }
+  .wf-acct .wf-avatar { margin-right: 0; }
+  .wf-header .wf-btn { padding: var(--wf-s-half); }
+  .wf-acct { width: var(--wf-tap); min-width: var(--wf-tap); padding: 0; justify-content: center; }
+  .wf-dep { width: 36px; min-width: 36px; height: 36px; min-height: 36px; }
+  .wf-menu { width: var(--wf-tap); min-width: var(--wf-tap); padding: 0; flex: 0 0 auto; }
+  /* The menu is anchored to the right edge of the screen rather than to a 44px avatar,
+     because a 200px panel hung off a 44px control at 360 runs off the edge. */
+  .wf-acct-menu { position: fixed; top: var(--wf-header-h); right: var(--wf-s-2); left: auto; }
+}
+
+/* The panel's progress counter and the shortcut list of finished pages. The accordion
+   below them is unchanged: states open only under the screen you are standing on.
+   This block is a shortcut, not a second tree, and it self-limits because it only ever
+   holds pages that exist. */
+.wfp-count { margin-top: var(--wf-s-1); font-size: 10px; color: var(--wf-ink-dim); font-family: var(--wf-mono); }
+.wfp-done {
+  display: flex; gap: var(--wf-s-1); align-items: baseline;
+  padding: 4px var(--wf-s-1); border-radius: var(--wf-r-1);
+  text-decoration: none; color: var(--wf-ink);
+}
+.wfp-done:hover { background: var(--wf-raised); }
+.wfp-done.is-current { background: var(--wf-raised); }
+.wfp-tag {
+  margin-left: auto; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--wf-ink-faint); border: 1px solid var(--wf-line-soft);
+  border-radius: var(--wf-r-1); padding: 0 4px;
+}
+
+/* ============================================================================
+   3.3 CASE SCREEN, phase 1. Nothing below is drawn for this page alone: the
+   breadcrumb, the table and the commit bar are the first instances of shapes the
+   catalogue, the deposit and the withdrawal screens all need.
+   ========================================================================= */
+
+/* A caption a table needs and a sighted reader does not. Hidden, never deleted:
+   0.11 section 9, the accessible name carries the unit rather than bare digits. */
+.wf-vh {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+/* BLOCK 1. The breadcrumb, real markup rather than a decorative string. 0.13
+   section 6 marks it up, so it is a list of links and the last item is not one. */
+.wf-crumb { padding: var(--wf-s-2) 0 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-crumb ol { display: flex; flex-wrap: wrap; gap: var(--wf-s-half); margin: 0; padding: 0; list-style: none; }
+.wf-crumb li + li::before { content: '/'; margin-right: var(--wf-s-half); color: var(--wf-ink-faint); }
+.wf-crumb a { color: var(--wf-ink-dim); }
+.wf-crumb [aria-current] { color: var(--wf-ink); }
+
+/* BLOCKS 2 AND 3. The case, then the commit block. They stack at 360 and sit side
+   by side from 900, which is section 14's own sentence rather than a preference. */
+/* The wrapper stays display: contents so the commit block's containing block is the
+   main column, which is what lets it be a sibling in the DOM and still be measured
+   against the whole page. See the commit bar note further down. */
+.wf-top { display: contents; }
+
+.wf-case { display: flex; flex-direction: column; gap: var(--wf-s-2); padding: var(--wf-s-2) 0; }
+
+/* THE HEAD IS THREE SLOTS AND THE MIDDLE ONE IS THE PAGE'S NAME. Both founder captures
+   run the same shape: the band on one flank, the title in the centre, the object control
+   on the other. The flanks are inherited carriers filled with live items, which is why
+   one holds the risk band as a word and the other the favourite, and not the skulls, the
+   like count or ADD TO BATTLE that occupy them on the references. */
+.wf-case-head {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: var(--wf-s-2);
+  align-items: start;
+}
+.wf-case-say { grid-column: 2; text-align: center; }
+.wf-case-say h1 { margin: 0 0 var(--wf-s-1); }
+.wf-case-line { margin: 0 auto; color: var(--wf-ink-dim); max-width: 56ch; }
+.wf-flank { margin: 0; font-size: var(--wf-t-s); align-self: start; }
+.wf-case-head > .wf-flank:first-child { grid-column: 1; justify-self: start; }
+.wf-fav-case { grid-column: 3; justify-self: end; gap: var(--wf-s-1); min-height: var(--wf-tap); }
+/* Three columns do not survive 360: the title takes the middle and the two flanks are
+   squeezed until the favourite runs off the right edge. The flanks take row one, one at
+   each end, and the title takes row two across both, which keeps the same reading order
+   and the same three parts. */
+@media (max-width: 899px) {
+  /* THE ENTRY COST HAS TO BE ON THE FIRST SCREEN, section 14, and at 360 that is a
+     budget: 584px once the fixed bar takes its 56. The stage gives the height back,
+     because a frame with room to spare above the fold is room the cost is not using. */
+  .wf-case-head { grid-template-columns: auto auto; justify-content: space-between; align-items: center; }
+  .wf-case-head > .wf-flank:first-child { grid-column: 1; grid-row: 1; }
+  .wf-fav-case { grid-column: 2; grid-row: 1; }
+  .wf-case-say { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* THE STAGE. One framed region that holds the case artwork in phase 1 and the reveal in
+   phase 2, so the page changes what a region holds rather than rebuilding its layout at
+   the moment a person has just spent. The frame is drawn rather than implied because it
+   is the thing phase 2 inherits: an unframed picture would leave 3.5 nothing to take. */
+.wf-stage-frame {
+  display: flex; flex-direction: column; align-items: center; gap: var(--wf-s-2);
+  padding: var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+}
+.wf-case-art {
+  width: 100%; max-width: 420px; min-height: 200px; border-radius: var(--wf-r-3);
+  background: var(--wf-surface); border: 1px dashed var(--wf-line-soft);
+}
+
+/* THE REVEAL LANE, D-31. At rest in phase 1 and the thing that moves in phase 2, so
+   one region holds one object in two states rather than two layouts trading places.
+   IT PRINTS NOTHING. It was first drawn as nine tiles carrying a value and a chance
+   each; the founder read that as too much information on the stage and the reading is
+   right. The rule against a value with no chance beside it binds any surface that
+   PRINTS a value, and the honest way to satisfy it here is to print no value at all.
+   IT RUNS OFF BOTH EDGES OF THE FRAME AND THE PAGE DOES NOT SCROLL WITH IT. The lane is
+   a horizontal object: in phase 2 it moves along that axis, and wrapping it into a grid
+   would mean phase 2 rebuilds it after all. At 360 it shows FEWER slots rather than
+   smaller ones, because a lane whose slots shrink with the viewport is a lane whose
+   motion reads differently on every device. */
+.wf-lane {
+  display: flex; flex-wrap: nowrap; gap: var(--wf-s-1); list-style: none;
+  margin: 0; padding: 0; width: 100%; overflow: hidden;
+}
+.wf-lane > li {
+  flex: 0 0 104px; height: 72px;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: var(--wf-bg);
+}
+
+/* PHASE 2. THE POINTER EXISTS ONLY HERE, because only here is there a roll to point at.
+   E2 forbids near-miss theatre, so what this marks is where the settled result lands, not
+   a run past better items on the way. */
+.wf-lane--live { position: relative; }
+.wf-lane--live::after {
+  content: ''; position: absolute; z-index: 1; left: 50%; top: -6px; bottom: -6px;
+  width: 2px; margin-left: -1px; background: var(--wf-ink);
+}
+
+/* MULTI-OPEN, D-35. One lane per roll, stacked, because each roll is a separate settled
+   result with its own hash. THE LANES GET SHORTER FROM THREE UP and that is the cost of
+   the count switch printed rather than absorbed: five lanes at full height do not fit
+   above the fold at 360, and the stage may not scroll during the one moment the person
+   is watching it. Section 14 forbids the entry cost leaving the first screen; the same
+   argument applies to the reveal it paid for. */
+.wf-lanes { display: flex; flex-direction: column; gap: var(--wf-s-1); width: 100%; }
+/* Each lane's pointer stops at its own edge. Bleeding past it, which is right for one
+   lane on its own, joins five of them into a single line down the stage: five pointers
+   read as one divider and the thing that marks where each roll lands stops marking. */
+.wf-lanes .wf-lane--live::after { top: 0; bottom: 0; }
+.wf-lanes--5 > .wf-lane > li { height: 48px; flex-basis: 80px; }
+@media (min-width: 900px) {
+  .wf-lanes--5 > .wf-lane > li { height: 56px; flex-basis: 104px; }
+}
+
+/* THE REELS STAND UP FROM TWO, D-37, and the axis is doing work rather than decorating.
+   Stacked horizontal lanes put every extra roll BELOW the previous one: the second is
+   further from the eye than the first and the fifth is off the first screen. Standing
+   them side by side puts every roll at the same distance from the eye and gives the batch
+   ONE pointer line across all of them instead of five lines at five heights.
+   A single roll stays horizontal. With nothing beside it to compare against, the wide
+   axis is the one that gives the artwork its room, and phase 1's lane is horizontal
+   because it is the same region at rest. */
+.wf-lanes--v { flex-direction: row; justify-content: center; align-items: stretch; }
+.wf-lane--v { flex-direction: column; flex: 1 1 0; min-width: 0; max-width: 168px; height: 244px; }
+.wf-lane--v > li { flex: 0 0 76px; width: 100%; height: auto; }
+/* The marker runs ACROSS the reel rather than down it, at the height the result lands. */
+.wf-lanes--v .wf-lane--live::after {
+  left: 0; right: 0; top: 50%; bottom: auto;
+  width: auto; height: 2px; margin: -1px 0 0;
+}
+.wf-lanes--v.wf-lanes--5 > .wf-lane > li { height: auto; flex-basis: 60px; }
+@media (max-width: 899px) {
+  .wf-lane--v { height: 192px; }
+  .wf-lane--v > li { flex-basis: 60px; }
+  .wf-lanes--v.wf-lanes--5 > .wf-lane > li { flex-basis: 52px; }
+  .wf-lanes--v { gap: var(--wf-s-half); }
+}
+@media (min-width: 900px) {
+  .wf-lanes--v.wf-lanes--5 > .wf-lane > li { flex-basis: 76px; }
+}
+
+/* THE BATCH OUTCOME. Cards, not rows: each one is the same object the single outcome
+   renders at full stage, at the size a set of them can be read at. It never becomes a
+   list of names with a total underneath, which is what turns five results into a
+   receipt for a purchase rather than five things that happened. */
+.wf-won-grid {
+  display: grid; grid-template-columns: 1fr; gap: var(--wf-s-2);
+  list-style: none; margin: 0; padding: 0; width: 100%;
+}
+.wf-won-card {
+  display: flex; flex-direction: column; align-items: center; gap: var(--wf-s-half);
+  text-align: center; padding: var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+}
+.wf-won-card .wf-won-art { min-height: 120px; }
+.wf-won-card .wf-won-v { font-size: var(--wf-t-m); }
+
+/* ONE ROW AT EVERY WIDTH, D-39, and it is carried all the way rather than kept for the
+   widths where it is easy. N items sit in N columns at 360 exactly as they do at 1440.
+   THE ARGUMENT IS STRUCTURAL AND NOT A PREFERENCE: since D-37 the reveal is N reels side
+   by side, so the outcome in N columns means COLUMN i OF THE RESULT IS COLUMN i OF THE
+   REEL IT CAME OUT OF. Wrapping to a second row at 600 broke that correspondence at the
+   exact width where it is hardest to hold five things in the head, and it also gave five
+   results a two-then-three shape they do not have.
+   WHAT IT COSTS IS PRINTED RATHER THAN ABSORBED: at 360 a fifth of the content column is
+   about 60px, so the card carries what identifies the item and what it is worth, and
+   nothing else. The fields F1 owes moved to one receipt line per roll under the row. */
+.wf-won-grid { grid-template-columns: repeat(var(--wf-n, 1), minmax(0, 1fr)); }
+.wf-won-grid--2 { --wf-n: 2; }
+.wf-won-grid--3 { --wf-n: 3; }
+.wf-won-grid--4 { --wf-n: 4; }
+.wf-won-grid--5 { --wf-n: 5; }
+
+/* The card thins with its column instead of overflowing it. Below 900 the weapon name
+   and the wear line leave the card at four columns and above: they are the two fields
+   the receipt line under the row repeats anyway, and the skin name is the one a person
+   recognises the item by. */
+/* IN A CARD THE SELL CONTROL IS THE VERB AND THE NUMBER, nothing else. The unit is
+   already on the value directly above it, and "Sell for 24.60 coins" wraps to two lines
+   in a fifth of the content column, which is a control changing height by item. The
+   batch control below the row keeps its full sentence, because it has the room and it is
+   the one that acts on everything. */
+.wf-sell { padding-left: var(--wf-s-half); padding-right: var(--wf-s-half); white-space: nowrap; }
+/* The price and the act sit on one baseline across the row however many lines the name
+   takes. A row of cards whose controls are at five heights is five cards, not a set. */
+.wf-won-card { height: 100%; }
+.wf-won-card .wf-sell { margin-top: auto; }
+/* A skin name is one long word often enough that a fifth of 360px breaks it out of its
+   own card. It wraps inside the column instead, at whatever point it has to. */
+.wf-won-card .wf-won-name, .wf-won-card .wf-won-name > span {
+  min-width: 0; max-width: 100%; overflow-wrap: anywhere;
+}
+@media (max-width: 599px) {
+  .wf-won-grid--3 .wf-sell-w { display: none; }
+  /* Three columns of a 360 screen is about 95px, which is the same problem one step
+     later. Two columns keep their names: 160px is a line a skin name fits on. */
+  .wf-won-grid--3 .wf-won-name { display: none; }
+}
+@media (max-width: 899px) {
+  .wf-won-grid { gap: var(--wf-s-1); }
+  .wf-won-card { padding: var(--wf-s-1); gap: 2px; }
+  .wf-won-card .wf-won-art { min-height: 72px; }
+  .wf-won-card .wf-won-v { font-size: var(--wf-t-s); }
+  /* AT FOUR COLUMNS AND UP BELOW 900 THE NAME LEAVES THE CARD ENTIRELY, and this is the
+     honest end of the one-row decision rather than a place to stop carrying it. A fifth
+     of 360px is about 55px: a skin name there does not wrap, it breaks mid-word, and a
+     name broken into "Asii mo v" is not a name. What a person recognises a skin by at
+     that size is the picture, so the card keeps the artwork, the chance it landed
+     against and its price, and THE NAME IS ON THE RECEIPT LINE UNDER THE ROW, in the
+     same order, where it has a full line to sit on. */
+  .wf-won-grid--4 .wf-won-name, .wf-won-grid--5 .wf-won-name { display: none; }
+  .wf-won-grid--4 .wf-won-odds, .wf-won-grid--5 .wf-won-odds { font-size: 10px; }
+  .wf-won-grid--4 .wf-won-odds b, .wf-won-grid--5 .wf-won-odds b { font-size: var(--wf-t-xs); }
+  /* THE VERB STAYS AT EVERY WIDTH and only the words around the number go. A control
+     whose whole label is a number is not a control: it reads as another figure in a box,
+     on the one screen where the difference between reading and acting matters most. */
+  .wf-won-grid--4 .wf-sell-w, .wf-won-grid--5 .wf-sell-w { display: none; }
+  .wf-won-grid--4 .wf-btn, .wf-won-grid--5 .wf-btn { font-size: var(--wf-t-xs); min-height: 40px; }
+}
+
+/* The batch receipt. One line per roll, in the order of the row above, which is the
+   order of the reels. It is the only place float, pattern and phase are printed, so the
+   card is free to be narrow and F1 is satisfied at every width rather than at wide ones. */
+.wf-rolls {
+  margin: var(--wf-s-1) 0 0; padding: 0 0 0 1.6em; width: 100%;
+  font-size: var(--wf-t-xs); color: var(--wf-ink-dim);
+}
+.wf-rolls li { margin-bottom: 2px; }
+.wf-rolls-l { margin: var(--wf-s-1) 0 0; width: 100%; text-align: left; }
+.wf-rolls b { font-family: var(--wf-mono); font-weight: 400; color: var(--wf-ink); }
+
+/* NODE 3.4. The card keeps every field it had and is NOT greyed out of legibility: its
+   value and its chance are inputs to whether the case is still worth opening. What marks
+   it is a border and a sentence, not an opacity. */
+.wf-drops tbody tr.wf-row-out { border-color: var(--wf-ink-faint); border-style: dashed; }
+.wf-out-tag { display: block; font-size: var(--wf-t-xs); color: var(--wf-ink); }
+.wf-out-n { font-family: var(--wf-mono); }
+.wf-drops tbody tr.wf-row-out .wf-item-art { border-style: dashed; }
+
+/* 0.14 variant V1 at the spin trigger, pre-roll. It never interrupts, never modals and
+   never asks. Section 14: it truncates in the MIDDLE and keeps its copy control, and it
+   never grows to a second line during a reveal. */
+.wf-hash {
+  display: flex; flex-wrap: wrap; gap: var(--wf-s-1); align-items: center;
+  justify-content: center; max-width: 100%;
+}
+.wf-hash-l { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+.wf-hash-v { font-family: var(--wf-mono); font-size: var(--wf-t-s); white-space: nowrap; }
+
+/* PHASE 3. The item lands where the artwork and then the reveal were: the third state of
+   one region rather than a third layout. */
+.wf-won {
+  display: flex; flex-direction: column; align-items: stretch; gap: var(--wf-s-2);
+  width: 100%; max-width: 420px; text-align: center;
+}
+.wf-won-art {
+  width: 100%; min-height: 200px; border-radius: var(--wf-r-3);
+  background: var(--wf-surface); border: 1px dashed var(--wf-line-soft);
+}
+.wf-won-name .wf-d-weapon { font-size: var(--wf-t-s); }
+.wf-won-name .wf-d-skin { font-size: var(--wf-t-l); }
+/* The item's own published chance, D-34, above the picture as the founder capture has
+   it. Small, because it is a property of what landed and not a headline about the
+   person: 0.11 rule 7 draws that line and this stays on the right side of it. */
+.wf-won-odds { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); letter-spacing: 0.04em; }
+.wf-won-odds b { font-family: var(--wf-mono); font-weight: 400; color: var(--wf-ink); font-size: var(--wf-t-s); }
+
+/* THE INSTANCE VALUE RECEIPT IS A LINE, D-34. It was a bordered four column grid whose
+   last cell held a three line hole, on the one screen where the item is supposed to be
+   the event. F1 asks for the fields that make this THIS unit rather than a name; it
+   never asked for an object around them. They are printed at caption size beside the
+   value, and nothing was dropped to get there. */
+.wf-instance { margin: 0; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); max-width: 46ch; }
+.wf-instance b { font-family: var(--wf-mono); font-weight: 400; color: var(--wf-ink); }
+
+/* Blocks 3 and 4, the proof and the share, plus the inspect link F1 owes. Three routes
+   on one row rather than three sentences: they are destinations, and prose around a
+   destination is the page talking on a screen where the person has just won. */
+.wf-outcome-links {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: var(--wf-s-half) var(--wf-s-2); margin: 0; font-size: var(--wf-t-s);
+}
+
+/* TWO ROUTES ONWARD AND NEITHER IS A REPEAT KEY. Open again is a full control that
+   re-enters phase 1 with the cost visible, and Keep it is the one exit round 1 has. */
+.wf-outcome-acts { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); justify-content: center; }
+/* THE ACTS ARE THE ACCENT ON THIS SCREEN, D-38. Phase 3 is the one surface where the
+   page is not asking for a decision about money it is about to take, so the controls can
+   be the loudest thing on it without becoming pressure. Two, not three: the reference
+   carries a third, UPGRADE, and that capability does not exist here. */
+.wf-outcome-acts--big { gap: var(--wf-s-2); width: 100%; }
+.wf-outcome-acts--big > .wf-btn {
+  flex: 1 1 220px; min-height: 60px; font-size: var(--wf-t-m);
+  display: flex; align-items: center; justify-content: center;
+}
+@media (max-width: 599px) { .wf-outcome-acts--big > .wf-btn { flex-basis: 100%; } }
+/* The per item sell sits ON the item, because it is that item's price and not the
+   batch's. It is deliberately NOT a primary: the loud control is the batch one, and five
+   equally loud sell buttons would make liquidating the whole outcome the default read. */
+.wf-won-card .wf-btn { width: 100%; margin-top: auto; }
+
+/* THE RISK BAND GETS A ZONE RATHER THAN A LINE OF TEXT. D-24 made the band computable
+   from this screen's own drop table and 0.11 owns the method; neither the method nor the
+   thresholds is set, so it renders as a hole. A HOLE DRAWN AS A SENTENCE IN THE CORNER
+   IS A HOLE THAT HAS NO SIZE, and the block that lands there later has to find its own
+   room. Marked as a reserved zone, the layout is already the layout, and what arrives is
+   a value in a place rather than a new element in a full head. */
+.wf-risk {
+  display: flex; flex-direction: column; gap: 2px; justify-content: center;
+  min-width: 132px; min-height: var(--wf-tap); padding: var(--wf-s-1);
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
+}
+/* The reserved icon zone in the footer statistics band. Same move as the risk zone on
+   3.3: a hole with a size is a hole the layout has already paid for. It never becomes a
+   figure, 0.11 rule 8, and it carries aria-hidden because an empty box announces nothing
+   a caption has not already said. */
+.wf-fig-ico { display: grid; grid-template-columns: 28px 1fr; gap: var(--wf-s-1) var(--wf-s-2); align-items: start; }
+.wf-fig-ico .wf-icon {
+  grid-row: 1 / span 3; width: 28px; height: 28px;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
+}
+.wf-risk-l {
+  font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--wf-ink-dim);
+}
+
+/* Below 900 the stage gives height back to the entry cost, section 14's budget. THIS
+   BLOCK SITS AFTER THE BASE RULES ON PURPOSE: the same overrides once lived in the
+   head's media block further up, where they lost to the base declarations they were
+   meant to override. Equal specificity, later rule wins. A media query is not
+   specificity. */
+@media (max-width: 899px) {
+  .wf-stage-frame { padding: var(--wf-s-1); gap: var(--wf-s-1); }
+  .wf-case-art { min-height: 128px; }
+  .wf-lane > li { flex: 0 0 88px; height: 60px; }
+  .wf-risk { min-width: 0; }
+}
+/* THE TRIGGER IS THE LOUDEST THING ON THE PAGE, and in grey that is size rather than
+   colour. conventions.md section 1.6 gives every screen exactly one main action, and on
+   this screen it is the one act the whole page exists to inform. Both captures carry the
+   cost inside the trigger, which is what puts the number and the act in one glance; the
+   figure stays above it as well, because a number inside a button is a label and this
+   block owes a figure with a caption and a named hole. */
+.wf-commit .wf-btn--primary {
+  min-height: 52px; padding: var(--wf-s-1) var(--wf-s-4); font-size: var(--wf-t-m);
+}
+@media (min-width: 900px) {
+  .wf-stage-frame { padding: var(--wf-s-3); }
+  /* Alone on the stage since D-32, the artwork gets the room the lane was using. */
+  .wf-case-art { max-width: 560px; min-height: 280px; }
+  .wf-lane > li { flex: 0 0 132px; height: 88px; }
+}
+
+/* THE COMMIT BLOCK IS A UNIT WITH AN EDGE, not a cost floating above a button.
+   0.11 rule 10 calls it the last surface before money moves, so the cost, the peg
+   and the trigger are one object and cannot be separated by a scroll. */
+/* CONDENSED BY D-30, and the reason is on the record rather than in taste: it was a
+   display figure, a caption, a hole, a trigger and a sentence stacked in a 500px box.
+   THE SIZE OF A BLOCK IS NOT NEUTRAL. A commit block that fills the screen is the page
+   arguing for the act, and this is the one block on this product where that reads as
+   pressure rather than as emphasis. It is bounded as well, because a trigger stretched
+   across the full content column stops reading as one act on one object. */
+.wf-commit {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: var(--wf-s-1);
+  max-width: 560px; margin: 0 auto var(--wf-s-3);
+  padding: var(--wf-s-2);
+  border: 1px solid var(--wf-line); border-radius: var(--wf-r-3);
+  background: var(--wf-surface);
+}
+/* NO FRAME, D-32. A bordered box around the trigger was the block insisting on itself.
+   The trigger is already the loudest thing on the page, conventions.md section 1.6 gives
+   the screen exactly one main action, and a border around it adds emphasis to something
+   that has all of it. The unit still reads as one thing because its parts are stacked
+   and centred on one axis, which is what was doing the work anyway. */
+.wf-commit--bare { border: 0; background: none; padding: var(--wf-s-1) 0 var(--wf-s-2); }
+.wf-commit-cost { gap: 0; }
+.wf-commit-cost .wf-fig-v { font-family: var(--wf-mono); font-size: var(--wf-t-l); }
+
+/* THE PRICE AND THE ACT SIT IN ONE ROW, D-33. Two objects, one decision: what it costs
+   and what happens if I agree. Stacked they are read one after the other, and the second
+   one is the button, so the number is already behind the eye by the time the hand moves.
+   THE ROW HOLDS EXACTLY TWO THINGS AND THE SECOND IS ALWAYS THE TRIGGER. What the first
+   one is depends on the state, and that is the whole of the difference between them:
+   a guest gets the cost, because their trigger says "Sign in" and carries no total;
+   an account holder gets the count switch, because their trigger carries the total and
+   the switch is the thing that changes it. */
+.wf-commit-act {
+  display: flex; flex-wrap: wrap; align-items: stretch; justify-content: center;
+  gap: var(--wf-s-2); width: 100%;
+}
+/* In the row the cost stops being a stacked figure and becomes an object beside the
+   button: its own edge, the same height as the trigger, so the pair reads as a pair. */
+.wf-commit-act .wf-commit-cost {
+  justify-content: center; min-height: 52px;
+  padding: var(--wf-s-1) var(--wf-s-3);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+  background: var(--wf-surface);
+}
+/* THREE FIGURES IN ONE ROW, and the first of them is the cost. Design principle 3 asks
+   for odds, cost and expected value WHERE MONEY IS ABOUT TO BE SPENT, and 0.11 rule 10
+   calls this block the last surface before money moves. The section below the table is
+   where they are explained; this is where they are read. */
+/* THE COUNT SWITCH, D-31, one to five and no further. Five is a number a person can
+   hold and thirty is a number they accept. It defaults to one on every visit and
+   remembers nothing: a remembered five is a multiplier that spends without being chosen
+   again. THE TRIGGER BESIDE IT CARRIES THE TOTAL AND NEVER THE UNIT. */
+.wf-count { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-half); }
+.wf-count-l { font-size: var(--wf-t-s); color: var(--wf-ink-dim); margin-right: var(--wf-s-half); }
+.wf-count-b {
+  min-width: var(--wf-tap); min-height: var(--wf-tap); padding: 0;
+  font-family: var(--wf-mono); font-size: var(--wf-t-s);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: var(--wf-bg); color: var(--wf-ink-dim);
+}
+.wf-count-b[aria-pressed="true"] {
+  border-color: var(--wf-ink); color: var(--wf-ink); background: var(--wf-raised);
+}
+.wf-commit .wf-fig-c { margin: 0; max-width: 48ch; }
+
+/* 3.3 section 14: below 900 the commit block STICKS once it scrolls out of view and
+   sits directly above the mobile bar. Two fixed layers at 360 is a real cost and the
+   node names it rather than absorbing it, so the bar keeps its height and this layer
+   fits above it. IT NEVER DROPS THE ENTRY COST TO SAVE THAT HEIGHT, which is exactly
+   what design principle 3 forbids: the cost is the thing that may not hide. */
+@media (max-width: 899px) {
+  .wf-commit { max-width: none; }
+  .wf-commit .wf-btn--primary { width: 100%; }
+  .wf-count { justify-content: center; }
+  /* THE ROW BECOMES TWO ROWS at this width and neither half is dropped to save the
+     height. The trigger is already full width here, so the pair wraps on its own; this
+     gives the other half the same width rather than leaving a narrow chip centred over
+     a full width button, which reads as one object with a label floating above it. */
+  .wf-commit-act { gap: var(--wf-s-1); }
+  .wf-commit-act > * { flex: 1 1 100%; }
+}
+
+/* The condensed carrier that appears once the real commit block leaves the screen,
+   built by _nav.js. It sits directly above the mobile bar, which is the second fixed
+   layer the node names and accepts, and it does not exist at all from 900px because
+   there the commit block is beside the artwork and never leaves the first screen. */
+.wf-commit-bar { display: none; }
+@media (max-width: 899px) {
+  .wf-commit-bar {
+    position: fixed; left: 0; right: 0; bottom: var(--wf-bar-h); z-index: 39;
+    display: flex; gap: var(--wf-s-2); align-items: center; justify-content: space-between;
+    padding: var(--wf-s-1) var(--wf-s-2);
+    background: var(--wf-surface); border-top: 1px solid var(--wf-line);
+    transform: translateY(110%); transition: transform .18s ease;
+  }
+  .wf-commit-bar.is-on { transform: none; }
+  .wf-commit-bar-v { font-family: var(--wf-mono); font-size: var(--wf-t-m); white-space: nowrap; }
+  .wf-commit-bar .wf-btn { flex: 0 1 auto; min-width: 0; }
+}
+
+/* A table that scrolls inside its own box and never takes the page with it. The
+   page itself does not scroll sideways at any width, section 14. */
+.wf-tablewrap { overflow-x: auto; }
+.wf-table { width: 100%; border-collapse: collapse; font-size: var(--wf-t-s); }
+.wf-table th, .wf-table td { padding: var(--wf-s-1); text-align: left; vertical-align: top; }
+.wf-table thead th {
+  font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--wf-ink-dim); font-weight: 400;
+  border-bottom: 1px solid var(--wf-line-soft);
+}
+.wf-table tbody th { font-weight: 400; }
+.wf-table tbody tr + tr th, .wf-table tbody tr + tr td { border-top: 1px solid var(--wf-line-soft); }
+/* Every figure in a table is a figure: mono, so a column of them lines up and a
+   reader can compare two rows by eye without reading them. */
+.wf-table td { font-family: var(--wf-mono); }
+
+/* THE TIER GROUP HEADING IS NOT A HEADING. Four H3s in the drop table would break
+   the mechanical check that reads the H2 and H3 list against the block order, which
+   is the same defect the footer's four H2s were. The tier name is a row, and the
+   group carries the name a screen reader announces on its own tbody. */
+.wf-drops tbody + tbody .wf-tier-h td { border-top: 1px solid var(--wf-line); }
+.wf-tier-h td { padding-top: var(--wf-s-2); font-family: inherit; }
+.wf-tier-n { font-size: var(--wf-t-s); letter-spacing: 0.08em; text-transform: uppercase; }
+/* THE DROP TABLE IS A UNIFORM CARD GRID AT EVERY WIDTH, D-30. One column at 360, two
+   from 600, three from 900, four from 1200. All four live pages walked for this node
+   render a grid, and section 1 always said item cards while section 14 granted desktop
+   a multi column table; the two are now made to agree.
+   WHAT MAKES A GRID A COMPARISON RATHER THAN A WALL IS A RULE AND NOT A SHAPE: every
+   field sits in the same place on every card and no card omits one, so the grid is read
+   column-major exactly as a table is, and two items compared are two identical
+   anatomies. THE MARKUP STAYS A TABLE: a grid of divs would throw away the row group,
+   the caption and the header association in exchange for a layout CSS produces from the
+   table anyway. The column names travel onto the cells, because a header row that is
+   not beside its value is not a header. */
+.wf-drops thead { display: none; }
+.wf-drops, .wf-drops tbody, .wf-drops tr, .wf-drops th, .wf-drops td { display: block; }
+.wf-drops tbody { display: grid; grid-template-columns: 1fr; gap: var(--wf-s-1); }
+/* THE IMAGE IS THE PRIORITY AND THE INFORMATION SITS BESIDE IT, founder, 19 August
+   2026. A skin is recognised by its finish before it is recognised by its name, so the
+   artwork takes the left column at the card's full height and everything else is placed
+   explicitly in the two columns beside it. EXPLICIT PLACEMENT RATHER THAN AUTO FLOW,
+   because auto flow puts a figure wherever a cell is free and the rule this grid exists
+   for is that every field sits in the same place on every card. */
+.wf-drops tbody tr {
+  display: grid; grid-template-columns: minmax(84px, 30%) 1fr 1fr;
+  gap: var(--wf-s-1); align-content: start; padding: var(--wf-s-1);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+}
+/* THE ARTWORK IS ITS OWN CELL, so it can hold the left column at the card's full height
+   while the name sits with the figures it belongs to. Kept inside the row header it had
+   to share a narrow column with the name, and "Field-Tested . StatTrak . Covert" ran
+   three lines under a picture. The column exists in the head as well: a body cell with
+   no column is a table that only looks like one. */
+.wf-drops tbody .wf-art-c { grid-column: 1; grid-row: 1 / span 3; }
+.wf-drops tbody .wf-art-c::before { content: none; }
+.wf-drops tbody td:nth-of-type(2) { grid-column: 2; grid-row: 2; }
+.wf-drops tbody td:nth-of-type(3) { grid-column: 3; grid-row: 2; }
+.wf-drops tbody td:nth-of-type(4) { grid-column: 2; grid-row: 3; }
+.wf-drops tbody td:nth-of-type(5) { grid-column: 3; grid-row: 3; }
+.wf-drops tbody th, .wf-drops tbody td { border-top: 0; padding: 0; }
+/* The item cell is the artwork beside the name, not above it. Stacked, every row ran
+   about 120px tall and the figures sat level with the picture instead of level with the
+   name they describe, which is the one alignment a comparison needs. */
+/* The name takes the top of the information column, and it reserves two lines so the
+   figures under it start at the same height on every card in a row. A figure that sits
+   lower because the name above it is longer is a column that cannot be read across. */
+.wf-drops tbody th {
+  grid-column: 2 / -1; grid-row: 1;
+  display: block; min-width: 0; min-height: 3.2em;
+}
+.wf-drops tbody td::before {
+  content: attr(data-l); display: block;
+  font-family: var(--wf-font); font-size: var(--wf-t-xs); color: var(--wf-ink-dim);
+}
+.wf-drops .wf-tier-h {
+  grid-column: 1 / -1; display: block; padding: var(--wf-s-2) 0 0;
+  border: 0; border-radius: 0;
+}
+.wf-drops .wf-tier-h td { padding: 0; }
+.wf-drops .wf-tier-h td::before { content: none; }
+.wf-drops tbody + tbody .wf-tier-h td { border-top: 0; }
+/* THREE COLUMNS AND NOT FOUR, and the reason is the grouping rather than the width.
+   Each tier is its own grid, and the ladder walked for this node runs two or three items
+   in a tier. At four columns the fourth cell was empty in every tier on the page, which
+   reads as a broken layout rather than as a tier that holds two items. */
+@media (min-width: 600px) { .wf-drops tbody { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 900px) { .wf-drops tbody { grid-template-columns: repeat(3, 1fr); } }
+.wf-drops .wf-item-art { height: 100%; min-height: 96px; width: 100%; margin: 0; }
+.wf-d-name { display: block; min-width: 0; }
+.wf-d-weapon, .wf-d-skin, .wf-d-axes { display: block; }
+.wf-d-weapon { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-d-axes { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-drops tbody td { vertical-align: middle; }
+.wf-drops .wf-d-axes { line-height: 1.35; }
+
+/* The freshness stamp. Bank T3 DIFFERENT on skin.club: we take the stamp and refuse
+   the door it comes attached to. It covers the value column and says so, because a
+   stamp over both columns would claim the chance was re-read too. */
+.wf-stamp {
+  margin: 0 0 var(--wf-s-1); font-size: var(--wf-t-xs); color: var(--wf-ink-dim);
+}
+.wf-stamp .wf-fig-c { display: block; }
+
+/* The ticker at position 8 is inside a section rather than at the top of the page,
+   so it drops the full-bleed border the 1.0 instance carries. */
+.wf-ticker--flat { border-bottom: 0; padding-top: 0; }
+
+/* 3.3 section 14, and it is the node's word rather than a preference: "NOTHING SCROLLS
+   SIDEWAYS: the table wraps into cards rather than becoming a horizontally scrolled
+   grid. At 360px each card is one row of the table, full width, WITH CHANCE AND VALUE
+   ON THE SAME LINE so the pairing survives the width." Drawn as a table it needed 445px
+   inside 313 and scrolled inside its own box, which hides half of every row behind a
+   gesture: the same defect the featured grid on 1.0 exists to avoid, one level down.
+   The column headers move onto the cells, because a header row a person has scrolled
+   away from is not a header. */
+/* THE RECENT DROPS ROW, D-30. Time order and never sorted by value, no multiplier and
+   no person: the ticker at the foot of the page carries people and no values, this row
+   carries values and no people. It scrolls inside its own box at 360 for the same reason
+   the strip does, and it is a sample rather than an inventory, so a person who does not
+   scroll it has missed no number the page owed them. */
+.wf-recent {
+  display: flex; gap: var(--wf-s-1); list-style: none;
+  margin: 0 0 var(--wf-s-2); padding: 0 0 var(--wf-s-1); overflow-x: auto;
+}
+.wf-recent > li { flex: 0 0 136px; }
+.wf-recent a {
+  display: flex; flex-direction: column; gap: 2px; height: 100%;
+  padding: var(--wf-s-1); color: inherit; text-decoration: none;
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+}
+.wf-recent a:hover { border-color: var(--wf-line); }
+.wf-r-art {
+  height: 56px; margin-bottom: var(--wf-s-half);
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
+}
+.wf-r-w { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-r-s { font-size: var(--wf-t-s); }
+.wf-r-v { font-family: var(--wf-mono); font-size: var(--wf-t-s); margin-top: auto; }
+.wf-r-t { font-family: var(--wf-mono); font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+@media (min-width: 900px) {
+  .wf-recent { display: grid; grid-template-columns: repeat(6, 1fr); overflow: visible; }
+  .wf-recent > li { flex: none; min-width: 0; }
+}
+
+@media (max-width: 899px) {
+  /* The commit bar is a permanent layer at this width, so its height is a budget
+     rather than an afterthought: it and the mobile bar together may not take half the
+     first screen. Everything it holds is still on it, at the smallest size that stays
+     legible, because the one thing that may not be dropped for height is the cost. */
+  .wf-commit { padding: var(--wf-s-1) var(--wf-s-2); gap: var(--wf-s-half); }
+  .wf-commit .wf-fig-c { font-size: var(--wf-t-xs); }
+}

@@ -8,6 +8,12 @@
 
 **Sitemap transitions:** 1.0, 1.2, 2.4, 3.1, 4.1, 5.1, 6.1.
 
+**Baseline row, `0.1`.** The rule in `CLAUDE.md`: every node carries one baseline row, what the live product does, what we keep, what we change and why.
+
+| What the live product does | What we keep | What we change, and why |
+|---|---|---|
+| The header carries **two money figures side by side and never summed**, labelled `INVENTORY` and `BALANCE`, with a round `+` beside them for deposit. The rail is a full height icon column of nine destinations. `baseline-account.md` section 1. | **The money rule, exactly.** `CLAUDE.md` fixes two figures, balance and value of items held, never summed. **The canon already runs it**, which is the strongest confirmation in the capture. | The denomination, `C1`. And **the `+` control carries a permanent `5%` badge** advertising the standing deposit bonus, `baseline-account.md` section 5b.2. **Ours carries no badge:** a promotional percentage welded to a money control turns the shell into an advertisement that never stops running. |
+
 ---
 
 ## 0. This node was rebuilt on 11 August 2026, and the reason is worth more than the node
@@ -28,7 +34,7 @@ The baseline runs **three** carriers that do not overlap, `baseline.md`: the lef
 
 | Carrier | Owns | Never holds |
 |---|---|---|
-| **The rail**, full height at the leading edge, collapsible, a modal drawer on mobile | The logo at its top, **every** destination, and its own toggle on the seam. It is the complete list | Money. Actions. The account control |
+| **The rail**, full height at the leading edge, collapsible, a modal drawer on mobile | The logo at its top, **every** destination, its **ambient controls and social links at its foot** since `D-29`, and its own toggle on the seam. It is the complete list of destinations | Money. Actions. The account control |
 | **The header**, starting at the rail's edge | Money, the account control, and ambient controls | **Any destination at all.** No exception, not even the logo |
 | **The mobile bar**, below 900px only, added by `D-22` | A subset of the rail's destinations, plus Home | Money. Actions. Any item the rail does not hold |
 
@@ -88,7 +94,13 @@ Two sources are new to this rebuild because the component changed. Three are car
 
 **These two sentences point in opposite directions at two different moments in this product's life.** At round 1's count, three destinations for a guest and four with an account, Material would pick a bar. At the scope this product is locked to, nine rail destinations in the baseline and eight LATER surfaces in `CLAUDE.md`, Material forbids a bar outright. **The primary carrier is therefore built for the destination rather than for the round**, which is why it is the rail. The cost is named in section 3 rather than absorbed.
 
-**`D-22` did not overturn that conclusion, it added a second carrier beside it.** The floor sentence is what the mobile bar has to clear, and it clears it exactly: three destinations before an account. The ceiling sentence is the reason the bar can never become the primary carrier: at six destinations Material forbids it and the rail is still legal to seven. **The bar is a shortcut over the model, not the model.**
+**`D-22` did not overturn that conclusion, it added a second carrier beside it.** The floor sentence is what the mobile bar has to clear, and it clears it exactly: three destinations before an account.
+
+**Superseded in part on 19 August 2026 by `D-29`.** The rail then carried **one** destination before an account and two after, Cases plus My items, and Provably fair and Responsible play moved to the footer. **The floor sentence became violated rather than cleared:** the bar held Home plus Cases, which is two. `D-29` printed that instead of reinterpreting the quote, and named the two honest ways out without taking either.
+
+**Superseded again on 20 August 2026 by `D-40`, and this time the count is the same in both states.** **My items left the rail**, so the rail carries **one destination, Cases, whether or not there is an account**, and the bar carries **Home and Cases, two, in both states.** The floor is now missed for a signed-in person as well as for a guest. **The way out `D-29` named is unchanged and still not taken**, and this record is bigger than it was: the violation used to apply to one state.
+
+The rest of this section stands as written. The ceiling sentence is the reason the bar can never become the primary carrier: at six destinations Material forbids it and the rail is still legal to seven. **The bar is a shortcut over the model, not the model.**
 
 ### Apple Human Interface Guidelines, tab bars, carried
 
@@ -124,7 +136,7 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 |---|---|---|---|---|
 | **Destinations** | Cases | yes | yes | 3.1 |
 | | Provably fair | yes | yes | 1.2 |
-| | My items | no | yes | 5.1 |
+| | My items | **no**, `D-40` | **no**, `D-40`. It is in the account menu | 5.1 |
 | **Boundary and ambient** | Responsible play | yes | yes | 6.1 |
 | | Sound | yes | yes | no destination, `[?]` below |
 
@@ -188,9 +200,9 @@ Two disjoint sets would be two competing menus, which is the ambiguity Material'
 | 1 | Home | yes | yes | 1.0 |
 | 2 | Cases | yes | yes | 3.1 |
 | 3 | Provably fair | yes | yes | 1.2 |
-| 4 | My items | no | yes | 5.1 |
+| 4 | My items | **no**, `D-40` | **no**, `D-40`. It is in the account menu | 5.1 |
 
-**Three before an account, four after.** Three clears Material's own floor exactly: "Don't use a navigation bar for fewer than three destinations." Four sits well inside its ceiling of five.
+**Three before an account, four after.** **Two and three since `D-29`, which is below the floor and is printed as a violation in that record.** Three used to clear Material's own floor exactly: "Don't use a navigation bar for fewer than three destinations." Four sits well inside its ceiling of five.
 
 **Positions 1 to 3 never move and nothing is ever removed.** Exactly one slot is added, and it is added at the moment the person creates the thing it describes. That answers Apple's stability rule rather than arguing with it: "Don't disable or hide tab bar buttons, even when their content is unavailable." Section 2 records that this rule had been retired by `D-21` and is now back in force.
 
@@ -233,15 +245,51 @@ This is the state the founder specified. Left to right: rail toggle, logo, then 
 
 | Element | What it shows | Leads to |
 |---|---|---|
-| Account control | Avatar and display name | 5.1 |
-| **Balance**, upper figure | Spendable funds, in real currency | 4.1 |
-| **Value of items held**, lower figure | Current market value of the skins on the account, in real currency | 5.1 |
+| Account control | Avatar and display name, and **it opens the account menu** rather than navigating on its own | the menu, whose first item is 5.1 |
+| **Balance**, upper figure | Spendable funds, in coins, `D-28` | 4.1 |
+| **Value of items held**, lower figure | Current market value of the skins on the account, in coins, `D-28` | 5.1 |
 | Deposit control | A single add control beside the figures | 4.1 |
 | Responsible play, inside the money control | Persistent, unchanged from `D-19` | 6.1 |
 
+**The two figures are one stacked block and not a row, and that has been this node's word since it was written.** Upper and lower are structural, not decorative: the state matrix says "two lines" on desktop and "one line each" on mobile. Stage 04 drew them side by side with a vertical hairline between them and had to be corrected on 19 August 2026 against the founder's own baseline capture, which stacks them.
+
+**What replaces the hairline as the thing that stops them being added by eye.** The rule they carry is rule 2 below, never summed and never a total, and a vertical rule was one way to enforce it. Stacked, the separation is carried by weight and by caption instead: **the balance is the larger figure and the value of items held is smaller and dimmer, and each keeps its own caption on its own line.** Two figures of equal weight in a column is a receipt, which is the one reading this zone may not produce.
+
+### The account menu, added 19 August 2026 by founder decision
+
+**The account control opens a menu instead of navigating.** The baseline does this and the founder specified it from the baseline capture: avatar and display name, and the menu opens under them. The control keeps its accessible name and its route target as the menu's first item, so nothing that was reachable becomes unreachable.
+
+| Row | Node | Parent |
+|---|---|---|
+| **My items** | 5.1 | Related Job 5, and the inventory row `B7` at `cjm-to-be.md` |
+| **Roll history** | 5.9 | `F3` and Related Job 3, verify the outcome after I open. **Added by `D-36`** |
+| **Withdrawals** | 5.3 | `G1`, named states with a per-state clock |
+| **Profile** | 5.10 | **None. Founder decision `D-36`, and the empty cell is printed rather than filled** |
+| **Settings** | 5.11 | **None yet. What it holds in round 1 is `[?]`**, `D-36` |
+| **Responsible play** | 6.1 | The compliance constraint at `CLAUDE.md`, "responsible play tooling", plus this node's own requirement that the entry is persistent |
+| **Sign out** | none. It is a control rather than a destination | The account state itself |
+
+**Seven rows since 20 August 2026, and the count changed because the map changed rather than because the menu did.** Until that date this section carried four rows and refused PROFILE and SETTINGS on a stated argument: no node in the map held either, and `CLAUDE.md`'s rule is that a carrier is inherited and filled with live items while only a dead item is deferred, so a row for a page nobody has specified is the dead item defect inside a menu.
+
+**That argument was answered rather than overruled, and it is worth being exact about which.** The rule points at the gap without saying which side closes it. **The founder closed it on the map's side:** Profile, Settings and Roll history became nodes `5.10`, `5.11` and `5.9`, so the rows are live items now and the menu is filled with what exists, exactly as the rule requires. `docs/decisions.md` `D-36`.
+
+**What travelled with them is the price.** Two of the three have **no parent in the three legal classes** and say so in their own rows above and on the map. **Roll history is the one that arrived with a real parent**, `F3`, and it also inherits a real dependency: `D-C` decides whether roll history is retained per roll in a publishable form at all.
+
+**One sentence in the row above was also wrong and is corrected rather than left.** The Withdrawals row read "this is the record, and the map has no separate history node". **The map has one now**, and the two are different records: withdrawals are what left, rolls are what happened.
+
+**Responsible play is now in three carriers and that is deliberate rather than sloppy.** The footer column since `D-29`, the entry inside the money control, and this menu. Each answers a different moment: the footer is where a person reading the site finds it, the money control is where a person about to spend meets it, and the menu is where a person managing their account looks for it. **A brake that has to be searched for at the worst moment is not a brake**, which is the base layer's own sentence.
+
+**And since `D-40` the menu is the only place My items lives.** It was in the rail as well, and the rule this node opens with is that **no carrier holds another's kind**: My items is an account thing and the header owns the account. **The rail did not lose a destination, it stopped holding one twice.** What that costs is one extra tap from a case screen to the inventory on desktop, and it is the reason the rail is now identical in both states.
+
+**Hover is not the only way in, and this is an accessibility limit rather than a preference.** The founder's reference opens the menu on hover. Hover alone excludes touch entirely and the keyboard almost entirely, so the control opens on hover, on click and on Enter or Space, and closes on Escape, on a click outside and when focus leaves. `WCAG 2.2` is already carried by this node in section 2 for target size; the same section is why a hover-only disclosure does not ship.
+
+**No badge on the deposit control, and the reference shows exactly the badge being refused.** The baseline capture carries a green 5 percent on its add control. Rule 4 below blocks it behind a named model with a named owner. The **shape** is taken, a single compact add control beside the figures; the promotion welded onto it is not.
+
 ### Four rules the two figures carry, and every one of them is derived rather than styled
 
-**1. Both figures are in real currency and neither wears a coin.** `cjm-to-be.md` "3. Deposit", row `C1`: "one real currency throughout, no internal coin denomination anywhere", MVP and architecture, with the acceptance rule "no number renders anywhere without a currency mark". The baseline shows both of its figures against a branded coin glyph. **That glyph cannot cross.** This is the single hardest divergence in this node and it is not negotiable at IA level, because `C1` exists to make `B7-1` impossible: a payout cannot wear a label that is not a price.
+**1. Both figures are in coins, and neither is a coin nobody can price.** **Rewritten on 19 August 2026 by `D-28`**, which reversed `C1`. The old rule read "one real currency throughout, no internal coin denomination anywhere" and called the baseline's branded coin glyph the single hardest divergence in this node. **The founder took the coin, and the decision record prints what that cost: `C1` was the whole structural answer to `B7-1`, a pattern of 7.**
+
+**What the header owes instead is the peg, and the header is not where it goes.** `0.11` rule 10 puts the peg wherever money is spent, and the header is a persistent carrier rather than a spend moment: a conversion rate in a bar that is on screen at all times is wallpaper, and by the time it matters nobody reads it. **So the two figures carry the coin and their unit, and the peg lives on `4.1`, on `3.3` and on the withdrawal record**, which are the three places money actually moves. A header figure that carried the peg would also be the fourth number in a zone this node holds to two.
 
 **2. The two figures are never summed and never presented as a total.** They are different kinds. The upper one is spendable now. The lower one is an estimate of what a set of objects would fetch, and the only exit for those objects in round 1 is withdrawal to Steam, `cjm-to-be.md` "T7. The outcome". A combined number would read as net worth, which is a claim the product cannot honour, and it would sit one line above a deposit control.
 
@@ -259,14 +307,14 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 
 | Zone | Guest, desktop | Guest, mobile | Account, desktop | Account, mobile |
 |---|---|---|---|---|
-| **Rail** | Standard, beside content. Cases, Provably fair, divider, Responsible play | Modal drawer behind the menu icon, same items | Same plus My items | Modal drawer, same four |
-| **Mobile bar** | Does not exist at this width | Home, Cases, Provably fair | Does not exist at this width | Same three plus My items in slot 4 |
+| **Rail** | Standard, beside content. **Cases**, and the foot: sound, language, social | Modal drawer behind the menu icon, same items | **Cases. Identical to the guest rail since `D-40`** | Modal drawer, same one plus the same foot |
+| **Mobile bar** | Does not exist at this width | **Home, Cases.** Two, below Material's floor since `D-29`, printed as a violation there | Does not exist at this width | **The same two since `D-40`.** The bar no longer changes with the account at all |
 | **Brand and home** | Logo at the top of the rail, routes to 1.0 | **Logo is the drawer's first row.** The persistent route home is bar item 1 | Same | Same |
 | **Rail toggle** | On the junction of the two seams. Collapses to icons | Header, leading edge. Opens the modal drawer | Same | Same |
 | **Money** | Nothing. There is no balance before an account | Nothing | Balance and value of items held, two lines, with the deposit control | Both figures, condensed to one line each, deposit control kept |
 | **Account** | Sign in, routes to 2.4 | Sign in, routes to 2.4 | Avatar and name, routes to 5.1 | Avatar only, routes to 5.1 |
 | **Boundary** | Rail entry only. Nothing to limit yet | Rail entry only | Rail entry plus the entry inside the money control | Same |
-| **Ambient** | Sound control. Ticker 0.8 on 1.0 and 3.3 only | Sound control, `[?]` at this width | Same | Same |
+| **Ambient**, at the foot of the rail since `D-29`, never in the header | Sound control, language, social links. Ticker 0.8 on 1.0 only since `D-31` | **No sound control at this width**, answered by stage 04 on 18 August 2026: the one row rule in section 9 does not fit menu plus two figures plus deposit plus avatar plus sound at 360px, and the baseline makes the same cut at 390px. The ticker is unchanged | Same as guest desktop | **Same cut.** The control that matters during a reveal belongs to `3.5`, on the screen where the sound plays |
 
 **No role dimension.** One user role in round 1. No operator, moderator or seller view is in scope, so the matrix has two account states and nothing else. Stated so that a later stage does not read the absence as an oversight.
 
@@ -292,17 +340,17 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 |---|---|---|
 | Logo | Top of the rail on desktop, and the drawer's first row on mobile. Always the route home, never the control that expands the rail | 1.0 |
 | Rail toggle | Anchored to the junction of the two seams and tracks the rail's width. Desktop: collapse to icons and back, and the choice persists. Mobile: leading edge of the header, opens the modal drawer | current node |
-| Mobile bar, below 900px only | Positions 1 to 3 fixed, one slot added with an account and none ever removed. Destinations only, never money and never an action | 1.0, 3.1, 1.2, 5.1 |
+| Mobile bar, below 900px only | Positions fixed, destinations only, never money and never an action. **`D-29` took it to Home and Cases rising to three with My items, and `D-40` removed the third**, so it is two in both states and does not change on sign in | 1.0, 3.1 |
 | Home, mobile bar only | Position 1, active on arrival. **The only persistent route home at 360px** | 1.0 |
 | Cases | Enters the catalogue, not a case | 3.1 |
-| Provably fair | Public, works with no account, and holds its position after login | 1.2 |
-| My items, account only | Inventory with receipts, and the entry to withdrawal | 5.1 |
-| Responsible play | Rail, lower group, both states | 6.1 |
+| Provably fair | Public, works with no account. **Superseded by `D-29`:** it left the rail for its own footer column, and the claim below about holding its rail position in both states is what that decision cost | 1.2 |
+| My items | **Removed from both carriers by `D-40`.** It is the first row of the account menu, section 5, and the header owns the account | 5.1, from the menu |
+| Responsible play | **Superseded by `D-29`.** It left the rail on 19 August 2026 and is now carried by the footer column, by the entry inside the money control, and by the account menu | 6.1 |
 | Sound | Toggle only. Not a destination and never in the destination group | none |
 | Sign in, guest only | A single control in the header | 2.4 |
-| Account control, account only | Avatar and name | 5.1 |
-| Balance figure, account only | Spendable funds, real currency | 4.1 |
-| Value of items held, account only | Current market value, real currency, timestamped when stale | 5.1 |
+| Account control, account only | Avatar and name. **Opens the account menu**, four rows, section 5 | the menu, then 5.1 |
+| Balance figure, account only | Spendable funds, in coins | 4.1 |
+| Value of items held, account only | Current market value in coins, timestamped when stale | 5.1 |
 | Deposit control, account only | One add control. No badge in round 1 | 4.1 |
 | Active indicator | Exactly one destination is active at any time, **across the rail, the drawer and the mobile bar together**, never one in each | current node |
 
@@ -329,7 +377,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 - The modal drawer traps focus while open, returns focus to the menu icon on close, closes on Escape, and the menu icon carries `aria-expanded`. Material names three dismissals and a keyboard user gets a fourth
 - Every target at least **44 by 44 CSS pixels**, WCAG 2.5.5 AAA, chosen deliberately as recorded above
 - **Labels are never removed except in the collapsed rail variant**, where Material sanctions icon-only presentation and the expanded variant is one control away. Labels are one word, per Material's explicit requirement
-- Both money figures announce as text with their currency mark, never as an image or a background, so a crediting or stale state is readable rather than merely visible
+- Both money figures announce as text with their unit, never as an image or a background, so a crediting or stale state is readable rather than merely visible. **The unit is the coin, `D-28`, and it is a word rather than a glyph:** a branded coin mark read aloud is a brand name where a unit should be
 - The scrim is not the only affordance: the drawer is dismissible by keyboard and by an explicit close control, because a scrim is invisible to a screen reader user
 
 **No breadcrumbs in this node.** They belong to nodes with a parent to point at, 3.3 under 3.1. A global element cannot know where it is. **Corrected by the step 8 audit:** this line previously gave 7.1 a breadcrumb under 1.2, which `0.13` does not, and a result is not a child of the verifier.
@@ -338,7 +386,9 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 
 ## 9. Adaptive behaviour
 
-**Mobile is the base, 360px.** One header row: menu icon, then the money and account zone. A bottom bar with three destinations before an account and four after. The rail is a modal drawer, closed by default, and its first row is the logo.
+**Mobile is the base, 360px.** One header row: menu icon, then the money and account zone, **and no sound control since `D-29` moved it to the foot of the rail**. A bottom bar with **two destinations before an account and three after**, `D-29`. The rail is a modal drawer, closed by default, its first row is the logo, and its foot carries the sound control, the language and the social links.
+
+**The order inside the foot is a rule, not a layout preference.** The ambient pair sits **above** the social row: sound and language are controls of the session in progress, the social links are an **exit from the product**, and a control used inside does not sit below a link that leads out. On mobile the drawer scrolls, so the lowest row is the hardest to reach and belongs to what is needed least. **The pair shares one strip but not one affordance:** the sound control is a button, the language is a label with no border and no press state, because one language is locked and there is nothing to pick.
 
 **The logo leaves the mobile header, which reverses `D-21`, and `D-21` supplies the reason.** It was moved into the header for exactly one stated reason: the rail sits behind a menu icon and a route home may not. **Bar item 1 is now that route**, permanently visible, labelled, and never removed in either state. The reason has been met by a better carrier, so keeping the logo in the header as well would be two controls doing one job on the narrowest width the product supports. **It also returns the mobile header to the baseline's own composition:** `baseline.md` records that the baseline's mobile header keeps the hamburger, the money slot and the account control, and carries no logo. The brand mark is one tap away at the top of the drawer, where the rail keeps it at every other width.
 

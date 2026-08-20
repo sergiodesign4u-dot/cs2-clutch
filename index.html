@@ -121,7 +121,9 @@
             : '<span class="tag tag-soon">Soon</span>';
     var chips = r.leaves.length
       ? r.leaves.map(function (l) {
-          return l.done
+          // reachable, not finished: a stage in work whose hub exists is a link here
+          // too, or the roadmap lists a page nobody can open. Same rule as /_nav.js.
+          return (l.done || l.live)
             ? '<a class="page-chip" href="' + l.page + '">' + (l.pageLabel || l.label) + '</a>'
             : '<span class="page-chip">' + (l.pageLabel || l.label) + '</span>';
         }).join('')

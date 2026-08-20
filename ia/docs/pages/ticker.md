@@ -6,7 +6,7 @@
 
 **Jobs served.** Social Job 2, `jtbd.md` Section 3, be part of a platform that feels alive. Also Related Job 1 before login, arrive with enough confidence to try. **Parent class:** job, by row `A3`, which `cjm-to-be.md` marks **job only, no barrier** in its own priority cell and whose success signal is `[?]` because no isolated measurement of it exists.
 
-**Used by:** `1.0` Home and `3.3` Case screen. **Nowhere else, and that is a decision rather than an oversight**, section 3.
+**Used by:** `1.0` Home. **Amended 19 August 2026 by `D-31`:** it also rendered on `3.3` and the founder cut it from that screen. **Nowhere else, and that was a decision rather than an oversight**, section 3, which now has to answer a harder question than it was written for: **a component with one consumer is a component, or it is that screen's block.** This node does not resolve that and prints it, because the answer belongs with whoever specifies `1.0`'s shell, and because `3.3` may take it back.
 
 **Not a page.** It renders inside two nodes and it has no destination of its own. Every tile lands on `7.1`.
 
@@ -35,6 +35,7 @@
 | 5 | **The winner, as they choose to appear** | Live drop event | Row `A3`, **no invented names**, carried from `aarrr.md` Referral | job |
 | 6 | **Bot label, where a bot is present** | Live drop event | Row `A3` verbatim: any bot present in it labelled as one | job |
 | 7 | **The destination** | Shared result | `D-20`, which approved `7.1`, and `sitemap.md`: every tile lands on `7.1` | constraint, founder decision |
+| 8 | **The item image** | Skin | Main Job, `jtbd.md` Section 1, the same parent fields 2 and 3 carry: a skin is recognised by its finish before it is recognised by its name, and the strip is looked at rather than read. **Added 18 August 2026 by stage 04**, which section 7 named as this question's owner | job |
 
 **Field 5 was the one real fork on this node, and the loser is kept.** The alternative was a feed with **no names at all**, and its merit is genuine: a feed that carries no names cannot carry invented ones, so the pain `A3` exists to prevent becomes structurally impossible rather than policed. It was not taken because Social Job 2 is "real activity from real players", and a nameless strip answers a narrower question than the job asks. **It is the fallback if the labelling requirement in `A3` cannot be enforced at the data layer**, and that is a real risk rather than a rhetorical one: `baseline.md` section 3 records that the bot name problem was not visible in the tiles sampled during the baseline walk, and marks that `[?]` because one sample proves nothing about a live feed's distribution.
 
@@ -142,10 +143,19 @@ The baseline runs 26 tiles of 92px at 1440px, `baseline.md` section 3. At 360px 
 |---|---|---|
 | **Whether the winner appears at all** | Section 1 converges on yes and keeps the no. **The decision reverses if `A3`'s bot labelling cannot be enforced at the data layer**, and `baseline.md` section 3 marks the current state of that question `[?]` | Founder, plus whoever owns the feed data |
 | **The staleness threshold** | How long a silent feed stays running before it is degraded. `0.11` puts the strip in the real-time class, where any lag is a wrong answer, and gives no number | Production, with the feed |
-| **The minimum tile count** | The N below which the strip stops moving rather than looping, rule 5.2 | Stage 04, from the drawn width |
-| **Whether the tile carries the item image** | The map's field list has none and `baseline.md` section 3 does not record one either. Whether artwork is legible at 92px is a drawing question rather than a field question | Stage 04 |
 | **Volume and rate** | How many events per minute a real feed produces at launch, which decides whether the empty state or the running state is the common one on day one | Founder, question of fact to the live platform |
 | **Pause persistence beyond the session** | Section 2. A remembered preference is a setting, and this product has one settings surface, `6.1`, which is not the place for it | Production |
 | **The rarity treatment** | Seven tiers exist, one is conditional on the case, and whether the ladder is the game's own palette is `[?]`, `0.6` section 2 | Stage 06 |
+
+### Answered by stage 04, 18 August 2026
+
+**Two rows left the table above rather than being deleted from it**, because both were handed to a named owner and that owner has now drawn them. Both answers are measured on the etalon at 360px and 1440px, and both are recorded with their working in `wireframes/docs/screens.md` section 7.
+
+| Open item | The answer | What measured it |
+|---|---|---|
+| **The minimum tile count**, rule 5.2 | **Eight.** Below eight the strip is a static row and says so | One row at 360px holds 3.9 tiles of 92px, so a loop needs two screenfuls of tiles before it can run without a visible gap. The etalon draws twelve, the first count that still reads as a feed at 1440px |
+| **Whether the tile carries the item image** | **It does.** Field 8 above | The strip is read at a glance rather than read, and `baseline.md` section 3 runs artwork at exactly the 92 by 120 this component inherits, so legibility at that size is walked rather than assumed. Four text fields alone at 92px read as a list |
+
+**Neither answer touches rule 5.4 or rule 5.5.** The tile still offers exactly one destination and no second action, and rarity is still a tint plus a word in the accessible name. **An image is not a route and it is not a rarity label.**
 
 **And what belongs elsewhere.** The words in the empty and degraded states: stage 05. Where the strip sits on each of the two surfaces and how tall it is: nodes `1.0` and `3.3` at steps 5 and 6. The object every tile lands on: node `7.1`. The proof that object carries: node `0.14`. The item as it appears there: node `0.6`.

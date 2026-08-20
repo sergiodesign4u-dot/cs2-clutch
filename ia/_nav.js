@@ -5,10 +5,17 @@
  * from window.NAV_* globals and nav-* classes. Both scripts run on structure.html,
  * so a shared name would silently break the roadmap. Everything here is IA_NAV / ia-*.
  *
- * Only the hub, ia/structure.html, loads this file. It draws every node as a chip
- * into <div id="ia-structure">, split into Global elements and Pages. Node pages
- * themselves are NOT to load it: they only register one record here and render the
- * roadmap sidebar from ../_nav.js.
+ * The hub, ia/structure.html, draws every node as a chip into <div id="ia-structure">,
+ * split into Global elements and Pages. That is the entrance to the detail layer.
+ *
+ * Amended 18 August 2026. Node pages load this file too, before ../_nav.js, and they
+ * load it for the registry rather than for the renderer: the IIFE below looks for
+ * #ia-structure and returns immediately when there is none. The root renderer reads
+ * window.IA_NAV and puts the whole node list in the sidebar of the node you are
+ * standing on, with one route back to the chip index. Before that, leaving a node
+ * meant going back to the hub and finding the next chip by eye.
+ *
+ * The registry is still only here. The root file reads it and never copies it.
  *
  * Divergence from the pack, named rather than absorbed: the pack starts this array
  * empty and appends a record when a node is built. This registry instead carries the
@@ -51,9 +58,9 @@ window.IA_NAV = [
   { node: '1.2', label: 'Provably fair',           file: 'provably-fair.html', group: 'pages', type: 'page',        states: 2, done: true  },
 
   // Cluster 2. Get through the door.
-  { node: '2.1', label: 'Age and geo gate',        file: 'gate.html',       group: 'pages',  type: 'dialog',         states: 2, done: true  },
+  { node: '2.1', label: 'Geo gate',                file: 'gate.html',       group: 'pages',  type: 'dialog',         states: 1, done: true  },
   { node: '2.4', label: 'Sign in with Steam',      file: 'signin.html',     group: 'pages',  type: 'page',           states: 2, done: true  },
-  { node: '2.7', label: 'Identity verification',   file: 'identity.html',   group: 'pages',  type: 'page',           states: 2, done: true  },
+  { node: '2.7', label: 'Identity verification',   file: 'identity.html',   group: 'pages',  type: 'page',           states: 2, done: true  }, // LATER since D-26, kept on the map so the free-entry hole stays visible
 
   // Cluster 3. Choose what to open, and open it.
   { node: '3.1', label: 'Case catalogue',          file: 'catalogue.html',  group: 'pages',  type: 'page',           states: 1, done: true  },

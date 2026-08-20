@@ -12,6 +12,12 @@
 
 **Transitions:** `1.0` and `3.1`, per the detailed node map in `ia/docs/sitemap.md`. Support reaches `0.10` through the footer, section 2.
 
+**Baseline row, `0.3`.** The rule in `CLAUDE.md`: every node carries one baseline row, what the live product does, what we keep, what we change and why.
+
+| What the live product does | What we keep | What we change, and why |
+|---|---|---|
+| A probe URL returns **HTTP 404** with a real page: illustration, PAGE NOT FOUND, one line, one control. `baseline.md` section 9.6. | **The status code and the fact that a real page exists**, which is more than several competitors manage. | **The shell removal.** Their 404 has no rail, no header, no ticker and no footer, so a person who mistypes a URL loses every route in the product except home. **Ours keeps the shell**, because a wrong address is not a reason to strand someone. |
+
 ---
 
 ## 0. Two live failures, and they fail in opposite directions
@@ -77,7 +83,7 @@ One template, three fillings. A block that is absent on a surface is absent for 
 | Refused | Why |
 |---|---|
 | **The marketing sentence** | skin.club spends its one error line on one. `0.11` rule 1: a claim without a route is decoration that looks like evidence, and an error page is the worst place in the product to make one |
-| **The ticker `0.8`** | It renders on `1.0` and `3.3` only, by the placement rule in `sitemap.md`. A live feed of other people's wins beside our own failure is the tone this product does not have |
+| **The ticker `0.8`** | It renders on `1.0` only since `D-31`, by the placement rule in `sitemap.md`. A live feed of other people's wins beside our own failure is the tone this product does not have |
 | **Any live figure from `0.11`** | On 500 and 503 the source of those figures is the thing that failed. Rule 6 of that register makes a failed source degraded rather than frozen, and the cheapest way to obey it here is not to print the figure at all |
 
 **And that refusal meets one thing `0.2` already decided, so the two are reconciled here rather than left to collide.** The footer renders in full on these pages **including its statistics strip**, which is four live figures. `0.2`'s own transient table already answers it: a statistic that is unavailable states that it is unavailable with its last known timestamp and never renders a stale number as current. **So the strip renders in the unavailable state rather than being removed**, which is the same rule this node applies to the money figures in section 4, and neither node has to change.

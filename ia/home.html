@@ -146,11 +146,11 @@
 <div class="hero" id="overview">
   <div class="section-eyebrow">Information architecture, detail layer - node 1.0, with state 1.1</div>
   <h1>Home</h1>
-  <p class="lede">The reference node. A visitor who arrived pre-suspected decides here whether this place is real, and the entry to the main job is on the same screen, because <code>D-20</code> put the featured case grid directly on the page rather than behind a mode hub. <strong>Two loads on one surface, and the cost of that was accepted in writing before this node was drawn.</strong></p>
+  <p class="lede">The reference node. A visitor who arrived pre-suspected decides here whether this place is real, and the entry to the main job is on the same screen, because <code>D-20</code> put the featured case grid directly on the page rather than behind a mode hub. <strong>Two loads on one surface, and the cost of that was accepted in writing before this node was drawn.</strong> Rewritten on 18 August 2026 by <code>D-25</code>: a promotion banner above the hero, and the daily case as a tier ladder.</p>
   <div class="hero-meta">
-    <div><div class="hero-stat-value">8</div><div class="hero-stat-label">Content blocks, every one parented</div></div>
+    <div><div class="hero-stat-value">10</div><div class="hero-stat-label">Content blocks, two of them parentless and printed</div></div>
     <div><div class="hero-stat-value">3</div><div class="hero-stat-label">On the first screen at 360px</div></div>
-    <div><div class="hero-stat-value">12</div><div class="hero-stat-label">Open items, named not filled</div></div>
+    <div><div class="hero-stat-value">15</div><div class="hero-stat-label">Open items, named not filled</div></div>
     <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Walls, gates or modals on arrival</div></div>
   </div>
 </div>
@@ -182,6 +182,41 @@
 </section>
 
 <!-- ORDER -->
+<!-- REUSE -->
+<section id="reuse">
+  <div class="sec-head">
+    <h2>What this screen reuses, and what it owns</h2>
+    <p>Every screen in this product is a shell plus its own blocks. The split is fixed here so a later stage does not redraw a global by accident.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:38%">Reused, owned elsewhere</th><th style="width:12%">Node</th><th>What renders it</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The rail</strong>, logo slot, destinations, and its foot of ambient controls and social links</td><td><span class="surf">0.1</span></td><td>The global shell renderer, identical on every screen</td></tr>
+        <tr><td><strong>The header</strong>, the money figures and the account control, and no destination at all</td><td><span class="surf">0.1</span></td><td>The same renderer, in two account states</td></tr>
+        <tr><td><strong>The mobile bar</strong>, a shortcut subset of the rail</td><td><span class="surf">0.1</span></td><td>The same renderer, below 900px only</td></tr>
+        <tr><td><strong>The footer</strong>, four bands, with the compliance line inside its fourth column</td><td><span class="surf">0.2</span></td><td>The global footer renderer, identical on every screen</td></tr>
+        <tr><td><strong>The cookie dialog</strong></td><td><span class="surf">0.4</span></td><td>Its own layer, on first visit</td></tr>
+        <tr><td><strong>The case tile</strong> in B5</td><td><span class="surf">0.7</span></td><td>A component, also rendered by 3.1</td></tr>
+        <tr><td><strong>The skin card</strong> in B7</td><td><span class="surf">0.6</span></td><td>A component, also rendered by 3.3, 5.1 and 7.1</td></tr>
+        <tr><td><strong>The live drop ticker</strong> in B1</td><td><span class="surf">0.8</span></td><td>A component, rendered here and on 3.3 and nowhere else</td></tr>
+        <tr><td><strong>Every published figure</strong></td><td><span class="surf">0.11</span></td><td>A register, not a component: it fixes states, units and the peg rule</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>What this node owns, and nothing else renders</h4>
+    <p>The promotion banner <span class="blk">B2</span>, the hero <span class="blk">B3</span>, the row of ways to play <span class="blk">B4</span>, the daily ladder <span class="blk">B6</span>, the worked example <span class="blk">B7</span>, the proof route <span class="blk">B8</span>, the exit figures <span class="blk">B9</span>, the starter credit <span class="blk">B10</span> and the SEO text <span class="blk">B11</span>.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The practical consequence, and it is the reason this table exists</h4>
+    <p>A change to the rail, the header, the bar or the footer is a change to <span class="surf">0.1</span> or <span class="surf">0.2</span> and it lands on <strong>every</strong> screen at once. A change to a block below is this page's alone. <strong>If a fix touches a global, it is written in that global's node, never on the screen where it was noticed.</strong></p>
+  </div>
+</section>
+
 <section id="order">
   <div class="sec-head">
     <h2>The block order, reasoned from 360px</h2>
@@ -193,13 +228,16 @@
       <thead><tr><th>#</th><th>Block</th><th>What it carries</th><th>Parent, and its class</th></tr></thead>
       <tbody>
         <tr><td><span class="blk">B1</span></td><td><strong>Live drop ticker</strong></td><td>Component <span class="surf">0.8</span>: tile strip, source mode label, weapon and skin, rarity tint, <strong>a pause control</strong>, and a destination on every tile, <span class="surf">7.1</span></td><td>Social Job 2 by row <span class="row-code">A3</span>. <strong>job.</strong> The pause is design principle 2, "motion without an emotional or informational job gets cut"</td></tr>
-        <tr><td><span class="blk">B2</span></td><td><strong>The hero</strong></td><td>The single H1, the proposition in one line, the institutional trust unit <span class="row-code">A5</span>, one route into the main job</td><td><code>B1-1</code> and Related Job 1. <strong>barrier and job.</strong> <code>A5</code> also stands on DANGER 1's locked hybrid-hero resolution</td></tr>
-        <tr><td><span class="blk">B3</span></td><td><strong>Featured case grid</strong></td><td><span class="surf">0.7</span> tiles, five fields each, live free-unit counter <span class="row-code">A2</span>, plus one explicit route into the full shelf</td><td>Main Job and <code>D-20</code>; <code>A2</code> on <code>B8-1</code>. <strong>job and barrier</strong></td></tr>
-        <tr><td><span class="blk">B4</span></td><td><strong>One case, priced in full</strong></td><td>The worked example. <span class="surf">0.6</span> on the featured case's top item, live market price with a timestamp and an outbound link <span class="row-code">A1</span>, published chance and current value <span class="row-code">D2</span>, tested RTP and expected value at this entry cost <span class="row-code">D4</span>, and the cheaper-on-average statement in our own voice</td><td><code>B1-2</code> pattern of 14, <code>B2-1</code>, <code>B7-2</code>, plus design principle 3, "odds, cost and expected value are visible and legible". <strong>barrier and design principle</strong></td></tr>
-        <tr><td><span class="blk">B5</span></td><td><strong>Check any round, with no account</strong></td><td>What the proof covers and what it does not, in one short clause, and the route into <span class="surf">1.2</span></td><td>Design principle 1 as limited by <code>D-14</code>, plus Core Job 1. <strong>design principle and job.</strong> <span class="q">Not in the block bank</span>, and said out loud rather than added silently</td></tr>
-        <tr><td><span class="blk">B6</span></td><td><strong>The exit, priced before the entrance</strong></td><td>Rolling median and p90 <span class="row-code">A4</span>, commission-free withdrawal <span class="row-code">G6</span> against the Steam Market fee, payment marks pre-login, and the withdrawal threshold <span class="row-code">C4</span> stated here</td><td><code>B8-2</code> pattern of 6, <code>B4-3</code>, <code>B4-1</code>, Related Jobs 1 and 5. <strong>barrier and job</strong></td></tr>
-        <tr><td><span class="blk">B7</span></td><td><strong>The starter credit offer</strong></td><td><span class="row-code">I1</span>, bounded, with the withdrawal threshold in the same breath, and the route into <span class="surf">2.4</span></td><td>Related Job 2. <strong>job.</strong> Bound to <code>C4</code>, <code>D1</code> and <code>A1</code>, which are not optional</td></tr>
-        <tr><td><span class="blk">B8</span></td><td><strong>The SEO text block</strong></td><td>One H2 with a real heading tree under it</td><td><span class="surf">0.13</span>, the structural SEO layer, which <code>CLAUDE.md</code> puts inside IA. <strong>named requirement</strong></td></tr>
+        <tr><td><span class="blk">B2</span></td><td><strong>The promotion banner</strong></td><td>One promotion at a time: an image, one line, one control, and <strong>a countdown where the promotion has a real published end</strong>. Never a carousel and never a stack</td><td><strong><span class="q">None in the three legal classes.</span></strong> In by founder decision <code>D-25</code>, which also reverses the refusal of the countdown recorded in the block bank. <strong>none, printed</strong></td></tr>
+        <tr><td><span class="blk">B3</span></td><td><strong>The hero</strong></td><td>The single H1, the proposition in one line, the institutional trust unit <span class="row-code">A5</span>, one route into the main job</td><td><code>B1-1</code> and Related Job 1. <strong>barrier and job.</strong> <code>A5</code> also stands on DANGER 1's locked hybrid-hero resolution</td></tr>
+        <tr><td><span class="blk">B4</span></td><td><strong>The row of four ways to play</strong></td><td>One card per way to play. <strong>One is live and carries a control; three are not launched and say so in words</strong>, with no control, no link, no badge and no date</td><td><strong><span class="q">None in the three legal classes.</span></strong> In by founder decision of 19 August 2026, <code>D-27</code>, which partly reverses <code>D-20</code>. <strong>none, printed</strong></td></tr>
+        <tr><td><span class="blk">B5</span></td><td><strong>Featured case grid</strong></td><td><span class="surf">0.7</span> tiles as <code>D-24</code> rewrote them: artwork, name, entry cost, risk band, plus the stock marker <span class="row-code">A2</span> and the daily marker where each applies, plus the favourite. One explicit route into the full shelf</td><td>Main Job and <code>D-20</code>; <code>A2</code> on <code>B8-1</code>. <strong>job and barrier</strong></td></tr>
+        <tr><td><span class="blk">B6</span></td><td><strong>Daily cases, with the tier ladder</strong></td><td>The five tier ladder, the wager remaining figure in coins, the countdown to the reset, and the open control with the number of daily cases available</td><td><span class="row-code">I2</span>, which has <strong><span class="q">no parent in any of the three legal classes</span></strong>, <code>D-15</code>, <strong>and the ladder on top of it has none either</strong>. In by founder decision <code>D-25</code>. <strong>none, printed</strong></td></tr>
+        <tr><td><span class="blk">B7</span></td><td><strong>One case, priced in full</strong></td><td>The worked example. <span class="surf">0.6</span> on the featured case's top item, live market price with a timestamp and an outbound link <span class="row-code">A1</span>, published chance and current value <span class="row-code">D2</span>, tested RTP and expected value at this entry cost <span class="row-code">D4</span>, and the cheaper-on-average statement in our own voice</td><td><code>B1-2</code> pattern of 14, <code>B2-1</code>, <code>B7-2</code>, plus design principle 3, "odds, cost and expected value are visible and legible". <strong>barrier and design principle</strong></td></tr>
+        <tr><td><span class="blk">B8</span></td><td><strong>Check any round, with no account</strong></td><td>What the proof covers and what it does not, in one short clause, and the route into <span class="surf">1.2</span></td><td>Design principle 1 as limited by <code>D-14</code>, plus Core Job 1. <strong>design principle and job.</strong> <span class="q">Not in the block bank</span>, and said out loud rather than added silently</td></tr>
+        <tr><td><span class="blk">B9</span></td><td><strong>The exit, priced before the entrance</strong></td><td>Rolling median and p90 <span class="row-code">A4</span>, commission-free withdrawal <span class="row-code">G6</span> against the Steam Market fee, payment marks pre-login, and the withdrawal threshold <span class="row-code">C4</span> stated here</td><td><code>B8-2</code> pattern of 6, <code>B4-3</code>, <code>B4-1</code>, Related Jobs 1 and 5. <strong>barrier and job</strong></td></tr>
+        <tr><td><span class="blk">B10</span></td><td><strong>The starter credit offer</strong></td><td><span class="row-code">I1</span>, bounded, with the withdrawal threshold in the same breath, and the route into <span class="surf">2.4</span></td><td>Related Job 2. <strong>job.</strong> Bound to <code>C4</code>, <code>D1</code> and <code>A1</code>, which are not optional</td></tr>
+        <tr><td><span class="blk">B11</span></td><td><strong>The SEO text block</strong></td><td>One H2 with a real heading tree under it</td><td><span class="surf">0.13</span>, the structural SEO layer, which <code>CLAUDE.md</code> puts inside IA. <strong>named requirement</strong></td></tr>
       </tbody>
     </table>
   </div>
@@ -207,7 +245,10 @@
   <div class="card is-good">
     <h4>Why this order, and not another</h4>
     <p><strong>It runs in the order a suspicious person asks the questions.</strong> Alive, then who, then what, then what it really costs, then is the roll honest, then can I get out, then what does it cost me to find out.</p>
-    <p><strong>The two trust blocks are ordered by the size of the pattern behind them, which is checkable rather than a matter of taste.</strong> <code>B1-2</code>, the buy-instead advice, is a pattern of 14 and the largest in the corpus, so <code>A1</code> sits high at B4. <code>B8-2</code>, the withdrawal that goes silent, is a pattern of 6, so the exit block sits at B6.</p>
+    <p><strong>A third block was inserted on 19 August 2026 by <code>D-27</code>, and it is not part of the argument either.</strong> B4 sits directly under the hero because that is where the baseline puts it and because it answers "what can I do here" immediately after "who are you". <strong>It is the second thing on this page that is not evidence</strong>, and its cost is in the decision record: three of its four cards name something a person cannot do yet. They are drawn as not launched rather than as offers, which is the difference between marking a gap and advertising one.</p>
+
+    <p><strong>Two blocks were inserted into that order on 18 August 2026 by <code>D-25</code> and neither of them is part of the argument.</strong> The banner B2 sits between the ticker and the hero because that is where the baseline puts it, and it is <strong>the first thing on the page that is not evidence</strong>. The daily block B6 sits directly under the featured grid because it is a case offer and belongs with the case offers. <strong>Putting it any lower would have put a free entry after the starter credit, which is two free things in a row and the <code>B4-2</code> failure twice.</strong></p>
+      <p><strong>The two trust blocks are ordered by the size of the pattern behind them, which is checkable rather than a matter of taste.</strong> <code>B1-2</code>, the buy-instead advice, is a pattern of 14 and the largest in the corpus, so <code>A1</code> sits high at B7. <code>B8-2</code>, the withdrawal that goes silent, is a pattern of 6, so the exit block sits at B9.</p>
   </div>
 
   <div class="card is-note">
@@ -238,51 +279,63 @@
         </div>
 
         <div class="wf-blk">
-          <div class="wf-blk-h"><span class="wf-blk-n">B2</span><span class="wf-blk-t">H1, at the top of the hero</span></div>
-          <div class="wf-blk-b">Open CS2 cases with the chance, the value and the payout time on the page before you spend</div>
-          <div class="wf-blk-b" style="margin-top:6px"><em>A5</em> institutional trust unit: Trustpilot live or absent. <em>Auditor half absent, not a placeholder</em></div>
+          <div class="wf-blk-h"><span class="wf-blk-n">B2</span><span class="wf-blk-t">Promotion banner</span></div>
+          <div class="wf-blk-b">One promotion. Image, one line, one control, <em>countdown to a real published end</em></div>
+          <div class="wf-blk-b" style="margin-top:6px"><em>Absent when there is nothing to promote.</em> Never a placeholder, never a carousel</div>
         </div>
 
         <div class="wf-blk">
-          <div class="wf-blk-h"><span class="wf-blk-n">B3</span><span class="wf-blk-t">Featured case grid</span></div>
-          <div class="wf-tiles">
-            <div class="wf-tile"><b>Case name</b>items - cost - free units</div>
-            <div class="wf-tile"><b>Case name</b>items - cost - free units</div>
-          </div>
+          <div class="wf-blk-h"><span class="wf-blk-n">B3</span><span class="wf-blk-t">H1, under the banner</span></div>
+          <div class="wf-blk-b">Open CS2 cases with the chance, the value and the payout time on the page before you spend</div>
+          <div class="wf-blk-b" style="margin-top:6px"><em>A5</em> institutional trust unit: Trustpilot live or absent. <em>Auditor half absent, not a placeholder</em></div>
         </div>
 
         <div class="wf-fold"><span>Fold, 360 x 640</span></div>
 
         <div class="wf-blk">
-          <div class="wf-blk-h"><span class="wf-blk-n">B3</span><span class="wf-blk-t">... grid continues, then All cases</span></div>
+          <div class="wf-blk-h"><span class="wf-blk-n">B4</span><span class="wf-blk-t">Ways to play, two across</span></div>
+          <div class="wf-blk-b"><b>Cases</b>, live, with its control. <b>Case battles, Gunfights, Upgrade</b>, each reading "Not launched yet" with no control and no link, <code>D-27</code></div>
+        </div>
+        <div class="wf-blk">
+          <div class="wf-blk-h"><span class="wf-blk-n">B5</span><span class="wf-blk-t">Featured case grid, two across</span></div>
           <div class="wf-tiles">
-            <div class="wf-tile"><b>Case name</b>items - cost - free units</div>
-            <div class="wf-tile"><b>0 free units</b>visible and marked, never filtered</div>
+            <div class="wf-tile"><b>Case name</b>artwork - cost - risk band</div>
+            <div class="wf-tile"><b>Case name</b>artwork - cost - risk band</div>
+            <div class="wf-tile"><b>Case name</b>artwork - cost - risk band</div>
+            <div class="wf-tile"><b>Sold out</b>visible and marked, never filtered</div>
           </div>
+          <div class="wf-blk-b" style="margin-top:6px">Then one explicit route: <em>All cases</em></div>
         </div>
 
         <div class="wf-blk">
-          <div class="wf-blk-h"><span class="wf-blk-n">B4</span><span class="wf-blk-t">One case, priced in full</span></div>
+          <div class="wf-blk-h"><span class="wf-blk-n">B6</span><span class="wf-blk-t">Daily cases, tier ladder</span></div>
+          <div class="wf-strip"><span>Silver</span><span>Nova</span><span>Guardian</span><span>Legend</span><span>Elite</span></div>
+          <div class="wf-blk-b" style="margin-top:6px">Wagered <em>[?]</em> of <em>[?]</em>, in coins. Reset in <em>[?]</em>. Available: n case(s)</div>
+          <div class="wf-blk-b" style="margin-top:6px"><em>Never on 6.1. Never beside a limit. A tier gives a case and nothing else</em></div>
+        </div>
+
+        <div class="wf-blk">
+          <div class="wf-blk-h"><span class="wf-blk-n">B7</span><span class="wf-blk-t">One case, priced in full</span></div>
           <div class="wf-blk-b">Entry cost. Top item as <em>0.6</em>: value, chance, ticket range. Market price + as-of + outbound link. Tested RTP. EV at this cost. <em>The cheaper-on-average sentence</em></div>
         </div>
 
         <div class="wf-blk">
-          <div class="wf-blk-h"><span class="wf-blk-n">B5</span><span class="wf-blk-t">Check any round, no account</span></div>
+          <div class="wf-blk-h"><span class="wf-blk-n">B8</span><span class="wf-blk-t">Check any round, no account</span></div>
           <div class="wf-blk-b">Proves: fixed before the click. <em>Does not prove: the published chances.</em> No badge, in any variant</div>
         </div>
 
         <div class="wf-blk">
-          <div class="wf-blk-h"><span class="wf-blk-n">B6</span><span class="wf-blk-t">The exit, priced first</span></div>
+          <div class="wf-blk-h"><span class="wf-blk-n">B9</span><span class="wf-blk-t">The exit, priced first</span></div>
           <div class="wf-blk-b">Median and p90 from our own logs. Commission free against the Steam fee. Payment marks. <em>The withdrawal threshold, stated here</em></div>
         </div>
 
         <div class="wf-blk">
-          <div class="wf-blk-h"><span class="wf-blk-n">B7</span><span class="wf-blk-t">Starter credit</span></div>
+          <div class="wf-blk-h"><span class="wf-blk-n">B10</span><span class="wf-blk-t">Starter credit</span></div>
           <div class="wf-blk-b">Bounded, with the threshold in the same breath. <em>No countdown, no percentage badge</em></div>
         </div>
 
         <div class="wf-blk">
-          <div class="wf-blk-h"><span class="wf-blk-n">B8</span><span class="wf-blk-t">SEO text</span></div>
+          <div class="wf-blk-h"><span class="wf-blk-n">B11</span><span class="wf-blk-t">SEO text</span></div>
           <div class="wf-blk-b">One H2, three H3s, real content</div>
         </div>
 
@@ -299,17 +352,20 @@
 
       <div class="wf-legend">
         <div class="wf-leg"><span class="wf-leg-n">B1</span><span class="wf-leg-t"><b>The ticker earns the fold.</b> It is the only block that answers "do drops actually happen here" without asking anyone to read. Social Job 2 scores <b>3 for The Opener</b> with the note "ambient context sets mood on arrival", and arrival is exactly this moment. It is also the baseline's own placement</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">H1</span><span class="wf-leg-t"><b>The heading is the first thing after the shell.</b> Hellcase puts its H1 below 1,400px of product. A page whose heading is not on the first screen has not said what it is</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">B2</span><span class="wf-leg-t"><b>The banner is above the H1 by founder decision <code>D-25</code> and by nothing else.</b> It has no parent in the three legal classes. The block bank had refused it: "no parent in round 1, and a countdown is urgency attached to spending". <b>The reversal is printed rather than argued away</b></span></div>
+        <div class="wf-leg"><span class="wf-leg-n">H1</span><span class="wf-leg-t"><b>The heading is no longer the first thing after the shell, and that is what <code>D-25</code> cost.</b> The rule that survives is narrower and harder: the H1 still has to begin on the first screen, and <b>the banner is what gets measured against it</b>. Hellcase puts its H1 below 1,400px of product and that is the failure being kept out</span></div>
         <div class="wf-leg"><span class="wf-leg-n">A5</span><span class="wf-leg-t"><b>The institutional unit is in the hero, not further down.</b> DANGER 1 is closed and its locked design implication is a hybrid hero: the badge sits in the same hero unit</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">B3</span><span class="wf-leg-t"><b>The first grid row crests the fold rather than clearing it.</b> That is the point: the page has to read as product rather than as a marketing page, and the main job's tap 1 is a case tile</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">0.4</span><span class="wf-leg-t"><b>And the first arrival is worse than this.</b> The cookie dialog fires on arrival and lands on top of this screen at the width where it costs most. Two consequences are fixed: the H1 sits at the top of the hero, and no route in B2 is the only instance of that route on the page</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">B5</span><span class="wf-leg-t"><b>The grid no longer crests the fold at 360px, and that is the second thing <code>D-25</code> cost.</b> The page still reads as product because the grid is the next thing after the hero, and <code>D-24</code> bought back some of it: four fields per tile means <b>two across at this width</b></span></div>
+        <div class="wf-leg"><span class="wf-leg-n">B6</span><span class="wf-leg-t"><b>The ladder is the largest reversal on the page.</b> It answers the recorded risk in <code>I2</code>, that a daily free open teaches that opening is free, <b>by making the daily case earned through wagering instead</b>. One risk traded for another, and both are printed</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">0.4</span><span class="wf-leg-t"><b>And the first arrival is worse than this.</b> The cookie dialog fires on arrival and lands on top of this screen at the width where it costs most. <b>With a banner above the hero, a first-visit dialog and a banner can cover the H1 between them.</b> Stage 04 walks that exact combination, at 360px, on the first visit, as an acceptance step rather than a note</span></div>
       </div>
     </div>
   </div>
 
   <div class="card">
     <p><strong>What is deliberately not above the fold.</strong> The starter credit, for <code>B4-2</code> above. The exit figures, because a median withdrawal time answers a question nobody has asked at second zero. The SEO text, by construction.</p>
-    <p><strong>The ticker height is a budget rather than a number.</strong> The baseline runs 120px at 1440px. At 360px it may occupy <strong>one visual row and no more</strong>, and it may never push the H1 below the fold. The pixel value is stage 04's; the rule is this node's.</p>
+    <p><strong>The ticker height is a budget rather than a number, and <code>D-25</code> put the banner under the same instrument.</strong> The baseline runs the ticker at 120px at 1440px. At 360px the ticker may occupy <strong>one visual row and no more</strong>, and <strong>the banner takes what is left such that the H1 still begins on the first screen.</strong> The pixel values are stage 04's; the ceiling is this node's.</p>
+    <p><strong>Stage 04 accepting a banner that pushes the H1 out of the first screen at 360px is a failed acceptance, not a layout preference.</strong></p>
   </div>
 </section>
 
@@ -321,16 +377,16 @@
   </div>
 
   <div class="card">
-    <h4>B4. One case, priced in full, and it is the densest thing on the page</h4>
+    <h4>B7. One case, priced in full, and it is the densest thing on the page</h4>
     <p><strong>The gap it fills is measured rather than asserted.</strong> Hellcase publishes the full drop table with chance per item to three decimals pre-login, which is the strongest thing in the category. <strong>Neither Hellcase nor skin.club shows chance and current value on the same item</strong>, and skin.club hides odds behind a <code>[ CHECK ODDS RANGE ]</code> control. Neither prints RTP, expected value or an observed rate anywhere.</p>
-    <p><strong>Why one worked example rather than the figures on every tile.</strong> <span class="surf">0.7</span> is canonical and carries five fields. Adding chance, market price, RTP and expected value to every tile forks the canonical component for one page and turns the grid into a drop table, which is <span class="surf">3.3</span>'s job. <strong>One case, fully priced, does the argument once and leaves the grid readable.</strong></p>
+    <p><strong>Why one worked example rather than the figures on every tile.</strong> <span class="surf">0.7</span> is canonical and carries four fields. Adding chance, market price, RTP and expected value to every tile forks the canonical component for one page and turns the grid into a drop table, which is <span class="surf">3.3</span>'s job. <strong>One case, fully priced, does the argument once and leaves the grid readable.</strong></p>
     <p><strong>The strongest figure in it is the one a reader can check without leaving.</strong> Expected value at this entry cost is recomputable with arithmetic from the chance and the value printed in the same block.</p>
   </div>
 
   <div class="wf-stage">
-    <div class="wf-cap">B4 anatomy - the worked example, black and white until stage 06</div>
+    <div class="wf-cap">B7 anatomy - the worked example, black and white until stage 06</div>
     <div class="wf-phone" style="width:420px">
-      <div class="wf-phone-lbl">B4. One case, priced in full</div>
+      <div class="wf-phone-lbl">B7. One case, priced in full</div>
       <div class="wf-blk">
         <div class="wf-blk-h"><span class="wf-blk-n">0.6</span><span class="wf-blk-t">Top item of the featured case</span></div>
         <div class="wf-blk-b">Weapon, skin, wear, StatTrak flag, image, rarity. <em>Current value</em>. <em>Published chance</em>. Ticket range</div>
@@ -351,22 +407,22 @@
   </div>
 
   <div class="card is-fix">
-    <h4>B5. The one block that is not in the block bank</h4>
+    <h4>B8. The one block that is not in the block bank</h4>
     <p><strong>Said out loud rather than smuggled in.</strong> The T1 bank has no row for a pre-login fairness route because <strong>no competitor's landing page carries one</strong>: Key-Drop's provably fair route redirects to the login page, and skin.club's is an H3 inside a marketing About section. The bank's own move for that case is "TAKE the absence as the opportunity", and this is the same move on a different page type.</p>
     <p><strong>Parent, named as the rule requires:</strong> design principle 1 as limited by <code>D-14</code>, plus Core Job 1, where a public provably fair surface is one of three things no competitor offers pre-login. The sitemap already gives <span class="surf">1.0</span> a transition into <span class="surf">1.2</span>, so the route exists in the map before it exists in the block.</p>
-    <p><strong>Home renders no variant of <span class="surf">0.14</span>.</strong> That component has exactly four variants and none of them is a landing page. B5 is a route and a bounded claim, not a fifth variant, and this sentence exists so that a later stage does not add one.</p>
+    <p><strong>Home renders no variant of <span class="surf">0.14</span>.</strong> That component has exactly four variants and none of them is a landing page. B8 is a route and a bounded claim, not a fifth variant, and this sentence exists so that a later stage does not add one.</p>
   </div>
 
   <div class="card">
-    <h4>B6. The exit, priced before the entrance, and one figure that appears twice on purpose</h4>
+    <h4>B9. The exit, priced before the entrance, and one figure that appears twice on purpose</h4>
     <p><strong>The whole argument is the pairing:</strong> same block as Clash.gg's pre-login payment strip, earlier honesty, because ours names the withdrawal threshold in the same breath, <code>C4</code>, so the way out is priced where the way in is. The baseline scores 1 here, with no withdrawal information visible pre-login at all.</p>
-    <p><strong><span class="surf">0.11</span> reads <code>A4</code> on <span class="surf">1.0</span> before login, on <span class="surf">5.3</span>, and on <span class="surf">0.2</span> if the footer's statistics slot 2 is approved.</strong> If it is, the median and p90 render in B6 and again in the footer of the same page. They are one figure with one definition, one source and one as-of, and <strong>they may never disagree</strong>. That is what a register is for, and it is written down so that a later stage does not resolve the repetition by deleting the wrong one.</p>
+    <p><strong><span class="surf">0.11</span> reads <code>A4</code> on <span class="surf">1.0</span> before login, on <span class="surf">5.3</span>, and on <span class="surf">0.2</span> if the footer's statistics slot 2 is approved.</strong> If it is, the median and p90 render in B9 and again in the footer of the same page. They are one figure with one definition, one source and one as-of, and <strong>they may never disagree</strong>. That is what a register is for, and it is written down so that a later stage does not resolve the repetition by deleting the wrong one.</p>
   </div>
 
   <div class="card is-note">
-    <h4>B3. The featured grid, and the taxonomy it refuses to commit</h4>
+    <h4>B5. The featured grid, and the taxonomy it refuses to commit</h4>
     <p>Refero's District screen puts a category tile row under the hero, and it is a TAKE in the bank. <strong>Our category taxonomy is <span class="q">[?]</span> and rides on <code>D-D</code></strong>, the same decision <span class="surf">0.13</span> makes category URLs conditional on. A row of category entries here would commit a taxonomy that may not exist. The craft point survives in the reduced form: <strong>one grid and one named route into the full shelf, never eighteen stacked shelves.</strong></p>
-    <p><strong>Zero-stock is visible, never filtered.</strong> A featured tile whose free-unit counter reads zero stays in the grid and says so, per <code>D1</code>: the shelf is legibly empty rather than silently short.</p>
+    <p><strong>Zero-stock is visible, never filtered.</strong> A featured tile whose entries are all at zero stays in the grid and says so through the stock marker, per <code>D1</code>: the shelf is legibly empty rather than silently short.</p>
   </div>
 </section>
 
@@ -383,13 +439,17 @@
       <tbody>
         <tr><td><strong>Ticker B1</strong></td><td>Unchanged</td><td>Unchanged</td></tr>
         <tr><td><strong>State strip</strong></td><td>Does not exist</td><td><strong>Inserted directly under the ticker.</strong> Balance, the next step, daily free entry status</td></tr>
-        <tr><td><strong>Hero B2</strong></td><td>First screen: H1, proposition, <code>A5</code>, one route</td><td>The H1 stays and stays single. The <code>A5</code> unit <strong>moves below the grid</strong>, because the person has already answered the question it exists for</td></tr>
-        <tr><td><strong>Grid B3</strong></td><td>Unchanged</td><td>Unchanged, and now the second thing on the first screen</td></tr>
-        <tr><td><strong>B4 to B8</strong></td><td>Unchanged</td><td>Unchanged</td></tr>
-        <tr><td><strong>Shell</strong></td><td>Sign in in the header, three rail items, three bar items</td><td>Two money figures and the deposit control in the header, four rail items, four bar items</td></tr>
+        <tr><td><strong>Banner B2</strong></td><td>Present, absent, or present without a countdown</td><td>Unchanged. <strong>The banner does not know the account state</strong>, and a promotion that changes by whether a person is signed in is a second banner wearing one name</td></tr>
+        <tr><td><strong>Hero B3</strong></td><td>First screen: H1, proposition, <code>A5</code>, one route</td><td>The H1 stays and stays single. The <code>A5</code> unit <strong>moves below the grid</strong>, because the person has already answered the question it exists for</td></tr>
+        <tr><td><strong>Grid B5</strong></td><td>Unchanged</td><td>Unchanged, and now the second thing on the first screen</td></tr>
+        <tr><td><strong>Daily B6</strong></td><td><strong>The ladder renders as a description of what exists</strong>, with no progress and no wager figure, because a guest has none. The control routes to <span class="surf">2.4</span></td><td>The ladder with the person's own tier, the wager remaining figure in coins, the reset countdown, and the count of cases available</td></tr>
+        <tr><td><strong>B7 to B11</strong></td><td>Unchanged</td><td>Unchanged</td></tr>
+        <tr><td><strong>Shell</strong></td><td>Sign in in the header, <strong>one rail item, two bar items</strong></td><td>Two money figures and the deposit control in the header, <strong>two rail items, three bar items</strong>. Each money figure carries its own route, balance to <span class="surf">4.1</span> and value of items held to <span class="surf">5.1</span></td></tr>
       </tbody>
     </table>
   </div>
+
+  <p><strong>The shell row was superseded on 19 August 2026 by <code>D-29</code></strong> and the counts above are the ones that hold. It read "three rail items, three bar items" against "four rail items, four bar items", written when the rail still carried Provably fair and Responsible play. <code>D-29</code> moved both into the footer and left the rail with Cases, plus My items once an account exists. The old counts are recorded rather than deleted because they are what the fold argument was measured against.</p>
 
   <p><strong>Nothing is removed in either direction.</strong> This is the signed-out YouTube home taken literally: one page, a state-dependent strip, not a different page, and never a login wall.</p>
 
@@ -410,22 +470,30 @@
           <div class="wf-blk-h"><span class="wf-blk-n">1.1</span><span class="wf-blk-t">The state strip, three slots and no fourth</span></div>
           <div class="wf-blk-b"><em>Balance</em>, the same value the header shows and never a second computation of it</div>
           <div class="wf-blk-b"><em>The next step</em>, exactly one, resolved by the ladder</div>
-          <div class="wf-blk-b"><em>Daily free entry</em>: available, or used with the moment it resets. <b>Not a countdown</b></div>
+          <div class="wf-blk-b"><em>Daily free entry</em>: available, or used with the moment it resets. <b>Not a countdown, and this survives <code>D-25</code>:</b> the countdown lives in B6 beside the thing it times, never in a strip that is on the screen at all times</div>
         </div>
         <div class="wf-blk">
-          <div class="wf-blk-h"><span class="wf-blk-n">B2</span><span class="wf-blk-t">H1</span></div>
+          <div class="wf-blk-h"><span class="wf-blk-n">B2</span><span class="wf-blk-t">Promotion banner</span></div>
+          <div class="wf-blk-b">Identical to the guest state. <em>The banner does not know the account state</em></div>
+        </div>
+        <div class="wf-blk">
+          <div class="wf-blk-h"><span class="wf-blk-n">B3</span><span class="wf-blk-t">H1</span></div>
           <div class="wf-blk-b">Same H1, same URL. <em>The A5 unit moves below the grid</em></div>
         </div>
         <div class="wf-blk">
-          <div class="wf-blk-h"><span class="wf-blk-n">B3</span><span class="wf-blk-t">Featured case grid</span></div>
+          <div class="wf-blk-h"><span class="wf-blk-n">B4</span><span class="wf-blk-t">Ways to play, two across</span></div>
+          <div class="wf-blk-b"><b>Cases</b>, live, with its control. <b>Case battles, Gunfights, Upgrade</b>, each reading "Not launched yet" with no control and no link, <code>D-27</code></div>
+        </div>
+        <div class="wf-blk">
+          <div class="wf-blk-h"><span class="wf-blk-n">B5</span><span class="wf-blk-t">Featured case grid</span></div>
           <div class="wf-tiles">
-            <div class="wf-tile"><b>Case name</b>items - cost - free units</div>
-            <div class="wf-tile"><b>Case name</b>items - cost - free units</div>
+            <div class="wf-tile"><b>Case name</b>artwork - cost - risk band</div>
+            <div class="wf-tile"><b>Case name</b>artwork - cost - risk band</div>
           </div>
         </div>
         <div class="wf-fold"><span>Fold, 360 x 640</span></div>
         <div class="wf-blk is-shell">
-          <div class="wf-blk-b">B4 to B8 unchanged, then the footer</div>
+          <div class="wf-blk-b">B7 to B11 unchanged, then the footer</div>
         </div>
       </div>
 
@@ -465,7 +533,7 @@
   <div class="card is-note">
     <h4>Figure states are inherited whole, and one of them is load bearing today</h4>
     <p>Every figure on this page inherits all seven states from <span class="surf">0.11</span>. <strong>Missing</strong> is an explicit "not available", never a zero and never a dash. <strong>Degraded</strong> shows the last known value with the fact that the source is failing, or nothing at all where a wrong number is worse than no number. <strong>Withdrawn</strong> is where <code>A5</code>'s auditor half sits today, and where <code>A4</code> would go if <code>D-C</code> comes back negative.</p>
-    <p><strong>And <code>D-C</code> stands above all of them.</strong> The internal observed-against-published check runs on live platform data before any of this is drawn and is scheduled before stage 04. If it fails, the rows conditional on it are not redesigned, they are withdrawn, and this page loses B4's <code>D4</code> figures and part of B6.</p>
+    <p><strong>And <code>D-C</code> stands above all of them.</strong> The internal observed-against-published check runs on live platform data before any of this is drawn and is scheduled before stage 04. If it fails, the rows conditional on it are not redesigned, they are withdrawn, and this page loses B7's <code>D4</code> figures and part of B9.</p>
   </div>
 </section>
 
@@ -473,11 +541,11 @@
 <section id="desktop">
   <div class="sec-head">
     <h2>Desktop, designed rather than stretched</h2>
-    <p>The same order in more columns. No block is added, removed or reordered at any width.</p>
+    <p>The same order in more columns. No block is added, removed or reordered at any width. <strong>At 1440px the ticker, the banner, the hero and the first grid row all sit on the first screen, which is why <code>D-25</code> is cheap here and expensive at 360px.</strong></p>
   </div>
 
   <div class="wf-stage">
-    <div class="wf-cap">Desktop from 900px - the rail beside the content, and the eight blocks in the same order</div>
+    <div class="wf-cap">Desktop from 900px - the rail beside the content, and the ten blocks in the same order</div>
     <div class="wf-scroll">
       <div class="wf-desk">
         <div class="wf-rail">
@@ -493,9 +561,13 @@
             <div class="wf-blk-h"><span class="wf-blk-n">B1</span><span class="wf-blk-t">Ticker, content width, baseline height</span></div>
             <div class="wf-strip"><span>AK-47</span><span>Glock</span><span>AWP</span><span>M4A1-S</span><span>USP-S</span><span>Karambit</span><span class="is-ctl">II</span></div>
           </div>
+          <div class="wf-blk">
+            <div class="wf-blk-h"><span class="wf-blk-n">B2</span><span class="wf-blk-t">Promotion banner, full bleed across the content column</span></div>
+            <div class="wf-blk-b">One promotion, one control, countdown to a real published end. <em>No second slot beside it at any width</em></div>
+          </div>
           <div class="wf-cols" style="margin-bottom:7px">
             <div class="wf-blk">
-              <div class="wf-blk-h"><span class="wf-blk-n">B2</span><span class="wf-blk-t">H1 and the proposition</span></div>
+              <div class="wf-blk-h"><span class="wf-blk-n">B3</span><span class="wf-blk-t">H1 and the proposition</span></div>
               <div class="wf-blk-b">One route into the main job</div>
             </div>
             <div class="wf-blk">
@@ -504,38 +576,47 @@
             </div>
           </div>
           <div class="wf-blk">
-            <div class="wf-blk-h"><span class="wf-blk-n">B3</span><span class="wf-blk-t">Featured grid, four columns, then All cases</span></div>
+            <div class="wf-blk-h"><span class="wf-blk-n">B4</span><span class="wf-blk-t">Ways to play, four columns</span></div>
+            <div class="wf-blk-b"><b>Cases</b>, live, with its control. <b>Case battles, Gunfights, Upgrade</b>, each reading "Not launched yet" with no control and no link, <code>D-27</code></div>
+          </div>
+          <div class="wf-blk">
+            <div class="wf-blk-h"><span class="wf-blk-n">B5</span><span class="wf-blk-t">Featured grid, four columns, then All cases</span></div>
             <div class="wf-tiles is-4">
-              <div class="wf-tile"><b>Case</b>cost - free</div>
-              <div class="wf-tile"><b>Case</b>cost - free</div>
-              <div class="wf-tile"><b>Case</b>cost - free</div>
-              <div class="wf-tile"><b>Case</b>0 free, marked</div>
+              <div class="wf-tile"><b>Case</b>artwork - cost - risk band</div>
+              <div class="wf-tile"><b>Case</b>artwork - cost - risk band</div>
+              <div class="wf-tile"><b>Case</b>artwork - cost - risk band</div>
+              <div class="wf-tile"><b>Case</b>sold out, marked and never filtered</div>
             </div>
+          </div>
+          <div class="wf-blk">
+            <div class="wf-blk-h"><span class="wf-blk-n">B6</span><span class="wf-blk-t">Daily cases, the ladder as one horizontal run</span></div>
+            <div class="wf-strip"><span>wagered [?] of [?]</span><span>Silver</span><span>Nova</span><span>Guardian</span><span>Legend</span><span>Elite</span><span class="is-ctl">open</span></div>
+            <div class="wf-blk-b" style="margin-top:6px">Reset in <em>[?]</em>. <em>At 360px it is a vertical run and never a horizontal scroll</em></div>
           </div>
           <div class="wf-cols" style="margin-bottom:7px">
             <div class="wf-blk">
-              <div class="wf-blk-h"><span class="wf-blk-n">B4</span><span class="wf-blk-t">The item, as 0.6</span></div>
+              <div class="wf-blk-h"><span class="wf-blk-n">B7</span><span class="wf-blk-t">The item, as 0.6</span></div>
               <div class="wf-blk-b">Value, chance, ticket range</div>
             </div>
             <div class="wf-blk">
-              <div class="wf-blk-h"><span class="wf-blk-n">B4</span><span class="wf-blk-t">The four figures</span></div>
+              <div class="wf-blk-h"><span class="wf-blk-n">B7</span><span class="wf-blk-t">The four figures</span></div>
               <div class="wf-blk-b">Market price and as-of, outbound link, tested RTP, EV at this cost</div>
             </div>
           </div>
           <div class="wf-blk">
-            <div class="wf-blk-h"><span class="wf-blk-n">B5</span><span class="wf-blk-t">Check any round, no account</span></div>
+            <div class="wf-blk-h"><span class="wf-blk-n">B8</span><span class="wf-blk-t">Check any round, no account</span></div>
             <div class="wf-blk-b">Short by design. One clause and one route into <em>1.2</em></div>
           </div>
           <div class="wf-blk">
-            <div class="wf-blk-h"><span class="wf-blk-n">B6</span><span class="wf-blk-t">The exit, as one row of cells</span></div>
+            <div class="wf-blk-h"><span class="wf-blk-n">B9</span><span class="wf-blk-t">The exit, as one row of cells</span></div>
             <div class="wf-strip"><span>median</span><span>p90</span><span>0% commission</span><span>payment marks</span><span>threshold</span></div>
           </div>
           <div class="wf-blk">
-            <div class="wf-blk-h"><span class="wf-blk-n">B7</span><span class="wf-blk-t">Starter credit, full width band</span></div>
+            <div class="wf-blk-h"><span class="wf-blk-n">B10</span><span class="wf-blk-t">Starter credit, full width band</span></div>
             <div class="wf-blk-b">Bounded, threshold restated, route into <em>2.4</em></div>
           </div>
           <div class="wf-blk wf-measure">
-            <div class="wf-blk-h"><span class="wf-blk-n">B8</span><span class="wf-blk-t">SEO text, constrained measure</span></div>
+            <div class="wf-blk-h"><span class="wf-blk-n">B11</span><span class="wf-blk-t">SEO text, constrained measure</span></div>
             <div class="wf-blk-b"><em>Never full width.</em> It is the one block on the page read as prose</div>
           </div>
           <div class="wf-blk is-shell">
@@ -616,22 +697,25 @@
       <thead><tr><th>Order</th><th>H2</th><th>Block</th></tr></thead>
       <tbody>
         <tr><td>1</td><td><em>no H2</em></td><td><span class="blk">B1</span> ticker. A labelled region rather than a section</td></tr>
-        <tr><td>2</td><td><em>no H2</em></td><td><span class="blk">B2</span> hero. Its heading is the page's H1</td></tr>
-        <tr><td>3</td><td><code>Cases you can open right now</code></td><td><span class="blk">B3</span></td></tr>
-        <tr><td>4</td><td><code>What this case actually costs</code></td><td><span class="blk">B4</span></td></tr>
-        <tr><td>5</td><td><code>Check any round without an account</code></td><td><span class="blk">B5</span></td></tr>
-        <tr><td>6</td><td><code>Getting your skin out</code></td><td><span class="blk">B6</span></td></tr>
-        <tr><td>7</td><td><code>Your first open, without a deposit</code></td><td><span class="blk">B7</span></td></tr>
-        <tr><td>8</td><td><code>What opening a case here involves</code></td><td><span class="blk">B8</span>, with three H3s inside it</td></tr>
+        <tr><td>2</td><td><em>no H2</em></td><td><span class="blk">B2</span> banner. A labelled region. <strong>Its line is body text at any size and it never takes H1 or H2 markup</strong></td></tr>
+        <tr><td>3</td><td><em>no H2</em></td><td><span class="blk">B3</span> hero. Its heading is the page's H1</td></tr>
+        <tr><td>4</td><td><code>Ways to play</code></td><td><span class="blk">B4</span>. <strong>Its four card names are H3s</strong>, so the row has a heading tree rather than four bold lines</td></tr>
+        <tr><td>6</td><td><code>Cases you can open right now</code></td><td><span class="blk">B5</span></td></tr>
+        <tr><td>5</td><td><code>Your daily case</code></td><td><span class="blk">B6</span></td></tr>
+        <tr><td>7</td><td><code>What this case actually costs</code></td><td><span class="blk">B7</span></td></tr>
+        <tr><td>8</td><td><code>Check any round without an account</code></td><td><span class="blk">B8</span></td></tr>
+        <tr><td>9</td><td><code>Getting your skin out</code></td><td><span class="blk">B9</span></td></tr>
+        <tr><td>10</td><td><code>Your first open, without a deposit</code></td><td><span class="blk">B10</span></td></tr>
+        <tr><td>11</td><td><code>What opening a case here involves</code></td><td><span class="blk">B11</span>, with three H3s inside it</td></tr>
       </tbody>
     </table>
   </div>
-  <p><strong>Two blocks carry no H2, and the rule is written so the stage 04 check stays mechanical.</strong> Every content block carries an H2 in order; the hero does not, because its heading is the H1; the ticker does not, because it is a labelled region rather than a section.</p>
+  <p><strong>Three blocks carry no H2, and the rule is written so the stage 04 check stays mechanical.</strong> Every content block carries an H2 in order; the hero does not, because its heading is the H1; the ticker and the banner do not, because both are labelled regions rather than sections. <strong>The banner's exemption is the one that has to be enforced rather than assumed:</strong> a promotion is the block most likely to arrive from a marketing hand with a heading already on it.</p>
 
   <h3>C. SEO text, finished</h3>
   <div class="card">
-    <p>Rendered in block B8, under the H2 <code>What opening a case here involves</code>.</p>
-    <p>"A case is a fixed set of CS2 skins with a published chance on each one. You pay the entry cost, one roll decides the item, and the item moves to your Steam inventory when you withdraw it. <strong>Nothing here is priced in a coin or a token</strong>: every figure on this page is in real currency, so what you read is what it costs."</p>
+    <p>Rendered in block B11, under the H2 <code>What opening a case here involves</code>.</p>
+    <p>"A case is a fixed set of CS2 skins with a published chance on each one. You pay the entry cost in coins, one roll decides the item, and the item moves to your Steam inventory when you withdraw it. <strong>What one coin is worth in real money is published wherever money is spent</strong>, so a price can be converted back by the person reading it rather than only by us."</p>
     <p><strong>The numbers we publish before you spend.</strong> "Every case prints the chance and the current value of each item it holds, the tested return to player for that case, and the expected value at that entry cost. The number of units we actually hold of each item is printed on the item, <strong>because a chance at something we cannot deliver is not a chance</strong>."</p>
     <p><strong>What happens when you want to leave.</strong> "Withdrawal goes to your Steam inventory and we take no commission on it. How long it takes is published on this page from our own logs, as a middle time and a slow-case time, and every withdrawal in progress shows which side it is waiting on: us, Steam, or you."</p>
     <p><strong>What the fairness proof covers, and what it does not.</strong> "Every round is committed before you click and can be recomputed afterwards with a published algorithm, by us or by any tool you trust. That proves the outcome was fixed before the click and was not altered after it. <strong>It does not prove that the published chances are the chances used</strong>, and that is a different question with a different answer: the observed rate stands beside the published one on every case."</p>
@@ -662,11 +746,11 @@
       <li><strong>The H2 list matches the block order</strong>, with the two stated exceptions.</li>
       <li><strong>No breadcrumb</strong>: a breadcrumb to yourself is decoration.</li>
       <li><strong>Canonical self, no hreflang</strong>, host resolved once at production.</li>
-      <li><strong>Every route is a crawlable <code>&lt;a href&gt;</code></strong>: every grid tile into <code>/cases/&lt;slug&gt;</code>, every ticker tile into <code>/r/&lt;id&gt;</code>, the shelf route into <code>/cases</code>, B5 into <code>/provably-fair</code>, B7 into <code>/signin</code>.</li>
+      <li><strong>Every route is a crawlable <code>&lt;a href&gt;</code></strong>: every grid tile into <code>/cases/&lt;slug&gt;</code>, every ticker tile into <code>/r/&lt;id&gt;</code>, the shelf route into <code>/cases</code>, B8 into <code>/provably-fair</code>, B10 into <code>/signin</code>.</li>
       <li><strong>Text, never an image, for every figure.</strong> They are the product's entire pre-login argument, and an image removes them from search and from a screen reader in one stroke.</li>
       <li><strong>LCP is the hero or the first grid row, and never the ticker.</strong> A moving strip as the largest contentful paint makes the metric depend on an animation, and design principle 5 makes speed a product rule.</li>
       <li><strong>CLS: every block reserves its height before its figures arrive.</strong></li>
-      <li><strong>The meta description has a source on the page</strong>: every claim in it is rendered in B4 and B6.</li>
+      <li><strong>The meta description has a source on the page</strong>: every claim in it is rendered in B7 and B9.</li>
       <li><strong>The accessible name of a figure carries its unit and its as-of</strong>, not the bare digits. Real-time counters update silently rather than announcing, and a degraded or missing figure is announced in text rather than by colour alone.</li>
     </ol>
   </div>
@@ -676,7 +760,7 @@
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
-    <p>Twelve open items. One of them is a contradiction between two files that this node resolved for itself and cannot fix at the source.</p>
+    <p>Fifteen open items. Three of them arrived with <code>D-25</code>, and one is a contradiction between two files that this node resolved for itself and cannot fix at the source.</p>
   </div>
 
   <div class="table-wrap">
@@ -687,14 +771,18 @@
         <tr><td><strong>How many tiles the featured grid holds</strong></td><td>It rides on <code>D-D</code>, inventory capital for stock-backed tables. Two boundaries are fixed here and the number is not: it may not be small enough to read as the dead item defect, and it may not grow into the shelf <span class="surf">3.1</span> owns</td><td>Founder, with the treasury answer</td></tr>
         <tr><td><strong>How the featured set is chosen</strong></td><td>"Featured" is a claim about why these cases and not others. Hand-curated, by volume, by margin, by stock: <strong>nothing anywhere in this repository says</strong></td><td>Founder, before stage 04</td></tr>
         <tr><td>Whether the daily free case appears in the grid</td><td>It is an addressable case on <span class="surf">3.1</span> by the sitemap's obligation, and <span class="surf">0.7</span> carries a daily marker "where it applies". <span class="surf">0.1</span> carries the matching open item for the rail and reaches the same conclusion: either it becomes a node or it stays inside <span class="surf">3.1</span></td><td>Same owner as the row above</td></tr>
+        <tr><td><strong>What the banner promotes in round 1</strong></td><td>Nothing exists to put in it. The block ships with an absent state that renders nothing, <strong>so the page is complete without an answer and incomplete with a placeholder</strong></td><td>Founder, whenever there is a promotion</td></tr>
+        <tr><td><strong>The daily reset, and the wager figure that unlocks each tier</strong></td><td>The entity marks availability and reset <span class="q">[?]</span>, and no tier boundary is written anywhere. <strong>The countdown does not render and the ladder cannot state a target until both are set</strong></td><td>Founder, with the treasury</td></tr>
+        <tr><td><strong>Whether the ladder survives its own review</strong></td><td><code>D-25</code> reversed <span class="surf">0.7</span> rule 5.3 to allow it and printed the cost: <strong>the ladder removes the impression that opening is free by making spending the route to a free case</strong>. Nobody has yet reviewed that trade against the responsible play surface it deliberately never touches</td><td>Founder, before stage 04 draws it</td></tr>
         <tr><td>Whether we have a Trustpilot score at all</td><td><code>A5</code> requires it live or absent. Whether the redesigned product inherits the baseline's reviews, starts empty, or is a different entity is not decided anywhere</td><td>Founder</td></tr>
         <tr><td>The named auditor</td><td><code>A5</code>'s other half. Nobody in the category has one and we do not either. <strong>It cannot render today</strong></td><td>Founder</td></tr>
         <tr><td>The rolling window for the median and p90</td><td>Seven days, thirty, ninety. The length is part of the claim and has to be printed with it</td><td>Founder with the data, before stage 04</td></tr>
         <tr><td>Who tests our RTP</td><td>Tested by whom, over how many opens, republished when. Block C's second paragraph depends on the answer</td><td>Founder</td></tr>
         <tr><td>The starter credit amount and its bounds</td><td><code>I1</code> is bounded and the bounds are written nowhere. The competitor range is a fact about them</td><td>Founder</td></tr>
+        <tr><td>Whether B10 renders to a signed-in person at all</td><td>Added 19 August 2026 by the step 9 audit. The state matrix says B7 to B11 are unchanged in both states, and <span class="surf">1.1</span> was drawn with B10 replaced by a second withdrawal-threshold block, which put the same missing figure on one page twice and dropped <code>I1</code> from the account render with nothing recorded. <strong>The render has been put back to the matrix.</strong> Whether an offer whose whole subject is a first open without a deposit should be shown to a person who already has an account is a product answer the matrix never gave</td><td>Founder</td></tr>
         <tr><td>The withdrawal threshold value, <code>C4</code></td><td>The rule is fixed, stated before the deposit and never rising. The number is <span class="q">[?]</span></td><td>Founder</td></tr>
         <tr><td>The payment marks</td><td>Which providers we run is a contract, the same answer <span class="surf">0.2</span> gives for its own row</td><td>Founder</td></tr>
-        <tr><td><strong>The <span class="surf">0.6</span> "used by" list in the sitemap</strong></td><td>It omits <span class="surf">1.0</span>, while <span class="surf">0.11</span> places <span class="surf">0.6</span> on Home twice, for current value <code>D2</code> and for the free-unit count <code>A2</code>. <strong>Resolved for this node in favour of the register, because block B4 cannot exist without it, and unresolved in that file</strong></td><td>Node <span class="surf">0.6</span>, or the step 8 audit</td></tr>
+        <tr><td><strong>The <span class="surf">0.6</span> "used by" list in the sitemap</strong></td><td>It omits <span class="surf">1.0</span>, while <span class="surf">0.11</span> places <span class="surf">0.6</span> on Home twice, for current value <code>D2</code> and for the free-unit count <code>A2</code>. <strong>Resolved for this node in favour of the register, because block B7 cannot exist without it, and unresolved in that file</strong></td><td>Node <span class="surf">0.6</span>, or the step 8 audit</td></tr>
       </tbody>
     </table>
   </div>
@@ -703,7 +791,7 @@
     <h4>And what belongs elsewhere</h4>
     <p><strong>The words in any string on this page.</strong> Stage 05, which syncs the voice-aligned version back into block C.</p>
     <p><strong>How the grid, the figures and the hero look.</strong> Stages 06 and 07.</p>
-    <p><strong>Whether <code>D-C</code> returns yes at all</strong>, which decides whether half of B4 and part of B6 are drawn. Not a design question.</p>
+    <p><strong>Whether <code>D-C</code> returns yes at all</strong>, which decides whether half of B7 and part of B9 are drawn. Not a design question.</p>
   </div>
 
   <a class="backlink" href="structure.html#1.0">Back to Structure (1.0)</a>
@@ -723,6 +811,7 @@ window.NAV_ACTIVE_LABEL = '1.0 Home';
 window.NAV_SECTIONS = [
   { id: 'overview', label: 'Overview' },
   { id: 'loads',    label: 'Two loads' },
+  { id: 'reuse',    label: 'Reused vs owned' },
   { id: 'order',    label: 'Block order at 360px' },
   { id: 'blocks',   label: 'The blocks' },
   { id: 'states',   label: 'States and 1.1' },
@@ -732,6 +821,7 @@ window.NAV_SECTIONS = [
   { id: 'open',     label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

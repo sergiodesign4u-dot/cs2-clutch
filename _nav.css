@@ -54,6 +54,8 @@ a.nav-top:hover { color: var(--nav-fg); background: rgba(255, 255, 255, 0.05); }
 .nav-item.is-partial > .nav-top { color: var(--nav-fg); }
 .nav-item.is-soon > .nav-top { color: var(--nav-muted); cursor: default; }
 .nav-item.is-active > .nav-top { color: var(--nav-fg); font-weight: 700; }
+/* In work and openable: it is not done, and it is not out of reach either. */
+.nav-item.is-live > .nav-top { color: var(--nav-fg); }
 .nav-item.is-active::before {
   content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
   width: 2px; border-radius: 2px; background: var(--nav-active);
@@ -80,6 +82,38 @@ a.nav-subitem.is-current { color: var(--nav-active); opacity: 1; font-weight: 60
 .nav-section { padding: 4px 8px; font-size: 12px; color: var(--nav-muted); text-decoration: none; border-left: 1px solid transparent; }
 .nav-section:hover { color: var(--nav-fg); }
 .nav-section.is-current { color: var(--nav-fg); border-left-color: var(--nav-active); }
+
+/* Inner panel: the world of one hub, instead of the roadmap, while you stand inside it */
+.nav-inner-back {
+  display: block; margin: 2px 0 10px; padding: 7px 9px; border-radius: 7px;
+  font-size: 12px; letter-spacing: 0.01em; text-decoration: none;
+  color: var(--nav-fg); background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--nav-rule);
+}
+.nav-inner-back::before { content: '\2190\00a0'; color: var(--nav-muted); }
+.nav-inner-back:hover { background: rgba(233, 77, 139, 0.12); border-color: var(--nav-active); }
+.nav-inner-title {
+  padding: 2px 2px 6px; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--nav-active);
+}
+.nav-inner .nav-siblings { border-left: 1px solid var(--nav-rule); padding-left: 6px; }
+.nav-siblings-own { display: flex; flex-direction: column; padding-bottom: 6px; margin-bottom: 4px; border-bottom: 1px dashed var(--nav-rule); }
+
+/* Sibling list: every node of the hub you came from, on the node you are standing on */
+.nav-siblings { flex: 1 1 100%; display: flex; flex-direction: column; margin: 2px 0 6px; }
+.nav-siblings-head { padding: 9px 8px 3px; font-size: 9px; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--nav-muted); opacity: 0.75; }
+.nav-sibling {
+  display: flex; align-items: baseline; gap: 7px;
+  padding: 4px 8px; border-radius: 6px; text-decoration: none;
+  color: var(--nav-fg); opacity: 0.72;
+}
+a.nav-sibling:hover { opacity: 1; background: rgba(255, 255, 255, 0.05); }
+.nav-sibling.is-soon { opacity: 0.45; cursor: default; }
+.nav-sibling.is-current { color: var(--nav-active); opacity: 1; font-weight: 600; background: rgba(233, 77, 139, 0.08); }
+.nav-sibling-n { flex: 0 0 30px; font-family: 'SF Mono', Menlo, monospace; font-size: 10px; color: var(--nav-muted); }
+.nav-sibling.is-current .nav-sibling-n { color: var(--nav-active); }
+.nav-sibling-l { flex: 1 1 auto; min-width: 0; font-size: 12.5px; line-height: 1.35; }
+.nav-siblings > .nav-sections { padding-left: 37px; margin: 0 0 5px; }
 
 /* Off-canvas below 900px */
 .nav-toggle {

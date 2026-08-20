@@ -144,6 +144,19 @@
 </div>
 
 <!-- SCOPE -->
+<section id="baseline-row">
+  <div class="sec-head">
+    <h2>Baseline row</h2>
+    <p>The rule in <code>CLAUDE.md</code>: every node carries one baseline row, what the live product does, what we keep, what we change and why.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:36%">What the live product does</th><th style="width:22%">What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody><tr><td>A bar across the bottom of the page: an icon, the consent text, links to the Cookie Policy and the Privacy Policy, an <strong>ACCEPT</strong> button and an <strong>X</strong>. <code>baseline.md</code> section 9.3, corrected there on 18 August 2026 after a first reading missed it.</td><td>The placement and the restraint of a bar rather than a blocking modal.</td><td><strong>Consent is assumed by continued use, there is no reject control, and the X dismisses without a recorded choice.</strong> All three are refused here. A dialog whose only control is accept has not asked a question.</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
 <section id="scope">
   <div class="sec-head">
     <h2>What this node decides, and what it refuses to</h2>
@@ -457,6 +470,7 @@ window.NAV_BASE = '../';
 window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.4 Cookie consent';
 window.NAV_SECTIONS = [
+  { id: 'baseline-row', label: 'Baseline row' },
   { id: 'overview',  label: 'Overview' },
   { id: 'scope',     label: 'What it decides' },
   { id: 'ground',    label: 'The legal ground' },
@@ -469,6 +483,7 @@ window.NAV_SECTIONS = [
   { id: 'open',      label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>

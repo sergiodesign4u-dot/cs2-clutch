@@ -476,7 +476,7 @@ It also settles Material's caution structurally rather than by instruction: "avo
 
 The founder specified the pair. Four rules were derived from files that already exist, and each one is a constraint the baseline's own version does not meet.
 
-1. **Both figures are in real currency and neither wears a coin.** `cjm-to-be.md:208`, row `C1`, MVP and architecture: "one real currency throughout, no internal coin denomination anywhere". The baseline renders both figures against a branded coin glyph. That glyph cannot cross. `C1` exists to make `B7-1` impossible: a payout cannot wear a label that is not a price.
+1. **Both figures are in real currency and neither wears a coin.** `cjm-to-be.md:208`, row `C1`, MVP and architecture: "one real currency throughout, no internal coin denomination anywhere". The baseline renders both figures against a branded coin glyph. That glyph cannot cross. `C1` exists to make `B7-1` impossible: a payout cannot wear a label that is not a price. **Superseded on 19 August 2026 by `D-28`, which reversed `C1`.** The record stands as written because a decision record says what was decided then; what the product does now is in `D-28` and in `0.11` rule 10.
 2. **The two are never summed and never presented as a total.** The upper one is spendable now, the lower one is an estimate of what a set of objects would fetch, and round 1 has exactly one exit for those objects, withdrawal to Steam. A combined number would read as net worth, one line above a deposit control.
 3. **The lower figure is a current market value, never profit, gain or growth.** It moves without the person acting. A figure that can fall is honest only if it never claimed to be a score. **Parent:** design principle 1 as limited by `D-14`, "published chance, current value and tested RTP", plus row `B7`, the account and inventory with each item carrying its receipt. The header figure is the sum of those receipts and reconciles with 5.1 exactly.
 4. **No percentage badge on the deposit control in round 1.** The baseline runs a green 5 percent badge on its add control. `cjm-to-be.md:282` cuts any first-deposit bonus in round 1, including the zero-wagering variant, because `aarrr.md:224` requires case mathematics to be modelled first and that model does not exist. Blocked behind a named model with a named owner, not forbidden forever.
@@ -637,3 +637,530 @@ It opens no market. It verifies no fee. It does not answer whether a Cypriot con
 ### Consequence for the map, and it changes a state rather than a paragraph
 
 **Under a blocklist the person most likely to meet a refusal meets `blocked`. Under an allowlist they meet `not launched`, and those are two different messages.** `not launched` says we have not reviewed this market, which is not a legal verdict and must not be dressed as one. Section 11 of node `0.12` already separates the two verdicts and section 9 already requires a ground in readable words. **What changes is which of them is the common case**, so node `2.2` draws both, with `not launched` as the default rather than the exception. That is the acceptance test at stage 04.
+
+---
+
+## D-24. The case tile is rebuilt around the image, gains a risk band and a favourite, and loses the item count
+
+**Date:** 2026-08-18. **Stage:** 03b, node `0.7`, after the founder read the anatomy page and compared it against the live baseline. **Decided by:** the founder, on three questions asked and answered in order. **Binds:** node `0.7` and both densities of it, register `0.11` whose rule 7 is amended, node `3.3` which owed a verdict on the risk meter, nodes `1.0` and `3.1` which render the grid, and stage 04 which draws the states.
+
+**What was asked.** The tile the first version specified carried six always-on fields: artwork, name, item count, entry cost, live free-unit state and a daily marker. The founder's instruction was to make it simpler and closer to the baseline: **a large case image, the name, the price, and a risk level, with the like control the baseline puts on its tile.** Three things in that instruction had no source in this repository, so three questions were put rather than filled with a median.
+
+### Part 1. The risk band is computed from the drop table
+
+**Decided: computed, and the register owns the method.** The band is derived from the case's own drop table, the figure it is derived from is published on `3.3` beside `D4`, and the tile carries only the three-value label.
+
+| Rejected | Why |
+|---|---|
+| **A label set by hand per case** | The baseline's own answer, `baseline.md` section 4. It is a claim about risk with nothing behind it, printed by a product whose first design principle is that its own numbers are checkable. **The weakest possible sentence on the busiest surface** |
+| **Not on the tile at all, only on `3.3`** | The cheapest answer and the one the first version took. It leaves the tile with three fields, which is exactly what the category ships, and it puts the whole "what is this case shaped like" question one tap away |
+
+**What this fixes that was already broken.** The risk band has been `[ORPHAN]` since the entity list: `sitemap.md` names it a part of the Case, `baseline.md` records it live on both the tile and the case page, and no backlog row required it. Node `3.3` refused it with a reason that was correct at the time, **no computation for it exists anywhere in this repository**. That sentence is what this decision answers. It now has a parent, design principle 3 quoted directly, and a route in the sense of `0.11` rule 1: the same drop table whose chances and values are printed on `3.3`, so a reader recomputes the band without leaving the page.
+
+**What is still missing and is not invented here.** The thresholds. Where High stops and Medium begins is `[?]`, it is a treasury question, and **the band does not render until the founder sets them.** Naming a boundary here would be the exact failure the research rules exist to prevent.
+
+### Part 2. The favourite ships with a public count, and rule 7 gains its first exception
+
+**Decided: as the baseline does it.** A toggle that marks the case, and a count of the accounts that marked it, visible to everyone.
+
+**The cost, stated before the decision and taken anyway.** `0.11` rule 7 says a number is never a score, and it was written to keep the interface from telling a person which case to open. A public count beside a price is social proof next to a spend. The founder was shown that and chose the baseline's behaviour, so **the rule is amended out loud rather than quietly worked around**, which is the only form of this that the repository allows.
+
+**What the amendment permits and what it does not.** One count, in one place, of a thing people did. **Still refused:** a rank, a default sort by favourites, a most-popular strip, a TOP badge, an opened counter, and any appearance of the count beside the open control on `3.3`. The line the amendment draws is between **data about what others did** and **the platform recommending a spend**, and everything on the second side of it stays out.
+
+**The favourite has no parent in the three legal classes.** It is carried with an empty parent cell, printed, exactly as `I2` is. It is the second element on this tile in that condition and the repository now shows both rather than inventing a job for either.
+
+### Part 3. The item count and the free-unit state stop being fields and become a marker
+
+**Decided: silence is the available state.** In the normal case the tile shows four things. The stock marker appears only when there is something to say, "3 items out of stock" or "every item out of stock".
+
+**Why the barrier survives the change.** `A2` and `D1` stand on `B8-1`, the stock question, and the thing that barrier needs is that **a short shelf is legibly short**. A marker that appears exactly when the shelf is short does that better than a line that says "all items in stock" on every tile in the grid, because a message printed everywhere is read nowhere. The sold-out tile still stays in the grid and still says so, which remains the one row in `blocks.md` section 3 that no competitor matches.
+
+**The item count leaves the tile entirely and this is a real loss, priced.** It was the field that let a person see how much is in the case without opening it. **The risk band replaces it and is a better answer from the same table:** the count says how long the table is, the band says what it is shaped like. The count still renders on `3.3`, on the table it describes.
+
+### What this decision does not do
+
+It writes no backlog row. **The risk band and the favourite are two new capabilities and `cjm-to-be.md` is the single owner of that list**, so adding them moves its count and the line in `CLAUDE.md` that quotes it, 38 MVP rows over 37 capabilities. That is its own go and it has not been given. Until it is, both elements carry their parent status in node `0.7`'s own table and the gap is visible rather than assumed.
+
+It sets no threshold, it decides no grid, and it does not say where the list of favourited cases lives. Those belong to `0.11`, to `1.0` and `3.1`, and to `5.1`.
+
+---
+
+## D-25. Home takes the baseline's shape: a promotion banner above the H1, and the daily case as a tier ladder
+
+**Date:** 2026-08-18. **Stage:** 03b, node `1.0`, in the same session as `D-24` and from the same comparison against the live baseline. **Decided by:** the founder, on four questions. **Binds:** node `1.0` and its state `1.1`, node `0.7` whose rule 5.3 is narrowed, node `6.1` which is named as the one surface the ladder may never reach, `0.13`'s heading rule for this page, and stage 04.
+
+**Two of the four answers changed nothing and they are recorded because a decision not to move is still a decision.**
+
+### Part 1. The mode card row stays deferred
+
+**Decided: unchanged.** `D-20` deferred the row of four game mode cards because three of the four modes are LATER and one live card of four is the dead item defect. The baseline's row of Cases, Case battles, Gunfights and Upgrade was put in front of the founder again with three ways to ship it, and the answer was to leave it deferred. **Home keeps the case grid directly on the page and the main job keeps its three taps.** The row arrives when a second mode is live.
+
+### Part 2. The promotion banner ships, with its countdown, above the H1
+
+**Decided: as the baseline does it.** One promotion, an image, one line, one control, and a countdown.
+
+**This reverses a refusal rather than filling a gap.** `blocks.md` section 2 recorded the Key-Drop and Hellcase event banner as **DIFFERENT** with a reason in its own row: "no parent in round 1, and a countdown is urgency attached to spending". That reason is not withdrawn. **The banner ships with it printed**, and the banner is the third element in this repository carried with an empty parent cell, after `I2` and the favourite from `D-24`.
+
+**Six rules bound the reversal**, and they are in node `1.0` section 2.2: one promotion and never a carousel; the countdown counts to a real published end, because a time is a number and `CLAUDE.md` says never invent one; no odds, no price and no chance on the banner; it never takes H1 or H2 markup; **its empty state is that it does not render at all**, the same rule `A5` obeys for the auditor we do not have; and it obeys the 360px height budget the ticker already obeys.
+
+**One thing is refused by name inside the same decision:** a promotion tile inside the featured grid. The baseline drops a paid Triple Fun tile into its own case shelf, `baseline.md` section 4, **an advertisement shaped exactly like a case tile in a grid of case tiles.** The grid holds cases.
+
+### Part 3. The H1 goes under the banner, and the cost lands at 360px
+
+**Decided: banner first, H1 second, at every width.** The alternative of a different order by width was rejected on the spot: node `1.0` fixes one block order for all widths, and a page that reorders itself has two orders and defends neither.
+
+| Width | What it costs |
+|---|---|
+| **Desktop, 1440px** | **Nothing.** Ticker, banner, hero with the H1 and the first grid row all sit on the first screen. This is the composition the baseline runs |
+| **360px** | **Two things.** The H1 is no longer the first thing after the shell, and the first grid row no longer crests the fold. `D-24` bought part of the second one back: four fields per tile means two tiles across at 360px |
+
+**The rule that survives is narrower and harder rather than dropped.** The H1 must still begin on the first screen at 360px, and the banner is what gets measured against it. **Stage 04 accepting a banner that pushes the H1 out of the first screen is a failed acceptance, not a layout preference.** And the first-visit case is worse: `0.4` fires on arrival, so a cookie dialog and a banner can cover the H1 between them. That exact combination is an acceptance step at stage 04, at 360px, on a first visit.
+
+### Part 4. The daily case becomes the baseline's tier ladder, and `0.7` rule 5.3 is narrowed
+
+**Decided: the five tier ladder, the wager remaining figure and the reset countdown, as the baseline runs them.** This is the largest reversal in the session and it is the one with a responsible play surface on the other side of it, so what moves and what does not is written line by line.
+
+| Rule | Status |
+|---|---|
+| **`CLAUDE.md`: a limit never acquires completion mechanics, streaks, status or a session score** | **Untouched and absolute.** It binds deposit limits, session limits, self exclusion and cool down. Nothing in this decision reaches them |
+| **`0.7` rule 5.3, which generalised that rule from limits to entitlements** | **Narrowed back to what `CLAUDE.md` actually binds.** The daily case is an entitlement, not a limit. The generalisation was this repository's own extension and it is withdrawn by name |
+| **`0.11` rule 7, a number is never a score** | **Holds.** The wager figure is money in one real currency, `C1`, not points and not a level. **Superseded on 19 August 2026 by `D-28`, which reversed `C1`.** The record stands as written because a decision record says what was decided then; what the product does now is in `D-28` and in `0.11` rule 10. The rule itself still holds: the figure is money in coins, and a coin ladder is exactly where a currency turns into a score if nobody is watching |
+
+**The cost, stated in full because it is the whole of the objection.** `baseline.md` flagged the ladder as an inherited answer to the risk recorded in row `I2`: that a daily free open teaches a first-session user that opening is free. The ladder answers that risk **by making the daily case not free but earned, and the thing it is earned with is spending.** One risk is traded for another. Neither `I2` nor the ladder has a parent in the three legal classes, and both are carried with empty parent cells, printed.
+
+**Four rules bound it**, in node `1.0` section 2.5: the ladder never appears on a responsible play surface and never beside a limit, **because the place a person goes to stop is the one place progress may not follow them**; it never tells a person with a limit in force what they would need to wager to advance; a tier gives a case and nothing else, no badge, no title, no rank; and the reset countdown does not render until the reset moment is a real published figure rather than `[?]`.
+
+### What this decision does not do
+
+It does not review its own trade. **Whether the ladder is the right answer to `I2` is now an open item on node `1.0` with the founder's name on it**, and it is open before stage 04 draws it rather than after. It sets no threshold, names no promotion, and does not decide the daily reset. And it does not touch the mode row, which stays where `D-20` left it.
+
+---
+
+## D-26. A blocking consent gate on sign in, and identity verification proposed out of round 1
+
+**Date:** 2026-08-18. **Stage:** 03b, after the founder's account capture returned the deposit flow and confirmed the live product has no identity verification. **Decided by:** the founder. **Binds:** node `2.4` sign in, node `2.1` age and geo gate, node `2.7` identity verification, and the compliance constraint in `CLAUDE.md`.
+
+**This record has two halves and they are deliberately not the same weight.** Part 1 is decided and applied. **Part 2 is proposed with its cost printed and it is not applied**, because it collides with a line in `CLAUDE.md` and with `D-17`, and a component edit is not allowed to move either.
+
+### Part 1. The sign-in surface gains a blocking consent gate, and it is two declarations rather than one
+
+**Decided.** Before any provider control can be used, the person ticks **two separate checkboxes**:
+
+1. **the terms consent**, naming the documents it covers and linking each one, and
+2. **the age declaration**, "I am at least 18 years old", **on its own line and as its own act.**
+
+**The provider controls are unavailable until both are ticked**, and the surface says why in words above them rather than only by dimming a button.
+
+**The reference, and what it is and is not.** The founder supplied a screenshot of another product's sign-in dialog on 18 August 2026, filed as `research/screens/baseline-account/acct_ref_signin_18plus.png`. **The site is not identified in the capture, so this is a design reference and not a fact about a named competitor**, and nothing in this repository cites it as one. What it demonstrates is the pattern: a headline that states the requirement in words, two hexagonal checkboxes, and two provider buttons rendered inactive until both are set.
+
+**Why two checkboxes and not one, because the baseline runs one.** `baseline-account.md` records the live product's version: a single line, "I'm 18+ and I agree to the Terms and Conditions", **with no `required` attribute and with the provider buttons not disabled while it is unchecked.** One checkbox bundles a contract consent with an age declaration, and **a person who ticks it to get past it has made one gesture that answers two questions.** Splitting them costs one line and makes the age declaration a separate deliberate act, which is the only property that makes it worth anything at all.
+
+**What this does not claim.** A self-declaration is not verification and this node says so on its own surface. It is layer 1 of `D-A` and it was always layer 1. **What changed is that it is now enforced rather than decorative**, which is strictly stronger than the canon and strictly weaker than `D-17`.
+
+### Part 2. Identity verification out of round 1, proposed rather than applied
+
+**The founder's position, recorded verbatim in substance:** the live product has no identity verification, so round 1 does not need to build one either, and the 18+ checkbox on sign in is the whole of the age control.
+
+**The first half is now a walked fact.** `baseline-account.md` section 7 records the entire settings surface and there is no KYC step anywhere in it.
+
+**The second half collides with four things and each one is named rather than softened.**
+
+| What it collides with | The collision |
+|---|---|
+| **`CLAUDE.md`, compliance** | "age verification before any case interaction... **identity verification before funding**". Deferring `2.7` deletes the second clause, and moving the age declaration into sign in changes the first from "before any case interaction" to "before an account exists" |
+| **`D-17`, decision `D-A`** | It locked **two layers** and took the founder's own answer as "an addition, not as a replacement". This keeps layer 1 and drops layer 2 |
+| **`D-23`, the Isle of Man direction** | **A tier one regulator requires identity before withdrawal.** Without layer 2 the licence direction has no enforcement point in the product, and memo `M2` would be asking a regulator about mechanics the design has already removed |
+| **The free-entry withdrawal hole** | `D-A` recorded it in the open: a person who only ever took free entries can reach a real withdrawal without meeting an identity check. **Layer 2 was the answer. Dropping it makes the hole permanent rather than open** |
+
+**What is recommended instead of a straight deletion, and it costs nothing to take.** **Keep `2.7` on the map, marked `LATER`, with the reason printed in its own row.** Round 1 does not draw it, which is what the founder asked for. The map keeps the node, so the hole stays visible, the licence route can reclaim it without an archaeology pass, and `CLAUDE.md`'s compliance line changes from "before funding" to "before withdrawal, and not in round 1" rather than disappearing.
+
+**And one consequence that is structural rather than legal.** Node `2.1` is the **age and geo** gate. If the age declaration moves into sign in, **`2.1` does not disappear: it becomes the geo gate alone**, and it still has to exist because `D-23` needs a surface on which a market with no row meets `not launched`. Renaming it is part of the same go.
+
+### What this decision does not do
+
+It does not touch `CLAUDE.md`. It does not remove `2.7` from `sitemap.md`, and it does not move the MVP counts. **Part 2 is a proposal with a printed cost and it waits for an explicit go**, because the two files it would change are the two this project does not let a component edit move.
+
+---
+
+## D-27. The row of four ways to play returns to Home, and it carries three unlaunched cards saying so
+
+**Date:** 2026-08-19. **Stage:** 04, node `1.0`, after the founder read the etalon beside five screens of the live product and asked where the four categories were. **Decided by:** the founder. **Binds:** node `1.0` and its state `1.1`, `D-20` which is partly reversed, and stage 04 which draws it.
+
+**What was decided.** Home carries the baseline's row of four entry cards, directly under the hero, as block **B4**. Blocks B4 to B10 renumber to B5 to B11. **One card is live, Cases, and it carries a control. Three are not launched and they render as not launched:** a name, one line of what the mode will be, and the words "Not launched yet". No control, no link, no badge, no waiting list, no date.
+
+**What it reverses, and the reversal is partial rather than total.** `D-20` deferred this row with a reason: "one live card of four is the dead item defect", and `home.md` section 0 refuses a hub of nine when we would ship one. **That reasoning stands and it is what shapes the three deferred cards.** What changes is the conclusion drawn from it: the carrier ships, and the dead items are marked dead rather than the carrier being removed. **This is `CLAUDE.md`'s own rule applied to a case `D-20` decided the other way:** "A carrier is inherited and filled with live items. Only a dead item is deferred, never the carrier that would have held it."
+
+**The cost, printed rather than argued away.**
+
+| Cost | What it is |
+|---|---|
+| **Three quarters of a block advertises absence** | Three of four cards name something a person cannot do. `D-19` calls that the rail defect. It is accepted here because the cards say so in words rather than implying availability, which the rail's nine icons did not |
+| **The first screen moves** | The featured grid drops further down the page. `home.md` section 1.2 already recorded the grid's first row as cresting the fold before `D-25` and not after. This pushes it further |
+| **A second route to Cases** | The rail, the mobile bar and now this row all reach `3.1`. Duplicate internal links cost nothing for a crawler and the row is the baseline's own primary entry, but it is a third carrier of the same destination and that is worth knowing |
+| **It has no parent in the three legal classes** | Like `D-25`'s banner. In by founder decision, and the row in `home.md` prints an empty parent cell rather than borrowing one |
+
+**What it does not do.** It does not add a mode to the map. `case battles`, `gunfights` and `upgrades` stay `LATER` in `CLAUDE.md` scope, with no node, no route and no page. **The row is a promise of a shape, not of a surface**, and a card gains a link on the day its node exists.
+
+---
+
+## D-28. The product denominates in coins, and `C1` is reversed
+
+**Date:** 2026-08-19. **Stage:** 04, from the founder reading the etalon and asking why every figure was in EUR. **Decided by:** the founder, after the cost below was put in front of them. **Binds:** row `C1` at `research/docs/cjm-to-be.md`, `CLAUDE.md`'s money rule, register `0.11`, and every node that renders a figure.
+
+**What was decided.** The product's denomination is the coin, as the live product runs it. Every price, balance, item value and threshold renders in coins.
+
+**What it reverses.** Row `C1` reads "One real currency throughout, **no internal coin denomination anywhere**", status MVP and architecture, parent `B7-1`, **pattern of 7**. `cjm-to-be.md` states the harder version in its `B7-1` reasoning: "the receipt must be denominated in real currency, **because a receipt in coins fails its own test**."
+
+**The cost, in full, because this is the most evidence-backed row the decision touches.**
+
+| Cost | What it is |
+|---|---|
+| **A pattern of 7 loses its answer** | `B7-1`, the currency abstraction that hides what things cost, is the second densest barrier pattern in the corpus. `C1` was the whole of the structural answer to it |
+| **Block B7 loses a sentence it was built on** | `home.md` section 2.6 and its SEO text both run "Nothing here is priced in a coin or a token: every figure on this page is in real currency, so what you read is what it costs." That sentence is deleted, not rewritten |
+| **Design principle 3 loses its sharpest edge** | "Odds, cost and expected value are visible and legible" is weaker when the unit is one the reader has to convert |
+| **The comparison against the market price stops being direct** | `A1` prints a Steam market price in real money beside our value. In coins the two are no longer the same unit and the comparison needs a conversion the reader has to trust |
+
+**The condition this decision ships under, and it is not optional.** **The coin is pegged and the peg is printed wherever money is spent.** A coin whose rate is not published is exactly the abstraction `B7-1` describes. What that means concretely is decided by the nodes, not here: `0.11` owns the anatomy of a coin figure, and the peg belongs beside the entry cost, in the deposit flow, and on the withdrawal record.
+
+**And two things do not become coins.** The **withdrawal time figures** are time. The **tested RTP and expected value** are ratios and stay percentages. `A4`, `G3`, `D4`.
+
+### Propagation, and the split that matters
+
+**Two kinds of file carry the word coin and only one kind changes.**
+
+- **Records of the world, never edited:** `research/docs/baseline.md`, `baseline-account.md`, `competitors.md`, `research.md`. They say what was walked. A competitor pricing in coins is a fact about that competitor.
+- **Our own rule, rewritten:** `CLAUDE.md`, `cjm-to-be.md` row `C1`, and the nodes that state the unit: `0.11`, `0.7`, `1.0`, `0.1`, `3.1`, `3.3`, `4.1`, `5.1`, `0.2`.
+
+**Order:** the decision record first, then `CLAUDE.md` and `C1`, then the wireframes so the founder can see it, then the nodes with their pages.
+
+**Closed on 19 August 2026, in the same session.** Every file in the second list was rewritten with its page in the same step: `CLAUDE.md`, row `C1` in `cjm-to-be.md`, and nodes `0.11`, `0.7`, `0.1`, `1.0`, `3.1`, `3.3`, `4.1`, `5.1`, plus `sitemap.md`, `blocks.md`, `flows.md` and the concept map. **`0.11` gained rule 10**, which is where the peg now lives as a rule rather than as a sentence in a decision record.
+
+**Three kinds of file were deliberately not rewritten and each has a reason.** The walked records say what was walked. The earlier decision records `D-21` and `D-25` carry a **superseded** marker instead of new wording, because a decision record says what was decided then. And the critique entries that quote `C1`'s old name are records of a namespace collision, where the old string is the evidence.
+
+---
+
+## D-29. The rail carries one destination, and its foot carries the ambient controls and the social links
+
+**Date:** 2026-08-19. **Stage:** 04, node `0.1`, after the founder read the drawn rail beside the live product. **Decided by:** the founder. **Binds:** node `0.1`, `CLAUDE.md`'s navigation line, node `0.2` which now carries two destinations the rail used to, `D-21` and `D-22` which are partly superseded, and stage 04.
+
+**What was decided.**
+
+- **The rail is the ways-to-play carrier, and round 1 ships one way to play.** It holds **Cases**, plus **My items** once an account exists. Nothing else.
+- **Provably fair and Responsible play leave the rail for the footer**, which already carries each of them in a column of its own: Provably fair in **Play**, Responsible play in **Play responsibly**. **Neither destination is lost and neither loses a route.** The baseline keeps its own Provably Fair link in exactly that place, `baseline.md` section 9.7.
+- **The foot of the rail carries the ambient controls and the social links**, as the baseline runs them: the sound control, the language, and the social row.
+- **The logo slot says `Logo`** and carries no wordmark beside it. The mark is stage 06's asset and the name is part of it.
+
+**The sound control finally has a parent-shaped home, though it still has no parent.** `0.1` section 9 recorded it with no parent in the three legal classes, and it has spent two revisions in a header that `0.1` fixes at one row on mobile. **It is now at the foot of the rail**, which is where the baseline keeps it and where it competes with nothing. **That is a placement, not a parent:** the founder still owes it one, or it goes.
+
+**The language is not a switcher.** One language is locked in `CLAUDE.md`. It states `EN` and carries no menu, because a picker with one option is a dead control. **It becomes a control on the day a second language ships**, which is the same rule the rail applies to a mode that does not exist.
+
+**The cost, printed rather than argued away.**
+
+| Cost | What it is |
+|---|---|
+| **The mobile bar falls below Material's floor** | `0.1` section 2 quotes it: "Don't use a navigation bar for fewer than three destinations." `D-22`'s justification was that the bar "clears it exactly: three destinations before an account". **With Cases and Home it is two, and that justification is void.** The bar is kept as drawn and the violation is printed. The honest options are to retire the bar, which the baseline does not have at all, or to carry it below the floor. **Neither is decided here** |
+| **Two trust destinations drop one carrier** | Provably fair and Responsible play were in the rail because design principle 1 makes trust the product and because a limit has to be reachable. They are now footer-only, which is one carrier rather than two, and on mobile that means scrolling to the end of a page rather than opening a drawer |
+| **`D-21`'s argument is partly superseded** | It restored the rail as the primary carrier "built for the destination rather than for the round". That still holds for the shape. What no longer holds is its count |
+
+**What this decision does not do.** It does not remove any node from the map, it does not change any route, and it does not touch the footer's four-column structure, which was already carrying both destinations before this decision was taken.
+
+---
+
+## D-30. The case screen takes the reference's shape: contents on the stage, the numbers on the trigger, and the refused drops row back as a carrier
+
+**Date:** 2026-08-19. **Stage:** 04, node `3.3`, after the founder put six live captures beside the drawn screen: three of the baseline and of two competitors' case pages, and three of our own wireframe. **Decided by:** the founder. **Binds:** node `3.3` sections 1, 3, 11, 12, 14, 15 and 16, node `0.6` at its next pass, and stage 04's render of `3.3` and of its four states.
+
+**What was decided.**
+
+- **The stage carries the case's contents.** The framed region holds the artwork and, standing still beneath it, the strip of what is in the case. In phase 2 that strip is the thing that moves. **It carries chance and value on every tile**, never value alone, and it carries no figure the drop table does not.
+- **The two case numbers move onto the commit block.** Tested RTP and expected value sit beside the entry cost, inside the block `0.11` rule 10 calls the last surface before money moves. Their section keeps the derivation, the as-of, the route and the printed hole where the tester's name is missing, and it moves below the drop table.
+- **The drop table renders as a uniform card grid at every width**, one column at 360 and four from 1200, with the table markup and the tier row groups intact.
+- **A row of the case's own recent drops returns, directly under the trigger.** In the order they happened, each with the value it paid, each landing on `7.1`.
+- **The commit block is condensed.** It was a display figure, a caption, a hole, a trigger and a sentence stacked in a 500px box. The founder's word was that the wireframe's parts are simply too large, and the size of a block is not neutral: a commit block that fills the screen is the page arguing for the act.
+
+**The row is half of a refusal reversed, and the half that stayed is what makes it safe.** `3.3` section 16 refused Hellcase's "last 7 days top drop" and the baseline's "Best drops" as **survivorship by construction**, and that reasoning was not wrong. What it did was defer a carrier because the item inside it was dead, which `CLAUDE.md` names as the defect in the opposite direction: **a carrier is inherited and filled with live items, and only a dead item is deferred.**
+
+| What came back | What stayed refused |
+|---|---|
+| The row itself, in the place all three references put it, directly under the trigger and above the contents | **The ranking by value.** The moment it sorts by value it is the refused block wearing our own name |
+| The item, its value in coins, and the moment it happened | **The multiplier**, x38.8 on one capture and x536.2 on another. A multiplier is the survivorship claim compressed into one number |
+| A destination on every tile, `7.1`, which the ticker already required | **The window chosen to flatter.** Seven days is a parameter, and a parameter that can be tuned upward is a claim |
+| | **The word "best"**, and any person's name. This row carries values and no people; the ticker carries people and no values |
+
+**The cost, printed rather than argued away.** It is still a sample. Six recent outcomes are six outcomes and nothing about them is a distribution, and a person reading them directly under a spend trigger is reading the most favourable class of evidence this product has. **The counterweight is on the same page and one link away:** the row's caption routes to the tier ladder, `D3`, which is the block that can disappoint. **If `D-B` comes back negative the ladder does not render, and then this row stands with no counterweight at all.** That is the condition under which the row itself should be reconsidered, and it is written here so the question is asked rather than discovered.
+
+**What was rejected on the way.** Retiring the global ticker from this node so the page carried one strip instead of two. It would have left `0.8` with a single consumer, contradicted its own "used by two surfaces and that is a decision rather than an oversight", and touched `sitemap.md`, `0.8`, `0.12`, `0.3` and `0.1`. **The two strips are kept apart by what they carry instead of by where they sit:** people and no values at the foot of the page, values and no people under the trigger.
+
+**Amended the same day by `D-31`, and two of the four decisions above did not survive the founder reading them on screen.** The contents strip on the stage lost its figures and became the reveal lane, and the tested RTP and the expected value left the commit block again. The record stands as written because a decision record says what was decided then. **What the product does now is in `D-31`.**
+
+**And one thing the references have that this node still refuses without amendment,** because the founder's captures repeated them rather than reopened them: the multi-open selector at x1 to x30, AUTO, FAST OPEN, ADD TO BATTLE, the like count, and the risk band drawn as skulls or bars. `3.3` section 16 carries each with its reason.
+
+
+---
+
+## D-31. The case screen is cut back to what a person reads first, and the multi-open switch ships before its ceiling
+
+**Date:** 2026-08-19. **Stage:** 04, node `3.3`, hours after `D-30` and from the same session: the founder read the drawn screen block by block and sent six corrections. **Decided by:** the founder. **Binds:** node `3.3` sections 1, 5, 11, 12, 13, 15, 16 and 17, node `0.8` and the five files that carried its placement rule, node `0.2`, and stage 04's render.
+
+**What was decided, in the order the screen reads.**
+
+| # | Change | What it replaces |
+|---|---|---|
+| 1 | **The risk band gets a reserved zone** on its flank instead of a line of italic text | A hole drawn as a sentence in the corner is **a hole that has no size**, and the block that lands there later has to find its own room |
+| 2 | **The stage is the reveal lane at rest, with the case artwork large on it, and the lane prints nothing** | `D-30`'s strip of nine tiles carrying a value and a chance each. **Too much information on the stage**, and the founder is right |
+| 3 | **The commit block is the act and the cost of the act, and nothing else** | Three figures, two explanatory paragraphs and a trigger in one box. `D-30`'s move of the RTP and the EV onto it is reversed |
+| 4 | **A count switch, one to five, beside the trigger** | The refusal `3.3` section 16 made twice |
+| 5 | **The drops row is called `Last drops`** and the drop card puts the image first with the information beside it | "What has come out of this case", which the founder read as unclear, and a card that led with a name |
+| 6 | **The ticker `0.8` leaves this screen**, and the statistics in the footer gain a reserved icon zone each | A component on two surfaces, and a statistics band with no room for the icons that are coming |
+
+### The lane prints nothing, and that is the correction of an argument rather than of a taste
+
+`D-30` put chance and value on every strip tile, reasoning that **a strip of values alone is the shop window** the node refuses. The reasoning was sound and the conclusion was wrong. **The rule binds any surface that prints a value, so the honest way to satisfy it on the stage is to print no value, not to print two.** The lane is the reveal's track, not a second listing: it makes no claim and needs no pairing, and every figure about the case lives one block down beside the ticket range, the free units and the market link that make it checkable.
+
+**The cost:** the first screen now shows the case's name, its cost and its risk zone, and nothing about its contents. The contents are one block down on a page that is one document, and the first screen is genuinely thinner than it was.
+
+### The switch ships before `C2` exists, and that is the cost this record carries
+
+`3.3` section 16 refused the multi-open selector twice and wrote the condition itself: **"if multi-open ever ships it ships behind `C2`"**, the spend ceiling chosen at deposit. `C2` does not exist. **The switch ships anyway, by founder decision, and the condition becomes a printed cost rather than a satisfied one.**
+
+**What the design owes in exchange, and each of these is a rule and not a preference:**
+
+- **The trigger carries the total and never the unit.** At five it reads the five-case price. A multiplier that leaves the unit price on the button is a multiplier that hides the amount.
+- **It defaults to one on every visit and remembers nothing.** A remembered five is a multiplier that spends without being chosen again.
+- **One deliberate act per open request.** Which is exactly why **AUTO stays refused**: it is the one control on the reference that removes the decision entirely.
+- **One to five and no further.** x10, x20 and x30 stay refused, because **five is a number a person can hold and thirty is a number they accept.**
+
+### The ticker leaving costs a component its second consumer
+
+Stage 04 argued against this a few hours earlier, when `D-30` considered it and kept the ticker. **The founder cut it.** `0.8` now renders on `1.0` alone, against its own node's sentence that two surfaces was "a decision rather than an oversight", and **a component with one consumer is a component, or it is that screen's block** — a question `0.8` now carries open.
+
+**Social Job 2 was carried on this page by the ticker.** What carries it now is the `Last drops` row, which lands every tile on the same `7.1` and is about this case rather than about the platform. **That is a narrower answer and it is recorded as narrower.**
+
+**The claim "renders on `1.0` and `3.3` only" was written in five other files** and all five were corrected in the same step. A rule that survives in four files is the rule a later stage will follow.
+
+### What was refused inside the founder's own instruction
+
+**The heading.** The founder named the category's two labels, skin.club's **Last top skins** and Hellcase's **Last 7 days top drop**, and asked for one of them. **The length was the right complaint and the word is the problem:** both claim a ranking, and this row is in time order, so either label would be a heading that lies about the list under it. **Taken: the short form. Refused: the claim.** If the word "top" is wanted, the row has to actually rank by value and `D-30`'s survivorship cost comes back with it. That is a decision and not a rename, and it sits in `3.3` section 17 with the founder as its owner.
+
+### What this record does not touch
+
+The refusals `3.3` section 16 still carries unamended: **AUTO, FAST OPEN, ADD TO BATTLE, keyboard shortcuts on the spend controls, a sign-in wall over the open control, the risk band as skulls or bars, and the like count.** Six captures repeated them and **a reference repeating a pattern is not an argument for it.**
+
+---
+
+## D-32. Best drops ranks, the guest stage is one picture, and the trigger says the act that is available
+
+**Date:** 2026-08-19. **Stage:** 04, node `3.3`, third pass in one session. **Decided by:** the founder. **Binds:** node `3.3` sections 1, 12, 15 and 16, and stage 04's render of `3.3` and of its states.
+
+**What was decided.**
+
+- **Block 4 is ranked by value and it is called `Best drops`.** The label and the sort now agree.
+- **The stage on the guest state carries the case artwork alone.** The reveal lane renders from the moment a person can open.
+- **The commit block loses its frame**, and **its trigger carries the act that is actually available:** `Sign in with Steam` for a guest, `Open for <total>` once an account exists. **The entry cost returns as a figure beside it**, because a trigger that no longer says the price does not repeal design principle 3.
+
+### The ranking, and why the argument stops here
+
+`D-30` took the carrier and refused the ranking. `D-31` refused the label for the same reason: a heading claiming a rank over a list in time order lies about the list. **The founder asked for the ranked row a third time and asked what had to change for it to happen. Nothing had to change except this record.** A request repeated three times is a decision, not a misunderstanding, and the design's job from here is to make the decision honest rather than to keep relitigating it.
+
+**The cost is not reduced by having been predicted, and it is the same cost section 16 named:** this is **survivorship by construction**. The biggest drops of a period are not what happens. **What makes it survivable is that the block saying what does happen is on the same page and one tap from this row's caption**, the published rate against the observed rate, `D3`.
+
+**And the dependency is now sharper than it was.** `D-B` decides whether that block renders at all. **If it comes back negative, a ranked row of the biggest wins stands on this page with no counterweight**, and that is the state to reconsider the row in rather than a footnote to it.
+
+**Still refused inside the row:** the multiplier, x38.8 and x536.2 on the captures, because a multiplier is the survivorship claim compressed into one number; **the window chosen to flatter**, because a parameter that can be tuned upward is a claim; and **any person's name**.
+
+### The guest sees the case, not the machine
+
+The lane is the reveal's track. **A guest is two steps from a reveal**, the geo layer and Steam, so the track is showing them the mechanics of something they cannot start. **What a guest gets is the object they came to look at**, at the size the stage can give it once the lane is not sharing the room.
+
+### The label names the act that exists
+
+A button reading `Open` in front of a person who cannot open **names an act this person cannot perform, and the page tells them so only after the tap.** The route does not change, `2.1` first because the gate fires at the first case interaction, `D-17`. **What changes is that the label stops promising.**
+
+**The consequence that had to be paid immediately:** the total left the button, so **the entry cost is a figure again above the switch.** Design principle 3 does not stop applying because the trigger changed its wording, and a guest deciding whether this case is worth reading further needs the price.
+
+### The frame goes
+
+A bordered box around the trigger was **the block insisting on itself.** `conventions.md` section 1.6 gives each screen exactly one main action and this screen's is already the loudest thing on it. **The unit still reads as one thing because its parts are stacked and centred on one axis**, which was doing the work the border was taking credit for.
+
+---
+
+## D-33. The price and the act sit in one row, and each state puts a different thing beside the trigger
+
+**Date:** 2026-08-20. **Stage:** 04, node `3.3`. **Decided by:** the founder, from a capture of the live product. **Binds:** node `3.3` sections 1 and 12, and every drawn state of `3.3`.
+
+**What was decided.**
+
+- **The commit block's two objects sit side by side rather than stacked.** The row holds exactly two things and the second is always the trigger.
+- **On the guest state the first thing is the entry cost.** The count switch does not render there at all.
+- **On the signed-in state the first thing is the count switch, and the cost figure above the trigger goes.** The trigger already carries the total.
+
+### Why the row rather than the stack
+
+The price and the act are one decision: what this costs and what happens if I agree. **Stacked they are two glances, and the second one is the button**, so the number is behind the eye by the time the hand moves. The founder's capture puts them beside each other and the baseline does the same on this exact surface.
+
+### Why the switch leaves the guest state
+
+It sets a quantity for an act this person cannot perform, and **nothing carries the choice across the sign in because there is no session yet to hold it.** A control whose only effect is discarded at the next step is a control that was answering nobody. It arrives with the account, which is where `D-31` put it in the first place.
+
+### Why the cost figure leaves the signed-in state
+
+At the default count the figure and the trigger printed the same number twice, and **a number printed twice is not twice as clear.** `D-31` fixed that the trigger carries the total and never the unit, so removing the figure left the unit price with nowhere to live once the switch goes above one. **The unit moved into the caption and prints at every count**, `1 × 12.40 coins`, rather than appearing conditionally: design principle 3 asks for the cost, and a total with no unit beside it is a cost a person cannot check against the drop table.
+
+### What this costs
+
+**The guest state now shows the entry cost for one roll and no way to see the cost of five.** That is deliberate and it is the smaller of two prices: the alternative is a switch that quietly resets. **At 360 the row becomes two rows** and both halves keep their full width, because the one thing that may not be dropped for height is the cost, section 14.
+
+---
+
+## D-34. The outcome is the item, and the receipt is a line
+
+**Date:** 2026-08-20. **Stage:** 04, node `3.6` inside `3.3`. **Decided by:** the founder, reading the drawn outcome beside a live one. **Binds:** node `3.3` section 8, and the drawn outcome and interrupted states.
+
+**What was decided.**
+
+- **The instance value receipt renders as one caption line, not as a bordered four column table.** Float, pattern and phase keep every field `F1` asks for.
+- **The two paragraphs under it become one line of routes and one line of holes.** Check this round, share it and inspect in game are three destinations on one row.
+- **The item's own published chance prints above it**, read off this page's own drop table.
+
+### The reading that forced it
+
+The founder's words were that ours is overloaded and complicated, next to a capture where the item, its chance, its name and three controls are the entire screen. **On the one surface where the item is supposed to be the event, ours led with an object around four fields, one of which was a three line hole.** `F1` asks for the fields that make this **this unit rather than a name**. It never asked for a container around them. **Nothing was dropped to make it lighter:** four fields became one line and two paragraphs became one, and every route and every named hole survived the move.
+
+### The chance is the one thing the capture had that we did not
+
+It is **the item's own published chance**, already printed two blocks down in the drop table, so it is checkable rather than flattering. `0.11` rule 7 forbids a number that is a score; **this is a property of what landed, not of the person who landed it**, and it is what makes a win legible as a win rather than as an item appearing.
+
+---
+
+## D-35. Multi-open gets its own states, at both ends of the range
+
+**Date:** 2026-08-20. **Stage:** 04, nodes `3.5` and `3.6` inside `3.3`. **Decided by:** the founder. **Binds:** node `3.3` sections 7, 8, 12 and 16.
+
+**What was decided.** Four state pages: **the reveal at two rolls and at five, and the outcome at two items and at five.** `D-31` shipped a count switch of one to five and **neither phase had a state above one roll**, so the switch changed a number on a button and nothing else in the drawn product.
+
+### One lane per roll
+
+Each roll is a separate settled result with its own hash, so **each gets its own track and its own pointer.** One lane resolving five results in turn would be five waits, and the second of them is a person watching a machine rather than their own roll.
+
+**They run at once and settle in order.** `research.md` carries `0.5 to 1 second per card` for bulk reveals as Pattern B, and **section 16 of node `3.3` recorded that figure as having nothing to attach to, because multi-open was refused at the time.** `D-31` gave it something. It is spent on **the settling and not on the running**: the lanes move together and lock one after another, so five results can be read one at a time without five separate waits for them. **That sentence in section 16 is now false and is amended rather than left standing.**
+
+**The lanes are shorter from three up.** Five at full height do not fit above the fold at 360 and the stage would scroll during the one moment it may not. **That is the cost of the switch, printed rather than absorbed.**
+
+### The batch outcome is items, not a summary
+
+Five results are five events, so there are five cards, each carrying what the single outcome carries: the chance it landed against, what it is, what it is worth, the fields that make it that unit, and **its own route to its own proof**, because each roll is its own round with its own hash.
+
+**Two figures and never the difference between them.** What was spent and what landed are both facts of this one act, and design principle 3 puts them where the money moved. **The net is not printed and never will be:** a plus or minus on a batch is a score, `0.11` rule 7, and a red number after five rolls is the loss-chasing prompt section 4 of the node dropped in the `B7-2` divergence. A person who wants the difference can subtract; the page does not do it for them and does not colour the answer.
+
+**The share stays per item.** `7.1` owns one object per result, and a batch card would be a shared object nothing on the map defines.
+
+### What this record leaves open
+
+**The balance in the drawn shell rose to 74.20 coins** so that five rolls at 12.40 are affordable in the state being drawn. **The state where they are not affordable is not drawn**, and it is a real state: the count switch can name a total above the balance. It is named here so it is a gap rather than a discovery.
+
+---
+
+## D-36. The account menu keeps the reference's rows, and the map gains three nodes to hold them
+
+**Date:** 2026-08-20. **Stage:** 04, raised against node `0.1` section 5. **Decided by:** the founder, asked directly. **Binds:** `ia/docs/sitemap.md` cluster 5, node `0.1` section 5, the shell in `wireframes/_nav.js`, and the round 1 scope list in `CLAUDE.md`.
+
+**What was decided.** The account menu carries **Roll history, Profile and Settings** as well as the four rows it already had, and **the map gains `5.9`, `5.10` and `5.11`** to hold them.
+
+### The rule pointed at the gap without saying which side closes it
+
+On 19 August the menu shipped with four rows and a stated refusal: the reference carries PROFILE and SETTINGS, **no node in the map holds either**, and `CLAUDE.md` says a carrier is inherited and filled with live items while only a dead item is deferred. **A row for a page nobody has specified is the dead item defect inside a menu.**
+
+That reasoning is unchanged and it is still the reason the rows could not simply be drawn. **What it never said is which side of the gap moves.** The founder was asked which of the three would exist in the real product and answered all three. **So the map moved, not the rule:** the rows are live items now because the destinations exist, which is exactly what the rule requires.
+
+### The three are not equal and the record says so rather than levelling them
+
+- **`5.9` Roll history has a real parent**, `F3` and Related Job 3, verify the outcome after I open. It is arguably the strongest of the three: the product's whole trust claim is that a round is checkable afterwards, and until now **the only trace of a roll a person could reach was the item it produced.** It also inherits a real dependency: **`D-C` decides whether roll history is retained per roll with seed and nonce in a publishable form**, and if that comes back no, the page renders the rolls without the seed material and says so.
+- **`5.10` Profile has no parent in the three legal classes.** No capability in `cjm-to-be.md` asks for it and no job in `jtbd.md` needs it. **It ships with the empty cell printed**, the treatment `D6` the favourite got.
+- **`5.11` Settings has no parent either, and worse, it has no contents yet.** Sound sits at the foot of the rail and has no parent of its own; language is one language by the locked boundary decision; no notification row exists anywhere in the backlog. **What it holds in round 1 is `[?]` and the node owes that answer before it can be drawn.**
+
+### What this costs, stated rather than absorbed
+
+**Round 1 grows from nine surfaces to twelve**, and the scope list in `CLAUDE.md` is the one place that records it. **The map goes from 65 nodes to 68 and from 49 MVP to 52.** Stage 04 owes three more screens, and `5.11` cannot be drawn at all until its contents are decided.
+
+**And one older sentence was wrong and is corrected rather than left standing.** Node `0.1`'s Withdrawals row read "this is the record, and the map has no separate history node". **It has one now**, and the two are different records: withdrawals are what left, rolls are what happened.
+
+---
+
+## D-37. The reveal stands up from two rolls
+
+**Date:** 2026-08-20. **Stage:** 04, node `3.5` inside `3.3`. **Decided by:** the founder. **Binds:** node `3.3` section 7 and the drawn reveal states.
+
+**What was decided.** **One roll runs horizontally. Two or more run vertically, as reels side by side.**
+
+### The axis is doing work rather than decorating
+
+**Stacked horizontal lanes put every extra roll below the previous one.** The second roll is further from the eye than the first, the fifth is off the first screen at 360, and **the batch acquires an order it does not have**: every roll was settled at the same moment and none of them is first.
+
+**Standing them side by side puts every roll at the same distance from the eye**, and it gives the batch **one pointer line across all of the reels** instead of five markers at five heights. `D-35` had already had to shorten the lanes to fit five of them, which was the axis telling us it was the wrong one.
+
+**A single roll stays horizontal, and that is not an inconsistency.** With nothing beside it to compare against, the wide axis is the one that gives the artwork its room, and **phase 1's lane is horizontal because it is the same region at rest.** The axis changes at the only condition that makes the vertical reel better: more than one thing to line up.
+
+---
+
+## D-38. The sell control arrives, and two refusals are reversed with their reasons kept
+
+**Date:** 2026-08-20. **Stage:** 04, node `3.6` inside `3.3`. **Decided by:** the founder. **Binds:** node `3.3` section 8 and 8.3, the drawn outcome states, and the `LATER` list in `CLAUDE.md`.
+
+**What was decided.**
+
+- **A sell control on the outcome.** Per item on a batch, on the card. One for the whole batch, `Sell all for <total>`.
+- **The acts become the accent of the screen: two big controls**, `Open again for <cost>` and `Sell`. The reference carries three and the third is UPGRADE, **a capability that does not exist here, so there are two rather than a placeholder**.
+- **Keeping stops being a button.** `E1` credits the item before the animation starts, so keeping is what happens if nothing is tapped. It is a line of text with a route to `5.1`.
+- **The two figure chips go**, because the two controls print the same two numbers a line later. `D-33`'s argument, applied after the spend rather than before it.
+
+### This reverses two named refusals and the reasons are kept rather than deleted
+
+**Section 8.3 refused a sell control** on the ground that round 1 has exactly one exit, withdrawal to Steam, and that `cjm-to-be.md` T7 rejected a binding buyback at the displayed value before scoring because it adds a payout rail round 1 does not have. **That ground is unchanged. It is now a cost rather than a refusal.** The capability is in no backlog row, so **it ships with no parent in the three legal classes**, the treatment the daily free case and the favourite already carry.
+
+**Section 8.3 also refused a one-key repeat, and it named exactly this pair:** one key to liquidate and one key to spend again, which `blocks.md` section 12 calls the single most telling block in the whole bank. **Half of that refusal survives, and it is the half doing the work.** `Open again` is a full control that re-enters phase 1 **with the entry cost, the tested RTP and the expected value all on screen again**. It never becomes a key that re-rolls in place. **The other half is spent**, and this record is where anyone looking for the argument against it will find it intact.
+
+### Three things this leaves undecided, and one of them should block closing the node
+
+- **The sold state is not drawn.** Selling is instant and irreversible; what the screen becomes afterwards, whether it confirms first, and what the balance figure does are all `[?]`. **A control that cannot be undone with no drawn confirmation is the one thing this node should not close without.**
+- **Whether the sell price carries a spread against the published current value is `[?]`.** They are drawn as the same number. **If they differ, design principle 1 makes printing the difference mandatory rather than optional:** a buyback below a figure we published on the same screen is a cut the reader can see us take.
+- **`CLAUDE.md` lists in-platform exchange as `LATER`.** A buyback for coins is not that capability, but it is close enough that the scope list should say which of the two it is instead of leaving a reader to guess. **That line needs a founder decision and is not edited here.**
+
+---
+
+## D-39. The batch outcome is one row at every width, and the card is cut down until that is true
+
+**Date:** 2026-08-20. **Stage:** 04, node `3.6` inside `3.3`. **Decided by:** the founder. **Binds:** node `3.3` section 8 and the drawn batch outcomes.
+
+**What was decided.** **N items sit in N columns at 360 exactly as at 1440.** No wrapping to a second row at any width, and **the card sheds fields until that holds** rather than the row breaking.
+
+### The argument is structural, not a preference
+
+**Since `D-37` the reveal is N reels side by side.** An outcome in N columns means **column `i` of the result is column `i` of the reel it came out of.** Wrapping to a second row at 600px broke that correspondence at the exact width where it is hardest to hold five things in the head, and it gave five results a two-then-three shape they do not have.
+
+### What it costs, tier by tier, because a fifth of 360px is about 55px
+
+- **The value figure leaves every card at every width.** The figure above the sell control and the number inside it were the same number. **While the sell price equals the published current value there is nothing for a second printing to say**, and the moment a spread exists the figure comes back, because then they are two numbers and design principle 1 makes the difference mandatory. That condition is `D-38`'s open question.
+- **Float, pattern and phase leave the card and become one receipt line per roll under the row.** `F1` is satisfied at every width instead of at wide ones, and in the same order as the row, which is the order of the reels.
+- **Below 900px at four columns and up, the name leaves the card too.** At 55px a skin name does not wrap, it breaks mid-word, and **a name broken into "Asii mo v" is not a name.** What identifies a skin at that size is the picture. The name is on the receipt line, on a full line of its own.
+- **What the card never loses:** the artwork, the chance it landed against, and its price on a control. **The verb stays on that control at every width and only the words around the number go**, because a control whose whole label is a number reads as another figure in a box.
+
+---
+
+## D-40. My items leaves the rail, and both carriers stop changing on sign in
+
+**Date:** 2026-08-20. **Stage:** 04, raised against node `0.1`. **Decided by:** the founder. **Binds:** node `0.1`, `ia/docs/sitemap.md` row `0.1`, the shell in `wireframes/_nav.js`, and the navigation paragraph in `CLAUDE.md`.
+
+**What was decided.** **My items is removed from the rail**, and by the superset rule from the mobile bar with it.
+
+### It did not lose a destination, it stopped holding one twice
+
+Since `D-36` the account menu carries **My items as its first row**. `CLAUDE.md`'s navigation model says **no carrier holds another's kind**: My items is an account thing and **the header owns the account**. The rail is the ways-to-play carrier and round 1 ships one way to play.
+
+**The superset rule forces the second half.** Every bar item exists in the rail and the rail is always the superset, so an item leaving the rail leaves the bar in the same step. This is the same mechanism `D-29` used when Provably fair left.
+
+### The cost, and it is bigger than the one D-29 printed
+
+- **The rail now carries one destination and the bar two, identically in both states.** Neither carrier changes on sign in at all.
+- **The bar is below Material's floor of three for a signed-in person as well as for a guest.** `D-29` printed that violation when it applied to one state. **It now applies to both, and the way out `D-29` named is still not taken.**
+- **One extra tap from a case screen to the inventory on desktop**, through the account menu instead of the rail.
+- **`CLAUDE.md`'s navigation paragraph still reads "one destination before an account and two after".** That sentence is now wrong and **is not edited here**, because that file changes only on an explicit go.

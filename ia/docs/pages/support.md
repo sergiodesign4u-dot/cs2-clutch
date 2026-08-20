@@ -14,6 +14,12 @@
 
 **Not a policy page.** `0.9` holds documents. This page has a function and a service level, and `G4` is what makes the service level testable rather than a promise.
 
+**Baseline row, `0.10`.** The rule in `CLAUDE.md`: every node carries one baseline row, what the live product does, what we keep, what we change and why.
+
+| What the live product does | What we keep | What we change, and why |
+|---|---|---|
+| A ticket form of three fields, Subject defaulting to Deposits, Email and Message, under an ATTENTION block pushing the FAQ first. `baseline.md` section 9.5. | The three field shape and the deflection to articles, which is reasonable and cheap. | **The submit button reads SIGN IN.** A guest can fill the form and cannot send it, so **a person locked out of their account cannot use the product's own support channel to say so.** That is the strongest single argument in this repository for the appeal route `G4` and its published deadline, and it is now a walked fact rather than an inference. |
+
 ---
 
 ## 0. The one thing that separates this from a help page

@@ -214,23 +214,65 @@
       <thead><tr><th>#</th><th>Block</th><th>What it holds</th><th>Parent</th></tr></thead>
       <tbody>
         <tr><td>1</td><td><strong>Breadcrumb and H1</strong></td><td>Home &gt; Cases &gt; case name. <strong>The H1 is the case name</strong>, because that is what the person came for and what the query matches</td><td><code>0.13</code></td></tr>
-        <tr><td>2</td><td><strong>The case</strong></td><td>Artwork, item count, one line of what kind of case this is</td><td>Main Job</td></tr>
-        <tr><td>3</td><td><strong>The commit block</strong></td><td>Entry cost in one real currency, the <strong>Open</strong> trigger, the balance relationship stated. <strong>Persistent: the cost is on screen while the choice is made, never only after it</strong></td><td>Design principle 3, plus <span class="row-code">C2</span></td></tr>
-        <tr><td>4</td><td><strong>The case numbers</strong></td><td><strong>Published tested RTP</strong> and <strong>expected value at this entry cost</strong>, each with its unit, its as-of and its route</td><td><span class="row-code">D4</span></td></tr>
-        <tr><td>5</td><td><strong>The tier ladder</strong></td><td>Per rarity tier: <strong>published, observed, N</strong>. <strong>Conditional on <code>D-B</code></strong></td><td><span class="row-code">D3</span></td></tr>
-        <tr><td>6</td><td><strong>The drop table</strong></td><td>Item cards <code>0.6</code>, grouped by tier, in ticket order. <strong>Chance and value on the same card</strong>, plus wear, StatTrak, ticket range, free-unit count, the outbound market link on the top item</td><td><span class="row-code">D2</span>, <span class="row-code">D1</span>, <span class="row-code">A1</span>, <span class="row-code">A2</span></td></tr>
-        <tr><td>7</td><td><strong>The freshness stamp</strong></td><td>When the values on this table were last read</td><td><code>0.11</code> rule 2</td></tr>
-        <tr><td>8</td><td><strong>Ticker <code>0.8</code></strong></td><td>The live drop strip with its pause control, every tile landing on <span class="surf">7.1</span></td><td><span class="row-code">A3</span>, Social Job 2</td></tr>
+        <tr><td>2</td><td><strong>The case</strong></td><td>The case artwork, large, on a framed stage. <strong>The lane renders from the moment a person can open, <code>D-32</code>: a guest sees the artwork alone</strong>, item count, one line of what kind of case this is, <strong>the risk band in a zone of its own on one flank and the favourite control on the other</strong></td><td>Main Job. The lane by section 0, phases as states of one page. The band by <code>D-24</code>, the favourite by <code>D-24</code> with <strong>no parent in the three legal classes</strong>, printed</td></tr>
+        <tr><td>3</td><td><strong>The commit block</strong></td><td><strong>One row of exactly two things and the second is always the trigger, <code>D-33</code>.</strong> Beside it stands the entry cost for a guest and the count switch, one to five, for a person with an account. <strong>The trigger's label is the act actually available: <code>Open</code> with the total for a person who can open, <code>Sign in with Steam</code> for a guest, <code>D-32</code>.</strong> Plus the peg, <span class="surf">0.11</span> rule 10. <strong>No frame around it.</strong> <strong>Persistent: the cost is on screen while the choice is made, never only after it</strong></td><td>Design principle 3. <strong>The switch is <code>D-31</code> and it rides on <span class="row-code">C2</span></strong>, which does not exist yet and is printed as the condition</td></tr>
+        <tr><td>4</td><td><strong>Best drops</strong></td><td>This case's biggest outcomes, <strong>ranked by value</strong>, each with its value in coins and its moment, each landing on <span class="surf">7.1</span>. <strong>No multiplier and no person</strong></td><td>Related Job 1 read at this node, plus <span class="row-code">A3</span>. <strong>Founder decision <code>D-32</code></strong>, which reversed the rest of a refusal below</td></tr>
+        <tr><td>5</td><td><strong>The drop table</strong></td><td>Item cards <code>0.6</code>, grouped by tier, in ticket order. <strong>Chance and value on the same card</strong>, plus wear, StatTrak, ticket range, free-unit count, the outbound market link on the top item</td><td><span class="row-code">D2</span>, <span class="row-code">D1</span>, <span class="row-code">A1</span>, <span class="row-code">A2</span></td></tr>
+        <tr><td>6</td><td><strong>The freshness stamp</strong></td><td>When the values on this table were last read</td><td><code>0.11</code> rule 2</td></tr>
+        <tr><td>7</td><td><strong>The case numbers</strong></td><td><strong>Published tested RTP</strong> and <strong>expected value at this entry cost</strong>, each with its unit, its as-of, its route and its derivation. <strong>Back here rather than on the commit block since <code>D-31</code></strong>, with a route from the trigger to this block</td><td><span class="row-code">D4</span></td></tr>
+        <tr><td>8</td><td><strong>The tier ladder</strong></td><td>Per rarity tier: <strong>published, observed, N</strong>. <strong>Conditional on <code>D-B</code></strong></td><td><span class="row-code">D3</span></td></tr>
         <tr><td>9</td><td><strong>SEO text</strong></td><td>The H2 and H3 block <code>0.13</code> places</td><td><code>0.13</code></td></tr>
         <tr><td>10</td><td><strong>Footer</strong></td><td>Node <code>0.2</code>, unchanged</td><td>Global shell</td></tr>
       </tbody>
     </table>
   </div>
 
+  <div class="card is-good">
+    <h4>D-33, 20 August 2026: the price and the act are one row, and each state puts a different thing beside the trigger</h4>
+    <p><strong>The price and the act are one decision</strong> - what this costs and what happens if I agree. Stacked, they are two glances and the second one is the button, so the number is behind the eye by the time the hand moves. The founder's capture puts them side by side and the baseline does the same on this exact surface.</p>
+    <p><strong>The guest state gets the cost and no count switch at all.</strong> A switch there sets a quantity for an act this person cannot perform, and nothing carries the choice across the sign in because there is no session yet to hold it. It arrives with the account, which is where D-31 put it.</p>
+    <p><strong>The signed-in state loses the cost figure and gains the switch in the row.</strong> At the default count the figure and the trigger printed the same number twice, and a number printed twice is not twice as clear. <strong>The unit price moved into the caption and prints at every count</strong>, <code>1 &#215; 12.40 coins</code>, because D-31 fixes that the trigger carries the total and never the unit, and a total with no unit beside it is a cost a person cannot check against the drop table.</p>
+    <p><strong>What it costs:</strong> the guest state shows the entry cost for one roll and no way to see the cost of five. Deliberate, and the smaller of two prices - the alternative is a switch that quietly resets. At 360 the row becomes two rows and both halves keep their full width.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The stage in phase 1 is the reveal's stage in phase 2, and that is structural rather than visual</h4>
+    <p>The phases are states of one page and the person never navigates during the main job. <strong>A frame that holds the case artwork while the choice is made, and the reveal once it is made, is what makes that true in the layout</strong> rather than only in the routing: nothing is unmounted and nothing moves, one region changes what it holds.</p>
+    <p>Drawn as artwork in one column with the trigger in another, phase 2 would have to build a stage that phase 1 never showed, and <strong>the person would watch the page rearrange itself at the exact moment they have just spent.</strong></p>
+    <p><strong>So the commit block sits under the stage and centred rather than beside the artwork.</strong> The responsive section allows either, "the commit block <em>may</em> sit beside the case artwork rather than under it". <strong>Both founder captures of 19 August 2026 centre it</strong>, and the argument above is why that reading is taken: the trigger belongs directly under the thing it acts on, and the reveal replaces the thing rather than the trigger.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Reordered on 19 August 2026 by D-30, after six live captures went beside the drawn screen</h4>
+    <p><strong>The stage is the reveal lane standing still, and it carries the case artwork large.</strong> In phase 2 the lane is the thing that moves. <strong>In phase 1 it is at rest under the artwork</strong>, which is one region holding one object in two states rather than two layouts trading places.</p>
+    <p><strong>The lane prints no figures at all, and that is the correction of 19 August rather than the first draft.</strong> It was first drawn as nine tiles carrying a value and a chance each, on the reasoning that a strip of values alone is the shop window. <strong>The founder read the result as too much information on the stage and the reading is right:</strong> the rule binds any surface that <em>prints</em> a value, and <strong>the honest way to satisfy it here is to print no value, not to print two.</strong> Every figure about this case lives in block 5, beside the ticket range, the free units and the market link that make it checkable. <strong>The cost:</strong> the first screen now shows the name, the cost and the risk zone and nothing about the contents.</p>
+    <p><strong>And no pointer:</strong> all three competitor captures draw a marker over the centre of the lane, and before a roll exists a marker over a slot points at a result that has not been decided, which is <span class="row-code">E2</span>'s objection arriving one phase early. <strong>The risk band gets a zone rather than a line of text:</strong> a hole drawn as a sentence in the corner is a hole that has no size, and the block that lands there later has to find its own room.</p>
+  </div>
+
   <div class="card">
-    <h4>Why the numbers sit above the table rather than under it</h4>
-    <p>Blocks 4 and 5 are two figures and three figures. Block 6 is the whole inventory of the case and at 360px it is the longest thing on the page. <strong>Putting the summary under the list means the cost of the case is read after its contents</strong>, which is design principle 3 failing on layout rather than on content.</p>
-    <p><strong>And why the ticker is at position 8.</strong> The baseline puts its ticker under the header, and on <span class="surf">1.0</span> that placement is <span class="surf">1.0</span>'s to keep. Here the top of the page is the commit block. Pattern E is a layer on the screen where the core happens, not the event itself, and <strong>a strip of other people's wins directly beside this product's own spend trigger is the ambient layer competing with the thing it is ambient to.</strong></p>
+    <h4>The commit block holds the act and the cost of the act, and nothing else, D-31</h4>
+    <p><strong>D-30 moved the tested RTP and the expected value onto it earlier the same day and D-31 reverses that half.</strong> The founder read the result and the reading is the correction: <strong>three figures, two explanatory paragraphs and a trigger in one box is not a place where money is about to be spent, it is a page arguing.</strong> What the block keeps: the count switch, because it is now part of the act; <strong>the total cost on the trigger</strong>, the one figure design principle 3 actually protects; the peg, 0.11 rule 10; and the state, because a person who is not signed in learns it here rather than after tapping.</p>
+    <p><strong>The cost of that reversal, stated rather than smoothed.</strong> Design principle 3 names three things and only the cost is now at the trigger. <strong>D-30's argument against that position still stands and is not answered:</strong> a summary under a list is read after the list. What changed is which risk the founder ranks higher.</p>
+  </div>
+
+  <div class="card is-drop" style="opacity:.72">
+    <h4>Superseded the same day: why the two case numbers moved onto the commit block</h4>
+    <p>The old argument said that putting the summary under the list means the cost is read after its contents, which is design principle 3 failing on layout. <strong>It was right about the danger and wrong about the remedy:</strong> it defended a position eight hundred pixels above the table by treating that section as the only carrier the figures could have. The principle asks that odds, cost and expected value be legible <strong>where money is about to be spent</strong>, and that is the block <span class="surf">0.11</span> rule 10 calls the last surface before money moves.</p>
+    <p><strong>So the tested RTP and the expected value now sit beside the entry cost, and the figures are earlier than they were rather than later.</strong> Block 7 keeps what a figure beside a trigger cannot carry: the derivation, the as-of, the route, and the printed hole where the tester's name is missing. It sits after the table because <strong>the derivation is the table</strong>, and a person checking the expected value reads the two next to each other.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The ticker 0.8 is not on this page at all, D-31</h4>
+    <p>It rendered here and on <span class="surf">1.0</span> and nowhere else, and this node used to argue only about its <em>position</em>, keeping it at the foot on the reasoning that a strip of other people's wins beside this product's own spend trigger is the ambient layer competing with the thing it is ambient to. <strong>The founder cut it from this screen rather than moved it.</strong></p>
+    <p><strong>Two costs, and stage 04 argued against this change before the founder took it.</strong> 0.8 is now a component with <strong>one consumer</strong>, against its own node's sentence that two surfaces was "a decision rather than an oversight". And <strong>Social Job 2 was carried on this page by the ticker</strong>: what carries it now is block 4, which lands every tile on the same <span class="surf">7.1</span> and is about this case rather than about the platform. <strong>A narrower answer than the ticker gave, and recorded as narrower.</strong></p>
+    <p><strong>The claim "renders on 1.0 and 3.3 only" was written in five other files</strong> and every one is corrected in the same step. A rule that survives in four files is the rule a later stage will follow.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The row after the trigger ranks by value, after three passes on one block</h4>
+    <p>The refusals table below refused Hellcase's "last 7 days top drop" and the baseline's "Best drops" as survivorship by construction. <strong>The founder put all three references back in front of this node on 19 August 2026 and the carrier came back with them.</strong> <code>CLAUDE.md</code> states the rule that makes it coherent: a carrier is inherited and filled with live items, and only a dead item is deferred. <strong>The dead item here is the ranking, not the row.</strong></p>
+    <p><strong>D-32, the third pass: it ranks by value and it is called Best drops.</strong> D-30 took the carrier and refused the ranking; D-31 refused the label because a heading claiming a rank over a list in time order lies about the list. <strong>The founder asked a third time, and a request repeated three times is a decision rather than a misunderstanding.</strong> The label and the sort now agree.</p>
+    <p><strong>The cost is not reduced by having been predicted.</strong> This is survivorship by construction: the biggest drops of a period are not what happens. What makes it survivable is that <strong>the block saying what does happen is one tap from this row's caption</strong>, <span class="row-code">D3</span>. <strong>And D-B decides whether that block renders at all:</strong> if it returns negative, a ranked row of the biggest wins stands here with no counterweight, and that is the state to reconsider the row in. <strong>Still refused inside the row:</strong> the multiplier, the window chosen to flatter, and any person's name.</p>
   </div>
 
   <div class="wf-stage">
@@ -344,14 +386,14 @@
         <tr><td><strong>Hellcase</strong></td><td>Yes, per item, pre-login, to three decimals, 0.207% to 13.386%</td><td>Only in a "last 7 days top drop" strip</td><td><strong>No</strong></td></tr>
         <tr><td><strong>skin.club</strong></td><td>Behind a <strong>[ CHECK ODDS RANGE ]</strong> control</td><td>In a "last top skins" strip</td><td><strong>No</strong></td></tr>
         <tr><td><strong>The baseline</strong></td><td>Yes, per item, pre-login, down to 0.01 and in one case 0.025, with the ticket range beside it</td><td>The price, in coins</td><td>Yes, in coins</td></tr>
-        <tr><td><strong>Here</strong></td><td>Yes, per item</td><td>Yes, per item, in one real currency</td><td><strong>Yes</strong></td></tr>
+        <tr><td><strong>Here</strong></td><td>Yes, per item</td><td>Yes, per item, in coins, with the peg on the commit block</td><td><strong>Yes</strong></td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="card is-note">
     <h4>The one thing the baseline already does, and what it changes</h4>
-    <p><code>baseline.md</code> records the finding in its own words: <strong><span class="row-code">D2</span> is not a new capability, it is an inherited one.</strong> The baseline publishes chance, price and ticket range per item, pre-login, on every card. What it publishes the price in is coins, and <span class="row-code">C1</span> deletes that denomination entirely, so the pairing survives the migration only if the value is denominated in real currency. <strong>The real distance between the baseline and this map is <span class="row-code">D3</span>, <span class="row-code">D4</span> and a provably fair page a logged-out person can open</strong>, not <span class="row-code">D2</span>.</p>
+    <p><code>baseline.md</code> records the finding in its own words: <strong><span class="row-code">D2</span> is not a new capability, it is an inherited one.</strong> The baseline publishes chance, price and ticket range per item, pre-login, on every card. What it publishes the price in is coins, and <strong>since <code>D-28</code> so do we</strong>: the denomination is no longer the divergence. <strong>The pairing survives the migration on the condition <code>D-28</code> ships under:</strong> the peg is on the commit block, so a published value can be converted by the person reading it. <strong>The real distance between the baseline and this map is <span class="row-code">D3</span>, <span class="row-code">D4</span> and a provably fair page a logged-out person can open</strong>, not <span class="row-code">D2</span>.</p>
     <p>Why the pairing is the point rather than either number, from the bank verbatim: <strong>a chance without a value is a lottery ticket with no prize printed on it, and a value without a chance is a shop window.</strong></p>
   </div>
 
@@ -396,7 +438,14 @@
 <section id="table">
   <div class="sec-head">
     <h2>The drop table is a comparison table, and it has an order for a reason</h2>
-    <p>Built as a table, not as a decorated carousel. Grouped by tier, ordered by ticket range.</p>
+    <p>Built as a table, not as a decorated carousel. Grouped by tier, ordered by ticket range. <strong>Rendered as a uniform card grid since D-30.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Rendered as a uniform card grid at every width, and the comparison property is what the amendment protects</h4>
+    <p>Block 5 always said item cards <code>0.6</code>; the responsive section granted desktop "a real multi column table", and the two readings had never been made to agree. <strong>All four live pages walked for this node render a grid</strong>, the baseline four cards across, Hellcase six, skin.club six.</p>
+    <p><strong>What makes a grid a comparison rather than a wall is a rule and not a shape:</strong> every field sits in the same place on every card and no card omits one, so the grid is read column-major exactly as a table is. What it buys over a five column table is the artwork at a size where the item is recognisable, <strong>and a skin is recognised by its finish before its name</strong>, which is node 0.8's own argument applied to a static list.</p>
+    <p><strong>The markup stays a table and only the presentation is a grid.</strong> A grid of divs would have thrown away the row group, the caption and the header association in exchange for a layout CSS produces from the table anyway.</p>
   </div>
 
   <div class="card">
@@ -417,7 +466,7 @@
       <div class="wf-legend">
         <div class="wf-leg"><span class="wf-leg-n">1</span><span class="wf-leg-t"><b>Rarity, wear and StatTrak are three fields, not one.</b> The bank pass added the third</span></div>
         <div class="wf-leg"><span class="wf-leg-n">2</span><span class="wf-leg-t"><b>Published chance</b>, <span class="row-code">D2</span>. Static until the configuration changes, so no as-of</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">3</span><span class="wf-leg-t"><b>Current value</b>, <span class="row-code">D2</span>, in real currency. Per read, so the table's stamp covers it</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">3</span><span class="wf-leg-t"><b>Current value</b>, <span class="row-code">D2</span>, in coins. Per read, so the table's stamp covers it</span></div>
         <div class="wf-leg"><span class="wf-leg-n">4</span><span class="wf-leg-t"><b>Ticket range.</b> Inherited from the baseline, and it is what makes E4 and F3 checkable rather than decorative</span></div>
         <div class="wf-leg"><span class="wf-leg-n">5</span><span class="wf-leg-t"><b>Live free-unit count</b>, <span class="row-code">A2</span>. Zero is node 3.4</span></div>
         <div class="wf-leg"><span class="wf-leg-n">6</span><span class="wf-leg-t"><b>Outbound market link, on the top item only</b>, <span class="row-code">A1</span>. Genuinely outbound, and the clicks are an accepted cost rather than a failure metric</span></div>
@@ -496,7 +545,7 @@
     <table>
       <thead><tr><th>#</th><th>Block</th><th>What it does</th><th>Parent</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td><strong>The reveal</strong></td><td>Renders the settled roll. <strong>Computes nothing</strong></td><td><span class="row-code">E1</span>, on <span class="row-code">B6-1</span>, one signal, fatal class</td></tr>
+        <tr><td>1</td><td><strong>The reveal</strong></td><td>Renders the settled roll. <strong>Computes nothing</strong>. <strong>One reel per roll when the count is above one, <code>D-35</code>, and they stand vertically from two, <code>D-37</code></strong>, each with its own pointer, because each roll is its own settled result with its own hash</td><td><span class="row-code">E1</span>, on <span class="row-code">B6-1</span>, one signal, fatal class</td></tr>
         <tr><td>2</td><td><strong>The hash chip</strong></td><td><code>0.14</code> variant <strong>V1</strong> at the spin trigger. Never interrupts</td><td><span class="row-code">E4</span>, Related Job 3</td></tr>
         <tr><td>3</td><td><strong>The cost, spent</strong></td><td>The entry cost stays legible as a thing that has been paid, not removed the moment it is taken</td><td>Design principle 3</td></tr>
         <tr><td>4</td><td><strong>Rarity differentiation</strong></td><td>Speed, particles, audio and screen emphasis scale with outcome rarity over the seven tier ladder</td><td><span class="row-code">E3</span></td></tr>
@@ -512,10 +561,19 @@
     <p><strong>The hash reframes the wait, and that is the design claim <span class="row-code">E4</span> actually makes.</strong> The animation is honest theatre over a pre-committed result. The chip is what makes the buildup legible as <strong>watching a settled outcome rather than waiting for one to be decided.</strong></p>
   </div>
 
+  <div class="card is-good">
+    <h4>D-37, 20 August 2026: the axis changes with the count, and the axis is doing work</h4>
+    <p><strong>One roll runs horizontally. Two or more run vertically, as reels side by side.</strong></p>
+    <p><strong>Stacked horizontal lanes put every extra roll below the previous one.</strong> The second roll is further from the eye than the first, the fifth is off the first screen at 360, and <strong>the batch acquires an order it does not have</strong>: every roll was settled at the same moment and none of them is first. Side by side puts every roll at the same distance from the eye and gives the batch <strong>one pointer line across all the reels</strong> instead of five markers at five heights. <strong>D-35 had already had to shorten the lanes to fit five, which was the axis saying it was the wrong one.</strong></p>
+    <p><strong>A single roll stays horizontal, and that is not an inconsistency.</strong> With nothing beside it to compare against, the wide axis is the one that gives the artwork its room, and phase 1's lane is horizontal because it is the same region at rest. The axis changes at the only condition that makes the vertical reel better: more than one thing to line up.</p>
+  </div>
+
   <div class="card is-note">
     <h4>Timing, and the two figures the research gives</h4>
     <p><code>research.md</code> section 6 carries both, and this node prints both rather than picking one silently: <strong>"4-6 seconds for single-case (full ritual)"</strong> in the duration calibration line, and <strong>"the 3-6 seconds of genuine tension during the spin are the emotional core of the product"</strong> in the Pattern B rejection.</p>
     <p><strong>Taken here: 4 to 6 seconds for a single open</strong>, the figure from the line that is about calibration. The discrepancy is small and it is recorded rather than smoothed, because stage 04 will time an animation against one of these numbers.</p>
+    <p><strong>Amended 20 August 2026 by D-35, and the amended sentence is named rather than quietly replaced.</strong> This node used to read that the third figure in the same paragraph, <strong>0.5 to 1 second per card for bulk reveals</strong>, had nothing to attach to because multi-open was refused. <strong>D-31 had already made that false by shipping the count switch.</strong></p>
+    <p><strong>Where it is spent: on the settling, not on the running.</strong> The reels move together and lock one after another at that interval, so <strong>a batch costs the single-open 4 to 6 seconds plus 0.5 to 1 second per additional reel</strong> rather than five times the single-open duration. The alternative reading, one reel resolving five results in turn, is five waits, and by the second of them the person is watching a machine rather than their own roll. <strong>And it never becomes a reason to open more:</strong> the batch is not faster per roll as a feature and the page never says so, because that is a volume argument wearing a timing figure.</p>
   </div>
 
   <h3>Reduced motion is an accessibility setting, and it is not a speed-up control</h3>
@@ -551,40 +609,37 @@
   <div class="wf-stage">
     <div class="wf-cap">3.6 at 360px - the win, its receipt, and one tap to check it</div>
     <div class="wf-phone">
+      <div class="wf-item-f" style="font-size:9px">14.000 % chance</div>
       <div class="wf-art" style="height:60px"></div>
       <div class="wf-item-n" style="font-size:12px">Weapon . Skin name</div>
-      <div class="wf-item-f" style="font-size:9px">Field-Tested . StatTrak . Covert . float 0.2314 . phase <span style="color:var(--accent-yellow)">[?]</span></div>
-      <div style="border:1px solid var(--wf-line);border-radius:4px;padding:10px;margin-top:11px">
-        <div class="wf-proof-lbl">Instance value receipt, F1</div>
-        <div class="wf-kv"><span class="wf-k">Venue 1</span><span class="wf-v">184.20</span></div>
-        <div class="wf-kv"><span class="wf-k">Venue 2</span><span class="wf-v">179.05</span></div>
-        <div class="wf-kv"><span class="wf-k">Priced as</span><span class="wf-v is-dim">this float band and phase, not the skin name</span></div>
-        <span class="wf-link">Open the listing filtered to this float band</span>
+      <div class="wf-item-f" style="font-size:9px">Field-Tested . StatTrak . Covert</div>
+      <div class="wf-item-f" style="font-size:9px;margin-top:8px">as of 18 Aug 14:58 . float 0.2314 . pattern 418 . phase <span style="color:var(--accent-yellow)">[?]</span></div>
+      <div class="wf-row" style="margin-top:11px;margin-bottom:0">
+        <div class="wf-ctl" style="flex:1">Open again, 2.40</div>
+        <div class="wf-ctl" style="flex:1">Sell for 2.90</div>
+      </div>
+      <div class="wf-scope" style="text-align:left;margin-top:8px">Already in My items, so <b>keeping it is what happens if nothing is tapped.</b> Selling is instant and cannot be undone.</div>
+      <div class="wf-row" style="margin-top:9px;margin-bottom:0">
+        <span class="wf-link">Check this round</span>
+        <span class="wf-link">Share it</span>
         <span class="wf-link">Inspect in game</span>
       </div>
-      <div style="border:1px solid var(--wf-line);border-radius:4px;padding:10px;margin-top:8px">
-        <div class="wf-proof-lbl">Round proof, 0.14 variant V2</div>
-        <span class="wf-link">Check this round</span>
-        <div class="wf-scope">Opens in place. <b>The win is not interrupted for paperwork.</b></div>
-      </div>
-      <div class="wf-row" style="margin-top:11px;margin-bottom:0">
-        <div class="wf-ctl">Share this result</div>
-        <div class="wf-ctl">Keep it, My items</div>
-        <div class="wf-ctl">Open again, 2.40</div>
-      </div>
+      <div class="wf-scope" style="text-align:left"><span style="color:var(--accent-yellow)">Priced against two venues that are not chosen yet</span>, so the listing filtered to this float band is not available.</div>
     </div>
-    <div class="wf-note"><b>Open again is a full control and not a repeat.</b> It re-enters phase 1, where the entry cost, the tested RTP and the expected value are all on screen again. There is no sell control at all, because round 1 has exactly one exit, withdrawal to Steam.</div>
+    <div class="wf-note"><b>Redrawn 20 August 2026 for D-34 and D-38.</b> It used to show the receipt as a bordered four column object with two venue rows, three small controls, and a note that there is no sell control at all. <b>The receipt is one caption line now</b>, and <b>the sell control exists</b>: D-38 reversed that refusal and kept its reason as a cost. <b>Open again is still a full control and not a repeat</b> - it re-enters phase 1, where the entry cost, the tested RTP and the expected value are all on screen again.</div>
   </div>
 
   <div class="table-wrap">
     <table>
       <thead><tr><th>#</th><th>Block</th><th>What it holds</th><th>Parent</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td><strong>The item</strong></td><td>Rendered by <code>0.6</code> at full stage: weapon, skin, wear, StatTrak, rarity</td><td>Main Job</td></tr>
-        <tr><td>2</td><td><strong>The instance value receipt</strong></td><td>Name, float, phase, <strong>current sell price for the comparable float band and phase on two named venues</strong> <span class="q">[?]</span>, the inspect link, and a link that opens the venue listing <strong>filtered to that float band</strong></td><td><span class="row-code">F1</span>, on <span class="row-code">B7-1</span> pattern of 7, also closing <span class="row-code">B7-3</span></td></tr>
+        <tr><td>1</td><td><strong>The item</strong></td><td>Rendered by <code>0.6</code> at full stage: weapon, skin, wear, StatTrak, rarity. <strong>Its own published chance prints above it, <code>D-34</code></strong>, read off this page's drop table so it is checkable rather than flattering. <strong>One card per roll when the count was above one, <code>D-35</code>, in one row of N columns at every width, <code>D-39</code></strong></td><td>Main Job. The chance is <span class="row-code">D2</span>, already published two blocks down</td></tr>
+        <tr><td>2</td><td><strong>The instance value receipt</strong></td><td>Name, float, phase, <strong>current sell price for the comparable float band and phase on two named venues</strong> <span class="q">[?]</span>, the inspect link, and a link that opens the venue listing <strong>filtered to that float band</strong>. <strong>It renders as one caption line and not as a table, <code>D-34</code>:</strong> every field survives, the container around them does not</td><td><span class="row-code">F1</span>, on <span class="row-code">B7-1</span> pattern of 7, also closing <span class="row-code">B7-3</span></td></tr>
         <tr><td>3</td><td><strong>The verification link</strong></td><td><code>0.14</code> variant <strong>V2</strong>. One tap to check this round, <strong>opening in place</strong></td><td><span class="row-code">F3</span>, Related Job 3</td></tr>
         <tr><td>4</td><td><strong>The share</strong></td><td>One tap, producing an object that carries its own proof, landing on <span class="surf">7.1</span></td><td><span class="row-code">F4</span>, Emotional Job 2</td></tr>
-        <tr><td>5</td><td><strong>Two routes onward</strong></td><td>Keep it, into <span class="surf">5.1</span>. Or open again, which re-enters phase 1 <strong>with the cost visible again</strong></td><td>Related Job 5, and design principle 3 for the shape of the second</td></tr>
+        <tr><td>5</td><td><strong>Two controls, and keeping is neither of them</strong></td><td><strong>Open again</strong>, which re-enters phase 1 with the cost visible again, and <strong>sell</strong>, <code>D-38</code>. <strong>Keeping is what happens if nothing is tapped</strong>, because <span class="row-code">E1</span> credits the item before the animation starts, so it is a route to <span class="surf">5.1</span> in one line of text rather than a button</td><td>Design principle 3 for the shape of the first. <strong>The second has no parent in the three legal classes and carries that printed</strong></td></tr>
+        <tr><td>6</td><td><strong>A sell price on each item of a batch</strong></td><td>On the card, not in the batch row, because it is that item's price and not the batch's. <strong>Deliberately not a primary control</strong>, so that liquidating the whole outcome is not the default read. <strong>It is the only place that item's value is printed while the sell price equals it, <code>D-39</code></strong></td><td><strong><code>D-38</code>, founder decision. No parent</strong></td></tr>
+        <tr><td>7</td><td><strong>The batch receipt, one line per roll</strong></td><td>Float, pattern, phase and the roll's own proof route, in the order of the row above, which is the order of the reels. <strong>The only place these fields are printed on a batch, <code>D-39</code></strong>, so the card stays narrow enough for N columns at 360</td><td><span class="row-code">F1</span>, and <span class="row-code">F3</span> for the per roll route</td></tr>
       </tbody>
     </table>
   </div>
@@ -592,7 +647,7 @@
   <div class="card is-good">
     <h4>The receipt is priced as an instance, and that is the whole of F1</h4>
     <p>The pain is not that a number was optimistic. It is that the number described <strong>a different object than the one received, a name instead of an instance.</strong> We hold the exact asset before awarding it, so its float, paint seed and phase are known, and it is priced as that unit.</p>
-    <p><strong>Two hard dependencies travel with it.</strong> It is denominated in real currency, because the dropped rival left that rule attached to the pick: a receipt in coins fails its own test. And the venue link is filtered to the float band, so the person checks it themselves rather than taking our word. <strong>Which two venues is <span class="q">[?]</span></strong>, owner founder, before stage 04.</p>
+    <p><strong>Two hard dependencies travel with it.</strong> It is denominated in coins with the peg on the receipt: the dropped rival left that rule attached to the pick, a receipt in a unit the reader cannot price fails its own test, and <code>D-28</code> moved the rule rather than killing it. And the venue link is filtered to the float band, so the person checks it themselves rather than taking our word. <strong>Which two venues is <span class="q">[?]</span></strong>, owner founder, before stage 04.</p>
     <p><strong>And it persists, which is row <span class="row-code">F2</span>.</strong> The receipt stays attached to the item in inventory <span class="surf">5.1</span> and on the withdrawal record <span class="surf">5.3</span>. The success signal is that the same receipt is retrievable a week later. This node does not own those surfaces, it owns the obligation that what it renders here is the same object they render later.</p>
   </div>
 
@@ -600,14 +655,35 @@
     <table>
       <thead><tr><th style="width:28%">Deliberately absent</th><th>Why</th></tr></thead>
       <tbody>
-        <tr><td><strong>A sell control</strong></td><td><strong>Round 1 has exactly one exit, withdrawal to Steam.</strong> A binding buyback at the displayed value was rejected before scoring, because it adds a payout rail round 1 does not have. Hellcase's <code>SELL &rarr; S</code> has no counterpart here because the capability does not exist</td></tr>
-        <tr><td><strong>A one-key repeat</strong></td><td><code>REPEAT &rarr; R</code> on Hellcase's controls. <strong>One key to liquidate and one key to spend again.</strong> The bank calls it the single most telling block in the whole set</td></tr>
+        <tr><td><strong><s>A sell control</s></strong></td><td><strong>Reversed 20 August 2026 by <code>D-38</code>, and the reason is unchanged and now a cost.</strong> It read: round 1 has exactly one exit, withdrawal to Steam, and a binding buyback at the displayed value was rejected before scoring because it adds a payout rail round 1 does not have. <strong>The capability is still in no backlog row. The founder added it anyway and it ships with no parent in the three legal classes</strong>, printed on its own row in the block table above</td></tr>
+        <tr><td><strong>A one-key repeat</strong>, half of it</td><td><strong>Half reversed 20 August 2026 by <code>D-38</code>, and this is the sharpest thing on this page.</strong> The refusal named exactly the pair this screen now carries: <strong>one key to liquidate and one key to spend again</strong>, which the bank calls the single most telling block in the whole set. <strong>What survives is the half doing the work:</strong> Open again is a full control that re-enters phase 1 <strong>with the entry cost, the tested RTP and the expected value all on screen again</strong>. <strong>It never becomes a key that re-rolls in place</strong></td></tr>
         <tr><td><strong>A personal streak or session tally</strong></td><td>Dropped in the <span class="row-code">B7-2</span> divergence, and <code>0.11</code> rule 7: a number is never a score, no streaks, no progress, no celebration</td></tr>
         <tr><td><strong>A "you were due" line, in any wording</strong></td><td>The same rejection. It is loss-chasing encouragement whichever way the last result went</td></tr>
         <tr><td><strong>Similar cases</strong></td><td>A shared result that recommends another case is an advertisement wearing a receipt. The rule was written for <span class="surf">7.1</span> and it applies with more force here, where the person has just spent</td></tr>
         <tr><td><strong>A celebration that scales with our margin</strong></td><td>Nothing in <span class="row-code">E3</span> scales with anything except outcome rarity, which is the person's result and not our revenue</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>D-34, 20 August 2026: the outcome is the item, and the receipt is a line</h4>
+    <p>The founder's word was overloaded, next to a capture where the item, its chance, its name and three controls are the entire screen. <strong>On the one surface where the item is supposed to be the event, this node led with an object around four fields, one of which was a three line hole.</strong> <span class="row-code">F1</span> asks for the fields that make this <strong>this unit rather than a name</strong>; it never asked for a container around them.</p>
+    <p><strong>Nothing was dropped to make it lighter.</strong> Four fields became one line and two paragraphs became one. Every route and every named hole survived: check this round, share it and inspect in game are three destinations on one row, and the two venues that are not chosen and the peg that is not published are still printed as the holes they are.</p>
+    <p><strong>The chance is the one thing the capture had that this screen did not.</strong> It is the item's own published chance, already in the drop table two blocks down, so it is checkable rather than flattering. <code>0.11</code> rule 7 forbids a number that is a score: <strong>this is a property of what landed, not of the person who landed it</strong>, and it is what makes a win legible as a win rather than as an item appearing.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>D-39, 20 August 2026: the batch outcome is one row at every width, and the card is cut down until that is true</h4>
+    <p><strong>N items in N columns at 360 exactly as at 1440</strong>, no wrapping at any width. <strong>The argument is structural rather than a preference:</strong> since <code>D-37</code> the reveal is N reels side by side, so <strong>column i of the result is column i of the reel it came out of.</strong> Wrapping at 600 broke that correspondence at the exact width where it is hardest to hold five things in the head, and it gave five results a two-then-three shape they do not have.</p>
+    <p><strong>The value figure leaves every card at every width</strong>, because it and the sell control printed the same number a line apart. While the sell price equals the published current value there is nothing for a second printing to say. <strong>The figure returns the moment a spread exists</strong>, because then they are two numbers and design principle 1 makes the difference mandatory. <strong>Float, pattern and phase leave the card</strong> and become the receipt line under the row, so <span class="row-code">F1</span> is satisfied at every width instead of at wide ones.</p>
+    <p><strong>Below 900px at four columns and up the name leaves the card too.</strong> A fifth of 360px is about 55px: a skin name there does not wrap, it breaks mid-word, and <strong>a name broken into "Asii mo v" is not a name.</strong> What identifies a skin at that size is the picture. <strong>What the card never loses:</strong> the artwork, the chance it landed against, and its price on a control - and the verb stays on that control at every width, because a control whose whole label is a number reads as another figure in a box.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>D-38, 20 August 2026: what the sell control leaves undecided, and one of it should block closing this node</h4>
+    <p><strong>The sold state is not drawn.</strong> Selling is instant and irreversible; what the screen becomes afterwards, whether it confirms first, and what the balance figure does are all <span class="q">[?]</span>. <strong>A control that cannot be undone with no drawn confirmation is the one thing this node should not close without.</strong></p>
+    <p><strong>Whether the sell price carries a spread against the published current value is <span class="q">[?]</span>.</strong> They are drawn as the same number. If they differ, <strong>design principle 1 makes printing the difference mandatory rather than optional:</strong> a buyback below a figure we published on the same screen is a cut the reader can see us take.</p>
+    <p><strong>Two figures on a batch and never the difference between them, D-35, and the figures moved into the two controls, D-38.</strong> What was spent and what landed are both facts of the one act and design principle 3 puts them where the money moved. <strong>The net is not printed:</strong> a plus or minus on a batch is a score, and a red number after five rolls is the loss-chasing prompt the <span class="row-code">B7-2</span> divergence dropped. A person who wants it can subtract. <strong>The share stays per item:</strong> <span class="surf">7.1</span> owns one object per result, and a batch card would be a shared object nothing on the map defines.</p>
   </div>
 
   <div class="card is-note">
@@ -675,21 +751,32 @@
     <p><strong>The gate is not an indexation wall.</strong> Every public surface is readable by anyone from anywhere without serving a crawler anything different from a person. The category's usual pattern is a login wall, and skin.club runs one on this exact screen.</p>
   </div>
 
+  <p><strong>Twenty rows, and eleven of them are drawn pages in stage 04 rather than descriptions.</strong> Regenerated from the node on 20 August 2026: the count switch, the two multi-open phases, the four and five column tier, and the three that are named as gaps rather than drawn were all added after this page was first published, and the table below is the node's own, not a copy of it that drifted.</p>
+
   <div class="table-wrap">
     <table>
       <thead><tr><th>State</th><th>Phase 1</th><th>The trigger</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td><strong>Guest, undeclared</strong></td><td>Full page, every figure</td><td>Tapping it raises <span class="surf">2.1</span></td><td><code>D-17</code>, and the numbers are readable behind it</td></tr>
-        <tr><td><strong>Guest, declared</strong></td><td>Full page</td><td>Routes to <span class="surf">2.4</span> sign in, then back here</td><td>Steam refusal and Steam unavailable are <span class="surf">2.4</span>'s states, and the second returns here so a person who cannot sign in can still read the product</td></tr>
-        <tr><td><strong>Account, funded</strong></td><td>Full page</td><td>Opens. Phase 2</td><td>The main path</td></tr>
-        <tr><td><strong>Account, nothing to open with</strong></td><td>Full page</td><td>Routes to <span class="surf">4.1</span>, or consumes a free entry if one is available</td><td><span class="row-code">I1</span> and <span class="row-code">I2</span> are entitlements, not surfaces. The trigger states which it will consume before it is tapped</td></tr>
-        <tr><td><strong>Item at zero free units</strong></td><td>Node <span class="surf">3.4</span></td><td>Unchanged. The case is still openable</td><td>Section above</td></tr>
-        <tr><td><strong>Loading the table</strong></td><td>Skeleton with the free-unit counts as the thing being waited on</td><td>Not yet armed</td><td>Specified here, not a node</td></tr>
-        <tr><td><strong>Values degraded</strong></td><td>The table renders, the value column marked degraded</td><td>Armed</td><td><strong>A case with unknown values is still openable, and the EV figure is not printed from stale values</strong></td></tr>
-        <tr><td><strong><code>D-B</code> negative</strong></td><td>The tier ladder does not render, and the page says a figure used to be here and why</td><td>Armed</td><td><code>0.11</code> withdrawn state. This is the state that keeps the page honest if the counter never ships</td></tr>
-        <tr><td><strong>Reveal running</strong></td><td>Node <span class="surf">3.5</span></td><td>Spent, not re-armed</td><td></td></tr>
-        <tr><td><strong>Outcome</strong></td><td>Node <span class="surf">3.6</span></td><td>Open again re-enters phase 1</td><td></td></tr>
-        <tr><td><strong>Interrupted</strong></td><td>Node <span class="surf">3.7</span></td><td>Not shown until the outcome is acknowledged</td><td></td></tr>
+        <tr><td><strong>Guest, undeclared</strong></td><td>Full page, every figure. <strong>The stage carries the artwork alone: no lane</strong>, <code>D-32</code></td><td><strong>The trigger reads <code>Sign in with Steam</code></strong> and routes into <span class="surf">2.1</span>, which is where the journey actually starts</td><td><code>D-17</code>, and the numbers are readable behind it. <strong>The label is the act that is available</strong>, not the act the person cannot perform yet. The entry cost stays beside it, because a guest deciding whether this case is worth it needs the price and cannot read it off a button that no longer carries it</td></tr>
+        <tr><td><strong>Guest, declared</strong></td><td>Full page, no lane</td><td>The trigger reads <code>Sign in with Steam</code> and routes to <span class="surf">2.4</span>, then back here</td><td><code>flows.md</code> flow 1. Steam refusal and Steam unavailable are <span class="surf">2.4</span>'s states, and the second returns here so a person who cannot sign in can still read the product</td></tr>
+        <tr><td><strong>Account, funded</strong></td><td>Full page. <strong>The lane renders</strong>, because from here the reveal is one tap away and the stage is its stage</td><td><strong><code>Open for <total></code></strong>, and the total moves with the count switch</td><td>The main path</td></tr>
+        <tr><td><strong>Count switch at more than one</strong></td><td>Unchanged</td><td>The trigger restates the <strong>total</strong>, and the balance relationship is stated against that total</td><td><code>D-31</code>. <strong>The switch never persists across visits.</strong> A remembered five is a multiplier that spends without being chosen again</td></tr>
+        <tr><td><strong>Account, nothing to open with</strong></td><td>Full page</td><td>Routes to <span class="surf">4.1</span> deposit, or consumes a free entry if one is available</td><td><span class="row-code">I1</span> and <span class="row-code">I2</span> are entitlements, not surfaces. The trigger states which it will consume before it is tapped</td></tr>
+        <tr><td><strong>Item at zero free units</strong></td><td>Node <span class="surf">3.4</span></td><td>Unchanged. The case is still openable</td><td>Section 6</td></tr>
+        <tr><td><strong>Loading the table</strong></td><td>Skeleton with the free-unit counts as the thing being waited on</td><td>Not yet armed</td><td>Specified here, not a node, per <code>sitemap.md</code></td></tr>
+        <tr><td><strong>No drops from this case yet</strong></td><td>Block 4 says so in its own words and renders nothing else</td><td>Unchanged</td><td><strong>It never borrows another case's outcomes to fill the row</strong>, which is <span class="row-code">A3</span>'s no-invented-content rule applied to a carrier rather than to a name. A new case has no history and the honest row says that</td></tr>
+        <tr><td><strong>Fewer recent drops than the row holds</strong></td><td>Block 4 renders what exists and does not pad</td><td>Unchanged</td><td>The count is what it is. Padding a row to a round number is the same defect one level down</td></tr>
+        <tr><td><strong>Values degraded</strong></td><td>The table renders, the value column marked degraded, <span class="surf">0.11</span></td><td>Armed</td><td><strong>A case with unknown values is still openable, and the EV figure is not printed from stale values</strong></td></tr>
+        <tr><td><strong><code>D-B</code> negative</strong></td><td>Block 5 does not render, and the page says a figure used to be here and why</td><td>Armed</td><td><span class="surf">0.11</span> withdrawn state. This is the state that keeps the page honest if the counter never ships</td></tr>
+        <tr><td><strong>Reveal running</strong></td><td>Node <span class="surf">3.5</span></td><td>Spent, not re-armed</td><td>Section 7</td></tr>
+        <tr><td><strong>Reveal running, count above one</strong></td><td>Node <span class="surf">3.5</span> with <strong>one lane per roll</strong>, drawn at two and at five</td><td>Spent, not re-armed. The cost states the multiplication, <code>5 × 12.40 coins</code></td><td><code>D-35</code>. <strong>The lanes are shorter from three up</strong>, because five at full height do not fit above the fold at 360 and the stage may not scroll during the one moment it is being watched</td></tr>
+        <tr><td><strong>Outcome</strong></td><td>Node <span class="surf">3.6</span></td><td>Open again re-enters phase 1</td><td>Section 8</td></tr>
+        <tr><td><strong>Outcome, count above one</strong></td><td>Node <span class="surf">3.6</span> as <strong>one card per item</strong>, drawn at two and at five, each card carrying its own chance, value, instance fields and route to its own proof</td><td>Open again re-enters phase 1 <strong>at the same count</strong></td><td><code>D-35</code>. <strong>Two figures, total value and total spent, and never the difference</strong></td></tr>
+        <tr><td><strong>Four or five columns below 900px</strong></td><td>The card carries the artwork, the chance and the price on its control, and nothing else</td><td>Unchanged</td><td><strong><code>D-39</code>. A fifth of 360px is about 55px.</strong> The name would break mid-word, so it is on the receipt line under the row instead. <strong>The row never wraps</strong>, because column <code>i</code> of the outcome is column <code>i</code> of the reel it came from</td></tr>
+        <tr><td><strong>A spread between sell price and current value</strong></td><td>The value returns to the card as its own figure</td><td>Unchanged</td><td><strong><span class="q">[?]</span> by <code>D-38</code>, answered in shape by <code>D-39</code>.</strong> Whether a sell carries a spread against the published current value is not decided. <strong>One number printed once while they are the same; two numbers the moment they are not</strong>, and design principle 1 makes the difference mandatory: a buyback below a figure we published on the same screen is a cut the reader can see us take</td></tr>
+        <tr><td><strong>Sold, one item or all of them</strong></td><td>Not drawn</td><td><span class="q">[?]</span></td><td><strong>Named as a gap by <code>D-38</code> rather than discovered later.</strong> Selling is instant and irreversible, and what the screen becomes afterwards, whether it confirms first, and what the balance figure does are all undecided. <strong>A control that cannot be undone with no drawn confirmation is the one state this node should not be closed without</strong></td></tr>
+        <tr><td><strong>Count switch above the balance</strong></td><td>Not drawn</td><td><span class="q">[?]</span></td><td><strong>Named as a gap by <code>D-35</code> rather than discovered later.</strong> The switch can name a total the balance does not cover, and what the trigger does then is not decided</td></tr>
+        <tr><td><strong>Interrupted</strong></td><td>Node <span class="surf">3.7</span></td><td>Not shown until the outcome is acknowledged</td><td>Section 9</td></tr>
       </tbody>
     </table>
   </div>
@@ -740,7 +827,9 @@
   <div class="card">
     <h4>B. Headings, exactly one H1 and the H2 list in block order</h4>
     <p><strong>H1:</strong> the case name, and nothing else.</p>
-    <p><strong>H2:</strong> What is in this case . <strong>H2:</strong> What this case pays . <strong>H2:</strong> Published against observed . <strong>H2:</strong> Live drops . <strong>H2:</strong> How this case works . <strong>H3:</strong> How a chance and a ticket range fit together . <strong>H3:</strong> What happens when an item runs out</p>
+    <p><strong>H2:</strong> Best drops <em>(block 4)</em> . <strong>H2:</strong> What is in this case <em>(block 5, with the stamp of block 6 inside it)</em> . <strong>H2:</strong> What this case pays <em>(block 7)</em> . <strong>H2:</strong> Published against observed <em>(block 8)</em> . <strong>H2:</strong> How this case works <em>(block 9)</em> . <strong>H3:</strong> How a chance and a ticket range fit together . <strong>H3:</strong> What happens when an item runs out</p>
+    <p><strong>The stage and the commit block carry no H2 and that is deliberate.</strong> The H1 names the case and the commit block is the act, not a topic. A heading over a trigger is a heading a person scrolls past on the way to the thing it labels.</p>
+    <p><strong>Reordered twice on 19 August 2026.</strong> The second pass is <code>D-30</code>: block 4 arrived, the two case numbers moved onto the commit block and their section moved below the table, so this list follows the block order to its new place. <strong>The first pass, earlier the same day, was a contradiction inside this node rather than a preference.</strong> The list read drop table, then pays, then published against observed, while the block order runs pays, then the ladder, then the table. The optimisation checklist makes that match mechanical, so the two could not both be right. <strong>The block order wins because it carries the argument:</strong> putting the summary under the list means the cost of the case is read after its contents, which is design principle 3 failing on layout rather than on content. The heading list had no argument at all, only an order.</p>
     <p><strong>One H1 per page across all three phases.</strong> The phases do not each get one, because they are states of one document. The "Published against observed" heading does not render if <code>D-B</code> is negative, and the block order closes over it.</p>
   </div>
 
@@ -786,16 +875,18 @@
     <table>
       <thead><tr><th style="width:22%">Refused</th><th style="width:28%">Where it is live</th><th>Why</th></tr></thead>
       <tbody>
-        <tr><td><strong>Multi-open selector, 1 / 2 / 3 / 4 / 5 / 10</strong></td><td>Hellcase. The baseline runs five hexagon slots</td><td><strong>No parent.</strong> Design principle 3: a spend multiplier next to the trigger, before any ceiling is visible. <strong>If multi-open ever ships it ships behind <span class="row-code">C2</span></strong></td></tr>
-        <tr><td><strong>Keyboard shortcuts: <code>SELL &rarr; S</code>, <code>REPEAT &rarr; R</code></strong></td><td>Hellcase, printed on the controls beside <code>GET &rarr; ENTER</code> and <code>QUICK STOP &rarr; SPACE</code></td><td><strong>One key to liquidate what you won and one key to spend again.</strong> Speed here is not service. The bank calls it the single most telling block in the whole set</td></tr>
+        <tr><td><strong>Multi-open selector, 1 to 5</strong></td><td>Hellcase. The baseline runs five hexagon slots with an AUTO beside them. A second founder capture runs x1 to x30</td><td><strong>Reversed on 19 August 2026 by D-31, at one to five and no further.</strong> This row had said "if multi-open ever ships it ships behind C2", and it is shipping before C2 exists: <strong>that condition is now a printed cost rather than a satisfied one.</strong> What the design owes in exchange: <strong>the trigger carries the total, not the unit</strong>, the switch defaults to one on every visit and remembers nothing, and there is one deliberate act per open request. <strong>x10, x20 and x30 stay refused</strong>, because five is a number a person can hold and thirty is a number they accept</td></tr>
+        <tr><td><strong>AUTO, beside the multi-open slots</strong></td><td>The baseline, in the same control group</td><td><strong>Still refused, and D-31 sharpens the reason rather than softening it.</strong> The switch that shipped has a deliberate act per open request; AUTO removes the act entirely. <strong>It is the one control on the reference that spends without a decision per spend</strong>, and it is the line the multiplier does not cross</td></tr>
+        <tr><td><strong>ADD TO BATTLE</strong></td><td>The second founder capture of 19 August 2026</td><td><strong>Case battles are <code>LATER</code></strong>, <code>CLAUDE.md</code> scope. A control that enters a mode round 1 does not have is the dead item defect on a spend surface. <strong>The carrier is not deferred with it:</strong> the flank it sits on carries the favourite, which is live</td></tr>
+        <tr><td><strong>Keyboard shortcuts: <code>SELL &rarr; S</code>, <code>REPEAT &rarr; R</code></strong></td><td>Hellcase, printed on the controls beside <code>GET &rarr; ENTER</code> and <code>QUICK STOP &rarr; SPACE</code></td><td><strong>One key to liquidate what you won and one key to spend again.</strong> Speed here is not service. The bank calls it the single most telling block in the whole set</td> <strong>Amended 20 August 2026 by <code>D-38</code>: the sell control now exists and the repeat half is half reversed, but the SHORTCUTS are still refused.</strong> A key that liquidates and a key that spends are the convenience the block bank names as the most telling in the set, and node 3.6 keeps the argument on its own refusals table</tr>
         <tr><td><strong>"Fast mode"</strong></td><td>Hellcase. The baseline ships a speed control beside its multi-open slots</td><td>A control that makes spending faster, sold as a preference. <strong>The mechanism is kept as reduced motion honouring the system preference</strong></td></tr>
         <tr><td><strong>A sign-in wall over the open control</strong></td><td>skin.club, "Authorization is required to open cases". The baseline, "You must log in to be able to Open cases and get your winnings chance"</td><td><span class="row-code">B1-1</span> and <span class="row-code">B3</span>. <strong>A person deciding whether this place is real cannot see the mechanic.</strong> We show the whole screen and gate at the first case interaction</td></tr>
-        <tr><td><strong>"Last 7 days top drop" with a multiplier, x38.8</strong></td><td>Hellcase. The baseline runs a "Best drops" row with coin values</td><td><strong>Survivorship by construction:</strong> the top drops of the week are not what happens. The same curiosity is answered by <span class="row-code">D3</span>, which can disappoint and is therefore worth reading</td></tr>
+        <tr><td><strong>"Last 7 days top drop" with a multiplier, and "Best drops" ranked by value</strong></td><td>Hellcase, with x536.2 on the top tile of a second capture. The baseline runs a "Best drops" row with coin values, skin.club a "Last top skins" row</td><td><strong>Half reversed on 19 August 2026, D-30, and the half that stayed is why the row is safe.</strong> The refusal was survivorship by construction and it was not wrong; what it did was defer a carrier because the item in it was dead. <strong>Block 4 now ships the case's own recent outcomes in time order.</strong> What stays refused is every mechanism that made the reference a trophy wall: the ranking by value, the multiplier, the seven-day window chosen to flatter, and the word "best". <span class="row-code">D3</span> still answers the same curiosity properly, and block 4 routes there</td></tr>
         <tr><td><strong>"100% case fairness transparency"</strong></td><td>skin.club</td><td>An unfalsifiable sentence. <code>D-14</code> bounds the claim and <code>0.14</code> carries a scope line saying what the proof does <strong>not</strong> cover, which is the opposite move</td></tr>
-        <tr><td><strong>A risk meter of three skull icons</strong></td><td>The baseline, two filled of three, beside "Medium-risk"</td><td>The Case entity carries a risk band and <strong>no computation for it exists anywhere in this repository</strong>, so it has no route. <span class="row-code">D4</span> is the checkable version and it ships instead. A figure in an icon is also not text</td></tr>
-        <tr><td><strong>The "Skin prices" explainer and the exchange route</strong></td><td>The baseline</td><td>It exists to explain a coin denomination and an exchange surface. <span class="row-code">C1</span> deletes the first and in-platform exchange is LATER, so the block explains two things we do not have</td></tr>
-        <tr><td><strong>A like count on the case</strong></td><td>The baseline, a thumb icon with a count</td><td>No parent. <code>0.11</code> rule 7: a number is never a score</td></tr>
-        <tr><td><strong>Bulk-open timing, 0.5 to 1 second per card</strong></td><td><code>research.md</code> section 6, as Pattern B for bulk flows</td><td>Nothing in round 1 opens in bulk, because multi-open is refused above. The figure has nothing to attach to and is recorded rather than used</td></tr>
+        <tr><td><strong>A risk meter of three skull icons</strong></td><td>The baseline, two filled of three, beside "Medium-risk". <strong>The second capture runs the same band as a three-bar glyph beside the word MEDIUM</strong>, which is the same refusal and the same exception: the word is text and the glyph is not</td><td><strong>Amended by <code>D-24</code>, 18 August 2026.</strong> The band is no longer parentless: it is computed from this screen's own drop table, register <code>0.11</code> owns the method, and node <code>0.7</code> renders it on the tile. <strong>What stays refused is the meter as icons alone.</strong> What this screen owes the tile is <strong>the figure the band comes from</strong>, printed beside <span class="row-code">D4</span>, so the label read on the shelf resolves here. Thresholds <span class="q">[?]</span></td></tr>
+        <tr><td><strong>The "Skin prices" explainer and the exchange route</strong></td><td>The baseline</td><td><strong>Half of it came back on 19 August 2026.</strong> <code>D-28</code> gives us the coin denomination the explainer exists to explain, and that half is answered by the peg on the commit block rather than by a block of prose. In-platform exchange is still LATER, so the route stays refused</td></tr>
+        <tr><td><strong>A like count on the case</strong></td><td>The baseline, a thumb icon with a count</td><td>No parent. <code>0.11</code> rule 7: a number is never a score. <strong>The favourite is not this and the difference is the whole of <code>D-24</code>:</strong> a favourite is the person's own press acting on their own shelf and claims nothing beyond itself, while a like count is a popularity figure printed beside a spend trigger</td></tr>
+        <tr><td><strong><s>Bulk-open timing, 0.5 to 1 second per card</s></strong></td><td><code>research.md</code> section 6, as Pattern B for bulk flows</td><td><strong>Reversed 20 August 2026 by <code>D-35</code>, and the earlier wording is corrected rather than left standing.</strong> It read that nothing in round 1 opens in bulk and the figure had nothing to attach to. <strong><code>D-31</code> had already made that false by shipping the count switch.</strong> The figure is now used, and node 3.5 says where: <strong>on the settling between reels, not on the running</strong></td></tr>
       </tbody>
     </table>
   </div>
@@ -823,6 +914,7 @@
         <tr><td>Whether the rarity ladder is the game's palette</td><td>Seven tiers were walked live and one claim is <span class="q">[?]</span>: if the values are the CS2 client's own, <strong>we may not restyle them freely because the player already reads them without a legend</strong></td><td>Whoever specifies <code>0.6</code>, one page to check</td></tr>
         <tr><td><strong>Float, paint seed and phase as fields</strong></td><td>The Skin instance entity marks them <span class="q">[?]</span> and "not required by any job in the current list", while <span class="row-code">F1</span> requires float and phase on the receipt. <strong>The receipt therefore needs them and the entity does not know it</strong>, which is a contradiction this node reports rather than edits</td><td><code>sitemap.md</code> at its next pass</td></tr>
         <tr><td>The sound control's parent</td><td><code>0.1</code> carries it with no parent and a standing condition. <strong>The candidate parent is here</strong>, <span class="row-code">E3</span> plus design principle 2</td><td>Founder, before stage 04, and the decision belongs to <code>0.1</code></td></tr>
+        <tr><td>The method behind the risk band, not only its thresholds</td><td>Added 19 August 2026 when stage 04 drew this screen. <code>0.11</code> says the band's method reads the same drop table whose chances and values are printed here, so a reader can recompute it, and it marks the thresholds <code>[?]</code>. <strong>What it never says is what the method computes.</strong> Stage 04 renders the one figure that satisfies the stated property and names it a candidate rather than the method: <strong>the share of outcomes worth at least the entry cost</strong>. Until the method is chosen the band cannot render on <span class="surf">1.0</span> or <span class="surf">3.1</span> either, which is why every tile reads "Risk not available"</td><td>Founder, with <code>0.11</code></td></tr>
         <tr><td>The exact reveal timing inside 4 to 6 seconds</td><td>The research gives two ranges. The chosen curve, the deceleration and the hold are stage 06's, tested there</td><td>Stage 06</td></tr>
       </tbody>
     </table>
@@ -864,6 +956,7 @@ window.NAV_SECTIONS = [
   { id: 'open',        label: 'Open' },
 ];
 </script>
+<script src="_nav.js"></script>
 <script src="../_nav.js"></script>
 </body>
 </html>
