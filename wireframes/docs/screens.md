@@ -1212,3 +1212,47 @@ At 1440 and at 360, on both batch pages: no `.wf-rolls` left in the page flow, t
 **294 checks**, 22 pages by 7 widths by both rail states, no page scrolling sideways at any width, no collapsed leaf, no wrapped button label. The only failures are the two known `catalogue.html` 404s, which predate this step.
 
 **The node's one hard adaptive requirement, checked rather than assumed:** blocks 1 and 2 both above the fold at 360px. The consent block ends at 517px in the default state and 501px in the partial state, so both clear a 640px viewport and a 800px one. **In `2.5` at a 640px tall viewport the consent block starts above the fold and ends 30px under it**, which the node permits, because there the requirement is that block 2 stays visible rather than that it fits above the fold. Printed rather than rounded off.
+
+---
+
+## 37. The sign in dialog, and it goes out onto the guest surfaces
+
+**Built 21 August 2026, same day as section 36 and after it.** The founder brought three competitor arrival modals and made two decisions: `D-55`, four providers, and `D-56`, the split between the dialog and the address. **The point, in the founder's own framing: a person is never taken off the page they are on.**
+
+### The canon is drawn over the case screen, and that is the argument
+
+`signin-dialog.html` is a copy of the guest case screen with the dialog pinned open, which is how every other state page of `3.3` already works. **Drawing it over a plain surface would have illustrated the frame and hidden the reason:** the case a person chose, the count they set and the price they were reading are behind the scrim, still on the screen, so they can see the thing they are signing in for while they decide whether to sign in.
+
+### Four providers, one of them the act
+
+**Steam full width as the primary control; Google, Discord and X as one secondary row.** The difference is structural rather than decorative: **Steam is the only provider that can receive a skin, so it is the only one drawn as the act.** Four equal buttons would say the four are equal.
+
+**The price is printed beside the three, not after the deposit:** those three get you in straight away, and to take a skin out you will need Steam linked. `C4` generalised, what is required to withdraw is stated before the money moves.
+
+**It cost three states the map did not have**, listed in `ia/docs/sitemap.md` and in node `2.4` section 0.10.2: no Steam linked at `5.3`, link Steam at `5.1`, and a person with no Steam about to spend at `4.1`. **None is built and all three are debt.**
+
+### The order changed in both carriers
+
+**The two declarations come before the provider controls now.** `D-54` fixed that the block order never differs between the carriers, so it changed in both or in neither. **One inert control above its own explanation was tolerable, four is a wall of dead buttons a person meets before being told why they are dead.**
+
+### The dialog contract, measured rather than asserted
+
+| Property | Result |
+|---|---|
+| Escape closes it | yes, and focus returns to the control that opened it |
+| The scrim area closes it | yes |
+| The close control closes it | yes |
+| Focus moves in on open | yes, onto the close control |
+| Tab is trapped inside | yes, both directions |
+| The surface behind is inert and still there | yes. Nothing is unmounted and the page cannot scroll behind the scrim |
+| Opens from the header on every guest page | yes, and **the `href` stays real**, so a middle click, a copied link and a session with no script all reach `/signin` |
+
+**The trigger keeps a real address on purpose.** A destination reachable only by a script handler does not exist for a keyboard either, `0.13` section 8.
+
+### Measured at 360
+
+**The dialog is a full height sheet below 599px and a centred card above**, `D-54` section 0.9.8. At 360 the consent block ends at 513px and the Steam control at 581px, **so both clear a 640px viewport**, which is the node's one hard adaptive requirement. The secondary row ends at 666px and the four absolute lines at 880px, both inside the dialog's own scroll.
+
+### What was not taken from the captures
+
+**No email field and no password field**, which the node already forbade under `B6`. **No single bundled checkbox**, because one gesture answering two questions is exactly what `D-26` split. **No separate sign-up route**, because there is no separate registration here and a second door implies a first one that is different.

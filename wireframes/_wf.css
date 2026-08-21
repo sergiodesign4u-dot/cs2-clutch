@@ -2234,3 +2234,93 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
    column, and a heading on the page column's edge with the card in the middle is
    two measures on one surface. The dialog carrier has no H1 at all, D-54. */
 .wf-auth-page { width: 100%; max-width: 620px; margin: 0 auto; }
+
+/* ============================================================================
+   THE SIGN IN DIALOG, D-55 AND D-56, 21 August 2026.
+   The founder's second decision of the day: the dialog is the canon, it is as
+   simple as the competitors' arrival modals, IT CARRIES AN IMAGE, and it goes
+   out onto every guest surface. THE POINT IS THAT A PERSON IS NEVER TAKEN OFF
+   THE PAGE THEY ARE ON: they can sign in from where they stand.
+   The frame is the modal contract from 0.1 section 6, taken whole rather than
+   written twice: the scrim blocks the content behind, nothing is raised above
+   it, and there are three ways out. The one renamed dismissal is the first: the
+   close control, the scrim, and Escape.
+   ============================================================================ */
+.wf-dlg-scrim { position: fixed; inset: 0; z-index: 80; background: rgba(0, 0, 0, 0.66); }
+.wf-dlg-wrap {
+  position: fixed; inset: 0; z-index: 81;
+  display: flex; align-items: center; justify-content: center;
+  padding: var(--wf-s-3);
+  overflow-y: auto;
+}
+/* AT 360 IT IS A FULL HEIGHT SHEET AND NOT A CENTRED CARD, D-54 section 0.9.8.
+   The node's one hard adaptive requirement is that the control and the consent
+   are both above the fold, and a centred card at that width is a card with
+   margins above and below it whose fold arrives sooner than on the page the
+   requirement was written for. A sheet has the same fold as a page. */
+@media (max-width: 599px) {
+  .wf-dlg-wrap { padding: 0; align-items: stretch; }
+  .wf-dlg { min-height: 100%; border-radius: 0; border-left: 0; border-right: 0; }
+}
+.wf-dlg {
+  position: relative;
+  width: 100%; max-width: 460px;
+  margin: auto;
+  display: flex; flex-direction: column;
+  background: var(--wf-bg);
+  border: 1px solid var(--wf-line);
+  border-radius: var(--wf-r-3);
+  overflow: hidden;
+  container-type: inline-size; container-name: auth;
+}
+/* AN IMAGE IS STAGE 06's. ITS SPACE IS THIS STAGE's, which is D-50's rule for
+   icons applied to the one picture the founder asked for. Drawing a character
+   here would be deciding the art direction two stages early; leaving no room for
+   it would be deciding there is none. */
+.wf-dlg-art {
+  height: 150px; flex: 0 0 150px;
+  border-bottom: 1px solid var(--wf-line-soft);
+  background: var(--wf-raised);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--wf-t-xs); letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--wf-ink-faint);
+}
+.wf-dlg-close {
+  position: absolute; top: var(--wf-s-1); right: var(--wf-s-1); z-index: 2;
+  width: var(--wf-tap); min-width: var(--wf-tap); height: var(--wf-tap);
+  padding: 0; border-radius: var(--wf-r-2);
+  background: var(--wf-bg); border: 1px solid var(--wf-line-soft);
+}
+.wf-dlg-body { display: flex; flex-direction: column; gap: var(--wf-s-2); padding: var(--wf-s-3); }
+.wf-dlg-h { font-size: var(--wf-t-l); line-height: 1.2; font-weight: 700; text-align: center; }
+.wf-dlg-sub { font-size: var(--wf-t-s); color: var(--wf-ink-dim); line-height: 1.5; text-align: center; }
+
+/* THE PROVIDER SET, D-55. ONE PRIMARY AND THREE SECONDARY, and the difference is
+   structural rather than decorative: Steam is the only one that can receive what
+   a person wins, so it is the only one drawn as the act. */
+.wf-prov-1 { width: 100%; min-height: 52px; font-size: var(--wf-t-m); font-weight: 600; }
+.wf-prov-row { display: flex; gap: var(--wf-s-1); }
+.wf-prov-row > .wf-btn { flex: 1 1 0; min-width: 0; padding-inline: var(--wf-s-1); font-size: var(--wf-t-s); }
+.wf-prov-i { flex: 0 0 18px; height: 18px; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1); }
+.wf-prov-1 .wf-prov-i { flex-basis: 22px; height: 22px; }
+.wf-or {
+  display: flex; align-items: center; gap: var(--wf-s-2);
+  font-size: var(--wf-t-xs); color: var(--wf-ink-faint);
+}
+.wf-or::before, .wf-or::after { content: ''; flex: 1 1 auto; height: 1px; background: var(--wf-line-soft); }
+/* THE PRICE OF THE OTHER THREE, PRINTED BESIDE THEM AND NOT AFTER THE DEPOSIT.
+   D-55: a provider that cannot receive a skin is an account that can pay in and
+   cannot take out, which is barrier B4-1's own shape. C4's principle generalised:
+   what is required to withdraw is stated before the money moves. */
+.wf-prov-cost { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); line-height: 1.5; text-align: center; }
+.wf-prov-cost b { color: var(--wf-ink); }
+
+/* THE FOUR ABSOLUTE LINES, D-56. The half of the statement that is finished:
+   the "will read" side is still [?] and a list of unknowns is not a statement,
+   so it stays at the address until production fills it. */
+.wf-never { display: flex; flex-direction: column; gap: var(--wf-s-half); }
+.wf-never-h { font-size: var(--wf-t-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-faint); }
+.wf-never-l { font-size: var(--wf-t-xs); line-height: 1.5; color: var(--wf-ink-dim); padding-left: var(--wf-s-2); position: relative; }
+.wf-never-l::before { content: ''; position: absolute; left: 0; top: 5px; width: 6px; height: 6px; border: 1px solid var(--wf-line); border-radius: 50%; }
+.wf-never-l b { color: var(--wf-ink); font-weight: 600; }
+.wf-dlg-more { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); text-align: center; }

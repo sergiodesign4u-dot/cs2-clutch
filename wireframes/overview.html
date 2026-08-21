@@ -1149,6 +1149,50 @@
   </div>
 </section>
 
+<section id="dialog">
+  <div class="sec-head">
+    <h2>The sign in dialog, and it goes out onto the guest surfaces</h2>
+    <p>Founder, 21 August 2026, same day and after. Three competitor arrival modals, two decisions: <code>D-55</code> four providers, <code>D-56</code> the split. Live from <code>wireframes/docs/screens.md</code> section 37. <strong>The point, in the founder&#39;s framing: a person is never taken off the page they are on.</strong></p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The canon is drawn over the case screen, and that is the argument</h4>
+    <p><a href="signin-dialog.html">signin-dialog.html</a> is a copy of the guest case screen with the dialog pinned open, which is how every other state page of 3.3 already works. <strong>Drawing it over a plain surface would have illustrated the frame and hidden the reason:</strong> the case a person chose, the count they set and the price they were reading are behind the scrim, still on the screen.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Four providers, one of them the act</h4>
+    <p><strong>Steam full width as the primary control; Google, Discord and X as one secondary row.</strong> The difference is structural rather than decorative: <strong>Steam is the only provider that can receive a skin, so it is the only one drawn as the act.</strong> Four equal buttons would say the four are equal.</p>
+    <p><strong>The price is printed beside the three, not after the deposit:</strong> those three get you in straight away, and to take a skin out you will need Steam linked. C4 generalised, what is required to withdraw is stated before the money moves.</p>
+    <p><strong>It cost three states the map did not have</strong>, now listed on the sitemap and in the node: no Steam linked at 5.3, link Steam at 5.1, and a person with no Steam about to spend at 4.1. <strong>None is built and all three are debt.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The order changed in both carriers</h4>
+    <p><strong>The two declarations come before the provider controls now.</strong> D-54 fixed that the block order never differs between the carriers, so it changed in both or in neither. <strong>One inert control above its own explanation was tolerable, four is a wall of dead buttons a person meets before being told why they are dead.</strong></p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The dialog contract, measured rather than asserted</th><th>Result</th></tr></thead>
+      <tbody>
+        <tr><td>Escape closes it</td><td>yes, and focus returns to the control that opened it</td></tr>
+        <tr><td>The scrim area closes it</td><td>yes</td></tr>
+        <tr><td>Focus moves in on open, onto the close control</td><td>yes</td></tr>
+        <tr><td>Tab is trapped inside, both directions</td><td>yes</td></tr>
+        <tr><td>The surface behind is inert and still there</td><td>yes. Nothing is unmounted and the page cannot scroll behind the scrim</td></tr>
+        <tr><td>Opens from the header on every guest page</td><td>yes, and <strong>the href stays real</strong>, so a middle click, a copied link and a session with no script all reach /signin</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h4>Measured at 360, and what was not taken from the captures</h4>
+    <p><strong>A full height sheet below 599px and a centred card above.</strong> At 360 the consent block ends at 513px and the Steam control at 581px, <strong>so both clear a 640px viewport</strong>, which is the node&#39;s one hard adaptive requirement. The secondary row ends at 666px and the four absolute lines at 880px, both inside the dialog&#39;s own scroll.</p>
+    <p><strong>No email field and no password field</strong>, which the node already forbade. <strong>No single bundled checkbox</strong>, because one gesture answering two questions is exactly what D-26 split. <strong>No separate sign-up route</strong>, because there is no separate registration here and a second door implies a first one that is different.</p>
+  </div>
+</section>
+
 <footer class="doc">
   <p>Sources of truth: <code>wireframes/docs/screens.md</code> and <code>wireframes/docs/conventions.md</code>. The screen registry: <code>wireframes/_nav.js</code>. The grey contract: <code>wireframes/_wf.css</code>.</p>
   <p>Where these screens come from: <a href="../ia/structure.html">IA structure</a>, <a href="../ia/flows.md">flows</a>. The stage that colours copies of them: 06.</p>
@@ -1188,6 +1232,7 @@ window.NAV_SECTIONS = [
   { id: 'drawer',      label: 'D-51 roll drawer' },
   { id: 'nowrap',      label: 'D-52 and D-53' },
   { id: 'signin',      label: 'D-54 sign in' },
+  { id: 'dialog',      label: 'D-55 and D-56' },
 ];
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';

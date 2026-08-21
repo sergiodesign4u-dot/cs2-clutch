@@ -1,6 +1,6 @@
 # Node 2.4. Sign in with Steam
 
-**Type:** dialog, with an address. **Group:** `pages`. **Scope:** MVP. **Cluster:** 2, get through the door. **Alias:** `S-B2`.
+**Type:** dialog, with an address. **Group:** `pages`. **Providers:** four since `D-55`, one of them the act. **Scope:** MVP. **Cluster:** 2, get through the door. **Alias:** `S-B2`.
 
 **Purpose.** Take a person out to Steam OpenID and back, and state, before they leave, exactly what this product will and will not read from their Steam account.
 
@@ -65,7 +65,7 @@
 | 0, the two lists | Whole | Nothing. It is the reason the node exists and it is in the dialog, not behind a link inside it |
 | 1, what this is not | Whole | Nothing |
 | 2, the route defect | The defect and the rejected fix | Narrowed to three screens, section 0.9.1, and still not closed |
-| 3, blocks | All seven | **Block 6 becomes the dismissal**, and **block 7 the footer belongs to the address only.** A dialog does not carry a footer, and the surface behind already has one |
+| 3, blocks | All seven | **Block 6 becomes the dismissal**, and **block 7 the footer belongs to the address only.** A dialog does not carry a footer, and the surface behind already has one. **Amended again by `D-55` and `D-56`**, section 0.10: block 1 holds four providers, block 2 moves above it, and blocks 3 to 5 split between the carriers |
 | 4, states | All | **Three carrier states added**, section 0.9.7 |
 | 8, adaptive | The one hard requirement at 360px | **The shape that keeps it**, section 0.9.8 |
 | 9, SEO | The whole block, at the address | **The heading rule in the dialog**, section 0.9.9 |
@@ -94,6 +94,69 @@
 
 ---
 
+## 0.10 Amended 21 August 2026 by `D-55` and `D-56`. Four providers, and a dialog that is simple without being thinner
+
+**Two founder decisions taken the same day as `D-54`, after three competitor arrival modals were put beside this node.** The dialog is the canon, it carries an image, it is as simple in structure as the modals the competitors ship, and **it still prints the thing none of them prints**.
+
+### 0.10.1 `D-55`. Four providers, and only one of them is the act
+
+**Steam, Google, Discord, X.** Steam as a full width primary control, the other three as one secondary row.
+
+**The node argued for one and the argument is above, in section 1, kept and marked.** It was not a taste argument: withdrawal is to Steam and Steam only at launch, `jtbd.md` Decision 4, so an account made through any of the other three **cannot receive what it wins until Steam is linked**. That is barrier `B4-1`'s own shape, an account that can pay in and cannot take out, built into the sign-up.
+
+**The founder overrode it knowing that, and what makes the override honest is where the sentence sits, not that the sentence exists.** `C4` generalised: what is required to withdraw is stated **before** the money moves. So the requirement is printed on this surface, beside the three buttons that carry it, in both carriers, and never in a settings page a person finds afterwards.
+
+**One primary and three secondary, and the difference is structural rather than decorative.** Steam is the only provider that can receive a skin, so it is the only one drawn as the act. **Four equal buttons would say the four are equal**, and this node's own reason for existing is that it does not say things that are not true.
+
+### 0.10.2 What `D-55` adds to the map, named here rather than discovered at stage 07
+
+**Three states that do not exist yet**, because until now no account could exist without a Steam identity:
+
+| Node | The state it now needs | Why |
+|---|---|---|
+| `5.3` Withdrawal | **No Steam linked**, with the link as the act | The exit is Steam. A person who arrives here from Google has nowhere for the skin to go |
+| `5.1` Account and inventory | **Link Steam**, available at any time and not only at the exit | The requirement was stated at sign in, so the place to satisfy it has to exist before the exit |
+| `4.1` Deposit | **A person with no Steam linked is about to spend money** | `C4`'s own subject. Whether this is a warning, a block or nothing at all is `[?]` and it is the founder's, not this node's |
+
+**None of the three is built and all three are debt, printed rather than absorbed.** They are the price of the entrance widening, and they are what makes `D-55` a scope decision rather than a layout one.
+
+### 0.10.3 `D-56`. The split between the carriers, and it is not a short version and a long version
+
+**`D-54` rejected "keep the page and add a thinner dialog beside it"**, on the grounds that two versions of the one statement this node exists for is how the shorter one becomes the real one and the statement becomes fine print. **That rejection stands and this is not it.**
+
+| | The dialog | The address `/signin` |
+|---|---|---|
+| Image slot | **Yes**, `D-55` | No. The page has the shell around it |
+| Title and one line | Yes | The H1 and its lede |
+| **The two declarations** | Yes | Yes |
+| **The four providers** | Yes | Yes |
+| **What we never read or do**, four lines | **Yes** | Yes |
+| What we read, the field list | **No** | Yes |
+| What happens next, three steps | No | Yes |
+| The starter credit | No | Yes |
+| Block 6, the route back | **The dismissal is block 6** | A crawlable link |
+| The footer `0.2`, the H1 | No | Yes |
+
+**The line the split is drawn on: the dialog carries every part of the statement that is finished.** The four "never" lines are absolute, and each is a rule written down elsewhere in this repository rather than a promise made on this surface. **The "what we read" side is still `[?]` field by field**, and a list of unknowns is not a statement yet, so it waits at the address for production to fill it. **When production fills it, this split is re-decided rather than inherited.**
+
+**And the two blocks that stay at the address are stayed for a reason of their own:** the round trip description and the starter credit are what a person reads when they arrive cold with no context. In the dialog the context is the surface behind them, which is the whole of `D-54`.
+
+### 0.10.4 The order changed, in both carriers, and that is why `D-54`'s rule still holds
+
+**The two declarations now come before the provider controls.** `D-54` fixed that the block order never changes between the carriers, so it changed in both or in neither.
+
+**Two reasons, and the first is this node's own.** Section 4's default state already required that the reason is "stated in text above it", which is an order, not a decoration. **The second is `D-55`'s doing:** one inert control above its own explanation was tolerable, four is a wall of dead buttons a person meets before being told why they are dead.
+
+### 0.10.5 What was not taken from the three captures
+
+**No email field and no password field, in any state.** Two of the three modals offer email and password beside the providers; the founder cut it and the node had already forbidden it. `B6` is the rule, quoted: no password anywhere outside the provider's own page.
+
+**No single bundled checkbox.** One capture ships "I'm 18+ and I agree to the Terms and Conditions" as one line. **One gesture answering two questions is exactly what `D-26` split**, and it stays split.
+
+**No "Sign up new account" as a second route.** There is no separate registration in this product. The provider round trip is both, and offering a second door implies a first one that is different.
+
+---
+
 ## 0. The statement no competitor prints
 
 **This is the block the node exists for.** `blocks.md` section 6 walked five competitors' sign-in surfaces live and the finding on our side of the ledger is one sentence: ours is Steam OpenID **with a statement of what the product will and will not read, which no competitor prints**.
@@ -118,6 +181,8 @@
 ## 1. What this page is not
 
 **It is not registration in the ordinary sense, and the map is why.** There is no password field, no email field, no username, no profile step and no second provider. Hellcase's arrival modal offers three providers, `blocks.md` section 6. This product offers one.
+
+**Overridden on 21 August 2026 by `D-55`. Four providers, one of them the act.** The paragraph below is kept rather than deleted, because the argument was sound and the founder overrode it knowingly, and a deleted argument cannot be reread when the decision is revisited. **What `D-55` changed is not the exit but the entrance**, and what it costs is in section 0.10.
 
 **One route, and it follows from the exit rather than from simplicity.** Withdrawal is to Steam and Steam only at launch, `jtbd.md` Decision 4, so an account not tied to a Steam identity cannot receive what it wins. A second provider would create accounts that can pay in and cannot take out, which is barrier `B4-1`'s shape built into the sign-up.
 
@@ -145,8 +210,8 @@ Composition from `blocks.md` section 6, T5. Refero ShareWillow gives the craft f
 
 | # | Block | Traces to |
 |---|---|---|
-| 1 | **What this is, and the one control.** One line, one button. Centred single card, one column | Refero ShareWillow, `blocks.md` T5. Related Job 2 |
-| 2 | **The consent gate: two declarations, and nothing works until both are made.** The terms consent naming and linking each document it covers, and **the age declaration on its own line as its own act**. The provider control in block 1 is **unavailable** until both are set, and this block says why in words rather than only by dimming a button | `D-26`, and the compliance constraint in `CLAUDE.md`. **This is layer 1 of `D-A` and it always was: what `D-26` changed is that it is enforced rather than decorative** |
+| 1 | **What this is, and the controls.** One line. **Four providers since `D-55`**, Steam as the act and Google, Discord and X as one secondary row, with the Steam requirement printed beside them. Centred single card, one column. **Now second in the order, `D-56`** | Refero ShareWillow, `blocks.md` T5. Related Job 2. `D-55` |
+| 2 | **First in the order since `D-56`.** **The consent gate: two declarations, and nothing works until both are made.** The terms consent naming and linking each document it covers, and **the age declaration on its own line as its own act**. The provider control in block 1 is **unavailable** until both are set, and this block says why in words rather than only by dimming a button | `D-26`, and the compliance constraint in `CLAUDE.md`. **This is layer 1 of `D-A` and it always was: what `D-26` changed is that it is enforced rather than decorative** |
 | 3 | **The will and will not read statement**, on the page, not behind a link, not in a modal, not in the terms | `B3-2` by way of row `B6`. **This is the node's reason for existing**, section 0 |
 | 4 | **What happens next**, three steps in one line: you land on Steam, you type your password there and never here, you come back | `B3-1` by way of row `B5`. The round trip is the confusing step Related Job 2 forbids, so it is described before it starts |
 | 5 | **The starter credit, stated as an offer with its terms**, because `1.0` already made it pre-login and this is where it is met | Row `I1`, bound to `C4`, `D1` and `A1`, which is not optional, `cjm-to-be.md` answer 1 |
@@ -159,7 +224,7 @@ Composition from `blocks.md` section 6, T5. Refero ShareWillow gives the craft f
 
 **And block 2 does not claim to be verification.** It is a self-declaration, the surface says so, and `2.7` is where the other layer lives. `D-26` part 2 proposes taking `2.7` out of round 1 and prints what that costs; **until that go is given this node assumes `2.7` still exists.**
 
-**No block for:** a password field, an email field, a second provider, a case image, a ticker, a countdown, or a bonus larger than the one `1.0` already promised.
+**No block for:** a password field, an email field, a separate sign-up route, a case image, a ticker, a countdown, or a bonus larger than the one `1.0` already promised. **The "second provider" that stood on this list until 21 August was struck by `D-55`**, and the strike is a decision with a price, section 0.10.2, rather than a line quietly removed.
 
 ---
 

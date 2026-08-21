@@ -727,3 +727,17 @@ Step 4 introduced no screen the concept sitemap did not already hold, so the map
 **One thing this stage found and cannot close.** A person who only ever uses free entry can reach the withdrawal route and take out a real skin without ever meeting an identity check, because `B1` gates funding and `B2` forbids the check at the exit. The shape that closes it without reopening `B8-4` is proposed in `flows.md` under flow 3 and deliberately not drawn: it is a compliance decision riding on `D-A`, which counsel already owns.
 
 The full defect log with both instruments, the merge and the verification notes is in `ia/docs/critique.md`.
+
+---
+
+## Debt opened by `D-55`, 21 August 2026
+
+**Four providers entered the sign-in surface and three of them cannot receive a skin.** Until that decision no account could exist without a Steam identity, so three states had no reason to exist. They have one now, and none of them is written.
+
+| Node | The state it needs | Owner |
+|---|---|---|
+| `5.3` Withdrawal | **No Steam linked**, with the link as the act. The exit is Steam and a person who arrived through Google has nowhere for the skin to go | The step that writes `5.3` |
+| `5.1` Account and inventory | **Link Steam**, reachable at any time rather than only at the exit. The requirement is stated at sign in, so the place to satisfy it exists before the exit | The step that writes `5.1` |
+| `4.1` Deposit | **Somebody with no Steam linked is about to spend money.** Whether that is a warning, a block or nothing at all is `[?]` | Founder. It is `C4`'s own subject and not a layout question |
+
+**This is printed rather than absorbed**, because the entrance widening is a scope decision and the three states are its price. `docs/decisions.md` D-55, and node `2.4` section 0.10.2.

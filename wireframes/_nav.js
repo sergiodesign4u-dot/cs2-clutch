@@ -109,9 +109,12 @@ window.WF_NAV = {
         { node: '2.2', label: 'Geo blocked', file: 'gate-blocked.html', status: 'spec', dead: true }
       ] },
 
-    { node: '2.4',  cluster: '2', name: 'Sign in with Steam',  file: 'signin.html',     ia: 'signin.html',        status: 'built',
-      base: 'Consent not given',
+    // D-54 MADE THE DIALOG THE CARRIER, so the dialog is the base page of this
+    // node and the address is a state of it rather than the other way round.
+    { node: '2.4',  cluster: '2', name: 'Sign in with Steam',  file: 'signin-dialog.html', ia: 'signin.html',    status: 'built',
+      base: 'The dialog, over the case screen',
       states: [
+        { label: 'Cold arrival at /signin', file: 'signin.html',                 status: 'built' },
         { label: 'One of two given',        file: 'signin-consent-partial.html', status: 'built' },
         { label: 'Consent given',           file: 'signin-consent-given.html',   status: 'built' },
         { node: '2.5', label: 'Steam refused',       file: 'signin-steam-refused.html',   status: 'built' },
@@ -919,8 +922,14 @@ window.WF_NAV = {
       right.appendChild(dep);
       right.appendChild(accountControl());
     } else {
+      // D-54: THIS CONTROL OPENS THE DIALOG RATHER THAN ROUTING TO IT, on every
+      // guest surface. The href stays real and correct, so a middle click, a
+      // copied link and a session with no script all still reach the address.
+      // A trigger whose only route is a script handler is a destination that
+      // does not exist for a keyboard either, 0.13 section 8.
       var si = el('a', 'wf-btn', 'Sign in');
       si.href = BASE + 'signin.html';
+      si.setAttribute('data-auth-open', 'default');
       right.appendChild(si);
     }
     // NO SOUND CONTROL HERE. It moved to the foot of the rail on 19 August 2026, D-29,
@@ -1372,42 +1381,29 @@ window.WF_NAV = {
 
 
   /* ==========================================================================
-     NODE 2.4, SIGN IN. ONE CARD, BUILT ONCE, D-54.
-     The founder's decision of 21 August 2026 made this a dialog opened over the
-     surface a person is already on, drawn once as a canon and then mounted
-     wherever a guest meets a control they cannot use. IT LIVES IN THIS FILE FOR
-     EXACTLY THAT REASON: six copies of one statement is how five of them rot and
-     the shortest becomes the real one. The frame differs by carrier, the card
-     does not.
-     ONE CONTENT, TWO CARRIERS. At /signin it renders as a full page with the
-     navigation and the footer around it, for a typed URL, a deep link, a session
-     with no script and a crawler. Inside the dialog it renders over the surface,
-     with a scrim, a close control and no footer, and NO H1: the host page owns
-     that outline and a second H1 breaks a document this card does not own.
+     NODE 2.4, SIGN IN. ONE CARD, BUILT ONCE, D-54, D-55, D-56.
+     THE DIALOG IS THE CANON AND THE POINT IS THAT NOBODY IS TAKEN OFF THE PAGE
+     THEY ARE ON. A person meets a control they cannot use and signs in from
+     where they stand, with the case they chose still on the screen behind them.
+     ONE CONTENT, TWO CARRIERS, AND D-56 SPLITS THEM ONCE AND NAMES THE SPLIT.
+     The dialog carries the art, the title, the providers, the two declarations
+     and the four absolute lines. The address carries all of that plus the round
+     trip, the starter credit, the route back as a link, the footer and the H1.
+     The split is NOT a short version and a long version of one statement, which
+     is what D-54 rejected: the half of the statement left at the address is the
+     half that is still [?], and a list of unknowns is not a statement yet.
+     THE ORDER IS THE SAME IN BOTH CARRIERS. The declarations come before the
+     providers, D-56, because the node's own default state says the reason is
+     "stated in text above it" and because four inert buttons above their reason
+     is worse than one.
      ========================================================================== */
   function authCard(state, carrier) {
     var isFail = (state === 'refused' || state === 'unavailable');
-    var h = (carrier === 'dialog') ? 'h3' : 'h2';   // D-54, section 0.9.9
+    var isDlg  = (carrier === 'dialog');
+    var h = isDlg ? 'h3' : 'h2';   // D-54 section 0.9.9: the dialog carries no H1
     var out = [];
 
-    // ---- BLOCK 1. What this is, and the one control ------------------------
-    // The node: "One line, one button." The button is INERT until block 2 is
-    // done, and it is a real disabled state announced to a screen reader rather
-    // than a dimmed div, D-26. It stays in place across every state so the
-    // control a person is aiming at never moves.
-    // 2.5 AND 2.6 REPLACE BLOCKS 1 AND 3 IN PLACE, node section 8.
-    if (!isFail) {
-      out.push('<div class="wf-auth-blk">');
-      out.push('<p class="wf-auth-lede">One provider, and it follows from the exit rather than from simplicity. Withdrawal is to Steam and Steam only at launch, so an account not tied to a Steam identity cannot receive what it wins.</p>');
-      if (state === 'given') {
-        out.push('<a class="wf-btn wf-btn--primary wf-auth-go" href="case-open.html">Continue to Steam</a>');
-      } else {
-        out.push('<button class="wf-btn wf-auth-go" type="button" disabled>Continue to Steam</button>');
-      }
-      out.push('</div>');
-    }
-
-    // ---- THE FAILURE BLOCK, 2.5 and 2.6 ------------------------------------
+    // ---- THE FAILURE BLOCK, 2.5 and 2.6, FIRST -----------------------------
     if (state === 'refused') {
       // 5.1: THE MESSAGE NAMES WHICH SIDE FAILED. The barrier has a voice and it
       // is a failure that told a person something false about themselves, so the
@@ -1425,7 +1421,7 @@ window.WF_NAV = {
       out.push('<a class="wf-btn" href="support.html">Contact support</a>');
       out.push('</div>');
       // 5.2, THE RULE THAT OUTRANKS THE COPY: no password field appears in this
-      // state or in any state of this page. A failed third party sign in
+      // state or in any state of this node. A failed third party sign in
       // followed by a password form is the exact shape B3-1's own thread warns
       // about. A retry re-runs the round trip, it never asks for a credential.
       out.push('<p class="wf-fail-p">Trying again runs the same Steam round trip. <b>It never asks for a password, here or anywhere.</b></p>');
@@ -1452,16 +1448,17 @@ window.WF_NAV = {
       out.push('</div>');
     }
 
-    // ---- BLOCK 2. The consent gate, D-26 -----------------------------------
+    // ---- THE CONSENT GATE, D-26, AND IT COMES FIRST NOW, D-56 --------------
     // TWO CHECKBOXES AND NOT ONE, and the reason is in the canon rather than in
     // taste. baseline-account.md records the live product's version: a single
     // line, "I'm 18+ and I agree to the Terms and Conditions", with no required
-    // attribute and with the provider buttons live while it is unchecked. One
-    // checkbox bundles a contract consent with an age declaration, and a person
-    // who ticks it to get past it has made ONE GESTURE THAT ANSWERED TWO
-    // QUESTIONS. Splitting them costs one line and makes the age declaration a
-    // separate deliberate act, which is the only property that makes it worth
-    // anything at all.
+    // attribute and with the provider buttons live while it is unchecked. Every
+    // competitor capture the founder brought does the same or worse: one of them
+    // bundles both into one line. One checkbox bundles a contract consent with
+    // an age declaration, and a person who ticks it to get past it has made ONE
+    // GESTURE THAT ANSWERED TWO QUESTIONS. Splitting them costs one line and
+    // makes the age declaration a separate deliberate act, which is the only
+    // property that makes it worth anything at all.
     // IT STAYS VISIBLE IN 2.5 AND 2.6, node section 8: the moment a sign in
     // fails is exactly when a person re-reads what the site wanted from them.
     // AND IT DOES NOT CLAIM TO BE VERIFICATION. It is a self declaration, the
@@ -1475,64 +1472,112 @@ window.WF_NAV = {
     // NAMES WHICH DECLARATION IS MISSING rather than repeating the general
     // instruction. Two declarations means two failure messages, node section 4.
     if (state === 'default') {
-      out.push('<p class="wf-consent-why"><b>Both declarations are needed before Continue to Steam works.</b> They are two separate acts on purpose: one is a contract, the other is a statement about you.</p>');
+      out.push('<p class="wf-consent-why"><b>Both declarations are needed before any of the buttons below work.</b> They are two separate acts on purpose: one is a contract, the other is a statement about you.</p>');
     } else if (state === 'partial') {
-      out.push('<p class="wf-consent-why"><b>The age declaration is still missing.</b> Continue to Steam stays unavailable until you make it.</p>');
+      out.push('<p class="wf-consent-why"><b>The age declaration is still missing.</b> The buttons below stay unavailable until you make it.</p>');
     } else if (state === 'given') {
-      out.push('<p class="wf-consent-why">Both declarations made. <b>Nothing else on this card changed</b>, because a card that rearranges itself when a box is ticked has moved the target you were aiming at.</p>');
+      out.push('<p class="wf-consent-why">Both declarations made. <b>Nothing else moved</b>, because a surface that rearranges itself when a box is ticked has moved the target you were aiming at.</p>');
     } else {
       out.push('<p class="wf-consent-why">Your declarations are unchanged and nothing was recorded about this attempt.</p>');
     }
     out.push('</div>');
 
-    // ---- BLOCK 3. The statement no competitor prints ------------------------
-    // THIS IS THE BLOCK THE NODE EXISTS FOR. blocks.md section 6 walked five
-    // competitors' sign in surfaces live and none of them prints one. Its parent
-    // is a barrier with a voice: B3-2, a site that required a Steam avatar
-    // change to unlock a free case, and a person who concluded from that alone
-    // that it was a scam. The person arriving here has already been taught a
-    // test; this surface either passes it visibly or fails it silently.
-    // ON THE SURFACE: not behind a link, not in a second modal, not in the terms.
-    // THE "WILL READ" SIDE IS DELIBERATELY INCOMPLETE AND SAYS SO. A statement of
-    // what we read is worthless if the list is aspirational, and what Steam
-    // OpenID returns versus what the Web API returns are technical facts this
-    // repository has opened no source for. Inventing a field list is inventing a
-    // permission, so the rows are [?] and the RULE is what stage 04 draws.
+    // ---- THE PROVIDERS, D-55 -----------------------------------------------
+    // FOUR PROVIDERS, ONE OF THEM THE ACT. The node argued for one and the
+    // founder overrode it on 21 August 2026 knowing the cost, which is printed
+    // rather than smoothed: withdrawal is to Steam and Steam only at launch,
+    // jtbd.md Decision 4, so an account made with any of the other three CANNOT
+    // RECEIVE WHAT IT WINS until Steam is linked. That is barrier B4-1's own
+    // shape, an account that can pay in and cannot take out.
+    // WHAT MAKES IT HONEST IS THE PLACEMENT OF THE SENTENCE, not its existence.
+    // C4 generalised: what is required to withdraw is stated BEFORE the money
+    // moves. So the requirement sits on this surface, beside the three buttons
+    // that carry it, and not in a settings page a person finds afterwards.
+    // ONE PRIMARY AND THREE SECONDARY, and the difference is structural: Steam
+    // is the only one that can receive a skin, so it is the only one drawn as
+    // the act. Four equal buttons would say the four are equal, and they are not.
     if (!isFail) {
+      var live = (state === 'given');
+      out.push('<div class="wf-auth-blk">');
+      if (live) {
+        out.push('<a class="wf-btn wf-btn--primary wf-prov-1" href="case-open.html"><span class="wf-prov-i" aria-hidden="true"></span>Sign in with Steam</a>');
+      } else {
+        out.push('<button class="wf-btn wf-prov-1" type="button" disabled><span class="wf-prov-i" aria-hidden="true"></span>Sign in with Steam</button>');
+      }
+      out.push('<p class="wf-or">or continue with</p>');
+      out.push('<div class="wf-prov-row">');
+      ['Google', 'Discord', 'X'].forEach(function (n) {
+        if (live) {
+          out.push('<a class="wf-btn" href="case-open.html"><span class="wf-prov-i" aria-hidden="true"></span>' + n + '</a>');
+        } else {
+          out.push('<button class="wf-btn" type="button" disabled><span class="wf-prov-i" aria-hidden="true"></span>' + n + '</button>');
+        }
+      });
+      out.push('</div>');
+      out.push('<p class="wf-prov-cost">Those three get you in straight away. <b>To take a skin out you will need Steam linked</b>, because that is where a skin can go, and the link can be made at any time before your first withdrawal.</p>');
+      out.push('</div>');
+    }
+
+    // ---- WHAT WE NEVER READ OR DO. FOUR ABSOLUTE LINES, D-56 ---------------
+    // THIS IS WHY THE NODE EXISTS AND IT IS IN THE DIALOG. blocks.md section 6
+    // walked five competitors' sign in surfaces live and none of them prints
+    // one; the three the founder brought on 21 August print none either. Its
+    // parent is a barrier with a voice: B3-2, a site that required a Steam
+    // avatar change to unlock a free case, and a person who concluded from that
+    // alone that it was a scam. The person arriving here has already been taught
+    // a test, and this surface either passes it visibly or fails it silently.
+    // FOUR LINES IS NOT A COMPROMISE, IT IS THE FINISHED HALF. Every line here
+    // is absolute and every one is a rule written down elsewhere in this
+    // repository rather than a promise made on this surface. The other half,
+    // what we DO read, is still [?] field by field, and a list of unknowns is
+    // not a statement, so it waits at the address for production to fill it.
+    out.push('<div class="wf-never">');
+    out.push('<span class="wf-never-h">What we never read or do</span>');
+    out.push('<span class="wf-never-l"><b>Never a password</b>, here or anywhere in this product</span>');
+    out.push('<span class="wf-never-l"><b>Never a change</b> to your profile, avatar, name or friends</span>');
+    out.push('<span class="wf-never-l"><b>Never a post</b>, a comment or an invite in your name</span>');
+    out.push('<span class="wf-never-l"><b>Never a demand</b> that you join, add or follow anything to unlock anything</span>');
+    out.push('</div>');
+    if (isDlg) {
+      out.push('<p class="wf-dlg-more"><a href="signin.html">What we do read, and what happens next</a></p>');
+    }
+
+    // ======== FROM HERE DOWN: THE ADDRESS CARRIER ONLY, D-56 ================
+
+    // ---- What we read. The list is [?] and says so ---------------------------
+    // A STATEMENT OF WHAT WE READ IS WORTHLESS IF THE LIST IS ASPIRATIONAL.
+    // What Steam OpenID returns and what the Steam Web API returns are technical
+    // facts this repository has opened no source for. Inventing a field list is
+    // inventing a permission, so the rows are [?] and the RULE is what is drawn.
+    if (!isDlg && !isFail) {
       out.push('<div class="wf-auth-blk">');
       out.push('<' + h + '>What we read from your Steam account</' + h + '>');
-      out.push('<div class="wf-lists">');
-      out.push('<div class="wf-list-c"><h3>What we read, and what each one is for</h3><ul>');
+      out.push('<div class="wf-list-c"><ul>');
       out.push('<li><b>[?]</b> field, and on the same row the thing it is for</li>');
       out.push('<li><b>[?]</b> field, same rule</li>');
       out.push('<li><b>[?]</b> field, same rule</li>');
       out.push('<li>The list is <b>[?]</b> until production fills it from a real source. <b>No row is here for a feature that does not exist yet</b>, and a permission list written from memory is a permission invented from memory</li>');
-      out.push('</ul></div>');
-      out.push('<div class="wf-list-c wf-list-c--no"><h3>What we never read or do</h3><ul>');
-      out.push('<li><b>Never a password</b>, on this card or anywhere in this product</li>');
-      out.push('<li><b>Never a change</b> to your Steam profile, avatar, name or friends</li>');
-      out.push('<li><b>Never a post</b>, a comment or an invite in your name</li>');
-      out.push('<li><b>Never a demand</b> that you join, add or follow anything to unlock anything</li>');
-      out.push('</ul></div>');
-      out.push('</div></div>');
+      out.push('</ul></div></div>');
     }
 
-    // ---- BLOCK 4. What happens next ----------------------------------------
+    // ---- What happens next --------------------------------------------------
     // B3-1 by way of row B5. The round trip IS the confusing step Related Job 2
     // forbids, and the one thing this node can do about the route defect is make
     // it predictable, so it is described before it starts. The community's own
     // security rule is quoted once in the node: "Log in steam community first.
     // If any site asks for password etc though, its fake". Step 2 is that rule
     // written as our own promise.
-    out.push('<div class="wf-auth-blk">');
-    out.push('<' + h + '>What happens next</' + h + '>');
-    out.push('<div class="wf-steps">');
-    out.push('<span class="wf-step"><span>You land on <b>Steam&#39;s own page</b>, at a steamcommunity.com address</span></span>');
-    out.push('<span class="wf-step"><span>You type your password <b>there, and never here</b></span></span>');
-    out.push('<span class="wf-step"><span>You come back, <b>to this case</b>, signed in</span></span>');
-    out.push('</div></div>');
+    if (!isDlg) {
+      out.push('<div class="wf-auth-blk">');
+      out.push('<' + h + '>What happens next</' + h + '>');
+      out.push('<div class="wf-steps">');
+      out.push('<span class="wf-step"><span>You land on <b>the provider&#39;s own page</b>, at its own address</span></span>');
+      out.push('<span class="wf-step"><span>You type your password <b>there, and never here</b></span></span>');
+      out.push('<span class="wf-step"><span>You come back, <b>to where you were</b>, signed in</span></span>');
+      out.push('</div></div>');
+    }
 
-    // ---- BLOCK 5. The starter credit, as an offer with its terms ------------
+    // ---- The starter credit, as an offer with its terms ----------------------
     // Row I1, bound to C4, D1 and A1, and 1.0 already made it pre-login so this
     // is where it is met. C4 IS THE CONSTRAINT IT DOES NOT GET TO SOFTEN: the
     // amount required to withdraw is stated before the deposit and CAN NEVER
@@ -1542,12 +1587,9 @@ window.WF_NAV = {
     // session user that opening is free, which is the one impression the rest of
     // the map spends its budget contradicting. Both figures are [?].
     // AND IT STAYS IN 2.5 AND 2.6. The node replaces blocks 1 and 3 on a failure
-    // and says nothing about this one, so it stays: cutting it would be a silent
-    // divergence, and a divergence is decided out loud or not at all. Two things
-    // about that are worth a founder's second look and both are raised rather
-    // than fixed here: an offer beside a failure message, and, in 2.6, an offer
-    // that cannot be acted on while the provider is down.
-    if (true) {
+    // and says nothing about this one, so cutting it would be a silent
+    // divergence, and a divergence is decided out loud or not at all.
+    if (!isDlg) {
       out.push('<div class="wf-auth-blk">');
       out.push('<' + h + '>Your starter credit</' + h + '>');
       out.push('<div class="wf-offer">');
@@ -1557,14 +1599,14 @@ window.WF_NAV = {
       out.push('</div></div>');
     }
 
-    // ---- BLOCK 6. The route back into reading without signing in ------------
+    // ---- The route back into reading without signing in ----------------------
     // 2.6's principle applied to the default state: A PERSON WHO WILL NOT SIGN
     // IN IS NOT EJECTED. In the dialog, D-54 makes the dismissal itself carry
     // this, so the link is not repeated there: a control that does the same
     // thing as the scrim, the close and Escape is a fourth way to do one thing.
     // At the address there is nothing to dismiss, so it is a real crawlable
     // anchor, 0.13 section 8.
-    if (carrier !== 'dialog') {
+    if (!isDlg) {
       out.push('<div class="wf-auth-blk">');
       out.push('<' + h + '>Or keep looking around without an account</' + h + '>');
       out.push('<p class="wf-auth-lede">Every case, every drop table, every chance and the verifier are readable with no account. <a href="case.html">Back to the case</a>, or <a href="index.html">back to the home page</a>.</p>');
@@ -1572,6 +1614,99 @@ window.WF_NAV = {
     }
 
     return out.join('');
+  }
+
+  /* THE DIALOG CARRIER, D-54 AND D-55. The frame is 0.1 section 6's modal
+     contract taken whole: the scrim blocks the content behind, nothing is raised
+     above it, and there are three ways out. The one renamed dismissal is the
+     first, because there is nothing to select here: the close control, the
+     scrim, and Escape. Dismissing records nothing and returns the person exactly
+     where they were, which is how block 6 is satisfied structurally rather than
+     by a link they have to notice.
+     THE ART SLOT IS A SLOT. An image is stage 06's and its space is this
+     stage's, which is D-50's rule for icons applied to the one picture the
+     founder asked for on 21 August. */
+  function authDialogHTML(state) {
+    return '' +
+      '<div class="wf-dlg-scrim" data-auth-dismiss="1"></div>' +
+      '<div class="wf-dlg-wrap" data-auth-dismiss="1">' +
+        '<div class="wf-dlg" role="dialog" aria-modal="true" aria-labelledby="wf-dlg-h">' +
+          '<button class="wf-dlg-close" type="button" aria-label="Close">✕</button>' +
+          '<div class="wf-dlg-art" aria-hidden="true">Image slot, stage 06</div>' +
+          '<div class="wf-dlg-body">' +
+            '<p class="wf-dlg-h" id="wf-dlg-h">Sign in</p>' +
+            '<p class="wf-dlg-sub">You stay on this page. Nothing you chose is lost.</p>' +
+            authCard(state || 'default', 'dialog') +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  }
+
+  /* THE DIALOG GOES OUT ONTO EVERY GUEST SURFACE, and that is the whole point of
+     D-54: A PERSON IS NEVER TAKEN OFF THE PAGE THEY ARE ON. Any control marked
+     data-auth-open opens it, which is the header account control on every guest
+     page and the two triggers on Home. The case screen keeps routing to the geo
+     gate first, because 2.1 fires at the first case interaction and the two
+     layers are never on screen at once.
+     THE THREE DISMISSALS ARE 0.1 SECTION 6's, ONE OF THEM RENAMED, and focus is
+     trapped on open and returned to the control that opened it on close. */
+  function mountAuthDialog() {
+    var opener = null;
+    var host = null;
+
+    function close() {
+      if (!host) return;
+      host.remove();
+      host = null;
+      document.documentElement.style.overflow = '';
+      document.removeEventListener('keydown', onKey, true);
+      if (opener && document.contains(opener)) opener.focus();
+      opener = null;
+    }
+
+    function onKey(e) {
+      if (!host) return;
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key !== 'Tab') return;
+      // THE TRAP. A dialog a keyboard can walk out of behind the scrim is a
+      // scrim that failed to block anything.
+      var f = host.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+
+    function open(state, trigger) {
+      if (host) return;
+      opener = trigger || null;
+      host = el('div', 'wf-auth-host');
+      host.innerHTML = authDialogHTML(state || 'default');
+      document.body.appendChild(host);
+      // THE SURFACE BEHIND IS INERT AND IS NEVER REMOVED, 0.1's own rule for a
+      // gate open. Removing the carriers would make the dialog read as an
+      // ejection rather than a step, and the case the person chose is exactly
+      // what they are meant to still be looking at.
+      document.documentElement.style.overflow = 'hidden';
+      host.addEventListener('click', function (e) {
+        if (e.target.closest('.wf-dlg-close') || e.target.hasAttribute('data-auth-dismiss')) close();
+      });
+      document.addEventListener('keydown', onKey, true);
+      var f = host.querySelector('.wf-dlg-close');
+      if (f) f.focus();
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-auth-open]');
+      if (!t) return;
+      e.preventDefault();
+      open(t.getAttribute('data-auth-open') || 'default', t);
+    });
+
+    // THE CANON PAGE renders it open on load, because a canon nobody can see
+    // without a click is a canon nobody checks.
+    var pinned = document.querySelector('[data-auth-pinned]');
+    if (pinned) open(pinned.getAttribute('data-auth-pinned') || 'default', null);
   }
 
   /* THE ADDRESS CARRIER. The host declares its state and this renders the card
@@ -1595,6 +1730,7 @@ window.WF_NAV = {
     renderPanel(document.getElementById('wf-panel'));
     renderShell(document.getElementById('wf-shell'));
     renderAuth(document.getElementById('wf-auth'));
+    mountAuthDialog();
     renderFooter(document.getElementById('wf-footer'));
     mountRollDetail();
     renderBar(document.getElementById('wf-bar'));

@@ -1644,3 +1644,67 @@ The roll detail control sat at the 44px tap floor beside two 60px acts, **so a r
 **A dialog with no address.** It reads simpler and it deletes the four rules above without a decision being taken about any of them.
 
 **Keeping the page and adding a dialog as a second surface with less in it.** Two versions of the one statement the node exists for is how the shorter one becomes the real one and the statement becomes fine print. Same content in both carriers, same order.
+
+---
+
+## D-55. Four providers, and only one of them can receive what you win
+
+**Date:** 2026-08-21. **Stage:** 04, raised by the founder with three competitor arrival modals beside the node. **Decided by:** the founder, against this node's recorded argument and knowing its price. **Binds:** node `2.4`, and it adds debt to `5.3`, `5.1` and `4.1`.
+
+**What was decided.** **Steam, Google, Discord and X.** Steam as a full width primary control; the other three as one secondary row.
+
+### What it overrides, kept rather than deleted
+
+Node `2.4` section 1: *"One route, and it follows from the exit rather than from simplicity. Withdrawal is to Steam and Steam only at launch, `jtbd.md` Decision 4, so an account not tied to a Steam identity cannot receive what it wins. A second provider would create accounts that can pay in and cannot take out, which is barrier `B4-1`'s shape built into the sign-up."*
+
+**That argument was not taste and it is not withdrawn.** It stays in the node, marked as overridden, because a deleted argument cannot be reread when the decision is revisited.
+
+### What makes the override honest
+
+**Not that the sentence exists but where it sits.** `C4` generalised: what is required to withdraw is stated **before** the money moves. So the requirement is printed on the sign-in surface itself, beside the three buttons that carry it, in both carriers, and never in a settings page a person finds afterwards.
+
+**One primary and three secondary, and the difference is structural rather than decorative.** Steam is the only provider that can receive a skin, so it is the only one drawn as the act. **Four equal buttons would say the four are equal.** This node's reason for existing is that it does not say things that are not true.
+
+### The price, and it is scope rather than layout
+
+**Three states that could not exist before, because until now no account could exist without a Steam identity:**
+
+| Node | The state it now needs |
+|---|---|
+| `5.3` Withdrawal | **No Steam linked**, with the link as the act. The exit is Steam and a person arriving from Google has nowhere for the skin to go |
+| `5.1` Account and inventory | **Link Steam**, available at any time rather than only at the exit |
+| `4.1` Deposit | **Somebody with no Steam linked is about to spend money.** Whether that is a warning, a block or nothing is `[?]` and it is the founder's |
+
+**None is built. All three are debt and are printed rather than absorbed.**
+
+### Rejected
+
+**One provider, as the node had it.** It is the safer product and the founder is paying conversion for a rule nobody else in the category keeps. Named, not hidden.
+
+**Four equal buttons, as the captures ship them.** That is the shape on the screenshots and it is the one thing in them that says something false.
+
+---
+
+## D-56. The dialog is simple without being thinner
+
+**Date:** 2026-08-21. **Stage:** 04. **Decided by:** the founder. **Binds:** node `2.4` sections 0.10.3 and 0.10.4, and `authCard` in `wireframes/_nav.js`.
+
+**What was decided.** **The dialog carries the image slot, the title, the two declarations, the four providers and the four "never read or do" lines. The address carries all of that plus the field list, the round trip, the starter credit, block 6 as a link, the footer and the H1.**
+
+### Why this is not what `D-54` rejected
+
+`D-54` rejected *"keeping the page and adding a dialog as a second surface with less in it"*, because two versions of the one statement the node exists for is how the shorter one becomes the real one.
+
+**The line here is drawn somewhere else: the dialog carries every part of the statement that is finished.** The four "never" lines are absolute and each one is a rule written down elsewhere in this repository rather than a promise made on the surface. **The "what we read" half is still `[?]` field by field, and a list of unknowns is not a statement yet.** It waits at the address for production to fill it, **and when production fills it this split is re-decided rather than inherited.**
+
+The two remaining blocks stay at the address for a reason of their own: the round trip description and the starter credit are what a person reads arriving cold with no context. **In the dialog the context is the surface behind them**, which is the whole of `D-54`.
+
+### The order changed in both carriers, which is why `D-54`'s rule still holds
+
+**The two declarations now come before the provider controls.** `D-54` fixed that the block order never differs between the carriers, so it changed in both or in neither.
+
+**Two reasons.** The node's own default state already required the reason to be "stated in text above it", which is an order and not a decoration. And `D-55` made it structural: **one inert control above its own explanation was tolerable, four is a wall of dead buttons a person meets before being told why they are dead.**
+
+### What was not taken from the captures
+
+**No email and no password field**, which the node already forbade under `B6`. **No single bundled checkbox**, because one gesture answering two questions is exactly what `D-26` split. **No separate sign-up route**, because there is no separate registration in this product and a second door implies a first one that is different.
