@@ -96,11 +96,17 @@ window.WF_NAV = {
         { node: '1.1', label: 'Account exists', file: 'index-account.html', status: 'built' }
       ] },
 
-    { node: '1.2',  cluster: '1', name: 'Provably fair',       file: 'fair.html',       ia: 'provably-fair.html', status: 'spec',
+    // DRAWN 21 AUGUST 2026. The largest single piece of product a person can read
+    // without an account, and the surface the competitor pattern puts behind a
+    // login wall, which is also an indexation wall.
+    { node: '1.2',  cluster: '1', name: 'Provably fair',       file: 'fair.html',       ia: 'provably-fair.html', status: 'built',
       base: 'Default, with the verifier idle',
       states: [
-        { node: '1.3', label: 'Verifier, malformed round',   file: 'fair-malformed.html',    status: 'spec' },
-        { node: '1.4', label: 'Verifier, our own proof failed', file: 'fair-proof-failed.html', status: 'spec' }
+        { label: 'Prefilled, nothing computed',  file: 'fair-prefilled.html',   status: 'built' },
+        { label: 'Checked and matched',          file: 'fair-matched.html',      status: 'built' },
+        { label: 'Proof not available yet',      file: 'fair-unavailable.html',  status: 'built' },
+        { node: '1.3', label: 'Verifier, malformed round',   file: 'fair-malformed.html',    status: 'built' },
+        { node: '1.4', label: 'Verifier, our own proof failed', file: 'fair-proof-failed.html', status: 'built', dead: true }
       ] },
 
     // DRAWN 21 AUGUST 2026. THE LAST SCREEN OF THE MAIN FLOW.

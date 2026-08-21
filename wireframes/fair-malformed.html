@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Provably fair: check any round yourself</title>
+  <meta name="description" content="See what a commit-reveal proof does and does not show, then paste a round and recompute it yourself. Public page, no account, algorithm published in full.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 1.2, PROVABLY FAIR. State 1.3: MALFORMED ROUND. One message per field that failed, attached to that field, in words that say what is wrong rather than that something is. Nothing typed is cleared. All failures at once, never one at a time on repeated presses. NEVER A GENERIC MESSAGE, and this state never reaches 1.4: a round we could not read is not evidence that our proof is wrong.
+     THE LARGEST SINGLE PIECE OF PRODUCT A PERSON CAN READ WITHOUT AN ACCOUNT,
+     and the one surface in this cluster the competitor pattern puts behind a
+     login wall, which is also an indexation wall.
+     NO VERIFIED BADGE, IN ANY STATE, ANYWHERE ON THIS PAGE. 0.14 forbids it in
+     every variant and this is where the temptation is largest, because it is
+     the page with the form. Key-Drop's safety portal carries a mock verifier
+     with a fake seed pair printing "Outcome Verified" for a round that never
+     happened: a verified verdict on a round that does not exist.
+     THREE FAILURES, THREE STATES, AND CONFLATING ANY TWO IS THE DEFECT.
+     Malformed is a round we could not read. Unavailable is a round we can read
+     and cannot prove yet. Mismatched is a round we can read, can prove, and our
+     proof is wrong. Three causes, three routes, three owners. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+    <nav class="wf-crumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><span aria-current="page">Provably fair</span></li>
+      </ol>
+    </nav>
+
+    <!-- BLOCK 1. THE LONG FORM OF THE D-14 LIMIT, on the first screen at 360.
+         0.14 carries the short clause everywhere the proof renders and this page
+         carries the long form, and neither may drift from the other.
+         THIS PAGE DOES NOT CLOSE B7-2 AND DOES NOT CLOSE B1-1. D-14 withdrew
+         exactly that claim, and this block is where the withdrawal becomes
+         markup rather than a sentence in a decision record. -->
+    <section class="wf-sec" aria-labelledby="h1-fair">
+      <h1 id="h1-fair">Provably fair: check any round yourself</h1>
+      <p class="wf-sec-sub">This page is public. You do not need an account to read it, and you do not need one to check a round.</p>
+
+      <div class="wf-scope-two">
+        <div class="wf-scope-cell">
+          <span class="wf-scope-k">What this proves</span>
+          <p class="wf-gate-p">The result of this round was fixed before you clicked, and it was not changed afterwards.</p>
+        </div>
+        <div class="wf-scope-cell">
+          <span class="wf-scope-k">What this does not prove</span>
+          <p class="wf-gate-p">That the chances we publish are the chances the roll used.</p>
+          <!-- THE THIRD ROW IS A LIST AND NOT A DESTINATION. D3 is conditional on
+               D-B, and if it is withdrawn this block loses one route and keeps
+               two rather than losing its only one. -->
+          <span class="wf-scope-k">Where that is answered</span>
+          <ul class="wf-scope-routes">
+            <li>The observed rate beside every published percentage on the case screen</li>
+            <li>The published chance and current value on every item</li>
+            <li>The tested return and the expected value at that entry cost</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="wf-row">
+        <a class="wf-btn wf-btn--primary" href="#check">Check a round</a>
+        <a class="wf-btn" href="#algorithm">Read the algorithm</a>
+      </div>
+    </section>
+
+    <!-- BLOCK 2. Four steps in plain words. A question that could have been
+         answered here is a defect in this block rather than a row for block 8. -->
+    <section class="wf-sec" aria-labelledby="h2-how">
+      <div class="wf-sec-head"><h2 id="h2-how">How a round is fixed before you click</h2></div>
+      <ol class="wf-howto">
+        <li><span>We publish the hash of a server seed before the round is offered. The hash is a commitment: the seed behind it cannot be swapped later without the hash changing.</span></li>
+        <li><span>Your round is settled once, from that server seed, a client seed and a nonce.</span></li>
+        <li><span>The reveal plays back a result that already exists rather than deciding one while you watch.</span></li>
+        <li><span>The server seed is revealed when the seed rotates, and from then on anyone can recompute the round.</span></li>
+      </ol>
+      <p class="wf-note">Two reasons a round may have no proof to check yet: it predates the published ledger, or its seed has not rotated. Neither means anything went wrong.</p>
+    </section>
+
+    <!-- BLOCK 3. The field set from 0.14, read only. No inputs here: the inputs
+         are block 4, and a field set that also takes typing is two blocks. -->
+    <section class="wf-sec" aria-labelledby="h2-made">
+      <div class="wf-sec-head"><h2 id="h2-made">What a round proof is made of</h2></div>
+      <div class="wf-proof-fields">
+        <div class="wf-pf"><span class="wf-pf-k">Server seed hash</span><span class="wf-pf-v">Published before the round runs</span></div>
+        <div class="wf-pf"><span class="wf-pf-k">Server seed</span><span class="wf-pf-v">Revealed on rotation</span></div>
+        <div class="wf-pf"><span class="wf-pf-k">Client seed</span><span class="wf-pf-v">Who sets it is not decided yet</span></div>
+        <div class="wf-pf"><span class="wf-pf-k">Nonce</span><span class="wf-pf-v">A whole number that advances</span></div>
+        <div class="wf-pf"><span class="wf-pf-k">Settled result</span><span class="wf-pf-v">The number the roll produced</span></div>
+        <div class="wf-pf"><span class="wf-pf-k">Ticket range</span><span class="wf-pf-v">The interval the result falls in, and the item holding it</span></div>
+        <div class="wf-pf"><span class="wf-pf-k">The drop table in force at that round, versioned</span><span class="wf-pf-v wf-fig-missing">Not in the field set yet, and a round cannot be fully recomputed without it</span></div>
+      </div>
+    </section>
+
+    <!-- BLOCK 4. 0.14 VARIANT V4. The page's one call to action. -->
+    <section class="wf-sec" id="check" aria-labelledby="h2-check">
+      <div class="wf-sec-head"><h2 id="h2-check">Check a round</h2></div>
+      <div class="wf-verify">
+          <div class="wf-vf is-bad">
+            <label class="wf-vf-l" for="v-hash">Server seed hash, published before the round</label>
+            <textarea id="v-hash" rows="2">4f2a91c7e0b83d5619ac7f20d8e4b166</textarea>
+            <p class="wf-vf-err">This is 32 characters. A server seed hash is longer than that, and the exact length is fixed by the scheme, which is not chosen yet.</p>
+          </div>
+          <div class="wf-vf">
+            <label class="wf-vf-l" for="v-seed">Server seed, revealed on rotation</label>
+            <textarea id="v-seed" rows="2">a71c0e4b93f6d2857e0c1a4f68b95d3027ef8c61b4a09d75e3f26c8017ab54d9</textarea>
+          </div>
+          <div class="wf-vf">
+            <label class="wf-vf-l" for="v-client">Client seed</label>
+            <input id="v-client" type="text" value="7d19f4a2">
+          </div>
+          <div class="wf-vf is-bad">
+            <label class="wf-vf-l" for="v-nonce">Nonce</label>
+            <input id="v-nonce" type="text" value="41,207.5">
+            <p class="wf-vf-err">A nonce is a whole number. This one has a decimal point in it.</p>
+          </div>
+        <div class="wf-row">
+          <button class="wf-btn wf-btn--primary" type="button">Recompute this round</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCK 5. What we do if your check does not match ours, read before it
+         happens rather than discovered inside 1.4. -->
+    <section class="wf-sec" aria-labelledby="h2-mismatch">
+      <div class="wf-sec-head"><h2 id="h2-mismatch">If your check does not match ours</h2></div>
+      <p>Report it from the result, with the round attached. There is no form to write. You get a reference and an answer inside a published deadline, and the answer comes through support rather than disappearing into a queue.</p>
+      <p class="wf-note wf-fig-missing">Response deadline not available: it is owned by the support node and is not set yet</p>
+    </section>
+
+    <!-- BLOCK 6. The limit again, this time as routes rather than as a sentence. -->
+    <section class="wf-sec" aria-labelledby="h2-other">
+      <div class="wf-sec-head"><h2 id="h2-other">The question this page does not answer</h2></div>
+      <p>Whether the chances we publish are the chances the roll used is a different question, and it is answered where the numbers are: the observed rate stands beside the published one on every case, every item prints its chance and its current value, and the tested return and the expected value are printed at the entry cost.</p>
+      <div class="wf-row"><a class="wf-btn" href="case.html">See it on a case</a></div>
+    </section>
+
+    <!-- BLOCK 7. THE ALGORITHM, AT A STABLE ANCHOR RATHER THAN AS A FIFTH LEGAL
+         DOCUMENT. The four documents on that template are things a person agrees
+         to; this is a specification a person computes with, and filing it under
+         legal puts the one artefact we ask to be checked in the zone nobody
+         opens. The disagreement with 0.14 section 6 is printed in the node.
+         A VERIFIER THAT ONLY WORKS ON OUR PAGE IS NOT PROOF: the statement is
+         complete when a stranger can write their own tool from it and get our
+         answer. Nothing below is drafted with a plausible value. -->
+    <section class="wf-sec wf-algo" id="algorithm" aria-labelledby="h2-algo">
+      <div class="wf-sec-head"><h2 id="h2-algo">The algorithm, published in full</h2></div>
+      <p class="wf-algo-stamp">Last updated: not published yet</p>
+      <h3>The computation</h3>
+      <p class="wf-fig-missing">Not available: the function, its input order and its encoding are not chosen, and a published algorithm with an invented function in it is the one thing a reader would compute against.</p>
+      <h3>A worked example</h3>
+      <p class="wf-fig-missing">Not available until the scheme is chosen. It will be one real round, resolvable, with every input, the intermediate value and the result, and a link to that round in public, so a person can test their own tool against a known answer before trusting it on their own round.</p>
+      <h3>Version history</h3>
+      <p class="wf-fig-missing">Not available: nothing has been published yet, so nothing has changed. A scheme that changes silently invalidates every proof before it, which is why this list exists before it has entries.</p>
+    </section>
+
+    <!-- BLOCK 8. A TAIL, NOT A SUBSTITUTE. A question that could have been
+         answered by block 2 is a defect in block 2. -->
+    <section class="wf-sec" aria-labelledby="h2-q">
+      <div class="wf-sec-head"><h2 id="h2-q">Questions</h2></div>
+      <details><summary>Can I use my own tool instead of yours?</summary>
+        <p>That is the point. The algorithm is published so that a stranger can write their own and get our answer.</p></details>
+      <details><summary>Why can I not check a round from last year?</summary>
+        <p>Rounds that predate the published ledger have no published commitment behind them. Whether that history can be migrated at all is not settled.</p></details>
+      <details><summary>Do I need an account?</summary>
+        <p>No, for any of it.</p></details>
+    </section>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: false, active: 'fair.html' };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

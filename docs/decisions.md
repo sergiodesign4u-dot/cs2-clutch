@@ -2311,3 +2311,71 @@ The summary column and the item grid overflowed by 12px at 900 with the rail ope
 ### What this node hands on, sharpened rather than restated
 
 **Where selling a skin back for coins lives on this page.** `D-38` put it in round 1 and `3.6` carries it at the outcome. **A person who did not sell then and wants to sell now has no control here**, and this node's own baseline row already called that the gap: the live product answers what a person does with a skin they do not want, and this node answers only what they do with one they do want. **A second exit beside the one CTA is a founder decision, not a page edit.**
+
+---
+
+## D-72. Node `1.2` is drawn, and the page with the form is the one page that never prints a verdict
+
+**Date:** 2026-08-21. **Stage:** 04. **Decided by:** the founder on the queue, stage 04 on the rest. **Binds:** node `1.2`, its states `1.3` and `1.4`, and the acceptance instrument.
+
+### Why this screen
+
+**Seventeen references, from the footer of every page.** And it is the largest single piece of product a person can read without an account, which is the whole of barrier `B2-1`: **the competitor pattern puts this page behind a login wall, and a login wall in front of a fairness page is also an indexation wall.**
+
+### Six pages
+
+Default with the verifier idle, prefilled, checked and matched, proof not available, `1.3` malformed round, and `1.4` our own proof failed.
+
+### The page with the form is the page that never prints a verdict
+
+`0.14` forbids a verified badge in every variant, and **this is where the temptation is largest because it is the page with the form.** The bank recorded the live anti-pattern: Key-Drop's safety portal carries a mock verifier with a fake seed pair printing "Outcome Verified" for a round that never happened. **A verified verdict on a round that does not exist.**
+
+**The matched state renders the recomputation and its inputs, plainly, and the scope line does not change.** The sweep fails any of the six pages whose rendered text contains "verified", "guarantee", "100%", "certified" or "provably safe".
+
+### Three failures, three states, and conflating any two is the defect
+
+| State | What it is |
+|---|---|
+| **Malformed**, `1.3` | A round we could not read |
+| **Unavailable** | A round we can read and cannot prove yet |
+| **Mismatched**, `1.4` | A round we can read, can prove, and our proof is wrong |
+
+**Three causes, three routes, three owners.** `1.3` never reaches `1.4`, because **a round we could not read is not evidence that our proof is wrong**, and routing it there would manufacture incidents out of typing errors.
+
+### `1.3` asserts four rules rather than describing them
+
+Nothing typed is cleared, every failed field carries its own message attached to it, all failures render at once rather than one per press, and **no generic message**: "Invalid input" is a silent rejection with a sentence on it. **The sweep fails a page with a cleared field, a failed field with no message, or a message matching "invalid", "error" or "incorrect".**
+
+### `1.4` is a dead end and it stays one
+
+**Nothing in the product can confirm an outcome while the proof of it is wrong.** What changed is that the person is no longer standing in front of a wall while we call it an incident on our own side.
+
+**Two values, labelled, never one value with a mark on it.** A mark is a verdict rendered as decoration, and this state has to assign the fault in words: these do not agree, and that is ours to explain rather than yours to prove. **No claim about the cause**, because a bug, a migration, a rotation or a real failure is unknown at that moment.
+
+**One report control with the round attached and no form to fill in.** A person who has just been told the platform's own proof failed is not asked to write a support ticket describing it.
+
+**No route back into spending**, and the sweep asserts it: `1.4` fails on "open a case", "try another", "next" or "deposit".
+
+### Prefill, and the line it does not cross
+
+**The fields carry the round and nothing is computed.** What the map rejected at phase T7 is auto-publishing the seed pair, recomputing in the browser and showing a verified badge, and **the reason it gave is the badge and the proposition, not the convenience.** Carrying inputs is not asserting a verdict. **The verdict is never rendered before an action.**
+
+### Nothing on this page is drafted with a plausible value
+
+The algorithm block renders three headings and three absences: the function and its encoding, the worked example, and the version history. **A published algorithm with an invented function in it is the one artefact a reader would compute against**, which makes it the most dangerous median in the project.
+
+**The version history renders before it has entries**, because a scheme that changes silently invalidates every proof before it, and a list that appears with the first change is a list nobody knew to look for.
+
+**And block 3 carries the finding this node made rather than hiding it:** the drop table in force at that round, versioned, **is missing from `0.14`'s field set**, and a round cannot be fully recomputed without it. It renders as an absence in the field list, on the page, in front of the reader who would need it.
+
+### And the row this page exists to receive had never pointed at it
+
+`F3` is the post-reveal verification link, and it is one of the two jobs that route into this node. **On four outcome pages it pointed at `provably-fair.html`**, which is the IA specification's filename, not the wireframe's. **Eleven links, a 404 on every one, since the day the outcome was drawn.**
+
+**It was invisible until this page existed.** A link to an unbuilt screen and a link to a misspelt one are the same 404, and the sweep could not tell them apart while `fair.html` did not exist. **The screen being built is what turned one of them into a defect.**
+
+**Rewired to `fair-prefilled.html` rather than to `fair.html`**, because section 5.1 says a person arriving from `F3` has a round in hand: the fields carry it and nothing is computed until they press.
+
+### One inconsistency inside `0.14`, named rather than left
+
+**V3 is a component in `_nav.js` and V4 is markup on this page.** V3 has four consumers and V4 has one, which is the same test that kept the value receipt inside `0.6` rather than making it a node. **It is defensible and it is not symmetric**, so it is written here: if a second surface ever renders the verifier, V4 moves into the shell before it renders twice.

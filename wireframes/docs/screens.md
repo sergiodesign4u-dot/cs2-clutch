@@ -1695,3 +1695,55 @@ The summary column and the item grid overflowed by **12px at 900 with the rail o
 ### Measured
 
 **42 checks over the three pages, seven widths, both rail states: clean**, and 264 over all forty three files. One `H1` each, no wrapped labels, no sideways scroll, no process prose, no delta, two dated figures per item on their own lines, the header pair matching the body pair, and on the empty state no offer, no disabled control and the money still rendering.
+
+---
+
+## 49. `D-72`: node `1.2`, and the page with the form is the one page that never prints a verdict
+
+**Six pages.** Default with the verifier idle, prefilled, checked and matched, proof not available, `1.3` malformed round, and `1.4` our own proof failed.
+
+**Seventeen references from the footer of every page**, and it is the largest single piece of product a person can read without an account. **A login wall in front of a fairness page is also an indexation wall**, and the competitor pattern has one.
+
+### No verdict, anywhere, in any state
+
+`0.14` forbids a verified badge in every variant, and **this is where the temptation is largest because it is the page with the form.** The bank recorded the live anti-pattern: a mock verifier with a fake seed pair printing "Outcome Verified" for a round that never happened.
+
+**The sweep fails any of the six pages whose rendered text contains "verified", "guarantee", "100%", "certified" or "provably safe".**
+
+### Three failures, three states, three owners
+
+**Malformed** is a round we could not read. **Unavailable** is a round we can read and cannot prove yet. **Mismatched** is a round we can read, can prove, and our proof is wrong. **`1.3` never reaches `1.4`**: a round we could not read is not evidence that our proof is wrong, and routing it there would manufacture incidents out of typing errors.
+
+### Four rules on `1.3`, asserted rather than described
+
+Nothing typed is cleared. Every failed field carries its own message attached to it. All failures render at once rather than one per press. **No generic message**, because "Invalid input" is a silent rejection with a sentence on it.
+
+**The sweep fails a page with a cleared failed field, a failed field with no message, or a message matching "invalid", "error" or "incorrect".**
+
+### `1.4` keeps its shape
+
+**Two values, labelled, never one value with a mark on it.** A mark is a verdict rendered as decoration, and this state assigns the fault in words instead. **No claim about the cause**, because a bug, a migration, a rotation or a real failure is unknown at that moment. **One report control, the round attached, no form to fill in.** No route back into spending, and the sweep asserts that too.
+
+### Nothing is drafted with a plausible value
+
+The algorithm block renders **three headings and three absences**. A published algorithm with an invented function in it is **the one artefact a reader would compute against**, which makes it the most dangerous median in this project.
+
+**The version history renders before it has entries**, because a scheme that changes silently invalidates every proof before it, and a list that appears with the first change is a list nobody knew to look for.
+
+**And block 3 carries this node's own finding on the page:** the drop table in force at that round, versioned, is **missing from `0.14`'s field set**, and a round cannot be fully recomputed without it. It renders as an absence in the field list, in front of the reader who would need it.
+
+### And the row this page exists to receive had never pointed at it
+
+`F3`, the post-reveal verification link, pointed at `provably-fair.html` on four outcome pages. **That is the IA specification's filename, not the wireframe's. Eleven links, a 404 on every one, since the day the outcome was drawn.**
+
+**It was invisible until this page existed**: a link to an unbuilt screen and a link to a misspelt one are the same 404, and the sweep could not tell them apart while `fair.html` did not exist. **Building the screen is what turned one of them into a defect.**
+
+**Rewired to `fair-prefilled.html`**, because a person arriving from `F3` has a round in hand.
+
+### One inconsistency inside `0.14`, named rather than left
+
+**V3 is a component in `_nav.js` and V4 is markup on this page.** V3 has four consumers and V4 has one, which is the same test that kept the value receipt inside `0.6`. **It is defensible and it is not symmetric**, so: if a second surface ever renders the verifier, V4 moves into the shell before it renders twice.
+
+### Measured
+
+**84 checks over the six pages, seven widths, both rail states: clean.** One `H1` each, the `H2` list matching the block order on all six, the two-part scope statement present, no verdict word anywhere, no process prose, and the state assertions above.

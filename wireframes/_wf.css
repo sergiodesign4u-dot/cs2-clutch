@@ -2940,3 +2940,78 @@ select {
   .wf-inv { grid-template-columns: 300px minmax(0, 1fr); gap: var(--wf-s-4); }
   .wf-grid--held { grid-template-columns: repeat(3, 1fr); }
 }
+
+
+/* ---------------------------------------------------------------------------
+   NODE 1.2, PROVABLY FAIR, and its states 1.3 and 1.4. Drawn 21 August 2026.
+   THE LARGEST SINGLE PIECE OF PRODUCT A PERSON CAN READ WITHOUT AN ACCOUNT,
+   and the page where the temptation to print a verdict badge is largest,
+   because it is the page with the form. There is no badge in any state.
+   --------------------------------------------------------------------------- */
+
+/* Block 1. The two-part scope statement, on the first screen at 360.
+   0.14 carries the short clause everywhere the proof renders; this page carries
+   the long form, and NEITHER MAY DRIFT FROM THE OTHER. */
+.wf-scope-two { display: grid; gap: var(--wf-s-2); grid-template-columns: 1fr; }
+.wf-scope-cell {
+  padding: var(--wf-s-2); border: 1px solid var(--wf-line-soft);
+  border-radius: var(--wf-r-2); display: flex; flex-direction: column; gap: var(--wf-s-half);
+}
+.wf-scope-k { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+/* THE THIRD ROW IS A LIST AND NOT A DESTINATION. D3 is conditional on D-B, and
+   if it is withdrawn this block loses one route and keeps two instead of losing
+   its only one. */
+.wf-scope-routes { margin: 0; padding-left: var(--wf-s-3); font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+
+/* Block 2. Four steps in plain words. */
+.wf-howto { margin: 0; padding: 0; list-style: none; counter-reset: wf-step; display: flex; flex-direction: column; gap: var(--wf-s-2); }
+.wf-howto li { display: flex; gap: var(--wf-s-2); }
+.wf-howto li::before {
+  counter-increment: wf-step; content: counter(wf-step);
+  flex: 0 0 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--wf-mono); font-size: var(--wf-t-xs);
+  border: 1px solid var(--wf-line-soft); border-radius: 50%;
+}
+
+/* Block 4. 0.14 variant V4, the verifier. THE PAGE'S ONE CALL TO ACTION. */
+.wf-verify {
+  border: 1px solid var(--wf-line); border-radius: var(--wf-r-3);
+  padding: var(--wf-s-2); display: flex; flex-direction: column; gap: var(--wf-s-2);
+}
+.wf-vf { display: flex; flex-direction: column; gap: var(--wf-s-half); }
+.wf-vf-l { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+/* A SEED IS A LONG STRING IN A NARROW BOX. It wraps and the box grows rather
+   than the page scrolling sideways on the one screen a person is asked to read
+   carefully, and nothing they typed is ever cleared by an error. */
+.wf-vf input, .wf-vf textarea { font-family: var(--wf-mono); font-size: var(--wf-t-s); overflow-wrap: anywhere; }
+.wf-vf textarea { min-height: 62px; resize: vertical; }
+/* ONE MESSAGE PER FIELD THAT FAILED, ATTACHED TO THAT FIELD, in words that say
+   what is wrong rather than that something is. Never a generic message, and
+   never one at a time on repeated presses. */
+.wf-vf-err { font-size: var(--wf-t-xs); color: var(--wf-ink); }
+.wf-vf.is-bad input, .wf-vf.is-bad textarea { border-color: var(--wf-ink); }
+
+/* The result area. It is the only part the recomputation replaces: the inputs
+   stay readable and stay editable while it runs. */
+.wf-vout {
+  padding: var(--wf-s-2); border: 1px dashed var(--wf-line-soft);
+  border-radius: var(--wf-r-2); display: flex; flex-direction: column; gap: var(--wf-s-1);
+}
+/* 1.4. THE TWO VALUES SIDE BY SIDE, NEVER ONE VALUE WITH A MARK ON IT. Stacked
+   at 360 with an explicit label on each, because a mark is a verdict rendered
+   as decoration and this state has to assign the fault in words. */
+.wf-vpair { display: grid; gap: var(--wf-s-2); grid-template-columns: 1fr; }
+.wf-vpair .wf-pf-v { font-size: var(--wf-t-m); }
+
+/* Block 7. The algorithm, on the legal template's four parts, at a stable
+   anchor rather than as a fifth legal document: the four documents on that
+   template are things a person agrees to, and this is a specification a person
+   computes with. */
+.wf-algo { display: flex; flex-direction: column; gap: var(--wf-s-2); }
+.wf-algo-stamp { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+
+@media (min-width: 600px) {
+  .wf-scope-two { grid-template-columns: 1fr 1fr; }
+  .wf-vpair { grid-template-columns: 1fr 1fr; }
+}
