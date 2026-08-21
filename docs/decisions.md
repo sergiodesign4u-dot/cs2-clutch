@@ -2124,3 +2124,39 @@ That section exists to stop stage 04 promoting the daily case back into a banner
 ### What this cost, stated
 
 **The map gains a node**, `0.15`, and the ladder gains a second surface on a product whose own baseline gives it one. **That is the cost `home.md` predicted in the sentence this decision overrides**, and the mitigation is that the three rules moved with the component instead of staying on the node it left.
+
+---
+
+## D-68. The daily case loses its tile, and the section it left had already written down what that costs
+
+**Date:** 2026-08-21. **Stage:** 04. **Decided by:** the founder, on the drawn page. **Binds:** node `3.1` section 2, node `0.7`'s two daily states, and the seven catalogue pages.
+
+**What was decided.** **The Daily section holds the tier ladder `0.15` and nothing else.** The daily free case has no tile on the shelf. That is what the baseline does on `/en/cases` and it is what was asked for.
+
+### This reverses section 2 of `catalogue.md`, and that section is kept whole
+
+Section 2 exists to stop stage 04 promoting the daily case back into a banner. Its argument, in its own words: **a banner survives every filter because it is not part of the list, and a case does not.**
+
+**That is now literally what the Daily section is.** No filter can empty it, so **it renders in every state of this page, including `3.2` when nothing matches at all**, and the Daily chip is the one chip in the bar that never leaves. The wireframe carries that visibly rather than hiding it.
+
+**The section is kept unedited below its own reversal**, because the argument is the cost and a cost deleted is a cost nobody meets again until it lands.
+
+### What does not change
+
+**The daily case is still its own case.** `D-61` gave it its own object with its own page and the ladder's control is the route to it. **What it does not have is a place in the grid.**
+
+**What answers the `I2` risk is the ladder, and it was before the tile left.** The wager gate makes the daily case earned rather than free, `D-25` and `D-67`. **The tile was never the mitigation**, so removing it does not weaken one.
+
+### It closes a debt instead of opening one
+
+`D-61` left an open question and `D-66` printed it on the wireframe: **where do "once a day" and "taken today" render, once the daily marker is gone and the tile is four fields?** The wireframe proposed the entry cost slot and refused to decide it.
+
+**The answer is that no field does, because there is no tile.** The ladder's control states what is available. **And since no surface renders a daily case as a tile any more, `0.7`'s two daily states are void**, both marked with the argument kept.
+
+### The counts move, and they move honestly
+
+**Twelve cases in three sections**, not thirteen in four. The Daily section is a section of the page and not a section of the shelf: the result count counts case tiles, and it has none. **The chip list and the section list still match exactly in every state**, which is the check `D-65` added and it still reads clean.
+
+### What this cost, stated
+
+**One always-visible entitlement panel on the shelf**, which is the thing section 2 was written to prevent, taken deliberately with the reason on the record. **The mitigation is not a design device, it is the wager gate**: the panel a person always sees says the case is earned, not free.

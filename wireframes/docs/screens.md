@@ -1524,3 +1524,31 @@ Built once in `_nav.js`, mounted on every catalogue page, seven copies avoided. 
 ### Measured
 
 **98 checks over the seven catalogue pages, clean.** The ladder asserted on four pages at two widths in both account states: five rungs, the reached tier only when signed in, the wager figure only when signed in, and the right control in each. **Prose sweep: 0 of 29.**
+
+---
+
+## 45. `D-68`: the daily case loses its tile
+
+**The founder took the tile off the Daily section minutes after the ladder landed on it.** The section is the ladder and nothing else, which is what the baseline does.
+
+### It reverses section 2 of the node, and the wireframe carries the cost visibly
+
+Section 2 refused a banner because **a banner survives every filter because it is not part of the list, and a case does not.** The Daily section is now literally that panel.
+
+**So it renders in every state of this page.** On `catalogue-filtered.html` two sections empty out and lose their chips, **and Daily stays**. On `catalogue-empty.html`, where nothing matches at all, **the shelf is gone and Daily is still there**, holding the one chip in the bar that never leaves.
+
+**That is drawn rather than described.** The chip list and the section list still match exactly in all seven states, which is the check `D-65` added.
+
+### The counts moved and they moved honestly
+
+**Twelve cases in three sections**, not thirteen in four. The Daily section is a section of the page and not a section of the shelf: the result count counts case tiles and it has none.
+
+### It closes a debt instead of opening one
+
+`D-66` printed this open question on the wireframe itself: **where do "once a day" and "taken today" render**, once the daily marker is gone and the tile is four fields? The page proposed the cost slot and refused to decide.
+
+**The answer is that no field does, because there is no tile.** The ladder's control states what is available. **`0.7`'s two daily states are void**, both marked with their arguments kept.
+
+### Measured
+
+**98 checks over the seven pages, clean.** Chips match sections in every state: four and four, three and three when filtered, one and one when nothing matches. **The ladder renders on all four states that carry it**, guest and account, at 360 and 1440.

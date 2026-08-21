@@ -44,7 +44,7 @@
     <div class="wf-catbar" role="navigation" aria-label="Categories">
       <span class="wf-catbar-lbl">Categories</span>
       <div class="wf-catbar-run">
-        <span class="wf-note wf-fig-missing">No section matches, so there is nothing to jump to</span>
+        <a class="wf-cat" href="#cat-daily" aria-current="true">Daily</a>
       </div>
       <div class="wf-catbar-acts">
         <button class="wf-btn wf-icon-btn" type="button" aria-label="Search cases by name">Search</button>
@@ -67,7 +67,12 @@
 
     <!-- BLOCK 5. The result count, in text, above the sections. 3.2 requires a
          legible bottom to the list and a count is half of that. -->
-    <p class="wf-count-line">0 cases match, out of 13</p>
+    <p class="wf-count-line">0 cases match, out of 12</p>
+
+      <section class="wf-cats-sec" id="cat-daily" aria-labelledby="h2-daily">
+        <div class="wf-cats-h"><h2 id="h2-daily">Daily</h2><p class="wf-cats-sub">One free entry a day, earned by wagering. The tier decides which case, and it carries no streak and no status</p></div>
+        <div data-ladder></div>
+      </section>
 
       <div class="wf-empty" id="3.2">
         <p class="wf-empty-h">Nothing matches these two filters.</p>
@@ -75,10 +80,10 @@
         <ul class="wf-widen">
           <li>The cheapest case on the shelf is <strong>0.80 coins</strong>.
             <button class="wf-btn wf-btn--small" type="button">Raise the ceiling to 0.80</button></li>
-          <li>Thirteen cases match if the risk level is dropped.
+          <li>Twelve cases match if the risk level is dropped.
             <button class="wf-btn wf-btn--small" type="button">Drop the risk level</button></li>
         </ul>
-        <p class="wf-count-line">The shelf holds 13 cases in 4 sections. <a href="catalogue.html">See all of them</a></p>
+        <p class="wf-count-line">The shelf holds 12 cases in 3 sections. <a href="catalogue.html">See all of them</a></p>
       </div>
 
       <p class="wf-pager-end">No dead end: every route out of this state is a chip or a link, never a browser back.</p>

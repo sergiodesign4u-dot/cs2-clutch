@@ -51,11 +51,26 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 
 ---
 
-## 2. The daily free case is an addressable case **and it stands under the tier ladder**, `D-67`
+## 2. The daily free case has no tile on this shelf. **`D-68`, 21 August 2026, and it reverses this section**
 
 **The obligation is written down, and it predates this node.** `sitemap.md`, "Free entry gets an obligation rather than a surface": `I1` and `I2` are components rather than screens, so inventing a surface for them would be scope nobody asked for, and instead two nodes carry a debt. Home owes the starter credit `I1`. **This node owes the daily free case as an addressable case rather than as a banner.**
 
-**Amended 21 August 2026 by `D-67`, and the amendment settles an argument this section was having with itself.** The section was written to refuse a banner, and it refused the wrong thing. **The ladder and the case are two objects, not one**: the ladder is the entitlement, the tile is the case. `baseline.md` section 4 has both in one Daily section on `/en/cases`, and this node now does the same. **What the refusal was actually protecting is untouched**: the case is still addressable, still filterable, and still routes like any other case.
+**Reversed by the founder on 21 August 2026, `D-68`, and this section is kept whole because the argument it makes is the cost of the reversal.**
+
+**What the Daily section holds now: the tier ladder `0.15` and nothing else.** No tile. That is what `baseline.md` section 4 records on `/en/cases` and it is what the founder asked for.
+
+**The daily case is still its own case.** `D-61` gave it its own object with its own page, and the ladder's control is the route to it. **What it does not have is a place in the grid.**
+
+**The cost, and this section predicted it in its own words.** It was written to refuse a banner, on the ground that **a banner survives every filter because it is not part of the list, and a case does not.** The Daily section is now literally a panel outside the list: **no filter can empty it, so it renders in every state of this page including `3.2` when nothing matches at all.** The wireframe carries that rather than hiding it, and the Daily chip is the one chip in the bar that never leaves.
+
+**What answers the `I2` risk is the ladder, not the tile, and that was already true before the tile left.** The wager gate makes the daily case earned rather than free, `D-25` and `D-67`. The tile was never the mitigation.
+
+**And it closes a debt rather than opening one.** Where the once-a-day limit and the taken state render was open since `D-61`. **The answer is the ladder's control**, and since no surface renders a daily case as a tile any more, **`0.7`'s two daily states are void.**
+
+**Kept below, unedited, as the record of the argument this reverses:**
+
+---
+
 
 **What addressable means, concretely.** It is a case. It has a tile, it sits in the grid, it carries the same four fields as every other tile, and it routes to `3.3` like any other case. **The words "plus the daily marker `0.7` already holds" left this line on 21 August 2026 with `D-61`**, and the reason is that the decision went further than this section did: a daily case is now its own case rather than a marker on a case that is otherwise normal. **This section gets stronger and its debt gets larger.** Nothing on the tile says daily, so what a daily case is as a case is owed by this node and is not written, `sitemap.md` under the `D-60` and `D-61` debt.
 
@@ -151,7 +166,7 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 | `0.1` Navigation | Rail with Cases active, header with the two figures, mobile bar with position 2 active. Exactly one active item across the bar and the drawer together |
 | `0.2` Footer | Full, unchanged |
 | `0.7` Canonical case tile | The tile as `D-24` rewrote it and `D-60` and `D-61` reduced it: case artwork as the largest element, case name, entry cost, risk band, plus the favourite control. **Both markers are gone**, the stock one because there is no stock and the daily one because a daily case is its own case |
-| `0.15` Daily tier ladder | **The whole component, in the Daily section, above that section's grid, `D-67`.** Its three rules travel with it: never on a responsible play surface, never a suggestion of what to wager to a person with a limit in force, and a tier gives a case and nothing else |
+| `0.15` Daily tier ladder | **The whole component, and it is the whole Daily section since `D-68`: that section has no grid.** Its three rules travel with it: never on a responsible play surface, never a suggestion of what to wager to a person with a limit in force, and a tier gives a case and nothing else |
 | `0.11` Published numbers register | Read, not rendered. The entry cost is static until the configuration changes and the favourite count is real time. **The free-unit count was the third and it is withdrawn, `D-60`** |
 | `0.5` Toasts | A failed filter fetch is announced in the block, not only in a toast |
 | `0.3` System pages | A category slug that does not exist is a real 404, never an empty catalogue pretending to be one |
@@ -164,7 +179,7 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 
 **Open a case tile, which lands on `3.3`.** Every other control on this page narrows the list so that the tile a person taps is the right one.
 
-**The daily free case is not a second CTA.** It is the tile at position 1, and it leads to the same place by the same control, which is what section 2 means by addressable.
+**The ladder's control is not a second CTA and it is not the same one either.** It opens the daily case when a tier has been reached and it routes to `2.4` for a guest. **It is the only control on this page that leads to a case without a tile**, `D-68`, and it is the reason the Daily section needs no grid.
 
 ---
 
@@ -175,7 +190,7 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 | State | What renders | Route out |
 |---|---|---|
 | **Guest** | The whole page. Every figure, every tile, every count. **No wall of any kind** | A tile, into `3.3` |
-| **Account** | Identical, plus the daily free case showing its own availability rather than an invitation to sign in | A tile, into `3.3` |
+| **Account** | Identical, plus the ladder showing the reached tier, the wager figure in coins and the count of cases available, rather than an invitation to sign in | A tile, into `3.3`, or the ladder's control |
 | **Loading** | The grid skeleton. **What it is waiting on changed on 21 August 2026:** it was the live free-unit counts, `flows.md` flow 1a, and with `D-60` the only per-read figure left on a tile is the favourite count. A skeleton is still specified rather than a generic spinner, and it is specified here rather than as a node, per the rule in `sitemap.md` | Resolves into the grid |
 | **Filtered** | The grid, the result count and the active filter chips. Chips are the only route back to everything | `3.2` if the result is empty |
 | **Degraded** | Tiles render with the failing figure marked as degraded, `0.11` section 7, and the rest of the tile intact. **The figure this state was written for was the free-unit count and it is withdrawn**, `D-60`. The state stays and its subjects are the entry cost, the risk band and the favourite count, each of which `0.7` already gives an explicit "not available" rather than a zero or a default band | Unchanged |
