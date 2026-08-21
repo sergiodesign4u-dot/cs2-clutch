@@ -1462,3 +1462,33 @@ A range and a select render in the browser's own accent, **which put live blue o
 **98 checks over seven pages, seven widths, both rail states: clean.** Plus two new assertions: **every category chip jumps to a heading that exists**, and no input clips its own value. **180 checks over all thirty wireframe files, every internal link resolved.**
 
 **29 pages built of 81.**
+
+---
+
+## 43. `D-66`: the filter opens, the prose leaves the surface, and the walk had missed a group
+
+**Three founder notes in one message**, hours after section 42.
+
+### The notes come off the wires and stay in the IA
+
+The founder pointed at a paragraph on the screen explaining why four sections were drawn, what the baseline runs, what the dead item defect is and what the founder still owes. **None of that is on a screen. It is the specification of a screen.**
+
+**The rule this leaves binds every page from here:** a wireframe may state a **state**, and may never cite a decision record or explain the project to the person looking at it. `Peg not available` stays, because `0.11` rule 3 makes missing a rendered state. `Peg not available, D-28` does not. **Nothing was lost**: every sentence removed was already in the HTML comment above it and in `catalogue.md`.
+
+Off the surface: the four-sections note, the daily-case debt note, the sort limit, the case-type values note, and four decision codes inside otherwise correct missing-state text.
+
+### The filter control opens the filter
+
+**It was drawn as a static state page**, and the founder's note is the whole argument against that: **a filter control that does not open a filter is not a wireframe of a filter, it is a picture of one.**
+
+Built once in `_nav.js`, mounted on every catalogue page, seven copies avoided. **Opens on a press, traps the keyboard, closes on Escape, on the scrim, on the x and on apply, restores focus to the opener and moves `aria-expanded` with it.** `catalogue-filter.html` keeps its place and renders it open on load, the same `data-*-pinned` device the sign in canon uses.
+
+### The account drawer carries two rows the guest drawer does not
+
+**The pre-login walk had missed a group.** The founder's capture of the same panel signed in has **Additional**, holding **Liked** and **Sufficient Funds to open**, between Risk Level and Case Type. Both read an account, so a guest meets neither and a public walk could not have found them.
+
+**That cuts against a refusal written three hours earlier.** `D-65` refused a sufficient-funds filter partly because its source was `[?]`. **It is on our own baseline.** Both ship, and the argument against the second is kept in `catalogue.md` section 4.4 rather than deleted, along with the line that binds stage 07: **when it empties the result, the nearest facet to relax is the filter itself, never a deposit.**
+
+### Measured
+
+**98 checks over the seven pages, clean.** Plus an interaction pass: the drawer opens at 360 and 1440 in both account states, `aria-expanded` moves, focus lands on the close, the scroll locks and unlocks, Escape closes and focus returns. **The account drawer has six groups and the guest drawer five**, asserted rather than eyeballed. **180 checks over all thirty files.** A grep of the rendered `main` for decision codes, `baseline.md`, `catalogue.md` and process words returns nothing.

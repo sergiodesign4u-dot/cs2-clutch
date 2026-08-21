@@ -455,6 +455,12 @@ The filter icon opens a **right-hand drawer**, headed **FILTER** with **RESET AL
 | **Case Type** | Select, default **All** | Values not enumerated on the walk, `[?]` |
 | **Order By** | Select labelled **Sort By**, default **Date (Newest First)** | Other values not enumerated on the walk, `[?]` |
 
+**A sixth group exists and the pre-login walk did not see it.** Founder capture, 21 August 2026, of the same panel signed in: between Risk Level and Case Type there is a group headed **Additional**, holding two checkboxes, **Liked** and **Sufficient Funds to open**. `CLAUDE.md` puts a dated founder capture of our own signed-in surface in the same class as a walked page, and this is that.
+
+**Both rows read an account, which is why the walk could not have found them.** Liked reads the favourite the person has set, `D-24`; sufficient funds reads the balance. **A guest meets neither**, and that is a fact about the live product rather than a design choice we are making.
+
+**The walk that missed them was not wrong, it was pre-login, and this is exactly the hole section 9.8 already names.** The correction is recorded here rather than by editing the table above, because the table is what a public walk returns and that is still true.
+
 **Two facts about that panel matter more than its layout.**
 
 **The risk band is filterable on the live product and it is computed.** Three named values, the same three `sitemap.md` carries, rendered on every tile as three coloured pips and offered as a filter with the pips beside each label. **What we do not have is the thresholds**, and this walk moves that from "nothing in this repository says how it is computed" to **a question of fact to the live platform**, in the same class as `D-B`.
@@ -467,6 +473,6 @@ Founder capture, 21 August 2026, **source `[?]`: it is not daddyskins and this s
 
 - **The filters live in the bar rather than behind a drawer.** The price control expands as a second row under the category bar, in place.
 - **A named continuous risk slider**, labelled ADRENALINE, drawn as a gradient rather than as three checkboxes.
-- **A "sufficient balance to open" toggle**, which filters the shelf to what the account can afford right now.
+- **A "sufficient balance to open" toggle**, which filters the shelf to what the account can afford right now. **Corrected 21 August 2026: this one is not only in the reference. It is on our own baseline**, as `Sufficient Funds to open` in the Additional group above, and the reference merely puts it in the bar instead of in a drawer.
 
-**The third one is not a neutral convenience and this file says so rather than passing it on quietly.** A control that answers "what can I afford right now" sits one step from "top up to see the rest", and `CLAUDE.md` binds this stage: a limit never acquires completion mechanics, and where money is about to be spent the cost never hides inside excitement. It is the founder's call and it belongs in front of him with that cost printed.
+**The third one is not a neutral convenience and this file says so rather than passing it on quietly, and being inherited does not make it one.** A control that answers "what can I afford right now" sits one step from "top up to see the rest", and `CLAUDE.md` binds this stage: a limit never acquires completion mechanics, and where money is about to be spent the cost never hides inside excitement. It is the founder's call and it belongs in front of him with that cost printed.

@@ -60,10 +60,9 @@
       </div>
       <div class="wf-catbar-acts">
         <button class="wf-btn wf-icon-btn" type="button" aria-label="Search cases by name">Search</button>
-        <button class="wf-btn wf-icon-btn" type="button" aria-expanded="false" aria-label="Filters">Filters</button>
+        <button class="wf-btn wf-icon-btn" type="button" data-filter-open aria-expanded="false" aria-label="Filters">Filters</button>
       </div>
     </div>
-    <p class="wf-note">Four sections are drawn and <strong>the baseline runs thirteen</strong>, baseline.md section 10.1. A chip whose section has no case is the dead item defect, so the carrier is inherited and only the live chips render. Which of the thirteen ship in round 1 is the founder&#39;s, with the case list.</p>
 
     <!-- BLOCK 5. The result count, in text, above the sections. 3.2 requires a
          legible bottom to the list and a count is half of that. -->
@@ -72,7 +71,7 @@
       <!-- 0.7 section 5.1: THE PEG RENDERS ONCE ON THE SHELF, not on every tile.
            Thirteen pegs would be noise; none at all is the unconvertible price
            B7-1 names. -->
-      <p class="wf-note wf-fig-missing">Prices are in coins. Peg not available: what one coin is worth in real money is not published yet, D-28</p>
+      <p class="wf-note wf-fig-missing">Prices are in coins. Peg not available: what one coin is worth in real money is not published yet</p>
       <!-- THE DAILY FREE CASE IS ITS OWN SECTION NOW, which is D-61 read one
            step further than the first pass read it: if a daily case is its own
            case rather than a marker, then Daily is a category like any other and
@@ -285,99 +284,7 @@
   <nav class="wf-bar" id="wf-bar"></nav>
 
 </div>
-  <!-- BLOCK 6a. THE FILTER DRAWER, and every row of it came off a walk of our
-       own catalogue on 21 August 2026, baseline.md section 10.3. Five controls
-       and a sort, in the baseline's own order. Two of them were REFUSED by this
-       node before anybody opened the page: the risk level filter and the sort.
-       D-65 reverses both and keeps the refusals with what overturned them.
-       FULL WIDTH AT 360, A RIGHT HAND PANEL FROM 900, same controls in both. -->
-  <div class="wf-drawer-scrim"></div>
-  <aside class="wf-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-h">
-    <div class="wf-drawer-head">
-      <h2 class="wf-drawer-h" id="drawer-h">Filter</h2>
-      <div class="wf-row">
-        <button class="wf-btn wf-btn--small" type="button">Reset all</button>
-        <button class="wf-btn wf-btn--small" type="button" aria-label="Close the filters">x</button>
-      </div>
-    </div>
-    <div class="wf-drawer-body">
-
-      <div class="wf-fset">
-        <label class="wf-fset-h" for="f-name">Case name</label>
-        <input id="f-name" type="search" placeholder="Case name">
-      </div>
-
-      <!-- THE PRICE IS A RANGE AND TWO STEPPERS, AND THE STEPPERS ARE NOT
-           DECORATION. A slider cannot be typed into, and a person holding a
-           ceiling in their head has a number rather than a gesture. Same
-           control, two jobs: narrowing, and staying under C2's spend ceiling. -->
-      <div class="wf-fset">
-        <span class="wf-fset-h" id="f-price-h">Price amount, in coins</span>
-        <input class="wf-range" type="range" min="0" max="55" value="55" aria-labelledby="f-price-h" aria-label="Maximum entry cost">
-        <div class="wf-steppers">
-          <div class="wf-stepper">
-            <button class="wf-btn wf-btn--small" type="button" aria-label="Decrease the minimum">-</button>
-            <label class="wf-vh" for="f-min">Minimum entry cost</label>
-            <input id="f-min" type="text" inputmode="decimal" value="0.00">
-            <button class="wf-btn wf-btn--small" type="button" aria-label="Increase the minimum">+</button>
-          </div>
-          <div class="wf-stepper">
-            <button class="wf-btn wf-btn--small" type="button" aria-label="Decrease the maximum">-</button>
-            <label class="wf-vh" for="f-max">Maximum entry cost</label>
-            <input id="f-max" type="text" inputmode="decimal" value="55.00">
-            <button class="wf-btn wf-btn--small" type="button" aria-label="Increase the maximum">+</button>
-          </div>
-        </div>
-        <p class="wf-note wf-fig-missing">Peg not available: what one coin is worth in real money is not published yet, D-28</p>
-      </div>
-
-      <!-- THREE CHECKBOXES AND NOT A SLIDER. The founder's reference draws risk
-           as a named gradient; the band has three values and no numbers behind
-           them yet, so a continuous control would promise a precision that does
-           not exist. Each row carries the band's mark BESIDE the word, never
-           the mark alone, 0.7 rule 5.5. -->
-      <div class="wf-fset">
-        <span class="wf-fset-h" id="f-risk-h">Risk level</span>
-        <div class="wf-riskset" role="group" aria-labelledby="f-risk-h">
-          <label class="wf-riskrow"><input type="checkbox" disabled><span class="wf-pips" aria-hidden="true"><span class="wf-pip is-on"></span><span class="wf-pip"></span><span class="wf-pip"></span></span>Low</label>
-          <label class="wf-riskrow"><input type="checkbox" disabled><span class="wf-pips" aria-hidden="true"><span class="wf-pip is-on"></span><span class="wf-pip is-on"></span><span class="wf-pip"></span></span>Medium</label>
-          <label class="wf-riskrow"><input type="checkbox" disabled><span class="wf-pips" aria-hidden="true"><span class="wf-pip is-on"></span><span class="wf-pip is-on"></span><span class="wf-pip is-on"></span></span>High</label>
-        </div>
-        <!-- THE ONE DISABLED CONTROL ON ANY SURFACE THIS STAGE HAS DRAWN, and
-             it is not a precondition a person can satisfy, which is what D-58
-             was about. The band cannot be applied because THE THRESHOLDS DO NOT
-             EXIST IN THIS REPOSITORY: the live product has them, we do not, and
-             0.11 rule 3 says missing is a state. Nothing a person does here
-             turns it on, so the refusal is stated and not implied. -->
-        <p class="wf-note wf-fig-missing">Not available: where High stops and Medium begins is not set, so no case can be sorted into a band yet. The live product has these thresholds and this project does not, D-65</p>
-      </div>
-
-      <div class="wf-fset">
-        <label class="wf-fset-h" for="f-type">Case type</label>
-        <select id="f-type"><option>All</option></select>
-        <p class="wf-note wf-fig-missing">Values not available: the walk did not enumerate them</p>
-      </div>
-
-      <!-- SORT WAS REFUSED HERE ON THE COMPETITOR BANK AND THE PRODUCT SORTS.
-           One limit travels with it and is not inherited: never by chance, by
-           value, by RTP or by popularity. 0.11 rule 7, a number is never a
-           score, and a shelf ranked by how good a bet each case looks is a
-           ranking with no cost beside it. -->
-      <div class="wf-fset">
-        <label class="wf-fset-h" for="f-sort">Sort by</label>
-        <select id="f-sort">
-          <option>Date, newest first</option>
-          <option>Entry cost, low to high</option>
-          <option>Entry cost, high to low</option>
-        </select>
-        <p class="wf-note">Never by chance, value, tested RTP or popularity. 0.11 rule 7: a number is never a score.</p>
-      </div>
-
-    </div>
-    <div class="wf-drawer-foot">
-      <button class="wf-btn wf-btn--primary" type="button">Show 13 cases</button>
-    </div>
-  </aside>
+<div data-filter-pinned hidden></div>
 
 <script>
 window.WF_BASE = '';

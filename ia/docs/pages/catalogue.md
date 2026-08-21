@@ -97,6 +97,8 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 | **Case type** | Select, default All | **`[?]`.** The walk did not enumerate the values | MVP Core Job 1 | Carried as a row with its values unknown rather than dropped, because the control exists on the live product |
 | **Category** | The chips in block 3 | The thirteen the baseline runs, `baseline.md` section 10.1 | MVP Core Job 1 | **It is a jump, not a facet, `D-65`.** It moves the page to a section rather than removing cases from it, so it does not produce `3.2` and does not become a chip in block 4. **It is also the one facet with an indexed URL**, `0.13` section 4.2 |
 | **Sort** | Select labelled Sort by, default **Date, newest first** | Other values `[?]` | MVP Core Job 1 | **Baseline, and it is the second reversal.** See below |
+| **Liked**, account only | Checkbox, in an **Additional** group | On or off | `D-24`, which put the favourite on the tile | **Baseline, signed in.** A control that marks a case with no way to find the marked ones again is a control that files into a drawer with no handle |
+| **Sufficient funds to open**, account only | Checkbox, in the same group | On or off | Founder decision `D-66`, **and it has no parent in the three legal classes**, section 4.4 | **Baseline, signed in.** Shipped with its cost printed rather than refused |
 
 **Every facet in force appears as a removable chip**, block 4, and that is not a convenience. It is the route out of `3.2`, and `3.2` is the reason the chips are specified before the empty state that needs them.
 
@@ -121,9 +123,22 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 | Refused | Why |
 |---|---|
 | ~~**In-stock only**~~ | **The refusal stands and its reason changed entirely on 21 August 2026.** It was refused because the predicate had no clean definition at case level. **Since `D-60` there is no predicate at all**, and a facet over a figure the product does not compute is not a refusal, it is an impossibility |
-| **Sufficient balance to open** | **From the founder's reference capture, and refused here with the reason rather than dropped.** It filters the shelf to what the account can afford right now. It has no backlog row, it does nothing for a guest, and it sits one step from "top up to see the rest": `CLAUDE.md` binds this stage to cost never hiding inside excitement and to a boundary never becoming a reason to keep going. **A price maximum a person sets themselves answers the same question and answers it as a ceiling rather than as an inventory.** The founder's call, with that cost printed |
+| ~~**Sufficient balance to open**~~ | **Refused on 21 August 2026 and shipped the same day, `D-66`, and the refusal is kept because it was half wrong and half right.** The wrong half: it was refused partly as an unsourced idea from a reference capture, and **it is on our own baseline**, in an Additional group the pre-login walk could not reach. The right half is section 4.4 and it stands |
 | **A continuous risk slider** | The founder's reference draws risk as a named gradient. **The band has three values and no numbers behind them yet**, so a continuous control would promise a precision that does not exist. Three checkboxes are the baseline's own answer and they are the honest one until the thresholds are set |
 | **Sort by chance, value, RTP or popularity** | Section 4.2. `0.11` rule 7 |
+
+### 4.4 The sufficient funds filter ships, and the argument against it is kept rather than deleted
+
+**Founder decision, `D-66`.** It is on the baseline, in the account state, and the founder asked for it by name.
+
+**It has no parent in any of the three legal classes.** It is the second element on this map in that position, after the daily free case `I2` and the favourite control on `0.7`, and `CLAUDE.md` requires an orphan to be carried with its status printed in its own row. This is that row.
+
+**The argument against it, unchanged by the decision.** A control that answers "what can I afford right now" sits one step from "top up to see the rest", and this project binds itself twice on that line: cost never hides inside excitement, design principle 3; and a limit never acquires mechanics that make it a reason to keep going.
+
+**What makes it survivable, and none of these is an argument that the concern was wrong.** It is **off by default** and a person turns it on. It is **account only**, so it is not part of the argument this product makes to a stranger. It **removes cases from view rather than adding a route to money**: nothing in this node offers a deposit, and `4.1` is reached from the header, not from here.
+
+**One thing it may never become, and this is the line that binds stage 07.** When it is on and the result is empty, `3.2` names the nearest facet to relax, section 7.2. **The nearest facet is the filter itself, never a deposit.** A "top up to see 9 more cases" on that empty state is the exact failure this row was nearly refused for, and it is forbidden here rather than left to taste.
+
 
 ---
 

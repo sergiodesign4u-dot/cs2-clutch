@@ -1975,6 +1975,171 @@ window.WF_NAV = {
     if (pinned) open(pinned.getAttribute('data-auth-pinned') || 'default', null);
   }
 
+  /* ---------------------------------------------------------------------
+     NODE 3.1's FILTER DRAWER, D-66. Built once here and mounted on every
+     catalogue page, for the same reason the sign in card is: seven copies of
+     one control is how six of them rot.
+     IT OPENS ON A PRESS. It was drawn as a static state page and the founder's
+     note is the whole argument against that: a filter control that does not
+     open a filter is not a wireframe of a filter, it is a picture of one.
+     THE ACCOUNT DRAWER CARRIES TWO MORE ROWS THAN THE GUEST DRAWER. Founder
+     capture, 21 August 2026: the live panel has an "Additional" group holding
+     Liked and Sufficient Funds to open, and the pre-login walk the same day did
+     not show it. Both are account-state facets, so a guest never meets them.
+     --------------------------------------------------------------------- */
+  function pips(n) {
+    var out = '';
+    for (var i = 1; i <= 3; i++) out += '<span class="wf-pip' + (i <= n ? ' is-on' : '') + '"></span>';
+    return '<span class="wf-pips" aria-hidden="true">' + out + '</span>';
+  }
+
+  function filterDrawerHTML(account) {
+    return '' +
+      '<div class="wf-drawer-scrim" data-filter-dismiss></div>' +
+      '<aside class="wf-drawer" role="dialog" aria-modal="true" aria-labelledby="wf-drawer-h">' +
+        '<div class="wf-drawer-head">' +
+          '<h2 class="wf-drawer-h" id="wf-drawer-h">Filter</h2>' +
+          '<div class="wf-row">' +
+            '<button class="wf-btn wf-btn--small" type="button">Reset all</button>' +
+            '<button class="wf-btn wf-btn--small wf-drawer-x" type="button" aria-label="Close the filters">x</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="wf-drawer-body">' +
+
+          '<div class="wf-fset">' +
+            '<label class="wf-fset-h" for="f-name">Case name</label>' +
+            '<input id="f-name" type="search" placeholder="Case name">' +
+          '</div>' +
+
+          /* THE PRICE IS A RANGE AND TWO STEPPERS, and the steppers are not
+             decoration: a slider cannot be typed into, and a person holding a
+             ceiling in their head has a number rather than a gesture. */
+          '<div class="wf-fset">' +
+            '<span class="wf-fset-h" id="f-price-h">Price amount, in coins</span>' +
+            '<input class="wf-range" type="range" min="0" max="55" value="55" aria-labelledby="f-price-h">' +
+            '<div class="wf-steppers">' +
+              '<div class="wf-stepper">' +
+                '<button class="wf-btn wf-btn--small" type="button" aria-label="Decrease the minimum">-</button>' +
+                '<label class="wf-vh" for="f-min">Minimum entry cost</label>' +
+                '<input id="f-min" type="text" inputmode="decimal" value="0.00">' +
+                '<button class="wf-btn wf-btn--small" type="button" aria-label="Increase the minimum">+</button>' +
+              '</div>' +
+              '<div class="wf-stepper">' +
+                '<button class="wf-btn wf-btn--small" type="button" aria-label="Decrease the maximum">-</button>' +
+                '<label class="wf-vh" for="f-max">Maximum entry cost</label>' +
+                '<input id="f-max" type="text" inputmode="decimal" value="55.00">' +
+                '<button class="wf-btn wf-btn--small" type="button" aria-label="Increase the maximum">+</button>' +
+              '</div>' +
+            '</div>' +
+            '<p class="wf-note wf-fig-missing">Peg not available: what one coin is worth in real money is not published yet</p>' +
+          '</div>' +
+
+          /* THREE CHECKBOXES AND NOT A SLIDER. The band has three values and no
+             numbers behind them yet, so a continuous control would promise a
+             precision that does not exist. The mark sits BESIDE the word and
+             never replaces it, 0.7 rule 5.5. */
+          '<div class="wf-fset">' +
+            '<span class="wf-fset-h" id="f-risk-h">Risk level</span>' +
+            '<div class="wf-riskset" role="group" aria-labelledby="f-risk-h">' +
+              '<label class="wf-riskrow"><input type="checkbox" disabled>' + pips(1) + 'Low</label>' +
+              '<label class="wf-riskrow"><input type="checkbox" disabled>' + pips(2) + 'Medium</label>' +
+              '<label class="wf-riskrow"><input type="checkbox" disabled>' + pips(3) + 'High</label>' +
+            '</div>' +
+            /* THE ONE INERT CONTROL THIS STAGE HAS DRAWN, and D-58 does not
+               reach it: on sign in the precondition was something a person
+               could satisfy, here it is a number that does not exist in this
+               repository. So the refusal says what is missing, in words. */
+            '<p class="wf-note wf-fig-missing">Not available: where High stops and Medium begins is not set, so no case can be sorted into a band yet</p>' +
+          '</div>' +
+
+          /* THE ADDITIONAL GROUP IS ACCOUNT ONLY, and it is the baseline's own,
+             not an invention: both rows read an account. A guest meets neither,
+             which is also the answer to half the objection against the second
+             one. The other half is printed in D-66 and stays printed. */
+          (account ?
+          '<div class="wf-fset">' +
+            '<span class="wf-fset-h" id="f-add-h">Additional</span>' +
+            '<div class="wf-riskset" role="group" aria-labelledby="f-add-h">' +
+              '<label class="wf-riskrow"><input type="checkbox">Liked</label>' +
+              '<label class="wf-riskrow"><input type="checkbox">Sufficient funds to open</label>' +
+            '</div>' +
+          '</div>' : '') +
+
+          '<div class="wf-fset">' +
+            '<label class="wf-fset-h" for="f-type">Case type</label>' +
+            '<select id="f-type"><option>All</option></select>' +
+          '</div>' +
+
+          /* SORT WAS REFUSED HERE ON THE COMPETITOR BANK AND THE PRODUCT SORTS.
+             One limit travels with it and is not inherited: never by chance, by
+             value, by RTP or by popularity. 0.11 rule 7, never a score. */
+          '<div class="wf-fset">' +
+            '<label class="wf-fset-h" for="f-sort">Sort by</label>' +
+            '<select id="f-sort">' +
+              '<option>Date, newest first</option>' +
+              '<option>Entry cost, low to high</option>' +
+              '<option>Entry cost, high to low</option>' +
+            '</select>' +
+          '</div>' +
+
+        '</div>' +
+        '<div class="wf-drawer-foot">' +
+          '<button class="wf-btn wf-btn--primary" type="button" data-filter-dismiss>Show 13 cases</button>' +
+        '</div>' +
+      '</aside>';
+  }
+
+  function mountFilterDrawer() {
+    var opener = null, host = null;
+
+    function close() {
+      if (!host) return;
+      host.remove(); host = null;
+      document.documentElement.style.overflow = '';
+      document.removeEventListener('keydown', onKey, true);
+      if (opener && document.contains(opener)) { opener.setAttribute('aria-expanded', 'false'); opener.focus(); }
+      opener = null;
+    }
+
+    function onKey(e) {
+      if (!host) return;
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key !== 'Tab') return;
+      var f = host.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+
+    function open(trigger) {
+      if (host) return;
+      opener = trigger || null;
+      if (opener) opener.setAttribute('aria-expanded', 'true');
+      host = el('div', 'wf-drawer-host');
+      host.innerHTML = filterDrawerHTML(!!(window.WF_SHELL && window.WF_SHELL.account));
+      document.body.appendChild(host);
+      document.documentElement.style.overflow = 'hidden';
+      host.addEventListener('click', function (e) {
+        if (e.target.closest('.wf-drawer-x') || e.target.closest('[data-filter-dismiss]')) close();
+      });
+      document.addEventListener('keydown', onKey, true);
+      var f = host.querySelector('.wf-drawer-x');
+      if (f) f.focus();
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-filter-open]');
+      if (!t) return;
+      e.preventDefault();
+      open(t);
+    });
+
+    // The state page renders it open on load, for the same reason the sign in
+    // canon does: a state nobody can see without a click is a state nobody checks.
+    if (document.querySelector('[data-filter-pinned]')) open(null);
+  }
+
   /* THE ADDRESS CARRIER. The host declares its state and this renders the card
      into it as a full page. D-54: the address is the cold arrival and it is the
      canon, so it carries the H1, the H2 outline and the footer, while the dialog
@@ -1999,6 +2164,7 @@ window.WF_NAV = {
     mountFeed();
     renderAuth(document.getElementById('wf-auth'));
     mountAuthDialog();
+    mountFilterDrawer();
     renderFooter(document.getElementById('wf-footer'));
     mountRollDetail();
     renderBar(document.getElementById('wf-bar'));

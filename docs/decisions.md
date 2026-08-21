@@ -2037,3 +2037,40 @@ The capture the founder supplied is **not daddyskins and this session did not op
 ### The rule this leaves
 
 **A node about our own product is not finished until someone has opened our own product.** `catalogue.md` cited the competitor bank eleven times and the baseline twice, and all three of its wrong rows were places where the bank was consulted and the product was not.
+
+---
+
+## D-66. The filter control opens the filter, the process prose leaves the surface, and the walk had missed a group
+
+**Date:** 2026-08-21. **Stage:** 04, from the founder reading the drawn page. **Decided by:** the founder, three notes in one message. **Binds:** node `3.1`, the seven catalogue pages, `wireframes/_nav.js`, and a convention that binds every screen this stage draws from here.
+
+### 1. The notes come off the wires and stay in the IA
+
+**The founder pointed at a paragraph on the screen** that explained why four category sections were drawn, what the baseline runs, what the dead item defect is and what the founder still owes. **None of that is on a screen. It is the specification of a screen.**
+
+**The rule this leaves, and it binds every page from here:** a wireframe may state a **state** and may never cite a decision record or explain the project to the person looking at it. `Peg not available` stays, because `0.11` rule 3 makes missing a rendered state. `Peg not available, D-28` does not, because product copy does not carry decision codes. **Nothing was lost: every sentence removed was already in the HTML comment above it and in `catalogue.md`.**
+
+Removed from the surface: the four-sections note, the daily-case debt note, the sort limit, the case-type values note, and four decision codes inside otherwise correct missing-state text.
+
+### 2. The filter control opens the filter
+
+**It was drawn as a static state page.** The founder's note is the whole argument against that: **a filter control that does not open a filter is not a wireframe of a filter, it is a picture of one.**
+
+The drawer is built once in `wireframes/_nav.js` and mounted on every catalogue page, for the same reason the sign in card is: seven copies of one control is how six of them rot. **It opens on a press, traps the keyboard, closes on Escape, on the scrim, on the x and on apply, restores focus to the control that opened it, and moves `aria-expanded` with it.** `catalogue-filter.html` keeps its place as the state page and now renders it open on load, the same `data-*-pinned` device the sign in canon uses.
+
+### 3. The pre-login walk had missed a group, and the correction cuts against a refusal I wrote
+
+**`D-65` refused a "sufficient balance to open" filter**, partly on the grounds that it came from a reference capture whose source is `[?]`. **It is on our own baseline.** The founder's capture of the same panel signed in has a group headed **Additional**, holding **Liked** and **Sufficient Funds to open**, sitting between Risk Level and Case Type.
+
+**The walk was not wrong, it was pre-login.** Both rows read an account: Liked reads the favourite `D-24` sets, sufficient funds reads the balance. **A guest meets neither**, which is why a public walk could not have found them. `baseline.md` section 9.8 already names this hole in exactly these words.
+
+**Both ship. The argument against the second is kept rather than deleted**, `catalogue.md` section 4.4:
+
+- It has **no parent in any of the three legal classes**, the second element on this map in that position after `I2` and the favourite, and it is carried with that status printed.
+- The concern stands: a control answering "what can I afford right now" sits one step from "top up to see the rest".
+- **What makes it survivable is not that the concern was wrong.** It is off by default, it is account only so it is no part of the argument this product makes to a stranger, and it removes cases from view rather than adding a route to money.
+- **One thing it may never become, and this line binds stage 07.** When it is on and the result is empty, `3.2` names the nearest facet to relax. **The nearest facet is the filter itself, never a deposit.** A "top up to see 9 more cases" on that empty state is the exact failure this row was nearly refused for.
+
+### What this cost, stated
+
+**A third orphan on the map.** `CLAUDE.md` allows one to be carried with its status printed and this is now the third, after the daily free case and the favourite count. **Three is not a pattern yet and four would be**, and that sentence is here so the fourth has to argue against it.
