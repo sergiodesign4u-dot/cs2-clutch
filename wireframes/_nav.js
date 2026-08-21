@@ -116,6 +116,7 @@ window.WF_NAV = {
       states: [
         { label: 'Cold arrival at /signin', file: 'signin.html',                 status: 'built' },
         { label: 'One of two given',        file: 'signin-consent-partial.html', status: 'built' },
+        { label: 'Press refused, nothing declared', file: 'signin-blocked.html',   status: 'built' },
         { label: 'Consent given',           file: 'signin-consent-given.html',   status: 'built' },
         { node: '2.5', label: 'Steam refused',       file: 'signin-steam-refused.html',   status: 'built' },
         { node: '2.6', label: 'Steam unavailable',   file: 'signin-steam-unavailable.html', status: 'built' }
@@ -1465,9 +1466,14 @@ window.WF_NAV = {
     // surface says so, and 2.7 is where the other layer lives.
     var terms = (state === 'partial' || state === 'given' || isFail);
     var age   = (state === 'given' || isFail);
-    out.push('<div class="wf-consent">');
-    out.push('<span class="wf-cbx' + (terms ? ' is-set' : '') + '"><span class="wf-cbx-box" aria-hidden="true">✓</span><span class="wf-cbx-t">I agree to the <a href="legal.html">Terms and Conditions</a> and the <a href="legal.html">Privacy Policy</a>.</span></span>');
-    out.push('<span class="wf-cbx' + (age ? ' is-set' : '') + '"><span class="wf-cbx-box" aria-hidden="true">✓</span><span class="wf-cbx-t">I declare that I am 18 or over. <span style="color:var(--wf-ink-dim)">Your own declaration, not an identity check.</span></span></span>');
+    // THE BLOCKED STATE, D-58: a person pressed a provider without declaring.
+    var blocked = (state === 'blocked');
+    out.push('<div class="wf-consent' + (blocked ? ' is-asked' : '') + '">');
+    // REAL CONTROLS, NOT DRAWINGS OF CONTROLS. Each one is a button with the
+    // checkbox role and its own checked state, and the text beside it toggles it
+    // too, except where the text is a link to the document it names.
+    out.push('<div class="wf-cbx' + (terms ? ' is-set' : (blocked ? ' is-missing' : '')) + '"><button class="wf-cbx-box" type="button" role="checkbox" aria-checked="' + (terms ? 'true' : 'false') + '" aria-labelledby="wf-cbx-t1"><span aria-hidden="true">✓</span></button><span class="wf-cbx-t" id="wf-cbx-t1">I agree to the <a href="legal.html">Terms and Conditions</a> and the <a href="legal.html">Privacy Policy</a>.</span></div>');
+    out.push('<div class="wf-cbx' + (age ? ' is-set' : (blocked ? ' is-missing' : '')) + '"><button class="wf-cbx-box" type="button" role="checkbox" aria-checked="' + (age ? 'true' : 'false') + '" aria-labelledby="wf-cbx-t2"><span aria-hidden="true">✓</span></button><span class="wf-cbx-t" id="wf-cbx-t2">I declare that I am 18 or over. <span style="color:var(--wf-ink-dim)">Your own declaration, not an identity check.</span></span></div>');
     // THE REASON IS WORDS, not only a dimmed button, and in the partial state it
     // NAMES WHICH DECLARATION IS MISSING rather than repeating the general
     // instruction. Two declarations means two failure messages, node section 4.
@@ -1476,11 +1482,19 @@ window.WF_NAV = {
       // than only in a dimmed button, and one sentence is words. The sentence
       // that went explained our design to the person instead of telling them
       // what to do, and it is in the node where it belongs.
-      out.push('<p class="wf-consent-why"><b>Both declarations are needed before any of the buttons below work.</b></p>');
+      // D-58: IT IS A LIVE REGION NOW, because the same line is what answers a
+      // press that could not go through, and an answer nobody hears is a dead
+      // button with extra steps.
+      out.push('<p class="wf-consent-why" data-auth-why><b>Both declarations are needed before you sign in.</b></p>');
     } else if (state === 'partial') {
-      out.push('<p class="wf-consent-why"><b>The age declaration is still missing.</b> The buttons below stay unavailable until you make it.</p>');
+      out.push('<p class="wf-consent-why" data-auth-why><b>The age declaration is still missing.</b></p>');
+    } else if (state === 'blocked') {
+      // THE ANSWER TO A PRESS, AND IT NAMES WHICH ONE. Two declarations means
+      // two failure messages, node section 4, and that rule was written for a
+      // dimmed control. It is worth more here, where it is the whole reply.
+      out.push('<p class="wf-consent-why" data-auth-why><b>Tick both to continue.</b> Neither declaration has been made yet.</p>');
     } else if (state === 'given') {
-      out.push('<p class="wf-consent-why">Both declarations made.</p>');
+      out.push('<p class="wf-consent-why" data-auth-why>Both declarations made.</p>');
     } else {
       out.push('<p class="wf-consent-why">Your declarations are unchanged and nothing was recorded about this attempt.</p>');
     }
@@ -1500,22 +1514,25 @@ window.WF_NAV = {
     // ONE PRIMARY AND THREE SECONDARY, and the difference is structural: Steam
     // is the only one that can receive a skin, so it is the only one drawn as
     // the act. Four equal buttons would say the four are equal, and they are not.
+    // NOT ONE OF THEM IS DISABLED, D-58, and the enforcement is unchanged.
+    // A dead control answers "why not" with nothing. The founder's own reading
+    // of it: a person arrives, finds it unavailable, cannot see what to do,
+    // and either leaves or writes to support. FOUR dead controls in a row is
+    // that four times over, which is what D-56 already said about the wall.
+    // WHAT D-26 REQUIRES IS THAT NOBODY GETS THROUGH WITHOUT BOTH DECLARATIONS,
+    // and that is exactly as true here: the press does not sign anyone in. The
+    // baseline's defect was that its provider buttons WORKED with the box
+    // unticked, baseline-account.md. These do not.
+    // WHAT CHANGES IS THE ANSWER. The press marks the declarations that are
+    // missing, names which, and puts the keyboard on the first of them, so the
+    // reply to "why can I not" is on the screen instead of in a support queue.
     if (!isFail) {
-      var live = (state === 'given');
       out.push('<div class="wf-auth-blk">');
-      if (live) {
-        out.push('<a class="wf-btn wf-btn--primary wf-prov-1" href="case-open.html"><span class="wf-prov-i" aria-hidden="true"></span>Sign in with Steam</a>');
-      } else {
-        out.push('<button class="wf-btn wf-prov-1" type="button" disabled><span class="wf-prov-i" aria-hidden="true"></span>Sign in with Steam</button>');
-      }
+      out.push('<a class="wf-btn wf-btn--primary wf-prov-1" href="case-open.html" data-auth-go><span class="wf-prov-i" aria-hidden="true"></span>Sign in with Steam</a>');
       out.push('<p class="wf-or">or continue with</p>');
       out.push('<div class="wf-prov-row">');
       ['Google', 'Discord', 'X'].forEach(function (n) {
-        if (live) {
-          out.push('<a class="wf-btn" href="case-open.html"><span class="wf-prov-i" aria-hidden="true"></span>' + n + '</a>');
-        } else {
-          out.push('<button class="wf-btn" type="button" disabled><span class="wf-prov-i" aria-hidden="true"></span>' + n + '</button>');
-        }
+        out.push('<a class="wf-btn" href="case-open.html" data-auth-go><span class="wf-prov-i" aria-hidden="true"></span>' + n + '</a>');
       });
       out.push('</div>');
       // D-57: SHORTER, AND EVERY PART OF D-55's REQUIREMENT IS STILL IN IT. That
@@ -1650,6 +1667,82 @@ window.WF_NAV = {
       '</div>';
   }
 
+  /* THE DECLARATIONS BEHAVE, D-58. Convention section 2: a live screen, not a
+     diagram. The two checkboxes really toggle and the providers really refuse,
+     because the whole of this decision is what happens ON the press, and a still
+     picture of a press cannot be reviewed.
+     WHAT D-26 REQUIRES IS UNCHANGED: nobody gets through without both
+     declarations. What changed is that the refusal answers instead of sulking. */
+  function wireAuth(scope) {
+    if (!scope) return;
+    var boxes = scope.querySelectorAll('.wf-cbx');
+    if (!boxes.length) return;
+
+    function set(row, on) {
+      row.classList.toggle('is-set', on);
+      if (on) row.classList.remove('is-missing');
+      var b = row.querySelector('.wf-cbx-box');
+      if (b) b.setAttribute('aria-checked', on ? 'true' : 'false');
+    }
+    function count() {
+      var n = 0;
+      Array.prototype.forEach.call(boxes, function (r) { if (r.classList.contains('is-set')) n++; });
+      return n;
+    }
+    function say(html) {
+      var w = scope.querySelector('[data-auth-why]');
+      if (w) w.innerHTML = html;
+    }
+    function settle() {
+      var n = count();
+      var consent = scope.querySelector('.wf-consent');
+      if (n === 2) {
+        if (consent) consent.classList.remove('is-asked');
+        say('Both declarations made.');
+      } else if (!consent || !consent.classList.contains('is-asked')) {
+        say('<b>Both declarations are needed before you sign in.</b>');
+      }
+    }
+
+    Array.prototype.forEach.call(boxes, function (row) {
+      row.addEventListener('click', function (e) {
+        // A LINK INSIDE A DECLARATION IS A LINK. Opening the terms is not
+        // agreeing to them, and one click may not do both.
+        if (e.target.closest('a')) return;
+        e.preventDefault();
+        set(row, !row.classList.contains('is-set'));
+        settle();
+      });
+      var b = row.querySelector('.wf-cbx-box');
+      if (b) b.addEventListener('keydown', function (e) {
+        if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); row.click(); }
+      });
+    });
+
+    scope.addEventListener('click', function (e) {
+      var go = e.target.closest('[data-auth-go]');
+      if (!go) return;
+      if (count() === 2) return;          // through, and the href does the rest
+      e.preventDefault();
+      var consent = scope.querySelector('.wf-consent');
+      if (consent) consent.classList.add('is-asked');
+      var missing = [];
+      Array.prototype.forEach.call(boxes, function (r, i) {
+        if (!r.classList.contains('is-set')) { r.classList.add('is-missing'); missing.push(i); }
+      });
+      // TWO DECLARATIONS MEANS TWO FAILURE MESSAGES, node section 4. That rule
+      // was written for a dimmed control and it is worth more here, where the
+      // sentence is the entire reply to a press.
+      if (missing.length === 2) say('<b>Tick both to continue.</b> Neither declaration has been made yet.');
+      else if (missing[0] === 0)  say('<b>The agreement to the terms is still missing.</b>');
+      else                        say('<b>The age declaration is still missing.</b>');
+      // AND THE KEYBOARD GOES WHERE THE ANSWER IS. A message about a control
+      // somewhere above is a message a person has to go and find.
+      var first = scope.querySelector('.wf-cbx.is-missing .wf-cbx-box');
+      if (first) first.focus();
+    });
+  }
+
   /* THE DIALOG GOES OUT ONTO EVERY GUEST SURFACE, and that is the whole point of
      D-54: A PERSON IS NEVER TAKEN OFF THE PAGE THEY ARE ON. Any control marked
      data-auth-open opens it, which is the header account control on every guest
@@ -1691,6 +1784,7 @@ window.WF_NAV = {
       host = el('div', 'wf-auth-host');
       host.innerHTML = authDialogHTML(state || 'default');
       document.body.appendChild(host);
+      wireAuth(host.querySelector('.wf-dlg-body'));
       // THE SURFACE BEHIND IS INERT AND IS NEVER REMOVED, 0.1's own rule for a
       // gate open. Removing the carriers would make the dialog read as an
       // ejection rather than a step, and the case the person chose is exactly
@@ -1724,6 +1818,7 @@ window.WF_NAV = {
   function renderAuth(host) {
     if (!host) return;
     host.innerHTML = authCard(host.getAttribute('data-state') || 'default', 'page');
+    wireAuth(host);
   }
 
   document.addEventListener('DOMContentLoaded', function () {

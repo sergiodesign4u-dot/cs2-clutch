@@ -63,6 +63,8 @@ The shell `0.1`, the footer `0.2`, the skin card `0.6`, the case tile `0.7`, the
 - **A responsive block goes after everything it overrides.** `_wf.css` has lost a media query to a later flat rule three times now, and every time the symptom was a layout that looked correct at one width and silently reverted at another. Specificity is equal, so order decides, and the order is not a preference.
 - **A surface owes a person what to do. The node owes the reader why.** A sentence on a screen that answers "why is it built like this" belongs in the IA node, not on the screen. `D-57`.
 
+- **No control is disabled to express a precondition.** A dead control answers "why not" with nothing, and a person who cannot see what to do either leaves or writes to support. The control stays live and the refusal says what is missing, marks it where it is, and puts the keyboard on it. `D-58`.
+
 ## 3. Naming
 
 - **Latin, from `ia/docs/sitemap.md`.**

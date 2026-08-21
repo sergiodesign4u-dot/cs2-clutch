@@ -164,7 +164,29 @@
 
 **What was not touched is the longest block left in the dialog:** the four "never read or do" lines. They are `D-56` and they are the reason this node exists. **If the dialog has to get shorter again, that block is discussed rather than trimmed.**
 
-### 0.10.6 What was not taken from the three captures
+### 0.10.6 `D-58`. No control on this surface is disabled, and `D-26` is enforced exactly as before
+
+**Founder decision of 21 August 2026, from his own operating experience:** a person meets a dead control, cannot see what to do about it, and **either leaves or writes to support**. Four dead controls in a row is that four times over, which is the wall section 0.10.4 already named.
+
+**What `D-26` requires is that nobody gets through without both declarations, and that is unchanged.** The press does not sign anyone in. **The baseline's defect was that its provider buttons worked with the box unticked**, `baseline-account.md`, and these do not. **The collision was with the word inert in the earlier wording of this node, not with the rule underneath it.**
+
+**What changed is the answer.** Three things happen on a press that cannot go through:
+
+| | What happens | Why that and not something else |
+|---|---|---|
+| The declarations that are missing | Are marked **on themselves** | The answer to "why did nothing happen" is a place on the screen, not only a sentence about a place on the screen |
+| The line under them | **Names which one is missing.** Two declarations means two failure messages, section 4 | That rule was written for a dimmed control. **It is worth more here, where the sentence is the entire reply to a press** |
+| The keyboard | Moves to the first missing declaration | A message about a control somewhere above is a message a person has to go and find |
+
+**The ambient line stays.** It is not either the ambient reason or the reply on press: the reason says what is needed before anyone presses anything, and the reply says what is missing after they did. **Removing the first would make the press the only way to learn the requirement, which is the dead button's own defect wearing different clothes.**
+
+**And a link inside a declaration is a link.** Opening the terms is not agreeing to them, and one click may not do both.
+
+### 0.10.7 The state this adds to the map
+
+**Press refused, nothing declared.** Not a numbered node: it needs no route that differs from the parent's and no address of its own, which is the map's own test. It is listed here because it is a real state with its own copy, and section 4's table would otherwise be a list of states that no longer describes what this surface does.
+
+### 0.10.8 What was not taken from the three captures
 
 **No email field and no password field, in any state.** Two of the three modals offer email and password beside the providers; the founder cut it and the node had already forbidden it. `B6` is the rule, quoted: no password anywhere outside the provider's own page.
 
@@ -228,7 +250,7 @@ Composition from `blocks.md` section 6, T5. Refero ShareWillow gives the craft f
 | # | Block | Traces to |
 |---|---|---|
 | 1 | **What this is, and the controls.** One line. **Four providers since `D-55`**, Steam as the act and Google, Discord and X as one secondary row, with the Steam requirement printed beside them. Centred single card, one column. **Now second in the order, `D-56`** | Refero ShareWillow, `blocks.md` T5. Related Job 2. `D-55` |
-| 2 | **First in the order since `D-56`.** **The consent gate: two declarations, and nothing works until both are made.** The terms consent naming and linking each document it covers, and **the age declaration on its own line as its own act**. The provider control in block 1 is **unavailable** until both are set, and this block says why in words rather than only by dimming a button | `D-26`, and the compliance constraint in `CLAUDE.md`. **This is layer 1 of `D-A` and it always was: what `D-26` changed is that it is enforced rather than decorative** |
+| 2 | **First in the order since `D-56`.** **The consent gate: two declarations, and no press goes through until both are made.** The terms consent naming and linking each document it covers, and **the age declaration on its own line as its own act**. **No press in block 1 goes through** until both are set, `D-58` having replaced the disabling with a refusal that answers, and this block says why in words rather than only by dimming a button | `D-26`, and the compliance constraint in `CLAUDE.md`. **This is layer 1 of `D-A` and it always was: what `D-26` changed is that it is enforced rather than decorative** |
 | 3 | **The will and will not read statement**, on the page, not behind a link, not in a modal, not in the terms | `B3-2` by way of row `B6`. **This is the node's reason for existing**, section 0 |
 | 4 | **What happens next**, three steps in one line: you land on Steam, you type your password there and never here, you come back | `B3-1` by way of row `B5`. The round trip is the confusing step Related Job 2 forbids, so it is described before it starts |
 | 5 | **The starter credit, stated as an offer with its terms**, because `1.0` already made it pre-login and this is where it is met | Row `I1`, bound to `C4`, `D1` and `A1`, which is not optional, `cjm-to-be.md` answer 1 |
@@ -249,9 +271,10 @@ Composition from `blocks.md` section 6, T5. Refero ShareWillow gives the craft f
 
 | State | Node? | Behaviour |
 |---|---|---|
-| **Default, consent not given** | no | **The landing state.** Both checkboxes clear, the provider control **inert and marked as such to a screen reader, not merely dimmed**, and the reason stated in text above it. `D-26` |
-| **Consent given** | no | The provider control becomes available. **Nothing else on the page changes**, because a page that rearranges itself when a box is ticked has moved the target a person was aiming at |
-| **One of two given** | no | The control stays inert and **the text names which declaration is still missing**, rather than repeating the general instruction. Two declarations means two failure messages |
+| **Default, consent not given** | no | **The landing state.** Both checkboxes clear, **the provider controls live and not disabled since `D-58`**, and the reason stated in text under them. `D-26` is enforced on the press rather than by removing the control, section 0.10.6 |
+| **Consent given** | no | The press now goes through. **Nothing else on the page changes**, because a page that rearranges itself when a box is ticked has moved the target a person was aiming at |
+| **One of two given** | no | **The text names which declaration is still missing**, rather than repeating the general instruction. Two declarations means two failure messages |
+| **Press refused, a declaration missing** | no | **Added by `D-58`.** The missing declarations are marked on themselves, the line names which, and the keyboard goes to the first of them. Nothing was signed in and nothing was recorded |
 | **Redirecting to Steam** | no | One of the five loading states `sitemap.md` specifies inside their parents rather than as nodes. It renders the parent's own skeleton and names the destination |
 | **Returning from Steam** | no | The second half of the round trip. Named because the first half is already on the map's list and the return is where the two failures below are detected |
 | **Cancelled at Steam** | no | The person pressed back or declined on Steam's own page. Returns them where they came from, nothing lost, nothing recorded. **Not a node**, by the map's own test: it needs no copy and no route that differs from the parent's default |

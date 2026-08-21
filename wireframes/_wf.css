@@ -2157,13 +2157,26 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
   background: var(--wf-surface);
 }
 .wf-cbx { display: flex; gap: var(--wf-s-2); align-items: flex-start; cursor: pointer; }
+/* THE BOX IS A REAL CONTROL, D-58, so it overrides the button base rather than
+   borrowing it: the tap floor belongs to the row, which is 20px of box plus the
+   whole label beside it, and not to the 20px square on its own. */
 .wf-cbx-box {
-  flex: 0 0 20px; width: 20px; height: 20px; margin-top: 1px;
+  flex: 0 0 20px; width: 20px; min-width: 20px; height: 20px; min-height: 20px;
+  margin-top: 1px; padding: 0;
   border: 1px solid var(--wf-line); border-radius: var(--wf-r-1);
+  background: none;
   display: flex; align-items: center; justify-content: center;
   font-size: var(--wf-t-s); line-height: 1; color: transparent;
 }
 .wf-cbx.is-set .wf-cbx-box { border-color: var(--wf-ink); color: var(--wf-ink); }
+/* WHAT A REFUSED PRESS LOOKS LIKE. The declaration that is missing is marked
+   ON ITSELF, because the answer to "why did nothing happen" is a place on the
+   screen and not only a sentence about a place on the screen. Grey has no red,
+   so the mark is weight and a rule, which is what stage 07 will colour. */
+.wf-consent.is-asked { border-color: var(--wf-ink); }
+.wf-cbx.is-missing .wf-cbx-box { border-color: var(--wf-ink); border-width: 2px; }
+.wf-cbx.is-missing .wf-cbx-t { color: var(--wf-ink); }
+.wf-consent.is-asked .wf-consent-why { color: var(--wf-ink); }
 .wf-cbx-t { font-size: var(--wf-t-s); line-height: 1.5; }
 /* The reason is words, not a dimmed button. The node says so in block 2. */
 .wf-consent-why {

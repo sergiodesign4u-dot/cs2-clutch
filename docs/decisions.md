@@ -1741,3 +1741,51 @@ The two remaining blocks stay at the address for a reason of their own: the roun
 **A media query lost to a later flat rule, again.** `@media (min-width: 600px)` set the art column to full height and the plain `.wf-dlg-art` rule below it set 120px back, so the picture rendered as a small box in the corner of a two column grid. **The fix is now the convention:** a responsive block goes after everything it overrides, and both dialog breakpoints sit at the end of the section.
 
 **The same reorder found a second one:** below 600 the sheet kept `max-width: 460px`, so from 500 to 599 it rendered as a full height card with margins down both sides, **which is neither of the two shapes the node specifies**. A sheet is full width or it is not a sheet.
+
+---
+
+## D-58. No control on this surface is disabled, and `D-26` is enforced exactly as before
+
+**Date:** 2026-08-21. **Stage:** 04. **Decided by:** the founder, from his own operating experience. **Binds:** node `2.4` section 0.10.6, the consent block in `wireframes/_nav.js`, and **it needs one clause of `CLAUDE.md` amended.**
+
+**What was decided.** **The four provider controls are live in every state.** A press that cannot go through **answers** instead of not existing.
+
+### The founder's argument, and it is about what happens after the dead end
+
+**A person meets a dead control, cannot see what to do about it, and either leaves or writes to support.** Four dead controls in a row is that four times over, which is exactly the wall `D-56` named when it moved the declarations above them.
+
+### Why this is not a compliance retreat
+
+**`D-26` requires that nobody gets through without both declarations. That is unchanged.** The press does not sign anyone in.
+
+**The baseline's defect was that its provider buttons worked with the box unticked**, `baseline-account.md`, with no `required` attribute anywhere. **These do not work.** The collision was with the word **inert** in the wording, not with the rule underneath it.
+
+### What a refused press does, and why each part is there
+
+| | What happens | Why that |
+|---|---|---|
+| The missing declarations | Are marked **on themselves** | The answer to "why did nothing happen" is a place on the screen, not only a sentence about a place on the screen |
+| The line under them | **Names which one** | Two declarations means two failure messages, node section 4. **That rule was written for a dimmed control and is worth more here**, where the sentence is the entire reply |
+| The keyboard | Goes to the first missing declaration | A message about a control somewhere above is a message a person has to go and find |
+
+**The ambient line stays and the reply does not replace it.** The reason says what is needed before anyone presses; the reply says what is missing after they did. **Removing the first would make the press the only way to learn the requirement, which is the dead button's defect wearing different clothes.**
+
+### Built as behaviour, not as a picture
+
+Convention section 2, a live screen and not a diagram: **the two declarations really toggle and the providers really refuse**, because the whole of this decision is what happens on the press and a still picture of a press cannot be reviewed. One still exists as well, `signin-blocked.html`, so the state has a page like every other.
+
+**A link inside a declaration is a link.** Opening the terms is not agreeing to them, and one click may not do both. Verified: the terms link navigates and ticks nothing.
+
+### Measured
+
+Press with nothing declared: both marked, the line reads "Tick both to continue. Neither declaration has been made yet.", focus lands on a checkbox, **no navigation**. Press with one: the line names the missing one, **no navigation**. Both ticked: `aria-checked` true on both, **zero disabled elements in the dialog**, and the press goes through.
+
+### What it needs from `CLAUDE.md`, and it is not written yet
+
+The compliance paragraph says "**an 18+ declaration enforced at sign in, two separate checkboxes with the provider controls inert until both are set, `D-26`**". **The word inert is now wrong and the sentence around it is right.** Proposed replacement, awaiting an explicit go, replacing the clause rather than being added beside it:
+
+> an 18+ declaration enforced at sign in, two separate checkboxes and **no press goes through until both are set, `D-26` and `D-58`, the control staying live so the refusal can say what is missing**
+
+### Rejected
+
+**`aria-disabled` on a full strength control.** It keeps the control focusable and clickable, which is the useful half, but it announces "unavailable" to a screen reader while showing "available" to everyone else. **A control whose two audiences are told different things is the defect this node exists to avoid**, in miniature.

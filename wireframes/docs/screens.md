@@ -1283,3 +1283,34 @@ At 1440 and at 360, on both batch pages: no `.wf-rolls` left in the page flow, t
 ### Cleared at the same time
 
 The three untracked PNGs in the repository root, `_a_top.png`, `s1440-top.png` and `wf-1440-top.png`, were measurement screenshots from 18 and 19 August that a run wrote to the working directory instead of the scratchpad. Unreferenced, never committed, and showing a page count two sessions out of date. **Deleted.**
+
+---
+
+## 39. Nothing on the sign in surface is disabled, `D-58`
+
+**Founder decision of 21 August 2026, from his own operating experience:** a person meets a dead control, cannot see what to do about it, and **either leaves or writes to support**. Four dead controls in a row is that four times over, which is the wall section 37 already named.
+
+**`D-26` is enforced exactly as before.** The press does not sign anyone in. **The baseline's defect was that its provider buttons worked with the box unticked**, with no `required` attribute anywhere; these do not work. **The collision was with the word inert in the node's wording, not with the rule underneath it.**
+
+### Built as behaviour, because a still picture of a press cannot be reviewed
+
+Convention section 2: a live screen, not a diagram. **The two declarations really toggle and the four providers really refuse.**
+
+| Step | Result |
+|---|---|
+| Ambient, nothing pressed | "Both declarations are needed before you sign in" |
+| Press with nothing declared | Both marked on themselves, **"Tick both to continue. Neither declaration has been made yet."**, focus on a checkbox, **no navigation** |
+| Press with one declared | **"The age declaration is still missing."**, no navigation |
+| Both declared | `aria-checked` true on both, **zero disabled elements in the dialog** |
+| Press with both | Goes through |
+| The terms link inside a declaration | **Navigates and ticks nothing.** Opening the terms is not agreeing to them |
+
+**One still exists too**, `signin-blocked.html`, so the state has a page like every other state of this node.
+
+### What the mark is, in grey
+
+Grey has no red, so a missing declaration is marked with **weight and a rule**: the box takes a second pixel of border and the full ink, the label goes from dim to full, and the consent frame brightens. **Stage 07 colours it. This stage decides that the mark exists and where it sits.**
+
+### The clause of `CLAUDE.md` this needs, written out and not yet applied
+
+The compliance paragraph says "two separate checkboxes with the provider controls **inert** until both are set". **The word is now wrong and the sentence around it is right.** The replacement is in `docs/decisions.md` D-58, and it replaces the clause rather than sitting beside it. **Not written, awaiting an explicit go.**
