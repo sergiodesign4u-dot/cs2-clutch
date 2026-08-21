@@ -432,6 +432,10 @@ window.WF_NAV = {
     }
 
     host.appendChild(root);
+    // AFTER THE PANEL IS IN THE DOCUMENT, and that is the whole of the first attempt's
+    // failure: scrollTop on a detached element is discarded and its rect is all zeros.
+    keepScroll(root, 'wf-panel-scroll',
+      firstOf(root, ['.wfp-state.is-current', '.wfp-screen.is-current', '.wfp-done.is-current']));
 
     // Off-canvas below 900px. The class goes on .wfp, which is what the stylesheet
     // moves: putting it on the host aside was the bug this comment replaces. The
@@ -686,6 +690,68 @@ window.WF_NAV = {
       if (!wrap.contains(e.target)) set(false);
     });
     return wrap;
+  }
+
+
+  // KEEP THE LIST WHERE THE READER LEFT IT, D-53. Every navigation reset this panel to
+  // the top, so walking a set of states meant scrolling back to the row you were on,
+  // every time, and the selected row was usually off screen when the page arrived.
+  // TWO PARTS AND THEY ARE NOT THE SAME PART. Restoring the scroll offset is what keeps
+  // a person in the place they were reading. Bringing the current row into view is what
+  // handles the arrival that did not come from this panel: a link inside the page, a
+  // flow step, a typed address. The offset is restored first and the row is only pulled
+  // into view if it is not already visible, so the common case does not move at all.
+  // FIRST BY PRIORITY, NOT FIRST IN DOCUMENT ORDER, and the difference cost an hour.
+  // A comma selector returns whichever match appears earliest in the document, so
+  // ".wfp-state.is-current, .wfp-done.is-current" returned the row in the "Built so far"
+  // list at the top of the panel, which is always visible, so the reveal never had
+  // anything to do. The row a person is actually looking at is the one in the cluster
+  // outline further down.
+  function firstOf(root, sels) {
+    for (var i = 0; i < sels.length; i++) {
+      var hit = root.querySelector(sels[i]);
+      if (hit) return hit;
+    }
+    return null;
+  }
+
+  function keepScroll(box, key, current) {
+    if (!box) return;
+    var mine = false, settled = false;
+    function place() {
+      if (settled) return;
+      mine = true;
+      try {
+        var saved = sessionStorage.getItem(key);
+        if (saved !== null) box.scrollTop = parseFloat(saved) || 0;
+      } catch (e) { /* private mode has no storage and this is not worth failing over */ }
+      if (current) {
+        var b = box.getBoundingClientRect(), c = current.getBoundingClientRect();
+        if (c.top < b.top + 8 || c.bottom > b.bottom - 8) {
+          box.scrollTop += (c.top - b.top) - (b.height / 2) + (c.height / 2);
+        }
+      }
+      setTimeout(function () { mine = false; }, 0);
+    }
+    // PLACED MORE THAN ONCE, AND THAT IS THE WHOLE OF THE SECOND ATTEMPT'S FAILURE.
+    // Measured at render time the current row sat at y=675 in an 800px panel, so it
+    // looked visible and nothing moved. The rows are two lines once the real type is
+    // applied: the same row ends up at y=1694 in a panel 2209 tall. THE FIRST
+    // MEASUREMENT WAS HONEST AND EARLY, WHICH IS THE SAME AS WRONG. It runs again on the
+    // next frame, on load and when the fonts resolve, and stops the moment a person
+    // scrolls it themselves.
+    place();
+    requestAnimationFrame(place);
+    window.addEventListener('load', place);
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(place); }
+    var t = 0;
+    box.addEventListener('scroll', function () {
+      if (!mine) settled = true;
+      clearTimeout(t);
+      t = setTimeout(function () {
+        try { sessionStorage.setItem(key, String(box.scrollTop)); } catch (e) {}
+      }, 80);
+    });
   }
 
   function renderShell(host) {

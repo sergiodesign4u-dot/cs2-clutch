@@ -111,6 +111,13 @@ button, .wf-btn {
   font: inherit;
   line-height: 1.2;
   text-align: center;
+  /* A BUTTON LABEL NEVER WRAPS, D-52. A label broken over two lines is a label read
+     twice: the eye finds the verb, loses the amount, and comes back for it, on the one
+     control where the amount is the decision. It also makes the control taller than the
+     one beside it, so a row of two acts stops being a row of two equal acts.
+     WHAT GIVES INSTEAD IS THE ROW, NOT THE LABEL: below 599 the acts take a line each
+     and the full width, which is already what this file does. */
+  white-space: nowrap;
   text-decoration: none;
   color: var(--wf-ink);
   background: var(--wf-surface);
@@ -1560,8 +1567,12 @@ a.wfp-state:hover { color: var(--wf-ink); }
    is the paperwork and it belongs in a drawer.
    WHAT IS NOT IN THE DRAWER: the cost, the odds and the sell prices. Design principle 3
    binds those and none of them moved. */
-.wf-detail-wrap { position: relative; flex: 0 0 auto; }
-.wf-detail-b { width: 52px; min-width: 52px; padding: 0; justify-content: center; }
+/* THE CONTROL IS THE HEIGHT OF THE ROW IT IS IN, D-52. It sat at the 44px tap floor
+   beside two 60px acts, so a row of three controls read as two controls and an
+   afterthought. It is still not one of the acts and it does not try to look like one:
+   it is the width of an icon and they are the width of a sentence. */
+.wf-detail-wrap { position: relative; flex: 0 0 auto; display: flex; align-self: stretch; }
+.wf-detail-b { width: 60px; min-width: 60px; padding: 0; justify-content: center; align-self: stretch; }
 .wf-detail-b .wf-mi { flex-basis: 18px; height: 18px; }
 .wf-detail-pop {
   display: none; position: absolute; z-index: 60;
@@ -1764,8 +1775,9 @@ a.wfp-state:hover { color: var(--wf-ink); }
    be the loudest thing on it without becoming pressure. Two, not three: the reference
    carries a third, UPGRADE, and that capability does not exist here. */
 .wf-outcome-acts--big { gap: var(--wf-s-2); width: 100%; }
+.wf-outcome-acts { align-items: stretch; }
 .wf-outcome-acts--big > .wf-btn {
-  flex: 1 1 220px; min-height: 60px; font-size: var(--wf-t-m);
+  flex: 1 1 auto; min-height: 60px; font-size: var(--wf-t-m);
   display: flex; align-items: center; justify-content: center;
 }
 @media (max-width: 599px) { .wf-outcome-acts--big > .wf-btn { flex-basis: 100%; } }

@@ -1063,6 +1063,38 @@
   </div>
 </section>
 
+<section id="nowrap">
+  <div class="sec-head">
+    <h2>A button label never wraps, and the list keeps your place</h2>
+    <p>Founder, 20 August 2026, two asks. Live from <code>wireframes/docs/screens.md</code> sections 34 and 35. <code>D-52</code>, <code>D-53</code>.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Total ban on a second line</h4>
+    <p>"Open again for 24.80 coins" broke after the verb. <strong>A label read over two lines is a label read twice:</strong> the eye finds the act, loses the amount, and comes back for it, <strong>on the one control where the amount is the decision</strong>. And a wrapped label makes its control taller than the one beside it, so <strong>a row of two equal acts stops being a row of two equal acts</strong> on exactly the screen where they are meant to be equal.</p>
+    <p><strong>What gives instead is the row, not the label.</strong> Below 599px the acts already take a line each at full width. <strong>And the roll detail control is the height of the acts now:</strong> it sat at the 44px tap floor beside two 60px acts, so a row of three controls read as two controls and an afterthought. It still does not try to look like an act - it is the width of an icon and they are the width of a sentence.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The instrument had to change with the rule, and it took three passes</h4>
+    <p><b>Height against line height</b> flagged 216 of 224 checks: <strong>a height test is not a wrap test</strong>, and every square control in the file is tall by design. <b>Distinct rect tops</b> flagged the language control and every favourite: <strong>an icon slot and its text sit on the same line box</strong> and round to neighbouring pixel values. <b>Spread of rect tops against line height</b> is clean: two line boxes is two lines, and tops a pixel apart are one.</p>
+    <p><strong>224 checks across 17 pages and 7 widths report no wrapped label anywhere.</strong></p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The screen list keeps its place and shows where you are</h4>
+    <p><strong>Restoring the offset is what keeps a person where they were.</strong> <strong>Bringing the current row into view handles the arrival that did not come from the list</strong>: a link inside the page, a flow step, a typed address. The offset is restored first and the row is only pulled in if it is not already visible, <strong>so the common case does not move at all</strong>. It stops the moment a person scrolls the list themselves. Both lists have it: the screen panel on the wireframes and the roadmap sidebar on the IA and document pages.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Three defects on the way, and the third is the one worth keeping</h4>
+    <p><b>1.</b> <code>scrollTop</code> set on a <strong>detached</strong> element: the panel is built, then appended, and an offset written before it is in the document is discarded.</p>
+    <p><b>2. Measured too early.</b> At render time the current row sat at y=675 in an 800px panel, so it looked visible and nothing moved. <strong>The rows are two lines once the real type is applied</strong>, and the same row ends up at y=1694 in a panel 2209 tall. <strong>An honest early measurement is the same as a wrong one</strong>, so it runs again on the next frame, on load and when the fonts resolve.</p>
+    <p><b>3. A comma.</b> <code>querySelector('.wfp-state.is-current, .wfp-done.is-current')</code> returns whichever match appears <strong>earliest in the document</strong>, not the first selector that hits. The panel opens with a "Built so far" list whose current row is always visible near the top, <strong>so the reveal always found a row that needed no revealing.</strong> It asks for one selector at a time now, in priority order.</p>
+    <p><strong>Measured.</strong> Arriving cold on the last state of 3.3: offset 1308, row visible. Scrolling to 380 then navigating from the panel: offset restored, row visible. A new tab in the same session: offset restored, then corrected. <strong>224 checks, no sideways scroll, no collapsed leaf, no wrapped label.</strong></p>
+  </div>
+</section>
+
 </main>
 
 <footer class="doc">
@@ -1102,6 +1134,7 @@ window.NAV_SECTIONS = [
   { id: 'acct',        label: 'D-49 account control' },
   { id: 'icons',       label: 'D-50 icon zones' },
   { id: 'drawer',      label: 'D-51 roll drawer' },
+  { id: 'nowrap',      label: 'D-52 and D-53' },
 ];
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';

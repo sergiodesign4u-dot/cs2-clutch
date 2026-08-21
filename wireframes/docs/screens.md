@@ -1128,3 +1128,47 @@ The control opens on hover, on click, on Enter and on Space, and it carries the 
 
 At 1440 and at 360, on both batch pages: no `.wf-rolls` left in the page flow, the panel closed on load, **open on hover at 1440 and on click at both widths**, two rows and two links at a count of two, five and five at a count of five, **the panel fully on screen at both widths**, still open when the pointer crosses the gap below it, and **closed by Escape**. The stage frame is still 460 and 380. **224 checks, no sideways scroll, no collapsed leaf.**
 
+---
+
+## 34. A button label never wraps, and a control in a row is the height of that row
+
+**Founder, 20 August 2026: total ban on a second line.**
+
+"Open again for 24.80 coins" broke after the verb. **A label read over two lines is a label read twice:** the eye finds the act, loses the amount, and comes back for it, **on the one control where the amount is the decision.** And a wrapped label makes its control taller than the one beside it, so **a row of two equal acts stops being a row of two equal acts** on exactly the screen where they are meant to be equal.
+
+**What gives instead is the row, not the label.** Below 599px the acts already take a line each at full width, which is where a long label gets its room.
+
+**The roll detail control is the height of the acts now.** It sat at the 44px tap floor beside two 60px acts, **so a row of three controls read as two controls and an afterthought.** It still does not try to look like an act: it is the width of an icon and they are the width of a sentence.
+
+### The instrument had to change with the rule, and it took three passes
+
+| Pass | What it did | Why it was wrong |
+|---|---|---|
+| Height against line height | Flagged 216 of 224 checks | **A height test is not a wrap test.** Every square control in the file is tall by design: the rail toggle, the sound control, the deposit control |
+| Distinct rect tops from a range over the text | Flagged the language control and every favourite | **An icon slot and its text sit on the same line box** and round to neighbouring pixel values |
+| **Spread of rect tops against line height** | **Clean** | Two line boxes is two lines. Tops a pixel apart are one |
+
+**224 checks across 17 pages and 7 widths report no wrapped label anywhere.**
+
+---
+
+## 35. The screen list keeps its place and shows where you are
+
+**Founder, 20 August 2026:** clicking a row navigates and throws you back to the top of the list, so you cannot see what is selected and you lose the place you were reading.
+
+### Two parts, and they are not the same part
+
+**Restoring the offset is what keeps a person where they were.** **Bringing the current row into view handles the arrival that did not come from the list**: a link inside the page, a flow step, a typed address. The offset is restored first and the row is only pulled in if it is not already visible, **so the common case does not move at all.** It stops the moment a person scrolls the list themselves, and it tells its own writes apart from theirs.
+
+**Both lists have it:** the screen panel on the wireframes and the roadmap sidebar on the IA and document pages.
+
+### Three defects on the way, and the third is the one worth keeping
+
+| | What happened | What it teaches |
+|---|---|---|
+| **1** | `scrollTop` set on a **detached** element. The panel is built, then appended | An offset written before the element is in the document is discarded, and its rect is all zeros |
+| **2** | **Measured too early.** At render time the current row sat at y=675 in an 800px panel, so it looked visible and nothing moved. **The rows are two lines once the real type is applied**, and the same row ends up at y=1694 in a panel 2209 tall | **An honest early measurement is the same as a wrong one.** It runs again on the next frame, on load, and when the fonts resolve |
+| **3** | **A comma.** `querySelector('.wfp-state.is-current, .wfp-done.is-current')` returns whichever match appears **earliest in the document**, not the first selector that hits | The panel opens with a "Built so far" list whose current row is always visible near the top, **so the reveal always found a row that needed no revealing.** It asks for one selector at a time now, in priority order |
+
+**Measured.** Arriving cold on the last state of `3.3`: offset 1308, current row visible. Scrolling to 380, navigating from the panel: offset restored, current row visible. Arriving on a page in a new tab in the same session: offset restored, then corrected to bring the row in. **224 checks, no sideways scroll, no collapsed leaf, no wrapped label.**
+

@@ -1551,3 +1551,53 @@ The rail has followed it since it was drawn, in its own words: **"a destination 
 The panel opens on hover, on click, on Enter and on Space, and it carries the bridge `D-49` gave the account menu. **Escape then failed on both**, and for the same reason: **Escape closes the panel and returns focus to the control, which is inside the wrapper, so `:focus-within` reopened it in the same frame.** The class came off and the panel stayed.
 
 **A dismissal is a state and not an event.** It is held now until the pointer leaves or focus does. **The account menu was fixed in the same pass, because it was the same bug and it had been shipped.**
+
+---
+
+## D-52. A button label never wraps, and a control in a row is the height of that row
+
+**Date:** 2026-08-20. **Stage:** 04, raised against the grey contract. **Decided by:** the founder, reading the outcome acts. **Binds:** `wireframes/docs/conventions.md` section 2 and every button in the prototype.
+
+**What was decided.** **Total ban on a button label breaking to a second line.** **The roll detail control is the height of the acts beside it.**
+
+### Why the ban is absolute rather than a preference
+
+"Open again for 24.80 coins" broke after the verb. **A label read over two lines is a label read twice:** the eye finds the act, loses the amount, and comes back for it, **on the one control where the amount is the decision.**
+
+**And it breaks the row.** A wrapped label makes its control taller than the one beside it, so **a row of two equal acts stops being a row of two equal acts** on exactly the screen where they are meant to be equal.
+
+**What gives instead is the row, not the label.** Below 599px the acts already take a line each at full width, which is where a long label gets its room.
+
+### The instrument had to change with the rule
+
+**A height test is not a wrap test.** The first version flagged every square control in the file, the rail toggle and the sound control among them, which are tall by design.
+
+**A range over the button's own text reports one client rect per line box**, so two line boxes is two lines and nothing else is. **With one correction:** an icon slot and its text sit on the same line box and round to neighbouring pixel values, so tops a pixel apart are one line. The spread has to be most of a line before it counts.
+
+**224 checks across 17 pages and 7 widths report no wrapped label anywhere.**
+
+### The control in the row
+
+The roll detail control sat at the 44px tap floor beside two 60px acts, **so a row of three controls read as two controls and an afterthought.** It is the height of the row now. **It still does not try to look like an act:** it is the width of an icon and they are the width of a sentence.
+
+---
+
+## D-53. The screen list keeps its place and shows where you are
+
+**Date:** 2026-08-20. **Stage:** 04, raised against the prototype's own scaffolding. **Decided by:** the founder. **Binds:** the panel in `wireframes/_nav.js` and the roadmap sidebar in `_nav.js`.
+
+**What was decided.** **Both lists restore the offset they were left at, and both bring the current row into view when it is not already there.**
+
+### Two parts, and they are not the same part
+
+**Restoring the offset is what keeps a person in the place they were reading.** Every navigation reset the list to the top, so walking a set of states meant scrolling back to the row you were on, every time.
+
+**Bringing the current row into view handles the arrival that did not come from the list:** a link inside the page, a flow step, a typed address. **The offset is restored first and the row is only pulled in if it is not already visible**, so the common case does not move at all.
+
+**It stops the moment a person scrolls the list themselves**, and it tells its own writes apart from theirs so it does not mistake its own restore for a person's scroll.
+
+### Three defects on the way, and the third is the one worth keeping
+
+- **The first attempt set `scrollTop` on a detached element.** The panel is built, then appended; a scroll offset written before it is in the document is discarded and its rect is all zeros.
+- **The second measured too early.** At render time the current row sat at y=675 in an 800px panel, so it looked visible and nothing moved. **The rows are two lines once the real type is applied**, and the same row ends up at y=1694 in a panel 2209 tall. **An honest early measurement is the same as a wrong one**, so the placement runs again on the next frame, on load and when the fonts resolve.
+- **The third was a comma.** `querySelector('.wfp-state.is-current, .wfp-done.is-current')` returns whichever match appears **earliest in the document**, not the first selector that hits. The panel opens with a "Built so far" list whose current row is always visible near the top, **so the reveal always found a row that needed no revealing.** It asks for one selector at a time now, in priority order.
