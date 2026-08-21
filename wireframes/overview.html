@@ -1193,6 +1193,41 @@
   </div>
 </section>
 
+<section id="shorter">
+  <div class="sec-head">
+    <h2>The dialog gets shorter</h2>
+    <p>Founder, 21 August 2026: too long. Live from <code>wireframes/docs/screens.md</code> section 38. <code>D-57</code>. <strong>659px tall at desktop instead of 877, and nothing the node requires was removed to get there.</strong></p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Most of it came from the layout</h4>
+    <p><strong>The image slot moved beside the content above 600px.</strong> The founder had asked for it on the side or on top, and the side is the half that pays: <strong>stacked, the picture spends 150px of the one axis the dialog is short of; beside the content it spends an axis that was empty.</strong> That is 150 of the 218 saved and it cost nothing.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Width</th><th>Before</th><th>After</th></tr></thead>
+      <tbody>
+        <tr><td>1440 and 900</td><td>877</td><td><strong>659</strong>, picture beside the content</td></tr>
+        <tr><td>600</td><td>one column</td><td><strong>779</strong></td></tr>
+        <tr><td>360</td><td>946</td><td><strong>847</strong>, full width sheet</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>Four sentences went, and each was answering a question nobody asked</h4>
+    <p><b>"Nothing you chose is lost"</b> said what the screen already shows, and the surface behind the scrim is the evidence. <b>"They are two separate acts on purpose"</b> is the node&#39;s argument for splitting the checkbox, written for the reader of the node. <b>"A surface that rearranges itself when a box is ticked has moved the target you were aiming at"</b> is a reason behind a behaviour nobody is asked to understand. <b>The provider cost line</b> kept every part of D-55&#39;s requirement and lost the reason why.</p>
+    <p><strong>The rule this leaves behind: a surface owes a person what to do, and the node owes the reader why.</strong> What was not touched is the longest block left, the four "never read or do" lines. <strong>If it has to get shorter again, that block is discussed rather than trimmed.</strong></p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Two defects the reorder found, and the first is the third of its kind in this file</h4>
+    <p><strong>A media query lost to a later flat rule, again.</strong> The 600px block set the art column to full height and the plain rule below it set 120px back, so the picture rendered as a small box in the corner of a two column grid. <strong>This is the convention now:</strong> a responsive block goes after everything it overrides.</p>
+    <p><strong>Below 600 the sheet kept its 460px cap.</strong> From 500 to 599 it rendered as a full height card with margins down both sides, <strong>which is neither of the two shapes the node specifies</strong>. A sheet is full width or it is not a sheet.</p>
+  </div>
+</section>
+
 <footer class="doc">
   <p>Sources of truth: <code>wireframes/docs/screens.md</code> and <code>wireframes/docs/conventions.md</code>. The screen registry: <code>wireframes/_nav.js</code>. The grey contract: <code>wireframes/_wf.css</code>.</p>
   <p>Where these screens come from: <a href="../ia/structure.html">IA structure</a>, <a href="../ia/flows.md">flows</a>. The stage that colours copies of them: 06.</p>
@@ -1233,6 +1268,7 @@ window.NAV_SECTIONS = [
   { id: 'nowrap',      label: 'D-52 and D-53' },
   { id: 'signin',      label: 'D-54 sign in' },
   { id: 'dialog',      label: 'D-55 and D-56' },
+  { id: 'shorter',     label: 'D-57 shorter' },
 ];
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';

@@ -1467,16 +1467,20 @@ window.WF_NAV = {
     var age   = (state === 'given' || isFail);
     out.push('<div class="wf-consent">');
     out.push('<span class="wf-cbx' + (terms ? ' is-set' : '') + '"><span class="wf-cbx-box" aria-hidden="true">✓</span><span class="wf-cbx-t">I agree to the <a href="legal.html">Terms and Conditions</a> and the <a href="legal.html">Privacy Policy</a>.</span></span>');
-    out.push('<span class="wf-cbx' + (age ? ' is-set' : '') + '"><span class="wf-cbx-box" aria-hidden="true">✓</span><span class="wf-cbx-t">I declare that I am 18 or over. <span style="color:var(--wf-ink-dim)">This is your own declaration. It is not an identity check.</span></span></span>');
+    out.push('<span class="wf-cbx' + (age ? ' is-set' : '') + '"><span class="wf-cbx-box" aria-hidden="true">✓</span><span class="wf-cbx-t">I declare that I am 18 or over. <span style="color:var(--wf-ink-dim)">Your own declaration, not an identity check.</span></span></span>');
     // THE REASON IS WORDS, not only a dimmed button, and in the partial state it
     // NAMES WHICH DECLARATION IS MISSING rather than repeating the general
     // instruction. Two declarations means two failure messages, node section 4.
     if (state === 'default') {
-      out.push('<p class="wf-consent-why"><b>Both declarations are needed before any of the buttons below work.</b> They are two separate acts on purpose: one is a contract, the other is a statement about you.</p>');
+      // D-57: ONE LINE, NOT THREE. The node requires the reason in words rather
+      // than only in a dimmed button, and one sentence is words. The sentence
+      // that went explained our design to the person instead of telling them
+      // what to do, and it is in the node where it belongs.
+      out.push('<p class="wf-consent-why"><b>Both declarations are needed before any of the buttons below work.</b></p>');
     } else if (state === 'partial') {
       out.push('<p class="wf-consent-why"><b>The age declaration is still missing.</b> The buttons below stay unavailable until you make it.</p>');
     } else if (state === 'given') {
-      out.push('<p class="wf-consent-why">Both declarations made. <b>Nothing else moved</b>, because a surface that rearranges itself when a box is ticked has moved the target you were aiming at.</p>');
+      out.push('<p class="wf-consent-why">Both declarations made.</p>');
     } else {
       out.push('<p class="wf-consent-why">Your declarations are unchanged and nothing was recorded about this attempt.</p>');
     }
@@ -1514,7 +1518,11 @@ window.WF_NAV = {
         }
       });
       out.push('</div>');
-      out.push('<p class="wf-prov-cost">Those three get you in straight away. <b>To take a skin out you will need Steam linked</b>, because that is where a skin can go, and the link can be made at any time before your first withdrawal.</p>');
+      // D-57: SHORTER, AND EVERY PART OF D-55's REQUIREMENT IS STILL IN IT. That
+      // those three work now, that Steam is needed to take a skin out, and that
+      // the link is not urgent. What went was the explanation of why, which the
+      // node holds and this surface does not owe.
+      out.push('<p class="wf-prov-cost">Those three get you in now. <b>Steam has to be linked before you can take a skin out</b>, and you can link it any time.</p>');
       out.push('</div>');
     }
 
@@ -1635,7 +1643,7 @@ window.WF_NAV = {
           '<div class="wf-dlg-art" aria-hidden="true">Image slot, stage 06</div>' +
           '<div class="wf-dlg-body">' +
             '<p class="wf-dlg-h" id="wf-dlg-h">Sign in</p>' +
-            '<p class="wf-dlg-sub">You stay on this page. Nothing you chose is lost.</p>' +
+            '<p class="wf-dlg-sub">You stay on this page.</p>' +
             authCard(state || 'default', 'dialog') +
           '</div>' +
         '</div>' +

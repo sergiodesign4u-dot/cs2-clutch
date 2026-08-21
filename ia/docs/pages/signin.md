@@ -147,7 +147,24 @@
 
 **Two reasons, and the first is this node's own.** Section 4's default state already required that the reason is "stated in text above it", which is an order, not a decoration. **The second is `D-55`'s doing:** one inert control above its own explanation was tolerable, four is a wall of dead buttons a person meets before being told why they are dead.
 
-### 0.10.5 What was not taken from the three captures
+### 0.10.5 `D-57`. The dialog got shorter, and where the sentences went
+
+**659px tall at desktop instead of 877, and 847 instead of 946 at 360, with nothing this node requires removed.**
+
+**Most of it came from the layout.** The image slot moved beside the content above 600px rather than above it: **stacked, the picture spends 150px of the one axis the dialog is short of; beside the content it spends an axis that was empty.**
+
+**The rest came from four sentences, and each of them was answering a question the person had not asked.** They are kept here, because this is where they belong:
+
+- **"Nothing you chose is lost."** It said what the screen already shows. The surface behind the scrim is the evidence.
+- **"They are two separate acts on purpose: one is a contract, the other is a statement about you."** That is section 3's argument for splitting the checkbox, and it is an argument for the reader of this node rather than for the person signing in.
+- **"a surface that rearranges itself when a box is ticked has moved the target you were aiming at."** Section 4's reason for the consent-given state behaving as it does.
+- **"because that is where a skin can go, and the link can be made at any time before your first withdrawal."** Section 0.10.1's reason. **Every part of `D-55`'s requirement is still on the surface:** the three work now, Steam is needed to take a skin out, and the link is not urgent.
+
+**The rule this leaves: a surface owes a person what to do, and the node owes the reader why.** A sentence answering "why is it built like this" belongs here.
+
+**What was not touched is the longest block left in the dialog:** the four "never read or do" lines. They are `D-56` and they are the reason this node exists. **If the dialog has to get shorter again, that block is discussed rather than trimmed.**
+
+### 0.10.6 What was not taken from the three captures
 
 **No email field and no password field, in any state.** Two of the three modals offer email and password beside the providers; the founder cut it and the node had already forbidden it. `B6` is the rule, quoted: no password anywhere outside the provider's own page.
 

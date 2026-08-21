@@ -2253,15 +2253,6 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
   padding: var(--wf-s-3);
   overflow-y: auto;
 }
-/* AT 360 IT IS A FULL HEIGHT SHEET AND NOT A CENTRED CARD, D-54 section 0.9.8.
-   The node's one hard adaptive requirement is that the control and the consent
-   are both above the fold, and a centred card at that width is a card with
-   margins above and below it whose fold arrives sooner than on the page the
-   requirement was written for. A sheet has the same fold as a page. */
-@media (max-width: 599px) {
-  .wf-dlg-wrap { padding: 0; align-items: stretch; }
-  .wf-dlg { min-height: 100%; border-radius: 0; border-left: 0; border-right: 0; }
-}
 .wf-dlg {
   position: relative;
   width: 100%; max-width: 460px;
@@ -2271,14 +2262,18 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
   border: 1px solid var(--wf-line);
   border-radius: var(--wf-r-3);
   overflow: hidden;
-  container-type: inline-size; container-name: auth;
 }
+
+/* THE CONTAINER IS THE COLUMN THE CONTENT IS IN, not the dialog around it. With
+   the art beside it the two are different numbers, and a child asking the wider
+   one is a child asking about space it does not have. */
+.wf-dlg-body { container-type: inline-size; container-name: auth; }
 /* AN IMAGE IS STAGE 06's. ITS SPACE IS THIS STAGE's, which is D-50's rule for
    icons applied to the one picture the founder asked for. Drawing a character
    here would be deciding the art direction two stages early; leaving no room for
    it would be deciding there is none. */
 .wf-dlg-art {
-  height: 150px; flex: 0 0 150px;
+  height: 120px; flex: 0 0 120px;
   border-bottom: 1px solid var(--wf-line-soft);
   background: var(--wf-raised);
   display: flex; align-items: center; justify-content: center;
@@ -2291,7 +2286,7 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
   padding: 0; border-radius: var(--wf-r-2);
   background: var(--wf-bg); border: 1px solid var(--wf-line-soft);
 }
-.wf-dlg-body { display: flex; flex-direction: column; gap: var(--wf-s-2); padding: var(--wf-s-3); }
+.wf-dlg-body { display: flex; flex-direction: column; gap: var(--wf-s-2); padding: var(--wf-s-3); min-width: 0; }
 .wf-dlg-h { font-size: var(--wf-t-l); line-height: 1.2; font-weight: 700; text-align: center; }
 .wf-dlg-sub { font-size: var(--wf-t-s); color: var(--wf-ink-dim); line-height: 1.5; text-align: center; }
 
@@ -2324,3 +2319,30 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 .wf-never-l::before { content: ''; position: absolute; left: 0; top: 5px; width: 6px; height: 6px; border: 1px solid var(--wf-line); border-radius: 50%; }
 .wf-never-l b { color: var(--wf-ink); font-weight: 600; }
 .wf-dlg-more { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); text-align: center; }
+
+/* THE TWO SHAPES OF THE DIALOG, AND THEY SIT HERE ON PURPOSE, D-57.
+   Every rule they have to beat is written above them. Put earlier in the file,
+   the plain .wf-dlg and .wf-dlg-art rules won on equal specificity and the art
+   stayed a 120px box in the corner of a two column grid. This is the third time
+   in this file a media query lost to a later flat rule, so the order is the
+   rule now: a responsive block goes after everything it overrides. */
+@media (min-width: 600px) {
+  /* THE ART MOVES TO THE SIDE, which is the founder's own "on the side or on
+     top" and the single biggest height saving available. Stacked, the picture
+     spends 150px of the one axis the dialog is short of; beside the content it
+     spends an axis that was empty. NOTHING IS CUT TO BUY THAT HEIGHT. */
+  .wf-dlg { max-width: 700px; display: grid; grid-template-columns: 220px 1fr; }
+  .wf-dlg-art { height: auto; flex: none; border-bottom: 0; border-right: 1px solid var(--wf-line-soft); }
+  .wf-dlg-h, .wf-dlg-sub, .wf-prov-cost, .wf-dlg-more { text-align: left; }
+}
+@media (max-width: 599px) {
+  /* AT 360 IT IS A FULL HEIGHT SHEET AND NOT A CENTRED CARD, D-54 section 0.9.8:
+     the node requires the control and the consent both above the fold, and a
+     centred card at that width is a card with margins above and below it whose
+     fold arrives sooner than on the page the requirement was written for.
+     A SHEET IS FULL WIDTH OR IT IS NOT A SHEET. Left at 460px it rendered as a
+     full height card with margins down both sides from 500 to 599, which is the
+     one shape neither of the two the node specifies. */
+  .wf-dlg-wrap { padding: 0; align-items: stretch; }
+  .wf-dlg { min-height: 100%; max-width: none; border-radius: 0; border-left: 0; border-right: 0; }
+}

@@ -1256,3 +1256,30 @@ At 1440 and at 360, on both batch pages: no `.wf-rolls` left in the page flow, t
 ### What was not taken from the captures
 
 **No email field and no password field**, which the node already forbade under `B6`. **No single bundled checkbox**, because one gesture answering two questions is exactly what `D-26` split. **No separate sign-up route**, because there is no separate registration here and a second door implies a first one that is different.
+
+---
+
+## 38. The dialog gets shorter, `D-57`
+
+**The founder read the built dialog and said it was too long.** It is 659px tall at desktop instead of 877, and 847 instead of 946 at 360. **Nothing the node requires was removed to get there.**
+
+| Width | Before | After |
+|---|---|---|
+| 1440 and 900 | 877 | **659**, and the picture is beside the content |
+| 600 | n/a, it was one column | **779** |
+| 360 | 946 | **847** |
+
+**Most of it came from the layout.** The image slot moved beside the content above 600px: **stacked, the picture spends 150px of the one axis the dialog is short of; beside the content it spends an axis that was empty.** That is 150 of the 218 saved and it cost nothing.
+
+**The rest came from four sentences, each of which was answering a question the person had not asked.** They are in node `2.4` section 0.10.5 with the reason each one was not load bearing. **The rule this leaves behind: a surface owes a person what to do, and the node owes the reader why.**
+
+**The requirement is still met and still measured:** at 360 the consent block ends at 431px and the Steam control at 499px, so both clear a 640px viewport with more room than before.
+
+### Two defects the reorder found, and the first is the third of its kind in this file
+
+- **A media query lost to a later flat rule, again.** `@media (min-width: 600px)` set the art column to full height and the plain `.wf-dlg-art` rule below it set 120px back, so the picture rendered as a small box in the corner of a two column grid. **This is now the convention:** a responsive block goes after everything it overrides, and both dialog breakpoints sit at the end of their section.
+- **Below 600 the sheet kept its 460px cap.** From 500 to 599 it rendered as a full height card with margins down both sides, **which is neither of the two shapes the node specifies.** A sheet is full width or it is not a sheet.
+
+### Cleared at the same time
+
+The three untracked PNGs in the repository root, `_a_top.png`, `s1440-top.png` and `wf-1440-top.png`, were measurement screenshots from 18 and 19 August that a run wrote to the working directory instead of the scratchpad. Unreferenced, never committed, and showing a page count two sessions out of date. **Deleted.**

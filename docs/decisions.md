@@ -1708,3 +1708,36 @@ The two remaining blocks stay at the address for a reason of their own: the roun
 ### What was not taken from the captures
 
 **No email and no password field**, which the node already forbade under `B6`. **No single bundled checkbox**, because one gesture answering two questions is exactly what `D-26` split. **No separate sign-up route**, because there is no separate registration in this product and a second door implies a first one that is different.
+
+---
+
+## D-57. The dialog gets shorter without losing a sentence that was doing work
+
+**Date:** 2026-08-21. **Stage:** 04. **Decided by:** the founder, who read the built dialog and said it was too long. **Binds:** the dialog half of `authCard` and the dialog rules in `wireframes/_wf.css`.
+
+**What was decided.** **659px tall at desktop instead of 877, and 847 instead of 946 at 360.** Nothing the node requires was removed to get there.
+
+### The height came from the layout, not from the content
+
+**The picture moved to the side above 600px.** The founder had asked for it "on the side or on top" and the side is the half that pays: **stacked, the picture spends 150px of the one axis the dialog is short of; beside the content it spends an axis that was empty.** That is 150 of the 218px saved and it cost nothing.
+
+### Four sentences went, and each one was doing something other than helping
+
+| Cut | Why it was not load bearing |
+|---|---|
+| "Nothing you chose is lost", after "You stay on this page" | **It says what the screen already shows.** The surface behind the scrim is the evidence |
+| "They are two separate acts on purpose: one is a contract, the other is a statement about you" | It explains our design to the person instead of telling them what to do. **The node still has it, which is where it belongs** |
+| "because a surface that rearranges itself when a box is ticked has moved the target you were aiming at" | Same. It is the reason for a behaviour they are not being asked to understand |
+| "because that is where a skin can go, and the link can be made at any time before your first withdrawal", shortened | **Every part of `D-55`'s requirement is still printed:** those three work now, Steam is needed to take a skin out, and the link is not urgent. What went was the reason why |
+
+**The rule this leaves behind: a surface owes a person what to do, and the node owes the reader why.** A sentence that answers "why is it built like this" belongs in the node.
+
+### What was not touched, and it is the longest block left
+
+**The four "never read or do" lines.** They are `D-56`, one day old, and they are the reason this node exists. **The shorter dialog is still the only sign-in surface in this category that prints them.** If it has to get shorter again, that block is the next thing to be discussed rather than the next thing to be trimmed.
+
+### A defect found on the way, and it is the third of its kind in this file
+
+**A media query lost to a later flat rule, again.** `@media (min-width: 600px)` set the art column to full height and the plain `.wf-dlg-art` rule below it set 120px back, so the picture rendered as a small box in the corner of a two column grid. **The fix is now the convention:** a responsive block goes after everything it overrides, and both dialog breakpoints sit at the end of the section.
+
+**The same reorder found a second one:** below 600 the sheet kept `max-width: 460px`, so from 500 to 599 it rendered as a full height card with margins down both sides, **which is neither of the two shapes the node specifies**. A sheet is full width or it is not a sheet.
