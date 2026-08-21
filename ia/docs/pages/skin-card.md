@@ -4,7 +4,7 @@
 
 **Purpose.** One rendering of one thing, the skin, at five sites, so that the item a person compares, wins, holds and takes out is recognisably the same object every time and never gains or loses a field on the way.
 
-**Jobs served.** Main Job, `jtbd.md` Section 1, a chance at a rare skin I actually want. Related Job 5, withdraw and get what I earned. **Parent class:** job, through the Main Job and Related Job 5, plus barriers `B7-1`, `B7-2` and `B8-1` carried by rows `D1`, `D2`, `F1` and `F2`. Design principle 3 in `CLAUDE.md` is what makes it canonical rather than five implementations: **where money is about to be spent, odds, cost and expected value are visible and legible**, and a field that appears on one surface and quietly leaves on another is a field that hides.
+**Jobs served.** Main Job, `jtbd.md` Section 1, a chance at a rare skin I actually want. Related Job 5, withdraw and get what I earned. **Parent class:** job, through the Main Job and Related Job 5, plus barriers `B7-1` and `B7-2` carried by rows `D2`, `F1` and `F2`. **`B8-1` reached this card through `D1` and left on 21 August 2026 with `D-60`**, together with field 10 and one of the eight states. Design principle 3 in `CLAUDE.md` is what makes it canonical rather than five implementations: **where money is about to be spent, odds, cost and expected value are visible and legible**, and a field that appears on one surface and quietly leaves on another is a field that hides.
 
 **Used by:** `3.1` Case catalogue, `3.3` Case screen at phase 1 and at phase 3, `5.1` Account and inventory, `5.3` Withdrawal, `7.1` Public result. The list is the `used by` line of node `0.6` in `ia/docs/sitemap.md`, cluster 0.
 
@@ -18,7 +18,7 @@ The entity inventory in `sitemap.md` holds three separate objects, and this one 
 
 | Where | Object it renders | What that object is |
 |---|---|---|
-| `3.3` phase 1 | **Drop table entry** | This skin, at this chance, at this value, with this many free units, in this ticket range |
+| `3.3` phase 1 | **Drop table entry** | This skin, at this chance, at this value, in this ticket range. **The free units left this object on 21 August 2026, `D-60`** |
 | `3.3` phase 3, `5.1`, `5.3`, `7.1` | **Skin instance** | The specific unit somebody owns, carrying the receipt that says what it was worth when it was won |
 | `3.1`, and inside both of the above | **Skin** | The item type as the market knows it: weapon, finish, wear, rarity |
 
@@ -43,7 +43,7 @@ Fifteen fields. Fourteen ship and one is carried with its orphan status printed,
 | 7 | **Published drop chance** | Drop table entry | Row `D2`, which stands on `B7-2`, the belief that the numbers shown are not the numbers used | barrier |
 | 8 | **Current value** | Drop table entry | Row `D2`, same parent. Paired with field 7 by rule 2 below | barrier |
 | 9 | **Ticket range** | Drop table entry | Rows `E4` and `F3`, both standing on Related Job 3. The proof has to resolve against something, and `0.14` lists the ticket range as a proof field | job |
-| 10 | **Live free-unit count** | Drop table entry | Row `A2`, which stands on `B8-1`, the stock question | barrier |
+| ~~10~~ | ~~**Live free-unit count**~~ | Drop table entry | Row `A2`, which stood on `B8-1`, the stock question. **Withdrawn 21 August 2026, `D-60`**, and the row is kept rather than renumbered so that the field list of this card can still be read against every document that cites a field by its number | ~~barrier~~ |
 | 11 | **Observed rate** | Read from `0.11` | Row `D3`, which stands on `B7-2` and `B6-2`. **Conditional on `D-B`** | barrier |
 | 12 | **Market price, its as-of and its outbound link** | Skin | Row `A1`, which stands on `B1-2` and `B2-1`. `A1` puts it **on the top item**, and that wording is carried rather than generalised | barrier |
 | 13 | **Instance value receipt** | Skin instance | Rows `F1` and `F2`, both on `B7-1`. What this unit was worth at the moment it was won, with that moment attached | barrier |
@@ -93,7 +93,7 @@ Fifteen fields. Fourteen ship and one is carried with its orphan status printed,
 | Published drop chance | | p1 | | | x, the entry that was hit |
 | Current value | | p1 | | | |
 | Ticket range | | p1 | | | x |
-| Live free-unit count | x | p1 | | | |
+| ~~Live free-unit count~~ | | | | | **Withdrawn, `D-60`** |
 | Observed rate | | p1 | | | |
 | Market price with as-of and link | | p1, top item only | | | |
 | Instance value receipt | | p3 | x | x | x |
@@ -114,12 +114,12 @@ Fifteen fields. Fourteen ship and one is carried with its orphan status printed,
 
 ---
 
-## 4. Eight states, and every site inherits all eight
+## 4. Seven states, and every site inherits all seven. **It was eight until 21 August 2026**
 
 | State | What the card shows | Route out |
 |---|---|---|
 | **Available** | The density's full field set | Its own destination |
-| **Zero free units**, node `3.4` | The card **stays visible and is marked**, never filtered out of the list. `D1` makes the roll unable to select it, so the state is a fact about the shelf rather than a warning about a risk | Back into the rest of the table. **Shown before the open and never after**, node `3.4` |
+| ~~**Zero free units**, node `3.4`~~ | **Dissolved 21 August 2026, `D-60`.** Every item is current and available, so the state has no subject. It read: the card stays visible and is marked, never filtered out of the list, `D1` makes the roll unable to select it, so the state is a fact about the shelf rather than a warning about a risk | **Gone.** Node `3.4` is dissolved and `case.md` section 6 keeps its record |
 | **Value unavailable** | An explicit "not available" and what would produce it. **Never a zero, never a dash.** `0.11` rule 3: a dash that reads as zero and a zero that means we do not know are the same lie in two typefaces | The route that would produce the figure |
 | **Value stale** | The value with its real as-of, marked as older than its refresh promise. Value is a per-read figure in `0.11` section 6, so its as-of is not optional | Refresh, and the market link on the top item where `A1` applies |
 | **Observed rate below the sample floor** | N and the published chance. **No observed percentage.** `0.11` rule 4 | The explanation on `1.2` |

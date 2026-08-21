@@ -6,9 +6,9 @@
 
 **Breadcrumb:** Home > Cases.
 
-**Purpose.** Hold every case the shelf actually backs, in a form where a person can narrow it to what they can afford and see what is really in stock before they commit to anything.
+**Purpose.** Hold every case the product offers, in a form where a person can narrow it to what they can afford and read what a case is before they commit to anything. **The words "the shelf actually backs" and "what is really in stock" were in this line until 21 August 2026 and left with `D-60`**, which is section 3.
 
-**Jobs served.** MVP Core Job 1, arrive with confidence to try, `jtbd.md` Related Job 1, at the moment it stops being about the platform and starts being about one object. The Main Job is served indirectly: this node hands the person to `3.3`, where the job actually completes. **Parent class:** job, plus barrier `B8-1` by way of rows `D1` and `A2`.
+**Jobs served.** MVP Core Job 1, arrive with confidence to try, `jtbd.md` Related Job 1, at the moment it stops being about the platform and starts being about one object. The Main Job is served indirectly: this node hands the person to `3.3`, where the job actually completes. **Parent class:** job. **The barrier half of it left on 21 August 2026:** `B8-1` reached this node through rows `D1` and `A2`, both void since `D-60`, so this node now stands on MVP Core Job 1 and Related Job 1 alone. It keeps a parent in a legal class, which is what `CLAUDE.md` requires, and it lost one it used to have, which is printed here rather than smoothed.
 
 **States held in this file:** `3.2`, catalogue with nothing matching, section 7.2 under its own anchor.
 
@@ -32,19 +32,19 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 
 | # | Block | What it holds | Parent | Source |
 |---|---|---|---|---|
-| 1 | **Breadcrumb and H1** | Home > Cases, then exactly one H1, then one line stating what this shelf is | `0.13`, breadcrumbs and the single H1 rule. The line under it: `D1` | Bank T2, Hellcase's H1 below the fold marked **LEAVE** |
-| 2 | **Search and filter control** | A search field, a filter control carrying an **active count badge** | `D1`, and MVP Core Job 1 | Bank T2 **TAKE**, Hellcase's filter with an active count badge |
+| 1 | **Breadcrumb and H1** | Home > Cases, then exactly one H1, then one line stating what this shelf is | `0.13`, breadcrumbs and the single H1 rule. The line under it: MVP Core Job 1, **re-parented on 21 August 2026 when `D1` went void with `D-60`** | Bank T2, Hellcase's H1 below the fold marked **LEAVE** |
+| 2 | **Search and filter control** | A search field, a filter control carrying an **active count badge** | MVP Core Job 1, **which is the whole parent since `D1` went void with `D-60`** | Bank T2 **TAKE**, Hellcase's filter with an active count badge |
 | 3 | **Category bar** | One horizontal row of categories with an overflow control. **Conditional on `D-D`**, and it does not exist if the backed catalogue is small | MVP Core Job 1 | Bank T2 **DIFFERENT**: Hellcase ships twenty five chips horizontally and Key-Drop eighteen stacked rows, and both are taxonomies nobody reads |
-| 4 | **Active filter chips** | One removable chip per filter in force, plus clear all. Renders only when something is in force | `D1`, and node `3.2`, which needs a route out | Bank T2 **TAKE**, Refero New Balance. **No competitor in the bank provides this** |
+| 4 | **Active filter chips** | One removable chip per filter in force, plus clear all. Renders only when something is in force | Node `3.2`, which needs a route out, **and that is the whole parent since `D1` went void with `D-60`** | Bank T2 **TAKE**, Refero New Balance. **No competitor in the bank provides this** |
 | 5 | **Result count** | How many cases match, in text, above the grid | Node `3.2`, which requires a legible bottom to the list | Bank T2 **LEAVE**: skin.club's 248 case links on 28,160px with no count and no bottom |
-| 6 | **The grid** | Case tiles `0.7`, one column at 360px. **Position 1 is the daily free case** when nothing filters it out, section 2 | `0.7`, on `D1`, `D2` and `A2`. The daily free case: row `I2`, section 2, **no parent in the three legal classes** | Bank T2 **DIFFERENT**: their tile makes a person open the case to learn what is in it |
+| 6 | **The grid** | Case tiles `0.7`, one column at 360px. **Position 1 is the daily free case** when nothing filters it out, section 2 | `0.7`, on `D2`. **`D1` and `A2` left on 21 August 2026, `D-60`.** The daily free case: row `I2`, section 2, **no parent in the three legal classes** | Bank T2 **DIFFERENT**: their tile makes a person open the case to learn what is in it |
 | 7 | **End of the list** | Pagination as crawlable links, and a visible end | Node `3.2`. Crawlable `<a>`: `0.13` section 8 | Bank T2 **LEAVE**, the infinite shelf |
 | 8 | **SEO text** | The H2 and H3 structured block that `0.13` places | `0.13`, the structural SEO layer | Bank T1 **TAKE**: four of four competitors carry it, which settles that the block exists |
 | 9 | **Footer `0.2`** | Global, unchanged | Node `0.2` | Global shell |
 
 **Two blocks that are on the baseline and are not here.** The baseline's catalogue carries a Back control beside the breadcrumb, `baseline.md` section 4, which duplicates the browser and the rail. And its Daily Cases block is a five tier ladder with a wager counter and four mode shortcuts, which is section 2's subject.
 
-**The ticker `0.8` is not on this page.** It renders on `1.0` only since `D-31`, `sitemap.md` cluster 0, because a feed on every screen is wallpaper rather than context. That is inherited, not decided here.
+**The ticker `0.8` is on this page, and it was not until 21 August 2026.** `D-31` had cut it to `1.0` only, on the argument that a feed on every screen is wallpaper rather than context. **`D-59` reversed that** and the feed now renders in the global shell on every page, so this node inherits it rather than placing it. **The argument `D-31` made is not deleted by the reversal**: what answers it is the measurement `D-59` owes, and stage 04 took it, which is why the strip sits after the content at 360px and under the header on desktop.
 
 ---
 
@@ -52,7 +52,7 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 
 **The obligation is written down, and it predates this node.** `sitemap.md`, "Free entry gets an obligation rather than a surface": `I1` and `I2` are components rather than screens, so inventing a surface for them would be scope nobody asked for, and instead two nodes carry a debt. Home owes the starter credit `I1`. **This node owes the daily free case as an addressable case rather than as a banner.**
 
-**What addressable means, concretely.** It is a case. It has a tile, it sits in the grid, it carries the same four fields as every other tile plus the daily marker `0.7` already holds, and it routes to `3.3` like any other case.
+**What addressable means, concretely.** It is a case. It has a tile, it sits in the grid, it carries the same four fields as every other tile, and it routes to `3.3` like any other case. **The words "plus the daily marker `0.7` already holds" left this line on 21 August 2026 with `D-61`**, and the reason is that the decision went further than this section did: a daily case is now its own case rather than a marker on a case that is otherwise normal. **This section gets stronger and its debt gets larger.** Nothing on the tile says daily, so what a daily case is as a case is owed by this node and is not written, `sitemap.md` under the `D-60` and `D-61` debt.
 
 **And the consequence, which is the part worth writing down: it can be filtered out of view.** A banner survives every filter because it is not part of the list. A case does not. If a person filters to one category or to a price range, the daily free case leaves the grid with everything else that does not match. **That is the price of the decision rather than a defect in it**, and it is stated here so that stage 04 does not quietly promote it back into a banner to keep it always visible.
 
@@ -62,7 +62,15 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 
 ---
 
-## 3. Zero stock stays visible, which is the whole of `D1` on this surface
+## 3. Zero stock stays visible. **Void since 21 August 2026, `D-60`, and kept for the argument**
+
+**Every item is current and available**, so there is no shelf that can run short and nothing on this page reports one. `D1` and `A2` are void, node `3.4` is dissolved, and the free-unit count left the tile `0.7`, the item card `0.6` and the register `0.11`.
+
+**What replaces it on this surface: nothing, and that is the point.** A catalogue with no stock figure is a catalogue with one less number to publish, not a catalogue with a hole. **The guarantee did not disappear, it moved one cluster away**, from the shelf end to the payout end: if a win cannot go to Steam there is a sale back to the site, `D-38`, or an exchange for a real skin, which is `5.3`'s to specify and does not exist yet.
+
+**Kept below, unedited, as the record of a void rule.** The distinction it draws between a case-level figure and an item-level one is the reason node `3.4` was ever separate from `3.2`, and anyone who reintroduces a stock-backed table needs to read it before doing so.
+
+---
 
 **Row `D1`, and it is the one thing no competitor in the bank does.** An item at zero free units stays visible and marked rather than being filtered out, so the shelf is legibly empty instead of silently short. `flows.md` flow 1a states the reason in one line: hiding sold-out items would restore exactly the surprise `D1` exists to remove.
 
@@ -88,9 +96,9 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 
 | Refused | Why |
 |---|---|
-| **In-stock only** | At case level the predicate has no clean definition, section 3. At item level the free-unit count is already printed on the card, and `D1` requires it visible rather than filterable away |
+| ~~**In-stock only**~~ | **The refusal stands and its reason changed entirely on 21 August 2026.** It was refused because the predicate had no clean definition at case level. **Since `D-60` there is no predicate at all**, and a facet over a figure the product does not compute is not a refusal, it is an impossibility |
 | **Sort by entry cost, chance or value** | No parent. The price range facet already answers the budget question that a price sort would answer, and the bank has no T2 row for sorting. The drop table on `3.3` is sortable, and there the parent is the Ableton comparison-table row |
-| **Risk band as a filter or a tile field** | The Case entity carries "risk band as a legible label" and **nothing in this repository says how it is computed.** `0.11` rule 1: a figure ships with a route or it does not ship. `3.3` section 16 carries the same refusal and the open item |
+| **Risk band as a filter** | **Half of this row was overturned and half of it stands.** It read "as a filter or a tile field" until 21 August 2026. **The tile field half is reversed**: `D-24` put the risk band on the tile and `D-61` kept it there as one of four fields, and `0.11` now carries the band as a group A row whose method reads the same drop table printed on `3.3`. **The filter half stands**, and so does the condition under it: `0.11` rule 1, a figure ships with a route or it does not ship, and **the thresholds between High, Medium and Low are still `[?]`**, so nothing sorts or filters on a number nobody has set. `3.3` section 16 carries the same open item |
 
 ---
 
@@ -100,8 +108,8 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 |---|---|
 | `0.1` Navigation | Rail with Cases active, header with the two figures, mobile bar with position 2 active. Exactly one active item across the bar and the drawer together |
 | `0.2` Footer | Full, unchanged |
-| `0.7` Canonical case tile | The tile as `D-24` rewrote it: case artwork as the largest element, case name, entry cost, risk band, plus a stock marker and a daily marker where each applies, plus the favourite control |
-| `0.11` Published numbers register | Read, not rendered. The free-unit count is a real-time row and the entry cost is static until the configuration changes |
+| `0.7` Canonical case tile | The tile as `D-24` rewrote it and `D-60` and `D-61` reduced it: case artwork as the largest element, case name, entry cost, risk band, plus the favourite control. **Both markers are gone**, the stock one because there is no stock and the daily one because a daily case is its own case |
+| `0.11` Published numbers register | Read, not rendered. The entry cost is static until the configuration changes and the favourite count is real time. **The free-unit count was the third and it is withdrawn, `D-60`** |
 | `0.5` Toasts | A failed filter fetch is announced in the block, not only in a toast |
 | `0.3` System pages | A category slug that does not exist is a real 404, never an empty catalogue pretending to be one |
 
@@ -125,9 +133,9 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 |---|---|---|
 | **Guest** | The whole page. Every figure, every tile, every count. **No wall of any kind** | A tile, into `3.3` |
 | **Account** | Identical, plus the daily free case showing its own availability rather than an invitation to sign in | A tile, into `3.3` |
-| **Loading** | The grid skeleton with **the live free-unit counts as the thing being waited on**, `flows.md` flow 1a, rather than a generic spinner. Specified here rather than as a node, per the rule in `sitemap.md` | Resolves into the grid |
+| **Loading** | The grid skeleton. **What it is waiting on changed on 21 August 2026:** it was the live free-unit counts, `flows.md` flow 1a, and with `D-60` the only per-read figure left on a tile is the favourite count. A skeleton is still specified rather than a generic spinner, and it is specified here rather than as a node, per the rule in `sitemap.md` | Resolves into the grid |
 | **Filtered** | The grid, the result count and the active filter chips. Chips are the only route back to everything | `3.2` if the result is empty |
-| **Degraded** | Tiles render with the free-unit count marked as degraded, `0.11` section 7, and the rest of the tile intact. **A tile with an unknown count is still a tile a person can open** | Unchanged |
+| **Degraded** | Tiles render with the failing figure marked as degraded, `0.11` section 7, and the rest of the tile intact. **The figure this state was written for was the free-unit count and it is withdrawn**, `D-60`. The state stays and its subjects are the entry cost, the risk band and the favourite count, each of which `0.7` already gives an explicit "not available" rather than a zero or a default band | Unchanged |
 | **Nothing matches** | Node `3.2` below | Back through a chip |
 
 **The age gate does not fire on this page.** `B3` requires it before any case interaction, and `flows.md` flow 1a passes through the whole catalogue without one. Choosing which case to look at is not a case interaction. The gate fires on `3.3`, and that node owns the condition.
@@ -136,7 +144,7 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 
 **Type:** state. **Scope:** MVP. **Parent node:** `3.1`. **No URL of its own**, `0.13` section 2: a state gets an address only if a person can arrive at it from outside, and this one cannot. It renders at the URL the person is already on.
 
-**What it is not.** It is not the shelf being empty. `D1` guarantees zero-stock cases stay on the shelf, so an empty result is always the result of a filter, a search or a category, never of stock.
+**What it is not.** It is not the shelf being empty. **It never could be, and since `D-60` it cannot be for a second reason.** `D1` used to guarantee that zero-stock cases stayed on the shelf; now there is no stock to run out of. Either way an empty result is always the result of a filter, a search or a category.
 
 | Block | What it holds | Parent |
 |---|---|---|
@@ -181,8 +189,8 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 
 | Field | Value |
 |---|---|
-| **Title**, 52 characters | `All CS2 cases, with published chances and real stock` |
-| **Description**, 150 characters | `Every case here is backed by stock we hold. Each tile shows the entry cost and how many units are free, and every item shows its chance and its value.` |
+| **Title**, 48 characters | `All CS2 cases, with published chances and values` |
+| **Description**, 151 characters | `Every case here shows what is inside before you open it: the entry cost, the risk band, and every item with its published chance and its current value.` |
 | **Canonical** | Self, `/cases`. Category views self-canonical. **Filtered, searched and paginated views canonical to `/cases`** |
 | **hreflang** | None, anywhere. One language, `0.13` section 1 |
 | **Robots** | `index, follow`. `/cases?...` is `noindex, follow` |
@@ -192,20 +200,22 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 
 ### B. Headings, exactly one H1 and the H2 list in block order
 
-- **H1:** All CS2 cases, with published chances and real stock
+- **H1:** All CS2 cases, with published chances and values
 - **H2:** Find a case _(the search, filter and category block)_
 - **H2:** All cases _(the grid)_
-- **H2:** What a backed case means _(SEO text)_
-- **H3:** Why an item can show zero free units
+- **H2:** What the numbers on a case mean _(SEO text)_
+- **H3:** Where the chance and the value come from
 - **H3:** The daily free case
+
+**Rewritten on 21 August 2026 by `D-60`, and it is the largest single edit that decision caused anywhere in this repository.** The title, the description, the H1, one H2, one H3 and two of the three SEO paragraphs were all about stock, which is what this page's entire pre-login argument used to be. **The argument is replaced rather than shortened:** what a stranger reads on `/cases` is now that the numbers are published and checkable, which is design principle 1 as `D-14` limits it, instead of that the shelf is backed.
 
 **The H2 list is the block order**, `0.13` section 5, which makes the stage 04 check mechanical.
 
 ### C. SEO text, finished copy
 
-> **What a backed case means.** Every item in every case here points at a unit we already hold. The roll can only land on an item that has at least one free unit, and the moment it lands, that unit is locked to the account in the same transaction that records the roll. This is why each tile shows how many units are free right now, and why that number can fall while you are reading it.
+> **What the numbers on a case mean.** Every tile carries three things and each one is a fact you can check. The entry cost is what one open costs. The risk band says what the case is shaped like, High, Medium or Low, and it is read from the same drop table you can open and read yourself. Every item in that table shows its chance and what it is worth right now, and the chances add up to a hundred in front of you.
 >
-> **Why an item can show zero free units.** When the last unit of an item is won, the item stays in the case and shows zero. It is not hidden. A shelf that quietly removes what it has run out of looks full at every moment and tells you nothing, and finding out afterwards is the thing this shelf is built to prevent.
+> **Where the chance and the value come from.** The chance is the share of the roll interval the item occupies, and the interval is printed beside it, so the two are the same fact written twice. The value is a live market price with the moment it was read attached to it. Neither is a number we ask you to take on faith, and the case page shows the tested return and the expected value at that entry cost beside them.
 >
 > **The daily free case.** One case a day opens without a balance. It sits in the grid with everything else rather than in a banner, so it is filtered and searched like any other case, and it shows the same chances and the same values as the ones that cost money.
 
@@ -223,7 +233,7 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 2. H2s exist in block order, matching block B.
 3. Breadcrumb drawn, Home > Cases, with `BreadcrumbList` markup because it is visible, `0.13` section 6.
 4. **Every tile is a crawlable `<a href>`**, and so is every pagination control. `0.13` section 8: a destination reachable only by script does not exist for a crawler and often not for a keyboard either.
-5. **No figure is an image.** The entry cost, the risk band, the stock marker and the favourite count are text, `0.11` rule 8. The risk band is words and never an icon alone, `0.7` rule 5.5.
+5. **No figure is an image.** The entry cost, the risk band and the favourite count are text, `0.11` rule 8. **The stock marker was the fourth and it left with `D-60`.** The risk band is words and never an icon alone, `0.7` rule 5.5.
 6. LCP is the first row of tiles. The images below the fold are lazy, the first row is not.
 7. Canonical present, no hreflang anywhere.
 8. The category slug is real or the response is a real 404, `0.3`.
@@ -239,7 +249,7 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 | **An infinite shelf** | skin.club, 248 case links and 612 images on one page, 28,160px | `3.2` requires a legible bottom to the list and a result count, and this has neither |
 | **H1 below the shelf** | Hellcase, H1 after 1,400px of product | `0.13`, the single H1 rule. The heading that names the page is the first thing after the shell |
 | **The daily reward as a five tier ladder with a wager counter** | The baseline, `baseline.md` section 4 | Not refused on merit. It is an inherited answer to `I2`'s recorded risk and it belongs in front of the founder, section 2 |
-| **A risk band on the tile** | The baseline prints High-risk, Medium-risk or Low-risk on every tile | No computation exists for it anywhere in this repository, so it has no route, `0.11` rule 1. `0.7` does not carry the field |
+| ~~**A risk band on the tile**~~ | The baseline prints High-risk, Medium-risk or Low-risk on every tile | **Reversed, and the row is kept because the reversal was not free.** It was refused on `0.11` rule 1, no computation and therefore no route. `D-24` put the band on the tile and `0.11` gave it a method, the same drop table printed on `3.3`. **What did not get answered is the thresholds, still `[?]`**, so the band ships with a route and without its boundaries, and section 4 still refuses to filter or sort on it |
 | **Sort controls** | Common in the category | No parent, section 4 |
 | **A vanity stats bar** | skin.club and Hellcase carry one, and Key-Drop and skin.club carry a concurrency counter | `0.11` rule 7, never a score, and rule 1, no route. Refused on `1.0` already and it does not return by a side door |
 

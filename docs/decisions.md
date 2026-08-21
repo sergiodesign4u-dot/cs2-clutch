@@ -1919,7 +1919,7 @@ The scope paragraph carried this among the marks that travel with the backlog: "
 
 ## D-63. One clause of `CLAUDE.md` is still wrong, and the fix is to remove a number rather than correct it
 
-**Date:** 2026-08-21. **Stage:** 04, found while applying `D-58` and `D-60`. **Decided by:** open, awaiting the founder. **Binds:** `CLAUDE.md`.
+**Date:** 2026-08-21. **Stage:** 04, found while applying `D-58` and `D-60`. **Decided by:** the founder, on an explicit go. **Applied 21 August 2026.** **Binds:** `CLAUDE.md`.
 
 **What was found.** The information architecture paragraph says the map was "**expanded by 03b into 68 numbered nodes of which 52 are MVP**". **`D-60` dissolved `3.4`. It is 67 and 51.**
 
@@ -1927,10 +1927,62 @@ The scope paragraph carried this among the marks that travel with the backlog: "
 
 **The same sentence ends with the rule that makes the number wrong:** the count is "listed once in `ia/docs/sitemap.md` and never derived a second time". **It is derived a second time, in that sentence, by that sentence.** Correcting 68 to 67 keeps the defect and resets its clock.
 
-**Proposed, replacing the clause rather than being added beside it:**
+**Written, replacing the clause rather than being added beside it. The final wording generalises further than the proposal did**, because the proposal still listed which decisions had moved the count, which is the same status creeping back in by another door:
 
-> expanded by 03b into a numbered node map whose count is listed once in `ia/docs/sitemap.md` and never derived a second time, `D-26` having dissolved one and sent three to LATER, `D-36` having added three so the account menu's rows have destinations and `D-60` having dissolved one more with the stock model
+> expanded by 03b into a numbered node map whose count is listed once in `ia/docs/sitemap.md` and never derived a second time, here included: it grows when a carrier promises a destination the map does not hold or when a structure turns out to be read by several nodes, and it shrinks when a decision removes a state's subject, `D-26`, `D-36` and `D-60` having each moved it.
 
 **Why this is the right shape.** `CLAUDE.md` holds rules and no status, by its own first paragraph, and a node count is a fact about the map rather than a rule about the work. **Removing the number makes the file stop carrying something that goes stale every time the map moves**, which it has now done four times.
 
-**Not written. Awaiting an explicit go.**
+**Applied on an explicit go, 21 August 2026, together with the `D-41` clause on the Language row. Budget: 123 lines before, 123 after.** Both are replacements, which is the only legal form in that file.
+
+---
+
+## D-64. `D-60` reached three files out of nine, and the sweep that found the other six also found four decisions half applied
+
+**Date:** 2026-08-21. **Stage:** 04, run before drawing node `3.1`. **Decided by:** stage 04. **Binds:** every IA node that read the stock model, and the acceptance rule about what "applied" means.
+
+**What was found.** `D-60` withdrew stock from the product on 21 August 2026 and was carried through `case.md`, `case-tile.md` and `sitemap.md`. **Six more live files still described a shelf that can run short**, and the worst of them was `numbers.md`, the register every other node reads its figures from. **A published-number row for a figure the product does not compute is the exact defect that register exists to prevent.**
+
+### The files, and what each one was still saying
+
+| File | What was still live |
+|---|---|
+| `numbers.md` | **Group A row "Live free-unit count per item"**, with its computation, its consumers and its refresh class. Also listed under Real time in section 6 |
+| `catalogue.md` | **Section 3 entire**, a refusal row, two states, the components table, three block parents, the node's own parent class, and **the whole SEO layer**: title, description, H1, one H2, one H3 and two of three paragraphs |
+| `flows.md` | A decision diamond in flow 1's Mermaid, the decisions line, the states paragraph, and all three of flow 1a's states |
+| `skin-card.md` | Field 10, a matrix row, one of eight states, the object definition and the node's parent class |
+| `case.md` | Block 5's field list and parents, two prose paragraphs, a state row, and **the SEO paragraph "What happens when an item runs out"** |
+| `case-tile.md` | **Two live states, "Free units exhausted on some items" and "Sold out"**, both surviving the first pass, plus the parent class and `D-D`'s description |
+| `sitemap.md` | Three entity part lists, the `0.6`, `0.11`, `3.1` and `3.3` rows, and `0.8` still reading "renders on 1.0 only" against `D-59` |
+| `home.md` | The real-time row of the loading table, and `D-D` described as inventory capital |
+| `blocks.md`, `toasts.md`, `deposit.md` | One parent, one accessibility list, one enumeration of the register's contents |
+
+### Three other decisions were also only partly applied
+
+**`D-61`, the daily marker.** `catalogue.md` still said the daily free case "carries the same four fields plus the daily marker `0.7` already holds". **The decision went further than the node did:** a daily case is its own case now, so nothing on the tile says daily, and **what a daily case is as a case is still owed and still unwritten.**
+
+**`D-59`, the feed on every page.** `catalogue.md` and `sitemap.md` both still said the ticker renders on `1.0` only, `D-31`. **The reversal is recorded and the argument `D-31` made is not deleted:** what answers it is the measurement, which stage 04 took.
+
+**`D-24`, the risk band on the tile.** `catalogue.md` section 11 refused "a risk band on the tile" on the grounds that no computation exists for it. **That was reversed three days after it was written and the row never moved.** Half of it is now flipped and half stands: the band is on the tile with a method, and **the thresholds are still `[?]`**, so nothing sorts or filters on it.
+
+### What was kept rather than deleted, and why
+
+**Every void section stays with its argument intact under a heading that says it is void.** `catalogue.md` section 3, `case.md` section 6, `case-tile.md`'s sold-out paragraph and its field 5 card, `skin-card.md`'s field 10 row.
+
+**The register had a state for exactly this and had never used it.** Section 7's **withdrawn**: "the figure is gone, and where it was load bearing the surface says a number used to be here and why it is not", told to "the reader, and this file, which keeps the row with its reason". **`A2` is the first figure in this product to use it.**
+
+**Field 10 is struck rather than renumbered.** Documents cite the card's fields by number, and renumbering silently invalidates every one of those citations.
+
+**The SEO paragraph is quoted in the place it was removed from.** It is the only place the stock promise was ever made to a reader in plain words, and **a promise withdrawn silently is worse than one never made.**
+
+### Two mockups were replaced rather than emptied
+
+A wireframe that loses a state loses a slot, and an empty slot reads as an oversight. `skin-card.html`'s "zero free units" card became **won, receipt minted**, which is the state where that card changes most. `case-tile.html`'s "sold out" tile became **entry cost unavailable**, which is the state the node's own rule 3 is written about. Both say in place what used to stand there.
+
+### What this hands to the founder rather than deciding
+
+**`cjm-to-be.md` still carries `D1` and `A2` as MVP rows**, and this sweep did not touch it. It is the single owner of the MVP capability list, so withdrawing two rows moves its count and the line in `CLAUDE.md` that quotes it. **That is a named decision, not a side effect of an IA sweep**, which is the same rule `0.7` applied when the risk band and the favourite turned out to have no backlog rows. Printed as debt in `sitemap.md`.
+
+### The rule this leaves
+
+**A decision is applied when nothing left in the repository still asserts what it reversed**, not when the node that raised it has been edited. The instrument is a search for the withdrawn thing across every live file, and the finish line is that every remaining hit names the decision that killed it.

@@ -154,10 +154,7 @@ flowchart TD
     Geo -->|yes| Age{"18 or over, declared?"}
     Age -->|no| Under["Dead end: under age, no route onward"]
     Age -->|yes| Read["Reads chance, current value, tested RTP and EV at this cost, D2 and D4"]
-    Read --> Stock{"Free units left on the item they came for?"}
-    Stock -->|no| Out["Empty: the item shows zero free units before the open, never after, D1"]
-    Out --> Case
-    Stock -->|yes| Funds{"Anything to open with?"}
+    Read --> Funds{"Anything to open with?"}
     Funds -->|no| Signin["S-B2 Sign in with Steam"]
     Signin --> SteamWait["Loading: Steam OpenID redirect out and back"]
     SteamWait --> SteamOk{"Did Steam return?"}
@@ -185,7 +182,7 @@ flowchart TD
     classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
     class Start,Win,Story,PFout success;
     class Leave,Market,Blocked,Under dead;
-    class Home,Real,Case,Gate,Geo,Age,Read,Stock,Out,Funds,Signin,SteamWait,SteamOk,SteamErr,SteamDown,Credit,Open,Reveal,Landed,Resume,Outcome,Share,Alive,Gone neutral;
+    class Home,Real,Case,Gate,Geo,Age,Read,Funds,Signin,SteamWait,SteamOk,SteamErr,SteamDown,Credit,Open,Reveal,Landed,Resume,Outcome,Share,Alive,Gone neutral;
   </pre></div>
 
   <div class="card is-activation">
@@ -202,8 +199,8 @@ flowchart TD
 
   <div class="card">
     <dl class="kv">
-      <dt>Decisions</dt><dd>Does this place survive a second look, T1 and T2, barrier <code>B1-1</code>. Is this market open, <code>B4</code>. Is the person 18 or over, <code>B3</code>. Are there free units on the wanted item, <code>B8-1</code>. Is there anything to open with, T4. Did Steam return, <code>B3-1</code>.</dd>
-      <dt>States</dt><dd><strong>Empty</strong>, twice: the item at zero free units returning to the case screen, and a shared result that no longer resolves, routed into the public provably fair page rather than into nothing. <strong>Error</strong>, twice: a readable Steam refusal returning to sign in, and Steam being unavailable, which returns to the case screen so a person who cannot sign in can still read the product. <strong>Loading:</strong> the Steam redirect, and the reveal. <strong>Interrupted:</strong> the reveal that did not finish on this device.</dd>
+      <dt>Decisions</dt><dd>Does this place survive a second look, T1 and T2, barrier <code>B1-1</code>. Is this market open, <code>B4</code>. Is the person 18 or over, <code>B3</code>. Is there anything to open with, T4. <b>The stock decision left this flow on 21 August 2026, <code>D-60</code>:</b> "are there free units on the wanted item, <code>B8-1</code>" stood between reading the numbers and finding the funds, and the flow is one decision shorter because the condition cannot occur. Did Steam return, <code>B3-1</code>.</dd>
+      <dt>States</dt><dd><strong>Empty:</strong> a shared result that no longer resolves, routed into the public provably fair page rather than into nothing. <b>It was twice until 21 August 2026</b>: the item at zero free units returning to the case screen left with <code>D-60</code>, and it is the only state this map has ever lost. <strong>Error</strong>, twice: a readable Steam refusal returning to sign in, and Steam being unavailable, which returns to the case screen so a person who cannot sign in can still read the product. <strong>Loading:</strong> the Steam redirect, and the reveal. <strong>Interrupted:</strong> the reveal that did not finish on this device.</dd>
     </dl>
   </div>
 
@@ -230,9 +227,9 @@ flowchart TD
   <div class="diagram"><pre class="mermaid">
 flowchart TD
     K0(["Wants to see what is on offer"]) --> Cat["S-C1 Case catalogue"]
-    Cat --> Load["Loading: catalogue with live free-unit counts, A2"]
-    Load --> Any{"Anything in stock worth opening inside their budget?"}
-    Any -->|no| Empty2["Empty: nothing matches. Zero-stock items stay visible rather than hidden, D1, so the shelf is legibly empty rather than silently short"]
+    Cat --> Load["Loading: catalogue grid skeleton"]
+    Load --> Any{"Anything worth opening inside their budget?"}
+    Any -->|no| Empty2["Empty: nothing matches these filters. The chips stay, and the widest facet to relax is named, 3.2"]
     Empty2 --> Cat
     Any -->|yes| Pick(["Enters flow 1 at the node Case, S-C2 phase 1 choosing"])
 
@@ -244,8 +241,8 @@ flowchart TD
 
   <div class="card">
     <dl class="kv">
-      <dt>Decisions</dt><dd>Is anything in stock worth opening inside this budget, which is <code>B8-1</code> read forward rather than backward.</dd>
-      <dt>States</dt><dd><strong>Loading</strong>, with the live free-unit counts as the thing being waited on rather than a generic spinner. <strong>Empty</strong>, and its rule matters: an item at zero stock stays visible and marked rather than being filtered out, because <code>D1</code> exists to make the constraint legible before the open, and hiding sold-out items would restore exactly the surprise it removes.</dd>
+      <dt>Decisions</dt><dd>Is anything worth opening inside this budget, which is MVP Core Job 1 at the moment it becomes a price question. <b>It read "anything in stock" until 21 August 2026 and was parented on <code>B8-1</code> read forward rather than backward</b>, and <code>D-60</code> took both the word and the parent.</dd>
+      <dt>States</dt><dd><strong>Loading</strong>, a grid skeleton rather than a generic spinner. <b>What it was waiting on was the live free-unit counts and that figure is withdrawn</b>, <code>D-60</code>. <strong>Empty</strong>, and since <code>D-60</code> it has one cause instead of two: a filter, a search or a category returned nothing, never the shelf running short. <b>The rule that used to sit here is kept in the catalogue node</b> rather than deleted, because the reason it existed, that hiding sold-out items restores exactly the surprise <code>D1</code> removed, is the argument anyone reintroducing stock has to answer.</dd>
       <dt>Dead ends</dt><dd>None. A person who finds nothing can always widen what they are looking at, and the catalogue never traps.</dd>
     </dl>
   </div>

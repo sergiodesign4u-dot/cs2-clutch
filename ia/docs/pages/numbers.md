@@ -44,7 +44,7 @@ We are the source. For each of these the method has to be publishable, not only 
 | **Current value per item** | `D2`, with the market price and timestamp from `A1` | 1.0, 3.1, 3.3, rendered by 0.6 | The outbound market link on the item | Per read |
 | **Published tested RTP for this case** | `D4`, on design principle 3 and `B1-2` | 3.3, and before login on 1.0 | **The test itself, which has to be named and dated: who tested, when, over how many opens.** Open, see section 10 | Static until the configuration changes |
 | **Expected value at this entry cost** | `D4`, design principle 3 in `CLAUDE.md`, "odds, cost and expected value are visible and legible" | 3.3 | **The strongest row in the register: it is recomputable with arithmetic from the chances and values printed on the same screen.** A reader who distrusts the figure can derive it without leaving the page | Static until the configuration changes |
-| **Live free-unit count per item** | `A2`, on `B8-1` | 1.0, 3.1, 3.3, rendered by 0.6 and 0.7 | Its own success signal in `cjm-to-be.md`: the number on the page matches the free-unit count in the ledger at read time | Real time |
+| ~~**Live free-unit count per item**~~ | `A2`, on `B8-1` | **Nowhere.** Was 1.0, 3.1, 3.3 | **Withdrawn 21 August 2026, `D-60`, and it is the first row in this register to use section 7's withdrawn state.** Every item is current and available, so the product computes no such figure and no surface reads one. **The row stays rather than being deleted**, because section 7 requires this file to keep a withdrawn figure with its reason, and a figure that leaves a register silently is a figure somebody restores by habit | Was real time |
 | **Rolling median and p90 withdrawal time** | `A4` and `G3`, on `B8-2` pattern of 6 and Related Job 1 | 1.0 before login, 5.3, and 0.2 if slot 2 is approved | The person's own clock on their own withdrawal, row `G1`, which either lands inside the published figure or does not | Rolling window, length `[?]` |
 | **Published ceiling per withdrawal state** | `G2`, on `B8-2` | 5.3 | The same clock. The row's own success signal is that our states stay inside the published ceiling at p90 | Static until republished |
 | **Per-state timer with attribution to us, Steam or you** | `G1`, on `B8-2` | 5.3 | It is the check for the two rows above | Real time |
@@ -105,7 +105,7 @@ Five, and every row in sections 2 and 3 belongs to exactly one. The class is wha
 
 | Class | Rows | What staleness means here |
 |---|---|---|
-| **Real time** | Free-unit count `A2`, the withdrawal clock `G1`, the Steam health probe `G2` | Any lag is a wrong answer. Degraded rather than stale |
+| **Real time** | The withdrawal clock `G1`, the Steam health probe `G2`, the favourite count per case. **The free-unit count `A2` left this class on 21 August 2026, `D-60`**, and the favourite count was missing from it since `D-24` put it in group A as a real-time row | Any lag is a wrong answer. Degraded rather than stale |
 | **Per round** | Observed rate counter `D3`, cases opened | Moves with the product. Never rewritten backwards |
 | **Rolling window** | Median and p90 `A4` and `G3` | The window length is part of the claim and has to be printed with it. Length `[?]` |
 | **Per read** | Market price `A1`, instance value `F1`, Trustpilot score `A5` | Fetched when the page is read, and carries the moment it was fetched |

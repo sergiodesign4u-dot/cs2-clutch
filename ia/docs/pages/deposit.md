@@ -306,7 +306,7 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 **`0.11`, published numbers, and here is the finding.**
 
-**The crediting window is a published number, and `0.11` holds no row for it.** The register's group A lists withdrawal median and p90, per-state ceilings, the health probe, chances, values, RTP, EV, free-unit counts, appeal deadlines and commission. **There is no deposit row anywhere in it**, and `4.1` is not among the five consumers the register names.
+**The crediting window is a published number, and `0.11` holds no row for it.** The register's group A listed withdrawal median and p90, per-state ceilings, the health probe, chances, values, RTP, EV, appeal deadlines and commission, and a free-unit count that has since been withdrawn by `D-60`. **There is no deposit row anywhere in it**, and `4.1` is not among the five consumers the register names.
 
 **The rules it would have to obey are already written**, which is what makes this an omission rather than a design question. `0.11` rule 1: "a route, or it does not ship". `0.11` rule 2: an as-of on anything that moves. `0.11` section 7 gives it a state set, and a published crediting window that our own payment provider misses is precisely the **stale** and **degraded** case that section handles.
 

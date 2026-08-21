@@ -174,7 +174,7 @@
     <table>
       <thead><tr><th>Where</th><th>Object it renders</th><th>What that object is</th></tr></thead>
       <tbody>
-        <tr><td><span class="surf">3.3</span> phase 1</td><td><strong>Drop table entry</strong></td><td>This skin, at this chance, at this value, with this many free units, in this ticket range</td></tr>
+        <tr><td><span class="surf">3.3</span> phase 1</td><td><strong>Drop table entry</strong></td><td>This skin, at this chance, at this value, in this ticket range. <b>The free units left this object on 21 August 2026</b>, <code>D-60</code></td></tr>
         <tr><td><span class="surf">3.3</span> phase 3, <span class="surf">5.1</span>, <span class="surf">5.3</span>, <span class="surf">7.1</span></td><td><strong>Skin instance</strong></td><td>The specific unit somebody owns, carrying the receipt that says what it was worth when it was won</td></tr>
         <tr><td><span class="surf">3.1</span>, and inside both of the above</td><td><strong>Skin</strong></td><td>The item type as the market knows it: weapon, finish, wear, rarity</td></tr>
       </tbody>
@@ -208,7 +208,7 @@
         <tr><td>7</td><td><strong>Published drop chance</strong></td><td>Drop table entry</td><td>Row <span class="row-code">D2</span> on <span class="row-code">B7-2</span>, the belief that the numbers shown are not the numbers used</td><td>barrier</td></tr>
         <tr><td>8</td><td><strong>Current value</strong></td><td>Drop table entry</td><td>Row <span class="row-code">D2</span>, same parent. Paired with field 7 by rule 2</td><td>barrier</td></tr>
         <tr><td>9</td><td><strong>Ticket range</strong></td><td>Drop table entry</td><td>Rows <span class="row-code">E4</span> and <span class="row-code">F3</span> on Related Job 3. The proof resolves against something, and <code>0.14</code> lists it as a proof field</td><td>job</td></tr>
-        <tr><td>10</td><td><strong>Live free-unit count</strong></td><td>Drop table entry</td><td>Row <span class="row-code">A2</span> on <span class="row-code">B8-1</span>, the stock question</td><td>barrier</td></tr>
+        <tr><td><s>10</s></td><td><s><strong>Live free-unit count</strong></s></td><td>Drop table entry</td><td>Row <span class="row-code">A2</span> on <span class="row-code">B8-1</span>, the stock question. <b>Withdrawn 21 August 2026, <code>D-60</code></b>, and the row is kept rather than renumbered so the field list can still be read against every document that cites a field by its number</td><td><s>barrier</s></td></tr>
         <tr><td>11</td><td><strong>Observed rate</strong></td><td>Read from <code>0.11</code></td><td>Row <span class="row-code">D3</span> on <span class="row-code">B7-2</span> and <span class="row-code">B6-2</span>. <strong>Conditional on <code>D-B</code></strong></td><td>barrier</td></tr>
         <tr><td>12</td><td><strong>Market price, as-of, outbound link</strong></td><td>Skin</td><td>Row <span class="row-code">A1</span> on <span class="row-code">B1-2</span> and <span class="row-code">B2-1</span>. <code>A1</code> puts it <strong>on the top item</strong>, and that wording is carried rather than generalised</td><td>barrier</td></tr>
         <tr><td>13</td><td><strong>Instance value receipt</strong></td><td>Skin instance</td><td>Rows <span class="row-code">F1</span> and <span class="row-code">F2</span> on <span class="row-code">B7-1</span>. What this unit was worth when it was won, with that moment attached</td><td>barrier</td></tr>
@@ -231,7 +231,6 @@
         <div class="wf-kv"><span class="wf-k">Observed</span><span class="wf-v">3.04 % over N</span></div>
         <div class="wf-kv"><span class="wf-k">Value</span><span class="wf-v">value, currency</span></div>
         <div class="wf-kv"><span class="wf-k">Tickets</span><span class="wf-v">7 300 - 7 420</span></div>
-        <div class="wf-kv"><span class="wf-k">In stock</span><span class="wf-v">4 free units</span></div>
         <div class="wf-scope">Market price with its as-of and an outbound link, <b>on the top item only</b>.</div>
       </div>
       <div class="wf-legend">
@@ -240,7 +239,7 @@
         <div class="wf-leg"><span class="wf-leg-n">4 5</span><span class="wf-leg-t"><b>Wear and StatTrak are the other two axes.</b> They are what move the value, and they are what a single badge loses</span></div>
         <div class="wf-leg"><span class="wf-leg-n">7 8</span><span class="wf-leg-t"><b>Chance and value never travel alone.</b> No competitor in the bank puts both on one item</span></div>
         <div class="wf-leg"><span class="wf-leg-n">11</span><span class="wf-leg-t"><b>Observed rate, conditional on <code>D-B</code>.</b> Below the sample floor it prints N and no percentage</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">10</span><span class="wf-leg-t"><b>Free units, live.</b> The only place a person meets the <code>D1</code> architecture</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">out</span><span class="wf-leg-t"><b>Free units, live.</b> It was field 10 and the only place a person met the <code>D1</code> architecture. <b>Withdrawn 21 August 2026</b>, <code>D-60</code>, with the architecture behind it</span></div>
       </div>
     </div>
   </div>
@@ -304,7 +303,7 @@
         <tr><td>Published drop chance</td><td class="off">-</td><td class="on">p1</td><td class="off">-</td><td class="off">-</td><td class="on">x</td></tr>
         <tr><td>Current value</td><td class="off">-</td><td class="on">p1</td><td class="off">-</td><td class="off">-</td><td class="off">-</td></tr>
         <tr><td>Ticket range</td><td class="off">-</td><td class="on">p1</td><td class="off">-</td><td class="off">-</td><td class="on">x</td></tr>
-        <tr><td>Live free-unit count</td><td class="on">x</td><td class="on">p1</td><td class="off">-</td><td class="off">-</td><td class="off">-</td></tr>
+        <tr><td><s>Live free-unit count</s></td><td class="off">-</td><td class="off">-</td><td class="off">-</td><td class="off">-</td><td class="off">withdrawn, D-60</td></tr>
         <tr><td>Observed rate</td><td class="off">-</td><td class="on">p1</td><td class="off">-</td><td class="off">-</td><td class="off">-</td></tr>
         <tr><td>Market price with as-of and link</td><td class="off">-</td><td class="on">p1</td><td class="off">-</td><td class="off">-</td><td class="off">-</td></tr>
         <tr><td>Instance value receipt</td><td class="off">-</td><td class="on">p3</td><td class="on">x</td><td class="on">x</td><td class="on">x</td></tr>
@@ -325,8 +324,7 @@
         <div class="wf-wpn">AWP</div>
         <div class="wf-skn">Asiimov</div>
         <div class="wf-tags"><span class="wf-tag is-on">Field-Tested</span><span class="wf-tag">Covert</span></div>
-        <div class="wf-kv"><span class="wf-k">In stock</span><span class="wf-v">2 free units</span></div>
-        <div class="wf-scope"><b>Identification only.</b> No chance and no value: 3.1 does not show an entry cost beside each item, and a chance without its cost is not a decision.</div>
+        <div class="wf-scope"><b>Identification only.</b> No chance and no value: 3.1 does not show an entry cost beside each item, and a chance without its cost is not a decision. <b>The free-unit line left this card on 21 August 2026</b>, <code>D-60</code>, and V1 is now identification and nothing else.</div>
       </div>
 
       <div class="wf-card">
@@ -408,7 +406,7 @@
       <thead><tr><th>State</th><th>What the card shows</th><th>Route out</th></tr></thead>
       <tbody>
         <tr><td><strong>Available</strong></td><td>The density's full field set</td><td>Its own destination</td></tr>
-        <tr><td><strong>Zero free units</strong>, node <span class="surf">3.4</span></td><td>The card <strong>stays visible and is marked</strong>, never filtered out. <code>D1</code> makes the roll unable to select it, so the state is a fact about the shelf rather than a warning about a risk</td><td>Back into the rest of the table. <strong>Shown before the open and never after</strong></td></tr>
+        <tr><td><s><strong>Zero free units</strong>, node <span class="surf">3.4</span></s></td><td><b>Dissolved 21 August 2026, <code>D-60</code>.</b> Every item is current and available, so the state has no subject. It read: the card stays visible and is marked, never filtered out, <code>D1</code> makes the roll unable to select it, so the state is a fact about the shelf rather than a warning about a risk</td><td><b>Gone.</b> Node 3.4 is dissolved and the case node keeps its record</td></tr>
         <tr><td><strong>Value unavailable</strong></td><td>An explicit "not available" and what would produce it. <strong>Never a zero, never a dash.</strong> <code>0.11</code> rule 3: a dash that reads as zero and a zero that means we do not know are the same lie in two typefaces</td><td>The route that would produce the figure</td></tr>
         <tr><td><strong>Value stale</strong></td><td>The value with its real as-of, marked as older than its refresh promise. Value is a per-read figure, so its as-of is not optional</td><td>Refresh, and the market link on the top item where <code>A1</code> applies</td></tr>
         <tr><td><strong>Observed rate below the sample floor</strong></td><td>N and the published chance. <strong>No observed percentage</strong>, <code>0.11</code> rule 4</td><td>The explanation on <span class="surf">1.2</span></td></tr>
@@ -420,18 +418,18 @@
   </div>
 
   <div class="wf-stage">
-    <div class="wf-cap">Desktop - the two states that earn the node</div>
+    <div class="wf-cap">Desktop - the two states that earn the node. <b>One of them was dissolved on 21 August 2026 and its replacement is the state where this card changes most</b></div>
     <div class="wf-grid">
       <div class="wf-card">
-        <div class="wf-card-lbl">Zero free units, node 3.4</div>
+        <div class="wf-card-lbl">Won, receipt minted</div>
         <div class="wf-rar"></div>
         <div class="wf-img">item image</div>
         <div class="wf-wpn">M4A4</div>
         <div class="wf-skn">Howl</div>
-        <div class="wf-tags"><span class="wf-tag is-on">Minimal Wear</span><span class="wf-tag is-on">Out of stock</span></div>
-        <div class="wf-kv"><span class="wf-k">Chance</span><span class="wf-v">0.207 %</span></div>
-        <div class="wf-kv"><span class="wf-k">In stock</span><span class="wf-v">0 free units</span></div>
-        <div class="wf-scope"><b>The roll cannot select this item.</b> It stays on the shelf and says so, rather than disappearing and leaving a shelf that looks full.</div>
+        <div class="wf-tags"><span class="wf-tag is-on">Minimal Wear</span><span class="wf-tag is-on">Contraband</span></div>
+        <div class="wf-kv"><span class="wf-k">Worth</span><span class="wf-v">value, at 14:22</span></div>
+        <div class="wf-kv"><span class="wf-k">Two venues</span><span class="wf-v">filtered to this float</span></div>
+        <div class="wf-scope"><b>The chance and the market price are gone</b>, because they were inputs to a decision that has been taken. <b>This slot held "zero free units, node 3.4" until 21 August 2026</b>, and <code>D-60</code> dissolved it.</div>
       </div>
       <div class="wf-card">
         <div class="wf-card-lbl">Value unavailable</div>
@@ -509,7 +507,7 @@
         <div class="wf-row-body">
           <div class="wf-wpn">M4A4</div>
           <div class="wf-skn" style="font-size:12.5px;margin-bottom:5px">Howl</div>
-          <div class="wf-tags" style="margin-bottom:6px"><span class="wf-tag is-on">MW</span><span class="wf-tag is-on">Out of stock</span></div>
+          <div class="wf-tags" style="margin-bottom:6px"><span class="wf-tag is-on">MW</span><span class="wf-tag is-on">Contraband</span></div>
           <div class="wf-kv"><span class="wf-k" style="flex:0 0 56px">Chance</span><span class="wf-v">0.207 %</span></div>
           <div class="wf-kv"><span class="wf-k" style="flex:0 0 56px">Value</span><span class="wf-v">value, currency</span></div>
         </div>

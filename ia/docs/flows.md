@@ -35,10 +35,7 @@ flowchart TD
     Geo -->|yes| Age{"18 or over, declared?"}
     Age -->|no| Under["Dead end: under age, no route onward"]
     Age -->|yes| Read["Reads chance, current value, tested RTP and EV at this cost, D2 and D4"]
-    Read --> Stock{"Free units left on the item they came for?"}
-    Stock -->|no| Out["Empty: the item shows zero free units before the open, never after, D1"]
-    Out --> Case
-    Stock -->|yes| Funds{"Anything to open with?"}
+    Read --> Funds{"Anything to open with?"}
     Funds -->|no| Signin["S-B2 Sign in with Steam"]
     Signin --> SteamWait["Loading: Steam OpenID redirect out and back"]
     SteamWait --> SteamOk{"Did Steam return?"}
@@ -77,9 +74,9 @@ flowchart TD
 
 **The obvious fix is already rejected on the record, so this is carried rather than solved.** A free demo reveal on identical odds and seeds was dropped in the T2 divergence, `cjm-to-be.md` "T2. First contact, before any account", on the grounds that it argues our case by demonstrating the sceptic is right about the odds and it spends the reveal, the one thing we sell, before anyone has decided anything. Reopening that here would be re-litigating a converged decision.
 
-**Decisions in this flow.** Does this place survive a second look, T1 and T2, barrier `B1-1`. Is this market open, `B4`. Is the person 18 or over, `B3`. Are there free units on the wanted item, `B8-1`. Is there anything to open with, T4. Did Steam return, and in which of the two ways it can fail, `B3-1`. Did the reveal finish on this device. Does the shared result still resolve.
+**Decisions in this flow.** Does this place survive a second look, T1 and T2, barrier `B1-1`. Is this market open, `B4`. Is the person 18 or over, `B3`. Is there anything to open with, T4. **The stock decision left this flow on 21 August 2026, `D-60`:** "are there free units on the wanted item, `B8-1`" stood between reading the numbers and finding the funds, and the flow is one decision shorter because the condition cannot occur. Did Steam return, and in which of the two ways it can fail, `B3-1`. Did the reveal finish on this device. Does the shared result still resolve.
 
-**States in this flow.** Empty: the item at zero free units, returning to the case screen; and a shared result that no longer resolves, routed into the public provably fair page rather than into nothing. Error: a readable Steam refusal returning to sign in, and Steam being unavailable, which returns to the case screen so a person who cannot sign in can still read the product. Loading: the Steam redirect, and the reveal. Interrupted: the reveal that did not finish on this device.
+**States in this flow.** Empty: a shared result that no longer resolves, routed into the public provably fair page rather than into nothing. **The other empty left with `D-60`**, the item at zero free units returning to the case screen, and it is the only state this map has ever lost. Error: a readable Steam refusal returning to sign in, and Steam being unavailable, which returns to the case screen so a person who cannot sign in can still read the product. Loading: the Steam redirect, and the reveal. Interrupted: the reveal that did not finish on this device.
 
 **Why the interrupted reveal is a state and not an error, and why it was the sharpest thing this critique found.** `E1` settles the roll before the animation begins, so at the moment a connection drops the result already exists in the ledger. Without a return path the person sees an animation that never resolved beside a balance that says they won, which is `B6-1`, the animation and the credited item disagreeing, arriving through the back door of a missing state rather than through the front door of a bug.
 
@@ -96,9 +93,9 @@ Added at step 6. The catalogue was an MVP screen carrying the Main Job at phase 
 ```mermaid
 flowchart TD
     K0(["Wants to see what is on offer"]) --> Cat["S-C1 Case catalogue"]
-    Cat --> Load["Loading: catalogue with live free-unit counts, A2"]
-    Load --> Any{"Anything in stock worth opening inside their budget?"}
-    Any -->|no| Empty2["Empty: nothing matches. Zero-stock items stay visible rather than hidden, D1, so the shelf is legibly empty rather than silently short"]
+    Cat --> Load["Loading: catalogue grid skeleton"]
+    Load --> Any{"Anything worth opening inside their budget?"}
+    Any -->|no| Empty2["Empty: nothing matches these filters. The chips stay, and the widest facet to relax is named, 3.2"]
     Empty2 --> Cat
     Any -->|yes| Pick(["Enters flow 1 at the node Case, S-C2 phase 1 choosing"])
 
@@ -108,9 +105,9 @@ flowchart TD
     class Cat,Load,Any,Empty2 neutral;
 ```
 
-**Decisions.** Is anything in stock worth opening inside this budget, which is `B8-1` read forward rather than backward.
+**Decisions.** Is anything worth opening inside this budget, which is MVP Core Job 1 at the moment it becomes a price question. **It read "anything in stock" until 21 August 2026 and was parented on `B8-1` read forward rather than backward**, and `D-60` took both the word and the parent.
 
-**States.** Loading, with the live free-unit counts as the thing being waited on rather than a generic spinner. Empty, and its rule matters: an item at zero stock stays visible and marked rather than being filtered out, because `D1` exists to make the constraint legible before the open, and hiding sold-out items would restore exactly the surprise it removes.
+**States.** Loading, a grid skeleton rather than a generic spinner. **What it was waiting on was the live free-unit counts and that figure is withdrawn**, `D-60`, so the skeleton now waits on the tiles themselves. Empty, and since `D-60` it has one cause instead of two: a filter, a search or a category returned nothing, never the shelf running short. **The rule that used to sit here is kept in `catalogue.md` section 3** rather than deleted, because the reason it existed, that hiding sold-out items restores exactly the surprise `D1` removed, is the argument anyone reintroducing stock has to answer.
 
 **No dead ends.** A person who finds nothing can always widen what they are looking at, and the catalogue never traps.
 

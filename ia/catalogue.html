@@ -156,12 +156,12 @@
 <div class="hero" id="overview">
   <div class="section-eyebrow">Information architecture, detail layer - node 3.1</div>
   <h1>Case catalogue</h1>
-  <p class="lede">The whole backed shelf, in a form where a person can narrow it to what they can afford and see what is really in stock before committing to anything. <strong>Deliberately off the main path:</strong> <code>D-20</code> put the featured grid on Home, so this node is reached as all cases rather than as a compulsory hop, and its target is legibility rather than speed to the trigger.</p>
+  <p class="lede">Every case the product offers, in a form where a person can narrow it to what they can afford and read what a case is before committing to anything. <strong>Rewritten 21 August 2026 by <code>D-60</code>:</strong> this node was written about a backed shelf, and the words "the whole backed shelf" and "see what is really in stock" stood in this line until stock left the product. <strong>Deliberately off the main path:</strong> <code>D-20</code> put the featured grid on Home, so this node is reached as all cases rather than as a compulsory hop, and its target is legibility rather than speed to the trigger.</p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">9</div><div class="hero-stat-label">Blocks, mobile order</div></div>
     <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Facets, one conditional</div></div>
     <div><div class="hero-stat-value">1</div><div class="hero-stat-label">CTA, open a case</div></div>
-    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Cases hidden by zero stock</div></div>
+    <div><div class="hero-stat-value">D-60</div><div class="hero-stat-label">Stock model, void</div></div>
   </div>
 </div>
 
@@ -194,12 +194,12 @@
     <table>
       <thead><tr><th>#</th><th>Block</th><th>What it holds</th><th>Parent</th><th>Source in the bank</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td><strong>Breadcrumb and H1</strong></td><td>Home &gt; Cases, exactly one H1, then one line stating what this shelf is</td><td><code>0.13</code>. The line: <span class="row-code">D1</span></td><td>Hellcase's H1 below the fold, <strong>LEAVE</strong></td></tr>
-        <tr><td>2</td><td><strong>Search and filter</strong></td><td>A search field and a filter control carrying an <strong>active count badge</strong></td><td><span class="row-code">D1</span>, MVP Core Job 1</td><td><strong>TAKE</strong>, Hellcase's active count badge</td></tr>
+        <tr><td>1</td><td><strong>Breadcrumb and H1</strong></td><td>Home &gt; Cases, exactly one H1, then one line stating what this shelf is</td><td><code>0.13</code>. The line: MVP Core Job 1, <b>re-parented when <span class="row-code">D1</span> went void</b></td><td>Hellcase's H1 below the fold, <strong>LEAVE</strong></td></tr>
+        <tr><td>2</td><td><strong>Search and filter</strong></td><td>A search field and a filter control carrying an <strong>active count badge</strong></td><td>MVP Core Job 1, <b>the whole parent since <span class="row-code">D1</span> went void</b></td><td><strong>TAKE</strong>, Hellcase's active count badge</td></tr>
         <tr><td>3</td><td><strong>Category bar</strong></td><td>One horizontal row with an overflow control. <strong>Conditional on <code>D-D</code></strong></td><td>MVP Core Job 1</td><td><strong>DIFFERENT</strong>: Hellcase ships 25 chips, Key-Drop 18 stacked rows</td></tr>
-        <tr><td>4</td><td><strong>Active filter chips</strong></td><td>One removable chip per filter in force, plus clear all</td><td><span class="row-code">D1</span>, and node <span class="surf">3.2</span></td><td><strong>TAKE</strong>, Refero New Balance. <strong>No competitor here provides it</strong></td></tr>
+        <tr><td>4</td><td><strong>Active filter chips</strong></td><td>One removable chip per filter in force, plus clear all</td><td>Node <span class="surf">3.2</span>, <b>the whole parent since <span class="row-code">D1</span> went void</b></td><td><strong>TAKE</strong>, Refero New Balance. <strong>No competitor here provides it</strong></td></tr>
         <tr><td>5</td><td><strong>Result count</strong></td><td>How many cases match, in text, above the grid</td><td>Node <span class="surf">3.2</span></td><td><strong>LEAVE</strong>: skin.club's 248 links on 28,160px with no count</td></tr>
-        <tr><td>6</td><td><strong>The grid</strong></td><td>Case tiles <code>0.7</code>. <strong>Position 1 is the daily free case</strong> when nothing filters it out</td><td><code>0.7</code> on <span class="row-code">D1</span>, <span class="row-code">D2</span>, <span class="row-code">A2</span>. Daily: <span class="row-code">I2</span>, <strong>orphan</strong></td><td><strong>DIFFERENT</strong>: their tile makes you open the case to learn what is in it</td></tr>
+        <tr><td>6</td><td><strong>The grid</strong></td><td>Case tiles <code>0.7</code>. <strong>Position 1 is the daily free case</strong> when nothing filters it out</td><td><code>0.7</code> on <span class="row-code">D2</span>. <b><span class="row-code">D1</span> and <span class="row-code">A2</span> left with <code>D-60</code>.</b> Daily: <span class="row-code">I2</span>, <strong>orphan</strong></td><td><strong>DIFFERENT</strong>: their tile makes you open the case to learn what is in it</td></tr>
         <tr><td>7</td><td><strong>End of the list</strong></td><td>Pagination as crawlable links, and a visible end</td><td>Node <span class="surf">3.2</span></td><td><strong>LEAVE</strong>, the infinite shelf</td></tr>
         <tr><td>8</td><td><strong>SEO text</strong></td><td>The H2 and H3 block <code>0.13</code> places</td><td><code>0.13</code></td><td><strong>TAKE</strong>, four of four competitors carry it</td></tr>
         <tr><td>9</td><td><strong>Footer</strong></td><td>Node <code>0.2</code>, unchanged</td><td>Global shell</td><td>Global</td></tr>
@@ -213,8 +213,8 @@
       <div class="wf-screen">
         <div class="wf-shell">0.1 rail + header with the two figures</div>
         <div class="wf-crumb">Home / Cases</div>
-        <div class="wf-h1m">All CS2 cases, with published chances and real stock</div>
-        <div class="wf-sub">Every case here is backed by stock we hold.</div>
+        <div class="wf-h1m">All CS2 cases, with published chances and values</div>
+        <div class="wf-sub">Every case here shows what is inside before you open it.</div>
         <div class="wf-row">
           <div class="wf-ctl is-grow">Search a case</div>
           <div class="wf-ctl is-strong">Filters<span class="wf-badge">2</span></div>
@@ -233,7 +233,6 @@
             <div class="wf-tile-art"></div>
             <div class="wf-tile-n">Daily free case</div>
             <div class="wf-tile-f">Low-risk<br>free, once a day</div>
-            <div class="wf-tile-f"><span class="wf-mark">daily</span></div>
           </div>
           <div class="wf-tile">
             <div class="wf-tile-art"></div>
@@ -254,13 +253,13 @@
   </div>
 
   <div class="wf-stage">
-    <div class="wf-cap">The tile, node 0.7, after D-24: four fields, two markers, one control</div>
+    <div class="wf-cap">The tile, node 0.7, after D-24, D-60 and D-61: four fields, no markers, one control</div>
     <div class="wf-anat">
       <div class="wf-screen" style="flex:0 0 268px">
         <div class="wf-tile" style="border-color:var(--wf-line)">
           <div class="wf-tile-art" style="height:118px"></div>
           <div class="wf-tile-n">Case name</div>
-          <div class="wf-tile-f">Medium-risk<br>2.40<br><span class="wf-mark">daily</span><br>[ ] favourite . 829</div>
+          <div class="wf-tile-f">Medium-risk<br>2.40<br>[ ] favourite . 829</div>
         </div>
       </div>
       <div class="wf-legend">
@@ -268,10 +267,10 @@
         <div class="wf-leg"><span class="wf-leg-n">2</span><span class="wf-leg-t"><b>Case name.</b> The link. Crawlable, always</span></div>
         <div class="wf-leg"><span class="wf-leg-n">3</span><span class="wf-leg-t"><b>Risk band</b>, three named values, computed from the drop table. <b>Never an icon alone.</b> The figure it comes from is published on 3.3</span></div>
         <div class="wf-leg"><span class="wf-leg-n">4</span><span class="wf-leg-t"><b>Entry cost, in coins</b>, <code>C1</code> as <code>D-28</code> rewrote it. <b>The peg renders once on the shelf</b>, not on every tile</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">5</span><span class="wf-leg-t"><b>Stock marker</b>, <span class="row-code">A2</span>, <b>only when there is something to say</b>. "3 items out of stock" or "every item out of stock". Silence is the available state</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">6</span><span class="wf-leg-t"><b>Daily marker</b>, where it applies</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">7</span><span class="wf-leg-t"><b>Favourite, a toggle and a public count.</b> In by <code>D-24</code>, which amends <code>0.11</code> rule 7 to admit it. Never a rank and never a sort</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">out</span><span class="wf-leg-t"><b>The item count left the tile.</b> The risk band answers the same question from the same table and answers it better. The count renders on 3.3</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">5</span><span class="wf-leg-t"><b>Favourite, a toggle and a public count.</b> In by <code>D-24</code>, which amends <code>0.11</code> rule 7 to admit it. Never a rank and never a sort</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">out</span><span class="wf-leg-t"><b>The item count left the tile</b>, <code>D-24</code>. The risk band answers the same question from the same table and answers it better. The count renders on 3.3</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">out</span><span class="wf-leg-t"><b>The stock marker left on 21 August 2026</b>, <code>D-60</code>. It read "3 items out of stock" and there is no stock to be out of</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">out</span><span class="wf-leg-t"><b>The daily marker left the same day</b>, <code>D-61</code>. A daily case is its own case now, not a marker on a case that is otherwise normal, and <b>what a daily case is as a case is owed by this node and not written</b></span></div>
       </div>
     </div>
   </div>
@@ -281,8 +280,8 @@
     <div class="wf-phone">
       <div class="wf-shell">0.1 header: menu, money, account</div>
       <div class="wf-crumb">Home / Cases</div>
-      <div class="wf-h1m">All CS2 cases, with published chances and real stock</div>
-      <div class="wf-sub">Every case here is backed by stock we hold.</div>
+      <div class="wf-h1m">All CS2 cases, with published chances and values</div>
+      <div class="wf-sub">Every case here shows what is inside before you open it.</div>
       <div class="wf-row">
         <div class="wf-ctl is-grow">Search</div>
         <div class="wf-ctl is-strong">Filters<span class="wf-badge">2</span></div>
@@ -294,7 +293,7 @@
         <div class="wf-tile is-daily">
           <div class="wf-tile-art"></div>
           <div class="wf-tile-n">Daily free case</div>
-          <div class="wf-tile-f">Low-risk . free, once a day <span class="wf-mark">daily</span></div>
+          <div class="wf-tile-f">Low-risk . free, once a day</div>
         </div>
         <div class="wf-tile">
           <div class="wf-tile-art"></div>
@@ -303,9 +302,9 @@
         </div>
       </div>
       <div class="wf-end">1 / 2 . end of the list</div>
-      <div class="wf-shell" style="margin-top:11px;margin-bottom:0">0.1 bottom bar: Home . Cases . Provably fair</div>
+      <div class="wf-shell" style="margin-top:11px;margin-bottom:0">0.1 bottom bar: Home . Cases, D-40</div>
     </div>
-    <div class="wf-note">All five tile fields survive at 360px. None is dropped for width, because the free-unit count and the entry cost are the two the page exists to show.</div>
+    <div class="wf-note">All four tile fields survive at 360px. None is dropped for width, because the risk band and the entry cost are the two the page exists to show. <b>It read "all five" and named the free-unit count until 21 August 2026</b>, <code>D-60</code>.</div>
   </div>
 </section>
 
@@ -336,11 +335,12 @@
 <!-- STOCK -->
 <section id="stock">
   <div class="sec-head">
-    <h2>Zero stock stays visible, which is the whole of D1 on this surface</h2>
+    <h2>Zero stock stays visible. <b>Void since 21 August 2026, D-60, and kept for the argument</b></h2>
     <p>The one row in the bank that no competitor matches, and the reason is one sentence long.</p>
   </div>
 
   <div class="card is-good">
+    <p><b>Every item is current and available</b>, so there is no shelf that can run short and nothing on this page reports one. <span class="row-code">D1</span> and <span class="row-code">A2</span> are void, node <span class="surf">3.4</span> is dissolved, and the free-unit count left the tile, the item card and the register. <b>The guarantee moved one cluster away rather than disappearing:</b> if a win cannot go to Steam there is a sale back to the site, <code>D-38</code>, or an exchange for a real skin, which is 5.3's to specify and does not exist yet. <b>What follows is kept unedited as the record of a void rule.</b></p>
     <p>An item at zero free units stays visible and marked rather than being filtered out, so <strong>the shelf is legibly empty instead of silently short.</strong> The flows state the reason in a line: hiding sold-out items would restore exactly the surprise <span class="row-code">D1</span> exists to remove.</p>
   </div>
 
@@ -377,7 +377,7 @@
     <table>
       <thead><tr><th style="width:26%">Refused facet</th><th>Why</th></tr></thead>
       <tbody>
-        <tr><td><strong>In-stock only</strong></td><td>At case level the predicate has no clean definition. At item level the free-unit count is already printed on the card, and <span class="row-code">D1</span> requires it visible rather than filterable away</td></tr>
+        <tr><td><s><strong>In-stock only</strong></s></td><td><b>The refusal stands and its reason changed entirely on 21 August 2026.</b> It was refused because the predicate had no clean definition at case level. <b>Since <code>D-60</code> there is no predicate at all</b>, and a facet over a figure the product does not compute is not a refusal, it is an impossibility</td></tr>
         <tr><td><strong>Sort by cost, chance or value</strong></td><td>No parent. The price range facet already answers the budget question, and the bank has no T2 row for sorting. The drop table on <span class="surf">3.3</span> is sortable, and there the parent is the comparison-table row</td></tr>
         <tr><td><strong>Risk band</strong></td><td>The Case entity carries "risk band as a legible label" and <strong>nothing in this repository says how it is computed.</strong> <code>0.11</code> rule 1: a figure ships with a route or it does not ship</td></tr>
       </tbody>
@@ -398,9 +398,9 @@
       <tbody>
         <tr><td><strong>Guest</strong></td><td>The whole page. Every figure, every tile, every count. <strong>No wall of any kind</strong></td><td>A tile, into <span class="surf">3.3</span></td></tr>
         <tr><td><strong>Account</strong></td><td>Identical, plus the daily free case showing its own availability</td><td>A tile, into <span class="surf">3.3</span></td></tr>
-        <tr><td><strong>Loading</strong></td><td>The grid skeleton with <strong>the live free-unit counts as the thing being waited on</strong>, not a generic spinner. Specified here rather than as a node</td><td>Into the grid</td></tr>
+        <tr><td><strong>Loading</strong></td><td>The grid skeleton, not a generic spinner. <b>What it waits on changed with <code>D-60</code>:</b> it was the live free-unit counts, and the only per-read figure left on a tile is the favourite count</td><td>Into the grid</td></tr>
         <tr><td><strong>Filtered</strong></td><td>The grid, the result count and the active chips. Chips are the only route back to everything</td><td><span class="surf">3.2</span> if empty</td></tr>
-        <tr><td><strong>Degraded</strong></td><td>Tiles render with the free-unit count marked degraded and the rest intact. <strong>A tile with an unknown count is still a tile a person can open</strong></td><td>Unchanged</td></tr>
+        <tr><td><strong>Degraded</strong></td><td>Tiles render with the failing figure marked degraded and the rest intact. <b>The figure this state was written for was the free-unit count and it is withdrawn</b>, <code>D-60</code>. Its subjects now are the entry cost, the risk band and the favourite count</td><td>Unchanged</td></tr>
         <tr><td><strong>Nothing matches</strong></td><td>Node <span class="surf">3.2</span> below</td><td>Back through a chip</td></tr>
       </tbody>
     </table>
@@ -415,7 +415,7 @@
 
   <div class="card is-good">
     <h4>What it is not</h4>
-    <p>It is not the shelf being empty. <span class="row-code">D1</span> guarantees zero-stock cases stay on the shelf, so <strong>an empty result is always the result of a filter, a search or a category, never of stock.</strong></p>
+    <p>It is not the shelf being empty. <b>It never could be, and since <code>D-60</code> it cannot be for a second reason.</b> <span class="row-code">D1</span> used to guarantee that zero-stock cases stayed on the shelf; now there is no stock to run out of. Either way <strong>an empty result is always the result of a filter, a search or a category.</strong></p>
   </div>
 
   <div class="wf-stage">
@@ -460,8 +460,8 @@
     <table>
       <thead><tr><th style="width:22%">A. Meta</th><th>Value</th></tr></thead>
       <tbody>
-        <tr><td><strong>Title</strong>, 52 characters</td><td><code>All CS2 cases, with published chances and real stock</code></td></tr>
-        <tr><td><strong>Description</strong>, 150 characters</td><td><code>Every case here is backed by stock we hold. Each tile shows the entry cost and how many units are free, and every item shows its chance and its value.</code></td></tr>
+        <tr><td><strong>Title</strong>, 48 characters</td><td><code>All CS2 cases, with published chances and values</code></td></tr>
+        <tr><td><strong>Description</strong>, 151 characters</td><td><code>Every case here shows what is inside before you open it: the entry cost, the risk band, and every item with its published chance and its current value.</code></td></tr>
         <tr><td><strong>Canonical</strong></td><td>Self, <code>/cases</code>. Categories self-canonical. <strong>Filtered, searched and paginated views canonical to <code>/cases</code></strong></td></tr>
         <tr><td><strong>hreflang</strong></td><td>None, anywhere. One language</td></tr>
         <tr><td><strong>Robots</strong></td><td><code>index, follow</code>. <code>/cases?...</code> is <code>noindex, follow</code></td></tr>
@@ -476,15 +476,16 @@
 
   <div class="card">
     <h4>B. Headings, exactly one H1 and the H2 list in block order</h4>
-    <p><strong>H1:</strong> All CS2 cases, with published chances and real stock</p>
-    <p><strong>H2:</strong> Find a case . <strong>H2:</strong> All cases . <strong>H2:</strong> What a backed case means . <strong>H3:</strong> Why an item can show zero free units . <strong>H3:</strong> The daily free case</p>
+    <p><strong>H1:</strong> All CS2 cases, with published chances and values</p>
+    <p><b>The whole SEO layer of this node was rewritten on 21 August 2026 by <code>D-60</code>, and it is the largest single edit that decision caused anywhere in the repository.</b> Title, description, H1, one H2, one H3 and two of the three paragraphs were about stock, which is what this page's entire pre-login argument used to be. <b>The argument is replaced rather than shortened:</b> what a stranger reads on /cases is now that the numbers are published and checkable, design principle 1 as <code>D-14</code> limits it, instead of that the shelf is backed.</p>
+    <p><strong>H2:</strong> Find a case . <strong>H2:</strong> All cases . <strong>H2:</strong> What the numbers on a case mean . <strong>H3:</strong> Where the chance and the value come from . <strong>H3:</strong> The daily free case</p>
     <p>The H2 list is the block order, which makes the stage 04 check mechanical: read the block order, read the H2 list, they match or the node is wrong.</p>
   </div>
 
   <div class="card is-good">
     <h4>C. SEO text, finished copy</h4>
-    <p><strong>What a backed case means.</strong> Every item in every case here points at a unit we already hold. The roll can only land on an item that has at least one free unit, and the moment it lands, that unit is locked to the account in the same transaction that records the roll. This is why each tile shows how many units are free right now, and why that number can fall while you are reading it.</p>
-    <p><strong>Why an item can show zero free units.</strong> When the last unit of an item is won, the item stays in the case and shows zero. It is not hidden. A shelf that quietly removes what it has run out of looks full at every moment and tells you nothing, and finding out afterwards is the thing this shelf is built to prevent.</p>
+    <p><strong>What the numbers on a case mean.</strong> Every tile carries three things and each one is a fact you can check. The entry cost is what one open costs. The risk band says what the case is shaped like, High, Medium or Low, and it is read from the same drop table you can open and read yourself. Every item in that table shows its chance and what it is worth right now, and the chances add up to a hundred in front of you.</p>
+    <p><strong>Where the chance and the value come from.</strong> The chance is the share of the roll interval the item occupies, and the interval is printed beside it, so the two are the same fact written twice. The value is a live market price with the moment it was read attached to it. Neither is a number we ask you to take on faith, and the case page shows the tested return and the expected value at that entry cost beside them.</p>
     <p><strong>The daily free case.</strong> One case a day opens without a balance. It sits in the grid with everything else rather than in a banner, so it is filtered and searched like any other case, and it shows the same chances and the same values as the ones that cost money.</p>
     <p><strong>This block stays the property of this node.</strong> Stage 05 aligns it to voice and syncs the final version back here. Interface strings do not move into it.</p>
   </div>
@@ -501,7 +502,7 @@
       <li>H2s exist in block order, matching block B.</li>
       <li>Breadcrumb drawn, Home &gt; Cases, with <code>BreadcrumbList</code> because it is visible.</li>
       <li><strong>Every tile is a crawlable <code>&lt;a href&gt;</code></strong>, and so is every pagination control.</li>
-      <li><strong>No figure is an image.</strong> Entry cost, item count and free-unit count are text.</li>
+      <li><strong>No figure is an image.</strong> Entry cost, risk band and favourite count are text.</li>
       <li>LCP is the first row of tiles. Below it, lazy.</li>
       <li>Canonical present, no hreflang anywhere.</li>
       <li>A category slug is real or the response is a real 404, node <code>0.3</code>.</li>
@@ -581,7 +582,7 @@ window.NAV_SECTIONS = [
   { id: 'offpath',  label: 'Off the main path' },
   { id: 'blocks',   label: 'Nine blocks' },
   { id: 'daily',    label: 'The daily free case' },
-  { id: 'stock',    label: 'Zero stock stays visible' },
+  { id: 'stock',    label: 'Zero stock, void since D-60' },
   { id: 'filters',  label: 'Facets' },
   { id: 'states',   label: 'States and 3.2' },
   { id: 'seo',      label: 'SEO A to E' },

@@ -151,9 +151,9 @@
   <h1>What was decided, and what it cost</h1>
   <p class="lede">Twenty one records. Each one holds what was done, why it was done that way, what was rejected and on what grounds. This file is never auto loaded into a session: it is referenced by path, read by a person, and it is the only place where the reasoning behind a locked decision survives. Rules live in <code>CLAUDE.md</code>. Status lives in <code>README.md</code> and <code>_nav.js</code>. Neither of those two says why.</p>
   <div class="hero-meta">
-    <div><div class="hero-stat-value">21</div><div class="hero-stat-label">Records</div></div>
-    <div><div class="hero-stat-value">10</div><div class="hero-stat-label">Founder calls</div></div>
-    <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Still open</div></div>
+    <div><div class="hero-stat-value">64</div><div class="hero-stat-label">Records</div></div>
+    <div><div class="hero-stat-value">47</div><div class="hero-stat-label">Founder calls</div></div>
+    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Still open</div></div>
     <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Threads with no owner</div></div>
   </div>
   <div class="hero-note">
@@ -1327,14 +1327,32 @@
   </div>
 
   <div class="dec">
-    <div class="dec-head"><span class="dec-num">D-63</span><span class="dec-title">One clause of CLAUDE.md is still wrong, and the fix is to remove a number rather than correct it</span><span class="st st-open">Open</span></div>
-    <div class="dec-meta">2026-08-21 - found while applying D-58 and D-60. Awaiting the founder</div>
+    <div class="dec-head"><span class="dec-num">D-63</span><span class="dec-title">One clause of CLAUDE.md is still wrong, and the fix is to remove a number rather than correct it</span><span class="st st-locked">Founder</span></div>
+    <div class="dec-meta">2026-08-21 - found while applying D-58 and D-60. Applied on an explicit go the same day, with the D-41 clause. 123 lines before, 123 after</div>
     <div class="dec-body">
       <span class="pick"><span class="k">What was found</span>The information architecture paragraph says the map was <b>"expanded by 03b into 68 numbered nodes of which 52 are MVP"</b>. <strong>D-60 dissolved 3.4. It is 67 and 51.</strong></span>
 
       <span class="pick"><span class="k">The fix is not 67</span><strong>The same sentence ends with the rule that makes the number wrong:</strong> the count is "listed once in ia/docs/sitemap.md and never derived a second time". <strong>It is derived a second time, in that sentence, by that sentence.</strong> Correcting 68 to 67 keeps the defect and resets its clock.</span>
 
-      <span class="drop"><span class="k">Why removing the number is the right shape</span>CLAUDE.md holds rules and no status, by its own first paragraph, and <strong>a node count is a fact about the map rather than a rule about the work</strong>. Removing the number makes the file stop carrying something that goes stale every time the map moves, <strong>which it has now done four times</strong>. The replacement text is in <code>docs/decisions.md</code>. <b>Not written, awaiting an explicit go.</b></span>
+      <span class="drop"><span class="k">Why removing the number is the right shape</span>CLAUDE.md holds rules and no status, by its own first paragraph, and <strong>a node count is a fact about the map rather than a rule about the work</strong>. Removing the number makes the file stop carrying something that goes stale every time the map moves, <strong>which it has now done four times</strong>. <b>Applied on an explicit go, 21 August 2026, together with the D-41 clause on the Language row.</b> <b>The written wording generalises further than the proposal did</b>, because the proposal still listed which decisions had moved the count, which is the same status creeping back in by another door.</span>
+    </div>
+  </div>
+
+  <div class="dec">
+    <div class="dec-head"><span class="dec-num">D-64</span><span class="dec-title">D-60 reached three files out of nine, and the sweep that found the other six also found four decisions half applied</span><span class="st st-closed">Stage 04</span></div>
+    <div class="dec-meta">2026-08-21 - stage 04, run before drawing node 3.1. Binds every IA node that read the stock model, and what "applied" means</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">What was found</span>D-60 withdrew stock from the product and was carried through case.md, case-tile.md and sitemap.md. <strong>Six more live files still described a shelf that can run short</strong>, and the worst of them was <code>numbers.md</code>, the register every other node reads its figures from. <strong>A published-number row for a figure the product does not compute is the exact defect that register exists to prevent.</strong></span>
+
+      <span class="pick"><span class="k">The catalogue lost its whole argument, not a line</span>Node 3.1's title, description, H1, one H2, one H3 and two of three SEO paragraphs were about backed stock, <strong>which is what that page's entire pre-login argument used to be</strong>. It is replaced rather than shortened: what a stranger reads on /cases is now that the numbers are published and checkable, design principle 1 as D-14 limits it.</span>
+
+      <span class="pick"><span class="k">The register had a state for this and had never used it</span>Section 7's <strong>withdrawn</strong>: the figure is gone, and this file keeps the row with its reason. <strong>A2 is the first figure in this product to use it.</strong> Field 10 of the item card is struck rather than renumbered, because documents cite that card's fields by number.</span>
+
+      <span class="drop"><span class="k">Three other decisions were also only partly applied</span><strong>D-61:</strong> the catalogue still said the daily case carries the daily marker, and the marker is gone because a daily case is its own case now. <strong>D-59:</strong> two files still said the ticker renders on 1.0 only. <strong>D-24:</strong> the catalogue still refused a risk band on the tile on the grounds that no computation exists, three days after that was reversed. Half of that row is flipped and half stands, because <strong>the thresholds are still [?]</strong>.</span>
+
+      <span class="drop"><span class="k">Handed to the founder rather than decided</span><code>cjm-to-be.md</code> still carries D1 and A2 as MVP rows. It is the single owner of the MVP capability list, so withdrawing two rows moves its count and the line in CLAUDE.md that quotes it. <strong>That is a named decision, not a side effect of an IA sweep.</strong> Printed as debt in the sitemap.</span>
+
+      <span class="pick"><span class="k">The rule this leaves</span><strong>A decision is applied when nothing left in the repository still asserts what it reversed</strong>, not when the node that raised it has been edited. The finish line is that every remaining hit for the withdrawn thing names the decision that killed it.</span>
     </div>
   </div>
 </section>

@@ -320,7 +320,7 @@
 
 ### A contradiction between two files, printed rather than smoothed
 
-**`sitemap.md` lists `0.6` as "used by 3.1, 3.3, 5.1, 5.3, 7.1" and does not list `1.0`. `numbers.md` places it on Home twice**, in group A: "Current value per item, `D2`, read on **1.0**, 3.1, 3.3, rendered by 0.6", and "Live free-unit count per item, `A2`, read on **1.0**, 3.1, 3.3, rendered by 0.6 and 0.7".
+**`sitemap.md` lists `0.6` as "used by 3.1, 3.3, 5.1, 5.3, 7.1" and does not list `1.0`. `numbers.md` placed it on Home twice**, in group A: "Current value per item, `D2`, read on **1.0**, 3.1, 3.3, rendered by 0.6", and "Live free-unit count per item, `A2`, read on **1.0**, 3.1, 3.3, rendered by 0.6 and 0.7". **The second of the two was withdrawn on 21 August 2026 by `D-60` and the contradiction survives on the first**, which is the one that matters here: the worked example needs a current value, not a count.
 
 **Resolved in favour of `numbers.md`, because block B7 cannot exist without it.** A worked example that prints a chance and a current value is a skin card by definition, and forking a second card for one page is exactly what the one canonical component rule forbids. **`0.6` renders on `1.0` in one instance.**
 
@@ -394,7 +394,7 @@
 
 | Refresh class on this page | Rows | Loading behaviour |
 |---|---|---|
-| **Real time** | Free-unit counts `A2` on every tile | The tile renders with the counter pending, never with a zero |
+| **Real time** | The favourite count on every tile. **Free-unit counts `A2` were this row until 21 August 2026 and are withdrawn**, `D-60` | The tile renders with the count pending, never with a zero |
 | **Per read** | Market price `A1`, Trustpilot `A5` | Fetched when the page is read, and carries the moment it was fetched |
 | **Rolling window** | Median and p90 `A4` | Window length printed with the figure |
 | **Static until the configuration changes** | Chance `D2`, tested RTP and expected value `D4`, commission `G6` | No loading state at all |
@@ -565,7 +565,7 @@ Rendered in block B11, under the H2 `What opening a case here involves`.
 | Open item | What is missing | Owner |
 |---|---|---|
 | **Which of the three candidates leads the hero** | The reveal animation, the institutional trust unit `A5`, or two prices `A1`. `cjm-to-be.md` records all three plus the fact that the live drop feed sits in every arm and cannot be isolated by that instrument. **The smallest test at `lean-ux-canvas.md` is written for two variants and needs restating before it is run** | Founder, then stages 06 and 07 with the restated test |
-| **How many tiles the featured grid holds** | It rides on `D-D`, inventory capital for stock-backed tables, which sets how large a backed catalogue can be. Two boundaries are fixed here and the number is not: it may not be small enough to read as the dead item defect `D-20` describes, and it may not grow into the shelf that `3.1` owns | Founder, with the treasury answer |
+| **How many tiles the featured grid holds** | It rides on `D-D`, whose subject changed on 21 August 2026: it was inventory capital for stock-backed tables and since `D-60` there is no shelf to capitalise, so what it sets is simply how large the catalogue is. Two boundaries are fixed here and the number is not: it may not be small enough to read as the dead item defect `D-20` describes, and it may not grow into the shelf that `3.1` owns | Founder, with the treasury answer |
 | **How the featured set is chosen** | "Featured" is a claim about why these cases and not others. Hand-curated, by volume, by margin, by stock: nothing anywhere in this repository says | Founder, before stage 04 |
 | **Whether the daily free case appears in the featured grid** | It is an addressable case on `3.1` by the sitemap's obligation, and `0.7` carries a daily marker "where it applies". Whether it applies on Home is part of the selection rule above. `0.1` carries the matching open item for the rail and reaches the same conclusion: either it becomes a node or it stays inside `3.1` | Same owner as the row above |
 | **Whether we have a Trustpilot score at all** | `A5` requires it live or absent. Whether the redesigned product inherits the baseline's reviews, starts empty, or is a different entity is not decided anywhere | Founder |

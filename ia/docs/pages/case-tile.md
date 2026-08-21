@@ -4,7 +4,7 @@
 
 **Purpose.** One rendering of one Case, at two sites, carrying enough for a person to decide whether to open the case screen at all. It is the first object of the main job and it is tap one of three.
 
-**Jobs served.** Main Job, `jtbd.md` Section 1, and Related Job 1, arrive with enough confidence to try. **Parent class:** job, plus barriers `B8-1` and `B7-1` carried by rows `D1`, `A2` and `C1`. Design principle 3 in `CLAUDE.md` is what fixes its element list: **cost never hides inside excitement**, so the entry cost is on the tile and not a number a person meets one screen later.
+**Jobs served.** Main Job, `jtbd.md` Section 1, and Related Job 1, arrive with enough confidence to try. **Parent class:** job, plus barrier `B7-1` carried by rows `C1` and `D2`. **`B8-1` reached this tile through `D1` and `A2` and left on 21 August 2026 with `D-60`**, taking field 5 and two states with it. Design principle 3 in `CLAUDE.md` is what fixes its element list: **cost never hides inside excitement**, so the entry cost is on the tile and not a number a person meets one screen later.
 
 **Used by:** `1.0` Home, and `1.1`, which is the same page in a different account state. `3.1` Case catalogue.
 
@@ -99,14 +99,14 @@
 |---|---|---|
 | **Available** | Four fields, no markers. The normal case, and the quiet one | `3.3` |
 | ~~**Free units exhausted on some items**~~ | **Void since `D-60`.** Stock left the product and node `3.4` is dissolved | |
-| **Sold out**, every entry at zero | The marker says so and the tile **stays in the grid**. Not removed, not filtered out and not faded past reading. `blocks.md` section 3: the shelf is legibly empty instead of silently short | `3.3` still opens and shows which items are out. **The open control is what is unavailable, not the case** |
+| ~~**Sold out**, every entry at zero~~ | **Void since `D-60`, and it was still live in this table after the first pass.** It read: the marker says so and the tile stays in the grid, not removed, not filtered out and not faded past reading. A case cannot be sold out when every item is current and available | |
 | **Daily case, available today** | **Amended by `D-61`:** a daily case is its own case with its own name and artwork, not a marker on a tile that is otherwise normal | `3.3` |
-| **Daily case, taken today** | The marker states that it is taken and when it returns. **The reset moment is `[?]`**, entity 13 in `sitemap.md` marks availability and reset unknown | `3.3`, and the rest of the shelf |
+| **Daily case, taken today** | **The state survives `D-61` and its carrier does not.** It read "the marker states that it is taken and when it returns", and there is no marker: the tile is four fields and no markers. **What carries it is not decided here**, because a daily case is now its own case and no node yet says what that object is. The entry cost slot is the only field that could hold it, and choosing that is `3.1`'s call with the founder. **The reset moment stays `[?]`**, entity 13 in `sitemap.md` | `3.3`, and the rest of the shelf |
 | **Entry cost or risk band unavailable** | An explicit "not available" in the element's place. **Never a zero, never a blank and never a default band**, `0.11` rule 3. A case whose table cannot be read does not get called Low-risk | `3.3`, which is where the authoritative figures live |
 | **Favourite off or on**, signed in | The control states which it is **in text as well as in shape**, and the count moves by one when it is pressed. Optimistic, and it reverts visibly if the write fails | Stays on the page. The favourite never navigates |
 | **Favourite pressed while signed out** | The press routes to `2.4` and **the intent survives the round trip**: on return the case is marked. A control that silently does nothing is the failure this state exists to name | `2.4`, then back to the tile |
 
-**Sold out is a state of the tile and not a reason to delete it.** Deleting it is what the category does, and it produces a shelf that looks full while being short. **The count of what is missing is the honest form of the same fact.**
+**Sold out was a state of the tile and not a reason to delete it, and the whole argument is void since `D-60`.** It ran: deleting the tile is what the category does, and it produces a shelf that looks full while being short, so the count of what is missing is the honest form of the same fact. **It is kept here rather than deleted** because it is the shortest statement of why a shelf reports its own gaps, and whoever reintroduces stock inherits it.
 
 **The market verdict is not a tile state.** Under `D-23` the allowlist is closed by default and a market with no row is `not launched`, but that verdict is met by node `2.1` at the first case interaction and it is owned by register `0.12`. A tile that changed by market would put a legal fact into a grid, where it would be read as availability of the case rather than of the product.
 
@@ -149,7 +149,7 @@
 
 ### 5.2 The stock marker is text, never a colour. **Void since `D-60`**, kept because the rule generalises to any marker this tile ever carries
 
-Same rule as `0.6` rule 5.3 and for the same reason. A dimmed tile does not say "three items are out of stock", it says "something is wrong with this tile", and it says nothing at all to a person who cannot separate the two treatments.
+Same rule as `0.6` rule 5.3 and for the same reason. A dimmed tile does not say "the entry cost could not be read", it says "something is wrong with this tile", and it says nothing at all to a person who cannot separate the two treatments.
 
 ### 5.3 The daily marker is a label, not a mechanic
 
@@ -203,6 +203,6 @@ Four fields and a control in a grid cell, and the grid is the densest surface in
 | **Reset and availability of the daily case** | Entity 13 marks both `[?]`. The taken state cannot say when the case returns until this is answered | Founder, product decision |
 | **Whether the daily case is gated the way the baseline gates it** | **Answered on 18 August 2026 by `D-25`: yes, as the baseline gates it.** The ladder lives on `1.0` block B5 and rule 5.3 above was narrowed to admit it. **What is still open is the trade it makes**, that a free entry is now earned by wagering, and that review sits on node `1.0` | Founder, before stage 04 |
 | **How many tiles a grid holds, and the sort order** | Featured on `1.0` and the full shelf on `3.1` are different problems. skin.club runs 248 case links on one page with no pagination and no result count, `blocks.md` section 3, which `3.2` already refuses | Nodes `1.0` and `3.1` at steps 5 and 6 |
-| **The catalogue's scale** | `D-D`. How large a stock-backed catalogue can be is a treasury question, and it decides whether category grouping is required at all | Founder |
+| **The catalogue's scale** | `D-D`. **The question changed shape on 21 August 2026:** it was how large a stock-backed catalogue can be, and without a shelf it is a different and possibly smaller question, `D-60`. It still decides whether category grouping is required at all | Founder |
 
-**And what belongs elsewhere.** The words on the tile: stage 05. The grid, the filters and the empty result: nodes `1.0`, `3.1` and `3.2`. The definition and failure behaviour of the free-unit figure, of the risk band and of the favourite count: node `0.11`. The items inside the case: node `0.6`. Indexation and the collection schema of the pages that render the tile: node `0.13`.
+**And what belongs elsewhere.** The words on the tile: stage 05. The grid, the filters and the empty result: nodes `1.0`, `3.1` and `3.2`. The definition and failure behaviour of the risk band and of the favourite count: node `0.11`. **The free-unit figure was the third and it is withdrawn there**, `D-60`. The items inside the case: node `0.6`. Indexation and the collection schema of the pages that render the tile: node `0.13`.
