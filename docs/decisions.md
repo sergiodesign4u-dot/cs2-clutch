@@ -2379,3 +2379,77 @@ The algorithm block renders three headings and three absences: the function and 
 ### One inconsistency inside `0.14`, named rather than left
 
 **V3 is a component in `_nav.js` and V4 is markup on this page.** V3 has four consumers and V4 has one, which is the same test that kept the value receipt inside `0.6` rather than making it a node. **It is defensible and it is not symmetric**, so it is written here: if a second surface ever renders the verifier, V4 moves into the shell before it renders twice.
+
+---
+
+## D-73. Node `5.3` is drawn, and it is drawn against a mechanic the whole map does not model
+
+**Date:** 2026-08-21. **Stage:** 04. **Decided by:** the founder on the queue, stage 04 on the rest. **Binds:** node `5.3` and its five numbered states, and it puts one question in front of the founder that the drawing could not answer.
+
+### Seven pages
+
+Before the request, the clock running, and `5.4` not eligible, `5.5` Steam degraded, `5.6` account restricted, `5.7` restriction upheld, `5.8` trade offer expired.
+
+**Two arrivals, one page, and the first screen belongs to whichever is live.** Before the request it is the record, the limits, the commission line and the one control. After it, the clock takes the first screen and the record moves under it. **A priority rule and not a second node.**
+
+### The page's job is not to be fast
+
+`B8-2` is the densest numeric barrier on the As-Is map: **30 hours, 7 days, 2 to 3 days, 9 days from last deposit, 16 hours, almost 3 weeks.** And the positive pole in the same section: a butterfly gamma doppler withdrawn within five minutes. **The category can do this. Most of it does not.**
+
+**The injury is not the duration, it is the unattributed silence.** The success signal on the clock row is the share of withdrawals that generate a support ticket asking for status, which measures how many people had to ask a human what their own transaction was doing.
+
+**So the clock shows three real figures and never a fourth invented one:** the elapsed in the current state, the published ceiling for that state, and who is being waited on. **Never an estimated time remaining**, because an ETA that slips is the barrier with a number attached. **Never a progress bar**, because a bar implies a rate and nothing here measures one. **Never a spinner**, because every wait in this flow is a named state with a timer.
+
+**Two stages share the owner "us" and they are still two stages.** A single block reading "waiting on us" for forty hours is the unattributed silence again, one label thinner.
+
+### The mechanic the whole map does not model, and it is drawn against the other reading
+
+**The account capture of 18 August 2026 found that on the live product withdrawal is a purchase rather than a delivery.** The screen prints a four column table: the item is valued at the site price `4.48`, a real copy on the market costs `27.52`, **and the difference of `23.04` is charged to the balance at the checkout.** In the observed row that difference is **six times the value of the win**.
+
+**Every figure on this page is drawn against the other reading**, that what you win is what you receive, because that is what the node was written against and the node says so in as many words.
+
+**It is the founder's, and both answers cost something.** Inherit the mechanic and the settlement difference has to be disclosed **at the moment of the win and on the case page**, not at the till, which makes the reveal carry a second number. Refuse it and the published chances and the tested return have to hold against real market prices, **which rewrites the treasury model and is a business decision no row in this repository can take.**
+
+**The recommendation on the record stands and it is a recommendation:** disclose it early, because that is what makes the trust positioning actually differentiated. **We would be the platform that names the gap before a person spends rather than at the till.**
+
+### What the sweep asserts rather than trusts
+
+**No verification anywhere in this cluster, in any state, behind any control.** That absence is the direct answer to `B8-4`, verification ambushes at the exit, and the sweep fails any of the seven pages containing "verify your identity", "upload", "passport", "id document", "selfie", "kyc" or "document".
+
+**`5.4` offers no substitute.** The out-of-stock substitution barrier is a user's own words: "they force you to exchange it for much lower-value skins or 'site balance'". **A not-eligible state that offers to convert the item into balance is that barrier arriving at a different door, dressed as helpfulness.** The sweep fails it on "sell it", "convert", "exchange it for" or "site balance".
+
+**`5.6` and `5.7` never zero the balance.** A zero there is not a display bug, it is the barrier itself. The sweep fails a restriction page rendering `0.00 coins`, and fails one whose written ground does not say it can be copied.
+
+**Every stage carries an owner label in text**, never a colour alone, asserted per stage rather than per page.
+
+### Three absences rendered rather than filled
+
+**The published median and p90 are not available**, and the page says so where they would be. **And one thing about them is not decided either:** whether they measure the whole elapsed time end to end or only the stretches attributed to us. **A p90 whose definition is ambiguous is not checkable by the person holding the clock**, and `5.8` is the concrete case: a withdrawal that sat four days on the person and forty minutes on us is one number end to end and a different number by attribution.
+
+**Steam's trade hold duration and its offer expiry are Steam's numbers** and neither is printed, because a number about a third party carries its source and its date or it is not printed.
+
+**And what happens to a frozen balance after a restriction is upheld is stated as undecided on the surface**, with the half that is decided beside it: never silently zeroed, and whatever happens is stated in the notice rather than found out.
+
+### And the same filename defect, a second time, found the same way
+
+**The footer's own published figure pointed at `withdrawal.html`** on every page, which is the IA specification's filename rather than the wireframe's. **A 404 under the middle withdrawal time, on all fifty six pages.**
+
+**Invisible until this screen was built**, for the same reason `provably-fair.html` was: a link to an unbuilt screen and a link to a misspelt one are the same 404, and the sweep could not tell them apart while the target did not exist.
+
+**Twice in two screens is a pattern rather than a coincidence.** Both were written when the IA node was the only thing that existed, and both survived because the sweep counted them as expected debt. **The check that would have caught either is comparing every `href` against the registry's `file` column rather than against the filesystem**, and that is a change to the instrument rather than to a page.
+
+### The new check found a third one before it had finished its first run
+
+**`markets.html` is linked from the footer of every page and is not in the registry at all.** It is the IA filename of register `0.12`, **and a register is read rather than visited**: it has no URL and never will.
+
+**`0.2` names `2.2` as that row's transition**, and `2.2` is a refusal state. **It is the right destination for a visitor who is refused and there is nothing on the map for a visitor who is not.**
+
+**So the row keeps its label and loses its href**, marked, which is the treatment the feed's avatar already carries under `D-59`. **A carrier may not promise a destination the map does not hold**, and routing it somewhere convenient is how the promise stops being visible.
+
+**Three filename defects in one session, and the third was found by the check written for the first two**, before that check had finished its first full run. Two of them were misspellings and one is a genuine hole in the map.
+
+### One rule that survived being written down twice
+
+**Outage days are not excluded from the rolling window.** A figure that drops its bad days is not a measurement, and `5.5` is a state of the product rather than an exemption from its own numbers. It renders on the degraded page, beside the suspended ceiling.
+
+**Suspending the ceiling out loud is the whole design of `5.5`.** A published ceiling that keeps running through a third-party outage is a promise we cannot keep, and letting it lapse quietly is the unattributed silence with a number on top of it.

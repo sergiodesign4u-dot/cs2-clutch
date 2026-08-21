@@ -1747,3 +1747,61 @@ The algorithm block renders **three headings and three absences**. A published a
 ### Measured
 
 **84 checks over the six pages, seven widths, both rail states: clean.** One `H1` each, the `H2` list matching the block order on all six, the two-part scope statement present, no verdict word anywhere, no process prose, and the state assertions above.
+
+---
+
+## 50. `D-73`: node `5.3`, and the page whose job is not to be fast
+
+**Seven pages.** Before the request, the clock running, and `5.4` to `5.8`.
+
+**Two arrivals, one page, and the first screen belongs to whichever is live.** Before the request it is the record, the limits, the commission line and the one control. After it, the clock takes the first screen and the record moves under it.
+
+### Three real figures and never a fourth invented one
+
+Elapsed in the current state, the published ceiling for it, and **who is being waited on**.
+
+**Never an estimated time remaining**, because an ETA that slips is `B8-2` with a number attached, which is worse than no number. **Never a progress bar**, because a bar implies a rate and nothing here measures one. **Never a spinner**, because every wait in this flow is a named state with a timer.
+
+**Two stages share the owner "us" and they are still two stages.** A single block reading "waiting on us" for forty hours is the unattributed silence again, one label thinner.
+
+### Drawn against a mechanic the whole map does not model
+
+The account capture found that **on the live product withdrawal is a purchase rather than a delivery**: the item is valued at the site price, a real copy costs the market price, and **the difference is charged to the balance at the checkout**. Six times the value of the win in the observed row.
+
+**Every figure here is drawn against the other reading**, that what you win is what you receive, because that is what the node was written against and the node says so. The choice is the founder's, and it is a block and a state rather than a redraw.
+
+### What the sweep asserts rather than trusts
+
+**No verification anywhere in this cluster**, in any state, behind any control: seven pages fail on "verify your identity", "upload", "passport", "id document", "selfie", "kyc" or "document".
+
+**`5.4` offers no substitute.** Converting the item into balance is the out-of-stock substitution barrier arriving at a different door, dressed as helpfulness.
+
+**`5.6` and `5.7` never zero the balance**, and their written ground has to say it can be copied.
+
+**Every stage carries an owner label in text**, asserted per stage rather than per page.
+
+### Three absences rendered rather than filled
+
+The median and p90 are not available, **and one thing about them is not decided either**: whether they measure the whole elapsed time or only the stretches attributed to us. `5.8` is the concrete case, a withdrawal that sat four days on the person and forty minutes on us.
+
+Steam's hold duration and its offer expiry are **Steam's numbers** and neither is printed.
+
+And what happens to a frozen balance after a restriction is upheld is **stated as undecided on the surface**, with the decided half beside it: never silently zeroed.
+
+### And the same filename defect, a second time, found the same way
+
+**The footer's own published figure pointed at `withdrawal.html`** on every page: the IA specification's filename rather than the wireframe's. **A 404 under the middle withdrawal time, on all fifty six pages.**
+
+**Twice in two screens is a pattern rather than a coincidence.** Both were written when the IA node was the only thing that existed, and both survived because the sweep counted them as expected debt. **The check that would have caught either is comparing every `href` against the registry's `file` column rather than against the filesystem.**
+
+### The new check found a third one before it had finished its first run
+
+**`markets.html` is linked from the footer of every page and is not in the registry at all.** It is the IA filename of register `0.12`, and **a register is read rather than visited**.
+
+`0.2` names `2.2` as that row's transition, and `2.2` is a refusal state: **the right destination for a visitor who is refused and nothing at all for a visitor who is not.** So the row keeps its label and loses its href, marked, which is the treatment the feed's avatar already carries.
+
+**Three filename defects in one session, and the third was found by the check written for the first two**, before that check had finished its first full run. Two were misspellings and one is a genuine hole in the map.
+
+### Measured
+
+**98 checks over the seven pages, seven widths, both rail states: clean**, and 342 over all fifty six files, now including one assertion per internal link that it names a file the registry knows.

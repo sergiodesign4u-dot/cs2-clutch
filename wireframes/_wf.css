@@ -3015,3 +3015,65 @@ select {
   .wf-scope-two { grid-template-columns: 1fr 1fr; }
   .wf-vpair { grid-template-columns: 1fr 1fr; }
 }
+
+
+/* ---------------------------------------------------------------------------
+   NODE 5.3, WITHDRAWAL, and its states 5.4 to 5.8. Drawn 21 August 2026.
+   THE INJURY B8-2 DESCRIBES IS NOT THE DURATION, IT IS THE UNATTRIBUTED
+   SILENCE. G1's success signal is the share of withdrawals that generate a
+   support ticket asking for status, which measures how many people had to ask a
+   human what their own transaction was doing. So this page's job is not to be
+   fast: it is to make a slow withdrawal legible while it is slow.
+   --------------------------------------------------------------------------- */
+
+/* THE CLOCK. Five stages, each with an elapsed, a ceiling and an owner label.
+   TWO STAGES SHARE THE OWNER "US" AND ARE STILL TWO STAGES: a single block
+   reading "waiting on us" for forty hours is the unattributed silence again,
+   one label thinner. */
+.wf-clock-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
+.wf-cs {
+  display: grid; gap: var(--wf-s-half) var(--wf-s-2);
+  grid-template-columns: 1fr auto;
+  padding: var(--wf-s-2) 0;
+  border-top: 1px solid var(--wf-line-soft);
+}
+.wf-cs:first-child { border-top: 0; }
+.wf-cs-n { font-weight: 700; }
+/* THE OWNER LABEL IS TEXT AND NEVER A COLOUR ALONE, and it never moves: an
+   expired stretch stays labelled waiting on you rather than being quietly
+   reassigned onto Steam or onto us. */
+.wf-cs-who {
+  grid-column: 1; font-size: var(--wf-t-xs);
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim);
+}
+.wf-cs-t { grid-column: 2; grid-row: 1 / span 2; text-align: right; display: flex; flex-direction: column; gap: 2px; }
+.wf-cs-e { font-family: var(--wf-mono); font-size: var(--wf-t-m); }
+.wf-cs-c { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-cs.is-now .wf-cs-n { text-decoration: underline; text-underline-offset: 4px; }
+.wf-cs.is-done { color: var(--wf-ink-dim); }
+
+/* THE PERSISTENT SUMMARY. The total stays on screen through every state rather
+   than appearing after the choice, and the commission renders as A LINE IN THE
+   SUM AND NEVER AS A BADGE: a badge asserts, a line in a sum gets checked. */
+.wf-total { display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-tl { display: flex; justify-content: space-between; gap: var(--wf-s-2); font-size: var(--wf-t-s); }
+.wf-tl--sum { border-top: 1px solid var(--wf-line-soft); padding-top: var(--wf-s-1); font-size: var(--wf-t-m); }
+.wf-tl-v { font-family: var(--wf-mono); }
+
+/* The three named limits, authored once and rendered twice in the same words:
+   here and on 5.1 beside the withdrawal entry. A limit reworded at the moment it
+   bites reads as a new rule. */
+.wf-lim { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-2); }
+.wf-lim li { display: flex; flex-direction: column; gap: 2px; }
+.wf-lim-w { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+
+/* A written ground, copyable, never a code alone and never an image. */
+.wf-notice {
+  padding: var(--wf-s-2); border: 1px solid var(--wf-line);
+  border-radius: var(--wf-r-2); display: flex; flex-direction: column; gap: var(--wf-s-1);
+}
+
+@media (min-width: 900px) {
+  .wf-wd { display: grid; grid-template-columns: minmax(0, 1fr) 300px; align-items: start; gap: var(--wf-s-4); }
+  .wf-wd-side { position: sticky; top: var(--wf-s-2); }
+}

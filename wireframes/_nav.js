@@ -203,14 +203,17 @@ window.WF_NAV = {
         { node: '5.2', label: 'Inventory empty', file: 'account-empty.html', status: 'built' }
       ] },
 
-    { node: '5.3',  cluster: '5', name: 'Withdrawal',          file: 'withdraw.html',   ia: 'withdrawal.html',    status: 'spec',
-      base: 'Requested, with the public clock',
+    // DRAWN 21 AUGUST 2026. The end of flow 3, and the page where the injury is
+    // not the duration but the unattributed silence.
+    { node: '5.3',  cluster: '5', name: 'Withdrawal',          file: 'withdraw.html',   ia: 'withdrawal.html',    status: 'built',
+      base: 'Before the request',
       states: [
-        { node: '5.4', label: 'Not eligible, limit stated', file: 'withdraw-not-eligible.html',      status: 'spec' },
-        { node: '5.5', label: 'Steam degraded',             file: 'withdraw-steam-degraded.html',    status: 'spec' },
-        { node: '5.6', label: 'Account restricted, appeal', file: 'withdraw-restricted.html',        status: 'spec' },
-        { node: '5.7', label: 'Restriction upheld',         file: 'withdraw-restriction-upheld.html',status: 'spec', dead: true },
-        { node: '5.8', label: 'Trade offer expired',        file: 'withdraw-offer-expired.html',     status: 'spec' }
+        { label: 'Requested, the clock running', file: 'withdraw-clock.html', status: 'built' },
+        { node: '5.4', label: 'Not eligible, limit stated', file: 'withdraw-not-eligible.html',      status: 'built' },
+        { node: '5.5', label: 'Steam degraded',             file: 'withdraw-steam-degraded.html',    status: 'built' },
+        { node: '5.6', label: 'Account restricted, appeal', file: 'withdraw-restricted.html',        status: 'built' },
+        { node: '5.7', label: 'Restriction upheld',         file: 'withdraw-restriction-upheld.html',status: 'built', dead: true },
+        { node: '5.8', label: 'Trade offer expired',        file: 'withdraw-offer-expired.html',     status: 'built' }
       ] },
 
     // THREE NODES THE MAP GAINED ON 20 AUGUST 2026, D-36. The account menu carried four
@@ -1216,7 +1219,12 @@ window.WF_NAV = {
     var stats = el('div', 'wf-foot-stats');
     [
       ['363 777 660', 'Cases opened', 'Checkable per case, against the observed rate on each case screen', 'catalogue.html'],
-      ['1 h 40 m', 'Middle withdrawal time, from our own logs', null, 'withdrawal.html'],
+      // THE SECOND FILENAME DEFECT OF THE SAME CLASS, found the same way. It
+      // pointed at withdrawal.html, which is the IA specification's filename
+      // rather than the wireframe's, so the footer's own published figure led to
+      // a 404 on every page. Invisible until 5.3 was built, because a link to an
+      // unbuilt screen and a link to a misspelt one are the same 404.
+      ['1 h 40 m', 'Middle withdrawal time, from our own logs', null, 'withdraw.html'],
       [null, 'Online now, if it can count humans in real time', null, null],
       [null, 'Aggregate tested return to player', null, null]
     ].forEach(function (f) {
@@ -1336,14 +1344,32 @@ window.WF_NAV = {
                     ['Cookie policy', 'legal.html'], ['Refund and payments policy', 'legal.html']]]],
       [['Help', [['Provably fair', 'fair.html'], ['Contact support', 'support.html']],
         'No FAQ page: its jobs live on the geo gate, on Responsible play and in Support.'],
+       // 'WHERE WE OPERATE' HAS NO DESTINATION ON THE MAP, and the registry check
+       // added on 22 August 2026 is what found it: markets.html is the IA
+       // filename of register 0.12, and a register is read rather than visited.
+       // 0.2 names 2.2 as this row's transition, and 2.2 is a refusal state: it
+       // is the right destination for a visitor who is refused and there is
+       // nothing on the map for a visitor who is not. So the row keeps its label
+       // and loses its href, the same treatment the feed's avatar carries.
        ['Play responsibly', [['Responsible play', 'responsible.html'],
-                             ['Where we operate', 'markets.html']]]]
+                             ['Where we operate', null]]]]
     ].forEach(function (track) {
       var c = el('div', 'wf-foot-col' + (track.length > 1 ? ' wf-foot-col--stack' : ''));
       track.forEach(function (col) {
         var nav = el('nav', 'wf-foot-list');
         nav.setAttribute('aria-label', col[0]);
-        col[1].forEach(function (r) { var a = el('a', null, r[0]); a.href = BASE + r[1]; nav.appendChild(a); });
+        col[1].forEach(function (r) {
+          // A ROW WITH NO DESTINATION IS DRAWN AND MARKED, never routed somewhere
+          // convenient: a carrier may not promise a destination the map does not
+          // hold, and inventing one is how the promise stops being visible.
+          if (r[1] === null) {
+            var sp = el('span', null, r[0]);
+            sp.appendChild(el('span', 'wf-feed-noroute', ' no destination on the map yet'));
+            nav.appendChild(sp);
+            return;
+          }
+          var a = el('a', null, r[0]); a.href = BASE + r[1]; nav.appendChild(a);
+        });
         if (col[2]) { nav.appendChild(el('span', 'wf-fig-missing wf-foot-hole', col[2])); }
         accordion(c, col[0], nav);
       });
