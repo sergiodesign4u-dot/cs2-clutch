@@ -212,6 +212,8 @@
 
 ### 2.5 B6. Daily cases, with the tier ladder
 
+**A factual error inside `D-25`, found on 21 August 2026 and printed rather than quietly corrected.** `D-25` shipped this block **"as the baseline does it"**. `baseline.md` section 4 records the baseline's Home as header, ticker, hero banner with countdown, H1, four mode cards and promotional rows: **there is no ladder on it.** The ladder is on `/en/cases`. **So the premise of the decision was wrong even though the decision may still be right**, and what `D-67` did was add the surface the baseline actually uses rather than move the block. **Whether this block stays on Home at all is the founder's, and it is open**, section 6.
+
 **In by founder decision `D-25`, and this is the largest reversal on the page.** `baseline.md` section 4 records the baseline gating its daily reward behind a **wager requirement** presented as a five tier ladder, Silver, Nova, Guardian, Legend, Elite, with a wager remaining figure and a countdown. `baseline.md` also records why it was flagged: **it is an inherited answer to the open risk in row `I2`**, that a daily free open teaches a first-session user that opening is free. Node `0.7` rule 5.3 refused the ladder outright. The founder has now chosen it.
 
 **What is reversed, precisely, and what is not.**
@@ -311,7 +313,7 @@
 | **`0.4` Cookie consent** | Fires on arrival, so this node is where it is met. Section 1.2 records the two consequences | `0.4` |
 | **`0.7` Canonical case tile** | Featured variant. Four fields, the stock marker only when the shelf is short, the daily marker only if the daily free case is in the featured set, the favourite control always | `0.7` |
 | **The promotion banner** | **No component exists for it.** It is one block on one node and nothing else in the map renders a promotion. If a second surface ever wants one, it becomes a cluster 0 component then, not now | This node |
-| **The daily tier ladder** | **No component exists for it either**, and this is deliberate: a ladder that becomes a component is a ladder that spreads. `6.1` may not render it, section 2.5 rule 1 | This node |
+| **The daily tier ladder** | ~~No component exists for it either, and this is deliberate: a ladder that becomes a component is a ladder that spreads.~~ **It spread on 21 August 2026, `D-67`, and it spread towards the baseline rather than away from it.** `3.1` now renders it too, in its Daily section, which is where `baseline.md` section 4 has it and where this node's own source never had it. **It is component `0.15`**, and the reason it had to become one is the sentence that refused it: **boundaries attached to a node stay behind when the markup travels, and boundaries attached to a component travel with it.** `6.1` may still not render it, section 2.5 rule 1, and that rule is now the component's rather than this node's | `0.15` |
 | **`0.6` Canonical skin item card** | **One instance**, the worked example's top item in B7. See the contradiction below | `0.6` |
 | **`0.8` Live drop ticker** | Horizontal strip with a pause control. Four states, section 2.1 | `0.8` |
 | **`0.11` figure block anatomy** | Value, unit and caption, as-of, route, comparison. Applied to `A1`, `A4`, `A5`, `D2`, `D4`, `G6` | `0.11` |

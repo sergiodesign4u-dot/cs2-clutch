@@ -2074,3 +2074,53 @@ The drawer is built once in `wireframes/_nav.js` and mounted on every catalogue 
 ### What this cost, stated
 
 **A third orphan on the map.** `CLAUDE.md` allows one to be carried with its status printed and this is now the third, after the daily free case and the favourite count. **Three is not a pattern yet and four would be**, and that sentence is here so the fourth has to argue against it.
+
+---
+
+## D-67. The daily ladder comes to the catalogue, becomes a component, and the check found an error inside `D-25`
+
+**Date:** 2026-08-21. **Stage:** 04. **Decided by:** the founder, pointing at the live Daily Cases panel. **Binds:** node `3.1`, node `1.0`, the new component `0.15`, and `home.md`'s refusal of a component.
+
+**What was asked.** The daily cases banner, as the baseline runs it: the five tier ladder, the wager remaining figure, the reset countdown and the open control with the count of cases available.
+
+### `catalogue.md` had refused it, and the refusal said it was not refused on merit
+
+Section 11 carried the row: **"Not refused on merit. It is an inherited answer to `I2`'s recorded risk and it belongs in front of the founder."** It is now in front of the founder and the answer is yes. **The row is kept struck rather than deleted**, because the risk it names is unchanged: the ladder answers `I2` by making the daily case not free but earned, and the thing it is earned with is spending.
+
+### Section 2 was arguing with itself and it was refusing the wrong object
+
+That section exists to stop stage 04 promoting the daily case back into a banner, on the ground that **a banner survives every filter and a case does not.** That argument is untouched and the filtered wireframe still honours it.
+
+**But the ladder is not the case.** They are two objects: **the ladder is the entitlement, the tile is the case.** The baseline has both in one Daily section. So does this node now.
+
+### The check found an error inside `D-25`, and it is printed rather than quietly corrected
+
+`D-25` shipped the ladder onto Home block B6 **"as the baseline does it"**.
+
+**`baseline.md` section 4 records the baseline's Home as header, ticker, hero banner with a countdown, H1, four mode cards and promotional rows. There is no ladder on it.** The ladder is on `/en/cases`, which is the surface `catalogue.md` refused it on.
+
+**So the premise of `D-25` was wrong even though the decision may still be right.** `D-67` adds the surface the baseline actually uses rather than moving the block, and **whether the ladder stays on Home is left open to the founder** and printed as debt in `sitemap.md`. It is the kind of question that gets harder the longer both surfaces carry it.
+
+### It is a component now, and `home.md` had refused one in as many words
+
+`home.md`: **"No component exists for it either, and this is deliberate: a ladder that becomes a component is a ladder that spreads."**
+
+**It spread, and it spread towards the baseline rather than away from it.** With two consumers a second copy is a second thing to drift, which is the rule `0.6`, `0.7` and `0.14` already ship under.
+
+**And the sentence that refused a component is the reason it had to become one.** `D-25` attached three rules to this block and they are the only thing standing between a wager ladder and a progress mechanic:
+
+1. **It never appears on a responsible play surface and never beside a limit.** `6.1` carries no ladder, no wager figure and no tier, at any width and in any account state.
+2. **It never invites a person past their own limit.** A person with a deposit limit, a session limit or a cool down in force is never told what they would need to wager to advance.
+3. **A tier gives a case and nothing else.** No badge, no title, no rank, no public tier on a profile.
+
+**Boundaries attached to a node stay behind when the markup travels. Boundaries attached to a component travel with it.** Registered as `0.15`, and rule 1 is now the component's rather than `1.0`'s.
+
+### The second half of the ask: the descriptions come off the wires
+
+`D-66` set the rule and cleared node `3.1`. **This applied it to the whole stage.** A rendered-text sweep of all twenty nine wireframe files found **31 decision citations across 17 of them**, every one of them a `D-28` appended to an otherwise correct missing-state sentence: "not published yet, `D-28`", "in coins, `D-28`", "until the coin peg is published, `D-28`".
+
+**All 31 removed from rendered text and none from the comments**, which is where the reasoning belongs and where it already was. **The sweep is now an instrument:** a page fails if its rendered `main` contains a decision code, a repository file name, or the words a specification uses about itself.
+
+### What this cost, stated
+
+**The map gains a node**, `0.15`, and the ladder gains a second surface on a product whose own baseline gives it one. **That is the cost `home.md` predicted in the sentence this decision overrides**, and the mitigation is that the three rules moved with the component instead of staying on the node it left.

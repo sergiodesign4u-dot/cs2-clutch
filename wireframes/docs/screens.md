@@ -1492,3 +1492,35 @@ Built once in `_nav.js`, mounted on every catalogue page, seven copies avoided. 
 ### Measured
 
 **98 checks over the seven pages, clean.** Plus an interaction pass: the drawer opens at 360 and 1440 in both account states, `aria-expanded` moves, focus lands on the close, the scroll locks and unlocks, Escape closes and focus returns. **The account drawer has six groups and the guest drawer five**, asserted rather than eyeballed. **180 checks over all thirty files.** A grep of the rendered `main` for decision codes, `baseline.md`, `catalogue.md` and process words returns nothing.
+
+---
+
+## 44. `D-67`: the daily ladder comes to the catalogue and becomes a component
+
+**The founder asked for the baseline's Daily Cases banner on the shelf.** `catalogue.md` had refused it in a row that said it was not refused on merit and belonged in front of the founder. It went in front of the founder and the answer is yes.
+
+### What the Daily section holds now
+
+**The ladder panel above the section's grid, then the daily case tile in it.** Two objects, not one: **the ladder is the entitlement, the tile is the case.** `catalogue.md` section 2 exists to stop this node promoting the case back into a banner, and that argument is untouched: the case is still addressable, still filterable, and on `catalogue-filtered.html` it still leaves the grid.
+
+**The panel is part of the section, so a filter that empties the section takes the panel with it.** A ladder standing over an empty grid is an entitlement to a case that is not on the page.
+
+### It is built once now, and `home.md` had refused a component in as many words
+
+> No component exists for it either, and this is deliberate: a ladder that becomes a component is a ladder that spreads.
+
+**It spread, and it spread towards the baseline rather than away from it.** `baseline.md` section 4 has this panel on `/en/cases` and **no ladder on the baseline's Home**, which is the surface `D-25` shipped it to "as the baseline does it".
+
+**And the sentence that refused a component is the reason it had to become one.** Three rules hold this block apart from a progress mechanic, and **boundaries attached to a node stay behind when the markup travels.** Registered as `0.15` and mounted from `_nav.js` on both surfaces: guest gets five rungs, no reached tier, no wager figure and a sign in route; account gets the reached tier, the wager figure in coins and the count of cases available. **Asserted at 360 and 1440 on both pages rather than eyeballed.**
+
+### The rest of the ask: the descriptions came off every wire, not just this one
+
+`D-66` set the rule on node `3.1`. **A rendered-text sweep of all twenty nine files found 31 decision citations across 17 of them**, every one a `D-28` appended to an otherwise correct missing-state sentence: "not published yet, `D-28`", "in coins, `D-28`", "until the coin peg is published, `D-28`".
+
+**All 31 removed from rendered text and none from the comments.** The reasoning belongs in the comment and it was already there.
+
+**The sweep is an instrument now.** A page fails if its rendered `main` contains a decision code, a repository file name, or the words a specification uses about itself. **It reads zero across all twenty nine files.**
+
+### Measured
+
+**98 checks over the seven catalogue pages, clean.** The ladder asserted on four pages at two widths in both account states: five rungs, the reached tier only when signed in, the wager figure only when signed in, and the right control in each. **Prose sweep: 0 of 29.**

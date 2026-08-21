@@ -1976,6 +1976,62 @@ window.WF_NAV = {
   }
 
   /* ---------------------------------------------------------------------
+     THE DAILY TIER LADDER, D-67. Built once here because it now has two
+     consumers, and home.md predicted exactly this: "a ladder that becomes a
+     component is a ladder that spreads". IT SPREAD, AND IT SPREAD TOWARDS THE
+     BASELINE RATHER THAN AWAY FROM IT. baseline.md section 4 puts this panel on
+     /en/cases and its Home carries no ladder at all, so D-25 shipped it "as the
+     baseline does it" onto the one surface the baseline does not do it on.
+     WHAT MOVES WITH IT IS ITS THREE RULES, and that is the whole reason it is a
+     component rather than two copies: 6.1 may never render it, it never tells a
+     person with a limit in force what to wager to advance, and a tier gives a
+     case and nothing else. Boundaries attached to a node stay behind when the
+     markup travels. Boundaries attached to a component travel with it.
+     --------------------------------------------------------------------- */
+  var LADDER = ['Silver', 'Nova', 'Guardian', 'Legend', 'Elite'];
+
+  function dailyLadder(account) {
+    var rungs = LADDER.map(function (t, i) {
+      // THE GUEST RENDER CARRIES NO PROGRESS AND NO REACHED TIER. A zero is not
+      // the guest state, it is a claim that this person has wagered nothing,
+      // and 0.11 rule 3 refuses that reading.
+      return '<li' + (account && i === 0 ? ' class="is-reached"' : '') + '>' +
+             '<span class="wf-ladder-art" aria-hidden="true"></span>' + t + '</li>';
+    }).join('');
+
+    var wager = account
+      ? '<div class="wf-fig"><span class="wf-fig-v">0.00 of 5.00</span>' +
+        '<span class="wf-fig-c">Wagered towards the next tier, in coins</span></div>'
+      : '<p class="wf-panel-line">Five tiers, earned by wagering. The tier decides which case the free entry gives.</p>';
+
+    var act = account
+      ? '<button class="wf-btn" type="button" disabled>Available now: 0 cases</button>'
+      : '<a class="wf-btn" href="signin.html" data-auth-open="default">Sign in to see your tier</a>';
+
+    return '' +
+      '<div class="wf-panel">' +
+        '<div class="wf-panel-head">' + wager +
+          /* THE COUNTDOWN IS A SLOT AND NOT A NUMBER. The reset moment is not
+             set anywhere in this repository, and a countdown to an unknown end
+             is the dash that reads as zero, 0.11 rule 3. */
+          '<div class="wf-fig">' +
+            '<span class="wf-fig-v wf-fig-missing">Reset not available</span>' +
+            '<span class="wf-fig-c">The reset moment is not set yet, so no countdown runs</span>' +
+          '</div>' +
+        '</div>' +
+        '<ol class="wf-ladder">' + rungs + '</ol>' +
+        '<div class="wf-panel-foot">' + act + '</div>' +
+      '</div>';
+  }
+
+  function renderLadders() {
+    var account = !!(window.WF_SHELL && window.WF_SHELL.account);
+    Array.prototype.forEach.call(document.querySelectorAll('[data-ladder]'), function (host) {
+      host.innerHTML = dailyLadder(account);
+    });
+  }
+
+  /* ---------------------------------------------------------------------
      NODE 3.1's FILTER DRAWER, D-66. Built once here and mounted on every
      catalogue page, for the same reason the sign in card is: seven copies of
      one control is how six of them rot.
@@ -2165,6 +2221,7 @@ window.WF_NAV = {
     renderAuth(document.getElementById('wf-auth'));
     mountAuthDialog();
     mountFilterDrawer();
+    renderLadders();
     renderFooter(document.getElementById('wf-footer'));
     mountRollDetail();
     renderBar(document.getElementById('wf-bar'));
