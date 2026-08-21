@@ -1172,3 +1172,43 @@ At 1440 and at 360, on both batch pages: no `.wf-rolls` left in the page flow, t
 
 **Measured.** Arriving cold on the last state of `3.3`: offset 1308, current row visible. Scrolling to 380, navigating from the panel: offset restored, current row visible. Arriving on a page in a new tab in the same session: offset restored, then corrected to bring the row in. **224 checks, no sideways scroll, no collapsed leaf, no wrapped label.**
 
+
+---
+
+## 36. Node 2.4, sign in: one card, two carriers, five pages
+
+**Built 21 August 2026, after `D-54` changed the carrier and before a pixel was drawn.** The founder's decision: sign in stops being a page a person is sent to and becomes a dialog opened over the surface they are already on, drawn once as a canon and then mounted wherever a guest meets a control they cannot use. **The IA was amended first**, `ia/docs/pages/signin.md` section 0.9, and the rendered node page with it.
+
+### What the change is worth, and it is smaller than it sounds
+
+**A dialog does not remove a step.** The Steam round trip is unchanged, the gate still fires first, the tap count in `CLAUDE.md` is untouched. **It removes a loss.** On a page the case a person chose, the count they set and the price they were reading are behind them; in a dialog they are behind the scrim, still on the screen. The route defect in `flows.md` narrows from four screens to three and **does not close**, and `flows.md` now says so at the place it counted them.
+
+### The address survived, and this stage drew it
+
+`/signin` is still a real address, and these five pages are it: **the cold arrival for a typed URL, a deep link, a session with no script, a crawler, and the node's own "already signed in" state, which exists precisely because a person can type it.** Deleting the address would have deleted four reasoned rules out of the node's own SEO checklist without a decision being taken about any of them.
+
+**What this carrier has that the dialog will not:** the H1, the H2 outline, the footer `0.2`, and block 6 as a real crawlable link. The dialog gets no H1 because the host page owns that outline, no footer because the surface behind already has one, and no block 6 link because the dismissal is block 6.
+
+### The card is built once, in `_nav.js`
+
+`authCard(state, carrier)` is the only place this content exists. **Six copies of one statement is how five of them rot and the shortest becomes the real one**, and the statement is the reason the node exists. The five pages differ by one attribute, `data-state`, because they are states of one document and not five documents.
+
+| Page | State | What is different |
+|---|---|---|
+| `signin.html` | Consent not given | Both declarations clear, the provider control a real `disabled` button rather than a dimmed div, and **the reason in words** under it |
+| `signin-consent-partial.html` | One of two given | The control stays inert and the text **names which declaration is missing**. Two declarations means two failure messages |
+| `signin-consent-given.html` | Consent given | The control becomes available and **nothing else moves**, because a card that rearranges itself when a box is ticked has moved the target a person was aiming at |
+| `signin-steam-refused.html` | `2.5` | The failure replaces blocks 1 and 3 in place, **block 2 stays visible**, and the message names which side failed with the reference as a secondary line rather than as the message |
+| `signin-steam-unavailable.html` | `2.6` | The failure is Steam's and the sentence says so first. **No spinner and no promised time**, because the retry interval is `[?]` and a countdown that expires into the same failure is worse than none |
+
+### Three things carried in the open
+
+- **Every field of the "what we read" list is `[?]`.** What Steam OpenID returns and what the Web API returns are technical facts with no source opened in this repository, and **a permission list written from memory is a permission invented from memory**. The rows are drawn, the rule is drawn, the values are not.
+- **The starter credit and its withdrawal threshold are both `[?]`**, and `C4` is printed beside them anyway: whatever the figure is, it is stated before the deposit and can never rise.
+- **The starter credit stays on screen in `2.5` and `2.6`.** The node replaces blocks 1 and 3 on a failure and says nothing about block 5, so cutting it would have been a silent divergence. **Two things about that are worth a second look and are raised rather than fixed:** an offer beside a failure message, and, in `2.6`, an offer that cannot be acted on while the provider is down.
+
+### Measured
+
+**294 checks**, 22 pages by 7 widths by both rail states, no page scrolling sideways at any width, no collapsed leaf, no wrapped button label. The only failures are the two known `catalogue.html` 404s, which predate this step.
+
+**The node's one hard adaptive requirement, checked rather than assumed:** blocks 1 and 2 both above the fold at 360px. The consent block ends at 517px in the default state and 501px in the partial state, so both clear a 640px viewport and a 800px one. **In `2.5` at a 640px tall viewport the consent block starts above the fold and ends 30px under it**, which the node permits, because there the requirement is that block 2 stays visible rather than that it fits above the fold. Printed rather than rounded off.

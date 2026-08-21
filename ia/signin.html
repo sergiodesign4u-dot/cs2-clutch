@@ -145,14 +145,84 @@
 <div class="hero" id="overview">
   <div class="section-eyebrow">Information architecture, detail layer - node 2.4</div>
   <h1>Sign in with Steam</h1>
-  <p class="lede">Steam OpenID, out and back, and <strong>a statement of what this product will and will not read from a Steam account, printed on the page before the person leaves it.</strong> The block bank walked five competitors' sign-in surfaces live and recorded that no competitor prints one. The barrier behind it has a voice: a site that required a Steam avatar change to unlock a free case, and a person who concluded from that alone that it was a scam.</p>
+  <p class="lede"><strong>Amended 21 August 2026 by <code>D-54</code>: the carrier is a dialog and <code>/signin</code> is its cold arrival.</strong> Steam OpenID, out and back, and <strong>a statement of what this product will and will not read from a Steam account, printed on the page before the person leaves it.</strong> The block bank walked five competitors' sign-in surfaces live and recorded that no competitor prints one. The barrier behind it has a voice: a site that required a Steam avatar change to unlock a free case, and a person who concluded from that alone that it was a scam.</p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Provider, and it follows from the exit</div></div>
     <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Password fields, in any state</div></div>
     <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Failure states, both readable</div></div>
-    <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Screens before activation, over budget</div></div>
+    <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Screens before activation since D-54, still no fewer steps</div></div>
   </div>
 </div>
+
+<!-- CARRIER -->
+<section id="carrier">
+  <div class="sec-head">
+    <h2>The carrier is a dialog, and the address is its cold arrival</h2>
+    <p><strong>D-54, 21 August 2026, founder decision, taken before the screen was drawn.</strong> Sign in stops being a page a person is sent to. It is a dialog opened over the surface they are already on, drawn once as a canon and mounted wherever a guest meets a control they cannot use.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The argument, and it is smaller than it looks</h4>
+    <p><strong>A dialog does not remove a step.</strong> The Steam round trip is unchanged, the gate still fires first, and the tap count in the project rules is untouched.</p>
+    <p><strong>It removes a loss.</strong> On a page, the case a person chose, the count they set and the price they were reading are behind them. In a dialog they are behind the scrim, still on the screen, <strong>so a person can see the thing they are signing in for while they decide whether to sign in.</strong></p>
+    <p>The route defect above narrows from four screens to three. <strong>It does not close, and this node does not claim it does.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The map already held this type, and this node was the exception</h4>
+    <p>The IA registry carries five node types and <strong>dialog is one of them</strong>. Cluster 2's other member, 2.1 the geo gate, has been a dialog since it was written, and 0.4 cookie consent is the second. <strong>2.4 was the only node in cluster 2 typed as a page while its own flow put it on top of another screen.</strong> This is the map becoming consistent with itself rather than a new pattern entering it.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Two dialogs in cluster 2</th><th>2.1 geo gate</th><th>2.4 sign in</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Address</strong></td>
+          <td>None. It returns 200 at the URL the person is already on</td>
+          <td><strong>/signin, kept.</strong> The account control points at it and a person can type it</td>
+        </tr>
+        <tr>
+          <td><strong>Dismissal</strong></td>
+          <td>The decline persists rather than resetting with the dialog. A gate re-answerable by reloading teaches the answer</td>
+          <td><strong>Free, by design.</strong> Block 6 says a person who will not sign in is not ejected, and the dismissal is now what enforces that rather than a link they have to notice</td>
+        </tr>
+        <tr>
+          <td><strong>What it asks</strong></td>
+          <td>A question about the market, answered for them</td>
+          <td>A declaration they make, twice, D-26</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>They are never on screen at once</h4>
+    <p>On the case screen the first interaction fires the gate, and the sign-in dialog opens only once the gate has passed. <strong>Two layers in sequence, never stacked</strong>, and stage 04 draws them that way.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Why the address had to survive</h4>
+    <p><strong>Deleting it would have silently deleted four reasoned rules</strong>, all of them in this node's own SEO checklist: that noindex is a meta tag readable at a URL, that the route back is a crawlable anchor, that the statement is text rather than an image, and that the surface is identical for a person and a crawler. <strong>A rule stops applying by decision, not as a side effect of a carrier change.</strong></p>
+    <p>The address is also the only carrier for a typed URL, a deep link, a session with no script, a crawler, and this node's own "already signed in" state, which exists precisely because a person can type it. <strong>One content, two carriers, and the canon drawn at stage 04 is the address.</strong></p>
+  </div>
+
+  <div class="card">
+    <h4>The dialog contract, inherited and not invented</h4>
+    <p>Node 0.1 fixed the modal contract for this product and this node takes it rather than writing a second one: <strong>the scrim blocks the content behind, and nothing is raised above the scrim.</strong> Three dismissals, the first renamed because there is nothing to select here: <strong>the close control, the scrim, and Escape.</strong> Dismissing records nothing.</p>
+    <p><strong>Focus moves in on open and is trapped, and returns to the control that opened it.</strong> The surface behind is inert and is never removed, which is 0.1's own rule for a gate open and holds for the same reason: removing the carriers would make the dialog read as an ejection rather than a step.</p>
+    <p><strong>The dialog never closes itself.</strong> Not on 2.5, not on 2.6, not on a timer. A layer that vanishes on failure returns a person to a screen that cannot explain what just happened, and section 2.5's whole subject is a failure that told a person something false.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>What it costs, printed rather than smoothed</h4>
+    <p><strong>The footer leaves this surface in the dialog</strong> and stays at the address. A dialog carries no footer and the surface behind it already has one.</p>
+    <p><strong>The dialog carries no H1.</strong> The host page already has one, and a dialog that adds a second has broken the document outline of a page it does not own. The same text is the dialog's accessible name instead, and its headings step down one level from the address's.</p>
+    <p><strong>At 360px it is a full height sheet, not a centred card</strong>, because this node's one hard adaptive requirement is that blocks 1 and 2 are both above the fold, and a centred card at that width is a card with margins above and below it whose fold arrives sooner than on the page the requirement was written for. From the width where a centred card fits without shortening the list, it is a centred card. <strong>The block order never changes between the two carriers or between the two widths.</strong></p>
+  </div>
+</section>
 
 <!-- STATEMENT -->
 <section id="statement">
@@ -222,7 +292,7 @@
   </div>
 
   <div class="card is-fix">
-    <h4>Four screens before the activation node, and the threshold is three</h4>
+    <h4>Four screens before the activation node, and the threshold is three. Three since D-54</h4>
     <p>The flows name it: a first-time visitor touches Home, the case screen, the gate and sign in before the first reveal resolves. <strong>The product defers its first value further than the research promised</strong>, and Related Job 2 asks for the entire open-to-result experience in under 60 seconds without a confusing step, which a Steam OpenID round trip is not.</p>
     <p><strong>The obvious fix is already rejected on the record</strong>, so this node carries the cost rather than reopening it. A free demo reveal on identical odds and seeds was dropped in the T2 divergence, because it argues our case by demonstrating that the sceptic is right about the odds, <strong>and it spends the reveal, the one thing we sell, before anyone has decided anything.</strong></p>
     <p><strong>What this node can do about it is narrow, and it is done:</strong> make the round trip predictable, so the one confusing step is not ours.</p>
@@ -556,6 +626,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '2.4 Sign in with Steam';
 window.NAV_SECTIONS = [
   { id: 'overview',  label: 'Overview' },
+  { id: 'carrier',   label: 'D-54 the dialog' },
   { id: 'statement', label: 'The statement' },
   { id: 'not',       label: 'What it is not' },
   { id: 'route',     label: 'The route defect' },

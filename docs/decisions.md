@@ -1601,3 +1601,46 @@ The roll detail control sat at the 44px tap floor beside two 60px acts, **so a r
 - **The first attempt set `scrollTop` on a detached element.** The panel is built, then appended; a scroll offset written before it is in the document is discarded and its rect is all zeros.
 - **The second measured too early.** At render time the current row sat at y=675 in an 800px panel, so it looked visible and nothing moved. **The rows are two lines once the real type is applied**, and the same row ends up at y=1694 in a panel 2209 tall. **An honest early measurement is the same as a wrong one**, so the placement runs again on the next frame, on load and when the fonts resolve.
 - **The third was a comma.** `querySelector('.wfp-state.is-current, .wfp-done.is-current')` returns whichever match appears **earliest in the document**, not the first selector that hits. The panel opens with a "Built so far" list whose current row is always visible near the top, **so the reveal always found a row that needed no revealing.** It asks for one selector at a time now, in priority order.
+
+---
+
+## D-54. Sign in is a dialog, and the address is its cold arrival
+
+**Date:** 2026-08-21. **Stage:** 04, raised by the founder before the screen was drawn. **Decided by:** the founder. **Binds:** node `2.4` in `ia/docs/pages/signin.md`, the type row in `ia/_nav.js`, and every guest surface at stage 04.
+
+**What was decided.** **Sign in stops being a page a person is sent to and becomes a dialog opened over the surface they are already on.** It is drawn once as a canon and then mounted wherever a guest meets a control they cannot use. **`/signin` survives as a real address** rendering the same content as a full page.
+
+### The argument, and it is smaller than it looks
+
+**A dialog does not remove a step.** The Steam round trip is unchanged, the gate still fires first, and the tap count in `CLAUDE.md` is untouched. **It removes a loss.** On a page the case a person chose, the count they set and the price they were reading are behind them; in a dialog those are behind the scrim, still on screen, so a person can see the thing they are signing in for while deciding whether to sign in.
+
+**The route defect narrows, it does not close.** `flows.md` counts four distinct screens before the activation node against a threshold of three. Three now. The step count is the same, and the node says so in its own words rather than claiming the defect is paid off.
+
+### The map already held this type and this node was the exception
+
+`ia/_nav.js` carries five node types and **`dialog` is one of them**. `2.1` the geo gate has been a dialog since it was written, `0.4` cookie consent is the second, and **`2.4` was the only node in cluster 2 typed as a page while its own flow put it on top of another screen**. This is the map becoming consistent with itself.
+
+### Two dialogs in cluster 2, and they are opposites
+
+**The gate has no address and its decline persists rather than resetting with the dialog**, because a gate re-answerable by reloading teaches the answer. **Sign in keeps its address and its dismissal is free**, because block 6 of the node says a person who will not sign in is not ejected, and the dismissal is now what enforces that rather than a link they have to notice.
+
+**They are never on screen at once.** On the case screen the first interaction fires the gate, and the sign-in dialog opens only once the gate has passed. Two layers in sequence, never stacked.
+
+### Why the address had to survive
+
+**Deleting it would have silently deleted four reasoned rules**, all in the node's own SEO checklist: that `noindex` is a meta tag readable at a URL, that the route back is a crawlable `<a href>`, that the statement is text rather than an image, and that the surface is identical for a person and a crawler. **A rule stops applying by decision, not as a side effect of a carrier change.** The address is also the only carrier for a typed URL, a deep link, a session with no script, and the node's own "already signed in" state, which exists because a person can type `/signin`.
+
+**So: one content, two carriers, and the canon drawn at stage 04 is the address.**
+
+### What it costs, printed rather than smoothed
+
+- **The footer leaves this surface in the dialog.** A dialog carries no footer; the surface behind already has one. At the address it stays. The two carriers are not identical and the node names where.
+- **The dialog carries no H1.** The host page already has one and a second breaks an outline the dialog does not own. The same text becomes the dialog's accessible name.
+- **At 360px it is a full height sheet rather than a centred card**, because the node's one hard requirement is that blocks 1 and 2 are both above the fold, and a centred card at 360px puts the fold sooner than the page that requirement was written for.
+- **The dialog never closes itself**, not on `2.5`, not on `2.6`, not on a timer. A layer that vanishes on failure returns a person to a screen that cannot explain what happened.
+
+### Rejected
+
+**A dialog with no address.** It reads simpler and it deletes the four rules above without a decision being taken about any of them.
+
+**Keeping the page and adding a dialog as a second surface with less in it.** Two versions of the one statement the node exists for is how the shorter one becomes the real one and the statement becomes fine print. Same content in both carriers, same order.

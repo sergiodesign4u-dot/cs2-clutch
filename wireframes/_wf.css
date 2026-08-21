@@ -2111,3 +2111,126 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
   .wf-commit { padding: var(--wf-s-1) var(--wf-s-2); gap: var(--wf-s-half); }
   .wf-commit .wf-fig-c { font-size: var(--wf-t-xs); }
 }
+
+/* ============================================================================
+   NODE 2.4, SIGN IN. THE CARD IS THE CONTENT AND THE CARRIER IS D-54's CHOICE.
+   One content, two carriers: this card renders at the address /signin as a full
+   page, and the same card renders inside the dialog over whatever surface the
+   person was on. NEITHER IS A REDUCED VERSION OF THE OTHER, so everything here
+   is carrier neutral and only the frame around it differs.
+   The measure is narrower than the page measure on purpose: blocks.md T5 gives a
+   centred single card in one column, and a statement set in a 1220px line is a
+   statement nobody finishes.
+   ============================================================================ */
+.wf-auth {
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--wf-s-3);
+  container-type: inline-size;
+  container-name: auth;
+}
+.wf-auth-blk { display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-auth-blk > h2, .wf-auth-blk > h3 { font-size: var(--wf-t-m); font-weight: 600; }
+.wf-auth-lede { font-size: var(--wf-t-s); color: var(--wf-ink-dim); line-height: 1.5; }
+
+/* BLOCK 1. One line, one button, and the button is inert until block 2 is done.
+   The node fixes this order and section 8 fixes that the order never changes, so
+   the reason arrives directly under the control rather than before it, and both
+   are above the fold at 360 by requirement rather than by luck. */
+.wf-auth-go { width: 100%; }
+
+/* BLOCK 2. THE CONSENT GATE, D-26. Two declarations and not one, because one
+   checkbox bundles a contract consent with an age declaration and a person who
+   ticks it to get past it has made one gesture that answered two questions.
+   The baseline ships the bundled version with no required attribute and with the
+   provider buttons live while it is unchecked, baseline-account.md. */
+.wf-consent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wf-s-2);
+  padding: var(--wf-s-2);
+  border: 1px solid var(--wf-line);
+  border-radius: var(--wf-r-2);
+  background: var(--wf-surface);
+}
+.wf-cbx { display: flex; gap: var(--wf-s-2); align-items: flex-start; cursor: pointer; }
+.wf-cbx-box {
+  flex: 0 0 20px; width: 20px; height: 20px; margin-top: 1px;
+  border: 1px solid var(--wf-line); border-radius: var(--wf-r-1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--wf-t-s); line-height: 1; color: transparent;
+}
+.wf-cbx.is-set .wf-cbx-box { border-color: var(--wf-ink); color: var(--wf-ink); }
+.wf-cbx-t { font-size: var(--wf-t-s); line-height: 1.5; }
+/* The reason is words, not a dimmed button. The node says so in block 2. */
+.wf-consent-why {
+  font-size: var(--wf-t-xs); color: var(--wf-ink-dim); line-height: 1.5;
+  border-top: 1px dashed var(--wf-line-soft); padding-top: var(--wf-s-1);
+}
+.wf-consent-why b { color: var(--wf-ink); }
+
+/* BLOCK 3. THE TWO LISTS. This is the block the node exists for, so it is on the
+   surface: not behind a link, not in a second modal, not in the terms. */
+.wf-lists { display: grid; grid-template-columns: 1fr; gap: var(--wf-s-2); }
+@container auth (min-width: 520px) { .wf-lists { grid-template-columns: 1fr 1fr; } }
+.wf-list-c {
+  display: flex; flex-direction: column; gap: var(--wf-s-1);
+  padding: var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+}
+.wf-list-c > h3 { font-size: var(--wf-t-s); font-weight: 600; }
+.wf-list-c ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-list-c li { font-size: var(--wf-t-xs); line-height: 1.5; color: var(--wf-ink-dim); padding-left: var(--wf-s-2); position: relative; }
+.wf-list-c li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 1px; background: var(--wf-line); }
+.wf-list-c li b { color: var(--wf-ink); font-weight: 600; }
+.wf-list-c--no li::before { top: 4px; height: 6px; width: 6px; border: 1px solid var(--wf-line); background: none; border-radius: 50%; }
+
+/* BLOCK 4. THE ROUND TRIP, DESCRIBED BEFORE IT STARTS, because it is the one
+   confusing step Related Job 2 forbids and the only thing this node can do about
+   it is make it predictable. Three steps, one line. */
+.wf-steps { display: grid; grid-template-columns: 1fr; gap: var(--wf-s-1); counter-reset: st; }
+@container auth (min-width: 520px) { .wf-steps { grid-template-columns: repeat(3, 1fr); } }
+.wf-step {
+  display: flex; gap: var(--wf-s-1); align-items: flex-start;
+  font-size: var(--wf-t-xs); line-height: 1.45; color: var(--wf-ink-dim);
+}
+.wf-step::before {
+  counter-increment: st; content: counter(st);
+  flex: 0 0 18px; height: 18px; border: 1px solid var(--wf-line-soft); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; color: var(--wf-ink);
+}
+.wf-step b { color: var(--wf-ink); font-weight: 600; }
+
+/* BLOCK 5. THE STARTER CREDIT AND THE CONSTRAINT IT DOES NOT GET TO SOFTEN.
+   C4: the sum required to withdraw is stated before the deposit and can never
+   rise. If the credit is named here its threshold is named in the same block. */
+.wf-offer {
+  display: flex; flex-direction: column; gap: var(--wf-s-half);
+  padding: var(--wf-s-2);
+  border: 1px dashed var(--wf-line); border-radius: var(--wf-r-2);
+  font-size: var(--wf-t-xs); line-height: 1.5; color: var(--wf-ink-dim);
+}
+.wf-offer b { color: var(--wf-ink); font-weight: 600; }
+
+/* THE FAILURE BLOCK, 2.5 AND 2.6. It replaces blocks 1 and 3 IN PLACE and keeps
+   block 2 visible, because the moment a sign in fails is exactly when a person
+   re-reads what the site wanted from them. */
+.wf-fail {
+  display: flex; flex-direction: column; gap: var(--wf-s-1);
+  padding: var(--wf-s-2);
+  border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
+  background: var(--wf-raised);
+}
+.wf-fail-h { font-size: var(--wf-t-m); font-weight: 600; }
+.wf-fail-p { font-size: var(--wf-t-s); color: var(--wf-ink-dim); line-height: 1.5; }
+.wf-fail-p b { color: var(--wf-ink); }
+.wf-fail-ref { font-family: var(--wf-mono); font-size: var(--wf-t-xs); color: var(--wf-ink-faint); }
+.wf-fail-acts { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); margin-top: var(--wf-s-half); }
+
+/* THE H1 SHARES THE CARD'S MEASURE. blocks.md T5 is a centred single card in one
+   column, and a heading on the page column's edge with the card in the middle is
+   two measures on one surface. The dialog carrier has no H1 at all, D-54. */
+.wf-auth-page { width: 100%; max-width: 620px; margin: 0 auto; }

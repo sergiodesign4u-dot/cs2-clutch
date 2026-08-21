@@ -1097,6 +1097,58 @@
 
 </main>
 
+<section id="signin">
+  <div class="sec-head">
+    <h2>Node 2.4 sign in: one card, two carriers, five pages</h2>
+    <p>Founder, 21 August 2026. <strong>The carrier changed before a pixel was drawn</strong>, and the IA was amended first. Live from <code>wireframes/docs/screens.md</code> section 36 and <code>ia/docs/pages/signin.md</code> section 0.9. <code>D-54</code>.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>What the change is worth, and it is smaller than it sounds</h4>
+    <p><strong>A dialog does not remove a step.</strong> The Steam round trip is unchanged, the gate still fires first, the tap count is untouched. <strong>It removes a loss.</strong> On a page, the case a person chose, the count they set and the price they were reading are behind them; in a dialog they are behind the scrim, still on the screen, <strong>so a person can see the thing they are signing in for while they decide whether to sign in.</strong></p>
+    <p>The route defect in the flows narrows from four screens to three and <strong>does not close</strong>. The flows now say so at the place that counted them.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The map already held this type, and 2.4 was the exception</h4>
+    <p>The IA registry carries five node types and <strong>dialog is one of them</strong>. 2.1 the geo gate has been a dialog since it was written and 0.4 cookie consent is the second, so <strong>2.4 was the only node in cluster 2 typed as a page while its own flow put it on top of another screen.</strong></p>
+    <p><strong>The two dialogs in cluster 2 are opposites, and both are right.</strong> The gate has no address and its decline persists rather than resetting with the dialog, because a gate re-answerable by reloading teaches the answer. Sign in keeps its address and its dismissal is free, because a person who will not sign in is not ejected. <strong>They are never on screen at once:</strong> the gate fires first and the sign-in dialog opens only once it has passed.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>These five pages are the address, and the address is why the SEO block survived</h4>
+    <p><code>/signin</code> is still real: the cold arrival for a typed URL, a deep link, a session with no script, a crawler, and the node&#39;s own "already signed in" state, which exists precisely because a person can type it. <strong>Deleting it would have deleted four reasoned rules without a decision being taken about any of them.</strong></p>
+    <p><strong>What this carrier has that the dialog will not:</strong> the H1, the H2 outline, the footer, and block 6 as a real crawlable link. The dialog gets no H1 because the host page owns that outline, no footer because the surface behind already has one, and no block 6 link because <strong>the dismissal is block 6</strong>.</p>
+    <p><strong>The card is built once, in <code>_nav.js</code>.</strong> Six copies of one statement is how five of them rot and the shortest becomes the real one, and the statement is the reason the node exists. The five pages differ by one attribute.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Page</th><th>State</th><th>What is different</th></tr></thead>
+      <tbody>
+        <tr><td><a href="signin.html">signin.html</a></td><td>Consent not given</td><td>Both declarations clear, the provider control a real disabled button rather than a dimmed div, and <strong>the reason in words</strong> under it</td></tr>
+        <tr><td><a href="signin-consent-partial.html">consent-partial</a></td><td>One of two given</td><td>The control stays inert and the text <strong>names which declaration is missing</strong>. Two declarations means two failure messages</td></tr>
+        <tr><td><a href="signin-consent-given.html">consent-given</a></td><td>Consent given</td><td>The control becomes available and <strong>nothing else moves</strong>, because a card that rearranges itself when a box is ticked has moved the target you were aiming at</td></tr>
+        <tr><td><a href="signin-steam-refused.html">steam-refused</a></td><td>2.5</td><td>The failure replaces blocks 1 and 3 in place, <strong>block 2 stays visible</strong>, and the message names which side failed with the reference as a secondary line rather than as the message</td></tr>
+        <tr><td><a href="signin-steam-unavailable.html">steam-unavailable</a></td><td>2.6</td><td>The failure is Steam&#39;s and the sentence says so first. <strong>No spinner and no promised time</strong>, because the interval is unknown and a countdown that expires into the same failure is worse than none</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>Three things carried in the open</h4>
+    <p><strong>Every field of the "what we read" list is unknown.</strong> What Steam OpenID returns and what the Web API returns are technical facts with no source opened in this repository, and <strong>a permission list written from memory is a permission invented from memory</strong>. The rows are drawn, the rule is drawn, the values are not.</p>
+    <p><strong>The starter credit and its withdrawal threshold are both unknown</strong>, and the constraint is printed beside them anyway: whatever the figure is, it is stated before the deposit and can never rise.</p>
+    <p><strong>The starter credit stays on screen in 2.5 and 2.6.</strong> The node replaces blocks 1 and 3 on a failure and says nothing about block 5, so cutting it would have been a silent divergence. <strong>Two things about that want a founder&#39;s second look and are raised rather than fixed:</strong> an offer beside a failure message, and, in 2.6, an offer that cannot be acted on while the provider is down.</p>
+  </div>
+
+  <div class="card">
+    <h4>Measured</h4>
+    <p><strong>294 checks</strong>, 22 pages by 7 widths by both rail states: no page scrolls sideways at any width, no collapsed leaf, no wrapped button label. The only failures are the two known catalogue 404s, which predate this step.</p>
+    <p><strong>The node&#39;s one hard adaptive requirement, checked rather than assumed:</strong> blocks 1 and 2 both above the fold at 360px. The consent block ends at 517px in the default state and 501px in the partial state, so both clear a 640px viewport and an 800px one. <strong>In 2.5 at a 640px tall viewport the consent block starts above the fold and ends 30px under it</strong>, which the node permits, because there the requirement is that block 2 stays visible rather than that it fits above the fold.</p>
+  </div>
+</section>
+
 <footer class="doc">
   <p>Sources of truth: <code>wireframes/docs/screens.md</code> and <code>wireframes/docs/conventions.md</code>. The screen registry: <code>wireframes/_nav.js</code>. The grey contract: <code>wireframes/_wf.css</code>.</p>
   <p>Where these screens come from: <a href="../ia/structure.html">IA structure</a>, <a href="../ia/flows.md">flows</a>. The stage that colours copies of them: 06.</p>
@@ -1135,6 +1187,7 @@ window.NAV_SECTIONS = [
   { id: 'icons',       label: 'D-50 icon zones' },
   { id: 'drawer',      label: 'D-51 roll drawer' },
   { id: 'nowrap',      label: 'D-52 and D-53' },
+  { id: 'signin',      label: 'D-54 sign in' },
 ];
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';

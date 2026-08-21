@@ -1,18 +1,96 @@
 # Node 2.4. Sign in with Steam
 
-**Type:** page. **Group:** `pages`. **Scope:** MVP. **Cluster:** 2, get through the door. **Alias:** `S-B2`.
+**Type:** dialog, with an address. **Group:** `pages`. **Scope:** MVP. **Cluster:** 2, get through the door. **Alias:** `S-B2`.
 
 **Purpose.** Take a person out to Steam OpenID and back, and state, before they leave, exactly what this product will and will not read from their Steam account.
 
 **Jobs served.** Related Job 2, complete the first open without friction, `jtbd.md`, which is what the round trip is spent against. **Parent class:** barrier `B3-1`, an unreadable Steam login failure, by way of row `B5`; and barrier `B3-2`, onboarding that asks for anything unusual, by way of row `B6`. Barrier class for both. `jtbd.md` records that registration reaches Core Job 3 only through rows `B1` and `B2`, which are `2.7`'s, not this node's, so this node claims no core job.
 
-**URL.** `/signin`. **Indexed:** no, `noindex, follow`, canonical self, no schema, no breadcrumb. `0.13` section 3.
+**URL.** `/signin`, and it survives the change of carrier. **Indexed:** no, `noindex, follow`, canonical self, no schema, no breadcrumb. `0.13` section 3. **The address renders the same content as a full page, the dialog renders it over the surface a person is already on, and neither is a reduced version of the other.** Section 0.9.
 
 **States:** `2.5` Steam refused and `2.6` Steam unavailable, both specified below under their own anchors.
 
 **Transitions:** `2.5`, `2.6`, then the starter credit into `3.5`.
 
-**Cluster 2 is three screens nobody chooses to visit.** This one is the tax on the main job, and section 2 counts it rather than hiding it.
+**Cluster 2 is three surfaces nobody chooses to visit, and since `D-54` two of the three are dialogs.** This one is the tax on the main job, and section 2 counts it rather than hiding it. **What `D-54` changed is not the size of the tax but who pays the context for it:** section 0.9.
+
+---
+
+## 0.9 Amended 21 August 2026 by `D-54`. The carrier is a dialog
+
+**The founder's decision: sign in is a dialog, drawn once as a canon and then mounted on every surface where a guest stands.** This section is the amendment. Everything above and below it holds, and where a paragraph was written assuming a page it is marked here rather than rewritten in place.
+
+### 0.9.1 What was wrong with the page, in the node's own words
+
+**Section 2 already carried the cost and could not pay it.** `flows.md` records the route defect: a first-time visitor touches four distinct screens before the activation node, the threshold is three, and the product defers its first value further than the research promised. The node's own answer was narrow and honest: make the round trip predictable, so the one confusing step is not ours.
+
+**A dialog does not remove a step and this node does not claim that it does.** The Steam round trip is unchanged, the gate still fires first, the tap count in `CLAUDE.md` is unchanged. **What it removes is a loss.** On a page, the case a person chose, the count they set and the price they were reading are behind them. In a dialog they are behind the scrim, still on the screen, and the person can see the thing they are signing in for while they decide whether to sign in. **That is the argument, and it is smaller than "the route defect is fixed" on purpose.** The defect is narrowed from four screens to three, and the step count is untouched.
+
+### 0.9.2 The map already had this type, and this node was the exception
+
+`ia/_nav.js` carries five node types and **`dialog` is one of them**. Cluster 2's other member, `2.1` the geo gate, has been a dialog since it was written, and `0.4` cookie consent is the second. **`2.4` was the only node in cluster 2 typed as a page while its own flow put it on top of another screen.** The change is the map becoming consistent with itself rather than a new pattern entering it.
+
+### 0.9.3 Two dialogs in cluster 2, and they are opposites
+
+| | `2.1` geo gate | `2.4` sign in |
+|---|---|---|
+| **Address** | **None.** It returns 200 at the URL the person is already on, `0.13` section 4.4 | **`/signin`, kept.** The account control points at it and a person can type it |
+| **Dismissal** | The decline persists rather than resetting with the dialog, section 7 of `gate.md`. A gate re-answerable by reloading teaches the answer | **Free, and by design.** Block 6 says a person who will not sign in is not ejected, and the dismissal is now what enforces that rather than a link they have to notice |
+| **What it asks** | A question about the market, answered for them | A declaration they make, twice, `D-26` |
+
+**They are never on screen at once.** On the case screen the first interaction fires the gate, and the sign-in dialog opens only after the gate has passed. Two layers in sequence, never stacked, and stage 04 draws them that way.
+
+### 0.9.4 The address is the cold arrival, and it is why the SEO block survives
+
+**One content, two carriers.** The dialog is for the person who is already inside the product and reached a control they cannot use. **The address is for everyone else:** a typed URL, a deep link, a session with no script, a crawler, and the "already signed in" state in section 4 which exists precisely because a person can type `/signin`.
+
+**Deleting the address would have silently deleted four reasoned rules,** all of them in section 9 checklist E: that `noindex` is a meta tag readable at a URL, that the route back is a crawlable `<a href>`, that the statement is text rather than an image, and that the surface is identical for a person and a crawler. **A rule stops applying by decision, not by a carrier change.** So the address stays, and the canon drawn at stage 04 is the address.
+
+### 0.9.5 The dialog contract, inherited and not invented
+
+`0.1` section 6 fixed the modal contract for this product and this node takes it rather than writing a second one: **the scrim blocks the content behind, and nothing is raised above the scrim.** Three dismissals, and the first of the three is renamed because there is nothing to select here:
+
+- **The close control**, present at every width.
+- **The scrim.**
+- **Escape**, and dismissing records nothing.
+
+**Focus moves in on open and is trapped, and returns to the control that opened it**, which is `gate.md` section 11's wording and applies unchanged. **The surface behind is inert and is never removed**, which is `0.1`'s own rule for a gate open and holds for the same reason: removing the carriers would make the dialog read as an ejection rather than a step.
+
+**The dialog never closes itself.** Not on `2.5`, not on `2.6`, not on a timer. A layer that vanishes on failure returns a person to a screen that cannot explain what just happened, and section 5's whole subject is a failure that told a person something false.
+
+### 0.9.6 What the amendment changes in the sections below
+
+| Section | Held | Changed |
+|---|---|---|
+| 0, the two lists | Whole | Nothing. It is the reason the node exists and it is in the dialog, not behind a link inside it |
+| 1, what this is not | Whole | Nothing |
+| 2, the route defect | The defect and the rejected fix | Narrowed to three screens, section 0.9.1, and still not closed |
+| 3, blocks | All seven | **Block 6 becomes the dismissal**, and **block 7 the footer belongs to the address only.** A dialog does not carry a footer, and the surface behind already has one |
+| 4, states | All | **Three carrier states added**, section 0.9.7 |
+| 8, adaptive | The one hard requirement at 360px | **The shape that keeps it**, section 0.9.8 |
+| 9, SEO | The whole block, at the address | **The heading rule in the dialog**, section 0.9.9 |
+
+### 0.9.7 The three carrier states this amendment adds
+
+| State | Behaviour |
+|---|---|
+| **Opened over a surface** | The scrim, the trapped focus, the inert surface behind. The surface keeps its own state: the case, the count, the price. Nothing behind the scrim is reset by opening or by dismissing |
+| **Arrived at the address** | The same content as a full page, one column, centred, with the footer `0.2` and the navigation `0.1` in their guest shape. No scrim, no close control, and the route back is block 6 as a link |
+| **Dismissed without signing in** | Returns the person exactly where they were with nothing lost and nothing recorded, which is block 6 satisfied structurally. From the address there is nothing to dismiss, so block 6 is a link there and the two carriers are not asked to behave identically |
+
+### 0.9.8 Adaptive, the amended shape
+
+**The one hard requirement in section 8 is unchanged and now it decides the shape:** blocks 1 and 2 are both above the fold at 360px.
+
+- **At 360px the dialog is a full height sheet, not a centred card.** A centred card at that width is a card with margins above and below it, and the fold arrives sooner than on the page the requirement was written for. A sheet has the same fold as a page, so the requirement is met by the same block order rather than by cutting blocks.
+- **From the width where a centred card fits without shortening the list, it is a centred card** with the measure section 8 already fixes, and the scrim around it.
+- **The block order never changes between the two carriers or between the two widths.** A person who read the statement on the address and meets the dialog later is reading the same document in the same order.
+
+### 0.9.9 The heading rule, because two H1 elements is the obvious defect here
+
+**The address carries the H1** and the H2 list in section 9B, unchanged.
+
+**The dialog carries no H1.** The surface behind it already has one, and a dialog that adds a second has broken the document outline of a page it does not own. **In the dialog the same text is the accessible name of the dialog**, and its headings step down one level from the address's. The text is identical in both carriers, which is the property section 0 is protecting.
 
 ---
 
@@ -53,6 +131,8 @@
 
 **And it is a named route defect rather than a clean path.** `flows.md` states it: a first-time visitor touches four distinct screens before the activation node, the threshold is three, and **the product defers its first value further than the research promised**. Related Job 2 asks for the entire open-to-result experience in under 60 seconds without a confusing step, and a Steam OpenID round trip is not that.
 
+**Amended by `D-54`: the count is three and the step count is unchanged.** Section 0.9.1.
+
 **The obvious fix is already rejected on the record**, so this node carries the cost rather than reopening it: a free demo reveal on identical odds and seeds was dropped in the T2 divergence in `cjm-to-be.md`, because it argues our case by demonstrating that the sceptic is right about the odds, and it spends the reveal, the one thing we sell, before anyone has decided anything.
 
 **What this node can do about it is narrow and is done:** make the round trip predictable, so the one confusing step is not ours. Block 4 in section 3 exists for exactly that.
@@ -70,8 +150,8 @@ Composition from `blocks.md` section 6, T5. Refero ShareWillow gives the craft f
 | 3 | **The will and will not read statement**, on the page, not behind a link, not in a modal, not in the terms | `B3-2` by way of row `B6`. **This is the node's reason for existing**, section 0 |
 | 4 | **What happens next**, three steps in one line: you land on Steam, you type your password there and never here, you come back | `B3-1` by way of row `B5`. The round trip is the confusing step Related Job 2 forbids, so it is described before it starts |
 | 5 | **The starter credit, stated as an offer with its terms**, because `1.0` already made it pre-login and this is where it is met | Row `I1`, bound to `C4`, `D1` and `A1`, which is not optional, `cjm-to-be.md` answer 1 |
-| 6 | **The route back into reading without signing in** | `2.6`'s principle applied to the default state: a person who will not sign in is not ejected. Related Job 1 |
-| 7 | **The footer** `0.2`, carrying the 18+ statement, the responsible play link and the market statement | The compliance constraints in `CLAUDE.md`. Inherited, not specified here |
+| 6 | **The route back into reading without signing in.** **In the dialog this is the dismissal, `D-54`**, and at the address it is a link | `2.6`'s principle applied to the default state: a person who will not sign in is not ejected. Related Job 1 |
+| 7 | **The footer** `0.2`, carrying the 18+ statement, the responsible play link and the market statement. **At the address only since `D-54`:** a dialog carries no footer, and the surface behind it already has this one | The compliance constraints in `CLAUDE.md`. Inherited, not specified here |
 
 **Block 5 carries a constraint it does not get to soften.** `C4`: the amount required to withdraw is stated before the deposit and **can never rise**. `cjm-to-be.md` records the narrative that makes this non-negotiable, barrier `B4-1`, a threshold that climbed from 5 to 12 to 15 dollars after a free open. If the starter credit is mentioned on this page, its withdrawal threshold is mentioned in the same block. And the residual risk travels with it, unsmoothed: **the credit teaches a first-session user that opening is free**, which is the one impression the rest of the map spends its budget contradicting.
 
@@ -96,6 +176,8 @@ Composition from `blocks.md` section 6, T5. Refero ShareWillow gives the craft f
 | **Already signed in** | no | A person can type `/signin`, so the page has to answer in every account state. It routes them on rather than showing a sign-in control for an account they have |
 | **`2.5` Steam refused** | yes | Section 5 |
 | **`2.6` Steam unavailable** | yes | Section 6 |
+
+**Three carrier states are added on top of this table by `D-54`**, section 0.9.7: opened over a surface, arrived at the address, dismissed without signing in.
 
 ### The states this node adds to the map, named rather than smuggled in
 
@@ -169,13 +251,15 @@ That is a genuine cross-node dependency and it runs both ways: if the probe is n
 
 **`0.1` renders**, and in its guest shape: three rail destinations, no money figures in the header, and on mobile a bottom bar of three. Sign in is not a rail destination, it is reached from the header's account control and from `1.0`.
 
+**The scrim and the modal contract are `0.1`'s**, section 6, taken whole rather than written again here. `D-54`, and section 0.9.5 names the one renamed dismissal.
+
 **Nothing from the emotional and social table lives on this node**, checked against `sitemap.md` rather than assumed.
 
 ---
 
 ## 8. Adaptive behaviour
 
-**One column at every width.** A centred single card, `blocks.md` T5, with a measure that does not stretch on desktop.
+**One column at every width.** A centred single card, `blocks.md` T5, with a measure that does not stretch on desktop. **Since `D-54` the carrier decides which shape carries that column at 360px**, and section 0.9.8 is the rule: a full height sheet at 360px, a centred card above it, the same block order in both.
 
 **The block order is the mobile order and it does not change on desktop.** The one hard requirement at 360px: **blocks 1 and 2 are both above the fold.** The statement is what answers `B3-2`, and a statement a person has to scroll to reach has been designed as fine print. If something must fall below the fold at 360px it is block 4 or block 5, never block 2.
 
@@ -198,7 +282,7 @@ That is a genuine cross-node dependency and it runs both ways: if the probe is n
 | `hreflang` | **None.** One language, `0.13` section 1 |
 | OG and Twitter | **Deliberately absent.** A share card for a sign-in page is a card for a page nobody should be sharing, and nothing links here from outside on purpose |
 
-**B. Headings.** One H1, and the H2 list is the block order, which is `0.13` section 5's mechanical check.
+**B. Headings.** One H1, and the H2 list is the block order, which is `0.13` section 5's mechanical check. **This is the address's outline. The dialog carries no H1 at all, `D-54`**, section 0.9.9.
 
 - **H1:** Sign in with Steam
 - **H2:** What we read from your Steam account

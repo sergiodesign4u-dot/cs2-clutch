@@ -59,7 +59,7 @@ window.IA_NAV = [
 
   // Cluster 2. Get through the door.
   { node: '2.1', label: 'Geo gate',                file: 'gate.html',       group: 'pages',  type: 'dialog',         states: 1, done: true  },
-  { node: '2.4', label: 'Sign in with Steam',      file: 'signin.html',     group: 'pages',  type: 'page',           states: 2, done: true  },
+  { node: '2.4', label: 'Sign in with Steam',      file: 'signin.html',     group: 'pages',  type: 'dialog',         states: 2, done: true  },
   { node: '2.7', label: 'Identity verification',   file: 'identity.html',   group: 'pages',  type: 'page',           states: 2, done: true  }, // LATER since D-26, kept on the map so the free-entry hole stays visible
 
   // Cluster 3. Choose what to open, and open it.

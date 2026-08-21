@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steam is not answering. CS2 Clutch</title>
+  <meta name="description" content="Sign in with Steam OpenID. We never ask for your password and we never change anything on your Steam account.">
+  <!-- NODE 2.4, THE ADDRESS CARRIER, D-54 of 21 August 2026.
+       The founder made this node a dialog. THE ADDRESS SURVIVED THE CHANGE OF
+       CARRIER, and this page is it: the cold arrival for a typed URL, a deep
+       link, a session with no script, a crawler, and the node's own "already
+       signed in" state, which exists precisely because a person can type it.
+       Deleting the address would have silently deleted four reasoned rules from
+       the node's SEO checklist E: that noindex is a meta tag readable at a URL,
+       that the route back is a crawlable anchor, that the statement is text
+       rather than an image, and that the surface is identical for a person and a
+       crawler. A rule stops applying by decision, never as a side effect.
+       ONE CONTENT, TWO CARRIERS, and neither is a reduced version of the other.
+       The card is built once in _nav.js and mounted from there, because six
+       copies of one statement is how five of them rot and the shortest becomes
+       the real one.
+       WHAT THIS CARRIER HAS THAT THE DIALOG DOES NOT: the H1, the H2 outline, the
+       footer 0.2, and block 6 as a real link. The dialog carries no H1 because
+       the host page owns that outline, no footer because the surface behind it
+       already has one, and no block 6 link because the dismissal is block 6.
+       STATE 2.6, STEAM UNAVAILABLE. Steam is down, not refusing, and the design job is
+       to keep the product readable: flows.md routes this state back to the case
+       screen because A PERSON WHO CANNOT SIGN IN IS NOT EJECTED. No spinner, and no
+       promised retry time we do not have. -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">≡</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <!-- ONE H1, and the H2 list below it is the block order, which is 0.13
+         section 5's mechanical check. NO OG AND NO TWITTER CARD, deliberately:
+         a share card for a sign in page is a card for a page nobody should be
+         sharing, and nothing links here from outside on purpose. -->
+    <div class="wf-auth-page">
+    <h1>Sign in with Steam</h1>
+
+    <!-- THE CARD. data-state is the only thing that differs between the five
+         pages of this node, because the states are states of one document and
+         not five documents. -->
+    <div class="wf-auth" id="wf-auth" data-state="unavailable"></div>
+    </div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: false, active: 'signin-steam-unavailable.html' };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>
