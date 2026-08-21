@@ -10,9 +10,9 @@
 
 **Jobs served.** The **Main Job** in full, quoted from `jtbd.md` because this is the node where it completes: "When I am embedded in the CS2 ecosystem and want excitement beyond the game itself, I want a chance at a rare skin I actually want, with a reveal that feels real and unpredictable, so that I get the rush of a genuine drop and potentially end up with something worth having." Also **Emotional Job 1**, genuine suspense rather than manufactured tension; **Emotional Job 2**, a win worth talking about; **Related Job 3**, verify the outcome after I open; **Related Job 1** and **Social Job 2** in the pre-login reading of the page. **Parent class:** job and barrier together, by rows `D1` to `D4`, `E1` to `E4` and `F1` to `F4`.
 
-**States held in this file:** `3.4` item at zero free units, `3.5` phase 2 the open, `3.6` phase 3 the outcome, `3.7` interrupted reveal. Each under its own anchor, none as a separate file.
+**States held in this file:** `3.5` phase 2 the open, `3.6` phase 3 the outcome, `3.7` interrupted reveal. Each under its own anchor, none as a separate file. **`3.4` item at zero free units was dissolved on 21 August 2026 by `D-60`** and its section is kept as a record, section 6.
 
-**Transitions:** `2.1`, `3.4`, `3.5`, then `3.6` and `3.7`, then `1.2`, `5.1`, `7.1`. Entered from `1.0`, from `3.1`, from search, and from any shared link.
+**Transitions:** `2.1`, `3.5`, then `3.6` and `3.7`, then `1.2`, `5.1`, `7.1`. Entered from `1.0`, from `3.1`, from search, and from any shared link. **`3.4` left this list on 21 August 2026, `D-60`.**
 
 ---
 
@@ -155,7 +155,7 @@ Composition from `blocks.md` section 4, T3 object detail with a live event. Orde
 
 **Ordered by ticket range inside each tier, and that is the default.** The ticket range is the interval the roll resolves against, `baseline.md` section 4 and the Drop table entry in `sitemap.md`. **An order a person can reconstruct is an order they can check**, which is the same argument `0.14` makes about the hash. Sorting by chance or by value is a control the person may apply, and every row keeps its ticket range, so the checkable order is never lost.
 
-**Card fields, from `0.6`.** Weapon name, skin name, wear grade, image, current value, drop chance, ticket range, rarity treatment. **Rarity, wear and StatTrak are three axes and not one**, `blocks.md` section 11, which records that `0.6` gained a third field from the bank pass. Free-unit count `A2` renders on the card as well, because `3.4` is a card level state.
+**Card fields, from `0.6`.** Weapon name, skin name, wear grade, image, current value, drop chance, ticket range, rarity treatment. **Rarity, wear and StatTrak are three axes and not one**, `blocks.md` section 11, which records that `0.6` gained a third field from the bank pass. **The free-unit count `A2` left this card on 21 August 2026, `D-60`**, with the state it existed for.
 
 **The outbound market link sits on the top item only**, row `A1`, and it is genuinely outbound. `cjm-to-be.md` records that outbound clicks are tracked as an accepted cost and never as a failure metric, which is what stops the link from being quietly weakened later. `flows.md` flow 1 paints that route red because it leaves the product, and T2 accepted the cost in writing.
 
@@ -200,7 +200,19 @@ Composition from `blocks.md` section 4, T3 object detail with a live event. Orde
 
 ---
 
-## 6. Node `3.4`. Item at zero free units {#3.4}
+## 6. Node `3.4`. Item at zero free units. **Dissolved 21 August 2026 by `D-60`** {#3.4}
+
+**Type:** state. **Scope:** ~~MVP~~ **dissolved.** **Parent node:** `3.3`. **No URL.**
+
+**Every item is current and available.** The drop table is not backed by a shelf that can run short, so this state has no subject and the node is dissolved rather than deferred: a deferred node is one that arrives later, and this one cannot arrive at all under the model the founder set on 21 August 2026.
+
+**The whole section below is kept, unedited, and it is the most valuable thing this node ever produced.** Section 6.1 found a three way contradiction between `D1`, `D2` and `D3` that had no design answer, only a treasury one. **`D-60` does not answer it. It removes the condition that made it fire**, which is a better outcome than any of the three readings, and that is worth reading in full before anyone reintroduces a stock-backed table.
+
+**What replaces it: nothing on this screen, and a requirement one cluster away.** The guarantee moved from the shelf end to the payout end. If a win cannot go to Steam, there is an exchange for a real skin or a sale back to the site. **That is `5.3`'s to specify and it is new**, recorded in `sitemap.md` under the `D-60` debt.
+
+**Kept below as the record of a dissolved node:**
+
+---
 
 **Type:** state. **Scope:** MVP. **Parent node:** `3.3`. **No URL.** **Route out:** back to `3.3`, which is the page it is already on.
 
@@ -227,6 +239,8 @@ Composition from `blocks.md` section 4, T3 object detail with a live event. Orde
 **Recommendation: C for a small backed catalogue, A with a stated recomputation for a large one, and B never.** The choice is not a design decision. It is a settlement and treasury decision that changes the meaning of two published numbers, so it goes in section 17 with an owner and a date, and stage 04 draws the card the same way under all three.
 
 **This is what a state node is for.** Without `3.4` this question arrives at implementation as a bug report about a percentage that moved.
+
+**End of the dissolved node. `D-60` chose none of A, B or C: it removed the shelf, and with it the question.**
 
 ---
 
@@ -419,7 +433,7 @@ Rows are what varies. Every published figure on this page additionally inherits 
 | **Count switch at two** | **Two reveal boxes, `D-46` as corrected by `D-47`. The showcase stays one strip** | The trigger restates the **total**, `2 × 12.40 coins`, and the balance relationship is stated against that total | **Drawn.** `D-31` for the switch, `D-46` for the stage following it. **The switch never persists across visits.** A remembered five is a multiplier that spends without being chosen again |
 | **Count switch at five** | **Five reveal boxes**, shorter as well as narrower at 360. **The showcase is unchanged: the contents are the contents** | The trigger restates `5 × 12.40 coins` | **Drawn.** Two is the shape and five is the load, the same pair `D-35` drew for the reveal and the outcome |
 | **Account, nothing to open with** | Full page | Routes to `4.1` deposit, or consumes a free entry if one is available | `I1` and `I2` are entitlements, not surfaces. The trigger states which it will consume before it is tapped |
-| **Item at zero free units** | Node `3.4` | Unchanged. The case is still openable | Section 6 |
+| ~~**Item at zero free units**~~ | ~~Node `3.4`~~ | **Dissolved 21 August 2026, `D-60`** | Section 6 keeps the record |
 | **Loading the table** | Skeleton with the free-unit counts as the thing being waited on | Not yet armed | Specified here, not a node, per `sitemap.md` |
 | **No drops from this case yet** | Block 4 says so in its own words and renders nothing else | Unchanged | **It never borrows another case's outcomes to fill the row**, which is `A3`'s no-invented-content rule applied to a carrier rather than to a name. A new case has no history and the honest row says that |
 | **Fewer recent drops than the row holds** | Block 4 renders what exists and does not pad | Unchanged | The count is what it is. Padding a row to a round number is the same defect one level down |

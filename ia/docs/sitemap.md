@@ -30,7 +30,7 @@ The object a person chooses and pays to open. The unit of the main job.
 
 ### 2. Drop table entry
 
-One line of a case: this skin, at this chance, at this value, with this many free units. It is the object four separate backlog rows attach to, which is why it is an entity and not a field.
+One line of a case: this skin, at this chance, at this value. **The free unit count left this entity on 21 August 2026, `D-60`.** It is the object several backlog rows attach to, which is why it is an entity and not a field.
 
 **Parts:** the Skin it points at; published chance as a percentage, `D2`; current value, `D2`; live market price with timestamp and an outbound market link on the top item, `A1`; live free-unit count, `A2`; observed rate beside the published percentage, `D3`, conditional on `D-B`; the roll interval this entry occupies.
 
@@ -258,8 +258,8 @@ What every intent cluster inherits. Group `global`, all MVP, because a shell tha
 | **0.3** | System pages | page | MVP | 404 as a full page with search and quick links and HTTP 404, 500 as a backend-independent template, maintenance as 503 with `Retry-After`. Never a soft 404, never a dead end | 1.0, 3.1 |
 | **0.4** | Cookie consent | dialog | MVP | Prior consent rather than default-on, reject as easy as accept, analytics and marketing off until opted in, link to the policy. Grounded in law at step 7, not written from memory | 0.2 policy |
 | **0.5** | Toasts and notifications | component | MVP | `aria-live` region, transient confirmations and failures, no SEO weight, never the only place a state is announced | none |
-| **0.6** | Canonical skin item card | component | MVP | Weapon name, skin name, wear grade, image, current value, drop chance, ticket range, rarity treatment. **Rarity is `[?]` until the ladder is walked**, which this stage owes before step 5 | used by **1.0**, 3.1, 3.3, 5.1, 5.3, 7.1. **1.0 added by the step 8 audit:** `numbers.md` places this card on Home twice, for current value `D2` and the free unit count `A2`, and this row did not hold it |
-| **0.7** | Canonical case tile | component | MVP | Case artwork as the largest element, case name, entry cost, risk band, plus a stock marker and a daily marker where each applies, plus the favourite control. **Rewritten by `D-24`, 18 August 2026:** the item count left the tile and the risk band and the favourite arrived | used by 1.0, 3.1 |
+| **0.6** | Canonical skin item card | component | MVP | Weapon name, skin name, wear grade, image, current value, drop chance, ticket range, rarity treatment. **The free unit count left this card on 21 August 2026, `D-60`.** **Rarity is `[?]` until the ladder is walked**, which this stage owes before step 5 | used by **1.0**, 3.1, 3.3, 5.1, 5.3, 7.1. **1.0 added by the step 8 audit:** `numbers.md` places this card on Home twice, for current value `D2` and the free unit count `A2`, and this row did not hold it |
+| **0.7** | Canonical case tile | component | MVP | Case artwork as the largest element, case name, entry cost, risk band, plus the favourite control. **Rewritten by `D-24`, 18 August 2026**, and **both markers removed on 21 August 2026 by `D-60` and `D-61`** | used by 1.0, 3.1 |
 | **0.8** | Live drop ticker | component | MVP | Continuous tile strip, source mode label, weapon and skin, rarity tint, and a destination on every tile | **renders on 1.0 only since `D-31`, 19 August 2026**, and every tile lands on 7.1. It left 3.3 by founder decision, and the cost is that this component now has one consumer |
 | **0.9** | Legal and policy pages | page | MVP | Four documents on one template: Terms of use, Privacy policy, Cookie policy, Refund and payments policy. Each has its own URL and its own indexation. The template is the node: last updated date, a plain-language summary above the document, the document, the version history | 0.10, and 0.4 links the cookie policy |
 | **0.10** | Support and contact | page | MVP | The contact route Article 5(c) requires, "contacted rapidly and communicated with in a direct and effective manner", plus the appeal route row `G4` requires with its **published response deadline**. Not a policy page: it has a function and a service level | 0.9, 5.3 |
@@ -361,9 +361,9 @@ Three screens nobody chooses to visit. Naming the cluster by intent is what keep
 | No | Name | Type | Scope | INCLUDES | Transitions |
 |---|---|---|---|---|---|
 | **3.1** | Case catalogue | page | MVP | `S-C1`. Category bar, search and filters, **the daily free case as an addressable case rather than a banner**, case tiles 0.7, live free-unit counts. **Off the main path** by `D-20`: reached as all cases, not as a compulsory hop | 3.2, 3.3 |
-| **3.2** | Catalogue, nothing matches | state | MVP | Zero-stock items stay visible and marked rather than filtered out, `D1`, so the shelf is legibly empty rather than silently short | 3.1 |
-| **3.3** | Case screen, phase 1 choosing | page | MVP | `S-C2`. Published chance and current value per item `D2`, the observed rate counter `D3` **conditional on `D-B`**, published tested RTP and EV at this entry cost `D4`, stock-backed table `D1`, item cards 0.6. **The ticker `0.8` left this screen on 19 August 2026, `D-31`**, and renders on `1.0` only | 2.1, 3.4, 3.5 |
-| **3.4** | Item at zero free units | state | MVP | Shown before the open and never after, `D1` | 3.3 |
+| **3.2** | Catalogue, nothing matches | state | MVP | **The zero-stock rule is void since `D-60`.** What remains is the state a filter or a search produces, and nothing about stock | 3.1 |
+| **3.3** | Case screen, phase 1 choosing | page | MVP | `S-C2`. Published chance and current value per item `D2`, the observed rate counter `D3` **conditional on `D-B`**, published tested RTP and EV at this entry cost `D4`, stock-backed table `D1`, item cards 0.6. **The ticker `0.8` came back on 21 August 2026, `D-59`, and now renders on every page.** The stock-backed table `D1` is void since `D-60` | 2.1, 3.5 |
+| ~~**3.4**~~ | ~~Item at zero free units~~ | state | **Dissolved 21 Aug 2026, `D-60`** | Every item is current and available, so the state has no subject. **The section in `case.md` is kept**, because it holds the `D1`, `D2`, `D3` contradiction that `D-60` removed rather than answered | |
 | **3.5** | Case screen, phase 2, the open | state | MVP | The round hash at the spin trigger `E4`, the reveal renders the settled roll and computes nothing again `E1`, no near-miss theatre `E2`, rarity-differentiated linear reveal `E3` | 3.6, 3.7 |
 | **3.6** | Case screen, phase 3, the outcome | state | MVP | Instance value receipt `F1`, the receipt persists onto the item `F2`, post-reveal verification link `F3`, one-tap share `F4`. **The activation node**, `aarrr.md` "Primary metric (OMTM)" | 1.2, 5.1, 7.1 |
 | **3.7** | Interrupted reveal | state | MVP | The roll settled before the animation, so the result waits here and is also in 5.1. Without this node `B6-1` arrives through a missing state rather than through a bug | 3.6 |
@@ -741,3 +741,20 @@ The full defect log with both instruments, the merge and the verification notes 
 | `4.1` Deposit | **Somebody with no Steam linked is about to spend money.** Whether that is a warning, a block or nothing at all is `[?]` | Founder. It is `C4`'s own subject and not a layout question |
 
 **This is printed rather than absorbed**, because the entrance widening is a scope decision and the three states are its price. `docs/decisions.md` D-55, and node `2.4` section 0.10.2.
+
+
+---
+
+## Debt opened by `D-59`, `D-60` and `D-61`, 21 August 2026
+
+**Three founder decisions, and each one hands something to a node that has not been written.**
+
+| From | What is owed | Owner |
+|---|---|---|
+| `D-59` | **A public profile of another player.** The live feed's avatar now has a destination and the map has no node for it. `5.10` Profile is the account's own view of itself, `D-36`, and a public one is a different surface: what it shows, what an account can hide, and whether it exists at all before row `A3`'s labelling requirement is enforceable at the data layer. **Until it exists the destination is `[?]`** and stage 04 draws the target without a route, marked | Founder, then a node |
+| `D-59` | **What the feed costs the first screen.** It is on every page now, and `D-31` cut it from `3.3` because that screen carried too much. **Stage 04 measures it at 360 and reports**, and the measurement outranks the argument that a shell strip becomes furniture | Stage 04 |
+| `D-60` | **The payout guarantee.** Stock left the shelf end and the guarantee moved to the payout end: if a win cannot go to Steam there is an exchange for a real skin or a sale back to the site. **The sale back to coins exists, `D-38`. The exchange for a real skin does not**, and it is not the in-platform skin-for-skin exchange that `CLAUDE.md` keeps as LATER | `5.3`, then founder on the scope question |
+| `D-60` | **`D-D` changes shape.** The catalogue's scale was a treasury question about how large a **stock-backed** catalogue can be. Without a shelf the question is different and may be smaller. It is not closed here | Founder |
+| `D-61` | **Daily and bonus cases as their own objects.** `I2` still has no parent in any of the three legal classes and is still in MVP by founder decision, `D-15`. **What changed is which object carries it**, and no node yet says what a daily case is as a case | `3.1`, then founder |
+
+**Counts after these three: 67 map nodes of which 51 are MVP**, `3.4` having been dissolved. The count is derived here and nowhere else.

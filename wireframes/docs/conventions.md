@@ -65,6 +65,8 @@ The shell `0.1`, the footer `0.2`, the skin card `0.6`, the case tile `0.7`, the
 
 - **No control is disabled to express a precondition.** A dead control answers "why not" with nothing, and a person who cannot see what to do either leaves or writes to support. The control stays live and the refusal says what is missing, marks it where it is, and puts the keyboard on it. `D-58`.
 
+- **Every page this project publishes is measured, not only the ones the current stage is writing.** Two sweeps run: 315 checks over `wireframes/` at seven widths and both rail states, and 128 over `ia/`, `docs/` and the root at four widths. The second one found three IA pages that had scrolled sideways at 360px since the day each was written. `D-62`.
+
 ## 3. Naming
 
 - **Latin, from `ia/docs/sitemap.md`.**

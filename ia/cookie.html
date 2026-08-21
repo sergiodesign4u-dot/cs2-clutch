@@ -123,6 +123,14 @@
       .wf-grid { grid-template-columns: 1fr; }
       footer.doc { padding: 24px 20px; }
     }
+
+    /* FOUND AT 360 ON 21 AUGUST 2026: this page scrolled sideways by 36px and had
+       done since it was written. The phone mockup was 360px wide with padding
+       outside that width, so the drawing of a 360px screen did not fit on a 360px
+       screen. Width becomes a ceiling instead of a size, and the box counts its
+       own padding. At the end of the block, because the flat rule above wins on
+       equal specificity otherwise. */
+    .wf-phone { box-sizing: border-box; width: 100%; max-width: 360px; }
   </style>
 </head>
 <body>

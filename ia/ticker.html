@@ -118,6 +118,16 @@
       .card, .wf-stage { padding: 17px 15px; }
       footer.doc { padding: 24px 20px; }
     }
+
+    /* FOUND AT 360 ON 21 AUGUST 2026: this page scrolled sideways by 38px, and it
+       had done since it was written. The strip mockup already scrolls inside its
+       own frame; what did not fit was the frame, because nothing stopped it from
+       taking its content's intrinsic width in a 320px column.
+       IT SITS AT THE END OF THE BLOCK because the flat rules above win on equal
+       specificity otherwise, which is the fourth time this project has hit that. */
+    .wf-strip-wrap { max-width: 100%; min-width: 0; }
+    .wf-strip, .wf-strip-head, .wf-scope, .wf-empty { min-width: 0; }
+    .wf-strip-head { flex-wrap: wrap; }
   </style>
 </head>
 <body>
@@ -131,15 +141,80 @@
   <h1>Live drop ticker</h1>
   <p class="lede">A continuous strip of real wins, on two surfaces only, where every tile is a link to a checkable object. It is the product's evidence that drops actually happen, and it is <strong>the one component whose whole value dies the moment anything in it is invented.</strong></p>
   <div class="hero-meta">
-    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Surfaces, and nowhere else</div></div>
+    <div><div class="hero-stat-value">All</div><div class="hero-stat-label">Pages, since D-59</div></div>
     <div><div class="hero-stat-value">5</div><div class="hero-stat-label">States</div></div>
-    <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Destination on every tile</div></div>
+    <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Targets, and one survives a finger</div></div>
     <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Control, two parents</div></div>
     <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Sortable columns, ever</div></div>
   </div>
 </div>
 
 <!-- ADDS -->
+<section id="global">
+  <div class="sec-head">
+    <h2>Every page, and two more destinations inside the tile</h2>
+    <p><strong>D-59, 21 August 2026, founder decision.</strong> The live feed goes on every page, the item image leads the tile, the source becomes an icon, and a hover layer carries the case and the winner with a destination each.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>It was not a new element, and that is worth saying first</h4>
+    <p>The founder asked for it as something to add to the IA. <strong>It has been in the IA since the detail layer, as this node</strong>, with eight fields, a pause control, a rule against invented names and a tile that already leads with the image. <strong>CLAUDE.md lists the live drop ticker among the things inherited from the baseline deliberately close to identical.</strong> What is new is the placement and two destinations.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Placement</th><th>Before</th><th>Now</th></tr></thead>
+      <tbody>
+        <tr><td>Where</td><td>Home only, after D-31 cut it from the case screen</td><td><strong>Every page</strong></td></tr>
+        <tr><td>What carries Social Job 2 on 3.3</td><td>The Last drops row, "a narrower answer and it is recorded as narrower"</td><td><strong>The feed carries it again</strong>, and Last drops stays: one is about this case, the other about the platform</td></tr>
+        <tr><td>The open question</td><td>A component with one consumer is a component, or it is that screen&#39;s block</td><td><strong>Closed. It is a component of the shell</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>This does not get to declare itself right</h4>
+    <p><strong>D-31&#39;s reason for cutting it was that the case screen carried too much, and that reason is still true about the case screen.</strong> What changes it is the surface: a shell strip identical on every page is read once and becomes furniture, while a block inside a screen competes with that screen every time.</p>
+    <p><strong>Stage 04 draws it and measures what it costs the first screen at 360.</strong> If it costs the case screen its commit block above the fold, that measurement outranks this paragraph.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The tile, amended</h4>
+    <p><strong>Always, in this order:</strong> the item image largest, weapon and skin name under it, and <strong>the source as an icon</strong>.</p>
+    <p><strong>On hover, in this order:</strong> the case, image first with its name under it, and the winner&#39;s avatar.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Where this decision costs something, printed rather than absorbed</h4>
+    <p>Section 0 of this node fixed what the source field carries, with an argument: <strong>a label reading the same word on every tile is the dead item defect</strong>, so in round 1 it carries the case and not the mode. D-59 splits it: the icon takes the mode and the case moves into the hover layer.</p>
+    <p><strong>Round 1 ships one mode, so the mode icon is a constant.</strong> The same glyph on every tile, on every page, until a second mode arrives. <strong>A constant is not information.</strong> It is drawn because the founder wants the carrier standing before the mode arrives, which is a legitimate reason and <strong>is not the same as the carrier earning its space</strong>. Stage 04 measures it against the tile&#39;s height and reports.</p>
+    <p><strong>Row A3 is unchanged and binds the avatar:</strong> no invented names, and any bot present labelled as one. <strong>A stock avatar over an invented account is A3 broken with a picture on top.</strong></p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Three targets in one tile</th><th>Goes to</th><th>Why it is not the tile&#39;s own destination</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The tile body</strong></td><td>7.1, the shared result</td><td>Unchanged. <strong>It is the checkable object</strong>, which is the whole reason this component exists</td></tr>
+        <tr><td><strong>The case</strong>, in the hover layer</td><td>3.3</td><td>The feed is evidence that drops happen; the case is how a person acts on it</td></tr>
+        <tr><td><strong>The avatar</strong>, in the hover layer</td><td>A public profile</td><td>Which the map does not hold. See below</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>Only one of the three survives a finger</h4>
+    <p><strong>Hover does not exist on a touch screen, and this node does not pretend otherwise.</strong> On touch the tile has <strong>exactly one destination, 7.1</strong>, and both other objects are on 7.1, one tap further. <strong>Nothing in this component is reachable only by hover</strong>, which is the rule that keeps the two input models from being two products.</p>
+    <p><strong>A nested target inside a link is not a link inside a link.</strong> The tile is a container with three targets, not an anchor wrapping two more, and stage 04 builds it that way or the markup is invalid before it is inaccessible.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The public profile has no node, and this is the debt</h4>
+    <p>D-59 gives the avatar a destination the map does not hold. <strong>5.10 Profile is the account&#39;s own view of itself</strong>, D-36, and a public profile of another player is a different surface with different rules: what it shows, what an account can hide, and whether it exists at all before A3&#39;s labelling requirement is enforceable at the data layer.</p>
+    <p><strong>It is carried as debt rather than invented here</strong>, the same treatment the sitemap gives the out-of-product notification channel. Until it exists <strong>the avatar&#39;s destination is unknown and stage 04 draws the target without a route, marked</strong>, rather than routing it somewhere convenient.</p>
+  </div>
+</section>
+
 <section id="adds">
   <div class="sec-head">
     <h2>What this node adds to its own row in the map, and why</h2>
@@ -460,6 +535,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.8 Live drop ticker';
 window.NAV_SECTIONS = [
   { id: 'overview',  label: 'Overview' },
+  { id: 'global',    label: 'D-59 every page' },
   { id: 'adds',      label: 'What it adds' },
   { id: 'tile',      label: 'The tile' },
   { id: 'pause',     label: 'The pause control' },

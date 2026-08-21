@@ -1789,3 +1789,123 @@ The compliance paragraph says "**an 18+ declaration enforced at sign in, two sep
 ### Rejected
 
 **`aria-disabled` on a full strength control.** It keeps the control focusable and clickable, which is the useful half, but it announces "unavailable" to a screen reader while showing "available" to everyone else. **A control whose two audiences are told different things is the defect this node exists to avoid**, in miniature.
+
+---
+
+## D-59. The live feed is `0.8`, it goes on every page, and its tile gains two destinations
+
+**Date:** 2026-08-21. **Stage:** 04, raised by the founder as a new element. **Decided by:** the founder. **Binds:** node `0.8`, the shell at stage 04, and it reverses item 6 of `D-31`.
+
+**What was decided.** **The live feed renders on every page.** The item image leads the tile, the source becomes an icon, and a hover layer carries the case and the winner's avatar with a destination each.
+
+### It was not a new element, and that is the first thing worth saying
+
+**It has been in the IA since the detail layer, as node `0.8` Live drop ticker**, with eight fields, a pause control, a rule against invented names and a tile that already leads with the image. **`CLAUDE.md` lists the live drop ticker among the things inherited from the baseline deliberately close to identical.** What is new is the placement and two destinations.
+
+### This reverses `D-31` item 6, and it settles more than it reverses
+
+`D-31` cut the ticker from `3.3` on 19 August, leaving it on `1.0` alone, **and that left `0.8` carrying an open question in its own head: a component with one consumer is a component, or it is that screen's block.** It has every consumer now. **It is a component of the shell.**
+
+**`D-31`'s reason was that the case screen carried too much, and that reason is still true about the case screen.** What changes it is the surface: **a shell strip that is identical on every page is read once and becomes furniture, while a block inside a screen competes with that screen every time.** This decision does not get to declare that for free. **Stage 04 measures what it costs the first screen at 360, and the measurement outranks the argument.**
+
+**Social Job 2 on `3.3` was carried by `Last drops` after `D-31`, "a narrower answer and it is recorded as narrower".** The feed carries it again and `Last drops` stays: one is about this case, the other about the platform.
+
+### The tile, amended
+
+**Always:** the item image largest, weapon and skin under it, and **the source as an icon**.
+
+**The source field is where this decision costs something.** `0.8` section 0 fixed that field's content with an argument: **a label reading the same word on every tile is the dead item defect, so in round 1 it carries the case and not the mode.** `D-59` splits it, the icon taking the mode and the case moving into the hover layer. **Round 1 ships one mode, so the mode icon is a constant: the same glyph on every tile, on every page, until a second mode arrives. A constant is not information.** It is drawn because the founder wants the carrier standing before the mode arrives, which is a legitimate reason and is not the same as the carrier earning its space.
+
+**On hover:** the case, image first with its name, and the winner's avatar. **Row `A3` is unchanged and binds the avatar: no invented names, any bot present labelled as one. A stock avatar over an invented account is `A3` broken with a picture on top.**
+
+### Three targets, and only one of them survives a finger
+
+The tile body keeps `7.1`, `D-20`. The case goes to `3.3`. The avatar goes to a public profile.
+
+**Hover does not exist on a touch screen.** On touch the tile has **exactly one destination, `7.1`**, and both other objects are on `7.1`, one tap further. **Nothing in this component is reachable only by hover**, which is the rule that stops the two input models being two products.
+
+**And a nested target is not a link inside a link.** The tile is a container with three targets, not an anchor wrapping two more.
+
+### What it owes
+
+**The public profile has no node.** `5.10` Profile is the account's own view of itself, `D-36`. Until a public one exists **the avatar's destination is `[?]`** and stage 04 draws the target without a route, marked, rather than routing it somewhere convenient. Recorded in `sitemap.md`.
+
+---
+
+## D-60. Stock leaves the product, and node `3.4` is dissolved
+
+**Date:** 2026-08-21. **Stage:** 04. **Decided by:** the founder. **Binds:** nodes `0.6`, `0.7`, `3.1`, `3.2`, `3.3`, `3.4`, `sitemap.md`, and **it needs one clause of `CLAUDE.md` retired.**
+
+**What was decided.** **Every item is current and available.** No shortfall marker, no free-unit count, no zero-stock state. **The guarantee moves from the shelf end to the payout end:** if a win cannot go to Steam there is an exchange for a real skin, or a sale back to the site.
+
+### What it dissolves, and the prize is bigger than the deletion
+
+**Node `3.4` had no design answer and it knew it.** Its section 6.1 found that three backlog rows are not simultaneously satisfiable:
+
+- `D1`: the roll can only select items with at least one free unit.
+- `D2`: a published chance is printed per item.
+- `D3`: a weights change forks the observed rate counter.
+
+**Reading A recomputes the chance over selectable entries, so every stock change is a weights change and the counter forks itself into uselessness. Reading B publishes a chance that is not the chance used, which is barrier `B7-2` printed in our own drop table. Reading C closes the case while any entry is at zero.** The node's own recommendation was "C for a small catalogue, A with a stated recomputation for a large one, and B never", and it recorded that the choice was a treasury decision rather than a design one.
+
+**`D-60` chooses none of the three. It removes the condition that made them fire.** That is a better outcome than any reading, and **the whole section is kept unedited in `case.md` so that nobody reintroduces a stock-backed table without reading what it costs.**
+
+### What is lost, named rather than skipped
+
+**One row this repository was proud of.** `0.7` variant V2 required that zero-stock items stay visible and marked rather than disappearing, **which `blocks.md` section 3 records as the one row in that table no competitor matches.** It is void. **We do not get the credit for handling a case that cannot occur.**
+
+### What is owed
+
+**The exchange for a real skin does not exist anywhere.** The sale back to coins does, `D-38`. **This is not the in-platform skin-for-skin exchange that `CLAUDE.md` keeps as LATER**, and which of the two it is, is the founder's to settle. Handed to `5.3`.
+
+**`D-D` changes shape.** The catalogue scale question was about how large a **stock-backed** catalogue can be. Without a shelf it is a different and possibly smaller question. Not closed here.
+
+### What it needs from `CLAUDE.md`, written out and not applied
+
+The scope paragraph carries this among the marks that travel with the backlog: "**the scale of stock-backed drop tables on an inventory figure that is still `[?]`**". **That mark is retired by this decision**, because there is no stock-backed drop table to scale. Proposed: delete that clause from the list, leaving the other four marks untouched. **Awaiting an explicit go.**
+
+---
+
+## D-61. The case tile is artwork, name, cost and risk, and the daily case becomes a case
+
+**Date:** 2026-08-21. **Stage:** 04. **Decided by:** the founder. **Binds:** node `0.7`, `sitemap.md`, and stage 04's render of `1.0` and `3.1`.
+
+**What was decided.** **The tile is four fields and one control: artwork largest, name, entry cost, risk band, favourite.** Both markers leave.
+
+**The stock marker leaves with `D-60`.** **The daily marker leaves because daily and bonus cases are their own cases now**, not a marker on a case that is otherwise normal. A case that is a daily case is named as one.
+
+**`I2` still has no parent in any of the three legal classes and is still in MVP by founder decision**, `D-15`. **That is unchanged and is not quietly cleared by the marker leaving.** What changed is which object carries it, and no node yet says what a daily case is as a case.
+
+### "Maximally simplified" has a floor, and it is one line of `CLAUDE.md`
+
+**The entry cost stays.** Design principle 3, quoted: **where money is about to be spent, odds, cost and expected value are visible and legible. Cost never hides inside excitement.** A tile with artwork and no price is that principle inverted. **All three competitor captures the founder brought carry a price**, and two make it the second largest element after the artwork.
+
+**The favourite stays and stays orphaned.** It is now the only element on this tile with no parent in the three legal classes, `D-24`, and none of the three captures carries one. **It is the next candidate if this tile has to get simpler again**, named here rather than cut without a decision.
+
+---
+
+## D-62. The IA pages get swept too, and three of them were scrolling sideways
+
+**Date:** 2026-08-21. **Stage:** 04, found while measuring the pages amended by `D-59` to `D-61`. **Decided by:** stage 04. **Binds:** the acceptance instrument.
+
+**What was found.** **Three published IA pages scrolled sideways at 360px and had done since the day each was written.** `ia/navigation.html` by 298px, `ia/ticker.html` by 38, `ia/cookie.html` by 36.
+
+### The instrument had a hole exactly the shape of the defect
+
+**The 315 check sweep covers `wireframes/` only.** `CLAUDE.md` requires acceptance on screen at 360px for anything a stage puts on a screen, and the IA pages are the artefact stage 03 puts on a screen. **They were never measured at any width.** The pages that specify mobile-first behaviour were the pages nobody opened at mobile width.
+
+### The three causes, and two of them are the same cause
+
+| Page | Over | Cause |
+|---|---|---|
+| `ia/navigation.html` | **298px** | **One table of eleven had no `.table-wrap`.** The page has the wrapper, the CSS for it, and ten correct uses of it. `table { min-width: 620px }` did the rest |
+| `ia/ticker.html` | 38px | The strip mockup scrolls inside its own frame correctly. **The frame did not fit**: nothing stopped it taking its content's intrinsic width in a 320px column |
+| `ia/cookie.html` | 36px | **`.wf-phone { width: 360px }` with its padding outside that width.** A drawing of a 360px screen that does not fit on a 360px screen |
+
+**And a fourth instance of an ordering defect.** Both fixes had to be written at the end of their style block, because a flat rule earlier in the file wins on equal specificity. **That is now four times in this project**, and it is already a convention in `wireframes/docs/conventions.md` section 2: a responsive block goes after everything it overrides.
+
+### What changes in the instrument
+
+**A second sweep, over `ia/`, `docs/` and the root**, at four widths: **128 checks, and the result is zero.** It runs beside the 315 wireframe checks rather than replacing them, because the two sets check different things: the wireframe sweep also asserts no collapsed leaf and no wrapped button label, which are properties of a prototype and not of a document.
+
+**The rule this leaves:** every page this project publishes is measured, not only the ones the current stage is writing.

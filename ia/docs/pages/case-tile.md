@@ -10,6 +10,32 @@
 
 **Not a page.** It has no URL of its own. It opens one, `3.3`.
 
+---
+
+## 0.5 Amended 21 August 2026 by `D-60` and `D-61`. Both markers leave the tile
+
+**Founder decision, and the tile is four fields and one control now.** Artwork, name, entry cost, risk band, plus the favourite. **The two markers are gone and they went for two different reasons.**
+
+### 0.5.1 The stock marker went because stock left the product, `D-60`
+
+**Every item is current and available.** The drop table is not backed by a shelf that can run short, so there is no shortfall to mark. Marker 5 has no subject, field 5's whole paragraph below has no subject, and **node `3.4` is dissolved**, `case.md` section 6.
+
+**What went with it is a row this node was proud of, and the loss is named rather than skipped.** Variant V2's rule read: **zero-stock items stay visible and marked rather than disappearing, `blocks.md` section 3, which is the one row in that table no competitor matches.** That distinction is gone because the condition it distinguished us in is gone. **We do not get the credit for handling a case that cannot occur.**
+
+**Where the guarantee moved.** It is at the payout end now instead of the shelf end: if a win cannot go to Steam, there is an exchange for a real skin, or a sale back to the site. **That is a requirement handed to `5.3`, and it is new**, section 7.
+
+### 0.5.2 The daily marker went because the daily case became a case, `D-61`
+
+**Daily and bonus cases are their own cases now**, not a marker on a case that is otherwise normal. So marker 6 has nowhere to sit on this tile: a case that is a daily case is named as one, the same way any case is named.
+
+**`I2` still has no parent in any of the three legal classes** and still sits in MVP by founder decision of 11 August 2026, `D-15`. **That is unchanged and is not quietly cleared by the marker leaving.** What changed is which object carries it. **Rule 5.3 below is unchanged and still binds**: a daily case is a label and never a mechanic, no tier, no wager figure, no progress on the tile.
+
+### 0.5.3 What did not leave, and why, because "maximally simplified" has a floor
+
+**The entry cost stays.** Design principle 3 in `CLAUDE.md`, quoted: **where money is about to be spent, odds, cost and expected value are visible and legible. Cost never hides inside excitement.** A tile with artwork and no price is that principle inverted. **All three competitor captures the founder brought carry a price on the tile**, and two of them make it the second largest element after the artwork.
+
+**The favourite stays and stays orphaned.** It is the one element left on this tile with no parent in the three legal classes, `D-24`, and none of the three captures carries one. **It is the next candidate if this tile has to get simpler again**, and it is named here rather than cut without a decision.
+
 **Rewritten on 18 August 2026 by founder decision `D-24`.** The tile the first version specified was six always-on fields. It is now **four fields, two conditional markers and one control**, and the reasoning of every surviving rule is unchanged. What changed, why, and what it costs is in `docs/decisions.md` D-24. The paragraphs below are the specification, not the diff.
 
 ---
@@ -26,7 +52,7 @@
 |---|---|---|
 | Hellcase, Key-Drop | Name, price, image | The shape. **Not the TOP badge**, `0.11` rule 7 |
 | Baseline, daddyskins | Name, image, risk label, price **in coins**, item count, a favourite control with a public count | Name, image, **risk band**, price, favourite. **In coins as well, since `D-28` of 19 August 2026 reversed `C1`.** What does not cross is a coin with no published rate: `0.11` rule 10 puts the peg wherever money is spent |
-| **This node** | **Artwork, name, entry cost, risk band**, plus a stock marker and a daily marker where each applies, plus the favourite control | Four things a person reads before deciding, and nothing that reads as a statistic |
+| **This node** | **Artwork, name, entry cost, risk band, plus the favourite control.** Both markers left on 21 August 2026, `D-60` and `D-61`, section 0.5 | Four things a person reads before deciding, and nothing that reads as a statistic |
 
 **The one thing the first version had that this one drops is the item count**, and it is dropped because the risk band answers the same question better. "Forty items" says how long the table is. **The risk band says what the table is shaped like**, it is computed from the same table, and it is the version of that fact a person can act on. The count still renders on `3.3`, where the table itself is, so no fact is lost, only an early and weaker rendering of it.
 
@@ -40,15 +66,15 @@
 | 2 | **Case name** | Field, always | Case | Main Job. It is also the accessible name of the whole tile | job |
 | 3 | **Entry cost**, in coins | Field, always | Case | Row `C1` as `D-28` rewrote it, still standing on `B7-1`, pattern of 7. **The barrier is now answered by the peg rather than by the denomination**, `0.11` rule 10 | barrier |
 | 4 | **Risk band**, three values in words | Field, always | Case, over its drop table | **Design principle 3 in `CLAUDE.md`, quoted:** where money is about to be spent, odds, cost and expected value are visible and legible. **No backlog row yet**, section 7 | principle |
-| 5 | **Stock shortfall marker** | Marker, only when true | Case, over its drop table | Rows `A2` and `D1`, both standing on `B8-1` | barrier |
-| 6 | **Daily marker** | Marker, only where it applies | Free entry | Row `I2`. **No parent in any of the three legal classes.** In MVP by founder decision of 11 August 2026, `D-15` | **none, printed** |
+| ~~5~~ | ~~**Stock shortfall marker**~~ | **Removed 21 August 2026, `D-60`.** Stock left the product, so the marker has no subject | | | |
+| ~~6~~ | ~~**Daily marker**~~ | **Removed 21 August 2026, `D-61`.** Daily and bonus cases are their own cases now. **Row `I2` still has no parent and is still in MVP by founder decision**, `D-15`, on a different object | **none, printed, moved** |
 | 7 | **Favourite control**, a toggle and its public count | Control | Case, plus the account that pressed it | **None in the three legal classes.** In MVP by founder decision of 18 August 2026, `D-24`, which also amends `0.11` rule 7 to let it exist | **none, printed** |
 
 **Two elements carry an empty parent cell and neither of them borrows one.** `I2` and the favourite are the only two things on this tile that no barrier, job or named constraint asks for. `cjm-to-be.md` prints `I2` that way already. `D-24` prints the favourite the same way rather than inventing a job for it after the fact, because a parent written to justify a decision already taken is the thing the three legal classes exist to stop.
 
 **Field 4 is a label over a number, and the number is not on the tile.** The band is derived from the drop table, register `0.11` owns the definition, and the figure it is derived from is published on `3.3` beside RTP and expected value. The tile says High, Medium or Low. **The case screen says what that meant.** A band with no published number behind it is an adjective, and an adjective about risk on a page that sells risk is marketing.
 
-**Field 5 counts entries at zero, not units.** `A2` is a live free-unit count **per item**, and that number belongs on `0.6` at `3.3` where a person is looking at one item. Summing free units across items of different value into one tile figure would be summing across kinds, which `0.11` rule 7 forbids in as many words. So the marker says "3 items out of stock" or "every item out of stock", and it says nothing at all when everything is available. **Silence is the available state**, which is what makes the marker readable when it appears.
+**Field 5 is removed, `D-60`, and the paragraph is kept because it is the reasoning that a later stage would otherwise redo.** Field 5 counted entries at zero, not units. `A2` is a live free-unit count **per item**, and that number belongs on `0.6` at `3.3` where a person is looking at one item. Summing free units across items of different value into one tile figure would be summing across kinds, which `0.11` rule 7 forbids in as many words. So the marker says "3 items out of stock" or "every item out of stock", and it says nothing at all when everything is available. **Silence is the available state**, which is what makes the marker readable when it appears.
 
 ---
 
@@ -57,7 +83,7 @@
 | Variant | Where | Shows | Must not |
 |---|---|---|---|
 | **V1, the featured tile** | `1.0` Home, in the case grid that sits **directly on the page** rather than behind a mode hub, `D-20` | All four fields, the markers that apply, the control. Largest size the grid allows | **Carry urgency.** `blocks.md` section 2 leaves the Key-Drop and Hellcase event banner with its countdown: no parent in round 1, and a countdown is urgency attached to spending. **And no TOP badge**, `0.11` rule 7 |
-| **V2, the catalogue tile** | `3.1` Case catalogue, in the full shelf with the category bar, search and filters | The same set, denser, in a grid that has to survive `3.2` | **Disappear when it is out of stock.** Zero-stock items stay visible and marked, `blocks.md` section 3, which is the one row in that table no competitor matches |
+| **V2, the catalogue tile** | `3.1` Case catalogue, in the full shelf with the category bar, search and filters | The same set, denser, in a grid that has to survive `3.2` | **The must-not was the out-of-stock rule and it is void since `D-60`**, section 0.5.1. Nothing replaces it: the condition it protected against cannot occur |
 
 **One element set, two densities, and no third.** `1.1` is the same page as `1.0` in a different account state.
 
@@ -72,9 +98,9 @@
 | State | What the tile shows | Route out |
 |---|---|---|
 | **Available** | Four fields, no markers. The normal case, and the quiet one | `3.3` |
-| **Free units exhausted on some items** | The stock marker appears with the count of entries at zero. **A shelf that is legibly short**, `D1` | `3.3`, where `0.6` marks each one and node `3.4` owns the per-item state |
+| ~~**Free units exhausted on some items**~~ | **Void since `D-60`.** Stock left the product and node `3.4` is dissolved | |
 | **Sold out**, every entry at zero | The marker says so and the tile **stays in the grid**. Not removed, not filtered out and not faded past reading. `blocks.md` section 3: the shelf is legibly empty instead of silently short | `3.3` still opens and shows which items are out. **The open control is what is unavailable, not the case** |
-| **Daily case, available today** | The daily marker in its available form, on a tile that is otherwise a normal case, `3.1` | `3.3` |
+| **Daily case, available today** | **Amended by `D-61`:** a daily case is its own case with its own name and artwork, not a marker on a tile that is otherwise normal | `3.3` |
 | **Daily case, taken today** | The marker states that it is taken and when it returns. **The reset moment is `[?]`**, entity 13 in `sitemap.md` marks availability and reset unknown | `3.3`, and the rest of the shelf |
 | **Entry cost or risk band unavailable** | An explicit "not available" in the element's place. **Never a zero, never a blank and never a default band**, `0.11` rule 3. A case whose table cannot be read does not get called Low-risk | `3.3`, which is where the authoritative figures live |
 | **Favourite off or on**, signed in | The control states which it is **in text as well as in shape**, and the count moves by one when it is pressed. Optimistic, and it reverts visibly if the write fails | Stays on the page. The favourite never navigates |
@@ -121,7 +147,7 @@
 
 **A tile is where the price is first read, so it is where an unconvertible price would first hide.** That risk did not go away with `D-28`, it moved onto the peg.
 
-### 5.2 The stock marker is text, never a colour
+### 5.2 The stock marker is text, never a colour. **Void since `D-60`**, kept because the rule generalises to any marker this tile ever carries
 
 Same rule as `0.6` rule 5.3 and for the same reason. A dimmed tile does not say "three items are out of stock", it says "something is wrong with this tile", and it says nothing at all to a person who cannot separate the two treatments.
 

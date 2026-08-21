@@ -6,9 +6,66 @@
 
 **Jobs served.** Social Job 2, `jtbd.md` Section 3, be part of a platform that feels alive. Also Related Job 1 before login, arrive with enough confidence to try. **Parent class:** job, by row `A3`, which `cjm-to-be.md` marks **job only, no barrier** in its own priority cell and whose success signal is `[?]` because no isolated measurement of it exists.
 
-**Used by:** `1.0` Home. **Amended 19 August 2026 by `D-31`:** it also rendered on `3.3` and the founder cut it from that screen. **Nowhere else, and that was a decision rather than an oversight**, section 3, which now has to answer a harder question than it was written for: **a component with one consumer is a component, or it is that screen's block.** This node does not resolve that and prints it, because the answer belongs with whoever specifies `1.0`'s shell, and because `3.3` may take it back.
+**Used by: every page, since `D-59` of 21 August 2026.** It was `1.0` and `3.3`, then `1.0` alone after `D-31` cut it from the case screen, and it is now global.
 
-**Not a page.** It renders inside two nodes and it has no destination of its own. Every tile lands on `7.1`.
+**`D-59` also answers the question this node has carried open since 19 August**, which was: **a component with one consumer is a component, or it is that screen's block.** It has every consumer. It is a component, and it belongs to the shell rather than to any screen.
+
+**Not a page.** It renders inside the shell and has no destination of its own. **The tile body lands on `7.1`**, and since `D-59` two elements inside it have destinations of their own, section 0.5.
+
+---
+
+## 0.5 Amended 21 August 2026 by `D-59`. Every page, and two more destinations inside the tile
+
+**Founder decision.** The live feed goes on every page, the item image leads the tile, the source becomes an icon, and a hover layer carries the case and the winner with a destination each.
+
+### 0.5.1 It was not a new element and it is worth saying so first
+
+**The founder asked for it as something to add to the IA. It has been in the IA since the detail layer**, as this node, with eight fields and a tile that already leads with the image, `D-31`. **What is new is the placement and two destinations**, and everything below is written as an amendment to a node rather than as a node.
+
+### 0.5.2 Placement: this reverses `D-31` item 6, and it settles more than it reverses
+
+| | Before | Now |
+|---|---|---|
+| Where | `1.0` only, after `D-31` cut it from `3.3` | **Every page** |
+| What carries Social Job 2 on `3.3` | The `Last drops` row, "a narrower answer and it is recorded as narrower", `D-31` | **The feed carries it again**, and `Last drops` stays: one is about this case, the other about the platform |
+| The open question | A component with one consumer | **Closed. It is a component of the shell** |
+
+**`D-31`'s reason for cutting it was that the case screen carried too much**, and that reason is still true about the case screen. **What changes it is the surface the feed now sits on:** a shell strip that is the same on every page is read once and then becomes furniture, while a block inside a screen competes with that screen every time. **This node does not get to declare that for free.** Stage 04 draws it and measures what it costs the first screen at 360, and if it costs the case screen its commit block above the fold, that measurement outranks this paragraph.
+
+### 0.5.3 The tile, amended
+
+**Always visible, in this order:**
+
+1. **The item image**, largest. Field 8, unchanged, and the founder's own ordering: a skin is recognised by its finish before it is recognised by its name.
+2. **Weapon and skin name**, under it. Fields 2 and 3, unchanged.
+3. **The source, as an icon.** Field 1, and section 0 of this node fixed what that field carries: **the case in round 1, because a label reading the same word on every tile is the dead item defect.** `D-59` splits it: **the icon carries the mode and the case moves into the hover layer.**
+
+**And the cost of that split is printed rather than absorbed: round 1 ships one mode, so the mode icon is a constant.** It is the same glyph on every tile, on every page, forever, until a second mode arrives. **A constant is not information.** It is drawn because the founder wants the carrier standing before the second mode arrives, which is a legitimate reason and is not the same as the carrier earning its space. **Stage 04 measures it against the tile's own height and reports.**
+
+**On hover, in this order:**
+
+4. **The case**, image first and its name under it. This is where field 1's round 1 content went.
+5. **The winner's avatar.** Field 5, "the winner, as the account chooses to appear", and an avatar is a way of appearing. **Row `A3` is unchanged and binds it: no invented names, and any bot present labelled as one.** An avatar does not exempt a tile from that, and a stock avatar over an invented account is `A3` broken with a picture on top.
+
+### 0.5.4 Three destinations in one tile, and only one of them survives a finger
+
+**Field 7 said every tile lands on `7.1`**, `D-20`. It still does, and two elements inside it now have their own:
+
+| Target | Goes to | Why it is not the tile's own destination |
+|---|---|---|
+| **The tile body** | `7.1`, the shared result | Unchanged. **It is the checkable object**, which is the whole reason this component exists |
+| **The case**, in the hover layer | `3.3` | The feed is evidence that drops happen; the case is how a person acts on it |
+| **The avatar**, in the hover layer | A public profile | Section 0.5.5 |
+
+**Hover does not exist on a touch screen, and this node does not pretend otherwise.** On touch the tile has **exactly one destination, `7.1`**, and both other objects are on `7.1`, one tap further. **Nothing in this component is reachable only by hover**, which is the rule that keeps the two input models from being two products.
+
+**A nested target inside a link is not a link inside a link.** The tile is a container with three targets, not an anchor wrapping two more, and stage 04 builds it that way or the markup is invalid before it is inaccessible.
+
+### 0.5.5 The public profile has no node, and this is where that debt is recorded
+
+**`D-59` gives the avatar a destination the map does not hold.** `5.10` Profile is the account's own view of itself, `D-36`, and a public profile of another player is a different surface with different rules: what it shows, what an account can hide, and whether it exists at all before `A3`'s labelling requirement is enforceable.
+
+**It is carried as debt rather than invented here**, which is the same treatment `sitemap.md` gives the out-of-product notification channel. **Until it exists, the avatar's destination is `[?]` and stage 04 draws the target without a route**, marked, rather than routing it somewhere convenient.
 
 ---
 
