@@ -2586,3 +2586,120 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 @media (min-width: 1200px) {
   .wf-grid--shelf { grid-template-columns: repeat(5, 1fr); }
 }
+
+
+/* ---------------------------------------------------------------------------
+   NODE 3.1 SECOND PASS, D-65. THE SHELF TAKES THE BASELINE'S SHAPE.
+   The first pass drew one flat grid with an empty category bar, because
+   catalogue.md recorded the category list as [?] and refused both a sort and a
+   risk filter. A walk of our own catalogue on 21 August 2026 found all three
+   wrong: the shelf is a run of named category sections, the bar is a sticky
+   jump list over them with the search and the filter at its right end, and the
+   filter is a drawer holding five controls and a sort.
+   --------------------------------------------------------------------------- */
+
+/* The bar sticks. It is the only thing on this page that does, and it sticks
+   because it is a jump list: a jump list you have to scroll back to is a table
+   of contents rather than a control. */
+.wf-catbar {
+  position: sticky; top: 0; z-index: 5;
+  display: flex; align-items: center; gap: var(--wf-s-1);
+  padding: var(--wf-s-1); margin-bottom: var(--wf-s-2);
+  background: var(--wf-surface);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+}
+.wf-catbar-lbl {
+  flex: 0 0 auto; font-size: var(--wf-t-xs); letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--wf-ink-dim); padding-left: var(--wf-s-1);
+}
+/* The chips scroll inside their own strip and the page never scrolls sideways.
+   The overflow stays VISIBLE as a control rather than being hidden, because a
+   list that continues off screen with no sign of it is a list nobody scrolls. */
+.wf-catbar-run {
+  flex: 1 1 auto; min-width: 0;
+  display: flex; align-items: center; gap: var(--wf-s-1);
+  overflow-x: auto; scrollbar-width: none;
+}
+.wf-catbar-run::-webkit-scrollbar { display: none; }
+.wf-catbar-acts { flex: 0 0 auto; display: flex; align-items: center; gap: var(--wf-s-half); }
+/* The two controls that narrow the shelf never leave the bar at any width.
+   baseline.md 10.2: at 390 the chips go into the overflow and these stay. */
+.wf-icon-btn { min-width: var(--wf-tap); padding: var(--wf-s-1); }
+
+/* One section per category. The heading is the category name, the chips jump to
+   it, so the bar and the heading list are the same list read twice. */
+.wf-cats-sec + .wf-cats-sec { margin-top: var(--wf-s-4); }
+.wf-cats-h { display: flex; align-items: baseline; gap: var(--wf-s-2); flex-wrap: wrap; margin-bottom: var(--wf-s-2); }
+.wf-cats-h h2 { margin: 0; }
+.wf-cats-sub { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+
+/* The filter drawer. Full width at 360, a right hand panel from 900, the same
+   control set in both. The page behind it does not reflow. */
+.wf-drawer-scrim { position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 40; }
+.wf-drawer {
+  position: fixed; inset: 0; z-index: 41;
+  display: flex; flex-direction: column;
+  background: var(--wf-surface); border-left: 1px solid var(--wf-line-soft);
+}
+.wf-drawer-head {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--wf-s-2);
+  padding: var(--wf-s-2); border-bottom: 1px solid var(--wf-line-soft);
+}
+.wf-drawer-h { margin: 0; font-size: var(--wf-t-m); letter-spacing: 0.08em; text-transform: uppercase; }
+.wf-drawer-body { flex: 1 1 auto; overflow-y: auto; padding: var(--wf-s-2); display: flex; flex-direction: column; gap: var(--wf-s-3); }
+.wf-drawer-foot { padding: var(--wf-s-2); border-top: 1px solid var(--wf-line-soft); }
+.wf-drawer-foot .wf-btn { width: 100%; }
+.wf-fset { display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-fset-h { font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+
+/* The price control is a range AND two steppers, and the steppers are not
+   decoration: a slider cannot be typed into, and a person with a ceiling in
+   mind has a number rather than a gesture. baseline.md 10.3. */
+.wf-range { width: 100%; min-height: var(--wf-tap); }
+.wf-steppers { display: flex; gap: var(--wf-s-2); }
+.wf-stepper { display: flex; align-items: center; gap: var(--wf-s-half); flex: 1 1 0; min-width: 0; }
+.wf-stepper input {
+  text-align: center; font-family: var(--wf-mono); min-width: 0;
+  /* THE VALUE MUST NOT CLIP. At 360 two steppers share the drawer's width and
+     55.00 in the body size came out as 55.0(. The figure is the whole point of
+     the control: a person types a ceiling here. */
+  font-size: var(--wf-t-s); padding: var(--wf-s-1) var(--wf-s-half);
+}
+.wf-stepper .wf-btn { flex: 0 0 auto; padding: var(--wf-s-1); min-width: var(--wf-tap); }
+
+/* Risk level is THREE CHECKBOXES AND NOT A SLIDER. The band has three values
+   and no numbers behind them yet, so a continuous control would promise a
+   precision that does not exist. Each row carries the band's mark beside the
+   word, never the mark alone, 0.7 rule 5.5. */
+.wf-riskset { display: flex; flex-direction: column; gap: var(--wf-s-half); }
+.wf-riskrow { display: flex; align-items: center; gap: var(--wf-s-1); min-height: var(--wf-tap); }
+.wf-riskrow input { width: auto; min-height: 0; }
+.wf-pips { display: inline-flex; gap: 2px; }
+.wf-pip { width: 9px; height: 9px; border: 1px solid var(--wf-line); border-radius: 2px; }
+.wf-pip.is-on { background: var(--wf-ink-dim); }
+
+/* Responsive last, after everything above that it overrides. */
+@media (min-width: 900px) {
+  .wf-drawer { inset: 0 0 0 auto; width: 360px; }
+}
+
+/* THE GREY CONTRACT REACHES THE FORM CONTROLS TOO, and it did not until the
+   filter drawer was drawn. A range and a select render in the browser's own
+   accent, which put live blue on a wireframe. accent-color neutralises the
+   checkbox and the range thumb; the select loses its arrow and gets one drawn
+   from the same ink as everything else. A colour value that arrives by default
+   is still a colour value, and stage 07 extracts components from these files. */
+input[type="range"], input[type="checkbox"], input[type="radio"] { accent-color: var(--wf-ink-dim); }
+select {
+  appearance: none;
+  padding-right: var(--wf-s-4);
+  background-image: linear-gradient(45deg, transparent 50%, var(--wf-ink-dim) 50%),
+                    linear-gradient(135deg, var(--wf-ink-dim) 50%, transparent 50%);
+  background-position: right 20px center, right 15px center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+/* The drawer's close sits in its head beside reset all, not only at its foot.
+   The baseline puts one CLOSE at the bottom and nothing at the top, so a person
+   who has scrolled the panel has the escape below the fold. */
+.wf-drawer-head .wf-row { gap: var(--wf-s-1); }

@@ -435,6 +435,55 @@
   </div>
 </section>
 
+<!-- WALK 3 -->
+<section id="walk3">
+  <div class="sec-head">
+    <h2>Third walk, 21 August 2026: the catalogue&#39;s category bar and its filter panel</h2>
+    <p>Public, pre-login, Playwright at 1440 and 390. Shots <code>walk3_cases_1440.png</code>, <code>walk3_cases_top_1440.png</code>, <code>walk3_cases_rows_1440.png</code>, <code>walk3_cases_filter_1440.png</code>, <code>walk3_cases_390.png</code>.</p>
+  </div>
+
+  <div class="card">
+    <h4>Why this walk happened</h4>
+    <p>Stage 04 drew node 3.1 with an <strong>empty category bar and no filter panel</strong>, because <code>catalogue.md</code> records the category list as <span class="q">[?]</span> and refuses both a sort control and a risk-band filter. <strong>The founder pointed at the live page.</strong> All three were wrong.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The shelf is not one grid. It is a run of named category sections</h4>
+    <p>H1 is &quot;All CSGO (CS2) Cases In One Place&quot;, and under it <strong>every category is its own section with its own H2 and its own row of tiles</strong>. Thirteen, read from the live headings: <strong>Daily, Daddy&#39;s Featured, CS2 Gem, Quality, Community, the ballers, lady luck, The Real MVP, Safe Zone, Old School, The Weapons, Classic, Harvest.</strong> Each H2 carries a subtitle.</p>
+    <p><strong>That list has been written down here since 11 August 2026 and this walk confirms it unchanged.</strong> It is not <span class="q">[?]</span> anywhere in this repository except in <code>catalogue.md</code>, which is a contradiction between two files rather than a missing input.</p>
+  </div>
+
+  <div class="card">
+    <h4>The category bar is a jump list over those sections, and it sticks</h4>
+    <p>Labelled CATEGORIES, then the names as chips, then an overflow control, then <strong>a search icon and a filter icon at the right end of the same bar</strong>. It sticks on scroll. <strong>At 390px the chips go into the overflow and the two icons stay:</strong> the carrier holds and the items give way.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The filter panel, and it is the thing this walk was for</h4>
+    <p>A right-hand drawer, headed FILTER with RESET ALL top right and CLOSE pinned at the bottom. Five controls:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Control</th><th>Form</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Case name</strong></td><td>Search field</td><td>Free text</td></tr>
+          <tr><td><strong>Price amount</strong></td><td><strong>A dual-handle range, and under it two numeric steppers</strong></td><td>Minimum and maximum, each with a text value and a minus and a plus. Read 0 and 1111 on the walk</td></tr>
+          <tr><td><strong>Risk Level</strong></td><td><strong>Three checkboxes, not a slider</strong></td><td><strong>Low, Medium, High</strong>, each with three skull pips in the band&#39;s colour. Multi select</td></tr>
+          <tr><td><strong>Case Type</strong></td><td>Select, default All</td><td>Values not enumerated, <span class="q">[?]</span></td></tr>
+          <tr><td><strong>Order By</strong></td><td>Select, Sort By</td><td>Default Date (Newest First). Other values <span class="q">[?]</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>The risk band is filterable on the live product and it is computed.</strong> That moves the open question from &quot;no computation exists&quot; to <strong>a question of fact to the live platform</strong>, in the same class as D-B.</p>
+    <p><strong>And the live product sorts.</strong> <code>catalogue.md</code> refused a sort control because the competitor bank has no row for one. <strong>The bank is competitors. This is the product.</strong></p>
+  </div>
+
+  <div class="card is-soon">
+    <h4>What the founder&#39;s reference adds, and the one thing in it this file will not pass on quietly</h4>
+    <p>Founder capture, 21 August 2026, <strong>source <span class="q">[?]</span>: it is not daddyskins and this session did not open the site it came from</strong>, so nothing in it is a fact about a named competitor. Three ideas the baseline&#39;s own panel does not have: <strong>the filters live in the bar rather than behind a drawer</strong>; <strong>a named continuous risk slider</strong> drawn as a gradient; and <strong>a &quot;sufficient balance to open&quot; toggle</strong>.</p>
+    <p><strong>The third is not a neutral convenience.</strong> A control that answers &quot;what can I afford right now&quot; sits one step from &quot;top up to see the rest&quot;, and <code>CLAUDE.md</code> binds this stage: cost never hides inside excitement, and a boundary never becomes a reason to keep going. <strong>The founder&#39;s call, with that cost printed.</strong></p>
+  </div>
+</section>
+
 <!-- FINDINGS -->
 <section id="findings">
   <div class="sec-head">
@@ -498,6 +547,7 @@ window.NAV_SECTIONS = [
   { id: 'colour', label: 'Colour' },
   { id: 'compliance', label: 'Compliance today' },
   { id: 'walk2', label: 'Second walk, 18 Aug' },
+  { id: 'walk3', label: 'Third walk, 21 Aug' },
   { id: 'findings', label: 'What it changes' },
   { id: 'sources', label: 'Sources' },
 ];

@@ -10,15 +10,15 @@
 </head>
 <body>
 
-<!-- NODE 3.1, THE CASE CATALOGUE. State: LOADING. A grid skeleton in the tiles own shape, never a spinner, so the grid does not reflow when it resolves. WHAT IT WAITS ON CHANGED WITH D-60: it was the live free-unit counts, and the only per-read figure left on a tile is the favourite count.
-     THIS PAGE EXISTED AS A LINK BEFORE IT EXISTED AS A PAGE. The rail carries one
-     destination, Cases, D-40, and it pointed here on all twenty two built screens
-     while catalogue.html returned a 404. That is what moved it up the queue ahead
-     of the geo gate.
-     AND IT COULD NOT BE DRAWN AS THE NODE STOOD. Node 3.1 was written on the stock
-     model: a whole section, a refusal row, two states, three block parents, the
-     node's own parent class and the entire SEO layer. D-64 cleared that first, so
-     nothing on this page reports a shelf that can run short. -->
+<!-- NODE 3.1, THE CASE CATALOGUE. State: LOADING. A grid skeleton in the tile’s own shape, never a spinner, so the grid does not reflow when it resolves. THE SECTION HEADINGS ARE NOT SKELETONS: the shape of the shelf is known before its contents are.
+     SECOND PASS, 21 AUGUST 2026, D-65. The first pass drew one flat grid with an
+     EMPTY CATEGORY BAR, because catalogue.md recorded the category list as [?]
+     and refused both a sort control and a risk-band filter. A walk of our own
+     catalogue found all three wrong. The list has been written down in
+     baseline.md since 11 August, the live product sorts, and it filters by the
+     risk band with the same three named values this project uses.
+     WHAT IS INHERITED IS THE SHAPE, NOT THE COUNT: thirteen sections over twelve
+     round 1 cases is the dead item defect D-20 names. -->
 <button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
 <aside id="wf-panel"></aside>
 
@@ -28,11 +28,10 @@
 
   <main class="wf-main">
 
-    <!-- BLOCK 1. Breadcrumb, exactly one H1, then one line stating what this shelf
-         is. Bank T2 LEAVE: Hellcase puts its H1 after 1,400px of product.
-         THE LINE UNDER THE H1 WAS PARENTED ON D1 UNTIL 21 AUGUST 2026 and D-60
-         took that parent. It stands on MVP Core Job 1 now, and it says what the
-         shelf is rather than what backs it. -->
+    <!-- BLOCK 1. Breadcrumb, exactly one H1, then one line stating what this
+         shelf is. Bank T2 LEAVE: Hellcase puts its H1 after 1,400px of product.
+         The baseline carries a Back control here too and this node does not:
+         it duplicates the browser and the rail, catalogue.md section 1. -->
     <nav class="wf-crumb" aria-label="Breadcrumb">
       <ol>
         <li><a href="index.html">Home</a></li>
@@ -40,205 +39,228 @@
       </ol>
     </nav>
     <h1>All CS2 cases, with published chances and values</h1>
-    <p class="wf-sec-sub">Every case the product offers. Narrow it to what you can afford, and read what a case is before you commit to anything.</p>
+    <p class="wf-sec-sub">Every case the product offers, in sections. Jump to a category, narrow it to what you can afford, and read what a case is before you commit to anything.</p>
 
-    <section class="wf-sec" aria-labelledby="h2-find">
-      <div class="wf-sec-head">
-        <h2 id="h2-find">Find a case</h2>
+    <!-- BLOCKS 2 AND 3 ARE ONE BAR, AND THAT IS THE BASELINE'S SHAPE, D-65.
+         The bar is a JUMP LIST over the sections below, not a filter: a chip
+         moves the page to a heading and removes nothing from it, so it never
+         produces 3.2 and never becomes a chip in block 4.
+         IT STICKS, because a jump list you have to scroll back to is a table of
+         contents rather than a control.
+         THE SEARCH AND THE FILTER SIT AT ITS RIGHT END and never leave it at any
+         width. baseline.md 10.2: at 390 the chips go into the overflow and these
+         two stay, because they are what narrows the shelf. -->
+    <div class="wf-catbar" role="navigation" aria-label="Categories">
+      <span class="wf-catbar-lbl">Categories</span>
+      <div class="wf-catbar-run">
+          <a class="wf-cat" href="#cat-daily" aria-current="true">Daily</a>
+          <a class="wf-cat" href="#cat-featured">Featured</a>
+          <a class="wf-cat" href="#cat-community">Community</a>
+          <a class="wf-cat" href="#cat-classic">Classic</a>
       </div>
-      <div class="wf-shelf">
-      <!-- BLOCK 2. Search and the filter control. The control carries an ACTIVE
-           COUNT BADGE, bank T2 TAKE from Hellcase: a filter control that does not
-           say how many filters are on is a control a person has to open to read. -->
-      <div class="wf-find">
-        <div class="wf-find-f">
-          <label class="wf-vh" for="q">Search cases by name</label>
-          <input id="q" type="search" name="q" placeholder="Search cases">
-        </div>
-        <button class="wf-btn" type="button" aria-expanded="false">Filters</button>
+      <div class="wf-catbar-acts">
+        <button class="wf-btn wf-icon-btn" type="button" aria-label="Search cases by name">Search</button>
+        <button class="wf-btn wf-icon-btn" type="button" aria-expanded="false" aria-label="Filters">Filters</button>
       </div>
+    </div>
+    <p class="wf-note">Four sections are drawn and <strong>the baseline runs thirteen</strong>, baseline.md section 10.1. A chip whose section has no case is the dead item defect, so the carrier is inherited and only the live chips render. Which of the thirteen ship in round 1 is the founder&#39;s, with the case list.</p>
 
-      <!-- BLOCK 3. The category bar. CONDITIONAL ON D-D, AND THE LIST IS [?].
-           The node makes the bar exist only if the backed catalogue is large
-           enough to need it, and nothing in this repository names one category.
-           So the carrier is drawn with its one real member and the absence is
-           stated in words. Inventing thirteen category names here would be the
-           median CLAUDE.md's input gate exists to prevent, and it would read as
-           a decision to everyone downstream. -->
-      <div class="wf-cats" role="group" aria-label="Categories">
-        <a class="wf-cat" href="catalogue.html" aria-current="page">All</a>
-      </div>
-      <p class="wf-note wf-fig-missing">Categories not available: the list is not decided anywhere, and whether this bar exists at all rides on D-D, which is still open</p>
-      </div>
-    </section>
-
-    <section class="wf-sec" aria-labelledby="h2-all">
-      <div class="wf-sec-head">
-        <h2 id="h2-all">All cases</h2>
-      </div>
-
-      <!-- BLOCK 5. The result count, in text, above the grid. 3.2 requires a
-           legible bottom to the list, and a count is half of that. -->
-      <p class="wf-count-line">Loading the shelf</p>
+    <!-- BLOCK 5. The result count, in text, above the sections. 3.2 requires a
+         legible bottom to the list and a count is half of that. -->
+    <p class="wf-count-line">Loading the shelf</p>
 
       <!-- 0.7 section 5.1: THE PEG RENDERS ONCE ON THE SHELF, not on every tile.
-           Twelve pegs would be noise; none at all is the unconvertible price
-           B7-1 names. D-28 shipped the coin pegged and the rate is not published
-           yet, so this renders as missing rather than as a number. -->
+           Thirteen pegs would be noise; none at all is the unconvertible price
+           B7-1 names. -->
       <p class="wf-note wf-fig-missing">Prices are in coins. Peg not available: what one coin is worth in real money is not published yet, D-28</p>
-      <!-- THE DAILY FREE CASE IS TILE 1, AND IT IS THIS NODE'S OPEN DEBT DRAWN.
-           D-61 made it its own case rather than a marker on a normal one, and no
-           node yet says what a daily case is as a case. The tile is four fields
-           and no markers, so the only field that could carry "once a day" and
-           "taken today" is the entry cost slot. THIS PAGE PROPOSES THAT CARRIER
-           AND DOES NOT DECIDE IT. Row I2 also carries its orphan status here:
-           it is the one capability on the map with no parent in any of the three
-           legal classes, in MVP by founder decision, D-15. -->
-      <p class="wf-note">The daily free case is tile 1 and it can be filtered out of view like any other case, which is the price of D-61 rather than a defect in it. Where its once-a-day limit and its taken state render is proposed here in the cost slot and is not decided: founder, with node 3.1.</p>
-      <div class="wf-grid wf-grid--shelf">
-    <article class="wf-tile wf-tile--skel">
-      <a class="wf-tile-link" href="case.html">
-        <span class="wf-tile-art" aria-hidden="true"></span>
-        <span class="wf-tile-name">Daily free case</span>
-        <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
-        <span class="wf-tile-price"><span class="wf-tile-cost">free</span><span class="wf-tile-cur">once a day</span></span>
-      </a>
-      <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 4 402 people">
-        <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">4 402</span>
-      </button>
-    </article>
-    <article class="wf-tile wf-tile--skel">
-      <a class="wf-tile-link" href="case.html">
-        <span class="wf-tile-art" aria-hidden="true"></span>
-        <span class="wf-tile-name">Ironbound</span>
-        <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
-        <span class="wf-tile-price"><span class="wf-tile-cost">12.40</span><span class="wf-tile-cur">coins</span></span>
-      </a>
-      <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 829 people">
-        <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">829</span>
-      </button>
-    </article>
-    <article class="wf-tile wf-tile--skel">
-      <a class="wf-tile-link" href="case.html">
-        <span class="wf-tile-art" aria-hidden="true"></span>
-        <span class="wf-tile-name">Warsteel</span>
-        <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
-        <span class="wf-tile-price"><span class="wf-tile-cost">4.90</span><span class="wf-tile-cur">coins</span></span>
-      </a>
-      <button class="wf-fav" type="button" aria-pressed="true" aria-label="Favourite, 1 204 people">
-        <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">1 204</span>
-      </button>
-    </article>
-    <article class="wf-tile wf-tile--skel">
-      <a class="wf-tile-link" href="case.html">
-        <span class="wf-tile-art" aria-hidden="true"></span>
-        <span class="wf-tile-name">Coldfront</span>
-        <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
-        <span class="wf-tile-price"><span class="wf-tile-cost">2.10</span><span class="wf-tile-cur">coins</span></span>
-      </a>
-      <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 311 people">
-        <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">311</span>
-      </button>
-    </article>
-    <article class="wf-tile wf-tile--skel">
-      <a class="wf-tile-link" href="case.html">
-        <span class="wf-tile-art" aria-hidden="true"></span>
-        <span class="wf-tile-name">Nightfall</span>
-        <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
-        <span class="wf-tile-price"><span class="wf-tile-cost">31.00</span><span class="wf-tile-cur">coins</span></span>
-      </a>
-      <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 96 people">
-        <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">96</span>
-      </button>
-    </article>
-    <article class="wf-tile wf-tile--skel">
-      <a class="wf-tile-link" href="case.html">
-        <span class="wf-tile-art" aria-hidden="true"></span>
-        <span class="wf-tile-name">Emberline</span>
-        <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
-        <span class="wf-tile-price"><span class="wf-tile-cost">7.60</span><span class="wf-tile-cur">coins</span></span>
-      </a>
-      <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 542 people">
-        <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">542</span>
-      </button>
-    </article>
-    <article class="wf-tile wf-tile--skel">
-      <a class="wf-tile-link" href="case.html">
-        <span class="wf-tile-art" aria-hidden="true"></span>
-        <span class="wf-tile-name">Saltmarsh</span>
-        <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
-        <span class="wf-tile-price"><span class="wf-tile-cost">1.35</span><span class="wf-tile-cur">coins</span></span>
-      </a>
-      <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 2 018 people">
-        <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">2 018</span>
-      </button>
-    </article>
-    <article class="wf-tile wf-tile--skel">
-      <a class="wf-tile-link" href="case.html">
-        <span class="wf-tile-art" aria-hidden="true"></span>
-        <span class="wf-tile-name">Blacklight</span>
-        <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
-        <span class="wf-tile-price"><span class="wf-tile-cost">18.90</span><span class="wf-tile-cur">coins</span></span>
-      </a>
-      <button class="wf-fav" type="button" aria-pressed="true" aria-label="Favourite, 174 people">
-        <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">174</span>
-      </button>
-    </article>
-    <article class="wf-tile wf-tile--skel">
-      <a class="wf-tile-link" href="case.html">
-        <span class="wf-tile-art" aria-hidden="true"></span>
-        <span class="wf-tile-name">Riftwork</span>
-        <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
-        <span class="wf-tile-price"><span class="wf-tile-cost">55.00</span><span class="wf-tile-cur">coins</span></span>
-      </a>
-      <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 63 people">
-        <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">63</span>
-      </button>
-    </article>
-    <article class="wf-tile wf-tile--skel">
-      <a class="wf-tile-link" href="case.html">
-        <span class="wf-tile-art" aria-hidden="true"></span>
-        <span class="wf-tile-name">Deadbolt</span>
-        <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
-        <span class="wf-tile-price"><span class="wf-tile-cost">3.20</span><span class="wf-tile-cur">coins</span></span>
-      </a>
-      <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 907 people">
-        <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">907</span>
-      </button>
-    </article>
-    <article class="wf-tile wf-tile--skel">
-      <a class="wf-tile-link" href="case.html">
-        <span class="wf-tile-art" aria-hidden="true"></span>
-        <span class="wf-tile-name">Overcast</span>
-        <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
-        <span class="wf-tile-price"><span class="wf-tile-cost">9.75</span><span class="wf-tile-cur">coins</span></span>
-      </a>
-      <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 388 people">
-        <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">388</span>
-      </button>
-    </article>
-    <article class="wf-tile wf-tile--skel">
-      <a class="wf-tile-link" href="case.html">
-        <span class="wf-tile-art" aria-hidden="true"></span>
-        <span class="wf-tile-name">Tinderbox</span>
-        <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
-        <span class="wf-tile-price"><span class="wf-tile-cost">24.50</span><span class="wf-tile-cur">coins</span></span>
-      </a>
-      <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 121 people">
-        <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">121</span>
-      </button>
-    </article>
-      </div>
+      <!-- THE DAILY FREE CASE IS ITS OWN SECTION NOW, which is D-61 read one
+           step further than the first pass read it: if a daily case is its own
+           case rather than a marker, then Daily is a category like any other and
+           the baseline already runs it as one. Row I2 still carries its orphan
+           status: the one capability on the map with no parent in any of the
+           three legal classes, in MVP by founder decision, D-15. Where its
+           once-a-day limit and its taken state render is proposed in the cost
+           slot and is NOT DECIDED: founder, with node 3.1. -->
+      <section class="wf-cats-sec" id="cat-daily" aria-labelledby="h2-daily">
+        <div class="wf-cats-h">
+          <h2 id="h2-daily">Daily</h2>
+          <p class="wf-cats-sub">One free open a day, and it is a case like any other</p>
+        </div>
+        <div class="wf-grid wf-grid--shelf">
+        <article class="wf-tile wf-tile--skel">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Daily free case</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">free</span><span class="wf-tile-cur">once a day</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 4 402 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">4 402</span>
+          </button>
+        </article>
+        </div>
+      </section>
+
+      <section class="wf-cats-sec" id="cat-featured" aria-labelledby="h2-featured">
+        <div class="wf-cats-h">
+          <h2 id="h2-featured">Featured</h2>
+          <p class="wf-cats-sub">Rated by us, and the rating is the drop table</p>
+        </div>
+        <div class="wf-grid wf-grid--shelf">
+        <article class="wf-tile wf-tile--skel">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Ironbound</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">12.40</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 829 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">829</span>
+          </button>
+        </article>
+        <article class="wf-tile wf-tile--skel">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Warsteel</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">4.90</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="true" aria-label="Favourite, 1 204 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">1 204</span>
+          </button>
+        </article>
+        <article class="wf-tile wf-tile--skel">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Coldfront</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">2.10</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 311 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">311</span>
+          </button>
+        </article>
+        <article class="wf-tile wf-tile--skel">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Nightfall</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">31.00</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 96 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">96</span>
+          </button>
+        </article>
+        </div>
+      </section>
+
+      <section class="wf-cats-sec" id="cat-community" aria-labelledby="h2-community">
+        <div class="wf-cats-h">
+          <h2 id="h2-community">Community</h2>
+          <p class="wf-cats-sub">Built from what people opened most last month</p>
+        </div>
+        <div class="wf-grid wf-grid--shelf">
+        <article class="wf-tile wf-tile--skel">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Emberline</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">7.60</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 542 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">542</span>
+          </button>
+        </article>
+        <article class="wf-tile wf-tile--skel">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Saltmarsh</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">1.35</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 2 018 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">2 018</span>
+          </button>
+        </article>
+        <article class="wf-tile wf-tile--skel">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Blacklight</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">18.90</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="true" aria-label="Favourite, 174 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">174</span>
+          </button>
+        </article>
+        <article class="wf-tile wf-tile--skel">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Riftwork</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">55.00</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 63 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">63</span>
+          </button>
+        </article>
+        </div>
+      </section>
+
+      <section class="wf-cats-sec" id="cat-classic" aria-labelledby="h2-classic">
+        <div class="wf-cats-h">
+          <h2 id="h2-classic">Classic</h2>
+          <p class="wf-cats-sub">The collections that were here first</p>
+        </div>
+        <div class="wf-grid wf-grid--shelf">
+        <article class="wf-tile wf-tile--skel">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Deadbolt</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">3.20</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 907 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">907</span>
+          </button>
+        </article>
+        <article class="wf-tile wf-tile--skel">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Overcast</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">9.75</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 388 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">388</span>
+          </button>
+        </article>
+        <article class="wf-tile wf-tile--skel">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Tinderbox</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">24.50</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 121 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">121</span>
+          </button>
+        </article>
+        <article class="wf-tile wf-tile--skel">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Halfmoon</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">0.80</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 1 660 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">1 660</span>
+          </button>
+        </article>
+        </div>
+      </section>
 
 
-    </section>
-
-    <!-- BLOCK 8. The SEO text, H2 plus two H3, placed by 0.13. REWRITTEN ON
-         21 AUGUST 2026, D-60: the H1, one H2, one H3 and two of three
-         paragraphs on this node used to be about backed stock, which was this
-         page's entire pre-login argument. What a stranger reads now is that the
-         numbers are published and checkable, design principle 1 as D-14 limits
-         it, rather than that the shelf is backed. -->
     <section class="wf-sec wf-prose" aria-labelledby="h2-about">
       <div class="wf-sec-head">
         <h2 id="h2-about">What the numbers on a case mean</h2>

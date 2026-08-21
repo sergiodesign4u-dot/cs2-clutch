@@ -33,16 +33,19 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 | # | Block | What it holds | Parent | Source |
 |---|---|---|---|---|
 | 1 | **Breadcrumb and H1** | Home > Cases, then exactly one H1, then one line stating what this shelf is | `0.13`, breadcrumbs and the single H1 rule. The line under it: MVP Core Job 1, **re-parented on 21 August 2026 when `D1` went void with `D-60`** | Bank T2, Hellcase's H1 below the fold marked **LEAVE** |
-| 2 | **Search and filter control** | A search field, a filter control carrying an **active count badge** | MVP Core Job 1, **which is the whole parent since `D1` went void with `D-60`** | Bank T2 **TAKE**, Hellcase's filter with an active count badge |
-| 3 | **Category bar** | One horizontal row of categories with an overflow control. **Conditional on `D-D`**, and it does not exist if the backed catalogue is small | MVP Core Job 1 | Bank T2 **DIFFERENT**: Hellcase ships twenty five chips horizontally and Key-Drop eighteen stacked rows, and both are taxonomies nobody reads |
+| 2 | **Search and filter control** | A search field and a filter control carrying an **active count badge**. **They sit at the right end of the category bar, `D-65`**, which is where the baseline puts them and is the only place they survive 390px unchanged | MVP Core Job 1, **which is the whole parent since `D1` went void with `D-60`** | **Baseline, walked 21 August 2026**, `baseline.md` section 10.2. Bank T2 **TAKE**, Hellcase's active count badge |
+| 3 | **Category bar** | One horizontal row of category chips with an overflow control, **sticky on scroll**, holding block 2 at its right end. **It is a jump list over the sections of block 6 rather than a filter**, `D-65`. **At 390px the chips collapse into the overflow and the two controls stay**: the carrier holds and the items give way | MVP Core Job 1 | **Baseline, walked 21 August 2026**, `baseline.md` section 10.2. Bank T2 **DIFFERENT**: Hellcase's twenty five chips and Key-Drop's eighteen stacked rows are taxonomies nobody reads, and the difference is that this one has somewhere to go |
 | 4 | **Active filter chips** | One removable chip per filter in force, plus clear all. Renders only when something is in force | Node `3.2`, which needs a route out, **and that is the whole parent since `D1` went void with `D-60`** | Bank T2 **TAKE**, Refero New Balance. **No competitor in the bank provides this** |
 | 5 | **Result count** | How many cases match, in text, above the grid | Node `3.2`, which requires a legible bottom to the list | Bank T2 **LEAVE**: skin.club's 248 case links on 28,160px with no count and no bottom |
-| 6 | **The grid** | Case tiles `0.7`, one column at 360px. **Position 1 is the daily free case** when nothing filters it out, section 2 | `0.7`, on `D2`. **`D1` and `A2` left on 21 August 2026, `D-60`.** The daily free case: row `I2`, section 2, **no parent in the three legal classes** | Bank T2 **DIFFERENT**: their tile makes a person open the case to learn what is in it |
-| 7 | **End of the list** | Pagination as crawlable links, and a visible end | Node `3.2`. Crawlable `<a>`: `0.13` section 8 | Bank T2 **LEAVE**, the infinite shelf |
+| 6 | **Category sections** | **Not one flat grid, `D-65`.** One section per category, each with its own H2, its own one line subtitle and its own grid of tiles `0.7`. One column at 360px. **Position 1 of the first section is the daily free case** when nothing filters it out, section 2. **A category with no case does not render an empty section**, and how many sections exist rides on `D-D` | `0.7`, on `D2`. **`D1` and `A2` left on 21 August 2026, `D-60`.** The daily free case: row `I2`, section 2, **no parent in the three legal classes** | **Baseline, walked 21 August 2026**, `baseline.md` section 10.1, thirteen sections. Bank T2 **DIFFERENT**: their tile makes a person open the case to learn what is in it |
+| 6a | **The filter drawer** | What block 2's control opens: case name, price amount, risk level, case type, sort. A heading, **reset all**, and a close. Section 4 holds the rows | MVP Core Job 1, and `C2` the spend ceiling for the price row | **Baseline, walked 21 August 2026**, `baseline.md` section 10.3 |
+| 7 | **End of the list** | Pagination as crawlable links, and a visible end. **It ends the last category section rather than the page**, because with sections there is no single list to reach the bottom of | Node `3.2`. Crawlable `<a>`: `0.13` section 8 | Bank T2 **LEAVE**, the infinite shelf |
 | 8 | **SEO text** | The H2 and H3 structured block that `0.13` places | `0.13`, the structural SEO layer | Bank T1 **TAKE**: four of four competitors carry it, which settles that the block exists |
 | 9 | **Footer `0.2`** | Global, unchanged | Node `0.2` | Global shell |
 
 **Two blocks that are on the baseline and are not here.** The baseline's catalogue carries a Back control beside the breadcrumb, `baseline.md` section 4, which duplicates the browser and the rail. And its Daily Cases block is a five tier ladder with a wager counter and four mode shortcuts, which is section 2's subject.
+
+**The block list grew on 21 August 2026, and it grew from the baseline rather than from a preference.** `D-65`: this node was written without its own product's catalogue open, and three of its rows were wrong about what the live shelf does. **The shape is inherited whole:** a sticky jump bar over named category sections, with the search and the filter at the bar's right end and the filter as a drawer. **What is not inherited is the count.** Thirteen sections over twelve round 1 cases is the dead item defect `D-20` names, so there are as many sections as have cases and no more.
 
 **The ticker `0.8` is on this page, and it was not until 21 August 2026.** `D-31` had cut it to `1.0` only, on the argument that a feed on every screen is wallpaper rather than context. **`D-59` reversed that** and the feed now renders in the global shell on every page, so this node inherits it rather than placing it. **The argument `D-31` made is not deleted by the reversal**: what answers it is the measurement `D-59` owes, and stage 04 took it, which is why the strip sits after the content at 360px and under the header on desktop.
 
@@ -82,23 +85,45 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 
 ---
 
-## 4. Filters and facets
+## 4. Filters and facets. **Rewritten 21 August 2026 by `D-65`, from the product rather than from the bank**
 
-| Facet | Values | Parent | Note |
-|---|---|---|---|
-| **Category** | The category list, `[?]` | MVP Core Job 1 | **Exists only if `D-D` returns a catalogue large enough to need it.** It is also the one facet with an indexed URL, `0.13` section 4.2 |
-| **Price range** | Minimum and maximum entry cost, in coins, `C1` as `D-28` rewrote it. **The peg renders once on the shelf**, not on every tile, `0.7` section 5.1 | MVP Core Job 1, and `C2`, the spend ceiling | Bank T2 **TAKE**, Key-Drop's min and max. **Same control, different job:** for us a price filter is also a way to stay under a ceiling, so it is placed where the ceiling is visible |
-| **Search** | Free text over case names | MVP Core Job 1 | `S-C1` in `sitemap.md`. Results are `noindex, follow`, canonical to `/cases` |
+**The list came from a walk of our own catalogue**, `baseline.md` section 10.3, and it is five controls in a drawer plus one sort. Three of the five were already here. **Two were refused by this node on reasoning that had never opened the page**, and both refusals are kept below with what overturned them.
+
+| Facet | Form | Values | Parent | Note |
+|---|---|---|---|---|
+| **Case name** | Search field | Free text over case names | MVP Core Job 1 | `S-C1` in `sitemap.md`. Results are `noindex, follow`, canonical to `/cases` |
+| **Price amount** | **A dual handle range, and under it two numeric steppers** | Minimum and maximum entry cost, in coins, `C1` as `D-28` rewrote it. **The peg renders once on the shelf**, not on every tile, `0.7` section 5.1 | MVP Core Job 1, and `C2`, the spend ceiling | **Baseline.** The steppers are not decoration: a range slider alone cannot be typed into, and a person with a ceiling in mind has a number rather than a gesture. **Same control, two jobs:** narrowing, and staying under a ceiling |
+| **Risk level** | **Three checkboxes, multi select, each with its band's mark beside the word** | **Low, Medium, High.** The same three values `sitemap.md` and `0.7` carry | Design principle 3, and the Case entity's risk band | **Baseline, and it is a reversal.** See below |
+| **Case type** | Select, default All | **`[?]`.** The walk did not enumerate the values | MVP Core Job 1 | Carried as a row with its values unknown rather than dropped, because the control exists on the live product |
+| **Category** | The chips in block 3 | The thirteen the baseline runs, `baseline.md` section 10.1 | MVP Core Job 1 | **It is a jump, not a facet, `D-65`.** It moves the page to a section rather than removing cases from it, so it does not produce `3.2` and does not become a chip in block 4. **It is also the one facet with an indexed URL**, `0.13` section 4.2 |
+| **Sort** | Select labelled Sort by, default **Date, newest first** | Other values `[?]` | MVP Core Job 1 | **Baseline, and it is the second reversal.** See below |
 
 **Every facet in force appears as a removable chip**, block 4, and that is not a convenience. It is the route out of `3.2`, and `3.2` is the reason the chips are specified before the empty state that needs them.
 
-**Refused, with the reason on the row.**
+### 4.1 The risk band filter, refused here on 20 August and reversed on 21 August
+
+**The refusal read:** the Case entity carries "risk band as a legible label" and nothing in this repository says how it is computed, so `0.11` rule 1 applies, a figure ships with a route or it does not ship.
+
+**What overturned it is not an argument, it is the page.** The live product **computes the band, prints it on every tile as three marks in the band's colour, and filters by it with the same three named values.** `baseline.md` section 10.3.
+
+**What is still missing is smaller than the refusal said, and it is still missing.** We do not have the thresholds. **That moves from "no computation exists" to a question of fact to the live platform**, in the same class as `D-B`, and it is the founder's to answer. Until it is answered the band renders as not available on every tile and this facet cannot be applied, which is `0.11` rule 3 rather than a special case.
+
+### 4.2 Sort, refused here on the bank and reversed on the product
+
+**The refusal read:** no parent, the price range facet already answers the budget question, and the bank has no T2 row for sorting.
+
+**The bank is competitors. This is the product.** `CLAUDE.md` inherits structure from the baseline and requires a divergence from it to be named out loud; **there was no research against a sort control, only an absence in a competitor bank.** The live catalogue sorts, defaulting to date, newest first.
+
+**One limit travels with it and is not inherited.** A sort by chance or by expected value would rank cases by how good a bet they look, on a page with no cost beside the ranking. `0.11` rule 7, a number is never a score. **Sort by date and by entry cost. Never by chance, by value, by RTP or by anything derived from them**, and never by popularity, which is the most-popular strip `0.7` already refuses.
+
+### 4.3 Refused, with the reason on the row
 
 | Refused | Why |
 |---|---|
 | ~~**In-stock only**~~ | **The refusal stands and its reason changed entirely on 21 August 2026.** It was refused because the predicate had no clean definition at case level. **Since `D-60` there is no predicate at all**, and a facet over a figure the product does not compute is not a refusal, it is an impossibility |
-| **Sort by entry cost, chance or value** | No parent. The price range facet already answers the budget question that a price sort would answer, and the bank has no T2 row for sorting. The drop table on `3.3` is sortable, and there the parent is the Ableton comparison-table row |
-| **Risk band as a filter** | **Half of this row was overturned and half of it stands.** It read "as a filter or a tile field" until 21 August 2026. **The tile field half is reversed**: `D-24` put the risk band on the tile and `D-61` kept it there as one of four fields, and `0.11` now carries the band as a group A row whose method reads the same drop table printed on `3.3`. **The filter half stands**, and so does the condition under it: `0.11` rule 1, a figure ships with a route or it does not ship, and **the thresholds between High, Medium and Low are still `[?]`**, so nothing sorts or filters on a number nobody has set. `3.3` section 16 carries the same open item |
+| **Sufficient balance to open** | **From the founder's reference capture, and refused here with the reason rather than dropped.** It filters the shelf to what the account can afford right now. It has no backlog row, it does nothing for a guest, and it sits one step from "top up to see the rest": `CLAUDE.md` binds this stage to cost never hiding inside excitement and to a boundary never becoming a reason to keep going. **A price maximum a person sets themselves answers the same question and answers it as a ceiling rather than as an inventory.** The founder's call, with that cost printed |
+| **A continuous risk slider** | The founder's reference draws risk as a named gradient. **The band has three values and no numbers behind them yet**, so a continuous control would promise a precision that does not exist. Three checkboxes are the baseline's own answer and they are the honest one until the thresholds are set |
+| **Sort by chance, value, RTP or popularity** | Section 4.2. `0.11` rule 7 |
 
 ---
 
@@ -136,6 +161,7 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 | **Loading** | The grid skeleton. **What it is waiting on changed on 21 August 2026:** it was the live free-unit counts, `flows.md` flow 1a, and with `D-60` the only per-read figure left on a tile is the favourite count. A skeleton is still specified rather than a generic spinner, and it is specified here rather than as a node, per the rule in `sitemap.md` | Resolves into the grid |
 | **Filtered** | The grid, the result count and the active filter chips. Chips are the only route back to everything | `3.2` if the result is empty |
 | **Degraded** | Tiles render with the failing figure marked as degraded, `0.11` section 7, and the rest of the tile intact. **The figure this state was written for was the free-unit count and it is withdrawn**, `D-60`. The state stays and its subjects are the entry cost, the risk band and the favourite count, each of which `0.7` already gives an explicit "not available" rather than a zero or a default band | Unchanged |
+| **Filter drawer open** | The drawer over the page, with the five controls of section 4, a reset all and a close. **The page behind it does not reflow**, and on mobile the drawer is the full width. It is a state of this node rather than a node of its own, because a person cannot arrive at it from outside | Close, or apply, both returning to the grid |
 | **Nothing matches** | Node `3.2` below | Back through a chip |
 
 **The age gate does not fire on this page.** `B3` requires it before any case interaction, and `flows.md` flow 1a passes through the whole catalogue without one. Choosing which case to look at is not a case interaction. The gate fires on `3.3`, and that node owns the condition.
@@ -176,6 +202,8 @@ Composition taken from `blocks.md` section 3, T2 listing with an empty state. Ev
 - Search and filter share one row. The filter's active count badge stays visible at every width, because it is the only signal that the grid is narrowed.
 - Active filter chips wrap onto as many rows as they need. **A chip never truncates its removal control**, since the control is the route out of `3.2`.
 - Tiles are **two columns at 360px, which `D-24` made possible** by taking the tile down to four fields. All four stay on the tile and none is dropped for width, because the risk band and the entry cost are the two the page exists to show.
+- **At 390px the baseline collapses its chips into the overflow and keeps the two controls**, `baseline.md` section 10.2. That is the rule this node takes: **the bar never disappears and the search and the filter never move out of it**, because they are what narrows the shelf and the chips only jump within it.
+- **The filter drawer is full width at 360px and a right hand panel from 900**, and it is the same control set in both.
 
 **Desktop, from 900px.** The rail sits beside the content, `0.1`. The grid becomes multi column. **Filters may move into a sidebar**, Refero New Balance, and the active chips stay above the grid where the result count is, because chips beside the grid and a count above it splits one answer into two places.
 
@@ -201,11 +229,13 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 ### B. Headings, exactly one H1 and the H2 list in block order
 
 - **H1:** All CS2 cases, with published chances and values
-- **H2:** Find a case _(the search, filter and category block)_
-- **H2:** All cases _(the grid)_
+- **H2:** Find a case _(the search, filter and category bar, blocks 2 to 4)_
+- **H2, once per category section** _(block 6, and the category name is the heading)_. **Changed 21 August 2026 by `D-65`:** it read a single H2, All cases, over one flat grid, and the shelf is a run of named sections. **The chips in block 3 jump to these headings**, so the bar and the heading list are the same list read twice, which is what makes the jump checkable rather than decorative
 - **H2:** What the numbers on a case mean _(SEO text)_
 - **H3:** Where the chance and the value come from
 - **H3:** The daily free case
+
+**One consequence, printed rather than discovered at stage 07:** the H2 count now moves with the catalogue. `0.13`'s mechanical check is that the H2 list matches the block order, and with sections that check reads the section list rather than a fixed list of three.
 
 **Rewritten on 21 August 2026 by `D-60`, and it is the largest single edit that decision caused anywhere in this repository.** The title, the description, the H1, one H2, one H3 and two of the three SEO paragraphs were all about stock, which is what this page's entire pre-login argument used to be. **The argument is replaced rather than shortened:** what a stranger reads on `/cases` is now that the numbers are published and checkable, which is design principle 1 as `D-14` limits it, instead of that the shelf is backed.
 
@@ -249,8 +279,9 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 | **An infinite shelf** | skin.club, 248 case links and 612 images on one page, 28,160px | `3.2` requires a legible bottom to the list and a result count, and this has neither |
 | **H1 below the shelf** | Hellcase, H1 after 1,400px of product | `0.13`, the single H1 rule. The heading that names the page is the first thing after the shell |
 | **The daily reward as a five tier ladder with a wager counter** | The baseline, `baseline.md` section 4 | Not refused on merit. It is an inherited answer to `I2`'s recorded risk and it belongs in front of the founder, section 2 |
-| ~~**A risk band on the tile**~~ | The baseline prints High-risk, Medium-risk or Low-risk on every tile | **Reversed, and the row is kept because the reversal was not free.** It was refused on `0.11` rule 1, no computation and therefore no route. `D-24` put the band on the tile and `0.11` gave it a method, the same drop table printed on `3.3`. **What did not get answered is the thresholds, still `[?]`**, so the band ships with a route and without its boundaries, and section 4 still refuses to filter or sort on it |
-| **Sort controls** | Common in the category | No parent, section 4 |
+| ~~**A risk band on the tile**~~ | The baseline prints it on every tile, **as three marks in the band's colour rather than as words**, `baseline.md` section 10.3 | **Reversed twice, and the row is kept because neither reversal was free.** Refused on `0.11` rule 1, no computation and therefore no route. `D-24` put the band on the tile and `0.11` gave it a method. **`D-65` then reversed the second half too**: the live product filters by it, so section 4 carries it as a facet. **The thresholds are still `[?]`** and until they are answered the band renders as not available and the facet cannot be applied |
+| ~~**Sort controls**~~ | **The baseline sorts**, defaulting to date newest first, `baseline.md` section 10.3 | **Reversed by `D-65`.** It was refused because the competitor bank has no T2 row for one. **The bank is competitors and this is the product.** Section 4.2 carries it with the one limit that is not inherited: never by chance, value, RTP or popularity |
+| **Sufficient balance to open** | The founder's reference capture, source `[?]` | Section 4.3. No backlog row, nothing for a guest, and one step from top up to see the rest |
 | **A vanity stats bar** | skin.club and Hellcase carry one, and Key-Drop and skin.club carry a concurrency counter | `0.11` rule 7, never a score, and rule 1, no route. Refused on `1.0` already and it does not return by a side door |
 
 ---
@@ -259,8 +290,11 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 
 | Open item | What is missing | Owner |
 |---|---|---|
-| **`D-D`, how large the backed catalogue is** | It decides whether the category bar and the category URLs exist at all. `D-17` deferred it to this stage and it is still open | Founder, with the treasury answer, before stage 04 |
-| **The category list itself** | If categories ship, which ones. The baseline runs thirteen and none of them is derived from a job. `0.13` section 8 is waiting on this same list for the interlinking block | Founder plus production, after `D-D` |
+| **`D-D`, how large the catalogue is** | **It no longer decides whether the bar exists**, `D-65`: the bar is inherited and it is a jump list, so it exists wherever there is more than one section. What it decides is how many sections there are and the page size. **Its subject also changed with `D-60`**, from inventory capital for a stock-backed shelf to simply how large the catalogue is | Founder |
+| **Which of the thirteen categories ship** | ~~If categories ship, which ones.~~ **The list is not `[?]` and has not been since 11 August 2026**, `baseline.md` section 10.1 names all thirteen and the walk of 21 August confirms them unchanged. **This node said `[?]` anyway and stage 04 drew an empty bar because of it**, which is a contradiction between two files rather than a missing input. What is genuinely open is which of the thirteen have a case in round 1, since a section with no case does not render. `0.13` section 8 waits on the same answer for the interlinking block | Founder, with the round 1 case list |
+| **The risk band thresholds** | Where High stops and Medium begins. **The live product has them**, so this is a question of fact to the platform rather than a design question, the same class as `D-B`. Until it is answered the band renders as not available on every tile and the risk facet cannot be applied | Founder, on the live platform |
+| **The values behind Case type and Sort** | Both controls exist on the live product and the walk did not enumerate either. `[?]` | A walk, or the founder |
+| **Whether the sufficient balance filter ships** | Section 4.3 refuses it with its reason. It is the founder's reference and the founder's call | Founder |
 | **Whether the daily free case is gated** | The baseline gates its daily reward behind a wager requirement, which is a live answer to `I2`'s recorded risk. Adopting it is a product decision, not an IA one | Founder |
 | **Page size and pagination length** | How many tiles per page. It rides on `D-D` and on the image weight, which is a stage 04 and production measurement | Stage 04, then production |
 | **Whether paginated pages should be self-canonical** | `0.13` puts every `/cases?...` view canonical to `/cases`, and pagination inherits that. The consequence is that cases beyond page 1 are discovered through `follow` rather than through an indexed listing, which is acceptable because every case page is indexed on its own. **If that trade is wrong it is `0.13`'s row to change, not this node's** | Node `0.13`, if the founder disagrees |

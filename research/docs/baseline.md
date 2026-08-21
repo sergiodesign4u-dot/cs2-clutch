@@ -148,7 +148,7 @@ Screenshot `walk_cases_1440.png`. Composition:
 - **A Daily Cases block**, which is the baseline's version of the daily free case. It is a five tier ladder, Silver, Nova, Guardian, Legend, Elite, with a **wager remaining counter reading 0.00 / 5.00**, a countdown to the next reset, shortcuts into the four game modes, and a CTA reading "Available 0 case(s)"
 - Then category rows of case tiles
 
-**A case tile carries:** item count, case name, a **risk label** of High-risk, Medium-risk or Low-risk, and the price in coins.
+**A case tile carries:** item count, case name, a **risk label** of High-risk, Medium-risk or Low-risk, and the price in coins. **Corrected by the third walk of 21 August 2026, section 10:** the risk label is not words on the tile, it is **three skull pips with a colour per band**, and the words appear in the accessible name and in the filter. The item count is in the accessible name and is not printed on the face of the tile.
 
 **Direct consequence for our backlog row I2.** The daily free case was carried into MVP with no parent in the three legal classes and with an explicit risk printed in its row: that it repeats daily the impression that opening is free. The baseline has already solved that exact problem, and not by making the case free. It gates the daily reward behind a **wager requirement** and presents it as a tier ladder. That is an inherited answer to an open risk and it belongs in front of the founder rather than inside a design decision.
 
@@ -424,3 +424,49 @@ Every row was opened in a live browser on 11 August 2026, pre-login, in one sess
 | Support: ticket form whose submit is Sign in | `https://daddyskins.com/en/support` | `walk2_support_1440.png` |
 | 404 with no shell, HTTP 404 | probe URL under `https://daddyskins.com/en/` | `walk2_404_1440.png` |
 | Terms, cookie policy: robots, heading counts, dates, three clauses | `/en/terms`, `/en/cookie-policy` | values in section 9.4 |
+
+---
+
+## 10. Third walk, 21 August 2026: the catalogue's category bar and its filter panel
+
+**Why this walk happened.** Stage 04 drew node `3.1` with an empty category bar and no filter panel, on the grounds that `catalogue.md` records the category list as `[?]` and refuses both a sort control and a risk-band filter. **The founder pointed at the live page.** Public, pre-login, walked with Playwright at 1440 and 390 on 21 August 2026. Shots: `walk3_cases_1440.png`, `walk3_cases_top_1440.png`, `walk3_cases_rows_1440.png`, `walk3_cases_filter_1440.png`, `walk3_cases_390.png`.
+
+### 10.1 The shelf is not one grid. It is a run of named category sections
+
+`H1` is "All CSGO (CS2) Cases In One Place", and under it **every category is its own section with its own `H2` and its own row of tiles**. Thirteen of them, in this order, read from the live headings: **Daily, Daddy's Featured, CS2 Gem, Quality, Community, the ballers, lady luck, The Real MVP, Safe Zone, Old School, The Weapons, Classic, Harvest.** Each `H2` carries a subtitle: "Claim Your Daily Rewards for Staying Active!", "Best CS2 Cases rated by DaddySkins".
+
+**The category list has been written down since 11 August 2026 and this walk confirms it unchanged.** It is not `[?]` anywhere in this repository except in `catalogue.md`, which is a contradiction between two files rather than a missing input.
+
+### 10.2 The category bar is a jump list over those sections, and it sticks
+
+A bar under the `H1`, labelled **CATEGORIES**, then the category names as chips, then an overflow control `...`, then **a search icon and a filter icon at the right end of the same bar**. It **sticks to the top of the viewport on scroll** and the sticky version drops the CATEGORIES label and shows the full thirteen.
+
+**At 390px the bar survives and its chips do not.** It renders as `CATEGORIES ...` plus the two icons: the carrier holds, the items go into the overflow, and the two controls that do the real narrowing stay visible at every width.
+
+### 10.3 The filter panel, and it is the thing this walk was for
+
+The filter icon opens a **right-hand drawer**, headed **FILTER** with **RESET ALL** at the top right and **CLOSE** pinned at the bottom. It holds five controls, in this order:
+
+| Control | Form | Detail |
+|---|---|---|
+| **Case name** | Search field with a magnifier | Free text |
+| **Price amount** | **A dual-handle range slider, and under it two numeric steppers** | Minimum and maximum, each with a text value and a minus and plus control. Read `0` and `1111` on the walk |
+| **Risk Level** | **Three checkboxes, not a slider** | **Low, Medium, High**, each with its three skull pips in the band's colour. Multi select |
+| **Case Type** | Select, default **All** | Values not enumerated on the walk, `[?]` |
+| **Order By** | Select labelled **Sort By**, default **Date (Newest First)** | Other values not enumerated on the walk, `[?]` |
+
+**Two facts about that panel matter more than its layout.**
+
+**The risk band is filterable on the live product and it is computed.** Three named values, the same three `sitemap.md` carries, rendered on every tile as three coloured pips and offered as a filter with the pips beside each label. **What we do not have is the thresholds**, and this walk moves that from "nothing in this repository says how it is computed" to **a question of fact to the live platform**, in the same class as `D-B`.
+
+**The live product sorts.** `catalogue.md` refuses a sort control on the grounds that the competitor bank has no T2 row for one. **The bank is competitors. This is the product.**
+
+### 10.4 What the founder's reference adds on top of this
+
+Founder capture, 21 August 2026, **source `[?]`: it is not daddyskins and this session did not open the site it came from**, so nothing in it is a fact about a named competitor. Three ideas in it that the baseline's own panel does not have:
+
+- **The filters live in the bar rather than behind a drawer.** The price control expands as a second row under the category bar, in place.
+- **A named continuous risk slider**, labelled ADRENALINE, drawn as a gradient rather than as three checkboxes.
+- **A "sufficient balance to open" toggle**, which filters the shelf to what the account can afford right now.
+
+**The third one is not a neutral convenience and this file says so rather than passing it on quietly.** A control that answers "what can I afford right now" sits one step from "top up to see the rest", and `CLAUDE.md` binds this stage: a limit never acquires completion mechanics, and where money is about to be spent the cost never hides inside excitement. It is the founder's call and it belongs in front of him with that cost printed.

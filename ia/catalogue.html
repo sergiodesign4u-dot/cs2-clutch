@@ -179,7 +179,7 @@
   </div>
 
   <div class="card is-note">
-    <p><strong>The catalogue's size is <span class="q">[?]</span> and no longer blocks anything.</strong> <code>D-20</code>: whatever the backed count turns out to be, Home shows a curated subset and this node holds all of it. <code>D-D</code> still sets that count, and it decides exactly one thing here, whether the category bar exists at all.</p>
+    <p><strong>The catalogue's size is <span class="q">[?]</span> and no longer blocks anything.</strong> <code>D-20</code>: whatever the backed count turns out to be, Home shows a curated subset and this node holds all of it. <code>D-D</code> still sets that count. <b>What it decides here changed on 21 August 2026, D-65:</b> the bar is inherited and it is a jump list, so it exists wherever there is more than one section, and what <code>D-D</code> sets is how many sections there are.</p>
   </div>
 </section>
 
@@ -199,7 +199,7 @@
         <tr><td>3</td><td><strong>Category bar</strong></td><td>One horizontal row with an overflow control. <strong>Conditional on <code>D-D</code></strong></td><td>MVP Core Job 1</td><td><strong>DIFFERENT</strong>: Hellcase ships 25 chips, Key-Drop 18 stacked rows</td></tr>
         <tr><td>4</td><td><strong>Active filter chips</strong></td><td>One removable chip per filter in force, plus clear all</td><td>Node <span class="surf">3.2</span>, <b>the whole parent since <span class="row-code">D1</span> went void</b></td><td><strong>TAKE</strong>, Refero New Balance. <strong>No competitor here provides it</strong></td></tr>
         <tr><td>5</td><td><strong>Result count</strong></td><td>How many cases match, in text, above the grid</td><td>Node <span class="surf">3.2</span></td><td><strong>LEAVE</strong>: skin.club's 248 links on 28,160px with no count</td></tr>
-        <tr><td>6</td><td><strong>The grid</strong></td><td>Case tiles <code>0.7</code>. <strong>Position 1 is the daily free case</strong> when nothing filters it out</td><td><code>0.7</code> on <span class="row-code">D2</span>. <b><span class="row-code">D1</span> and <span class="row-code">A2</span> left with <code>D-60</code>.</b> Daily: <span class="row-code">I2</span>, <strong>orphan</strong></td><td><strong>DIFFERENT</strong>: their tile makes you open the case to learn what is in it</td></tr>
+        <tr><td>6</td><td><strong>Category sections</strong></td><td><b>Not one flat grid, D-65.</b> One section per category, each with its own H2, its own subtitle and its own grid of tiles <code>0.7</code>. <strong>Position 1 of the first section is the daily free case</strong> when nothing filters it out. <b>A category with no case renders no section</b></td><td><code>0.7</code> on <span class="row-code">D2</span>. <b><span class="row-code">D1</span> and <span class="row-code">A2</span> left with <code>D-60</code>.</b> Daily: <span class="row-code">I2</span>, <strong>orphan</strong></td><td><strong>DIFFERENT</strong>: their tile makes you open the case to learn what is in it</td></tr>
         <tr><td>7</td><td><strong>End of the list</strong></td><td>Pagination as crawlable links, and a visible end</td><td>Node <span class="surf">3.2</span></td><td><strong>LEAVE</strong>, the infinite shelf</td></tr>
         <tr><td>8</td><td><strong>SEO text</strong></td><td>The H2 and H3 block <code>0.13</code> places</td><td><code>0.13</code></td><td><strong>TAKE</strong>, four of four competitors carry it</td></tr>
         <tr><td>9</td><td><strong>Footer</strong></td><td>Node <code>0.2</code>, unchanged</td><td>Global shell</td><td>Global</td></tr>
@@ -358,19 +358,35 @@
 <!-- FILTERS -->
 <section id="filters">
   <div class="sec-head">
-    <h2>Three facets, one of them conditional</h2>
-    <p>Every facet in force appears as a removable chip, and that is not a convenience. It is the route out of 3.2.</p>
+    <h2>Five controls and a sort. <b>Rewritten 21 August 2026 by D-65, from the product rather than from the bank</b></h2>
+    <p>The list came from a walk of our own catalogue, <a href="../research/baseline.html#walk3">baseline section 10.3</a>. Three of the five were already here. <strong>Two were refused by this node on reasoning that had never opened the page.</strong></p>
   </div>
 
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Facet</th><th>Values</th><th>Parent</th><th>Note</th></tr></thead>
+      <thead><tr><th>Facet</th><th>Form</th><th>Values</th><th>Note</th></tr></thead>
       <tbody>
-        <tr><td><strong>Category</strong></td><td>The category list, <span class="q">[?]</span></td><td>MVP Core Job 1</td><td><strong>Exists only if <code>D-D</code> returns a catalogue large enough to need it.</strong> The one facet with an indexed URL</td></tr>
-        <tr><td><strong>Price range</strong></td><td>Minimum and maximum entry cost, in coins, <code>D-28</code></td><td>MVP Core Job 1, and <span class="row-code">C2</span></td><td><strong>TAKE</strong>, Key-Drop's min and max. Same control, different job: for us a price filter is also a way to stay under a ceiling</td></tr>
-        <tr><td><strong>Search</strong></td><td>Free text over case names</td><td>MVP Core Job 1</td><td>Results are <code>noindex, follow</code>, canonical to <code>/cases</code></td></tr>
+        <tr><td><strong>Case name</strong></td><td>Search field</td><td>Free text over case names</td><td>Results are <code>noindex, follow</code>, canonical to <code>/cases</code></td></tr>
+        <tr><td><strong>Price amount</strong></td><td><strong>A dual handle range, and under it two numeric steppers</strong></td><td>Minimum and maximum entry cost, in coins, <code>D-28</code></td><td><strong>Baseline.</strong> The steppers are not decoration: a slider cannot be typed into, and a person with a ceiling in mind has a number rather than a gesture. Same control, two jobs, narrowing and staying under <span class="row-code">C2</span></td></tr>
+        <tr><td><strong>Risk level</strong></td><td><strong>Three checkboxes, multi select</strong>, each with its band&#39;s mark beside the word</td><td><strong>Low, Medium, High</strong></td><td><strong>Baseline, and it is a reversal.</strong> Below</td></tr>
+        <tr><td><strong>Case type</strong></td><td>Select, default All</td><td><span class="q">[?]</span>, the walk did not enumerate them</td><td>Carried with its values unknown rather than dropped, because the control exists on the live product</td></tr>
+        <tr><td><strong>Category</strong></td><td>The chips in block 3</td><td>The thirteen the baseline runs</td><td><strong>A jump, not a facet.</strong> It moves the page to a section rather than removing cases from it, so it never produces 3.2 and never becomes a chip. <strong>It is also the one facet with an indexed URL</strong></td></tr>
+        <tr><td><strong>Sort</strong></td><td>Select, Sort by</td><td>Default <strong>Date, newest first</strong>. Others <span class="q">[?]</span></td><td><strong>Baseline, and it is the second reversal.</strong> Below</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>The risk band filter, refused here on 20 August and reversed on 21 August</h4>
+    <p><strong>The refusal read:</strong> nothing in this repository says how the band is computed, so <code>0.11</code> rule 1 applies, a figure ships with a route or it does not ship.</p>
+    <p><strong>What overturned it is not an argument, it is the page.</strong> The live product computes the band, prints it on every tile as three marks in the band&#39;s colour, and filters by it with the same three named values.</p>
+    <p><strong>What is still missing is smaller than the refusal said, and it is still missing.</strong> We do not have the thresholds. That moves from &quot;no computation exists&quot; to <strong>a question of fact to the live platform</strong>, in the same class as <code>D-B</code>. Until it is answered the band renders as not available on every tile and this facet cannot be applied, which is <code>0.11</code> rule 3 rather than a special case.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Sort, refused here on the bank and reversed on the product</h4>
+    <p><strong>The refusal read:</strong> no parent, the price facet already answers the budget question, and the bank has no T2 row for sorting. <strong>The bank is competitors. This is the product.</strong> There was no research against a sort control, only an absence in a competitor bank.</p>
+    <p><strong>One limit travels with it and is not inherited.</strong> A sort by chance or by expected value would rank cases by how good a bet they look, on a page with no cost beside the ranking. <code>0.11</code> rule 7, a number is never a score. <strong>Sort by date and by entry cost. Never by chance, value, RTP or popularity.</strong></p>
   </div>
 
   <div class="table-wrap">
@@ -378,8 +394,9 @@
       <thead><tr><th style="width:26%">Refused facet</th><th>Why</th></tr></thead>
       <tbody>
         <tr><td><s><strong>In-stock only</strong></s></td><td><b>The refusal stands and its reason changed entirely on 21 August 2026.</b> It was refused because the predicate had no clean definition at case level. <b>Since <code>D-60</code> there is no predicate at all</b>, and a facet over a figure the product does not compute is not a refusal, it is an impossibility</td></tr>
-        <tr><td><strong>Sort by cost, chance or value</strong></td><td>No parent. The price range facet already answers the budget question, and the bank has no T2 row for sorting. The drop table on <span class="surf">3.3</span> is sortable, and there the parent is the comparison-table row</td></tr>
-        <tr><td><strong>Risk band</strong></td><td>The Case entity carries "risk band as a legible label" and <strong>nothing in this repository says how it is computed.</strong> <code>0.11</code> rule 1: a figure ships with a route or it does not ship</td></tr>
+        <tr><td><strong>Sufficient balance to open</strong></td><td><b>From the founder&#39;s reference capture, and refused here with the reason rather than dropped.</b> It filters the shelf to what the account can afford right now. No backlog row, nothing for a guest, and one step from &quot;top up to see the rest&quot;: <code>CLAUDE.md</code> binds this stage to cost never hiding inside excitement and to a boundary never becoming a reason to keep going. <strong>A price maximum a person sets themselves answers the same question and answers it as a ceiling rather than as an inventory.</strong> The founder&#39;s call, with that cost printed</td></tr>
+        <tr><td><strong>A continuous risk slider</strong></td><td>The founder&#39;s reference draws risk as a named gradient. <strong>The band has three values and no numbers behind them yet</strong>, so a continuous control would promise a precision that does not exist</td></tr>
+        <tr><td><strong>Sort by chance, value, RTP or popularity</strong></td><td><code>0.11</code> rule 7</td></tr>
       </tbody>
     </table>
   </div>
@@ -545,7 +562,7 @@
     <table>
       <thead><tr><th style="width:24%">Open item</th><th style="width:48%">What is missing</th><th>Owner</th></tr></thead>
       <tbody>
-        <tr><td><strong><code>D-D</code>, how large the backed catalogue is</strong></td><td>It decides whether the category bar and the category URLs exist at all. <code>D-17</code> deferred it to this stage and it is still open</td><td>Founder, with the treasury answer, before stage 04</td></tr>
+        <tr><td><strong><code>D-D</code>, how large the catalogue is</strong></td><td><b>It no longer decides whether the bar exists</b>, D-65: the bar is inherited and it is a jump list, so it exists wherever there is more than one section. What it decides is how many sections and the page size</td><td>Founder</td></tr>\n        <tr><td><strong>Which of the thirteen categories ship</strong></td><td><b>The list is not [?] and has not been since 11 August 2026.</b> This node said [?] anyway and stage 04 drew an empty bar because of it, which is a contradiction between two files rather than a missing input. What is open is which of the thirteen have a case in round 1</td><td>Founder, with the case list</td></tr>\n        <tr><td><strong>The risk band thresholds</strong></td><td>Where High stops and Medium begins. <b>The live product has them</b>, so this is a question of fact to the platform, the same class as <code>D-B</code></td><td>Founder, on the live platform</td></tr>
         <tr><td>The category list itself</td><td>If categories ship, which ones. The baseline runs thirteen and none is derived from a job. <code>0.13</code> is waiting on this same list for the interlinking block</td><td>Founder plus production, after <code>D-D</code></td></tr>
         <tr><td>Whether the daily free case is gated</td><td>The baseline gates its daily reward behind a wager requirement, which is a live answer to <span class="row-code">I2</span>'s recorded risk. Adopting it is a product decision, not an IA one</td><td>Founder</td></tr>
         <tr><td>Page size and pagination length</td><td>How many tiles per page. It rides on <code>D-D</code> and on image weight</td><td>Stage 04, then production</td></tr>
@@ -583,7 +600,7 @@ window.NAV_SECTIONS = [
   { id: 'blocks',   label: 'Nine blocks' },
   { id: 'daily',    label: 'The daily free case' },
   { id: 'stock',    label: 'Zero stock, void since D-60' },
-  { id: 'filters',  label: 'Facets' },
+  { id: 'filters',  label: 'Five facets, D-65' },
   { id: 'states',   label: 'States and 3.2' },
   { id: 'seo',      label: 'SEO A to E' },
   { id: 'refused',  label: 'Refused' },

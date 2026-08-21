@@ -130,6 +130,7 @@ window.WF_NAV = {
       base: 'Guest, unfiltered',
       states: [
         { label: 'Account',        file: 'catalogue-account.html',  status: 'built' },
+        { label: 'Filter drawer open', file: 'catalogue-filter.html', status: 'built' },
         { label: 'Filtered',       file: 'catalogue-filtered.html', status: 'built' },
         { label: 'Loading',        file: 'catalogue-loading.html',  status: 'built' },
         { label: 'Degraded',       file: 'catalogue-degraded.html', status: 'built' },

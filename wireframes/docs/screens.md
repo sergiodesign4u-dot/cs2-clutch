@@ -1420,3 +1420,45 @@ The rail carries one destination, Cases, `D-40`, and **it pointed at `catalogue.
 **Where the daily case's availability renders.** Proposed in the cost slot, not decided. Founder, with this node.
 
 **Page size and how many tiles a page holds.** It rides on `D-D` and on the image weight, so the twelve drawn here is the drawn set and not a decision.
+
+---
+
+## 42. Node `3.1` second pass, `D-65`: the shelf takes the baseline's shape
+
+**Drawn 21 August 2026, hours after section 41.** The founder pointed at the live catalogue and three of the node's rows turned out to be wrong about our own product. The walk is `baseline.md` section 10; the decision is `D-65`.
+
+### What changed on the page
+
+| First pass | Second pass |
+|---|---|
+| One flat grid, one H2, `All cases` | **A run of named category sections**, one H2 and one subtitle each |
+| A category bar with one chip and the list stated as absent | **A sticky jump bar over those sections**, with the search and the filter at its right end |
+| Search and filter as a row above the bar | **Inside the bar**, and they never leave it at any width |
+| No filter panel | **A drawer: case name, price amount, risk level, case type, sort**, plus reset all and a close |
+| Three facets | **Five and a sort**, and two of them reverse refusals this node made without opening the page |
+
+### Four sections, and the number is the point
+
+**The baseline runs thirteen.** Four are drawn, because a chip whose section has no case is the dead item defect and thirteen sections over twelve round 1 cases is `D-20`'s own example. **The carrier is inherited and only the live chips render.** Which of the thirteen ship is the founder's, with the round 1 case list.
+
+**The filtered state proves the rule rather than describing it.** Two of four sections empty out, **and their chips leave the bar with them**: a jump to a heading that is not on the page is a dead control. On `catalogue-empty.html` the bar keeps its label and its two controls and holds no jumps at all.
+
+### The price control is a range and two steppers, and the steppers are not decoration
+
+A slider cannot be typed into, and **a person holding a ceiling in their head has a number rather than a gesture**. Same control, two jobs: narrowing, and staying under `C2`'s spend ceiling.
+
+**One thing the steppers caught that the sweep did not:** at 360 two steppers share the drawer's width and `55.00` rendered as `55.0(`. **The figure is the whole point of the control.** The sweep gained a check for an input whose value is wider than its box.
+
+### The risk checkboxes are the one disabled control this stage has drawn
+
+`D-58` took every disabled control off the sign in surface on the founder's own argument. **That argument does not reach here and the difference is the whole of it.** On sign in the precondition was something the person could satisfy. Here it is a number that does not exist in this repository: **the live product has the thresholds and this project does not.** Nothing the person does turns it on, so the control is inert **and the reason is printed beside it in words**, which is what `D-58` actually asked for.
+
+### The grey contract reached the form controls, and it had not before
+
+A range and a select render in the browser's own accent, **which put live blue on a wireframe** the moment the drawer was drawn. `accent-color` neutralises the checkbox and the range thumb, and the select loses its arrow for one drawn from the same ink as everything else. **A colour value that arrives by default is still a colour value**, and stage 07 extracts components from these files.
+
+### Measured
+
+**98 checks over seven pages, seven widths, both rail states: clean.** Plus two new assertions: **every category chip jumps to a heading that exists**, and no input clips its own value. **180 checks over all thirty wireframe files, every internal link resolved.**
+
+**29 pages built of 81.**

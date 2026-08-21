@@ -1986,3 +1986,54 @@ A wireframe that loses a state loses a slot, and an empty slot reads as an overs
 ### The rule this leaves
 
 **A decision is applied when nothing left in the repository still asserts what it reversed**, not when the node that raised it has been edited. The instrument is a search for the withdrawn thing across every live file, and the finish line is that every remaining hit names the decision that killed it.
+
+---
+
+## D-65. The shelf takes the baseline's shape, and three of this node's rows were wrong about our own product
+
+**Date:** 2026-08-21. **Stage:** 04, after the founder pointed at the live catalogue. **Decided by:** the founder, then stage 04 on the detail. **Binds:** node `3.1`, `baseline.md`, and the six wireframe pages drawn earlier the same day.
+
+**What happened.** Stage 04 drew node `3.1` as one flat grid with an **empty category bar** and no filter panel, on three things `catalogue.md` said: the category list is `[?]`, a sort control has no parent, and a risk-band filter has no computation behind it. **The founder said to go and look at the product.** All three were wrong, and the page had been there the whole time.
+
+### The walk, and it is in `baseline.md` section 10 rather than here
+
+Public, pre-login, Playwright at 1440 and 390, 21 August 2026. Five shots in `research/screens/baseline/`.
+
+| What the node said | What the live page does |
+|---|---|
+| The category list is `[?]` | **Thirteen categories, and they have been written down in `baseline.md` since 11 August 2026.** The shelf is a run of named sections, one H2 each |
+| A category bar exists only if `D-D` says the catalogue is large | **The bar is a jump list over those sections**, sticky, with the search and the filter at its right end. It is not a filter and `D-D` does not decide whether it exists |
+| Sort has no parent, the bank has no T2 row for one | **The product sorts**, defaulting to date newest first |
+| A risk-band filter has no computation | **The product computes the band, prints it on every tile as three coloured marks, and filters by it with our three named values** |
+
+**The first row is the one that matters most, and it is not a missing input.** `baseline.md` had the list and `catalogue.md` said `[?]` beside it. **Two files in this repository disagreeing, and the wireframe rendered the losing one.** An empty category bar shipped because of it.
+
+### What is inherited and what is not
+
+**Inherited whole:** the sticky jump bar, the search and filter at its right end, the category sections with a heading and a subtitle each, the filter as a drawer, and the drawer's five controls in the baseline's own order.
+
+**Not inherited: the count.** Thirteen sections over twelve round 1 cases is the dead item defect `D-20` names. **The carrier is inherited and only the live chips render**, so the wireframe draws four sections and prints that the baseline runs thirteen and which ship is the founder's.
+
+### The two reversals, kept with what overturned them
+
+**The risk band as a filter.** Refused on `0.11` rule 1, a figure ships with a route or it does not. **What overturned it is the page, not an argument.** What is still missing is smaller and still missing: **the thresholds.** That moves from "no computation exists" to **a question of fact to the live platform**, in the same class as `D-B`. Until it is answered the band renders as not available on every tile and the facet cannot be applied.
+
+**Sort.** Refused because the competitor bank has no T2 row for one. **The bank is competitors. This is the product.** One limit travels with it and is not inherited: **never by chance, value, tested RTP or popularity.** `0.11` rule 7, a number is never a score, and a shelf ranked by how good a bet each case looks is a ranking with no cost beside it.
+
+### The founder's reference, and the one thing in it that is refused with its reason
+
+The capture the founder supplied is **not daddyskins and this session did not open the site it came from**, so its source is `[?]` and nothing in it is a fact about a named competitor. Three ideas in it that the baseline's own panel does not have:
+
+| Idea | Verdict |
+|---|---|
+| **The filters live in the bar rather than behind a drawer** | Not taken. The drawer holds five controls and a sort, and a second row under a sticky bar either pushes the shelf down on every page load or hides the controls that are not in it |
+| **A named continuous risk slider**, drawn as a gradient | **Refused.** The band has three values and no numbers behind them yet, so a continuous control promises a precision that does not exist. Three checkboxes are the baseline's own answer and the honest one until the thresholds are set |
+| **A "sufficient balance to open" toggle** | **Refused, with the reason on the row rather than dropped.** No backlog row, nothing for a guest, and it sits one step from "top up to see the rest". `CLAUDE.md`: cost never hides inside excitement, and a boundary never becomes a reason to keep going. **A price maximum a person sets themselves answers the same question and answers it as a ceiling rather than as an inventory.** The founder's call, with that cost printed |
+
+### One thing the drawer does that no other surface this stage has drawn is allowed to
+
+**The risk checkboxes are disabled.** `D-58` took every disabled control off the sign in surface, on the founder's own argument: a person meets a dead control, cannot see what to do, and leaves or writes to support. **That argument does not reach here, and the difference is the whole of it.** On sign in the precondition was something the person could satisfy. Here the precondition is a number that does not exist in this repository, and nothing the person does turns it on. **So the control is inert and the reason is printed beside it in words**, which is what `D-58` actually asked for: the refusal says what is missing.
+
+### The rule this leaves
+
+**A node about our own product is not finished until someone has opened our own product.** `catalogue.md` cited the competitor bank eleven times and the baseline twice, and all three of its wrong rows were places where the bank was consulted and the product was not.

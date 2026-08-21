@@ -10,15 +10,15 @@
 </head>
 <body>
 
-<!-- NODE 3.1, THE CASE CATALOGUE. State 3.2: NOTHING MATCHES. The chips stay in force above it, because THEY ARE THE ROUTE OUT and that is why block 4 is specified before the state that needs it.
-     THIS PAGE EXISTED AS A LINK BEFORE IT EXISTED AS A PAGE. The rail carries one
-     destination, Cases, D-40, and it pointed here on all twenty two built screens
-     while catalogue.html returned a 404. That is what moved it up the queue ahead
-     of the geo gate.
-     AND IT COULD NOT BE DRAWN AS THE NODE STOOD. Node 3.1 was written on the stock
-     model: a whole section, a refusal row, two states, three block parents, the
-     node's own parent class and the entire SEO layer. D-64 cleared that first, so
-     nothing on this page reports a shelf that can run short. -->
+<!-- NODE 3.1, THE CASE CATALOGUE. State 3.2: NOTHING MATCHES. The chips stay above it because THEY ARE THE ROUTE OUT. Every section is gone and so is every chip in the bar, which is what makes the bar honest: it lists what is on the page.
+     SECOND PASS, 21 AUGUST 2026, D-65. The first pass drew one flat grid with an
+     EMPTY CATEGORY BAR, because catalogue.md recorded the category list as [?]
+     and refused both a sort control and a risk-band filter. A walk of our own
+     catalogue found all three wrong. The list has been written down in
+     baseline.md since 11 August, the live product sorts, and it filters by the
+     risk band with the same three named values this project uses.
+     WHAT IS INHERITED IS THE SHAPE, NOT THE COUNT: thirteen sections over twelve
+     round 1 cases is the dead item defect D-20 names. -->
 <button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
 <aside id="wf-panel"></aside>
 
@@ -28,11 +28,10 @@
 
   <main class="wf-main">
 
-    <!-- BLOCK 1. Breadcrumb, exactly one H1, then one line stating what this shelf
-         is. Bank T2 LEAVE: Hellcase puts its H1 after 1,400px of product.
-         THE LINE UNDER THE H1 WAS PARENTED ON D1 UNTIL 21 AUGUST 2026 and D-60
-         took that parent. It stands on MVP Core Job 1 now, and it says what the
-         shelf is rather than what backs it. -->
+    <!-- BLOCK 1. Breadcrumb, exactly one H1, then one line stating what this
+         shelf is. Bank T2 LEAVE: Hellcase puts its H1 after 1,400px of product.
+         The baseline carries a Back control here too and this node does not:
+         it duplicates the browser and the rail, catalogue.md section 1. -->
     <nav class="wf-crumb" aria-label="Breadcrumb">
       <ol>
         <li><a href="index.html">Home</a></li>
@@ -40,97 +39,50 @@
       </ol>
     </nav>
     <h1>All CS2 cases, with published chances and values</h1>
-    <p class="wf-sec-sub">Every case the product offers. Narrow it to what you can afford, and read what a case is before you commit to anything.</p>
+    <p class="wf-sec-sub">Every case the product offers, in sections. Jump to a category, narrow it to what you can afford, and read what a case is before you commit to anything.</p>
 
-    <section class="wf-sec" aria-labelledby="h2-find">
-      <div class="wf-sec-head">
-        <h2 id="h2-find">Find a case</h2>
+    <div class="wf-catbar" role="navigation" aria-label="Categories">
+      <span class="wf-catbar-lbl">Categories</span>
+      <div class="wf-catbar-run">
+        <span class="wf-note wf-fig-missing">No section matches, so there is nothing to jump to</span>
       </div>
-      <div class="wf-shelf">
-      <!-- BLOCK 2. Search and the filter control. The control carries an ACTIVE
-           COUNT BADGE, bank T2 TAKE from Hellcase: a filter control that does not
-           say how many filters are on is a control a person has to open to read. -->
-      <div class="wf-find">
-        <div class="wf-find-f">
-          <label class="wf-vh" for="q">Search cases by name</label>
-          <input id="q" type="search" name="q" placeholder="Search cases">
-        </div>
-        <button class="wf-btn" type="button" aria-expanded="false">Filters<span class="wf-badge">2</span></button>
+      <div class="wf-catbar-acts">
+        <button class="wf-btn wf-icon-btn" type="button" aria-label="Search cases by name">Search</button>
+        <button class="wf-btn wf-icon-btn" type="button" aria-expanded="false" aria-label="Filters">Filters<span class="wf-badge">2</span></button>
       </div>
+    </div>
+    <!-- BLOCK 4. Active filter chips. THE ROUTE OUT OF 3.2, which is why this
+         block is specified before the state that needs it. Bank T2 TAKE, Refero
+         New Balance, and NO COMPETITOR IN THE BANK PROVIDES IT.
+         A CATEGORY NEVER BECOMES A CHIP: the bar jumps, it does not filter. -->
+    <div class="wf-chips" role="group" aria-label="Filters in force">
+      <span class="wf-chip">under 1.00 coins
+        <button class="wf-btn wf-btn--small wf-chip-x" type="button" aria-label="Remove filter: under 1.00 coins">x</button>
+      </span>
+      <span class="wf-chip">High risk only
+        <button class="wf-btn wf-btn--small wf-chip-x" type="button" aria-label="Remove filter: High risk only">x</button>
+      </span>
+      <button class="wf-btn wf-btn--small" type="button">Clear all</button>
+    </div>
 
-      <!-- BLOCK 3. The category bar. CONDITIONAL ON D-D, AND THE LIST IS [?].
-           The node makes the bar exist only if the backed catalogue is large
-           enough to need it, and nothing in this repository names one category.
-           So the carrier is drawn with its one real member and the absence is
-           stated in words. Inventing thirteen category names here would be the
-           median CLAUDE.md's input gate exists to prevent, and it would read as
-           a decision to everyone downstream. -->
-      <div class="wf-cats" role="group" aria-label="Categories">
-        <a class="wf-cat" href="catalogue.html" aria-current="page">All</a>
-      </div>
-      <p class="wf-note wf-fig-missing">Categories not available: the list is not decided anywhere, and whether this bar exists at all rides on D-D, which is still open</p>
-      <!-- BLOCK 4. Active filter chips, and this is the block that makes 3.2 a
-           designed state rather than an accident: it is the route out. Bank T2
-           TAKE, Refero New Balance, and NO COMPETITOR IN THE BANK PROVIDES IT.
-           The x is its own button with its own name, because a chip whose whole
-           surface removes the filter cannot say what pressing it does. -->
-      <div class="wf-chips" role="group" aria-label="Filters in force">
-        <span class="wf-chip">under 1.00 coins
-          <button class="wf-btn wf-btn--small wf-chip-x" type="button" aria-label="Remove filter: under 1.00 coins">x</button>
-        </span>
-        <span class="wf-chip">knives
-          <button class="wf-btn wf-btn--small wf-chip-x" type="button" aria-label="Remove filter: knives">x</button>
-        </span>
-        <button class="wf-btn wf-btn--small" type="button">Clear all</button>
-      </div>
-      </div>
-    </section>
+    <!-- BLOCK 5. The result count, in text, above the sections. 3.2 requires a
+         legible bottom to the list and a count is half of that. -->
+    <p class="wf-count-line">0 cases match, out of 13</p>
 
-    <section class="wf-sec" aria-labelledby="h2-all">
-      <div class="wf-sec-head">
-        <h2 id="h2-all">All cases</h2>
-      </div>
-
-      <!-- BLOCK 5. The result count, in text, above the grid. 3.2 requires a
-           legible bottom to the list, and a count is half of that. -->
-      <p class="wf-count-line">0 cases match, out of 12</p>
-
-      <!-- NODE 3.2. NOTHING MATCHES. No URL of its own, 0.13 section 2: a state
-           gets an address only if a person can arrive at it from outside, and
-           this one cannot. It renders at the URL the person is already on.
-           WHAT IT IS NOT: the shelf being empty. It never could be, and since
-           D-60 it cannot be for a second reason. Either way an empty result is
-           always the result of a filter, a search or a category.
-           NO RECOMMENDATIONS BLOCK. A case suggested because a filter failed is
-           an advertisement in the place where the person just told us what they
-           wanted, and 7.1 refuses "similar items" for the same reason. -->
       <div class="wf-empty" id="3.2">
         <p class="wf-empty-h">Nothing matches these two filters.</p>
-        <p class="wf-empty-p">Under 1.00 coins, and knives only. No case on the shelf is both.</p>
-
-        <!-- The nearest facet to relax, NAMED. If a price ceiling excludes
-             everything, say the lowest entry cost on the shelf. -->
+        <p class="wf-empty-p">Under 1.00 coins, and High risk only. No case on the shelf is both.</p>
         <ul class="wf-widen">
           <li>The cheapest case on the shelf is <strong>0.80 coins</strong>.
             <button class="wf-btn wf-btn--small" type="button">Raise the ceiling to 0.80</button></li>
-          <li>Twelve cases match if the category is dropped.
-            <button class="wf-btn wf-btn--small" type="button">Drop the category</button></li>
+          <li>Thirteen cases match if the risk level is dropped.
+            <button class="wf-btn wf-btn--small" type="button">Drop the risk level</button></li>
         </ul>
-
-        <!-- THE SHELF'S OWN SIZE, as the way back to all of it. -->
-        <p class="wf-count-line">The shelf holds 12 cases. <a href="catalogue.html">See all of them</a></p>
+        <p class="wf-count-line">The shelf holds 13 cases in 4 sections. <a href="catalogue.html">See all of them</a></p>
       </div>
 
       <p class="wf-pager-end">No dead end: every route out of this state is a chip or a link, never a browser back.</p>
 
-    </section>
-
-    <!-- BLOCK 8. The SEO text, H2 plus two H3, placed by 0.13. REWRITTEN ON
-         21 AUGUST 2026, D-60: the H1, one H2, one H3 and two of three
-         paragraphs on this node used to be about backed stock, which was this
-         page's entire pre-login argument. What a stranger reads now is that the
-         numbers are published and checkable, design principle 1 as D-14 limits
-         it, rather than that the shelf is backed. -->
     <section class="wf-sec wf-prose" aria-labelledby="h2-about">
       <div class="wf-sec-head">
         <h2 id="h2-about">What the numbers on a case mean</h2>
