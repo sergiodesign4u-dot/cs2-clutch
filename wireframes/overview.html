@@ -336,7 +336,7 @@
   <div class="card is-good">
     <h4>The case tile, cut back to four fields and a corner mark</h4>
     <p>The favourite was a full width control under the fields, which made a tile whose job is four fields look like a tile whose job is one button: <strong>the one element with no parent in the three legal classes was the largest thing on the card</strong>. It is now a count and a mark in the corner, as the baseline runs it, and it keeps its focus stop, its accessible name and its own tap target.</p>
-    <p><strong>The four fields run in the baseline&#39;s visual order:</strong> artwork, name, risk, cost. The price last is what makes it the thing the eye lands on, and it takes the slack at the foot of the tile so a tile with a stock marker and a tile without one still line their prices up across a row. Both rules are now in node 0.7, as 5.6 and 5.7.</p>
+    <p><strong>The four fields run in the baseline&#39;s visual order:</strong> artwork, name, risk, cost. The price last is what makes it the thing the eye lands on, and it takes the slack at the foot of the tile so a tile whose name wraps to two lines and a tile whose name does not still line their prices up across a row. <strong>It read &quot;a tile with a stock marker and a tile without one&quot; until 21 August 2026</strong>, <code>D-60</code>, and the rule outlived the marker it was written for. Both rules are now in node 0.7, as 5.6 and 5.7.</p>
   </div>
 
   <div class="card is-good">
@@ -422,7 +422,7 @@
   <div class="card is-good">
     <h4>What the node asked for that the browser refused</h4>
     <p><strong>Sticky cannot do what the responsive section describes.</strong> The commit block "becomes sticky once it scrolls out of view". <code>position: sticky</code> with <code>bottom</code> holds a block you are scrolling down towards and releases it the moment you pass it; it never drags one down from above. The behaviour is a second, condensed carrier, shown by an observer once the real block leaves the screen. <strong>The entry cost and the trigger are on it always</strong>, because "it never drops the entry cost to save the height" is the node quoting design principle 3. It is <code>aria-hidden</code>: a screen reader meeting the same trigger twice is being told there are two ways to spend, and there is one.</p>
-    <p><strong>The drop table stops being a table at 360.</strong> Drawn as one it needed 445px inside 313 and scrolled inside its own box. Each row is a card now: the item full width, then chance beside value, then tickets beside free units, so the pairing survives the width. <strong>And the four tier groups are not four headings</strong> - that would break the same mechanical check the footer's four H2s broke on every page.</p>
+    <p><strong>The drop table stops being a table at 360.</strong> Drawn as one it needed 445px inside 313 and scrolled inside its own box. Each row is a card now: the item full width, then chance beside value, then the ticket range, so the pairing survives the width. <strong>It read &quot;tickets beside free units&quot; until 21 August 2026</strong>, and <code>D-60</code> took the second half of that pair. <strong>And the four tier groups are not four headings</strong> - that would break the same mechanical check the footer's four H2s broke on every page.</p>
   </div>
 
   <div class="card is-gap">
@@ -950,7 +950,7 @@
 
   <div class="card is-note">
     <h4>Four fields and no fifth, two costs stated, and one derivation marked</h4>
-    <p>The ticket range, the free-unit count, the wear axes and the outbound market link stay in block 5, the surface that makes those figures checkable, and <strong>the strip routes to it</strong> rather than trying to be a second one.</p>
+    <p>The ticket range, the wear axes and the outbound market link stay in block 5, the surface that makes those figures checkable, and <strong>the strip routes to it</strong> rather than trying to be a second one.</p>
     <p><strong>Two surfaces printing one pair is a real cost:</strong> they render from one source, and if they ever disagree the page is broken rather than merely untidy. <strong>The strip carries aria-hidden and the table below it does not:</strong> nine items read twice is nine items read twice, and a moving region is a poor thing to make a screen reader walk.</p>
     <p><strong>The guest gets the showcase, and that half was a derivation rather than an instruction.</strong> D-32 kept the <b>lane</b> off the guest screen because a lane is the reveal's track. <strong>The showcase is not that object</strong>, and a guest is the person most deciding whether this case is worth it. Nothing in D-32 required the contents to be hidden from a guest; it required the track to be. <strong>It is marked as unasked-for</strong>, so reversing it is one word.</p>
     <p><strong>Measured.</strong> 17 pages x 7 widths x both rail states, <strong>224 checks, no sideways scroll</strong>. One box at one, two at two, five at five, one showcase strip on every page that carries a stage, nine items rendered twice so the loop is seamless, no pointer anywhere in phase 1, and the drift stopping under reduced motion. <strong>One defect fixed while measuring:</strong> at 360 "47.30 coins" broke across two lines in a 136px card, so the pair stacks at phone widths and the unit stays.</p>
@@ -1315,13 +1315,53 @@
     <h4>The case tile, and stock leaving the pages</h4>
     <p><strong>Artwork, name, risk, cost, favourite.</strong> Both markers gone. <strong>The artwork takes the square its three references give it</strong> rather than a 4:3 letterbox, which is the founder&#39;s "the visual is the main thing" made structural.</p>
     <p><strong>Stock left the pages too, not only the tile.</strong> The free-unit column came out of the drop table on all fourteen case pages, 14 headers and 126 cells, with the caption and four prose references, and the SEO paragraph "what happens when an item runs out" was rewritten as <strong>what happens if a win cannot be sent to Steam</strong>. <strong>One rule in it survived unchanged and is worth keeping:</strong> a row never disappears from this table, because a table that quietly loses rows is a table you cannot check against what you read a minute ago.</p>
-    <p><strong>Node 3.4 is off the registry and its page is deleted.</strong> 22 pages built of 76.</p>
+    <p><strong>Node 3.4 is off the registry and its page is deleted.</strong></p>
+  </div>
+</section>
+
+<!-- 3.1 CATALOGUE -->
+<section id="catalogue">
+  <div class="sec-head">
+    <h2>3.1 The case catalogue, six pages, and it jumped the queue</h2>
+    <p class="sec-sub">Drawn 21 August 2026, after <code>D-64</code> cleared the stock model out of the node that specifies it.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>It existed as a link before it existed as a page</h4>
+    <p>The rail carries one destination, Cases, <code>D-40</code>, and <strong>it pointed at <code>catalogue.html</code> on all twenty two built screens while the file returned a 404</strong>. The footer, the mega menu and the published numbers table pointed at it too. That is what moved this node ahead of the geo gate, which is the next screen in the flow: <strong>a dead link on every page outranks the next screen in the flow.</strong></p>
+    <p><strong>And it could not be drawn as the node stood.</strong> Node 3.1 was written on the stock model, and not in one place: a whole section, a refusal row, two states, three block parents, the node&#39;s own parent class and <strong>the entire SEO layer</strong>. Had it been drawn first, the wireframe would have reintroduced a shelf that can run short, three days after the founder removed it.</p>
+  </div>
+
+  <div class="card">
+    <h4>Six pages, and the state list is the node&#39;s own</h4>
+    <p><strong>Guest unfiltered</strong> is the base and it carries no wall of any kind: the whole page, every figure, every tile, every count. The gate fires on 3.3 at the first case interaction, and choosing which case to look at is not a case interaction. <strong>Account</strong> is identical plus the daily case showing its own availability. <strong>Filtered</strong>, <strong>Loading</strong>, <strong>Degraded</strong>, and <strong>3.2 nothing matches</strong>.</p>
+    <p><strong>The six pages are generated from one source rather than copied.</strong> Six hand copies of the one statement this node exists for is how five of them rot, which is the same reason the sign in card is built once in <code>_nav.js</code>.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Three things the page refuses to invent, and says so on the surface</h4>
+    <p><strong>The category bar is drawn with one member and the absence stated.</strong> Whether it exists at all rides on <code>D-D</code>, and <strong>nothing in this repository names a single category</strong>. Thirteen invented chips would have read as a decision to everyone downstream. The carrier is inherited, the dead items are deferred, and the missing list is a sentence rather than a placeholder.</p>
+    <p><strong>Every risk band on the shelf reads &quot;Risk not available&quot;.</strong> The method exists and the thresholds are <span class="q">[?]</span>, so <code>0.7</code> forbids the band from rendering. Twelve tiles saying it is heavy, and it is the honest weight: this is what the page looks like until a treasury answer arrives.</p>
+    <p><strong>The peg renders once on the shelf and renders as missing.</strong> Twelve pegs would be noise, none at all is the unconvertible price <code>B7-1</code> names.</p>
+  </div>
+
+  <div class="card">
+    <h4>The daily free case is tile 1, and it is this node&#39;s open debt drawn</h4>
+    <p><code>D-61</code> made it its own case rather than a marker, and <strong>no node yet says what a daily case is as a case</strong>. The tile is four fields and no markers, so the only field that could carry &quot;once a day&quot; and &quot;taken today&quot; is the entry cost slot. <strong>This page proposes that carrier and prints that it is not deciding it.</strong></p>
+    <p><strong>The filtered state is where the cost of <code>D-61</code> is kept rather than worked around.</strong> A banner survives every filter because it is not part of the list; a case does not. <strong>On the filtered page the daily case is gone from the grid</strong>, which is the node&#39;s own sentence about not quietly promoting it back into a banner, honoured on the one screen where it would have been tempting.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Measured</h4>
+    <p><strong>84 checks over the six pages, seven widths, both rail states: clean.</strong> No sideways scroll, no collapsed leaf, no wrapped button label, one H1 each, and the H2 list matches the block order on all six. Every favourite control is a 44px target with the chip drawn inside it.</p>
+    <p><strong>174 checks over all twenty nine wireframe files, and every internal link resolved.</strong> <code>catalogue.html</code> is off the dead list. Fifteen dead links remain and every one of them is a screen this stage has not drawn yet. <strong>One was not:</strong> the overview footer linked <code>../ia/flows.md</code>, a markdown path that has never resolved. Fixed.</p>
+    <p><strong>28 pages built of 80.</strong></p>
   </div>
 </section>
 
 <footer class="doc">
   <p>Sources of truth: <code>wireframes/docs/screens.md</code> and <code>wireframes/docs/conventions.md</code>. The screen registry: <code>wireframes/_nav.js</code>. The grey contract: <code>wireframes/_wf.css</code>.</p>
-  <p>Where these screens come from: <a href="../ia/structure.html">IA structure</a>, <a href="../ia/flows.md">flows</a>. The stage that colours copies of them: 06.</p>
+  <p>Where these screens come from: <a href="../ia/structure.html">IA structure</a>, <a href="../ia/flows.html">flows</a>. The stage that colours copies of them: 06.</p>
 </footer>
 
 <script>
@@ -1362,6 +1402,7 @@ window.NAV_SECTIONS = [
   { id: 'shorter',     label: 'D-57 shorter' },
   { id: 'live',        label: 'D-58 nothing dead' },
   { id: 'feed',        label: 'D-59 to D-61 drawn' },
+  { id: 'catalogue',   label: '3.1 Catalogue' },
 ];
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';

@@ -122,10 +122,18 @@ window.WF_NAV = {
         { node: '2.6', label: 'Steam unavailable',   file: 'signin-steam-unavailable.html', status: 'built' }
       ] },
 
-    { node: '3.1',  cluster: '3', name: 'Case catalogue',      file: 'catalogue.html',  ia: 'catalogue.html',     status: 'spec',
+    // DRAWN 21 AUGUST 2026, and it jumped the queue for a reason that is not about
+    // this node: the rail carries one destination, Cases, D-40, and it pointed at
+    // catalogue.html on all twenty two built screens while the file did not exist.
+    // A dead link on every page outranks the next screen in the flow.
+    { node: '3.1',  cluster: '3', name: 'Case catalogue',      file: 'catalogue.html',  ia: 'catalogue.html',     status: 'built',
       base: 'Guest, unfiltered',
       states: [
-        { node: '3.2', label: 'Nothing matches', file: 'catalogue-empty.html', status: 'spec' }
+        { label: 'Account',        file: 'catalogue-account.html',  status: 'built' },
+        { label: 'Filtered',       file: 'catalogue-filtered.html', status: 'built' },
+        { label: 'Loading',        file: 'catalogue-loading.html',  status: 'built' },
+        { label: 'Degraded',       file: 'catalogue-degraded.html', status: 'built' },
+        { node: '3.2', label: 'Nothing matches', file: 'catalogue-empty.html', status: 'built' }
       ] },
 
     { node: '3.3',  cluster: '3', name: 'Case screen',         file: 'case.html',       ia: 'case.html',          status: 'built',

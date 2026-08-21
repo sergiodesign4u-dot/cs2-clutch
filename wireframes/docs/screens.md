@@ -64,9 +64,9 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 | Node | Screen or state | Job or parent | In the flow |
 |---|---|---|---|
 | `3.1` | Case catalogue | Main Job, `D-20` puts it off the main path | "All cases" from `1.0` |
-| `3.2` | Catalogue, nothing matches | `D1`, the shelf is legibly empty rather than silently short | Inside `3.1` |
+| `3.2` | Catalogue, nothing matches | Node `3.2` itself, which needs a route out. **It read `D1`, the shelf is legibly empty rather than silently short, until 21 August 2026**, `D-60` | Inside `3.1` |
 | **`3.3`** | **Case screen, phase 1, choosing** | Main Job, `D2`, `D3`, `D4` | **The screen the main job is decided on** |
-| `3.4` | Item at zero free units | `D1`, `B8-1` | Inside `3.3` phase 1 |
+| ~~`3.4`~~ | ~~Item at zero free units~~ | ~~`D1`, `B8-1`~~ **Dissolved 21 August 2026, `D-60`** | |
 | **`3.5`** | **Case screen, phase 2, the open** | `E1`, `E4`, design principle 2 | **Tap 3 of the main job** |
 | **`3.6`** | **Case screen, phase 3, the outcome** | `F1`, `F2`, `F4`, `E3` | The end of the main job |
 | `3.7` | Interrupted reveal | `E1`. The roll settled before the animation | Out of `3.5` |
@@ -246,7 +246,7 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 | **The daily control was a link carrying `aria-disabled`** | A link with `aria-disabled` still navigates when clicked. A control that cannot act is a disabled control | A real `<button disabled>` |
 | **A drawn track nobody could see** | The ladder's rule ran behind tier markers that carry a surface of their own. **Something drawn that renders invisible is a defect, not decoration** | Removed. Five equal cells are what make it a ladder |
 
-**And one thing the node asked for that no tile carried:** the daily marker. `0.7` field 6 makes it a marker shown only where it applies, and every tile in the grid was silent. One tile now carries it, which is also what proves the marker and the stock marker do not collide.
+**And one thing the node asked for that no tile carried:** the daily marker. `0.7` field 6 makes it a marker shown only where it applies, and every tile in the grid was silent. One tile carried it from that step, which is also what proved the marker and the stock marker did not collide. **Both markers left the tile on 21 August 2026**, `D-60` and `D-61`, and the tile is four fields and one control in every state.
 
 **Measured after the pass.** Desktop page height 4,326 to 4,123. At 360px the H1 begins at 500 against a fold of 584. No horizontal overflow at either width, in either account state, with the drawer open or closed. One `H1`, and the `H2` list matches the block order on both states.
 
@@ -316,7 +316,7 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 
 **`position: sticky` cannot do what section 14 describes.** The commit block "becomes sticky once it scrolls out of view and sits directly above the mobile bar". Sticky with `bottom` pins an element while its normal position is still below the threshold: it holds a block you are scrolling down towards and releases it the moment you pass it, and it never drags one down from above. Drawn that way the block simply scrolled off. **The behaviour is a second, condensed carrier**, built by `_nav.js` from the real block and shown by an `IntersectionObserver`. The entry cost and the trigger are on it always, because "it never drops the entry cost to save the height" is the node quoting design principle 3; the sentence explaining what the trigger will ask for has been read by then and is the part that goes. It is `aria-hidden`, because a screen reader meeting the same trigger twice is being told there are two ways to spend and there is one.
 
-**The drop table had to stop being a table at 360.** Section 14: "nothing scrolls sideways: the table wraps into cards rather than becoming a horizontally scrolled grid, with chance and value on the same line so the pairing survives the width". Drawn as a table it needed 445px inside 313 and scrolled inside its own box. Each row is now a card: the item full width, then chance beside value, then tickets beside free units. **The column headers move onto the cells**, because a header row a person has scrolled past is not a header.
+**The drop table had to stop being a table at 360.** Section 14: "nothing scrolls sideways: the table wraps into cards rather than becoming a horizontally scrolled grid, with chance and value on the same line so the pairing survives the width". Drawn as a table it needed 445px inside 313 and scrolled inside its own box. Each row is now a card: the item full width, then chance beside value, then the ticket range. **It read "tickets beside free units" until 21 August 2026**, and `D-60` took the second half of that pair. **The column headers move onto the cells**, because a header row a person has scrolled past is not a header.
 
 **Four tier groups are not four headings.** The drop table groups by rarity because `D3` attaches the observed counter to the tier, so a table with no grouping has nowhere to put block 5. Four `H3`s inside it would break the same mechanical check that the footer's four `H2`s broke on every page. The group is a row, and its name travels in the `tbody`'s own accessible name.
 
@@ -967,7 +967,7 @@ On 19 August the lane went from nine tiles carrying a value and a chance each to
 
 ### Four fields and no fifth, and two costs stated
 
-The ticket range, the free-unit count, the wear axes and the outbound market link stay in block 5, the surface that makes those figures checkable, and **the strip routes to it** rather than trying to be a second one.
+The ticket range, the wear axes and the outbound market link stay in block 5, the surface that makes those figures checkable, and **the strip routes to it** rather than trying to be a second one.
 
 - **Two surfaces printing one pair is a real cost.** They render from one source, and if they ever disagree the page is broken rather than merely untidy.
 - **The strip carries `aria-hidden` and the table below it does not.** Nine items read twice is nine items read twice, and a moving region is a poor thing to make a screen reader walk.
@@ -1365,3 +1365,58 @@ The compliance paragraph says "two separate checkboxes with the provider control
 ### Measured
 
 **301 checks**, no page scrolling sideways at any of seven widths in either rail state, no collapsed leaf, no wrapped button label. The two known `catalogue.html` 404s are unchanged. **128 checks over the IA and document pages, clean.**
+
+---
+
+## 41. Node `3.1`, the case catalogue: six pages, and it jumped the queue
+
+**Drawn 21 August 2026**, after `D-64` cleared the stock model out of the node that specifies it.
+
+### It existed as a link before it existed as a page
+
+The rail carries one destination, Cases, `D-40`, and **it pointed at `catalogue.html` on all twenty two built screens while the file returned a 404**. The footer, the mega menu and the published numbers table pointed at it too. **A dead link on every page outranks the next screen in the flow**, which is why this node was drawn ahead of `2.1`.
+
+**And it could not be drawn as the node stood.** `catalogue.md` was written on the stock model in six separate places: section 3 entire, a refusal row, two states, three block parents, the node's own parent class and **the whole SEO layer**. Drawn first, the wireframe would have reintroduced a shelf that can run short, three days after the founder removed it. That is the sequence rule working: fix the IA first, then render.
+
+### Six pages from one source
+
+| Page | State | What it is for |
+|---|---|---|
+| `catalogue.html` | Guest, unfiltered | The base. **No wall of any kind**: the whole page, every figure, every tile, every count |
+| `catalogue-account.html` | Account | Identical, plus the daily case showing its own availability |
+| `catalogue-filtered.html` | Filtered | Two filters in force, the chips carrying them, **and the daily case gone from the grid** |
+| `catalogue-loading.html` | Loading | A grid skeleton in the tile's own shape, never a spinner |
+| `catalogue-degraded.html` | Degraded | A failing source marks its own figure, the rest of the tile intact |
+| `catalogue-empty.html` | `3.2` Nothing matches | The chips stay above it, because **they are the route out** |
+
+**Generated from one source rather than copied.** Six hand copies of the one statement this node exists for is how five of them rot, which is the same reason the sign in card is built once in `_nav.js`.
+
+**The gate does not fire here.** `B3` requires it before any case interaction, and `flows.md` flow 1a passes through the whole catalogue without one. **Choosing which case to look at is not a case interaction.**
+
+### Three things the page refuses to invent, and says so on the surface
+
+**The category bar is drawn with one member and the absence stated.** Whether it exists at all rides on `D-D`, and **nothing in this repository names a single category**. Thirteen invented chips would have read as a decision to everyone downstream. The carrier is inherited, the dead items are deferred, and the missing list is a sentence rather than a placeholder. Same treatment Home gives the promotion countdown.
+
+**Every risk band on the shelf reads "Risk not available".** The method exists, `0.11`, and the thresholds are `[?]`, so `0.7` forbids the band from rendering. Twelve tiles saying it is heavy, and **it is the honest weight**: this is what the page looks like until a treasury answer arrives.
+
+**The peg renders once on the shelf, and renders as missing.** `0.7` section 5.1. Twelve pegs would be noise, none at all is the unconvertible price `B7-1` names.
+
+### The daily free case is tile 1, and it is this node's open debt drawn
+
+`D-61` made it its own case rather than a marker, and **no node yet says what a daily case is as a case**. The tile is four fields and no markers, so the only field that could carry "once a day" and "taken today" is the entry cost slot. **This page proposes that carrier and prints on the surface that it is not deciding it.** Row `I2` carries its orphan status here too: the one capability on the map with no parent in any of the three legal classes, in MVP by founder decision, `D-15`.
+
+**The filtered state is where the cost of `D-61` is kept rather than worked around.** A banner survives every filter because it is not part of the list; a case does not. **On `catalogue-filtered.html` the daily case is gone from the grid.** `catalogue.md` section 2 states that price and warns stage 04 not to quietly promote it back into a banner to keep it always visible. This is the one screen where that would have been tempting.
+
+### Measured
+
+**84 checks over the six pages, seven widths, both rail states: clean.** No sideways scroll, no collapsed leaf, no wrapped button label, one `H1` each, and the `H2` list matches the block order on all six. Every favourite control is a 44px target with the corner chip drawn inside it.
+
+**174 checks over all twenty nine wireframe files, and every internal link resolved once.** `catalogue.html` is off the dead list. **Fifteen dead links remain and every one is a screen this stage has not drawn.** One was not: `overview.html` linked `../ia/flows.md`, a markdown path that has never resolved on any deploy. Fixed.
+
+**28 pages built of 80.**
+
+### Two things this page hands on
+
+**Where the daily case's availability renders.** Proposed in the cost slot, not decided. Founder, with this node.
+
+**Page size and how many tiles a page holds.** It rides on `D-D` and on the image weight, so the twelve drawn here is the drawn set and not a decision.

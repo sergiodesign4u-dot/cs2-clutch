@@ -2480,3 +2480,109 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
    somewhere convenient, D-59. */
 .wf-feed-noroute { font-size: 9px; color: var(--wf-ink-faint); font-style: italic; }
 .wf-feed-bot { font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-faint); }
+
+
+/* ---------------------------------------------------------------------------
+   NODE 3.1, THE CASE CATALOGUE, and its state 3.2. Drawn 21 August 2026.
+   Nothing in this block reports stock: D-60 took the free-unit count off the
+   tile, out of the register and out of this node's whole SEO layer, so the
+   shelf here narrows by price, by search and by category and never by supply.
+   --------------------------------------------------------------------------- */
+
+/* Blocks 2 to 5 are one control region above the grid. They are drawn as one
+   region because they are read as one question, "narrow this to what I want",
+   and because the chips in block 4 are the route out of 3.2 and have to sit
+   beside the controls that produced them rather than under a heading of their
+   own. */
+.wf-shelf { display: flex; flex-direction: column; gap: var(--wf-s-2); }
+
+/* Block 2. The search field and the filter control on one row. The filter
+   control carries an ACTIVE COUNT BADGE, bank T2 TAKE from Hellcase: a filter
+   control that does not say how many filters are on is a control a person has
+   to open to read. */
+.wf-find { display: flex; gap: var(--wf-s-1); align-items: stretch; flex-wrap: wrap; }
+.wf-find-f { flex: 1 1 200px; min-width: 0; }
+.wf-find-f input { min-width: 0; }
+.wf-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 20px; height: 20px; padding: 0 var(--wf-s-half);
+  font-family: var(--wf-mono); font-size: var(--wf-t-xs); line-height: 1;
+  color: var(--wf-ink); background: var(--wf-raised);
+  border: 1px solid var(--wf-line); border-radius: var(--wf-r-1);
+}
+
+/* Block 3. The category bar. CONDITIONAL ON D-D AND THE LIST IS [?]. The node
+   says it "does not exist if the backed catalogue is small", and nothing in
+   this repository names a single category. So the carrier is drawn with its
+   one real member, All, and the absence is stated in words rather than filled
+   with invented taxonomy: CLAUDE.md, unknown is [?], and 0.11 rule 3, missing
+   is a state and never a placeholder. The same treatment Home gives the
+   promotion countdown, which reserves its cells and prints no number. */
+.wf-cats { display: flex; gap: var(--wf-s-1); align-items: center; flex-wrap: wrap; }
+.wf-cat {
+  min-height: 32px; padding: var(--wf-s-half) var(--wf-s-2);
+  font-size: var(--wf-t-s); color: var(--wf-ink);
+  background: var(--wf-surface); border: 1px solid var(--wf-line-soft);
+  border-radius: var(--wf-r-2); text-decoration: none;
+  display: inline-flex; align-items: center;
+}
+.wf-cat[aria-current] { border-color: var(--wf-ink); background: var(--wf-raised); }
+
+/* Block 4. Active filter chips. THIS IS THE ROUTE OUT OF 3.2 and that is why
+   it is specified before the empty state that needs it. It renders only when
+   something is in force, so the base state of this node does not carry it. */
+.wf-chips { display: flex; gap: var(--wf-s-1); align-items: center; flex-wrap: wrap; }
+.wf-chip {
+  display: inline-flex; align-items: center; gap: var(--wf-s-1);
+  min-height: 32px; padding: var(--wf-s-half) var(--wf-s-half) var(--wf-s-half) var(--wf-s-2);
+  font-size: var(--wf-t-s); border-radius: var(--wf-r-2);
+  background: var(--wf-raised); border: 1px solid var(--wf-line);
+}
+/* The x is a real button inside the chip, with its own name. A chip whose whole
+   surface removes the filter has no way to say what pressing it does. */
+.wf-chip-x { min-height: 24px; min-width: 24px; padding: 0; font-size: var(--wf-t-xs); }
+
+/* Block 5. The result count, in text, above the grid. Bank T2 LEAVE:
+   skin.club runs 248 case links on 28,160px with no count and no bottom. */
+.wf-count-line { font-size: var(--wf-t-s); color: var(--wf-ink-dim); margin: 0; }
+
+/* Block 7. The end of the list. Pagination as crawlable <a>, 0.13 section 8,
+   and a visible end, which is what 3.2 needs so the shelf has a bottom. */
+.wf-pager { display: flex; gap: var(--wf-s-1); align-items: center; flex-wrap: wrap; }
+.wf-pager-end {
+  font-size: var(--wf-t-xs); color: var(--wf-ink-faint);
+  text-align: center; padding-top: var(--wf-s-2);
+  border-top: 1px dashed var(--wf-line-soft); margin-top: var(--wf-s-2);
+}
+
+/* The loading state. A GRID SKELETON AND NOT A SPINNER, and what it waits on
+   changed with D-60: it was the live free-unit counts, and the only per-read
+   figure left on a tile is the favourite count. The skeleton keeps the tile's
+   own shape so the grid does not reflow when it resolves. */
+.wf-tile--skel .wf-tile-name,
+.wf-tile--skel .wf-tile-risk,
+.wf-tile--skel .wf-tile-cost { color: transparent; background: var(--wf-raised); border-radius: var(--wf-r-1); }
+.wf-tile--skel .wf-tile-cur { color: transparent; }
+
+/* Node 3.2. Nothing matches. Four blocks, and the second of them is the reason
+   this is a designed state rather than an accident. */
+.wf-empty { display: flex; flex-direction: column; gap: var(--wf-s-2); }
+.wf-empty-h { margin: 0; font-size: var(--wf-t-l); }
+.wf-empty-p { margin: 0; color: var(--wf-ink-dim); max-width: 52ch; }
+.wf-widen { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-widen li { display: flex; gap: var(--wf-s-1); align-items: center; flex-wrap: wrap; font-size: var(--wf-t-s); }
+
+/* Responsive last, after everything above that it overrides. Convention 2 in
+   wireframes/docs/conventions.md, written after this file was beaten by a flat
+   rule four times. */
+@media (min-width: 600px) {
+  .wf-find-f { flex: 1 1 320px; }
+}
+@media (min-width: 900px) {
+  /* The shelf grid is denser than Home's featured grid: same field set, more of
+     them, 0.7 section 4. Home stays at four across. */
+  .wf-grid--shelf { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 1200px) {
+  .wf-grid--shelf { grid-template-columns: repeat(5, 1fr); }
+}
