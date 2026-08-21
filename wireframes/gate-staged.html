@@ -5,14 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ironbound: drop chances, values and tested RTP</title>
   <meta name="description" content="Every item in Ironbound with its chance, its current value and its ticket range, plus the tested RTP and the expected value at this entry cost.">
-  <!-- VALUES DEGRADED, a figure condition rather than a role. A state of the same address.
-       3.3 section 15B: ONE H1 ACROSS ALL THREE PHASES, because they are states of one
-       document rather than three documents. The state has no URL of its own, so it is not
-       a second indexable page and says so here. -->
-  <meta name="robots" content="noindex">
+  <meta name="robots" content="index, follow">
   <link rel="stylesheet" href="_wf.css">
 </head>
 <body>
+
+<!-- NODE 2.1, THE GEO GATE, over the surface it interrupts. State: STAGED MARKET. Open, with a named limit stated in words and what changes it. Three blocks, and a decline at equal weight.
+     IT FIRES AT THE FIRST CASE INTERACTION AND NEVER ON ARRIVAL. Row B3 says
+     "before any case interaction", not before any interaction, and the
+     difference is the whole pre-login argument: a visitor who arrives
+     pre-suspected has to read the product before it asks for things.
+     READING IS NEVER GATED, AND THAT IS ARCHITECTURE RATHER THAN COURTESY.
+     Every public surface stays readable by anyone from anywhere, crawler
+     included, without serving a crawler anything different from a person.
+     THE DECLARATION IS NOT HERE. D-26 moved the 18+ question to 2.4, and D-70
+     carried that through the node's body after finding it had reached the
+     header and nothing else.
+     THE CASE SCREEN BEHIND IT IS THE REAL PAGE and is left in place, because
+     what the person was doing is what the interrupt is a consequence of. -->
+<div data-gate-pinned="staged" hidden></div>
 
 <button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">≡</button>
 <aside id="wf-panel"></aside>
@@ -102,11 +113,115 @@
            lane. Before a roll exists, a marker over a slot points at a result that has not
            been decided, which is E2's objection arriving one phase early. -->
       <div class="wf-stage-frame">
-        <div class="wf-case-art" aria-hidden="true"></div>
-        <!-- NO LANE ON THIS PAGE, D-32. This screen is the guest state, and the lane
-             renders from the moment a person can open: it is the reveal's track, and a
-             guest is two steps away from a reveal. What a guest gets is the case, large,
-             which is the object they came to look at. -->
+        <div class="wf-boxes wf-boxes--1">
+          <div class="wf-case-art" aria-hidden="true"></div>
+        </div>
+        <!-- NO REVEAL BOX BEYOND THE ONE, D-32. This screen is the guest state, and the
+             reveal's track renders from the moment a person can open. A guest is two
+             steps away from a reveal and has no count to choose, so there is one box and
+             it holds the case, large, which is the object they came to look at.
+             THE SHOWCASE IS HERE, AND THAT IS NEW WITH D-47. D-32 kept the LANE off this
+             page because a lane is the reveal's track. The showcase is not that object:
+             it is a listing of what is in this case, with the chance beside the value.
+             A GUEST IS THE PERSON MOST DECIDING WHETHER THIS CASE IS WORTH IT, which is
+             design principle 1 and principle 3 pointing the same way, and the strip is
+             the first screen's answer to what is inside. Nothing about D-32 required the
+             contents to be hidden from a guest; it required the track to be. -->
+        <div class="wf-show">
+          <ul class="wf-show-run" aria-hidden="true">
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">AK-47 Redline</span>
+              <span class="wf-show-f"><span class="wf-show-v">47.30 coins</span><span class="wf-show-c">3.180 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">AWP Asiimov</span>
+              <span class="wf-show-f"><span class="wf-show-v">38.90 coins</span><span class="wf-show-c">1.020 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">M4A1-S Hyper Beast</span>
+              <span class="wf-show-f"><span class="wf-show-v">24.60 coins</span><span class="wf-show-c">4.600 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">Desert Eagle Blaze</span>
+              <span class="wf-show-f"><span class="wf-show-v">21.80 coins</span><span class="wf-show-c">2.200 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">USP-S Kill Confirmed</span>
+              <span class="wf-show-f"><span class="wf-show-v">14.20 coins</span><span class="wf-show-c">12.000 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">Glock-18 Water Elemental</span>
+              <span class="wf-show-f"><span class="wf-show-v">12.90 coins</span><span class="wf-show-c">14.000 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">MP9 Rose Iron</span>
+              <span class="wf-show-f"><span class="wf-show-v">7.40 coins</span><span class="wf-show-c">22.000 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">P250 Asiimov</span>
+              <span class="wf-show-f"><span class="wf-show-v">6.90 coins</span><span class="wf-show-c">21.000 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">Nova Koi</span>
+              <span class="wf-show-f"><span class="wf-show-v">7.90 coins</span><span class="wf-show-c">20.000 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">AK-47 Redline</span>
+              <span class="wf-show-f"><span class="wf-show-v">47.30 coins</span><span class="wf-show-c">3.180 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">AWP Asiimov</span>
+              <span class="wf-show-f"><span class="wf-show-v">38.90 coins</span><span class="wf-show-c">1.020 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">M4A1-S Hyper Beast</span>
+              <span class="wf-show-f"><span class="wf-show-v">24.60 coins</span><span class="wf-show-c">4.600 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">Desert Eagle Blaze</span>
+              <span class="wf-show-f"><span class="wf-show-v">21.80 coins</span><span class="wf-show-c">2.200 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">USP-S Kill Confirmed</span>
+              <span class="wf-show-f"><span class="wf-show-v">14.20 coins</span><span class="wf-show-c">12.000 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">Glock-18 Water Elemental</span>
+              <span class="wf-show-f"><span class="wf-show-v">12.90 coins</span><span class="wf-show-c">14.000 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">MP9 Rose Iron</span>
+              <span class="wf-show-f"><span class="wf-show-v">7.40 coins</span><span class="wf-show-c">22.000 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">P250 Asiimov</span>
+              <span class="wf-show-f"><span class="wf-show-v">6.90 coins</span><span class="wf-show-c">21.000 %</span></span>
+            </li>
+            <li class="wf-show-i">
+              <span class="wf-item-art" aria-hidden="true"></span>
+              <span class="wf-show-n">Nova Koi</span>
+              <span class="wf-show-f"><span class="wf-show-v">7.90 coins</span><span class="wf-show-c">20.000 %</span></span>
+            </li>
+          </ul>
+        </div>
+        <p class="wf-show-route">Chance and value as published. <a href="#h2-contents">The full table, with ticket ranges</a></p>
       </div>
     </section>
 
@@ -229,17 +344,10 @@
     <section class="wf-sec" aria-labelledby="h2-contents">
       <div class="wf-sec-head">
         <h2 id="h2-contents">What is in this case</h2>
-        <p class="wf-sec-sub">Nine items, grouped by tier and ordered by ticket range. <strong>The current values could not be read in this state, and the page says so on every card rather than showing the last ones it had.</strong> Same items as the strip on the stage, with the ticket range and the market link the strip does not carry.</p>
+        <p class="wf-sec-sub">Nine items, grouped by tier and ordered by ticket range. Chance and current value on the same card, never one without the other. Same items as the strip on the stage, with the ticket range and the market link the strip does not carry.</p>
       </div>
 
-      <!-- VALUES DEGRADED, 0.11's degraded state. THE CASE IS STILL OPENABLE: a case with
-           unknown values is not a broken case, and the trigger stays armed. WHAT DOES NOT
-           HAPPEN is printing the expected value from stale numbers, because a figure whose
-           inputs are missing is a claim rather than arithmetic, and the whole strength of
-           the EV row is that a reader can recompute it from the same screen.
-           THE STAMP CARRIES THE LAST GOOD READ, not the time of the failure: the question a
-           person has is how old the last real number was. -->
-      <p class="wf-stamp wf-fig-missing">Current values could not be read. The last successful read was 18 Aug 2026 09:41, and nothing on this page is showing a value from it. <span class="wf-fig-c">The published chance is unaffected: it is static until the configuration changes, and it carries no stamp.</span></p>
+      <p class="wf-stamp">Values last read 18 Aug 2026 14:02. <span class="wf-fig-c">The published chance carries no stamp: it is static until the configuration changes, and one stamp over both would quietly claim the chance was re-read too.</span></p>
 
       <div class="wf-tablewrap">
         <table class="wf-table wf-drops">
@@ -266,7 +374,7 @@
                 </span>
               </th>
               <td data-l="Chance">3.180 %</td>
-              <td data-l="Value"><span class="wf-fig-missing">Not available</span></td>
+              <td data-l="Value">47.30 coins</td>
               <td data-l="Tickets">1 to 3 180</td>
             </tr>
             <tr>
@@ -279,7 +387,7 @@
                 </span>
               </th>
               <td data-l="Chance">1.020 %</td>
-              <td data-l="Value"><span class="wf-fig-missing">Not available</span></td>
+              <td data-l="Value">38.90 coins</td>
               <td data-l="Tickets">3 181 to 4 200</td>
             </tr>
           </tbody>
@@ -296,7 +404,7 @@
                 </span>
               </th>
               <td data-l="Chance">4.600 %</td>
-              <td data-l="Value"><span class="wf-fig-missing">Not available</span></td>
+              <td data-l="Value">24.60 coins</td>
               <td data-l="Tickets">4 201 to 8 800</td>
             </tr>
             <tr>
@@ -309,7 +417,7 @@
                 </span>
               </th>
               <td data-l="Chance">2.200 %</td>
-              <td data-l="Value"><span class="wf-fig-missing">Not available</span></td>
+              <td data-l="Value">21.80 coins</td>
               <td data-l="Tickets">8 801 to 11 000</td>
             </tr>
           </tbody>
@@ -326,7 +434,7 @@
                 </span>
               </th>
               <td data-l="Chance">12.000 %</td>
-              <td data-l="Value"><span class="wf-fig-missing">Not available</span></td>
+              <td data-l="Value">14.20 coins</td>
               <td data-l="Tickets">11 001 to 23 000</td>
             </tr>
             <tr>
@@ -339,7 +447,7 @@
                 </span>
               </th>
               <td data-l="Chance">14.000 %</td>
-              <td data-l="Value"><span class="wf-fig-missing">Not available</span></td>
+              <td data-l="Value">12.90 coins</td>
               <td data-l="Tickets">23 001 to 37 000</td>
             </tr>
           </tbody>
@@ -356,7 +464,7 @@
                 </span>
               </th>
               <td data-l="Chance">22.000 %</td>
-              <td data-l="Value"><span class="wf-fig-missing">Not available</span></td>
+              <td data-l="Value">7.40 coins</td>
               <td data-l="Tickets">37 001 to 59 000</td>
             </tr>
             <tr>
@@ -369,7 +477,7 @@
                 </span>
               </th>
               <td data-l="Chance">21.000 %</td>
-              <td data-l="Value"><span class="wf-fig-missing">Not available</span></td>
+              <td data-l="Value">6.90 coins</td>
               <td data-l="Tickets">59 001 to 80 000</td>
             </tr>
             <tr>
@@ -382,7 +490,7 @@
                 </span>
               </th>
               <td data-l="Chance">20.000 %</td>
-              <td data-l="Value"><span class="wf-fig-missing">Not available</span></td>
+              <td data-l="Value">7.90 coins</td>
               <td data-l="Tickets">80 001 to 100 000</td>
             </tr>
           </tbody>
@@ -393,7 +501,7 @@
            rather than generalised, 0.6 field 12. It is genuinely outbound: cjm-to-be.md
            records outbound clicks as an accepted cost and never as a failure metric,
            which is what stops the link being quietly weakened later. -->
-      <p class="wf-note">Top item, AK-47 Redline. <span class="wf-fig-missing">The market price could not be read in this state either, so there is nothing on this page to compare it against.</span> The route out is unaffected and it is still genuinely outbound: <a href="https://steamcommunity.com/market/" rel="external nofollow">open it on the market</a> and read the price at the source.</p>
+      <p class="wf-note">Top item, AK-47 Redline: market price on Steam 22.15 EUR, as of 18 Aug 2026 14:02. <span class="wf-fig-missing">Not comparable to the value above until the coin peg is published.</span> <a href="https://steamcommunity.com/market/" rel="external nofollow">Open on the market</a></p>
       <p class="wf-note wf-fig-missing">Whether this rarity ladder is the game's own rather than any platform's is not checked. It was walked by colour on two live case pages and the names were not captured with it, so the treatment is not free to change until one page is opened and compared.</p>
     </section>
 
@@ -423,12 +531,12 @@
           <span class="wf-fig-c wf-fig-missing">Who tested it, when, and over how many opens is not published yet</span>
         </div>
         <div class="wf-fig">
-          <span class="wf-fig-v wf-fig-missing">Not available</span>
-          <span class="wf-fig-c">Expected value at this entry cost. It is computed from the values in the table below, and those could not be read, so it is not printed from the last ones that could</span>
+          <span class="wf-fig-v">11.68 coins</span>
+          <span class="wf-fig-c">Expected value at this entry cost. Add every chance below multiplied by its value and you get this number</span>
         </div>
         <div class="wf-fig">
-          <span class="wf-fig-v wf-fig-missing">Not available</span>
-          <span class="wf-fig-c">Share of outcomes worth at least the entry cost. It reads the same values the table below could not read</span>
+          <span class="wf-fig-v">37.000 %</span>
+          <span class="wf-fig-c">Share of outcomes worth at least the entry cost. Tickets 1 to 37 000 of 100 000</span>
           <span class="wf-fig-c wf-fig-missing">Risk band not available: neither the thresholds between the three named values nor the method behind them is set</span>
         </div>
         <div class="wf-fig">
@@ -510,7 +618,7 @@
 <script>
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';
-window.WF_SHELL = { account: false, active: 'case-degraded.html' };
+window.WF_SHELL = { account: false, active: 'case.html' };
 </script>
 <script src="_nav.js"></script>
 </body>

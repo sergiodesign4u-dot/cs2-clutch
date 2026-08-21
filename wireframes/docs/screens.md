@@ -1609,3 +1609,43 @@ The link sweep stored each `href` raw in its set, so **`fair.html` and `fair.htm
 **Fixed by normalising before the set rather than at the request**, and the correct list is fourteen: `account`, `deposit`, `fair`, `gate`, `history`, `legal`, `markets`, `profile`, `provably-fair`, `responsible`, `settings`, `support`, `withdraw`, `withdrawal`. **Every one is a screen this stage has not drawn.**
 
 **An instrument that under-reports is worse than no instrument**, because it is trusted. This one was trusted three times.
+
+---
+
+## 47. `D-70`: the geo gate, and the node had gone on specifying a control that moved three days ago
+
+**The last screen of the main flow.** Home, catalogue, case, **gate**, sign in, open, outcome, public result: drawn end to end.
+
+### `D-26` had reached the header and not the body
+
+`gate.md` opened with the correct sentence on 18 August: the 18+ declaration left this node for `2.4`. **Section 4 then went on listing the declaration, its decline control and its recording line as blocks 2, 3 and 4**, and section 5 listed "the declaration, unanswered" as the default state.
+
+**Same defect `D-64` named, same rule:** a decision is applied when nothing left in the repository still asserts what it reversed. The old five-block table is kept under section 4.4 with its argument intact.
+
+### What is left is smaller than a dialog
+
+**On an open market this node renders nothing at all.** It resolves a lookup and the person continues. **The interrupt exists only when the answer is no, or when the answer carries a limit.**
+
+Five states: checking the market, staged with a named limit, not launched, blocked with the ground, detection unavailable.
+
+### The gate fires, and it fires over the surface it interrupts
+
+Built once in `_nav.js` and wired to the case screen's own trigger on nine pages. **A gate that does not fire is a picture of a gate**, which is the standard the founder set for the filter control.
+
+**Each state page is the case screen with the gate pinned**, the way the sign in canon already works. **The page behind is never removed:** what the person was doing is what the interrupt is a consequence of, and deleting it would make the gate read as an ejection rather than a step.
+
+**One CSS defect found by drawing it.** The dialog inherited the sign in dialog's two-column grid, so an empty 220px art column squeezed the copy into the rest at 1440. **A modifier rather than a second dialog treatment**, because two kinds of interrupt in one product is two components at stage 07.
+
+### The instrument had the rule the wrong way round
+
+The first check read the whole rendered `main` and failed the gate pages for containing "sign in" and a figure. **Both are on the case screen behind the dialog, which is required to be there.** Scoped to `.wf-gate`, and the sweep gained the opposite assertion in the same edit: **it now fails a gate page whose interrupted surface is missing.**
+
+**The word "balance" is required and the figure is forbidden**, and the first version had that backwards too. A refusal has to say the balance stays yours, because a blocked market is a restriction on service and not an ejection from the building.
+
+### Measured
+
+**35 checks over the five pages at seven widths: clean.** One `H1` each, no wrapped labels, no sideways scroll, no sign in and no figure inside the dialog, the interrupted surface present, and every refusal carrying its "what is still open" sentence. **Plus an interaction pass:** the gate opens from the case screen's trigger, locks the scroll, keeps the surface behind, and Escape closes it and unlocks without recording anything.
+
+### And the live feed runs the other way
+
+Founder decision. **Reversed with `animation-direction` on `.wf-feed-run` rather than by flipping `wf-drift-x`**, because the case screen's showcase run shares that keyframe and it is not what changed. **A shared keyframe edited for one consumer is the drift the grey contract's own header warns about.**

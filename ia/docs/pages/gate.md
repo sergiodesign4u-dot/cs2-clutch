@@ -75,7 +75,37 @@
 
 ---
 
-## 4. Blocks, mobile first
+## 4. Blocks, mobile first. **Rewritten 21 August 2026 by `D-70`, because `D-26` had reached this node's header and not its body**
+
+**What `D-26` did on 18 August 2026:** the 18+ declaration left this node for the consent gate of `2.4`. **The header said so and this section did not**, and it went on listing the declaration, its decline control and its recording line as blocks 2, 3 and 4. **Three days of this node specifying a control that had been moved.**
+
+**What is left when the declaration goes is smaller than a dialog.** On an open market this node **renders nothing at all**: it resolves a lookup and the person continues into what they were doing. **The interrupt only exists when the answer is no, or when the answer comes with a limit.**
+
+### 4.1 Open market: no blocks, and that is the specification
+
+**Nothing renders.** The market lookup resolves, the verdict is `open`, and the case interaction proceeds. **The only thing this node may put on screen is the loading state of section 6, and its one hard rule is that it must not flash.**
+
+**This is the whole of the change `D-26` made to the main job.** The gate is still one of the three taps in `sitemap.md`'s count, because the person still waits on it, but on an open market it costs a moment rather than a decision.
+
+### 4.2 Staged market: three blocks
+
+| # | Block | Traces to |
+|---|---|---|
+| 1 | **What this is and why now**, one line naming the case interaction that triggered it, so the interrupt is legible as a consequence of what the person just did | `B3`. Design principle 3, clarity at every risk moment |
+| 2 | **The named limit in words, and what changes it.** From the market row, never invented here | `markets.md` section 11, the `staged` verdict, and `B4` |
+| 3 | **Continue, and a decline at equal weight.** Declining returns the person to what they were reading and records nothing | `0.4` in `sitemap.md`, "reject as easy as accept" |
+
+### 4.3 Blocked or not launched: section 7
+
+**No block for:** sign in, a case image, a balance, a bonus, a countdown, or anything that makes the interrupt feel like an offer. **Merging sign in into this dialog is the Hellcase pattern**, section 1, and it is the single most concrete LEAVE in the whole block bank.
+
+**Dismissal is not a declaration.** Escape closes the dialog and returns the person to what they were reading. Nothing is recorded, and the gate fires again at the next case interaction.
+
+### 4.4 Kept, unedited, as the record of what this node used to hold
+
+**The five blocks below were this node's specification until `D-70`.** Blocks 2 to 5 are `2.4`'s now. The section is kept rather than deleted for the same reason section 8 is: the argument for putting the two questions in one place was sound, the founder overrode it knowingly, and **a deleted argument cannot be reread when the decision is revisited.**
+
+---
 
 A dialog gets a short list on purpose. Ordered as they stack at 360px.
 
@@ -86,10 +116,6 @@ A dialog gets a short list on purpose. Ordered as they stack at 360px.
 | 3 | **The decline control, at equal weight** | `0.4` in `sitemap.md`, "reject as easy as accept", which is a rule this product already applied to its other interrupt |
 | 4 | **What happens with the answer**, one line: the declaration and its date are recorded, and no date of birth is collected here | `D-17`, layer 1 is a declaration. Collecting a birth date here would be layer 2 wearing layer 1's costume |
 | 5 | **The 18+ statement and the route to `6.1`**, plus the age section of `0.9` | The compliance constraint, responsible play tooling. `0.2` already carries the same two in the trust strip and this is the moment they are relevant |
-
-**No block for:** sign in, a case image, a balance, a bonus, a countdown, or anything that makes the interrupt feel like an offer. **Merging sign in into this dialog is the Hellcase pattern**, section 1, and it is the single most concrete LEAVE in the whole block bank.
-
-**Dismissal is not a declaration.** Escape closes the dialog and returns the person to what they were reading. Nothing is recorded, and the gate fires again at the next case interaction.
 
 ---
 
@@ -110,12 +136,12 @@ Four verdicts reach this node, and two of the six in `markets.md` section 11 do 
 
 | State | Behaviour |
 |---|---|
-| **Default** | The declaration, unanswered, no control preselected |
+| **Default** | ~~The declaration, unanswered, no control preselected.~~ **Void since `D-26`, carried through on 21 August 2026 by `D-70`.** On an open market the default state of this node is **nothing on screen** |
 | **Checking the market** | See section 6. It is a sixth internal loading state and it is declared rather than smuggled in |
 | **Detection unavailable** | The geolocation lookup failed or returned nothing. **Under an allowlist a missing row denies**, `D-23`, so this renders the `not launched` message. Naming it matters: the tempting default is to fail open, and failing open is precisely the property `D-23` chose the allowlist to eliminate |
-| **Declined** | The person chose the decline control, or pressed Escape. Returns them to what they were reading, records nothing, and is not a dead end |
+| **Declined** | The person chose the decline control, or pressed Escape. Returns them to what they were reading, records nothing, and is not a dead end. **It survives `D-26` and its subject changed:** what is declined is a staged market's limit, not an age declaration |
 
-**Declined and `2.3` are not the same event**, and the distinction is the whole reason `2.3` is a node. Declining to answer is a refusal to state anything. Declaring under age is a statement, and a statement we act on.
+**Declined and `2.3` were not the same event**, and the distinction is the whole reason `2.3` was a node. **`2.3` is dissolved**, section 8, and this paragraph is kept with it. Declining to answer is a refusal to state anything. Declaring under age is a statement, and a statement we act on.
 
 ---
 

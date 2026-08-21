@@ -2345,6 +2345,12 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
      spends 150px of the one axis the dialog is short of; beside the content it
      spends an axis that was empty. NOTHING IS CUT TO BUY THAT HEIGHT. */
   .wf-dlg { max-width: 700px; display: grid; grid-template-columns: 220px 1fr; }
+  /* THE GATE HAS NO ART COLUMN, so it does not take the grid. Without this the
+     empty first column still claimed 220 of 700 and squeezed the copy into the
+     rest, which is the interrupt this product cannot afford to make hard to
+     read. A modifier rather than a second dialog treatment: two kinds of
+     interrupt in one product is two components at stage 07. */
+  .wf-dlg--plain { display: flex; max-width: 520px; }
   .wf-dlg-art { height: auto; flex: none; border-bottom: 0; border-right: 1px solid var(--wf-line-soft); }
   .wf-dlg-h, .wf-dlg-sub, .wf-prov-cost, .wf-dlg-more { text-align: left; }
 }
@@ -2409,6 +2415,11 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
   list-style: none; margin: 0; padding: 0;
   width: max-content;
   animation: wf-drift-x 90s linear infinite;
+  /* IT RUNS THE OTHER WAY, founder decision of 21 August 2026. Reversed here
+     rather than by flipping wf-drift-x, because the case screen's showcase run
+     shares that keyframe and it is not what changed. A shared keyframe edited
+     for one consumer is the drift this file's own header warns about. */
+  animation-direction: reverse;
 }
 .wf-feed-clip { overflow: hidden; min-width: 0; flex: 1 1 auto; }
 .wf-feed.is-held .wf-feed-run { animation-play-state: paused; }
@@ -2804,3 +2815,50 @@ select {
      the visitor was sent to check. */
   .wf-result-art { aspect-ratio: 21 / 9; max-height: 320px; }
 }
+
+
+/* ---------------------------------------------------------------------------
+   NODE 2.1, THE GEO GATE, and its state 2.2. Drawn 21 August 2026.
+   IT IS THE ONE SURFACE THAT ARRIVES UNINVITED, in the middle of somebody
+   else's intention, and on an open market it renders nothing at all: D-26 took
+   the 18+ declaration to 2.4 and what is left is the market question.
+   IT NEVER CONTENDS WITH THE COOKIE BANNER. 0.4 fires on arrival, this fires at
+   first case interaction, so the two interrupts never want the same moment.
+   --------------------------------------------------------------------------- */
+
+/* The lookup between the case interaction and the answer. ITS ONE HARD RULE IS
+   THAT IT MUST NOT FLASH: a spinner for a lookup that resolves in milliseconds
+   has invented an interruption inside an interruption. The threshold below
+   which it never renders is [?] and belongs to production timings. */
+.wf-check {
+  display: flex; align-items: center; gap: var(--wf-s-2);
+  padding: var(--wf-s-2); border: 1px solid var(--wf-line-soft);
+  border-radius: var(--wf-r-3); max-width: 46ch;
+}
+.wf-check-dot {
+  flex: 0 0 10px; height: 10px; border-radius: 50%;
+  border: 1px solid var(--wf-line);
+}
+
+/* The gate dialog. It reuses the scrim and the shape of the sign in dialog
+   rather than opening a second modal treatment: two kinds of interrupt in one
+   product is two components at stage 07. */
+.wf-gate { display: flex; flex-direction: column; gap: var(--wf-s-2); }
+.wf-gate-h { margin: 0; font-size: var(--wf-t-l); }
+.wf-gate-p { margin: 0; color: var(--wf-ink-dim); }
+/* THE GROUND IS A SENTENCE A PERSON CAN ACT ON, never a statute number standing
+   alone: the instrument lives in the register and the person gets the reading. */
+.wf-ground {
+  margin: 0; padding: var(--wf-s-2);
+  border-left: 2px solid var(--wf-line); background: var(--wf-surface);
+  border-radius: 0 var(--wf-r-2) var(--wf-r-2) 0;
+}
+.wf-gate-open { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-gate-acts { display: flex; gap: var(--wf-s-1); flex-wrap: wrap; }
+/* A STAGED MARKET STATES ITS LIMIT IN WORDS AND WHAT CHANGES IT. The limit comes
+   from the market row and is never invented on this surface. */
+.wf-limit {
+  padding: var(--wf-s-2); border: 1px dashed var(--wf-line);
+  border-radius: var(--wf-r-2); display: flex; flex-direction: column; gap: var(--wf-s-1);
+}
+.wf-limit-h { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }

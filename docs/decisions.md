@@ -2217,3 +2217,45 @@ The link sweep stored each `href` raw in its set, so **`fair.html` and `fair.htm
 ### What this cost, stated
 
 **Nothing was invented to fill the profile hole and nothing was routed to a convenient place.** The price is that two surfaces now show a person's identity with a dead target under it, visibly, until the founder decides whether a public profile is in scope at all.
+
+---
+
+## D-70. The last screen of the main flow, and the node had gone on specifying a control that moved three days ago
+
+**Date:** 2026-08-21. **Stage:** 04. **Decided by:** the founder, on the queue and on the feed's direction. **Binds:** node `2.1`, the case screen's trigger, and `wireframes/_wf.css`.
+
+### The feed runs the other way
+
+**Founder decision.** Reversed on `.wf-feed-run` with `animation-direction` rather than by flipping `wf-drift-x`, **because the case screen's showcase run shares that keyframe and it is not what changed.** A shared keyframe edited for one consumer is exactly the drift that file's own header warns about.
+
+### `D-26` had reached this node's header and not its body
+
+`gate.md` opened with the correct sentence on 18 August: **the 18+ declaration left this node for the consent gate of `2.4`.** Section 4 then went on listing the declaration, its decline control and its recording line as blocks 2, 3 and 4, and section 5 listed "the declaration, unanswered" as the default state.
+
+**Three days of a node specifying a control that had been moved.** It is the same defect `D-64` named for `D-60` and the same rule applies: **a decision is applied when nothing left in the repository still asserts what it reversed.**
+
+**What is left when the declaration goes is smaller than a dialog.** On an open market **this node renders nothing at all**: it resolves a lookup and the person continues. The interrupt exists only when the answer is no, or when the answer carries a limit. The old five-block table is kept under section 4.4 with the argument intact.
+
+### Five states, and the gate fires for real
+
+Checking the market, staged with a named limit, not launched, blocked with the ground, and detection unavailable.
+
+**The dialog is built once in `_nav.js` and fires from the case screen's own trigger**, because **a gate that does not fire is a picture of a gate** — the same standard the founder set for the filter control. It traps the keyboard, closes on Escape, records nothing on dismissal, and the gate fires again at the next case interaction.
+
+**And the page behind it is the case screen, not an empty column.** Each state page is the case screen with the gate pinned, the way the sign in canon already works. **What the person was doing is what the interrupt is a consequence of**, so removing it would make the gate read as an ejection rather than a step.
+
+### Three things the states carry that a shorter version would have dropped
+
+**Not launched is the default, not blocked.** `D-23` chose an allowlist, and its consequence lands on a state rather than on a paragraph: the person most likely to meet a refusal meets "we have not reviewed this market" rather than "the law forbids it". **Merging them would state a legal verdict we do not hold.**
+
+**Detection unavailable renders the not-launched message.** Under an allowlist a missing row denies. **The tempting default is to fail open, and failing open is precisely the property the allowlist was chosen to eliminate.**
+
+**Every refusal says what is still open in the same breath.** Reading, the legal pages, support, and where an account exists, the withdrawal. **A blocked market is a restriction on service, not an ejection from the building**, and the sweep asserts the sentence rather than trusting it.
+
+### A measurement rule the instrument had wrong
+
+The first version of the check read the whole rendered `main` and failed the gate pages for containing "sign in" and a figure. **Both are on the case screen behind the dialog, which is required to be there.** Scoping the assertion to `.wf-gate` was the fix, and the sweep gained the opposite assertion at the same time: **it now fails a gate page whose interrupted surface is missing.**
+
+### What this leaves
+
+**The main flow is drawn end to end**: Home, catalogue, case, gate, sign in, open, outcome, public result. **Every remaining unbuilt screen is off the main path.**

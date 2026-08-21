@@ -103,10 +103,18 @@ window.WF_NAV = {
         { node: '1.4', label: 'Verifier, our own proof failed', file: 'fair-proof-failed.html', status: 'spec' }
       ] },
 
-    { node: '2.1',  cluster: '2', name: 'Geo gate',            file: 'gate.html',       ia: 'gate.html',          status: 'spec',
+    // DRAWN 21 AUGUST 2026. THE LAST SCREEN OF THE MAIN FLOW.
+    // On an open market this node renders nothing: D-26 took the 18+ declaration
+    // to 2.4 and what is left is the market question. D-70 carried that through
+    // the node's body, which had gone on specifying the declaration for three
+    // days after the header said it had moved.
+    { node: '2.1',  cluster: '2', name: 'Geo gate',            file: 'gate.html',       ia: 'gate.html',          status: 'built',
       base: 'Checking the market',
       states: [
-        { node: '2.2', label: 'Geo blocked', file: 'gate-blocked.html', status: 'spec', dead: true }
+        { label: 'Staged market, one limit',  file: 'gate-staged.html',      status: 'built' },
+        { node: '2.2', label: 'Not launched, the default', file: 'gate-notlaunched.html', status: 'built', dead: true },
+        { node: '2.2', label: 'Blocked, with the ground',  file: 'gate-blocked.html',     status: 'built', dead: true },
+        { label: 'Detection unavailable',     file: 'gate-unavailable.html', status: 'built', dead: true }
       ] },
 
     // D-54 MADE THE DIALOG THE CARRIER, so the dialog is the base page of this
@@ -1984,6 +1992,149 @@ window.WF_NAV = {
   }
 
   /* ---------------------------------------------------------------------
+     NODE 2.1, THE GEO GATE. Built once here and fired from the case screen's
+     own trigger, because a gate that does not fire is a picture of a gate.
+     IT RENDERS OVER THE SURFACE THE PERSON IS ALREADY ON and never at a URL of
+     its own: nobody arrives at a gate from outside. The case screen behind it
+     stays in place, because what the person was doing is what the interrupt is
+     a consequence of.
+     ON AN OPEN MARKET IT RENDERS NOTHING. D-26 took the 18+ declaration to 2.4
+     and what is left is the market question, so the only thing this node puts
+     on screen when the answer is yes is the lookup, and that must not flash.
+     --------------------------------------------------------------------- */
+  function gateHTML(state) {
+    var body;
+
+    if (state === 'check') {
+      // THE SIXTH LOADING STATE IN THE MAP, declared rather than smuggled in.
+      body =
+        '<div class="wf-check" role="status">' +
+          '<span class="wf-check-dot" aria-hidden="true"></span>' +
+          '<span>Checking whether we serve your market</span>' +
+        '</div>' +
+        '<p class="wf-note wf-fig-missing">The threshold below which this never renders is not set. It belongs to production timings, and a spinner for a lookup that resolves in milliseconds is an interruption inside an interruption</p>';
+      return '<div class="wf-dlg-scrim" aria-hidden="true"></div>' +
+             '<div class="wf-dlg-wrap"><div class="wf-dlg wf-dlg--plain" role="dialog" aria-modal="true" aria-label="Checking the market">' +
+             '<div class="wf-dlg-body"><div class="wf-gate">' + body + '</div></div></div></div>';
+    }
+
+    if (state === 'staged') {
+      body =
+        '<h2 class="wf-gate-h" id="wf-gate-h">This market is open with one limit.</h2>' +
+        '<p class="wf-gate-p">You pressed open on Ironbound. Before that runs, one thing about your market.</p>' +
+        /* THE LIMIT COMES FROM THE MARKET ROW AND IS NEVER INVENTED HERE. This
+           node holds no market list, no legal citation and no age constant: a
+           constant here is a second register that will disagree with the first. */
+        '<div class="wf-limit">' +
+          '<span class="wf-limit-h">The limit</span>' +
+          '<p class="wf-gate-p">Withdrawal to Steam is available. Deposits are capped while the market is in staged rollout.</p>' +
+          '<span class="wf-limit-h">What changes it</span>' +
+          '<p class="wf-gate-p">The cap lifts when the row moves from staged to open, which happens on a review rather than on a date.</p>' +
+        '</div>' +
+        /* REJECT AS EASY AS ACCEPT, the rule this product already applied to its
+           other interrupt. Declining returns the person to what they were
+           reading and records nothing. */
+        '<div class="wf-gate-acts">' +
+          '<button class="wf-btn wf-btn--primary" type="button" data-gate-dismiss>Continue</button>' +
+          '<button class="wf-btn" type="button" data-gate-dismiss>Not now</button>' +
+        '</div>';
+    } else if (state === 'blocked') {
+      body =
+        '<h2 class="wf-gate-h" id="wf-gate-h">We cannot serve this market.</h2>' +
+        '<p class="wf-gate-p">The law where you are does not allow what this site does.</p>' +
+        /* THE GROUND IS PER MARKET AND COMES FROM THE REGISTER. Where a row's
+           ground is [?] the row is not blocked at all: B4's success signal is
+           that every blocked market carries a citation. Readable words, never a
+           statute number standing alone. */
+        '<p class="wf-ground">Games of chance with prizes of monetary value require an operating licence here, and skins that can be sold count as monetary value.</p>' +
+        '<p class="wf-gate-p">The instrument and its source are on file. <strong>If you are not in that market, support will look at it and answer inside a published deadline.</strong></p>' +
+        '<p class="wf-note wf-fig-missing">Response deadline not available: it is owned by the support node and is not set yet</p>' +
+        openLine() + refusalActs();
+    } else {
+      // NOT LAUNCHED IS THE DEFAULT UNDER AN ALLOWLIST, and detection failing
+      // renders the same message: a missing row denies. The tempting default is
+      // to fail open, and failing open is the property the allowlist was chosen
+      // to eliminate.
+      var lede = (state === 'unavailable')
+        ? 'We could not work out where you are, and an allowlist answers that the same way it answers an unreviewed market. Opening cases is not available.'
+        : 'Opening cases is not available where you are.';
+      body =
+        '<h2 class="wf-gate-h" id="wf-gate-h">We do not serve this market yet.</h2>' +
+        '<p class="wf-gate-p">' + lede + ' We open a market only after a lawyer has reviewed it and signed the row, and nobody has reviewed this one yet. <strong>That is a statement about us, not a legal verdict about your country.</strong></p>' +
+        openLine() + refusalActs();
+    }
+
+    return '<div class="wf-dlg-scrim" aria-hidden="true"></div>' +
+           '<div class="wf-dlg-wrap"><div class="wf-dlg wf-dlg--plain" role="dialog" aria-modal="true" aria-labelledby="wf-gate-h">' +
+           '<div class="wf-dlg-body"><div class="wf-gate">' + body + '</div></div></div></div>';
+  }
+
+  /* A BLOCKED MARKET IS A RESTRICTION ON SERVICE, NOT AN EJECTION FROM THE
+     BUILDING. What stays open is stated in the same breath as what does not,
+     and it is the same sentence on both refusals. */
+  function openLine() {
+    return '<p class="wf-gate-open">You can still read every page here, including how each drop is proven. If you already have an account, your balance and your items stay yours, and withdrawal stays open.</p>';
+  }
+  function refusalActs() {
+    // NEVER A LIST OF THE MARKETS THAT ARE OPEN. The footer's market statement
+    // is the public face of the register; this dialog answers one person.
+    return '<div class="wf-gate-acts">' +
+      '<a class="wf-btn wf-btn--primary" href="support.html">Support</a>' +
+      '<a class="wf-btn" href="fair.html">How drops are proven</a>' +
+    '</div>';
+  }
+
+  function mountGate() {
+    var host = null, opener = null;
+
+    function close() {
+      if (!host) return;
+      host.remove(); host = null;
+      document.documentElement.style.overflow = '';
+      document.removeEventListener('keydown', onKey, true);
+      if (opener && document.contains(opener)) opener.focus();
+      opener = null;
+    }
+    function onKey(e) {
+      if (!host) return;
+      // DISMISSAL IS NOT A DECLARATION. Escape closes and returns the person to
+      // what they were reading, nothing is recorded, and the gate fires again at
+      // the next case interaction.
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key !== 'Tab') return;
+      var f = host.querySelectorAll('a[href], button:not([disabled])');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+    function open(state, trigger) {
+      if (host) return;
+      opener = trigger || null;
+      host = el('div', 'wf-gate-host');
+      host.innerHTML = gateHTML(state || 'check');
+      document.body.appendChild(host);
+      document.documentElement.style.overflow = 'hidden';
+      host.addEventListener('click', function (e) {
+        if (e.target.closest('[data-gate-dismiss]')) close();
+      });
+      document.addEventListener('keydown', onKey, true);
+      var f = host.querySelector('button, a[href]');
+      if (f) f.focus();
+    }
+
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-gate-open]');
+      if (!t) return;
+      e.preventDefault();
+      open(t.getAttribute('data-gate-open') || 'check', t);
+    });
+
+    var pinned = document.querySelector('[data-gate-pinned]');
+    if (pinned) open(pinned.getAttribute('data-gate-pinned'), null);
+  }
+
+  /* ---------------------------------------------------------------------
      0.14 VARIANT V3, THE FULL ROUND PROOF PANEL. Built once here because the
      component has four consumers, 1.2, 3.3 at phase 2 and at phase 3, and 7.1.
      V1 is the hash chip at the spin trigger and it already ships inline on the
@@ -2300,6 +2451,7 @@ window.WF_NAV = {
     mountFilterDrawer();
     renderLadders();
     renderProofs();
+    mountGate();
     renderFooter(document.getElementById('wf-footer'));
     mountRollDetail();
     renderBar(document.getElementById('wf-bar'));
