@@ -1780,11 +1780,13 @@ Convention section 2, a live screen and not a diagram: **the two declarations re
 
 Press with nothing declared: both marked, the line reads "Tick both to continue. Neither declaration has been made yet.", focus lands on a checkbox, **no navigation**. Press with one: the line names the missing one, **no navigation**. Both ticked: `aria-checked` true on both, **zero disabled elements in the dialog**, and the press goes through.
 
-### What it needs from `CLAUDE.md`, and it is not written yet
+### The `CLAUDE.md` clause. **Applied 21 August 2026 on an explicit go**
 
-The compliance paragraph says "**an 18+ declaration enforced at sign in, two separate checkboxes with the provider controls inert until both are set, `D-26`**". **The word inert is now wrong and the sentence around it is right.** Proposed replacement, awaiting an explicit go, replacing the clause rather than being added beside it:
+The compliance paragraph said "an 18+ declaration enforced at sign in, two separate checkboxes with the provider controls **inert** until both are set, `D-26`". **The word inert was wrong and the sentence around it was right.** It now reads:
 
 > an 18+ declaration enforced at sign in, two separate checkboxes and **no press goes through until both are set, `D-26` and `D-58`, the control staying live so the refusal can say what is missing**
+
+**A replacement, not an addition**, which is the only legal form there. **Budget: 123 lines before, 123 after.**
 
 ### Rejected
 
@@ -1860,9 +1862,11 @@ The tile body keeps `7.1`, `D-20`. The case goes to `3.3`. The avatar goes to a 
 
 **`D-D` changes shape.** The catalogue scale question was about how large a **stock-backed** catalogue can be. Without a shelf it is a different and possibly smaller question. Not closed here.
 
-### What it needs from `CLAUDE.md`, written out and not applied
+### The `CLAUDE.md` clause. **Applied 21 August 2026 on an explicit go**
 
-The scope paragraph carries this among the marks that travel with the backlog: "**the scale of stock-backed drop tables on an inventory figure that is still `[?]`**". **That mark is retired by this decision**, because there is no stock-backed drop table to scale. Proposed: delete that clause from the list, leaving the other four marks untouched. **Awaiting an explicit go.**
+The scope paragraph carried this among the marks that travel with the backlog: "the scale of stock-backed drop tables on an inventory figure that is still `[?]`". **Deleted**, because there is no stock-backed drop table to scale. The other four marks are untouched.
+
+**This is the rarer half of the work and the file's own rule asks for it: deletion is half of what keeps `CLAUDE.md` alive.** A mark for a condition that cannot occur reads as a live constraint to whoever reads it next.
 
 ---
 
@@ -1909,3 +1913,24 @@ The scope paragraph carries this among the marks that travel with the backlog: "
 **A second sweep, over `ia/`, `docs/` and the root**, at four widths: **128 checks, and the result is zero.** It runs beside the 315 wireframe checks rather than replacing them, because the two sets check different things: the wireframe sweep also asserts no collapsed leaf and no wrapped button label, which are properties of a prototype and not of a document.
 
 **The rule this leaves:** every page this project publishes is measured, not only the ones the current stage is writing.
+
+
+---
+
+## D-63. One clause of `CLAUDE.md` is still wrong, and the fix is to remove a number rather than correct it
+
+**Date:** 2026-08-21. **Stage:** 04, found while applying `D-58` and `D-60`. **Decided by:** open, awaiting the founder. **Binds:** `CLAUDE.md`.
+
+**What was found.** The information architecture paragraph says the map was "**expanded by 03b into 68 numbered nodes of which 52 are MVP**". **`D-60` dissolved `3.4`. It is 67 and 51.**
+
+### The fix is not 67
+
+**The same sentence ends with the rule that makes the number wrong:** the count is "listed once in `ia/docs/sitemap.md` and never derived a second time". **It is derived a second time, in that sentence, by that sentence.** Correcting 68 to 67 keeps the defect and resets its clock.
+
+**Proposed, replacing the clause rather than being added beside it:**
+
+> expanded by 03b into a numbered node map whose count is listed once in `ia/docs/sitemap.md` and never derived a second time, `D-26` having dissolved one and sent three to LATER, `D-36` having added three so the account menu's rows have destinations and `D-60` having dissolved one more with the stock model
+
+**Why this is the right shape.** `CLAUDE.md` holds rules and no status, by its own first paragraph, and a node count is a fact about the map rather than a rule about the work. **Removing the number makes the file stop carrying something that goes stale every time the map moves**, which it has now done four times.
+
+**Not written. Awaiting an explicit go.**
