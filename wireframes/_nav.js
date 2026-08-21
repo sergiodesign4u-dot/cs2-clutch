@@ -188,10 +188,13 @@ window.WF_NAV = {
         { node: '4.5', label: 'Payment declined',            file: 'deposit-declined.html',        status: 'spec' }
       ] },
 
-    { node: '5.1',  cluster: '5', name: 'Account and inventory', file: 'account.html',  ia: 'account.html',       status: 'spec',
+    // DRAWN 21 AUGUST 2026. The front door of the cluster that sits at the floor
+    // of the entire As-Is emotional map, and the page the receipt exists for.
+    { node: '5.1',  cluster: '5', name: 'Account and inventory', file: 'account.html',  ia: 'account.html',       status: 'built',
       base: 'Items held',
       states: [
-        { node: '5.2', label: 'Inventory empty', file: 'account-empty.html', status: 'spec' }
+        { label: 'Values degraded', file: 'account-degraded.html', status: 'built' },
+        { node: '5.2', label: 'Inventory empty', file: 'account-empty.html', status: 'built' }
       ] },
 
     { node: '5.3',  cluster: '5', name: 'Withdrawal',          file: 'withdraw.html',   ia: 'withdrawal.html',    status: 'spec',
@@ -1074,8 +1077,17 @@ window.WF_NAV = {
       // is deliberately NOT here: the header is a persistent carrier rather than a spend
       // moment, and a conversion rate on screen at all times is wallpaper.
       var money = el('div', 'wf-money');
-      [['74.20 coins', 'Balance', 'deposit.html', 'wf-money-1'],
-       ['18.60 coins', 'Value of items held', 'account.html', 'wf-money-2']].forEach(function (f) {
+      // A PAGE MAY DECLARE ITS OWN FIGURES AND THE SHELL READS THEM. The empty
+      // inventory is a different account from the one the rest of the mock uses,
+      // and a header saying 130.60 over a page saying 0.00 is the same
+      // contradiction one level up. One source per page, and the shell follows.
+      var M = (window.WF_SHELL && window.WF_SHELL.money) || {};
+      [[M.balance || '74.20 coins', 'Balance', 'deposit.html', 'wf-money-1'],
+       // ONE FIGURE, ONE VALUE, EVERYWHERE. It read 18.60 while 5.1 rendered a
+       // holding of 130.60, which is two renderings of one number disagreeing on
+       // adjacent surfaces: the exact defect 0.11 exists to prevent, and 5.1's
+       // own rule is that these are the same pair the header carries.
+       [M.held || '130.60 coins', 'Value of items held', 'account.html', 'wf-money-2']].forEach(function (f) {
         var d = el('a', 'wf-fig wf-fig-a ' + f[3]);
         d.href = BASE + f[2];
         d.setAttribute('aria-label', f[1] + ', ' + f[0]);

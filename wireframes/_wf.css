@@ -2862,3 +2862,81 @@ select {
   border-radius: var(--wf-r-2); display: flex; flex-direction: column; gap: var(--wf-s-1);
 }
 .wf-limit-h { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+
+
+/* ---------------------------------------------------------------------------
+   NODE 5.1, ACCOUNT AND INVENTORY, and its state 5.2. Drawn 21 August 2026.
+   THE PAGE IS BUILT AROUND ONE LINE OF THE BACKLOG: the receipt stays on the
+   item, and the same receipt is retrievable a week later. Barrier B7-1 is not a
+   complaint about losing, it is a complaint about a number that stopped being
+   true and left nothing behind to check, so the fix is a stored object rather
+   than a display.
+   --------------------------------------------------------------------------- */
+
+/* Block 1. Account state, one line. A STATEMENT OF A FACT RESOLVED EARLIER and
+   never a task raised here: B8-4 is the verification ambush at the exit, and
+   the way to not ambush somebody is to have answered it before they arrived. */
+.wf-acct-state {
+  display: flex; align-items: center; gap: var(--wf-s-1);
+  font-size: var(--wf-t-s); color: var(--wf-ink-dim);
+}
+
+/* Blocks 2 and 3 sit in a summary column beside the list from 900, and above it
+   below that. Same order in both, because the order is the barrier order. */
+.wf-inv { display: flex; flex-direction: column; gap: var(--wf-s-3); }
+.wf-inv-sum { display: flex; flex-direction: column; gap: var(--wf-s-2); }
+/* The two money figures, NEVER SUMMED AND NEVER A SCORE. Same pair the header
+   carries, and 0.1's rule travels with them. */
+.wf-inv-money { display: flex; flex-direction: column; gap: var(--wf-s-2); }
+.wf-limits { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-half); }
+.wf-limits li { font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+
+/* Block 4. The held item, 0.6 in its inventory context. */
+.wf-held {
+  display: flex; flex-direction: column; gap: var(--wf-s-1);
+  padding: var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+  background: var(--wf-surface);
+  /* A GRID ITEM'S MIN-WIDTH IS AUTO AND IT REFUSES TO GO BELOW ITS CONTENT,
+     which is the same defect as a bare 1fr one level down: the degraded card
+     carries a longer caption than the others and pushed the row 15px past 1200.
+     The card gives, and the caption wraps, because the caption is the part a
+     person reads rather than the part that has to fit. */
+  min-width: 0;
+}
+.wf-held-art { aspect-ratio: 4 / 3; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2); }
+.wf-held-w { font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-held-s { font-weight: 700; }
+/* TWO DATED FIGURES, TWO ROWS, AND NO THIRD NUMBER MADE OUT OF THEM. They never
+   sit on one line at 360: collapsing them is how a delta gets invented by a
+   layout, and a rendered delta turns a held skin into a position and the page
+   into a portfolio. No arrow, no percentage, no up-or-down colour, no badge. */
+.wf-held-figs { display: flex; flex-direction: column; gap: var(--wf-s-1); }
+/* Block 5. The holding statement, RENDERED FROM THE MOMENT THE ITEM EXISTS
+   rather than when it is nearly expired. A statement that appears at day 27 is
+   a warning, and G5 asks for a limit rather than a warning. It renders even
+   when the answer is no deadline, because silence about a deadline reads
+   identically to there being none. */
+.wf-held-hold {
+  font-size: var(--wf-t-xs); color: var(--wf-ink-dim);
+  padding-top: var(--wf-s-1); border-top: 1px dashed var(--wf-line-soft);
+}
+
+/* Responsive last, after everything above that it overrides. */
+@media (min-width: 600px) {
+  .wf-grid--held { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 900px) {
+  /* The money and the way out are held BESIDE the list rather than above it,
+     so the first screen carries the state, the money, the exit and an item.
+     MINMAX(0, 1FR) AND NOT 1FR. A bare 1fr is minmax(auto, 1fr) and refuses to
+     shrink below its content, which is how this page overflowed by 12px at 900
+     with the rail open and by 95 with it collapsed. The track has to be allowed
+     to be narrower than the cards inside it, and the cards do the giving. */
+  .wf-inv { display: grid; grid-template-columns: 260px minmax(0, 1fr); align-items: start; gap: var(--wf-s-3); }
+  .wf-inv-sum { position: sticky; top: var(--wf-s-2); }
+}
+@media (min-width: 1200px) {
+  .wf-inv { grid-template-columns: 300px minmax(0, 1fr); gap: var(--wf-s-4); }
+  .wf-grid--held { grid-template-columns: repeat(3, 1fr); }
+}

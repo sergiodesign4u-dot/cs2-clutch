@@ -2259,3 +2259,55 @@ The first version of the check read the whole rendered `main` and failed the gat
 ### What this leaves
 
 **The main flow is drawn end to end**: Home, catalogue, case, gate, sign in, open, outcome, public result. **Every remaining unbuilt screen is off the main path.**
+
+---
+
+## D-71. Node `5.1` is drawn, `D-40` had reached the map and not this node, and one number was rendering two values on adjacent surfaces
+
+**Date:** 2026-08-21. **Stage:** 04. **Decided by:** the founder on the queue, stage 04 on the rest. **Binds:** node `5.1`, the shell's money pair in `wireframes/_nav.js`, and the acceptance instrument.
+
+### Why this screen
+
+**Twenty two references and a 404 on every one.** It is the first row of the account menu since `D-40`, and it is the front door of the cluster that sits at **the floor of the entire As-Is emotional map, T8 at `-5`**. This is where the product either keeps its promise or does not.
+
+### `D-40` had reached the map and not this node
+
+Section 6 of `account.md` said the rail carries **four** destinations including My items, and the mobile bar **rises to four** with My items. `D-40` made the rail one destination in both states, moved My items into the account menu, and left the bar at two. **Three days of a node describing a navigation the product does not have.**
+
+**This is the third time in two days.** `D-60` reached three files out of nine, `D-26` reached `gate.md`'s header and not its body, and now `D-40`. The rule `D-64` left is holding; what it has not yet become is a check that runs.
+
+### The page is built around one line of the backlog
+
+`F2`: **the receipt stays on the item, and the same receipt is retrievable a week later.** `B7-1` is not a complaint about losing, it is a complaint about a number that stopped being true and left nothing behind to check. **A page that shows today's price and nothing else cannot be wrong a week later, because there is nothing left to compare it against.**
+
+**So every item carries two dated figures and no third number made out of them.** No arrow, no percentage, no up-or-down colour, no badge. **They never share a line at 360**, because collapsing them is how a delta gets invented by a layout, and a rendered delta turns a held skin into a position and this page into a portfolio.
+
+**The sweep asserts all of it** rather than trusting it: two figures per item, each with its own as-of, never on one line, and no delta pattern anywhere in the rendered text.
+
+### The empty state, where the refusal is the design
+
+**No offer, no free case, no nudge.** `B7-3` records the one voice in the corpus that criticises the consolation frame itself: "it just gives incentive to people in spending more and fools them into thinking that the end result isn't that bad". **An empty inventory answered with an offer to open again is that pattern with a different label**, and the person who arrives here after a low-value first open is at the emotional floor of the whole map.
+
+**The withdrawal entry is absent rather than disabled**, which is `D-58`'s rule arriving at the opposite answer for the opposite reason: there the precondition was one a person could satisfy, here the control has no subject at all.
+
+**And the money still renders**, because a balance can be non-zero while items are zero and "you hold nothing" would be false.
+
+### One number was rendering two values on adjacent surfaces
+
+The shell's header read **18.60 coins** for the value of items held while this page rendered a holding of **130.60**. **Two renderings of one number disagreeing on surfaces a person sees together**, which is exactly what the published numbers register exists to prevent, and this node's own rule is that these are the same pair the header carries.
+
+**Fixed by making the shell read the page rather than by editing both.** A page may declare `WF_SHELL.money`, and the empty state declares `0.00` so the header does not contradict it either. **The sweep now fails a page whose header pair and body pair disagree.**
+
+### One CSS defect the measurement found
+
+The summary column and the item grid overflowed by 12px at 900 with the rail open and by 95 with it collapsed. **A bare `1fr` is `minmax(auto, 1fr)` and refuses to shrink below its content.** `minmax(0, 1fr)`, and the three-across grid moved to 1200 where there is room for it.
+
+### The narrow sweep missed what the broad one caught
+
+**The three-page sweep reported clean at 1200 and the forty three page sweep found 15px of overflow there**, on the degraded card, whose caption is longer than the others because it explains why a figure is absent. **A grid item's `min-width` is `auto` and it refuses to go below its content**, which is the same defect as the bare `1fr` one level up, two elements down.
+
+**The lesson is about the instruments rather than the card.** A per-node sweep is a convenience, not a substitute: **the only run that counts is the one over every page**, and that is now true twice, after the link sweep was found under-reporting yesterday.
+
+### What this node hands on, sharpened rather than restated
+
+**Where selling a skin back for coins lives on this page.** `D-38` put it in round 1 and `3.6` carries it at the outcome. **A person who did not sell then and wants to sell now has no control here**, and this node's own baseline row already called that the gap: the live product answers what a person does with a skin they do not want, and this node answers only what they do with one they do want. **A second exit beside the one CTA is a founder decision, not a page edit.**

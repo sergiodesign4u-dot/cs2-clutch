@@ -1649,3 +1649,49 @@ The first check read the whole rendered `main` and failed the gate pages for con
 ### And the live feed runs the other way
 
 Founder decision. **Reversed with `animation-direction` on `.wf-feed-run` rather than by flipping `wf-drift-x`**, because the case screen's showcase run shares that keyframe and it is not what changed. **A shared keyframe edited for one consumer is the drift the grey contract's own header warns about.**
+
+---
+
+## 48. `D-71`: node `5.1`, and the third decision in two days found applied to a header and not a body
+
+**The front door of the cluster that sits at the floor of the entire As-Is emotional map**, T8 at `-5`. Three pages: items held, values degraded, and `5.2` inventory empty.
+
+### `D-40` had reached the map and not this node
+
+`account.md` section 6 said the rail carries **four** destinations including My items and the mobile bar **rises to four**. `D-40` made the rail one destination in both states, moved My items into the account menu, and left the bar at two.
+
+**Three days of a node describing a navigation the product does not have.** `D-60` reached three files out of nine, `D-26` reached `gate.md`'s header and not its body, and now `D-40`. **The rule `D-64` left is holding. What it has not become is a check that runs.**
+
+### Two dated figures, and no third number made out of them
+
+`F2` is one line of the backlog and it is the whole page: the receipt stays on the item, and the same receipt is retrievable a week later. **A page that shows today's price and nothing else cannot be wrong a week later, because there is nothing left to compare it against.**
+
+**No arrow, no percentage, no up-or-down colour, no badge.** A rendered delta turns a held skin into a position and this page into a portfolio. **The two figures never share a line at 360**, because collapsing them is how a delta gets invented by a layout.
+
+**The sweep asserts it rather than trusting it:** two figures per item, each with its own as-of, never on one line, and no delta pattern in the rendered text.
+
+### The empty state, where the refusal is the design
+
+**No offer, no free case, no nudge.** The person who arrives here after a low-value first open is at the emotional floor of the whole map, and `B7-3` records the one voice in the corpus that criticises the consolation frame itself. **An empty inventory answered with an offer to open again is that pattern with a different label.**
+
+**The withdrawal entry is absent rather than disabled**, which is `D-58`'s rule arriving at the opposite answer for the opposite reason: there the precondition was one a person could satisfy, here the control has no subject at all.
+
+### One number was rendering two values on adjacent surfaces
+
+The shell's header read **18.60 coins** for the value of items held while this page rendered **130.60**. **Two renderings of one number disagreeing on surfaces a person sees together.**
+
+**Fixed by making the shell read the page rather than by editing both.** A page may declare `WF_SHELL.money`, and the empty state declares `0.00` so the header does not contradict it either. **The sweep now fails a page whose header pair and body pair disagree**, which is a check the other twenty seven signed-in pages inherit for free.
+
+### One CSS defect the measurement found
+
+The summary column and the item grid overflowed by **12px at 900 with the rail open and 95 with it collapsed**. **A bare `1fr` is `minmax(auto, 1fr)` and refuses to shrink below its content.** `minmax(0, 1fr)`, and the three-across grid moved to 1200 where there is room for it.
+
+### The narrow sweep missed what the broad one caught
+
+**The three-page sweep reported clean at 1200 and the forty three page sweep found 15px of overflow there**, on the degraded card, whose caption is longer than the others because it explains why a figure is absent. **A grid item's `min-width` is `auto` and it refuses to go below its content**, the same defect as the bare `1fr` one level up.
+
+**A per-node sweep is a convenience, not a substitute.** The only run that counts is the one over every page, and that is now true twice: the link sweep was found under-reporting the day before.
+
+### Measured
+
+**42 checks over the three pages, seven widths, both rail states: clean**, and 264 over all forty three files. One `H1` each, no wrapped labels, no sideways scroll, no process prose, no delta, two dated figures per item on their own lines, the header pair matching the body pair, and on the empty state no offer, no disabled control and the money still rendering.

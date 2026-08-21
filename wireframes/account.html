@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My items</title>
+  <!-- NOINDEX WITH NO SCHEMA, NO DESCRIPTION, NO OG AND NO TWITTER CARD. The
+       unfurl is the product on 7.1 because a result is meant to travel; the
+       inverse holds exactly as hard here, and a pasted /my-items link must never
+       unfurl a person's holdings into a chat.
+       AN UNINDEXED PAGE IS NOT AN UNBUILT PAGE: crawlable anchors for real
+       routes, text never in an image so the receipt can be copied into a
+       complaint, and one H1, which is a structural rule rather than an SEO one. -->
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 5.1, ACCOUNT AND INVENTORY. Base state: ITEMS HELD. Five items, each carrying the receipt as captured and the current value, each with its own as-of, and the holding statement rendered even though the answer is no deadline.
+     THE PAGE IS BUILT AROUND ONE LINE OF THE BACKLOG: the receipt stays on the
+     item, and the same receipt is retrievable a week later. B7-1 is not a
+     complaint about losing, it is a complaint about a number that stopped being
+     true and left nothing behind to check, so the fix is a stored object rather
+     than a display. A page that shows today's price and nothing else cannot be
+     wrong a week later, because there is nothing left to compare it against.
+     T8 IS THE FLOOR OF THE ENTIRE AS-IS EMOTIONAL MAP, at -5. This cluster is
+     where the product either keeps its promise or does not, and this page is its
+     front door. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <h1>My items</h1>
+
+    <div class="wf-inv">
+      <!-- BLOCKS 1 TO 3 ARE THE FIRST SCREEN AT 360, and the order is the barrier
+           order rather than a preference. B8-4 says the exit must not ambush, so
+           the account state is answered before anything is offered; B7-1 says the
+           money must be checkable, so the figures come before the list they
+           describe. From 900 they hold beside the list rather than above it. -->
+      <div class="wf-inv-sum">
+        <!-- BLOCK 1. A statement of a fact resolved earlier, never a task raised
+             here. The way to not ambush somebody at the exit is to have answered
+             the question before they got there. -->
+        <p class="wf-acct-state">Verified. Withdrawals are open.</p>
+
+        <!-- BLOCK 2. The same two figures the header carries, in coins, NEVER
+             SUMMED AND NEVER A SCORE. -->
+        <div class="wf-inv-money">
+          <div class="wf-fig">
+            <span class="wf-fig-v">74.20 coins</span>
+            <span class="wf-fig-c">Balance</span>
+          </div>
+          <div class="wf-fig">
+            <span class="wf-fig-v">130.60 coins</span>
+            <span class="wf-fig-c">Value of items held</span>
+          </div>
+          <p class="wf-note wf-fig-missing">Peg not available: what one coin is worth in real money is not published yet</p>
+        </div>
+
+        <!-- BLOCK 3. ONE CTA, AND THE LIMITS SIT BESIDE IT RATHER THAN BEHIND IT.
+             G5 asks for a limit to be met before the route runs rather than
+             discovered inside it, which is the whole of B8-3. -->
+        <div class="wf-stack">
+          <a class="wf-btn wf-btn--primary" href="withdraw.html">Withdraw to Steam</a>
+          <ul class="wf-limits">
+            <li>Commission is zero. What you see is what arrives.</li>
+            <li>Your Steam inventory has to be public and trades unlocked.</li>
+            <li>Withdrawal times are published from our own logs, as a middle time and a slow-case time.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="wf-stack">
+        <!-- BLOCK 4. The list, and the substance of the page. Each card is 0.6
+             in its inventory context: no drop chance and no ticket range,
+             because both are properties of the case rather than of a held
+             instance, and the receipt with its own as-of beside the current
+             value with its own.
+             NO SORT AND NO FILTER. An inventory is bounded by what one person
+             opened, and a filter on it manufactures a second empty state with no
+             parent. The order is most recent first, which is the order the person
+             acquired them in and the only order this node can justify until a
+             typical holding size exists. -->
+        <div class="wf-sec-head">
+          <h2 id="h2-items">Items held</h2>
+        </div>
+        <div class="wf-grid wf-grid--held">
+          <article class="wf-held">
+            <span class="wf-held-art" aria-hidden="true"></span>
+            <span class="wf-held-w">AK-47</span>
+            <span class="wf-held-s">Redline</span>
+            <span class="wf-result-axes"><span class="wf-axis">Field-Tested</span><span class="wf-axis">StatTrak</span></span>
+            <div class="wf-held-figs">
+              <div class="wf-fig">
+                <span class="wf-fig-v">22.15 coins</span>
+                <span class="wf-fig-c">Worth at the moment it was won, 18 Aug 2026 14:02</span>
+              </div>
+<div class="wf-fig"><span class="wf-fig-v">21.40 coins</span><span class="wf-fig-c">Worth now, read 21 Aug 2026 09:31</span></div>
+            </div>
+            <p class="wf-held-hold">Held with no time limit</p>
+          </article>
+          <article class="wf-held">
+            <span class="wf-held-art" aria-hidden="true"></span>
+            <span class="wf-held-w">AWP</span>
+            <span class="wf-held-s">Asiimov</span>
+            <span class="wf-result-axes"><span class="wf-axis">Well-Worn</span></span>
+            <div class="wf-held-figs">
+              <div class="wf-fig">
+                <span class="wf-fig-v">64.80 coins</span>
+                <span class="wf-fig-c">Worth at the moment it was won, 17 Aug 2026 22:11</span>
+              </div>
+<div class="wf-fig"><span class="wf-fig-v">66.05 coins</span><span class="wf-fig-c">Worth now, read 21 Aug 2026 09:31</span></div>
+            </div>
+            <p class="wf-held-hold">Held with no time limit</p>
+          </article>
+          <article class="wf-held">
+            <span class="wf-held-art" aria-hidden="true"></span>
+            <span class="wf-held-w">USP-S</span>
+            <span class="wf-held-s">Cortex</span>
+            <span class="wf-result-axes"><span class="wf-axis">Minimal Wear</span></span>
+            <div class="wf-held-figs">
+              <div class="wf-fig">
+                <span class="wf-fig-v">7.90 coins</span>
+                <span class="wf-fig-c">Worth at the moment it was won, 16 Aug 2026 19:40</span>
+              </div>
+<div class="wf-fig"><span class="wf-fig-v">7.35 coins</span><span class="wf-fig-c">Worth now, read 21 Aug 2026 09:31</span></div>
+            </div>
+            <p class="wf-held-hold">Held with no time limit</p>
+          </article>
+          <article class="wf-held">
+            <span class="wf-held-art" aria-hidden="true"></span>
+            <span class="wf-held-w">Glock-18</span>
+            <span class="wf-held-s">Water Elemental</span>
+            <span class="wf-result-axes"><span class="wf-axis">Factory New</span></span>
+            <div class="wf-held-figs">
+              <div class="wf-fig">
+                <span class="wf-fig-v">4.15 coins</span>
+                <span class="wf-fig-c">Worth at the moment it was won, 15 Aug 2026 11:07</span>
+              </div>
+<div class="wf-fig"><span class="wf-fig-v">4.20 coins</span><span class="wf-fig-c">Worth now, read 21 Aug 2026 09:31</span></div>
+            </div>
+            <p class="wf-held-hold">Held with no time limit</p>
+          </article>
+          <article class="wf-held">
+            <span class="wf-held-art" aria-hidden="true"></span>
+            <span class="wf-held-w">M4A1-S</span>
+            <span class="wf-held-s">Hyper Beast</span>
+            <span class="wf-result-axes"><span class="wf-axis">Field-Tested</span><span class="wf-axis">StatTrak</span></span>
+            <div class="wf-held-figs">
+              <div class="wf-fig">
+                <span class="wf-fig-v">31.60 coins</span>
+                <span class="wf-fig-c">Worth at the moment it was won, 14 Aug 2026 08:55</span>
+              </div>
+<div class="wf-fig"><span class="wf-fig-v">29.90 coins</span><span class="wf-fig-c">Worth now, read 21 Aug 2026 09:31</span></div>
+            </div>
+            <p class="wf-held-hold">Held with no time limit</p>
+          </article>
+        </div>
+        <!-- BLOCK 6. A legible bottom to the list. -->
+        <p class="wf-pager-end">5 items held, and that is all of them.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>
