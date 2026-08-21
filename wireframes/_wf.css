@@ -2703,3 +2703,104 @@ select {
    The baseline puts one CLOSE at the bottom and nothing at the top, so a person
    who has scrolled the panel has the escape below the fold. */
 .wf-drawer-head .wf-row { gap: var(--wf-s-1); }
+
+
+/* ---------------------------------------------------------------------------
+   NODE 7.1, THE PUBLIC RESULT, and its state 7.2. Drawn 21 August 2026.
+   THE SURFACE THAT TRAVELS FURTHEST AND THE ONE A STRANGER MEETS FIRST. It
+   carries no spend control of any kind: no open button, no deposit route, no
+   balance. The only commercial route on it is the case name in block 3.
+   --------------------------------------------------------------------------- */
+
+/* Block 1. The result. The skin instance as 0.6, with its receipt. It leads
+   because it is the claim the visitor was sent to check. */
+.wf-result { display: flex; flex-direction: column; gap: var(--wf-s-2); }
+.wf-result-art {
+  aspect-ratio: 16 / 9; border: 1px dashed var(--wf-line-soft);
+  border-radius: var(--wf-r-2); background: var(--wf-surface);
+}
+.wf-result-name { display: flex; flex-direction: column; gap: 2px; }
+.wf-result-w { font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-result-s { font-size: var(--wf-t-xl); font-weight: 700; line-height: 1.15; }
+.wf-result-axes { display: flex; gap: var(--wf-s-1); flex-wrap: wrap; }
+.wf-axis {
+  font-size: var(--wf-t-xs); padding: 2px var(--wf-s-1);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1);
+  color: var(--wf-ink-dim);
+}
+
+/* Blocks 1 and 2 are TWO FIGURES AND THEY ARE NEVER MERGED: what it was worth
+   when it was won, and what it is worth now. 0.11 rule 2 puts an as-of on each,
+   and rule 7 forbids summing across kinds, which is what a single figure here
+   would quietly be. */
+.wf-vals { display: grid; gap: var(--wf-s-2); grid-template-columns: 1fr; }
+
+/* Block 4. 0.14 variant V3, the full panel. THE ONLY V3 IN THE PRODUCT and the
+   reason this page is public: it must not require an account. */
+.wf-proof {
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+  padding: var(--wf-s-2); display: flex; flex-direction: column; gap: var(--wf-s-2);
+}
+.wf-proof-h {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: var(--wf-s-2); flex-wrap: wrap;
+}
+.wf-proof-t { margin: 0; font-size: var(--wf-t-m); }
+.wf-proof-tag {
+  font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 2px var(--wf-s-1); border: 1px solid var(--wf-line); border-radius: var(--wf-r-1);
+}
+.wf-proof-fields { display: flex; flex-direction: column; gap: var(--wf-s-1); margin: 0; }
+.wf-pf { display: flex; flex-direction: column; gap: 2px; }
+.wf-pf-k { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+/* A SEED IS A LONG STRING AND IT MAY NOT PUSH THE PAGE SIDEWAYS. It wraps
+   anywhere, because the alternative on a 360px screen is a horizontal scroll on
+   the one page a stranger is asked to read carefully. */
+.wf-pf-v { font-family: var(--wf-mono); font-size: var(--wf-t-s); overflow-wrap: anywhere; }
+.wf-proof-scope { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-proof-acts { display: flex; gap: var(--wf-s-1); flex-wrap: wrap; }
+
+/* Block 6. Who won it. AVATAR AND DISPLAY NAME, founder answer of 21 August
+   2026, and NOT A LINK: the node refuses an owner profile because it would
+   rebuild the trophy shelf this page was created to replace. The target with no
+   route is marked, exactly as the feed's avatar is. */
+.wf-who { display: flex; align-items: center; gap: var(--wf-s-2); }
+.wf-who-av { flex: 0 0 40px; height: 40px; border: 1px dashed var(--wf-line-soft); border-radius: 50%; }
+.wf-who-n { display: flex; flex-direction: column; gap: 2px; }
+.wf-who-l { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+
+/* Block 7. Owner controls. THEY SIT DIRECTLY UNDER THE RESULT rather than at
+   the bottom, because the owner arrives to act and the stranger arrives to read. */
+.wf-owner {
+  border: 1px dashed var(--wf-line); border-radius: var(--wf-r-2);
+  padding: var(--wf-s-2); display: flex; flex-direction: column; gap: var(--wf-s-1);
+}
+.wf-owner-h { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+
+/* Node 7.2. One state for all three arrivals, because distinguishing revoked
+   from never-existed tells a stranger the fact a revoke was meant to stop
+   telling them. */
+.wf-gone { display: flex; flex-direction: column; gap: var(--wf-s-2); max-width: 56ch; }
+.wf-gone-h { margin: 0; font-size: var(--wf-t-l); }
+
+/* Block 3 is a row and not a tile, and it gets a class rather than an inline
+   style: this file's own rule is that a screen writes var(--wf-...) and never a
+   literal, and an inline layout is the same drift one level up. */
+.wf-caserow {
+  display: flex; align-items: center; gap: var(--wf-s-2);
+  padding: var(--wf-s-1); border: 1px solid var(--wf-line-soft);
+  border-radius: var(--wf-r-2); text-decoration: none; color: var(--wf-ink);
+}
+.wf-caserow:hover { border-color: var(--wf-line); }
+.wf-caserow-n { display: flex; flex-direction: column; gap: 2px; }
+
+/* Responsive last, after everything above that it overrides. */
+@media (min-width: 600px) {
+  .wf-vals { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 900px) {
+  /* THE ARTWORK IS CAPPED RATHER THAN LET RUN. At 1440 a 21:9 band across the
+     whole column is 400px of placeholder before the name, and the name is what
+     the visitor was sent to check. */
+  .wf-result-art { aspect-ratio: 21 / 9; max-height: 320px; }
+}

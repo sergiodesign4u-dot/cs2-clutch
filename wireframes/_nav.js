@@ -216,10 +216,18 @@ window.WF_NAV = {
         { node: '6.3', label: 'Boundary in force',           file: 'responsible-in-force.html', status: 'spec' }
       ] },
 
-    { node: '7.1',  cluster: '7', name: 'Public result',       file: 'result.html',     ia: 'public-result.html', status: 'spec',
-      base: 'Result visible',
+    // DRAWN 21 AUGUST 2026, and it jumped the queue on the same rule the catalogue
+    // did: the live feed is in the shell on every page since D-59 and every one of
+    // its twenty four tiles lands here, so result.html was the densest dead link in
+    // the project. A dead link on every page outranks the next screen in the flow.
+    { node: '7.1',  cluster: '7', name: 'Public result',       file: 'result.html',     ia: 'public-result.html', status: 'built',
+      base: 'Stranger, no account',
       states: [
-        { node: '7.2', label: 'Result gone or private', file: 'result-gone.html', status: 'spec' }
+        { label: 'The owner',              file: 'result-owner.html',      status: 'built' },
+        { label: 'Recomputed, matched',    file: 'result-checked.html',    status: 'built' },
+        { label: 'Recomputed, mismatched', file: 'result-mismatched.html', status: 'built' },
+        { label: 'Proof not available',    file: 'result-noproof.html',    status: 'built' },
+        { node: '7.2', label: 'Result gone or private', file: 'result-gone.html', status: 'built' }
       ] }
   ]
 };
@@ -1976,6 +1984,75 @@ window.WF_NAV = {
   }
 
   /* ---------------------------------------------------------------------
+     0.14 VARIANT V3, THE FULL ROUND PROOF PANEL. Built once here because the
+     component has four consumers, 1.2, 3.3 at phase 2 and at phase 3, and 7.1.
+     V1 is the hash chip at the spin trigger and it already ships inline on the
+     case screen; V3 is the whole panel and 7.1 is the first surface to need it.
+     ITS ONE RULE FOR THIS SITE IS WHY 7.1 IS PUBLIC AT ALL: it must not require
+     an account. A stranger holds the link and can check the round.
+     THE SCOPE LINE IS NOT OPTIONAL AND IT IS NOT SOFTENED. 0.14 section 0: the
+     proof shows the round was fixed before the click and not altered after it.
+     It does not show that the published chances are the chances used. That is a
+     different question and D3 is its answer, on 3.3.
+     --------------------------------------------------------------------- */
+  function proofPanel(state) {
+    var tag, fields, scope, acts;
+
+    var SEEDS =
+      '<div class="wf-pf"><span class="wf-pf-k">Server seed hash, published before the roll</span>' +
+        '<span class="wf-pf-v">4f2a91c7e0b83d5619ac7f20d8e4b1663c9a05f7d21e8b4409c6fa3d7e15b208</span></div>' +
+      '<div class="wf-pf"><span class="wf-pf-k">Server seed, revealed after</span>' +
+        '<span class="wf-pf-v">a71c0e4b93f6d2857e0c1a4f68b95d3027ef8c61b4a09d75e3f26c8017ab54d9</span></div>' +
+      '<div class="wf-pf"><span class="wf-pf-k">Client seed</span><span class="wf-pf-v">7d19f4a2</span></div>' +
+      '<div class="wf-pf"><span class="wf-pf-k">Nonce</span><span class="wf-pf-v">41 207</span></div>' +
+      '<div class="wf-pf"><span class="wf-pf-k">Settled result</span><span class="wf-pf-v">7 318</span></div>' +
+      '<div class="wf-pf"><span class="wf-pf-k">Ticket range it landed in</span><span class="wf-pf-v">7 300 - 7 420, AK-47 Redline</span></div>';
+
+    if (state === 'unavailable') {
+      // 0.14: the real case is rounds predating the published ledger, and
+      // whether six years of history can migrate at all is D-B. THE PAGE DOES
+      // NOT HIDE AND DOES NOT PRETEND.
+      tag = 'Proof not available';
+      fields = '<div class="wf-pf"><span class="wf-pf-k">Why</span>' +
+               '<span class="wf-pf-v wf-fig-missing">This round predates the published ledger</span></div>';
+      scope = 'The round happened and the item is real. What is missing is the published commitment, because this open is older than the ledger that publishes them.';
+      acts = '<a class="wf-btn" href="fair.html">Read what the proof covers</a>';
+    } else if (state === 'mismatched') {
+      // OUR OWN PROOF FAILING, IN A STRANGER'S BROWSER, ON THE SURFACE THAT
+      // TRAVELS FURTHEST. It is the state this page is least likely to be built
+      // for and the one where building it late costs the most.
+      tag = 'Recomputed: does not match';
+      fields = SEEDS +
+        '<div class="wf-pf"><span class="wf-pf-k">Recomputed result</span><span class="wf-pf-v">7 902</span></div>';
+      scope = 'The recomputation does not agree with the settled result. That is our failure, not yours, and it is reportable. The published response deadline applies to it.';
+      acts = '<a class="wf-btn wf-btn--primary" href="support.html">Report this round</a>' +
+             '<a class="wf-btn" href="fair.html">Recompute it yourself</a>';
+    } else {
+      tag = (state === 'checked') ? 'Recomputed: matches' : 'Settled';
+      fields = SEEDS;
+      scope = 'This shows the round was fixed before the click and was not altered after it. It does not show that the published chances are the chances used: that is a different question, and the observed rate beside every published tier on the case screen is its answer.';
+      acts = '<a class="wf-btn wf-btn--primary" href="fair.html">Recompute this round yourself</a>';
+    }
+
+    return '' +
+      '<div class="wf-proof">' +
+        '<div class="wf-proof-h">' +
+          '<h2 class="wf-proof-t" id="h2-proof">The round, and how to check it</h2>' +
+          '<span class="wf-proof-tag">' + tag + '</span>' +
+        '</div>' +
+        '<div class="wf-proof-fields">' + fields + '</div>' +
+        '<p class="wf-proof-scope">' + scope + '</p>' +
+        '<div class="wf-proof-acts">' + acts + '</div>' +
+      '</div>';
+  }
+
+  function renderProofs() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-proof]'), function (host) {
+      host.innerHTML = proofPanel(host.getAttribute('data-proof') || 'settled');
+    });
+  }
+
+  /* ---------------------------------------------------------------------
      THE DAILY TIER LADDER, D-67. Built once here because it now has two
      consumers, and home.md predicted exactly this: "a ladder that becomes a
      component is a ladder that spreads". IT SPREAD, AND IT SPREAD TOWARDS THE
@@ -2222,6 +2299,7 @@ window.WF_NAV = {
     mountAuthDialog();
     mountFilterDrawer();
     renderLadders();
+    renderProofs();
     renderFooter(document.getElementById('wf-footer'));
     mountRollDetail();
     renderBar(document.getElementById('wf-bar'));

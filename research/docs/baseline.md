@@ -390,6 +390,30 @@ Four columns: **NEED HELP?** with a Support button and the identification line "
 
 **Searched for and absent from the entire home page, header, footer and rail: any "18+" mark, any responsible play route, any licence statement.** This re-confirms section 6 on a second reading a week later.
 
+### 9.9 The public profile, answered by a founder capture on 21 August 2026
+
+**Asked because `7.1` could not be drawn without it.** `public-result.md` carried it as an open item in these words: whether the account appearance is a name, a Steam avatar, or anonymous by default, is decided nowhere, and **a default of the person's Steam name is a publication decision made by omission.**
+
+**Founder capture, 21 August 2026, of the baseline's own public profile.** `CLAUDE.md` puts a dated capture of our own signed-in surface in the same class as a walked page.
+
+| Element | What it carries |
+|---|---|
+| **Banner** | A hexagonal avatar, the display name, and **a numeric public id**, read as `ID 852261` |
+| **Counters** | Cases, Case battles, Gunfights, each reading `N/A` on the shot |
+| **Name again** | Repeated under the avatar |
+| **Tabs** | Inventory history, Case battle history, Gunfights history, Upgrades history |
+| **Grid** | Item cards: mode icon, image, weapon, skin, wear in brackets, value in coins |
+
+**So the answer is: not anonymous.** An account appears with its display name and its avatar, and it has a public page carrying its history.
+
+**Two things this walk records rather than smooths.**
+
+**The id looks sequential.** `852261` is a number a stranger can decrement. A sequential account id makes the platform's registered-account count enumerable from outside, which is the same class of leak `public-result.md` already flags for the round id and recommends against there. **It is a fact about the baseline, not a recommendation.**
+
+**And the page is an inventory history, which is a trophy shelf.** `public-result.md` section 0 says in as many words that the social-proof surface now points at something checkable **instead of at a trophy shelf**, and section 2 refuses an owner profile on that ground. **The baseline has the shelf. This project refused it and then `D-59` gave the feed's avatar a destination that can only be it.** The contradiction is real, it is between two of our own decisions rather than between us and the baseline, and it belongs in front of the founder.
+
+---
+
 ### 9.8 What the second walk did not reach
 
 | Node | Why | Owner |

@@ -1552,3 +1552,60 @@ Section 2 refused a banner because **a banner survives every filter because it i
 ### Measured
 
 **98 checks over the seven pages, clean.** Chips match sections in every state: four and four, three and three when filtered, one and one when nothing matches. **The ladder renders on all four states that carry it**, guest and account, at 360 and 1440.
+
+---
+
+## 46. Node `7.1`, the public result: six pages, and it jumped the queue on the rule the catalogue set
+
+**Drawn 21 August 2026.** `D-69`.
+
+### Why this and not the geo gate
+
+`D-59` put the live feed in the shell on every page, and every one of its twenty four tiles lands on `result.html`. **Counted: referenced from sixteen files and from `_nav.js`, returning a 404 on all thirty pages.** `gate.html` is referenced six times.
+
+**A dead link on every page outranks the next screen in the flow.** That rule was written when the catalogue jumped ahead of the gate, and it binds the person who wrote it. **The gate is still the only unbuilt screen of the main flow and it is next.**
+
+### Six pages
+
+| Page | State |
+|---|---|
+| `result.html` | Stranger, no account. **The reader this page exists for**, and no wall at any point |
+| `result-owner.html` | The owner. Block 7 renders here and nowhere else, **directly under the result** because the owner arrives to act and the stranger arrives to read |
+| `result-checked.html` | Recomputed and matched |
+| `result-mismatched.html` | **Recomputed and does not match** |
+| `result-noproof.html` | Proof not available: the round predates the published ledger, `D-B` |
+| `result-gone.html` | `7.2`, gone or private |
+
+### The mismatched state is drawn on purpose and early
+
+The node says it is **the state this page is least likely to be built for and the one where building it late costs the most**: our own proof failing, in a stranger's browser, on the surface that travels furthest. It carries the report route and the published response deadline, and its own words are "that is our failure, not yours".
+
+### `0.14` variant V3 is a built component now
+
+V1, the hash chip at the spin trigger, already shipped inline on the case screen. **V3 is the whole panel and this is the first surface to need it**, so it is built once in `_nav.js`: the component has four consumers, `1.2`, `3.3` at two phases and `7.1`.
+
+**The scope line is not softened on any of the five states.** It says the round was fixed before the click and was not altered after it, and that whether the published chances are the chances used is a different question with a different answer.
+
+### What the page refuses, asserted rather than described
+
+**No spend control of any kind: no open button, no deposit route, no balance.** The sweep asserts it: a page fails if its rendered `main` contains "open for", "deposit", "balance" or "top up". The only commercial route is the case name in block 3, and it is a navigation.
+
+### `7.2` admits its own limit
+
+It routes into `1.2`, and **a stranger arriving from a dead link holds no seeds**, so the verifier is a form they cannot fill. **Routing them there without saying what it needs is a route to a wall with a friendlier colour.** The page says what the verifier needs and who has it: whoever sent the link.
+
+**One response for three arrivals.** Distinguishing revoked from never-existed tells a stranger whether a particular person ever had a particular result, which is what a revoke was meant to stop telling them.
+
+### Measured
+
+**84 checks over the six pages, seven widths, both rail states: clean.** One `H1` each, no wrapped labels, no sideways scroll, no spend word, no process prose, and **every proof panel carries its scope line**, asserted rather than eyeballed.
+
+**216 checks over all thirty five wireframe files. `result.html` is off the dead list.**
+
+### And the instrument was under-reporting, which is worth more than the screen
+
+The link sweep stored each `href` raw in its set, so **`fair.html` and `fair.html#verifier` were two entries** and the report collapsed them wrongly. **It printed nine dead links where there are fourteen.** Every earlier count this sweep produced was low by the same mechanism, including the fifteen reported when the catalogue shipped.
+
+**Fixed by normalising before the set rather than at the request**, and the correct list is fourteen: `account`, `deposit`, `fair`, `gate`, `history`, `legal`, `markets`, `profile`, `provably-fair`, `responsible`, `settings`, `support`, `withdraw`, `withdrawal`. **Every one is a screen this stage has not drawn.**
+
+**An instrument that under-reports is worse than no instrument**, because it is trusted. This one was trusted three times.

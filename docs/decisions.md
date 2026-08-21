@@ -2160,3 +2160,60 @@ Section 2 exists to stop stage 04 promoting the daily case back into a banner. I
 ### What this cost, stated
 
 **One always-visible entitlement panel on the shelf**, which is the thing section 2 was written to prevent, taken deliberately with the reason on the record. **The mitigation is not a design device, it is the wager gate**: the panel a person always sees says the case is earned, not free.
+
+---
+
+## D-69. Node `7.1` is drawn, the public profile is answered, and the answer puts two of our own decisions against each other
+
+**Date:** 2026-08-21. **Stage:** 04. **Decided by:** the founder, on the queue and on the profile question. **Binds:** node `7.1`, node `0.14` which becomes a built component, `baseline.md`, and the debt `D-59` opened.
+
+### Why this screen and not the geo gate
+
+**The same rule that put the catalogue ahead of the gate, applied again.** `D-59` put the live feed in the shell on every page and every one of its twenty four tiles lands on `result.html`. Counted: **`result.html` was referenced from sixteen files and from `_nav.js`, and returned a 404 on all thirty pages.** `gate.html` is referenced six times.
+
+**A dead link on every page outranks the next screen in the flow.** The gate is still the only unbuilt screen of the main flow and it is next.
+
+### Six pages, and the state list is the node's own
+
+Stranger with no account, the owner, recomputed and matched, **recomputed and mismatched**, proof not available, and `7.2` gone or private.
+
+**The mismatched state is drawn on purpose and early.** The node says it is the state this page is least likely to be built for and the one where building it late costs the most: **our own proof failing, in a stranger's browser, on the surface that travels furthest.** It carries the report route and the published response deadline.
+
+**`0.14` variant V3 is now a built component.** V1, the hash chip at the spin trigger, already shipped inline on the case screen; V3 is the whole panel and this is the first surface to need it. Built once in `_nav.js` because the component has four consumers. **Its scope line is not softened anywhere:** it says the round was fixed before the click and not altered after it, and that this is a different question from whether the published chances are the chances used.
+
+### The founder answered how an account appears in public
+
+`public-result.md` carried it open, in these words: **a default of the person's Steam name is a publication decision made by omission.** The founder's capture of the baseline's own public profile, 21 August 2026, `baseline.md` section 9.9.
+
+**The answer is: not anonymous.** An avatar, a display name, and a numeric public id. So block 6 renders an avatar and a name.
+
+**The row is not closed, it is converted.** What it warned about is unchanged: **the default publishes the person's name.** Whether they can turn it off is not decided anywhere and is now the open half.
+
+### And the answer puts two of our own decisions against each other
+
+| Carrier | Verdict on a public profile |
+|---|---|
+| `0.8`, the live feed | **Has one.** `D-59` gave the avatar that destination and printed that no node exists for it |
+| `7.1`, block 6 | **Refuses one**, because "adding it would rebuild the trophy shelf this node was created to replace" |
+
+**The capture settles what the object is and it is the shelf.** The baseline's profile is an inventory history with four tabs: every item that account has won, priced.
+
+**Two carriers, opposite answers, one object, and no node on the map for it either way.** Both surfaces draw the target and print the absence rather than inventing a route. **It is the founder's, and it is now a scope question rather than a routing one.**
+
+### Two things recorded rather than smoothed
+
+**The baseline's account id looks sequential**, read as `852261`. A stranger can decrement it, which makes the registered-account count enumerable from outside. It is the same class of leak this node already flags for the round id, where its recommendation is opaque. **A fact about the baseline, not a recommendation.**
+
+**The round id format is still open** and it still blocks nothing: `/r/<id>` is drawn, and whether the id is sequential or opaque is production's before the URL is final.
+
+### The instrument was under-reporting, and that is worth more than the screen
+
+The link sweep stored each `href` raw in its set, so **`fair.html` and `fair.html#verifier` were two entries** and the report collapsed them wrongly. **It printed nine dead links where there are fourteen.** Every earlier count from this sweep was low by the same mechanism, **including the fifteen reported when the catalogue shipped**.
+
+**Fixed by normalising before the set rather than at the request.** The correct list is fourteen and every one is a screen this stage has not drawn.
+
+**An instrument that under-reports is worse than no instrument, because it is trusted.** This one was trusted three times, and it is the second measurement defect this stage has found in its own scaffolding rather than in a screen.
+
+### What this cost, stated
+
+**Nothing was invented to fill the profile hole and nothing was routed to a convenient place.** The price is that two surfaces now show a person's identity with a dead target under it, visibly, until the founder decides whether a public profile is in scope at all.

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>This result is not available</title>
+  <meta name="description" content="The round can still be checked without this page.">
+  <meta name="robots" content="noindex, follow">
+  <!-- THE UNFURL CARD IS THE PRODUCT ON THIS NODE, not a search position: F4
+       exists for the referral loop and a shared result lands in a chat rather
+       than in a search result. So OG and Twitter are a hard requirement here
+       while the meta description is nearly irrelevant.
+       WHAT THE CARD MAY NEVER CARRY, one rule applied three times: no value
+       figure, because an image is frozen at render time and cannot carry an
+       as-of, and a price baked into a card rots silently while still reading as
+       current; no multiplier and no rarity boast, because a number is never a
+       score; no verified mark, because an image cannot be checked.
+       THE COST, STATED: the story a person wants to tell has a number in it and
+       the card refuses to carry the number. The page is one tap away and carries
+       the receipt with its as-of, in text, where it can be read and checked. -->
+  <meta property="og:title" content="This result is not available">
+  <meta property="og:description" content="The round can still be checked without this page.">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 7.1, THE PUBLIC RESULT. State 7.2: GONE OR PRIVATE. One response for three arrivals, and it is a privacy decision rather than a shortcut.
+     THE SURFACE THAT TRAVELS FURTHEST, AND IT LEADS WITH A VERIFICATION RATHER
+     THAN A PURCHASE. That is design principle 1 arriving at the one place where
+     it costs revenue, and it is the reason this page is worth building rather
+     than pointing the share at a landing page.
+     IT WAS THE DENSEST DEAD LINK IN THE PROJECT UNTIL TODAY. The live feed is in
+     the shell on every page since D-59 and every one of its twenty four tiles
+     lands here, so result.html returned a 404 roughly seven hundred times per
+     page load across thirty pages. A dead link on every page outranks the next
+     screen in the flow, which is the rule that put the catalogue ahead of the
+     geo gate and now puts this ahead of both. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+    <section class="wf-sec" aria-labelledby="h1-gone">
+      <!-- NODE 7.2. ONE STATE FOR ALL THREE ARRIVALS: revoked, account closed or
+           restricted, and an id that never existed. Distinguishing revoked from
+           never-existed tells a stranger whether a particular person ever had a
+           particular result, which is precisely what a revoke was meant to stop
+           telling them. HTTP 404, never 410 and never 200: 410 Gone states that
+           the resource existed, which leaks the same fact.
+           AND THE LIMIT IS ADMITTED RATHER THAN GLOSSED. A stranger arriving from
+           a dead link holds no seeds, so the verifier form on 1.2 is a form they
+           cannot fill. Routing them there without saying what it needs is a route
+           to a wall with a friendlier colour. -->
+      <div class="wf-gone">
+        <h1 class="wf-gone-h" id="h1-gone">This result is not available.</h1>
+        <p class="wf-empty-p">It may have been taken down by the person who won it, or the link may never have pointed at anything. <strong>We do not say which</strong>, because saying which would tell you whether a particular person ever had a particular result.</p>
+        <p class="wf-empty-p"><strong>The round can still be checked without this page.</strong> The verifier needs the server seed, the client seed and the nonce. <strong>Whoever sent you this link still has them</strong>, and this page never did have them to give you.</p>
+        <div class="wf-row">
+          <a class="wf-btn wf-btn--primary" href="fair.html">Open the verifier</a>
+          <a class="wf-btn" href="index.html">What this place is</a>
+        </div>
+        <p class="wf-note wf-fig-missing">Whether the id in this address is enough to look the round up on its own is not decided yet</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: false, active: '' };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>
