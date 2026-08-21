@@ -164,7 +164,7 @@ input, select, textarea {
    surface, which reads as two different kinds of missing thing. It is one kind: an area
    whose content arrives at stage 06. Stage 07 extracts components from these files, so
    two treatments here become two components there. */
-.wf-tile-art, .wf-item-art, .wf-banner-art, .wf-mode-art, .wf-t-art,
+.wf-tile-art, .wf-item-art, .wf-banner-art, .wf-mode-art,
 .wf-ladder-art, .wf-logo-mark, .wf-rail-ico, .wf-fav-i, .wf-clock-v {
   background: var(--wf-surface);
   border: 1px dashed var(--wf-line-soft);
@@ -448,19 +448,15 @@ a.wfp-state:hover { color: var(--wf-ink); }
    THE GEOMETRY IS MEASURED, NOT CHOSEN: baseline.md section 3 records 92px tiles in a
    strip 120px tall, and 0.8 section 6 handed stage 04 the two open items answered here.
    Tiles of 148px carrying four text fields read as four cards rather than as a feed. */
-.wf-ticker {
   display: flex; gap: var(--wf-s-1); align-items: stretch;
   padding: var(--wf-s-1) 0; border-bottom: 1px solid var(--wf-line-soft);
 }
-.wf-ticker-strip {
   display: flex; gap: var(--wf-s-half); margin: 0; padding: 0; list-style: none;
   flex: 1 1 auto; min-width: 0; overflow: hidden;
 }
 /* min-width:0 is load bearing, not tidying: a flex item's automatic minimum size is
    its min-content, so "Desert Eagle" alone pushed a 92px tile to 117px and the strip
    drifted a quarter wider than the measured baseline. */
-.wf-ticker-strip li { flex: 0 0 92px; min-width: 0; }
-.wf-ticker-strip a {
   display: block; height: 100%; padding: var(--wf-s-half);
   border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
   text-decoration: none; overflow: hidden;
@@ -468,19 +464,13 @@ a.wfp-state:hover { color: var(--wf-ink); }
 /* ANSWER TO 0.8's OPEN ITEM "whether the tile carries the item image": it does. The
    strip is read at a glance rather than read, the baseline runs artwork at exactly this
    92 by 120 and it is legible there, and four text fields alone at 92px read as a list. */
-.wf-t-art {
   display: block; height: 44px; margin-bottom: 2px;
   border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
 }
-.wf-t-weapon, .wf-t-skin, .wf-t-meta {
   display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-.wf-t-weapon { font-size: 10px; color: var(--wf-ink-dim); }
-.wf-t-skin { font-size: var(--wf-t-xs); }
-.wf-t-meta { font-size: 9px; color: var(--wf-ink-faint); }
 /* The pause sits beside the strip, not under it: under it, it cost the fold 60px and
    read as a control for the page rather than for the strip. */
-.wf-ticker-pause { flex: 0 0 auto; align-self: center; }
 
 .wf-main { padding-block: var(--wf-s-2); }
 /* Blocks are separated by space, not by a rule. A hairline between every section made
@@ -599,7 +589,11 @@ a.wfp-state:hover { color: var(--wf-ink); }
 }
 /* The artwork is the largest field on the tile, D-24, so it is a ratio rather than a
    fixed height: at 120px in a 290px column the name outweighed it and the rule broke. */
-.wf-tile-art { aspect-ratio: 4 / 3; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2); margin-bottom: var(--wf-s-1); }
+/* THE ARTWORK IS THE TILE, D-61. The founder's wording: the visual is the main
+   thing on a case card. It was already the largest element by D-24; with both
+   markers gone it is the only thing competing with three short lines, so it
+   takes the square its three references give it rather than a 4:3 letterbox. */
+.wf-tile-art { aspect-ratio: 1 / 1; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2); margin-bottom: var(--wf-s-1); }
 .wf-tile-name { font-weight: 700; }
 /* The cost and its unit are one figure and they read on one line. Stacked, the unit
    read as a second field and the tile looked like it carried five. 0.11 rule 1. */
@@ -607,7 +601,10 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-tile-cost { font-family: var(--wf-mono); font-size: var(--wf-t-l); }
 .wf-tile-cur { font-size: 10px; color: var(--wf-ink-dim); }
 .wf-tile-risk { font-size: var(--wf-t-xs); }
-.wf-tile-mark { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+/* .wf-tile-mark IS GONE, D-60 and D-61. The stock marker had no subject once
+   stock left the product, and the daily marker had nowhere to sit once daily and
+   bonus cases became their own cases. Removed rather than left unused: dead CSS
+   is a rule a later stage finds and assumes is load bearing. */
 /* The price is the last thing read and it takes the slack, so a tile with a stock
    marker and a tile without one still line their prices up across the row. */
 .wf-tile-price { margin-top: auto; padding-top: var(--wf-s-1); }
@@ -950,8 +947,8 @@ a.wfp-state:hover { color: var(--wf-ink); }
   .wf-screen-body {
     display: grid;
     grid-template-columns: var(--wf-rail-w) minmax(0, 1fr);
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas: "rail header" "rail main" "rail footer";
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: "rail header" "rail feed" "rail main" "rail footer";
     min-height: 100vh;
     padding: 0;
   }
@@ -1066,6 +1063,10 @@ a.wfp-state:hover { color: var(--wf-ink); }
     background: var(--wf-bg); padding-block: var(--wf-s-1);
   }
   .wf-main { grid-area: main; padding-bottom: var(--wf-s-4); }
+  /* THE FEED IS A ROW OF THE SHELL GRID, D-59. Without its own area it was
+     auto-placed into the rail's column and the first tiles rendered underneath a
+     fixed rail: visible in a screenshot, unreachable by a pointer. */
+  .wf-feed { grid-area: feed; }
   .wf-footer { grid-area: footer; }
 
   /* B2, full bleed at the baseline's proportion, with the line and the one control on
@@ -2064,7 +2065,6 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 
 /* The ticker at position 8 is inside a section rather than at the top of the page,
    so it drops the full-bleed border the 1.0 instance carries. */
-.wf-ticker--flat { border-bottom: 0; padding-top: 0; }
 
 /* 3.3 section 14, and it is the node's word rather than a preference: "NOTHING SCROLLS
    SIDEWAYS: the table wraps into cards rather than becoming a horizontally scrolled
@@ -2359,3 +2359,124 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
   .wf-dlg-wrap { padding: 0; align-items: stretch; }
   .wf-dlg { min-height: 100%; max-width: none; border-radius: 0; border-left: 0; border-right: 0; }
 }
+
+/* ============================================================================
+   NODE 0.8, THE LIVE FEED. ON EVERY PAGE SINCE D-59.
+   It is not a new element: it has been in the IA since the detail layer with
+   eight fields, a pause control and a rule against invented names. What D-59
+   changed is that it renders in the shell rather than on Home alone, which
+   reverses item 6 of D-31 and closes the question the node carried open since:
+   a component with one consumer is a component, or it is that screen's block.
+   It has every consumer now.
+   D-31's REASON FOR CUTTING IT IS STILL TRUE ABOUT THE CASE SCREEN, so this
+   strip is built to be furniture: one row, no figure, no colour, no urgency,
+   and the smallest height that keeps the item legible.
+   ============================================================================ */
+.wf-feed {
+  width: 100%;
+  border-bottom: 1px solid var(--wf-line-soft);
+  background: var(--wf-raised);
+  padding-inline: max(var(--wf-s-2), (100% - var(--wf-content)) / 2);
+  padding-block: var(--wf-s-1);
+}
+@media (min-width: 900px) {
+  .wf-feed { padding-inline: max(var(--wf-s-3), (100% - var(--wf-content)) / 2); }
+}
+/* ONE ROW, NOT TWO. D-31 cut this component from the case screen for taking too
+   much of it, so every pixel here is argued for: the label and the control sit
+   BESIDE the strip rather than above it, which is 28px of a band that has to be
+   furniture. Below 600 they take their own line, because at 360 a label, a
+   control and a scrolling strip on one line leaves the strip nothing. */
+.wf-feed-in { display: flex; align-items: center; gap: var(--wf-s-2); }
+@media (max-width: 599px) { .wf-feed-in { flex-wrap: wrap; } .wf-feed-clip { flex-basis: 100%; } }
+.wf-feed-head { display: flex; align-items: center; gap: var(--wf-s-2); }
+.wf-feed-lbl {
+  font-size: var(--wf-t-xs); letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--wf-ink-dim); white-space: nowrap;
+}
+/* ONE CONTROL, TWO PARENTS, and that is the node's own wording: it is the pause
+   the strip owes design principle 2, and it is the prefers-reduced-motion answer,
+   so the product ships one mechanism for one state rather than two. */
+.wf-feed-pause { min-height: 26px; padding: 0 var(--wf-s-1); font-size: var(--wf-t-xs); }
+@media (max-width: 599px) { .wf-feed-head { width: 100%; } .wf-feed-pause { margin-left: auto; } }
+
+/* THE STRIP SCROLLS INSIDE ITS OWN FRAME AND NEVER TAKES THE PAGE WITH IT.
+   Written at the end of its own section because a flat rule later in the file
+   beats a media query on equal specificity, which this project has now hit four
+   times, D-62. */
+.wf-feed-run {
+  display: flex; gap: var(--wf-s-1);
+  list-style: none; margin: 0; padding: 0;
+  width: max-content;
+  animation: wf-drift-x 90s linear infinite;
+}
+.wf-feed-clip { overflow: hidden; min-width: 0; flex: 1 1 auto; }
+.wf-feed.is-held .wf-feed-run { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .wf-feed-run { animation: none; } }
+
+.wf-feed-i {
+  position: relative;
+  flex: 0 0 128px;
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: var(--wf-surface);
+}
+.wf-feed-hit {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: var(--wf-s-1);
+  min-height: 0; border: 0; background: none; border-radius: var(--wf-r-2);
+  text-decoration: none; color: var(--wf-ink);
+}
+/* THE ITEM IMAGE LEADS. A skin is recognised by its finish before it is
+   recognised by its name, and the strip is looked at rather than read. */
+.wf-feed-art { height: 34px; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1); }
+.wf-feed-w { font-size: var(--wf-t-xs); font-weight: 600; line-height: 1.25; }
+.wf-feed-s { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); line-height: 1.25; }
+/* THE MODE ICON, AND ITS COST IS PRINTED IN THE NODE RATHER THAN HIDDEN HERE.
+   Round 1 ships one mode, so this is the same glyph on every tile on every page
+   until a second mode arrives, and a constant is not information. It is drawn
+   because the founder wants the carrier standing before the mode arrives, D-59,
+   which is a legitimate reason and is not the same as it earning its space. */
+.wf-feed-mode {
+  position: absolute; top: var(--wf-s-half); right: var(--wf-s-half);
+  width: 14px; height: 14px;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
+  background: var(--wf-raised);
+}
+
+/* THE HOVER LAYER, AND NOTHING IS REACHABLE ONLY THROUGH IT.
+   Hover does not exist on a touch screen. On touch the tile has exactly one
+   destination, 7.1, and both objects below are on 7.1 one tap further, D-59.
+   That is why this layer is @media (hover: hover) and not a tap target. */
+.wf-feed-pop {
+  display: none; position: absolute; z-index: 70;
+  top: calc(100% + var(--wf-s-half)); left: 0;
+  width: max-content; max-width: 240px;
+  padding: var(--wf-s-1);
+  background: var(--wf-raised); border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
+}
+.wf-feed-pop::before {
+  content: ''; position: absolute; left: 0; right: 0;
+  top: calc(var(--wf-s-half) * -1 - 1px); height: calc(var(--wf-s-half) + 2px);
+}
+@media (hover: hover) {
+  .wf-feed-i:hover .wf-feed-pop, .wf-feed-i:focus-within .wf-feed-pop { display: block; }
+}
+.wf-feed-case {
+  display: flex; align-items: center; gap: var(--wf-s-1);
+  font-size: var(--wf-t-xs); color: var(--wf-ink); text-decoration: none;
+  padding: var(--wf-s-half); border-radius: var(--wf-r-1);
+}
+.wf-feed-case-art { flex: 0 0 40px; height: 30px; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1); }
+.wf-feed-who {
+  display: flex; align-items: center; gap: var(--wf-s-1);
+  font-size: var(--wf-t-xs); color: var(--wf-ink-dim);
+  padding: var(--wf-s-half); margin-top: var(--wf-s-half);
+  border-top: 1px dashed var(--wf-line-soft);
+}
+.wf-feed-av { flex: 0 0 22px; height: 22px; border: 1px dashed var(--wf-line-soft); border-radius: 50%; }
+/* A TARGET WITH NO ROUTE, MARKED. The avatar's destination is a public profile
+   and the map has no node for it. 5.10 is the account's own view of itself. So
+   this stage draws the target and prints the absence rather than routing it
+   somewhere convenient, D-59. */
+.wf-feed-noroute { font-size: 9px; color: var(--wf-ink-faint); font-style: italic; }
+.wf-feed-bot { font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-faint); }

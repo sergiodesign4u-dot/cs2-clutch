@@ -533,7 +533,7 @@
 
   <div class="card is-good">
     <h4>The stage is the reveal lane at rest, and the lane prints nothing</h4>
-    <p>D-30 put chance and value on every strip tile because <strong>a strip of values alone is the shop window</strong>. That rule is real, and the conclusion was still wrong: <strong>it binds any surface that PRINTS a value, so the honest way to satisfy it on the stage is to print no value, not to print two.</strong> The lane is the reveal's track, not a second listing. It makes no claim and needs no pairing, and every figure about the case lives one block down beside the ticket range, the free units and the market link that make it checkable.</p>
+    <p>D-30 put chance and value on every strip tile because <strong>a strip of values alone is the shop window</strong>. That rule is real, and the conclusion was still wrong: <strong>it binds any surface that PRINTS a value, so the honest way to satisfy it on the stage is to print no value, not to print two.</strong> The lane is the reveal's track, not a second listing. It makes no claim and needs no pairing, and every figure about the case lives one block down beside the ticket range and the market link that make it checkable.</p>
     <p><strong>The risk band gets a reserved zone instead of a line of italic text</strong>, and the footer statistics each gain one for an icon. Same move both times: <strong>a hole drawn as a sentence is a hole that has no size</strong>, and what lands there later has to find its own room. A slot that is already the right size means the thing arrives as an asset in a place rather than as a new element in a finished row.</p>
     <p><strong>The cost:</strong> the first screen now shows the case's name, its cost and its risk zone, and nothing about its contents.</p>
   </div>
@@ -1266,6 +1266,59 @@
   </div>
 </section>
 
+<section id="feed">
+  <div class="sec-head">
+    <h2>The live feed goes into the shell, and the case tile loses both markers</h2>
+    <p><code>D-59</code>, <code>D-60</code> and <code>D-61</code> rendered, 21 August 2026. The IA was amended first, on the same day, and this step draws what it says. Live from <code>wireframes/docs/screens.md</code> section 40.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The measurement overruled the placement, exactly as the node said it would</h4>
+    <p>D-59 put the feed under the header, and node 0.8 pre-committed: <strong>"stage 04 measures what it costs the first screen at 360, and the measurement outranks this paragraph."</strong></p>
+    <p><strong>It was measured, and the paragraph lost.</strong> On the case screen at 360x800 the act sits at y=744 without the feed and <strong>at y=886 with the feed under the header, through the fold</strong>. Node 3.3 section 14 forbids exactly that.</p>
+    <p><strong>So on mobile the strip sits after the content, and on desktop the grid puts it back under the header.</strong> It is still on every page, which is what D-59 asked for. What moved is where a furniture strip stands relative to the act a person came for, and it does not stand in front of it.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The act on 3.3 at 360x800</th><th>Without the feed</th><th>Under the header</th><th>After the content</th></tr></thead>
+      <tbody>
+        <tr><td>Position</td><td>y=744, <strong>above the fold</strong></td><td>y=886, <strong>through the fold</strong></td><td>y=744, <strong>above the fold</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>The DOM order is a decision too</h4>
+    <p>It is placed after the main column in the DOM deliberately, not only so the mobile order falls out for free: <strong>the strip is twenty four links of furniture, and a keyboard reaches the page&#39;s own content before them on both layouts.</strong> The cost is a desktop visual order that is not the tab order, and <strong>that is the trade this component is worth in this direction and not the other.</strong></p>
+    <p><strong>A defect on the way:</strong> the feed first mounted inside the shell host, which is <code>display: contents</code> on desktop, so it was auto-placed into the rail&#39;s grid column and <strong>the first tiles rendered underneath a fixed rail: visible in a screenshot, unreachable by a pointer.</strong> It has its own grid area now.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Three targets in the tile</th><th>Goes to</th><th>Measured</th></tr></thead>
+      <tbody>
+        <tr><td>Tile body</td><td>result.html, node 7.1</td><td>href present</td></tr>
+        <tr><td>The case, in the hover layer</td><td>case.html, node 3.3</td><td>href present</td></tr>
+        <tr><td>The avatar</td><td><strong>A public profile, which the map has no node for</strong></td><td><strong>Not a link.</strong> Drawn as a target with the absence printed on it</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>Twelve tiles, and the number is inherited rather than picked again</h4>
+    <p>At 360px one row holds 3.9 tiles, so a loop needs eight before it can run without a gap, and twelve is the first count that still reads as a feed at 1440. <strong>The loop needs more than that floor</strong>, because the keyframe travels half the run and half the run has to be wider than the widest column it plays in. <strong>Measured: 1628px of travel against a 793px column.</strong></p>
+    <p><strong>Home&#39;s own ticker block was removed, and it went upward rather than away.</strong> The first render put two live drop strips on Home. The block is gone and its comment is kept in the page with the measurement it made, so the twelve is sourced and not re-derived. <strong>Its eleven CSS rules went with it rather than being left unused</strong>, because dead CSS is a rule a later stage finds and assumes is load bearing.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The case tile, and stock leaving the pages</h4>
+    <p><strong>Artwork, name, risk, cost, favourite.</strong> Both markers gone. <strong>The artwork takes the square its three references give it</strong> rather than a 4:3 letterbox, which is the founder&#39;s "the visual is the main thing" made structural.</p>
+    <p><strong>Stock left the pages too, not only the tile.</strong> The free-unit column came out of the drop table on all fourteen case pages, 14 headers and 126 cells, with the caption and four prose references, and the SEO paragraph "what happens when an item runs out" was rewritten as <strong>what happens if a win cannot be sent to Steam</strong>. <strong>One rule in it survived unchanged and is worth keeping:</strong> a row never disappears from this table, because a table that quietly loses rows is a table you cannot check against what you read a minute ago.</p>
+    <p><strong>Node 3.4 is off the registry and its page is deleted.</strong> 22 pages built of 76.</p>
+  </div>
+</section>
+
 <footer class="doc">
   <p>Sources of truth: <code>wireframes/docs/screens.md</code> and <code>wireframes/docs/conventions.md</code>. The screen registry: <code>wireframes/_nav.js</code>. The grey contract: <code>wireframes/_wf.css</code>.</p>
   <p>Where these screens come from: <a href="../ia/structure.html">IA structure</a>, <a href="../ia/flows.md">flows</a>. The stage that colours copies of them: 06.</p>
@@ -1308,6 +1361,7 @@ window.NAV_SECTIONS = [
   { id: 'dialog',      label: 'D-55 and D-56' },
   { id: 'shorter',     label: 'D-57 shorter' },
   { id: 'live',        label: 'D-58 nothing dead' },
+  { id: 'feed',        label: 'D-59 to D-61 drawn' },
 ];
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';

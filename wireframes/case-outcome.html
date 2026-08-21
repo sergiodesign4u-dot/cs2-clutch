@@ -242,14 +242,14 @@
     <section class="wf-sec" aria-labelledby="h2-contents">
       <div class="wf-sec-head">
         <h2 id="h2-contents">What is in this case</h2>
-        <p class="wf-sec-sub">Nine items, grouped by tier and ordered by ticket range. Chance and current value on the same card, never one without the other. Same items as the strip on the stage, with the ticket range, the free units and the market link the strip does not carry.</p>
+        <p class="wf-sec-sub">Nine items, grouped by tier and ordered by ticket range. Chance and current value on the same card, never one without the other. Same items as the strip on the stage, with the ticket range and the market link the strip does not carry.</p>
       </div>
 
       <p class="wf-stamp">Values last read 18 Aug 2026 14:02. <span class="wf-fig-c">The published chance carries no stamp: it is static until the configuration changes, and one stamp over both would quietly claim the chance was re-read too.</span></p>
 
       <div class="wf-tablewrap">
         <table class="wf-table wf-drops">
-          <caption class="wf-vh">Every item in Ironbound with its chance, value, ticket range and free units</caption>
+          <caption class="wf-vh">Every item in Ironbound with its chance, value and ticket range</caption>
           <thead>
             <tr>
               <th scope="col">Item image</th>
@@ -257,7 +257,6 @@
               <th scope="col">Chance</th>
               <th scope="col">Value</th>
               <th scope="col">Tickets</th>
-              <th scope="col">Free units</th>
             </tr>
           </thead>
 
@@ -275,7 +274,6 @@
               <td data-l="Chance">3.180 %</td>
               <td data-l="Value">47.30 coins</td>
               <td data-l="Tickets">1 to 3 180</td>
-              <td data-l="Free units">4</td>
             </tr>
             <tr>
               <td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>
@@ -289,7 +287,6 @@
               <td data-l="Chance">1.020 %</td>
               <td data-l="Value">38.90 coins</td>
               <td data-l="Tickets">3 181 to 4 200</td>
-              <td data-l="Free units">2</td>
             </tr>
           </tbody>
 
@@ -307,7 +304,6 @@
               <td data-l="Chance">4.600 %</td>
               <td data-l="Value">24.60 coins</td>
               <td data-l="Tickets">4 201 to 8 800</td>
-              <td data-l="Free units">6</td>
             </tr>
             <tr>
               <td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>
@@ -321,7 +317,6 @@
               <td data-l="Chance">2.200 %</td>
               <td data-l="Value">21.80 coins</td>
               <td data-l="Tickets">8 801 to 11 000</td>
-              <td data-l="Free units">3</td>
             </tr>
           </tbody>
 
@@ -339,7 +334,6 @@
               <td data-l="Chance">12.000 %</td>
               <td data-l="Value">14.20 coins</td>
               <td data-l="Tickets">11 001 to 23 000</td>
-              <td data-l="Free units">11</td>
             </tr>
             <tr>
               <td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>
@@ -353,7 +347,6 @@
               <td data-l="Chance">14.000 %</td>
               <td data-l="Value">12.90 coins</td>
               <td data-l="Tickets">23 001 to 37 000</td>
-              <td data-l="Free units">14</td>
             </tr>
           </tbody>
 
@@ -371,7 +364,6 @@
               <td data-l="Chance">22.000 %</td>
               <td data-l="Value">7.40 coins</td>
               <td data-l="Tickets">37 001 to 59 000</td>
-              <td data-l="Free units">27</td>
             </tr>
             <tr>
               <td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>
@@ -385,7 +377,6 @@
               <td data-l="Chance">21.000 %</td>
               <td data-l="Value">6.90 coins</td>
               <td data-l="Tickets">59 001 to 80 000</td>
-              <td data-l="Free units">22</td>
             </tr>
             <tr>
               <td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>
@@ -399,7 +390,6 @@
               <td data-l="Chance">20.000 %</td>
               <td data-l="Value">7.90 coins</td>
               <td data-l="Tickets">80 001 to 100 000</td>
-              <td data-l="Free units">19</td>
             </tr>
           </tbody>
         </table>
@@ -509,8 +499,9 @@
         <p>The entry cost buys one roll. The roll lands on one item, and every item's share of the possible outcomes is printed on its row as a percentage and as a ticket range. The two say the same thing twice: the percentage is easy to read, and the ticket range is the interval the roll actually resolves against, which is what makes a result checkable afterwards.</p>
         <h3>How a chance and a ticket range fit together</h3>
         <p>A roll produces a number. That number falls inside exactly one ticket range, and the item holding that range is the item you get. The round is fixed before the animation starts, and the hash of it is on screen at the moment you open. After the reveal, one link checks that round against the number that was published before it ran.</p>
-        <h3>What happens when an item runs out</h3>
-        <p>Every item in this case points at a unit we hold. When the last unit of an item is won, the item stays on this page showing zero free units and cannot be rolled. It is not removed, because a table that quietly loses rows is a table you cannot check against what you read a minute ago.</p>
+        <h3>What happens if a win cannot be sent to Steam</h3>
+        <p>Every item in this table is available. The table is not backed by a shelf that can run short, so no item is ever unrollable and no row is ever greyed out. What can fail is the delivery, not the supply: if a win cannot be sent to your Steam account, it can be exchanged for an equivalent real skin or sold back for coins at the price shown here.</p>
+        <p>A row never disappears from this table, in any state. A table that quietly loses rows is a table you cannot check against what you read a minute ago.</p>
       </div>
     </section>
 

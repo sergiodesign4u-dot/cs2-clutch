@@ -522,7 +522,7 @@ The description line under the title ran three lines. Block 2 asks for the item 
 | Page | State | What only the render could answer |
 |---|---|---|
 | `case-account.html` | Signed in, funded | **`D-32` created this state and left it without a page.** Three things differ from the guest: the lane renders, the trigger names a different act, and the balance relationship is finally stated, which section 1 block 3 has asked for since the node was written |
-| `case-item-out.html` | `3.4`, item at zero | The card keeps every field and is marked rather than greyed. **The contradiction it exposes is printed on the page:** `D1`, `D2` and `D3` are not simultaneously satisfiable while an item sits at zero, and the card is drawn the same way under all three readings |
+| ~~`case-item-out.html`~~ | ~~`3.4`~~ | **Deleted 21 August 2026 with `D-60`.** Every item is current and available, so the state has no subject. **The contradiction it exposed is not lost:** `D1`, `D2` and `D3` are not simultaneously satisfiable while an item sits at zero, and `D-60` removed the condition rather than answering it. The whole argument is kept in `case.md` section 6 |
 | `case-open.html` | `3.5`, phase 2 | **The lane that stood still is the lane that runs.** Nothing is unmounted, which is the whole argument for drawing the frame in phase 1. The pointer exists only here, because only here is there a roll to point at |
 | `case-outcome.html` | `3.6`, phase 3 | The item lands where the artwork and then the reveal were: **the third state of one region rather than a third layout** |
 | `case-interrupted.html` | `3.7` | A state and not an error, carrying the outcome in full and the second route to it in My items |
@@ -1314,3 +1314,54 @@ Grey has no red, so a missing declaration is marked with **weight and a rule**: 
 ### The clause of `CLAUDE.md` this needs, written out and not yet applied
 
 The compliance paragraph says "two separate checkboxes with the provider controls **inert** until both are set". **The word is now wrong and the sentence around it is right.** The replacement is in `docs/decisions.md` D-58, and it replaces the clause rather than sitting beside it. **Not written, awaiting an explicit go.**
+
+---
+
+## 40. The live feed is drawn into the shell, and the case tile loses both markers
+
+**`D-59`, `D-60` and `D-61` rendered, 21 August 2026.** The IA was amended first, on the same day, and this step draws what it says.
+
+### The feed is built once and mounts on every page
+
+`renderFeed()` in `wireframes/_nav.js`. **Twelve tiles doubled to twenty four**, and the number is inherited from the measurement Home's block already made rather than picked again: at 360px one row holds 3.9 tiles, so a loop needs eight before it can run without a gap, and twelve is the first count that still reads as a feed at 1440. **The loop needs more than that floor**, because the keyframe travels half the run and half the run has to be wider than the widest column it plays in. **Measured: 1628px of travel against a 793px column. It was 1088 against 793 at eight, which passes, and 1084 against 1180 in a wider shell, which does not.**
+
+**The tile:** the item image leads, weapon and skin under it, the mode icon top right. **On hover:** the case with its own image and name, and the winner's avatar.
+
+| Target | Goes to | Measured |
+|---|---|---|
+| Tile body | `result.html`, node `7.1` | `href` present |
+| The case, in the hover layer | `case.html`, node `3.3` | `href` present |
+| The avatar | **A public profile, which the map has no node for** | **Not a link.** Drawn as a target with the absence printed on it |
+
+### Home's own ticker block was removed, and it went upward rather than away
+
+**The first render put two live drop strips on Home**, the new global one and the block `1.0` had carried since it was drawn. The block is gone and **its comment is kept in the page** with the measurement it made, so the twelve is sourced and not re-derived. Its CSS went with it: **eleven dead rules removed rather than left**, because dead CSS is a rule a later stage finds and assumes is load bearing.
+
+### The measurement overruled the placement, exactly as the node said it would
+
+**`D-59` put the feed under the header, and node `0.8` pre-committed: "stage 04 measures what it costs the first screen at 360, and the measurement outranks this paragraph."**
+
+**It was measured, and the paragraph lost.**
+
+| | Without the feed | Under the header | After the content |
+|---|---|---|---|
+| The act on `3.3`, 360x800 | y=744, **above the fold** | y=886, **through the fold** | y=744, **above the fold** |
+| Band height at 360 | | 143px | 143px |
+
+**Node `3.3` section 14 forbids pushing the entry cost off the first screen at 360.** So on mobile the strip sits after the content and on desktop the grid puts it back under the header. **It is still on every page, which is what `D-59` asked for.** What moved is where a furniture strip stands relative to the act a person came for.
+
+**And it is placed after `.wf-main` in the DOM deliberately**, not only so the mobile order falls out for free: **the strip is twenty four links of furniture, and a keyboard reaches the page's own content before them on both layouts.** The cost is a desktop visual order that is not the tab order, and that is the trade this component is worth in this direction and not the other.
+
+**A defect on the way:** the feed first mounted inside `#wf-shell`, which is `display: contents` on desktop, so it was auto-placed into the rail's grid column and **the first tiles rendered underneath a fixed rail: visible in a screenshot, unreachable by a pointer.** It has its own grid area now.
+
+### The case tile
+
+**Artwork, name, risk, cost, favourite.** Both markers gone: the stock marker with `D-60`, the daily marker with `D-61`. **The artwork takes the square its three references give it** rather than a 4:3 letterbox, which is the founder's "the visual is the main thing" made structural.
+
+**Stock left the pages too, not only the tile.** The free-unit column came out of the drop table on all fourteen case pages, 14 headers and 126 cells, along with the caption and four prose references, and the SEO paragraph "what happens when an item runs out" was rewritten as **what happens if a win cannot be sent to Steam**. **One rule in it survived unchanged and is worth keeping:** a row never disappears from this table, because a table that quietly loses rows is a table you cannot check against what you read a minute ago.
+
+**Node `3.4` is off the registry and `case-item-out.html` is deleted.** 22 pages built of 76.
+
+### Measured
+
+**301 checks**, no page scrolling sideways at any of seven widths in either rail state, no collapsed leaf, no wrapped button label. The two known `catalogue.html` 404s are unchanged. **128 checks over the IA and document pages, clean.**

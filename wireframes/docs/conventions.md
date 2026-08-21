@@ -82,7 +82,6 @@ The shell `0.1`, the footer `0.2`, the skin card `0.6`, the case tile `0.7`, the
 | `1.0` Home, guest | `index.html` |
 | `1.1` Home, account exists | `index-account.html` |
 | `3.3` Case screen, phase 1 | `case.html` |
-| `3.4` Item at zero free units | `case-item-out.html` |
 | `3.5` Phase 2, the open | `case-open.html` |
 | `3.6` Phase 3, the outcome | `case-outcome.html` |
 | `2.4` Sign in, consent not given | `signin.html` |

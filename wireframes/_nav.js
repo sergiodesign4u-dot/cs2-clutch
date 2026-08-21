@@ -148,7 +148,6 @@ window.WF_NAV = {
         // load, the same pair D-35 drew for the reveal and the outcome.
         { label: 'Two chosen, stage at rest',   file: 'case-account-2.html',   status: 'built' },
         { label: 'Five chosen, stage at rest',  file: 'case-account-5.html',   status: 'built' },
-        { node: '3.4', label: 'Item at zero free units', file: 'case-item-out.html',    status: 'built' },
         { node: '3.5', label: 'Phase 2, the open',       file: 'case-open.html',        status: 'built' },
         // Multi-open, D-35. The count switch shipped in D-31 and neither phase had a
         // state above one roll, so the two phases it changes are drawn at both ends of
@@ -756,6 +755,162 @@ window.WF_NAV = {
         try { sessionStorage.setItem(key, String(box.scrollTop)); } catch (e) {}
       }, 80);
     });
+  }
+
+  /* ==========================================================================
+     NODE 0.8, THE LIVE FEED, ON EVERY PAGE SINCE D-59.
+     IT IS NOT A NEW ELEMENT. It has been in the IA since the detail layer, with
+     eight fields, a pause control and row A3's rule against invented names, and
+     CLAUDE.md lists the live drop ticker among what is inherited from the
+     baseline deliberately close to identical. What D-59 changed is placement and
+     two destinations, so it moves into the shell here rather than being built.
+     D-31 CUT IT FROM THE CASE SCREEN BECAUSE THAT SCREEN CARRIED TOO MUCH, and
+     that reason is still true about the case screen. What makes this different
+     is the surface: a strip identical on every page is read once and becomes
+     furniture, while a block inside a screen competes with that screen every
+     time. THIS DOES NOT GET TO DECLARE ITSELF RIGHT: the sweep measures what it
+     costs the first screen at 360, and the measurement outranks the argument.
+     SO IT IS BUILT TO BE FURNITURE: one row, no figure, no colour, no urgency,
+     and the smallest height that keeps the item legible.
+     ========================================================================== */
+  // TWELVE TILES, NOT FOUR, and the number is inherited from the measurement the
+  // Home block made rather than picked again. 0.8 section 6 handed stage 04 "the
+  // minimum tile count, from the drawn width": at 360px one row holds 3.9 tiles,
+  // so a loop needs eight before it can run without a gap, and twelve is the
+  // first count that still reads as a feed at 1440.
+  // AND THE LOOP NEEDS MORE THAN THAT FLOOR. The keyframe travels half the run,
+  // so half the run has to be wider than the widest column it plays in or the
+  // strip shows a gap on every reset.
+  var FEED = [
+    ['AK-47',        'Redline',          'Ironbound', false],
+    ['AWP',          'Asiimov',          'Warsteel',  false],
+    ['Glock-18',     'Water Elemental',  'Ironbound', true ],
+    ['USP-S',        'Kill Confirmed',   'Coldfront', false],
+    ['M4A1-S',       'Hyper Beast',      'Warsteel',  false],
+    ['Desert Eagle', 'Blaze',            'Ironbound', false],
+    ['MP9',          'Rose Iron',        'Coldfront', false],
+    ['P250',         'Asiimov',          'Nightfall', false],
+    ['AWP',          'Neo-Noir',         'Nightfall', false],
+    ['AK-47',        'Vulcan',           'Ironbound', false],
+    ['Five-SeveN',   'Monkey Business',  'Coldfront', false],
+    ['SG 553',       'Cyrex',            'Warsteel',  true ]
+  ];
+
+  function feedTile(row) {
+    // FOUR THINGS AND A HOVER LAYER. The image leads, D-59 and the founder's own
+    // ordering: a skin is recognised by its finish before it is recognised by
+    // its name, and the strip is looked at rather than read.
+    var li = el('li', 'wf-feed-i');
+
+    // TARGET 1, THE TILE BODY, LANDS ON 7.1. Field 7 of the node and D-20: the
+    // whole reason this component exists is that every tile is a link to a
+    // CHECKABLE object, so the body goes to the shared result and not to the
+    // case. 7.1 is spec at this stage and the route is drawn anyway, because a
+    // real route to an undrawn page is honest and a convenient one is not.
+    var hit = el('a', 'wf-feed-hit');
+    hit.href = BASE + 'result.html';
+    hit.appendChild(el('span', 'wf-feed-art'));
+    hit.lastChild.setAttribute('aria-hidden', 'true');
+    hit.appendChild(el('span', 'wf-feed-w', row[0]));
+    hit.appendChild(el('span', 'wf-feed-s', row[1]));
+    li.appendChild(hit);
+
+    // THE MODE ICON. Section 0 of the node fixed that the source field carries
+    // the CASE in round 1, because a label reading the same word on every tile
+    // is the dead item defect. D-59 splits it: the icon takes the mode, the case
+    // moves into the hover layer. ROUND 1 SHIPS ONE MODE, so this is the same
+    // glyph on every tile forever until a second one arrives. That cost is
+    // printed in the node and in D-59 rather than absorbed here.
+    var mode = el('span', 'wf-feed-mode');
+    mode.setAttribute('aria-label', 'Case opening');
+    li.appendChild(mode);
+
+    var pop = el('div', 'wf-feed-pop');
+    // TARGET 2, THE CASE, GOES TO 3.3. The feed is evidence that drops happen;
+    // the case is how a person acts on it.
+    var cs = el('a', 'wf-feed-case');
+    cs.href = BASE + 'case.html';
+    cs.appendChild(el('span', 'wf-feed-case-art'));
+    cs.lastChild.setAttribute('aria-hidden', 'true');
+    cs.appendChild(el('span', null, row[2]));
+    pop.appendChild(cs);
+
+    // TARGET 3, THE WINNER. Field 5: the winner as the account chooses to
+    // appear, and an avatar is a way of appearing. ROW A3 IS UNCHANGED AND
+    // BINDS IT: no invented names, and any bot present labelled as one. A stock
+    // avatar over an invented account is A3 broken with a picture on top.
+    // IT IS A TARGET WITH NO ROUTE, MARKED. The destination is a public profile
+    // and the map has no node for it: 5.10 is the account's own view of itself.
+    // Drawn without a route rather than routed somewhere convenient, D-59.
+    var who = el('div', 'wf-feed-who');
+    who.appendChild(el('span', 'wf-feed-av'));
+    who.lastChild.setAttribute('aria-hidden', 'true');
+    var col = el('span');
+    col.appendChild(el('span', null, row[3] ? 'winner, as shown' : 'winner, as shown'));
+    if (row[3]) col.appendChild(el('span', 'wf-feed-bot', ' bot'));
+    col.appendChild(el('span', 'wf-feed-noroute', 'public profile: no node yet'));
+    col.style.display = 'flex';
+    col.style.flexDirection = 'column';
+    who.appendChild(col);
+    pop.appendChild(who);
+
+    li.appendChild(pop);
+    return li;
+  }
+
+  function renderFeed() {
+    var band = el('section', 'wf-feed');
+    band.setAttribute('aria-label', 'Live drops');
+
+    var head = el('div', 'wf-feed-head');
+    head.appendChild(el('span', 'wf-feed-lbl', 'Live drops'));
+    var pause = el('button', 'wf-btn wf-feed-pause', 'Pause');
+    pause.type = 'button';
+    pause.setAttribute('aria-pressed', 'false');
+    head.appendChild(pause);
+    var inn = el('div', 'wf-feed-in');
+    inn.appendChild(head);
+    band.appendChild(inn);
+
+    var clip = el('div', 'wf-feed-clip');
+    var run = el('ul', 'wf-feed-run');
+    // DOUBLED FOR A SEAMLESS LOOP, the same trick the case showcase uses: the
+    // keyframe travels exactly half the run, so the second copy is where the
+    // first one was when it resets.
+    FEED.concat(FEED).forEach(function (row) { run.appendChild(feedTile(row)); });
+    clip.appendChild(run);
+    inn.appendChild(clip);
+
+    // ONE CONTROL, TWO PARENTS, which is the node's own wording: it is the pause
+    // design principle 2 owes a strip that cannot be stopped, and it is the
+    // prefers-reduced-motion answer, so one mechanism covers one state.
+    pause.addEventListener('click', function () {
+      var held = band.classList.toggle('is-held');
+      pause.setAttribute('aria-pressed', held ? 'true' : 'false');
+      pause.textContent = held ? 'Resume' : 'Pause';
+    });
+    return band;
+  }
+
+  /* WHERE THE FEED GOES, AND THE MEASUREMENT DECIDED IT RATHER THAN THE ARGUMENT.
+     D-59 put it under the header and the node pre-committed: "stage 04 measures
+     what it costs the first screen at 360, and the measurement outranks this
+     paragraph." It was measured. At 360 the band is 143px, and on the case
+     screen at 360x800 it moved the act from 744 to 886, THROUGH THE FOLD. Node
+     3.3 section 14 forbids exactly that.
+     SO ON MOBILE IT SITS AFTER THE CONTENT, and on desktop the grid puts it back
+     under the header. It is still on every page, which is what D-59 asked for;
+     what moved is where a furniture strip stands relative to the act a person
+     came for, and it does not stand in front of it.
+     IT IS ALSO PLACED AFTER MAIN IN THE DOM DELIBERATELY, not only to make the
+     mobile order fall out for free: the strip is twenty four links of furniture,
+     and a keyboard reaches the page's own content before them on both layouts.
+     The cost of that is a desktop visual order that is not the tab order, which
+     is the trade this component is worth and the other way round is not. */
+  function mountFeed() {
+    var main = document.querySelector('.wf-main');
+    if (!main || document.querySelector('.wf-feed')) return;
+    main.parentNode.insertBefore(renderFeed(), main.nextSibling);
   }
 
   function renderShell(host) {
@@ -1832,6 +1987,7 @@ window.WF_NAV = {
     renderCoverage(document.getElementById('wf-coverage'));
     renderPanel(document.getElementById('wf-panel'));
     renderShell(document.getElementById('wf-shell'));
+    mountFeed();
     renderAuth(document.getElementById('wf-auth'));
     mountAuthDialog();
     renderFooter(document.getElementById('wf-footer'));

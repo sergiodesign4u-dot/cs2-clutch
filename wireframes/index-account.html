@@ -26,34 +26,19 @@
 
   <main class="wf-main">
 
-    <!-- B1. Live drop ticker, component 0.8. A labelled region, no heading.
-         GEOMETRY IS THE BASELINE'S, MEASURED: 92px tiles in a strip about 120px tall,
-         baseline.md section 3. TWELVE TILES, NOT FOUR: 0.8 section 6 handed stage 04
-         "the minimum tile count, from the drawn width". At 360px one row holds 3.9
-         tiles, so a loop needs eight before it can run without a gap, and twelve is
-         the first count that still reads as a feed at 1440. Below eight the strip is a
-         static row and says so, rule 5.2.
-         THE TILE CARRIES ARTWORK, which answers 0.8's other stage 04 item. It is read
-         at a glance rather than read, and four text fields at 92px read as a list.
-         The source field carries the CASE NAME, not a mode label: round 1 ships one
-         mode, and a word that is identical on every tile is the dead item defect. -->
-    <section class="wf-ticker" aria-label="Live drops">
-      <ul class="wf-ticker-strip">
-        <li><a href="result.html"><span class="wf-t-art" aria-hidden="true"></span><span class="wf-t-weapon">AK-47</span><span class="wf-t-skin">Redline</span><span class="wf-t-meta">Field-Tested · Ironbound</span></a></li>
-        <li><a href="result.html"><span class="wf-t-art" aria-hidden="true"></span><span class="wf-t-weapon">Glock-18</span><span class="wf-t-skin">Water Elemental</span><span class="wf-t-meta">Minimal Wear · Coldfront</span></a></li>
-        <li><a href="result.html"><span class="wf-t-art" aria-hidden="true"></span><span class="wf-t-weapon">AWP</span><span class="wf-t-skin">Asiimov</span><span class="wf-t-meta">Well-Worn · Nightfall</span></a></li>
-        <li><a href="result.html"><span class="wf-t-art" aria-hidden="true"></span><span class="wf-t-weapon">M4A1-S</span><span class="wf-t-skin">Hyper Beast</span><span class="wf-t-meta">Factory New · Ironbound</span></a></li>
-        <li><a href="result.html"><span class="wf-t-art" aria-hidden="true"></span><span class="wf-t-weapon">USP-S</span><span class="wf-t-skin">Kill Confirmed</span><span class="wf-t-meta">Field-Tested · Warsteel</span></a></li>
-        <li><a href="result.html"><span class="wf-t-art" aria-hidden="true"></span><span class="wf-t-weapon">Desert Eagle</span><span class="wf-t-skin">Blaze</span><span class="wf-t-meta">Factory New · Nightfall</span></a></li>
-        <li><a href="result.html"><span class="wf-t-art" aria-hidden="true"></span><span class="wf-t-weapon">MP9</span><span class="wf-t-skin">Rose Iron</span><span class="wf-t-meta">Minimal Wear · Coldfront</span></a></li>
-        <li><a href="result.html"><span class="wf-t-art" aria-hidden="true"></span><span class="wf-t-weapon">P250</span><span class="wf-t-skin">Asiimov</span><span class="wf-t-meta">Battle-Scarred · Warsteel</span></a></li>
-        <li><a href="result.html"><span class="wf-t-art" aria-hidden="true"></span><span class="wf-t-weapon">AWP</span><span class="wf-t-skin">Neo-Noir</span><span class="wf-t-meta">Field-Tested · Nightfall</span></a></li>
-        <li><a href="result.html"><span class="wf-t-art" aria-hidden="true"></span><span class="wf-t-weapon">AK-47</span><span class="wf-t-skin">Vulcan</span><span class="wf-t-meta">Minimal Wear · Ironbound</span></a></li>
-        <li><a href="result.html"><span class="wf-t-art" aria-hidden="true"></span><span class="wf-t-weapon">Five-SeveN</span><span class="wf-t-skin">Monkey Business</span><span class="wf-t-meta">Factory New · Coldfront</span></a></li>
-        <li><a href="result.html"><span class="wf-t-art" aria-hidden="true"></span><span class="wf-t-weapon">SG 553</span><span class="wf-t-skin">Cyrex</span><span class="wf-t-meta">Field-Tested · Warsteel</span></a></li>
-      </ul>
-      <button class="wf-btn wf-btn--small wf-ticker-pause" type="button" aria-pressed="false">Pause</button>
-    </section>
+    <!-- B1 THE LIVE FEED LEFT THIS PAGE ON 21 AUGUST 2026, D-59, and it left
+         upward rather than away: it renders in the shell now, on every page,
+         built once in _nav.js. Keeping the block here as well would have put
+         two live drop strips on Home, which is what the first render did.
+         WHAT THE BLOCK KNEW AND THE COMPONENT INHERITED, so the measurement is
+         not lost with the markup: TWELVE TILES, NOT FOUR. 0.8 section 6 handed
+         stage 04 "the minimum tile count, from the drawn width". At 360px one
+         row holds 3.9 tiles, so a loop needs eight before it can run without a
+         gap, and twelve is the first count that still reads as a feed at 1440.
+         Below eight the strip is a static row and says so, rule 5.2.
+         THE TILE CARRIES ARTWORK AND IT LEADS, which answers 0.8's other stage
+         04 item and is D-59's own ordering: it is read at a glance rather than
+         read, and four text fields at 92px read as a list. -->
 
     <!-- 1.1 THE STATE STRIP. Three slots and no fourth, home.md section 4.2.
          It sits directly under the ticker and it is the only thing 1.1 inserts.
@@ -184,7 +169,6 @@
             <span class="wf-tile-art" aria-hidden="true"></span>
             <span class="wf-tile-name">Warsteel</span>
             <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
-            <span class="wf-tile-mark">3 items out of stock</span>
             <span class="wf-tile-price"><span class="wf-tile-cost">4.90</span><span class="wf-tile-cur">coins</span></span>
           </a>
           <button class="wf-fav" type="button" aria-pressed="true" aria-label="Favourite, 1 204 people">
@@ -196,7 +180,6 @@
             <span class="wf-tile-art" aria-hidden="true"></span>
             <span class="wf-tile-name">Coldfront</span>
             <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
-            <span class="wf-tile-mark">Today's daily case</span>
             <span class="wf-tile-price"><span class="wf-tile-cost">2.10</span><span class="wf-tile-cur">coins</span></span>
           </a>
           <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 311 people">
@@ -208,7 +191,6 @@
             <span class="wf-tile-art" aria-hidden="true"></span>
             <span class="wf-tile-name">Nightfall</span>
             <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
-            <span class="wf-tile-mark">Every item out of stock</span>
             <span class="wf-tile-price"><span class="wf-tile-cost">31.00</span><span class="wf-tile-cur">coins</span></span>
           </a>
           <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 96 people">
@@ -292,7 +274,7 @@
             <dt>Observed</dt><dd>3.04 % over 41 208 rolls</dd>
             <dt>Value</dt><dd>47.30 coins</dd>
             <dt>Tickets</dt><dd>1 to 3 180</dd>
-            <dt>In stock</dt><dd>4 free units</dd>
+            <dt>Availability</dt><dd>Every item, always</dd>
           </dl>
           <p class="wf-item-market">Market price on Steam 22.15 EUR, as of 18 Aug 2026 14:02. <span class="wf-fig-missing">Not comparable to the value above until the coin peg is published, D-28.</span> <a href="https://steamcommunity.com/market/" rel="external nofollow">Open on the market</a></p>
         </article>
