@@ -1842,3 +1842,39 @@ And what happens to a frozen balance after a restriction is upheld is **stated a
 ### What the sweep asserts
 
 133 checks over five pages at six widths. No horizontal overflow. One H1 each. **No verification named anywhere in the cluster.** No currency symbol invented on any page. No disabled control and no progress or meter element. The refused press answers, marks the condition on itself and does not navigate; the settled press goes through; typing counts as consent. `4.2` carries no completion mechanic, no countdown, no feed. `4.5` keeps the typed amount and offers no smaller one.
+
+---
+
+## 52. `D-75`: node `6.1`, three files wrong about its own entrances, and a shared rule breaking any long heading
+
+**Five pages, 22 August 2026.** `responsible.html`, `responsible-guest.html`, `responsible-confirm.html` `6.2`, `responsible-in-force.html` `6.3`, `responsible-excluded.html`. **Cluster 6 is complete.** 66 of 93.
+
+### The IA was fixed first
+
+| Finding | What it was |
+|---|---|
+| **Three files listed the rail as an entry** | `responsible.md`, `footer.md` and `sitemap.md`. `D-29` moved it off the rail on 19 August and `D-40` put it in the account menu on 20 August. **The count stayed three throughout, which is why nobody checked the list** |
+| **The ticker refusal had lost its citation** | It cited the sitemap restricting the ticker to `1.0` and `3.3`, and `D-59` put the feed on every page. The refusal itself stands and now cites the register's own rule for the daily ladder, "`6.1` may never render it" |
+| **Two open items were already closed** | The ceiling's per-deposit question, answered by `4.1`, and the `0.13` title pattern, which now exists |
+
+### The page
+
+**A limit is a setting and it must look like one.** Grouped rows, one column, the control right-aligned on its row, and **nothing becomes a multi-column dashboard at width**, because a dashboard of limits is a dashboard and a dashboard is a thing to check.
+
+**Block 7 sits above the controls on every page that carries both**, and the sweep asserts the geometry rather than the markup order: a person who does not know that self exclusion leaves the exit open cannot evaluate self exclusion.
+
+**The direction rule renders as two lines on every row**, tighten and loosen, rather than as one sentence somewhere. Collapsing them is how the asymmetry gets read as fine print.
+
+**No primary control**, and the absence is deliberate: four independent boundaries with none promoted is the honest shape, because promoting one is the product choosing which brake a person should want.
+
+**Every period is unknown and none is invented.** The marker sits on each control because it is a property of that control, and the reason is said once under the group rather than four times.
+
+### The behaviour
+
+**The dialog `6.2`** opens from the page and is pinned on its own file. It restates the period, never asks for one, delivers the sentence it exists for, states that it cannot be lifted early, and carries two controls of equal weight. Escape closes it back with nothing recorded.
+
+**Guest and self-excluded controls are live and they answer.** Third application of `D-58` off its own surface, and the sharpest: a person inside a self exclusion who presses a control is owed the reason in words.
+
+### The defect that was not in this node
+
+All five pages scrolled sideways by 3px at 900. `.wf-sec-head` gave the title `flex: 0 0 auto`, so a long H2 could neither shrink nor wrap and pushed the 96px rule past the edge. **Latent on every page with a long heading.** Fixed in the shared rule; 402 checks over all 66 pages confirm nothing regressed.

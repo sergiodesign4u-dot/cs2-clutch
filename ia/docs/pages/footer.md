@@ -187,7 +187,7 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 
 **Its rule is unchanged and it is the one rule in this node that holds at every width: the compliance statement never becomes an accordion.** A compliance statement a person has to open is not a statement.
 
-**Responsible play loses nothing by any of this.** It has three entries: the rail, the money control, and this band.
+**Responsible play loses nothing by any of this.** It has three entries: **this band, the money control, and the account menu**. **The rail is not one of them and this sentence said it was until 22 August 2026:** `D-29` moved it off the rail on 19 August and `D-40` put it in the account menu on 20 August, and section 143 of this same file already says "Responsible play has had no other carrier since `D-40` took it off the rail". **One file, two counts, six lines apart.**
 
 **The three cells of the trust row are three different kinds on purpose:** a way to reach us, a statement about who may be here, a claim about what we accept. They share one row because **a stranger checks all three in one look**, which is what the row is for. **The statement takes the whole row before it takes a column**: two paragraphs in a third of a narrow column became a ribbon eleven lines tall, so one row of three happens only where the middle cell can hold 420px.
 

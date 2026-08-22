@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boundary in force</title>
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 6.3, BOUNDARY IN FORCE. THE WHOLE SPECIFICATION IN ONE LINE: the
+     boundary holds without being a thing to engage with.
+     WHICH BOUNDARY, AND WHEN IT ENDS, AS A STATED DATE AND TIME. NEVER AS A LIVE
+     COUNTDOWN: a countdown is a clock a person comes back to watch, and watching
+     a boundary expire is engagement with a boundary. It is the same rule as the
+     refusal of a progress bar, in the form most likely to be shipped by accident.
+     NO ELAPSED TIME, NO DAYS SURVIVED, NO "YOU HAVE STAYED INSIDE YOUR LIMIT
+     FOR", NO BADGE, NO TOTAL SAVED. Every one of those is a completion mechanic
+     and every one is a plausible thing to build.
+     THIS STATE RENDERS IN FIVE PLACES AND THIS IS ONE OF THEM. The money control
+     opens to the limits rather than to add funds, the deposit screen carries the
+     ceiling reached, the case screen renders the open control as closed with the
+     boundary named rather than making it vanish, and the footer is unchanged
+     because a boundary is not an error state.
+     A CLOSED CONTROL STAYS VISIBLE AND SAYS WHY. A control that vanishes is a
+     control a person hunts for, and hunting for the open button while inside a
+     boundary is the worst possible use of anyone's next ten minutes. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <h1>Responsible play</h1>
+
+    <div class="wf-rp" data-rp>
+      <!-- BLOCK 2. WHAT IS IN FORCE, AND IT OFFERS THE TIGHTENING DIRECTION ONLY. -->
+      <div class="wf-force">
+        <h2 id="h2-force">What is in force now</h2>
+        <ul class="wf-force-l">
+          <li>
+            <span class="wf-force-n">Cool down</span>
+            <span class="wf-force-e">Ends 25 Aug 2026, 09:31</span>
+            <span class="wf-force-c">Adding funds and opening cases are closed until then. It cannot be shortened, and extending it takes effect immediately.</span>
+          </li>
+          <li>
+            <span class="wf-force-n">Spend ceiling</span>
+            <span class="wf-force-e">40.00 <span class="wf-fig-missing">unit not set</span> per period</span>
+            <span class="wf-force-c">Lowering it takes effect immediately. Raising it takes 24 hours.</span>
+          </li>
+        </ul>
+        <p class="wf-note">Taking what you hold out to Steam is open, and it stays open under every boundary here.</p>
+        <div class="wf-row"><a class="wf-btn" href="withdraw.html">Withdraw</a></div>
+      </div>
+      <!-- BLOCK 1. ONE PLAIN STATEMENT OF WHAT THE TOOLS DO. Not a case for using
+           them, not a warning, not a mood card. A page arguing that limits are
+           good is a page arguing with the person who already opened it. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head"><h2 id="h2-what">What these tools do</h2></div>
+        <p>Four boundaries. You set them, they hold, and none of them is a game.</p>
+        <p>Tightening one takes effect immediately. Loosening one takes 24 hours, and the boundary you have now holds until then.</p>
+      </div>
+      <!-- BLOCK 7. ABOVE THE CONTROLS, AND THE ORDER IS THE DECISION. A person who
+           does not know that self exclusion leaves the exit open cannot evaluate
+           self exclusion. Under the controls it is read after the choice, which is
+           the placement the appeal rule exists to forbid one cluster over.
+           STATED THREE TIMES IN THIS REPOSITORY AND ONCE MORE HERE, because it is
+           the rule most likely to be traded away for a cleaner implementation. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head">
+          <h2 id="h2-closes">What a boundary closes, and what it never closes</h2>
+        </div>
+        <div class="wf-closes">
+          <div class="wf-closes-c">
+            <span class="wf-closes-k">A boundary can close</span>
+            <span>Adding funds. Opening a case. A session, when its length is reached.</span>
+          </div>
+          <div class="wf-closes-c">
+            <span class="wf-closes-k">No boundary ever closes</span>
+            <span><strong>Taking what you hold out to Steam.</strong> Support. Reading the product.</span>
+          </div>
+        </div>
+        <p class="wf-note">A limit stops money going in. It never traps what you already hold, and that includes self exclusion.</p>
+      </div>
+      <!-- BLOCKS 3 TO 6. THE FOUR BOUNDARIES, AS GROUPED SETTING ROWS. A limit is a
+           setting and it must look like one rather than like an achievement.
+           THE DIRECTION ASYMMETRY IS ONE RULE WITH FOUR INSTANCES: a change that
+           tightens takes effect at once, a change that loosens waits. Without it
+           every control here is a setting a person can undo in the same minute
+           they set it, which is the definition of not being a brake. It renders as
+           two lines on every row rather than one sentence somewhere.
+           NO PRIMARY CONTROL ON THIS PAGE, and the absence is deliberate. Four
+           independent boundaries with none promoted over the others is the honest
+           shape: promoting one is the product choosing which brake a person should
+           want. EVERY PERIOD IS UNKNOWN AND NONE IS INVENTED. -->
+      <div class="wf-stack">
+        <div class="wf-set">
+          <h3 class="wf-set-h" id="h2-ceiling">Spend ceiling</h3>
+          <p class="wf-set-p">Caps what you can put in over a period. You can also set it at the moment you add funds, and it is the same one ceiling.</p>
+          <ul class="wf-dir"><li><span class="wf-dir-w">Tighten</span><span>Immediately.</span></li><li><span class="wf-dir-w">Loosen</span><span>24 hours later.</span></li></ul>
+          <div class="wf-set-ctl"><input class="wf-set-in" type="text" inputmode="decimal" value="40.00" aria-label="Spend ceiling amount"><div class="wf-set-per"><span class="wf-fig-v wf-fig-missing" style="font-size:var(--wf-t-m)">Period not set</span></div><button class="wf-btn" type="button">Save</button></div>
+        </div>
+        <div class="wf-set">
+          <h3 class="wf-set-h" id="h2-session">Session limit</h3>
+          <p class="wf-set-p">Ends a session once it has run this long.</p>
+          <ul class="wf-dir"><li><span class="wf-dir-w">Tighten</span><span>Immediately.</span></li><li><span class="wf-dir-w">Loosen</span><span>24 hours later.</span></li></ul>
+          <div class="wf-set-ctl"><div class="wf-set-per"><span class="wf-fig-v wf-fig-missing" style="font-size:var(--wf-t-m)">Period not set</span></div><button class="wf-btn" type="button">Save</button></div>
+        </div>
+        <div class="wf-set">
+          <h3 class="wf-set-h" id="h2-cool">Cool down</h3>
+          <p class="wf-set-p">Closes adding funds and opening cases for a period you choose.</p>
+          <ul class="wf-dir"><li><span class="wf-dir-w">Extend</span><span>Immediately.</span></li><li><span class="wf-dir-w">Shorten</span><span>Not possible. It ends by running out.</span></li></ul>
+          <div class="wf-set-ctl"><div class="wf-set-per"><span class="wf-fig-v wf-fig-missing" style="font-size:var(--wf-t-m)">Period not set</span></div><button class="wf-btn" type="button">Start a cool down</button></div>
+        </div>
+        <div class="wf-set">
+          <h3 class="wf-set-h" id="h2-excl">Self exclusion</h3>
+          <p class="wf-set-p">Closes adding funds and opening cases for longer. The one thing here you cannot undo.</p>
+          <ul class="wf-dir"><li><span class="wf-dir-w">End early</span><span>Not possible, and that is the point of it.</span></li></ul>
+          <div class="wf-set-ctl"><div class="wf-set-per"><span class="wf-fig-v wf-fig-missing" style="font-size:var(--wf-t-m)">Period not set</span></div><button class="wf-btn" type="button" data-ex-open="30 days">Self exclude</button></div>
+        </div>
+<p class="wf-note">None of the four periods above is decided yet. In several markets the shortest self exclusion is set by law rather than by us, so they are not ours to invent.</p>
+      </div>
+      <!-- BLOCK 8. ROUTES THAT ARE NOT US. STRUCTURE FIXED, CONTENTS EMPTY ON
+           PURPOSE. Which organisations are named depends on the market, and every
+           market verdict is unverified against current law. A plausible list of
+           helplines here would be model memory presented as a legal fact, in the
+           one place in the product where that would do the most damage.
+           BLOCK 9. SUPPORT, for the person inside a boundary who needs something
+           from us, with its published response deadline. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head"><h2 id="h2-help">Support that is not a limit</h2></div>
+        <div class="wf-closes-c">
+          <span class="wf-closes-k">Help that is not ours</span>
+          <span class="wf-fig-missing">Which organisations are named here depends on the market, and no market has been confirmed against current law yet. Nothing is listed until one is.</span>
+        </div>
+        <div class="wf-row"><a class="wf-btn" href="support.html">Support</a></div>
+      </div>
+      <p class="wf-rp-say" data-rp-say>A cool down is running. Boundaries can still be tightened while it does.</p>
+    </div>
+
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' }, feed: false };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

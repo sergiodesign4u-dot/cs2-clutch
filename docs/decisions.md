@@ -2522,3 +2522,61 @@ The block bank's Wealthsimple row is "submit disabled until the condition is met
 | **The periods the ceiling offers, and the pre-filled one** | `C2` says "a named period" and the list is nowhere. A competitor's daily, weekly and monthly is an observation, not our decision |
 | **The published crediting window** | The register row exists since the step 8 audit. The value does not |
 | **Methods, fees, minimums, maximums** | No source in this repository names one, and no screen of this type can be opened without logging in |
+
+---
+
+## D-75. Node `6.1` is drawn, three files disagreed about where its own entrances are, and one shared rule was breaking any long heading
+
+**Date:** 2026-08-22. **Stage:** 04. **Decided by:** Claude, on the drawing pass. **Binds:** node `6.1` and its states `6.2` and `6.3`, `footer.md`, `sitemap.md`, and the shared section head in `_wf.css`.
+
+**What was built.** Five pages: `responsible.html`, `responsible-guest.html`, `responsible-confirm.html` `6.2`, `responsible-in-force.html` `6.3`, `responsible-excluded.html`. **Cluster 6 is complete.** 66 of 93.
+
+### The count was right and every file naming the members was wrong
+
+Responsible play has had three entries since the base layer, and three files listed them. **All three listed the rail.**
+
+| File | What it said | What moved it |
+|---|---|---|
+| `responsible.md` section 0 | "the rail, in its lower group; the money control; the footer's fourth column" | `D-29`, 19 August, took it off the rail. `D-40`, 20 August, put it in the account menu |
+| `footer.md` | "It has three entries: the rail, the money control, and this band" | The same two, **and this file already says six lines further up that responsible play has had no other carrier since `D-40` took it off the rail.** One file, two counts |
+| `sitemap.md` | "Responsible play gains a rail entry and keeps the one it had" | The same two. Marked as a record of step 6 rather than rewritten |
+
+**The current three are the footer's own column, the entry inside the money control, and the account menu**, and `navigation.md` had them right the whole time. **The number never changed, which is exactly why nobody checked the list.**
+
+### A refusal survived its own citation
+
+Block 2 refused the live drop ticker with the reason "`sitemap.md` restricts the ticker to `1.0` and `3.3`". **`D-59` put the feed on every page on 21 August, so the citation is gone.** The row was resting on the sentence after it, which is this node's own: **this is the page where a run of other people's wins would do harm rather than merely be noise.**
+
+**It has a live parent now rather than a stale one.** `sitemap.md`'s register row for the daily ladder `0.15` carries the identical shape in the register itself: "**`6.1` may never render it**". A surface that may not show a person what to wager may not show them twenty four strangers winning either. **Declared by the page, so `0.8` owns whether it stands**, which is the same treatment `4.2` got the same day.
+
+### Two internal states drawn, and the reason each one is not a numbered node
+
+**The guest.** The page reads in full without an account and refuses the sign-in wall, which is the same refusal `1.2` makes of the competitor that puts its proof behind a login. **On this page the wall would be worse:** the person most likely to need it is the one least likely to want to sign in first. It is one screen with different control behaviour, not a destination.
+
+**The self-excluded surface.** The state matrix's fourth column: the four controls are locked for the duration and other boundaries can still be tightened, which is different enough from a general boundary in force to be drawn rather than described.
+
+### The third application of `D-58` off its own surface, and it is now a rule looking for a home
+
+Guest controls and locked controls are **live and they answer**. A press names what is missing and marks the row it belongs to.
+
+**On this page the argument is sharper than it was on the consent gate.** A person inside a self exclusion who presses a control is owed the reason in words, and a grey rectangle is the product declining to speak to somebody who has just told it to stop.
+
+**`D-58` has now been extended to the deposit ceiling and to this page, both on Claude's reading of a founder decision taken about one dialog. Three surfaces is a rule rather than three readings**, and it belongs in `CLAUDE.md` by the project's own repeated-instruction test. **Not written there in this step**, because that file changes only on an explicit go and only by replacing an existing clause. Carried as a candidate for the stage close.
+
+### One shared rule was breaking any page with a long heading
+
+Every one of the five pages scrolled sideways by 3px at 900. **The cause was not in this node.** `.wf-sec-head` at 900 is a flex row of title, description and a rule with a 96px floor, and the comment beside it says the description gives up width before the rule falls below that floor. **The title was `flex: 0 0 auto`**, so it could neither shrink nor wrap, and a long H2 pushed the rule past the edge.
+
+**Found on `6.1`, whose block 7 heading is the longest in the product, and latent on every page with a long heading rather than local to this one.** The title wraps now, which is what a heading does. The 402-check sweep over all 66 pages confirms no page regressed.
+
+### Measured
+
+146 checks over the five pages at six widths. No horizontal overflow. One H1 each. **No live strip and no daily ladder on any of the five**, both refused by this node and by the register. **No case tile, no grid, no deposit route in main.** No disabled control, no progress or meter element. **No completion mechanic anywhere:** no streak, badge, congratulation, days survived, total saved or level. **No countdown:** the end of every boundary is a stated date and time. **What a boundary closes sits above the controls on all four pages that carry both.** The dialog opens, traps, escapes back with nothing recorded, delivers the exit sentence, states the cost, and carries exactly two controls of equal weight. The guest press answers and marks its row.
+
+**And one absence asserted rather than assumed:** none of the five pages is `noindex`. This is one of the nine indexed surfaces and the only one in the product that proves the compliance constraint is a product rather than a paragraph in terms.
+
+### Two open items closed and one created
+
+**Closed:** whether the spend ceiling is per deposit or per period, answered by `4.1` the day before. **Closed:** the `0.13` title pattern this node reported missing, which now exists.
+
+**Created by closing the second one.** The pattern is `<node H1 subject>` then a separator then `CS2 Clutch`, **and `CS2 Clutch` is a working placeholder.** This node's title ships without the suffix. **A title is the one string that survives into search results and browser history before anyone reviews it**, and this is an indexed page. The divergence is named on the node rather than left as a quiet inconsistency, and it resolves itself the day the product has a name.

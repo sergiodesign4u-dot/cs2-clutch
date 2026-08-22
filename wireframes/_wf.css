@@ -490,7 +490,15 @@ a.wfp-state:hover { color: var(--wf-ink); }
      page read as a document with subheadings. The rule is drawn by the head itself
      rather than by a divider element, so a section cannot acquire one by accident. */
   .wf-sec-head { display: flex; align-items: baseline; gap: var(--wf-s-2); }
-  .wf-sec-head h2 { flex: 0 0 auto; }
+  /* THE TITLE SHRINKS TOO, AND IT DID NOT UNTIL 22 AUGUST 2026. The paragraph
+     below says the description gives up width before the rule falls below 96,
+     and it never considered the title being wider than the row on its own. With
+     flex: 0 0 auto a long H2 could not shrink and could not wrap, so it pushed
+     the 96px rule past the edge and the whole page scrolled sideways by 3px at
+     900. Found on 6.1, whose block 7 heading is the longest in the product, and
+     it was latent on every page with a long heading rather than local to that
+     one. The title wraps now, which is what a heading does. */
+  .wf-sec-head h2 { flex: 0 1 auto; min-width: 0; }
   /* THE RULE HAS A FLOOR AND THE DESCRIPTION PAYS FOR IT. With the description taking
      what it wanted, a long title left the rule 15 pixels wide, and a 15 pixel hairline
      at the edge of a heading does not read as a rule, it reads as a rendering fault.
@@ -3215,3 +3223,97 @@ select {
   }
   .wf-screen-body:has(.wf-dock) { padding-bottom: 0; }
 }
+
+
+/* ---------------------------------------------------------------------------
+   NODE 6.1, RESPONSIBLE PLAY, and its states 6.2 and 6.3. Drawn 22 August 2026.
+   THE PAGE WITH NO JOB. Every other surface is entered by somebody who wants
+   what is on it. This one is entered by somebody who has decided against what
+   the rest of the product sells. Three consequences run through every rule
+   below: nothing here persuades, nothing here rewards, and nothing here can
+   fail, because a brake that can fail to apply is not a brake.
+   A LIMIT IS A SETTING AND IT MUST LOOK LIKE ONE. Grouped rows, one column, the
+   control right-aligned on its row. It may not look like an achievement, which
+   is the layout side of the same rule that forbids the counter.
+   NOTHING ON THIS PAGE BECOMES A MULTI-COLUMN DASHBOARD AT WIDTH. A dashboard
+   of limits is a dashboard, and a dashboard is a thing to check.
+   --------------------------------------------------------------------------- */
+
+/* The single readable measure. The page does not stretch to the viewport at any
+   width, and that is the whole of its desktop behaviour. */
+.wf-rp { display: flex; flex-direction: column; gap: var(--wf-s-4); max-width: 720px; }
+
+/* Blocks 3 to 6, the four boundaries, as grouped setting rows. */
+.wf-set {
+  display: grid; gap: var(--wf-s-1) var(--wf-s-3);
+  grid-template-columns: 1fr;
+  padding: var(--wf-s-3) 0; border-top: 1px solid var(--wf-line-soft);
+}
+.wf-set:first-child { border-top: 0; padding-top: 0; }
+.wf-set-h { margin: 0; font-size: var(--wf-t-m); }
+.wf-set-p { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-set-ctl { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-1); }
+/* The amount field is full width under its label at 360 rather than squeezed
+   beside it, and a control never wraps below its own label into what looks like
+   a separate row. */
+.wf-set-in {
+  font: inherit; font-family: var(--wf-mono);
+  padding: var(--wf-s-1) var(--wf-s-2); color: var(--wf-ink); min-width: 0; width: 100%;
+  background: transparent; border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
+}
+/* THE PERIOD IS NOT A CHIP ROW. Four or five periods as horizontal chips is a
+   scroll at 360, which the node decided here rather than leaving to be found. */
+.wf-set-per { display: flex; flex-direction: column; gap: var(--wf-s-half); width: 100%; }
+
+/* THE DIRECTION RULE, RENDERED AS TWO LINES AND NEVER AS ONE. A change that
+   tightens takes effect at once and a change that loosens waits, and collapsing
+   them into a single sentence is how the asymmetry gets read as fine print. */
+.wf-dir { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.wf-dir li { display: flex; gap: var(--wf-s-2); font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-dir-w { flex: 0 0 76px; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* Block 2 and node 6.3. WHAT IS IN FORCE, AS A STATED MOMENT AND NEVER A LIVE
+   COUNTDOWN. A countdown is a clock a person comes back to watch, and watching a
+   boundary expire is engagement with a boundary. No elapsed, no days survived,
+   no total saved, no badge: every one of those is a completion mechanic and
+   every one is a plausible thing to build. */
+.wf-force {
+  padding: var(--wf-s-3); border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
+  display: flex; flex-direction: column; gap: var(--wf-s-2);
+}
+.wf-force-l { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-2); }
+.wf-force-l li { display: flex; flex-direction: column; gap: 2px; }
+.wf-force-n { font-weight: 700; }
+.wf-force-e { font-family: var(--wf-mono); font-size: var(--wf-t-s); }
+.wf-force-c { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+
+/* Block 7, ABOVE THE CONTROLS AND NOT UNDER THEM. A person who does not know
+   that self exclusion leaves the exit open cannot evaluate self exclusion, and
+   putting the sentence after the controls means it is read after the choice. */
+.wf-closes { display: grid; gap: var(--wf-s-2); grid-template-columns: 1fr; }
+.wf-closes-c {
+  padding: var(--wf-s-2); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  display: flex; flex-direction: column; gap: var(--wf-s-half);
+}
+.wf-closes-k { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+
+/* The refusal line, the same form the deposit ceiling and the consent gate use:
+   a control that cannot act still answers, and the answer names what is
+   missing. Nothing on this page is dimmed. */
+.wf-rp-say { font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-rp-say.is-said { color: var(--wf-ink); }
+
+/* Responsive last, after everything above that it overrides. */
+@media (min-width: 600px) {
+  /* Label and description on the left, control right-aligned on its own row.
+     Refero's grouped-settings shape, and it is the reason a limit reads as a
+     setting rather than as a feature. */
+  .wf-set { grid-template-columns: minmax(0, 1fr) minmax(0, 300px); align-items: start; }
+  .wf-set-h, .wf-set-p, .wf-dir { grid-column: 1; }
+  .wf-set-ctl { grid-column: 2; grid-row: 1 / span 3; justify-content: flex-end; }
+  .wf-set-per { width: auto; min-width: 160px; }
+  .wf-closes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* The row whose control just refused is marked on itself: the answer to "why did
+   nothing happen" is a place on the screen, not only a sentence about a place. */
+.wf-set.is-marked { outline: 2px dashed var(--wf-ink-dim); outline-offset: 6px; }

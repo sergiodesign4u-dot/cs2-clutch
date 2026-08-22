@@ -37,7 +37,15 @@ Three consequences follow, and they run through every section below.
 2. **Nothing on this page rewards.** The hard rule from `CLAUDE.md` binds here first: "A limit never acquires completion mechanics, streaks, status or a session score: at that point it stops being a boundary and becomes a reason to keep going." `cjm-to-be.md` attaches the same rule to `C2` at T4, and `flows.md` flow 2a repeats it because it is the thing most likely to be lost.
 3. **Nothing on this page can fail.** `flows.md` flow 2a: no loading node and no error node, deliberately, because a brake that can fail to apply is not a brake.
 
-**Reachability is not prominence**, which `sitemap.md` states and this node inherits. The page has three entries: the rail, in its lower group; a persistent entry inside the money control, two taps from anywhere; and the footer's fourth column. Three entries are how a person finds a brake at the worst moment. None of them is a promotion, and none of them is a number.
+**Reachability is not prominence**, which `sitemap.md` states and this node inherits. **The page has three entries and they are not the three this section named until 22 August 2026.** It read "the rail, in its lower group; a persistent entry inside the money control; and the footer's fourth column", and the rail entry had been gone since `D-29` of 19 August while the account menu entry arrived with `D-40` on 20 August. **Two decisions out of date in one sentence, and `navigation.md` had already printed both.** The current three:
+
+| Entry | Which moment it answers | Where it is fixed |
+|---|---|---|
+| **The footer's Play responsibly column** | A person reading the site finds it | `footer.md`, and `CLAUDE.md`: "Provably fair and Responsible play are carried by the footer, which holds each in its own column" |
+| **The entry inside the money control** | A person about to spend meets it, two taps from anywhere | `navigation.md`, unchanged since `D-19` |
+| **The account menu** | A person managing their account looks for it | `navigation.md` since `D-40` |
+
+**The rail is not one of them and it may not become one again by accident:** it carries one destination in both states, Cases, `D-40`. Three entries are still how a person finds a brake at the worst moment. None of them is a promotion, and none of them is a number.
 
 ---
 
@@ -95,7 +103,7 @@ Composition is taken from `blocks.md` section 7, type T6, rows marked TAKE, plus
 | **Any counter, streak, status, level or session score** | The rule in `CLAUDE.md`, quoted in section 0. This is the whole reason the list is written out rather than summarised |
 | **Any celebration of staying inside a limit** | Same rule. A boundary that congratulates is a boundary that has started measuring, and a measurement is something to improve |
 | **A progress bar on a cool down or a self exclusion** | Same rule, in its most tempting form. A bar filling toward the end of a boundary is a countdown to spending again, drawn as an achievement |
-| **The live drop ticker `0.8`** | Already forbidden: `sitemap.md` restricts the ticker to `1.0` and `3.3`, and `ux-patterns.md` calls a feed on every screen wallpaper rather than context. Named here because this is the page where it would do harm rather than merely be noise |
+| **The live drop ticker `0.8`** | **The citation under this row was reversed and the refusal was not.** It read "`sitemap.md` restricts the ticker to `1.0` and `3.3`", and `D-59` put the feed on every page on 21 August. **What the row was actually resting on is the sentence after the citation**, which is this node's own: this is the page where a run of other people's wins would do harm rather than merely be noise. **It has a live parent now rather than a stale one:** `sitemap.md` row `0.15` carries the identical shape in the register itself, "`6.1` may never render it", for the daily ladder. A surface that may not show a person what to wager may not show them twenty four strangers winning either. **Declared by the page, so `0.8` owns whether it stands** |
 | **Any case tile, any deposit control, any spend route** | No parent, and the opposite of both parents |
 | **A "not now", "remind me later" or "skip" control** | There is nothing to skip. This page asks for nothing, so it has nothing to defer |
 | **A sign-in wall** | `blocks.md` T5 records Key-Drop putting provably fair behind login and `1.2` refusing that. Same refusal here: the page reads in full for a guest, and only the controls need an account |
@@ -246,7 +254,9 @@ Columns are the account state. **The page reads in full for a guest**, which is 
 - **hreflang:** none, anywhere. One language, `0.13` section 1
 - **OG and Twitter:** title and description as above, summary card. **No image of a skin and no image of a case on this card**, for the obvious reason
 
-**One thing `0.13` was supposed to give this node and does not: a title pattern.** Its open items row says "Pattern here, copy in each node's A to E block", and no pattern is written anywhere in it. This node writes a title with no brand suffix, because the product name is a working placeholder and baking a placeholder into finished copy is how a placeholder ships. **Finding for `0.13`, not fixed here.**
+**The `0.13` finding this section raised is closed, and closing it created a smaller one.** The row now reads: "**The pattern, written here rather than promised:** `<node H1 subject>` then a separator then `CS2 Clutch`, one line, the subject first because the tail truncates." So a pattern exists.
+
+**And this node's title still does not follow it, deliberately.** The pattern bakes in `CS2 Clutch`, which is a working placeholder, and this is one of nine indexed surfaces. **Baking a placeholder into finished copy is how a placeholder ships**, and a title is the one string that survives into search results and browser history before anyone reviews it. The title above stays without the suffix, **the divergence is named here rather than left as a quiet inconsistency**, and it resolves itself the day the product has a name. Owner: the founder, with the naming decision.
 
 **B. Heading structure, in block order.**
 
@@ -288,12 +298,12 @@ Columns are the account state. **The page reads in full for a guest**, which is 
 | **Whether self exclusion also removes the case grid and the ticker** | Section 5. The map closes opening and depositing and says nothing about reading. Recommendation carried there, not drawn | Founder, possibly counsel |
 | **The external help routes in block 8** | Which organisations are named, per market. Every market verdict in `0.12` is `[?]` until re-verified against current law, and a plausible list here would be model memory presented as a legal fact | Founder with counsel |
 | **Whether a boundary is announced anywhere outside the product** | A self exclusion that runs for months implies a signal reaching the person off the page. The global sweep already recorded that **no notification, email or push row exists anywhere in `cjm-to-be.md`**, for withdrawal or for anything else. Named here in the same treatment rather than invented | Backlog, then the founder |
-| **Whether the spend ceiling is per deposit, per period, or both** | `C2` says "a spend ceiling for a named period", pre-filled from the amount just typed. Whether a person can hold one ceiling per period or a ceiling that resets per deposit is not settled anywhere, and the two behave differently at the boundary | Node `4.1`, which owns the moment the ceiling is set |
+| ~~**Whether the spend ceiling is per deposit, per period, or both**~~ | **Answered by `4.1` and closed.** One ceiling is in force at a time and it belongs to the named period. A ceiling that reset per deposit could never be reached, and `4.2`, ceiling reached this period, is a numbered node, so the map already excluded that reading. **The second deposit inside one period pre-fills again and the pre-filled figure is then a change to the ceiling in force**, taking the direction rule with it | Closed, node `4.1` |
 | **The conversion cost of any of this** | `CLAUDE.md` carries the age gate's cost as having no target. The same is true here and it is worse measured, since `C2`'s own success signal in `cjm-to-be.md` reads "targets `[?]`" | Production |
 
 **Two findings for other nodes, raised rather than edited, per the verify-before-fixing rule.**
 
 1. **`0.2` renders its statistics strip on this page.** The footer has no account dimension and no per-node dimension, by its own rule, so a cases-opened figure in the hundreds of millions sits below a self exclusion control. That is inherited rather than chosen, and it is the kind of adjacency this stage should notice out loud. Owner: `0.2`, then stage 04.
-2. **`0.1` gives responsible play three entries and `sitemap.md` names two.** The base layer wrote the money control plus the footer; `navigation.md` added the rail entry and said so; `footer.md` counts three. No contradiction, but the two-entry sentence is still in `sitemap.md`, at cluster 6 and again in its navigation section. Owner: whoever next edits that section.
+2. **The three-entry count is right and the list was wrong in three files at once.** This node named the rail, `footer.md` section on the compliance column names the rail, and `sitemap.md` says "Responsible play gains a rail entry and keeps the one it had". **All three predate `D-29`**, which moved it off the rail on 19 August, and `D-40`, which put it in the account menu on 20 August. Fixed in this node and in `footer.md`; `sitemap.md`'s sentence is a record of what step 6 of the base layer decided and is marked rather than rewritten. **The count never changed. Every file naming the members was wrong.**
 
 **And what belongs elsewhere.** The words: structural here, stage 05 owns the final strings and syncs them back into block C. How any of it looks: stages 06 and 07. The moment the ceiling is first chosen: `4.1`. The behaviour of the exit under a boundary: `5.3`, which changes nothing, which is the point.

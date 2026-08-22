@@ -231,11 +231,18 @@ window.WF_NAV = {
     { node: '5.11', cluster: '5', name: 'Settings',             file: 'settings.html',   status: 'spec',
       base: 'What it holds in round 1 is [?]' },
 
-    { node: '6.1',  cluster: '6', name: 'Responsible play',    file: 'responsible.html', ia: 'responsible.html',  status: 'spec',
+    // DRAWN 22 AUGUST 2026. Cluster 6 whole. Two of the five pages are internal
+    // states rather than numbered nodes: the guest, because this page reads in
+    // full without an account and that refusal has to be visible, and the self
+    // excluded surface, because its four controls behave differently from any
+    // other boundary in force.
+    { node: '6.1',  cluster: '6', name: 'Responsible play',    file: 'responsible.html', ia: 'responsible.html',  status: 'built',
       base: 'No boundary in force',
       states: [
-        { node: '6.2', label: 'Self exclusion confirmation', file: 'responsible-confirm.html',  status: 'spec' },
-        { node: '6.3', label: 'Boundary in force',           file: 'responsible-in-force.html', status: 'spec' }
+        { node: '6.1', label: 'Guest, no account',           file: 'responsible-guest.html',    status: 'built' },
+        { node: '6.2', label: 'Self exclusion confirmation', file: 'responsible-confirm.html',  status: 'built' },
+        { node: '6.3', label: 'Boundary in force',           file: 'responsible-in-force.html', status: 'built' },
+        { node: '6.3', label: 'Self excluded',               file: 'responsible-excluded.html', status: 'built' }
       ] },
 
     // DRAWN 21 AUGUST 2026, and it jumped the queue on the same rule the catalogue
@@ -972,6 +979,115 @@ window.WF_NAV = {
      ACCEPTING AND CHANGING BOTH SATISFY IT. The mechanism is "one tap on a number
      they chose themselves", so typing a different number is the same consent as
      pressing accept, and a form that demanded both would be asking twice. */
+  /* NODE 6.2, THE SELF EXCLUSION CONFIRMATION. Built once here because the
+     dialog opens from 6.1 and has to exist on the pinned page as well, and two
+     copies of the one sentence it exists to deliver is how one of them rots.
+     IT HAS TO BE CERTAIN WITHOUT BEING A DISCOURAGEMENT. Escalating friction on
+     a brake is discouragement wearing a safety label, and the product does not
+     make it harder to stop than it made it to start: no second confirmation, no
+     typed phrase, no cool-off delay before it takes effect.
+     THE DIALOG NEVER ASKS FOR THE PERIOD. Choosing happens on 6.1 and confirming
+     happens here, so it restates the period the person already chose.
+     THE SENTENCE IT EXISTS TO DELIVER is that withdrawal, support and reading
+     stay open. A person confirming self exclusion is entitled to know their
+     items are not being taken.
+     TWO CONTROLS OF EQUAL WEIGHT. Neither is primary: making cancel quieter is
+     the product leaning on the choice, and making confirm quieter is the product
+     hedging on a decision it has just told the person is final. */
+  function excludeHTML(period) {
+    var p = period || '30 days';
+    return '<div class="wf-dlg-scrim" data-ex-dismiss></div>' +
+      '<div class="wf-dlg-wrap"><div class="wf-dlg wf-dlg--plain" role="dialog" aria-modal="true" aria-label="Confirm self exclusion">' +
+        '<button class="wf-dlg-close" type="button" data-ex-dismiss aria-label="Close">&#215;</button>' +
+        '<div class="wf-dlg-body">' +
+          '<h2 class="wf-dlg-h">Self exclusion for ' + p + '</h2>' +
+          '<p class="wf-dlg-sub">It starts now and ends on <b>21 Sep 2026, 09:31</b>.</p>' +
+          '<div class="wf-closes">' +
+            '<div class="wf-closes-c"><span class="wf-closes-k">Closes</span><span>Opening a case, and adding funds.</span></div>' +
+            '<div class="wf-closes-c"><span class="wf-closes-k">Stays open</span><span>Taking what you hold out to Steam. Support. Reading the product.</span></div>' +
+          '</div>' +
+          '<p class="wf-note">It cannot be lifted early. That is what it is for.</p>' +
+          '<div class="wf-row">' +
+            '<a class="wf-btn" href="responsible.html" data-ex-dismiss>Cancel</a>' +
+            '<a class="wf-btn" href="responsible-excluded.html">Confirm</a>' +
+          '</div>' +
+        '</div>' +
+      '</div></div>';
+  }
+
+  function mountExclude() {
+    var host = null, opener = null;
+    function close() {
+      if (!host) return;
+      host.remove(); host = null;
+      document.documentElement.style.overflow = '';
+      document.removeEventListener('keydown', onKey, true);
+      if (opener && document.contains(opener)) opener.focus();
+      opener = null;
+    }
+    function onKey(e) {
+      if (!host) return;
+      // ESCAPE CLOSES BACK TO 6.1 AND RECORDS NOTHING. This dialog is the one
+      // place in the product where a mis-dismissal costs a person a decision
+      // they had made, which is why the modal rules are stated again for it
+      // rather than inherited by reference.
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key !== 'Tab') return;
+      var f = host.querySelectorAll('a[href], button');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+    function open(period, trigger) {
+      if (host) return;
+      opener = trigger || null;
+      host = el('div', 'wf-ex-host');
+      host.innerHTML = excludeHTML(period);
+      document.body.appendChild(host);
+      document.documentElement.style.overflow = 'hidden';
+      host.addEventListener('click', function (e) {
+        var d = e.target.closest('[data-ex-dismiss]');
+        if (!d) return;
+        if (d.tagName === 'A') { e.preventDefault(); }
+        close();
+      });
+      document.addEventListener('keydown', onKey, true);
+      var f = host.querySelector('button, a[href]');
+      if (f) f.focus();
+    }
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-ex-open]');
+      if (!t) return;
+      e.preventDefault();
+      open(t.getAttribute('data-ex-open') || '30 days', t);
+    });
+    var pinned = document.querySelector('[data-ex-pinned]');
+    if (pinned) open(pinned.getAttribute('data-ex-pinned'), null);
+  }
+
+  /* THE GUEST AND THE EXCLUDED SURFACES CARRY LIVE CONTROLS, NOT DIMMED ONES.
+     Third application of D-58 off its own surface: a press that cannot go
+     through answers instead of not existing. On a page whose whole subject is a
+     person trying to stop, a control that does nothing and explains nothing is
+     the worst version of that defect in the product. */
+  function mountRp() {
+    var page = document.querySelector('[data-rp]');
+    if (!page) return;
+    var say = page.querySelector('[data-rp-say]');
+    if (!say) return;
+    page.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-rp-refuse]');
+      if (!t) return;
+      e.preventDefault();
+      say.classList.add('is-said');
+      say.textContent = t.getAttribute('data-rp-refuse');
+      var mark = t.closest('.wf-set');
+      if (mark) { mark.classList.add('is-marked'); }
+      say.scrollIntoView({ block: 'nearest' });
+    });
+  }
+
   function mountDeposit() {
     var form = document.querySelector('[data-dep-form]');
     if (!form) return;
@@ -2559,6 +2675,8 @@ window.WF_NAV = {
     renderProofs();
     mountGate();
     mountDeposit();
+    mountExclude();
+    mountRp();
     renderFooter(document.getElementById('wf-footer'));
     mountRollDetail();
     renderBar(document.getElementById('wf-bar'));
