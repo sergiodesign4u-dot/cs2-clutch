@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appeal upheld</title>
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- APPEAL UPHELD. THE FROZEN BALANCE UNFREEZES, which is only possible
+     because the restriction froze it rather than zeroing it. That single
+     property is what makes this state exist at all, and the review this barrier
+     rests on describes the opposite: a balance of over 160 coins completely
+     wiped out.
+     AND THE ROUTE BACK INTO THE FLOW THE PERSON WAS EJECTED FROM, rather than a
+     return to a home page. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <h1>Support</h1>
+
+    <div class="wf-sup">
+      <div class="wf-notice">
+        <h2 id="h2-upheld">The restriction is lifted</h2>
+        <p>Your appeal was upheld on 23 Aug 2026, 08:04, and the ground for the original decision stays on the record with the answer.</p>
+        <div class="wf-total">
+          <div class="wf-tl"><span>Balance</span><span class="wf-tl-v">74.20 coins</span></div>
+          <div class="wf-tl"><span>Value of items held</span><span class="wf-tl-v">130.60 coins</span></div>
+          <div class="wf-tl wf-tl--sum"><span>Frozen</span><span class="wf-tl-v">Nothing</span></div>
+        </div>
+        <p class="wf-note">It was frozen, not reduced, which is why there is nothing to restore.</p>
+        <div class="wf-row"><a class="wf-btn wf-btn--primary" href="withdraw.html">Back to the withdrawal</a><a class="wf-btn" href="catalogue.html">Cases</a></div>
+      </div>
+      <!-- BLOCK 1. H1 AND THE DEADLINE, ON THE FIRST SCREEN. The number is above
+           the fold because it is the entire difference between this page and a
+           help page. Its value is not published, so it renders as not published:
+           missing is a state, never a zero and never a plausible placeholder.
+           IT IS A DEADLINE FOR AN ANSWER, NOT FOR A RESOLUTION, and the
+           difference is printed rather than assumed. "We are looking into it"
+           does not stop the clock, because an autoresponder that satisfies the
+           deadline reproduces the exact sentence the barrier records: they
+           refused to provide any specific explanation. -->
+      <div class="wf-tick">
+        <div class="wf-tick-row">
+          <span class="wf-fig-v wf-fig-missing">Not published</span>
+          <span class="wf-tick-k">Time to an answer</span>
+        </div>
+        <p class="wf-fig-c">Every ticket gets an answer inside a published deadline, and the figure is not set yet. It counts from the moment the ticket is created, not from the moment one of us reads it, and it is a deadline for an answer with a reason in it rather than for a resolution.</p>
+      </div>
+      <!-- BLOCK 5. THE FAQ, BELOW THE SUBSTANCE AND NEVER INSTEAD OF IT. The
+           contact route, the appeal route and the deadline come first.
+           THE FAQ REPEATS A RULE, IT NEVER OWNS ONE. A competitor keeps its
+           thirty day holding deadline and its crediting window in its FAQ and
+           nowhere else, and both are real product rules living in a document.
+           NO ANSWER IS THE ONLY PLACE A RULE APPEARS. If it is, the rule is
+           missing from the product and that entry is a bug report. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head">
+          <h2 id="h2-faq">Questions and answers</h2>
+          <p class="wf-sec-sub">Every rule here also lives on the screen where you meet it, and that screen is the one that governs.</p>
+        </div>
+        <div class="wf-faq" data-faq></div>
+      </div>
+      <!-- BLOCK 6. CROSS-LINKS to the documents and to the surfaces that own the
+           rules a question might be about. -->
+      <div class="wf-row">
+        <a class="wf-btn" href="legal.html">Terms and policies</a>
+        <a class="wf-btn" href="fair.html">Provably fair</a>
+        <a class="wf-btn" href="responsible.html">Responsible play</a>
+      </div>
+    </div>
+
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' }, feed: false };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

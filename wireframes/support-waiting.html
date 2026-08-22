@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waiting on you</title>
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- WAITING, WITH ATTRIBUTION. Whose turn it is: waiting on us, waiting on
+     you, or waiting on Steam. The same three-way attribution the withdrawal
+     clock carries, and for the same reason: a wait with no owner is the silence
+     the barrier records.
+     THE OWNER LABEL IS TEXT AND IT NEVER MOVES QUIETLY. A stretch that expires
+     stays labelled where it was rather than being reassigned onto the person. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <h1>Support</h1>
+
+    <div class="wf-sup">
+      <!-- THE TICKET, AND THE CLOCK ON IT. A wait with no owner is the silence the
+           barrier records, so the owner renders in words on every state, never as
+           a colour and never as an absence.
+           THE DEADLINE RENDERS AS BOTH THE PUBLISHED DURATION AND THIS TICKET'S
+           OWN DATE, so the general promise and the particular one are checkable
+           against each other. -->
+      <div class="wf-tick">
+        <div class="wf-tid">
+          <span class="wf-tick-k">Ticket</span>
+          <span class="wf-tid-v">ap-2026-08-22-0031</span>
+          <button class="wf-btn wf-btn--small" type="button">Copy</button>
+        </div>
+        <div class="wf-tick-row">
+          <div class="wf-fig"><span class="wf-fig-v">4 h 12 m</span><span class="wf-fig-c">Open since 22 Aug 2026 09:31</span></div>
+          <div class="wf-fig"><span class="wf-fig-v wf-fig-missing">Not published</span><span class="wf-fig-c">Of a deadline whose figure is not set</span></div>
+        </div>
+        <p class="wf-tick-k">Waiting on you</p>
+      <!-- STATED IN THE SAME BREATH AS THE TICKET: what is still open. A person
+           who has just been restricted and reads only that has been given a worse
+           answer than the truth. Withdrawal stays open under every boundary, and
+           under a restriction the balance is frozen rather than zeroed, which is
+           the only reason an upheld appeal can give it back. -->
+      <p class="wf-note">Taking what you already hold out to Steam stays open while this runs. Your balance is frozen, not reduced.</p>      </div>
+      <div class="wf-stack">
+        <div class="wf-sec-head"><h2 id="h2-asked">What we asked you for</h2></div>
+        <div class="wf-f-ro wf-ground-q">The trade offer id from the withdrawal you are appealing, if you still have it. If you do not, say so and we will look it up.</div>
+        <label class="wf-f-l"><span class="wf-fig-c">Your reply</span><textarea class="wf-f"></textarea></label>
+        <div class="wf-row"><a class="wf-btn wf-btn--primary" href="support-answered.html">Reply</a></div>
+      </div>
+      <!-- BLOCK 1. H1 AND THE DEADLINE, ON THE FIRST SCREEN. The number is above
+           the fold because it is the entire difference between this page and a
+           help page. Its value is not published, so it renders as not published:
+           missing is a state, never a zero and never a plausible placeholder.
+           IT IS A DEADLINE FOR AN ANSWER, NOT FOR A RESOLUTION, and the
+           difference is printed rather than assumed. "We are looking into it"
+           does not stop the clock, because an autoresponder that satisfies the
+           deadline reproduces the exact sentence the barrier records: they
+           refused to provide any specific explanation. -->
+      <div class="wf-tick">
+        <div class="wf-tick-row">
+          <span class="wf-fig-v wf-fig-missing">Not published</span>
+          <span class="wf-tick-k">Time to an answer</span>
+        </div>
+        <p class="wf-fig-c">Every ticket gets an answer inside a published deadline, and the figure is not set yet. It counts from the moment the ticket is created, not from the moment one of us reads it, and it is a deadline for an answer with a reason in it rather than for a resolution.</p>
+      </div>
+      <!-- BLOCK 5. THE FAQ, BELOW THE SUBSTANCE AND NEVER INSTEAD OF IT. The
+           contact route, the appeal route and the deadline come first.
+           THE FAQ REPEATS A RULE, IT NEVER OWNS ONE. A competitor keeps its
+           thirty day holding deadline and its crediting window in its FAQ and
+           nowhere else, and both are real product rules living in a document.
+           NO ANSWER IS THE ONLY PLACE A RULE APPEARS. If it is, the rule is
+           missing from the product and that entry is a bug report. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head">
+          <h2 id="h2-faq">Questions and answers</h2>
+          <p class="wf-sec-sub">Every rule here also lives on the screen where you meet it, and that screen is the one that governs.</p>
+        </div>
+        <div class="wf-faq" data-faq></div>
+      </div>
+      <!-- BLOCK 6. CROSS-LINKS to the documents and to the surfaces that own the
+           rules a question might be about. -->
+      <div class="wf-row">
+        <a class="wf-btn" href="legal.html">Terms and policies</a>
+        <a class="wf-btn" href="fair.html">Provably fair</a>
+        <a class="wf-btn" href="responsible.html">Responsible play</a>
+      </div>
+    </div>
+
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' }, feed: false };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

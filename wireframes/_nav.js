@@ -77,17 +77,20 @@ window.WF_NAV = {
         { label: 'Not yet published',             file: 'legal-unpublished.html',status: 'spec' }
       ] },
 
-    { node: '0.10', cluster: '0', name: 'Support and contact', file: 'support.html',    ia: 'support.html',       status: 'spec',
+    // DRAWN 22 AUGUST 2026. Nine pages, and the ninth is the one that earns the
+    // node: a published deadline with no state for its own failure is a number
+    // nobody has to meet.
+    { node: '0.10', cluster: '0', name: 'Support and contact', file: 'support.html',    ia: 'support.html',       status: 'built',
       base: 'Entry',
       states: [
-        { label: 'Appeal submitted',            file: 'support-submitted.html', status: 'spec' },
-        { label: 'Waiting, with attribution',   file: 'support-waiting.html',   status: 'spec' },
-        { label: 'Appeal answered',             file: 'support-answered.html',  status: 'spec' },
-        { label: 'Appeal upheld',               file: 'support-upheld.html',    status: 'spec' },
-        { label: 'Appeal refused',              file: 'support-refused.html',   status: 'spec' },
-        { label: 'Deadline missed',             file: 'support-deadline.html',  status: 'spec' },
-        { label: 'No dispute to appeal',        file: 'support-nodispute.html', status: 'spec' },
-        { label: 'Ticket id not found',         file: 'support-notfound.html',  status: 'spec' }
+        { label: 'Appeal submitted',            file: 'support-submitted.html', status: 'built' },
+        { label: 'Waiting, with attribution',   file: 'support-waiting.html',   status: 'built' },
+        { label: 'Appeal answered',             file: 'support-answered.html',  status: 'built' },
+        { label: 'Appeal upheld',               file: 'support-upheld.html',    status: 'built' },
+        { label: 'Appeal refused',              file: 'support-refused.html',   status: 'built' },
+        { label: 'Deadline missed',             file: 'support-deadline.html',  status: 'built' },
+        { label: 'No dispute to appeal',        file: 'support-nodispute.html', status: 'built' },
+        { label: 'Ticket id not found',         file: 'support-notfound.html',  status: 'built' }
       ] },
 
     { node: '1.0',  cluster: '1', name: 'Home',                file: 'index.html',      ia: 'home.html',          status: 'built',
@@ -1013,6 +1016,63 @@ window.WF_NAV = {
           '</div>' +
         '</div>' +
       '</div></div>';
+  }
+
+  /* NODE 0.10, THE FAQ ACCORDIONS. Built once here because eight of the node's
+     nine pages carry the same seven sections, and eight copies of one list is
+     how seven of them rot.
+     EVERY ANSWER IS IN THE DOM AT EVERY WIDTH. Collapsed for reading, never for
+     existence, which is the same rule the footer and the rail follow. A button
+     with aria-expanded and aria-controls, never a styled div.
+     EVERY SECTION NAMES THE SURFACE THAT OWNS IT, and that is not decoration:
+     the node's second rule is that no answer is the only place a rule appears,
+     and an answer with no owning surface printed beside it is the case that rule
+     forbids, rendered.
+     WHICH QUESTIONS EXIST IS NOT DRAWN. They are derived at stage 05 from the
+     barrier ledger, one per documented barrier that survives its surface, so
+     each section renders its scope and says the questions are not written yet
+     rather than inventing three plausible ones. */
+  var FAQ = [
+    ['Getting in', 'Sign in, the geo gate, and a Steam login that will not complete'],
+    ['Opening a case', 'The case screen, the published chance, and checking a round afterwards'],
+    ['Putting money in', 'Adding funds, the crediting window, and a payment that did not go through'],
+    ['Getting your items out', 'Withdrawing to Steam, the clock, and a trade that did not arrive'],
+    ['Limits and self exclusion', 'The four boundaries, what each one closes, and what none of them closes'],
+    ['Your account and your data', 'The documents, and what is held about you'],
+    ['When something goes wrong', 'A restriction, a refused check, and a proof of ours that did not match']
+  ];
+
+  function renderFaq() {
+    var host = document.querySelector('[data-faq]');
+    if (!host) return;
+    FAQ.forEach(function (row, i) {
+      var sec = el('div', 'wf-faq-s');
+      var b = el('button', 'wf-faq-b');
+      b.type = 'button';
+      b.id = 'faq-b-' + i;
+      b.setAttribute('aria-expanded', 'false');
+      b.setAttribute('aria-controls', 'faq-p-' + i);
+      b.appendChild(el('span', null, row[0]));
+      var pnl = el('div', 'wf-faq-p');
+      pnl.id = 'faq-p-' + i;
+      pnl.setAttribute('role', 'region');
+      pnl.setAttribute('aria-labelledby', 'faq-b-' + i);
+      pnl.hidden = true;
+      pnl.appendChild(el('p', 'wf-faq-own', row[1]));
+      // THE FAQ HOLDS NO NUMBER OF ITS OWN. Every figure in an answer is read
+      // from the register, or the answer links to the surface and prints none.
+      // A competitor keeps its thirty day holding deadline and its crediting
+      // window here and nowhere else, which is the placement this refuses.
+      pnl.appendChild(el('p', 'wf-fig-missing', 'The questions here are not written yet. When they are, every rule in an answer will also live on the screen where you meet it, and that screen is the one that governs.'));
+      b.addEventListener('click', function () {
+        var open = b.getAttribute('aria-expanded') === 'true';
+        b.setAttribute('aria-expanded', open ? 'false' : 'true');
+        pnl.hidden = open;
+      });
+      sec.appendChild(b);
+      sec.appendChild(pnl);
+      host.appendChild(sec);
+    });
   }
 
   function mountExclude() {
@@ -2677,6 +2737,7 @@ window.WF_NAV = {
     mountDeposit();
     mountExclude();
     mountRp();
+    renderFaq();
     renderFooter(document.getElementById('wf-footer'));
     mountRollDetail();
     renderBar(document.getElementById('wf-bar'));

@@ -3317,3 +3317,89 @@ select {
 /* The row whose control just refused is marked on itself: the answer to "why did
    nothing happen" is a place on the screen, not only a sentence about a place. */
 .wf-set.is-marked { outline: 2px dashed var(--wf-ink-dim); outline-offset: 6px; }
+
+
+/* ---------------------------------------------------------------------------
+   NODE 0.10, SUPPORT AND APPEALS, and its eight states. Drawn 22 August 2026.
+   NOT A HELP PAGE WITH A CONTACT FORM AT THE BOTTOM. The three reviews under
+   B8-3 are not complaints about slow support: they are complaints about a
+   decision with no ground and no route. "My account was suddenly banned...
+   they refused to provide any specific explanation." So the page ships a
+   written ground, a public route to dispute it, a published deadline for an
+   answer, and a state for that deadline being missed.
+   THE DEADLINE IS ABOVE THE FOLD BECAUSE IT IS THE WHOLE DIFFERENCE between
+   this page and a help page. Its value is unpublished and it renders as
+   unpublished, which is what the missing-figure treatment is for.
+   TWO ROUTES, TWO HEADINGS, TWO FORMS, AND NEVER TABS. A tab hides one of two
+   routes from a person who arrived needing the other.
+   --------------------------------------------------------------------------- */
+
+.wf-sup { display: flex; flex-direction: column; gap: var(--wf-s-4); }
+
+/* The two entry points, side by side from 900 and stacked below it. */
+.wf-two { display: grid; gap: var(--wf-s-3); grid-template-columns: 1fr; align-items: start; }
+.wf-form { display: flex; flex-direction: column; gap: var(--wf-s-2); }
+.wf-f {
+  font: inherit; padding: var(--wf-s-2); color: var(--wf-ink); width: 100%; min-width: 0;
+  background: transparent; border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
+}
+textarea.wf-f { min-height: 96px; resize: vertical; }
+.wf-f-l { display: flex; flex-direction: column; gap: var(--wf-s-half); }
+/* A FIELD THE PRODUCT FILLED IS NOT A FIELD THE PERSON EDITS, and it is not a
+   disabled input either: it is the decision quoted back, as text. */
+.wf-f-ro {
+  padding: var(--wf-s-2); border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
+  font-size: var(--wf-t-s);
+}
+/* THE GROUND WRAPS AND NEVER TRUNCATES, and never sits in a fixed-height
+   scroller. A ground a person has to scroll inside a box is a ground they will
+   not read, and G4 exists so that it gets read. */
+.wf-ground-q { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* The ticket id follows the hash rule: monospace, always text and never an
+   image, copy as a first-class control rather than a hover affordance. It
+   exists to be pasted somewhere else. */
+.wf-tid { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-1); }
+.wf-tid-v {
+  font-family: var(--wf-mono); font-size: var(--wf-t-m);
+  padding: var(--wf-s-half) var(--wf-s-1);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1);
+  overflow-wrap: anywhere;
+}
+
+/* THE CLOCK. Elapsed against the published deadline, and the owner of the wait
+   in words. Same three-way attribution the withdrawal clock carries, because a
+   wait with no owner is the silence the barrier records. */
+.wf-tick {
+  padding: var(--wf-s-3); border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
+  display: flex; flex-direction: column; gap: var(--wf-s-2);
+}
+.wf-tick-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--wf-s-2); }
+.wf-tick-k { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+.wf-tick-v { font-family: var(--wf-mono); }
+/* THE MISSED DEADLINE IS NOT A COLOUR ALONE. Every state on this page is named
+   in words first, and the grey contract has no red to spend anyway. */
+.wf-tick--late { border-style: dashed; }
+
+/* The FAQ. Sectioned accordions, BELOW THE SUBSTANCE AND NEVER INSTEAD OF IT.
+   Every answer is in the DOM at every width: collapsed for reading, never for
+   existence. */
+.wf-faq { display: flex; flex-direction: column; }
+.wf-faq-s { border-top: 1px solid var(--wf-line-soft); }
+.wf-faq-s:first-child { border-top: 0; }
+.wf-faq-b {
+  width: 100%; text-align: left; background: none; border: 0; color: var(--wf-ink);
+  font: inherit; padding: var(--wf-s-2) 0; cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center; gap: var(--wf-s-2);
+  min-height: var(--wf-tap);
+}
+.wf-faq-b::after { content: '+'; color: var(--wf-ink-dim); }
+.wf-faq-b[aria-expanded="true"]::after { content: '\2212'; }
+.wf-faq-p { padding: 0 0 var(--wf-s-2); font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-faq-p[hidden] { display: none; }
+.wf-faq-own { font-size: var(--wf-t-xs); color: var(--wf-ink-faint); }
+
+/* Responsive last, after everything above that it overrides. */
+@media (min-width: 900px) {
+  .wf-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

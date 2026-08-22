@@ -10,7 +10,9 @@
 - **The appeal route:** barrier `B8-3`, winning treated as suspicious behaviour, pattern of 3, by way of row `G4`: "A restriction produces written notice with a stated ground, a frozen rather than zeroed balance, and an appeal with a published response deadline." Barrier class.
 - **The FAQ:** barrier `B3-1`, the unreadable Steam login failure, by way of row `B5`, "Readable Steam login failure states", **one signal and marked as one signal**. Barrier class. `B5` is a component state rather than a feature, and this page is where its terminal branch lands: the failure a person cannot fix by reading it.
 
-**Routes in, five, and only one of them is a person browsing:** `0.2` support button on every screen, `5.6` account restricted, `2.9` identity failed, `1.4` our own proof failed, `2.2` geo blocked. **Routes out:** `0.9`, `5.3`, and the surface that owns whatever rule the question was about.
+**Routes in, four live and one parked, and only one of the four is a person browsing:** `0.2` support button on every screen, `5.6` account restricted, `1.4` our own proof failed, `2.2` geo blocked. **`2.9` identity failed is the fifth and it is `LATER` with `2.7` since `D-26`**, kept on every list in this node rather than deleted, so the route exists on the map the day the layer returns. **Routes out:** `0.9`, `5.3`, and the surface that owns whatever rule the question was about.
+
+**What the deferral does to this node, which is less than it looks and more than nothing.** Three of the four `G4` cases still route here, so the appeal form, the deadline and the six appeal states all keep their subjects. **What is gone is the one route that would have carried an identity ground into the form**, which is why section 3's refusal of identity documents is now a rule with no live case rather than a rule holding one back. It stays written, because a rule that only exists while its case does is a rule that will be missing on the day the case returns.
 
 **Not a policy page.** `0.9` holds documents. This page has a function and a service level, and `G4` is what makes the service level testable rather than a promise.
 
@@ -58,7 +60,7 @@
 
 **The number is not decided here.** `0.11` section 2 already holds the row: **Published appeal response deadline**, parent `G4` on `B8-3` pattern of 3, read on `5.3`, `2.9` and `0.10`, refresh class "static until republished", and **its value is `[?]`**. This node specifies everything around it.
 
-1. **One number, one unit, everywhere it is rendered.** `5.6`, `2.9`, `1.4`, `2.2` and this page all print the same figure from the same row. A deadline restated per surface is a deadline that will disagree with itself, which is the whole argument for `0.11` existing.
+1. **One number, one unit, everywhere it is rendered.** `5.6`, `1.4`, `2.2` and this page all print the same figure from the same row, and `2.9` will when it returns. A deadline restated per surface is a deadline that will disagree with itself, which is the whole argument for `0.11` existing.
 2. **It counts from ticket creation, not from the first time a human reads it.** A clock that starts when we pick the ticket up is a clock we control.
 3. **It is a deadline for an answer, not for a resolution, and the difference is printed.** An answer is substantive: what we decided, on what ground, and what happens next. **"We are looking into it" does not stop the clock**, because an autoresponder that satisfies the deadline reproduces the exact sentence `B8-3` records, they refused to provide any specific explanation.
 4. **If no deadline is published, the page says so.** `0.11` rule 3: missing is a state, never a zero, and never a plausible placeholder. Nobody will ship that sentence, which is precisely why the rule is worth writing.
@@ -73,7 +75,7 @@
 
 | Field | Filled by | Why it is required |
 |---|---|---|
-| **The decision being appealed** | The product, from the route in | Never typed by a person when the product already knows it. Prefilled from `5.6`, `2.9`, `1.4` or `2.2` |
+| **The decision being appealed** | The product, from the route in | Never typed by a person when the product already knows it. Prefilled from `5.6`, `1.4` or `2.2`, and from `2.9` when it returns |
 | **The ground we gave** | The product, read-only, quoted back | `G4` says a restriction produces written notice with a stated ground. **This field is what makes that testable: if the product cannot render the ground here, the ground was never written** |
 | **The round id or the transaction id** | The product where the route carries it, pasteable where it does not | The object under dispute. A round id comes from `0.14`, a transaction id from the deposit or withdrawal record. **A stranger arriving from a shared `7.1` link has neither prefilled and must be able to paste one** |
 | **The version of the document the decision was taken under** | The product, linked into `0.9` | **A restriction taken under version 3 of the terms is not answered by version 4.** This is the join between the two nodes and it is why `0.9`'s version history is not decorative |
@@ -100,7 +102,7 @@
 | Putting money in | `4.1`, `4.4`, `4.5` | `B4-3`, `B4-1` |
 | Getting your items out | `5.3`, `5.4`, `5.5`, `5.8` | `B8-2`, `B8-1` |
 | Limits and self exclusion | `6.1`, `6.2`, `6.3` | `B7-4`, and the compliance constraint |
-| Your account and your data | `0.9`, `2.7`, `5.1` | `B8-4` |
+| Your account and your data | `0.9`, `5.1`. **`2.7` is `LATER`**, so this section has no identity questions in round 1 and the absence is the honest state of it | `B8-4` |
 | When something goes wrong | This page, `5.6`, `2.9`, `1.4` | `B8-3` |
 
 **Four rules, and the first is the whole difference from the source it was taken from.**
@@ -144,12 +146,14 @@ Seven, and the last one is the reason this is a node rather than a form.
 
 ---
 
-## 6. The three nodes that route here, and what each one must carry
+## 6. The four nodes that route here, three of them live, and what each one must carry
+
+**The heading said three and the table has four rows.** It was written when `2.2` was registered by `markets.md` rather than by the sitemap's transition column, and the count was never updated. **Now three of the four are live and the fourth is parked**, so the two numbers finally mean different things and both are printed.
 
 | Route in | What it is | What it hands over | What must be true |
 |---|---|---|---|
 | **`5.6` Account restricted, notice and appeal** | The `G4` case in full: a written ground, the balance frozen and never zeroed, an appeal with a published deadline | The restriction id, the ground text, the account, the balance state | The frozen balance is stated in the appeal, not only on `5.3`. **`5.7` restriction upheld is state 6 here**, and the two are one object seen from two surfaces rather than two decisions |
-| **`2.9` Identity failed, appeal and exit** | An appeal with a stated ground and a published deadline **mirroring `G4`**, plus the withdrawal route that was open the whole time | The check id and the ground. **Not the documents** | The appeal form asks for no identity document, section 3. `2.7` owns that surface, and `B2` on `B8-4` is why the exit never acquires a verification branch while the appeal runs |
+| **`2.9` Identity failed, appeal and exit.** **`LATER` since `D-26`, and the row is kept rather than deleted** | An appeal with a stated ground and a published deadline **mirroring `G4`**, plus the withdrawal route that was open the whole time | The check id and the ground. **Not the documents** | The appeal form asks for no identity document, section 3. `2.7` owns that surface, and `B2` on `B8-4` is why the exit never acquires a verification branch while the appeal runs. **None of this is drawn in round 1 and all of it is specified**, which is the difference between a parked route and a missing one |
 | **`1.4` Verifier, our own proof failed** | The deliberate dead end for the job. `flows.md`: nothing can close it while the proof is wrong | The round id, our published value and the recomputed value, **both, automatically**. `0.14`'s mismatch state already says "Reported automatically, with the round attached" | **The person adds nothing.** The ticket exists before they reach the form, and the form is public because a stranger holding a `7.1` link can reach this state |
 | **`2.2` Geo blocked** | A dead end by design, and wrong in both directions, `markets.md` section 6 | The market, the verdict and the ground in readable words | The person has no account, so the form takes an address for the answer. Registered by `markets.md`, not by the sitemap's own transition column |
 
@@ -185,7 +189,7 @@ Inherited from `0.13` section 3: `/support`, **indexed, canonical self, `WebPage
 
 ### A. Meta tags, ready copy
 
-- **Title, <= 60:** `Support and appeals - CS2 Clutch`
+- **Title, <= 60:** `Support and appeals - CS2 Clutch`. **This follows the `0.13` pattern and node `6.1` refuses to**, section 9. Two indexed pages, two answers, one pattern, and the difference is that `CS2 Clutch` is a working placeholder. **Neither node is wrong on its own reasoning and they cannot both ship.** Printed rather than quietly reconciled
 - **Description, <= 155:** `Contact us or appeal a decision, with a published deadline for an answer. Every restriction carries a written ground and a route to dispute it.`
 - **Canonical:** self. **Robots:** `index, follow`. **No hreflang**, `0.13` section 1.
 - **OG and Twitter:** the same title and description. No per-ticket card: a ticket is private and has no public URL.
@@ -248,5 +252,6 @@ The seven FAQ sections in section 4 are H3s under heading 5.
 | **Ticket retention** | How long a ticket and its answer stay retrievable. State 4 requires that they do | Counsel, in the privacy document |
 | **The FAQ question list** | Sections and rules are fixed here. The questions are derived at stage 05 from the As-Is barrier ledger, one per documented barrier that survives its surface | Stage 05 |
 | **Staffing and hours** | A published deadline is a commitment about people. One language is locked by `CLAUDE.md`, so there is no language axis, and everything else is `[?]` | Founder |
+| **Whether an indexed title carries the placeholder brand** | `0.13` writes the pattern with `CS2 Clutch` in it. **This node follows it and `6.1` refuses it**, on the ground that a title is the one string that reaches search results and browser history before anyone reviews it. **Two indexed surfaces cannot answer this differently**, and the answer is the naming decision rather than a copy preference | Founder, with the product name |
 
 **And what belongs elsewhere.** The words of every interface string: stage 05, which syncs the voice-aligned version back. How the page looks: stages 06 and 07. The written ground itself: the surface that takes the decision, `5.6`, `2.9`, `1.4` and `2.2`, each under `G4`. The documents a question might be about: `0.9`. Indexation and URL: `0.13`.

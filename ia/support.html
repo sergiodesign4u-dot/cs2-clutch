@@ -240,7 +240,7 @@
 
   <div class="card is-good">
     <h4>1. One number, one unit, everywhere it is rendered</h4>
-    <p><span class="surf">5.6</span>, <span class="surf">2.9</span>, <span class="surf">1.4</span>, <span class="surf">2.2</span> and this page all print the same figure from the same row. <strong>A deadline restated per surface is a deadline that will disagree with itself</strong>, which is the whole argument for <code>0.11</code> existing.</p>
+    <p><span class="surf">5.6</span>, <span class="surf">1.4</span>, <span class="surf">2.2</span> and this page all print the same figure from the same row, and <span class="surf">2.9</span> will when it returns. <strong>A deadline restated per surface is a deadline that will disagree with itself</strong>, which is the whole argument for <code>0.11</code> existing.</p>
   </div>
 
   <div class="card">
@@ -275,7 +275,7 @@
     <table>
       <thead><tr><th style="width:26%">Field</th><th style="width:24%">Filled by</th><th>Why it is required</th></tr></thead>
       <tbody>
-        <tr><td><strong>The decision being appealed</strong></td><td>The product, from the route in</td><td>Never typed by a person when the product already knows it. Prefilled from <span class="surf">5.6</span>, <span class="surf">2.9</span>, <span class="surf">1.4</span> or <span class="surf">2.2</span></td></tr>
+        <tr><td><strong>The decision being appealed</strong></td><td>The product, from the route in</td><td>Never typed by a person when the product already knows it. Prefilled from <span class="surf">5.6</span>, <span class="surf">1.4</span> or <span class="surf">2.2</span>, and from <span class="surf">2.9</span> when it returns</td></tr>
         <tr><td><strong>The ground we gave</strong></td><td>The product, read-only, quoted back</td><td><span class="row-code">G4</span> says a restriction produces written notice with a stated ground. <strong>This field is what makes that testable: if the product cannot render the ground here, the ground was never written</strong></td></tr>
         <tr><td><strong>The round id or the transaction id</strong></td><td>The product where the route carries it, pasteable where it does not</td><td>The object under dispute. A round id from <code>0.14</code>, a transaction id from the deposit or withdrawal record. <strong>A stranger arriving from a shared <span class="surf">7.1</span> link has neither prefilled and must be able to paste one</strong></td></tr>
         <tr><td><strong>The document version the decision was taken under</strong></td><td>The product, linked into <span class="surf">0.9</span></td><td><strong>A restriction taken under version 3 of the terms is not answered by version 4.</strong> This is the join between the two nodes and it is why the version history is not decorative</td></tr>
@@ -328,7 +328,7 @@
         <tr><td>Putting money in</td><td><span class="surf">4.1</span>, <span class="surf">4.4</span>, <span class="surf">4.5</span></td><td><span class="row-code">B4-3</span>, <span class="row-code">B4-1</span></td></tr>
         <tr><td>Getting your items out</td><td><span class="surf">5.3</span>, <span class="surf">5.4</span>, <span class="surf">5.5</span>, <span class="surf">5.8</span></td><td><span class="row-code">B8-2</span>, <span class="row-code">B8-1</span></td></tr>
         <tr><td>Limits and self exclusion</td><td><span class="surf">6.1</span>, <span class="surf">6.2</span>, <span class="surf">6.3</span></td><td><span class="row-code">B7-4</span>, and the compliance constraint</td></tr>
-        <tr><td>Your account and your data</td><td><span class="surf">0.9</span>, <span class="surf">2.7</span>, <span class="surf">5.1</span></td><td><span class="row-code">B8-4</span></td></tr>
+        <tr><td>Your account and your data</td><td><span class="surf">0.9</span>, <span class="surf">5.1</span>. <strong>2.7 is LATER</strong>, so this section has no identity questions in round 1</td><td><span class="row-code">B8-4</span></td></tr>
         <tr><td>When something goes wrong</td><td>This page, <span class="surf">5.6</span>, <span class="surf">2.9</span>, <span class="surf">1.4</span></td><td><span class="row-code">B8-3</span></td></tr>
       </tbody>
     </table>
@@ -418,8 +418,8 @@
 <!-- ROUTES -->
 <section id="routes">
   <div class="sec-head">
-    <h2>The nodes that route here, and what each one must carry</h2>
-    <p>Five routes in, and only one of them is a person browsing.</p>
+    <h2>The nodes that route here, three of them live, and what each one must carry</h2>
+    <p>Four routes in and one parked, and only one of the four is a person browsing. The heading said three while the table held four rows, and now the two counts finally mean different things.</p>
   </div>
 
   <div class="table-wrap">
@@ -427,7 +427,7 @@
       <thead><tr><th style="width:18%">Route in</th><th style="width:26%">What it is</th><th style="width:26%">What it hands over</th><th>What must be true</th></tr></thead>
       <tbody>
         <tr><td><strong><span class="surf">5.6</span> Account restricted</strong></td><td>The <span class="row-code">G4</span> case in full: a written ground, the balance frozen and never zeroed, an appeal with a published deadline</td><td>The restriction id, the ground text, the account, the balance state</td><td>The frozen balance is stated in the appeal, not only on <span class="surf">5.3</span>. <strong><span class="surf">5.7</span> restriction upheld is the refused state here</strong>, and the two are one object seen from two surfaces rather than two decisions</td></tr>
-        <tr><td><strong><span class="surf">2.9</span> Identity failed</strong></td><td>An appeal with a stated ground and a published deadline <strong>mirroring <span class="row-code">G4</span></strong>, plus the withdrawal route that was open the whole time</td><td>The check id and the ground. <strong>Not the documents</strong></td><td>The appeal form asks for no identity document. <span class="surf">2.7</span> owns that surface, and <span class="row-code">B2</span> on <span class="row-code">B8-4</span> is why the exit never acquires a verification branch while the appeal runs</td></tr>
+        <tr><td><strong><span class="surf">2.9</span> Identity failed.</strong> <strong>LATER since D-26, and the row is kept rather than deleted</strong></td><td>An appeal with a stated ground and a published deadline <strong>mirroring <span class="row-code">G4</span></strong>, plus the withdrawal route that was open the whole time</td><td>The check id and the ground. <strong>Not the documents</strong></td><td>The appeal form asks for no identity document. <span class="surf">2.7</span> owns that surface, and <span class="row-code">B2</span> on <span class="row-code">B8-4</span> is why the exit never acquires a verification branch while the appeal runs. <strong>None of this is drawn in round 1 and all of it is specified</strong>, which is the difference between a parked route and a missing one</td></tr>
         <tr><td><strong><span class="surf">1.4</span> Our own proof failed</strong></td><td>The deliberate dead end for the job. Nothing can close it while the proof is wrong</td><td>The round id, our published value and the recomputed value, <strong>both, automatically</strong></td><td><strong>The person adds nothing.</strong> <code>0.14</code>'s mismatch state already says "reported automatically, with the round attached". The form is public because a stranger holding a <span class="surf">7.1</span> link can reach this state</td></tr>
         <tr><td><span class="surf">2.2</span> Geo blocked</td><td>A dead end by design, and wrong in both directions</td><td>The market, the verdict, and the ground in readable words</td><td>The person has no account, so the form takes an address for the answer. Registered by <code>markets.md</code> section 6, not by the sitemap's own transition column</td></tr>
         <tr><td><span class="surf">0.2</span> Footer support button</td><td>An outlined pill on every screen, in one account state</td><td>Nothing. A person browsing</td><td>It is a real <code>&lt;a&gt;</code> styled as a button, and the reason it is a button rather than a link in a column is that <span class="row-code">G4</span> and Article 5(1)(c) are not served by something that looks like a policy</td></tr>
@@ -488,7 +488,7 @@
     <table>
       <thead><tr><th style="width:20%">Field</th><th>Value</th></tr></thead>
       <tbody>
-        <tr><td>Title, &lt;= 60</td><td>Support and appeals - CS2 Clutch</td></tr>
+        <tr><td>Title, &lt;= 60</td><td>Support and appeals - CS2 Clutch. <strong>This follows the 0.13 pattern and node 6.1 refuses to.</strong> Two indexed pages, two answers, one pattern, and the difference is that CS2 Clutch is a working placeholder. <strong>Neither node is wrong on its own reasoning and they cannot both ship</strong></td></tr>
         <tr><td>Description, &lt;= 155</td><td>Contact us or appeal a decision, with a published deadline for an answer. Every restriction carries a written ground and a route to dispute it.</td></tr>
         <tr><td>Canonical</td><td>Self. Robots <code>index, follow</code>. <strong>No hreflang</strong>, <code>0.13</code> section 1</td></tr>
         <tr><td>OG and Twitter</td><td>The same title and description. <strong>No per-ticket card:</strong> a ticket is private and has no public URL</td></tr>
@@ -554,6 +554,7 @@
         <tr><td>Ticket retention</td><td>How long a ticket and its answer stay retrievable. The answered state requires that they do</td><td>Counsel, in the privacy document</td></tr>
         <tr><td>The FAQ question list</td><td>Sections and rules are fixed here. The questions are derived from the As-Is barrier ledger, one per documented barrier that survives its surface</td><td>Stage 05</td></tr>
         <tr><td>Staffing and hours</td><td>A published deadline is a commitment about people. One language is locked, so there is no language axis, and everything else is <span class="q">[?]</span></td><td>Founder</td></tr>
+        <tr><td><strong>Whether an indexed title carries the placeholder brand</strong></td><td><code>0.13</code> writes the pattern with CS2 Clutch in it. <strong>This node follows it and 6.1 refuses it</strong>, on the ground that a title is the one string that reaches search results and browser history before anyone reviews it. <strong>Two indexed surfaces cannot answer this differently</strong>, and the answer is the naming decision rather than a copy preference</td><td>Founder, with the product name</td></tr>
       </tbody>
     </table>
   </div>

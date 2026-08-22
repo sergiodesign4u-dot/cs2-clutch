@@ -2580,3 +2580,55 @@ Every one of the five pages scrolled sideways by 3px at 900. **The cause was not
 **Closed:** whether the spend ceiling is per deposit or per period, answered by `4.1` the day before. **Closed:** the `0.13` title pattern this node reported missing, which now exists.
 
 **Created by closing the second one.** The pattern is `<node H1 subject>` then a separator then `CS2 Clutch`, **and `CS2 Clutch` is a working placeholder.** This node's title ships without the suffix. **A title is the one string that survives into search results and browser history before anyone reviews it**, and this is an indexed page. The divergence is named on the node rather than left as a quiet inconsistency, and it resolves itself the day the product has a name.
+
+---
+
+## D-76. Node `0.10` is drawn, nine pages, and the state that earns the node is the one where our own published number fails
+
+**Date:** 2026-08-22. **Stage:** 04. **Decided by:** Claude, on the drawing pass, with one collision handed to the founder. **Binds:** node `0.10` and its eight states, and it puts node `6.1` and node `0.13` against each other on one line of copy.
+
+**What was built.** Nine pages: `support.html`, `-submitted`, `-waiting`, `-answered`, `-upheld`, `-refused`, `-deadline`, `-nodispute`, `-notfound`. **75 of 93.**
+
+### The page is not a help centre with a form at the bottom, and the evidence says why
+
+`B8-3` is three reviews and **not one of them is a complaint about slow support**. "My account was suddenly banned, excluded from the Rain system, and my balance of over 160 coins was completely wiped out... they refused to provide any specific explanation." "As soon as I tried to withdraw my winnings, the site permanently banned me." "Banning a user just to avoid paying out a small $80 prize."
+
+**Every one is a decision with no ground and no route.** So four things ship instead of a help centre: a written ground produced by the surface that took the decision, a public route to dispute it, a published deadline for an answer, and **a state for that deadline being missed**.
+
+**The last one is what earns the node.** `G4`'s success signal is that response time stays inside the published deadline. **A signal with no state for its own failure is a number nobody has to meet**, and the failure would then be met as an incident with no interface, which is the sentence the barrier already records. The page says the deadline passed, that the clock keeps running, and that it is not reset.
+
+### `D-26` reached a fourth file, and this time it deleted a route rather than a rule
+
+The node counts **five routes in**. `2.9` identity failed is one of them and it has been `LATER` since 18 August. Four live, one parked, and the parked one is kept on every list in the node rather than deleted.
+
+**What the deferral does here is less than it looks and more than nothing.** Three of the four `G4` cases still route in, so the appeal form, the deadline and the six appeal states all keep their subjects. **What is gone is the one route that would have carried an identity ground into the form**, which makes section 3's refusal of identity documents a rule with no live case rather than a rule holding one back. **It stays written and it is asserted by the sweep**, because a rule that only exists while its case does is a rule that will be missing on the day the case returns.
+
+**And a heading said three while its table held four rows.** `2.2` was registered by `markets.md` rather than by the sitemap's transition column and the count was never updated. Now three of four are live and the two numbers finally mean different things, so both are printed.
+
+### Two nodes, two answers, one pattern, and they cannot both ship
+
+`6.1` reported that `0.13` owed it a title pattern and did not have one. **The pattern exists now:** node H1 subject, separator, `CS2 Clutch`.
+
+**`0.10` follows it. `6.1` refuses it**, on the ground that `CS2 Clutch` is a working placeholder and a title is the one string that reaches search results and browser history before anyone reviews it. **Both are indexed surfaces and neither is wrong on its own reasoning.** Printed on both nodes and carried as an open item on both, rather than quietly reconciled by whichever one was edited last. **The answer is the naming decision, not a copy preference.**
+
+### What the page refuses, and each refusal has a live parent
+
+| Refused | Why |
+|---|---|
+| **A single form with a type selector** | Contact and appeal are two entry points into one queue. The appeal carries four prefilled fields a question does not have, and a selector that rewrites the required fields under a person is how the prefill gets lost |
+| **Tabs over the two routes** | A tab hides one of two routes from a person who arrived needing the other |
+| **Any identity document** | An appeal form that asks for a passport has moved the exit ambush to the complaints desk |
+| **An account** | The live product's own submit button reads SIGN IN, so **a person locked out of their account cannot use its support channel to say so.** That is a walked fact and it is the strongest single argument in this repository for the appeal route |
+| **A named escalation authority** | The licence is a direction rather than a filing, so there is no authority to name. **A page about disputed decisions is the worst possible place in the product to invent one** |
+| **A deadline figure** | The register holds the row and its value is `[?]`. Every page prints "not published" where the number goes |
+| **A support address** | It depends on the operating company and that is not decided |
+
+### The FAQ is built once and it holds no number of its own
+
+Seven sections, each naming the surfaces that own it, **and the questions are not drawn**: they are derived at stage 05 from the barrier ledger, one per documented barrier that survives its surface. **A competitor keeps its thirty day holding deadline and its crediting window in its FAQ and nowhere else**, and both are real product rules living in a document. **The FAQ repeats a rule. It never owns one**, so every section renders its scope and says the answers are not written yet rather than inventing three plausible ones.
+
+### Measured
+
+245 checks over the nine pages at six widths. No horizontal overflow. One H1 each. **Seven accordion sections on every page, every answer in the DOM at every width**, every control a real `<button>` with `aria-expanded` and `aria-controls`, none a styled `div`. No disabled control, no image in main, **nothing is `noindex`**. **No deadline figure invented on any page**, no support address invented, no identity document asked for anywhere while the refusal sentence is asserted present. The ticket id is copyable text on all four states that carry one, every wait names its owner, and **the frozen-not-zeroed balance is stated on all four**. The ground quoted back into the appeal form **wraps and is not in a scroller**, asserted by measuring its overflow rather than by reading the markup: a ground a person has to scroll inside a box is a ground they will not read, and `G4` exists so that it gets read.
+
+456 checks over all 75 pages clean, prose sweep 0 of 75, every internal link a registry file. **Four dead links remain and all four are undrawn screens.**

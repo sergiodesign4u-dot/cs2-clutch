@@ -1878,3 +1878,35 @@ And what happens to a frozen balance after a restriction is upheld is **stated a
 ### The defect that was not in this node
 
 All five pages scrolled sideways by 3px at 900. `.wf-sec-head` gave the title `flex: 0 0 auto`, so a long H2 could neither shrink nor wrap and pushed the 96px rule past the edge. **Latent on every page with a long heading.** Fixed in the shared rule; 402 checks over all 66 pages confirm nothing regressed.
+
+---
+
+## 53. `D-76`: node `0.10`, nine pages, and the state that earns the node
+
+**Nine pages, 22 August 2026.** `support.html` plus eight states. **75 of 93.**
+
+### The IA was fixed first
+
+| Finding | What it was |
+|---|---|
+| **`2.9` was one of five live routes in** | `LATER` since 18 August. Kept on every list rather than deleted, and what it takes with it is the only route that would have carried an identity ground into the appeal form |
+| **A heading said three and its table held four rows** | `2.2` was registered by `markets.md` rather than by the sitemap's transition column and nobody updated the count |
+| **The title follows a pattern `6.1` refuses** | `0.13`'s pattern bakes in `CS2 Clutch`, a working placeholder. Two indexed pages, two answers, and they cannot both ship |
+
+### The page
+
+**Four things, and the fourth is why this is a node rather than a form.** A written ground, a public route to dispute it, a published deadline, and **a state for that deadline being missed**. A success signal with no state for its own failure is a number nobody has to meet.
+
+**Two routes, two headings, two forms, never tabs.** Side by side from 900, stacked below it.
+
+**The deadline is on the first screen of every one of the nine pages** and renders as not published, because the register's value is `[?]`.
+
+**The ground is quoted back into the appeal form and it wraps.** The sweep measures its overflow rather than reading the markup: a ground a person has to scroll inside a box is a ground they will not read.
+
+**The FAQ is built once in `_nav.js`.** Seven sections, each naming the surfaces that own it, every answer in the DOM at every width, and **no questions drawn**: they come from the barrier ledger at stage 05.
+
+### What is asserted rather than trusted
+
+No deadline figure invented on any page. No support address invented. **No identity document asked for anywhere, while the refusal sentence is asserted present.** No escalation authority named on the refused state. The ticket id copyable on all four states that carry one, every wait naming its owner, and the frozen-not-zeroed balance stated on all four.
+
+**245 checks over the nine pages, 456 over all 75.**

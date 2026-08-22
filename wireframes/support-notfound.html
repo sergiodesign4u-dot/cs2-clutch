@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticket not found</title>
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- TICKET ID NOT FOUND. IT SAYS SO AND OFFERS THE CONTACT ROUTE, AND IT IS
+     NEVER A 404. The system pages node's rule is that this product has no dead
+     ends, and a support page that dead-ends is the barrier arriving on the one
+     screen built to answer it. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <h1>Support</h1>
+
+    <div class="wf-sup">
+      <div class="wf-notice">
+        <h2 id="h2-notfound">We cannot find that ticket</h2>
+        <p>The id <span class="wf-tid-v">ap-2026-08-22-0031</span> does not match anything we hold. It may be mistyped, or it may belong to a different address.</p>
+        <p class="wf-note">Send us the id below and we will look. This is not a dead end.</p>
+      </div>
+      <!-- BLOCK 1. H1 AND THE DEADLINE, ON THE FIRST SCREEN. The number is above
+           the fold because it is the entire difference between this page and a
+           help page. Its value is not published, so it renders as not published:
+           missing is a state, never a zero and never a plausible placeholder.
+           IT IS A DEADLINE FOR AN ANSWER, NOT FOR A RESOLUTION, and the
+           difference is printed rather than assumed. "We are looking into it"
+           does not stop the clock, because an autoresponder that satisfies the
+           deadline reproduces the exact sentence the barrier records: they
+           refused to provide any specific explanation. -->
+      <div class="wf-tick">
+        <div class="wf-tick-row">
+          <span class="wf-fig-v wf-fig-missing">Not published</span>
+          <span class="wf-tick-k">Time to an answer</span>
+        </div>
+        <p class="wf-fig-c">Every ticket gets an answer inside a published deadline, and the figure is not set yet. It counts from the moment the ticket is created, not from the moment one of us reads it, and it is a deadline for an answer with a reason in it rather than for a resolution.</p>
+      </div>
+      <!-- BLOCK 2. TWO ROUTES, TWO HEADINGS, TWO FORMS, AND NEVER TABS. A tab hides
+           one of two routes from a person who arrived needing the other. They are
+           two entry points into one queue, and the appeal carries four prefilled
+           fields a general question does not have, which is why a single form
+           with a type selector is refused: a selector that rewrites the required
+           fields under a person is how the prefill gets lost.
+           NEITHER FORM NEEDS AN ACCOUNT. A geo-blocked person has none, and a
+           stranger holding a shared result link has none either. The live product
+           labels its own send button SIGN IN, so a person locked out of their
+           account cannot use its support channel to say so, and that is the
+           strongest single argument in this project for the appeal route. -->
+      <div class="wf-two">
+        <div class="wf-card wf-form">
+          <div class="wf-sec-head"><h2 id="h2-contact">Contact us</h2></div>
+          <p class="wf-fig-c">Ask us anything. No account needed.</p>
+          <label class="wf-f-l"><span class="wf-fig-c">What it is about</span><input class="wf-f" type="text"></label>
+          <label class="wf-f-l"><span class="wf-fig-c">Where to send the answer</span><input class="wf-f" type="email" value="nightjar@example.com"></label>
+          <label class="wf-f-l"><span class="wf-fig-c">Your message</span><textarea class="wf-f"></textarea></label>
+          <div class="wf-row"><button class="wf-btn wf-btn--primary" type="button">Send</button></div>
+        </div>
+        <div class="wf-card wf-form">
+          <div class="wf-sec-head"><h2 id="h2-appeal">Appeal a decision</h2></div>
+          <p class="wf-fig-c">If we restricted your account, refused a check, or our own proof did not match. We carry the decision and the ground we gave into this form, so you do not have to remember either.</p>
+          <div class="wf-f-l">
+            <span class="wf-fig-c">The decision you are appealing</span>
+            <input class="wf-f" type="text" placeholder="">
+          </div>
+          <div class="wf-f-l">
+            <span class="wf-fig-c">The round or transaction under dispute</span>
+            <input class="wf-f" type="text">
+          </div>
+          <label class="wf-f-l"><span class="wf-fig-c">What you say</span><textarea class="wf-f"></textarea></label>
+          <label class="wf-f-l"><span class="wf-fig-c">Where to send the answer</span><input class="wf-f" type="email" value="nightjar@example.com"></label>
+          <p class="wf-note wf-fig-missing">What you can attach, and how large, is not decided.</p>
+          <div class="wf-row"><a class="wf-btn wf-btn--primary" href="support-submitted.html">Send the appeal</a></div>
+        </div>
+      </div>
+      <!-- NO IDENTITY DOCUMENT IS ASKED FOR ANYWHERE ON THIS PAGE. An appeal form
+           that asks for a passport has moved the exit ambush to the complaints
+           desk. The rule has no live case in round 1 because that layer is
+           parked, and it stays written for the day it returns. -->
+      <p class="wf-note">We never ask for an identity document here.</p>
+      <!-- BLOCK 3. THE EMAIL ADDRESS, PRINTED AS TEXT AND AS A LINK. The Article
+           asks for an electronic mail address by name, and mail to it enters the
+           same queue with the same kind of id and the same clock: two channels
+           with two service levels is one channel plus a decoy.
+           THE AUTHORITATIVE OBJECT IS THE TICKET, NOT THE CHANNEL. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head"><h2 id="h2-mail">By email</h2></div>
+        <p class="wf-fig-missing">The address is not set. It depends on the operating company, and that is not decided.</p>
+        <p class="wf-note">Mail to it opens the same kind of ticket, with the same id and the same clock.</p>
+      </div>
+      <!-- BLOCK 5. THE FAQ, BELOW THE SUBSTANCE AND NEVER INSTEAD OF IT. The
+           contact route, the appeal route and the deadline come first.
+           THE FAQ REPEATS A RULE, IT NEVER OWNS ONE. A competitor keeps its
+           thirty day holding deadline and its crediting window in its FAQ and
+           nowhere else, and both are real product rules living in a document.
+           NO ANSWER IS THE ONLY PLACE A RULE APPEARS. If it is, the rule is
+           missing from the product and that entry is a bug report. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head">
+          <h2 id="h2-faq">Questions and answers</h2>
+          <p class="wf-sec-sub">Every rule here also lives on the screen where you meet it, and that screen is the one that governs.</p>
+        </div>
+        <div class="wf-faq" data-faq></div>
+      </div>
+      <!-- BLOCK 6. CROSS-LINKS to the documents and to the surfaces that own the
+           rules a question might be about. -->
+      <div class="wf-row">
+        <a class="wf-btn" href="legal.html">Terms and policies</a>
+        <a class="wf-btn" href="fair.html">Provably fair</a>
+        <a class="wf-btn" href="responsible.html">Responsible play</a>
+      </div>
+    </div>
+
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: false, active: '', money: { balance: '74.20 coins', held: '130.60 coins' }, feed: false };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>
