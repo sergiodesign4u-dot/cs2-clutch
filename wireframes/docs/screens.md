@@ -1805,3 +1805,40 @@ And what happens to a frozen balance after a restriction is upheld is **stated a
 ### Measured
 
 **98 checks over the seven pages, seven widths, both rail states: clean**, and 342 over all fifty six files, now including one assertion per internal link that it names a file the registry knows.
+
+---
+
+## 51. `D-74`: node `4.1`, the fifth node in a row, and the one screen an unpublished peg empties
+
+**Five pages, 22 August 2026.** `deposit.html`, `deposit-ceiling-reached.html` `4.2`, `deposit-ceiling-pending.html` `4.3`, `deposit-crediting.html` `4.4`, `deposit-declined.html` `4.5`. **Cluster 4 is complete.** 61 of 93.
+
+### The IA was fixed first, and it took eight files
+
+`D-26` had reached three files out of ten. What it left standing:
+
+| File | What it still asserted |
+|---|---|
+| `deposit.md` | A section titled "Reached through `2.7`", a state table with two identity states, a block 1 promise resting on two parked rows |
+| `flows.md` flow 2 | Eight nodes of identity branch, plus the decisions list, the states list and a correction paragraph about a node that had left |
+| `sitemap.md` | Four places: the account entity's parts, the pattern-A resolution, the contextual compliance list, the free-entry hole |
+| `gate.md` | Section 0 calling this node the cheap half of a two-layer split, six lines under a header that records the split's end |
+| `markets.md` | The evidence table rating the identity document as collected before funding |
+| `case.md`, `account.md`, `concept-map.html` | One sentence each |
+
+**Two more stale things in `deposit.md` came out with it.** Section 3.1 still carried the pre-`D-28` rule, "a deposit screen that prints two numbers with two units is the defect", while three other sections of the same file carried the post-`D-28` one. And sections 8 and 12 still recorded the `0.11` crediting-window finding as open, which the step 8 audit closed.
+
+### What the page is
+
+**Block order: amount, the two brakes, then the method.** Not the category's, which is method then amount then pay. The ceiling is pre-filled from the amount, so a method chosen first makes the ceiling arrive as an interruption at the end.
+
+**Block 2 is the one block an unpublished peg empties rather than degrades.** Real money in, coins out, rate with its as-of, and all three unknown. **A second gap surfaced with it:** nothing in the repository says which real currency a deposit is taken in, so the unit is marked missing on the field, on the presets and on the total.
+
+**The ceiling refuses rather than dims**, extending `D-58` from the consent gate. Accepting and changing both satisfy it, because the mechanism is one tap on a number they chose themselves.
+
+**The dock is fixed below 900 and sticky above it.** Sticky was measured first: as the only child of its grid item it has zero travel and ended 90px below the fold at 360, crossing the mobile bar. **236px of an 800px viewport** is the price of four figures continuously present.
+
+**`4.2` runs with the live strip off**, declared by the page. Its own forbidden list already says no offer of any kind.
+
+### What the sweep asserts
+
+133 checks over five pages at six widths. No horizontal overflow. One H1 each. **No verification named anywhere in the cluster.** No currency symbol invented on any page. No disabled control and no progress or meter element. The refused press answers, marks the condition on itself and does not navigate; the settled press goes through; typing counts as consent. `4.2` carries no completion mechanic, no countdown, no feed. `4.5` keeps the typed amount and offers no smaller one.

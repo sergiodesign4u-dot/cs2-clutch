@@ -3077,3 +3077,141 @@ select {
   .wf-wd { display: grid; grid-template-columns: minmax(0, 1fr) 300px; align-items: start; gap: var(--wf-s-4); }
   .wf-wd-side { position: sticky; top: var(--wf-s-2); }
 }
+
+
+/* ---------------------------------------------------------------------------
+   NODE 4.1, DEPOSIT, and its states 4.2 to 4.5. Drawn 22 August 2026.
+   THE ONE SCREEN THAT CANNOT BE DRAWN WITHOUT THE PEG. Every other surface can
+   print a coin figure and mark the peg missing beside it. Here the conversion is
+   the block: a person types real money and reads what it buys, so an unpublished
+   rate does not degrade this page, it empties its second block. That is why the
+   amount, the presets and the whole right hand side render as shapes with the
+   figure marked rather than as numbers.
+   AND THE CEILING IS THE ONLY BLOCKING THING ON THE PAGE. It refuses the press
+   and says what is missing, which is the form D-58 fixed for the consent gate,
+   rather than dimming a control and leaving a person to work out why.
+   --------------------------------------------------------------------------- */
+
+/* Block 1, the account state. It says funding is open and it says nothing about
+   the exit in either direction: the promise that used to live here rested on a
+   check that moved to the other end of the account. */
+.wf-fund { display: flex; flex-direction: column; gap: var(--wf-s-3); }
+
+/* Block 2. The amount, and the rate beside it. ONE EDITABLE FIELD AND ONE
+   READING: two editable money fields on one form is where a person types into
+   the wrong one. The unit is text beside the input and never a glyph baked into
+   an image, and never a placeholder that disappears on focus. */
+.wf-amt { display: grid; gap: var(--wf-s-2); grid-template-columns: 1fr; }
+.wf-amt-row { display: flex; align-items: stretch; gap: 0; }
+.wf-amt-in {
+  flex: 1 1 auto; min-width: 0;
+  font: inherit; font-family: var(--wf-mono); font-size: var(--wf-t-l);
+  padding: var(--wf-s-2); color: var(--wf-ink);
+  background: transparent; border: 1px solid var(--wf-line);
+  border-radius: var(--wf-r-2) 0 0 var(--wf-r-2);
+}
+.wf-amt-unit {
+  display: flex; align-items: center; padding-inline: var(--wf-s-2);
+  border: 1px solid var(--wf-line); border-left: 0;
+  border-radius: 0 var(--wf-r-2) var(--wf-r-2) 0;
+  font-size: var(--wf-t-s); color: var(--wf-ink-dim); white-space: nowrap;
+}
+/* The converted figure. NEVER AN INPUT, and it carries the same missing-figure
+   treatment as every other unpublished number rather than a plausible one. */
+.wf-conv {
+  padding: var(--wf-s-2); border: 1px dashed var(--wf-line-soft);
+  border-radius: var(--wf-r-2); display: flex; flex-direction: column; gap: 2px;
+}
+.wf-presets { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
+
+/* Block 3. The ceiling. Stacked value and period at 360, one row from 600, which
+   is the only element on this page whose form changes with the width. */
+.wf-ceil { display: grid; gap: var(--wf-s-2); grid-template-columns: 1fr; }
+/* The period is unknown, and an unknown rendered at figure size outweighs the one
+   control on the block. It is marked, not shouted. */
+.wf-ceil .wf-fig-v { font-size: var(--wf-t-m); }
+.wf-ceil-in {
+  font: inherit; font-family: var(--wf-mono);
+  padding: var(--wf-s-2); color: var(--wf-ink);
+  background: transparent; border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
+  min-width: 0;
+}
+/* The asymmetry is IN THE INTERFACE AND NOT IN TERMS. Two lines, both always
+   visible, because a ceiling that can be raised on impulse in the moment it
+   binds is a setting rather than a brake. */
+.wf-asym { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-asym li { display: flex; gap: var(--wf-s-2); font-size: var(--wf-t-s); }
+.wf-asym-w { flex: 0 0 84px; font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+
+/* Block 6. Method cards, WITH THE EMPTY STATE AS THE DEFAULT COMPOSITION rather
+   than as a fallback: a screen designed for the returning depositor and patched
+   for the first one puts its worst layout in front of the person with the least
+   reason to trust it. */
+.wf-meth { display: grid; gap: var(--wf-s-2); grid-template-columns: 1fr; }
+.wf-meth-c {
+  padding: var(--wf-s-2); border: 1px solid var(--wf-line-soft);
+  border-radius: var(--wf-r-2); display: flex; flex-direction: column; gap: var(--wf-s-half);
+}
+.wf-meth-c--slot { border-style: dashed; }
+.wf-meth-x { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+
+/* Block 8. THE PERSISTENT SUMMARY. Docked from the moment an amount exists, and
+   LAST IN THE DOCUMENT so that a person reading linearly meets the summary after
+   everything it summarises rather than before it. Sticky rather than fixed: the
+   element stays in the flow, so nothing has to reserve space for it and the
+   mobile bar keeps its own. */
+/* STICKY WAS MEASURED AND IT DOES NOT WORK HERE. The dock is the only child of
+   its grid item, so a sticky bottom has zero travel and the element simply sits
+   where it was: at 360 it ended 90px below the fold and crossed the mobile bar.
+   Fixed below 900, and the page gains the room back at its end so nothing is
+   permanently unreachable underneath it. */
+.wf-dock {
+  position: fixed; left: 0; right: 0; bottom: var(--wf-bar-h); z-index: 30;
+  background: var(--wf-surface); border-top: 1px solid var(--wf-line);
+  padding: var(--wf-s-2) max(var(--wf-s-2), (100% - var(--wf-content)) / 2);
+  display: flex; flex-direction: column; gap: var(--wf-s-1);
+}
+.wf-screen-body:has(.wf-dock) { padding-bottom: 260px; }
+/* IT COSTS A QUARTER OF THE FIRST SCREEN AT 360 AND THAT IS THE TRADE. Four
+   figures continuously present is the whole argument for docking it, so the way
+   to pay less is tighter type rather than fewer numbers: dropping the withdrawal
+   figure would move the exit price off the first screen, which is the one thing
+   this block exists to prevent. Measured at 200px of 800. */
+.wf-dock .wf-total { gap: 2px; }
+.wf-dock .wf-tl { font-size: var(--wf-t-xs); }
+.wf-dock .wf-tl--sum { font-size: var(--wf-t-s); padding-top: 4px; }
+.wf-dock .wf-refuse { font-size: var(--wf-t-xs); }
+.wf-dock .wf-row { margin: 0; }
+/* The refusal. It names WHICH condition is missing, and the control stays live so
+   that a press is answered rather than swallowed. */
+.wf-refuse { font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-refuse.is-said { color: var(--wf-ink); }
+.wf-ceil-set.is-missing { outline: 2px dashed var(--wf-ink-dim); outline-offset: 3px; }
+
+/* States 4.2 to 4.5. The reset moment, the pending moment and the elapsed time
+   are STATED MOMENTS AND NEVER LIVE COUNTERS: a ticking counter beside a deposit
+   control that will not fire is an invitation with a timer on it. */
+.wf-moment { display: flex; flex-direction: column; gap: 2px; }
+.wf-moment-v { font-family: var(--wf-mono); font-size: var(--wf-t-m); }
+.wf-moment-l { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-open-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-2); }
+.wf-open-list li { display: flex; flex-direction: column; gap: 2px; }
+
+/* Responsive last, after everything above that it overrides. */
+@media (min-width: 600px) {
+  .wf-ceil { grid-template-columns: minmax(0, 1fr) minmax(0, 160px); align-items: end; }
+  .wf-meth { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 900px) {
+  /* Two columns. The block order does not change, because it comes from the
+     sequence of the decision rather than from the space available. */
+  .wf-fund-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; align-items: start; gap: var(--wf-s-4); }
+  /* At 900 it is the right column again: in flow, sticky to the top, its own
+     borders back, and the page needs none of the room it borrowed at 360. */
+  .wf-dock {
+    position: sticky; top: var(--wf-s-2); bottom: auto; left: auto; right: auto;
+    border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
+    padding: var(--wf-s-2); gap: var(--wf-s-2);
+  }
+  .wf-screen-body:has(.wf-dock) { padding-bottom: 0; }
+}

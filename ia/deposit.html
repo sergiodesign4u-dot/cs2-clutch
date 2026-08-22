@@ -199,30 +199,43 @@
 <!-- ENTRY -->
 <section id="entry">
   <div class="sec-head">
-    <h2>Reached through 2.7, and what that puts on this screen</h2>
-    <p>Identity sits before funding and never on the exit route. This screen never carries a verification step, and it does carry the verification state.</p>
+    <h2>The identity branch is LATER, and what that deletes from this screen</h2>
+    <p><code>D-26</code> took 2.7, 2.8 and 2.9 out of round 1 on 18 August 2026. This section had not been amended and went on routing the deposit through a check the product does not have.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Three files held the new rule and this one stated the old one</h4>
+    <p><code>sitemap.md</code> row 2.7 carries the deferral, <code>CLAUDE.md</code> carries it in the compliance paragraph, and <code>identity.md</code> carries it with four costs printed at the top of the file. <strong>This node was written before it and never revisited.</strong> Found on the stage 04 drawing pass, and it is the fifth node in a row where a decision reached a header and not a body.</p>
+    <p><strong>What round 1 does, in one line.</strong> An account reaches this screen and the form renders. No verification step, no verification state, no branch, and no greyed-out form waiting for one. All four numbered states are reachable and none of them is an identity state.</p>
   </div>
 
   <div class="table-wrap">
     <table>
-      <thead><tr><th>Arriving state</th><th>What 4.1 does</th><th>Rule</th></tr></thead>
+      <thead><tr><th>Arriving state</th><th>What 4.1 does in round 1</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td><strong>Identity resolved</strong></td><td>Renders the form, with the account state strip stating that funding is open and that the exit carries no check</td><td><span class="row-code">B1</span></td></tr>
-        <tr><td><strong>Identity unresolved</strong></td><td>Routes to <span class="surf">2.7</span> before the amount field exists. <strong>The form is not rendered greyed out</strong>, because a disabled money form is an invitation to work out how to enable it</td><td><code>flows.md</code> flow 2</td></tr>
-        <tr><td><strong>Identity failed, appeal open</strong></td><td>Funding stays closed with the ground on record. <strong>Withdrawal stays open and is stated here</strong>, not only on <span class="surf">2.9</span></td><td><span class="row-code">B2</span></td></tr>
+        <tr><td><strong>Account exists</strong></td><td>Renders the form. <strong>This is the only arriving state round 1 has</strong></td><td>Drawn</td></tr>
+        <tr><td>Identity unresolved</td><td>Nothing. There is no identity to resolve</td><td>Parked with <span class="surf">2.7</span></td></tr>
+        <tr><td>Identity failed, appeal open</td><td>Nothing. <strong>Kept in the state table below rather than deleted</strong>, so the hole stays where a reader meets it</td><td>Parked with <span class="surf">2.9</span></td></tr>
       </tbody>
     </table>
   </div>
 
+  <div class="card is-note">
+    <h4>The part that is not a deletion: the promise inverts</h4>
+    <p>Before <code>D-26</code> the sequence was two rules. The check resolves <strong>before funding</strong>, row <span class="row-code">B1</span>, and the exit carries no branch at all, row <span class="row-code">B2</span>. Together they let block 1 promise that the way out is never checked, and this section used to call that "the surface where B2 becomes readable".</p>
+    <p><strong>D-26 moved the surviving layer from before funding to before withdrawal.</strong> So the promise cannot be made on this screen any more: <strong>the only identity layer the map still holds is the one that would stand on the way out.</strong></p>
+  </div>
+
   <div class="card is-good">
-    <h4>This is the surface where B2 becomes readable</h4>
-    <p>Capability <code>B1</code> says why in its own words: "the account state is shown on the deposit screen itself, <strong>so the promise describes a state the user can already see rather than a future behaviour we control</strong>."</p>
-    <p><code>B2</code>, no verification branch on the withdrawal route at all, is a code rule with no interface anywhere in the map, <strong>and a rule nobody can see does not answer a barrier about being ambushed.</strong> It is stated here rather than on <span class="surf">5.3</span> because the injury in <code>B8-4</code>, pattern of 5, is discovering the check late. The promise has to arrive early.</p>
+    <h4>B2 survives, and its reading narrows</h4>
+    <p>The narrowing is in the repository rather than invented here. <code>flows.md</code> flow 3 already proposes the shape that closes the free-entry hole without reopening <code>B8-4</code>: raise the check <strong>when the account first holds a withdrawable item</strong>, at the outcome, "so the person learns it with the item in hand and nothing lost rather than at the exit with everything staked".</p>
+    <p><strong>A check resolved before a withdrawal is attempted is not a branch inside the exit.</strong> That is the only reading on which B2 and 2.7's new placement can both be true, and it is proposed rather than drawn, because it rides on <code>D-A</code> and counsel owns it.</p>
   </div>
 
   <div class="card">
-    <h4>The order is the flow's, not this node's preference</h4>
-    <p><code>flows.md</code> flow 2 runs <strong>the ceiling check first, then the verification decision, then the amount</strong>, and node <span class="surf">2.7</span> reads the same order back: "fires before funding, entered from 4.1". So <span class="surf">4.2</span> can be reached without the identity question being asked at all, <strong>which is correct rather than a gap:</strong> a ceiling can only be reached by someone who has already funded, and funding already required the check.</p>
+    <h4>And what block 1 says instead</h4>
+    <p>The account state, and funding open. <strong>It does not promise anything about the exit, in either direction.</strong></p>
+    <p>Stating "the exit carries no check" would be true today and false the day layer 2 lands, which is <code>B4-1</code>'s shape applied to a condition instead of to a number: something the exit demands that was not named before the money went in. <strong>Stating that a check may arrive later is the other half of the same problem</strong>, so it is an open item with the founder as owner rather than a block drawn on a guess.</p>
   </div>
 </section>
 
@@ -237,7 +250,7 @@
     <table>
       <thead><tr><th style="width:4%">#</th><th style="width:22%">Block</th><th>What it holds</th><th style="width:15%">Parent</th><th style="width:13%">First screen</th></tr></thead>
       <tbody>
-        <tr><td><strong>1</strong></td><td><strong>H1 and account state</strong></td><td>The page's job in words, funding open, and the exit carries no check</td><td><span class="row-code">B1</span> <span class="row-code">B2</span>, on <span class="row-code">B8-4</span></td><td>Yes</td></tr>
+        <tr><td><strong>1</strong></td><td><strong>H1 and account state</strong></td><td>The page's job in words, and funding open. <strong>The exit promise left this block with D-26</strong></td><td><span class="row-code">B8-4</span> directly. B1 and B2 are parked with 2.7</td><td>Yes</td></tr>
         <tr><td><strong>2</strong></td><td><strong>Amount, and the rate beside it</strong></td><td>One input. <strong>Since <code>D-28</code> this block is where the conversion lives rather than where it is forbidden:</strong> the person types in real money, the coins it buys render beside it, and the rate is published with its as-of</td><td><span class="row-code">C1</span> as <code>D-28</code> rewrote it, on <span class="row-code">B7-1</span>, plus <span class="surf">0.11</span> rule 10</td><td>Yes</td></tr>
         <tr><td><strong>3</strong></td><td><strong>Spend ceiling for a named period</strong></td><td>Pre-filled with the amount just typed, period selector, and <strong>the asymmetry stated in the interface</strong></td><td><span class="row-code">C2</span>, on <span class="row-code">B7-4</span></td><td>Yes</td></tr>
         <tr><td><strong>4</strong></td><td>The other three limits live on <span class="surf">6.1</span></td><td>One plain line, one link, to session limit, cool down and self exclusion</td><td><span class="row-code">C5</span>, compliance constraint</td><td>Partly</td></tr>
@@ -352,7 +365,8 @@
     <p><strong>Parent:</strong> <code>B7-1</code>, pattern of 7 across 3 platforms, the win that turned out to be worth less than it looked. <strong>Rewritten on 19 August 2026 by <code>D-28</code></strong>, which reversed <code>C1</code> and printed in its own record that this row was the whole structural answer to that pattern. The acceptance rule is now <strong>"no coin figure renders anywhere without the peg beside it at the moment of spending"</strong>.</p>
     <p><strong>What it now deletes, and it is a much smaller thing than before.</strong> The baseline runs an internal coin denomination <strong>with no visible conversion rate</strong>, with case prices quoted from 0.53 to 161.36 coins, <code>baseline.md</code> section 4. <strong><code>D-28</code> takes the denomination and refuses the second half.</strong> Every competitor in the bank runs the same abstraction: Clash.gg in Gems, Hellcase in a bare number with no unit at all, Key-Drop in local currency, <strong>and not one of them publishes a rate at the moment of spending.</strong></p>
     <p><strong>So the divergence moved rather than disappeared.</strong> It used to be the unit. It is now the rate: a coin with a published, timestamped rate against real money, on this screen where the conversion happens and on 3.3 where it is spent. A second currency still hides the price when nobody can convert it, and a hidden price is still what lets a payout wear a label that is not a price. <strong><code>D-28</code> accepted the unit and kept the argument.</strong></p>
-    <p><strong>Concretely, on this screen.</strong> One input, one unit, one number. No conversion preview, no "you will receive", no bonus units, no rounding to a package. <strong>A deposit screen that prints two numbers with two units is the defect, whatever the second unit is called</strong>, and that includes a helpful equivalence.</p>
+    <p><strong>Concretely, on this screen, and this paragraph said the opposite until 22 August 2026.</strong> It read: "one input, one unit, one number. No conversion preview, no 'you will receive'... a deposit screen that prints two numbers with two units is the defect." <strong>That is the pre-D-28 rule</strong>, and block 2, the summary and the responsive note had all carried the post-D-28 one since 19 August. The file argued with itself across four sections and the drawing pass is what made it visible.</p>
+    <p><strong>What holds.</strong> One editable input, in real money. The coins it buys render beside it and are never a second field. The rate is published with its as-of. What survives from the old wording is the half that was never about the unit: no bonus units, no rounding to a package, and no third figure made out of the two. <strong>The defect was never two units. It was two numbers a person cannot get from one another</strong>, and the peg is what makes them one number read twice.</p>
   </div>
 
   <div class="card is-good">
@@ -381,7 +395,7 @@
     <h4>C3. The crediting window, in the interface rather than in an FAQ</h4>
     <p><strong>Parent:</strong> <code>B4-3</code>, money leaves and does not arrive, pattern of 4 across 3 platforms. From the evidence: <em>"I've deposited $25 throw Crypto, nothing. I've waited a few hours, nothing... The ticket is closed, still $0 added to balance."</em></p>
     <p><strong>The substitute source found the rule living in a document.</strong> Hellcase's public FAQ, opened live on 12 August 2026: "Your payment might be delayed for 5-10 minutes. If funds didn't get transferred within an hour, contact support." <strong>The timing exists and it is real product behaviour. It is just not in the product.</strong></p>
-    <p>Block 7 states the window <strong>before</strong> the payment. State <span class="surf">4.4</span> is that window running. A person who has to open a help page to learn how long their money has been missing has already met <code>B4-3</code>. <strong>Our own number is <span class="q">[?]</span>, and the register that should hold it has no row for it.</strong></p>
+    <p>Block 7 states the window <strong>before</strong> the payment. State <span class="surf">4.4</span> is that window running. A person who has to open a help page to learn how long their money has been missing has already met <code>B4-3</code>. <strong>Our own number is <span class="q">[?]</span>, and the register that should hold it had no row for it until the step 8 audit added one.</strong></p>
   </div>
 </section>
 
@@ -468,8 +482,8 @@
       <thead><tr><th>State</th><th>What the page does</th><th>Node</th></tr></thead>
       <tbody>
         <tr><td>Guest, no account</td><td>Never rendered. Routes to sign in</td><td><span class="surf">2.4</span></td></tr>
-        <tr><td>Identity unresolved</td><td>Never rendered. Routes to identity</td><td><span class="surf">2.7</span></td></tr>
-        <tr><td>Identity failed, appeal open</td><td>Funding closed with the ground on record. <strong>Withdrawal stated as open</strong></td><td><span class="surf">2.9</span></td></tr>
+        <tr><td>Identity unresolved</td><td><strong>Does not exist in round 1</strong>, <code>D-26</code>. Kept on this table rather than deleted, so the hole is met where a reader is already looking</td><td><span class="surf">2.7</span>, parked</td></tr>
+        <tr><td>Identity failed, appeal open</td><td><strong>Does not exist in round 1</strong>, <code>D-26</code>. Same treatment</td><td><span class="surf">2.9</span>, parked</td></tr>
         <tr><td>First deposit, no saved method</td><td>The default composition of block 6, not a fallback</td><td>inside 4.1</td></tr>
         <tr><td>Payment in progress</td><td>The page's own skeleton, on the control only</td><td>inside 4.1</td></tr>
         <tr><td><strong>Ceiling reached this period</strong></td><td>Deposits stop</td><td><strong>4.2</strong></td></tr>
@@ -586,7 +600,7 @@
 
   <div class="card">
     <p><strong>Where else this state renders.</strong> <code>navigation.md</code>, transient states: "Balance crediting, C3. The figure carries a named timer beside it rather than a spinner, and does not silently change. <strong>Deposit node 4.4 owns the timer, the navigation renders the state.</strong>" A person who leaves this page keeps the state in the header.</p>
-    <p><strong>Two things carried rather than decided.</strong> The number is <span class="q">[?]</span>, and node <code>0.11</code> holds no row for it, which is the finding below. And <strong>attribution is a recommendation, not a row</strong>: <code>C3</code> says "a state with a timer" and nothing about who the wait belongs to. <code>G1</code> has that shape for withdrawal and is the obvious donor, so it is carried with its status printed rather than imported quietly.</p>
+    <p><strong>Two things carried rather than decided.</strong> The number is <span class="q">[?]</span>. Node <code>0.11</code> held no row for it, which was the finding below, <strong>and the step 8 audit added the row</strong>: the register holds the promise and the founder holds the number. And <strong>attribution is a recommendation, not a row</strong>: <code>C3</code> says "a state with a timer" and nothing about who the wait belongs to. <code>G1</code> has that shape for withdrawal and is the obvious donor, so it is carried with its status printed rather than imported quietly.</p>
   </div>
 
   <h3 id="4.5">4.5 Payment declined</h3>
@@ -634,7 +648,12 @@
 
   <div class="card is-fix">
     <h4>0.11, published numbers, and here is the finding</h4>
-    <p><strong>The crediting window is a published number, and <code>0.11</code> holds no row for it.</strong> The register's group A listed withdrawal median and p90, per-state ceilings, the health probe, chances, values, RTP, EV, appeal deadlines and commission, and a free-unit count that has since been withdrawn by <code>D-60</code>. <strong>There is no deposit row anywhere in it, and 4.1 is not among the five consumers it names.</strong></p>
+    <p><strong>The crediting window is a published number, and <code>0.11</code> held no row for it until the step 8 audit added one.</strong> The register's group A listed withdrawal median and p90, per-state ceilings, the health probe, chances, values, RTP, EV, appeal deadlines and commission, and a free-unit count that has since been withdrawn by <code>D-60</code>. <strong>There was no deposit row anywhere in it, and 4.1 was not among the five consumers it named.</strong></p>
+    <div class="card is-good" style="margin-top:var(--s-3)">
+      <h4>Closed on 21 August 2026</h4>
+      <p><code>numbers.md</code> group A now carries <strong>Published deposit crediting window</strong>, parent <code>C3</code> on <code>B4-3</code>, read on 4.1 and 4.4, route the person's own deposit "which either credits inside the published window or does not", refresh a rolling window whose length is <span class="q">[?]</span>.</p>
+      <p><strong>The row exists and the value does not</strong>, and that is the correct state rather than half a job: the register owns the promise and the founder owns the number. The argument that produced the row is kept above rather than rewritten into a closed finding.</p>
+    </div>
     <p><strong>The rules it would have to obey are already written</strong>, which is what makes this an omission rather than a design question. Rule 1: "a route, or it does not ship". Rule 2: an as-of on anything that moves. Section 7 already gives it a state set, and a published window our own provider misses is exactly the stale and degraded case that section handles.</p>
     <p><strong>Not fixed here, on the project's own rule:</strong> a contradiction comes back as a finding rather than as a quiet edit by a reader. <strong>The shape of the row it needs:</strong> number, published crediting window; parent, <code>C3</code> on <code>B4-3</code>; read on, 4.1 and the header via 0.1; route, the person's own deposit, which either lands inside the window or does not, exactly as <code>A4</code> is checked by <code>G1</code>; refresh, static until republished. <strong>This is the same class the global sweep already caught once in this stage:</strong> a surface claiming a number the register does not hold.</p>
   </div>
@@ -662,7 +681,7 @@
   <div class="card is-soon">
     <h4>Emotional support: none, and that is the honest answer</h4>
     <p><code>sitemap.md</code>, "Emotional and social jobs: what carries them", places no mechanism on this node. <strong>So this node adds nothing to that table, and the absence is the correct entry rather than a cell to fill.</strong> The same section states the standard: "inventing a trust page to fill a cell is worse than an honest empty."</p>
-    <p><strong>One microcopy placeholder is reserved and it is not emotional support:</strong> the account state strip states that the exit carries no check. That is a factual promise about a code rule, its place in the layout is fixed here, and its words belong to stage 05.</p>
+    <p><strong>One microcopy placeholder was reserved and D-26 took its subject away:</strong> the account state strip used to state that the exit carries no check. With layer 2 moved to before withdrawal that promise cannot be made here, so the strip states the account state and funding open, and nothing about the exit. Its words still belong to stage 05.</p>
   </div>
 
   <div class="table-wrap">
@@ -691,13 +710,15 @@
       <thead><tr><th style="width:24%">Open item</th><th style="width:50%">What is missing</th><th>Owner</th></tr></thead>
       <tbody>
         <tr><td><strong>Payment methods, fees, minimums and maximums</strong></td><td>No source in this repository names one. No competitor screen of this type may be opened, and <code>baseline.md</code> records deposit as <span class="q">[?]</span> with no pre-login route. <strong>Block 6 is specified as a shape with an unknown list</strong></td><td>Founder, then production</td></tr>
-        <tr><td><strong>The published crediting window</strong></td><td>The number <code>C3</code> promises. <code>0.11</code> has no row for it and does not list 4.1 as a consumer</td><td>Node <span class="surf">0.11</span> at the step 8 audit, then the founder for the value</td></tr>
+        <tr><td><strong>The published crediting window</strong></td><td>The number <code>C3</code> promises. <strong>The register row exists since the step 8 audit and the value does not</strong></td><td>Founder</td></tr>
         <tr><td>Attribution on the crediting timer</td><td>Whether the state names who the wait belongs to, as <code>G1</code> does for withdrawal. Recommended, and it is in no row</td><td>Founder, one line on row <code>C3</code></td></tr>
         <tr><td>The default period for the ceiling, and the list of periods offered</td><td><code>C2</code> says "a named period" and a period selector. Which periods is nowhere. Key-Drop's safety portal runs daily, weekly and monthly, and that is a competitor observation rather than our decision</td><td>Founder, with <span class="surf">6.1</span></td></tr>
         <tr><td>The withdrawal threshold value</td><td><code>C4</code> fixes the rule, that it is stated before the deposit and can never rise. The number is <span class="q">[?]</span></td><td>Founder</td></tr>
         <tr><td>Whether a deposit can be reversed while crediting</td><td>Refunds are a document on <span class="surf">0.9</span>, and no capability row covers a reversal. <strong>Named rather than assumed either way</strong></td><td>Founder, then <span class="surf">0.9</span></td></tr>
         <tr><td>The exit window when a market closes on the payment instrument</td><td><code>markets.md</code> section 7: "the window length is <span class="q">[?]</span>"</td><td>Counsel, under <code>D-A</code></td></tr>
-        <tr><td>The identity method</td><td><span class="q">[?]</span> pending <code>D-A</code>. It does not change this node's blocks, and it changes how often a person meets <span class="surf">2.8</span> before reaching them</td><td>Counsel, then node <span class="surf">2.7</span></td></tr>
+        <tr><td>The identity method</td><td><span class="q">[?]</span> pending <code>D-A</code>. <strong>Round 1 does not touch it at all since D-26</strong>, and it is kept on this list because the node is kept on the map</td><td>Counsel, then node <span class="surf">2.7</span></td></tr>
+        <tr><td><strong>Whether this screen says anything about a future identity check</strong></td><td><code>D-26</code> deleted the exit promise from block 1. The silence is the safe default and it is not free: a person who deposits today under no check, and meets one at the exit in a later round, met a condition that was not named before the money went in. <strong>Naming it costs a sentence on a conversion surface and the sentence describes a node that does not exist</strong></td><td>Founder</td></tr>
+        <tr><td><strong>The live feed on 4.2</strong></td><td>This node suppresses it on the reached-ceiling state and <code>0.8</code> says every page. <strong>A finding to 0.8 rather than an edit to it</strong></td><td>Node <span class="surf">0.8</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -708,7 +729,7 @@
     <p><strong>How it looks.</strong> Stages 06 and 07.</p>
     <p><strong>Where the header's deposit control sits.</strong> Node <span class="surf">0.1</span>, already decided.</p>
     <p><strong>The other three limits.</strong> Node <span class="surf">6.1</span>.</p>
-    <p><strong>The verification branch.</strong> Node <span class="surf">2.7</span>, and it is not on this screen by rule.</p>
+    <p><strong>The verification branch.</strong> Node <span class="surf">2.7</span>, parked by <code>D-26</code>, and it was not on this screen by rule before that either.</p>
     <p><strong>The market verdicts and their grounds.</strong> Node <span class="surf">0.12</span>, which this node reads and never edits.</p>
   </div>
 
@@ -730,7 +751,7 @@ window.NAV_SECTIONS = [
   { id: 'baseline-row', label: 'Baseline row' },
   { id: 'overview',  label: 'Overview' },
   { id: 'nojob',     label: 'Closes no job' },
-  { id: 'entry',     label: 'Reached through 2.7' },
+  { id: 'entry',     label: 'The identity branch is LATER' },
   { id: 'blocks',    label: 'Block order' },
   { id: 'four',      label: 'The four capabilities' },
   { id: 'methods',   label: 'Methods and exclusions' },

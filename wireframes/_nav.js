@@ -185,13 +185,15 @@ window.WF_NAV = {
         { label: 'Values degraded',             file: 'case-degraded.html',    status: 'built' }
       ] },
 
-    { node: '4.1',  cluster: '4', name: 'Deposit',             file: 'deposit.html',    ia: 'deposit.html',       status: 'spec',
+    // DRAWN 22 AUGUST 2026. The whole of cluster 4, and the one screen an
+    // unpublished peg empties rather than degrades: the conversion is the block.
+    { node: '4.1',  cluster: '4', name: 'Deposit',             file: 'deposit.html',    ia: 'deposit.html',       status: 'built',
       base: 'First deposit, no saved method',
       states: [
-        { node: '4.2', label: 'Ceiling reached this period', file: 'deposit-ceiling-reached.html', status: 'spec' },
-        { node: '4.3', label: 'Ceiling raise pending',       file: 'deposit-ceiling-pending.html', status: 'spec' },
-        { node: '4.4', label: 'Crediting, named timer',      file: 'deposit-crediting.html',       status: 'spec' },
-        { node: '4.5', label: 'Payment declined',            file: 'deposit-declined.html',        status: 'spec' }
+        { node: '4.2', label: 'Ceiling reached this period', file: 'deposit-ceiling-reached.html', status: 'built' },
+        { node: '4.3', label: 'Ceiling raise pending',       file: 'deposit-ceiling-pending.html', status: 'built' },
+        { node: '4.4', label: 'Crediting, named timer',      file: 'deposit-crediting.html',       status: 'built' },
+        { node: '4.5', label: 'Payment declined',            file: 'deposit-declined.html',        status: 'built' }
       ] },
 
     // DRAWN 21 AUGUST 2026. The front door of the cluster that sits at the floor
@@ -944,10 +946,70 @@ window.WF_NAV = {
      and a keyboard reaches the page's own content before them on both layouts.
      The cost of that is a desktop visual order that is not the tab order, which
      is the trade this component is worth and the other way round is not. */
+  /* ONE PAGE OPTS OUT, AND IT IS NOT A SECOND PLACEMENT ARGUMENT. Node 4.2 is the
+     spend ceiling reached, and its own forbidden list already reads "no offer of
+     any kind: no alternative funding route, no reminder when the period resets, no
+     invitation to raise the ceiling". A run of other people's wins beside a
+     deposit control that will not fire this period is an offer with a scroll on
+     it. The strip stays furniture on every other page, which is what D-59 asked
+     for; what it may not be is furniture on the one screen whose whole job is a
+     boundary holding. Declared by the page, never inferred here, and the finding
+     goes back to 0.8 rather than being decided in this file. */
   function mountFeed() {
     var main = document.querySelector('.wf-main');
     if (!main || document.querySelector('.wf-feed')) return;
+    if (window.WF_SHELL && window.WF_SHELL.feed === false) return;
     main.parentNode.insertBefore(renderFeed(), main.nextSibling);
+  }
+
+  /* NODE 4.1. THE CEILING IS THE ONLY BLOCKING THING ON THE PAGE, and it blocks
+     the way D-58 fixed for the consent gate rather than the way the block bank
+     drew it. The bank's Wealthsimple row is "submit disabled until the condition
+     is met" and node 4.1 section 3.2 took that wording. A dimmed Pay is a person
+     looking for what to change; a live Pay that refuses is a person being told.
+     The rule underneath is untouched: NO PRESS GOES THROUGH until the ceiling is
+     accepted or changed, which is C2's second property word for word.
+     ACCEPTING AND CHANGING BOTH SATISFY IT. The mechanism is "one tap on a number
+     they chose themselves", so typing a different number is the same consent as
+     pressing accept, and a form that demanded both would be asking twice. */
+  function mountDeposit() {
+    var form = document.querySelector('[data-dep-form]');
+    if (!form) return;
+    var accept = form.querySelector('[data-dep-accept]');
+    var ceil   = form.querySelector('[data-dep-ceil]');
+    var go     = document.querySelector('[data-dep-go]');
+    var say    = document.querySelector('[data-dep-refuse]');
+    if (!accept || !ceil || !go || !say) return;
+    var settled = false;
+
+    function settle(how) {
+      settled = true;
+      accept.setAttribute('aria-pressed', 'true');
+      accept.textContent = 'Ceiling accepted';
+      accept.classList.remove('is-missing');
+      ceil.classList.remove('is-missing');
+      say.classList.remove('is-said');
+      say.textContent = how === 'typed'
+        ? 'Ceiling set to the figure you typed. It applies from this deposit.'
+        : 'Ceiling accepted. It applies from this deposit.';
+    }
+
+    accept.addEventListener('click', function () { settle('accepted'); });
+    // A CHANGE IS CONSENT. The pre-filled figure is the amount just typed, so a
+    // person who edits it has made the same deliberate act the accept button asks
+    // for, on a number that is even more theirs.
+    ceil.addEventListener('input', function () { settle('typed'); });
+
+    go.addEventListener('click', function (e) {
+      if (settled) return;
+      e.preventDefault();
+      // THE ANSWER IS A PLACE ON THE SCREEN AND NOT ONLY A SENTENCE ABOUT ONE.
+      say.classList.add('is-said');
+      say.textContent = 'Nothing went through: the ceiling has not been accepted or changed yet. It is the figure just above.';
+      accept.classList.add('is-missing');
+      ceil.classList.add('is-missing');
+      ceil.focus();
+    });
   }
 
   function renderShell(host) {
@@ -2496,6 +2558,7 @@ window.WF_NAV = {
     renderLadders();
     renderProofs();
     mountGate();
+    mountDeposit();
     renderFooter(document.getElementById('wf-footer'));
     mountRollDetail();
     renderBar(document.getElementById('wf-bar'));

@@ -239,7 +239,7 @@ A verdict is a rule plus evidence about where a person is. The evidence arrives 
 |---|---|---|
 | **IP address** | `2.1`, at first case interaction | The industry's primary mechanism, `research.md` section 7. Cheap, immediate, and defeated by a VPN in either direction |
 | **Payment instrument country** | `4.1`, at the deposit | Strong, and it arrives **after** the person has been through the gate |
-| **Identity document** | `2.7`, before funding | Strongest, and it arrives at the same stage as the money |
+| **Identity document** | `2.7`, **`LATER` since `D-26`, and before withdrawal when it returns** | Strongest, and **round 1 does not collect it**, which makes the payment instrument the strongest evidence this product actually has |
 | **Declared residence** | Wherever we ask | Weakest alone. Useful as the thing a person is held to, rather than as detection |
 
 **Precedence, and it is a rule rather than a preference: the strongest evidence available wins, and later evidence overrides earlier evidence.** The register is what the check runs against; this line is what stops three surfaces from each deciding for themselves. The consequence is the case the product has to handle by design rather than by incident: **a person passes the IP gate, deposits, and then the document or the card says a blocked market.** Section 7 is that case.

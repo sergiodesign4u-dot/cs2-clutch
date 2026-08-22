@@ -185,7 +185,7 @@ graph TD
     subgraph B["B. Get through the door"]
         B1["S-B1 Geo gate<br/><small>compliance constraint</small>"]
         B2["S-B2 Sign in with Steam<br/><small>RJ2</small>"]
-        B3["S-B3 Identity verification<br/><small>B8-4, before funding</small>"]
+        B3["S-B3 Identity verification<br/><small>B8-4. LATER since D-26, before withdrawal when it returns</small>"]
     end
     subgraph C["C. Choose what to open, and open it"]
         C1["S-C1 Case catalogue<br/><small>Main Job</small>"]
@@ -297,7 +297,7 @@ graph TD
 
   <div class="card is-defect">
     <h4>Main job in 3 taps, and one of the three is the gate</h4>
-    <p>Home, then a featured case tile, then the age gate, then Open. <strong>The compliance layer eats a third of the budget for the main job.</strong> It is also exactly why the gate carries only the declaration: <code>D-17</code> puts identity verification before funding instead of here, and if that check sat at this tap the main job would be unreachable inside the budget for a first-time visitor.</p>
+    <p>Home, then a featured case tile, then the age gate, then Open. <strong>The compliance layer eats a third of the budget for the main job.</strong> It is also exactly why the gate carries only the declaration: <code>D-17</code> put identity verification before funding instead of here, and if that check sat at this tap the main job would be unreachable inside the budget for a first-time visitor. <strong>D-26 took that layer out of round 1 altogether, so the declaration is now the whole of the age control rather than the cheap half of a split.</strong></p>
     <p><strong>The gate fires at first case interaction, not on arrival, and that placement is load bearing.</strong> <code>B3</code> says "before any case interaction", not before any interaction. The tap count is identical either way. What differs is whether the product gets to answer <code>B1-1</code>, the category arrives pre-suspected, before it starts asking for things.</p>
     <p><strong>The browsing route is 4 taps and it is not the main job route.</strong> The Opener arrives from a clip wanting to open, not to browse 239 cases.</p>
     <p><strong>What was paid for three taps, stated rather than defended.</strong> Featured cases sit on Home, so Home carries the trust evaluation and the entry to the main job at once. Design principle 3 says cost never hides inside excitement, and a home that is both a trust page and a shop is where that risk lives. Handed forward to the wireframe stage as a named constraint. <strong>And one structural fork stays open:</strong> whether C1 survives as a separate node depends on <code>D-D</code>. A small enough backed catalogue means Home absorbs it and both routes become three taps.</p>
@@ -307,7 +307,7 @@ graph TD
     <dl class="kv">
       <dt>Global</dt><dd>The four navigation items in their two states, the Balance figure once an account exists, and a footer carrying responsible play and the legal pages. <strong>Responsible play in the footer of every screen is deliberate rather than inherited:</strong> the baseline has zero responsible play routes and zero matches for self exclusion, deposit limit or cool down anywhere.</dd>
       <dt>Moved at step 6</dt><dd><strong>Responsible play is no longer deep.</strong> It was reachable through the footer, then the page, then inside it: three taps or more. <code>B7-4</code> describes a pattern of 12 people inside an escalation loop, and a brake that has to be searched for at the worst moment is not a brake. It now carries a persistent entry inside the Balance control, two taps away and at the place the person already goes when they are about to spend. <strong>The constraint that makes this safe:</strong> promotion is reachability, not prominence. This route carries no counters, no streaks, no status and no session score, which is the same hard rule T4 attaches to the spend ceiling. The moment a limit acquires completion mechanics it stops being a boundary and becomes a reason to keep going.</dd>
-      <dt>Contextual</dt><dd>The age and geo gate at first case interaction, sign in at the first point needing an account, identity verification before funding, the post-reveal verification link and the one-tap share in the outcome phase, the spend ceiling at deposit.</dd>
+      <dt>Contextual</dt><dd>The age and geo gate at first case interaction, sign in at the first point needing an account, identity verification <strong>parked by D-26</strong>, the post-reveal verification link and the one-tap share in the outcome phase, the spend ceiling at deposit.</dd>
       <dt>Deep</dt><dd>The withdrawal restriction appeal inside S-E2, and the verifier form itself inside S-A2, since the page has to open and explain before it asks anyone to paste a seed.</dd>
       <dt>Not global</dt><dd>The live drop feed renders on A1 and C2 and nowhere else. Pattern E requires it to be a layer on the screens where the core happens, and a feed on every screen would be wallpaper rather than context.</dd>
     </dl>

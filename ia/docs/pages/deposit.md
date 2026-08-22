@@ -9,9 +9,9 @@
 
 **URL:** `/deposit`. **Indexed:** no. **Canonical:** self. **Schema:** none. **Breadcrumb:** none. All four inherited from node `0.13`, section "The indexation register", and not re-derived here.
 
-**Reached from:** the deposit control and the balance figure in the header, node `0.1`; the state-dependent strip on `1.1`; `3.3` when the balance will not cover an entry cost; and `2.7`, which stands in front of it. **Never reached from the rail:** money is not a destination, `D-19`.
+**Reached from:** the deposit control and the balance figure in the header, node `0.1`; the state-dependent strip on `1.1`; `3.3` when the balance will not cover an entry cost; and nothing else. **Nothing stands in front of this screen in round 1:** `2.7` did, and `D-26` took it out, section 1. **Never reached from the rail:** money is not a destination, `D-19`.
 
-**Leads to:** `4.2` to `4.5` as its own states, `2.7` when identity is unresolved, `6.1` for the other three limits, `3.3` or `1.1` on credit, `5.3` which stays open in every state on this page, and `0.10` when a named window passes.
+**Leads to:** `4.2` to `4.5` as its own states, `6.1` for the other three limits, `3.3` or `1.1` on credit, `5.3` which stays open in every state on this page, and `0.10` when a named window passes. **`2.7` was on this list and `D-26` took it off.**
 
 **Baseline row, `4.1`.** The rule in `CLAUDE.md`: every node carries one baseline row, what the live product does, what we keep, what we change and why.
 
@@ -35,21 +35,23 @@
 
 ---
 
-## 1. Reached through `2.7`, and what that puts on this screen
+## 1. The identity branch is `LATER`, and what that deletes from this screen
 
-Identity verification sits **before funding and never on the exit route**, `sitemap.md` row `2.7`, capability `B1` and code rule `B2`, closing `B8-4`, verification ambushes at the exit, pattern of 5. `flows.md` flow 2 draws the sequence: the ceiling check, then the identity check, then the amount.
+**`D-26` took `2.7`, `2.8` and `2.9` out of round 1 on 18 August 2026, and this section had not been amended.** It read "Reached through `2.7`" and routed the deposit through a check the product does not have, on the strength of a sequence the same decision reversed. `sitemap.md` row `2.7` carries the deferral, `CLAUDE.md` carries it in the compliance paragraph, and `identity.md` carries it with four costs printed at the top of the file. **Three files held the new rule and this one went on stating the old one.** Found on the stage 04 drawing pass, and it is the fifth node in a row where a decision reached a header and not a body.
 
-**So this screen never carries a verification step, and it does carry the verification state.** Capability `B1` in `cjm-to-be.md` phase T3 says why in its own words: "the account state is shown on the deposit screen itself, so the promise describes a state the user can already see rather than a future behaviour we control."
+**What round 1 does, in one line.** An account reaches this screen and the form renders. There is no verification step, no verification state, no branch and no greyed-out form waiting for one. All four numbered states below are reachable and none of them is an identity state.
 
-**The order is the flow's, not this node's preference.** `flows.md` flow 2 runs the ceiling check first, then the verification decision, then the amount, and node `2.7` reads the same order back: "fires before funding, entered from `4.1`". So `4.2` can be reached without the identity question being asked at all, which is correct rather than a gap: a ceiling can only be reached by someone who has already funded, and funding already required the check.
+**The part that is not a deletion, and it is the reason this section stays instead of shrinking to a sentence.** Before `D-26` the sequence was two rules: the check resolves **before funding**, row `B1`, and the exit carries no branch at all, row `B2`. Together they let block 1 promise that the way out is never checked, and this section used to call that "the surface where `B2` becomes readable". **`D-26` moved the surviving layer from before funding to before withdrawal**, `identity.md` purpose line and its cost 4. So the promise cannot be made on this screen any more: the only identity layer the map still holds is the one that would stand on the way out.
 
-| Arriving state | What `4.1` does | Where the rule is |
+**`B2` survives and its reading narrows, and the narrowing is in the repository rather than invented here.** `flows.md` flow 3 already proposes the shape that closes the free-entry hole without reopening `B8-4`: raise the check **when the account first holds a withdrawable item**, at the outcome, "so the person learns it with the item in hand and nothing lost rather than at the exit with everything staked". **A check resolved before a withdrawal is attempted is not a branch inside the exit.** That is the only reading on which `B2` and `2.7`'s new placement can both be true, and it is proposed rather than drawn, because it rides on `D-A` and counsel owns it.
+
+| Arriving state | What `4.1` does in round 1 | Status |
 |---|---|---|
-| Identity resolved | Renders the form, with the account state strip stating that funding is open and that the exit carries no check | `B1` |
-| Identity unresolved | Routes to `2.7` before the amount field exists. **The form is not rendered greyed out**, because a disabled money form is an invitation to work out how to enable it | `flows.md` flow 2, `2.7` |
-| Identity failed, appeal open | Funding stays closed with the ground on record, `2.9`. **Withdrawal stays open and is stated here**, not only on `2.9` | `B2`, `2.9` |
+| Account exists | Renders the form. **This is the only arriving state round 1 has** | Drawn |
+| Identity unresolved | Nothing. There is no identity to resolve | **Parked with `2.7`**, `D-26` |
+| Identity failed, appeal open | Nothing. **Kept in the state table below rather than deleted**, so the hole stays where a reader meets it | **Parked with `2.9`**, `D-26` |
 
-**The one thing this node adds to that sequence.** The account state strip states the exit rule in the positive: withdrawals are open and are never checked again. `B2` is a code rule with no interface anywhere in the map, and a rule nobody can see does not answer a barrier about being ambushed. **This is the surface where `B2` becomes readable**, and it is here rather than on `5.3` because `B8-4`'s injury is discovering the check late, so the promise has to arrive early.
+**And what block 1 says instead.** The account state, and funding open. **It does not promise anything about the exit**, in either direction. Stating "the exit carries no check" would be true today and would become false the day layer 2 lands, which is `B4-1`'s shape applied to a condition instead of to a number: something the exit demands that was not named before the money went in. **Stating that a check may arrive later is the other half of the same problem** and it is a product-copy call with a compliance edge, so it is an open item in section 12 with the founder as owner rather than a block drawn on a guess.
 
 ---
 
@@ -59,7 +61,7 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 | # | Block | What it holds | Parent | First screen at 360px |
 |---|---|---|---|---|
-| 1 | **H1 and account state** | The page's job in words, plus funding open, plus the exit carries no check | `B1`, `B2`, on `B8-4` | Yes |
+| 1 | **H1 and account state** | The page's job in words, plus funding open. **The exit promise left this block with `D-26`**, section 1 | `B8-4` directly. `B1` and `B2` were the parents and both are parked with `2.7`, so the block answers the barrier without the two rows that used to stand between | Yes |
 | 2 | **Amount, and the rate beside it** | One input. **Since `D-28` this block is where the conversion lives rather than where it is forbidden:** the person types in real money, the coins it buys render beside it, and the rate is published with its as-of | `C1` as `D-28` rewrote it, still on `B7-1` pattern of 7, plus `0.11` rule 10 | Yes |
 | 3 | **Spend ceiling for a named period** | Pre-filled with the amount just typed, period selector, and the asymmetry stated in the interface: lowering applies immediately, raising waits 24 hours | `C2`, on `B7-4` pattern of 12 | Yes |
 | 4 | **The other three limits live on `6.1`** | One plain line, one link, to session limit, cool down and self exclusion | `C5`, and the compliance constraint quoted above | Partly |
@@ -87,7 +89,9 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 **So the divergence moved rather than disappeared.** It used to be the unit. It is now the rate: a coin with a published, timestamped rate against real money, on this screen where the conversion actually happens and on `3.3` where it is spent. A second currency still hides the price when nobody can convert it, and a hidden price is still what lets a payout wear a label that is not a price. **`D-28` accepted the unit and kept the argument.**
 
-**What it means on this screen, concretely.** One input, one unit, one number. No conversion preview, no "you will receive", no bonus units, no rounding to a package. **A deposit screen that prints two numbers with two units is the defect**, whatever the second unit is called, and that includes a helpful equivalence.
+**What it means on this screen, concretely, and this paragraph said the opposite until 22 August 2026.** It read: "one input, one unit, one number. No conversion preview, no 'you will receive'... a deposit screen that prints two numbers with two units is the defect." **That is the pre-`D-28` rule**, and block 2 of section 2, the summary in section 5 and the responsive note in section 9 had all carried the post-`D-28` one since 19 August. The file argued with itself across four sections and the drawing pass is what made it visible.
+
+**What holds.** One editable input, in real money. The coins it buys render beside it and are never a second field. The rate is published with its as-of. **What survives from the old wording is the half that was never about the unit:** no bonus units, no rounding to a package, and no third figure made out of the two. The defect was never two units. It was two numbers a person cannot get from one another, and the peg is what makes them one number read twice.
 
 ### 3.2 `C2`. The spend ceiling, and the asymmetry that makes it a brake
 
@@ -177,6 +181,7 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 | Footer `0.2` | Below the form | Full, one account state |
 | Toasts `0.5` | `aria-live` region | Never the only place a state is announced, which binds `4.4` and `4.5` |
 | Money figure, from `0.11` section 8 | Summary, ceiling, threshold | Value, unit and caption, as-of where the class requires it, route where one exists |
+| Live feed `0.8` | Shell, since `D-59` | Full, **except on `4.2`**, and that exception is this node's and is printed as a finding to `0.8` in section 12. `D-59` put the feed on every page and the argument was that a strip identical everywhere becomes furniture. **`4.2`'s own forbidden list already says "no offer of any kind"**, and a run of other people's wins beside a reached ceiling is an offer with a scroll on it |
 | Confirmation dialog | Not here | The Parallel destructive-confirmation row in the bank belongs to `6.2`. **A deposit is not confirmed twice**, and asking twice would be a friction tax dressed as care |
 
 ---
@@ -188,8 +193,8 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 | State | What the page does | Node |
 |---|---|---|
 | Guest, no account | Never rendered. Routes to `2.4` | `2.4` |
-| Identity unresolved | Never rendered. Routes to `2.7` | `2.7` |
-| Identity failed, appeal open | Funding closed with the ground on record. **Withdrawal stated as open** | `2.9` |
+| Identity unresolved | **Does not exist in round 1**, `D-26`. Kept on this table rather than deleted, so the hole is met where a reader is already looking | `2.7`, parked |
+| Identity failed, appeal open | **Does not exist in round 1**, `D-26`. Same treatment | `2.9`, parked |
 | First deposit, no saved method | The default composition of block 6, not a fallback | inside `4.1` |
 | Payment in progress | The page's own skeleton on the control only. **Specified inside this node rather than as a node**, per the five listed in `sitemap.md` | inside `4.1` |
 | Ceiling reached this period | Deposits stop | **`4.2`** |
@@ -306,11 +311,13 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 **`0.11`, published numbers, and here is the finding.**
 
-**The crediting window is a published number, and `0.11` holds no row for it.** The register's group A listed withdrawal median and p90, per-state ceilings, the health probe, chances, values, RTP, EV, appeal deadlines and commission, and a free-unit count that has since been withdrawn by `D-60`. **There is no deposit row anywhere in it**, and `4.1` is not among the five consumers the register names.
+**The crediting window is a published number, and `0.11` held no row for it until the step 8 audit added one.** The register's group A listed withdrawal median and p90, per-state ceilings, the health probe, chances, values, RTP, EV, appeal deadlines and commission, and a free-unit count that has since been withdrawn by `D-60`. **There was no deposit row anywhere in it**, and `4.1` was not among the five consumers the register named.
 
 **The rules it would have to obey are already written**, which is what makes this an omission rather than a design question. `0.11` rule 1: "a route, or it does not ship". `0.11` rule 2: an as-of on anything that moves. `0.11` section 7 gives it a state set, and a published crediting window that our own payment provider misses is precisely the **stale** and **degraded** case that section handles.
 
-**Not fixed here, on the project's own rule.** `0.11` is another node's file and `CLAUDE.md` requires a contradiction to come back as a finding rather than as a quiet edit by a reader. **Recorded as a finding for the step 8 audit**, with the shape of the row it needs: number, published crediting window; parent, `C3` on `B4-3`; read on, `4.1` and the header via `0.1`; route, the person's own deposit, which either lands inside the window or does not, exactly as `A4` is checked by `G1`; refresh, static until republished. This is the same class the sweep already caught once in this stage, a surface claiming a number the register does not hold.
+**Not fixed here, on the project's own rule.** `0.11` is another node's file and `CLAUDE.md` requires a contradiction to come back as a finding rather than as a quiet edit by a reader. **Recorded as a finding for the step 8 audit**, with the shape of the row it needs: number, published crediting window; parent, `C3` on `B4-3`; read on, `4.1` and the header via `0.1`; route, the person's own deposit; refresh, static until republished.
+
+**Closed on 21 August 2026, and the paragraphs above stay as written because they are the argument that produced the row.** `numbers.md` group A now carries **Published deposit crediting window**, parent `C3` on `B4-3`, read on `4.1` and `4.4`, route the person's own deposit "which either credits inside the published window or does not", refresh a rolling window whose length is `[?]`. **The row exists and the value does not**, and that is the correct state rather than half a job: the register owns the promise and the founder owns the number.
 
 ---
 
@@ -357,12 +364,14 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 | Open item | What is missing | Owner |
 |---|---|---|
 | **Payment methods, fees, minimums and maximums** | No source in this repository names one. No competitor screen of this type may be opened, `blocks.md` section 0, and `baseline.md` section 2 records deposit as `[?]` with no pre-login route. **Block 6 is specified as a shape with an unknown list** | Founder, then production |
-| **The published crediting window** | The number `C3` promises. `0.11` has no row for it and does not list `4.1` as a consumer. Section 8 carries the finding and the shape of the row | Node `0.11` at the step 8 audit, then the founder for the value |
+| **The published crediting window** | The number `C3` promises. **The register row exists since the step 8 audit and the value does not**, section 8 | Founder |
 | **Attribution on the crediting timer** | Whether the state names who the wait belongs to, as `G1` does for withdrawal. Recommended, and it is not in any row | Founder, one line on row `C3` |
 | **The default pre-filled period for the ceiling, and the list of periods offered** | `C2` says "a named period" and a period selector. Which periods is nowhere. Key-Drop's safety portal runs daily, weekly and monthly, `blocks.md` section 7, and that is a competitor observation rather than our decision | Founder, with `6.1` |
 | **The withdrawal threshold value** | `C4` fixes the rule, that it is stated before the deposit and can never rise. The number is `[?]` | Founder |
 | **Whether a deposit can be reversed while crediting** | Refunds are a document on `0.9`, Refund and payments policy, and no capability row covers a reversal. **Named rather than assumed either way** | Founder, then `0.9` |
 | **The exit window when a market closes on the payment instrument** | `markets.md` section 7 step 6: "the window length is `[?]`" | Counsel, under `D-A` |
-| **The identity method** | `[?]` pending `D-A`. It does not change this node's blocks, and it changes how often a person meets `2.8` before reaching them | Counsel, then node `2.7` |
+| **The identity method** | `[?]` pending `D-A`. **Round 1 does not touch it at all since `D-26`**, and it is kept on this list because the node is kept on the map | Counsel, then node `2.7` |
+| **Whether this screen says anything about a future identity check** | `D-26` deleted the exit promise from block 1, section 1. The silence is the safe default and it is not free: a person who deposits today under no check, and meets one at the exit in a later round, met a condition that was not named before the money went in. **Naming it costs a sentence on a conversion surface and the sentence describes a node that does not exist** | Founder |
+| **The live feed on `4.2`** | This node suppresses it there and `0.8` says every page. **A finding to `0.8` rather than an edit to it**, section 6 | Node `0.8` |
 
 **And what belongs elsewhere.** The words: stage 05, then `voice/docs/microcopy.md`. How it looks: stages 06 and 07. Where the header's deposit control sits: `0.1`, already decided. The other three limits: `6.1`. The verification branch: `2.7`, and it is not on this screen by rule. The market verdicts and their grounds: `0.12`, which this node reads and never edits.

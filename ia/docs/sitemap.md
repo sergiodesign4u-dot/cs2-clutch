@@ -86,7 +86,7 @@ The verifiable record of a roll. It is a separate entity because a person who is
 
 The person's own record on the platform.
 
-**Parts:** Steam identity, with no password anywhere outside Steam OpenID and no profile changes requested, `B6`; verification state, resolved before funding and never on the withdrawal route, `B1` and `B2`; the age declaration taken at registration and the identity verification taken before funding, `B3` and `D-17`; withdrawals open or restricted, with a written ground when restricted, `B7` and `G4`; the market the account sits in, `B4`; Steam login failure states as readable text, `B5`.
+**Parts:** Steam identity, with no password anywhere outside Steam OpenID and no profile changes requested, `B6`; verification state, **`LATER` with `2.7` since `D-26`**: it resolved before funding, `B1`, and when it returns it stands before withdrawal rather than as a branch inside it, `B2`; the age declaration taken at registration, `B3` and `D-17`, **and the identity verification parked**; withdrawals open or restricted, with a written ground when restricted, `B7` and `G4`; the market the account sits in, `B4`; Steam login failure states as readable text, `B5`.
 
 **Parent:** Related Job 5, `jtbd.md` "Section 2", and `B7-1`, plus the compliance constraint in `CLAUDE.md`, "age verification before any case interaction". Class: job, barrier and constraint together.
 
@@ -496,7 +496,7 @@ The chosen pattern is **Pattern A, linear reveal, as the core, with Pattern E, c
 
 **Where something works against it, named directly.** Pattern A's first reason is that the linear reveal needs zero explanation, so a new user can begin the first session with no learning curve, "this reduces friction at the moment that matters most". A full identity check standing between arrival and the first open is friction at exactly that moment, and row B3 says "age gate before any case interaction". Read as one heavy gate, the compliance requirement and the chosen pattern contradict each other.
 
-**The map resolves it rather than choosing a side, and it did not invent the resolution.** S-B1 carries the declaration and meets every arrival. S-B3 carries identity verification and stands before funding, not before the first open, so a first open on a Free entry passes only through B1. That is decision `D-17`, taken on 11 August 2026 from a compliance argument with no reference to Pattern A. Two instruments, a legal sequence and a UX pattern, converge on the same two-screen split. The pattern stays ours, unchanged, and `ux-patterns.md` needs no paragraph appended.
+**The map resolves it rather than choosing a side, and it did not invent the resolution.** S-B1 carries the declaration and meets every arrival. S-B3 carries identity verification and stood before funding, not before the first open, so a first open on a Free entry passes only through B1. **`D-26` moved S-B3 to before withdrawal and out of round 1, and the resolution survives the move:** a first open on a Free entry passes only through B1 either way, and now it is the only layer there is. That is decision `D-17`, taken on 11 August 2026 from a compliance argument with no reference to Pattern A. Two instruments, a legal sequence and a UX pattern, converge on the same two-screen split. The pattern stays ours, unchanged, and `ux-patterns.md` needs no paragraph appended.
 
 **Two reductions in Pattern E, stated rather than absorbed.** Pattern E as described covers a live feed plus community signals, and round 1 ships exactly one of those, the live drop feed, row A3. Community case creation and leaderboards are deferred at `jtbd.md` "Candidate-for-Cut Functions" and in the LATER table above. Pattern E is therefore thinner in round 1 than its own description, and this is a scope consequence rather than a change of pattern.
 
@@ -624,7 +624,7 @@ Primary persona The Opener, main job `jtbd.md` "Section 1", arrive and open with
 
 **The ambient social layer is not global.** The live drop feed, `A3`, renders on S-A1 and on S-C2 and nowhere else. `ux-patterns.md` "Primary Choice: Pattern A (Slot Machine / Linear Reveal) with Pattern E (Community Discovery / Social Reveal) as the ambient layer" requires Pattern E to be a layer on the screens where the core happens, and a feed on every screen would make it wallpaper rather than context.
 
-**Contextual, appearing inside a flow:** the age and geo gate at first case interaction; sign in at the first point that needs an account; identity verification before funding; the post-reveal verification link and the one-tap share in the outcome phase; the spend ceiling at deposit.
+**Contextual, appearing inside a flow:** the age and geo gate at first case interaction; sign in at the first point that needs an account; identity verification, **`LATER` since `D-26` and before withdrawal when it returns**; the post-reveal verification link and the one-tap share in the outcome phase; the spend ceiling at deposit.
 
 **Deep, rare and deliberately not surfaced:** the withdrawal restriction appeal, `G4`, inside S-E2; the verifier form itself inside S-A2, since the page has to open and explain before it asks anyone to paste a seed.
 
@@ -725,7 +725,7 @@ Step 4 introduced no screen the concept sitemap did not already hold, so the map
 
 **Step 6 changed the map in four ways, all recorded above rather than applied silently.** Every screen code gained the `S-` prefix, because the screen namespace and the backlog capability namespace collided on all twelve codes and both readings parsed. S-C1 Catalogue gained a route, flow 1a in `flows.md`, deliberately minimal so that decision `D-D` cannot make the work worthless. Responsible play moved out of the deep classification into the Balance control, with the no-mechanics constraint written beside it. And Free entry gained an obligation on two nodes instead of a surface of its own.
 
-**One thing this stage found and cannot close.** A person who only ever uses free entry can reach the withdrawal route and take out a real skin without ever meeting an identity check, because `B1` gates funding and `B2` forbids the check at the exit. The shape that closes it without reopening `B8-4` is proposed in `flows.md` under flow 3 and deliberately not drawn: it is a compliance decision riding on `D-A`, which counsel already owns.
+**One thing this stage found and cannot close.** A person who only ever uses free entry can reach the withdrawal route and take out a real skin without ever meeting an identity check, because `B1` gated funding and `B2` forbids the check at the exit. **`D-26` made it wider rather than different:** with `2.7` out of round 1 there is no identity check on any route at all. The shape that closes it without reopening `B8-4` is proposed in `flows.md` under flow 3 and deliberately not drawn: it is a compliance decision riding on `D-A`, which counsel already owns.
 
 The full defect log with both instruments, the merge and the verification notes is in `ia/docs/critique.md`.
 

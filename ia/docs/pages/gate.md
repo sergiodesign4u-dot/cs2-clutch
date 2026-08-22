@@ -22,7 +22,9 @@
 
 ## 0. The one thing this node is not
 
-**Identity verification.** `D-17` split age and identity into two layers: an 18+ self-declaration here, and identity verification before funding at `2.7`. The declaration is cheap on purpose and it meets every visitor at the door, where conversion is most fragile. The expensive check meets the person at the money moment, where they are already committed and where the law actually attaches.
+**Identity verification.** `D-17` split age and identity into two layers: an 18+ self-declaration and identity verification before funding at `2.7`. The declaration is cheap on purpose and it meets every visitor at the door, where conversion is most fragile. The expensive check meets the person at the money moment, where they are already committed and where the law actually attaches.
+
+**Both halves of that sentence have moved and the paragraph above is kept as the argument rather than as the rule.** `D-26` took the declaration off this node and put it in the consent gate of `2.4`, which the header records. **The same decision took layer 2 out of round 1 and moved it from before funding to before withdrawal**, `identity.md`. So this node is not the cheap half of a two-layer split any more: it is the market question, and round 1 has exactly one age control and no identity control at all.
 
 **And the split has a second consequence that is measured rather than argued.** `sitemap.md` section "Depth to the main job, counted" puts the main job at three taps and the gate is one of them. **The compliance layer eats a third of the budget for the main job.** If identity verification sat at this tap the main job would be unreachable inside budget for a first-time visitor, which is why `D-19` records the two-layer split and the tap count as one decision rather than two.
 

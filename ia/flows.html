@@ -262,19 +262,9 @@ flowchart TD
     D0(["Starter credit is spent and they want to keep opening"]) --> Dep["S-D1 Deposit"]
     Dep --> Hit{"Spend ceiling already reached this period?"}
     Hit -->|yes| Stop["Deposits stop. Opening from balance and withdrawal stay fully open, C2"]
-    Hit -->|no| Ver{"Identity verified?"}
-    Ver -->|no| Ident["S-B3 Identity verification, before funding and never on the withdrawal route"]
-    Ident --> IdWait["Loading: pending review, hours rather than seconds"]
-    IdWait --> IdOk{"Passed?"}
-    IdOk -->|no| IdFail["Error: verification failed. Funding stays closed"]
-    IdFail --> IdAppeal["Appeal with a stated ground and a published response deadline, mirroring G4"]
-    IdAppeal --> Upheld{"Appeal upheld?"}
-    Upheld -->|yes| Amount
-    Upheld -->|no| Closed2["Funding stays closed, with the ground on the record"]
-    Closed2 --> Exit2
-    IdFail --> Exit2(["Withdrawal stays open regardless: B2 puts no verification branch on the exit route. Flow 3"])
-    IdOk -->|yes| Amount["Chooses an amount, sees the coins it buys and the rate, C1 after D-28"]
-    Ver -->|yes| Amount
+    Hit -->|no| Amount["Chooses an amount, sees the coins it buys and the rate, C1 after D-28"]
+    Ident["S-B3 Identity verification. It stood here, before funding. LATER since D-26, and before withdrawal when it returns"]
+    Ident -.->|"parked, not drawn"| Amount
     Amount --> Ceiling["Sets a spend ceiling for a named period, pre-filled, accepted or changed, C2"]
     Ceiling --> Dir{"First ceiling, or a change to an existing one?"}
     Dir -->|"first, lower, or unchanged"| Threshold["The sum required to withdraw is stated here and can never rise, C4"]
@@ -291,21 +281,24 @@ flowchart TD
     classDef success fill:#12351f,stroke:#4ade80,color:#eafff9;
     classDef dead fill:#3a1618,stroke:#e5484d,color:#ffd7d7;
     classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
-    class D0,Bal,Exit2 success;
+    classDef parked fill:#141414,stroke:#5a5a5a,color:#8a8a8a,stroke-dasharray:4 4;
+    class D0,Bal success;
     class Stop dead;
-    class Dep,Hit,Ver,Ident,IdWait,IdOk,IdFail,IdAppeal,Upheld,Closed2,Amount,Ceiling,Dir,Pending24,Threshold,Pay,Credited,Pending,PayErr neutral;
+    class Ident parked;
+    class Dep,Hit,Amount,Ceiling,Dir,Pending24,Threshold,Pay,Credited,Pending,PayErr neutral;
   </pre></div>
 
   <div class="card">
     <dl class="kv">
-      <dt>Decisions</dt><dd>Has the ceiling been reached this period, <code>B7-4</code>. Is identity verified, <code>B8-4</code>. Did the payment credit, <code>B4-3</code>.</dd>
-      <dt>States</dt><dd><strong>Loading:</strong> identity review, the asynchronous state only the document KYC branch of <code>D-A</code> has, and payment in progress. <strong>Error:</strong> a failed verification, which now has both an appeal and an exit rather than being a wall, and a declined payment returning to the amount with the ceiling and threshold intact. <strong>Pending:</strong> crediting with a named timer, <code>C3</code>, and <strong>a ceiling raise waiting out its 24 hours</strong>, which <code>`cjm-to-be.md` "T4. Getting something to open with"</code> specifies and which was in no flow until step 6. Without that state a later stage would write the ceiling as instantaneous in both directions, which deletes the whole point of it.</dd>
+      <dt>Decisions</dt><dd>Has the ceiling been reached this period, <code>B7-4</code>. Which direction the ceiling moved. Did the payment credit, <code>B4-3</code>. <strong>Three, and it was six until 22 August 2026:</strong> the identity decision, the pass and the appeal all left with <code>D-26</code>.</dd>
+      <dt>States</dt><dd><strong>Loading:</strong> payment in progress. <strong>Error:</strong> a declined payment returning to the amount with the ceiling and threshold intact. <strong>The identity review and the failed verification left with D-26</strong>, and they were the only two asynchronous states in this flow. <strong>Pending:</strong> crediting with a named timer, <code>C3</code>, and <strong>a ceiling raise waiting out its 24 hours</strong>, which <code>`cjm-to-be.md` "T4. Getting something to open with"</code> specifies and which was in no flow until step 6. Without that state a later stage would write the ceiling as instantaneous in both directions, which deletes the whole point of it.</dd>
     </dl>
   </div>
 
-  <div class="card is-red">
-    <h4>The failed identity check is no longer a dead end, and the fix came from a contradiction</h4>
-    <p>It was drawn as absolute while capability <code>B2</code> guarantees the withdrawal route carries no verification branch at all. So a person whose check fails can still take out what they already hold, and the diagram was contradicting a shipped capability. It now carries both exits: an appeal that mirrors <code>G4</code>, and the withdrawal route that was open the whole time.</p>
+  <div class="card is-fix">
+    <h4>The identity branch left this flow on 22 August 2026, and the argument drawn inside it is kept</h4>
+    <p>Step 6 had found the failed check drawn as an absolute dead end while capability <code>B2</code> guarantees the withdrawal route carries no verification branch at all, and the fix gave it two exits: an appeal mirroring <code>G4</code>, and the withdrawal route that was open the whole time. <strong>D-26 then took the whole branch out of round 1</strong>, so the correction now applies to a parked node. It stays written because the contradiction it resolved comes back the moment the branch does.</p>
+    <p><strong>What the parked node does to B2, and it is not nothing.</strong> D-26 moved layer 2 from before funding to <strong>before withdrawal</strong>. Read as a branch inside the exit, that contradicts B2 outright. Read as a check resolved before a withdrawal is ever attempted, at the outcome, it does not, and that is the shape flow 3 already proposes. <strong>The second reading is the only one on which both survive</strong>, and it is proposed rather than drawn.</p>
   </div>
 
   <div class="card is-red">
@@ -316,7 +309,7 @@ flowchart TD
 
   <div class="card is-note">
     <h4>One route this flow proves by absence</h4>
-    <p>There is no verification branch anywhere in flow 3, the withdrawal route. That absence is capability <code>B2</code>, and <code>cjm-to-be.md</code> says the same thing in the same way: it is proven by code review rather than by a metric. Verification lives here, before funding, and nowhere else.</p>
+    <p>There is no verification branch anywhere in flow 3, the withdrawal route. That absence is capability <code>B2</code>, and <code>cjm-to-be.md</code> says the same thing in the same way: it is proven by code review rather than by a metric. <strong>Verification lived here, before funding. Since D-26 it lives nowhere at all in round 1</strong>, which makes this absence cheap rather than earned: nothing is being kept off the exit, because there is nothing to keep off it.</p>
   </div>
 </section>
 

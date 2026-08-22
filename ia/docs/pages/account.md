@@ -6,7 +6,7 @@
 
 **Purpose.** Show what the person actually holds, with every item carrying the receipt that makes the win checkable a week later, the money in the two figures the header already uses, and the one route out of the product.
 
-**Jobs served.** Related Job 5, withdraw and get what I earned, `jtbd.md`. **Parent class:** barrier `B7-1`, the win that turned out to be worth less than it looked, pattern of 7, by way of rows `B7` and `F2`; and barrier `B8-4`, verification ambushes at the exit, pattern of 5, by way of row `B1`, which resolves the check before funding so that nothing on this page has to ask for it. Every block below names its own parent.
+**Jobs served.** Related Job 5, withdraw and get what I earned, `jtbd.md`. **Parent class:** barrier `B7-1`, the win that turned out to be worth less than it looked, pattern of 7, by way of rows `B7` and `F2`; and barrier `B8-4`, verification ambushes at the exit, pattern of 5, by way of row `B1`, which resolved the check before funding so that nothing on this page has to ask for it. **`D-26` parked `B1` with `2.7` and this page is unaffected either way:** it asks for nothing now because there is nothing to ask for, and it asks for nothing later because the layer that returns stands before withdrawal rather than on an inventory page. Every block below names its own parent.
 
 **Renders:** `0.1` navigation, `0.2` footer, `0.5` toasts, `0.6` skin card, `0.11` figures. **Reads:** `0.11` for the money figures and the receipt, `0.12` through the limits statement in section 3.
 

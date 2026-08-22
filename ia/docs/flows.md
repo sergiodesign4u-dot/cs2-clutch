@@ -122,19 +122,9 @@ flowchart TD
     D0(["Starter credit is spent and they want to keep opening"]) --> Dep["S-D1 Deposit"]
     Dep --> Hit{"Spend ceiling already reached this period?"}
     Hit -->|yes| Stop["Deposits stop. Opening from balance and withdrawal stay fully open, C2"]
-    Hit -->|no| Ver{"Identity verified?"}
-    Ver -->|no| Ident["S-B3 Identity verification, before funding and never on the withdrawal route"]
-    Ident --> IdWait["Loading: pending review, hours rather than seconds"]
-    IdWait --> IdOk{"Passed?"}
-    IdOk -->|no| IdFail["Error: verification failed. Funding stays closed"]
-    IdFail --> IdAppeal["Appeal with a stated ground and a published response deadline, mirroring G4"]
-    IdAppeal --> Upheld{"Appeal upheld?"}
-    Upheld -->|yes| Amount
-    Upheld -->|no| Closed2["Funding stays closed, with the ground on the record"]
-    Closed2 --> Exit2
-    IdFail --> Exit2(["Withdrawal stays open regardless: B2 puts no verification branch on the exit route. Flow 3"])
-    IdOk -->|yes| Amount["Chooses an amount, sees the coins it buys and the rate, C1 after D-28"]
-    Ver -->|yes| Amount
+    Hit -->|no| Amount["Chooses an amount, sees the coins it buys and the rate, C1 after D-28"]
+    Ident["S-B3 Identity verification. It stood here, before funding. LATER since D-26, and before withdrawal when it returns"]
+    Ident -.->|"parked, not drawn"| Amount
     Amount --> Ceiling["Sets a spend ceiling for a named period, pre-filled, accepted or changed, C2"]
     Ceiling --> Dir{"First ceiling, or a change to an existing one?"}
     Dir -->|"first, lower, or unchanged"| Threshold["The sum required to withdraw is stated here and can never rise, C4"]
@@ -151,16 +141,20 @@ flowchart TD
     classDef success fill:#12351f,stroke:#4ade80,color:#eafff9;
     classDef dead fill:#3a1618,stroke:#e5484d,color:#ffd7d7;
     classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
-    class D0,Bal,Exit2 success;
+    classDef parked fill:#141414,stroke:#5a5a5a,color:#8a8a8a,stroke-dasharray:4 4;
+    class D0,Bal success;
     class Stop dead;
-    class Dep,Hit,Ver,Ident,IdWait,IdOk,IdFail,IdAppeal,Upheld,Closed2,Amount,Ceiling,Dir,Pending24,Threshold,Pay,Credited,Pending,PayErr neutral;
+    class Ident parked;
+    class Dep,Hit,Amount,Ceiling,Dir,Pending24,Threshold,Pay,Credited,Pending,PayErr neutral;
 ```
 
-**Decisions.** Has the ceiling been reached this period, `B7-4`. Is identity verified, `B8-4`. Did the check pass, and if not, is it appealed. Which direction the ceiling moved. Did the payment credit, `B4-3`.
+**Decisions.** Has the ceiling been reached this period, `B7-4`. Which direction the ceiling moved. Did the payment credit, `B4-3`. **Three, and it was six until 22 August 2026:** the identity decision, the pass, and the appeal all left with `D-26`.
 
-**States.** Loading: identity review, which is the asynchronous state only the document KYC branch of `D-A` has, and payment in progress. Error: a failed verification, which now has both an appeal and an exit rather than being a wall, and a declined payment that returns to the amount with the ceiling and threshold intact. Pending: crediting with a named timer, `C3`, and **a ceiling raise waiting out its 24 hours**, which `cjm-to-be.md` "T4. Getting something to open with" specifies and which was in no flow until step 6. Without that state a later stage would write the ceiling as instantaneous in both directions, which deletes the whole point of it.
+**States.** Loading: payment in progress. Error: a declined payment that returns to the amount with the ceiling and threshold intact. **The identity review and the failed verification left with `D-26`**, and they were the only two asynchronous states in this flow. Pending: crediting with a named timer, `C3`, and **a ceiling raise waiting out its 24 hours**, which `cjm-to-be.md` "T4. Getting something to open with" specifies and which was in no flow until step 6. Without that state a later stage would write the ceiling as instantaneous in both directions, which deletes the whole point of it.
 
-**The failed identity check is no longer a dead end, and the fix came from a contradiction rather than from taste.** It was drawn as absolute while capability `B2` guarantees the withdrawal route carries no verification branch at all. So a person whose check fails can still take out what they already hold, and the diagram was contradicting a shipped capability. It now carries both exits: an appeal that mirrors `G4`, and the withdrawal route that was open the whole time.
+**The identity branch left this flow on 22 August 2026, and the argument that was drawn inside it is kept here rather than deleted with the nodes.** Step 6 had found the failed check drawn as an absolute dead end while capability `B2` guarantees the withdrawal route carries no verification branch at all, and the fix gave it two exits: an appeal mirroring `G4`, and the withdrawal route that was open the whole time. **`D-26` then took the whole branch out of round 1**, so the correction now applies to a parked node. It stays written because the contradiction it resolved comes back the moment the branch does.
+
+**What the parked node does to `B2`, and it is not nothing.** `D-26` moved layer 2 from before funding to **before withdrawal**. Read as a branch inside the exit that contradicts `B2` outright. Read as a check resolved before a withdrawal is ever attempted, at the outcome, it does not, and that is the shape flow 3 already proposes below. **The second reading is the only one on which both survive**, and it is proposed rather than drawn.
 
 **One deliberate red node remains.** `Stop` is the ceiling doing its job. It is red because this flow's goal is more balance and there is no path to it this period. It is not a failure: opening from existing balance and withdrawing both stay open, which `cjm-to-be.md` "T4. Getting something to open with" specifies. T4 carries a hard design constraint that belongs beside this node and is repeated here so it does not get lost: **the ceiling may never acquire completion mechanics, streaks or a session score**, because at that point it stops being a boundary and becomes a reason to keep going.
 
@@ -255,7 +249,7 @@ flowchart TD
 
 **No verification appears anywhere in this flow.** That absence is capability `B2` and it is the direct answer to `B8-4`, verification ambushes at the exit, pattern of 5.
 
-**One hole this flow exposed and does not close, carried with an owner.** A person who only ever uses free entry, the starter credit or a daily free case, can reach this flow and take out a real skin **without ever having met an identity check**, because `B1` gates funding and `B2` forbids the check at the exit, and someone who never funds never meets the gate. The shape that closes it without reopening `B8-4` is to raise the check **when the account first holds a withdrawable item**, at the outcome, so the person learns it with the item in hand and nothing lost rather than at the exit with everything staked. **That shape is proposed and not drawn**, because it is a compliance decision riding on `D-A`, which counsel already owns. Drawing an unconfirmed legal route into the information architecture would be the median this project's rules exist to prevent.
+**One hole this flow exposed and does not close, carried with an owner.** A person who only ever uses free entry, the starter credit or a daily free case, can reach this flow and take out a real skin **without ever having met an identity check**, because `B1` gated funding and `B2` forbids the check at the exit, and someone who never funds never met the gate. **Since `D-26` it is wider than that:** round 1 has no identity check anywhere, so the hole is not the free-entry route, it is every route. The shape that closes it without reopening `B8-4` is to raise the check **when the account first holds a withdrawable item**, at the outcome, so the person learns it with the item in hand and nothing lost rather than at the exit with everything staked. **That shape is proposed and not drawn**, because it is a compliance decision riding on `D-A`, which counsel already owns. Drawing an unconfirmed legal route into the information architecture would be the median this project's rules exist to prevent.
 
 ---
 

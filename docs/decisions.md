@@ -2240,7 +2240,7 @@ The link sweep stored each `href` raw in its set, so **`fair.html` and `fair.htm
 
 Checking the market, staged with a named limit, not launched, blocked with the ground, and detection unavailable.
 
-**The dialog is built once in `_nav.js` and fires from the case screen's own trigger**, because **a gate that does not fire is a picture of a gate** — the same standard the founder set for the filter control. It traps the keyboard, closes on Escape, records nothing on dismissal, and the gate fires again at the next case interaction.
+**The dialog is built once in `_nav.js` and fires from the case screen's own trigger**, because **a gate that does not fire is a picture of a gate**, the same standard the founder set for the filter control. It traps the keyboard, closes on Escape, records nothing on dismissal, and the gate fires again at the next case interaction.
 
 **And the page behind it is the case screen, not an empty column.** Each state page is the case screen with the gate pinned, the way the sign in canon already works. **What the person was doing is what the interrupt is a consequence of**, so removing it would make the gate read as an ejection rather than a step.
 
@@ -2453,3 +2453,72 @@ Before the request, the clock running, and `5.4` not eligible, `5.5` Steam degra
 **Outage days are not excluded from the rolling window.** A figure that drops its bad days is not a measurement, and `5.5` is a state of the product rather than an exemption from its own numbers. It renders on the degraded page, beside the suspended ceiling.
 
 **Suspending the ceiling out loud is the whole design of `5.5`.** A published ceiling that keeps running through a third-party outage is a promise we cannot keep, and letting it lapse quietly is the unattributed silence with a number on top of it.
+
+---
+
+## D-74. Node `4.1` is drawn, `D-26` had reached three files out of ten, and the one screen an unpublished peg empties
+
+**Date:** 2026-08-22. **Stage:** 04. **Decided by:** Claude, on the drawing pass, with two items handed to the founder. **Binds:** node `4.1` and its four numbered states, `flows.md` flow 2, `sitemap.md`, `gate.md`, `markets.md`, `case.md`, `account.md`, `concept-map.html`, and the feed component `0.8`.
+
+**What was built.** Five pages: `deposit.html`, `deposit-ceiling-reached.html`, `deposit-ceiling-pending.html`, `deposit-crediting.html`, `deposit-declined.html`. Cluster 4 is complete and the map is at 61 of 93.
+
+### `D-26` reached three files out of ten, and the fifth node in a row was written against a reversed rule
+
+`D-26` took `2.7`, `2.8` and `2.9` out of round 1 on 18 August and moved the surviving layer **from before funding to before withdrawal**. It reached `sitemap.md`'s node rows, `CLAUDE.md`'s compliance paragraph and `identity.md`, which carries it with four costs printed at the top of the file. **It reached nothing else.**
+
+| Where it still asserted the reversed rule | What that was doing |
+|---|---|
+| `deposit.md` section 1, titled "Reached through `2.7`" | Routed the deposit through a check the product does not have, and specified a state table where two of three arriving states were identity states |
+| `flows.md` flow 2 | Drew eight nodes of identity branch: the check, the pending review, the pass, the failure, the appeal, the upheld appeal and two exits |
+| `sitemap.md`, four places | The account entity's parts, the pattern-A resolution, the contextual compliance list, and the free-entry hole's own explanation |
+| `gate.md` section 0 | Still called this node the cheap half of a two-layer split, with a header six lines above saying the declaration had left it |
+| `markets.md` evidence table | Rated the identity document as evidence collected before funding |
+| `case.md`, `concept-map.html`, `account.md` | One sentence each, all of the form "identity verification before funding" |
+
+**`gate.md` is the sharpest instance and it is worth its own line:** the header records `D-26` and section 0, six lines below it, contradicts the header. **A decision applied to the top of a file is not applied.**
+
+### What the deferral actually did, and it is not a deletion
+
+**Block 1 of `4.1` could promise that the exit carries no check, and it can no longer make that promise.** The promise rested on two rows: `B1` put the check before funding, `B2` forbade a branch on the exit. `D-26` moved the surviving layer to **before withdrawal**, so the only identity layer the map still holds is the one that would stand on the way out.
+
+**Stating "no check on the exit" would be true today and false the day layer 2 lands, which is `B4-1`'s shape applied to a condition instead of to a number:** something the exit demands that was not named before the money went in. **So the strip says the account state and funding open, and nothing about the exit in either direction.** Whether it should say more is the founder's, and it is on the node's open list rather than guessed.
+
+**`B2` survives on one reading and the reading was already in the repository.** `flows.md` flow 3 proposes raising the check **when the account first holds a withdrawable item**, at the outcome. A check resolved before a withdrawal is attempted is not a branch inside the exit. **That is the only reading on which `B2` and `2.7`'s new placement can both be true**, and it is proposed rather than drawn, because it rides on `D-A`.
+
+**And the hole got wider rather than different.** `flows.md` and `sitemap.md` both explained the free-entry hole as "`B1` gates funding and `B2` forbids the check at the exit, so someone who never funds never meets the gate". With `2.7` out of round 1 **there is no identity check on any route at all**, so the hole is not the free-entry route. It is every route. Both files now say so.
+
+### The one screen an unpublished peg empties rather than degrades
+
+Every other surface prints a coin figure and marks the rate missing beside it. **Here the conversion is the block:** real money in, coins out, rate with its as-of. `D-28` shipped the coin on the condition that the peg is printed wherever money is spent, and the peg is `[?]`. **So block 2 renders as two absences and a sentence saying what a person cannot learn:** what they are getting for their money.
+
+**A second gap fell out of it and no file in the repository had named it.** `D-28` deleted "one real currency throughout" as the denomination. **Nothing then said which real currency a deposit is taken in.** The amount field's unit is `[?]`, the presets are slots, and the total carries "unit not set". Added to the node's open list.
+
+### `C2` is the only blocking thing on the page, and it blocks the way `D-58` fixed rather than the way the bank drew it
+
+The block bank's Wealthsimple row is "submit disabled until the condition is met" and `deposit.md` section 3.2 took that wording. **`D-58` had already replaced that form on the consent gate**, on the founder's own operating argument: a person meets a dead control, cannot see what to do about it, and either leaves or writes to support.
+
+**Extended here rather than re-argued, and the rule underneath is untouched: no press goes through until the ceiling is accepted or changed.** The refused press marks the condition on itself, names which one in a line under the summary, and moves focus to it. **The old wording stays in `deposit.md` section 3.2** as the argument that was overridden.
+
+**Accepting and changing both satisfy it.** `C2`'s mechanism is "one tap on a number they chose themselves", so typing a different figure is the same consent, on a number that is even more theirs. A form demanding both would be asking twice.
+
+### The live strip comes off `4.2`, and it is a finding to `0.8` rather than an edit to it
+
+`D-59` put the feed on every page and the argument was that a strip identical everywhere becomes furniture. **`4.2`'s own forbidden list already reads "no offer of any kind: no alternative funding route, no reminder when the period resets, no invitation to raise the ceiling."** Twenty four other people's wins beside a deposit control that will not fire this period is an offer with a scroll on it.
+
+**Declared by the page and never inferred by the shell**, so the exception is visible in the file that takes it. `0.8` owns whether it stands.
+
+### Measured
+
+**The dock is fixed below 900 and sticky above it, and sticky was measured before it was replaced:** the dock is the only child of its grid item, so a sticky bottom has zero travel and it ended 90px below the fold at 360, crossing the mobile bar. **It costs 236px of an 800px viewport**, which is the trade for four figures continuously present. Dropping the withdrawal figure would move the exit price off the first screen, which is the one thing the block exists to prevent.
+
+133 checks over the five pages: no horizontal overflow at six widths, one H1 each, **no verification named anywhere in the cluster**, no currency symbol invented anywhere, no disabled control, no progress or meter element, the ceiling refusing and then going through, typing counting as consent, `4.2` with no completion mechanic and no countdown and no feed, `4.5` keeping the typed amount and offering no smaller one.
+
+### What went to the founder rather than into the page
+
+| Question | Why it is not decided here |
+|---|---|
+| **Which real currency a deposit is taken in** | `D-28` removed the sentence that used to answer it and nothing replaced it. It empties block 2 with the peg |
+| **Whether the screen says anything about a future identity check** | Silence is the safe default and it is not free. Naming it costs a sentence on a conversion surface, describing a node that does not exist |
+| **The periods the ceiling offers, and the pre-filled one** | `C2` says "a named period" and the list is nowhere. A competitor's daily, weekly and monthly is an observation, not our decision |
+| **The published crediting window** | The register row exists since the step 8 audit. The value does not |
+| **Methods, fees, minimums, maximums** | No source in this repository names one, and no screen of this type can be opened without logging in |
