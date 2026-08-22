@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 5.10, PROFILE. THE ORPHAN, AND THE CELL IS PRINTED RATHER THAN
+     FILLED. No barrier is about not knowing who you are, no job needs it, and no
+     compliance constraint asks for it. It exists because the founder said all
+     three of these pages would exist in the real product, asked directly, which
+     is a legitimate reason and is not one of the three legal classes.
+     AN ORPHAN MAY NOT GROW. Every block here is either a fact the product
+     already holds or a control that already exists elsewhere on the map, because
+     a capability whose only justification is a page that has no parent has no
+     parent either.
+     SIX REFUSALS AND THEY ARE ALL THE SAME RULE. No counter of any kind, and the
+     baseline runs three of them reading N/A: this is the page where a level
+     would be invented. No avatar upload and no name change, because the avatar
+     and the name come from Steam and a product that lets them diverge has two
+     names for one person. No public link, because there is no public form. No
+     sequential public id: the baseline's is 852261 and a stranger can decrement
+     it, which makes the registered-account count enumerable from outside. No
+     friends and no comparisons. And no setting, because a profile that quietly
+     holds two toggles is settings with a different heading.
+     BLOCK 4 IS THE ONE THIS PAGE IS WORTH HAVING FOR. Two of our own decisions
+     point opposite ways on whether a public profile exists at all, so the block
+     states what is true under either answer and gets rewritten the day one is
+     taken. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <h1>Profile</h1>
+
+    <div class="wf-prof">
+      <div class="wf-prof-band">
+        <span class="wf-prof-av" aria-hidden="true"></span>
+        <span class="wf-prof-n">
+          <span class="wf-prof-name">nightjar_cs</span>
+          <span class="wf-fig-c">Here since 12 Jan 2026</span>
+        </span>
+      </div>
+
+      <!-- BLOCK 2. THE STEAM ORIGIN. Sign in is Steam and nothing else: no
+           password anywhere outside Steam OpenID, and no profile changes
+           requested. -->
+      <div class="wf-prof-f">
+        <div class="wf-sec-head"><h2 id="h2-steam">Where this account comes from</h2></div>
+        <p>Made from the Steam account <strong>nightjar_cs</strong>. Your name and picture are Steam&#39;s, and they change here when they change there.</p>
+        <p class="wf-note">We never had a password of yours and we never asked Steam to change anything on your account.</p>
+      </div>
+
+      <!-- BLOCK 3. THE ACCOUNT ID. Monospace, copyable, never an image, because
+           it exists to be pasted into a message to us. Not the baseline's
+           sequential number. -->
+      <div class="wf-prof-f">
+        <div class="wf-sec-head"><h2 id="h2-id">Your account id</h2></div>
+        <div class="wf-tid">
+          <span class="wf-tid-v">acc-7f3a91c4</span>
+          <button class="wf-btn wf-btn--small" type="button">Copy</button>
+        </div>
+        <p class="wf-fig-c">This is what support and an appeal refer to. <span class="wf-fig-missing">What the id actually looks like is not decided.</span></p>
+      </div>
+
+      <!-- BLOCK 4. WHAT IS PUBLIC ABOUT YOU, and it is the block this page is
+           worth having for. It states what is true today and it is true under
+           either resolution of the open question. -->
+      <div class="wf-prof-f">
+        <div class="wf-sec-head"><h2 id="h2-public">What a stranger can see</h2></div>
+        <ul class="wf-open-list">
+          <li><strong>A result you share.</strong> If you send someone the link to one of your rolls, that page carries your name and your picture, and the round they can check.</li>
+          <li><strong>The live strip.</strong> A win of yours can appear in the running strip with your name and your picture on it.</li>
+          <li><strong>Nothing else.</strong> There is no page anyone can reach that lists what this account has won, and there is no way to look you up.</li>
+        </ul>
+        <p class="wf-note wf-fig-missing">Whether a public page of yours exists at all is not decided. Until it is, this is the whole of it.</p>
+      </div>
+
+      <!-- BLOCK 5. ROUTES, all three already in the account menu. -->
+      <div class="wf-row">
+        <a class="wf-btn" href="settings.html">Settings</a>
+        <a class="wf-btn" href="account.html">My items</a>
+        <a class="wf-btn" href="history.html">Roll history</a>
+      </div>
+    </div>
+
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

@@ -1936,3 +1936,33 @@ No deadline figure invented on any page. No support address invented. **No ident
 **Three things the page will not invent:** the identification values, the supervisory authority, and the middle breadcrumb, which the register writes without a URL to hang it on.
 
 **175 checks over the five pages, 486 over all 80.**
+
+---
+
+## 55. `D-78`: nodes `5.9` and `5.10`, written and drawn on the same day
+
+**Six pages, 22 August 2026**, and **two IA nodes that did not exist that morning**. `history.html`, `-empty`, `-no-seed`, `-mismatch`, `profile.html`, `profile-steam-down.html`. **86 of 99.**
+
+### The IA had to be written, not fixed
+
+`D-36` added `5.9`, `5.10` and `5.11` on 20 August, said "stage 04 owes three more screens", and wrote none of them. **Three registered files, three shell links, and nothing in `ia/docs/pages/`.** A row pointing at a specified page with no drawing is work outstanding; **a row pointing at nothing at all is the dead item defect one level up.**
+
+**`5.11` stays unwritten.** Its round 1 contents are `[?]` by `D-36`'s own words, and asking is the instruction rather than filling it with a median.
+
+### `5.9`
+
+**A row is a roll, not an item.** Seven fields, the cost and the worth both dated to the roll, and no row is ever removed when its item leaves.
+
+**No total of any kind**, and the cost of that is printed: a person cannot learn here whether they are up or down.
+
+**Both readings of `D-C` are drawn.** The no reading gets its own page and the check control is absent rather than present and broken. The degraded row sits beside a normal one in the base page, because "cannot be read now" is not "was never kept".
+
+### `5.10`
+
+**An orphan, and the page enforces that on itself:** every block is a fact the product already holds or a control that exists elsewhere. Six refusals from one rule. **Block 4 states what is public about a person under either resolution of `D-69`**, because a product that has not decided cannot tell them.
+
+### Two defects of my own
+
+**The mismatch control pushed the page sideways at 900, and the first fix let its label wrap**, the defect the sweep has failed since the case screen. Shortened instead. **And the register owes three rows** that this node writes out and does not edit in.
+
+**149 checks over the six pages, 522 over all 86. One dead link left in the product.**

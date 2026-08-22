@@ -3508,3 +3508,99 @@ textarea.wf-f { min-height: 96px; resize: vertical; }
   .wf-toc-wrap { position: sticky; top: var(--wf-s-2); }
   .wf-ident { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
+
+/* ---------------------------------------------------------------------------
+   NODE 5.9, ROLL HISTORY, and node 5.10, PROFILE. Drawn 22 August 2026, and
+   their specifications were written the same day: D-36 put three nodes on the
+   map on 20 August and did not write them, so three registered destinations
+   went two days with a 404 behind them.
+   A ROW IS A ROLL, NOT AN ITEM. The baseline's history is an inventory history,
+   which is an item list with the roll removed, and that is the trophy shelf one
+   screen deeper. Ours lists rolls and the item is one column.
+   NO TOTAL OF ANY KIND, AND THE ABSENCE IS THE DECISION. Spent, returned, the
+   ratio of the two: every one is a session score with a longer window, and a
+   lifetime profit figure is the strongest completion mechanic this product
+   could ship. Nothing in the backlog asks for one.
+   --------------------------------------------------------------------------- */
+
+.wf-hist { display: flex; flex-direction: column; gap: var(--wf-s-3); }
+
+/* The filter row. A stack at 360 and a row from 600, the treatment 3.1 settled.
+   NO FILTER BY OUTCOME VALUE and no sort by it: sorting by value is the one
+   sort that turns a history into a leaderboard of yourself. */
+.wf-hfilters { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
+
+/* A ROLL. Card at 360, columns from 900, AND NO COLUMN IS DROPPED at any width:
+   a column that disappears at a width is a field the page decided a person did
+   not need, and the whole point of this node is that they do. */
+.wf-roll {
+  display: grid; gap: var(--wf-s-1) var(--wf-s-2); grid-template-columns: 1fr;
+  padding: var(--wf-s-3) 0; border-top: 1px solid var(--wf-line-soft);
+}
+.wf-roll:first-child { border-top: 0; }
+.wf-roll-k { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+.wf-roll-when { font-family: var(--wf-mono); font-size: var(--wf-t-s); }
+.wf-roll-case { font-weight: 700; }
+.wf-roll-item { display: flex; align-items: center; gap: var(--wf-s-2); min-width: 0; }
+/* The item art is a slot and it is NEVER TINTED BY RARITY here. The tint belongs
+   to the item card; a list tinted by outcome reads as a scoreboard whatever the
+   columns say. */
+.wf-roll-art {
+  flex: 0 0 auto; width: 48px; height: 36px;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
+}
+.wf-roll-name { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.wf-roll-w { font-size: var(--wf-t-s); }
+.wf-roll-s { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-roll-figs { display: flex; flex-wrap: wrap; gap: var(--wf-s-1) var(--wf-s-3); }
+.wf-roll-f { display: flex; flex-direction: column; gap: 2px; }
+.wf-roll-v { font-family: var(--wf-mono); font-size: var(--wf-t-s); }
+/* THE STATE OF THE ITEM IS TEXT AND THE ROW NEVER LEAVES. Selling the item back
+   or withdrawing it changes one field and deletes nothing: a history that loses
+   a roll when its item leaves is a history of the inventory again. */
+.wf-roll-gone { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+/* The proof cell. V1 of the component in the row, V3 on demand, and NO ROW EVER
+   PRINTS A VERDICT: a history that ticks every row green has asserted the thing
+   the scheme does not prove. */
+/* MIN-WIDTH 0 ON THE CELL AND ON THE CONTROL. A grid item's min-width is auto,
+   so the longest label in the proof cell refused to shrink and pushed the page
+   sideways by 40px at 900 and 17 at 1200 on the mismatch state, which is the one
+   row whose label is a sentence. The cell gives, the button wraps. */
+.wf-roll-proof { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-1); min-width: 0; }
+/* AND THE LABEL IS SHORTENED RATHER THAN WRAPPED. Letting it wrap traded the
+   sideways scroll for the defect the sweep has failed since the case screen: a
+   control whose label runs to two lines. The sentence belongs beside the button
+   as text, and the button says one thing. */
+.wf-roll > * { min-width: 0; }
+.wf-roll-hash {
+  font-family: var(--wf-mono); font-size: var(--wf-t-xs);
+  padding: 2px var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1);
+  overflow-wrap: anywhere;
+}
+.wf-roll--bad { outline: 1px dashed var(--wf-line); outline-offset: 6px; }
+
+/* NODE 5.10. Five short blocks in one column at every width. Five short blocks
+   in two columns is a dashboard, and this page is a record. */
+.wf-prof { display: flex; flex-direction: column; gap: var(--wf-s-4); max-width: 640px; }
+.wf-prof-band { display: flex; align-items: center; gap: var(--wf-s-3); }
+/* The avatar is decorative and its accessible name is empty, because the display
+   name is beside it as text. An avatar with the name in its alt text is the name
+   announced twice. */
+.wf-prof-av {
+  flex: 0 0 auto; width: 64px; height: 64px;
+  border: 1px dashed var(--wf-line-soft); border-radius: 50%;
+}
+.wf-prof-n { display: flex; flex-direction: column; gap: 2px; }
+.wf-prof-name { font-size: var(--wf-t-l); font-weight: 700; }
+.wf-prof-f { display: flex; flex-direction: column; gap: var(--wf-s-half); }
+
+/* Responsive last, after everything above that it overrides. */
+@media (min-width: 900px) {
+  .wf-roll { grid-template-columns: 130px minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+  .wf-roll-when { grid-column: 1; grid-row: 1; }
+  .wf-roll-case { grid-column: 1; grid-row: 2; }
+  .wf-roll-item { grid-column: 2; grid-row: 1 / span 2; }
+  .wf-roll-figs { grid-column: 3; grid-row: 1 / span 2; flex-direction: column; }
+  .wf-roll-proof { grid-column: 4; grid-row: 1 / span 2; align-items: flex-start; align-content: flex-start; }
+}

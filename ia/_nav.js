@@ -72,6 +72,14 @@ window.IA_NAV = [
   // Cluster 5. Take out what I earned.
   { node: '5.1', label: 'Account and inventory',   file: 'account.html',    group: 'pages',  type: 'page',           states: 1, done: true  },
   { node: '5.3', label: 'Withdrawal',              file: 'withdrawal.html', group: 'pages',  type: 'page',           states: 5, done: true  },
+  // Written 22 August 2026, two days after D-36 put them on the map. The record
+  // said "stage 04 owes three more screens" and did not write them: three
+  // registered destinations went two days with a 404 behind them and no
+  // specification anywhere. 5.11 is still unwritten because its contents are the
+  // founder's to decide, and D-36 says so in as many words.
+  { node: '5.9', label: 'Roll history',            file: 'history.html',    group: 'pages',  type: 'page',           states: 0, done: true  },
+  { node: '5.10', label: 'Profile',                file: 'profile.html',    group: 'pages',  type: 'page',           states: 0, done: true  },
+  { node: '5.11', label: 'Settings',               file: 'settings.html',   group: 'pages',  type: 'page',           states: 0, done: false },
 
   // Cluster 6. Keep myself in check.
   { node: '6.1', label: 'Responsible play',        file: 'responsible.html', group: 'pages', type: 'page',           states: 2, done: true  },

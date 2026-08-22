@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roll history</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 5.9, ROLL HISTORY. Base state: rolls exist.
+     WRITTEN THE SAME DAY IT WAS DRAWN, twenty days after the map closed. D-36
+     put this node on the map on 20 August so the account menu could carry a live
+     row instead of a dead one, said "stage 04 owes three more screens", and did
+     not write any of them. Two days with a registered file, a 404 behind it and
+     no specification anywhere.
+     A ROW IS A ROLL, NOT AN ITEM, and that is the whole node. The baseline runs
+     four history tabs and every one of them is an INVENTORY history: a grid of
+     item cards, which is the outcome of a roll with the roll removed. That is
+     the trophy shelf 7.1 was written to replace, one screen deeper. Ours lists
+     rolls, and the item is one column of a row.
+     UNTIL THIS NODE EXISTED THE ONLY TRACE OF A ROLL A PERSON COULD REACH WAS
+     THE ITEM IT PRODUCED. An item is not a round: it survives a sale, it can be
+     withdrawn away, and it carries no seed material. A product whose whole trust
+     claim is that every round can be checked afterwards had no afterwards.
+     NO ROW IS EVER REMOVED. Selling the item back or withdrawing it changes one
+     field and deletes nothing.
+     NO TOTAL, NO PROFIT, NO RATIO, NO STREAK, NO BEST DROP. Every one is a
+     session score with a longer window, and a lifetime profit figure is the
+     strongest completion mechanic this product could ship. The cost is printed
+     rather than absorbed: a person who wants to know whether they are up or down
+     cannot learn it here, and that loss is the correct one.
+     TWO ROWS BELOW ARE NOT ORDINARY ON PURPOSE. One has lost its item and keeps
+     its place; one has a proof source we cannot read this minute, which is a
+     different thing from a roll whose material was never kept. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <h1>Roll history</h1>
+    <p>Every roll on this account. <strong>212 rolls.</strong></p>
+
+    <div class="wf-hist">
+      <!-- BLOCK 2. THE SCOPE LINE, IN THE SHORT FORM THE COMPONENT CARRIES
+           EVERYWHERE. The proof shows the round was fixed before the click and
+           not altered after it. It does not show that the published chances are
+           the chances used, which is a different question with a different
+           answer on the case screen. -->
+      <p class="wf-note">A proof here shows the round was fixed before you clicked and not changed after. It does not show that the published chance was the chance used: that is checked on the case screen.</p>
+      <!-- BLOCK 3. FILTERS, AND NO FILTER BY OUTCOME VALUE. Sorting by value is
+           the one sort that turns a history into a leaderboard of yourself, and
+           the only order a history has is by date. -->
+      <div class="wf-hfilters">
+        <button class="wf-btn wf-btn--small" type="button">All cases</button>
+        <button class="wf-btn wf-btn--small" type="button">Any date</button>
+        <button class="wf-btn wf-btn--small" type="button">Still held</button>
+      </div>
+      <!-- BLOCK 4. THE ROWS. Seven fields, and the cost and the worth are both
+           DATED TO THE ROLL: a case whose price changed would otherwise rewrite
+           what every past roll cost, and an item that moved would rewrite what
+           every past roll returned. -->
+      <div>
+        <div class="wf-roll">
+          <span class="wf-roll-when">22 Aug 09:14</span>
+          <a class="wf-roll-case" href="case.html">Ironbound Case</a>
+          <div class="wf-roll-item">
+            <span class="wf-roll-art" aria-hidden="true"></span>
+            <span class="wf-roll-name"><span class="wf-roll-w">AK-47</span><span class="wf-roll-s">Redline &#183; Field-Tested</span></span>
+          </div>
+          <div class="wf-roll-figs">
+            <div class="wf-roll-f"><span class="wf-roll-k">Cost then</span><span class="wf-roll-v">2.40 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Worth when won</span><span class="wf-roll-v">22.15 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Chance published then</span><span class="wf-roll-v">0.42%</span></div>
+          </div>
+          <div class="wf-roll-proof"><span class="wf-roll-hash">a91f4c2e</span><a class="wf-btn wf-btn--small" href="fair-prefilled.html">Check it</a><a class="wf-btn wf-btn--small" href="result.html">Public page</a></div>
+        </div>
+        <div class="wf-roll">
+          <span class="wf-roll-when">21 Aug 23:02</span>
+          <a class="wf-roll-case" href="case.html">Nightfall Case</a>
+          <div class="wf-roll-item">
+            <span class="wf-roll-art" aria-hidden="true"></span>
+            <span class="wf-roll-name"><span class="wf-roll-w">MP9</span><span class="wf-roll-s">Rose Iron &#183; Minimal Wear</span><span class="wf-roll-gone">Withdrawn to Steam, 22 Aug</span></span>
+          </div>
+          <div class="wf-roll-figs">
+            <div class="wf-roll-f"><span class="wf-roll-k">Cost then</span><span class="wf-roll-v">1.10 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Worth when won</span><span class="wf-roll-v">1.86 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Chance published then</span><span class="wf-roll-v">7.30%</span></div>
+          </div>
+          <div class="wf-roll-proof"><span class="wf-roll-hash">a91f4c2e</span><a class="wf-btn wf-btn--small" href="fair-prefilled.html">Check it</a><a class="wf-btn wf-btn--small" href="result.html">Public page</a></div>
+        </div>
+        <div class="wf-roll">
+          <span class="wf-roll-when">21 Aug 22:57</span>
+          <a class="wf-roll-case" href="case.html">Nightfall Case</a>
+          <div class="wf-roll-item">
+            <span class="wf-roll-art" aria-hidden="true"></span>
+            <span class="wf-roll-name"><span class="wf-roll-w">P250</span><span class="wf-roll-s">Sand Dune &#183; Battle-Scarred</span><span class="wf-roll-gone">Sold back, 21 Aug</span></span>
+          </div>
+          <div class="wf-roll-figs">
+            <div class="wf-roll-f"><span class="wf-roll-k">Cost then</span><span class="wf-roll-v">1.10 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Worth when won</span><span class="wf-roll-v">0.31 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Chance published then</span><span class="wf-roll-v">19.80%</span></div>
+          </div>
+          <div class="wf-roll-proof"><span class="wf-fig-missing">The proof source could not be read just now. This is not the same as never having been kept: the roll still has its material and we cannot reach it this minute.</span></div>
+        </div>
+        <div class="wf-roll">
+          <span class="wf-roll-when">20 Aug 18:40</span>
+          <a class="wf-roll-case" href="case.html">Warsteel Case</a>
+          <div class="wf-roll-item">
+            <span class="wf-roll-art" aria-hidden="true"></span>
+            <span class="wf-roll-name"><span class="wf-roll-w">AWP</span><span class="wf-roll-s">Asiimov &#183; Field-Tested</span></span>
+          </div>
+          <div class="wf-roll-figs">
+            <div class="wf-roll-f"><span class="wf-roll-k">Cost then</span><span class="wf-roll-v">4.80 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Worth when won</span><span class="wf-roll-v">61.40 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Chance published then</span><span class="wf-roll-v">0.11%</span></div>
+          </div>
+          <div class="wf-roll-proof"><span class="wf-roll-hash">a91f4c2e</span><a class="wf-btn wf-btn--small" href="fair-prefilled.html">Check it</a><a class="wf-btn wf-btn--small" href="result.html">Public page</a></div>
+        </div>
+        <div class="wf-roll">
+          <span class="wf-roll-when">20 Aug 18:36</span>
+          <a class="wf-roll-case" href="case.html">Warsteel Case</a>
+          <div class="wf-roll-item">
+            <span class="wf-roll-art" aria-hidden="true"></span>
+            <span class="wf-roll-name"><span class="wf-roll-w">Glock-18</span><span class="wf-roll-s">Water Elemental &#183; Factory New</span></span>
+          </div>
+          <div class="wf-roll-figs">
+            <div class="wf-roll-f"><span class="wf-roll-k">Cost then</span><span class="wf-roll-v">4.80 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Worth when won</span><span class="wf-roll-v">3.02 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Chance published then</span><span class="wf-roll-v">5.60%</span></div>
+          </div>
+          <div class="wf-roll-proof"><span class="wf-roll-hash">a91f4c2e</span><a class="wf-btn wf-btn--small" href="fair-prefilled.html">Check it</a><a class="wf-btn wf-btn--small" href="result.html">Public page</a></div>
+        </div>
+      </div>
+      <div class="wf-pager"><button class="wf-btn" type="button">Older rolls</button></div>
+    </div>
+
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

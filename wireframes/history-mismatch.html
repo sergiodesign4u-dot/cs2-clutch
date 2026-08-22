@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roll history, a proof that does not match</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- A ROW WHOSE PROOF DOES NOT MATCH. DRAWN ON PURPOSE AND EARLY, for the
+     reason 7.1's mismatch state was: the states nobody wants are the states that
+     get discovered late.
+     OUR OWN RECOMPUTATION DISAGREES WITH WHAT WE PUBLISHED. The row says so, it
+     is reported automatically with the round attached, and the person adds
+     nothing: the ticket exists before they reach the form.
+     AND IT IS ONE ROW, NOT THE PAGE. Every other roll on this account is
+     unaffected and renders normally, because a single bad round is a single bad
+     round. Marking the whole history would be a claim we cannot support in
+     either direction.
+     NO ROW PRINTS A VERDICT IN THE OTHER DIRECTION EITHER. There is no green
+     tick on the rows above it, because the component forbids a verified badge in
+     every variant. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <h1>Roll history</h1>
+    <p>Every roll on this account. <strong>212 rolls.</strong></p>
+
+    <div class="wf-hist">
+      <!-- BLOCK 2. THE SCOPE LINE, IN THE SHORT FORM THE COMPONENT CARRIES
+           EVERYWHERE. The proof shows the round was fixed before the click and
+           not altered after it. It does not show that the published chances are
+           the chances used, which is a different question with a different
+           answer on the case screen. -->
+      <p class="wf-note">A proof here shows the round was fixed before you clicked and not changed after. It does not show that the published chance was the chance used: that is checked on the case screen.</p>
+      <div class="wf-notice">
+        <h2 id="h2-mismatch">One roll here does not check out</h2>
+        <p>We recomputed the round below and our result does not match what we published for it. <strong>That is our failure and not yours.</strong></p>
+        <p class="wf-note">It was reported the moment we found it, with the round attached, and nothing about the other rolls on this page changes.</p>
+      </div>
+      <!-- BLOCK 3. FILTERS, AND NO FILTER BY OUTCOME VALUE. Sorting by value is
+           the one sort that turns a history into a leaderboard of yourself, and
+           the only order a history has is by date. -->
+      <div class="wf-hfilters">
+        <button class="wf-btn wf-btn--small" type="button">All cases</button>
+        <button class="wf-btn wf-btn--small" type="button">Any date</button>
+        <button class="wf-btn wf-btn--small" type="button">Still held</button>
+      </div>
+      <div>
+        <div class="wf-roll">
+          <span class="wf-roll-when">22 Aug 09:14</span>
+          <a class="wf-roll-case" href="case.html">Ironbound Case</a>
+          <div class="wf-roll-item">
+            <span class="wf-roll-art" aria-hidden="true"></span>
+            <span class="wf-roll-name"><span class="wf-roll-w">AK-47</span><span class="wf-roll-s">Redline &#183; Field-Tested</span></span>
+          </div>
+          <div class="wf-roll-figs">
+            <div class="wf-roll-f"><span class="wf-roll-k">Cost then</span><span class="wf-roll-v">2.40 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Worth when won</span><span class="wf-roll-v">22.15 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Chance published then</span><span class="wf-roll-v">0.42%</span></div>
+          </div>
+          <div class="wf-roll-proof"><span class="wf-roll-hash">a91f4c2e</span><a class="wf-btn wf-btn--small" href="fair-prefilled.html">Check it</a><a class="wf-btn wf-btn--small" href="result.html">Public page</a></div>
+        </div>
+        <div class="wf-roll wf-roll--bad">
+          <span class="wf-roll-when">21 Aug 23:02</span>
+          <a class="wf-roll-case" href="case.html">Nightfall Case</a>
+          <div class="wf-roll-item">
+            <span class="wf-roll-art" aria-hidden="true"></span>
+            <span class="wf-roll-name"><span class="wf-roll-w">MP9</span><span class="wf-roll-s">Rose Iron &#183; Minimal Wear</span></span>
+          </div>
+          <div class="wf-roll-figs">
+            <div class="wf-roll-f"><span class="wf-roll-k">Cost then</span><span class="wf-roll-v">1.10 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Worth when won</span><span class="wf-roll-v">1.86 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Chance published then</span><span class="wf-roll-v">7.30%</span></div>
+          </div>
+          <div class="wf-roll-proof"><span class="wf-roll-hash">c02b7d19</span><span class="wf-fig-missing">Our own recomputation of this round does not match what we published. Reported automatically, with the round attached.</span><a class="wf-btn wf-btn--small" href="support.html">The ticket</a></div>
+        </div>
+        <div class="wf-roll">
+          <span class="wf-roll-when">20 Aug 18:40</span>
+          <a class="wf-roll-case" href="case.html">Warsteel Case</a>
+          <div class="wf-roll-item">
+            <span class="wf-roll-art" aria-hidden="true"></span>
+            <span class="wf-roll-name"><span class="wf-roll-w">AWP</span><span class="wf-roll-s">Asiimov &#183; Field-Tested</span></span>
+          </div>
+          <div class="wf-roll-figs">
+            <div class="wf-roll-f"><span class="wf-roll-k">Cost then</span><span class="wf-roll-v">4.80 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Worth when won</span><span class="wf-roll-v">61.40 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Chance published then</span><span class="wf-roll-v">0.11%</span></div>
+          </div>
+          <div class="wf-roll-proof"><span class="wf-roll-hash">a91f4c2e</span><a class="wf-btn wf-btn--small" href="fair-prefilled.html">Check it</a><a class="wf-btn wf-btn--small" href="result.html">Public page</a></div>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

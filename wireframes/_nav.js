@@ -229,11 +229,24 @@ window.WF_NAV = {
     // rows because the map held four destinations; the founder answered the gap on the
     // map's side. 5.9 arrived with a parent, F3, and with D-C as its dependency. 5.10 and
     // 5.11 arrived with no parent in the three legal classes and carry that printed.
-    { node: '5.9',  cluster: '5', name: 'Roll history',         file: 'history.html',    status: 'spec',
-      base: 'Every roll, each with its hash' },
+    // DRAWN 22 AUGUST 2026, and both specifications were written the same day.
+    // D-36 put these on the map on 20 August, said stage 04 owed three more
+    // screens, and wrote none of them: two days with a registered file, a 404
+    // behind it and no node anywhere. 5.11 stays undrawn because its contents
+    // are the founder's to decide and D-36 says so.
+    { node: '5.9',  cluster: '5', name: 'Roll history',         file: 'history.html',    ia: 'history.html',   status: 'built',
+      base: 'Every roll, each with its hash',
+      states: [
+        { node: '5.9', label: 'No rolls yet',                 file: 'history-empty.html',    status: 'built' },
+        { node: '5.9', label: 'Nothing to check, D-C is no',  file: 'history-no-seed.html',  status: 'built' },
+        { node: '5.9', label: 'A proof that does not match',  file: 'history-mismatch.html', status: 'built' }
+      ] },
 
-    { node: '5.10', cluster: '5', name: 'Profile',              file: 'profile.html',    status: 'spec',
-      base: 'Avatar, name, the Steam link' },
+    { node: '5.10', cluster: '5', name: 'Profile',              file: 'profile.html',    ia: 'profile.html',   status: 'built',
+      base: 'Avatar, name, the Steam link',
+      states: [
+        { node: '5.10', label: 'Steam unreadable', file: 'profile-steam-down.html', status: 'built' }
+      ] },
 
     { node: '5.11', cluster: '5', name: 'Settings',             file: 'settings.html',   status: 'spec',
       base: 'What it holds in round 1 is [?]' },

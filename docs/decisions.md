@@ -2688,3 +2688,59 @@ Seven sections, each naming the surfaces that own it, **and the questions are no
 175 checks over the five pages at six widths. No horizontal overflow. One H1 each, eight real clause H2s, eight real contents anchors, **nothing behind a native accordion and nothing offered as a file**: a file has no H1 to validate, no breadcrumb and no version history around it. Two machine-readable dates per page. **The summary sits above the document at every width**, asserted by geometry. The identification block renders all six fields with all six empty. No legal copy drafted anywhere, no identification value invented, no supervisory authority named, no `Legal` crumb linked. **Every target at least 44 by 44, measured as the hit area.**
 
 486 checks over all 80 pages clean, prose sweep 0 of 80, every internal link a registry file. **Three dead links remain, and all three are screens with no IA node written yet.**
+
+---
+
+## D-78. Nodes `5.9` and `5.10` are written and drawn, two days after `D-36` put them on the map and did not write them
+
+**Date:** 2026-08-22. **Stage:** 04, doing 03b's work for two of three nodes. **Decided by:** Claude, with `5.11` left for the founder because `D-36` already said it is theirs. **Binds:** the two new node files, `ia/_nav.js`, and it puts one finding on register `0.13`.
+
+**What was built.** Two IA nodes, `ia/docs/pages/history.md` and `profile.md`, their two pages, and six wireframes: `history.html`, `-empty`, `-no-seed`, `-mismatch`, `profile.html`, `profile-steam-down.html`. **86 of 99.**
+
+### Two days with a registered file, a 404 behind it, and no specification anywhere
+
+`D-36` added `5.9`, `5.10` and `5.11` on 20 August so the account menu could carry live rows instead of dead ones. **It named the cost in its own record, "stage 04 owes three more screens", and wrote none of them.** The wireframe registry got three files, the shell linked all three, and nothing in `ia/docs/pages/` described any of them.
+
+**That is the dead item defect one level up.** The rule `D-36` invoked says a carrier is inherited and filled with live items, and only a dead item is deferred. **A row pointing at a specified page with no drawing is work outstanding. A row pointing at nothing at all is the defect the rule exists to prevent**, and it survived because the registry entry looked like the work had been scheduled.
+
+**`5.11` stays unwritten and that is the correct state.** `D-36`: "what it holds in round 1 is `[?]` and the node owes that answer before it can be drawn." Sound is at the foot of the rail, language is one language by the locked decision, and no notification row exists anywhere in the backlog. **Asking is the instruction here, not filling it with a median.**
+
+### `5.9` is the strongest of the three and the map had left it out entirely
+
+Its parent is real: Related Job 3, verify the outcome after I open, by way of row `F3`. **And the parent is stronger than the row that names it.** `F3` is one link on one outcome screen. **Until this node existed, the only trace of a roll a person could reach was the item it produced**, and an item is not a round: it survives a sale, it can be withdrawn away, and it carries no seed material. **A product whose whole trust claim is that every round can be checked afterwards had no afterwards.**
+
+**A row is a roll, not an item, and that is the whole node.** The baseline runs four history tabs and every one is an **inventory** history: a grid of item cards, which is the outcome of a roll with the roll removed. **That is the trophy shelf `7.1` was written to replace, one screen deeper.** Seven fields per row, the cost and the worth both dated to the roll, and **no row is ever removed**: selling the item back or withdrawing it changes one field and deletes nothing.
+
+**No total of any kind, and the absence is the decision.** Spent, returned, the ratio of the two, a best drop, a rarest pull, a personal record, a sort by value. **Every one is a session score with a longer window**, and a lifetime profit figure is the strongest completion mechanic this product could ship. **The cost is printed rather than absorbed:** a person who wants to know whether they are up or down cannot learn it here, and that loss is the correct one.
+
+**Both readings of `D-C` are drawn rather than waited for.** The question of whether rolls are retained with seed and nonce went to the platform on 11 August and has not come back. **The no reading is not a degraded state, it is a different product**, so it has its own page: every row keeps its six other fields, the proof column says the material was never kept, **and the check control is absent rather than present and broken.** A dead check control promises the thing the row cannot do.
+
+**And the degraded row sits inside the base page beside a normal one**, because the distinction is the point: a source we cannot read **now** is not a roll whose material was never kept **ever**.
+
+### `5.10` is an orphan and the page enforces that on itself
+
+No barrier, no job, no compliance constraint. **It exists because the founder said all three would exist, asked directly**, which is a legitimate reason and is not one of the three legal classes, so the cell is printed rather than filled.
+
+**An orphan may not grow.** Every block is either a fact the product already holds or a control that exists elsewhere on the map. **Nothing here may be the first home of a new capability**, because a capability whose only justification is a page with no parent has no parent either. Six refusals follow from that one rule, and the sharpest is the counter: **the baseline runs three of them and every one reads `N/A`. This is the page where a level would be invented.**
+
+**The baseline's public id is recorded and refused.** `852261` is sequential and a stranger can decrement it, which makes the registered-account count enumerable from outside. **A fact about the baseline, not a pattern to inherit.**
+
+**Block 4 is the one this page is worth having for.** `D-69` left the public profile `[?]` with two of our own decisions against each other. **A person cannot be told what is public about them by a product that has not decided**, so the block states what is true today under either resolution: a shared result carries the name and the avatar, the live strip can carry a win, and there is no page a stranger can reach that lists what this account has won.
+
+**And it asks the honest question about itself in its own open list:** whether it survives its orphan status at all. If it is cut, the account menu loses a row and the rule that put it there applies again in the other direction.
+
+### The register owes three rows
+
+**`0.13` has no row for `5.9`, `5.10` or `5.11`.** Fourteen addresses in the URL map, sixteen in the indexation register, and none of them is one of the three nodes added on 20 August. Its closing count, "nine indexed surfaces and six that are not", **was taken before those nodes existed and becomes nine and nine.** The indexed half does not change, which makes it a bookkeeping error rather than a scope one.
+
+**The URLs are derived from the register's own rules rather than invented:** no language prefix, and one destination carries one label in every carrier, which is the rule that produced `/my-items` and is stated there as "not a styling choice". **Recorded as a finding with the three rows written out, and not edited into `0.13`.**
+
+### One fix traded a defect for another and was taken back
+
+The mismatch row's control read "Reported, with the round attached" and pushed the page sideways by 40px at 900. **The first fix let the label wrap, which the repo-wide sweep has failed since the case screen:** a control whose label runs to two lines. **The label is shortened instead and the sentence moved beside it as text**, which is what the node's own wording asked for anyway: reported automatically, and the person adds nothing.
+
+### Measured
+
+149 checks over the six pages at six widths. No horizontal overflow. One H1 each. **No total, profit, ratio, streak, best drop or personal record anywhere in either node**, and no verdict on any row. Five cells in every roll and **no cell dropped at any of three widths**, because a column that disappears at a width is a field the page decided a person did not need. Both dated figures on every row. **No sequential id and no counter on either profile page.** The empty state sells nothing, the no-seed state offers no check control, and the Steam-down state refuses the generated name in words.
+
+522 checks over all 86 pages, prose sweep clean, every internal link a registry file. **One dead link left in the whole product: `settings.html`.**

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roll history, nothing to check</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- THE OTHER READING OF D-C, DRAWN RATHER THAN WAITED FOR. The question sent
+     to the platform on 11 August is whether roll history is retained per roll,
+     with seed and nonce, in a publishable form. It has not come back. D-36
+     already wrote what happens if it returns no: the page renders the rolls
+     without the seed material and says so.
+     THIS IS NOT A DEGRADED STATE, IT IS A DIFFERENT PRODUCT. The component's own
+     vocabulary is that a proof shows the round was fixed before the click and
+     not altered after it. A history that cannot produce the material for that
+     sentence is a LOG, and calling it a proof would be the fabricated-verifier
+     defect 1.2 refuses, moved one screen over.
+     SO EVERY ROW KEEPS ITS SIX OTHER FIELDS and the route into the verifier is
+     ABSENT rather than present and broken. A dead check control is worse than
+     no check control: it promises the thing the row cannot do.
+     WHAT IT COSTS IS ON THE PAGE. Related Job 3 is served for a session rather
+     than for an account, and the success signal on the verification row is
+     unmeasurable for every roll older than whatever window exists. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <h1>Roll history</h1>
+    <p>Every roll on this account. <strong>212 rolls.</strong></p>
+
+    <div class="wf-hist">
+      <!-- BLOCK 2. THE SCOPE LINE, IN THE SHORT FORM THE COMPONENT CARRIES
+           EVERYWHERE. The proof shows the round was fixed before the click and
+           not altered after it. It does not show that the published chances are
+           the chances used, which is a different question with a different
+           answer on the case screen. -->
+      <p class="wf-note">A proof here shows the round was fixed before you clicked and not changed after. It does not show that the published chance was the chance used: that is checked on the case screen.</p>
+      <div class="wf-notice">
+        <h2 id="h2-noseed">These rolls cannot be checked</h2>
+        <p>The seed and nonce behind each roll were not kept in a form anyone can recompute, so there is nothing here to verify against.</p>
+        <p class="wf-note">The rolls themselves are complete. What is missing is the proof, and we say so rather than showing a control that cannot do anything.</p>
+      </div>
+      <!-- BLOCK 3. FILTERS, AND NO FILTER BY OUTCOME VALUE. Sorting by value is
+           the one sort that turns a history into a leaderboard of yourself, and
+           the only order a history has is by date. -->
+      <div class="wf-hfilters">
+        <button class="wf-btn wf-btn--small" type="button">All cases</button>
+        <button class="wf-btn wf-btn--small" type="button">Any date</button>
+        <button class="wf-btn wf-btn--small" type="button">Still held</button>
+      </div>
+      <div>
+        <div class="wf-roll">
+          <span class="wf-roll-when">22 Aug 09:14</span>
+          <a class="wf-roll-case" href="case.html">Ironbound Case</a>
+          <div class="wf-roll-item">
+            <span class="wf-roll-art" aria-hidden="true"></span>
+            <span class="wf-roll-name"><span class="wf-roll-w">AK-47</span><span class="wf-roll-s">Redline &#183; Field-Tested</span></span>
+          </div>
+          <div class="wf-roll-figs">
+            <div class="wf-roll-f"><span class="wf-roll-k">Cost then</span><span class="wf-roll-v">2.40 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Worth when won</span><span class="wf-roll-v">22.15 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Chance published then</span><span class="wf-roll-v">0.42%</span></div>
+          </div>
+          <div class="wf-roll-proof"><span class="wf-fig-missing">No seed or nonce was kept for this roll, so there is nothing here to check. The roll is real and its record is complete. The proof is not.</span></div>
+        </div>
+        <div class="wf-roll">
+          <span class="wf-roll-when">21 Aug 23:02</span>
+          <a class="wf-roll-case" href="case.html">Nightfall Case</a>
+          <div class="wf-roll-item">
+            <span class="wf-roll-art" aria-hidden="true"></span>
+            <span class="wf-roll-name"><span class="wf-roll-w">MP9</span><span class="wf-roll-s">Rose Iron &#183; Minimal Wear</span><span class="wf-roll-gone">Withdrawn to Steam, 22 Aug</span></span>
+          </div>
+          <div class="wf-roll-figs">
+            <div class="wf-roll-f"><span class="wf-roll-k">Cost then</span><span class="wf-roll-v">1.10 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Worth when won</span><span class="wf-roll-v">1.86 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Chance published then</span><span class="wf-roll-v">7.30%</span></div>
+          </div>
+          <div class="wf-roll-proof"><span class="wf-fig-missing">No seed or nonce was kept for this roll, so there is nothing here to check. The roll is real and its record is complete. The proof is not.</span></div>
+        </div>
+        <div class="wf-roll">
+          <span class="wf-roll-when">20 Aug 18:40</span>
+          <a class="wf-roll-case" href="case.html">Warsteel Case</a>
+          <div class="wf-roll-item">
+            <span class="wf-roll-art" aria-hidden="true"></span>
+            <span class="wf-roll-name"><span class="wf-roll-w">AWP</span><span class="wf-roll-s">Asiimov &#183; Field-Tested</span></span>
+          </div>
+          <div class="wf-roll-figs">
+            <div class="wf-roll-f"><span class="wf-roll-k">Cost then</span><span class="wf-roll-v">4.80 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Worth when won</span><span class="wf-roll-v">61.40 coins</span></div>
+            <div class="wf-roll-f"><span class="wf-roll-k">Chance published then</span><span class="wf-roll-v">0.11%</span></div>
+          </div>
+          <div class="wf-roll-proof"><span class="wf-fig-missing">No seed or nonce was kept for this roll, so there is nothing here to check. The roll is real and its record is complete. The proof is not.</span></div>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

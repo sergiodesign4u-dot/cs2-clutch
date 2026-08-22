@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile, Steam unreadable</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- THE STEAM LINK IS BROKEN OR THE ACCOUNT IS UNLINKED. The band renders with
+     the origin marked unreadable and a route to support.
+     NEVER A SILENT FALLBACK TO A GENERATED NAME. A name the product invented is
+     a second name for one person, which is the same defect an avatar upload
+     would create on purpose. The slot stays empty and says why. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <h1>Profile</h1>
+
+    <div class="wf-prof">
+      <div class="wf-prof-band">
+        <span class="wf-prof-av" aria-hidden="true"></span>
+        <span class="wf-prof-n">
+          <span class="wf-prof-name wf-fig-missing">Name unavailable</span>
+          <span class="wf-fig-c">Here since 12 Jan 2026</span>
+        </span>
+      </div>
+
+      <div class="wf-notice">
+        <h2 id="h2-broken">We cannot read your Steam account right now</h2>
+        <p>Your name and picture come from Steam and we cannot reach it. <strong>We are not making one up in the meantime.</strong></p>
+        <p class="wf-note">Nothing else about your account is affected. Your items, your rolls and taking anything out are all open.</p>
+        <div class="wf-row"><a class="wf-btn" href="support.html">Support</a><a class="wf-btn" href="account.html">My items</a></div>
+      </div>
+
+      <div class="wf-prof-f">
+        <div class="wf-sec-head"><h2 id="h2-id">Your account id</h2></div>
+        <div class="wf-tid">
+          <span class="wf-tid-v">acc-7f3a91c4</span>
+          <button class="wf-btn wf-btn--small" type="button">Copy</button>
+        </div>
+        <p class="wf-fig-c">This is ours and it is readable whatever Steam is doing.</p>
+      </div>
+
+      <div class="wf-row">
+        <a class="wf-btn" href="settings.html">Settings</a>
+        <a class="wf-btn" href="account.html">My items</a>
+        <a class="wf-btn" href="history.html">Roll history</a>
+      </div>
+    </div>
+
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

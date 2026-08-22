@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - 5.9 Roll history</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --green: #4ade80;
+      --red: #e5484d;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --wf-bg: #141414;
+      --wf-surface: #1e1e1e;
+      --wf-line: #6b6b6b;
+      --wf-line-soft: #3a3a3a;
+      --wf-ink: #dcdcdc;
+      --wf-ink-dim: #8a8a8a;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } footer.doc { margin-left: var(--nav-w); } }
+    section { margin-bottom: 76px; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px; }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 25px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 6px; }
+    h3 { font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 26px 0 10px; letter-spacing: -0.01em; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-blue); margin-bottom: 8px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+    ol, ul { margin: 0 0 14px 20px; }
+    li { font-size: 14.5px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 8px; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code { font-family: 'SF Mono', Menlo, monospace; font-size: 0.88em; color: var(--text-primary); background: rgba(255,255,255,0.04); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+    strong { color: var(--text-primary); font-weight: 600; }
+    .q { color: var(--accent-yellow); font-weight: 700; }
+
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 56px; }
+    .lede { font-size: 17px; color: var(--text-secondary); line-height: 1.65; max-width: 820px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+
+    .sec-head { margin-bottom: 22px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .sec-head p { font-size: 14px; margin-top: 6px; margin-bottom: 0; }
+
+    .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 20px 22px; margin-bottom: 12px; }
+    .card.is-note { border-left: 3px solid var(--accent-yellow); }
+    .card.is-fix { border-left: 3px solid var(--accent-pink); }
+    .card.is-good { border-left: 3px solid var(--green); }
+    .card.is-dead { border-left: 3px solid var(--red); }
+    .card.is-soon { border-left: 3px solid var(--text-muted); }
+
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-card); margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; min-width: 540px; }
+    th { text-align: left; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); padding: 13px 16px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+    td { font-size: 13.5px; color: var(--text-secondary); padding: 11px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tbody tr:last-child td { border-bottom: none; }
+    td .row-code { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; font-weight: 700; color: var(--accent-pink); }
+    td .surf { font-family: 'SF Mono', Menlo, monospace; font-size: 12px; color: var(--accent-blue); }
+
+    /* WIREFRAMES, black and white until stage 06 */
+    .wf-stage { background: var(--wf-bg); border: 1px solid var(--border-strong); border-radius: 12px; padding: 26px 22px; margin-bottom: 14px; }
+    .wf-cap { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+    .wf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 14px; }
+
+    .wf-proof { border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 13px 14px; }
+    .wf-proof-lbl { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 9px; padding-bottom: 7px; border-bottom: 1px dashed var(--wf-line-soft); }
+    .wf-kv { display: flex; gap: 9px; margin-bottom: 6px; align-items: baseline; flex-wrap: wrap; }
+    .wf-k { flex: 0 0 74px; font-family: 'SF Mono', Menlo, monospace; font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-v { font-family: 'SF Mono', Menlo, monospace; font-size: 10.5px; color: var(--wf-ink); overflow-wrap: anywhere; }
+    .wf-v.is-dim { color: var(--wf-ink-dim); font-style: italic; font-family: inherit; }
+    .wf-scope { font-size: 10px; color: var(--wf-ink-dim); line-height: 1.5; border-top: 1px dashed var(--wf-line-soft); margin-top: 10px; padding-top: 9px; }
+    .wf-scope b { color: var(--wf-ink); font-weight: 700; }
+    .wf-link { display: inline-block; font-size: 10px; color: var(--wf-ink); border-bottom: 1px solid var(--wf-line); margin-top: 9px; padding-bottom: 1px; }
+
+    .wf-phone { width: 360px; max-width: 100%; border: 1px solid var(--wf-line); border-radius: 6px; background: var(--wf-surface); padding: 14px 12px; }
+    .wf-band { border: 1px dashed var(--wf-line-soft); border-radius: 4px; padding: 8px 9px; margin-bottom: 10px; }
+    .wf-band:last-child { margin-bottom: 0; }
+    .wf-band-h { font-size: 8.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-dim); margin-bottom: 6px; }
+    .wf-txt { font-size: 11px; color: var(--wf-ink); line-height: 1.5; }
+    .wf-txt.is-dim { color: var(--wf-ink-dim); }
+    .wf-btn { display: block; border: 1px solid var(--wf-line); border-radius: 4px; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; color: var(--wf-ink); padding: 9px 8px; }
+    .wf-thumb { border: 1px dashed var(--wf-line-soft); border-radius: 3px; height: 42px; display: flex; align-items: center; justify-content: center; font-size: 9px; color: var(--wf-ink-dim); margin-bottom: 7px; }
+    .wf-asof { font-family: 'SF Mono', Menlo, monospace; font-size: 8.5px; color: var(--wf-ink-dim); margin-top: 3px; }
+
+    /* the clock */
+    .wf-stg { border: 1px solid var(--wf-line-soft); border-radius: 4px; padding: 8px 9px; margin-bottom: 7px; }
+    .wf-stg:last-child { margin-bottom: 0; }
+    .wf-stg.is-live { border-color: var(--wf-line); border-left-width: 3px; }
+    .wf-stg-n { font-size: 11px; color: var(--wf-ink); font-weight: 700; line-height: 1.4; }
+    .wf-stg-own { font-size: 8.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); border: 1px solid var(--wf-line-soft); border-radius: 999px; padding: 1px 7px; display: inline-block; margin-top: 5px; }
+    .wf-stg-rows { margin-top: 6px; }
+    .wf-stg-row { display: flex; gap: 8px; align-items: baseline; }
+    .wf-stg-lbl { flex: 0 0 62px; font-size: 8.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--wf-ink-dim); }
+    .wf-stg-val { font-family: 'SF Mono', Menlo, monospace; font-size: 11px; color: var(--wf-ink); }
+    .wf-strike { color: var(--wf-ink-dim); text-decoration: line-through; }
+
+    .backlink { display: inline-block; margin-top: 10px; font-size: 13px; }
+
+    footer.doc { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; }
+    footer.doc p { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+
+    @media (max-width: 900px) {
+      main { padding: 40px 20px 60px; }
+      .card, .wf-stage { padding: 17px 15px; }
+      .wf-grid { grid-template-columns: 1fr; }
+      footer.doc { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="overview">
+  <div class="section-eyebrow">Information architecture, detail layer - node 5.9</div>
+  <h1>Roll history</h1>
+  <p class="lede">Every roll this account has made, each one reachable as a checkable round. <strong>Until this node existed, the only trace of a roll a person could reach was the item it produced</strong>, and an item is not a round: it survives a sale, it can be withdrawn away, and it carries no seed material. A product whose whole trust claim is that every round can be checked afterwards had no afterwards.</p>
+  <div class="hero-meta">
+    <div><div class="hero-stat-value">7</div><div class="hero-stat-label">Fields in a row</div></div>
+    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Readings of <code>D-C</code>, both drawn</div></div>
+    <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Totals, and that is the decision</div></div>
+  </div>
+</div>
+
+<div class="card is-fix">
+  <h4>Written twenty days after the map closed, and two days after this node was added to it</h4>
+  <p><code>D-36</code> put 5.9, 5.10 and 5.11 on the map on 20 August so the account menu could carry live rows instead of dead ones, and it named the cost in the same record: "stage 04 owes three more screens". <strong>It did not write them.</strong> Three registered destinations went two days with a file in the wireframe registry, a 404 behind it, and no specification anywhere. <strong>This node closes one of the three.</strong></p>
+  <p><strong>Jobs served:</strong> Related Job 3, verify the outcome after I open. <strong>Parent class: job</strong>, by way of row <span class="row-code">F3</span>. <strong>URL:</strong> <code>/roll-history</code>, noindex, canonical self, no schema, no breadcrumb, <strong>and none of that is inherited because the register has no row for this node</strong>.</p>
+</div>
+
+<!-- BASELINE ROW -->
+<section id="baseline-row">
+  <div class="sec-head">
+    <h2>Baseline row</h2>
+    <p>Every node carries one: what the live product does, what we keep, what we change and why.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:34%">What the live product does</th><th style="width:22%">What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>A public profile with four history tabs</strong>, Inventory history, Case battle history, Gunfights history and Upgrades history, each a grid of item cards carrying the mode icon, the image, the weapon, the skin, the wear and a value in coins. Founder capture, 21 Aug 2026.</td>
+          <td>The idea that history is a first-class surface, and the split by mode, which arrives when a second mode does.</td>
+          <td><strong>Everything about what a row is.</strong> The baseline&#39;s history is an <strong>inventory</strong> history: it lists items, and an item is the outcome of a roll with the roll removed. Ours lists <strong>rolls</strong>, and the item is one column of a row. <strong>A history of items is the trophy shelf again, one screen deeper</strong>, and 7.1 was written to replace the shelf with something checkable. And it is private: theirs is public, this one is the account&#39;s own.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ROW -->
+<section id="row">
+  <div class="sec-head">
+    <h2>What a row is, and why that is the whole node</h2>
+    <p>A row is a roll, not an item. Seven fields, and every one exists because something reads it separately.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:20%">Field</th><th style="width:32%">What it holds</th><th>Why it is a field</th></tr></thead>
+      <tbody>
+        <tr><td><strong>When</strong></td><td>The moment of the roll, to the minute</td><td>The only field a person navigates by</td></tr>
+        <tr><td><strong>The case</strong></td><td>Which case was opened, with a route to it</td><td>A roll with no case is an event with no price and no chance attached</td></tr>
+        <tr><td><strong>What it cost</strong></td><td>The entry cost at the moment of the roll, in coins</td><td><strong>Dated to the roll and never re-read from the case today.</strong> A case whose price changed would otherwise rewrite what every past roll cost</td></tr>
+        <tr><td><strong>What it returned</strong></td><td>The item as <span class="surf">0.6</span>, with the <span class="row-code">F1</span> receipt figure it was worth at that moment</td><td>Two dated figures, never one, and never a third made out of them. Same rule as 5.1</td></tr>
+        <tr><td><strong>The published chance</strong></td><td>The chance of that outcome, as published at the moment of the roll</td><td><span class="row-code">D3</span> and <span class="row-code">D4</span> are about the case. <strong>This is the same claim about one event</strong>, and it is what makes a row checkable rather than merely recorded</td></tr>
+        <tr><td><strong>The round proof</strong></td><td><span class="surf">0.14</span>, variant V1 in the row and V3 on demand</td><td>The whole reason this page exists</td></tr>
+        <tr><td><strong>The state of the roll&#39;s item</strong></td><td>Held, sold back, or withdrawn</td><td><strong>Derived and stated, because the item is the part of a roll that moves.</strong> A row whose item has gone is a roll whose outcome left</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card is-good">
+    <h4>No row is ever removed</h4>
+    <p>Selling the item back or withdrawing it changes one field and deletes nothing. <strong>A history that loses a roll when its item leaves is a history of the inventory again</strong>, which is exactly what the baseline row rejects.</p>
+  </div>
+</section>
+
+<!-- DC -->
+<section id="dc">
+  <div class="sec-head">
+    <h2>The dependency this node inherits, and what it does if the answer is no</h2>
+    <p><code>D-C</code> decides whether roll history is retained per roll, with seed and nonce, in a publishable form. Scheduled before stage 04, sent to the platform with <code>D-B</code> as one request, and it has not come back.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">If <code>D-C</code> returns</th><th>What this page renders</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Yes, retained per roll</strong></td><td>Every row carries its hash, and its seed and nonce once revealed. The route into 1.2 arrives prefilled</td></tr>
+        <tr><td><strong>No, not retained</strong></td><td>Every row still exists, with all six other fields. <strong>The proof column says the seed material was not retained for this roll and why</strong>, and the route into 1.2 is absent on that row rather than present and broken</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card is-soon">
+    <h4>The second reading is not a degraded state, it is a different product</h4>
+    <p><span class="surf">0.14</span> fixes the vocabulary: the proof shows the round was fixed before the click and not altered after it. <strong>A history that cannot produce the material for that sentence is a log</strong>, and calling it a proof would be the fabricated-verifier defect 1.2 refuses, moved one screen over.</p>
+    <p><strong>The founder decision this exposes and does not take.</strong> If <code>D-C</code> is no, <span class="row-code">F3</span>&#39;s success signal is unmeasurable for every roll older than the retention window, and Related Job 3 is served for a session rather than for an account. <strong>That is a platform answer, not a design one.</strong></p>
+  </div>
+</section>
+
+<!-- BLOCKS -->
+<section id="blocks">
+  <div class="sec-head">
+    <h2>Blocks, reasoned from 360px</h2>
+    <p>Composition from <code>blocks.md</code> T2, listing with an empty state, TAKE rows only.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:4%">#</th><th style="width:20%">Block</th><th>What it holds</th><th style="width:14%">Parent</th><th style="width:12%">First screen</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1</strong></td><td><strong>H1 and the count</strong></td><td>Every roll on this account, and how many. <strong>A count and never a total</strong></td><td><span class="row-code">F3</span></td><td>Yes</td></tr>
+        <tr><td><strong>2</strong></td><td><strong>The scope line</strong></td><td>What a proof here shows and what it does not, in the short form <span class="surf">0.14</span> carries everywhere</td><td><span class="surf">0.14</span></td><td>Yes</td></tr>
+        <tr><td><strong>3</strong></td><td><strong>Filters</strong></td><td>By case, by date range, by whether the item is still held. <strong>No filter by outcome value</strong></td><td><span class="row-code">F3</span></td><td>Partly</td></tr>
+        <tr><td><strong>4</strong></td><td><strong>The rows</strong></td><td>Seven fields, one per roll</td><td>Related Job 3</td><td>Yes</td></tr>
+        <tr><td><strong>5</strong></td><td><strong>The empty state</strong></td><td>No rolls yet, with the route to a case. <strong>The default composition rather than a fallback</strong></td><td><code>blocks.md</code> T2</td><td>When it fires</td></tr>
+        <tr><td><strong>6</strong></td><td>The pager</td><td>Whatever the list does past one screen, and its end</td><td><code>blocks.md</code> T2</td><td>No</td></tr>
+        <tr><td><strong>7</strong></td><td>Footer <span class="surf">0.2</span></td><td>Unchanged</td><td><span class="surf">0.2</span></td><td>No</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card is-note">
+    <h4>No block 8 and no summary of any kind, and the absence is the decision</h4>
+    <p>A history of rolls invites a total: how much was spent, how much came back, the ratio of the two. <strong>Every one of those is a session score with a longer window</strong>, and <code>CLAUDE.md</code>&#39;s limits rule binds it. <strong>A lifetime profit figure is the strongest completion mechanic the product could ship and nothing in the backlog asks for one.</strong></p>
+    <p><strong>What that costs, printed rather than absorbed.</strong> A person who wants to know whether they are up or down cannot learn it here. That is a real loss and it is the correct one: the answer to <span class="row-code">B7-1</span> is that each figure is honest at the moment it is shown, <strong>not that the product keeps a running score of a person&#39;s luck.</strong></p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:34%">Refused</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Any total, profit, loss, ratio or streak</strong></td><td>The limits rule, and <span class="row-code">0.11</span> rule 7: a number is never a score</td></tr>
+        <tr><td><strong>A best drop, a rarest pull or a personal record</strong></td><td>Survivorship by construction, already refused for a competitor&#39;s top drop of the week. <strong>The top of a history is not what happened</strong></td></tr>
+        <tr><td><strong>Sorting by value</strong></td><td>The one sort that turns a history into a leaderboard of yourself</td></tr>
+        <tr><td><strong>Sharing the page</strong></td><td>7.1 shares <strong>one round</strong>, publicly and checkably. <strong>A shared history is the trophy shelf</strong>, and the shelf is what 7.1 was built to replace</td></tr>
+        <tr><td><strong>A rarity-tinted row</strong></td><td>The tint belongs to the item. A list tinted by outcome reads as a scoreboard whatever the columns say</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section id="proof">
+  <div class="sec-head">
+    <h2>The proof in a row, and the one thing it may not become</h2>
+    <p>Two existing variants of <span class="surf">0.14</span> rather than a third: V1 in the row, V3 on demand.</p>
+  </div>
+  <div class="card is-good">
+    <h4>No row prints a verdict</h4>
+    <p>The hash renders as text, monospace, copyable, <strong>never an image</strong>, because it exists to be pasted into a verifier that is not ours. The route into 1.2 arrives prefilled, and 1.2 is public so the same route works for a stranger holding a shared link.</p>
+    <p><span class="surf">0.14</span> forbids a verified badge in every variant, and 1.2 is the one page in the product that never prints one either. <strong>A history that ticks every row green has asserted the thing the scheme does not prove.</strong></p>
+  </div>
+  <div class="card is-red">
+    <h4>And the mismatch case is drawn rather than assumed away</h4>
+    <p>If our own recomputation of a row disagrees with what we published, the row says so and routes to 0.10 with the round attached, exactly as 1.4 does. <strong>Drawn on purpose and early</strong>, for the same reason 7.1&#39;s was: <strong>the states nobody wants are the states that get discovered late.</strong></p>
+  </div>
+</section>
+
+<!-- STATES -->
+<section id="states">
+  <div class="sec-head">
+    <h2>States</h2>
+    <p>None numbered. The map gives this node no numbered states, and these are internal conditions the wireframe draws.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">State</th><th>What the page does</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Rolls exist</strong></td><td>The list</td></tr>
+        <tr><td><strong>Empty, no rolls yet</strong></td><td>The default composition, with one route into 3.1. <strong>Never an illustration with an invitation</strong>, which would be the product selling a roll on the page that records them</td></tr>
+        <tr><td><strong>Loading</strong></td><td>The list&#39;s own skeleton. Rows, not a spinner</td></tr>
+        <tr><td><strong>Degraded, the proof source is unavailable</strong></td><td>The rows render and the proof column says the material could not be read <strong>now</strong>, distinguished from not retained <strong>ever</strong>, which is <code>D-C</code></td></tr>
+        <tr><td><strong>A row whose item has gone</strong></td><td>The row stays, the item field says sold back or withdrawn with its date</td></tr>
+        <tr><td><strong>A row whose proof does not match</strong></td><td>Says so, and routes to 0.10 with the round attached</td></tr>
+        <tr><td><strong>Guest</strong></td><td>Never rendered. This is an account&#39;s own record and there is no public form of it</td></tr>
+        <tr><td><strong>Boundary in force, or a market closing</strong></td><td>Unchanged, in full. <strong>Reading your own record is never closed by a boundary</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FINDING -->
+<section id="finding">
+  <div class="sec-head">
+    <h2>The finding this node cannot fix, and the register that owes it</h2>
+    <p><code>0.13</code> has no row for 5.9, 5.10 or 5.11.</p>
+  </div>
+  <div class="card is-fix">
+    <h4>Fourteen addresses and sixteen indexation rows, and none of them is one of the three</h4>
+    <p>The register&#39;s closing sentence, "nine indexed surfaces and six that are not", is <strong>a count taken before those nodes existed.</strong> The URL above is derived from the register&#39;s own rules rather than invented: no language prefix, and one destination carries one label in every carrier, which is the rule that produced <code>/my-items</code> and is stated there as "not a styling choice".</p>
+    <p><strong>Recorded as a finding rather than fixed here:</strong> a node returns a contradiction against a register it consumes instead of editing it.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Node</th><th>URL</th><th>Indexed</th><th>Canonical</th><th>Schema</th><th>Breadcrumb</th></tr></thead>
+      <tbody>
+        <tr><td><span class="surf">5.9</span> Roll history</td><td><code>/roll-history</code></td><td>No</td><td>Self</td><td>None</td><td>None</td></tr>
+        <tr><td><span class="surf">5.10</span> Profile</td><td><code>/profile</code></td><td>No</td><td>Self</td><td>None</td><td>None</td></tr>
+        <tr><td><span class="surf">5.11</span> Settings</td><td><code>/settings</code></td><td>No</td><td>Self</td><td>None</td><td>None</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>And the count sentence moves with them:</strong> nine indexed and six that are not becomes nine and nine. The indexed half does not change, which is why this is a bookkeeping error rather than a scope one, and it is exactly the class the step 8 audit calls count reconciliation.</p>
+</section>
+
+<!-- OPEN -->
+<section id="open">
+  <div class="sec-head">
+    <h2>What this node does not decide</h2>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Open item</th><th>What is missing</th><th style="width:18%">Owner</th></tr></thead>
+      <tbody>
+        <tr><td><strong><code>D-C</code>, whether rolls are retained with seed and nonce</strong></td><td>Sent to the platform on 11 August with <code>D-B</code> as one request and not returned. <strong>Both answers are drawn and the page shape survives either</strong>, but which one ships is not a design choice</td><td>The platform, then the founder</td></tr>
+        <tr><td>How far back the history goes</td><td>Every roll ever, or a window. <strong>A window is a retention decision with a privacy face</strong>, so it belongs in the privacy document, which does not exist</td><td>Counsel, then production</td></tr>
+        <tr><td>The three register rows</td><td>Above</td><td>Node <span class="surf">0.13</span></td></tr>
+        <tr><td>Whether a roll can be hidden by its owner</td><td>7.1 publishes one round to a stranger with a link. Whether a person can keep a specific roll out of that is decided nowhere, <strong>and this page is where they would do it</strong></td><td>Founder, with 7.1</td></tr>
+        <tr><td>What a row shows when the case itself is gone</td><td>A case can be retired. The roll happened and the case page may not exist. <strong>Named rather than assumed either way</strong></td><td>Node <span class="surf">3.1</span>, then here</td></tr>
+        <tr><td>The page size and what the pager is</td><td><code>blocks.md</code> T2 gives the shape and no number</td><td>Production</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</main>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_ACTIVE = 'ia/structure.html';
+window.NAV_ACTIVE_LABEL = '5.9 Roll history';
+window.NAV_SECTIONS = [
+  { id: 'overview', label: 'Overview' },
+  { id: 'baseline-row', label: 'Baseline row' },
+  { id: 'row', label: 'What a row is' },
+  { id: 'dc', label: 'The D-C dependency' },
+  { id: 'blocks', label: 'Blocks and refusals' },
+  { id: 'proof', label: 'The proof in a row' },
+  { id: 'states', label: 'States' },
+  { id: 'finding', label: 'The register finding' },
+  { id: 'open', label: 'Open' },
+];
+</script>
+<script src="_nav.js"></script>
+<script src="../_nav.js"></script>
+</body>
+</html>
