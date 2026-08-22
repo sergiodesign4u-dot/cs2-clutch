@@ -1966,3 +1966,35 @@ No deadline figure invented on any page. No support address invented. **No ident
 **The mismatch control pushed the page sideways at 900, and the first fix let its label wrap**, the defect the sweep has failed since the case screen. Shortened instead. **And the register owes three rows** that this node writes out and does not edit in.
 
 **149 checks over the six pages, 522 over all 86. One dead link left in the product.**
+
+---
+
+## 56. `D-79`: node `0.3`, eight pages, and the citation that was on all ninety four
+
+**Eight pages, 22 August 2026.** `system.html`, `-404-internal`, `-404-retired`, `-404-noresult`, `-500`, `-500-noshell`, `-503-planned`, `-503-unplanned`. **94 of 101**, the total having grown by two.
+
+### The registry had five states and the node had been asking for seven
+
+**Neither extra page is a new idea.** The empty search result has had its own row in section 7 since the node was written, and section 9 has said "stage 04 draws both versions" of the 500 for four days. **A conditional block drawn once is drawn in whichever condition the person drawing it assumed.**
+
+### The response is drawn, and that is the whole shape of the template
+
+A soft 404 is HTTP 200 with a not-found body. Key-Drop's inversion is HTTP 404 with the home page in it. **Both are the status and the body disagreeing, and both are invisible in a wireframe that draws only the body.** So every page carries the status, the address it was served at, and the `Retry-After` where there is one.
+
+### The search is a control, so its empty state exists
+
+It filters the twelve case names `3.1` already draws, hits land on the case screen, **and the empty result sits in the same block with both quick links still under it.** An empty search that clears the page is a second dead end inside the first one.
+
+### The 503 made the node argue with itself
+
+Section 1 says `Retry-After`: Yes for 503. Section 5 says the unplanned window invents no number. **Both cannot hold on the unplanned page.** Resolved by the RFC's own **MAY**: planned sends the header and says the figure in words, unplanned sends none and says so.
+
+### `D-59` had reached three files and left five
+
+Two spec files, two of their pages, and **nineteen wireframes carrying a byte-identical comment that said the ticker was not on a page that was rendering it.** `0.8` now carries the register of every surface that refuses the feed and the parent of each: **fourteen pages refuse it, eighty carry it.**
+
+### And a decision record was printed on every page of the product
+
+The footer's last line read "published wherever money is spent, `D-28`" on all ninety four. **The `D-66` sweep read `main` and the footer is not in `main`**, so the one citation on every page was the one the instrument could not see. The instrument now reads the whole surface with the scaffolding excluded by name.
+
+**80 checks over the eight pages at seven widths, 570 over all 94, 136 over every IA page, prose 0 of 94. One dead link left in the product.**

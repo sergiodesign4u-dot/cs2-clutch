@@ -20,6 +20,20 @@
 
 ---
 
+## 0.5 Amended 22 August 2026 by `D-79`, the day this node was drawn
+
+**Three things changed and none of them is a new idea.** Two were decisions taken elsewhere that had never reached this file, and one is a page count this node's own states table had been asking for since it was written.
+
+| What changed | Why |
+|---|---|
+| **The ticker refusal loses its citation and keeps its reason**, section 2 | It cited `D-31`, which `D-59` reversed on 21 August. `D-77` fixed the rule that decides what happens next: a surface may take the shell's feed off itself only on a parent written in its own file. This node has one and it is the sentence after the citation |
+| **The 404's search is a control here, not a description of one**, section 3 | The empty result is a state in section 7 and it had no page. A search that returns nothing is the one branch of this block that can go wrong, and it was the only state of this node that could not be looked at |
+| **The 500 is drawn twice**, with the carriers and without | Section 9 already said stage 04 draws both versions. It had not, and a conditional block drawn once is drawn in whichever condition the person who drew it assumed |
+
+**And one thing this node found in a file it does not own and did not edit:** `0.8` section 3 still reads "`1.0` Home and `3.3` Case screen. Nowhere else", which is the placement from before `D-31` and two decisions behind. That went back to `0.8` as a finding, and `D-79` records what it did about it.
+
+---
+
 ## 0. Two live failures, and they fail in opposite directions
 
 Both were opened in a browser on 12 August 2026 and both are recorded in `ia/docs/blocks.md`, type T8. They are worth more than a checklist because between them they use up both ways this page goes wrong.
@@ -54,7 +68,15 @@ RFC 9110, HTTP Semantics, June 2022, opened at `https://www.rfc-editor.org/rfc/r
 |---|---|---|---|
 | **Not found** | `404` | No | This address has nothing at it, and here is how to find what you wanted |
 | **Our fault** | `500` | No | Something on our side failed, we know, and here is the reference and the way to reach us |
-| **Planned or temporary stop** | `503` | **Yes, and the same figure in words in the body** | We are down on purpose or under load, this is who it is waiting on, and this is when to come back |
+| **Planned stop** | `503` | **Yes, and the same figure in words in the body** | We are down on purpose, this is who it is waiting on, and this is when to come back |
+| **Unplanned stop** | `503` | **No, and the absence is stated in the body** | Something is overloaded, it is us, there is no end time yet, and this is who to ask |
+
+**And this row contradicted section 5 until 22 August 2026, `D-79`, which is the day something had to render.** It reads `Retry-After`: **Yes** for 503 without qualification, and section 5 reads "unplanned states that there is no end time yet and gives the support route rather than a number invented to look reassuring". **A header that must always be sent and a figure that must never be invented cannot both hold on the unplanned page.**
+
+**Resolved in favour of section 5, and the RFC is what makes that legal rather than a preference of ours.** 15.6.4 says the server **MAY** send `Retry-After`, not must. So:
+
+- **Planned:** the header is sent and the body says the same figure in words. Two readers, one number.
+- **Unplanned:** the header is **not sent at all**, and the page says in words that there is no figure yet and who to ask. `0.11` rule 3 is the same rule from the other side: missing is a state, never a zero, and a `Retry-After` guessed to look reassuring is a published promise nobody intends to keep.
 
 **`Retry-After` is a promise, not a hint.** It is the same class of object as the published ceiling on a withdrawal state, row `G2`, and it is measured the same way: the response either comes back inside the figure it published or it does not. That is why the header alone is not enough. A figure only a machine can read is not a published figure, `0.11` rule 1.
 
@@ -83,7 +105,7 @@ One template, three fillings. A block that is absent on a surface is absent for 
 | Refused | Why |
 |---|---|
 | **The marketing sentence** | skin.club spends its one error line on one. `0.11` rule 1: a claim without a route is decoration that looks like evidence, and an error page is the worst place in the product to make one |
-| **The ticker `0.8`** | It renders on `1.0` only since `D-31`, by the placement rule in `sitemap.md`. A live feed of other people's wins beside our own failure is the tone this product does not have |
+| **The ticker `0.8`** | **The citation this row carried is dead and the refusal is not.** It read "renders on `1.0` only since `D-31`", and `D-59` of 21 August 2026 put the feed in the shell on every page, so the row had been resting on a reversed rule. **What survives is this node's own sentence: a live feed of other people's wins beside our own failure is the tone this product does not have.** That is a parent written in this file, which is what `D-77` requires of any surface that takes the feed off itself, and the refusal is registered in `0.8` section 3 rather than only here |
 | **Any live figure from `0.11`** | On 500 and 503 the source of those figures is the thing that failed. Rule 6 of that register makes a failed source degraded rather than frozen, and the cheapest way to obey it here is not to print the figure at all |
 
 **And that refusal meets one thing `0.2` already decided, so the two are reconciled here rather than left to collide.** The footer renders in full on these pages **including its statistics strip**, which is four live figures. `0.2`'s own transient table already answers it: a statistic that is unavailable states that it is unavailable with its last known timestamp and never renders a stale number as current. **So the strip renders in the unavailable state rather than being removed**, which is the same rule this node applies to the money figures in section 4, and neither node has to change.
@@ -159,10 +181,10 @@ Every state below is a state of this node. None of them is a separate node in th
 | **404, external arrival** | Statement, search, quick links, footer | Search into `3.1`, or the two quick links |
 | **404, internal referrer** | Identical to the person | The same, plus a counted signal that a link inside the product is dead |
 | **404 on a retired case slug** | The statement names that the case is gone rather than mistyped, **if the product knows that**, which is the 410 question | `3.1`, where the rest of the shelf is |
-| **500** | Statement, attribution, reference, quick links, footer. **No figures, no search** | Support through the footer, quick links, retry by reloading the address they wanted |
+| **500** | Statement, attribution, reference, quick links, footer. **No figures, no search.** **Drawn twice**, with the carriers and without, because section 4 makes them conditional and section 9 leaves the condition to production | Support through the footer, quick links, retry by reloading the address they wanted |
 | **503, planned** | Statement, owner, the end time, the retry control | The retry control, support |
 | **503, unplanned** | Statement, owner, **no invented end time**, the retry control, support | Support, which is the only route that is not the thing that is down |
-| **Search returns nothing**, inside the 404 | The empty result, in the same block, with the quick links still under it | `3.1`, the full shelf, never a blank page |
+| **Search returns nothing**, inside the 404 | The empty result, in the same block, with the quick links still under it. **A page of its own since `D-79`**, and the search on every 404 is a live control that reaches it, because a state only a description mentions is a state nobody checks | `3.1`, the full shelf, never a blank page |
 | **Boundary in force**, `6.3` | Unchanged. A system page does not editorialise about a limit | Same as its base state |
 | **Consent pending**, `0.4` | The banner renders here too, and nothing non-essential fires on an error page any more than anywhere else | Same as its base state |
 
@@ -190,7 +212,7 @@ Every state below is a state of this node. None of them is a separate node in th
 |---|---|---|
 | **404 against 410 for a retired case** | RFC 9110 15.5.5 prefers 410 where the condition is known to be permanent. `0.13` covers renames with a 301 and says nothing about retirement, and whether a retired case is permanent is a product answer, not a technical one | Node `0.13`, with the founder on whether a case can return |
 | **Where the three responses are served from** | A 500 that must not touch the backend and a 503 that must survive the origin being down both point at the edge. This node states the requirement and does not own the answer | Production, before stage 04 draws the template as final |
-| **Whether the carriers can render on a 500 at all** | Section 4 makes them conditional on being renderable without the backend. Whether the shell is static enough for that is unknown here | Production, and stage 04 draws both versions |
+| **Whether the carriers can render on a 500 at all** | Section 4 makes them conditional on being renderable without the backend. Whether the shell is static enough for that is unknown here. **Both versions are drawn since `D-79`, 22 August 2026, so the question is now which one production serves rather than what either looks like** | Production. Stage 04 has paid its half |
 | **The reference format** | One short identifier, correlatable with a log, short enough to read over the phone. The format is `[?]` | Production, with `0.10` which has to look it up inside the published deadline |
 | **How a person learns about a planned 503 before it starts** | There is **no notification, email or push row anywhere in `cjm-to-be.md`**, which the global sweep already recorded as a hole with no parent. A person off the site cannot be told, so a planned window is discovered by arriving at it | Founder, one backlog row if it is wanted. Recorded, not invented |
 | **Whether the quick links should carry a third destination** | The map's transitions hold `1.0` and `3.1`. Adding `1.2` or `0.10` to the body is a change to the map | The step 8 audit of this stage |

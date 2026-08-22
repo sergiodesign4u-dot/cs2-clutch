@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Highwater has been retired</title>
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 0.3, SYSTEM PAGES. Three failure surfaces on one template, and the
+     template is the node: 404, 500 and 503 differ by which blocks are filled, never
+     by which page somebody remembered to build.
+     THE ONE RULE THAT DECIDES EVERYTHING BELOW: a response speaks to two readers, a
+     person and a machine, and the status code is the machine-readable half of the
+     sentence the body says to the person. The two never say different things. Both
+     live failures walked on 12 August 2026 break exactly that rule and they break it
+     in opposite directions: skin.club serves a correct 404 with a body that tells a
+     person nothing they can act on, and Key-Drop serves HTTP 404 with the HOME PAGE
+     rendered in it, no H1 and no error message anywhere, so the crawler is told the
+     truth and the person is told the site is fine. A soft 404, HTTP 200 with a "not
+     found" body, is the same defect from the third side.
+     THAT IS WHY THE RESPONSE IS DRAWN. A wireframe that renders only the body cannot
+     show any of the three failures, because all three are agreements between a body
+     and a header. The block near the top of every one of these pages is the header
+     half, written where a reviewer can read it against the words beside it.
+     NEVER A DEAD END. The baseline's own 404 strips the shell: no rail, no header,
+     no ticker, no footer, so a person who mistypes an address loses every route in
+     the product except home. Ours keeps the shell and puts two routes in the BODY as
+     well, because on a 500 the body is the part that is certain to render.
+     THE FEED IS OFF ALL EIGHT PAGES, and the parent is this node's own sentence
+     rather than a borrowed one: a live feed of other people's wins beside our own
+     failure is the tone this product does not have. 0.8 section 3 carries the
+     register of every surface that refuses it and the parent of each, D-79. -->
+
+<!-- STATE: 404 ON A RETIRED CASE SLUG. The statement names the case as GONE rather
+     than as mistyped, which is worth a state of its own because it turns a dead end
+     into a fact: the person did not make a mistake, and the shelf they wanted still
+     exists.
+     "IF THE PRODUCT KNOWS THAT" IS A REAL CONDITION AND IT IS NOT DRAWN AS SOLVED.
+     Naming the case requires a register of retired slugs that outlives the case, and
+     nothing in this repository says one exists. Where it does not, this page falls
+     back to the base statement, which is why the base state is the base state.
+     410 IS A REAL DECISION AND IT IS NOT THIS NODE'S. RFC 9110 15.5.5 prefers 410
+     where the origin knows the condition is likely permanent, and 0.13 covers renames
+     with a 301 and says nothing about retirement. The status here is 404 because
+     nobody has answered whether a case can return, and the difference is not
+     cosmetic: 404 says "not now", 410 says "stop asking", and a crawler treats them
+     differently. Drawing 410 would answer a product question by drawing it. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <div class="wf-sys" data-sys>
+      <!-- B1. THE STATUS STATEMENT. The H1 is what happened IN WORDS and the numeral
+           is secondary text above it. Key-Drop's 404 has no H1 at all, which is how a
+           person reads a home page and learns nothing; skin.club spends its one line
+           on a marketing sentence. The numeral is present because a person reporting
+           this needs it, and it is never the heading.
+           THE TITLE CARRIES THE SAME STATEMENT. It is what a person sees in the tab
+           and in their history, and it is the one part of an error page that survives
+           being left open in a background tab. -->
+      <div class="wf-sys-head">
+        <span class="wf-sys-code">404 &middot; Not found</span>
+        <h1>Highwater has been retired</h1>
+      <p class="wf-sys-sub">This case is gone rather than mistyped. Whether it ever comes back is not something this page can tell you.</p>
+      </div>
+
+      <!-- THE RESPONSE, DRAWN. Three facts, and the second one is the one nobody
+           draws: the response renders AT THE ADDRESS THAT WAS REQUESTED. A redirect to
+           /404 would answer the request somewhere else, return a 200 or a 301 at a
+           different URL, and take the mistyped address out of the browser bar along
+           with any chance of correcting it. That is also what makes the status honest.
+           NO NOINDEX ANYWHERE ON THESE PAGES. The status code is the instrument, not
+           the meta tag: what removes an address from an index is the 404 itself, and
+           what stops a maintenance window removing the whole site is that a 503 is
+           temporary by definition. There are no error URLs to disallow in robots.txt
+           because there are no error URLs. -->
+      <div class="wf-resp">
+        <div class="wf-resp-r"><span class="wf-resp-k">Status</span><span class="wf-resp-v">404 Not Found</span></div>
+        <div class="wf-resp-r"><span class="wf-resp-k">Served at</span><span class="wf-resp-v">/cases/highwater</span></div>
+        <div class="wf-resp-r"><span class="wf-resp-k">You came from</span><span class="wf-resp-v">Nothing we can see</span></div>
+        <p class="wf-resp-say">The address above is the one you asked for. The rest of the shelf is still there.</p>
+      </div>
+
+      <!-- B3. THE SEARCH, AND IT IS THE BLOCK SKIN.CLUB LACKS. A 404 has two kinds of
+           arrival and this answers the one that knows what it wanted: rot or a typo,
+           no referrer, and they can name the thing. It is a REAL CONTROL: it filters,
+           it renders hits, and it has an empty result, which is a state of this node
+           that nothing could reach until it did.
+           IT SUBMITS INTO THE CATALOGUE ROUTE RATHER THAN MINTING A SEARCH SURFACE.
+           0.13 marks /cases?... noindex, follow, canonical to /cases, and this field
+           inherits that rule instead of inventing a second one.
+           NOT AUTOFOCUSED. Autofocus jumps a screen reader past the statement, which
+           is the one sentence this page exists to deliver. Focus starts at the top of
+           the main landmark. -->
+      <form class="wf-sys-find" data-sys-search>
+        <label class="wf-attr-h" for="sys-q">Look for a case by name</label>
+        <div class="wf-find">
+          <span class="wf-find-f"><input id="sys-q" type="search" placeholder="Ironbound" value="" autocomplete="off"></span>
+          <button class="wf-btn wf-btn--primary" type="submit">Search</button>
+        </div>
+        <div data-sys-results></div>
+        <span class="wf-vh" role="status" aria-live="polite" data-sys-live></span>
+      </form>
+
+      <!-- B4. QUICK LINKS, AND THERE ARE EXACTLY TWO BECAUSE THE MAP HOLDS TWO.
+           This node's transitions row is 1.0 and 3.1, and a carrier may not promise a
+           destination the map does not hold. Whether the body should also carry 1.2 or
+           0.10 is a change to the map, not a quiet addition here.
+           REAL <a href>, and a STACKED LIST rather than a tile grid. Two tiles side by
+           side at 360px is how the label of the longer destination gets truncated, and
+           a truncated route is the defect this block exists to remove. A destination
+           reachable only by script does not exist for a crawler and often not for a
+           keyboard either.
+           THIS IS A BODY BLOCK AND NOT A FOOTER LINK, and that is the whole reason it
+           exists: on a 500 the carriers may not render at all, and the body is the part
+           that is certain to. -->
+      <nav class="wf-sys-refuse" aria-label="Where to go from here">
+        <span class="wf-attr-h">Where to go from here</span>
+        <ul class="wf-quick">
+          <li><a href="index.html"><span class="wf-quick-n">Home</span><span class="wf-quick-w">The featured cases, and what this place is</span></a></li>
+          <li><a href="catalogue.html"><span class="wf-quick-n">All cases</span><span class="wf-quick-w">The full shelf</span></a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', feed: false, money: { balance: '74.20 coins', held: '130.60 coins' } };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

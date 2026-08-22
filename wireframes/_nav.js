@@ -47,14 +47,24 @@ window.WF_NAV = {
   // One entry per screen. `states` are pages too: the base file is the success state,
   // every other state is its own page, per wireframes/docs/conventions.md section 3.
   screens: [
-    { node: '0.3',  cluster: '0', name: 'System pages',        file: 'system.html',     ia: 'system.html',        status: 'spec',
+    // DRAWN 22 AUGUST 2026, D-79, and it gained two pages on the way in. The
+    // registry had five states because the node's INCLUDES line has three status
+    // codes; the node's own states table has been asking for a sixth page since it
+    // was written, the search returning nothing, and its open list has been saying
+    // "stage 04 draws both versions" of the 500 for four days. A state a node
+    // describes and no page renders is the state nobody checks, and a conditional
+    // block drawn once is drawn in whichever condition the person drawing it
+    // assumed.
+    { node: '0.3',  cluster: '0', name: 'System pages',        file: 'system.html',     ia: 'system.html',        status: 'built',
       base: '404, external arrival',
       states: [
-        { label: '404, internal referrer',  file: 'system-404-internal.html', status: 'spec' },
-        { label: '404, retired case slug',  file: 'system-404-retired.html',  status: 'spec' },
-        { label: '500',                     file: 'system-500.html',          status: 'spec' },
-        { label: '503, planned',            file: 'system-503-planned.html',  status: 'spec' },
-        { label: '503, unplanned',          file: 'system-503-unplanned.html', status: 'spec' }
+        { label: '404, internal referrer',  file: 'system-404-internal.html', status: 'built' },
+        { label: '404, retired case slug',  file: 'system-404-retired.html',  status: 'built' },
+        { label: '404, search finds nothing', file: 'system-404-noresult.html', status: 'built' },
+        { label: '500, carriers render',    file: 'system-500.html',          status: 'built' },
+        { label: '500, carriers cannot',    file: 'system-500-noshell.html',  status: 'built' },
+        { label: '503, planned',            file: 'system-503-planned.html',  status: 'built' },
+        { label: '503, unplanned',          file: 'system-503-unplanned.html', status: 'built' }
       ] },
 
     { node: '0.4',  cluster: '0', name: 'Cookie consent',      file: 'cookie.html',     ia: 'cookie.html',        status: 'spec',
@@ -1346,12 +1356,34 @@ window.WF_NAV = {
       // and a header saying 130.60 over a page saying 0.00 is the same
       // contradiction one level up. One source per page, and the shell follows.
       var M = (window.WF_SHELL && window.WF_SHELL.money) || {};
+      // NODE 0.3, THE 500. A page may declare that the figures have NO SOURCE, which
+      // is not the same as declaring them zero. The money in this header comes from
+      // the application, and on a 500 the application is what failed. 0.11 rule 3:
+      // missing is a state, never a zero. A dash that reads as zero and a zero that
+      // means "we do not know" are the same lie in two typefaces, and on a page about
+      // money the second one is the expensive lie.
+      // THE ROUTE COMES OFF WITH THE FIGURE. A figure with no value is not a link to
+      // its own detail, and rule 1 wants a route for a number rather than for a hole.
+      var noMoney = !!(window.WF_SHELL && window.WF_SHELL.money === false);
       [[M.balance || '74.20 coins', 'Balance', 'deposit.html', 'wf-money-1'],
        // ONE FIGURE, ONE VALUE, EVERYWHERE. It read 18.60 while 5.1 rendered a
        // holding of 130.60, which is two renderings of one number disagreeing on
        // adjacent surfaces: the exact defect 0.11 exists to prevent, and 5.1's
        // own rule is that these are the same pair the header carries.
        [M.held || '130.60 coins', 'Value of items held', 'account.html', 'wf-money-2']].forEach(function (f) {
+        if (noMoney) {
+          // NOT A LINK. A figure with no value is not a route to its own detail, and
+          // rule 1 asks for a route on a number rather than on a hole.
+          var z = el('div', 'wf-fig ' + f[3]);
+          // AND IT CARRIES ITS OWN NAME. Below 900 the header hides the captions,
+          // which two different figures survive because they are different: two
+          // reading "Not available" do not.
+          z.setAttribute('aria-label', f[1] + ', not available');
+          z.appendChild(el('span', 'wf-fig-v wf-fig-missing', 'Not available'));
+          z.appendChild(el('span', 'wf-fig-c', f[1]));
+          money.appendChild(z);
+          return;
+        }
         var d = el('a', 'wf-fig wf-fig-a ' + f[3]);
         d.href = BASE + f[2];
         d.setAttribute('aria-label', f[1] + ', ' + f[0]);
@@ -1472,14 +1504,26 @@ window.WF_NAV = {
     // something else, which is slot 1 alone.
     var b1 = band('wf-fband--stats');
     var stats = el('div', 'wf-foot-stats');
+    // NODE 0.3, THE 500 AND THE 503. The source of these figures is the thing that
+    // failed, so 0.11 rule 6 applies and it is the strict one: a failed source is
+    // marked degraded, NEVER frozen at its last good value. 0.2's own transient
+    // table already answers what the footer does about it, which is why the strip
+    // is not removed on an error page: a statistic that is unavailable says so with
+    // its last known moment, and the strip keeps its space. Removing it would take
+    // the proof-of-scale half of "never a dead end" with it.
+    var down = !!(window.WF_SHELL && window.WF_SHELL.stats === 'unavailable');
     [
-      ['363 777 660', 'Cases opened', 'Checkable per case, against the observed rate on each case screen', 'catalogue.html'],
+      down
+        ? [null, 'Cases opened', 'Not available. Last read 22 Aug 2026, and a value from then is not a value for now', 'catalogue.html']
+        : ['363 777 660', 'Cases opened', 'Checkable per case, against the observed rate on each case screen', 'catalogue.html'],
       // THE SECOND FILENAME DEFECT OF THE SAME CLASS, found the same way. It
       // pointed at withdrawal.html, which is the IA specification's filename
       // rather than the wireframe's, so the footer's own published figure led to
       // a 404 on every page. Invisible until 5.3 was built, because a link to an
       // unbuilt screen and a link to a misspelt one are the same 404.
-      ['1 h 40 m', 'Middle withdrawal time, from our own logs', null, 'withdraw.html'],
+      down
+        ? [null, 'Middle withdrawal time, from our own logs', 'Not available. Last read 22 Aug 2026', 'withdraw.html']
+        : ['1 h 40 m', 'Middle withdrawal time, from our own logs', null, 'withdraw.html'],
       [null, 'Online now, if it can count humans in real time', null, null],
       [null, 'Aggregate tested return to player', null, null]
     ].forEach(function (f) {
@@ -1721,7 +1765,17 @@ window.WF_NAV = {
 
     var fine = el('div', 'wf-foot-fine');
     fine.appendChild(el('span', 'wf-fig-c', 'CS2 Clutch, working name. Copyright range not set'));
-    fine.appendChild(el('span', 'wf-fig-c', 'Prices are in coins. What one coin is worth in real money is published wherever money is spent, D-28.'));
+    // D-66 SAYS A WIREFRAME MAY NEVER CITE A DECISION RECORD ON THE SURFACE, and this
+    // line ended with ", D-28." until 22 August 2026. It shipped on all ninety four
+    // pages, because the footer is on all ninety four pages, and it survived the sweep
+    // that removed thirty one citations from seventeen files a day earlier: that
+    // instrument read <main>, and the one citation that is on EVERY page is the one
+    // that is not in main. The rule was right, the reach was wrong, and the sweep now
+    // reads the whole surface with the scaffolding panel excluded by name.
+    // THE SENTENCE STAYS, and it is the only part that was ever product copy: rule 10
+    // of the published-numbers register is what makes it true, and a person reading a
+    // price is owed it whether or not a record number is stapled to the end.
+    fine.appendChild(el('span', 'wf-fig-c', 'Prices are in coins. What one coin is worth in real money is published wherever money is spent.'));
     b3.appendChild(fine);
 
     // Collapsed is a MOBILE default, not a state the desktop inherits. Above 900 the
@@ -2733,6 +2787,124 @@ window.WF_NAV = {
     wireAuth(host);
   }
 
+  /* ---------- NODE 0.3, SYSTEM PAGES ----------
+     Three controls, and every one of them does its thing rather than depicting it.
+     THE SEARCH IS THE ONE THAT EARNS THE CODE. Its empty result is a state in the
+     node's own states table and it had no page until D-79, which means the one
+     branch of this block that can go wrong was the only state of this node nobody
+     could look at. A field that filters nothing is a picture of a field, and a
+     picture cannot have an empty state.
+     WHAT IT SEARCHES is the catalogue, not a second index: 0.13 marks /cases?...
+     as noindex, follow, canonical to /cases, and the 404's field submits into that
+     same route rather than minting a search surface of its own. The twelve names
+     are the ones 3.1 already draws, so the two surfaces cannot disagree.
+     NEVER AUTOFOCUSED. Autofocus jumps a screen reader past the statement, which
+     is the one sentence this page exists to deliver. */
+  var SYS_CASES = ['Blacklight', 'Coldfront', 'Deadbolt', 'Emberline', 'Halfmoon', 'Ironbound',
+                   'Nightfall', 'Overcast', 'Riftwork', 'Saltmarsh', 'Tinderbox', 'Warsteel'];
+
+  function mountSystem() {
+    var root = document.querySelector('[data-sys]');
+    if (!root) return;
+
+    /* A. The search. */
+    var form = root.querySelector('[data-sys-search]');
+    if (form) {
+      var input = form.querySelector('input');
+      var out = root.querySelector('[data-sys-results]');
+      var live = root.querySelector('[data-sys-live]');
+
+      function draw(q) {
+        var term = (q || '').trim().toLowerCase();
+        out.innerHTML = '';
+        if (!term) {
+          if (live) live.textContent = '';
+          return;
+        }
+        var hits = SYS_CASES.filter(function (n) { return n.toLowerCase().indexOf(term) !== -1; });
+        if (!hits.length) {
+          // THE EMPTY RESULT SITS IN THE SAME BLOCK, and the quick links stay under
+          // it: 3.1, the full shelf, never a blank page. An empty search that
+          // replaces the page is a second dead end inside the first one.
+          var e = el('div', 'wf-empty');
+          e.appendChild(el('p', 'wf-empty-h', 'Nothing here is called that'));
+          var p1 = el('p', 'wf-empty-p');
+          p1.appendChild(document.createTextNode('No case matches '));
+          p1.appendChild(el('strong', null, '"' + (q || '').trim() + '"'));
+          p1.appendChild(document.createTextNode('. The shelf is the place to look, and it is one tap away below.'));
+          e.appendChild(p1);
+          var a = el('a', 'wf-btn', 'Open the full shelf');
+          a.href = BASE + 'catalogue.html';
+          var r = el('div', 'wf-row');
+          r.appendChild(a);
+          e.appendChild(r);
+          out.appendChild(e);
+          if (live) live.textContent = 'No case matches ' + (q || '').trim() + '.';
+          return;
+        }
+        var ul = el('ul', 'wf-hits');
+        hits.forEach(function (n) {
+          var li = el('li');
+          var a2 = el('a', 'wf-hit');
+          a2.href = BASE + 'case.html';
+          a2.appendChild(el('span', 'wf-hit-n', n));
+          a2.appendChild(el('span', 'wf-hit-k', 'Case'));
+          li.appendChild(a2);
+          ul.appendChild(li);
+        });
+        out.appendChild(ul);
+        if (live) live.textContent = hits.length + (hits.length === 1 ? ' case matches.' : ' cases match.');
+      }
+
+      form.addEventListener('submit', function (e) { e.preventDefault(); draw(input.value); });
+      input.addEventListener('input', function () { draw(input.value); });
+      // The no-result page renders its own state on load for the reason the sign in
+      // canon and the filter drawer both render theirs: a state nobody can see
+      // without a keystroke is a state nobody checks.
+      if (input.value) draw(input.value);
+    }
+
+    /* B. The retry, on the two 503 pages. A CONTROL, NEVER A LOOP: a page that
+       refreshes itself takes the choice away, keeps hammering a server that is
+       already refusing, and on a screen reader restarts the page on every cycle.
+       It answers politely and it counts, because a person who has pressed it four
+       times is owed the fact that they have. */
+    var retry = root.querySelector('[data-sys-retry]');
+    if (retry) {
+      var say = root.querySelector('[data-sys-retrysay]');
+      var tries = 0;
+      retry.addEventListener('click', function () {
+        tries += 1;
+        var t = new Date();
+        var hh = String(t.getHours()).padStart(2, '0');
+        var mm = String(t.getMinutes()).padStart(2, '0');
+        var ss = String(t.getSeconds()).padStart(2, '0');
+        if (say) {
+          say.textContent = 'Asked again at ' + hh + ':' + mm + ':' + ss + '. Still unavailable, and it is still us. '
+            + (tries === 1 ? '' : tries + ' attempts from here so far. ')
+            + 'Nothing is reloading on its own.';
+        }
+      });
+    }
+
+    /* C. Copy the reference. The string is in the DOM in full, so it is selectable
+       and a screen reader reads all of it; the truncation is visual and it is in
+       the middle, per 0.14 section 5. A reference nobody can hand to support is a
+       failure support cannot look up, which makes the published deadline in G4
+       unmeetable. */
+    var copy = root.querySelector('[data-sys-copy]');
+    if (copy) {
+      var mark = root.querySelector('[data-sys-copied]');
+      copy.addEventListener('click', function () {
+        var full = copy.getAttribute('data-sys-copy') || '';
+        function done() { if (mark) mark.textContent = 'Copied'; }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(full).then(done, done);
+        } else { done(); }
+      });
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     // The hero counters are derived, never typed: a hardcoded 0 beside a registry
     // that says 2 is the drift this file exists to prevent.
@@ -2755,6 +2927,7 @@ window.WF_NAV = {
     mountExclude();
     mountRp();
     renderFaq();
+    mountSystem();
     renderFooter(document.getElementById('wf-footer'));
     mountRollDetail();
     renderBar(document.getElementById('wf-bar'));

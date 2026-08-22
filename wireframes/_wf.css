@@ -3604,3 +3604,118 @@ textarea.wf-f { min-height: 96px; resize: vertical; }
   .wf-roll-figs { grid-column: 3; grid-row: 1 / span 2; flex-direction: column; }
   .wf-roll-proof { grid-column: 4; grid-row: 1 / span 2; align-items: flex-start; align-content: flex-start; }
 }
+
+/* ============================================================================
+   NODE 0.3, SYSTEM PAGES. One template, three fillings, eight pages.
+   THE ONE RULE THAT DECIDES THE LAYOUT: the status code is the machine-readable
+   half of the sentence the body says to the person, and the two never say
+   different things. So the response block is drawn beside the words rather than
+   left implicit: a soft 404 and Key-Drop's inverse are both invisible in a
+   wireframe that only draws the body, and both are what this node exists to
+   prevent.
+   One column at every width, at a readable measure. A failure page in two
+   columns is a dashboard, and nobody is here to scan. ========================= */
+.wf-sys { display: flex; flex-direction: column; gap: var(--wf-s-4); max-width: 640px; }
+.wf-sys-head { display: flex; flex-direction: column; gap: var(--wf-s-2); }
+/* THE NUMERAL IS SECONDARY TEXT AND NEVER THE HEADING. Key-Drop's 404 has no H1
+   at all; skin.club's is the number. The H1 is what happened in words, and the
+   numeral is present because a person reporting the problem needs it. */
+.wf-sys-code {
+  font-family: var(--wf-mono); font-size: var(--wf-t-xs); letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--wf-ink-dim);
+}
+.wf-sys-head h1 { margin: 0; font-size: var(--wf-t-xl); line-height: 1.15; }
+.wf-sys-sub { margin: 0; color: var(--wf-ink-dim); max-width: 52ch; }
+
+/* THE RESPONSE, DRAWN. Three facts a person can read and a machine already has:
+   the status this page was served with, the address it was served AT, and on a
+   503 the Retry-After it published. The address matters as much as the status:
+   the response renders at the address that was requested, because a redirect to
+   /404 answers the request somewhere else and takes the mistyped address out of
+   the browser bar along with any chance of correcting it. */
+.wf-resp {
+  display: flex; flex-direction: column; gap: var(--wf-s-1);
+  padding: var(--wf-s-2); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: var(--wf-surface);
+}
+.wf-resp-r { display: flex; flex-wrap: wrap; gap: var(--wf-s-half) var(--wf-s-2); align-items: baseline; }
+.wf-resp-k {
+  flex: 0 0 128px; font-size: var(--wf-t-xs); letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--wf-ink-dim);
+}
+.wf-resp-v { font-family: var(--wf-mono); font-size: var(--wf-t-s); overflow-wrap: anywhere; min-width: 0; }
+.wf-resp-say { margin: 0; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+
+/* ATTRIBUTION. The withdrawal clock's rule at the scale of the whole product: a
+   wait with no owner is the pattern of 6 that made T8 the floor of the As-Is map.
+   On a 500 and a 503 the owner is always us, and the page says so in words. */
+.wf-attr { display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-attr-h { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+.wf-attr-v { font-size: var(--wf-t-l); font-weight: 700; }
+
+/* THE REFERENCE. Middle truncation and the full value always retrievable, never
+   truncation at the end, which is 0.14 section 5's rule for the hash generalised.
+   The head flexes and ellipses, the tail never does, so the last characters, the
+   half a person reads back over the phone, survive at every width. */
+.wf-ref { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-1); min-width: 0; }
+.wf-mid {
+  display: inline-flex; min-width: 0; max-width: 100%;
+  font-family: var(--wf-mono); font-size: var(--wf-t-s);
+  padding: 2px var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1);
+}
+.wf-mid-a { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.wf-mid-b { flex: 0 0 auto; white-space: nowrap; }
+.wf-copied { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+
+/* THE RETRY IS A CONTROL AND NEVER A LOOP. A page that refreshes itself takes the
+   choice away, keeps hammering a server that is already refusing, and on a screen
+   reader restarts the page on every cycle. The person presses it, and the page
+   says what happened, politely. */
+.wf-retry { display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-retry-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-2); }
+.wf-retry-say { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); min-height: 1.4em; }
+
+/* THE SEARCH, AND IT IS THE BLOCK SKIN.CLUB LACKS. It answers the arrival that
+   knows what it wanted. Absent on 500 and 503, because search needs the backend
+   that is down, and that absence is stated on those pages rather than left as a
+   gap. NOT AUTOFOCUSED: autofocus jumps a screen reader past the statement, which
+   is the one sentence the page exists to deliver. */
+.wf-sys-find { display: flex; flex-direction: column; gap: var(--wf-s-2); }
+.wf-hits { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-hit {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--wf-s-1) var(--wf-s-2);
+  padding: var(--wf-s-1) var(--wf-s-2); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1);
+  min-height: var(--wf-tap);
+}
+.wf-hit-n { font-size: var(--wf-t-m); }
+.wf-hit-k { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+
+/* QUICK LINKS ARE A STACKED LIST AND NEVER A TILE GRID. Two tiles side by side at
+   360px is how the label of the longer destination gets truncated, and a
+   truncated route is the defect the block exists to remove. Real <a href>: a
+   destination reachable only by script does not exist for a crawler and often
+   not for a keyboard either. */
+.wf-quick { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-quick a {
+  display: flex; flex-direction: column; gap: 2px; justify-content: center;
+  min-height: var(--wf-tap); padding: var(--wf-s-1) var(--wf-s-2);
+  border: 1px solid var(--wf-line); border-radius: var(--wf-r-1); text-decoration: none;
+}
+.wf-quick-n { font-size: var(--wf-t-m); }
+.wf-quick-w { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+/* THE COUNT IS TWO AND THAT IS THE MAP'S NUMBER, NOT A TASTE. A carrier may not
+   promise a destination the map does not hold, and this node's transitions row
+   holds 1.0 and 3.1. A third link is a change to the map. */
+.wf-sys-refuse { display: flex; flex-direction: column; gap: var(--wf-s-1); }
+
+/* NODE 0.3, THE 500 AND THE 503, AT NARROW WIDTHS. Below 900 the header hides the
+   two money captions, and that is survivable while the two values differ: 74.20 and
+   130.60 tell themselves apart. THEY BOTH READ "Not available" WHEN THE SOURCE IS
+   DOWN, and two identical holes with no labels tell a person less than the zero
+   0.11 rule 3 forbids would have told them. So the caption comes back exactly where
+   the value stops carrying the difference, and the pair stacks rather than widening
+   the one row 0.1 allows the header on mobile. */
+@media (max-width: 899px) {
+  .wf-money .wf-fig:has(.wf-fig-missing) { flex-direction: column; align-items: flex-start; gap: 0; }
+  .wf-money .wf-fig:has(.wf-fig-missing) .wf-fig-c { display: block; }
+}

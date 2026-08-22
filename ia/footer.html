@@ -590,7 +590,7 @@
         <tr><td>Gate open, <code>2.1</code></td><td>Inert behind the gate layer, not removed</td><td>Same rule as 0.1</td></tr>
         <tr><td>Cookie consent pending, <code>0.4</code></td><td>The cookie policy link works before consent is given</td><td>A consent dialog that links to a policy the consent gate blocks is circular</td></tr>
         <tr><td>Boundary in force, <code>6.3</code></td><td>Unchanged. The responsible play link keeps its place and its label</td><td>A boundary is not an error state and the footer does not editorialise about it</td></tr>
-        <tr><td>404 and 500, <code>0.3</code></td><td>The full footer renders on both</td><td><code>0.3</code> says never a dead end. The footer is what makes that true on an error page: legal identity, support, and a route back</td></tr>
+        <tr><td>404, 500 and 503, <code>0.3</code></td><td>The full footer renders on all three, <strong>statistics strip included</strong>, and on 500 and 503 the two live figures take the unavailable state of the row above rather than being removed</td><td><code>0.3</code> says never a dead end. The footer is what makes that true on an error page: legal identity, support, and a route back, and on 500 it is the only route out that is certainly not broken by the same failure. <strong>The third surface was added 22 August 2026, D-79:</strong> this row named two because 503 was not drawn yet, and a row that stops one short of the set reads as a deliberate exclusion</td></tr>
       </tbody>
     </table>
   </div>

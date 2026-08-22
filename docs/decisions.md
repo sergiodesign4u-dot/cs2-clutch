@@ -2744,3 +2744,94 @@ The mismatch row's control read "Reported, with the round attached" and pushed t
 149 checks over the six pages at six widths. No horizontal overflow. One H1 each. **No total, profit, ratio, streak, best drop or personal record anywhere in either node**, and no verdict on any row. Five cells in every roll and **no cell dropped at any of three widths**, because a column that disappears at a width is a field the page decided a person did not need. Both dated figures on every row. **No sequential id and no counter on either profile page.** The empty state sells nothing, the no-seed state offers no check control, and the Steam-down state refuses the generated name in words.
 
 522 checks over all 86 pages, prose sweep clean, every internal link a registry file. **One dead link left in the whole product: `settings.html`.**
+
+---
+
+## D-79. Node `0.3` is drawn in eight pages, `D-59` had reached three files and left five, and a decision record was printed on every page of the product
+
+**Date:** 2026-08-22. **Stage:** 04. **Decided by:** stage 04, on everything except the two questions listed at the end. **Binds:** node `0.3`, node `0.8` whose placement section is rewritten, node `0.2` whose transient row gains a surface, the shell's footer, and the prose instrument.
+
+**What was built.** Eight wireframes: `system.html`, `-404-internal`, `-404-retired`, `-404-noresult`, `-500`, `-500-noshell`, `-503-planned`, `-503-unplanned`. **94 of 101**, the total having grown by two because the node asked for two pages the registry did not hold.
+
+### The registry had five states and the node had been asking for seven
+
+**Neither extra page is an idea of mine.** Both were already written into `system.md` and neither had been counted.
+
+| Page | Where the node asked for it | How long it had been asking |
+|---|---|---|
+| **`404`, the search returns nothing** | Section 7, states table, its own row with its own route out | Since the node was written |
+| **`500` with no carriers** | Section 9, open items, owner column: "Production, **and stage 04 draws both versions**" | Four days |
+
+**A conditional block drawn once is drawn in whichever condition the person drawing it assumed**, and nobody discovers the other condition until it ships. The 500 renders its carriers only if the shell is static enough to render without the backend, which is production's answer to give; what stage 04 owes is both drawings, so that the answer is a choice between two things somebody has seen.
+
+**And the empty search was the sharper of the two.** It is the one branch of the search block that can go wrong, it is the only state of this node nobody could look at, and it could not be drawn at all while the search was a picture of a field. **So the field became a control.** It filters the twelve case names `3.1` already draws, it renders hits that land on a case, and it has an empty result that keeps the quick links under it, because an empty search that clears the page is a second dead end inside the first one.
+
+### The response is drawn, and without it a wireframe of this node cannot show the defect it exists to prevent
+
+**A response speaks to two readers and can lie to either one independently.** A soft 404 is HTTP 200 with a "not found" body: the person is told the truth and the crawler is told the page is fine. Key-Drop's inversion, walked on 12 August 2026, is HTTP 404 with the home page rendered in it, no H1 and no error message anywhere: the crawler is told the truth and the person is told nothing. **Both are the same defect, the status and the body disagreeing.**
+
+**Every one of those failures is an agreement between a header and a body, so a drawing of the body alone cannot contain any of them.** Each of the eight pages therefore carries a short response block: the status, **the address the response was served at**, and the `Retry-After` where there is one. The address row is the one nobody draws and it is doing real work: the response renders at the address that was requested, because a redirect to `/404` answers somewhere else and takes the mistyped address out of the browser bar along with any chance of correcting it.
+
+### The 503 made the node contradict itself, and it took drawing it to find out
+
+Section 1's table says `Retry-After`: **Yes** for 503, without qualification. Section 5 says the unplanned window "states that there is no end time yet and gives the support route rather than a number invented to look reassuring". **A header that must always be sent and a figure that must never be invented cannot both hold on the unplanned page.** Two sections of one file, four days apart, and neither reader would have noticed until something had to render.
+
+**Resolved in favour of not inventing, and the RFC is what makes that legal rather than a preference of ours:** 9110 section 15.6.4 says the server **MAY** send `Retry-After`, not must. So the planned page sends the header and says the same figure in words, two readers and one number, and the unplanned page sends no header at all and says in words that there is no figure yet. **`0.11` rule 3 from the other side: missing is a state, never a zero, and a `Retry-After` guessed to look reassuring is a published promise nobody intends to keep.** Both sections are amended rather than one of them being quietly followed.
+
+### `D-59` had reached three files and left five, and one of the five is the component's own node
+
+`D-59` put the live feed in the shell on every page on 21 August. **On 22 August, five places in this repository still described the placement it replaced, and they did not agree with each other either.**
+
+| Where | What it said | Which decision it was behind |
+|---|---|---|
+| `ticker.md` section 3, the component's own node | "`1.0` Home and `3.3` Case screen. Nowhere else" | **Before `D-31`.** Two |
+| `ia/ticker.html`, the same section | "1.0 Home. Nowhere else since `D-31`" | One |
+| `system.md` section 2, refusing the feed | "renders on `1.0` only since `D-31`" | One |
+| `ia/system.html`, the same row | "renders on `1.0` and `3.3` only" | Two |
+| **Nineteen wireframe pages**, in a comment | "THE TICKER IS NOT ON THIS PAGE" | **One, and every one of the nineteen was rendering it** |
+
+**The component's own node is the worst of the five, and its page carried both answers in its own contents list**, a section labelled "`D-59` every page" directly above a section labelled "Two surfaces". **An amendment appended to the top of a file does not amend the file.** It adds a second answer, and from then on the file is a place where the reader picks.
+
+**The nineteen comments are the second kind of rot and they are worse than a stale sentence in a spec.** A comment that contradicts the page it sits in reads as the reason for what is on screen, so the next person to touch one of those pages learns the placement from a rule that was reversed. All nineteen were byte-identical, which is how they were written and how they were fixed.
+
+**And a rendered claim on `overview.html` is marked rather than rewritten**, "0.8 now renders on 1.0 alone", because that page is a log of what was decided when and it was true for two days.
+
+### `0.8` gains the register it should have had since `D-77`, and it changes what "every page" means
+
+**Six pages already opted out of the feed in the built product and the component's specification named none of them.** `D-74` said the finding went back to `0.8`; it never arrived. `D-77` reverted a removal I had made from nine pages with no parent and fixed the rule: **a surface takes the feed off itself only on a parent written in that surface's own file.** That rule had no register to be written into.
+
+It has one now, in `ticker.md` section 3, and this node is its third row: `4.2` on its own forbidden list, `6.1` on its own refusal, `0.3` on its own sentence that a live feed of other people's wins beside our own failure is the tone this product does not have. **Fourteen pages of the built product refuse it and the other eighty carry it.** Nothing about `D-59` changes. What changes is that the exception was invisible: **a component whose specification says "every page" while its renderer carries an opt-out flag is a component nobody can audit.**
+
+**Two sentences in that node were also false rather than merely old.** The pause-persistence row said "this product has one settings surface, `6.1`", which stopped being true on 20 August when `D-36` put `5.11` Settings on the map, and `6.1` is a boundary surface and never was the settings one. **That row is now one of the few concrete candidates for what `5.11` holds in round 1.** And the baseline sentence claimed a divergence that no longer exists: `D-59` converged on the baseline's own placement, and what diverges now is one smaller thing, the strip sitting after the content at 360 rather than under the header.
+
+### A decision record was printed on every page of the product, and the instrument that removed thirty one of them could not see it
+
+`D-66` fixed that a wireframe may state a state and may never cite a decision record. The sweep that enforced it removed 31 citations across 17 files on 21 August. **On 22 August the footer's last line still read "Prices are in coins. What one coin is worth in real money is published wherever money is spent, D-28." on all ninety four pages.**
+
+**The rule was right and the reach was wrong.** The instrument read `document.querySelector('main').innerText`, and the footer is not in `main`. **So the one citation that was on every single page was the one citation the instrument could not see**, and the more pages it shipped on, the less likely it was to be caught by the check built for exactly it.
+
+**The instrument now reads the whole surface** with the scaffolding panel and its toggle excluded by name, which is the honest boundary: those two are the prototype talking to a reviewer, and everything else on the page is the product talking to a person. **The sentence itself stays and only the citation goes:** rule 10 of the published-numbers register is what makes it true, and a person reading a price is owed it whether or not a record number is stapled to the end.
+
+### The 500 twice, and the line between what survives and what does not is not arbitrary
+
+The version with no carriers keeps the footer, and that pair is the specification rather than a layout choice. **The carriers need to know who you are:** the rail is a drawer on mobile and the header carries the account menu and the money, and a drawer whose contents come from a session that just failed is worse than a page without one, because it opens, it is wrong, and it looks like the product rather than like the failure. **The footer needs to know nothing:** legal identity, the compliance line, the market statement and the support route are the same text for everybody.
+
+**And on both versions the money says what it does not know.** The header's two figures come from the application that failed, so they render as **Not available** rather than as `0.00`. `0.11` rule 3, and on a page about money the zero is the expensive lie. The footer's two live statistics take the same treatment and the strip keeps its space, because removing it takes the proof-of-scale half of "never a dead end" away with the figure.
+
+### `0.2`'s transient row stopped one short of the set
+
+The footer node's transient table read "**404 and 500**, `0.3`", and `0.3` had already inherited the same treatment for the 503 and named the extension in its own file rather than assuming it. **A row that stops one short of a set of three reads as a deliberate exclusion**, and the 503 is the surface where the footer matters most, since it holds the only route out that is not the thing that is down. Widened to all three, dated, with the reason printed.
+
+### Measured
+
+**80 checks over the eight pages at seven widths.** No horizontal overflow at any of them. One H1 each, **never the numeral**, and the `<title>` equal to the H1 on all eight, because the title is the one part of an error page that survives being left open in a background tab. The status row leads with the right code on every page. The address row is present on every page. **No live money figure and no live footer statistic on any page whose source is down, and no zero anywhere.** Exactly two quick links, real `<a href>`, on all eight. No autofocus, no meta refresh, no automatic reload. Every target 44px or more.
+
+**And the behaviour was walked rather than asserted**, at 360 and at 1200: the search finds Ironbound and lands it on the case screen, the search for a name that does not exist renders the empty result **with both quick links still under it** and announces the count politely, the pinned page renders that state on load, the retry answers, counts its second press and does not navigate, and the reference is in the DOM whole while being truncated in the middle on screen.
+
+**570 checks over all 94 pages at six widths, layout clean. 136 checks over every IA and root page, clean.** Prose sweep **0 of 94** on the widened instrument. Every internal link a registry file. **One dead link left in the whole product: `settings.html`.**
+
+### Two questions went to the founder rather than into the pages
+
+**410 against 404 for a retired case.** RFC 9110 prefers 410 where the origin knows the condition is likely permanent. The retired page is drawn as a 404 because nobody has answered whether a case can come back, and the difference is not cosmetic: 404 says "not now", 410 says "stop asking", and a crawler treats them differently. **Drawing the 410 would have answered a product question by drawing it.**
+
+**Whether the quick links should carry a third destination.** Two is the map's number, not a taste: this node's transitions row holds `1.0` and `3.1`, and a carrier may not promise a destination the map does not hold. Adding `1.2` or `0.10` to the body is a change to the map.

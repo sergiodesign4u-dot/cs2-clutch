@@ -218,7 +218,7 @@ The baseline runs a fixed circular headset button, bottom right, above the foote
 | **Gate open**, `2.1` | Inert behind the gate layer, not removed | Same rule as 0.1 |
 | **Cookie consent pending**, `0.4` | The cookie policy link works before consent is given | A consent dialog that links to a policy the consent gate blocks is circular |
 | **Boundary in force**, `6.3` | Unchanged. The responsible play link keeps its place and its label | A boundary is not an error state and the footer does not editorialise about it |
-| **404 and 500**, `0.3` | The full footer renders on both, **statistics strip included** | `0.3` says never a dead end. The footer is what makes that true on an error page: proof the place is real, legal identity, support, and a route back |
+| **404, 500 and 503**, `0.3` | The full footer renders on all three, **statistics strip included**, and on 500 and 503 the two live figures render in the unavailable state of the row above rather than being removed | `0.3` says never a dead end. The footer is what makes that true on an error page: proof the place is real, legal identity, support, and a route back. **On 500 it is the only route out that is certainly not broken by the same failure. The third surface was added 22 August 2026, `D-79`:** this row named 404 and 500 because 503 was not drawn yet, `0.3` had already inherited the same treatment and named the extension in its own file, and a row that stops one short of the set reads as a deliberate exclusion |
 
 ---
 

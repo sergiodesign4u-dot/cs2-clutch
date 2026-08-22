@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Something on our side failed</title>
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 0.3, SYSTEM PAGES. Three failure surfaces on one template, and the
+     template is the node: 404, 500 and 503 differ by which blocks are filled, never
+     by which page somebody remembered to build.
+     THE ONE RULE THAT DECIDES EVERYTHING BELOW: a response speaks to two readers, a
+     person and a machine, and the status code is the machine-readable half of the
+     sentence the body says to the person. The two never say different things. Both
+     live failures walked on 12 August 2026 break exactly that rule and they break it
+     in opposite directions: skin.club serves a correct 404 with a body that tells a
+     person nothing they can act on, and Key-Drop serves HTTP 404 with the HOME PAGE
+     rendered in it, no H1 and no error message anywhere, so the crawler is told the
+     truth and the person is told the site is fine. A soft 404, HTTP 200 with a "not
+     found" body, is the same defect from the third side.
+     THAT IS WHY THE RESPONSE IS DRAWN. A wireframe that renders only the body cannot
+     show any of the three failures, because all three are agreements between a body
+     and a header. The block near the top of every one of these pages is the header
+     half, written where a reviewer can read it against the words beside it.
+     NEVER A DEAD END. The baseline's own 404 strips the shell: no rail, no header,
+     no ticker, no footer, so a person who mistypes an address loses every route in
+     the product except home. Ours keeps the shell and puts two routes in the BODY as
+     well, because on a 500 the body is the part that is certain to render.
+     THE FEED IS OFF ALL EIGHT PAGES, and the parent is this node's own sentence
+     rather than a borrowed one: a live feed of other people's wins beside our own
+     failure is the tone this product does not have. 0.8 section 3 carries the
+     register of every surface that refuses it and the parent of each, D-79. -->
+
+<!-- STATE: 500 WITH NO CARRIERS, THE SECOND VERSION THE NODE ASKED FOR. The rail
+     is a drawer on mobile and the header carries an account menu, and both of those
+     read from a session that has just failed. A drawer whose contents come from a
+     dead session is worse than a page without one: it opens, it is wrong, and it
+     looks like the product rather than like the failure.
+     THIS IS WHY B4 IS A BODY BLOCK. Everything a person needs to leave this page is
+     inside <main>, so losing both carriers costs them nothing. Compare the baseline,
+     which strips the shell on its own 404 and puts nothing in the body to replace it.
+     THE FOOTER STAYS, AND THE DISTINCTION IS NOT ARBITRARY. The carriers need to know
+     who you are. The footer does not: legal identity, the compliance line, the market
+     statement and the support route are the same text for everybody, and its two live
+     statistics are already in the unavailable state above. A block that needs a
+     session goes; a block that needs none stays.
+     THE TITLE IS THE SAME AS THE OTHER VERSION ON PURPOSE. It is the same response to
+     the same person; what differs is how much of the shell survived rendering it, and
+     that is not something to announce in a browser tab. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <main class="wf-main">
+
+    <div class="wf-sys" data-sys>
+      <!-- B1. THE STATUS STATEMENT. The H1 is what happened IN WORDS and the numeral
+           is secondary text above it. Key-Drop's 404 has no H1 at all, which is how a
+           person reads a home page and learns nothing; skin.club spends its one line
+           on a marketing sentence. The numeral is present because a person reporting
+           this needs it, and it is never the heading.
+           THE TITLE CARRIES THE SAME STATEMENT. It is what a person sees in the tab
+           and in their history, and it is the one part of an error page that survives
+           being left open in a background tab. -->
+      <div class="wf-sys-head">
+        <span class="wf-sys-code">500 &middot; Internal server error</span>
+        <h1>Something on our side failed</h1>
+      <p class="wf-sys-sub">You did nothing wrong. We already know this happened, and it is ours to fix.</p>
+      </div>
+
+      <!-- B2. ATTRIBUTION. The withdrawal clock's rule at the scale of the whole
+           product: a wait with no owner is barrier B8-2, and an unattributed wait is
+           what put T8 at the floor of the As-Is emotional map. On a 500 and on a 503
+           the owner is always us, and the page says so in those words rather than in a
+           passive sentence with nobody in it. -->
+      <div class="wf-attr">
+        <span class="wf-attr-h">Who this is waiting on</span>
+        <span class="wf-attr-v">Us</span>
+      </div>
+
+      <!-- THE RESPONSE, DRAWN. Three facts, and the second one is the one nobody
+           draws: the response renders AT THE ADDRESS THAT WAS REQUESTED. A redirect to
+           /404 would answer the request somewhere else, return a 200 or a 301 at a
+           different URL, and take the mistyped address out of the browser bar along
+           with any chance of correcting it. That is also what makes the status honest.
+           NO NOINDEX ANYWHERE ON THESE PAGES. The status code is the instrument, not
+           the meta tag: what removes an address from an index is the 404 itself, and
+           what stops a maintenance window removing the whole site is that a 503 is
+           temporary by definition. There are no error URLs to disallow in robots.txt
+           because there are no error URLs. -->
+      <div class="wf-resp">
+        <div class="wf-resp-r"><span class="wf-resp-k">Status</span><span class="wf-resp-v">500 Internal Server Error</span></div>
+        <div class="wf-resp-r"><span class="wf-resp-k">Served at</span><span class="wf-resp-v">/cases/ironbound</span></div>
+        <div class="wf-resp-r"><span class="wf-resp-k">Retry-After</span><span class="wf-resp-v">Not sent. This is a failure rather than a wait with an end</span></div>
+      </div>
+
+      <!-- B6. THE REFERENCE, ON THE 500 ALONE. One short identifier a person can
+           paste into a support ticket. A failure with no handle is a failure support
+           cannot look up, which makes 0.10's published response deadline unmeetable.
+           GENERATED AT THE EDGE, not by the failed application, or it does not exist.
+           THE FORMAT IS [?] AND THE SHAPE IS NOT. Middle truncation with the full
+           value always retrievable, never truncation at the end, which is 0.14
+           section 5's rule for the hash generalised: the last characters are the half
+           a person reads back over the phone. The whole string is in the DOM, so it is
+           selectable and a screen reader reads all of it. -->
+      <div class="wf-attr">
+        <span class="wf-attr-h">Quote this if you get in touch</span>
+        <div class="wf-ref">
+          <span class="wf-mid"><span class="wf-mid-a">err-4f1c9a72-0d38-4b6e-9c51</span><span class="wf-mid-b">-a7b204ee31f8</span></span>
+          <button class="wf-btn wf-btn--small" type="button" data-sys-copy="err-4f1c9a72-0d38-4b6e-9c51-a7b204ee31f8">Copy</button>
+          <span class="wf-copied" role="status" aria-live="polite" data-sys-copied></span>
+        </div>
+      </div>
+
+      <!-- NO SEARCH ON THIS PAGE, AND NO LIVE FIGURE. Both are absent for the same
+           reason and it is the one line blocks.md writes for T8: an error page that
+           needs the broken backend to render is not an error page. Search needs the
+           index. The money figures in the header have no source, so they render as
+           NOT AVAILABLE rather than as 0.00, which is 0.11 rule 3: missing is a state,
+           never a zero. The footer's two live statistics take the same treatment, per
+           0.2's own transient row, and the strip keeps its space rather than being
+           removed: taking it away would remove the proof-of-scale half of "never a
+           dead end" along with the figure.
+           NO TEMPLATE ENGINE CALL, NO API CALL, NO DATABASE READ. This is a static
+           document with its styling already cached. Design principle 5: a failure page
+           that is itself slow says the failure is worse than it is. -->
+
+      <!-- B4. QUICK LINKS, AND THERE ARE EXACTLY TWO BECAUSE THE MAP HOLDS TWO.
+           This node's transitions row is 1.0 and 3.1, and a carrier may not promise a
+           destination the map does not hold. Whether the body should also carry 1.2 or
+           0.10 is a change to the map, not a quiet addition here.
+           REAL <a href>, and a STACKED LIST rather than a tile grid. Two tiles side by
+           side at 360px is how the label of the longer destination gets truncated, and
+           a truncated route is the defect this block exists to remove. A destination
+           reachable only by script does not exist for a crawler and often not for a
+           keyboard either.
+           THIS IS A BODY BLOCK AND NOT A FOOTER LINK, and that is the whole reason it
+           exists: on a 500 the carriers may not render at all, and the body is the part
+           that is certain to. -->
+      <nav class="wf-sys-refuse" aria-label="Where to go from here">
+        <span class="wf-attr-h">Where to go from here</span>
+        <ul class="wf-quick">
+          <li><a href="index.html"><span class="wf-quick-n">Home</span><span class="wf-quick-w">The featured cases, and what this place is</span></a></li>
+          <li><a href="catalogue.html"><span class="wf-quick-n">All cases</span><span class="wf-quick-w">The full shelf</span></a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', feed: false, money: false, stats: 'unavailable' };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

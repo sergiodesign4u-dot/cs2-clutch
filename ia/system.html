@@ -159,6 +159,28 @@
   </div>
 </section>
 
+<!-- AMENDED -->
+<section id="amended">
+  <div class="sec-head">
+    <h2>Amended 22 August 2026 by D-79, the day this node was drawn</h2>
+    <p><strong>Three things changed and none of them is a new idea.</strong> Two were decisions taken elsewhere that had never reached this file, and one is a page count this node&#39;s own states table had been asking for since it was written.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:38%">What changed</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>The ticker refusal loses its citation and keeps its reason</strong>, blocks section</td><td>It cited D-31, which D-59 reversed on 21 August. D-77 fixed the rule that decides what happens next: a surface may take the shell&#39;s feed off itself only on a parent written in its own file. This node has one, and it is the sentence after the citation</td></tr>
+        <tr><td><strong>The 404&#39;s search is a control here, not a description of one</strong></td><td>The empty result is a state in the states table and it had no page. A search that returns nothing is the one branch of this block that can go wrong, and it was the only state of this node nobody could look at</td></tr>
+        <tr><td><strong>The 500 is drawn twice</strong>, with the carriers and without</td><td>The open list already said stage 04 draws both versions. It had not, and a conditional block drawn once is drawn in whichever condition the person who drew it assumed</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card is-drop">
+    <h4>And one thing this node found in a file it does not own</h4>
+    <p><code>0.8</code> section 3 still read &quot;1.0 Home and 3.3 Case screen. Nowhere else&quot;, which is the placement from before D-31 and two decisions behind. <strong>That went back to 0.8 as a finding rather than being decided here</strong>, and D-79 records what it did about it.</p>
+  </div>
+</section>
+
 <section id="failures">
   <div class="sec-head">
     <h2>Two live failures, and they fail in opposite directions</h2>
@@ -237,7 +259,7 @@
       <tbody>
         <tr><td><strong>Not found</strong></td><td><code>404</code></td><td>No</td><td>This address has nothing at it, and here is how to find what you wanted</td></tr>
         <tr><td><strong>Our fault</strong></td><td><code>500</code></td><td>No</td><td>Something on our side failed, we know, and here is the reference and the way to reach us</td></tr>
-        <tr><td><strong>Planned or temporary stop</strong></td><td><code>503</code></td><td><strong>Yes, and the same figure in words in the body</strong></td><td>We are down on purpose or under load, this is who it is waiting on, and this is when to come back</td></tr>
+        <tr><td><strong>Planned stop</strong></td><td><code>503</code></td><td><strong>Yes, and the same figure in words in the body</strong></td><td>We are down on purpose, this is who it is waiting on, and this is when to come back</td></tr><tr><td><strong>Unplanned stop</strong></td><td><code>503</code></td><td><strong>No, and the absence is stated in the body</strong></td><td>Something is overloaded, it is us, there is no end time yet, and this is who to ask</td></tr>
       </tbody>
     </table>
   </div>
@@ -250,9 +272,13 @@
   <div class="card is-note">
     <p><strong>410 is a real decision and it is not this node's.</strong> The RFC prefers it where the condition is known to be permanent. <code>0.13</code> already rules that a rename is a 301 and an old slug is never reused, so the case that needs a verdict is a case that is retired rather than renamed. Open, below.</p>
   </div>
+  <div class="card is-drop">
+    <h4>This table contradicted the 503 section until 22 August 2026, D-79</h4>
+    <p>It read <code>Retry-After</code>: <strong>Yes</strong> for 503 without qualification, and the 503 section reads &quot;unplanned states that there is no end time yet and gives the support route rather than a number invented to look reassuring&quot;. <strong>A header that must always be sent and a figure that must never be invented cannot both hold on the unplanned page</strong>, and the contradiction was invisible until something had to render.</p>
+    <p><strong>Resolved in favour of the 503 section, and the RFC is what makes that legal rather than a preference of ours.</strong> 15.6.4 says the server <strong>MAY</strong> send <code>Retry-After</code>, not must. Planned sends the header and says the same figure in words: two readers, one number. Unplanned sends no header at all and says in words that there is no figure yet and who to ask. <code>0.11</code> rule 3 is the same rule from the other side: missing is a state, never a zero, and a <code>Retry-After</code> guessed to look reassuring is a published promise nobody intends to keep.</p>
+  </div>
 </section>
 
-<!-- BLOCKS -->
 <section id="blocks">
   <div class="sec-head">
     <h2>The blocks, and the parent of each</h2>
@@ -282,7 +308,7 @@
       <thead><tr><th>Refused</th><th>Why</th></tr></thead>
       <tbody>
         <tr><td><strong>The marketing sentence</strong></td><td>skin.club spends its one error line on one. <code>0.11</code> rule 1: a claim without a route is decoration that looks like evidence, and an error page is the worst place in the product to make one</td></tr>
-        <tr><td><strong>The ticker 0.8</strong></td><td>It renders on <span class="surf">1.0</span> and <span class="surf">3.3</span> only. A live feed of other people's wins beside our own failure is a tone this product does not have</td></tr>
+        <tr><td><strong>The ticker 0.8</strong></td><td><strong>The citation this row carried is dead and the refusal is not.</strong> It read &quot;renders on 1.0 and 3.3 only&quot;, and D-59 of 21 August 2026 put the feed in the shell on every page. <strong>What survives is this node&#39;s own sentence: a live feed of other people&#39;s wins beside our own failure is the tone this product does not have.</strong> That is a parent written in this file, which is what D-77 requires of any surface that takes the feed off itself, and the refusal is registered in 0.8 section 3 rather than only here</td></tr>
         <tr><td><strong>Any live figure from 0.11</strong></td><td>On 500 and 503 the source of those figures is the thing that failed. Rule 6 of that register makes a failed source degraded rather than frozen, and the cheapest way to obey it is not to print the figure</td></tr>
       </tbody>
     </table>
@@ -438,10 +464,10 @@
         <tr><td><strong>404, external arrival</strong></td><td>Statement, search, quick links, footer</td><td>Search into <span class="surf">3.1</span>, or the two quick links</td></tr>
         <tr><td><strong>404, internal referrer</strong></td><td>Identical to the person</td><td>The same, plus a counted signal that a link inside the product is dead</td></tr>
         <tr><td><strong>404 on a retired case slug</strong></td><td>The statement names that the case is gone rather than mistyped, <strong>if the product knows that</strong>, which is the 410 question</td><td><span class="surf">3.1</span>, where the rest of the shelf is</td></tr>
-        <tr><td><strong>500</strong></td><td>Statement, attribution, reference, quick links, footer. <strong>No figures, no search</strong></td><td>Support through the footer, quick links, retry by reloading the address they wanted</td></tr>
+        <tr><td><strong>500</strong></td><td>Statement, attribution, reference, quick links, footer. <strong>No figures, no search.</strong> <strong>Drawn twice</strong>, with the carriers and without, because the 500 section makes them conditional and the open list leaves the condition to production</td><td>Support through the footer, quick links, retry by reloading the address they wanted</td></tr>
         <tr><td><strong>503, planned</strong></td><td>Statement, owner, the end time, the retry control</td><td>The retry control, support</td></tr>
         <tr><td><strong>503, unplanned</strong></td><td>Statement, owner, <strong>no invented end time</strong>, the retry control, support</td><td>Support, which is the only route that is not the thing that is down</td></tr>
-        <tr><td><strong>Search returns nothing</strong>, inside the 404</td><td>The empty result, in the same block, with the quick links still under it</td><td><span class="surf">3.1</span>, the full shelf, never a blank page</td></tr>
+        <tr><td><strong>Search returns nothing</strong>, inside the 404</td><td>The empty result, in the same block, with the quick links still under it. <strong>A page of its own since D-79</strong>, and the search on every 404 is a live control that reaches it, because a state only a description mentions is a state nobody checks</td><td><span class="surf">3.1</span>, the full shelf, never a blank page</td></tr>
         <tr><td><strong>Boundary in force</strong>, <span class="surf">6.3</span></td><td>Unchanged. A system page does not editorialise about a limit</td><td>Same as its base state</td></tr>
         <tr><td><strong>Consent pending</strong>, <span class="surf">0.4</span></td><td>The banner renders here too, and nothing non-essential fires on an error page any more than anywhere else</td><td>Same as its base state</td></tr>
       </tbody>
@@ -495,7 +521,7 @@
       <tbody>
         <tr><td><strong>404 against 410 for a retired case</strong></td><td>RFC 9110 15.5.5 prefers 410 where the condition is known to be permanent. <code>0.13</code> covers renames with a 301 and says nothing about retirement, and whether a retired case is permanent is a product answer, not a technical one</td><td>Node <span class="surf">0.13</span>, with the founder on whether a case can return</td></tr>
         <tr><td><strong>Where the three responses are served from</strong></td><td>A 500 that must not touch the backend and a 503 that must survive the origin being down both point at the edge. This node states the requirement and does not own the answer</td><td>Production, before stage 04 draws the template as final</td></tr>
-        <tr><td>Whether the carriers can render on a 500 at all</td><td>They are conditional on being renderable without the backend. Whether the shell is static enough for that is unknown here</td><td>Production, and stage 04 draws both versions</td></tr>
+        <tr><td>Whether the carriers can render on a 500 at all</td><td>They are conditional on being renderable without the backend. Whether the shell is static enough for that is unknown here. <strong>Both versions are drawn since D-79, 22 August 2026, so the question is now which one production serves rather than what either looks like</strong></td><td>Production. Stage 04 has paid its half</td></tr>
         <tr><td>The reference format</td><td>One short identifier, correlatable with a log, short enough to read over the phone. The format is <span class="q">[?]</span></td><td>Production, with <span class="surf">0.10</span> which has to look it up inside the published deadline</td></tr>
         <tr><td><strong>How a person learns about a planned 503 before it starts</strong></td><td>There is <strong>no notification, email or push row anywhere in cjm-to-be.md</strong>, which the global sweep already recorded as a hole with no parent. A person off the site cannot be told, so a planned window is discovered by arriving at it. <strong>Named, not invented</strong></td><td>Founder, one backlog row if it is wanted</td></tr>
         <tr><td>Whether the quick links should carry a third destination</td><td>The map's transitions hold <span class="surf">1.0</span> and <span class="surf">3.1</span>. Adding <span class="surf">1.2</span> or <span class="surf">0.10</span> to the body is a change to the map</td><td>The step 8 audit of this stage</td></tr>
@@ -530,6 +556,7 @@ window.NAV_ACTIVE_LABEL = '0.3 System pages';
 window.NAV_SECTIONS = [
   { id: 'baseline-row', label: 'Baseline row' },
   { id: 'overview',      label: 'Overview' },
+  { id: 'amended',       label: 'D-79 amendment' },
   { id: 'failures',      label: 'Two live failures' },
   { id: 'codes',         label: 'The status codes' },
   { id: 'blocks',        label: 'Blocks and parents' },

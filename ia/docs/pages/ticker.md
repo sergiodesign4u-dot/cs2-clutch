@@ -119,13 +119,50 @@
 
 ---
 
-## 3. Two surfaces, and the placement is the specification
+## 3. Placement, amended twice, and this section had recorded neither
 
-**`1.0` Home and `3.3` Case screen. Nowhere else.**
+**Every page, in the global shell, since `D-59` of 21 August 2026.** Section 0.5 is the amendment; this section is where the placement lives and it is written out here so that the two halves of this file give one answer.
 
-`sitemap.md` gives the reason in cluster 0 and repeats it in the reconciliation with the chosen UX pattern: a feed on every screen is wallpaper rather than context, `ux-patterns.md` section 3, Pattern Selection. Pattern E is an ambient layer and it has **no screen of its own anywhere in the map**, which is the correct implementation of the pattern rather than an omission. A screen for the live feed would turn a layer into a place.
+### 3.0 What was found on 22 August 2026, `D-79`
 
-**The baseline puts it on every page walked**, 120px tall, directly under the header and above the hero, `baseline.md` section 3. That is the divergence, and it is named here rather than absorbed.
+**One placement, three readings, across two files that are the same node.**
+
+| Where | What it said | How old |
+|---|---|---|
+| This section, in the markdown | "`1.0` Home and `3.3` Case screen. Nowhere else" | The placement from **before `D-31`**, two decisions behind |
+| The same section on `ia/ticker.html` | "1.0 Home. Nowhere else since `D-31`" | **After `D-31`, before `D-59`**, one decision behind |
+| Section 0.5 in both | Every page | Current |
+
+**The page's own contents list carried both answers**, a section labelled "`D-59` every page" directly above a section labelled "Two surfaces", and neither reader of this node could tell which one bound them. **An amendment appended to the top of a file does not amend the file.** It adds a second answer, and from then on the file is a place where the reader picks.
+
+### 3.1 The argument that was overruled, kept rather than deleted
+
+`sitemap.md` gave the reason in cluster 0 and in the reconciliation with the chosen UX pattern: **a feed on every screen is wallpaper rather than context**, `ux-patterns.md` section 3, Pattern Selection. `D-31` applied the same reason to the case screen specifically, that it carried too much.
+
+**Both are still true about a block inside a screen, and `D-59` answered them with a different object.** A shell strip identical on every page is read once and becomes furniture; a block inside a screen competes with that screen every time. **That argument was not allowed to win on its own:** stage 04 measured it at 360px and moved the strip below the content on the case screen, `sitemap.md` cluster 0, which is the measurement outranking the paragraph exactly as section 0.5 required.
+
+**What is untouched by any of this:** Pattern E has **no screen of its own anywhere in the map**, which is the correct implementation of the pattern rather than an omission. A screen for the live feed would turn a layer into a place.
+
+### 3.2 The baseline sentence is no longer a divergence, and that is the point of saying so
+
+This section used to read: **the baseline puts it on every page walked**, 120px tall, directly under the header and above the hero, `baseline.md` section 3, **and that is the divergence**.
+
+**There is no divergence left in the placement.** `D-59` converged on the baseline. What diverges now is one thing and it is smaller and it is named: **the strip sits after the content at 360px rather than under the header**, because under the header it pushed the case screen's act through the fold. `CLAUDE.md` requires a divergence to be named out loud; it does not require one to be preserved after it has been decided away, and a sentence claiming a divergence that no longer exists is the same defect as an unnamed one.
+
+### 3.3 Every page, and the register of what refuses it
+
+**"Every page" is true of the shell and it is not true of every page, and until `D-79` this node said the first and never wrote the second.** Six pages already opted out in the built product and the component's own specification named none of them.
+
+`D-77` fixed the rule after I took the strip off nine pages that had no reason to lose it: **a surface takes the feed off itself only on a parent written in that surface's own file, and the removal is registered here.** A wireframe cannot borrow another node's parent, and neither can this register.
+
+| Surface | Its own parent for refusing | Pages |
+|---|---|---|
+| **`4.2` Ceiling reached** | Its forbidden list, written before this question arose: "no offer of any kind: no alternative funding route, no reminder when the period resets, no invitation to raise the ceiling". Twenty four other people's wins beside a deposit control that will not fire this period is an offer with a scroll on it. `D-74` | 1 |
+| **`6.1` Responsible play**, all states | Its own refusal, which survived losing its citation: this is the page where a run of other people's wins would do harm rather than merely be noise. `D-75` | 5 |
+| **`0.3` System pages**, all states | Its own sentence in section 2 of that node: a live feed of other people's wins beside our own failure is the tone this product does not have. `D-79` | 8 |
+| **`0.10` Support and appeals** | **None, and that is why the strip is on it.** I removed it there with no parent and put it back the same day, `D-77`. The argument for removing it went to the founder as an open item rather than into the file | 0 |
+
+**Fourteen pages of the built product refuse it and the rest carry it.** The exception is not a hole in `D-59`: the founder's decision was that the strip is furniture, and a page whose whole job is a boundary holding, a failure, or a refusal is the one place furniture reads as indifference. **What `D-79` fixes is that the count was invisible.** A component whose specification says "every page" while its renderer carries an opt-out flag is a component nobody can audit.
 
 **On `3.3` the strip pauses itself for phases 2 and 3.** The reveal is the moment the whole product is built around, `E3`, and a second moving strip beside it competes for the same attention and can be read as a second outcome. Design principle 2: motion without an emotional or informational job gets cut, and during a reveal the strip has neither. It resumes when the person leaves the outcome. **Node `3.3` confirms the placement at step 6; this node states the behaviour.**
 
@@ -201,7 +238,7 @@ The baseline runs 26 tiles of 92px at 1440px, `baseline.md` section 3. At 360px 
 | **Whether the winner appears at all** | Section 1 converges on yes and keeps the no. **The decision reverses if `A3`'s bot labelling cannot be enforced at the data layer**, and `baseline.md` section 3 marks the current state of that question `[?]` | Founder, plus whoever owns the feed data |
 | **The staleness threshold** | How long a silent feed stays running before it is degraded. `0.11` puts the strip in the real-time class, where any lag is a wrong answer, and gives no number | Production, with the feed |
 | **Volume and rate** | How many events per minute a real feed produces at launch, which decides whether the empty state or the running state is the common one on day one | Founder, question of fact to the live platform |
-| **Pause persistence beyond the session** | Section 2. A remembered preference is a setting, and this product has one settings surface, `6.1`, which is not the place for it | Production |
+| **Pause persistence beyond the session** | Section 2. A remembered preference is a setting. **This row used to read "this product has one settings surface, `6.1`" and that stopped being true on 20 August 2026**, when `D-36` put `5.11` Settings on the map: `6.1` is a boundary surface and never was the settings one. `5.11`'s round 1 contents are `[?]` by that decision's own words, **and this is one of the few concrete candidates for them** | Founder, with `5.11`. Then production |
 | **The rarity treatment** | Seven tiers exist, one is conditional on the case, and whether the ladder is the game's own palette is `[?]`, `0.6` section 2 | Stage 06 |
 
 ### Answered by stage 04, 18 August 2026
