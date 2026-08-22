@@ -3719,3 +3719,91 @@ textarea.wf-f { min-height: 96px; resize: vertical; }
   .wf-money .wf-fig:has(.wf-fig-missing) { flex-direction: column; align-items: flex-start; gap: 0; }
   .wf-money .wf-fig:has(.wf-fig-missing) .wf-fig-c { display: block; }
 }
+
+/* ============================================================================
+   NODE 0.4, COOKIE CONSENT. A REGION AT THE FOOT, NOT A MODAL AND NOT A WALL.
+   Article 7(4) makes conditionality a factor in whether consent is free at all,
+   so the page renders, scrolls and can be read with the answer still pending,
+   and the cookie policy link works before consent is given. That is also the
+   only version compatible with B1-1: a visitor who arrived already suspecting
+   the category cannot be asked to pay a toll before reading.
+   IT NEVER COVERS THE MOBILE BAR. 0.1 carries two live destinations down there
+   since D-40, and 0.2 already cut the baseline's floating support control for
+   exactly this reason, D-22. Fixed above the bar below 900, fixed at the foot
+   above it. ======================================================== */
+.wf-ck {
+  position: fixed; left: 0; right: 0; bottom: var(--wf-bar-h); z-index: 40;
+  background: var(--wf-surface); border-top: 1px solid var(--wf-line);
+  max-height: 70vh; overflow-y: auto;
+}
+@media (min-width: 900px) { .wf-ck { bottom: 0; left: var(--wf-rail-w); } }
+.wf-ck-in {
+  max-width: var(--wf-content); margin: 0 auto;
+  padding: var(--wf-s-2); display: flex; flex-direction: column; gap: var(--wf-s-2);
+}
+/* THE VISIBLE TITLE IS NOT A HEADING. The host page owns its own outline, and a
+   consent region that injects an H2 into Home changes the document a crawler and
+   a screen reader read. The region takes its accessible name from this line
+   instead, which is the same trick the sign in dialog uses for the same reason. */
+.wf-ck-h { margin: 0; font-size: var(--wf-t-m); font-weight: 700; }
+.wf-ck-p-say { margin: 0; color: var(--wf-ink-dim); max-width: 68ch; font-size: var(--wf-t-s); }
+
+/* SYMMETRY IS THE NODE. The CNIL's 14 December 2021 finding is that banners "do
+   not allow the user to refuse the deposit of cookies as easily as to accept it",
+   and this is the single most common place it is lost. So the two decisions are
+   one grid of equal columns rather than two buttons that happen to look similar:
+   equal width by construction, the same class on both, and neither is primary.
+   A REJECT BUTTON THAT IS TECHNICALLY THE SAME SIZE AND VISUALLY A GHOST HAS
+   FAILED THE SAME RULE WITH BETTER PLAUSIBLE DENIABILITY, which is why stage 06
+   and 07 inherit this as a hard constraint rather than as a preference. */
+.wf-ck-acts { display: grid; grid-template-columns: 1fr 1fr; gap: var(--wf-s-1); }
+.wf-ck-b { width: 100%; min-height: var(--wf-tap); }
+/* Manage is a third control and it is deliberately quieter, which is legitimate
+   because it is not a decision. It opens a layer; it answers nothing. */
+.wf-ck-more { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-2); }
+
+/* LAYER 2. One row per purpose, and the specific-consent rule is what makes it a
+   list rather than one switch: recital 32, "When the processing has multiple
+   purposes, consent should be given for all of them". */
+.wf-ck-list { display: flex; flex-direction: column; gap: var(--wf-s-1); margin: 0; padding: 0; list-style: none; }
+.wf-ck-row {
+  display: grid; grid-template-columns: auto 1fr; gap: var(--wf-s-1) var(--wf-s-2);
+  align-items: start; padding: var(--wf-s-1) var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1);
+  min-height: var(--wf-tap);
+}
+/* THE STRICTLY NECESSARY ROW HAS NO CONTROL AT ALL. A disabled switch that cannot
+   move is theatre, and D-58 already took every dead control off this product's
+   surfaces. The row says what it covers and why it needs no consent, and the
+   grid keeps its first column so the list still lines up. */
+.wf-ck-row--fixed { grid-template-columns: auto 1fr; }
+.wf-ck-fixed { font-family: var(--wf-mono); font-size: var(--wf-t-xs); color: var(--wf-ink-dim); padding-top: 2px; }
+.wf-ck-n { font-size: var(--wf-t-m); }
+.wf-ck-d { grid-column: 2; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-ck-row input { margin: 3px 0 0; }
+
+/* THE RECORD, ARTICLE 7(1): the controller shall be able to demonstrate that the
+   data subject has consented. Demonstrating it to a regulator and showing it to
+   the person are the same object, and the person is the harder reader: the
+   dialog reopens with the current answer shown, NEVER BLANK. */
+.wf-ck-rec {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: var(--wf-s-1) var(--wf-s-2);
+  border-left: 2px solid var(--wf-line-soft);
+}
+.wf-ck-rec-k { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+.wf-ck-rec-v { font-size: var(--wf-t-s); }
+/* The host page keeps room for the region rather than sliding under it. A banner
+   that hides the last block of the page is a wall with a scroll on it. */
+.wf-screen-body:has(.wf-ck) .wf-main { padding-bottom: 300px; }
+/* THE POLICY LINK IS A TARGET TOO, AND IT WAS 23px. 0.1 chose AAA 44 for every
+   carrier and node 0.4 states it for the two decisions by name; the inline link
+   beside them is the same kind of object and the same rule reaches it. Expanded as
+   a hit area rather than as a box, which is the shape D-77 settled for the small
+   button: nothing on the row moves and the target is the size it claims to be. */
+.wf-ck-more a { position: relative; }
+.wf-ck-more a::before {
+  content: ''; position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: max(100%, var(--wf-tap)); height: var(--wf-tap);
+}

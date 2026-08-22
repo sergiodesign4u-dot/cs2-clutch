@@ -67,15 +67,26 @@ window.WF_NAV = {
         { label: '503, unplanned',          file: 'system-503-unplanned.html', status: 'built' }
       ] },
 
-    { node: '0.4',  cluster: '0', name: 'Cookie consent',      file: 'cookie.html',     ia: 'cookie.html',        status: 'spec',
+    // DRAWN 22 AUGUST 2026, D-80, AND CLUSTER 0 IS COMPLETE. Eight pages, and the
+    // note this row used to carry pointed at the wrong section of the wrong
+    // question: "whether this ships as six pages or two with four variants is step
+    // 5, conventions section 6". Section 6 of that file is the three readers.
+    // THE RULE IS SECTION 4 AND IT HAS ANSWERED THIS SINCE IT WAS WRITTEN: every
+    // state is its own page, so the prototype can navigate between them, and the
+    // real set comes from the States section of the node spec. That set is nine
+    // rows; two of them say "same as its base state" and get no page, one had no
+    // page at all, and the second layer of the dialog is where four of the node's
+    // ten blocks live and had nowhere to be drawn.
+    { node: '0.4',  cluster: '0', name: 'Cookie consent',      file: 'cookie.html',     ia: 'cookie.html',        status: 'built',
       base: 'Pending, no answer yet',
-      note: 'Whether this ships as six pages or two with four variants is step 5, conventions section 6',
       states: [
-        { label: 'Accepted all',   file: 'cookie-accepted.html',  status: 'spec' },
-        { label: 'Rejected all',   file: 'cookie-rejected.html',  status: 'spec' },
-        { label: 'Partial',        file: 'cookie-partial.html',   status: 'spec' },
-        { label: 'Changed later',  file: 'cookie-changed.html',   status: 'spec' },
-        { label: 'Consent expired',file: 'cookie-expired.html',   status: 'spec' }
+        { label: 'Layer 2, nothing chosen', file: 'cookie-manage.html',    status: 'built' },
+        { label: 'Accepted all',   file: 'cookie-accepted.html',  status: 'built' },
+        { label: 'Rejected all',   file: 'cookie-rejected.html',  status: 'built' },
+        { label: 'Partial',        file: 'cookie-partial.html',   status: 'built' },
+        { label: 'Changed later',  file: 'cookie-changed.html',   status: 'built' },
+        { label: 'Consent expired',file: 'cookie-expired.html',   status: 'built' },
+        { label: 'Storage unavailable', file: 'cookie-nostore.html', status: 'built' }
       ] },
 
     // DRAWN 22 AUGUST 2026. One template, four documents, and only the terms are
@@ -1680,6 +1691,10 @@ window.WF_NAV = {
     // banner shown once is not a route back.
     var ck = el('button', 'wf-linklike', 'Cookie settings');
     ck.type = 'button';
+    // AND IT OPENS SOMETHING SINCE 22 AUGUST 2026, D-80. The audit added the control
+    // and node 0.4 was unbuilt, so it shipped as a button with no handler on all
+    // ninety four pages: the fix for Article 7(3) was itself the thing D-58 forbids.
+    ck.setAttribute('data-ck-open', '');
     cols.children[3].querySelector('.wf-foot-list').appendChild(ck);
 
     // THE BRAND ART SLOT, founder request of 20 August 2026. It carries no information
@@ -2905,6 +2920,247 @@ window.WF_NAV = {
     }
   }
 
+  /* ---------- NODE 0.4, COOKIE CONSENT ----------
+     BUILT ONCE HERE AND PINNED BY THE PAGE, the same contract the sign in dialog
+     and the filter drawer already use: eight copies of the one object this node
+     exists for is how seven of them rot.
+     TWO LAYERS. Layer 1 carries the two decisions, the quieter Manage control and
+     the policy link. Layer 2 carries one row per purpose, the strictly necessary
+     row that is not a control at all, and the same two decisions again so that a
+     person who opened it to read does not have to build an answer by hand.
+     NOT A MODAL. No aria-modal, no focus trap, no scrim, and the document is never
+     given overflow: hidden. Article 7(4) makes conditionality a factor in whether
+     consent is free at all, so trapping focus is that conditionality in
+     interaction form. The page reads and scrolls with the answer still pending.
+     NO DISMISS CONTROL, and that is the baseline's defect refused rather than an
+     omission: the live product's banner has an X that closes it without recording
+     anything, which recital 32 answers directly, "silence, pre-ticked boxes or
+     inactivity should not therefore constitute consent". There is nothing here to
+     press that is not an answer or a route to one. */
+  var CK_PURPOSES = [
+    { key: 'necessary', name: 'Strictly necessary', fixed: true,
+      d: 'Signing you in, keeping you signed in, security, and remembering the answer you give here. Article 5(3) of the ePrivacy Directive exempts what is strictly necessary to provide the service you asked for.',
+      why: 'Always on. There is no switch on this row, because there is nothing on it to decide.' },
+    { key: 'analytics', name: 'Analytics',
+      d: 'Counting how many people use each part of the site, so we can tell what is working. Nothing here identifies you to anyone outside this company.' },
+    { key: 'marketing', name: 'Marketing',
+      d: 'Measuring whether an advert brought you here.',
+      unknown: 'Whether anything at all sits behind this at launch is not decided. If nothing does, this row is not shown: a choice about nothing is still a question a person has to answer.' }
+  ];
+
+  var CK_STATES = {
+    pending:  { layer: 1 },
+    expired:  { layer: 1, why: 'expired' },
+    nostore:  { layer: 1, why: 'nostore' },
+    manage:   { layer: 2 },
+    accepted: { layer: 2, answer: { analytics: true,  marketing: true  }, saved: '20 Aug 2026 at 14:02' },
+    rejected: { layer: 2, answer: { analytics: false, marketing: false }, saved: '20 Aug 2026 at 14:02' },
+    partial:  { layer: 2, answer: { analytics: true,  marketing: false }, saved: '20 Aug 2026 at 14:02' },
+    changed:  { layer: 2, answer: { analytics: false, marketing: false }, saved: '22 Aug 2026 at 09:31', changed: true }
+  };
+
+  function mountCookie() {
+    var body = document.querySelector('.wf-screen-body');
+    if (!body) return;
+
+    var declared = body.getAttribute('data-cookie');
+    var cfg = (declared && CK_STATES[declared]) || null;
+    // The answer this page declares. null on both non-essential purposes means no
+    // answer has been given, which is NOT the same as an answer of no: layer 2 from
+    // a pending state shows the toggles off because nothing was chosen, and the
+    // rejected state shows them off because they were refused. Same picture, two
+    // different facts, and the record line is what tells them apart.
+    var answer = cfg && cfg.answer ? { analytics: cfg.answer.analytics, marketing: cfg.answer.marketing }
+                                   : { analytics: null, marketing: null };
+    var saved = cfg ? (cfg.saved || null) : null;
+    var region = null;
+
+    function close() {
+      if (region) { region.remove(); region = null; }
+    }
+
+    function announce(msg) {
+      var live = document.getElementById('wf-ck-live');
+      if (live) live.textContent = msg;
+    }
+
+    function save(all) {
+      if (all === true)  { answer.analytics = true;  answer.marketing = true; }
+      if (all === false) { answer.analytics = false; answer.marketing = false; }
+      saved = 'just now';
+      close();
+      // POLITE, NEVER ASSERTIVE. 0.5 owns the live region contract and this is a
+      // confirmation of something the person just did, not a failure of one.
+      announce('Your choice is saved. You can change it from Cookie settings at the foot of any page.');
+    }
+
+    function recordBlock() {
+      var r = el('div', 'wf-ck-rec');
+      r.appendChild(el('span', 'wf-ck-rec-k', 'Your answer, as we have it'));
+      if (!saved) {
+        r.appendChild(el('span', 'wf-ck-rec-v wf-fig-missing', 'Nothing recorded yet. Until you answer, only the strictly necessary set is stored.'));
+        return r;
+      }
+      r.appendChild(el('span', 'wf-ck-rec-v',
+        'Analytics ' + (answer.analytics ? 'on' : 'off') + ', marketing ' + (answer.marketing ? 'on' : 'off')));
+      r.appendChild(el('span', 'wf-ck-rec-k', 'Saved'));
+      r.appendChild(el('span', 'wf-ck-rec-v', saved));
+      // A POLICY THAT CHANGES SILENTLY INVALIDATES THE CONSENT GIVEN UNDER THE OLD
+      // ONE, which is the same argument 0.9 makes for version history and 0.14 for
+      // the proof scheme. So the record carries which version was agreed to.
+      r.appendChild(el('span', 'wf-ck-rec-k', 'Against'));
+      r.appendChild(el('span', 'wf-ck-rec-v', 'Cookie policy v3'));
+      return r;
+    }
+
+    function decisions() {
+      var acts = el('div', 'wf-ck-acts');
+      // THE SAME CLASS ON BOTH AND NEITHER IS PRIMARY. In grey, weight is the only
+      // difference a stylesheet can express, so the two decisions carry none.
+      [['Accept all', true], ['Reject all', false]].forEach(function (d) {
+        var btn = el('button', 'wf-btn wf-ck-b', d[0]);
+        btn.type = 'button';
+        btn.setAttribute('data-ck-answer', String(d[1]));
+        btn.addEventListener('click', function () { save(d[1]); });
+        acts.appendChild(btn);
+      });
+      return acts;
+    }
+
+    function layer1() {
+      var sec = el('section', 'wf-ck');
+      sec.setAttribute('role', 'region');
+      sec.setAttribute('data-ck-layer', '1');
+      var inn = el('div', 'wf-ck-in');
+      var h = el('p', 'wf-ck-h', 'Before we store anything on your device');
+      h.id = 'wf-ck-h';
+      sec.setAttribute('aria-labelledby', 'wf-ck-h');
+      inn.appendChild(h);
+      if (cfg && cfg.why === 'expired') {
+        inn.appendChild(el('p', 'wf-ck-p-say', 'You answered this before and that answer has run out, so we are asking again. Nothing beyond the strictly necessary set has been stored since it ran out.'));
+        inn.appendChild(el('p', 'wf-ck-p-say wf-fig-missing', 'How long an answer lasts is not decided. No source we have opened states a re-ask interval, and a number invented here would read as a rule.'));
+      } else if (cfg && cfg.why === 'nostore') {
+        inn.appendChild(el('p', 'wf-ck-p-say', 'We could not save your last answer, so we are asking again. Your browser is not letting this site store anything, which is your choice to make and not a fault.'));
+        inn.appendChild(el('p', 'wf-ck-p-say', 'Nothing beyond the strictly necessary set is running in the meantime, and this will keep asking until it can be remembered.'));
+      } else {
+        inn.appendChild(el('p', 'wf-ck-p-say', 'A few things are stored on your device to keep this site working. Beyond those we store nothing until you say so, and you can change your answer at any time from the foot of any page.'));
+      }
+      inn.appendChild(decisions());
+      var more = el('div', 'wf-ck-more');
+      var mg = el('button', 'wf-btn wf-btn--small', 'Manage purposes');
+      mg.type = 'button';
+      mg.addEventListener('click', function () { render(2); });
+      more.appendChild(mg);
+      // THE POLICY LINK WORKS BEFORE CONSENT IS GIVEN, which 0.2 already guarantees:
+      // a consent dialog that links to a policy the consent gate blocks is circular.
+      var pol = el('a', null, 'Cookie policy');
+      pol.href = BASE + 'legal.html';
+      more.appendChild(pol);
+      inn.appendChild(more);
+      sec.appendChild(inn);
+      return sec;
+    }
+
+    function layer2() {
+      var sec = el('section', 'wf-ck');
+      sec.setAttribute('role', 'region');
+      sec.setAttribute('data-ck-layer', '2');
+      var inn = el('div', 'wf-ck-in');
+      var h = el('p', 'wf-ck-h', 'Choose what we may store');
+      h.id = 'wf-ck-h';
+      sec.setAttribute('aria-labelledby', 'wf-ck-h');
+      inn.appendChild(h);
+      if (cfg && cfg.changed) {
+        // ARTICLE 7(3) IS EXPLICIT THAT WITHDRAWAL DOES NOT UNDO WHAT CAME BEFORE,
+        // so nothing here is retroactive and nothing pretends to be.
+        inn.appendChild(el('p', 'wf-ck-p-say', 'Your new answer applies from the moment you save it. It does not undo what was collected while the old answer stood, and we are not going to say otherwise.'));
+      }
+      var ul = el('ul', 'wf-ck-list');
+      CK_PURPOSES.forEach(function (pz) {
+        if (pz.fixed) {
+          var li = el('li', 'wf-ck-row wf-ck-row--fixed');
+          li.appendChild(el('span', 'wf-ck-fixed', 'ON'));
+          li.appendChild(el('span', 'wf-ck-n', pz.name));
+          var dd = el('span', 'wf-ck-d');
+          dd.appendChild(document.createTextNode(pz.d + ' '));
+          dd.appendChild(el('strong', null, pz.why));
+          li.appendChild(dd);
+          ul.appendChild(li);
+          return;
+        }
+        var row = el('li', 'wf-ck-row');
+        var cb = el('input');
+        cb.type = 'checkbox';
+        cb.id = 'ck-' + pz.key;
+        // NO PRE-TICKED BOXES, recital 32 by name. Off is the state of a question
+        // nobody has answered, and it stays off until an act changes it.
+        cb.checked = answer[pz.key] === true;
+        cb.addEventListener('change', function () { answer[pz.key] = cb.checked; });
+        var name = el('label', 'wf-ck-n', pz.name);
+        name.setAttribute('for', cb.id);
+        row.appendChild(cb);
+        row.appendChild(name);
+        var d = el('span', 'wf-ck-d');
+        d.appendChild(document.createTextNode(pz.d));
+        if (pz.unknown) {
+          d.appendChild(document.createElement('br'));
+          d.appendChild(el('span', 'wf-fig-missing', pz.unknown));
+        }
+        row.appendChild(d);
+        ul.appendChild(row);
+      });
+      inn.appendChild(ul);
+      inn.appendChild(recordBlock());
+      // LAYER 2 CARRIES THE TWO DECISIONS AS WELL, so somebody who opened it to read
+      // is not made to assemble an answer by hand as the price of having looked.
+      inn.appendChild(decisions());
+      var more = el('div', 'wf-ck-more');
+      var sv = el('button', 'wf-btn wf-btn--small', 'Save my choices');
+      sv.type = 'button';
+      sv.addEventListener('click', function () { save(null); });
+      more.appendChild(sv);
+      var pol = el('a', null, 'Cookie policy');
+      pol.href = BASE + 'legal.html';
+      more.appendChild(pol);
+      inn.appendChild(more);
+      sec.appendChild(inn);
+      return sec;
+    }
+
+    function render(layer) {
+      close();
+      region = layer === 1 ? layer1() : layer2();
+      body.appendChild(region);
+    }
+
+    // The live region is in the DOM from first paint and empty, 0.5 section 6: a
+    // region injected at the moment of the message is unreliable, because what is
+    // announced is a change inside a region that was already being watched.
+    if (!document.getElementById('wf-ck-live')) {
+      var live = el('span', 'wf-vh');
+      live.id = 'wf-ck-live';
+      live.setAttribute('role', 'status');
+      live.setAttribute('aria-live', 'polite');
+      body.appendChild(live);
+    }
+
+    // THE RE-OPEN ROUTE, AND IT WORKS ON EVERY PAGE RATHER THAN ONLY ON THIS NODE'S.
+    // Article 7(3) verbatim: "It shall be as easy to withdraw as to give consent."
+    // 0.2 gained the control in the step 8 audit and it has been a button with no
+    // handler on all ninety four pages ever since, because the thing it opens did
+    // not exist yet. D-58: a control that does not do its thing is a picture of it.
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-ck-open]');
+      if (!t) return;
+      e.preventDefault();
+      render(2);
+      var first = region.querySelector('input, button, a');
+      if (first) first.focus();
+    });
+
+    if (cfg) render(cfg.layer);
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     // The hero counters are derived, never typed: a hardcoded 0 beside a registry
     // that says 2 is the drift this file exists to prevent.
@@ -2928,6 +3184,7 @@ window.WF_NAV = {
     mountRp();
     renderFaq();
     mountSystem();
+    mountCookie();
     renderFooter(document.getElementById('wf-footer'));
     mountRollDetail();
     renderBar(document.getElementById('wf-bar'));

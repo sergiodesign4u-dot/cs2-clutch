@@ -20,6 +20,22 @@
 
 ---
 
+## 0.6 Amended 22 August 2026 by `D-80`, the day this node was drawn
+
+**The largest change is that the one block this node said it could not place had already been placed, and nobody told this file.**
+
+| What changed | Why |
+|---|---|
+| **B10, the persistent re-open route, has a home**, section 8 | The step 8 audit added **Cookie settings** to `0.2`'s Company column on the founder's own instrument, as a control rather than a link, quoting Article 7(3) from this node. `footer.md` has carried it since. Section 8 here went on saying "`0.2` does not have one" and section 9 went on listing it as open |
+| **And the control it added did nothing for four days** | It shipped as a `<button>` with no handler on all ninety four pages, because the thing it opens did not exist yet. `D-58` is the rule it broke: a control that does not do its thing is a picture of it. **The fix for Article 7(3) was itself the defect `D-58` forbids**, and neither node could see it, because one owns the carrier and the other owns what it carries |
+| **Layer 2 has a page**, and it needed one | Four of this node's ten blocks live there, B6 to B8 plus the record, and none of them could be drawn while the layer had nowhere to be |
+| **Storage unavailable has a page**, section 6 | It has been a row in the states table since this node was written and it is the one state whose copy is different from every other: it says the choice could not be saved rather than silently re-asking |
+| **The mobile bar carries two destinations, not three**, section 8 | `D-29` took Provably fair out of the rail on 19 August and `D-40` took My items out on 20 August, and the bar follows the rail. This file was written before both |
+
+**And one thing was measured rather than assumed**, section 8: the number of presses between a person and their own answer, at 360 and at 1200. They are not the same number, and Article 7(3) is a rule about that number.
+
+---
+
 ## 0. What this node decides, and what it refuses to
 
 **It decides the interaction:** which blocks exist, what is on by default, what the states are, what may never happen in markup.
@@ -103,7 +119,7 @@ Two pages on `cnil.fr`, English versions, opened 12 August 2026.
 | **B7. Strictly necessary, stated and not a toggle** | 2 | Article 5(3), the exception clause | A disabled switch that cannot move is theatre. The row says what it covers and why it needs no consent |
 | **B8. Save my choices** | 2 | Article 4(11) | Layer 2 also carries accept all and reject all, so a person who opened it to read does not have to build an answer by hand |
 | **B9. The consent record** | invisible | Article 7(1) | What was chosen, when, against which version of the policy. **A policy that changes silently invalidates the consent given under the old one**, which is the same argument `0.9` already makes for version history and `0.14` for the proof scheme |
-| **B10. The persistent re-open route** | outside the dialog | Article 7(3), verbatim | Section 8. It is the one block this node cannot place by itself |
+| **B10. The persistent re-open route** | outside the dialog | Article 7(3), verbatim | **Placed.** `0.2`'s Company column, as **Cookie settings**, a control and not a link, on every page in both account states. Added by the step 8 audit quoting this node, and live since `D-80`. Section 8 |
 
 ---
 
@@ -143,7 +159,7 @@ Two pages on `cnil.fr`, English versions, opened 12 August 2026.
 | **Rejected all** | Strictly necessary only, permanently, until changed | Same. **Nothing is asked again on the next page**, which is the third CNIL failure, cookies set after a refusal, in its interface form |
 | **Partial** | Exactly the purposes chosen | Same |
 | **Changed later** | The new answer applies from that moment. Article 7(3) is explicit that withdrawal does not undo the lawfulness of what came before, so nothing is retroactive and nothing pretends to be | The dialog reopens with the current answer shown, never blank |
-| **Storage unavailable**, private mode or blocked | The dialog cannot remember, so it asks again. **Nothing non-essential fires in the meantime**, and the page never breaks | The dialog, again. It says the choice could not be saved rather than silently re-asking |
+| **Storage unavailable**, private mode or blocked | The dialog cannot remember, so it asks again. **Nothing non-essential fires in the meantime**, and the page never breaks | The dialog, again. It says the choice could not be saved rather than silently re-asking. **A page of its own since `D-80`:** silent re-asking is indistinguishable from a banner that ignores refusals, which is the CNIL's third finding, so the one sentence that separates a browser limitation from our defect is the whole state |
 | **Consent expired** | Re-ask after a stated period | The dialog again. **The period is `[?]`**, section 1.4 |
 | **Geo blocked**, `2.2` | The dialog renders as everywhere else | `0.2` already keeps the footer and the policy links alive in this state, and a dead end that also removes the legal routes is how a person with a complaint loses the ability to make it |
 | **Gate open**, `2.1` | They cannot collide: `0.4` is on arrival, `2.1` at first case interaction | If both were somehow live, the gate is on top and the banner does not render above it |
@@ -168,13 +184,22 @@ Two pages on `cnil.fr`, English versions, opened 12 August 2026.
 - **Both decisions are real `<button>` elements**, each at least 44 by 44 CSS pixels, matching the AAA target size `0.1` chose for every carrier.
 - **Symmetry is not only about size.** Colour, contrast and prominence carry it too, and this is the line that binds stages 06 and 07: **a reject button that is technically the same size and visually a ghost has failed the same rule with better plausible deniability.**
 - **Announced politely, never assertively.** `0.5` owns the live region contract and this dialog is not an alert.
-- **At 360px it never covers the mobile bar.** `0.1` carries three live destinations down there and `0.2` already cut the baseline's floating support control for exactly this reason, `D-22`.
+- **At 360px it never covers the mobile bar.** `0.1` carries **two** live destinations down there, Home and Cases, since `D-29` and `D-40` took Provably fair and My items off the rail and the bar follows the rail. **This line read "three" until 22 August 2026**, which was true when it was written and stopped being true two decisions later. `0.2` already cut the baseline's floating support control for exactly this reason, `D-22`.
 
-**And the block this node cannot place by itself: the persistent re-open route.** Article 7(3) requires withdrawal to be as easy as giving, so there has to be a permanent entry that reopens the dialog. **`0.2` does not have one.** Its band 2 Company column holds the four policy links and its band 4 bottom row holds the compliance line, the copyright, the payment marks and the social set. None of them reopens a dialog.
+**The persistent re-open route, and this section was four days out of date about it.** Article 7(3) requires withdrawal to be as easy as giving, so there has to be a permanent entry that reopens the dialog. This section used to read "**`0.2` does not have one**", and it recorded the recommendation rather than applying it, correctly, because a block a carrier lacks is a finding for the step 8 audit and never a quiet edit in another node's file.
 
-- **Recommended: a cookie settings control in the footer**, beside the policy links, present on every page in both account states.
-- **The alternative that needs no new control** is to host the re-open control on the cookie policy page itself, `0.9`. It satisfies the text and it is one hop longer than accepting was, which is exactly what Article 7(3) is measuring.
-- **This is recorded rather than applied.** `0.2` is a published node with its own page, and the bank already fixed the rule for this case: a block a carrier lacks is a finding for the step 8 audit, never a quiet edit in another node's file.
+**The audit took the finding and applied it.** `0.2`'s Company column carries **Cookie settings**, a control rather than a link and the only control in that column, on every page in both account states, and `footer.md` records the reason in Article 7(3)'s own words. **What did not happen is the finding coming back here**, so this node went on describing a hole that had been filled.
+
+**And the control did nothing until 22 August 2026.** It was a `<button>` with no handler on all ninety four pages, because `0.4` was unbuilt and there was nothing for it to open. `D-58`: **a control that does not do its thing is a picture of it.** So the fix for Article 7(3) was itself the defect `D-58` forbids, and it was invisible to both nodes: one owns the carrier and the other owns what the carrier carries, and neither one owns the pair.
+
+**The route is measured rather than asserted, because Article 7(3) is a rule about a count.**
+
+| Width | Presses to give | Presses to withdraw | Why |
+|---|---|---|---|
+| **1200 and up** | 1, on a region pinned to the viewport | **1** | The footer's link columns are flat above 900 |
+| **360** | 1, on a region pinned to the viewport | **2** | `0.2` section 4: below 900 the link columns are accordions **collapsed by default**, so the control is behind one press before its own, at the very bottom of the page |
+
+**The narrow case is not equal and the difference is printed rather than absorbed.** Moving the control out of the accordion is a change to `0.2`'s composition, which is that node's to make and not this one's, so it goes to the step 8 audit the same way the control itself did. **The alternative that needs no new control** is still to host a re-open control on the cookie policy page, `0.9`, which satisfies the text and is one hop longer than accepting was.
 
 ---
 
@@ -188,7 +213,7 @@ Two pages on `cnil.fr`, English versions, opened 12 August 2026.
 | **Whether the age declaration is strictly necessary** | Section 4. The safe default is designed and the fallback is drawn | Counsel under `D-A` |
 | **Whether any marketing purpose exists at launch** | The referral programme is LATER. A purpose with no vendor behind it is not shown | Founder, with production |
 | **The vendor list per purpose** | `0.9` holds the document and it needs actual names. Nothing here invents one | Production, with `0.9` |
-| **The persistent re-open route** | Section 8. `0.2` has no control for it and `0.4` cannot add one to another node | The step 8 audit, then node `0.2` |
+| ~~**The persistent re-open route**~~ **Closed 22 August 2026.** `0.2` carries **Cookie settings** in its Company column, added by the step 8 audit, and it opens layer 2 with the current answer since `D-80` | What replaces it is narrower: **at 360 the route back is two presses against one**, section 8, because that column is an accordion collapsed by default | The step 8 audit, then node `0.2` |
 | **A consent management platform, or our own** | Not an IA question. What is fixed here is the behaviour any implementation has to produce | Production |
 
 **And what belongs elsewhere.** The words in the dialog: stage 05. How it looks, including the symmetry that decides whether this node worked: stages 06 and 07. The policy text itself: `0.9`. The live region that announces it: `0.5`. The order against the age gate: already settled in `ia/docs/sitemap.md` and not reopened here.

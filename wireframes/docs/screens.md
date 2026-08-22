@@ -1998,3 +1998,33 @@ Two spec files, two of their pages, and **nineteen wireframes carrying a byte-id
 The footer's last line read "published wherever money is spent, `D-28`" on all ninety four. **The `D-66` sweep read `main` and the footer is not in `main`**, so the one citation on every page was the one the instrument could not see. The instrument now reads the whole surface with the scaffolding excluded by name.
 
 **80 checks over the eight pages at seven widths, 570 over all 94, 136 over every IA page, prose 0 of 94. One dead link left in the product.**
+
+---
+
+## 57. `D-80`: node `0.4`, eight pages, and cluster 0 closes
+
+**Eight pages, 22 August 2026.** `cookie.html`, `-manage`, `-accepted`, `-rejected`, `-partial`, `-changed`, `-expired`, `-nostore`. **102 of 103, and the only unbuilt page left in the whole product is `settings.html`.**
+
+### The host is Home, and that is the argument
+
+This node fires on arrival and the one property it has to demonstrate is that **it is not a wall**: the page renders, scrolls and can be read with the answer still pending. Drawn over a plain surface that property is a sentence. Drawn over the real Home it is a fact a reviewer can scroll.
+
+### The block the node said it could not place had been placed
+
+Section 8 of `cookie.md` read "**`0.2` does not have one**", and the step 8 audit had already added **Cookie settings** to the footer's Company column quoting Article 7(3) from this node. **The finding was applied and never came back**, so the node described a filled hole for four days.
+
+**And the control did nothing.** A `<button>` with no handler on all ninety four pages, because `0.4` was unbuilt. **The fix for Article 7(3) was itself the defect `D-58` forbids.**
+
+### The count Article 7(3) is about
+
+**Give: one press at every width. Withdraw: one at 1200, two at 360**, because below 900 the footer's link columns are accordions collapsed by default. Printed, and sent back to `0.2` rather than fixed here.
+
+### Symmetry is a construction, not a resemblance
+
+One grid of equal columns: equal width by construction, the same class on both, neither primary, on one line at every width. **The sweep measures all four at seven widths.**
+
+### Two pages, one screenshot, two facts
+
+The manage page and the rejected page look identical: both toggles off. **Off because nothing was chosen, and off because it was refused.** The record line is the only thing that separates them, and that is what Article 7(1) is for.
+
+**107 checks over the eight pages at seven widths, 136 over every IA page.**

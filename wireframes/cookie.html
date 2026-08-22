@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home, with the cookie answer still pending. CS2 Clutch</title>
+  <meta name="description" content="Every case shows the chance and current value of each item, plus tested RTP and expected value at that cost. Withdrawals go to Steam, commission free.">
+  <meta name="robots" content="noindex">
+  <!-- NODE 0.4, COOKIE CONSENT, DRAWN 22 AUGUST 2026, D-80.
+       THE HOST IS HOME AND THAT IS THE ARGUMENT RATHER THAN A BACKDROP. This node
+       fires on arrival, and the one property it has to demonstrate is that it is
+       NOT A WALL: the page renders, scrolls and can be read with the answer still
+       pending, and the cookie policy link works before consent is given. Drawn
+       over a plain surface, that property would be a sentence. Drawn over the
+       real Home, it is a fact a reviewer can scroll.
+       ARTICLE 7(4) IS WHY. It makes conditionality a factor in whether consent is
+       free at all, so a toll before reading is not a stricter banner, it is a
+       weaker consent. And it is the only version compatible with B1-1: a visitor
+       who arrived already suspecting the category cannot be charged for looking.
+       THE PAGE IS A COPY OF THE GUEST HOME WITH THE REGION PINNED, which is how
+       every state page of 3.3 and of 2.4 already works. The region itself is built
+       once in _nav.js: eight copies of the one object this node exists for is how
+       seven of them rot.
+       TWO OF TWO IN THE CATEGORY SHIP ACCEPT ONLY. Hellcase and skin.club both run
+       a banner with one control and the text "if you continue to use this site,
+       you consent", walked 12 August 2026. Both halves fail, and against different
+       texts: accept-only fails the symmetry the CNIL states, and consent by
+       browsing fails recital 32 directly, "silence, pre-ticked boxes or inactivity
+       should not therefore constitute consent". A reject button of the same size
+       is the cheapest evidence in this whole product that B1-1's expectation is
+       wrong, and it costs a button.
+       NOINDEX, because the indexable document at this content is index.html and a
+       copy of it with a consent region welded on is a duplicate. The region itself
+       has no URL, no schema and no row in 0.13: it is not a page, and nobody
+       navigates to it. -->
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- The wireframe-only side panel. Rendered by wireframes/_nav.js. Screens and states
+     only: the roadmap lives on overview.html. No status strip above the screen. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">≡</button>
+<aside id="wf-panel"></aside>
+
+  <!-- STATE: PENDING, NO ANSWER YET, AND IT IS THE FIRST INTERACTIVE OBJECT A
+       VISITOR MEETS. Strictly necessary only. No tag, no pixel, no SDK, no storage
+       write: the analytics script is not loaded and then held back, it is NOT
+       LOADED. Article 5(3) covers storing AND gaining access, so a technique that
+       reads what is already on the device is inside the rule rather than around it.
+       THERE IS NO DISMISS CONTROL ON THIS REGION and that is the baseline's own
+       defect refused rather than an omission: the live product ships an X that
+       closes the banner without recording anything. Nothing here can be pressed
+       that is not an answer or a route to one, so inactivity stays inactivity. -->
+<div class="wf-screen-body" data-cookie="pending">
+
+  <!-- 0.1 NAVIGATION and 0.2 FOOTER are globals, rendered once by wireframes/_nav.js
+       from window.WF_SHELL. Step 5: nobody redraws the header per screen. -->
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <!-- B1 THE LIVE FEED LEFT THIS PAGE ON 21 AUGUST 2026, D-59, and it left
+         upward rather than away: it renders in the shell now, on every page,
+         built once in _nav.js. Keeping the block here as well would have put
+         two live drop strips on Home, which is what the first render did.
+         WHAT THE BLOCK KNEW AND THE COMPONENT INHERITED, so the measurement is
+         not lost with the markup: TWELVE TILES, NOT FOUR. 0.8 section 6 handed
+         stage 04 "the minimum tile count, from the drawn width". At 360px one
+         row holds 3.9 tiles, so a loop needs eight before it can run without a
+         gap, and twelve is the first count that still reads as a feed at 1440.
+         Below eight the strip is a static row and says so, rule 5.2.
+         THE TILE CARRIES ARTWORK AND IT LEADS, which answers 0.8's other stage
+         04 item and is D-59's own ordering: it is read at a glance rather than
+         read, and four text fields at 92px read as a list. -->
+
+    <!-- B2. Promotion banner, D-25. A labelled region. Its line is body text and never
+         takes H1 or H2 markup. Absent when there is nothing to promote.
+         THE COUNTDOWN IS DRAWN AS A SLOT, NOT AS A NUMBER. Rule 2 of the block: the
+         countdown counts to a real published end, and if the end is not known it does
+         not render. So the cells reserve their height and carry their labels, the value
+         slots are empty, and the state is stated in words. Never a dash and never a
+         zero: 0.11 says a dash that reads as zero and a zero that means "we do not
+         know" are the same lie in two typefaces. -->
+    <section class="wf-banner" aria-label="Promotion">
+      <div class="wf-banner-art" aria-hidden="true"></div>
+      <div class="wf-banner-clock">
+        <div class="wf-clock" role="group" aria-label="Time left: not available">
+          <span class="wf-clock-cell"><span class="wf-clock-v"></span><span class="wf-clock-l">Days</span></span>
+          <span class="wf-clock-cell"><span class="wf-clock-v"></span><span class="wf-clock-l">Hours</span></span>
+          <span class="wf-clock-cell"><span class="wf-clock-v"></span><span class="wf-clock-l">Minutes</span></span>
+          <span class="wf-clock-cell"><span class="wf-clock-v"></span><span class="wf-clock-l">Seconds</span></span>
+        </div>
+        <p class="wf-fig-missing">Not available: this promotion has no published end, so no countdown runs</p>
+      </div>
+      <div class="wf-banner-body">
+        <p class="wf-banner-line">Daily case is live today. One free open per day.</p>
+        <a class="wf-btn" href="catalogue.html">See the daily case</a>
+      </div>
+    </section>
+
+    <!-- B3. The hero. Its heading is the page's H1. One unit, four contents, node
+         section 2.3: the H1, the proposition in one line, one route into the main job,
+         and A5. The route is the in-page grid rather than the shelf, so it does not
+         duplicate B4's own shelf link, and it is not the primary control: home.md
+         section 5 gives the page one main CTA and that is opening, in B6. -->
+    <section class="wf-hero" aria-labelledby="h1">
+      <div class="wf-hero-say">
+        <h1 id="h1">Open CS2 cases with the chance, the value and the payout time on the page before you spend</h1>
+        <p class="wf-hero-line">Every case prints the chance and the current value of each item, the tested return and what it is worth at that entry cost, before anything is spent.</p>
+        <a class="wf-btn" href="#h2-cases">See the cases</a>
+      </div>
+      <div class="wf-hero-trust">
+        <div class="wf-fig">
+          <span class="wf-fig-v wf-fig-missing">Trustpilot score not available</span>
+          <span class="wf-fig-c">Fetched from Trustpilot when the page is read, or not shown at all. Never a stored number</span>
+        </div>
+        <div class="wf-fig">
+          <span class="wf-fig-v wf-fig-missing">No named auditor</span>
+          <span class="wf-fig-c">Nobody in this category has one and neither do we. Absent, not a placeholder badge</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- B4. The row of four ways to play, DECIDED as D-27 on 19 August 2026. It partly
+         reverses D-20: the carrier ships and the dead items are marked dead, which is
+         CLAUDE.md's own rule applied to a case D-20 decided the other way. One card is
+         live and carries a control; three render as not launched, with no control, no
+         link, no badge, no date and never a waiting list. A card gains its link on the
+         day its node exists, not on the day the mode is announced. home.md section
+         2.3a, and blocks B4 to B10 renumbered to B5 to B11 in the same step. -->
+    <section class="wf-sec" aria-labelledby="h2-modes">
+      <div class="wf-sec-head">
+        <h2 id="h2-modes">Ways to play</h2>
+        <p class="wf-sec-sub">One is live in round 1. The other three are named here rather than hidden, and neither links nor sells until it exists.</p>
+      </div>
+      <div class="wf-grid wf-modes">
+        <article class="wf-mode">
+          <span class="wf-mode-art" aria-hidden="true"></span>
+          <h3>Cases</h3>
+          <p>Open a case with the chance and the value of every item on the page.</p>
+          <a class="wf-btn" href="catalogue.html">Open a case</a>
+        </article>
+        <article class="wf-mode is-later">
+          <span class="wf-mode-art" aria-hidden="true"></span>
+          <h3>Case battles</h3>
+          <p>Open against someone else, highest total takes both.</p>
+          <p class="wf-fig-missing">Not launched yet</p>
+        </article>
+        <article class="wf-mode is-later">
+          <span class="wf-mode-art" aria-hidden="true"></span>
+          <h3>Gunfights</h3>
+          <p>One round against one opponent.</p>
+          <p class="wf-fig-missing">Not launched yet</p>
+        </article>
+        <article class="wf-mode is-later">
+          <span class="wf-mode-art" aria-hidden="true"></span>
+          <h3>Upgrade</h3>
+          <p>Trade a skin you hold for a chance at a better one.</p>
+          <p class="wf-fig-missing">Not launched yet</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- B4. Featured case grid. Tiles are component 0.7 after D-24: artwork, name,
+         entry cost, risk band, plus markers only when true, plus the favourite.
+         FOUR TILES IS A DECISION, NOT AN ACCIDENT: how many the grid holds rides on
+         the treasury answer D-D, and screens.md section 5 records it as a named hole. -->
+    <section class="wf-sec" aria-labelledby="h2-cases">
+      <div class="wf-sec-head">
+        <h2 id="h2-cases">Cases you can open right now</h2>
+        <p class="wf-sec-sub">A curated set, not the whole shelf. Every tile carries the entry cost and the risk band before you open anything.</p>
+      </div>
+      <!-- 0.7 section 5.1: prices render in coins and "the peg is never further from it
+           than the spend it precedes ... It is ON THE GRID ONCE, and on 3.3 beside the
+           commit block". Twenty pegs would be noise; none at all is the unconvertible
+           price B7-1 names. One, here, above the first prices on the page. -->
+      <p class="wf-note wf-fig-missing">Prices are in coins. Peg not available: what one coin is worth in real money is not published yet</p>
+      <div class="wf-grid">
+        <article class="wf-tile">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Ironbound</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">12.40</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 829 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">829</span>
+          </button>
+        </article>
+        <article class="wf-tile">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Warsteel</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">4.90</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="true" aria-label="Favourite, 1 204 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">1 204</span>
+          </button>
+        </article>
+        <article class="wf-tile">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Coldfront</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">2.10</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 311 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">311</span>
+          </button>
+        </article>
+        <article class="wf-tile">
+          <a class="wf-tile-link" href="case.html">
+            <span class="wf-tile-art" aria-hidden="true"></span>
+            <span class="wf-tile-name">Nightfall</span>
+            <span class="wf-tile-risk wf-fig-missing">Risk not available</span>
+            <span class="wf-tile-price"><span class="wf-tile-cost">31.00</span><span class="wf-tile-cur">coins</span></span>
+          </a>
+          <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 96 people">
+            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">96</span>
+          </button>
+        </article>
+      </div>
+      <div class="wf-sec-foot">
+        <a class="wf-btn" href="catalogue.html">All cases</a>
+      </div>
+    </section>
+
+    <!-- B5. Daily cases with the tier ladder, D-25, drawn in the shape home.md section
+         7 specifies and the baseline runs: the five tiers as one horizontal run, the
+         reset at one end, and the control on its own below. The countdown does not
+         render until the reset moment is set. A tier gives a case and nothing else: no
+         badge, no title, no rank, and no streak.
+         THE GUEST RENDER CARRIES NO PROGRESS AND NO WAGER FIGURE. home.md section 4.1,
+         state matrix, row "Daily B6": "The ladder renders as a description of what
+         exists, with no progress and no wager figure, because a guest has none. The
+         control routes to 2.4." It shipped here with 0.00 of 5.00, Silver marked as
+         reached and a disabled control, which is the account render drawn twice with
+         its numbers zeroed. A zero is not the guest state, it is a claim that this
+         person has wagered nothing, and 0.11 rule 3 refuses exactly that reading. -->
+    <section class="wf-sec" aria-labelledby="h2-daily">
+      <div class="wf-sec-head">
+        <h2 id="h2-daily">Your daily case</h2>
+        <p class="wf-sec-sub">One free entry a day, earned by wagering. The tier decides which case, and it carries no streak and no status.</p>
+      </div>
+      <div data-ladder></div>
+    </section>
+
+    <!-- B6. One case, priced in full. The densest block on the page and the one no
+         competitor has. All of it pre-login, all of it crawlable text. -->
+    <section class="wf-sec" aria-labelledby="h2-cost">
+      <div class="wf-sec-head">
+        <h2 id="h2-cost">What this case actually costs</h2>
+        <p class="wf-sec-sub">One case, priced in full, pre-login. The chance, the current value, the tested return and the expected value at this entry cost.</p>
+      </div>
+      <div class="wf-worked">
+        <article class="wf-card wf-item">
+          <span class="wf-item-art" aria-hidden="true"></span>
+          <p class="wf-item-weapon">AK-47</p>
+          <p class="wf-item-skin">Redline</p>
+          <ul class="wf-item-axes">
+            <li>Field-Tested</li>
+            <li>StatTrak</li>
+            <li>Classified</li>
+          </ul>
+          <dl class="wf-item-figs">
+            <dt>Chance</dt><dd>3.180 %</dd>
+            <dt>Observed</dt><dd>3.04 % over 41 208 rolls</dd>
+            <dt>Value</dt><dd>47.30 coins</dd>
+            <dt>Tickets</dt><dd>1 to 3 180</dd>
+            <dt>Availability</dt><dd>Every item, always</dd>
+          </dl>
+          <p class="wf-item-market">Market price on Steam 22.15 EUR, as of 18 Aug 2026 14:02. <span class="wf-fig-missing">Not comparable to the value above until the coin peg is published.</span> <a href="https://steamcommunity.com/market/" rel="external nofollow">Open on the market</a></p>
+        </article>
+
+        <div class="wf-stack">
+          <div class="wf-fig">
+            <span class="wf-fig-v">12.40 coins</span>
+            <span class="wf-fig-c">Entry cost of Ironbound, in coins</span>
+            <span class="wf-fig-c wf-fig-missing">Peg not available: what one coin is worth in real money is not published yet</span>
+          </div>
+          <div class="wf-fig">
+            <span class="wf-fig-v">94.2 %</span>
+            <span class="wf-fig-c">Tested return to player for this case. Who tested it and over how many opens is not published yet</span>
+          </div>
+          <div class="wf-fig">
+            <span class="wf-fig-v">11.68 coins</span>
+            <span class="wf-fig-c">Expected value at this entry cost. Recomputable from the chance and the value printed above</span>
+          </div>
+          <p>If you can afford the skin outright, buying it is cheaper on average than opening for it. Opening buys the chance and the reveal, not a discount.</p>
+          <a class="wf-btn wf-btn--primary" href="case.html">Open Ironbound</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- B7. Check any round with no account. Short by design, and the bounded claim
+         follows the unbounded one rather than leading the page. -->
+    <section class="wf-sec" aria-labelledby="h2-fair">
+      <div class="wf-sec-head">
+        <h2 id="h2-fair">Check any round without an account</h2>
+        <p class="wf-sec-sub">What the proof covers, and what it does not.</p>
+      </div>
+      <p>Every round is committed before the click and can be recomputed afterwards. That proves the outcome was fixed before you clicked. It does not prove the published chances are the chances used, and the observed rate beside every published one is where that question is answered.</p>
+      <a class="wf-btn" href="fair.html">Open the verifier</a>
+    </section>
+
+    <!-- B8. The exit, priced before the entrance. Four things answering one question. -->
+    <section class="wf-sec" aria-labelledby="h2-exit">
+      <div class="wf-sec-head">
+        <h2 id="h2-exit">Getting your skin out</h2>
+        <p class="wf-sec-sub">The exit priced before the entrance, from our own logs.</p>
+      </div>
+      <div class="wf-figs">
+        <div class="wf-fig"><span class="wf-fig-v">1 h 40 m</span><span class="wf-fig-c">Middle withdrawal time, from our own logs. <span class="wf-fig-missing">Window length not set yet</span></span></div>
+        <div class="wf-fig"><span class="wf-fig-v">6 h 15 m</span><span class="wf-fig-c">Slow case, nine in ten finish inside this. <span class="wf-fig-missing">Window length not set yet</span></span></div>
+        <div class="wf-fig"><span class="wf-fig-v">0 %</span><span class="wf-fig-c">Our commission on a withdrawal to Steam. <span class="wf-fig-missing">The Steam Market fee is not shown until it carries its source and date</span></span></div>
+        <div class="wf-fig"><span class="wf-fig-v wf-fig-missing">Threshold not available</span><span class="wf-fig-c">The amount needed before a withdrawal is not set yet. It is stated before any deposit and it never rises</span></div>
+      </div>
+      <ul class="wf-marks" aria-label="Payment methods">
+        <li>Card</li>
+        <li>Wallet</li>
+        <li>Crypto</li>
+        <li class="wf-fig-missing">Provider list not available</li>
+      </ul>
+    </section>
+
+    <!-- B9. The starter credit. Last of the argument blocks, deliberately. -->
+    <section class="wf-sec" aria-labelledby="h2-first">
+      <div class="wf-sec-head">
+        <h2 id="h2-first">Your first open, without a deposit</h2>
+        <p class="wf-sec-sub">Bounded, with the withdrawal threshold stated in the same breath.</p>
+      </div>
+      <p class="wf-fig-missing">Credit amount not available yet.</p>
+      <p>It is bounded, and the amount you need before you can withdraw is stated in the same breath. That amount never rises.</p>
+      <a class="wf-btn" href="signin.html" data-auth-open="default">Sign in with Steam</a>
+    </section>
+
+    <!-- B10. The SEO text block. One H2, three H3s, real content from the node. -->
+    <section class="wf-sec wf-prose" aria-labelledby="h2-about">
+      <div class="wf-sec-head">
+        <h2 id="h2-about">What opening a case here involves</h2>
+      </div>
+      <div class="wf-prose-cols">
+      <p>A case is a fixed set of CS2 skins with a published chance on each one. You pay the entry cost in coins, one roll decides the item, and the item moves to your Steam inventory when you withdraw it. Everything here is priced in coins, and what one coin is worth in real money is published wherever money is spent, so a price can be converted back by the person reading it rather than only by us.</p>
+      <h3>The numbers we publish before you spend</h3>
+      <p>Every case prints the chance and the current value of each item it holds, the tested return to player for that case, and the expected value at that entry cost. The chances add up to a hundred in front of you, and the ticket range beside each item is the interval the roll resolves against, so the percentage and the interval are the same fact written twice.</p>
+      <h3>Getting a skin out, and how long it takes</h3>
+      <p>Withdrawal goes to your Steam inventory and we take no commission on it. How long it takes is published on this page from our own logs, as a middle time and a slow-case time, and every withdrawal in progress shows which side it is waiting on: us, Steam, or you.</p>
+      <h3>What the fairness proof covers, and what it does not</h3>
+      <p>Every round is committed before you click and can be recomputed afterwards with a published algorithm, by us or by any tool you trust. That proves the outcome was fixed before the click and was not altered after it. It does not prove that the published chances are the chances used, and that is a different question with a different answer: the observed rate stands beside the published one on every case.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: false, active: 'index.html' };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

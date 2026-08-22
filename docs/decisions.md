@@ -2835,3 +2835,72 @@ The footer node's transient table read "**404 and 500**, `0.3`", and `0.3` had a
 **410 against 404 for a retired case.** RFC 9110 prefers 410 where the origin knows the condition is likely permanent. The retired page is drawn as a 404 because nobody has answered whether a case can come back, and the difference is not cosmetic: 404 says "not now", 410 says "stop asking", and a crawler treats them differently. **Drawing the 410 would have answered a product question by drawing it.**
 
 **Whether the quick links should carry a third destination.** Two is the map's number, not a taste: this node's transitions row holds `1.0` and `3.1`, and a carrier may not promise a destination the map does not hold. Adding `1.2` or `0.10` to the body is a change to the map.
+
+---
+
+## D-80. Node `0.4` is drawn in eight pages, the block this node said it could not place had been placed four days earlier, and the control that placed it did nothing
+
+**Date:** 2026-08-22. **Stage:** 04. **Decided by:** stage 04, except the two items at the end. **Binds:** node `0.4`, node `0.2` whose Company control becomes live, and the shell on every page.
+
+**What was built.** Eight wireframes: `cookie.html`, `-manage`, `-accepted`, `-rejected`, `-partial`, `-changed`, `-expired`, `-nostore`. **102 of 103, cluster 0 is complete, and the only unbuilt page left in the whole product is `settings.html`.**
+
+### The one block this node said it could not place had been placed, and the fix was itself a defect
+
+Section 8 of `cookie.md` carried the sharpest sentence in the node: **`0.2` does not have one.** Article 7(3) says withdrawal must be as easy as giving, so there has to be a permanent entry that reopens the dialog, and the footer had no control that did. The node recommended one and **recorded it rather than applying it, which was correct**: a block a carrier lacks is a finding for the step 8 audit and never a quiet edit in another node's file.
+
+**The audit took the finding and applied it.** `0.2`'s Company column has carried **Cookie settings** since, a control rather than a link and the only control in that column, quoting Article 7(3) from this node by name. **What never happened is the finding coming back**, so `0.4` went on describing a hole that had been filled, in its section 8 and in its open list, for four days.
+
+**And the control did nothing.** It shipped as a `<button>` with no handler on all ninety four pages, because `0.4` was unbuilt and there was nothing for it to open. `D-58`: **a control that does not do its thing is a picture of it.** So the fix for Article 7(3) was itself the defect `D-58` forbids, and it was invisible to both nodes, **because one owns the carrier and the other owns what the carrier carries, and neither one owns the pair.** It opens layer 2 with the current answer now, on every page, which is what makes the withdrawal route real rather than drawn.
+
+### Article 7(3) is a rule about a count, so the count is measured
+
+| Width | Presses to give | Presses to withdraw |
+|---|---|---|
+| **1200 and up** | 1, on a region pinned to the viewport | **1** |
+| **360** | 1, on a region pinned to the viewport | **2** |
+
+**Below 900 the footer's link columns are accordions collapsed by default**, `0.2` section 4, so the control sits behind one press before its own, at the very bottom of the page. **The narrow case is not equal and it is printed rather than absorbed.** Moving the control out of the accordion is a change to `0.2`'s composition, which is that node's to make, so it goes back the same way the control itself did.
+
+### Symmetry is drawn as a construction rather than as a resemblance
+
+The CNIL's finding of 14 December 2021 is that banners "do not allow the user to refuse the deposit of cookies as easily as to accept it", and this node calls it the single most common place the rule is lost. **So the two decisions are one grid of equal columns rather than two buttons that happen to look similar:** equal width by construction, the same class string on both, neither carrying the primary weight, and on one line at every width. **The sweep measures all four of those at seven widths**, because "a reject button that is technically the same size and visually a ghost has failed the same rule with better plausible deniability" is a sentence that needs an instrument, not a reviewer's eye.
+
+**Two of two in the category ship accept only.** Hellcase and skin.club both run a banner with one control and the text "if you continue to use this site, you consent", walked 12 August 2026. Both halves fail and against different texts: accept-only fails the CNIL, consent by browsing fails recital 32 directly. **A reject button of the same size is the cheapest evidence in this whole product that `B1-1`'s expectation is wrong, and it costs a button.**
+
+### Two pages render the same picture and record different facts, and that is the point
+
+`cookie-manage.html` and `cookie-rejected.html` are the same screenshot: both non-essential toggles off. **On one they are off because nothing was chosen, and on the other because they were refused**, which is Article 4(11)'s "unambiguous indication" made visible: silence and refusal are not the same answer and only one of them was given. **The record line is the only thing that separates them**, which is exactly what Article 7(1) is for, and it is why the record is a block in this node rather than an implementation detail.
+
+**And the same argument runs the other way on accepting and refusing.** To the person those two produce the identical page, and that identity is the node working rather than a gap in the drawing: refusing costs nothing except the analytics we would have collected, which is what Article 7(4) measures. **The one place the two answers differ visibly is the reopened dialog**, which shows the current answer and is never blank.
+
+### Layer 2 had four of the node's ten blocks and nowhere to be drawn
+
+B6 the purpose list, B7 strictly necessary, B8 save, and the record. **None of them could exist while the second layer had no page**, and the registry held none. **The strictly necessary row has no control at all**, because a disabled switch that cannot move is theatre and `D-58` already took every dead control off this product's surfaces: the row says what it covers and why it needs no consent.
+
+**And the marketing purpose renders its own unknown rather than being dropped.** Round 1 has no referral programme, it is `LATER` with no parent, and whether any marketing tag exists at launch is unanswered. **A purpose removed for being empty and a purpose nobody has decided about are different things**, so the row states the second on its own face.
+
+### The registry's own note pointed at the wrong section of the wrong question
+
+It read: "whether this ships as six pages or two with four variants is step 5, conventions section 6". **Section 6 of that file is the three readers.** The rule is section 4 and it has answered this since it was written: **every state is its own page, so the prototype can navigate between them, and the real set comes from the States section of the node spec.** That set is nine rows: two say "same as its base state" and get no page, **one had no page at all**, the storage-unavailable state, and the second layer is not in the table because it is a layer rather than an answer.
+
+### Three smaller things this file was wrong about
+
+**The mobile bar carries two destinations, not three.** `D-29` took Provably fair off the rail on 19 August and `D-40` took My items off on 20 August, and the bar follows the rail. The line was true when it was written and stopped being true two decisions later.
+
+**The consent lifetime is still `[?]` and the expired page renders it as unset.** No source opened on 12 August states a re-ask interval: the EDPB guidelines could not be parsed in that environment and the ICO returned 403. **A number invented here would read as sourced.**
+
+**The expired state says why it is back.** A banner that reappears with the words it used the first time reads as one that was never listening, which is the interface half of consent by attrition.
+
+### Measured
+
+**107 checks over the eight pages at seven widths.** No horizontal overflow. **One H1 on every page and it is Home's:** the region takes its accessible name from a visible line rather than injecting a heading into the host page's outline. **No `aria-modal`, no scrim, no focus trap, the document never locked, and the page behind always scrollable**, at every width, on all eight. Layer 1 never covers more than half the viewport. **The region never overlaps the mobile bar.** The two decisions equal in width, height, class and baseline everywhere. **No pre-ticked box anywhere nothing has been chosen, no dead control in the region, no switch on the strictly necessary row, and exactly two non-essential purposes with separate controls.** Every target 44px or more, the policy link having failed that at 23px and been fixed as a hit area. The live region polite and never an alert. Every copy of Home `noindex`.
+
+**And the loop was walked at 360 and at 1200:** arrive, open layer 2, find both boxes off, refuse in one press, watch the region close and the announcement fire, come back through the footer, find the answer still there, change one purpose, save, come back again and find the change kept. **The dead control was walked on three pages outside this node** and it opens layer 2 with the record reading "nothing recorded yet" rather than inventing an answer.
+
+**136 checks over every IA and root page, clean.**
+
+### Two things went to the founder
+
+**The missing compliance constraint, and it is the one that matters.** `CLAUDE.md` enumerates five compliance constraints and **none of them is data protection**, so the entire legal ground of this node, Article 5(3), Articles 4(11), 7(1), 7(3) and 7(4), recital 32 and two CNIL pages, has **no parent in the three legal classes.** It is carried on `B1-1` and design principle 1, which is true and is not the whole reason the node exists. **The alternative is quietly widening the third class, which is the thing that rule exists to stop.** A candidate line for `CLAUDE.md` at the stage close, and the founder's call.
+
+**And whether the re-open control comes out of the accordion**, which is the 360 asymmetry above and belongs to `0.2`.
