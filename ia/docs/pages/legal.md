@@ -14,6 +14,8 @@
 
 **Read by and linked from:** `0.2` footer column 3, `0.4` cookie consent, `0.10` support, `0.12` which reads as a consumer of the market statement. **Routes out:** `0.10`, and the other three documents.
 
+**The live drop strip `0.8` renders here and this node does not refuse it.** `D-59` puts it on every page, and the two surfaces that take it off both have a rule of their own that it contradicts: `4.2` forbids an offer of any kind by its own list, and the register itself says `6.1` may never render the ladder. **Nothing in this node says anything the strip breaks**, so the absence of a refusal is recorded deliberately rather than left as something nobody looked at. **A guideline about a component may not be used to select that component**, and "a legal document deserves quiet" is a guideline.
+
 **Four documents, one node, because they are one template.** Four specifications of the same page shape would be three copies. Each document keeps its own URL and its own indexation, and `0.13` already set both.
 
 **Baseline row, `0.9`.** The rule in `CLAUDE.md`: every node carries one baseline row, what the live product does, what we keep, what we change and why.
@@ -226,6 +228,8 @@ Inherited from `0.13` rather than derived. Indexation, canonical, schema and bre
 | Cookie policy | `/legal/cookies` | `Cookie policy - CS2 Clutch` | `Which cookies CS2 Clutch sets, what each one is for, and how to change your choices at any time. A plain summary above the full policy.` |
 | Refund and payments policy | `/legal/refunds` | `Refund and payments policy - CS2 Clutch` | `How payments, refunds and disputed charges work on CS2 Clutch, and what happens to money that moves the wrong way. Plain summary above the policy.` |
 
+**Four titles, and they are the third node to answer one question, which means the question can no longer be avoided.** `0.13`'s pattern is `<node H1 subject>` then a separator then `CS2 Clutch`. **This node follows it four times. `0.10` follows it once. `6.1` refuses it.** All six of those pages are indexed, `CS2 Clutch` is a working placeholder, and **a title is the one string that reaches search results and browser history before anyone reviews it.** Two nodes disagreeing was an inconsistency; three nodes and six indexed URLs is a decision that has to be taken. **The titles above stay as written and the collision is carried in section 10**, because rewriting them here would settle it by editing order rather than by a decision.
+
 **Canonical:** self. **Robots:** `index, follow`. **No hreflang on any of the four**, `0.13` section 1, one language. **OG and Twitter:** title and description as above, and the card image is the product's default rather than a per-document graphic, because there is nothing document-specific to picture.
 
 ### B. Headings, one H1 and the H2 list in block order
@@ -301,5 +305,6 @@ The clause text is counsel's. **These four leads are the node's own copy and the
 | **The "Legal" breadcrumb level** | It has no URL. Either `/legal` becomes a fifth address, an index whose whole content is four links the footer already carries, or the crumb is dropped and the trail is Home > Document | Node `0.13` |
 | **Retention of acceptance records and of tickets** | A privacy fact, so it belongs in the privacy document, which does not exist yet. Circular until counsel writes it | Counsel |
 | **Whether a summary is required or merely offered** | GDPR Article 12(1) requires plain information. Whether a separate summary discharges anything, or is purely a product choice, is a legal reading | Counsel. **The product ships it either way**, on `G5` |
+| **Whether an indexed title carries the placeholder brand** | `0.13`'s pattern bakes in `CS2 Clutch`, which is a working placeholder. **This node follows it on four indexed documents, `0.10` follows it once, and `6.1` refuses it.** Six indexed URLs and two answers. The fix is not a copy edit, it is the naming decision | Founder, with the product name |
 
 **And what belongs elsewhere.** The consent mechanics: `0.4`, already specified. The footer's rendering of the identification block: `0.2`, already specified. The response deadline for a question about a document: `0.10` and `0.11`. Indexation and URLs: `0.13`. The words of any interface string: stage 05. How the page looks: stages 06 and 07.

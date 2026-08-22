@@ -68,13 +68,17 @@ window.WF_NAV = {
         { label: 'Consent expired',file: 'cookie-expired.html',   status: 'spec' }
       ] },
 
-    { node: '0.9',  cluster: '0', name: 'Legal and policy',    file: 'legal.html',      ia: 'legal.html',         status: 'spec',
+    // DRAWN 22 AUGUST 2026. One template, four documents, and only the terms are
+    // drawn: four drawings of one shape would be three copies. The state that
+    // earns it is "changed since you last agreed", because a component built for
+    // the current version meets its first amendment as an incident.
+    { node: '0.9',  cluster: '0', name: 'Legal and policy',    file: 'legal.html',      ia: 'legal.html',         status: 'built',
       base: 'Current',
       states: [
-        { label: 'Changed since you last agreed', file: 'legal-changed.html',    status: 'spec' },
-        { label: 'Guest, never agreed',           file: 'legal-guest.html',      status: 'spec' },
-        { label: 'Reading a superseded version',  file: 'legal-superseded.html', status: 'spec' },
-        { label: 'Not yet published',             file: 'legal-unpublished.html',status: 'spec' }
+        { label: 'Changed since you last agreed', file: 'legal-changed.html',    status: 'built' },
+        { label: 'Guest, never agreed',           file: 'legal-guest.html',      status: 'built' },
+        { label: 'Reading a superseded version',  file: 'legal-superseded.html', status: 'built' },
+        { label: 'Not yet published',             file: 'legal-unpublished.html',status: 'built' }
       ] },
 
     // DRAWN 22 AUGUST 2026. Nine pages, and the ninth is the one that earns the

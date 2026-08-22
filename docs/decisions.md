@@ -2632,3 +2632,59 @@ Seven sections, each naming the surfaces that own it, **and the questions are no
 245 checks over the nine pages at six widths. No horizontal overflow. One H1 each. **Seven accordion sections on every page, every answer in the DOM at every width**, every control a real `<button>` with `aria-expanded` and `aria-controls`, none a styled `div`. No disabled control, no image in main, **nothing is `noindex`**. **No deadline figure invented on any page**, no support address invented, no identity document asked for anywhere while the refusal sentence is asserted present. The ticket id is copyable text on all four states that carry one, every wait names its owner, and **the frozen-not-zeroed balance is stated on all four**. The ground quoted back into the appeal form **wraps and is not in a scroller**, asserted by measuring its overflow rather than by reading the markup: a ground a person has to scroll inside a box is a ground they will not read, and `G4` exists so that it gets read.
 
 456 checks over all 75 pages clean, prose sweep 0 of 75, every internal link a registry file. **Four dead links remain and all four are undrawn screens.**
+
+---
+
+## D-77. Node `0.9` is drawn, a component I had taken off nine pages goes back, and the small button was failing the level three nodes claim
+
+**Date:** 2026-08-22. **Stage:** 04. **Decided by:** Claude, on the drawing pass. **Binds:** node `0.9` and its four states, node `0.10`'s nine pages, and `.wf-btn--small` in the grey contract, which is on sixteen pages.
+
+**What was built.** Five pages: `legal.html`, `-changed`, `-guest`, `-superseded`, `-unpublished`. **80 of 93.**
+
+### First: I took a component off nine pages with no parent, and it goes back
+
+`0.10` shipped this morning with the live drop strip suppressed on all nine of its pages. **Nothing in `support.md` refuses the strip.** I took it off on the argument `4.2` and `6.1` use, and **neither of those is available to `0.10`:**
+
+| Surface | Why the strip comes off | Status |
+|---|---|---|
+| `4.2` | Its own forbidden list reads "no offer of any kind: no alternative funding route, no reminder when the period resets, no invitation to raise the ceiling" | **Parented** |
+| `6.1` | Its block 2 refuses the ticker in writing, and `sitemap.md`'s register row for the daily ladder carries the identical shape: "`6.1` may never render it" | **Parented** |
+| `0.10` | Nothing | **Unparented. Reverted the same day** |
+
+**A wireframe cannot borrow another node's parent**, and a component the founder placed on every page by `D-59` does not come off a surface because the surface felt wrong to a reader. **This is the rule catching me rather than a file**, and it is written here in full rather than fixed quietly, because a silent revert teaches nothing and a silent removal would have survived.
+
+**The argument for taking it off is real and it goes to the founder.** Three of the four routes into `0.10` are a person who was restricted, refused or blocked, and the appeal states are read by exactly those people: **a run of other people's wins beside "your appeal was refused" is the shape `4.2` names.** What makes it a question rather than a rule is the entry state, which is also reached by a person with an ordinary question, **and splitting the strip across nine pages of one node is worse than either answer.** Open item on `0.10`, owner `0.8` and the founder.
+
+**`0.9` records the same absence deliberately.** The strip renders on the legal pages, this node refuses nothing, and the absence of a refusal is now written down rather than left as something nobody looked at. **"A legal document deserves quiet" is a guideline, and a guideline about a component may not be used to select that component.**
+
+### The small button was 32px and three nodes claim AAA
+
+`0.1` and `0.2` chose 44 by 44 CSS pixels, which is WCAG 2.5.5 at AAA, and `0.9` repeats it. **`.wf-btn--small` has a 32px floor and it is on sixteen pages:** the case reveal, the catalogue, the deposit presets, the support copy control and the version links here. AA is 24. **This contract does not claim AA.**
+
+**The fix is the hit area and not the box.** A 44px visual button inside a dense component is exactly what the small size exists to avoid, so the target grows to 44 through an expander and the drawing does not move a pixel. **Nothing in any layout changes and the claim becomes true on all sixteen pages at once.**
+
+**And the sweep was measuring the wrong thing.** It read the element box, which is why this survived four nodes that all state the rule. It now reads the effective target, box or expander, whichever is larger.
+
+### The node
+
+**One template, four documents, and only the terms are drawn.** Four drawings of one shape would be three copies. Each keeps its own address and its own indexation.
+
+**The baseline runs four documents, all `noindex`, each with one H1 and zero H2.** The terms are about 7,270 words as a single wall, last updated 08/01/2025, and the cookie policy is dated April 2019 under a product that changed every year since. **The wall is the defect the template exists to fix, and the dates are the second one.**
+
+**What no competitor in this category does at all is version its policies visibly.** A policy that changes silently invalidates everything decided under the old one: a person who accepted version 2 and is judged under version 4 has agreed to a document that no longer exists, **and neither side can prove what it said.** Four versions render with all seven fields, and **"requires a new agreement" is a trigger rather than a note about one**, so its yes puts every existing account into the changed state.
+
+**The state that earns the node is "changed since you last agreed."** A component built only for the current version meets its first amendment as an incident, and the incident is a person being held to a text they never saw. **It never blocks reading**, because a wall demanding acceptance before the terms can be read is the terms being agreed unread. **Acceptance is asked at the next action that depends on it:** the document informs, the flow asks. **The exit stays open.** And it is not a toast, because a dismissible strip that leaves no trace is a state announced in the one place that does not keep it, with a legal consequence attached.
+
+**The template writes no legal copy and that is a boundary rather than an omission.** Every clause renders as "not written" and the sweep fails any page that drafts one. **Placeholder legal text is the worst possible thing to ship on a legal page**, because it reads as a document until somebody relies on it, which is exactly what the unpublished state says out loud.
+
+**Three things the page will not invent:** an operating company, an address or a VAT number; a supervisory authority, which has a candidate under `D-23` and no licence, so the field stays empty rather than naming one; and the middle breadcrumb, **which the register writes as `Home > Legal > Document` while holding four document URLs and no `/legal`.** A middle crumb needs an address or it is not a crumb, so it renders as text with the gap marked.
+
+### Six indexed URLs, two answers, and the third node to meet it
+
+`0.13`'s title pattern is node H1 subject, separator, `CS2 Clutch`. **`0.9` follows it four times, `0.10` follows it once, `6.1` refuses it.** All six pages are indexed and `CS2 Clutch` is a working placeholder. **Two nodes disagreeing was an inconsistency. Three nodes and six indexed URLs is a decision that has to be taken**, and the titles stay as written because rewriting them here would settle it by editing order rather than by a decision.
+
+### Measured
+
+175 checks over the five pages at six widths. No horizontal overflow. One H1 each, eight real clause H2s, eight real contents anchors, **nothing behind a native accordion and nothing offered as a file**: a file has no H1 to validate, no breadcrumb and no version history around it. Two machine-readable dates per page. **The summary sits above the document at every width**, asserted by geometry. The identification block renders all six fields with all six empty. No legal copy drafted anywhere, no identification value invented, no supervisory authority named, no `Legal` crumb linked. **Every target at least 44 by 44, measured as the hit area.**
+
+486 checks over all 80 pages clean, prose sweep 0 of 80, every internal link a registry file. **Three dead links remain, and all three are screens with no IA node written yet.**

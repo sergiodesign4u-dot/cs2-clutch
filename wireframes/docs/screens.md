@@ -1910,3 +1910,29 @@ All five pages scrolled sideways by 3px at 900. `.wf-sec-head` gave the title `f
 No deadline figure invented on any page. No support address invented. **No identity document asked for anywhere, while the refusal sentence is asserted present.** No escalation authority named on the refused state. The ticket id copyable on all four states that carry one, every wait naming its owner, and the frozen-not-zeroed balance stated on all four.
 
 **245 checks over the nine pages, 456 over all 75.**
+
+---
+
+## 54. `D-77`: node `0.9`, a component put back on nine pages, and the small button that was failing AAA
+
+**Five pages, 22 August 2026.** `legal.html` plus four states. **80 of 93.**
+
+### Two defects found in what shipped hours earlier
+
+**The live strip came off `0.10`'s nine pages with no parent.** `4.2` refuses it by its own forbidden list, `6.1` by the register's own rule, and `0.10` refuses nothing. **A wireframe cannot borrow another node's parent.** Reverted, and the argument for taking it off goes to the founder as an open item.
+
+**`.wf-btn--small` is 32px and three nodes claim AAA at 44.** Sixteen pages carry it. **Fixed as a hit area rather than as a box**, so the target reaches 44 and no layout moves, and the sweep now measures the effective target rather than the element box, which is why this survived four nodes that all state the rule.
+
+### The node
+
+**One template, four documents, only the terms drawn.** Four drawings of one shape would be three copies.
+
+**The version history is the thing no competitor in this category has.** Four versions, seven fields each, and **"requires a new agreement" renders as a trigger rather than a note**, because its yes puts every existing account into the changed state.
+
+**The changed state never blocks reading and never asks for acceptance.** The document informs, the flow asks, and the exit stays open. It is not a toast.
+
+**No legal copy is drafted anywhere.** Every clause renders as not written, and the sweep fails any page that drafts one. The unpublished state says out loud why: **placeholder legal text reads as a document until somebody relies on it.**
+
+**Three things the page will not invent:** the identification values, the supervisory authority, and the middle breadcrumb, which the register writes without a URL to hang it on.
+
+**175 checks over the five pages, 486 over all 80.**

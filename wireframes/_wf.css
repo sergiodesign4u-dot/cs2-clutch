@@ -128,7 +128,20 @@ button, .wf-btn {
 button:hover, .wf-btn:hover { border-color: var(--wf-line); }
 /* One smaller size, for controls that sit inside another component rather than under
    one. A third size needs a reason written in conventions.md. */
-.wf-btn--small { min-height: 32px; padding: var(--wf-s-half) var(--wf-s-1); font-size: var(--wf-t-xs); }
+.wf-btn--small { min-height: 32px; padding: var(--wf-s-half) var(--wf-s-1); font-size: var(--wf-t-xs); position: relative; }
+/* THE SMALL BUTTON IS 32px AND THREE NODES CLAIM AAA, WHICH IS 44. Found on 0.9
+   on 22 August 2026, and it was true on sixteen pages: the case reveal, the
+   catalogue, the deposit presets, the support copy control and the version
+   links here. AA is 24 and this contract does not claim AA.
+   THE FIX IS THE HIT AREA AND NOT THE BOX. A 44px visual button inside a dense
+   component is what the small size exists to avoid, so the target grows to 44
+   and the drawing does not move a pixel. Nothing in any layout changes and the
+   claim becomes true everywhere at once. */
+.wf-btn--small::before {
+  content: ''; position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: max(100%, var(--wf-tap)); height: var(--wf-tap);
+}
 .wf-btn--primary { border-color: var(--wf-ink); background: var(--wf-raised); }
 button[disabled], .wf-btn[aria-disabled="true"] {
   color: var(--wf-ink-faint);
@@ -3402,4 +3415,96 @@ textarea.wf-f { min-height: 96px; resize: vertical; }
 /* Responsive last, after everything above that it overrides. */
 @media (min-width: 900px) {
   .wf-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+
+/* ---------------------------------------------------------------------------
+   NODE 0.9, LEGAL AND POLICY, and its four states. Drawn 22 August 2026.
+   ONE TEMPLATE RENDERING FOUR DOCUMENTS. The baseline runs 7,270 words of terms
+   as a single wall with one H1 and zero H2, and a cookie policy dated 2019
+   under a product that changed every year since. The wall is the defect this
+   template exists to fix.
+   AND THE THING NO COMPETITOR IN THIS CATEGORY DOES AT ALL: a visible version
+   history with every previous version retrievable. A policy that changes
+   silently invalidates everything decided under the old one, and a person who
+   accepted version 2 and is judged under version 4 has agreed to a document
+   that no longer exists.
+   THE DOCUMENT IS NEVER BEHIND AN ACCORDION AT ANY WIDTH, and never a PDF: a
+   file has no H1 to validate, no breadcrumb, no version history around it, and
+   at 360 it is a horizontal scroll with a viewer in front of it.
+   --------------------------------------------------------------------------- */
+
+.wf-doc { display: flex; flex-direction: column; gap: var(--wf-s-4); }
+
+/* Block 1. Document identity: name, effective from, version. Read from the
+   version register and never typed, because a hand-typed date is the field that
+   drifts. */
+.wf-docid { display: flex; flex-wrap: wrap; gap: var(--wf-s-1) var(--wf-s-3); align-items: baseline; }
+.wf-docid-f { display: flex; flex-direction: column; gap: 2px; }
+.wf-docid-k { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+.wf-docid-v { font-family: var(--wf-mono); font-size: var(--wf-t-s); }
+
+/* Block 2. The plain-language summary, ABOVE THE DOCUMENT AT EVERY WIDTH. It
+   never moves into a sidebar on desktop, because a person who has read the
+   summary in a margin has read a caption. */
+.wf-inshort {
+  padding: var(--wf-s-3); border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
+  display: flex; flex-direction: column; gap: var(--wf-s-2);
+}
+/* THE PRECEDENCE IS PRINTED RATHER THAN ASSUMED. A precedence a reader has to
+   infer is a precedence that will be disputed. */
+.wf-precede { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+
+/* Blocks 3 and 4. The contents list and the document, one column at 360 and two
+   from 900 with the contents held beside the text. */
+.wf-docgrid { display: grid; gap: var(--wf-s-3); grid-template-columns: 1fr; align-items: start; }
+.wf-toc { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-toc a { font-size: var(--wf-t-s); }
+.wf-clauses { display: flex; flex-direction: column; gap: var(--wf-s-3); min-width: 0; }
+.wf-clause { display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-clause h2 { margin: 0; font-size: var(--wf-t-m); }
+.wf-clause h3 { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+
+/* Block 5. The version history. THE ONE LEGAL HOME FOR AN ACCORDION IN THIS
+   NODE, and it is the tail rather than the substance. Every version row is in
+   the DOM at every width. */
+.wf-vers { display: flex; flex-direction: column; }
+.wf-ver {
+  display: grid; gap: var(--wf-s-half) var(--wf-s-3); grid-template-columns: 1fr;
+  padding: var(--wf-s-2) 0; border-top: 1px solid var(--wf-line-soft);
+}
+.wf-ver:first-child { border-top: 0; }
+.wf-ver-id { font-family: var(--wf-mono); font-weight: 700; }
+.wf-ver-k { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+.wf-ver-w { font-size: var(--wf-t-s); }
+.wf-ver-acts { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
+/* A YES ON "REQUIRES A NEW AGREEMENT" IS A TRIGGER AND NOT A NOTE ABOUT ONE:
+   it puts every existing account into the changed state. Marked in words. */
+.wf-ver-req { font-size: var(--wf-t-xs); color: var(--wf-ink); }
+
+/* The band on the changed state. IT NEVER BLOCKS READING and it never asks for
+   acceptance: the document informs, the flow asks. And it is not a toast,
+   because a dismissible strip that leaves no trace is a state announced in the
+   one place that does not keep it. */
+.wf-band {
+  padding: var(--wf-s-3); border: 1px dashed var(--wf-line); border-radius: var(--wf-r-2);
+  display: flex; flex-direction: column; gap: var(--wf-s-2);
+}
+
+/* Block 6. The identification block. ONE SOURCE, TWO RENDERINGS: the footer
+   holds the values and this page renders the same fields from the same place.
+   Two renderings of a registered address that disagree is the whole defect. */
+.wf-ident { display: grid; gap: var(--wf-s-2); grid-template-columns: 1fr; }
+.wf-ident-f { display: flex; flex-direction: column; gap: 2px; }
+
+/* Responsive last, after everything above that it overrides. */
+@media (min-width: 600px) {
+  .wf-ver { grid-template-columns: 160px minmax(0, 1fr); }
+  .wf-ver-id { grid-column: 1; }
+  .wf-ident { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 900px) {
+  .wf-docgrid { grid-template-columns: 220px minmax(0, 1fr); }
+  .wf-toc-wrap { position: sticky; top: var(--wf-s-2); }
+  .wf-ident { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }

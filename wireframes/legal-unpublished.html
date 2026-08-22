@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Not yet published</title>
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NOT YET PUBLISHED. NEVER AN EMPTY PAGE AND NEVER PLACEHOLDER LEGAL TEXT:
+     missing is a state, never a zero and never a plausible filler. Placeholder
+     legal text is the worst possible thing to ship on a legal page, because it
+     reads as a document until somebody relies on it.
+     IT KEEPS THE IDENTIFICATION BLOCK, because the Article asks for those
+     details to be permanently accessible and a document that does not exist yet
+     does not suspend that. And it keeps the route to ask. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <!-- THE BREADCRUMB, AND THE MIDDLE CRUMB HAS NO ADDRESS. The register writes
+         Home > Legal > Document and holds four document URLs and no /legal. A
+         middle crumb needs an address or it is not a crumb, so it renders as
+         text with the gap marked rather than as a link to nowhere. The choice
+         belongs to the register that owns URLs. -->
+    <nav class="wf-crumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="wf-fig-missing">Legal, no address yet</span>
+      <span aria-current="page">Refund and payments policy</span>
+    </nav>
+    <h1>Refund and payments policy</h1>
+
+    <div class="wf-doc">
+      <div class="wf-band">
+        <h2 id="h2-unpub">This document is not published yet</h2>
+        <p>There is no version of it, so there is nothing here to read and nothing you have agreed to.</p>
+        <p class="wf-precede">We are not showing a draft. A placeholder on a legal page reads as a document until somebody relies on it.</p>
+        <div class="wf-row"><a class="wf-btn" href="support.html">Ask us about it</a></div>
+      </div>
+      <!-- BLOCK 6. THE IDENTIFICATION BLOCK. Article 5(1) of the e-commerce
+           directive, opened live: name, address, contact details including an
+           electronic mail address, trade register and number, the supervisory
+           authority where an authorisation scheme applies, and the VAT number.
+           ONE SOURCE, TWO RENDERINGS. The footer holds these values and this
+           page renders the same fields from the same place: two renderings of a
+           registered address that disagree is the whole defect.
+           TEXT, NEVER AN IMAGE. A registered address in a graphic satisfies
+           nobody, including "easily, directly and permanently accessible". -->
+      <div class="wf-stack">
+        <div class="wf-sec-head">
+          <h2 id="h2-who">Who we are</h2>
+          <p class="wf-sec-sub">The same details the footer carries, beside the contract they belong to.</p>
+        </div>
+        <div class="wf-ident">
+          <div class="wf-ident-f"><span class="wf-docid-k">Operating company</span><span class="wf-fig-missing">Not set</span></div>
+          <div class="wf-ident-f"><span class="wf-docid-k">Registered address</span><span class="wf-fig-missing">Not set</span></div>
+          <div class="wf-ident-f"><span class="wf-docid-k">Email</span><span class="wf-fig-missing">Not set</span></div>
+          <div class="wf-ident-f"><span class="wf-docid-k">Trade register and number</span><span class="wf-fig-missing">Not set</span></div>
+          <div class="wf-ident-f"><span class="wf-docid-k">Supervisory authority</span><span class="wf-fig-missing">Not set. There is a candidate and no licence, so the field stays empty rather than naming one</span></div>
+          <div class="wf-ident-f"><span class="wf-docid-k">VAT number</span><span class="wf-fig-missing">Not set</span></div>
+        </div>
+      </div>
+      <!-- BLOCKS 7 AND 8. A question about this document goes to the route that
+           answers inside a published deadline, and the other three documents are
+           cross-linked rather than left to the footer alone. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head"><h2 id="h2-ask">Questions about this document</h2></div>
+        <div class="wf-row"><a class="wf-btn" href="support.html">Ask us</a></div>
+      </div>
+      <div class="wf-row">
+        <a class="wf-btn" href="legal.html">Privacy policy</a>
+        <a class="wf-btn" href="legal.html">Cookie policy</a>
+        <a class="wf-btn" href="legal-unpublished.html">Refund and payments policy</a>
+      </div>
+      <!-- FOUR DOCUMENTS, ONE TEMPLATE, AND ONLY ONE OF THEM IS DRAWN. Each keeps
+           its own address and its own indexation; four drawings of one shape
+           would be three copies. The three links above land on the same template
+           because the shape is the deliverable, and the fourth is the state where
+           a document does not exist yet. -->
+      <p class="wf-note wf-fig-missing">Four documents share this shape and each keeps its own address. Only the terms are drawn here, because four drawings of one template would be three copies.</p>
+    </div>
+
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>
