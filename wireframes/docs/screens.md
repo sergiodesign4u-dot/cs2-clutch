@@ -2028,3 +2028,37 @@ One grid of equal columns: equal width by construction, the same class on both, 
 The manage page and the rejected page look identical: both toggles off. **Off because nothing was chosen, and off because it was refused.** The record line is the only thing that separates them, and that is what Article 7(1) is for.
 
 **107 checks over the eight pages at seven widths, 136 over every IA page.**
+
+---
+
+## 58. `D-81`: node `5.11`, four pages, and stage 04 has no unbuilt page left
+
+**Four pages, 22 August 2026.** `settings.html`, `-no-trade`, `-refused`, `-no-steam`. **106 of 106.**
+
+### The input was never missing
+
+`D-36` said what `5.11` holds in round 1 is `[?]` and that **the node owes that answer.** I read it as a question for the founder and put it to them twice. **The source was already here and was four days old:** `baseline-account.md` section 7, all twenty rows, captured 18 August. **What was missing was the derivation, not the input.**
+
+### Nineteen of twenty rows do not survive
+
+Eleven are `LATER`, five already live somewhere else on our map, three are refused and one is `[?]`. **One survives.**
+
+### The one that survives is why the node exists
+
+**Withdrawal to Steam is round 1, it works by sending a trade offer, a trade offer needs a trade URL, and no node on the map held that field.** `withdrawal.md` names three limits before the request and never names the one precondition the person themselves controls.
+
+**An orphan may not grow, and this is not growth:** the node has no parent in the three legal classes and the field does, rows `G1` and `G5`.
+
+### Two rows refused on a principle rather than on scope
+
+The confirmation switches for selling back and for withdrawing have live subjects. **A switch that removes the confirmation before a value leaves the account removes a risk moment**, design principle 3, and the cost is printed: the answer to daily friction is a faster confirmation, not an absent one.
+
+### The absence is rendered
+
+**Make me Anonymous is stated and not drawn.** `7.1` has carried "whether they can turn it off, which no node says" since 21 August, and the baseline shows where such a control lives. **A control that rewrites two published nodes is not a settings row.**
+
+### And a third AAA link fix becomes one rule
+
+32px on the small button, 23 on the cookie policy link, 16 here. **Three one-off selectors for one rule is how the fourth gets missed.**
+
+**58 checks over the four pages at seven widths, and the field was walked: nothing commits on blur, a value Steam will not accept is refused on the press with which part is wrong named.**

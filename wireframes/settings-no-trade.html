@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings. CS2 Clutch</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 5.11, SETTINGS. THE LAST SCREEN OF STAGE 04, and the smallest one.
+     THE BASELINE'S SETTINGS TAB HAS TWENTY ROWS AND THIS PAGE HAS ONE. Founder
+     captures of 18 and 22 August 2026, baseline-account.md section 7: GENERAL
+     five rows, SECURITY three, LINKED PROFILES four, NOTIFICATIONS eight.
+     Nineteen of the twenty do not survive round 1 and almost none of them for a
+     reason about settings. Eleven configure case battles, gunfights, upgrades,
+     crypto withdrawal, giveaways, a partner programme or notification channels,
+     all of which are LATER or have no backlog row at all. Five already live
+     somewhere else on our map: language and sound at the foot of the rail, the
+     break tool on 6.1, sign out in the account menu, the name on 5.10 which
+     refused a change to it. Two are refused on a rule. One is [?] and the
+     founder's. The verdict on every row is in ia/docs/pages/settings.md, because
+     a settings page that quietly drops nineteen rows is one nobody can audit
+     against its own baseline.
+     WHY THE ONE THAT SURVIVES SURVIVES: withdrawal to Steam is round 1 and it
+     works by sending a trade offer, a trade offer needs a trade URL, and NO NODE
+     ON THE MAP HELD THAT FIELD. withdrawal.md names three limits before the
+     request, blocked countries, Steam trade holds and Steam-side bans, and never
+     names the one precondition the person themselves controls. The exit had a
+     missing input and the map did not know. That is a better reason for this page
+     than the row in the account menu that put it there.
+     THIS NODE IS AN ORPHAN AND IT DOES NOT GROW. It arrived with D-36 and has no
+     parent in the three legal classes; the field it holds does, rows G1 and G5 on
+     B8-2 and B8-3, by way of 5.3. An orphan may not be the first home of a new
+     capability, D-78, and a precondition of a live row is not a new capability.
+     ONE COLUMN AT EVERY WIDTH. The baseline runs two, which is what lets twenty
+     rows look like a small page. -->
+
+<!-- STATE: THE TRADE URL IS NOT SET, AND THIS IS THE STATE THAT MATTERS.
+     Withdrawal to Steam is round 1 and it cannot complete without this field, so
+     an account that has never filled it in has a working product with a blocked
+     exit and no way to find out until it tries.
+     5.3 ROUTES HERE RATHER THAN THE OTHER WAY ROUND. Row G5: the person meets the
+     limit before the first withdrawal rather than inside it. This is the one limit
+     on that node's list they can fix themselves in ten seconds, and the other
+     three, blocked countries, Steam trade holds and Steam-side bans, are not ours
+     to lift at all. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <h1>Settings</h1>
+
+    <div class="wf-cfg" data-cfg>
+
+      <!-- B1. THE STEAM TRADE URL. A real input with a real label: a placeholder
+           doing the label's job disappears the moment somebody types, which is the
+           moment they most need to know what the field is.
+           THE HELPER LINE IS BESIDE THE FIELD AND NOT BEHIND AN ICON. The token is
+           not something a person can invent, so a link to where Steam issues it is
+           part of the field rather than a courtesy next to it. Inherited from the
+           baseline, which prints the same line for the same reason.
+           NO MASKING OF THE SAVED VALUE. A person needs to compare it with the one
+           Steam shows them, and that comparison is the only way to check it that
+           does not involve a withdrawal. It wraps rather than truncating.
+           NOTHING SAVES WITHOUT A PRESS. -->
+      <div class="wf-cfg-b">
+        <h2 class="wf-cfg-h">Where your skins go</h2>
+        <p class="wf-cfg-p">Withdrawals are sent to Steam as a trade offer, and Steam needs this link to know where to send it. It is yours, it comes from Steam, and you can change it whenever you like.</p>
+        <div class="wf-cfg-f">
+          <label class="wf-cfg-l" for="cfg-url">Your Steam trade URL</label>
+          <input class="wf-cfg-in" id="cfg-url" type="url" data-cfg-url value="" spellcheck="false" autocomplete="off">
+          <!-- THE DESTINATION IS STEAM'S OWN PAGE and it is a real external href,
+               because the token is issued there and nowhere else. A helper link that
+               points back inside our own product would be a route to a page that
+               cannot give the person the thing the field needs. -->
+          <p class="wf-cfg-p"><a href="https://steamcommunity.com/id/me/tradeoffers/privacy" rel="noopener">Where to get this link on Steam</a></p>
+        </div>
+        <div class="wf-cfg-row">
+          <button class="wf-btn wf-btn--primary" type="button" data-cfg-save>Save</button>
+          <span class="wf-quick-w">Never set</span>
+        </div>
+        <p class="wf-cfg-say" role="status" aria-live="polite" data-cfg-say></p>
+        <!-- WHAT AN EMPTY FIELD COSTS, IN THE SAME BLOCK AS THE FIELD. Row G5's
+             own rule is that the person meets the limit before the first
+             withdrawal rather than inside it, and this is the one limit on that
+             list they can fix themselves in ten seconds. Stating it here is what
+             stops it arriving as a refusal three days later. -->
+        <div class="wf-cfg-cost">
+          <strong>What this costs right now</strong>
+          <span>Withdrawals cannot be sent until this is filled in. Everything else on the account works.</span>
+        </div>
+      </div>
+
+      <!-- B2. THE ANONYMITY CONTROL IS STATED AND NOT DRAWN, and the absence is
+           rendered rather than omitted. public-result.md has carried this open
+           item since 21 August 2026 in its own words: "what remains open is
+           whether they can turn it off, which no node says", owner the founder.
+           THE BASELINE HAS THE CONTROL. Make me Anonymous, OFF and ON, in the
+           SECURITY group of this same screen. So where it would live is answered
+           and whether ours has one is not.
+           WHY THIS PAGE WILL NOT DECIDE IT: the toggle changes what 0.8 renders in
+           every tile and what 7.1 renders in block 6, and D-69 already left two of
+           our own decisions pointing opposite ways about a public profile. A
+           control that rewrites two published nodes is not a settings row, it is a
+           decision with a settings row attached.
+           AND THE COST OF LEAVING IT OUT IS ON THE PAGE rather than only in the
+           node, because it is a fact about this person: today the product puts
+           their name on every win in the feed and on every shared result and they
+           cannot stop it. -->
+      <div class="wf-cfg-hole">
+        <h2 class="wf-cfg-h">How you appear to other people</h2>
+        <p class="wf-cfg-p">When you win something, your name and your picture can appear in the live drop strip and on the page for that win if you share it.</p>
+        <p class="wf-cfg-p wf-fig-missing">There is no control here yet, and that is a real gap rather than a screen still being built: whether you can turn this off has not been decided. Until it is, this is on and you cannot change it.</p>
+      </div>
+
+      <!-- B3. WHERE THE REST OF IT LIVES, AS ROUTES AND NEVER AS CONTROLS. This
+           page's baseline has twenty rows, so somebody arriving from it will look
+           here for sound, for language and for the break tool. A control here
+           would make this page the second home for something that already has one,
+           which is the defect the whole node is built to avoid.
+           THE BREAK TOOL IS THE SHARPEST ONE. The baseline files it in SECURITY
+           beside Logout and an anonymity toggle, with no route to it from
+           anywhere: not the footer, not the rail, not the header, not home. Ours
+           is a surface with three entrances. That is the divergence and it is the
+           reason node 6.1 exists. -->
+      <div class="wf-cfg-b">
+        <h2 class="wf-cfg-h">Things people look for here</h2>
+        <ul class="wf-cfg-routes">
+          <li><a href="responsible.html">Deposit limits, session limits and self exclusion</a><span class="wf-cfg-where">Responsible play</span></li>
+          <li><a href="account.html">Your skins</a><span class="wf-cfg-where">My items</span></li>
+          <li><a href="history.html">Every case you have opened</a><span class="wf-cfg-where">Roll history</span></li>
+          <li><a href="profile.html">Your name, picture and account details</a><span class="wf-cfg-where">Profile</span></li>
+          <li><a href="legal.html">Terms, privacy, cookies and refunds</a><span class="wf-cfg-where">Legal</span></li>
+          <li><span class="wf-cfg-where">Sound and language</span><span class="wf-cfg-where">At the foot of the menu on the left</span></li>
+          <li><span class="wf-cfg-where">Signing out</span><span class="wf-cfg-where">In the account menu, top right</span></li>
+          <li><span class="wf-cfg-where">Cookies</span><span class="wf-cfg-where">Cookie settings, at the foot of any page</span></li>
+        </ul>
+      </div>
+
+      <!-- WHAT IS NOT HERE AND NEVER WILL BE, each on a live parent.
+           NO SWITCH THAT TURNS OFF A CONFIRMATION BEFORE MONEY MOVES. The baseline
+           has two whose subjects are live for us, selling a skin back and
+           withdrawing one, so scope does not refuse them. Design principle 3 does:
+           "cost never hides inside excitement". A switch that removes the
+           confirmation before a value leaves the account removes a risk moment,
+           and it is the one preference a person sets in a calm minute and meets
+           months later at the worst one. The cost is printed: somebody who
+           withdraws every day confirms every day, and the answer to that is a
+           faster confirmation, not an absent one.
+           NO SELF-DECLARED COUNTRY. The baseline's whole market control is a
+           dropdown the person sets themselves, and it already contradicts a second
+           country field on its own deposit step. D-23 closed the allowlist by
+           default and 2.1 is designed around that state.
+           NO COUNTER OF ANY KIND. CLAUDE.md: a limit never acquires completion
+           mechanics, streaks, status or a session score. A settings page is where
+           a profile completeness meter goes, which makes this the easiest page in
+           the product to break that rule on. -->
+
+    </div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

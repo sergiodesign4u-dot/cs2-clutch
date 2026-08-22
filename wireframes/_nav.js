@@ -269,8 +269,22 @@ window.WF_NAV = {
         { node: '5.10', label: 'Steam unreadable', file: 'profile-steam-down.html', status: 'built' }
       ] },
 
-    { node: '5.11', cluster: '5', name: 'Settings',             file: 'settings.html',   status: 'spec',
-      base: 'What it holds in round 1 is [?]' },
+    // DRAWN 22 AUGUST 2026, D-81, AND STAGE 04 HAS NO UNBUILT PAGE LEFT.
+    // D-36 marked its round 1 contents [?] on 20 August and stage 04 read that as
+    // a question for the founder for two days. The record says the NODE owes the
+    // answer, and the source was already in the repository: baseline-account.md
+    // section 7 has carried all twenty rows of this screen since 18 August. What
+    // was missing was the derivation, not the input.
+    // ONE OF THE BASELINE'S TWENTY ROWS SURVIVES. Withdrawal to Steam is round 1,
+    // it works by sending a trade offer, a trade offer needs a trade URL, and no
+    // node on the map held that field.
+    { node: '5.11', cluster: '5', name: 'Settings',             file: 'settings.html',   ia: 'settings.html', status: 'built',
+      base: 'The trade URL is set',
+      states: [
+        { label: 'Trade URL not set',    file: 'settings-no-trade.html', status: 'built' },
+        { label: 'Saved value refused',  file: 'settings-refused.html',  status: 'built' },
+        { label: 'No Steam account linked', file: 'settings-no-steam.html', status: 'built' }
+      ] },
 
     // DRAWN 22 AUGUST 2026. Cluster 6 whole. Two of the five pages are internal
     // states rather than numbered nodes: the guest, because this page reads in
@@ -3161,6 +3175,59 @@ window.WF_NAV = {
     if (cfg) render(cfg.layer);
   }
 
+  /* ---------- NODE 5.11, SETTINGS ----------
+     ONE FIELD, AND IT IS THE ONE THE EXIT NEEDS. Withdrawal to Steam works by
+     sending a trade offer, a trade offer needs a trade URL, and no node on the
+     map held that field: withdrawal.md names blocked countries, Steam trade holds
+     and Steam-side bans as its three limits before the request, and never names
+     the one precondition the person themselves controls.
+     THE VALUE IS CHECKED WHEN IT IS OFFERED, NOT AT THE EXIT. A field that saves
+     anything and fails three days later inside a withdrawal is barrier B8-3's
+     shape with a text input in front of it, and C4 already fixed the rule: what
+     is required to withdraw is stated before the money moves.
+     NOTHING SAVES WITHOUT A PRESS. An account setting that commits on blur is one
+     a person changes by scrolling past it. */
+  function mountSettings() {
+    var root = document.querySelector('[data-cfg]');
+    if (!root) return;
+    var input = root.querySelector('[data-cfg-url]');
+    var save = root.querySelector('[data-cfg-save]');
+    var say = root.querySelector('[data-cfg-say]');
+    if (!input || !save) return;
+
+    function refuse(msg) {
+      input.classList.add('is-bad');
+      input.setAttribute('aria-invalid', 'true');
+      if (say) say.textContent = msg;
+      input.focus();
+    }
+
+    save.addEventListener('click', function () {
+      var v = (input.value || '').trim();
+      input.classList.remove('is-bad');
+      input.removeAttribute('aria-invalid');
+      if (!v) {
+        refuse('Nothing to save yet. Until this is filled in, a withdrawal cannot be sent.');
+        return;
+      }
+      // The shape Steam publishes: the offer path, a partner id and a token. A
+      // value missing either part is one Steam will not accept, and saying so here
+      // is cheaper for everybody than saying it inside a withdrawal.
+      var okPath = v.indexOf('https://steamcommunity.com/tradeoffer/new/') === 0;
+      var okPartner = v.indexOf('partner=') !== -1;
+      var okToken = v.indexOf('token=') !== -1;
+      if (!okPath || !okPartner || !okToken) {
+        var missing = [];
+        if (!okPath) missing.push('it does not start with the Steam trade offer address');
+        if (!okPartner) missing.push('there is no partner number in it');
+        if (!okToken) missing.push('there is no token in it');
+        refuse('Steam will not accept this one: ' + missing.join(', ') + '. Get a fresh link from Steam and paste it whole.');
+        return;
+      }
+      if (say) say.textContent = 'Saved just now. Withdrawals will go to this address.';
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     // The hero counters are derived, never typed: a hardcoded 0 beside a registry
     // that says 2 is the drift this file exists to prevent.
@@ -3185,6 +3252,7 @@ window.WF_NAV = {
     renderFaq();
     mountSystem();
     mountCookie();
+    mountSettings();
     renderFooter(document.getElementById('wf-footer'));
     mountRollDetail();
     renderBar(document.getElementById('wf-bar'));

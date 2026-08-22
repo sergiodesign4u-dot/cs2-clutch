@@ -3796,14 +3796,71 @@ textarea.wf-f { min-height: 96px; resize: vertical; }
 /* The host page keeps room for the region rather than sliding under it. A banner
    that hides the last block of the page is a wall with a scroll on it. */
 .wf-screen-body:has(.wf-ck) .wf-main { padding-bottom: 300px; }
-/* THE POLICY LINK IS A TARGET TOO, AND IT WAS 23px. 0.1 chose AAA 44 for every
-   carrier and node 0.4 states it for the two decisions by name; the inline link
-   beside them is the same kind of object and the same rule reaches it. Expanded as
-   a hit area rather than as a box, which is the shape D-77 settled for the small
-   button: nothing on the row moves and the target is the size it claims to be. */
-.wf-ck-more a { position: relative; }
-.wf-ck-more a::before {
+/* A STANDALONE LINK IS A TARGET, AND THIS IS THE THIRD TIME THAT COST A FIX.
+   D-77 expanded the small button after three nodes claimed AAA 44 and it shipped
+   at 32. D-80 expanded the cookie policy link at 23. D-81 met it again on the
+   trade URL helper at 16. Three one-off selectors for one rule is how the fourth
+   one gets missed, so it is one class from here.
+   IT APPLIES TO A LINK STANDING AS A CONTROL, not to a link inside a sentence.
+   WCAG's target size criteria exempt a target whose size is constrained by the
+   line height of the text around it, and forcing 44px onto an inline link would
+   overlap the lines above and below it. A link alone in its own row or its own
+   paragraph is not that case, and every one of the three was standalone.
+   EXPANDED AS A HIT AREA RATHER THAN AS A BOX, D-77's shape: nothing on the row
+   moves and the target is the size it claims to be. */
+.wf-linktap { position: relative; }
+.wf-linktap::before {
   content: ''; position: absolute; left: 50%; top: 50%;
   transform: translate(-50%, -50%);
   width: max(100%, var(--wf-tap)); height: var(--wf-tap);
 }
+.wf-ck-more a, .wf-cfg-f a { position: relative; }
+.wf-ck-more a::before, .wf-cfg-f a::before {
+  content: ''; position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: max(100%, var(--wf-tap)); height: var(--wf-tap);
+}
+
+/* ============================================================================
+   NODE 5.11, SETTINGS. ONE COLUMN AT EVERY WIDTH AND NEVER TWO. The baseline
+   runs two columns and that is what lets twenty rows look like a small page.
+   Ours holds one block and a list of places that are not here, and putting
+   those side by side would be a dashboard made of nothing. ================== */
+.wf-cfg { display: flex; flex-direction: column; gap: var(--wf-s-4); max-width: 640px; }
+.wf-cfg-b { display: flex; flex-direction: column; gap: var(--wf-s-2); }
+.wf-cfg-h { margin: 0; font-size: var(--wf-t-l); }
+.wf-cfg-p { margin: 0; color: var(--wf-ink-dim); max-width: 60ch; font-size: var(--wf-t-s); }
+/* A REAL LABEL, NEVER A PLACEHOLDER DOING ITS JOB: a placeholder disappears the
+   moment somebody types, which is the moment they most need to know what the
+   field is. */
+.wf-cfg-l { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+.wf-cfg-f { display: flex; flex-direction: column; gap: var(--wf-s-1); }
+/* THE SAVED VALUE WRAPS RATHER THAN TRUNCATING AT THE END. A trade URL a person
+   cannot read in full is one they cannot compare with the one Steam shows them,
+   and that comparison is the only way to check it without a withdrawal. */
+.wf-cfg-in { width: 100%; min-width: 0; font-family: var(--wf-mono); font-size: var(--wf-t-s); overflow-wrap: anywhere; }
+.wf-cfg-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-2); }
+.wf-cfg-say { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); min-height: 1.4em; }
+/* THE CONSEQUENCE SITS IN THE SAME BLOCK AS THE FIELD. What an empty field costs
+   is a fact about the exit, and stating it on the page a person is already on is
+   what stops it arriving as a refusal three days later inside a withdrawal. */
+.wf-cfg-cost {
+  display: flex; flex-direction: column; gap: var(--wf-s-half);
+  padding: var(--wf-s-1) var(--wf-s-2);
+  border-left: 2px solid var(--wf-line); font-size: var(--wf-t-s);
+}
+.wf-cfg-in.is-bad { border-color: var(--wf-ink); }
+/* THE ABSENCE IS RENDERED, NOT OMITTED. B2 is a control this node will not draw
+   because drawing it would decide a question two published nodes are waiting on,
+   and an absence nobody can see is indistinguishable from one nobody noticed. */
+.wf-cfg-hole {
+  display: flex; flex-direction: column; gap: var(--wf-s-1);
+  padding: var(--wf-s-2); border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
+}
+/* B3 IS A ROUTE LIST AND NEVER A CONTROL LIST. A control here would make this
+   page the second home for something that already has one, which is the defect
+   the whole node is built to avoid. */
+.wf-cfg-routes { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-cfg-routes li { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--wf-s-half) var(--wf-s-2); font-size: var(--wf-t-s); }
+.wf-cfg-routes a { min-height: var(--wf-tap); display: inline-flex; align-items: center; }
+.wf-cfg-where { color: var(--wf-ink-dim); }

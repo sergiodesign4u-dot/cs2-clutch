@@ -79,7 +79,7 @@ window.IA_NAV = [
   // founder's to decide, and D-36 says so in as many words.
   { node: '5.9', label: 'Roll history',            file: 'history.html',    group: 'pages',  type: 'page',           states: 0, done: true  },
   { node: '5.10', label: 'Profile',                file: 'profile.html',    group: 'pages',  type: 'page',           states: 0, done: true  },
-  { node: '5.11', label: 'Settings',               file: 'settings.html',   group: 'pages',  type: 'page',           states: 0, done: false },
+  { node: '5.11', label: 'Settings',               file: 'settings.html',   group: 'pages',  type: 'page',           states: 0, done: true  },
 
   // Cluster 6. Keep myself in check.
   { node: '6.1', label: 'Responsible play',        file: 'responsible.html', group: 'pages', type: 'page',           states: 2, done: true  },

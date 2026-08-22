@@ -233,6 +233,14 @@ Two columns. Left: `GENERAL`, `SECURITY`, `LINKED PROFILES`. Right: `NOTIFICATIO
 
 **LINKED PROFILES:** Steam, shown linked with a green tick, then Facebook, Twitter and Google, unlinked. This confirms the four providers found in the sign-in modal on the second public walk.
 
+**Recaptured 22 August 2026 by the founder, and one row is different.** `acct_settings_top_22aug.png` and `acct_settings_linked_22aug.png`, filed beside the shots above. **Facebook is gone and Discord is in its place**, labelled and glyphed as Discord: Steam, Discord, Twitter as the X mark, Google.
+
+**Neither record is corrected, because both are right on their own date.** The 18 August shot says Facebook in words and shows the Facebook mark; the 22 August shot says Discord in words and shows the Discord mark. **The live product changed between the two dates**, which is the case the dating rule exists for: a source with a date survives the thing it describes changing, and a source without one becomes wrong silently.
+
+**And our own `D-55` shipped the newer set four days before it appeared here.** It chose Steam, Google, Discord and X on 21 August from three competitor modals, not from this product. **What was a divergence from the baseline on 21 August is a match to it on 22 August**, and that is recorded as a coincidence rather than as a source.
+
+**Everything else in the two shots matches section 7 row for row**, twenty rows in four groups, with `Sound` now reading `OFF` and `Make me Anonymous` reading `OFF`, both of which are account state rather than product structure.
+
 **NOTIFICATIONS:** two groups. `GAME NOTIFICATIONS`, two toggles, sponsored games from a partner and giveaway results. `CONFIRMATION MESSAGES`, six toggles: joining bots to case battles, joining bots to gunfights, skins selling, upgrade, crypto withdrawal, skins withdrawal.
 
 ### 7.1 The correction this forces, and it is the most useful finding in the set

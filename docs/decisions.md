@@ -2904,3 +2904,96 @@ It read: "whether this ships as six pages or two with four variants is step 5, c
 **The missing compliance constraint, and it is the one that matters.** `CLAUDE.md` enumerates five compliance constraints and **none of them is data protection**, so the entire legal ground of this node, Article 5(3), Articles 4(11), 7(1), 7(3) and 7(4), recital 32 and two CNIL pages, has **no parent in the three legal classes.** It is carried on `B1-1` and design principle 1, which is true and is not the whole reason the node exists. **The alternative is quietly widening the third class, which is the thing that rule exists to stop.** A candidate line for `CLAUDE.md` at the stage close, and the founder's call.
 
 **And whether the re-open control comes out of the accordion**, which is the 360 asymmetry above and belongs to `0.2`.
+
+---
+
+## D-81. Node `5.11` is written and drawn, the input it was waiting for had been in the repository for four days, and one of the baseline's twenty rows survives
+
+**Date:** 2026-08-22. **Stage:** 04, doing 03b's work for the last of `D-36`'s three nodes. **Decided by:** stage 04, on everything except the two items at the end. **Binds:** node `5.11`, `research/docs/baseline-account.md`, and it adds a fourth surface to the debt `D-55` opened.
+
+**What was built.** `ia/docs/pages/settings.md`, `ia/settings.html`, and four wireframes: `settings.html`, `-no-trade`, `-refused`, `-no-steam`. **106 of 106. Stage 04 has no unbuilt page left.**
+
+### The input was never missing, and the `[?]` was on the wrong thing
+
+**`D-36` wrote that what `5.11` holds in round 1 is `[?]` and that the node owes that answer before it can be drawn.** For two days I read that as a question for the founder and put it to them twice, in as many words: asking is the instruction here, not filling it with a median.
+
+**That was wrong and the record says so on its face.** It says *the node* owes the answer. And the source was already in this repository and was four days old: **`research/docs/baseline-account.md` section 7 has carried this screen since the founder's capture of 18 August 2026, with all twenty rows written out in three tables.**
+
+**What was missing was the derivation, not the input**, and the input gate exists to tell those two apart. **A gate that cannot tell an absent source from an unfinished reading fires on the wrong thing and blocks work that was ready.** The derivation is the same one every other node gets: take the baseline row, apply the round 1 scope list, apply the three legal parent classes, and print what does not survive.
+
+**The founder answered by supplying the captures again**, which is the correct answer to the question I actually asked and not to the one I should have.
+
+### Nineteen of twenty rows do not survive, and almost none of them for a reason about settings
+
+| Verdict | Rows | What it means |
+|---|---|---|
+| **LATER** | 11 | Case battles, gunfights, upgrades, crypto withdrawal, giveaways, a partner programme, and notification channels. **A toggle over nothing is the dead item defect with a switch on it** |
+| **ELSEWHERE** | 5 | Language and sound at the foot of the rail, the break tool on `6.1`, sign out in the account menu, the display name on `5.10` |
+| **REFUSED** | 3 | The country control, and the two confirmation switches whose subjects are live |
+| **`[?]`** | 1 | The anonymity control |
+| **KEEP** | **1** | The Steam trade URL |
+
+**The verdict on every row is printed rather than summarised, because a settings page that quietly drops nineteen rows is one nobody can audit against its own baseline.**
+
+### The one that survives is why this node exists at all
+
+**Withdrawal to Steam is round 1 and it works by sending a trade offer. A trade offer needs a trade URL. No node on the map held that field.** `withdrawal.md` names three limits before the request, blocked countries, Steam trade holds and Steam-side bans, and **it never names the one precondition the person themselves controls.**
+
+**So the exit had a missing input and the map did not know**, and that is a better reason for this page than the row in the account menu that put it there. `5.11` arrived with no parent in the three legal classes and it still has none; **the field it holds does**, rows `G1` and `G5` on `B8-2` and `B8-3`. **`D-78`'s rule that an orphan may not grow is not broken by this: a precondition of a live row is not a new capability, it is an unowned one.**
+
+**Two homes and it is not a duplicate.** `5.3` states the requirement **before the request**, which is `G5`'s own rule. This node is where the field is set and changed, outside the flow, on a day when nobody is withdrawing anything. That is the shape responsible play already has in three carriers.
+
+**And the value is checked when it is offered rather than at the exit.** A field that saves anything and fails three days later inside a withdrawal is barrier `B8-3`'s shape with a text input in front of it.
+
+### The country control, refused, and it is a compliance decision rather than a scope one
+
+**`Your Selected Country: United States`, with a `CHANGE` button, is the entire market control of the live product.** `baseline-account.md` section 7.2 walked it and said so. **A self-declared country the person can change is the geo control handed to the person being controlled**, which is not a stricter version of `D-23`'s closed allowlist, it is the absence of one.
+
+**And the baseline demonstrates the failure mode on itself:** section 5b.6 records **two self-declared countries in one account, and they disagree**, because the deposit step carries its own country field. A product with two answers to the same question has none.
+
+### Two rows are refused on a principle rather than on scope, and that is the harder refusal
+
+**Confirmation on selling a skin back and confirmation on withdrawing one both have live subjects for us**, `D-38` and round 1, so scope refuses neither. **Design principle 3 does, quoted: "Cost never hides inside excitement."**
+
+**A switch that removes the confirmation before a value leaves the account is a switch that removes a risk moment**, and it is the one preference in this list a person sets once, in a calm minute, and meets months later at the worst one. **The cost is printed:** somebody who withdraws every day will confirm every day, and **the answer to that is a faster confirmation, not an absent one.**
+
+### The anonymity control is stated and not drawn, and another node has been waiting for it since 21 August
+
+`public-result.md` has carried this open item in its own words since `D-69`: **"What remains open is whether they can turn it off, which no node says."** Owner, the founder.
+
+**The baseline answers where such a control lives and does not answer whether ours has one.** `Make me Anonymous`, `OFF` / `ON`, in the `SECURITY` group of this same screen. **So the place was in the repository too**, and only the decision is missing.
+
+**This node will not take it.** The toggle changes what `0.8` renders in every tile and what `7.1` renders in block 6, and `D-69` already left two of our own decisions pointing opposite ways. **A control that rewrites two published nodes is not a settings row, it is a decision with a settings row attached.** So the page renders the absence with the reason, and **the cost is on the page rather than only in the node**, because it is a fact about that person: today the product puts their name on every win in the feed and on every shared result and they cannot stop it.
+
+### The baseline changed under us between two dated captures
+
+| Capture | The row |
+|---|---|
+| `acct_settings_security_linked.png`, 18 August 2026 | **Facebook**, labelled and glyphed |
+| `acct_settings_linked_22aug.png`, 22 August 2026 | **Discord**, labelled and glyphed |
+
+**Neither record is corrected, because both are right on their own date.** **This is the case the dating rule exists for:** a source with a date survives the thing it describes changing, and a source without one becomes wrong silently. Both shots are filed beside each other.
+
+**And `D-55` shipped the newer set four days before it appeared in our own baseline.** It chose Steam, Google, Discord and X on 21 August from three competitor modals, not from this product. **What was a divergence on 21 August is a match on 22 August**, and it is recorded as a coincidence rather than as a source: nothing in that decision claims the baseline, and nothing built changes either way.
+
+### `D-55`'s debt reaches a fourth surface
+
+That record printed three unbuilt states as its price: **no Steam linked** on `5.3`, **Link Steam** on `5.1`, and somebody with no Steam linked about to spend on `4.1`. **None is built.** This node adds a fourth, because **the one field it holds cannot be filled by an account that has no Steam identity at all.** Drawn here as a state, with the act routed to `5.1` which owes it, rather than built here.
+
+### A third AAA link fix, and it becomes one rule instead of a third selector
+
+`D-77` expanded the small button after three nodes claimed AAA 44 and it shipped at 32. `D-80` expanded the cookie policy link at 23. **This node met it again on the trade URL helper at 16.** Three one-off selectors for one rule is how the fourth one gets missed, so it is one class from here.
+
+**And the rule is scoped honestly:** it applies to a link standing as a control, not to a link inside a sentence. WCAG's target size criteria exempt a target whose size is constrained by the line height of the text around it, and forcing 44px onto an inline link would overlap the lines above and below it. **All three of these were standalone.**
+
+### Measured
+
+**58 checks over the four pages at seven widths.** No horizontal overflow. One H1 each. **One column at every width, asserted by geometry rather than by eye:** every block starts below the one before it, on all four pages, at all seven widths. A real `<input>` with a real `<label for>` and **no placeholder doing the label's job**. The value unmasked and wrapping. **No control inside the stated absence and no control in the route list.** Nothing on the page counts anything. Every target 44px or more. `noindex` on all four.
+
+**And the field was walked at 360 and at 1200:** typing and blurring commits nothing, a value Steam will not accept is refused on the press with **which part is wrong named**, the refused value stays in the field so the person can look at it, a value it will accept saves and clears the invalid mark, and an empty press says what is missing rather than nothing.
+
+### Two things went to the founder
+
+**Whether `5.11` survives at all.** It holds one block. If the trade URL should live only on `5.3`, this node is cut and the account menu loses a row, and the rule that put the row there applies again in the other direction. **Recommended: keep it**, because a field that only exists inside a flow can only be corrected by re-entering the flow.
+
+**And whether a person can turn off their public appearance**, which is `7.1`'s open item, not this node's, and which the baseline shows the live product answers with a control.
