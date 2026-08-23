@@ -4,7 +4,7 @@
 
 **URL:** `/my-items`, from `0.13`. **Indexed:** no. **Schema:** none. **Breadcrumb:** none. All four inherited from the indexation register, section 3, and not re-derived here.
 
-**Purpose.** Show what the person actually holds, ~~with every item carrying the receipt that makes the win checkable a week later~~ **struck 23 August 2026 by `D-90`, section 0.7**, the money in the two figures the header already uses, and the one route out of the product.
+**Purpose.** Show what the person actually holds, ~~with every item carrying the receipt that makes the win checkable a week later~~ **struck 23 August 2026 by `D-90`, section 0.7**, the money in the two figures the header already uses, the one route out of the product, **and since `D-91` of the same day what that route costs on each item, before anything is pressed rather than at the till, section 0.8.**
 
 **Jobs served.** Related Job 5, withdraw and get what I earned, `jtbd.md`. **Parent class:** barrier `B7-1`, the win that turned out to be worth less than it looked, pattern of 7, by way of rows `B7` and `F2`; and barrier `B8-4`, verification ambushes at the exit, pattern of 5, by way of row `B1`, which resolved the check before funding so that nothing on this page has to ask for it. **`D-26` parked `B1` with `2.7` and this page is unaffected either way:** it asks for nothing now because there is nothing to ask for, and it asks for nothing later because the layer that returns stands before withdrawal rather than on an inventory page. Every block below names its own parent.
 
@@ -118,7 +118,55 @@
 | **Section 0.5 and 0.6** | Their receipt rows are struck in place. **Both arguments for putting the receipt where they put it are kept**, because neither was wrong about the defect it was fixing |
 | **Section 2, the field table** | `Receipt as captured` becomes not rendered here, with the open question in the cell. **Current value is unaffected** and stays with its own as-of |
 | **Section 2.1** | Two dated figures becomes one, and **the rule that no third number is made out of them is untouched**: with one figure there is nothing to subtract |
-| **Section 5.2, the empty state** | "with their value receipt" goes with the receipt |
+| **Section 5.2, the empty state** | "with their value receipt" goes with the receipt. **That sweep was incomplete and section 0.8 says so:** the drawn empty state still promised "each with what it was worth at the moment you won it. That figure is stored rather than recalculated" for a day after `D-90` deleted the thing it described |
+
+---
+
+## 0.8 Amended a fourth time, 23 August 2026, by `D-91`. The card gains a settlement line, and the empty state is corrected rather than rewritten
+
+**Withdrawal on this product is a purchase and not a delivery.** What a person wins is credited at our price; taking the real item out means the platform buys a real copy on the market, and **the difference settles against the balance in either direction.** The founder chose that reading on 23 August 2026, option A of `5.3` section 0b.1, and `research/docs/baseline-account.md` section 5 closes the arithmetic exactly: `27.52 − 4.48 = 23.04`.
+
+**This node is the first of the four surfaces `D-91` names**, and it is the one where the gap has been sitting in plain sight the longest. **The site price and `Starting at` have been two rows apart on this card since `D-84` rebuilt it on the live product's shape, and nothing said what their difference meant.** A person met that difference at the till. It is now on the shelf, before anything is pressed.
+
+### The line, and where it goes
+
+| Decision | What it is | Why |
+|---|---|---|
+| **It is the last row of every card** | Under the market foot, `Starting at` and `Offers`, which are the two figures it is computed from | **It is the row the receipt vacated.** `D-90` deleted the per-item receipt from this card, section 0.7, and the slot that opened is where the number that actually decides a withdrawal now goes |
+| **The rule is said once, above the grid, in words** | One sentence: a win is credited at our price, taking the real item out buys a real copy, so the difference comes off the balance or goes back on it | **A number with no rule behind it is worse than no number**, and six repetitions of one rule is six places for it to drift. The rule produces all six lines, so it is stated where all six can see it |
+| **It is not the peg line and the two are not one fact** | The peg is what one coin is worth in real money: one statement for the whole product, `D-28`, and not published yet. **This is what taking one particular item out costs: per item, both directions, and it moves daily** | `D-91` is explicit that the peg alone cannot express the second. **"One coin is worth X" does not answer "what does it cost to take this item out."** Two statements are needed, not one |
+| **It invents no figure** | Each line is that card's own `Starting at` minus that card's own price, and **the word carries the sign**: `more` when the market is higher, `back` when it is lower | `CLAUDE.md`: never invent a number. The two figures were already on the card; the line is their difference and nothing else |
+
+### Why it goes both ways, and this is not softening
+
+**Four of the nine rows the founder walked on 18 August 2026 had a site price above the market start**, which is money back rather than money owed. **A card that can only print a surcharge is wrong on nearly half its rows.** The drawn grid carries three cards asking for more, two paying back and one with no market at all, which is the shape the walk found rather than a shape chosen for balance.
+
+**And it is not an unsigned figure with a colour on it.** The direction is a word, `more` or `back`, for the same reason section 0.6 gives for the sort direction: a state carried by a shape or a hue alone is a state some readers do not have.
+
+### Why no market is a state and not a zero
+
+**Two of the nine rows walked had no offers at all.** With nothing to buy there is nothing to settle **and no way out**, so the line says that instead of a number. `0.11` rule 3: missing is a state and never a zero. **A printed `0.00` there would read as free**, which is the exact opposite of true, and it would be the only figure on this page that lies in the direction of encouraging the act.
+
+**It renders through the same missing treatment as every other hole on this page**, rather than through a treatment of its own, so a reader who has learned what an absence looks like here does not have to learn a second one.
+
+### The empty state's copy is corrected, and the cause is not this decision
+
+**`5.2` read: "Items you open appear here, each with what it was worth at the moment you won it. That figure is stored rather than recalculated."**
+
+**That sentence promised the receipt `D-90` deleted, and it survived the deletion by one day.** Section 0.7 struck the receipt from the card and from four places in this file, and the empty state kept advertising it. **An empty state promising a feature the full state no longer has is the worst place for the promise to survive:** it is read by the one person with nothing to check it against.
+
+| What | Reading |
+|---|---|
+| **The cause** | `D-90`, not `D-91`. The receipt was deleted on 23 August 2026 by founder decision and this line was missed in the sweep of that decision |
+| **What replaced it** | What the card actually carries: **our value for the item, what a copy is going for on the market, and what the difference between those two means at the exit.** Same job, a true version of it |
+| **Why it is a correction and not a rewrite** | The sentence's job never changed. It says what a person will find here, so that an empty shelf is a page about what is coming rather than an apology. **What changed is that its contents became false**, and the entry in section 8 records which decision made them false |
+| **Found by** | The agent that built the settlement line, outside what it was asked to look at |
+
+### And the rule sentence does not go on the empty state, which is a decision rather than an omission
+
+**Three things are absent from `5.2` by the same test and the settlement rule is now the third.** There is no card, no item and no withdrawal to price, so **the sentence would have no subject** in exactly the way the sort keys and the selection bar have none.
+
+**`D-91` names four sites and two of them sit before a person holds anything**, `3.3` the case page and `3.6` the outcome, which is where a warning has to land if it is to change a decision. **Putting a fifth copy on the one page whose whole design is a refusal to nudge** would answer an empty shelf with a lecture about a cost that cannot yet be incurred, and `B7-3` is the row that objects to exactly that move in its cheerful form.
 
 ---
 
@@ -144,11 +192,12 @@ Order is reasoned from 360px and from the barriers, not from the order of the so
 | **2** | **The money, two figures** | Balance and value of items held, both in coins, `D-28`, **never summed and never a score** | `D-19` in `CLAUDE.md` by way of `0.1`. Row `C1` as `D-28` rewrote it, still on `B7-1` | Node `0.1`, Refero Kraken Pro row in T1 |
 | **3** | **Withdraw, with the named limits stated beside it** | The one CTA, and the three limits in plain words before the person enters the route | Row `G5`, on `B8-3` and `B8-2` | `flows.md` flow 3, node order |
 | **4** | **Items held: `0.6` cards.** ~~each carrying its `F2` receipt~~ **The receipt is deleted by `D-90`, section 0.7**, and the card carries the picture, the names, the wear, the current value and the three acts | The list, and the substance of the page | ~~Row `F2`, on `B7-1`~~. Row `B7`. **`F2` is still an MVP row of `cjm-to-be.md` and this block no longer renders it:** whether it moves to `5.9`'s roll row or has no home at all is the founder's, section 0.7 | Backlog group 6 |
+| **4b** | **The settlement, one line per card and one rule above the grid** | **Added 23 August 2026 by `D-91`, section 0.8.** What sending this item out costs, signed in words, `more` or `back`, computed from that card's own two figures. **No market is its own state and never a zero** | Row `A1`, on `B1-2` and `B2-1`, **applied rather than invented**, plus barrier `B7-1`, the gap between what a win appears to be worth and what it is worth | `research/docs/baseline-account.md` section 5, walked 18 August 2026 |
 | **5** | **The holding statement on each item** | Whether this item has a deadline, stated from the moment it exists. Value `[?]`, section 3 | Row `G5` | `blocks.md` T4, Hellcase FAQ row |
 | **6** | **A legible bottom to the list** | Count of items held, and pagination if the count needs it. Conditional, threshold `[?]` | Related Job 5, `jtbd.md` | `blocks.md` T2, the skin.club LEAVE row |
 | **7** | **Sort by value or by date acquired** | Conditional and named out loud, section 4 | Related Job 5, `jtbd.md` | Named here, not taken from the bank |
 
-**Blocks 1 to 4 are the first screen at 360px.** The state, the money, the way out and the first item. The order is the barrier order: `B8-4` says the exit must not ambush, so the account state is answered before anything else is offered; `B7-1` says the money must be checkable, so the figures come before the list they describe.
+**Blocks 1 to 4b are the first screen at 360px.** The state, the money, the way out, the first item and what that item costs to take out. The order is the barrier order: `B8-4` says the exit must not ambush, so the account state is answered before anything else is offered; `B7-1` says the money must be checkable, so the figures come before the list they describe.
 
 **Two blocks the shell already carries and this page does not repeat.** The responsible play entry lives inside the money control, `0.1`, and the support route lives in `0.2` and `0.10`. Duplicating either here would put two entries into one destination, which is the defect `0.1` was written to prevent.
 
@@ -169,8 +218,13 @@ Order is reasoned from 360px and from the barriers, not from the order of the so
 | Image | Rendered | `0.6` |
 | ~~**Receipt as captured**~~ | **Not rendered here since 23 August 2026, `D-90`.** The instance value at the moment of the open is not on this card. **This is not a field the context declined to render, it is a capability the founder removed**, and whether `F2` survives on `5.9`'s roll row is open, section 0.7 | Row `F1`, carried by `F2`, **and `F2`'s home is now `[?]`** |
 | **Current value** | **Rendered, with its own as-of.** Per read, refresh class from `0.11` | Row `D2`, `0.11` group A |
+| **Market price, its as-of and its outbound link** | **Rendered as the market foot since `D-84`**, `Starting at` and `Offers`, which is what the live card carries. **Field 12 of `0.6`, and `A1` puts the outbound link on the top item rather than on every one**, so the foot here carries the figures and not the link | Field 12, row `A1` |
 | Drop chance | Not rendered. It is a property of the case, not of a held instance | `0.6` |
 | Ticket range | Not rendered here, same reason | `0.6` |
+
+**The settlement line is not a sixteenth field and this node may not make it one.** Section 0 of `0.6` holds one rule above every density: **no site adds a field the others do not have.** The settlement is **a rendering of two fields the card already has**, field 8 current value and field 12 market price, subtracted on the one surface that owns the exit. **The card gains nothing; this context renders one relation between two of its own numbers**, the way `3.3` renders a chance beside a value without either of them becoming a new field.
+
+**The honest half of that claim.** It is a computed thing on the face of a card, and `0.6` rule 5.4 says the card renders and never computes. **That rule is about deriving a field's value in the browser**, so the subtraction happens where the two figures are read rather than in the page, and the line arrives already computed like every other figure on the card. **If a later step finds the settlement being computed client side, the rule has been broken and this paragraph is the place that says so.**
 
 ### 2.1 Two dates, two numbers, and no third number made out of them
 
@@ -180,7 +234,9 @@ Order is reasoned from 360px and from the barriers, not from the order of the so
 
 **The current value is never presented as what we said at the time.** Show only the captured figure and we are printing a stale price as current, which is the whole of `B7-1`. **This one is unchanged and is now the only figure on the card**, with its own as-of, per rule 2 of `0.11`: an as-of on anything that moves.
 
-**And no delta.** No arrow, no percentage, no up-or-down colour, no badge. **With one figure there is nothing to subtract**, so the rule costs nothing here and it is kept rather than deleted: it binds again the day a second figure returns. A rendered delta turns a held skin into a position and the page into a portfolio. In-platform exchange is `LATER` by scope, `0.11` rule 7 forbids a figure that becomes a score, and a gain indicator on an inventory is a reason to keep going, which is the same defect the limits rule names for boundaries.
+**And no delta.** No arrow, no percentage, no up-or-down colour, no badge. **With one figure there is nothing to subtract**, so the rule costs nothing here and it is kept rather than deleted: it binds again the day a second figure returns.
+
+**`D-91` does not break that rule and the distinction is exact.** The forbidden delta is **our price then against our price now**, which turns a held skin into a position and the page into a portfolio. **The settlement is our price now against a third party's price now**, which is what an exit costs rather than how an item has performed. **The test is what a person could do with the number:** a delta invites holding for a better moment, the settlement answers whether to press the one control on this page. And the rule's own reasons still hold against a delta: in-platform exchange is `LATER`, `0.11` rule 7 forbids a figure that becomes a score, and a gain indicator on an inventory is a reason to keep going. A rendered delta turns a held skin into a position and the page into a portfolio. In-platform exchange is `LATER` by scope, `0.11` rule 7 forbids a figure that becomes a score, and a gain indicator on an inventory is a reason to keep going, which is the same defect the limits rule names for boundaries.
 
 ### 2.2 What the receipt actually is, unchanged from its owner
 
@@ -237,7 +293,8 @@ One numbered state, and it is the common one.
 | Element | Behaviour | Parent |
 |---|---|---|
 | **The money still renders** | Balance can be non-zero while items are zero. "You hold nothing" is false in that case, and the empty is of items only | Row `C1`, on `B7-1`. `0.11` rule 3, missing is a state and never a zero |
-| **What would be here, said plainly** | Items you open appear here ~~with their value receipt~~, **`D-90`**. The page says what it is for rather than apologising | Row `B7` |
+| **What would be here, said plainly** | ~~Items you open appear here, each with what it was worth at the moment you won it. That figure is stored rather than recalculated.~~ **Corrected 23 August 2026, section 0.8.** It now says what the card actually carries: **our value for the item, what a copy is going for on the market, and what the difference between those two means at the exit.** The page says what it is for rather than apologising | Row `B7`. **The cause of the correction is `D-90`, which deleted the receipt this sentence was still promising; the replacement wording comes from `D-91`** |
+| **The settlement rule is absent, and by the same test as the sort keys** | There is no card, no item and no withdrawal to price, so the sentence would have no subject. **`D-91` names four sites and two of them sit before a person holds anything**, which is where a warning has to land. Section 0.8 | `B7-3`, the row that objects to a nudge in its cheerful form |
 | **One route, into `3.1`** | The catalogue, not a blank page and not the home page | `flows.md` flow 3, and the map's own transition |
 | **The withdrawal entry is absent, not disabled** | There is nothing to withdraw. A disabled control on an empty page is a promise of a wall | Design principle 3 in `CLAUDE.md`, clarity at every risk moment |
 | **No offer, no free case, no nudge** | Below | The limits rule in `CLAUDE.md`, and `B7-3` |
@@ -262,7 +319,7 @@ The route to the catalogue is the offer. A person who wants to open finds the fr
 
 **Emotional support.** **None, and that is checked rather than assumed.** No row of the emotional and social table in `sitemap.md` places its mechanism on `S-E1`. Emotional Job 2 is carried by `F1` at `S-C2` phase 3 and by `S-G1`. Nothing is added here for completeness.
 
-**Responsive.** Mobile base 360px. One column: state, money, withdraw with limits, then the item list one card per row, each card stacking the names, the value, **the picture since `D-90`**, and the holding statement. Desktop keeps the same order and puts the cards on a grid, with the money and the withdrawal entry held in a summary column beside the list rather than above it. **Three columns from 1000 since `D-90`**, section 0.7, where the floor was 1200 while the receipt line could wrap. ~~The two dated figures never sit on one line at 360px: they are two labelled rows, because collapsing them is how a delta gets invented by a layout.~~ **One figure since `D-90`**, and the rule returns with the second one if it ever does.
+**Responsive.** Mobile base 360px. One column: state, money, withdraw with limits, **the settlement rule as one sentence above the grid since `D-91`**, then the item list one card per row, each card stacking the names, the value, **the picture since `D-90`**, the market foot and **the settlement line as its last row**. Desktop keeps the same order and puts the cards on a grid, with the money and the withdrawal entry held in a summary column beside the list rather than above it. **Three columns from 1000 since `D-90`**, section 0.7, where the floor was 1200 while the receipt line could wrap. ~~The two dated figures never sit on one line at 360px: they are two labelled rows, because collapsing them is how a delta gets invented by a layout.~~ **One figure since `D-90`**, and the rule returns with the second one if it ever does.
 
 ---
 
@@ -286,6 +343,9 @@ The route to the catalogue is the offer. A person who wants to open finds the fr
 
 | Open item | What is missing | Owner |
 |---|---|---|
+| **The market venue the settlement is computed against** | **Opened 23 August 2026 by `D-91`, section 0.8.** `Starting at` is a market figure and `A1` names "a named market venue" without naming one. **The settlement line is a subtraction against a price whose source is not chosen**, and the same hole sits on `5.3`, where the as-of renders and the route does not. Carried from `0.11` rather than re-opened | Founder, before stage 04 treats the card as final |
+| **The as-of on the market foot** | `0.11` rule 2 requires a moment on anything that moves and the market start moves daily. **The card carries the figure and the grid carries no stamp**, which is a hole this node names rather than fills: a settlement whose market half has no moment is a settlement that reads as current forever | `0.11`, and this node at its next pass |
+| **Whether a settlement figure has a sample floor of its own** | Two of the nine rows walked had no offers and rendered an absence. **What happens at one offer, or at an offer priced far off the rest, is not decided**, and a settlement struck against a single outlier listing is a number with a route nobody can check | Founder, with `0.11` |
 | **The holding deadline** | Whether any deadline exists, how long, and what the item converts to. The slot is specified in section 3 and the value is `[?]` in three places | Founder, product decision |
 | **Where row `F2` lives now, or whether it lives at all** | **Opened 23 August 2026 by `D-90`, section 0.7.** The receipt is deleted from this card by founder decision. **If "we will not store that" means the per-item copy, `F2` moves to `5.9`'s roll row; if it means the value at the moment of the win is not retained at all, `5.9`'s returned column dies with it and `F2` has no home anywhere.** `cjm-to-be.md` is untouched and still carries the row | **Founder** |
 | **The two venues on the receipt** | Row `F1` says two named venues and no file names them. Carried from `0.11` rather than re-opened. **Conditional on the row above:** the venues are the receipt's anatomy and the receipt has no home on this card since `D-90` | Founder, before stage 04 |

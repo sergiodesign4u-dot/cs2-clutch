@@ -54,7 +54,7 @@ Composition from `blocks.md` section 4, T3 object detail with a live event. Orde
 | 4 | **Best drops** | This case's biggest outcomes, **ranked by value**, each carrying its value in coins and its moment, each landing on `7.1`. **No multiplier and no person** | Related Job 1 read at this node, drops actually happen and they happen in **this** case, plus `A3` for the no-invented-content rule it inherits. **Founder decision `D-32`**, which reversed the rest of a refusal in section 16 | The baseline's "Best drops" row, Hellcase's "Last 7 days top drop", skin.club's "Last top skins". **The carrier and the ranking both taken, the multiplier and the tuned window refused** |
 | 5 | **The drop table** | Item cards `0.6`, grouped by tier, in ticket order. **Published chance and current value on the same card**, plus wear, StatTrak, ticket range, and the outbound market link on the top item. **The free-unit count left this block on 21 August 2026, `D-60`** | `D2` with `A1`. `B7-2`. **`D1`, `A2` and `B8-1` left the same day** | Bank T3 **TAKE** Hellcase's full pre-login drop table, **DIFFERENT** on the pairing, section 2. The card grid form from four live pages, section 3 |
 | 6 | **The freshness stamp** | When the values on this table were last read | `0.11` rule 2, an as-of on anything that moves | Bank T3 **DIFFERENT**: skin.club's "UPDATED 11 MINUTES AGO". **We take the stamp and refuse the door** |
-| 7 | **The case numbers** | **Published tested RTP for this case** and **expected value at this entry cost**, each with its unit, its as-of, its route and its derivation. **Nothing else on this page prints these two figures, `D-31` having reversed `D-30` on that point the same day; the commit block carries the cost and the peg and nothing else, and owes a route to here** | `D4`, on design principle 3 and `B1-2` | Bank T3 **TAKE the absence as the opportunity**: neither Hellcase nor skin.club prints RTP, EV or an observed rate anywhere on a case page |
+| 7 | **The case numbers** | **Published tested RTP for this case** and **expected value at this entry cost**, each with its unit, its as-of, its route and its derivation. **Nothing else on this page prints these two figures, `D-31` having reversed `D-30` on that point the same day; the commit block carries the cost and the peg and nothing else, and owes a route to here.** **Since `D-91`, 23 August 2026, it also carries the settlement**: a fifth figure for how our values across this case stand against the market, whose value is unpublished, **the denomination of the expected value stated in words**, and **the rule sentence itself**, section 5.1 | `D4`, on design principle 3 and `B1-2`. **The settlement additions on row `A1` applied rather than invented, plus barrier `B7-1` and design principle 1 quoted by its `D-14` limit** | Bank T3 **TAKE the absence as the opportunity**: neither Hellcase nor skin.club prints RTP, EV or an observed rate anywhere on a case page |
 | 8 | **The tier ladder** | One row per rarity tier: **published percentage, observed percentage, N**. **Conditional on `D-B`** | `D3`, on `B7-2` pattern of 11 and `B6-2` pattern of 9 | Bank T3 **DIFFERENT** against Hellcase's "last 7 days top drop" |
 | 9 | **SEO text** | The H2 and H3 block `0.13` places | `0.13` | Bank T1 **TAKE**, four of four competitors |
 | 10 | **Footer `0.2`** | Global, unchanged | Node `0.2` | Global shell |
@@ -198,6 +198,45 @@ Composition from `blocks.md` section 4, T3 object detail with a live event. Orde
 
 **And both render here rather than on the commit block**, `D-31`, which reversed `D-30` on that point the same day. The trigger carries the cost and the peg and nothing else. **What this block owes in exchange is a route from the trigger to itself**, so a person who wants the two figures at the moment of spending is one tap from them rather than one search.
 
+### 5.1 The settlement rule, `D-91`, and this page is the earliest place it can land
+
+**Added 23 August 2026 by founder decision.** On this product a win is a credit note rather than a delivery: **the item is credited at our value for it, and taking the real thing out to Steam means the platform buys a real copy at whatever it costs on the market that day.** In one walked capture the difference was **five times** the value of the win, and a copy of it costs **six times** what the win was credited at (`23.04 / 4.48 = 5.14`, `27.52 / 4.48 = 6.14`). **The earlier wording said the difference was six times and that was the market price's ratio, not the difference's.** `research/docs/baseline-account.md` section 5, and `5.3` section 0b.
+
+**Why the gap is structural rather than a mistake, and the wording carries this.** Prices inside a case are frozen at the moment the case was priced, because **re-pricing one item re-prices the case and moves the value of every unwithdrawn copy in every inventory on the platform.** The market moves daily. **The lag is a property of the model, it will not go away, and a thing that will not go away cannot be handled by hiding it.** So the founder chose to say it before the spend instead of at the till.
+
+**It says both directions and that is not softening.** Four of the nine rows in the 18 August walk had a site value **above** the market start, which is money back rather than money owed. **A sentence that can only describe a surcharge is wrong on nearly half the rows it has to cover.**
+
+**No number is invented in it.** The size of the difference is per item and it moves daily, so the sentence carries the direction and never a figure.
+
+### 5.2 Why block 7 and not the commit row, and the commit row was the other candidate
+
+**Four reasons, and the first one is a decision this node already took once.**
+
+1. **`D-31` cut the commit block to the act and the cost of the act**, after the founder read three figures and two explanatory paragraphs in one box as "a page arguing". **This sentence is a third paragraph of exactly that kind**, and putting it there would be re-losing an argument that was already settled.
+2. **This block is the one that carries the derivation, the as-of, the route and the named hole.** The settlement figure needs precisely that treatment, and the sentence is that figure's explanation. **Splitting them would put the claim in one block and its figure in another.**
+3. **This block exists on all ten case states; the commit row exists on six.** A rule about what a win actually is may not be absent from four states of the screen that sells the win.
+4. **The commit row already routes here by name**, which is the exchange `D-31` set when it moved the two figures off the trigger.
+
+### 5.3 The fifth figure, and its value is the thing that is missing
+
+**One figure for how our values across this case stand against the market**, plus **the date those values were last set**. It is the size of the settlement a person would meet on the way out, before any single item is chosen.
+
+| Part | State |
+|---|---|
+| **The value** | **`[?]`. It renders as an absence and never as a placeholder.** `0.11` rule 3, missing is a state and never a zero, **and a zero printed here would read as "our values match the market"**, which is the one claim the two walked captures disprove outright |
+| **The method** | **`[?]` and owned by `0.11`**, which is also where the tested return's own hole is owed from. `numbers.md` names what a method would have to say |
+| **The cadence** | **`[?]`.** How often it is read is part of the claim, the same way the rolling window is part of the p90's claim |
+| **The as-of on the values themselves** | **`[?]`, and it is marked separately rather than folded in.** Prices inside a case are frozen at the moment the case was priced and the market moves daily, **so the age of the freeze is half of what this figure would mean.** A gap figure with no date behind it cannot be checked by the person reading it |
+| **Its sign** | **Unsigned, because it has no value.** When it arrives it carries a sign in both directions, since four of the nine rows in the walk sat above the market rather than below it |
+
+### 5.4 The denomination of the expected value, stated in words, and the label deliberately not renamed
+
+**The expected value and the tested return beside it are returns in coins, at our values.** Inside the coin economy they are true and consistent with each other: win at a value, sell back at that value.
+
+**A person reading "tested return to player" has no way to know it is a return in coins rather than in items they can hold and sell on**, and the gap between those two readings is the whole of `D-91`. So the figure carries one sentence of denomination: **in coins, at our values; what a real copy costs on the market is a different number, and taking an item out settles the difference.**
+
+**And the label is not renamed. No second percentage is added.** Whether "tested return" survives the denomination being stated is the founder's call and `D-91` records it as **still open**. **This is the formulation offered for it, not the decision taken for them**, which is the same discipline `D-38` used when a capability arrived with no parent: print the cost, do not absorb it.
+
 ---
 
 ## 6. Node `3.4`. Item at zero free units. **Dissolved 21 August 2026 by `D-60`** {#3.4}
@@ -327,6 +366,7 @@ Composition from `blocks.md` section 4, T3 object detail with a live event. Orde
 |---|---|---|---|
 | 1 | **The item** | Rendered by `0.6` at full stage: weapon, skin, wear, StatTrak, rarity. **Its own published chance prints above it, `D-34`**, read off this page's drop table so it is checkable rather than flattering. **One card per roll when the count was above one, `D-35`, and they sit in one row of N columns at every width, `D-39`** | Main Job. The chance is `D2`, already published two blocks down |
 | 2 | **The instance value receipt** | Name, float, phase, **current sell price for the comparable float band and phase on two named venues** `[?]`, the inspect link, and a link that opens the venue listing **filtered to that float band**. **It renders as one caption line and not as a table, `D-34`:** every field survives, the container around them does not | `F1`, on `B7-1` pattern of 7, also closing `B7-3` |
+| 2b | **The settlement line** | **Added 23 August 2026 by `D-91`.** One sentence, three figures: credited at this, a copy that can actually be bought costs that with its as-of, so sending it out settles the difference. **It sits under the receipt and above the two controls**, never inside the reveal and never below the acts. **Per item and never a batch net**, so a five roll outcome prints five lines and no sum | Row `A1` **applied rather than invented**, plus `B7-1`. **`D-35` for the refusal to net a batch** |
 | 3 | **The verification link** | `0.14` variant **V2**. One tap to check this round, **opening in place** | `F3`, Related Job 3 |
 | 4 | **The share** | One tap, producing an object that carries its own proof, landing on `7.1` | `F4`, Emotional Job 2 |
 | 5 | **Two controls, and keeping is neither of them** | **Open again**, which re-enters phase 1 with the cost visible again, and **sell**, `D-38`. **Keeping is what happens if nothing is tapped**, because `E1` credits the item before the animation starts, so it is a route to `5.1` in one line of text rather than a button | Design principle 3 for the shape of the first. **The second has no parent in the three legal classes and carries that printed** |
@@ -343,6 +383,20 @@ Composition from `blocks.md` section 4, T3 object detail with a live event. Orde
 - **The venue link is filtered to the float band**, so the person checks it themselves rather than taking our word. **Which two venues is `[?]`**, `0.11` section 10, owner founder, before stage 04.
 
 **And it persists, which is row `F2`.** The receipt stays attached to the item in inventory `5.1` and on the withdrawal record `5.3`. Success signal from the backlog: the same receipt is retrievable a week later. **This node does not own those surfaces**, it owns the obligation that what it renders here is the same object they render later.
+
+### 8.1b One thing `F1` did not know it was about, added 23 August 2026 by `D-91`
+
+**`F1`'s whole point is that the number described a different object than the one received, a name instead of an instance. The settlement is that same pain one step further on:** the credited value is the site's price for the win, a real copy on the market is a different price again, so taking the item out is a purchase rather than a delivery and the difference moves the balance.
+
+**The cost is printed rather than absorbed.** Design principle 2 says motion serves emotion, and **this line puts a second number on the one surface the reveal owns.** `D-91` accepts that hit in as many words, and **the line is not softened to protect the principle.**
+
+**Three rules travel with it and each one comes from a walked row rather than from taste.**
+
+- **The number that settles is the price of a copy that can actually be bought**, never the Steam listing. On the second capture those two read `51.33` and `70.26`, which are 27 percent apart, and **presenting the listing as what an item is worth is the abstraction `B7-1` describes with a bigger number on it.**
+- **The direction goes both ways and this surface must print both.** Four of the nine rows walked had a site price above the market start. **A surface that can only print a surcharge is wrong on nearly half its rows.**
+- **Where no copy is on sale there is nothing to buy and nothing to settle.** That is its own state and never a zero, because a printed `0.00` there would read as free.
+
+**And it is not the sell price, which the page may not read as though it were.** Selling back for coins and sending to Steam are **two different exits with two different arithmetics**: the sell exit pays the credited value and stops there, the Steam exit buys a copy and settles the gap. The open question about a sell spread in section 8.3 is about the first exit only.
 
 ### 8.2 The proof link opens in place, and the reason is in `0.14`
 
@@ -379,6 +433,7 @@ Composition from `blocks.md` section 4, T3 object detail with a live event. Orde
 |---|---|
 | That this round did not finish on this device, and that **the result was decided before the animation started** | It is the same sentence `E1` and `E4` already make. The interruption changes nothing about the outcome and the state says so plainly |
 | **The outcome itself**, which is `3.6` in full: item, receipt, proof link, share | The person has already paid and already won. Making them re-watch to collect would be theatre attached to a settled fact |
+| **The settlement line, inherited from `3.6` rather than exempted from it, `D-91`** | **`D-91` names `3.6` and not `3.7`, and that is a list of surfaces rather than a limit on them.** Everything below the animation here is the same object `3.6` carries: a won item, its receipt and the two exits. **A state that carries the outcome in full and drops the one line saying what the outcome costs to take out would be the one place a person could meet the settlement first at the till** |
 | That the same result is in My items, `5.1` | A second route to the same object, for the case where this device is not the one they come back on |
 
 **The reveal is not re-run by default.** The person may already have seen the header figures change, and replaying a suspense animation over a result they can already read is the near-miss problem in a different costume.
@@ -578,6 +633,8 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 
 | Open item | What is missing | Owner |
 |---|---|---|
+| **Whether "tested return to player" is renamed now the denomination is stated** | **Opened 23 August 2026 by `D-91`, section 5.4.** The figure is a return in coins at our values and the label does not say so. **This node states the denomination in words, adds no second percentage and does not touch the label**, because the wording of what a return means is the founder's | **Founder**, and `D-91` records it as open |
+| **The per-case gap figure, its method, its cadence and the date the values were last set** | **Opened 23 August 2026 by `D-91`, section 5.3.** The fifth figure in block 7 has no value, no method and no cadence, and the freeze date behind the case's own values is not published either. **All four render as absences and none as a placeholder**, because a zero here would read as "our values match the market" | `0.11`, the published numbers register |
 | **What the published chance is while an item is at zero** | Section 6.1. **Three readings, and `D1`, `D2` and `D3` are not simultaneously satisfiable as written.** It changes the meaning of two published numbers. Recommendation: C for a small backed catalogue, A with a stated recomputation for a large one, B never | Founder plus whoever owns settlement, before stage 04. It rides with `D-D` |
 | **`D-C`, the internal observed-against-published check** | Scheduled before stage 04, and **nothing in this register is drawn until it returns**, `0.11` section 1. Every published figure on this page is conditional on it | Founder, on the live platform |
 | **`D-B`, whether roll history migrates and can be published** | Decides whether block 5 renders at all, and how common `0.14`'s proof-unavailable state is on day one | Founder, question of fact to the live platform |

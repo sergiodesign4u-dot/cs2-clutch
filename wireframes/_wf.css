@@ -526,6 +526,27 @@ a.wfp-state:hover { color: var(--wf-ink); }
    ALL CASES. On the left it read as one more link in a paragraph. */
 .wf-sec-foot { display: flex; justify-content: center; margin-top: var(--wf-s-3); }
 .wf-note { font-size: var(--wf-t-xs); color: var(--wf-ink-faint); }
+/* A COST IS NOT A FOOTNOTE, D-91. Design principle 3: where money is about to be
+   spent, cost never hides inside excitement. The settlement disclosure went in as
+   a .wf-note, which is this file's faintest and smallest prose, and the agent that
+   wrote it flagged its own output: the product's flagship pre-spend statement was
+   rendering at the weight of a caveat.
+   THAT IS THE DEFECT THIS WHOLE DECISION EXISTS TO CLOSE, one level down. The live
+   product hides the difference until the till. Putting it on the case page in
+   footnote grey moves it earlier and keeps it hidden, which is the shape of a
+   disclosure that satisfies a rule without doing its job.
+   IT IS NOT LOUD, IT IS LEGIBLE. Body size, full ink, and a rule down its leading
+   edge so it reads as a statement the page is making rather than an aside from it.
+   Nothing about it is a warning colour: this stage has none, and a cost stated
+   plainly does not need one. */
+.wf-cost-say {
+  margin: var(--wf-s-2) 0 0;
+  padding-left: var(--wf-s-2);
+  border-left: 2px solid var(--wf-line);
+  font-size: var(--wf-t-s); color: var(--wf-ink);
+  max-width: var(--wf-measure);
+}
+.wf-cost-say .wf-fig-missing { display: block; margin-top: var(--wf-s-half); font-size: var(--wf-t-xs); }
 /* B8's figures are the same institutional claim A5 makes, and they were made the same
    way A5 was before the last pass: four figures loose on the page ground, each caption
    running to whatever width was left. A figure with no edge is a sentence in a large
@@ -535,7 +556,14 @@ a.wfp-state:hover { color: var(--wf-ink); }
   align-items: start; padding: var(--wf-s-2);
   border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
 }
-@media (min-width: 900px) { .wf-figs { grid-template-columns: repeat(4, 1fr); } }
+/* THE COLUMN COUNT FOLLOWS THE CONTENT, D-91. It was a hard four, and the case
+   page's figures group went to five when the settlement figure arrived, so the
+   fifth sat alone on a second row with three empty columns beside it inside a
+   bordered box. A fixed count is a promise about how many figures a block will
+   ever hold, and no block gets to make that promise. auto-fit distributes what is
+   there, and the 160px floor is the width below which a mono figure and its
+   caption stop fitting side by side. */
+@media (min-width: 900px) { .wf-figs { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } }
 
 /* B2 the promotion banner. Home only for now. One promotion, never a carousel.
    At 360px it is a stack and it is bound by the fold budget below. From 900px it is
@@ -3096,6 +3124,33 @@ select {
 }
 .wf-inv-mkt b { display: block; font-family: var(--wf-mono); font-weight: 400; color: var(--wf-ink); }
 .wf-inv-mkt span:last-child { text-align: right; }
+/* THE SETTLEMENT LINE, D-91, AND IT IS THE LINE THE RECEIPT VACATED.
+   WITHDRAWAL IS A PURCHASE AND NOT A DELIVERY. The account capture of 18 August
+   2026 found it and the founder confirmed the rule on 23 August: what you win is
+   credited at our price, a real copy costs what the market charges, and the
+   difference settles against the balance at the exit. baseline-account.md section
+   5 closes the arithmetic exactly, 27.52 minus 4.48 is 23.04.
+   THE TWO NUMBERS WERE ALREADY ON THIS CARD AND NOTHING SAID WHAT THEIR DIFFERENCE
+   MEANT. The site price and Starting at have sat two rows apart since the card was
+   drawn. This line is not a new figure, it is the sentence between two figures the
+   grid already renders, and it is the whole of row A1, a pattern of 14.
+   IT GOES BOTH WAYS AND THE CARD MUST BE ABLE TO SAY SO. Four of the nine rows in
+   the baseline walk had a site price ABOVE the market start, which is money back
+   rather than money owed. A card that can only print a surcharge is wrong on
+   nearly half its rows.
+   AND NO MARKET IS ITS OWN STATE. Two of the nine had no offers at all. With
+   nothing to buy there is nothing to settle and no way out, so the line says that
+   rather than printing a zero, which would read as free.
+   RAISED ABOVE THE DIM WITH THE MARKET FOOT, because it is the same object: the
+   figures and what they cost you. */
+.wf-inv-out {
+  position: relative; z-index: 3;
+  display: flex; justify-content: space-between; gap: var(--wf-s-1);
+  margin: var(--wf-s-half) 0 0;
+  font-size: var(--wf-t-xs); color: var(--wf-ink-dim); text-align: left;
+}
+.wf-inv-out b { font-family: var(--wf-mono); font-weight: 400; color: var(--wf-ink); }
+.wf-inv-out span:last-child { text-align: right; }
 
 /* THE BLOCK HEADER AND THE SORT ROW, both the baseline's. */
 .wf-inv-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--wf-s-1) var(--wf-s-3); }
@@ -3620,15 +3675,29 @@ select {
 /* The two entry points, side by side from 900 and stacked below it. */
 .wf-two { display: grid; gap: var(--wf-s-3); grid-template-columns: 1fr; align-items: start; }
 .wf-form { display: flex; flex-direction: column; gap: var(--wf-s-2); }
+/* background-color, NOT background, D-91. The shorthand here was the first of two
+   that wiped the caret the base `select` rule draws: a shorthand resets every
+   longhand it covers, background-image included, and a select is a .wf-f too. */
 .wf-f {
   font: inherit; padding: var(--wf-s-2); color: var(--wf-ink); width: 100%; min-width: 0;
-  background: transparent; border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
+  background-color: transparent; border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
 }
 textarea.wf-f { min-height: 96px; resize: vertical; }
-/* The native select keeps the field's own frame. Its own arrow is left alone:
-   drawing a replacement means owning keyboard and screen reader behaviour that
-   the native control already has right, and grey is not a reason to rebuild it. */
-select.wf-f { background: var(--wf-surface); min-height: var(--wf-tap); padding-block: var(--wf-s-1); }
+/* THE SELECT KEEPS THE FIELD'S FRAME AND IT LOST ITS ARROW FOR A DAY, D-91.
+   The comment here read "its own arrow is left alone", and it was false twice
+   over: this rule and the .wf-f rule above it BOTH set `background` as a
+   SHORTHAND, and a shorthand resets background-image, so between them they wiped
+   the caret the base `select` rule two thousand lines above draws from our own
+   ink. Fixing one and not the other changed nothing, which is how it was
+   confirmed to be two rules rather than one. Every select in the product rendered as a
+   text field with words in it, on the settings screens and on the withdrawal.
+   FOUND BY THE AGENT DRAWING A NEW SELECT, which reported that its own control
+   looked wrong and traced it rather than working around it. A comment that
+   asserts what a rule does, sitting on a rule that does the opposite, is how this
+   survived: reading the file said the arrow was fine.
+   FIXED WITH background-color, WHICH IS WHAT THIS RULE ALWAYS MEANT. Nothing else
+   changes and the caret comes back everywhere at once. */
+select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); padding-block: var(--wf-s-1); }
 .wf-f-l { display: flex; flex-direction: column; gap: var(--wf-s-half); }
 /* A FIELD THE PRODUCT FILLED IS NOT A FIELD THE PERSON EDITS, and it is not a
    disabled input either: it is the decision quoted back, as text. */

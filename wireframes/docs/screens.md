@@ -2406,3 +2406,172 @@ Stage 04 proposed **three** tabs and refused cash out because it has no subject 
 **And writing the corpus-wide assertion down and running it found a fifth instance, on pages no founder review had reached.** The account menu, rendered from `_nav.js` on **all 72 signed-in pages**, prints `Spectacle` in the menu and `Account, Spectacle` as the control's accessible name, **while `WF_WHO.name` and the account band on the same page read `nightjar_cs`.** `D-89` closed this class by making `WF_WHO` the one source and **the fix reached the band and never reached the menu that hangs off it.** `profile-steam-down.html` gets a third reading, because it overrides `WF_WHO` to `Name unavailable` and its menu goes on naming an account its own card says is unreadable. **Recorded in `critique.md` section 9 as 9.8, and fixed the same day.** The literal is gone from both places and **`window.WF_WHO` is now declared at the top of `_nav.js`, above its first reader**, which is the actual mechanism: **the single source had been declared below the function that renders the menu**, so the menu could not have used the `D-89` fix even if it had been looked at. **A single source declared under one of its own readers is not a single source, it is a second one with a better name.** Verified over all 120 pages: 72 carry the menu, **0 disagree with their own `WF_WHO`**, and `profile-steam-down.html`'s override still resolves, which is the test that the source is single rather than merely uniform. **The cost is not deleted by the fix:** two decisions in a row state this class is shut, and it was live on 72 pages while both were being written.
 
 **Measured after `D-90`:** 120 registry entries against 121 html files in `wireframes/`, the difference being `overview.html`, which is the hub and not a screen. **The 23 pages this decision touched or created were opened at 360 and 1440**, forty six loads: no horizontal scroll, one H1 each, no console error, no element carrying `[hidden]` still rendering, and no occurrence of `Nightjar` in any rendered text on any of them.
+
+---
+
+## 69. `D-91`: the settlement line on the item card, and it is a sentence between two figures the grid already rendered
+
+**Two pages touched, none created.** `account.html` and `account-degraded.html`, node `5.1`.
+
+**Withdrawal on this product is a purchase and not a delivery, and that is the whole of the decision.** What a person wins is credited at the site's own price. Taking the real skin out means the platform buys a real copy at whatever it costs on the market that day, **and the difference settles against the balance in either direction.** Walked and captured by the founder on 18 August 2026, `research/docs/baseline-account.md` section 5, confirmed as a rule in the founder's own words on 23 August, and chosen as option A on the same day: **disclose it before the spend rather than at the till.** `docs/decisions.md` D-91.
+
+### The two figures had been on this card since it was drawn and nothing said what their difference meant
+
+**The card has printed our value and `Starting at` two rows apart for as long as the grid has existed.** Both operands of the settlement were on the face of every card, in the same column, ten pixels apart, **and a person still met the gap at the checkout.** What arrived here is not a third figure. **It is the sentence between the two, and it is the whole of row `A1`, a pattern of 14 and the best-supported row in the backlog.**
+
+**The rule is said once, in words, above the grid, and never six times inside it.** `.wf-inv-limits` carries it: credited at our price, taking the real item out buys a real copy, the difference comes off your balance or goes back on it. **A signed number under two prices with no rule behind it is worse than no number**, and repeating the rule per card would put six copies of one fact in one viewport.
+
+**It is not the peg and the two may not be merged.** The peg is what one coin is worth in real money: one statement for the whole product, `D-28`, and unpublished. This is what taking one particular item out costs: per item, both directions, moving daily. **`D-91` is explicit that the peg alone cannot express the second**, because "one coin is worth X" does not answer "what does it cost to take this item out". The two lines sit one under the other on both pages and say different things.
+
+### The line goes both ways, and a grid that can only print a surcharge is wrong on nearly half its rows
+
+**Four of the nine rows in the 18 August walk had a site price above the market start**, which is money back rather than money owed. So the word carries the sign and the drawn grids carry both.
+
+| Page | More | Back | Absence |
+|---|---|---|---|
+| `account.html` | 3 | 2 | 1, no copy on sale |
+| `account-degraded.html` | 2 | 2 | 2, and the two causes are different |
+
+**Every figure closes against the two prices on its own card.** 21.40 against 18.90 is 2.50 back, 66.05 against 71.20 is 5.15 more, 7.35 against 6.05 is 1.30 back, 29.90 against 34.10 is 4.20 more, 12.05 against 13.60 is 1.55 more. **Nothing is invented: each line is that card's own `Starting at` minus that card's own price.**
+
+**The two absences on the degraded page are two different facts and they say different words.** The Glock has no offers, so there is no copy to buy, nothing to settle and no way out at all: **a fact about the market that would stand with every source healthy.** The AWP has no price of ours, so the subtraction has no left hand side: **our plumbing rather than the world.** One is a state of the item, the other a state of the screen.
+
+**Neither renders a zero.** `0.00` in the first case reads as free and in the second as settled, and both are the opposite of true. Both go through `wf-fig-missing` like every other hole on the page, `0.11` rule 3.
+
+**The rule stays on the degraded page with only four of its six cards able to obey it.** The source is failing, not the rule. **A rule that disappeared whenever a figure did would leave the two cards that cannot print one looking like cards with nothing to settle.**
+
+### Where the line sits, and why it is above the dim
+
+**It is the last row of the card and it is raised above the overlay with the market foot**, `z-index: 3` in `.wf-inv-out`. Those two rows are the same object, the figures and what they cost you, so the dim from `D-90`'s third build darkens what is behind them and never intercepts a press meant for them.
+
+**It is also the row the deleted receipt vacated.** `D-90` took "Won at 64.80, 17 Aug 2026 22:11" off the card by founder decision, and `D-91` settles where that fact lives: **on the round.** So a surface about a round may print it, which is `5.9`'s roll row and `7.1`, and **a surface about the item you hold now may not**, which is `5.1` and every withdrawal page.
+
+### `account-empty.html` carries no settlement line, and the absence is a decision written on the page
+
+**There is no card, no item and no withdrawal to price, so the sentence would have no subject** in exactly the way the sort keys and the selection bar have none on that page. **`D-91` named four sites and two of them sit before a person holds anything**, which is where a disclosure has to land if it is to change a decision. **A fifth copy on the one page whose whole design is a refusal to nudge would answer an empty shelf with a lecture about a cost that cannot yet be incurred**, and `B7-3` is the row that objects to that move in its cheerful form.
+
+**What that page did carry was a promise the full state no longer keeps**, and section 70 of `critique.md` records it as 10.2.
+
+---
+
+## 70. `D-91`: the case page states the rule before the till, and one block stops promising how many figures it will ever hold
+
+**Ten pages touched, none created.** `case.html` and nine states: `case-account`, `case-account-2`, `case-account-5`, `case-open`, `case-open-2`, `case-open-5`, `case-nocounter`, `case-degraded`, `case-interrupted`.
+
+### This is the earliest surface the disclosure can land on, and that is the argument for option A
+
+**The gap is structural rather than a mistake, and the wording carries the reason.** Prices inside a case are frozen at the moment the case was priced, because re-pricing one item re-prices the case and moves **the value of every unwithdrawn copy in every inventory on the platform.** The market moves daily. **The lag is a property of the model, it will not go away, and a thing that will not go away cannot be handled by hiding it.**
+
+### Block 7 gains a fifth figure, and the value is the thing that is missing
+
+**The case owes one figure for how our values across it stand against the market.** We do not hold that number: its method, its cadence and the value itself are open, and the owner is node `0.11`, the published numbers register, which is where the tested return's own hole is owed from too.
+
+**So it renders as an absence and never as a placeholder.** `0.11` rule 3, missing is a state and never a zero, **and a zero here would read as "our values match the market", which is the one claim the two walked captures disprove outright.** The as-of is marked separately, because a price frozen at an unknown moment is half of what the figure would mean. **It is unsigned because it has no value**; when it arrives it carries a sign in both directions.
+
+### The expected value states its denomination in words, and nothing else about it moves
+
+**94.2 percent tested return and 11.68 coins of expected value against a 12.40 entry cost are true inside the coin economy**, and consistent with each other: win at a value, sell back at that value. **A person reading "tested return to player" has no way to know it is a return in coins rather than in items they can hold and sell on, and the distance between those two readings is the whole of `D-91`.**
+
+**The label is not renamed and no second percentage is added.** Whether "tested return" survives the denomination being stated is the founder's call and `D-91` records it as still open. **The caption is the formulation offered for it, not the decision taken for them.**
+
+### The rule goes in block 7 and not on the commit row, and the commit row was the other candidate
+
+**`D-31` cut the commit block to the act and the cost of the act** after the founder read three figures and two explanatory paragraphs in one box as "a page arguing", and this sentence is a third paragraph of exactly that kind. **Block 7 is the block that already carries the derivation, the as-of, the route and the named hole**, which is the treatment the settlement figure needs, and **splitting the two would put the claim in one block and its figure in another.** Block 7 also exists on all ten case states while the commit row exists on six, and the commit row already routes here by name.
+
+**No number is invented in the sentence.** The size of the difference is per item and moves daily, so the sentence carries the direction and never a figure. `case-degraded.html` adds one clause: neither our value nor the market price could be read in that state, **so nothing on the page tells you how large the difference is today.**
+
+### A fixed column count is a promise about how many figures a block will ever hold
+
+**`.wf-figs` was a hard two columns below 900 and a hard four above it.** Block 7 went to five when the settlement figure arrived, **so the fifth figure sat alone on a second row with three empty columns beside it inside a bordered box.**
+
+**No block gets to make that promise.** `repeat(auto-fit, minmax(160px, 1fr))` distributes what is actually there, and the 160px floor is the width below which a mono figure and its caption stop fitting side by side. **The rule is shared: 35 pages carry a `.wf-figs` block**, and every one of them now gets a row that fits its own content rather than the count the author had on the day.
+
+### What is owed on this block and was not drawn
+
+**Block 7 exists on thirteen pages, not ten.** The three outcome states, `case-outcome.html`, `case-outcome-2.html` and `case-outcome-5.html`, carry the same block with **four figures**: no settlement figure and no denomination clause on the expected value. **The three outcome pages carry the per-item settlement instead**, which is section 71, and that is a stronger statement about the same cost. **But the divergence inside one block across thirteen pages is not written down on any of them**, and an unrecorded difference between two renderings of one block is how the fourth and fifth instances of the two-renderings class happened. **Recorded here rather than patched, because the reason for it has to be the founder's or the node's and neither has been asked.** Logged as 10.8 in `critique.md`.
+
+---
+
+## 71. `D-91`: the outcome carries the second number, and `3.7` inherits it rather than being exempt
+
+**Four pages touched, none created.** `case-outcome.html`, `case-outcome-2.html`, `case-outcome-5.html` for node `3.6`, and `case-interrupted.html` for node `3.7`.
+
+### `F1`'s pain, one step further on
+
+**`F1`'s whole point is that the number described a different object than the one received**, a name instead of an instance. **The settlement is that same pain one step on:** the credited value is the site's price for the win, a real copy on the market is a different price again, **so taking the item out is a purchase rather than a delivery and the difference moves the balance.**
+
+**The cost of putting it here is printed rather than absorbed.** Design principle 2 says motion serves emotion, and this line puts a second number on the one surface the reveal owns. **`D-91` accepts that hit in as many words and the line is not softened to protect the principle.** It sits under the receipt and above the two controls, **never inside the reveal and never below the acts.**
+
+### The number that settles is the price of a copy that can actually be bought
+
+**Never the Steam listing.** On the founder's capture of 23 August those two figures were 27 percent apart on one item, `51.33` against `70.26`, **and printing the listing as what a win is worth is the abstraction `B7-1` describes with a bigger number on it.**
+
+### Three states, three cases, and the surface must be able to print all three
+
+| Page | Rolls | What the settlement block shows |
+|---|---|---|
+| `case-outcome.html` | one | A charge. Credited 12.90, a copy costs 19.60, 6.70 comes off |
+| `case-outcome-2.html` | two | **Both directions on one screen.** Glock 12.90 against 19.60, 6.70 off; MP9 7.40 against 5.95, 1.45 back |
+| `case-outcome-5.html` | five | **All three cases.** Two charge, two pay back, and the M4A1-S has no copy on sale at all, **so there is nothing to buy, nothing to settle and no way to send it out yet** |
+
+**Each item settles on its own, because each is bought on its own.** No total. **`D-90` refused a sum of what an account has won and a single settlement figure summed over five rolls is that figure with a new name.**
+
+### It is not the sell price and the page may not read as though it were
+
+**Selling back for coins and sending to Steam are two exits with two arithmetics.** The sell exit pays the credited value and stops there; the Steam exit buys a copy and settles the gap. **Every outcome state carries that as its own line**, so the sell control beside it cannot be read as the thing the settlement is about. The open question about whether the sell price carries a spread is about the first exit only and stays where it was.
+
+### `3.7` inherits it, and the reason is about the item rather than the animation
+
+**The decision names `3.6` and not `3.7`, and the agent that built the case pages flagged the gap rather than filling it**, which was right. It is filled here because **everything below the animation on `3.7` is the same object `3.6` carries: a won item, its receipt and the two exits.** A person whose reveal stopped part way reaches the same sell control and the same balance.
+
+**A page that carries a cost on one route and not on the other teaches that the second route is cheaper.** Same figures as `3.6`, because it is the same item on the same round: **if the two pages ever disagree, one of them is describing a different open.**
+
+---
+
+## 72. `D-91`: the withdrawal screen, the baseline's four columns, and a decision on every one of the seven pages
+
+**Seven pages touched, none created.** `withdraw.html` and its six states, node `5.3`.
+
+### The node put the question and the stage drew it against the answer that was not chosen
+
+`ia/docs/pages/withdrawal.md` section 0b.1, written 18 August 2026, marked this **"the largest open item on this node"**, owner the founder, **"before stage 04 draws this node"**. **Stage 04 drew it anyway five days ago and specified every figure against option B**, saying so on the page. The founder chose A on 23 August. **What that costs is one node's worth of figures rewritten**, and it is the cheapest possible version of that cost only because the node said out loud which option it had drawn.
+
+### The shape is the baseline's own and it was walked
+
+**Four columns: skin name, your skin price, market skin price, your balance impact, and the total difference under it.** `research/docs/baseline-account.md` section 5. **Inherited rather than invented because six years of people have read it in that order.**
+
+**Your skin price is the worth now figure from the record above, 21.40, and never the worth when won.** A settlement struck against a price we no longer publish is a settlement nobody can check. **The win time value left the record on all seven pages** for the same reason `D-91` gives on the card, and on these pages it was doing no work anyway: **the settlement subtracts our price today from what a copy costs today, 22.15 is neither operand, and a third figure beside two that are being subtracted invites the reader to subtract it instead.**
+
+### Two things the baseline lacks and this product requires
+
+**One, an as-of on the market price.** `A1` is two prices on one item with a live market price **and a timestamp**, and the baseline prints the price with neither the moment nor the route. **The moment is here; the route is drawn as the hole it is**, because the venue is not chosen and a link to nothing is worse than a named absence.
+
+**Two, the float on each copy.** `baseline-account.md` section 5 point 3 records that float is shown at the only moment it decides anything, choosing between several copies at one price. **Field 15 of `0.6` has been carried as an orphan since it was written because no job needed it. This is the job.**
+
+**What the copy picker is not: the baseline's offer market.** No From and To filter, no search field, no delete control, no six card shelf. **That screen is a shop and this page is a record with one decision on it.** Three copies at one price, chosen on float alone. **At one price the choice cannot move the settlement, so the figures hold whichever copy is picked, and the case where copies differ in price is named rather than drawn.** What it costs is printed: the three floats cannot be read side by side at rest, **and if comparing floats turns out to be the act rather than a detail of it, the shelf is what this block becomes.**
+
+### The commission card stopped reading as the whole of what moves
+
+**A commission of zero beside "You receive: The item" said, on its own, that nothing else moves, and something else does.** The figure is not reprinted in the side column: **it is printed once, in the settlement block, where the market price and its as-of stand beside it**, and the card carries a pointer rather than a second copy of the number.
+
+### A decision on every state, and three of the seven carry no table at all
+
+| Page | State | Settlement | The reason, on the page |
+|---|---|---|---|
+| `withdraw.html` | before the request | **Live quote** in four columns, plus the copy picker and the as-of | This is the moment the choice is made |
+| `withdraw-clock.html` | mid flight | **The same four columns as a record.** Struck and not re-quoted, no copy picker | **The one thing a person watching a slow withdrawal needs to be sure of.** Re-offering the picker would suggest the settlement is still open |
+| `withdraw-steam-degraded.html` | mid flight, Steam degraded | **Record, plus one sentence: the outage does not re-open it** | The obvious fear is that the price gets read again at a worse moment. **The wait is Steam's; the price is not** |
+| `withdraw-offer-expired.html` | offer expired | **The record in past tense, and the second read printed as its own figure with its own moment** | Struck at 58.90 on 19 Aug; read again 21 Aug the same copy is 63.80. **Re-quoting silently is a different number wearing the old one's clothes**, which is the injury `B7-1` describes. **And what happens on resend is not decided, so it says so** |
+| `withdraw-not-eligible.html` | a limit bites before the request | **No table.** One sentence that nothing was bought and nothing settled, plus a warning that the old figure is not held | **A four column figure about an act that will not occur is the same defect as printing 0.00 where no copy is on sale.** They saw a settlement one screen back, and a screen that refuses the act while saying nothing about the figure leaves them guessing whether they were charged for a refusal |
+| `withdraw-restricted.html` | restricted, clock stops at Our checks | **No table.** Nothing settled against either figure above | **A frozen account is not an emptied one**, and this is the sentence that makes that checkable rather than asserted |
+| `withdraw-restriction-upheld.html` | appeal closed, nothing goes out | **No table.** One clause inside the open item about the frozen balance | **The clearest case of the six.** The settlement is the one way this product can take money off a frozen balance, **so a page whose whole promise is that nothing is silently zeroed has to say it did not happen.** It narrows the undecided item rather than answering it |
+
+**No ceiling and no deadline anywhere in any of these blocks.** No such figure exists in this repository and `withdraw-clock.html` renders every ceiling as not published. **The settlement adds none.**
+
+### Measured after `D-91`
+
+**120 registry entries against 121 html files in `wireframes/`, the difference being `overview.html`**, which is the hub and not a screen. **Both counts are unchanged from `D-90`: no page was created and none was deleted this round.**
+
+**23 distinct pages were touched**, and the arithmetic is worth writing out because one page is on two lists: 2 on `5.1`, 10 on `3.3`, 3 on `3.6`, 7 on `5.3`, **and `case-interrupted.html` is node `3.7` and a case state at once, so it is inside the ten and not beside them.** That is 22, **plus `account-empty.html`, which carries no settlement at all and was fixed for a different reason**, and one stylesheet.
+
+**Every settlement figure drawn in this round closes against the two prices printed beside it.** Twenty two signed figures across the card grids, the four outcome states and the four withdrawal tables were recomputed by hand: **twenty two of twenty two close, and none of them is a figure with no operands on the same screen.**

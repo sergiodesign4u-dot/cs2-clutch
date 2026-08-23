@@ -213,9 +213,22 @@
         <tr><td>12</td><td><strong>Market price, as-of, outbound link</strong></td><td>Skin</td><td>Row <span class="row-code">A1</span> on <span class="row-code">B1-2</span> and <span class="row-code">B2-1</span>. <code>A1</code> puts it <strong>on the top item</strong>, and that wording is carried rather than generalised</td><td>barrier</td></tr>
         <tr><td>13</td><td><strong>Instance value receipt</strong></td><td>Skin instance</td><td>Rows <span class="row-code">F1</span> and <span class="row-code">F2</span> on <span class="row-code">B7-1</span>. What this unit was worth when it was won, with that moment attached</td><td>barrier</td></tr>
         <tr><td>14</td><td><strong>Instance state</strong>, held, withdrawing, withdrawn</td><td>Skin instance</td><td>Row <span class="row-code">G1</span>, named states, on <span class="row-code">B8-2</span></td><td>barrier</td></tr>
-        <tr><td>15</td><td><strong>Float and pattern</strong></td><td>Skin instance</td><td><strong>None. <span class="q">[ORPHAN]</span></strong></td><td>none</td></tr>
+        <tr><td>15</td><td><strong>Float and pattern</strong></td><td>Skin instance</td><td><s>None. [ORPHAN]</s> <strong>Closed 23 August 2026 by <code>D-91</code>.</strong> Related Job 5, by way of <span class="surf">5.3</span> block 1b: <strong>the platform buys a real copy on the market and several copies of one skin sit at one price, so the float is the only thing between them.</strong> Also <span class="row-code">B7-1</span> through <span class="row-code">F1</span>, whose whole argument is that a name is not an instance</td><td><s>none</s> <strong>job, with a barrier behind it</strong></td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>The orphan closes, 23 August 2026, and what closed it</h4>
+    <p><strong><code>D-91</code> made withdrawal a purchase.</strong> The platform buys a real copy on the market, and <code>baseline-account.md</code> section 5 point 3 records that the live product <strong>shows float at the only moment it decides anything: choosing between several copies of one skin at one price.</strong> All six offers the founder walked were priced identically and differed only by float.</p>
+    <p><strong>That is the job, and it is the job this repository did not have when field 15 was written.</strong> Nothing was invented to close it: the field was already in the set, the walk supplied the job, and the founder's decision supplied the surface. <strong>The parent cell stops being empty; the field itself does not change</strong>, and one density renders it, <span class="surf">5.3</span>.</p>
+    <p><strong>And one thing this closure is not.</strong> It is not a claim that the category's demand for float is served. <strong>The job is narrow: pick which of several identical-priced copies is bought for you.</strong> The case it does not cover, copies at different prices, is named on <span class="surf">5.3</span> rather than drawn.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>A contradiction this node reports rather than edits, and it predates D-91</h4>
+    <p><strong><span class="row-code">F1</span> requires float and phase on the instance value receipt</strong>, field 13, which renders at four densities. <strong>Field 15 rendered at none.</strong> So the same two values were owed by field 13 and refused by field 15, and the density table recorded the second without recording the first.</p>
+    <p><code>case.md</code> already carries this as an open item from the entity's side. <strong>The same contradiction is inside this file.</strong> <code>D-91</code> narrows it, because field 15 now has a parent, and <strong>it does not resolve which of the two fields carries float at <span class="surf">3.3</span> phase 3, at <span class="surf">5.1</span> and at <span class="surf">7.1</span>.</strong></p>
   </div>
 
   <div class="wf-stage">
@@ -305,10 +318,10 @@
         <tr><td>Ticket range</td><td class="off">-</td><td class="on">p1</td><td class="off">-</td><td class="off">-</td><td class="on">x</td></tr>
         <tr><td><s>Live free-unit count</s></td><td class="off">-</td><td class="off">-</td><td class="off">-</td><td class="off">-</td><td class="off">withdrawn, D-60</td></tr>
         <tr><td>Observed rate</td><td class="off">-</td><td class="on">p1</td><td class="off">-</td><td class="off">-</td><td class="off">-</td></tr>
-        <tr><td>Market price with as-of and link</td><td class="off">-</td><td class="on">p1</td><td class="off">-</td><td class="off">-</td><td class="off">-</td></tr>
-        <tr><td>Instance value receipt</td><td class="off">-</td><td class="on">p3</td><td class="on">x</td><td class="on">x</td><td class="on">x</td></tr>
+        <tr><td>Market price with as-of and link</td><td class="off">-</td><td class="on">p1</td><td class="on">x</td><td class="on">x</td><td class="off">-</td></tr>
+        <tr><td>Instance value receipt</td><td class="off">-</td><td class="on">p3</td><td class="off">-</td><td class="on">x</td><td class="on">x</td></tr>
         <tr><td>Instance state</td><td class="off">-</td><td class="off">-</td><td class="on">x</td><td class="on">x</td><td class="off">-</td></tr>
-        <tr><td>Float and pattern</td><td class="off">-</td><td class="off">-</td><td class="off">-</td><td class="off">-</td><td class="off">-</td></tr>
+        <tr><td>Float and pattern</td><td class="off">-</td><td class="off">-</td><td class="off">-</td><td class="on">x</td><td class="off">-</td></tr>
       </tbody>
     </table>
   </div>
@@ -360,10 +373,10 @@
         <div class="wf-wpn">AK-47</div>
         <div class="wf-skn">Redline</div>
         <div class="wf-tags"><span class="wf-tag is-on">Field-Tested</span><span class="wf-tag is-on">Held</span></div>
-        <div class="wf-kv"><span class="wf-k">Receipt</span><span class="wf-v">worth at the moment won</span></div>
-        <div class="wf-kv"><span class="wf-k">From</span><span class="wf-v">the open it came from</span></div>
+        <div class="wf-kv"><span class="wf-k">Value</span><span class="wf-v">current, with its own as-of</span></div>
+        <div class="wf-kv"><span class="wf-k">Market</span><span class="wf-v">starting at, offers</span></div>
         <div class="wf-link">Withdraw</div>
-        <div class="wf-scope">Where <code>F2</code> proves itself: <b>the same receipt is retrievable a week later.</b></div>
+        <div class="wf-scope"><s>Where F2 proves itself: the same receipt is retrievable a week later.</s> <b>The receipt left this density on 23 August 2026, D-90</b>, and the market foot arrived on it with <code>D-84</code>. <b>The settlement on 5.1 is a relation between the two figures above and not a sixteenth field.</b></div>
       </div>
 
       <div class="wf-card">
@@ -374,7 +387,8 @@
         <div class="wf-skn">Redline</div>
         <div class="wf-tags"><span class="wf-tag is-on">Field-Tested</span><span class="wf-tag is-on">Withdrawing</span></div>
         <div class="wf-kv"><span class="wf-k">Receipt</span><span class="wf-v">worth at the moment won</span></div>
-        <div class="wf-scope">The card holds the instance state. <b>The page holds the clock</b>: the per-state timer and its attribution belong to the withdrawal, not to the item.</div>
+        <div class="wf-kv"><span class="wf-k">Float</span><span class="wf-v">of the copy being bought</span></div>
+        <div class="wf-scope">The card holds the instance state. <b>The page holds the clock</b>: the per-state timer and its attribution belong to the withdrawal, not to the item. <b>And since D-91 the page holds the settlement</b>, for the same reason: what a copy costs on the market today is a property of the exit. <b>This is the density that closed field 15's orphan.</b></div>
       </div>
 
       <div class="wf-card">
@@ -391,6 +405,29 @@
       </div>
 
     </div>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Two rows of that table moved on 23 August 2026, and neither move is D-91's alone</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:24%">Row</th><th style="width:50%">What moved</th><th>Which decision</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Instance value receipt at <span class="surf">5.1</span></strong></td><td><strong>It stopped rendering.</strong> The founder removed the per-item stored value from the product, so the card has one dated figure and not two. <strong>This is a capability leaving, not a density declining to render</strong>, and <span class="row-code">F2</span> is still an MVP row with its home open</td><td><strong><code>D-90</code></strong>. <strong>Recorded here because this file is the component's field set and it had not been told</strong></td></tr>
+          <tr><td><strong>Market price at <span class="surf">5.1</span></strong></td><td><strong>It started rendering</strong>, as the market foot the live card carries. <strong>This table said the figure was 3.3 phase 1 only and the drawn card has carried it since the same day the table stopped being true</strong></td><td><strong><code>D-84</code></strong>, and this row is the correction. <strong>It matters to <code>D-91</code></strong>, because a relation cannot be drawn between one field the card has and one the field set says it does not</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card is-good">
+    <h4>The settlement line, and whether it breaks the rule this node exists to hold</h4>
+    <p><strong>The rule:</strong> no site adds a field the others do not have, names a field differently, or orders them differently. <strong>The settlement renders in three of the five contexts and differently in each:</strong> on <span class="surf">5.1</span> it is the last row of the card itself, on <span class="surf">5.3</span> a four column table in the page's own block, on <span class="surf">3.6</span> a sentence under the receipt. <strong>Only the first is inside the card at all.</strong></p>
+    <ol>
+      <li><strong>On the letter of the rule, no, it does not break it, because the rule governs fields and this is not one.</strong> The settlement is a <strong>relation between two fields the card already holds</strong>, field 8 current value and field 12 market price. <strong>No sixteenth field appears anywhere</strong>, nothing is renamed, nothing is reordered.</li>
+      <li><strong>But the rule was already broken, and by <code>D-84</code> rather than by <code>D-91</code>.</strong> Until the row above was corrected, the field set said field 12 renders only at 3.3 phase 1 while the drawn 5.1 card carried it. <strong>The subtraction did not break the rule; it made a break that was already there impossible to keep ignoring.</strong></li>
+    </ol>
+    <p><strong>And a third thing, said out loud because the rule does not cover it.</strong> The rule names fields. <strong>It says nothing about a derived rendering that appears at one density and not the others</strong>, which is exactly what the settlement is. <strong>On the letter this passes; on the spirit it is a new thing on the face of one card and not on the others.</strong> What makes it survive the spirit is that the two fields it derives from are on every card that has an exit, and <strong>the three surfaces that draw it are the three surfaces where an exit exists.</strong> <span class="surf">3.1</span> and <span class="surf">7.1</span> do not draw it because neither has one. <strong>If a fourth surface ever draws a settlement without owning an exit, that is the moment this passes from a rendering to a field, and this paragraph is the test.</strong></p>
   </div>
 </section>
 
@@ -531,7 +568,7 @@
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
-    <p>Seven open items, and two of them would each add a sixteenth field.</p>
+    <p>Nine open items, one of them closed on 23 August 2026 by <code>D-91</code> and kept with its reason. <strong>Two of the rest would each add a sixteenth field.</strong></p>
   </div>
 
   <div class="table-wrap">
@@ -541,7 +578,9 @@
         <tr><td><strong>Is the seven-tier ladder the game's palette</strong></td><td>Six of the seven values look like the CS2 client's own, which would decide whether the ladder may be restyled at all. <strong>Model memory, <span class="q">[?]</span></strong>, and the check is one Valve or Steam page compared against the seven values in the bank</td><td>Stage 06, before it derives any rarity treatment</td></tr>
         <tr><td>Chance precision</td><td>Two decimals or three. The card's widest field depends on it, and so does whether 0.025 percent is expressible at all</td><td>Production, with the weight table, before stage 04 treats the row as final</td></tr>
         <tr><td><strong>A live current value beside the receipt in inventory</strong></td><td>The entity lists the receipt and no second value, so 5.1 carries one number and not two. A person deciding whether to withdraw today plausibly wants today's figure, <strong>and no row in the backlog covers it.</strong> Adding it here would be a capability with no parent</td><td>Founder, one backlog row, or it does not ship</td></tr>
-        <tr><td>Float and pattern</td><td>Field 15. <span class="q">[ORPHAN]</span>, no parent in any of the three classes, carried rather than cut</td><td>Founder, if a job ever appears</td></tr>
+        <tr><td><s>Float and pattern</s> <strong>Closed 23 August 2026 by <code>D-91</code></strong></td><td><s>Field 15. [ORPHAN], no parent in any of the three classes, carried rather than cut.</s> <strong>The job appeared: <span class="surf">5.3</span> buys a real copy on the market and several copies of one skin sit at one price, so the float is the only thing between them.</strong> Parent Related Job 5, with <span class="row-code">B7-1</span> behind it. <strong>What stayed open is narrower: no backlog row asks for float</strong></td><td>Closed. <strong>The remaining half is the backlog row</strong></td></tr>
+        <tr><td><strong>Which field carries float at 3.3 phase 3, 5.1 and 7.1</strong></td><td><strong>Opened here 23 August 2026, and the contradiction predates the decision that exposed it.</strong> <span class="row-code">F1</span> requires float and phase on the receipt, field 13, and the density table showed field 15 rendering nowhere. <code>D-91</code> gave field 15 a parent and <strong>did not decide which of the two fields owns those values where both would apply</strong></td><td>This node and the map, at the pass that reconciles them</td></tr>
+        <tr><td><strong>Where the instance value receipt lives, or whether it lives at all</strong></td><td><strong>Not opened here and recorded here for the first time: <code>D-90</code> deleted the receipt from the 5.1 card on 23 August 2026</strong>, and this file went on listing field 13 as rendering there. The density table is corrected. <strong>The capability question is <span class="surf">5.1</span>'s and this node may not answer it</strong></td><td><strong>Founder</strong>, through <span class="surf">5.1</span></td></tr>
         <tr><td>Where the preview density sits on 3.1</td><td>The map's <code>used by</code> line names 3.1, and 3.1's own INCLUDES names case tiles and not item cards. Inside the tile, on expansion, or in a search result is a placement question rather than a field question</td><td>Node <span class="surf">3.1</span> at step 6</td></tr>
         <tr><td>A holding deadline on an unwithdrawn item</td><td>Hellcase converts an unwithdrawn drop to balance after thirty days, stated only in its public FAQ. Whether we carry any such rule is <span class="q">[?]</span>. <strong>If we do, <code>G5</code> puts it on this card before it runs</strong>, which makes it a sixteenth field</td><td>Founder, product decision</td></tr>
         <tr><td>The rarity treatment itself</td><td>Colour, shape, weight. Seven values exist; what they look like is not IA</td><td>Stages 06 and 07</td></tr>

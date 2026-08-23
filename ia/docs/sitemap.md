@@ -46,6 +46,8 @@ The item type, as the market knows it. Not a unit anyone owns.
 
 **Parts:** weapon, finish, wear grade; live market price with timestamp, `A1`; outbound market link, `A1`; rarity tier, whose value ladder is `[?]` and owned by stage 06 per `baseline.md`.
 
+**`D-91` adds no part here and that is the finding rather than an omission.** The settlement is a relation between the Skin's market price and the Skin instance's site value, **and a relation between two objects belongs to neither of them.** It is a part of Withdrawal, entity 10, where it now sits. **What the walk did expose is that `A1`'s market price has a named timestamp and no named venue anywhere in this repository**, and every settlement figure on the product is struck against that unnamed source. Carried as `[?]` on `0.11` rather than answered here.
+
 **Parent:** Main Job, `jtbd.md` "Section 1". Class: job.
 
 **Related to:** appears in Drop table entries across many Cases; a Skin instance is a unit of one Skin.
@@ -54,9 +56,11 @@ The item type, as the market knows it. Not a unit anyone owns.
 
 The specific unit a person owns. Separate from the type because the receipt attaches here and not there.
 
-**Parts:** which Skin; the instance value receipt, `F1`, which states what it was worth at the moment it was won; the Open it came from; current state, held, withdrawing or withdrawn; float or pattern specifics `[?]`, not required by any job in the current list.
+**Parts:** which Skin; the instance value receipt, `F1`, which states what it was worth at the moment it was won; the Open it came from; current state, held, withdrawing or withdrawn; ~~float or pattern specifics `[?]`, not required by any job in the current list~~ **float and pattern, and the `[?]` closed on 23 August 2026 with `D-91`: `5.3` buys a real copy on the market and several copies of one skin sit at one price, so the float is the only thing that chooses between them.** `baseline-account.md` section 5 point 3.
 
-**Parent:** `B7-1`, the gap between what a win appears to be worth and what it is worth, pattern of 7, which `F1` closes. Also Related Job 5, `jtbd.md` "Section 2". Class: barrier, with a job behind it.
+**Two things the closure does not do.** It does not put float on this object at every surface: `0.6` section 3 gives it one density, `5.3`, and the other four still refuse it. **And it does not resolve the older contradiction beside it**, which is that `F1` requires float and phase on the receipt while this entity said no job needed them. **`case.md` section 17 and `0.6` section 1.2 both carry that from their own side, and it is owed a reconciliation pass rather than a quiet edit here.**
+
+**Parent:** `B7-1`, the gap between what a win appears to be worth and what it is worth, pattern of 7, which `F1` closes. Also Related Job 5, `jtbd.md` "Section 2". Class: barrier, with a job behind it. **Float and pattern take the same pair as their own parent since `D-91`**, Related Job 5 read at `5.3`, with `B7-1` behind it through `F1`'s argument that a name is not an instance.
 
 **Related to:** produced by one Open; held in an Account; consumed by a Withdrawal; carries its receipt into both, `F2`.
 
@@ -118,7 +122,9 @@ One funding event and its record.
 
 The exit, and the object the whole value loop exists to deliver.
 
-**Parts:** the Skin instances being withdrawn, each carrying the receipt from `F2`; named states with a per-state timer and attribution to us, Steam or the user, `G1`; our published ceiling per state, `G2`; named limits stated in plain words before entry, blocked countries, Steam trade holds, Steam-side bans, `G5`; a written notice with a stated ground and an appeal with a published response deadline when restricted, `G4`; commission, which is zero to Steam, `G6`.
+**Parts:** the Skin instances being withdrawn, each carrying the receipt from `F2`; named states with a per-state timer and attribution to us, Steam or the user, `G1`; our published ceiling per state, `G2`; named limits stated in plain words before entry, blocked countries, Steam trade holds, Steam-side bans, `G5`; a written notice with a stated ground and an appeal with a published response deadline when restricted, `G4`; commission, which is zero to Steam, `G6`. **And since `D-91` of 23 August 2026, the settlement: our value for the item, the price of a copy that can actually be bought with its as-of, the signed difference against the balance, and the float of the copy chosen.** It is struck at the request and it does not re-quote afterwards, `5.3` section 6a.
+
+**This object is where the settlement lives, and it took the whole map five days to find that out.** `5.3` section 0b raised it on 18 August 2026 as the largest open item on the node, and **this inventory had no part for it, no state for it and no figure for it**, which is what the node said at the time. **A withdrawal that was modelled as a delivery is an object with a missing part, not a screen with a missing block**, and that is why the correction lands on the entity rather than only on the page.
 
 **Parent:** Related Job 5, `jtbd.md` "Section 2", and `B8-2`, pattern of 6, plus `B8-3`, pattern of 3. Class: job and barrier.
 
@@ -393,9 +399,9 @@ Phase T8, the floor of the entire As-Is map at -5.
 
 | No | Name | Type | Scope | INCLUDES | Transitions |
 |---|---|---|---|---|---|
-| **5.1** | Account and inventory | page | MVP | `S-E1`. Item cards 0.6, ~~each carrying its instance value receipt `F2`~~, the balance, the entry into withdrawal. **The receipt was deleted from the card on 23 August 2026 by founder decision, `D-90`: a capability removed rather than a decoration.** `F2` is still an MVP row of `cjm-to-be.md`, which this map does not touch, and **whether it moves to `5.9`'s roll row or has no home anywhere is open with the founder.** The card's third build puts the skin's picture in the flow and the actions absolute over a dim. noindex, no schema | 5.2, 5.3 |
+| **5.1** | Account and inventory | page | MVP | `S-E1`. Item cards 0.6, ~~each carrying its instance value receipt `F2`~~, the balance, the entry into withdrawal. **The receipt was deleted from the card on 23 August 2026 by founder decision, `D-90`: a capability removed rather than a decoration.** `F2` is still an MVP row of `cjm-to-be.md`, which this map does not touch, and **whether it moves to `5.9`'s roll row or has no home anywhere is open with the founder.** The card's third build puts the skin's picture in the flow and the actions absolute over a dim. **And the row the receipt vacated is the settlement since `D-91` of the same day: one signed line per card, `more` or `back`, with no market as its own state and never a zero, and one rule sentence above the grid.** noindex, no schema | 5.2, 5.3 |
 | **5.2** | Inventory empty | state | MVP | Where every new account starts and where a low-value first open leaves someone. Routed back into the catalogue rather than into a blank page | 3.1 |
-| **5.3** | Withdrawal, with the public clock | page | MVP | `S-E2`. Named states with a per-state timer labelled waiting on us, Steam or you `G1`, our own published p90, commission free `G6`, the named limits stated before entry `G5`. noindex | 5.4 to 5.8 |
+| **5.3** | Withdrawal, with the public clock | page | MVP | `S-E2`. Named states with a per-state timer labelled waiting on us, Steam or you `G1`, our own published p90, commission free `G6`, the named limits stated before entry `G5`. **Nine blocks since 23 August 2026, `D-91`: block `1b`, the settlement, the baseline's four columns plus an as-of on the market price and the float of the copy being bought.** **Withdrawal on this product is a purchase and not a delivery, and the settlement goes on the four states where a purchase is happening or has happened and is stated as an absence on the three that refuse the act.** noindex | 5.4 to 5.8 |
 | **5.4** | Not eligible, limit stated before entry | state | MVP | The limit is met before the withdrawal rather than inside it, which is the whole of `G5` | 5.1 |
 | **5.5** | Steam degraded | state | MVP | A live banner driven by the health probe `G2`, not a generic error | 5.3 |
 | **5.6** | Account restricted, notice and appeal | state | MVP | A written ground, the balance frozen and never zeroed, an appeal with a published response deadline `G4` | 5.7 or 5.3 |
@@ -764,3 +770,35 @@ The full defect log with both instruments, the merge and the verification notes 
 | `D-61` | **Daily and bonus cases as their own objects.** `I2` still has no parent in any of the three legal classes and is still in MVP by founder decision, `D-15`. **What changed is which object carries it**, and no node yet says what a daily case is as a case | `3.1`, then founder |
 
 **Counts after these three: 67 map nodes of which 51 are MVP**, `3.4` having been dissolved. **Amended 23 August 2026 by `D-90`, which added `7.3`: 68 map nodes of which 52 are MVP.** The count is derived here and nowhere else.
+
+---
+
+## Debt opened and closed by `D-91`, 23 August 2026
+
+**One question closed, five things owed, and the count does not move.** `D-91` adds no node, dissolves none and changes no transition. **It changes what one object is**, which is why it lands on the entity inventory and on two cluster rows rather than on the node count.
+
+### The row that closed
+
+| The question | The answer | What stayed open |
+|---|---|---|
+| **Is withdrawal a delivery or a purchase, and does this product inherit the baseline's settlement** | **It is a purchase, and the settlement is inherited and moved forward.** Founder decision of 23 August 2026, option A of `withdrawal.md` section 0b.1. **What a person wins is a credit note at our price; taking the real skin out means the platform buys a real copy on the market, and the difference settles against the balance in either direction.** The disclosure lands **at the win and on the case page rather than at the checkout**. **The argument for A is kept and option B is kept beside it with the reason it lost**, which is that refusing the mechanic rewrites the treasury model and no row in this repository can take that decision | **Five things.** The per-case gap figure, its method and its cadence, owner `0.11`. **The date a case's values were last set**, same owner. Whether "tested return to player" is renamed now the denomination is stated, owner the founder. **What resend does to a settlement already struck on `5.8`**, owner the founder, and the two answers differ by real money. And whether `cjm-to-be.md` gains a settlement row, owner the stage that reopens the backlog |
+
+**This map never carried that question as a row of its own, and that is worth recording rather than tidying.** `withdrawal.md` section 0b said it in as many words on 18 August 2026: **"`cjm-to-be.md` has no row for a settlement difference. `sitemap.md` has no state for it. `0.11` has no figure for it."** **A mechanic the whole map does not model does not appear as an open row on the map**, because nothing on the map knows to open one. **It was found by a founder capture of a signed-in screen and not by any pass over this file**, which is the argument for `CLAUDE.md`'s single walked-baseline exception rather than an argument against this inventory.
+
+### What is owed, and to whom
+
+| From | What is owed | Owner |
+|---|---|---|
+| `D-91` | **The per-case gap figure, its method, its cadence and the sample floor under it.** `0.11` gained two rows on 23 August 2026 and **both of their values are `[?]`**, along with seven of the eight things a method would have to state. **`3.3` renders the figure as an absence and never as a placeholder**, because a zero there would read as "our values match the market" | `0.11`, then the founder |
+| `D-91` | **Whether "tested return to player" is renamed.** `3.3` states the denomination in words, adds no second percentage and **deliberately does not touch the label**, because the wording of what a return means is the founder's | Founder |
+| `D-91` | **What resend does to a settlement already struck.** `5.8` expires an offer two days after the copy was bought and the market has moved. **Whether resend honours the struck figure or strikes a new one is a business rule this repository does not hold** | Founder |
+| `D-91` | **The market venue every settlement is struck against.** `A1` names "a named market venue" and no file names one. **The as-of renders and the route does not**, on `5.3` and on `5.1` alike | Founder, before stage 04 treats the settlement as final |
+| `D-91` | **`cjm-to-be.md` still has no settlement row, and this map does not touch that file.** It is the single owner of the MVP capability list. **`D-91` leaves open whether it gains a row or whether `A1` and `B7-1` already carry it, and nothing was retro-fitted here**, which is the same discipline `D-38` and `D-60` left in place | Founder, and the go is explicit |
+
+### What moved on this map, and what did not
+
+| Moved | Did not move |
+|---|---|
+| **Entity 4, Skin instance.** Float and pattern lose their `[?]`: `5.3` chooses between copies of one skin at one price and the float is the only thing between them | **The node count.** 68 map nodes of which 52 are MVP, unchanged. No node added, none dissolved, no transition changed |
+| **Entity 10, Withdrawal.** It gains the settlement as a part: our value, the purchasable copy's price with its as-of, the signed difference, and the float of the copy chosen | **Entity 3, Skin.** The settlement is a relation between two objects and belongs to neither. It is a part of Withdrawal and not of the item type |
+| **Cluster 5 rows `5.1` and `5.3`**, both of which now say what the exit costs | **`0.6`'s field set.** Fifteen fields, and the settlement is a rendering of two of them rather than a sixteenth. `0.6` section 3.2 argues that verdict and names where it does not hold |

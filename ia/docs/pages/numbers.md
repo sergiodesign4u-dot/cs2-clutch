@@ -6,7 +6,7 @@
 
 **Jobs served.** None directly: a register is read, never visited. **Parent class:** barrier `B8-2`, the withdrawal that goes silent, pattern of 6, and barrier `B7-2`, the belief that the numbers shown are not the numbers used, pattern of 11, by way of rows `A4`, `G3`, `D2`, `D3` and `D4`; Related Job 1, arrive with confidence; and design principle 1 in `CLAUDE.md`, quoted by its `D-14` limit, "the product is built so that its own numbers are checkable". All three legal parent classes, and each row below names its own.
 
-**Read by:** `1.0` Home, `1.2` Provably fair, `3.3` Case screen, `5.3` Withdrawal, `0.2` Footer. Rendered by `0.6` and `0.7` where a number sits on a card.
+**Read by:** `1.0` Home, `1.2` Provably fair, `3.3` Case screen, `5.3` Withdrawal, `0.2` Footer. Rendered by `0.6` and `0.7` where a number sits on a card. **`5.1` and `3.6` join the list on 23 August 2026 with `D-91`**, both reading the same pair of prices that the two settlement rows in group A aggregate at case level.
 
 **Not drawn at stage 04.** A register has no screen. The nodes that read it do, and each of them carries its figures into its own wireframe. What stage 04 inherits from here is the state set and the anatomy in sections 6 and 7, not a layout.
 
@@ -54,6 +54,33 @@ We are the source. For each of these the method has to be publishable, not only 
 | **Risk band per case, three named values** | Design principle 3 in `CLAUDE.md`, quoted: odds, cost and expected value are visible and legible. Placed on the tile by `D-24`. **No backlog row yet** | 1.0 and 3.1 as a band rendered by 0.7, 3.3 as the figure it is derived from | **The method reads the same drop table whose chances and values are printed on 3.3**, so a reader recomputes the band without leaving the page, the way the expected value row already works. **The thresholds between the three values are `[?]` and the band cannot render until they are set** | Static until the configuration changes |
 | **Favourite count per case** | **None in the three legal classes.** In by founder decision `D-24`, which is also what amends rule 7 to admit it | 1.0 and 3.1, rendered by 0.7 | The person's own press, which moves the count by one in front of them. It has no other route and it claims nothing beyond itself | Real time |
 | **Steam API health, the degraded flag** | `G2` | 5.3 as a banner | A published state rather than a figure, driven by a measurement, and it is in this register because it obeys the same missing-data rules as the numbers it protects | Real time probe |
+| **How our values across one case stand against the market** | **Barrier `B7-1`, the gap between what a win appears to be worth and what it is worth, pattern of 7**, by way of `D-91` of 23 August 2026, plus design principle 1 in `CLAUDE.md` quoted by its `D-14` limit. Row `A1` supplies the two prices; **no backlog row asks for the case-level aggregate of them, and that is printed rather than smoothed**, section 2b | **3.3 block 7.** Not on 1.0 and not on 3.1 | **`[?]`, and this is the row's whole problem.** A reader has to be able to recompute it or wait for it, rule 1, and nothing here says from what. Section 2b names what a method would have to say before this row can ship | **`[?]`.** The cadence is part of the claim, the way the rolling window is part of `A4`'s |
+| **The date this case's values were last set** | **The same parent, and it is half of what the row above means.** `D-91`: prices inside a case are frozen at the moment the case was priced, because re-pricing one item re-prices the case and moves the value of every unwithdrawn copy in every inventory on the platform. **The market re-prices itself daily, so the age of the freeze is the other half of the gap** | **3.3 block 7**, beside the figure above | **`[?]`.** It is the as-of rule 2 already requires, pointed at a figure that does not move on its own. **A gap figure with no date behind it cannot be checked by the person reading it** | **Static until the case is re-priced**, which is the one event that changes it |
+
+**Both rows render as absences today and neither renders as a placeholder.** Rule 3, and there is a sharper reason on this pair: **a zero printed for the gap would read as "our values match the market"**, which is the one claim the two walked captures disprove outright, `research/docs/baseline-account.md` section 5 and the founder's second capture of 23 August 2026. **A figure that lies in the direction of encouraging the spend is the worst class of missing-data defect this register exists to prevent.**
+
+**And the gap is unsigned until it has a value.** Four of the nine rows in the 18 August walk sat above the market rather than below it, so when the figure arrives it carries a sign in both directions.
+
+---
+
+## 2b. What a method for the two rows above would have to say
+
+**Neither row ships until this is answered, and this section is the question rather than the answer.** `CLAUDE.md`: never invent a number, and a method is a number's shape. **This node names the shape the method has to have and fills none of it.**
+
+| What the method must state | Why it cannot be skipped | Value |
+|---|---|---|
+| **What is being compared** | Our value for an item against **the price of a copy that can actually be bought**, never the Steam listing. `D-91` fixes that half: on the founder's second capture those two read `51.33` and `70.26`, 27 percent apart | **Decided.** The purchasable copy |
+| **Which venue supplies that price** | Row `A1` says "a named market venue" and **no file in this repository names one.** Until it does the figure has no source, and rule 9 forbids printing a number about someone else without one | `[?]` |
+| **How the per-item gaps become one case figure** | A mean, a median, a chance-weighted mean, or the gap on the expected value itself. **They give different answers on the same case**, and a chance-weighted figure is the only one that answers "what will this cost me on the way out" rather than "what does a random item in here cost" | `[?]` |
+| **What happens to items with no copy on sale** | Two of the nine rows walked had no offers. **They cannot be dropped silently and they cannot be counted as zero**, because both moves flatter the figure. Whether they are excluded with their count printed, or the figure is withheld above some share of them, is a rule | `[?]` |
+| **The unit** | A percentage of our value, or an amount in coins. **A percentage travels across cases; an amount does not.** Rule 10 also binds: an amount in coins carries the peg wherever money is spent, and the peg is not published | `[?]` |
+| **How often it is read** | The cadence. **It is part of the claim**, exactly as the rolling window is part of `A4`'s, and a figure refreshed at an unstated interval is read as current forever | `[?]` |
+| **The sample floor** | Whether a market price read off a single listing counts. **A gap struck against one outlier offer is a number with a route nobody can check**, which is rule 4 pointed at a different kind of thin sample | `[?]` |
+| **The route** | Rule 1: a stranger opens it, computes it or waits for it. **The expected value row is the model to beat**, because its route is arithmetic on figures printed on the same page. **The gap's route cannot be that**, because half its inputs are on somebody else's page | `[?]` |
+
+**One thing is decided and it is not the method.** **Where the figure renders**, `3.3` block 7, and how it behaves while it is missing, which is as an absence with the missing method and the missing freeze date both named beside it. `case.md` section 5.3.
+
+**And the parent is printed rather than borrowed.** `A1` is the row that puts two prices on one item, and it is the parent of the pair. **The case-level aggregate of them is not in `cjm-to-be.md` at all.** `D-91` leaves open whether the backlog gains a settlement row or whether `A1` and `B7-1` already carry it, and **nothing was retro-fitted into that file**, which is the same discipline `D-38` and `D-60` left in place.
 
 ---
 
@@ -109,7 +136,8 @@ Five, and every row in sections 2 and 3 belongs to exactly one. The class is wha
 | **Per round** | Observed rate counter `D3`, cases opened | Moves with the product. Never rewritten backwards |
 | **Rolling window** | Median and p90 `A4` and `G3` | The window length is part of the claim and has to be printed with it. Length `[?]` |
 | **Per read** | Market price `A1`, instance value `F1`, Trustpilot score `A5` | Fetched when the page is read, and carries the moment it was fetched |
-| **Static until the configuration changes** | Published chance `D2`, tested RTP and EV `D4`, ceilings `G2`, deadlines `G4`, commission `G6` | Changing one is a republication, with rule 5 applying wherever a counter is attached |
+| **Static until the configuration changes** | Published chance `D2`, tested RTP and EV `D4`, ceilings `G2`, deadlines `G4`, commission `G6`. **The date a case's values were last set joined this class on 23 August 2026, `D-91`**, and it is the odd member: it is not a figure about the product, it is **the moment the rest of this class last moved**, so it is the class's own as-of rather than a row inside it | Changing one is a republication, with rule 5 applying wherever a counter is attached |
+| **Unassigned, and the row cannot ship until it has a class** | **The per-case gap against the market, `D-91`.** Its cadence is `[?]`, section 2b, and the class is what decides both the staleness rule and the cost. **A row with no refresh class is a row nobody can say is stale**, which is the reason this table exists | **Every kind of staleness at once**, which is why it renders as an absence rather than as a value with a guessed stamp |
 
 ---
 
@@ -161,6 +189,11 @@ One shape, five parts, and stage 04 renders it rather than inventing per surface
 
 | Open item | What is missing | Owner |
 |---|---|---|
+| **The method behind the per-case gap against the market** | **Opened 23 August 2026 by `D-91`, section 2b.** Eight things a method has to state and seven of them are `[?]`: the venue, the aggregation, the treatment of items with no copy on sale, the unit, the cadence, the sample floor and the route. **Only the first is decided**, that it compares against a copy that can actually be bought and never the Steam listing | Founder, with whoever owns pricing |
+| **The value of the per-case gap, and the cadence it is read at** | The figure itself, and how often. **It renders as an absence on `3.3` until both exist**, because a zero there would read as "our values match the market" | Founder |
+| **The date a case's values were last set** | The freeze date behind every value inside a case. **Prices in a case are frozen and the market moves daily, so the age of the freeze is half of what the gap figure means.** No file holds the value and no mechanism publishes it | Founder, question of fact to the live platform |
+| **Whether "tested return to player" is renamed** | `D-91` states the denomination in words on `3.3` and **deliberately does not touch the label.** If the label changes, `D4`'s row in group A changes with it and so does every surface that prints it | Founder |
+| **Whether `cjm-to-be.md` gains a settlement row** | The two rows above have a parent in `B7-1` and in `A1`, and **the case-level aggregate has no backlog row of its own.** Carried with that printed rather than retro-fitted, the treatment `D-38` and `D-60` both used | The stage that reopens the backlog |
 | **`D-C`, the internal observed-against-published check** | It runs on live platform data before any of this is drawn, and the publication is permanent once made. Scheduled before stage 04 | Founder, on the live platform |
 | **`D-B`, whether roll history migrates and can be published** | Decides the observed rate counter, and with it the route for cases opened | Founder, question of fact to the live platform |
 | **The rolling window for median and p90** | Seven days, thirty, ninety. The length is part of the claim | Founder with the data, before stage 04 |

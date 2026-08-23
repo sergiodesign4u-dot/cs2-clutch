@@ -2404,7 +2404,7 @@ Before the request, the clock running, and `5.4` not eligible, `5.5` Steam degra
 
 ### The mechanic the whole map does not model, and it is drawn against the other reading
 
-**The account capture of 18 August 2026 found that on the live product withdrawal is a purchase rather than a delivery.** The screen prints a four column table: the item is valued at the site price `4.48`, a real copy on the market costs `27.52`, **and the difference of `23.04` is charged to the balance at the checkout.** In the observed row that difference is **six times the value of the win**.
+**The account capture of 18 August 2026 found that on the live product withdrawal is a purchase rather than a delivery.** The screen prints a four column table: the item is valued at the site price `4.48`, a real copy on the market costs `27.52`, **and the difference of `23.04` is charged to the balance at the checkout.** In the observed row that difference is ****five times** the value of the win, and a copy of it costs **six times** what the win was credited at (`23.04 / 4.48 = 5.14`, `27.52 / 4.48 = 6.14`). **The earlier wording said the difference was six times and that was the market price's ratio, not the difference's.**
 
 **Every figure on this page is drawn against the other reading**, that what you win is what you receive, because that is what the node was written against and the node says so in as many words.
 
@@ -3514,3 +3514,86 @@ The result pages called this account **Nightjar**. Everything else in the protot
 ### What this cost, stated
 
 **A trophy shelf now exists in a product that spent a node arguing against one.** The mitigations are real, every line of it is checkable and there is no score anywhere on it, and they do not make the objection wrong. **The founder decided, the argument is preserved, and the one thing that would settle the remaining harm, whether a person can hide the page, is still open with the founder's name on it.**
+
+---
+
+## D-91. Withdrawal is a purchase, the map never modelled it, and the founder chose to say so before the till
+
+**Date:** 2026-08-23. **Stage:** 04. **Decided by:** the founder, answering the largest open item on node `5.3` five days after it was raised. **Binds:** nodes `5.3`, `5.1`, `3.3`, `3.6`, `0.6`, `0.11`, `wireframes/_wf.css`, and row `A1` of `cjm-to-be.md`, which stops being a trust feature and becomes the spine of the product.
+
+### The mechanic, and it was walked before it was asked about
+
+**On the live product the thing you win is a credit note, not a skin.** `research/docs/baseline-account.md` section 5, the founder's capture of 18 August 2026, called at the time "the most important screenshot in the set". The withdrawal screen prints the whole thing in four columns:
+
+| Skin | Your skin price | Market skin price | Your balance impact |
+|---|---|---|---|
+| M4A4 Desert-Strike, Field-Tested | `4.48` | `27.52` | **`-23.04`** |
+
+**The arithmetic closes exactly:** `27.52 − 4.48 = 23.04`. The founder's second capture, 23 August, is the same object with different numbers: `51.33 − 11.86 = 39.47`, on an M4A4 The Emperor whose Steam price reads `70.26` and whose purchasable copies read `-27%` against it.
+
+**The rule in the founder's own words, 23 August 2026:** the top-up is the difference between the value on the site and real trades on the market. **Confirmed in the same exchange: the number that settles is the price of a copy that can actually be bought, `51.33`, and not the Steam listing, `70.26`.** Those are two different figures and the gap between them is 27 percent of the item.
+
+### Why the gap is structural rather than a mistake
+
+**Prices inside a case are frozen at the moment the case was priced.** Re-pricing one item means re-pricing the case, which moves its entry cost, its expected value and **the value of every unwithdrawn copy in every inventory on the platform**. That is why re-pricing is rare, and it is a rational reason rather than an oversight.
+
+**The market moves daily.** So the lag is a property of the model, and it will not go away. **A thing that will not go away cannot be handled by hiding it.**
+
+### The choice was A or B and the node refused to make it
+
+`ia/docs/pages/withdrawal.md` section 0b.1, written 18 August 2026, put two options and marked the item **"the largest open item on this node"**, owner the founder, **"before stage 04 draws this node"**. Stage 04 drew it anyway and specified every figure against B by default, saying so on the page.
+
+| Option | What it means | What it costs |
+|---|---|---|
+| **A. Inherit and move it forward** | The won item stays a credit note and the settlement is disclosed **at the win and on the case page**, not at the checkout | The reveal carries a second number. Emotional Job 2 and design principle 2 both take the hit |
+| **B. Refuse it** | What you win is what you receive | **It rewrites the treasury model.** A business decision, and no row in this repository can take it |
+
+**The founder chose A on 23 August 2026.** The recommendation on the record was A and the reason it gave is the reason that holds: **B rewrites the economics, and A is what makes the trust positioning actually differentiated. We become the platform that names the gap before a person spends rather than at the till.**
+
+### The coin has two purchasing powers, and that is the sentence this decision exists for
+
+**Inside the product the coin is self-consistent.** Win at `11.86`, sell back for `11.86`. A closed economy, honest with itself.
+
+**At the exit it is not.** Taking the real M4A4 out costs `39.47` more. **The same coin buys about four times as much inside the product as it does on the way out.**
+
+`D-28` already said that a coin whose rate is not published is the abstraction `B7-1` describes. **What `D-91` adds is that the peg alone cannot express this.** "One coin is worth X" does not answer "what does it cost to take this item out". **Two statements are needed, not one**, and the second one is per item and moves daily.
+
+### Where it lands, and three of the four places already render both numbers
+
+**Nothing new is being invented. `A1` is being applied.** "Two prices, one item, live market price with a timestamp beside the exact chance at this entry cost" is **a pattern of 14, the best-supported row in the whole backlog.** It was written as an acquisition feature. It is the product's spine.
+
+| Surface | What arrives |
+|---|---|
+| `5.1` the item card | **The settlement line, in the slot the deleted receipt vacated.** The site price and `Starting at` have sat two rows apart since the card was drawn and nothing said what their difference meant |
+| `3.3` the case page | One signed figure for the case, and **the denomination of the expected value stated in words** |
+| `3.6` the outcome | One line under the receipt: credited at this, a copy costs that, sending it out settles the difference |
+| `5.3` the withdrawal | The baseline's four column table, plus the two things it lacks: **an as-of on the market price** and the float on each offer |
+
+### Three things this build refuses to smooth
+
+**The settlement goes both ways and every surface must be able to say so.** Four of the nine rows in the 18 August walk had a site price **above** the market start, which is money back rather than money owed. **A card that can only print a surcharge is wrong on nearly half its rows**, and the drawn grid now carries three of each and one of the third case.
+
+**No market is its own state and it is not a zero.** Two of the nine rows had no offers at all. With nothing to buy there is nothing to settle and no way out, so the line says that. **Printing `0.00` there would read as free.**
+
+**And the expected value is denominated in our coins, not in skins.** `3.3` prints a tested return of 94.2 percent and an expected value of 11.68 coins against an entry cost of 12.40. **Inside the coin economy that is true.** A person reading "tested return" does not know it is a return in coins rather than in items they can hold. **This build states the denomination in words and invents no second figure**, because the wording of what a return means is the founder's and this is the formulation offered for it, not a decision taken for them.
+
+### And it settles where `F2` lives, which `D-90` left open
+
+`D-90` deleted the win time value from the item card on the founder's instruction and could not say where the fact belonged, because the answer depended on a mechanic nobody had confirmed. **With the settlement confirmed, the rule falls out of it.**
+
+**One fact, stored once, on the round.**
+
+| Surface | Prints the win time value | Why |
+|---|---|---|
+| `5.9` the roll row, `7.1` the public result | **Yes** | They are about a round. What it returned, at the time, is the round's own record |
+| `5.1` the item card, `5.3` the withdrawal | **No** | They are about the item you hold now, and the settlement subtracts today's price from today's market |
+
+**On the withdrawal screen it was also a third number doing no work.** The record printed 22.15 as the win value beside 21.40 as our price today and 63.80 as the market. **Two of those three are being subtracted and the reader has no way to know which two.** A figure standing next to an arithmetic it is not part of is an invitation to do the wrong sum.
+
+### What is still open after this
+
+| Open | Owner |
+|---|---|
+| The per-case gap figure itself, its method and how often it is read | `0.11`, the published numbers register |
+| Whether "tested return" is renamed once the denomination is stated | Founder |
+| Whether `cjm-to-be.md` gains a settlement row, or whether `A1` and `B7-1` already carry it | The stage that reopens the backlog. **Nothing was retro-fitted here** |
