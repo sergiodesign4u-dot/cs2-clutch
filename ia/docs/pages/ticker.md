@@ -55,17 +55,21 @@
 |---|---|---|
 | **The tile body** | `7.1`, the shared result | Unchanged. **It is the checkable object**, which is the whole reason this component exists |
 | **The case**, in the hover layer | `3.3` | The feed is evidence that drops happen; the case is how a person acts on it |
-| **The avatar**, in the hover layer | A public profile | Section 0.5.5 |
+| **The avatar and the name**, in the hover layer | **`7.3`, the public profile**, since `D-90`, 23 August 2026. **Only where there is an account behind the name:** a bot is labelled and never linked | Section 0.5.5 |
 
 **Hover does not exist on a touch screen, and this node does not pretend otherwise.** On touch the tile has **exactly one destination, `7.1`**, and both other objects are on `7.1`, one tap further. **Nothing in this component is reachable only by hover**, which is the rule that keeps the two input models from being two products.
 
 **A nested target inside a link is not a link inside a link.** The tile is a container with three targets, not an anchor wrapping two more, and stage 04 builds it that way or the markup is invalid before it is inaccessible.
 
-### 0.5.5 The public profile has no node, and this is where that debt is recorded
+### 0.5.5 The public profile had no node, and the debt closed on 23 August 2026
 
-**`D-59` gives the avatar a destination the map does not hold.** `5.10` Profile is the account's own view of itself, `D-36`, and a public profile of another player is a different surface with different rules: what it shows, what an account can hide, and whether it exists at all before `A3`'s labelling requirement is enforceable.
+**`D-59` gave the avatar a destination the map did not hold.** `5.10` Profile is the account's own view of itself, `D-36`, and a public profile of another player is a different surface with different rules: what it shows, what an account can hide, and whether it exists at all before `A3`'s labelling requirement is enforceable. **It was carried as debt rather than invented here**, which is the same treatment `sitemap.md` gives the out-of-product notification channel, and until it existed the destination was `[?]` and stage 04 drew the target without a route, marked.
 
-**It is carried as debt rather than invented here**, which is the same treatment `sitemap.md` gives the out-of-product notification channel. **Until it exists, the avatar's destination is `[?]` and stage 04 draws the target without a route**, marked, rather than routing it somewhere convenient.
+**Closed by `D-90`, 23 August 2026. The destination is `7.3`.** The founder built the page, over `7.1` block 6's refusal, which is kept with its reason on that node rather than amended into agreement. **So the mark comes off every tile of every page**, because a mark left standing after its subject is fixed is the next false statement.
+
+**One of the three questions above is still not answered and it is not answered here either:** whether an account can hide the page. `7.3` renders that absence as a sentence and the owner is the founder. The tile does not read it and does not need to: **if the page is ever hideable, the link resolves into `7.3`'s own no-page-to-show state, `player-gone.html`**, which is drawn.
+
+**A bot does not get a link, and that is row `A3` rather than a convenience.** `A3` requires any bot present to be labelled as one, and **a bot has nothing this page could hold**: no account behind it, no record of what it won, no round anyone can recompute. So the avatar and the name are a link **only where there is an account behind them**, and on a labelled bot tile they are text. **A link to an empty page is the dead item defect with a person's name on it**, and `7.3`'s own section on this leaves open whether a labelled bot is the final answer.
 
 ---
 

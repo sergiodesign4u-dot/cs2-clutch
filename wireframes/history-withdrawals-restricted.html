@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History, withdrawals, account restricted</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- HISTORY, WITHDRAWALS, THE ACCOUNT IS RESTRICTED. D-90, and it is row G4 read
+     from the ledger's side.
+     G4, WORD FOR WORD: "a restriction produces written notice with a stated
+     ground, a frozen rather than zeroed balance, and an appeal with a published
+     response deadline". Parent barrier B8-3, a pattern of 3, three accounts
+     refused with no explanation. MVP. Its success signal is that every
+     restriction carries a ground in text and that the response stays inside the
+     published deadline.
+     THE SIDE MATTERS AND IT IS WHY THIS PAGE EXISTS. 5.6 states the restriction
+     on the withdrawal screen, which is where a person stands when they try to
+     take something out. This is where they stand afterwards, looking at the
+     record and asking whether the four withdrawals they already made are still
+     real. Without this state the ledger renders as an ordinary ledger while the
+     exit is shut, which is B8-3 in its purest form: the refusal exists and the
+     surface says nothing about it.
+     THE GROUND IS THE SAME TEXT AS 5.6 AND 5.7, NOT A SUMMARY OF IT. Copied
+     from withdraw-restricted.html and withdraw-restriction-upheld.html, which
+     already agree with each other word for word, with the same recorded stamp,
+     21 Aug 2026 08:02, and the same sentence saying the text is the person's to
+     copy. A ground restated in a second set of words is a second ground, and a
+     person who quotes the wrong one into a complaint is worse off than one who
+     was told nothing.
+     THE DEADLINE IS ABSENT AND THE ABSENCE IS RENDERED WITH ITS REASON. THIS IS
+     THE PART THAT HAS ALREADY BURNED THIS NODE ONCE. A draft of the withdrawals
+     ledger printed "our published ceiling is 48 h" and no such figure exists in
+     this repository: withdraw-clock.html renders every one of its ceilings as
+     not published, and withdraw-restricted.html prints, in the exact place this
+     page needs one, "Response deadline not available: it is owned by the support
+     node and is not set yet". So this page prints no number either. It prints the
+     hole, in wf-fig-missing, with who owns it. G4 asks for a published deadline,
+     the deadline is not published, and the honest rendering of that is the state
+     drawn before the number rather than a number drawn to fill the state.
+     THE APPEAL ROUTE IS LIVE EVEN THOUGH ITS DEADLINE IS NOT SET. The route and
+     the figure are two different obligations and only one of them is missing.
+     D-58: a control is never disabled to express a precondition, and the missing
+     deadline is a fact about our publishing, not about whether an appeal can be
+     opened.
+     THE LEDGER IS UNTOUCHED EXCEPT WHERE THE RESTRICTION ACTUALLY REACHES. Two
+     of the three rows are settled events, one accepted and one cancelled by the
+     person, and neither is a thing a later restriction can change. A ledger that
+     re-marked its finished rows because of something that happened afterwards
+     would be editing its own past, which is the rule this node states twice
+     already. Only the row still in flight moves, and it moves to held rather than
+     to failed.
+     AND THE HELD ROW REFUSES TO GUESS WHAT HAPPENS TO IT. 5.7 carries the
+     largest open item in the cluster on its face: what happens to the frozen
+     balance and the items held is not decided, and what is decided is that
+     neither is ever silently zeroed. So the row says nothing was sent, says who
+     is being waited on, and says the outcome is not decided. The renderer puts
+     plain text in the state cell, so that absence is carried in words there and
+     in wf-fig-missing in the notice above, where the markup is ours.
+     NO ETA ANYWHERE, unchanged from the base ledger. B8-2 is six people waiting
+     with hard figures and nobody telling them anything, and the answer to it was
+     never a fourth number.
+     THE FROZEN BALANCE IS NOT REPRINTED HERE. The account band above already
+     renders both money figures, and 5.6 renders them again with their marks. A
+     third rendering of the same two numbers on the same screen is how they start
+     disagreeing. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <!-- THE ACCOUNT BAND AND ITS TAB STRIP, D-84. Rendered by _nav.js like the
+         other carriers, because a strip that exists on one of four peers is a
+         dead end on the other three, and thirteen copies of one band is
+         thirteen places for it to drift. -->
+    <div class="wf-ah" data-acct-hero></div>
+
+    <h1>History</h1>
+    <!-- THE FOUR TABS, D-88 AND THEN D-89. The founder chose all four of the
+         baseline's after the argument for three was put and lost, and two days
+         later the four stopped being panels of one page and became four peer
+         pages. So this strip is now the same object as the account strip above
+         it: four links to four files, with the current one rendered as a span
+         rather than a link to where you already are, D-58. Built once in
+         _nav.js, because a strip that exists on one of four peers is a dead end
+         on the other three. -->
+    <div data-hist-tabs></div>
+
+    <!-- THE NOTICE, ABOVE THE LIST. It is a fact about the account rather than
+         about a row, and a person arriving here has already been refused
+         somewhere else and is looking for the reason in writing. -->
+    <div class="wf-notice">
+      <h2 id="h2-restricted">Withdrawals are stopped on this account</h2>
+      <p><strong>Your account is restricted while we look at a pattern of deposits made from three payment instruments that do not belong to the same person.</strong></p>
+      <p class="wf-fig-c">Recorded 21 Aug 2026 08:02. This text is yours to copy.</p>
+      <p class="wf-note">Nothing here is taken. The balance is frozen rather than emptied and the items you hold are still yours, and everything you have already sent to Steam is below and unchanged.</p>
+      <p class="wf-note wf-fig-missing">Response deadline not available: it is owned by the support node and is not set yet. We would rather say that than print a figure we have not committed to.</p>
+      <p class="wf-note wf-fig-missing">What happens to the frozen balance and the items held is not decided either. What is decided is that neither is ever silently zeroed, and that whatever happens is written down rather than found out.</p>
+      <div class="wf-row"><a class="wf-btn wf-btn--primary" href="support.html">Appeal this</a><a class="wf-btn" href="withdraw-restricted.html">The restriction</a></div>
+    </div>
+    <div data-hist-list="withdrawals"></div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+window.WF_ACCT = { active: 'history' };
+window.WF_HISTTAB = 'withdrawals';
+/* THE THREE ROWS OF history-withdrawals.html, WITH ONE FIELD SET CHANGED. The
+   two settled rows are byte for byte the base ledger's, because a restriction
+   recorded on 21 August cannot reach a withdrawal that finished on 18 August or
+   one the person cancelled on 12 August. The in-flight row is the only one the
+   restriction touches, and it becomes held rather than failed: nothing was sent,
+   nothing is lost, and the outcome is the open item 5.7 already prints. */
+window.WF_HIST = {
+  withdrawals: [
+    { when: '2026-08-21 15:02:11', what: 'AWP Asiimov, Field-Tested', worth: '61.40 coins', state: 'Held while the account is restricted', why: 'Nothing has been sent to Steam and nothing is lost. What happens to it is not decided while the restriction stands, and it is never taken quietly.', wait: 'Us', ours: 'wd-8813fa' },
+    { when: '2026-08-18 10:20:03', what: 'MP9 Rose Iron, Minimal Wear', worth: '1.86 coins', state: 'Accepted', why: 'Finished 14 m after it was sent.', wait: 'Nobody, it is done', ours: 'wd-87f2b1' },
+    { when: '2026-08-12 19:44:50', what: 'Glock-18 Water Elemental, Factory New', worth: '3.02 coins', state: 'Cancelled by you', wait: 'Nobody', ours: 'wd-87a90c' }
+  ]
+};
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

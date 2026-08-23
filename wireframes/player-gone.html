@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>This page is not available</title>
+  <meta name="description" content="There is nothing at this address to show.">
+  <meta name="robots" content="noindex, follow">
+  <!-- NO OG AND NO TWITTER CARD, AND THAT IS THE ONE PLACE THIS FILE DIVERGES
+       FROM result-gone.html RATHER THAN COPYING IT. On 7.1 the unfurl card is the
+       product: a result exists to travel and lands in a chat, so its gone state
+       inherits the card. A profile is not a share object. It carries a person's
+       name and a list of what they own, and 5.1 states the rule for exactly that
+       class of address: a pasted link to it must never unfurl into a chat. The
+       gone state does not get a card the live page is refused. -->
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 7.3, THE PUBLIC PROFILE. State: NO SUCH PAGE. Built 23 August 2026,
+     D-90, and it is 7.2's answer applied to a second object rather than a new
+     idea.
+     ONE RESPONSE FOR EVERY ARRIVAL, AND IT IS A PRIVACY DECISION RATHER THAN A
+     SHORTCUT. Four ways to land here: an id that never existed, an account that
+     was closed, an account that is restricted, and, if hiding is ever granted, an
+     account that has hidden itself. Telling them apart from outside is the whole
+     of the harm. "This account does not exist" and "this account is hidden" are
+     two different disclosures: run the first one against a list of ids and the
+     difference between the two responses enumerates every account on the product,
+     and run it against one name and it says whether that person is here at all.
+     So the page says neither, and it says out loud that it is saying neither,
+     because a reader who is not told we are withholding assumes we simply broke.
+     HTTP 404, NEVER 410 AND NEVER 200, the same as 7.2: 410 Gone states that the
+     resource existed, which leaks precisely the fact the one response was built
+     to withhold.
+     AND HIDING DOES NOT EXIST TODAY, WHICH IS THE REASON TO BUILD THIS NOW RATHER
+     THAN LATER. D-69's open half is still open and no account can turn its page
+     off, so today only three of the four arrivals are real. If the response were
+     built to fit only those three it would have to change on the day hiding
+     arrives, and a response that changes shape when a capability appears is a
+     response that announces the capability. One message, indistinguishable from
+     the start, costs nothing now and is the only version that survives the
+     decision either way.
+     WHAT THIS STATE DOES NOT GET, AND 7.2 DOES. There is no route to a verifier
+     here, because there is nothing on a profile a stranger holds the seeds for. A
+     dead result still leaves a round that can be checked by whoever sent the link;
+     a dead profile leaves nothing at all. Offering the verifier anyway would be a
+     route to a wall with a friendlier colour, which is the limit 7.2 admits rather
+     than glosses. So the two routes out are the ones the live profile carries, and
+     the primary is the one that answers where a person has landed. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+    <section class="wf-sec" aria-labelledby="h1-plr-gone">
+      <div class="wf-gone">
+        <h1 class="wf-gone-h" id="h1-plr-gone">This page is not available.</h1>
+        <p class="wf-empty-p">There may never have been an account at this address, or there may have been one that is no longer public. <strong>We do not say which</strong>, because answering that question for one address answers it for every address, and that is how a list of everyone here gets built from outside.</p>
+        <p class="wf-empty-p">Nothing on this page depends on it. <strong>A round is checked from the result it came from</strong>, not from the person who won it, so any result link you were sent still works and still carries its own proof.</p>
+        <div class="wf-row">
+          <a class="wf-btn wf-btn--primary" href="index.html">What this place is</a>
+          <a class="wf-btn" href="fair.html">How the proof works</a>
+        </div>
+        <!-- THE ROUTES ARE THE LIVE PROFILE'S PAIR, IN THE OTHER ORDER, AND THE
+             SWAP IS THE ONE CHOICE ON THIS PAGE. Section 1.6: one main action per
+             screen. On the live profile neither route is primary, because the page
+             has a subject and the routes are the way out of it. Here there is no
+             subject, so the page owes an answer to the only question the reader
+             now has, which is where they are. 7.2 makes its verifier primary for
+             the mirror reason: there, the reader still has something to check. -->
+        <p class="wf-note wf-fig-missing">What the address of a public page looks like is not decided, so whether a wrong one can be told from a real one before it is opened is not decided either</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: false, active: '' };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

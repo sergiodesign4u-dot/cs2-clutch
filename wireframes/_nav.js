@@ -269,7 +269,18 @@ window.WF_NAV = {
         { node: '5.9', label: 'Withdrawals',                  file: 'history-withdrawals.html',         status: 'built' },
         { node: '5.9', label: 'Withdrawals, none yet',        file: 'history-withdrawals-empty.html',   status: 'built' },
         { node: '5.9', label: 'Withdrawals, past our ceiling',file: 'history-withdrawals-overdue.html', status: 'built' },
-        { node: '5.9', label: 'Cash out, no subject',         file: 'history-cashout.html',             status: 'built' }
+        { node: '5.9', label: 'Cash out, no subject',         file: 'history-cashout.html',             status: 'built' },
+        // THE STATE SET WAS COMPLETED PER TAB ON 23 AUGUST 2026, D-90, on the
+        // founder's instruction that every tab carry its own states rather than
+        // the two money tabs carrying an empty each. Each of the three has a
+        // source already in this repository and none of them is a new subject:
+        // the unfinished open is the system message 5.10 already sends and had
+        // nowhere to land, the blocked deposit is 6.3 in force read from the
+        // ledger's side, and the restricted withdrawal is G4's written ground
+        // and appeal read from the same side.
+        { node: '5.9', label: 'An open that did not finish', file: 'history-unfinished.html',              status: 'built' },
+        { node: '5.9', label: 'Deposits, a boundary in force', file: 'history-deposits-blocked.html',      status: 'built' },
+        { node: '5.9', label: 'Withdrawals, account restricted', file: 'history-withdrawals-restricted.html', status: 'built' }
       ] },
 
     { node: '5.10', cluster: '5', name: 'Profile',              file: 'profile.html',    ia: 'profile.html',   status: 'built',
@@ -322,9 +333,47 @@ window.WF_NAV = {
         { label: 'Recomputed, mismatched', file: 'result-mismatched.html', status: 'built' },
         { label: 'Proof not available',    file: 'result-noproof.html',    status: 'built' },
         { node: '7.2', label: 'Result gone or private', file: 'result-gone.html', status: 'built' }
+      ] },
+
+    // BUILT 23 AUGUST 2026, D-90, AND IT IS A FOUNDER DECISION AGAINST THIS
+    // PROJECT'S OWN ARGUMENT. D-69 left two carriers holding opposite verdicts on
+    // one object for two days: 0.8 gave the feed's avatar a public profile as its
+    // destination and printed "no node yet" on every tile of every page, and 7.1
+    // block 6 refused a public profile outright because it would rebuild the
+    // trophy shelf that node was created to replace. The founder chose the first.
+    // THE REFUSAL IS NOT DELETED ANYWHERE. It lost, it did not turn out to be
+    // wrong, and it stays in 7.1's own comment with its reason. What answers it is
+    // built into every card: each one carries a route to its own round proof, and
+    // the page has no total, no rank and no tier on it.
+    // NO PARENT IN THE THREE LEGAL CLASSES, PRINTED ON THE PAGE. Same ground as
+    // 5.10 and 5.11 under D-36, same treatment as D-38: the empty parent is shown
+    // and no backlog row is retro-fitted into cjm-to-be.md.
+    { node: '7.3',  cluster: '7', name: 'Public profile',      file: 'player.html',     ia: 'public-profile.html', status: 'built',
+      base: 'A stranger reading it',
+      states: [
+        { node: '7.3', label: 'The owner reading their own', file: 'player-owner.html', status: 'built' },
+        { node: '7.3', label: 'Nothing won yet',             file: 'player-empty.html', status: 'built' },
+        { node: '7.3', label: 'No page to show',             file: 'player-gone.html',  status: 'built' }
       ] }
   ]
 };
+
+/* ONE ACCOUNT, ONE SOURCE, AND IT IS DECLARED BEFORE ANYTHING READS IT, D-90.
+   D-89 CLOSED THIS CLASS AND CLOSED IT ON ONE CARRIER OUT OF TWO. It found the
+   account band reading Spectacle and ID 953709 while the profile's own record
+   card read nightjar_cs and acc-7f3a91c4, fixed the band, wrote WF_WHO, and
+   declared the defect closed. The account MENU hanging off that same band went
+   on printing a hardcoded Spectacle, in its text and in the control's accessible
+   name, ON EVERY PAGE THAT CARRIES THE SHELL. Two decisions in a row say this
+   class is shut while it was live on seventy two pages.
+   IT WAS MISSED FOR THE REASON THE CLASS ALWAYS SURVIVES: the fix went where the
+   defect was seen rather than to every reader of the fact. The single source was
+   written and then declared halfway down the file, below the menu that needed it,
+   so the menu could not have used it even if the fix had looked.
+   IT IS DECLARED HERE, ABOVE THE FIRST READER, AND NOTHING ELSE MAY CARRY A NAME.
+   A page overrides it before _nav.js loads, which is how profile-steam-down states
+   that Steam cannot be read: one page, one override, one source still. */
+window.WF_WHO = window.WF_WHO || { name: 'nightjar_cs', id: 'acc-7f3a91c4', since: '12 Jan 2026' };
 
 (function () {
   var WF = window.WF_NAV;
@@ -738,14 +787,14 @@ window.WF_NAV = {
     // in, and that question is asked at the moment the menu opens, so the name moved
     // there. It stays in the accessible name here, so nothing is lost to a reader.
     btn.appendChild(el('span', 'wf-avatar'));
-    btn.setAttribute('aria-label', 'Account, Spectacle');
+    btn.setAttribute('aria-label', 'Account, ' + window.WF_WHO.name);
 
     var menu = el('div', 'wf-acct-menu');
     menu.id = 'wf-acct-menu';
     // WHICH ACCOUNT YOU ARE IN, ASKED AND ANSWERED WHERE IT IS ASKED, D-49. The name
     // left the persistent control and arrives here, at the moment a person opens the
     // menu, which is the moment the question exists.
-    menu.appendChild(el('div', 'wf-acct-who', 'Spectacle'));
+    menu.appendChild(el('div', 'wf-acct-who', window.WF_WHO.name));
     var nav = el('nav', null);
     nav.setAttribute('aria-label', 'Account');
     [['My items', 'account.html'], ['History', 'history.html'],
@@ -946,20 +995,32 @@ window.WF_NAV = {
     cs.appendChild(el('span', null, row[2]));
     pop.appendChild(cs);
 
-    // TARGET 3, THE WINNER. Field 5: the winner as the account chooses to
-    // appear, and an avatar is a way of appearing. ROW A3 IS UNCHANGED AND
-    // BINDS IT: no invented names, and any bot present labelled as one. A stock
-    // avatar over an invented account is A3 broken with a picture on top.
-    // IT IS A TARGET WITH NO ROUTE, MARKED. The destination is a public profile
-    // and the map has no node for it: 5.10 is the account's own view of itself.
-    // Drawn without a route rather than routed somewhere convenient, D-59.
+    // TARGET 3, THE WINNER, AND IT HAS A ROUTE SINCE 23 AUGUST 2026, D-90.
+    // Field 5: the winner as the account chooses to appear, and an avatar is a
+    // way of appearing. ROW A3 IS UNCHANGED AND BINDS IT: no invented names, and
+    // any bot present labelled as one. A stock avatar over an invented account
+    // is A3 broken with a picture on top.
+    // IT WAS A TARGET WITH NO ROUTE FOR TWO DAYS AND THE MARK IS NOW OFF. D-59
+    // drew the destination and printed "public profile: no node yet" on every
+    // tile of every page, because the map held no node for it and 5.10 is the
+    // account's own view of itself. The founder created 7.3 and the destination
+    // is real. The line that named the absence goes with the absence: a mark
+    // left standing after its subject is fixed is the next false statement.
+    // A BOT DOES NOT GET ONE. Row A3 requires a bot to be labelled, and a bot
+    // has nothing a public profile could hold, so the name is only a link where
+    // there is an account behind it.
     var who = el('div', 'wf-feed-who');
     who.appendChild(el('span', 'wf-feed-av'));
     who.lastChild.setAttribute('aria-hidden', 'true');
     var col = el('span');
-    col.appendChild(el('span', null, row[3] ? 'winner, as shown' : 'winner, as shown'));
-    if (row[3]) col.appendChild(el('span', 'wf-feed-bot', ' bot'));
-    col.appendChild(el('span', 'wf-feed-noroute', 'public profile: no node yet'));
+    if (row[3]) {
+      col.appendChild(el('span', null, 'winner, as shown'));
+      col.appendChild(el('span', 'wf-feed-bot', ' bot'));
+    } else {
+      var whoLink = el('a', 'wf-feed-whol', 'winner, as shown');
+      whoLink.href = BASE + 'player.html';
+      col.appendChild(whoLink);
+    }
     col.style.display = 'flex';
     col.style.flexDirection = 'column';
     who.appendChild(col);
@@ -1684,7 +1745,11 @@ window.WF_NAV = {
        // 0.2 names 2.2 as this row's transition, and 2.2 is a refusal state: it
        // is the right destination for a visitor who is refused and there is
        // nothing on the map for a visitor who is not. So the row keeps its label
-       // and loses its href, the same treatment the feed's avatar carries.
+       // and loses its href. It carried the feed's avatar treatment until
+       // 23 August 2026 and is now the only row in the product still carrying
+       // it: D-90 gave the avatar node 7.3 and took the mark off. This row's
+       // subject is a visitor who is NOT refused, and the map still holds
+       // nothing for it.
        ['Play responsibly', [['Responsible play', 'responsible.html'],
                              ['Where we operate', null]]]]
     ].forEach(function (track) {
@@ -2849,7 +2914,10 @@ window.WF_NAV = {
      defect class as the header reading 18.60 while the page read 130.60: two
      renderings of one fact with no shared source. Anything that prints identity
      reads this, and a page may override it once through WF_WHO. */
-  var WHO = window.WF_WHO || (window.WF_WHO = { name: 'nightjar_cs', id: 'acc-7f3a91c4', since: '12 Jan 2026' });
+  /* DECLARED AT THE TOP OF THIS FILE SINCE D-90, above the account menu that
+     also reads it. This line used to be the declaration and it sat below one of
+     its own readers, which is why the menu carried a hardcoded name for a day. */
+  var WHO = window.WF_WHO;
 
   var ACCT_TABS = [
     { key: 'items',    label: 'My items',     file: 'account.html' },

@@ -42,7 +42,10 @@ window.IA_NAV = [
   { node: '0.8', label: 'Live drop ticker',        file: 'ticker.html',     group: 'global', type: 'component',      states: 0, done: true  },
   // Registered by node 0.2 on 11 August 2026. A carrier may not promise a destination the map does not hold.
   // 0.9 holds four documents on one template. They are INCLUDES of one node, not four state nodes in the
-  // map, so `states` is 0: the hub's derived state total has to equal the 27 in ia/docs/sitemap.md.
+  // map, so `states` is 0: the hub's derived state total has to equal the state count in ia/docs/sitemap.md.
+  // Amended 23 August 2026: that sentence used to name 27 and the figure had already moved. The sitemap
+  // no longer types a state total at all, it derives one, and this comment names the rule rather than a
+  // number so it cannot rot a second time.
   { node: '0.9', label: 'Legal and policy pages',   file: 'legal.html',      group: 'global', type: 'page',           states: 0, done: true  },
   { node: '0.10', label: 'Support and contact',     file: 'support.html',    group: 'global', type: 'page',           states: 0, done: true  },
   // Registered by the global sweep on 12 August 2026. Not new surfaces: three are structures the nine
@@ -86,6 +89,12 @@ window.IA_NAV = [
 
   // Cluster 7. Tell someone.
   { node: '7.1', label: 'Public result',           file: 'public-result.html', group: 'pages', type: 'page',         states: 1, done: true  },
+  // Created 23 August 2026 by D-90. What one account has won, carried into a stranger's browser,
+  // every card holding a route to its own round proof and no total anywhere on the page. It exists
+  // against 7.1 block 6, which refuses a page of this shape because it would rebuild the trophy
+  // shelf that node was created to replace: a founder decision taken over this project's own
+  // argument, and the argument is kept with its reason rather than amended into agreement.
+  { node: '7.3', label: 'Public profile',          file: 'public-profile.html', group: 'pages', type: 'page',         states: 3, done: true  },
 ];
 
 (function () {

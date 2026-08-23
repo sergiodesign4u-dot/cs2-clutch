@@ -20,7 +20,7 @@
 
 **URL:** `/profile`. **Indexed:** no, `noindex, follow`. **Canonical:** self. **Schema:** none. **Breadcrumb:** none. **Not inherited, because `0.13` has no row for this node**; the finding and the shape of the three missing rows are in `history.md` section 8 and are not restated here.
 
-**Reached from:** the account menu, `0.1`, row 4. **Leads to:** `5.11` settings, `5.1`, `5.9`.
+**Reached from:** the account menu, `0.1`, row 4. **Leads to:** `5.11` settings, `5.1`, `5.9`, all three by the account band's tab strip since `D-90` deleted the button row, and **`7.3` the public profile** from block 4.
 
 **States specified inside this file:** none numbered.
 
@@ -94,6 +94,39 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 
 ---
 
+## 0.6 Amended again, 23 August 2026, by `D-90`. Three corrections, and one of them is a whole block leaving
+
+**The founder went through five screens in one sitting.** Two of the three changes here are defects the founder saw on the published page; the third is what `7.3` did to this node from outside it.
+
+### The three buttons go
+
+**Settings, My items and History sat at the foot of the record column**, and the account band at the top of this same page already renders a tab strip carrying exactly those three destinations, `D-84`. **Two carriers for one set of destinations, ten pixels of scrolling apart.** The founder saw no point in them and there is none. Block 5 above is struck rather than deleted, with the reason on the row.
+
+**Nothing is lost by it.** The three destinations are still on the page, in the carrier that owns them, and this node's own rule holds: no carrier holds another's kind.
+
+### Block 4 stops being true under either answer, because an answer was taken
+
+**`D-90` built `7.3`.** Block 4's third row said there is no page a stranger can reach that lists what this account has won, and **that sentence is false as of 23 August 2026.** It is corrected rather than removed, and the block's main action, see yourself as a stranger does, **now opens `7.3` in its owner state**, `player-owner.html`, rather than one of this account's own results.
+
+**The block's own paragraph said this would happen:** it stops being true the day one is taken, which is when this block is rewritten. **The day came, and rewriting it is the node keeping its word rather than a change of mind.**
+
+### The messages list is bounded, and only where the two columns exist
+
+**At 1000 and up the left column ends and the right one keeps going**, so an account with twenty messages made a profile page twenty messages long with a column of nothing beside the bottom half of it. **The list scrolls inside itself at that width.**
+
+**Below 1000 it does not.** The columns are stacked, so there is no mismatch to fix, and **a nested scroll region on a touch screen traps the page's own scroll.** That would be trading a real defect for a tidy one. Section 4 carries the rule.
+
+### What else changed in this file
+
+| Where | What happens to it |
+|---|---|
+| **Section 0, block table** | Block 5 struck with its reason. Block 4 renamed to what a stranger can see and given `7.3` as its action |
+| **Section 0, refusals** | **A public link to this page is still refused**, and the reason changed rather than went away: `7.3` is a different surface with a different field set, not a public form of `5.10` |
+| **Section 4, responsive** | The bound list, with the 1000px condition and the touch reason |
+| **Section 6, open items** | **The public profile row is closed.** What is left of it is narrower and it is not this node's: whether an account can hide `7.3`. Owner, the founder |
+
+---
+
 ## 0. What this page holds, and the test every row had to pass
 
 **The test:** is this a fact the product already holds, or a control that already exists elsewhere on the map. **Nothing else was allowed on**, per the orphan rule above.
@@ -103,11 +136,15 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 | **1** | **The identity band** | Avatar, display name, and the moment the account was created | The avatar and the name are on `0.1`'s account control and in `0.8`'s tile hover. The creation moment is a fact of the account | Yes |
 | **2** | **The Steam origin** | Which Steam account this was made from, and that sign in is Steam and nothing else | `2.4` row `B6`: no password anywhere outside Steam OpenID, and no profile changes requested | Yes |
 | **3** | **Your account id** | The identifier support and an appeal refer to | `0.10` section 3, whose appeal form carries the decision and the account | Yes |
-| **4** | **What is public about you** | One statement of what a stranger can see today, and what they cannot | `7.1` block 6, `D-69` | Partly |
-| **5** | **Routes** | Settings `5.11`, My items `5.1`, History `5.9` | The account menu already carries all three | No |
+| **4** | **What a stranger can see** | One statement of what a stranger can see today, and what they cannot, **and its main action opens `7.3` as the owner reads it**, `player-owner.html` | `7.1` block 6, `D-69`, and `7.3` since `D-90` | Partly |
+| ~~**5**~~ | ~~**Routes**~~ | ~~Settings `5.11`, My items `5.1`, History `5.9`~~ | **Deleted 23 August 2026 by `D-90`.** The account band at the top of this same page already renders a tab strip carrying exactly those three destinations, `D-84`. **Two carriers for one set of destinations, ten pixels of scrolling apart** | Gone |
 | **6** | Footer, `0.2` | Unchanged | `0.2` | No |
 
-**Block 4 is the only one that is not obviously a fact, and it is the one this page is worth having for.** `D-69` left the public profile `[?]` with two of our own decisions against each other: `0.8` gives the feed's avatar a destination and `7.1` block 6 refuses an owner profile outright, on the ground that it would rebuild the trophy shelf that node was created to replace. **A person cannot be told what is public about them by a product that has not decided**, so block 4 states exactly what is true today: **a shared result carries the display name and the avatar, and there is no page a stranger can reach that lists what this account has won.** That is a true sentence under either resolution of `D-69`, and it stops being true the day one is taken, which is when this block is rewritten.
+**Block 4 is the only one that is not obviously a fact, and it is the one this page is worth having for.** `D-69` left the public profile `[?]` with two of our own decisions against each other: `0.8` gives the feed's avatar a destination and `7.1` block 6 refuses an owner profile outright, on the ground that it would rebuild the trophy shelf that node was created to replace. **A person cannot be told what is public about them by a product that has not decided**, so block 4 stated exactly what was true at the time: a shared result carries the display name and the avatar, ~~and there is no page a stranger can reach that lists what this account has won~~.
+
+**The day arrived on 23 August 2026 and the block is rewritten, as this paragraph said it would be.** `D-90` built `7.3`, so the third row above is now false and is corrected: **there is a page a stranger can reach that lists what this account has won, it exists for every account, and it cannot be turned off.** The row says that, in those terms, because this is the page whose whole job is telling a person what we hold about them.
+
+**And the main action points at it.** "See yourself as a stranger does" opened one of this account's own results while there was nothing else to open. **It opens `7.3` now**, in the owner state, `player-owner.html`, which is the page a stranger reads with a band on top saying so and a route back here. The route to a single result is not lost: it is one card on that page and every other card carries the same route to its own round.
 
 ### What this page refuses, and every refusal is the orphan rule doing its job
 
@@ -115,7 +152,7 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 |---|---|
 | **Any counter: cases opened, best drop, days here, level** | The baseline runs three of these and every one reads `N/A`. **A counter is a score**, `0.11` rule 7, and `CLAUDE.md`'s limits rule binds the whole product. **This is the page where a level would be invented**, and it has no parent to invent it for |
 | **An avatar upload, a name change, a bio** | Each is a new capability with no row in `cjm-to-be.md`. The avatar and the name come from Steam, `B6`, and a product that lets them diverge from Steam has two names for one person |
-| **A public link to this page** | There is no public form of it. `D-69` is open, and a link to a page that does not exist is the dead item defect |
+| **A public link to this page** | **Still refused, and the reason changed rather than went away.** There is no public form of *this* page: `5.10` is the account's own record and `7.3` is a different surface with a different field set. **`D-90` closed `D-69` and did not merge the two.** What block 4 gains is a route to `7.3`, which is not a public link to `5.10` |
 | **The numeric public id** | Sequential, and a stranger can decrement it. Recorded in the baseline walk as a fact and refused here as a pattern |
 | **Anything about other accounts** | Friends, followers, comparisons. No parent, and the social jobs are carried by the ticker and by `7.1` |
 | **A settings control of any kind** | `5.11` owns settings. **A profile that quietly holds two toggles is settings with a different heading**, and the map already has one place for them |
@@ -162,7 +199,11 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 
 **Mobile 360, the base.** One column: the identity band, the Steam origin, the account id, what is public, the routes.
 
-**Desktop from 900.** The same single column held to a readable measure. **Nothing here becomes two columns**, because five short blocks in two columns is a dashboard, and this page is a record.
+~~**Desktop from 900.** The same single column held to a readable measure. **Nothing here becomes two columns**, because five short blocks in two columns is a dashboard, and this page is a record.~~ **Amended by `D-87`:** two columns from 1000, one column below it. A list that grows, beside a short record, is a reading surface.
+
+**Amended again 23 August 2026 by `D-90`: the messages list is bounded, and only where the two columns exist.** At 1000 and up this page is two columns: the daily card and the record on the left, the messages on the right. The left column ends and the right one keeps going, so **an account with twenty messages made a profile page twenty messages long**, with a column of nothing beside the bottom half of it. **The list scrolls inside itself at that width.**
+
+**Below 1000 it does not, and that is the whole of the rule rather than an omission.** The columns are stacked there, so there is no mismatch to fix, and **a nested scroll region on a touch screen traps the page's own scroll**: a finger that starts inside the list scrolls the list to its end instead of scrolling the page. That would be trading a real defect for a tidy one.
 
 - **The avatar is decorative and its accessible name is empty**, because the display name is beside it as text. An avatar with the name repeated into its alt text is the name announced twice.
 - **The account id is monospace, copyable, and never an image.** Same rule as the round hash and the ticket id: it exists to be pasted into a message to us.
@@ -189,7 +230,7 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 
 | Open item | What is missing | Owner |
 |---|---|---|
-| **Whether a public profile exists at all** | `D-69`, and it is two of our own decisions against each other rather than a gap: `0.8` gives the feed's avatar a destination and `7.1` refuses an owner profile. **Block 4 states what is true under either answer and is rewritten the day one is taken** | Founder, then a node |
+| ~~**Whether a public profile exists at all**~~ | **Closed 23 August 2026 by `D-90`.** It exists: node `7.3`, built over `7.1` block 6's refusal, which is kept with its reason. **Block 4 was rewritten the day the answer was taken, exactly as this row said it would be.** What replaces this row is narrower and it is not this node's: **whether an account can hide `7.3`.** There is no toggle and there will not be one until it is decided, `D-58`, so both `7.3` and this page render the absence as a sentence | Closed here. The remaining half sits on `7.3`, owner the founder |
 | **Whether a person can change their display name here** | Refused above as a new capability with no row. **If the answer is that they can, it is a backlog row first and a block second**, not the other way round | Founder, then `cjm-to-be.md` |
 | **The three register rows** | `0.13` has none for `5.9`, `5.10` or `5.11`. Shape in `history.md` section 8 | Node `0.13` |
 | **Whether this page survives its own orphan status** | **The honest question, asked here rather than left implicit.** It has no parent, it holds five facts, and three of them are one line each. `D-36` put it on the map because the founder said it would exist. **If it is cut, the account menu loses a row and the rule that put it there applies again in the other direction** | Founder |

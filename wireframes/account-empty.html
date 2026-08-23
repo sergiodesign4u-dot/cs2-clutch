@@ -63,7 +63,12 @@
     <div class="wf-inv">
       <div class="wf-stack">
         <div class="wf-sec-head">
-          <h2 id="h2-items">Items held</h2>
+          <!-- ID CORRECTED 23 AUGUST 2026, D-90. This page carried the id h2-items
+               on two headings, "Inventory" and "Items held". A duplicate id is
+               invalid, and any aria-labelledby or anchor pointing at it resolves
+               to whichever came first. Found by the agent rebuilding the card,
+               outside what it was asked to look at. -->
+          <h2 id="h2-held">Items held</h2>
         </div>
         <!-- NODE 5.2. TWO DIFFERENT PEOPLE ARRIVE HERE and the map names both:
              where every new account starts, and where a low-value first open

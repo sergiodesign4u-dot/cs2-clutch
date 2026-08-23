@@ -2511,6 +2511,10 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
    this stage draws the target and prints the absence rather than routing it
    somewhere convenient, D-59. */
 .wf-feed-noroute { font-size: 9px; color: var(--wf-ink-faint); font-style: italic; }
+/* THE WINNER'S NAME IS A LINK SINCE D-90 and it is the second target inside the
+   hover layer, so it is underlined rather than merely coloured: two live areas
+   in one small panel need to be told apart without a pointer on them. */
+.wf-feed-whol { color: var(--wf-ink); text-decoration: underline; }
 .wf-feed-bot { font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-faint); }
 
 
@@ -2991,20 +2995,30 @@ select {
    the receipt is read at the moment a person decides what to do with the item
    rather than on every tile of a grid nobody is reading yet.
    ============================================================================ */
-/* THE CARD IS ONE OBJECT AND THE ACTIONS ARE PART OF IT, D-89. The first build
-   floated a panel over the artwork box: it sat on top of the receipt line, it
-   pushed the item's own name below itself, and the founder's screenshot shows
-   exactly what that reads as. The baseline does something simpler and better.
-   THE COMPOSITION IS THE BASELINE'S, acct_inventory_item_actions.png: the tick
-   and the share on the top row, then the weapon, the skin, the wear and the
-   price, then the three acts, then the two market figures at the foot. The
-   artwork sits BEHIND all of it rather than above it in the flow.
-   THE ACTS RESERVE THEIR SPACE AND NEVER MOVE ANYTHING. visibility, not display:
-   a card that grows on hover shoves the row below it and a grid of them ripples.
-   At rest that reserved band is where the artwork shows through, which is what
-   makes the baseline's two states the same size. */
+/* THE CARD IS ONE OBJECT, THE PICTURE IS IN IT, AND THE ACTS ARE OVER IT, D-90.
+   THIS IS THE THIRD BUILD AND THE FIRST TWO ARE BOTH IN THE RECORD. Build one
+   floated a panel over the artwork box and covered the card's own tick, so a
+   person could open the acts and not be able to deselect the item under them.
+   Build two put the acts in the flow and RESERVED their band with visibility, so
+   the two states matched in height, and the price of that was a rectangle of
+   nothing on the face of every card at rest, with the skin's own picture pushed
+   to a background layer where grey renders it as nothing at all.
+   THE SKIN HAS A PICTURE NOW, and that is a defect closed rather than a taste
+   served. Field one of the canonical skin card 0.6 is the image. This grid had a
+   slot for it and put it behind the text, which in a grey wireframe is
+   indistinguishable from having no slot. It is in the flow now, after the name
+   and the price, at a fixed ratio, so a row of cards reads as a row of items.
+   NOTHING IS RESERVED AND NOTHING MOVES. The acts are absolutely positioned over
+   the card, so rest and hover are the same height BY CONSTRUCTION rather than by
+   measurement, and the space build two held empty is the picture instead.
+   THE TICK, THE SHARE AND THE MARKET FOOT STAY ABOVE THE DIM. Build one's defect
+   cannot return: those two rows are raised over the overlay rather than under it,
+   which is also what the founder's reference does. The dim darkens what is behind
+   them and never intercepts a press meant for them.
+   AND SELECTION IS STILL A TRIGGER, NOT ONLY HOVER, because hover does not exist
+   on a touch screen: the acts also open on :has(:checked) and on focus-within. */
 .wf-inv-card {
-  position: relative; isolation: isolate;
+  position: relative; isolation: isolate; overflow: hidden;
   display: flex; flex-direction: column; gap: 2px;
   padding: var(--wf-s-2);
   border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
@@ -3012,45 +3026,40 @@ select {
 }
 .wf-inv-card:hover, .wf-inv-card:focus-within { border-color: var(--wf-line); }
 .wf-inv-card:has(.wf-inv-pick input:checked) { border-color: var(--wf-ink-dim); }
-/* THE ARTWORK IS THE BACKGROUND OF THE WHOLE CARD, not a box in the column. In
-   grey it is still a slot with its size and nothing in it: what changed is which
-   layer it is on. Everything else in the card is raised one step above it. */
-.wf-inv-art {
-  position: absolute; inset: var(--wf-s-2); z-index: 0;
-  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
-}
-.wf-inv-card > *:not(.wf-inv-art) { position: relative; z-index: 1; }
-/* THE TOP ROW HOLDS BOTH CORNER CONTROLS AND IT IS A ROW, not two absolutes.
-   Absolutely positioned, the panel covered the card's own checkbox and a person
-   could open the actions and not be able to deselect the item under them. In
-   the flow that cannot happen again by construction. */
+/* THE TWO ROWS THAT ARE NEVER COVERED. Everything else in the card sits at the
+   default layer and the dim goes over it. */
+.wf-inv-top, .wf-inv-mkt { position: relative; z-index: 3; }
 .wf-inv-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--wf-s-1); min-height: 24px; }
 .wf-inv-pick input { width: 20px; height: 20px; margin: 0; display: block; }
-/* SHARE APPEARS WITH THE ACTIONS AND KEEPS ITS SPACE, so the top row does not
-   change height when it arrives. It is one of the actions on a held item, 7.1's
-   own object, and on the face of every card it competed with the tick. */
-.wf-inv-share { visibility: hidden; }
+/* SHARE IS ON THE FACE NOW. It was hidden until hover to keep the top row quiet;
+   with the acts off the face there is room, the reference shows it at rest, and a
+   control that appears only on hover is a control a touch screen never has. */
 .wf-inv-w { margin: var(--wf-s-1) 0 0; font-weight: 700; }
 .wf-inv-s { margin: 0; color: var(--wf-ink-dim); }
 .wf-inv-wear { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
-.wf-inv-p { margin: var(--wf-s-1) 0; font-family: var(--wf-mono); font-size: var(--wf-t-l); }
-/* THE WHOLE CARD IS THE TARGET, not the artwork inside it. A person moving a
-   pointer at a grid aims at the card, and making the picture the only live area
-   means the acts flicker on and off as the pointer crosses the name.
-   AND HOVER IS NOT THE MECHANISM, SELECTION IS: hover does not exist on a touch
-   screen, so the acts also open on :has(:checked) and on focus-within, which is
-   what the baseline's own "click on the item to select" describes. */
+.wf-inv-p { margin: var(--wf-s-half) 0 0; font-family: var(--wf-mono); font-size: var(--wf-t-l); }
+.wf-inv-art {
+  display: block; width: 100%; aspect-ratio: 4 / 3;
+  margin: var(--wf-s-1) 0 0;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
+}
 .wf-inv-acts {
-  display: flex; flex-direction: column; gap: var(--wf-s-half);
-  margin: var(--wf-s-1) 0; visibility: hidden;
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; flex-direction: column; justify-content: center; gap: var(--wf-s-1);
+  padding: var(--wf-s-2);
+  /* A LITERAL GREY, AND IT IS THE FOURTH SCRIM IN THIS FILE RATHER THAN A NEW
+     HABIT: the dialog, the drawer and the mobile panel all carry their own. It is
+     not one of the six named greys because it is a translucency and none of them
+     are. Stage 06 owns what this dim maps to, and this is the note that says so. */
+  background: rgba(20, 20, 20, 0.88);
+  visibility: hidden;
 }
 .wf-inv-card:hover .wf-inv-acts,
 .wf-inv-card:focus-within .wf-inv-acts,
-.wf-inv-card:has(.wf-inv-pick input:checked) .wf-inv-acts,
-.wf-inv-card:hover .wf-inv-share,
-.wf-inv-card:focus-within .wf-inv-share,
-.wf-inv-card:has(.wf-inv-pick input:checked) .wf-inv-share { visibility: visible; }
-.wf-inv-acts .wf-btn { width: 100%; }
+.wf-inv-card:has(.wf-inv-pick input:checked) .wf-inv-acts { visibility: visible; }
+/* THE LABEL NEVER WRAPS, D-52, so the padding gives instead of the label when the
+   column is narrow. */
+.wf-inv-acts .wf-btn { width: 100%; padding-inline: var(--wf-s-1); }
 /* A DISABLED CONTROL IS ONLY LEGAL WITH ITS REASON BESIDE IT. D-58 took every
    dead control off this product and a control that cannot move is the case it
    names first. Exchange stays by founder decision of 23 August 2026, so the
@@ -3058,13 +3067,14 @@ select {
    attribute. */
 .wf-inv-acts .wf-btn[disabled] { opacity: 0.45; cursor: not-allowed; }
 .wf-inv-why { margin: 0; font-size: 10px; color: var(--wf-ink-faint); text-align: center; }
-/* THE RECEIPT IS ON THE FACE OF THE CARD AGAIN AND IT IS ONE LINE. It went into
-   the hover panel to keep the face to five things; with the acts in the flow the
-   panel is gone and the line has nowhere else to be. It is what B7-1 asks for:
-   what this was worth at the moment it was won, dated, beside what it is worth
-   now, and no third number made out of the two. */
-.wf-inv-rec { margin: 0; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
-.wf-inv-rec b { font-family: var(--wf-mono); font-weight: 400; color: var(--wf-ink); }
+/* THE RECEIPT LINE IS GONE, BY FOUNDER DECISION OF 23 AUGUST 2026, D-90, AND THE
+   COST IS PRINTED RATHER THAN ABSORBED. "Won at 22.15, 18 Aug 2026 14:02" was row
+   F2, the instance value receipt persisting onto the item, and F2 is an MVP row of
+   cjm-to-be.md. The founder's ground is that the product will not hold that value
+   per item. What is NOT claimed here: that F2 is satisfied elsewhere by accident.
+   Its one remaining home is 5.9's roll row, which records what an open cost and
+   what it returned, and if that is also not stored then F2 has no home at all and
+   the row is dead rather than moved. Stated in D-90 as a question, not settled. */
 /* THE MARKET FOOT IS THE BASELINE'S TWO FIELDS AND ITS AS-OF IS SAID ONCE FOR THE
    WHOLE GRID rather than on every card. Gap A1 asks for a reference price with a
    moment attached; it does not ask for the same timestamp printed six times.
@@ -3146,10 +3156,18 @@ select {
 /* THE COLUMN COUNT IS SET BY THE CARD, NOT BY THE VIEWPORT. Three columns at 900
    gave each card 200px, and the receipt line inside the actions panel wrapped to a
    third line and clipped against the slot it sits in. A card has a width below
-   which its own contents stop fitting, and the grid stops before it. */
-@media (min-width: 600px) { .wf-grid--inv { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 1200px) { .wf-grid--inv { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (min-width: 1600px) { .wf-grid--inv { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+   which its own contents stop fitting, and the grid stops before it.
+   THE LIMIT MOVED IN WHEN ITS CAUSE WENT, D-90. The thing that set 1200 and 1600
+   was the receipt line inside the acts panel, and D-90 deleted both the receipt
+   and the panel. The remaining floor is the widest act label, "Send to Steam",
+   which does not wrap. MEASURED AT A 1000px VIEWPORT ON 23 AUGUST 2026: the label
+   is 100px, the button with the reduced inline padding above is 118px, and the
+   card's inner width at three columns is 199px. The first version of this comment
+   said 153 against 206 and called it measured; it was an estimate in the voice of
+   a measurement, and it reached five files before a browser was opened on it. */
+@media (min-width: 600px)  { .wf-grid--inv { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { .wf-grid--inv { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1400px) { .wf-grid--inv { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
 .wf-held {
   display: flex; flex-direction: column; gap: var(--wf-s-1);
@@ -4300,6 +4318,27 @@ textarea.wf-cfg-in { min-height: 0; }
 }
 .wf-lbar-acts { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
 .wf-msg-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
+/* THE LIST SCROLLS INSIDE ITSELF, AND ONLY WHERE THE TWO COLUMNS EXIST, D-90.
+   THE PAGE'S LENGTH WAS BEING SET BY HOWEVER MANY MESSAGES AN ACCOUNT HAPPENS TO
+   HAVE. At 1000 and up this page is two columns: the daily card and the record on
+   the left, the messages on the right. The left column ends and the right one
+   keeps going, so the page below the fold is one column of marketing with a
+   column of nothing beside it, and an account with twenty messages makes a
+   profile page twenty messages long.
+   BOUNDED HERE AND NOWHERE ELSE. Below 1000 the columns are stacked and there is
+   no mismatch to fix, and a nested scroll region on a touch screen traps the
+   page's own scroll, which is a defect traded for a tidy one. So the bound is
+   inside the same query that creates the two columns, and on a phone the list
+   runs at its full length exactly as it does now.
+   overscroll-behavior KEEPS THE PAGE STILL while the list is being read and lets
+   it move again the moment the list is at its end. */
+@media (min-width: 1000px) {
+  .wf-msg-list {
+    max-height: 46vh; min-height: 240px;
+    overflow-y: auto; overscroll-behavior: contain;
+    padding-right: var(--wf-s-2);
+  }
+}
 .wf-msg-i {
   display: flex; gap: var(--wf-s-2);
   padding: var(--wf-s-2) 0; border-top: 1px solid var(--wf-line-soft);
@@ -4480,3 +4519,68 @@ textarea.wf-cfg-in { min-height: 0; }
   transform: translate(-50%, -50%);
   width: max(100%, var(--wf-tap)); height: var(--wf-tap);
 }
+
+
+/* ============================================================================
+   NODE 7.3, THE PUBLIC PROFILE. BUILT 23 AUGUST 2026, D-90, AND IT SETTLES D-69
+   BY FOUNDER DECISION RATHER THAN BY ARGUMENT.
+   THE PRODUCT HELD TWO OPPOSITE VERDICTS ON THIS OBJECT FOR TWO DAYS. 0.8 gave
+   the feed's avatar a public profile as its destination and printed that no node
+   existed for it; 7.1 block 6 refused a public profile outright, on the ground
+   that it would rebuild the trophy shelf that node was created to replace. The
+   founder chose the first. The second is not deleted from the record and it is
+   not answered by being outvoted: what answers it is the one thing this build
+   does that the baseline's shelf does not.
+   EVERY TROPHY ON THE SHELF CARRIES A ROUTE TO ITS OWN PROOF. That is the whole
+   of the countermeasure and it is design principle 1 applied to a surface built
+   against the node's advice: the shelf exists, and nothing on it is a claim
+   rather than a record. A stranger reading it can check any line of it.
+   AND THERE IS NO TOTAL. No sum of what this account has won, no rank, no tier,
+   no position against anyone. D-25 rule 3 says a tier gives a case and nothing
+   else; the header money rule says two figures, never summed and never a score.
+   A shelf with a total at the top is a leaderboard with one row.
+   THE CARD IS 0.6 AND IT IS THE SAME COMPONENT THE INVENTORY RENDERS. Same
+   artwork slot, same weapon, skin, wear and value. What differs is what a
+   stranger may act on, which is nothing: no tick, no acts, no market foot.
+   ========================================================================= */
+.wf-plr { display: flex; flex-direction: column; gap: var(--wf-s-3); }
+.wf-plr-band {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-3);
+  padding: var(--wf-s-3);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+  background: var(--wf-surface);
+}
+.wf-plr-av {
+  width: 72px; height: 72px; flex: none;
+  border: 1px dashed var(--wf-line-soft); border-radius: 50%;
+}
+.wf-plr-who { display: flex; flex-direction: column; gap: var(--wf-s-half); min-width: 0; }
+.wf-plr-n { margin: 0; font-size: var(--wf-t-xl); line-height: 1.2; overflow-wrap: anywhere; }
+.wf-plr-id { font-family: var(--wf-mono); font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+/* ONE COUNTER, NOT THREE. The baseline's banner runs Cases, Case battles and
+   Gunfights and two of the three read N/A on the capture. Two modes that do not
+   exist, printed as empty numbers, is the dead item defect with a figure in it.
+   Round 1 has one mode, so the banner carries one count and says what is absent
+   underneath in words. */
+.wf-plr-stats { display: flex; flex-wrap: wrap; gap: var(--wf-s-3); margin-left: auto; }
+@media (max-width: 599px) { .wf-plr-stats { margin-left: 0; } }
+.wf-plr-stat { display: flex; flex-direction: column; gap: 2px; }
+.wf-plr-stat b { font-family: var(--wf-mono); font-weight: 400; font-size: var(--wf-t-l); }
+.wf-plr-stat span { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-plr-card {
+  position: relative;
+  display: flex; flex-direction: column; gap: 2px;
+  padding: var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+  background: var(--wf-surface); text-align: center;
+}
+.wf-plr-meta {
+  display: flex; justify-content: space-between; gap: var(--wf-s-1);
+  margin-top: var(--wf-s-1); padding-top: var(--wf-s-1);
+  border-top: 1px solid var(--wf-line-soft);
+  font-size: var(--wf-t-xs); color: var(--wf-ink-dim); text-align: left;
+}
+.wf-plr-meta b { display: block; font-family: var(--wf-mono); font-weight: 400; color: var(--wf-ink); }
+.wf-plr-meta span:last-child { text-align: right; }
+.wf-plr-check { margin-top: var(--wf-s-1); }
+.wf-plr-check .wf-btn { width: 100%; padding-inline: var(--wf-s-1); }

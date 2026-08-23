@@ -88,12 +88,43 @@
 | Page | What it is |
 |---|---|
 | `history.html` | Rolls, and the strip to the other three. Its three existing states are states of this tab and of nothing else |
+| **`history-unfinished.html`** | **An open that did not finish**, added by `D-90`, section 0.6 |
 | `history-deposits.html`, `-empty` | The payment ledger, `B4-3` |
+| **`history-deposits-blocked.html`** | **A boundary in force, read from the ledger's side**, added by `D-90`, section 0.6 |
 | `history-withdrawals.html`, `-empty` | The Steam ledger, `B8-2` |
-| **`history-withdrawals-overdue.html`** | **A row past our own published ceiling** |
-| `history-cashout.html` | The rendered absence |
+| **`history-withdrawals-overdue.html`** | **A row past our own published ceiling**, and the ceiling itself is `[?]`, section 0.5 |
+| **`history-withdrawals-restricted.html`** | **`G4`'s written ground and appeal, read from the ledger's side**, added by `D-90`, section 0.6 |
+| `history-cashout.html` | The rendered absence. **It gains no second state and section 0.6 says why** |
 
-**The overdue state is the one worth building, and the argument is one this project has already made.** `0.10` earned its place because a published deadline with no state for its own failure is a number nobody has to meet. **A withdrawal ceiling is the same object.** The page says we published 48 hours, this row is past it, it is our number and our failure, **and it was not the person's job to notice.**
+**The overdue state is the one worth building, and the argument is one this project has already made.** `0.10` earned its place because a published deadline with no state for its own failure is a number nobody has to meet. **A withdrawal ceiling is the same object.** The row is past our own published ceiling, it is our number and our failure, **and it was not the person's job to notice.**
+
+**Corrected 23 August 2026, and the correction is a number this node invented.** ~~The page says we published 48 hours~~ **is deleted: no such figure exists anywhere in this repository.** `withdraw-clock.html` renders every ceiling as `not published`, and `0.11` is the register that would own the figure if there were one. **Caught by the agent that built the new states**, in `history-withdrawals-overdue.html`, which had carried the same 48 and was corrected on 23 August to refuse the figure and print why it is absent. **The wireframe was fixed and the node that specifies it was not**, which is the drift this correction closes. **The ceiling is `[?]` until `0.11` publishes one**, and the overdue state renders the absence rather than a number.
+
+---
+
+## 0.6 Amended again, 23 August 2026, by `D-90`. Every tab gets its own state set, and none of the three states is a new subject
+
+**The founder: empty states and the rest, for all four tabs.** Three states were added and **each one already existed somewhere in this repository with nowhere to land.** That is the whole test they had to pass: a state this node invents is a capability entering through a side door, and none of these is.
+
+| State | File | Where it already existed |
+|---|---|---|
+| **An open that did not finish** | `history-unfinished.html` | `5.10` sends a system message saying exactly this and routes it to `history.html`, which had no state for it |
+| **Deposits, a boundary in force** | `history-deposits-blocked.html` | `6.3` in force, read from the ledger's side rather than from the limit's |
+| **Withdrawals, account restricted** | `history-withdrawals-restricted.html` | `G4`'s written ground and appeal, read from the ledger's side rather than from `5.6`'s |
+
+**The unfinished open carries this project's first principle in one sentence:** the round settled before the animation ran, **so an animation that stopped part way changed nothing about the outcome.** The row is complete and the page says so. That is design principle 1 rather than an apology for a dropped connection.
+
+**Neither of the other two re-words the ground it renders.** `5.6` owns the written ground and `6.1` owns the boundary; this page renders each from the ledger's side, with the route back to the node that holds it. **Two renderings of one ground is the defect `0.9` names**, and it is avoided here by pointing rather than repeating.
+
+### Cash out gains nothing, and that is correct
+
+**It is already a rendered absence**, `history-cashout.html`, it is the best-reasoned page in the set, and **a second empty state for a tab that is entirely empty would be a page about a page.** The tab has no rows because the capability behind it has no backlog row at all, `D-38`, and the absence names both readings of that. **An empty state for an empty tab would render the absence of the absence**, which describes nothing a person could act on.
+
+### One finding this node raises rather than fixes
+
+**One boundary, two renderings, and they disagree about whether the unit and the period are known.** `history-deposits.html` row 4 prints "Your deposit limit was 40.00 coins for the week", while `responsible-in-force.html` renders the same limit as "40.00 unit not set per period" with all four periods reading "Period not set". **The figure agrees and the two facts around it do not.**
+
+**It is recorded rather than fixed, for two reasons.** The wireframes belong to another agent who may still be in them, and **deciding whether the period is known is not a documentation call**: it is either a real gap in what `6.1` holds or a placeholder that outlived its state. **Owner: the founder**, with `6.1`. This node renders whichever answer comes back and does not pick one.
 
 ---
 
@@ -185,7 +216,9 @@ Composition from `blocks.md` section 3, **T2 listing with an empty state**, rows
 | **A row whose item has gone** | The row stays, the item field says sold back or withdrawn with its date | Section 0 |
 | **A row whose proof does not match** | Section 3 | Here |
 | **Guest** | Never rendered. This is an account's own record and there is no public form of it | `0.13`'s transactional zone |
-| **Boundary in force `6.3`, or a market closing `0.12`** | Unchanged, in full. **Reading your own record is never closed by a boundary**, the same rule `6.1` states about the exit | `6.1`, `markets.md` section 9 |
+| **Boundary in force `6.3`, or a market closing `0.12`** | **Reading your own record is never closed by a boundary**, the same rule `6.1` states about the exit. **Amended 23 August 2026 by `D-90`: the deposits tab renders the boundary rather than ignoring it**, `history-deposits-blocked.html`. The ledger stays fully readable and what the state adds is the notice that no new row can join it, read from the ledger's side rather than from the limit's | `6.1`, `markets.md` section 9, and section 0.6 |
+| **An open that did not finish**, the rolls tab | `history-unfinished.html`. The roll settled before the animation ran, so **an animation that stopped part way changed nothing about the outcome** and the row is complete. Its source is the system message `5.10` already sends, which had nowhere to land | Section 0.6, and `5.10` |
+| **Account restricted `5.6`**, the withdrawals tab | `history-withdrawals-restricted.html`. `G4`'s written ground and its appeal, read from the ledger's side rather than from `5.6`'s. The rows stay, the balance is frozen and never zeroed, and the ground is not re-worded here | Section 0.6, `5.6`, row `G4` |
 
 ---
 
@@ -230,13 +263,13 @@ Composition from `blocks.md` section 3, **T2 listing with an empty state**, rows
 
 **`0.13` has no row for `5.9`, `5.10` or `5.11`.** Its URL map lists fourteen addresses and its indexation register lists sixteen rows, and **none of them is one of the three nodes `D-36` added on 20 August.** The register's closing sentence, "nine indexed surfaces and six that are not", is a count taken before those nodes existed.
 
-**The URL above is derived from the register's own rules rather than invented:** no language prefix, and one destination carries one label in every carrier, which is the rule that produced `/my-items` and is stated in `0.13` section 2 as "not a styling choice". The account menu's label is Roll history, so the address is `/roll-history`.
+**The URL above is derived from the register's own rules rather than invented:** no language prefix, and one destination carries one label in every carrier, which is the rule that produced `/my-items` and is stated in `0.13` section 2 as "not a styling choice". ~~The account menu's label is Roll history, so the address is `/roll-history`.~~ **Corrected 23 August 2026: the label became History and the address became `/history`, `D-88` and section 0.4, and this section went on printing the old value.** The rule is unchanged and its output moved with the label. **The old value is kept struck rather than deleted**, the treatment `D-89` used on the settings node's equivalent self-contradiction, because the derivation is what this paragraph is for and a derivation with its input hidden proves nothing.
 
 **Recorded as a finding rather than fixed here**, `CLAUDE.md`: a node returns a contradiction against a register it consumes instead of editing it. **The shape of the three rows `0.13` needs:**
 
 | Node | URL | Indexed | Canonical | Schema | Breadcrumb |
 |---|---|---|---|---|---|
-| `5.9` Roll history | `/roll-history` | No | Self | None | None |
+| `5.9` History, ~~Roll history~~ | `/history`, ~~`/roll-history`~~ | No | Self | None | None |
 | `5.10` Profile | `/profile` | No | Self | None | None |
 | `5.11` Settings | `/settings` | No | Self | None | None |
 
@@ -254,5 +287,7 @@ Composition from `blocks.md` section 3, **T2 listing with an empty state**, rows
 | **Whether a roll can be hidden by its owner** | `7.1` publishes one round to a stranger with a link. Whether a person can keep a specific roll out of that is not decided anywhere, and this page is where they would do it | Founder, with `7.1` |
 | **What a row shows when the case itself is gone** | A case can be retired. The roll happened and the case page may not exist. **Named rather than assumed either way** | Node `3.1`, then here |
 | **The page size and what the pager is** | `blocks.md` T2 gives the shape and no number | Production |
+| **Whether the deposit boundary's unit and period are known** | Section 0.6. `history-deposits.html` renders "40.00 coins for the week" and `responsible-in-force.html` renders "40.00 unit not set per period" with every period reading `Period not set`. **One boundary, two renderings, disagreeing about what is known** | Founder, with `6.1` |
+| **The published withdrawal ceiling** | Section 0.5. The overdue state needs a figure to be past and **no figure exists in this repository**: `withdraw-clock.html` renders every ceiling as `not published`. It is `[?]` until `0.11` publishes one | Node `0.11`, then production |
 
 **And what belongs elsewhere.** The words: stage 05. How it looks: stages 06 and 07. The verifier itself: `1.2`. The proof component's anatomy: `0.14`. The public form of one round: `7.1`. The item's own record: `5.1`.

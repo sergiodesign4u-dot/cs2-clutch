@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History, deposits, a boundary in force</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- HISTORY, DEPOSITS, WITH A BOUNDARY IN FORCE. D-90, and it is node 6.3 read
+     from the ledger's side rather than from the limits page's side.
+     6.3 SAYS THIS STATE RENDERS IN FIVE PLACES AND NAMES FOUR OF THEM: the money
+     control opens to the limits, the deposit screen carries the ceiling reached,
+     the case screen renders the open control as closed with the boundary named,
+     and the footer is unchanged because a boundary is not an error state. The
+     payment ledger is where a person goes to find out what happened to their
+     money, so it is where a person inside a cool down goes to find out why no
+     payment is happening, and it was rendering as though nothing were in force.
+     THE FIGURES AND THE WORDING ARE responsible-in-force.html's, TAKEN RATHER
+     THAN RESTATED. Cool down, ends 25 Aug 2026 09:31, adding funds and opening
+     cases closed until then, cannot be shortened, extending it takes effect
+     immediately. Two pages rendering one boundary in two sets of words is the
+     defect this node has already paid for with the withdrawal ceiling: two
+     renderings of one fact, disagreeing, and nobody able to say which is the
+     product.
+     THE COOL DOWN IS NAMED AND THE SPEND CEILING IS NOT PRICED HERE, ON PURPOSE.
+     Both are in force on 6.3. The cool down is the one that closes adding funds
+     and the one with a stated end, so it is the one that answers "why not, and
+     until when". The ceiling's own figure renders on 6.3 as 40.00 with the unit
+     marked not set and every period marked not set, and reprinting a figure whose
+     unit and period are holes, next to a ledger row that says 40.00 coins for the
+     week, would put a contradiction on one page. The ceiling is named as set and
+     its numbers stay on the page that owns them.
+     AN END STATED AS A DATE AND A TIME. NEVER A COUNTDOWN. 6.3 refuses a live
+     countdown by name: a countdown is a clock a person comes back to watch, and
+     watching a boundary expire is engagement with a boundary. No elapsed time, no
+     days survived, no total not spent, no badge, no progress bar. CLAUDE.md binds
+     it at project level: a limit never acquires completion mechanics, streaks,
+     status or a session score.
+     AND NO CONTROL HERE REMOVES THE BOUNDARY. The only route out of the notice
+     goes to the limits page, where the direction asymmetry lives: tightening
+     takes effect immediately, loosening takes 24 hours, and a cool down cannot be
+     shortened at all. A "lift this now" control on the ledger would be the brake
+     with a release lever bolted to it, which is not a brake.
+     THE RECORD IS UNTOUCHED AND THAT IS THE OTHER HALF OF THE PAGE. All five
+     payments still render, the refused ones included. A boundary closes what
+     comes next; it never edits what already happened, and a ledger that hid its
+     rows while a limit ran would be unusable at exactly the moment B4-3 says it
+     is opened, which is when money has gone somewhere and nobody can say where.
+     THE DIFFERENCE FROM THE ROW BELOW IS STATED IN A SENTENCE RATHER THAN LEFT
+     TO BE INFERRED. history-deposits.html already carries a payment refused by
+     the person's own ceiling: one attempt, made, refused, recorded. This page is
+     the other thing, and the two are easy to confuse on a phone at the moment
+     someone is annoyed. Here no attempt can be made at all, so nothing will be
+     refused and no new row will appear, and a person watching for a row to
+     confirm the refusal would watch for ever.
+     AMOUNTS ARE IN COINS AND THE PANEL NOTE STILL SAYS WHAT THAT MEANS. The peg
+     is unpublished, so a row cannot be reconciled against a bank statement. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <!-- THE ACCOUNT BAND AND ITS TAB STRIP, D-84. Rendered by _nav.js like the
+         other carriers, because a strip that exists on one of four peers is a
+         dead end on the other three, and thirteen copies of one band is
+         thirteen places for it to drift. -->
+    <div class="wf-ah" data-acct-hero></div>
+
+    <h1>History</h1>
+    <!-- THE FOUR TABS, D-88 AND THEN D-89. The founder chose all four of the
+         baseline's after the argument for three was put and lost, and two days
+         later the four stopped being panels of one page and became four peer
+         pages. So this strip is now the same object as the account strip above
+         it: four links to four files, with the current one rendered as a span
+         rather than a link to where you already are, D-58. Built once in
+         _nav.js, because a strip that exists on one of four peers is a dead end
+         on the other three. -->
+    <div data-hist-tabs></div>
+
+    <!-- THE NOTICE, ABOVE THE LIST. Same placement as the overdue withdrawal:
+         a person who cannot pay in reads top down looking for the reason, and a
+         reason found under a five row table has been found too late. It is also
+         a fact about this whole tab rather than about one row, which is the test
+         that decides between here and inside a row. -->
+    <div class="wf-notice">
+      <h2 id="h2-blocked">You cannot add funds right now</h2>
+      <p><strong>A cool down you set is running, and it ends 25 Aug 2026, 09:31.</strong> Adding funds and opening cases are closed until then.</p>
+      <p class="wf-note">It cannot be shortened, and extending it takes effect immediately. A spend ceiling is set as well, and it is not what closed this.</p>
+      <p class="wf-note"><strong>This is not one payment being refused.</strong> Nothing can be paid in at all until the cool down ends, so no attempt is made, nothing is sent to your bank, and no new row appears here. The refused row below is the other thing: a payment that was made and turned down.</p>
+      <p class="wf-note">Taking what you hold out to Steam is open, and it stays open under every boundary here.</p>
+      <div class="wf-row"><a class="wf-btn" href="responsible-in-force.html">Your limits</a></div>
+    </div>
+    <div data-hist-list="deposits"></div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+window.WF_ACCT = { active: 'history' };
+window.WF_HISTTAB = 'deposits';
+/* THE SAME FIVE ROWS AS history-deposits.html, UNCHANGED AND IN THE SAME ORDER.
+   A boundary does not erase a record, and it does not rewrite one either: if a
+   row said something different on this page than on the base page, the ledger
+   would be two ledgers. The only thing this file adds is the notice above. */
+window.WF_HIST = {
+  deposits: [
+    { when: '2026-08-21 14:40:07', amount: '20.00 coins', method: 'Card', state: 'Declined', why: 'Your bank refused it. Nothing was charged.', ours: 'dep-4c19a0', theirs: '139949371' },
+    { when: '2026-08-18 09:12:55', amount: '50.00 coins', method: 'Card', state: 'Complete', ours: 'dep-4c0f72', theirs: '138596292' },
+    { when: '2026-08-14 21:03:18', amount: '25.00 coins', method: 'Crypto, ETH', state: 'Crediting', why: 'Waiting on the network to confirm it. Nothing is lost.', ours: 'dep-4bfe31', theirs: '0x7a3f91c4d80e2b7f5a3c19e6b1d4082f' },
+    { when: '2026-08-09 17:55:02', amount: '30.00 coins', method: 'Card', state: 'Refused by your own ceiling', why: 'Your deposit limit was 40.00 coins for the week and 30.00 of it was already used.', ours: 'dep-4bd004', theirs: 'not issued' },
+    { when: '2026-07-30 12:31:44', amount: '10.00 coins', method: 'Card', state: 'Complete', ours: 'dep-4b91cc', theirs: '135398919' }
+  ]
+};
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

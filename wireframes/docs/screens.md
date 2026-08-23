@@ -2261,3 +2261,148 @@ Stage 04 proposed **three** tabs and refused cash out because it has no subject 
 **Settings is a block per section with an icon slot, and the nineteen refusals move into the section they belong to.** The rule is unchanged: **a row whose subject does not exist carries no control at all, never a greyed one.** What changes is where the absence is stated, **so you meet it where you went looking for the control** rather than in a block at the end where a reader has already stopped.
 
 **The icon is a slot and not a placeholder:** the room an icon takes is a layout fact and it is decided at this stage.
+
+---
+
+## 64. `D-90`: node `7.3`, the public profile, four pages built against this project's own argument
+
+**Four pages created. 120 pages.** `player.html` and its three states, and the node is new: it did not exist on the map when this file was written.
+
+### The argument that lost, and it is not deleted anywhere
+
+`D-69` left two carriers holding opposite verdicts on one object for two days.
+
+| Carrier | Verdict |
+|---|---|
+| `0.8`, the live feed | **Has one.** `D-59` gave the avatar that destination and printed `public profile: no node yet` on every tile of every page |
+| `7.1`, block 6 | **Refuses one**, because adding it would rebuild the trophy shelf that node was created to replace |
+
+**The founder chose the first.** `7.1`'s refusal stays in that page's own comment, in the node and in `D-90`, with its reason attached. **It lost, it did not turn out to be wrong**, and the page it warned about is exactly what the baseline's own profile is: an inventory history, priced, with nothing on it a reader can check.
+
+### What answers the refusal is on every card, and it is the only reason this build is defensible
+
+**Every trophy carries a route to its own round proof.** The card is `0.6` with a stranger's field set: the picture, the weapon, the skin, the wear, one value, the case it came from, the date, and `Check this round`. **No tick, no acts, no market foot**, because a stranger owns nothing here and may act on nothing here.
+
+**And there is no total.** No sum, no rank, no tier, no position against anybody. `D-25` rule 3 gives a tier a case and nothing else, and the header money rule says two figures, never summed and never a score. **A shelf with a total at the top is a leaderboard with one row.**
+
+### Four things the baseline's own profile does that this one refuses, each rendered as a sentence
+
+| The baseline | Here |
+|---|---|
+| Three counters in the banner, two of them reading `N/A` | **One counter.** Two modes that do not exist rendered as empty figures is the dead item defect with a number in it, so the absence of the other modes is a row of prose |
+| The display name printed again under the avatar | **Printed once.** Two renderings of one fact is how this project got a profile whose band and card disagreed about whose account it was |
+| The account's own six digit id, in public | **A different value, and its format is `[?]`.** The id on `5.10` is what support and an appeal refer to, and a six digit number a reader can decrement makes the registered account total readable from outside. The node recommends opaque |
+| Indexable | **`noindex, follow`.** `7.1` is noindex because indexing one object is pointless. **This page is noindex because it is about a person**, and letting a crawler hold a list of what somebody owns is a publication decision nobody made |
+
+### The shelf is not the inventory, and the page says so
+
+**An item sent to Steam or sold back for coins leaves the account and stays on this page**, because what happened happened. A shelf that empties when a person cashes out is a shelf reporting current wealth, which is the score this page has already refused once.
+
+### The open half of `D-69` moved and got sharper, and it is rendered where the person it concerns reads it
+
+`D-69` closed how an account appears and left this: **whether they can turn it off.** That was abstract while the only public surface was a shared result. **It is not abstract now: there is a page listing everything this account has won, it exists for every account, and it cannot be turned off.**
+
+**There is no toggle and there will not be one until it is decided**, `D-58`. So both `7.3` and `5.10` carry the absence as a sentence. On the owner state it is the longer one, because the owner is the person who would look for the setting: it says there is none here, none in Settings, and that none will be drawn until the question is answered. **Owner: the founder.**
+
+### The three states, and what each one is for
+
+| Page | State | What it holds |
+|---|---|---|
+| `player.html` | **A stranger reading it** | The banner, the shelf, the four limits, the two routes out that `7.1` carries and for the same reason: no account, no age declaration, no market check, so nothing here starts a purchase |
+| `player-owner.html` | **The owner reading their own** | The same page plus `Back to your profile`, and the long form of the cannot-be-hidden sentence |
+| `player-empty.html` | **Nothing won yet** | A shelf with no rows. The account exists and has opened nothing, which is a different sentence from an account that has won and cashed out |
+| `player-gone.html` | **No page to show** | One heading and a way out. It carries no name and no id, because a page that says which account is missing has answered the question it refused |
+
+### The orphan cell is printed on the page
+
+**`7.3` has no parent in the three legal classes:** not a barrier from the As-Is map, not a job in `jtbd.md`, not a compliance constraint or a design principle. **The founder asked for it directly**, which is the ground `D-36` put `5.10` and `5.11` on, and the treatment is `D-38`'s: **the empty parent is shown and no backlog row is retro-fitted into `cjm-to-be.md`.**
+
+---
+
+## 65. `D-90`: node `5.10`, two founder corrections, and one of them is a page whose length was set by a list
+
+**Two pages touched, none created.** `profile.html` and its two states read the same rule from `_wf.css`.
+
+### Three buttons go, and the carrier above them already held all three destinations
+
+**Settings, My items and History sat at the foot of the record column.** The account band at the top of the same page renders a tab strip carrying exactly those three. **Two carriers for one set of destinations, ten pixels of scrolling apart**, which is the same defect class as `5.11`'s nineteen refusals in a footnote read from the other end: not a missing thing, a thing in the wrong layer. The founder saw no point in them and there is none.
+
+### The main action is repointed, and the thing it was standing in for now exists
+
+**`See yourself as a stranger does` opened `result-owner.html`.** `D-89` shipped it that way deliberately, because whether a public profile existed was open and the route was right under either answer. **`D-90` answered it**, so the control opens `player-owner.html` and the page's job, letting a person find out what we hold about them by showing rather than telling, is done by the surface that actually holds it.
+
+### The messages list is bounded, and only where the two columns exist
+
+**At 1000 and up this page is two columns:** the daily card and the record on the left, the messages on the right. The left column ends and the right one keeps going, so **an account with twenty messages made a profile page twenty messages long**, with a column of nothing beside the bottom half of it.
+
+**The list scrolls inside itself at that width and nowhere else.** `max-height: 46vh`, `min-height: 240px`, `overscroll-behavior: contain` so the page stays still while the list is being read and moves again the moment the list is at its end. **Below 1000 the rule does not apply**, because the columns are stacked and there is nothing to fix, **and a nested scroll region on a touch screen traps the page's own scroll**: that would be trading a real defect for a tidy one. The bound sits inside the same query that creates the two columns, so the two can never come apart.
+
+---
+
+## 66. `D-90`: node `5.9`, three states added, and every tab now has its own set
+
+**Three pages created.** `history-unfinished.html`, `history-deposits-blocked.html`, `history-withdrawals-restricted.html`.
+
+**`D-89` made the four tabs four pages and gave two of them an empty each.** The founder asked for the rest. **None of the three is a new subject:** each one already existed somewhere in this repository with nowhere to land.
+
+| State | Where it already existed | What the page says |
+|---|---|---|
+| **An open that did not finish** | `5.10` sends a system message saying exactly this and routes it to `history.html`, which had no state for it | Nothing is half done and nothing needs opening again. **One round, one outcome, and you already have it** |
+| **Deposits, a boundary in force** | `6.3` in force, read from the ledger's side rather than from the limit's | The boundary cannot be shortened and extending it takes effect immediately. **Taking what you hold out to Steam stays open under every boundary here** |
+| **Withdrawals, account restricted** | `G4`'s written ground and appeal, read from the ledger's side rather than from `5.6`'s | Nothing is taken. **The balance is frozen rather than emptied**, the items are still yours, and what has already been sent to Steam is below and unchanged |
+
+**The unfinished open carries this project's first principle in one sentence:** the round settled before the animation ran, so an animation that stopped part way changed nothing about the outcome. **That is the whole answer to a person who closed the tab mid reveal**, and it is the sentence a support ticket would otherwise have to carry.
+
+**Cash out gains nothing and that is correct.** It is already a rendered absence, and a second empty state for a tab that is entirely empty would be a page about a page.
+
+---
+
+## 67. `D-90`: node `5.1`, the third build of the inventory card, and an MVP row deleted from the surface
+
+**Three pages touched, none created.** The change is in `_wf.css` and lands on `account.html`, `account-empty.html` and `account-degraded.html` at once.
+
+### The two builds before it are both in the record, with what each one cost
+
+| Build | What it did | What it cost |
+|---|---|---|
+| **One** | A panel floated over the artwork | **It covered the card's own tick**, so a person could open the acts and not be able to deselect the item under them. Raised with a `z-index` |
+| **Two** | The acts in the flow, their band reserved with `visibility` | The two states matched in height, and the price was **a rectangle of nothing on the face of every card at rest**, with the skin's picture pushed to a background layer where grey renders it as nothing at all |
+| **Three** | The picture in the flow, the acts absolute over the whole card with a dim | Rest and hover are the same height **by construction rather than by measurement** |
+
+### The picture is a defect closed, not a taste served
+
+**Field one of the canonical skin card `0.6` is the image.** The grid had a slot and put it behind the text, **which in a grey wireframe cannot be told apart from having no slot.** It is in the flow now, after the name and the price, at 4 by 3, so a row of cards reads as a row of items.
+
+### The dim, and why build one's defect cannot come back
+
+**The acts are `position: absolute; inset: 0` with a translucent grey over the card.** The tick, the share and the market foot are raised above the dim, so the overlay darkens what is behind them and never intercepts a press meant for them. **Selection is still a trigger and not only hover**, because hover does not exist on a touch screen: `:hover`, `:focus-within` and `:has(:checked)` all open it.
+
+**And the dim is the fourth scrim in this file rather than a new habit:** the dialog, the drawer and the mobile panel each carry their own. It is not one of the six named greys because it is a translucency and none of them are, and stage 06 owns what it maps to.
+
+### The grid got denser because the thing that limited it went away
+
+**Three columns waited until 1200 and four until 1600**, because the receipt line inside the actions panel wrapped and clipped. With the receipt and the panel both gone, **the remaining floor is the widest label that may not wrap, `Send to Steam`: the label measures 100px, the button with this change's reduced inline padding measures 118px, and the card's inner width at three columns from 1000 is 199px. Measured at a 1000px viewport on 23 August 2026, and the 153px against 206px this paragraph carried first was an estimate written as a measurement.** So the grid is one from 360, two from 600, **three from 1000 and four from 1400.** Measured, not assumed.
+
+### The receipt line is an MVP row, and it was deleted rather than moved
+
+**`Won at 64.80, 17 Aug 2026 22:11` is row `F2`**, the instance value receipt persisting onto the item, and `F2` is an MVP row of `cjm-to-be.md`. **The founder's ground is that the product will not hold that value per item.** It is not a decoration that came off, it is a capability that came off, and this file records the difference rather than the tidier version of it.
+
+**What is not claimed: that `F2` is satisfied somewhere else by accident.** Its one remaining home is `5.9`'s roll row, which records what an open cost and what it returned. **So the question that decides whether the row is moved or dead is narrow and it is still open:** if the refusal is to the per-item copy, `F2` lives on the roll and the card stops repeating it; **if the refusal is to retaining the value at the moment of the win at all, `5.9`'s returned column dies with it and `F2` has no home anywhere.**
+
+**Nothing was retro-fitted.** `cjm-to-be.md` still reads 40 MVP rows over 39 capabilities and `F2` is still one of them, carrying the open question. **The same treatment `D-38` set: the cost is printed, not absorbed.**
+
+---
+
+## 68. `D-90`: the fourth instance of two renderings of one fact, on pages this decision was not about
+
+**Six pages touched, none created.** `result.html` and its five states.
+
+**The result pages called this account `Nightjar`.** Everything else in the prototype calls it `nightjar_cs`: `WF_WHO` in `_nav.js`, the account band on every signed-in page, and now `7.3`. **`result-owner.html` is the owner state of those pages**, so it was the same account with two names, on two surfaces a person reaches from each other.
+
+**Three earlier instances, and the mechanism is identical every time:** the header reading 18.60 for the value of items held while the page read 130.60; the profile band reading `Spectacle` and `ID 953709` while its own record card read `nightjar_cs` and `acc-7f3a91c4`; and the deposit figures. **Two renderings of one fact with no shared source, and the second one drifts because nothing makes it move.**
+
+**Fixed by pointing the result pages at the name the rest of the product already uses.** The only occurrences of the old string left in this repository are the two comment lines in `result.html` that record what it was, **because a name that was wrong on a published page is not deleted quietly.**
+
+**And writing the corpus-wide assertion down and running it found a fifth instance, on pages no founder review had reached.** The account menu, rendered from `_nav.js` on **all 72 signed-in pages**, prints `Spectacle` in the menu and `Account, Spectacle` as the control's accessible name, **while `WF_WHO.name` and the account band on the same page read `nightjar_cs`.** `D-89` closed this class by making `WF_WHO` the one source and **the fix reached the band and never reached the menu that hangs off it.** `profile-steam-down.html` gets a third reading, because it overrides `WF_WHO` to `Name unavailable` and its menu goes on naming an account its own card says is unreadable. **Recorded in `critique.md` section 9 as 9.8, and fixed the same day.** The literal is gone from both places and **`window.WF_WHO` is now declared at the top of `_nav.js`, above its first reader**, which is the actual mechanism: **the single source had been declared below the function that renders the menu**, so the menu could not have used the `D-89` fix even if it had been looked at. **A single source declared under one of its own readers is not a single source, it is a second one with a better name.** Verified over all 120 pages: 72 carry the menu, **0 disagree with their own `WF_WHO`**, and `profile-steam-down.html`'s override still resolves, which is the test that the source is single rather than merely uniform. **The cost is not deleted by the fix:** two decisions in a row state this class is shut, and it was live on 72 pages while both were being written.
+
+**Measured after `D-90`:** 120 registry entries against 121 html files in `wireframes/`, the difference being `overview.html`, which is the hub and not a screen. **The 23 pages this decision touched or created were opened at 360 and 1440**, forty six loads: no horizontal scroll, one H1 each, no console error, no element carrying `[hidden]` still rendering, and no occurrence of `Nightjar` in any rendered text on any of them.

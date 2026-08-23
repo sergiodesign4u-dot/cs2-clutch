@@ -4,7 +4,7 @@
 
 **URL:** `/my-items`, from `0.13`. **Indexed:** no. **Schema:** none. **Breadcrumb:** none. All four inherited from the indexation register, section 3, and not re-derived here.
 
-**Purpose.** Show what the person actually holds, with every item carrying the receipt that makes the win checkable a week later, the money in the two figures the header already uses, and the one route out of the product.
+**Purpose.** Show what the person actually holds, ~~with every item carrying the receipt that makes the win checkable a week later~~ **struck 23 August 2026 by `D-90`, section 0.7**, the money in the two figures the header already uses, and the one route out of the product.
 
 **Jobs served.** Related Job 5, withdraw and get what I earned, `jtbd.md`. **Parent class:** barrier `B7-1`, the win that turned out to be worth less than it looked, pattern of 7, by way of rows `B7` and `F2`; and barrier `B8-4`, verification ambushes at the exit, pattern of 5, by way of row `B1`, which resolved the check before funding so that nothing on this page has to ask for it. **`D-26` parked `B1` with `2.7` and this page is unaffected either way:** it asks for nothing now because there is nothing to ask for, and it asks for nothing later because the layer that returns stands before withdrawal rather than on an inventory page. Every block below names its own parent.
 
@@ -34,7 +34,7 @@
 | **A visible breadcrumb, and this contradicts the indexation register** | Section 0 above inherits "Breadcrumb: none" from `0.13`. The baseline runs `HOME / MY ACCOUNT / INVENTORY` and the founder asked for it. It ships **as wayfinding with no `BreadcrumbList` schema**, which keeps the schema half of `0.13`'s row true and leaves the visible half false. **`0.13` owes a corrected row and this node cannot write it** |
 | **The summary column is gone** | It carried the money the band now carries, wrapped one button in three paragraphs, and squeezed the grid it stood beside. The limits survive as one line above the set, which is what `G5` asks for: a limit met before the route runs rather than discovered inside it. The rest lives on `5.3`, which owns it |
 | **The card is rebuilt on the baseline's shape**: artwork, weapon, skin, wear in parentheses, one price, then `Starting at` and `Offers` | Section 2 gave every card two timestamped figures and a holding line. In a grid of them that is a table with pictures, not an inventory. **The live card is read at a glance and ours had to be read** |
-| **The receipt moves into the actions panel**, and section 2's rule that the two figures are never merged is untouched | `F2` and barrier `B7-1` are the whole reason this node exists, so the receipt is not cut. `B7-1` is retrospective by nature, a number that stopped being true, **so the receipt is read at the moment a person decides what to do with the item** rather than on every tile of a grid nobody is reading yet |
+| ~~**The receipt moves into the actions panel**, and section 2's rule that the two figures are never merged is untouched~~ **Struck 23 August 2026 by `D-90`: the receipt is deleted, section 0.7** | The argument is kept because it was right about where a retrospective number is read: `B7-1` is a number that stopped being true, **so the receipt was read at the moment a person decides what to do with the item** rather than on every tile of a grid nobody is reading yet. **What removed it is a founder decision about what the product stores, not a placement argument that beat this one** |
 | **Three actions per item, revealed by selection and by hover over the whole card** | The baseline's own instruction is "click on the item to select", and selecting a card is what reveals its actions. **Hover is the desktop shortcut, never the mechanism**: it does not exist on a touch screen, so the panel also opens on `:has(:checked)` and on focus |
 | **A permanent selection bar, counting and summing what is ticked** | It first shipped hidden until something was selected, on the argument that a bar saying nothing is furniture. **That argument missed what the bar is for: it is where a person learns the exits exist.** Hidden, the four exits are invisible to anyone who has not already guessed items are selectable. With nothing ticked the actions are unavailable and the bar says so, which is a state of a working control rather than the dead control `D-58` forbids |
 | **Sorting is back, four keys, and section 4 is reversed narrowly** | Section 4 refused sorting because an inventory is bounded by what one person opened. **Sorting is not filtering**: a sort reorders the same set, so it cannot manufacture the second empty state with no parent that section 4 was actually protecting against. A filter would, and there is still none |
@@ -55,9 +55,9 @@
 | What changed | Why |
 |---|---|
 | **The artwork is the background of the whole card**, not a box in the column | It is what lets the acts sit in the flow without the card growing |
-| **The acts reserve their space with `visibility`, not `display`** | A card that grows on hover shoves the row below it and a grid of them ripples. **At rest that reserved band is where the artwork shows through**, which is why the live product's two states are the same size |
-| **The tick and the share are in the flow, not absolutely positioned** | The previous build had to raise them above the panel because the panel covered the card's own checkbox. **In the flow that cannot recur**, which is a better fix than the one that worked |
-| **The receipt line is back on the face of the card** | It went into the panel to keep the face to five things. With the panel gone it has nowhere else to be, and it is exactly what `B7-1` asks for: what this was worth when it was won, dated, beside what it is worth now, and no third number made out of the two |
+| ~~**The acts reserve their space with `visibility`, not `display`**~~ **Superseded by `D-90`, section 0.7: the acts are absolute over a dim and nothing is reserved** | The requirement it was written for survives and is met a better way. A card that grows on hover shoves the row below it and a grid of them ripples, **so the two states are the same height by construction rather than by measurement**, and the band this row held empty is the picture instead |
+| ~~**The tick and the share are in the flow, not absolutely positioned**~~ **Superseded by `D-90`, section 0.7** | The defect it closed is closed a third way and stays closed: **the tick, the share and the market foot are raised above the dim**, so the overlay darkens what is behind them and never intercepts a press meant for them. Build one covered the card's own checkbox; **a person may always deselect the item they selected** |
+| ~~**The receipt line is back on the face of the card**~~ **Deleted 23 August 2026 by founder decision, `D-90`, and it is row `F2` leaving rather than a line leaving. Section 0.7** | The argument is kept intact: it is exactly what `B7-1` asks for, what this was worth when it was won, dated, beside what it is worth now, and no third number made out of the two. **What overrode it is a decision about what the product stores**, and the open question that decision leaves is printed in section 0.7 rather than resolved here |
 
 ### The sort, and why a `select` was the wrong control
 
@@ -69,13 +69,68 @@
 
 ---
 
+## 0.7 Amended a third time, 23 August 2026, by `D-90`. The card's third build, and an MVP row is deleted
+
+**The founder, on build two: where is the skin's picture, and put the hover over everything with a dim.** Two instructions, and the second one reverses a rule this file wrote a few hours earlier. **Both earlier builds stay in the record**, because each one was a fix for a real defect and each one bought a new one.
+
+| Build | What it did | What it cost |
+|---|---|---|
+| **One** | Floated a panel over the artwork | **Covered the card's own tick**, so a person could open the actions and not be able to deselect the item under them |
+| **Two** | Put the actions in the flow and reserved their band with `visibility` | The two states became the same height, and it cost **a rectangle of nothing on the face of every card at rest**, with the skin's picture pushed to a background layer where grey renders it as nothing at all |
+| **Three, this one** | Picture in the flow, actions absolute over a dim, the controls raised above the dim | Section below |
+
+### The picture is a defect closed, not a taste served
+
+**Field one of the canonical skin card `0.6` is the image.** The grid had a slot for it and rendered it behind the text, **which in a grey wireframe cannot be told apart from having no slot at all.** It is in the flow now, after the name and the price, at a fixed ratio. **This is `0.6` being rendered rather than `5.1` adding a field**, and the rule in section 2 holds: no context adds a field the others do not have.
+
+### Nothing is reserved and nothing moves
+
+**The actions are absolutely positioned over the card with a dim behind them**, so rest and hover are the same height **by construction rather than by measurement.** Build two's reserved band bought the same result with a rectangle of nothing; **the space it held empty is the picture instead.**
+
+**And build one's defect cannot come back.** ~~The tick and the share are in the flow, not absolutely positioned~~ was build two's answer to it. **The answer now is that the tick, the share and the market foot are raised above the dim:** the overlay darkens what is behind them and never intercepts a press meant for them. **A person may always deselect the item they selected**, which is the requirement both builds were trying to satisfy.
+
+### The grid got denser because the thing that limited it went away
+
+**Three columns waited until 1200 and four until 1600 because the receipt line inside the actions panel wrapped and clipped.** `D-90` deleted both the receipt and the panel, so **the remaining floor is the widest label that may not wrap, `Send to Steam`.** **Measured at a 1000px viewport on 23 August 2026:** the label is **100px**, the button with the reduced inline padding is **118px**, and the card's inner width at three columns is **199px**, so three columns from 1000 fit with room. **`D-90` first recorded 153px against 206px and called it measured, and it was an estimate.** Corrected here. Section 0.5's **152px** is not drift against any of it: that is the same label on a button at full padding.
+
+### An MVP row was deleted, and this is the part that is not a layout change
+
+**The founder: remove "Won at 64.80, 17 Aug 2026 22:11", we will not store that.**
+
+**That line is row `F2`**, the instance value receipt persisting onto the item, and **`F2` is an MVP row of `cjm-to-be.md`.** It is not a decoration that was removed, **it is a capability that was removed**, and the difference is the whole of this section. `F2` is named in this node's own parent line, in block 4 and in section 2, and every one of those places is amended rather than quietly re-worded.
+
+**What is not claimed: that `F2` is satisfied somewhere else by accident.** Its one remaining home is `5.9`'s roll row, which records what an open cost and what it returned.
+
+**So the question the founder still owes an answer to is narrow, and it decides whether the row is moved or dead:**
+
+| Reading of "we will not store that" | What happens to `F2` | What else dies with it |
+|---|---|---|
+| **The per-item copy** | `F2` lives on the roll row in `5.9` and the card simply stops repeating it | Nothing |
+| **The value at the moment of the win is not retained at all** | **`F2` has no home anywhere** | `5.9`'s returned column dies with it |
+
+**This node does not resolve it and does not touch `cjm-to-be.md`.** That file is the single owner of the MVP capability list, it still reads 40 MVP rows over 39 capabilities, and **`F2` is still one of them, carrying the open question rather than a quiet edit.** The same treatment `D-38` set: the cost is printed, not absorbed. **Owner: the founder.**
+
+### What else changed in this file
+
+| Where | What happens to it |
+|---|---|
+| **Purpose line and block 4** | The receipt is struck with `D-90` named, and the parent line keeps `F2` with its status printed rather than dropping the row |
+| **Section 0.5 and 0.6** | Their receipt rows are struck in place. **Both arguments for putting the receipt where they put it are kept**, because neither was wrong about the defect it was fixing |
+| **Section 2, the field table** | `Receipt as captured` becomes not rendered here, with the open question in the cell. **Current value is unaffected** and stays with its own as-of |
+| **Section 2.1** | Two dated figures becomes one, and **the rule that no third number is made out of them is untouched**: with one figure there is nothing to subtract |
+| **Section 5.2, the empty state** | "with their value receipt" goes with the receipt |
+
+---
+
 ## 0. The sentence this page is built around
 
 `F2` is one line in the backlog and it is the whole page: **the receipt stays on the item in inventory and on the withdrawal record**, with the success signal "the same receipt is retrievable a week later".
 
 Barrier `B7-1` is not a complaint about losing. It is a complaint about a number that stopped being true and left nothing behind to check: "a knife that Hellcase displayed as being worth about $1,600. After withdrawing it, I found out that on CSFloat and even on Steam it is worth only around $550-600", `cjm-as-is.md`, P7. **The injury is retrospective**, which is why the fix has to be a stored object rather than a display. A page that shows today's price and nothing else cannot be wrong a week later, because there is nothing left to compare it against.
 
-**So this page holds two dated figures per item and never merges them**, section 2. That is the single decision the node exists to make.
+~~**So this page holds two dated figures per item and never merges them**, section 2. That is the single decision the node exists to make.~~
+
+**Struck 23 August 2026 by `D-90`, and this is the paragraph where the cost of that decision is clearest.** The card holds **one** dated figure now, the current value. **The argument above is not amended into agreement:** `B7-1` is retrospective, the fix has to be a stored object rather than a display, and a page that shows today's price and nothing else cannot be wrong a week later **because there is nothing left to compare it against.** That is exactly what this page now is. **Whether `F2` survives on `5.9`'s roll row or has no home anywhere is the founder's, section 0.7**, and it is the question that decides whether this barrier is still answered somewhere in the product.
 
 ---
 
@@ -88,7 +143,7 @@ Order is reasoned from 360px and from the barriers, not from the order of the so
 | **1** | **Account state, one line** | Verified, withdrawals open. A statement of a fact resolved earlier, never a task raised here | Row `B7`, on `B7-1`. Row `B1`, on `B8-4` | Backlog group 2 |
 | **2** | **The money, two figures** | Balance and value of items held, both in coins, `D-28`, **never summed and never a score** | `D-19` in `CLAUDE.md` by way of `0.1`. Row `C1` as `D-28` rewrote it, still on `B7-1` | Node `0.1`, Refero Kraken Pro row in T1 |
 | **3** | **Withdraw, with the named limits stated beside it** | The one CTA, and the three limits in plain words before the person enters the route | Row `G5`, on `B8-3` and `B8-2` | `flows.md` flow 3, node order |
-| **4** | **Items held: `0.6` cards, each carrying its `F2` receipt** | The list, and the substance of the page | Row `F2`, on `B7-1`. Row `B7` | Backlog group 6 |
+| **4** | **Items held: `0.6` cards.** ~~each carrying its `F2` receipt~~ **The receipt is deleted by `D-90`, section 0.7**, and the card carries the picture, the names, the wear, the current value and the three acts | The list, and the substance of the page | ~~Row `F2`, on `B7-1`~~. Row `B7`. **`F2` is still an MVP row of `cjm-to-be.md` and this block no longer renders it:** whether it moves to `5.9`'s roll row or has no home at all is the founder's, section 0.7 | Backlog group 6 |
 | **5** | **The holding statement on each item** | Whether this item has a deadline, stated from the moment it exists. Value `[?]`, section 3 | Row `G5` | `blocks.md` T4, Hellcase FAQ row |
 | **6** | **A legible bottom to the list** | Count of items held, and pagination if the count needs it. Conditional, threshold `[?]` | Related Job 5, `jtbd.md` | `blocks.md` T2, the skin.club LEAVE row |
 | **7** | **Sort by value or by date acquired** | Conditional and named out loud, section 4 | Related Job 5, `jtbd.md` | Named here, not taken from the bank |
@@ -112,20 +167,20 @@ Order is reasoned from 360px and from the barriers, not from the order of the so
 | StatTrak flag | Rendered where it applies. The third axis | `blocks.md` section 10 |
 | Rarity treatment | Rendered. **Seven tiers, the seventh conditional on the case**, walked live | `blocks.md` section 10 |
 | Image | Rendered | `0.6` |
-| **Receipt as captured** | **Rendered, with its own as-of.** The instance value at the moment of the open | Row `F1`, carried by `F2` |
+| ~~**Receipt as captured**~~ | **Not rendered here since 23 August 2026, `D-90`.** The instance value at the moment of the open is not on this card. **This is not a field the context declined to render, it is a capability the founder removed**, and whether `F2` survives on `5.9`'s roll row is open, section 0.7 | Row `F1`, carried by `F2`, **and `F2`'s home is now `[?]`** |
 | **Current value** | **Rendered, with its own as-of.** Per read, refresh class from `0.11` | Row `D2`, `0.11` group A |
 | Drop chance | Not rendered. It is a property of the case, not of a held instance | `0.6` |
 | Ticket range | Not rendered here, same reason | `0.6` |
 
 ### 2.1 Two dates, two numbers, and no third number made out of them
 
-**The captured receipt is never overwritten.** Overwrite it and the person cannot check what we told them, which is the whole of `F2`.
+**Amended 23 August 2026 by `D-90`: there is one figure on this card now, not two.** The rules below are kept whole, because each is about a different failure and only one of them lost its subject.
 
-**The current value is never presented as what we said at the time.** Show only the captured figure and we are printing a stale price as current, which is the whole of `B7-1`.
+~~**The captured receipt is never overwritten.** Overwrite it and the person cannot check what we told them, which is the whole of `F2`.~~ **The subject is gone from this card**, and the rule stands wherever the captured value is retained at all, which is the open question in section 0.7.
 
-So both render, each with the moment it was true, per rule 2 of `0.11`: an as-of on anything that moves.
+**The current value is never presented as what we said at the time.** Show only the captured figure and we are printing a stale price as current, which is the whole of `B7-1`. **This one is unchanged and is now the only figure on the card**, with its own as-of, per rule 2 of `0.11`: an as-of on anything that moves.
 
-**And no delta.** No arrow, no percentage, no up-or-down colour, no badge. Two dated figures side by side let a reader do the subtraction; a rendered delta turns a held skin into a position and the page into a portfolio. In-platform exchange is `LATER` by scope, `0.11` rule 7 forbids a figure that becomes a score, and a gain indicator on an inventory is a reason to keep going, which is the same defect the limits rule names for boundaries.
+**And no delta.** No arrow, no percentage, no up-or-down colour, no badge. **With one figure there is nothing to subtract**, so the rule costs nothing here and it is kept rather than deleted: it binds again the day a second figure returns. A rendered delta turns a held skin into a position and the page into a portfolio. In-platform exchange is `LATER` by scope, `0.11` rule 7 forbids a figure that becomes a score, and a gain indicator on an inventory is a reason to keep going, which is the same defect the limits rule names for boundaries.
 
 ### 2.2 What the receipt actually is, unchanged from its owner
 
@@ -182,7 +237,7 @@ One numbered state, and it is the common one.
 | Element | Behaviour | Parent |
 |---|---|---|
 | **The money still renders** | Balance can be non-zero while items are zero. "You hold nothing" is false in that case, and the empty is of items only | Row `C1`, on `B7-1`. `0.11` rule 3, missing is a state and never a zero |
-| **What would be here, said plainly** | Items you open appear here with their value receipt. The page says what it is for rather than apologising | Row `B7` |
+| **What would be here, said plainly** | Items you open appear here ~~with their value receipt~~, **`D-90`**. The page says what it is for rather than apologising | Row `B7` |
 | **One route, into `3.1`** | The catalogue, not a blank page and not the home page | `flows.md` flow 3, and the map's own transition |
 | **The withdrawal entry is absent, not disabled** | There is nothing to withdraw. A disabled control on an empty page is a promise of a wall | Design principle 3 in `CLAUDE.md`, clarity at every risk moment |
 | **No offer, no free case, no nudge** | Below | The limits rule in `CLAUDE.md`, and `B7-3` |
@@ -207,7 +262,7 @@ The route to the catalogue is the offer. A person who wants to open finds the fr
 
 **Emotional support.** **None, and that is checked rather than assumed.** No row of the emotional and social table in `sitemap.md` places its mechanism on `S-E1`. Emotional Job 2 is carried by `F1` at `S-C2` phase 3 and by `S-G1`. Nothing is added here for completeness.
 
-**Responsive.** Mobile base 360px. One column: state, money, withdraw with limits, then the item list one card per row, each card stacking image, names, the two dated figures, the holding statement. Desktop keeps the same order and puts the cards on a grid, with the money and the withdrawal entry held in a summary column beside the list rather than above it. The two dated figures never sit on one line at 360px: they are two labelled rows, because collapsing them is how a delta gets invented by a layout.
+**Responsive.** Mobile base 360px. One column: state, money, withdraw with limits, then the item list one card per row, each card stacking the names, the value, **the picture since `D-90`**, and the holding statement. Desktop keeps the same order and puts the cards on a grid, with the money and the withdrawal entry held in a summary column beside the list rather than above it. **Three columns from 1000 since `D-90`**, section 0.7, where the floor was 1200 while the receipt line could wrap. ~~The two dated figures never sit on one line at 360px: they are two labelled rows, because collapsing them is how a delta gets invented by a layout.~~ **One figure since `D-90`**, and the rule returns with the second one if it ever does.
 
 ---
 
@@ -232,7 +287,8 @@ The route to the catalogue is the offer. A person who wants to open finds the fr
 | Open item | What is missing | Owner |
 |---|---|---|
 | **The holding deadline** | Whether any deadline exists, how long, and what the item converts to. The slot is specified in section 3 and the value is `[?]` in three places | Founder, product decision |
-| **The two venues on the receipt** | Row `F1` says two named venues and no file names them. Carried from `0.11` rather than re-opened | Founder, before stage 04 |
+| **Where row `F2` lives now, or whether it lives at all** | **Opened 23 August 2026 by `D-90`, section 0.7.** The receipt is deleted from this card by founder decision. **If "we will not store that" means the per-item copy, `F2` moves to `5.9`'s roll row; if it means the value at the moment of the win is not retained at all, `5.9`'s returned column dies with it and `F2` has no home anywhere.** `cjm-to-be.md` is untouched and still carries the row | **Founder** |
+| **The two venues on the receipt** | Row `F1` says two named venues and no file names them. Carried from `0.11` rather than re-opened. **Conditional on the row above:** the venues are the receipt's anatomy and the receipt has no home on this card since `D-90` | Founder, before stage 04 |
 | **The sort threshold** | Section 4 makes sort conditional on a typical holding not fitting one screen, and typical holding size is `[?]` | Founder, question of fact to the live platform |
 | **Where selling a skin back for coins lives on this page** | `D-38` put it in round 1 and `3.6` carries it on the outcome. **A person who did not sell at the outcome and wants to sell now has no control on this page**, and this node's own baseline row calls that the gap. Adding one is a founder decision, not a page edit: it is a second exit beside the one CTA | Founder |
 | **A route from a held item back to its round** | The proof of the open lives on `7.1` and `1.2`. The map gives `5.1` two transitions, `5.2` and `5.3`, and `0.14` fixes four rendering sites of which this is not one. **The route is plausible and it is not drawn**, because adding it changes two files this node may not edit | `sitemap.md` and `0.14`, one row each if approved |
