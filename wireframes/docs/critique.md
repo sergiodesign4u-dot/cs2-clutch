@@ -408,3 +408,45 @@
 **Seven of these eight were found by agents building the thing.** No founder review has happened on this round yet. **The instruments still caught nothing**, which is the continuity with the three sections above, **but the source that replaced them is different and it is cheaper: it is the same pass that wrote the code, noticing.**
 
 **What that does not prove is that it scales.** 10.8 sat in plain sight across thirteen pages and was found by counting, not by noticing, **and it was found by this write-up rather than by any of the passes that built those thirteen pages.** So the honest reading is: **an agent reporting beside its own work catches what is in front of it, and it catches nothing at a distance of one page.** The corpus assertions from section 9 are still the only thing that reaches that far, **and three of the four rows in the table above are one of them.**
+
+---
+
+## 11. Raised on 23 August 2026 by `D-92`, and the finding is that closing an unknown can open a worse one
+
+**Found by: the agent that closed the venue rows, checking what the closure was worth before writing that it was closed.**
+
+**This section has one row and it is not a defect in a screen.** Sections 7 to 10 record things that were wrong on a page. **This one records something that was right on four pages and stopped being worth what it looked like.** No pixel moved, no assertion failed, and every instrument this project owns would have reported an improvement.
+
+**Verified by:** Claude with a browser, re-reading each place in the file before touching it, and reading the drawn screens rather than the backlog to establish what row `A1` actually renders. **Nothing here was withdrawn on verification. One thing was corrected before it was written**, and that correction is 11.2.
+
+| # | Class | Finding | Found by | Status |
+|---|---|---|---|---|
+| 11.1 | **an answer that removes the mechanism the question was buying** | **Naming the market as us made four `[?]` marks disappear and quietly invalidated the thing that made the number trustworthy.** Row `A1` is a pattern of 14, the best-supported row in the backlog, and **its outbound link exists so that a person leaves and confirms the price somewhere we do not control.** A link to our own listing proves nothing. **On the register the change reads as pure progress:** four venue rows closed on `0.11`, `5.1`, `5.3` and the map, and one figure became publishable. **On the product `A1` went from partly blocked to partly incoherent.** `0.11` section 2c restates it as six requirements and returns **partly satisfied**: one met, one met in specification, one met on three surfaces and broken on two, one met as a route and wrong in its label, one partly, one not met | Claude, checking what a closure bought before recording it | **Open.** Recorded in `0.11` section 2c with the verdict, and four narrower rows replace the closed one. **The label on the drawn link is founder-owned and was left as it is** |
+| 11.2 | **the verdict was nearly written from the backlog instead of from the screens** | **The first draft of 11.1 scored `A1`'s outbound link as "not met, and not meetable".** Reading `case.html` instead of `cjm-to-be.md` showed **the link is drawn, points at `steamcommunity.com/market/`, and carries a Steam price in EUR with its own as-of.** So the route is met and **only the label is wrong**, which is a different finding with a different owner. **The same read produced 11.3**, which the backlog-only reading could not have produced at all | Claude, reading the drawn screens after drafting the verdict | **Fixed before publication.** The verdict in `0.11` is written against the screens and says so |
+| 11.3 | **one backlog row denoting two different numbers with one word** | **`A1`'s "live market price" is Steam on `1.0`, `3.3` and `3.6` and is ours on `5.1` and `5.3`.** Both readings are correct where they sit. **Field 12 of component `0.6` calls them one field**, the entity inventory calls them one part, and the register calls them one row. **Before `D-92` they were one number read at two moments; after it they are two numbers with two owners.** Neither exit surface prints a Steam figure, so on those two the pair `A1` asks for is our price beside our price | Claude, reading five drawn densities against one field row | **Open and printed rather than fixed.** `0.6` section 3.3 records it and refuses both available fixes by its own rule: a sixteenth field, or a rename mid-project. **The mitigation it does take is that every density says in words which number it is showing** |
+
+### Why this is a critique row and not a decision note
+
+**Because the failure mode is one this project's logs exist for and no instrument here can see it.** Every check this repository runs is a check on a state: is the value present, does it match its token, does the id resolve, does the row have a parent. **A `[?]` that closes is a check going from red to green.** There is no assertion whose output is "this became green and got worse".
+
+**And the arithmetic of it is genuinely misleading.** On the morning of 23 August the settlement carried an unnamed source on four surfaces. By the evening the source was named on all four and one blocked figure became publishable. **Counted as marks, the day was four closures and one unblocking.** Counted as requirements, **`A1` is less satisfied at the end of it than at the start**, and the register is the only place that difference is visible because it is the only file that restated the requirement instead of the mark.
+
+### The rule this leaves, and it is one line
+
+**A closure is worth what the answer buys, not what it removes from the open column.** `CLAUDE.md` already says a finding that does not survive verification stays in the log with its reason. **This is the mirror of that: an item that closes gets checked for what the closure cost, and the check is written into the file that owns the requirement rather than into the row that closed.**
+
+**The concrete form of it here:** `0.11` section 2b closes the venue row and keeps the argument, and `0.11` section 2c is a second section that exists only to say what the closure did to the requirement underneath. **A closed row with no such section beside it is a row nobody checked the price of.**
+
+### What an instrument could assert, and it is one of the three
+
+| # | Could an instrument have caught it | The assertion, or the reason there is none |
+|---|---|---|
+| **11.3** | **Yes, and it is close to an existing check** | **No component field may render values in two different units, or from two different sources, across its densities without the density table declaring both.** The density table in `0.6` is already a machine-readable grid of field against site. **What it does not carry is a unit or a source column**, and adding one makes this a diff |
+| **11.1** | **No, and this is the boundary** | The assertion would be "this requirement is still satisfiable", which requires knowing what the requirement was buying. **`A1`'s row says "an outbound market link" and does not say the link's job is that we do not own the destination.** That is in `B1-2`'s quotes, in prose, in another file. **An instrument reading the backlog row would have passed this** |
+| **11.2** | **No, and it is a working posture rather than a check** | The correction came from opening the drawn page instead of trusting the specification. `CLAUDE.md` already says acceptance happens on screen. **This is the same rule pointed at analysis rather than at delivery: a verdict about what a product does is read off the product** |
+
+### The order this happened in, and it breaks the pattern the last four sections recorded
+
+**Sections 7, 8 and 9 all end with the same sentence: the instruments missed it and a person looking at a picture found it.** Section 10 broke that by having agents find their own work's neighbours. **This one breaks it again in a third way: the finding came from being asked to close something and checking the price of closing it.**
+
+**Nothing was looked at. Nothing was rendered differently. The trigger was a task that said "close these rows" and a rule that says verify before fixing**, pointed one step further back than usual, at whether the fix was a fix.

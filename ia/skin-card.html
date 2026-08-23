@@ -210,7 +210,7 @@
         <tr><td>9</td><td><strong>Ticket range</strong></td><td>Drop table entry</td><td>Rows <span class="row-code">E4</span> and <span class="row-code">F3</span> on Related Job 3. The proof resolves against something, and <code>0.14</code> lists it as a proof field</td><td>job</td></tr>
         <tr><td><s>10</s></td><td><s><strong>Live free-unit count</strong></s></td><td>Drop table entry</td><td>Row <span class="row-code">A2</span> on <span class="row-code">B8-1</span>, the stock question. <b>Withdrawn 21 August 2026, <code>D-60</code></b>, and the row is kept rather than renumbered so the field list can still be read against every document that cites a field by its number</td><td><s>barrier</s></td></tr>
         <tr><td>11</td><td><strong>Observed rate</strong></td><td>Read from <code>0.11</code></td><td>Row <span class="row-code">D3</span> on <span class="row-code">B7-2</span> and <span class="row-code">B6-2</span>. <strong>Conditional on <code>D-B</code></strong></td><td>barrier</td></tr>
-        <tr><td>12</td><td><strong>Market price, as-of, outbound link</strong></td><td>Skin</td><td>Row <span class="row-code">A1</span> on <span class="row-code">B1-2</span> and <span class="row-code">B2-1</span>. <code>A1</code> puts it <strong>on the top item</strong>, and that wording is carried rather than generalised</td><td>barrier</td></tr>
+        <tr><td>12</td><td><strong>Market price, as-of, outbound link</strong></td><td>Skin</td><td>Row <span class="row-code">A1</span> on <span class="row-code">B1-2</span> and <span class="row-code">B2-1</span>. <code>A1</code> puts it <strong>on the top item</strong>, and that wording is carried rather than generalised</td><td>barrier. <strong>Amended 23 August 2026 by <code>D-92</code>, and the field now holds two different numbers at two densities</strong>: on <span class="surf">3.3</span> phase 1 it is the Steam price in EUR with a Steam link, and on <span class="surf">5.1</span> and <span class="surf">5.3</span> it is our own price for a copy, in coins, with no link. <strong>Both are right where they sit and one field name covers both</strong></td></tr>
         <tr><td>13</td><td><strong>Instance value receipt</strong></td><td>Skin instance</td><td>Rows <span class="row-code">F1</span> and <span class="row-code">F2</span> on <span class="row-code">B7-1</span>. What this unit was worth when it was won, with that moment attached</td><td>barrier</td></tr>
         <tr><td>14</td><td><strong>Instance state</strong>, held, withdrawing, withdrawn</td><td>Skin instance</td><td>Row <span class="row-code">G1</span>, named states, on <span class="row-code">B8-2</span></td><td>barrier</td></tr>
         <tr><td>15</td><td><strong>Float and pattern</strong></td><td>Skin instance</td><td><s>None. [ORPHAN]</s> <strong>Closed 23 August 2026 by <code>D-91</code>.</strong> Related Job 5, by way of <span class="surf">5.3</span> block 1b: <strong>the platform buys a real copy on the market and several copies of one skin sit at one price, so the float is the only thing between them.</strong> Also <span class="row-code">B7-1</span> through <span class="row-code">F1</span>, whose whole argument is that a name is not an instance</td><td><s>none</s> <strong>job, with a barrier behind it</strong></td></tr>
@@ -429,6 +429,23 @@
     </ol>
     <p><strong>And a third thing, said out loud because the rule does not cover it.</strong> The rule names fields. <strong>It says nothing about a derived rendering that appears at one density and not the others</strong>, which is exactly what the settlement is. <strong>On the letter this passes; on the spirit it is a new thing on the face of one card and not on the others.</strong> What makes it survive the spirit is that the two fields it derives from are on every card that has an exit, and <strong>the three surfaces that draw it are the three surfaces where an exit exists.</strong> <span class="surf">3.1</span> and <span class="surf">7.1</span> do not draw it because neither has one. <strong>If a fourth surface ever draws a settlement without owning an exit, that is the moment this passes from a rendering to a field, and this paragraph is the test.</strong></p>
   </div>
+
+  <div class="card is-fix">
+    <h4>Field 12 holds two different numbers, and D-92 is what made them different</h4>
+    <p><strong>Opened here 23 August 2026, read off the drawn screens rather than reasoned from the field set.</strong> Field 12 is "market price, its as-of and its outbound link", one field, one name, five densities.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:26%">Where</th><th style="width:38%">What the number is</th><th>What the route is</th></tr></thead>
+        <tbody>
+          <tr><td><span class="surf">3.3</span> phase 1, the drop table's top item</td><td><strong>Steam, in EUR</strong>, with its own as-of, marked not comparable to the coin value until the peg is published</td><td><strong>A live outbound link to Steam's market</strong></td></tr>
+          <tr><td><span class="surf">5.1</span> the market foot, <span class="surf">5.3</span> the market column</td><td><strong>Ours, in coins</strong>, the price we charge for a real copy, since <code>D-92</code></td><td><strong>None</strong>, and none is possible: a link to our own listing confirms nothing</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Before <code>D-92</code> those were one number read at two moments.</strong> After it they are two numbers with two owners, <strong>and the field set calls them one field.</strong> <code>0.11</code> records the same split from the register's side and calls it the failure that register exists to prevent, arriving on the one backlog row with a pattern of 14 behind it.</p>
+    <p><strong>This node does not resolve it, and the reason is the rule it exists to hold.</strong> Splitting field 12 into two fields would add a sixteenth to the card, which is exactly the move the card above spent its argument refusing for the settlement. <strong>Renaming it would rename a field mid-project</strong>, which the rule forbids by name. <strong>So it is printed as a contradiction with an owner rather than fixed by a component file.</strong></p>
+    <p><strong>And one thing follows immediately for stage 04 and after.</strong> A density that renders field 12 <strong>must say which of the two it is showing</strong>, because "market price" alone is now ambiguous on the face of the card. <span class="surf">5.1</span> and <span class="surf">5.3</span> already do it in words; <span class="surf">3.3</span> says "on Steam" in its own line and that is the pattern.</p>
+  </div>
 </section>
 
 <!-- STATES -->
@@ -584,7 +601,8 @@
         <tr><td>Where the preview density sits on 3.1</td><td>The map's <code>used by</code> line names 3.1, and 3.1's own INCLUDES names case tiles and not item cards. Inside the tile, on expansion, or in a search result is a placement question rather than a field question</td><td>Node <span class="surf">3.1</span> at step 6</td></tr>
         <tr><td>A holding deadline on an unwithdrawn item</td><td>Hellcase converts an unwithdrawn drop to balance after thirty days, stated only in its public FAQ. Whether we carry any such rule is <span class="q">[?]</span>. <strong>If we do, <code>G5</code> puts it on this card before it runs</strong>, which makes it a sixteenth field</td><td>Founder, product decision</td></tr>
         <tr><td>The rarity treatment itself</td><td>Colour, shape, weight. Seven values exist; what they look like is not IA</td><td>Stages 06 and 07</td></tr>
-      </tbody>
+              <tr><td><strong>Which number field 12 is, on the density that is rendering it</strong></td><td><strong>Opened here 23 August 2026 by <code>D-92</code>.</strong> The field is one field and it now carries the Steam price on <span class="surf">3.3</span> phase 1 and our own price for a copy on <span class="surf">5.1</span> and <span class="surf">5.3</span>. <strong>Neither a sixteenth field nor a rename is available to this node</strong>, so the contradiction is printed. <strong>What this node does decide is the mitigation</strong>: a density that renders field 12 must say in words which of the two it is showing, and all three that render it already do</td><td>Whoever settles what <span class="row-code">A1</span> means on this product, <code>0.11</code></td></tr>
+</tbody>
     </table>
   </div>
 

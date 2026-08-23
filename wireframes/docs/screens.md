@@ -2575,3 +2575,59 @@ Stage 04 proposed **three** tabs and refused cash out because it has no subject 
 **23 distinct pages were touched**, and the arithmetic is worth writing out because one page is on two lists: 2 on `5.1`, 10 on `3.3`, 3 on `3.6`, 7 on `5.3`, **and `case-interrupted.html` is node `3.7` and a case state at once, so it is inside the ten and not beside them.** That is 22, **plus `account-empty.html`, which carries no settlement at all and was fixed for a different reason**, and one stylesheet.
 
 **Every settlement figure drawn in this round closes against the two prices printed beside it.** Twenty two signed figures across the card grids, the four outcome states and the four withdrawal tables were recomputed by hand: **twenty two of twenty two close, and none of them is a figure with no operands on the same screen.**
+
+---
+
+## 73. `D-92`: the market foot names the seller, and the `[?]` moves from "which market" to "how far under Steam"
+
+**Sixteen pages touched, none created.** `account.html` and `account-degraded.html` on node `5.1`, `withdraw.html` on node `5.3`, and thirteen case screens carrying block 7 or the outcome, nodes `3.3`, `3.6` and `3.7`.
+
+**No figure on any screen changed.** Every price, as-of, settlement and total is the number it was before this round. **What changed is who the words say the second price belongs to**, and one absence was replaced with a different absence.
+
+### The line above the inventory grid, before and after
+
+| | Wording |
+|---|---|
+| **Before** | Market figures read **23 Aug 2026 09:31**, the same moment for every card here. **Which market they are read from is not named yet, and a settlement struck against an unnamed source is not checkable.** |
+| **After** | Market figures read **23 Aug 2026 09:31**, the same moment for every card here. **A copy comes from us, at our price, and we set our prices against the Steam market.** **How far under Steam we set them is not published yet.** |
+
+**Both halves of that swap are load bearing.** The clause that left named an unknown source. **The clause that arrived names us and then names a number we are not printing**, which is the harder of the two admissions and the one a reader can hold us to.
+
+### The market note on the withdrawal page, before and after
+
+| | Wording |
+|---|---|
+| **Before** | Market price read 21 Aug 2026 09:31, the same moment as our own price above, and it moves daily. **The venue it is read from is not chosen yet, so there is no listing to check it against here.** |
+| **After** | Market price read 21 Aug 2026 09:31, the same moment as our own price above, and it moves daily. **The copy comes from us and the price is ours, set against the Steam market.** **How far under Steam we set it is not published yet.** |
+
+**The sentence under it did not move and it is now doing more work than it was:** the Steam listing for this skin is a different and higher number, and it is not what settles. **Written for `D-91` to keep the Steam listing out of the subtraction, it now also tells a reader that the cheaper of the two prices on their screen is ours.**
+
+### The denomination clause on thirteen case screens
+
+**Before:** in coins, at our values. **What a real copy costs on the market is a different number**, and taking an item out settles the difference.
+
+**After:** in coins, at our values. **What we charge for a real copy is a different number, also ours and also set against Steam**, and taking an item out settles the difference.
+
+**The clause got longer, which needs a reason on a page that fights for room.** The reason is that the short version was doing the thing `B7-1` describes: it named an outside party who does not exist in this transaction, **so a reader could conclude that the size of the gap was somebody else's doing.** It is ours.
+
+### And one clause moved the other way, into the passive, deliberately
+
+**Before:** taking the real thing out to Steam means **we buy** a real copy at whatever it costs on the market that day.
+
+**After:** taking the real thing out to Steam means **a real copy has to be bought** at what it costs that day.
+
+**That reads like a hedge and it is one, and the hedge is written down rather than left to be noticed.** The founder said "in principle". **If the copy is in fact sourced from a third party at the moment of withdrawal, the active version was right and this one is wrong**, so the drawn sentence says a copy has to be bought and does not name who buys from whom. **The two clauses on the same screens therefore say different amounts of the same thing on purpose:** the denomination clause is confident because our own sell price is not in doubt, and the settlement clause is passive because where the copy comes from is. `numbers.md` section 2d, owner the founder.
+
+### What is not drawn, and it is the part that got worse
+
+**The outbound market link on the drop table's top item still points at Steam and its label still reads "Open on the market".** The route is right: Steam is the one number in the chain a stranger can read without us. **The label is wrong and the wireframes were not changed to fix it**, because the fix is a claim about pricing rather than a string.
+
+**The two walked captures put a copy from us 39 percent and 27 percent under the Steam listing.** So a control offered as the cheaper alternative leads to the dearer place while we sell the same copy cheaper. **A concession that costs the reader money is not a concession.** Raised as finding 11.1, owner the founder, and drawn as it is until it is answered.
+
+### Measured after `D-92`
+
+**120 registry entries against 121 html files in `wireframes/`, the difference being `overview.html`.** Unchanged from `D-91`: no page created, none deleted.
+
+**16 distinct pages were touched:** 2 on `5.1`, 1 on `5.3`, and 13 carrying block 7 or the outcome clause across `3.3`, `3.6` and `3.7`.
+
+**No arithmetic was recomputed because no operand moved.** The twenty two signed figures verified after `D-91` are the same twenty two figures, and this round changed only the sentences around them. **Every venue absence was replaced by a margin absence and none was removed**: three of them, across the two surfaces that carried one, since `5.1` renders it in two states.

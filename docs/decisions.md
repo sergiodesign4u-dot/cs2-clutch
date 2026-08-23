@@ -3597,3 +3597,37 @@ The result pages called this account **Nightjar**. Everything else in the protot
 | The per-case gap figure itself, its method and how often it is read | `0.11`, the published numbers register |
 | Whether "tested return" is renamed once the denomination is stated | Founder |
 | Whether `cjm-to-be.md` gains a settlement row, or whether `A1` and `B7-1` already carry it | The stage that reopens the backlog. **Nothing was retro-fitted here** |
+
+---
+
+## D-92. The market is us, which removes the last excuse for not publishing the gap and removes the checkability with it
+
+**Date:** 2026-08-23. **Stage:** 04. **Decided by:** the founder, answering the venue question `D-91` left open. **Binds:** nodes `5.1`, `5.3`, `3.3`, `0.6`, `0.11`, and row `A1` of `cjm-to-be.md`, whose outbound market link stops meaning what it was written to mean.
+
+### The answer
+
+**The founder, 23 August 2026:** the prices are ours. They are taken from Steam, cases are built from them and given a low, medium or high risk band, and **the market for these items is this product.**
+
+**So both numbers in the settlement are ours.** The value a win is credited at, and the price charged for a real copy. `D-91` described the subtraction as our price against the market's; **it is our price against our other price.**
+
+### What that changes, and it cuts both ways
+
+**It removes the last excuse for not publishing the gap.** `D-91` left the per-case figure `[?]` with its owner at `0.11` and its method undecided, on the reasonable ground that reading a live market is a real cost. **Nothing here waits on a third party.** Both sides are ours, both are known continuously, and the figure is arithmetic on two numbers we already hold. **A number we set on both sides and decline to publish is a decision, not a gap.**
+
+**And it removes the checkability `A1` was buying.** `A1` asks for "a named market venue" and an outbound link on the top item, and the whole point of that link is that a person leaves and confirms the number somewhere we do not control. **A link to our own listing proves nothing.** Naming the venue does not close `A1`; it changes what closing it means.
+
+### So what gets published is the relation to Steam
+
+**Steam is the one number in the chain a stranger can verify.** Both of ours are derived from it. So the honest form of `A1` on this product is not "here is a venue, go and look", it is **"here is what Steam says, here is what we set against it, and the difference between those is ours".**
+
+That is design principle 1 in its own words: the product is built so that **its own numbers are checkable**. Against an external market, our numbers were opaque and the market was checkable. Against Steam, our numbers become checkable **as a stated relation** rather than as an appeal to a source.
+
+**The remaining hole is one figure and it is ours: how far under Steam we set a copy.** Two walked captures read 39 percent and 27 percent, so it is not a constant and it is not published. **That is a much sharper hole than the one it replaces:** the venue question was an unknown, this is an undeclared margin.
+
+### One thing this answer does not settle, and it is worth one sentence
+
+The founder's wording was **"our market should, in principle, be the product itself"**. The 23 August capture is consistent with it: six offers for one skin, all at one price, all badged at the same discount against Steam, which is what a single seller looks like and not what a market of sellers looks like. **If those copies are in fact sourced from a third party at the moment of withdrawal, one word in every line above changes**, from `we` to a named party, and `A1`'s outbound link comes back to life. Flagged rather than assumed.
+
+### And one thing arrived unasked
+
+**The three risk bands are set when a case is built, not derived from it.** The founder named them in passing: cases are formed at low, medium and high risk. `3.3` currently renders "Risk band not available: neither the thresholds between the three named values nor the method behind them is set". **Half of that is now answered:** the bands are an input at construction time rather than a label computed afterwards, which is a different object from what the node assumed. **The thresholds are still `[?]`** and the node's line stays until they are published.
