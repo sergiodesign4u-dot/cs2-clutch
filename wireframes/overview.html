@@ -1932,6 +1932,47 @@
   </div>
 </section>
 
+<section id="review23">
+  <div class="sec-head">
+    <h2>D-82, the founder&#39;s screen review, and a stylesheet that did not parse</h2>
+    <p class="sec-sub">23 August 2026, between step 9&#39;s collection and its fixes. One page deleted, one added, 106 pages still.</p>
+  </div>
+
+  <div class="card is-drop">
+    <h4>_wf.css had not parsed, and the audit&#39;s eight instruments could not see it</h4>
+    <p><strong>padding-top on .wf-main computed to 0px on all 106 pages, at 360, 1024 and 1440.</strong> The first block of every screen touched the header seam and at 360 the last touched the foot.</p>
+    <p>Lines 460 to 486 held a <strong>superseded draft of the ticker that had lost all five of its selectors</strong>. CSS error recovery reads forward to the next brace looking for a selector, and <strong>the rule it swallowed was .wf-main { padding-block }</strong>. The live ticker rules are 1900 lines further down and were never touched, which is why nothing looked broken.</p>
+    <p><strong>The taxonomy has no class for this.</strong> A value drifted from its token, a state absent from code, a rule violated, a fact without a source: <strong>a file that parses to fewer rules than it contains passes all four</strong>, because every instrument reads CSS as text and only the browser reads it as a grammar. Added to the contract checklist: brace depth to zero, no declaration at top level.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>What changed on four nodes, and what each of them refused to give up</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:14%">Node</th><th style="width:43%">What went</th><th>What did not move</th></tr></thead>
+        <tbody>
+          <tr><td><strong>0.3</strong></td><td>The three response rows out of the body, the search off the 404, <strong>system-404-noresult.html deleted</strong>, the two quick-link cards down to two buttons</td><td>The response is kept as each page&#39;s annotation. The destinations are still 1.0 and 3.1. <strong>system-500-noshell.html keeps the stacked list, because there the body is the only thing certain to render</strong></td></tr>
+          <tr><td><strong>0.10</strong></td><td>One form instead of two, the FAQ above it, the deadline under the Send, the three cross-links gone</td><td>The appeal keeps every field, on its own page. <strong>A selector that rewrites required fields under a person is still refused</strong>: the subject navigates, it does not mutate the form</td></tr>
+          <tr><td><strong>3.1</strong></td><td>The daily panel off the filtered and empty states, the Daily jump chip with it, the SEO prose corrected on seven pages</td><td>The ladder keeps the unfiltered shelf. <strong>The tile is still off, the wager gate is still the answer to I2, 0.7&#39;s two daily states are still void</strong></td></tr>
+          <tr><td><strong>0.4</strong></td><td>240px becomes 141px above 900. The reserve follows the measurement: 160 above, 260 below</td><td><strong>Accept and Reject stay one grid of equal columns, same class, neither primary.</strong> A shorter band may not be paid for with a smaller refusal, CNIL 14 December 2021</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card is-good">
+    <h4>Section 2 of 3.1 wins its argument back, and it took a screenshot to do it</h4>
+    <p><strong>Section 2 refused a daily banner because a banner survives every filter and a case does not.</strong> D-68 overrode it on 21 August and printed the cost in the node rather than absorbing it. <strong>The founder narrowed the shelf, saw the panel standing over two results, and the printed cost turned out to be the whole objection.</strong></p>
+    <p>And a sentence in the SEO prose on all seven catalogue pages said the daily case &quot;sits in the grid with everything else rather than in a banner, so it is filtered and searched like any other case&quot;. That had been false since D-68 took the tile off. <strong>A sentence describing the design before last is worse than no sentence, and it survived the full audit of the day before.</strong></p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Measured after every change</h4>
+    <p><strong>106 pages swept at 360 and 1440: no horizontal scroll, no page with zero top padding.</strong> 22201 internal links checked, no dead link. Registry and disk reconciled at 106 each. <code>_wf.css</code> parses with zero orphan declarations and brace depth zero. <strong>No em dash in any file touched.</strong></p>
+  </div>
+</section>
+
+
 
 
 
@@ -1992,6 +2033,7 @@ window.NAV_SECTIONS = [
   { id: 'system',      label: '0.3 System pages' },
   { id: 'cookie',      label: '0.4 Cookie consent' },
   { id: 'settings',    label: '5.11 Settings' },
+  { id: 'review23',    label: 'D-82 screen review' },
 ];
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';

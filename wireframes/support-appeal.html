@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appeal a decision</title>
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 0.10, SUPPORT AND APPEALS. State: the appeal, opened from the
+     subject on the entry page.
+     THE THREE REVIEWS UNDER B8-3 ARE NOT COMPLAINTS ABOUT SLOW SUPPORT. "My
+     account was suddenly banned, excluded from the Rain system, and my balance
+     of over 160 coins was completely wiped out... they refused to provide any
+     specific explanation." "As soon as I tried to withdraw my winnings, the site
+     permanently banned me." "Banning a user just to avoid paying out a small $80
+     prize." Every one is a decision with no ground and no route.
+     SO WHAT SHIPS IS NOT A HELP CENTRE WITH A FORM AT THE BOTTOM: a written
+     ground produced by the surface that took the decision, a public route to
+     dispute it, a published deadline for an answer, and a state for that
+     deadline being missed.
+     THE LIVE PRODUCT'S SUBMIT BUTTON READS SIGN IN. A guest can fill the form
+     and cannot send it, so a person locked out of their account cannot use the
+     product's own support channel to say so. That is a walked fact rather than
+     an inference, and it is the strongest single argument in this repository for
+     the appeal route and its deadline.
+     FOUR ROUTES IN AND ONE PARKED. The restriction, our own failed proof and the
+     geo refusal all land here; the identity failure is LATER with its parent and
+     is kept on the map rather than deleted. Only one of the four is a person
+     browsing. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <nav class="wf-crumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="support.html">Support</a></li>
+        <li><span aria-current="page">Appeal a decision</span></li>
+      </ol>
+    </nav>
+    <h1>Appeal a decision</h1>
+    <p>We carry the decision and the ground we gave into this form, so you do not have to remember either. It goes to the same queue as any other ticket, with the same id and the same clock.</p>
+
+    <div class="wf-sup">
+      <!-- THE APPEAL HAS ITS OWN PAGE SINCE 23 AUGUST 2026, and that is what let
+           the entry page go back to one form. IT IS NOT A NEW ROUTE: the three
+           reviews under B8-3 are decisions with no ground and no way to dispute
+           them, and the route out of them is the whole reason this node exists.
+           A SELECTOR THAT REWRITES REQUIRED FIELDS UNDER A PERSON IS STILL
+           REFUSED. The subject on the entry page does not mutate that form, it
+           brings the person here, where the four prefilled fields are already
+           filled. A prefill that is never carried across a state change cannot be
+           lost in one. -->
+      <div class="wf-card wf-form">
+        <div class="wf-f-l">
+          <span class="wf-fig-c">The decision you are appealing</span>
+          <div class="wf-f-ro">Account restricted, 21 Aug 2026, 14:02</div>
+        </div>
+        <div class="wf-f-l">
+          <span class="wf-fig-c">The ground we gave, quoted back</span>
+          <!-- IF THE PRODUCT CANNOT RENDER THE GROUND HERE, THE GROUND WAS NEVER
+               WRITTEN. This field is what makes the written-notice rule testable
+               rather than a promise. -->
+          <div class="wf-f-ro wf-ground-q">Withdrawal requests on this account were paused pending a review of trade activity between 18 and 20 Aug 2026. Your balance is frozen and has not been reduced.</div>
+        </div>
+        <div class="wf-f-l">
+          <span class="wf-fig-c">The round or transaction under dispute</span>
+          <input class="wf-f" type="text" value="wd-2026-08-21-0417">
+        </div>
+        <div class="wf-f-l">
+          <span class="wf-fig-c">The version of the document it was taken under</span>
+          <!-- A RESTRICTION TAKEN UNDER VERSION 3 OF THE TERMS IS NOT ANSWERED BY
+               VERSION 4. This is the join into the legal node and it is why that
+               node's version history is not decorative. -->
+          <div class="wf-f-ro">Terms of use, <a href="legal.html">version in force on 21 Aug 2026</a></div>
+        </div>
+        <label class="wf-f-l"><span class="wf-fig-c">What you say</span><textarea class="wf-f"></textarea></label>
+        <label class="wf-f-l"><span class="wf-fig-c">Where to send the answer</span><input class="wf-f" type="email" value="nightjar@example.com"></label>
+        <p class="wf-note wf-fig-missing">What you can attach, and how large, is not decided.</p>
+        <div class="wf-row"><a class="wf-btn wf-btn--primary" href="support-submitted.html">Send the appeal</a></div>
+        <p class="wf-note">No account needed, and we never ask for an identity document here.</p>
+        <p class="wf-note"><span class="wf-fig-missing">Time to an answer: not published.</span> The same deadline as any other ticket, counted from when the appeal is made.</p>
+      </div>
+    </div>
+    </div>
+
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+window.NAV_ACTIVE_LABEL = 'Appeal a decision';
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

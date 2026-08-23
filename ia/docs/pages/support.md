@@ -24,6 +24,20 @@
 
 ---
 
+## 0.5 Amended 23 August 2026 by `D-82`, the founder's screen review
+
+**The founder called this page overloaded on 23 August 2026 and they were right.** Two forms side by side carried fourteen fields between them, and a person who arrived with a question met an appeal they had not made. **Nothing the node argued for is given up.** The appeal keeps every field, on a page of its own.
+
+| What changed | Why |
+|---|---|
+| **The two forms become one, and the appeal moves to `support-appeal.html`** | The entry page carries one form: what it is about, where to send the answer, the message. **The refusal of a selector that rewrites required fields under a person is untouched.** The subject navigates, it does not mutate the form, so a prefill that is never carried across a state change cannot be lost in one |
+| **The FAQ moves above the form**, section 4 | The live product shouts ATTENTION!!! above its form telling a person to read the articles first. The instinct is right and the execution is a shout. The cheapest resolution is now the block a person meets, not one they are told off for skipping |
+| **The deadline moves from the first screen to under the Send**, section 2 | It is still the entire difference between this page and a help page, it is still a deadline for an answer rather than for a resolution, and it is still `[?]`. What changed is that a figure nobody has yet is no longer the first thing a person reads |
+| **The three cross-link buttons go** | The footer carries Provably fair, Responsible play and the legal documents in its own columns, on this page as on every other. A row repeating three footer destinations is furniture |
+| **One state page is added, not removed:** Appeal a decision | The appeal was only ever visible crammed onto the entry page. It now has a page in the states table, which is where a state belongs |
+
+---
+
 ## 0. The one thing that separates this from a help page
 
 `B8-3` is three reviews, and the second one names the defect exactly: **"My account was suddenly banned, excluded from the Rain system, and my balance of over 160 coins was completely wiped out... they refused to provide any specific explanation."** The other two are the same shape: "as soon as I tried to withdraw my winnings, the site permanently banned me", and "banning a user just to avoid paying out a small $80 prize".

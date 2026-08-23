@@ -2062,3 +2062,45 @@ The confirmation switches for selling back and for withdrawing have live subject
 32px on the small button, 23 on the cookie policy link, 16 here. **Three one-off selectors for one rule is how the fourth gets missed.**
 
 **58 checks over the four pages at seven widths, and the field was walked: nothing commits on blur, a value Steam will not accept is refused on the press with which part is wrong named.**
+
+---
+
+## 59. `D-82`: the founder's screen review, one stylesheet that did not parse, and four pages that said too much
+
+**23 August 2026, between step 9's collection and its fixes.** One page deleted, one added, **106 pages still.**
+
+### `_wf.css` had not parsed, and the audit's eight instruments could not see it
+
+**`padding-top` on `.wf-main` computed to `0px` on all 106 pages, at 360, 1024 and 1440.** The first block of every screen touched the header seam and at 360 the last touched the foot.
+
+Lines 460 to 486 held a **superseded draft of the ticker that had lost all five of its selectors**. CSS error recovery reads forward to the next brace looking for a selector, and **the rule it swallowed was `.wf-main { padding-block: var(--wf-s-2) }`**. The live ticker rules are 1900 lines further down and were never touched, which is why nothing looked broken.
+
+**The taxonomy has no class for this.** A value drifted from its token, a state absent from code, a rule violated, a fact without a source: **a file that parses to fewer rules than it contains passes all four**, because every instrument reads CSS as text and only the browser reads it as a grammar. **Added to the contract checklist: brace depth to zero, no declaration at top level.**
+
+**Deliberate value change:** `.wf-main` at 1200 and up, `padding-bottom: var(--wf-s-4)` becomes `padding-block: var(--wf-s-4)`. 16px above against 40px below under a sticky header reads as a mistake. Mobile keeps 16.
+
+### `0.3`: eight pages become seven, and the response leaves the body
+
+**The three response rows are the machine half of a response printed to the human half**, which `D-66` forbids and the 22 August audit raised. Kept as each page's annotation. **The address bar already showed the served address**, so the block was redundant as well as wrong.
+
+**The search is off the 404 and `system-404-noresult.html` is deleted with it.** It worked and its empty result was a real state; neither was the objection. **The two quick-link cards become `Home` primary and `All cases` beside it**, which also answers section 9's open item on a third destination with a no.
+
+**`system-500-noshell.html` keeps the stacked list.** Its subject is a 500 where the carriers do not render, and there the body is the only thing certain to.
+
+### `0.10`: one form instead of two, and the appeal gets the page it never had
+
+Fourteen fields over two side-by-side forms met a person who arrived with a question. **The appeal keeps every field, on `support-appeal.html`. The refusal that mattered is untouched:** a selector that rewrites required fields under a person is still refused, so the subject navigates rather than mutating the form.
+
+**The FAQ moved above the form**, which is the live product's ATTENTION!!! box done without the shout. **The deadline moved under the Send**, still `[?]` and no longer the first thing read.
+
+### `3.1`: section 2 wins its argument back
+
+**Section 2 refused a daily banner because a banner survives every filter and a case does not.** `D-68` overrode it and printed the cost. The founder narrowed the shelf, saw the panel standing over two results, **and the printed cost turned out to be the whole objection.** The panel is scoped to the unfiltered shelf; the jump chip goes with it.
+
+**And a sentence in the SEO prose on all seven catalogue pages was corrected.** It described the design before last and **it survived the full audit of the day before.**
+
+### `0.4`: 240px becomes 141px and the symmetry does not move
+
+One band above 900, words left and decisions right. The reserve on the host page follows the measurement: 160px above 900, 260px below. **Accept and Reject stay one grid of equal columns, the same class on both, neither primary. A shorter band may not be paid for with a smaller refusal**, CNIL, 14 December 2021. **Layer 2's decisions are pinned to the foot of its scrolling region**, closing a 360 finding from the audit.
+
+**106 pages swept at 360 and 1440 after every change: no horizontal scroll, no page with zero top padding, no dead internal link in 22201 links, registry and disk reconciled at 106 each.**

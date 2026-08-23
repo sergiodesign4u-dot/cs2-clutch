@@ -84,21 +84,26 @@
         <span class="wf-attr-v">Us</span>
       </div>
 
-      <!-- THE RESPONSE, DRAWN. Three facts, and the second one is the one nobody
-           draws: the response renders AT THE ADDRESS THAT WAS REQUESTED. A redirect to
-           /404 would answer the request somewhere else, return a 200 or a 301 at a
-           different URL, and take the mistyped address out of the browser bar along
-           with any chance of correcting it. That is also what makes the status honest.
-           NO NOINDEX ANYWHERE ON THESE PAGES. The status code is the instrument, not
-           the meta tag: what removes an address from an index is the 404 itself, and
-           what stops a maintenance window removing the whole site is that a 503 is
-           temporary by definition. There are no error URLs to disallow in robots.txt
+      <!-- THE RESPONSE IS NOT PRINTED TO THE PERSON, FOUNDER DECISION OF 23 AUGUST
+           2026. It used to render as three rows in the body, Status, Served at and
+           Retry-After, and that is machine half of the sentence shown to the human
+           half. D-66 forbids exactly this and the audit of 22 August raised it as
+           process prose on the product surface; the founder raised it again looking
+           at the drawn page. It is recorded here instead, where a reviewer reads it
+           against the words beside it and a person never does.
+           WHAT THE ROWS SAID, AND IT STILL HOLDS AS A SPECIFICATION:
+             Status:     503 Service Unavailable
+             Served at:  /
+             Retry-After: not sent, because we do not have a figure yet
+           THE RESPONSE RENDERS AT THE ADDRESS THAT WAS REQUESTED, and that is the
+           row nobody draws. A redirect to /404 would answer somewhere else, return
+           a 200 or a 301 at a different URL, and take the mistyped address out of
+           the browser bar along with any chance of correcting it. The address bar
+           is where a person reads it, which is why the block was redundant as well
+           as wrong: it printed what the browser already shows.
+           NO NOINDEX ANYWHERE ON THESE PAGES. The status code is the instrument,
+           not the meta tag. There are no error URLs to disallow in robots.txt
            because there are no error URLs. -->
-      <div class="wf-resp">
-        <div class="wf-resp-r"><span class="wf-resp-k">Status</span><span class="wf-resp-v">503 Service Unavailable</span></div>
-        <div class="wf-resp-r"><span class="wf-resp-k">Served at</span><span class="wf-resp-v">/</span></div>
-        <div class="wf-resp-r"><span class="wf-resp-k">Retry-After</span><span class="wf-resp-v wf-fig-missing">Not sent, because we do not have a figure yet</span></div>
-      </div>
 
       <!-- B7. THE RETRY IS A CONTROL AND NEVER A LOOP. A page that refreshes itself
            every few seconds takes the choice away, keeps hammering a server that is
@@ -127,25 +132,17 @@
            document with its styling already cached. Design principle 5: a failure page
            that is itself slow says the failure is worse than it is. -->
 
-      <!-- B4. QUICK LINKS, AND THERE ARE EXACTLY TWO BECAUSE THE MAP HOLDS TWO.
-           This node's transitions row is 1.0 and 3.1, and a carrier may not promise a
-           destination the map does not hold. Whether the body should also carry 1.2 or
-           0.10 is a change to the map, not a quiet addition here.
-           REAL <a href>, and a STACKED LIST rather than a tile grid. Two tiles side by
-           side at 360px is how the label of the longer destination gets truncated, and
-           a truncated route is the defect this block exists to remove. A destination
-           reachable only by script does not exist for a crawler and often not for a
-           keyboard either.
-           THIS IS A BODY BLOCK AND NOT A FOOTER LINK, and that is the whole reason it
-           exists: on a 500 the carriers may not render at all, and the body is the part
-           that is certain to. -->
-      <nav class="wf-sys-refuse" aria-label="Where to go from here">
-        <span class="wf-attr-h">Where to go from here</span>
-        <ul class="wf-quick">
-          <li><a href="index.html"><span class="wf-quick-n">Home</span><span class="wf-quick-w">The featured cases, and what this place is</span></a></li>
-          <li><a href="catalogue.html"><span class="wf-quick-n">All cases</span><span class="wf-quick-w">The full shelf</span></a></li>
-        </ul>
-      </nav>
+      <!-- ONE WAY OUT, AND A SECOND ONE BESIDE IT. Two stacked cards carrying a
+           name and a line of explanation each were a block of furniture on a page
+           that exists to say one sentence. The destinations did not change: the
+           node's transitions row is 1.0 and 3.1 and a carrier may not promise a
+           destination the map does not hold.
+           REAL <a href> AND ONE MAIN ACTION. Home is the primary, the shelf is
+           beside it, and conventions.md 1.6 holds on this page again. -->
+      <div class="wf-row">
+        <a class="wf-btn wf-btn--primary" href="index.html">Home</a>
+        <a class="wf-btn" href="catalogue.html">All cases</a>
+      </div>
       <p class="wf-note">Both of these come back when we do.</p>
     </div>
 

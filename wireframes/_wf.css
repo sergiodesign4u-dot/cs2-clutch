@@ -457,34 +457,6 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-foot-pay .wf-lang-ab { display: none; }
 .wf-foot-pay .wf-lang-full { display: inline; }
 
-/* 0.8 The live drop ticker. One visual row at 360px and never more.
-   THE GEOMETRY IS MEASURED, NOT CHOSEN: baseline.md section 3 records 92px tiles in a
-   strip 120px tall, and 0.8 section 6 handed stage 04 the two open items answered here.
-   Tiles of 148px carrying four text fields read as four cards rather than as a feed. */
-  display: flex; gap: var(--wf-s-1); align-items: stretch;
-  padding: var(--wf-s-1) 0; border-bottom: 1px solid var(--wf-line-soft);
-}
-  display: flex; gap: var(--wf-s-half); margin: 0; padding: 0; list-style: none;
-  flex: 1 1 auto; min-width: 0; overflow: hidden;
-}
-/* min-width:0 is load bearing, not tidying: a flex item's automatic minimum size is
-   its min-content, so "Desert Eagle" alone pushed a 92px tile to 117px and the strip
-   drifted a quarter wider than the measured baseline. */
-  display: block; height: 100%; padding: var(--wf-s-half);
-  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
-  text-decoration: none; overflow: hidden;
-}
-/* ANSWER TO 0.8's OPEN ITEM "whether the tile carries the item image": it does. The
-   strip is read at a glance rather than read, the baseline runs artwork at exactly this
-   92 by 120 and it is legible there, and four text fields alone at 92px read as a list. */
-  display: block; height: 44px; margin-bottom: 2px;
-  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
-}
-  display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-}
-/* The pause sits beside the strip, not under it: under it, it cost the fold 60px and
-   read as a control for the page rather than for the strip. */
-
 .wf-main { padding-block: var(--wf-s-2); }
 /* Blocks are separated by space, not by a rule. A hairline between every section made
    the page read as a document with headings rather than as a product surface, which is
@@ -1083,7 +1055,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
     grid-area: header; position: sticky; top: 0; z-index: 30;
     background: var(--wf-bg); padding-block: var(--wf-s-1);
   }
-  .wf-main { grid-area: main; padding-bottom: var(--wf-s-4); }
+  .wf-main { grid-area: main; padding-block: var(--wf-s-4); }
   /* THE FEED IS A ROW OF THE SHELL GRID, D-59. Without its own area it was
      auto-placed into the rail's column and the first tiles rendered underneath a
      fixed rail: visible in a screenshot, unreachable by a pointer. */
@@ -1656,7 +1628,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
   text-align: center; padding: var(--wf-s-2);
   border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
 }
-.wf-won-card .wf-won-art { flex: 1 1 auto; min-height: 80px; }}
+.wf-won-card .wf-won-art { flex: 1 1 auto; min-height: 80px; }
 /* The single outcome fills the same frame the batch does, for the same reason. */
 .wf-won { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
 .wf-won > .wf-won-art { flex: 1 1 auto; }
@@ -3357,6 +3329,10 @@ select {
   background: transparent; border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
 }
 textarea.wf-f { min-height: 96px; resize: vertical; }
+/* The native select keeps the field's own frame. Its own arrow is left alone:
+   drawing a replacement means owning keyboard and screen reader behaviour that
+   the native control already has right, and grey is not a reason to rebuild it. */
+select.wf-f { background: var(--wf-surface); min-height: var(--wf-tap); padding-block: var(--wf-s-1); }
 .wf-f-l { display: flex; flex-direction: column; gap: var(--wf-s-half); }
 /* A FIELD THE PRODUCT FILLED IS NOT A FIELD THE PERSON EDITS, and it is not a
    disabled input either: it is the decision quoted back, as text. */
@@ -3739,7 +3715,37 @@ textarea.wf-f { min-height: 96px; resize: vertical; }
 @media (min-width: 900px) { .wf-ck { bottom: 0; left: var(--wf-rail-w); } }
 .wf-ck-in {
   max-width: var(--wf-content); margin: 0 auto;
-  padding: var(--wf-s-2); display: flex; flex-direction: column; gap: var(--wf-s-2);
+  padding: var(--wf-s-2); display: flex; flex-direction: column; gap: var(--wf-s-1);
+}
+/* ONE BAND, NOT A PANEL, FOUNDER DECISION OF 23 AUGUST 2026. Stacked in one
+   column the region measured 240px at 1440 and 260px at 360, which is a quarter
+   of the viewport spent on a question with two answers, and it reserved 300px of
+   the host page behind it. Above 900 the words take the left column and the two
+   decisions take the right, so the band is the height of its own text.
+   THE SYMMETRY IS UNTOUCHED. Accept and Reject stay one grid of equal columns,
+   the same class on both and neither primary: that is the CNIL finding of 14
+   December 2021 and it is a hard constraint, not a layout preference. Making the
+   band shorter may not be paid for by making refusal smaller than acceptance. */
+@media (min-width: 900px) {
+  .wf-ck-in {
+    display: grid; align-items: start;
+    grid-template-columns: minmax(0, 1fr) 320px;
+    gap: var(--wf-s-half) var(--wf-s-3);
+    padding-block: var(--wf-s-1);
+  }
+  .wf-ck-in > * { grid-column: 1; }
+  .wf-ck-acts { grid-column: 2; grid-row: 1 / -1; align-self: center; }
+}
+/* LAYER 2 SCROLLS AND THE TWO DECISIONS DO NOT. The purpose list is as long as
+   the purposes are, so at 360 both answers sat 300px below the region's own
+   scrollport and a person had to scroll a fixed band to find either. Pinned to
+   the foot of the region they stay equally reachable at every height, which is
+   the same CNIL symmetry read as a scroll position rather than as a width. */
+[data-ck-layer="2"] .wf-ck-acts {
+  position: sticky; bottom: 0; z-index: 1;
+  background: var(--wf-surface);
+  padding-top: var(--wf-s-1);
+  border-top: 1px solid var(--wf-line-soft);
 }
 /* THE VISIBLE TITLE IS NOT A HEADING. The host page owns its own outline, and a
    consent region that injects an H2 into Home changes the document a crawler and
@@ -3747,6 +3753,14 @@ textarea.wf-f { min-height: 96px; resize: vertical; }
    instead, which is the same trick the sign in dialog uses for the same reason. */
 .wf-ck-h { margin: 0; font-size: var(--wf-t-m); font-weight: 700; }
 .wf-ck-p-say { margin: 0; color: var(--wf-ink-dim); max-width: 68ch; font-size: var(--wf-t-s); }
+/* THE MEASURE IS DELIBERATELY OFF ABOVE 900, and only here. --wf-measure exists
+   so prose is readable, and 68ch held the say text to three lines inside a column
+   twice that wide, which bought nothing and cost the band 36px. A consent band is
+   read at a glance in one or two lines; it is not prose.
+   WRITTEN AFTER THE FLAT RULE, NOT INSIDE THE LAYOUT BLOCK ABOVE, D-62: a flat
+   rule later in the file beats a media query on equal specificity, and placing it
+   with the grid is exactly how this file has lost the same argument four times. */
+@media (min-width: 900px) { .wf-ck-p-say { max-width: none; } }
 
 /* SYMMETRY IS THE NODE. The CNIL's 14 December 2021 finding is that banners "do
    not allow the user to refuse the deposit of cookies as easily as to accept it",
@@ -3795,7 +3809,13 @@ textarea.wf-f { min-height: 96px; resize: vertical; }
 .wf-ck-rec-v { font-size: var(--wf-t-s); }
 /* The host page keeps room for the region rather than sliding under it. A banner
    that hides the last block of the page is a wall with a scroll on it. */
-.wf-screen-body:has(.wf-ck) .wf-main { padding-bottom: 300px; }
+.wf-screen-body:has(.wf-ck) .wf-main { padding-bottom: 260px; }
+@media (min-width: 900px) { .wf-screen-body:has(.wf-ck) .wf-main { padding-bottom: 160px; } }
+/* Layer 2 is a list of purposes and it is allowed to be tall, so it keeps the
+   scroll of its own region rather than pushing the reserve back up: a reserve
+   sized for the tallest state would put the band's cost on the seven states
+   that are not it. */
+.wf-screen-body:has(.wf-ck [data-ck-layer="2"]) .wf-main { padding-bottom: 300px; }
 /* A STANDALONE LINK IS A TARGET, AND THIS IS THE THIRD TIME THAT COST A FIX.
    D-77 expanded the small button after three nodes claimed AAA 44 and it shipped
    at 32. D-80 expanded the cookie policy link at 23. D-81 met it again on the

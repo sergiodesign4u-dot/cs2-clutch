@@ -34,6 +34,20 @@
 
 ---
 
+## 0.6 Amended 23 August 2026 by `D-82`, the founder's screen review
+
+**The founder opened the drawn 404 and asked what all of it was for.** Four things left the page and one page left the node. Nothing here is a new idea: three of the four were already raised by the audit of 22 August as findings this node had not acted on.
+
+| What changed | Why |
+|---|---|
+| **The response block leaves the body of all seven pages** | Status, Served at and Retry-After are the machine half of the response printed to the human half. `D-66` forbids process prose on the product surface and the 22 August audit raised it as such. It is kept as each page's own annotation, where a reviewer still reads it against the words beside it. **The address bar already shows the served address**, which made the block redundant as well as wrong |
+| **The search field leaves the 404**, section 2 block B3 and section 3 | It worked and its empty result was a real state, and neither was the objection. The page exists to say one sentence and offer one way out; a field with a submit beside it was a second job on it. The shelf carries a search and All cases is one press away |
+| **Seven pages, not eight.** `system-404-noresult.html` is deleted, section 7 | Its subject was the search. A state whose subject is gone is deleted rather than carried as an empty page |
+| **The two quick-link cards become two buttons**, Home primary and All cases beside it | The destinations did not change: the transitions row still holds `1.0` and `3.1`. What went is a name plus a line of explanation each, on a page whose whole job is one sentence. `conventions.md` 1.6 holds again, one main action. **This also closes section 9's open item on a third destination: the answer is no** |
+| **And `system-500-noshell.html` keeps the stacked list** | Section 4's argument is that page's entire subject: on a 500 the carriers may not render, so the body is the part that is certain to. A button row is fine where the shell is standing. That page is the one where it is not |
+
+---
+
 ## 0. Two live failures, and they fail in opposite directions
 
 Both were opened in a browser on 12 August 2026 and both are recorded in `ia/docs/blocks.md`, type T8. They are worth more than a checklist because between them they use up both ways this page goes wrong.

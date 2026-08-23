@@ -2997,3 +2997,75 @@ That record printed three unbuilt states as its price: **no Steam linked** on `5
 **Whether `5.11` survives at all.** It holds one block. If the trade URL should live only on `5.3`, this node is cut and the account menu loses a row, and the rule that put the row there applies again in the other direction. **Recommended: keep it**, because a field that only exists inside a flow can only be corrected by re-entering the flow.
 
 **And whether a person can turn off their public appearance**, which is `7.1`'s open item, not this node's, and which the baseline shows the live product answers with a control.
+
+---
+
+## D-82. The founder's screen review of 23 August 2026: one broken stylesheet, four pages that said too much, and the argument section 2 of `3.1` had already won
+
+**Date:** 2026-08-23. **Stage:** 04, between step 9's collection and its fixes. **Decided by:** the founder, on five things, looking at the drawn pages. **Binds:** `wireframes/_wf.css`, nodes `0.3`, `0.4`, `0.10` and `3.1`, and it deletes one page and adds one.
+
+**This entry is one decision with five parts because it was one pass.** The founder opened the prototype, and everything below came out of looking at it rather than out of reading a table.
+
+### The stylesheet had not parsed since the ticker was rewritten, and no instrument caught it
+
+**`padding-top` on `.wf-main` computed to `0px` on all 106 pages, at 360, 1024 and 1440.** The first block of every screen touched the header seam and at 360 the last one touched the foot.
+
+**The cause was not a value.** Lines 460 to 486 of `_wf.css` held a superseded draft of the ticker that had lost all five of its selectors, leaving five declaration blocks with nothing in front of them. CSS error recovery then reads forward to the next `{` looking for a selector, **and the rule it swallowed on the way was `.wf-main { padding-block: var(--wf-s-2) }`.** The live ticker rules live 1900 lines further down and were never touched, which is exactly why nothing looked broken enough to investigate.
+
+**Eight instruments ran over this file the day before and none of them found it.** Three Codex passes, a clean-context reader, three browser auditors and a grep. The audit asked whether values drifted from their tokens, whether a state was absent, whether a rule was violated. **Nobody asked whether the file parses.** A stylesheet that parses to fewer rules than it contains is not a contradiction between two files, it is not an orphan and it is not a broken link, so it fell through every class in the taxonomy.
+
+**What was also wrong was that the dead draft's comments were still being read as documentation:** they cited 92px tiles and 44px artwork against the live block's 128px and 34px. Deleted rather than reattached to selectors, because the rules they described are not the rules that ship.
+
+**One value changed deliberately, named as the convention requires:** `.wf-main` at 1200 and up, `padding-bottom: var(--wf-s-4)` becomes `padding-block: var(--wf-s-4)`. The header is sticky, and 16px above against 40px below reads as a mistake rather than as a decision. Mobile keeps 16px.
+
+**And the second syntax fault, `}}` on `.wf-won-card .wf-won-art`, cost nothing:** a stray brace at top level is discarded. Fixed anyway. **The file now parses with zero orphans and depth zero, and that check is worth keeping as an instrument in its own right.**
+
+### Node `0.3`: the response was printed to the person, and the search was a second job
+
+**Three rows, Status, Served at and Retry-After, rendered in the body of every system page.** That is the machine half of a response shown to the human half, which `D-66` forbids in as many words and which the 22 August audit raised as process prose on the product surface. **The node's own argument for drawing them survives and moves:** they are kept as each page's annotation, so a reviewer still reads the response against the words beside it, and a person never does. **The block was also redundant: the address bar already shows the served address**, which was the load-bearing half of the argument.
+
+**The search field is off the 404.** It worked, it filtered twelve real names and its empty result was a state with a page of its own, and none of that was the objection. The page exists to say one sentence and offer one way out.
+
+**`system-404-noresult.html` is deleted and `SYS_CASES` went with it.** A state whose subject is gone is deleted, not carried as an empty page. **Eight pages become seven.**
+
+**The two quick-link cards become two buttons, Home primary and All cases beside it.** The destinations did not change and could not: the transitions row holds `1.0` and `3.1`, and a carrier may not promise a destination the map does not hold. **This also answers section 9's open item on a third destination, and the answer is no.**
+
+**`system-500-noshell.html` keeps the stacked list, and that is not an inconsistency.** Its whole subject is a 500 where the carriers do not render, and there the body is the only thing certain to.
+
+### Node `0.10`: two forms side by side, and a person with a question met an appeal they had not made
+
+**Fourteen fields over two forms, with a `[?]` deadline as the first thing on the page.** The entry page now carries one form and the FAQ above it.
+
+**The appeal keeps every field it had, on `support-appeal.html`.** The refusal that mattered is untouched: **a selector that rewrites required fields under a person is still refused**, so the subject navigates rather than mutating the form. A prefill that is never carried across a state change cannot be lost in one.
+
+**The FAQ moved above the form because the live product is right and shouts.** Its yellow ATTENTION!!! box tells a person to read the articles first. Making the answers the block a person meets does the same job without telling anyone off.
+
+**The deadline moved under the Send.** It is still the entire difference between this page and a help page, it is still a deadline for an answer rather than a resolution, and it is still not published. What changed is that a figure nobody has yet is no longer the first thing read.
+
+**The three cross-link buttons are gone.** The footer carries all three destinations in its own columns, on this page as on every other.
+
+### Node `3.1`: section 2 wins its argument back, and it took a screenshot to do it
+
+**Section 2 of `catalogue.md` refused a daily banner on one ground: a banner survives every filter and a case does not.** `D-68` overrode it on 21 August, put the ladder in as a panel outside the list, and printed the cost in the node rather than absorbing it.
+
+**The founder narrowed the shelf, saw the panel standing over two results, and the printed cost turned out to be the whole objection.** The panel is off `catalogue-filtered` and `catalogue-empty`. **The ladder is not cut, it is scoped:** it keeps the unfiltered shelf, where it competes with nothing.
+
+**The Daily jump chip goes with it, and in the empty state the whole jump list goes**, because a jump to a heading that is not on the page is a dead control and section 4 had already written that rule for emptied categories.
+
+**And a sentence in the SEO prose on all seven catalogue pages was corrected:** it said the daily case sits in the grid rather than in a banner, "so it is filtered and searched like any other case". That had been false since `D-68` took the tile off. **A sentence describing the design before last is worse than no sentence, and it survived a full audit the day before.**
+
+### Node `0.4`: the band gets shorter and the symmetry does not move
+
+**240px at 1440 and 260px at 360, plus a 300px reserve on the host page, for a question with two answers.** Layer 1 is one band above 900 now: words left, decisions right, **141px**. The reserve follows the measurement, 160px above 900 and 260px below.
+
+**What may not be traded for the height is written into the node rather than left to taste.** Accept and Reject stay one grid of equal columns, the same class on both, neither primary. The CNIL finding of 14 December 2021 is that banners do not let a person refuse as easily as accept. **A shorter band may not be paid for with a smaller refusal**, and stages 06 and 07 inherit that as the hard half of the row.
+
+**Layer 2's two decisions are pinned to the foot of its scrolling region.** At 360 both sat around 300px below the region's own scrollport, so a person had to scroll a fixed band to find either answer. That was a 22 August audit finding and it is closed here. **It is the same symmetry read as a scroll position rather than as a width.**
+
+**And `--wf-measure` is off the say text above 900, only there and with the reason written beside it:** 68ch held one sentence to three lines inside a column twice that wide.
+
+### What this pass says about the audit that ran the day before
+
+**Four of the five parts were already in `critique.md` as raised findings.** Process prose on the product surface, a dead control, a 360 failure, and a rule the stage wrote for itself and did not sweep. **They were collected, deduplicated and prioritised, and the fix had not started, so the founder found them again by opening the pages.** That is the audit working and the queue being too slow, not the audit failing.
+
+**The fifth was invisible to all eight instruments.** The stylesheet parse is added to the contract checklist as its own line: **a file that parses to fewer rules than it contains passes every check that reads it as text.**

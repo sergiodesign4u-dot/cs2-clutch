@@ -36,6 +36,19 @@
 
 ---
 
+## 0.7 Amended 23 August 2026 by `D-82`, the band gets shorter and the symmetry does not move
+
+**The founder called the consent region huge and it was.** Stacked in one column it measured 240px at 1440 and 260px at 360, which is a quarter of the viewport spent on a question with two answers, and it reserved 300px of the host page behind it.
+
+| What changed | Why |
+|---|---|
+| **Layer 1 is one band above 900**, words left, the two decisions right | 141px at 1440, down from 240. The reserve on the host page follows the measurement rather than a round number: 160px above 900, 260px below it |
+| **The symmetry is untouched, and it is the reason the shortening is written down** | Accept and Reject stay one grid of equal columns, the same class on both, neither primary. The CNIL finding of 14 December 2021 is that banners do not let a user refuse as easily as accept. **A shorter band may not be paid for with a smaller refusal**, and stages 06 and 07 inherit that as the hard half of this row |
+| **Layer 2's two decisions are pinned to the foot of the scrolling region** | At 360 both answers sat around 300px below the region's own scrollport, so a person had to scroll a fixed band to find either. Pinned, they are equally reachable at every height. That is the same symmetry read as a scroll position rather than as a width, and the 22 August audit raised it as a 360 failure |
+| **The say text drops `--wf-measure` above 900, and only there** | 68ch held it to three lines inside a column twice that wide, which bought nothing and cost the band 36px. A consent band is read at a glance in one or two lines. It is not prose |
+
+---
+
 ## 0. What this node decides, and what it refuses to
 
 **It decides the interaction:** which blocks exist, what is on by default, what the states are, what may never happen in markup.

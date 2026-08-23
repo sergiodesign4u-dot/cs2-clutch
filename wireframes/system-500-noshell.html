@@ -81,21 +81,26 @@
         <span class="wf-attr-v">Us</span>
       </div>
 
-      <!-- THE RESPONSE, DRAWN. Three facts, and the second one is the one nobody
-           draws: the response renders AT THE ADDRESS THAT WAS REQUESTED. A redirect to
-           /404 would answer the request somewhere else, return a 200 or a 301 at a
-           different URL, and take the mistyped address out of the browser bar along
-           with any chance of correcting it. That is also what makes the status honest.
-           NO NOINDEX ANYWHERE ON THESE PAGES. The status code is the instrument, not
-           the meta tag: what removes an address from an index is the 404 itself, and
-           what stops a maintenance window removing the whole site is that a 503 is
-           temporary by definition. There are no error URLs to disallow in robots.txt
+      <!-- THE RESPONSE IS NOT PRINTED TO THE PERSON, FOUNDER DECISION OF 23 AUGUST
+           2026. It used to render as three rows in the body, Status, Served at and
+           Retry-After, and that is machine half of the sentence shown to the human
+           half. D-66 forbids exactly this and the audit of 22 August raised it as
+           process prose on the product surface; the founder raised it again looking
+           at the drawn page. It is recorded here instead, where a reviewer reads it
+           against the words beside it and a person never does.
+           WHAT THE ROWS SAID, AND IT STILL HOLDS AS A SPECIFICATION:
+             Status:     500 Internal Server Error
+             Served at:  /cases/ironbound
+             Retry-After: not sent. This is a failure rather than a wait with an end
+           THE RESPONSE RENDERS AT THE ADDRESS THAT WAS REQUESTED, and that is the
+           row nobody draws. A redirect to /404 would answer somewhere else, return
+           a 200 or a 301 at a different URL, and take the mistyped address out of
+           the browser bar along with any chance of correcting it. The address bar
+           is where a person reads it, which is why the block was redundant as well
+           as wrong: it printed what the browser already shows.
+           NO NOINDEX ANYWHERE ON THESE PAGES. The status code is the instrument,
+           not the meta tag. There are no error URLs to disallow in robots.txt
            because there are no error URLs. -->
-      <div class="wf-resp">
-        <div class="wf-resp-r"><span class="wf-resp-k">Status</span><span class="wf-resp-v">500 Internal Server Error</span></div>
-        <div class="wf-resp-r"><span class="wf-resp-k">Served at</span><span class="wf-resp-v">/cases/ironbound</span></div>
-        <div class="wf-resp-r"><span class="wf-resp-k">Retry-After</span><span class="wf-resp-v">Not sent. This is a failure rather than a wait with an end</span></div>
-      </div>
 
       <!-- B6. THE REFERENCE, ON THE 500 ALONE. One short identifier a person can
            paste into a support ticket. A failure with no handle is a failure support

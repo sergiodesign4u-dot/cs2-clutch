@@ -60,7 +60,6 @@ window.WF_NAV = {
       states: [
         { label: '404, internal referrer',  file: 'system-404-internal.html', status: 'built' },
         { label: '404, retired case slug',  file: 'system-404-retired.html',  status: 'built' },
-        { label: '404, search finds nothing', file: 'system-404-noresult.html', status: 'built' },
         { label: '500, carriers render',    file: 'system-500.html',          status: 'built' },
         { label: '500, carriers cannot',    file: 'system-500-noshell.html',  status: 'built' },
         { label: '503, planned',            file: 'system-503-planned.html',  status: 'built' },
@@ -108,6 +107,7 @@ window.WF_NAV = {
     { node: '0.10', cluster: '0', name: 'Support and contact', file: 'support.html',    ia: 'support.html',       status: 'built',
       base: 'Entry',
       states: [
+        { label: 'Appeal a decision',           file: 'support-appeal.html',    status: 'built' },
         { label: 'Appeal submitted',            file: 'support-submitted.html', status: 'built' },
         { label: 'Waiting, with attribution',   file: 'support-waiting.html',   status: 'built' },
         { label: 'Appeal answered',             file: 'support-answered.html',  status: 'built' },
@@ -2817,83 +2817,35 @@ window.WF_NAV = {
   }
 
   /* ---------- NODE 0.3, SYSTEM PAGES ----------
-     Three controls, and every one of them does its thing rather than depicting it.
-     THE SEARCH IS THE ONE THAT EARNS THE CODE. Its empty result is a state in the
-     node's own states table and it had no page until D-79, which means the one
-     branch of this block that can go wrong was the only state of this node nobody
-     could look at. A field that filters nothing is a picture of a field, and a
-     picture cannot have an empty state.
-     WHAT IT SEARCHES is the catalogue, not a second index: 0.13 marks /cases?...
-     as noindex, follow, canonical to /cases, and the 404's field submits into that
-     same route rather than minting a search surface of its own. The twelve names
-     are the ones 3.1 already draws, so the two surfaces cannot disagree.
-     NEVER AUTOFOCUSED. Autofocus jumps a screen reader past the statement, which
-     is the one sentence this page exists to deliver. */
-  var SYS_CASES = ['Blacklight', 'Coldfront', 'Deadbolt', 'Emberline', 'Halfmoon', 'Ironbound',
-                   'Nightfall', 'Overcast', 'Riftwork', 'Saltmarsh', 'Tinderbox', 'Warsteel'];
+     Two controls, and both of them do their thing rather than depicting it.
+     THE SEARCH WAS THE THIRD AND IT IS GONE, founder decision of 23 August 2026.
+     It worked, it filtered twelve real names, and its empty result was a state of
+     this node with a page of its own. None of that was the objection: the page
+     exists to say one sentence and offer one way out, and a field with a submit
+     beside it was a second job on it. The shelf carries a search, and the shelf is
+     one press away. SYS_CASES went with it rather than being left as a list
+     nothing reads. */
+
+  /* THE SUBJECT ON THE SUPPORT FORM IS A CONTROL, NOT A LABEL, D-58. Choosing
+     the appeal opens the appeal, which is the only subject that changes what the
+     product has to show: it carries four prefilled fields the other five do not.
+     IT NAVIGATES RATHER THAN REWRITING THE FORM IN PLACE. A selector that
+     rewrites required fields under a person is how a prefill gets lost, and node
+     0.10 refused it before this page had two forms and still refuses it now that
+     it has one. */
+  function mountSupportSubject() {
+    var sel = document.querySelector('[data-sup-subject]');
+    if (!sel) return;
+    sel.addEventListener('change', function () {
+      if (sel.value === 'appeal') window.location.href = BASE + 'support-appeal.html';
+    });
+  }
 
   function mountSystem() {
     var root = document.querySelector('[data-sys]');
     if (!root) return;
 
-    /* A. The search. */
-    var form = root.querySelector('[data-sys-search]');
-    if (form) {
-      var input = form.querySelector('input');
-      var out = root.querySelector('[data-sys-results]');
-      var live = root.querySelector('[data-sys-live]');
-
-      function draw(q) {
-        var term = (q || '').trim().toLowerCase();
-        out.innerHTML = '';
-        if (!term) {
-          if (live) live.textContent = '';
-          return;
-        }
-        var hits = SYS_CASES.filter(function (n) { return n.toLowerCase().indexOf(term) !== -1; });
-        if (!hits.length) {
-          // THE EMPTY RESULT SITS IN THE SAME BLOCK, and the quick links stay under
-          // it: 3.1, the full shelf, never a blank page. An empty search that
-          // replaces the page is a second dead end inside the first one.
-          var e = el('div', 'wf-empty');
-          e.appendChild(el('p', 'wf-empty-h', 'Nothing here is called that'));
-          var p1 = el('p', 'wf-empty-p');
-          p1.appendChild(document.createTextNode('No case matches '));
-          p1.appendChild(el('strong', null, '"' + (q || '').trim() + '"'));
-          p1.appendChild(document.createTextNode('. The shelf is the place to look, and it is one tap away below.'));
-          e.appendChild(p1);
-          var a = el('a', 'wf-btn', 'Open the full shelf');
-          a.href = BASE + 'catalogue.html';
-          var r = el('div', 'wf-row');
-          r.appendChild(a);
-          e.appendChild(r);
-          out.appendChild(e);
-          if (live) live.textContent = 'No case matches ' + (q || '').trim() + '.';
-          return;
-        }
-        var ul = el('ul', 'wf-hits');
-        hits.forEach(function (n) {
-          var li = el('li');
-          var a2 = el('a', 'wf-hit');
-          a2.href = BASE + 'case.html';
-          a2.appendChild(el('span', 'wf-hit-n', n));
-          a2.appendChild(el('span', 'wf-hit-k', 'Case'));
-          li.appendChild(a2);
-          ul.appendChild(li);
-        });
-        out.appendChild(ul);
-        if (live) live.textContent = hits.length + (hits.length === 1 ? ' case matches.' : ' cases match.');
-      }
-
-      form.addEventListener('submit', function (e) { e.preventDefault(); draw(input.value); });
-      input.addEventListener('input', function () { draw(input.value); });
-      // The no-result page renders its own state on load for the reason the sign in
-      // canon and the filter drawer both render theirs: a state nobody can see
-      // without a keystroke is a state nobody checks.
-      if (input.value) draw(input.value);
-    }
-
-    /* B. The retry, on the two 503 pages. A CONTROL, NEVER A LOOP: a page that
+    /* THE RETRY, on the two 503 pages. A CONTROL, NEVER A LOOP: a page that
        refreshes itself takes the choice away, keeps hammering a server that is
        already refusing, and on a screen reader restarts the page on every cycle.
        It answers politely and it counts, because a person who has pressed it four
@@ -3251,6 +3203,7 @@ window.WF_NAV = {
     mountRp();
     renderFaq();
     mountSystem();
+    mountSupportSubject();
     mountCookie();
     mountSettings();
     renderFooter(document.getElementById('wf-footer'));

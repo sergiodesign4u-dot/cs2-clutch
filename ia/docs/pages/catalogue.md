@@ -16,6 +16,19 @@
 
 ---
 
+## 0.5 Amended 23 August 2026 by `D-82`, and section 2 wins its argument back
+
+**The founder narrowed the shelf, saw the daily panel still standing over two results, and said it should go.** That is section 2's own sentence coming back: a banner survives every filter and a case does not. `D-68` overrode it on 21 August and printed the cost. Seen on screen, the cost was the whole objection.
+
+| What changed | Why |
+|---|---|
+| **The daily panel is off every narrowed state**, `catalogue-filtered` and `catalogue-empty` | It is an entitlement panel rather than a result set, so no filter can empty it, and that is exactly why it may not stand over a result set. **The ladder is not cut, it is scoped:** it keeps the unfiltered shelf, where it competes with nothing |
+| **The Daily jump chip goes with it**, and in the empty state the whole jump list goes | A jump to a heading that is not on the page is a dead control, `D-58`, and section 4 already wrote that rule for emptied category chips. It applies to this one for the same reason |
+| **The prose about the daily case is corrected on all seven catalogue pages** | It read "it sits in the grid with everything else rather than in a banner, so it is filtered and searched like any other case". That was already false after `D-68` took the tile off, and doubly false now. A sentence describing the design before last is worse than no sentence |
+| **What `D-68` keeps** | The tile is still off the shelf, the ladder is still the answer to the I2 risk through the wager gate, `D-25` and `D-67`, and `0.7`'s two daily states are still void. Only the panel's reach across filtered states changed |
+
+---
+
 ## 0. The one thing this node is not, and it is a decision rather than a preference
 
 **This page is off the main path.** `D-20` settled it: Home carries the featured case grid directly, which is what keeps the main job at three taps, and this node holds what Home cannot, the categories, the search, the filters and the daily free case as an addressable case. `sitemap.md`, "Depth to the main job, counted", prices the difference out loud: the browsing route is four taps and over budget, and it is not the main-job route.
