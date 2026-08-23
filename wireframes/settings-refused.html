@@ -65,6 +65,48 @@
     <h1>Settings</h1>
 
     <div class="wf-cfg" data-cfg>
+      <div class="wf-cfg-col">
+
+      <div class="wf-cfg-g">
+        <p class="wf-cfg-gh">General</p>
+
+        <!-- THE COUNTRY IS BACK, AND D-81's REFUSAL IS REVERSED WITH ITS REASON
+             CORRECTED RATHER THAN DELETED. That record refused it as a market
+             control, and it was right that a self-declared country a person can
+             change is not one. The founder's answer of 23 August 2026 is that it
+             was never meant to be the control: THE ALLOWLIST DECIDES, D-23, AND THE
+             DECLARATION IS WHAT THE PERSON STATES. A false one is a breach of terms
+             and the ground for a ban, which is a lever the product did not have.
+             SO THE SELECTOR OFFERS LAUNCHED MARKETS ONLY. If it could name a market
+             with no row it would be the geo control by the back door, which is what
+             D-81 actually objected to. Declaring one we have not opened lands on
+             2.1's not launched, never on a working product.
+             AND THE ACCOUNT HOLDS ONE ANSWER, NOT TWO. baseline-account.md 5b.6
+             walked two self-declared countries in one live account that disagree,
+             because the deposit step carries its own field. WITH A BAN ON THE OTHER
+             END OF A FALSE DECLARATION, A PRODUCT WITH TWO ANSWERS BANS PEOPLE OVER
+             ITS OWN CONTRADICTION. 4.1 reads this field and offers no second one.
+             THE BAN IS A DECISION AND IT OWES A WRITTEN GROUND. B8-3 is three
+             accounts banned with no explanation given, and node 0.10 exists because
+             of them. "The country you declared does not match where you are" is a
+             named ground that renders in the appeal form's quoted-back field, or it
+             is the same barrier we are designing against with our name on it. -->
+        <div class="wf-cfg-f">
+          <label class="wf-cfg-l" for="cfg-country">Where you live</label>
+          <select class="wf-f" id="cfg-country">
+            <option>Ukraine</option>
+            <option>Poland</option>
+            <option>Germany</option>
+          </select>
+          <p class="wf-cfg-p">Only markets we have opened are listed. This is a statement you are making, and the terms treat a false one as grounds to close the account, with the reason written down and an appeal open to you.</p>
+          <p class="wf-cfg-p wf-fig-missing">Which markets are open is not settled: the register is closed by default and every row needs its own legal work before it appears here.</p>
+        </div>
+        <div class="wf-cfg-row">
+          <button class="wf-btn" type="button">Save where you live</button>
+          <span class="wf-quick-w">Last changed 11 Aug 2026</span>
+        </div>
+      </div>
+
 
       <!-- B1. THE STEAM TRADE URL. A real input with a real label: a placeholder
            doing the label's job disappears the moment somebody types, which is the
@@ -82,7 +124,7 @@
         <p class="wf-cfg-p">Withdrawals are sent to Steam as a trade offer, and Steam needs this link to know where to send it. It is yours, it comes from Steam, and you can change it whenever you like.</p>
         <div class="wf-cfg-f">
           <label class="wf-cfg-l" for="cfg-url">Your Steam trade URL</label>
-          <input class="wf-cfg-in is-bad" id="cfg-url" type="url" aria-invalid="true" data-cfg-url value="https://steamcommunity.com/profiles/76561198064784950" spellcheck="false" autocomplete="off">
+          <textarea class="wf-cfg-in is-bad" id="cfg-url" rows="2" aria-invalid="true" data-cfg-url spellcheck="false" autocomplete="off">https://steamcommunity.com/profiles/76561198064784950</textarea>
           <!-- THE DESTINATION IS STEAM'S OWN PAGE and it is a real external href,
                because the token is issued there and nowhere else. A helper link that
                points back inside our own product would be a route to a page that
@@ -161,6 +203,67 @@
            mechanics, streaks, status or a session score. A settings page is where
            a profile completeness meter goes, which makes this the easiest page in
            the product to break that rule on. -->
+
+      <div class="wf-cfg-g">
+        <p class="wf-cfg-gh">How you sign in</p>
+        <!-- A STATEMENT, NOT FOUR ROWS OF CONTROLS. The baseline lists Steam,
+             Discord, Twitter and Google with a link control on each, and D-55 chose
+             exactly those four for the sign in surface. LINKING A SECOND PROVIDER TO
+             ONE ACCOUNT HAS NO ROW IN cjm-to-be.md AND NO NODE ON THE MAP, so three
+             of those four rows would be controls over nothing, which is the dead
+             item defect with an icon on it. What is true is which provider this
+             account uses, and that is what renders. -->
+        <div class="wf-cfg-fixed">
+          <span class="wf-cfg-fixed-k">This account signs in with Steam</span>
+          <span class="wf-quick-w">Connected. It is also where your skins are sent.</span>
+        </div>
+        <p class="wf-cfg-p wf-fig-missing">Linking a second way to sign in is not in round 1.</p>
+      </div>
+
+      </div>
+
+      <div class="wf-cfg-col">
+
+      <div class="wf-cfg-g">
+        <p class="wf-cfg-gh">Notifications</p>
+        <!-- ONE LIVE SWITCH, AND ITS PARENT IS NOT A FEATURE REQUEST. The baseline
+             runs eight switches here and D-81 read every one of them: six are over
+             capabilities that are LATER, and the two with live subjects are the
+             confirmations before selling and before withdrawing, which that record
+             refused on design principle 3, cost never hides inside excitement. That
+             refusal stands and is printed below rather than quietly dropped.
+             WHAT EARNS A CONTROL IS THE MARKETING CHANNEL ITSELF. The profile now
+             carries promotional messages, and a channel that sends them owes a way
+             to stop them: consent that cannot be withdrawn as easily as it was given
+             is the same finding 0.4 is built around. This switch is that withdrawal.
+             SYSTEM MESSAGES HAVE NO SWITCH AND THE ROW SAYS WHY. It is the cookie
+             node's strictly necessary row arriving a second time: a disabled control
+             is theatre, so the row states what it covers and takes no answer. A
+             person cannot opt out of being told their withdrawal failed. -->
+        <div class="wf-cfg-sw">
+          <label class="wf-cfg-sw-t" for="cfg-promo">Offers, free cases and anything else we want to sell you</label>
+          <input type="checkbox" role="switch" id="cfg-promo" checked>
+        </div>
+        <div class="wf-cfg-fixed">
+          <span class="wf-cfg-fixed-k">Messages about your own account</span>
+          <span class="wf-quick-w">No switch. A withdrawal that failed, a round that did not settle, a limit you set coming into force. You cannot opt out of being told what happened to your own money.</span>
+        </div>
+        <p class="wf-cfg-p"><a href="profile.html">Read your messages</a></p>
+      </div>
+
+      <div class="wf-cfg-g">
+        <p class="wf-cfg-gh">Not here, and why</p>
+        <!-- THE PAGE PRINTS WHAT IT REFUSED. The baseline's settings tab has twenty
+             rows and this one has three controls. A page that quietly drops
+             seventeen is one nobody can audit against its own baseline, D-81. -->
+        <ul class="wf-cfg-later">
+          <li><strong>Six notification switches</strong> over case battles, gunfights, upgrades, crypto withdrawal, giveaways and sponsored games. Every one of those is LATER, and a switch over nothing is the dead item defect with a toggle on it</li>
+          <li><strong>Confirmation before selling a skin back, and before withdrawing one.</strong> Both subjects are live and both switches are refused: design principle 3, cost never hides inside excitement. A switch that removes the confirmation before value leaves the account removes a risk moment, and it is set once in a calm minute and met months later at the worst one. The answer to daily friction is a faster confirmation, not an absent one</li>
+          <li><strong>Your display name</strong> lives on Profile, and <strong>language and sound</strong> at the foot of the menu on the left</li>
+        </ul>
+      </div>
+
+      </div>
 
     </div>
 

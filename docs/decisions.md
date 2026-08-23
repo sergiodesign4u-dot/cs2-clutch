@@ -3179,3 +3179,39 @@ Section 4 of the node refused sorting because an inventory is bounded by what on
 **The column count was set by the viewport and not by the card.** Three columns at 900 gave each card 200px, and the receipt inside the panel wrapped to a third line and clipped. **A card has a width below which its own contents stop fitting, and the grid stops before it.**
 
 **Measured:** 106 pages at 360 and 1440, no horizontal scroll, no page with zero top padding, the panel fitting its slot at four widths with the item's name still visible under it, the bar counting and summing from the cards themselves so grid and bar cannot disagree.
+
+---
+
+## D-86. The country control comes back, and it comes back as a statement the person makes rather than as the geo control
+
+**Date:** 2026-08-23. **Stage:** 04, node `5.11`. **Decided by:** the founder, in one sentence: the declaration is our lever, and a false one is a ban. **Binds:** node `5.11`, `4.1`, `0.10`, `0.12`, and it reverses one of `D-81`'s three refusals.
+
+### What `D-81` refused, and the half of it that was right
+
+That record refused `Your Selected Country` as "the sharpest refusal on the page", on this ground: **a self-declared country a person can change is the geo control handed to the person being controlled, which is not a stricter version of `D-23`'s allowlist, it is the absence of one.**
+
+**That is still true and it is not what the control is for.** The founder's answer is that the declaration was never meant to decide access. **`D-23` decides access and nothing else does.** What the declaration adds is a statement with the person's name on it, which turns a false one into a breach of terms and a ground for closing the account. **That is a lever the product did not have, and `D-81` argued only against the reading it does not need.**
+
+### Three conditions, and without them the reversal recreates the thing it was refused for
+
+**One. The selector offers launched markets only.** If it can name a market with no row, the declaration opens access and it is the geo control by the back door, which is exactly `D-81`'s objection. Declaring a market we have not opened lands on `2.1`'s `not launched`, never on a working product.
+
+**Two. One answer per account.** `baseline-account.md` section 5b.6 walked **two self-declared countries in one live account that disagree**, because the deposit step carries its own field: settings says United States, deposit step 1 says Ukraine. That was a curiosity while nothing hung on it. **With a ban on the other end of a false declaration it is a defect that bans people over the product's own contradiction.** `4.1` reads this field and offers no second one.
+
+**Three. The ban is a decision and it owes a written ground.** Barrier `B8-3` is three reviews of accounts banned with no explanation, and node `0.10` exists because of them. **"The country you declared does not match where you are" has to be a named ground that renders in the appeal form's quoted-back field**, or we have rebuilt the exact barrier this product is designed against, with our own name on it.
+
+### And the rest of `5.11`, rebuilt on the baseline's shape
+
+**Two columns from 1000: what a person sets about themselves on the left, what the product may send them on the right.** The split is by who acts, not by topic.
+
+**One live switch in Notifications, and its parent is not a feature request.** The baseline runs eight and `D-81` read every one: six are over capabilities that are `LATER`, and the two with live subjects are the confirmations before selling and before withdrawing, refused on design principle 3 and still refused. **What earns a control is the marketing channel itself**, which the profile now carries: a channel that sends promotional messages owes a way to stop them, and consent that cannot be withdrawn as easily as it was given is the finding `0.4` is built around.
+
+**System messages have no switch and the row says why.** It is the cookie node's strictly necessary row arriving a second time: a disabled control is theatre, so the row states what it covers and takes no answer. **A person cannot opt out of being told what happened to their own money.**
+
+**Linked profiles is a statement, not four rows of controls.** `D-55` chose Steam, Discord, Twitter and Google for the sign in surface, and **linking a second provider to one account has no row in `cjm-to-be.md` and no node on the map**, so three of those four would be controls over nothing.
+
+**And the page prints what it refused**, seventeen rows in a block named for it, because a settings page that quietly drops them is one nobody can audit against its own baseline.
+
+### One raised finding closed on the way
+
+**The trade URL field was an `<input>` and this node's own copy promises the saved value "wraps rather than truncating".** An input cannot wrap. At 360 it hid 46% of the URL and the hidden half was `?partner=...&token=...`, **the only part worth comparing against what Steam shows**. The 22 August audit raised it. It is a `textarea` now: same value, same press, and the whole 75 characters visible at 360 and at 1440 with no internal scroll.

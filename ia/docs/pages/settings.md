@@ -20,6 +20,24 @@
 
 ---
 
+## 0.4 Amended 23 August 2026 by `D-86`, and the sharpest refusal on this page is reversed with its reason corrected
+
+**The founder answered section 1.4 in one sentence: the declaration is our lever, and a false one is a ban.** That is not a smaller version of the objection, it is a different reading of what the control is.
+
+| What changed | Why |
+|---|---|
+| **The country control comes back**, as a statement rather than as the geo control | Section 1.4 refused it because a self-declared country a person can change is the geo control handed to the person being controlled. **That is still true and it is not what the control is for.** `D-23` decides access and nothing else does. The declaration adds a statement with the person's name on it, which turns a false one into a breach of terms and a ground for closing the account |
+| **The selector offers launched markets only** | If it can name a market with no row, the declaration opens access and section 1.4's objection returns intact. Declaring one we have not opened lands on `2.1`'s `not launched` |
+| **The account holds one answer and `4.1` reads this one** | `baseline-account.md` 5b.6 walked two self-declared countries in one live account that disagree. **With a ban on the other end of a false declaration, a product with two answers bans people over its own contradiction** |
+| **The ban owes a named ground, and `0.10` renders it** | `B8-3` is three accounts banned with no explanation. "The country you declared does not match where you are" has to appear in the appeal form's quoted-back field, **or this is the barrier we are designing against with our own name on it** |
+| **Two columns from 1000**, the account on the left and what the product may send on the right | The split is by who acts, not by topic |
+| **One live switch in Notifications**, and its parent is the marketing channel itself | Six of the baseline's eight are over `LATER` capabilities. The two with live subjects are the confirmations before selling and withdrawing, **still refused on design principle 3**. A channel that sends promotional messages owes a way to stop them, which is `0.4`'s own finding |
+| **System messages take no switch and the row says why** | The cookie node's strictly necessary row a second time: a disabled control is theatre. **A person cannot opt out of being told what happened to their own money** |
+| **Linked profiles is a statement, not four controls** | Linking a second provider to one account has no row in `cjm-to-be.md` and no node on the map, so three of the four rows would be controls over nothing |
+| **The trade URL field is a `textarea`** | Section 1 promises the saved value "wraps rather than truncating" and an `<input>` cannot wrap. At 360 it hid 46% of the URL and the hidden half was the partner and token pair, **the only part worth comparing against what Steam shows** |
+
+---
+
 ## 0. The input for this node was never missing, and the `[?]` was on the wrong thing
 
 **`D-36` wrote that what `5.11` holds in round 1 is `[?]` and that the node owes that answer before it can be drawn.** For two days stage 04 read that as a question for the founder and said so twice. **It is not one.** The record says *the node* owes the answer, and the answer is derived the way every other node's is: take the baseline row, apply the round 1 scope list, apply the three legal parent classes, and print what does not survive.

@@ -4082,7 +4082,46 @@ select.wf-f { background: var(--wf-surface); min-height: var(--wf-tap); padding-
    runs two columns and that is what lets twenty rows look like a small page.
    Ours holds one block and a list of places that are not here, and putting
    those side by side would be a dashboard made of nothing. ================== */
-.wf-cfg { display: flex; flex-direction: column; gap: var(--wf-s-4); max-width: 640px; }
+/* TWO COLUMNS FROM 1000, THE BASELINE'S SHAPE, D-86. Everything a person sets
+   about themselves on the left, everything the product may send them on the right.
+   The split is by WHO ACTS, not by topic: the left column is the account, the right
+   column is the product asking permission to speak. */
+.wf-cfg { display: flex; flex-direction: column; gap: var(--wf-s-4); }
+@media (min-width: 1000px) {
+  .wf-cfg { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: var(--wf-s-4); }
+}
+.wf-cfg-col { display: flex; flex-direction: column; gap: var(--wf-s-4); min-width: 0; }
+.wf-cfg-b, .wf-cfg-hole { max-width: 60ch; }
+/* THE GROUP IS A CARD WITH ITS NAME ON IT, which is what makes fourteen rows read
+   as four things rather than as a list. The baseline groups by General, Security,
+   Linked profiles and Notifications and the grouping is the part worth inheriting. */
+.wf-cfg-g {
+  display: flex; flex-direction: column; gap: var(--wf-s-3);
+  padding: var(--wf-s-3);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+  background: var(--wf-surface);
+}
+.wf-cfg-gh {
+  margin: 0; font-size: var(--wf-t-xs); letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--wf-ink-dim);
+}
+/* A SWITCH IS A REAL INPUT WITH A REAL LABEL. role=switch on a checkbox is the one
+   pattern that keeps the keyboard and the screen reader behaviour the native
+   control already has right, and D-58 will not accept a styled span here. */
+.wf-cfg-sw {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--wf-s-2);
+  min-height: var(--wf-tap);
+}
+.wf-cfg-sw-t { font-size: var(--wf-t-s); }
+.wf-cfg-sw input { width: 20px; height: 20px; margin: 0; flex: 0 0 auto; }
+/* A ROW THE PRODUCT WILL NOT LET YOU TURN OFF HAS NO CONTROL AT ALL, and this is
+   the cookie node's strictly necessary row arriving a second time for the same
+   reason: a disabled switch that cannot move is theatre. The row says what it
+   covers and why it takes no answer. */
+.wf-cfg-fixed { display: flex; flex-direction: column; gap: 2px; }
+.wf-cfg-fixed-k { font-size: var(--wf-t-s); }
+.wf-cfg-later { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-half); }
+.wf-cfg-later li { font-size: var(--wf-t-xs); color: var(--wf-ink-faint); }
 .wf-cfg-b { display: flex; flex-direction: column; gap: var(--wf-s-2); }
 .wf-cfg-h { margin: 0; font-size: var(--wf-t-l); }
 .wf-cfg-p { margin: 0; color: var(--wf-ink-dim); max-width: 60ch; font-size: var(--wf-t-s); }
@@ -4094,7 +4133,16 @@ select.wf-f { background: var(--wf-surface); min-height: var(--wf-tap); padding-
 /* THE SAVED VALUE WRAPS RATHER THAN TRUNCATING AT THE END. A trade URL a person
    cannot read in full is one they cannot compare with the one Steam shows them,
    and that comparison is the only way to check it without a withdrawal. */
-.wf-cfg-in { width: 100%; min-width: 0; font-family: var(--wf-mono); font-size: var(--wf-t-s); overflow-wrap: anywhere; }
+/* THE FIELD IS A TEXTAREA AND THAT IS NOT A STYLE CHOICE. This node's own copy
+   promises the saved value "wraps rather than truncating", and an <input> cannot
+   wrap: at 360 it hid 46% of the URL and the hidden half was ?partner=...&token=...,
+   the only part worth comparing against Steam. The 22 August audit raised it. A
+   textarea wraps, stays editable, and keeps the same value and the same press. */
+.wf-cfg-in {
+  width: 100%; min-width: 0; font-family: var(--wf-mono); font-size: var(--wf-t-s);
+  overflow-wrap: anywhere; resize: vertical; white-space: pre-wrap;
+}
+textarea.wf-cfg-in { min-height: 0; }
 .wf-cfg-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-2); }
 .wf-cfg-say { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); min-height: 1.4em; }
 /* THE CONSEQUENCE SITS IN THE SAME BLOCK AS THE FIELD. What an empty field costs
