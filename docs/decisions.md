@@ -3069,3 +3069,39 @@ That record printed three unbuilt states as its price: **no Steam linked** on `5
 **Four of the five parts were already in `critique.md` as raised findings.** Process prose on the product surface, a dead control, a 360 failure, and a rule the stage wrote for itself and did not sweep. **They were collected, deduplicated and prioritised, and the fix had not started, so the founder found them again by opening the pages.** That is the audit working and the queue being too slow, not the audit failing.
 
 **The fifth was invisible to all eight instruments.** The stylesheet parse is added to the contract checklist as its own line: **a file that parses to fewer rules than it contains passes every check that reads it as text.**
+
+---
+
+## D-83. Vertical rhythm becomes two rules instead of twenty missing ones, and it is the fifth time position beat intention in this stylesheet
+
+**Date:** 2026-08-23. **Stage:** 04, the second half of the founder's screen review. **Decided by:** the founder, pointing at one gap on `3.1` filtered. **Binds:** `wireframes/_wf.css`, `wireframes/docs/conventions.md` section 1.2a, and every page in the stage.
+
+**The complaint was one arrow between a count line and the note under it.** Measured, it was twenty distinct pairs of adjacent blocks touching at under 12px, across the built set: a breadcrumb on its H1, a chip row on the count, a table on the note that qualifies it on nineteen pages, two stacked notes 8px apart reading as one note that wrapped.
+
+### Why there was nothing to fix block by block
+
+**Every block carried its own answer or none.** `.wf-sec` owned 40px as padding, `.wf-cats-sec` owned 40 as a margin, `.wf-crumb` owned 16 as padding, and `.wf-count-line`, `.wf-sec-sub` and half the rest declared `margin: 0`. **A rhythm that lives in twenty places is twenty places to forget**, and this stage forgot it in twenty places.
+
+**So it is one declaration per level, on the container.** 24 between the page's own blocks, 16 between the parts of one section, and the 40 that separates sections left where it already was. **Three steps and each one has to be told apart from the other two**: 8 and 16 are what separates lines inside a block, 40 is what separates one argument from the next, and a block boundary is neither.
+
+### The `:not()` pairs are the rule, not decoration on it
+
+**A flat `.wf-main > * + *` was written first and it moved exactly the blocks that did not need moving.** Half the blocks on these pages declare `margin: 0` later in the file at equal specificity, so they won, and the ones with no margin at all were the ones that already had space.
+
+**This is `D-62` for the fifth time.** In this file a flat rule later beats a media query or an earlier rule on equal specificity, and the answer each time has been to make the intention outrank the position rather than to move the rule and hope. **`.wf-cats-sec + .wf-cats-sec` now carries a `:not()` it does not otherwise need**, purely so a category boundary keeps its 40 against a page rhythm that would flatten it to 24. That is written beside it rather than left as a puzzle.
+
+### Three exclusions, and each is a statement about what the thing is
+
+`.wf-sec` owns its 40 as padding, so a margin on top would make one boundary 64 while every other is 24. **`.wf-sec-sub` is the deck of its heading, not a block**, and 24 between a title and its own second line reads as two things. **`.wf-sec-foot` is the route out of a block** and keeps the 24 that lifts it clear of the block's last line.
+
+### Measured
+
+**Twenty sticking pairs at 1440 before, zero after**, scanned over all 106 pages across two levels of nesting, ink to ink rather than box to box.
+
+**The same scan at 360 found three more that 1440 could not show, and one of them was a real defect.** `.wf-wd` declares its two columns at 900 and up and declared nothing below it, so on seven withdrawal pages the side panel sat flush against the last line of the main column with no gap at all. It is one column with the page's own 24 now, two columns with 40 above 900. **A layout that only exists above a breakpoint has no layout below it, and that is not the same as having a simple one.**
+
+**The two that remain are deliberate and stay.** Inside the home banner at 360 the artwork, its countdown and its line sit 8px apart, which is the caption relationship inside one component rather than a boundary between blocks.
+
+No horizontal scroll at 360 or 1440. No page with zero top padding. The stylesheet still parses with zero orphan declarations and brace depth zero.
+
+**And the scan is worth keeping as an instrument, at both widths.** It found seventeen pairs the founder had not seen, on pages they had not opened.

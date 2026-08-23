@@ -254,3 +254,11 @@
 ### What the eight instruments could not see, and it is one line
 
 **None of them asked whether the stylesheet parses.** The taxonomy has a class for a value drifted from its token, for a state absent from code, for a rule violated and for a fact without a source. **A file that parses to fewer rules than it contains passes every one of them**, because every instrument reads CSS as text and the browser reads it as a grammar. Added to the contract checklist as its own line, with the check that found it: brace depth to zero, no declaration at top level.
+
+### And a class the taxonomy did not have either: nothing was measured between blocks
+
+**`D-83`, 23 August 2026.** The founder pointed at one gap on `3.1` filtered. **A scan of all 106 pages at two levels of nesting, ink to ink rather than box to box, found twenty distinct pairs of adjacent blocks touching at under 12px**, sixteen of them on pages nobody had opened.
+
+**No instrument had asked.** Every check in section 3 asks whether something is present, whether it is honest, whether it survives 360, or whether it matches its token. **None asks whether two things that are next to each other look like two things.** The scan joins the parse check as an instrument of its own: adjacent block pairs, ink gap under 12px, reported per class pair rather than per page.
+
+**Zero pairs after the fix**, which is two declarations rather than twenty. `conventions.md` 1.2a and `D-83` carry the rule and the reason.

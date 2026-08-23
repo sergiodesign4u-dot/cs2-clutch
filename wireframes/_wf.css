@@ -458,6 +458,34 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-foot-pay .wf-lang-full { display: inline; }
 
 .wf-main { padding-block: var(--wf-s-2); }
+/* VERTICAL RHYTHM BETWEEN THE PAGE'S OWN BLOCKS, and it is one rule rather than a
+   margin per block. Every top level block on a screen used to carry its own answer
+   or none, so a breadcrumb sat on its H1, a chip row sat on the count under it, and
+   the count sat on the note under that: three pairs touching on one page. Founder,
+   23 August 2026, looking at 3.1 filtered.
+   24px IS CHOSEN AGAINST THE OTHER TWO IT HAS TO BE TOLD APART FROM. 8 and 16 are
+   what separates lines inside a block, and 40 is what separates one section of a
+   page from the next. A block boundary is neither, so it takes the step between.
+   .wf-sec IS EXCLUDED because it already owns its 40 as padding, and a margin on
+   top of that would make one boundary on the page 64 while every other is 24. It is
+   excluded as a receiver only: a block AFTER a section still gets its own space,
+   since .wf-sec has no padding at its foot.
+   .wf-sec-sub IS EXCLUDED for the opposite reason. It is not a block, it is the
+   deck of the heading above it, and 24 between a title and its own second line
+   reads as two things rather than one.
+   THE :not() PAIR IS ALSO WHAT WINS THE CASCADE, D-62. Half the blocks on these
+   pages declare margin: 0 of their own, later in this file and at equal
+   specificity, so a flat .wf-main > * + * lost to every one of them and moved
+   exactly the blocks that did not need moving. */
+.wf-main > * + *:not(.wf-sec):not(.wf-sec-sub) { margin-top: var(--wf-s-3); }
+/* AND THE SAME RULE ONE LEVEL IN, AT THE STEP BELOW. Inside a section the pieces
+   are parts of one argument rather than separate blocks, so they take 16 where the
+   page takes 24: a table and the note that qualifies it were touching on nineteen
+   pages, and two stacked notes were 8 apart, which reads as one note that wrapped.
+   TWO EXCEPTIONS, BOTH BECAUSE THEY ARE NOT SIBLINGS IN THE SENSE THIS RULE MEANS.
+   .wf-sec-sub is the deck of the heading above it. .wf-sec-foot is the route out of
+   the block and it keeps the 24 that lifts it off the block's last line. */
+.wf-sec > * + *:not(.wf-sec-sub):not(.wf-sec-foot) { margin-top: var(--wf-s-2); }
 /* Blocks are separated by space, not by a rule. A hairline between every section made
    the page read as a document with headings rather than as a product surface, which is
    the first thing the founder said when they saw it beside the live product. Space is
@@ -2632,7 +2660,10 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 
 /* One section per category. The heading is the category name, the chips jump to
    it, so the bar and the heading list are the same list read twice. */
-.wf-cats-sec + .wf-cats-sec { margin-top: var(--wf-s-4); }
+/* ONE CATEGORY TO THE NEXT IS A SECTION BOUNDARY AND KEEPS ITS 40. Written with a
+   :not() it does not need, purely to outrank the page rhythm rule at the top of
+   this file, which carries two of them and would otherwise flatten this to 24. */
+.wf-cats-sec + .wf-cats-sec:not(.wf-sec) { margin-top: var(--wf-s-4); }
 .wf-cats-h { display: flex; align-items: baseline; gap: var(--wf-s-2); flex-wrap: wrap; margin-bottom: var(--wf-s-2); }
 .wf-cats-h h2 { margin: 0; }
 .wf-cats-sub { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
@@ -3066,8 +3097,13 @@ select {
   border-radius: var(--wf-r-2); display: flex; flex-direction: column; gap: var(--wf-s-1);
 }
 
+/* THE SIDE PANEL HAD NO GAP BELOW 900 ON SEVEN PAGES. The two columns are declared
+   at 900 and up, and below it they stacked as plain blocks with nothing between them,
+   so the side panel sat flush against the last line of the main column. Declared here
+   as one column with the page's own block step, D-83, and overridden to two above. */
+.wf-wd { display: grid; gap: var(--wf-s-3); align-items: start; }
 @media (min-width: 900px) {
-  .wf-wd { display: grid; grid-template-columns: minmax(0, 1fr) 300px; align-items: start; gap: var(--wf-s-4); }
+  .wf-wd { grid-template-columns: minmax(0, 1fr) 300px; gap: var(--wf-s-4); }
   .wf-wd-side { position: sticky; top: var(--wf-s-2); }
 }
 

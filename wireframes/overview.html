@@ -248,6 +248,14 @@
     <p><strong>Why this is not pedantry.</strong> Stage 07 extracts the component kit from these screens. If the structure of twenty screens lives in twenty inline blocks, the extract honestly collects a kit made of the differences: three versions of one card, two grids, four spacings where there should be one. <strong>The defect becomes visible three stages after it was created.</strong></p>
   </div>
 
+  <div class="card is-gap">
+    <h4>Vertical rhythm is one rule per level, never a margin per block</h4>
+    <p><strong>Three steps and each one means something.</strong> 8 and 16 separate lines inside a block. <strong>24 separates one block of a page from the next. 40 separates one section from the next.</strong> A boundary that reads as the wrong size is a boundary a person reads as the wrong kind.</p>
+    <p>It is declared once on the container, not on every block: <code>.wf-main &gt; * + *:not(.wf-sec):not(.wf-sec-sub)</code> takes 24, and <code>.wf-sec &gt; * + *:not(.wf-sec-sub):not(.wf-sec-foot)</code> takes 16.</p>
+    <p><strong>Why not a margin on each block.</strong> Every block carried its own answer or none, so a breadcrumb sat on its H1, a chip row sat on the count under it, and a table touched the note that qualified it on nineteen pages. <strong>Twenty distinct pairs measured touching at under 12px, and a rhythm that lives in twenty places is twenty places to forget.</strong></p>
+    <p><strong>The :not() pairs are load bearing.</strong> Half of these blocks declare <code>margin: 0</code> of their own, later in the file and at equal specificity, so a flat <code>* + *</code> lost to every one of them and moved only the blocks that did not need moving. <strong>That is D-62 for the fifth time: in this file, position beats intention unless specificity says otherwise.</strong> A block that wants a bigger boundary outranks the rule rather than fighting it, which is why <code>.wf-cats-sec + .wf-cats-sec</code> keeps its 40 by carrying a :not() it does not otherwise need.</p>
+  </div>
+
   <div class="card is-good">
     <h4>The rules that are checked rather than admired</h4>
     <p><strong>A live screen, not a diagram.</strong> A real page at full viewport that clicks and scrolls. No annotation labels on zones, no mockup frames, no skeleton placeholders standing in for a screen.</p>

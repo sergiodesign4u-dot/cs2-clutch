@@ -29,6 +29,23 @@ At step 8 parallel subagents write screens. **They cannot all write into `_wf.cs
 
 **Why this is not pedantry.** Stage 07 extracts the component kit **from these screens**. If the structure of twenty screens lives in twenty inline blocks, the extract honestly collects a kit made of the differences: three versions of one card, two grids, four spacings where there should be one. **Stage 08's token audit then shows the forks, and the defect becomes visible three stages after it was created.** That is the most expensive class of error in this pipeline.
 
+### 1.2a Vertical rhythm is one rule per level, never a margin per block
+
+**Three steps and each one means something.** 8 and 16 separate lines inside a block. **24 separates one block of a page from the next. 40 separates one section from the next.** A boundary that reads as the wrong size is a boundary a person reads as the wrong kind.
+
+**It is declared once, on the container, not on every block.**
+
+```
+.wf-main > * + *:not(.wf-sec):not(.wf-sec-sub) { margin-top: var(--wf-s-3); }
+.wf-sec  > * + *:not(.wf-sec-sub):not(.wf-sec-foot) { margin-top: var(--wf-s-2); }
+```
+
+**Why this and not a margin on each block.** Every block was carrying its own answer or none, so a breadcrumb sat on its H1, a chip row sat on the count under it, and a table touched the note that qualified it on nineteen pages. Twenty distinct pairs were measured touching at under 12px. **A rhythm that lives in twenty places is twenty places to forget.**
+
+**The `:not()` pairs are load bearing and they are not tidiness.** Half of these blocks declare `margin: 0` of their own, later in the file and at equal specificity, so a flat `* + *` lost to every one of them and moved only the blocks that did not need moving. **This is `D-62` for the fifth time: in this file, position beats intention unless specificity says otherwise.**
+
+**The exclusions are excluded because they are not siblings in the sense the rule means.** `.wf-sec` owns its 40 as padding. `.wf-sec-sub` is the deck of the heading above it. `.wf-sec-foot` is the route out of the block and keeps the 24 that lifts it clear. **A block that wants a bigger boundary outranks the rule rather than fighting it:** `.wf-cats-sec + .wf-cats-sec` keeps its 40 by carrying a `:not()` it does not otherwise need.
+
 ### 1.3 The IA anatomy is read as order, and rendered as one screen
 
 `§01 desktop / §02 mobile` in an IA node is **the order and priority of blocks**. It is rendered as **one live screen at full viewport, mobile first**, never as two frames and never as the node diagram.
