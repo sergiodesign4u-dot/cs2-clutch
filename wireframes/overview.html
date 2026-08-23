@@ -1940,6 +1940,36 @@
   </div>
 </section>
 
+<section id="cluster5">
+  <div class="sec-head">
+    <h2>D-84 and D-85, cluster 5 gets the baseline&#39;s account band and the card is rebuilt twice</h2>
+    <p class="sec-sub">23 August 2026. Thirteen pages gain a rendered account band, 5.1 is rebuilt on the live product&#39;s shape, 106 pages still.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The band is a carrier, so it is rendered like one</h4>
+    <p>Artwork slot, avatar slot, name, id, the two money figures, the deposit entry, and four tabs. <strong>renderAcctHero in _nav.js on all thirteen pages</strong>, each declaring window.WF_ACCT. <strong>A strip that exists on one of four peers is a dead end on the other three</strong>, and thirteen copies of one band is thirteen places for it to drift. The active tab is a span, not a link, D-58.</p>
+    <p><strong>Two costs printed.</strong> The money renders twice on cluster 5, as chrome in the sticky header and as the page&#39;s subject in the band, both reading one source so they cannot disagree. And <strong>the visible breadcrumb contradicts 0.13&#39;s &quot;breadcrumb: none&quot;</strong>, so it ships with no BreadcrumbList schema and 0.13 owes a corrected row.</p>
+  </div>
+
+  <div class="card is-drop">
+    <h4>The card lost to the baseline on the one thing that mattered</h4>
+    <p>The first rebuild kept our anatomy: two timestamped figures and a holding line on every card. <strong>In a grid of them that is a table with pictures.</strong> The face is five things now, and the receipt moved into the actions panel, where B7-1 is actually read: at the moment a person decides what to do with the item.</p>
+    <p><strong>The whole card is the hover target and hover is never the mechanism.</strong> Selection is, because a touch screen has no hover, which is what the baseline&#39;s own &quot;click on the item to select&quot; describes.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>The bar stops hiding, and sorting comes back narrowly</h4>
+    <p><strong>Hidden until selection, four exits are invisible to anyone who has not guessed that items are selectable.</strong> With nothing ticked the actions are unavailable and the bar says why, which is a state of a working control rather than the dead one D-58 forbids.</p>
+    <p><strong>Sorting is not filtering.</strong> A sort reorders the same set, so it cannot manufacture the second empty state with no parent that section 4 of the node was protecting against. There is still no filter.</p>
+  </div>
+
+  <div class="card is-drop">
+    <h4>Three defects the browser caught and reading would not have</h4>
+    <p><strong>The actions panel covered the card&#39;s own checkbox</strong>, so the actions opened and the item under them could not be selected. <strong>aspect-ratio with min-height resolves by growing the WIDTH</strong>, and at 1024 that pushed a 224px card to a 267px image and put a horizontal scrollbar on the page. <strong>The column count was set by the viewport rather than by the card</strong>, so at 900 the receipt clipped inside its own panel. <strong>A card has a width below which its contents stop fitting, and the grid stops before it.</strong></p>
+  </div>
+</section>
+
 <section id="review23">
   <div class="sec-head">
     <h2>D-82, the founder&#39;s screen review, and a stylesheet that did not parse</h2>
@@ -2041,6 +2071,7 @@ window.NAV_SECTIONS = [
   { id: 'system',      label: '0.3 System pages' },
   { id: 'cookie',      label: '0.4 Cookie consent' },
   { id: 'settings',    label: '5.11 Settings' },
+  { id: 'cluster5',    label: 'D-84 and D-85' },
   { id: 'review23',    label: 'D-82 screen review' },
 ];
 window.WF_BASE = '';

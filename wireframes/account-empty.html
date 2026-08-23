@@ -35,33 +35,32 @@
 
   <main class="wf-main">
 
+    <!-- THE ACCOUNT BAND AND ITS TAB STRIP, D-84. Rendered by _nav.js like the
+         other carriers, because a strip that exists on one of four peers is a
+         dead end on the other three, and thirteen copies of one band is
+         thirteen places for it to drift. -->
+    <div class="wf-ah" data-acct-hero></div>
+
     <h1>My items</h1>
 
+    <div class="wf-inv-head">
+      <h2 id="h2-items">Inventory</h2>
+      <p class="wf-inv-steam">Steam connected. <a href="settings.html">Where this is set</a></p>
+    </div>
+    <!-- THE MONEY MOVED TO THE BAND, D-84, AND THE HELD FIGURE READS 0.00 THERE.
+         A balance can be non-zero while items are zero, so "you hold nothing" would
+         be false and the empty is of ITEMS only. 0.11 rule 3 asks for the difference
+         between a missing figure and a zero one, and this is the side where the
+         figure is known.
+         THE SORT ROW AND THE SELECTION BAR ARE BOTH ABSENT HERE, and that is not the
+         same decision twice. There is nothing to sort and nothing to select, so both
+         controls have no subject at all: D-85 put the bar on the screen permanently
+         because it is where a person learns the exits exist, and on a page with no
+         items there is nothing for them to be an exit from. -->
+    <p class="wf-inv-limits">Verified, withdrawals are open. Nothing is held yet.</p>
+    <p class="wf-note wf-fig-missing">Peg not available: what one coin is worth in real money is not published yet</p>
+
     <div class="wf-inv">
-      <div class="wf-inv-sum">
-        <p class="wf-acct-state">Verified. Withdrawals are open.</p>
-
-        <!-- THE MONEY STILL RENDERS. A balance can be non-zero while items are
-             zero, so "you hold nothing" would be false, and the empty is of
-             items only. 0.11 rule 3: missing is a state and never a zero. -->
-        <div class="wf-inv-money">
-          <div class="wf-fig">
-            <span class="wf-fig-v">74.20 coins</span>
-            <span class="wf-fig-c">Balance</span>
-          </div>
-          <div class="wf-fig">
-            <span class="wf-fig-v">0.00 coins</span>
-            <span class="wf-fig-c">Value of items held</span>
-          </div>
-        </div>
-        <!-- THE WITHDRAWAL ENTRY IS ABSENT, NOT DISABLED. There is nothing to
-             withdraw, and a disabled control on an empty page is a promise of a
-             wall. This is the same rule D-58 applied to the sign in surface,
-             arriving at the opposite answer for the opposite reason: there the
-             precondition was one a person could satisfy, here the control has
-             no subject at all. -->
-      </div>
-
       <div class="wf-stack">
         <div class="wf-sec-head">
           <h2 id="h2-items">Items held</h2>
@@ -103,6 +102,7 @@
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';
 window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '0.00 coins' } };
+window.WF_ACCT = { active: 'items' };
 </script>
 <script src="_nav.js"></script>
 </body>

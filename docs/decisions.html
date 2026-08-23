@@ -1837,6 +1837,45 @@
   </div>
 
 
+
+  <div class="dec" id="d-84">
+    <div class="dec-head"><span class="dec-num">D-84</span><span class="dec-title">The account band and its tab strip are inherited, rendered as a carrier, and the money is on cluster 5 twice on purpose</span><span class="st st-closed">Stage 04</span></div>
+    <div class="dec-meta">2026-08-23 - the founder put the live account screen beside ours. Binds 5.1, 5.9, 5.10, 5.11, thirteen wireframes, _nav.js, _wf.css, and it owes 0.13 a corrected row</div>
+    <div class="dec-body">
+      <span class="drop"><span class="k">The inference the node made, and why it was wrong</span>5.1&#39;s baseline row said the four tabs are four nodes on our map since D-36, <strong>&quot;so the tab strip is not inherited either&quot;.</strong> <strong>Four nodes on a map is not an argument against a carrier between them, it is what makes one legal:</strong> every destination the strip promises exists on the map, which is the test CLAUDE.md sets. <strong>And the account menu and the strip are not the same carrier doing the same job:</strong> the menu is how a person enters cluster 5 from anywhere, the strip is how they move between the four once inside. The baseline runs both.</span>
+
+      <span class="pick"><span class="k">It is rendered, not pasted, and that is the load bearing part</span><strong>A strip that exists on one of four peers is a dead end on the other three.</strong> So it is renderAcctHero in _nav.js on all thirteen pages, each declaring window.WF_ACCT. <strong>Thirteen copies of one band is thirteen places for it to drift</strong>, the same argument that put the shell, the footer and the bar in the renderer. <strong>The active tab is a span, not a link:</strong> a tab that navigates to the page you are already on is a control that does nothing, D-58.</span>
+
+      <span class="drop"><span class="k">The money renders twice on cluster 5 and the cost is printed</span>0.1 gives money to the header and the header is sticky, so the same two figures appear as chrome above and as the page&#39;s own subject in the band. <strong>The baseline does exactly this and the founder asked for it in as many words.</strong> <strong>What may not happen is the two disagreeing, so both read one source</strong>, WF_SHELL.money.</span>
+
+      <span class="drop"><span class="k">And one thing this node cannot fix from here</span><strong>The band carries a visible breadcrumb and 0.13 says this page has none.</strong> It ships as wayfinding with no BreadcrumbList schema, so the schema half of the register&#39;s row stays true and the visible half is now false. <strong>0.13 owes a corrected row</strong>, recorded rather than quietly written from a node that does not own it.</span>
+    </div>
+  </div>
+
+
+  <div class="dec" id="d-85">
+    <div class="dec-head"><span class="dec-num">D-85</span><span class="dec-title">The inventory is rebuilt on the baseline&#39;s card, the selection bar stops hiding, and sorting comes back on a narrow reversal</span><span class="st st-closed">Stage 04</span></div>
+    <div class="dec-meta">2026-08-23 - the founder, screen by screen. Binds node 5.1 and account.html, -empty, -degraded</div>
+    <div class="dec-body">
+      <span class="drop"><span class="k">The first rebuild kept our anatomy and lost on the only thing that mattered</span>Every card carried two timestamped figures and a holding line, six pieces of text and two moments. <strong>In a grid of them that is a table with pictures: the live card is read at a glance and ours had to be read.</strong> The face is now five things: artwork, weapon, skin, wear in parentheses, one price, then the market foot. <strong>The as-of is said once for the whole grid rather than printed on every card</strong>, because gap A1 asks for a reference price with a moment attached, not for the same timestamp six times.</span>
+
+      <span class="pick"><span class="k">The receipt moves into the actions and it is not cut</span>F2 and barrier B7-1 are the whole reason this node exists. <strong>B7-1 is retrospective by nature, a number that stopped being true</strong>, so the receipt is read at the moment a person decides what to do with the item rather than on every tile of a grid nobody is reading yet.</span>
+
+      <span class="pick"><span class="k">Hover is the shortcut and selection is the mechanism</span><strong>The whole card is the hover target, not the picture inside it:</strong> a person aims at the card, and making the artwork the only live area meant the actions flickered as the pointer crossed the name. <strong>And hover is never the mechanism.</strong> It does not exist on a touch screen, so the panel also opens on :has(:checked) and on focus, which is what the baseline&#39;s own &quot;click on the item to select&quot; describes.</span>
+
+      <span class="drop"><span class="k">The bar stops hiding, and the earlier argument was half right</span>It shipped hidden until something was ticked, on the ground that a bar saying nothing is furniture. <strong>That missed what the bar is for: it is where a person learns the exits exist.</strong> Hidden, four exits are invisible to anyone who has not already guessed that items are selectable. <strong>With nothing ticked the actions are unavailable and the bar says why.</strong> That is not the dead control D-58 forbids: <strong>a dead control has no state in which it works</strong>, and each of these works from the first tick.</span>
+
+      <span class="pick"><span class="k">Sorting is reversed narrowly, and the distinction is the whole reversal</span>Section 4 refused sorting because an inventory is bounded by what one person opened. <strong>Sorting is not filtering.</strong> A sort reorders the same set, so it cannot manufacture the second empty state with no parent that section 4 was protecting against. A filter would. <strong>There is still no filter.</strong></span>
+
+      <span class="drop"><span class="k">Three costs printed, not absorbed</span><strong>Exchange is drawn disabled</strong>, and D-58 names a switch that cannot move as its first case. The founder wants it standing so it can be activated the day exchange ships, <strong>so the reason renders beside it</strong>: a disabled control with no explanation is precisely the theatre the rule was written against. <strong>CASH-OUT is not drawn at all</strong>, because paying out to real money has no row in cjm-to-be.md and no node on the map, and drawing it would invent a capability at wireframe stage. <strong>One column at 360 where the baseline runs two</strong>, because D-52 says a button label never wraps and Send to Steam needs 152px: the divergence is the label and the column count follows it.</span>
+
+      <span class="drop"><span class="k">Three defects the browser caught and reading would not have</span><strong>The actions panel covered the card&#39;s own checkbox</strong>, so a person could open the actions and could not select or deselect the item under them. <strong>aspect-ratio together with min-height resolves by growing the WIDTH</strong>, and at 1024 that pushed a 224px card to a 267px image and put a horizontal scrollbar on the page. <strong>The column count was set by the viewport and not by the card:</strong> three columns at 900 gave each card 200px and the receipt inside the panel wrapped to a third line and clipped. <strong>A card has a width below which its own contents stop fitting, and the grid stops before it.</strong></span>
+
+      <span class="pick"><span class="k">Measured</span>106 pages at 360 and 1440, no horizontal scroll, no page with zero top padding. <strong>The panel fitting its slot at four widths with the item&#39;s name still visible under it</strong>, and the bar counting and summing from the cards themselves <strong>so grid and bar cannot disagree.</strong></span>
+    </div>
+  </div>
+
+
   <p style="margin-top:20px">The four design decisions the CJM map left open, the age and identity method, the roll history migration, the internal check on live data and the inventory capital, were answered on 2026-08-11 and are recorded above as <strong>D-17</strong>, then finished by <strong>D-20</strong> at the gate of the detail layer. Two were answered outright, <code>D-D</code> is now closed by structure rather than by a figure, and <code>D-B</code> with <code>D-C</code> have become one dated request with an owner. Their original wording lives in <a href="../research/cjm-to-be.html#backlog">CJM To-Be</a>.</p>
 </section>
 

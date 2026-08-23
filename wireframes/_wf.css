@@ -2916,6 +2916,206 @@ select {
 .wf-limits li { font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
 
 /* Block 4. The held item, 0.6 in its inventory context. */
+/* ============================================================================
+   THE ACCOUNT BAND AND ITS TAB STRIP, CLUSTER 5, D-84.
+   Inherited from the baseline on the founder's call of 23 August 2026, which
+   reverses one line of 5.1's baseline row. Rendered by _nav.js on all thirteen
+   pages of the cluster rather than pasted into each: a strip that exists on one
+   of four peers is a dead end on the other three.
+   ============================================================================ */
+.wf-ah {
+  position: relative; isolation: isolate;
+  margin-inline: calc(var(--wf-s-2) * -1);
+  padding: var(--wf-s-2);
+  border-bottom: 1px solid var(--wf-line-soft);
+}
+@media (min-width: 900px) { .wf-ah { margin-inline: calc(var(--wf-s-3) * -1); padding-inline: var(--wf-s-3); } }
+/* THE ARTWORK IS A SLOT WITH A SIZE AND NOTHING IN IT, like every other image slot
+   in this stage. What goes in it is stage 06's; the room it takes is decided here,
+   and it is decided as a band behind the identity rather than as a picture beside
+   it, which is the baseline's composition and the part of it we inherit. */
+.wf-ah-art {
+  position: absolute; inset: 0; z-index: -1;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: var(--wf-surface);
+}
+.wf-ah-in { display: flex; flex-direction: column; gap: var(--wf-s-2); }
+.wf-ah-crumb { padding: 0; }
+.wf-ah-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-2) var(--wf-s-4); }
+.wf-ah-who { display: flex; align-items: center; gap: var(--wf-s-2); min-width: 0; }
+/* A SQUARE, NOT THE BASELINE'S HEXAGON. Shape language is on CLAUDE.md's list of
+   what is NOT inherited, so the slot takes the room the avatar needs and says
+   nothing about its outline. */
+.wf-ah-av {
+  flex: 0 0 64px; height: 64px;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
+}
+.wf-ah-names { min-width: 0; }
+.wf-ah-n { margin: 0; font-size: var(--wf-t-l); font-weight: 700; overflow-wrap: anywhere; }
+/* THE ID IS WHAT A PERSON READS OUT TO SUPPORT. Monospace like every other
+   identifier here, always text, never an image, and never truncated. */
+.wf-ah-id { margin: 0; font-family: var(--wf-mono); font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-ah-money { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-2) var(--wf-s-3); margin-left: auto; }
+@media (max-width: 599px) { .wf-ah-money { margin-left: 0; width: 100%; } }
+.wf-ah-add { white-space: nowrap; }
+
+/* THE STRIP IS FOUR PEERS AND IT SCROLLS RATHER THAN WRAPPING. Four labels at 360
+   do not fit on one line, and a tab strip that wraps to two rows stops reading as
+   one control. The active one is a span, not a link: a tab that navigates to the
+   page you are already on is a control that does nothing, D-58. */
+.wf-atabs {
+  display: flex; gap: var(--wf-s-1);
+  margin-top: var(--wf-s-2);
+  overflow-x: auto; scrollbar-width: none;
+}
+.wf-atabs::-webkit-scrollbar { display: none; }
+.wf-atab {
+  display: inline-flex; align-items: center; white-space: nowrap;
+  min-height: var(--wf-tap); padding: 0 var(--wf-s-3);
+  border: 1px solid var(--wf-line); border-radius: var(--wf-r-3);
+  color: var(--wf-ink-dim); text-decoration: none; font-size: var(--wf-t-s);
+}
+.wf-atab.is-on { color: var(--wf-ink); background: var(--wf-raised); border-color: var(--wf-ink-dim); font-weight: 700; }
+
+/* ============================================================================
+   THE INVENTORY CARD AND ITS ACTIONS, 5.1, D-85.
+   REBUILT TWICE. The first pass kept our own anatomy and lost to the baseline on
+   the only thing that mattered: the live card is read at a glance and ours had to
+   be read. Six pieces of text and two timestamps per card, in a grid of them, is
+   not an inventory, it is a table with pictures.
+   THE FACE IS FIVE THINGS AND THEY ARE CENTRED: artwork, weapon, skin, wear in
+   parentheses, one price. Then the market foot the baseline runs, Starting at and
+   Offers. Nothing else, at any width.
+   THE RECEIPT MOVED INTO THE ACTIONS, and that is the one place F2 can live now.
+   Barrier B7-1 is retrospective by nature, a number that stopped being true, so
+   the receipt is read at the moment a person decides what to do with the item
+   rather than on every tile of a grid nobody is reading yet.
+   ============================================================================ */
+.wf-inv-card {
+  position: relative; isolation: isolate;
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  padding: var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+  background: var(--wf-surface); text-align: center;
+}
+.wf-inv-card:focus-within { border-color: var(--wf-line); }
+/* THE TICK AND THE SHARE STAY ABOVE THE PANEL, and this is not styling. With the
+   panel over them, hovering a card made its own checkbox unclickable: a person
+   could open the actions and could not select or deselect the item under them.
+   Caught by walking it in a browser, not by reading it. */
+.wf-inv-pick { position: absolute; top: var(--wf-s-2); left: var(--wf-s-2); z-index: 4; }
+.wf-inv-pick input { width: 20px; height: 20px; margin: 0; }
+/* SHARE APPEARS WITH THE ACTIONS AND NOT BEFORE. It is one of the actions on a
+   held item, 7.1's own object, and on the face of every card it was a second
+   control competing with the tick for the same corner. */
+.wf-inv-share { position: absolute; top: var(--wf-s-2); right: var(--wf-s-2); z-index: 4; display: none; }
+.wf-inv-card:hover .wf-inv-share,
+.wf-inv-card:focus-within .wf-inv-share,
+.wf-inv-card:has(.wf-inv-pick input:checked) .wf-inv-share { display: inline-flex; }
+.wf-inv-art {
+  /* THE SLOT IS SIZED BY WHAT SITS IN IT ON HOVER, not by the picture. The three
+     actions at the 44px target, their gaps and the receipt line need 184, and a
+     shorter slot pushed the panel down over the item's own name: the buttons
+     arrived and the thing they act on left the screen. */
+  display: block; width: 100%; height: 184px; margin: var(--wf-s-3) 0 var(--wf-s-1);
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
+}
+.wf-inv-w { margin: 0; font-weight: 700; }
+.wf-inv-s { margin: 0; color: var(--wf-ink-dim); }
+.wf-inv-wear { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-inv-p { margin: var(--wf-s-1) 0 0; font-family: var(--wf-mono); font-size: var(--wf-t-l); }
+/* THE MARKET FOOT IS THE BASELINE'S TWO FIELDS AND ITS AS-OF IS SAID ONCE FOR THE
+   WHOLE GRID RATHER THAN ON EVERY CARD. Gap A1 asks for a reference price with a
+   moment attached; it does not ask for the same timestamp printed six times.
+   THE PAIR GOES BOTH WAYS ON REAL DATA. Four of the nine rows walked on 18 August
+   had a site price above the market start and two had no market at all, so nothing
+   here may assume which figure is larger. */
+.wf-inv-mkt {
+  display: flex; justify-content: space-between; gap: var(--wf-s-2); width: 100%;
+  margin-top: var(--wf-s-2); padding-top: var(--wf-s-1);
+  border-top: 1px solid var(--wf-line-soft);
+  font-size: var(--wf-t-xs); color: var(--wf-ink-dim); text-align: left;
+}
+.wf-inv-mkt b { display: block; font-family: var(--wf-mono); font-weight: 400; color: var(--wf-ink); }
+.wf-inv-mkt span:last-child { text-align: right; }
+
+/* THE WHOLE CARD IS THE HOVER TARGET, not the artwork inside it. A person moving a
+   pointer at a grid aims at the card; making the picture the only live area means
+   the actions flicker on and off as the pointer crosses the name.
+   AND HOVER IS NOT THE MECHANISM, SELECTION IS. Hover does not exist on a touch
+   screen, so the panel also opens on :has(:checked) and on focus-within, which is
+   what the baseline's own "click on the item to select" describes. */
+.wf-inv-acts {
+  position: absolute; left: var(--wf-s-2); right: var(--wf-s-2);
+  top: calc(var(--wf-s-2) + var(--wf-s-3)); z-index: 3;
+  display: none; flex-direction: column; justify-content: center; gap: var(--wf-s-half);
+  height: 184px; padding: var(--wf-s-half);
+  background: var(--wf-bg); border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
+}
+.wf-inv-card:hover .wf-inv-acts,
+.wf-inv-card:focus-within .wf-inv-acts,
+.wf-inv-card:has(.wf-inv-pick input:checked) .wf-inv-acts { display: flex; }
+.wf-inv-acts .wf-btn { width: 100%; }
+.wf-inv-rec { margin: 0; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); text-align: center; }
+.wf-inv-rec b { font-family: var(--wf-mono); font-weight: 400; color: var(--wf-ink); }
+/* A DISABLED CONTROL IS ONLY LEGAL WITH ITS REASON BESIDE IT. D-58 took every dead
+   control off this product and a switch that cannot move is the case it names
+   first. Exchange stays on the surface by founder decision of 23 August 2026, so
+   the reason is printed rather than guessed, and the day exchange ships the note
+   comes off with the attribute. */
+.wf-inv-acts .wf-btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+.wf-inv-why { margin: 0; font-size: 10px; color: var(--wf-ink-faint); text-align: center; }
+
+/* THE BLOCK HEADER AND THE SORT ROW, both the baseline's. */
+.wf-inv-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--wf-s-1) var(--wf-s-3); }
+.wf-inv-head h2 { margin: 0; }
+.wf-inv-steam { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-inv-hint { margin: 0 0 0 auto; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+@media (max-width: 599px) { .wf-inv-hint { margin-left: 0; } }
+.wf-inv-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-2);
+  padding-top: var(--wf-s-2); border-top: 1px solid var(--wf-line-soft);
+}
+.wf-inv-all { margin: 0; font-size: var(--wf-t-l); }
+.wf-inv-sort { display: flex; align-items: center; gap: var(--wf-s-1); margin-left: auto; white-space: nowrap; }
+@media (max-width: 599px) { .wf-inv-sort { margin-left: 0; width: 100%; } }
+.wf-inv-sel { width: auto; min-width: 180px; padding: var(--wf-s-1) var(--wf-s-2); }
+.wf-inv-limits { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+
+/* THE SELECTION BAR IS ALWAYS ON THE SCREEN, D-85. It counts what is ticked and
+   sums it, and the pair is the header's own: A COUNT OF THINGS AND A VALUE OF
+   THINGS, never summed into one score.
+   WITH NOTHING TICKED THE ACTIONS ARE UNAVAILABLE AND THE BAR SAYS WHY. A control
+   that is unavailable in one state and works in another is not the dead control
+   D-58 forbids; a control with no working state at all is. The line beside them is
+   what makes the difference visible instead of assumed. */
+.wf-invbar {
+  position: sticky; bottom: 0; z-index: 20;
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-1) var(--wf-s-2);
+  margin-top: var(--wf-s-3); padding: var(--wf-s-2);
+  background: var(--wf-raised); border: 1px solid var(--wf-line); border-radius: var(--wf-r-3);
+}
+@media (max-width: 899px) { .wf-invbar { bottom: var(--wf-bar-h); } }
+.wf-invbar-n { font-family: var(--wf-mono); font-size: var(--wf-t-m); white-space: nowrap; }
+.wf-invbar-sel { display: flex; gap: var(--wf-s-1); }
+.wf-invbar-acts { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); margin-left: auto; }
+@media (max-width: 899px) { .wf-invbar-acts { margin-left: 0; width: 100%; } }
+.wf-invbar.is-idle .wf-invbar-acts .wf-btn { opacity: 0.45; pointer-events: none; }
+.wf-invbar-say { margin: 0; width: 100%; font-size: var(--wf-t-xs); color: var(--wf-ink-faint); }
+.wf-invbar:not(.is-idle) .wf-invbar-say { display: none; }
+
+/* ONE COLUMN AT 360 AND THE BASELINE RUNS TWO, and the reason is D-52: a button
+   label never wraps. Their five actions are unlabelled circles, so two columns cost
+   them nothing; ours are words, and "Send to Steam" needs 152px before it breaks. */
+.wf-grid--inv { display: grid; gap: var(--wf-s-2); grid-template-columns: minmax(0, 1fr); }
+/* THE COLUMN COUNT IS SET BY THE CARD, NOT BY THE VIEWPORT. Three columns at 900
+   gave each card 200px, and the receipt line inside the actions panel wrapped to a
+   third line and clipped against the slot it sits in. A card has a width below
+   which its own contents stop fitting, and the grid stops before it. */
+@media (min-width: 600px) { .wf-grid--inv { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1200px) { .wf-grid--inv { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1600px) { .wf-grid--inv { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
 .wf-held {
   display: flex; flex-direction: column; gap: var(--wf-s-1);
   padding: var(--wf-s-2);
@@ -2957,11 +3157,11 @@ select {
      shrink below its content, which is how this page overflowed by 12px at 900
      with the rail open and by 95 with it collapsed. The track has to be allowed
      to be narrower than the cards inside it, and the cards do the giving. */
-  .wf-inv { display: grid; grid-template-columns: 260px minmax(0, 1fr); align-items: start; gap: var(--wf-s-3); }
-  .wf-inv-sum { position: sticky; top: var(--wf-s-2); }
+  /* THE SUMMARY COLUMN IS GONE SINCE D-85. It carried the money the band now
+     carries, and wrapped one button in three paragraphs beside a grid that had no
+     room. The grid takes the full column and the actions live in the bar. */
 }
 @media (min-width: 1200px) {
-  .wf-inv { grid-template-columns: 300px minmax(0, 1fr); gap: var(--wf-s-4); }
   .wf-grid--held { grid-template-columns: repeat(3, 1fr); }
 }
 

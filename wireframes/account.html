@@ -35,135 +35,209 @@
 
   <main class="wf-main">
 
+    <!-- THE ACCOUNT BAND AND ITS TAB STRIP, D-84. Rendered by _nav.js like the
+         other carriers, because a strip that exists on one of four peers is a
+         dead end on the other three, and thirteen copies of one band is
+         thirteen places for it to drift. -->
+    <div class="wf-ah" data-acct-hero></div>
+
     <h1>My items</h1>
 
+    <!-- THE BLOCK HEADER IS THE BASELINE'S, D-85. The word, the Steam connection
+         state beside it, and the instruction that says how the grid works. The
+         state is not decoration: it is the single fact that decides whether Send
+         to Steam can work at all, and it routes to the screen that owns it rather
+         than offering a fix this page cannot perform. -->
+    <div class="wf-inv-head">
+      <h2 id="h2-items">Inventory</h2>
+      <p class="wf-inv-steam">Steam connected. <a href="settings.html">Where this is set</a></p>
+      <p class="wf-inv-hint">Select an item, or hover it, to see what you can do with it</p>
+    </div>
+
+    <!-- SORT IS BACK, FOUNDER'S CALL OF 23 AUGUST 2026, AND IT REVERSES SECTION 4
+         OF THE NODE. That section refused sorting on the ground that an inventory
+         is bounded by what one person opened. The baseline sorts by two keys and
+         the founder asked for them by name. SORTING IS NOT FILTERING and the
+         distinction is kept: a sort reorders the same set, so it cannot produce
+         the second empty state with no parent that section 4 was actually
+         protecting against. A filter would, and there is still none. -->
+    <div class="wf-inv-bar">
+      <h3 class="wf-inv-all">All skins</h3>
+      <div class="wf-inv-sort">
+        <span class="wf-fig-c">Sort by</span>
+        <label class="wf-vh" for="inv-sort">Sort the items</label>
+        <select class="wf-f wf-inv-sel" id="inv-sort">
+          <option>Newest first</option>
+          <option>Oldest first</option>
+          <option>Value, high to low</option>
+          <option>Value, low to high</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- THE LIMITS STAY, AS ONE LINE ABOVE THE SET RATHER THAN A COLUMN BESIDE IT.
+         G5 asks for a limit to be met before the route runs rather than discovered
+         inside it, which is the whole of B8-3. What went is the sidebar that
+         repeated the money the band already carries and wrapped one button in
+         three paragraphs; what stays is the sentence a person needs before they
+         press Send to Steam. The rest of it lives on 5.3, which owns it. -->
+    <p class="wf-inv-limits">Verified, withdrawals are open. Commission is zero. Your Steam inventory has to be public and trades unlocked. <a href="withdraw.html">Withdrawal times</a></p>
+    <p class="wf-note wf-fig-missing">Peg not available: what one coin is worth in real money is not published yet</p>
+
     <div class="wf-inv">
-      <!-- BLOCKS 1 TO 3 ARE THE FIRST SCREEN AT 360, and the order is the barrier
-           order rather than a preference. B8-4 says the exit must not ambush, so
-           the account state is answered before anything is offered; B7-1 says the
-           money must be checkable, so the figures come before the list they
-           describe. From 900 they hold beside the list rather than above it. -->
-      <div class="wf-inv-sum">
-        <!-- BLOCK 1. A statement of a fact resolved earlier, never a task raised
-             here. The way to not ambush somebody at the exit is to have answered
-             the question before they got there. -->
-        <p class="wf-acct-state">Verified. Withdrawals are open.</p>
-
-        <!-- BLOCK 2. The same two figures the header carries, in coins, NEVER
-             SUMMED AND NEVER A SCORE. -->
-        <div class="wf-inv-money">
-          <div class="wf-fig">
-            <span class="wf-fig-v">74.20 coins</span>
-            <span class="wf-fig-c">Balance</span>
+      <div class="wf-grid wf-grid--inv">
+        <article class="wf-inv-card">
+          <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="21.40"><span class="wf-vh">Select AK-47 Redline</span></label>
+          <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+          <span class="wf-inv-art" aria-hidden="true"></span>
+          <p class="wf-inv-w">AK-47</p>
+          <p class="wf-inv-s">Redline</p>
+          <p class="wf-inv-wear">(Field-Tested)</p>
+          <p class="wf-inv-p">21.40</p>
+          <div class="wf-inv-mkt">
+          <span>Starting at<b>18.90</b></span>
+          <span>Offers<b>412</b></span>
           </div>
-          <div class="wf-fig">
-            <span class="wf-fig-v">130.60 coins</span>
-            <span class="wf-fig-c">Value of items held</span>
+          <div class="wf-inv-acts">
+            <p class="wf-inv-rec">Won at <b>22.15</b>, 18 Aug 2026 14:02</p>
+            <a class="wf-btn" href="account.html">Sell for coins</a>
+            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
+            <button class="wf-btn" type="button" disabled>Exchange</button>
+            <p class="wf-inv-why">Exchange is not in round 1</p>
           </div>
-          <p class="wf-note wf-fig-missing">Peg not available: what one coin is worth in real money is not published yet</p>
-        </div>
+        </article>
+        <article class="wf-inv-card">
+          <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="66.05"><span class="wf-vh">Select AWP Asiimov</span></label>
+          <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+          <span class="wf-inv-art" aria-hidden="true"></span>
+          <p class="wf-inv-w">AWP</p>
+          <p class="wf-inv-s">Asiimov</p>
+          <p class="wf-inv-wear">(Well-Worn)</p>
+          <p class="wf-inv-p">66.05</p>
+          <div class="wf-inv-mkt">
+          <span>Starting at<b>71.20</b></span>
+          <span>Offers<b>268</b></span>
+          </div>
+          <div class="wf-inv-acts">
+            <p class="wf-inv-rec">Won at <b>64.80</b>, 17 Aug 2026 22:11</p>
+            <a class="wf-btn" href="account.html">Sell for coins</a>
+            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
+            <button class="wf-btn" type="button" disabled>Exchange</button>
+            <p class="wf-inv-why">Exchange is not in round 1</p>
+          </div>
+        </article>
+        <article class="wf-inv-card">
+          <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="7.35"><span class="wf-vh">Select USP-S Cortex</span></label>
+          <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+          <span class="wf-inv-art" aria-hidden="true"></span>
+          <p class="wf-inv-w">USP-S</p>
+          <p class="wf-inv-s">Cortex</p>
+          <p class="wf-inv-wear">(Minimal Wear)</p>
+          <p class="wf-inv-p">7.35</p>
+          <div class="wf-inv-mkt">
+          <span>Starting at<b>6.05</b></span>
+          <span>Offers<b>903</b></span>
+          </div>
+          <div class="wf-inv-acts">
+            <p class="wf-inv-rec">Won at <b>7.90</b>, 16 Aug 2026 19:40</p>
+            <a class="wf-btn" href="account.html">Sell for coins</a>
+            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
+            <button class="wf-btn" type="button" disabled>Exchange</button>
+            <p class="wf-inv-why">Exchange is not in round 1</p>
+          </div>
+        </article>
+        <article class="wf-inv-card">
+          <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="4.20"><span class="wf-vh">Select Glock-18 Water Elemental</span></label>
+          <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+          <span class="wf-inv-art" aria-hidden="true"></span>
+          <p class="wf-inv-w">Glock-18</p>
+          <p class="wf-inv-s">Water Elemental</p>
+          <p class="wf-inv-wear">(Factory New)</p>
+          <p class="wf-inv-p">4.20</p>
+          <div class="wf-inv-mkt">
+          <span class="wf-fig-missing">Nobody is offering one</span>
+          <span>Offers<b>0</b></span>
+          </div>
+          <div class="wf-inv-acts">
+            <p class="wf-inv-rec">Won at <b>4.15</b>, 15 Aug 2026 11:07</p>
+            <a class="wf-btn" href="account.html">Sell for coins</a>
+            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
+            <button class="wf-btn" type="button" disabled>Exchange</button>
+            <p class="wf-inv-why">Exchange is not in round 1</p>
+          </div>
+        </article>
+        <article class="wf-inv-card">
+          <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="29.90"><span class="wf-vh">Select M4A1-S Hyper Beast</span></label>
+          <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+          <span class="wf-inv-art" aria-hidden="true"></span>
+          <p class="wf-inv-w">M4A1-S</p>
+          <p class="wf-inv-s">Hyper Beast</p>
+          <p class="wf-inv-wear">(Field-Tested)</p>
+          <p class="wf-inv-p">29.90</p>
+          <div class="wf-inv-mkt">
+          <span>Starting at<b>34.10</b></span>
+          <span>Offers<b>155</b></span>
+          </div>
+          <div class="wf-inv-acts">
+            <p class="wf-inv-rec">Won at <b>31.60</b>, 14 Aug 2026 08:55</p>
+            <a class="wf-btn" href="account.html">Sell for coins</a>
+            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
+            <button class="wf-btn" type="button" disabled>Exchange</button>
+            <p class="wf-inv-why">Exchange is not in round 1</p>
+          </div>
+        </article>
+        <article class="wf-inv-card">
+          <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="12.05"><span class="wf-vh">Select Desert Eagle Blaze</span></label>
+          <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+          <span class="wf-inv-art" aria-hidden="true"></span>
+          <p class="wf-inv-w">Desert Eagle</p>
+          <p class="wf-inv-s">Blaze</p>
+          <p class="wf-inv-wear">(Minimal Wear)</p>
+          <p class="wf-inv-p">12.05</p>
+          <div class="wf-inv-mkt">
+          <span>Starting at<b>13.60</b></span>
+          <span>Offers<b>74</b></span>
+          </div>
+          <div class="wf-inv-acts">
+            <p class="wf-inv-rec">Won at <b>11.40</b>, 13 Aug 2026 20:18</p>
+            <a class="wf-btn" href="account.html">Sell for coins</a>
+            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
+            <button class="wf-btn" type="button" disabled>Exchange</button>
+            <p class="wf-inv-why">Exchange is not in round 1</p>
+          </div>
+        </article>
+      </div>
+      <p class="wf-pager-end">6 items held, and that is all of them.</p>
+    </div>
 
-        <!-- BLOCK 3. ONE CTA, AND THE LIMITS SIT BESIDE IT RATHER THAN BEHIND IT.
-             G5 asks for a limit to be met before the route runs rather than
-             discovered inside it, which is the whole of B8-3. -->
-        <div class="wf-stack">
-          <a class="wf-btn wf-btn--primary" href="withdraw.html">Withdraw to Steam</a>
-          <ul class="wf-limits">
-            <li>Commission is zero. What you see is what arrives.</li>
-            <li>Your Steam inventory has to be public and trades unlocked.</li>
-            <li>Withdrawal times are published from our own logs, as a middle time and a slow-case time.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="wf-stack">
-        <!-- BLOCK 4. The list, and the substance of the page. Each card is 0.6
-             in its inventory context: no drop chance and no ticket range,
-             because both are properties of the case rather than of a held
-             instance, and the receipt with its own as-of beside the current
-             value with its own.
-             NO SORT AND NO FILTER. An inventory is bounded by what one person
-             opened, and a filter on it manufactures a second empty state with no
-             parent. The order is most recent first, which is the order the person
-             acquired them in and the only order this node can justify until a
-             typical holding size exists. -->
-        <div class="wf-sec-head">
-          <h2 id="h2-items">Items held</h2>
-        </div>
-        <div class="wf-grid wf-grid--held">
-          <article class="wf-held">
-            <span class="wf-held-art" aria-hidden="true"></span>
-            <span class="wf-held-w">AK-47</span>
-            <span class="wf-held-s">Redline</span>
-            <span class="wf-result-axes"><span class="wf-axis">Field-Tested</span><span class="wf-axis">StatTrak</span></span>
-            <div class="wf-held-figs">
-              <div class="wf-fig">
-                <span class="wf-fig-v">22.15 coins</span>
-                <span class="wf-fig-c">Worth at the moment it was won, 18 Aug 2026 14:02</span>
-              </div>
-<div class="wf-fig"><span class="wf-fig-v">21.40 coins</span><span class="wf-fig-c">Worth now, read 21 Aug 2026 09:31</span></div>
-            </div>
-            <p class="wf-held-hold">Held with no time limit</p>
-          </article>
-          <article class="wf-held">
-            <span class="wf-held-art" aria-hidden="true"></span>
-            <span class="wf-held-w">AWP</span>
-            <span class="wf-held-s">Asiimov</span>
-            <span class="wf-result-axes"><span class="wf-axis">Well-Worn</span></span>
-            <div class="wf-held-figs">
-              <div class="wf-fig">
-                <span class="wf-fig-v">64.80 coins</span>
-                <span class="wf-fig-c">Worth at the moment it was won, 17 Aug 2026 22:11</span>
-              </div>
-<div class="wf-fig"><span class="wf-fig-v">66.05 coins</span><span class="wf-fig-c">Worth now, read 21 Aug 2026 09:31</span></div>
-            </div>
-            <p class="wf-held-hold">Held with no time limit</p>
-          </article>
-          <article class="wf-held">
-            <span class="wf-held-art" aria-hidden="true"></span>
-            <span class="wf-held-w">USP-S</span>
-            <span class="wf-held-s">Cortex</span>
-            <span class="wf-result-axes"><span class="wf-axis">Minimal Wear</span></span>
-            <div class="wf-held-figs">
-              <div class="wf-fig">
-                <span class="wf-fig-v">7.90 coins</span>
-                <span class="wf-fig-c">Worth at the moment it was won, 16 Aug 2026 19:40</span>
-              </div>
-<div class="wf-fig"><span class="wf-fig-v">7.35 coins</span><span class="wf-fig-c">Worth now, read 21 Aug 2026 09:31</span></div>
-            </div>
-            <p class="wf-held-hold">Held with no time limit</p>
-          </article>
-          <article class="wf-held">
-            <span class="wf-held-art" aria-hidden="true"></span>
-            <span class="wf-held-w">Glock-18</span>
-            <span class="wf-held-s">Water Elemental</span>
-            <span class="wf-result-axes"><span class="wf-axis">Factory New</span></span>
-            <div class="wf-held-figs">
-              <div class="wf-fig">
-                <span class="wf-fig-v">4.15 coins</span>
-                <span class="wf-fig-c">Worth at the moment it was won, 15 Aug 2026 11:07</span>
-              </div>
-<div class="wf-fig"><span class="wf-fig-v">4.20 coins</span><span class="wf-fig-c">Worth now, read 21 Aug 2026 09:31</span></div>
-            </div>
-            <p class="wf-held-hold">Held with no time limit</p>
-          </article>
-          <article class="wf-held">
-            <span class="wf-held-art" aria-hidden="true"></span>
-            <span class="wf-held-w">M4A1-S</span>
-            <span class="wf-held-s">Hyper Beast</span>
-            <span class="wf-result-axes"><span class="wf-axis">Field-Tested</span><span class="wf-axis">StatTrak</span></span>
-            <div class="wf-held-figs">
-              <div class="wf-fig">
-                <span class="wf-fig-v">31.60 coins</span>
-                <span class="wf-fig-c">Worth at the moment it was won, 14 Aug 2026 08:55</span>
-              </div>
-<div class="wf-fig"><span class="wf-fig-v">29.90 coins</span><span class="wf-fig-c">Worth now, read 21 Aug 2026 09:31</span></div>
-            </div>
-            <p class="wf-held-hold">Held with no time limit</p>
-          </article>
-        </div>
-        <!-- BLOCK 6. A legible bottom to the list. -->
-        <p class="wf-pager-end">5 items held, and that is all of them.</p>
-      </div>
+    <!-- THE BAR IS ALWAYS ON THE SCREEN, FOUNDER'S CALL OF 23 AUGUST 2026. It used
+         to appear only once something was ticked, on the argument that a bar saying
+         nothing is furniture. The baseline keeps it up permanently and it is right
+         for a reason the earlier argument missed: THE BAR IS WHERE A PERSON LEARNS
+         THE ACTIONS EXIST. Hidden until selection, the four exits are invisible to
+         anyone who has not already guessed that items are selectable.
+         WITH NOTHING SELECTED THE ACTIONS ARE UNAVAILABLE AND THEY SAY SO. That is
+         not the dead control D-58 forbids: a dead control has no state in which it
+         works, and each of these works the moment one item is ticked, which is what
+         the line beside them says.
+         THREE EXITS AND NOT THE BASELINE'S FIVE. Send to Steam and Sell for coins
+         are round 1, D-38. Exchange is drawn disabled by founder decision with its
+         reason printed. CASH-OUT IS NOT DRAWN: paying out to real money has no row
+         in cjm-to-be.md and no node on the map, and drawing it would invent a
+         capability at wireframe stage. The promoted third party slot is not ours. -->
+    <div class="wf-invbar" data-invbar>
+      <span class="wf-invbar-n" data-invbar-n>0 items</span>
+      <span class="wf-invbar-n" data-invbar-v>0.00 coins</span>
+      <span class="wf-invbar-sel">
+        <button class="wf-btn wf-btn--small" type="button" data-inv-all>Select all</button>
+        <button class="wf-btn wf-btn--small" type="button" data-inv-none>Deselect all</button>
+      </span>
+      <span class="wf-invbar-acts">
+        <a class="wf-btn wf-btn--primary" href="withdraw.html" data-invbar-act>Send to Steam</a>
+        <a class="wf-btn" href="account.html" data-invbar-act>Sell for coins</a>
+        <button class="wf-btn" type="button" disabled>Exchange</button>
+      </span>
+      <p class="wf-invbar-say" data-invbar-say>Tick an item to use these</p>
     </div>
 
   </main>
@@ -178,6 +252,7 @@
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';
 window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+window.WF_ACCT = { active: 'items' };
 </script>
 <script src="_nav.js"></script>
 </body>

@@ -2816,6 +2816,152 @@ window.WF_NAV = {
     wireAuth(host);
   }
 
+  /* ---------- THE ACCOUNT BAND, CLUSTER 5, D-84 ----------
+     INHERITED FROM THE BASELINE ON THE FOUNDER'S CALL OF 23 AUGUST 2026, and it
+     reverses one line of node 5.1's own baseline row. That row read "the four tabs
+     are four nodes on our map since D-36, so the tab strip is not inherited either",
+     and four nodes on a map is not an argument against a carrier between them: it is
+     what makes one legal. Every destination the strip promises exists.
+     WHY IT IS RENDERED HERE AND NOT PASTED INTO THIRTEEN FILES. A strip that only
+     exists on the page you are looking at is a dead end on the other three, and
+     thirteen copies of one band is thirteen places for it to drift. It is a carrier,
+     so it is rendered like the other carriers.
+     THE MONEY IS ON THIS SCREEN TWICE AND THAT COST IS PRINTED RATHER THAN ABSORBED.
+     The header owns money, 0.1 and CLAUDE.md, and it is sticky, so on cluster 5 the
+     same two figures render as chrome above and as the page's own subject here. The
+     baseline does exactly this and the founder asked for it in as many words. What
+     may not happen is the two disagreeing, so both read the same source.
+     THE PLUS IS A LABELLED LINK, NOT A GLYPH. D-52 and D-58: a control that does not
+     do its thing is a picture of it, and a bare + is a picture of a word. */
+  var ACCT_TABS = [
+    { key: 'items',    label: 'My items',     file: 'account.html' },
+    { key: 'history',  label: 'Roll history', file: 'history.html' },
+    { key: 'profile',  label: 'Profile',      file: 'profile.html' },
+    { key: 'settings', label: 'Settings',     file: 'settings.html' }
+  ];
+
+  function renderAcctHero(host) {
+    if (!host) return;
+    var cfg = window.WF_ACCT || {};
+    var M = (window.WF_SHELL && window.WF_SHELL.money) || {};
+    var active = ACCT_TABS.filter(function (t) { return t.key === cfg.active; })[0] || ACCT_TABS[0];
+
+    host.innerHTML = '';
+
+    /* The band's own artwork sits behind everything in it. In grey it is a slot with
+       its size and nothing in it, the same way every other image slot in this stage
+       is drawn: the look arrives at 06, the room it takes is decided here. */
+    host.appendChild(el('span', 'wf-ah-art', null)).setAttribute('aria-hidden', 'true');
+
+    var inn = el('div', 'wf-ah-in');
+
+    var crumb = el('nav', 'wf-crumb wf-ah-crumb');
+    crumb.setAttribute('aria-label', 'Breadcrumb');
+    var ol = el('ol');
+    var home = el('li');
+    var ha = el('a', null, 'Home'); ha.href = BASE + 'index-account.html';
+    home.appendChild(ha); ol.appendChild(home);
+    var mid = el('li');
+    var ma = el('a', null, 'My account'); ma.href = BASE + 'account.html';
+    mid.appendChild(ma); ol.appendChild(mid);
+    var last = el('li');
+    var cur = el('span', null, active.label);
+    cur.setAttribute('aria-current', 'page');
+    last.appendChild(cur); ol.appendChild(last);
+    crumb.appendChild(ol);
+    inn.appendChild(crumb);
+
+    var row = el('div', 'wf-ah-row');
+
+    var who = el('div', 'wf-ah-who');
+    var av = el('span', 'wf-ah-av');
+    av.setAttribute('aria-hidden', 'true');
+    who.appendChild(av);
+    var names = el('div', 'wf-ah-names');
+    names.appendChild(el('p', 'wf-ah-n', (cfg.name || 'Spectacle')));
+    /* THE ID IS THE ONE THING A PERSON READS OUT TO SUPPORT, so it is text and
+       monospace like every other identifier in this product, never an image. */
+    names.appendChild(el('p', 'wf-ah-id', 'ID ' + (cfg.id || '953709')));
+    who.appendChild(names);
+    row.appendChild(who);
+
+    var money = el('div', 'wf-ah-money');
+    var noMoney = !!(window.WF_SHELL && window.WF_SHELL.money === false);
+    if (!noMoney) {
+      [[M.balance || '74.20 coins', 'Balance'],
+       [M.held || '130.60 coins', 'Value of items held']].forEach(function (f) {
+        var d = el('div', 'wf-fig');
+        d.appendChild(el('span', 'wf-fig-v', f[0]));
+        d.appendChild(el('span', 'wf-fig-c', f[1]));
+        money.appendChild(d);
+      });
+    } else {
+      /* AN UNREADABLE FIGURE IS SAID, NEVER ZEROED. Same rule the header follows. */
+      money.appendChild(el('p', 'wf-fig-missing', 'Money not available: this account could not be read'));
+    }
+    var add = el('a', 'wf-btn wf-ah-add', 'Add funds');
+    add.href = BASE + 'deposit.html';
+    money.appendChild(add);
+    row.appendChild(money);
+
+    inn.appendChild(row);
+    host.appendChild(inn);
+
+    /* THE STRIP IS REAL LINKS AND THE CURRENT ONE IS NOT ONE. A tab that navigates
+       to the page you are on is a control that does nothing, D-58, so the active tab
+       renders as a span with aria-current and the other three as anchors. */
+    var tabs = el('nav', 'wf-atabs');
+    tabs.setAttribute('aria-label', 'Account');
+    ACCT_TABS.forEach(function (t) {
+      if (t.key === active.key) {
+        var c = el('span', 'wf-atab is-on', t.label);
+        c.setAttribute('aria-current', 'page');
+        tabs.appendChild(c);
+      } else {
+        var a = el('a', 'wf-atab', t.label);
+        a.href = BASE + t.file;
+        tabs.appendChild(a);
+      }
+    });
+    host.appendChild(tabs);
+  }
+
+  /* THE SELECTION BAR COUNTS AND SUMS, 5.1, D-84. It is here rather than inline
+     because it is behaviour, and because the same rule the bar prints is the rule
+     0.11 states for the header: A COUNT OF THINGS AND A VALUE OF THINGS, never one
+     score. The two figures are read from the cards themselves, so the bar and the
+     grid cannot disagree. Select all and Deselect all are real and they dispatch
+     change, because a control that sets a checkbox without telling the page is a
+     control that half works. */
+  function mountInvBar() {
+    var bar = document.querySelector('[data-invbar]');
+    if (!bar) return;
+    var picks = [].slice.call(document.querySelectorAll('[data-inv-pick]'));
+    var nOut = bar.querySelector('[data-invbar-n]');
+    var vOut = bar.querySelector('[data-invbar-v]');
+
+    function paint() {
+      var on = picks.filter(function (i) { return i.checked; });
+      var sum = on.reduce(function (a, i) { return a + parseFloat(i.getAttribute('data-v') || '0'); }, 0);
+      nOut.textContent = on.length + (on.length === 1 ? ' item' : ' items');
+      vOut.textContent = sum.toFixed(2) + ' coins';
+      /* THE BAR STAYS, THE ACTIONS GO IDLE. D-85 reversed the earlier "hidden until
+         something is ticked": the bar is where a person learns the exits exist, and
+         hidden it teaches nobody. Idle is a state of a working control, which is the
+         line D-58 draws: the note beside them says what makes them live. */
+      bar.classList.toggle('is-idle', on.length === 0);
+      [].slice.call(bar.querySelectorAll('[data-invbar-act]')).forEach(function (a) {
+        a.setAttribute('aria-disabled', on.length === 0 ? 'true' : 'false');
+      });
+    }
+    picks.forEach(function (i) { i.addEventListener('change', paint); });
+    var all = bar.querySelector('[data-inv-all]');
+    var none = bar.querySelector('[data-inv-none]');
+    if (all) all.addEventListener('click', function () { picks.forEach(function (i) { i.checked = true; }); paint(); });
+    if (none) none.addEventListener('click', function () { picks.forEach(function (i) { i.checked = false; }); paint(); });
+    paint();
+  }
+
   /* ---------- NODE 0.3, SYSTEM PAGES ----------
      Two controls, and both of them do their thing rather than depicting it.
      THE SEARCH WAS THE THIRD AND IT IS GONE, founder decision of 23 August 2026.
@@ -3191,6 +3337,8 @@ window.WF_NAV = {
     renderCoverage(document.getElementById('wf-coverage'));
     renderPanel(document.getElementById('wf-panel'));
     renderShell(document.getElementById('wf-shell'));
+    renderAcctHero(document.querySelector('[data-acct-hero]'));
+    mountInvBar();
     mountFeed();
     renderAuth(document.getElementById('wf-auth'));
     mountAuthDialog();

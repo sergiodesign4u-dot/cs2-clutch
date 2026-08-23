@@ -22,6 +22,28 @@
 
 ---
 
+## 0.5 Amended 23 August 2026 by `D-84` and `D-85`, and the baseline row loses two of its own sentences
+
+**The founder put the live account screen beside ours and asked for the live one.** Two things this node had argued against are now inherited, and both refusals are kept above rather than deleted, because each was right about something the reversal does not touch.
+
+| What changed | Why |
+|---|---|
+| **The account band is inherited**: artwork, avatar, name, id, the two money figures and the deposit entry, on all thirteen pages of the cluster | The baseline row above said the four tabs are four nodes on our map since `D-36` "so the tab strip is not inherited either". **Four nodes on a map is not an argument against a carrier between them, it is what makes one legal**: every destination the strip promises exists on the map. The account menu is how a person enters cluster 5 from anywhere; the strip is how they move between the four once inside |
+| **It is rendered by `_nav.js`, not written into thirteen files** | A strip that exists on one of four peers is a dead end on the other three, and thirteen copies of one band is thirteen places for it to drift. It is a carrier, so it is built like the other carriers |
+| **The two money figures are on this screen twice, and the cost is printed rather than absorbed** | `0.1` and `CLAUDE.md` give the money to the header and the header is sticky, so on cluster 5 the same pair renders as chrome above and as the page's own subject in the band. The baseline does exactly this and the founder asked for it in as many words. **What may not happen is the two disagreeing, so both read one source** |
+| **A visible breadcrumb, and this contradicts the indexation register** | Section 0 above inherits "Breadcrumb: none" from `0.13`. The baseline runs `HOME / MY ACCOUNT / INVENTORY` and the founder asked for it. It ships **as wayfinding with no `BreadcrumbList` schema**, which keeps the schema half of `0.13`'s row true and leaves the visible half false. **`0.13` owes a corrected row and this node cannot write it** |
+| **The summary column is gone** | It carried the money the band now carries, wrapped one button in three paragraphs, and squeezed the grid it stood beside. The limits survive as one line above the set, which is what `G5` asks for: a limit met before the route runs rather than discovered inside it. The rest lives on `5.3`, which owns it |
+| **The card is rebuilt on the baseline's shape**: artwork, weapon, skin, wear in parentheses, one price, then `Starting at` and `Offers` | Section 2 gave every card two timestamped figures and a holding line. In a grid of them that is a table with pictures, not an inventory. **The live card is read at a glance and ours had to be read** |
+| **The receipt moves into the actions panel**, and section 2's rule that the two figures are never merged is untouched | `F2` and barrier `B7-1` are the whole reason this node exists, so the receipt is not cut. `B7-1` is retrospective by nature, a number that stopped being true, **so the receipt is read at the moment a person decides what to do with the item** rather than on every tile of a grid nobody is reading yet |
+| **Three actions per item, revealed by selection and by hover over the whole card** | The baseline's own instruction is "click on the item to select", and selecting a card is what reveals its actions. **Hover is the desktop shortcut, never the mechanism**: it does not exist on a touch screen, so the panel also opens on `:has(:checked)` and on focus |
+| **A permanent selection bar, counting and summing what is ticked** | It first shipped hidden until something was selected, on the argument that a bar saying nothing is furniture. **That argument missed what the bar is for: it is where a person learns the exits exist.** Hidden, the four exits are invisible to anyone who has not already guessed items are selectable. With nothing ticked the actions are unavailable and the bar says so, which is a state of a working control rather than the dead control `D-58` forbids |
+| **Sorting is back, four keys, and section 4 is reversed narrowly** | Section 4 refused sorting because an inventory is bounded by what one person opened. **Sorting is not filtering**: a sort reorders the same set, so it cannot manufacture the second empty state with no parent that section 4 was actually protecting against. A filter would, and there is still none |
+| **`Exchange` is drawn disabled with its reason printed, and that is a cost** | `D-58` took every dead control off this product and a switch that cannot move is the case it names first. The founder wants the control standing so it can be activated the day exchange ships. **The reason renders beside it**, because a disabled control with no explanation is exactly the theatre the rule was written against |
+| **`CASH-OUT` is not drawn at all, and neither is the promoted third party slot** | Paying out to real money has no row in `cjm-to-be.md` and no node on the map. Drawing it would invent a capability at wireframe stage, which is the one thing this stage may not do. **The gap section 8 records stays open and is now one exit narrower** |
+| **One column at 360 where the baseline runs two** | `D-52`: a button label never wraps. Their five actions are unlabelled circles, so two columns cost them nothing. Ours are words and `Send to Steam` needs 152px. **The divergence is the label, not the column count, and the count follows it** |
+
+---
+
 ## 0. The sentence this page is built around
 
 `F2` is one line in the backlog and it is the whole page: **the receipt stays on the item in inventory and on the withdrawal record**, with the success signal "the same receipt is retrievable a week later".

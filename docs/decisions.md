@@ -3105,3 +3105,77 @@ That record printed three unbuilt states as its price: **no Steam linked** on `5
 No horizontal scroll at 360 or 1440. No page with zero top padding. The stylesheet still parses with zero orphan declarations and brace depth zero.
 
 **And the scan is worth keeping as an instrument, at both widths.** It found seventeen pairs the founder had not seen, on pages they had not opened.
+
+---
+
+## D-84. The account band and its tab strip are inherited, rendered as a carrier, and the money is on cluster 5 twice on purpose
+
+**Date:** 2026-08-23. **Stage:** 04. **Decided by:** the founder, putting the live account screen beside ours. **Binds:** nodes `5.1`, `5.9`, `5.10`, `5.11`, thirteen wireframes, `_nav.js`, `_wf.css`, and it owes `0.13` a corrected row.
+
+**What node `5.1`'s baseline row said, in its own words:** the four tabs are four nodes on our map since `D-36`, `5.1`, `5.9`, `5.10` and `5.11`, "so the tab strip is not inherited either". **That inference is wrong and the reversal is the reason why: four nodes on a map is not an argument against a carrier between them, it is what makes one legal.** Every destination the strip promises exists on the map, which is the test `CLAUDE.md` sets for a carrier.
+
+**The account menu and the strip are not the same carrier doing the same job.** The menu is how a person enters cluster 5 from anywhere in the product. The strip is how they move between the four once inside. The baseline runs both.
+
+### It is rendered, not pasted, and that is the load bearing part
+
+**A strip that exists on one of four peers is a dead end on the other three.** So it is not markup in `account.html`: it is `renderAcctHero` in `_nav.js`, on all thirteen pages of the cluster, each declaring `window.WF_ACCT = { active: ... }`. **Thirteen copies of one band is thirteen places for it to drift**, which is the same argument that put the shell, the footer and the bar in the renderer.
+
+**The active tab is a `span`, not a link.** A tab that navigates to the page you are already on is a control that does nothing, `D-58`.
+
+### The money renders twice on cluster 5 and the cost is printed rather than absorbed
+
+`0.1` and `CLAUDE.md` give the money to the header, and the header is sticky. So on these thirteen pages the same two figures appear as chrome above and as the page's own subject in the band. **The baseline does exactly this and the founder asked for it in as many words.**
+
+**What may not happen is the two disagreeing, so both read one source**, `WF_SHELL.money`. The band cannot say one thing while the header says another, which is the failure this would otherwise be.
+
+### And one thing this node cannot fix from here
+
+**The band carries a visible breadcrumb and `0.13` says this page has none.** It ships as wayfinding with no `BreadcrumbList` schema, so the schema half of the register's row stays true and the visible half is now false. **`0.13` owes a corrected row.** Recorded rather than quietly written from a node that does not own it.
+
+---
+
+## D-85. The inventory is rebuilt on the baseline's card, the selection bar stops hiding, and sorting comes back on a narrow reversal
+
+**Date:** 2026-08-23. **Stage:** 04. **Decided by:** the founder, screen by screen. **Binds:** node `5.1`, `account.html`, `-empty`, `-degraded`.
+
+**The first rebuild kept our own anatomy and lost to the baseline on the only thing that mattered.** Every card carried two timestamped figures and a holding line, six pieces of text and two moments. **In a grid of them that is a table with pictures: the live card is read at a glance and ours had to be read.**
+
+### The face is five things and the receipt is not one of them
+
+Artwork, weapon, skin, wear in parentheses, one price, then the market foot the baseline runs. **The as-of is said once for the whole grid rather than printed on every card:** gap `A1` asks for a reference price with a moment attached, not for the same timestamp six times.
+
+**The receipt moves into the actions panel and it is not cut.** `F2` and barrier `B7-1` are the whole reason this node exists. `B7-1` is retrospective by nature, a number that stopped being true, **so the receipt is read at the moment a person decides what to do with the item** rather than on every tile of a grid nobody is reading yet.
+
+### Hover is the shortcut and selection is the mechanism
+
+**The whole card is the hover target, not the picture inside it.** A person moving a pointer at a grid aims at the card, and making the artwork the only live area meant the actions flickered as the pointer crossed the name.
+
+**And hover is never the mechanism.** It does not exist on a touch screen, so the panel also opens on `:has(:checked)` and on focus, which is what the baseline's own "click on the item to select" describes.
+
+### The bar stops hiding, and the earlier argument was half right
+
+It first shipped hidden until something was ticked, on the ground that a bar saying nothing is a band of furniture. **That missed what the bar is for: it is where a person learns the exits exist.** Hidden, four exits are invisible to anyone who has not already guessed that items are selectable.
+
+**With nothing ticked the actions are unavailable and the bar says why.** That is not the dead control `D-58` forbids: **a dead control has no state in which it works**, and each of these works from the first tick. The line beside them is what makes the difference visible instead of assumed.
+
+### Sorting is reversed narrowly, and the distinction is the whole reversal
+
+Section 4 of the node refused sorting because an inventory is bounded by what one person opened. **Sorting is not filtering.** A sort reorders the same set, so it cannot manufacture the second empty state with no parent that section 4 was actually protecting against. A filter would. **There is still no filter.**
+
+### Three costs printed, not absorbed
+
+**`Exchange` is drawn disabled.** `D-58` took every dead control off this product and a switch that cannot move is the case it names first. The founder wants it standing so it can be activated the day exchange ships, **so the reason renders beside it**: a disabled control with no explanation is precisely the theatre the rule was written against.
+
+**`CASH-OUT` is not drawn at all.** Paying out to real money has no row in `cjm-to-be.md` and no node on the map, and drawing it would invent a capability at wireframe stage. The promoted third party slot beside it is not ours either. **Section 8's open item, four exits against our one, is now four against three.**
+
+**One column at 360 where the baseline runs two.** `D-52`: a button label never wraps. Their five actions are unlabelled circles, so two columns cost them nothing; ours are words and `Send to Steam` needs 152px before it breaks. **The divergence is the label and the column count follows it.**
+
+### Three defects the browser caught and reading would not have
+
+**The actions panel covered the card's own checkbox.** A person could open the actions and could not select or deselect the item under them.
+
+**`aspect-ratio` together with `min-height` resolves by growing the width.** At 1024 that pushed a 224px card to a 267px image and put a horizontal scrollbar on the page.
+
+**The column count was set by the viewport and not by the card.** Three columns at 900 gave each card 200px, and the receipt inside the panel wrapped to a third line and clipped. **A card has a width below which its own contents stop fitting, and the grid stops before it.**
+
+**Measured:** 106 pages at 360 and 1440, no horizontal scroll, no page with zero top padding, the panel fitting its slot at four widths with the item's name still visible under it, the bar counting and summing from the cards themselves so grid and bar cannot disagree.

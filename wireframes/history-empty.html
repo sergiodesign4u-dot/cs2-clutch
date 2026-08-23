@@ -24,6 +24,12 @@
 
   <main class="wf-main">
 
+    <!-- THE ACCOUNT BAND AND ITS TAB STRIP, D-84. Rendered by _nav.js like the
+         other carriers, because a strip that exists on one of four peers is a
+         dead end on the other three, and thirteen copies of one band is
+         thirteen places for it to drift. -->
+    <div class="wf-ah" data-acct-hero></div>
+
     <h1>Roll history</h1>
 
     <div class="wf-hist">
@@ -53,6 +59,7 @@
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';
 window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+window.WF_ACCT = { active: 'history' };
 </script>
 <script src="_nav.js"></script>
 </body>

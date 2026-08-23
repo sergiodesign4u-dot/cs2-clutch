@@ -2104,3 +2104,35 @@ Fourteen fields over two side-by-side forms met a person who arrived with a ques
 One band above 900, words left and decisions right. The reserve on the host page follows the measurement: 160px above 900, 260px below. **Accept and Reject stay one grid of equal columns, the same class on both, neither primary. A shorter band may not be paid for with a smaller refusal**, CNIL, 14 December 2021. **Layer 2's decisions are pinned to the foot of its scrolling region**, closing a 360 finding from the audit.
 
 **106 pages swept at 360 and 1440 after every change: no horizontal scroll, no page with zero top padding, no dead internal link in 22201 links, registry and disk reconciled at 106 each.**
+
+---
+
+## 60. `D-84` and `D-85`: cluster 5 gets the baseline's account band, and the inventory card is rebuilt twice
+
+**23 August 2026.** Thirteen pages of cluster 5 gain a rendered account band. `5.1` is rebuilt on the live product's shape. **106 pages still.**
+
+### The band is a carrier, so it is rendered like one
+
+Artwork slot, avatar slot, name, id, the two money figures, the deposit entry, and four tabs. **`renderAcctHero` in `_nav.js` on all thirteen pages**, each declaring `window.WF_ACCT = { active: ... }`.
+
+**A strip that exists on one of four peers is a dead end on the other three**, and thirteen copies of one band is thirteen places for it to drift. The active tab is a `span`, not a link, `D-58`.
+
+**Two costs printed.** The money renders twice on cluster 5, as chrome in the sticky header and as the page's subject in the band, both reading one source so they cannot disagree. And **the visible breadcrumb contradicts `0.13`'s "breadcrumb: none"**, so it ships with no `BreadcrumbList` schema and `0.13` owes a corrected row.
+
+### The card lost to the baseline on the one thing that mattered
+
+The first rebuild kept our anatomy: two timestamped figures and a holding line on every card. **In a grid of them that is a table with pictures.** The face is five things now, and the receipt moved into the actions panel, where `B7-1` is actually read: at the moment a person decides what to do with the item.
+
+**The whole card is the hover target and hover is never the mechanism.** Selection is, because a touch screen has no hover, which is what the baseline's own "click on the item to select" describes.
+
+### The bar stops hiding, and sorting comes back narrowly
+
+**Hidden until selection, four exits are invisible to anyone who has not guessed that items are selectable.** With nothing ticked the actions are unavailable and the bar says why, which is a state of a working control rather than the dead one `D-58` forbids.
+
+**Sorting is not filtering.** A sort reorders the same set, so it cannot manufacture the second empty state with no parent that section 4 of the node was protecting against. There is still no filter.
+
+### Three defects the browser caught and reading would not have
+
+**The actions panel covered the card's own checkbox.** **`aspect-ratio` with `min-height` resolves by growing the width**, and at 1024 that put a horizontal scrollbar on the page. **The column count was set by the viewport rather than by the card**, so at 900 the receipt clipped inside its own panel. **A card has a width below which its contents stop fitting, and the grid stops before it.**
+
+**Measured after every change: 106 pages at 360 and 1440, no horizontal scroll, no zero top padding, the panel fitting its slot at four widths with the item's name still visible under it.**
