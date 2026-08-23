@@ -3477,7 +3477,7 @@ This stage draws no icons. **The room an icon takes is a layout fact and it is d
 
 **The founder, on build two: where is the skin's picture, and put the hover over everything with a dim.**
 
-**The picture is a defect closed, not a taste served.** Field one of the canonical skin card `0.6` is the image. The grid had a slot and put it behind the text, which in a grey wireframe cannot be told apart from having no slot. It is in the flow now, after the name and the price, at a fixed ratio.
+**The picture is a defect closed, not a taste served.** Field one of the canonical skin card `0.6` is the image. The grid had a slot and put it behind the text, which in a grey wireframe cannot be told apart from having no slot. It leads the card, directly under the tick and the Share, and the text follows it. **It was below the price for one build and the founder sent it back:** "a big skin picture after the name" was read as after the whole text block, and both his reference and the way a grid of skins is used say the opposite. **A skin is recognised by its finish before it is read by its name**, which is the same sentence `D-59` used to put the image first in the live strip.
 
 **Nothing is reserved and nothing moves.** The actions are absolutely positioned over the card, so rest and hover are the same height **by construction rather than by measurement**, and the space build two held empty is the picture instead. **The tick, the share and the market foot are raised above the dim**, so build one's defect cannot come back: the overlay darkens what is behind them and never intercepts a press meant for them.
 

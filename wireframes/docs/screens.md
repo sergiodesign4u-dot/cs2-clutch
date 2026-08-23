@@ -2371,7 +2371,7 @@ Stage 04 proposed **three** tabs and refused cash out because it has no subject 
 
 ### The picture is a defect closed, not a taste served
 
-**Field one of the canonical skin card `0.6` is the image.** The grid had a slot and put it behind the text, **which in a grey wireframe cannot be told apart from having no slot.** It is in the flow now, after the name and the price, at 4 by 3, so a row of cards reads as a row of items.
+**Field one of the canonical skin card `0.6` is the image.** The grid had a slot and put it behind the text, **which in a grey wireframe cannot be told apart from having no slot.** It leads the card, directly under the tick and the Share, and the text follows it. **It was below the price for one build and the founder sent it back:** "a big skin picture after the name" was read as after the whole text block, and both his reference and the way a grid of skins is used say the opposite. **A skin is recognised by its finish before it is read by its name**, which is the same sentence `D-59` used to put the image first in the live strip.
 
 ### The dim, and why build one's defect cannot come back
 

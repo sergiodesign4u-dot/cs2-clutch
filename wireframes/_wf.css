@@ -3034,15 +3034,22 @@ select {
 /* SHARE IS ON THE FACE NOW. It was hidden until hover to keep the top row quiet;
    with the acts off the face there is room, the reference shows it at rest, and a
    control that appears only on hover is a control a touch screen never has. */
-.wf-inv-w { margin: var(--wf-s-1) 0 0; font-weight: 700; }
+/* THE PICTURE LEADS, AND IT WAS BELOW THE PRICE FOR ONE BUILD. Read out of the
+   founder's first note, "a big skin picture after the name", as after the whole
+   text block. The reference he gave says the opposite and so does the way a grid
+   of skins is used: A SKIN IS RECOGNISED BY ITS FINISH BEFORE IT IS READ BY ITS
+   NAME, which is the same sentence D-59 used to put the image first in the live
+   strip. The tick and the Share sit above it because they are controls on the
+   card rather than parts of the item. */
+.wf-inv-art {
+  display: block; width: 100%; aspect-ratio: 4 / 3;
+  margin: var(--wf-s-1) 0;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
+}
+.wf-inv-w { margin: 0; font-weight: 700; }
 .wf-inv-s { margin: 0; color: var(--wf-ink-dim); }
 .wf-inv-wear { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
 .wf-inv-p { margin: var(--wf-s-half) 0 0; font-family: var(--wf-mono); font-size: var(--wf-t-l); }
-.wf-inv-art {
-  display: block; width: 100%; aspect-ratio: 4 / 3;
-  margin: var(--wf-s-1) 0 0;
-  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
-}
 .wf-inv-acts {
   position: absolute; inset: 0; z-index: 2;
   display: flex; flex-direction: column; justify-content: center; gap: var(--wf-s-1);

@@ -81,7 +81,7 @@
 
 ### The picture is a defect closed, not a taste served
 
-**Field one of the canonical skin card `0.6` is the image.** The grid had a slot for it and rendered it behind the text, **which in a grey wireframe cannot be told apart from having no slot at all.** It is in the flow now, after the name and the price, at a fixed ratio. **This is `0.6` being rendered rather than `5.1` adding a field**, and the rule in section 2 holds: no context adds a field the others do not have.
+**Field one of the canonical skin card `0.6` is the image.** The grid had a slot for it and rendered it behind the text, **which in a grey wireframe cannot be told apart from having no slot at all.** It leads the card, directly under the tick and the Share, and the text follows it. **It was below the price for one build and the founder sent it back:** "a big skin picture after the name" was read as after the whole text block, and both his reference and the way a grid of skins is used say the opposite. **A skin is recognised by its finish before it is read by its name**, which is the same sentence `D-59` used to put the image first in the live strip. **This is `0.6` being rendered rather than `5.1` adding a field**, and the rule in section 2 holds: no context adds a field the others do not have.
 
 ### Nothing is reserved and nothing moves
 
