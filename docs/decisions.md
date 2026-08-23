@@ -3335,3 +3335,77 @@ Stage 04 proposed **three** tabs, rolls, deposits and withdrawals, and refused t
 **A skin name was rendering in a code face.** `.wf-table td` is 0,1,1 and the class that excepts it was 0,1,0, so the exception lost. **`D-62` for the sixth time**, and the first time it has been visible in the render rather than in a measurement.
 
 **At 360 a timestamp was shredded into `14:4` and `0:07`.** `overflow-wrap: anywhere`, which a reference needs and a figure must never have. **The table scrolls inside its own wrapper instead**, which is what the wrapper is for, and the page still does not scroll at any width.
+
+---
+
+## D-89. Six rejections in one sitting, five of them the same mistake, and two live defects that every instrument passed
+
+**Date:** 2026-08-23. **Stage:** 04, nodes `5.1`, `5.9`, `5.10`, `5.11`. **Decided by:** the founder, opening the published prototype and pointing at six screens in one sitting. **Sources:** the founder's captures of the live product, `acct_inventory_item_actions.png`, `acct_settings_top_22aug.png`, `acct_settings_linked_22aug.png`, and four screenshots of our own pages taken on 23 August 2026.
+
+### The through-line, because five of the six are one mistake wearing five faces
+
+**Nothing was missing on any of these screens. Everything was in the wrong layer.**
+
+| Screen | What was wrong | What it actually was |
+|---|---|---|
+| `5.1` the item card | The actions floated over the artwork, on top of the receipt line, pushing the item's own name below them | **A panel over the thing it acts on** |
+| `5.1` the sort | Four orders inside a `select` | **A control hidden behind a press**, so a person has to open it to learn that sorting by value exists |
+| `5.9` history | Four tabs inside one page | **Three states nobody could link to**, so the registry could not list them and the panel could not show them |
+| `5.10` the record | Avatar and display name repeated under a band that already carries them | **Two renderings of one fact**, and they disagreed |
+| `5.11` settings | Nineteen refused rows collected in one block at the end | **The absence exiled from where a person looks for it** |
+
+**Each of those was defensible in prose and wrong on the screen.** That is worth saying plainly rather than filing five separate lessons.
+
+### And the instruments passed all of them, which is the finding that outlasts this session
+
+**Acceptance here is: open it in the browser, walk every state, narrow to 360, then check the published address.** That ran on every one of these pages and every one passed, because the assertions ask whether the page scrolls sideways, whether it has one H1, whether a target is 44 pixels and whether a label wraps. **None of them asks whether the thing looks like something a person would use.**
+
+**Two of the six were not taste at all. They were defects, they were live on the published site, and the same assertions passed them too.**
+
+**One: `[hidden]` does nothing to an element with a display rule.** `[hidden]` is a user-agent rule, and the author rule `.wf-hist { display: flex }` beats it. So the rolls panel marked hidden went on rendering, and the founder's screenshot shows **Deposits selected with the rolls list underneath it**. The sweep checked that the tab strip rendered and that the selected panel appeared. **It never checked that the other one had gone.**
+
+**Two: one account with two names and two ids on one page.** The account band read `Spectacle` and `ID 953709`; the record card ten pixels below read `nightjar_cs` and `acc-7f3a91c4`. **This is the third instance of one class:** the header once read 18.60 for the value of items held while the page read 130.60, and the fix then was to make the shell read the page. **The class is two renderings of one fact with no shared source**, and the answer is the same every time: one source, both read it. `WF_WHO` holds identity now.
+
+**Both belong to the same gap: an assertion that reads one element cannot catch a contradiction between two.** The sweep gained a rule for the money figures after the first instance and it was written for money rather than for the class. Candidate line for the stage close.
+
+### `5.1`, the item card, rebuilt on the live product's own composition
+
+**The tick and the share on the top row, then the weapon, the skin, the wear and the price, then the three acts, then the two market figures at the foot, and the artwork behind all of it.** That is `acct_inventory_item_actions.png` and it solves by construction three things the floating panel solved by arithmetic.
+
+**The acts reserve their space with `visibility` rather than arriving with `display`.** A card that grows on hover shoves the row below it and a grid of them ripples. **At rest the reserved band is where the artwork shows through**, which is exactly why the live product's two states are the same size.
+
+**And the corner controls are in the flow now, not absolutely positioned.** The previous build had to raise them above the panel with a `z-index` because the panel covered the card's own checkbox. **In the flow that defect cannot recur**, which is a better fix than the one that worked.
+
+**The receipt line comes back onto the face of the card.** It went into the hover panel to keep the face to five things. With the acts in the flow the panel is gone and the line has nowhere else to be, and it is what the value-gap barrier asks for: what this was worth when it was won, dated, beside what it is worth now, and no third number made out of the two.
+
+### `5.1`, the sort, and why a select was the wrong control
+
+**Both keys are on the screen, each carrying its direction, and pressing the active one flips it.** The live product does this and the founder asked for it. **A select hides three of its four options behind a press**, so the existence of sorting by value is itself hidden.
+
+**The direction is a word and never an arrow.** This stage draws no icons, and a caret alone is a state carried by a shape, which is the colour-only rule one step further out.
+
+**And the control is real: it reorders the grid.** A sort is the cheapest control in this product to make honest, because every card already carries the two values it sorts on. **Sorting is still not filtering**, so it cannot manufacture the second empty state with no parent that the node was protecting against.
+
+### `5.9`, four pages instead of four panels
+
+**The bug forced the question and the founder answered it in the same message.** Each tab is a page with its own states now, which is what makes them auditable: **a state that lives inside a panel nobody can link to is a state the registry cannot list.** Six pages: deposits and its empty, withdrawals and its empty, withdrawals past our own published ceiling, and cash out.
+
+**The overdue state is the one worth building and it is built on an argument this project has already made once.** The support node earned its place because a published deadline with no state for its own failure is a number nobody has to meet. **A withdrawal ceiling is the same object.** So the page says we published 48 hours, this one is past it, it is our number and our failure, and it was not the person's job to notice.
+
+### `5.10`, a record that reads like one, and the control the founder asked for
+
+**The band owns identity, the card owns the record.** What the band does not carry is where the account came from, when it started and what a stranger can see, so that is all that is left in the card, as rows rather than as paragraphs.
+
+**And the page gains its main action: see yourself as a stranger does.** The page's job is to let a person find out what we hold about them, **and the strongest form of that is showing them rather than telling them.** What it opens today is one of their own results as a signed-out reader sees it, **because whether a public profile page exists at all is still open** and this control does not settle it. The route survives either answer, which is the same treatment the block's text already had.
+
+### `5.11`, the refusals move into the sections they belong to
+
+**A block per section with an icon slot, and every option that section holds inside it**, which is the live product's shape and what the founder asked for. Username, where you live, the trade URL, language and sound; take a break, anonymity and sign out; the four providers with which one carried you in; and the notification groups.
+
+**The nineteen refused rows leave the footnote and take row position in their own section, each with its reason on it.** The rule is unchanged and it is the one that matters: **a row whose subject does not exist carries no control at all, never a greyed one.** What changes is where the absence is stated. **You now meet it where you went looking for the control**, instead of in a block at the end of the page where a reader has already stopped.
+
+**And the two refusals that are principle rather than scope say so.** The confirmations before selling a skin back and before sending one to Steam have live subjects and are still refused: a switch that removes the confirmation before value leaves the account removes a risk moment, and **it is set once in a calm minute and met months later at the worst one.**
+
+### The icon is a slot, and that is not a placeholder
+
+This stage draws no icons. **The room an icon takes is a layout fact and it is decided here**, so the slot is drawn at its size and stage 06 puts something in it. The founder asked for exactly that, in those words.

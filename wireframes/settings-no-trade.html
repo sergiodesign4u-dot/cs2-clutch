@@ -9,33 +9,43 @@
 </head>
 <body>
 
-<!-- NODE 5.11, SETTINGS. THE LAST SCREEN OF STAGE 04, and the smallest one.
-     THE BASELINE'S SETTINGS TAB HAS TWENTY ROWS AND THIS PAGE HAS ONE. Founder
-     captures of 18 and 22 August 2026, baseline-account.md section 7: GENERAL
-     five rows, SECURITY three, LINKED PROFILES four, NOTIFICATIONS eight.
-     Nineteen of the twenty do not survive round 1 and almost none of them for a
-     reason about settings. Eleven configure case battles, gunfights, upgrades,
-     crypto withdrawal, giveaways, a partner programme or notification channels,
-     all of which are LATER or have no backlog row at all. Five already live
-     somewhere else on our map: language and sound at the foot of the rail, the
-     break tool on 6.1, sign out in the account menu, the name on 5.10 which
-     refused a change to it. Two are refused on a rule. One is [?] and the
-     founder's. The verdict on every row is in ia/docs/pages/settings.md, because
-     a settings page that quietly drops nineteen rows is one nobody can audit
+<!-- NODE 5.11, SETTINGS, REBUILT INTO THE LIVE PRODUCT'S OWN SHAPE.
+     THE FOUNDER READ THE PREVIOUS BUILD AND REJECTED IT, AND THE REJECTION WAS
+     ABOUT SHAPE RATHER THAN ABOUT CONTENT. The baseline runs a block per section
+     with an icon beside the section name and every option that section holds
+     inside it: GENERAL five rows, SECURITY three, LINKED PROFILES four,
+     NOTIFICATIONS eight, in two columns from a certain width. Founder captures of
+     18 and 22 August 2026, baseline-account.md section 7. That shape is inherited
+     and this page now carries all four blocks in the baseline's own order.
+     WHAT IS NOT INHERITED IS THE PRETENCE THAT NINETEEN OF THOSE TWENTY ROWS HAVE
+     A SUBJECT HERE. Eleven configure case battles, gunfights, upgrades, crypto
+     withdrawal, giveaways, a partner programme or notification channels, all of
+     which are LATER or have no backlog row at all. Two are refused on a design
+     principle. The rest live somewhere else on our map or were refused by another
+     node. The verdict on every row is in ia/docs/pages/settings.md, because a
+     settings page that quietly drops nineteen rows is one nobody can audit
      against its own baseline.
-     WHY THE ONE THAT SURVIVES SURVIVES: withdrawal to Steam is round 1 and it
-     works by sending a trade offer, a trade offer needs a trade URL, and NO NODE
-     ON THE MAP HELD THAT FIELD. withdrawal.md names three limits before the
-     request, blocked countries, Steam trade holds and Steam-side bans, and never
-     names the one precondition the person themselves controls. The exit had a
-     missing input and the map did not know. That is a better reason for this page
-     than the row in the account menu that put it there.
+     A ROW WHOSE SUBJECT DOES NOT EXIST CARRIES NO CONTROL AT ALL, NEVER A GREYED
+     ONE. D-58 and the cookie node's strictly necessary row settled that once for
+     the whole project: a control that cannot move is a picture of a control, and
+     it answers "why not" with nothing.
+     WHAT CHANGED ON 23 AUGUST IS WHERE THE ABSENCE IS STATED. The previous build
+     collected all nineteen refusals into one "Not here, and why" block at the end
+     of the page, which is where a reader stops reading. Every refused row is now
+     printed in row position inside the section it belongs to, with its reason on
+     it, SO YOU MEET THE ABSENCE WHERE YOU WENT LOOKING FOR THE CONTROL rather
+     than in a footnote. Nothing was cut in the move: the same reasons, on the same
+     rows, in the place the eye was already going.
+     WHY THE ONE LIVE FIELD IS LIVE: withdrawal to Steam is round 1 and it works by
+     sending a trade offer, a trade offer needs a trade URL, and NO NODE ON THE MAP
+     HELD THAT FIELD. withdrawal.md names three limits before the request, blocked
+     countries, Steam trade holds and Steam-side bans, and never names the one
+     precondition the person themselves controls. The exit had a missing input and
+     the map did not know.
      THIS NODE IS AN ORPHAN AND IT DOES NOT GROW. It arrived with D-36 and has no
      parent in the three legal classes; the field it holds does, rows G1 and G5 on
      B8-2 and B8-3, by way of 5.3. An orphan may not be the first home of a new
-     capability, D-78, and a precondition of a live row is not a new capability.
-     ONE COLUMN AT EVERY WIDTH. The baseline runs two, which is what lets twenty
-     rows look like a small page. -->
+     capability, D-78, and a precondition of a live row is not a new capability. -->
 
 <!-- STATE: THE TRADE URL IS NOT SET, AND THIS IS THE STATE THAT MATTERS.
      Withdrawal to Steam is round 1 and it cannot complete without this field, so
@@ -45,7 +55,11 @@
      limit before the first withdrawal rather than inside it. This is the one limit
      on that node's list they can fix themselves in ten seconds, and the other
      three, blocked countries, Steam trade holds and Steam-side bans, are not ours
-     to lift at all. -->
+     to lift at all.
+     THE EMPTY FIELD IS STILL A FIELD AND IT IS STILL LIVE. Nothing here is greyed
+     out to express the precondition, D-58: the control a person needs is the one
+     thing on the page that must work, and what the emptiness costs is said in
+     words beside it rather than expressed by a dead button. -->
 <button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
 <aside id="wf-panel"></aside>
 
@@ -63,11 +77,36 @@
 
     <h1>Settings</h1>
 
+    <!-- TWO COLUMNS FROM 1000, THE BASELINE'S OWN ARRANGEMENT. Left: General,
+         Security, Linked profiles. Right: Notifications. The split is by WHO
+         ACTS, not by topic: the left column is the account, the right column is
+         the product asking permission to speak. -->
     <div class="wf-cfg" data-cfg>
       <div class="wf-cfg-col">
 
+      <!-- GENERAL. Five rows in the baseline and five rows here, and only three
+           of them carry a control. The two that do not are printed rather than
+           dropped, because a person arriving from the live product will look for
+           them in exactly this block. -->
       <div class="wf-cfg-g">
-        <p class="wf-cfg-gh">General</p>
+        <p class="wf-cfg-gh"><span class="wf-cfg-ico" aria-hidden="true"></span>General</p>
+
+        <!-- USERNAME, AND THE REFUSAL IS ANOTHER NODE'S. 5.10 already refuses a
+             name change in as many words: it is a new capability with no row in
+             cjm-to-be.md, the name and the picture come from Steam under B6, and a
+             product that lets them diverge from Steam has two names for one person.
+             5.11 MAY NOT RE-HOME A CONTROL ANOTHER NODE REFUSED, and doing so is
+             exactly how a refusal gets reversed without a decision. The route back
+             is the one 5.10 named: a backlog row first and a block second, never
+             the other way round. -->
+        <div class="wf-cfg-row2 is-absent">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <div class="wf-cfg-rt">
+            <span class="wf-cfg-rk">Username</span>
+            <span class="wf-cfg-rv">nightjar_cs</span>
+            <p class="wf-cfg-why">No control. Your name and your picture come from Steam with the sign in, and a product that lets them drift from Steam has two names for one person. Changing it here is not a setting, it is a capability nothing has asked for yet.</p>
+          </div>
+        </div>
 
         <!-- THE COUNTRY IS BACK, AND D-81's REFUSAL IS REVERSED WITH ITS REASON
              CORRECTED RATHER THAN DELETED. That record refused it as a market
@@ -89,184 +128,362 @@
              accounts banned with no explanation given, and node 0.10 exists because
              of them. "The country you declared does not match where you are" is a
              named ground that renders in the appeal form's quoted-back field, or it
-             is the same barrier we are designing against with our name on it. -->
-        <div class="wf-cfg-f">
-          <label class="wf-cfg-l" for="cfg-country">Where you live</label>
-          <select class="wf-f" id="cfg-country">
-            <option>Ukraine</option>
-            <option>Poland</option>
-            <option>Germany</option>
-          </select>
-          <p class="wf-cfg-p">Only markets we have opened are listed. This is a statement you are making, and the terms treat a false one as grounds to close the account, with the reason written down and an appeal open to you.</p>
-          <p class="wf-cfg-p wf-fig-missing">Which markets are open is not settled: the register is closed by default and every row needs its own legal work before it appears here.</p>
+             is the same barrier we are designing against with our name on it.
+             IT IS A FULL WIDTH ROW RATHER THAN A THREE PART ONE, because it carries
+             a form: a selector, a statement, an open question and a press. -->
+        <div class="wf-cfg-b">
+          <div class="wf-cfg-f">
+            <!-- THE ICON SLOT ON A FORM ROW TOO, D-50. This stage draws no icons and
+                 the room one takes is a layout fact, so a row that skipped the slot
+                 would sit 40px to the left of every other row in the block on the day
+                 06 fills them in. Five rows aligned and two not is not simpler, it is
+                 unfinished. -->
+            <div class="wf-cfg-row">
+              <span class="wf-cfg-ico" aria-hidden="true"></span>
+              <label class="wf-cfg-l" for="cfg-country">Where you live</label>
+            </div>
+            <select class="wf-f" id="cfg-country">
+              <option>Ukraine</option>
+              <option>Poland</option>
+              <option>Germany</option>
+            </select>
+            <p class="wf-cfg-p">Only markets we have opened are listed. This is a statement you are making, and the terms treat a false one as grounds to close the account, with the reason written down and an appeal open to you.</p>
+            <p class="wf-cfg-p wf-fig-missing">Which markets are open is not settled: the register is closed by default and every row needs its own legal work before it appears here.</p>
+          </div>
+          <div class="wf-cfg-row">
+            <button class="wf-btn" type="button">Save where you live</button>
+            <span class="wf-quick-w">Last changed 11 Aug 2026</span>
+          </div>
         </div>
-        <div class="wf-cfg-row">
-          <button class="wf-btn" type="button">Save where you live</button>
-          <span class="wf-quick-w">Last changed 11 Aug 2026</span>
+
+        <!-- B1. THE STEAM TRADE URL, AND IT IS WHY THIS PAGE EXISTS AT ALL. A real
+             field with a real label: a placeholder doing the label's job disappears
+             the moment somebody types, which is the moment they most need to know
+             what the field is.
+             THE HELPER LINE IS BESIDE THE FIELD AND NOT BEHIND AN ICON. The token is
+             not something a person can invent, so a link to where Steam issues it is
+             part of the field rather than a courtesy next to it. Inherited from the
+             baseline, which prints the same line for the same reason.
+             NO MASKING OF THE SAVED VALUE. A person needs to compare it with the one
+             Steam shows them, and that comparison is the only way to check it that
+             does not involve a withdrawal. It wraps rather than truncating.
+             NOTHING SAVES WITHOUT A PRESS. An account setting that commits on blur
+             is one a person changes by scrolling past it.
+             THE HEADING CAME DOWN TO A ROW KEY when the page took the block shape.
+             It was an h2 at the largest size on the page, sitting inside a card whose
+             own name is set in 11px, so the most important row in the block read as a
+             SECTION INSIDE A SECTION and General stopped looking like one thing. Not a
+             word was cut: "where your skins go" opens the sentence under the key. -->
+        <div class="wf-cfg-b">
+          <div class="wf-cfg-f">
+            <div class="wf-cfg-row">
+              <span class="wf-cfg-ico" aria-hidden="true"></span>
+              <label class="wf-cfg-l" for="cfg-url">Steam trade URL</label>
+            </div>
+            <p class="wf-cfg-p">This is where your skins go. Withdrawals are sent to Steam as a trade offer, and Steam needs this link to know where to send it. It is yours, it comes from Steam, and you can change it whenever you like.</p>
+            <textarea class="wf-cfg-in" id="cfg-url" rows="3" data-cfg-url spellcheck="false" autocomplete="off"></textarea>
+            <!-- THE DESTINATION IS STEAM'S OWN PAGE and it is a real external href,
+                 because the token is issued there and nowhere else. A helper link that
+                 points back inside our own product would be a route to a page that
+                 cannot give the person the thing the field needs. -->
+            <p class="wf-cfg-p"><a href="https://steamcommunity.com/id/me/tradeoffers/privacy" rel="noopener">Where to get this link on Steam</a></p>
+          </div>
+          <div class="wf-cfg-row">
+            <button class="wf-btn wf-btn--primary" type="button" data-cfg-save>Save</button>
+            <span class="wf-quick-w">Never set</span>
+          </div>
+          <p class="wf-cfg-say" role="status" aria-live="polite" data-cfg-say></p>
+          <!-- WHAT AN EMPTY FIELD COSTS, IN THE SAME BLOCK AS THE FIELD. Row G5's
+               own rule is that the person meets the limit before the first
+               withdrawal rather than inside it, and this is the one limit on that
+               list they can fix themselves in ten seconds. Stating it here is what
+               stops it arriving as a refusal three days later. -->
+          <div class="wf-cfg-cost">
+            <strong>What this costs right now</strong>
+            <span>Withdrawals cannot be sent until this is filled in. Everything else on the account works.</span>
+          </div>
+        </div>
+
+        <!-- LANGUAGE AND SOUND ARE LIVE HERE AND LIVE AT THE FOOT OF THE MENU, and
+             that is a second control rather than a second home: both read one
+             setting and either one moves it. D-81 sent a person to the rail for
+             them, which is the answer to "where is it" and not the answer to "let
+             me change it while I am in settings". The baseline keeps both in this
+             block, the founder asked for the baseline's shape, and the cost of the
+             second control is one sentence saying the two agree.
+             ONE LANGUAGE IS A LOCKED STAGE 01 DECISION and the selector holds one
+             live option. D-41 draws the switcher and names the absent ones where it
+             lives; this row does not repeat that list, it repeats the setting. -->
+        <div class="wf-cfg-row2">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <div class="wf-cfg-rt">
+            <span class="wf-cfg-rk" id="cfg-lang-k">Language</span>
+            <span class="wf-cfg-rv">English</span>
+            <p class="wf-cfg-why">The same control sits at the foot of the menu on the left, and both read one setting.</p>
+          </div>
+          <div class="wf-cfg-rc">
+            <select class="wf-f" id="cfg-lang" aria-labelledby="cfg-lang-k">
+              <option>English</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- A SWITCH IS A REAL INPUT WITH A REAL LABEL. role=switch on a checkbox
+             is the one pattern that keeps the keyboard and the screen reader
+             behaviour the native control already has right, and D-58 will not
+             accept a styled span here. The row's own key is the label. -->
+        <div class="wf-cfg-row2">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <div class="wf-cfg-rt">
+            <span class="wf-cfg-rk" id="cfg-sound-k">Sound</span>
+            <span class="wf-cfg-rv">On</span>
+            <p class="wf-cfg-why">The same control sits at the foot of the menu on the left, and both read one setting.</p>
+          </div>
+          <div class="wf-cfg-rc wf-cfg-sw">
+            <input type="checkbox" role="switch" id="cfg-sound" aria-labelledby="cfg-sound-k" checked>
+          </div>
         </div>
       </div>
 
-
-      <!-- B1. THE STEAM TRADE URL. A real input with a real label: a placeholder
-           doing the label's job disappears the moment somebody types, which is the
-           moment they most need to know what the field is.
-           THE HELPER LINE IS BESIDE THE FIELD AND NOT BEHIND AN ICON. The token is
-           not something a person can invent, so a link to where Steam issues it is
-           part of the field rather than a courtesy next to it. Inherited from the
-           baseline, which prints the same line for the same reason.
-           NO MASKING OF THE SAVED VALUE. A person needs to compare it with the one
-           Steam shows them, and that comparison is the only way to check it that
-           does not involve a withdrawal. It wraps rather than truncating.
-           NOTHING SAVES WITHOUT A PRESS. -->
-      <div class="wf-cfg-b">
-        <h2 class="wf-cfg-h">Where your skins go</h2>
-        <p class="wf-cfg-p">Withdrawals are sent to Steam as a trade offer, and Steam needs this link to know where to send it. It is yours, it comes from Steam, and you can change it whenever you like.</p>
-        <div class="wf-cfg-f">
-          <label class="wf-cfg-l" for="cfg-url">Your Steam trade URL</label>
-          <textarea class="wf-cfg-in" id="cfg-url" rows="2" data-cfg-url spellcheck="false" autocomplete="off"></textarea>
-          <!-- THE DESTINATION IS STEAM'S OWN PAGE and it is a real external href,
-               because the token is issued there and nowhere else. A helper link that
-               points back inside our own product would be a route to a page that
-               cannot give the person the thing the field needs. -->
-          <p class="wf-cfg-p"><a href="https://steamcommunity.com/id/me/tradeoffers/privacy" rel="noopener">Where to get this link on Steam</a></p>
-        </div>
-        <div class="wf-cfg-row">
-          <button class="wf-btn wf-btn--primary" type="button" data-cfg-save>Save</button>
-          <span class="wf-quick-w">Never set</span>
-        </div>
-        <p class="wf-cfg-say" role="status" aria-live="polite" data-cfg-say></p>
-        <!-- WHAT AN EMPTY FIELD COSTS, IN THE SAME BLOCK AS THE FIELD. Row G5's
-             own rule is that the person meets the limit before the first
-             withdrawal rather than inside it, and this is the one limit on that
-             list they can fix themselves in ten seconds. Stating it here is what
-             stops it arriving as a refusal three days later. -->
-        <div class="wf-cfg-cost">
-          <strong>What this costs right now</strong>
-          <span>Withdrawals cannot be sent until this is filled in. Everything else on the account works.</span>
-        </div>
-      </div>
-
-      <!-- B2. THE ANONYMITY CONTROL IS STATED AND NOT DRAWN, and the absence is
-           rendered rather than omitted. public-result.md has carried this open
-           item since 21 August 2026 in its own words: "what remains open is
-           whether they can turn it off, which no node says", owner the founder.
-           THE BASELINE HAS THE CONTROL. Make me Anonymous, OFF and ON, in the
-           SECURITY group of this same screen. So where it would live is answered
-           and whether ours has one is not.
-           WHY THIS PAGE WILL NOT DECIDE IT: the toggle changes what 0.8 renders in
-           every tile and what 7.1 renders in block 6, and D-69 already left two of
-           our own decisions pointing opposite ways about a public profile. A
-           control that rewrites two published nodes is not a settings row, it is a
-           decision with a settings row attached.
-           AND THE COST OF LEAVING IT OUT IS ON THE PAGE rather than only in the
-           node, because it is a fact about this person: today the product puts
-           their name on every win in the feed and on every shared result and they
-           cannot stop it. -->
-      <div class="wf-cfg-hole">
-        <h2 class="wf-cfg-h">How you appear to other people</h2>
-        <p class="wf-cfg-p">When you win something, your name and your picture can appear in the live drop strip and on the page for that win if you share it.</p>
-        <p class="wf-cfg-p wf-fig-missing">There is no control here yet, and that is a real gap rather than a screen still being built: whether you can turn this off has not been decided. Until it is, this is on and you cannot change it.</p>
-      </div>
-
-      <!-- B3. WHERE THE REST OF IT LIVES, AS ROUTES AND NEVER AS CONTROLS. This
-           page's baseline has twenty rows, so somebody arriving from it will look
-           here for sound, for language and for the break tool. A control here
-           would make this page the second home for something that already has one,
-           which is the defect the whole node is built to avoid.
-           THE BREAK TOOL IS THE SHARPEST ONE. The baseline files it in SECURITY
-           beside Logout and an anonymity toggle, with no route to it from
-           anywhere: not the footer, not the rail, not the header, not home. Ours
-           is a surface with three entrances. That is the divergence and it is the
-           reason node 6.1 exists. -->
-      <div class="wf-cfg-b">
-        <h2 class="wf-cfg-h">Things people look for here</h2>
-        <ul class="wf-cfg-routes">
-          <li><a href="responsible.html">Deposit limits, session limits and self exclusion</a><span class="wf-cfg-where">Responsible play</span></li>
-          <li><a href="account.html">Your skins</a><span class="wf-cfg-where">My items</span></li>
-          <li><a href="history.html">Every case you have opened</a><span class="wf-cfg-where">History</span></li>
-          <li><a href="profile.html">Your name, picture and account details</a><span class="wf-cfg-where">Profile</span></li>
-          <li><a href="legal.html">Terms, privacy, cookies and refunds</a><span class="wf-cfg-where">Legal</span></li>
-          <li><span class="wf-cfg-where">Sound and language</span><span class="wf-cfg-where">At the foot of the menu on the left</span></li>
-          <li><span class="wf-cfg-where">Signing out</span><span class="wf-cfg-where">In the account menu, top right</span></li>
-          <li><span class="wf-cfg-where">Cookies</span><span class="wf-cfg-where">Cookie settings, at the foot of any page</span></li>
-        </ul>
-      </div>
-
-      <!-- WHAT IS NOT HERE AND NEVER WILL BE, each on a live parent.
-           NO SWITCH THAT TURNS OFF A CONFIRMATION BEFORE MONEY MOVES. The baseline
-           has two whose subjects are live for us, selling a skin back and
-           withdrawing one, so scope does not refuse them. Design principle 3 does:
-           "cost never hides inside excitement". A switch that removes the
-           confirmation before a value leaves the account removes a risk moment,
-           and it is the one preference a person sets in a calm minute and meets
-           months later at the worst one. The cost is printed: somebody who
-           withdraws every day confirms every day, and the answer to that is a
-           faster confirmation, not an absent one.
-           NO SELF-DECLARED COUNTRY. The baseline's whole market control is a
-           dropdown the person sets themselves, and it already contradicts a second
-           country field on its own deposit step. D-23 closed the allowlist by
-           default and 2.1 is designed around that state.
-           NO COUNTER OF ANY KIND. CLAUDE.md: a limit never acquires completion
-           mechanics, streaks, status or a session score. A settings page is where
-           a profile completeness meter goes, which makes this the easiest page in
-           the product to break that rule on. -->
-
+      <!-- SECURITY. Three rows in the baseline and three here, and the block's
+           name is the baseline's own. What sits under it is not: the baseline
+           files a self protection tool between an anonymity toggle and a logout
+           button, which is the vocabulary of account protection. Ours routes to a
+           surface with four tools and three entrances, and that divergence is the
+           whole argument node 6.1 was built on.
+           baseline-account.md 7.1: the tool exists in the live product, it has no
+           route to it from the footer, the rail, the header or home, and a person
+           who does not already know it is there cannot find it. They built it and
+           then hid it, which is a better argument for 6.1 than an absence. -->
       <div class="wf-cfg-g">
-        <p class="wf-cfg-gh">How you sign in</p>
-        <!-- A STATEMENT, NOT FOUR ROWS OF CONTROLS. The baseline lists Steam,
-             Discord, Twitter and Google with a link control on each, and D-55 chose
-             exactly those four for the sign in surface. LINKING A SECOND PROVIDER TO
-             ONE ACCOUNT HAS NO ROW IN cjm-to-be.md AND NO NODE ON THE MAP, so three
-             of those four rows would be controls over nothing, which is the dead
-             item defect with an icon on it. What is true is which provider this
-             account uses, and that is what renders. -->
-        <div class="wf-cfg-fixed">
-          <span class="wf-cfg-fixed-k">This account signs in with Steam</span>
-          <span class="wf-quick-w">Connected. It is also where your skins are sent.</span>
+        <p class="wf-cfg-gh"><span class="wf-cfg-ico" aria-hidden="true"></span>Security</p>
+
+        <!-- NOT A SWITCH, A ROUTE. Nothing on this page can hold four tools, and a
+             limit set in a row a person scrolled past is not a limit they decided
+             on. The name is the live product's own and it is kept, because it is
+             the words a person coming from there will look for. -->
+        <div class="wf-cfg-row2">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <div class="wf-cfg-rt">
+            <span class="wf-cfg-rk">Take a break</span>
+            <span class="wf-cfg-rv">Deposit limits, session limits, a cool down and self exclusion.</span>
+          </div>
+          <div class="wf-cfg-rc">
+            <a class="wf-btn" href="responsible.html">Take a break</a>
+          </div>
         </div>
-        <p class="wf-cfg-p wf-fig-missing">Linking a second way to sign in is not in round 1.</p>
+
+        <!-- THE ANONYMITY ROW IS STATED AND NOT DRAWN, and the absence is rendered
+             rather than omitted. public-result.md has carried this open item since
+             21 August 2026 in its own words: "what remains open is whether they can
+             turn it off, which no node says", owner the founder.
+             THE BASELINE HAS THE CONTROL, in this block, OFF and ON. So where it
+             would live is answered and whether ours has one is not.
+             WHY THIS PAGE WILL NOT DECIDE IT: the toggle changes what 0.8 renders in
+             every tile and what 7.1 renders in block 6, and D-69 already left two of
+             our own decisions pointing opposite ways about a public profile. A
+             control that rewrites two published nodes is not a settings row, it is a
+             decision with a settings row attached.
+             AND THE COST OF LEAVING IT OUT IS ON THE PAGE rather than only in the
+             node, because it is a fact about this person: today the product puts
+             their name on every win in the strip and on every shared result and
+             they cannot stop it. -->
+        <div class="wf-cfg-row2 is-absent">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <div class="wf-cfg-rt">
+            <span class="wf-cfg-rk">Make me anonymous</span>
+            <span class="wf-cfg-rv">No switch. Your name and your picture can appear in the live drop strip and on the page for a win you share.</span>
+            <p class="wf-cfg-why">Turning it on rewrites what the running strip and a shared result render about you, and whether a public page of yours exists at all is not decided. A switch here would settle two open questions by being pressed. Until they are settled this is on and you cannot change it.</p>
+          </div>
+        </div>
+
+        <div class="wf-cfg-row2">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <div class="wf-cfg-rt">
+            <span class="wf-cfg-rk">Sign out</span>
+            <span class="wf-cfg-rv">Ends this session on this device. Your skins and your balance stay where they are.</span>
+          </div>
+          <div class="wf-cfg-rc">
+            <a class="wf-btn" href="index.html">Sign out</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- LINKED PROFILES. Four rows, exactly the four the baseline lists on the
+           founder's capture of 22 August 2026, and exactly the four D-55 chose for
+           sign in on 21 August from three competitor modals. That match is a
+           coincidence and it is recorded as one.
+           THE ROWS STATE AND DO NOT ACT. Linking a second provider to one account
+           has no row in cjm-to-be.md and no node on the map, so a Connect control
+           on three of these four would be a control over nothing, which is the dead
+           item defect with a logo on it. What is true is which provider carried
+           this account in, and that is the thing the founder asked to see. -->
+      <div class="wf-cfg-g">
+        <p class="wf-cfg-gh"><span class="wf-cfg-ico" aria-hidden="true"></span>Linked profiles</p>
+        <div class="wf-cfg-prov is-on">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <span class="wf-cfg-prov-n">Steam</span>
+          <span class="wf-cfg-prov-s">Connected. This is how you sign in.</span>
+        </div>
+        <div class="wf-cfg-prov">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <span class="wf-cfg-prov-n">Discord</span>
+          <span class="wf-cfg-prov-s">Not connected</span>
+        </div>
+        <div class="wf-cfg-prov">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <span class="wf-cfg-prov-n">X</span>
+          <span class="wf-cfg-prov-s">Not connected</span>
+        </div>
+        <div class="wf-cfg-prov">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <span class="wf-cfg-prov-n">Google</span>
+          <span class="wf-cfg-prov-s">Not connected</span>
+        </div>
+        <p class="wf-cfg-why">Linking a second way to sign in has no row in the backlog and no place on the map, so this list says which one carried you in and offers nothing it cannot do.</p>
       </div>
 
       </div>
 
       <div class="wf-cfg-col">
 
+      <!-- NOTIFICATIONS. Eight rows in the baseline, in two subgroups, and this
+           block keeps the subgroups and adds a third for what cannot be switched.
+           ONE LIVE SWITCH, AND ITS PARENT IS NOT A FEATURE REQUEST. Six of the
+           baseline's eight are over capabilities that are LATER, and the two with
+           live subjects are the confirmations before selling and before
+           withdrawing, refused on design principle 3. What earns a control here is
+           the marketing channel itself: the profile carries promotional messages,
+           and a channel that sends them owes a way to stop them. Consent that
+           cannot be withdrawn as easily as it was given is the finding 0.4 is built
+           around, and this switch is that withdrawal.
+           AND THERE IS A HOLE UNDER THE WHOLE BLOCK THAT THIS NODE DID NOT OPEN:
+           there is no notification, email or push row anywhere in cjm-to-be.md.
+           0.3 printed it when it found that nobody can learn about a maintenance
+           window before arriving at it. A toggle that turns a channel off is a
+           control over a channel, so even the rows whose subjects arrive later
+           cannot be built until that row exists. -->
       <div class="wf-cfg-g">
-        <p class="wf-cfg-gh">Notifications</p>
-        <!-- ONE LIVE SWITCH, AND ITS PARENT IS NOT A FEATURE REQUEST. The baseline
-             runs eight switches here and D-81 read every one of them: six are over
-             capabilities that are LATER, and the two with live subjects are the
-             confirmations before selling and before withdrawing, which that record
-             refused on design principle 3, cost never hides inside excitement. That
-             refusal stands and is printed below rather than quietly dropped.
-             WHAT EARNS A CONTROL IS THE MARKETING CHANNEL ITSELF. The profile now
-             carries promotional messages, and a channel that sends them owes a way
-             to stop them: consent that cannot be withdrawn as easily as it was given
-             is the same finding 0.4 is built around. This switch is that withdrawal.
-             SYSTEM MESSAGES HAVE NO SWITCH AND THE ROW SAYS WHY. It is the cookie
-             node's strictly necessary row arriving a second time: a disabled control
-             is theatre, so the row states what it covers and takes no answer. A
-             person cannot opt out of being told their withdrawal failed. -->
+        <p class="wf-cfg-gh"><span class="wf-cfg-ico" aria-hidden="true"></span>Notifications</p>
+
+        <p class="wf-cfg-sub">What we send you</p>
         <div class="wf-cfg-sw">
           <label class="wf-cfg-sw-t" for="cfg-promo">Offers, free cases and anything else we want to sell you</label>
           <input type="checkbox" role="switch" id="cfg-promo" checked>
         </div>
-        <div class="wf-cfg-fixed">
-          <span class="wf-cfg-fixed-k">Messages about your own account</span>
-          <span class="wf-quick-w">No switch. A withdrawal that failed, a round that did not settle, a limit you set coming into force. You cannot opt out of being told what happened to your own money.</span>
-        </div>
         <p class="wf-cfg-p"><a href="profile.html#messages">Read your messages</a></p>
+
+        <!-- SYSTEM MESSAGES TAKE NO SWITCH AND THE ROW SAYS WHY. It is the cookie
+             node's strictly necessary row arriving a second time: a control that
+             cannot move is theatre, so the row states what it covers and takes no
+             answer at all. -->
+        <p class="wf-cfg-sub">About your own account</p>
+        <div class="wf-cfg-row2 is-absent">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <div class="wf-cfg-rt">
+            <span class="wf-cfg-rk">Messages about your own account</span>
+            <span class="wf-cfg-rv">No switch</span>
+            <p class="wf-cfg-why">A withdrawal that failed, a round that did not settle, a limit you set coming into force. You cannot opt out of being told what happened to your own money.</p>
+          </div>
+        </div>
+
+        <!-- THE SIX SCOPE ROWS AND THE TWO PRINCIPLE ROWS SIT TOGETHER AND ARE
+             LABELLED APART. They look identical from the outside, one row with no
+             control, and they are not the same kind of refusal: six wait for a
+             capability to exist and two will still have no switch on the day the
+             product is finished. Saying which is which is the difference between a
+             backlog and a decision. -->
+        <p class="wf-cfg-sub">Not switchable yet, and why</p>
+
+        <div class="wf-cfg-row2 is-absent">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <div class="wf-cfg-rt">
+            <span class="wf-cfg-rk">Sponsored games from a partner</span>
+            <span class="wf-cfg-rv">No switch</span>
+            <p class="wf-cfg-why">That mode is not in round 1, and a partner programme has no row anywhere in the backlog. Nothing would send this message.</p>
+          </div>
+        </div>
+        <div class="wf-cfg-row2 is-absent">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <div class="wf-cfg-rt">
+            <span class="wf-cfg-rk">Giveaway results</span>
+            <span class="wf-cfg-rv">No switch</span>
+            <p class="wf-cfg-why">Giveaways are not in round 1. Until one runs there is no result to tell you about.</p>
+          </div>
+        </div>
+        <div class="wf-cfg-row2 is-absent">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <div class="wf-cfg-rt">
+            <span class="wf-cfg-rk">Joining bots to case battles</span>
+            <span class="wf-cfg-rv">No switch</span>
+            <p class="wf-cfg-why">Case battles are not in round 1, so nothing joins anything yet.</p>
+          </div>
+        </div>
+        <div class="wf-cfg-row2 is-absent">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <div class="wf-cfg-rt">
+            <span class="wf-cfg-rk">Joining bots to gunfights</span>
+            <span class="wf-cfg-rv">No switch</span>
+            <p class="wf-cfg-why">Gunfights are not in round 1 either, and this row waits on the same thing the one above it waits on.</p>
+          </div>
+        </div>
+        <div class="wf-cfg-row2 is-absent">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <div class="wf-cfg-rt">
+            <span class="wf-cfg-rk">Confirmation before an upgrade</span>
+            <span class="wf-cfg-rv">No switch</span>
+            <p class="wf-cfg-why">Upgrades are not in round 1. There is no upgrade to confirm.</p>
+          </div>
+        </div>
+        <div class="wf-cfg-row2 is-absent">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <div class="wf-cfg-rt">
+            <span class="wf-cfg-rk">Confirmation before a crypto withdrawal</span>
+            <span class="wf-cfg-rv">No switch</span>
+            <p class="wf-cfg-why">Taking money out as money is not something this product does. Skins go to Steam and that is the whole exit.</p>
+          </div>
+        </div>
+
+        <!-- THE TWO REFUSED ON A PRINCIPLE, AND THE ROW SAYS SO IN PLAIN WORDS.
+             Selling a skin back is round 1 since D-38 and withdrawal to Steam is
+             round 1, so scope does not refuse these. Design principle 3 does, and
+             it is quoted rather than paraphrased: "where money is about to be
+             spent, odds, cost and expected value are visible and legible. Cost
+             never hides inside excitement."
+             THE COST IS PRINTED RATHER THAN ABSORBED. Somebody who withdraws every
+             day will confirm every day, and that is friction we are choosing. The
+             answer to it is a faster confirmation, not an absent one. -->
+        <div class="wf-cfg-row2 is-absent">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <div class="wf-cfg-rt">
+            <span class="wf-cfg-rk">Confirmation before selling a skin back</span>
+            <span class="wf-cfg-rv">No switch, and this one is a rule rather than a gap in the round</span>
+            <p class="wf-cfg-why">Selling back is live and the switch is still refused. A switch that removes the confirmation before value leaves the account removes a risk moment, and it is the one preference you set once in a calm minute and meet months later at the worst one.</p>
+          </div>
+        </div>
+        <div class="wf-cfg-row2 is-absent">
+          <span class="wf-cfg-ico" aria-hidden="true"></span>
+          <div class="wf-cfg-rt">
+            <span class="wf-cfg-rk">Confirmation before sending a skin to Steam</span>
+            <span class="wf-cfg-rv">No switch, and this one is a rule rather than a gap in the round</span>
+            <p class="wf-cfg-why">Live too, and refused for the same reason. If you withdraw every day you will confirm every day, and the answer to that is a faster confirmation, not an absent one.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="wf-cfg-g">
-        <p class="wf-cfg-gh">Not here, and why</p>
-        <!-- THE PAGE PRINTS WHAT IT REFUSED. The baseline's settings tab has twenty
-             rows and this one has three controls. A page that quietly drops
-             seventeen is one nobody can audit against its own baseline, D-81. -->
-        <ul class="wf-cfg-later">
-          <li><strong>Six notification switches</strong> over case battles, gunfights, upgrades, crypto withdrawal, giveaways and sponsored games. Every one of those is LATER, and a switch over nothing is the dead item defect with a toggle on it</li>
-          <li><strong>Confirmation before selling a skin back, and before withdrawing one.</strong> Both subjects are live and both switches are refused: design principle 3, cost never hides inside excitement. A switch that removes the confirmation before value leaves the account removes a risk moment, and it is set once in a calm minute and met months later at the worst one. The answer to daily friction is a faster confirmation, not an absent one</li>
-          <li><strong>Your display name</strong> lives on Profile, and <strong>language and sound</strong> at the foot of the menu on the left</li>
+      <!-- WHAT IS LEFT OF THE OLD ROUTE LIST, AND ONLY WHAT THE FOUR BLOCKS DO NOT
+           COVER. The break tool, sound, language and signing out all have a row of
+           their own now, so they are gone from here rather than said twice. These
+           five are places, not settings, and a control for any of them here would
+           make this page the second home for something that already has one. -->
+      <div class="wf-cfg-b">
+        <h2 class="wf-cfg-h">Things people look for here</h2>
+        <ul class="wf-cfg-routes">
+          <li><a href="account.html">Your skins</a><span class="wf-cfg-where">My items</span></li>
+          <li><a href="history.html">Every case you have opened</a><span class="wf-cfg-where">History</span></li>
+          <li><a href="profile.html">Your account record and your messages</a><span class="wf-cfg-where">Profile</span></li>
+          <li><a href="legal.html">Terms, privacy, cookies and refunds</a><span class="wf-cfg-where">Legal</span></li>
+          <li><span class="wf-cfg-where">Cookies</span><span class="wf-cfg-where">Cookie settings, at the foot of any page</span></li>
         </ul>
       </div>
 

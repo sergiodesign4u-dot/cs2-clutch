@@ -44,6 +44,31 @@
 
 ---
 
+## 0.6 Amended again, 23 August 2026, by `D-89`. The card puts its actions in the flow and the sort comes out of its menu
+
+**The founder opened the published page and rejected two things on it.** Both were correct in this file and wrong on the screen.
+
+### The card, rebuilt on the live product's own composition
+
+**The actions floated over the artwork, on top of the receipt line, pushing the item's own name below them.** The source is `acct_inventory_item_actions.png` and it does something simpler: **the tick and the share on the top row, then the weapon, the skin, the wear and the price, then the three acts, then the two market figures at the foot, and the artwork behind all of it.**
+
+| What changed | Why |
+|---|---|
+| **The artwork is the background of the whole card**, not a box in the column | It is what lets the acts sit in the flow without the card growing |
+| **The acts reserve their space with `visibility`, not `display`** | A card that grows on hover shoves the row below it and a grid of them ripples. **At rest that reserved band is where the artwork shows through**, which is why the live product's two states are the same size |
+| **The tick and the share are in the flow, not absolutely positioned** | The previous build had to raise them above the panel because the panel covered the card's own checkbox. **In the flow that cannot recur**, which is a better fix than the one that worked |
+| **The receipt line is back on the face of the card** | It went into the panel to keep the face to five things. With the panel gone it has nowhere else to be, and it is exactly what `B7-1` asks for: what this was worth when it was won, dated, beside what it is worth now, and no third number made out of the two |
+
+### The sort, and why a `select` was the wrong control
+
+**Both keys are on the screen, each carrying its direction, and pressing the active one flips it.** The live product does this and the founder asked for it. **A `select` hides three of its four options behind a press**, so the existence of sorting by value is itself hidden.
+
+**The direction is a word and never an arrow.** This stage draws no icons, and a caret alone is a state carried by a shape, which is the colour-only rule one step further out.
+
+**And the control reorders the grid rather than describing an order.** A sort is the cheapest control in this product to make real, because every card already carries the two values it sorts on. **Sorting is still not filtering**, so section 4's protection against a second empty state with no parent is untouched.
+
+---
+
 ## 0. The sentence this page is built around
 
 `F2` is one line in the backlog and it is the whole page: **the receipt stays on the item in inventory and on the withdrawal record**, with the success signal "the same receipt is retrievable a week later".

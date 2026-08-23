@@ -208,6 +208,20 @@
   </div>
 </section>
 
+<section id="amended-23aug-b">
+  <div class="sec-head">
+    <h2>Amended again, 23 August 2026, by D-89. Four pages, not four panels, and the bug that forced it</h2>
+    <p><strong>The four tabs shipped as panels inside one page and the founder&#39;s screenshot killed that in one frame:</strong> Deposits selected, the rolls list underneath it.</p>
+  </div>
+  <div class="card is-dead">
+    <p><strong>The cause is a defect worth recording as a class rather than as a fix.</strong> [hidden] is a user-agent rule and the author rule .wf-hist { display: flex } beats it, <strong>so the panel marked hidden went on rendering.</strong> The sweep checked that the strip rendered and that the selected panel appeared. <strong>It never checked that the other one had gone</strong>, and an assertion that reads one element cannot catch a contradiction between two.</p>
+  </div>
+  <div class="card is-good">
+    <p><strong>The design answer is larger than the bug and the founder gave it in the same message: each tab is a page.</strong> A state that lives inside a panel nobody can link to is <strong>a state the registry cannot list and the prototype panel cannot show.</strong> Six pages join the node: deposits and its empty, withdrawals and its empty, <strong>withdrawals past our own published ceiling</strong>, and cash out.</p>
+    <p><strong>The overdue state is the one worth building, and the argument is one this project has already made.</strong> 0.10 earned its place because a published deadline with no state for its own failure is a number nobody has to meet. <strong>A withdrawal ceiling is the same object.</strong> The page says we published 48 hours, this row is past it, it is our number and our failure, <strong>and it was not the person&#39;s job to notice.</strong></p>
+  </div>
+</section>
+
 <section id="baseline-row">
   <div class="sec-head">
     <h2>Baseline row</h2>
@@ -407,6 +421,7 @@ window.NAV_ACTIVE_LABEL = '5.9 History';
 window.NAV_SECTIONS = [
   { id: 'overview', label: 'Overview' },
   { id: 'amended-23aug', label: 'D-88 amendment' },
+  { id: 'amended-23aug-b', label: 'D-89 amendment' },
   { id: 'baseline-row', label: 'Baseline row' },
   { id: 'row', label: 'What a row is' },
   { id: 'dc', label: 'The D-C dependency' },

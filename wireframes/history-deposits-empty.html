@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History, no deposits yet</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- HISTORY, DEPOSITS, NOTHING PAID IN YET. Same page, no rows.
+     THE EMPTY IS THE DEFAULT COMPOSITION RATHER THAN A FALLBACK. That is what
+     the listing type in the block bank fixes for every page of this shape: a
+     list page is designed empty first and filled second, because empty is the
+     state every account starts in and the one that gets bolted on last if the
+     order is reversed.
+     AND IT IS NOT AN ERROR. Nothing failed, nothing is loading, nothing is
+     degraded. The heading still reads Deposits, the count still reads 0, and the
+     note above still says what the ledger is for, so the page reads the same way
+     it will read once rows exist. A person arriving here has to be able to tell
+     "you have not done this yet" apart from "we cannot show you this", and that
+     difference is carried by the wording rather than by an icon or a colour.
+     ONE ROUTE OUT AND IT IS THE PLAIN ONE. Add funds, because that is the only
+     act that puts a row on this page. It is written as the action and not as an
+     invitation: this is the ledger a person opens when they think money has gone
+     astray, and an empty state that sells a deposit is the product advertising
+     inside its own accounting.
+     A STATE OF THIS PAGE AND OF NO OTHER, D-89. An account with no payments can
+     still have rolls, and it can still have items sent to Steam. While the four
+     tabs were panels of one file this empty could only ever be shown stacked
+     with three unrelated empties behind a single address, which is one of the
+     reasons the split happened. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <!-- THE ACCOUNT BAND AND ITS TAB STRIP, D-84. Rendered by _nav.js like the
+         other carriers, because a strip that exists on one of four peers is a
+         dead end on the other three, and thirteen copies of one band is
+         thirteen places for it to drift. -->
+    <div class="wf-ah" data-acct-hero></div>
+
+    <h1>History</h1>
+    <!-- THE FOUR TABS, D-88 AND THEN D-89. The founder chose all four of the
+         baseline's after the argument for three was put and lost, and two days
+         later the four stopped being panels of one page and became four peer
+         pages. So this strip is now the same object as the account strip above
+         it: four links to four files, with the current one rendered as a span
+         rather than a link to where you already are, D-58. Built once in
+         _nav.js, because a strip that exists on one of four peers is a dead end
+         on the other three. -->
+    <div data-hist-tabs></div>
+
+    <div data-hist-list="deposits"></div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+window.WF_ACCT = { active: 'history' };
+window.WF_HISTTAB = 'deposits';
+window.WF_HIST = { deposits: [] };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

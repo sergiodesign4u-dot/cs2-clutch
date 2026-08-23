@@ -77,6 +77,26 @@
 
 ---
 
+## 0.5 Amended again, 23 August 2026, by `D-89`. Four pages, not four panels, and the bug that forced it
+
+**The four tabs shipped as panels inside one page and the founder's screenshot killed that in one frame:** Deposits selected, the rolls list underneath it.
+
+**The cause is a defect worth recording as a class rather than as a fix.** `[hidden]` is a user-agent rule and the author rule `.wf-hist { display: flex }` beats it, **so the panel marked hidden went on rendering.** The sweep checked that the strip rendered and that the selected panel appeared. **It never checked that the other one had gone**, and an assertion that reads one element cannot catch a contradiction between two.
+
+**The design answer is larger than the bug and the founder gave it in the same message: each tab is a page.** A state that lives inside a panel nobody can link to is **a state the registry cannot list and the prototype panel cannot show.**
+
+| Page | What it is |
+|---|---|
+| `history.html` | Rolls, and the strip to the other three. Its three existing states are states of this tab and of nothing else |
+| `history-deposits.html`, `-empty` | The payment ledger, `B4-3` |
+| `history-withdrawals.html`, `-empty` | The Steam ledger, `B8-2` |
+| **`history-withdrawals-overdue.html`** | **A row past our own published ceiling** |
+| `history-cashout.html` | The rendered absence |
+
+**The overdue state is the one worth building, and the argument is one this project has already made.** `0.10` earned its place because a published deadline with no state for its own failure is a number nobody has to meet. **A withdrawal ceiling is the same object.** The page says we published 48 hours, this row is past it, it is our number and our failure, **and it was not the person's job to notice.**
+
+---
+
 ## 0. What a row is, and why that is the whole node
 
 A row is **a roll**, not an item. Seven fields, and every one of them exists because something reads it separately.

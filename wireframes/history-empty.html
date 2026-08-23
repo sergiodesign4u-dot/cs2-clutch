@@ -9,11 +9,16 @@
 </head>
 <body>
 
-<!-- EMPTY, NO ROLLS YET, AND SINCE D-88 THE OTHER THREE TABS ARE EMPTY TOO.
-     A new account has made no rolls, no payments and nothing sent to Steam, so
-     this is the one page where all four panels are in their empty state at once
-     and each of them says something different. The fourth is empty for a reason
-     that has nothing to do with this account: the capability does not exist.
+<!-- EMPTY, NO ROLLS YET. ONE PAGE, ONE EMPTY, D-89.
+     This used to be the page where all four panels sat in their empty state at
+     once, because the four tabs were panels of one file. They are four peer
+     pages now, so each empty has its own address and its own reason: no rolls
+     here, no payments on history-deposits-empty.html, nothing sent to Steam on
+     history-withdrawals-empty.html, and on the cash out page an absence that has
+     nothing to do with this account at all, because the capability does not
+     exist. A state that lives inside a panel nobody can link to is a state the
+     registry cannot list and the prototype panel cannot show, and stacking four
+     unrelated empties behind one address was that defect four times over.
      THE DEFAULT COMPOSITION RATHER THAN A FALLBACK, which is what the listing
      type in the block bank fixes for every page of this shape.
      NEVER AN ILLUSTRATION WITH AN INVITATION. This is the page that records
@@ -35,16 +40,18 @@
     <div class="wf-ah" data-acct-hero></div>
 
     <h1>History</h1>
-    <!-- THE FOUR TABS, D-88. The founder chose all four of the baseline's after
-         the argument for three was put and lost. This strip is NOT the account
-         strip above it: wf-atabs carries four peer PAGES and its items are
-         links, this one carries four panels of one page and its items are tab
-         buttons. A control that changes what is on the screen and a control
-         that goes somewhere are not the same control. Built once in _nav.js. -->
+    <!-- THE FOUR TABS, D-88 AND THEN D-89. The founder chose all four of the
+         baseline's after the argument for three was put and lost, and two days
+         later the four stopped being panels of one page and became four peer
+         pages. So this strip is now the same object as the account strip above
+         it: four links to four files, with the current one rendered as a span
+         rather than a link to where you already are, D-58. Built once in
+         _nav.js, because a strip that exists on one of four peers is a dead end
+         on the other three. -->
     <div data-hist-tabs></div>
 
 
-    <div class="wf-hist" data-hist-panel="rolls">
+    <div class="wf-hist">
       <div class="wf-lbar"><h2 class="wf-lbar-h" id="h2-rolls">Rolls</h2><span class="wf-fig-c">0 rolls</span></div>
       <!-- BLOCK 2. THE SCOPE LINE, IN THE SHORT FORM THE COMPONENT CARRIES
            EVERYWHERE. The proof shows the round was fixed before the click and
@@ -59,8 +66,6 @@
       </div>
     </div>
 
-    <div data-hist-rest hidden></div>
-
   </main>
 
   <footer class="wf-footer" id="wf-footer"></footer>
@@ -74,7 +79,7 @@ window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';
 window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
 window.WF_ACCT = { active: 'history' };
-window.WF_HIST = { deposits: [], withdrawals: [], cashout: [] };
+window.WF_HISTTAB = 'rolls';
 </script>
 <script src="_nav.js"></script>
 </body>

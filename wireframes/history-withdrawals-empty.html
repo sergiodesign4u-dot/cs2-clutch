@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History, nothing sent to Steam</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- HISTORY, WITHDRAWALS, NOTHING SENT TO STEAM YET.
+     THE EMPTY IS THE DEFAULT COMPOSITION RATHER THAN A FALLBACK, and it is not
+     an error. Nothing failed here and nothing is loading. An account can be old,
+     busy and full of rolls and still show this page empty, because holding items
+     on the product and taking them across to Steam are two separate decisions
+     and most people take a while to make the second one.
+     THE WORDING CARRIES THE PROMISE THE FILLED PAGE HAS TO KEEP. When a row does
+     land it stays, with who it is waiting on and how long it has been. Saying
+     that before the first withdrawal exists is what makes the ledger worth
+     anything when the first one is late, and B8-2 is entirely a barrier about
+     the late one.
+     ONE ROUTE OUT AND IT GOES TO THE ITEMS RATHER THAN TO A SALES PAGE. My items
+     is where a withdrawal starts, so it is the only honest thing to offer a
+     person standing on an empty withdrawal ledger.
+     A STATE OF THIS PAGE AND OF NO OTHER, D-89, which is the whole point of the
+     four having become four addresses. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <!-- THE ACCOUNT BAND AND ITS TAB STRIP, D-84. Rendered by _nav.js like the
+         other carriers, because a strip that exists on one of four peers is a
+         dead end on the other three, and thirteen copies of one band is
+         thirteen places for it to drift. -->
+    <div class="wf-ah" data-acct-hero></div>
+
+    <h1>History</h1>
+    <!-- THE FOUR TABS, D-88 AND THEN D-89. The founder chose all four of the
+         baseline's after the argument for three was put and lost, and two days
+         later the four stopped being panels of one page and became four peer
+         pages. So this strip is now the same object as the account strip above
+         it: four links to four files, with the current one rendered as a span
+         rather than a link to where you already are, D-58. Built once in
+         _nav.js, because a strip that exists on one of four peers is a dead end
+         on the other three. -->
+    <div data-hist-tabs></div>
+
+    <div data-hist-list="withdrawals"></div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+window.WF_ACCT = { active: 'history' };
+window.WF_HISTTAB = 'withdrawals';
+window.WF_HIST = { withdrawals: [] };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

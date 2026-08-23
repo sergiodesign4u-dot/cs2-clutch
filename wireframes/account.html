@@ -58,22 +58,29 @@
          OF THE NODE. That section refused sorting on the ground that an inventory
          is bounded by what one person opened. The baseline sorts by two keys and
          the founder asked for them by name. SORTING IS NOT FILTERING and the
-         distinction is kept: a sort reorders the same set, so it cannot produce
+         distinction is kept: a sort reorders the same set, so it cannot manufacture
          the second empty state with no parent that section 4 was actually
-         protecting against. A filter would, and there is still none. -->
+         protecting against. A filter would, and there is still none.
+         BOTH KEYS ARE ON THE SCREEN AND THERE IS NO MENU. A select hides three of
+         its four options behind a press, so a person has to open it to learn that
+         sorting by value exists at all, and keeping its own existence a secret is
+         the one thing a control may not do. Two keys, permanently visible:
+         pressing the active one flips its direction, pressing the other moves the
+         sort to it. Four orders and nothing hidden.
+         THE LINE UNDER THE BAR SAYS WHICH ORDER IS RUNNING, because the reordering
+         itself is invisible to anyone who was not watching the grid at the moment
+         it happened. -->
     <div class="wf-inv-bar">
       <h3 class="wf-inv-all">All skins</h3>
       <div class="wf-inv-sort">
-        <span class="wf-fig-c">Sort by</span>
-        <label class="wf-vh" for="inv-sort">Sort the items</label>
-        <select class="wf-f wf-inv-sel" id="inv-sort">
-          <option>Newest first</option>
-          <option>Oldest first</option>
-          <option>Value, high to low</option>
-          <option>Value, low to high</option>
-        </select>
+        <span class="wf-fig-c" id="inv-sort-l">Sort by</span>
+        <div class="wf-sortset" role="group" aria-labelledby="inv-sort-l" data-sortset>
+          <button class="wf-sortk" type="button" aria-pressed="true"  data-sort="when"  data-dir="desc" data-hi="Newest first"  data-lo="Oldest first">Newest first</button>
+          <button class="wf-sortk" type="button" aria-pressed="false" data-sort="value" data-dir="desc" data-hi="Highest value" data-lo="Lowest value">Highest value</button>
+        </div>
       </div>
     </div>
+    <p class="wf-sort-say" data-sort-say></p>
 
     <!-- THE LIMITS STAY, AS ONE LINE ABOVE THE SET RATHER THAN A COLUMN BESIDE IT.
          G5 asks for a limit to be met before the route runs rather than discovered
@@ -85,125 +92,158 @@
     <p class="wf-note wf-fig-missing">Peg not available: what one coin is worth in real money is not published yet</p>
 
     <div class="wf-inv">
+      <!-- THE CARD IS ONE COLUMN AND THE ARTWORK SITS BEHIND IT, FOUNDER'S CALL OF
+           23 AUGUST 2026. The actions used to float over the artwork box: they
+           covered the receipt line and pushed the item's own name below themselves,
+           so the two states of one card were two different cards and the second one
+           had lost the thing a person came to read. The live product does the
+           simpler thing and the simpler thing is the one that works. The picture is
+           the ground of the whole card, the tick and Share are a real row at the
+           top, and the three acts sit in the flow under the price, where a column
+           reads them in the order it already reads everything else.
+           THE ACTS RESERVE THEIR SPACE WITH visibility, NEVER WITH display. A card
+           that grows on hover shoves the row beneath it, and a grid of six ripples
+           from one pointer crossing one of them. At rest that reserved band is where
+           the artwork shows through, and that is precisely what makes the live
+           product's two states the same size.
+           THE WHOLE CARD IS THE TARGET AND HOVER IS NEVER THE MECHANISM. A touch
+           screen has no hover at all, so the acts open on selection and on focus as
+           well, and the item's own tick stays reachable while they are showing
+           because it is a sibling in a row rather than something underneath a panel.
+           THE ARTICLE CARRIES THE TWO VALUES THE SORT KEYS READ, its price and the
+           moment it was won in sortable form. A sort that needs a second copy of the
+           data somewhere else is a second place for the data to be wrong. -->
       <div class="wf-grid wf-grid--inv">
-        <article class="wf-inv-card">
-          <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="21.40"><span class="wf-vh">Select AK-47 Redline</span></label>
-          <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+        <article class="wf-inv-card" data-v="21.40" data-when="2026-08-18T14:02">
           <span class="wf-inv-art" aria-hidden="true"></span>
+          <div class="wf-inv-top">
+            <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="21.40"><span class="wf-vh">Select AK-47 Redline</span></label>
+            <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+          </div>
           <p class="wf-inv-w">AK-47</p>
           <p class="wf-inv-s">Redline</p>
           <p class="wf-inv-wear">(Field-Tested)</p>
           <p class="wf-inv-p">21.40</p>
+          <div class="wf-inv-acts">
+            <a class="wf-btn" href="account.html">Sell for coins</a>
+            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
+            <button class="wf-btn" type="button" disabled>Exchange</button>
+            <p class="wf-inv-why">Exchange is not in round 1</p>
+          </div>
+          <p class="wf-inv-rec">Won at <b>22.15</b>, 18 Aug 2026 14:02</p>
           <div class="wf-inv-mkt">
           <span>Starting at<b>18.90</b></span>
           <span>Offers<b>412</b></span>
           </div>
-          <div class="wf-inv-acts">
-            <p class="wf-inv-rec">Won at <b>22.15</b>, 18 Aug 2026 14:02</p>
-            <a class="wf-btn" href="account.html">Sell for coins</a>
-            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
-            <button class="wf-btn" type="button" disabled>Exchange</button>
-            <p class="wf-inv-why">Exchange is not in round 1</p>
-          </div>
         </article>
-        <article class="wf-inv-card">
-          <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="66.05"><span class="wf-vh">Select AWP Asiimov</span></label>
-          <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+        <article class="wf-inv-card" data-v="66.05" data-when="2026-08-17T22:11">
           <span class="wf-inv-art" aria-hidden="true"></span>
+          <div class="wf-inv-top">
+            <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="66.05"><span class="wf-vh">Select AWP Asiimov</span></label>
+            <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+          </div>
           <p class="wf-inv-w">AWP</p>
           <p class="wf-inv-s">Asiimov</p>
           <p class="wf-inv-wear">(Well-Worn)</p>
           <p class="wf-inv-p">66.05</p>
+          <div class="wf-inv-acts">
+            <a class="wf-btn" href="account.html">Sell for coins</a>
+            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
+            <button class="wf-btn" type="button" disabled>Exchange</button>
+            <p class="wf-inv-why">Exchange is not in round 1</p>
+          </div>
+          <p class="wf-inv-rec">Won at <b>64.80</b>, 17 Aug 2026 22:11</p>
           <div class="wf-inv-mkt">
           <span>Starting at<b>71.20</b></span>
           <span>Offers<b>268</b></span>
           </div>
-          <div class="wf-inv-acts">
-            <p class="wf-inv-rec">Won at <b>64.80</b>, 17 Aug 2026 22:11</p>
-            <a class="wf-btn" href="account.html">Sell for coins</a>
-            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
-            <button class="wf-btn" type="button" disabled>Exchange</button>
-            <p class="wf-inv-why">Exchange is not in round 1</p>
-          </div>
         </article>
-        <article class="wf-inv-card">
-          <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="7.35"><span class="wf-vh">Select USP-S Cortex</span></label>
-          <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+        <article class="wf-inv-card" data-v="7.35" data-when="2026-08-16T19:40">
           <span class="wf-inv-art" aria-hidden="true"></span>
+          <div class="wf-inv-top">
+            <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="7.35"><span class="wf-vh">Select USP-S Cortex</span></label>
+            <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+          </div>
           <p class="wf-inv-w">USP-S</p>
           <p class="wf-inv-s">Cortex</p>
           <p class="wf-inv-wear">(Minimal Wear)</p>
           <p class="wf-inv-p">7.35</p>
+          <div class="wf-inv-acts">
+            <a class="wf-btn" href="account.html">Sell for coins</a>
+            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
+            <button class="wf-btn" type="button" disabled>Exchange</button>
+            <p class="wf-inv-why">Exchange is not in round 1</p>
+          </div>
+          <p class="wf-inv-rec">Won at <b>7.90</b>, 16 Aug 2026 19:40</p>
           <div class="wf-inv-mkt">
           <span>Starting at<b>6.05</b></span>
           <span>Offers<b>903</b></span>
           </div>
-          <div class="wf-inv-acts">
-            <p class="wf-inv-rec">Won at <b>7.90</b>, 16 Aug 2026 19:40</p>
-            <a class="wf-btn" href="account.html">Sell for coins</a>
-            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
-            <button class="wf-btn" type="button" disabled>Exchange</button>
-            <p class="wf-inv-why">Exchange is not in round 1</p>
-          </div>
         </article>
-        <article class="wf-inv-card">
-          <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="4.20"><span class="wf-vh">Select Glock-18 Water Elemental</span></label>
-          <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+        <article class="wf-inv-card" data-v="4.20" data-when="2026-08-15T11:07">
           <span class="wf-inv-art" aria-hidden="true"></span>
+          <div class="wf-inv-top">
+            <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="4.20"><span class="wf-vh">Select Glock-18 Water Elemental</span></label>
+            <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+          </div>
           <p class="wf-inv-w">Glock-18</p>
           <p class="wf-inv-s">Water Elemental</p>
           <p class="wf-inv-wear">(Factory New)</p>
           <p class="wf-inv-p">4.20</p>
+          <div class="wf-inv-acts">
+            <a class="wf-btn" href="account.html">Sell for coins</a>
+            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
+            <button class="wf-btn" type="button" disabled>Exchange</button>
+            <p class="wf-inv-why">Exchange is not in round 1</p>
+          </div>
+          <p class="wf-inv-rec">Won at <b>4.15</b>, 15 Aug 2026 11:07</p>
           <div class="wf-inv-mkt">
           <span class="wf-fig-missing">Nobody is offering one</span>
           <span>Offers<b>0</b></span>
           </div>
-          <div class="wf-inv-acts">
-            <p class="wf-inv-rec">Won at <b>4.15</b>, 15 Aug 2026 11:07</p>
-            <a class="wf-btn" href="account.html">Sell for coins</a>
-            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
-            <button class="wf-btn" type="button" disabled>Exchange</button>
-            <p class="wf-inv-why">Exchange is not in round 1</p>
-          </div>
         </article>
-        <article class="wf-inv-card">
-          <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="29.90"><span class="wf-vh">Select M4A1-S Hyper Beast</span></label>
-          <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+        <article class="wf-inv-card" data-v="29.90" data-when="2026-08-14T08:55">
           <span class="wf-inv-art" aria-hidden="true"></span>
+          <div class="wf-inv-top">
+            <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="29.90"><span class="wf-vh">Select M4A1-S Hyper Beast</span></label>
+            <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+          </div>
           <p class="wf-inv-w">M4A1-S</p>
           <p class="wf-inv-s">Hyper Beast</p>
           <p class="wf-inv-wear">(Field-Tested)</p>
           <p class="wf-inv-p">29.90</p>
+          <div class="wf-inv-acts">
+            <a class="wf-btn" href="account.html">Sell for coins</a>
+            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
+            <button class="wf-btn" type="button" disabled>Exchange</button>
+            <p class="wf-inv-why">Exchange is not in round 1</p>
+          </div>
+          <p class="wf-inv-rec">Won at <b>31.60</b>, 14 Aug 2026 08:55</p>
           <div class="wf-inv-mkt">
           <span>Starting at<b>34.10</b></span>
           <span>Offers<b>155</b></span>
           </div>
-          <div class="wf-inv-acts">
-            <p class="wf-inv-rec">Won at <b>31.60</b>, 14 Aug 2026 08:55</p>
-            <a class="wf-btn" href="account.html">Sell for coins</a>
-            <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
-            <button class="wf-btn" type="button" disabled>Exchange</button>
-            <p class="wf-inv-why">Exchange is not in round 1</p>
-          </div>
         </article>
-        <article class="wf-inv-card">
-          <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="12.05"><span class="wf-vh">Select Desert Eagle Blaze</span></label>
-          <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+        <article class="wf-inv-card" data-v="12.05" data-when="2026-08-13T20:18">
           <span class="wf-inv-art" aria-hidden="true"></span>
+          <div class="wf-inv-top">
+            <label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="12.05"><span class="wf-vh">Select Desert Eagle Blaze</span></label>
+            <a class="wf-btn wf-btn--small wf-inv-share" href="result-owner.html">Share</a>
+          </div>
           <p class="wf-inv-w">Desert Eagle</p>
           <p class="wf-inv-s">Blaze</p>
           <p class="wf-inv-wear">(Minimal Wear)</p>
           <p class="wf-inv-p">12.05</p>
-          <div class="wf-inv-mkt">
-          <span>Starting at<b>13.60</b></span>
-          <span>Offers<b>74</b></span>
-          </div>
           <div class="wf-inv-acts">
-            <p class="wf-inv-rec">Won at <b>11.40</b>, 13 Aug 2026 20:18</p>
             <a class="wf-btn" href="account.html">Sell for coins</a>
             <a class="wf-btn wf-btn--primary" href="withdraw.html">Send to Steam</a>
             <button class="wf-btn" type="button" disabled>Exchange</button>
             <p class="wf-inv-why">Exchange is not in round 1</p>
+          </div>
+          <p class="wf-inv-rec">Won at <b>11.40</b>, 13 Aug 2026 20:18</p>
+          <div class="wf-inv-mkt">
+          <span>Starting at<b>13.60</b></span>
+          <span>Offers<b>74</b></span>
           </div>
         </article>
       </div>

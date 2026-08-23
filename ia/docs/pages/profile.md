@@ -74,6 +74,26 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 
 ---
 
+## 0.5 Amended again, 23 August 2026, by `D-89`. The record stops repeating the band, and the page gets its main action
+
+**The founder said the record column looks wrong. It did, and there was a hard defect under the impression.**
+
+### One account, two names, two ids, one page
+
+**The account band renders the avatar and the display name. The record card ten pixels below rendered them again with different values:** the band read `Spectacle` and `ID 953709`, the card read `nightjar_cs` and `acc-7f3a91c4`.
+
+**This is the third instance of one class.** `5.1` once had the header reading 18.60 for the value of items held while the page read 130.60, and the fix was to make the shell read the page. **The class is two renderings of one fact with no shared source.** Identity now has one, and anything that prints it reads it.
+
+**So the card stops carrying identity.** The band owns it. **What the band does not carry is where the account came from, when it started and what a stranger can see**, and that is all that is left here, as rows rather than paragraphs, because this page is a record and it should read like one.
+
+### The control the founder asked for, and what it does not settle
+
+**The page gains its main action: see yourself as a stranger does.** This page's job is to let a person find out what we hold about them, **and the strongest form of that is showing them rather than telling them.**
+
+**What it opens today is one of this account's own results as a signed-out reader sees it.** Whether a public profile page exists at all is still `[?]`, section 6, **and this control does not settle it: the route is correct under either answer**, which is the same treatment block 4's text already had.
+
+---
+
 ## 0. What this page holds, and the test every row had to pass
 
 **The test:** is this a fact the product already holds, or a control that already exists elsewhere on the map. **Nothing else was allowed on**, per the orphan rule above.

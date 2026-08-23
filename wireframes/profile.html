@@ -87,38 +87,98 @@
       </section>
 
       <!-- BLOCK 3 TO 5. THE RECORD. Under the daily card on desktop, last on a
-           phone. Three facts and none of them changes on its own. -->
+           phone. Facts the account already holds, plus, since D-89, the one
+           control that shows a person what those facts look like from outside. -->
       <div class="wf-pf-rec">
 
+        <!-- BLOCK 3. THE RECORD OF THIS ACCOUNT, REBUILT 23 AUGUST 2026, D-89.
+             IT STOPPED REPEATING THE AVATAR AND THE DISPLAY NAME, and that is a
+             defect fixed rather than a card tidied. The account band ten pixels
+             above already renders both, and the two renderings disagreed: the band
+             read Spectacle and ID 953709 while this card read nightjar_cs and
+             acc-7f3a91c4. ONE ACCOUNT, TWO NAMES AND TWO IDS, ON ONE PAGE. Same
+             class as the header reading one balance while the page read another:
+             two renderings of one fact with no shared source, and the second one
+             always drifts because nothing makes it move. The band now reads WF_WHO
+             in _nav.js and it is the only thing on this page that prints identity.
+             THE BAND OWNS IDENTITY, THE CARD OWNS THE RECORD. What is left here is
+             what the band does not carry: where the account came from, what we have
+             never had, when it started, and the id support asks for. The id is the
+             one value that appears in both, and it appears twice on purpose: the
+             band states it, the card makes it copyable with the sentence that says
+             what it is for. They agree because there is now one source for it.
+             AND IT IS ROWS, NOT PARAGRAPHS. This was four paragraphs at four sizes,
+             which is a card that has been written rather than one that can be read.
+             Section 1 of the node calls this page a record, so it reads like one:
+             label over value, a hairline between. The id's own H3 became a row label
+             with the other three, because one of four labels being a heading was the
+             leftover of the shape this replaced. -->
         <section class="wf-pf-g" aria-labelledby="h2-who">
           <h2 class="wf-pf-gh" id="h2-who">Who this account is</h2>
-          <div class="wf-prof-band">
-            <span class="wf-prof-av" aria-hidden="true"></span>
-            <span class="wf-prof-n">
-              <span class="wf-prof-name">nightjar_cs</span>
-              <span class="wf-fig-c">Here since 12 Jan 2026</span>
-            </span>
-          </div>
-          <p>Made from the Steam account <strong>nightjar_cs</strong>. Your name and picture are Steam&#39;s, and they change here when they change there.</p>
-          <p class="wf-note">We never had a password of yours and we never asked Steam to change anything on your account.</p>
-
-          <div class="wf-prof-f">
-            <h3 class="wf-pf-gh" id="h3-id">Your account id</h3>
-            <div class="wf-tid">
-              <span class="wf-tid-v">acc-7f3a91c4</span>
-              <button class="wf-btn wf-btn--small" type="button">Copy</button>
+          <dl class="wf-rec">
+            <div class="wf-rec-r">
+              <dt class="wf-rec-k">Signed in with</dt>
+              <dd class="wf-rec-v">Steam, and nothing else.</dd>
+              <dd class="wf-rec-v">We have never had a password of yours, and we have never asked Steam to change anything on your account.</dd>
             </div>
-            <p class="wf-fig-c">This is what support and an appeal refer to. <span class="wf-fig-missing">What the id actually looks like is not decided.</span></p>
-          </div>
+            <div class="wf-rec-r">
+              <dt class="wf-rec-k">Your name and picture</dt>
+              <dd class="wf-rec-v">Both come from Steam. They change here when they change there.</dd>
+            </div>
+            <div class="wf-rec-r">
+              <dt class="wf-rec-k">Here since</dt>
+              <dd class="wf-rec-v">12 Jan 2026</dd>
+            </div>
+            <div class="wf-rec-r">
+              <dt class="wf-rec-k">Your account id</dt>
+              <dd class="wf-rec-v">
+                <div class="wf-tid">
+                  <span class="wf-tid-v">acc-7f3a91c4</span>
+                  <button class="wf-btn wf-btn--small" type="button">Copy</button>
+                </div>
+              </dd>
+              <dd class="wf-rec-v wf-fig-c">This is what support and an appeal refer to.</dd>
+              <dd class="wf-rec-v wf-fig-missing">What the id actually looks like is not decided.</dd>
+            </div>
+          </dl>
         </section>
 
+        <!-- BLOCK 4. WHAT IS PUBLIC, AND IT NOW CARRIES THE PAGE'S MAIN ACTION.
+             Section 1 of the node: this is the page a person opens to find out what
+             we hold about them. The strongest form of that is showing them rather
+             than telling them, so the control opens one of their own results exactly
+             as a signed out stranger receives it. Three sentences about a public
+             footprint are three sentences taken on trust; the page itself is the
+             footprint, and reading it is the only version that cannot be wrong.
+             WHAT IT OPENS TODAY IS A SHARED RESULT, AND THAT IS SAID PLAINLY RATHER
+             THAN GLOSSED. Whether a public profile page exists at all is still open,
+             D-69, two of our own decisions pointing opposite ways, and this control
+             does not settle it. It points at the one public surface that carries
+             this account's name and picture today. The route survives either answer:
+             if a public profile is refused, this stays the whole of what a stranger
+             gets, and if it is granted, the control points at that instead.
+             THE THREE ROWS ARE THE THREE FACTS THE LIST ALREADY HELD. Nothing added,
+             nothing dropped, and the third is still an absence stated out loud. -->
         <section class="wf-pf-g" aria-labelledby="h2-public">
           <h2 class="wf-pf-gh" id="h2-public">What a stranger can see</h2>
-          <ul class="wf-open-list">
-            <li><strong>A result you share.</strong> If you send someone the link to one of your rolls, that page carries your name and your picture, and the round they can check.</li>
-            <li><strong>The live strip.</strong> A win of yours can appear in the running strip with your name and your picture on it.</li>
-            <li><strong>Nothing else.</strong> There is no page anyone can reach that lists what this account has won, and there is no way to look you up.</li>
-          </ul>
+          <p class="wf-note">This opens one of your own results the way it looks to someone who is not signed in, so you can read your public footprint instead of being told about it.</p>
+          <div class="wf-rec-act">
+            <a class="wf-btn wf-btn--primary" href="result.html">See yourself as a stranger does</a>
+          </div>
+          <dl class="wf-rec">
+            <div class="wf-rec-r">
+              <dt class="wf-rec-k">A result you share</dt>
+              <dd class="wf-rec-v">The page carries your name, your picture and the round anyone can check.</dd>
+            </div>
+            <div class="wf-rec-r">
+              <dt class="wf-rec-k">The running strip</dt>
+              <dd class="wf-rec-v">A win of yours can appear in it, with your name and your picture on it.</dd>
+            </div>
+            <div class="wf-rec-r">
+              <dt class="wf-rec-k">A page that lists what you have won</dt>
+              <dd class="wf-rec-v">There is none, and there is no way to look you up.</dd>
+            </div>
+          </dl>
           <p class="wf-note wf-fig-missing">Whether a public page of yours exists at all is not decided. Until it is, this is the whole of it.</p>
         </section>
 

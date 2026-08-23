@@ -38,6 +38,27 @@
 
 ---
 
+## 0.5 Amended again, 23 August 2026, by `D-89`. A block per section, and the refusals move into the section they belong to
+
+**The founder asked for the live product's shape in as many words: a block per section, an icon beside the section name, and every option that section holds inside it, the social providers and the one the account signed in through included.**
+
+### What changes, and what does not
+
+**The rule does not change and it is the one that matters: a row whose subject does not exist carries no control at all, never a greyed one.** A control that cannot move is a picture of a control, and the cookie node's strictly necessary row settled that for the whole project.
+
+**What changes is where the absence is stated.** `D-81` refused nineteen of the baseline's twenty rows and `D-86` collected them in one block at the end of the page. **That block is where a reader stops reading.** Every refused row now takes row position inside its own section with its reason on it, **so you meet the absence where you went looking for the control.**
+
+| Block | What is live | What is present as an absence |
+|---|---|---|
+| **General** | Where you live, the Steam trade URL, language, sound | **Username**, because it comes from Steam and a name that can drift from Steam is two names for one person |
+| **Security** | Take a break, which routes to `6.1`, and sign out | **Make me anonymous**, because turning it on rewrites what `0.8` and `7.1` render and `D-69` is open: a switch here would settle two questions by being pressed |
+| **Linked profiles** | Which provider carried you in | **The other three**, because linking a second provider to one account has no row in `cjm-to-be.md` and no node on the map |
+| **Notifications** | The marketing channel | **Six over `LATER` capabilities**, and **two whose subject is live and whose refusal is a principle**: a switch that removes the confirmation before value leaves the account removes a risk moment, and it is set once in a calm minute and met months later at the worst one |
+
+**The icon is a slot and that is not a placeholder.** This stage draws no icons and **the room one takes is a layout fact decided here**, so the slot is drawn at its size and stage 06 puts something in it.
+
+---
+
 ## 0. The input for this node was never missing, and the `[?]` was on the wrong thing
 
 **`D-36` wrote that what `5.11` holds in round 1 is `[?]` and that the node owes that answer before it can be drawn.** For two days stage 04 read that as a question for the founder and said so twice. **It is not one.** The record says *the node* owes the answer, and the answer is derived the way every other node's is: take the baseline row, apply the round 1 scope list, apply the three legal parent classes, and print what does not survive.
@@ -210,10 +231,10 @@ Sound, language, the break tool and sign out are all somewhere already. **They a
 
 **Mobile, base, 360px.** One column. The trade URL field at full width with the helper line under it, then the stated absence, then the route list as a stacked list. **The saved value wraps rather than truncating at the end**, because a trade URL a person cannot read in full is a trade URL they cannot compare with the one Steam shows them.
 
-**Desktop, from 900px.** The same single column at a readable measure. **Never two columns.** The baseline runs two and it is what lets twenty rows look like a small page; ours has one block and a list, and putting them side by side would be a dashboard made of nothing.
+**Desktop, from 900px.** ~~The same single column at a readable measure. **Never two columns.** The baseline runs two and it is what lets twenty rows look like a small page; ours has one block and a list, and putting them side by side would be a dashboard made of nothing.~~ **Superseded by `D-86` and rewritten by `D-89`, struck rather than deleted because the reason is the record of what changed under it.** It was true of a page holding one block and a list. **The page holds four blocks and fifteen rows now**, which is the shape the baseline has and the shape the founder asked for, and four blocks in one column is a scroll rather than a page. **Two columns from 1000, one below it.**
 
 - **Exactly one H1**, and it is the page name.
-- **The field is a real `<input>` with a real `<label>`**, never a placeholder doing the label's job: a placeholder disappears the moment somebody types, which is the moment they most need to know what the field is.
+- **The field is a real `<textarea>` with a real `<label>`**, never a placeholder doing the label's job: a placeholder disappears the moment somebody types, which is the moment they most need to know what the field is. **It said `<input>` until `D-86` and that contradicted section 1 of this same file**, which promises the saved value "wraps rather than truncating": an `<input>` cannot wrap, and at 360 it hid 46% of the URL including the partner and token pair.
 - **The helper line is beside the field and not behind an icon.** A link a person needs in order to complete the field is part of the field.
 - **The refusal message is text, in the same block, associated with the input**, and never colour alone.
 - **Every target at least 44 by 44 CSS pixels**, matching `0.1`'s AAA choice.

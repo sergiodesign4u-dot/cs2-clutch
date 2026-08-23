@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History, deposits</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 5.9, HISTORY, DEPOSITS. Base state: payments exist. One of the four
+     peer pages of this node since D-89, and it has an address of its own
+     precisely so that its states can have addresses too.
+     THE PARENT IS THE BARRIER WHERE MONEY LEAVES AND DOES NOT ARRIVE. B4-3 on
+     the As-Is map, a pattern of 4 across 3 platforms, ledger U-04. The shortest
+     of the four carries the whole thing in one voice: "I've deposited $25
+     through Crypto, nothing. I've waited a few hours, nothing... The ticket is
+     closed, still $0 added to balance".
+     READ IT FOR WHAT IT IS ACTUALLY ABOUT. The 25 dollars is the smaller half.
+     The larger half is that there is nowhere to look. A bank statement on one
+     side, a balance on the other, and no object in between that either agrees
+     with them or contradicts them. The ticket closing without the balance moving
+     is the same absence a second time, and that second time is where the review
+     gets written.
+     A LEDGER IS THE ANSWER TO THAT, AND IT IS A CHEAP ONE. Every attempt this
+     account has made, the ones that arrived and the ones that did not, with our
+     reference and the processor's reference in the same row. That pairing is the
+     working part: it lets a person put a row beside a bank line, and support put
+     a ticket beside a row, without either of them guessing which payment is
+     being discussed.
+     EVERY ROW THAT FAILED SAYS WHY IT FAILED IN THE ROW, never in a tooltip and
+     never behind a hover. A refusal whose ground lives only in a hover has no
+     ground at all on a phone, and a phone is where this page gets opened, at the
+     moment the person is angriest. The renderer puts the reason inside the state
+     cell rather than beside it, so no layout can separate the two.
+     FIVE ROWS, CHOSEN SO THE STATES ARE ON THE PAGE RATHER THAN IN A LIST
+     SOMEWHERE ELSE. Complete twice, because most payments are and a ledger of
+     nothing but disasters misrepresents the product, then the three that
+     generate tickets: refused by the bank, still crediting on the network, and
+     refused by the person's own deposit ceiling.
+     THE CEILING ROW IS THE ONE THAT MATTERS MOST AND IT IS OURS, NOT THE BANK'S.
+     It names which limit and how much of it was already used, because a limit
+     that blocks in silence cannot be told apart from a broken payment, and a
+     person who reads it as broken writes to support about the wrong thing and
+     loses the protection at the same time. Naming it also keeps the limit a
+     boundary rather than a score: it reports a refusal, it does not congratulate
+     anyone for approaching one.
+     A ROW THAT NEVER GOT A PROCESSOR REFERENCE SAYS SO IN WORDS RATHER THAN
+     LEAVING A BLANK CELL. Missing is a state, never a zero.
+     NO TOTAL DEPOSITED, NO MONTHLY CHART, NO NET FIGURE. Same rule the rolls
+     page runs on: a lifetime figure of what this has cost is a session score
+     with a longer window. The cost of that is printed rather than absorbed. A
+     person who wants to know what they have put in across the year cannot learn
+     it here, and that is the correct loss.
+     AMOUNTS ARE IN COINS AND THE NOTE SAYS WHAT THAT MEANS. Until the peg is
+     published a row cannot be reconciled against a bank statement in the strict
+     sense, and the page says so rather than letting a person discover it while
+     holding both documents. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <!-- THE ACCOUNT BAND AND ITS TAB STRIP, D-84. Rendered by _nav.js like the
+         other carriers, because a strip that exists on one of four peers is a
+         dead end on the other three, and thirteen copies of one band is
+         thirteen places for it to drift. -->
+    <div class="wf-ah" data-acct-hero></div>
+
+    <h1>History</h1>
+    <!-- THE FOUR TABS, D-88 AND THEN D-89. The founder chose all four of the
+         baseline's after the argument for three was put and lost, and two days
+         later the four stopped being panels of one page and became four peer
+         pages. So this strip is now the same object as the account strip above
+         it: four links to four files, with the current one rendered as a span
+         rather than a link to where you already are, D-58. Built once in
+         _nav.js, because a strip that exists on one of four peers is a dead end
+         on the other three. -->
+    <div data-hist-tabs></div>
+
+    <div data-hist-list="deposits"></div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+window.WF_ACCT = { active: 'history' };
+window.WF_HISTTAB = 'deposits';
+window.WF_HIST = {
+  deposits: [
+    { when: '2026-08-21 14:40:07', amount: '20.00 coins', method: 'Card', state: 'Declined', why: 'Your bank refused it. Nothing was charged.', ours: 'dep-4c19a0', theirs: '139949371' },
+    { when: '2026-08-18 09:12:55', amount: '50.00 coins', method: 'Card', state: 'Complete', ours: 'dep-4c0f72', theirs: '138596292' },
+    { when: '2026-08-14 21:03:18', amount: '25.00 coins', method: 'Crypto, ETH', state: 'Crediting', why: 'Waiting on the network to confirm it. Nothing is lost.', ours: 'dep-4bfe31', theirs: '0x7a3f91c4d80e2b7f5a3c19e6b1d4082f' },
+    { when: '2026-08-09 17:55:02', amount: '30.00 coins', method: 'Card', state: 'Refused by your own ceiling', why: 'Your deposit limit was 40.00 coins for the week and 30.00 of it was already used.', ours: 'dep-4bd004', theirs: 'not issued' },
+    { when: '2026-07-30 12:31:44', amount: '10.00 coins', method: 'Card', state: 'Complete', ours: 'dep-4b91cc', theirs: '135398919' }
+  ]
+};
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

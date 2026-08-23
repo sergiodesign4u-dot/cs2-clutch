@@ -2219,3 +2219,45 @@ Stage 04 proposed **three** tabs and refused cash out because it has no subject 
 **At 360 a timestamp was shredded into `14:4` and `0:07`** by `overflow-wrap: anywhere`, which a reference needs and a figure must never have. **The table scrolls inside its own wrapper instead**, which is what the wrapper is for.
 
 **Measured:** four pages at 360, 1024 and 1440, every tab walked on each, no page error, no horizontal scroll on the page at any width or on any tab, one H1 each, the tab strip reading Rolls, Deposits, Withdrawals, Cash out on all twelve combinations, and the empty page showing all four panels empty with four different sentences.
+
+---
+
+## 63. `D-89`: six founder rejections in one sitting, five of them one mistake, and two live defects every instrument passed
+
+**Thirteen pages touched, six created. 113 pages.** `5.1` three pages, `5.9` four rewired and six new, `5.10` three, `5.11` four.
+
+### The through-line, because five of the six are the same mistake
+
+**Nothing was missing on any of these screens. Everything was in the wrong layer.** The item card put a panel over the thing it acts on. The sort put four orders behind a press. History put four tabs inside one page. The profile record repeated the identity the band above already carries. Settings exiled nineteen absences to a block at the end. **Each was defensible in prose and wrong on the screen.**
+
+### The instruments passed all six, and two of them were defects
+
+**Acceptance here is: open it in the browser, walk every state, narrow to 360, then check the published address.** That ran and passed, because the assertions ask about sideways scroll, one H1, a 44 pixel target and a wrapped label. **None of them asks whether the thing looks like something a person would use.**
+
+**`[hidden]` does nothing to an element with a display rule.** It is a UA rule and `.wf-hist { display: flex }` beats it, **so the panel marked hidden went on rendering**: the founder's screenshot shows Deposits selected with the rolls list underneath. **The sweep checked that the selected panel appeared and never that the other one had gone.**
+
+**One account with two names and two ids on one page.** The band read `Spectacle` and `ID 953709`, the record card read `nightjar_cs` and `acc-7f3a91c4`. **Third instance of one class**, after the header reading 18.60 while the page read 130.60. **An assertion that reads one element cannot catch a contradiction between two.** `WF_WHO` is the single source now.
+
+### `5.1`, the card and the sort
+
+**The composition is the live product's:** tick and share on the top row, then weapon, skin, wear, price, then the three acts, then the two market figures, **and the artwork behind all of it.**
+
+**The acts reserve their space with `visibility`, not `display`.** A card that grows on hover shoves the row below it and a grid of them ripples. **Measured: 458.28px at rest and 458.28px on hover**, at three widths, on every card. **At rest the reserved band is where the artwork shows through**, which is why the live product's two states are the same size.
+
+**The corner controls are in the flow.** The old build raised them above the panel with a `z-index` because the panel covered the card's own checkbox. **In the flow that cannot recur**, which is a better fix than the one that worked.
+
+**Both sort keys are on the screen with their direction, and the control reorders the grid.** A `select` hides three of its four options behind a press, so the existence of sorting by value was itself hidden. **The direction is a word and never an arrow**, because a caret alone is a state carried by a shape.
+
+### `5.9`, four pages instead of four panels
+
+**A state that lives inside a panel nobody can link to is a state the registry cannot list and the prototype panel cannot show.** Six new pages: deposits and its empty, withdrawals and its empty, **withdrawals past our own published ceiling**, and cash out.
+
+**The overdue state rests on an argument this project has already made.** `0.10` earned its place because a published deadline with no state for its own failure is a number nobody has to meet. **A withdrawal ceiling is the same object**, so the page says we published 48 hours, this row is past it, it is our number and our failure, and it was not the person's job to notice.
+
+### `5.10` and `5.11`
+
+**The band owns identity, the card owns the record**, as rows rather than paragraphs, **and the page gains its main action: see yourself as a stranger does.** It opens one of this account's own results as a signed-out reader sees it, and **it does not settle whether a public profile exists**: the route is right under either answer.
+
+**Settings is a block per section with an icon slot, and the nineteen refusals move into the section they belong to.** The rule is unchanged: **a row whose subject does not exist carries no control at all, never a greyed one.** What changes is where the absence is stated, **so you meet it where you went looking for the control** rather than in a block at the end where a reader has already stopped.
+
+**The icon is a slot and not a placeholder:** the room an icon takes is a layout fact and it is decided at this stage.

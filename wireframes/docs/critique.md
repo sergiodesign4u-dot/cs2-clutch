@@ -262,3 +262,26 @@
 **No instrument had asked.** Every check in section 3 asks whether something is present, whether it is honest, whether it survives 360, or whether it matches its token. **None asks whether two things that are next to each other look like two things.** The scan joins the parse check as an instrument of its own: adjacent block pairs, ink gap under 12px, reported per class pair rather than per page.
 
 **Zero pairs after the fix**, which is two declarations rather than twenty. `conventions.md` 1.2a and `D-83` carry the rule and the reason.
+
+---
+
+## 8. Raised on 23 August 2026 by `D-89`, and two of them are the same class the taxonomy still has no row for
+
+**Found by:** the founder, opening the published prototype. **Verified by:** Claude with a browser, and two instruments written for these findings specifically.
+
+| # | Class | Finding | Status |
+|---|---|---|---|
+| 8.1 | **attribute that did not take effect** | **`[hidden]` does nothing to an element with a display rule.** `[hidden]` is a user-agent rule and `.wf-hist { display: flex }` beats it, so the panel marked hidden went on rendering: **Deposits selected with the rolls list underneath it, live on the published site.** The sweep checked that the strip rendered and that the selected panel appeared; it never checked that the other one had gone | **Fixed.** `[hidden] { display: none }` stated once, author-side. And the tabs became pages, so the hiding is gone as well as fixed |
+| 8.2 | **two renderings of one fact** | **One account, two names, two ids, on one page.** The band read `Spectacle` and `ID 953709`; the record card ten pixels below read `nightjar_cs` and `acc-7f3a91c4`. **Third instance of one class**, after the header reading 18.60 for the value of items held while the page read 130.60 | **Fixed.** `WF_WHO` is the one source and anything that prints identity reads it. `profile-steam-down` overrides it once, so its band cannot claim a name its own card says is unreadable |
+| 8.3 | **invented number** | **The withdrawal ledger printed "our published ceiling is 48 h" and no such figure exists in this repository.** `withdraw-clock.html` renders every one of its ceilings as not published, which is a live `[?]`. Raised by the agent that built the page rather than smoothed | **Fixed.** No row prints a ceiling figure. The overdue state is still drawn, and it says why: **a ceiling published into a product with no state for missing it is a promise with nothing behind it**, so the state comes first and the number later |
+| 8.4 | **claim wider than the fix** | **Four shell controls were still under 44px** while three nodes claim AAA: the mobile deposit entry at 36, the ticker pause at 26, the rail toggle at 32, the link-shaped button at 15.6. The 22 August fix grew `.wf-btn--small` on sixteen pages, **and a control in the shell is on all 113** | **Partly fixed, and the rest is recorded rather than patched.** See 8.5 |
+| 8.5 | **fix that created a worse defect** | **Applying the hit-area patch to all four made two controls overlap their neighbours.** The ticker pause grew into the tile beside it and the link-shaped button over the link next to it. **Two overlapping targets is worse than one small target**, because a press near the edge fires the wrong control | **Reverted on those two, measured before and after.** They stay under 44 with the reason recorded: their fix is a layout change, not a hit area. The other two keep the patch |
+| 8.6 | **target size, pre-existing** | **228 controls under 44px across six sampled pages**, once inline links in prose are excluded as WCAG allows. The bulk is the rail item at 31, the rail's social links at 28 and the two money figures at 17 and 20 | **Open, and not patched.** The rail items are a vertical list at 31px, so a 44px hit area would overlap the item above and below: 8.5 again. **Owner: a layout decision on `0.1`, not a stylesheet patch** |
+
+### The instrument gap this leaves, stated because it has now cost three findings
+
+**An assertion that reads one element cannot catch a contradiction between two.** 8.2 is the third instance and the answer has been the same each time: one source, both read it. **The sweep gained a rule after the first instance and it was written for money rather than for the class.**
+
+**And an assertion that reads an attribute cannot tell you the attribute took effect.** 8.1 passed every check in the taxonomy because every check reads the DOM as text or reads one computed property in isolation. **The contract checklist gained a CSS-grammar line after `D-82`; it now needs a second: for any element the code hides, assert it is not rendered.**
+
+**Both instruments were written after the founder pointed at the screen.** That is the honest order and it is worth recording: **for the second time in two days, the thing eight instruments missed was found by a person looking at a picture of it.**

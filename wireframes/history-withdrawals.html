@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History, withdrawals</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 5.9, HISTORY, WITHDRAWALS. Base state: items have been sent to Steam.
+     THE PARENT IS THE BARRIER OF WAITING WITH NUMBERS. B8-2, six people in the
+     ledger and every one of them turned up with a hard figure: 30 hours, 7 days,
+     2 to 3 days, 9 days from the last deposit, 16 hours, almost 3 weeks. Ledger
+     U-09.
+     AND WHAT EVERY ONE OF THEM DESCRIBES IS SILENCE RATHER THAN SLOWNESS. The
+     figures differ by two orders of magnitude and the complaint does not change
+     shape across them, which is the finding rather than a detail of it. Nobody
+     in that set says the platform is slow. They say they were told nothing while
+     it was slow. The positive pole sits in the same ledger, a butterfly withdrawn
+     in five minutes, so the category can do the fast version. What it cannot do
+     is say where the item is.
+     SO A ROW SAYS WHO IT IS WAITING ON AND HOW LONG IT HAS BEEN, AND IT NEVER
+     ESTIMATES WHEN IT WILL FINISH. That is the same rule the withdrawal clock
+     runs on one screen over: elapsed, the published ceiling, and the party being
+     waited on. Three figures we can stand behind, and no fourth one we cannot.
+     An invented ETA is a promise made by a system that does not control the
+     thing it is promising about, and a history that printed one would contradict
+     the screen it is a history of.
+     NO ROW PRINTS A CEILING FIGURE, BECAUSE THIS REPOSITORY DOES NOT HOLD ONE.
+     A first draft of these rows said "our published ceiling is 48 h" and the
+     withdrawal clock renders every one of its ceilings as not published, which
+     is a live [?]. That is the same defect the account band and the profile
+     record had an hour earlier: two renderings of one fact, disagreeing. Nobody
+     invents a number here. The rows say elapsed and who is being waited on, and
+     where the ceiling belongs they say it is not set. This
+     page does not invent them and does not quietly imply they exist.
+     THREE ROWS AND THEY ARE THE THREE ENDINGS. One in flight and still inside
+     the ceiling, one accepted with the time it actually took, and one the person
+     cancelled themselves. The third is here so that cancelled does not read as
+     failed: it says who is being waited on and the answer is nobody.
+     WORTH IS DATED TO THE MOMENT IT WAS SENT, like every other figure in this
+     node. An item that moved in price afterwards would otherwise rewrite what
+     every past withdrawal was worth, and a ledger that edits its own past
+     numbers is not a ledger.
+     NO ROW IS EVER REMOVED AND NO COLUMN IS SUMMED. A cancelled withdrawal keeps
+     its place, and there is no total taken out, because a lifetime payout figure
+     is a score and this node prints none. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <!-- THE ACCOUNT BAND AND ITS TAB STRIP, D-84. Rendered by _nav.js like the
+         other carriers, because a strip that exists on one of four peers is a
+         dead end on the other three, and thirteen copies of one band is
+         thirteen places for it to drift. -->
+    <div class="wf-ah" data-acct-hero></div>
+
+    <h1>History</h1>
+    <!-- THE FOUR TABS, D-88 AND THEN D-89. The founder chose all four of the
+         baseline's after the argument for three was put and lost, and two days
+         later the four stopped being panels of one page and became four peer
+         pages. So this strip is now the same object as the account strip above
+         it: four links to four files, with the current one rendered as a span
+         rather than a link to where you already are, D-58. Built once in
+         _nav.js, because a strip that exists on one of four peers is a dead end
+         on the other three. -->
+    <div data-hist-tabs></div>
+
+    <div data-hist-list="withdrawals"></div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+window.WF_ACCT = { active: 'history' };
+window.WF_HISTTAB = 'withdrawals';
+window.WF_HIST = {
+  withdrawals: [
+    { when: '2026-08-21 15:02:11', what: 'AWP Asiimov, Field-Tested', worth: '61.40 coins', state: 'With Steam', why: 'Sent 23 h 14 m ago. What we publish as a ceiling for this is not set yet.', wait: 'Steam', ours: 'wd-8813fa' },
+    { when: '2026-08-18 10:20:03', what: 'MP9 Rose Iron, Minimal Wear', worth: '1.86 coins', state: 'Accepted', why: 'Finished 14 m after it was sent.', wait: 'Nobody, it is done', ours: 'wd-87f2b1' },
+    { when: '2026-08-12 19:44:50', what: 'Glock-18 Water Elemental, Factory New', worth: '3.02 coins', state: 'Cancelled by you', wait: 'Nobody', ours: 'wd-87a90c' }
+  ]
+};
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

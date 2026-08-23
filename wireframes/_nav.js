@@ -260,7 +260,16 @@ window.WF_NAV = {
       states: [
         { node: '5.9', label: 'No rolls yet',                 file: 'history-empty.html',    status: 'built' },
         { node: '5.9', label: 'Nothing to check, D-C is no',  file: 'history-no-seed.html',  status: 'built' },
-        { node: '5.9', label: 'A proof that does not match',  file: 'history-mismatch.html', status: 'built' }
+        { node: '5.9', label: 'A proof that does not match',  file: 'history-mismatch.html', status: 'built' },
+        // THE OTHER THREE TABS ARE PAGES NOW, D-89, each with its own states. A
+        // state that lives inside a panel nobody can link to is a state this
+        // registry cannot list and the prototype panel cannot show.
+        { node: '5.9', label: 'Deposits',                     file: 'history-deposits.html',            status: 'built' },
+        { node: '5.9', label: 'Deposits, none yet',           file: 'history-deposits-empty.html',      status: 'built' },
+        { node: '5.9', label: 'Withdrawals',                  file: 'history-withdrawals.html',         status: 'built' },
+        { node: '5.9', label: 'Withdrawals, none yet',        file: 'history-withdrawals-empty.html',   status: 'built' },
+        { node: '5.9', label: 'Withdrawals, past our ceiling',file: 'history-withdrawals-overdue.html', status: 'built' },
+        { node: '5.9', label: 'Cash out, no subject',         file: 'history-cashout.html',             status: 'built' }
       ] },
 
     { node: '5.10', cluster: '5', name: 'Profile',              file: 'profile.html',    ia: 'profile.html',   status: 'built',
@@ -2834,6 +2843,14 @@ window.WF_NAV = {
      may not happen is the two disagreeing, so both read the same source.
      THE PLUS IS A LABELLED LINK, NOT A GLYPH. D-52 and D-58: a control that does not
      do its thing is a picture of it, and a bare + is a picture of a word. */
+  /* ONE ACCOUNT, ONE NAME, ONE ID, AND THE PAGE READS THEM RATHER THAN REPEATING
+     THEM, D-89. The band said Spectacle and ID 953709 while 5.10's record card
+     said nightjar_cs and acc-7f3a91c4, on the same page, ten pixels apart. Same
+     defect class as the header reading 18.60 while the page read 130.60: two
+     renderings of one fact with no shared source. Anything that prints identity
+     reads this, and a page may override it once through WF_WHO. */
+  var WHO = window.WF_WHO || (window.WF_WHO = { name: 'nightjar_cs', id: 'acc-7f3a91c4', since: '12 Jan 2026' });
+
   var ACCT_TABS = [
     { key: 'items',    label: 'My items',     file: 'account.html' },
     { key: 'history',  label: 'History',      file: 'history.html' },
@@ -2879,10 +2896,10 @@ window.WF_NAV = {
     av.setAttribute('aria-hidden', 'true');
     who.appendChild(av);
     var names = el('div', 'wf-ah-names');
-    names.appendChild(el('p', 'wf-ah-n', (cfg.name || 'Spectacle')));
+    names.appendChild(el('p', 'wf-ah-n', (cfg.name || WHO.name)));
     /* THE ID IS THE ONE THING A PERSON READS OUT TO SUPPORT, so it is text and
        monospace like every other identifier in this product, never an image. */
-    names.appendChild(el('p', 'wf-ah-id', 'ID ' + (cfg.id || '953709')));
+    names.appendChild(el('p', 'wf-ah-id', 'ID ' + (cfg.id || WHO.id)));
     who.appendChild(names);
     row.appendChild(who);
 
@@ -3136,10 +3153,10 @@ window.WF_NAV = {
      carrier in this stage runs under.
      --------------------------------------------------------------------- */
   var HIST_TABS = [
-    { key: 'rolls',       label: 'Rolls' },
-    { key: 'deposits',    label: 'Deposits' },
-    { key: 'withdrawals', label: 'Withdrawals' },
-    { key: 'cashout',     label: 'Cash out' }
+    { key: 'rolls',       label: 'Rolls',       file: 'history.html' },
+    { key: 'deposits',    label: 'Deposits',    file: 'history-deposits.html' },
+    { key: 'withdrawals', label: 'Withdrawals', file: 'history-withdrawals.html' },
+    { key: 'cashout',     label: 'Cash out',    file: 'history-cashout.html' }
   ];
 
   var HIST_COLS = {
@@ -3252,37 +3269,95 @@ window.WF_NAV = {
     return wrap;
   }
 
+  /* FOUR PAGES, NOT FOUR PANELS, D-89. They shipped as in-page tabs and the
+     founder's screenshot killed that in one frame: Deposits selected, the rolls
+     list under it. The cause was that [hidden] is a UA rule and the author rule
+     .wf-hist { display: flex } beat it, so the panel marked hidden went on
+     rendering. The fix for the bug is one line of CSS; the fix for the design is
+     this, and the founder asked for it in the same message.
+     EACH TAB IS A PAGE WITH ITS OWN STATES, which is what makes them auditable:
+     a state that lives inside a panel nobody can link to is a state the registry
+     cannot list and the prototype panel cannot show. This strip is now the same
+     object as the account strip above it, four peer pages and the current one
+     rendered as a span rather than a link to where you already are, D-58. */
   function mountHist() {
     var tabsHost = document.querySelector('[data-hist-tabs]');
-    var rolls    = document.querySelector('[data-hist-panel="rolls"]');
-    var rest     = document.querySelector('[data-hist-rest]');
-    if (!tabsHost || !rolls || !rest) return;
-    var data = window.WF_HIST || {};
-    var open = 0;
-
-    var strip = el('div', 'wf-htabs');
-    strip.setAttribute('role', 'tablist');
-    tabsHost.appendChild(strip);
-
-    function draw() {
-      strip.innerHTML = '';
-      HIST_TABS.forEach(function (t, i) {
-        var b = el('button', 'wf-tabb', t.label);
-        b.type = 'button';
-        b.setAttribute('role', 'tab');
-        b.setAttribute('aria-selected', i === open ? 'true' : 'false');
-        b.addEventListener('click', function () { open = i; draw(); });
-        strip.appendChild(b);
+    if (tabsHost) {
+      var here = window.WF_HISTTAB || 'rolls';
+      var strip = el('nav', 'wf-htabs');
+      strip.setAttribute('aria-label', 'History');
+      HIST_TABS.forEach(function (t) {
+        if (t.key === here) {
+          var c = el('span', 'wf-tabb is-on', t.label);
+          c.setAttribute('aria-current', 'page');
+          strip.appendChild(c);
+        } else {
+          var a = el('a', 'wf-tabb', t.label);
+          a.href = BASE + t.file;
+          strip.appendChild(a);
+        }
       });
-
-      var key = HIST_TABS[open].key;
-      rolls.hidden = key !== 'rolls';
-      rest.innerHTML = '';
-      rest.hidden = key === 'rolls';
-      if (key !== 'rolls') rest.appendChild(histPanel(key, data));
+      tabsHost.appendChild(strip);
     }
 
-    draw();
+    var host = document.querySelector('[data-hist-list]');
+    if (host) host.appendChild(histPanel(host.getAttribute('data-hist-list'), window.WF_HIST || {}));
+  }
+
+  /* THE SORT KEYS ARE REAL AND THEY REORDER THE GRID, D-89. A control that
+     changes nothing is a picture of one, D-58, and a sort is the cheapest control
+     in the product to make real: every card carries the two values it sorts on.
+     PRESSING THE ACTIVE KEY FLIPS IT, PRESSING THE OTHER MOVES THE SORT.
+     Announced in words under the bar, because the reordering itself is invisible
+     to anyone who is not looking at the grid. */
+  function mountInvSort() {
+    var set = document.querySelector('[data-sortset]');
+    if (!set) return;
+    var grid = document.querySelector('.wf-grid--inv');
+    var say  = document.querySelector('[data-sort-say]');
+    if (!grid) return;
+    var keys = [].slice.call(set.querySelectorAll('[data-sort]'));
+
+    function apply() {
+      var on = keys.filter(function (b) { return b.getAttribute('aria-pressed') === 'true'; })[0] || keys[0];
+      var k = on.getAttribute('data-sort');
+      var desc = on.getAttribute('data-dir') === 'desc';
+      var cards = [].slice.call(grid.children);
+      cards.sort(function (a, b) {
+        var av, bv;
+        if (k === 'value') {
+          av = parseFloat(a.getAttribute('data-v') || '0');
+          bv = parseFloat(b.getAttribute('data-v') || '0');
+        } else {
+          av = a.getAttribute('data-when') || '';
+          bv = b.getAttribute('data-when') || '';
+        }
+        if (av < bv) return desc ? 1 : -1;
+        if (av > bv) return desc ? -1 : 1;
+        return 0;
+      });
+      cards.forEach(function (c) { grid.appendChild(c); });
+      keys.forEach(function (b) {
+        var isOn = b === on;
+        var d = b.getAttribute('data-dir') === 'desc';
+        b.textContent = b.getAttribute(d ? 'data-hi' : 'data-lo');
+        b.setAttribute('aria-pressed', isOn ? 'true' : 'false');
+      });
+      if (say) say.textContent = on.textContent + ', ' + cards.length + ' items in this order.';
+    }
+
+    keys.forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (b.getAttribute('aria-pressed') === 'true') {
+          b.setAttribute('data-dir', b.getAttribute('data-dir') === 'desc' ? 'asc' : 'desc');
+        } else {
+          keys.forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+          b.setAttribute('aria-pressed', 'true');
+        }
+        apply();
+      });
+    });
+    apply();
   }
 
   function mountSystem() {
@@ -3652,6 +3727,7 @@ window.WF_NAV = {
     mountSupportSubject();
     mountMsgs();
     mountHist();
+    mountInvSort();
     mountCookie();
     mountSettings();
     renderFooter(document.getElementById('wf-footer'));

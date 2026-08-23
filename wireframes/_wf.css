@@ -2991,80 +2991,94 @@ select {
    the receipt is read at the moment a person decides what to do with the item
    rather than on every tile of a grid nobody is reading yet.
    ============================================================================ */
+/* THE CARD IS ONE OBJECT AND THE ACTIONS ARE PART OF IT, D-89. The first build
+   floated a panel over the artwork box: it sat on top of the receipt line, it
+   pushed the item's own name below itself, and the founder's screenshot shows
+   exactly what that reads as. The baseline does something simpler and better.
+   THE COMPOSITION IS THE BASELINE'S, acct_inventory_item_actions.png: the tick
+   and the share on the top row, then the weapon, the skin, the wear and the
+   price, then the three acts, then the two market figures at the foot. The
+   artwork sits BEHIND all of it rather than above it in the flow.
+   THE ACTS RESERVE THEIR SPACE AND NEVER MOVE ANYTHING. visibility, not display:
+   a card that grows on hover shoves the row below it and a grid of them ripples.
+   At rest that reserved band is where the artwork shows through, which is what
+   makes the baseline's two states the same size. */
 .wf-inv-card {
   position: relative; isolation: isolate;
-  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  display: flex; flex-direction: column; gap: 2px;
   padding: var(--wf-s-2);
   border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
   background: var(--wf-surface); text-align: center;
 }
-.wf-inv-card:focus-within { border-color: var(--wf-line); }
-/* THE TICK AND THE SHARE STAY ABOVE THE PANEL, and this is not styling. With the
-   panel over them, hovering a card made its own checkbox unclickable: a person
-   could open the actions and could not select or deselect the item under them.
-   Caught by walking it in a browser, not by reading it. */
-.wf-inv-pick { position: absolute; top: var(--wf-s-2); left: var(--wf-s-2); z-index: 4; }
-.wf-inv-pick input { width: 20px; height: 20px; margin: 0; }
-/* SHARE APPEARS WITH THE ACTIONS AND NOT BEFORE. It is one of the actions on a
-   held item, 7.1's own object, and on the face of every card it was a second
-   control competing with the tick for the same corner. */
-.wf-inv-share { position: absolute; top: var(--wf-s-2); right: var(--wf-s-2); z-index: 4; display: none; }
-.wf-inv-card:hover .wf-inv-share,
-.wf-inv-card:focus-within .wf-inv-share,
-.wf-inv-card:has(.wf-inv-pick input:checked) .wf-inv-share { display: inline-flex; }
+.wf-inv-card:hover, .wf-inv-card:focus-within { border-color: var(--wf-line); }
+.wf-inv-card:has(.wf-inv-pick input:checked) { border-color: var(--wf-ink-dim); }
+/* THE ARTWORK IS THE BACKGROUND OF THE WHOLE CARD, not a box in the column. In
+   grey it is still a slot with its size and nothing in it: what changed is which
+   layer it is on. Everything else in the card is raised one step above it. */
 .wf-inv-art {
-  /* THE SLOT IS SIZED BY WHAT SITS IN IT ON HOVER, not by the picture. The three
-     actions at the 44px target, their gaps and the receipt line need 184, and a
-     shorter slot pushed the panel down over the item's own name: the buttons
-     arrived and the thing they act on left the screen. */
-  display: block; width: 100%; height: 184px; margin: var(--wf-s-3) 0 var(--wf-s-1);
+  position: absolute; inset: var(--wf-s-2); z-index: 0;
   border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
 }
-.wf-inv-w { margin: 0; font-weight: 700; }
+.wf-inv-card > *:not(.wf-inv-art) { position: relative; z-index: 1; }
+/* THE TOP ROW HOLDS BOTH CORNER CONTROLS AND IT IS A ROW, not two absolutes.
+   Absolutely positioned, the panel covered the card's own checkbox and a person
+   could open the actions and not be able to deselect the item under them. In
+   the flow that cannot happen again by construction. */
+.wf-inv-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--wf-s-1); min-height: 24px; }
+.wf-inv-pick input { width: 20px; height: 20px; margin: 0; display: block; }
+/* SHARE APPEARS WITH THE ACTIONS AND KEEPS ITS SPACE, so the top row does not
+   change height when it arrives. It is one of the actions on a held item, 7.1's
+   own object, and on the face of every card it competed with the tick. */
+.wf-inv-share { visibility: hidden; }
+.wf-inv-w { margin: var(--wf-s-1) 0 0; font-weight: 700; }
 .wf-inv-s { margin: 0; color: var(--wf-ink-dim); }
 .wf-inv-wear { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
-.wf-inv-p { margin: var(--wf-s-1) 0 0; font-family: var(--wf-mono); font-size: var(--wf-t-l); }
+.wf-inv-p { margin: var(--wf-s-1) 0; font-family: var(--wf-mono); font-size: var(--wf-t-l); }
+/* THE WHOLE CARD IS THE TARGET, not the artwork inside it. A person moving a
+   pointer at a grid aims at the card, and making the picture the only live area
+   means the acts flicker on and off as the pointer crosses the name.
+   AND HOVER IS NOT THE MECHANISM, SELECTION IS: hover does not exist on a touch
+   screen, so the acts also open on :has(:checked) and on focus-within, which is
+   what the baseline's own "click on the item to select" describes. */
+.wf-inv-acts {
+  display: flex; flex-direction: column; gap: var(--wf-s-half);
+  margin: var(--wf-s-1) 0; visibility: hidden;
+}
+.wf-inv-card:hover .wf-inv-acts,
+.wf-inv-card:focus-within .wf-inv-acts,
+.wf-inv-card:has(.wf-inv-pick input:checked) .wf-inv-acts,
+.wf-inv-card:hover .wf-inv-share,
+.wf-inv-card:focus-within .wf-inv-share,
+.wf-inv-card:has(.wf-inv-pick input:checked) .wf-inv-share { visibility: visible; }
+.wf-inv-acts .wf-btn { width: 100%; }
+/* A DISABLED CONTROL IS ONLY LEGAL WITH ITS REASON BESIDE IT. D-58 took every
+   dead control off this product and a control that cannot move is the case it
+   names first. Exchange stays by founder decision of 23 August 2026, so the
+   reason is printed, and the day exchange ships the note comes off with the
+   attribute. */
+.wf-inv-acts .wf-btn[disabled] { opacity: 0.45; cursor: not-allowed; }
+.wf-inv-why { margin: 0; font-size: 10px; color: var(--wf-ink-faint); text-align: center; }
+/* THE RECEIPT IS ON THE FACE OF THE CARD AGAIN AND IT IS ONE LINE. It went into
+   the hover panel to keep the face to five things; with the acts in the flow the
+   panel is gone and the line has nowhere else to be. It is what B7-1 asks for:
+   what this was worth at the moment it was won, dated, beside what it is worth
+   now, and no third number made out of the two. */
+.wf-inv-rec { margin: 0; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-inv-rec b { font-family: var(--wf-mono); font-weight: 400; color: var(--wf-ink); }
 /* THE MARKET FOOT IS THE BASELINE'S TWO FIELDS AND ITS AS-OF IS SAID ONCE FOR THE
-   WHOLE GRID RATHER THAN ON EVERY CARD. Gap A1 asks for a reference price with a
+   WHOLE GRID rather than on every card. Gap A1 asks for a reference price with a
    moment attached; it does not ask for the same timestamp printed six times.
    THE PAIR GOES BOTH WAYS ON REAL DATA. Four of the nine rows walked on 18 August
-   had a site price above the market start and two had no market at all, so nothing
-   here may assume which figure is larger. */
+   had a site price above the market start and two had no market at all, so
+   nothing here may assume which figure is larger. */
 .wf-inv-mkt {
   display: flex; justify-content: space-between; gap: var(--wf-s-2); width: 100%;
-  margin-top: var(--wf-s-2); padding-top: var(--wf-s-1);
+  margin-top: var(--wf-s-1); padding-top: var(--wf-s-1);
   border-top: 1px solid var(--wf-line-soft);
   font-size: var(--wf-t-xs); color: var(--wf-ink-dim); text-align: left;
 }
 .wf-inv-mkt b { display: block; font-family: var(--wf-mono); font-weight: 400; color: var(--wf-ink); }
 .wf-inv-mkt span:last-child { text-align: right; }
-
-/* THE WHOLE CARD IS THE HOVER TARGET, not the artwork inside it. A person moving a
-   pointer at a grid aims at the card; making the picture the only live area means
-   the actions flicker on and off as the pointer crosses the name.
-   AND HOVER IS NOT THE MECHANISM, SELECTION IS. Hover does not exist on a touch
-   screen, so the panel also opens on :has(:checked) and on focus-within, which is
-   what the baseline's own "click on the item to select" describes. */
-.wf-inv-acts {
-  position: absolute; left: var(--wf-s-2); right: var(--wf-s-2);
-  top: calc(var(--wf-s-2) + var(--wf-s-3)); z-index: 3;
-  display: none; flex-direction: column; justify-content: center; gap: var(--wf-s-half);
-  height: 184px; padding: var(--wf-s-half);
-  background: var(--wf-bg); border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
-}
-.wf-inv-card:hover .wf-inv-acts,
-.wf-inv-card:focus-within .wf-inv-acts,
-.wf-inv-card:has(.wf-inv-pick input:checked) .wf-inv-acts { display: flex; }
-.wf-inv-acts .wf-btn { width: 100%; }
-.wf-inv-rec { margin: 0; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); text-align: center; }
-.wf-inv-rec b { font-family: var(--wf-mono); font-weight: 400; color: var(--wf-ink); }
-/* A DISABLED CONTROL IS ONLY LEGAL WITH ITS REASON BESIDE IT. D-58 took every dead
-   control off this product and a switch that cannot move is the case it names
-   first. Exchange stays on the surface by founder decision of 23 August 2026, so
-   the reason is printed rather than guessed, and the day exchange ships the note
-   comes off with the attribute. */
-.wf-inv-acts .wf-btn[disabled] { opacity: 0.45; cursor: not-allowed; }
-.wf-inv-why { margin: 0; font-size: 10px; color: var(--wf-ink-faint); text-align: center; }
 
 /* THE BLOCK HEADER AND THE SORT ROW, both the baseline's. */
 .wf-inv-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--wf-s-1) var(--wf-s-3); }
@@ -3077,9 +3091,30 @@ select {
   padding-top: var(--wf-s-2); border-top: 1px solid var(--wf-line-soft);
 }
 .wf-inv-all { margin: 0; font-size: var(--wf-t-l); }
-.wf-inv-sort { display: flex; align-items: center; gap: var(--wf-s-1); margin-left: auto; white-space: nowrap; }
+/* THE SORT KEYS ARE ON THE SCREEN, NEVER INSIDE A MENU, D-89. The baseline puts
+   both of them in the bar with their direction beside each, and the founder asked
+   for the same. A select hides three of its four options behind a press, so a
+   person has to open it to learn that sorting by value exists at all.
+   THE ACTIVE KEY CARRIES THE DIRECTION AND PRESSING IT FLIPS. Pressing the other
+   key moves the sort to it. Two controls, four orders, nothing hidden.
+   THE DIRECTION IS A WORD AND NOT AN ARROW. This stage draws no icons, and a
+   caret alone is a state carried by a shape, which the colour-only rule forbids
+   for the same reason one step further. */
+.wf-inv-sort { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-1); margin-left: auto; }
 @media (max-width: 599px) { .wf-inv-sort { margin-left: 0; width: 100%; } }
-.wf-inv-sel { width: auto; min-width: 180px; padding: var(--wf-s-1) var(--wf-s-2); }
+.wf-sortset { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
+.wf-sortk {
+  display: inline-flex; align-items: center; gap: var(--wf-s-half);
+  min-height: var(--wf-tap); padding: 0 var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: none; color: var(--wf-ink-dim);
+  font: inherit; font-size: var(--wf-t-s); white-space: nowrap; cursor: pointer;
+}
+.wf-sortk[aria-pressed="true"] {
+  color: var(--wf-ink); background: var(--wf-raised);
+  border-color: var(--wf-ink-dim); font-weight: 700;
+}
+.wf-sort-say { margin: 0; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
 .wf-inv-limits { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
 
 /* THE SELECTION BAR IS ALWAYS ON THE SCREEN, D-85. It counts what is ticked and
@@ -3737,6 +3772,12 @@ select.wf-f { background: var(--wf-surface); min-height: var(--wf-tap); padding-
    --------------------------------------------------------------------------- */
 
 .wf-hist { display: flex; flex-direction: column; gap: var(--wf-s-3); }
+/* THE HIDDEN ATTRIBUTE LOSES TO ANY DISPLAY RULE AND IT COST A LIVE DEFECT.
+   [hidden] is a UA rule, and an author `.wf-hist { display: flex }` beats it, so
+   a panel marked hidden went on rendering: the founder's screenshot showed
+   Deposits selected with the rolls list under it. Author-side, at the same
+   specificity as the class that broke it, and stated once for the whole file. */
+[hidden] { display: none; }
 
 /* The filter row. A stack at 360 and a row from 600, the treatment 3.1 settled.
    NO FILTER BY OUTCOME VALUE and no sort by it: sorting by value is the one
@@ -3809,7 +3850,14 @@ select.wf-f { background: var(--wf-surface); min-height: var(--wf-tap); padding-
 
 /* Responsive last, after everything above that it overrides. */
 @media (min-width: 900px) {
-  .wf-roll { grid-template-columns: 130px minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+  /* ROW 1 IS MIN-CONTENT AND THAT IS THE WHOLE FIX. Three cells span both rows,
+     so row 1 took the height of the tallest of them and the case name, which
+     lives in row 2 of the first column, fell 90px below the timestamp it
+     belongs to. Two facts about one roll, an inch apart, reading as unrelated. */
+  .wf-roll {
+    grid-template-columns: 130px minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: min-content auto; align-items: start; align-content: start;
+  }
   .wf-roll-when { grid-column: 1; grid-row: 1; }
   .wf-roll-case { grid-column: 1; grid-row: 2; }
   .wf-roll-item { grid-column: 2; grid-row: 1 / span 2; }
@@ -4325,3 +4373,110 @@ textarea.wf-cfg-in { min-height: 0; }
   border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2); }
 .wf-hgap-l { margin: 0; padding-left: var(--wf-s-3); display: flex; flex-direction: column; gap: var(--wf-s-1); }
 .wf-hgap-l li { font-size: var(--wf-t-s); max-width: var(--wf-measure); }
+
+/* ============================================================================
+   NODE 5.11, SETTINGS, REBUILT ON THE BASELINE'S BLOCKS, D-89. The founder asked
+   for the live product's shape: a block per section, an icon beside the section
+   name, and every option that section holds inside it.
+   THE REFUSALS MOVE OUT OF THE FOOTNOTE AND INTO THE SECTION THEY BELONG TO.
+   D-81 refused nineteen of the baseline's twenty rows and D-86 listed them in one
+   block at the end. That block is where a reader stops reading. A row whose
+   subject does not exist is now printed in its own section, in row position, with
+   its reason on it: you meet the absence where you went looking for the control.
+   THE ICON IS A SLOT. This stage draws no icons and the room one takes is a
+   layout fact, so the slot is drawn and 06 puts something in it. ============ */
+.wf-cfg-ico {
+  flex: 0 0 auto; width: 24px; height: 24px;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
+}
+.wf-cfg-gh { display: flex; align-items: center; gap: var(--wf-s-1); }
+/* A SUBGROUP INSIDE A BLOCK, which is what the baseline's NOTIFICATIONS does with
+   Game notifications and Confirmation messages. */
+.wf-cfg-sub {
+  margin: 0; font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--wf-ink-faint);
+}
+/* THE ROW. An icon slot, the label over the value, and the control on the right.
+   The baseline runs this exact three-part row for username, country and the trade
+   URL, and it is the shape that makes twenty rows read as a page rather than a
+   form. */
+.wf-cfg-row2 {
+  display: flex; align-items: center; gap: var(--wf-s-2);
+  min-height: var(--wf-tap); padding: var(--wf-s-1) 0;
+  border-top: 1px solid var(--wf-line-soft);
+}
+.wf-cfg-row2:first-of-type { border-top: 0; }
+.wf-cfg-rt { display: flex; flex-direction: column; gap: 2px; min-width: 0; flex: 1 1 auto; }
+.wf-cfg-rk { font-size: var(--wf-t-xs); letter-spacing: 0.06em; text-transform: uppercase; color: var(--wf-ink-dim); }
+.wf-cfg-rv { font-size: var(--wf-t-s); overflow-wrap: anywhere; }
+.wf-cfg-rc { flex: 0 0 auto; display: flex; align-items: center; gap: var(--wf-s-1); }
+/* A ROW WHOSE SUBJECT DOES NOT EXIST CARRIES NO CONTROL AT ALL, and the reason
+   sits under it in words. A greyed switch is a picture of a switch, D-58, and
+   the cookie node's strictly necessary row settled this once for the project. */
+.wf-cfg-row2.is-absent .wf-cfg-rv { color: var(--wf-ink-faint); }
+.wf-cfg-why { margin: 2px 0 0; font-size: var(--wf-t-xs); color: var(--wf-ink-faint); }
+/* THE PROVIDER LIST. Which one this account came in through is a FACT and it is
+   the thing the founder asked to see; the other three are rows with no subject,
+   because linking a second provider to one account has no row in cjm-to-be.md and
+   no node on the map. Each says which it is. */
+.wf-cfg-prov { display: flex; align-items: center; gap: var(--wf-s-2); min-height: var(--wf-tap); padding: var(--wf-s-1) 0; border-top: 1px solid var(--wf-line-soft); }
+.wf-cfg-prov:first-of-type { border-top: 0; }
+.wf-cfg-prov-n { flex: 1 1 auto; font-size: var(--wf-t-s); }
+.wf-cfg-prov-s { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); text-align: right; }
+.wf-cfg-prov.is-on .wf-cfg-prov-s { color: var(--wf-ink); }
+/* AND A ROW THAT IS NOT CONNECTED CAN STILL BE THE MOST CONSEQUENTIAL LINE IN
+   THE BLOCK. On the state where no Steam account is linked, "not connected" is
+   the reason the exit does not work, and it was rendering in the dim ink the
+   other three unlinked providers use. Dim is for a row nothing hangs on. */
+.wf-cfg-prov.is-gap .wf-cfg-prov-s { color: var(--wf-ink); }
+
+/* ============================================================================
+   NODE 5.10's RECORD, REBUILT, D-89. The first build repeated the avatar and the
+   display name that the account band ten pixels above already carries, and the
+   two disagreed: the band read Spectacle and ID 953709 while the card read
+   nightjar_cs and acc-7f3a91c4. ONE ACCOUNT, TWO NAMES AND TWO IDS ON ONE PAGE,
+   which is the same defect class as the header reading 18.60 while the page read
+   130.60, and it is what made the column look wrong before anyone could say why.
+   THE BAND OWNS IDENTITY AND THE CARD OWNS THE RECORD. What the band does not
+   carry is where the account came from, when it started and what a stranger can
+   see, so that is what is here, as rows rather than as paragraphs: this page is a
+   record and it should read like one. ======================================== */
+.wf-rec { margin: 0; display: flex; flex-direction: column; }
+.wf-rec-r {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: var(--wf-s-2) 0; border-top: 1px solid var(--wf-line-soft);
+}
+.wf-rec-r:first-child { border-top: 0; padding-top: 0; }
+.wf-rec-r:last-child { padding-bottom: 0; }
+.wf-rec-k { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+.wf-rec-v { margin: 0; font-size: var(--wf-t-s); }
+.wf-rec-v + .wf-rec-v { margin-top: var(--wf-s-half); }
+.wf-rec-v.wf-fig-c, .wf-rec-v.wf-fig-missing { font-size: var(--wf-t-xs); }
+.wf-rec-act { margin-top: var(--wf-s-1); display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
+
+/* ============================================================================
+   FOUR SHELL CONTROLS WERE STILL UNDER 44px, D-89. The small-button fix of
+   22 August grew the hit area of .wf-btn--small on sixteen pages and left the
+   controls that are not .wf-btn--small: the mobile deposit entry at 36, the
+   ticker pause at 26, the rail toggle at 32, and the link-shaped button at 15.6.
+   THEY WERE MISSED BECAUSE THE SWEEP MEASURES THE BUTTON CLASS, not every
+   control. Three nodes claim AAA and AAA is 44, so the claim was false on every
+   page in the product rather than on sixteen of them: a control in the shell is
+   on all 113.
+   SAME FIX AS BEFORE, THE HIT AREA AND NOT THE BOX. A 44px visual control in a
+   dense header is what the small size exists to avoid, so the target grows and
+   the drawing does not move a pixel. ======================================== */
+/* AND THE PATCH IS ONLY SAFE WHERE NOTHING ELSE IS INSIDE THE GROWN BOX, which
+   is the half of this technique the first application did not state. Applied to
+   all four, it made the ticker's pause button eat into the tile beside it and
+   the link-shaped button overlap the link next to it: two overlapping targets,
+   which is a worse defect than a small one, because a press near the edge now
+   fires the wrong control. Measured, then reverted on those two. They stay under
+   44 with the reason recorded, and the fix for them is a layout change rather
+   than a hit area. The other two have nothing within reach and keep the patch. */
+.wf-dep, .wf-rail-toggle { position: relative; }
+.wf-dep::before, .wf-rail-toggle::before {
+  content: ''; position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: max(100%, var(--wf-tap)); height: var(--wf-tap);
+}
