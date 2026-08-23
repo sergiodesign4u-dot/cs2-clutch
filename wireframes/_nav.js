@@ -255,7 +255,7 @@ window.WF_NAV = {
     // screens, and wrote none of them: two days with a registered file, a 404
     // behind it and no node anywhere. 5.11 stays undrawn because its contents
     // are the founder's to decide and D-36 says so.
-    { node: '5.9',  cluster: '5', name: 'Roll history',         file: 'history.html',    ia: 'history.html',   status: 'built',
+    { node: '5.9',  cluster: '5', name: 'History',              file: 'history.html',    ia: 'history.html',   status: 'built',
       base: 'Every roll, each with its hash',
       states: [
         { node: '5.9', label: 'No rolls yet',                 file: 'history-empty.html',    status: 'built' },
@@ -739,7 +739,7 @@ window.WF_NAV = {
     menu.appendChild(el('div', 'wf-acct-who', 'Spectacle'));
     var nav = el('nav', null);
     nav.setAttribute('aria-label', 'Account');
-    [['My items', 'account.html'], ['Roll history', 'history.html'],
+    [['My items', 'account.html'], ['History', 'history.html'],
      ['Withdrawals', 'withdraw.html'], ['Profile', 'profile.html'],
      ['Settings', 'settings.html'], ['Responsible play', 'responsible.html']].forEach(function (r) {
       // A SLOT, NOT AN ICON, D-50, and it is the rule the rail has followed since it was
@@ -2836,7 +2836,7 @@ window.WF_NAV = {
      do its thing is a picture of it, and a bare + is a picture of a word. */
   var ACCT_TABS = [
     { key: 'items',    label: 'My items',     file: 'account.html' },
-    { key: 'history',  label: 'Roll history', file: 'history.html' },
+    { key: 'history',  label: 'History',      file: 'history.html' },
     { key: 'profile',  label: 'Profile',      file: 'profile.html' },
     { key: 'settings', label: 'Settings',     file: 'settings.html' }
   ];
@@ -3042,7 +3042,7 @@ window.WF_NAV = {
 
     var tabs = el('div', 'wf-msg-tabs');
     tabs.setAttribute('role', 'tablist');
-    var bar  = el('div', 'wf-msg-bar');
+    var bar  = el('div', 'wf-lbar');
     var body = el('div', null);
     host.appendChild(tabs);
     host.appendChild(bar);
@@ -3057,14 +3057,14 @@ window.WF_NAV = {
 
       tabs.innerHTML = '';
       state.forEach(function (st, i) {
-        var b = el('button', 'wf-mtab', st.def.label);
+        var b = el('button', 'wf-tabb', st.def.label);
         b.type = 'button';
         b.setAttribute('role', 'tab');
         b.setAttribute('aria-selected', i === open ? 'true' : 'false');
         b.setAttribute('aria-controls', 'wf-msg-body');
         var n = unread(i);
         if (n) {
-          var c = el('span', 'wf-mtab-n', String(n));
+          var c = el('span', 'wf-tabb-n', String(n));
           c.setAttribute('aria-label', n + ' unread');
           b.appendChild(c);
         }
@@ -3073,8 +3073,8 @@ window.WF_NAV = {
       });
 
       bar.innerHTML = '';
-      bar.appendChild(el('h3', 'wf-msg-h', cur.def.head));
-      var acts = el('div', 'wf-msg-acts');
+      bar.appendChild(el('h3', 'wf-lbar-h', cur.def.head));
+      var acts = el('div', 'wf-lbar-acts');
       /* D-58, AND IT BITES BOTH WAYS. A control with nothing to act on is not
          drawn disabled here, it is not drawn: an empty list has no "mark all"
          to press and a greyed button is a picture of one. */
@@ -3113,6 +3113,173 @@ window.WF_NAV = {
         cur.items.forEach(function (m) { ul.appendChild(msgRow(m)); });
         body.appendChild(ul);
       }
+    }
+
+    draw();
+  }
+
+  /* ---------------------------------------------------------------------
+     NODE 5.9's FOUR HISTORIES, D-88. The founder chose all four of the
+     baseline's tabs after the argument for three was put and lost. Source:
+     acct_history_inventory.png and acct_history_deposit.png, 18 August 2026.
+     TAB ONE IS WHERE WE DIVERGE AND THE DIVERGENCE IS THE NODE. The baseline's
+     first tab is an INVENTORY history, a grid of item cards, which is a roll
+     with the roll removed. Ours lists rolls and the item is one field of each,
+     including the field that says the item was sold or withdrawn - so nothing
+     the baseline's first tab holds is lost by not having it.
+     THE FOURTH TAB HAS NO SUBJECT ON OUR MAP. Taking coins out as money is not
+     a capability anywhere in cjm-to-be.md, and the only capture of that tab is
+     empty, so we cannot even say from the source what a row of it would be. It
+     ships as a rendered absence naming both readings, not as "History is
+     empty...", which is the string 0.5 and 3.2 both refuse.
+     ONE RENDERER FOR FOUR PAGES, the same contract every other multi-page
+     carrier in this stage runs under.
+     --------------------------------------------------------------------- */
+  var HIST_TABS = [
+    { key: 'rolls',       label: 'Rolls' },
+    { key: 'deposits',    label: 'Deposits' },
+    { key: 'withdrawals', label: 'Withdrawals' },
+    { key: 'cashout',     label: 'Cash out' }
+  ];
+
+  var HIST_COLS = {
+    deposits: [
+      { k: 'when',   h: 'When',              mono: true, num: true },
+      { k: 'amount', h: 'Amount',            mono: true, num: true },
+      { k: 'method', h: 'Method' },
+      { k: 'state',  h: 'State',             state: true },
+      { k: 'ours',   h: 'Our reference',     mono: true },
+      { k: 'theirs', h: 'Payment reference', mono: true }
+    ],
+    withdrawals: [
+      { k: 'when',  h: 'When',           mono: true, num: true },
+      { k: 'what',  h: 'What' },
+      { k: 'worth', h: 'Worth then',     mono: true, num: true },
+      { k: 'state', h: 'State',          state: true },
+      { k: 'wait',  h: 'Waiting on',     },
+      { k: 'ours',  h: 'Our reference',  mono: true }
+    ]
+  };
+
+  function histBar(name, count, unit) {
+    var bar = el('div', 'wf-lbar');
+    bar.appendChild(el('h2', 'wf-lbar-h', name));
+    bar.appendChild(el('span', 'wf-fig-c', count + ' ' + unit));
+    return bar;
+  }
+
+  function histTable(kind, rows) {
+    var cols = HIST_COLS[kind];
+    var wrap = el('div', 'wf-tablewrap');
+    var t = el('table', 'wf-table');
+    var thead = el('thead'), tr = el('tr');
+    cols.forEach(function (c) {
+      var th = el('th', null, c.h);
+      th.setAttribute('scope', 'col');
+      tr.appendChild(th);
+    });
+    thead.appendChild(tr); t.appendChild(thead);
+    var tb = el('tbody');
+    rows.forEach(function (r) {
+      var row = el('tr');
+      cols.forEach(function (c) {
+        var td = el('td', c.mono ? ('wf-htx' + (c.num ? ' wf-hnum' : '')) : (c.state ? 'wf-hstate' : 'wf-tprose'));
+        td.appendChild(document.createTextNode(r[c.k] == null ? '' : r[c.k]));
+        /* THE REASON TRAVELS WITH THE STATE AND NEVER SITS IN A TOOLTIP. B8-3
+           is three accounts refused with no explanation, and a refusal whose
+           ground is only in a hover is a refusal with no ground on a phone. */
+        if (c.state && r.why) td.appendChild(el('span', 'wf-hnote', r.why));
+        row.appendChild(td);
+      });
+      tb.appendChild(row);
+    });
+    t.appendChild(tb); wrap.appendChild(t);
+    return wrap;
+  }
+
+  function histEmpty(h, p, href, label) {
+    var e = el('div', 'wf-empty');
+    e.appendChild(el('h3', 'wf-empty-h', h));
+    e.appendChild(el('p', 'wf-empty-p', p));
+    if (href) {
+      var row = el('div', 'wf-row');
+      var a = el('a', 'wf-btn', label);
+      a.setAttribute('href', BASE + href);
+      row.appendChild(a);
+      e.appendChild(row);
+    }
+    return e;
+  }
+
+  function histPanel(kind, data) {
+    var wrap = el('div', 'wf-hpanel');
+
+    if (kind === 'cashout') {
+      wrap.appendChild(histBar('Cash out', 0, 'rows'));
+      var g = el('div', 'wf-hgap');
+      g.appendChild(el('p', 'wf-empty-h', 'Nothing here, and not because you have not done it yet'));
+      g.appendChild(el('p', 'wf-empty-p', 'This tab exists because the live product has it. On this product there is no way to turn coins back into money, so there is nothing a row of it could describe. Two things it could mean, and neither of them is built:'));
+      var ul = el('ul', 'wf-hgap-l');
+      ul.appendChild(el('li', null, 'Taking your balance out as money, to a card or a wallet. Nothing on this product does that, and what one coin is worth in real money is not published either.'));
+      ul.appendChild(el('li', null, 'Selling an item back for coins. That one exists, and it is already recorded: the roll it came from says so, on the Rolls tab.'));
+      g.appendChild(ul);
+      g.appendChild(el('p', 'wf-note', 'Said here rather than left blank, because a tab that only says it is empty cannot be told apart from one that is broken.'));
+      wrap.appendChild(g);
+      return wrap;
+    }
+
+    var rows = (data && data[kind]) || [];
+    var unit = kind === 'deposits' ? 'payments' : 'withdrawals';
+    wrap.appendChild(histBar(kind === 'deposits' ? 'Deposits' : 'Withdrawals', rows.length, unit));
+
+    if (kind === 'deposits') {
+      wrap.appendChild(el('p', 'wf-note', 'Every payment this account has made, whether it arrived or not. Amounts are in coins. What one coin is worth in real money is not published yet, so a row cannot be reconciled against a bank statement.'));
+    } else {
+      /* B8-2 IS SIX PEOPLE WAITING WITH HARD FIGURES AND NOBODY TELLING THEM
+         ANYTHING. So a row carries who is being waited on, and never an ETA:
+         5.3's clock shows elapsed, the published ceiling and the party, and a
+         history that invents a fourth number contradicts its own screen. */
+      wrap.appendChild(el('p', 'wf-note', 'Every item this account has sent to Steam. A row says who it is waiting on and how long it has been. It never estimates when it will finish, because we do not know.'));
+    }
+
+    if (!rows.length) {
+      wrap.appendChild(kind === 'deposits'
+        ? histEmpty('No payments yet', 'When you add funds, every attempt lands here, the ones that went through and the ones that did not.', 'deposit.html', 'Add funds')
+        : histEmpty('Nothing sent to Steam yet', 'When you send an item to Steam, the row lands here and stays, with who it is waiting on and how long it has been.', 'account.html', 'My items'));
+    } else {
+      wrap.appendChild(histTable(kind, rows));
+    }
+    return wrap;
+  }
+
+  function mountHist() {
+    var tabsHost = document.querySelector('[data-hist-tabs]');
+    var rolls    = document.querySelector('[data-hist-panel="rolls"]');
+    var rest     = document.querySelector('[data-hist-rest]');
+    if (!tabsHost || !rolls || !rest) return;
+    var data = window.WF_HIST || {};
+    var open = 0;
+
+    var strip = el('div', 'wf-htabs');
+    strip.setAttribute('role', 'tablist');
+    tabsHost.appendChild(strip);
+
+    function draw() {
+      strip.innerHTML = '';
+      HIST_TABS.forEach(function (t, i) {
+        var b = el('button', 'wf-tabb', t.label);
+        b.type = 'button';
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-selected', i === open ? 'true' : 'false');
+        b.addEventListener('click', function () { open = i; draw(); });
+        strip.appendChild(b);
+      });
+
+      var key = HIST_TABS[open].key;
+      rolls.hidden = key !== 'rolls';
+      rest.innerHTML = '';
+      rest.hidden = key === 'rolls';
+      if (key !== 'rolls') rest.appendChild(histPanel(key, data));
     }
 
     draw();
@@ -3484,6 +3651,7 @@ window.WF_NAV = {
     mountSystem();
     mountSupportSubject();
     mountMsgs();
+    mountHist();
     mountCookie();
     mountSettings();
     renderFooter(document.getElementById('wf-footer'));

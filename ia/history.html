@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CS2 Clutch - 5.9 Roll history</title>
+  <title>CS2 Clutch - 5.9 History</title>
   <link rel="stylesheet" href="../_nav.css">
   <style>
     :root {
@@ -141,7 +141,7 @@
 
 <div class="hero" id="overview">
   <div class="section-eyebrow">Information architecture, detail layer - node 5.9</div>
-  <h1>Roll history</h1>
+  <h1>History</h1>
   <p class="lede">Every roll this account has made, each one reachable as a checkable round. <strong>Until this node existed, the only trace of a roll a person could reach was the item it produced</strong>, and an item is not a round: it survives a sale, it can be withdrawn away, and it carries no seed material. A product whose whole trust claim is that every round can be checked afterwards had no afterwards.</p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">7</div><div class="hero-stat-label">Fields in a row</div></div>
@@ -157,6 +157,57 @@
 </div>
 
 <!-- BASELINE ROW -->
+<section id="amended-23aug">
+  <div class="sec-head">
+    <h2>Amended 23 August 2026 by D-88. Four tabs, and the baseline row below was about a different screen</h2>
+    <p><strong>The founder chose all four of the baseline&#39;s account tabs after the argument for three was put and lost.</strong> Stage 04 proposed rolls, deposits and withdrawals, and refused cash out because it has no subject on our map. <strong>The refusal was right about the fact and wrong about what follows from it:</strong> a tab with no subject can be rendered honestly, and a tab silently dropped cannot be audited by anyone.</p>
+  </div>
+
+  <div class="card is-fix">
+    <p><strong>The correction this forces on the baseline row, and it is the largest finding here. The baseline has two history surfaces and that row is about the other one.</strong></p>
+    <p>The <strong>public profile</strong> has four tabs and all four are mode histories, Inventory, Case battles, Gunfights, Upgrades: baseline.md section 9.9, captured 21 August 2026. The <strong>account</strong> has five sub-tabs and they are transaction histories, Inventory, Deposit, Withdraw, Cash-out, CS:GO skins deposits: baseline-account.md section 4, captured 18 August 2026.</p>
+    <p><strong>This node is a private account page and its baseline row cites the public one.</strong> The right source had been in the repository for five days when the node was written. <strong>Nothing built on the wrong row is wrong</strong>, which is exactly why it survived: the argument that an inventory history is a roll with the roll removed holds against both surfaces, because both first tabs are one. What the wrong row could not show is the three ledgers the account surface has and the public page does not.</p>
+    <p><strong>The rule that allowed it, named rather than worked around.</strong> CLAUDE.md requires every node to carry a baseline row and does not say which surface the row is about. <strong>For a private node compared against a public page, a row reads as sourced and describes a different screen.</strong> Candidate line for the stage close.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:14%">Tab</th><th style="width:12%">Parent class</th><th style="width:36%">Parent</th><th>What a row is</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Rolls</strong></td><td>job</td><td>F3, Related Job 3. Unchanged</td><td><strong>A roll</strong>, seven fields, section &quot;What a row is&quot;</td></tr>
+        <tr><td><strong>Deposits</strong></td><td>barrier</td><td><strong>B4-3, money leaves and does not arrive.</strong> Pattern of 4 across 3 platforms, ledger U-04</td><td>A payment: when, amount in coins, method, state, our reference, the payment reference</td></tr>
+        <tr><td><strong>Withdrawals</strong></td><td>barrier</td><td><strong>B8-2, waiting with numbers.</strong> Six people with hard figures, and what each describes is silence rather than slowness</td><td>An item sent to Steam: when, what, worth then, state, <strong>who it is waiting on</strong>, our reference</td></tr>
+        <tr><td><strong>Cash out</strong></td><td><strong>none</strong></td><td><strong>No parent in any of the three classes</strong></td><td>Nothing. A rendered absence</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>So the three-tab proposal was refusing two capabilities with real barriers behind them.</strong> Neither is new: 4.1 and 5.3 are round 1 nodes with drawn states. <strong>What was missing was the place a person reads their own record of them afterwards</strong>, which is the same shape as D-87&#39;s system messages one node over.</p>
+    <p><strong>And nothing the baseline&#39;s first tab holds is lost by not inheriting it.</strong> Its cards carry SOLD and PENDING ribbons, and this node&#39;s seventh field already carries exactly that: the state of the roll&#39;s item, held, sold back or withdrawn.</p>
+  </div>
+
+  <div class="card is-dead">
+    <p><strong>The fourth tab is a rendered absence, not a dead item.</strong> Turning coins back into money is not a capability anywhere in cjm-to-be.md, and the only capture of that tab is empty, so the source cannot say what a row would hold. The panel prints both readings: <strong>taking a balance out as money</strong>, which nothing does and which has no unit either while the peg is unpublished; and <strong>selling an item back for coins</strong>, D-38, which exists and is already recorded on the Rolls tab by the roll it came from.</p>
+    <p>The baseline prints <code>History is empty...</code> on three of its five tabs and nothing else, <strong>which is the pattern 0.5 and 3.2 both refuse. The difference between a rendered absence and a dead item is that a dead item promises something.</strong></p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:26%">Where</th><th>What happens to it</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Title and URL</strong></td><td><strong>Roll history becomes History, /roll-history becomes /history.</strong> A destination whose label names one of the four things behind it under-describes, which is the same defect as over-promising with the sign reversed. 0.1 row 2 and the account strip follow, and <strong>0.13 owes the URL row with the three it already owes</strong></td></tr>
+        <tr><td><strong>Blocks</strong></td><td><strong>Block 1 becomes the tab strip plus one count per tab</strong>, and the count is still a count and never a total</td></tr>
+        <tr><td><strong>Refusals</strong></td><td><strong>Unchanged, and now binding three more lists.</strong> No total, no net, no profit, no ratio, no streak, on any tab. <strong>Three ledgers make the temptation larger:</strong> deposited against withdrawn is one subtraction away, and it is the same number in an accountant&#39;s clothes</td></tr>
+        <tr><td><strong>The deposits panel</strong></td><td>Says on the panel that <strong>it cannot be reconciled against a bank statement</strong>, because the peg is unpublished. D-28 arriving on a fourth surface</td></tr>
+        <tr><td><strong>The withdrawals panel</strong></td><td>Carries <strong>who a row is waiting on and how long it has been, and never an ETA</strong>, which is 5.3&#39;s clock rule applied to a list</td></tr>
+        <tr><td><strong>Headings</strong></td><td><strong>Rewritten.</strong> H1 History. One H2 per panel: Rolls, Deposits, Withdrawals, Cash out</td></tr>
+        <tr><td><strong>States</strong></td><td><strong>Unchanged in count.</strong> No-seed and mismatch are states of tab one and of nothing else, which is why each notice sits inside the rolls panel rather than above the strip: <strong>a banner over four tabs would claim a payment failed to check out, and that is not a thing a payment can do</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="baseline-row">
   <div class="sec-head">
     <h2>Baseline row</h2>
@@ -318,7 +369,7 @@
     <table>
       <thead><tr><th>Node</th><th>URL</th><th>Indexed</th><th>Canonical</th><th>Schema</th><th>Breadcrumb</th></tr></thead>
       <tbody>
-        <tr><td><span class="surf">5.9</span> Roll history</td><td><code>/roll-history</code></td><td>No</td><td>Self</td><td>None</td><td>None</td></tr>
+        <tr><td><span class="surf">5.9</span> History</td><td><code>/history</code>, was <code>/roll-history</code> until D-88</td><td>No</td><td>Self</td><td>None</td><td>None</td></tr>
         <tr><td><span class="surf">5.10</span> Profile</td><td><code>/profile</code></td><td>No</td><td>Self</td><td>None</td><td>None</td></tr>
         <tr><td><span class="surf">5.11</span> Settings</td><td><code>/settings</code></td><td>No</td><td>Self</td><td>None</td><td>None</td></tr>
       </tbody>
@@ -352,9 +403,10 @@
 <script>
 window.NAV_BASE = '../';
 window.NAV_ACTIVE = 'ia/structure.html';
-window.NAV_ACTIVE_LABEL = '5.9 Roll history';
+window.NAV_ACTIVE_LABEL = '5.9 History';
 window.NAV_SECTIONS = [
   { id: 'overview', label: 'Overview' },
+  { id: 'amended-23aug', label: 'D-88 amendment' },
   { id: 'baseline-row', label: 'Baseline row' },
   { id: 'row', label: 'What a row is' },
   { id: 'dc', label: 'The D-C dependency' },

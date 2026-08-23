@@ -3272,3 +3272,66 @@ The baseline's profile shows the daily mechanic **compressed**: the count, the w
 ### Owed, and printed rather than drawn
 
 **Nothing anywhere else on the product says a message is waiting.** The account control `0.1` and the tab strip `D-84` are the two carriers that could hold an unread marker, and both belong to other nodes. **An inbox with no signal outside itself is a room nobody walks into**, and drawing the marker here would decide another node's carrier from inside this one. It is listed as owed by `0.1`, and the count on the panel's own tabs is the whole of the signal until it is.
+
+---
+
+## D-88. History gets all four tabs, three of them find a parent the node had not looked for, and the node had been measured against the wrong surface
+
+**Date:** 2026-08-23. **Stage:** 04, node `5.9`. **Decided by:** the founder, in two words, "всі чотири", after the argument for three was put and lost. **Source:** `acct_history_inventory.png` and `acct_history_deposit.png`, the founder's captures of 18 August 2026, cited by shot and date. **Binds:** node `5.9`, `0.1` row 2, `0.13`, `sitemap.md`.
+
+### The argument that lost, and it deserves to be recorded as put
+
+Stage 04 proposed **three** tabs, rolls, deposits and withdrawals, and refused the fourth on the ground that cash out has no subject anywhere on our map. **The founder chose four.** The refusal was not wrong about the fact and it was wrong about what follows from it: **a tab with no subject is a thing we can render honestly, and a tab silently dropped is a thing nobody can audit.**
+
+### The finding that fell out of asking, and it is the largest one here
+
+**The baseline has two history surfaces and this node had been compared against the wrong one.**
+
+| Surface | Tabs | Source | What they are |
+|---|---|---|---|
+| **The public profile** | Inventory, Case battles, Gunfights, Upgrades | `baseline.md` section 9.9, founder capture 21 August | **Mode histories.** Four grids of item cards, one per game mode |
+| **The account** | Inventory, Deposit, Withdraw, Cash-out, CS:GO skins deposits | `baseline-account.md` section 4, founder capture 18 August | **Transaction histories.** One item grid and four ledgers |
+
+**`5.9` is a private account page, and its baseline row cites the public one.** It says the baseline runs "four history tabs and every one of them is an inventory history", which is true of the public profile and false of the account. **The right source had been in the repository since 18 August**, five days, and it describes the surface this node actually is.
+
+**Nothing built on the wrong row was wrong**, which is why it survived: the argument that an inventory history is a roll with the roll removed holds against both surfaces, because both first tabs are one. **What was lost is everything the account surface holds that the public one does not**, which is three tabs, and the founder had to point at them.
+
+**And the rule that let it happen is worth naming.** `CLAUDE.md` requires every node to carry a baseline row. **It does not say which surface the row is about.** For a private node compared against a public page, the row reads as sourced and is about a different screen. Candidate line for the stage close.
+
+### The four, and three of them have a parent the node had not gone looking for
+
+| Tab | Parent | What it is |
+|---|---|---|
+| **Rolls** | `F3` and Related Job 3, unchanged | The node as written. **A row is a roll, not an item** |
+| **Deposits** | **`B4-3`, money leaves and does not arrive.** Pattern of 4 across 3 platforms: "I've deposited $25 through Crypto, nothing. I've waited a few hours, nothing... The ticket is closed, still $0 added to balance" | Every payment, arrived or not, with its state and both references |
+| **Withdrawals** | **`B8-2`, waiting with numbers.** Six people in the ledger with hard figures, and what every one of them describes is silence rather than slowness | Every item sent to Steam, with **who it is waiting on** and how long it has been |
+| **Cash out** | **None, in any of the three classes** | A rendered absence, below |
+
+**So the three-tab proposal was refusing two capabilities with real barriers behind them.** Neither is a new capability: `4.1` and `5.3` are both round 1 nodes with drawn states, and what was missing was the place a person reads their own record of them afterwards. **The deposit ledger is the answer to `B4-3` and the withdrawal ledger is the answer to `B8-2`, and both barriers are about not being told**, which is the same shape as `D-87`'s system messages one screen over.
+
+### The fourth tab, and why it is not a dead item
+
+**Turning coins back into money is not a capability anywhere in `cjm-to-be.md`, and the only capture of that tab is empty**, so the source cannot say what a row of it would even hold. **Two readings, and the panel prints both:**
+
+- **Taking a balance out as money**, to a card or a wallet. Nothing on this product does it, and **what one coin is worth in real money is not published either**, so the tab has no subject and no unit.
+- **Selling an item back for coins**, `D-38`. That one exists and it is already recorded: the roll it came from carries it, on the Rolls tab.
+
+**A tab that renders only "History is empty..." is the pattern `0.5` and `3.2` both refuse**, and it is exactly what the baseline does on three of its five. Ours says what the tab is for, that neither reading is built, and where the one that exists is already written down. **That is an absence a person can read, and the difference from a dead item is that a dead item promises something.**
+
+### What the rename costs and why it is right
+
+**`/roll-history` becomes `/history`, and `0.1` row 2 and the account strip read History.** A destination whose label names one of the four things behind it is a promise that under-describes, which is the same defect as one that over-promises with the sign reversed. **The node keeps its number and its owner**, and `0.13` owes the URL row along with the three it already owes.
+
+### The refusals that hold, and one that now binds three more lists
+
+**No total, no net, no profit, no ratio, no streak, on any of the four tabs.** The node refused these for rolls on the ground that a lifetime figure is the strongest completion mechanic this product could ship. **Three ledgers make the temptation larger, not smaller:** deposited against withdrawn is one subtraction away on the deposits tab, and it is the same number wearing an accountant's clothes.
+
+**Each tab carries a count and never a total**, which is the node's own block 1 rule applied four times.
+
+**The deposit tab says it cannot be reconciled against a bank statement**, on the panel, because the peg is unpublished. **A ledger of amounts in a unit with no rate is a ledger you cannot check**, and saying so is `D-28` arriving on a fourth surface.
+
+### Two defects the browser caught
+
+**A skin name was rendering in a code face.** `.wf-table td` is 0,1,1 and the class that excepts it was 0,1,0, so the exception lost. **`D-62` for the sixth time**, and the first time it has been visible in the render rather than in a measurement.
+
+**At 360 a timestamp was shredded into `14:4` and `0:07`.** `overflow-wrap: anywhere`, which a reference needs and a figure must never have. **The table scrolls inside its own wrapper instead**, which is what the wrapper is for, and the page still does not scroll at any width.

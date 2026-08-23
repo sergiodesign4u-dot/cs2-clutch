@@ -276,7 +276,7 @@ This is the state the founder specified. Left to right: rail toggle, logo, then 
 | Row | Node | Parent |
 |---|---|---|
 | **My items** | 5.1 | Related Job 5, and the inventory row `B7` at `cjm-to-be.md` |
-| **Roll history** | 5.9 | `F3` and Related Job 3, verify the outcome after I open. **Added by `D-36`** |
+| **History** | 5.9 | `F3` and Related Job 3, verify the outcome after I open. **Added by `D-36`.** Labelled Roll history until `D-88` gave the node four tabs: **a row that names one of the four things behind it under-describes, which is the same defect as over-promising with the sign reversed** |
 | **Withdrawals** | 5.3 | `G1`, named states with a per-state clock |
 | **Profile** | 5.10 | **None. Founder decision `D-36`, and the empty cell is printed rather than filled** |
 | **Settings** | 5.11 | **None yet. What it holds in round 1 is `[?]`**, `D-36` |

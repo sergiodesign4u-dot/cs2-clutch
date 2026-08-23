@@ -84,7 +84,7 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 | **2** | **The Steam origin** | Which Steam account this was made from, and that sign in is Steam and nothing else | `2.4` row `B6`: no password anywhere outside Steam OpenID, and no profile changes requested | Yes |
 | **3** | **Your account id** | The identifier support and an appeal refer to | `0.10` section 3, whose appeal form carries the decision and the account | Yes |
 | **4** | **What is public about you** | One statement of what a stranger can see today, and what they cannot | `7.1` block 6, `D-69` | Partly |
-| **5** | **Routes** | Settings `5.11`, My items `5.1`, Roll history `5.9` | The account menu already carries all three | No |
+| **5** | **Routes** | Settings `5.11`, My items `5.1`, History `5.9` | The account menu already carries all three | No |
 | **6** | Footer, `0.2` | Unchanged | `0.2` | No |
 
 **Block 4 is the only one that is not obviously a fact, and it is the one this page is worth having for.** `D-69` left the public profile `[?]` with two of our own decisions against each other: `0.8` gives the feed's avatar a destination and `7.1` block 6 refuses an owner profile outright, on the ground that it would rebuild the trophy shelf that node was created to replace. **A person cannot be told what is public about them by a product that has not decided**, so block 4 states exactly what is true today: **a shared result carries the display name and the avatar, and there is no page a stranger can reach that lists what this account has won.** That is a true sentence under either resolution of `D-69`, and it stops being true the day one is taken, which is when this block is rewritten.

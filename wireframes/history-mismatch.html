@@ -3,13 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roll history, a proof that does not match</title>
+  <title>History, a proof that does not match</title>
   <meta name="robots" content="noindex">
   <link rel="stylesheet" href="_wf.css">
 </head>
 <body>
 
-<!-- A ROW WHOSE PROOF DOES NOT MATCH. DRAWN ON PURPOSE AND EARLY, for the
+<!-- D-88: THIS IS A STATE OF TAB ONE AND OF NOTHING ELSE. A round that does not
+     recompute is a fact about one roll. The notice sits inside the rolls panel
+     rather than above the strip, because a banner over four tabs would claim
+     that a payment or a withdrawal failed to check out, which is not a thing
+     either of them can do.
+     A ROW WHOSE PROOF DOES NOT MATCH. DRAWN ON PURPOSE AND EARLY, for the
      reason 7.1's mismatch state was: the states nobody wants are the states that
      get discovered late.
      OUR OWN RECOMPUTATION DISAGREES WITH WHAT WE PUBLISHED. The row says so, it
@@ -37,10 +42,18 @@
          thirteen places for it to drift. -->
     <div class="wf-ah" data-acct-hero></div>
 
-    <h1>Roll history</h1>
-    <p>Every roll on this account. <strong>212 rolls.</strong></p>
+    <h1>History</h1>
+    <!-- THE FOUR TABS, D-88. The founder chose all four of the baseline's after
+         the argument for three was put and lost. This strip is NOT the account
+         strip above it: wf-atabs carries four peer PAGES and its items are
+         links, this one carries four panels of one page and its items are tab
+         buttons. A control that changes what is on the screen and a control
+         that goes somewhere are not the same control. Built once in _nav.js. -->
+    <div data-hist-tabs></div>
 
-    <div class="wf-hist">
+
+    <div class="wf-hist" data-hist-panel="rolls">
+      <div class="wf-lbar"><h2 class="wf-lbar-h" id="h2-rolls">Rolls</h2><span class="wf-fig-c">212 rolls</span></div>
       <!-- BLOCK 2. THE SCOPE LINE, IN THE SHORT FORM THE COMPONENT CARRIES
            EVERYWHERE. The proof shows the round was fixed before the click and
            not altered after it. It does not show that the published chances are
@@ -106,6 +119,7 @@
       </div>
     </div>
 
+    <div data-hist-rest hidden></div>
 
   </main>
 
@@ -120,6 +134,21 @@ window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';
 window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
 window.WF_ACCT = { active: 'history' };
+window.WF_HIST = {
+  deposits: [
+    { when: '2026-08-21 14:40:07', amount: '20.00 coins', method: 'Card', state: 'Declined', why: 'Your bank refused it. Nothing was charged.', ours: 'dep-4c19a0', theirs: '139949371' },
+    { when: '2026-08-18 09:12:55', amount: '50.00 coins', method: 'Card', state: 'Complete', ours: 'dep-4c0f72', theirs: '138596292' },
+    { when: '2026-08-14 21:03:18', amount: '25.00 coins', method: 'Crypto, ETH', state: 'Crediting', why: 'Waiting on the network to confirm it. Nothing is lost.', ours: 'dep-4bfe31', theirs: '0x7a3f91c4d80e2b7f5a3c19e6b1d4082f' },
+    { when: '2026-08-09 17:55:02', amount: '30.00 coins', method: 'Card', state: 'Refused by your own ceiling', why: 'Your deposit limit was 40.00 coins for the week and 30.00 of it was already used.', ours: 'dep-4bd004', theirs: 'not issued' },
+    { when: '2026-07-30 12:31:44', amount: '10.00 coins', method: 'Card', state: 'Complete', ours: 'dep-4b91cc', theirs: '135398919' }
+  ],
+  withdrawals: [
+    { when: '2026-08-21 15:02:11', what: 'AWP Asiimov, Field-Tested', worth: '61.40 coins', state: 'With Steam', why: 'Sent 23 h 14 m ago. Our published ceiling is 48 h.', wait: 'Steam', ours: 'wd-8813fa' },
+    { when: '2026-08-18 10:20:03', what: 'MP9 Rose Iron, Minimal Wear', worth: '1.86 coins', state: 'Accepted', why: 'Finished 14 m after it was sent.', wait: 'Nobody, it is done', ours: 'wd-87f2b1' },
+    { when: '2026-08-12 19:44:50', what: 'Glock-18 Water Elemental, Factory New', worth: '3.02 coins', state: 'Cancelled by you', wait: 'Nobody', ours: 'wd-87a90c' }
+  ],
+  cashout: []
+};
 </script>
 <script src="_nav.js"></script>
 </body>

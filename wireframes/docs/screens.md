@@ -2172,3 +2172,50 @@ The first rebuild kept our anatomy: two timestamped figures and a holding line o
 **Nothing outside this panel says a message is waiting.** `0.1` and the tab strip `D-84` are the two carriers that could hold an unread marker and both belong to other nodes. The count on the panel's own tabs is the whole of the signal until `0.1` answers.
 
 **Measured:** three profile pages at 360, 1024 and 1440, no horizontal scroll, no page error, the grid one column below 1000 and two above it, the tab counts falling to zero on `Mark all as read`, the promo list emptying to its empty state on `Delete all`, and `Delete all` absent from the system tab at every width.
+
+---
+
+## 62. `D-88`: node `5.9` gets all four tabs, and the node had been measured against the wrong surface
+
+**Four pages, no new page. 107 still.** `history.html` and its three states, plus the tab strip and three panels built once in `_nav.js`.
+
+### The argument that lost, recorded as put
+
+Stage 04 proposed **three** tabs and refused cash out because it has no subject anywhere on our map. **The founder chose four.** The refusal was right about the fact and wrong about what follows: **a tab with no subject can be rendered honestly, and a tab silently dropped cannot be audited by anyone.**
+
+### The finding that fell out of asking
+
+**The baseline has two history surfaces and this node had been compared against the wrong one.** The **public profile** has four tabs and all four are mode histories, `baseline.md` 9.9. The **account** has five sub-tabs and they are transaction histories, `baseline-account.md` section 4, captured three days earlier. **`5.9` is a private account page and its baseline row cites the public one.**
+
+**Nothing built on the wrong row was wrong, which is why it survived:** both surfaces begin with an inventory history, so the argument that an inventory history is a roll with the roll removed holds against either. **What the wrong row could not show is the three ledgers only the account surface has.**
+
+**And the rule that let it happen: `CLAUDE.md` requires a baseline row and does not say which surface it is about.** Candidate line for the stage close.
+
+### Three of the four have a parent the node had not gone looking for
+
+| Tab | Parent |
+|---|---|
+| **Rolls** | `F3` and Related Job 3, unchanged |
+| **Deposits** | **`B4-3`, money leaves and does not arrive**, pattern of 4 across 3 platforms |
+| **Withdrawals** | **`B8-2`, waiting with numbers**, six people with hard figures |
+| **Cash out** | **None in any of the three classes** |
+
+**So the three-tab proposal was refusing two capabilities with real barriers behind them.** Neither is new: `4.1` and `5.3` are round 1 nodes with drawn states, and what was missing was the place a person reads their own record of them afterwards.
+
+**Nothing the baseline's first tab holds is lost.** Its cards carry `SOLD` and `PENDING`, and the roll row's seventh field already carries the state of its item.
+
+### The fourth tab is a rendered absence and not a dead item
+
+**Turning coins back into money is not a capability anywhere in `cjm-to-be.md`, and the only capture of that tab is empty**, so the source cannot say what a row would hold. The panel prints both readings, names the one that already exists and where it is recorded. **The baseline prints `History is empty...` on three of its five tabs**, which is the pattern `0.5` and `3.2` both refuse. **The difference from a dead item is that a dead item promises something.**
+
+### What the rename costs
+
+**`/roll-history` becomes `/history`**, and `0.1` row 2, the account strip, four settings route lists and two node files follow. **A destination whose label names one of four things under-describes, which is over-promising with the sign reversed.** `0.13` owes the URL row with the three it already owes.
+
+### Two defects the browser caught and reading would not have
+
+**A skin name rendered in a code face.** `.wf-table td` is 0,1,1 and the class excepting it was 0,1,0, so the exception lost. **`D-62` for the sixth time**, and the first time visible in the render rather than in a measurement.
+
+**At 360 a timestamp was shredded into `14:4` and `0:07`** by `overflow-wrap: anywhere`, which a reference needs and a figure must never have. **The table scrolls inside its own wrapper instead**, which is what the wrapper is for.
+
+**Measured:** four pages at 360, 1024 and 1440, every tab walked on each, no page error, no horizontal scroll on the page at any width or on any tab, one H1 each, the tab strip reading Rolls, Deposits, Withdrawals, Cash out on all twelve combinations, and the empty page showing all four panels empty with four different sentences.

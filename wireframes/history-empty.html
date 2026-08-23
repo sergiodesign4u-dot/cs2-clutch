@@ -3,15 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roll history, empty</title>
+  <title>History, empty</title>
   <meta name="robots" content="noindex">
   <link rel="stylesheet" href="_wf.css">
 </head>
 <body>
 
-<!-- EMPTY, NO ROLLS YET. THE DEFAULT COMPOSITION RATHER THAN A FALLBACK, which
-     is what the listing type in the block bank fixes for every page of this
-     shape.
+<!-- EMPTY, NO ROLLS YET, AND SINCE D-88 THE OTHER THREE TABS ARE EMPTY TOO.
+     A new account has made no rolls, no payments and nothing sent to Steam, so
+     this is the one page where all four panels are in their empty state at once
+     and each of them says something different. The fourth is empty for a reason
+     that has nothing to do with this account: the capability does not exist.
+     THE DEFAULT COMPOSITION RATHER THAN A FALLBACK, which is what the listing
+     type in the block bank fixes for every page of this shape.
      NEVER AN ILLUSTRATION WITH AN INVITATION. This is the page that records
      rolls, and an empty state that sells one is the product advertising on its
      own ledger. One route out, and it is the plain one. -->
@@ -30,9 +34,18 @@
          thirteen places for it to drift. -->
     <div class="wf-ah" data-acct-hero></div>
 
-    <h1>Roll history</h1>
+    <h1>History</h1>
+    <!-- THE FOUR TABS, D-88. The founder chose all four of the baseline's after
+         the argument for three was put and lost. This strip is NOT the account
+         strip above it: wf-atabs carries four peer PAGES and its items are
+         links, this one carries four panels of one page and its items are tab
+         buttons. A control that changes what is on the screen and a control
+         that goes somewhere are not the same control. Built once in _nav.js. -->
+    <div data-hist-tabs></div>
 
-    <div class="wf-hist">
+
+    <div class="wf-hist" data-hist-panel="rolls">
+      <div class="wf-lbar"><h2 class="wf-lbar-h" id="h2-rolls">Rolls</h2><span class="wf-fig-c">0 rolls</span></div>
       <!-- BLOCK 2. THE SCOPE LINE, IN THE SHORT FORM THE COMPONENT CARRIES
            EVERYWHERE. The proof shows the round was fixed before the click and
            not altered after it. It does not show that the published chances are
@@ -46,6 +59,7 @@
       </div>
     </div>
 
+    <div data-hist-rest hidden></div>
 
   </main>
 
@@ -60,6 +74,7 @@ window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';
 window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
 window.WF_ACCT = { active: 'history' };
+window.WF_HIST = { deposits: [], withdrawals: [], cashout: [] };
 </script>
 <script src="_nav.js"></script>
 </body>

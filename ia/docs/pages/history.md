@@ -1,4 +1,4 @@
-# Node 5.9. Roll history
+# Node 5.9. History
 
 **Type:** page. **Group:** `pages`. **Scope:** MVP. **Cluster:** 5, take out what I earned.
 
@@ -10,7 +10,7 @@
 
 **And the parent is stronger than the row that names it.** `F3` is one link on one outcome screen. **Until this node existed, the only trace of a roll a person could reach was the item it produced**, `D-36`. An item is not a round: it survives a sale, it can be withdrawn away, and it carries no seed material. A product whose whole trust claim is "every round can be checked afterwards" had no afterwards.
 
-**URL:** `/roll-history`. **Indexed:** no, `noindex, follow`. **Canonical:** self. **Schema:** none. **Breadcrumb:** none. **Not inherited, because `0.13` has no row for this node**, section 8.
+**URL:** `/history`, renamed from `/roll-history` by `D-88`, section 0.4. **Indexed:** no, `noindex, follow`. **Canonical:** self. **Schema:** none. **Breadcrumb:** none. **Not inherited, because `0.13` has no row for this node**, section 8.
 
 **Reached from:** the account menu, `0.1`, row 2; `5.1` beside the items; `3.6` the outcome, as the place the roll goes after the screen closes. **Leads to:** `1.2` the verifier, one route per row; `7.1` the public result, one route per row; `5.1`; `0.10` where a roll cannot be produced.
 
@@ -21,6 +21,59 @@
 | What the live product does | What we keep | What we change, and why |
 |---|---|---|
 | **A public profile with four history tabs**, Inventory history, Case battle history, Gunfights history and Upgrades history, each a grid of item cards carrying the mode icon, the image, the weapon, the skin, the wear and a value in coins. Founder capture, 21 August 2026, `baseline.md` section 9.9. | **The idea that history is a first-class surface**, and the split by mode, which arrives when a second mode does. | **Everything about what a row is.** The baseline's history is an **inventory** history: it lists items, and an item is the outcome of a roll with the roll removed. Ours lists **rolls**, and the item is one column of a row. `baseline.md` section 9.9 records the same thing from the other side: that page is a trophy shelf, and `public-result.md` was written to replace the shelf with something checkable. **A history of items is the shelf again, one screen deeper.** And it is private: the baseline's is public and this one is the account's own. |
+
+---
+
+## 0.4 Amended 23 August 2026 by `D-88`. Four tabs, and the baseline row above was about a different screen
+
+**The founder chose all four of the baseline's account tabs after the argument for three was put and lost.** Stage 04 proposed rolls, deposits and withdrawals, and refused cash out because it has no subject on our map. **The refusal was right about the fact and wrong about what follows from it:** a tab with no subject can be rendered honestly, and a tab silently dropped cannot be audited by anyone.
+
+### The correction this forces on the baseline row above, and it is the largest finding here
+
+**The baseline has two history surfaces, and the row above is about the other one.**
+
+| Surface | Tabs | Source | What they are |
+|---|---|---|---|
+| **The public profile** | Inventory, Case battles, Gunfights, Upgrades | `baseline.md` section 9.9, founder capture 21 August 2026 | **Mode histories.** Four grids of item cards, one per game mode |
+| **The account** | Inventory, Deposit, Withdraw, Cash-out, CS:GO skins deposits | `baseline-account.md` section 4, founder capture 18 August 2026 | **Transaction histories.** One item grid and four ledgers |
+
+**This node is a private account page and the row above cites the public one.** The right source had been in the repository for five days when this node was written. **Nothing built on the wrong row is wrong**, which is exactly why it survived: the argument that an inventory history is a roll with the roll removed holds against both surfaces, because both first tabs are one. **What the wrong row could not show is the three ledgers the account surface has and the public page does not.**
+
+**The rule that allowed it, named rather than worked around.** `CLAUDE.md` requires every node to carry a baseline row and does not say which surface the row is about. **For a private node compared against a public page, a row reads as sourced and describes a different screen.** Candidate line for the stage close.
+
+### The four tabs, and three of them have a parent this node had not gone looking for
+
+| Tab | Parent class | Parent | What a row is |
+|---|---|---|---|
+| **Rolls** | job | `F3`, Related Job 3. Unchanged | **A roll**, seven fields, section 0 below |
+| **Deposits** | barrier | **`B4-3`, money leaves and does not arrive.** Pattern of 4 across 3 platforms, ledger U-04 | A payment: when, amount in coins, method, state, our reference, the payment reference |
+| **Withdrawals** | barrier | **`B8-2`, waiting with numbers.** Six people with hard figures, and what each describes is silence rather than slowness | An item sent to Steam: when, what, worth then, state, **who it is waiting on**, our reference |
+| **Cash out** | **none** | **No parent in any of the three classes** | Nothing. A rendered absence, below |
+
+**So the three-tab proposal was refusing two capabilities with real barriers behind them.** Neither is new: `4.1` and `5.3` are round 1 nodes with drawn states. **What was missing was the place a person reads their own record of them afterwards**, which is the same shape as `D-87`'s system messages one node over.
+
+**Nothing the baseline's first tab holds is lost by not inheriting it.** Its cards carry `SOLD` and `PENDING` ribbons, and section 0's seventh field already carries exactly that: the state of the roll's item, held, sold back or withdrawn.
+
+### The fourth tab, and why it is a rendered absence rather than a dead item
+
+**Turning coins back into money is not a capability anywhere in `cjm-to-be.md`, and the only capture of that tab is empty**, so the source cannot say what a row would hold. The panel prints both readings:
+
+- **Taking a balance out as money.** Nothing on this product does it, **and there is no unit for it either** while the peg is unpublished.
+- **Selling an item back for coins**, `D-38`. That exists, and it is already recorded on the Rolls tab by the roll it came from.
+
+**The baseline prints `History is empty...` on three of its five tabs and nothing else**, which is the pattern `0.5` and `3.2` both refuse. **The difference between a rendered absence and a dead item is that a dead item promises something.**
+
+### What else changed in this file
+
+| Where | What happens to it |
+|---|---|
+| **Title and URL** | **`Roll history` becomes `History`, `/roll-history` becomes `/history`.** A destination whose label names one of the four things behind it under-describes, which is the same defect as over-promising with the sign reversed. `0.1` row 2 and the account strip follow. **`0.13` owes the URL row with the three it already owes**, section 8 |
+| **Section 2, blocks** | **Block 1 becomes the tab strip plus one count per tab**, and the count is still a count and never a total |
+| **Section 2, refusals** | **Unchanged and now binding three more lists.** No total, no net, no profit, no ratio, no streak, on any tab. **Three ledgers make the temptation larger:** deposited against withdrawn is one subtraction away, and it is the same number in an accountant's clothes |
+| **The deposits panel** | Says on the panel that **it cannot be reconciled against a bank statement**, because the peg is unpublished. `D-28` arriving on a fourth surface |
+| **The withdrawals panel** | Carries **who a row is waiting on and how long it has been, and never an ETA**, which is `5.3`'s clock rule applied to a list |
+| **Section 5 B, headings** | **Rewritten.** H1 History. One H2 per panel, and the panel headings are Rolls, Deposits, Withdrawals, Cash out |
+| **States** | **Unchanged in count.** `history-no-seed` and `history-mismatch` are states of tab one and of nothing else, which is why each notice sits inside the rolls panel rather than above the strip: a banner over four tabs would claim a payment failed to check out, and that is not a thing a payment can do |
 
 ---
 

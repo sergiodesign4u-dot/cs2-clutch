@@ -4209,7 +4209,11 @@ textarea.wf-cfg-in { min-height: 0; }
 }
 .wf-pf-daily-t { display: flex; flex-direction: column; gap: 2px; flex: 1 1 180px; min-width: 0; }
 
-/* THE MESSAGES PANEL. Two tabs, and they are two different things wearing one
+/* THE TAB BUTTON AND THE LIST BAR ARE ONE RULE WITH TWO CONSUMERS, conventions
+   1.2: 5.10's message panel and 5.9's four histories. They were written as
+   .wf-msg-* for the first consumer and renamed when the second arrived, rather
+   than copied, because two rules for one control is how the second one rots.
+   THE MESSAGES PANEL. Two tabs, and they are two different things wearing one
    shape: promo is a channel a person may switch off in 5.11, system is the
    product telling you what happened to your money and it has no switch. */
 .wf-msg { gap: var(--wf-s-2); }
@@ -4217,36 +4221,36 @@ textarea.wf-cfg-in { min-height: 0; }
    tabs, the header row and the list into this one host, so the space between
    them is set here once rather than on three siblings. */
 .wf-msg-in { display: flex; flex-direction: column; gap: var(--wf-s-2); }
-.wf-msg-tabs { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
-.wf-mtab {
+.wf-msg-tabs, .wf-htabs { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
+.wf-tabb {
   display: inline-flex; align-items: center; gap: var(--wf-s-1);
   min-height: var(--wf-tap); padding: 0 var(--wf-s-2);
   border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
   background: none; color: var(--wf-ink-dim);
   font: inherit; font-size: var(--wf-t-s); cursor: pointer;
 }
-.wf-mtab[aria-selected="true"] {
+.wf-tabb[aria-selected="true"] {
   color: var(--wf-ink); background: var(--wf-raised);
   border-color: var(--wf-ink-dim); font-weight: 700;
 }
 /* THE COUNT IS A NUMBER OF UNREAD MESSAGES AND NEVER A SCORE, 0.11 rule 7. It
    counts things addressed to this person that they have not opened, it goes to
    zero when they are read, and nothing accumulates. */
-.wf-mtab-n {
+.wf-tabb-n {
   display: inline-flex; align-items: center; justify-content: center;
   min-width: 20px; height: 20px; padding: 0 5px;
   border: 1px solid var(--wf-line); border-radius: var(--wf-r-1);
   font-family: var(--wf-mono); font-size: var(--wf-t-xs);
 }
-.wf-msg-bar {
+.wf-lbar {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
   gap: var(--wf-s-1) var(--wf-s-2);
 }
-.wf-msg-h {
+.wf-lbar-h {
   margin: 0; font-size: var(--wf-t-xs); letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--wf-ink-dim);
 }
-.wf-msg-acts { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
+.wf-lbar-acts { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
 .wf-msg-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
 .wf-msg-i {
   display: flex; gap: var(--wf-s-2);
@@ -4280,3 +4284,44 @@ textarea.wf-cfg-in { min-height: 0; }
 }
 .wf-msg .wf-empty { padding-block: var(--wf-s-3); }
 .wf-msg .wf-empty-h, .wf-msg .wf-empty-p { text-align: center; align-self: center; }
+
+/* ============================================================================
+   NODE 5.9, HISTORY. FOUR TABS, THE BASELINE'S OWN COUNT, D-88. The live
+   product runs five sub-tabs under one HISTORY heading and the founder chose
+   four of them. Tab one is where we diverge and the divergence is the node:
+   the baseline's first tab is an INVENTORY history, which is a roll with the
+   roll removed, and ours lists rolls with the item as one field of each.
+   THE STRIP IS NOT THE ACCOUNT STRIP. wf-atabs carries four peer PAGES and each
+   of its items is a link. This one carries four panels of ONE page and each of
+   its items is a tab button, because a control that changes what is on the
+   screen and a control that goes somewhere are not the same control. ======= */
+.wf-htabs { margin-bottom: var(--wf-s-2); }
+.wf-hpanel { display: flex; flex-direction: column; gap: var(--wf-s-2); }
+/* A CELL THAT HOLDS A REFERENCE IS MONOSPACE AND WRAPS. Same rule as the round
+   hash and the trade URL: it exists to be pasted into a message to us, and a
+   reference truncated at the end is one nobody can hand over. */
+.wf-htx { font-family: var(--wf-mono); overflow-wrap: anywhere; }
+/* THE STATE IS A WORD, NEVER A COLOUR ALONE. The baseline prints REJECTED in
+   yellow and COMPLETE in green and the word carries it in both, which is the
+   half worth inheriting. */
+/* .wf-table makes every cell monospace, which is right for an id and wrong for
+   a method name or an item. The exception is a class and it needs the table in
+   the selector: .wf-table td is 0,1,1 and a bare class is 0,1,0, so the bare
+   one loses. D-62 for the sixth time, and it was visible in the render as a
+   skin name set in a code face. */
+.wf-table td.wf-tprose, .wf-table td.wf-hstate { font-family: var(--wf-font); }
+.wf-hstate { white-space: nowrap; }
+/* A FIGURE NEVER BREAKS AWAY FROM ITS UNIT, AND A TIMESTAMP NEVER BREAKS AT
+   ALL. "61.40" on one line and "coins" on the next is two facts where there is
+   one; at 360 the same rule shredded a timestamp into "14:4" and "0:07", which
+   is not a time. The table scrolls inside its own wrapper instead, which is
+   what the wrapper is for, and the page still does not. */
+.wf-table td.wf-hnum { white-space: nowrap; }
+.wf-hnote { display: block; margin-top: 2px; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); white-space: normal; }
+/* THE FOURTH TAB HAS NO SUBJECT ON OUR MAP AND THE PANEL SAYS SO IN FULL,
+   rather than printing the baseline's "History is empty..." which is the
+   pattern 0.5 and 3.2 both refuse. */
+.wf-hgap { display: flex; flex-direction: column; gap: var(--wf-s-2); padding: var(--wf-s-3);
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2); }
+.wf-hgap-l { margin: 0; padding-left: var(--wf-s-3); display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-hgap-l li { font-size: var(--wf-t-s); max-width: var(--wf-measure); }
