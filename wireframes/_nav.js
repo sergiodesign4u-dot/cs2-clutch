@@ -264,8 +264,9 @@ window.WF_NAV = {
       ] },
 
     { node: '5.10', cluster: '5', name: 'Profile',              file: 'profile.html',    ia: 'profile.html',   status: 'built',
-      base: 'Avatar, name, the Steam link',
+      base: 'The daily entry, the messages, the record',
       states: [
+        { node: '5.10', label: 'Nothing to read',  file: 'profile-quiet.html',      status: 'built' },
         { node: '5.10', label: 'Steam unreadable', file: 'profile-steam-down.html', status: 'built' }
       ] },
 
@@ -2987,6 +2988,136 @@ window.WF_NAV = {
     });
   }
 
+  /* ---------------------------------------------------------------------
+     NODE 5.10's MESSAGES PANEL, D-87. The founder's capture acct_profile_daily.png
+     of 21 August 2026: two tabs, PROMO and SYSTEM, a header row carrying "Mark all
+     as read" and "Delete all", and an envelope empty state.
+     ONE RENDERER AND NOT THREE COPIES. Three profile pages carry this panel and
+     the panel has live behaviour, which is the exact condition under which a
+     copied block rots: the same contract the sign in card, the filter drawer and
+     the cookie band already run under.
+     THE TWO TABS ARE NOT ONE THING TWICE. Promo is a channel and 5.11 holds its
+     switch, D-86. System is the product saying what happened to money that is
+     already yours, it has no switch and it has no Delete all: a product that lets
+     you erase its own notice can afterwards say it told you. B8-2 is six people
+     with hard figures waiting and nobody telling them anything.
+     --------------------------------------------------------------------- */
+  var MSG_TABS = [
+    { key: 'promo',  label: 'Promo',  head: 'Marketing messages', empty: 'No marketing messages',
+      emptyP: 'Nothing has been sent to you. You can switch this channel off in Settings.', del: true },
+    { key: 'system', label: 'System', head: 'Product messages',   empty: 'No product messages',
+      emptyP: 'Nothing has gone wrong with your money, your items or an open. This is the tab that would say so.', del: false }
+  ];
+
+  function msgRow(m) {
+    var li = el('li', 'wf-msg-i' + (m.unread ? ' is-unread' : ''));
+    li.appendChild(el('span', 'wf-msg-dot', null)).setAttribute('aria-hidden', 'true');
+    var b = el('div', 'wf-msg-b');
+    b.appendChild(el('p', 'wf-msg-t', m.t));
+    b.appendChild(el('p', 'wf-msg-p', m.p));
+    var meta = el('div', 'wf-msg-m');
+    meta.appendChild(el('span', 'wf-msg-new', 'Unread'));
+    meta.appendChild(el('span', 'wf-msg-when', m.when));
+    if (m.href) {
+      var a = el('a', null, m.link || 'Open');
+      a.setAttribute('href', BASE + m.href);
+      meta.appendChild(a);
+    }
+    b.appendChild(meta);
+    li.appendChild(b);
+    return li;
+  }
+
+  function mountMsgs() {
+    var host = document.querySelector('[data-msgs]');
+    if (!host) return;
+    host.classList.add('wf-msg-in');
+    var data = window.WF_MSGS || {};
+    var state = MSG_TABS.map(function (t) {
+      return { def: t, items: (data[t.key] || []).map(function (m) {
+        var c = {}; for (var k in m) c[k] = m[k]; return c;
+      }) };
+    });
+    var open = 0;
+
+    var tabs = el('div', 'wf-msg-tabs');
+    tabs.setAttribute('role', 'tablist');
+    var bar  = el('div', 'wf-msg-bar');
+    var body = el('div', null);
+    host.appendChild(tabs);
+    host.appendChild(bar);
+    host.appendChild(body);
+
+    function unread(i) {
+      return state[i].items.filter(function (m) { return m.unread; }).length;
+    }
+
+    function draw() {
+      var cur = state[open];
+
+      tabs.innerHTML = '';
+      state.forEach(function (st, i) {
+        var b = el('button', 'wf-mtab', st.def.label);
+        b.type = 'button';
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-selected', i === open ? 'true' : 'false');
+        b.setAttribute('aria-controls', 'wf-msg-body');
+        var n = unread(i);
+        if (n) {
+          var c = el('span', 'wf-mtab-n', String(n));
+          c.setAttribute('aria-label', n + ' unread');
+          b.appendChild(c);
+        }
+        b.addEventListener('click', function () { open = i; draw(); });
+        tabs.appendChild(b);
+      });
+
+      bar.innerHTML = '';
+      bar.appendChild(el('h3', 'wf-msg-h', cur.def.head));
+      var acts = el('div', 'wf-msg-acts');
+      /* D-58, AND IT BITES BOTH WAYS. A control with nothing to act on is not
+         drawn disabled here, it is not drawn: an empty list has no "mark all"
+         to press and a greyed button is a picture of one. */
+      if (unread(open)) {
+        var r = el('button', 'wf-btn wf-btn--small', 'Mark all as read');
+        r.type = 'button';
+        r.addEventListener('click', function () {
+          cur.items.forEach(function (m) { m.unread = false; });
+          draw();
+        });
+        acts.appendChild(r);
+      }
+      if (cur.def.del && cur.items.length) {
+        var d = el('button', 'wf-btn wf-btn--small', 'Delete all');
+        d.type = 'button';
+        d.addEventListener('click', function () { cur.items = []; draw(); });
+        acts.appendChild(d);
+      }
+      if (!cur.def.del) {
+        acts.appendChild(el('span', 'wf-fig-c', 'Kept. These are the record of what we told you.'));
+      }
+      bar.appendChild(acts);
+
+      body.innerHTML = '';
+      body.id = 'wf-msg-body';
+      body.setAttribute('role', 'tabpanel');
+      body.setAttribute('aria-live', 'polite');
+      if (!cur.items.length) {
+        var e = el('div', 'wf-empty');
+        e.appendChild(el('span', 'wf-msg-art', null)).setAttribute('aria-hidden', 'true');
+        e.appendChild(el('p', 'wf-empty-h', cur.def.empty));
+        e.appendChild(el('p', 'wf-empty-p', cur.def.emptyP));
+        body.appendChild(e);
+      } else {
+        var ul = el('ul', 'wf-msg-list');
+        cur.items.forEach(function (m) { ul.appendChild(msgRow(m)); });
+        body.appendChild(ul);
+      }
+    }
+
+    draw();
+  }
+
   function mountSystem() {
     var root = document.querySelector('[data-sys]');
     if (!root) return;
@@ -3352,6 +3483,7 @@ window.WF_NAV = {
     renderFaq();
     mountSystem();
     mountSupportSubject();
+    mountMsgs();
     mountCookie();
     mountSettings();
     renderFooter(document.getElementById('wf-footer'));

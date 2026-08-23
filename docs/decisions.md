@@ -3215,3 +3215,60 @@ That record refused `Your Selected Country` as "the sharpest refusal on the page
 ### One raised finding closed on the way
 
 **The trade URL field was an `<input>` and this node's own copy promises the saved value "wraps rather than truncating".** An input cannot wrap. At 360 it hid 46% of the URL and the hidden half was `?partner=...&token=...`, **the only part worth comparing against what Steam shows**. The 22 August audit raised it. It is a `textarea` now: same value, same press, and the whole 75 characters visible at 360 and at 1440 with no internal scroll.
+
+---
+
+## D-87. The profile is rebuilt on the baseline's shape, and the messages panel is the first capability an orphan page has ever been the first home of
+
+**Date:** 2026-08-23. **Stage:** 04, node `5.10`. **Decided by:** the founder, twice: "нужен блок с нотификациями маркетинговыми и системными", then "делать профайл как на деддискинс". **Source:** `acct_profile_daily.png`, the founder's capture of 21 August 2026, cited by shot and date. **Binds:** node `5.10`, and it amends two sentences the node wrote about itself.
+
+### What the baseline's Profile tab actually is
+
+Two blocks side by side under the account band. **Left, a card headed `DAILY CASES`:** a ring with `0` in it, the line "Next level up at `5.00` wager", and an `OPEN` control. **Right, a panel with two tabs, `PROMO` and `SYSTEM`,** headed `MARKETING MESSAGES`, carrying `Mark all as read` and `Delete all`, and an empty state of an envelope and `NO MARKETING MESSAGES`.
+
+**Ours is that shape.** Daily entry on the left, messages on the right, the record of who this account is beneath the daily card. **On a phone the DOM order is the mobile order and it is not the desktop one:** what changes today comes first, what never changes comes last.
+
+### The cost, and it is the largest single cost this node has taken
+
+Node `5.10` was written with a rule about itself: **"An orphan may not grow. Every block below has to be either a fact the product already holds about this account or a control that already exists somewhere else on the map. Nothing on this page may be the first home of a new capability, because a capability whose only justification is a page that has no parent has no parent either."**
+
+**The messages panel is the first home of a new capability.** There is no notifications row anywhere in `cjm-to-be.md`, no barrier asks for an inbox, and no job needs one. It is here because the founder asked for it directly, **which is the same ground `D-36` put the page itself on**.
+
+**The treatment is `D-38`'s and it is applied without softening.** The capability ships with the empty parent printed on the page and in the node, and **no backlog row is retro-fitted**: `cjm-to-be.md` stays at 40 MVP rows over 39 capabilities and the count is not quietly moved to make this look sourced. **An orphan carried honestly is a different thing from an orphan dressed as a job.**
+
+### One half of it does have a parent, and it is worth separating from the other half
+
+**The `SYSTEM` tab stands on `B8-2`, waiting with numbers.** Six people in the ledger with hard figures: 30 hours, 7 days, 2 to 3 days, 9 days from last deposit, 16 hours, almost 3 weeks. **What every one of them describes is not slowness, it is silence.** A product message that says the withdrawal is still with Steam, that an open stopped part way and the item is already yours, or that a bank refused a top up, is the answer to that barrier and it is the one block here that a barrier asked for.
+
+**The `PROMO` tab has no parent at all.** It is the marketing channel, and it is the orphan.
+
+**And that split is not cosmetic, because it decides two controls.** `Delete all` exists on promo and does not exist on system: **a product that lets you erase its own notice can afterwards say it told you.** The system tab's row says so in words rather than showing a disabled button, which is `D-58` and the cookie node's strictly necessary row for the third time.
+
+**One further guard, and it is ours rather than the baseline's.** A promotional message never reaches an account with a deposit limit, a session limit or a cool down in force. **A channel that keeps talking through a boundary is the boundary doing the opposite of its job**, and it is `D-25` rule 2 applied to a different carrier.
+
+### The five tiers do not travel, and this is the second time that rule has decided something
+
+The baseline's profile shows the daily mechanic **compressed**: the count, the wager figure and the control, and **no ladder**. Ours does the same, and the reason is written rather than copied. **`D-25` rule 3: "A tier gives a case, and nothing else. No badge, no title, no rank against other people, no public tier on a profile. The moment the tier becomes an identity the ladder has stopped describing an entitlement."**
+
+**This is the page whose whole subject is who this account is.** A tier rendered here is a rank whatever it is called. So `0.15` renders on `1.0` and on `3.1` where it is an offer, the count and the wager figure travel here because they are facts about an entitlement, and **the absence of the five rungs is rendered on the page rather than left as a silence**, with the route to where they live.
+
+### And the node's own refusal on counters is narrowed rather than broken
+
+`5.10` refuses "any counter: cases opened, best drop, days here, level", on the ground that a counter is a score. **Two numbers on this page are counters and neither is a score.** The wager figure is money in coins, which `D-25` already settled against `0.11` rule 7. The unread count on a tab counts messages addressed to this person that they have not opened, **it goes to zero when they read them, and nothing accumulates.** The refusal now reads: no counter that measures what this account has done.
+
+### What changed in the node, named because an unnamed amendment is how a specification stops describing its own page
+
+| Sentence in `5.10` | What happens to it |
+|---|---|
+| "Nothing on this page may be the first home of a new capability" | **Amended.** It is now the first home of one, by founder decision, with the empty parent printed. The rule holds for everything else on the page |
+| "Nothing here becomes two columns, because five short blocks in two columns is a dashboard, and this page is a record" | **Amended.** The reason held against what the page was. A list that grows, beside a short record, is a reading surface and not a dashboard. Two columns from 1000 |
+| Section 5 B, the H2 order | **Rewritten.** Your daily case, your messages, who this account is, what a stranger can see |
+| Section 2, the state table | **Two rows added.** No messages in either tab, which is the state the baseline capture was actually taken in and the state every new account is in |
+
+### One state page added and it is the one the source shows
+
+`profile-quiet.html`. **The capture the whole of this record is built on is the empty state**, so the populated page is the reasoned one and the empty page is the walked one. **Both tabs empty say different things:** an empty promo tab is a channel that has not spoken, an empty system tab is the far better news that nothing has gone wrong with this account's money, and saying that is worth more than an envelope.
+
+### Owed, and printed rather than drawn
+
+**Nothing anywhere else on the product says a message is waiting.** The account control `0.1` and the tab strip `D-84` are the two carriers that could hold an unread marker, and both belong to other nodes. **An inbox with no signal outside itself is a room nobody walks into**, and drawing the marker here would decide another node's carrier from inside this one. It is listed as owed by `0.1`, and the count on the panel's own tabs is the whole of the signal until it is.

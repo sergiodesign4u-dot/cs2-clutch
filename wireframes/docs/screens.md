@@ -2136,3 +2136,39 @@ The first rebuild kept our anatomy: two timestamped figures and a holding line o
 **The actions panel covered the card's own checkbox.** **`aspect-ratio` with `min-height` resolves by growing the width**, and at 1024 that put a horizontal scrollbar on the page. **The column count was set by the viewport rather than by the card**, so at 900 the receipt clipped inside its own panel. **A card has a width below which its contents stop fitting, and the grid stops before it.**
 
 **Measured after every change: 106 pages at 360 and 1440, no horizontal scroll, no zero top padding, the panel fitting its slot at four widths with the item's name still visible under it.**
+
+---
+
+## 61. `D-86` and `D-87`: cluster 5 finishes on the baseline's own two pages, and one page becomes the first home of a capability
+
+**Nine pages. `settings.html` and its three states, `profile.html` and its two, one new state page, and the four settings pages again for one anchored link.** Source for both nodes is the founder's own capture set of 21 and 22 August 2026, cited by shot: `acct_settings_top_22aug.png`, `acct_settings_linked_22aug.png`, `acct_profile_daily.png`.
+
+### `5.11` settings, and the reversal that came back with three conditions
+
+**The country control is a statement, not the geo control.** `D-81` refused it because a self-declared country a person can change is the geo control handed to the person being controlled. **That reading is still right and it is not what the control is for:** `D-23` decides access and nothing else does, and the declaration adds a statement with the person's name on it. **The selector offers launched markets only, the account holds one answer, and the ban owes a written ground rendered in `0.10`'s appeal form** or `B8-3` is rebuilt with our name on it.
+
+**Two columns from 1000, split by who acts:** what a person sets about themselves on the left, what the product may send them on the right.
+
+**One live switch and one row with no control at all.** The marketing channel earns its switch because a channel that sends promotional messages owes a way to stop them. **System messages take no answer and the row says why**, which is the cookie node's strictly necessary row for the second time.
+
+**The trade URL field is a `textarea`.** The node promises the saved value "wraps rather than truncating" and an `<input>` cannot wrap: at 360 it hid 46% of the URL and the hidden half was the partner and token pair. Raised by the 22 August audit, closed here.
+
+### `5.10` profile, and the sentence the node wrote to make this expensive
+
+**The baseline's Profile tab is two blocks side by side:** the daily card left, a two tab message panel right. Ours is that shape, with the record of who this account is under the daily card. **The DOM order is the mobile order:** what changes today first, what never changes last.
+
+**The messages panel is the first home of a new capability and the node's own rule forbade exactly that.** "Nothing on this page may be the first home of a new capability, because a capability whose only justification is a page that has no parent has no parent either." **It is amended rather than stepped over**, the founder having asked directly, which is the same ground `D-36` put the page on. **The treatment is `D-38`'s: empty parent printed, no backlog row retro-fitted.**
+
+**Half of it does have a parent and the split decides two controls.** `SYSTEM` stands on `B8-2`, six people in the ledger waiting 30 hours to almost three weeks, **and what every one of them describes is silence rather than slowness.** `PROMO` has none. So `Delete all` exists on promo and does not exist on system: **a product that lets you erase its own notice can afterwards say it told you.** And promo never reaches an account with a limit or a cool down in force, `D-25` rule 2 on a different carrier.
+
+**The five tiers do not travel and the absence is rendered.** `D-25` rule 3 says a tier that becomes an identity has stopped describing an entitlement, and this is the page whose whole subject is identity. The count, the wager figure and the control travel; the ladder stays on `1.0` and `3.1`, with the route printed on the card.
+
+### One state page added, and it is the state the source was actually walked in
+
+`profile-quiet.html`. **The capture is of the empty inbox**, so the populated page is the reasoned one. **The two empty tabs say different things:** an empty promo tab is a channel that has not spoken, an empty system tab is the news that nothing has gone wrong with this account's money. **Both action controls are absent rather than disabled**, `D-58`.
+
+### What is owed and was printed rather than drawn
+
+**Nothing outside this panel says a message is waiting.** `0.1` and the tab strip `D-84` are the two carriers that could hold an unread marker and both belong to other nodes. The count on the panel's own tabs is the whole of the signal until `0.1` answers.
+
+**Measured:** three profile pages at 360, 1024 and 1440, no horizontal scroll, no page error, the grid one column below 1000 and two above it, the tab counts falling to zero on `Mark all as read`, the promo list emptying to its empty state on `Delete all`, and `Delete all` absent from the system tab at every width.

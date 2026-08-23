@@ -32,6 +32,48 @@
 
 ---
 
+## 0.4 Amended 23 August 2026 by `D-87`, and this is the amendment the node's own rule was written to make expensive
+
+**The founder asked for two things, on the same day and in this order:** a notifications block carrying marketing and system messages, then the profile rebuilt the way the live product builds it. **The source is `acct_profile_daily.png`, the founder's capture of 21 August 2026**, cited by shot and date.
+
+### The shape
+
+**Two blocks side by side under the account band, which is what the baseline's Profile tab is.** Left, the daily entry. Right, the messages panel with its two tabs. The record of who this account is sits under the daily card on desktop. **On a phone the DOM order is the mobile order and it is not the desktop one:** the daily entry, the messages, then the record. **What changes today comes first and what never changes comes last.**
+
+### The cost, stated first because the node's own rule is what it costs
+
+Section 0 of this file: **"An orphan may not grow... Nothing on this page may be the first home of a new capability, because a capability whose only justification is a page that has no parent has no parent either."**
+
+**The messages panel is the first home of a new capability, and that sentence is amended rather than stepped over.** There is no notifications row in `cjm-to-be.md`, no barrier asks for an inbox and no job needs one. It is here because the founder asked for it directly, **which is the same ground `D-36` put this page on**. The treatment is `D-38`'s: the empty parent is printed here and on the page, and **no backlog row is retro-fitted**. `cjm-to-be.md` stays at 40 MVP rows over 39 capabilities.
+
+**The rule holds for everything else on the page.** Nothing else was added.
+
+### One half of the block does have a parent, and separating the halves decides two controls
+
+| Tab | Parent | Consequence |
+|---|---|---|
+| **`SYSTEM`** | **`B8-2`, waiting with numbers.** Six people in the ledger with hard figures, 30 hours to almost 3 weeks. **What every one of them describes is not slowness, it is silence** | No switch, `D-86`. **No `Delete all`**, because a product that lets you erase its own notice can afterwards say it told you. Every row points at the page that holds the record |
+| **`PROMO`** | **None, in any of the three classes.** It is the marketing channel and it is the orphan | Its switch is in `5.11`, `D-86`. `Delete all` and `Mark all as read` both live. **It never reaches an account with a deposit limit, a session limit or a cool down in force**, which is `D-25` rule 2 applied to a different carrier |
+
+### The five tiers do not travel
+
+The baseline's profile shows the daily mechanic **compressed**, with no ladder: the count, the wager figure and the control. **Ours does the same and the reason is written rather than copied.** `D-25` rule 3: "A tier gives a case, and nothing else. No badge, no title, no rank against other people, no public tier on a profile. **The moment the tier becomes an identity the ladder has stopped describing an entitlement.**"
+
+**This is the page whose whole subject is who this account is, so a tier rendered here is a rank whatever it is called.** Component `0.15` renders on `1.0` and `3.1` where it is an offer. **The absence of the five rungs is rendered on the page**, with the route to where they live, because an absence nobody can see is indistinguishable from one nobody noticed.
+
+### What else changed in this file
+
+| Where | What happens to it |
+|---|---|
+| **Section 0, the orphan rule** | Amended above. First home of one capability, by founder decision, empty parent printed |
+| **Section 0, the refusal on counters** | **Narrowed, not broken.** Two numbers here are counters and neither is a score: the wager figure is money in coins, settled by `D-25` against `0.11` rule 7, and the unread count **goes to zero when the messages are read and nothing accumulates.** The refusal now reads: no counter that measures what this account has done |
+| **Section 2, states** | **One row added:** no messages in either tab, `profile-quiet.html`. **It is the state the capture was actually taken in** and the state every new account is in |
+| **Section 4, "Nothing here becomes two columns"** | **Amended.** Its reason was that five short blocks in two columns is a dashboard. **A list that grows, beside a short record, is a reading surface.** Two columns from 1000, one column below it |
+| **Section 5 B, headings** | **Rewritten.** H1 Profile. H2s in block order: your daily case, your messages, who this account is, what a stranger can see. The account id is an H3 inside the third |
+| **Section 6, open items** | **One added, and it is owed by another node.** Nothing anywhere else on the product says a message is waiting. `0.1` and the tab strip `D-84` are the two carriers that could hold an unread marker and **drawing it here would decide another node's carrier from inside this one.** The count on the panel's own tabs is the whole of the signal until `0.1` answers |
+
+---
+
 ## 0. What this page holds, and the test every row had to pass
 
 **The test:** is this a fact the product already holds, or a control that already exists elsewhere on the map. **Nothing else was allowed on**, per the orphan rule above.

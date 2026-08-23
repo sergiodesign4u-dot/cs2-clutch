@@ -4095,13 +4095,13 @@ select.wf-f { background: var(--wf-surface); min-height: var(--wf-tap); padding-
 /* THE GROUP IS A CARD WITH ITS NAME ON IT, which is what makes fourteen rows read
    as four things rather than as a list. The baseline groups by General, Security,
    Linked profiles and Notifications and the grouping is the part worth inheriting. */
-.wf-cfg-g {
+.wf-cfg-g, .wf-pf-g {
   display: flex; flex-direction: column; gap: var(--wf-s-3);
   padding: var(--wf-s-3);
   border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
   background: var(--wf-surface);
 }
-.wf-cfg-gh {
+.wf-cfg-gh, .wf-pf-gh {
   margin: 0; font-size: var(--wf-t-xs); letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--wf-ink-dim);
 }
@@ -4168,3 +4168,115 @@ textarea.wf-cfg-in { min-height: 0; }
 .wf-cfg-routes li { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--wf-s-half) var(--wf-s-2); font-size: var(--wf-t-s); }
 .wf-cfg-routes a { min-height: var(--wf-tap); display: inline-flex; align-items: center; }
 .wf-cfg-where { color: var(--wf-ink-dim); }
+
+/* ============================================================================
+   NODE 5.10, PROFILE. THE BASELINE'S SHAPE, D-87. acct_profile_daily.png, the
+   founder's capture of 21 August 2026: the daily card on the left and the
+   messages panel on the right, side by side under the account band.
+   THE NODE SAID "NOTHING HERE BECOMES TWO COLUMNS" AND THAT SENTENCE IS
+   AMENDED RATHER THAN STEPPED OVER. Its reason was that five short blocks in
+   two columns is a dashboard. The page now holds a list that grows, and a list
+   beside a short record is not a dashboard: it is a reading surface with its
+   facts kept in view. The refusal held against what the page was.
+   THE MOBILE ORDER IS NOT THE DESKTOP ORDER AND THE DOM CARRIES THE MOBILE ONE.
+   What changes comes first, what never changes comes last: the daily entry, the
+   messages, then the record of who this account is. ======================= */
+.wf-pf { display: flex; flex-direction: column; gap: var(--wf-s-3); }
+@media (min-width: 1000px) {
+  .wf-pf {
+    display: grid; align-items: start; gap: var(--wf-s-3) var(--wf-s-4);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+    grid-template-areas: "daily msg" "rec msg";
+  }
+  .wf-pf-daily-g { grid-area: daily; }
+  .wf-pf-msg     { grid-area: msg; }
+  .wf-pf-rec     { grid-area: rec; }
+}
+.wf-pf-rec { display: flex; flex-direction: column; gap: var(--wf-s-3); min-width: 0; }
+
+/* THE DAILY ENTRY, COMPONENT 0.15 IN ITS COMPRESSED FORM, AND THE TIERS ARE NOT
+   HERE. D-25 rule 3: a tier gives a case and nothing else, and "the moment the
+   tier becomes an identity the ladder has stopped describing an entitlement".
+   This is the page whose whole subject is who this account is, so the five rungs
+   stay on 1.0 and 3.1 where they are an offer, and what travels here is the
+   count, the wager figure in coins and the control. The baseline's own profile
+   shows exactly this and no ladder either. */
+.wf-pf-daily { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-3); }
+.wf-pf-ring {
+  flex: 0 0 auto; display: grid; place-items: center;
+  width: 64px; height: 64px; border: 2px solid var(--wf-line); border-radius: 50%;
+  font-size: var(--wf-t-l); font-weight: 700;
+}
+.wf-pf-daily-t { display: flex; flex-direction: column; gap: 2px; flex: 1 1 180px; min-width: 0; }
+
+/* THE MESSAGES PANEL. Two tabs, and they are two different things wearing one
+   shape: promo is a channel a person may switch off in 5.11, system is the
+   product telling you what happened to your money and it has no switch. */
+.wf-msg { gap: var(--wf-s-2); }
+/* THE PANEL'S OWN RHYTHM IS ONE RULE, conventions 1.2a. The renderer puts the
+   tabs, the header row and the list into this one host, so the space between
+   them is set here once rather than on three siblings. */
+.wf-msg-in { display: flex; flex-direction: column; gap: var(--wf-s-2); }
+.wf-msg-tabs { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
+.wf-mtab {
+  display: inline-flex; align-items: center; gap: var(--wf-s-1);
+  min-height: var(--wf-tap); padding: 0 var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: none; color: var(--wf-ink-dim);
+  font: inherit; font-size: var(--wf-t-s); cursor: pointer;
+}
+.wf-mtab[aria-selected="true"] {
+  color: var(--wf-ink); background: var(--wf-raised);
+  border-color: var(--wf-ink-dim); font-weight: 700;
+}
+/* THE COUNT IS A NUMBER OF UNREAD MESSAGES AND NEVER A SCORE, 0.11 rule 7. It
+   counts things addressed to this person that they have not opened, it goes to
+   zero when they are read, and nothing accumulates. */
+.wf-mtab-n {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 20px; height: 20px; padding: 0 5px;
+  border: 1px solid var(--wf-line); border-radius: var(--wf-r-1);
+  font-family: var(--wf-mono); font-size: var(--wf-t-xs);
+}
+.wf-msg-bar {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--wf-s-1) var(--wf-s-2);
+}
+.wf-msg-h {
+  margin: 0; font-size: var(--wf-t-xs); letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--wf-ink-dim);
+}
+.wf-msg-acts { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
+.wf-msg-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
+.wf-msg-i {
+  display: flex; gap: var(--wf-s-2);
+  padding: var(--wf-s-2) 0; border-top: 1px solid var(--wf-line-soft);
+}
+.wf-msg-i:first-child { border-top: 0; padding-top: 0; }
+.wf-msg-dot {
+  flex: 0 0 8px; width: 8px; height: 8px; margin-top: 7px;
+  border: 1px solid var(--wf-line); border-radius: 50%;
+}
+.wf-msg-i.is-unread .wf-msg-dot { background: var(--wf-ink); border-color: var(--wf-ink); }
+.wf-msg-b { display: flex; flex-direction: column; gap: var(--wf-s-half); min-width: 0; }
+.wf-msg-t { margin: 0; font-size: var(--wf-t-s); font-weight: 700; }
+.wf-msg-p { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); max-width: var(--wf-measure); }
+.wf-msg-m { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-half) var(--wf-s-2); }
+.wf-msg-when { font-family: var(--wf-mono); font-size: var(--wf-t-xs); color: var(--wf-ink-faint); }
+/* UNREAD IS A WORD BEFORE IT IS A DOT. No colour-only state anywhere, 5.10
+   section 5 checklist E, and a filled circle is exactly the state a person who
+   cannot see it would lose. */
+.wf-msg-new {
+  padding: 1px var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1);
+  font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim);
+}
+.wf-msg-i:not(.is-unread) .wf-msg-new { display: none; }
+/* THE EMPTY STATE CARRIES AN IMAGE SLOT AND NOT AN IMAGE. The baseline draws an
+   envelope; in grey the slot states the room it takes and 06 decides what goes
+   in it. Same treatment as every other artwork slot in this stage. */
+.wf-msg-art {
+  display: block; width: 96px; height: 72px; align-self: center;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
+}
+.wf-msg .wf-empty { padding-block: var(--wf-s-3); }
+.wf-msg .wf-empty-h, .wf-msg .wf-empty-p { text-align: center; align-self: center; }

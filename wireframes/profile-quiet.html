@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile: Steam unreadable</title>
+  <title>Profile: nothing to read</title>
   <meta name="robots" content="noindex">
   <link rel="stylesheet" href="_wf.css">
 </head>
 <body>
 
-<!-- NODE 5.10, PROFILE, STATE: THE STEAM LINK IS UNREADABLE. Rebuilt 23 August
-     2026 to the same shape as the base page, D-87.
-     NEVER A SILENT FALLBACK TO A GENERATED NAME, node 5.10 section 2: a name the
-     product invented is a second name for one person.
-     THE OTHER THREE BLOCKS ARE UNTOUCHED AND THAT IS THE POINT. The daily entry,
-     the messages and the account id are ours and they are readable whatever Steam
-     is doing. A page that greys out everything because one source is down tells a
-     person their account is broken when one field is.
+<!-- NODE 5.10, PROFILE, STATE: NO MESSAGES. D-87.
+     THIS IS THE STATE THE BASELINE CAPTURE IS ACTUALLY IN. acct_profile_daily.png
+     shows an envelope and NO MARKETING MESSAGES, so the empty is the state that
+     was walked and the populated one is the state that was reasoned. It is also
+     the state every new account is in, and the state a person is in the first
+     time they follow the link Settings gives them.
+     BOTH TABS ARE EMPTY AND THEY SAY DIFFERENT THINGS. An empty promo tab is a
+     channel that has not spoken. An empty system tab is the far better news that
+     nothing has gone wrong with this account's money, and saying so is worth more
+     than an envelope. The controls are absent rather than disabled: D-58, a
+     control with nothing to act on is a picture of one.
      ----------------------------------------------------------------------
      NODE 5.10, PROFILE. REBUILT 23 AUGUST 2026 TO THE BASELINE'S SHAPE, D-87.
      Source: acct_profile_daily.png, the founder's capture of 21 August 2026. The
@@ -104,17 +107,12 @@
           <div class="wf-prof-band">
             <span class="wf-prof-av" aria-hidden="true"></span>
             <span class="wf-prof-n">
-              <span class="wf-prof-name wf-fig-missing">Name unavailable</span>
+              <span class="wf-prof-name">nightjar_cs</span>
               <span class="wf-fig-c">Here since 12 Jan 2026</span>
             </span>
           </div>
-
-          <div class="wf-notice">
-            <h3 id="h3-broken">We cannot read your Steam account right now</h3>
-            <p>Your name and picture come from Steam and we cannot reach it. <strong>We are not making one up in the meantime.</strong></p>
-            <p class="wf-note">Nothing else about your account is affected. Your items, your rolls, your messages and taking anything out are all open.</p>
-            <div class="wf-row"><a class="wf-btn" href="support.html">Support</a><a class="wf-btn" href="account.html">My items</a></div>
-          </div>
+          <p>Made from the Steam account <strong>nightjar_cs</strong>. Your name and picture are Steam&#39;s, and they change here when they change there.</p>
+          <p class="wf-note">We never had a password of yours and we never asked Steam to change anything on your account.</p>
 
           <div class="wf-prof-f">
             <h3 class="wf-pf-gh" id="h3-id">Your account id</h3>
@@ -122,7 +120,7 @@
               <span class="wf-tid-v">acc-7f3a91c4</span>
               <button class="wf-btn wf-btn--small" type="button">Copy</button>
             </div>
-            <p class="wf-fig-c">This is ours and it is readable whatever Steam is doing.</p>
+            <p class="wf-fig-c">This is what support and an appeal refer to. <span class="wf-fig-missing">What the id actually looks like is not decided.</span></p>
           </div>
         </section>
 
@@ -158,20 +156,9 @@ window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';
 window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
 window.WF_ACCT = { active: 'profile' };
-/* THE SYSTEM TAB IS THE ONE WITH A PARENT: B8-2, waiting with numbers. Every row
-   here is a thing that happened to this account's money, its items or one of its
-   opens, and every row points at the page that holds the record. */
-window.WF_MSGS = {
-  promo: [
-    { t: 'Two cases joined the shelf', p: 'Ironbound and Nightfall are open from today, both with their chances and tested return published on the case page.', when: '22 Aug 2026 09:10', unread: true, href: 'catalogue.html', link: 'See the shelf' },
-    { t: 'Your daily entry is waiting', p: 'You have not used a free entry since 14 August. It costs nothing and it does not stack.', when: '18 Aug 2026 07:00', unread: false, href: 'catalogue.html#cat-daily', link: 'Open the daily case' }
-  ],
-  system: [
-    { t: 'Your withdrawal is still with Steam', p: 'The AWP Asiimov you sent on 21 August has not been accepted yet. Nothing is lost and you do not have to ask us: the page updates itself and tells you the elapsed time.', when: '21 Aug 2026 14:02', unread: true, href: 'withdraw-clock.html', link: 'Open the withdrawal' },
-    { t: 'An open did not finish', p: 'Round 8f21c0 stopped part way on 19 August. The item is in your items and the round is checkable, so the result stands whatever the animation did.', when: '19 Aug 2026 21:44', unread: true, href: 'history.html', link: 'Check the round' },
-    { t: 'A payment was declined', p: 'Your bank refused the 20.00 coin top up on 17 August. Nothing left your account and nothing was charged.', when: '17 Aug 2026 12:31', unread: false, href: 'deposit-declined.html', link: 'Try again' }
-  ]
-};
+/* NOTHING IN EITHER TAB. Not an error and not a gap: it is the ordinary state of
+   a new account and it is the state the baseline capture was taken in. */
+window.WF_MSGS = { promo: [], system: [] };
 </script>
 <script src="_nav.js"></script>
 </body>
