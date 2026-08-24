@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History, cash out, none yet</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- HISTORY, CASH OUT, NONE YET. The empty of the sell back ledger, D-93.
+     THIS EMPTY OFFERS A ROUTE AND THE OLD ONE COULD NOT. The D-88 panel refused
+     itself an empty state control on a rule it stated out loud: the other three
+     empties offer a route because there is an act that would fill them, and
+     there was no act that filled this one, so a button would have been a promise.
+     There is an act now. Selling an item back for coins starts on My items, so
+     that is where the control goes, and the rule survives its own reversal.
+     IT DOES NOT SAY "NOTHING TO SEE". It says what a row will hold when one
+     arrives, which is the difference between an empty a person can plan against
+     and an empty they have to guess at.
+     THE SECOND READING OF THE LABEL IS STILL PRINTED HERE, same as on the filled
+     page: taking a balance out as money is not built and the coin has no
+     published rate. An empty tab is exactly where a person would conclude that
+     the missing thing is a payment out that simply has not happened yet. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <!-- THE ACCOUNT BAND AND ITS TAB STRIP, D-84. Rendered by _nav.js like the
+         other carriers, because a strip that exists on one of four peers is a
+         dead end on the other three, and thirteen copies of one band is
+         thirteen places for it to drift. -->
+    <div class="wf-ah" data-acct-hero></div>
+
+    <h1>History</h1>
+    <!-- THE FOUR TABS, D-88 AND THEN D-89. The founder chose all four of the
+         baseline's after the argument for three was put and lost, and two days
+         later the four stopped being panels of one page and became four peer
+         pages. So this strip is now the same object as the account strip above
+         it: four links to four files, with the current one rendered as a span
+         rather than a link to where you already are, D-58. Built once in
+         _nav.js, because a strip that exists on one of four peers is a dead end
+         on the other three. -->
+    <div data-hist-tabs></div>
+
+    <div data-hist-list="cashout"></div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+window.WF_ACCT = { active: 'history' };
+window.WF_HISTTAB = 'cashout';
+window.WF_HIST = { cashout: [] };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

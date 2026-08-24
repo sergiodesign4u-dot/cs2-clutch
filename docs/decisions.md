@@ -3598,6 +3598,8 @@ The result pages called this account **Nightjar**. Everything else in the protot
 | Whether "tested return" is renamed once the denomination is stated | Founder |
 | Whether `cjm-to-be.md` gains a settlement row, or whether `A1` and `B7-1` already carry it | The stage that reopens the backlog. **Nothing was retro-fitted here** |
 
+**All three, and the resend rule printed on state 5.8, were answered on 2026-08-24 by `D-93`.** The list is kept as written rather than struck through, because what a named absence buys is only visible from the state it was in.
+
 ---
 
 ## D-92. The market is us, which removes the last excuse for not publishing the gap and removes the checkability with it
@@ -3631,3 +3633,115 @@ The founder's wording was **"our market should, in principle, be the product its
 ### And one thing arrived unasked
 
 **The three risk bands are set when a case is built, not derived from it.** The founder named them in passing: cases are formed at low, medium and high risk. `3.3` currently renders "Risk band not available: neither the thresholds between the three named values nor the method behind them is set". **Half of that is now answered:** the bands are an input at construction time rather than a label computed afterwards, which is a different object from what the node assumed. **The thresholds are still `[?]`** and the node's line stays until they are published.
+
+---
+
+## D-93. The venue answer is confirmed, and seven open points are closed in one pass
+
+**Date:** 2026-08-24. **Stage:** 04. **Decided by:** the founder, confirming `D-92` and then taking the seven recommendations put to them in one message. **Binds:** nodes `5.9`, `7.3`, `5.11`, `5.3`, `3.3`, `0.8`, `0.11`, and row `A1` of `cjm-to-be.md`.
+
+### First, the caveat `D-92` flagged is closed
+
+`D-92` recorded the founder's wording as **"our market should, in principle, be the product itself"** and refused to spend that "in principle". It named the cost of the hedge out loud: if copies are in fact sourced from a third party at the moment of withdrawal, one word in every line of that record changes, from `we` to a named party, and `A1`'s outbound link comes back to life.
+
+**The founder, 24 August 2026: our market, we sell the copy.** So every line of `D-92` stands as written and the hedge is spent. This entry is the only place that fact needs to be recorded, because `D-92` already said what follows from it.
+
+### And it unblocked the first of the seven, which is why they arrive together
+
+Six of the seven were open on their own merits. **The gap figure was open on a cost.** While the market was a third party, reading it for every item in every case was a real recurring expense and a cadence was a budget question. With both operands ours the figure is arithmetic on two values we hold continuously, and **declining to publish it stopped being a gap and became a decision.**
+
+### The seven
+
+| # | Question | Answer | Where it lands |
+|---|---|---|---|
+| 1 | The per-case gap figure, its method and cadence | **Publish it.** Method and cadence decided here, the value still owed | `3.3`, ten pages |
+| 2 | Rename "tested return to player" | **No** | `3.3`, ten pages |
+| 3 | Resend after an expired trade offer | **Re-strike at the price of the day, shown before the press** | `5.3` state 5.8 |
+| 4 | Can a person hide their public profile | **Yes, and default visible** | `5.11`, `7.3`, `0.8` |
+| 5 | Does the Cash out tab become the sell-back ledger | **Yes** | `5.9` tab four |
+| 6 | Does `cjm-to-be.md` gain a settlement row | **No** | nothing is written |
+| 7 | Do we say our copy is the cheapest in the arithmetic | **No, it stays in the record** | nothing is written |
+
+### 1. The gap figure: method and cadence are the decision, the number is the debt
+
+**Method.** Every item in the case, weighted by its published chance, our value against what we charge for a real copy, as one signed percentage. **The weighting is the expected value's own weighting** and that is deliberate: two figures in one row that disagreed about what the case contains would be worse than one figure.
+
+**Cadence.** Every item read at one moment, re-read when the case is priced again or when the market moves. **The as-of is half of what the figure means**, because a price inside a case is frozen when the case is priced and the market is not.
+
+**Signed in both directions.** Four of the nine rows in the 18 August walk sat **above** the market, which is money back. A figure that can only be a surcharge is wrong on nearly half of them.
+
+**The value renders as an absence and never as a placeholder.** `0.11` rule 3: missing is a state and never a zero, and a zero here would read as "our values match the market", which is the one claim the two walked captures disprove outright.
+
+**What changed is who owes it.** It was owed by node `0.11` with no method behind it, which is a debt nobody can pay because nobody knows what would settle it. It is now owed by the founder as **one value against a published method**. A smaller debt and a sharper one.
+
+### 2. "Tested return" keeps its name
+
+**A rename owes a method for whatever the new name claims.** "Tested return in coins" invites the question "and in items?", which is a second percentage, which is a second measurement with its own window and its own n.
+
+**What a reader needs is not a better word, it is the second number.** The denomination sentence says what the return is in, and the settlement figure two cells along says what the coins do not cover. **Two figures side by side do the work a new name only promises.**
+
+### 3. Resend re-strikes at the price of the day
+
+**Holding the old quote hands a person a free option.** Sit on an expired offer, watch the market, press when it has moved your way. We carry the downside and they take the upside, and nothing about an expired offer earns that.
+
+**Re-striking is symmetric and it is already how every other settlement on this node works.** The cost is real and it is printed: on the drawn record it is 4.90 coins more than the person agreed to two days ago, because the copy read 58.90 on 19 August and 63.80 on 21 August.
+
+**The figure goes before the control, not in the receipt after it.** Design principle 3: where money is about to move, the number that moves is next to the thing that moves it. A settlement discovered after the press is `B7-1` with our name on it.
+
+**And the absence that preceded it earned its keep.** The page carried, for a day, "whether resend honours the settlement already struck or strikes a new one is not decided, and the two answers differ by real money". **That sentence is what got the rule asked for instead of guessed at** by whoever built the next state. It is kept in the file as history rather than deleted.
+
+**The label does not carry the figure.** "Send the offer again, settling at 42.40" was written and taken out: `D-52`, a button label never wraps, and that one is 36 characters inside a full width button at 360.
+
+### 4. The public profile can be hidden, and it is visible by default
+
+**`D-90` published a page carrying a person's name and everything they have won, and gave them no way to take it down.** That is the one shape of `7.3` nobody argued for. `0.8` wanted the destination and `7.1` wanted no trophy shelf, and **neither of them wanted a permanent one.**
+
+**Default visible, and the default is the decision.** Off by default would switch off something the product already does and empty three surfaces at once. The smaller move is that the page is on and the person it is about can switch it off.
+
+**Exactly three things hiding changes.** The address renders `player-gone.html` to a stranger. The winner's name in the live drop strip keeps the name and loses the link. The route from Profile lands on the hidden state instead of the public view.
+
+**And two things it does not, printed on the row and on the page rather than only in the node.** The public page of a round already shared stays up, because `7.1` is about the round and its address was given out by the person who shared it. The name still appears in the strip. **A switch trusted for more than it does is worse than no switch.**
+
+**A stranger is never told that a page is hidden.** They get the same screen an account that never existed gets. A "this person hid their profile" page publishes the very fact the setting exists to withhold, and it tells a stranger which addresses are worth trying again.
+
+**The strip carries no hidden badge either**, for the same reason and one more: a badge would mark out which accounts have something worth looking at.
+
+**"Make me anonymous" stays absent and loses one of its two grounds.** It was blocked on two open questions, whether a public page of ours exists and what the strip and a shared result render about a person. The first is answered. **The second is not, and it is a different subject**: merging the two switches would let a person press one control and be surprised by half of what it did.
+
+### 5. Cash out becomes the sell-back ledger
+
+**Selling a skin back for coins is round 1 since `D-38` and had no ledger anywhere.** Deposits have one, withdrawals have one, rolls have one. This is the only movement of value on the product with no record of its own.
+
+**The Rolls tab's "Sold back" mark is a fact about the roll, not a record of the sale.** It says the thing you won is gone and why. It does not say what the sale credited, when it settled or under what reference, and **a person reconciling their balance cannot get any of those from it.**
+
+**The D-88 argument was right on a wrong premise, and it is superseded rather than deleted.** That entry shipped the tab as a rendered absence because "turning coins back into money is not a capability anywhere in the backlog" and the only capture of the tab is empty. Both halves are still true. What was wrong is the conclusion that the tab therefore had no subject, and **the page itself named the subject the whole time**: "selling an item back for coins, which does exist, is in round 1, and is already recorded one page over".
+
+**Both readings stay on the page, because the label still says Cash out.** Taking a balance out as money is not built and the coin has no published rate to do it at, so that reading is stated in one line and never performed.
+
+**No state column.** A sell back completes or it does not happen: there is no waiting party and no stage. Deposits and withdrawals carry a state column because both of them wait. **A column with one value on every row is a picture of a column.**
+
+**Credited is our price at that moment and the column says "credited" rather than "worth".** `D-91`: inside the coin economy a win is credited at our value and a sell back pays our value, so on the same day they are one number and on a later day they are not.
+
+**The empty gains a route and the D-88 rule survives its own reversal.** That page refused itself an empty-state control on a stated rule: the other three empties offer a route because there is an act that would fill them, and there was no act that filled this one. **There is an act now**, it starts on My items, and that is where the control goes.
+
+**One row, and that is not a thin demo.** The corpus holds exactly one sell back, the P250 on the Rolls tab and on `7.3`, and the ledger holds exactly that one. A second invented row would be a sale no other surface has ever heard of.
+
+### 6. `cjm-to-be.md` gains nothing
+
+**`A1` and `B7-1` already carry the settlement** and retro-fitting a row now is what `D-38` forbids by name. **An MVP that was never cut is not an MVP**, and a row written after the thing was built is a parent invented to legitimise a child.
+
+The settlement ships the way `D-38`'s own subject ships: **with its empty parent printed on the surface that carries it.**
+
+### 7. "Our copy is the cheapest in the arithmetic" stays in the record
+
+`R7` is real: the product holds the cheapest copy in its own arithmetic and offers no route to it except winning first. **It is a fact about our pricing, not a fact a person can act on.** The price cannot be bought, and printing a price nobody can pay is the dead item defect expressed as a number rather than as a control.
+
+**It stays in `numbers.md` as a finding.** The case page already carries the strongest honest form of the same idea, in `A1`'s own voice: if you can afford an item outright, buying it is cheaper on average than opening for it.
+
+### Two things found while building this, and one of them was nearly shipped
+
+**The venue lines had not all been amended by `D-92`.** Eleven wireframe pages still read "the venue is not chosen yet" three days after the venue was chosen. Two of them, the withdrawal clock and the degraded state, were the settlement's venue and were simply stale. **Fixed.**
+
+**And nine of them were not stale at all, and the first fix was wrong.** `case-outcome`, `case-interrupted` and the five result pages carry `F1`'s instance value receipt, which asks for **two named external venues** so that a person does not take our word for what one instance is worth. That is a different question from where the copy comes from, and `D-92` narrowed it without closing it: **neither of the two can be us.** The first pass rewrote those lines to say "there is no outside listing because the copy comes from us", which is the opposite of what `D-92` decided. **Caught before commit, reverted, and the lines now carry the narrowing instead.**
+
+**Two venue questions, one word.** They read identically on the page and they have opposite answers, which is exactly the collision `CLAUDE.md` records for screen codes and capability codes. The comment on `5.3` now names both so the next reader does not merge them again.

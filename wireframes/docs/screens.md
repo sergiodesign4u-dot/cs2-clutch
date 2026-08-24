@@ -2312,6 +2312,7 @@ Stage 04 proposed **three** tabs and refused cash out because it has no subject 
 | `player-owner.html` | **The owner reading their own** | The same page plus `Back to your profile`, and the long form of the cannot-be-hidden sentence |
 | `player-empty.html` | **Nothing won yet** | A shelf with no rows. The account exists and has opened nothing, which is a different sentence from an account that has won and cashed out |
 | `player-gone.html` | **No page to show** | One heading and a way out. It carries no name and no id, because a page that says which account is missing has answered the question it refused |
+| `player-hidden.html` | **Hidden, the owner looking at it** | Added 24 August 2026 by `D-93`. The public page unchanged under a band that says nobody can open it, a route to the switch in `5.11`, and the two things hiding does not take back printed above the shelf. **A stranger never sees this state**: they get `player-gone.html`, the same screen an account that never existed gets |
 
 ### The orphan cell is printed on the page
 
@@ -2631,3 +2632,30 @@ Stage 04 proposed **three** tabs and refused cash out because it has no subject 
 **16 distinct pages were touched:** 2 on `5.1`, 1 on `5.3`, and 13 carrying block 7 or the outcome clause across `3.3`, `3.6` and `3.7`.
 
 **No arithmetic was recomputed because no operand moved.** The twenty two signed figures verified after `D-91` are the same twenty two figures, and this round changed only the sentences around them. **Every venue absence was replaced by a margin absence and none was removed**: three of them, across the two surfaces that carried one, since `5.1` renders it in two states.
+
+
+---
+
+## `D-93`, 24 August 2026. Two pages, and one tab that changed subject
+
+**Founder decision.** The venue is confirmed and seven open points are closed. `docs/decisions.md` `D-93` holds all seven; what follows is only what changed on a screen.
+
+| Page | State | What it holds |
+|---|---|---|
+| `history-cashout.html` | **Cash out, sold back for coins** | Rewritten from a rendered absence into the **sell-back ledger**: when, what you sold, credited, the roll it came from, our reference. One row, the P250 the Rolls tab marks and `7.3` shows as gone |
+| `history-cashout-empty.html` | **Cash out, none yet** | New. The empty of the ledger, **with a route**, because there is now an act that fills it |
+| `player-hidden.html` | **Hidden, the owner looking at it** | New. See the `7.3` table above |
+
+**What changed on pages that already existed.**
+
+| Where | What moved |
+|---|---|
+| `settings.html` and its three states | A **Public profile** switch under Security, default on, with its two exclusions on the row. The anonymity row stays absent and loses one of its two grounds |
+| `withdraw-offer-expired.html` | The re-struck settlement, **42.40 against the 37.50 already taken**, rendered above the control instead of a sentence saying the rule was undecided |
+| The ten case screens | The gap figure gains its **method and cadence**; the value stays an absence. The tested return keeps its name and the comment says so is now a decision |
+| `withdraw-clock.html`, `withdraw-steam-degraded.html` | The stale "venue not chosen" line replaced by the relation to Steam, three days late |
+| The nine receipt pages | The **other** venue question, narrowed rather than closed: two named venues, `[?]` which, and **neither of them can be us** |
+| `player-owner.html`, `player-gone.html` | A route to the switch, and the note that a hidden page and an absent one render the same |
+| `_nav.js` | A third rendering of the winner's name in the strip: **name without a link, and no badge** |
+
+**And the note that belongs to this file rather than to the record.** The sell-back ledger's note and its bar were both wrong on the first render: the panel fell through to the withdrawals copy, and the count read `1 sales`. **Both were found by screenshotting the page that had just been built**, and neither is visible to any instrument that reads the corpus as text.

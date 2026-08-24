@@ -163,6 +163,44 @@ We are the source. For each of these the method has to be publishable, not only 
 
 ---
 
+## 2e. Amended 24 August 2026 by `D-93`. The caveat above is spent, and one register row gets a method
+
+**The founder confirmed on 24 August 2026: our market, we sell the copy.** Section 2d refused to spend `D-92`'s "in principle" and named what a third-party source would change. **It is not a third party.** Every line of section 2c stands as written.
+
+### The per-case gap row now has a method, a cadence and a named owner
+
+| | Before `D-93` | After |
+|---|---|---|
+| Method | Undecided | Every item weighted by its published chance, our value against what we charge for a copy, one signed percentage |
+| Cadence | Undecided | Every item read at one moment, re-read when the case is priced again or the market moves |
+| Value | `[?]` | `[?]` |
+| Owner | Node `0.11` | **The founder** |
+
+**The value did not move and that is the point.** What moved is the shape of the debt: **a `[?]` with no method behind it is a debt nobody can pay**, because nobody knows what number would settle it. A `[?]` against a published method is one value from one person.
+
+**Requirement six of `A1` in section 2c.3 is the same figure**, so this is the row that would take that requirement from not met to met.
+
+### `R7` stays a finding and does not become a block
+
+The product holds the cheapest copy in its own arithmetic and offers no route to it except winning first. **Founder decision, 24 August 2026: it is not printed in the product.**
+
+**It is a fact about our pricing, not a fact a person can act on.** The price cannot be bought. **Printing a price nobody can pay is the dead item defect expressed as a number** rather than as a control, and rule 3 of section 5 is the same instinct applied to a zero.
+
+**And the honest form of the idea is already shipped**, in `A1`'s own voice on `3.3`: if you can afford an item outright, buying it is cheaper on average than opening for it.
+
+### The two venue questions, which read identically and have opposite answers
+
+**Named here because eleven pages were nearly rewritten the wrong way on 24 August 2026.**
+
+| Question | Answer |
+|---|---|
+| Where does the copy on a withdrawal come from | **Us**, `D-92`, confirmed `D-93` |
+| Which two venues price the `F1` instance value receipt | **`[?]`, and neither of them can be us**, `D-92` |
+
+**The first is closed and the second is narrowed.** A fix that treated them as one would have made `3.6`, `3.7` and the five `7.1` pages say "there is no outside listing because the copy comes from us", **which is the opposite of what `D-92` decided about the receipt.** Caught before commit and reverted.
+
+---
+
 ## 3. Group B: numbers we quote from outside
 
 The source is somebody else's. For these, the rule is not "publish the method", it is **name the source and the date, or do not print the number**.

@@ -73,6 +73,24 @@
 
 ---
 
+## 0.6 Amended 24 August 2026 by `D-93`. Target 3 has a third rendering, and it carries no badge
+
+**Founder decision, 24 August 2026.** A person can hide their public profile, so **the winner's name in a tile has three renderings and not two.**
+
+| The winner | Renders as |
+|---|---|
+| An account with a visible profile | Name, linked to `7.3` |
+| An account that has hidden it | **Name, not linked** |
+| A bot | Name, **labelled `bot`**, not linked, row `A3` |
+
+**Hiding changes the link and nothing else.** Field 5 of row `A3` is the winner as the account chooses to appear, and choosing not to have a public page is one of the ways of appearing. The name stays, because taking it out is `5.11`'s other row and that one is still open.
+
+**It carries no badge, and that is the whole point.** A `hidden` mark in the strip would publish the very fact the setting exists to withhold, and it would tell a stranger which accounts have something worth looking at. **The bot label is required by `A3` and is a different obligation:** a bot has to be disclosed, a person's choice does not.
+
+**So two of the three renderings look identical in the strip** and only the link differs. That is deliberate: the tile is not the place a person learns anything about another account's settings.
+
+---
+
 ## 0. What this node adds to its own row in the map, and why
 
 `sitemap.md` describes `0.8` as a continuous tile strip with a source mode label, weapon and skin, a rarity tint, and a destination on every tile. **Three things are added here, and they are listed before the specification rather than discovered inside it**, which is the treatment `blocks.md` section 11 uses for the same class of change.

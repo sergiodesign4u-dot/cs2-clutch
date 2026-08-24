@@ -20,6 +20,44 @@
 
 ---
 
+## 0.2 Amended 24 August 2026 by `D-93`. The page can be switched off, and it is on by default
+
+**Founder decision, 24 August 2026.** A person can hide their public profile. The default is visible.
+
+**Why the node needed this and did not have it.** `D-90` published a page carrying a person's name and everything they have won, and gave them no way to take it down. **That is the one shape of this node nobody argued for.** `0.8` wanted the destination, `7.1` refused a trophy shelf outright, and **neither of them wanted a permanent one**. A page about someone that they cannot withdraw is a stronger claim than either carrier ever made.
+
+**Default visible, and the default is the decision rather than an absence of one.** Off by default would switch off something the product already does, and would empty `0.8`'s destination, this node and the route from `5.10` at once. The smaller move is that the page is on and the person it is about can switch it off.
+
+### Exactly three things the switch changes
+
+| Surface | Visible | Hidden |
+|---|---|---|
+| This address, to a stranger | The page | `player-gone.html`, the same screen an account that never existed gets |
+| `0.8`, the winner's name in the strip | Name, linked here | Name, **not linked**, and no badge |
+| `5.10`, "See yourself as a stranger does" | The public view | The hidden state, carrying the switch's route |
+
+### And two things it does not change, printed on the page rather than only here
+
+**The public page of a round already shared stays up.** `7.1` is a page about a round, its address was given out by the person who shared it, and retracting it is a different capability with a different owner. **The name still appears in the live drop strip.**
+
+**A switch trusted for more than it does is worse than no switch**, so both exclusions render on the hidden state and on the settings row itself.
+
+### A stranger is never told that a page is hidden
+
+They get `player-gone.html`, and it is the same page an account that never existed gets. **A "this person hid their profile" screen publishes the very fact the setting exists to withhold**, and it tells a stranger that the address is worth trying again later. **The two causes are indistinguishable from outside, which is what makes the switch worth anything.**
+
+**The strip carries no hidden badge either**, for the same reason and one more: a badge would mark out which accounts have something worth looking at.
+
+**Nothing on `player-gone.html` changes for this.** Its copy already says what is true of both causes and does not speculate about which. That restraint was the right call before it had a second cause and is load bearing now that it has one.
+
+### The hidden state shows the page, not a stub
+
+**What a person needs in order to decide whether to turn this back on is the thing itself**, not a description of it. A hidden state that showed a stub would make the switch a guess. Same argument `D-89` made for `5.10`'s "See yourself as a stranger does": three sentences about a public footprint are three sentences taken on trust.
+
+**The control is not on this page.** It lives once, on `5.11` under Security, and this page routes to it. One setting, one control, `D-58`.
+
+---
+
 ## 1. The argument this node lost, kept whole
 
 `D-69` left the product holding two opposite verdicts on one object for two days.

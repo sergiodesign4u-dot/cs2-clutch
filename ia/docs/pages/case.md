@@ -257,6 +257,41 @@ Composition from `blocks.md` section 4, T3 object detail with a live event. Orde
 
 ---
 
+## 5b. Amended 24 August 2026 by `D-93`. The gap figure gets a method and a cadence, the label keeps its name
+
+**Two founder decisions, one row of figures.**
+
+### The per-case gap figure: publish it
+
+`D-91` left this figure `[?]` with its owner at `0.11`, its method undecided and its cadence undecided. **`D-92` removed the reason it was undecided.** While the market was a third party, reading it for every item in every case was a real recurring expense and a cadence was a budget question. **Both operands are ours**, so the figure is arithmetic on two values we hold continuously, and **declining to publish it stopped being a gap and became a decision.**
+
+| | Decided 24 August 2026 |
+|---|---|
+| **Method** | Every item in the case, **weighted by its published chance**, our value against what we charge for a real copy, as one signed percentage |
+| **Cadence** | Every item read at **one moment**, re-read when the case is priced again or when the market moves |
+| **Sign** | Both directions |
+| **The value** | Still `[?]`. **Owner moved from `0.11` to the founder** |
+
+**The weighting is the expected value's own weighting.** Section 5 already computes the expected value as every chance multiplied by its value. Using a different weighting here would put two figures in one row that disagree about what the case contains, **and a disagreement between two of our own numbers is worse than one number missing.**
+
+**The as-of is half of what the figure means.** A price inside a case is frozen when the case is priced and the market is not, so the age of the freeze is not a footnote on the gap, it is part of it. **A gap figure with no date behind it cannot be checked by the person reading it.**
+
+**Signed in both directions**, because four of the nine rows in the 18 August walk sat **above** the market, which is money back. A figure that can only be a surcharge is wrong on nearly half of them.
+
+**The value renders as an absence and never as a placeholder.** `0.11` rule 3: missing is a state and never a zero, and a zero here would read as "our values match the market", **which is the one claim the two walked captures disprove outright.**
+
+**What changed is who owes it.** It was owed by node `0.11` with no method behind it, **which is a debt nobody can pay because nobody knows what would settle it.** It is now owed by the founder as one value against a published method.
+
+### "Tested return to player" keeps its name
+
+`D-91` stated the denomination in words and left the rename open. **It is closed as a no.**
+
+**A rename owes a method for whatever the new name claims.** "Tested return in coins" invites "and in items?", which is a second percentage with its own window and its own n, and section 4's condition would then apply to two figures instead of one.
+
+**What a reader needs is not a better word, it is the second number.** The denomination sentence says what the return is in; the gap figure two cells along says what the coins do not cover. **Two figures side by side do the work a new name only promises.**
+
+---
+
 ## 6. Node `3.4`. Item at zero free units. **Dissolved 21 August 2026 by `D-60`** {#3.4}
 
 **Type:** state. **Scope:** ~~MVP~~ **dissolved.** **Parent node:** `3.3`. **No URL.**

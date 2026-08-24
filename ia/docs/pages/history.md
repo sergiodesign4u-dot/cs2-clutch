@@ -128,6 +128,44 @@
 
 ---
 
+## 0.7 Amended again, 24 August 2026, by `D-93`. The fourth tab has a subject, and it is not the one its label sounds like
+
+**Founder decision, 24 August 2026.** The Cash out tab becomes the **sell-back ledger**: every item this account has sold back for coins.
+
+**Why it needed one.** Selling a skin back for coins is round 1 since `D-38`. Deposits have a ledger, withdrawals have a ledger, rolls have a ledger. **This is the only movement of value on the product with no record of its own.**
+
+**And the Rolls tab does not already carry it.** The roll row prints `Sold back, 21 Aug` on the item, which is a fact about the roll: the thing you won is gone and here is why. **It does not say what the sale credited, when it settled, or under what reference.** A person reconciling their balance against ours cannot get any of those from a mark on an item.
+
+**The `D-88` argument was right on a wrong premise and it is superseded, not deleted.** Section 0.4 shipped this tab as a rendered absence on the ground that "turning coins back into money is not a capability anywhere in the backlog" and that the only capture of the tab is empty. **Both halves of that are still true.** What was wrong is the conclusion that the tab therefore had no subject, and **the rendered absence named the subject itself**: "selling an item back for coins, which does exist, is in round 1, and is already recorded one page over".
+
+**Both readings stay on the page, because the label is still the baseline's.** Taking a balance out as money is not built, and the coin has no published rate to do it at, so that reading is stated in one line under the bar and never performed. A tab that gained a subject and dropped the reading its label carries would be a promise nobody made.
+
+### The columns, and the one that is deliberately absent
+
+| Column | What it holds |
+|---|---|
+| **When** | The moment the sale settled |
+| **What you sold** | The skin, its wear, as `0.6` names it |
+| **Credited** | Coins added to the balance, **our price for the skin at that moment** |
+| **From this roll** | The case and the moment of the round it came from |
+| **Our reference** | The same shape the other two ledgers use |
+
+**No state column, and that is a decision rather than an omission.** A sell back completes or it does not happen: there is no waiting party and no stage. Deposits and withdrawals carry one because both of them wait. **A column with one value on every row is a picture of a column.**
+
+**"Credited" and not "worth", and `D-91` is the reason.** Inside the coin economy a win is credited at our value and a sell back pays our value, so on the same day they are one number and on a later day they are not. The column name has to survive the later day.
+
+**And the second price is named under the bar.** What a real copy of the same skin costs is our other price, and the difference between selling back and taking it out is the whole of `D-91`. **A ledger that prints one of the two teaches that there is only one.**
+
+### The empty gains a route, and the `D-88` rule survives its own reversal
+
+Section 0.4 refused this tab an empty-state control on a rule it stated out loud: the other three empties offer a route because there is an act that would fill them, and there was no act that filled this one, so a button would have been the promise the page was careful not to make.
+
+**There is an act now.** Selling an item back starts on `5.1`, so that is where the control goes. The rule did not bend; its input changed.
+
+**One state page, `history-cashout-empty.html`.** The filled page carries exactly one row, the P250 the Rolls tab marks and `7.3` shows as gone. **A second invented row would be a sale no other surface has ever heard of.**
+
+---
+
 ## 0. What a row is, and why that is the whole node
 
 A row is **a roll**, not an item. Seven fields, and every one of them exists because something reads it separately.
@@ -284,7 +322,7 @@ Composition from `blocks.md` section 3, **T2 listing with an empty state**, rows
 | **`D-C`, whether rolls are retained with seed and nonce** | Sent to the platform on 11 August with `D-B` as one request and not returned. **Section 1 draws both answers and the page shape survives either**, but which one ships is not a design choice | The live platform, then the founder |
 | **How far back the history goes** | Whether it is every roll ever or a window. **A window is a retention decision with a privacy face**, so it belongs in the privacy document, which does not exist | Counsel, then production |
 | **The three register rows** | Section 8 | Node `0.13` |
-| **Whether a roll can be hidden by its owner** | `7.1` publishes one round to a stranger with a link. Whether a person can keep a specific roll out of that is not decided anywhere, and this page is where they would do it | Founder, with `7.1` |
+| **Whether a roll can be hidden by its owner** | `7.1` publishes one round to a stranger with a link. Whether a person can keep a specific roll out of that is not decided anywhere, and this page is where they would do it. **Narrowed 24 August 2026 by `D-93` and not closed:** the founder gave the whole public profile a switch, and that switch takes down the page rather than a round. `D-93` says so on the row itself, because a switch trusted for more than it does is worse than no switch | Founder, with `7.1` |
 | **What a row shows when the case itself is gone** | A case can be retired. The roll happened and the case page may not exist. **Named rather than assumed either way** | Node `3.1`, then here |
 | **The page size and what the pager is** | `blocks.md` T2 gives the shape and no number | Production |
 | **Whether the deposit boundary's unit and period are known** | Section 0.6. `history-deposits.html` renders "40.00 coins for the week" and `responsible-in-force.html` renders "40.00 unit not set per period" with every period reading `Period not set`. **One boundary, two renderings, disagreeing about what is known** | Founder, with `6.1` |

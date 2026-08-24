@@ -76,6 +76,50 @@
              said we do not know the number while the same screen showed it twice,
              which is the state the ceiling figure was in before it was pulled. -->
         <p class="wf-note wf-fig-missing">The elapsed below is what this offer ran for before Steam closed it, not a period we publish. How long an offer stands is Steam&#39;s to set and to change, so we do not state it as our own rule</p>
+        <!-- THE PRICE OF PRESSING IT, BEFORE THE PRESS, D-93. Founder decision of
+             24 August 2026: sending again strikes a new settlement at the price of
+             the day, and the figure is on the screen before the control rather
+             than in the receipt after it.
+             WHY RE-STRIKING RATHER THAN HOLDING THE OLD QUOTE. Holding it means we
+             carry the market move for as long as an offer sits unanswered, and it
+             hands a person a free option: sit on an expired offer, watch the
+             market, press when it has gone your way. Re-striking is symmetric and
+             it is already how every other settlement on this node works. The cost
+             is real and it is printed: on this record it is 4.90 coins more than
+             the person agreed to two days ago.
+             AND IT MOVES IN BOTH DIRECTIONS. Four of the nine rows in the 18
+             August walk sat above the market, so a re-strike can as easily give
+             money back. The wording says "settles again" rather than "costs more",
+             and only the figure on this record carries a sign.
+             THIS IS DESIGN PRINCIPLE 3 AT THE ONE MOMENT IT APPLIES: the money is
+             about to move, so the number that moves is next to the control that
+             moves it. A settlement discovered after the press is B7-1 with our
+             name on it. -->
+        <div class="wf-cost-say">
+          <p><strong>Sending it again settles again, at today&#39;s price and not at the one you agreed to.</strong> The market moved while this offer sat, so pressing this costs <strong>42.40 coins</strong> against your balance instead of the 37.50 already taken. The difference of <strong>4.90 coins</strong> comes off when you press, and if the market had moved the other way it would come back.</p>
+        </div>
+        <div class="wf-tablewrap">
+          <table class="wf-table" data-settle>
+            <caption class="wf-vh">What sending the offer again would settle at, read today</caption>
+            <thead>
+              <tr>
+                <th scope="col">Skin name</th>
+                <th scope="col">Your skin price</th>
+                <th scope="col">Market skin price</th>
+                <th scope="col">Your balance impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-l="Skin name">AK-47 Redline, Field-Tested, StatTrak</td>
+                <td data-l="Your skin price" data-site>21.40</td>
+                <td data-l="Market skin price" data-market>63.80</td>
+                <td data-l="Your balance impact" data-impact>-42.40</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="wf-note">Read 21 Aug 2026 09:31. It moves daily, so what you are shown when you press is what you are charged, and it is read again at that moment.</p>
         <!-- RESEND IS ONE CONTROL. It re-enters the offer stage, the limits are
              evaluated again because they can change, and if one now bites the
              person meets 5.4 with the record intact rather than a generic
@@ -175,13 +219,22 @@
            NUMBER WEARING THE OLD ONE'S CLOTHES, which is precisely the injury
            B7-1 describes, so the second read is printed as its own figure with
            its own moment beside it rather than substituted into the row.
-           AND WHAT HAPPENS ON RESEND IS NOT DECIDED, so it says so. Whether Send
-           the offer again honours the settlement already struck or strikes a new
-           one at today's market is a business rule this repository does not hold,
-           and the two answers differ by real money. Inventing one here would be
-           the median the input gate exists to prevent. THE CONTROL STAYS LIVE,
-           D-58: an undecided rule is not a reason to kill a button, it is a
-           reason to say what is unknown before the press.
+           AND WHAT HAPPENS ON RESEND IS DECIDED SINCE 24 AUGUST 2026, D-93: it
+           strikes a new settlement at the price of the day. THE OLD STATE OF THIS
+           BLOCK IS WORTH KEEPING because it is what a named absence bought. It
+           read: whether resend honours the settlement already struck or strikes a
+           new one is a business rule this repository does not hold, and the two
+           answers differ by real money. That sentence sat on the screen for a day
+           and it is what got the rule asked for and answered, rather than guessed
+           at by whoever built the next state.
+           THE FIGURE MOVED TO THE TOP WITH THE DECISION. An undecided rule earns a
+           sentence before the press; a decided one earns the number. So the
+           re-struck settlement now renders above the control, D-58 and design
+           principle 3. THE LABEL DOES NOT CARRY THE FIGURE. "Send the offer
+           again, settling at 42.40" was written and taken out: D-52, a button
+           label never wraps, and that one is 36 characters inside a full width
+           button at 360. The number belongs in the block above the button, where
+           it has room to be read, and the button stays the act.
            OUR PRICE HAS NOT MOVED AND THE MARKET HAS, AND THAT IS THE MECHANIC
            RATHER THAN AN ODDITY. D-91: a price inside a case is frozen because
            re-pricing one item re-prices the case and every unwithdrawn copy of it
@@ -221,8 +274,8 @@
              substituted into the row above, because the row above is what
              happened and this is what the market says now. -->
         <p class="wf-note">Struck at <b>58.90</b> coins, read 19 Aug 2026 11:03. Read again 21 Aug 2026 09:31 the same copy is <b>63.80</b> coins, which is 4.90 more. Our own price for the skin has not moved: a price inside a case is set when the case is priced, and the market re-prices itself daily.</p>
-        <p class="wf-note wf-fig-missing">Whether sending the offer again keeps the 58.90 already settled or strikes a new settlement at the price of the day is not decided. It is a real difference in money and it is named here rather than discovered after the press</p>
-        <p class="wf-note">The copy bought for you carries float <b>0.2171338</b>, Field-Tested, and it is the one you picked out of three at that price. <span class="wf-fig-missing">The venue these prices were read from is not chosen yet, so there is no listing to check them against here.</span></p>
+        <p class="wf-note">Sending the offer again strikes a new settlement at the price of the day rather than keeping the 58.90 above, D-93. The figure that would be struck today is at the top of this page, beside the control, because it is a real difference in money and it belongs before the press.</p>
+        <p class="wf-note">The copy bought for you carries float <b>0.2171338</b>, Field-Tested, and it is the one you picked out of three at that price. The copy comes from us, at our price, and we set our prices against the Steam market. <span class="wf-fig-missing">How far under Steam we set them is not published yet.</span></p>
       </div>
       </div>
       <div class="wf-wd-side wf-stack">

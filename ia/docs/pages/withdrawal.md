@@ -90,6 +90,39 @@ Three published figures do that work and all three already have an owner in `0.1
 
 ---
 
+## 0c. Amended 24 August 2026 by `D-93`. The resend rule is decided, and the venue answer is confirmed
+
+**Two founder decisions land on this node.**
+
+### Sending an expired offer again strikes a new settlement at the price of the day
+
+State 5.8 carried this as a named absence for one day: *"whether Send the offer again honours the settlement already struck or strikes a new one at today's market is a business rule this repository does not hold, and the two answers differ by real money."* **It is decided as a re-strike.**
+
+**Holding the old quote hands a person a free option.** Sit on an expired offer, watch the market, press when it has moved your way. We carry the downside and they take the upside, **and nothing about an expired offer earns that.**
+
+**Re-striking is symmetric and it is already how every other settlement on this node works.** The cost is real and it is printed: on the drawn record it is 4.90 coins more than the person agreed to two days ago, because the copy read 58.90 on 19 August and 63.80 on 21 August.
+
+**The figure goes before the control, not into the receipt after it.** Design principle 3: where money is about to move, the number that moves is next to the thing that moves it. **A settlement discovered after the press is `B7-1` with our name on it.** So state 5.8 renders the re-struck four-column table and the difference above the button, and the past settlement stays below as the record.
+
+**The label does not carry the figure.** "Send the offer again, settling at 42.40" was written and taken out: `D-52`, a button label never wraps, and that string is 36 characters inside a full width button at 360.
+
+**The absence that preceded the rule earned its keep and is kept in the file.** That sentence is what got the rule asked for rather than guessed at by whoever built the next state. `D-58` is the same instinct on the control: an undecided rule is not a reason to kill a button.
+
+### The venue: confirmed, and it is not `F1`'s venue
+
+**The founder, 24 August 2026: our market, we sell the copy.** `D-92`'s flagged caveat is spent and section 0b's amended rows stand as written.
+
+**And one distinction this node now names on the page**, because eleven wireframe pages were nearly rewritten the wrong way:
+
+| Question | Answer |
+|---|---|
+| Where the copy on this screen comes from | **Us**, at our price, set against Steam. `D-92`, confirmed `D-93` |
+| Which two venues price `F1`'s instance value receipt on `3.6` and `7.1` | **`[?]`, and neither of them can be us** |
+
+**They read identically as "the venue" and they have opposite answers.** The same collision `CLAUDE.md` records for screen codes against capability codes, and the comment on this node's wireframe now names both so the next reader does not merge them again.
+
+---
+
 ## 1. Blocks, mobile first
 
 Composition from `blocks.md`, type **T4 Transactional form with named states**, which carries a declared gap: **no competitor screens of this type exist that we may open**, because all five put deposit, withdrawal and identity behind login and this project never logs in. The substitute source is public documentation of the same mechanics plus Refero for the craft, and it found real product rules living in an FAQ.

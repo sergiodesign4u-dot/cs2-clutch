@@ -9,42 +9,37 @@
 </head>
 <body>
 
-<!-- HISTORY, CASH OUT. A TAB WITH NO SUBJECT ON OUR MAP, SHIPPING AS THE
-     STATEMENT THAT IT HAS NONE.
-     TURNING COINS BACK INTO MONEY IS NOT A CAPABILITY ANYWHERE IN THE BACKLOG.
-     Not in the MVP rows, not in the LATER list, not carried anywhere as a
-     deferred capability with a parent. It is absent, and absent is a different
-     thing from postponed.
-     AND THE SOURCE CANNOT HELP EITHER. The only capture of this tab on the live
-     product is empty, so the baseline cannot say what a row of it would hold: no
-     columns, no states, no example of one. Reconstructing a plausible table from
-     what the label sounds like is exactly the median the input gate exists to
-     prevent, and it would read as knowledge right up until someone asked where
-     it came from.
-     SO IT SHIPS AS A RENDERED ABSENCE, AND THE ABSENCE NAMES BOTH READINGS.
-     Taking a balance out as money, which nothing on this product does and which
-     the coin could not even be priced for while the peg is unpublished; and
-     selling an item back for coins, which does exist, is in round 1, and is
-     already recorded one page over on the roll the item came from. Naming the
-     second is the part that does real work: without it, a person who has sold
-     something back concludes, reasonably, that the record is missing.
+<!-- HISTORY, CASH OUT. THE TAB HAS A SUBJECT SINCE D-93 AND IT IS NOT THE ONE
+     ITS LABEL SOUNDS LIKE: selling an item back for coins.
+     WHAT THE FOUNDER DECIDED, 24 August 2026. Selling a skin back for coins is
+     round 1 since D-38, it is the only movement of money on this product with no
+     ledger anywhere, and this tab is exactly its shape. So the fourth tab keeps
+     the baseline's label and gains our subject.
+     THE ARGUMENT THIS PAGE SHIPPED WITH IS SUPERSEDED, NOT DELETED, AND IT WAS
+     RIGHT ON A WRONG PREMISE. On D-88 this page shipped as a rendered absence:
+     "turning coins back into money is not a capability anywhere in the backlog,
+     and the only capture of this tab on the live product is empty, so the
+     baseline cannot say what a row of it would hold." Both halves of that are
+     still true. What was wrong is the conclusion that the tab therefore had no
+     subject. THE SUBJECT WAS ONE PAGE OVER THE WHOLE TIME and this very page
+     named it: "selling an item back for coins, which does exist, is in round 1,
+     and is already recorded one page over on the roll the item came from."
+     A MARK ON A ROLL IS NOT A RECORD OF A SALE. The Rolls tab prints "Sold back,
+     21 Aug" on the item, which is a fact about the roll: it says the thing you
+     won is gone and why. It does not say what the sale credited, when it settled
+     or under what reference, and a person reconciling their balance cannot get
+     any of those from it. That is the hole D-93 closes.
+     BOTH READINGS STILL HAVE TO BE ON THE PAGE, because the label still says
+     Cash out. Taking a balance out as money is not built, and the coin has no
+     published rate to do it at, so that reading is stated in one line under the
+     bar and never performed. A tab that gained a subject and dropped the reading
+     its label carries would be a promise nobody made.
      NEVER "History is empty...", the string two nodes of this project refuse by
-     name. It is the sentence that tells a person nothing while looking like an
-     answer, and on a tab whose emptiness has a cause it is a lie of omission. A
-     tab that only says it is empty cannot be told apart from one that is broken.
-     THE DIFFERENCE BETWEEN A RENDERED ABSENCE AND A DEAD ITEM IS THAT A DEAD
-     ITEM PROMISES SOMETHING. A dead item is a control that looks live or a
-     destination with nothing behind it: it makes an offer and then fails to keep
-     it. This page makes no offer at all. It is a carrier the baseline holds,
-     filled with the true statement that we hold nothing for it.
-     WHY IT IS NOT SIMPLY DELETED. The argument for three tabs was put and lost:
-     the founder chose all four of the baseline's. So the fourth ships, and what
-     keeps it from being a defect is that it explains its own emptiness instead
-     of performing it.
-     NO EMPTY-STATE CONTROL HERE, DELIBERATELY. The other three empties offer a
-     route because there is an act that would fill them. There is no act that
-     fills this one, so a button would be the promise the rest of the page is
-     careful not to make. -->
+     name, and the empty state of this tab is its own page now rather than this
+     one, since there is an act that fills it and therefore a route to offer.
+     ONE ROW, AND THAT IS NOT A THIN DEMO. The corpus holds exactly one sell back,
+     the P250 on the Rolls tab and on 7.3, and this ledger holds exactly that one.
+     A second invented row would be a sale no other surface has ever heard of. -->
 <button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
 <aside id="wf-panel"></aside>
 
@@ -87,7 +82,16 @@ window.WF_IA_BASE = '../ia/';
 window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
 window.WF_ACCT = { active: 'history' };
 window.WF_HISTTAB = 'cashout';
-window.WF_HIST = { cashout: [] };
+/* THE ONE SALE THIS ACCOUNT HAS MADE, and it is the same object the Rolls tab
+   marks and the public profile shows as gone. CREDITED EQUALS WORTH WHEN WON
+   BECAUSE THE SALE WAS THE SAME DAY, D-91: inside the coin economy a win is
+   credited at our value and a sell back pays our value, so on one day they are
+   one number. On a later day they would not be, and the column says "credited"
+   rather than "worth" for that reason. */
+window.WF_HIST = { cashout: [
+  { when: '21 Aug 23:04', what: 'P250 Sand Dune, Battle-Scarred', credited: '0.31',
+    roll: 'Nightfall Case, 21 Aug 22:57', ours: 'CO-2026-0821-0034' }
+] };
 </script>
 <script src="_nav.js"></script>
 </body>

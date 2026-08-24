@@ -269,7 +269,8 @@ window.WF_NAV = {
         { node: '5.9', label: 'Withdrawals',                  file: 'history-withdrawals.html',         status: 'built' },
         { node: '5.9', label: 'Withdrawals, none yet',        file: 'history-withdrawals-empty.html',   status: 'built' },
         { node: '5.9', label: 'Withdrawals, past our ceiling',file: 'history-withdrawals-overdue.html', status: 'built' },
-        { node: '5.9', label: 'Cash out, no subject',         file: 'history-cashout.html',             status: 'built' },
+        { node: '5.9', label: 'Cash out, sold back for coins',file: 'history-cashout.html',             status: 'built' },
+        { node: '5.9', label: 'Cash out, none yet',           file: 'history-cashout-empty.html',       status: 'built' },
         // THE STATE SET WAS COMPLETED PER TAB ON 23 AUGUST 2026, D-90, on the
         // founder's instruction that every tab carry its own states rather than
         // the two money tabs carrying an empty each. Each of the three has a
@@ -353,7 +354,8 @@ window.WF_NAV = {
       states: [
         { node: '7.3', label: 'The owner reading their own', file: 'player-owner.html', status: 'built' },
         { node: '7.3', label: 'Nothing won yet',             file: 'player-empty.html', status: 'built' },
-        { node: '7.3', label: 'No page to show',             file: 'player-gone.html',  status: 'built' }
+        { node: '7.3', label: 'No page to show',             file: 'player-gone.html',  status: 'built' },
+        { node: '7.3', label: 'Hidden, the owner looking at it', file: 'player-hidden.html', status: 'built' }
       ] }
   ]
 };
@@ -945,12 +947,12 @@ window.WF_WHO = window.WF_WHO || { name: 'nightjar_cs', id: 'acc-7f3a91c4', sinc
     ['AK-47',        'Redline',          'Ironbound', false],
     ['AWP',          'Asiimov',          'Warsteel',  false],
     ['Glock-18',     'Water Elemental',  'Ironbound', true ],
-    ['USP-S',        'Kill Confirmed',   'Coldfront', false],
+    ['USP-S',        'Kill Confirmed',   'Coldfront', false, true],
     ['M4A1-S',       'Hyper Beast',      'Warsteel',  false],
     ['Desert Eagle', 'Blaze',            'Ironbound', false],
     ['MP9',          'Rose Iron',        'Coldfront', false],
     ['P250',         'Asiimov',          'Nightfall', false],
-    ['AWP',          'Neo-Noir',         'Nightfall', false],
+    ['AWP',          'Neo-Noir',         'Nightfall', false, true],
     ['AK-47',        'Vulcan',           'Ironbound', false],
     ['Five-SeveN',   'Monkey Business',  'Coldfront', false],
     ['SG 553',       'Cyrex',            'Warsteel',  true ]
@@ -1009,6 +1011,13 @@ window.WF_WHO = window.WF_WHO || { name: 'nightjar_cs', id: 'acc-7f3a91c4', sinc
     // A BOT DOES NOT GET ONE. Row A3 requires a bot to be labelled, and a bot
     // has nothing a public profile could hold, so the name is only a link where
     // there is an account behind it.
+    // AND NEITHER DOES SOMEONE WHO HAS HIDDEN THEIRS, D-93. Field 5 of row A3 is
+    // the winner as the account chooses to appear, and choosing not to have a
+    // public page is one of the ways of appearing. So a hidden account keeps its
+    // name in the strip and loses the link, which is the only thing hiding
+    // changes here. IT CARRIES NO LABEL. A "hidden" badge would publish the very
+    // fact the setting exists to withhold, and it would tell a stranger which
+    // accounts have something to look at.
     var who = el('div', 'wf-feed-who');
     who.appendChild(el('span', 'wf-feed-av'));
     who.lastChild.setAttribute('aria-hidden', 'true');
@@ -1016,6 +1025,8 @@ window.WF_WHO = window.WF_WHO || { name: 'nightjar_cs', id: 'acc-7f3a91c4', sinc
     if (row[3]) {
       col.appendChild(el('span', null, 'winner, as shown'));
       col.appendChild(el('span', 'wf-feed-bot', ' bot'));
+    } else if (row[4]) {
+      col.appendChild(el('span', null, 'winner, as shown'));
     } else {
       var whoLink = el('a', 'wf-feed-whol', 'winner, as shown');
       whoLink.href = BASE + 'player.html';
@@ -3212,11 +3223,15 @@ window.WF_WHO = window.WF_WHO || { name: 'nightjar_cs', id: 'acc-7f3a91c4', sinc
      with the roll removed. Ours lists rolls and the item is one field of each,
      including the field that says the item was sold or withdrawn - so nothing
      the baseline's first tab holds is lost by not having it.
-     THE FOURTH TAB HAS NO SUBJECT ON OUR MAP. Taking coins out as money is not
-     a capability anywhere in cjm-to-be.md, and the only capture of that tab is
-     empty, so we cannot even say from the source what a row of it would be. It
-     ships as a rendered absence naming both readings, not as "History is
-     empty...", which is the string 0.5 and 3.2 both refuse.
+     THE FOURTH TAB HAS A SUBJECT SINCE D-93 AND IT IS NOT THE ONE ITS LABEL
+     SOUNDS LIKE. Taking coins out as money is still not a capability anywhere in
+     cjm-to-be.md and is not built. What is built, and is in round 1 since D-38,
+     is selling an item back for coins, and until D-93 that had no ledger on any
+     surface: the roll row carried a "Sold back" mark, which is a fact about the
+     roll rather than a record of the sale. So the tab now holds the sales and
+     states in one line that a payment out is not what it means. It shipped on
+     D-88 as a rendered absence and the reasoning was right on a wrong premise:
+     the subject was one page over the whole time.
      ONE RENDERER FOR FOUR PAGES, the same contract every other multi-page
      carrier in this stage runs under.
      --------------------------------------------------------------------- */
@@ -3243,13 +3258,40 @@ window.WF_WHO = window.WF_WHO || { name: 'nightjar_cs', id: 'acc-7f3a91c4', sinc
       { k: 'state', h: 'State',          state: true },
       { k: 'wait',  h: 'Waiting on',     },
       { k: 'ours',  h: 'Our reference',  mono: true }
+    ],
+    /* THE FOURTH TAB HAS A SUBJECT SINCE D-93, and the subject was named on this
+       very page before it had one: selling an item back for coins, which is in
+       round 1 since D-38 and which had no ledger anywhere in the product. The
+       roll row carries a "Sold back" mark and that is a fact about the roll, not
+       a record of the sale.
+       NO STATE COLUMN, DELIBERATELY. A sell back completes or it does not
+       happen: there is no waiting party and no stage, so a column carrying one
+       value on every row is a picture of a column. Deposits and withdrawals have
+       one because both of them wait.
+       CREDITED IS OUR PRICE AT THAT MOMENT AND THE COLUMN SAYS SO. D-91: inside
+       the coin economy the win value and the sell back value are the same
+       object, so this number is consistent with the roll. What it is not is what
+       a real copy would have cost, and the note under the bar carries that. */
+    cashout: [
+      { k: 'when',     h: 'When',            mono: true, num: true },
+      { k: 'what',     h: 'What you sold' },
+      { k: 'credited', h: 'Credited',        mono: true, num: true },
+      { k: 'roll',     h: 'From this roll' },
+      { k: 'ours',     h: 'Our reference',   mono: true }
     ]
   };
 
+  /* THE COUNT AGREES WITH ITS NOUN. "1 sales" shipped on the sell back ledger
+     the moment it had exactly one row, and the same defect was latent on the two
+     older tabs waiting for a one-row account. The unit is passed in plural and
+     the singular is the plural minus its s, which holds for payments, sales and
+     withdrawals and is checked here rather than assumed for the next one. */
   function histBar(name, count, unit) {
     var bar = el('div', 'wf-lbar');
     bar.appendChild(el('h2', 'wf-lbar-h', name));
-    bar.appendChild(el('span', 'wf-fig-c', count + ' ' + unit));
+    var word = (count === 1 && unit.charAt(unit.length - 1) === 's')
+      ? unit.slice(0, -1) : unit;
+    bar.appendChild(el('span', 'wf-fig-c', count + ' ' + word));
     return bar;
   }
 
@@ -3299,25 +3341,34 @@ window.WF_WHO = window.WF_WHO || { name: 'nightjar_cs', id: 'acc-7f3a91c4', sinc
   function histPanel(kind, data) {
     var wrap = el('div', 'wf-hpanel');
 
+    var rows = (data && data[kind]) || [];
+    var unit = kind === 'deposits' ? 'payments' : (kind === 'cashout' ? 'sales' : 'withdrawals');
+    wrap.appendChild(histBar(kind === 'deposits' ? 'Deposits' : (kind === 'cashout' ? 'Cash out' : 'Withdrawals'), rows.length, unit));
+
+    /* WHAT THIS TAB MEANS, AND WHAT IT STILL DOES NOT, D-93. The tab kept the
+       baseline's label and gained our subject, so both readings have to be on
+       the page or the label makes a promise the ledger does not keep. Taking a
+       balance out as money is not built, and the coin has no published rate to
+       do it at, so that reading is stated and not performed.
+       THE OLD ARGUMENT IS NOT DELETED, IT IS SUPERSEDED. This panel shipped on
+       D-88 as a rendered absence, on the ground that the tab had no subject on
+       our map. The reasoning was right and the premise was wrong: the subject
+       was one page over the whole time, marked on the roll rather than recorded
+       as a sale. The record of that is in D-93, not in a comment that outlives
+       its own screen.
+       AND THE SECOND PRICE IS NAMED HERE TOO, D-91 and D-92. Credited is our
+       price. What a real copy of the same skin costs is our other price, and the
+       difference between selling back and taking it out is the whole of D-91. A
+       ledger that prints one of the two teaches that there is only one. */
     if (kind === 'cashout') {
-      wrap.appendChild(histBar('Cash out', 0, 'rows'));
-      var g = el('div', 'wf-hgap');
-      g.appendChild(el('p', 'wf-empty-h', 'Nothing here, and not because you have not done it yet'));
-      g.appendChild(el('p', 'wf-empty-p', 'This tab exists because the live product has it. On this product there is no way to turn coins back into money, so there is nothing a row of it could describe. Two things it could mean, and neither of them is built:'));
-      var ul = el('ul', 'wf-hgap-l');
-      ul.appendChild(el('li', null, 'Taking your balance out as money, to a card or a wallet. Nothing on this product does that, and what one coin is worth in real money is not published either.'));
-      ul.appendChild(el('li', null, 'Selling an item back for coins. That one exists, and it is already recorded: the roll it came from says so, on the Rolls tab.'));
-      g.appendChild(ul);
-      g.appendChild(el('p', 'wf-note', 'Said here rather than left blank, because a tab that only says it is empty cannot be told apart from one that is broken.'));
-      wrap.appendChild(g);
-      return wrap;
+      wrap.appendChild(el('p', 'wf-note', 'Every item this account has sold back for coins. Credited is our price for the skin at that moment, which is the same value the win was credited at. Taking the real thing out to Steam instead is a different number: we sell you a real copy at our price for it, and the difference settles against your balance.'));
+      wrap.appendChild(el('p', 'wf-note wf-fig-missing', 'Turning a balance back into money is not something this product does, and what one coin is worth in real money is not published, so no row here is a payment out'));
     }
 
-    var rows = (data && data[kind]) || [];
-    var unit = kind === 'deposits' ? 'payments' : 'withdrawals';
-    wrap.appendChild(histBar(kind === 'deposits' ? 'Deposits' : 'Withdrawals', rows.length, unit));
-
-    if (kind === 'deposits') {
+    if (kind === 'cashout') {
+      /* nothing further: the two lines above are this tab's note, and the
+         withdrawals note below is about a different act. */
+    } else if (kind === 'deposits') {
       wrap.appendChild(el('p', 'wf-note', 'Every payment this account has made, whether it arrived or not. Amounts are in coins. What one coin is worth in real money is not published yet, so a row cannot be reconciled against a bank statement.'));
     } else {
       /* B8-2 IS SIX PEOPLE WAITING WITH HARD FIGURES AND NOBODY TELLING THEM
@@ -3328,9 +3379,15 @@ window.WF_WHO = window.WF_WHO || { name: 'nightjar_cs', id: 'acc-7f3a91c4', sinc
     }
 
     if (!rows.length) {
-      wrap.appendChild(kind === 'deposits'
-        ? histEmpty('No payments yet', 'When you add funds, every attempt lands here, the ones that went through and the ones that did not.', 'deposit.html', 'Add funds')
-        : histEmpty('Nothing sent to Steam yet', 'When you send an item to Steam, the row lands here and stays, with who it is waiting on and how long it has been.', 'account.html', 'My items'));
+      /* THE EMPTY OFFERS A ROUTE HERE BECAUSE THERE IS NOW AN ACT THAT FILLS IT,
+         which is exactly the test the D-88 panel used to refuse itself one. */
+      if (kind === 'cashout') {
+        wrap.appendChild(histEmpty('Nothing sold back yet', 'When you sell an item back for coins, the row lands here with what you sold, what it credited and the roll it came from.', 'account.html', 'My items'));
+      } else {
+        wrap.appendChild(kind === 'deposits'
+          ? histEmpty('No payments yet', 'When you add funds, every attempt lands here, the ones that went through and the ones that did not.', 'deposit.html', 'Add funds')
+          : histEmpty('Nothing sent to Steam yet', 'When you send an item to Steam, the row lands here and stays, with who it is waiting on and how long it has been.', 'account.html', 'My items'));
+      }
     } else {
       wrap.appendChild(histTable(kind, rows));
     }

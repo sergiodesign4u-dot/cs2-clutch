@@ -450,3 +450,48 @@
 **Sections 7, 8 and 9 all end with the same sentence: the instruments missed it and a person looking at a picture found it.** Section 10 broke that by having agents find their own work's neighbours. **This one breaks it again in a third way: the finding came from being asked to close something and checking the price of closing it.**
 
 **Nothing was looked at. Nothing was rendered differently. The trigger was a task that said "close these rows" and a rule that says verify before fixing**, pointed one step further back than usual, at whether the fix was a fix.
+
+---
+
+## 12. `D-93`, and the two defects the instruments could not see
+
+**24 August 2026.** The founder confirmed the venue and took the seven recommendations. Two pages created, twenty-nine touched. What follows is what the round found beside its own work.
+
+### 12.1 A count taken from what was edited, which cannot detect what was missed
+
+`D-92`'s closing paragraph reads: **"every venue absence was replaced by a margin absence rather than removed: three of them, across the two surfaces that carried one."**
+
+**It was three of thirteen.** Eleven wireframe pages still carried "the venue is not chosen yet" the following day.
+
+**The mechanism is the whole finding.** The count was taken by listing the surfaces `D-92` edited and counting the absences on them. **A count with that shape can only ever return everything**, because its denominator is its numerator. The count that would have caught it is a grep for the string across the corpus, which is one line and was not run.
+
+**Found by:** Claude, building `D-93` and grepping for the string in order to amend it.
+
+### 12.2 And nine of the eleven were not stale, which nearly made the fix worse
+
+**Two of the eleven were the settlement's venue.** Where the copy comes from, answered by `D-92`. Simply stale, and fixed.
+
+**Nine were a different question with the opposite answer.** `case-outcome` and its variants, `case-interrupted` and the five `7.1` result pages carry `F1`'s instance value receipt, which asks for **two named external venues** so a person does not take our word for what one instance is worth. `D-92` narrowed that question without closing it: **neither of the two can be us.**
+
+**The first pass rewrote all eleven the same way**, so nine pages briefly read "there is no outside listing to filter to this float band, because the copy comes from us", **which is the opposite of what `D-92` decided about the receipt.** Caught before commit by reading `numbers.md` for the receipt's own row, reverted, and the nine now carry the narrowing instead.
+
+**Two venue questions, one word, and both readings parse.** The same collision `CLAUDE.md` records for screen codes against capability codes, which is why that rule exists and why this one belongs beside it.
+
+**Found by:** Claude, verifying its own edit against the node doc before committing it.
+
+### 12.3 Two rendering defects that no text instrument can hold
+
+| Defect | Why every instrument passes it |
+|---|---|
+| **The withdrawals note rendered on the sell-back ledger.** The panel's note was an `if (deposits) / else`, so the new tab fell through to "Every item this account has sent to Steam" | **The string is correct on the page it was written for.** No file contains a wrong value, no link is dead, no state is absent from code. The defect is a branch, and it is only visible rendered |
+| **The bar read `1 sales`.** The count and its noun were concatenated with no agreement | **Latent on the two older tabs for a month**, waiting for a one-row account. It was not a defect until the first ledger with exactly one row existed |
+
+**Both were found by taking a screenshot of the page that had just been built.** Fixed in the renderer rather than in the caller, so the next tab inherits both fixes.
+
+### What an instrument could assert, and this time two of the three are cheap
+
+| # | Could an instrument have caught it | The assertion, or the reason there is none |
+|---|---|---|
+| **12.1** | **Yes, one line** | **A decision that claims to have replaced a string must leave no instance of that string in the corpus.** Every decision record naming a phrase it removed gets a grep at close. Cheap, and it is the check that was skipped |
+| **12.2** | **Partly** | An instrument can flag that one phrase, "the venue", resolves to two register rows with different owners. **It cannot decide which page means which**, because that is what the node docs are for. What it can do is refuse a bulk replace on a phrase with two rows behind it |
+| **12.3** | **No, and it is the same boundary as before** | A branch that falls through to a neighbour's copy is correct text in the wrong place. **Only a rendered page has a place.** This is the fifth round in which the finding came from looking at the screen after building it |

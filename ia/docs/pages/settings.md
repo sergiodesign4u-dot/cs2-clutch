@@ -59,6 +59,24 @@
 
 ---
 
+## 0.6 Amended again, 24 August 2026, by `D-93`. One row of the twenty gains a live switch, and the row under it keeps its absence with one ground gone
+
+**Founder decision, 24 August 2026.** Security gains a **Public profile** row with a real switch, default on.
+
+**It is the smaller half of "Make me anonymous" rather than that row arriving.** Section 1 refused the baseline's anonymity toggle on two open questions: whether a public page of ours exists at all, and what the running strip and a shared result render about a person. **`D-90` answered the first and `D-93` says what to do about it.** The second is untouched.
+
+**Why they are not one control.** They are different subjects. One is a page about you; the other is your name on a round, in a strip and on a page built to be shared. **Merging them would let a person press one control and be surprised by half of what it did**, and `7.1`'s whole argument is that a shared result is about the round rather than about the person.
+
+**So the anonymity row stays absent and its `why` is rewritten rather than shortened.** It now names the one question it is still blocked on instead of two, which is the difference between an absence that is waiting on something and an absence nobody has looked at since.
+
+**The switch is real and it moves something, `D-58`.** It decides which of two built pages a stranger gets at the address, and whether `0.8` renders the winner's name as a link.
+
+**And the row states its own limit in the same breath.** Hiding the page does not retract a round already shared and does not take the name out of the strip. **A switch trusted for more than it does is worse than no switch**, so the two exclusions are on the row rather than only in `7.3`.
+
+**The row carries a route and not a preview:** "See what is on it right now" opens `7.3`'s owner view. A settings page that rendered the public page inside itself would be a second copy of a screen that already exists.
+
+---
+
 ## 0. The input for this node was never missing, and the `[?]` was on the wrong thing
 
 **`D-36` wrote that what `5.11` holds in round 1 is `[?]` and that the node owes that answer before it can be drawn.** For two days stage 04 read that as a question for the founder and said so twice. **It is not one.** The record says *the node* owes the answer, and the answer is derived the way every other node's is: take the baseline row, apply the round 1 scope list, apply the three legal parent classes, and print what does not survive.
