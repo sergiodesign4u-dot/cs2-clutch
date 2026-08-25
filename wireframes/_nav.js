@@ -3555,17 +3555,24 @@ window.WF_PAY = window.WF_PAY || {
     node.appendChild(el('span', 'wf-pay-n', row[0]));
     if (mark === 'best')    node.appendChild(el('span', 'wf-pay-m', 'Most people use this'));
     if (mark === 'instant') node.appendChild(el('span', 'wf-pay-m', 'Instant'));
-    /* THE ORPHAN IS PRINTED ON THE TILE IT BELONGS TO, not in a footnote under
-       the grid, because a person reading this tile is deciding about this tile. */
-    if (!kind) node.appendChild(el('span', 'wf-pay-x', 'Paying with skins is not drawn yet. It exists on the live product and there is no row for it in our backlog, so it is here and it does not open.'));
+    /* THE MARK IS ON THE TILE AND THE REASON IS ONE LINE UNDER THE GRID, D-97.
+       The whole sentence sat on the tile and stretched the first row from 74px to
+       210px, so one orphan reshaped the grid for the other thirty four. The rule
+       that the orphan is printed rather than hidden is unchanged; what moved is
+       the sentence, not the mark. */
+    if (!kind) node.appendChild(el('span', 'wf-pay-m wf-fig-missing', 'Not open yet'));
     return node;
   }
 
+  /* THE GROUP HEADING IS A LABEL AND NOT A SECTION HEAD, D-97. It is still an h2
+     because the document outline needs it and a screen reader navigates by it;
+     what changed is that it stopped being drawn at section-head size. The two
+     headings were costing 96px of the first screen between them and the grid is
+     what a person came to look at. The baseline runs the same two words as a
+     small centred caption for the same reason. */
   function payGroup(title, rows) {
-    var sec = el('section', 'wf-stack');
-    var head = el('div', 'wf-sec-head');
-    head.appendChild(el('h2', null, title));
-    sec.appendChild(head);
+    var sec = el('section', 'wf-pay-sec');
+    sec.appendChild(el('h2', 'wf-pay-gh', title));
     var g = el('div', 'wf-pay-g');
     rows.forEach(function (r) { g.appendChild(payTile(r)); });
     sec.appendChild(g);
@@ -3577,22 +3584,33 @@ window.WF_PAY = window.WF_PAY || {
     if (!host || !window.WF_PAY) return;
     var P = window.WF_PAY;
 
+    /* PROMO AND COUNTRY SHARE ONE ROW, D-97, founder of 25 August 2026: the two
+       of them full width were pushing the grid to 777px and the grid is the
+       screen. Side by side from 600 and stacked below it, which is the baseline's
+       own arrangement and not a new idea.
+       THE PROSE UNDER THEM IS ONE LINE INSTEAD OF THREE PARAGRAPHS. Nothing was
+       deleted that was load bearing: the country's job and the two named holes are
+       still on the page, in the note under the pair, at one line each. What went
+       is the explanation of what the control is not, which a person reading a
+       label already knows. */
+    var head = el('div', 'wf-pay-head');
+
     /* THE PROMO FIELD IS EMPTY, D-96, AND THE BASELINE'S IS NOT. The live product
-       arrives with a partner code already in the field, a green tick beside it
-       and the code applied. THAT IS ATTRIBUTION HAPPENING TO A PERSON RATHER THAN
-       BY THEM, and it is the same shape 0.4 refuses for consent one node over.
-       Ours is empty, unticked, and does nothing until someone types. */
-    var promo = el('div', 'wf-pay-row');
-    var pl = el('label', 'wf-cfg-l', 'Have a promo code?');
+       arrives with a partner code already in the field, a green tick beside it and
+       the code applied. THAT IS ATTRIBUTION HAPPENING TO A PERSON RATHER THAN BY
+       THEM, and it is the same shape 0.4 refuses for consent one node over. Ours
+       is empty, unticked, and does nothing until someone types. */
+    var promo = el('div', 'wf-pay-f');
+    var pl = el('label', 'wf-cfg-l', 'Promo or partner code');
     pl.setAttribute('for', 'pay-promo');
     promo.appendChild(pl);
     var pr = el('div', 'wf-row');
     var pin = el('input', 'wf-f');
-    pin.id = 'pay-promo'; pin.type = 'text'; pin.placeholder = 'Partner or promo code';
+    pin.id = 'pay-promo'; pin.type = 'text'; pin.placeholder = 'Optional';
     pr.appendChild(pin);
     pr.appendChild(el('button', 'wf-btn', 'Apply'));
     promo.appendChild(pr);
-    host.appendChild(promo);
+    head.appendChild(promo);
 
     /* THE COUNTRY FILTERS THE GRID AND IT IS NOT THE MARKET CONTROL, D-23 and
        D-86. The allowlist decides whether a market is open; this says where a
@@ -3600,7 +3618,7 @@ window.WF_PAY = window.WF_PAY || {
        carries both and lets them disagree, baseline-account.md 5b.6: two
        self-declared countries in one account, Ukraine here and United States in
        settings. 5.11 owns the one answer and this control reads it. */
-    var cty = el('div', 'wf-pay-row');
+    var cty = el('div', 'wf-pay-f');
     var cl = el('label', 'wf-cfg-l', 'Paying from');
     cl.setAttribute('for', 'pay-country');
     cty.appendChild(cl);
@@ -3608,13 +3626,17 @@ window.WF_PAY = window.WF_PAY || {
     sel.id = 'pay-country';
     ['Isle of Man'].forEach(function (c) { sel.appendChild(el('option', null, c)); });
     cty.appendChild(sel);
-    cty.appendChild(el('p', 'wf-cfg-p', 'This is where you are paying from, and it decides which of the routes below will work. It reads the country on your account and it is not what decides whether this market is open at all.'));
-    cty.appendChild(el('p', 'wf-cfg-p wf-fig-missing', 'Which markets are open is not settled: the register is closed by default and every row needs its own legal work before it appears here. Which routes each market carries is not set either'));
-    host.appendChild(cty);
+    head.appendChild(cty);
+    host.appendChild(head);
 
     var n = P.fiat.length + P.crypto.length;
-    host.appendChild(el('p', 'wf-note', n + ' ways to pay, in two groups. The list and its order are the live product\u2019s own.'));
+    var note = el('p', 'wf-note');
+    note.appendChild(document.createTextNode(n + ' ways to pay, in the live product\u2019s own order. Where you pay from decides which of them work. '));
+    note.appendChild(el('span', 'wf-fig-missing', 'Which markets are open is not settled, and which routes each market carries is not set either.'));
+    host.appendChild(note);
+
     host.appendChild(payGroup('Cards, wallets and bank transfer', P.fiat));
+    host.appendChild(el('p', 'wf-note wf-fig-missing', 'Paying with skins exists on the live product and has no row in our backlog, no node and no flow, so the tile is here and it does not open'));
     host.appendChild(payGroup('Crypto', P.crypto));
   }
 

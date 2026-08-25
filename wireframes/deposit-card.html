@@ -57,6 +57,29 @@
            condition on the exit that was not named before the money went in, and
            that is the same injury as a threshold that rises. -->
       <div class="wf-acct-state">Signed in as <strong>nightjar_cs</strong>. Funding is open on this account.</div>
+      <!-- BLOCK 1b. THE PROVIDER, AND IT IS FIRST ON THIS SCREEN SINCE D-97, which is
+           where the baseline puts it: SELECT PROVIDER is the row above the form.
+           The founder is right that it belongs at the top, and the reason is not
+           only the reference: the provider decides what the form asks for, so a
+           form filled before it is a form that can change under the person.
+           BLOCK 7b BEFORE D-97, and moving it is the only change.
+           THE PROVIDER, AND IT IS A SECOND CHOICE INSIDE THE FIRST.
+           baseline-account.md 5b.2: choosing the card route opens "SELECT
+           PROVIDER" with two tiles before the form. So the method a person picked
+           in step 1 is not the party that takes the money, and the screen says
+           which one is.
+           WHO THEY ARE IS NOT DECIDED. The live product runs Zen and a gift-card
+           tile; ours has no processor chosen and inventing two names here would
+           be the median the input gate exists to prevent. -->
+      <div class="wf-stack">
+        <h2 class="wf-pay-gh" id="h2-prov">Who takes the payment</h2>
+        <p class="wf-note">Your card details go to them and not to us.</p>
+        <div class="wf-pay-g">
+          <div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n wf-fig-missing">Provider not chosen</span></div>
+          <div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n wf-fig-missing">Provider not chosen</span></div>
+        </div>
+        <p class="wf-note wf-fig-missing">Which payment providers this product uses is not decided, and neither is any fee, minimum or maximum they carry</p>
+      </div>
       <!-- BLOCK 2. THE AMOUNT, AND THE RATE BESIDE IT. THIS IS THE ONE BLOCK ON
            THE MAP THAT AN UNPUBLISHED PEG EMPTIES RATHER THAN DEGRADES. Every
            other surface prints a coin figure and marks the rate missing next to
@@ -85,10 +108,15 @@
             <button class="wf-btn wf-btn--small" type="button">$100</button>
             <button class="wf-btn wf-btn--small" type="button">$200</button>
           </div>
-          <div class="wf-conv">
-            <span class="wf-fig-v">40.00 coins</span>
-            <span class="wf-fig-c">What this buys, at <strong>1 coin = $1.00</strong>. That is a fixed rate rather than a market read, so it carries no as-of: if it ever changes we say so before you spend against it.</span>
-          </div>
+          <!-- THE CONVERSION FIGURE LEFT THIS BLOCK ON D-97 AND IT IS A DEDUP
+               RATHER THAN A CUT. The dock now leads with "you will receive 42.00
+               coins", so the same arithmetic was on the screen three times: here,
+               in the bonus block, and in the dock. THREE RENDERINGS OF ONE FACT IS
+               THE DEFECT THIS PROJECT HAS SHIPPED TWICE, and on a money screen it
+               is also three places for a rounding to disagree.
+               THE RATE STAYS, AS A LINE. It is what makes the dock's figure
+               checkable, and it belongs next to the field a person is typing in. -->
+          <p class="wf-note">At <strong>1 coin = $1.00</strong>, a fixed rate rather than a market read. It carries no as-of: if it ever changes we say so before you spend against it.</p>
         </div>
       </div>
       <!-- BLOCK 2b. THE BONUS, D-94, founder decision of 25 August 2026, AND IT IS
@@ -112,12 +140,12 @@
            hole is more visible here than anywhere, which is correct: this is where a
            person is being offered something they cannot yet size. -->
       <div class="wf-stack">
-        <div class="wf-sec-head"><h2 id="h2-bonus">What we add on top</h2></div>
         <p class="wf-cost-say"><strong>We add 5.00% in coins on top of what you put in, up to 100 coins per 24 hours.</strong> It is added when the money arrives, and it is the same offer every time rather than a first deposit only. <strong>It carries no wagering requirement:</strong> the coins it adds behave like every other coin in your balance, and what it takes to withdraw does not move because of it.</p>
-        <div class="wf-conv">
-          <span class="wf-fig-v">2.00 coins</span>
-          <span class="wf-fig-c">What 5.00% of this amount adds, at the same fixed rate. The cap is 100 coins per 24 hours and this is well inside it, so the whole 2.00 is added.</span>
-        </div>
+        <!-- AND THE BONUS FIGURE WITH IT, D-97, same reason. What it adds is in the
+             dock beside what the money buys, which is where a person reads a total.
+             THE RULE IS WHAT STAYS HERE, because the rule is the thing that cannot
+             be inferred from a number: every deposit rather than the first, and no
+             wagering requirement. -->
       </div>
       <!-- BLOCK 3. THE SPEND CEILING. Four properties and every one is load
            bearing: pre-filled from the amount just typed rather than from a
@@ -156,20 +184,13 @@
       <!-- BLOCK 4. THE OTHER THREE LIMITS, one plain line and one link. They are
            not set here because this screen owns the ceiling and nothing else. -->
       <p class="wf-note">A session limit, a cool down and a self exclusion live together on <a href="responsible.html">Responsible play</a>.</p>
-      <!-- BLOCK 5. THE WITHDRAWAL THRESHOLD. The exit is priced where the entry is
-           paid. Frozen at this moment for the money this deposit funds: a later
-           change may lower it and may never raise it. The barrier under it is one
-           full narrative of a threshold that went 5, then 12, then 15 while the
-           person kept depositing to reach it.
-           IT IS FIFTH IN THE SCROLL ORDER AND ON THE FIRST SCREEN ANYWAY, because
-           the summary carries the figure and the summary is docked. -->
-      <div class="wf-stack">
-        <div class="wf-sec-head"><h2 id="h2-threshold">What it takes to withdraw</h2></div>
-        <div class="wf-fig">
-          <span class="wf-fig-v wf-fig-missing">Not published</span>
-          <span class="wf-fig-c">The sum you need before you can take anything out. Whatever it says when you pay is the figure that applies to this money: it can be lowered later and it can never be raised.</span>
-        </div>
-      </div>
+      <!-- BLOCK 5. THE WITHDRAWAL THRESHOLD, A LINE SINCE D-97 AND NOT A SECTION.
+           The exit is priced where the entry is paid, frozen at this moment for
+           the money this deposit funds: a later change may lower it and may never
+           raise it. THE RULE IS THE WHOLE BLOCK and it fits in a sentence; the
+           figure itself is also in the dock, where it is on screen continuously.
+           A heading over one unpublished number was a heading over a hole. -->
+      <p class="wf-note"><strong>To take anything out you will need</strong> <span class="wf-fig-missing">a sum that is not published yet</span>. Whatever it says when you pay is the figure that applies to this money: it can be lowered later and it can never be raised.</p>
       <!-- BLOCK 6 IS GONE FROM THIS PAGE AND IS NOW STEP 1. It held two empty
            slot cards and the sentence "which methods this product takes is not
            decided", which had been false for five days: baseline-account.md 5b.1
@@ -178,42 +199,14 @@
            card of the method it excludes, before the method is chosen, and a
            document may never be the only place it exists. That belongs to step 1
            now, where the cards are. -->
-      <!-- BLOCK 7. WHAT HAPPENS AFTER YOU PAY, STATED BEFORE THE PAYMENT. The
-           barrier is money that leaves and does not arrive, and the evidence is a
-           person who deposited and got a closed ticket and a zero balance. A
-           competitor publishes the real timing in its FAQ and not in its product.
-           The timing exists. It is just not where the money is.
-           THE SAME FIGURE RUNS AS THE CLOCK AFTERWARDS. If the two ever differ,
-           the one stated before the payment was a marketing number. -->
-      <div class="wf-stack">
-        <div class="wf-sec-head"><h2 id="h2-after">After you pay</h2></div>
-        <div class="wf-fig">
-          <span class="wf-fig-v wf-fig-missing">Not published</span>
-          <span class="wf-fig-c">How long crediting takes. It is stated here before you pay, and the same figure runs as the clock afterwards.</span>
-        </div>
-        <p class="wf-note">If that window passes and nothing has arrived, the deposit keeps its state and does not turn into silence. <a href="support.html">Support</a> answers inside a published deadline.</p>
-      </div>
-      </div>
-      <div>
-      <!-- BLOCK 7b. THE PROVIDER, AND IT IS A SECOND CHOICE INSIDE THE FIRST.
-           baseline-account.md 5b.2: choosing the card route opens "SELECT
-           PROVIDER" with two tiles before the form. So the method a person picked
-           in step 1 is not the party that takes the money, and the screen says
-           which one is.
-           WHO THEY ARE IS NOT DECIDED. The live product runs Zen and a gift-card
-           tile; ours has no processor chosen and inventing two names here would
-           be the median the input gate exists to prevent. -->
-      <div class="wf-stack">
-        <div class="wf-sec-head">
-          <h2 id="h2-prov">Who takes the payment</h2>
-          <p class="wf-sec-sub">Your card details go to them and not to us.</p>
-        </div>
-        <div class="wf-pay-g">
-          <div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n wf-fig-missing">Provider not chosen</span></div>
-          <div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n wf-fig-missing">Provider not chosen</span></div>
-        </div>
-        <p class="wf-note wf-fig-missing">Which payment providers this product uses is not decided, and neither is any fee, minimum or maximum they carry</p>
-      </div>
+      <!-- BLOCK 7. WHAT HAPPENS AFTER YOU PAY, STATED BEFORE THE PAYMENT, AND IT
+           IS TWO LINES SINCE D-97 RATHER THAN A SECTION. The barrier is money that
+           leaves and does not arrive, and a competitor publishes the real timing
+           in its FAQ and not in its product. Nothing was cut: the missing figure,
+           the promise that the same number runs as the clock afterwards, and the
+           support route are all still here. What went is a heading and a figure
+           block around one unpublished number. -->
+      <p class="wf-note"><strong>After you pay.</strong> <span class="wf-fig-missing">How long crediting takes is not published.</span> Whatever it says here is the same figure that runs as the clock afterwards, and if it passes with nothing arrived the deposit keeps its state rather than turning into silence. <a href="support.html">Support</a> answers inside a published deadline.</p>
       <!-- BLOCK 7c. BILLING, AND ONE FIELD ONLY. The baseline asks for an email
            here even on an account that already has one, 5b.2. A form that asks a
            signed-in person for something we hold is a form that does not know who
@@ -235,6 +228,9 @@
           <span>I have read and accept the <a href="legal.html">terms</a> and the <a href="legal.html">refund and payments policy</a>.</span>
         </label>
       </div>
+
+      </div>
+      <div>
       <!-- BLOCK 8. THE PERSISTENT SUMMARY AND THE ONE CONTROL. Docked from the
            moment an amount exists, and LAST IN THE DOCUMENT so a person reading
            linearly meets the summary after everything it summarises.
@@ -246,6 +242,17 @@
            what to change. A live Pay that answers is a person being told. Nothing
            goes through until the ceiling is settled either way. -->
       <div class="wf-dock">
+        <!-- WHAT YOU RECEIVE SITS AT THE TOP OF THE DOCK SINCE D-97, which is
+             where the baseline puts it and where it does the most work: it is on
+             screen continuously while the amount is being decided rather than
+             being a block a person scrolls past once. The two figures below it
+             are the same ones the amount block prints, and they agree because
+             they are one fact rendered twice on one screen rather than two. -->
+        <div class="wf-recv">
+          <span class="wf-fig-c">You will receive</span>
+          <span class="wf-recv-v">42.00 coins</span>
+          <span class="wf-fig-c">40.00 for the money, 2.00 the bonus, at 1 coin = $1.00</span>
+        </div>
         <div class="wf-total">
           <div class="wf-tl"><span>Amount</span><span class="wf-tl-v">$40.00</span></div>
           <div class="wf-tl"><span>Fee</span><span class="wf-tl-v wf-fig-missing">Not published</span></div>

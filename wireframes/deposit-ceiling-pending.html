@@ -85,10 +85,11 @@
             <button class="wf-btn wf-btn--small" type="button">$100</button>
             <button class="wf-btn wf-btn--small" type="button">$200</button>
           </div>
-          <div class="wf-conv">
-            <span class="wf-fig-v">40.00 coins</span>
-            <span class="wf-fig-c">What this buys, at <strong>1 coin = $1.00</strong>. That is a fixed rate rather than a market read, so it carries no as-of: if it ever changes we say so before you spend against it.</span>
-          </div>
+          <!-- THE CONVERSION FIGURE LEFT THIS BLOCK ON D-97 AND IT IS A DEDUP
+               RATHER THAN A CUT: the dock carries the receipt, so the same
+               arithmetic was on one screen three times. The rate stays as a line,
+               beside the field a person is typing in. -->
+          <p class="wf-note">At <strong>1 coin = $1.00</strong>, a fixed rate rather than a market read. It carries no as-of: if it ever changes we say so before you spend against it.</p>
         </div>
       </div>
       <!-- BLOCK 2b. THE BONUS, D-94, founder decision of 25 August 2026, AND IT IS
@@ -112,12 +113,9 @@
            hole is more visible here than anywhere, which is correct: this is where a
            person is being offered something they cannot yet size. -->
       <div class="wf-stack">
-        <div class="wf-sec-head"><h2 id="h2-bonus">What we add on top</h2></div>
         <p class="wf-cost-say"><strong>We add 5.00% in coins on top of what you put in, up to 100 coins per 24 hours.</strong> It is added when the money arrives, and it is the same offer every time rather than a first deposit only. <strong>It carries no wagering requirement:</strong> the coins it adds behave like every other coin in your balance, and what it takes to withdraw does not move because of it.</p>
-        <div class="wf-conv">
-          <span class="wf-fig-v">2.00 coins</span>
-          <span class="wf-fig-c">What 5.00% of this amount adds, at the same fixed rate. The cap is 100 coins per 24 hours and this is well inside it, so the whole 2.00 is added.</span>
-        </div>
+        <!-- AND THE BONUS FIGURE WITH IT, D-97, same reason. The rule is what stays
+             here, because the rule is the thing a number cannot carry. -->
       </div>
       <!-- BLOCK 3. THE SPEND CEILING. Four properties and every one is load
            bearing: pre-filled from the amount just typed rather than from a
@@ -156,49 +154,22 @@
       <!-- BLOCK 4. THE OTHER THREE LIMITS, one plain line and one link. They are
            not set here because this screen owns the ceiling and nothing else. -->
       <p class="wf-note">A session limit, a cool down and a self exclusion live together on <a href="responsible.html">Responsible play</a>.</p>
-      <!-- BLOCK 5. THE WITHDRAWAL THRESHOLD. The exit is priced where the entry is
-           paid. Frozen at this moment for the money this deposit funds: a later
-           change may lower it and may never raise it. The barrier under it is one
-           full narrative of a threshold that went 5, then 12, then 15 while the
-           person kept depositing to reach it.
-           IT IS FIFTH IN THE SCROLL ORDER AND ON THE FIRST SCREEN ANYWAY, because
-           the summary carries the figure and the summary is docked. -->
-      <div class="wf-stack">
-        <div class="wf-sec-head"><h2 id="h2-threshold">What it takes to withdraw</h2></div>
-        <div class="wf-fig">
-          <span class="wf-fig-v wf-fig-missing">Not published</span>
-          <span class="wf-fig-c">The sum you need before you can take anything out. Whatever it says when you pay is the figure that applies to this money: it can be lowered later and it can never be raised.</span>
-        </div>
-      </div>
-      <!-- BLOCK 6. PAYMENT METHODS. THE EMPTY STATE IS THE DEFAULT COMPOSITION
-           AND NOT A FALLBACK: this screen is designed for the person whose starter
-           credit is spent, so no saved method is the normal case. A screen built
-           for the returning depositor and patched for the first one puts its worst
-           layout in front of the person with the least reason to trust it.
-           THE LIST IS UNKNOWN AND STAYS UNKNOWN. No competitor screen of this type
-           can be opened, every one is behind a login, and this project does not log
-           in. So the block is a shape: one card per method, exclusions on the card.
-           AN EXCLUSION RENDERS ON THE CARD OF THE METHOD IT EXCLUDES, before the
-           method is chosen. A document may repeat an exclusion. A document may
-           never be the only place it exists, which is where a competitor keeps
-           "Steam Balance is not appropriate on this site" today. -->
-      <div class="wf-stack">
-        <div class="wf-sec-head">
-          <h2 id="h2-method">How you pay</h2>
-          <p class="wf-sec-sub">Nothing saved yet. This is your first deposit.</p>
-        </div>
-        <div class="wf-meth">
-          <div class="wf-meth-c wf-meth-c--slot">
-            <span class="wf-fig-v wf-fig-missing">Method not listed</span>
-            <span class="wf-meth-x">Anything this method will not take is printed here, on this card, before you choose it.</span>
-          </div>
-          <div class="wf-meth-c wf-meth-c--slot">
-            <span class="wf-fig-v wf-fig-missing">Method not listed</span>
-            <span class="wf-meth-x">Any fee, minimum or maximum this method carries is printed here too.</span>
-          </div>
-        </div>
-        <p class="wf-note wf-fig-missing">Which methods this product takes is not decided, and no fee, minimum or maximum is set. Nothing is drawn here that has not been chosen.</p>
-      </div>
+      <!-- BLOCK 5. THE WITHDRAWAL THRESHOLD, A LINE SINCE D-97 AND NOT A SECTION.
+           The rule is the whole block and it fits in a sentence; the figure is
+           also in the dock, on screen continuously. A heading over one unpublished
+           number was a heading over a hole. -->
+      <p class="wf-note"><strong>To take anything out you will need</strong> <span class="wf-fig-missing">a sum that is not published yet</span>. Whatever it says when you pay is the figure that applies to this money: it can be lowered later and it can never be raised.</p>
+      <!-- BLOCK 6 IS GONE FROM THIS PAGE AND IS NOW STEP 1, D-96 and D-97. It
+           held two empty slot cards and the sentence "which methods this product
+           takes is not decided", which had been false for five days: the list has
+           been in baseline-account.md 5b.1 since 20 August 2026.
+           IT SURVIVED THE FIRST PASS ON TWO STATE PAGES because D-96 removed it
+           from the base and these two are copies of the base rather than states
+           rendered from it. A statement corrected on one page and left standing on
+           its own states is the two-renderings defect with a longer fuse.
+           THE RULE THAT BLOCK CARRIED IS NOT LOST: an exclusion renders on the card
+           of the method it excludes, before the method is chosen, and it belongs
+           to step 1 now, where the cards are. -->
       <!-- BLOCK 7. WHAT HAPPENS AFTER YOU PAY, STATED BEFORE THE PAYMENT. The
            barrier is money that leaves and does not arrive, and the evidence is a
            person who deposited and got a closed ticket and a zero balance. A

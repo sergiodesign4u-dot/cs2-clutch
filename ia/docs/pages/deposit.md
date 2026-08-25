@@ -187,6 +187,37 @@ The live product arrives with a partner code **already in the field, ticked, and
 
 ---
 
+## 2e. Compressed 25 August 2026 by `D-97`. Density comes out of what explains, never out of what stops
+
+**Founder, on the screens `D-96` had just built:** too complex, especially step 2, and step 1 takes too much of the first screen.
+
+| | Before | After |
+|---|---|---|
+| Step 1, where the tile grid starts | **777px** | **557px** |
+| Step 1, page height | 1691px | **1170px** |
+| Step 2, sections | **8** | **4** |
+| Step 1, first tile row | 210px, stretched by one orphan | **113px** |
+
+**Step 1.** Promo and country share one row from 600px. The three paragraphs under the country become one line: what went is the explanation of what the control **is not**, and the country's job plus both named holes stayed at one line each. **The two group headings became labels**, keeping their `h2` for the document outline and losing the section-head size, which is what the baseline does with the same two words.
+
+**And the orphan's sentence moved off its tile.** `CS:GO Skins` carried the whole explanation and **stretched the first row from 74px to 210px**, so one orphan reshaped the grid for the other thirty four. The mark stays on the tile, the reason sits one line under the grid, and **the rule that an orphan is printed rather than hidden is unchanged.**
+
+**Step 2.** The provider row moves to the top, where the baseline puts it and where it belongs on its own argument: **the provider decides what the form asks for**, so a form filled before it is a form that can change under the person.
+
+**The dock became the receipt.** `You will receive 42.00 coins`, with the split and the rate under it. **The same arithmetic had been on one screen three times** and that is the defect this project has shipped twice already. The two figure blocks in the left column went and their rules stayed: the peg as a line beside the field, the bonus keeping what a number cannot carry.
+
+**The withdrawal threshold and the crediting window each became a line rather than a section.** Both were a heading over one unpublished number, and every clause of both survives.
+
+**What did not move: the ceiling.** It keeps its own section and its own heading, because it is the only blocking control on the screen and **compressing a brake into a line is how a brake becomes a setting.**
+
+### The finding, and it is not a layout one
+
+**`deposit-ceiling-pending.html` and `deposit-declined.html` were still shipping "which methods this product takes is not decided"** the day after `D-96` removed it from the base page. **They are copies of the base rather than states rendered from it.**
+
+**A correction to a page is not a correction to its states unless the states are rendered from it.** Nine pages on this node and four of them are hand copies.
+
+---
+
 ## 3. The four capabilities, and what makes each one a brake rather than a setting
 
 ### 3.1 `C1`. The coin, and the rate that has to be on this screen

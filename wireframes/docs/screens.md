@@ -2738,3 +2738,30 @@ The panel now prints the question rather than picking an answer and being wrong 
 **And a `flex-basis` set the wrong axis.** `.wf-pay-row` is a column, so `flex: 1 1 200px` on a child set its **height** and the country selector came out 200px tall.
 
 **Sixth round in which the finding came from looking at the screen after building it.**
+
+---
+
+## `D-97`, 25 August 2026. The deposit compressed, measured before and after
+
+**Founder, on the screens `D-96` had just built:** too complex, especially step 2, and step 1 takes too much of the first screen.
+
+| | Before | After |
+|---|---|---|
+| Step 1, where the tile grid starts | **777px** | **557px** |
+| Step 1, page height | 1691px | **1170px** |
+| Step 2, sections | **8** | **4** |
+| Step 1, first tile row height | 210px, stretched by one orphan | **113px** |
+
+**Step 1:** promo and country share one row from 600px, three paragraphs become one line, the two group headings become labels keeping their `h2` for the outline, and the `CS:GO Skins` orphan keeps a mark on the tile with its reason one line under the grid.
+
+**Step 2:** the provider row moves to the top, where the baseline puts it and where it belongs, because **the provider decides what the form asks for**.
+
+**And the dock became the receipt.** `You will receive 42.00 coins` with the split and the rate under it. **The same arithmetic had been on one screen three times.**
+
+### The finding, and it is not a layout one
+
+**`deposit-ceiling-pending.html` and `deposit-declined.html` were still shipping "which methods this product takes is not decided"** the day after `D-96` removed it from the base page. **They are copies of the base rather than states rendered from it.**
+
+Found by counting `h2` elements across the nine deposit pages: two of them had five where the base had four.
+
+**A correction to a page is not a correction to its states unless the states are rendered from it.**

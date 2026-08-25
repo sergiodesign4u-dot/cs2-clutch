@@ -3960,3 +3960,58 @@ The live product arrives with a partner code **already in the field, with a gree
 **And a flex-basis set the wrong axis.** `.wf-pay-row` is a column, so `flex: 1 1 200px` on a child set its **height**, and the country selector came out 200px tall. Scoped to the inner row.
 
 **Both were invisible to every text instrument and both took one screenshot.** Sixth round running.
+
+---
+
+## D-97. The deposit is compressed to the reference's density, and one dedup was owed rather than cosmetic
+
+**Date:** 2026-08-25. **Stage:** 04. **Decided by:** the founder, on the two screens `D-96` had just built. **Binds:** node `4.1` and its eight pages.
+
+### What was said, and it was measurable
+
+**"Дуже складний, особливо другий крок. Перший крок дуже багато займає першого екрана, поля на всю ширину, промокод і країна забирають забагато місця. Треба ущільнити, зробити як на реальному продукті."**
+
+**Measured before touching anything.** On a 1440 by 900 viewport, the tile grid on step 1 began at **777px** and the page ran **1691px**. Step 2 carried **eight sections** and ran **1564px**. The reference puts promo and country on one row and the first tiles on the first screen.
+
+| | Before | After |
+|---|---|---|
+| Step 1, where the grid starts | **777px** | **557px** |
+| Step 1, page height | 1691px | **1170px** |
+| Step 2, sections | **8** | **4** |
+| Step 2, page height | 1564px, then 2214px once the provider moved | **1700px with the provider block included** |
+
+### Step 1: three changes and none of them removes a fact
+
+**Promo and country share one row from 600px.** Full width each, they were pushing the grid below the fold. Stacked below 600, because a label plus a field plus a button at 360 shares a line with nothing.
+
+**Three paragraphs under the country become one line.** What went is the explanation of what the control **is not**. What stayed, at one line each: the country's job, and the two named holes, which markets are open and which routes each market carries.
+
+**The group headings become labels.** They keep their `h2` for the document outline and the screen reader, and lose the section-head size. **They were costing 96px of the first screen between them**, and the grid under them is what the page is for. The baseline runs the same two words as a small caption for the same reason.
+
+**And the orphan's sentence moved off its tile.** `CS:GO Skins` carried the whole explanation and **stretched the first row from 74px to 210px**, so one orphan reshaped the grid for the other thirty four. The tile keeps a mark, "Not open yet"; the reason sits one line under the grid. **The rule that the orphan is printed rather than hidden is unchanged.**
+
+### Step 2: the provider moves to the top, and the reason is not only the reference
+
+**The baseline puts `SELECT PROVIDER` above the form.** So does this now. **The provider decides what the form asks for**, so a form filled before it is a form that can change under the person.
+
+### And the dedup, which is the part that was owed rather than requested
+
+**The same arithmetic was on one screen three times.** The amount block printed `40.00 coins`, the bonus block printed `2.00 coins`, and the dock printed the total. **Three renderings of one fact is the defect this project has already shipped twice**, and on a money screen it is also three places for a rounding to disagree.
+
+**The dock now leads with what a person is buying:** `You will receive 42.00 coins`, with the split and the rate under it. That is where the baseline puts it, and it is on screen continuously while the amount is being decided rather than being a block scrolled past once.
+
+**The two figure blocks in the left column are gone and their rules stayed.** The peg is a line beside the field a person types in, because it is what makes the dock's figure checkable. The bonus keeps the sentence a number cannot carry: **every deposit rather than the first, and no wagering requirement.**
+
+**The withdrawal threshold and the crediting window each became a line rather than a section.** Both were a heading over one unpublished number. **Every clause survives**, including that the threshold is frozen for this money and can only ever fall, and that the crediting figure stated before the payment is the same one that runs as the clock after it.
+
+### What was found while compressing, and it is the real finding
+
+**The false sentence was still shipping on two pages.** `D-96` removed "which methods this product takes is not decided" from the base page. **`deposit-ceiling-pending.html` and `deposit-declined.html` still carried it**, because they are copies of the base rather than states rendered from it.
+
+**A statement corrected on one page and left standing on its own states is the two-renderings defect with a longer fuse.** It was found by counting `h2` elements across the nine deposit pages and noticing that two of them had five where the base had four.
+
+**The general form:** a correction to a page is not a correction to its states unless the states are rendered from it. **Nine pages of one node, and four of them are hand copies.** Candidate line for the stage close.
+
+### What did not move
+
+**The ceiling keeps its own section and its own heading.** It is the only blocking control on the screen, `C2`, and compressing a brake into a line is how a brake becomes a setting. **Density is taken out of what explains and never out of what stops.**

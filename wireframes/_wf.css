@@ -1253,6 +1253,14 @@ a.wfp-state:hover { color: var(--wf-ink); }
   border-radius: 50%; font-size: var(--wf-t-l); line-height: 1;
 }
 
+/* WHAT YOU WILL RECEIVE, D-97, at the top of the dock. It is the one figure on
+   this screen a person is actually buying, and the baseline gives it the whole
+   right column for that reason. Ours shares the dock with the sum, because the
+   sum is what design principle 3 requires on screen at the moment money moves
+   and two panels for the same corner would be one panel too many. */
+.wf-recv { display: flex; flex-direction: column; gap: 2px; padding-bottom: var(--wf-s-1); border-bottom: 1px solid var(--wf-line-soft); }
+.wf-recv-v { font-family: var(--wf-mono); font-size: var(--wf-t-xl); line-height: 1.1; }
+
 /* THE CRYPTO ADDRESS BLOCK, D-96. Code on the left, address and its control on
    the right, stacking below 600 because a 160px code beside a 40 character
    address at 360 gives neither of them room.
@@ -1326,22 +1334,38 @@ a.wfp-state:hover { color: var(--wf-ink); }
    1900px scroll, and the choice stops being a grid a person scans and becomes a
    list they read. Two columns at 140 fits inside 360 with the page gutters.
    ============================================================================ */
-.wf-pay-row { display: flex; flex-direction: column; gap: var(--wf-s-1); margin-bottom: var(--wf-s-3); }
-.wf-pay-row .wf-row { display: flex; gap: var(--wf-s-1); align-items: center; flex-wrap: wrap; }
-/* THE BASIS IS ON THE ROW AND NOT ON THE FIELD, and the difference is a bug that
-   shipped for one render: .wf-pay-row is a COLUMN, so flex-basis on a child sets
-   its HEIGHT, and the country select came out 200px tall. Scoped to the inner
-   row, which is the only place the field sits beside anything. */
-.wf-pay-row > .wf-row > .wf-f { flex: 1 1 200px; min-width: 0; }
-.wf-pay-row > .wf-f { width: 100%; }
+/* PROMO AND COUNTRY SHARE ONE ROW FROM 600, D-97. Full width each they pushed
+   the grid to 777px on a 900px viewport, so a person opening the deposit screen
+   saw two form fields and a paragraph rather than the thing they came to choose
+   from. Measured before and after, and the measurement is the argument.
+   ONE COLUMN BELOW 600, because a label plus a field plus a button at 360 does
+   not share a line with anything. */
+.wf-pay-head { display: grid; gap: var(--wf-s-2); margin-bottom: var(--wf-s-2); }
+@media (min-width: 600px) { .wf-pay-head { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: end; } }
+.wf-pay-f { display: flex; flex-direction: column; gap: var(--wf-s-1); min-width: 0; }
+.wf-pay-f .wf-row { display: flex; gap: var(--wf-s-1); align-items: center; flex-wrap: nowrap; }
+/* THE BASIS GOES ON THE FIELD INSIDE THE ROW AND NEVER ON A COLUMN'S CHILD. It
+   shipped as flex: 1 1 200px on a child of a COLUMN, where flex-basis sets the
+   HEIGHT, and the country select came out 200px tall. */
+.wf-pay-f .wf-row > .wf-f { flex: 1 1 auto; min-width: 0; }
+.wf-pay-f > .wf-f { width: 100%; }
+
+/* THE GROUP HEADING IS A LABEL, D-97. Two section heads were costing 96px of the
+   first screen and the grid under them is what the page is for. It keeps its h2
+   for the outline and loses the size. */
+.wf-pay-sec { margin-top: var(--wf-s-3); }
+.wf-pay-gh {
+  margin: 0 0 var(--wf-s-1); font-size: var(--wf-t-xs); font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim);
+}
 
 .wf-pay-g {
   display: grid; gap: var(--wf-s-1);
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
 }
 .wf-pay-t {
   display: flex; flex-direction: column; align-items: center; gap: var(--wf-s-half);
-  padding: var(--wf-s-2) var(--wf-s-1);
+  padding: var(--wf-s-1);
   border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
   background: var(--wf-surface); color: var(--wf-ink);
   text-align: center; text-decoration: none;
@@ -1352,7 +1376,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
    takes is this stage's, and a tile that reserved no room would reflow on the
    day the marks arrive. */
 .wf-pay-art {
-  display: block; width: 100%; max-width: 96px; aspect-ratio: 5 / 2;
+  display: block; width: 100%; max-width: 72px; aspect-ratio: 5 / 2;
   border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
 }
 .wf-pay-n { font-size: var(--wf-t-s); font-weight: 700; }
