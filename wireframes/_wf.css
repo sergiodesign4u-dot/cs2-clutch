@@ -1349,6 +1349,11 @@ a.wfp-state:hover { color: var(--wf-ink); }
    HEIGHT, and the country select came out 200px tall. */
 .wf-pay-f .wf-row > .wf-f { flex: 1 1 auto; min-width: 0; }
 .wf-pay-f > .wf-f { width: 100%; }
+/* THE COUNTRY IS A LINE AND NOT A FIELD, D-98, so it gets the height of the
+   control beside it rather than the height of a paragraph: the two sit on one
+   row from 600 and a short line floating in the middle of a 44px slot reads as a
+   field that failed to render. */
+.wf-pay-cty { margin: 0; min-height: var(--wf-tap); display: flex; align-items: center; flex-wrap: wrap; gap: 4px; font-size: var(--wf-t-s); }
 
 /* THE GROUP HEADING IS A LABEL, D-97. Two section heads were costing 96px of the
    first screen and the grid under them is what the page is for. It keeps its h2

@@ -218,6 +218,22 @@ The live product arrives with a partner code **already in the field, ticked, and
 
 ---
 
+## 2f. Amended 25 August 2026 by `D-98`. The country is read here and set on `5.11`
+
+**The founder pointed at a selector labelled Paying from with one option, Isle of Man, and asked what it was.** Three faults in one control.
+
+**One. That is our regulator, not a market.** The Isle of Man is the licence direction, `D-23` part 2: the jurisdiction this product would be **regulated from**. **No allowlist row has opened it and nobody pays from it.** Naming it in a list of a person's own countries renders our own regulator as a customer's location.
+
+**Two. The control competed with the node that owns the answer**, and its own comment said so: *"`5.11` owns the one answer and this control reads it"*, with a `select` underneath. **`baseline-account.md` 5b.6 is the evidence**: two self-declared countries in one live account on one day, Ukraine on the deposit step and United States in settings, because the live product carries a field in both places and reconciles neither. **`0.12`'s allowlist puts a ban on the other end of a false declaration**, so a product with two answers bans people over its own contradiction.
+
+**Three. One option is a picture of a choice, `D-58`**, and it is the smallest fault and the one that made the other two visible.
+
+**What renders instead:** a line, `Ukraine, the country on your account`, with a route to `5.11`.
+
+**And the register's state is printed rather than implied.** `D-23`: the allowlist is closed by default and there is no market we can open this month, so the note under the grid says **no market is open yet**. **A selector of open markets is a control with nothing true to put in it.**
+
+---
+
 ## 3. The four capabilities, and what makes each one a brake rather than a setting
 
 ### 3.1 `C1`. The coin, and the rate that has to be on this screen

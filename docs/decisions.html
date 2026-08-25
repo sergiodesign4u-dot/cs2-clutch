@@ -2148,6 +2148,26 @@
 
 
 
+  <div class="dec" id="d-98">
+    <div class="dec-head"><span class="dec-num">D-98</span><span class="dec-title">The deposit&#39;s country control is removed, and it was wrong in three ways at once</span><span class="st st-closed">Stage 04</span></div>
+    <div class="dec-meta">2026-08-25 - the founder, who looked at the control and asked what it was and where the choice of country had gone. Binds node 4.1 step 1, and it reads 5.11 rather than competing with it</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">What was on the screen</span>A selector labelled <strong>Paying from</strong>, with one option: <strong>Isle of Man</strong>.</span>
+
+      <span class="drop"><span class="k">Fault one, and it is the serious one: that is our regulator, not a market</span><strong>The Isle of Man is the licence direction, D-23 part 2.</strong> It is the jurisdiction this product would be <strong>regulated from</strong>, chosen because its statutory hook was written around what we actually do. <strong>It is not a market anyone pays from and no allowlist row has opened it.</strong> Putting it in a list of a person&#39;s own countries <strong>renders our own regulator as a customer&#39;s location.</strong> It appeared in exactly one place in the whole corpus, this control.</span>
+
+      <span class="drop"><span class="k">Fault two: the control competed with a node that owns the answer</span><strong>The comment above it argued against itself.</strong> It read, in the file, "5.11 owns the one answer and this control reads it", and the code underneath then drew a select. <strong>A control that sets a value another node owns is a second answer waiting to disagree with the first.</strong> <strong>And the baseline is the evidence rather than the theory:</strong> baseline-account.md 5b.6 walked <strong>two self-declared countries in one live account on one day</strong>, Ukraine on the deposit step and United States in settings, because the product carries a field in both places and reconciles neither. <strong>A select here reproduces that exactly</strong>, and 0.12&#39;s allowlist puts a ban on the other end of a false declaration, so a product with two answers bans people over its own contradiction.</span>
+
+      <span class="carry"><span class="k">Fault three: one option is a picture of a choice</span>D-58. <strong>And this is the smallest of the three faults and the one that made the other two visible</strong>, which is why it is worth recording: the founder did not spot a licensing error, he spotted a dropdown that could not drop, and the licensing error was underneath it.</span>
+
+      <span class="pick"><span class="k">What renders instead</span><strong>A line, not a field.</strong> "Ukraine, the country on your account", with a route to 5.11, which is the one place it is set. <strong>And the register&#39;s real state is printed rather than implied.</strong> D-23: the allowlist is closed by default and <strong>there is no market we can open this month</strong>, so the note under the grid now says no market is open yet instead of a selector implying that at least one is. <strong>A selector of open markets is a control with nothing true to put in it</strong>, and that is a fact about where this project stands rather than a gap in the drawing.</span>
+
+      <span class="drop"><span class="k">The class, because this is the second time in two days</span>D-97 found a sentence corrected on a base page and left standing on two of its copies. <strong>This one is a comment that states the rule and code beneath it that breaks the rule.</strong> Both are the same failure at different distances: <strong>the reasoning was right and nothing checked that the artefact agreed with it.</strong> <strong>A comment asserting the opposite of its own code has now been found three times in this stage</strong>, and each time by a person looking rather than by an instrument. The check that would catch it does not exist and cannot be a grep.</span>
+    </div>
+  </div>
+
+
+
   <p style="margin-top:20px">The four design decisions the CJM map left open, the age and identity method, the roll history migration, the internal check on live data and the inventory capital, were answered on 2026-08-11 and are recorded above as <strong>D-17</strong>, then finished by <strong>D-20</strong> at the gate of the detail layer. Two were answered outright, <code>D-D</code> is now closed by structure rather than by a figure, and <code>D-B</code> with <code>D-C</code> have become one dated request with an owner. Their original wording lives in <a href="../research/cjm-to-be.html#backlog">CJM To-Be</a>.</p>
 </section>
 

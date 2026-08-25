@@ -4015,3 +4015,45 @@ The live product arrives with a partner code **already in the field, with a gree
 ### What did not move
 
 **The ceiling keeps its own section and its own heading.** It is the only blocking control on the screen, `C2`, and compressing a brake into a line is how a brake becomes a setting. **Density is taken out of what explains and never out of what stops.**
+
+---
+
+## D-98. The deposit's country control is removed, and it was wrong in three ways at once
+
+**Date:** 2026-08-25. **Stage:** 04. **Decided by:** the founder, who looked at the control and asked what it was and where the choice of country had gone. **Binds:** node `4.1` step 1, and it reads `5.11` rather than competing with it.
+
+### What was on the screen
+
+A selector labelled **Paying from**, with one option: **Isle of Man**.
+
+### Fault one, and it is the serious one: that is our regulator, not a market
+
+**The Isle of Man is the licence direction, `D-23` part 2.** It is the jurisdiction this product would be **regulated from**, chosen because its statutory hook was written around what we actually do: operators there may accept deposits "in money or value in money's worth, including virtual assets".
+
+**It is not a market anyone pays from and no allowlist row has opened it.** Putting it in a list of a person's own countries **renders our own regulator as a customer's location**. It appeared in exactly one place in the whole corpus, this control, and nowhere else has ever named it to a user.
+
+### Fault two: the control competed with a node that owns the answer
+
+**The comment above it argued against itself.** It read, in the file, *"`5.11` owns the one answer and this control reads it"*, and the code underneath then drew a `select`.
+
+**A control that sets a value another node owns is a second answer waiting to disagree with the first.**
+
+**And the baseline is the evidence rather than the theory.** `baseline-account.md` 5b.6 walked **two self-declared countries in one live account on one day**: Ukraine on the deposit step and United States in settings, because the product carries a field in both places and reconciles neither. **A select here reproduces that exactly**, and node `0.12`'s allowlist puts a ban on the other end of a false declaration, so a product with two answers bans people over its own contradiction.
+
+### Fault three: one option is a picture of a choice
+
+`D-58`. **And this is the smallest of the three faults and the one that made the other two visible**, which is why it is worth recording: the founder did not spot a licensing error, he spotted a dropdown that could not drop, and the licensing error was underneath it.
+
+### What renders instead
+
+**A line, not a field.** `Ukraine, the country on your account.` with a route to `5.11`, which is the one place it is set.
+
+**And the register's real state is printed rather than implied.** `D-23`: the allowlist is closed by default and **there is no market we can open this month.** So the note under the grid now says no market is open yet, instead of a selector implying that at least one is.
+
+**A selector of open markets is a control with nothing true to put in it**, and that is a fact about where this project stands rather than a gap in the drawing.
+
+### The class, because this is the second time in two days
+
+`D-97` found a sentence corrected on a base page and left standing on two of its copies. **This one is a comment that states the rule and code beneath it that breaks the rule.** Both are the same failure at different distances: **the reasoning was right and nothing checked that the artefact agreed with it.**
+
+**A comment asserting the opposite of its own code has now been found three times in this stage**, and each time by a person looking rather than by an instrument. The check that would catch it does not exist and cannot be a grep.

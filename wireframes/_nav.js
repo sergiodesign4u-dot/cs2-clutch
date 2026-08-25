@@ -3612,27 +3612,44 @@ window.WF_PAY = window.WF_PAY || {
     promo.appendChild(pr);
     head.appendChild(promo);
 
-    /* THE COUNTRY FILTERS THE GRID AND IT IS NOT THE MARKET CONTROL, D-23 and
-       D-86. The allowlist decides whether a market is open; this says where a
-       person is paying from so the grid can show what works there. The baseline
-       carries both and lets them disagree, baseline-account.md 5b.6: two
-       self-declared countries in one account, Ukraine here and United States in
-       settings. 5.11 owns the one answer and this control reads it. */
+    /* THE COUNTRY IS READ HERE AND SET ON 5.11, D-98, AND IT SHIPPED AS A SECOND
+       SELECTOR FOR ONE DAY WITH THE ARGUMENT AGAINST IT IN ITS OWN COMMENT.
+       The comment said "5.11 owns the one answer and this control reads it" and
+       the code then drew a select. A control that sets a value another node owns
+       is a second answer waiting to disagree with the first.
+       AND THE BASELINE IS THE EVIDENCE RATHER THAN THE THEORY.
+       baseline-account.md 5b.6 walked TWO SELF-DECLARED COUNTRIES IN ONE ACCOUNT
+       ON ONE DAY, Ukraine on the deposit step and United States in settings,
+       because the live product carries a field in both places and reconciles
+       neither. THAT IS THE EXACT DEFECT A SELECT HERE REPRODUCES, and node 0.12's
+       allowlist has a ban on the other end of a false declaration.
+       WHAT IT SAID WAS ALSO WRONG. The one option read "Isle of Man", which is the
+       LICENCE DIRECTION from D-23, the jurisdiction we would be regulated from.
+       It is not a market anyone pays from and no row has opened it. Naming it here
+       put our own regulator in a list of a person's countries.
+       AND A SELECT WITH ONE OPTION IS A PICTURE OF A CHOICE, D-58, which is the
+       smaller of the two faults and the one that made the larger one visible.
+       SO IT RENDERS AS WHAT IT IS: a fact from the account, with the route to the
+       place that owns it, and the state of the register printed rather than
+       implied. D-23: the allowlist is closed by default and there is no market we
+       can open this month, so a selector of open markets is a control with nothing
+       true to put in it. */
     var cty = el('div', 'wf-pay-f');
-    var cl = el('label', 'wf-cfg-l', 'Paying from');
-    cl.setAttribute('for', 'pay-country');
-    cty.appendChild(cl);
-    var sel = el('select', 'wf-f');
-    sel.id = 'pay-country';
-    ['Isle of Man'].forEach(function (c) { sel.appendChild(el('option', null, c)); });
-    cty.appendChild(sel);
+    cty.appendChild(el('span', 'wf-cfg-l', 'Paying from'));
+    var cv = el('p', 'wf-pay-cty');
+    cv.appendChild(el('strong', null, 'Ukraine'));
+    cv.appendChild(document.createTextNode(', the country on your account. '));
+    var ca = el('a', null, 'Change it in Settings');
+    ca.href = BASE + 'settings.html';
+    cv.appendChild(ca);
+    cty.appendChild(cv);
     head.appendChild(cty);
     host.appendChild(head);
 
     var n = P.fiat.length + P.crypto.length;
     var note = el('p', 'wf-note');
     note.appendChild(document.createTextNode(n + ' ways to pay, in the live product\u2019s own order. Where you pay from decides which of them work. '));
-    note.appendChild(el('span', 'wf-fig-missing', 'Which markets are open is not settled, and which routes each market carries is not set either.'));
+    note.appendChild(el('span', 'wf-fig-missing', 'No market is open yet: the register is closed by default and every row needs its own legal work before anyone can pay from it. Which routes each market will carry is not set either.'));
     host.appendChild(note);
 
     host.appendChild(payGroup('Cards, wallets and bank transfer', P.fiat));

@@ -2765,3 +2765,15 @@ The panel now prints the question rather than picking an answer and being wrong 
 Found by counting `h2` elements across the nine deposit pages: two of them had five where the base had four.
 
 **A correction to a page is not a correction to its states unless the states are rendered from it.**
+
+---
+
+## `D-98`, 25 August 2026. The country control comes off step 1
+
+**The founder pointed at a selector labelled `Paying from` with one option, `Isle of Man`, and asked what it was.**
+
+**Three faults in one control.** It named **our licence direction** as a customer's country, `D-23` part 2, and it was the only place in the corpus that ever rendered that name to a user. It **set a value node `5.11` owns**, which is the defect `baseline-account.md` 5b.6 walked on the live product: two self-declared countries in one account on one day. And **one option is a picture of a choice**, `D-58`.
+
+**The smallest fault is what made the other two visible.**
+
+**What renders instead:** `Ukraine, the country on your account`, with a route to Settings. And the note under the grid now says **no market is open yet**, which is what `D-23` actually decided, rather than a selector implying at least one is.
