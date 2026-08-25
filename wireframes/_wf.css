@@ -1253,6 +1253,28 @@ a.wfp-state:hover { color: var(--wf-ink); }
   border-radius: 50%; font-size: var(--wf-t-l); line-height: 1;
 }
 
+/* THE BONUS BADGE, D-94. It sits ON the control rather than beside it, which is
+   the baseline's own shape and the founder's reference: the offer and the way to
+   take it are one target.
+   IT OVERLAPS INWARD AND NEVER OUTWARD PAST THE CONTROL'S RIGHT EDGE. The header
+   is the tightest row in the product at 360 and a badge hanging outside the circle
+   is how a persistent element starts a horizontal scroll on every signed-in page.
+   So it is inset, not offset.
+   IT IS ARIA-HIDDEN AND THE CONTROL'S OWN NAME CARRIES THE OFFER, because "5%"
+   read out on its own is a number with no noun, and because the cap does not fit
+   in a circle and may not travel separately from the percentage.
+   NO ANIMATION, NO PULSE, NO COUNT. A promotional element that moves on a
+   persistent carrier is the thing CLAUDE.md's limits rule refuses one level over:
+   this is an offer, not a score, and it never becomes one. */
+.wf-dep-b {
+  position: absolute; z-index: 1; top: -2px; right: -2px;
+  display: flex; align-items: center; justify-content: center;
+  min-width: 20px; height: 20px; padding: 0 4px;
+  border: 1px solid var(--wf-line); border-radius: 999px;
+  background: var(--wf-raised); color: var(--wf-ink);
+  font-size: 10px; font-weight: 700; line-height: 1; letter-spacing: 0;
+}
+
 /* The account control and its menu. The control is a button because it opens something
    rather than going somewhere, and the menu's first row is the destination it used to
    be. Hover opens it, and so do click, Enter and Space, because hover alone excludes

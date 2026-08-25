@@ -79,6 +79,29 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 ---
 
+## 2b. Amended 25 August 2026 by `D-94`. A block for the bonus, and the promise the badge makes
+
+**Founder decision.** The header's deposit control carries a standing `5%` badge, `navigation.md` rule 4, reversed there. **This node owns the other half of it.**
+
+**Block 2b sits between the amount and the ceiling**, and the position is the argument. The founder's own wording is that we lead a person from the control to the deposit screen: **a percentage advertised on a persistent control and not restated where the money goes in is a condition that arrives after the decision instead of before it**, which is the shape `B4-1` describes.
+
+| What the block states | Why it is here and not in a footnote |
+|---|---|
+| **+5.00% in coins on top of what you put in** | The badge can hold this and nothing else |
+| **Up to 100 coins per 24 hours** | **The cap is the half the circle cannot carry.** A rate whose limit is discoverable only at the end of the form is the rising threshold with the sign reversed |
+| **Every deposit, not the first only** | `cjm-to-be.md` cut a **first-deposit** bonus. This is a standing one, `baseline-account.md` section 5b.2, and calling it the wrong thing on the screen would be the third rendering of a fact |
+| **No wagering requirement** | `C4`. The coins it adds behave like every other coin, and **what it takes to withdraw does not move because of it** |
+
+**One declaration, two surfaces.** The number lives once, in `WF_BONUS`, and both the badge and this block read it. **This project has already shipped two renderings of one fact across seventy-two pages**, and a promotional percentage that disagreed with itself between the control and the screen would be that defect on the surface where money moves.
+
+**The bonus is a line in the summary and never a badge on it**, which is the rule `5.3` already runs on a commission of zero: a badge asserts, a line in a sum gets checked. It sits below the fee and above the ceiling, because it is part of what the transaction does rather than part of what it costs.
+
+**And the coins figure cannot be drawn.** Five per cent of the amount is a coin figure and **1 coin in real money is not published**, so the block states the rate in full and marks the one number it cannot compute. **This is now the most expensive place that hole sits:** a person is being offered something they cannot size.
+
+**What this node still refuses.** No animation on the badge, no pulse, no count, no streak, and no rendering anywhere of a bonus total accumulated. `CLAUDE.md`'s limits rule is one level over and the instinct is the same: **an offer never becomes a score.**
+
+---
+
 ## 3. The four capabilities, and what makes each one a brake rather than a setting
 
 ### 3.1 `C1`. The coin, and the rate that has to be on this screen
@@ -122,7 +145,7 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 - **Stated before the payment, on this screen, in the summary.** Not on `5.3`, not in a policy, not on first attempt to withdraw.
 - **Frozen at this moment.** The figure stated at this deposit is the figure that applies to what this deposit funds. A later change may lower it and may never raise it, for money already in.
-- **A first-deposit bonus with a wagering requirement cannot ship beside it.** `cjm-to-be.md` answer 3: "a wagering requirement is `B4-1` in better clothes and it contradicts C4 directly". The two cannot both exist, and the cut is already taken. `navigation.md` rule 4 carries the same decision on the header's deposit control, which ships without the baseline's 5 percent badge.
+- **A bonus with a wagering requirement cannot ship beside it, and that half is untouched.** `cjm-to-be.md` answer 3: "a wagering requirement is `B4-1` in better clothes and it contradicts C4 directly". **Amended 25 August 2026 by `D-94`, and only the second sentence moved.** A standing bonus **does** ship, at +5.00% capped at 100 coins per 24 hours, and it ships **with zero wagering**, so `C4` holds unchanged: the coins it adds behave like every other coin and the withdrawal threshold does not move because of it. `navigation.md` rule 4 carries the reversal on the header control, which now runs the badge with the cap in its accessible name.
 
 ### 3.4 `C3`. The crediting window, in the interface rather than in an FAQ
 

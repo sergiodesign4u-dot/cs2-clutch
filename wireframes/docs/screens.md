@@ -2659,3 +2659,24 @@ Stage 04 proposed **three** tabs and refused cash out because it has no subject 
 | `_nav.js` | A third rendering of the winner's name in the strip: **name without a link, and no badge** |
 
 **And the note that belongs to this file rather than to the record.** The sell-back ledger's note and its bar were both wrong on the first render: the panel fell through to the withdrawals copy, and the count read `1 sales`. **Both were found by screenshotting the page that had just been built**, and neither is visible to any instrument that reads the corpus as text.
+
+---
+
+## `D-94`, 25 August 2026. The bonus badge, and the thirteen pages that refuse it
+
+**Founder decision**, reversing `navigation.md` rule 4. `docs/decisions.md` `D-94` holds the reasoning; what follows is what changed on a screen.
+
+| Where | What changed |
+|---|---|
+| The header `+`, every signed-in page | A `5%` badge on the control, inset so it never crosses the control's right edge. **Its accessible name carries the cap the circle cannot hold:** "Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours" |
+| `deposit.html`, `deposit-ceiling-pending.html`, `deposit-declined.html` | **Block 2b, between the amount and the ceiling.** The rate, the cap, the period, that it applies to every deposit rather than the first, and that it carries no wagering |
+| The same three, in the docked summary | **A line in the sum and never a badge on it**, the rule `5.3` runs on a commission of zero. Below the fee, above the ceiling |
+| `deposit-ceiling-reached.html`, five `6.1` pages, seven `0.3` pages | **`bonus: false`.** Thirteen pages where the badge does not render |
+
+**One declaration.** `WF_BONUS` sits at the top of `_nav.js`, above every reader, for the reason `WF_WHO` does: this file once declared an account name halfway down, below one of its own readers, and shipped two different names across seventy-two pages.
+
+**Why the opt-out set is what it is.** Node `4.2`'s forbidden list reads "no offer of any kind". **A percentage in the header is an offer of any kind**, and on `4.2` it would sit nine pixels from the figure that refuses the thing it offers. The `6.1` surfaces are the place a person goes to stop. The error pages are not selling surfaces.
+
+**Declared per page and not derived from `feed: false`**, even though the two sets are identical today. **Two rules that happen to agree are not one rule.**
+
+**And the screen now carries two absences side by side**, what the money buys in coins and what the bonus adds in coins, both blocked on the same unpublished peg. **That is the correct rendering and it is the sharpest argument yet for closing it:** a person is being offered something they cannot size.

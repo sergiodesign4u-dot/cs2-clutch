@@ -377,6 +377,24 @@ window.WF_NAV = {
    that Steam cannot be read: one page, one override, one source still. */
 window.WF_WHO = window.WF_WHO || { name: 'nightjar_cs', id: 'acc-7f3a91c4', since: '12 Jan 2026' };
 
+/* THE STANDING DEPOSIT BONUS, D-94, founder decision of 25 August 2026, AND IT IS
+   DECLARED HERE FOR THE REASON WF_WHO IS. The badge on the header control and the
+   statement on 4.1 are ONE FACT RENDERED TWICE, and this project already has the
+   scar: an account name declared halfway down this file, below one of its own
+   readers, shipped two different names across seventy-two pages. So the number
+   lives once, above every reader, and no page writes its own.
+   THE PERCENTAGE NEVER TRAVELS WITHOUT THE CAP. "+5%" alone on a control, with
+   "up to 100 coins per 24 hours" discoverable only at the end of the form, is the
+   rising-threshold shape B4-1 describes with the sign reversed. The badge cannot
+   hold the cap, so the ACCESSIBLE NAME carries both and 4.1 prints both.
+   WAGERING IS FALSE AND IT IS NOT A SETTING. C4 is an MVP rule: no withdrawal ever
+   demands a sum that was not named before the money went in. A bonus with a
+   wagering requirement is B4-1 in better clothes, cjm-to-be.md answer 3. The flag
+   is here so that a page cannot quietly render otherwise. */
+window.WF_BONUS = window.WF_BONUS || {
+  pct: '5%', pctFull: '5.00%', cap: '100 coins', period: '24 hours', wagering: false
+};
+
 (function () {
   var WF = window.WF_NAV;
   if (!WF) return;
@@ -1509,12 +1527,44 @@ window.WF_WHO = window.WF_WHO || { name: 'nightjar_cs', id: 'acc-7f3a91c4', sinc
       right.appendChild(money);
 
       // A SINGLE COMPACT ADD CONTROL BESIDE THE FIGURES, which is the node's own wording
-      // and the baseline's own shape. NO BADGE: the capture welds a green 5 per cent onto
-      // it, and rule 4 blocks any first-deposit bonus in round 1 behind a model that does
-      // not exist yet. The shape is taken, the promotion welded onto it is not.
+      // and the baseline's own shape.
+      // THE BADGE IS ON IT SINCE 25 AUGUST 2026, D-94, AND RULE 4 IS REVERSED BY THE
+      // FOUNDER RATHER THAN WORKED AROUND. It read: no percentage badge on the deposit
+      // control in round 1, because cjm-to-be.md cuts ANY bonus until case mathematics
+      // are modelled and that model does not exist. The model still does not exist.
+      // WHAT THE FOUNDER PUT AGAINST IT IS IN OUR OWN RESEARCH, not against it:
+      // aarrr.md Activation records a first-credit or match offer on every competitor in
+      // the bank, Clash.gg 5 per cent, Key-Drop 20 per cent plus 0.50, Hellcase 0.70 plus
+      // 10 per cent, CSGORoll 10 per cent. Shipping without one is a decision too, and
+      // that one had never been costed.
+      // THE BADGE IS A PROMISE, SO THE PROMISE IS KEPT WHERE IT LANDS. The founder's own
+      // wording: we lead a person from the control to the deposit screen. So the number
+      // on this badge and the number on 4.1 come from one declaration, WF_BONUS, and the
+      // accessible name carries the cap the circle cannot hold.
       var dep = el('a', 'wf-btn wf-dep', '+');
       dep.href = BASE + 'deposit.html';
-      dep.setAttribute('aria-label', 'Deposit');
+      // AND ONE SET OF PAGES TURNS IT OFF, WHICH IS WHAT MAKES THE BADGE SAFE TO SHIP.
+      // Node 4.2's own forbidden list reads "no offer of any kind: no alternative funding
+      // route, no reminder when the period resets, no invitation to raise the ceiling".
+      // A PERCENTAGE IN THE HEADER IS AN OFFER OF ANY KIND, so on the page whose entire
+      // job is that deposits have stopped, the badge does not render. Same on 6.1's
+      // surfaces, where CLAUDE.md's own words apply: the place a person goes to stop is
+      // the one place progress may not follow them. Same on the error pages, where
+      // nothing works and selling is noise.
+      // IT IS DECLARED PER PAGE AND NOT DERIVED FROM feed:false, even though the set is
+      // the same today. Two rules that happen to agree are not one rule, and the day one
+      // of them moves, a derived flag moves with it silently.
+      var BN = (window.WF_SHELL && window.WF_SHELL.bonus === false) ? {} : (window.WF_BONUS || {});
+      if (BN.pct) {
+        var bb = el('span', 'wf-dep-b', BN.pct);
+        bb.setAttribute('aria-hidden', 'true');
+        dep.appendChild(bb);
+        // THE CAP TRAVELS WITH THE PERCENTAGE OR THE PERCENTAGE IS A HALF TRUTH.
+        dep.setAttribute('aria-label',
+          'Add funds. We add ' + BN.pctFull + ' in coins on top, up to ' + BN.cap + ' per ' + BN.period);
+      } else {
+        dep.setAttribute('aria-label', 'Deposit');
+      }
       right.appendChild(dep);
       right.appendChild(accountControl());
     } else {

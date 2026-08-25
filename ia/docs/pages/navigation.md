@@ -12,7 +12,7 @@
 
 | What the live product does | What we keep | What we change, and why |
 |---|---|---|
-| The header carries **two money figures side by side and never summed**, labelled `INVENTORY` and `BALANCE`, with a round `+` beside them for deposit. The rail is a full height icon column of nine destinations. `baseline-account.md` section 1. | **The money rule, exactly.** `CLAUDE.md` fixes two figures, balance and value of items held, never summed. **The canon already runs it**, which is the strongest confirmation in the capture. | The denomination, `C1`. And **the `+` control carries a permanent `5%` badge** advertising the standing deposit bonus, `baseline-account.md` section 5b.2. **Ours carries no badge:** a promotional percentage welded to a money control turns the shell into an advertisement that never stops running. |
+| The header carries **two money figures side by side and never summed**, labelled `INVENTORY` and `BALANCE`, with a round `+` beside them for deposit. The rail is a full height icon column of nine destinations. `baseline-account.md` section 1. | **The money rule, exactly.** `CLAUDE.md` fixes two figures, balance and value of items held, never summed. **The canon already runs it**, which is the strongest confirmation in the capture. | The denomination, `C1`. And **the `+` control carries a permanent `5%` badge** advertising the standing deposit bonus, `baseline-account.md` section 5b.2. ~~**Ours carries no badge:** a promotional percentage welded to a money control turns the shell into an advertisement that never stops running.~~ **Amended 25 August 2026, `D-94`: ours carries the badge.** The founder's ground is in `aarrr.md`, where every competitor in the bank runs an offer, and the refusal had priced only one side. **What survives of the old sentence is the guard:** the badge is off on every page whose own rule forbids an offer, and the cap travels with the percentage. Rule 4. |
 
 ---
 
@@ -297,7 +297,7 @@ This is the state the founder specified. Left to right: rail toggle, logo, then 
 
 **Hover is not the only way in, and this is an accessibility limit rather than a preference.** The founder's reference opens the menu on hover. Hover alone excludes touch entirely and the keyboard almost entirely, so the control opens on hover, on click and on Enter or Space, and closes on Escape, on a click outside and when focus leaves. `WCAG 2.2` is already carried by this node in section 2 for target size; the same section is why a hover-only disclosure does not ship.
 
-**No badge on the deposit control, and the reference shows exactly the badge being refused.** The baseline capture carries a green 5 percent on its add control. Rule 4 below blocks it behind a named model with a named owner. The **shape** is taken, a single compact add control beside the figures; the promotion welded onto it is not.
+~~**No badge on the deposit control, and the reference shows exactly the badge being refused.**~~ **Amended 25 August 2026, `D-94`.** The baseline capture carries a green 5 percent on its add control and **ours carries one too**. The **shape** was always taken, a single compact add control beside the figures; since `D-94` the promotion on it is taken as well, **with the cap in the accessible name and the whole offer restated on `4.1`.** Rule 4 below.
 
 ### Four rules the two figures carry, and every one of them is derived rather than styled
 
@@ -309,7 +309,23 @@ This is the state the founder specified. Left to right: rail toggle, logo, then 
 
 **3. The lower figure is labelled as a current market value and never as profit, gain or growth.** It moves without the person acting, because skin prices move. A figure that can fall is honest only if it never claimed to be a score. **Parent:** design principle 1 as limited by `D-14`, "what answers the doubt people actually record is published chance, **current value** and tested RTP", plus row `B7` at `cjm-to-be.md` "2. Registration, account, age, geography", the account and inventory with each item carrying its receipt. The header figure is the sum of those receipts and must reconcile with 5.1 exactly.
 
-**4. No percentage badge on the deposit control in round 1.** The baseline runs a green 5 percent badge on its add control. `cjm-to-be.md` "Cut at this step" cuts **any** first-deposit bonus in round 1, including the zero-wagering variant, because `aarrr.md` "MVP product decision" requires case mathematics to be modelled before any bonus is designed and that model does not exist. The control ships without the badge. The badge is not forbidden forever, it is blocked behind a named model with a named owner.
+**4. ~~No percentage badge on the deposit control in round 1.~~ Reversed 25 August 2026 by the founder, `D-94`. The control carries the badge.**
+
+**The refusal, kept whole rather than deleted.** The baseline runs a green 5 percent badge on its add control. `cjm-to-be.md` "Cut at this step" cuts **any** first-deposit bonus in round 1, including the zero-wagering variant, because `aarrr.md` "MVP product decision" requires case mathematics to be modelled before any bonus is designed and that model does not exist. **The model still does not exist.** The refusal was not wrong about the fact; it lost to a cost it had not weighed.
+
+**What the founder put against it, and it is in our own research rather than against it.** `aarrr.md` Activation records a first-credit or match offer on **every competitor in the bank**: Clash.gg 5 percent, Key-Drop 20 percent plus 0.50, Hellcase 0.70 plus 10 percent, CSGORoll 10 percent. **Shipping without one is a decision too, and that decision had never been costed anywhere.** The refusal priced the risk of having a bonus and priced nothing for not having one.
+
+**And the object is not quite the one that was cut.** `cjm-to-be.md` cuts a **first-deposit** bonus. The baseline's is a **standing** bonus, +5.00% on every deposit capped at 100 per 24 hours, `baseline-account.md` section 5b.2. Different mechanic, and `aarrr.md`'s ground covered any bonus, so this is a real reversal and is recorded as one rather than as a technicality.
+
+**Three things bind the badge, and without them it does not ship.**
+
+1. **The percentage never travels without its cap.** A circle can hold `5%` and nothing else, so the control's **accessible name carries both**: "Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours." A rate advertised on a persistent control whose limit is discoverable only at the end of the form is `B4-1` with the sign reversed.
+2. **The promise is kept where it lands.** The founder's own wording is that we lead a person from the control to the deposit screen, so `4.1` states the whole offer. **One declaration, `WF_BONUS`, read by both surfaces**, because this project has already shipped two renderings of one fact across seventy-two pages.
+3. **Zero wagering, and it is printed.** `C4` is an MVP rule and `cjm-to-be.md` answer 3 says a wagering requirement is `B4-1` in better clothes. The bonus adds coins and **changes nothing about what it takes to withdraw**.
+
+**And one set of pages turns it off, which is what makes it safe to ship.** Node `4.2`'s own forbidden list reads "no offer of any kind". **A percentage in the header is an offer of any kind**, so on the page whose entire job is that deposits have stopped, the badge does not render; the same on `6.1`'s surfaces, where `CLAUDE.md`'s own words apply, the place a person goes to stop is the one place progress may not follow them; and on the error pages, where selling is noise. **Declared per page and never derived from the feed's opt-out**, even though the set is identical today: two rules that happen to agree are not one rule.
+
+**What is still refused.** No animation, no pulse, no count, no streak. The badge is an offer and never becomes a score.
 
 **A fifth thing this node refuses on its own.** No counter, no streak, no progress bar and no session score appears anywhere in either carrier. `CLAUDE.md` binds this stage: a limit that acquires completion mechanics stops being a boundary. Two live money figures in a persistent header is exactly where that pressure arrives.
 
@@ -365,7 +381,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 | Account control, account only | Avatar and name. **Opens the account menu**, four rows, section 5 | the menu, then 5.1 |
 | Balance figure, account only | Spendable funds, in coins | 4.1 |
 | Value of items held, account only | Current market value in coins, timestamped when stale | 5.1 |
-| Deposit control, account only | One add control. No badge in round 1 | 4.1 |
+| Deposit control, account only | One add control, **carrying the standing bonus badge since `D-94`**, and no badge on the pages listed in rule 4 | 4.1 |
 | Active indicator | Exactly one destination is active at any time, **across the rail, the drawer and the mobile bar together**, never one in each | current node |
 
 **Provably fair holds its rail position in both states, and that is the structural claim of this node.** `jtbd.md` Section 3, Emotional and Social Jobs names a public provably fair surface as one of three things no competitor offers pre-login, and `baseline.md` verified that our own baseline still redirects that route to login and demotes it to a footer link, `baseline.md`. Design principle 1 says trust is the product. Letting the item slide down or out when the account arrives would say the proof was a sales argument. It carries the `D-14` limit with it: its position is not a claim that a verifier converts a sceptic.

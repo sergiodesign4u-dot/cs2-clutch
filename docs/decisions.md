@@ -3745,3 +3745,65 @@ The settlement ships the way `D-38`'s own subject ships: **with its empty parent
 **And nine of them were not stale at all, and the first fix was wrong.** `case-outcome`, `case-interrupted` and the five result pages carry `F1`'s instance value receipt, which asks for **two named external venues** so that a person does not take our word for what one instance is worth. That is a different question from where the copy comes from, and `D-92` narrowed it without closing it: **neither of the two can be us.** The first pass rewrote those lines to say "there is no outside listing because the copy comes from us", which is the opposite of what `D-92` decided. **Caught before commit, reverted, and the lines now carry the narrowing instead.**
 
 **Two venue questions, one word.** They read identically on the page and they have opposite answers, which is exactly the collision `CLAUDE.md` records for screen codes and capability codes. The comment on `5.3` now names both so the next reader does not merge them again.
+
+---
+
+## D-94. The deposit bonus returns to round 1, the badge goes on the control, and the refusal it reverses is kept whole
+
+**Date:** 2026-08-25. **Stage:** 04. **Decided by:** the founder, overruling `navigation.md` rule 4 after it was put to them and restated. **Binds:** nodes `0.1`, `4.1`, `4.2`, `6.1` and `6.3`, and row `C4` of `cjm-to-be.md`, which survives unchanged.
+
+### What was decided
+
+**The header's `+` control carries a standing `5%` badge**, on every signed-in page except the ones listed below. **Node `4.1` states the whole offer** where the money goes in. The founder's wording: we lead a person from the control to the deposit screen.
+
+### The refusal it reverses, kept whole because it lost rather than turned out to be wrong
+
+`navigation.md` rule 4 read: **no percentage badge on the deposit control in round 1.** Its ground was not taste. `cjm-to-be.md` "Cut at this step" cuts **any** bonus in round 1, **including the zero-wagering variant**, because `aarrr.md` requires case mathematics, a defined edge and a projected case RTP, to be modelled before any bonus is designed, **and that model does not exist.**
+
+**The model still does not exist.** Nothing in this decision produces one. The refusal was not wrong about the fact.
+
+### What the founder put against it, and it is in our own research rather than against it
+
+`aarrr.md` Activation records a first-credit or match offer on **every competitor in the bank**: Clash.gg 5 percent, Key-Drop 20 percent plus 0.50, Hellcase 0.70 plus 10 percent, CSGORoll 10 percent.
+
+**Shipping without one is a decision too, and that decision had never been costed anywhere.** The refusal priced the risk of having a bonus and priced nothing for not having one. **That asymmetry is the finding**, and it is more general than this row: a cut recorded with a reason reads as settled, while the cost of the cut goes on being paid by nobody's line in nobody's file.
+
+### And the object is not quite the one that was cut
+
+`cjm-to-be.md` cuts a **first-deposit** bonus. The baseline's is a **standing** bonus, +5.00% on every deposit capped at 100 per 24 hours, `baseline-account.md` section 5b.2, walked 18 August 2026.
+
+**Different mechanic.** `aarrr.md`'s ground covered any bonus, so this is a real reversal and is recorded as one rather than slipped through as a technicality. **And the screen says "every deposit" rather than "first deposit"**, because calling it the wrong thing would be a third rendering of a fact this project has already got wrong twice.
+
+### Three things bind the badge, and without them it does not ship
+
+**1. The percentage never travels without its cap.** A circle holds `5%` and nothing else, so the control's **accessible name carries both**: "Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours." **A rate advertised on a persistent control whose limit is discoverable only at the end of the form is `B4-1` with the sign reversed**, a condition arriving after the decision instead of before it.
+
+**2. The promise is kept where it lands.** `4.1` gains block 2b between the amount and the ceiling: the rate, the cap, the period, that it applies every time, and that it carries no wagering. **One declaration, `WF_BONUS`, read by both surfaces.** This project has shipped two renderings of one fact across seventy-two pages once already, and a promotional percentage disagreeing with itself between the control and the screen would be that defect on the surface where money moves.
+
+**3. Zero wagering, and it is printed rather than assumed.** `C4` is an MVP rule: no withdrawal ever demands a sum that was not named before the money went in. `cjm-to-be.md` answer 3: a wagering requirement is `B4-1` in better clothes and contradicts `C4` directly. **The bonus adds coins and changes nothing about what it takes to withdraw**, and the flag lives in `WF_BONUS` so a page cannot quietly render otherwise.
+
+### One set of pages turns it off, and that is what makes it safe to ship
+
+**Node `4.2`'s own forbidden list reads "no offer of any kind: no alternative funding route, no reminder when the period resets, no invitation to raise the ceiling."**
+
+**A percentage in the header is an offer of any kind.** On the page whose entire job is that deposits have stopped, it would be an offer to do the one thing the page exists to refuse, nine pixels from the figure that refuses it. So the badge does not render there.
+
+| Where the badge is off | Ground |
+|---|---|
+| `4.2`, ceiling reached | The node's own forbidden list |
+| The five `6.1` surfaces | `CLAUDE.md`: the place a person goes to stop is the one place progress may not follow them |
+| The seven `0.3` error pages | Nothing works; selling is noise |
+
+**Declared per page, never derived from the feed's opt-out**, even though the set is identical today. **Two rules that happen to agree are not one rule**, and the day one of the sets moves, a derived flag would move with it and nobody would see it happen.
+
+**And `4.2` still says nothing about the bonus.** Not "your bonus is paused", not "it will be here when the period resets". **Both are the reminder the forbidden list names by hand, wearing a helpful voice.**
+
+### What is still refused, and it is the line between an offer and a score
+
+No animation on the badge, no pulse, no count, no streak, and **no rendering anywhere of a bonus total accumulated.** `CLAUDE.md`'s rule about limits is one level over and the instinct is the same: **an offer never becomes a score.**
+
+### The hole this makes more expensive, and it is not a new one
+
+**Five per cent of the amount is a coin figure, and 1 coin in real money is not published.** So `4.1` states the rate in full and marks the one number it cannot compute, and the deposit screen now carries **two** "cannot be shown" figures side by side: what the money buys, and what the bonus adds.
+
+**That is the correct rendering and it is also the argument for closing the peg.** A person is being offered something they cannot size. `baseline-account.md` section 5b.2 walked the live product publishing **`Rate 1.00 = $1.00`** at exactly this step on 18 August 2026, so a candidate value exists and **no decision has adopted it.** Owner: the founder, and it is now the most expensive `[?]` on this node.
