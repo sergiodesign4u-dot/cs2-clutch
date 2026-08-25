@@ -234,6 +234,44 @@ The live product arrives with a partner code **already in the field, ticked, and
 
 ---
 
+## 2g. Carried 25 August 2026 by `D-99`. The dialog is the carrier, and it was asked for a day before it was built
+
+**The founder asked for it in the message that supplied the method list:** better to make all of this a dialog, the way the competitors do. `D-96` built the list, the two steps and the promo field, and **dropped the carrier without recording a refusal.** A dropped request with no row is indistinguishable from a request nobody made.
+
+**And the sentence had already been written as though the work were done.** The renderer above the method grid and the address page under it both carried *"one renderer, two carriers, the dialog and the address render the same grid"* while **exactly one carrier existed.** That is the fourth comment in this stage stating a rule its own code does not keep, and the first three were all found by a person looking rather than by an instrument.
+
+### The carrier rule is `D-54`'s, taken whole
+
+**The address survives.** `/deposit` renders the same content as a full page and is what a typed URL, a deep link, a session with no script and a person pressing back all land on. **The dialog renders it over the surface a person is already on.** Neither is a reduced version of the other, and that is structural rather than promised: both carriers call the same three renderers, so a change to either arrives in both.
+
+**The reason is stronger here than it was at sign in.** A person adds funds in the middle of something. The case they chose, the count they set and the price they were reading are what the money is for, and on a page all of it is behind them **at the moment they decide how much to spend**.
+
+### It carries both steps, and that is the whole of it
+
+**A dialog that picks a method and then throws the person to a page for the amount is a doorway**, and a doorway is exactly the second surface with less in it that `D-54` rejected. **The money is spent on step 2**, so step 2 is the screen the context is worth most on. A tile inside the layer advances the layer; the same tile at the address is a link to the same step at its own address.
+
+### What it does not carry, named rather than omitted
+
+**The outcome surfaces.** `4.4` crediting, `4.5` declined and `4.2` ceiling reached stay at their addresses and the layer navigates to them. They are **records with a state that persists** and a person returns to them from history, and `D-54` already fixed that a layer must never vanish on a failure: a dialog that closed itself on a decline would return a person to a screen that cannot explain what happened.
+
+**The H1 and the footer**, for `D-54`'s own reasons: the host page owns the outline and already has a footer.
+
+**And the dock is in flow inside the layer where it is fixed on the page.** Below 900px the page docks the summary to the bottom of the viewport; a fixed element inside a dialog has no viewport of its own and leaves the frame it belongs to. In the layer the summary is simply the last block, which is where the document order already put it.
+
+### What the rebuild fixed that nobody had asked about
+
+**Six pages became hosts and the bodies moved into one renderer.** Before this, `4.3` and `4.5` were hand copies of the card page **taken before `D-97` and never caught up**: neither carried the provider block, the receipt at the top of the dock or the billing block, and `D-97` had found one more of the same class the day before. **A state that is a copy of a page is a state no correction reaches.**
+
+**The three money figures became one arithmetic.** Amount, bonus and what you receive were typed by hand on five pages. They are computed now, from the amount and from the one bonus declaration, **and the sum is only legal because of `D-95`**: one coin is one dollar, fixed, so dollars in and coins out can be added at all. The cap is real rather than decorative.
+
+**The ids are prefixed in the layer.** Opened over `/deposit` or over a step 2 address there would otherwise be two of every id in one document, which is a label pointing at the wrong field.
+
+### One hole this opened, and it belongs to the node rather than to the carrier
+
+**What the summary says before an amount exists is a state neither carrier has ever had.** Opened with nothing typed, the layer rendered a receipt of `0.00 coins` and a ceiling in force of `$0.00`, which is not an empty state: it is the worked example with its number missing. **The page has had the same gap since 22 August** and nobody looked, because the page always arrived with the example already filled. Both carriers now show the same worked amount, and **the pre-amount state is `[?]` and named here rather than invented inside a dialog.**
+
+---
+
 ## 3. The four capabilities, and what makes each one a brake rather than a setting
 
 ### 3.1 `C1`. The coin, and the rate that has to be on this screen

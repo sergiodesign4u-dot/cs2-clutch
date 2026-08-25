@@ -4057,3 +4057,81 @@ A selector labelled **Paying from**, with one option: **Isle of Man**.
 `D-97` found a sentence corrected on a base page and left standing on two of its copies. **This one is a comment that states the rule and code beneath it that breaks the rule.** Both are the same failure at different distances: **the reasoning was right and nothing checked that the artefact agreed with it.**
 
 **A comment asserting the opposite of its own code has now been found three times in this stage**, and each time by a person looking rather than by an instrument. The check that would catch it does not exist and cannot be a grep.
+
+---
+
+## D-99. The deposit becomes a dialog, and the carrier had been asked for a day before it was built
+
+**Date:** 2026-08-25. **Stage:** 04. **Decided by:** the founder, twice: once inside the message that supplied the method list, and once by asking where it was. **Binds:** node `4.1`, its eight pages, the registry entry for the node, and the two carriers rule from `D-54`.
+
+**What was decided.** **Adding funds stops being only a page a person is sent to and becomes a dialog opened over the surface they are on.** `/deposit` survives as a real address rendering the same content as a full page. **Both carriers run one set of renderers**, so neither can quietly become the reduced one.
+
+### The request was made on 25 August and answered on 26 August, and nothing recorded the gap
+
+The founder's message of 25 August carried three things: the full method list, the promo field behaviour, and **"честно говоря лучше би єто все сделать как диалог типа как у конкурентов"** with a competitor's funding dialog attached.
+
+**`D-96` took the first two and dropped the third.** Not refused, not deferred, not carried as a cost. **A dropped request with no row is indistinguishable from a request nobody made**, which is the same property this project has been printing costs to avoid all stage.
+
+### And the sentence was already written as though the work were done
+
+`wireframes/_nav.js`, above the method grid, since 25 August:
+
+> ONE RENDERER, TWO CARRIERS. The dialog and the address render the same grid, which is `D-54`'s contract for sign in applied here.
+
+`wireframes/deposit.html`, in its own head comment, since the same day:
+
+> THE COLD ARRIVAL, and it is the same content as the dialog rather than a reduced version of it.
+
+**There was one carrier.** No dialog existed, no function rendered one, no page mounted one, and `data-pay-grid` appeared in exactly one file.
+
+**This is the fourth comment in this stage that states a rule its own code does not keep.** `D-97` found a sentence corrected on a base page and left on two copies. `D-98` found a comment saying `5.11` owns the country with a `select` underneath it. **This one describes a carrier that was never built.** All four were found by a person looking at the screen, none by an instrument, and the check that would catch them is not a grep: **the words and the code are both well formed, they simply disagree.**
+
+### The carrier rule is `D-54`'s and it is taken whole rather than re-derived
+
+| | The address | The dialog |
+|---|---|---|
+| What it is for | A typed URL, a deep link, a session with no script, the back button | A person already in the middle of something |
+| The content | Step 1 and step 2, from the renderers | Step 1 and step 2, from the same renderers |
+| H1 and footer | Yes | No, the host page owns both |
+| The dock | Fixed to the viewport below 900px | In flow, because a fixed element inside a dialog has no viewport of its own |
+| The outcome surfaces | Its own addresses | Navigates to them |
+
+**The argument is stronger here than it was at sign in.** A person adds funds in the middle of something: the case they chose, the count they set and the price they were reading are what the money is for. **On a page all of it is behind them at the moment they decide how much to spend.**
+
+### It carries both steps, and that is the decision rather than a detail
+
+**A dialog that picks a method and then throws the person to a page for the amount is a doorway.** A doorway is exactly the second surface with less in it that `D-54` rejected, and it fails at the worst moment: **step 2 is where the money is actually spent.**
+
+So a tile inside the layer advances the layer, and the same tile at the address is a link to the same step at its own address. **One route, two carriers, rather than one carrier with a shortcut.**
+
+### What it does not carry, named rather than omitted
+
+**The outcome surfaces stay at their addresses.** `4.4` crediting, `4.5` declined and `4.2` ceiling reached are **records with a state that persists**, reachable from history, and `D-54` already fixed that a layer must never vanish on a failure: a dialog that closed itself on a decline would return a person to a screen that cannot explain what happened.
+
+### The rebuild fixed a drift nobody had asked about, and it is the same class `D-97` found
+
+**Six pages became hosts and their bodies moved into one renderer.** Before this, `deposit-ceiling-pending.html` and `deposit-declined.html` were **hand copies of the card page taken before `D-97` and never caught up**: neither carried the provider block, the receipt at the top of the dock or the billing block, and both still ran the old "After you pay" section that `D-97` had reduced to a line.
+
+**A state that is a copy of a page is a state no correction reaches**, and this is now the third time that shape has cost something in this stage.
+
+**The three money figures became one arithmetic.** Amount, bonus and what you receive were typed by hand on five pages. They are computed now, from the amount and from the single `WF_BONUS` declaration, **and the sum is only legal because of `D-95`:** one coin is one dollar, fixed, so dollars in and coins out can be added at all. **The cap is real rather than decorative**, so a large amount stops adding bonus at 100 coins instead of printing a percentage the product would not honour.
+
+**The ids are prefixed inside the layer.** Opened over `/deposit` or over a step 2 address there would otherwise be two of every id in one document, which is a label pointing at the wrong field. Checked: zero duplicate ids with the layer open over both.
+
+### One hole this opened, and it belongs to the node rather than to the carrier
+
+**What the summary says before an amount exists is a state neither carrier has ever had.** Opened with nothing typed, the layer rendered `0.00 coins` received and a ceiling in force of `$0.00`. **That is not the empty state of this form: it is the worked example with its number missing.**
+
+**The page has had the same gap since 22 August** and nobody saw it, because the page always arrived with the example already filled in. Both carriers now show the same worked amount, and **the pre-amount state is `[?]`, named here rather than invented inside a dialog.**
+
+### The canon page carries a cost and it is the same one `signin-dialog.html` carries
+
+`deposit-dialog.html` is a copy of the account case screen with the layer pinned open. **If the case screen changes, this copy does not follow.** Accepted, because the alternative is no visible canon at all, and a layer nobody can open without knowing which control to press is a layer nobody checks. **It is the second page of this shape in the stage and a third would be a rule rather than two exceptions.**
+
+### Rejected
+
+**A dialog for step 1 only.** It is the smaller build and it is the doorway above.
+
+**Deleting the address.** `D-54` spent a section on why that silently deletes four reasoned rules nobody decided to delete, and none of them has changed.
+
+**Leaving the six pages as hand markup and giving the dialog its own copy.** That is two renderings of a money form, which is the defect this decision exists to close, doubled.

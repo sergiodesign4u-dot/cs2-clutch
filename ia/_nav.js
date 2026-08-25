@@ -70,7 +70,7 @@ window.IA_NAV = [
   { node: '3.3', label: 'Case screen',             file: 'case.html',       group: 'pages',  type: 'page',           states: 4, done: true  },
 
   // Cluster 4. Put money in.
-  { node: '4.1', label: 'Deposit',                 file: 'deposit.html',    group: 'pages',  type: 'page',           states: 4, done: true  },
+  { node: '4.1', label: 'Deposit',                 file: 'deposit.html',    group: 'pages',  type: 'dialog',         states: 4, done: true  },
 
   // Cluster 5. Take out what I earned.
   { node: '5.1', label: 'Account and inventory',   file: 'account.html',    group: 'pages',  type: 'page',           states: 1, done: true  },

@@ -23,6 +23,14 @@
      are facts about the network rather than about this account, so blanking them
      would remove information that is true in order to reflect a state they are
      not part of. -->
+<!-- REBUILT AS A HOST ON 25 AUGUST 2026, D-99. The body of this screen is
+     rendered by _nav.js and is the same object the deposit dialog renders. It
+     used to be markup written out here, and two of the six had already drifted:
+     4.3 and 4.5 were copies of the card page taken before D-97 and never caught
+     up, so they were missing the provider block, the receipt at the top of the
+     dock and the billing block, and D-97 had found one more of the same class a
+     day earlier. WHAT IS DECIDED HERE IS THE STATE AND THE FIGURES; the blocks
+     and their order live in one place. -->
 <button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
 <aside id="wf-panel"></aside>
 
@@ -33,88 +41,8 @@
   <main class="wf-main">
 
     <h1>Add funds</h1>
-    <p class="wf-note">Paying with Solana. <a href="deposit.html">Choose a different way</a></p>
 
-    <ol class="wf-pay-steps">
-      <li class="wf-pay-step"><span class="wf-pay-step-n">1</span><span>How you pay</span></li>
-      <li class="wf-pay-step is-now"><span class="wf-pay-step-n">2</span><span>Where to send it</span></li>
-    </ol>
-
-    <div class="wf-fund-grid">
-      <div class="wf-fund">
-
-      <div class="wf-acct-state">Signed in as <strong>nightjar_cs</strong>. Funding is open on this account.</div>
-
-      <!-- BLOCK 1. THE NETWORK, AND IT IS CHOSEN BEFORE THE ADDRESS EXISTS. An
-           address belongs to a chain, so sending on the wrong one loses the money
-           and no support ticket recovers it. -->
-      <div class="wf-stack">
-        <div class="wf-sec-head">
-          <h2 id="h2-net">Which network</h2>
-          <p class="wf-sec-sub">The address below belongs to this network. Sending on any other one loses the coins and we cannot get them back.</p>
-        </div>
-        <select class="wf-f" id="dep-net" aria-label="Network">
-          <option>Bitcoin</option>
-          <option>Bitcoin, Lightning</option>
-        </select>
-        <p class="wf-note wf-fig-missing">Which networks this product accepts for each coin is not decided</p>
-      </div>
-
-      <!-- BLOCK 2. THE ADDRESS AND ITS CODE. The code is a slot: the image is
-           generated from the address and its room is this stage's, D-50. The
-           address is text and copyable, because reading forty characters off a
-           screen is how money goes to the wrong place. -->
-      <div class="wf-stack">
-        <div class="wf-sec-head"><h2 id="h2-addr">Where to send it</h2></div>
-        <div class="wf-crypto is-empty">
-          <span class="wf-crypto-qr" aria-hidden="true">Code slot, empty</span>
-          <div class="wf-crypto-a">
-            <span class="wf-fig-c">You do not have an address on this network yet</span>
-            <p class="wf-empty-p">One is made for your account the first time you ask, and it stays yours. Nothing has gone wrong and nothing is waiting on us.</p>
-            <div class="wf-row"><button class="wf-btn wf-btn--primary" type="button">Create my address</button></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- BLOCK 3. THE THREE LINES THE BASELINE CARRIES, and the rate is the one
-           figure on this node that is a market read rather than our fixed peg. -->
-      <div class="wf-figs">
-        <div class="wf-fig">
-          <span class="wf-fig-v wf-fig-missing">Not available</span>
-          <span class="wf-fig-c">What one Bitcoin buys in coins right now. <span class="wf-fig-missing">The rate we convert at is not published and this one moves, so it carries a time when it lands rather than being read as current forever.</span></span>
-        </div>
-        <div class="wf-fig">
-          <span class="wf-fig-v">5.00%</span>
-          <span class="wf-fig-c">Added on top in coins, up to 100 coins per 24 hours, the same offer as every other route</span>
-        </div>
-        <div class="wf-fig">
-          <span class="wf-fig-v wf-fig-missing">Not set</span>
-          <span class="wf-fig-c">The smallest amount this network will credit. Anything under it is not a small deposit, it is a lost one</span>
-        </div>
-      </div>
-
-      <!-- BLOCK 4. THE CEILING CANNOT WORK HERE AND THE PAGE SAYS SO. -->
-      <div class="wf-stack">
-        <div class="wf-sec-head"><h2 id="h2-ceiling">Your ceiling does not hold on this route</h2></div>
-        <p class="wf-cost-say"><strong>You set a ceiling on what you put in, and it works by being accepted before a payment goes through.</strong> There is nothing to accept here: you send what you send, from your own wallet, and it arrives. <strong>Your ceiling is still in force everywhere else and it cannot stop this.</strong> <a href="responsible.html">Your limits</a></p>
-        <p class="wf-note wf-fig-missing">What happens when coins arrive that would have been over your ceiling is not decided. Refusing money already sent means holding it or sending it back, and neither is written down anywhere yet</p>
-      </div>
-
-      </div>
-      <div class="wf-dock">
-      <!-- BLOCK 5. NO SUMMARY AND NO PAY CONTROL, because nothing on this page is
-           charged. The dock elsewhere carries an amount, a fee and a total; here
-           there is no amount until the network says there is one. DONE is not a
-           payment, it is leaving. -->
-      <div class="wf-card wf-total">
-        <div class="wf-tl"><span>Charged now</span><span class="wf-tl-v">Nothing</span></div>
-        <div class="wf-tl"><span>Rate</span><span class="wf-tl-v">1 coin = $1.00</span></div>
-        <div class="wf-tl"><span>To withdraw, you will need</span><span class="wf-tl-v wf-fig-missing">Not published</span></div>
-      </div>
-      <p class="wf-note">Nothing is taken from you here. When your coins arrive we credit them and the record lands in your history.</p>
-      <div class="wf-row"><a class="wf-btn" href="deposit.html">Choose a different way</a><span class="wf-note">There is nothing to send to yet.</span></div>
-      </div>
-    </div>
+    <div data-pay-step2="crypto" data-pay-state="nowallet"></div>
 
   </main>
 
@@ -128,6 +56,7 @@
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';
 window.WF_STEP = 2;
+window.WF_STEP2 = { coin: 'Solana', leadText: 'Paying with Solana.' };
 window.WF_SHELL = { account: true, active: 'deposit.html', money: { balance: '74.20 coins', held: '130.60 coins' } };
 </script>
 <script src="_nav.js"></script>

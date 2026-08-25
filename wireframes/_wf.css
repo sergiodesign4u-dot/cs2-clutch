@@ -4824,3 +4824,36 @@ textarea.wf-cfg-in { min-height: 0; }
 .wf-plr-meta span:last-child { text-align: right; }
 .wf-plr-check { margin-top: var(--wf-s-1); }
 .wf-plr-check .wf-btn { width: 100%; padding-inline: var(--wf-s-1); }
+
+/* ============================================================================
+   NODE 4.1 IN ITS SECOND CARRIER, D-99. The deposit dialog.
+   THE FRAME IS THE ONE 2.4 ALREADY OWNS and nothing about it is new: the scrim,
+   the sheet at 360, the three ways out. What this adds is width, because the
+   thing inside it is a grid of thirty five tiles and a two column form rather
+   than four provider buttons.
+   ============================================================================ */
+@media (min-width: 600px) {
+  /* WIDER THAN THE SIGN IN DIALOG AND NARROWER THAN THE PAGE. At 520 the tile
+     grid fell to two columns and the form lost its dock column, which would have
+     made the dialog a smaller version of the address rather than the same
+     content in another carrier, and that is the thing D-54 refused. */
+  .wf-dlg--pay { max-width: 940px; }
+}
+/* THE DOCK IS IN FLOW INSIDE THE LAYER, AND THIS IS A NAMED DIFFERENCE BETWEEN
+   THE TWO CARRIERS RATHER THAN A LEAK. On the page it is fixed to the bottom of
+   the viewport below 900px, which is correct there and impossible here: a fixed
+   element inside a dialog has no viewport of its own to sit at the bottom of, so
+   it leaves the frame it belongs to and floats over the scrim. In the layer the
+   summary is simply the last block, which is where the document order already
+   put it. D-54 section on cost: the two carriers are not identical and the node
+   names where. */
+.wf-dlg .wf-dock {
+  position: static;
+  border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
+  padding: var(--wf-s-2); gap: var(--wf-s-2);
+}
+/* THE LAYER SCROLLS AS ONE. The step 2 body is taller than any viewport this
+   product supports, so the scroll belongs to the wrap and never to a pane
+   inside it: two scrolling regions in one dialog is a person scrolling the
+   wrong one. */
+.wf-dlg--pay .wf-dlg-body { gap: var(--wf-s-3); }

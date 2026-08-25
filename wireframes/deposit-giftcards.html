@@ -31,6 +31,14 @@
      THE DENOMINATIONS ARE THE BASELINE'S SIX, $5 to $200, the same ladder the
      card presets run, which is one fact rendered once rather than two ladders
      that drift. -->
+<!-- REBUILT AS A HOST ON 25 AUGUST 2026, D-99. The body of this screen is
+     rendered by _nav.js and is the same object the deposit dialog renders. It
+     used to be markup written out here, and two of the six had already drifted:
+     4.3 and 4.5 were copies of the card page taken before D-97 and never caught
+     up, so they were missing the provider block, the receipt at the top of the
+     dock and the billing block, and D-97 had found one more of the same class a
+     day earlier. WHAT IS DECIDED HERE IS THE STATE AND THE FIGURES; the blocks
+     and their order live in one place. -->
 <button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
 <aside id="wf-panel"></aside>
 
@@ -41,56 +49,8 @@
   <main class="wf-main">
 
     <h1>Add funds</h1>
-    <p class="wf-note">Paying with a gift card. <a href="deposit.html">Choose a different way</a></p>
 
-    <ol class="wf-pay-steps">
-      <li class="wf-pay-step"><span class="wf-pay-step-n">1</span><span>How you pay</span></li>
-      <li class="wf-pay-step is-now"><span class="wf-pay-step-n">2</span><span>Where to buy the card</span></li>
-    </ol>
-
-    <div class="wf-acct-state">Signed in as <strong>nightjar_cs</strong>. Funding is open on this account.</div>
-
-    <!-- BLOCK 1. THE HANDOVER, BEFORE ANY CONTROL. -->
-    <div class="wf-stack">
-      <div class="wf-sec-head"><h2 id="h2-hand">This one leaves us</h2></div>
-      <p class="wf-cost-say"><strong>You buy the card from another company, not from us, and then bring the code back here.</strong> They take the payment, they decide what they accept and they own the refund. If a card you bought does not work, the first place to ask is them.</p>
-      <p class="wf-note wf-fig-missing">How long a code takes to credit once you bring it back is not published, and neither is what we do about a code that a reseller sold and we cannot read</p>
-    </div>
-
-    <!-- BLOCK 2. THE SIX, NAMED, WITH THE LADDER ON EACH. -->
-    <div class="wf-stack">
-      <div class="wf-sec-head">
-        <h2 id="h2-sellers">Where you can buy one</h2>
-        <p class="wf-sec-sub">Six resellers. We do not run any of them and we do not set their prices.</p>
-      </div>
-      <div class="wf-pay-g">
-        <div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n">Difmark</span><span class="wf-pay-m">$5 to $200</span></div>
-        <div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n">Pulse</span><span class="wf-pay-m">$5 to $200</span></div>
-        <div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n">Kinguin</span><span class="wf-pay-m">$5 to $200</span></div>
-        <div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n">OFF GAMERS</span><span class="wf-pay-m">$5 to $200</span></div>
-        <div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n">Karte Direkt</span><span class="wf-pay-m">$5 to $200</span></div>
-        <div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n">Eneba</span><span class="wf-pay-m">$5 to $200</span></div>
-      </div>
-      <!-- THE OUTBOUND CONTROLS ARE NOT DRAWN AS LIVE, and that is D-58 rather
-           than caution: whether we send people to all six, to one, or to none is
-           not decided anywhere, and a live Buy on Difmark here would be this
-           project choosing a commercial partner in a wireframe. -->
-      <p class="wf-note wf-fig-missing">Which of these six we send people to is not decided, so none of them is a link here yet</p>
-    </div>
-
-    <!-- BLOCK 3. THE CODE COMES BACK, and the field that takes it is the point of
-         returning. The ceiling holds on this route because a code is redeemed
-         here, with an amount, at a moment: unlike crypto there is a press to hang
-         it on. -->
-    <div class="wf-stack">
-      <div class="wf-sec-head"><h2 id="h2-code">Bringing the code back</h2></div>
-      <div class="wf-cfg-f">
-        <div class="wf-cfg-row"><label class="wf-cfg-l" for="dep-code">Card code</label></div>
-        <input class="wf-cfg-in" id="dep-code" type="text" placeholder="The code from the card you bought">
-        <p class="wf-cfg-p">Redeeming a code is a payment like any other here, so your ceiling applies to it and you will see what it adds before it goes through.</p>
-      </div>
-      <div class="wf-row"><a class="wf-btn wf-btn--primary" href="deposit-card.html">Redeem it</a></div>
-    </div>
+    <div data-pay-step2="gift"></div>
 
   </main>
 
@@ -104,6 +64,7 @@
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';
 window.WF_STEP = 2;
+window.WF_STEP2 = {};
 window.WF_SHELL = { account: true, active: 'deposit.html', money: { balance: '74.20 coins', held: '130.60 coins' } };
 </script>
 <script src="_nav.js"></script>

@@ -219,9 +219,15 @@ window.WF_NAV = {
     // to be thirty five routes and one of the groups has no amount field at all.
     // The base page is step 1 at its own address; step 2 is three pages because
     // what it asks for depends on the route.
-    { node: '4.1',  cluster: '4', name: 'Deposit',             file: 'deposit.html',    ia: 'deposit.html',       status: 'built',
-      base: 'Step 1, how you pay',
+    // D-99 MADE THE DIALOG THE CARRIER, 25 August 2026, the same move D-54 made
+    // for 2.4 and asked for by the founder in the message that supplied the
+    // method list. The address survives and renders the same content as a full
+    // page; the dialog renders it over the surface a person is already on, and
+    // both run one renderer so neither can become the reduced one.
+    { node: '4.1',  cluster: '4', name: 'Deposit',             file: 'deposit-dialog.html', ia: 'deposit.html',    status: 'built',
+      base: 'The dialog, over the case screen',
       states: [
+        { node: '4.1', label: 'Cold arrival at /deposit',     file: 'deposit.html',                 status: 'built' },
         { node: '4.1', label: 'Step 2, card and wallets',    file: 'deposit-card.html',            status: 'built' },
         { node: '4.1', label: 'Step 2, crypto',              file: 'deposit-crypto.html',          status: 'built' },
         { node: '4.1', label: 'Step 2, no address yet',      file: 'deposit-crypto-nowallet.html', status: 'built' },
@@ -1363,13 +1369,17 @@ window.WF_PAY = window.WF_PAY || {
     });
   }
 
-  function mountDeposit() {
-    var form = document.querySelector('[data-dep-form]');
+  /* SCOPED SINCE D-99. With the dialog open over a step 2 address there are two
+     of this form in the document, and an unscoped query wires the controls of one
+     to the refusal of the other. */
+  function mountDeposit(scope) {
+    scope = scope || document;
+    var form = scope.querySelector('[data-dep-form]');
     if (!form) return;
     var accept = form.querySelector('[data-dep-accept]');
     var ceil   = form.querySelector('[data-dep-ceil]');
-    var go     = document.querySelector('[data-dep-go]');
-    var say    = document.querySelector('[data-dep-refuse]');
+    var go     = scope.querySelector('[data-dep-go]');
+    var say    = scope.querySelector('[data-dep-refuse]');
     if (!accept || !ceil || !go || !say) return;
     var settled = false;
 
@@ -1606,6 +1616,12 @@ window.WF_PAY = window.WF_PAY || {
       // accessible name carries the cap the circle cannot hold.
       var dep = el('a', 'wf-btn wf-dep', '+');
       dep.href = BASE + 'deposit.html';
+      /* THE CONTROL OPENS THE LAYER AND KEEPS ITS ADDRESS, D-99, which is what
+         data-auth-open does one carrier over. The href is not decoration: a middle
+         click, a session with no script and a copied link all need it, and D-54
+         spent a section on why deleting an address deletes rules nobody decided to
+         delete. */
+      dep.setAttribute('data-dep-open', 'step1');
       // AND ONE SET OF PAGES TURNS IT OFF, WHICH IS WHAT MAKES THE BADGE SAFE TO SHIP.
       // Node 4.2's own forbidden list reads "no offer of any kind: no alternative funding
       // route, no reminder when the period resets, no invitation to raise the ceiling".
@@ -3548,7 +3564,12 @@ window.WF_PAY = window.WF_PAY || {
   function payTile(row) {
     var kind = row[1], mark = row[2];
     var node = kind ? el('a', 'wf-pay-t') : el('div', 'wf-pay-t is-noroute');
-    if (kind) node.href = BASE + (window.WF_PAY.route[kind] || 'deposit.html');
+    if (kind) {
+      node.href = BASE + (window.WF_PAY.route[kind] || 'deposit.html');
+      // THE KIND TRAVELS ON THE TILE, D-99. At the address the href is the whole
+      // of it; inside the dialog the layer reads this and advances itself.
+      node.setAttribute('data-pay-kind', kind);
+    }
     var art = el('span', 'wf-pay-art');
     art.setAttribute('aria-hidden', 'true');
     node.appendChild(art);
@@ -3579,10 +3600,14 @@ window.WF_PAY = window.WF_PAY || {
     return sec;
   }
 
-  function mountPay() {
-    var host = document.querySelector('[data-pay-grid]');
+  /* TWO CARRIERS CALL THIS, D-99, AND THE IDS ARE PREFIXED IN ONE OF THEM.
+     Opened over /deposit there would otherwise be two pay-promo fields in one
+     document and a label pointing at whichever the browser found first. */
+  function mountPay(host, idp) {
+    host = host || document.querySelector('[data-pay-grid]');
     if (!host || !window.WF_PAY) return;
     var P = window.WF_PAY;
+    var IDP = idp || '';
 
     /* PROMO AND COUNTRY SHARE ONE ROW, D-97, founder of 25 August 2026: the two
        of them full width were pushing the grid to 777px and the grid is the
@@ -3602,11 +3627,11 @@ window.WF_PAY = window.WF_PAY || {
        is empty, unticked, and does nothing until someone types. */
     var promo = el('div', 'wf-pay-f');
     var pl = el('label', 'wf-cfg-l', 'Promo or partner code');
-    pl.setAttribute('for', 'pay-promo');
+    pl.setAttribute('for', IDP + 'pay-promo');
     promo.appendChild(pl);
     var pr = el('div', 'wf-row');
     var pin = el('input', 'wf-f');
-    pin.id = 'pay-promo'; pin.type = 'text'; pin.placeholder = 'Optional';
+    pin.id = IDP + 'pay-promo'; pin.type = 'text'; pin.placeholder = 'Optional';
     pr.appendChild(pin);
     pr.appendChild(el('button', 'wf-btn', 'Apply'));
     promo.appendChild(pr);
@@ -3655,6 +3680,563 @@ window.WF_PAY = window.WF_PAY || {
     host.appendChild(payGroup('Cards, wallets and bank transfer', P.fiat));
     host.appendChild(el('p', 'wf-note wf-fig-missing', 'Paying with skins exists on the live product and has no row in our backlog, no node and no flow, so the tile is here and it does not open'));
     host.appendChild(payGroup('Crypto', P.crypto));
+  }
+
+  /* ---------------------------------------------------------------------
+     NODE 4.1 STEP 2, THE THREE ROUTE BODIES, D-99, AND THE CARRIER THE FOUNDER
+     ASKED FOR ON 25 AUGUST 2026.
+     THE DIALOG WAS ASKED FOR IN THE SAME MESSAGE THAT SUPPLIED THE METHOD LIST
+     and D-96 built the list and dropped the carrier. Worse than dropping it: the
+     renderer above and the page under it both carry the sentence "one renderer,
+     two carriers, the dialog and the address render the same grid" while exactly
+     one carrier existed. A comment that states a rule its own code does not keep
+     is the fourth of its kind in this stage, and the first three were all found
+     by a person looking rather than by an instrument.
+     WHY A DIALOG AND NOT A PAGE. The same reason D-54 gave for sign in and it is
+     stronger here: a person adds funds in the middle of something, and the case
+     they were looking at, the count they set and the price they were reading are
+     what the money is for. A page puts all of it behind them at the moment they
+     are deciding how much to spend.
+     ONE RENDERER, SIX ADDRESSES AND ONE DIALOG. Every route body below is built
+     here once. Before this, deposit-ceiling-pending.html and
+     deposit-declined.html were hand copies of deposit-card.html and had drifted:
+     both had missed D-97 entirely, so neither carried the provider block, the
+     receipt at the top of the dock or the billing block, and D-97 found one more
+     of the same class a day earlier. A state that is a copy of a page is a state
+     no correction reaches.
+     THE IDS ARE PREFIXED IN THE DIALOG. Opening it over a step 2 address puts two
+     of this body in one document, and two elements with one id is a label that
+     points at the wrong field. --------------------------------------------- */
+
+  /* THE THREE FIGURES ARE ONE ARITHMETIC AND NOT THREE TYPED STRINGS. Amount,
+     bonus and what you receive were written by hand on five pages. THE SUM ONLY
+     WORKS BECAUSE OF D-95: one coin is one dollar, fixed, so dollars in and coins
+     out can be added at all. If the peg ever moves this function is where it
+     moves, rather than in fifteen places.
+     THE CAP IS REAL HERE RATHER THAN DECORATIVE: WF_BONUS carries it, so a large
+     amount stops adding bonus at the cap instead of printing a percentage that
+     the product would not honour. */
+  function depFigs(amount) {
+    var B   = window.WF_BONUS || {};
+    var a   = parseFloat(amount) || 0;
+    var pct = (parseFloat(B.pctFull || '5.00') || 0) / 100;
+    var cap = parseFloat(String(B.cap || '100').replace(/[^0-9.]/g, '')) || 0;
+    var bon = Math.min(a * pct, cap);
+    return {
+      amount:  a.toFixed(2),
+      bonus:   bon.toFixed(2),
+      receive: (a + bon).toFixed(2),
+      capped:  (a * pct) > cap
+    };
+  }
+
+  /* THE PROVIDER IS FIRST ON THIS SCREEN SINCE D-97, which is where the baseline
+     puts it: SELECT PROVIDER is the row above the form. The provider decides what
+     the form asks for, so a form filled before it is a form that can change under
+     the person.
+     WHO THEY ARE IS NOT DECIDED. The live product runs Zen and a gift-card tile;
+     ours has no processor chosen and inventing two names would be the median the
+     input gate exists to prevent. */
+  function depProvider(P) {
+    return '' +
+      '<div class="wf-stack">' +
+        '<h2 class="wf-pay-gh" id="' + P + 'h2-prov">Who takes the payment</h2>' +
+        '<p class="wf-note">Your card details go to them and not to us.</p>' +
+        '<div class="wf-pay-g">' +
+          '<div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n wf-fig-missing">Provider not chosen</span></div>' +
+          '<div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n wf-fig-missing">Provider not chosen</span></div>' +
+        '</div>' +
+        '<p class="wf-note wf-fig-missing">Which payment providers this product uses is not decided, and neither is any fee, minimum or maximum they carry</p>' +
+      '</div>';
+  }
+
+  /* THE CARD BODY. Every route that takes an amount runs it: the amount with the
+     rate beside it, the bonus rule, the ceiling, the exit price and the billing
+     block, in the order D-97 left them.
+     ONE EDITABLE FIELD. The converted figure is never an input: two editable money
+     fields on one form is where a person types into the wrong one. */
+  function depCard(P, o) {
+    var f = depFigs(o.amount);
+    var B = window.WF_BONUS || {};
+    return '' +
+      '<div class="wf-fund-grid">' +
+        '<div class="wf-fund">' +
+          '<div class="wf-acct-state">Signed in as <strong>' + (window.WF_WHO || {}).name + '</strong>. Funding is open on this account.</div>' +
+          depProvider(P) +
+          '<div class="wf-stack">' +
+            '<div class="wf-sec-head"><h2 id="' + P + 'h2-amount">How much</h2></div>' +
+            '<div class="wf-amt">' +
+              '<label class="wf-fig-c" for="' + P + 'dep-amt">Amount you are paying</label>' +
+              '<div class="wf-amt-row">' +
+                '<input class="wf-amt-in" id="' + P + 'dep-amt" type="text" inputmode="decimal" value="' + f.amount + '" aria-describedby="' + P + 'dep-unit">' +
+                '<span class="wf-amt-unit" id="' + P + 'dep-unit">US dollars</span>' +
+              '</div>' +
+              /* The presets are inherited: the live product runs six. Their values
+                 follow the currency, so they are slots rather than numbers. */
+              '<div class="wf-presets">' +
+                '<button class="wf-btn wf-btn--small" type="button">$5</button>' +
+                '<button class="wf-btn wf-btn--small" type="button">$10</button>' +
+                '<button class="wf-btn wf-btn--small" type="button">$20</button>' +
+                '<button class="wf-btn wf-btn--small" type="button">$50</button>' +
+                '<button class="wf-btn wf-btn--small" type="button">$100</button>' +
+                '<button class="wf-btn wf-btn--small" type="button">$200</button>' +
+              '</div>' +
+              /* THE CONVERSION FIGURE LEFT THIS BLOCK ON D-97 AND IT IS A DEDUP
+                 RATHER THAN A CUT: the dock leads with what you receive, so the
+                 same arithmetic was on the screen three times. THE RATE STAYS, as
+                 a line, beside the field a person is typing in. */
+              '<p class="wf-note">At <strong>1 coin = $1.00</strong>, a fixed rate rather than a market read. It carries no as-of: if it ever changes we say so before you spend against it.</p>' +
+            '</div>' +
+          '</div>' +
+          /* THE BONUS, D-94, AND IT IS HERE BECAUSE THE BADGE IN THE HEADER MADE A
+             PROMISE. A percentage advertised on a persistent control and not
+             restated where the money goes in is the shape B4-1 describes.
+             ZERO WAGERING, PRINTED RATHER THAN ASSUMED: C4 is an MVP rule and a
+             wagering requirement is B4-1 in better clothes. */
+          '<div class="wf-stack">' +
+            '<p class="wf-cost-say"><strong>We add ' + (B.pctFull || '5.00%') + ' in coins on top of what you put in, up to ' + (B.cap || '100 coins') + ' per ' + (B.period || '24 hours') + '.</strong> It is added when the money arrives, and it is the same offer every time rather than a first deposit only. <strong>It carries no wagering requirement:</strong> the coins it adds behave like every other coin in your balance, and what it takes to withdraw does not move because of it.</p>' +
+          '</div>' +
+          /* THE SPEND CEILING, C2. Four properties and every one is load bearing:
+             pre-filled from the amount just typed rather than from a default we
+             chose, blocking and the only blocking element on the page, the
+             asymmetry stated in the interface rather than in terms, and never a
+             score.
+             PER PERIOD, NOT PER DEPOSIT. One ceiling is in force at a time, so a
+             second deposit inside the period pre-fills again and that figure is a
+             CHANGE to the ceiling in force, which takes the direction rule with
+             it. Without that the second deposit of a session would raise the
+             ceiling by being typed. */
+          '<div class="wf-stack" data-dep-form>' +
+            '<div class="wf-sec-head">' +
+              '<h2 id="' + P + 'h2-ceiling">A ceiling on what you put in</h2>' +
+              '<p class="wf-sec-sub">Pre-filled with the amount you just typed. Accept it or change it.</p>' +
+            '</div>' +
+            '<div class="wf-ceil">' +
+              '<div class="wf-stack">' +
+                '<label class="wf-fig-c" for="' + P + 'dep-ceil">Ceiling</label>' +
+                '<input class="wf-ceil-in" id="' + P + 'dep-ceil" data-dep-ceil type="text" inputmode="decimal" value="' + (o.ceiling || f.amount) + '">' +
+              '</div>' +
+              '<div class="wf-fig">' +
+                '<span class="wf-fig-v wf-fig-missing">Period not set</span>' +
+                '<span class="wf-fig-c">One ceiling is in force at a time and it belongs to a named period. Which periods this offers is not decided.</span>' +
+              '</div>' +
+            '</div>' +
+            '<ul class="wf-asym">' +
+              '<li><span class="wf-asym-w">Lower it</span><span>Takes effect immediately.</span></li>' +
+              '<li><span class="wf-asym-w">Raise it</span><span>Takes effect 24 hours later. The ceiling you have now holds until then.</span></li>' +
+            '</ul>' +
+            '<div class="wf-row">' +
+              '<button class="wf-btn wf-ceil-set" data-dep-accept type="button" aria-pressed="false">Accept this ceiling</button>' +
+            '</div>' +
+          '</div>' +
+          '<p class="wf-note">A session limit, a cool down and a self exclusion live together on <a href="' + BASE + 'responsible.html">Responsible play</a>.</p>' +
+          /* THE WITHDRAWAL THRESHOLD, A LINE SINCE D-97 AND NOT A SECTION. The exit
+             is priced where the entry is paid, frozen at this moment for the money
+             this deposit funds: a later change may lower it and may never raise it. */
+          '<p class="wf-note"><strong>To take anything out you will need</strong> <span class="wf-fig-missing">a sum that is not published yet</span>. Whatever it says when you pay is the figure that applies to this money: it can be lowered later and it can never be raised.</p>' +
+          /* WHAT HAPPENS AFTER YOU PAY, STATED BEFORE THE PAYMENT, C3. The barrier
+             is money that leaves and does not arrive, and a competitor publishes
+             the real timing in its FAQ and not in its product. */
+          '<p class="wf-note"><strong>After you pay.</strong> <span class="wf-fig-missing">How long crediting takes is not published.</span> Whatever it says here is the same figure that runs as the clock afterwards, and if it passes with nothing arrived the deposit keeps its state rather than turning into silence. <a href="' + BASE + 'support.html">Support</a> answers inside a published deadline.</p>' +
+          /* BILLING, AND ONE FIELD ONLY. The baseline asks a signed-in person for
+             an email it already holds, 5b.2, which is a form that does not know
+             who it is talking to. Ours is filled and editable.
+             THE TERMS ARE ASKED AGAIN, the baseline's own behaviour: the sign-in
+             consent is about the account and this one is about a payment. */
+          '<div class="wf-stack">' +
+            '<div class="wf-sec-head"><h2 id="' + P + 'h2-billing">Where the receipt goes</h2></div>' +
+            '<div class="wf-cfg-f">' +
+              '<div class="wf-cfg-row">' +
+                '<label class="wf-cfg-l" for="' + P + 'dep-email">Email</label>' +
+              '</div>' +
+              '<input class="wf-cfg-in" id="' + P + 'dep-email" type="email" value="nightjar_cs@example.com">' +
+              '<p class="wf-cfg-p">This is the address on your account. Change it here and it changes for this payment only.</p>' +
+            '</div>' +
+            '<label class="wf-cbx" for="' + P + 'dep-terms">' +
+              '<input type="checkbox" id="' + P + 'dep-terms">' +
+              '<span>I have read and accept the <a href="' + BASE + 'legal.html">terms</a> and the <a href="' + BASE + 'legal.html">refund and payments policy</a>.</span>' +
+            '</label>' +
+          '</div>' +
+        '</div>' +
+        '<div>' +
+          /* THE PERSISTENT SUMMARY AND THE ONE CONTROL, LAST IN THE DOCUMENT so a
+             person reading linearly meets the summary after everything it
+             summarises. IT NEVER SUMS THE DEPOSIT WITH THE VALUE OF ITEMS HELD.
+             THE CONTROL IS LIVE AND REFUSES, D-58: a dimmed Pay is a person
+             hunting for what to change. */
+          '<div class="wf-dock">' +
+            '<div class="wf-recv">' +
+              '<span class="wf-fig-c">You will receive</span>' +
+              '<span class="wf-recv-v">' + f.receive + ' coins</span>' +
+              '<span class="wf-fig-c">' + f.amount + ' for the money, ' + f.bonus + ' the bonus, at 1 coin = $1.00</span>' +
+            '</div>' +
+            '<div class="wf-total">' +
+              '<div class="wf-tl"><span>Amount</span><span class="wf-tl-v">$' + f.amount + '</span></div>' +
+              '<div class="wf-tl"><span>Fee</span><span class="wf-tl-v wf-fig-missing">Not published</span></div>' +
+              /* THE BONUS IS A LINE IN THE SUM AND NEVER A BADGE ON IT, D-94, the
+                 same rule 5.3 runs on a commission of zero: a badge asserts, a line
+                 in a sum gets checked. */
+              '<div class="wf-tl"><span>Bonus, ' + (B.pctFull || '5.00%') + ' capped at 100 per 24 hours</span><span class="wf-tl-v">' + f.bonus + ' coins</span></div>' +
+              '<div class="wf-tl"><span>Ceiling in force after this</span><span class="wf-tl-v">$' + (o.ceiling || f.amount) + '</span></div>' +
+              '<div class="wf-tl"><span>To withdraw, you will need</span><span class="wf-tl-v wf-fig-missing">Not published</span></div>' +
+              '<div class="wf-tl wf-tl--sum"><span>Total charged</span><span class="wf-tl-v">$' + f.amount + '</span></div>' +
+            '</div>' +
+            '<p class="wf-refuse" data-dep-refuse>' + (o.refuse || 'The ceiling has to be accepted or changed before this goes through.') + '</p>' +
+            '<div class="wf-row">' +
+              (o.back === false ? '' : '<a class="wf-btn" href="' + BASE + 'deposit.html" data-dep-back>Change how you pay</a>') +
+              '<a class="wf-btn wf-btn--primary" data-dep-go href="' + BASE + 'deposit-crediting.html">' + (o.go || 'Pay') + '</a>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  }
+
+  /* THE CRYPTO BODY. The route with no amount field, and that absence is the whole
+     design of it. baseline-account.md 5b.3: a network selector, a code, an address
+     with a copy control, a live rate, a bonus line and a minimum.
+     AND IT BREAKS C2, WHICH IS THE FINDING OF THIS BUILD RATHER THAN A DETAIL. The
+     ceiling works by being accepted before a submission. Nothing is typed here and
+     nothing is submitted, so the brake has nothing to hold and no moment to hold it
+     in. THE PAGE STATES THAT rather than drawing a ceiling that cannot bind, which
+     would be a picture of a protection.
+     THE RATE IS A MARKET READ AND CARRIES AN AS-OF, unlike the peg. */
+  function depCrypto(P, o) {
+    var empty = (o.state === 'nowallet');
+    var coin  = o.coin || 'Bitcoin';
+    return '' +
+      '<div class="wf-fund-grid">' +
+        '<div class="wf-fund">' +
+          '<div class="wf-acct-state">Signed in as <strong>' + (window.WF_WHO || {}).name + '</strong>. Funding is open on this account.</div>' +
+          /* THE NETWORK IS CHOSEN BEFORE THE ADDRESS EXISTS. An address belongs to
+             a chain, so sending on the wrong one loses the money and no support
+             ticket recovers it. */
+          '<div class="wf-stack">' +
+            '<div class="wf-sec-head">' +
+              '<h2 id="' + P + 'h2-net">Which network</h2>' +
+              '<p class="wf-sec-sub">The address below belongs to this network. Sending on any other one loses the coins and we cannot get them back.</p>' +
+            '</div>' +
+            '<select class="wf-f" id="' + P + 'dep-net" aria-label="Network">' +
+              (empty
+                ? '<option>Solana</option>'
+                : '<option>Bitcoin</option><option>Bitcoin, Lightning</option>') +
+            '</select>' +
+            '<p class="wf-note wf-fig-missing">Which networks this product accepts for each coin is not decided</p>' +
+          '</div>' +
+          /* THE ADDRESS AND ITS CODE. The code is a slot: the image is generated
+             from the address and its room is this stage's, D-50. The address is
+             text and copyable, because reading forty characters off a screen is how
+             money goes to the wrong place.
+             THE EMPTY STATE IS THE BASELINE'S OWN AND IS INHERITED WHOLE: the same
+             screen with the payload removed rather than an error. The figures stay
+             and the address goes, because a rate and a minimum are facts about the
+             network rather than about this account. */
+          '<div class="wf-stack">' +
+            '<div class="wf-sec-head"><h2 id="' + P + 'h2-addr">Where to send it</h2></div>' +
+            '<div class="wf-crypto' + (empty ? ' is-empty' : '') + '">' +
+              '<span class="wf-crypto-qr" aria-hidden="true">' + (empty ? 'Code slot, empty' : 'Code slot') + '</span>' +
+              '<div class="wf-crypto-a">' +
+                (empty
+                  ? '<span class="wf-fig-c">You do not have an address on this network yet</span>' +
+                    '<p class="wf-empty-p">One is made for your account the first time you ask, and it stays yours. Nothing has gone wrong and nothing is waiting on us.</p>' +
+                    '<div class="wf-row"><button class="wf-btn wf-btn--primary" type="button">Create my address</button></div>'
+                  : '<span class="wf-fig-c">Your deposit address on this network</span>' +
+                    '<code class="wf-crypto-v">bc1q&#8230;<span class="wf-fig-missing">address is generated for your account</span></code>' +
+                    '<div class="wf-row"><button class="wf-btn" type="button">Copy the address</button></div>') +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="wf-figs">' +
+            '<div class="wf-fig">' +
+              '<span class="wf-fig-v wf-fig-missing">Not available</span>' +
+              '<span class="wf-fig-c">What one ' + coin + ' buys in coins right now. <span class="wf-fig-missing">The rate we convert at is not published and this one moves, so it carries a time when it lands rather than being read as current forever.</span></span>' +
+            '</div>' +
+            '<div class="wf-fig">' +
+              '<span class="wf-fig-v">' + ((window.WF_BONUS || {}).pctFull || '5.00%') + '</span>' +
+              '<span class="wf-fig-c">Added on top in coins, up to 100 coins per 24 hours, the same offer as every other route</span>' +
+            '</div>' +
+            '<div class="wf-fig">' +
+              '<span class="wf-fig-v wf-fig-missing">Not set</span>' +
+              '<span class="wf-fig-c">The smallest amount this network will credit. Anything under it is not a small deposit, it is a lost one</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="wf-stack">' +
+            '<div class="wf-sec-head"><h2 id="' + P + 'h2-ceiling">Your ceiling does not hold on this route</h2></div>' +
+            '<p class="wf-cost-say"><strong>You set a ceiling on what you put in, and it works by being accepted before a payment goes through.</strong> There is nothing to accept here: you send what you send, from your own wallet, and it arrives. <strong>Your ceiling is still in force everywhere else and it cannot stop this.</strong> <a href="' + BASE + 'responsible.html">Your limits</a></p>' +
+            '<p class="wf-note wf-fig-missing">What happens when coins arrive that would have been over your ceiling is not decided. Refusing money already sent means holding it or sending it back, and neither is written down anywhere yet</p>' +
+          '</div>' +
+        '</div>' +
+        '<div>' +
+          /* NO SUMMARY AND NO PAY CONTROL, because nothing here is charged. DONE is
+             not a payment, it is leaving. */
+          '<div class="wf-dock">' +
+            '<div class="wf-card wf-total">' +
+              '<div class="wf-tl"><span>Charged now</span><span class="wf-tl-v">Nothing</span></div>' +
+              '<div class="wf-tl"><span>Rate</span><span class="wf-tl-v">1 coin = $1.00</span></div>' +
+              '<div class="wf-tl"><span>To withdraw, you will need</span><span class="wf-tl-v wf-fig-missing">Not published</span></div>' +
+            '</div>' +
+            '<p class="wf-note">Nothing is taken from you here. When your coins arrive we credit them and the record lands in your history.</p>' +
+            '<div class="wf-row">' +
+              '<a class="wf-btn" href="' + BASE + 'deposit.html" data-dep-back>Choose a different way</a>' +
+              (empty
+                ? '<span class="wf-note">There is nothing to send to yet.</span>'
+                : '<a class="wf-btn wf-btn--primary" href="' + BASE + 'deposit-crediting.html">Done, I have sent it</a>') +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  }
+
+  /* THE GIFT CARD BODY. The one route of thirty five that leaves the product, and
+     it is mostly about saying so. baseline-account.md 5b.4: the tile opens six
+     accordions of third party resellers with a BUY control on each denomination,
+     and the baseline says nothing about what happens after.
+     THAT SILENCE IS B4-3 WITH AN EXTRA PARTY IN IT: money leaves through someone
+     we do not run, so the person has two companies to ask and neither owes them an
+     answer. WHAT THIS ADDS IS THE HANDOVER, STATED BEFORE THE PRESS.
+     THE SIX ARE NAMED AND NOT DRAWN AS OURS, and none is a link, because which of
+     them we send people to is not decided and a live control here would be this
+     project choosing a commercial partner in a wireframe. */
+  function depGift(P, o) {
+    var sellers = ['Difmark', 'Pulse', 'Kinguin', 'OFF GAMERS', 'Karte Direkt', 'Eneba'];
+    return '' +
+      '<div class="wf-acct-state">Signed in as <strong>' + (window.WF_WHO || {}).name + '</strong>. Funding is open on this account.</div>' +
+      '<div class="wf-stack">' +
+        '<div class="wf-sec-head"><h2 id="' + P + 'h2-hand">This one leaves us</h2></div>' +
+        '<p class="wf-cost-say"><strong>You buy the card from another company, not from us, and then bring the code back here.</strong> They take the payment, they decide what they accept and they own the refund. If a card you bought does not work, the first place to ask is them.</p>' +
+        '<p class="wf-note wf-fig-missing">How long a code takes to credit once you bring it back is not published, and neither is what we do about a code that a reseller sold and we cannot read</p>' +
+      '</div>' +
+      '<div class="wf-stack">' +
+        '<div class="wf-sec-head">' +
+          '<h2 id="' + P + 'h2-sellers">Where you can buy one</h2>' +
+          '<p class="wf-sec-sub">Six resellers. We do not run any of them and we do not set their prices.</p>' +
+        '</div>' +
+        '<div class="wf-pay-g">' +
+          sellers.map(function (s) {
+            return '<div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n">' + s + '</span><span class="wf-pay-m">$5 to $200</span></div>';
+          }).join('') +
+        '</div>' +
+        '<p class="wf-note wf-fig-missing">Which of these six we send people to is not decided, so none of them is a link here yet</p>' +
+      '</div>' +
+      /* THE CODE COMES BACK, and the field that takes it is the point of returning.
+         The ceiling holds on this route because a code is redeemed here, with an
+         amount, at a moment: unlike crypto there is a press to hang it on. */
+      '<div class="wf-stack">' +
+        '<div class="wf-sec-head"><h2 id="' + P + 'h2-code">Bringing the code back</h2></div>' +
+        '<div class="wf-cfg-f">' +
+          '<div class="wf-cfg-row"><label class="wf-cfg-l" for="' + P + 'dep-code">Card code</label></div>' +
+          '<input class="wf-cfg-in" id="' + P + 'dep-code" type="text" placeholder="The code from the card you bought">' +
+          '<p class="wf-cfg-p">Redeeming a code is a payment like any other here, so your ceiling applies to it and you will see what it adds before it goes through.</p>' +
+        '</div>' +
+        '<div class="wf-row"><a class="wf-btn wf-btn--primary" href="' + BASE + 'deposit-card.html" data-dep-route="card">Redeem it</a></div>' +
+      '</div>';
+  }
+
+  /* THE STEP INDICATOR AND THE WAY BACK, on the default state of all three routes.
+     They are not on 4.3 and 4.5, which are not reached from step 1. */
+  var STEP2_LEAD = {
+    card:   ['Paying by card.',           'How much'],
+    crypto: ['Paying with Bitcoin.',      'Where to send it'],
+    gift:   ['Paying with a gift card.',  'Where to buy the card']
+  };
+
+  function payStep2(route, o) {
+    o = o || {};
+    /* THE WORKED AMOUNT IS THE SAME IN BOTH CARRIERS, D-99. Opened with none, the
+       layer rendered a receipt reading 0.00 coins and a ceiling in force of $0.00,
+       which is not the empty state of this form: it is the worked example with its
+       number missing. WHAT THE DOCK SAYS BEFORE AN AMOUNT EXISTS IS A STATE
+       NEITHER CARRIER HAS EVER HAD, on the page since 22 August, and it is named
+       here rather than invented in a dialog. */
+    if (!o.amount) o.amount = '40.00';
+    var P = o.idp || '';
+    var lead = STEP2_LEAD[route] || STEP2_LEAD.card;
+    var out = '';
+    if (o.lead !== false) {
+      out += '<p class="wf-note">' + (o.leadText || lead[0]) + ' <a href="' + BASE + 'deposit.html" data-dep-back>Choose a different way</a></p>' +
+        '<ol class="wf-pay-steps">' +
+          '<li class="wf-pay-step"><span class="wf-pay-step-n">1</span><span>How you pay</span></li>' +
+          '<li class="wf-pay-step is-now"><span class="wf-pay-step-n">2</span><span>' + lead[1] + '</span></li>' +
+        '</ol>';
+    }
+    if (o.banner) out += o.banner;
+    if (route === 'crypto') return out + depCrypto(P, o);
+    if (route === 'gift')   return out + depGift(P, o);
+    return out + depCard(P, o);
+  }
+
+  /* THE BANNERS OF 4.3 AND 4.5, built here so that the form under them is the one
+     the base page has rather than a copy of an older one. */
+  var STEP2_BANNER = {
+    'ceiling-pending':
+      '<div class="wf-notice">' +
+        '<h2 id="h2-pending">The higher ceiling is not in force yet</h2>' +
+        '<p><strong>In force now: $40.00</strong> for the period. This is the figure every number on this page uses.</p>' +
+        '<p>Pending: 120.00. It takes effect at the moment below, and until then nothing changes.</p>' +
+        '<div class="wf-moment">' +
+          '<span class="wf-moment-v">23 Aug 2026, 09:31</span>' +
+          '<span class="wf-moment-l">When the higher ceiling takes effect</span>' +
+        '</div>' +
+        '<div class="wf-row"><button class="wf-btn" type="button">Cancel the raise</button></div>' +
+        '<p class="wf-note">Cancelling is a lowering, so it takes effect immediately, at any time, with no second wait.</p>' +
+        '<p class="wf-note">Deposits inside the ceiling you have now continue as normal.</p>' +
+      '</div>',
+    'declined':
+      '<div class="wf-notice">' +
+        '<h2 id="h2-declined">The payment did not go through</h2>' +
+        '<p>It was refused on the payment side before anything left your account.</p>' +
+        '<p class="wf-fig-missing">No reason was given to us. We do not print one we did not receive.</p>' +
+        '<p><strong>Unchanged:</strong> your ceiling, and the sum it will take to withdraw. A failed payment does not move either of them.</p>' +
+        '<p class="wf-note">If the refusal came from us rather than from the payment side, <a href="support.html">support</a> answers inside a published deadline.</p>' +
+      '</div>'
+  };
+
+  function mountStep2() {
+    var host = document.querySelector('[data-pay-step2]');
+    if (!host) return;
+    var route = host.getAttribute('data-pay-step2') || 'card';
+    var state = host.getAttribute('data-pay-state') || '';
+    var o = window.WF_STEP2 || {};
+    o.state  = state;
+    o.banner = STEP2_BANNER[state] || '';
+    if (state) o.lead = false;
+    host.innerHTML = payStep2(route, o);
+    mountDeposit(host);
+  }
+
+  /* ---------------------------------------------------------------------
+     THE DEPOSIT DIALOG, D-99, AND IT IS D-54's CONTRACT APPLIED A SECOND TIME.
+     THE ADDRESS SURVIVES. /deposit renders the same content as a full page and is
+     what a typed URL, a deep link, a session with no script and a person pressing
+     back all land on. The dialog renders it over the surface a person is already
+     on. NEITHER IS A REDUCED VERSION OF THE OTHER: both carriers run the renderers
+     above, so a change to either arrives in both.
+     IT CARRIES BOTH STEPS AND THAT IS THE WHOLE POINT. A dialog that chooses a
+     method and then throws the person to a page for the amount is a doorway, and a
+     doorway is the second surface with less in it that D-54 rejected. The money is
+     spent on step 2, so step 2 is the screen the context is worth most on.
+     WHAT IT DOES NOT CARRY, NAMED RATHER THAN OMITTED: the outcome surfaces.
+     Crediting, declined and ceiling reached are records with a state that persists
+     and a person returns to them from history, so they stay at their addresses and
+     the dialog navigates there. A layer that vanished on a decline would return a
+     person to a screen that cannot explain what happened, which is D-54's own rule
+     about a dialog that closes itself.
+     THREE WAYS OUT AND A TRAP, 0.1 section 6: the close control, the scrim and
+     Escape. Dismissing records nothing. Focus is trapped while it is open and
+     returned to the control that opened it.
+     THE IDS INSIDE IT ARE PREFIXED. Opened over /deposit or over a step 2 address
+     there would otherwise be two of every id in one document.
+     --------------------------------------------------------------------- */
+  /* THE TITLE IS THE NODE AND NEVER THE STEP. Naming the step here printed "How
+     much" twice on one layer, once as the title and once as the heading of the
+     block it names, and the step indicator underneath already says which of the
+     two a person is on. */
+  var DEP_TITLE = {
+    step1:  ['Add funds', 'Pick how you pay. You stay on this page.'],
+    card:   ['Add funds', 'You stay on this page.'],
+    crypto: ['Add funds', 'You stay on this page.'],
+    gift:   ['Add funds', 'You stay on this page.']
+  };
+
+  function depDialogHTML(route) {
+    var t = DEP_TITLE[route || 'step1'] || DEP_TITLE.step1;
+    var body = (!route || route === 'step1')
+      ? '<div data-pay-grid="dialog"></div>'
+      : payStep2(route, { idp: 'd-' });
+    return '' +
+      '<div class="wf-dlg-scrim" data-dep-dismiss="1"></div>' +
+      '<div class="wf-dlg-wrap" data-dep-dismiss="1">' +
+        '<div class="wf-dlg wf-dlg--plain wf-dlg--pay" role="dialog" aria-modal="true" aria-labelledby="wf-dep-h">' +
+          '<button class="wf-dlg-close" type="button" aria-label="Close">&#10005;</button>' +
+          '<div class="wf-dlg-body">' +
+            '<p class="wf-dlg-h" id="wf-dep-h">' + t[0] + '</p>' +
+            '<p class="wf-dlg-sub">' + t[1] + '</p>' +
+            body +
+          '</div>' +
+        '</div>' +
+      '</div>';
+  }
+
+  function mountDepositDialog() {
+    var opener = null;
+    var host = null;
+
+    function close() {
+      if (!host) return;
+      host.remove();
+      host = null;
+      document.documentElement.style.overflow = '';
+      document.removeEventListener('keydown', onKey, true);
+      if (opener && document.contains(opener)) opener.focus();
+      opener = null;
+    }
+
+    function onKey(e) {
+      if (!host) return;
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key !== 'Tab') return;
+      var f = host.querySelectorAll('a[href], button:not([disabled]), input, select, [tabindex]:not([tabindex="-1"])');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+
+    /* ONE HOST, RE-RENDERED. Step 1 and step 2 are the same layer rather than two
+       dialogs stacked: stacking would put a scrim over a scrim and give the person
+       two things to dismiss for one act. */
+    function render(route) {
+      host.innerHTML = depDialogHTML(route);
+      var b = host.querySelector('.wf-dlg-body');
+      if (!route || route === 'step1') {
+        mountPay(host.querySelector('[data-pay-grid]'), 'd-');
+      } else {
+        mountDeposit(b);
+      }
+      var f = host.querySelector('.wf-dlg-close');
+      if (f) f.focus();
+      // THE LAYER SCROLLS FROM ITS TOP ON EVERY STEP. Keeping the offset would
+      // open step 2 halfway down a form the person has not seen yet.
+      var w = host.querySelector('.wf-dlg-wrap');
+      if (w) w.scrollTop = 0;
+    }
+
+    function open(route, trigger) {
+      if (host) { render(route); return; }
+      opener = trigger || null;
+      host = el('div', 'wf-dep-host');
+      document.body.appendChild(host);
+      render(route);
+      // THE SURFACE BEHIND IS INERT AND IS NEVER REMOVED. The case the person was
+      // looking at is exactly what the funding is for.
+      document.documentElement.style.overflow = 'hidden';
+      document.addEventListener('keydown', onKey, true);
+    }
+
+    document.addEventListener('click', function (e) {
+      // Out first, so a dismissal inside an open layer never falls through to the
+      // openers below it.
+      if (host) {
+        if (e.target.closest('.wf-dlg-close') || (e.target.getAttribute && e.target.hasAttribute('data-dep-dismiss'))) {
+          e.preventDefault(); close(); return;
+        }
+        var back = e.target.closest('[data-dep-back]');
+        if (back && host.contains(back)) { e.preventDefault(); render('step1'); return; }
+        // A TILE INSIDE THE LAYER ADVANCES THE LAYER. At the address the same tile
+        // is a link to the same step at its own address, which is the two carriers
+        // rendering one route rather than two behaviours.
+        var tile = e.target.closest('[data-pay-kind]');
+        if (tile && host.contains(tile)) { e.preventDefault(); render(tile.getAttribute('data-pay-kind')); return; }
+      }
+      var t = e.target.closest('[data-dep-open]');
+      if (!t) return;
+      e.preventDefault();
+      open(t.getAttribute('data-dep-open') || 'step1', t);
+    });
+
+    // THE CANON PAGE renders it open on load, because a canon nobody can see
+    // without a click is a canon nobody checks.
+    var pinned = document.querySelector('[data-dep-pinned]');
+    if (pinned) open(pinned.getAttribute('data-dep-pinned') || 'step1', null);
   }
 
   function mountHist() {
@@ -4105,6 +4687,8 @@ window.WF_PAY = window.WF_PAY || {
     mountMsgs();
     mountHist();
     mountPay();
+    mountStep2();
+    mountDepositDialog();
     mountInvSort();
     mountCookie();
     mountSettings();
