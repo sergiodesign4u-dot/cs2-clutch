@@ -34,6 +34,13 @@
      with a partner code already in the field, ticked and applied, 5b.1. That is
      attribution happening to a person rather than by them. Founder decision of
      25 August 2026: ours starts empty. -->
+<!-- REBUILT AS A HOST ON 25 AUGUST 2026, D-99, RESTRUCTURED 26 AUGUST BY D-100.
+     The body of this screen is rendered by _nav.js and is the same object the
+     deposit dialog renders. WHAT IS DECIDED HERE IS THE STATE AND THE FIGURES;
+     the panes, the rail and the order of the blocks live in one place.
+     BEFORE D-99 THIS WAS MARKUP WRITTEN OUT HERE and two of the six had drifted:
+     4.3 and 4.5 were copies of the card page taken before D-97 and never caught
+     up. A state that is a copy of a page is a state no correction reaches. -->
 <button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
 <aside id="wf-panel"></aside>
 
@@ -45,35 +52,7 @@
 
     <h1>Add funds</h1>
 
-    <!-- BLOCK 1. THE ACCOUNT STATE. Unchanged from the single-screen version: it
-         states that funding is open and promises nothing about the exit, because
-         a promise that the way out carries no check would be true today and false
-         the day the identity layer lands. -->
-    <div class="wf-acct-state">Signed in as <strong>nightjar_cs</strong>. Funding is open on this account.</div>
-
-    <!-- BLOCK 2. THE TWO STEPS, NAMED. The baseline runs a numbered indicator and
-         so does this, because the person needs to know that the amount is coming
-         and that this screen is not asking for it. The node had refused a step
-         indicator when it was one screen with one control, which was right then. -->
-    <ol class="wf-pay-steps">
-      <li class="wf-pay-step is-now"><span class="wf-pay-step-n">1</span><span>How you pay</span></li>
-      <li class="wf-pay-step"><span class="wf-pay-step-n">2</span><span>How much</span></li>
-    </ol>
-
-    <!-- BLOCK 3. THE PROMO FIELD, THE COUNTRY AND THE TWO GRIDS, all rendered by
-         _nav.js so that the dialog and this page cannot drift apart. One renderer,
-         two carriers, the same rule the history tabs and the account band run on. -->
-    <div data-pay-grid></div>
-
-    <!-- BLOCK 4. WHAT HAPPENS AFTER YOU PAY, STATED BEFORE THE ROUTE IS CHOSEN.
-         The barrier is money that leaves and does not arrive, and the crediting
-         window belongs before the commitment rather than after it. It is here as
-         well as on step 2 because a person choosing between a card and a chain is
-         choosing between two waits, and the wait is the thing they cannot see. -->
-    <div class="wf-stack">
-      <div class="wf-sec-head"><h2 id="h2-after">After you pay</h2></div>
-      <p class="wf-fig-c"><span class="wf-fig-missing">How long crediting takes is not published yet, on any route.</span> When it is, it will be here and on the next screen, and a payment that passes it will say so and give you a way to ask about it rather than leaving you to notice.</p>
-    </div>
+    <div data-pay-layer></div>
 
   </main>
 
@@ -86,7 +65,7 @@
 <script>
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';
-window.WF_STEP = 1;
+window.WF_PAYCFG = { cat: 'card' };
 window.WF_SHELL = { account: true, active: 'deposit.html', money: { balance: '74.20 coins', held: '130.60 coins' } };
 </script>
 <script src="_nav.js"></script>

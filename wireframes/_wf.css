@@ -1293,37 +1293,14 @@ a.wfp-state:hover { color: var(--wf-ink); }
    it and that theirs is one press away. */
 .wf-crypto.is-empty .wf-crypto-qr { border-style: dotted; }
 
-/* THE TWO STEP INDICATOR, D-96, AND ITS NAME IS wf-pay-step BECAUSE wf-step WAS
-   TAKEN. It shipped as .wf-steps for one render and came out as a column with a
-   doubled number: 2.4's sign-in dialog has owned .wf-steps since D-54, three
-   items, display grid, counter-reset. TWO RULES, ONE SELECTOR, AND THE LATER ONE
-   WON. Nothing errored and nothing was flagged; the block simply rendered as
-   another component. Found by looking at the page.
-   THE TWO STEP INDICATOR, D-96. The node refused one while it was a single
-   screen with a single control, on the ground that a step indicator draws a
-   process that does not exist. There are two screens now, so it exists.
-   IT IS AN ORDERED LIST BECAUSE IT IS ONE. A screen reader gets "1 of 2" from
-   the markup rather than from a decorative row of circles. */
-.wf-pay-steps {
-  display: flex; gap: var(--wf-s-2); flex-wrap: wrap;
-  margin: 0 0 var(--wf-s-3); padding: 0; list-style: none;
-}
-/* list-style GOES ON THE ITEM AS WELL AS THE LIST. It is inherited, and this
-   stylesheet sets a marker on li further up, so the ol rendered its own number
-   beside the one in the span: "1 1 How you pay" on the first render. */
-.wf-pay-step {
-  display: flex; align-items: center; gap: var(--wf-s-1);
-  font-size: var(--wf-t-s); color: var(--wf-ink-dim);
-  list-style: none;
-}
-.wf-pay-step-n {
-  display: flex; align-items: center; justify-content: center;
-  width: 24px; height: 24px; flex: 0 0 24px;
-  border: 1px solid var(--wf-line-soft); border-radius: 50%;
-  font-family: var(--wf-mono); font-size: var(--wf-t-xs);
-}
-.wf-pay-step.is-now { color: var(--wf-ink); font-weight: 700; }
-.wf-pay-step.is-now .wf-pay-step-n { border-color: var(--wf-line); background: var(--wf-raised); }
+/* THE TWO STEP INDICATOR WAS REMOVED WITH ITS SCREENS, D-100. D-96 refused one
+   while this was a single screen with a single control, then added it when there
+   were two screens: "there are two screens now, so it exists". The layer is one
+   pane with a rail that never leaves, so the same argument takes it back out. Its
+   own collision is worth keeping as a note: it shipped as .wf-steps for one
+   render and came out as a column with a doubled number, because 2.4's sign-in
+   dialog had owned .wf-steps since D-54. TWO RULES, ONE SELECTOR, THE LATER ONE
+   WON, nothing errored, and it was found by looking at the page. */
 
 /* ============================================================================
    NODE 4.1 STEP 1, THE METHOD GRID, D-96
@@ -2982,12 +2959,17 @@ select {
   padding: 2px var(--wf-s-1); border: 1px solid var(--wf-line); border-radius: var(--wf-r-1);
 }
 .wf-proof-fields { display: flex; flex-direction: column; gap: var(--wf-s-1); margin: 0; }
-.wf-pf { display: flex; flex-direction: column; gap: 2px; }
-.wf-pf-k { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+/* RENAMED FROM .wf-pf ON 26 AUGUST 2026. Node 5.10's profile layout took the same
+   name later in this file with gap s-3 and a grid at 1000px, so every key and value
+   pair on the six provably fair pages was rendering with 24px between the label and
+   the figure and going two columns wide on a desktop. Found by the collision scan
+   rather than by a person, which is the first time in this stage. */
+.wf-fpair { display: flex; flex-direction: column; gap: 2px; }
+.wf-fpair-k { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
 /* A SEED IS A LONG STRING AND IT MAY NOT PUSH THE PAGE SIDEWAYS. It wraps
    anywhere, because the alternative on a 360px screen is a horizontal scroll on
    the one page a stranger is asked to read carefully. */
-.wf-pf-v { font-family: var(--wf-mono); font-size: var(--wf-t-s); overflow-wrap: anywhere; }
+.wf-fpair-v { font-family: var(--wf-mono); font-size: var(--wf-t-s); overflow-wrap: anywhere; }
 .wf-proof-scope { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
 .wf-proof-acts { display: flex; gap: var(--wf-s-1); flex-wrap: wrap; }
 
@@ -3505,7 +3487,7 @@ select {
    at 360 with an explicit label on each, because a mark is a verdict rendered
    as decoration and this state has to assign the fault in words. */
 .wf-vpair { display: grid; gap: var(--wf-s-2); grid-template-columns: 1fr; }
-.wf-vpair .wf-pf-v { font-size: var(--wf-t-m); }
+.wf-vpair .wf-fpair-v { font-size: var(--wf-t-m); }
 
 /* Block 7. The algorithm, on the legal template's four parts, at a stable
    anchor rather than as a fifth legal document: the four documents on that
@@ -4857,3 +4839,166 @@ textarea.wf-cfg-in { min-height: 0; }
    inside it: two scrolling regions in one dialog is a person scrolling the
    wrong one. */
 .wf-dlg--pay .wf-dlg-body { gap: var(--wf-s-3); }
+
+/* ============================================================================
+   NODE 4.1, THE TWO PANE LAYER, D-100 AND D-101.
+   THE RAIL IS THE LEFT COLUMN AND EVERYTHING ELSE IS THE RIGHT ONE, which is the
+   founder's arrangement of 26 August and the reference's. What it buys over the
+   flat grid of thirty five is that the category a person is in never leaves the
+   screen, so there is no step to go back to.
+   ============================================================================ */
+.wf-pay-lay { display: grid; gap: var(--wf-s-3); align-items: start; }
+@media (min-width: 900px) {
+  .wf-pay-lay { grid-template-columns: 260px minmax(0, 1fr); gap: var(--wf-s-4); }
+}
+.wf-pay-main { display: flex; flex-direction: column; gap: var(--wf-s-3); min-width: 0; }
+
+/* THE RAIL. BELOW 900 IT IS A ROW THAT SCROLLS SIDEWAYS rather than four stacked
+   boxes: stacked, the four of them spend the whole first screen and the pane they
+   select is never in view beside them. */
+.wf-pay-rail { display: flex; gap: var(--wf-s-1); overflow-x: auto; padding-bottom: var(--wf-s-1); }
+.wf-pay-rail > .wf-note { display: none; }
+@media (min-width: 900px) {
+  .wf-pay-rail { display: flex; flex-direction: column; gap: var(--wf-s-1); overflow: visible; padding: 0; }
+  .wf-pay-rail > .wf-note { display: block; margin-top: var(--wf-s-2); }
+}
+/* NAMED .wf-payc AND NOT .wf-cat, WHICH 3.1's CATALOGUE CHIP HAS OWNED SINCE THE
+   shelf was built. Caught before it rendered, by the collision scan this stage
+   earned after .wf-steps, .wf-offer and .wf-prov-row. */
+.wf-payc {
+  flex: 0 0 auto; min-width: 150px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: var(--wf-s-half);
+  padding: var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: var(--wf-surface); color: var(--wf-ink);
+  text-align: left; min-height: var(--wf-tap);
+}
+.wf-payc:hover, .wf-payc:focus-visible { border-color: var(--wf-line); background: var(--wf-raised); }
+/* THE ONE IN VIEW CARRIES A RULE DOWN ITS EDGE rather than a fill, so that at
+   stage 07 the state is a colour decision and not a shape one. */
+.wf-payc.is-on { border-color: var(--wf-ink); background: var(--wf-raised); }
+/* FOUR SLOTS FOR THE MARKS THAT LAND AT STAGE 06, D-50. A category box with no
+   room for them would reflow on the day they arrive, and a box that is only a
+   word is not a category, it is a tab. */
+.wf-payc-art { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; width: 100%; max-width: 116px; }
+.wf-payc-slot { display: block; aspect-ratio: 1 / 1; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1); }
+.wf-payc-n { font-size: var(--wf-t-s); font-weight: 700; line-height: 1.3; }
+.wf-payc-c { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+
+/* THE OFFER STRIP, D-94. It carries the whole offer once: the badge on the header
+   control can hold five per cent and nothing else, so this is the surface where
+   the cap and the period get said. */
+/* NAMED .wf-bonus-strip AND NOT .wf-offer, WHICH WAS TAKEN. It shipped as
+   .wf-offer for one render and came out as a tall centred banner with a hairline
+   down the middle: node 2.4's starter credit block has owned .wf-offer since the
+   sign-in build, with flex-direction column and a dashed border, and a later rule
+   that does not restate flex-direction inherits it. THIRD COLLISION OF THIS KIND
+   IN THE STAGE, after .wf-steps in D-96 and this one, and all three rendered as
+   another component rather than erroring. */
+.wf-bonus-strip {
+  display: flex; flex-direction: row; align-items: center; gap: var(--wf-s-2);
+  padding: var(--wf-s-1) var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: var(--wf-raised);
+}
+.wf-bonus-art {
+  flex: 0 0 32px; width: 32px; height: 32px;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
+}
+/* LEFT, EXPLICITLY. The dialog centres its own title and subtitle and this sits
+   inside that body, so a strip that inherited the centring read as a banner
+   rather than as a line of the form. */
+.wf-bonus-t { margin: 0; font-size: var(--wf-t-s); line-height: 1.4; text-align: left; }
+
+/* PROMO AND COUNTRY, A PAIR AT THE TOP OF THE PANE SINCE D-100. */
+.wf-cty {
+  display: flex; align-items: center; gap: var(--wf-s-2);
+  min-height: var(--wf-tap);
+  padding: var(--wf-s-1) var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: var(--wf-surface);
+}
+.wf-cty-art { flex: 0 0 28px; height: 20px; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1); }
+.wf-cty-v { display: flex; flex-direction: column; gap: 1px; flex: 1 1 auto; min-width: 0; }
+.wf-cty-c { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+
+/* THE CHOSEN METHOD. Change goes back to the grid of its own category and never
+   to a first step, because the rail never left the screen. */
+.wf-chosen {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--wf-s-2);
+  padding-bottom: var(--wf-s-1); border-bottom: 1px solid var(--wf-line-soft);
+}
+.wf-chosen-t { margin: 0; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.wf-chosen-k { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-pay-body { display: flex; flex-direction: column; gap: var(--wf-s-3); }
+.wf-pay-g--prov { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); max-width: 320px; }
+
+/* THE CEILING IS A ROW SINCE D-101, and its size is the only thing that changed.
+   It is still directly under the amount, still pre-filled, still the one blocking
+   element: a brake a person meets after scrolling past the control it brakes is a
+   brake that arrives second. */
+.wf-ceil-bar { display: flex; gap: var(--wf-s-2); align-items: flex-end; flex-wrap: wrap; }
+.wf-ceil-bar > .wf-stack { flex: 1 1 180px; min-width: 0; gap: var(--wf-s-half); }
+.wf-ceil-bar .wf-ceil-in { width: 100%; }
+
+/* WHAT IS READ RATHER THAN ANSWERED SITS BELOW THE PRESS, D-101. Nothing is cut:
+   the three lines are on the surface, under the block they qualify. */
+.wf-fund-more {
+  display: flex; flex-direction: column; gap: var(--wf-s-2);
+  margin-top: var(--wf-s-3); padding-top: var(--wf-s-3);
+  border-top: 1px solid var(--wf-line-soft);
+}
+
+@media (min-width: 1200px) {
+  /* THE LAYER EARNS ITS SECOND COLUMN BACK. The rail spends 260px, so the receipt
+     only fits beside the form once the frame is wider than the sign in dialog
+     ever needs to be. */
+  .wf-dlg--pay { max-width: 1180px; }
+}
+@media (max-width: 1199px) {
+  /* AND BELOW THAT THE RECEIPT IS THE LAST BLOCK rather than a squeezed column.
+     A 280px form beside a 320px summary is two things too narrow to read. */
+  .wf-pay-lay .wf-fund-grid { display: block; }
+  .wf-pay-lay .wf-dock { margin-top: var(--wf-s-3); }
+}
+
+/* THE OFFER, THE PROMO AND THE COUNTRY ACROSS ONE ROW, D-101. Stacked they cost
+   two hundred pixels of the first screen before anything a person came here to
+   do. Below 700 they stack, because three of them across that width is three
+   things too narrow to read. */
+.wf-pay-top { display: grid; gap: var(--wf-s-2); }
+@media (min-width: 700px) {
+  .wf-pay-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: end; }
+  .wf-bonus-strip { grid-column: 1 / -1; }
+}
+@media (min-width: 1100px) {
+  .wf-pay-top { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr); }
+  .wf-bonus-strip { grid-column: auto; }
+}
+/* THE PROVIDER ROW IS A ROW SINCE D-101, which is what the baseline draws: SELECT
+   PROVIDER is two marks above the form and not a section of its own. It was a
+   full tile grid and cost three hundred pixels for two unknowns. */
+.wf-payprov { display: flex; align-items: center; gap: var(--wf-s-2); flex-wrap: wrap; }
+.wf-payprov-t {
+  display: flex; align-items: center; gap: var(--wf-s-1);
+  padding: var(--wf-s-1); min-height: var(--wf-tap);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: var(--wf-surface);
+}
+.wf-payprov .wf-pay-art { width: 48px; }
+.wf-payprov .wf-note { flex: 1 1 200px; margin: 0; }
+.wf-pay-gh-s { font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+/* THE AMOUNT AND THE CEILING ACROSS ONE ROW, D-101. C2's first property drawn
+   rather than described: the ceiling carries the amount just typed, so the two
+   are one gesture. Stacked, they pushed the email and the terms off the first
+   screen, which is exactly what the founder pointed at. */
+.wf-money-row { display: grid; gap: var(--wf-s-2); align-items: start; }
+@media (min-width: 640px) {
+  /* THE AMOUNT COLUMN IS THE WIDER ONE, because it carries the six presets under
+     it and at an even split the last of them wrapped onto a line of its own. */
+  .wf-money-row { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
+}
+.wf-money-row .wf-presets { gap: var(--wf-s-half); }
+.wf-money-row .wf-ceil-bar { display: flex; gap: var(--wf-s-1); align-items: stretch; }
+.wf-money-row .wf-ceil-in { flex: 1 1 auto; min-width: 0; }

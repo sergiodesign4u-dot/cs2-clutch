@@ -4135,3 +4135,98 @@ So a tile inside the layer advances the layer, and the same tile at the address 
 **Deleting the address.** `D-54` spent a section on why that silently deletes four reasoned rules nobody decided to delete, and none of them has changed.
 
 **Leaving the six pages as hand markup and giving the dialog its own copy.** That is two renderings of a money form, which is the defect this decision exists to close, doubled.
+
+---
+
+## D-100. The deposit becomes one layer with two panes, and the step indicator leaves by the argument that brought it
+
+**Date:** 2026-08-26. **Stage:** 04. **Decided by:** the founder, with six captures of a competitor's funding dialog beside the built one. **Binds:** node `4.1`, its eight pages and the dialog.
+
+**What was decided.** **The thirty five routes are grouped into categories in a rail on the left, and everything else is one pane on the right.** The promo code and the country move to the top of that pane, side by side. The offer sits with them.
+
+### The step indicator goes, and it is the same argument that added it
+
+`D-96` refused a step indicator while this was one screen with one control, on the ground that it draws a process that does not exist. Then it added one: *"there are two screens now, so it exists."*
+
+**There are not two screens now.** The rail is on the surface the whole time and the method a person chose stays visible while they set the amount. **A numbered process drawn over a single pane is a picture of a process**, so the same sentence takes it back out.
+
+### What the change buys beyond looks, and it closes `D-96`'s own worry
+
+`D-96`'s reason for putting the method first was that **crypto has no amount field**, so asking for an amount before the route is known produces a screen that has to be taken back. **With a persistent rail nothing is taken back.** The right pane renders what that route asks for: a form for a card, a grid and an address for a chain, six outbound sellers for a gift card, and a statement for the one with no route at all.
+
+### The categories are the routes, and that is a source rather than a preference
+
+| Category | Rows | Where it comes from |
+|---|---|---|
+| Cards, wallets and bank transfer | 25 | `route: card` |
+| Crypto | 8 | `route: crypto` |
+| Gift cards | 1 | `route: gift` |
+| CS2 skins | 1 | **No route.** The orphan, carried with its status printed |
+
+**Our own step 2 already split on route, because the route is what the second pane asks for.** `baseline-account.md` 5b.1 shows the live list in exactly two groups, fiat and crypto.
+
+**What is not decided and is named rather than invented:** a finer split into cards, wallets, bank transfers and vouchers. **That is a taxonomy of payment brands and no file in this repository holds one.** Classifying Neosurf as a voucher and Skrill as a wallet from general knowledge is exactly the median the input gate exists to prevent. **Owner: the founder**, and the answer exists on the payment side, which knows which processor each route runs through.
+
+### The brand marks are slots and the references are full of real logos
+
+`D-50`: an image is stage 06's and the room it takes is this stage's. **Four slots per category box**, because a box that is only a word is a tab rather than a category, and a box with no room for the marks would reflow on the day they arrive.
+
+### Rejected
+
+**Preselecting a method so the right pane opens on a form**, which is what the reference does. **Choosing for a person which company takes their money** is not ours to do, and this product has no processor chosen at all. The rail preselects the category and stops there.
+
+---
+
+## D-101. The first screen carries everything a press needs, and three controls that did nothing start working
+
+**Date:** 2026-08-26. **Stage:** 04. **Decided by:** the founder, on the layer built an hour earlier. **Binds:** node `4.1` and the card body.
+
+**What he said.** Step 2 looks very complicated. What has to be in focus on the first screen is the amount, the email and the terms, with the receipt beside them. **The email is at the very end and the checkbox is at the end**, and the checkbox itself is horrible. **The preset buttons do not change anything.** And **letters can be typed where only digits should go.**
+
+### What moved, and what could not
+
+| Block | Before | After |
+|---|---|---|
+| Offer, promo, country | Three stacked blocks, about 200px | One row across |
+| Provider | A tile grid, 303px | A row, the baseline's own shape |
+| Amount and ceiling | Stacked, 416px together | Side by side |
+| Email and terms | Below everything, off the first screen | On the first screen |
+| Threshold, crediting window, other limits | Between the amount and the email | Below the press |
+
+**The ceiling did not move and it is the one thing that could not.** `C2` says it is pre-filled with the amount just typed and blocks the press. **A brake a person meets after scrolling past the control it brakes is a brake that arrives second.** What changed is its size: a heading, a subhead, a two column figure block and a two item list became a row and a line.
+
+**And putting it beside the amount tells `C2`'s own story in the layout.** The ceiling carries the amount just typed, so the two are one gesture, and the second is next to the first rather than three hundred pixels under it.
+
+**Nothing was cut.** The exit price, the crediting window and the route to the other limits are all still on the surface, below the block they qualify, and the exit price is also a line in the receipt where it stays in view.
+
+### Three pictures of controls, on the one screen in this product where a control has to be believed
+
+**The six presets changed nothing.** `D-58` is the rule and this is the worst place in the product to break it.
+
+**The money field took letters.** A money field that accepts something that is not money is a field whose value cannot be arithmetic, and every figure computed from it reads `NaN` beside a Pay control.
+
+**The receipt was a string printed once at render.** It said 42.00 coins whatever the amount became.
+
+**All three are live now, and the arithmetic is one function.** The presets set the amount, the amount drives the receipt, the cap binds at 100 coins rather than being described, and **the ceiling follows the amount until it is settled**, which is `C2`'s first property working rather than being written down.
+
+### The checkbox was the browser's, not the product's
+
+It shipped as a bare `<input type="checkbox">` inside a flex row built for a 20px box and a label beside it. **It rendered as a large white square with its label stranded across the screen.** Node `2.4` has had the product's own control since `D-58`: a button with `aria-pressed`, the label beside it, and a state when a press is refused. **One component, two screens.** It toggles, and Pay now names which of the two conditions is missing.
+
+### Three class collisions in one stage, and the third one shipped into a screenshot
+
+| Class | Owner it collided with | What rendered |
+|---|---|---|
+| `.wf-steps` | `2.4`'s sign-in dialog, `D-54` | A column with a doubled number |
+| `.wf-offer` | `2.4`'s starter credit block | A tall centred banner with a hairline down the middle |
+| `.wf-prov-row` and `.wf-cat` | `2.4`'s provider row and `3.1`'s catalogue chip | Caught before they rendered |
+
+**All of them are two owners of one name, none of them errors, and every one renders as another component.** `.wf-offer` is the one that reached a screenshot, because a later rule that does not restate `flex-direction` inherits it.
+
+**So the stage finally earns the instrument.** A scan for a bare class rule written twice at top level, which is the shape all four have. **It found a fourth nobody had reported: `.wf-pf`.** Node `1.2`'s key and value pair and node `5.10`'s page layout have both owned that name, and the profile rule is later, **so every key and value pair on the six provably fair pages was rendering with 24px between the label and the figure and going two columns wide above 1000px.** Renamed to `.wf-fpair`.
+
+**This is the first defect of this class in the stage found by an instrument rather than by a person looking at a screen.**
+
+### What this does not answer
+
+**What the receipt says before an amount exists.** Both carriers open on a worked example, `D-99` named the gap, and it is still `[?]`.

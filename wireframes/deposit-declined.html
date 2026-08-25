@@ -33,6 +33,13 @@
      dock and the billing block, and D-97 had found one more of the same class a
      day earlier. WHAT IS DECIDED HERE IS THE STATE AND THE FIGURES; the blocks
      and their order live in one place. -->
+<!-- REBUILT AS A HOST ON 25 AUGUST 2026, D-99, RESTRUCTURED 26 AUGUST BY D-100.
+     The body of this screen is rendered by _nav.js and is the same object the
+     deposit dialog renders. WHAT IS DECIDED HERE IS THE STATE AND THE FIGURES;
+     the panes, the rail and the order of the blocks live in one place.
+     BEFORE D-99 THIS WAS MARKUP WRITTEN OUT HERE and two of the six had drifted:
+     4.3 and 4.5 were copies of the card page taken before D-97 and never caught
+     up. A state that is a copy of a page is a state no correction reaches. -->
 <button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
 <aside id="wf-panel"></aside>
 
@@ -44,7 +51,7 @@
 
     <h1>Add funds</h1>
 
-    <div data-pay-step2="card" data-pay-state="declined"></div>
+    <div data-pay-layer></div>
 
   </main>
 
@@ -57,7 +64,7 @@
 <script>
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';
-window.WF_STEP2 = { amount: '40.00', ceiling: '40.00', back: false, go: 'Try again', refuse: 'Your ceiling and your withdrawal figure are unchanged. The ceiling still has to be accepted or changed before a second attempt goes through.' };
+window.WF_PAYCFG = { cat: 'card', method: 'Visa Or Mastercard', amount: '40.00', ceiling: '40.00', banner: 'declined', go: 'Try again', refuse: 'Your ceiling and your withdrawal figure are unchanged. The ceiling still has to be accepted or changed before a second attempt goes through.' };
 window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
 </script>
 <script src="_nav.js"></script>

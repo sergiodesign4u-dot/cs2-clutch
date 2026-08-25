@@ -272,6 +272,49 @@ The live product arrives with a partner code **already in the field, ticked, and
 
 ---
 
+## 2h. Restructured 26 August 2026 by `D-100` and `D-101`. One layer, two panes, and the first screen carries the press
+
+**The founder put six captures of a competitor's funding dialog beside the built one** and asked for the routes grouped into categories, the group chosen on the left with its content on the right, and the promo code lifted to the top beside the country. An hour later, on the result: **the amount, the email and the terms have to be in the first view**, the presets do nothing, and the money field takes letters.
+
+### The step indicator leaves by the argument that brought it
+
+`D-96` refused one while this node was a single screen with a single control, then added one when it became two: *"there are two screens now, so it exists."* **There are not two screens now.** The rail is on the surface the whole time and the chosen method stays visible while the amount is set, so a numbered process drawn over one pane is a picture of a process.
+
+**And the change closes `D-96`'s own worry rather than reopening it.** That worry was a screen that has to be taken back, because crypto has no amount field. With a persistent rail nothing is taken back: the right pane renders what the route asks for.
+
+### The categories are the routes, and the finer split is `[?]`
+
+| Category | Rows | Source |
+|---|---|---|
+| Cards, wallets and bank transfer | 25 | `route: card` |
+| Crypto | 8 | `route: crypto` |
+| Gift cards | 1 | `route: gift` |
+| CS2 skins | 1 | No route. The orphan, carried with its status printed |
+
+**Our own step 2 already split on route**, because the route is what the second pane asks for, and `baseline-account.md` 5b.1 shows the live list in exactly two groups. **A finer split into cards, wallets, bank transfers and vouchers is a taxonomy of payment brands and no file here holds one.** Founder's, and the payment side has the answer.
+
+### What is on the first screen, and the one thing that could not move
+
+**On it:** who takes the payment, how much, the ceiling, the email, the terms, and the receipt beside them.
+
+**Below the press:** the withdrawal threshold, the crediting window, the bonus rule and the route to the other limits. **All four are read rather than answered**, so they sit after the block they qualify. Nothing was cut, and the exit price is also a line in the receipt where it stays in view.
+
+**The ceiling did not move.** `C2` pre-fills it with the amount just typed and it blocks the press, so a brake met after scrolling past the control it brakes is a brake that arrives second. **What changed is its size**, and putting it beside the amount tells `C2`'s own story in the layout: the ceiling carries the amount just typed, so the two are one gesture.
+
+### Three controls were pictures of controls, on the one screen where a control has to be believed
+
+**The six presets changed nothing.** **The money field took letters**, so its value could not be arithmetic and every figure computed from it read `NaN` beside a Pay control. **The receipt was a string printed once at render** and said 42.00 coins whatever the amount became.
+
+**All three are live, and the arithmetic is one function.** The cap binds at 100 coins rather than being described, and **the ceiling follows the amount until it is settled**, which is `C2`'s first property working rather than being written down.
+
+**And the terms box was the browser's rather than the product's**, a bare input inside a row built for a 20px box, so it rendered as a large white square with its label stranded across the screen. It is `2.4`'s control now: one component, two screens, and Pay names which of the two conditions is missing.
+
+### The instrument this finally earned
+
+**Three class collisions in one stage**, `.wf-steps`, `.wf-offer`, then `.wf-prov-row` and `.wf-cat`. **Two owners of one name, no error, and every one renders as another component.** A scan for a bare class rule written twice at top level found a fourth nobody had reported: `.wf-pf`, owned by both `1.2`'s key and value pair and `5.10`'s page layout, **so every pair on the six provably fair pages carried 24px between the label and the figure and went two columns wide above 1000px.** Renamed. **First defect of this class in the stage found by an instrument rather than by a person looking.**
+
+---
+
 ## 3. The four capabilities, and what makes each one a brake rather than a setting
 
 ### 3.1 `C1`. The coin, and the rate that has to be on this screen
