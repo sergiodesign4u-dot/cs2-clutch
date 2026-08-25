@@ -1253,6 +1253,119 @@ a.wfp-state:hover { color: var(--wf-ink); }
   border-radius: 50%; font-size: var(--wf-t-l); line-height: 1;
 }
 
+/* THE CRYPTO ADDRESS BLOCK, D-96. Code on the left, address and its control on
+   the right, stacking below 600 because a 160px code beside a 40 character
+   address at 360 gives neither of them room.
+   THE CODE IS A SLOT WITH A FIXED SQUARE, D-50: the image is generated from the
+   address and its room is this stage's, and a block that reserved no room would
+   reflow on the day the codes arrive.
+   THE ADDRESS WRAPS AND NEVER TRUNCATES. An address with an ellipsis in it is a
+   string a person will copy by eye and get wrong, and this is the one string in
+   the product where being wrong loses the money outright. */
+.wf-crypto {
+  display: flex; gap: var(--wf-s-2); flex-wrap: wrap; align-items: flex-start;
+  padding: var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+  background: var(--wf-surface);
+}
+.wf-crypto-qr {
+  display: flex; align-items: center; justify-content: center;
+  width: 160px; height: 160px; flex: 0 0 auto;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
+  font-size: var(--wf-t-xs); color: var(--wf-ink-faint); text-align: center;
+}
+.wf-crypto-a { flex: 1 1 240px; min-width: 0; display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-crypto-v {
+  display: block; font-family: var(--wf-mono); font-size: var(--wf-t-s);
+  overflow-wrap: anywhere; word-break: break-all;
+  padding: var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1);
+}
+/* THE EMPTY STATE IS THE SAME BLOCK WITH THE PAYLOAD REMOVED, never a different
+   component: that is what lets a person see this is a screen with an address on
+   it and that theirs is one press away. */
+.wf-crypto.is-empty .wf-crypto-qr { border-style: dotted; }
+
+/* THE TWO STEP INDICATOR, D-96, AND ITS NAME IS wf-pay-step BECAUSE wf-step WAS
+   TAKEN. It shipped as .wf-steps for one render and came out as a column with a
+   doubled number: 2.4's sign-in dialog has owned .wf-steps since D-54, three
+   items, display grid, counter-reset. TWO RULES, ONE SELECTOR, AND THE LATER ONE
+   WON. Nothing errored and nothing was flagged; the block simply rendered as
+   another component. Found by looking at the page.
+   THE TWO STEP INDICATOR, D-96. The node refused one while it was a single
+   screen with a single control, on the ground that a step indicator draws a
+   process that does not exist. There are two screens now, so it exists.
+   IT IS AN ORDERED LIST BECAUSE IT IS ONE. A screen reader gets "1 of 2" from
+   the markup rather than from a decorative row of circles. */
+.wf-pay-steps {
+  display: flex; gap: var(--wf-s-2); flex-wrap: wrap;
+  margin: 0 0 var(--wf-s-3); padding: 0; list-style: none;
+}
+/* list-style GOES ON THE ITEM AS WELL AS THE LIST. It is inherited, and this
+   stylesheet sets a marker on li further up, so the ol rendered its own number
+   beside the one in the span: "1 1 How you pay" on the first render. */
+.wf-pay-step {
+  display: flex; align-items: center; gap: var(--wf-s-1);
+  font-size: var(--wf-t-s); color: var(--wf-ink-dim);
+  list-style: none;
+}
+.wf-pay-step-n {
+  display: flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; flex: 0 0 24px;
+  border: 1px solid var(--wf-line-soft); border-radius: 50%;
+  font-family: var(--wf-mono); font-size: var(--wf-t-xs);
+}
+.wf-pay-step.is-now { color: var(--wf-ink); font-weight: 700; }
+.wf-pay-step.is-now .wf-pay-step-n { border-color: var(--wf-line); background: var(--wf-raised); }
+
+/* ============================================================================
+   NODE 4.1 STEP 1, THE METHOD GRID, D-96
+   Thirty five tiles in two groups. THE GRID IS THE SCREEN, so it gets a real
+   minimum rather than a share of the width: below 140px a payment brand is not
+   recognisable, and recognition is the entire job of a tile here.
+   AT 360 IT IS TWO COLUMNS AND NEVER ONE. Thirty five tiles in one column is a
+   1900px scroll, and the choice stops being a grid a person scans and becomes a
+   list they read. Two columns at 140 fits inside 360 with the page gutters.
+   ============================================================================ */
+.wf-pay-row { display: flex; flex-direction: column; gap: var(--wf-s-1); margin-bottom: var(--wf-s-3); }
+.wf-pay-row .wf-row { display: flex; gap: var(--wf-s-1); align-items: center; flex-wrap: wrap; }
+/* THE BASIS IS ON THE ROW AND NOT ON THE FIELD, and the difference is a bug that
+   shipped for one render: .wf-pay-row is a COLUMN, so flex-basis on a child sets
+   its HEIGHT, and the country select came out 200px tall. Scoped to the inner
+   row, which is the only place the field sits beside anything. */
+.wf-pay-row > .wf-row > .wf-f { flex: 1 1 200px; min-width: 0; }
+.wf-pay-row > .wf-f { width: 100%; }
+
+.wf-pay-g {
+  display: grid; gap: var(--wf-s-1);
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+.wf-pay-t {
+  display: flex; flex-direction: column; align-items: center; gap: var(--wf-s-half);
+  padding: var(--wf-s-2) var(--wf-s-1);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: var(--wf-surface); color: var(--wf-ink);
+  text-align: center; text-decoration: none;
+  min-height: var(--wf-tap);
+}
+.wf-pay-t:hover, .wf-pay-t:focus-visible { border-color: var(--wf-line); background: var(--wf-raised); }
+/* THE LOGO SLOT IS A SLOT, D-50. The brand mark is stage 06's and the room it
+   takes is this stage's, and a tile that reserved no room would reflow on the
+   day the marks arrive. */
+.wf-pay-art {
+  display: block; width: 100%; max-width: 96px; aspect-ratio: 5 / 2;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
+}
+.wf-pay-n { font-size: var(--wf-t-s); font-weight: 700; }
+.wf-pay-m { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+/* A TILE WITH NO ROUTE IS NOT STYLED AS A DISABLED LINK, D-58. It is not dimmed
+   and it carries no lock: it looks like what it is, a card with a sentence on it
+   saying the thing exists and does not open here. A dimmed tile invites a press. */
+.wf-pay-t.is-noroute { cursor: default; }
+.wf-pay-x {
+  font-size: var(--wf-t-xs); color: var(--wf-ink-faint);
+  text-align: left; margin-top: var(--wf-s-half);
+}
+
 /* THE BONUS BADGE, D-94. It sits ON the control rather than beside it, which is
    the baseline's own shape and the founder's reference: the offer and the way to
    take it are one target.

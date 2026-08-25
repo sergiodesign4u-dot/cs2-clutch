@@ -3866,3 +3866,97 @@ The peg is published and **the comparison is still not exact.** The coin is doll
 **The crediting window, `C3`.** Still `[?]`, still owed, and the founder was asked in the same message and answered the other three.
 
 **Whether the product charges in dollars in every market.** The presets are dollars and the peg is to dollars, both walked. Whether a market with another currency is charged in dollars or converted at the till is not decided anywhere and is not assumed here.
+
+---
+
+## D-96. Node `4.1` is redrawn on the real method list, and the route with no amount field breaks the ceiling
+
+**Date:** 2026-08-25. **Stage:** 04. **Decided by:** the founder, who opened the drawn screen, said it looked nothing like the product, and supplied the full method grid. **Binds:** node `4.1` and its four states, row `C2` of `cjm-to-be.md`, and `research/docs/baseline-account.md` section 5b.1.
+
+### What the founder said, and it was about substance rather than looks
+
+**"Депозит виглядає жахливо і якось віддалено від реальності."** The screen carried **two empty slot cards** and the sentence "which methods this product takes is not decided". **The live product carries thirty five funding routes.**
+
+### The statement was false and it had been false for three days
+
+| Date | What happened |
+|---|---|
+| 12 Aug 2026 | `deposit.md` written. The method list was genuinely `[?]` and the node said so honestly |
+| 20 Aug 2026 | `baseline-account.md` enters the repository with the deposit walk of 18 August |
+| 22 Aug 2026 | `deposit.html` drawn, **two days after the source arrived**, inheriting the node's `[?]` |
+| 25 Aug 2026 | The founder points at the screen |
+
+**And the source addressed this node by name.** `baseline-account.md` 5b.1: *"our node `4.1` was drawn against a method list that is `[?]`. It now has a real one, and the shape of the problem changes."*
+
+**Why the wrong statement read as sourced.** The node cited two things that were true. No competitor screen of this type may be opened, `blocks.md` section 0. `baseline.md` section 2 records deposit as `[?]` with no pre-login route. **Neither covers our own signed-in baseline**, which is the one exception `CLAUDE.md` carves out for exactly this material.
+
+**And the gate that would have caught it does not run here.** The input gate runs **before step 1 of a stage**. A source that arrives mid-stage passes no gate at all, and the node that needs it has already been written. **Candidate line for the stage close.**
+
+### The recorded count was also wrong, and how it went wrong is worth more than the number
+
+`baseline-account.md` said **17 fiat, 25 routes**. The truth is **27 and 35**.
+
+**It was not a miscount. It was two partial captures summed as if they were contiguous.**
+
+| Shot | What it shows |
+|---|---|
+| `acct_deposit_step1_methods.png` | Rows 1 and 2, **ten tiles**, cut off at Sofort |
+| `acct_deposit_step1_crypto.png` | The tail, **starting at Google Pay**, seven fiat then the crypto group |
+
+**Ten plus seven is seventeen, which is exactly what the file recorded.** The two shots do not meet: rows three and four fall in the gap and were never captured. Those ten are EPS, Giropay, Bancontact, PayPal, Pix, Webpay, Multibanco, Blik, Przelewy24 and American Express.
+
+**A screenshot proves what is in it and says nothing about what is above or below it.** The arithmetic was sound and the assumption of contiguity was never tested, which is why a wrong number read as sourced for a week. **The check this earns:** a count taken from more than one capture of a scrolling surface names the overlap that joins them, or it is a lower bound rather than a count. Corrected in `baseline-account.md` section 5b.1a.
+
+### Two steps, and the order reverses this node's own with a reason that is a fact
+
+| Step | What it holds |
+|---|---|
+| **1. How you pay** | Promo code **empty**, the country you are paying from, **27 fiat and 8 crypto** in the baseline's own order and grouping |
+| **2. How much** | Three pages, because what step 2 asks for depends on the route |
+
+`deposit.md` section 2 put the amount first with a stated argument: the ceiling is pre-filled from the amount, so a method chosen first makes the ceiling arrive as an interruption at the end.
+
+**Crypto has no amount field.** `baseline-account.md` 5b.3: the person sends what they send and the rate at the top converts it. **On eight of the thirty five routes there is nothing to type**, so asking for an amount before the route is known produces a screen that has to be taken back.
+
+**What the old argument protected is kept by placement.** The ceiling sits directly under the amount on step 2, before the pay control. **The worry was never the global order; it was the ceiling appearing last.**
+
+**And the step indicator arrives with the second screen.** The node refused one while it was a single screen with a single control, on the ground that a step indicator draws a process that does not exist. **There are two screens now, so it exists.**
+
+### The largest thing this build found: `C2` cannot bind on the crypto route
+
+**The spend ceiling works by being accepted before a submission.** `cjm-to-be.md` T4 verbatim: the amount just typed is pre-filled as a ceiling, and **the deposit cannot be submitted until the user accepts or changes it.**
+
+**Nothing is typed on the crypto route and nothing is submitted.** A person sends coins from their own wallet to an address and the money arrives.
+
+**So the brake has nothing to hold and no moment to hold it in**, on a route that is eight of thirty five and is the route a person reaches for when a card has just been declined.
+
+**The page states it rather than drawing a ceiling that cannot bind.** A pre-filled ceiling there would be a picture of a control, `D-58`, and worse than that: **a picture of a protection.**
+
+**What could replace it is a decision, not a drawing.** A ceiling enforced on arrival refuses money already sent, which means holding it or returning it, and **neither has a row, a policy or a node.** Owner: the founder.
+
+### Three step 2 pages, and one of them leaves the product
+
+| Page | What it is |
+|---|---|
+| `deposit-card.html` | The old single screen with its method block removed, plus a provider sub-choice, a billing email and the terms checkbox the baseline asks again at funding |
+| `deposit-crypto.html` | Network, address, code slot, live rate **with an as-of because it is a market read unlike the peg**, minimum, no amount field, and the `C2` statement |
+| `deposit-crypto-nowallet.html` | The baseline's precondition state, inherited whole: the same screen with the payload removed and one control, **rather than an error** |
+| `deposit-giftcards.html` | **Six third party resellers.** The handover stated before any control, because a person is about to leave, pay a company that is not us, and come back with a code |
+
+### One tile has no parent and ships saying so
+
+**CS:GO Skins**, marked `INSTANT` on the live product. **No row in `cjm-to-be.md`, no node on the map, no flow drawn.**
+
+`CLAUDE.md`: a component with no parent is cut, or carried with its orphan status printed in its own row. **Carried, and the tile is not a link**, because a tile that opened nothing would be the dead item defect with a logo on it. **Whether skin funding is in round 1 at all is a founder decision no file has taken.**
+
+### The promo field is empty and the baseline's is not
+
+The live product arrives with a partner code **already in the field, with a green tick beside it and applied**, 5b.1. **That is attribution happening to a person rather than by them**, the shape `0.4` refuses for consent one node over. **Founder decision: ours starts empty and does nothing until someone types.**
+
+### Two defects found by looking at the built page, and one of them is a name collision
+
+**`.wf-steps` was already taken.** The step indicator shipped under that class and rendered as a column with a doubled number, "1 1 How you pay". **Node `2.4`'s sign-in dialog has owned `.wf-steps` since `D-54`:** three items, `display: grid`, a counter. **Two rules, one selector, and the later one won.** Nothing errored, no instrument flagged it, and the block simply rendered as another component. Renamed `.wf-pay-step`.
+
+**And a flex-basis set the wrong axis.** `.wf-pay-row` is a column, so `flex: 1 1 200px` on a child set its **height**, and the country selector came out 200px tall. Scoped to the inner row.
+
+**Both were invisible to every text instrument and both took one screenshot.** Sixth round running.

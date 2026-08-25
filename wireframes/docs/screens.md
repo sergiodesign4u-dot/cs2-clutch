@@ -2706,3 +2706,35 @@ Stage 04 proposed **three** tabs and refused cash out because it has no subject 
 A payment of 40 dollars credits 42 coins, so **the money charged and the coins credited stopped being one number**, and `5.9`'s deposit ledger has one amount column and two candidates for it. **With no peg the column had no unit to disagree about. With no bonus the two numbers were the same.**
 
 The panel now prints the question rather than picking an answer and being wrong on every bonused row.
+
+---
+
+## `D-96`, 25 August 2026. Node `4.1` redrawn on the real method list
+
+**Founder decision.** The deposit screen carried two empty slot cards and "which methods this product takes is not decided". **The live product carries thirty five funding routes and the list had been in this repository since 20 August.**
+
+### Four pages created, two rewritten
+
+| Page | What it is |
+|---|---|
+| `deposit.html` | **Step 1, how you pay.** Promo code empty, the country you are paying from, **27 fiat and 8 crypto** in the baseline's own order and grouping |
+| `deposit-card.html` | **Step 2 for the routes that take an amount.** The old single screen with its method block removed, plus a provider sub-choice, a billing email and the terms checkbox |
+| `deposit-crypto.html` | **Step 2 with no amount field.** Network, address, code slot, live rate with an as-of, minimum, and the statement that the ceiling cannot bind here |
+| `deposit-crypto-nowallet.html` | The baseline's precondition state, inherited whole: the screen with its payload removed and one control, **not an error** |
+| `deposit-giftcards.html` | **Six third party resellers**, with the handover stated before any control |
+
+**126 pages, up from 122.**
+
+### The tile grid is data, not markup
+
+`WF_PAY` in `_nav.js` holds the thirty five rows in the baseline's order, each with the step 2 it leads to. **The order is not alphabetical and re-sorting it would silently move the only two pieces of guidance on the screen**, the recommendation on the first tile and the instant mark on the second.
+
+**One tile is not a link.** `CS:GO Skins` has no row in the backlog, no node and no flow, so it carries its orphan on the tile itself and does not open.
+
+### The two defects a screenshot found
+
+**`.wf-steps` was already taken.** The step indicator shipped under that name and rendered as a column with a doubled number, `1 1 How you pay`. **`2.4`'s sign-in dialog has owned `.wf-steps` since `D-54`**, three items, `display: grid`, a counter. **Two rules, one selector, the later one won**, nothing errored and no instrument flagged it. Renamed `.wf-pay-step`.
+
+**And a `flex-basis` set the wrong axis.** `.wf-pay-row` is a column, so `flex: 1 1 200px` on a child set its **height** and the country selector came out 200px tall.
+
+**Sixth round in which the finding came from looking at the screen after building it.**

@@ -215,9 +215,17 @@ window.WF_NAV = {
 
     // DRAWN 22 AUGUST 2026. The whole of cluster 4, and the one screen an
     // unpublished peg empties rather than degrades: the conversion is the block.
+    // REDRAWN 25 AUGUST 2026, D-96. Two steps, because the method list turned out
+    // to be thirty five routes and one of the groups has no amount field at all.
+    // The base page is step 1 at its own address; step 2 is three pages because
+    // what it asks for depends on the route.
     { node: '4.1',  cluster: '4', name: 'Deposit',             file: 'deposit.html',    ia: 'deposit.html',       status: 'built',
-      base: 'First deposit, no saved method',
+      base: 'Step 1, how you pay',
       states: [
+        { node: '4.1', label: 'Step 2, card and wallets',    file: 'deposit-card.html',            status: 'built' },
+        { node: '4.1', label: 'Step 2, crypto',              file: 'deposit-crypto.html',          status: 'built' },
+        { node: '4.1', label: 'Step 2, no address yet',      file: 'deposit-crypto-nowallet.html', status: 'built' },
+        { node: '4.1', label: 'Step 2, gift cards',          file: 'deposit-giftcards.html',       status: 'built' },
         { node: '4.2', label: 'Ceiling reached this period', file: 'deposit-ceiling-reached.html', status: 'built' },
         { node: '4.3', label: 'Ceiling raise pending',       file: 'deposit-ceiling-pending.html', status: 'built' },
         { node: '4.4', label: 'Crediting, named timer',      file: 'deposit-crediting.html',       status: 'built' },
@@ -393,6 +401,61 @@ window.WF_WHO = window.WF_WHO || { name: 'nightjar_cs', id: 'acc-7f3a91c4', sinc
    is here so that a page cannot quietly render otherwise. */
 window.WF_BONUS = window.WF_BONUS || {
   pct: '5%', pctFull: '5.00%', cap: '100 coins', period: '24 hours', wagering: false
+};
+
+/* THE FUNDING ROUTES, D-96, AND EVERY ONE OF THEM IS WALKED RATHER THAN CHOSEN.
+   research/docs/baseline-account.md section 5b.1 as corrected on 25 August 2026:
+   twenty seven fiat and eight crypto, thirty five in all, in the order the live
+   product renders them.
+   THE ORDER IS THE BASELINE'S AND IT IS NOT ALPHABETICAL, which matters: the
+   first tile carries the recommendation and the second is the instant one, so
+   re-sorting this array would silently move the only two pieces of guidance on
+   the screen.
+   THE THIRD FIELD IS WHERE STEP 2 GOES, and it is the whole reason this is data
+   rather than markup. Twenty five of the twenty seven land on the same form, one
+   leaves the product, and one has nowhere to land at all.
+   CS:GO SKINS HAS NO PARENT AND SHIPS SAYING SO. Depositing skins is a real
+   capability of the live product and there is no row for it in cjm-to-be.md, no
+   node on the map and no flow drawn. CLAUDE.md: a screen, a block or a component
+   with no parent is cut, or carried with its orphan status printed in its own
+   row. It is carried, and the tile is not a link, because a tile that opened
+   nothing would be the dead item defect with a logo on it. */
+window.WF_PAY = window.WF_PAY || {
+  fiat: [
+    ['Visa Or Mastercard', 'card', 'best'],
+    ['CS:GO Skins',        null,   'instant'],
+    ['UnionPay',           'card'],
+    ['Neosurf',            'card'],
+    ['Skrill',             'card'],
+    ['Paysafecard',        'card'],
+    ['Alipay',             'card'],
+    ['Wechat Pay',         'card'],
+    ['Neteller',           'card'],
+    ['Sofort',             'card'],
+    ['EPS',                'card'],
+    ['Giropay',            'card'],
+    ['Bancontact',         'card'],
+    ['PayPal',             'card'],
+    ['Pix',                'card'],
+    ['Webpay',             'card'],
+    ['Multibanco',         'card'],
+    ['Blik',               'card'],
+    ['Przelewy24',         'card'],
+    ['American Express',   'card'],
+    ['Google Pay',         'card'],
+    ['Apple Pay',          'card'],
+    ['Wise',               'card'],
+    ['Gift Cards',         'gift'],
+    ['GrabPay',            'card'],
+    ['Fawry',              'card'],
+    ['Volet',              'card']
+  ],
+  crypto: [
+    ['Bitcoin',  'crypto'], ['Ethereum', 'crypto'], ['Litecoin', 'crypto'],
+    ['Tether',   'crypto'], ['Tron',     'crypto'], ['Xrp',      'crypto'],
+    ['Solana',   'crypto'], ['Other',    'crypto']
+  ],
+  route: { card: 'deposit-card.html', crypto: 'deposit-crypto.html', gift: 'deposit-giftcards.html' }
 };
 
 (function () {
@@ -3467,6 +3530,94 @@ window.WF_BONUS = window.WF_BONUS || {
      cannot list and the prototype panel cannot show. This strip is now the same
      object as the account strip above it, four peer pages and the current one
      rendered as a span rather than a link to where you already are, D-58. */
+  /* ---------------------------------------------------------------------
+     NODE 4.1 STEP 1, THE METHOD GRID, D-96. Thirty five funding routes in two
+     named groups, in the baseline's own order.
+     ONE RENDERER, TWO CARRIERS. The dialog and the address render the same grid,
+     which is D-54's contract for sign in applied here: the address renders the
+     same content as a full page, the dialog renders it over the surface a person
+     is already on, and neither is a reduced version of the other.
+     THE ONLY GUIDANCE ON THE SCREEN IS TWO MARKS ON TWO TILES, and that is the
+     baseline's answer to choosing among thirty five. It is kept because nothing
+     in this repository supports a better one: no source names which methods
+     carry the volume, so a shortlist of our own would be a preference wearing a
+     recommendation's clothes.
+     THE COUNT RENDERS. Thirty five is a fact about the screen a person is
+     looking at, and a grid this long without one reads as endless.
+     --------------------------------------------------------------------- */
+  function payTile(row) {
+    var kind = row[1], mark = row[2];
+    var node = kind ? el('a', 'wf-pay-t') : el('div', 'wf-pay-t is-noroute');
+    if (kind) node.href = BASE + (window.WF_PAY.route[kind] || 'deposit.html');
+    var art = el('span', 'wf-pay-art');
+    art.setAttribute('aria-hidden', 'true');
+    node.appendChild(art);
+    node.appendChild(el('span', 'wf-pay-n', row[0]));
+    if (mark === 'best')    node.appendChild(el('span', 'wf-pay-m', 'Most people use this'));
+    if (mark === 'instant') node.appendChild(el('span', 'wf-pay-m', 'Instant'));
+    /* THE ORPHAN IS PRINTED ON THE TILE IT BELONGS TO, not in a footnote under
+       the grid, because a person reading this tile is deciding about this tile. */
+    if (!kind) node.appendChild(el('span', 'wf-pay-x', 'Paying with skins is not drawn yet. It exists on the live product and there is no row for it in our backlog, so it is here and it does not open.'));
+    return node;
+  }
+
+  function payGroup(title, rows) {
+    var sec = el('section', 'wf-stack');
+    var head = el('div', 'wf-sec-head');
+    head.appendChild(el('h2', null, title));
+    sec.appendChild(head);
+    var g = el('div', 'wf-pay-g');
+    rows.forEach(function (r) { g.appendChild(payTile(r)); });
+    sec.appendChild(g);
+    return sec;
+  }
+
+  function mountPay() {
+    var host = document.querySelector('[data-pay-grid]');
+    if (!host || !window.WF_PAY) return;
+    var P = window.WF_PAY;
+
+    /* THE PROMO FIELD IS EMPTY, D-96, AND THE BASELINE'S IS NOT. The live product
+       arrives with a partner code already in the field, a green tick beside it
+       and the code applied. THAT IS ATTRIBUTION HAPPENING TO A PERSON RATHER THAN
+       BY THEM, and it is the same shape 0.4 refuses for consent one node over.
+       Ours is empty, unticked, and does nothing until someone types. */
+    var promo = el('div', 'wf-pay-row');
+    var pl = el('label', 'wf-cfg-l', 'Have a promo code?');
+    pl.setAttribute('for', 'pay-promo');
+    promo.appendChild(pl);
+    var pr = el('div', 'wf-row');
+    var pin = el('input', 'wf-f');
+    pin.id = 'pay-promo'; pin.type = 'text'; pin.placeholder = 'Partner or promo code';
+    pr.appendChild(pin);
+    pr.appendChild(el('button', 'wf-btn', 'Apply'));
+    promo.appendChild(pr);
+    host.appendChild(promo);
+
+    /* THE COUNTRY FILTERS THE GRID AND IT IS NOT THE MARKET CONTROL, D-23 and
+       D-86. The allowlist decides whether a market is open; this says where a
+       person is paying from so the grid can show what works there. The baseline
+       carries both and lets them disagree, baseline-account.md 5b.6: two
+       self-declared countries in one account, Ukraine here and United States in
+       settings. 5.11 owns the one answer and this control reads it. */
+    var cty = el('div', 'wf-pay-row');
+    var cl = el('label', 'wf-cfg-l', 'Paying from');
+    cl.setAttribute('for', 'pay-country');
+    cty.appendChild(cl);
+    var sel = el('select', 'wf-f');
+    sel.id = 'pay-country';
+    ['Isle of Man'].forEach(function (c) { sel.appendChild(el('option', null, c)); });
+    cty.appendChild(sel);
+    cty.appendChild(el('p', 'wf-cfg-p', 'This is where you are paying from, and it decides which of the routes below will work. It reads the country on your account and it is not what decides whether this market is open at all.'));
+    cty.appendChild(el('p', 'wf-cfg-p wf-fig-missing', 'Which markets are open is not settled: the register is closed by default and every row needs its own legal work before it appears here. Which routes each market carries is not set either'));
+    host.appendChild(cty);
+
+    var n = P.fiat.length + P.crypto.length;
+    host.appendChild(el('p', 'wf-note', n + ' ways to pay, in two groups. The list and its order are the live product\u2019s own.'));
+    host.appendChild(payGroup('Cards, wallets and bank transfer', P.fiat));
+    host.appendChild(payGroup('Crypto', P.crypto));
+  }
+
   function mountHist() {
     var tabsHost = document.querySelector('[data-hist-tabs]');
     if (tabsHost) {
@@ -3914,6 +4065,7 @@ window.WF_BONUS = window.WF_BONUS || {
     mountSupportSubject();
     mountMsgs();
     mountHist();
+    mountPay();
     mountInvSort();
     mountCookie();
     mountSettings();

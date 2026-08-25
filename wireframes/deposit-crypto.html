@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add funds, crypto</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 4.1 STEP 2, CRYPTO, D-96. The route with no amount field, and that
+     absence is the whole design of this page.
+     baseline-account.md 5b.3: a network selector, a QR code, an address with a
+     copy control, a live rate, a promo bonus line and a minimum. Controls are
+     PREVIOUS and DONE. THERE IS NO AMOUNT FIELD: the person sends what they send
+     and the rate at the top is what it converts at.
+     AND THAT BREAKS C2, WHICH IS THE FINDING OF THIS BUILD RATHER THAN A DETAIL.
+     The spend ceiling's whole mechanism is that the amount just typed is
+     pre-filled as a ceiling and the deposit cannot be submitted until the person
+     accepts or changes it. NOTHING IS TYPED HERE AND NOTHING IS SUBMITTED. A
+     person sends coins to an address and the money arrives whether a ceiling was
+     accepted or not, so on this route the brake has nothing to hold and no
+     moment to hold it in.
+     THE PAGE STATES THAT RATHER THAN DRAWING A CEILING THAT CANNOT BIND. A
+     pre-filled ceiling here would be a picture of a control, D-58, and worse than
+     that: it would be a picture of a protection.
+     WHAT COULD REPLACE IT IS A DECISION AND NOT A DRAWING. A ceiling enforced on
+     arrival refuses money already sent, which means either holding it or
+     returning it, and neither has a row, a policy or a node. Named, owner the
+     founder, and not invented here.
+     THE RATE IS A MARKET READ AND CARRIES AN AS-OF, unlike the peg. One coin is
+     a dollar by our own fixed rate; what a Bitcoin is worth in dollars is not
+     ours and moves, so rule 2 applies in full and this figure gets a time. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <h1>Add funds</h1>
+    <p class="wf-note">Paying with Bitcoin. <a href="deposit.html">Choose a different way</a></p>
+
+    <ol class="wf-pay-steps">
+      <li class="wf-pay-step"><span class="wf-pay-step-n">1</span><span>How you pay</span></li>
+      <li class="wf-pay-step is-now"><span class="wf-pay-step-n">2</span><span>Where to send it</span></li>
+    </ol>
+
+    <div class="wf-fund-grid">
+      <div class="wf-fund">
+
+      <div class="wf-acct-state">Signed in as <strong>nightjar_cs</strong>. Funding is open on this account.</div>
+
+      <!-- BLOCK 1. THE NETWORK, AND IT IS CHOSEN BEFORE THE ADDRESS EXISTS. An
+           address belongs to a chain, so sending on the wrong one loses the money
+           and no support ticket recovers it. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head">
+          <h2 id="h2-net">Which network</h2>
+          <p class="wf-sec-sub">The address below belongs to this network. Sending on any other one loses the coins and we cannot get them back.</p>
+        </div>
+        <select class="wf-f" id="dep-net" aria-label="Network">
+          <option>Bitcoin</option>
+          <option>Bitcoin, Lightning</option>
+        </select>
+        <p class="wf-note wf-fig-missing">Which networks this product accepts for each coin is not decided</p>
+      </div>
+
+      <!-- BLOCK 2. THE ADDRESS AND ITS CODE. The code is a slot: the image is
+           generated from the address and its room is this stage's, D-50. The
+           address is text and copyable, because reading forty characters off a
+           screen is how money goes to the wrong place. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head"><h2 id="h2-addr">Where to send it</h2></div>
+        <div class="wf-crypto">
+          <span class="wf-crypto-qr" aria-hidden="true">Code slot</span>
+          <div class="wf-crypto-a">
+            <span class="wf-fig-c">Your deposit address on this network</span>
+            <code class="wf-crypto-v">bc1q&#8230;<span class="wf-fig-missing">address is generated for your account</span></code>
+            <div class="wf-row"><button class="wf-btn" type="button">Copy the address</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOCK 3. THE THREE LINES THE BASELINE CARRIES, and the rate is the one
+           figure on this node that is a market read rather than our fixed peg. -->
+      <div class="wf-figs">
+        <div class="wf-fig">
+          <span class="wf-fig-v wf-fig-missing">Not available</span>
+          <span class="wf-fig-c">What one Bitcoin buys in coins right now. <span class="wf-fig-missing">The rate we convert at is not published and this one moves, so it carries a time when it lands rather than being read as current forever.</span></span>
+        </div>
+        <div class="wf-fig">
+          <span class="wf-fig-v">5.00%</span>
+          <span class="wf-fig-c">Added on top in coins, up to 100 coins per 24 hours, the same offer as every other route</span>
+        </div>
+        <div class="wf-fig">
+          <span class="wf-fig-v wf-fig-missing">Not set</span>
+          <span class="wf-fig-c">The smallest amount this network will credit. Anything under it is not a small deposit, it is a lost one</span>
+        </div>
+      </div>
+
+      <!-- BLOCK 4. THE CEILING CANNOT WORK HERE AND THE PAGE SAYS SO. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head"><h2 id="h2-ceiling">Your ceiling does not hold on this route</h2></div>
+        <p class="wf-cost-say"><strong>You set a ceiling on what you put in, and it works by being accepted before a payment goes through.</strong> There is nothing to accept here: you send what you send, from your own wallet, and it arrives. <strong>Your ceiling is still in force everywhere else and it cannot stop this.</strong> <a href="responsible.html">Your limits</a></p>
+        <p class="wf-note wf-fig-missing">What happens when coins arrive that would have been over your ceiling is not decided. Refusing money already sent means holding it or sending it back, and neither is written down anywhere yet</p>
+      </div>
+
+      </div>
+      <div class="wf-dock">
+      <!-- BLOCK 5. NO SUMMARY AND NO PAY CONTROL, because nothing on this page is
+           charged. The dock elsewhere carries an amount, a fee and a total; here
+           there is no amount until the network says there is one. DONE is not a
+           payment, it is leaving. -->
+      <div class="wf-card wf-total">
+        <div class="wf-tl"><span>Charged now</span><span class="wf-tl-v">Nothing</span></div>
+        <div class="wf-tl"><span>Rate</span><span class="wf-tl-v">1 coin = $1.00</span></div>
+        <div class="wf-tl"><span>To withdraw, you will need</span><span class="wf-tl-v wf-fig-missing">Not published</span></div>
+      </div>
+      <p class="wf-note">Nothing is taken from you here. When your coins arrive we credit them and the record lands in your history.</p>
+      <div class="wf-row"><a class="wf-btn" href="deposit.html">Choose a different way</a><a class="wf-btn wf-btn--primary" href="deposit-crediting.html">Done, I have sent it</a></div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_STEP = 2;
+window.WF_SHELL = { account: true, active: 'deposit.html', money: { balance: '74.20 coins', held: '130.60 coins' } };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

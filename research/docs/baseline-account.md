@@ -129,7 +129,9 @@ Five sub-tabs: **INVENTORY HISTORY · DEPOSIT HISTORY · WITHDRAW HISTORY · CAS
 
 ## 5b. Deposit, node `4.1`, captured 18 August 2026
 
-`acct_deposit_step1_methods.png`, `acct_deposit_step1_crypto.png`, `acct_deposit_card_step2.png`, `acct_deposit_card_form.png`, `acct_deposit_giftcards.png`, `acct_deposit_btc_address.png`, `acct_deposit_solana_nowallet.png`.
+`acct_deposit_step1_methods.png`, `acct_deposit_step1_crypto.png`, `acct_deposit_card_step2.png`, `acct_deposit_card_form.png`, `acct_deposit_giftcards.png`, `acct_deposit_btc_address.png`, `acct_deposit_solana_nowallet.png`, all 18 August 2026.
+
+**Three further captures, 25 August 2026**, supplied by the founder to close the gap section 5b.1a describes: the fiat grid in full over two screens and the crypto group. **They are not yet filed in `research/screens/baseline-account/`** and are cited here by date and by what they show, which is the weaker citation of the two. **Expected names when filed:** `acct_deposit_fiat_full_25aug.png`, `acct_deposit_fiat_tail_25aug.png`, `acct_deposit_crypto_25aug.png`.
 
 Breadcrumb `HOME / BALANCE REFILL`, then `HOME / BALANCE REFILL / DEPOSIT AMOUNT`. Title **TOP UP YOUR BALANCE**. **Two numbered steps**, `1 CHOOSE A PAYMENT METHOD` and `2 DEPOSIT AMOUNT`, and step 1 turns into a green tick carrying the chosen method's name.
 
@@ -142,10 +144,29 @@ Above the grids sit two controls:
 
 | Group | Count | Methods, as named on the tiles |
 |---|---|---|
-| **FIAT PAYMENT METHOD** | **17** | Visa Or Mastercard, carrying a **BEST CHOICE** ribbon; CS:GO Skins, marked **INSTANT**; UnionPay; Neosurf; Skrill; Paysafecard; Alipay; Wechat Pay; Neteller; Sofort; Google Pay; Apple Pay; Wise; Gift Cards; GrabPay; Fawry; Volet |
+| **FIAT PAYMENT METHOD** | **27** | Visa Or Mastercard, carrying a **BEST CHOICE** ribbon; CS:GO Skins, marked **INSTANT**; UnionPay; Neosurf; Skrill; Paysafecard; Alipay; Wechat Pay; Neteller; Sofort; **EPS; Giropay; Bancontact; PayPal; Pix; Webpay; Multibanco; Blik; Przelewy24; American Express;** Google Pay; Apple Pay; Wise; Gift Cards; GrabPay; Fawry; Volet |
 | **CRYPTO PAYMENT METHOD** | **8** | Bitcoin, Ethereum, Litecoin, Tether, Tron, Xrp, Solana, and an **Other** tile carrying seven more marks |
 
-**Twenty five funding routes on one screen, and our node `4.1` was drawn against a method list that is `[?]`.** It now has a real one, and the shape of the problem changes: the design question is not which providers to show, it is **how a person chooses among twenty five without a recommendation**, and the baseline answers it with one ribbon on one tile.
+**Thirty five funding routes on one screen, and our node `4.1` was drawn against a method list that is `[?]`.** It now has a real one, and the shape of the problem changes: the design question is not which providers to show, it is **how a person chooses among thirty five without a recommendation**, and the baseline answers it with one ribbon on one tile.
+
+### 5b.1a Corrected 25 August 2026. The count read 17 and the true count is 27, and the way it went wrong is worth more than the number
+
+**This table said 17 fiat methods and 25 routes from 18 August 2026 until 25 August 2026.** The founder supplied three further captures on 25 August, the full grid in two screens plus the crypto group, and the list above is now complete.
+
+**It was not a miscount.** It was two partial captures summed as if they were contiguous.
+
+| Shot | What it actually shows |
+|---|---|
+| `acct_deposit_step1_methods.png` | The head of the grid, **rows 1 and 2 only, ten tiles**, cut off mid page at Sofort |
+| `acct_deposit_step1_crypto.png` | The tail, **starting at Google Pay**, seven fiat tiles then the crypto group |
+
+**Ten plus seven is seventeen, and that is exactly the number this file recorded.** The two shots do not overlap and they are not adjacent: **rows three and four of the grid fall in the gap between them** and were never captured. Those ten are EPS, Giropay, Bancontact, PayPal, Pix, Webpay, Multibanco, Blik, Przelewy24 and American Express.
+
+**The failure mode, named so it can be checked for elsewhere.** Two captures of one scrolling surface were added together and the sum was written as a complete count, **with nothing verifying that the second shot begins where the first one ends.** A screenshot proves what is in it and says nothing about what is above or below it. **The arithmetic was sound and the assumption under it was never tested**, which is why the wrong number read as sourced for a week and was carried into node `4.1` and into two decision records.
+
+**The check this earns:** a count taken from more than one capture of a scrolling surface names the overlap that joins them, or it is a lower bound rather than a count. **This table now carries the seam.**
+
+**And the cost was real.** Node `4.1` shipped a payment block with two empty slot cards saying "which methods this product takes is not decided" while a list existed, and section 5b.1 was already addressing that node in writing. The undercount is not what caused that, but it is what would have shipped had the node used the list.
 
 ### 5b.2 Step 2, card: the rate is published, and so is the bonus
 
@@ -281,7 +302,7 @@ The tool exists. It is called **TAKE A BREAK**, it does **deposit restriction or
 
 | What | Why it matters | How it gets answered |
 |---|---|---|
-| ~~The deposit flow~~ | **Answered, section 5b.** Twenty five methods, a published rate, a standing bonus with a cap, and **no crediting time anywhere**, which is the whole of `C3` | Captured 18 August 2026 |
+| ~~The deposit flow~~ | **Answered, section 5b.** **Thirty five methods**, corrected 25 August 2026 from a recorded 25, section 5b.1a,, a published rate, a standing bonus with a cap, and **no crediting time anywhere**, which is the whole of `C3` | Captured 18 August 2026 |
 | **Identity verification** | **Confirmed absent by the founder on 18 August 2026: the live product has none.** What follows from that is a decision rather than a capture, `D-26` | Founder, `D-26` |
 | **The open and the reveal** | The single most important sequence in the product for design principle 2, and no frame of it exists in this repository | A capture of before, during and after one open |
 | **Identity verification** | Node `2.7`. Nothing in the settings suggests it exists at all, which is itself a finding but not a confirmed one | Search the account for any KYC step |

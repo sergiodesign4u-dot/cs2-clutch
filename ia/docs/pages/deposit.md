@@ -122,6 +122,71 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 ---
 
+## 2d. Redrawn 25 August 2026 by `D-96`. Two steps, thirty five routes, and one of them breaks `C2`
+
+**The founder supplied the full method grid on 25 August 2026 and this node was rebuilt on it.** Section 4 below said "no source in this repository names a method". **That had been false since 20 August**, when `baseline-account.md` entered the repository with section 5b.1 addressing this node by name: "our node `4.1` was drawn against a method list that is `[?]`. It now has a real one."
+
+### What the node shipped against, and how long
+
+| Date | What happened |
+|---|---|
+| 12 Aug 2026 | This node written. The method list was genuinely `[?]` |
+| 20 Aug 2026 | `baseline-account.md` lands with the deposit walk |
+| 22 Aug 2026 | `deposit.html` drawn, **two days later**, with two empty slot cards and "which methods this product takes is not decided" |
+| 25 Aug 2026 | Founder points at the screen. Rebuilt |
+
+**Why the wrong statement read as sourced.** It cited two things that were true: no competitor screen of this type may be opened, `blocks.md` section 0, and `baseline.md` section 2 records deposit as `[?]` with no pre-login route. **Neither of those covers our own signed-in baseline**, which is the single exception `CLAUDE.md` carves out. **The input gate runs before step 1 of a stage**, so a source arriving mid-stage passes no gate at all.
+
+### The count was wrong too, and the way it was wrong is the finding
+
+`baseline-account.md` recorded **17 fiat and 25 routes**. The true numbers are **27 and 35**. It was not a miscount: the two capture files are `acct_deposit_step1_methods.png`, which shows rows one and two and stops, and `acct_deposit_step1_crypto.png`, which starts at Google Pay. **Ten plus seven is seventeen and the two shots do not meet.** Rows three and four fell in the gap. Corrected in `baseline-account.md` section 5b.1a.
+
+### Two steps, and the order reverses this node's own
+
+| Step | What it holds |
+|---|---|
+| **1. How you pay** | Promo code, **empty**; the country you are paying from; **27 fiat and 8 crypto** in the baseline's own order and grouping |
+| **2. How much** | Three pages, because what step 2 asks for depends on the route |
+
+**Section 2 put the amount first with a stated reason:** the ceiling is pre-filled from the amount, so a method chosen first makes the ceiling arrive as an interruption at the end. **That argument does not survive the real list, and the reason is a fact rather than a preference.**
+
+**Crypto has no amount field at all.** `baseline-account.md` 5b.3: the person sends what they send and the rate at the top converts it. **On eight of the thirty five routes there is nothing to type**, so asking for an amount before the route is known produces a screen that has to be taken back.
+
+**What the old argument protected is kept by placement.** The ceiling sits directly under the amount on step 2, before the pay control. **The worry was never the global order; it was the ceiling appearing last.**
+
+**And the step indicator arrives with the second screen.** Section 2 refused one on the ground that a step indicator draws a process that does not exist. There are two screens now, so it exists.
+
+### `C2` does not work on the crypto route, and that is the largest thing this build found
+
+**The spend ceiling's whole mechanism is that the amount just typed is pre-filled as a ceiling and the deposit cannot be submitted until the person accepts or changes it.**
+
+**Nothing is typed on the crypto route and nothing is submitted.** A person sends coins from their own wallet to an address and the money arrives. **The brake has nothing to hold and no moment to hold it in.**
+
+**The page states that rather than drawing a ceiling that cannot bind.** A pre-filled ceiling there would be a picture of a control, `D-58`, and worse than that: **a picture of a protection.**
+
+**What could replace it is a decision and not a drawing.** A ceiling enforced on arrival refuses money already sent, which means holding it or returning it, and **neither has a row, a policy or a node.** Owner: the founder.
+
+### Three step 2 pages, and the one that leaves the product
+
+| Page | What it is |
+|---|---|
+| `deposit-card.html` | The old single screen with its method block removed, plus a provider sub-choice, a billing email and the terms checkbox the baseline asks for again at funding |
+| `deposit-crypto.html` | Network, address, code, live rate with its as-of, minimum, **no amount field**, and the `C2` statement |
+| `deposit-crypto-nowallet.html` | The baseline's own precondition state: the same screen with the payload removed and one control to create the address, rather than an error |
+| `deposit-giftcards.html` | **Six third party resellers.** The handover stated before any control, because a person is about to leave, pay a company that is not us, and come back with a code |
+
+### One tile has no parent and ships saying so
+
+**CS:GO Skins.** Depositing skins is a real capability of the live product, marked `INSTANT` on its tile, and there is **no row in `cjm-to-be.md`, no node on the map and no flow drawn.**
+
+`CLAUDE.md`: a screen, a block or a component with no parent is cut, or carried with its orphan status printed in its own row. **It is carried, and the tile is not a link**, because a tile that opened nothing would be the dead item defect with a logo on it. **Whether skin funding is in round 1 at all is a founder decision that no file has taken.**
+
+### The promo field is empty, and the baseline's is not
+
+The live product arrives with a partner code **already in the field, ticked, and applied**, 5b.1. **That is attribution happening to a person rather than by them**, which is the shape `0.4` refuses for consent one node over. **Founder decision, 25 August 2026: ours starts empty and does nothing until someone types.**
+
+---
+
 ## 3. The four capabilities, and what makes each one a brake rather than a setting
 
 ### 3.1 `C1`. The coin, and the rate that has to be on this screen
@@ -181,7 +246,7 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 ## 4. Method cards, exclusions, and the empty first deposit
 
-**No competitor screen of this type exists that we may open.** `blocks.md` section 0 declares the gap before the tables: deposit, withdrawal and identity verification are behind login on all five hard competitors, and this project never logs in. The substitute is public documentation plus the As-Is barriers plus Refero for the craft. **This section inherits that gap rather than covering it**, which is why the method list itself is `[?]` instead of a plausible list of five.
+**No competitor screen of this type exists that we may open.** `blocks.md` section 0 declares the gap before the tables: deposit, withdrawal and identity verification are behind login on all five hard competitors, and this project never logs in. The substitute is public documentation plus the As-Is barriers plus Refero for the craft. ~~**This section inherits that gap rather than covering it**, which is why the method list itself is `[?]` instead of a plausible list of five.~~ **Amended 25 August 2026 by `D-96`, and the sentence above is the one this node got wrong for three days.** The competitor gap is real and it never covered **our own baseline**, which `CLAUDE.md` makes a source in the same class as a walked page. `baseline-account.md` section 5b.1 has held the list since 20 August. **Thirty five routes, section 2d.**
 
 **The craft, from the bank.** Payment methods as cards with an empty state, Refero Navan `803e703a`: "the empty first deposit is the common case and is designed rather than met."
 
@@ -406,7 +471,11 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 | Open item | What is missing | Owner |
 |---|---|---|
-| **Payment methods, fees, minimums and maximums** | No source in this repository names one. No competitor screen of this type may be opened, `blocks.md` section 0, and `baseline.md` section 2 records deposit as `[?]` with no pre-login route. **Block 6 is specified as a shape with an unknown list** | Founder, then production |
+| ~~**Payment methods**~~ **Closed 25 August 2026 by `D-96`.** Fees, minimums and maximums | ~~No source in this repository names one~~ **The methods are named: 27 fiat and 8 crypto, `baseline-account.md` 5b.1 as corrected.** What stays open is every number attached to them: no fee, no minimum, no maximum, and whether any route carries its own crediting window | Founder, then production |
+| **Whether the spend ceiling can bind on the crypto route** | Section 2d. `C2` works by being accepted before a submission and **the crypto route has neither.** Enforcing on arrival means refusing money already sent, which is holding it or returning it, and neither has a row, a policy or a node | Founder |
+| **Whether depositing skins is in round 1** | The `CS:GO Skins` tile exists on the live product and has **no row in `cjm-to-be.md`, no node and no flow.** Carried with its orphan printed and not drawn | Founder |
+| **Which payment providers take the money** | Step 2 for cards opens a provider sub-choice, `baseline-account.md` 5b.2. Ours has none chosen | Founder, then production |
+| **Which of the six gift card resellers we send people to** | The baseline sends to all six. None is a link in ours until this is answered | Founder |
 | **The published crediting window** | The number `C3` promises. **The register row exists since the step 8 audit and the value does not**, section 8 | Founder |
 | **Attribution on the crediting timer** | Whether the state names who the wait belongs to, as `G1` does for withdrawal. Recommended, and it is not in any row | Founder, one line on row `C3` |
 | **The default pre-filled period for the ceiling, and the list of periods offered** | `C2` says "a named period" and a period selector. Which periods is nowhere. Key-Drop's safety portal runs daily, weekly and monthly, `blocks.md` section 7, and that is a competitor observation rather than our decision | Founder, with `6.1` |

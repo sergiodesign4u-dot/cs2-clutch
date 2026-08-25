@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add funds, how much</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 4.1 STEP 2, THE MONEY, for every route that takes an amount, D-96.
+     Base state: an account, no saved method, first deposit, card chosen.
+     THIS PAGE IS THE OLD 4.1 WITH ITS METHOD BLOCK REMOVED, and the removal is the
+     decision rather than a tidy-up. The node's order was amount, then the two
+     brakes, then the method, against the category's method-then-amount, on the
+     ground that the ceiling is pre-filled from the amount so a method chosen
+     first makes the ceiling arrive as an interruption at the end.
+     THE ARGUMENT DID NOT SURVIVE THE REAL METHOD LIST AND THE REASON IS NOT TASTE.
+     Crypto has no amount field at all: the person sends what they send and the
+     rate at the top converts it, baseline-account.md 5b.3. So on a third of the
+     routes there is no amount to pre-fill a ceiling from, and asking for one
+     before the route is chosen produces a screen that has to be taken back.
+     WHAT THE OLD ARGUMENT WAS PROTECTING IS KEPT BY PLACEMENT INSTEAD. The ceiling
+     sits directly under the amount, before the pay control, so it still arrives
+     while a person is deciding rather than at the end while they are committing.
+     The worry was never the global order; it was the ceiling appearing last.
+     THIS CLUSTER CLOSES NO JOB AND SAYS SO. Its parents are three barriers: money
+     that leaves and never arrives, a withdrawal threshold that rose while the
+     person kept depositing to reach it, and the escalation loop. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <h1>Add funds</h1>
+    <p class="wf-note">Paying by card. <a href="deposit.html">Choose a different way</a></p>
+
+    <ol class="wf-pay-steps">
+      <li class="wf-pay-step"><span class="wf-pay-step-n">1</span><span>How you pay</span></li>
+      <li class="wf-pay-step is-now"><span class="wf-pay-step-n">2</span><span>How much</span></li>
+    </ol>
+
+    <div class="wf-fund-grid">
+      <div class="wf-fund">
+
+      <!-- BLOCK 1. THE ACCOUNT STATE, AND WHAT IT NO LONGER SAYS. This strip used
+           to promise that the way out carries no check, on the strength of a
+           check that stood before funding. That layer moved to the other end of
+           the account and left round 1 altogether, so the promise has no ground
+           and is not made here in either direction. Saying "no check on the exit"
+           would be true today and false the day the layer lands, which is a
+           condition on the exit that was not named before the money went in, and
+           that is the same injury as a threshold that rises. -->
+      <div class="wf-acct-state">Signed in as <strong>nightjar_cs</strong>. Funding is open on this account.</div>
+      <!-- BLOCK 2. THE AMOUNT, AND THE RATE BESIDE IT. THIS IS THE ONE BLOCK ON
+           THE MAP THAT AN UNPUBLISHED PEG EMPTIES RATHER THAN DEGRADES. Every
+           other surface prints a coin figure and marks the rate missing next to
+           it. Here the conversion IS the block: real money in, coins out, rate
+           with its as-of. Both halves of the pair are unknown, so both render as
+           what they are.
+           ONE EDITABLE FIELD. The converted figure is never an input: two
+           editable money fields on one form is where a person types into the
+           wrong one. The unit is text beside the field, not a glyph in an image
+           and not a placeholder that vanishes on focus. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head"><h2 id="h2-amount">How much</h2></div>
+        <div class="wf-amt">
+          <label class="wf-fig-c" for="dep-amt">Amount you are paying</label>
+          <div class="wf-amt-row">
+            <input class="wf-amt-in" id="dep-amt" type="text" inputmode="decimal" value="40.00" aria-describedby="dep-unit">
+            <span class="wf-amt-unit" id="dep-unit">US dollars</span>
+          </div>
+          <!-- The presets are inherited: the live product runs six of them. Their
+               values follow the currency, so they are slots rather than numbers. -->
+          <div class="wf-presets">
+            <button class="wf-btn wf-btn--small" type="button">$5</button>
+            <button class="wf-btn wf-btn--small" type="button">$10</button>
+            <button class="wf-btn wf-btn--small" type="button">$20</button>
+            <button class="wf-btn wf-btn--small" type="button">$50</button>
+            <button class="wf-btn wf-btn--small" type="button">$100</button>
+            <button class="wf-btn wf-btn--small" type="button">$200</button>
+          </div>
+          <div class="wf-conv">
+            <span class="wf-fig-v">40.00 coins</span>
+            <span class="wf-fig-c">What this buys, at <strong>1 coin = $1.00</strong>. That is a fixed rate rather than a market read, so it carries no as-of: if it ever changes we say so before you spend against it.</span>
+          </div>
+        </div>
+      </div>
+      <!-- BLOCK 2b. THE BONUS, D-94, founder decision of 25 August 2026, AND IT IS
+           HERE BECAUSE THE BADGE IN THE HEADER MADE A PROMISE. The founder's own
+           wording: we lead a person from the control to the deposit screen. A
+           percentage advertised on a persistent control and not restated where the
+           money goes in is the shape B4-1 describes, a condition that arrives after
+           the decision instead of before it.
+           THE CAP IS NOT A FOOTNOTE AND IT IS NOT SMALLER THAN THE PERCENTAGE. The
+           circle in the header can hold "5%" and nothing else, so this is the only
+           surface where the whole offer can be stated, and it states the whole of it
+           in one sentence: the rate, the cap, and the period the cap runs on.
+           ZERO WAGERING, AND IT IS PRINTED RATHER THAN ASSUMED. C4 is an MVP rule:
+           no withdrawal ever demands a sum that was not named before the money went
+           in. cjm-to-be.md answer 3 says a wagering requirement is B4-1 in better
+           clothes and contradicts C4 directly. So the line that matters most here is
+           the one saying the bonus changes nothing about getting money out.
+           THE COINS FIGURE CANNOT BE DRAWN AND SAYS SO. Five per cent of the amount
+           is a coin figure, and 1 coin in real money is not published, so the block
+           states the rule in full and marks the one number it cannot compute. The
+           hole is more visible here than anywhere, which is correct: this is where a
+           person is being offered something they cannot yet size. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head"><h2 id="h2-bonus">What we add on top</h2></div>
+        <p class="wf-cost-say"><strong>We add 5.00% in coins on top of what you put in, up to 100 coins per 24 hours.</strong> It is added when the money arrives, and it is the same offer every time rather than a first deposit only. <strong>It carries no wagering requirement:</strong> the coins it adds behave like every other coin in your balance, and what it takes to withdraw does not move because of it.</p>
+        <div class="wf-conv">
+          <span class="wf-fig-v">2.00 coins</span>
+          <span class="wf-fig-c">What 5.00% of this amount adds, at the same fixed rate. The cap is 100 coins per 24 hours and this is well inside it, so the whole 2.00 is added.</span>
+        </div>
+      </div>
+      <!-- BLOCK 3. THE SPEND CEILING. Four properties and every one is load
+           bearing: pre-filled from the amount just typed rather than from a
+           default we chose, blocking and the only blocking element on the page,
+           the asymmetry stated in the interface rather than in terms, and never
+           a score.
+           PER PERIOD, NOT PER DEPOSIT. One ceiling is in force at a time. A
+           second deposit inside the same period pre-fills again, and that
+           pre-filled figure is then a CHANGE to the ceiling in force and takes
+           the direction rule with it: below it, immediate; above it, a raise that
+           waits. Without that the second deposit of a session would raise the
+           ceiling by being typed. -->
+      <div class="wf-stack" data-dep-form>
+        <div class="wf-sec-head">
+          <h2 id="h2-ceiling">A ceiling on what you put in</h2>
+          <p class="wf-sec-sub">Pre-filled with the amount you just typed. Accept it or change it.</p>
+        </div>
+        <div class="wf-ceil">
+          <div class="wf-stack">
+            <label class="wf-fig-c" for="dep-ceil">Ceiling</label>
+            <input class="wf-ceil-in" id="dep-ceil" data-dep-ceil type="text" inputmode="decimal" value="40.00">
+          </div>
+          <div class="wf-fig">
+            <span class="wf-fig-v wf-fig-missing">Period not set</span>
+            <span class="wf-fig-c">One ceiling is in force at a time and it belongs to a named period. Which periods this offers is not decided.</span>
+          </div>
+        </div>
+        <ul class="wf-asym">
+          <li><span class="wf-asym-w">Lower it</span><span>Takes effect immediately.</span></li>
+          <li><span class="wf-asym-w">Raise it</span><span>Takes effect 24 hours later. The ceiling you have now holds until then.</span></li>
+        </ul>
+        <div class="wf-row">
+          <button class="wf-btn wf-ceil-set" data-dep-accept type="button" aria-pressed="false">Accept this ceiling</button>
+        </div>
+      </div>
+      <!-- BLOCK 4. THE OTHER THREE LIMITS, one plain line and one link. They are
+           not set here because this screen owns the ceiling and nothing else. -->
+      <p class="wf-note">A session limit, a cool down and a self exclusion live together on <a href="responsible.html">Responsible play</a>.</p>
+      <!-- BLOCK 5. THE WITHDRAWAL THRESHOLD. The exit is priced where the entry is
+           paid. Frozen at this moment for the money this deposit funds: a later
+           change may lower it and may never raise it. The barrier under it is one
+           full narrative of a threshold that went 5, then 12, then 15 while the
+           person kept depositing to reach it.
+           IT IS FIFTH IN THE SCROLL ORDER AND ON THE FIRST SCREEN ANYWAY, because
+           the summary carries the figure and the summary is docked. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head"><h2 id="h2-threshold">What it takes to withdraw</h2></div>
+        <div class="wf-fig">
+          <span class="wf-fig-v wf-fig-missing">Not published</span>
+          <span class="wf-fig-c">The sum you need before you can take anything out. Whatever it says when you pay is the figure that applies to this money: it can be lowered later and it can never be raised.</span>
+        </div>
+      </div>
+      <!-- BLOCK 6 IS GONE FROM THIS PAGE AND IS NOW STEP 1. It held two empty
+           slot cards and the sentence "which methods this product takes is not
+           decided", which had been false for five days: baseline-account.md 5b.1
+           has held the list since 18 August 2026 and addressed this node by name.
+           THE RULE THAT BLOCK CARRIED IS NOT LOST. An exclusion renders on the
+           card of the method it excludes, before the method is chosen, and a
+           document may never be the only place it exists. That belongs to step 1
+           now, where the cards are. -->
+      <!-- BLOCK 7. WHAT HAPPENS AFTER YOU PAY, STATED BEFORE THE PAYMENT. The
+           barrier is money that leaves and does not arrive, and the evidence is a
+           person who deposited and got a closed ticket and a zero balance. A
+           competitor publishes the real timing in its FAQ and not in its product.
+           The timing exists. It is just not where the money is.
+           THE SAME FIGURE RUNS AS THE CLOCK AFTERWARDS. If the two ever differ,
+           the one stated before the payment was a marketing number. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head"><h2 id="h2-after">After you pay</h2></div>
+        <div class="wf-fig">
+          <span class="wf-fig-v wf-fig-missing">Not published</span>
+          <span class="wf-fig-c">How long crediting takes. It is stated here before you pay, and the same figure runs as the clock afterwards.</span>
+        </div>
+        <p class="wf-note">If that window passes and nothing has arrived, the deposit keeps its state and does not turn into silence. <a href="support.html">Support</a> answers inside a published deadline.</p>
+      </div>
+      </div>
+      <div>
+      <!-- BLOCK 7b. THE PROVIDER, AND IT IS A SECOND CHOICE INSIDE THE FIRST.
+           baseline-account.md 5b.2: choosing the card route opens "SELECT
+           PROVIDER" with two tiles before the form. So the method a person picked
+           in step 1 is not the party that takes the money, and the screen says
+           which one is.
+           WHO THEY ARE IS NOT DECIDED. The live product runs Zen and a gift-card
+           tile; ours has no processor chosen and inventing two names here would
+           be the median the input gate exists to prevent. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head">
+          <h2 id="h2-prov">Who takes the payment</h2>
+          <p class="wf-sec-sub">Your card details go to them and not to us.</p>
+        </div>
+        <div class="wf-pay-g">
+          <div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n wf-fig-missing">Provider not chosen</span></div>
+          <div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n wf-fig-missing">Provider not chosen</span></div>
+        </div>
+        <p class="wf-note wf-fig-missing">Which payment providers this product uses is not decided, and neither is any fee, minimum or maximum they carry</p>
+      </div>
+      <!-- BLOCK 7c. BILLING, AND ONE FIELD ONLY. The baseline asks for an email
+           here even on an account that already has one, 5b.2. A form that asks a
+           signed-in person for something we hold is a form that does not know who
+           it is talking to, so this one is filled and editable rather than empty.
+           AND THE TERMS ARE ASKED AGAIN, which is the baseline's own behaviour and
+           is kept: the sign-in consent is about the account and this one is about
+           a payment. Two consents about two things is not a duplicate. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head"><h2 id="h2-billing">Where the receipt goes</h2></div>
+        <div class="wf-cfg-f">
+          <div class="wf-cfg-row">
+            <label class="wf-cfg-l" for="dep-email">Email</label>
+          </div>
+          <input class="wf-cfg-in" id="dep-email" type="email" value="nightjar_cs@example.com">
+          <p class="wf-cfg-p">This is the address on your account. Change it here and it changes for this payment only.</p>
+        </div>
+        <label class="wf-cbx" for="dep-terms">
+          <input type="checkbox" id="dep-terms">
+          <span>I have read and accept the <a href="legal.html">terms</a> and the <a href="legal.html">refund and payments policy</a>.</span>
+        </label>
+      </div>
+      <!-- BLOCK 8. THE PERSISTENT SUMMARY AND THE ONE CONTROL. Docked from the
+           moment an amount exists, and LAST IN THE DOCUMENT so a person reading
+           linearly meets the summary after everything it summarises.
+           IT NEVER SUMS THE DEPOSIT WITH THE VALUE OF ITEMS HELD. Different kinds,
+           and a combined figure reads as net worth. It never renders a projected
+           balance as an achievement or a threshold crossed.
+           THE CEILING LINE CARRIES THE VALUE IN FORCE NOW AND NEVER A PENDING ONE.
+           THE CONTROL IS LIVE AND REFUSES. A dimmed Pay is a person hunting for
+           what to change. A live Pay that answers is a person being told. Nothing
+           goes through until the ceiling is settled either way. -->
+      <div class="wf-dock">
+        <div class="wf-total">
+          <div class="wf-tl"><span>Amount</span><span class="wf-tl-v">$40.00</span></div>
+          <div class="wf-tl"><span>Fee</span><span class="wf-tl-v wf-fig-missing">Not published</span></div>
+          <!-- THE BONUS IS A LINE IN THE SUM AND NEVER A BADGE ON IT, D-94, the same
+               rule 5.3 runs on a commission of zero: a badge asserts, a line in a sum
+               gets checked. It sits BELOW the fee and ABOVE the ceiling, because it is
+               part of what this transaction does and not part of what it costs. -->
+          <div class="wf-tl"><span>Bonus, 5.00% capped at 100 per 24 hours</span><span class="wf-tl-v">2.00 coins</span></div>
+          <div class="wf-tl"><span>Ceiling in force after this</span><span class="wf-tl-v">$40.00</span></div>
+          <div class="wf-tl"><span>To withdraw, you will need</span><span class="wf-tl-v wf-fig-missing">Not published</span></div>
+          <div class="wf-tl wf-tl--sum"><span>Total charged</span><span class="wf-tl-v">$40.00</span></div>
+        </div>
+        <p class="wf-refuse" data-dep-refuse>The ceiling has to be accepted or changed before this goes through.</p>
+        <div class="wf-row"><a class="wf-btn" href="deposit.html">Change how you pay</a><a class="wf-btn wf-btn--primary" data-dep-go href="deposit-crediting.html">Pay</a></div>
+      </div>
+      </div>
+    </div>
+
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_STEP = 2;
+window.WF_SHELL = { account: true, active: 'deposit.html', money: { balance: '74.20 coins', held: '130.60 coins' } };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>
