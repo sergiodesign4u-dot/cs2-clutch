@@ -2833,7 +2833,9 @@ window.WF_BONUS = window.WF_BONUS || {
                 '<button class="wf-btn wf-btn--small" type="button" aria-label="Increase the maximum">+</button>' +
               '</div>' +
             '</div>' +
-            '<p class="wf-note wf-fig-missing">Peg not available: what one coin is worth in real money is not published yet</p>' +
+            /* THE PEG RENDERS HERE SINCE D-95 AND THE CODE STAYS OUT OF THE COPY, D-66:
+               a wireframe states a state and never cites a decision record. */
+            '<p class="wf-note">Prices are in coins, and one coin is $1.00, a fixed rate.</p>' +
           '</div>' +
 
           /* THREE CHECKBOXES AND NOT A SLIDER. The band has three values and no
@@ -3419,7 +3421,17 @@ window.WF_BONUS = window.WF_BONUS || {
       /* nothing further: the two lines above are this tab's note, and the
          withdrawals note below is about a different act. */
     } else if (kind === 'deposits') {
-      wrap.appendChild(el('p', 'wf-note', 'Every payment this account has made, whether it arrived or not. Amounts are in coins. What one coin is worth in real money is not published yet, so a row cannot be reconciled against a bank statement.'));
+      /* THE RECONCILIATION WORKS SINCE D-95 AND THE SENTENCE THAT SAID IT COULD NOT IS
+         GONE. It read: "what one coin is worth in real money is not published yet, so a
+         row cannot be reconciled against a bank statement." The peg is published, it is
+         one to one, and that was the whole obstacle.
+         AND THE BONUS OPENS A HOLE IN THE SAME BREATH, D-94. A payment of 40 dollars
+         credits 42 coins, so the money charged and the coins credited are no longer the
+         same number and a ledger with one column cannot be both. WHICH ONE A ROW HOLDS
+         IS NOT DECIDED, so the note says so rather than picking one and being wrong on
+         every bonused row. */
+      wrap.appendChild(el('p', 'wf-note', 'Every payment this account has made, whether it arrived or not. Amounts are in coins, at 1 coin = $1.00, so a row lines up with a bank statement one to one.'));
+      wrap.appendChild(el('p', 'wf-note wf-fig-missing', 'Whether a row shows the money charged or the coins credited is not decided, and since the bonus was added those are no longer the same number'));
     } else {
       /* B8-2 IS SIX PEOPLE WAITING WITH HARD FIGURES AND NOBODY TELLING THEM
          ANYTHING. So a row carries who is being waited on, and never an ETA:

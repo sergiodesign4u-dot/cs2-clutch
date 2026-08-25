@@ -113,7 +113,7 @@ We are the source. For each of these the method has to be publishable, not only 
 
 | Surface | What `A1`'s "live market price" is there | What the route is |
 |---|---|---|
-| `1.0`, `3.3`, `3.6` | **Steam, in EUR, with its own as-of, marked not comparable to our coin value until the peg is published** | **A live outbound link to Steam's market**, labelled "Open on the market" |
+| `1.0`, `3.3`, `3.6` | **Steam, in EUR, with its own as-of.** ~~Marked not comparable to our coin value until the peg is published~~ **Amended 25 August 2026 by `D-95`: the peg is published at 1 coin = $1.00, so the coin figure is in dollars and the remaining gap is one currency conversion rather than an unpriced unit.** The line now reads close to comparable and not exactly so, and names why | **A live outbound link to Steam's market**, labelled "Open on the market" |
 | `5.1`, `5.3` | **Ours, in coins**, the price we charge for a real copy, since `D-92` | **No route.** `5.3` says in words that the Steam listing is a different and higher number and prints no Steam figure; `5.1` says we set our prices against Steam and prints no Steam figure |
 
 **So one backlog row means two different numbers on two groups of surfaces, and no file said so before this pass.** On the acquisition surfaces "market" is Steam. On the exit surfaces "market" is us. **Both readings are correct in their own place and the word is the same word**, which is the failure this register exists to prevent, arriving on the one row with a pattern of 14 behind it.
@@ -201,6 +201,37 @@ The product holds the cheapest copy in its own arithmetic and offers no route to
 
 ---
 
+## 2f. Amended 25 August 2026 by `D-95`. The peg is published, and it is the oldest hole in this register
+
+**Founder decision, 25 August 2026: one coin is $1.00.** Walked on the live product at exactly the step it matters, `baseline-account.md` section 5b.2, `acct_deposit_card_step2.png`, 18 August 2026, which reads `Rate 1.00 = $1.00`. **A candidate value had existed for a week and no decision had adopted it.**
+
+### What it closes, and it is more than one row
+
+| Where the hole was | What it reads now |
+|---|---|
+| `4.1`, what an amount buys | **40.00 coins**, computed, at a rate stated on the screen |
+| `4.1`, what the `D-94` bonus adds | **2.00 coins**, and the cap named as not binding at this amount |
+| `4.1`, the amount's unit | **US dollars**, and the six presets are the baseline's own, `$5` to `$200` |
+| `3.1` and `5.1`, twenty nine notes | "Peg not available" becomes the rate |
+| `3.3`, `2.1`, `2.4`, sixteen notes | The same |
+| `5.9` deposits, the reconciliation note | It said a row cannot be reconciled against a bank statement. **It can, one to one** |
+
+**It carries no as-of, and that is a distinction rather than an omission.** Rule 2 puts a time on every figure because a figure with no time is read as current forever. **A peg is not a market read.** It is a fixed rate we set, so what it owes is not a timestamp but a promise: if it ever changes we say so before a person spends against it. **Writing an as-of on it would say it moves.**
+
+### What it does not close, and the new hole is sharper than the old one
+
+**Steam quotes euro.** The coin is now dollars, so the two figures are comparable **in kind** and still not comparable **exactly**, because what a dollar is worth in euro is not published anywhere on these surfaces.
+
+**Twenty eight notes changed from an unpriced unit to a missing conversion.** That is a much smaller distance, and it is also a much more specific debt: one published rate between two real currencies, rather than a currency that had no value at all.
+
+### And one hole this opens, which `D-94` made and this decision revealed
+
+**A payment of 40 dollars now credits 42 coins.** So the money charged and the coins credited stopped being one number, and `5.9`'s deposit ledger has **one amount column and two candidates for it.** Which one a row holds is not decided.
+
+**It was invisible until both decisions landed.** With no peg the column had no unit to disagree about; with no bonus the two numbers were the same. **Two closures in two days produced a contradiction neither of them contains**, and the ledger now prints it rather than picking one and being wrong on every bonused row.
+
+---
+
 ## 3. Group B: numbers we quote from outside
 
 The source is somebody else's. For these, the rule is not "publish the method", it is **name the source and the date, or do not print the number**.
@@ -239,7 +270,7 @@ Kept visible so that nobody later ships one by assuming it was approved.
 7. **A number is never a score.** No summing across kinds, which is why the header's two money figures are never added, node `0.1`. No streaks, no progress, no celebration, which is the rule `C5` and `T4` attach to limits and which binds this register too: the moment a figure acquires completion mechanics it stops describing and starts encouraging. **One named exception, and it is named rather than quietly allowed: the favourite count on node `0.7`, founder decision `D-24` of 18 August 2026.** It is a count of accounts that marked a case, not a rank, not a rating and not a measure of anything the platform is claiming. The decision that admits it also fixes what it may never become: a rank, a default sort, a most-popular strip, a badge on a top tile, or a figure beside an open control. **It is one count in one place and it is not a precedent for a second.**
 8. **Text, never an image.** A figure baked into a picture is invisible to search, to a screen reader and to a person who copies it into a complaint.
 9. **A number about someone else carries its source and its date, or it is `[?]`.** The same rule this project applies to its own research, applied to product copy, because a comparative claim in the interface is a claim about a third party.
-10. **A money figure carries its unit, and a coin figure carries its peg wherever money is spent.** `D-28` of 19 August 2026 reversed `C1` and made the coin the product's denomination, which removed the structural answer to `B7-1`, the currency abstraction that hides what things cost. **What is left of that answer is this rule, and the decision ships on it rather than beside it.** Wherever a person is about to spend, commit or withdraw, the coin figure renders with what one coin is worth in real money, from a published rate carrying its own as-of under rule 2. **Three consequences, and each one is a place this rule is checked.** A coin figure with no peg within reach of the spend is the abstraction `B7-1` names, not a shorter label. **Time and ratios do not become coins:** `A4` and `G3` stay minutes, `D4` stays a percentage, and converting either into coins would be summing across kinds under rule 7. **A figure quoted from outside stays in its own unit:** `A1`'s Steam market price is real money, and until the peg is published it is marked as not comparable rather than set silently beside a coin value.
+10. **A money figure carries its unit, and a coin figure carries its peg wherever money is spent.** `D-28` of 19 August 2026 reversed `C1` and made the coin the product's denomination, which removed the structural answer to `B7-1`, the currency abstraction that hides what things cost. **What is left of that answer is this rule, and the decision ships on it rather than beside it.** Wherever a person is about to spend, commit or withdraw, the coin figure renders with what one coin is worth in real money, from a published rate carrying its own as-of under rule 2. **Three consequences, and each one is a place this rule is checked.** A coin figure with no peg within reach of the spend is the abstraction `B7-1` names, not a shorter label. **Time and ratios do not become coins:** `A4` and `G3` stay minutes, `D4` stays a percentage, and converting either into coins would be summing across kinds under rule 7. **A figure quoted from outside stays in its own unit:** `A1`'s Steam market price is real money, and it is never set silently beside a coin value. **Amended 25 August 2026 by `D-95`.** The peg is published at 1 coin = $1.00, so a coin figure is a dollar figure and the two are comparable in kind. **They are still not comparable exactly**, because Steam quotes euro and what a dollar is worth in euro is not published here, so the twenty eight surfaces that carried "not comparable until the peg is published" now carry the narrower and truer statement. **A closure that leaves a smaller hole names the smaller hole**, which is `D-92`'s lesson applied to its own successor.
 
 ---
 

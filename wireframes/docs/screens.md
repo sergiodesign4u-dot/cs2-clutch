@@ -2680,3 +2680,29 @@ Stage 04 proposed **three** tabs and refused cash out because it has no subject 
 **Declared per page and not derived from `feed: false`**, even though the two sets are identical today. **Two rules that happen to agree are not one rule.**
 
 **And the screen now carries two absences side by side**, what the money buys in coins and what the bonus adds in coins, both blocked on the same unpublished peg. **That is the correct rendering and it is the sharpest argument yet for closing it:** a person is being offered something they cannot size.
+
+---
+
+## `D-95`, 25 August 2026. The peg lands, and 79 marked absences become figures
+
+**Founder decision: one coin is $1.00**, a fixed rate. `docs/decisions.md` `D-95` holds the reasoning.
+
+| Where | Count | Before | After |
+|---|---|---|---|
+| `3.1`, `5.1`, `6.1` and others | **29** | `Peg not available: what one coin is worth in real money is not published yet` | The rate |
+| `3.3`, `2.1`, `2.4` | **16** | `1 coin in real money: not published` | The rate |
+| `1.0`, `3.3`, `3.6`, `0.4` | **28** | `Not comparable to the value above until the coin peg is published` | **Narrowed, not closed:** the coin is dollars, Steam is euro |
+| `4.1`, `4.2`, `4.3`, `4.4`, `6.1` | **6** | `unit not set` | Dollar figures |
+| `4.1` block 2 and 2b | **2** | `Cannot be shown` | **40.00 coins** and **2.00 coins** |
+
+**And the presets stopped being slots.** `$5 $10 $20 $50 $100 $200`, the baseline's own six, `acct_deposit_card_form.png`.
+
+**The rate carries no as-of and that is deliberate.** `0.11` rule 2 wants a time on every figure because a figure with no time is read as current forever. **A peg is not a market read**, so what it owes is a promise rather than a timestamp: if it ever changes we say so before you spend against it. **An as-of on a peg would say it moves.**
+
+### The one that could not be seen before today
+
+**`D-94` gave the deposit a bonus and `D-95` gave the coin a price. Together they broke a column neither of them touched.**
+
+A payment of 40 dollars credits 42 coins, so **the money charged and the coins credited stopped being one number**, and `5.9`'s deposit ledger has one amount column and two candidates for it. **With no peg the column had no unit to disagree about. With no bonus the two numbers were the same.**
+
+The panel now prints the question rather than picking an answer and being wrong on every bonused row.

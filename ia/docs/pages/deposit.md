@@ -102,6 +102,26 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 ---
 
+## 2c. Amended 25 August 2026 by `D-95`. The peg is published, and this screen stops being the one an absence empties
+
+**Founder decision: one coin is $1.00.** `baseline-account.md` section 5b.2 walked the live product publishing exactly that at exactly this step on 18 August 2026.
+
+**This node carried the sharpest version of that hole**, and its own section 3.1 said so: every other surface prints a coin figure and marks the rate missing beside it, while here **the conversion is the block**. Both halves of the pair were unknown, so block 2 rendered "Cannot be shown" and the screen could not tell a person what they were getting for their money. **`D-94` then put a second one beside it**, because five per cent of an unpriced amount is also unpriceable.
+
+| Block 2 and 2b | Before | After |
+|---|---|---|
+| The amount's unit | `real money, currency not set` | **US dollars** |
+| The presets | four empty slots | **`$5` `$10` `$20` `$50` `$100` `$200`**, the baseline's own six |
+| What it buys | Cannot be shown | **40.00 coins**, at 1 coin = $1.00 |
+| What the bonus adds | Cannot be shown | **2.00 coins**, with the cap named as not binding here |
+| The summary | two figures marked `unit not set` | **`$40.00` in, `2.00 coins` added, `$40.00` charged** |
+
+**The rate carries no as-of and that is deliberate.** `0.11` rule 2 wants a time on every figure because a figure with no time is read as current forever. **A peg is not a market read**: it is a fixed rate we set, so what it owes is a promise rather than a timestamp, and the screen makes it, if it ever changes we say so before you spend against it. **An as-of on a peg would say it moves.**
+
+**What is still `[?]` on this block:** the fee. A fee is not the peg and adopting one did not produce the other, so the summary still carries `Fee: not published`, and the rule stands that if the total ever differs from the typed amount both are shown.
+
+---
+
 ## 3. The four capabilities, and what makes each one a brake rather than a setting
 
 ### 3.1 `C1`. The coin, and the rate that has to be on this screen

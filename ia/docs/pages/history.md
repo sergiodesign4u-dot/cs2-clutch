@@ -124,6 +124,9 @@
 
 **One boundary, two renderings, and they disagree about whether the unit and the period are known.** `history-deposits.html` row 4 prints "Your deposit limit was 40.00 coins for the week", while `responsible-in-force.html` renders the same limit as "40.00 unit not set per period" with all four periods reading "Period not set". **The figure agrees and the two facts around it do not.**
 
+**Amended 25 August 2026 by `D-95`, and only the unit half closes.** The peg is one to one, so both surfaces now render **`$40.00`** and the unit disagreement is gone. **The finding survives its own fix as a lesson:** the two renderings never disagreed about the number, only about what the number was in, and **at one to one a unit error is invisible in the figure.** The period is still `[?]`.
+
+
 **It is recorded rather than fixed, for two reasons.** The wireframes belong to another agent who may still be in them, and **deciding whether the period is known is not a documentation call**: it is either a real gap in what `6.1` holds or a placeholder that outlived its state. **Owner: the founder**, with `6.1`. This node renders whichever answer comes back and does not pick one.
 
 ---
@@ -325,7 +328,7 @@ Composition from `blocks.md` section 3, **T2 listing with an empty state**, rows
 | **Whether a roll can be hidden by its owner** | `7.1` publishes one round to a stranger with a link. Whether a person can keep a specific roll out of that is not decided anywhere, and this page is where they would do it. **Narrowed 24 August 2026 by `D-93` and not closed:** the founder gave the whole public profile a switch, and that switch takes down the page rather than a round. `D-93` says so on the row itself, because a switch trusted for more than it does is worse than no switch | Founder, with `7.1` |
 | **What a row shows when the case itself is gone** | A case can be retired. The roll happened and the case page may not exist. **Named rather than assumed either way** | Node `3.1`, then here |
 | **The page size and what the pager is** | `blocks.md` T2 gives the shape and no number | Production |
-| **Whether the deposit boundary's unit and period are known** | Section 0.6. `history-deposits.html` renders "40.00 coins for the week" and `responsible-in-force.html` renders "40.00 unit not set per period" with every period reading `Period not set`. **One boundary, two renderings, disagreeing about what is known** | Founder, with `6.1` |
+| ~~**Whether the deposit boundary's unit and period are known**~~ **Half closed 25 August 2026 by `D-95`** | Section 0.6. It read: `history-deposits.html` renders "40.00 coins for the week" and `responsible-in-force.html` renders "40.00 unit not set per period", one boundary in two renderings disagreeing about what is known. **The unit is known: the peg is one to one and both surfaces now render `$40.00`.** The two renderings agreed all along and the disagreement was about the unit rather than the figure. **The period is still `[?]`** and `responsible-in-force.html` still reads `Period not set` | Founder, with `6.1` |
 | **The published withdrawal ceiling** | Section 0.5. The overdue state needs a figure to be past and **no figure exists in this repository**: `withdraw-clock.html` renders every ceiling as `not published`. It is `[?]` until `0.11` publishes one | Node `0.11`, then production |
 
 **And what belongs elsewhere.** The words: stage 05. How it looks: stages 06 and 07. The verifier itself: `1.2`. The proof component's anatomy: `0.14`. The public form of one round: `7.1`. The item's own record: `5.1`.

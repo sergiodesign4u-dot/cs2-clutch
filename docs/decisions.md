@@ -3807,3 +3807,62 @@ No animation on the badge, no pulse, no count, no streak, and **no rendering any
 **Five per cent of the amount is a coin figure, and 1 coin in real money is not published.** So `4.1` states the rate in full and marks the one number it cannot compute, and the deposit screen now carries **two** "cannot be shown" figures side by side: what the money buys, and what the bonus adds.
 
 **That is the correct rendering and it is also the argument for closing the peg.** A person is being offered something they cannot size. `baseline-account.md` section 5b.2 walked the live product publishing **`Rate 1.00 = $1.00`** at exactly this step on 18 August 2026, so a candidate value exists and **no decision has adopted it.** Owner: the founder, and it is now the most expensive `[?]` on this node.
+
+---
+
+## D-95. The peg is published at one to one, and closing the oldest hole in the register opens two sharper ones
+
+**Date:** 2026-08-25. **Stage:** 04. **Decided by:** the founder, adopting the value walked on the live product. **Binds:** nodes `4.1`, `3.1`, `3.3`, `5.1`, `5.9`, `6.1`, `2.1`, `2.4`, `0.11` rule 10, and row `C1` as `D-28` rewrote it.
+
+### The decision
+
+**One coin is $1.00.** A fixed rate, not a market read.
+
+**The value was walked and had been sitting unused for a week.** `baseline-account.md` section 5b.2, shot `acct_deposit_card_step2.png`, 18 August 2026: the live product prints `Rate 1.00 = $1.00` at exactly the step where money enters. **`D-28` said the coin ships pegged and the peg is printed wherever money is spent, and left the value `[?]`.** A candidate existed in our own file and no decision had adopted it.
+
+### What it closes
+
+`D-28` reversed `C1` and printed the cost: `C1` was the whole structural answer to `B7-1`, the currency abstraction that hides what things cost. **What was left of that answer is `0.11` rule 10, the peg wherever money is spent, and until today rule 10 had nothing to render.**
+
+| Surface | Before | After |
+|---|---|---|
+| `4.1`, what an amount buys | Cannot be shown | **40.00 coins** |
+| `4.1`, what the `D-94` bonus adds | Cannot be shown | **2.00 coins**, cap named as not binding here |
+| `4.1`, the amount's unit | `real money, currency not set` | **US dollars** |
+| `4.1`, the presets | four empty slots | **`$5` to `$200`**, the baseline's own six |
+| `3.1`, `5.1`, `6.1` and others, 29 notes | "Peg not available" | The rate |
+| `3.3`, `2.1`, `2.4`, 16 notes | "1 coin in real money: not published" | The rate |
+| Six figures across four pages | `unit not set` | Dollar figures |
+| `5.9` deposits | "a row cannot be reconciled against a bank statement" | **It can, one to one** |
+
+### It carries no as-of, and that is a distinction rather than an omission
+
+`0.11` rule 2 puts a time on every figure, because a figure with no time attached is read as current forever. **A peg is not a market read.** It is a fixed rate we set, so what it owes is not a timestamp but a promise: **if it ever changes we say so before a person spends against it.**
+
+**An as-of written on a peg would say it moves**, which is the opposite of what a peg is, and would put a false expectation on twenty nine surfaces at once.
+
+### The first sharper hole: Steam quotes euro
+
+**Twenty eight notes read "market price on Steam 22.15 EUR, not comparable to the value above until the coin peg is published."**
+
+The peg is published and **the comparison is still not exact.** The coin is dollars, Steam is euro, and what a dollar is worth in euro is published nowhere on these surfaces.
+
+**So the notes changed from an unpriced unit to a missing conversion.** That is a much smaller distance and a much more specific debt: one published rate between two real currencies, rather than a currency with no value at all. **A closure that leaves a smaller hole names the smaller hole**, which is `D-92`'s own lesson applied to its successor.
+
+### The second: `D-94` and `D-95` together made a contradiction neither of them contains
+
+**A payment of 40 dollars now credits 42 coins.** The money charged and the coins credited stopped being one number.
+
+**`5.9`'s deposit ledger has one amount column and two candidates for it.** Which one a row holds is not decided, and the panel now prints that rather than picking one and being wrong on every bonused row.
+
+**It was invisible until both decisions landed.** With no peg the column had no unit to disagree about. With no bonus the two numbers were the same. **Two closures a day apart produced a defect that neither closure introduced**, and nothing in either review would have caught it, because each was correct on its own.
+
+**That is the general form worth keeping:** a decision is checked against the file it changes, and a pair of decisions is checked against nothing. This one was found by migrating a value through the corpus and meeting a column that could no longer answer what it held.
+
+### What this does not touch
+
+**The fee.** A fee is not the peg and adopting one did not produce the other, so `4.1` still carries `Fee: not published` and the rule that if the total ever differs from the typed amount both are shown.
+
+**The crediting window, `C3`.** Still `[?]`, still owed, and the founder was asked in the same message and answered the other three.
+
+**Whether the product charges in dollars in every market.** The presets are dollars and the peg is to dollars, both walked. Whether a market with another currency is charged in dollars or converted at the till is not decided anywhere and is not assumed here.

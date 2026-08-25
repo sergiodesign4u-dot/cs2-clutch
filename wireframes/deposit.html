@@ -70,19 +70,21 @@
           <label class="wf-fig-c" for="dep-amt">Amount you are paying</label>
           <div class="wf-amt-row">
             <input class="wf-amt-in" id="dep-amt" type="text" inputmode="decimal" value="40.00" aria-describedby="dep-unit">
-            <span class="wf-amt-unit wf-fig-missing" id="dep-unit">real money, currency not set</span>
+            <span class="wf-amt-unit" id="dep-unit">US dollars</span>
           </div>
           <!-- The presets are inherited: the live product runs six of them. Their
                values follow the currency, so they are slots rather than numbers. -->
           <div class="wf-presets">
-            <button class="wf-btn wf-btn--small wf-fig-missing" type="button">preset</button>
-            <button class="wf-btn wf-btn--small wf-fig-missing" type="button">preset</button>
-            <button class="wf-btn wf-btn--small wf-fig-missing" type="button">preset</button>
-            <button class="wf-btn wf-btn--small wf-fig-missing" type="button">preset</button>
+            <button class="wf-btn wf-btn--small" type="button">$5</button>
+            <button class="wf-btn wf-btn--small" type="button">$10</button>
+            <button class="wf-btn wf-btn--small" type="button">$20</button>
+            <button class="wf-btn wf-btn--small" type="button">$50</button>
+            <button class="wf-btn wf-btn--small" type="button">$100</button>
+            <button class="wf-btn wf-btn--small" type="button">$200</button>
           </div>
           <div class="wf-conv">
-            <span class="wf-fig-v wf-fig-missing">Cannot be shown</span>
-            <span class="wf-fig-c">What this buys in coins, and the rate it was bought at with the time we read it. <span class="wf-fig-missing">1 coin in real money is not published, so neither figure can be drawn. Until it is, this screen cannot tell you what you are getting for your money.</span></span>
+            <span class="wf-fig-v">40.00 coins</span>
+            <span class="wf-fig-c">What this buys, at <strong>1 coin = $1.00</strong>. That is a fixed rate rather than a market read, so it carries no as-of: if it ever changes we say so before you spend against it.</span>
           </div>
         </div>
       </div>
@@ -110,8 +112,8 @@
         <div class="wf-sec-head"><h2 id="h2-bonus">What we add on top</h2></div>
         <p class="wf-cost-say"><strong>We add 5.00% in coins on top of what you put in, up to 100 coins per 24 hours.</strong> It is added when the money arrives, and it is the same offer every time rather than a first deposit only. <strong>It carries no wagering requirement:</strong> the coins it adds behave like every other coin in your balance, and what it takes to withdraw does not move because of it.</p>
         <div class="wf-conv">
-          <span class="wf-fig-v wf-fig-missing">Cannot be shown</span>
-          <span class="wf-fig-c">What 5.00% of this amount is in coins. <span class="wf-fig-missing">1 coin in real money is not published, so the bonus can be stated as a rate and not as a figure. Until the rate is published this screen can tell you the percentage and not what it is worth.</span></span>
+          <span class="wf-fig-v">2.00 coins</span>
+          <span class="wf-fig-c">What 5.00% of this amount adds, at the same fixed rate. The cap is 100 coins per 24 hours and this is well inside it, so the whole 2.00 is added.</span>
         </div>
       </div>
       <!-- BLOCK 3. THE SPEND CEILING. Four properties and every one is load
@@ -223,16 +225,16 @@
            goes through until the ceiling is settled either way. -->
       <div class="wf-dock">
         <div class="wf-total">
-          <div class="wf-tl"><span>Amount</span><span class="wf-tl-v">40.00 <span class="wf-fig-missing">unit not set</span></span></div>
+          <div class="wf-tl"><span>Amount</span><span class="wf-tl-v">$40.00</span></div>
           <div class="wf-tl"><span>Fee</span><span class="wf-tl-v wf-fig-missing">Not published</span></div>
           <!-- THE BONUS IS A LINE IN THE SUM AND NEVER A BADGE ON IT, D-94, the same
                rule 5.3 runs on a commission of zero: a badge asserts, a line in a sum
                gets checked. It sits BELOW the fee and ABOVE the ceiling, because it is
                part of what this transaction does and not part of what it costs. -->
-          <div class="wf-tl"><span>Bonus, 5.00% capped at 100 per 24 hours</span><span class="wf-tl-v wf-fig-missing">Not computable</span></div>
-          <div class="wf-tl"><span>Ceiling in force after this</span><span class="wf-tl-v">40.00</span></div>
+          <div class="wf-tl"><span>Bonus, 5.00% capped at 100 per 24 hours</span><span class="wf-tl-v">2.00 coins</span></div>
+          <div class="wf-tl"><span>Ceiling in force after this</span><span class="wf-tl-v">$40.00</span></div>
           <div class="wf-tl"><span>To withdraw, you will need</span><span class="wf-tl-v wf-fig-missing">Not published</span></div>
-          <div class="wf-tl wf-tl--sum"><span>Total charged</span><span class="wf-tl-v">40.00 <span class="wf-fig-missing">unit not set</span></span></div>
+          <div class="wf-tl wf-tl--sum"><span>Total charged</span><span class="wf-tl-v">$40.00</span></div>
         </div>
         <p class="wf-refuse" data-dep-refuse>The ceiling has to be accepted or changed before this goes through.</p>
         <div class="wf-row"><a class="wf-btn wf-btn--primary" data-dep-go href="deposit-crediting.html">Pay</a></div>
