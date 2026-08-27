@@ -4230,3 +4230,58 @@ It shipped as a bare `<input type="checkbox">` inside a flex row built for a 20p
 ### What this does not answer
 
 **What the receipt says before an amount exists.** Both carriers open on a worked example, `D-99` named the gap, and it is still `[?]`.
+
+---
+
+## D-102. The deposit pane is rebuilt on the founder's own order, and the brake is called what it is
+
+**Date:** 2026-08-27. **Stage:** 04. **Decided by:** the founder, on the layer built the day before. **Binds:** node `4.1`, the card body, and the person facing wording of row `C2`.
+
+**What he said.** The dialog looks heavy, complex and overfull. The order he wants, with the reference beside it: the bonus promotion as a banner, below it the promo code field with the email next to it, below that the amount with what it buys next to it, and any extra information below that. **And: "I do not understand what this ceiling is or why it is here."**
+
+### The last sentence is the finding, and the defect is ours
+
+`C2` is the only blocking control on this screen. It carries `B7-4`, the escalation loop, twelve people who gave a figure unprompted, and the responsible play constraint in `CLAUDE.md`. **The founder, who commissioned it, read it on the drawn screen and could not tell what it did.**
+
+**Two things put it there and both were ours.**
+
+**The label was the word the documents use.** "A ceiling on what you put in" names a shape rather than a job, and it is the word every record about this row has used since the CJM stage. Internal analysis language walked onto a screen. It is now **"Your deposit limit"**, and the sentence under it says the job: the most you can put in over a period, set by you and not by us, starting at the amount you just typed.
+
+**And `D-101` disguised it, by an argument that was right about the relationship and wrong about the drawing.** That record put the limit beside the amount and defended the placement as `C2`'s own story told in the layout: the limit carries the figure just typed, so the two are one gesture. **What it produced on the screen was two money fields side by side holding the same number**, one of them labelled with a word that does not say what it does. The limit is under the amount again, full column width, still before the press.
+
+**`C2` itself is untouched, and that is deliberate.** Pre-filled from the amount just typed, blocking, the only blocking control here, lowering immediate and raising delayed by 24 hours, and never a score. **Nothing about the brake was weakened to make it readable.** The period it runs for is still `[?]`.
+
+### What moved, and every move has one reason
+
+| Block | Was | Is | Why |
+|---|---|---|---|
+| Bonus offer | One of three cells across a row | Full width banner, alone | It is neither a question nor a figure. Beside two form fields it read as a third field with a picture in it |
+| Promo code | Top row, beside the offer and the country | Top row, beside the email | Two things of one kind: one short answer each, given once, belonging to no route |
+| Email | Last block of the card body | Top row, beside the promo | **A receipt address is not a property of paying by card.** It sat in that body only because that body was written first, and asked in the pane header it is asked once for all thirty five routes |
+| Country | Top row | Foot of the pane | Stated and never answered, `D-98`. The top of the pane is now only what a person answers |
+| Provider | Heading, subhead and two tiles | One line above the money | Still first, `D-97`'s order: the provider decides what the form asks for. In a 290px column two unknowns stacked and a one line statement ran to four |
+| Deposit limit | Beside the amount | Under the amount, full column width | See above. Its own control was also wrapping onto a second line, which reads as a brake that is broken |
+
+### `Apply` was the fourth picture of a control and nobody had reported it
+
+The founder found three on this screen on 26 August: the presets, the money field, the receipt. **`Apply` sat beside the promo field and did nothing.** It cannot validate a code, because no promo or partner code exists in this product yet. **So it says that rather than pretending:** an empty field and it says the field is empty and the offer above needs no code; a code typed and it says none has been issued yet, so there is none to recognise. `D-58` again, and the fourth instance in one node.
+
+### The cost, measured and printed rather than absorbed
+
+**Mobile pays for this order.** At 360 the amount now starts at **943px** down the page, against 564px after `D-101`. The header he asked for is 615px at that width: banner, two stacked fields, the method bar, the provider line. **360 has no room to put two fields side by side.**
+
+**Nothing is hidden by it.** The receipt is fixed to the bottom of the viewport the whole way down, so what the money buys is on every screen even when the amount field is not.
+
+**But it contradicts his own note of the day before**, that the amount belongs in the first view, and it contradicts the mobile first stance in `CLAUDE.md`. **The reflow that would fix it is his call, because it makes the mobile order differ from the desktop one:** below 700 the promo and email pair moves under the money row. The reference itself puts its promo code last. **Not taken here.** An order stated in his own words is not something to quietly rearrange, and a breakpoint that reorders blocks is a decision rather than a layout detail.
+
+### A fifth class collision, and the first one caught inside the build that made it
+
+`.wf-ceil-bar` was written at top level twice in this build, three lines apart, the second rule silently overriding the first. **The scan `D-101` earned found it before it rendered.** Four of the five collisions in this stage were found by a person looking at a screen, one by the instrument in the build after, and this one in the build that created it. Merged into one rule.
+
+### What this does not answer
+
+**What the receipt says before an amount exists.** Named in `D-99`, again in `D-101`, still `[?]`.
+
+**Whether the mobile order diverges.** Above.
+
+**The crediting window `C3`**, the finer split of the 25 card routes, and whether `C2` can bind on crypto. All three still the founder's, all three carried since their own records.

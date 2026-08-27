@@ -315,6 +315,49 @@ The live product arrives with a partner code **already in the field, ticked, and
 
 ---
 
+## 2i. Rebuilt 27 August 2026 by `D-102`. The pane is read top to bottom, and the brake is called what it is
+
+**The founder opened the built layer and said it was heavy, complex and overfull**, put the reference beside it, and gave the order in his own words: the bonus as a banner, the promo field with the email beside it, the amount with what it buys beside it, and any extra information below. **Then the finding this section exists for:** *"I do not understand what this ceiling is or why it is here."*
+
+### A protection nobody can name is not one
+
+`C2` is not decoration. It is the only blocking control on this screen, it carries `B7-4` and the responsible play constraint in `CLAUDE.md`, and it has a record of its own. **The founder read it on the drawn screen and could not tell what it did.** Two things put it there and both were ours.
+
+**The label was the word the documents use.** "A ceiling on what you put in" names a shape, not a job. It is now **"Your deposit limit"**, and the line under it says the job in one sentence: the most you can put in over a period, set by you and not by us, starting at the amount just typed.
+
+**And `D-101` had disguised it.** That record put the limit beside the amount and argued the placement told `C2`'s own story: the limit carries the figure just typed, so the two are one gesture. **What it actually produced was two money fields side by side holding the same number**, one of them labelled with a word that does not say what it does. The argument was right about the relationship and wrong about the drawing. The limit is under the amount again.
+
+**`C2` itself is untouched.** Pre-filled from the amount just typed, blocking, the only blocking control here, lowering immediate and raising delayed, and never a score. **Nothing about the brake was weakened to make it readable.** The period it runs for is still `[?]`.
+
+### What moved, and every move has one reason
+
+| Block | Was | Is | Why |
+|---|---|---|---|
+| Bonus offer | One of three cells across a row | Full width banner, alone | It is neither a question nor a figure. Beside two form fields it read as a third field with a picture in it |
+| Promo code | Top row, beside the offer and the country | Top row, beside the email | Two things of one kind: one short answer each, given once, belonging to no route |
+| Email | Last block of the card body | Top row, beside the promo | **A receipt address is not a property of paying by card.** Every route that takes money sends one. It was in that body only because that body was written first, and asked here it is asked once for all thirty five routes |
+| Country | Top row | Foot of the pane | It is stated and never answered, `D-98`. The top of the pane is now only what a person answers |
+| Provider | Heading, subhead and two tiles | One line above the money | Still first, which is `D-97`'s order: the provider decides what the form asks for. In a 290px column two unknowns stacked and a one line statement ran to four |
+| Deposit limit | Beside the amount | Under the amount, full column width | See above. Its control was also wrapping onto a second line, which reads as a brake that is broken |
+
+### `Apply` was the fourth picture of a control
+
+The founder found three on this screen on 26 August. **`Apply` was the fourth and nobody reported it:** it sat beside the promo field and did nothing. **It cannot validate a code, because no promo or partner code exists in this product yet.** So it says that instead of pretending: empty field and it says the field is empty and the offer above needs no code; a code typed and it says none has been issued yet, so there is none to recognise.
+
+### The cost, measured and printed rather than absorbed
+
+**Mobile pays for this order.** At 360 the amount now starts at **943px** down the page, against 564px before. The header the founder asked for, banner plus two stacked fields plus the method bar plus the provider line, is 615px at that width, and 360 has no room to put two fields side by side.
+
+**Nothing is hidden by it:** the receipt is fixed to the bottom of the viewport the whole way down, so what the money buys is on every screen even when the amount field is not. **But this contradicts the note he made a day earlier**, that the amount belongs in the first view, and it contradicts the mobile first stance in `CLAUDE.md`.
+
+**The reflow that would fix it is his call**, because it makes the mobile order differ from the desktop one: below 700 the promo and email pair moves under the money row. The reference itself puts its promo code last. **Not taken here**, because an order he stated in his own words is not something to quietly rearrange.
+
+### A fifth collision, and this one was made in the same build
+
+`.wf-ceil-bar` was written at top level twice inside this build, the second rule overriding the first three lines later. **The scan that `D-101` earned caught it before it shipped**, which is the first time in this stage that a collision was found in the build that created it rather than in the one after. Merged into one rule.
+
+---
+
 ## 3. The four capabilities, and what makes each one a brake rather than a setting
 
 ### 3.1 `C1`. The coin, and the rate that has to be on this screen

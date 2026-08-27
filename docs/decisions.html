@@ -107,14 +107,17 @@
     .st-open { color: var(--accent-pink); background: rgba(233,77,139,0.12); border: 1px solid rgba(233,77,139,0.4); }
     .st-locked { color: var(--accent-yellow); background: rgba(250,218,98,0.08); border: 1px solid rgba(250,218,98,0.3); }
     .st-closed { color: #4ade80; background: rgba(74,222,128,0.08); border: 1px solid rgba(74,222,128,0.3); }
-    /* PICK / DROP / CARRY */
-    .pick, .drop, .carry {
+    /* PICK / DROP / CARRY / OPEN. .open was written into four records and never
+       styled, so every "what this does not answer" block rendered as bare text
+       without its box. Found on 27 August while writing the fifth. */
+    .pick, .drop, .carry, .open {
       display: block; margin-top: 12px; padding: 11px 14px;
       border-radius: 8px; font-size: 13.5px; line-height: 1.6; color: var(--text-secondary);
     }
     .pick { background: rgba(74,222,128,0.05); border: 1px solid rgba(74,222,128,0.18); }
     .drop { background: rgba(255,255,255,0.02); border: 1px solid var(--border); }
     .carry { background: rgba(250,218,98,0.05); border: 1px solid rgba(250,218,98,0.22); }
+    .open { background: rgba(255,255,255,0.02); border: 1px dashed var(--border); }
     .k {
       display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
       text-transform: uppercase; margin-bottom: 5px;
@@ -122,6 +125,7 @@
     .pick .k { color: #4ade80; }
     .drop .k { color: var(--text-muted); }
     .carry .k { color: var(--accent-yellow); }
+    .open .k { color: var(--text-muted); }
     /* OPEN LEDGER */
     .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); margin-top: 20px; }
     table { width: 100%; border-collapse: collapse; font-size: 13px; }
@@ -2163,6 +2167,30 @@
       <span class="pick"><span class="k">What renders instead</span><strong>A line, not a field.</strong> "Ukraine, the country on your account", with a route to 5.11, which is the one place it is set. <strong>And the register&#39;s real state is printed rather than implied.</strong> D-23: the allowlist is closed by default and <strong>there is no market we can open this month</strong>, so the note under the grid now says no market is open yet instead of a selector implying that at least one is. <strong>A selector of open markets is a control with nothing true to put in it</strong>, and that is a fact about where this project stands rather than a gap in the drawing.</span>
 
       <span class="drop"><span class="k">The class, because this is the second time in two days</span>D-97 found a sentence corrected on a base page and left standing on two of its copies. <strong>This one is a comment that states the rule and code beneath it that breaks the rule.</strong> Both are the same failure at different distances: <strong>the reasoning was right and nothing checked that the artefact agreed with it.</strong> <strong>A comment asserting the opposite of its own code has now been found three times in this stage</strong>, and each time by a person looking rather than by an instrument. The check that would catch it does not exist and cannot be a grep.</span>
+    </div>
+  </div>
+
+  <div class="dec" id="d-102">
+    <div class="dec-head"><span class="dec-num">D-102</span><span class="dec-title">The deposit pane is rebuilt on the founder&#39;s own order, and the brake is called what it is</span><span class="st st-closed">Stage 04</span></div>
+    <div class="dec-meta">2026-08-27 - the founder, on the layer built the day before. Binds node 4.1, the card body and the person facing wording of C2</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">What he said</span>The dialog looks heavy, complex and overfull. The order he wants, with the reference beside it: the bonus promotion as a banner, below it the promo code field with the email next to it, below that the amount with what it buys next to it, and any extra information below that. <strong>And: "I do not understand what this ceiling is or why it is here."</strong></span>
+
+      <span class="drop"><span class="k">The last sentence is the finding, and the defect is ours</span>C2 is the only blocking control on this screen. It carries B7-4, the escalation loop, twelve people who gave a figure unprompted, and the responsible play constraint in CLAUDE.md. <strong>The founder, who commissioned it, read it on the drawn screen and could not tell what it did.</strong> <strong>The label was the word the documents use:</strong> "a ceiling on what you put in" names a shape rather than a job, and internal analysis language walked onto a screen. It is now <strong>"Your deposit limit"</strong>, with a sentence under it that says the job.</span>
+
+      <span class="drop"><span class="k">And D-101 disguised it</span>That record put the limit beside the amount and defended the placement as C2&#39;s own story told in the layout: the limit carries the figure just typed, so the two are one gesture. <strong>What it produced on the screen was two money fields side by side holding the same number</strong>, one of them labelled with a word that does not say what it does. Right about the relationship, wrong about the drawing. The limit is under the amount again, full column width, still before the press.</span>
+
+      <span class="carry"><span class="k">C2 itself is untouched, and that is deliberate</span>Pre-filled from the amount just typed, blocking, the only blocking control here, lowering immediate and raising delayed by 24 hours, and never a score. <strong>Nothing about the brake was weakened to make it readable.</strong> The period it runs for is still [?].</span>
+
+      <span class="pick"><span class="k">What moved</span>The offer became a full width banner, alone: it is neither a question nor a figure, and beside two form fields it read as a third field with a picture in it. The promo and the email are the top row, two things of one kind. <strong>The email came up out of the card body, because a receipt address is not a property of paying by card</strong> and asked in the pane header it is asked once for all thirty five routes. The country went to the foot: stated, never answered, D-98. The provider became one line, still first, which is D-97&#39;s order.</span>
+
+      <span class="drop"><span class="k">Apply was the fourth picture of a control and nobody had reported it</span>The founder found three on this screen on 26 August: the presets, the money field, the receipt. <strong>Apply sat beside the promo field and did nothing.</strong> It cannot validate a code, because no promo or partner code exists in this product yet, so it says that rather than pretending. D-58 again, and the fourth instance in one node.</span>
+
+      <span class="carry"><span class="k">The cost, measured and printed rather than absorbed</span><strong>Mobile pays for this order.</strong> At 360 the amount now starts at 943px down the page, against 564px after D-101, because the header he asked for is 615px at that width and 360 has no room to put two fields side by side. Nothing is hidden by it: the receipt is fixed to the bottom of the viewport the whole way down. <strong>But it contradicts his own note of the day before</strong>, that the amount belongs in the first view, and the mobile first stance in CLAUDE.md. <strong>The reflow that would fix it is his call</strong>, because it makes the mobile order differ from the desktop one. Not taken here: an order stated in his own words is not something to quietly rearrange.</span>
+
+      <span class="drop"><span class="k">A fifth class collision, and the first caught inside the build that made it</span>.wf-ceil-bar was written at top level twice in this build, three lines apart, the second rule silently overriding the first. <strong>The scan D-101 earned found it before it rendered.</strong> Four of the five in this stage were found by a person looking at a screen, one by the instrument in the build after, and this one in the build that created it. Merged into one rule.</span>
+
+      <span class="open"><span class="k">What this does not answer</span>What the receipt says before an amount exists, named in D-99 and again in D-101, still [?]. Whether the mobile order diverges. <strong>The crediting window C3</strong>, the finer split of the 25 card routes, and whether C2 can bind on crypto. All still the founder&#39;s.</span>
     </div>
   </div>
 
