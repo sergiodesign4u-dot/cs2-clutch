@@ -533,7 +533,7 @@
         <div class="cap-block">
           <div class="card-label">Capabilities</div>
           <p><strong style="color:var(--text-primary)">One coin denomination throughout, pegged and published</strong>, <code>D-28</code>, so a payout can be converted back to a price by the person reading it rather than only by us.</p>
-          <p><strong style="color:var(--text-primary)">Limit chosen at deposit</strong>: the amount just typed is pre-filled as a ceiling with a period selector, the deposit cannot be submitted until the user accepts or changes it, lowering it applies immediately and raising it applies 24 hours later. When the ceiling is reached, deposits stop while opening from existing balance and withdrawal stay fully open.</p>
+          <p><strong style="color:var(--text-primary)">Limit chosen at deposit</strong>: the amount just typed is pre-filled as a ceiling with a period selector, the deposit cannot be submitted until the user accepts or changes it, lowering it applies immediately and raising it applies 24 hours later. When the ceiling is reached, deposits stop while opening from existing balance and withdrawal stay fully open. <strong style="color:var(--text-primary)">The first clause was overridden on 27 August 2026 by D-103: the limit is set on the responsible play page and the deposit states the figure in force. Everything after it still holds, and the block below is kept as the argument that was overridden rather than deleted.</strong></p>
         </div>
         <div class="emo-block">
           <div class="card-label">Target emotion</div>
@@ -701,6 +701,7 @@
       <div class="conv conv-drop"><span class="conv-k">Dropped: a chase interrupt</span>Locking the open control after a detected tilt pattern intervenes when the user is least receptive, a false positive tells someone having a big night that an algorithm has classified them as an addict, and a rule users can learn is a rule users will route around.</div>
       <div class="conv conv-cost"><span class="conv-k">Cost accepted, stated plainly</span>This caps the second and third deposit of a losing session, which is where the largest deposits in this category live, so the cost lands almost entirely on the top revenue decile. A user blocked for 24 hours can deposit on a site with no delay, so what is at risk is not one deposit but the account. That is the correct price for a product whose first principle is that trust is the product: proving the roll and then allowing unbounded deposits at 3am is proving the easy half.</div>
       <div class="conv conv-hard"><span class="conv-k">Design constraint attached to this capability, and it is a hard one</span>The ceiling may be framed as a buy-in that gives a session a shape and an ending. It must never acquire completion mechanics, streaks or a session score, because at that point it stops being a boundary and becomes a reason to keep going, which is the dark pattern this product forbids.</div>
+      <div class="conv conv-cost"><span class="conv-k">What D-103 took, 27 August 2026</span>The argument above is that the deposit is the one moment the person is calm and the number is one they typed themselves, and both dropped candidates were dropped for being worse moments. <strong style="color:var(--text-primary)">A boundary that has to be sought out on a settings page is a boundary most people never set</strong>, and that is what the two dropped candidates were being compared against. The founder read the drawn screen, could not name the control, and moved it to node 6.1. The record carries the cost rather than the argument being rewritten to fit it.</div>
     </div>
   </details>
 
@@ -1029,10 +1030,10 @@
           <td>No number renders anywhere without its unit, and <strong>no coin figure renders anywhere without the peg beside it at the moment of spending</strong>. Time figures and ratios do not become coins: <code>A4</code>, <code>G3</code> and <code>D4</code> stay minutes and percentages</td>
         </tr>
         <tr class="mvp">
-          <td><strong>C2. Spend ceiling chosen at deposit</strong></td>
-          <td class="parent"><span class="chip chip-barrier">B7-4</span> pattern of 12</td>
+          <td><strong>C2. Deposit limit, and its moment moved on 27 August 2026 by D-103</strong><br>The row read "spend ceiling chosen at deposit": the amount just typed pre-filled as a ceiling, blocking the payment until it was accepted or changed. The founder moved the setting to the responsible play page, node 6.1, where the other three boundaries already live, and the deposit surface states the figure in force with a route rather than asking for it. <strong>What the brake does is unchanged. When it is set is not.</strong></td>
+          <td class="parent"><span class="chip chip-barrier">B7-4</span> pattern of 12, and the answer is now weaker at the moment the pattern fires</td>
           <td class="pri"><span class="pri-mvp">MVP</span></td>
-          <td>Share of deposits where the pre-filled ceiling is accepted unchanged, and share of sessions stopped by the ceiling. Targets <span class="hyp-tag">[?]</span></td>
+          <td>Share of accounts carrying a limit at all, and share of sessions stopped by it. The old signal, share of deposits where the pre-filled ceiling is accepted unchanged, has no subject any more. Targets <span class="hyp-tag">[?]</span></td>
         </tr>
         <tr class="mvp">
           <td><strong>C3. Deposit crediting shown as a state with a timer</strong></td>

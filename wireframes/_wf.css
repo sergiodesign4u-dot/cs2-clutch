@@ -3614,24 +3614,10 @@ select {
 }
 .wf-presets { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
 
-/* Block 3. The ceiling. Stacked value and period at 360, one row from 600, which
-   is the only element on this page whose form changes with the width. */
-.wf-ceil { display: grid; gap: var(--wf-s-2); grid-template-columns: 1fr; }
-/* The period is unknown, and an unknown rendered at figure size outweighs the one
-   control on the block. It is marked, not shouted. */
-.wf-ceil .wf-fig-v { font-size: var(--wf-t-m); }
-.wf-ceil-in {
-  font: inherit; font-family: var(--wf-mono);
-  padding: var(--wf-s-2); color: var(--wf-ink);
-  background: transparent; border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
-  min-width: 0;
-}
-/* The asymmetry is IN THE INTERFACE AND NOT IN TERMS. Two lines, both always
-   visible, because a ceiling that can be raised on impulse in the moment it
-   binds is a setting rather than a brake. */
-.wf-asym { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-1); }
-.wf-asym li { display: flex; gap: var(--wf-s-2); font-size: var(--wf-t-s); }
-.wf-asym-w { flex: 0 0 84px; font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+/* THE CEILING FORM IS GONE FROM THIS NODE, D-103. Its blocks 3 and its asymmetry
+   list were the deposit's own copy of a control node 6.1 already carries, and the
+   founder moved the setting there. The rules are deleted rather than left unused: a
+   class no markup writes is the next collision waiting for a name. */
 
 /* Block 6. Method cards, WITH THE EMPTY STATE AS THE DEFAULT COMPOSITION rather
    than as a fallback: a screen designed for the returning depositor and patched
@@ -3676,7 +3662,6 @@ select {
    that a press is answered rather than swallowed. */
 .wf-refuse { font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
 .wf-refuse.is-said { color: var(--wf-ink); }
-.wf-ceil-set.is-missing { outline: 2px dashed var(--wf-ink-dim); outline-offset: 3px; }
 
 /* States 4.2 to 4.5. The reset moment, the pending moment and the elapsed time
    are STATED MOMENTS AND NEVER LIVE COUNTERS: a ticking counter beside a deposit
@@ -3689,7 +3674,6 @@ select {
 
 /* Responsive last, after everything above that it overrides. */
 @media (min-width: 600px) {
-  .wf-ceil { grid-template-columns: minmax(0, 1fr) minmax(0, 160px); align-items: end; }
   .wf-meth { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (min-width: 900px) {
@@ -4937,15 +4921,6 @@ textarea.wf-cfg-in { min-height: 0; }
 .wf-pay-body { display: flex; flex-direction: column; gap: var(--wf-s-3); }
 .wf-pay-g--prov { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); max-width: 320px; }
 
-/* THE LIMIT IS A ROW SINCE D-101 AND ONE ROW SINCE D-102. It wrapped its own
-   control onto a second line, which reads as a brake that is broken, so it stops
-   wrapping the moment there is room for both. ONE RULE AND NOT TWO: this class was
-   written at top level twice within one build and the stage has already shipped
-   four of those. */
-.wf-ceil-bar { display: flex; gap: var(--wf-s-2); align-items: stretch; flex-wrap: wrap; }
-.wf-ceil-bar > .wf-stack { flex: 1 1 180px; min-width: 0; gap: var(--wf-s-half); }
-.wf-ceil-bar .wf-ceil-in { flex: 1 1 200px; min-width: 0; }
-
 /* WHAT IS READ RATHER THAN ANSWERED SITS BELOW THE PRESS, D-101. Nothing is cut:
    the three lines are on the surface, under the block they qualify. */
 .wf-fund-more {
@@ -4974,30 +4949,17 @@ textarea.wf-cfg-in { min-height: 0; }
 @media (min-width: 700px) {
   .wf-pay-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
 }
-/* THE TWO CONDITIONS OF THE PRESS, FULL WIDTH UNDER THE MONEY, D-102. */
-.wf-fund-conds { display: flex; flex-direction: column; gap: var(--wf-s-3); }
-/* THE LIMIT IS ONE ROW. It wrapped its own control onto a second line, which reads
-   as a broken brake, so the bar stops wrapping the moment there is room. */
-@media (min-width: 520px) {
-  .wf-ceil-bar { flex-wrap: nowrap; }
-  .wf-ceil-bar .wf-ceil-in { flex: 1 1 auto; min-width: 0; }
-  .wf-ceil-set { flex: 0 0 auto; }
-}
-/* THE COUNTRY IS THE FOOT OF THE PANE, D-102: stated, not answered. */
-.wf-pay-foot {
-  margin-top: var(--wf-s-3); padding-top: var(--wf-s-3);
-  border-top: 1px solid var(--wf-line-soft);
-}
+/* THE COUNTRY IS BACK IN THE PANE HEADER, D-103, and .wf-pay-foot went with the
+   move rather than staying behind as a rule nothing writes. */
 /* Apply answers, and the answer is a place on the screen. */
 .wf-cfg-p.is-said { color: var(--wf-ink); }
 /* THE PROVIDER ROW IS A ROW SINCE D-101, which is what the baseline draws: SELECT
    PROVIDER is two marks above the form and not a section of its own. It was a
    full tile grid and cost three hundred pixels for two unknowns. */
-.wf-payprov { display: flex; align-items: center; gap: var(--wf-s-1) var(--wf-s-2); flex-wrap: wrap; }
-.wf-payprov > .wf-cfg-l { flex: 0 0 auto; }
+.wf-payprov { display: flex; align-items: center; gap: var(--wf-s-2); flex-wrap: wrap; }
 .wf-payprov-t {
   display: flex; align-items: center; gap: var(--wf-s-1);
-  padding: var(--wf-s-half) var(--wf-s-1);
+  padding: var(--wf-s-1); min-height: var(--wf-tap);
   border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
   background: var(--wf-surface);
 }

@@ -4285,3 +4285,55 @@ The founder found three on this screen on 26 August: the presets, the money fiel
 **Whether the mobile order diverges.** Above.
 
 **The crediting window `C3`**, the finer split of the 25 card routes, and whether `C2` can bind on crypto. All three still the founder's, all three carried since their own records.
+
+---
+
+## D-103. The deposit limit leaves the deposit, and `C2`'s moment is overridden by founder decision
+
+**Date:** 2026-08-27. **Stage:** 04. **Decided by:** the founder, on the `D-102` build. **Binds:** node `4.1`, node `6.1`, row `C2` of `cjm-to-be.md` and its step T4.
+
+**What he said.** The dialog is still overloaded. Put the deposit limit somewhere in the settings, but not here. **Make it something you do not want to close because of the pile of information on it.** Country into the top row. Email under the amount. Put the provider block back the way it was.
+
+### `C2` keeps what it does and loses where it is set, and this is the largest thing in the record
+
+`cjm-to-be.md` T4, verbatim: the amount just typed is pre-filled as a ceiling with a period selector, and **the deposit cannot be submitted until the user accepts or changes it.** That clause is overridden. The limit is now set on `6.1`, where the session limit, the cool down and the self exclusion already live and where a control for it has existed since that page was drawn.
+
+**What `4.1` keeps is the figure, not the form.** The limit in force is a line in the receipt with a route, so the number is in front of a person at the moment of spending, which is design principle 3, clarity at every risk moment. **The unset state is said rather than filled:** an account with no limit reads `None set` beside `set one`. Printing a number there would be inventing the protection.
+
+**The cost, and T4 already wrote it.** That step chose the deposit moment over two alternatives and gave the reason: one tap on a number they chose themselves, at the one moment they are calm. Both dropped candidates were dropped for being worse moments. **A boundary a person has to go and find is a boundary most people never set**, and that is exactly what the deposit moment was chosen to avoid. `B7-4` is a pattern of 12 with figures from 350 to 50,000 dollars on one site, and the answer to it is now weaker at the moment the pattern fires.
+
+**The argument is kept, not rewritten.** `cjm-to-be.md` keeps its diverge, its cost paragraph and its hard design constraint intact, with the override named beside them. `ia/docs/pages/responsible.md` keeps its "two surfaces, one value" clause quoted in full as the thing that was overridden. **A losing argument deleted is a decision nobody can audit.**
+
+### What it closes, and it is not nothing
+
+`D-96` found that `C2` could not bind on the crypto route, because the ceiling works by being accepted before a submission and there is no submission there. **With no acceptance step anywhere, that asymmetry is gone.** What remains open is enforcement on arrival, which was always the harder half: refusing money already sent means holding it or returning it, and neither has a row, a policy or a node.
+
+### One name for one boundary, across seven pages
+
+The deposit screen said **deposit limit** after `D-102` and `6.1` said **spend ceiling**. **Two names for one thing across two surfaces is how a person stops believing they are the same thing.** Renamed on the five responsible play pages, on `4.2` and `4.3`, on their registry labels and page titles, and in the crypto route's own statement of the gap.
+
+**And the rename had to be applied five times**, because the five responsible play pages are five hand copies of one block. That is the shape `D-99` found in the deposit cluster and fixed by making the pages hosts of one renderer. **Carried as a debt against `6.1` rather than fixed here**, because this step had no business rewriting another node.
+
+### The pane, in his order
+
+Banner alone. Promo with the country beside it. The chosen method. Who takes the payment, back to a heading and two slots. How much you are paying with the receipt beside it. The receipt address under the amount, then the terms. Four read-only lines below.
+
+**The email and the country swapped and the swap has a reason beyond placement.** The promo and the country are properties of the account; the amount and the receipt address are properties of this payment. **Each pair now sits together.**
+
+**What was cut.** The rate paragraph, because `C1` is satisfied by the peg on the line under the receipt figure and a second rendering of one fact on one screen is what `D-97` removed three of. Four paragraphs became four lines, every one still naming its own unknown. **The provider block came back**, because `D-102` had compressed the sentence that says a stranger will hold the card details into a caption, on the screen where that matters most.
+
+**Dead CSS deleted rather than left.** `.wf-ceil`, `.wf-ceil-in`, `.wf-ceil-bar`, `.wf-ceil-set`, `.wf-asym`, `.wf-fund-conds` and `.wf-pay-foot` all went with the markup that used them. Seven rules, and the stage has shipped five collisions caused by names nothing was writing.
+
+### The cost that did not go away
+
+**At 360 the amount starts at 984px**, against 943 after `D-102` and 564 before it, because the provider block came back. **The pane is shorter overall**, ending at 1733px against 1916px. The receipt is fixed to the bottom of the viewport throughout, so what the money buys is on every screen even when the field is not.
+
+**Still open and still the founder's:** whether the promo and country row moves under the money below 700, which would make the mobile order differ from the desktop one.
+
+### What this does not answer
+
+**The period the limit runs for.** `[?]` since `C2` was written, and moving the control did not give it one.
+
+**What the receipt says before an amount exists.** Named in `D-99`, `D-101` and `D-102`.
+
+**The crediting window `C3`**, the finer split of the 25 card routes, and enforcement of the limit on the crypto route. All the founder's.

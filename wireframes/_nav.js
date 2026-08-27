@@ -232,8 +232,8 @@ window.WF_NAV = {
         { node: '4.1', label: 'Step 2, crypto',              file: 'deposit-crypto.html',          status: 'built' },
         { node: '4.1', label: 'Step 2, no address yet',      file: 'deposit-crypto-nowallet.html', status: 'built' },
         { node: '4.1', label: 'Step 2, gift cards',          file: 'deposit-giftcards.html',       status: 'built' },
-        { node: '4.2', label: 'Ceiling reached this period', file: 'deposit-ceiling-reached.html', status: 'built' },
-        { node: '4.3', label: 'Ceiling raise pending',       file: 'deposit-ceiling-pending.html', status: 'built' },
+        { node: '4.2', label: 'Deposit limit reached this period', file: 'deposit-ceiling-reached.html', status: 'built' },
+        { node: '4.3', label: 'Limit raise pending',            file: 'deposit-ceiling-pending.html', status: 'built' },
         { node: '4.4', label: 'Crediting, named timer',      file: 'deposit-crediting.html',       status: 'built' },
         { node: '4.5', label: 'Payment declined',            file: 'deposit-declined.html',        status: 'built' }
       ] },
@@ -1359,35 +1359,29 @@ window.WF_PAY = window.WF_PAY || {
     });
   }
 
-  /* NODE 4.1. THE CEILING IS THE ONLY BLOCKING THING ON THE SCREEN, and it blocks
-     the way D-58 fixed for the consent gate rather than the way the block bank
-     drew it. The bank's Wealthsimple row is "submit disabled until the condition is
-     met" and node 4.1 section 3.2 took that wording. A dimmed Pay is a person
+  /* NODE 4.1. THE TERMS ARE THE ONLY BLOCKING THING ON THE SCREEN SINCE D-103, and
+     they block the way D-58 fixed for the consent gate rather than the way the block
+     bank drew it. The bank's Wealthsimple row is "submit disabled until the condition
+     is met" and node 4.1 section 3.2 took that wording. A dimmed Pay is a person
      looking for what to change; a live Pay that refuses is a person being told.
-     The rule underneath is untouched: NO PRESS GOES THROUGH until the ceiling is
-     accepted or changed, which is C2's second property word for word.
-     ACCEPTING AND CHANGING BOTH SATISFY IT. The mechanism is "one tap on a number
-     they chose themselves", so typing a different number is the same consent as
-     pressing accept, and a form that demanded both would be asking twice.
-     SCOPED SINCE D-99. With the layer open over a step 2 address there are two of
-     this form in the document, and an unscoped query wires the controls of one to
-     the refusal of the other.
-     AND THE MONEY IS LIVE SINCE D-101. The presets set the amount, the amount
-     drives the receipt, and the field takes digits. Before this the six presets
-     changed nothing, the receipt was a string printed once at render, and the money
-     field accepted letters, which is three pictures of controls on the one screen
-     in the product where a control has to be believed. */
+     WHAT LEFT. C2's ceiling was the other blocking condition and the founder moved it
+     to the settings on 27 August. The mechanism it took with it, "pre-filled with the
+     amount just typed and accepted before the payment goes through", is the whole of
+     that row's second property, and D-103 carries what it cost.
+     SCOPED SINCE D-99. With the layer open over an address there are two of this form
+     in the document, and an unscoped query wires the controls of one to the refusal of
+     the other.
+     AND THE MONEY IS LIVE SINCE D-101. The presets set the amount, the amount drives
+     the receipt, and the field takes digits. Before this the six presets changed
+     nothing, the receipt was a string printed once at render, and the money field
+     accepted letters, which is three pictures of controls on the one screen in the
+     product where a control has to be believed. */
   function mountDeposit(scope) {
     scope = scope || document;
-    var form = scope.querySelector('[data-dep-form]');
-    if (!form) return;
-    var accept = form.querySelector('[data-dep-accept]');
-    var ceil   = form.querySelector('[data-dep-ceil]');
-    var amt    = scope.querySelector('[data-dep-amt]');
-    var go     = scope.querySelector('[data-dep-go]');
-    var say    = scope.querySelector('[data-dep-refuse]');
-    if (!accept || !ceil || !go || !say) return;
-    var settled = false;
+    var go = scope.querySelector('[data-dep-go]');
+    var say = scope.querySelector('[data-dep-refuse]');
+    if (!go || !say) return;
+    var amt = scope.querySelector('[data-dep-amt]');
 
     /* DIGITS AND ONE POINT. A money field that takes letters is a money field that
        can hold something that is not money, and every figure computed from it then
@@ -1399,12 +1393,12 @@ window.WF_PAY = window.WF_PAY || {
       return v;
     }
 
-    function txt(sel, s) {
+    function txt(sel, t) {
       var n = scope.querySelector(sel);
-      if (n) n.textContent = s;
+      if (n) n.textContent = t;
     }
 
-    /* ONE ARITHMETIC, RENDERED IN SIX PLACES AND COMPUTED IN ONE. The peg makes the
+    /* ONE ARITHMETIC, RENDERED IN FIVE PLACES AND COMPUTED IN ONE. The peg makes the
        sum legal at all, D-95, and the cap is applied here rather than described. */
     function paint() {
       var f = depFigs(amt ? amt.value : '0');
@@ -1413,26 +1407,6 @@ window.WF_PAY = window.WF_PAY || {
       txt('[data-fig-amt]',   '$' + f.amount);
       txt('[data-fig-bonus]', f.bonus + ' coins');
       txt('[data-fig-total]', '$' + f.amount);
-      // THE CEILING FOLLOWS THE AMOUNT UNTIL IT IS SETTLED, which is C2's first
-      // property working rather than being described: pre-filled with the amount
-      // just typed. Once settled it is the person's own number and nothing moves it.
-      if (!settled && !ceil.getAttribute('data-dep-hold')) {
-        ceil.value = f.amount;
-        txt('[data-fig-ceil]', '$' + f.amount);
-      }
-    }
-
-    function settle(how) {
-      settled = true;
-      accept.setAttribute('aria-pressed', 'true');
-      accept.textContent = 'Limit set';
-      accept.classList.remove('is-missing');
-      ceil.classList.remove('is-missing');
-      say.classList.remove('is-said');
-      say.textContent = how === 'typed'
-        ? 'Deposit limit set to the figure you typed. It applies from this deposit.'
-        : 'Deposit limit set. It applies from this deposit.';
-      txt('[data-fig-ceil]', '$' + (parseFloat(clean(ceil.value)) || 0).toFixed(2));
     }
 
     if (amt) {
@@ -1454,17 +1428,6 @@ window.WF_PAY = window.WF_PAY || {
       });
     });
 
-    accept.addEventListener('click', function () { settle('accepted'); });
-    // A CHANGE IS CONSENT. The pre-filled figure is the amount just typed, so a
-    // person who edits it has made the same deliberate act the accept button asks
-    // for, on a number that is even more theirs.
-    ceil.addEventListener('input', function () {
-      var c = clean(ceil.value);
-      if (c !== ceil.value) ceil.value = c;
-      ceil.setAttribute('data-dep-hold', '1');
-      settle('typed');
-    });
-
     /* THE TERMS BOX IS THE PRODUCT'S OWN AND IT REALLY TOGGLES, D-58. It is the
        same control 2.4 runs, which is why it looks like it: one component, two
        screens, rather than a native input on one of them. */
@@ -1476,26 +1439,19 @@ window.WF_PAY = window.WF_PAY || {
         box.setAttribute('aria-pressed', on ? 'false' : 'true');
         terms.classList.toggle('is-set', !on);
         terms.classList.remove('is-missing');
+        say.classList.remove('is-said');
       });
     }
 
     go.addEventListener('click', function (e) {
       var needTerms = terms && terms.querySelector('.wf-cbx-box').getAttribute('aria-pressed') !== 'true';
-      if (settled && !needTerms) return;
+      if (!needTerms) return;
       e.preventDefault();
-      // THE ANSWER IS A PLACE ON THE SCREEN AND NOT ONLY A SENTENCE ABOUT ONE, and
-      // it names WHICH condition is missing when both are.
+      // THE ANSWER IS A PLACE ON THE SCREEN AND NOT ONLY A SENTENCE ABOUT ONE.
       say.classList.add('is-said');
-      if (!settled) {
-        say.textContent = 'Nothing went through: your deposit limit has not been set or changed yet. It is the figure under the amount.';
-        accept.classList.add('is-missing');
-        ceil.classList.add('is-missing');
-        ceil.focus();
-      } else {
-        say.textContent = 'Nothing went through: the terms and the refund policy have not been accepted yet.';
-        terms.classList.add('is-missing');
-        terms.querySelector('.wf-cbx-box').focus();
-      }
+      say.textContent = 'Nothing went through: the terms and the refund policy have not been accepted yet.';
+      terms.classList.add('is-missing');
+      terms.querySelector('.wf-cbx-box').focus();
     });
 
     paint();
@@ -3775,22 +3731,16 @@ window.WF_PAY = window.WF_PAY || {
     return strip;
   }
 
-  /* THE PROMO AND THE EMAIL ARE THE PANE HEADER, D-102, founder of 27 August 2026
-     giving the reference's own order: the offer as a banner, then the promo field
-     with the email beside it, then the amount with what it buys beside it. His
-     word for the pane before this was overfull, and three unlike things across the
-     top was where it started.
-     THE EMAIL CAME UP OUT OF THE CARD BODY. A receipt address is not a property of
-     paying by card: every route that takes money sends one, and it sat in that body
-     only because that body was written first. Asked here it is asked once for all
-     thirty five routes, and it is on the first screen without the card form having
-     to carry it there.
-     THE PROMO FIELD IS EMPTY AND THE BASELINE'S IS NOT, D-96. The live product
-     arrives with a partner code already in the field, ticked and applied, which is
-     attribution happening to a person rather than by them.
-     APPLY ANSWERS, D-58. It was a control that did nothing on the screen where the
-     founder had already found three of those. It cannot validate a code, because no
-     code exists yet, so it says that instead of pretending. */
+  /* THE PROMO AND THE COUNTRY ARE THE PANE HEADER, D-103, founder of 27 August
+     2026 on the D-102 build: still overloaded, and put the country here.
+     THE EMAIL WENT DOWN UNDER THE AMOUNT. It was in this row for one build. The
+     founder's reason is placement rather than kind, and he is right about the kind
+     too: the promo and the country are both about the account, and the email is
+     about this payment, so it belongs with the payment.
+     THE COUNTRY IS STILL READ AND NEVER SET, D-98. 5.11 owns the one answer, so it
+     is a value with a route rather than a select with one option in it.
+     THE PROMO FIELD IS EMPTY AND THE BASELINE'S IS NOT, D-96, and APPLY ANSWERS
+     RATHER THAN DOING NOTHING, D-58 and D-102. */
   function payHead(idp) {
     var out = [];
 
@@ -3812,38 +3762,23 @@ window.WF_PAY = window.WF_PAY || {
     promo.appendChild(psay);
     out.push(promo);
 
-    var mail = el('div', 'wf-pay-f');
-    var ml = el('label', 'wf-cfg-l', 'Where the receipt goes');
-    ml.setAttribute('for', idp + 'dep-email');
-    mail.appendChild(ml);
-    var min = el('input', 'wf-f');
-    min.id = idp + 'dep-email'; min.type = 'email'; min.value = 'nightjar_cs@example.com';
-    mail.appendChild(min);
-    mail.appendChild(el('p', 'wf-cfg-p', 'Already on your account. Changing it here changes it for this payment only.'));
-    out.push(mail);
-
-    return out;
-  }
-
-  /* THE COUNTRY IS THE FOOT OF THE PANE, D-102. It is read and never set, D-98:
-     5.11 owns the one answer. So it states rather than asks, and the top of the
-     pane is now only the things a person answers. It keeps the block, the mark and
-     the route the founder asked for on 26 August, one row lower. */
-  function payFoot() {
-    var foot = el('div', 'wf-pay-foot');
+    var cty = el('div', 'wf-pay-f');
+    cty.appendChild(el('span', 'wf-cfg-l', 'Country'));
     var box = el('div', 'wf-cty');
     var flag = el('span', 'wf-cty-art');
     flag.setAttribute('aria-hidden', 'true');
     box.appendChild(flag);
     var v = el('div', 'wf-cty-v');
     v.appendChild(el('strong', null, 'Ukraine'));
-    v.appendChild(el('span', 'wf-cty-c', 'The country on your account. What you can pay with follows it.'));
+    v.appendChild(el('span', 'wf-cty-c', 'What you can pay with follows it'));
     box.appendChild(v);
     var ca = el('a', 'wf-btn wf-btn--small', 'Change');
     ca.href = BASE + 'settings.html';
     box.appendChild(ca);
-    foot.appendChild(box);
-    return foot;
+    cty.appendChild(box);
+    out.push(cty);
+
+    return out;
   }
 
   /* THE CHOSEN METHOD KEEPS ITS OWN LINE, and Change goes back to the grid of the
@@ -3884,45 +3819,51 @@ window.WF_PAY = window.WF_PAY || {
     return { amount: a.toFixed(2), bonus: bon.toFixed(2), receive: (a + bon).toFixed(2) };
   }
 
-  /* WHO TAKES THE PAYMENT, AND IT IS A LINE SINCE D-102. It is first because the
-     provider decides what the form asks for, D-97, and that order is unchanged.
-     What changed is its price: a heading, a subhead and two tiles spent a third of
-     the first screen on two unknowns. WHO THEY ARE IS NOT DECIDED and inventing two
-     names would be the median the input gate exists to prevent. */
+  /* WHO TAKES THE PAYMENT, AND IT IS A BLOCK AGAIN, D-103, founder on the built
+     screen: put this back the way it was. D-102 compressed it to a line to buy
+     vertical room, and the room turned out to be worth less than the block: this is
+     the sentence that says a stranger will hold the card details, on the screen
+     where that matters most, and a caption sized statement is not where trust is
+     built. It is first, which is D-97's order and the baseline's: SELECT PROVIDER
+     sits above the form and the provider decides what the form asks for.
+     WHO THEY ARE IS NOT DECIDED and inventing two names would be the median the
+     input gate exists to prevent. */
   function depProvider(P) {
     return '' +
-      '<div class="wf-payprov">' +
-        '<span class="wf-cfg-l">Who takes the payment</span>' +
-        '<span class="wf-payprov-t"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n wf-fig-missing">Not chosen</span></span>' +
-        '<span class="wf-payprov-t"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n wf-fig-missing">Not chosen</span></span>' +
-        '<p class="wf-note">Your card details go to them and not to us. <span class="wf-fig-missing">Not decided, and neither is any fee or minimum they carry.</span></p>' +
+      '<div class="wf-stack">' +
+        '<h2 class="wf-pay-gh" id="' + P + 'h2-prov">Who takes the payment. <span class="wf-pay-gh-s">Your card details go to them and not to us</span></h2>' +
+        '<div class="wf-payprov">' +
+          '<div class="wf-payprov-t"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n wf-fig-missing">Provider not chosen</span></div>' +
+          '<div class="wf-payprov-t"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n wf-fig-missing">Provider not chosen</span></div>' +
+          '<p class="wf-note wf-fig-missing">The providers are not decided, and neither is any fee, minimum or maximum they carry</p>' +
+        '</div>' +
       '</div>';
   }
 
-  /* THE CARD BODY, REBUILT ON THE REFERENCE BY D-102, founder of 27 August 2026:
-     the pane read as heavy, complex and overfull, and the order he gave is the
-     reference's own. Banner, then the promo with the email beside it, then the
-     amount with what it buys beside it, then what is only read.
-     WHAT LEFT THIS BODY. The email went up into the pane header, because it is not
-     a property of the card route. The country went to the foot of the pane. The
-     provider became a line. WHAT IS LEFT IS THREE ANSWERS: how much, the limit, the
-     terms, and the receipt beside them.
-     THE LIMIT KEPT ITS PLACE AND LOST ITS DISGUISE. D-101 put it beside the amount
-     because C2 pre-fills it from the amount, and that is exactly what made it
-     unreadable: two money fields side by side carrying the same figure, one of them
-     labelled with a word that does not say what it does. The founder read the built
-     screen and could not name it, which is the finding. It is under the amount
-     again, it is called what it is, and its own line says what it is for.
-     NOTHING WAS CUT AND C2 IS UNCHANGED: pre-filled from the amount just typed,
-     blocking, the only blocking control here, asymmetric, and never a score. */
+  /* THE CARD BODY, AND THE DEPOSIT LIMIT IS NOT IN IT SINCE D-103. Founder of 27
+     August 2026, on the D-102 build: still overloaded, and the limit belongs in the
+     settings rather than here.
+     C2 IS NOT DELETED, ITS MOMENT IS. The row said the ceiling is chosen at the
+     deposit and blocks the payment until it is accepted or changed. It is now set
+     where the other three boundaries already are, node 6.1, which has carried a
+     spend ceiling control with an amount and a period since that page was drawn.
+     WHAT THIS SCREEN KEEPS IS THE FIGURE, NOT THE FORM. The limit in force is a line
+     in the receipt with a route, so the number is still in front of a person at the
+     moment of spending, which is design principle 3. What it is not any more is a
+     second thing to fill in beside the amount.
+     THE COST IS REAL AND IT IS IN D-103: a boundary set on a calm page is a boundary
+     nobody sets. The record carries the argument it overrode rather than deleting it.
+     THE EMAIL IS UNDER THE AMOUNT, founder's placement, and it is the right kind of
+     block for the column: the promo and the country are about the account, the
+     amount and the email are about this payment.
+     THE RATE PARAGRAPH IS GONE, and that is a dedup rather than a cut. C1 requires
+     the peg beside the coin figure at the moment of spending, D-28, and the receipt
+     carries it on the line under the figure. A second rendering of one fact on one
+     screen is what D-97 already removed three of. */
   function depCard(P, o) {
     var f = depFigs(o.amount);
     var B = window.WF_BONUS || {};
     return '' +
-      /* THE PROVIDER IS A FULL WIDTH LINE ABOVE THE MONEY, D-102. In the left
-         column beside the receipt it was 290px wide, so two unknowns stacked and a
-         one line statement ran to four. It is still first, which is D-97's order and
-         the baseline's: the provider decides what the form asks for. */
       depProvider(P) +
       '<div class="wf-fund-grid">' +
         '<div class="wf-fund">' +
@@ -3944,42 +3885,23 @@ window.WF_PAY = window.WF_PAY || {
                 return '<button class="wf-btn wf-btn--small" type="button" data-dep-preset="' + n + '.00" aria-pressed="false">$' + n + '</button>';
               }).join('') +
             '</div>' +
-            '<p class="wf-note">1 coin = $1.00, a fixed rate rather than a market read. If it ever changes we say so before you spend against it.</p>' +
           '</div>' +
-          /* THE TWO CONDITIONS OF THE PRESS SIT UNDER THE MONEY AND INSIDE THE SAME
-             COLUMN, D-102. Taken out to full width the grid row stayed as tall as the
-             receipt and opened a hundred and sixty pixels of nothing under the amount.
-             They are what a press needs, so they are between the money and what is only
-             read, and the limit control is one row rather than two because the bar stops
-             wrapping once there is room for it.
-             THE MOBILE ORDER IS UNCHANGED: amount, limit, terms, with the summary fixed
-             to the bottom of the viewport the whole way down. */
-          '<div class="wf-fund-conds">' +
-          /* THE DEPOSIT LIMIT, C2. Four properties and every one is load bearing:
-             pre-filled from the amount just typed rather than from a default we
-             chose, blocking and the only blocking element here, the asymmetry
-             stated in the interface rather than in terms, and never a score.
-             PER PERIOD, NOT PER DEPOSIT: without that the second deposit of a
-             session would raise the limit by being typed.
-             CALLED WHAT IT IS SINCE D-102. "A ceiling on what you put in" is the
-             word the documents use, and the founder read it on the screen and asked
-             what it was and why it was there. A protection nobody can name is not
-             one. The label says the thing and the line under it says the job. */
-          '<div class="wf-stack" data-dep-form>' +
-            '<label class="wf-cfg-l" for="' + P + 'dep-ceil">Your deposit limit</label>' +
-            '<div class="wf-ceil-bar">' +
-              '<input class="wf-ceil-in" id="' + P + 'dep-ceil" data-dep-ceil type="text" inputmode="decimal" value="' + (o.ceiling || f.amount) + '">' +
-              '<button class="wf-btn wf-ceil-set" data-dep-accept type="button" aria-pressed="false">Set this limit</button>' +
-            '</div>' +
-            '<p class="wf-note"><strong>The most you can put in over a period, and you set it rather than us.</strong> It starts at the amount you just typed, so leaving it as it is caps you at this deposit. Lowering it takes effect immediately; raising it takes effect 24 hours later and the limit you have now holds until then. Nothing goes through until it is set or changed. <span class="wf-fig-missing">The period it runs for is not set.</span></p>' +
+          /* THE RECEIPT ADDRESS, UNDER THE AMOUNT. The baseline asks a signed-in
+             person for an email it already holds, 5b.2, which is a form that does
+             not know who it is talking to. Ours is filled and editable. */
+          '<div class="wf-cfg-f">' +
+            '<label class="wf-cfg-l" for="' + P + 'dep-email">Where the receipt goes</label>' +
+            '<input class="wf-cfg-in" id="' + P + 'dep-email" type="email" value="nightjar_cs@example.com">' +
+            '<p class="wf-cfg-p">Already on your account. Changing it here changes it for this payment only.</p>' +
           '</div>' +
           /* THE TERMS ARE ASKED AGAIN, the baseline's own behaviour: the sign-in
-             consent is about the account and this one is about a payment.
-             THE BOX IS THE PRODUCT'S OWN CONTROL AND NOT THE BROWSER'S, D-58. */
+             consent is about the account and this one is about a payment. IT IS THE
+             ONLY BLOCKING CONTROL ON THE SCREEN SINCE D-103, and it blocks the way
+             D-58 fixed: the press stays live and answers.
+             THE BOX IS THE PRODUCT'S OWN CONTROL AND NOT THE BROWSER'S. */
           '<div class="wf-cbx" data-dep-terms>' +
             '<button class="wf-cbx-box" type="button" aria-pressed="false" aria-label="I have read and accept the terms and the refund and payments policy">&#10003;</button>' +
             '<span class="wf-cbx-t">I have read and accept the <a href="' + BASE + 'legal.html">terms</a> and the <a href="' + BASE + 'legal.html">refund and payments policy</a>.</span>' +
-          '</div>' +
           '</div>' +
         '</div>' +
         '<div>' +
@@ -4000,26 +3922,31 @@ window.WF_PAY = window.WF_PAY || {
               /* THE BONUS IS A LINE IN THE SUM AND NEVER A BADGE ON IT, D-94: a
                  badge asserts, a line in a sum gets checked. */
               '<div class="wf-tl"><span>Bonus, ' + (B.pctFull || '5.00%') + ' capped at ' + (B.cap || '100 coins') + ' per ' + (B.period || '24 hours') + '</span><span class="wf-tl-v" data-fig-bonus>' + f.bonus + ' coins</span></div>' +
-              '<div class="wf-tl"><span>Deposit limit after this</span><span class="wf-tl-v" data-fig-ceil>$' + (o.ceiling || f.amount) + '</span></div>' +
+              /* C2 IS A STATED FIGURE HERE AND NOT A FORM, D-103. THE UNSET STATE IS
+                 SAID RATHER THAN FILLED: a person who has never set one has none, and
+                 printing a number there would be inventing the protection. */
+              '<div class="wf-tl"><span>Deposit limit in force <a href="' + BASE + 'responsible.html">' + (o.ceiling ? 'change' : 'set one') + '</a></span>' +
+                '<span class="wf-tl-v' + (o.ceiling ? '' : ' wf-fig-missing') + '">' + (o.ceiling ? '$' + o.ceiling : 'None set') + '</span></div>' +
               '<div class="wf-tl"><span>To withdraw, you will need</span><span class="wf-tl-v wf-fig-missing">Not published</span></div>' +
               '<div class="wf-tl wf-tl--sum"><span>Total charged</span><span class="wf-tl-v" data-fig-total>$' + f.amount + '</span></div>' +
             '</div>' +
-            '<p class="wf-refuse" data-dep-refuse>' + (o.refuse || 'The deposit limit has to be set or changed before this goes through.') + '</p>' +
+            '<p class="wf-refuse" data-dep-refuse>' + (o.refuse || 'The terms have to be accepted before this goes through.') + '</p>' +
             '<div class="wf-row">' +
               '<a class="wf-btn wf-btn--primary" data-dep-go href="' + BASE + 'deposit-crediting.html">' + (o.go || 'Pay') + '</a>' +
             '</div>' +
           '</div>' +
         '</div>' +
       '</div>' +
-      /* WHAT IS READ RATHER THAN ANSWERED, BELOW THE PRESS. The bonus rule, the
-         exit price and the crediting window. All three are still on the surface and
-         none of them takes an input. THE BONUS RULE STAYS OUT OF THE BANNER because
-         the banner carries the offer and this carries what a number cannot say. */
+      /* WHAT IS READ RATHER THAN ANSWERED, BELOW THE PRESS, AND IT IS FOUR LINES
+         SINCE D-103 RATHER THAN FOUR PARAGRAPHS. Founder: the dialog must not be a
+         thing you want to close because of the pile of text on it. Nothing was cut,
+         every one still names its own unknown, and the exit price is also a line in
+         the receipt where it stays in view. */
       '<div class="wf-fund-more">' +
-        '<p class="wf-note">The ' + (B.pctFull || '5.00%') + ' is added when the money arrives, and it is the same offer every time rather than a first deposit only. <strong>It carries no wagering requirement:</strong> the coins it adds behave like every other coin in your balance, and what it takes to withdraw does not move because of it.</p>' +
-        '<p class="wf-note"><strong>To take anything out you will need</strong> <span class="wf-fig-missing">a sum that is not published yet</span>. Whatever it says when you pay is the figure that applies to this money: it can be lowered later and it can never be raised.</p>' +
-        '<p class="wf-note"><strong>After you pay.</strong> <span class="wf-fig-missing">How long crediting takes is not published.</span> Whatever it says here is the same figure that runs as the clock afterwards, and if it passes with nothing arrived the deposit keeps its state rather than turning into silence. <a href="' + BASE + 'support.html">Support</a> answers inside a published deadline.</p>' +
-        '<p class="wf-note">A session limit, a cool down and a self exclusion live together on <a href="' + BASE + 'responsible.html">Responsible play</a>.</p>' +
+        '<p class="wf-note"><strong>The bonus.</strong> ' + (B.pctFull || '5.00%') + ' added when the money arrives, on every top-up rather than the first, and it carries no wagering requirement.</p>' +
+        '<p class="wf-note"><strong>To take anything out you will need</strong> <span class="wf-fig-missing">a sum that is not published yet</span>. Whatever it says when you pay applies to this money, and it can never rise.</p>' +
+        '<p class="wf-note"><strong>After you pay.</strong> <span class="wf-fig-missing">How long crediting takes is not published.</span> If it passes with nothing arrived the deposit keeps its state, and <a href="' + BASE + 'support.html">support</a> answers inside a published deadline.</p>' +
+        '<p class="wf-note"><strong>Your boundaries.</strong> The deposit limit, the session limit, the cool down and self exclusion are all set on <a href="' + BASE + 'responsible.html">Responsible play</a>.</p>' +
       '</div>';
   }
 
@@ -4084,9 +4011,9 @@ window.WF_PAY = window.WF_PAY || {
             '</div>' +
           '</div>' +
           '<div class="wf-stack">' +
-            '<div class="wf-sec-head"><h2 id="' + P + 'h2-ceiling">Your ceiling does not hold on this route</h2></div>' +
-            '<p class="wf-cost-say"><strong>You set a ceiling on what you put in, and it works by being accepted before a payment goes through.</strong> There is nothing to accept here: you send what you send, from your own wallet, and it arrives. <strong>Your ceiling is still in force everywhere else and it cannot stop this.</strong> <a href="' + BASE + 'responsible.html">Your limits</a></p>' +
-            '<p class="wf-note wf-fig-missing">What happens when coins arrive that would have been over your ceiling is not decided. Refusing money already sent means holding it or sending it back, and neither is written down anywhere yet</p>' +
+            '<div class="wf-sec-head"><h2 id="' + P + 'h2-ceiling">Your deposit limit does not hold on this route</h2></div>' +
+            '<p class="wf-cost-say"><strong>A limit stops a payment before it goes through, and this route has no payment to stop.</strong> You send what you send, from your own wallet, and it arrives. <strong>Your limit is still in force everywhere else and it cannot stop this.</strong> <a href="' + BASE + 'responsible.html">Your limits</a></p>' +
+            '<p class="wf-note wf-fig-missing">What happens when coins arrive that would have been over your limit is not decided. Refusing money already sent means holding it or sending it back, and neither is written down anywhere yet</p>' +
           '</div>' +
         '</div>' +
         '<div>' +
@@ -4167,12 +4094,12 @@ window.WF_PAY = window.WF_PAY || {
   var STEP2_BANNER = {
     'ceiling-pending':
       '<div class="wf-notice">' +
-        '<h2 id="h2-pending">The higher ceiling is not in force yet</h2>' +
+        '<h2 id="h2-pending">The higher limit is not in force yet</h2>' +
         '<p><strong>In force now: $40.00</strong> for the period. This is the figure every number on this page uses.</p>' +
         '<p>Pending: 120.00. It takes effect at the moment below, and until then nothing changes.</p>' +
         '<div class="wf-moment">' +
           '<span class="wf-moment-v">23 Aug 2026, 09:31</span>' +
-          '<span class="wf-moment-l">When the higher ceiling takes effect</span>' +
+          '<span class="wf-moment-l">When the higher limit takes effect</span>' +
         '</div>' +
         '<div class="wf-row"><button class="wf-btn" type="button">Cancel the raise</button></div>' +
         '<p class="wf-note">Cancelling is a lowering, so it takes effect immediately, at any time, with no second wait.</p>' +
@@ -4262,8 +4189,6 @@ window.WF_PAY = window.WF_PAY || {
       }
       main.appendChild(sec);
     }
-
-    main.appendChild(payFoot());
 
     host.appendChild(main);
     mountDeposit(main);

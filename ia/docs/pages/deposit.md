@@ -358,6 +358,54 @@ The founder found three on this screen on 26 August. **`Apply` was the fourth an
 
 ---
 
+## 2j. Rebuilt 27 August 2026 by `D-103`. The limit leaves this node, and the pane stops being a wall
+
+**The founder, on the `D-102` build:** still overloaded, put the deposit limit somewhere in the settings but not here, and **make the dialog something you do not want to close because of the pile of information on it**. Country into the top row, email under the amount, the provider block back the way it was.
+
+### `C2` keeps what it does and loses where it is set
+
+`cjm-to-be.md` T4 is unambiguous: the amount just typed is pre-filled as a ceiling and **the deposit cannot be submitted until the user accepts or changes it**. That clause is overridden. The limit is set on `6.1`, where the session limit, the cool down and the self exclusion already live, and where a control for it has existed since that page was drawn.
+
+**This node keeps the figure and loses the form.** The limit in force is a line in the receipt with a route, so the number is in front of a person at the moment of spending, which is design principle 3. **What it does not do is ask.** And the unset state is said rather than filled: an account with no limit reads `None set` beside `set one`, because printing a number there would be inventing the protection.
+
+**The cost is real and it is the argument T4 already made.** Two alternatives were dropped there for being worse moments than the deposit, and the reason the deposit won was that a person is calm and the number is one they typed themselves. **A boundary you have to go and find is a boundary most people never set.** `D-103` carries that in full and `cjm-to-be.md` keeps the paragraph rather than being rewritten to agree with the decision.
+
+**One thing it closes.** `D-96` found that `C2` could not bind on crypto, because there is nothing to accept before a send. **With no acceptance step anywhere, that asymmetry is gone.** What is still open is enforcement on arrival, which was always the harder half, and it still has no row, policy or node.
+
+### What is on the pane now, in the founder's order
+
+| | |
+|---|---|
+| Banner | The offer, full width, alone |
+| Row | Promo code, and the country beside it. Both are about the account |
+| Bar | The chosen method, with Change |
+| Block | Who takes the payment, back to a heading and two slots |
+| Row | How much you are paying, and the receipt beside it |
+| Under it | Where the receipt goes, then the terms. Both are about this payment |
+| Below | Four lines that are read and never answered |
+
+**The email and the country swapped surfaces and the swap has a reason beyond placement.** The promo and the country are properties of the account. The amount and the receipt address are properties of this payment. **Each pair now sits together**, which is what makes the pane readable in two passes rather than one long one.
+
+### What was cut, and nothing that was cut is missing
+
+**The rate paragraph.** `C1` requires the peg beside the coin figure at the moment of spending, `D-28`, and the receipt carries it on the line under the figure. A second rendering of one fact on one screen is what `D-97` already removed three of.
+
+**Four paragraphs became four lines.** The bonus rule, the exit price, the crediting window and the route to the boundaries. Every one still names its own unknown, and the exit price is also a line in the receipt where it stays in view.
+
+**The provider block came back.** `D-102` compressed it to a caption sized line to buy vertical room. The room was worth less than the block: this is the sentence that says a stranger will hold the card details, on the screen where that matters most.
+
+### One name for one boundary, across seven pages
+
+The deposit screen said **deposit limit** and `6.1` said **spend ceiling**. **Two names for one thing across two surfaces is how a person stops believing they are the same thing.** Renamed on the five responsible play pages, on `4.2` and `4.3` and their registry labels, and in the crypto route's own statement of the gap.
+
+**And the five responsible play pages are five hand copies of one block.** The rename had to be applied five times. That is the same shape `D-99` found in the deposit cluster and fixed by making the pages hosts of one renderer. **Named here as a debt rather than fixed in this step**, because it is `6.1`'s node and this one had no business rewriting it.
+
+### The cost that did not go away
+
+**At 360 the amount starts at 984px**, against 943 after `D-102` and 564 before it. The provider block coming back is most of the difference. **The pane is shorter overall**, its end moved from 1916px to 1733px, but the header the founder asked for still puts the money field below the first screen on a phone. The receipt stays fixed to the bottom of the viewport throughout, so what the money buys is on every screen even when the field is not. **Still open, still his:** whether the promo and country row moves under the money below 700.
+
+---
+
 ## 3. The four capabilities, and what makes each one a brake rather than a setting
 
 ### 3.1 `C1`. The coin, and the rate that has to be on this screen
