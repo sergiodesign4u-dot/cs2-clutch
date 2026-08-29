@@ -1403,9 +1403,8 @@ window.WF_PAY = window.WF_PAY || {
     function paint() {
       var f = depFigs(amt ? amt.value : '0');
       txt('[data-fig-recv]',  f.receive + ' coins');
-      txt('[data-fig-recvc]', f.amount + ' for the money, ' + f.bonus + ' the bonus, at 1 coin = $1.00');
       txt('[data-fig-amt]',   '$' + f.amount);
-      txt('[data-fig-bonus]', f.bonus + ' coins');
+      txt('[data-fig-bonus]', '+' + f.bonus + ' coins');
       txt('[data-fig-total]', '$' + f.amount);
     }
 
@@ -3914,21 +3913,40 @@ window.WF_PAY = window.WF_PAY || {
             '<div class="wf-recv">' +
               '<span class="wf-fig-c">You will receive</span>' +
               '<span class="wf-recv-v" data-fig-recv>' + f.receive + ' coins</span>' +
-              '<span class="wf-fig-c" data-fig-recvc>' + f.amount + ' for the money, ' + f.bonus + ' the bonus, at 1 coin = $1.00</span>' +
+              /* THE CAPTION IS THE PEG AND ONLY THE PEG SINCE D-104. It used to
+                 restate the split, and with the split two lines below it in the sum
+                 the same two figures were on the pane three times. The peg itself
+                 stays: D-95 requires it printed at the moment money is spent, and it
+                 is what makes dollars in and coins out addable at all. */
+              '<span class="wf-fig-c">at 1 coin = $1.00</span>' +
             '</div>' +
+            /* THE RECEIPT HOLDS WHAT MOVES THE NUMBER AND NOTHING ELSE, D-104.
+               Founder on the built screen: simplify this part. It had six rows of
+               which three carried no figure at all, Fee not published, deposit limit
+               none set, withdrawal threshold not published, AND A SUM WHOSE ROWS ARE
+               MOSTLY UNKNOWN STOPS READING AS A SUM: the eye starts skipping the
+               column, including the two figures in it that are real.
+               NOTHING WAS DELETED, EACH OF THE THREE HAS A HOME BELOW THE PRESS. The
+               withdrawal threshold was already there word for word and its row was a
+               pure duplicate; the deposit limit is in the boundaries line with its
+               figure when one is set; the fee is the one that could not just leave,
+               because Total charged is a claim that an unpublished fee can falsify,
+               so it stays attached to the total as its qualifier. */
             '<div class="wf-total">' +
               '<div class="wf-tl"><span>Amount</span><span class="wf-tl-v" data-fig-amt>$' + f.amount + '</span></div>' +
-              '<div class="wf-tl"><span>Fee</span><span class="wf-tl-v wf-fig-missing">Not published</span></div>' +
-              /* THE BONUS IS A LINE IN THE SUM AND NEVER A BADGE ON IT, D-94: a
-                 badge asserts, a line in a sum gets checked. */
-              '<div class="wf-tl"><span>Bonus, ' + (B.pctFull || '5.00%') + ' capped at ' + (B.cap || '100 coins') + ' per ' + (B.period || '24 hours') + '</span><span class="wf-tl-v" data-fig-bonus>' + f.bonus + ' coins</span></div>' +
-              /* C2 IS A STATED FIGURE HERE AND NOT A FORM, D-103. THE UNSET STATE IS
-                 SAID RATHER THAN FILLED: a person who has never set one has none, and
-                 printing a number there would be inventing the protection. */
-              '<div class="wf-tl"><span>Deposit limit in force <a href="' + BASE + 'responsible.html">' + (o.ceiling ? 'change' : 'set one') + '</a></span>' +
-                '<span class="wf-tl-v' + (o.ceiling ? '' : ' wf-fig-missing') + '">' + (o.ceiling ? '$' + o.ceiling : 'None set') + '</span></div>' +
-              '<div class="wf-tl"><span>To withdraw, you will need</span><span class="wf-tl-v wf-fig-missing">Not published</span></div>' +
+              /* THE BONUS IS STILL A LINE IN THE SUM AND STILL NEVER A BADGE, D-94: a
+                 badge asserts, a line in a sum gets checked. Founder: make the bonus
+                 stand out. IT IS RAISED, NOT PROMOTED: it keeps its place in the
+                 arithmetic and it keeps the cap and the period on it, and what it
+                 gains is a band, the sign in front of the figure and the room to be
+                 read first. Emphasis at this stage is weight and space, since colour
+                 does not exist here until stage 07. */
+              '<div class="wf-bonusrow">' +
+                '<span class="wf-bonusrow-v" data-fig-bonus>+' + f.bonus + ' coins</span>' +
+                '<span class="wf-bonusrow-t">Bonus, ' + (B.pctFull || '5.00%') + ' of this deposit, capped at ' + (B.cap || '100 coins') + ' per ' + (B.period || '24 hours') + '</span>' +
+              '</div>' +
               '<div class="wf-tl wf-tl--sum"><span>Total charged</span><span class="wf-tl-v" data-fig-total>$' + f.amount + '</span></div>' +
+              '<p class="wf-tl-c">A provider fee is <span class="wf-fig-missing">not published yet</span> and is not inside this figure.</p>' +
             '</div>' +
             '<p class="wf-refuse" data-dep-refuse>' + (o.refuse || 'The terms have to be accepted before this goes through.') + '</p>' +
             '<div class="wf-row">' +
@@ -3946,7 +3964,7 @@ window.WF_PAY = window.WF_PAY || {
         '<p class="wf-note"><strong>The bonus.</strong> ' + (B.pctFull || '5.00%') + ' added when the money arrives, on every top-up rather than the first, and it carries no wagering requirement.</p>' +
         '<p class="wf-note"><strong>To take anything out you will need</strong> <span class="wf-fig-missing">a sum that is not published yet</span>. Whatever it says when you pay applies to this money, and it can never rise.</p>' +
         '<p class="wf-note"><strong>After you pay.</strong> <span class="wf-fig-missing">How long crediting takes is not published.</span> If it passes with nothing arrived the deposit keeps its state, and <a href="' + BASE + 'support.html">support</a> answers inside a published deadline.</p>' +
-        '<p class="wf-note"><strong>Your boundaries.</strong> The deposit limit, the session limit, the cool down and self exclusion are all set on <a href="' + BASE + 'responsible.html">Responsible play</a>.</p>' +
+        '<p class="wf-note"><strong>Your boundaries.</strong> ' + (o.ceiling ? 'A deposit limit of $' + o.ceiling + ' is in force. It, the' : 'No deposit limit is set. It, the') + ' session limit, the cool down and self exclusion are all set on <a href="' + BASE + 'responsible.html">Responsible play</a>.</p>' +
       '</div>';
   }
 

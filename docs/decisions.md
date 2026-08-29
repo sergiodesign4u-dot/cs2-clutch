@@ -4288,6 +4288,46 @@ The founder found three on this screen on 26 August: the presets, the money fiel
 
 ---
 
+## D-104. The receipt keeps only what moves the number, and the bonus is raised without being promoted
+
+**Date:** 2026-08-29. **Stage:** 04. **Decided by:** the founder, on the `D-103` build, with three lines struck through on the image. **Binds:** node `4.1` and its five deposit states, and section 5 of `ia/docs/pages/deposit.md`.
+
+**What he said.** Simplify this part, and make the bonus stand out somehow. The struck lines were `Fee`, `Deposit limit in force` and `To withdraw, you will need`.
+
+### A sum whose rows are mostly unknown stops being read as a sum
+
+Six lines, **three of them with no figure at all**: `Not published`, `None set`, `Not published`. The cost is not the three lines, it is the two real ones standing beside them. **An eye that starts skipping a column of `[?]` skips `Amount` and `Total charged` with it**, and those two are the whole of what design principle 3 asks to be legible at the moment money moves.
+
+**Three rows out and three facts kept, each one differently.** The withdrawal threshold was already below the press word for word, with the never-rises clause the row had no room for, so its row was a duplicate and nothing was lost. The deposit limit went to the boundaries note below the press, **which now states the figure when one is in force** and says no limit is set when there is none. The fee is the one that could not simply leave.
+
+### The fee is the finding
+
+`Total charged $200.00` is a claim, and **an unpublished fee is exactly the thing that can falsify it**. Deleting the row silently would have turned a visible unknown into a total that reads final, which is `B4-1` one level down: a figure that moves after the person committed to it. So the fee stops being a row and becomes a caption on the total, attached to the figure it qualifies. `C4` is untouched: still stated on this screen before the payment, still frozen at this moment.
+
+### Raised is not promoted
+
+`D-94`'s rule is intact: **the bonus is a line in the sum and never a badge on it, because a badge asserts and a line in a sum gets checked.** What changed is weight, not kind. It gained a band of its own inside the sum, a sign in front of the figure, and room for the cap and the period under the figure rather than in front of it. It gained no place outside the arithmetic and no claim. **An emphasised percentage whose limit lives somewhere else is the pattern the category is distrusted for**, and emphasis is the exact moment that pattern becomes available to take.
+
+**Emphasis at stage 04 is weight and space and nothing else.** Colour arrives at 06 and 07 and this band is the slot that will take it. Reaching for colour here would be answering 07's question inside 04.
+
+### A third statement of the same two figures, cut
+
+The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1 coin = $1.00". With the split two lines below it in the sum, **those two figures were on the pane three times**. The caption keeps the peg and drops the split: `D-95` requires the peg printed where money is spent, and it is what makes dollars in and coins out addable at all.
+
+### A stale spec section, amended rather than left
+
+`D-103` moved the limit off `4.1` and never reached section 5 of the node, whose table still listed a ceiling line and whose text still said the control is inert until the ceiling is accepted. **Both are amended in place, with the override named and the overridden sentence quoted**, the treatment `D-94` got in section 3.3. **A spec section that contradicts the screen is worse than a missing one, because it reads as current.**
+
+### The cost, and it is not the one that was expected
+
+**Three fewer rows and 13px taller.** At 360 with 200.00 typed the dock goes from 341px to 354px, the sum inside it from 137px to 150px, and the pane end from 1634px to 1651px. The amount field did not move, 951px in both. **A band with padding and two lines of its own is worth more room than the three thin rows it replaced, so this step bought no vertical space and does not claim to.** What it bought is three of three rows carrying a figure, against three of six.
+
+**And one thing got further away.** The deposit limit was a row in the money column and it is now the last of four notes below the press, so a person who never scrolls past the button no longer learns that they have no limit set. **That is `D-103`'s cost being paid a second time, one line lower.**
+
+### What this does not answer
+
+The fee itself, still `[?]`, and the total stays provisional until it is published. What the receipt says before an amount exists, open since `D-99`. The period the deposit limit runs for, the crediting window `C3`, and the finer split of the 25 card routes.
+
 ## D-103. The deposit limit leaves the deposit, and `C2`'s moment is overridden by founder decision
 
 **Date:** 2026-08-27. **Stage:** 04. **Decided by:** the founder, on the `D-102` build. **Binds:** node `4.1`, node `6.1`, row `C2` of `cjm-to-be.md` and its step T4.

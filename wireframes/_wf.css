@@ -3544,6 +3544,26 @@ select {
 .wf-tl { display: flex; justify-content: space-between; gap: var(--wf-s-2); font-size: var(--wf-t-s); }
 .wf-tl--sum { border-top: 1px solid var(--wf-line-soft); padding-top: var(--wf-s-1); font-size: var(--wf-t-m); }
 .wf-tl-v { font-family: var(--wf-mono); }
+/* THE FEE QUALIFIES THE TOTAL INSTEAD OF HOLDING A ROW OF ITS OWN, D-104. A row
+   reading "Fee, not published" beside a total reading "$200.00" is two claims that
+   cannot both be finished, and the row is the one that had no figure to lose. */
+.wf-tl-c { margin: 0; font-size: var(--wf-t-xs); line-height: 1.4; color: var(--wf-ink-dim); }
+
+/* THE BONUS ROW, D-104, founder: make the bonus stand out. It is a raised band
+   inside the sum and not a badge over it, so it is still on the line where the
+   arithmetic can be checked, D-94. THE CAP AND THE PERIOD RIDE WITH IT: an
+   emphasised percentage with its limit somewhere else is the pattern the research
+   file records as the one people learn to distrust. */
+.wf-bonusrow {
+  display: flex; flex-direction: column; gap: 1px;
+  margin: var(--wf-s-half) 0;
+  padding: var(--wf-s-1) var(--wf-s-2);
+  border: 1px solid var(--wf-line); border-left-width: 3px;
+  border-radius: var(--wf-r-1);
+  background: var(--wf-raised);
+}
+.wf-bonusrow-v { font-family: var(--wf-mono); font-size: var(--wf-t-m); line-height: 1.2; color: var(--wf-ink); }
+.wf-bonusrow-t { font-size: var(--wf-t-xs); line-height: 1.35; color: var(--wf-ink-dim); }
 
 /* The three named limits, authored once and rendered twice in the same words:
    here and on 5.1 beside the withdrawal entry. A limit reworded at the moment it
@@ -3656,6 +3676,11 @@ select {
 .wf-dock .wf-total { gap: 2px; }
 .wf-dock .wf-tl { font-size: var(--wf-t-xs); }
 .wf-dock .wf-tl--sum { font-size: var(--wf-t-s); padding-top: 4px; }
+.wf-dock .wf-bonusrow { padding: 6px var(--wf-s-1); }
+/* THE BONUS FIGURE DOES NOT SHRINK WITH THE DOCK. Everything else in the dock
+   drops a size to fit the fold; this is the one line the founder asked to stand
+   out, and shrinking it with its neighbours would undo the ask silently. */
+.wf-dock .wf-bonusrow-v { font-size: var(--wf-t-m); }
 .wf-dock .wf-refuse { font-size: var(--wf-t-xs); }
 .wf-dock .wf-row { margin: 0; }
 /* The refusal. It names WHICH condition is missing, and the control stays live so

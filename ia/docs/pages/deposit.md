@@ -406,6 +406,50 @@ The deposit screen said **deposit limit** and `6.1` said **spend ceiling**. **Tw
 
 ---
 
+## 2k. Simplified 29 August 2026 by `D-104`. The receipt holds what moves the number, and the bonus is raised
+
+**The founder, on the `D-103` build, with three lines struck through on the image:** simplify this part, and make the bonus stand out somehow. The three struck lines were `Fee`, `Deposit limit in force` and `To withdraw, you will need`.
+
+### A sum whose rows are mostly unknown stops being read as a sum
+
+The receipt had six lines and **three of them carried no figure at all**: `Not published`, `None set`, `Not published`. The cost of that is not the three lines, it is the two real ones standing beside them. An eye that starts skipping a column of `[?]` skips `Amount` and `Total charged` with it, and design principle 3 asks for exactly those two to be legible at the moment money moves.
+
+**Three rows out, three facts kept, and each one was kept differently.**
+
+| Row taken out | Where the fact is now | What it cost |
+|---|---|---|
+| `To withdraw, you will need`, `Not published` | Already below the press, word for word, with the never-rises clause the row had no room for | Nothing. The row was a duplicate of a fuller statement two blocks down |
+| `Deposit limit in force`, `None set` | The boundaries note below the press, **which now states the figure when one is in force**, "A deposit limit of $40.00 is in force", and says "No deposit limit is set" when there is none | The figure left the money column for a line below the button |
+| `Fee`, `Not published` | **Attached to the total as its qualifier**, one caption under it | This is the one that could not simply leave |
+
+**The fee is the finding of this step.** `Total charged $200.00` is a claim, and an unpublished fee is precisely the thing that can falsify it. Deleting the row and saying nothing would have turned a visible unknown into a total that reads final, which is `B4-1` one level down: a figure that moves after the person committed to it. **So the fee stops being a row and becomes a sentence about the total.** `C4`'s three properties are untouched: the threshold is still stated on this screen before the payment, still frozen at this moment, still below the press where it always was.
+
+### The bonus is raised, and raised is not promoted
+
+`D-94` set the rule and the rule is intact: **the bonus is a line in the sum and never a badge on it, because a badge asserts and a line in a sum gets checked.** What changed is weight, not kind.
+
+**What it gained:** a band of its own inside the sum, a sign in front of the figure, and room for the cap and the period to sit under the figure rather than in front of it. **What it did not gain:** a place outside the arithmetic, or a claim. It is still between `Amount` and `Total charged`, still recomputed on every keystroke, still capped at 100 coins per 24 hours in the same breath as the percentage. **An emphasised percentage whose limit lives somewhere else is the pattern the category is distrusted for**, and emphasis is the exact moment that pattern becomes available to take.
+
+**Emphasis here is weight and space and nothing else.** Colour arrives at stage 06 and 07, and this band is the slot that will take it. A grey wireframe reaching for colour early would be answering 07's question inside 04.
+
+### One more thing was cut, and it had been said three times
+
+The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1 coin = $1.00". **With the split now two lines below it in the sum, those two figures were on the pane three times.** The caption keeps the peg and drops the split. `D-95` requires the peg printed where money is spent and it is still printed: it is what makes dollars in and coins out addable at all.
+
+### Section 5 was stale, and it is amended rather than left
+
+`D-103` moved the limit off this node and never reached section 5, whose table still listed a ceiling line and whose text still said the control is inert until the ceiling is accepted. **Both are amended in place with the override named and the overridden sentence quoted**, the same treatment `D-94` got in section 3.3. A spec section that contradicts the screen is worse than a missing one, because it reads as current.
+
+### The cost, and it is not the one that was expected
+
+**The receipt has three fewer rows and it is 13px taller.** Measured at 360 with 200.00 typed: the dock goes from 341px to 354px and the sum inside it from 137px to 150px, because a band with padding and two lines of its own is worth more than the three thin rows it replaced. **The pane end moved from 1634px to 1651px.** The amount field did not move at all, 951px in both, since nothing above it changed.
+
+**So this step bought no vertical room and did not claim to.** What it bought is that three of three rows in the money column now carry a figure, against three of six before.
+
+**And one thing got further away.** The deposit limit was a row in the money column and it is now the last of four notes below the press. A person who never scrolls past the button no longer learns that they have no limit set. That is `D-103`'s cost being paid a second time, one line lower.
+
+---
+
 ## 3. The four capabilities, and what makes each one a brake rather than a setting
 
 ### 3.1 `C1`. The coin, and the rate that has to be on this screen
@@ -485,16 +529,18 @@ The deposit screen said **deposit limit** and `6.1` said **spend ceiling**. **Tw
 
 **Craft parent:** Refero Fresha `3d6c5b9f` in the bank, "persistent summary card carrying the total, beside the choice, with a full width continue", verdict `TAKE`, traced to `C2` and design principle 3: "cost stays on screen while the choice is made rather than appearing after it."
 
-**Four figures, and they are the answer to why block 5 is not on the first screen.** The withdrawal threshold sits fifth in the scroll order and **is on the first screen anyway**, because the summary docks and carries it. The block below is the full statement with its rule; the summary is the figure, present continuously from the moment an amount exists.
+**Four figures when this was written, three since `D-104`, and they are the answer to why block 5 is not on the first screen.** The withdrawal threshold sits fifth in the scroll order and **is on the first screen anyway**, because the summary docks and carries it. The block below is the full statement with its rule; the summary is the figure, present continuously from the moment an amount exists.
 
 | Line in the summary | Where the number comes from | Rule it carries |
 |---|---|---|
 | Amount | Block 2 | Real money in, coins out, and the rate with its as-of, `C1` as `D-28` rewrote it |
 | Total charged | Amount plus any fee. **Fee is `[?]`** | If the two ever differ, both are shown. A total that silently differs from the typed amount is the defect |
-| Ceiling in force after this deposit | Block 3, and `4.3` if a raise is pending | The value in force **now**, never the pending one, `4.3` |
-| Withdrawal threshold | Block 5 | Frozen at this moment, `C4` |
+| ~~Ceiling in force after this deposit~~ | ~~Block 3, and `4.3` if a raise is pending~~ | **Removed from the summary by `D-104`**, after `D-103` removed the form it read from. The figure is a note below the press and it is quoted here rather than deleted |
+| ~~Withdrawal threshold~~ | ~~Block 5~~ | **Removed from the summary by `D-104` as a duplicate.** Block 5 below the press already carried it with its never-rises clause, which the summary line had no room for. `C4` is unchanged: still stated on this screen, still frozen at this moment |
+| Bonus | The standing offer, `D-94` | Raised into a band of its own by `D-104` and still a line in the sum, never a badge. The cap and the period travel with the percentage |
+| Fee | `[?]` | **A caption on the total since `D-104`, not a row.** An unpublished fee is what can falsify a total, so it stays attached to the figure it qualifies |
 
-**One control, and one next step.** The primary control submits the deposit, and it is inert until the ceiling is accepted or changed. **Nothing else on this page is a primary control.** The responsible play entry is a link, the method cards are a choice inside block 6, and the amount presets, if any ship, are inputs into block 2 rather than actions.
+**One control, and one next step.** The primary control submits the deposit. **The clause that followed here was "and it is inert until the ceiling is accepted or changed", and it is overridden twice over:** `D-103` took the ceiling off this node, and `D-58` had already ruled that a live control which refuses beats a dimmed one. **The terms checkbox is the only blocking condition on the screen**, and pressing Pay without it says what is missing rather than doing nothing. **Nothing else on this page is a primary control.** The responsible play entry is a link, the method cards are a choice inside block 6, and the amount presets, if any ship, are inputs into block 2 rather than actions.
 
 **Two things the summary must never do.** It never sums the deposit with the value of items held, which is `navigation.md` rule 2 applied one level down: they are different kinds, and a combined figure reads as net worth. And it never renders a projected balance as an achievement, a tier or a threshold crossed.
 
