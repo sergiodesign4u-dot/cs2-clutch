@@ -92,7 +92,7 @@
 | Five notification rows | Not here yet, and what each one waits on | ~~not in round 1~~, five times |
 | Confirm before selling back, confirm before withdrawing | There is no switch, and every one is confirmed because value leaves the account | ~~the one preference you set once in a calm minute and meet months later at the worst one~~ |
 
-**`round 1` is the sharpest case and it appeared five times.** It is this project's own roadmap vocabulary. **A person reading it learns that we have a plan with numbered rounds and nothing about their own product**, so the rows say `not here yet` and the roadmap stays in this file.
+**`round 1` is the sharpest case and it appeared five times here.** It was on twenty three other surfaces too, which `D-107` carries. It is this project's own roadmap vocabulary. **A person reading it learns that we have a plan with numbered rounds and nothing about their own product**, so the rows say `not here yet` and the roadmap stays in this file.
 
 **No refusal became softer and none lost its ground.** What each row lost is the sentence explaining the refusal to us. **The arguments are not deleted:** section 1's table of twenty rows holds every one of them, which is why they could leave the screen at all.
 

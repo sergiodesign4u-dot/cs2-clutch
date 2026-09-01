@@ -4496,7 +4496,7 @@ On 26 August, closing the fourth collision found in `D-101`, `class="wf-pf"` was
 
 **One line left a screen entirely rather than being reworded.** The deposits ledger carried "whether a row shows the money charged or the coins credited is not decided, and since the bonus was added those are no longer the same number". **A person cannot act on that, and what it tells them is that the ledger they are reading has not been specified.** The question is real, it is `D-94`'s bonus opening a hole in a one column ledger, and it is now in node `5.9` where it is owed an answer.
 
-**`round 1` was the sharpest case and it was on the settings page five times.** It is this project's roadmap vocabulary. **A person reading it learns that we run numbered rounds and nothing about their own product.** Those rows say "not here yet".
+**`round 1` was the sharpest case and the settings page was not the only carrier.** It is this project's roadmap vocabulary, and **a person reading it learns that we run numbered rounds and nothing about their own product.** Five times on the settings rows, **twelve more on every inventory card as "Exchange is not in round 1", ten in the footer's game column, and once inside the language popover** on every page in the product. Twenty eight in all, and they now say what is true for the reader: not here yet, one is live, one game so far, the product ships one language.
 
 ### What that changed in the order
 

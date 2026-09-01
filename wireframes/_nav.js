@@ -800,7 +800,7 @@ window.WF_PAY = window.WF_PAY || {
     });
     pop.appendChild(list);
     pop.appendChild(el('span', 'wf-fig-missing',
-      'English is the only one that does anything. The other eight switch this control and leave the interface in English: round 1 ships one language, the page stays lang="en", and the product carries no hreflang until real translations arrive.'));
+      'English is the only one that does anything. The other eight switch this control and leave the interface in English: the product ships one language, the page stays lang="en", and the product carries no hreflang until real translations arrive.'));
 
     function paint(code) {
       abbr.textContent = code.toUpperCase();
@@ -1913,7 +1913,7 @@ window.WF_PAY = window.WF_PAY || {
     // rule protects, a titled section that is nobody's subheading, is intact.
     [
       [['Play', [['Cases', 'catalogue.html']],
-        'One game in round 1. The other modes enter this column as they ship.']],
+        'One game so far. The other modes enter this column as they ship.']],
       [['Cases', [['All cases', 'catalogue.html'], ['Ironbound', 'case.html'],
                   ['Warsteel', 'case.html'], ['Coldfront', 'case.html'],
                   ['Nightfall', 'case.html']],
