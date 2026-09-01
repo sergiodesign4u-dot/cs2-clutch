@@ -196,6 +196,20 @@
 
 ---
 
+## 0.10 Amended 1 September 2026 by `D-107`. The skins come first and what qualifies them comes after
+
+**Founder, on the built page:** why is there so much text, the skins and the inventory are more important, show the skins first and describe the features after them, in blocks.
+
+**Four paragraphs stood between the sort bar and the first card.** The withdrawal line, the settlement rule, the market as-of and the peg. **Every one of them qualifies a figure that is on a card**, and none of them can be used by a person who has not seen a card yet. **A qualifier read before the thing it qualifies is a paragraph about nothing yet.**
+
+**All four moved under the grid, into one labelled block.** Nothing is cut and nothing is softened: each keeps its wording, its as-of and its named unknown, and each gains a label so the block is scanned for the one fact wanted rather than read from the top.
+
+**One thing did not move, and the rule is in the exception.** The degraded state's line, "some current values cannot be read right now", **is not a qualifier, it is a condition on every figure below it**, so it stays above the set where it is read first.
+
+**The cost, printed rather than absorbed.** Every card carries a signed settlement figure since `D-91`, and that decision's own reasoning was that "the rule that produces all six is stated here rather than repeated six times". **That rule is now below the six.** A person who reads only the grid meets six signed numbers before the sentence that says what they are. **The founder asked for the items first and this is what the order costs.**
+
+---
+
 ## 0. The sentence this page is built around
 
 `F2` is one line in the backlog and it is the whole page: **the receipt stays on the item in inventory and on the withdrawal record**, with the success signal "the same receipt is retrievable a week later".

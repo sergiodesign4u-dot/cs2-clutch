@@ -845,7 +845,7 @@ window.WF_PAY = window.WF_PAY || {
       nav.appendChild(a);
     }
     box.appendChild(nav);
-    box.appendChild(el('span', 'wf-fig-missing', 'Which channels are ours in round 1 is not decided'));
+    box.appendChild(el('span', 'wf-fig-missing', 'Which channels are ours is not published yet'));
     return box;
   }
 
@@ -2017,7 +2017,7 @@ window.WF_PAY = window.WF_PAY || {
       socNav.appendChild(sa);
     }
     soc.appendChild(socNav);
-    soc.appendChild(el('span', 'wf-fig-missing', 'Which channels are ours in round 1 is not decided'));
+    soc.appendChild(el('span', 'wf-fig-missing', 'Which channels are ours is not published yet'));
     trust.appendChild(soc);
 
     // THE AGE MARK IS A MARK AND NOT A GATE. The gate is two checkboxes at sign in,
@@ -2697,7 +2697,7 @@ window.WF_PAY = window.WF_PAY || {
            statute number standing alone. */
         '<p class="wf-ground">Games of chance with prizes of monetary value require an operating licence here, and skins that can be sold count as monetary value.</p>' +
         '<p class="wf-gate-p">The instrument and its source are on file. <strong>If you are not in that market, support will look at it and answer inside a published deadline.</strong></p>' +
-        '<p class="wf-note wf-fig-missing">Response deadline not available: it is owned by the support node and is not set yet</p>' +
+        '<p class="wf-note wf-fig-missing">Response deadline: not published yet</p>' +
         openLine() + refusalActs();
     } else {
       // NOT LAUNCHED IS THE DEFAULT UNDER AN ALLOWLIST, and detection failing
@@ -2893,7 +2893,7 @@ window.WF_PAY = window.WF_PAY || {
              is the dash that reads as zero, 0.11 rule 3. */
           '<div class="wf-fig">' +
             '<span class="wf-fig-v wf-fig-missing">Reset not available</span>' +
-            '<span class="wf-fig-c">The reset moment is not set yet, so no countdown runs</span>' +
+            '<span class="wf-fig-c">The reset moment is not published, so no countdown runs</span>' +
           '</div>' +
         '</div>' +
         '<ol class="wf-ladder">' + rungs + '</ol>' +
@@ -3521,6 +3521,21 @@ window.WF_PAY = window.WF_PAY || {
     return e;
   }
 
+  /* THE BLOCK THAT GOES UNDER A SET, D-107. Founder, on three screens in one
+     sitting: the rows are the subject and the paragraphs above them are a wall.
+     Each fact keeps its wording and gains a label, so the block is scanned for
+     the one fact wanted rather than read from the top. */
+  function afterBlock(items) {
+    var box = el('div', 'wf-after');
+    items.forEach(function (it) {
+      var cell = el('div', 'wf-after-i' + (it.wide ? ' wf-after-i--wide' : ''));
+      cell.appendChild(el('span', 'wf-after-k', it.k));
+      cell.appendChild(el('p', 'wf-after-v', it.v));
+      box.appendChild(cell);
+    });
+    return box;
+  }
+
   function histPanel(kind, data) {
     var wrap = el('div', 'wf-hpanel');
 
@@ -3543,13 +3558,24 @@ window.WF_PAY = window.WF_PAY || {
        price. What a real copy of the same skin costs is our other price, and the
        difference between selling back and taking it out is the whole of D-91. A
        ledger that prints one of the two teaches that there is only one. */
+    /* THE NOTES ARE BUILT HERE AND APPENDED AFTER THE ROWS, D-107. They used to
+       stand between the count and the first row, which is a paragraph read
+       before the thing it describes exists on the screen.
+       ONE OF THEM LEFT THE SCREEN ENTIRELY AND IT IS NAMED: the deposits tab
+       carried "whether a row shows the money charged or the coins credited is
+       not decided". THAT IS A QUESTION OF OURS, NOT A FACT OF THEIRS. It tells a
+       person nothing they can act on and it tells them the ledger they are
+       reading has not been specified. It is in node 5.9 where it belongs. */
+    var after = [];
+
     if (kind === 'cashout') {
-      wrap.appendChild(el('p', 'wf-note', 'Every item this account has sold back for coins. Credited is our price for the skin at that moment, which is the same value the win was credited at. Taking the real thing out to Steam instead is a different number: we sell you a real copy at our price for it, and the difference settles against your balance.'));
-      wrap.appendChild(el('p', 'wf-note wf-fig-missing', 'Turning a balance back into money is not something this product does, and what one coin is worth in real money is not published, so no row here is a payment out'));
+      after.push({ k: 'What this list is', v: 'Every item this account has sold back for coins. Credited is our price for the skin at that moment, which is the same value the win was credited at.' });
+      after.push({ k: 'Selling back against taking out', v: 'Taking the real thing out to Steam instead is a different number: we sell you a real copy at our price for it, and the difference settles against your balance.' });
+      after.push({ k: 'No money leaves here', v: 'Turning a balance back into money is not something this product does, and what one coin is worth in real money is not published, so no row here is a payment out.', wide: true });
     }
 
     if (kind === 'cashout') {
-      /* nothing further: the two lines above are this tab's note, and the
+      /* nothing further: the three above are this tab's block, and the
          withdrawals note below is about a different act. */
     } else if (kind === 'deposits') {
       /* THE RECONCILIATION WORKS SINCE D-95 AND THE SENTENCE THAT SAID IT COULD NOT IS
@@ -3561,14 +3587,15 @@ window.WF_PAY = window.WF_PAY || {
          same number and a ledger with one column cannot be both. WHICH ONE A ROW HOLDS
          IS NOT DECIDED, so the note says so rather than picking one and being wrong on
          every bonused row. */
-      wrap.appendChild(el('p', 'wf-note', 'Every payment this account has made, whether it arrived or not. Amounts are in coins, at 1 coin = $1.00, so a row lines up with a bank statement one to one.'));
-      wrap.appendChild(el('p', 'wf-note wf-fig-missing', 'Whether a row shows the money charged or the coins credited is not decided, and since the bonus was added those are no longer the same number'));
+      after.push({ k: 'What this list is', v: 'Every payment this account has made, whether it arrived or not.' });
+      after.push({ k: 'Reading a row against your bank', v: 'Amounts are in coins, at 1 coin = $1.00, so a row lines up with a bank statement one to one.' });
     } else {
       /* B8-2 IS SIX PEOPLE WAITING WITH HARD FIGURES AND NOBODY TELLING THEM
          ANYTHING. So a row carries who is being waited on, and never an ETA:
          5.3's clock shows elapsed, the published ceiling and the party, and a
          history that invents a fourth number contradicts its own screen. */
-      wrap.appendChild(el('p', 'wf-note', 'Every item this account has sent to Steam. A row says who it is waiting on and how long it has been. It never estimates when it will finish, because we do not know.'));
+      after.push({ k: 'What this list is', v: 'Every item this account has sent to Steam.' });
+      after.push({ k: 'What a row will not tell you', v: 'A row says who it is waiting on and how long it has been. It never estimates when it will finish, because we do not know.' });
     }
 
     if (!rows.length) {
@@ -3584,6 +3611,7 @@ window.WF_PAY = window.WF_PAY || {
     } else {
       wrap.appendChild(histTable(kind, rows));
     }
+    if (after.length) wrap.appendChild(afterBlock(after));
     return wrap;
   }
 
@@ -3843,7 +3871,7 @@ window.WF_PAY = window.WF_PAY || {
         '<div class="wf-payprov">' +
           '<div class="wf-payprov-t"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n wf-fig-missing">Provider not chosen</span></div>' +
           '<div class="wf-payprov-t"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n wf-fig-missing">Provider not chosen</span></div>' +
-          '<p class="wf-note wf-fig-missing">The providers are not decided, and neither is any fee, minimum or maximum they carry</p>' +
+          '<p class="wf-note wf-fig-missing">The providers are not published yet, and neither is any fee, minimum or maximum they carry</p>' +
         '</div>' +
       '</div>';
   }
@@ -4003,7 +4031,7 @@ window.WF_PAY = window.WF_PAY || {
                 ? '<option>Solana</option>'
                 : '<option>Bitcoin</option><option>Bitcoin, Lightning</option>') +
             '</select>' +
-            '<p class="wf-note wf-fig-missing">Which networks this product accepts for each coin is not decided</p>' +
+            '<p class="wf-note wf-fig-missing">Which networks this product accepts for each coin is not published yet</p>' +
           '</div>' +
           /* THE ADDRESS AND ITS CODE. The code is a slot, D-50, and the address is
              text and copyable, because reading forty characters off a screen is how
@@ -4040,7 +4068,7 @@ window.WF_PAY = window.WF_PAY || {
           '<div class="wf-stack">' +
             '<div class="wf-sec-head"><h2 id="' + P + 'h2-ceiling">Your deposit limit does not hold on this route</h2></div>' +
             '<p class="wf-cost-say"><strong>A limit stops a payment before it goes through, and this route has no payment to stop.</strong> You send what you send, from your own wallet, and it arrives. <strong>Your limit is still in force everywhere else and it cannot stop this.</strong> <a href="' + BASE + 'responsible.html">Your limits</a></p>' +
-            '<p class="wf-note wf-fig-missing">What happens when coins arrive that would have been over your limit is not decided. Refusing money already sent means holding it or sending it back, and neither is written down anywhere yet</p>' +
+            '<p class="wf-note wf-fig-missing">What happens when coins arrive that would have been over your limit is not published yet</p>' +
           '</div>' +
         '</div>' +
         '<div>' +
@@ -4086,7 +4114,7 @@ window.WF_PAY = window.WF_PAY || {
             return '<div class="wf-pay-t is-noroute"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n">' + s + '</span><span class="wf-pay-m">$5 to $200</span></div>';
           }).join('') +
         '</div>' +
-        '<p class="wf-note wf-fig-missing">Which of these six we send people to is not decided, so none of them is a link here yet</p>' +
+        '<p class="wf-note wf-fig-missing">Which of these six we send people to is not published yet, so none of them is a link here</p>' +
       '</div>' +
       /* THE CODE COMES BACK, and the field that takes it is the point of returning.
          The ceiling holds on this route because a code is redeemed here, with an
@@ -4114,7 +4142,7 @@ window.WF_PAY = window.WF_PAY || {
       '<div class="wf-stack">' +
         '<div class="wf-sec-head"><h2 id="' + P + 'h2-skins">Paying with skins is not built</h2></div>' +
         '<p class="wf-cost-say">The live product takes skins as an instant top-up. <strong>This one has no backlog row for it, no node on the map and no flow drawn</strong>, so it is named here rather than quietly missing from the list.</p>' +
-        '<p class="wf-note wf-fig-missing">Whether paying with skins is in round 1 at all is not decided</p>' +
+        '<p class="wf-note wf-fig-missing">Whether paying with skins will be here at all is not published yet</p>' +
       '</div>';
   }
 
@@ -4516,7 +4544,7 @@ window.WF_PAY = window.WF_PAY || {
       d: 'Counting how many people use each part of the site, so we can tell what is working. Nothing here identifies you to anyone outside this company.' },
     { key: 'marketing', name: 'Marketing',
       d: 'Measuring whether an advert brought you here.',
-      unknown: 'Whether anything at all sits behind this at launch is not decided. If nothing does, this row is not shown: a choice about nothing is still a question a person has to answer.' }
+      unknown: 'Whether anything at all sits behind this at launch is not published. If nothing does, this row is not shown: a choice about nothing is still a question a person has to answer.' }
   ];
 
   var CK_STATES = {
@@ -4609,7 +4637,7 @@ window.WF_PAY = window.WF_PAY || {
       inn.appendChild(h);
       if (cfg && cfg.why === 'expired') {
         inn.appendChild(el('p', 'wf-ck-p-say', 'You answered this before and that answer has run out, so we are asking again. Nothing beyond the strictly necessary set has been stored since it ran out.'));
-        inn.appendChild(el('p', 'wf-ck-p-say wf-fig-missing', 'How long an answer lasts is not decided. No source we have opened states a re-ask interval, and a number invented here would read as a rule.'));
+        inn.appendChild(el('p', 'wf-ck-p-say wf-fig-missing', 'How long an answer lasts is not published yet. No source we have opened states a re-ask interval, and a number invented here would read as a rule.'));
       } else if (cfg && cfg.why === 'nostore') {
         inn.appendChild(el('p', 'wf-ck-p-say', 'We could not save your last answer, so we are asking again. Your browser is not letting this site store anything, which is your choice to make and not a fault.'));
         inn.appendChild(el('p', 'wf-ck-p-say', 'Nothing beyond the strictly necessary set is running in the meantime, and this will keep asking until it can be remembered.'));

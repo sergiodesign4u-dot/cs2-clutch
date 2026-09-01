@@ -4471,3 +4471,58 @@ On 26 August, closing the fourth collision found in `D-101`, `class="wf-pf"` was
 ### What this does not answer
 
 **Whether the daily card should be the compact band the baseline draws.** The founder's capture shows the ring, one line and the control in a single horizontal strip; ours is a column of a ring, two figures, a control and a note. **The two column layout was the whole of the ask and it is done; the card's own density is not decided.**
+
+---
+
+## D-107. The wireframes stop explaining themselves, and the items go in front of the paragraphs
+
+**Date:** 2026-09-01. **Stage:** 04. **Decided by:** the founder, across four messages in one sitting, on `5.1`, `5.9`, `5.10` and `5.11`. **Binds:** every product surface in `wireframes/`, and it is a rule rather than a screen fix.
+
+**What he said**, and he said it four times before it was a rule. Why is there so much text. The skins and the inventory matter more than the description, so show the skins first and describe what they are after them, in blocks. On every page there are explanations, what are they for. **And the sentence that settled it: the text that is for the user and the text that is a decision are mixed together, and everything on a wireframe that is not for the user should live in the IA and not on the wireframe.**
+
+### The rule, and where the line falls
+
+**On a screen: what a person needs in order to act.** What it costs, what they get, what is missing, where to press. **And an unknown that changes their decision**, which is why the deposit receipt still says a provider fee is not published and is not inside the total: without it the total reads final.
+
+**In the node: everything that explains our reasoning, and every question we have not answered ourselves.**
+
+**The test that separates them, and it is one sentence.** *Our side of an unknown is that we have not decided. The person's side is that we have not told them.* **Only the second is a fact about them.**
+
+### What that changed in the words
+
+`is not decided`, `is not settled` and `is not chosen` are our vocabulary. **135 sentences on product surfaces carried one of them.** They now say `is not published yet`, which is the same fact stated from the reader's side, and the clause explaining our internal position is gone from the screen and kept in the node.
+
+**Nothing became vaguer.** "Not published yet" is a stronger admission than "not decided": it says we owe you a number. **And no unknown was quietly filled.** The count of `[?]` on the surfaces is unchanged.
+
+**One line left a screen entirely rather than being reworded.** The deposits ledger carried "whether a row shows the money charged or the coins credited is not decided, and since the bonus was added those are no longer the same number". **A person cannot act on that, and what it tells them is that the ledger they are reading has not been specified.** The question is real, it is `D-94`'s bonus opening a hole in a one column ledger, and it is now in node `5.9` where it is owed an answer.
+
+**`round 1` was the sharpest case and it was on the settings page five times.** It is this project's roadmap vocabulary. **A person reading it learns that we run numbered rounds and nothing about their own product.** Those rows say "not here yet".
+
+### What that changed in the order
+
+**A qualifier read before the thing it qualifies is a paragraph about nothing yet.** So on every surface that holds a set of objects, the set comes first and what qualifies it comes after, in one labelled block rather than a stack of paragraphs.
+
+| Surface | Was above the set | Is now |
+|---|---|---|
+| `5.1` My items, three states | Four paragraphs between the sort bar and the first card | The cards start at the sort bar. Four labelled facts under the grid |
+| `5.9` Rolls and its four states | The proof scope line above the filters | Under the rows. The filters stay above, because they control what is shown |
+| `5.9` Deposits, withdrawals, cash out, ten pages | One or two notes between the count and the first row | Under the table or the empty state, two or three labelled facts |
+
+**One thing may not move down and the rule is in the exception.** The degraded state's "some current values cannot be read right now" **is not a qualifier, it is a condition on every figure below it**, so it stays above the set where it is read first.
+
+**The cost, printed rather than absorbed.** `D-91` put a signed settlement figure on every card and its own reasoning was that "the rule that produces all six is stated here rather than repeated six times". **That rule is now below the six**, so a person who reads only the grid meets six signed numbers before the sentence that says what they are. The founder asked for the items first and that is what the order costs.
+
+### The instrument, and the fourteen pages it found
+
+Adding a section to three IA pages meant touching `NAV_SECTIONS`, and one of them, `ia/account.html`, listed the hero seventh while it renders first. **`CLAUDE.md` requires `NAV_SECTIONS` to match DOM order and nothing was checking it**, so the repo sweep gained the check.
+
+**It returned fourteen pages, all of them predating today.** Ten list `overview` after `baseline-row` while the hero is the first thing on the page; four put an amendment section in the wrong place. **Every one of them walks a reader backwards through the sidebar.** All fourteen reordered mechanically, by the position of the id in the file.
+
+**Second instrument in one day earned by a defect nobody could see**, after `D-106`'s dead class scan. Both are the same shape: a rule the repository states and nothing enforces.
+
+### What this does not answer
+
+**Whether the deposit ledger row is money charged or coins credited.** `[?]`, now in node `5.9` rather than on the screen, and it is the founder's.
+
+**The remaining surfaces this rule will still touch.** It was applied to the four the founder pointed at and to the vocabulary everywhere. **The block level reorder is done where a surface holds a set of objects**; a surface whose subject is prose was not reordered, because there is nothing to put in front.
+

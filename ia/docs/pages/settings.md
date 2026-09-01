@@ -77,6 +77,27 @@
 
 ---
 
+## 0.7 Amended 1 September 2026 by `D-107`. Every row keeps its answer and loses our half of it
+
+**Founder, on the built page:** the text for the user and the text that is a decision are mixed together, and the second kind should not be on the wireframe at all.
+
+**This page is the densest case in the stage**, because a settings row that refuses has to say why, and `D-86` is the decision that put a written reason under every refusal. **The reasons were right and half of each one was addressed to us.**
+
+| Row | What stayed | What left |
+|---|---|---|
+| Username | Your name and picture come from Steam, and a product that lets them drift has two names for one person | ~~Changing it here is not a setting, it is a capability nothing has asked for yet~~ |
+| Where you live | Only markets we have opened are listed, and a false statement is grounds to close the account | ~~Which markets are open is not settled: the register is closed by default and every row needs its own legal work~~ |
+| Name on a shared round | It is on, and there is no switch for it yet | ~~What a shared round renders is not decided, and a switch here would settle it by being pressed~~ |
+| Linked profiles | Linking a second way to sign in is not something this product does yet | ~~has no row in the backlog and no place on the map~~ |
+| Five notification rows | Not here yet, and what each one waits on | ~~not in round 1~~, five times |
+| Confirm before selling back, confirm before withdrawing | There is no switch, and every one is confirmed because value leaves the account | ~~the one preference you set once in a calm minute and meet months later at the worst one~~ |
+
+**`round 1` is the sharpest case and it appeared five times.** It is this project's own roadmap vocabulary. **A person reading it learns that we have a plan with numbered rounds and nothing about their own product**, so the rows say `not here yet` and the roadmap stays in this file.
+
+**No refusal became softer and none lost its ground.** What each row lost is the sentence explaining the refusal to us. **The arguments are not deleted:** section 1's table of twenty rows holds every one of them, which is why they could leave the screen at all.
+
+---
+
 ## 0. The input for this node was never missing, and the `[?]` was on the wrong thing
 
 **`D-36` wrote that what `5.11` holds in round 1 is `[?]` and that the node owes that answer before it can be drawn.** For two days stage 04 read that as a question for the founder and said so twice. **It is not one.** The record says *the node* owes the answer, and the answer is derived the way every other node's is: take the baseline row, apply the round 1 scope list, apply the three legal parent classes, and print what does not survive.

@@ -3335,6 +3335,35 @@ select {
 .wf-sort-say { margin: 0; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
 .wf-inv-limits { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
 
+/* ============================================================================
+   WHAT QUALIFIES A SET GOES UNDER THE SET, D-107. The founder said it on three
+   screens in one sitting: the items are the subject, and four paragraphs above
+   them are a wall to be got through before reaching it. A QUALIFIER READ BEFORE
+   THE THING IT QUALIFIES IS A PARAGRAPH ABOUT NOTHING YET, and a person who has
+   not seen a price cannot use a sentence about how prices are read.
+   WHAT MAY NOT MOVE DOWN IS A WARNING ABOUT THE FIGURES THEMSELVES. A degraded
+   value source is not a qualifier, it is a condition on everything below it, so
+   it stays above the set where it is read first.
+   IT IS A BLOCK RATHER THAN A STACK OF PARAGRAPHS, and that is the whole of the
+   founder's second sentence: each fact gets a label, so the block can be scanned
+   for the one fact wanted instead of read from the top. ======================= */
+.wf-after {
+  display: grid; gap: var(--wf-s-2);
+  margin-top: var(--wf-s-3); padding: var(--wf-s-2) var(--wf-s-2) calc(var(--wf-s-2) + 2px);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: var(--wf-surface);
+}
+@media (min-width: 700px) {
+  .wf-after { grid-template-columns: 1fr 1fr; gap: var(--wf-s-2) var(--wf-s-3); }
+}
+.wf-after-i { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.wf-after-k { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-faint); }
+.wf-after-v { margin: 0; font-size: var(--wf-t-s); line-height: 1.5; color: var(--wf-ink-dim); }
+.wf-after-v b { color: var(--wf-ink); }
+/* A FACT THAT SPANS BOTH COLUMNS is the one that qualifies the whole block
+   rather than one figure in it. */
+@media (min-width: 700px) { .wf-after-i--wide { grid-column: 1 / -1; } }
+
 /* THE SELECTION BAR IS ALWAYS ON THE SCREEN, D-85. It counts what is ticked and
    sums it, and the pair is the header's own: A COUNT OF THINGS AND A VALUE OF
    THINGS, never summed into one score.

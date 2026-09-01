@@ -169,6 +169,28 @@ Section 0.4 refused this tab an empty-state control on a rule it stated out loud
 
 ---
 
+## 0.8 Amended 1 September 2026 by `D-107`. The rows come first, and one line left the screen for this file
+
+**Founder, on the built pages:** why is there so much text, and what are these explanations on every page for.
+
+**Every tab opened with its notes between the count and the first row.** They now sit under the set, in one labelled block: what the list is, and what a row will or will not tell you. **Nothing is cut.** The rolls page moved its proof scope line the same way, under the rows it describes and after the filters, which stay above because they control what is shown.
+
+### The line that left the screen entirely, and it is here instead
+
+The deposits tab carried, in italic, under the count:
+
+> Whether a row shows the money charged or the coins credited is not decided, and since the bonus was added those are no longer the same number
+
+**That is a question of ours, not a fact of theirs.** A person cannot act on it. What it tells them is that the ledger they are reading has not been specified, which is true and is not theirs to carry.
+
+**The question itself is unchanged and it is this node's.** `D-94` put a bonus on a deposit, so a payment of 40 dollars credits 42 coins, **the money charged and the coins credited stopped being one number, and a ledger with one amount column cannot be both.** Until it is answered every bonused row is ambiguous, and the answer belongs to this node with `4.1`'s receipt as its input. **It is `[?]` and it is the founder's.**
+
+### And the vocabulary changed across the whole stage
+
+**Our side of an unknown is that we have not decided. The person's side is that we have not told them.** Only the second is a fact about them, so `is not decided`, `is not settled` and `is not chosen` became `is not published yet` on every product surface. `D-107` carries the count and the exceptions.
+
+---
+
 ## 0. What a row is, and why that is the whole node
 
 A row is **a roll**, not an item. Seven fields, and every one of them exists because something reads it separately.
