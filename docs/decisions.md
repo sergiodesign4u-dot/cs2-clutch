@@ -4223,7 +4223,7 @@ It shipped as a bare `<input type="checkbox">` inside a flex row built for a 20p
 
 **All of them are two owners of one name, none of them errors, and every one renders as another component.** `.wf-offer` is the one that reached a screenshot, because a later rule that does not restate `flex-direction` inherits it. **Amended 1 September 2026 by `D-105`: two reached a screenshot.** `.wf-prov-row` reached four commits of them and the founder found it before any instrument did, and the reason it survived every sweep is that the repair had already been written down as done. **A collision closed by renaming the wrong owner leaves no trace an instrument can see:** one name, one rule, nothing duplicated, and a component rendering under somebody else's geometry.
 
-**So the stage finally earns the instrument.** A scan for a bare class rule written twice at top level, which is the shape all four have. **It found a fourth nobody had reported: `.wf-pf`.** Node `1.2`'s key and value pair and node `5.10`'s page layout have both owned that name, and the profile rule is later, **so every key and value pair on the six provably fair pages was rendering with 24px between the label and the figure and going two columns wide above 1000px.** Renamed to `.wf-fpair`.
+**So the stage finally earns the instrument.** A scan for a bare class rule written twice at top level, which is the shape all four have. **It found a fourth nobody had reported: `.wf-pf`.** Node `1.2`'s key and value pair and node `5.10`'s page layout have both owned that name, and the profile rule is later, **so every key and value pair on the six provably fair pages was rendering with 24px between the label and the figure and going two columns wide above 1000px.** Renamed to `.wf-fpair`. **Amended 1 September 2026 by `D-106`, and the amendment is the second half of the same mistake `D-105` corrected.** **The rename was applied to both owners, not one.** Both carried the bare string `class="wf-pf"`, the repair replaced the string, and a string replace cannot tell two owners apart, **which is the exact property that made the collision a defect in the first place.** So the six provably fair pages were fixed and node `5.10` was broken by the fix: its page grid inherited `flex-direction: column` with a 2px gap, **the two column layout stopped existing at every width**, and three sections ran full bleed with two pixels between them for four commits.
 
 **This is the first defect of this class in the stage found by an instrument rather than by a person looking at a screen.**
 
@@ -4430,3 +4430,44 @@ The guest trigger read `Sign in with Steam` and `D-32`'s rule is the reason it c
 **Where `2.1` fires now that it fires nowhere.** Its own table names four controls and the prototype wires none of them. **The founder's call**, and it needs the check state to resolve before any wire is honest.
 
 **Whether `2.1` should render at all on an open market.** It renders nothing today, which is why the press can go straight through, and that makes the gate a layer with no observable behaviour on the happy path.
+
+---
+
+## D-106. The profile page gets its grid back, and it is the second wrong side rename out of the same commit
+
+**Date:** 2026-09-01. **Stage:** 04. **Decided by:** the founder, on the built page, with the baseline capture beside it. **Binds:** node `5.10` and its three states.
+
+**What he said.** This page looks very strange, and it should look like this: the daily case card in a narrow left column, the messages panel beside it on the right.
+
+### The layout he asked for is the layout the node already specified
+
+`.wf-pf` has held it since the node was built: **`grid-template-areas: "daily msg" "rec msg"`** above 1000px, one column of `1fr` against one of `1.35fr`, a 24px row gap and a 40px column gap. **Nothing was designed in this decision.** The rule was there, correct, and reading nothing.
+
+### The wrapper had been renamed onto another component's rules
+
+On 26 August, closing the fourth collision found in `D-101`, `class="wf-pf"` was replaced with `class="wf-fpair"`. **The bare string existed on two owners**: the key and value pairs on the six provably fair pages, and this page's grid wrapper. **The replace hit both**, so the pages that needed the fix got it and this page moved onto the pair's rules.
+
+**What the pair's rules are:** `display: flex; flex-direction: column; gap: 2px`.
+
+| | Daily card | Messages | The record |
+|---|---|---|---|
+| Under `.wf-fpair`, at 1440 | x 464, **952 wide** | x 464, 952 wide, below it | x 464, 952 wide, below that |
+| Under `.wf-pf`, at 1440 | x 464, **388 wide** | **x 892, 524 wide, same row** | x 464, 388 wide, under the daily |
+
+**And the gap between the three sections was two pixels.** The page ran 3517px tall and now runs 3174px. **At 360 nothing changes and nothing should:** one column, in the DOM order the node fixes, what changes today first and what never changes last.
+
+**Half the repair was a second missing class.** The messages section carried `wf-msg` and `wf-pf-g` but never `wf-pf-msg`, so it had no grid area to be placed in. **A grid whose wrapper was correct would still have failed**, which is why this is two edits and not one.
+
+### Two wrong side renames, one commit, one root cause
+
+`D-105` found the first this morning, on node `2.4`'s provider row, from the same commit. **The cause is the same and it is worth naming once:** a collision is two owners sharing one name, and **a repair that replaces the name everywhere it appears cannot distinguish the two owners, which is the whole of what makes the collision a defect.** The repair has to name the owner it is moving. Both times it did not, and both times the record then said the collision was closed.
+
+### The instrument this earns, and the debt it measured
+
+**A wrong side rename leaves exactly one trace: a rule nothing reads.** The collision scan `D-101` built cannot see it, because after the rename there is one name and one rule. **So the detector is the opposite scan: every class defined in `_wf.css` and used by no markup and no renderer.** Written and run.
+
+**It returns 64, run after both of today's repairs.** `.wf-prov-row` and `.wf-pf` would have made it 66: a grep for each returned the rule and no consumer, which is what the scan looks for. **The 64 that remain read as leftovers of markup that was replaced**, `.wf-prof-*` from the profile block this grid superseded, `.wf-resp-*` from the responsible play rows rewritten by `D-82`, `.wf-meth-*` from the deposit method grid. **Carried as a measured debt rather than swept now**, because deleting a rule is only safe once its owner is named, and 62 owners is a step of its own.
+
+### What this does not answer
+
+**Whether the daily card should be the compact band the baseline draws.** The founder's capture shows the ring, one line and the control in a single horizontal strip; ours is a column of a ring, two figures, a control and a note. **The two column layout was the whole of the ask and it is done; the card's own density is not decided.**

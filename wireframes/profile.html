@@ -46,7 +46,15 @@
 
     <h1>Profile</h1>
 
-    <div class="wf-fpair">
+    <!-- THE PAGE GRID IS .wf-pf AGAIN, D-106. It was renamed to .wf-fpair on
+         26 August 2026 while D-101 was closing a collision on the old name, and
+         THE RENAME WAS APPLIED TO BOTH OWNERS INSTEAD OF ONE: the bare
+         class="wf-pf" string existed on the six provably fair pages and on this
+         wrapper, and replacing the string moved this page onto the key and value
+         pair's rules. What it inherited is flex column with a 2px gap, so THE
+         TWO COLUMN GRID STOPPED EXISTING at every width and the three sections
+         ran full bleed with two pixels between them. -->
+    <div class="wf-pf">
 
       <!-- BLOCK 1. THE DAILY ENTRY, component 0.15 compressed. Left column on the
            baseline and first on a phone, because it is the one thing on this page
@@ -77,7 +85,7 @@
       <!-- BLOCK 2. THE MESSAGES. Right column on the baseline, second on a phone.
            Two tabs, and the renderer owns the behaviour: switching, marking read,
            deleting the promo list, and the count on each tab. -->
-      <section class="wf-pf-g wf-msg" id="messages" aria-labelledby="h2-msgs">
+      <section class="wf-pf-g wf-pf-msg wf-msg" id="messages" aria-labelledby="h2-msgs">
         <h2 class="wf-pf-gh" id="h2-msgs">Your messages</h2>
         <div data-msgs></div>
         <!-- THE TWO GUARDS, and both of them are this project's own rules rather

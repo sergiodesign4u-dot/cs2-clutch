@@ -127,6 +127,29 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 
 ---
 
+## 0.7 Amended again, 1 September 2026, by `D-106`. The grid this node specified had been switched off, and nothing here changes
+
+**Founder, on the built page:** it looks very strange, and it should look like the baseline, the daily case card in a narrow left column with the messages panel beside it.
+
+**That is what section 4 already specifies and what `.wf-pf` already says.** `grid-template-areas: "daily msg" "rec msg"` above 1000px, `1fr` against `1.35fr`, a 24px row gap and a 40px column gap. **No layout was decided in this amendment.** The rule was correct and reading nothing.
+
+**The wrapper had been renamed onto another component.** On 26 August, closing a collision found by `D-101`, the bare string `class="wf-pf"` was replaced with `class="wf-fpair"`. **That string existed on two owners**, node `1.2`'s key and value pairs and this page's grid, and the replace hit both. This page inherited the pair's rules, `display: flex; flex-direction: column; gap: 2px`.
+
+| | The daily card | The messages | The record |
+|---|---|---|---|
+| Renamed, at 1440 | x 464, **952 wide** | x 464, 952 wide, below it | x 464, 952 wide, below that |
+| Restored, at 1440 | x 464, **388 wide** | **x 892, 524 wide, on the same row** | x 464, 388 wide, under the daily |
+
+**And the three sections sat two pixels apart.** The page ran 3517px and now runs 3174px. **At 360 nothing moved and nothing should:** one column in the DOM order this node fixes, what changes today first and what never changes last.
+
+**A second class was missing.** The messages section carried `wf-msg` and `wf-pf-g` and never `wf-pf-msg`, so it had no area to be placed in. **A correct wrapper alone would still have failed**, which is why the repair is two edits.
+
+**The instrument this earns, recorded here because this node paid for it.** A wrong side rename leaves exactly one trace, a rule nothing reads, and the collision scan cannot see it because after the rename there is one name and one rule. **The detector is the opposite scan: every class defined in the stylesheet and used by no markup and no renderer.** **It returns 64, run after both of today's repairs**, and the two live defects would have made it 66: a grep for each returned the rule and no consumer, which is what the scan looks for. **The 64 that remain are carried as a measured debt.**
+
+**Still not decided, and it is the founder's:** whether the daily card should be the compact horizontal band the baseline draws rather than the column of a ring, two figures, a control and a note. **The two column layout was the whole of the ask.**
+
+---
+
 ## 0. What this page holds, and the test every row had to pass
 
 **The test:** is this a fact the product already holds, or a control that already exists elsewhere on the map. **Nothing else was allowed on**, per the orphan rule above.
