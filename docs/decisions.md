@@ -4219,9 +4219,9 @@ It shipped as a bare `<input type="checkbox">` inside a flex row built for a 20p
 |---|---|---|
 | `.wf-steps` | `2.4`'s sign-in dialog, `D-54` | A column with a doubled number |
 | `.wf-offer` | `2.4`'s starter credit block | A tall centred banner with a hairline down the middle |
-| `.wf-prov-row` and `.wf-cat` | `2.4`'s provider row and `3.1`'s catalogue chip | Caught before they rendered |
+| ~~`.wf-prov-row` and `.wf-cat`~~ | `2.4`'s provider row and `3.1`'s catalogue chip | ~~Caught before they rendered~~ **Amended 1 September 2026 by `D-105`. `.wf-cat` was caught. `.wf-prov-row` was not:** the repair was applied to the wrong side, `2.4`'s markup was renamed to the deposit's new name instead of the deposit's block being renamed, **so both owners ended on one class and it was the deposit's rules that won.** Three provider buttons that should be equal thirds rendered content wide with a 16px gap and a wrap, and the third one dropped to a line of its own at 360 |
 
-**All of them are two owners of one name, none of them errors, and every one renders as another component.** `.wf-offer` is the one that reached a screenshot, because a later rule that does not restate `flex-direction` inherits it.
+**All of them are two owners of one name, none of them errors, and every one renders as another component.** `.wf-offer` is the one that reached a screenshot, because a later rule that does not restate `flex-direction` inherits it. **Amended 1 September 2026 by `D-105`: two reached a screenshot.** `.wf-prov-row` reached four commits of them and the founder found it before any instrument did, and the reason it survived every sweep is that the repair had already been written down as done. **A collision closed by renaming the wrong owner leaves no trace an instrument can see:** one name, one rule, nothing duplicated, and a component rendering under somebody else's geometry.
 
 **So the stage finally earns the instrument.** A scan for a bare class rule written twice at top level, which is the shape all four have. **It found a fourth nobody had reported: `.wf-pf`.** Node `1.2`'s key and value pair and node `5.10`'s page layout have both owned that name, and the profile rule is later, **so every key and value pair on the six provably fair pages was rendering with 24px between the label and the figure and going two columns wide above 1000px.** Renamed to `.wf-fpair`.
 
@@ -4377,3 +4377,56 @@ Banner alone. Promo with the country beside it. The chosen method. Who takes the
 **What the receipt says before an amount exists.** Named in `D-99`, `D-101` and `D-102`.
 
 **The crediting window `C3`**, the finer split of the 25 card routes, and enforcement of the limit on the crypto route. All the founder's.
+
+---
+
+## D-105. The case trigger says Sign in and opens the layer, and the three providers get their row back
+
+**Date:** 2026-09-01. **Stage:** 04. **Decided by:** the founder, on the built case screen and the built sign-in dialog, in one message carrying both. **Binds:** node `3.3` block 3 and its state matrix, node `2.4`'s provider row, node `2.1`'s trigger, and 18 built pages.
+
+**What he said.** Two things, and the second one is a repair. On the case screen: make the sign in simple here, and show the sign-in dialog on the press. On the dialog: stretch the three buttons the same, so the X is not crushed.
+
+### The label named one of four providers, and it named the one a person may not have
+
+The guest trigger read `Sign in with Steam` and `D-32`'s rule is the reason it changes rather than an obstacle to it: **the label is the act that is available.** The act available here is signing in. **Which provider is a choice one layer down**, and since `D-55` that layer offers four, so a trigger naming one of them makes a promise the next surface contradicts and names the one that a person with no Steam account cannot use. **The header control has read `Sign in` since `D-54`.** The product has been carrying two labels for one act on two carriers ever since, and the founder picked the one that was right.
+
+**It reads `Sign in` now on eleven built pages**, the three case states, the five geo gate states, `Home` and the eight cookie states, which is the same string in eighteen files. The header, which already said it, is unchanged.
+
+### The press opens the layer, and what it used to open was a spinner with nothing behind it
+
+`D-54` made `2.4` a dialog so that **a person is never taken off the page they are on.** This trigger was the last guest control still turning a page, and it did not turn it to `2.4`: it opened `2.1`'s check state, **a spinner carrying a note that its own threshold is not set, with no dismissal but Escape and nothing behind it to resolve to.**
+
+**On an open market `2.1` renders nothing.** That is the node's own rule, written to stop the lookup flashing. So the correct build of the open market branch is this press and the sign-in layer with nothing in between, which is exactly what the founder asked for. **The gate's four other verdicts keep their own addresses** and their pinned pages are unchanged.
+
+### And the gate turns out to have been wired to the wrong control
+
+`gate.md` section 1 fixes what fires it: the open control on `3.3`, the daily free case, the starter credit, **"any control that commits the person to a roll"**. Signing in commits nobody to a roll. **The one live trigger in the built prototype was on the guest sign-in press, which the table excludes, and the `Open` control on the three account states carries no trigger at all**, which the table includes by name.
+
+**So the gate was wired to the one case control its own definition rules out and to none of the ones it names.** After this decision it has no live trigger anywhere and renders only on its five pinned pages. **Nothing is lost in enforcement**, because a spinner that never resolves enforced nothing either. What changes is that the misplacement is visible instead of masked by a control that appeared to be the gate firing.
+
+**Not repaired here, and the reason is printed.** Putting `2.1` in front of the `Open` control means putting the check state in front of it, and the check state does not resolve. That is a node `2.1` question, not a node `3.3` one, and it is left open rather than answered by a wire that would make `Open` a dead end.
+
+### The three providers, and the class was renamed on the wrong side
+
+`.wf-prov-row` was written for this row: `display: flex`, `flex: 1 1 0` on each button, `min-width: 0`, an 8px gap. **Three equal thirds.**
+
+`D-100` reported a collision on that name against the deposit's new provider block and recorded it as caught before it rendered. **It was not caught. The rename went the wrong way**: `2.4`'s markup was renamed to the deposit's name, both owners ended on `.wf-payprov`, and the deposit's rules won. **`.wf-prov-row` has been dead CSS for four commits** while the row it was written for rendered under `align-items: center`, a 16px gap, `flex-wrap: wrap` and no basis at all.
+
+**What that put on screen**, measured before and after on `signin-dialog.html`:
+
+| | Google | Discord | X | At 360 |
+|---|---|---|---|---|
+| Before | 125px | 129px | **86px** | **The X on a second line** |
+| After | 138px | 138px | **138px** | Three at 99px, one line |
+
+**The fix is one word in one file**, and nothing was written to achieve it. **The row that reads the founder's complaint back to him is the last one:** he saw the crushed X at desktop width and the real defect was underneath it, at 360, where the third provider was on a row by itself.
+
+### What this costs, and it is a cost of method rather than of pixels
+
+**A collision closed by renaming the wrong owner is invisible to the instrument built to find collisions.** One name, one rule, nothing written twice: the sweep `D-101` earned comes back clean on exactly this defect. **And the record said it was caught**, so nobody looked again. The correction is written into `D-101`'s own table rather than only here, because the false all clear is where the damage was.
+
+### What this does not answer
+
+**Where `2.1` fires now that it fires nowhere.** Its own table names four controls and the prototype wires none of them. **The founder's call**, and it needs the check state to resolve before any wire is honest.
+
+**Whether `2.1` should render at all on an open market.** It renders nothing today, which is why the press can go straight through, and that makes the gate a layer with no observable behaviour on the happy path.

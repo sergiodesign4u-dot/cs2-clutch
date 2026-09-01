@@ -196,6 +196,41 @@
 
 ---
 
+## 0.11 Amended 1 September 2026 by `D-105`. The three providers get their own row back, and the trigger that opens this layer stops naming one of them
+
+**Founder, on the built dialog:** stretch the three the same, so the X is not crushed. **And on the case screen:** make the sign in simple, and show this dialog on the press.
+
+### The row was rendering under another component's rules, and the record said it had been fixed
+
+`.wf-prov-row` was written for this row and says exactly what it should: `display: flex`, `flex: 1 1 0` and `min-width: 0` on every button, an 8px gap. **Three equal thirds, on one line, at every width.**
+
+`D-100` reported a class collision on that name against node `4.1`'s new provider block and recorded it as **caught before it rendered**. It was not caught. **The repair was applied to the wrong side**: this node's markup was renamed to the deposit's new name, so both owners ended on `.wf-payprov`, **the deposit's rules won**, and `.wf-prov-row` became dead CSS that nothing reads.
+
+**What the deposit's rules do to three buttons:** `align-items: center`, a 16px gap, `flex-wrap: wrap`, and no basis, so each button is as wide as its own word.
+
+| | Google | Discord | X | At 360px |
+|---|---|---|---|---|
+| Under `.wf-payprov` | 125px | 129px | **86px** | **The X wrapped onto a second line** |
+| Under `.wf-prov-row` | 138px | 138px | **138px** | Three at 99px, one line, 44px tall |
+
+**The founder saw the crushed X at desktop width. The worse half was underneath it**, at the width this node is designed from: the third provider on a row of its own, which reads as a different kind of thing from the other two rather than the third of three.
+
+**`D-55`'s structure is untouched.** One primary and three secondary, and the difference stays structural: Steam is the only provider that can receive a skin, so it is the only one drawn as the act. **Three equal secondaries is what "three secondary" always meant**, and the three were unequal only because they were reading somebody else's rules.
+
+### The trigger that opens this layer named one provider out of four
+
+The case screen's guest trigger read `Sign in with Steam` and now reads `Sign in`. **The reason is `D-55`, not a preference.** This layer has offered four providers since 21 August 2026, so a trigger naming one of them makes a promise this surface contradicts, and it names the one that a person without a Steam account cannot use. **Which provider is a choice made here, one layer down, and never on the button that opens the layer.**
+
+**The header control has read `Sign in` since `D-54`.** The product carried two labels for one act on two carriers for eleven days, and the founder picked the one that was already right. `Home` and the eight cookie states are aligned with it in the same step.
+
+**And the press opens this dialog rather than turning a page**, which is `D-54`'s own rule reaching the last guest trigger that still turned one. What it opened before was `2.1`'s check state, **a spinner with nothing behind it to resolve to**. `2.1` renders nothing on an open market, its own rule against a flash, so the open market build is the press and this layer with nothing in between. Node `3.3` section 10 carries what that leaves open, and it is `2.1`'s question.
+
+### The cost, and it is not on this screen
+
+**A collision closed by renaming the wrong owner is invisible to the instrument that finds collisions.** One name, one rule, nothing written twice: the sweep `D-101` built comes back clean on exactly this defect, four times over. **And the record said it was caught, so nobody looked again.** The correction is written back into `D-101`'s own table, because the false all clear is where the damage was, not here.
+
+---
+
 ## 0. The statement no competitor prints
 
 **This is the block the node exists for.** `blocks.md` section 6 walked five competitors' sign-in surfaces live and the finding on our side of the ledger is one sentence: ours is Steam OpenID **with a statement of what the product will and will not read, which no competitor prints**.

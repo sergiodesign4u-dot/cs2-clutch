@@ -2350,7 +2350,16 @@ window.WF_PAY = window.WF_PAY || {
       out.push('<div class="wf-auth-blk">');
       out.push('<a class="wf-btn wf-btn--primary wf-prov-1" href="case-open.html" data-auth-go><span class="wf-prov-i" aria-hidden="true"></span>Sign in with Steam</a>');
       out.push('<p class="wf-or">or continue with</p>');
-      out.push('<div class="wf-payprov">');
+      /* THE THREE ARE ONE ROW OF EQUAL THIRDS AND THE CLASS IS THE FIX, D-105.
+         Founder on the built dialog: stretch the three the same so the X is not
+         crushed. NOTHING NEW WAS WRITTEN. .wf-prov-row was written for this row
+         with flex 1 1 0 and has been dead CSS since D-100: the class collision
+         reported there was repaired on the wrong side, 2.4's markup was renamed
+         to the deposit's name instead of the deposit's block being renamed, and
+         both owners ended on the deposit's rules. THREE EQUAL THIRDS BECAME
+         THREE CONTENT WIDTHS with a 16px gap and a wrap, which is 125, 129 and
+         86 at 1440 and the X on a line of its own at 360. */
+      out.push('<div class="wf-prov-row">');
       ['Google', 'Discord', 'X'].forEach(function (n) {
         out.push('<a class="wf-btn" href="case-open.html" data-auth-go><span class="wf-prov-i" aria-hidden="true"></span>' + n + '</a>');
       });

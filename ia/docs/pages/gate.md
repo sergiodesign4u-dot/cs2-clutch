@@ -51,6 +51,14 @@
 
 **It never contends with the cookie banner.** `sitemap.md` records this under the global sweep: `0.4` fires on arrival, `2.1` fires at first case interaction, so the two interrupts never want the same moment. Recorded there and repeated here so nobody derives it a third time.
 
+**Amended 1 September 2026 by `D-105`. The built prototype wired this node to a control the table above excludes, and to none of the ones it names.** The one live trigger was the guest sign-in press on `3.3`, **and signing in commits nobody to a roll**, which is the phrase in the right hand column. The `Open` control on the three account states, which the left hand column names first, carried no trigger at all. **The table is unchanged and it was always right. What was wrong was the wiring.**
+
+**The wrong wire is out and the right one is not in**, and the reason is this node's own check state: it renders a spinner carrying a note that its own threshold is not set, and **nothing behind it resolves it**. Putting that in front of `Open` would turn the one control that commits a person to a roll into a dead end, which is a worse defect than the one being repaired. **So `2.1` now renders only on its five pinned pages and fires nowhere.**
+
+**Two questions this leaves, and both are here rather than on `3.3`:**
+
+**Where it fires in the prototype**, which needs the check state to resolve before any wire is honest. **And whether it should render at all on an open market**: it renders nothing there today, which is the rule that lets the guest press go straight through to `2.4`, and it also means **this node has no observable behaviour on the happy path.** A layer that is invisible when the answer is yes is correct for the person and unreviewable for us.
+
 ---
 
 ## 2. The order of the two checks, and why the market runs first

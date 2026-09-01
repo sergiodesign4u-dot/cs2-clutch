@@ -311,7 +311,7 @@ The live product arrives with a partner code **already in the field, ticked, and
 
 ### The instrument this finally earned
 
-**Three class collisions in one stage**, `.wf-steps`, `.wf-offer`, then `.wf-prov-row` and `.wf-cat`. **Two owners of one name, no error, and every one renders as another component.** A scan for a bare class rule written twice at top level found a fourth nobody had reported: `.wf-pf`, owned by both `1.2`'s key and value pair and `5.10`'s page layout, **so every pair on the six provably fair pages carried 24px between the label and the figure and went two columns wide above 1000px.** Renamed. **First defect of this class in the stage found by an instrument rather than by a person looking.**
+**Three class collisions in one stage**, `.wf-steps`, `.wf-offer`, then `.wf-prov-row` and `.wf-cat`. **Amended 1 September 2026 by `D-105`: `.wf-prov-row` was not caught.** The repair was applied to the wrong side, `2.4`'s markup was renamed to this node's new name, both owners ended on `.wf-payprov`, and this node's rules won for four commits. **A collision closed by renaming the wrong owner leaves nothing for the instrument below to find.** **Two owners of one name, no error, and every one renders as another component.** A scan for a bare class rule written twice at top level found a fourth nobody had reported: `.wf-pf`, owned by both `1.2`'s key and value pair and `5.10`'s page layout, **so every pair on the six provably fair pages carried 24px between the label and the figure and went two columns wide above 1000px.** Renamed. **First defect of this class in the stage found by an instrument rather than by a person looking.**
 
 ---
 

@@ -328,6 +328,48 @@
 </section>
 
 <!-- STATEMENT -->
+<section id="row105">
+  <div class="sec-head">
+    <h2>0.11 Amended 1 September 2026 by <code>D-105</code>. The three providers get their own row back, and the trigger stops naming one of them</h2>
+    <p>Founder, on the built dialog: stretch the three the same, so the X is not crushed. And on the case screen: make the sign in simple, and show this dialog on the press.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The row was rendering under another component's rules, and the record said it had been fixed</h4>
+    <p><code>.wf-prov-row</code> was written for this row and says exactly what it should: <code>display: flex</code>, <code>flex: 1 1 0</code> and <code>min-width: 0</code> on every button, an 8px gap. <strong>Three equal thirds, on one line, at every width.</strong></p>
+    <p><code>D-100</code> reported a class collision on that name against node <span class="surf">4.1</span>'s new provider block and recorded it as <strong>caught before it rendered</strong>. It was not caught. <strong>The repair was applied to the wrong side:</strong> this node's markup was renamed to the deposit's new name, both owners ended on <code>.wf-payprov</code>, <strong>the deposit's rules won</strong>, and <code>.wf-prov-row</code> became dead CSS that nothing reads.</p>
+    <p><strong>What the deposit's rules do to three buttons:</strong> <code>align-items: center</code>, a 16px gap, <code>flex-wrap: wrap</code>, and no basis, so each button is as wide as its own word.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th></th><th>Google</th><th>Discord</th><th>X</th><th>At 360px</th></tr></thead>
+      <tbody>
+        <tr><td>Under <code>.wf-payprov</code></td><td>125px</td><td>129px</td><td><strong>86px</strong></td><td><strong>The X wrapped onto a second line</strong></td></tr>
+        <tr><td>Under <code>.wf-prov-row</code></td><td>138px</td><td>138px</td><td><strong>138px</strong></td><td>Three at 99px, one line, 44px tall</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The founder saw the crushed X at desktop width, and the worse half was underneath it</h4>
+    <p>At 360, the width this node is designed from, <strong>the third provider was on a row of its own</strong>, which reads as a different kind of thing from the other two rather than the third of three.</p>
+    <p><strong><code>D-55</code>'s structure is untouched.</strong> One primary and three secondary, and the difference stays structural: Steam is the only provider that can receive a skin, so it is the only one drawn as the act. <strong>Three equal secondaries is what three secondary always meant</strong>, and the three were unequal only because they were reading somebody else's rules.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The trigger that opens this layer named one provider out of four</h4>
+    <p>The case screen's guest trigger read <code>Sign in with Steam</code> and now reads <code>Sign in</code>. <strong>The reason is <code>D-55</code>, not a preference.</strong> This layer has offered four providers since 21 August 2026, so a trigger naming one of them makes a promise this surface contradicts, and it names the one that a person without a Steam account cannot use. <strong>Which provider is a choice made here, one layer down, and never on the button that opens the layer.</strong></p>
+    <p><strong>The header control has read <code>Sign in</code> since <code>D-54</code>.</strong> The product carried two labels for one act on two carriers for eleven days. <code>Home</code> and the eight cookie states are aligned in the same step.</p>
+    <p><strong>And the press opens this dialog rather than turning a page</strong>, <code>D-54</code>'s rule reaching the last guest trigger that still turned one. What it opened before was <span class="surf">2.1</span>'s check state, <strong>a spinner with nothing behind it to resolve to</strong>. <span class="surf">2.1</span> renders nothing on an open market, its own rule against a flash, so the open market build is the press and this layer with nothing in between.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The cost, and it is not on this screen</h4>
+    <p><strong>A collision closed by renaming the wrong owner is invisible to the instrument that finds collisions.</strong> One name, one rule, nothing written twice: the sweep <code>D-101</code> built comes back clean on exactly this defect, four times over. <strong>And the record said it was caught, so nobody looked again.</strong> The correction is written back into <code>D-101</code>'s own table, because the false all clear is where the damage was.</p>
+  </div>
+</section>
+
 <section id="statement">
   <div class="sec-head">
     <h2>The statement no competitor prints</h2>
@@ -731,6 +773,7 @@ window.NAV_SECTIONS = [
   { id: 'overview',  label: 'Overview' },
   { id: 'carrier',   label: 'D-54 the dialog' },
   { id: 'providers', label: 'D-55 and D-56' },
+  { id: 'row105',    label: 'D-105 the row' },
   { id: 'statement', label: 'The statement' },
   { id: 'not',       label: 'What it is not' },
   { id: 'route',     label: 'The route defect' },
