@@ -4634,3 +4634,51 @@ At 1440 the record card is 612 wide. A 4/3 slot in a single column made the pict
 
 **All six.** And the page as it stands is the one-control version the node specified, **shorter by 442 pixels and with its own settlement table on the first screen**, which is the state the shelf would be built out of rather than onto.
 
+---
+
+## D-110. At more than one item the record and the settlement are one block, and three defects were under the table
+
+**Date:** 2026-09-02. **Stage:** 04. **Decided by:** the founder, asking how the page looks for two or more items. **Binds:** node `5.3`, and it answers question 6 of `D-109` by being asked.
+
+**What he asked.** How will this look if a person wants to take out several skins, say ten, because the structure does not sit well on more than one.
+
+### He is right, and the reason is structural
+
+Before the request the node has **two blocks about one item**: the record, a card with a picture and four facts, and the settlement, a table with the baseline's four columns and one row in it. **At one item that reads as a subject and its price.**
+
+**At five it is five cards of 217px and then a table that repeats all five of them.** One set of items rendered twice, with a scroll between the two renderings, and the second is the one carrying the figures.
+
+**So at more than one the two blocks are one block.** The settlement table already had the skin name as its first column, so **it takes the picture and the wear with it** and the cards go. **The picture shrinks and does not leave:** a 44px thumbnail, because five pictures at 200px are 750px of art in front of a sum. **The founder's own capture does exactly this**, art on the selected skin, names and figures in the total block.
+
+### Five and not ten, and the reason is the account
+
+**`5.1` holds six items.** Ten cannot be drawn without inventing four the account does not have. **The sixth is the AWP and it is not in the basket because `D-108` put it in flight**, and an item cannot be in two withdrawals at once.
+
+**Every figure is `5.1`'s own**, read off its six cards rather than composed here. **Four items settle to 1.95 coins off a balance of 74.20, two paying back and two costing**, which is a shape a one item page cannot show at all.
+
+**And the fifth row cannot go out.** The Glock's market foot on the inventory reads "Nobody is offering one", 0 offers, "no copy on sale to buy". **Withdrawal is a purchase since `D-91`, so an item with no copy to buy has nothing to settle against and nothing to send.** It is in the table and out of the sum: hiding it answers "where did my Glock go" with silence, counting it puts a figure on a purchase that cannot happen. **The control counts what it will send, four rather than five.**
+
+### Three defects were under the table, and none of them is about withdrawal
+
+| What | How it showed | Why nothing caught it |
+|---|---|---|
+| **`.wf-wd` had no `minmax(0, 1fr)`** on its one column form | The table's own `overflow-x` never engaged, because the implicit track grew to the table instead. **The page ran 75px past 360** | **The two column form above 900px already had it.** The defect existed only at the width the node is designed from, and only for a table wide enough to trigger it |
+| **A visually hidden label widened the page** | `.wf-vh` is `position: absolute`, and with no positioned ancestor its containing block is the page rather than the scroll container. **A hidden label sitting in a column at x 400 of a 419px table landed at x 400 of the page** and pushed a 360px viewport out by eleven pixels | Nothing. **It is the most invisible way this stage has found to break a layout:** the element renders nothing, and the fix is one word, `position: relative` on the wrap |
+| **The header said the account held 130.60 coins and its six cards summed to 140.95** | A ten coin gap between a total and the items it totals, on every signed-in page in the product | **There is a check and it could not see this.** `D-79` added one after the header read 18.60 while the page read 130.60, **and it compares two renderings of one figure.** A total that agrees with itself and disagrees with its own grid passes it |
+
+**The instrument this earns.** The sweep now sums `.wf-inv-p` across the item cards and fails a page whose held figure differs by more than a coin. **350 checks, 0 problems**, and the corrected figure is 140.95 in 67 files.
+
+### Two readings of one skin, and this decision does not settle it
+
+**The single item page settles an AK-47 Redline, Field-Tested, StatTrak at 21.40 against a market price of 63.80.** The basket settles an AK-47 Redline, Field-Tested at 21.40 against 18.90, which is `5.1`'s own market foot.
+
+**Either they are two items and `5.1` does not render the StatTrak field `0.6` gives it, or they are one item and one of the two market prices is wrong.** Both readings are live. **Naming it is the whole of what this decision does with it**, because choosing would either rewrite the single item page's demonstration or contradict the inventory, and neither is a call this stage can take on its own.
+
+### What this does not answer
+
+**Whether one unbuyable item should block a whole basket.** Drawn one way, four go and one stays, **and the losing reading is printed on the page**: refusing the batch makes one unbuyable copy hold four sendable items.
+
+**Whether a basket leaves as one trade offer or as one per item.** Steam can do either, **and it decides whether the person watches one clock or four.**
+
+**And all six questions of `D-109` are still open and now multiplied by N.** A shelf of offers per item, at five items, is five shelves.
+

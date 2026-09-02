@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Withdraw to Steam, several items</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- NODE 5.3, WITHDRAWAL OF SEVERAL ITEMS AT ONCE, D-110. Founder: how does this
+     look if a person wants to take out two or more, say ten, because the
+     structure does not sit well on several skins.
+     HE IS RIGHT AND THE REASON IS STRUCTURAL RATHER THAN COSMETIC. Before the
+     request the node has TWO blocks about one item: block 1, the record, a card
+     with a picture and four facts, and block 1b, the settlement, a table with the
+     baseline's four columns and one row in it. AT ONE ITEM THAT READS AS A
+     SUBJECT AND ITS PRICE. At five it is five cards of 217px, then a table that
+     repeats all five of them, which is the same five items rendered twice with a
+     scroll between the two renderings.
+     SO AT MORE THAN ONE THE TWO BLOCKS ARE ONE BLOCK. The settlement table
+     already carries the skin name, so it carries the item: a thumbnail, the name,
+     the wear, and then the three figures that were already its columns. Nothing
+     is added to the table that the record held and nothing is dropped.
+     THE PICTURE SHRINKS AND DOES NOT LEAVE. D-109 put it beside the facts at one
+     item; at five it becomes a thumbnail in the first column, because five
+     pictures at 200px are 750px of art in front of a sum. The founder's own
+     capture does exactly this: SELECTED SKIN carries the art, TOTAL PRICE carries
+     rows with names and figures.
+     FIVE AND NOT TEN, AND THE REASON IS THE ACCOUNT. 5.1 holds six items, so ten
+     cannot be drawn without inventing four the inventory does not have. The sixth
+     is the AWP, and it is not here because D-108 put it in flight already:
+     Sending to Steam. AN ITEM CANNOT BE IN TWO WITHDRAWALS AT ONCE.
+     EVERY FIGURE ON THIS PAGE IS 5.1's OWN. Our price, the market price and the
+     direction are read off the six cards in the inventory rather than composed
+     here, because a second set of figures for one account is the drift this
+     stage has now found four times. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <h1>Withdraw to Steam</h1>
+
+    <div class="wf-wd">
+      <div class="wf-stack">
+
+      <!-- BLOCK 1 AND 1b, MERGED AT MORE THAN ONE ITEM. The heading counts and
+           the count is a count, never a total: the total is one line below and it
+           is a different number from the number of things. -->
+      <div class="wf-sec-head">
+        <h2 id="h2-many">Five items, and what sending them out costs</h2>
+        <p class="wf-sec-sub">You hold a credit note at our price on each of these. The real skins have to be bought, and the difference settles against your balance either way. <a href="account.html">Change what is selected</a></p>
+      </div>
+
+      <!-- THE SAME FOUR COLUMNS THE BASELINE USES, walked 18 August 2026,
+           baseline-account.md section 5, plus the item in the first column and a
+           remove control in the last. THE REMOVE CONTROL IS THE BASELINE'S TOO:
+           its offers row carries a delete beside the filters, which is how a skin
+           leaves a withdrawal without leaving the page. -->
+      <div class="wf-tablewrap">
+        <table class="wf-table wf-settle" data-settle>
+          <caption class="wf-vh">Each item, what it is worth here, what a copy costs on the market, and what settles against your balance</caption>
+          <thead>
+            <tr>
+              <th scope="col">Skin</th>
+              <th scope="col">Your skin price</th>
+              <th scope="col">Market skin price</th>
+              <th scope="col">Your balance impact</th>
+              <th scope="col"><span class="wf-vh">Remove</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-l="Skin"><span class="wf-st-item"><span class="wf-st-art" aria-hidden="true"></span><span class="wf-st-n"><b>AK-47 Redline</b><span>Field-Tested</span></span></span></td>
+              <td data-l="Your skin price">21.40</td>
+              <td data-l="Market skin price">18.90</td>
+              <td data-l="Your balance impact">2.50 back</td>
+              <td data-l="Remove"><button class="wf-btn wf-btn--small" type="button">Remove<span class="wf-vh"> AK-47 Redline</span></button></td>
+            </tr>
+            <tr>
+              <td data-l="Skin"><span class="wf-st-item"><span class="wf-st-art" aria-hidden="true"></span><span class="wf-st-n"><b>USP-S Cortex</b><span>Minimal Wear</span></span></span></td>
+              <td data-l="Your skin price">7.35</td>
+              <td data-l="Market skin price">6.05</td>
+              <td data-l="Your balance impact">1.30 back</td>
+              <td data-l="Remove"><button class="wf-btn wf-btn--small" type="button">Remove<span class="wf-vh"> USP-S Cortex</span></button></td>
+            </tr>
+            <tr>
+              <td data-l="Skin"><span class="wf-st-item"><span class="wf-st-art" aria-hidden="true"></span><span class="wf-st-n"><b>M4A1-S Hyper Beast</b><span>Field-Tested</span></span></span></td>
+              <td data-l="Your skin price">29.90</td>
+              <td data-l="Market skin price">34.10</td>
+              <td data-l="Your balance impact">4.20 more</td>
+              <td data-l="Remove"><button class="wf-btn wf-btn--small" type="button">Remove<span class="wf-vh"> M4A1-S Hyper Beast</span></button></td>
+            </tr>
+            <tr>
+              <td data-l="Skin"><span class="wf-st-item"><span class="wf-st-art" aria-hidden="true"></span><span class="wf-st-n"><b>Desert Eagle Blaze</b><span>Minimal Wear</span></span></span></td>
+              <td data-l="Your skin price">12.05</td>
+              <td data-l="Market skin price">13.60</td>
+              <td data-l="Your balance impact">1.55 more</td>
+              <td data-l="Remove"><button class="wf-btn wf-btn--small" type="button">Remove<span class="wf-vh"> Desert Eagle Blaze</span></button></td>
+            </tr>
+            <!-- THE ROW THAT CANNOT GO, AND IT IS 5.1's OWN CARD RATHER THAN AN
+                 INVENTED CASE: the Glock's market foot reads "Nobody is offering
+                 one", 0 offers, and "no copy on sale to buy". Withdrawal is a
+                 purchase since D-91, so an item with no copy to buy has nothing
+                 to settle against and nothing to send.
+                 IT IS IN THE TABLE AND OUT OF THE SUM. Hiding it would answer the
+                 person's "where did my Glock go" with silence, and counting it
+                 would put a figure on a purchase that cannot happen. -->
+            <tr class="is-blocked">
+              <td data-l="Skin"><span class="wf-st-item"><span class="wf-st-art" aria-hidden="true"></span><span class="wf-st-n"><b>Glock-18 Water Elemental</b><span>Factory New</span></span></span></td>
+              <td data-l="Your skin price">4.20</td>
+              <td data-l="Market skin price"><span class="wf-fig-missing">Nobody is offering one</span></td>
+              <td data-l="Your balance impact"><span class="wf-fig-missing">It cannot go out</span></td>
+              <td data-l="Remove"><button class="wf-btn wf-btn--small" type="button">Remove<span class="wf-vh"> Glock-18 Water Elemental</span></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="wf-tl wf-tl--sum"><span>Total difference, four items</span><span class="wf-tl-v">-1.95 coins</span></div>
+      <p class="wf-fig-c">Based on the market prices, <strong>1.95 coins comes off your balance</strong> when these go to Steam. Your balance is 74.20 coins, so 72.25 would be left. <strong>Two of the four pay you back and two cost you</strong>, and the total is what is left after both directions.</p>
+
+      <!-- THE ITEM THAT STAYS, SAID BEFORE THE PRESS AND NOT AFTER IT. Which of
+           the two answers is right is the founder's, section 9, and the losing
+           one is named here rather than hidden: refusing the whole batch until
+           the Glock is removed is the other reading, and it makes one unbuyable
+           copy hold four sendable items. -->
+      <p class="wf-note"><strong>The Glock-18 stays in My items.</strong> There is no copy of it on sale to buy, so there is nothing to send and nothing to settle. <strong>The other four go.</strong> It keeps its place in the table so that what happened to it is on the screen you pressed from. <a href="account.html">My items</a></p>
+
+      <p class="wf-note">Market prices read <b>23 Aug 2026 09:31</b>, the same moment for every row here, and they move daily. The copies come from us and the prices are ours, set against the Steam market. <span class="wf-fig-missing">How far under Steam we set them is not published yet.</span> <span class="wf-fig-missing">What one coin is worth in real money is not published.</span></p>
+
+      <!-- BLOCK 4. THE NAMED LIMITS, AUTHORED ONCE AND WORDED IDENTICALLY to the
+           single item page and to 5.1, because a limit reworded at the moment it
+           bites reads as a new rule. -->
+      <div class="wf-stack">
+        <div class="wf-sec-head"><h2 id="h2-limits">Before you ask, three limits</h2></div>
+        <ul class="wf-lim">
+          <li><span class="wf-lim-w">Ours</span><span><strong>A market we do not serve.</strong> The verdict and the ground in readable words. It lifts with the staged rollout.</span></li>
+          <li><span class="wf-lim-w">Steam&#39;s</span><span><strong>A trade hold.</strong> Steam holds a trade for a period it sets, on conditions it sets. <span class="wf-fig-missing">How long is not published here: it is Steam&#39;s number and it needs a source and a date before we print it</span></span></li>
+          <li><span class="wf-lim-w">Steam&#39;s</span><span><strong>A ban on the Steam account.</strong> The account cannot receive a trade. <strong>This one is not ours and we cannot lift it</strong>, and the route to fix it is Steam&#39;s.</span></li>
+        </ul>
+      </div>
+
+      <!-- THE CONTROL COUNTS WHAT IT WILL ACTUALLY SEND, D-32's rule applied to a
+           basket: the label is the act that is available, and the act available
+           is four rather than five. -->
+      <div class="wf-row">
+        <button class="wf-btn wf-btn--primary" type="button">Send four items to Steam</button>
+      </div>
+      </div>
+
+      <div class="wf-wd-side wf-stack">
+      <div class="wf-card wf-total">
+        <div class="wf-tl"><span>Items going out</span><span class="wf-tl-v">4 of 5</span></div>
+        <div class="wf-tl"><span>Our commission</span><span class="wf-tl-v">0.00</span></div>
+        <div class="wf-tl"><span>Steam Market fee, for comparison</span><span class="wf-tl-v">15%, as of 18 Aug 2026</span></div>
+        <div class="wf-tl wf-tl--sum"><span>You receive</span><span class="wf-tl-v">The items</span></div>
+      </div>
+      <p class="wf-note">Our commission is zero and stays zero, on one item and on four. What moves your balance is the market settlement, and it is in the table with the prices it is drawn from.</p>
+
+      <!-- WHETHER ONE TRADE OFFER CARRIES FOUR ITEMS OR FOUR CARRY ONE EACH IS
+           NOT DRAWN, and it is the difference between one clock and four. Steam
+           can do either. 5.9's ledger has a row per item today, so four rows is
+           what the record would take, and whether the person watches one wait or
+           four is section 9's question rather than this page's answer. -->
+      <p class="wf-note wf-fig-missing">Whether this leaves as one trade offer with four items in it or as four offers is not published yet, and it decides whether the clock below is one clock or four</p>
+
+      <div class="wf-figs">
+        <div class="wf-fig"><span class="wf-fig-v wf-fig-missing">Not available</span><span class="wf-fig-c">Middle time, from our own logs</span></div>
+        <div class="wf-fig"><span class="wf-fig-v wf-fig-missing">Not available</span><span class="wf-fig-c">Slow-case time, from our own logs</span></div>
+      </div>
+      <p class="wf-note wf-fig-missing">Neither figure is published yet, and nor is whether they would measure the whole elapsed time or only the stretches we are waiting on</p>
+
+      <div class="wf-row">
+        <a class="wf-btn" href="support.html">Support</a>
+      </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '140.95 coins' } };
+window.WF_ACCT = { active: 'items' };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

@@ -253,6 +253,12 @@ window.WF_NAV = {
       base: 'Before the request',
       states: [
         { label: 'Requested, the clock running', file: 'withdraw-clock.html', status: 'built' },
+        // SEVERAL ITEMS AT ONCE, D-110, founder question of 2 September 2026:
+        // how does this look for two or more. At more than one item the record
+        // and the settlement are one block, because the table already carried
+        // the skin name and five cards in front of a sum are the same five
+        // items rendered twice.
+        { node: '5.3', label: 'Several items at once',   file: 'withdraw-many.html', status: 'built' },
         { node: '5.4', label: 'Not eligible, limit stated', file: 'withdraw-not-eligible.html',      status: 'built' },
         { node: '5.5', label: 'Steam degraded',             file: 'withdraw-steam-degraded.html',    status: 'built' },
         { node: '5.6', label: 'Account restricted, appeal', file: 'withdraw-restricted.html',        status: 'built' },

@@ -218,6 +218,52 @@ At 1440 the record card is 612 wide. **A 4/3 slot in a single column made the pi
 
 ---
 
+## 1d. Amended 2 September 2026 by `D-110`. Several items at once, and at more than one the record and the settlement are one block
+
+**Founder:** how does this look if a person wants to take out two or more, say ten, because the structure does not sit well on several skins.
+
+### He is right, and the reason is structural rather than cosmetic
+
+Before the request this node has **two blocks about one item**: block 1, the record, a card with a picture and four facts; block 1b, the settlement, a table with the baseline's four columns and one row in it. **At one item that reads as a subject and its price.**
+
+**At five it is five cards of 217px, then a table that repeats all five of them.** The same five items rendered twice with a scroll between the two renderings, and the second rendering is the one carrying the figures.
+
+**So at more than one, the two blocks are one block.** The settlement table already had the skin name as its first column, **so it takes the picture and the wear with it** and the cards go. Nothing is added that the record held and nothing is dropped.
+
+**The picture shrinks and does not leave.** `D-109` put it beside the facts at one item; here it is a 44px thumbnail in the first column, because **five pictures at 200px are 750px of art in front of a sum.** The founder's own capture does exactly this: the art is on the selected skin, the total block carries names and figures.
+
+### Five and not ten, and the reason is the account
+
+**`5.1` holds six items**, so ten cannot be drawn without inventing four the inventory does not have. **The sixth is the AWP and it is not in the basket because `D-108` put it in flight**: it reads Sending to Steam. **An item cannot be in two withdrawals at once.**
+
+**Every figure on the page is `5.1`'s own**, read off the six cards rather than composed here, because a second set of figures for one account is the drift this stage has now found four times.
+
+| Skin | Ours | Market | Impact |
+|---|---|---|---|
+| AK-47 Redline, Field-Tested | 21.40 | 18.90 | **2.50 back** |
+| USP-S Cortex, Minimal Wear | 7.35 | 6.05 | **1.30 back** |
+| M4A1-S Hyper Beast, Field-Tested | 29.90 | 34.10 | **4.20 more** |
+| Desert Eagle Blaze, Minimal Wear | 12.05 | 13.60 | **1.55 more** |
+| Glock-18 Water Elemental, Factory New | 4.20 | **Nobody is offering one** | **It cannot go out** |
+
+**Total difference, four items: 1.95 coins off a balance of 74.20.** Two pay back and two cost, which is the shape the 18 August walk found and the shape a single-item page cannot show at all.
+
+### The row that cannot go, and it is `5.1`'s own card rather than an invented case
+
+The Glock's market foot on the inventory reads **"Nobody is offering one", 0 offers, "no copy on sale to buy"**. Withdrawal is a purchase since `D-91`, so **an item with no copy to buy has nothing to settle against and nothing to send.**
+
+**It is in the table and out of the sum.** Hiding it answers "where did my Glock go" with silence; counting it puts a figure on a purchase that cannot happen. **The control counts what it will actually send**, four rather than five, which is `D-32`'s rule applied to a basket.
+
+**The losing option is named rather than hidden:** refusing the whole batch until the Glock is removed is the other reading, **and it makes one unbuyable copy hold four sendable items.** Which is right is the founder's, section 9.
+
+### Two readings of one skin, and this section does not settle it
+
+**The single-item page settles an AK-47 Redline, Field-Tested, StatTrak at 21.40 against a market price of 63.80.** This page settles an AK-47 Redline, Field-Tested at 21.40 against 18.90.
+
+**Either they are two items and `5.1` does not render the StatTrak field that `0.6` says it has**, or they are one item and one of the two market prices is wrong. **Both readings are live and neither is chosen here.** Section 9.
+
+---
+
 ## 2. The clock
 
 ### 2.1 Five stages, derived from the flow rather than from a queue model
@@ -478,6 +524,9 @@ Five, all numbered in the map, all specified here under their own anchors.
 
 | Open item | What is missing | Owner |
 |---|---|---|
+| **Whether one unbuyable item blocks a whole basket** | **Opened 2 September 2026 by `D-110`.** The page sends the four that can go and leaves the one that cannot, with the reason on its row. **The other reading refuses the batch until it is removed**, and it makes one unbuyable copy hold four sendable items. Drawn one way, and the losing way is named on the page rather than hidden | Founder |
+| **Whether a basket leaves as one trade offer or as one per item** | **Opened 2 September 2026 by `D-110`.** Steam can do either. **It decides whether the person watches one clock or four**, and `5.9`'s ledger has a row per item today, so four rows is what the record would take either way | Founder |
+| **Whether the single item page and the basket describe the same AK-47** | **Opened 2 September 2026 by `D-110`.** `5.3` settles an AK-47 Redline, Field-Tested, **StatTrak** at 21.40 against a market price of **63.80**. `5.1` prices an AK-47 Redline, Field-Tested at 21.40 with a market foot of **18.90**. **Either they are two items and `5.1` does not render the StatTrak field `0.6` gives it, or they are one item and one of the two market prices is wrong.** Neither is chosen here | Founder |
 | **What a float is on the screen** | The baseline prints the raw number, `0.7683732`, and a coloured wear bar under it. **We have no colour until stage 07**, and a seven decimal number with no scale beside it means nothing to a person who has not learned the scale. **Raw number, wear band, both, or a bar with no colour** is a design question with a research half: whether the people this product is for read floats at all | Founder, and `0.6` field 15 |
 | **What happens when there is one copy, or none** | **The shelf assumes a shelf.** One copy is the current single-control page with the choice removed. **No copy at any price is a state this node does not have** and the three it does have, not eligible, Steam degraded, offer expired, are none of them it. **It is a new state or it is a refusal**, and either way it is drawn rather than discovered | Founder |
 | **Is a withdrawal one item or a basket** | **The baseline's total block is a table with a `TOTAL DIFFERENCE` line under it**, which only means something for several items at once. **`5.1` already has Select all and a Send to Steam over a selection.** This node is written for one record throughout: one card, one settlement, one clock, one history. **If a withdrawal is a basket, this is a different page and not a changed block**, and the clock, the states and `5.9`'s ledger all take a row per item or a row per basket | Founder, and it is the largest of the six |

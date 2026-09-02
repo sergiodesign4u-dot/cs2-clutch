@@ -2141,7 +2141,14 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 
 /* A table that scrolls inside its own box and never takes the page with it. The
    page itself does not scroll sideways at any width, section 14. */
-.wf-tablewrap { overflow-x: auto; }
+/* THE WRAP IS A CONTAINING BLOCK, D-110, and the reason is a defect that only a
+   wide table shows. .wf-vh is position absolute, and with no positioned ancestor
+   its containing block is the page rather than the scroll container, so a hidden
+   label sitting in a column at x 400 of a 419px table LANDED AT x 400 OF THE PAGE
+   and pushed a 360px viewport out by eleven pixels. It is clipped now because it
+   is contained. A hidden label that widens the page is the most invisible way
+   this stage has found to break a layout. */
+.wf-tablewrap { position: relative; overflow-x: auto; }
 .wf-table { width: 100%; border-collapse: collapse; font-size: var(--wf-t-s); }
 .wf-table th, .wf-table td { padding: var(--wf-s-1); text-align: left; vertical-align: top; }
 .wf-table thead th {
@@ -3431,6 +3438,29 @@ select {
    NOTHING IS CUT TO BUY THAT HEIGHT and the slot is still a real slot: stage 06
    puts an image in it and the ratio it gets is the same 4/3. */
 .wf-held-b { display: flex; flex-direction: column; gap: var(--wf-s-1); min-width: 0; }
+
+/* THE SETTLEMENT TABLE CARRYING THE ITEMS, D-110. At more than one item the
+   record and the settlement stop being two blocks: the table already had the
+   skin name as its first column, so it takes the picture and the wear with it
+   and the cards above it go. FIVE CARDS AT 217px EACH IS 1085px OF RECORD IN
+   FRONT OF A SUM, and every one of those five is a row of the sum as well.
+   THE PICTURE SHRINKS AND DOES NOT LEAVE. D-109 put it beside the facts at one
+   item; here it is a thumbnail in the first column, which is what the founder's
+   own capture does: the art is on the selected skin, the total block carries
+   names and figures. */
+.wf-st-item { display: flex; align-items: center; gap: var(--wf-s-1); min-width: 0; }
+.wf-st-art {
+  flex: 0 0 44px; height: 33px;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
+}
+.wf-st-n { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.wf-st-n b { font-weight: 700; }
+.wf-st-n span { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+/* A ROW THAT CANNOT GO IS MARKED ON THE ROW AND NOT ONLY IN ITS CELLS, because
+   the cell that carries the reason is the one a person is least likely to be
+   looking at when they scan a column of figures. */
+.wf-settle tr.is-blocked td { color: var(--wf-ink-dim); }
+.wf-settle tr.is-blocked td:first-child { box-shadow: inset 3px 0 0 var(--wf-line); }
 @media (min-width: 600px) {
   /* THE FACTS ARE ONE BLOCK BESIDE THE PICTURE, and the wrapper is what makes
      that possible: as flat siblings they were rows of a grid the picture
@@ -3634,7 +3664,13 @@ select {
    at 900 and up, and below it they stacked as plain blocks with nothing between them,
    so the side panel sat flush against the last line of the main column. Declared here
    as one column with the page's own block step, D-83, and overridden to two above. */
-.wf-wd { display: grid; gap: var(--wf-s-3); align-items: start; }
+/* A GRID ITEM'S MIN-WIDTH IS AUTO AND minmax(0, 1fr) IS WHAT STOPS IT, D-110.
+   The one column form below 900px was a bare implicit track, so the settlement
+   table's own overflow-x never engaged: the track grew to the table instead, and
+   at five columns with a thumbnail and a Remove control that pushed the page 75px
+   past 360. The two column form above 900 already said minmax(0, 1fr) and that is
+   why the defect only existed at the width the node is designed from. */
+.wf-wd { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--wf-s-3); align-items: start; }
 @media (min-width: 900px) {
   .wf-wd { grid-template-columns: minmax(0, 1fr) 300px; gap: var(--wf-s-4); }
   .wf-wd-side { position: sticky; top: var(--wf-s-2); }
