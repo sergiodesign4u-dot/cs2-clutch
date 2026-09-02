@@ -595,6 +595,33 @@ Composition from `blocks.md` section 3, **T2 listing with an empty state**, rows
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `history.html` | Every roll, each with its hash | `5.9` |
+| `history-items.html` | Items, every skin won | `5.9` |
+| `history-items-empty.html` | Items, none yet | `5.9` |
+| `history-empty.html` | No rolls yet | `5.9` |
+| `history-no-seed.html` | Nothing to check, D-C is no | `5.9` |
+| `history-mismatch.html` | A proof that does not match | `5.9` |
+| `history-deposits.html` | Deposits | `5.9` |
+| `history-deposits-empty.html` | Deposits, none yet | `5.9` |
+| `history-withdrawals.html` | Withdrawals | `5.9` |
+| `history-withdrawals-empty.html` | Withdrawals, none yet | `5.9` |
+| `history-withdrawals-overdue.html` | Withdrawals, past our ceiling | `5.9` |
+| `history-cashout.html` | Cash out, four statuses | `5.9` |
+| `history-cashout-empty.html` | Cash out, none yet | `5.9` |
+| `history-unfinished.html` | An open that did not finish | `5.9` |
+| `history-deposits-blocked.html` | Deposits, a boundary in force | `5.9` |
+| `history-withdrawals-restricted.html` | Withdrawals, account restricted | `5.9` |
+
+---
+
 ## 9. What this node does not decide
 
 | Open item | What is missing | Owner |

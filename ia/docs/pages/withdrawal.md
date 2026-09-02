@@ -678,6 +678,25 @@ Five, all numbered in the map, all specified here under their own anchors.
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `withdraw.html` | Before the request | `5.3` |
+| `withdraw-clock.html` | Requested, the clock running | `5.3` |
+| `withdraw-many.html` | Several items at once | `5.3` |
+| `withdraw-not-eligible.html` | Not eligible, limit stated | `5.4` |
+| `withdraw-steam-degraded.html` | Steam degraded | `5.5` |
+| `withdraw-restricted.html` | Account restricted, appeal | `5.6` |
+| `withdraw-restriction-upheld.html` | Restriction upheld | `5.7` |
+| `withdraw-offer-expired.html` | Trade offer expired | `5.8` |
+
+---
+
 ## 9. What this node does not decide
 
 ### 9a. Closed

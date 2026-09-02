@@ -692,6 +692,29 @@
 </section>
 
 <!-- OPEN -->
+<section id="pages">
+  <div class="sec-head">
+    <h2>The pages that draw this node, and the registry is where the list comes from</h2>
+    <p>Added 2 September 2026 by <code>D-122</code>. Nothing joined a node to the screens that draw it except prose, so no check could be written. This table is that join, taken from the registry every page already renders from.</p>
+  </div>
+  <div class="card is-note">
+    <p><strong>It is a contract, not a listing.</strong> A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Page</th><th>What it draws</th><th>Node</th></tr></thead>
+      <tbody>
+        <tr><td><code>fair.html</code></td><td>Default, with the verifier idle</td><td><span class="surf">1.2</span></td></tr>
+        <tr><td><code>fair-prefilled.html</code></td><td>Prefilled, nothing computed</td><td><span class="surf">1.2</span></td></tr>
+        <tr><td><code>fair-matched.html</code></td><td>Checked and matched</td><td><span class="surf">1.2</span></td></tr>
+        <tr><td><code>fair-unavailable.html</code></td><td>Proof not available yet</td><td><span class="surf">1.2</span></td></tr>
+        <tr><td><code>fair-malformed.html</code></td><td>Verifier, malformed round</td><td><span class="surf">1.3</span></td></tr>
+        <tr><td><code>fair-proof-failed.html</code></td><td>Verifier, our own proof failed</td><td><span class="surf">1.4</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
@@ -745,6 +768,7 @@ window.NAV_SECTIONS = [
   { id: 'algorithm', label: 'The algorithm' },
   { id: 'refuses',   label: 'What it refuses' },
   { id: 'seo',       label: 'SEO A to E' },
+  { id: 'pages', label: 'Pages that draw it' },
   { id: 'open',      label: 'Open' },
 ];
 </script>

@@ -256,6 +256,27 @@ The seven FAQ sections in section 4 are H3s under heading 5.
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `support.html` | Entry | `0.10` |
+| `support-appeal.html` | Appeal a decision | `0.10` |
+| `support-submitted.html` | Appeal submitted | `0.10` |
+| `support-waiting.html` | Waiting, with attribution | `0.10` |
+| `support-answered.html` | Appeal answered | `0.10` |
+| `support-upheld.html` | Appeal upheld | `0.10` |
+| `support-refused.html` | Appeal refused | `0.10` |
+| `support-deadline.html` | Deadline missed | `0.10` |
+| `support-nodispute.html` | No dispute to appeal | `0.10` |
+| `support-notfound.html` | Ticket id not found | `0.10` |
+
+---
+
 ## 9. What this node does not decide
 
 | Open item | What is missing | Owner |

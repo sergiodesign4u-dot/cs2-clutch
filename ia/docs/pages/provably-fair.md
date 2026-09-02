@@ -353,6 +353,23 @@ H3s exist only under H2 7: the computation, a worked example, version history.
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `fair.html` | Default, with the verifier idle | `1.2` |
+| `fair-prefilled.html` | Prefilled, nothing computed | `1.2` |
+| `fair-matched.html` | Checked and matched | `1.2` |
+| `fair-unavailable.html` | Proof not available yet | `1.2` |
+| `fair-malformed.html` | Verifier, malformed round | `1.3` |
+| `fair-proof-failed.html` | Verifier, our own proof failed | `1.4` |
+
+---
+
 ## 11. What this node does not decide
 
 | Open item | What is missing | Owner |

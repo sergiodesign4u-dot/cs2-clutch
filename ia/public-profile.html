@@ -385,6 +385,28 @@
 </section>
 
 <!-- OPEN -->
+<section id="pages">
+  <div class="sec-head">
+    <h2>The pages that draw this node, and the registry is where the list comes from</h2>
+    <p>Added 2 September 2026 by <code>D-122</code>. Nothing joined a node to the screens that draw it except prose, so no check could be written. This table is that join, taken from the registry every page already renders from.</p>
+  </div>
+  <div class="card is-note">
+    <p><strong>It is a contract, not a listing.</strong> A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Page</th><th>What it draws</th><th>Node</th></tr></thead>
+      <tbody>
+        <tr><td><code>player.html</code></td><td>A stranger reading it</td><td><span class="surf">7.3</span></td></tr>
+        <tr><td><code>player-owner.html</code></td><td>The owner reading their own</td><td><span class="surf">7.3</span></td></tr>
+        <tr><td><code>player-empty.html</code></td><td>Nothing won yet</td><td><span class="surf">7.3</span></td></tr>
+        <tr><td><code>player-gone.html</code></td><td>No page to show</td><td><span class="surf">7.3</span></td></tr>
+        <tr><td><code>player-hidden.html</code></td><td>Hidden, the owner looking at it</td><td><span class="surf">7.3</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
@@ -431,6 +453,7 @@ window.NAV_SECTIONS = [
   { id: 'shelf',      label: 'What the shelf lists' },
   { id: 'indexation', label: 'Indexation' },
   { id: 'states',     label: 'States' },
+  { id: 'pages', label: 'Pages that draw it' },
   { id: 'open',       label: 'Open' },
 ];
 </script>

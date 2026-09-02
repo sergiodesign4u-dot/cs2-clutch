@@ -1095,6 +1095,31 @@
 </section>
 
 <!-- OPEN -->
+<section id="pages">
+  <div class="sec-head">
+    <h2>The pages that draw this node, and the registry is where the list comes from</h2>
+    <p>Added 2 September 2026 by <code>D-122</code>. Nothing joined a node to the screens that draw it except prose, so no check could be written. This table is that join, taken from the registry every page already renders from.</p>
+  </div>
+  <div class="card is-note">
+    <p><strong>It is a contract, not a listing.</strong> A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Page</th><th>What it draws</th><th>Node</th></tr></thead>
+      <tbody>
+        <tr><td><code>withdraw.html</code></td><td>Before the request</td><td><span class="surf">5.3</span></td></tr>
+        <tr><td><code>withdraw-clock.html</code></td><td>Requested, the clock running</td><td><span class="surf">5.3</span></td></tr>
+        <tr><td><code>withdraw-many.html</code></td><td>Several items at once</td><td><span class="surf">5.3</span></td></tr>
+        <tr><td><code>withdraw-not-eligible.html</code></td><td>Not eligible, limit stated</td><td><span class="surf">5.4</span></td></tr>
+        <tr><td><code>withdraw-steam-degraded.html</code></td><td>Steam degraded</td><td><span class="surf">5.5</span></td></tr>
+        <tr><td><code>withdraw-restricted.html</code></td><td>Account restricted, appeal</td><td><span class="surf">5.6</span></td></tr>
+        <tr><td><code>withdraw-restriction-upheld.html</code></td><td>Restriction upheld</td><td><span class="surf">5.7</span></td></tr>
+        <tr><td><code>withdraw-offer-expired.html</code></td><td>Trade offer expired</td><td><span class="surf">5.8</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
@@ -1180,6 +1205,7 @@ window.NAV_SECTIONS = [
   { id: 'states',      label: 'Five states' },
   { id: 'shell',       label: 'Components and CTA' },
   { id: 'seo',         label: 'SEO' },
+  { id: 'pages', label: 'Pages that draw it' },
   { id: 'open',        label: 'Open' },
 ];
 </script>

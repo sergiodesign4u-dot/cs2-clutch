@@ -732,6 +732,27 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `deposit-dialog.html` | The dialog, over the case screen | `4.1` |
+| `deposit.html` | Cold arrival at /deposit | `4.1` |
+| `deposit-card.html` | Step 2, card and wallets | `4.1` |
+| `deposit-crypto.html` | Step 2, crypto | `4.1` |
+| `deposit-crypto-nowallet.html` | Step 2, no address yet | `4.1` |
+| `deposit-giftcards.html` | Step 2, gift cards | `4.1` |
+| `deposit-ceiling-reached.html` | Deposit limit reached this period | `4.2` |
+| `deposit-ceiling-pending.html` | Limit raise pending | `4.3` |
+| `deposit-crediting.html` | Crediting, named timer | `4.4` |
+| `deposit-declined.html` | Payment declined | `4.5` |
+
+---
+
 ## 12. What this node does not decide
 
 | Open item | What is missing | Owner |

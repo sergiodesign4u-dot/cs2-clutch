@@ -684,6 +684,30 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `case.html` | Phase 1, choosing | `3.3` |
+| `case-account.html` | Signed in, funded | `3.3` |
+| `case-account-2.html` | Two chosen, stage at rest | `3.3` |
+| `case-account-5.html` | Five chosen, stage at rest | `3.3` |
+| `case-open.html` | Phase 2, the open | `3.5` |
+| `case-open-2.html` | The open, 2 rolls | `3.5` |
+| `case-open-5.html` | The open, 5 rolls | `3.5` |
+| `case-outcome.html` | Phase 3, the outcome | `3.6` |
+| `case-outcome-2.html` | The outcome, 2 items | `3.6` |
+| `case-outcome-5.html` | The outcome, 5 items | `3.6` |
+| `case-interrupted.html` | Interrupted reveal | `3.7` |
+| `case-nocounter.html` | D-B negative, no counter | `3.3` |
+| `case-degraded.html` | Values degraded | `3.3` |
+
+---
+
 ## 17. What this node does not decide
 
 | Open item | What is missing | Owner |

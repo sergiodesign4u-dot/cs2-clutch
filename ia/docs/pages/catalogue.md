@@ -332,6 +332,24 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `catalogue.html` | Guest, unfiltered | `3.1` |
+| `catalogue-account.html` | Account | `3.1` |
+| `catalogue-filter.html` | Filter drawer open | `3.1` |
+| `catalogue-filtered.html` | Filtered | `3.1` |
+| `catalogue-loading.html` | Loading | `3.1` |
+| `catalogue-degraded.html` | Degraded | `3.1` |
+| `catalogue-empty.html` | Nothing matches | `3.2` |
+
+---
+
 ## 12. What this node does not decide
 
 | Open item | What is missing | Owner |

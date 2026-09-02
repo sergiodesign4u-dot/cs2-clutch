@@ -567,6 +567,29 @@
 </section>
 
 <!-- OPEN -->
+<section id="pages">
+  <div class="sec-head">
+    <h2>The pages that draw this node, and the registry is where the list comes from</h2>
+    <p>Added 2 September 2026 by <code>D-122</code>. Nothing joined a node to the screens that draw it except prose, so no check could be written. This table is that join, taken from the registry every page already renders from.</p>
+  </div>
+  <div class="card is-note">
+    <p><strong>It is a contract, not a listing.</strong> A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Page</th><th>What it draws</th><th>Node</th></tr></thead>
+      <tbody>
+        <tr><td><code>result.html</code></td><td>Stranger, no account</td><td><span class="surf">7.1</span></td></tr>
+        <tr><td><code>result-owner.html</code></td><td>The owner</td><td><span class="surf">7.1</span></td></tr>
+        <tr><td><code>result-checked.html</code></td><td>Recomputed, matched</td><td><span class="surf">7.1</span></td></tr>
+        <tr><td><code>result-mismatched.html</code></td><td>Recomputed, mismatched</td><td><span class="surf">7.1</span></td></tr>
+        <tr><td><code>result-noproof.html</code></td><td>Proof not available</td><td><span class="surf">7.1</span></td></tr>
+        <tr><td><code>result-gone.html</code></td><td>Result gone or private</td><td><span class="surf">7.2</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
@@ -627,6 +650,7 @@ window.NAV_SECTIONS = [
   { id: 'state-7-2', label: '7.2 Gone or private' },
   { id: 'states',   label: 'States and mobile' },
   { id: 'seo',      label: 'SEO block A to E' },
+  { id: 'pages', label: 'Pages that draw it' },
   { id: 'open',     label: 'Open' },
 ];
 </script>

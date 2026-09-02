@@ -303,6 +303,22 @@ From `markets.md` section 9, and they are the register's rules rather than this 
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `gate.html` | Checking the market | `2.1` |
+| `gate-staged.html` | Staged market, one limit | `2.1` |
+| `gate-notlaunched.html` | Not launched, the default | `2.2` |
+| `gate-blocked.html` | Blocked, with the ground | `2.2` |
+| `gate-unavailable.html` | Detection unavailable | `2.1` |
+
+---
+
 ## 12. What this node does not decide
 
 | Open item | What is missing | Owner |

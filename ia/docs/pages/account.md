@@ -485,6 +485,21 @@ The route to the catalogue is the offer. A person who wants to open finds the fr
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `account.html` | Items held | `5.1` |
+| `account-degraded.html` | Values degraded | `5.1` |
+| `cashout-dialog.html` | Cash out, the layer | `5.1` |
+| `account-empty.html` | Inventory empty | `5.2` |
+
+---
+
 ## 8. What this node does not decide
 
 | Open item | What is missing | Owner |

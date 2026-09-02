@@ -249,6 +249,20 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `profile.html` | The daily entry, the messages, the record | `5.10` |
+| `profile-quiet.html` | Nothing to read | `5.10` |
+| `profile-steam-down.html` | Steam unreadable | `5.10` |
+
+---
+
 ## 6. What this node does not decide
 
 | Open item | What is missing | Owner |

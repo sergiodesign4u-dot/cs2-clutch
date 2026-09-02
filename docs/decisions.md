@@ -5141,3 +5141,42 @@ The selection bar is sticky to the bottom of the screen, `D-85`. **At 360 the fo
 **`baseline.md` owes a dated row.** Its walk of 22 August recorded 363 775 507, 3 330 137, 1 863 286 and 659; the strip has been rendering 363 777 660, which matches neither; the founder's capture of 2 September reads 367 013 504. **Returned as a finding rather than edited**, `CLAUDE.md`.
 
 **The capture is owed a dated file in `research/screens/`.** A screenshot with no date is model memory with a picture attached, and this one has a date only because it arrived in a conversation.
+
+---
+
+## D-122. The node and the screens that draw it get a written join, and the audit that could not be run is the finding
+
+**Date:** 2026-09-02. **Stage:** 04. **Decided by:** the founder. **Binds:** all 19 IA nodes that own a screen.
+
+**What he said.** **"А еще бы я актуализировал бы все IA которые у нас есть по ваерам."**
+
+### Four instruments, and three of them proved the same thing
+
+| Check | Result | What it means |
+|---|---|---|
+| Wireframe filenames a node names that do not exist | 5, **4 of them false** (WCAG and RFC citations), 1 a page the node itself records as deleted | Clean |
+| Product copy a node quotes that no wireframe renders | 113 flagged, **almost all false**: nodes quote research, law, principles and the founder's own words, and none of that is screen copy | The check cannot separate a claim about our screen from a quotation of a source |
+| Pages in the registry that a node names | 102 of 132 "unnamed" | **Vacuous. Nodes describe states in prose and never by filename** |
+| Decision codes on a page but not in its markdown | **5, all single passing citations** | **The markdown is not behind the pages.** No amendment lives only on a page |
+
+**Three checks came back noise or vacuum for one reason: nothing joined a node to the screens that draw it except prose.** That is why every drift this week was found by eye and not by an instrument, `D-105`, `D-106`, `D-117` and `D-120` all included.
+
+### So the join is written down
+
+**Every node that owns a screen now carries one table: the page, what it draws, and which node it belongs to, taken from `/_nav.js`.** 19 nodes, 131 pages.
+
+**It is a contract, not a listing.** A page in the registry with no row is a state nobody specified. A row with no page is a specification nobody drew. **The check now exists and returns 19 screens, 0 mismatches.**
+
+### And the alarm that started this was half false
+
+The section-count check said 13 nodes show fewer sections on the page than the markdown holds, and it read as a `CLAUDE.md` violation: markdown stays alive, html does not freeze.
+
+**Read properly, most of it is editorial.** The pages **merge and rename** the short administrative sections, `Components`, `Main CTA`, `Emotional support`, `Responsive`, so `seo.md`'s "Headings" and "Breadcrumbs" are one section on the page and `deposit.md`'s last three are one. **Nothing was lost by any of them.**
+
+**One was real and it is fixed.** `account.md` section 6 has been in the node since it was written and has never been on the page: a reader of the page was reading a node with a hole in it.
+
+**The rule that would prevent the class is not "mirror every heading".** It is the one the count check accidentally tested and the page table now makes checkable.
+
+### What this does not close
+
+**A node can still describe a screen that has changed.** No instrument here reads a specification against a rendering, and building one would need the nodes to mark which of their sentences are claims about the screen. **Named rather than left as an implication that the IA is now verified.**

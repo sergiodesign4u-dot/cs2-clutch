@@ -220,6 +220,24 @@ Every state below is a state of this node. None of them is a separate node in th
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `system.html` | 404, external arrival | `0.3` |
+| `system-404-internal.html` | 404, internal referrer | `0.3` |
+| `system-404-retired.html` | 404, retired case slug | `0.3` |
+| `system-500.html` | 500, carriers render | `0.3` |
+| `system-500-noshell.html` | 500, carriers cannot | `0.3` |
+| `system-503-planned.html` | 503, planned | `0.3` |
+| `system-503-unplanned.html` | 503, unplanned | `0.3` |
+
+---
+
 ## 9. What this node does not decide
 
 | Open item | What is missing | Owner |

@@ -529,6 +529,30 @@
 </section>
 
 <!-- OPEN -->
+<section id="pages">
+  <div class="sec-head">
+    <h2>The pages that draw this node, and the registry is where the list comes from</h2>
+    <p>Added 2 September 2026 by <code>D-122</code>. Nothing joined a node to the screens that draw it except prose, so no check could be written. This table is that join, taken from the registry every page already renders from.</p>
+  </div>
+  <div class="card is-note">
+    <p><strong>It is a contract, not a listing.</strong> A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Page</th><th>What it draws</th><th>Node</th></tr></thead>
+      <tbody>
+        <tr><td><code>system.html</code></td><td>404, external arrival</td><td><span class="surf">0.3</span></td></tr>
+        <tr><td><code>system-404-internal.html</code></td><td>404, internal referrer</td><td><span class="surf">0.3</span></td></tr>
+        <tr><td><code>system-404-retired.html</code></td><td>404, retired case slug</td><td><span class="surf">0.3</span></td></tr>
+        <tr><td><code>system-500.html</code></td><td>500, carriers render</td><td><span class="surf">0.3</span></td></tr>
+        <tr><td><code>system-500-noshell.html</code></td><td>500, carriers cannot</td><td><span class="surf">0.3</span></td></tr>
+        <tr><td><code>system-503-planned.html</code></td><td>503, planned</td><td><span class="surf">0.3</span></td></tr>
+        <tr><td><code>system-503-unplanned.html</code></td><td>503, unplanned</td><td><span class="surf">0.3</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
@@ -587,6 +611,7 @@ window.NAV_SECTIONS = [
   { id: 'indexation',    label: 'Indexation' },
   { id: 'states',        label: 'States' },
   { id: 'a11y',          label: '360px and access' },
+  { id: 'pages', label: 'Pages that draw it' },
   { id: 'open',          label: 'Open' },
 ];
 </script>

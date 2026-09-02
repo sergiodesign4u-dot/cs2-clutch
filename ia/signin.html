@@ -728,6 +728,30 @@
 </section>
 
 <!-- OPEN -->
+<section id="pages">
+  <div class="sec-head">
+    <h2>The pages that draw this node, and the registry is where the list comes from</h2>
+    <p>Added 2 September 2026 by <code>D-122</code>. Nothing joined a node to the screens that draw it except prose, so no check could be written. This table is that join, taken from the registry every page already renders from.</p>
+  </div>
+  <div class="card is-note">
+    <p><strong>It is a contract, not a listing.</strong> A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Page</th><th>What it draws</th><th>Node</th></tr></thead>
+      <tbody>
+        <tr><td><code>signin-dialog.html</code></td><td>The dialog, over the case screen</td><td><span class="surf">2.4</span></td></tr>
+        <tr><td><code>signin.html</code></td><td>Cold arrival at /signin</td><td><span class="surf">2.4</span></td></tr>
+        <tr><td><code>signin-consent-partial.html</code></td><td>One of two given</td><td><span class="surf">2.4</span></td></tr>
+        <tr><td><code>signin-blocked.html</code></td><td>Press refused, nothing declared</td><td><span class="surf">2.4</span></td></tr>
+        <tr><td><code>signin-consent-given.html</code></td><td>Consent given</td><td><span class="surf">2.4</span></td></tr>
+        <tr><td><code>signin-steam-refused.html</code></td><td>Steam refused</td><td><span class="surf">2.5</span></td></tr>
+        <tr><td><code>signin-steam-unavailable.html</code></td><td>Steam unavailable</td><td><span class="surf">2.6</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
@@ -783,6 +807,7 @@ window.NAV_SECTIONS = [
   { id: 'down',      label: '2.6 Steam unavailable' },
   { id: 'adaptive',  label: '360px' },
   { id: 'seo',       label: 'SEO A to E' },
+  { id: 'pages', label: 'Pages that draw it' },
   { id: 'open',      label: 'Open' },
 ];
 </script>

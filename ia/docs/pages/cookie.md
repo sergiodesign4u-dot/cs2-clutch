@@ -216,6 +216,25 @@ Two pages on `cnil.fr`, English versions, opened 12 August 2026.
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `cookie.html` | Pending, no answer yet | `0.4` |
+| `cookie-manage.html` | Layer 2, nothing chosen | `0.4` |
+| `cookie-accepted.html` | Accepted all | `0.4` |
+| `cookie-rejected.html` | Rejected all | `0.4` |
+| `cookie-partial.html` | Partial | `0.4` |
+| `cookie-changed.html` | Changed later | `0.4` |
+| `cookie-expired.html` | Consent expired | `0.4` |
+| `cookie-nostore.html` | Storage unavailable | `0.4` |
+
+---
+
 ## 9. What this node does not decide
 
 | Open item | What is missing | Owner |

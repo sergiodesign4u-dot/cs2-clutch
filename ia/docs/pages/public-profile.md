@@ -138,6 +138,22 @@ They get `player-gone.html`, and it is the same page an account that never exist
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `player.html` | A stranger reading it | `7.3` |
+| `player-owner.html` | The owner reading their own | `7.3` |
+| `player-empty.html` | Nothing won yet | `7.3` |
+| `player-gone.html` | No page to show | `7.3` |
+| `player-hidden.html` | Hidden, the owner looking at it | `7.3` |
+
+---
+
 ## 7. What this node does not decide
 
 | Open | Why it is not decided here | Owner |

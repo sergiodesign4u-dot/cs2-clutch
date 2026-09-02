@@ -292,6 +292,22 @@ The clause text is counsel's. **These four leads are the node's own copy and the
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `legal.html` | Current | `0.9` |
+| `legal-changed.html` | Changed since you last agreed | `0.9` |
+| `legal-guest.html` | Guest, never agreed | `0.9` |
+| `legal-superseded.html` | Reading a superseded version | `0.9` |
+| `legal-unpublished.html` | Not yet published | `0.9` |
+
+---
+
 ## 10. What this node does not decide
 
 | Open item | What is missing | Owner |

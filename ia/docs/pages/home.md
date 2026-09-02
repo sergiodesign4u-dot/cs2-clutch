@@ -562,6 +562,19 @@ Rendered in block B11, under the H2 `What opening a case here involves`.
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `index.html` | Guest | `1.0` |
+| `index-account.html` | Account exists | `1.1` |
+
+---
+
 ## 9. What this node does not decide
 
 | Open item | What is missing | Owner |

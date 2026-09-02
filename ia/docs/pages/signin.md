@@ -445,6 +445,24 @@ That is a genuine cross-node dependency and it runs both ways: if the probe is n
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `signin-dialog.html` | The dialog, over the case screen | `2.4` |
+| `signin.html` | Cold arrival at /signin | `2.4` |
+| `signin-consent-partial.html` | One of two given | `2.4` |
+| `signin-blocked.html` | Press refused, nothing declared | `2.4` |
+| `signin-consent-given.html` | Consent given | `2.4` |
+| `signin-steam-refused.html` | Steam refused | `2.5` |
+| `signin-steam-unavailable.html` | Steam unavailable | `2.6` |
+
+---
+
 ## 10. What this node does not decide
 
 | Open item | What is missing | Owner |

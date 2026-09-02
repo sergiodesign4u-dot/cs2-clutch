@@ -783,6 +783,39 @@
 </section>
 
 <!-- OPEN -->
+<section id="pages">
+  <div class="sec-head">
+    <h2>The pages that draw this node, and the registry is where the list comes from</h2>
+    <p>Added 2 September 2026 by <code>D-122</code>. Nothing joined a node to the screens that draw it except prose, so no check could be written. This table is that join, taken from the registry every page already renders from.</p>
+  </div>
+  <div class="card is-note">
+    <p><strong>It is a contract, not a listing.</strong> A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Page</th><th>What it draws</th><th>Node</th></tr></thead>
+      <tbody>
+        <tr><td><code>history.html</code></td><td>Every roll, each with its hash</td><td><span class="surf">5.9</span></td></tr>
+        <tr><td><code>history-items.html</code></td><td>Items, every skin won</td><td><span class="surf">5.9</span></td></tr>
+        <tr><td><code>history-items-empty.html</code></td><td>Items, none yet</td><td><span class="surf">5.9</span></td></tr>
+        <tr><td><code>history-empty.html</code></td><td>No rolls yet</td><td><span class="surf">5.9</span></td></tr>
+        <tr><td><code>history-no-seed.html</code></td><td>Nothing to check, D-C is no</td><td><span class="surf">5.9</span></td></tr>
+        <tr><td><code>history-mismatch.html</code></td><td>A proof that does not match</td><td><span class="surf">5.9</span></td></tr>
+        <tr><td><code>history-deposits.html</code></td><td>Deposits</td><td><span class="surf">5.9</span></td></tr>
+        <tr><td><code>history-deposits-empty.html</code></td><td>Deposits, none yet</td><td><span class="surf">5.9</span></td></tr>
+        <tr><td><code>history-withdrawals.html</code></td><td>Withdrawals</td><td><span class="surf">5.9</span></td></tr>
+        <tr><td><code>history-withdrawals-empty.html</code></td><td>Withdrawals, none yet</td><td><span class="surf">5.9</span></td></tr>
+        <tr><td><code>history-withdrawals-overdue.html</code></td><td>Withdrawals, past our ceiling</td><td><span class="surf">5.9</span></td></tr>
+        <tr><td><code>history-cashout.html</code></td><td>Cash out, four statuses</td><td><span class="surf">5.9</span></td></tr>
+        <tr><td><code>history-cashout-empty.html</code></td><td>Cash out, none yet</td><td><span class="surf">5.9</span></td></tr>
+        <tr><td><code>history-unfinished.html</code></td><td>An open that did not finish</td><td><span class="surf">5.9</span></td></tr>
+        <tr><td><code>history-deposits-blocked.html</code></td><td>Deposits, a boundary in force</td><td><span class="surf">5.9</span></td></tr>
+        <tr><td><code>history-withdrawals-restricted.html</code></td><td>Withdrawals, account restricted</td><td><span class="surf">5.9</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
@@ -828,6 +861,7 @@ window.NAV_SECTIONS = [
   { id: 'proof', label: 'The proof in a row' },
   { id: 'states', label: 'States' },
   { id: 'finding', label: 'The register finding' },
+  { id: 'pages', label: 'Pages that draw it' },
   { id: 'open', label: 'Open' },
 ];
 </script>

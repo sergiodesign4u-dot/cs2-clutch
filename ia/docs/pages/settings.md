@@ -281,6 +281,21 @@ Sound, language, the break tool and sign out are all somewhere already. **They a
 
 ---
 
+## The pages that draw this node, and the registry is where the list comes from
+
+**Added 2 September 2026 by `D-122`.** Founder: actualise every IA node against the wireframes. **The check could not be written, because nothing joined a node to the screens that draw it except prose.** This table is that join, taken from `/_nav.js`, which is the one registry every page in the project already renders from.
+
+**It is a contract, not a listing.** A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.
+
+| Page | What it draws | Node |
+|---|---|---|
+| `settings.html` | The trade URL is set | `5.11` |
+| `settings-no-trade.html` | Trade URL not set | `5.11` |
+| `settings-refused.html` | Saved value refused | `5.11` |
+| `settings-no-steam.html` | No Steam account linked | `5.11` |
+
+---
+
 ## 7. What this node does not decide
 
 | Open item | What is missing | Owner |

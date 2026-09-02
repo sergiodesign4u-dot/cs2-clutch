@@ -1092,6 +1092,33 @@
 </section>
 
 <!-- OPEN -->
+<section id="pages">
+  <div class="sec-head">
+    <h2>The pages that draw this node, and the registry is where the list comes from</h2>
+    <p>Added 2 September 2026 by <code>D-122</code>. Nothing joined a node to the screens that draw it except prose, so no check could be written. This table is that join, taken from the registry every page already renders from.</p>
+  </div>
+  <div class="card is-note">
+    <p><strong>It is a contract, not a listing.</strong> A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Page</th><th>What it draws</th><th>Node</th></tr></thead>
+      <tbody>
+        <tr><td><code>deposit-dialog.html</code></td><td>The dialog, over the case screen</td><td><span class="surf">4.1</span></td></tr>
+        <tr><td><code>deposit.html</code></td><td>Cold arrival at /deposit</td><td><span class="surf">4.1</span></td></tr>
+        <tr><td><code>deposit-card.html</code></td><td>Step 2, card and wallets</td><td><span class="surf">4.1</span></td></tr>
+        <tr><td><code>deposit-crypto.html</code></td><td>Step 2, crypto</td><td><span class="surf">4.1</span></td></tr>
+        <tr><td><code>deposit-crypto-nowallet.html</code></td><td>Step 2, no address yet</td><td><span class="surf">4.1</span></td></tr>
+        <tr><td><code>deposit-giftcards.html</code></td><td>Step 2, gift cards</td><td><span class="surf">4.1</span></td></tr>
+        <tr><td><code>deposit-ceiling-reached.html</code></td><td>Deposit limit reached this period</td><td><span class="surf">4.2</span></td></tr>
+        <tr><td><code>deposit-ceiling-pending.html</code></td><td>Limit raise pending</td><td><span class="surf">4.3</span></td></tr>
+        <tr><td><code>deposit-crediting.html</code></td><td>Crediting, named timer</td><td><span class="surf">4.4</span></td></tr>
+        <tr><td><code>deposit-declined.html</code></td><td>Payment declined</td><td><span class="surf">4.5</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
@@ -1162,6 +1189,7 @@ window.NAV_SECTIONS = [
   { id: 'states',    label: 'States 4.2 to 4.5' },
   { id: 'registers', label: 'Registers and a finding' },
   { id: 'seo',       label: 'Responsive and SEO' },
+  { id: 'pages', label: 'Pages that draw it' },
   { id: 'open',      label: 'Open' },
 ];
 </script>

@@ -545,6 +545,28 @@
 </section>
 
 <!-- OPEN -->
+<section id="pages">
+  <div class="sec-head">
+    <h2>The pages that draw this node, and the registry is where the list comes from</h2>
+    <p>Added 2 September 2026 by <code>D-122</code>. Nothing joined a node to the screens that draw it except prose, so no check could be written. This table is that join, taken from the registry every page already renders from.</p>
+  </div>
+  <div class="card is-note">
+    <p><strong>It is a contract, not a listing.</strong> A page in the registry with no row here is a state nobody specified. A row here with no page is a specification nobody drew.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Page</th><th>What it draws</th><th>Node</th></tr></thead>
+      <tbody>
+        <tr><td><code>legal.html</code></td><td>Current</td><td><span class="surf">0.9</span></td></tr>
+        <tr><td><code>legal-changed.html</code></td><td>Changed since you last agreed</td><td><span class="surf">0.9</span></td></tr>
+        <tr><td><code>legal-guest.html</code></td><td>Guest, never agreed</td><td><span class="surf">0.9</span></td></tr>
+        <tr><td><code>legal-superseded.html</code></td><td>Reading a superseded version</td><td><span class="surf">0.9</span></td></tr>
+        <tr><td><code>legal-unpublished.html</code></td><td>Not yet published</td><td><span class="surf">0.9</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
@@ -608,6 +630,7 @@ window.NAV_SECTIONS = [
   { id: 'states',   label: 'Seven states' },
   { id: 'adaptive', label: 'Adaptive and a11y' },
   { id: 'seo',      label: 'SEO A to E' },
+  { id: 'pages', label: 'Pages that draw it' },
   { id: 'open',     label: 'Open' },
 ];
 </script>
