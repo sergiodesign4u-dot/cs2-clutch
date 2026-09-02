@@ -589,6 +589,43 @@
   </div>
 </section>
 
+<section id="side115">
+  <div class="sec-head">
+    <h2>1h Amended 2 September 2026 by <code>D-115</code>. The side column is dissolved, and block 3 finally gets to be a line in a sum</h2>
+    <p>Founder: I do not think we really need the side panel.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Four lines were in it and two of them said what the page already said</h4>
+    <p><code>Items going out 1 of 1</code> beside a button reading "Send 1 item to Steam" and a table with one row in it. <code>You receive: The item</code> on a page titled Withdraw to Steam. <strong>Nothing was cut. Every block kept its parent and moved to where it is asked for.</strong></p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>What</th><th>Parent</th><th>Where it went</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Our commission, 0.00</strong></td><td>Row <span class="row-code">G6</span>, block 3</td><td><strong>A row in the settlement sum, directly above the total</strong></td></tr>
+        <tr><td>Steam Market fee, 15%, for comparison</td><td>Block 3's comparison</td><td>The line under the total, beside the as-of</td></tr>
+        <tr><td><strong>The middle and slow-case times</strong></td><td>Rows <span class="row-code">A4</span>, <span class="row-code">G3</span>, <span class="row-code">G2</span>, block 6</td><td><strong>Under the press.</strong> How long this takes is asked at the moment of pressing rather than while reading</td></tr>
+        <tr><td>Support</td><td>Row <span class="row-code">G4</span>, block 8</td><td>The foot of the page</td></tr>
+        <tr><td><s>Items going out</s>, <s>You receive</s></td><td>None. They were labels on the card</td><td><strong>Gone.</strong> The button counts and the table lists</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <h4>Block 3 asked for this in its own words and could not have it</h4>
+    <p>Its rule: <strong>a commission of zero renders as a line in a sum and never as a badge, because a badge asserts and a line in a sum gets checked.</strong> It was in a card of four lines that was not a sum, beside a settlement table it was not part of. <strong>It is a row above Total difference now.</strong> Same words, same figure, and the thing the rule was written to get.</p>
+    <p><strong>And <code>D-91</code>'s correction survives the move.</strong> That decision made this card stop reading as though nothing else moves, by pointing at the settlement rather than reprinting the figure. The line under the total does the same job in one sentence.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>What it cost and what it bought</h4>
+    <p><strong>The main column goes from 612px to 952px on all eight pages</strong>, which is what let the offer strip show five copies instead of two and a half. <strong>The page is one column at every width now</strong>, so there is no second reading order to maintain.</p>
+    <p><strong>The defect it exposed, immediately.</strong> The renderer wrote the count into an element that lived in the deleted card, so two pages threw a TypeError on load. <strong>Caught by the instrument on the first run after the edit</strong>, and the count is the button's now rather than a second element saying the same thing.</p>
+  </div>
+</section>
+
 <section id="clock">
   <div class="sec-head">
     <h2>The clock</h2>
@@ -1108,6 +1145,7 @@ window.NAV_SECTIONS = [
   { id: 'offers111', label: 'D-111 the offers' },
   { id: 'market112', label: 'D-112 the market' },
   { id: 'one114', label: 'D-114 one item' },
+  { id: 'side115', label: 'D-115 no side' },
   { id: 'clock',       label: 'The clock' },
   { id: 'money',       label: 'Commission free' },
   { id: 'limits',      label: 'The named limits' },

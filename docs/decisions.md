@@ -4852,3 +4852,39 @@ The basket, the filters, the settlement table, the total, the count and the butt
 
 **All four fixed. The count is now zero, and the check runs beside the sweep.**
 
+---
+
+## D-115. The side column is dissolved, and block 3 finally gets to be a line in a sum
+
+**Date:** 2026-09-02. **Stage:** 04. **Decided by:** the founder, on the built page. **Binds:** node `5.3` and its eight pages.
+
+**What he said.** I do not think we really need the side panel.
+
+**Four lines were in it and two of them said what the page already said.** `Items going out 1 of 1` beside a button reading "Send 1 item to Steam" and a table with one row in it. `You receive: The item` on a page titled Withdraw to Steam.
+
+**Nothing was cut. Every block kept its parent and moved to where it is asked for.**
+
+| What | Parent | Where it went |
+|---|---|---|
+| **Our commission, 0.00** | Row `G6`, block 3 | **A row in the settlement sum, directly above the total** |
+| Steam Market fee, 15%, for comparison | Block 3's comparison | The line under the total, beside the as-of |
+| **The middle and slow-case times** | `A4`, `G3`, `G2`, on `B8-2`, block 6 | **Under the press.** How long this takes is asked at the moment of pressing rather than while reading |
+| Support | Row `G4`, block 8 | The foot of the page |
+| ~~Items going out~~, ~~You receive~~ | None. They were labels on a card | **Gone.** The button counts and the table lists |
+
+### Block 3 asked for this in its own words and could not have it
+
+Its rule, written when it was built: **a commission of zero renders as a line in a sum and never as a badge, because a badge asserts and a line in a sum gets checked.**
+
+**It was in a card of four lines that was not a sum, beside a settlement table it was not part of.** It is a row above `Total difference` now: same words, same figure, **and the thing the rule was written to get.**
+
+**And `D-91`'s correction survives the move.** That decision stopped this card reading as though nothing else moves, by pointing at the settlement rather than reprinting its figure. **The line under the total does the same job in one sentence.**
+
+### What it cost and what it bought
+
+**The main column goes from 612px to 952px on all eight pages.** That is what lets the offer strip show five copies instead of two and a half, which was `D-112`'s own reason for widening one page and is now true of the node.
+
+**The page is one column at every width**, so there is no second reading order to maintain and no rule about what belongs beside what.
+
+**The defect it exposed, immediately.** The renderer wrote its count into an element that lived in the deleted card, **so two pages threw a `TypeError` on load.** Caught by the instrument on the first run after the edit. **The count is the button's now** rather than a second element saying the same thing, which is the reason the card lost it in the first place.
+

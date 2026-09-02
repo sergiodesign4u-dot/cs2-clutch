@@ -3798,8 +3798,10 @@ window.WF_PAY = window.WF_PAY || {
         (total >= 0 ? 'goes onto your balance' : 'comes off your balance') + '</strong> when these go to Steam. ' +
         'Your balance is 74.20 coins, so ' + wdFmt(bal + total) + ' would be left. ' +
         '<strong>Pick a dearer copy and this figure moves.</strong>';
+      /* THE COUNT LIVED IN THE SIDE CARD AND THE SIDE CARD IS GONE, D-115. The
+         button carries it now, which is where it was already being said twice. */
       btnEl.textContent = 'Send ' + going + (going === 1 ? ' item' : ' items') + ' to Steam';
-      cntEl.textContent = going + ' of ' + rows.length;
+      if (cntEl) cntEl.textContent = going + ' of ' + rows.length;
     }
 
     rows.forEach(function (r) {

@@ -371,6 +371,38 @@ The Glock's market foot on the inventory reads **"Nobody is offering one", 0 off
 
 ---
 
+## 1h. Amended 2 September 2026 by `D-115`. The side column is dissolved, and block 3 finally gets to be a line in a sum
+
+**Founder:** I do not think we really need the side panel.
+
+**Four lines were in it and two of them said what the page already said.** `Items going out 1 of 1` beside a button reading "Send 1 item to Steam" and a table with one row in it. `You receive: The item` on a page titled Withdraw to Steam.
+
+**Nothing was cut. Every block kept its parent and moved to where it is asked for.**
+
+| What | Parent | Where it went |
+|---|---|---|
+| **Our commission, 0.00** | Row `G6`, block 3 | **A row in the settlement sum, directly above the total** |
+| Steam Market fee, 15%, for comparison | Block 3's comparison | The line under the total, beside the as-of |
+| **The middle and slow-case times** | Rows `A4`, `G3`, `G2`, on `B8-2`, block 6 | **Under the press.** How long this takes is a question asked at the moment of pressing rather than while reading |
+| Support | Row `G4`, block 8 | The foot of the page |
+| ~~Items going out~~, ~~You receive~~ | None. They were labels on the card | **Gone.** The button counts and the table lists |
+
+### Block 3 asked for this in its own words and could not have it
+
+Its rule: **a commission of zero renders as a line in a sum and never as a badge, because a badge asserts and a line in a sum gets checked.** It was in a card of four lines that was not a sum, beside a settlement table it was not part of.
+
+**It is a row above `Total difference` now.** Same words, same figure, and the thing the rule was written to get.
+
+**And `D-91`'s correction survives the move.** That decision made this card stop reading as though nothing else moves, by pointing at the settlement rather than reprinting the figure. The line under the total does the same job in one sentence.
+
+### What it cost and what it bought
+
+**The main column goes from 612px to 952px on all eight pages**, which is what let the offer strip show five copies instead of two and a half. **The page is one column at every width now**, so there is no second reading order to maintain.
+
+**The defect it exposed, immediately.** The renderer wrote the count into an element that lived in the deleted card, so two pages threw a `TypeError` on load. **Caught by the instrument on the first run after the edit**, and the count is the button's now rather than a second element saying the same thing.
+
+---
+
 ## 2. The clock
 
 ### 2.1 Five stages, derived from the flow rather than from a queue model
