@@ -380,11 +380,30 @@
         <button class="wf-btn wf-btn--small" type="button" data-inv-all>Select all</button>
         <button class="wf-btn wf-btn--small" type="button" data-inv-none>Deselect all</button>
       </span>
+      <!-- FOUR ACTIONS IN ONE ROW ON A PHONE, D-119, founder's call of 2 September
+           2026. At 360 the four wrapped to two rows and spent the bottom third of
+           the screen on themselves.
+           AN ICON WITH A WORD UNDER IT AND NOT AN ICON ALONE. He asked for icons so
+           they fit one row, and one row is what this delivers. What it does not do
+           is drop the word: until stage 06 draws an icon set every slot here is the
+           same dashed square, so four bare slots would be four identical controls,
+           and D-89 already settled that keeping its own existence a secret is the
+           one thing a control may not do.
+           THE SHORT WORD IS VISIBLE AND THE FULL NAME IS THE ACCESSIBLE ONE, and the
+           short is always contained in the full: Steam in Send to Steam, Sell in
+           Sell for coins. A visible label a voice control cannot say is WCAG 2.5.3
+           and it is avoided by construction rather than by luck.
+           FROM 600 THE FULL NAMES COME BACK and the slots go. Desktop has the room
+           and an abbreviation there buys nothing. -->
       <span class="wf-invbar-acts">
-        <a class="wf-btn wf-btn--primary" href="withdraw.html" data-invbar-act>Send to Steam</a>
-        <a class="wf-btn" href="account-degraded.html" data-invbar-act>Sell for coins</a>
-        <button class="wf-btn" type="button" data-invbar-act data-co-open>Cash out</button>
-        <button class="wf-btn" type="button" disabled>Exchange</button>
+        <a class="wf-btn wf-btn--primary wf-actb" href="withdraw.html" data-invbar-act aria-label="Send to Steam">
+          <span class="wf-actb-i" aria-hidden="true"></span><span class="wf-actb-s">Steam</span><span class="wf-actb-f">Send to Steam</span></a>
+        <a class="wf-btn wf-actb" href="account-degraded.html" data-invbar-act aria-label="Sell for coins">
+          <span class="wf-actb-i" aria-hidden="true"></span><span class="wf-actb-s">Sell</span><span class="wf-actb-f">Sell for coins</span></a>
+        <button class="wf-btn wf-actb" type="button" data-invbar-act data-co-open aria-label="Cash out">
+          <span class="wf-actb-i" aria-hidden="true"></span><span class="wf-actb-s">Cash out</span><span class="wf-actb-f">Cash out</span></button>
+        <button class="wf-btn wf-actb" type="button" disabled aria-label="Exchange">
+          <span class="wf-actb-i" aria-hidden="true"></span><span class="wf-actb-s">Exchange</span><span class="wf-actb-f">Exchange</span></button>
       </span>
       <p class="wf-invbar-say" data-invbar-say>Tick an item to use these</p>
     </div>

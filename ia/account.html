@@ -164,6 +164,45 @@
 </div>
 
 <!-- SPINE -->
+<section id="bar119">
+  <div class="sec-head">
+    <h2>0.12 Amended 2 September 2026 by <code>D-119</code>. The four exits are one row on a phone</h2>
+    <p>Founder, on the built bar at 360: on mobile the panel should be icon buttons so they fit in one row.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>What it was</h4>
+    <p><strong>The selection bar is sticky to the bottom of the screen</strong>, D-85, and with four actions in it the four wrapped. <strong>278px of a phone screen, permanently, for four controls.</strong> D-118 added the fourth and made a two-row bar a three-row one.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Width</th><th>Rows before</th><th>Bar before</th><th>Rows after</th><th>Bar after</th><th>Each cell after</th></tr></thead>
+      <tbody>
+        <tr><td>1440</td><td>1</td><td>103</td><td>1</td><td>103</td><td>full names</td></tr>
+        <tr><td>900</td><td>1</td><td>143</td><td>1</td><td>143</td><td>full names</td></tr>
+        <tr><td>599</td><td><strong>2</strong></td><td><strong>195</strong></td><td><strong>1</strong></td><td><strong>152</strong></td><td>127 x 53</td></tr>
+        <tr><td>414</td><td><strong>2</strong></td><td><strong>195</strong></td><td><strong>1</strong></td><td><strong>152</strong></td><td>81 x 53</td></tr>
+        <tr><td>360</td><td><strong>3</strong></td><td><strong>278</strong></td><td><strong>1</strong></td><td><strong>183</strong></td><td>68 x 53</td></tr>
+        <tr><td>320</td><td><strong>3</strong></td><td><strong>278</strong></td><td><strong>1</strong></td><td><strong>183</strong></td><td>58 x 53</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Four equal columns, and not a wrapping flex row</h4>
+    <p>A wrap is what produced the extra rows; equal columns is what guarantees one. <strong>Every cell clears the 44px tap target and the grid holds that rather than the label inside it. 95px back at 360.</strong> From 600 the full names return and the slots go: desktop has the room, and an abbreviation on a wide screen buys nothing and costs a word.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>An icon with a word under it, and not an icon alone</h4>
+    <p><strong>He asked for icons so the four fit one row, and one row is what this delivers. What it does not do is drop the word.</strong></p>
+    <p><strong>Until stage 06 draws an icon set, every slot in this stage is the same dashed square.</strong> Four bare slots side by side would be four identical controls, and D-89 already settled the rule they would break: <strong>keeping its own existence a secret is the one thing a control may not do.</strong> Four squares in a row is that defect with the secret shared out between them.</p>
+    <p><strong>The short word is visible and the full name is the accessible one</strong>, and the short is always contained in the full: <code>Steam</code> inside <code>Send to Steam</code>, <code>Sell</code> inside <code>Sell for coins</code>. <strong>A visible label a voice control cannot say is WCAG 2.5.3</strong>, and it is avoided by construction here rather than by luck.</p>
+    <p><strong>This is a promise to stage 06 rather than a finished control.</strong> When the icon set exists, whether the word stays under it is that stage's call, and the markup already holds both.</p>
+  </div>
+</section>
+
 <section id="cash118">
   <div class="sec-head">
     <h2>0.11 Amended 2 September 2026 by <code>D-118</code>. The third exit exists, and it is the one this node refused to draw</h2>
@@ -788,6 +827,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '5.1 Account and inventory';
 window.NAV_SECTIONS = [
   { id: 'overview', label: 'Overview' },
+  { id: 'bar119', label: 'D-119 the bar' },
   { id: 'cash118', label: 'D-118 cash out' },
   { id: 'order107', label: 'D-107 the order' },
   { id: 'baseline-row', label: 'Baseline row' },

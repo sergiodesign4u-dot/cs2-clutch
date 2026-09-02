@@ -3394,8 +3394,44 @@ select {
 @media (max-width: 899px) { .wf-invbar { bottom: var(--wf-bar-h); } }
 .wf-invbar-n { font-family: var(--wf-mono); font-size: var(--wf-t-m); white-space: nowrap; }
 .wf-invbar-sel { display: flex; gap: var(--wf-s-1); }
-.wf-invbar-acts { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); margin-left: auto; }
-@media (max-width: 899px) { .wf-invbar-acts { margin-left: 0; width: 100%; } }
+/* THE FOUR ACTIONS ARE ONE ROW ON A PHONE, D-119. Founder: on mobile the panel
+   should be icon buttons so they fit in one row. At 360 the four wrapped to two
+   rows inside a bar that is already stuck to the bottom of the screen, so the
+   exits from the inventory spent the bottom third of the phone on themselves.
+   FOUR EQUAL COLUMNS AND NOT A WRAPPING FLEX ROW. A wrap is what produced the
+   two rows; equal columns is what guarantees one. Each cell is at least the 44px
+   tap target and the grid is what holds that, not the label inside it. */
+.wf-invbar-acts {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--wf-s-1); width: 100%;
+}
+/* AN ICON WITH ITS WORD UNDER IT, NOT AN ICON ALONE. Until stage 06 draws an icon
+   set every slot here is the same dashed square, so four bare slots would be four
+   identical controls. D-89 settled that a control may not keep its own existence
+   a secret, and four squares in a row is exactly that with the secret shared out
+   between them. THE SHORT WORD IS VISIBLE AND THE FULL NAME IS THE ACCESSIBLE
+   ONE, with the short always contained in the full, so a voice control can say
+   what it sees: WCAG 2.5.3 by construction rather than by luck. */
+.wf-actb {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 2px; min-height: var(--wf-tap); padding: var(--wf-s-1) var(--wf-s-half);
+  text-align: center;
+}
+.wf-actb-i {
+  width: 20px; height: 20px; flex: 0 0 auto;
+  border: 1px dashed var(--wf-line); border-radius: var(--wf-r-1);
+}
+.wf-actb-s { font-size: var(--wf-t-xs); line-height: 1.2; overflow-wrap: anywhere; }
+.wf-actb-f { display: none; }
+/* FROM 600 THE FULL NAMES COME BACK AND THE SLOTS GO. Desktop has the room, and
+   an abbreviation on a wide screen buys nothing and costs a word. */
+@media (min-width: 600px) {
+  .wf-invbar-acts { display: flex; flex-wrap: wrap; width: auto; }
+  .wf-actb { flex-direction: row; padding: var(--wf-s-1) var(--wf-s-2); }
+  .wf-actb-i, .wf-actb-s { display: none; }
+  .wf-actb-f { display: inline; }
+}
+@media (min-width: 900px) { .wf-invbar-acts { margin-left: auto; } }
 .wf-invbar.is-idle .wf-invbar-acts .wf-btn { opacity: 0.45; pointer-events: none; }
 .wf-invbar-say { margin: 0; width: 100%; font-size: var(--wf-t-xs); color: var(--wf-ink-faint); }
 .wf-invbar:not(.is-idle) .wf-invbar-say { display: none; }

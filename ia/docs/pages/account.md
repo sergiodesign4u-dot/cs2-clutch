@@ -210,6 +210,50 @@
 
 ---
 
+## 0.12 Amended 2 September 2026 by `D-119`. The four exits are one row on a phone
+
+Founder, on the built bar at 360: **"на мобилке панель будет с иконками, кнопки иконки, чтобы помещались в один ряд."**
+
+### What it was
+
+**The selection bar is sticky to the bottom of the screen**, `D-85`, and with four actions in it the four wrapped.
+
+| Width | Rows of actions | Height of the bar |
+|---|---|---|
+| 1440 | 1 | 103 |
+| 900 | 1 | 143 |
+| 599 | **2** | **195** |
+| 414 | **2** | **195** |
+| 360 | **3** | **278** |
+| 320 | **3** | **278** |
+
+**278px of a phone screen, permanently, for four controls.** `D-118` added the fourth and made a two-row bar a three-row one.
+
+### What it is
+
+**Four equal columns and not a wrapping flex row.** A wrap is what produced the extra rows; equal columns is what guarantees one. **Every cell clears the 44px tap target and the grid holds that rather than the label inside it.**
+
+| Width | Rows | Height | Each cell |
+|---|---|---|---|
+| 599 | **1** | **152** | 127 x 53 |
+| 414 | **1** | **152** | 81 x 53 |
+| 360 | **1** | **183** | 68 x 53 |
+| 320 | **1** | **183** | 58 x 53 |
+
+**95px back at 360.** From 600 the full names return and the slots go: desktop has the room, and an abbreviation on a wide screen buys nothing and costs a word.
+
+### An icon with a word under it, and not an icon alone
+
+**He asked for icons so the four fit one row, and one row is what this delivers. What it does not do is drop the word.**
+
+**Until stage 06 draws an icon set, every slot in this stage is the same dashed square.** Four bare slots side by side would be four identical controls, and `D-89` already settled the rule they would break: **keeping its own existence a secret is the one thing a control may not do.** Four squares in a row is that defect with the secret shared out between them.
+
+**The short word is visible and the full name is the accessible one**, and the short is always contained in the full: `Steam` inside `Send to Steam`, `Sell` inside `Sell for coins`. **A visible label a voice control cannot say is WCAG 2.5.3**, and it is avoided by construction here rather than by luck.
+
+**This is a promise to stage 06 rather than a finished control.** When the icon set exists, whether the word stays under it is that stage's call and the markup already holds both.
+
+---
+
 ## 0.11 Amended 2 September 2026 by `D-118`. The third exit exists, and it is the one this node refused to draw
 
 Founder, with the live product's layer beside ours: **"cash out - кстати это про крипту, нам нужен диалог вывода средств через крипту. Мы делаем в инвентаре кнопку cash-out, по которой будет диалог с выводом скина как крипта."**

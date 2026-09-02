@@ -5019,3 +5019,31 @@ The live layer's notice: cashing out forfeits the deposit bonus for the rest of 
 **`5.1`'s standing question "whether balance can leave the platform at all" is closed after two weeks, and it mattered most on `5.6`:** `G4` freezes a balance rather than zeroing it, and a balance that could never leave made that promise worth less than it reads.
 
 **And the cost.** Identity verification stays `LATER` by founder decision of the same day, so **money leaves this product with no check on who is taking it.** Printed in node `5.1` rather than closed. **Three of the four ledger rows name items from the 207 rolls this history pages past**, so they are outside every list on the page and unverifiable against anything: a ledger with four statuses and one reconciled act cannot show three of its four statuses. **Carried as a debt.**
+
+---
+
+## D-119. Four exits in one row on a phone, and the icon keeps its word
+
+**Date:** 2026-09-02. **Stage:** 04. **Decided by:** the founder, on the built bar at 360. **Binds:** node `5.1`'s two inventory pages.
+
+**What he said.** On mobile the panel should be icon buttons so they fit in one row.
+
+### 278px of a phone for four controls
+
+The selection bar is sticky to the bottom of the screen, `D-85`. **At 360 the four actions wrapped to three rows and the bar stood 278px tall**, at 414 and 599 to two rows and 195. `D-118` added the fourth exit and turned a two-row bar into a three-row one.
+
+**Now one row at every width down to 320**, 183 at 360 and 152 at 414. **95px back**, on the part of the screen a phone can least afford.
+
+**Four equal columns and not a wrapping flex row.** The wrap is what produced the extra rows. **Every cell clears the 44px tap target and the grid holds that rather than the label inside it.**
+
+### An icon with a word under it, and not an icon alone
+
+**He asked for icons so the four fit one row, and one row is what this delivers. What it does not do is drop the word.**
+
+**Until stage 06 draws an icon set, every slot in this stage is the same dashed square.** Four bare slots in a row would be four identical controls, and `D-89` settled the rule they would break: **keeping its own existence a secret is the one thing a control may not do.**
+
+**The short word is visible and the full name is the accessible one**, with the short always contained in the full: `Steam` inside `Send to Steam`, `Sell` inside `Sell for coins`. **A visible label a voice control cannot say is WCAG 2.5.3**, avoided by construction rather than by luck.
+
+**From 600 the full names return and the slots go.** Desktop has the room, and an abbreviation there buys nothing and costs a word.
+
+**This is a promise to stage 06 rather than a finished control.** When the icon set exists, whether the word stays under it is that stage's call, and the markup already holds both.
