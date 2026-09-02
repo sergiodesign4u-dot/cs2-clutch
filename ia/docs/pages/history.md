@@ -338,6 +338,60 @@ Three cells, in the founder's order.
 
 ---
 
+## 0.12 Amended 2 September 2026 by `D-120`. Every figure names its subject, and the case's cost goes back to the case
+
+Founder, on the row for the second time in a day: **"я тут не понимаю что за цифры: Cost then 12.40 coins, Worth when won 22.15 coins, Chance then 0.42%."**
+
+### Three builds of one strip, and the first correction was wrong about why
+
+| Build | Rendered | What happened |
+|---|---|---|
+| Before `D-117` | `COST THEN` over `12.40 coins`, three caps labels stacked | Founder: too much information, especially in text |
+| `D-117` | `Cost 12.40 coins   Worth 22.15   Chance 0.42%` | Founder: **what do these numbers mean** |
+| `D-117` corrected | `Cost then 12.40 coins   Worth when won 22.15 coins   Chance then 0.42%` | Founder: **what do these numbers mean** |
+
+**The diagnosis was that the labels were too short. It was wrong.** Both forms labelled **the tense** of each figure and neither labelled **its subject**: cost of what, worth of what, chance of what. **Adding `then` dated a number nobody could identify.**
+
+### And the strip was making a claim about one object that was false
+
+The cell held `Cost 12.40` and `Worth 22.15` **side by side, inside the skin's cell, under the skin's name.**
+
+**So the row read: this AK-47 cost 12.40 and is worth 22.15.** That is a statement about one object and it is not true of any object on this page. **12.40 is the price of Ironbound Case. 22.15 is the value of the AK-47.** Two facts about two things, rendered as two facts about one.
+
+**The figure did not need a better label. It needed the right cell.**
+
+### What each cell holds now
+
+| Cell | Line | Why it needs no more label than this |
+|---|---|---|
+| **1, the case** | `Ironbound Case` | The link, as before |
+| | **`12.40 coins to open`** | **Under the case name, the cost of opening needs no noun.** The sentence says what the number does |
+| | `22 Aug 09:14` | Demoted a step further, since the cell now holds three lines |
+| **2, the skin** | `AK-47`, `Redline · Field-Tested` | As before |
+| | **`Worth 22.15 coins`** | **Unambiguous the moment the case's cost is out of this cell.** There is one object here and one price for it |
+| | **`0.42% chance of this skin`** | **Which chance it is, said out loud:** this skin, out of this case. Not a rarity band and not a case average |
+
+**The figure comes before its subject on the chance**, because the subject is the long half and a person scanning a column of rows is scanning the numbers.
+
+### It is shorter than what it replaces
+
+**The strip in the skin's cell went from 66 characters to 44.** The third figure did not get cut, it moved to the cell it was always about.
+
+| Width | Before `D-117` | `D-117` short | `D-117` dated | Now |
+|---|---|---|---|---|
+| 1440 | 182 | 113 | 120 | **120**, one line |
+| 1200 | 199 | 135 | 154 | **120**, one line |
+| 900 | 199 | 135 | 154 | **120**, one line |
+| 360 | 281 | 228 | 246 | **245** |
+
+**One line at every width from 1099 up**, which neither earlier form managed, and the row is 62px shorter than the one the founder first objected to.
+
+### And the block under the list stopped restating the labels
+
+`Why every figure says then` became **`Every figure is as it was on the day`**, because no label says `then` any more. The consequence is what the block is for: a repriced case does not rewrite what a past roll cost, and what a skin you still hold is worth today is on `5.1`.
+
+---
+
 ## 0.11 Amended 2 September 2026 by `D-118`. The fourth tab's label was right all along, and its subject changes a third time
 
 Founder: **"в истории нужно это отметить, там есть реквест, мы типа подтверждаем или блокируем, поэтому надо учесть это все в истории: дата, сеть, кошелек, сумма, статус (как на бирже)."**

@@ -4318,9 +4318,18 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
   border: 1px dashed var(--wf-line); border-radius: var(--wf-r-1);
 }
 .wf-roll-case { grid-column: 2; grid-row: 1; font-weight: 700; }
-.wf-roll-when {
+/* THE ENTRY COST SITS UNDER THE CASE IT IS THE COST OF, D-120. In the skin's
+   cell, labelled Cost, beside the skin's own Worth, it read as a claim that one
+   object cost 12.40 and is worth 22.15. Under the case name it needs no label
+   beyond what it does. */
+.wf-roll-cost {
   grid-column: 2; grid-row: 2;
-  font-family: var(--wf-mono); font-size: var(--wf-t-xs); color: var(--wf-ink-dim);
+  font-size: var(--wf-t-xs); color: var(--wf-ink-dim);
+}
+.wf-roll-cost b, .wf-roll-cost { font-family: var(--wf-mono); }
+.wf-roll-when {
+  grid-column: 2; grid-row: 3;
+  font-family: var(--wf-mono); font-size: var(--wf-t-xs); color: var(--wf-ink-faint);
 }
 
 /* CELL 2, THE SKIN WITH ITS PRICE AND ITS CHANCE. THE FIGURE LINE SPANS THE

@@ -4938,7 +4938,7 @@ Block 4's rule: the three limits sit before the request, **"named as Steam's bef
 
 **Corrected the same day, and the founder is the evidence.** The short form shipped as `Cost` / `Worth` / `Chance` and his next message was **"что значат цифры"**. **If the person who owns the product has to go looking for the legend, nobody else finds it at all.** A label that needs a sentence under the list to mean anything is not a shorter label, it is a label with its meaning stored somewhere else.
 
-**The dating is back in the label and the strip is still one strip:** `Cost then`, `Worth when won`, `Chance then`. **Eighteen characters a row buys the answer**, against forty-four characters of caps that were answering nothing. **And `Worth` had lost its unit**, so the two figures that exist to be compared read as two different things: that was not a trade, it was a miss.
+~~**The dating is back in the label and the strip is still one strip:** `Cost then`, `Worth when won`, `Chance then`.~~ **Superseded the same day by `D-120`: the founder asked the same question again, and the diagnosis here was wrong. These labels name the TENSE of each figure and none of them names its SUBJECT.** **Eighteen characters a row buys the answer**, against forty-four characters of caps that were answering nothing. **And `Worth` had lost its unit**, so the two figures that exist to be compared read as two different things: that was not a trade, it was a miss.
 
 **Measured, first row of the same page on three builds.** 1440: 182 before, 113 short, **120** shipped. 1200 and 900: 199, 135, **154**. 360: 281, 228, **246**. **The whole list of five is 914px before and 688px now at 1440.** The strip moved out of the name stack to span the whole item cell, which buys back the 64px the art was indenting it by.
 
@@ -5047,3 +5047,54 @@ The selection bar is sticky to the bottom of the screen, `D-85`. **At 360 the fo
 **From 600 the full names return and the slots go.** Desktop has the room, and an abbreviation there buys nothing and costs a word.
 
 **This is a promise to stage 06 rather than a finished control.** When the icon set exists, whether the word stays under it is that stage's call, and the markup already holds both.
+
+---
+
+## D-120. A label names its figure's subject, not its tense, and a number belongs in the cell of the thing it is about
+
+**Date:** 2026-09-02. **Stage:** 04. **Decided by:** the founder, asking the same question twice. **Binds:** the four pages of node `5.9`'s Rolls tab.
+
+**What he said, twice.** **"Что значат цифры."** Then, after the fix: **"Я тут не понимаю что за цифры."**
+
+### The first correction was wrong about why, and this is the record of that
+
+| Build | Rendered | What he said |
+|---|---|---|
+| Before `D-117` | `COST THEN` over `12.40 coins`, three caps labels stacked | Too much information, especially in text |
+| `D-117` | `Cost 12.40 coins   Worth 22.15   Chance 0.42%` | **What do these numbers mean** |
+| `D-117` corrected | `Cost then 12.40 coins   Worth when won 22.15 coins   Chance then 0.42%` | **What do these numbers mean** |
+
+**`D-117`'s diagnosis was that the labels were too short.** It lengthened them and the question came back unchanged. **Both forms label the TENSE of each figure and neither labels its SUBJECT:** cost of what, worth of what, chance of what. **Adding `then` dated a number nobody could identify.**
+
+### And the strip made a false claim about one object
+
+`Cost 12.40` and `Worth 22.15` sat side by side **inside the skin's cell, under the skin's name.**
+
+**So the row read: this AK-47 cost 12.40 and is worth 22.15.** That is a statement about one object and it is true of no object on the page. **12.40 is the price of Ironbound Case. 22.15 is the value of the AK-47.** Two facts about two things, rendered as two facts about one.
+
+**The figure did not need a better label. It needed the right cell.**
+
+### What it is now
+
+**The cost went to the case:** `12.40 coins to open`, under `Ironbound Case`. **Under the case name it needs no noun**, because the sentence says what the number does.
+
+**The skin keeps its two:** `Worth 22.15 coins`, unambiguous the moment the case's cost is out of the cell, and **`0.42% chance of this skin`**, which says which chance it is: this skin out of this case, not a rarity band and not a case average. **The figure comes first and the subject after, because a person scanning a column of rows is scanning the numbers.**
+
+### It is shorter than what it replaces
+
+**The strip in the skin's cell went from 66 characters to 44**, because the third figure moved rather than being cut.
+
+| Width | Before `D-117` | `D-117` short | `D-117` dated | Now |
+|---|---|---|---|---|
+| 1440 | 182 | 113 | 120 | **120** |
+| 1200 | 199 | 135 | 154 | **120** |
+| 900 | 199 | 135 | 154 | **120** |
+| 360 | 281 | 228 | 246 | **245** |
+
+**One line at every width from 1099 up**, which neither earlier form managed, and **62px shorter than the row he first objected to.**
+
+### The rule, and it is a candidate for `CLAUDE.md` at stage close
+
+**A label names what its figure is about. Where it sits is what says that, and a label is the fallback when the position cannot.** A number rendered in the cell of a different object is not mislabelled, it is misfiled, and no wording fixes it.
+
+**Third form of one strip in one day**, and the two rebuilds cost what they cost because the first one treated a reader's question as a request for more words.

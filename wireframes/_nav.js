@@ -3691,13 +3691,20 @@ window.WF_PAY = window.WF_PAY || {
     var kase = el('a', 'wf-roll-case', r.kase);
     kase.href = BASE + 'case.html';
     from.appendChild(kase);
+    /* THE ENTRY COST BELONGS TO THE CASE AND IT NOW SITS UNDER THE CASE, D-120.
+       It was in the skin's cell, labelled Cost, next to the skin's own Worth, so
+       the row read "this skin cost 12.40 and is worth 22.15", which is a
+       contradiction about one object rather than two facts about two. THE NUMBER
+       DID NOT NEED A BETTER LABEL, IT NEEDED THE RIGHT CELL. Under the case name
+       it needs no label at all beyond what it does: coins to open. */
+    from.appendChild(el('span', 'wf-roll-cost', r.cost + ' coins to open'));
     from.appendChild(el('span', 'wf-roll-when', r.when));
     row.appendChild(from);
 
-    /* CELL 2. THE SKIN, THEN WHAT IT COST, WHAT IT WAS WORTH AND WHAT THE CHANCE
-       WAS. All three stay: the pair is what says whether the roll won or lost and
-       the chance is what design principle 1 rests on, and a row that keeps two of
-       the three has dropped a fact rather than a label. */
+    /* CELL 2. THE SKIN, AND THE TWO FIGURES THAT ARE ABOUT THE SKIN. What it was
+       worth, and how likely it was. The third figure is about the case and it
+       has gone to the case, D-120. All three are still on the row: none was
+       dropped, one was moved to the thing it describes. */
     var item = el('div', 'wf-roll-item');
     var art = el('span', 'wf-roll-art');
     art.setAttribute('aria-hidden', 'true');
@@ -3718,23 +3725,32 @@ window.WF_PAY = window.WF_PAY || {
     } else if (r.state === 'withdrawn') {
       name.appendChild(el('span', 'wf-roll-gone', 'Withdrawn to Steam, ' + r.went));
     }
-    /* THE DATING IS BACK IN THE LABEL, D-117 CORRECTED THE SAME DAY. The short
-       form read Cost, Worth, Chance, and the sentence that said all three are as
-       they were at the roll went to the block under the list, on the argument
-       that a sentence is better said once than 212 times. THE FOUNDER ASKED WHAT
-       THE THREE NUMBERS MEANT. If the person who owns the product had to go
-       looking for that sentence, nobody else finds it at all. Eighteen
-       characters a row buys back the answer, and it is still one line rather
-       than the six the labels cost before.
-       AND WORTH HAD LOST ITS UNIT. Only Cost carried "coins", so the two figures
-       that must be compared were rendered in what read as two different things. */
+    /* EVERY FIGURE NAMES ITS OWN SUBJECT, D-120, and this is the third build of
+       this strip in one day. It shipped as Cost / Worth / Chance, the founder
+       asked what the numbers meant, it was rebuilt as Cost then / Worth when won
+       / Chance then, and HE ASKED THE SAME QUESTION AGAIN.
+       THE FIRST ANSWER WAS WRONG ABOUT WHY. Both forms labelled the TENSE of each
+       figure and neither labelled its SUBJECT: cost of what, worth of what,
+       chance of what. Adding "then" dated a number nobody could identify.
+       SO THE LABELS SAY WHAT EACH NUMBER IS ABOUT. Worth is the skin's, in the
+       skin's cell, and it needs no more than its unit now that the case's cost
+       has left. Chance says which chance it is: this skin, out of this case, not
+       a rarity band and not a case average.
+       AND IT IS SHORTER THAN WHAT IT REPLACES. The strip in this cell went from
+       66 characters to 44, because the third figure moved to the cell it was
+       always about. */
     var figs = el('span', 'wf-roll-figs');
-    [['Cost then', r.cost + ' coins'], ['Worth when won', r.worth + ' coins'], ['Chance then', r.chance]].forEach(function (f) {
-      var cell = el('span', 'wf-roll-f');
-      cell.appendChild(el('span', 'wf-roll-k', f[0]));
-      cell.appendChild(el('b', 'wf-roll-v', f[1]));
-      figs.appendChild(cell);
-    });
+    var fWorth = el('span', 'wf-roll-f');
+    fWorth.appendChild(el('span', 'wf-roll-k', 'Worth'));
+    fWorth.appendChild(el('b', 'wf-roll-v', r.worth + ' coins'));
+    figs.appendChild(fWorth);
+    /* THE CHANCE PUTS ITS FIGURE FIRST AND ITS SUBJECT AFTER, because the subject
+       is the long half and a person scanning a column of rows is scanning the
+       numbers. */
+    var fCh = el('span', 'wf-roll-f');
+    fCh.appendChild(el('b', 'wf-roll-v', r.chance));
+    fCh.appendChild(el('span', 'wf-roll-k', 'chance of this skin'));
+    figs.appendChild(fCh);
     name.appendChild(figs);
     item.appendChild(name);
     row.appendChild(item);
