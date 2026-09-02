@@ -4888,3 +4888,29 @@ Its rule, written when it was built: **a commission of zero renders as a line in
 
 **The defect it exposed, immediately.** The renderer wrote its count into an element that lived in the deleted card, **so two pages threw a `TypeError` on load.** Caught by the instrument on the first run after the edit. **The count is the button's now** rather than a second element saying the same thing, which is the reason the card lost it in the first place.
 
+---
+
+## D-116. The press comes straight after the figure, and block 4 pays for it in one line
+
+**Date:** 2026-09-02. **Stage:** 04. **Decided by:** the founder, on the built page. **Binds:** node `5.3`'s two before-request pages.
+
+**What he said.** The Send to Steam button should come immediately, and the additional texts after it, so a person gets to the button faster.
+
+**Six blocks of prose sat between the figure and the act:** the balance sentence, three notes and the three limits. **The press is now directly under `Total difference`.**
+
+### What holds, and it is the part design principle 3 actually protects
+
+**The cost is adjacent to the act, and closer than it has ever been.** The principle asks for the figure where money is about to be spent, **and the figure is what moved up with the button.**
+
+**What moved below is the sentence that explains the figure**, "1.95 coins comes off your balance, 72.25 would be left, pick a dearer copy and this figure moves". Worth reading, and not what the press needs.
+
+### What it costs, and block 4 is the one that pays
+
+Block 4's rule: the three limits sit before the request, **"named as Steam's before anyone commits rather than surfacing as our refusal after"**. With the press above it, **a person who presses at once never reads it.**
+
+**So the three are named in one line at the press and explained in the block below.** Naming them is what the rule asked for, explaining them is what the block is for, and the line routes to the block.
+
+**The alternative was considered and rejected:** moving the whole block above the offers. **That opens the page with three refusal conditions before a person has seen their own item**, which is the wall `D-107` and `D-112` spent two decisions removing.
+
+**Only two pages change.** The other six are after-request states with no press to move, or a resend that already sits at the top of its page.
+

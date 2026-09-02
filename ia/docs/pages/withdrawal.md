@@ -403,6 +403,34 @@ Its rule: **a commission of zero renders as a line in a sum and never as a badge
 
 ---
 
+## 1i. Amended 2 September 2026 by `D-116`. The press comes straight after the figure, and block 4 pays for it in one line
+
+**Founder:** the Send to Steam button should come immediately, and the additional texts after it, so a person gets to the button faster.
+
+**The order before the request was:** the settlement table, the commission row, the total, the balance sentence, three notes, the three limits, **and then the press.** Six blocks of prose between the figure and the act.
+
+**It is now:** the table, the commission row, **the total, the press**, one line of limits, the balance sentence, the notes, the limits block, the times, support.
+
+### What holds, and it is the part design principle 3 actually protects
+
+**The cost is still adjacent to the act.** `Total difference` sits directly above the button, which is closer than it has ever been. **The principle asks for the figure at the moment money is about to be spent, and the figure is what moved up with the button.**
+
+**What moved below is the sentence that explains the figure**, "1.95 coins comes off your balance, 72.25 would be left, pick a dearer copy and this figure moves". It is worth reading and it is not what the press needs.
+
+### What it costs, and block 4 is the one that pays
+
+Block 4's rule: **the three limits sit before the request**, and its own words are "a limit that is Steam's is named as Steam's before anyone commits rather than surfacing as our refusal after". **With the press above it, a person who presses at once never reads it.**
+
+**So the three are named in one line at the press and explained in the block below.** Naming them is what the rule asked for; explaining them is what the block is for, and the line routes to the block.
+
+> Three things can stop a withdrawal: **a market we do not serve**, **a trade hold Steam sets**, or **a ban on the Steam account**. What each one means
+
+**The alternative was considered and rejected:** moving the whole block above the offers. That opens the page with three refusal conditions before a person has seen their own item, **which is the wall `D-107` and `D-112` spent two decisions removing.**
+
+**Only two pages change.** The other six are after-request states with no press to move, or a resend that already sits at the top of its page.
+
+---
+
 ## 2. The clock
 
 ### 2.1 Five stages, derived from the flow rather than from a queue model
