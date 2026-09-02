@@ -3694,8 +3694,18 @@ window.WF_PAY = window.WF_PAY || {
     } else if (r.state === 'withdrawn') {
       name.appendChild(el('span', 'wf-roll-gone', 'Withdrawn to Steam, ' + r.went));
     }
+    /* THE DATING IS BACK IN THE LABEL, D-117 CORRECTED THE SAME DAY. The short
+       form read Cost, Worth, Chance, and the sentence that said all three are as
+       they were at the roll went to the block under the list, on the argument
+       that a sentence is better said once than 212 times. THE FOUNDER ASKED WHAT
+       THE THREE NUMBERS MEANT. If the person who owns the product had to go
+       looking for that sentence, nobody else finds it at all. Eighteen
+       characters a row buys back the answer, and it is still one line rather
+       than the six the labels cost before.
+       AND WORTH HAD LOST ITS UNIT. Only Cost carried "coins", so the two figures
+       that must be compared were rendered in what read as two different things. */
     var figs = el('span', 'wf-roll-figs');
-    [['Cost', r.cost + ' coins'], ['Worth', r.worth], ['Chance', r.chance]].forEach(function (f) {
+    [['Cost then', r.cost + ' coins'], ['Worth when won', r.worth + ' coins'], ['Chance then', r.chance]].forEach(function (f) {
       var cell = el('span', 'wf-roll-f');
       cell.appendChild(el('span', 'wf-roll-k', f[0]));
       cell.appendChild(el('b', 'wf-roll-v', f[1]));

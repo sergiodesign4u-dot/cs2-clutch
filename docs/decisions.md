@@ -4926,7 +4926,7 @@ Block 4's rule: the three limits sit before the request, **"named as Steam's bef
 
 `COST THEN` over `12.40 coins`. `WORTH WHEN WON` over `22.15 coins`. `CHANCE PUBLISHED THEN` over `0.42%`. **Forty-four characters of caps label carrying twenty-seven characters of number, six lines to say three things, on every row of a list of 212.**
 
-**Three cells, in his order.** Where it came from, with a mode mark that carries its name for a screen reader and shows no word. The skin with `Cost 12.40 coins   Worth 22.15   Chance 0.42%` on one line under it. The roll id with its two routes, unchanged.
+**Three cells, in his order.** Where it came from, with a mode mark that carries its name for a screen reader and shows no word. The skin with `Cost then 12.40 coins   Worth when won 22.15 coins   Chance then 0.42%` as a strip under it. The roll id with its two routes, unchanged.
 
 **The mode mark is inherited and not invented.** The baseline row of node `5.9` records that the live product's history cards carry a mode icon, `baseline.md` section 9.9. One mode is live and three are `LATER`, which is the carrier rule of `CLAUDE.md` and not the dead item defect: the carrier is drawn and filled with its one live item.
 
@@ -4934,7 +4934,17 @@ Block 4's rule: the three limits sit before the request, **"named as Steam's bef
 
 **The pair says whether the roll won or lost and the chance is what design principle 1 rests on.** A row that kept two of the three would have dropped a fact rather than a label.
 
-**What `then` and `when won` were carrying is now said once under the list:** the figures are dated to the roll, so a repriced case does not rewrite what a past roll cost. That is a sentence, and it was being paid for 212 times as two words a row. It goes in the `D-107` block, which is the block built for exactly this.
+~~**What `then` and `when won` were carrying is now said once under the list:** the figures are dated to the roll, so a repriced case does not rewrite what a past roll cost. That is a sentence, and it was being paid for 212 times as two words a row. It goes in the `D-107` block, which is the block built for exactly this.~~
+
+**Corrected the same day, and the founder is the evidence.** The short form shipped as `Cost` / `Worth` / `Chance` and his next message was **"что значат цифры"**. **If the person who owns the product has to go looking for the legend, nobody else finds it at all.** A label that needs a sentence under the list to mean anything is not a shorter label, it is a label with its meaning stored somewhere else.
+
+**The dating is back in the label and the strip is still one strip:** `Cost then`, `Worth when won`, `Chance then`. **Eighteen characters a row buys the answer**, against forty-four characters of caps that were answering nothing. **And `Worth` had lost its unit**, so the two figures that exist to be compared read as two different things: that was not a trade, it was a miss.
+
+**Measured, first row of the same page on three builds.** 1440: 182 before, 113 short, **120** shipped. 1200 and 900: 199, 135, **154**. 360: 281, 228, **246**. **The whole list of five is 914px before and 688px now at 1440.** The strip moved out of the name stack to span the whole item cell, which buys back the 64px the art was indenting it by.
+
+**And cell 3 gives its width to cell 2.** Widening the proof column enough to hold the chip and both controls on one line takes the figure strip to two lines at 1440, so the controls stack instead. **Three facts split across two lines is a worse reading than two small controls stacked**, and the rule the row still holds is that no control's own label runs to two lines.
+
+**Moving the three column breakpoint from 900 to 1100 was tried and reverted in the same step.** The ground was that the strip breaks into three lines at 900, **and the ground was not checked:** one column at 900 is 202px and the three column form with a three line strip is 154px. **The replacement was the taller layout at every width it covered.**
 
 ### The finding underneath, and it is why this took a renderer
 

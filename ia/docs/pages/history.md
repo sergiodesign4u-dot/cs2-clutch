@@ -266,14 +266,46 @@ Three cells, in the founder's order.
 | Cell | What is in it | Why it is one cell |
 |---|---|---|
 | **1. Where it came from** | The **mode mark**, then the case as a link, then the moment under it | The baseline row above records that the live product's cards carry **a mode icon**, so the mark is inherited rather than invented. It carries its name for a screen reader and shows **no word**, because the word is the text being cut |
-| **2. The skin, with its price and its chance** | Art, weapon, skin and wear, the state line where there is one, then **`Cost 12.40 coins   Worth 22.15   Chance 0.42%`** on one line | The founder put the figures with the skin. They are facts about the roll's item and they read as a sentence about it rather than as a column beside it |
+| **2. The skin, with its price and its chance** | Art, weapon, skin and wear, the state line where there is one, then **`Cost then 12.40 coins   Worth when won 22.15 coins   Chance then 0.42%`** as a strip under the whole cell | The founder put the figures with the skin. They are facts about the roll's item and they read as a sentence about it rather than as a column beside it |
 | **3. The roll id and what opens from it** | The chip, `Check it`, `Public page` | Unchanged. This is the cell the whole node exists for |
 
 **No field left the row.** All seven of section 0's fields are still rendered, and all three figures are still there: the pair says whether the roll won or lost, and the chance is what design principle 1 rests on. **A row that kept two of the three would have dropped a fact rather than a label.**
 
-### What the labels were carrying, and where it went
+### What the labels were carrying, and the first answer was wrong
 
-`then` and `when won` were doing real work: **the figures are dated to the roll**, so a case that is repriced does not rewrite what a past roll cost and an item that moves does not rewrite what a past roll returned. That is a sentence, and it was being paid for 212 times as two words per row. **It is now one entry in the block under the list**, which is the block `D-107` built for exactly this: text that qualifies a set belongs under the set, once.
+`then` and `when won` were doing real work: **the figures are dated to the roll**, so a case that is repriced does not rewrite what a past roll cost and an item that moves does not rewrite what a past roll returned.
+
+~~That is a sentence, and it was being paid for 212 times as two words per row. **It is now one entry in the block under the list**, which is the block `D-107` built for exactly this: text that qualifies a set belongs under the set, once.~~
+
+**Corrected the same day, 2 September 2026, and the founder is the evidence.** The short form shipped as `Cost` / `Worth` / `Chance` and his next message was **"что значат цифры"**. **If the person who owns the product has to go looking for that sentence, nobody else finds it at all.** A label that needs a legend under the list is not a shorter label, it is a label with its meaning stored somewhere else.
+
+**So the dating is back in the labels**, `Cost then`, `Worth when won`, `Chance then`, and it stays one strip rather than the six line stack. **Eighteen characters a row is what the answer costs**, against forty-four characters of caps that were answering nothing.
+
+**And `Worth` had lost its unit.** Only `Cost` carried `coins`, **so the two figures that exist to be compared were rendered as if they were two different things.** That was not a trade, it was a miss.
+
+**The block under the list keeps the consequence and drops the restatement.** It now reads why every figure says *then*, which is the thing a label cannot fit: a repriced case does not rewrite the past, and what an item is worth today lives on `5.1`.
+
+### What the longer labels cost in layout, measured rather than assumed
+
+**The strip moved out of the name stack and now spans the whole item cell**, which buys back the 64px the art was indenting it by. **The three columns start at 900 as before.**
+
+**Moving that breakpoint to 1100 was tried and reverted in the same step.** The ground was that the strip breaks into three lines at 900. **The ground was not checked:** the same row as one column is 202px tall at 900 and the three column form with a three line strip is 154px. **The layout it was going to be replaced by is the taller one at every width it covers.**
+
+**Height of the first row, measured on three builds of the same page:**
+
+| Width | Before `D-117` | Short labels, the first form | Dated labels, shipped |
+|---|---|---|---|
+| 1440 | 182 | 113 | **120**, one line |
+| 1200 | 199 | 135 | **154** |
+| 900 | 199 | 135 | **154** |
+| 600 | 234 | 206 | **202** |
+| 360 | 281 | 228 | **246** |
+
+**The whole list of five: 914px before, 688px now at 1440. 1527px before, 1352px now at 360.** The dating costs between 7 and 19px a row against the short form and the row is shorter than the original at every width.
+
+**And cell 3 gives its width to cell 2.** Widening the proof column enough to hold the chip and both controls on one line takes the figure strip to two lines at 1440. **The figures win that:** three facts split across two lines is a worse reading than two small controls stacked, and the figures are what the founder was reading. **The rule the row still holds is the old one, that no control's own label runs to two lines.**
+
+**What is guaranteed is not the line count, it is that a pair never splits:** each label and its number are one inline box, so a label can never end a line without the figure it names.
 
 ### The larger finding, and it is the reason this took a renderer
 

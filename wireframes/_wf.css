@@ -4287,16 +4287,23 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
   font-family: var(--wf-mono); font-size: var(--wf-t-xs); color: var(--wf-ink-dim);
 }
 
-/* CELL 2, THE SKIN WITH ITS PRICE AND ITS CHANCE. */
-.wf-roll-item { display: flex; align-items: flex-start; gap: var(--wf-s-2); min-width: 0; }
+/* CELL 2, THE SKIN WITH ITS PRICE AND ITS CHANCE. THE FIGURE LINE SPANS THE
+   WHOLE CELL AND NOT THE COLUMN BESIDE THE ART, because indenting it past the
+   art costs it 64px and the line is the widest thing in the row. Two rows in
+   this cell, and the art occupies only the first. */
+.wf-roll-item {
+  display: grid; grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--wf-s-half) var(--wf-s-2); align-items: start; align-content: start;
+  min-width: 0;
+}
 /* The item art is a slot and it is NEVER TINTED BY RARITY here. The tint belongs
    to the item card; a list tinted by outcome reads as a scoreboard whatever the
    columns say. */
 .wf-roll-art {
-  flex: 0 0 auto; width: 48px; height: 36px;
+  grid-column: 1; grid-row: 1; width: 48px; height: 36px;
   border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
 }
-.wf-roll-name { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.wf-roll-name { grid-column: 2; grid-row: 1; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .wf-roll-w { font-size: var(--wf-t-s); }
 .wf-roll-s { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
 /* THE STATE OF THE ITEM IS TEXT AND THE ROW NEVER LEAVES. Selling the item back
@@ -4308,15 +4315,26 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
    name because a class called gone on a thing that has not gone is the two
    owners of one name defect with the reading reversed. */
 .wf-roll-flight { display: block; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
-/* THE FIGURE LINE. Three facts on one line, each label inline and beside its own
-   value, so a value is never orphaned from the word that says what it is. It
-   wraps to two lines at 360 and it never becomes three. */
-.wf-roll-figs { display: flex; flex-wrap: wrap; gap: 2px var(--wf-s-2); margin-top: var(--wf-s-half); }
+/* THE FIGURE LINE. Three facts on one strip, each label inline and beside its
+   own value, so a value is never orphaned from the word that says what it is,
+   AND EACH LABEL DATES ITS OWN FIGURE.
+   IT IS ONE LINE WHERE IT FITS AND IT WRAPS WHERE IT DOES NOT: one line from
+   1440, two around 1100, three at 360, and the row is shorter than the six line
+   stack it replaced at every one of those widths. WHAT IS GUARANTEED IS NOT THE
+   LINE COUNT, IT IS THAT A PAIR NEVER SPLITS: each pair is its own inline flex
+   box, so a label can never end a line without the number it names. */
+.wf-roll-figs { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 2px var(--wf-s-2); }
 .wf-roll-f { display: inline-flex; align-items: baseline; gap: var(--wf-s-half); min-width: 0; }
 .wf-roll-k { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
 .wf-roll-v { font-family: var(--wf-mono); font-size: var(--wf-t-s); font-weight: 400; color: var(--wf-ink); }
 
-/* CELL 3, THE ROLL ID AND WHAT OPENS FROM IT. V1 of the component in the row, V3
+/* CELL 3 GIVES WIDTH TO CELL 2 AND WRAPS ITS OWN CONTROLS, D-117. Widening the
+   proof column enough to hold the chip and both controls on one line takes the
+   figure strip to two lines at 1440. THE FIGURES WIN THAT: three facts split
+   across two lines is a worse reading than two small controls stacked, and the
+   figures are what the founder was reading. The rule the row still holds is the
+   old one, that no control's own LABEL runs to two lines.
+   CELL 3, THE ROLL ID AND WHAT OPENS FROM IT. V1 of the component in the row, V3
    on demand, and NO ROW EVER PRINTS A VERDICT: a history that ticks every row
    green has asserted the thing the scheme does not prove. */
 .wf-roll-proof { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-1); min-width: 0; }
@@ -4348,14 +4366,22 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
 
 /* Responsive last, after everything above that it overrides. */
 @media (min-width: 900px) {
-  /* THREE CELLS AND NO ROW SPANNING, D-117. The four column form put the case
-     name in row 2 of column 1 and the three figure cells spanned both rows, so
-     row 1 took the height of the tallest of them and the case name fell 90px
-     below the timestamp it belongs to. Two facts about one roll, an inch apart,
-     reading as unrelated. The fix then was min-content on row 1. The fix now is
-     that there is one row: each cell owns its own stack. */
+}
+
+/* THE ROLL IN THREE COLUMNS, FROM 900. THREE CELLS AND NO ROW SPANNING. The four
+   column form put the case name in row 2 of column 1 and the three figure cells
+   spanned both rows, so row 1 took the height of the tallest of them and the case
+   name fell 90px below the timestamp it belongs to. Two facts about one roll, an
+   inch apart, reading as unrelated. The fix then was min-content on row 1. The
+   fix now is that there is one row: each cell owns its own stack.
+   MOVING THIS BREAKPOINT TO 1100 WAS TRIED AND REVERTED, D-117 corrected. The
+   ground was that the figure line breaks into three at 900, and the ground was
+   not checked: the same row rendered as one column is 202px tall at 900 and the
+   three column form with a three line figure strip is 154px. The layout it was
+   going to be replaced by is the taller one at every width it covers. */
+@media (min-width: 900px) {
   .wf-roll {
-    grid-template-columns: minmax(0, 190px) minmax(0, 1.7fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 170px) minmax(0, 2.4fr) minmax(0, 1fr);
     align-items: start; align-content: start;
   }
   .wf-roll-proof { align-items: flex-start; align-content: flex-start; }
