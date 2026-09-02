@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cash out layer over My items. CS2 Clutch</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- THE CASH OUT LAYER CANON, D-118, 2 September 2026.
+     THE HOST IS MY ITEMS AND THAT IS THE ARGUMENT. A cash out starts by ticking
+     skins on the grid, so what a person is deciding about is behind the scrim,
+     already chosen. The same reasoning D-99 used to put the deposit layer over
+     the case screen rather than over nothing.
+     THIS PAGE DOES NOT COPY THE GRID AND THAT IS DELIBERATE. deposit-dialog.html
+     is a hand copy of the case screen and printed that as its cost. Six item
+     cards copied a seventh time is the exact defect D-117 spent a step removing
+     from this stage, so the address carries the band, the heading and the layer,
+     and the selection the layer reads is declared below.
+     WHAT IS LOST BY NOT COPYING, NAMED: at this address the grid is not behind
+     the scrim, so this page cannot show that the ticked cards stay visible while
+     the layer is open. On account.html they do, and that is where to check it.
+     THE TWO ITEMS DECLARED ARE 5.1's OWN. The AK-47 Redline at 21.40 and the AWP
+     Asiimov at 66.05 are two of the six cards on the inventory, and 87.45 is
+     their sum rather than a figure chosen to look plausible.
+     NOINDEX, because the indexable document at this content is My items and a
+     second copy with a layer welded on is a duplicate. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body" data-co-pinned>
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <div class="wf-ah" data-acct-hero></div>
+
+    <h1>My items</h1>
+
+    <div class="wf-inv-head">
+      <h2 id="h2-items">Inventory</h2>
+      <p class="wf-inv-steam">Steam connected. <a href="settings.html">Where this is set</a></p>
+      <p class="wf-inv-hint">Two items are ticked on the grid. <a href="account.html">The grid itself</a></p>
+    </div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '140.95 coins' } };
+window.WF_ACCT = { active: 'items' };
+window.NAV_SECTIONS = [
+  { id: 'h2-items', label: 'Inventory' }
+];
+/* WHAT THE LAYER READS WHEN THERE IS NO GRID BEHIND IT. Two of 5.1's six cards:
+   AK-47 Redline at 21.40 and AWP Asiimov at 66.05. */
+window.WF_CO = { n: 2, v: 87.45 };
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>

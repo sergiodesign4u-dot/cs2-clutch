@@ -338,6 +338,60 @@ Three cells, in the founder's order.
 
 ---
 
+## 0.11 Amended 2 September 2026 by `D-118`. The fourth tab's label was right all along, and its subject changes a third time
+
+Founder: **"в истории нужно это отметить, там есть реквест, мы типа подтверждаем или блокируем, поэтому надо учесть это все в истории: дата, сеть, кошелек, сумма, статус (как на бирже)."**
+
+### Three readings of one tab, and every one of them read the same missing input
+
+| When | What this node said the tab was | Why it said it |
+|---|---|---|
+| `D-88`, 23 Aug | **A rendered absence.** "Turning coins back into money is not a capability anywhere in the backlog, and the only capture of this tab on the live product is empty" | True on the evidence. The walk is public pages only, and **a cash out layer exists only behind a login** |
+| `D-93`, 24 Aug | **The sell back ledger.** "The subject was one page over the whole time" | Also true. Selling back for coins is round 1 since `D-38` and had no ledger anywhere |
+| `D-118`, 2 Sep | **The crypto payout ledger, which is what the baseline's label always meant** | The founder had the layer. **The input was missing, not the capability** |
+
+**Neither earlier reading is deleted.** `D-88` was right that the baseline could not tell us what a row holds. `D-93` was right that the sell back had no record. **What both were reading is one hole in the inputs**, and the way it closed is the way `CLAUDE.md` says it should: the founder filed the surface.
+
+### What a row is now
+
+| Column | Founder's list | Note |
+|---|---|---|
+| **When** | дата | |
+| **What you sold** | not in his list | **A payout row with no subject cannot be tied back to an item**, and this ledger exists because a Sold back mark on a roll is a fact about the roll rather than a record of the sale |
+| **Network** | сеть | |
+| **Wallet** | кошелек | **Truncated in the cell and whole in the source.** Forty characters of hex per row is a table nobody can read a row of. Crawlable text, never an image, the rule section 7 already states for a hash |
+| **Amount** | сумма | **In coins, at 1 coin = $1.00**, `D-95`. **No row carries a crypto figure**, because the rate at the moment of sending is `[?]` |
+| **Status** | статус (как на бирже) | Four of them, below |
+
+### The status column is back, and `D-93` removed it on a premise this decision falsifies
+
+`D-93`'s ground: *"a sell back completes or it does not happen: there is no waiting party and no stage, so a column carrying one value on every row is a picture of a column."*
+
+**A crypto payout waits twice.** On us, and on the chain.
+
+| Status | What it means | Who is being waited on |
+|---|---|---|
+| **Requested** | We have it and have not decided | Us |
+| **Sending** | We approved it and the chain has not confirmed | The network |
+| **Sent** | It is on the chain | Nobody |
+| **Blocked** | We refused it, and the ground is on the row | Nobody, and the money did not move |
+
+**The ground travels with the status in the same cell and never in a tooltip**, `B8-3`: a refusal whose reason is only in a hover is a refusal with no reason on a phone. **And no row estimates when a chain will confirm**, the same rule the withdrawals tab holds: `5.3`'s clock shows elapsed and a party, and a history that invents a fourth number contradicts its own screen.
+
+### Selling back for coins did not stop existing, and it is not on this tab
+
+It is round 1 since `D-38`, **nothing leaves the product when it happens**, and its record belongs to the item under `5.1`. **This tab is only for money that left.** The line saying so is in the block under the rows.
+
+### The four rows, and two thirds of them are not reconciled
+
+**One is.** The P250 is on the Rolls tab as sold back on 21 August and on `7.3` as gone. It was requested as crypto for `0.31 coins` and **blocked, because 0.31 will not cover any chain**, which is exactly why those coins are on the balance the header shows. **The smallest amount we can send is `[?]`** and the row says so rather than naming one.
+
+**Three are not.** They name items this account opened in **the 207 rolls this history pages past**: the Rolls tab reads `212 rolls` and lists five, and the Items tab lists the same five. **So the items behind those three rows are legitimately outside every list on this page, and they are also unverifiable against anything.** `D-93` refused invented rows on the ground that "a second invented row would be a sale no other surface has ever heard of", and that ground held while the tab had one act to show. **A ledger with four statuses and one row cannot show three of its four statuses.**
+
+**Carried as a debt against this node**, not resolved: if the corpus ever needs those three items on another surface, they were written here first.
+
+---
+
 ## 0. What a row is, and why that is the whole node
 
 A row is **a roll**, not an item. Seven fields, and every one of them exists because something reads it separately.

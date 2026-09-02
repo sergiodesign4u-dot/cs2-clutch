@@ -5153,6 +5153,73 @@ textarea.wf-cfg-in { min-height: 0; }
 .wf-dlg--pay .wf-dlg-body { gap: var(--wf-s-3); }
 
 /* ============================================================================
+   THE CASH OUT LAYER, D-118. Node 5.1's second exit: the items you ticked are
+   sold back and the money leaves to a wallet.
+   ONE COLUMN AT EVERY WIDTH AND NO PANES. The deposit layer earned two because
+   it selects a method out of thirty five. This selects one of three networks and
+   fills one field, and a rail beside four rows would be a rail with nothing to
+   hold. ============================================================================ */
+.wf-dlg--co .wf-dlg-body { gap: var(--wf-s-3); }
+.wf-co-lay { display: flex; flex-direction: column; gap: var(--wf-s-3); }
+
+/* THE THREE NETWORKS. A row that scrolls sideways rather than three stacked
+   boxes, because at 360 three stacked boxes are the whole first screen and the
+   field they govern is never in view beside them. */
+.wf-co-nets { display: flex; gap: var(--wf-s-1); overflow-x: auto; }
+.wf-co-net {
+  flex: 1 1 0; min-width: 96px; min-height: var(--wf-tap);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  padding: var(--wf-s-1) var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: var(--wf-surface); color: var(--wf-ink);
+  font: inherit; font-size: var(--wf-t-s); cursor: pointer;
+}
+/* THE CURRENT ONE IS A PRESSED CONTROL AND NOT A LINK TO ITSELF, D-58. */
+.wf-co-net.is-on { border-color: var(--wf-line); background: var(--wf-raised); font-weight: 700; }
+.wf-co-tick { font-family: var(--wf-mono); font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-co-net.is-on .wf-co-tick { color: var(--wf-ink); }
+
+/* THE CHAIN LINE. A coin is not an address space, so the network is named under
+   the strip, and where we have not decided it the line says that rather than
+   letting the field imply any chain at all. */
+.wf-co-chain { font-size: var(--wf-t-s); line-height: 1.5; color: var(--wf-ink-dim); }
+
+.wf-co-addr { display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-co-lab { font-size: var(--wf-t-s); font-weight: 700; }
+.wf-co-none { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-co-sel, .wf-co-in {
+  min-height: var(--wf-tap); width: 100%; min-width: 0;
+  padding: var(--wf-s-1) var(--wf-s-2);
+  border: 1px solid var(--wf-line); border-radius: var(--wf-r-1);
+  background: var(--wf-bg); color: var(--wf-ink); font: inherit; font-size: var(--wf-t-s);
+}
+.wf-co-in { font-family: var(--wf-mono); font-size: var(--wf-t-xs); }
+.wf-co-inrow { display: flex; gap: var(--wf-s-1); align-items: stretch; }
+.wf-co-inrow .wf-btn { flex: 0 0 auto; }
+
+/* THE CALCULATOR. A sum, not a badge, D-94: a line in a sum gets checked and a
+   badge only asserts. Three of its five lines are [?] today and it prints them
+   as [?] rather than absorbing them into a number nobody can check. */
+.wf-co-calc {
+  display: flex; flex-direction: column; gap: var(--wf-s-1);
+  padding: var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+}
+.wf-co-h { font-size: var(--wf-t-s); font-weight: 700; margin: 0; }
+.wf-co-r { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--wf-s-half) var(--wf-s-2); }
+.wf-co-k { font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-co-v { font-family: var(--wf-mono); font-size: var(--wf-t-s); text-align: right; }
+.wf-co-r--sub .wf-co-k, .wf-co-r--sub .wf-co-v { font-size: var(--wf-t-xs); }
+/* THE RESULT IS RULED OFF FROM ITS OPERANDS, which is the one piece of drawing a
+   sum needs to read as a sum. */
+.wf-co-out {
+  display: flex; flex-direction: column; gap: var(--wf-s-half);
+  margin-top: var(--wf-s-1); padding-top: var(--wf-s-1);
+  border-top: 1px solid var(--wf-line);
+}
+.wf-co-acts { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
+
+/* ============================================================================
    NODE 4.1, THE TWO PANE LAYER, D-100 AND D-101.
    THE RAIL IS THE LEFT COLUMN AND EVERYTHING ELSE IS THE RIGHT ONE, which is the
    founder's arrangement of 26 August and the reference's. What it buys over the

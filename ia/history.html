@@ -157,6 +157,70 @@
 </div>
 
 <!-- BASELINE ROW -->
+<section id="cash118">
+  <div class="sec-head">
+    <h2>0.11 Amended 2 September 2026 by <code>D-118</code>. The fourth tab's label was right all along, and its subject changes a third time</h2>
+    <p>Founder: there is a request in the history, we confirm it or we block it, so all of that has to be in the ledger. Date, network, wallet, amount, status, the way an exchange shows it.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>When</th><th>What this node said the tab was</th><th>Why it said it</th></tr></thead>
+      <tbody>
+        <tr><td>D-88, 23 Aug</td><td><strong>A rendered absence.</strong> "Turning coins back into money is not a capability anywhere in the backlog, and the only capture of this tab on the live product is empty"</td><td>True on the evidence. The walk is public pages only, and <strong>a cash out layer exists only behind a login</strong></td></tr>
+        <tr><td>D-93, 24 Aug</td><td><strong>The sell back ledger.</strong> "The subject was one page over the whole time"</td><td>Also true. Selling back for coins is round 1 since D-38 and had no ledger anywhere</td></tr>
+        <tr><td>D-118, 2 Sep</td><td><strong>The crypto payout ledger, which is what the baseline's label always meant</strong></td><td>The founder had the layer. <strong>The input was missing, not the capability</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>Neither earlier reading is deleted.</strong> D-88 was right that the baseline could not tell us what a row holds. D-93 was right that the sell back had no record. <strong>What both were reading is one hole in the inputs</strong>, and the way it closed is the way CLAUDE.md says it should: the founder filed the surface.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Column</th><th>Founder's list</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td><strong>When</strong></td><td>дата</td><td></td></tr>
+        <tr><td><strong>What you sold</strong></td><td>not in his list</td><td><strong>A payout row with no subject cannot be tied back to an item</strong>, and this ledger exists because a Sold back mark on a roll is a fact about the roll rather than a record of the sale</td></tr>
+        <tr><td><strong>Network</strong></td><td>сеть</td><td></td></tr>
+        <tr><td><strong>Wallet</strong></td><td>кошелек</td><td><strong>Truncated in the cell and whole in the source.</strong> Forty characters of hex per row is a table nobody can read a row of. Crawlable text, never an image</td></tr>
+        <tr><td><strong>Amount</strong></td><td>сумма</td><td><strong>In coins, at 1 coin = $1.00</strong>, D-95. <strong>No row carries a crypto figure</strong>, because the rate at the moment of sending is [?]</td></tr>
+        <tr><td><strong>Status</strong></td><td>статус (как на бирже)</td><td>Four of them, below</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-fix">
+    <h4>The status column is back, and D-93 removed it on a premise this decision falsifies</h4>
+    <p>D-93's ground: <em>a sell back completes or it does not happen, there is no waiting party and no stage, so a column carrying one value on every row is a picture of a column.</em> <strong>A crypto payout waits twice.</strong> On us, and on the chain.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Status</th><th>What it means</th><th>Who is being waited on</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Requested</strong></td><td>We have it and have not decided</td><td>Us</td></tr>
+        <tr><td><strong>Sending</strong></td><td>We approved it and the chain has not confirmed</td><td>The network</td></tr>
+        <tr><td><strong>Sent</strong></td><td>It is on the chain</td><td>Nobody</td></tr>
+        <tr><td><strong>Blocked</strong></td><td>We refused it, and the ground is on the row</td><td>Nobody, and the money did not move</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-good">
+    <p><strong>The ground travels with the status in the same cell and never in a tooltip</strong>, B8-3: a refusal whose reason is only in a hover is a refusal with no reason on a phone. <strong>And no row estimates when a chain will confirm</strong>, the same rule the withdrawals tab holds.</p>
+    <p><strong>Selling back for coins did not stop existing, and it is not on this tab.</strong> It is round 1 since D-38, nothing leaves the product when it happens, and its record belongs to the item under <span class="surf">5.1</span>. <strong>This tab is only for money that left.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <h4>The four rows, and two thirds of them are not reconciled</h4>
+    <p><strong>One is.</strong> The P250 is on the Rolls tab as sold back on 21 August and on <span class="surf">7.3</span> as gone. It was requested as crypto for 0.31 coins and <strong>blocked, because 0.31 will not cover any chain</strong>, which is exactly why those coins are on the balance the header shows. <strong>The smallest amount we can send is [?]</strong> and the row says so rather than naming one.</p>
+    <p><strong>Three are not.</strong> They name items this account opened in <strong>the 207 rolls this history pages past</strong>: the Rolls tab reads 212 rolls and lists five, and the Items tab lists the same five. D-93 refused invented rows on the ground that "a second invented row would be a sale no other surface has ever heard of", and that ground held while the tab had one act to show. <strong>A ledger with four statuses and one row cannot show three of its four statuses.</strong> <strong>Carried as a debt against this node</strong>, not resolved.</p>
+  </div>
+</section>
+
 <section id="row117">
   <div class="sec-head">
     <h2>0.10 Amended 2 September 2026 by <code>D-117</code>. The row is three cells, and fourteen hand copies of five rolls ended</h2>
@@ -683,6 +747,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '5.9 History';
 window.NAV_SECTIONS = [
   { id: 'overview', label: 'Overview' },
+  { id: 'cash118', label: 'D-118 cash out' },
   { id: 'row117', label: 'D-117 the row' },
   { id: 'items108', label: 'D-108 the items tab' },
   { id: 'order107', label: 'D-107 the order' },

@@ -4963,3 +4963,59 @@ Block 4's rule: the three limits sit before the request, **"named as Steam's bef
 ### And the instrument was wrong before the code was
 
 The dead class scan reported `wf-roll` and `wf-roll--bad` dead the moment the renderer chose between them with a ternary, because its pattern only matched a class written as a literal argument. **A false positive in a detector is worse than a miss:** it reads as a finding and spends a step being verified. The scan now counts any quoted string in the renderer whose contents are entirely class tokens. **56 dead before this change and 56 after, where it read 65 on both sides before the fix.**
+
+---
+
+## D-118. Cash out is crypto, and the tab's label was right for two weeks while three decisions read it wrong
+
+**Date:** 2026-09-02. **Stage:** 04. **Decided by:** the founder, with the live product's layer. **Binds:** nodes `5.1` and `5.9`.
+
+**What he said.** Cash out is about crypto. We need a crypto withdrawal dialog, the button goes in the inventory, and the history has to carry it: **date, network, wallet, amount, status, the way an exchange shows it. There is a request, and we either confirm it or block it.**
+
+### The capability was deferred at stage 02, and this reverses that
+
+`jtbd.md`, Candidate-for-Cut Functions, deferred a fiat or crypto withdrawal path. `cjm-to-be.md` says of it in as many words: **"already deferred at `jtbd.md:198` to `:200` and are not re-litigated here."**
+
+**So it enters round 1 with no parent in any of the three legal classes.** Not a barrier code, not a job, not a compliance constraint or design principle. **It is the second capability on this map in that position**, after the daily free case, `D-15`, and it stands on a founder decision alone. **Round 1's surface list moves for the fourth time.**
+
+### The build refused to draw it and was right on both facts
+
+`account.html`'s selection bar carried: **"CASH-OUT IS NOT DRAWN: paying out to real money has no row in `cjm-to-be.md` and no node on the map, and drawing it would invent a capability at wireframe stage."**
+
+**There is no row. There is no node. Both are still true.** What the build could not know is that the founder had a live layer for it, which makes this **a missing input rather than a missing capability**. **A cash out layer only exists behind a login**, so the public walk could never have reached it and no amount of care in the baseline pass would have found it. **The refusal is kept struck rather than deleted.**
+
+### Three readings of one tab, and all three read the same missing input
+
+| When | What node `5.9` said the tab was | Why |
+|---|---|---|
+| `D-88` | A rendered absence, because the only capture of it is empty | True on the evidence available |
+| `D-93` | The sell back ledger, "the subject was one page over the whole time" | Also true. Selling back had no record anywhere |
+| `D-118` | **The crypto payout ledger, which is what the label always meant** | The founder filed the surface |
+
+**Neither earlier reading is deleted.** Both were right about what they could see, and what they were both reading is one hole in the inputs.
+
+### What is drawn
+
+**One control in the selection bar**, the third exit rather than a fourth, and Exchange stays drawn disabled. **One layer, rendered once and hosted**, the contract `D-99` set for the deposit, pinned open at `cashout-dialog.html`.
+
+**Three networks, and one of them cannot be sent to.** Founder answer: ETH, LTC, USDT, **and which USDT network is `[?]`**. A coin is not an address space, so the tab is drawn, the field stays live, and **the press refuses with the reason**, `D-58`.
+
+**The calculator prints three `[?]` in five lines** and does not absorb one of them: the blockchain fee is unknown, so what you would receive is unknown, so the crypto figure is unknown. **A line in a sum gets checked, `D-94`, and the press refuses rather than sending on a figure we cannot show.**
+
+**The amount is read off the ticked items and is never typed.** A cash out is a sell back with the money leaving, so what goes out is decided on the grid. **A free amount field would be a second way to say the same thing and the two would disagree.**
+
+### What is deliberately not drawn
+
+The live layer's notice: cashing out forfeits the deposit bonus for the rest of the day, and free case battles and giveaways. **Two of those three do not exist for us**, and **whether OUR bonus, `D-94`, is forfeited is not decided by anyone.** `D-107`: our side of an unknown is that we have not decided, and only the second half is a fact about a person. **The sentence is off the layer and the question is in node `5.1`.**
+
+### The ledger, and the status column `D-93` removed
+
+`D-93`'s ground was that a sell back has no waiting party and no stage. **A crypto payout waits twice, on us and on the chain.** Four statuses: Requested, Sending, Sent, Blocked, **with the ground in the same cell and never in a tooltip**, `B8-3`, **and no row estimating when a chain confirms.**
+
+**Selling back for coins did not stop existing and it is not on this tab.** It is round 1 since `D-38`, nothing leaves the product when it happens, and the record belongs to the item under `5.1`.
+
+### What this closes and what it costs
+
+**`5.1`'s standing question "whether balance can leave the platform at all" is closed after two weeks, and it mattered most on `5.6`:** `G4` freezes a balance rather than zeroing it, and a balance that could never leave made that promise worth less than it reads.
+
+**And the cost.** Identity verification stays `LATER` by founder decision of the same day, so **money leaves this product with no check on who is taking it.** Printed in node `5.1` rather than closed. **Three of the four ledger rows name items from the 207 rolls this history pages past**, so they are outside every list on the page and unverifiable against anything: a ledger with four statuses and one reconciled act cannot show three of its four statuses. **Carried as a debt.**

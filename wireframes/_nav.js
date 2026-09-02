@@ -244,6 +244,10 @@ window.WF_NAV = {
       base: 'Items held',
       states: [
         { label: 'Values degraded', file: 'account-degraded.html', status: 'built' },
+        // THE CASH OUT LAYER, D-118. Pinned open on its own address for the same
+        // reason the deposit layer is: a layer only reachable by a click on
+        // another page is a layer nobody reviews.
+        { label: 'Cash out, the layer', file: 'cashout-dialog.html', status: 'built' },
         { node: '5.2', label: 'Inventory empty', file: 'account-empty.html', status: 'built' }
       ] },
 
@@ -295,7 +299,7 @@ window.WF_NAV = {
         { node: '5.9', label: 'Withdrawals',                  file: 'history-withdrawals.html',         status: 'built' },
         { node: '5.9', label: 'Withdrawals, none yet',        file: 'history-withdrawals-empty.html',   status: 'built' },
         { node: '5.9', label: 'Withdrawals, past our ceiling',file: 'history-withdrawals-overdue.html', status: 'built' },
-        { node: '5.9', label: 'Cash out, sold back for coins',file: 'history-cashout.html',             status: 'built' },
+        { node: '5.9', label: 'Cash out, four statuses',      file: 'history-cashout.html',             status: 'built' },
         { node: '5.9', label: 'Cash out, none yet',           file: 'history-cashout-empty.html',       status: 'built' },
         // THE STATE SET WAS COMPLETED PER TAB ON 23 AUGUST 2026, D-90, on the
         // founder's instruction that every tab carry its own states rather than
@@ -3512,12 +3516,32 @@ window.WF_PAY = window.WF_PAY || {
        the coin economy the win value and the sell back value are the same
        object, so this number is consistent with the roll. What it is not is what
        a real copy would have cost, and the note under the bar carries that. */
+    /* REWRITTEN 2 SEPTEMBER 2026 BY D-118, and the tab's subject changed under
+       it. Founder: "в истории нужно это отметить, там есть реквест, мы типа
+       подтверждаем или блокируем, поэтому надо учесть это все в истории: дата,
+       сеть, кошелек, сумма, статус (как на бирже)."
+       SO THE COLUMNS ARE HIS FIVE PLUS THE ONE THING AN EXCHANGE ROW HAS THAT
+       HIS LIST ASSUMES: what was sold to make the money. A payout row with no
+       subject cannot be tied back to an item, and this whole ledger exists
+       because a Sold back mark on a roll is a fact about the roll rather than a
+       record of the sale, D-93.
+       THE STATE COLUMN IS BACK AND D-93 REMOVED IT ON A PREMISE THAT IS NOW
+       FALSE. Its ground was that a sell back completes or does not happen, so
+       there is no waiting party and no stage, and a column carrying one value on
+       every row is a picture of a column. A CRYPTO PAYOUT WAITS TWICE: on us
+       reviewing it, and on the chain. Four states, and the ground travels with
+       the state in the same cell, B8-3.
+       THE WALLET IS TRUNCATED IN THE CELL AND WHOLE IN THE SOURCE. An address is
+       forty characters of hex and a table that renders it in full is a table
+       nobody can read a row of. It is crawlable text, never an image, the same
+       rule 5.9 section 7 states for a hash. */
     cashout: [
-      { k: 'when',     h: 'When',            mono: true, num: true },
-      { k: 'what',     h: 'What you sold' },
-      { k: 'credited', h: 'Credited',        mono: true, num: true },
-      { k: 'roll',     h: 'From this roll' },
-      { k: 'ours',     h: 'Our reference',   mono: true }
+      { k: 'when',   h: 'When',            mono: true, num: true },
+      { k: 'what',   h: 'What you sold' },
+      { k: 'net',    h: 'Network' },
+      { k: 'wallet', h: 'Wallet',          mono: true },
+      { k: 'amount', h: 'Amount',          mono: true, num: true },
+      { k: 'state',  h: 'Status',          state: true }
     ]
   };
 
@@ -3999,7 +4023,7 @@ window.WF_PAY = window.WF_PAY || {
     var wrap = el('div', 'wf-hpanel');
 
     var rows = (data && data[kind]) || [];
-    var unit = kind === 'deposits' ? 'payments' : (kind === 'cashout' ? 'sales' : 'withdrawals');
+    var unit = kind === 'deposits' ? 'payments' : (kind === 'cashout' ? 'cash outs' : 'withdrawals');
     wrap.appendChild(histBar(kind === 'deposits' ? 'Deposits' : (kind === 'cashout' ? 'Cash out' : 'Withdrawals'), rows.length, unit));
 
     /* WHAT THIS TAB MEANS, AND WHAT IT STILL DOES NOT, D-93. The tab kept the
@@ -4028,9 +4052,10 @@ window.WF_PAY = window.WF_PAY || {
     var after = [];
 
     if (kind === 'cashout') {
-      after.push({ k: 'What this list is', v: 'Every item this account has sold back for coins. Credited is our price for the skin at that moment, which is the same value the win was credited at.' });
-      after.push({ k: 'Selling back against taking out', v: 'Taking the real thing out to Steam instead is a different number: we sell you a real copy at our price for it, and the difference settles against your balance.' });
-      after.push({ k: 'No money leaves here', v: 'Turning a balance back into money is not something this product does, and what one coin is worth in real money is not published, so no row here is a payment out.', wide: true });
+      after.push({ k: 'What this list is', v: 'Every cash out this account has requested: the items sold back, the wallet the money went to, and where the request got to.' });
+      after.push({ k: 'What each status means', v: 'Requested means we have it and have not decided. Sending means we approved it and the chain has not confirmed. Sent means it is on the chain. Blocked means we refused it, and the reason is on the row.' });
+      after.push({ k: 'Amounts are in coins, and the crypto figure is not here', v: 'A row records what came off your items at 1 coin = $1.00. What that converted to in ETH, LTC or USDT depends on the rate at the moment it was sent, and that rate is not published yet.', wide: true });
+      after.push({ k: 'Selling back for coins is a different act', v: 'Selling an item back puts coins on your balance and nothing leaves. That shows on the item itself, under My items. This tab is only for money that left.', wide: true });
     }
 
     if (kind === 'cashout') {
@@ -4061,7 +4086,7 @@ window.WF_PAY = window.WF_PAY || {
       /* THE EMPTY OFFERS A ROUTE HERE BECAUSE THERE IS NOW AN ACT THAT FILLS IT,
          which is exactly the test the D-88 panel used to refuse itself one. */
       if (kind === 'cashout') {
-        wrap.appendChild(histEmpty('Nothing sold back yet', 'When you sell an item back for coins, the row lands here with what you sold, what it credited and the roll it came from.', 'account.html', 'My items'));
+        wrap.appendChild(histEmpty('No cash out yet', 'When you cash items out to a wallet, the row lands here and stays, with the network, the wallet, the amount and where the request got to.', 'account.html', 'My items'));
       } else {
         wrap.appendChild(kind === 'deposits'
           ? histEmpty('No payments yet', 'When you add funds, every attempt lands here, the ones that went through and the ones that did not.', 'deposit.html', 'Add funds')
@@ -4853,6 +4878,298 @@ window.WF_PAY = window.WF_PAY || {
     if (pinned) open(null);
   }
 
+  /* ---------------------------------------------------------------------
+     THE CASH OUT DIALOG, D-118. Founder, with the live product's layer beside
+     ours: "cash out - кстати это про крипту, нам нужен диалог вывода средств
+     через крипту. Мы делаем в инвентаре кнопку cash-out, по которой будет диалог
+     с выводом скина как крипта."
+     THIS REVERSES A STAGE 02 DEFERRAL AND THE REVERSAL IS THE RECORD. A fiat or
+     crypto withdrawal path was deferred in jtbd.md's Candidate-for-Cut list and
+     cjm-to-be.md says in as many words that it is "not re-litigated here". So
+     this capability has NO PARENT IN ANY OF THE THREE LEGAL CLASSES, exactly like
+     the daily free case, and it is in round 1 by founder decision carrying that
+     cost in the open.
+     THE BUILD WAS RIGHT TO REFUSE IT AND WRONG ABOUT WHY. account.html carried
+     the comment "CASH-OUT IS NOT DRAWN: paying out to real money has no row in
+     cjm-to-be.md and no node on the map, and drawing it would invent a capability
+     at wireframe stage." Correct on both facts. What it could not know is that
+     the founder had a live layer for it, which makes this a missing input rather
+     than a missing capability, and the input gate exists to ask rather than to
+     assume either way.
+     THREE NETWORKS AND ONE OF THEM CANNOT BE SENT TO YET. Founder answer of
+     2 September 2026: ETH, LTC, USDT, and WHICH USDT NETWORK IS [?]. A USDT
+     address with no chain named is money sent to nothing, so the tab is drawn,
+     the field stays live and THE PRESS REFUSES WITH THE REASON, D-58: a control
+     that refuses says what is missing, a dimmed one says only that somebody
+     decided something.
+     AND THE FEE IS [?], SO THE RESULT OF THE CALCULATOR IS [?]. The live product
+     puts a blockchain fee in this layer. Ours has no figure for it, and an amount
+     minus an unknown is an unknown: the row is drawn and the answer is not
+     invented. Three [?] in one small block is what this capability actually
+     costs today and the layer prints it rather than absorbing it.
+     WHAT THE LIVE LAYER SAYS AND OURS DOES NOT. The baseline's notice reads that
+     cashing out forfeits the deposit bonus for the rest of the day and free case
+     battles and giveaways. Two of those three do not exist for us at all, battles
+     and giveaways are LATER, and whether OUR deposit bonus, D-94, is forfeited by
+     a cash out IS NOT DECIDED. D-107: our side of an unknown is that we have not
+     decided, and only what we have failed to tell a person is a fact about them.
+     So the sentence is not on the layer. It is an open question in node 5.1.
+     --------------------------------------------------------------------- */
+  var CO_NETS = [
+    { key: 'eth',  name: 'Ethereum', tick: 'ETH',  chain: 'Ethereum',
+      saved: [{ label: 'Main wallet', v: '0x7a1f4c2e9b0d5583a17c4e2f9b6d0c8a3e51f742' }] },
+    { key: 'ltc',  name: 'Litecoin', tick: 'LTC',  chain: 'Litecoin', saved: [] },
+    /* THE ONE WITH NO CHAIN. Not a gap in the drawing: a decision nobody has
+       taken, carried where a person can see it. */
+    { key: 'usdt', name: 'Tether',   tick: 'USDT', chain: null,       saved: [] }
+  ];
+
+  function coRow(k, v, missing, sub) {
+    var r = el('div', 'wf-co-r' + (sub ? ' wf-co-r--sub' : ''));
+    r.appendChild(el('span', 'wf-co-k', k));
+    r.appendChild(missing ? el('span', 'wf-co-v wf-fig-missing', v) : el('span', 'wf-co-v', v));
+    return r;
+  }
+
+  /* THE AMOUNT IS READ FROM THE TICKED ITEMS AND NEVER TYPED. A cash out here is
+     a sell back with the money leaving, so what goes out is decided by which
+     skins are ticked, on the grid, before this layer opens. A free amount field
+     would be a second way to say the same thing and the two would disagree. */
+  function coPicked() {
+    var picks = [].slice.call(document.querySelectorAll('[data-inv-pick]'));
+    if (picks.length) {
+      var on = picks.filter(function (i) { return i.checked; });
+      return {
+        n: on.length,
+        v: on.reduce(function (a, i) { return a + parseFloat(i.getAttribute('data-v') || '0'); }, 0)
+      };
+    }
+    var f = window.WF_CO || {};
+    return { n: f.n || 0, v: f.v || 0 };
+  }
+
+  function coLayer(host, st) {
+    host.innerHTML = '';
+    var net = CO_NETS[st.net];
+
+    /* THE THREE NETWORKS AS A TAB STRIP, the live product's own shape. The
+       current one is a pressed button and not a link to itself. */
+    var tabs = el('div', 'wf-co-nets');
+    tabs.setAttribute('role', 'tablist');
+    tabs.setAttribute('aria-label', 'Network');
+    CO_NETS.forEach(function (n, i) {
+      var b = el('button', 'wf-co-net' + (i === st.net ? ' is-on' : ''), n.name);
+      b.type = 'button';
+      b.setAttribute('role', 'tab');
+      b.setAttribute('aria-selected', i === st.net ? 'true' : 'false');
+      b.setAttribute('data-co-net', String(i));
+      var t = el('span', 'wf-co-tick', n.tick);
+      b.appendChild(t);
+      tabs.appendChild(b);
+    });
+    host.appendChild(tabs);
+
+    /* THE CHAIN IS NAMED UNDER THE STRIP, because "Tether" is a coin and a coin
+       is not an address space. Where we have not decided which chain, the line
+       says that to the person instead of leaving the field to imply any. */
+    var chain = el('p', 'wf-co-chain');
+    if (net.chain) {
+      chain.appendChild(document.createTextNode('Sent on the '));
+      chain.appendChild(el('b', null, net.chain));
+      chain.appendChild(document.createTextNode(' network.'));
+    } else {
+      chain.appendChild(el('span', 'wf-fig-missing', 'Which network we send ' + net.tick + ' on is not published yet. Until it is, an address here cannot be checked and nothing can be sent.'));
+    }
+    host.appendChild(chain);
+
+    var fld = el('div', 'wf-co-addr');
+    var lab = el('label', 'wf-co-lab', net.name + ' address');
+    lab.setAttribute('for', 'co-addr');
+    fld.appendChild(lab);
+    if (net.saved.length) {
+      var sel = el('select', 'wf-co-sel');
+      sel.setAttribute('data-co-saved', '');
+      sel.setAttribute('aria-label', 'Saved ' + net.name + ' addresses');
+      var o0 = el('option', null, 'Use a saved address');
+      o0.value = '';
+      sel.appendChild(o0);
+      net.saved.forEach(function (a) {
+        var o = el('option', null, a.label + ' · ' + a.v.slice(0, 6) + '…' + a.v.slice(-4));
+        o.value = a.v;
+        sel.appendChild(o);
+      });
+      fld.appendChild(sel);
+    } else {
+      fld.appendChild(el('p', 'wf-co-none', 'No saved ' + net.name + ' address on this account yet.'));
+    }
+    var row = el('div', 'wf-co-inrow');
+    var inp = el('input', 'wf-co-in');
+    inp.type = 'text';
+    inp.id = 'co-addr';
+    inp.setAttribute('data-co-in', '');
+    inp.setAttribute('spellcheck', 'false');
+    inp.value = st.addr || '';
+    inp.placeholder = 'Paste the address';
+    row.appendChild(inp);
+    var save = el('button', 'wf-btn wf-btn--small', 'Save');
+    save.type = 'button';
+    save.setAttribute('data-co-save', '');
+    row.appendChild(save);
+    fld.appendChild(row);
+    host.appendChild(fld);
+
+    /* THE CALCULATOR, AND IT IS THE PRODUCT'S OWN SUM RATHER THAN A PICTURE OF
+       ONE. Two rows are read live off the grid, two are [?], and the last is
+       [?] because it is derived from a [?]. D-94's rule holds here as it does on
+       the deposit: a line in a sum gets checked, a badge only asserts. */
+    var p = coPicked();
+    var calc = el('div', 'wf-co-calc');
+    calc.appendChild(el('h3', 'wf-co-h', 'What goes out'));
+    calc.appendChild(coRow('Items selected', p.n + (p.n === 1 ? ' item' : ' items')));
+    calc.appendChild(coRow('Their value', wdFmt(p.v) + ' coins'));
+    calc.appendChild(coRow('Blockchain fee', 'not published yet', true));
+    var out = el('div', 'wf-co-out');
+    out.appendChild(coRow('You receive', 'not published yet', true));
+    out.appendChild(coRow('In ' + net.tick, 'not published yet', true, true));
+    calc.appendChild(out);
+    host.appendChild(calc);
+
+    /* THE PRESS IS LIVE AND IT REFUSES, D-58. Three grounds and it names the one
+       that applies rather than dimming and naming none. */
+    var acts = el('div', 'wf-co-acts');
+    var go = el('button', 'wf-btn wf-btn--primary', 'Request cash out');
+    go.type = 'button';
+    go.setAttribute('data-co-go', '');
+    acts.appendChild(go);
+    var cl = el('button', 'wf-btn', 'Close');
+    cl.type = 'button';
+    cl.setAttribute('data-co-dismiss', '1');
+    acts.appendChild(cl);
+    host.appendChild(acts);
+    var say = el('p', 'wf-refuse', '');
+    say.setAttribute('data-co-say', '');
+    say.hidden = true;
+    host.appendChild(say);
+
+    /* WHAT HAPPENS AFTER THE PRESS, SAID BEFORE IT. A request is reviewed by us
+       and then either sent or blocked, which is the founder's own description,
+       and a person who does not know a review exists reads the wait as a fault. */
+    host.appendChild(el('p', 'wf-note', 'A request is reviewed before anything is sent. Every state it passes through is on the Cash out tab of your history.'));
+  }
+
+  function mountCashout() {
+    var opener = null, host = null, st = null;
+
+    function close() {
+      if (!host) return;
+      host.remove();
+      host = null; st = null;
+      document.documentElement.style.overflow = '';
+      document.removeEventListener('keydown', onKey, true);
+      if (opener && document.contains(opener)) opener.focus();
+      opener = null;
+    }
+
+    function onKey(e) {
+      if (!host) return;
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key !== 'Tab') return;
+      var f = host.querySelectorAll('a[href], button:not([disabled]), input, select, [tabindex]:not([tabindex="-1"])');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+
+    function paint() { coLayer(host.querySelector('[data-co-layer]'), st); }
+
+    function open(trigger) {
+      if (host) return;
+      opener = trigger || null;
+      st = { net: 0, addr: '' };
+      host = el('div', 'wf-co-host');
+      host.innerHTML = '' +
+        '<div class="wf-dlg-scrim" data-co-dismiss="1"></div>' +
+        '<div class="wf-dlg-wrap" data-co-dismiss="1">' +
+          '<div class="wf-dlg wf-dlg--plain wf-dlg--co" role="dialog" aria-modal="true" aria-labelledby="wf-co-h">' +
+            '<button class="wf-dlg-close" type="button" aria-label="Close">&#10005;</button>' +
+            '<div class="wf-dlg-body">' +
+              '<p class="wf-dlg-h" id="wf-co-h">Cash out</p>' +
+              '<p class="wf-dlg-sub">The items you ticked are sold back, and the money goes to a wallet you own.</p>' +
+              '<div class="wf-co-lay" data-co-layer></div>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      document.body.appendChild(host);
+      paint();
+      document.documentElement.style.overflow = 'hidden';
+      document.addEventListener('keydown', onKey, true);
+      var f = host.querySelector('.wf-dlg-close');
+      if (f) f.focus();
+    }
+
+    document.addEventListener('click', function (e) {
+      if (host) {
+        if (e.target.closest('.wf-dlg-close') ||
+            (e.target.getAttribute && e.target.hasAttribute('data-co-dismiss'))) {
+          e.preventDefault(); close(); return;
+        }
+        var nt = e.target.closest('[data-co-net]');
+        if (nt && host.contains(nt)) {
+          e.preventDefault();
+          st.addr = (host.querySelector('[data-co-in]') || {}).value || '';
+          st.net = parseInt(nt.getAttribute('data-co-net'), 10);
+          paint();
+          return;
+        }
+        var sv = e.target.closest('[data-co-save]');
+        if (sv && host.contains(sv)) {
+          e.preventDefault();
+          var v = (host.querySelector('[data-co-in]') || {}).value || '';
+          var s2 = host.querySelector('[data-co-say]');
+          s2.hidden = false;
+          s2.textContent = v.trim()
+            ? 'Saving an address is not built yet, so this one is used for this request only.'
+            : 'There is nothing in the field to save.';
+          return;
+        }
+        var g = e.target.closest('[data-co-go]');
+        if (g && host.contains(g)) {
+          e.preventDefault();
+          var say = host.querySelector('[data-co-say]');
+          var net = CO_NETS[st.net];
+          var addr = ((host.querySelector('[data-co-in]') || {}).value || '').trim();
+          var p = coPicked();
+          say.hidden = false;
+          if (!p.n) say.textContent = 'Nothing is ticked. Cashing out needs at least one item, chosen on the grid behind this.';
+          else if (!net.chain) say.textContent = 'Which network we send ' + net.tick + ' on is not published yet, so an address cannot be checked and this request cannot go.';
+          else if (!addr) say.textContent = 'A ' + net.name + ' address is needed. Nothing is sent anywhere without one.';
+          else say.textContent = 'The blockchain fee is not published yet, so what you would receive cannot be stated, and a request is not sent on a figure we cannot show you.';
+          return;
+        }
+      }
+      var t = e.target.closest('[data-co-open]');
+      if (!t) return;
+      e.preventDefault();
+      open(t);
+    });
+
+    document.addEventListener('change', function (e) {
+      if (!host) return;
+      var sel = e.target.closest('[data-co-saved]');
+      if (sel && host.contains(sel) && sel.value) {
+        var inp = host.querySelector('[data-co-in]');
+        if (inp) inp.value = sel.value;
+      }
+    });
+
+    /* THE PINNED PAGE renders it open on load, the same contract the deposit
+       layer runs under: a layer nobody can see without a click is a layer
+       nobody reviews. */
+    var pinned = document.querySelector('[data-co-pinned]');
+    if (pinned) open(null);
+  }
+
   function mountHist() {
     var tabsHost = document.querySelector('[data-hist-tabs]');
     if (tabsHost) {
@@ -5301,6 +5618,7 @@ window.WF_PAY = window.WF_PAY || {
     mountMsgs();
     mountHist();
     mountRolls();
+    mountCashout();
     mountWithdrawMany();
     mountPay();
     mountDepositDialog();

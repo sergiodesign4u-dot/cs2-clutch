@@ -210,6 +210,68 @@
 
 ---
 
+## 0.11 Amended 2 September 2026 by `D-118`. The third exit exists, and it is the one this node refused to draw
+
+Founder, with the live product's layer beside ours: **"cash out - кстати это про крипту, нам нужен диалог вывода средств через крипту. Мы делаем в инвентаре кнопку cash-out, по которой будет диалог с выводом скина как крипта."**
+
+### What this node said, and it was right on both facts
+
+`account.html` carried this in the selection bar's own comment:
+
+> CASH-OUT IS NOT DRAWN: paying out to real money has no row in `cjm-to-be.md` and no node on the map, and drawing it would invent a capability at wireframe stage.
+
+**Both halves are still true.** There is no row. There is no node. **What the build could not know is that the founder had a live layer for it**, which makes this a **missing input rather than a missing capability**, and the input gate exists to ask rather than to assume in either direction. **A cash out layer only exists behind a login**, so the public walk could never have reached it and no amount of care in the baseline pass would have found it.
+
+**Kept struck rather than deleted**, because the refusal was correct reasoning and the record of why a build declines to draw something is worth more than the drawing.
+
+### The cost, printed rather than absorbed
+
+**A fiat or crypto withdrawal path was deferred at stage 02.** `jtbd.md`, Candidate-for-Cut Functions, and `cjm-to-be.md` says of it in as many words: "already deferred at `jtbd.md:198` to `:200` and are not re-litigated here."
+
+**So this capability enters round 1 with no parent in any of the three legal classes.** Not a barrier code, not a job, not a compliance constraint or design principle. **It is the second capability on this map in that position**, after the daily free case, `D-15`, and it stands on a founder decision alone. **That is the row, and it is printed here rather than smoothed.**
+
+**Round 1's surface list moves for the fourth time.** Twelve on 11 August, three added on 20 August by `D-36`, and a layer on `5.1` now.
+
+### What is drawn
+
+**One control in the selection bar**, beside Send to Steam and Sell for coins, and **it is the third exit rather than a fourth**: the bar's own comment already said three exits and not the baseline's five, and Exchange stays drawn disabled.
+
+**One layer, rendered once in `_nav.js` and hosted**, the contract `D-99` set for the deposit and `D-114` reused for the basket. **Pinned open at `cashout-dialog.html`**, because a layer only reachable by knowing which control to press is a layer nobody reviews.
+
+| Block | What it holds | Why |
+|---|---|---|
+| **Three networks** | Ethereum, Litecoin, Tether, as a strip. Founder answer of 2 September 2026 | The live layer's own three. The current one is a pressed control, never a link to itself, `D-58` |
+| **The chain line** | `Sent on the Ethereum network` | **A coin is not an address space.** Tether has no chain named on our side, so the line says that instead of letting the field imply one |
+| **The address** | A saved-address select where one exists, a field, and Save | The live layer's shape. **Saving is not built**, and the press says so rather than pretending |
+| **The calculator** | Items selected, their value, blockchain fee, you receive, in ETH | **A line in a sum gets checked and a badge only asserts**, `D-94`. Three of the five lines are `[?]` |
+| **The press** | Request cash out, live | `D-58`. It refuses with the ground that applies, and there are three of them |
+
+**The amount is read off the ticked items and is never typed.** A cash out here is a sell back with the money leaving, so what goes out is decided on the grid before the layer opens. **A free amount field would be a second way to say the same thing and the two would disagree.**
+
+### Three `[?]` in one small block, and they are the whole cost of shipping this today
+
+| Unknown | What it blocks | Owner |
+|---|---|---|
+| **Which network we send USDT on** | One of the three tabs. **An address with no chain named is money sent to nothing**, so the press refuses on that tab and says why | Founder |
+| **The blockchain fee** | The result of the calculator. An amount minus an unknown is an unknown, so **You receive is `[?]`** | Founder, then production |
+| **The coin to crypto rate at the moment of sending** | The `In ETH` line, and every crypto figure in the ledger. `D-28` publishes the peg to the dollar and nothing publishes a crypto rate | Founder |
+
+**The press refuses on all three and never on none.** Nothing ticked, no chain for this coin, no address, and where all three are satisfied it still refuses: **a request is not sent on a figure we cannot show the person.**
+
+### What is deliberately not drawn
+
+**The live layer's notice.** It reads that cashing out forfeits the deposit bonus for the rest of the day, and free case battles and giveaways until the end of the same day.
+
+**Two of those three do not exist for us.** Case battles and giveaways are `LATER`. **And whether OUR deposit bonus, `D-94`, is forfeited by a cash out is not decided by anyone.**
+
+**`D-107` decides where that goes.** Our side of an unknown is that we have not decided; the person's side is that we have not told them; only the second is a fact about them. **So the sentence is not on the layer and the question is in section 8 of this node.**
+
+### And the degraded state carries a question the other two do not
+
+`account-degraded.html` renders values that cannot be read. **A cash out is a sale at a value.** What a cash out does when the value is degraded is **`[?]`**, the control is drawn there like everywhere else, and the question is in section 8 rather than answered by a drawing.
+
+---
+
 ## 0. The sentence this page is built around
 
 `F2` is one line in the backlog and it is the whole page: **the receipt stays on the item in inventory and on the withdrawal record**, with the success signal "the same receipt is retrievable a week later".
@@ -394,8 +456,21 @@ The route to the catalogue is the offer. A person who wants to open finds the fr
 | **The sort threshold** | Section 4 makes sort conditional on a typical holding not fitting one screen, and typical holding size is `[?]` | Founder, question of fact to the live platform |
 | **Where selling a skin back for coins lives on this page** | `D-38` put it in round 1 and `3.6` carries it on the outcome. **A person who did not sell at the outcome and wants to sell now has no control on this page**, and this node's own baseline row calls that the gap. Adding one is a founder decision, not a page edit: it is a second exit beside the one CTA | Founder |
 | **A route from a held item back to its round** | The proof of the open lives on `7.1` and `1.2`. The map gives `5.1` two transitions, `5.2` and `5.3`, and `0.14` fixes four rendering sites of which this is not one. **The route is plausible and it is not drawn**, because adding it changes two files this node may not edit | `sitemap.md` and `0.14`, one row each if approved |
-| **Whether balance can leave the platform at all** | `G6` is commission-free withdrawal of an item to Steam. Nothing in the backlog or the map withdraws a balance. It matters here and it matters more on `5.6`, where `G4` freezes a balance rather than zeroing it: **a balance that can never leave is a weaker promise than "frozen, not zeroed" reads as** | Founder |
+| ~~**Whether balance can leave the platform at all**~~ **Closed 2 September 2026 by `D-118`** | `G6` is commission-free withdrawal of an item to Steam. Nothing in the backlog or the map withdrew a balance. It mattered here and it mattered more on `5.6`, where `G4` freezes a balance rather than zeroing it: a balance that can never leave is a weaker promise than "frozen, not zeroed" reads as. **It can leave, as crypto, and the layer is on this page. `G4`'s promise is now worth what it says.** The row asked the right question for two weeks and the answer needed a founder | Founder, answered |
 | **The identity hole on the free-entry path** | `flows.md` flow 3 records it in full: `B1` gates funding, `B2` forbids the check at the exit, and a person who never funds never meets the gate. The proposed shape raises the check when the account first holds a withdrawable item, at the outcome. **Proposed and not drawn**, riding on `D-A` | Counsel, under `D-A` |
 | **Card states for a deadline** | If a deadline exists, an item inside its final stretch is a display variant of `0.6` and that component authorises it | Node `0.6` |
 
 **And what belongs elsewhere.** The words on every control: stage 05, which owns microcopy and syncs it back. How the card looks, how rarity is coloured: stages 06 and 07, and the rarity ladder itself is already walked in `blocks.md` section 10. What the receipt is: row `F1` and `0.11`. Where the withdrawal states are named: `5.3`.
+
+
+**Added 2 September 2026 by `D-118`, and all six belong to the cash out layer.**
+
+| Open item | What is missing | Owner |
+|---|---|---|
+| **Which network we send USDT on** | Founder answer of 2 September named the three coins and left the chain open. **Until it is named the Tether tab cannot take an address**, and the press says so | Founder |
+| **The blockchain fee** | The live layer charges one. We have no figure, so **You receive is `[?]`** and a request is refused rather than sent on a number we cannot show | Founder, then production |
+| **The coin to crypto rate at the moment of sending** | `D-28` publishes the peg to the dollar. Nothing publishes a rate to ETH, LTC or USDT, so **no row of the ledger carries a crypto figure** | Founder |
+| **Whether a cash out forfeits the deposit bonus** | The live layer says it does, and names two other things that do not exist for us. **`D-94` gave us a bonus and nothing says what a cash out does to it.** Not on the layer, by `D-107` | Founder |
+| **What a cash out does when values are degraded** | `5.1`'s degraded state renders values that cannot be read, and **a cash out is a sale at a value.** The control is drawn there and the answer is not | Founder, with `0.11` |
+| **Whether identity verification is required before money leaves** | **Answered 2 September 2026 and the answer is no**, as on the live product. Identity verification stays `LATER` on the map. **The hole is that money leaves this product with no check on who is taking it**, and it is printed here rather than closed | Founder, decided |
+
