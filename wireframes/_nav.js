@@ -272,6 +272,12 @@ window.WF_NAV = {
     { node: '5.9',  cluster: '5', name: 'History',              file: 'history.html',    ia: 'history.html',   status: 'built',
       base: 'Every roll, each with its hash',
       states: [
+        // THE FIFTH TAB, D-108, AND IT IS FIRST IN THE STRIP because the
+        // baseline puts its inventory history first. It is the same five rolls
+        // keyed by the item, which is the shape the founder asked for and the
+        // shape node 7.3 was already giving to strangers.
+        { node: '5.9', label: 'Items, every skin won',        file: 'history-items.html',       status: 'built' },
+        { node: '5.9', label: 'Items, none yet',              file: 'history-items-empty.html', status: 'built' },
         { node: '5.9', label: 'No rolls yet',                 file: 'history-empty.html',    status: 'built' },
         { node: '5.9', label: 'Nothing to check, D-C is no',  file: 'history-no-seed.html',  status: 'built' },
         { node: '5.9', label: 'A proof that does not match',  file: 'history-mismatch.html', status: 'built' },
@@ -3418,7 +3424,52 @@ window.WF_PAY = window.WF_PAY || {
      ONE RENDERER FOR FOUR PAGES, the same contract every other multi-page
      carrier in this stage runs under.
      --------------------------------------------------------------------- */
+  /* ---------------------------------------------------------------------
+     THE FIVE ROLLS, DECLARED ONCE, D-108. Founder: where is our inventory
+     history, with skin cards and their status.
+     THE ANSWER WAS THAT IT IS ON THE STRANGER'S PAGE. Node 7.3 already renders
+     the baseline's exact shape, every skin the account has won as cards with
+     where it went in place of a value, and the owner's own account had no such
+     view: 5.1 holds only what is held now, and this node's Rolls tab holds
+     everything but keyed by the event, with the item's fate as a small line
+     under its name and "held" rendered as silence.
+     SO THE FIFTH TAB IS THE SAME FIVE ROLLS KEYED BY THE ITEM, and the reason
+     it is declared here rather than written into the page is that there were
+     already TWO HAND COPIES of these five and they had drifted: the AWP is
+     Field-Tested on the roll row and Well-Worn on both 5.1 and 7.3. A wear
+     cannot change. D-88 refused an inventory tab partly because it would be a
+     second rendering of one set, and it was right about the risk and wrong
+     about the count, which was two before this tab existed.
+     ONE FIGURE PER CARD AND IT IS THE ROLL'S OWN. Worth when won, dated to the
+     roll, for held and gone alike. What an item is worth today is 5.1's figure
+     and what a sale credited is the cash out ledger's, and a card that mixed
+     the three would be three owners on one line.
+     --------------------------------------------------------------------- */
+  var WF_ROLLS = [
+    { when: '22 Aug 09:14', date: '22 Aug 2026', kase: 'Ironbound Case', w: 'AK-47',    s: 'Redline',         wear: 'Field-Tested',    cost: '12.40', worth: '22.15', chance: '0.42%',  hash: 'a91f4c2e', state: 'held' },
+    { when: '21 Aug 23:02', date: '21 Aug 2026', kase: 'Nightfall Case', w: 'MP9',      s: 'Rose Iron',       wear: 'Minimal Wear',    cost: '31.00', worth: '1.86',  chance: '7.30%',  hash: 'a91f4c2e', state: 'withdrawn', went: '22 Aug' },
+    { when: '21 Aug 22:57', date: '21 Aug 2026', kase: 'Nightfall Case', w: 'P250',     s: 'Sand Dune',       wear: 'Battle-Scarred',  cost: '31.00', worth: '0.31',  chance: '19.80%', hash: null,       state: 'sold',      went: '21 Aug' },
+    { when: '20 Aug 18:40', date: '20 Aug 2026', kase: 'Warsteel Case',  w: 'AWP',      s: 'Asiimov',         wear: 'Field-Tested',    cost: '4.80',  worth: '61.40', chance: '0.11%',  hash: 'a91f4c2e', state: 'sending',   went: '21 Aug' },
+    { when: '20 Aug 18:36', date: '20 Aug 2026', kase: 'Warsteel Case',  w: 'Glock-18', s: 'Water Elemental', wear: 'Factory New',     cost: '4.80',  worth: '3.02',  chance: '5.60%',  hash: 'a91f4c2e', state: 'held' }
+  ];
+
+  /* FOUR STATES, AND THE FOURTH IS THE ONE THE FOUNDER'S CAPTURE SHOWS, D-108.
+     The baseline's ribbon reads SOLD on most cards and PENDING on one, and
+     PENDING IS A WITHDRAWAL IN FLIGHT: the item has left and Steam has not taken
+     it yet. Node 5.9 section 0 names three states, held, sold back, withdrawn,
+     AND THE WITHDRAWAL LEDGER ALREADY HAD FOUR: with Steam, accepted, cancelled,
+     held while restricted. An item with a row reading "With Steam" was rendering
+     as held on the roll, which is the product telling a person an item is theirs
+     to spend while it is halfway to somebody else. */
+  var ITEM_STATE = {
+    held:      'Still held',
+    sending:   'Sending to Steam',
+    sold:      'Sold back',
+    withdrawn: 'Sent to Steam'
+  };
+
   var HIST_TABS = [
+    { key: 'items',       label: 'Items',       file: 'history-items.html' },
     { key: 'rolls',       label: 'Rolls',       file: 'history.html' },
     { key: 'deposits',    label: 'Deposits',    file: 'history-deposits.html' },
     { key: 'withdrawals', label: 'Withdrawals', file: 'history-withdrawals.html' },
@@ -3536,7 +3587,65 @@ window.WF_PAY = window.WF_PAY || {
     return box;
   }
 
+  /* THE ITEM CARD, D-108. The baseline's ribbon is a colour band and colour does
+     not exist until stage 07, so the status is a labelled line at the top of the
+     card with a rule under it: the first thing read, which is what the ribbon is
+     for. THREE STATES AND HELD IS A WORD. On the Rolls tab held is silence, an
+     item that has gone gets a line and one that has not gets nothing, so a
+     person cannot tell "still here" from "nobody wrote it down". */
+  function itemCard(r) {
+    var card = el('article', 'wf-plr-card wf-itemcard is-' + r.state);
+    var st = el('span', 'wf-itemcard-st', ITEM_STATE[r.state] + (r.went ? ', ' + r.went : ''));
+    card.appendChild(st);
+    card.appendChild(el('span', 'wf-inv-art'));
+    card.lastChild.setAttribute('aria-hidden', 'true');
+    card.appendChild(el('p', 'wf-inv-w', r.w));
+    card.appendChild(el('p', 'wf-inv-s', r.s));
+    card.appendChild(el('p', 'wf-inv-wear', '(' + r.wear + ')'));
+    card.appendChild(el('p', 'wf-inv-p', r.worth));
+    card.appendChild(el('span', 'wf-itemcard-k', 'Worth when won'));
+    var meta = el('div', 'wf-plr-meta');
+    var a = el('span'); a.appendChild(document.createTextNode('From'));
+    a.appendChild(el('b', null, r.kase.replace(' Case', '')));
+    var bq = el('span'); bq.appendChild(document.createTextNode('Won'));
+    bq.appendChild(el('b', null, r.date));
+    meta.appendChild(a); meta.appendChild(bq);
+    card.appendChild(meta);
+    var acts = el('div', 'wf-plr-check');
+    var link = el('a', 'wf-btn wf-btn--small', r.hash ? 'Check this round' : 'No proof to check');
+    if (r.hash) { link.setAttribute('href', BASE + 'result.html'); }
+    else { link.setAttribute('href', BASE + 'history-no-seed.html'); }
+    acts.appendChild(link);
+    card.appendChild(acts);
+    return card;
+  }
+
+  function itemsPanel() {
+    var wrap = el('div', 'wf-hpanel');
+    /* THE EMPTY STATE EMPTIES THE ARRAY RATHER THAN COPYING THE PAGE, so the two
+       states cannot disagree about what a card looks like. */
+    var rolls = window.WF_ROLLS_EMPTY ? [] : WF_ROLLS;
+    wrap.appendChild(histBar('Items', rolls.length, 'items'));
+    if (!rolls.length) {
+      wrap.appendChild(histEmpty('Nothing won yet',
+        'Every skin this account opens lands here and stays, with what it was worth at that moment and where it went afterwards.',
+        'catalogue.html', 'The case shelf'));
+    } else {
+      var grid = el('div', 'wf-grid wf-grid--inv wf-itemgrid');
+      rolls.forEach(function (r) { grid.appendChild(itemCard(r)); });
+      wrap.appendChild(grid);
+    }
+    /* THE THREE FIGURES HAVE THREE OWNERS AND THE CARD CARRIES ONE OF THEM. */
+    wrap.appendChild(afterBlock([
+      { k: 'What this list is', v: 'Every skin this account has opened, newest first, held and gone alike. An item that was sold back or sent to Steam stays here, because what happened happened.' },
+      { k: 'The figure on a card', v: 'What the item was worth at the moment it was won, dated to that moment. What it is worth today is on My items, and what a sale credited is on Cash out.' },
+      { k: 'The same five rolls', v: 'This is the Rolls tab keyed by the item instead of by the event. Nothing is here that is not there, and nothing there is missing here.', wide: true }
+    ]));
+    return wrap;
+  }
+
   function histPanel(kind, data) {
+    if (kind === 'items') return itemsPanel();
     var wrap = el('div', 'wf-hpanel');
 
     var rows = (data && data[kind]) || [];

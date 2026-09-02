@@ -191,6 +191,58 @@ The deposits tab carried, in italic, under the count:
 
 ---
 
+## 0.9 Amended 2 September 2026 by `D-108`. The fifth tab, and the answer to where the inventory history was
+
+**Founder, with the baseline capture beside ours:** here is our history and here is the product's, where is our Inventory History, with skin cards and their status.
+
+### It was on the stranger's page
+
+**Node `7.3` already renders exactly that shape**, and has since it was built: every skin the account has won, as cards, with where it went in place of a value on the ones that have gone.
+
+**The owner had no such view.** `5.1` holds only what is held now. This node's Rolls tab holds everything, keyed by the event, as dense rows, **with the item's fate as a small line under its name and held rendered as silence**, so a person cannot tell "still here" from "nobody wrote it down".
+
+**An account that can see less about its own items than a stranger can is the defect**, and no fifth ledger would have fixed it.
+
+### `D-88` refused this tab and it was right about the risk
+
+Its ground: an inventory history is a roll with the roll removed, so building one makes **two renderings of one set with two places to drift**. It also said "nothing the baseline's first tab holds is lost by not inheriting it", because section 0's seventh field carries the item's state.
+
+**Both halves were wrong in the same way, and the way is instructive.**
+
+**The count was already two before this tab existed**, `5.9`'s roll rows and `7.3`'s card grid, both written by hand, both claiming to be the same five rolls. **And they had drifted.** So had the ledgers.
+
+| What disagreed | The surfaces | What was true |
+|---|---|---|
+| **The AWP's wear** | `Field-Tested` on the roll rows and in the withdrawal ledger, `Well-Worn` on `5.1` and on `7.3` | **A wear cannot change.** The roll is the record of what came out of the case, so the roll wins and the two grids are corrected |
+| **Which item went to Steam** | The roll marked the MP9 withdrawn. **The ledger has three rows and the MP9 is only one of them** | The ledger is the record of the act. All three rows now have a state on the item |
+| **The MP9's withdrawal** | Ledger: sent **18 Aug**. Roll: won **21 Aug 23:02** | **An item sent to Steam three days before it was won.** Sent date corrected to 22 Aug 09:40, which is the day the roll already said |
+| **The Glock's withdrawal** | Ledger: cancelled **12 Aug**. Roll: won **20 Aug 18:36** | **Cancelled eight days before it existed.** Corrected to 21 Aug 09:12 |
+| **The overdue state's AWP** | Ledger: sent **19 Aug**. Roll: won **20 Aug 18:40** | Same defect, third instance. Corrected to 21 Aug 15:02 |
+
+**Three impossible dates on one ledger, and every one of them was readable by subtracting two numbers on two tabs of one page.**
+
+### And the field this node specified had three values where the product has four
+
+Section 0's seventh field reads **held, sold back, or withdrawn**. **The withdrawal ledger has had four states since it was built:** with Steam, accepted, cancelled by you, held while the account is restricted.
+
+**So an item with a ledger row reading "With Steam" was rendering as held on the roll**, which is the product telling a person an item is theirs to spend while it is halfway to somebody else. **The fourth state is `Sending to Steam`, and it is the founder's capture's own `PENDING` ribbon**, the one thing on that capture this node had no word for.
+
+### What the tab is
+
+**Items, first in the strip, because the baseline puts its inventory history first.** `baseline-account.md` section 4: Inventory, Deposit, Withdraw, Cash-out. **Ours reads Items, Rolls, Deposits, Withdrawals, Cash out, and the one the baseline does not have is the one this product exists for.**
+
+**One card per item**, the status first and in words rather than a colour band, since colour arrives at stage 07. **One figure, worth when won, dated to the roll.** What an item is worth today belongs to `5.1` and what a sale credited belongs to the cash out ledger: **three figures, three owners, and a card carrying all three would be three owners on one line.**
+
+**The five rolls are declared once**, in `_nav.js`, and this tab renders from that array. **Its empty state empties the array rather than copying the page**, so the two states cannot disagree about what a card looks like.
+
+### The debt this leaves, named rather than left as a surprise
+
+**The roll rows and `7.3`'s card grid are still hand written.** This tab cannot drift from them because it is generated, **and they can still drift from each other until they are moved onto the same array.** The shared array now exists, which is the only thing that was missing. **Carried against this node and `7.3`.**
+
+**And `5.1` still lists the AWP with no mark while it is in flight**, so a person could try to sell back an item that is halfway to Steam. **What an inventory does with an item under a live withdrawal is `[?]` and it is not this node's to answer.**
+
+---
+
 ## 0. What a row is, and why that is the whole node
 
 A row is **a roll**, not an item. Seven fields, and every one of them exists because something reads it separately.

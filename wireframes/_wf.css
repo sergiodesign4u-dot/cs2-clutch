@@ -4091,6 +4091,11 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
    or withdrawing it changes one field and deletes nothing: a history that loses
    a roll when its item leaves is a history of the inventory again. */
 .wf-roll-gone { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+/* AN ITEM IN FLIGHT IS NOT AN ITEM THAT HAS GONE, D-108. It carries the same
+   weight as the gone mark because it is the same field, and it is a separate
+   name because a class called gone on a thing that has not gone is the two
+   owners of one name defect with the reading reversed. */
+.wf-roll-flight { display: block; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
 /* The proof cell. V1 of the component in the row, V3 on demand, and NO ROW EVER
    PRINTS A VERDICT: a history that ticks every row green has asserted the thing
    the scheme does not prove. */
@@ -4844,6 +4849,36 @@ textarea.wf-cfg-in { min-height: 0; }
 .wf-plr-meta span:last-child { text-align: right; }
 .wf-plr-check { margin-top: var(--wf-s-1); }
 .wf-plr-check .wf-btn { width: 100%; padding-inline: var(--wf-s-1); }
+
+/* ============================================================================
+   THE ITEM CARD ON 5.9's FIFTH TAB, D-108. It is the public page's card with a
+   status on it, because the two are the same object seen by two people, and the
+   owner is the one who needs to know where the item went.
+   THE STATUS IS THE FIRST THING ON THE CARD AND IT IS A WORD, not a colour band:
+   the baseline runs a coloured ribbon and colour does not exist in this stage.
+   A rule under it does the separating that the band's fill does there.
+   THREE STATES AND HELD IS ONE OF THEM. On the Rolls tab held is silence, so a
+   person cannot tell "still here" from "nobody wrote it down". ============= */
+.wf-itemcard { padding-top: 0; }
+.wf-itemcard-st {
+  display: block; margin: 0 calc(var(--wf-s-2) * -1) var(--wf-s-1);
+  padding: var(--wf-s-1) var(--wf-s-2);
+  border-bottom: 1px solid var(--wf-line-soft);
+  font-size: var(--wf-t-xs); letter-spacing: 0.03em; text-transform: uppercase;
+  color: var(--wf-ink-dim);
+  /* THE BAND IS ONE LINE ON EVERY CARD. "Sent to Steam, 22 Aug" wrapping while
+     "Still held" did not put the five cards on two different rhythms, which is
+     the one thing a status band exists to prevent. */
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+/* AN ITEM THAT HAS GONE IS MARKED HARDER THAN ONE THAT HAS NOT, and the weight
+   is on the state that changed rather than on the state that is normal. */
+.wf-itemcard.is-sold .wf-itemcard-st,
+.wf-itemcard.is-withdrawn .wf-itemcard-st { color: var(--wf-ink); border-bottom-color: var(--wf-line); }
+.wf-itemcard .wf-inv-p { margin-top: var(--wf-s-1); }
+.wf-itemcard-k { font-size: var(--wf-t-xs); color: var(--wf-ink-faint); }
+@media (min-width: 700px) { .wf-itemgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .wf-itemgrid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 
 /* ============================================================================
    NODE 4.1 IN ITS SECOND CARRIER, D-99. The deposit dialog.

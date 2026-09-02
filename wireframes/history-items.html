@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>History, items</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="_wf.css">
+</head>
+<body>
+
+<!-- HISTORY, ITEMS. NODE 5.9's FIFTH TAB, D-108, AND IT ANSWERS A QUESTION THE
+     FOUNDER ASKED AS A QUESTION: where is our inventory history, with skin cards
+     and their status.
+     IT WAS ON THE STRANGER'S PAGE. Node 7.3 already renders the baseline's exact
+     shape, every skin this account has won as cards, with where it went in place
+     of a value on the ones that have gone. THE OWNER HAD NO SUCH VIEW: 5.1 holds
+     only what is held now, and the Rolls tab holds everything but keyed by the
+     event, with the item's fate as a small line under its name and HELD RENDERED
+     AS SILENCE, so a person cannot tell "still here" from "nobody wrote it down".
+     An owner who can see less about their own items than a stranger can is the
+     defect, and it is not one a fifth ledger would have fixed.
+     D-88 REFUSED THIS TAB AND IT WAS RIGHT ABOUT THE RISK. Its ground was that an
+     inventory history is a roll with the roll removed, so building one makes two
+     renderings of one set with two places to drift. THE COUNT WAS ALREADY TWO
+     before this page existed, and they HAD drifted: the AWP is Field-Tested on
+     the roll row and Well-Worn on both 5.1 and 7.3, and a wear cannot change.
+     SO THE FIVE ROLLS ARE DECLARED ONCE IN _nav.js AND THIS PAGE RENDERS THEM.
+     The two hand copies are named as a debt in the node rather than left as a
+     surprise: this page cannot drift from them, and they can still drift from
+     each other until they are moved onto the same array.
+     ONE FIGURE PER CARD AND IT IS THE ROLL'S OWN, worth when won, dated. What an
+     item is worth today belongs to 5.1 and what a sale credited belongs to the
+     cash out ledger. Three figures with three owners, and a card that carried
+     all three would be three owners on one line. -->
+<button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
+<aside id="wf-panel"></aside>
+
+<div class="wf-screen-body">
+
+  <div class="wf-shell" id="wf-shell"></div>
+
+  <main class="wf-main">
+
+    <div class="wf-ah" data-acct-hero></div>
+
+    <h1>History</h1>
+    <!-- FIVE TABS SINCE D-108, AND ITEMS IS FIRST BECAUSE THE BASELINE PUTS IT
+         FIRST. baseline-account.md section 4: Inventory, Deposit, Withdraw,
+         Cash-out. Ours reads Items, Rolls, Deposits, Withdrawals, Cash out, and
+         the one the baseline does not have is the one this product exists for. -->
+    <div data-hist-tabs></div>
+
+    <div data-hist-list="items"></div>
+
+  </main>
+
+  <footer class="wf-footer" id="wf-footer"></footer>
+
+  <nav class="wf-bar" id="wf-bar"></nav>
+
+</div>
+
+<script>
+window.WF_BASE = '';
+window.WF_IA_BASE = '../ia/';
+window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '130.60 coins' } };
+window.WF_ACCT = { active: 'history' };
+window.WF_HISTTAB = 'items';
+</script>
+<script src="_nav.js"></script>
+</body>
+</html>
