@@ -178,6 +178,46 @@ Composition from `blocks.md`, type **T4 Transactional form with named states**, 
 
 ---
 
+## 1c. Amended 2 September 2026 by `D-109`. The picture stops being the page, and the offer shelf is put back to the founder
+
+**Founder, on the built screen:** there is an enormous block under the picture here, and it should be done the way the product does it.
+
+### The first half was literal and it is fixed
+
+At 1440 the record card is 612 wide. **A 4/3 slot in a single column made the picture 578 by 434, and the card spent 434 of its 658 pixels on an empty box** with four short facts underneath it. The settlement table, which is the block a person came to read, started below the fold.
+
+**The picture is now beside the facts rather than above them**, which is the move `D-57` already made for the sign-in dialog's art: stacked, a picture spends the one axis the page is short of, and beside the content it spends an axis that was empty. **Nothing is cut and the slot is still a real slot at the same 4/3**, 200 by 150.
+
+| | The card | The page |
+|---|---|---|
+| Before | 658px tall, 434 of it picture | 3001px |
+| After | **217px tall**, 150 of it picture | **2559px** |
+
+**Below 600px it still stacks and that is deliberate.** There is no side axis to spend at 360, and `5.1`'s own item cards put a 4/3 picture at the top of a card the same width. **The saving is a desktop saving and does not claim to be more.**
+
+**The facts gained a wrapper and the wrapper is the fix.** As flat siblings they were rows of a grid the picture spanned, so the picture's height was shared out between them. **A wrapper is cheaper than a rule that counts children**, and the six state pages carry different numbers of them.
+
+### The second half is a refusal reversed, and it is put back to the founder rather than built
+
+**Section 1b.2 refused the offer shelf and said what would reverse it**, in its own words: "if comparing floats turns out to be the act rather than a detail of it, the shelf is what this block becomes, and that is a measurement rather than an argument."
+
+**The founder brought the capture and asked for the shelf.** The refusal is reversed, and the argument it lost is kept above rather than deleted: that screen is a shop and this page is a record with one decision on it.
+
+**What the shelf cannot be built from is answers this repository does not hold. Six of them, and three were already open rows on this node before the capture arrived.**
+
+| # | The question | Where it stands |
+|---|---|---|
+| **1** | **Are the copies ours or the market's at the moment of the press.** The shelf renders six of them, and **a stable list of our own stock needs no expiry while a snapshot of somebody else's does** | Already open since `D-92`. **Raised to blocking** |
+| **2** | **Do we publish how far under Steam we set a copy.** The baseline puts a green `-29%` on every card and **that badge is exactly this figure** | Already open since `D-92`. **Raised to blocking.** A badge computed from a figure we decline to publish is the figure published |
+| **3** | **Does the person pick the copy, or do we** | Already open since `D-91`. **Building the shelf answers it**, and the cost is that a person can choose a dearer copy of the same skin and pay the difference |
+| **4** | **What a float is on the screen.** Raw `0.7683732`, a wear band, or a bar. The baseline's bar is coloured and **colour does not exist here until stage 07** | **New** |
+| **5** | **What happens when there is one copy, or none.** The shelf assumes a shelf, and **no copy at any price is a state this node does not have** | **New** |
+| **6** | **Is a withdrawal one item or a basket.** The baseline's `TOTAL DIFFERENCE` only means something for several at once, and `5.1` already has Select all | **New, and the largest.** If it is a basket this is a different page rather than a changed block |
+
+**Until they come back, this section carries the reversal and not a drawing of it**, because a shelf drawn on invented answers is six invented product rules with a picture around them.
+
+---
+
 ## 2. The clock
 
 ### 2.1 Five stages, derived from the flow rather than from a queue model
@@ -438,11 +478,14 @@ Five, all numbered in the map, all specified here under their own anchors.
 
 | Open item | What is missing | Owner |
 |---|---|---|
+| **What a float is on the screen** | The baseline prints the raw number, `0.7683732`, and a coloured wear bar under it. **We have no colour until stage 07**, and a seven decimal number with no scale beside it means nothing to a person who has not learned the scale. **Raw number, wear band, both, or a bar with no colour** is a design question with a research half: whether the people this product is for read floats at all | Founder, and `0.6` field 15 |
+| **What happens when there is one copy, or none** | **The shelf assumes a shelf.** One copy is the current single-control page with the choice removed. **No copy at any price is a state this node does not have** and the three it does have, not eligible, Steam degraded, offer expired, are none of them it. **It is a new state or it is a refusal**, and either way it is drawn rather than discovered | Founder |
+| **Is a withdrawal one item or a basket** | **The baseline's total block is a table with a `TOTAL DIFFERENCE` line under it**, which only means something for several items at once. **`5.1` already has Select all and a Send to Steam over a selection.** This node is written for one record throughout: one card, one settlement, one clock, one history. **If a withdrawal is a basket, this is a different page and not a changed block**, and the clock, the states and `5.9`'s ledger all take a row per item or a row per basket | Founder, and it is the largest of the six |
 | **What resend does to a settlement already struck** | **Opened 23 August 2026 by `D-91`.** On `5.8` the offer expired two days after the copy was bought and the market has moved. **Whether resend honours the struck figure or strikes a new one at the price of the day is a business rule this repository does not hold**, and the two answers differ by real money. Named on the surface before the press | Founder |
 | ~~**The market venue the settlement price is read from**~~ **Closed 23 August 2026 by `D-92`, founder decision** | ~~The as-of renders and the route does not, because no venue is chosen. `A1` names "a named market venue" and no file names one, which is the same hole as the two venues on the receipt one row down. **A link to nothing is worse than a named absence**, so the absence renders.~~ **The argument is kept because the answer has to be read against it.** The venue is us: the prices are ours, taken from Steam, and the market for these items is this product. **Both operands of the settlement on this page are ours**, our credited value and our price for a copy. **The route did not arrive with the venue and it cannot**: a link to our own listing confirms nothing, so what block `1b` renders is the relation, the copy is ours and our price is set against Steam, with **how far under Steam we set it printed as the absence it is** | **Closed.** What stayed open is the relation figure, one row down, and the caveat two rows down |
-| **How far under Steam we set a copy** | **Opened 23 August 2026 by `D-92`.** It is the figure that replaces the venue and it is a sharper hole than the one it replaces: **the venue was an unknown, this is an undeclared margin.** Two walked captures read 39 percent and 27 percent, so it is not a constant and no rule behind it is published. **Steam is the one number in this page's chain a stranger can verify**, so this figure is the whole of what makes the settlement checkable. `numbers.md` section 2c | **Founder.** Nothing external gates it |
-| **Whether the copies on offer are in fact ours at the moment of withdrawal** | **Opened 23 August 2026 by `D-92`, and it is the condition under the two rows above.** The founder's wording was "in principle". The 23 August capture is consistent with it, **six offers for one skin all at one price under one discount, which is what a single seller looks like**, and consistent is not the same as proved. **If a third party supplies the copy at withdrawal time, one word changes in both rows above and `A1`'s outbound market link recovers the job it was written to do.** Flagged rather than assumed | **Founder**, and it is a question of fact about the live platform rather than a design question |
-| **What happens when the copies on offer differ in price** | Every offer the founder walked was at one price and differed only by float, so section `1b.2` holds only in that case. **Whether the cheapest is picked for the person or by them changes what the settlement figure is**, so it is a rule and not a layout question | Founder |
+| **How far under Steam we set a copy.** **Raised from open to blocking on 2 September 2026 by `D-109`:** the baseline puts a green `-29%` on every offer card, and that badge is this figure. **A badge computed from a figure we decline to publish is the figure published** | **Opened 23 August 2026 by `D-92`.** It is the figure that replaces the venue and it is a sharper hole than the one it replaces: **the venue was an unknown, this is an undeclared margin.** Two walked captures read 39 percent and 27 percent, so it is not a constant and no rule behind it is published. **Steam is the one number in this page's chain a stranger can verify**, so this figure is the whole of what makes the settlement checkable. `numbers.md` section 2c | **Founder.** Nothing external gates it |
+| **Whether the copies on offer are in fact ours at the moment of withdrawal.** **Raised from open to blocking on 2 September 2026 by `D-109`:** the shelf renders six of them, and a stable list of our own stock needs no expiry while a snapshot of somebody else's does | **Opened 23 August 2026 by `D-92`, and it is the condition under the two rows above.** The founder's wording was "in principle". The 23 August capture is consistent with it, **six offers for one skin all at one price under one discount, which is what a single seller looks like**, and consistent is not the same as proved. **If a third party supplies the copy at withdrawal time, one word changes in both rows above and `A1`'s outbound market link recovers the job it was written to do.** Flagged rather than assumed | **Founder**, and it is a question of fact about the live platform rather than a design question |
+| **What happens when the copies on offer differ in price.** **Answered by building the shelf, if the shelf is built, `D-109`:** the baseline lets the person pick, so the person picks, **and the cost is that a person can choose a dearer copy of the same skin and pay the difference** | Every offer the founder walked was at one price and differed only by float, so section `1b.2` holds only in that case. **Whether the cheapest is picked for the person or by them changes what the settlement figure is**, so it is a rule and not a layout question | Founder |
 | **The per-case gap between our values and the market** | `D-91` puts the figure on `3.3` and the value, the method and the cadence on `0.11`, where all three are `[?]`. **This node cannot state how large the settlement typically is on any case**, and the case page renders the absence rather than a placeholder. **Amended 23 August 2026 by `D-92`: all three are still `[?]` and none of them waits on a third party any more.** Both operands are ours, so the figure is arithmetic on two numbers the platform holds continuously, and **a number we set on both sides and decline to publish is a decision rather than a gap** | `0.11` and the founder. **A decision, no longer a dependency** |
 | **What p90 measures** | End to end, or only the stretches attributed to us. Section 2.3. **Not written anywhere today**, and the two answers diverge exactly where people complain | `0.11` and the founder, before stage 04 |
 | **The rolling window length** | Seven days, thirty, ninety. Carried from `0.11`, where it is already `[?]`, because the window is part of the claim | Founder with the data |

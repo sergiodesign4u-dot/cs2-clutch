@@ -4588,3 +4588,49 @@ Section 0 of node `5.9` names the seventh field **held, sold back, or withdrawn*
 
 **Whether the item card should carry the second figure.** The baseline's cards print a price on a sold item, which for us is the cash out ledger's credited figure. **One owner per figure held here, and it is a rule that could be revisited with a route rather than a copy.**
 
+---
+
+## D-109. The picture stops being the page, and the offer shelf is a refusal reversed with six questions under it
+
+**Date:** 2026-09-02. **Stage:** 04. **Decided by:** the founder, on the built screen with the live product's own withdrawal beside it. **Binds:** node `5.3` and its six pages.
+
+**What he said.** There is an enormous block under the picture here, and it should be done the way the product does it, with the selected skin, the market offers and the total price.
+
+### The first half was literal, and it is done
+
+At 1440 the record card is 612 wide. A 4/3 slot in a single column made the picture **578 by 434**, and **the card spent 434 of its 658 pixels on an empty box** with four short facts beside it. **The settlement table, which is the block a person opens this page to read, started below the fold.**
+
+**The picture is beside the facts now rather than above them**, which is the move `D-57` already made for the sign-in dialog's art: stacked, a picture spends the one axis the page is short of; beside the content it spends an axis that was empty.
+
+| | The card | The page |
+|---|---|---|
+| Before | 658px, 434 of it picture | 3001px |
+| After | **217px**, 150 of it picture | **2559px** |
+
+**Nothing is cut and the slot is still a real slot at the same ratio.** Below 600px it still stacks, deliberately: there is no side axis to spend at 360, and `5.1`'s own cards put a 4/3 picture at the top of a card that width. **The saving is a desktop saving and does not claim to be more.**
+
+**The facts gained a wrapper and the wrapper is the fix.** As flat siblings they were rows of a grid the picture spanned, **so the picture's height was shared out between them** and the card was full of forty pixel gaps. A wrapper is cheaper than a rule that counts children, and the six state pages carry different numbers of them.
+
+### The second half is a refusal reversed, and it is not built today
+
+**Section 1b.2 of node `5.3` refused the offer shelf, and it wrote down what would reverse it**, in its own words: **"if comparing floats turns out to be the act rather than a detail of it, the shelf is what this block becomes, and that is a measurement rather than an argument."**
+
+**The founder brought the capture and asked for the shelf. The refusal is reversed and its losing argument is kept:** that screen is a shop and this page is a record with one decision on it.
+
+**What is not reversed is the input gate.** The shelf cannot be drawn from answers this repository does not hold, and **three of the six were already open rows on this node before the capture arrived.** They are raised from open to blocking rather than counted twice.
+
+| # | The question | Where it stands |
+|---|---|---|
+| **1** | **Are the copies ours or the market's at the moment of the press.** A stable list of our own stock needs no expiry; a snapshot of somebody else's does, and `5.8` exists because an offer expired | Open since `D-92`. **Blocking** |
+| **2** | **Do we publish how far under Steam we set a copy.** The baseline's green `-29%` on every card **is exactly this figure** | Open since `D-92`. **Blocking.** A badge computed from a figure we decline to publish is the figure published |
+| **3** | **Does the person pick the copy, or do we** | Open since `D-91`. **Building the shelf answers it**, and the cost is a person choosing a dearer copy of the same skin |
+| **4** | **What a float is on the screen.** Raw `0.7683732`, a wear band, or a bar, and the baseline's bar is coloured | **New** |
+| **5** | **What happens when there is one copy, or none** | **New.** No copy at any price is a state this node does not have |
+| **6** | **Is a withdrawal one item or a basket.** The baseline's `TOTAL DIFFERENCE` only means something for several at once, and `5.1` already has Select all | **New, and the largest.** A basket makes this a different page rather than a changed block |
+
+**Why they are asked rather than assumed.** `CLAUDE.md`: ask where an input is missing instead of filling it with a median. **A shelf drawn on six guesses is six invented product rules with a picture around them**, and every one of them is about money leaving an account.
+
+### What this does not answer
+
+**All six.** And the page as it stands is the one-control version the node specified, **shorter by 442 pixels and with its own settlement table on the first screen**, which is the state the shelf would be built out of rather than onto.
+

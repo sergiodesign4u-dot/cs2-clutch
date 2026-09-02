@@ -3419,6 +3419,29 @@ select {
   min-width: 0;
 }
 .wf-held-art { aspect-ratio: 4 / 3; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2); }
+/* THE PICTURE STOPS BEING THE PAGE, D-109. Founder on the built screen: there is
+   an enormous block under the picture here. It was literal: at 1440 the record
+   card is 612 wide, a 4/3 slot in a single column made the art 578 by 434, and
+   THE CARD SPENT 434 OF ITS 658 PIXELS ON AN EMPTY BOX with four short facts
+   underneath it. The one skin being sent out is worth showing and is not worth
+   two thirds of the first screen.
+   BESIDE THE FACTS RATHER THAN ABOVE THEM, which is the move D-57 already made
+   for the sign-in dialog's art: stacked, a picture spends the one axis the page
+   is short of, and beside the content it spends an axis that was empty.
+   NOTHING IS CUT TO BUY THAT HEIGHT and the slot is still a real slot: stage 06
+   puts an image in it and the ratio it gets is the same 4/3. */
+.wf-held-b { display: flex; flex-direction: column; gap: var(--wf-s-1); min-width: 0; }
+@media (min-width: 600px) {
+  /* THE FACTS ARE ONE BLOCK BESIDE THE PICTURE, and the wrapper is what makes
+     that possible: as flat siblings they were rows of a grid the picture
+     spanned, so the picture's height was shared out between them and four short
+     facts sat forty pixels apart down a column. A wrapper is cheaper than a rule
+     that counts children, and the six state pages carry different numbers of
+     them. */
+  .wf-held { flex-direction: row; align-items: flex-start; gap: var(--wf-s-2); }
+  .wf-held-art { flex: 0 0 200px; }
+  .wf-held-b { flex: 1 1 auto; }
+}
 .wf-held-w { font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
 .wf-held-s { font-weight: 700; }
 /* TWO DATED FIGURES, TWO ROWS, AND NO THIRD NUMBER MADE OUT OF THEM. They never
