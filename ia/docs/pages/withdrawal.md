@@ -342,6 +342,35 @@ The Glock's market foot on the inventory reads **"Nobody is offering one", 0 off
 
 ---
 
+## 1g. Amended 2 September 2026 by `D-114`. One item is a basket of one, and this node stops having two builds of one act
+
+**Founder:** why do we not reuse this when one item is selected for a withdrawal.
+
+**There was no reason, and the two had already started to disagree.** The one item page carried a `0.6` record card, a select with three copies in it and a settlement table written into the markup. The basket carried a skin card, a live shelf and a rendered table. **Same node, same act, two builds, and only one of them could answer what a dearer copy costs.**
+
+**So the one item page is a host**, the way six deposit pages became hosts of one renderer at `D-99`. It declares one row and the renderer does the rest: the float choice, both filters, the settlement row, the total, the count and the button label all behave there exactly as they behave on five.
+
+| | Before | After |
+|---|---|---|
+| The record | `.wf-held` card, 217px | The skin card in the row |
+| The copy | A select with three options at one price | **A shelf of seven, cheapest first, live** |
+| The settlement | A table written into the markup | The same table, rendered from the choice |
+| A dearer copy | Not expressible | `-42.40` becomes `-48.84` on the press of a radio |
+
+**The default reproduces the record this page has always shown**: 21.40 ours against 63.80 the market, 42.40 off the balance. **The cheapest offer is 63.80**, which is the figure the node has settled against since `D-91`.
+
+**What does not move is the five state pages.** After the request the copy is bought and the settlement is struck, **so a shelf on them would offer a choice that has already been made.** They keep the record card, and that is a difference with a reason rather than a leftover.
+
+**And it does not settle `D-110`'s open item.** Whether this StatTrak copy is the same item as `5.1`'s AK-47 is still the founder's, and **the renderer reads whatever array a page declares, which is exactly why it can host both readings until he picks one.**
+
+### The defect this step introduced, found by looking rather than by the sweep
+
+**Replacing a line range left one `</div>` behind**, and the parser closed the outer stack early, **so the limits block and the send control became grid children of the two column layout and the limits ended up in the right hand column.** No overflow, no duplicate id, no console error: **the browser sweep cannot see a stray close tag, because the parser fixes it and renders something plausible.**
+
+**The instrument this earns reads the file rather than the DOM.** A tag balance check over every html in the repository. **It found three more, none of them mine:** an extra `</div>` on `5.6`'s appeal page that had put its whole form one level out since it was written, a doubled `<strong>` in `baseline-account.md`'s html, and `<total>` written unescaped inside a `<code>` on this node's own page, which the parser turned into a phantom element. **All four fixed.**
+
+---
+
 ## 2. The clock
 
 ### 2.1 Five stages, derived from the flow rather than from a queue model

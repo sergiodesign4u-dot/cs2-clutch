@@ -498,28 +498,35 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-sec-head h2 { margin-top: 0; }
 .wf-sec-sub { margin: 0; color: var(--wf-ink-dim); font-size: var(--wf-t-s); }
 @media (min-width: 900px) {
-  /* The baseline runs one line per section: the title, the description beside it, and a
-     rule running out to the edge. Stacked, a two line head above every block made the
-     page read as a document with subheadings. The rule is drawn by the head itself
-     rather than by a divider element, so a section cannot acquire one by accident. */
-  .wf-sec-head { display: flex; align-items: baseline; gap: var(--wf-s-2); }
-  /* THE TITLE SHRINKS TOO, AND IT DID NOT UNTIL 22 AUGUST 2026. The paragraph
-     below says the description gives up width before the rule falls below 96,
-     and it never considered the title being wider than the row on its own. With
-     flex: 0 0 auto a long H2 could not shrink and could not wrap, so it pushed
-     the 96px rule past the edge and the whole page scrolled sideways by 3px at
-     900. Found on 6.1, whose block 7 heading is the longest in the product, and
-     it was latent on every page with a long heading rather than local to that
-     one. The title wraps now, which is what a heading does. */
-  .wf-sec-head h2 { flex: 0 1 auto; min-width: 0; }
-  /* THE RULE HAS A FLOOR AND THE DESCRIPTION PAYS FOR IT. With the description taking
-     what it wanted, a long title left the rule 15 pixels wide, and a 15 pixel hairline
-     at the edge of a heading does not read as a rule, it reads as a rendering fault.
-     Both flex now, so the description gives up width before the rule falls below 96. */
-  .wf-sec-sub { flex: 1 1 auto; min-width: 0; }
+  /* THE DECK GOES UNDER THE TITLE, D-113, FOUNDER DECISION OF 2 SEPTEMBER 2026,
+     AND IT REVERSES THE PARAGRAPH THAT USED TO BE HERE. That paragraph said: the
+     baseline runs one line per section, the title with the description beside it
+     and a rule out to the edge, and stacked it made the page read as a document
+     with subheadings. THAT ARGUMENT WAS ABOUT DECKS THAT WERE PARAGRAPHS. D-112
+     cut the decks down to naming lines, and a naming line under its own title is
+     a title with a subtitle rather than a document with subheadings.
+     WHAT THE FOUNDER ASKED FOR, IN HIS WORDS: подзаголовок под заголовок.
+     THE RULE STAYS ON THE TITLE'S OWN LINE, which is the half of the baseline
+     that is not in question: a heading with a hairline running out to the edge.
+     It is a grid rather than a flex row now, so the title and the rule share row
+     one and the deck takes row two across both columns, and no markup changed on
+     172 pages to do it. */
+  .wf-sec-head {
+    display: grid; grid-template-columns: auto minmax(96px, 1fr);
+    align-items: baseline; gap: var(--wf-s-half) var(--wf-s-2);
+  }
+  /* THE TITLE SHRINKS TOO, AND IT DID NOT UNTIL 22 AUGUST 2026. With a fixed
+     width a long H2 could not shrink and could not wrap, so it pushed the 96px
+     rule past the edge and the whole page scrolled sideways by 3px at 900. Found
+     on 6.1, whose block 7 heading is the longest in the product, and it was
+     latent on every page with a long heading. The title wraps, which is what a
+     heading does, and the track it sits in is auto so it takes what it needs and
+     the rule keeps its 96px floor. */
+  .wf-sec-head h2, .wf-sec-head h3 { grid-column: 1; min-width: 0; }
+  .wf-sec-sub { grid-column: 1 / -1; grid-row: 2; min-width: 0; }
   .wf-sec-head::after {
-    content: ''; flex: 1 1 96px; min-width: 96px; height: 1px;
-    background: var(--wf-line-soft);
+    content: ''; grid-column: 2; grid-row: 1;
+    min-width: 96px; height: 1px; background: var(--wf-line-soft);
   }
 }
 /* The route out of a block sits under it and centred, the way the baseline runs

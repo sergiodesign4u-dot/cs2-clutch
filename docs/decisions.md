@@ -4793,3 +4793,62 @@ The basket, the filters, the settlement table, the total, the count and the butt
 
 **And the two questions of `D-109` that survive:** whether the copies are ours or the market's at the moment of the press, **which now decides whether a shelf of nine needs an expiry**, and the Steam listing price per item, without which the discount badge stays `[?]`.
 
+---
+
+## D-113. The deck goes under the title, and the argument that put it beside the title is spent
+
+**Date:** 2026-09-02. **Stage:** 04. **Decided by:** the founder, answering the question `D-112` left open. **Binds:** every section head in the product.
+
+**`D-112` asked it and he answered in four words:** the sub-heading goes under the heading.
+
+**The rule that stood there is reversed and its argument is kept.** It read: the baseline runs one line per section, the title with the description beside it and a rule out to the edge, **and stacked it made the page read as a document with subheadings.**
+
+**That argument was about decks that were paragraphs.** `D-112` cut them to naming lines, and **a naming line under its own title is a title with a subtitle rather than a document with subheadings.** The condition that made the old rule right stopped holding on the same day.
+
+**The rule stays on the title's own line**, which is the half of the baseline nobody questioned. The head is a grid rather than a flex row now: **the title and the hairline share row one, the deck takes row two across both columns, and no markup changed on 172 pages to do it.**
+
+---
+
+## D-114. One item is a basket of one, and a stray close tag is invisible to a sweep that reads the DOM
+
+**Date:** 2026-09-02. **Stage:** 04. **Decided by:** the founder, in one question. **Binds:** node `5.3`.
+
+**What he asked:** why do we not reuse this when one item is selected for a withdrawal.
+
+### There was no reason, and the two builds had already started to disagree
+
+**The one item page carried a `0.6` record card, a select with three copies in it and a settlement table written into the markup.** The basket carried a skin card, a live shelf and a rendered table. **Same node, same act, two builds, and only one of them could answer what a dearer copy costs.**
+
+**So the one item page is a host**, the way six deposit pages became hosts of one renderer at `D-99`.
+
+| | Before | After |
+|---|---|---|
+| The record | `.wf-held` card, 217px | The skin card in the row |
+| The copy | A select, three options, one price | **A shelf of seven, cheapest first, live** |
+| The settlement | Written into the markup | Rendered from the choice |
+| A dearer copy | Not expressible | **`-42.40` becomes `-48.84` on the press of a radio** |
+
+**The default reproduces what the page has always shown:** 21.40 ours against 63.80 the market, 42.40 off the balance, because 63.80 is the cheapest offer on its shelf.
+
+**The five state pages do not move.** After the request the copy is bought and the settlement is struck, **so a shelf on them would offer a choice that has already been made.**
+
+**And it does not settle `D-110`'s open item.** Whether this StatTrak copy is the same item as `5.1`'s AK-47 is still the founder's, and **the renderer reads whatever array a page declares, which is why it can host both readings until he picks one.**
+
+### The defect this step introduced, and the instrument it earned
+
+**Replacing a line range left one `</div>` behind.** The parser closed the outer stack early, **so the limits block and the send control became grid children of the two column layout and the limits ended up in the right hand column.**
+
+**No overflow, no duplicate id, no console error.** The browser sweep cannot see a stray close tag, **because the parser fixes it and renders something plausible.** Found by looking at a screenshot.
+
+**So the instrument reads the file rather than the DOM**: a tag balance check over every html in the repository, comments and scripts stripped, void elements known.
+
+**It returned three more and none of them was mine.**
+
+| Where | What | How long it had been there |
+|---|---|---|
+| `5.6`'s appeal page | An extra `</div>` | **Since the page was written.** Its whole form has been one level out of the card that was meant to hold it |
+| `research/baseline-account.html` | A doubled `<strong>` | Since `D-91`'s correction was written into it |
+| `ia/case.html` | `<total>` unescaped inside a `<code>` | **The parser made a phantom element out of a piece of prose** |
+
+**All four fixed. The count is now zero, and the check runs beside the sweep.**
+
