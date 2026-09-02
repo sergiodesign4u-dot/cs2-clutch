@@ -5098,3 +5098,46 @@ The selection bar is sticky to the bottom of the screen, `D-85`. **At 360 the fo
 **A label names what its figure is about. Where it sits is what says that, and a label is the fallback when the position cannot.** A number rendered in the cell of a different object is not mislabelled, it is misfiled, and no wording fixes it.
 
 **Third form of one strip in one day**, and the two rebuilds cost what they cost because the first one treated a reader's question as a request for more words.
+
+---
+
+## D-121. The footer strip fills, and two numbers in it are decoration by decision
+
+**Date:** 2026-09-02. **Stage:** 04. **Decided by:** the founder, with the live strip. **Binds:** node `0.2`, and therefore every page in the product.
+
+**What he said.** Do the footer like the product, all the indicators the product has. **"Да, у нас типа нет этих данных, но есть зато на продукте, и тут будем симулировать их наличие."**
+
+### What he is correcting is real and this build caused it
+
+**Two of four slots rendered `Not available` on every page.** That reads as **the product cannot do this.**
+
+**What node `0.2` section 2 actually decided is narrower:** online users ships *only if it can count humans in real time*, **and the live product counts them.** The condition was met and the slot was rendering a refusal instead of a figure. **`D-107` from the other side:** an absence drawn where a decision had already been taken.
+
+### Two verdicts reversed, and the losing ground is struck rather than deleted
+
+| Slot | Section 2 | Now |
+|---|---|---|
+| **Cases opened** | Keep, checkable per case against the observed rate | Unchanged, **and it increments now**, which `baseline.md` recorded and this build never drew |
+| **Upgrades** | ~~Cut: "a counter for a mode that does not exist advertises absence with a number, `D-19`'s rail defect in a different costume"~~ | **Drawn. Upgrades is still `LATER`, the reasoning still stands, and it is the cost of the cell rather than an argument that was answered** |
+| **Total users** | ~~Cut: "not checkable by anyone outside the company, and the category's classic inflated figure"~~ | **Drawn. It is the one figure here nobody outside can check**, and `competitors.md` 3.1 and `research.md` 3 both record the bot-count reading it invites |
+| **Online users** | Ships only if it counts humans in real time | **Drawn, condition met** |
+
+**Section 2's rule is unchanged by this decision:** every number in the strip either reconciles against something a stranger can open, or it is decoration that looks like evidence. **Two of the five are now the second kind, by decision, and node `0.2` section 0.1 is where that is written down.**
+
+### What is kept against the baseline
+
+**The middle withdrawal time stays and the baseline has no such cell.** Section 2 calls it the strongest trust signal the product owns, checkable in the only way that matters, by the person who withdraws. **It is fifth of five now, and being fifth is what this costs it:** the founder's four come first, in the live product's order.
+
+**The aggregate tested RTP cell is dropped from the strip and not from the node.** A proposal with no backlog row, rendering `Not available` on every page in the product. The node still holds it as a proposal.
+
+### Two of the five move, and three do not, and the strip draws that difference
+
+`baseline.md` records cases opened moving across three reads minutes apart, **and total users standing still across all three.** One cumulative counter that only rises, one headcount that moves both ways, three figures that do not move in a session.
+
+**A counter that never moves is a picture of a counter**, and an online count frozen for a session is the unverifiable claim our own research names, rendered as a still image. **Motion with an informational job, the only kind design principle 2 keeps**, and `prefers-reduced-motion` stops the ticking and keeps the figure.
+
+### Two findings this raises rather than fixes
+
+**`baseline.md` owes a dated row.** Its walk of 22 August recorded 363 775 507, 3 330 137, 1 863 286 and 659; the strip has been rendering 363 777 660, which matches neither; the founder's capture of 2 September reads 367 013 504. **Returned as a finding rather than edited**, `CLAUDE.md`.
+
+**The capture is owed a dated file in `research/screens/`.** A screenshot with no date is model memory with a picture attached, and this one has a date only because it arrived in a conversation.

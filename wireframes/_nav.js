@@ -1806,21 +1806,52 @@ window.WF_PAY = window.WF_PAY || {
     // is not removed on an error page: a statistic that is unavailable says so with
     // its last known moment, and the strip keeps its space. Removing it would take
     // the proof-of-scale half of "never a dead end" with it.
+    /* FIVE CELLS SINCE D-121, AND TWO OF THE FOUR VERDICTS IN SECTION 2 ARE
+       REVERSED BY THE FOUNDER. "Давай в футере сделаем как на продукте, все
+       показатели которые на продукте. Да, у нас типа нет этих данных, но есть
+       зато на продукте, и тут будем симулировать их наличие."
+       WHAT HE IS CORRECTING IS REAL AND THIS BUILD CAUSED IT. Two of four slots
+       rendered "Not available", which reads as THE PRODUCT CANNOT DO THIS. What
+       section 2 actually decided is narrower: online users ships only if it can
+       count humans in real time, and the live product counts them. The condition
+       is met, and the slot was rendering a refusal instead.
+       WHAT IS REVERSED, AND THE GROUND THAT LOSES IS KEPT RATHER THAN DELETED.
+       Total users was cut as "not checkable by anyone outside the company, and
+       the category's classic inflated figure". It is drawn now. Upgrades was cut
+       as "a counter for a mode that does not exist, D-19's rail defect in a
+       different costume". It is drawn now, and upgrades are still LATER.
+       WHAT IS KEPT AGAINST THE BASELINE. The middle withdrawal time is the one
+       figure here a person can check in the way that matters, by withdrawing, and
+       section 2 calls it the strongest trust signal the product owns. The
+       baseline has no such cell. It stays, fifth, and being fifth is the cost.
+       THE AGGREGATE RTP CELL IS DROPPED FROM THE STRIP AND NOT FROM THE NODE. It
+       was a proposal with no backlog row and it rendered "Not available" on every
+       page in the product. Section 2 still holds the proposal.
+       FIGURES: founder capture of 2 September 2026. baseline.md's own walk of
+       22 August recorded 363 775 507, 3 330 137, 1 863 286 and 659, and it owes a
+       dated row for this newer read. */
     var down = !!(window.WF_SHELL && window.WF_SHELL.stats === 'unavailable');
     [
       down
-        ? [null, 'Cases opened', 'Not available. Last read 22 Aug 2026, and a value from then is not a value for now', 'catalogue.html']
-        : ['363 777 660', 'Cases opened', 'Checkable per case, against the observed rate on each case screen', 'catalogue.html'],
+        ? [null, 'Cases opened', 'Not available. Last read 2 Sep 2026, and a value from then is not a value for now', 'catalogue.html']
+        : ['367 013 504', 'Cases opened', 'Checkable per case, against the observed rate on each case screen', 'catalogue.html', 'up'],
+      down
+        ? [null, 'Upgrades', 'Not available. Last read 2 Sep 2026', null]
+        : ['3 349 339', 'Upgrades', null, null],
+      down
+        ? [null, 'Total users', 'Not available. Last read 2 Sep 2026', null]
+        : ['1 864 228', 'Total users', null, null],
+      down
+        ? [null, 'Online now', 'Not available. Last read 2 Sep 2026', null]
+        : ['882', 'Online now', null, null, 'live'],
       // THE SECOND FILENAME DEFECT OF THE SAME CLASS, found the same way. It
       // pointed at withdrawal.html, which is the IA specification's filename
       // rather than the wireframe's, so the footer's own published figure led to
       // a 404 on every page. Invisible until 5.3 was built, because a link to an
       // unbuilt screen and a link to a misspelt one are the same 404.
       down
-        ? [null, 'Middle withdrawal time, from our own logs', 'Not available. Last read 22 Aug 2026', 'withdraw.html']
-        : ['1 h 40 m', 'Middle withdrawal time, from our own logs', null, 'withdraw.html'],
-      [null, 'Online now, if it can count humans in real time', null, null],
-      [null, 'Aggregate tested return to player', null, null]
+        ? [null, 'Middle withdrawal time, from our own logs', 'Not available. Last read 2 Sep 2026', 'withdraw.html']
+        : ['1 h 40 m', 'Middle withdrawal time, from our own logs', null, 'withdraw.html']
     ].forEach(function (f) {
       var d = el(f[3] ? 'a' : 'div', 'wf-fig wf-fig-ico' + (f[3] ? ' wf-fig-a' : ''));
       if (f[3]) { d.href = BASE + f[3]; }
@@ -1833,7 +1864,15 @@ window.WF_PAY = window.WF_PAY || {
       // NOT WRAPPED IN A TEXT BOX: .wf-fig-ico is a grid whose icon spans three rows,
       // so the three spans are its direct children by contract. A wrapper here would
       // have collapsed the row span and it is a shared rule, used by 3.3 as well.
-      d.appendChild(el('span', 'wf-fig-v' + (f[0] ? '' : ' wf-fig-missing'), f[0] || 'Not available'));
+      var v = el('span', 'wf-fig-v' + (f[0] ? '' : ' wf-fig-missing'), f[0] || 'Not available');
+      /* A COUNTER THAT NEVER MOVES IS A PICTURE OF A COUNTER. baseline.md records
+         cases opened incrementing across three reads minutes apart, and an online
+         count that stands still for a whole session is the unverifiable claim our
+         own research names, rendered as a still image. Motion with an
+         informational job, which is the only kind design principle 2 keeps: it is
+         the difference between a live figure and a printed one. */
+      if (f[4]) v.setAttribute('data-tick', f[4]);
+      d.appendChild(v);
       d.appendChild(el('span', 'wf-fig-c', f[1]));
       if (f[2]) { d.appendChild(el('span', 'wf-fig-c wf-fig-route', f[2])); }
       stats.appendChild(d);
@@ -5073,6 +5112,53 @@ window.WF_PAY = window.WF_PAY || {
     host.appendChild(el('p', 'wf-note', 'A request is reviewed before anything is sent. Every state it passes through is on the Cash out tab of your history.'));
   }
 
+  /* THE TWO LIVE COUNTERS IN THE FOOTER, D-121. baseline.md section on the strip
+     records cases opened moving across three reads minutes apart, +30 then +48,
+     and total users standing still across all three. So one of these counters is
+     cumulative and moving, one is a headcount that moves both ways, and two do
+     not move at all in a session. THE STRIP NOW RENDERS THAT DIFFERENCE instead
+     of printing four numbers that all look equally frozen.
+     REDUCED MOTION IS HONOURED AND THE FIGURE STILL ARRIVES. A person who asked
+     the system for less motion gets the number and not the ticking, which is the
+     right half to keep: the value is information and the movement is emphasis. */
+  function mountFooterTicks() {
+    var els = [].slice.call(document.querySelectorAll('[data-tick]'));
+    if (!els.length) return;
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (still) return;
+
+    function read(node) { return parseInt(node.textContent.replace(/\s/g, ''), 10); }
+    function write(node, n) {
+      node.textContent = String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }
+
+    els.forEach(function (node) {
+      var kind = node.getAttribute('data-tick');
+      var n = read(node);
+      if (!isFinite(n)) return;
+      if (kind === 'up') {
+        /* CUMULATIVE AND ONE DIRECTION. A total of cases opened that ever went
+           down would be saying a case was un-opened. */
+        setInterval(function () {
+          n += 1 + Math.floor(Math.random() * 2);
+          write(node, n);
+        }, 2600 + Math.floor(Math.random() * 2200));
+      } else {
+        /* A HEADCOUNT MOVES BOTH WAYS AND IT IS BOUNDED. It drifts around where it
+           started rather than walking away from it, because a session left open
+           for an hour must not end with a number nobody wrote. */
+        var base = n;
+        setInterval(function () {
+          n += Math.round((Math.random() - 0.5) * 7);
+          if (n < base - 40) n = base - 40;
+          if (n > base + 40) n = base + 40;
+          if (n < 1) n = 1;
+          write(node, n);
+        }, 5000 + Math.floor(Math.random() * 4000));
+      }
+    });
+  }
+
   function mountCashout() {
     var opener = null, host = null, st = null;
 
@@ -5642,6 +5728,10 @@ window.WF_PAY = window.WF_PAY || {
     mountCookie();
     mountSettings();
     renderFooter(document.getElementById('wf-footer'));
+    // AFTER THE FOOTER IS BUILT AND NOT WITH THE OTHER MOUNTS. The counters it
+    // animates do not exist until renderFooter has run, and the mount block runs
+    // first: called there it found nothing and returned, silently.
+    mountFooterTicks();
     mountRollDetail();
     renderBar(document.getElementById('wf-bar'));
     mountCommitBar();

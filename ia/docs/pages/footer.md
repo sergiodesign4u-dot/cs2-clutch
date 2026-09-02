@@ -18,6 +18,51 @@
 
 ---
 
+## 0.1 Amended 2 September 2026 by `D-121`. The strip fills, two verdicts of section 2 are reversed, and the losing ground is kept
+
+Founder, with the live strip beside ours: **"давай в футере сделаем как на продукте, все показатели которые на продукте. Да, у нас типа нет этих данных, но есть зато на продукте, и тут будем симулировать их наличие."**
+
+### What he is correcting is real, and this build caused it
+
+**Two of four slots rendered `Not available` on every page in the product.** That reads as **the product cannot do this.**
+
+**What section 2 actually decided is narrower.** Online users ships *only if it can count humans in real time*, and **the live product counts them.** The condition was met and the slot was rendering a refusal instead of the figure. **`D-107` again, from the other side:** our side of an unknown is that we have not decided, and this was a decision that had been taken, rendered as an absence.
+
+### What is reversed, and the ground that loses is struck rather than deleted
+
+| Slot | Section 2's verdict | Now |
+|---|---|---|
+| **Cases opened** | Keep, checkable per case | **Unchanged**, and it now increments, which `baseline.md` recorded and this build never drew |
+| **Upgrades** | ~~Cut. "A counter for a mode that does not exist advertises absence with a number, which is `D-19`'s rail defect in a different costume"~~ | **Drawn, by founder decision.** Upgrades is still `LATER`. **The ground above is still true and it is the cost of this cell** |
+| **Total users** | ~~Cut as drawn. "Not checkable by anyone outside the company, and it is the category's classic inflated figure"~~ | **Drawn, by founder decision. It is the one figure in this strip nobody outside the company can check**, and `competitors.md` 3.1 and `research.md` 3 both record the bot-count reading it invites |
+| **Online users** | Carried with a condition: ships only if it counts humans in real time | **Drawn, and the condition is met**, and it drifts both ways rather than standing still |
+
+### What is kept against the baseline, and what it costs
+
+**The middle withdrawal time stays, and the baseline has no such cell.** Section 2 calls it the strongest trust signal the product owns, checkable in the only way that matters, by the person who withdraws. **It is now fifth of five, and being fifth is what this decision costs it:** the four the founder asked for come first, in his order, which is the live product's order.
+
+**The aggregate tested RTP cell is dropped from the strip and not from this node.** It was a proposal with no backlog row, it rendered `Not available` on every page, and section 2 still holds it as a proposal for the founder.
+
+### Two of the five move, and three do not, and that difference is now drawn
+
+`baseline.md` records cases opened moving across three reads minutes apart, +30 then +48, **and total users standing still across all three.** So the strip holds one cumulative counter that only ever rises, one headcount that moves both ways, and three figures that do not move in a session.
+
+**A counter that never moves is a picture of a counter**, and an online count frozen for a whole session is precisely the unverifiable claim our own research names, rendered as a still image. **Cases opened rises by one or two every few seconds. Online now drifts both ways and is bounded**, so a page left open for an hour does not end on a number nobody wrote.
+
+**Motion with an informational job, which is the only kind design principle 2 keeps.** `prefers-reduced-motion` stops the ticking and keeps the figure: the value is the information and the movement is the emphasis.
+
+### The figures, and where they come from
+
+**Founder capture of 2 September 2026:** 367 013 504 cases opened, 3 349 339 upgrades, 1 864 228 total users, 882 online.
+
+**`baseline.md` owes a dated row for this read.** Its own walk of 22 August recorded 363 775 507, 3 330 137, 1 863 286 and 659, and the strip has been rendering 363 777 660, which matches neither. **Recorded as a finding against `baseline.md` rather than fixed here**, `CLAUDE.md`: a node returns a contradiction against a source it consumes instead of editing it. **And the capture itself is owed a dated file in `research/screens/`:** a screenshot with no date is model memory with a picture attached, and this one has a date only because it arrived in a conversation.
+
+### What the strip still is not
+
+**Not a badge row.** No trust seals, no "100% secure", no invented certifications. `D-14` names what answers the recorded doubt: published chance, current value and tested RTP. **A seal answers none of it, and neither does a user count.** Section 2's rule is unchanged by this decision: **every number here either reconciles against something a stranger can open, or it is decoration that looks like evidence. Two of the five are now the second kind, by decision, and this section is where that is written down.**
+
+---
+
 ## 0. Rebuilt on 11 August 2026, and the input was the problem
 
 The first version of this node was built against `baseline.md`, which recorded the baseline footer as **"thirteen links"** and nothing else. The founder supplied a screenshot of the real thing, and it is four bands: a statistics strip, a four column footer whose first column is brand plus a support button plus the legal identification line, a bottom row with payment marks, and a floating support control beside it.
@@ -89,9 +134,9 @@ And the risk is documented rather than hypothetical: the bot-name concern record
 | Slot | Verdict | Reasoning |
 |---|---|---|
 | **Cases opened** | **Keep, and make it checkable, and the route is narrower than this cell first claimed** | It is the product's real volume and it answers `B1-1` directly, the visitor arriving pre-suspected. **Corrected by the global sweep on 12 August 2026:** the first version of this cell reconciled the figure against a published round ledger on `1.2`, and no such object exists. `cjm-to-be.md` uses the word ledger four times and every one is the internal settlement ledger, and node `1.2` publishes no rounds in bulk. The route that does exist is the observed rate counter, row `D3`, whose N comes from that same settlement ledger. It reconciles **per case rather than as one auditable total** and it is conditional on `D-B`. If `D-B` fails the figure loses its route and the slot goes to a number that has one |
-| **Upgrades** | **Cut** | Upgrades is a LATER mode. A counter for a mode that does not exist advertises absence with a number, which is `D-19`'s rail defect in a different costume |
-| **Total users** | **Cut as drawn, replacement needed** | Not checkable by anyone outside the company, and it is the category's classic inflated figure. Keeping it would put the least verifiable number in the product next to the most verifiable one and teach a reader that neither can be trusted |
-| **Online users** | **Carried with a condition** | Same problem, and worse: a live human count on a platform where the drop feed's authenticity is already questioned in our own research. It ships only if it counts humans in real time. **If it cannot, it does not ship** |
+| **Upgrades** | ~~**Cut**~~ **Reversed 2 September 2026 by `D-121`, section 0.1** | Upgrades is a LATER mode. A counter for a mode that does not exist advertises absence with a number, which is `D-19`'s rail defect in a different costume. **The reasoning stands and the founder drew the cell anyway. It is the cost of that cell, not an argument that was answered** |
+| **Total users** | ~~**Cut as drawn, replacement needed**~~ **Reversed 2 September 2026 by `D-121`, section 0.1** | Not checkable by anyone outside the company, and it is the category's classic inflated figure. Keeping it would put the least verifiable number in the product next to the most verifiable one and teach a reader that neither can be trusted. **Still true, and still the cost** |
+| **Online users** | **Carried with a condition, and the condition is met since 2 September 2026** | Same problem, and worse: a live human count on a platform where the drop feed's authenticity is already questioned in our own research. It ships only if it counts humans in real time. **If it cannot, it does not ship.** `D-121`: the live product counts them, so it ships, and it drifts both ways rather than standing still |
 
 ### The two empty slots, and the recommendation
 

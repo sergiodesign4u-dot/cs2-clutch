@@ -772,9 +772,14 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-foot-stats { display: grid; grid-template-columns: 1fr; gap: var(--wf-s-2); }
 /* Two up, then four, when the column can hold them rather than when the window can. */
 @container col (min-width: 460px) { .wf-foot-stats { grid-template-columns: repeat(2, 1fr); gap: var(--wf-s-3); } }
-@container col (min-width: 760px) { .wf-foot-stats { grid-template-columns: repeat(4, 1fr); } }
+@container col (min-width: 760px) { .wf-foot-stats { grid-template-columns: repeat(3, 1fr); } }
+/* FIVE CELLS SINCE D-121 AND THE LAST ROW IS NOT STRETCHED TO FILL. Three then
+   five: at the middle step two cells sit under three and they keep the width of
+   the three above them, because a row of two cells as wide as a row of three is
+   a grid pretending it has content it does not. */
+@container col (min-width: 1080px) { .wf-foot-stats { grid-template-columns: repeat(5, 1fr); } }
 /* The strip is the loudest row in the footer on the live product and it is the loudest
-   here: the icon zone is bigger than the one 3.3 reserves, because these four are the
+   here: the icon zone is bigger than the one 3.3 reserves, because these five are the
    only figures in the footer and they are what a stranger reads first. */
 .wf-foot-stats .wf-fig-ico { grid-template-columns: 40px 1fr; }
 .wf-foot-stats .wf-icon { width: 40px; height: 40px; }
