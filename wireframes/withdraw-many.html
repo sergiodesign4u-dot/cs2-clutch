@@ -9,33 +9,28 @@
 </head>
 <body>
 
-<!-- NODE 5.3, WITHDRAWAL OF SEVERAL ITEMS AT ONCE, D-110. Founder: how does this
-     look if a person wants to take out two or more, say ten, because the
-     structure does not sit well on several skins.
-     HE IS RIGHT AND THE REASON IS STRUCTURAL RATHER THAN COSMETIC. Before the
-     request the node has TWO blocks about one item: block 1, the record, a card
-     with a picture and four facts, and block 1b, the settlement, a table with the
-     baseline's four columns and one row in it. AT ONE ITEM THAT READS AS A
-     SUBJECT AND ITS PRICE. At five it is five cards of 217px, then a table that
-     repeats all five of them, which is the same five items rendered twice with a
-     scroll between the two renderings.
-     SO AT MORE THAN ONE THE TWO BLOCKS ARE ONE BLOCK. The settlement table
-     already carries the skin name, so it carries the item: a thumbnail, the name,
-     the wear, and then the three figures that were already its columns. Nothing
-     is added to the table that the record held and nothing is dropped.
-     THE PICTURE SHRINKS AND DOES NOT LEAVE. D-109 put it beside the facts at one
-     item; at five it becomes a thumbnail in the first column, because five
-     pictures at 200px are 750px of art in front of a sum. The founder's own
-     capture does exactly this: SELECTED SKIN carries the art, TOTAL PRICE carries
-     rows with names and figures.
-     FIVE AND NOT TEN, AND THE REASON IS THE ACCOUNT. 5.1 holds six items, so ten
-     cannot be drawn without inventing four the inventory does not have. The sixth
-     is the AWP, and it is not here because D-108 put it in flight already:
-     Sending to Steam. AN ITEM CANNOT BE IN TWO WITHDRAWALS AT ONCE.
-     EVERY FIGURE ON THIS PAGE IS 5.1's OWN. Our price, the market price and the
-     direction are read off the six cards in the inventory rather than composed
-     here, because a second set of figures for one account is the drift this
-     stage has now found four times. -->
+<!-- NODE 5.3, WITHDRAWAL OF SEVERAL ITEMS AT ONCE. D-110 built the basket, D-111
+     put one offer strip per skin on it, and D-112 replaced this page's markup
+     with a renderer because the founder corrected the premise underneath it.
+     WHAT HE CORRECTED: "не понимаю как ми так определяем что нужно показать
+     именно 4 скина и по этой цене... он видит все предложения актуальные на
+     маркете, и цена их, это от самого дешевого до самого дорогого".
+     FOUR AT ONE PRICE WAS THIS BUILD'S OWN INVENTION. It came from a walk that
+     caught six identical offers on one skin and was generalised into a rule
+     nobody gave. THE STRIP IS THE WHOLE SHELF FOR THAT SKIN, CHEAPEST FIRST,
+     and the cheapest is preselected because it costs least rather than because
+     it is the only one.
+     WHICH MAKES THE CHOICE MOVE MONEY, and that is why this page is rendered
+     rather than written: picking a dearer copy changes one row of the settlement
+     and the total under it, live, on the press of a radio.
+     THE FILTERS ARE HIS TWO. Float from and to, stickers or not. He said in the
+     same message that he does not know what the search is for, and a search over
+     one skin's shelf searches nothing that is not already on the card.
+     THE FLOATS SIT INSIDE THE WEAR THE SKIN IS. A Field-Tested copy of a
+     Field-Tested skin is what a replacement has to be, so the demo floats are
+     generated inside that band. THE BAND EDGES ARE THE GAME'S OWN CONSTANTS AND
+     NOTHING PRINTS THEM: the wear track carries a position, the slider carries
+     the 0 to 1 float scale, and no boundary figure renders anywhere. -->
 <button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
 <aside id="wf-panel"></aside>
 
@@ -50,391 +45,49 @@
     <div class="wf-wd wf-wd--wide">
       <div class="wf-stack">
 
-      <!-- BLOCK 1 AND 1b, MERGED AT MORE THAN ONE ITEM. The heading counts and
-           the count is a count, never a total: the total is one line below and it
-           is a different number from the number of things. -->
+      <!-- THE DECK NAMES THE SECTION AND STOPS THERE, D-112. It read "You hold a
+           credit note at our price on each of these. The real skins have to be
+           bought, and the difference settles against your balance either way",
+           which is our model explained to the person rather than a thing they can
+           act on. The model is in the node. -->
       <div class="wf-sec-head">
-        <h2 id="h2-many">Five items, and what sending them out costs</h2>
-        <p class="wf-sec-sub">You hold a credit note at our price on each of these. The real skins have to be bought, and the difference settles against your balance either way. <a href="account.html">Change what is selected</a></p>
+        <h2 id="h2-many">Five items</h2>
+        <p class="wf-sec-sub"><a href="account.html">Change what is selected</a></p>
       </div>
 
-      <!-- ONE ROW PER SKIN, D-111, AND THE FOUNDER GAVE THE REASON RATHER THAN
-           ONLY THE SHAPE: "чтобы видеть какой скин и что есть на маркете".
-           A BASKET WITHOUT THIS IS A SUM WITH NO SUBJECTS. The four column table
-           below is what the basket costs; this is what the basket IS. The table
-           can say a skin settles at 18.90 and cannot say that the 18.90 belongs
-           to a copy with a float of 0.2171338 rather than to the skin in general.
-           THE STRIP SCROLLS AND DOES NOT WRAP. Hundreds of copies exist for most
-           of these, four are drawn, and the count is printed beside the heading
-           so the four are read as the front of a queue rather than as all of it.
-           THE FILTER ROW IS DEFERRED AND THE CARRIER IS NOT. The baseline's row
-           carries From, To and Search over the offers. Every copy we hold a price
-           for is at one price, so a price filter here filters nothing and a
-           search searches four cards: that is the dead item CLAUDE.md defers,
-           and the carrier it would sit in arrives with a list long enough to
-           need it. -->
       <div class="wf-sec-head">
-        <h3 id="h3-offers">Which copy of each, and what is on the market</h3>
-        <p class="wf-sec-sub">Sending a skin out means buying a real copy of it. <strong>These are the copies on sale.</strong> Every one of them costs the same for a given skin, so the float is what you are choosing between.</p>
+        <h3 id="h3-offers">Which copy of each</h3>
+        <p class="wf-sec-sub">Cheapest first. The cheapest is picked for you and you can change it.</p>
       </div>
 
-      <div class="wf-wrow">
-        <div class="wf-selskin">
-          <span class="wf-selskin-h">Selected skin</span>
-          <span class="wf-selskin-art" aria-hidden="true"></span>
-          <span class="wf-selskin-n"><b>AK-47 Redline</b><span>(Field-Tested)</span></span>
-          <div class="wf-selskin-p">
-            <span><b>21.40</b>Our price for it</span>
-            <span><b class="wf-fig-missing">[?]</b>The Steam listing</span>
-          </div>
-          <button class="wf-btn wf-btn--small" type="button">Remove<span class="wf-vh"> AK-47 Redline</span></button>
-        </div>
-        <div class="wf-offs-b">
-          <div class="wf-offs-h">
-            <span class="wf-offs-t">Market offers</span>
-            <span class="wf-fig-c">412 on the market, four shown, all at 18.90</span>
-          </div>
-          <div class="wf-offs">
-            <label class="wf-off is-picked">
-              <input class="wf-off-r" type="radio" name="off-ak47" checked>
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.1642880</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:26%"></span></span>
-              <span class="wf-off-p">18.90</span>
-            </label>
-            <label class="wf-off">
-              <input class="wf-off-r" type="radio" name="off-ak47" >
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.2171338</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:40%"></span></span>
-              <span class="wf-off-p">18.90</span>
-            </label>
-            <label class="wf-off">
-              <input class="wf-off-r" type="radio" name="off-ak47" >
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.2473470</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:48%"></span></span>
-              <span class="wf-off-p">18.90</span>
-            </label>
-            <label class="wf-off">
-              <input class="wf-off-r" type="radio" name="off-ak47" >
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.3494841</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:80%"></span></span>
-              <span class="wf-off-p">18.90</span>
-            </label>
-          </div>
-          <p class="wf-fig-c">Every copy here is the same price, so <b>the float is the only thing between them</b>. <span class="wf-fig-missing">The discount against the Steam listing is not published, because the Steam listing price is not held for any item on this page.</span></p>
-        </div>
-      </div>
+      <div data-wd-basket></div>
 
-      <div class="wf-wrow">
-        <div class="wf-selskin">
-          <span class="wf-selskin-h">Selected skin</span>
-          <span class="wf-selskin-art" aria-hidden="true"></span>
-          <span class="wf-selskin-n"><b>USP-S Cortex</b><span>(Minimal Wear)</span></span>
-          <div class="wf-selskin-p">
-            <span><b>7.35</b>Our price for it</span>
-            <span><b class="wf-fig-missing">[?]</b>The Steam listing</span>
-          </div>
-          <button class="wf-btn wf-btn--small" type="button">Remove<span class="wf-vh"> USP-S Cortex</span></button>
-        </div>
-        <div class="wf-offs-b">
-          <div class="wf-offs-h">
-            <span class="wf-offs-t">Market offers</span>
-            <span class="wf-fig-c">903 on the market, four shown, all at 6.05</span>
-          </div>
-          <div class="wf-offs">
-            <label class="wf-off is-picked">
-              <input class="wf-off-r" type="radio" name="off-usps" checked>
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.0912447</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:30%"></span></span>
-              <span class="wf-off-p">6.05</span>
-            </label>
-            <label class="wf-off">
-              <input class="wf-off-r" type="radio" name="off-usps" >
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.1104920</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:52%"></span></span>
-              <span class="wf-off-p">6.05</span>
-            </label>
-            <label class="wf-off">
-              <input class="wf-off-r" type="radio" name="off-usps" >
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.1230651</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:66%"></span></span>
-              <span class="wf-off-p">6.05</span>
-            </label>
-            <label class="wf-off">
-              <input class="wf-off-r" type="radio" name="off-usps" >
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.1388204</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:84%"></span></span>
-              <span class="wf-off-p">6.05</span>
-            </label>
-          </div>
-          <p class="wf-fig-c">Every copy here is the same price, so <b>the float is the only thing between them</b>. <span class="wf-fig-missing">The discount against the Steam listing is not published, because the Steam listing price is not held for any item on this page.</span></p>
-        </div>
-      </div>
-
-      <div class="wf-wrow">
-        <div class="wf-selskin">
-          <span class="wf-selskin-h">Selected skin</span>
-          <span class="wf-selskin-art" aria-hidden="true"></span>
-          <span class="wf-selskin-n"><b>M4A1-S Hyper Beast</b><span>(Field-Tested)</span></span>
-          <div class="wf-selskin-p">
-            <span><b>29.90</b>Our price for it</span>
-            <span><b class="wf-fig-missing">[?]</b>The Steam listing</span>
-          </div>
-          <button class="wf-btn wf-btn--small" type="button">Remove<span class="wf-vh"> M4A1-S Hyper Beast</span></button>
-        </div>
-        <div class="wf-offs-b">
-          <div class="wf-offs-h">
-            <span class="wf-offs-t">Market offers</span>
-            <span class="wf-fig-c">155 on the market, four shown, all at 34.10</span>
-          </div>
-          <div class="wf-offs">
-            <label class="wf-off is-picked">
-              <input class="wf-off-r" type="radio" name="off-m4a1s" checked>
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.1755602</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:11%"></span></span>
-              <span class="wf-off-p">34.10</span>
-            </label>
-            <label class="wf-off">
-              <input class="wf-off-r" type="radio" name="off-m4a1s" >
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.2280417</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:32%"></span></span>
-              <span class="wf-off-p">34.10</span>
-            </label>
-            <label class="wf-off">
-              <input class="wf-off-r" type="radio" name="off-m4a1s" >
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.3011938</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:64%"></span></span>
-              <span class="wf-off-p">34.10</span>
-            </label>
-            <label class="wf-off">
-              <input class="wf-off-r" type="radio" name="off-m4a1s" >
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.3702215</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:94%"></span></span>
-              <span class="wf-off-p">34.10</span>
-            </label>
-          </div>
-          <p class="wf-fig-c">Every copy here is the same price, so <b>the float is the only thing between them</b>. <span class="wf-fig-missing">The discount against the Steam listing is not published, because the Steam listing price is not held for any item on this page.</span></p>
-        </div>
-      </div>
-
-      <div class="wf-wrow">
-        <div class="wf-selskin">
-          <span class="wf-selskin-h">Selected skin</span>
-          <span class="wf-selskin-art" aria-hidden="true"></span>
-          <span class="wf-selskin-n"><b>Desert Eagle Blaze</b><span>(Minimal Wear)</span></span>
-          <div class="wf-selskin-p">
-            <span><b>12.05</b>Our price for it</span>
-            <span><b class="wf-fig-missing">[?]</b>The Steam listing</span>
-          </div>
-          <button class="wf-btn wf-btn--small" type="button">Remove<span class="wf-vh"> Desert Eagle Blaze</span></button>
-        </div>
-        <div class="wf-offs-b">
-          <div class="wf-offs-h">
-            <span class="wf-offs-t">Market offers</span>
-            <span class="wf-fig-c">74 on the market, four shown, all at 13.60</span>
-          </div>
-          <div class="wf-offs">
-            <label class="wf-off is-picked">
-              <input class="wf-off-r" type="radio" name="off-deserteagle" checked>
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.0801336</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:17%"></span></span>
-              <span class="wf-off-p">13.60</span>
-            </label>
-            <label class="wf-off">
-              <input class="wf-off-r" type="radio" name="off-deserteagle" >
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.0967512</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:38%"></span></span>
-              <span class="wf-off-p">13.60</span>
-            </label>
-            <label class="wf-off">
-              <input class="wf-off-r" type="radio" name="off-deserteagle" >
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.1122408</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:58%"></span></span>
-              <span class="wf-off-p">13.60</span>
-            </label>
-            <label class="wf-off">
-              <input class="wf-off-r" type="radio" name="off-deserteagle" >
-              <span class="wf-off-badge wf-fig-missing">vs Steam [?]</span>
-              <span class="wf-off-art" aria-hidden="true"></span>
-              <span class="wf-off-stk wf-fig-missing" aria-hidden="true">stickers</span>
-              <span class="wf-off-f">0.1349770</span>
-              <span class="wf-wear" aria-hidden="true"><span class="wf-wear-m" style="left:87%"></span></span>
-              <span class="wf-off-p">13.60</span>
-            </label>
-          </div>
-          <p class="wf-fig-c">Every copy here is the same price, so <b>the float is the only thing between them</b>. <span class="wf-fig-missing">The discount against the Steam listing is not published, because the Steam listing price is not held for any item on this page.</span></p>
-        </div>
-      </div>
-
-      <!-- THE SKIN WITH NOTHING ON THE MARKET, AND THE FOUNDER GAVE THE ROUTE:
-           "может быть что нет вообще таких скинов на маркете и единственный
-           вариант получается для такого скина будет продажа на сайте за сумму
-           скина". So the row is not a dead end and it is not a refusal: it is the
-           one act that still works, selling it back at our own price, which is
-           round 1 since D-38 and which the inventory already offers.
-           D-58 IS WHY IT IS A CONTROL AND NOT A SENTENCE. A row that says only
-           "it cannot go out" answers "so what do I do" with nothing. -->
-      <div class="wf-wrow is-nomarket">
-        <div class="wf-selskin">
-          <span class="wf-selskin-h">Selected skin</span>
-          <span class="wf-selskin-art" aria-hidden="true"></span>
-          <span class="wf-selskin-n"><b>Glock-18 Water Elemental</b><span>(Factory New)</span></span>
-          <div class="wf-selskin-p">
-            <span><b>4.20</b>Our price for it</span>
-            <span><b class="wf-fig-missing">[?]</b>The Steam listing</span>
-          </div>
-          <button class="wf-btn wf-btn--small" type="button">Remove<span class="wf-vh"> Glock-18 Water Elemental</span></button>
-        </div>
-        <div class="wf-offs-b">
-          <div class="wf-offs-h">
-            <span class="wf-offs-t">Market offers</span>
-            <span class="wf-fig-c wf-fig-missing">Nobody is offering one</span>
-          </div>
-          <div class="wf-empty">
-            <p class="wf-empty-h">There is no copy of this to buy</p>
-            <p class="wf-empty-p">Sending a skin out means buying a real copy of it, and right now there is none on sale at any price. <strong>It cannot go to Steam today.</strong></p>
-            <p class="wf-empty-p"><strong>What still works is selling it back to us for its value</strong>, which is our price for it and not a market price, so no copy has to exist for it to happen.</p>
-            <div class="wf-row">
-              <button class="wf-btn wf-btn--primary" type="button">Sell it back for 4.20 coins</button>
-              <a class="wf-btn" href="account.html">Keep it and go back</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- THE SAME FOUR COLUMNS THE BASELINE USES, walked 18 August 2026,
-           baseline-account.md section 5, plus the item in the first column and a
-           remove control in the last. THE REMOVE CONTROL IS THE BASELINE'S TOO:
-           its offers row carries a delete beside the filters, which is how a skin
-           leaves a withdrawal without leaving the page. -->
       <div class="wf-sec-head">
         <h3 id="h3-total">Total price</h3>
-        <p class="wf-sec-sub">One row per skin, at the copy chosen above.</p>
       </div>
+
       <div class="wf-tablewrap">
-        <table class="wf-table wf-settle" data-settle>
-          <caption class="wf-vh">Each item, what it is worth here, what a copy costs on the market, and what settles against your balance</caption>
+        <table class="wf-table wf-settle">
+          <caption class="wf-vh">Each item, what it is worth here, what the copy you chose costs, and what settles against your balance</caption>
           <thead>
             <tr>
               <th scope="col">Skin</th>
               <th scope="col">Your skin price</th>
               <th scope="col">Market skin price</th>
               <th scope="col">Your balance impact</th>
-              <th scope="col"><span class="wf-vh">Remove</span></th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td data-l="Skin"><span class="wf-st-item"><span class="wf-st-art" aria-hidden="true"></span><span class="wf-st-n"><b>AK-47 Redline</b><span>Field-Tested</span></span></span></td>
-              <td data-l="Your skin price">21.40</td>
-              <td data-l="Market skin price">18.90</td>
-              <td data-l="Your balance impact">2.50 back</td>
-              <td data-l="Remove"><button class="wf-btn wf-btn--small" type="button">Remove<span class="wf-vh"> AK-47 Redline</span></button></td>
-            </tr>
-            <tr>
-              <td data-l="Skin"><span class="wf-st-item"><span class="wf-st-art" aria-hidden="true"></span><span class="wf-st-n"><b>USP-S Cortex</b><span>Minimal Wear</span></span></span></td>
-              <td data-l="Your skin price">7.35</td>
-              <td data-l="Market skin price">6.05</td>
-              <td data-l="Your balance impact">1.30 back</td>
-              <td data-l="Remove"><button class="wf-btn wf-btn--small" type="button">Remove<span class="wf-vh"> USP-S Cortex</span></button></td>
-            </tr>
-            <tr>
-              <td data-l="Skin"><span class="wf-st-item"><span class="wf-st-art" aria-hidden="true"></span><span class="wf-st-n"><b>M4A1-S Hyper Beast</b><span>Field-Tested</span></span></span></td>
-              <td data-l="Your skin price">29.90</td>
-              <td data-l="Market skin price">34.10</td>
-              <td data-l="Your balance impact">4.20 more</td>
-              <td data-l="Remove"><button class="wf-btn wf-btn--small" type="button">Remove<span class="wf-vh"> M4A1-S Hyper Beast</span></button></td>
-            </tr>
-            <tr>
-              <td data-l="Skin"><span class="wf-st-item"><span class="wf-st-art" aria-hidden="true"></span><span class="wf-st-n"><b>Desert Eagle Blaze</b><span>Minimal Wear</span></span></span></td>
-              <td data-l="Your skin price">12.05</td>
-              <td data-l="Market skin price">13.60</td>
-              <td data-l="Your balance impact">1.55 more</td>
-              <td data-l="Remove"><button class="wf-btn wf-btn--small" type="button">Remove<span class="wf-vh"> Desert Eagle Blaze</span></button></td>
-            </tr>
-            <!-- THE ROW THAT CANNOT GO, AND IT IS 5.1's OWN CARD RATHER THAN AN
-                 INVENTED CASE: the Glock's market foot reads "Nobody is offering
-                 one", 0 offers, and "no copy on sale to buy". Withdrawal is a
-                 purchase since D-91, so an item with no copy to buy has nothing
-                 to settle against and nothing to send.
-                 IT IS IN THE TABLE AND OUT OF THE SUM. Hiding it would answer the
-                 person's "where did my Glock go" with silence, and counting it
-                 would put a figure on a purchase that cannot happen. -->
-            <tr class="is-blocked">
-              <td data-l="Skin"><span class="wf-st-item"><span class="wf-st-art" aria-hidden="true"></span><span class="wf-st-n"><b>Glock-18 Water Elemental</b><span>Factory New</span></span></span></td>
-              <td data-l="Your skin price">4.20</td>
-              <td data-l="Market skin price"><span class="wf-fig-missing">Nobody is offering one</span></td>
-              <td data-l="Your balance impact"><span class="wf-fig-missing">Not going out</span></td>
-              <td data-l="Remove"><button class="wf-btn wf-btn--small" type="button">Remove<span class="wf-vh"> Glock-18 Water Elemental</span></button></td>
-            </tr>
-          </tbody>
+          <tbody data-wd-rows></tbody>
         </table>
       </div>
 
-      <div class="wf-tl wf-tl--sum"><span>Total difference, four items</span><span class="wf-tl-v">-1.95 coins</span></div>
-      <p class="wf-fig-c">Based on the market prices, <strong>1.95 coins comes off your balance</strong> when these go to Steam. Your balance is 74.20 coins, so 72.25 would be left. <strong>Two of the four pay you back and two cost you</strong>, and the total is what is left after both directions.</p>
+      <div class="wf-tl wf-tl--sum"><span>Total difference</span><span class="wf-tl-v" data-wd-total></span></div>
+      <p class="wf-fig-c" data-wd-say></p>
 
-      <!-- THE ITEM THAT STAYS, SAID BEFORE THE PRESS AND NOT AFTER IT. Which of
-           the two answers is right is the founder's, section 9, and the losing
-           one is named here rather than hidden: refusing the whole batch until
-           the Glock is removed is the other reading, and it makes one unbuyable
-           copy hold four sendable items. -->
-      <!-- THE FOUNDER GAVE THE ROUTE AND IT CHANGES WHAT THIS ROW IS, D-111. It
-           was a refusal with a place in the table. It is now a refusal with the
-           one act that still works beside it, and the act is not a consolation:
-           selling back pays our price for the skin, which is the same figure the
-           win was credited at, and no copy of anything has to exist for it. -->
-      <p class="wf-note"><strong>The Glock-18 cannot go to Steam and it is not stuck.</strong> There is no copy of it on sale to buy, so there is nothing to send and nothing to settle against. <strong>Selling it back to us pays our own price for it, 4.20 coins, and needs no copy to exist.</strong> The row above carries that control. <strong>The other four go.</strong> <a href="account.html">My items</a></p>
+      <p class="wf-note"><strong>The Glock-18 cannot go to Steam and it is not stuck.</strong> There is no copy of it on sale to buy, so there is nothing to send and nothing to settle against. <strong>Selling it back to us pays our own price for it and needs no copy to exist.</strong> The row above carries that control.</p>
 
-      <p class="wf-note">Market prices read <b>23 Aug 2026 09:31</b>, the same moment for every row here, and they move daily. The copies come from us and the prices are ours, set against the Steam market. <span class="wf-fig-missing">How far under Steam we set them is not published yet.</span> <span class="wf-fig-missing">What one coin is worth in real money is not published.</span></p>
+      <p class="wf-note">Market prices read <b>23 Aug 2026 09:31</b> and they move daily. The copies come from us and the prices are ours, set against the Steam market. <span class="wf-fig-missing">How far under Steam we set them is not published yet.</span> <span class="wf-fig-missing">What one coin is worth in real money is not published.</span></p>
 
-      <!-- BLOCK 4. THE NAMED LIMITS, AUTHORED ONCE AND WORDED IDENTICALLY to the
-           single item page and to 5.1, because a limit reworded at the moment it
-           bites reads as a new rule. -->
       <div class="wf-stack">
         <div class="wf-sec-head"><h2 id="h2-limits">Before you ask, three limits</h2></div>
         <ul class="wf-lim">
@@ -444,28 +97,20 @@
         </ul>
       </div>
 
-      <!-- THE CONTROL COUNTS WHAT IT WILL ACTUALLY SEND, D-32's rule applied to a
-           basket: the label is the act that is available, and the act available
-           is four rather than five. -->
       <div class="wf-row">
-        <button class="wf-btn wf-btn--primary" type="button">Send four items to Steam</button>
+        <button class="wf-btn wf-btn--primary" type="button" data-wd-go>Send four items to Steam</button>
       </div>
       </div>
 
       <div class="wf-wd-side wf-stack">
       <div class="wf-card wf-total">
-        <div class="wf-tl"><span>Items going out</span><span class="wf-tl-v">4 of 5</span></div>
+        <div class="wf-tl"><span>Items going out</span><span class="wf-tl-v" data-wd-count></span></div>
         <div class="wf-tl"><span>Our commission</span><span class="wf-tl-v">0.00</span></div>
         <div class="wf-tl"><span>Steam Market fee, for comparison</span><span class="wf-tl-v">15%, as of 18 Aug 2026</span></div>
         <div class="wf-tl wf-tl--sum"><span>You receive</span><span class="wf-tl-v">The items</span></div>
       </div>
       <p class="wf-note">Our commission is zero and stays zero, on one item and on four. What moves your balance is the market settlement, and it is in the table with the prices it is drawn from.</p>
 
-      <!-- WHETHER ONE TRADE OFFER CARRIES FOUR ITEMS OR FOUR CARRY ONE EACH IS
-           NOT DRAWN, and it is the difference between one clock and four. Steam
-           can do either. 5.9's ledger has a row per item today, so four rows is
-           what the record would take, and whether the person watches one wait or
-           four is section 9's question rather than this page's answer. -->
       <p class="wf-note wf-fig-missing">Whether this leaves as one trade offer with four items in it or as four offers is not published yet, and it decides whether the clock below is one clock or four</p>
 
       <div class="wf-figs">
@@ -493,6 +138,52 @@ window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';
 window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '140.95 coins' } };
 window.WF_ACCT = { active: 'items' };
+/* THE SHELF FOR EACH SKIN, CHEAPEST FIRST. Prices ascend from 5.1's own
+   "Starting at" figure, which is the cheapest offer and is why the default
+   selection reproduces the inventory's settlement exactly. Floats sit inside the
+   wear band the skin is, because a replacement copy of a Field-Tested skin is a
+   Field-Tested copy. */
+window.WF_WD = [
+  { w: 'AK-47', s: 'Redline', wear: 'Field-Tested', ours: 21.40, total: 412, offers: [
+    { p: 18.90, f: 0.2544283, stk: 5 },
+    { p: 19.61, f: 0.3438201, stk: 0 },
+    { p: 19.99, f: 0.2676437, stk: 0 },
+    { p: 20.26, f: 0.2213551, stk: 0 },
+    { p: 21.08, f: 0.3516645, stk: 0 },
+    { p: 21.97, f: 0.2419475, stk: 5 },
+    { p: 22.94, f: 0.2906549, stk: 0 },
+    { p: 23.87, f: 0.3386378, stk: 0 },
+    { p: 24.09, f: 0.1962262, stk: 0 }
+  ] },
+  { w: 'USP-S', s: 'Cortex', wear: 'Minimal Wear', ours: 7.35, total: 903, offers: [
+    { p: 6.05, f: 0.1429911, stk: 0 },
+    { p: 6.50, f: 0.1181423, stk: 5 },
+    { p: 6.88, f: 0.0826826, stk: 3 },
+    { p: 8.02, f: 0.0797353, stk: 2 },
+    { p: 9.37, f: 0.0970005, stk: 0 },
+    { p: 10.69, f: 0.1233387, stk: 4 },
+    { p: 11.73, f: 0.0774877, stk: 0 },
+    { p: 12.62, f: 0.0963690, stk: 0 }
+  ] },
+  { w: 'M4A1-S', s: 'Hyper Beast', wear: 'Field-Tested', ours: 29.90, total: 155, offers: [
+    { p: 34.10, f: 0.2806129, stk: 0 },
+    { p: 35.27, f: 0.2155586, stk: 0 },
+    { p: 36.64, f: 0.3549544, stk: 3 },
+    { p: 38.00, f: 0.2712751, stk: 5 },
+    { p: 38.50, f: 0.3033878, stk: 0 },
+    { p: 39.03, f: 0.2226556, stk: 5 },
+    { p: 40.30, f: 0.3189648, stk: 4 }
+  ] },
+  { w: 'Desert Eagle', s: 'Blaze', wear: 'Minimal Wear', ours: 12.05, total: 74, offers: [
+    { p: 13.60, f: 0.1034146, stk: 0 },
+    { p: 13.97, f: 0.0902115, stk: 0 },
+    { p: 14.40, f: 0.1149456, stk: 0 },
+    { p: 14.75, f: 0.1109874, stk: 2 },
+    { p: 15.77, f: 0.1012467, stk: 4 },
+    { p: 16.88, f: 0.1222424, stk: 3 }
+  ] },
+  { w: 'Glock-18', s: 'Water Elemental', wear: 'Factory New', ours: 4.20, total: 0, offers: [] }
+];
 </script>
 <script src="_nav.js"></script>
 </body>

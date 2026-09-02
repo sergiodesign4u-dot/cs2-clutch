@@ -3626,6 +3626,223 @@ window.WF_PAY = window.WF_PAY || {
     return card;
   }
 
+  /* ---------------------------------------------------------------------
+     THE WITHDRAWAL BASKET, D-112. Founder, correcting the build: "не понимаю
+     как ми так определяем что нужно показать именно 4 скина и по этой цене.
+     По идее у нас есть скин у юзера, он решил вывести на свой стим, значит он
+     видит все предложения актуальные на маркете, и цена их, это от самого
+     дешевого до самого дорогого."
+     SO THE STRIP IS A MARKET AND NOT A SAMPLE. Four at one price was this
+     build's own invention, taken from a walk that happened to catch six
+     identical offers on one skin, and generalised into a rule the founder never
+     gave. What a person opens this for is the whole shelf for their skin,
+     CHEAPEST FIRST, and the cheapest is preselected because it is the one that
+     costs them least, not because it is the only one.
+     PRICES DIFFER, SO THE CHOICE MOVES MONEY. That is the whole reason this
+     block is live rather than drawn: picking the fourth copy instead of the
+     first changes one row of the settlement and the total under it, and a
+     picture of that teaches nothing.
+     THE FILTERS ARE THE FOUNDER'S TWO AND NOT THE BASELINE'S THREE. He asked
+     for float from and to, and stickers or not, and said in the same breath he
+     does not know what the search is for. A search over a shelf of one skin
+     searches nothing that is not already on the card.
+     --------------------------------------------------------------------- */
+  function wdFmt(n) { return (Math.round(n * 100) / 100).toFixed(2); }
+
+  function wdOfferCard(row, o, i) {
+    var lab = el('label', 'wf-off');
+    var r = el('input', 'wf-off-r');
+    r.type = 'radio'; r.name = 'off-' + row.id; r.value = String(i);
+    if (i === row.pick) r.checked = true;
+    lab.appendChild(r);
+    lab.appendChild(el('span', 'wf-off-badge wf-fig-missing', 'vs Steam [?]'));
+    var art = el('span', 'wf-off-art'); art.setAttribute('aria-hidden', 'true');
+    lab.appendChild(art);
+    /* THE STICKER ROW IS A FIELD 0.6 DOES NOT HAVE, and it is drawn either way
+       because the founder filters on it: a filter over an attribute the card
+       does not show is a filter whose result cannot be read. */
+    lab.appendChild(el('span', 'wf-off-stk' + (o.stk ? '' : ' wf-fig-missing'), o.stk ? o.stk + ' stickers' : 'no stickers'));
+    lab.appendChild(el('span', 'wf-off-f', o.f.toFixed(7)));
+    var bar = el('span', 'wf-wear'); bar.setAttribute('aria-hidden', 'true');
+    var mk = el('span', 'wf-wear-m'); mk.style.left = Math.round(o.f * 100) + '%';
+    bar.appendChild(mk); lab.appendChild(bar);
+    lab.appendChild(el('span', 'wf-off-p', wdFmt(o.p)));
+    return lab;
+  }
+
+  function wdRow(row) {
+    var box = el('div', 'wf-wrow' + (row.offers.length ? '' : ' is-nomarket'));
+
+    var sel = el('div', 'wf-selskin');
+    sel.appendChild(el('span', 'wf-selskin-h', 'Selected skin'));
+    var sa = el('span', 'wf-selskin-art'); sa.setAttribute('aria-hidden', 'true');
+    sel.appendChild(sa);
+    var n = el('span', 'wf-selskin-n');
+    n.appendChild(el('b', null, row.w + ' ' + row.s));
+    n.appendChild(el('span', null, '(' + row.wear + ')'));
+    sel.appendChild(n);
+    var pr = el('div', 'wf-selskin-p');
+    var p1 = el('span'); p1.appendChild(el('b', null, wdFmt(row.ours))); p1.appendChild(document.createTextNode('Our price for it'));
+    var p2 = el('span'); p2.appendChild(el('b', 'wf-fig-missing', '[?]')); p2.appendChild(document.createTextNode('The Steam listing'));
+    pr.appendChild(p1); pr.appendChild(p2);
+    sel.appendChild(pr);
+    var rm = el('button', 'wf-btn wf-btn--small', 'Remove');
+    rm.type = 'button';
+    rm.appendChild(el('span', 'wf-vh', ' ' + row.w + ' ' + row.s));
+    sel.appendChild(rm);
+    box.appendChild(sel);
+
+    var right = el('div', 'wf-offs-b');
+    var head = el('div', 'wf-offs-h');
+    head.appendChild(el('span', 'wf-offs-t', 'Market offers'));
+    head.appendChild(el('span', 'wf-fig-c', '', 'wd-count'));
+    right.appendChild(head);
+
+    if (!row.offers.length) {
+      head.lastChild.className = 'wf-fig-c wf-fig-missing';
+      head.lastChild.textContent = 'Nobody is offering one';
+      var e = el('div', 'wf-empty');
+      e.appendChild(el('p', 'wf-empty-h', 'There is no copy of this to buy'));
+      e.appendChild(el('p', 'wf-empty-p', 'Sending a skin out means buying a real copy of it, and right now there is none on sale at any price. It cannot go to Steam today.'));
+      e.appendChild(el('p', 'wf-empty-p', 'What still works is selling it back to us for its value, which is our price for it and not a market price, so no copy has to exist for it to happen.'));
+      var row2 = el('div', 'wf-row');
+      var sb = el('button', 'wf-btn wf-btn--primary', 'Sell it back for ' + wdFmt(row.ours) + ' coins'); sb.type = 'button';
+      var kp = el('a', 'wf-btn', 'Keep it and go back'); kp.setAttribute('href', BASE + 'account.html');
+      row2.appendChild(sb); row2.appendChild(kp);
+      e.appendChild(row2);
+      right.appendChild(e);
+      box.appendChild(right);
+      return box;
+    }
+
+    /* THE TWO FILTERS ARE LIVE, D-58. A range that does not narrow a shelf is a
+       picture of a range, and this one narrows it on every input event. */
+    var f = el('div', 'wf-offilt');
+    var fl = el('label', 'wf-offilt-i');
+    fl.appendChild(el('span', 'wf-fig-c', 'Float from'));
+    var lo = el('input', 'wf-offilt-r'); lo.type = 'range'; lo.min = '0'; lo.max = '1'; lo.step = '0.01'; lo.value = '0';
+    fl.appendChild(lo);
+    var loV = el('span', 'wf-offilt-v', '0.00'); fl.appendChild(loV);
+    var fh = el('label', 'wf-offilt-i');
+    fh.appendChild(el('span', 'wf-fig-c', 'to'));
+    var hi = el('input', 'wf-offilt-r'); hi.type = 'range'; hi.min = '0'; hi.max = '1'; hi.step = '0.01'; hi.value = '1';
+    fh.appendChild(hi);
+    var hiV = el('span', 'wf-offilt-v', '1.00'); fh.appendChild(hiV);
+    var fs = el('label', 'wf-offilt-i');
+    fs.appendChild(el('span', 'wf-fig-c', 'Stickers'));
+    var stk = el('select', 'wf-f wf-offilt-s');
+    ['Any', 'With stickers', 'Without'].forEach(function (t) { stk.appendChild(el('option', null, t)); });
+    fs.appendChild(stk);
+    f.appendChild(fl); f.appendChild(fh); f.appendChild(fs);
+    right.appendChild(f);
+
+    var strip = el('div', 'wf-offs');
+    row.offers.forEach(function (o, i) { strip.appendChild(wdOfferCard(row, o, i)); });
+    right.appendChild(strip);
+
+    var say = el('p', 'wf-fig-c wf-offs-say');
+    right.appendChild(say);
+    box.appendChild(right);
+
+    row._el = { strip: strip, count: head.lastChild, say: say, lo: lo, hi: hi, loV: loV, hiV: hiV, stk: stk };
+    return box;
+  }
+
+  function mountWithdrawMany() {
+    var host = document.querySelector('[data-wd-basket]');
+    if (!host || !window.WF_WD) return;
+    var rows = window.WF_WD;
+    rows.forEach(function (r, i) { r.id = 'r' + i; r.pick = r.offers.length ? 0 : -1; });
+
+    rows.forEach(function (r) { host.appendChild(wdRow(r)); });
+
+    var tbody = document.querySelector('[data-wd-rows]');
+    var totalEl = document.querySelector('[data-wd-total]');
+    var sayEl = document.querySelector('[data-wd-say]');
+    var btnEl = document.querySelector('[data-wd-go]');
+    var cntEl = document.querySelector('[data-wd-count]');
+
+    function impact(r) { return r.pick < 0 ? null : r.ours - r.offers[r.pick].p; }
+
+    function paint() {
+      tbody.innerHTML = '';
+      var total = 0, going = 0;
+      rows.forEach(function (r) {
+        var tr = el('tr', r.pick < 0 ? 'is-blocked' : null);
+        var c1 = el('td'); c1.setAttribute('data-l', 'Skin');
+        var it = el('span', 'wf-st-item');
+        var a = el('span', 'wf-st-art'); a.setAttribute('aria-hidden', 'true'); it.appendChild(a);
+        var nn = el('span', 'wf-st-n');
+        nn.appendChild(el('b', null, r.w + ' ' + r.s));
+        nn.appendChild(el('span', null, r.wear + (r.pick >= 0 ? ', float ' + r.offers[r.pick].f.toFixed(7) : '')));
+        it.appendChild(nn); c1.appendChild(it); tr.appendChild(c1);
+
+        var c2 = el('td', null, wdFmt(r.ours)); c2.setAttribute('data-l', 'Your skin price'); tr.appendChild(c2);
+        var c3 = el('td'); c3.setAttribute('data-l', 'Market skin price');
+        if (r.pick < 0) c3.appendChild(el('span', 'wf-fig-missing', 'Nobody is offering one'));
+        else c3.appendChild(document.createTextNode(wdFmt(r.offers[r.pick].p)));
+        tr.appendChild(c3);
+        var c4 = el('td'); c4.setAttribute('data-l', 'Your balance impact');
+        if (r.pick < 0) c4.appendChild(el('span', 'wf-fig-missing', 'Not going out'));
+        else {
+          var d = impact(r);
+          total += d; going++;
+          c4.appendChild(document.createTextNode(wdFmt(Math.abs(d)) + (d >= 0 ? ' back' : ' more')));
+        }
+        tr.appendChild(c4);
+        tbody.appendChild(tr);
+      });
+      totalEl.textContent = (total >= 0 ? '+' : '-') + wdFmt(Math.abs(total)) + ' coins';
+      var bal = 74.20;
+      sayEl.innerHTML = 'Based on the copies chosen above, <strong>' + wdFmt(Math.abs(total)) + ' coins ' +
+        (total >= 0 ? 'goes onto your balance' : 'comes off your balance') + '</strong> when these go to Steam. ' +
+        'Your balance is 74.20 coins, so ' + wdFmt(bal + total) + ' would be left. ' +
+        '<strong>Pick a dearer copy and this figure moves.</strong>';
+      btnEl.textContent = 'Send ' + going + (going === 1 ? ' item' : ' items') + ' to Steam';
+      cntEl.textContent = going + ' of ' + rows.length;
+    }
+
+    rows.forEach(function (r) {
+      if (!r._el) return;
+      var E = r._el;
+      function shown() {
+        var lo = parseFloat(E.lo.value), hi = parseFloat(E.hi.value), mode = E.stk.value;
+        if (lo > hi) { var t = lo; lo = hi; hi = t; }
+        E.loV.textContent = lo.toFixed(2); E.hiV.textContent = hi.toFixed(2);
+        var vis = [];
+        r.offers.forEach(function (o, i) {
+          var ok = o.f >= lo && o.f <= hi &&
+                   (mode === 'Any' || (mode === 'With stickers' ? !!o.stk : !o.stk));
+          E.strip.children[i].hidden = !ok;
+          if (ok) vis.push(i);
+        });
+        /* WHEN THE CHOSEN COPY IS FILTERED OUT THE CHOICE MOVES TO THE CHEAPEST
+           ONE STILL ON THE SHELF, and it never becomes nothing: a basket row with
+           no copy chosen is a settlement with a hole in it. */
+        if (vis.indexOf(r.pick) < 0) {
+          r.pick = vis.length ? vis[0] : r.pick;
+          if (vis.length) E.strip.children[r.pick].querySelector('.wf-off-r').checked = true;
+        }
+        E.count.textContent = r.total + ' on the market, cheapest first';
+        E.say.textContent = vis.length === r.offers.length
+          ? 'Showing all ' + r.offers.length + ' we hold a price for.'
+          : 'Showing ' + vis.length + ' of ' + r.offers.length + '.';
+        paint();
+      }
+      E.lo.addEventListener('input', shown);
+      E.hi.addEventListener('input', shown);
+      E.stk.addEventListener('change', shown);
+      E.strip.addEventListener('change', function (e) {
+        var t = e.target.closest('.wf-off-r');
+        if (!t) return;
+        r.pick = parseInt(t.value, 10);
+        paint();
+      });
+      shown();
+    });
+    paint();
+  }
+
   function itemsPanel() {
     var wrap = el('div', 'wf-hpanel');
     /* THE EMPTY STATE EMPTIES THE ARRAY RATHER THAN COPYING THE PAGE, so the two
@@ -4956,6 +5173,7 @@ window.WF_PAY = window.WF_PAY || {
     mountSupportSubject();
     mountMsgs();
     mountHist();
+    mountWithdrawMany();
     mountPay();
     mountDepositDialog();
     mountInvSort();

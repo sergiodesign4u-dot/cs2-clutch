@@ -4733,3 +4733,63 @@ Section `1b.2` refused the shelf and wrote its own reversal condition: **the she
 
 **And `0.6` owes a stickers field.** Every offer in the capture carries a sticker row, some with five, and the canonical item card has no field for them. **The slot renders and says so:** a field discovered at stage 07 is a redraw, a field named at 04 is a row in a component.
 
+---
+
+## D-112. The offer strip is a market and not a sample, the filters are the founder's two, and the decks stop explaining the product
+
+**Date:** 2026-09-02. **Stage:** 04. **Decided by:** the founder, on the `D-111` build, in one message with three corrections. **Binds:** node `5.3`, and the section deck on every wireframe.
+
+### One: four at one price was this build's own invention
+
+**Founder:** I do not understand how we decide to show exactly four skins and at that price. **A person has held the skin a while and now wants it out to their Steam, so what they see is every offer actually on the market and its price, from the cheapest to the dearest**, and they can pick any, even ones with stickers.
+
+**Nothing he said produced "four at one price".** Section `1b.2` recorded that all six offers on one walked capture were priced identically, which was true of that capture, **and this build turned one observation into a rule and printed it on the surface**: "four shown, all at 18.90". **A sample presented as a market.**
+
+**What replaces it:** the whole shelf for that skin, cheapest first, prices ascending, floats and stickers varying. **The cheapest is preselected because it costs least**, which is the preselection he allows for.
+
+**And the default reproduces `5.1` exactly.** Each shelf starts at that skin's own "Starting at" figure, which is by definition its cheapest offer, **so the settlement at the default selection is the inventory's own** and the total is still `-1.95`.
+
+### Which is why the page is a renderer now
+
+**Prices differ, so the choice moves money.** Picking the fifth AK-47 copy instead of the first takes that row from `18.90` to `21.08` and the total from `-1.95` to `-4.13`, live. **`D-58`: a control that does not do its thing is a picture of one**, and a settlement that does not follow the choice is a picture of a settlement.
+
+The basket, the filters, the settlement table, the total, the count and the button label are **one renderer reading one array**. The page declares the shelves and nothing else.
+
+### Two: the filters are his two, and the two that are not built are named
+
+| Control | Built | Why |
+|---|---|---|
+| **Float, from and to** | **Yes, two live ranges** | He asked for it by name. **It is the axis a shelf varies on inside one wear band** |
+| **Stickers, any / with / without** | **Yes, live** | His second. **And the offer card had to show them for the filter to be readable**, so the sticker row became a count instead of a slot |
+| ~~Search~~ | **No** | **His own words: he does not know what it is for.** A search over one skin's shelf searches nothing that is not already on the card |
+| ~~Price from and to~~ | **No** | The baseline's, and it duplicates the sort. The shelf is cheapest first, so a price range answers what the order answered |
+
+**When a filter hides the chosen copy the choice moves to the cheapest still on the shelf**, never to nothing: a basket row with no copy chosen is a settlement with a hole in it.
+
+**The floats sit inside the wear the skin is**, because a replacement for a Field-Tested skin is a Field-Tested copy. **The band edges are the game's own constants and no source for them is open here, so nothing prints them:** the track carries a position, the slider carries the 0 to 1 float scale, the card carries the float.
+
+### Three: the section decks stop explaining the product
+
+**Founder:** you are again writing additional texts that should not be on the wireframes and should be in the IA only.
+
+**He pointed at the deck beside a heading**, and `D-107`'s test applies to it exactly as it applies to a note: **a deck names the section; it does not explain the model.**
+
+| Deck | What went |
+|---|---|
+| `1.2` figures, ×20 | ~~"Nothing else on this page prints these two figures."~~ **The page describing its own uniqueness** |
+| `3.3` drop table, ×20 | ~~"Same items as the strip on the stage, with the ticket range and the market link the strip does not carry."~~ **A comparison with another block of ours** |
+| `3.1` catalogue, ×7 | ~~"Jump to a category, narrow it to what you can afford, and read what a case is before you commit to anything."~~ **Instructions for using a page** |
+| `1.0` shelf, ×10 | ~~"Every tile carries the entry cost and the risk band before you open anything."~~ **A description of our own rule** |
+| `1.0` daily, ×10 | ~~"and it carries no streak and no status"~~ **An absence of a thing nobody saw** |
+| `0.9` footer legal, ×10 | ~~"named here rather than hidden"~~ **Our own reasoning, in the second person** |
+| `3.3` header, ×10 | ~~"pre-login"~~ **Our vocabulary** |
+| `5.3` settlement, ×1 | **The whole deck.** The heading already says what sending it out costs |
+
+**87 replacements over 39 files.** The longest deck in the product was 291 characters and is now 122.
+
+### What this does not answer
+
+**Whether "перенесем текст дополнительный под заголовки" also meant the layout**, the deck stacked under the title rather than beside it. **It is read here as moving the explanation off the wireframe**, and the heading row keeps the shape the baseline runs, one line per section with the rule out to the edge. **One rule flips it if he meant the other thing.**
+
+**And the two questions of `D-109` that survive:** whether the copies are ours or the market's at the moment of the press, **which now decides whether a shelf of nine needs an expiry**, and the Steam listing price per item, without which the discount badge stays `[?]`.
+

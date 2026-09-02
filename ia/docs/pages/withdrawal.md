@@ -307,6 +307,41 @@ The Glock's market foot on the inventory reads **"Nobody is offering one", 0 off
 
 ---
 
+## 1f. Amended 2 September 2026 by `D-112`. The strip is a market and not a sample, and the two filters are the founder's
+
+**Founder, on the built strip:** I do not understand how we decide to show exactly four skins and at that price. **The person has held the skin a while and now wants it out to their Steam, so what they see is every offer that is actually on the market and its price, from the cheapest to the dearest.** He can pick any of them, even ones with stickers, and there can be a preselection.
+
+### Four at one price was this build's own invention
+
+**Nothing the founder said produced it.** Section `1b.2` recorded that all six offers on the walked capture were priced identically, which was true of that capture, **and this build turned one observation into a rule.** The strip then said "four shown, all at 18.90", which is a sample presented as a market.
+
+**What replaces it:** the whole shelf for that skin, **cheapest first**, prices ascending, floats and stickers varying. **The cheapest is preselected because it costs the person least**, which is the "предустановка" he allows for, and every other copy is one press away.
+
+**And the default reproduces `5.1` exactly.** Each shelf starts at that skin's own "Starting at" figure, which is by definition its cheapest offer, so the settlement at the default selection is the inventory's own: `+2.50`, `+1.30`, `-4.20`, `-1.55`, total `-1.95`.
+
+### Which is why the page is rendered now rather than written
+
+**Prices differ, so the choice moves money.** Picking the fifth copy of the AK-47 instead of the first takes the row from `18.90` to `21.08` and the total from `-1.95` to `-4.13`, live. **A drawing of that teaches nothing**, and `D-58` is the rule: a control that does not do its thing is a picture of one.
+
+**The basket, the filters, the settlement table and the total are one renderer** reading one array. `withdraw-many.html` declares the shelves and nothing else.
+
+### The two filters, and the one that is not built
+
+| Control | Built | Why |
+|---|---|---|
+| **Float, from and to** | **Yes, two ranges, live** | The founder asked for it by name. It is the axis the shelf actually varies on inside one wear band |
+| **Stickers** | **Yes, any, with, without** | His second. **And the offer card had to show them for it to be readable**, so the sticker row on the card is now a count rather than a slot |
+| ~~Search~~ | **No** | His own words: he does not know what it is for. **A search over one skin's shelf searches nothing that is not already printed on the card** |
+| ~~Price from and to~~ | **No** | The baseline's, and it duplicates the sort: the shelf is already cheapest first, so a price range answers a question the order has answered |
+
+**When a filter hides the chosen copy the choice moves to the cheapest one still on the shelf**, and never to nothing: a basket row with no copy chosen is a settlement with a hole in it.
+
+### The floats sit inside the wear the skin is, and no boundary figure renders
+
+**A replacement for a Field-Tested skin is a Field-Tested copy**, so each shelf's floats are generated inside that band. **The band edges are the game's own constants and this repository has opened no source for them**, so nothing prints them: the wear track carries a position, the slider carries the 0 to 1 float scale, and the number on the card is the float itself.
+
+---
+
 ## 2. The clock
 
 ### 2.1 Five stages, derived from the flow rather than from a queue model

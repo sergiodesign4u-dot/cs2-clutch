@@ -3503,11 +3503,24 @@ select {
 .wf-offs-b { display: flex; flex-direction: column; gap: var(--wf-s-1); min-width: 0; }
 .wf-offs-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--wf-s-1) var(--wf-s-2); }
 .wf-offs-t { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-faint); }
+/* THE TWO FILTERS ARE THE FOUNDER'S, D-112: float from and to, stickers or not.
+   HIS THIRD SENTENCE ABOUT THE BASELINE'S SEARCH IS WHY THERE IS NO SEARCH:
+   he said he does not know what it is for, and a search over one skin's shelf
+   searches nothing that is not already printed on the card. */
+.wf-offilt { display: flex; flex-wrap: wrap; align-items: end; gap: var(--wf-s-1) var(--wf-s-2); }
+.wf-offilt-i { display: flex; align-items: center; gap: var(--wf-s-1); min-width: 0; }
+.wf-offilt-r { width: 120px; accent-color: var(--wf-ink-dim); }
+.wf-offilt-v { font-family: var(--wf-mono); font-size: var(--wf-t-xs); min-width: 4ch; }
+.wf-offilt-s { min-height: var(--wf-tap); }
+
 .wf-offs {
   display: flex; gap: var(--wf-s-1);
   overflow-x: auto; position: relative;
   padding-bottom: var(--wf-s-half);
 }
+/* A FILTERED OUT CARD LEAVES THE STRIP RATHER THAN DIMMING IN IT. A shelf that
+   keeps what it excluded is a shelf the filter did not narrow. */
+.wf-off[hidden] { display: none; }
 .wf-off {
   flex: 0 0 132px; display: flex; flex-direction: column; gap: var(--wf-s-half);
   padding: var(--wf-s-1);

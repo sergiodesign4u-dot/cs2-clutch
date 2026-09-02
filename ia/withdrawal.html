@@ -516,6 +516,42 @@
   </div>
 </section>
 
+<section id="market112">
+  <div class="sec-head">
+    <h2>1f Amended 2 September 2026 by <code>D-112</code>. The strip is a market and not a sample, and the two filters are the founder's</h2>
+    <p>Founder: I do not understand how we decide to show exactly four skins and at that price. The person has held the skin a while and now wants it out to their Steam, so what they see is every offer that is actually on the market and its price, from the cheapest to the dearest.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>Four at one price was this build's own invention</h4>
+    <p><strong>Nothing the founder said produced it.</strong> Section 1b.2 recorded that all six offers on the walked capture were priced identically, which was true of that capture, <strong>and this build turned one observation into a rule.</strong> The strip then said "four shown, all at 18.90", which is a sample presented as a market.</p>
+    <p><strong>What replaces it:</strong> the whole shelf for that skin, <strong>cheapest first</strong>, prices ascending, floats and stickers varying. <strong>The cheapest is preselected because it costs the person least</strong>, and every other copy is one press away. <strong>And the default reproduces <span class="surf">5.1</span> exactly:</strong> each shelf starts at that skin's own "Starting at" figure, which is by definition its cheapest offer, so the settlement at the default is the inventory's own, total -1.95.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Which is why the page is rendered now rather than written</h4>
+    <p><strong>Prices differ, so the choice moves money.</strong> Picking the fifth copy of the AK-47 instead of the first takes the row from 18.90 to 21.08 and the total from -1.95 to -4.13, live. <strong>A drawing of that teaches nothing</strong>, and <code>D-58</code> is the rule. The basket, the filters, the settlement table and the total are one renderer reading one array.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Control</th><th>Built</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Float, from and to</strong></td><td><strong>Yes, two ranges, live</strong></td><td>The founder asked for it by name. It is the axis the shelf actually varies on inside one wear band</td></tr>
+        <tr><td><strong>Stickers</strong></td><td><strong>Yes: any, with, without</strong></td><td>His second. <strong>And the offer card had to show them for it to be readable</strong>, so the sticker row is a count now rather than a slot</td></tr>
+        <tr><td><s>Search</s></td><td><strong>No</strong></td><td>His own words: he does not know what it is for. <strong>A search over one skin's shelf searches nothing that is not already printed on the card</strong></td></tr>
+        <tr><td><s>Price from and to</s></td><td><strong>No</strong></td><td>The baseline's, and it duplicates the sort: the shelf is already cheapest first</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>Two rules the strip runs on</h4>
+    <p><strong>When a filter hides the chosen copy the choice moves to the cheapest one still on the shelf</strong>, and never to nothing: a basket row with no copy chosen is a settlement with a hole in it.</p>
+    <p><strong>A replacement for a Field-Tested skin is a Field-Tested copy</strong>, so each shelf's floats sit inside that band. <strong>The band edges are the game's own constants and this repository has opened no source for them</strong>, so nothing prints them: the wear track carries a position, the slider carries the 0 to 1 float scale, and the number on the card is the float itself.</p>
+  </div>
+</section>
+
 <section id="clock">
   <div class="sec-head">
     <h2>The clock</h2>
@@ -1033,6 +1069,7 @@ window.NAV_SECTIONS = [
   { id: 'card109', label: 'D-109 the card' },
   { id: 'many110', label: 'D-110 several items' },
   { id: 'offers111', label: 'D-111 the offers' },
+  { id: 'market112', label: 'D-112 the market' },
   { id: 'clock',       label: 'The clock' },
   { id: 'money',       label: 'Commission free' },
   { id: 'limits',      label: 'The named limits' },
