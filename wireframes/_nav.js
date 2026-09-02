@@ -1843,15 +1843,17 @@ window.WF_PAY = window.WF_PAY || {
         : ['1 864 228', 'Total users', null, null],
       down
         ? [null, 'Online now', 'Not available. Last read 2 Sep 2026', null]
-        : ['882', 'Online now', null, null, 'live'],
-      // THE SECOND FILENAME DEFECT OF THE SAME CLASS, found the same way. It
-      // pointed at withdrawal.html, which is the IA specification's filename
-      // rather than the wireframe's, so the footer's own published figure led to
-      // a 404 on every page. Invisible until 5.3 was built, because a link to an
-      // unbuilt screen and a link to a misspelt one are the same 404.
-      down
-        ? [null, 'Middle withdrawal time, from our own logs', 'Not available. Last read 2 Sep 2026', 'withdraw.html']
-        : ['1 h 40 m', 'Middle withdrawal time, from our own logs', null, 'withdraw.html']
+        : ['882', 'Online now', null, null, 'live']
+      /* THE FIFTH CELL IS GONE, D-123. The founder removed the middle withdrawal
+         time, so the strip is the baseline's four and nothing else.
+         WHAT IT COSTS IS EXACT AND SECTION 2 ALREADY STATED IT: every number here
+         either reconciles against something a stranger can open, or it is
+         decoration that looks like evidence. Four cells, ONE OF THEM CHECKABLE,
+         cases opened against the observed rate per case.
+         WHAT IT DOES NOT COST IS THE CAPABILITY. Rows A4 and G3 are one feature on
+         two surfaces, the entry surface and the withdrawal surface, and the figure
+         is rendered on 1.0 and on every 0.4 page already. The footer was a third
+         surface, not one of the two. */
     ].forEach(function (f) {
       var d = el(f[3] ? 'a' : 'div', 'wf-fig wf-fig-ico' + (f[3] ? ' wf-fig-a' : ''));
       if (f[3]) { d.href = BASE + f[3]; }

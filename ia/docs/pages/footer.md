@@ -39,7 +39,13 @@ Founder, with the live strip beside ours: **"давай в футере сдел
 
 ### What is kept against the baseline, and what it costs
 
-**The middle withdrawal time stays, and the baseline has no such cell.** Section 2 calls it the strongest trust signal the product owns, checkable in the only way that matters, by the person who withdraws. **It is now fifth of five, and being fifth is what this decision costs it:** the four the founder asked for come first, in his order, which is the live product's order.
+~~**The middle withdrawal time stays, and the baseline has no such cell.** Section 2 calls it the strongest trust signal the product owns, checkable in the only way that matters, by the person who withdraws. **It is now fifth of five, and being fifth is what this decision costs it:** the four the founder asked for come first, in his order, which is the live product's order.~~
+
+**Removed the same day by `D-123`, founder's call.** The strip is the baseline's four and nothing else.
+
+**What that costs is exact, and section 2 already stated the rule:** every number here either reconciles against something a stranger can open, or it is decoration that looks like evidence. **Four cells, and one of them is checkable.** Cases opened, against the observed rate on each case screen. **The other three are the second kind.**
+
+**What it does not cost is the capability.** Rows `A4` and `G3` are one feature on two surfaces, the entry surface and the withdrawal surface, and the figure is already rendered on `1.0` and on every page of `0.4`. **The footer was a third surface, not one of the two**, so nothing the backlog requires moved.
 
 **The aggregate tested RTP cell is dropped from the strip and not from this node.** It was a proposal with no backlog row, it rendered `Not available` on every page, and section 2 still holds it as a proposal for the founder.
 
@@ -140,7 +146,7 @@ And the risk is documented rather than hypothetical: the bot-name concern record
 
 ### The two empty slots, and the recommendation
 
-**Slot 2, recommended: the rolling median and p90 withdrawal time from our own logs.** Rows `A4` and `G3`, already MVP, already required to be visible before login. It is the strongest trust signal the product owns and it is checkable in the only way that matters, by the person who withdraws.
+~~**Slot 2, recommended: the rolling median and p90 withdrawal time from our own logs.**~~ **Shipped 22 August 2026 and removed 2 September 2026 by `D-123`, section 0.1. The recommendation is kept because it was the right one and it lost to a founder decision rather than to an argument.**  Rows `A4` and `G3`, already MVP, already required to be visible before login. It is the strongest trust signal the product owns and it is checkable in the only way that matters, by the person who withdraws.
 
 **This is the same question the first version of this node handed to the founder and it now has a better answer.** Both rows say "same feature as A4, two surfaces", and those two are the entry surface and the withdrawal surface, so the footer is a third. **The founder's own request created the surface that wants it.** The ask is no longer "add a band", it is "fill a slot that would otherwise hold a number nobody can check". **Owner: the founder. Cost: one line in the backlog.**
 

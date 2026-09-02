@@ -5180,3 +5180,31 @@ The section-count check said 13 nodes show fewer sections on the page than the m
 ### What this does not close
 
 **A node can still describe a screen that has changed.** No instrument here reads a specification against a rendering, and building one would need the nodes to mark which of their sentences are claims about the screen. **Named rather than left as an implication that the IA is now verified.**
+
+---
+
+## D-123. The fifth cell goes, and the strip is now four numbers with one checkable
+
+**Date:** 2026-09-03. **Stage:** 04. **Decided by:** the founder, on the built strip. **Binds:** node `0.2`, and therefore every page in the product.
+
+**What he said.** Remove it, pointing at `1 h 40 m`, `Middle withdrawal time, from our own logs`.
+
+**Done. The strip is the baseline's four and nothing else.**
+
+### What it costs, and section 2 stated the rule before the cell existed
+
+**Every number in this strip either reconciles against something a stranger can open, or it is decoration that looks like evidence.**
+
+**Four cells, and one of them is checkable:** cases opened, against the observed rate on each case screen, and that route is itself conditional on `D-B`. **The other three are the second kind**, two of them by `D-121` and one by the condition it met.
+
+**`D-121` printed this as a five cell strip with one checkable number and one strong one. It is now one checkable number.**
+
+### What it does not cost, and this is the part worth being exact about
+
+**Rows `A4` and `G3` are one feature on two surfaces**, `cjm-to-be.md`: the entry surface and the withdrawal surface. **The figure is already rendered on `1.0` and on every page of `0.4`.**
+
+**The footer was a third surface, not one of the two.** Nothing the backlog requires moved, and the capability is untouched.
+
+### The recommendation that lost is kept
+
+Node `0.2` section 2 recommended this figure for slot 2 in the first place, and called it the strongest trust signal the product owns, checkable in the only way that matters, by the person who withdraws. **It is kept struck rather than deleted, because it lost to a founder decision and not to an argument.**
