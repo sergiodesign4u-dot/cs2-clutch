@@ -4682,3 +4682,54 @@ Before the request the node has **two blocks about one item**: the record, a car
 
 **And all six questions of `D-109` are still open and now multiplied by N.** A shelf of offers per item, at five items, is five shelves.
 
+---
+
+## D-111. The offer shelf arrives with the founder's reason, and the skin nothing is offered for gets a route instead of a refusal
+
+**Date:** 2026-09-02. **Stage:** 04. **Decided by:** the founder, with the capture and the reason in one message. **Binds:** node `5.3`, and it answers four of `D-109`'s six questions.
+
+**What he said.** This is why it is done this way on the product, **so that you can see which skin and what there is for it on the market.** And it can happen that there are no such skins on the market at all, **and then the only option for that skin is selling it on the site for the skin's amount.**
+
+### The reason is what reverses the refusal, not the picture
+
+Section `1b.2` refused the shelf and wrote its own reversal condition: **the shelf arrives if comparing floats turns out to be the act rather than a detail of it.**
+
+**It is the act.** The founder's ground is not that it looks better: **it is that a person cannot see what exists for their skin.** The settlement table can say a skin settles at 18.90; it cannot say that the 18.90 belongs to a copy with a float of 0.2171338 rather than to the skin in general.
+
+### Four of the six answered, and by the message rather than by a build
+
+| `D-109` | The answer |
+|---|---|
+| **3. Does the person pick the copy** | **They do.** Every offer carries a control and one is chosen |
+| **4. What a float is on the screen** | **The number and a bar.** Both are in the capture, so both render. **The bar's five band edges are the game's own constants and no source for them is open here**, so the track carries a position and no boundary figures |
+| **5. One copy, or none** | **None has a route and it is not a refusal.** Selling back pays our price for the skin, `D-38`'s capability, **and no copy of anything has to exist for it to happen** |
+| **6. One item or a basket** | **A basket, and the unit of the layout is the skin.** One row per skin, its card on the left and its own offers on the right, stacked, which is what the capture stacks |
+
+**Two remain and one got sharper.** Whether the copies are ours or the market's at the moment of the press. **And the badge:** the capture puts `-21%` on every offer against a Steam icon, **and that badge is a relation between the offer price and the Steam listing.** This repository holds a Steam listing price for **no item on this page**, so the badge renders as the absence it is and the strip says why underneath. **It is not our margin rule, which stays a separate `[?]`.**
+
+### What was built
+
+**One row per skin.** The skin's card at 200px on the left: art, name, wear, **our price and the Steam listing beside it**, which is the pair the capture puts on its own card, and the remove control, which is the capture's trash. **Its own offers on the right**, a strip that scrolls and does not wrap.
+
+**Four offers drawn and the real count printed beside the heading**, 412 for the AK-47, 903 for the USP-S, so four reads as the front of a queue rather than as the market. **Every copy of one skin is at one price**, which both walks found, so the strip says it once and the float is what is chosen between.
+
+**The filter row is deferred and its carrier is not lost.** A price filter over copies that are all at one price filters nothing: the dead item `CLAUDE.md` defers, arriving when a list has a price spread.
+
+**The page went to full width.** In the two column form a 200px skin card leaves 354px for a strip whose whole job is to be compared across. **The summary card moved under the rows**, being four short lines and the one thing here that does not need reading while something else is chosen.
+
+### The skin with nothing on the market, and it is the sharpest part of the message
+
+**`5.1` already had the case and only half the answer.** The Glock's market foot reads "Nobody is offering one", 0 offers, "no copy on sale to buy". **`D-110` drew that yesterday as a row in the table and out of the sum, which was true and was a dead end.**
+
+**The founder gave the route.** So the row carries the act rather than only the refusal, which is `D-58` applied to a case that is not a control at all: **a row saying only "it cannot go out" answers "so what do I do" with nothing.**
+
+**And the figure it pays is not a market figure.** Selling back pays our price for the skin, the same value the win was credited at, `D-91`. **That is why the route survives the absence of any copy anywhere**, and it is said on the surface rather than only here.
+
+### What this does not answer
+
+**Whether the sell back reached from a failed withdrawal is the same act as `5.1`'s**, or whether it needs its own confirmation. `[?]`.
+
+**Whether the copies are ours or the market's**, still, and it is the one of the six that decides whether the strip needs an expiry.
+
+**And `0.6` owes a stickers field.** Every offer in the capture carries a sticker row, some with five, and the canonical item card has no field for them. **The slot renders and says so:** a field discovered at stage 07 is a redraw, a field named at 04 is a row in a component.
+

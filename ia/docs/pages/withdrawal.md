@@ -264,6 +264,49 @@ The Glock's market foot on the inventory reads **"Nobody is offering one", 0 off
 
 ---
 
+## 1e. Amended 2 September 2026 by `D-111`. One row per skin, the copies beside it, and the skin nothing is offered for has a route
+
+**Founder, with the capture and the reason in the same message:** this is why the product does it this way, so that you can see which skin and what there is for it on the market. **And it can happen that there are no such skins on the market at all, and then the only option for that skin is selling it on the site for the skin's amount.**
+
+### That reverses section 1b.2 and answers four of `D-109`'s six questions
+
+**The refusal is spent.** `1b.2` said the shelf arrives if comparing floats turns out to be the act rather than a detail of it. It is the act: **the founder's reason is not "it looks better", it is that a person cannot see what exists for their skin.**
+
+| `D-109` | The answer |
+|---|---|
+| **3. Does the person pick the copy** | **They do.** Every offer carries a control and one is chosen |
+| **4. What a float is on the screen** | **The number and a bar.** The capture prints `0.4517781` and a wear track under it, so both render, and the bar's five band edges are the game's constants with no source opened here, **so the track carries a position and no boundary figures** |
+| **5. One copy, or none** | **None has a route and it is not a refusal.** Selling back pays our price for the skin, it is `D-38`'s capability, and **no copy of anything has to exist for it to happen** |
+| **6. One item or a basket** | **A basket, and the unit of the layout is the skin.** One row per skin, its card on the left and its own offers on the right, which is what the capture stacks |
+
+**Two are still open and one of them got sharper.** Whether the copies are ours or the market's at the moment of the press, `D-109` row 1. **And the discount badge, row 2:** the capture puts `-21%` on every offer against a Steam icon, and that badge is a relation between the offer price and the Steam listing. **This repository holds a Steam listing price for no item on this page**, so the badge renders as the absence it is rather than as a number, and the strip says why underneath.
+
+### What the row is
+
+**Selected skin on the left**, at 200px: the art, the name, the wear, **our price for it and the Steam listing beside it**, which is the pair the capture puts on its own card. Ours is a figure; the Steam listing is `[?]`. **And the remove control, which is the capture's trash.**
+
+**Its own offers on the right**, a strip that scrolls and does not wrap. **Four are drawn and the count beside the heading says how many exist**, 412 for the AK-47, 903 for the USP-S, so four reads as the front of a queue rather than as the market. **Every copy of one skin is at one price**, which is what the 18 August and 23 August walks both found, so the strip says so once and the float is what is being chosen between.
+
+**The filter row is deferred and its carrier is not lost.** The capture carries From, To and Search over each strip. **A price filter over copies that are all at one price filters nothing**, and that is the dead item `CLAUDE.md` defers; it arrives with a list that has a price spread.
+
+**The page went to full width for it.** In the two column form the main column is 612px, and a 200px skin card leaves 354 for a strip whose whole job is to be compared across. **The summary card moved under the rows**: it is four short lines and the one thing here that does not need reading while something else is chosen.
+
+### The skin with nothing on the market, and it is the sharpest part of the message
+
+**`5.1` already had the case and only half the answer.** The Glock's market foot reads "Nobody is offering one", 0 offers, "no copy on sale to buy". `D-110` drew that as a row in the table and out of the sum, which was true and was a dead end.
+
+**The founder gave the route: selling it on the site for the skin's amount.** So the row carries the act rather than only the refusal, which is `D-58` on a case that is not a control at all: **a row saying only "it cannot go out" answers "so what do I do" with nothing.**
+
+**And the figure it pays is not a market figure.** Selling back pays our price for the skin, the same value the win was credited at, `D-91`. **That is why this route survives the absence of any copy anywhere**, and it is worth saying on the surface rather than only here.
+
+### What this leaves
+
+**Whether the sell back on this page is the same act as `5.1`'s sell back**, or whether reaching it from a withdrawal that failed needs its own confirmation. `[?]`.
+
+**And `0.6` owes a stickers field.** Every offer in the capture carries a sticker row, some with five, and the canonical item card has no field for them. **The slot renders on the offer card and says so**, because a field discovered at stage 07 is a redraw and a field named at 04 is a row in a component.
+
+---
+
 ## 2. The clock
 
 ### 2.1 Five stages, derived from the flow rather than from a queue model

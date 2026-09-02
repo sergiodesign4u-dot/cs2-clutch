@@ -3461,6 +3461,97 @@ select {
    looking at when they scan a column of figures. */
 .wf-settle tr.is-blocked td { color: var(--wf-ink-dim); }
 .wf-settle tr.is-blocked td:first-child { box-shadow: inset 3px 0 0 var(--wf-line); }
+
+/* ============================================================================
+   ONE ROW PER SKIN, THE SELECTED SKIN BESIDE WHAT IS ON THE MARKET FOR IT,
+   D-111. The founder's reason rather than only his shape: to see which skin and
+   what there is for it on the market. A BASKET WITHOUT THIS IS A SUM WITH NO
+   SUBJECTS, because the settlement table can say a skin settles at 18.90 and
+   cannot say that the 18.90 belongs to a copy with a particular float.
+   THE STRIP SCROLLS AND DOES NOT WRAP. Hundreds of copies exist and four are
+   drawn, so the row has to read as the front of a queue. Wrapping would make
+   four cards look like the whole market. ==================================== */
+.wf-wrow {
+  display: grid; gap: var(--wf-s-2);
+  padding: var(--wf-s-2);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
+  background: var(--wf-surface);
+  min-width: 0;
+}
+.wf-wrow + .wf-wrow { margin-top: var(--wf-s-2); }
+@media (min-width: 760px) {
+  .wf-wrow { grid-template-columns: 200px minmax(0, 1fr); gap: var(--wf-s-3); }
+}
+/* A ROW WITH NOTHING ON THE MARKET IS MARKED ON THE ROW, because the reason it
+   is different lives in the second column and the eye is in the first. */
+.wf-wrow.is-nomarket { border-left: 3px solid var(--wf-line); }
+
+.wf-selskin { display: flex; flex-direction: column; gap: var(--wf-s-1); min-width: 0; }
+.wf-selskin-h { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-faint); }
+.wf-selskin-art { aspect-ratio: 4 / 3; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2); }
+.wf-selskin-n { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.wf-selskin-n b { font-weight: 700; }
+.wf-selskin-n span { font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+/* TWO PRICES ON THE CARD AND NEVER A THIRD MADE OUT OF THEM, the same rule 5.1
+   runs on. Ours is what the account holds; the Steam listing is the figure the
+   founder's own capture puts beside it, and this repository holds it for no item
+   on this page, so it renders as the absence it is. */
+.wf-selskin-p { display: flex; flex-direction: column; gap: var(--wf-s-half); }
+.wf-selskin-p span { display: flex; flex-direction: column; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-selskin-p b { font-family: var(--wf-mono); font-weight: 400; font-size: var(--wf-t-m); color: var(--wf-ink); }
+
+.wf-offs-b { display: flex; flex-direction: column; gap: var(--wf-s-1); min-width: 0; }
+.wf-offs-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--wf-s-1) var(--wf-s-2); }
+.wf-offs-t { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-faint); }
+.wf-offs {
+  display: flex; gap: var(--wf-s-1);
+  overflow-x: auto; position: relative;
+  padding-bottom: var(--wf-s-half);
+}
+.wf-off {
+  flex: 0 0 132px; display: flex; flex-direction: column; gap: var(--wf-s-half);
+  padding: var(--wf-s-1);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+  background: var(--wf-raised); cursor: pointer; min-width: 0;
+}
+/* THE CHOSEN ONE IS DRAWN AND NOT ONLY CHECKED, because a radio 130px away from
+   the price it selects is a state a person has to go and find. */
+.wf-off.is-picked, .wf-off:has(.wf-off-r:checked) { border-color: var(--wf-ink); border-width: 2px; padding: calc(var(--wf-s-1) - 1px); }
+/* THE RADIO IS 16px AND SAYS SO. Left to the browser it renders at whatever the
+   platform's default is, which on this card is a 34px circle above a 4px wear
+   bar, and the control ends up larger than everything it is choosing between. */
+.wf-off-r {
+  align-self: flex-start; box-sizing: border-box; padding: 0; margin: 0;
+  width: 16px; height: 16px; min-height: 16px; max-height: 16px; flex: 0 0 16px;
+  /* THE NATIVE RADIO RENDERS AS A FILLED WHITE DISC ON THIS GROUND, so four
+     unpicked offers read as four picked ones. It keeps being a radio, with the
+     keyboard and the grouping the element brings, and it borrows the ink of
+     everything around it. */
+  appearance: none; -webkit-appearance: none;
+  border: 1px solid var(--wf-line); border-radius: 50%;
+  background: transparent; display: grid; place-items: center;
+}
+.wf-off-r:checked { border-color: var(--wf-ink); }
+.wf-off-r:checked::after { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--wf-ink); }
+.wf-off-r:focus-visible { outline: 2px solid var(--wf-ink); outline-offset: 2px; }
+.wf-off-badge { font-size: var(--wf-t-xs); }
+.wf-off-art { aspect-ratio: 4 / 3; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1); }
+/* STICKERS ARE ON EVERY OFFER IN THE CAPTURE AND 0.6 HAS NO FIELD FOR THEM.
+   The slot renders and says so rather than being left out: a field discovered at
+   stage 07 is a redraw, and a field named at 04 is a row in a component. */
+.wf-off-stk {
+  font-size: var(--wf-t-xs); text-align: center;
+  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
+  padding: 1px;
+}
+.wf-off-f { font-family: var(--wf-mono); font-size: var(--wf-t-xs); text-align: center; color: var(--wf-ink-dim); }
+.wf-off-p { font-family: var(--wf-mono); font-size: var(--wf-t-m); text-align: center; }
+/* THE WEAR BAR IS A TRACK WITH A MARKER AND CARRIES NO BOUNDARY FIGURES. The
+   five band edges are the game's own constants and no source for them has been
+   opened in this repository, so the bar shows position and the float beside it
+   shows the number. Colour arrives at stage 07 and this track is its slot. */
+.wf-wear { position: relative; height: 4px; border-radius: 2px; background: var(--wf-line-soft); }
+.wf-wear-m { position: absolute; top: -2px; width: 2px; height: 8px; background: var(--wf-ink); border-radius: 1px; }
 @media (min-width: 600px) {
   /* THE FACTS ARE ONE BLOCK BESIDE THE PICTURE, and the wrapper is what makes
      that possible: as flat siblings they were rows of a grid the picture
@@ -3674,6 +3765,14 @@ select {
 @media (min-width: 900px) {
   .wf-wd { grid-template-columns: minmax(0, 1fr) 300px; gap: var(--wf-s-4); }
   .wf-wd-side { position: sticky; top: var(--wf-s-2); }
+  /* THE BASKET TAKES THE WHOLE WIDTH, D-111. The two column form gives the main
+     column 612px, and inside it a 200px skin card leaves 354 for the offers,
+     which is two and a half cards of a strip whose whole job is to be compared
+     across. The summary card goes under the rows instead of beside them: it is
+     four short lines and it is the one thing on this page that does not need to
+     be read while something else is being chosen. */
+  .wf-wd--wide { grid-template-columns: minmax(0, 1fr); }
+  .wf-wd--wide .wf-wd-side { position: static; }
 }
 
 
