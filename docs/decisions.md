@@ -4914,3 +4914,42 @@ Block 4's rule: the three limits sit before the request, **"named as Steam's bef
 
 **Only two pages change.** The other six are after-request states with no press to move, or a resend that already sits at the top of its page.
 
+---
+
+## D-117. The row is three cells, and the label was longer than the number it labelled
+
+**Date:** 2026-09-02. **Stage:** 04. **Decided by:** the founder, on the built Rolls tab. **Binds:** the four pages of node `5.9`'s Rolls tab.
+
+**What he said.** There is far too much information here, especially in text, pointing at the three figures. **An icon for where it came from, the mode, then the skin with its price and its chance, then the Roll ID with Check it and Public page.**
+
+### What was heavy was the labelling, not the facts
+
+`COST THEN` over `12.40 coins`. `WORTH WHEN WON` over `22.15 coins`. `CHANCE PUBLISHED THEN` over `0.42%`. **Forty-four characters of caps label carrying twenty-seven characters of number, six lines to say three things, on every row of a list of 212.**
+
+**Three cells, in his order.** Where it came from, with a mode mark that carries its name for a screen reader and shows no word. The skin with `Cost 12.40 coins   Worth 22.15   Chance 0.42%` on one line under it. The roll id with its two routes, unchanged.
+
+**The mode mark is inherited and not invented.** The baseline row of node `5.9` records that the live product's history cards carry a mode icon, `baseline.md` section 9.9. One mode is live and three are `LATER`, which is the carrier rule of `CLAUDE.md` and not the dead item defect: the carrier is drawn and filled with its one live item.
+
+### No field left the row, and all three figures stayed
+
+**The pair says whether the roll won or lost and the chance is what design principle 1 rests on.** A row that kept two of the three would have dropped a fact rather than a label.
+
+**What `then` and `when won` were carrying is now said once under the list:** the figures are dated to the roll, so a repriced case does not rewrite what a past roll cost. That is a sentence, and it was being paid for 212 times as two words a row. It goes in the `D-107` block, which is the block built for exactly this.
+
+### The finding underneath, and it is why this took a renderer
+
+**The rows were fourteen hand copies of five rolls across four pages, and they had drifted.**
+
+`D-90` corrected two entry costs on 23 August, Ironbound from `2.40` to `12.40` and Nightfall from `1.10` to `31.00`. **The correction landed on `history.html` and on no other page of the node.** Ten days later the three state pages still served the wrong figures for the same two rolls, one click away. **`history-unfinished.html` carried both prices on one page**, because its own last row reads `12.40` for Ironbound.
+
+**The rows now render from `WF_ROLLS`**, the array `D-108` declared for this exact reason, and a page declares only which rolls it lists and what proof each carries. **Section 0.9's debt is half closed and `7.3`'s card grid is the last hand copy.**
+
+### Two things the array said that the pages had wrong
+
+**One round id was on four different rounds.** `a91f4c2e` was the chip on every row of every page. **On a provably fair product the round id is the round**, and it is the string a person pastes. Each roll now has its own.
+
+**The MP9 lost its withdrawal mark on one page.** `history-mismatch.html` showed that roll with no state line while every other page marked it withdrawn on 22 August.
+
+### And the instrument was wrong before the code was
+
+The dead class scan reported `wf-roll` and `wf-roll--bad` dead the moment the renderer chose between them with a ternary, because its pattern only matched a class written as a literal argument. **A false positive in a detector is worse than a miss:** it reads as a finding and spends a step being verified. The scan now counts any quoted string in the renderer whose contents are entirely class tokens. **56 dead before this change and 56 after, where it read 65 on both sides before the fix.**

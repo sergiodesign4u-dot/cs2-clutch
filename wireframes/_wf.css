@@ -4240,18 +4240,55 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
    sort that turns a history into a leaderboard of yourself. */
 .wf-hfilters { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
 
-/* A ROLL. Card at 360, columns from 900, AND NO COLUMN IS DROPPED at any width:
-   a column that disappears at a width is a field the page decided a person did
-   not need, and the whole point of this node is that they do. */
+/* A ROLL, REBUILT ON THE FOUNDER'S ORDER, D-117. "Очень много инфи, особенно
+   текстово. Я бы сделал иконку откуда (режим), потом скин с ценой и шансом,
+   потом Roll ID с чек ит и публик пейджа."
+   THREE CELLS AND NOT FOUR. Where it came from, the skin with its price and its
+   chance, the roll id and what opens from it. NO FIELD LEFT THE ROW: the three
+   figures that stood in a column of their own now sit under the skin they are
+   about, which is the cell the founder put them in.
+   WHAT WENT IS THE LABELLING, NOT THE FACTS. "COST THEN", "WORTH WHEN WON" and
+   "CHANCE PUBLISHED THEN" were three caps lines above three short numbers, six
+   lines to carry three values, on every row of a list of 212. The dating those
+   labels carried is stated once under the list instead of 212 times inside it,
+   which is the block D-107 built for exactly this.
+   Card at 360, columns from 900, AND NO COLUMN IS DROPPED at any width: a column
+   that disappears at a width is a field the page decided a person did not need,
+   and the whole point of this node is that they do. */
 .wf-roll {
   display: grid; gap: var(--wf-s-1) var(--wf-s-2); grid-template-columns: 1fr;
   padding: var(--wf-s-3) 0; border-top: 1px solid var(--wf-line-soft);
 }
 .wf-roll:first-child { border-top: 0; }
-.wf-roll-k { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
-.wf-roll-when { font-family: var(--wf-mono); font-size: var(--wf-t-s); }
-.wf-roll-case { font-weight: 700; }
-.wf-roll-item { display: flex; align-items: center; gap: var(--wf-s-2); min-width: 0; }
+/* MIN-WIDTH 0 ON EVERY CELL. A grid item's min-width is auto, so the longest
+   label in the proof cell refused to shrink and pushed the page sideways by 40px
+   at 900 and 17 at 1200 on the mismatch state, which is the one row whose label
+   is a sentence. The cell gives, the button wraps. */
+.wf-roll > * { min-width: 0; }
+
+/* CELL 1, WHERE IT CAME FROM. THE MODE MARK IS A SLOT WITH A NAME AND NO VISIBLE
+   WORD, which is the point: it replaces a word rather than adding one. One mode
+   is live and three are deferred, so the mark is the inherited carrier filled
+   with its one live item, and the row that will tell a case from a battle is
+   this row rather than a later redraw.
+   THE TIMESTAMP IS DEMOTED, NOT DROPPED. A history with no time on its rows is
+   a list, and the case is what a person came looking for. */
+.wf-roll-from {
+  display: grid; grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--wf-s-half) var(--wf-s-1); align-items: center; align-content: start;
+}
+.wf-roll-mode {
+  grid-column: 1; grid-row: 1; width: 18px; height: 18px;
+  border: 1px dashed var(--wf-line); border-radius: var(--wf-r-1);
+}
+.wf-roll-case { grid-column: 2; grid-row: 1; font-weight: 700; }
+.wf-roll-when {
+  grid-column: 2; grid-row: 2;
+  font-family: var(--wf-mono); font-size: var(--wf-t-xs); color: var(--wf-ink-dim);
+}
+
+/* CELL 2, THE SKIN WITH ITS PRICE AND ITS CHANCE. */
+.wf-roll-item { display: flex; align-items: flex-start; gap: var(--wf-s-2); min-width: 0; }
 /* The item art is a slot and it is NEVER TINTED BY RARITY here. The tint belongs
    to the item card; a list tinted by outcome reads as a scoreboard whatever the
    columns say. */
@@ -4262,9 +4299,6 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
 .wf-roll-name { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .wf-roll-w { font-size: var(--wf-t-s); }
 .wf-roll-s { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
-.wf-roll-figs { display: flex; flex-wrap: wrap; gap: var(--wf-s-1) var(--wf-s-3); }
-.wf-roll-f { display: flex; flex-direction: column; gap: 2px; }
-.wf-roll-v { font-family: var(--wf-mono); font-size: var(--wf-t-s); }
 /* THE STATE OF THE ITEM IS TEXT AND THE ROW NEVER LEAVES. Selling the item back
    or withdrawing it changes one field and deletes nothing: a history that loses
    a roll when its item leaves is a history of the inventory again. */
@@ -4274,19 +4308,22 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
    name because a class called gone on a thing that has not gone is the two
    owners of one name defect with the reading reversed. */
 .wf-roll-flight { display: block; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
-/* The proof cell. V1 of the component in the row, V3 on demand, and NO ROW EVER
-   PRINTS A VERDICT: a history that ticks every row green has asserted the thing
-   the scheme does not prove. */
-/* MIN-WIDTH 0 ON THE CELL AND ON THE CONTROL. A grid item's min-width is auto,
-   so the longest label in the proof cell refused to shrink and pushed the page
-   sideways by 40px at 900 and 17 at 1200 on the mismatch state, which is the one
-   row whose label is a sentence. The cell gives, the button wraps. */
+/* THE FIGURE LINE. Three facts on one line, each label inline and beside its own
+   value, so a value is never orphaned from the word that says what it is. It
+   wraps to two lines at 360 and it never becomes three. */
+.wf-roll-figs { display: flex; flex-wrap: wrap; gap: 2px var(--wf-s-2); margin-top: var(--wf-s-half); }
+.wf-roll-f { display: inline-flex; align-items: baseline; gap: var(--wf-s-half); min-width: 0; }
+.wf-roll-k { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+.wf-roll-v { font-family: var(--wf-mono); font-size: var(--wf-t-s); font-weight: 400; color: var(--wf-ink); }
+
+/* CELL 3, THE ROLL ID AND WHAT OPENS FROM IT. V1 of the component in the row, V3
+   on demand, and NO ROW EVER PRINTS A VERDICT: a history that ticks every row
+   green has asserted the thing the scheme does not prove. */
 .wf-roll-proof { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-1); min-width: 0; }
 /* AND THE LABEL IS SHORTENED RATHER THAN WRAPPED. Letting it wrap traded the
    sideways scroll for the defect the sweep has failed since the case screen: a
    control whose label runs to two lines. The sentence belongs beside the button
    as text, and the button says one thing. */
-.wf-roll > * { min-width: 0; }
 .wf-roll-hash {
   font-family: var(--wf-mono); font-size: var(--wf-t-xs);
   padding: 2px var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1);
@@ -4311,19 +4348,17 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
 
 /* Responsive last, after everything above that it overrides. */
 @media (min-width: 900px) {
-  /* ROW 1 IS MIN-CONTENT AND THAT IS THE WHOLE FIX. Three cells span both rows,
-     so row 1 took the height of the tallest of them and the case name, which
-     lives in row 2 of the first column, fell 90px below the timestamp it
-     belongs to. Two facts about one roll, an inch apart, reading as unrelated. */
+  /* THREE CELLS AND NO ROW SPANNING, D-117. The four column form put the case
+     name in row 2 of column 1 and the three figure cells spanned both rows, so
+     row 1 took the height of the tallest of them and the case name fell 90px
+     below the timestamp it belongs to. Two facts about one roll, an inch apart,
+     reading as unrelated. The fix then was min-content on row 1. The fix now is
+     that there is one row: each cell owns its own stack. */
   .wf-roll {
-    grid-template-columns: 130px minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-rows: min-content auto; align-items: start; align-content: start;
+    grid-template-columns: minmax(0, 190px) minmax(0, 1.7fr) minmax(0, 1fr);
+    align-items: start; align-content: start;
   }
-  .wf-roll-when { grid-column: 1; grid-row: 1; }
-  .wf-roll-case { grid-column: 1; grid-row: 2; }
-  .wf-roll-item { grid-column: 2; grid-row: 1 / span 2; }
-  .wf-roll-figs { grid-column: 3; grid-row: 1 / span 2; flex-direction: column; }
-  .wf-roll-proof { grid-column: 4; grid-row: 1 / span 2; align-items: flex-start; align-content: flex-start; }
+  .wf-roll-proof { align-items: flex-start; align-content: flex-start; }
 }
 
 /* ============================================================================

@@ -3453,10 +3453,10 @@ window.WF_PAY = window.WF_PAY || {
      --------------------------------------------------------------------- */
   var WF_ROLLS = [
     { when: '22 Aug 09:14', date: '22 Aug 2026', kase: 'Ironbound Case', w: 'AK-47',    s: 'Redline',         wear: 'Field-Tested',    cost: '12.40', worth: '22.15', chance: '0.42%',  hash: 'a91f4c2e', state: 'held' },
-    { when: '21 Aug 23:02', date: '21 Aug 2026', kase: 'Nightfall Case', w: 'MP9',      s: 'Rose Iron',       wear: 'Minimal Wear',    cost: '31.00', worth: '1.86',  chance: '7.30%',  hash: 'a91f4c2e', state: 'withdrawn', went: '22 Aug' },
+    { when: '21 Aug 23:02', date: '21 Aug 2026', kase: 'Nightfall Case', w: 'MP9',      s: 'Rose Iron',       wear: 'Minimal Wear',    cost: '31.00', worth: '1.86',  chance: '7.30%',  hash: 'c02b7d19', state: 'withdrawn', went: '22 Aug' },
     { when: '21 Aug 22:57', date: '21 Aug 2026', kase: 'Nightfall Case', w: 'P250',     s: 'Sand Dune',       wear: 'Battle-Scarred',  cost: '31.00', worth: '0.31',  chance: '19.80%', hash: null,       state: 'sold',      went: '21 Aug' },
-    { when: '20 Aug 18:40', date: '20 Aug 2026', kase: 'Warsteel Case',  w: 'AWP',      s: 'Asiimov',         wear: 'Field-Tested',    cost: '4.80',  worth: '61.40', chance: '0.11%',  hash: 'a91f4c2e', state: 'sending',   went: '21 Aug' },
-    { when: '20 Aug 18:36', date: '20 Aug 2026', kase: 'Warsteel Case',  w: 'Glock-18', s: 'Water Elemental', wear: 'Factory New',     cost: '4.80',  worth: '3.02',  chance: '5.60%',  hash: 'a91f4c2e', state: 'held' }
+    { when: '20 Aug 18:40', date: '20 Aug 2026', kase: 'Warsteel Case',  w: 'AWP',      s: 'Asiimov',         wear: 'Field-Tested',    cost: '4.80',  worth: '61.40', chance: '0.11%',  hash: '5d3e8b71', state: 'sending',   went: '21 Aug' },
+    { when: '20 Aug 18:36', date: '20 Aug 2026', kase: 'Warsteel Case',  w: 'Glock-18', s: 'Water Elemental', wear: 'Factory New',     cost: '4.80',  worth: '3.02',  chance: '5.60%',  hash: '46a0f9c3', state: 'held' }
   ];
 
   /* FOUR STATES, AND THE FOURTH IS THE ONE THE FOUNDER'S CAPTURE SHOWS, D-108.
@@ -3624,6 +3624,121 @@ window.WF_PAY = window.WF_PAY || {
     acts.appendChild(link);
     card.appendChild(acts);
     return card;
+  }
+
+  /* ---------------------------------------------------------------------
+     THE ROLL ROW, ONE RENDERER FOR FOUR PAGES, D-117. Founder: "очень много
+     инфи, особенно текстово. Я бы сделал иконку откуда (режим), потом скин с
+     ценой и шансом, потом Roll ID с чек ит и публик пейджа."
+     THE ROWS WERE FOURTEEN HAND COPIES AND THEY HAD ALREADY DRIFTED. D-90
+     corrected two entry costs that read 2.40 and 1.10 against a catalogue
+     pricing those cases at 12.40 and 31.00, and the correction landed on
+     history.html only: the other three pages of this node still carried the
+     wrong figures a fortnight later. A page listing 2.40 next to a page listing
+     12.40 for the same roll is the drift D-108 named on the wear and the reason
+     the five rolls were declared once. The rows are the last hand copy of them
+     and they stop being one here.
+     THE PAGE DECLARES WHICH ROLLS AND WHAT PROOF EACH ONE CARRIES. Four states
+     of this node differ in exactly that and in nothing else, so that is the whole
+     of what a host says. The unfinished state adds a roll of its own, read off
+     3.7 and not held in the five, and it passes it inline rather than joining a
+     set the Items tab also renders.
+     --------------------------------------------------------------------- */
+  var ROLL_PROOF = {
+    unreadable: 'The proof source could not be read just now. This is not the same as never having been kept: the roll still has its material and we cannot reach it this minute.',
+    noseed:     'No seed or nonce was kept for this roll, so there is nothing here to check. The roll is real and its record is complete. The proof is not.',
+    mismatch:   'Our own recomputation of this round does not match what we published. Reported automatically, with the round attached.'
+  };
+
+  function rollRow(r, o) {
+    o = o || {};
+    var row = el('div', o.bad ? 'wf-roll wf-roll--bad' : 'wf-roll');
+
+    /* CELL 1. THE MODE MARK CARRIES ITS NAME FOR A SCREEN READER AND SHOWS NO
+       WORD, because the whole reason it is an icon is that the word was the
+       text being cut. The case name beside it is the destination and stays a
+       link. */
+    var from = el('div', 'wf-roll-from');
+    var mode = el('span', 'wf-roll-mode');
+    mode.setAttribute('role', 'img');
+    mode.setAttribute('aria-label', 'Mode: Cases');
+    mode.setAttribute('title', 'Cases');
+    from.appendChild(mode);
+    var kase = el('a', 'wf-roll-case', r.kase);
+    kase.href = BASE + 'case.html';
+    from.appendChild(kase);
+    from.appendChild(el('span', 'wf-roll-when', r.when));
+    row.appendChild(from);
+
+    /* CELL 2. THE SKIN, THEN WHAT IT COST, WHAT IT WAS WORTH AND WHAT THE CHANCE
+       WAS. All three stay: the pair is what says whether the roll won or lost and
+       the chance is what design principle 1 rests on, and a row that keeps two of
+       the three has dropped a fact rather than a label. */
+    var item = el('div', 'wf-roll-item');
+    var art = el('span', 'wf-roll-art');
+    art.setAttribute('aria-hidden', 'true');
+    item.appendChild(art);
+    var name = el('span', 'wf-roll-name');
+    name.appendChild(el('span', 'wf-roll-w', r.w));
+    name.appendChild(el('span', 'wf-roll-s', r.s + ' \u00b7 ' + r.wear));
+    /* HELD IS SILENCE AND EVERY OTHER STATE PRINTS, which is the rule this node
+       has carried since D-108, and an item in flight is not an item that has
+       gone. The unfinished state overrides the line rather than adding a fifth
+       state, because what stopped part way is the open and not the item. */
+    if (o.note) {
+      name.appendChild(el('span', 'wf-roll-gone', o.note));
+    } else if (r.state === 'sending') {
+      name.appendChild(el('span', 'wf-roll-flight', 'Sending to Steam, ' + r.went));
+    } else if (r.state === 'sold') {
+      name.appendChild(el('span', 'wf-roll-gone', 'Sold back, ' + r.went));
+    } else if (r.state === 'withdrawn') {
+      name.appendChild(el('span', 'wf-roll-gone', 'Withdrawn to Steam, ' + r.went));
+    }
+    var figs = el('span', 'wf-roll-figs');
+    [['Cost', r.cost + ' coins'], ['Worth', r.worth], ['Chance', r.chance]].forEach(function (f) {
+      var cell = el('span', 'wf-roll-f');
+      cell.appendChild(el('span', 'wf-roll-k', f[0]));
+      cell.appendChild(el('b', 'wf-roll-v', f[1]));
+      figs.appendChild(cell);
+    });
+    name.appendChild(figs);
+    item.appendChild(name);
+    row.appendChild(item);
+
+    /* CELL 3. THE ROLL ID AND THE TWO THINGS THAT OPEN FROM IT. A row with no
+       proof says what is missing in place of the chip and the controls, and it
+       never renders a dead Check it: D-58, a control that does not do its thing
+       is a picture of one. */
+    var proof = el('div', 'wf-roll-proof');
+    var kind = o.proof || 'ok';
+    var hash = o.hash || r.hash;
+    if (hash && kind !== 'noseed') proof.appendChild(el('span', 'wf-roll-hash', hash));
+    if (kind === 'ok') {
+      var check = el('a', 'wf-btn wf-btn--small', 'Check it');
+      check.href = BASE + 'fair-prefilled.html';
+      var pub = el('a', 'wf-btn wf-btn--small', 'Public page');
+      pub.href = BASE + 'result.html';
+      proof.appendChild(check);
+      proof.appendChild(pub);
+    } else {
+      proof.appendChild(el('span', 'wf-fig-missing', ROLL_PROOF[kind]));
+      if (kind === 'mismatch') {
+        var tick = el('a', 'wf-btn wf-btn--small', 'The ticket');
+        tick.href = BASE + 'support.html';
+        proof.appendChild(tick);
+      }
+    }
+    row.appendChild(proof);
+    return row;
+  }
+
+  function mountRolls() {
+    var host = document.querySelector('[data-roll-list]');
+    if (!host) return;
+    (window.WF_ROLLLIST || []).forEach(function (o) {
+      var r = o.roll || WF_ROLLS[o.i];
+      if (r) host.appendChild(rollRow(r, o));
+    });
   }
 
   /* ---------------------------------------------------------------------
@@ -5175,6 +5290,7 @@ window.WF_PAY = window.WF_PAY || {
     mountSupportSubject();
     mountMsgs();
     mountHist();
+    mountRolls();
     mountWithdrawMany();
     mountPay();
     mountDepositDialog();

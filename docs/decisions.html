@@ -2184,6 +2184,26 @@
     </div>
   </div>
 
+  <div class="dec" id="d-117">
+    <div class="dec-head"><span class="dec-num">D-117</span><span class="dec-title">The row is three cells, and the label was longer than the number it labelled</span><span class="st st-closed">Stage 04</span></div>
+    <div class="dec-meta">2026-09-02 - the founder, on the built Rolls tab. Binds the four pages of node 5.9's Rolls tab</div>
+    <div class="dec-body">
+      <span class="pick"><span class="k">What he said</span>There is far too much information here, especially in text, pointing at the three figures. <strong>An icon for where it came from, the mode, then the skin with its price and its chance, then the Roll ID with Check it and Public page.</strong></span>
+
+      <span class="drop"><span class="k">What was heavy was the labelling, not the facts</span><code>COST THEN</code> over <code>12.40 coins</code>. <code>WORTH WHEN WON</code> over <code>22.15 coins</code>. <code>CHANCE PUBLISHED THEN</code> over <code>0.42%</code>. <strong>Forty-four characters of caps label carrying twenty-seven characters of number, six lines to say three things, on every row of a list of 212.</strong></span>
+
+      <span class="pick"><span class="k">Three cells, in his order</span>Where it came from, with a mode mark that carries its name for a screen reader and shows no word. The skin with <code>Cost 12.40 coins&#160;&#160;&#160;Worth 22.15&#160;&#160;&#160;Chance 0.42%</code> on one line under it. The roll id with its two routes, unchanged. <strong>The mode mark is inherited and not invented:</strong> the baseline row of node 5.9 records that the live product's history cards carry a mode icon. One mode is live and three are LATER, which is the carrier rule of CLAUDE.md and not the dead item defect.</span>
+
+      <span class="carry"><span class="k">No field left the row, and all three figures stayed</span><strong>The pair says whether the roll won or lost and the chance is what design principle 1 rests on.</strong> A row that kept two of the three would have dropped a fact rather than a label. What <code>then</code> and <code>when won</code> were carrying is <strong>now said once under the list</strong>: the figures are dated to the roll, so a repriced case does not rewrite what a past roll cost. It was being paid for 212 times as two words a row, and it goes in the D-107 block, which is the block built for exactly this.</span>
+
+      <span class="drop"><span class="k">The finding underneath, and it is why this took a renderer</span><strong>The rows were fourteen hand copies of five rolls across four pages, and they had drifted.</strong> D-90 corrected two entry costs on 23 August, Ironbound from 2.40 to 12.40 and Nightfall from 1.10 to 31.00. <strong>The correction landed on history.html and on no other page of the node.</strong> Ten days later the three state pages still served the wrong figures for the same two rolls, one click away, and <strong>history-unfinished.html carried both prices on one page</strong> because its own last row reads 12.40 for Ironbound. The rows now render from WF_ROLLS, the array D-108 declared for this exact reason. <strong>Section 0.9's debt is half closed and 7.3's card grid is the last hand copy.</strong></span>
+
+      <span class="pick"><span class="k">Two things the array said that the pages had wrong</span><strong>One round id was on four different rounds.</strong> a91f4c2e was the chip on every row of every page, and on a provably fair product the round id is the round: it is the string a person pastes. Each roll now has its own. <strong>And the MP9 lost its withdrawal mark on one page:</strong> history-mismatch.html showed that roll with no state line while every other page marked it withdrawn on 22 August.</span>
+
+      <span class="carry"><span class="k">And the instrument was wrong before the code was</span>The dead class scan reported wf-roll and wf-roll--bad dead the moment the renderer chose between them with a ternary, because its pattern only matched a class written as a literal argument. <strong>A false positive in a detector is worse than a miss:</strong> it reads as a finding and spends a step being verified. The scan now counts any quoted string in the renderer whose contents are entirely class tokens. <strong>56 dead before this change and 56 after, where it read 65 on both sides before the fix.</strong></span>
+    </div>
+  </div>
+
   <div class="dec" id="d-115">
     <div class="dec-head"><span class="dec-num">D-115</span><span class="dec-title">The side column is dissolved, and block 3 finally gets to be a line in a sum</span><span class="st st-closed">Stage 04</span></div>
     <div class="dec-meta">2026-09-02 - the founder, on the built page. Binds node 5.3 and its eight pages</div>

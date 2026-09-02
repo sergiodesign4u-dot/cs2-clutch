@@ -237,9 +237,72 @@ Section 0's seventh field reads **held, sold back, or withdrawn**. **The withdra
 
 ### The debt this leaves, named rather than left as a surprise
 
-**The roll rows and `7.3`'s card grid are still hand written.** This tab cannot drift from them because it is generated, **and they can still drift from each other until they are moved onto the same array.** The shared array now exists, which is the only thing that was missing. **Carried against this node and `7.3`.**
+~~**The roll rows and `7.3`'s card grid are still hand written.**~~ This tab cannot drift from them because it is generated, **and they can still drift from each other until they are moved onto the same array.** The shared array now exists, which is the only thing that was missing. **Carried against this node and `7.3`.** **Half closed 2 September 2026 by `D-117`, section 0.10: the roll rows render from the array, and they were carrying two figures `D-90` had corrected ten days earlier. `7.3`'s grid is the last hand copy.**
 
 **And `5.1` still lists the AWP with no mark while it is in flight**, so a person could try to sell back an item that is halfway to Steam. **What an inventory does with an item under a live withdrawal is `[?]` and it is not this node's to answer.**
+
+---
+
+## 0.10 Amended 2 September 2026 by `D-117`. The row is three cells, and fourteen hand copies of five rolls ended
+
+Founder, on the built Rolls tab: there is far too much information here, especially in text, and pointing at the three figures. **"Я бы сделал иконку откуда (режим), потом скин с ценой и шансом, потом Roll ID с чек ит и публик пейджа."**
+
+### What was actually heavy, and it was not the facts
+
+The row had four cells and the third was a stack of three labelled figures:
+
+| Rendered | Characters of label | Characters of value |
+|---|---|---|
+| `COST THEN` over `12.40 coins` | 9 | 11 |
+| `WORTH WHEN WON` over `22.15 coins` | 14 | 11 |
+| `CHANCE PUBLISHED THEN` over `0.42%` | 21 | 5 |
+
+**Forty-four characters of caps label to carry twenty-seven characters of number, six lines to say three things, on every row of a list of 212.** The label was longer than the thing it labelled. That is the text the founder was reading, and it was the build's, not the product's.
+
+### So the labelling went and the facts stayed
+
+Three cells, in the founder's order.
+
+| Cell | What is in it | Why it is one cell |
+|---|---|---|
+| **1. Where it came from** | The **mode mark**, then the case as a link, then the moment under it | The baseline row above records that the live product's cards carry **a mode icon**, so the mark is inherited rather than invented. It carries its name for a screen reader and shows **no word**, because the word is the text being cut |
+| **2. The skin, with its price and its chance** | Art, weapon, skin and wear, the state line where there is one, then **`Cost 12.40 coins   Worth 22.15   Chance 0.42%`** on one line | The founder put the figures with the skin. They are facts about the roll's item and they read as a sentence about it rather than as a column beside it |
+| **3. The roll id and what opens from it** | The chip, `Check it`, `Public page` | Unchanged. This is the cell the whole node exists for |
+
+**No field left the row.** All seven of section 0's fields are still rendered, and all three figures are still there: the pair says whether the roll won or lost, and the chance is what design principle 1 rests on. **A row that kept two of the three would have dropped a fact rather than a label.**
+
+### What the labels were carrying, and where it went
+
+`then` and `when won` were doing real work: **the figures are dated to the roll**, so a case that is repriced does not rewrite what a past roll cost and an item that moves does not rewrite what a past roll returned. That is a sentence, and it was being paid for 212 times as two words per row. **It is now one entry in the block under the list**, which is the block `D-107` built for exactly this: text that qualifies a set belongs under the set, once.
+
+### The larger finding, and it is the reason this took a renderer
+
+**The rows were fourteen hand copies of five rolls across four pages, and they had already drifted.**
+
+`D-90` corrected two entry costs on 23 August: Ironbound read `2.40` and Nightfall read `1.10` against a catalogue that prices those cases at `12.40` and `31.00`. **The correction landed on `history.html` and on no other page of this node.** Ten days later `history-mismatch.html`, `history-no-seed.html` and `history-unfinished.html` were still serving `2.40` and `1.10` for the same two rolls, one click apart from the page serving `12.40` and `31.00`.
+
+**Two of the three had the corrected figures sitting on the same page in another row**, because `history-unfinished.html`'s own fifth row reads `12.40` for Ironbound. One page, one case, two prices.
+
+**So the rows now render from `WF_ROLLS`, the array `D-108` declared for exactly this reason, and a page declares only what differs:** which rolls it lists, and what proof each one carries. Four states of this node differ in that and in nothing else.
+
+| Page | What it declares |
+|---|---|
+| `history.html` | Five rolls, one of them with a proof source we cannot read this minute |
+| `history-mismatch.html` | Three rolls, one of them with our own recomputation disagreeing with what we published |
+| `history-no-seed.html` | Three rolls, none of them with material kept |
+| `history-unfinished.html` | Three rolls, plus one passed inline: the interrupted open, every figure read off `3.7` |
+
+### Two corrections this forced, both of them the array telling the pages they were wrong
+
+**One round id was on four different rounds.** `a91f4c2e` was the chip on every row of every page. **On a provably fair product the round id is the round**, and four rolls sharing one is the one identifier a person would paste to check, pointing at something that is not theirs. Each roll now carries its own. The mismatch page's `c02b7d19` was already the MP9's id on that page and it is now the MP9's id everywhere.
+
+**The MP9 lost its withdrawal mark on one page.** `history-mismatch.html` rendered that roll with no state line while every other page marked it withdrawn on 22 August. One roll, one item, one fate, and one page saying nothing about it.
+
+### What this closes and what it does not
+
+**Section 0.9's debt is half closed.** ~~The roll rows and `7.3`'s card grid are still hand written.~~ **The roll rows are generated from the array. `7.3`'s card grid is still a hand copy** and is the last one, carried against that node.
+
+**And the instrument was wrong before the code was.** The dead class scan reported `wf-roll` and `wf-roll--bad` dead the moment the renderer chose between them with a ternary, because its pattern only matched a class name written as a literal argument. **A false positive in a detector is worse than a miss**, since it is read as a finding and spends a step being verified. The scan now counts any quoted string in the renderer whose whole contents are class tokens, and the dead count is 56 before this change and 56 after, where it read 65 both sides before the fix.
 
 ---
 
