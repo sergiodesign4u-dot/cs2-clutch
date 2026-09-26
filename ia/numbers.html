@@ -584,7 +584,7 @@
         <tr><td><strong>Stale</strong></td><td>The value with its real as-of, marked as older than its refresh promise</td><td>Works</td><td>The reader, in the same block. Never the value alone</td></tr>
         <tr><td><strong>Degraded</strong></td><td>The last known value <strong>and</strong> the fact that the source is failing, or nothing at all where a wrong number is worse than no number</td><td>Works, and says what it is checking</td><td>The reader on the surface, plus the banner on <span class="surf">5.3</span> for the Steam case</td></tr>
         <tr><td><strong>Below the sample floor</strong></td><td>N and the published figure. <strong>No observed percentage</strong></td><td>Works</td><td>The reader, in the counter's own words</td></tr>
-        <tr><td><strong>Missing</strong></td><td>An explicit "not available". Never a zero, never a dash</td><td>Points at what would produce it</td><td>The reader</td></tr>
+        <tr><td><strong>Missing</strong></td><td>An explicit "not available". Never a zero, never a dash. <strong>On its own state pages only since D-124</strong></td><td>Points at what would produce it</td><td>The reader</td></tr>
         <tr><td><strong>Forked</strong></td><td>The new configuration from zero, and the previous configuration with its full history beside it</td><td>Both work</td><td>The reader, because the fork is the disclosure</td></tr>
         <tr><td><strong>Withdrawn</strong></td><td>Nothing. Where it was load bearing, the surface says a number used to be here and why it is not</td><td>Gone</td><td>The reader, and this register, which keeps the row with its reason</td></tr>
       </tbody>
@@ -594,6 +594,11 @@
   <div class="card is-note">
     <h4>The withdrawn state is not decoration</h4>
     <p><code>D-B</code> can disqualify the observed rate counter. <code>D-C</code> can disqualify the whole class. Row <span class="row-code">A5</span> cannot render until an auditor exists. <strong>A register whose only states are working ones would have to be redrawn on the first no.</strong></p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Missing is a state, not the canonical render. Amended 26 September 2026 by D-124</h4>
+    <p>Until then the wireframes drew every unpublished figure in its Missing state on the default page of every surface, and the product read as a list of what it cannot say: <strong>1455 absence strings across 131 pages.</strong> <strong>The canonical page of a surface now draws every figure with a sample value</strong>, the way chance, value and tested RTP were already drawn, taken from the baseline wherever it shows one. The Missing state is drawn on the state pages that exist for it. <strong>Which real value a sample becomes stays an open item in the consuming node, never a caption on the surface.</strong></p>
   </div>
 </section>
 

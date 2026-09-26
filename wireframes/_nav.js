@@ -816,7 +816,7 @@ window.WF_PAY = window.WF_PAY || {
     });
     pop.appendChild(list);
     pop.appendChild(el('span', 'wf-fig-missing',
-      'English is the only one that does anything. The other eight switch this control and leave the interface in English: the product ships one language, the page stays lang="en", and the product carries no hreflang until real translations arrive.'));
+      'Only English is available for now.'));
 
     function paint(code) {
       abbr.textContent = code.toUpperCase();
@@ -857,11 +857,10 @@ window.WF_PAY = window.WF_PAY || {
       var a = el('a', 'wf-rail-ico');
       a.href = '#';
       a.setAttribute('rel', 'external nofollow');
-      a.setAttribute('aria-label', 'Social channel, set not decided');
+      a.setAttribute('aria-label', 'Social channel');
       nav.appendChild(a);
     }
     box.appendChild(nav);
-    box.appendChild(el('span', 'wf-fig-missing', 'Which channels are ours is not published yet'));
     return box;
   }
 
@@ -1834,7 +1833,7 @@ window.WF_PAY = window.WF_PAY || {
     [
       down
         ? [null, 'Cases opened', 'Not available. Last read 2 Sep 2026, and a value from then is not a value for now', 'catalogue.html']
-        : ['367 013 504', 'Cases opened', 'Checkable per case, against the observed rate on each case screen', 'catalogue.html', 'up'],
+        : ['367 013 504', 'Cases opened', null, 'catalogue.html', 'up'],
       down
         ? [null, 'Upgrades', 'Not available. Last read 2 Sep 2026', null]
         : ['3 349 339', 'Upgrades', null, null],
@@ -1923,7 +1922,10 @@ window.WF_PAY = window.WF_PAY || {
     // rather than a description of the category.
     c1.appendChild(el('p', 'wf-foot-about', 'Every case shows the chance, the current value and the tested return before you open it. Every round can be checked after it.'));
     var ident = el('p', 'wf-foot-ident');
-    ident.appendChild(el('span', 'wf-fig-missing', 'Operating company, registration number and registered address not available'));
+    // D-124: THE LINE IS DRAWN AS THE FIELDS IT WILL HOLD, the baseline's own shape
+    // ("MIXABIT LTD, HE 470887, Eleftherias, 19..."), not as a sentence about their
+    // absence. Who the company is stays an open item in footer.md, not on the surface.
+    ident.appendChild(el('span', null, 'Operating company · Registration no. · Registered address'));
     c1.appendChild(ident);
     // Need help sits with the brand block because an appeal route is a way to reach us.
     // An outlined pill rather than a text link: G4 requires an appeal with a published
@@ -1969,16 +1971,13 @@ window.WF_PAY = window.WF_PAY || {
     // by this and that is said out loud in D-45 rather than reasoned away: what the
     // rule protects, a titled section that is nobody's subheading, is intact.
     [
-      [['Play', [['Cases', 'catalogue.html']],
-        'One game so far. The other modes enter this column as they ship.']],
+      [['Play', [['Cases', 'catalogue.html']]]],
       [['Cases', [['All cases', 'catalogue.html'], ['Ironbound', 'case.html'],
                   ['Warsteel', 'case.html'], ['Coldfront', 'case.html'],
-                  ['Nightfall', 'case.html']],
-        'Which cases belong here is a merchandising decision and it is not made.']],
+                  ['Nightfall', 'case.html']]]],
       [['Company', [['Terms of use', 'legal.html'], ['Privacy policy', 'legal.html'],
                     ['Cookie policy', 'legal.html'], ['Refund and payments policy', 'legal.html']]]],
-      [['Help', [['Provably fair', 'fair.html'], ['Contact support', 'support.html']],
-        'No FAQ page: its jobs live on the geo gate, on Responsible play and in Support.'],
+      [['Help', [['Provably fair', 'fair.html'], ['Contact support', 'support.html']]],
        // 'WHERE WE OPERATE' HAS NO DESTINATION ON THE MAP, and the registry check
        // added on 22 August 2026 is what found it: markets.html is the IA
        // filename of register 0.12, and a register is read rather than visited.
@@ -2002,9 +2001,9 @@ window.WF_PAY = window.WF_PAY || {
           // convenient: a carrier may not promise a destination the map does not
           // hold, and inventing one is how the promise stops being visible.
           if (r[1] === null) {
-            var sp = el('span', null, r[0]);
-            sp.appendChild(el('span', 'wf-feed-noroute', ' no destination on the map yet'));
-            nav.appendChild(sp);
+            // D-124: the missing destination is footer.md's open item, not a
+            // caption a visitor reads. The row is text with no href.
+            nav.appendChild(el('span', null, r[0]));
             return;
           }
           var a = el('a', null, r[0]); a.href = BASE + r[1]; nav.appendChild(a);
@@ -2033,7 +2032,6 @@ window.WF_PAY = window.WF_PAY || {
     // five columns of real routes.
     var art = el('div', 'wf-foot-art');
     art.setAttribute('aria-hidden', 'true');
-    art.appendChild(el('span', 'wf-foot-art-l', 'Brand art, stage 06'));
     cols.appendChild(art);
     b2.appendChild(cols);
 
@@ -2041,9 +2039,13 @@ window.WF_PAY = window.WF_PAY || {
     // are [?] on purpose: the categories are 3.1's to decide and real query volumes
     // belong to production. Writing a plausible list now is model memory.
     var seo = el('div', 'wf-foot-seo');
+    // D-124: 3.1 DECIDED ITS SECTIONS ON 21 AUGUST, D-65, so the row carries them.
+    // Query volumes still belong to production and may reorder it; that is an
+    // open item in footer.md, not a sentence under the links.
     var seoBody = el('div', 'wf-foot-list');
-    seoBody.appendChild(el('span', 'wf-fig-missing',
-      'Not available: the catalogue category structure is decided on 3.1 and the query volumes belong to production'));
+    [['Daily cases', 'catalogue.html#cat-daily'], ['Featured cases', 'catalogue.html#cat-featured'],
+     ['Community cases', 'catalogue.html#cat-community'], ['Classic cases', 'catalogue.html#cat-classic']
+    ].forEach(function (r) { var a = el('a', null, r[0]); a.href = BASE + r[1]; seoBody.appendChild(a); });
     accordion(seo, 'Links to priority indexed pages', seoBody);
     b2.appendChild(seo);
 
@@ -2070,11 +2072,10 @@ window.WF_PAY = window.WF_PAY || {
       var sa = el('a', 'wf-rail-ico');
       sa.href = '#';
       sa.setAttribute('rel', 'external nofollow');
-      sa.setAttribute('aria-label', 'Social channel, set not decided');
+      sa.setAttribute('aria-label', 'Social channel');
       socNav.appendChild(sa);
     }
     soc.appendChild(socNav);
-    soc.appendChild(el('span', 'wf-fig-missing', 'Which channels are ours is not published yet'));
     trust.appendChild(soc);
 
     // THE AGE MARK IS A MARK AND NOT A GATE. The gate is two checkboxes at sign in,
@@ -2086,9 +2087,7 @@ window.WF_PAY = window.WF_PAY || {
     age.appendChild(mark);
     var ageTxt = el('div', 'wf-foot-age-t');
     ageTxt.appendChild(el('p', 'wf-compliance',
-      'Over 18 only. Opening a case is a paid chance and never an investment. Set a deposit or session limit before you start, and a limit you set never carries a streak, a status or a score.'));
-    ageTxt.appendChild(el('p', 'wf-compliance',
-      'The market allowlist is closed by default: a market with no row is not launched rather than open. The list and the law it rests on are on Where we operate.'));
+      'Over 18 only. Opening a case is a paid chance, never an investment. Set a deposit or session limit before you start.'));
     age.appendChild(ageTxt);
     trust.appendChild(age);
 
@@ -2102,13 +2101,12 @@ window.WF_PAY = window.WF_PAY || {
     var marks = el('ul', 'wf-marks');
     marks.setAttribute('aria-label', 'Payment methods');
     ['Card', 'Wallet', 'Crypto'].forEach(function (m) { marks.appendChild(el('li', null, m)); });
-    marks.appendChild(el('li', 'wf-fig-missing', 'Provider list not available'));
     pay.appendChild(marks);
     trust.appendChild(pay);
     b3.appendChild(trust);
 
     var fine = el('div', 'wf-foot-fine');
-    fine.appendChild(el('span', 'wf-fig-c', 'CS2 Clutch, working name. Copyright range not set'));
+    fine.appendChild(el('span', 'wf-fig-c', '© 2026 CS2 Clutch. All rights reserved'));
     // D-66 SAYS A WIREFRAME MAY NEVER CITE A DECISION RECORD ON THE SURFACE, and this
     // line ended with ", D-28." until 22 August 2026. It shipped on all ninety four
     // pages, because the footer is on all ninety four pages, and it survived the sweep
@@ -2119,7 +2117,7 @@ window.WF_PAY = window.WF_PAY || {
     // THE SENTENCE STAYS, and it is the only part that was ever product copy: rule 10
     // of the published-numbers register is what makes it true, and a person reading a
     // price is owed it whether or not a record number is stapled to the end.
-    fine.appendChild(el('span', 'wf-fig-c', 'Prices are in coins. What one coin is worth in real money is published wherever money is spent.'));
+    fine.appendChild(el('span', 'wf-fig-c', 'Prices are in coins. 1 coin = $1.00'));
     b3.appendChild(fine);
 
     // Collapsed is a MOBILE default, not a state the desktop inherits. Above 900 the
@@ -2506,7 +2504,7 @@ window.WF_PAY = window.WF_PAY || {
       out.push('<div class="wf-offer">');
       out.push('<span><b>[?] coins</b>, credited once, when the account exists.</span>');
       out.push('<span>To withdraw anything won with it you need <b>[?] coins</b> of your own deposited. <b>That figure is fixed now and can never rise</b>, not after your first open and not later.</span>');
-      out.push('<span>The peg is printed wherever money is spent, and it is <b>[?]</b> until it is published.</span>');
+      out.push('<span>Prices are in coins, and 1 coin = $1.00.</span>');
       out.push('</div></div>');
     }
 
@@ -2936,7 +2934,7 @@ window.WF_PAY = window.WF_PAY || {
     var wager = account
       ? '<div class="wf-fig"><span class="wf-fig-v">0.00 of 5.00</span>' +
         '<span class="wf-fig-c">Wagered towards the next tier, in coins</span></div>'
-      : '<p class="wf-panel-line">Five tiers, earned by wagering. The tier decides which case the free entry gives.</p>';
+      : '';
 
     var act = account
       ? '<button class="wf-btn" type="button" disabled>Available now: 0 cases</button>'
@@ -2945,12 +2943,13 @@ window.WF_PAY = window.WF_PAY || {
     return '' +
       '<div class="wf-panel">' +
         '<div class="wf-panel-head">' + wager +
-          /* THE COUNTDOWN IS A SLOT AND NOT A NUMBER. The reset moment is not
-             set anywhere in this repository, and a countdown to an unknown end
-             is the dash that reads as zero, 0.11 rule 3. */
+          /* THE RESET IS A MOMENT, DRAWN, D-124. The baseline runs a countdown
+             here and the founder's answer was to draw the figure. home.md
+             refuses a ticking clock on a free entry, so what is drawn is the
+             moment, a sample value; the real one is an open item in home.md. */
           '<div class="wf-fig">' +
-            '<span class="wf-fig-v wf-fig-missing">Reset not available</span>' +
-            '<span class="wf-fig-c">The reset moment is not published, so no countdown runs</span>' +
+            '<span class="wf-fig-v">00:00 UTC</span>' +
+            '<span class="wf-fig-c">Daily reset</span>' +
           '</div>' +
         '</div>' +
         '<ol class="wf-ladder">' + rungs + '</ol>' +
@@ -3993,7 +3992,10 @@ window.WF_PAY = window.WF_PAY || {
         else {
           var d = impact(r);
           total += d; going++;
-          c4.appendChild(document.createTextNode(wdFmt(Math.abs(d)) + (d >= 0 ? ' back' : ' more')));
+          // ONE SIGN FOR ONE FIGURE, D-124. The row read "42.40 more" while the
+          // total under it read "-42.40": two spellings of one number. The
+          // baseline signs both, and so does this.
+          c4.appendChild(document.createTextNode((d >= 0 ? '+' : '-') + wdFmt(Math.abs(d))));
         }
         tr.appendChild(c4);
         tbody.appendChild(tr);
@@ -4619,7 +4621,6 @@ window.WF_PAY = window.WF_PAY || {
             '<div class="wf-card wf-total">' +
               '<div class="wf-tl"><span>Charged now</span><span class="wf-tl-v">Nothing</span></div>' +
               '<div class="wf-tl"><span>Rate</span><span class="wf-tl-v">1 coin = $1.00</span></div>' +
-              '<div class="wf-tl"><span>To withdraw, you will need</span><span class="wf-tl-v wf-fig-missing">Not published</span></div>' +
             '</div>' +
             '<p class="wf-note">Nothing is taken from you here. When your coins arrive we credit them and the record lands in your history.</p>' +
             (empty
@@ -4665,7 +4666,7 @@ window.WF_PAY = window.WF_PAY || {
         '<div class="wf-cfg-f">' +
           '<div class="wf-cfg-row"><label class="wf-cfg-l" for="' + P + 'dep-code">Card code</label></div>' +
           '<input class="wf-cfg-in" id="' + P + 'dep-code" type="text" placeholder="The code from the card you bought">' +
-          '<p class="wf-cfg-p">Redeeming a code is a payment like any other here, so your ceiling applies to it and you will see what it adds before it goes through.</p>' +
+          '<p class="wf-cfg-p">Redeeming a code is a payment like any other here, so your deposit limit applies to it and you will see what it adds before it goes through.</p>' +
         '</div>' +
         '<div class="wf-row"><a class="wf-btn wf-btn--primary" href="' + BASE + 'deposit-card.html" data-pay-kind="card" data-pay-method="Visa Or Mastercard">Redeem it</a></div>' +
       '</div>';
@@ -4699,14 +4700,14 @@ window.WF_PAY = window.WF_PAY || {
         '</div>' +
         '<div class="wf-row"><button class="wf-btn" type="button">Cancel the raise</button></div>' +
         '<p class="wf-note">Cancelling is a lowering, so it takes effect immediately, at any time, with no second wait.</p>' +
-        '<p class="wf-note">Deposits inside the ceiling you have now continue as normal.</p>' +
+        '<p class="wf-note">Deposits inside the limit you have now continue as normal.</p>' +
       '</div>',
     'declined':
       '<div class="wf-notice">' +
         '<h2 id="h2-declined">The payment did not go through</h2>' +
         '<p>It was refused on the payment side before anything left your account.</p>' +
         '<p class="wf-fig-missing">No reason was given to us. We do not print one we did not receive.</p>' +
-        '<p><strong>Unchanged:</strong> your ceiling, and the sum it will take to withdraw. A failed payment does not move either of them.</p>' +
+        '<p><strong>Unchanged:</strong> your deposit limit, and the sum it will take to withdraw. A failed payment does not move either of them.</p>' +
         '<p class="wf-note">If the refusal came from us rather than from the payment side, <a href="support.html">support</a> answers inside a published deadline.</p>' +
       '</div>'
   };

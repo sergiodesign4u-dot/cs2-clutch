@@ -305,6 +305,8 @@ Rows are the states any published figure can be in. Columns are what the figure 
 
 **The withdrawn state is not decoration.** `D-B` can disqualify the observed rate counter, `D-C` can disqualify the whole class, and `A5` cannot render until an auditor exists. A register whose only states are working ones would have to be redrawn on the first no.
 
+**Missing is a state, not the canonical render. Amended 26 September 2026 by `D-124`, founder decision.** Until then the wireframes drew every unpublished figure in its Missing state on the default page of every surface, and the product read as a list of what it cannot say: 1455 absence strings across 131 pages, measured that day. **The canonical page of a surface draws every figure it carries with a sample value**, the way chance, value and tested RTP were already drawn, and takes it from the baseline wherever the baseline shows one. **The Missing state is drawn on the state pages that exist for it**, and the row above still says what it looks like there. The sample is a sample: which real value it becomes stays an open item in the node that consumes the figure, never a caption on the surface.
+
 ---
 
 ## 8. Anatomy of a figure block

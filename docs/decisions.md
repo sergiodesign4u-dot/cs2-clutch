@@ -5208,3 +5208,33 @@ The section-count check said 13 nodes show fewer sections on the page than the m
 ### The recommendation that lost is kept
 
 Node `0.2` section 2 recommended this figure for slot 2 in the first place, and called it the strongest trust signal the product owns, checkable in the only way that matters, by the person who withdraws. **It is kept struck rather than deleted, because it lost to a founder decision and not to an argument.**
+
+## D-124. The baseline distance round: the product stops printing what it cannot say, and four founder answers
+
+**Date:** 2026-09-26 and 27. **Stage:** 04. **Decided by:** the founder, on the merged critique of `wireframes/docs/critique.md` section 13. **Binds:** `ia/docs/pages/numbers.md` section 7, node `0.2`, node `1.0` section 2.5 rule 4, node `0.1` section 4, and every page in `wireframes/` through the shell.
+
+**What he said.** The wireframes are far from the original and carry too much information; compare everything with daddyskins.com, audit, keep the deposit as a dialog and improve it. Then, on the four questions the audit owed him: **better to draw the figures**; a sticky pay row, yes; Gift cards and CS2 skins back into the method grid, yes; **make Make me anonymous a real toggle in settings.** The fifth question, whether to collapse three blocks on Home into one row of figures, **he did not understand as asked**, so it is re-asked with a drawing at the Home step rather than answered here.
+
+### What the audit found, in one paragraph
+
+Five instruments, Codex read only among them. **Home 1714 words against the baseline's 708, the footer about 280 against about 72, and 1455 absence strings across 131 pages.** Most of it is one rule with most of its radius unapplied: `D-107` put our reasoning in the node and only what a person needs on the screen, and it was applied to four surfaces. **The rest is the register's own Missing state drawn as the default render.** Nineteen divergences from the baseline carry no verdict anywhere, and eight contradictions between files were verified in the current files.
+
+### Decision 1: Missing is a state, not the canonical render
+
+**The default page of a surface draws every figure with a sample value**, taken from the baseline wherever it shows one, the way chance and tested RTP were already drawn. The Missing state lives on the state pages built for it. **What the real value becomes is an open item in the consuming node and never a caption on the surface.** Written into `numbers.md` section 7. **The cost, named:** a sample value on a grey page can be read as a published one. It is carried by the node, which says which figures are samples, not by the screen.
+
+### Decisions 2 to 4, recorded now and executed at their surface's step
+
+2. **Deposit, sticky pay row.** Inside the dialog's own scroll box at 360, carrying the receive figure and Pay. `D-99` refused `fixed` and its reason does not reach `sticky`.
+3. **Deposit, Gift cards and CS2 skins return to the method grid** in the baseline's positions. **This reverses `D-100`'s rail in part**; what the rail keeps is decided at the deposit step.
+4. **Settings, Make me anonymous becomes a working toggle**, as the baseline has it. The row's refusal text goes.
+
+### Step 1, done on 27 September 2026
+
+- **The shell stops printing bookkeeping.** Footer: the hole lines under Play, Cases and Help, "no destination on the map yet", the brand art label, the stats route caption, the social caption, "Provider list not available", the allowlist paragraph and the streak clause. The identification line is drawn as its three fields, the copyright as "© 2026 CS2 Clutch", the coin note as "1 coin = $1.00". **The interlinking row carries 3.1's four sections**, decided by `D-65` and printed as `[?]` since. The rail's social caption and the language popover's paragraph go the same way; the popover keeps one line, because `D-41` requires it to name what is absent.
+- **The daily ladder draws its reset**, `00:00 UTC`, a sample moment and not a ticking clock, which `home.md` section 4.2 refuses. The guest line that repeated the section subtitle goes.
+- **Eight contradictions closed:** "cannot be turned off" on five pages against the `D-93` switch; "Verified" on three account pages while identity verification is LATER; "real money is not published" on six pages and a `[?]` peg on sign in, against `D-95`; "ceiling" left behind by `D-103` in history and the gift card pane; one withdrawal figure with two signs; the crypto receipt row `D-104` struck from the card receipt; and `navigation.md`'s bar position for Provably fair, struck rather than deleted.
+
+### What this does not close
+
+**Every surface's own residue.** Home, the case family, catalogue, fair, responsible, legal, support, gate, deposit, withdraw and the public profile still carry it, and each is swept at its own step together with its return to the baseline shape, so that one page is opened, fixed and walked once rather than three times.

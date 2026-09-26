@@ -495,3 +495,100 @@
 | **12.1** | **Yes, one line** | **A decision that claims to have replaced a string must leave no instance of that string in the corpus.** Every decision record naming a phrase it removed gets a grep at close. Cheap, and it is the check that was skipped |
 | **12.2** | **Partly** | An instrument can flag that one phrase, "the venue", resolves to two register rows with different owners. **It cannot decide which page means which**, because that is what the node docs are for. What it can do is refuse a bulk replace on a phrase with two rows behind it |
 | **12.3** | **No, and it is the same boundary as before** | A branch that falls through to a neighbour's copy is correct text in the wrong place. **Only a rendered page has a place.** This is the fifth round in which the finding came from looking at the screen after building it |
+
+---
+
+## 13. The baseline distance round, 26 September 2026. Raised set, before verification
+
+**Asked by the founder:** the wireframes have drifted far from daddyskins.com and carry too much information; compare everything with the original, audit, and keep the deposit as a dialog but improve it.
+
+**Baseline re-walked the same day**, public pages only, proof in `research/screens/baseline/walk4_*_26sep.png`: home, cases, case/premium, faq, support, and provably fair, which still redirects to login. Signed-in surfaces were compared against the dated founder captures in `research/screens/baseline-account/`.
+
+### 13.1 Instruments, taken independently and in full before the merge
+
+| # | Instrument | What it owned | Radius |
+|---|---|---|---|
+| 1 | **Codex**, plugin `codex`, **read only, stated in the call** | A unnamed divergence against the node's baseline row, B process residue on the product surface, C one claim repeated on one page, D a paragraph with no baseline counterpart and no parent | 18 main screens plus `_nav.js` |
+| 2 | Claude auditor, screenshots at 1440 and 360 against the walk | Block map against the baseline, extra information with a verdict each, what to bring back | Home, catalogue, case, open, outcome |
+| 3 | Claude auditor, the same | The same, plus deposit dialog improvements | Sign in, gate, deposit, withdraw, account, history |
+| 4 | Claude auditor, the same | The same, plus the shell | Header, rail, ticker, footer, bar; profile, settings, fair, responsible, result, player, legal, support, system, cookie |
+| 5 | A measuring script, run by me | Visible words per page with the sidebar removed, and the count of absence strings | All 131 product pages |
+
+### 13.2 The measurements
+
+| Page | Ours, words | Baseline, words |
+|---|---|---|
+| Home | 1714 | 708 |
+| Case | 2193 | 1089, most of it skin names in the drop table |
+| Catalogue | 1211 | 2024, most of it case names |
+| Footer, on every page | about 280 | about 72 |
+
+**1455 absence strings** ("not available", "not published", "not yet", `[?]`) across 131 pages. The footer alone is 86% of the words on `system.html` and more than half on `result.html` and `support.html`.
+
+### 13.3 The finding that explains most of the rest
+
+**`D-107` is the rule and it was applied to four surfaces.** The founder settled it on 1 September on `5.1`, `5.9`, `5.10` and `5.11`: on a screen only what a person needs to act, in the node everything that explains our reasoning. **Home, the case screens, the footer, fair, responsible, player, legal, support and the gate were never swept against it**, and Codex counted 54 distinct residue strings on them. That is not a new class. It is an old rule with most of its radius unapplied.
+
+**The second source is the register's own missing state.** `ia/docs/pages/numbers.md`, row Missing: "An explicit 'not available', never a zero, never a dash". Applied to the canonical render, it prints absence on the default page wherever a figure is unpublished, while chance, value and RTP on the same pages already carry sample values. Owed to the founder as a decision, not fixed: see 13.6.
+
+### 13.4 The raised set, by class, before dedup
+
+| Class | Codex | Auditors | Merged, same file and same string counted once |
+|---|---|---|---|
+| Process residue on the product surface | 54 strings | 120+ quotes with a CUT verdict | Carried as one sweep per file under `D-107`, not row by row |
+| One claim repeated on one page | 21 groups | The peg three times on home, the proof promise four times on the open, the bonus three times in deposit | 21 groups, Codex's list is the superset |
+| Unnamed divergence from the baseline | 6 | 17 | 19, listed in 13.5 |
+| Paragraph with no counterpart and no parent | 4 | inside the CUT quotes | 4 |
+| **Verified contradiction between files** | 0 | 8 | 8, in 13.7, each re-read in the current file on 26 Sep |
+
+**Dedup rule:** two rows are one when they name the same string in the same file, or the same missing baseline block on the same surface.
+
+### 13.5 Unnamed divergences from the baseline
+
+| Surface | What the baseline has and we lost or changed with no verdict | Found by |
+|---|---|---|
+| 3.3 Case | "How to video" link beside the title | Codex, auditor 2 |
+| 3.3 Case | "Before Opening Case" warning about Steam trade settings | Codex, auditor 2 |
+| 3.3 Case | Values stamp at the end of the drop table, ours sits at the top with an explanation | auditor 2 |
+| 1.0 Home | Reset countdown in the daily ladder, the baseline runs one, ours prints "Reset not available" | auditor 2 |
+| 1.0 Home | Giveaways, Case battles top, Gunfight top rows: absent by LATER and not named in `home.md` | auditor 2 |
+| 1.0, 3.1 | At 360 the ticker moves below all content. `home.md` section 1.2 keeps it above the fold, `catalogue.md` section 1 moves it down; the render follows the second | auditor 2 |
+| 1.0 | `home.md` section 2.5 says the baseline home has no ladder. `walk4_home_1440_26sep.png` shows Daily cases under Featured | auditor 2 |
+| 5.1 Account | Legend "Distributed drops" | Codex, auditor 3 |
+| 5.1 Account | Idle bar shows the totals of all items ("55 ITEMS 35.91"), ours shows "0 items 0.00 coins" | auditor 3 |
+| 5.1 Account | 5 columns on desktop and Share revealed on selection, ours 4 columns and Share always on | auditor 3 |
+| 5.9 History | Tab "CS:GO skins deposits" | Codex, auditor 3 |
+| 5.9 History | Lands on the first tab, ours lands on the second, Rolls | auditor 3 |
+| 5.3 Withdraw | H1 "Send to Steam", ours "Withdraw to Steam" while the button says Send to Steam | auditor 3 |
+| 5.3 Withdraw | Numbered steps 1 and 2, the instruction line, Cancel beside Send | auditor 3 |
+| 4.1 Deposit | Promo bonus line on the crypto pane; denominations per gift card reseller | auditor 3 |
+| 0.1 Shell | Account header BACK control | auditor 4 |
+| 0.8 Ticker | Full bleed with no label, about 14 tiles at 1440; ours carries "LIVE DROPS" and about 6 | auditor 4 |
+| 0.2 Footer | "Contacts & Corporate Information", "Counter-Strike Guides", "Marketing Assets" have no verdict anywhere | auditor 4 |
+| 0.2 Footer | The floating support button: refused for mobile only, desktop has no stated reason | auditor 4 |
+
+### 13.6 Owed to the founder, not fixable by me
+
+1. **The canonical render of an unpublished figure.** Keep the register's "not available" on the default page, or draw a sample value there, as chance and RTP already are, and keep the absence on the degraded state pages only.
+2. **Home below the case grid.** The auditors propose collapsing B7, B8 and B9 into one row of figures and cutting B10 until its amount exists. That removes three blocks that `home.md` gives parents.
+3. **Deposit.** Two proposals reverse a decision: Gift cards and CS2 skins back into the flat method grid, which reverses the rail of `D-100`; and a sticky pay row inside the dialog at 360, where `D-99` refused `fixed`.
+4. **Settings "Make me anonymous".** The baseline has a working toggle. Ours prints a 55 word refusal. Ship the toggle or defer the row.
+
+### 13.7 Verified contradictions, each re-read in the current file on 26 September
+
+| # | Where | What | Against |
+|---|---|---|---|
+| 1 | `profile.html:212`, `player.html:202`, `player-empty.html:142`, `profile-quiet.html:224`, `profile-steam-down.html:252` | "Today this page exists for every account and cannot be turned off." | The public profile switch of `D-93` in `settings.html` |
+| 2 | `account.html:330`, `account-degraded.html:340`, `account-empty.html:131` | "Verified, withdrawals are open." | Identity verification is LATER |
+| 3 | `withdraw.html`, rendered | "What one coin is worth in real money is not published." | The peg published at one to one, `D-95` |
+| 4 | `signin.html`, rendered | "The peg is printed wherever money is spent, and it is [?] until it is published." | The same |
+| 5 | `history-deposits.html:113`, `history-deposits-blocked.html:127` | State "Refused by your own ceiling"; `deposit-giftcards.html` rendered: "your ceiling applies to it" | The rename to deposit limit, `D-103` |
+| 6 | `withdraw.html`, rendered | Balance column "42.40 more", total "-42.40 coins" | One figure, two signs in one table |
+| 7 | `deposit-crypto` receipt | Row "To withdraw, you will need / Not published" | `D-104` struck the same row from the card receipt |
+| 8 | `ia/docs/pages/navigation.md` section 4 | Provably fair holds position 3 in the bar | `barItems()` renders Home and Cases, `D-40` |
+
+**Nothing in this section has been fixed yet.** Verification of the remaining rows runs before each edit, and a row that does not survive stays here marked withdrawn on verification.
+
+### 13.8 Step 1, fixed on 27 September 2026 under `D-124`
+
+**All eight rows of 13.7 are fixed.** Each one was re-read in the current file before its edit, and none was withdrawn. **The shell residue of 13.4 is fixed** in `_nav.js`, which reaches every page: the footer, the rail's social caption, the language popover and the daily ladder. Each is written into its node the same step, in `footer.md`, `home.md`, `navigation.md` and `numbers.md`. **Per surface residue and the unnamed divergences of 13.5 are still open.** They are taken surface by surface, and every step re-reads its own rows first.

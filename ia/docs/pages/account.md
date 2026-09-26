@@ -334,7 +334,7 @@ Order is reasoned from 360px and from the barriers, not from the order of the so
 
 | # | Block | What it holds | Parent | From |
 |---|---|---|---|---|
-| **1** | **Account state, one line** | Verified, withdrawals open. A statement of a fact resolved earlier, never a task raised here | Row `B7`, on `B7-1`. Row `B1`, on `B8-4` | Backlog group 2 |
+| **1** | **Account state, one line** | Withdrawals open. A statement of a fact resolved earlier, and it never says verified: identity verification is LATER, D-124, never a task raised here | Row `B7`, on `B7-1`. Row `B1`, on `B8-4` | Backlog group 2 |
 | **2** | **The money, two figures** | Balance and value of items held, both in coins, `D-28`, **never summed and never a score** | `D-19` in `CLAUDE.md` by way of `0.1`. Row `C1` as `D-28` rewrote it, still on `B7-1` | Node `0.1`, Refero Kraken Pro row in T1 |
 | **3** | **Withdraw, with the named limits stated beside it** | The one CTA, and the three limits in plain words before the person enters the route | Row `G5`, on `B8-3` and `B8-2` | `flows.md` flow 3, node order |
 | **4** | **Items held: `0.6` cards.** ~~each carrying its `F2` receipt~~ **The receipt is deleted by `D-90`, section 0.7**, and the card carries the picture, the names, the wear, the current value and the three acts | The list, and the substance of the page | ~~Row `F2`, on `B7-1`~~. Row `B7`. **`F2` is still an MVP row of `cjm-to-be.md` and this block no longer renders it:** whether it moves to `5.9`'s roll row or has no home at all is the founder's, section 0.7 | Backlog group 6 |

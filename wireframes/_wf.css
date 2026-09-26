@@ -167,7 +167,6 @@ input, select, textarea {
    value alone, so the caption does not turn into a second link beside it. */
 .wf-fig-a { color: inherit; text-decoration: none; }
 .wf-fig-a .wf-fig-v { text-decoration: underline; text-underline-offset: 3px; }
-.wf-panel-line { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); max-width: 46ch; }
 .wf-fig-v { font-family: var(--wf-mono); font-size: var(--wf-t-l); }
 .wf-fig-c { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
 .wf-fig-missing { color: var(--wf-ink-faint); font-style: italic; }
@@ -856,7 +855,6 @@ a.wfp-state:hover { color: var(--wf-ink); }
     border-radius: var(--wf-r-3);
   }
 }
-.wf-foot-art-l { font-size: var(--wf-t-xs); color: var(--wf-ink-faint); font-style: italic; }
 
 /* The column label is a real <button> at every width, because footer.md requires the
    accordion header to be one and a control that exists only below 900 is a control the
@@ -2692,11 +2690,6 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
   border-top: 1px dashed var(--wf-line-soft);
 }
 .wf-feed-av { flex: 0 0 22px; height: 22px; border: 1px dashed var(--wf-line-soft); border-radius: 50%; }
-/* A TARGET WITH NO ROUTE, MARKED. The avatar's destination is a public profile
-   and the map has no node for it. 5.10 is the account's own view of itself. So
-   this stage draws the target and prints the absence rather than routing it
-   somewhere convenient, D-59. */
-.wf-feed-noroute { font-size: 9px; color: var(--wf-ink-faint); font-style: italic; }
 /* THE WINNER'S NAME IS A LINK SINCE D-90 and it is the second target inside the
    hover layer, so it is underlined rather than merely coloured: two live areas
    in one small panel need to be told apart without a pointer on them. */
