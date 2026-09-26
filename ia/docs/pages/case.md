@@ -16,6 +16,31 @@
 
 **Amended 23 August 2026 by `D-92`, in three places and no figure moved.** The market the settlement is struck against is named and the answer is us, so **the per-case gap in block 7 stops waiting on anybody and starts being a number we decline to publish**, section 5.3. **The outbound link on the top item keeps its target and loses its reason**, section 3: it points at Steam, Steam is the dearer place, and a control offered as the cheaper alternative can no longer be labelled that way. **And the risk band's hole is half answered**, section 1: the three bands are an input when a case is built rather than a label derived from its drop table, which is a different object from the one `D-24` specified, and the thresholds are still `[?]`.
 
+
+## Amended 27 September 2026 by `D-125`. The screen takes the baseline's order back, and every explanation under a figure moves here
+
+**Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, measured this screen at 2193 words against the live case page's 1089, most of those being skin names. The case family was also thirteen hand copies of one body, and seven host pages for the gate, sign in and deposit layers carried a fourteenth to twentieth. **Everything under the stage is now one renderer, `caseBody()` in `wireframes/_nav.js`**, with four states: default, degraded, no counter and outcome.
+
+**Baseline row for this amendment.**
+
+| The live product, `walk4_case_1440_26sep.png` | What we keep | What we change, and why |
+|---|---|---|
+| "HOW TO VIDEO" over the stage's left edge | The place and the job | **A link to block 10, "How it works",** because we have no video and the section answers the same question. Named, not dropped |
+| Title, subtitle, artwork, flanks | All of it | The risk flank draws a sample word, **Medium**, `D-124`, instead of "Not available" |
+| Nothing under the artwork | | **The showcase strip keeps names and loses its figures.** `D-47` put chance and value on it; the stage comment already refused a lane that prints numbers, and every figure is one block down |
+| Sign in wall with no price | | **The price stays, principle 3.** The caption under the act is one line: the peg and a route carrying RTP 94.2 % and the expected value |
+| SKIN PRICES box: prices are fixed, the market may differ | **The box and its place** | **It says the settlement rule, `D-91`:** values are fixed when the case is priced, sending to Steam buys a real copy, the difference settles either way. It replaces the long paragraph block 7 carried. Omitted on the outcome, which prints the same rule with its figures |
+| "Before Opening Case": check your trade settings | **The line and its place** | Worded as `G5`'s limits: public inventory and a trade URL, with a route to settings. **It was lost with no verdict until this round** |
+| BEST DROPS, one row | The row | Heading plus one route to block 8, the cost `D-32` kept. The explanatory note goes |
+| CASE CONTAINS: one uniform grid, high to low, stamp "Last updated" at the end | **The grid shape and the stamp's place** | **One grid over the whole table, four across on a wide column.** Tiers stay in the markup and the order, section 3, and travel on the card; the per-tier visual break goes, since it left empty cells and doubled the height. The market price moved onto the top item's card, `A1` |
+| Nothing | | **Block 7 is figures only:** tested RTP, expected value, chance to get the entry cost back, and the settlement figure drawn as a sample, `-6.2 %`, `D-124`. Section 5's derivations and the denomination argument stay here and leave the screen. "100 000 tickets" goes |
+| Nothing | | **Block 8 keeps its table and one line.** `D-B`, `D-C`, the fork rule and "not the round proof" stay in section 4 |
+| Nothing | | **Block 10 is two paragraphs.** The delivery failure answer belongs to support's questions, and "a row never disappears" is a rule for us |
+
+**Phase 2 and 3.** The open keeps one line and the hash; the reduced motion sentence is section 7.3's rule and not copy. The outcome drops "Phase not applicable", the sell-back explanation and the float band hole, and **gains the third exit as a control carrying its number: Send to Steam, 6.70 coins,** beside Open again and Sell, which is the baseline's item actions. The header balance now agrees with what was spent on every phase 2 and 3 page, and the value held rises by the win.
+
+**What this does not decide.** The real risk band thresholds, the settlement figure's value and the reset moment stay open items in section 17 and in `0.11`.
+
 ---
 
 ## 0. Three phases, one page, and the phases are states rather than routes

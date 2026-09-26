@@ -1626,7 +1626,7 @@ window.WF_PAY = window.WF_PAY || {
        // holding of 130.60, which is two renderings of one number disagreeing on
        // adjacent surfaces: the exact defect 0.11 exists to prevent, and 5.1's
        // own rule is that these are the same pair the header carries.
-       [M.held || '130.60 coins', 'Value of items held', 'account.html', 'wf-money-2']].forEach(function (f) {
+       [M.held || '140.95 coins', 'Value of items held', 'account.html', 'wf-money-2']].forEach(function (f) {
         if (noMoney) {
           // NOT A LINK. A figure with no value is not a route to its own detail, and
           // rule 1 asks for a route on a number rather than on a hole.
@@ -2957,6 +2957,154 @@ window.WF_PAY = window.WF_PAY || {
       '</div>';
   }
 
+  /* ---------------------------------------------------------------------
+     THE CASE BODY, D-125. Everything under the stage of node 3.3, built once
+     and mounted on all thirteen case pages through [data-case-body]. It was
+     thirteen hand copies of four hundred lines, three of them drifting, and
+     the baseline distance round had to change every one of them the same way.
+     ITS ORDER IS THE BASELINE'S: the skin prices box and the before opening
+     line under the act, then Best drops, then what the case contains with the
+     stamp at the end of the table. Our own blocks follow it: what this case
+     pays as figures only, published against observed, one paragraph of SEO.
+     Every explanation that used to sit under a figure lives in case.md.
+     STATES: '' the default; 'degraded' values could not be read; 'nocounter'
+     the observed rate withdrawn, D-B; 'outcome' the settlement is already
+     printed with its figures in the outcome block, so it is not said twice.
+     --------------------------------------------------------------------- */
+  var CASE_ITEMS = [
+    ['Covert', '4.200 %', [
+      ['AK-47', 'Redline', 'Field-Tested · StatTrak', '3.180 %', '47.30', '1 to 3 180'],
+      ['AWP', 'Asiimov', 'Well-Worn', '1.020 %', '38.90', '3 181 to 4 200']]],
+    ['Classified', '6.800 %', [
+      ['M4A1-S', 'Hyper Beast', 'Factory New', '4.600 %', '24.60', '4 201 to 8 800'],
+      ['Desert Eagle', 'Blaze', 'Factory New', '2.200 %', '21.80', '8 801 to 11 000']]],
+    ['Restricted', '26.000 %', [
+      ['USP-S', 'Kill Confirmed', 'Minimal Wear', '12.000 %', '14.20', '11 001 to 23 000'],
+      ['Glock-18', 'Water Elemental', 'Minimal Wear', '14.000 %', '12.90', '23 001 to 37 000']]],
+    ['Mil-Spec', '63.000 %', [
+      ['MP9', 'Rose Iron', 'Field-Tested', '22.000 %', '7.40', '37 001 to 59 000'],
+      ['P250', 'Asiimov', 'Battle-Scarred', '21.000 %', '6.90', '59 001 to 80 000'],
+      ['Nova', 'Koi', 'Factory New', '20.000 %', '7.90', '80 001 to 100 000']]]
+  ];
+
+  function caseBody(state) {
+    var degraded = state === 'degraded';
+    var out = [];
+
+    // ---- THE SKIN PRICES BOX AND THE BEFORE OPENING LINE, the baseline's two
+    // lines under its act. Ours says the settlement rule, D-91, where the
+    // baseline says its prices are fixed: the same subject, told in full.
+    out.push('<section class="wf-case-info" aria-label="Before you open">');
+    if (state !== 'outcome') {
+      out.push('<p class="wf-cost-say"><strong>Skin prices.</strong> Values in this case are fixed when the case is priced. ' +
+        'Sending a win to Steam buys a real copy at that day&#39;s price, and the difference settles against your balance in either direction. ' +
+        '<a href="withdraw.html">How a withdrawal settles</a></p>');
+    }
+    // G5: the limits of a withdrawal are stated before the request. The baseline
+    // says it here, before the open, and it is cheaper here than at the till.
+    out.push('<p class="wf-note wf-case-warn"><strong>Before opening.</strong> Your Steam inventory has to be public and your trade URL set, or a win cannot be sent to you. <a href="settings.html">Check your settings</a></p>');
+    out.push('</section>');
+
+    // ---- BEST DROPS, D-30 and D-32. Ranked by value, and the one route to the
+    // block that can disappoint stays, because that route is the cost D-32 kept.
+    var drops = [['AK-47', 'Redline', '47.30', '18 Aug, 14:44'], ['USP-S', 'Kill Confirmed', '14.20', '18 Aug, 14:22'],
+                 ['Glock-18', 'Water Elemental', '12.90', '18 Aug, 14:58'], ['Nova', 'Koi', '7.90', '18 Aug, 14:39'],
+                 ['MP9', 'Rose Iron', '7.40', '18 Aug, 14:51'], ['P250', 'Asiimov', '6.90', '18 Aug, 14:31']];
+    out.push('<section class="wf-sec" aria-labelledby="h2-recent"><div class="wf-sec-head"><h2 id="h2-recent">Best drops</h2>' +
+      (state === 'nocounter' ? '' : '<p class="wf-sec-sub">By value. <a href="#h2-observed">What usually drops</a></p>') +
+      '</div><ul class="wf-recent">');
+    drops.forEach(function (d) {
+      out.push('<li><a href="result.html"><span class="wf-r-art" aria-hidden="true"></span><span class="wf-r-w">' + d[0] +
+        '</span><span class="wf-r-s">' + d[1] + '</span><span class="wf-r-v">' + d[2] + ' coins</span><span class="wf-r-t">' + d[3] + '</span></a></li>');
+    });
+    out.push('</ul></section>');
+
+    // ---- WHAT IS IN THIS CASE. Grouped by tier, section 3, and the table
+    // markup stays a table. THE STAMP IS AT THE END, where the baseline puts
+    // "Last updated": it dates the values a person has just read.
+    out.push('<section class="wf-sec" aria-labelledby="h2-contents"><div class="wf-sec-head"><h2 id="h2-contents">What is in this case</h2></div>');
+    out.push('<div class="wf-tablewrap"><table class="wf-table wf-drops"><caption class="wf-vh">Every item in Ironbound with its chance, value and ticket range</caption>' +
+      '<thead><tr><th scope="col">Item image</th><th scope="col">Item</th><th scope="col">Chance</th><th scope="col">Value</th><th scope="col">Tickets</th></tr></thead>');
+    CASE_ITEMS.forEach(function (t) {
+      out.push('<tbody class="wf-tier" aria-label="' + t[0] + ', ' + t[1].replace(' %', ' percent') + '">' +
+        '<tr class="wf-tier-h"><td colspan="6"><span class="wf-tier-n">' + t[0] + '</span> <span class="wf-fig-c">' + t[1] + '</span></td></tr>');
+      t[2].forEach(function (i, n) {
+        var top = t[0] === 'Covert' && n === 0;
+        out.push('<tr><td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>' +
+          '<th scope="row"><span class="wf-d-name"><span class="wf-d-weapon">' + i[0] + '</span><span class="wf-d-skin">' + i[1] +
+          '</span><span class="wf-d-axes">' + i[2] + ' · ' + t[0] + '</span>' +
+          // A1: THE OUTBOUND MARKET PRICE SITS ON THE TOP ITEM ITSELF, not in a
+          // note under the table, and it carries its own moment.
+          (top && !degraded ? '<a class="wf-d-mkt" href="https://steamcommunity.com/market/" rel="external nofollow">Steam 22.15 EUR, 18 Aug 14:02</a>' : '') +
+          '</span></th>' +
+          '<td data-l="Chance">' + i[3] + '</td>' +
+          '<td data-l="Value">' + (degraded ? '<span class="wf-fig-missing">Not available</span>' : i[4] + ' coins') + '</td>' +
+          '<td data-l="Tickets">' + i[5] + '</td></tr>');
+      });
+      out.push('</tbody>');
+    });
+    out.push('</table></div>');
+    out.push(degraded
+      ? '<p class="wf-stamp wf-fig-missing">Values could not be read. Last read 18 Aug 2026 09:41, and nothing here shows a value from then.</p>'
+      : '<p class="wf-stamp">Last updated 18 Aug 2026 14:02</p>');
+    out.push('</section>');
+
+    // ---- WHAT THIS CASE PAYS, figures only. D4, principle 3 and B1-2. The
+    // derivations, the denomination argument of D-91 and the method of the
+    // settlement figure are in case.md section 5, not under the numbers.
+    // THE SETTLEMENT FIGURE IS A SAMPLE, D-124: its value is the founder's,
+    // against the method D-93 fixed.
+    function fig(v, c, route) {
+      return '<div class="wf-fig"><span class="wf-fig-v' + (v ? '' : ' wf-fig-missing') + '">' + (v || 'Not available') + '</span>' +
+        '<span class="wf-fig-c">' + c + (route ? ' ' + route : '') + '</span></div>';
+    }
+    out.push('<section class="wf-sec" aria-labelledby="h2-pays"><div class="wf-sec-head"><h2 id="h2-pays">What this case pays</h2></div><div class="wf-figs">');
+    out.push(fig('94.2 %', 'Tested RTP, in coins at our values'));
+    out.push(fig(degraded ? null : '11.68 coins', 'Expected value per open: every chance above times its value'));
+    out.push(fig(degraded ? null : '37.000 %', 'Chance to get back at least the 12.40 entry cost'));
+    if (state !== 'outcome') {
+      out.push(fig(degraded ? null : '-6.2 %', 'Our values against a real copy, case average', '<a href="withdraw.html">How it settles</a>'));
+    }
+    out.push('</div>');
+    out.push('<p class="wf-note">If you can afford an item outright, buying it is cheaper on average than opening for it. Opening buys the chance and the reveal, not a discount.</p>');
+    out.push('</section>');
+
+    // ---- PUBLISHED AGAINST OBSERVED, D3. Its two conditions, D-B and D-C, and
+    // its fork rule live in case.md section 4 and on 1.2. On 'nocounter' the
+    // block is the withdrawn state of 0.11 and says so in one line.
+    if (state === 'nocounter') {
+      out.push('<section class="wf-sec" aria-label="Published against observed, withdrawn">' +
+        '<p class="wf-note wf-fig-missing">The observed rate for this case is not published. Every chance and value is above, and every round can be checked after it opens. <a href="fair.html">How rounds are checked</a></p></section>');
+    } else {
+      out.push('<section class="wf-sec" aria-labelledby="h2-observed"><div class="wf-sec-head"><h2 id="h2-observed">Published against observed</h2>' +
+        '<p class="wf-sec-sub">What we publish for each tier, and what actually came out.</p></div>' +
+        '<div class="wf-tablewrap"><table class="wf-table"><caption class="wf-vh">Published and observed rate per rarity tier</caption>' +
+        '<thead><tr><th scope="col">Tier</th><th scope="col">Published</th><th scope="col">Observed</th><th scope="col">Rolls</th></tr></thead><tbody>' +
+        '<tr><th scope="row">Covert</th><td>4.200 %</td><td>4.06 %</td><td>41 208</td></tr>' +
+        '<tr><th scope="row">Classified</th><td>6.800 %</td><td>6.94 %</td><td>41 208</td></tr>' +
+        '<tr><th scope="row">Restricted</th><td>26.000 %</td><td>25.71 %</td><td>41 208</td></tr>' +
+        '<tr><th scope="row">Mil-Spec</th><td>63.000 %</td><td>63.29 %</td><td>41 208</td></tr>' +
+        '</tbody></table></div>' +
+        '<p class="wf-note">Counted since this case launched, never reset. <a href="fair.html">How rounds are checked</a></p></section>');
+    }
+
+    // ---- THE SEO TEXT, 15C, cut to what a first reader needs. The delivery
+    // failure answer moved to support's questions; the table rule is ours.
+    out.push('<section class="wf-sec wf-prose" aria-labelledby="h2-how"><div class="wf-sec-head"><h2 id="h2-how">How this case works</h2></div><div class="wf-prose-cols">' +
+      '<p>The entry cost buys one roll, and the roll lands on one item. Every item&#39;s chance is printed as a percentage and as a ticket range: the range is what the roll resolves against, which is what makes a result checkable.</p>' +
+      '<h3>How a round is checked</h3>' +
+      '<p>The round is fixed before the animation starts and its hash is on screen when you open. After the reveal, one link checks the round against that hash.</p>' +
+      '</div></section>');
+
+    return out.join('');
+  }
+
+  function renderCaseBodies() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-case-body]'), function (host) {
+      host.outerHTML = caseBody(host.getAttribute('data-case-body') || '');
+    });
+  }
+
   function renderLadders() {
     var account = !!(window.WF_SHELL && window.WF_SHELL.account);
     Array.prototype.forEach.call(document.querySelectorAll('[data-ladder]'), function (host) {
@@ -3225,7 +3373,7 @@ window.WF_PAY = window.WF_PAY || {
     var noMoney = !!(window.WF_SHELL && window.WF_SHELL.money === false);
     if (!noMoney) {
       [[M.balance || '74.20 coins', 'Balance'],
-       [M.held || '130.60 coins', 'Value of items held']].forEach(function (f) {
+       [M.held || '140.95 coins', 'Value of items held']].forEach(function (f) {
         var d = el('div', 'wf-fig');
         d.appendChild(el('span', 'wf-fig-v', f[0]));
         d.appendChild(el('span', 'wf-fig-c', f[1]));
@@ -5711,6 +5859,7 @@ window.WF_PAY = window.WF_PAY || {
     renderAuth(document.getElementById('wf-auth'));
     mountAuthDialog();
     mountFilterDrawer();
+    renderCaseBodies();
     renderLadders();
     renderProofs();
     mountGate();

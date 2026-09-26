@@ -592,3 +592,7 @@
 ### 13.8 Step 1, fixed on 27 September 2026 under `D-124`
 
 **All eight rows of 13.7 are fixed.** Each one was re-read in the current file before its edit, and none was withdrawn. **The shell residue of 13.4 is fixed** in `_nav.js`, which reaches every page: the footer, the rail's social caption, the language popover and the daily ladder. Each is written into its node the same step, in `footer.md`, `home.md`, `navigation.md` and `numbers.md`. **Per surface residue and the unnamed divergences of 13.5 are still open.** They are taken surface by surface, and every step re-reads its own rows first.
+
+### 13.9 Step 2, the case screen, fixed on 27 September 2026 under `D-125`
+
+**Closed from 13.5:** the "How to video" link, drawn as a route to block 10; the "Before Opening Case" warning; the stamp at the end of the table. **Closed from 13.4:** every residue string on the thirteen case pages and the seven hosts, and the repeated peg and proof claims on them. **Found while fixing, not by any instrument:** the default value held in the header read 130.60 on every page that did not set it, while 68 pages set 140.95. Two renderings of one number, the class 0.11 exists to prevent; the default is 140.95 now. **Re-read before editing:** every row above, and none withdrawn.

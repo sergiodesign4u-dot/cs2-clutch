@@ -5238,3 +5238,17 @@ Five instruments, Codex read only among them. **Home 1714 words against the base
 ### What this does not close
 
 **Every surface's own residue.** Home, the case family, catalogue, fair, responsible, legal, support, gate, deposit, withdraw and the public profile still carry it, and each is swept at its own step together with its return to the baseline shape, so that one page is opened, fixed and walked once rather than three times.
+
+## D-125. The case screen takes the baseline's order back, and twenty pages stop carrying their own copy of it
+
+**Date:** 2026-09-27. **Stage:** 04. **Decided by:** the founder, "да давай делаем все в лучшем виде", on the proposal for this step and on the Home question re-asked with a drawing. **Binds:** node `3.3` with `3.5`, `3.6` and `3.7`, the thirteen case pages and the seven pages that host the case screen under a layer.
+
+**One renderer.** Everything under the stage of `3.3` was hand copied into twenty files, three of them drifting. It is now `caseBody()` in `wireframes/_nav.js`, mounted through `data-case-body` with four states. **The case family went from 8509 lines to about 3300.**
+
+**The order is the baseline's.** Under the act: the skin prices box, saying `D-91`'s settlement rule in three lines, and the "Before opening" line about Steam trade settings, which was lost with no verdict. Then Best drops, then what the case contains as one uniform grid with "Last updated" at the end. Our own blocks follow as figures: what this case pays, published against observed, and two paragraphs of SEO text.
+
+**What left the screen and where it went.** Every derivation and caveat under a figure, the denomination argument, the method of the settlement figure, `D-B` and `D-C`, the fork rule, the rarity ladder note and the euro note: all in `case.md`, none deleted. **The showcase strip keeps names and loses its figures**, which reverses the half of `D-47` that put numbers on the stage. The settlement figure and the risk band draw samples by `D-124`.
+
+**The outcome gains its third exit as a control:** Send to Steam, 6.70 coins, beside Open again and Sell, which is the baseline's item actions. The header balance agrees with what was spent on every open and outcome page, and the default value held is 140.95 everywhere, which it was on 68 pages and was not on the rest.
+
+**The Home question, answered.** Three blocks under the case grid become one row of figures and the starter credit block goes until its amount exists. Executed at the Home step.

@@ -553,6 +553,16 @@ a.wfp-state:hover { color: var(--wf-ink); }
   max-width: var(--wf-measure);
 }
 .wf-cost-say .wf-fig-missing { display: block; margin-top: var(--wf-s-half); font-size: var(--wf-t-xs); }
+/* THE BASELINE'S TWO LINES UNDER THE ACT, D-125: its SKIN PRICES box and its
+   "Before Opening Case" warning, in that order and at the width of the stage. */
+.wf-case-info { display: grid; gap: var(--wf-s-1); margin: var(--wf-s-3) auto 0; max-width: var(--wf-measure); }
+.wf-case-info .wf-cost-say { margin: 0; }
+.wf-case-warn { margin: 0; }
+/* The baseline's HOW TO VIDEO sits over the stage's left edge. Ours routes to the
+   section that answers the same question, D-125. */
+.wf-case-how { margin: var(--wf-s-1) 0 0; font-size: var(--wf-t-s); }
+/* A1's market price, on the top item itself rather than in a note under the table. */
+.wf-d-mkt { display: block; font-size: var(--wf-t-xs); }
 /* B8's figures are the same institutional claim A5 makes, and they were made the same
    way A5 was before the last pass: four figures loose on the page ground, each caption
    running to whatever width was left. A figure with no edge is a sentence in a large
@@ -2246,12 +2256,22 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 .wf-drops .wf-tier-h td { padding: 0; }
 .wf-drops .wf-tier-h td::before { content: none; }
 .wf-drops tbody + tbody .wf-tier-h td { border-top: 0; }
-/* THREE COLUMNS AND NOT FOUR, and the reason is the grouping rather than the width.
-   Each tier is its own grid, and the ladder walked for this node runs two or three items
-   in a tier. At four columns the fourth cell was empty in every tier on the page, which
-   reads as a broken layout rather than as a tier that holds two items. */
-@container col (min-width: 560px) { .wf-drops tbody { grid-template-columns: repeat(2, 1fr); } }
-@container col (min-width: 840px) { .wf-drops tbody { grid-template-columns: repeat(3, 1fr); } }
+/* ONE GRID OVER THE WHOLE TABLE, D-125, and it is the baseline's shape: CASE CONTAINS
+   is one uniform grid of cards, four across on a wide column, ordered high to low. The
+   tiers stay in the markup, each still its own row group with its own accessible name,
+   and the order is still tier by tier and ticket range inside each, section 3. What
+   goes is the visual break per tier: a tier of two in its own grid left empty cells on
+   every row and made the table twice the baseline's height. The tier travels on the
+   card instead, in the axes line. */
+.wf-drops { display: grid; grid-template-columns: 1fr; gap: var(--wf-s-1); }
+.wf-drops tbody { display: contents; }
+.wf-drops .wf-tier-h { display: none; }
+@container col (min-width: 560px) { .wf-drops { grid-template-columns: repeat(2, 1fr); } }
+@container col (min-width: 840px) { .wf-drops { grid-template-columns: repeat(3, 1fr); } }
+@container col (min-width: 1100px) { .wf-drops { grid-template-columns: repeat(4, 1fr); } }
+/* The ticket range takes both figure columns: at card width "37 001 to 59 000" wrapped
+   onto three lines inside one. */
+.wf-drops tbody td:nth-of-type(4) { grid-column: 2 / -1; }
 .wf-drops .wf-item-art { height: 100%; min-height: 96px; width: 100%; margin: 0; }
 .wf-d-name { display: block; min-width: 0; }
 .wf-d-weapon, .wf-d-skin, .wf-d-axes { display: block; }
