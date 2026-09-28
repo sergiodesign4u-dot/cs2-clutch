@@ -5264,3 +5264,11 @@ Five instruments, Codex read only among them. **Home 1714 words against the base
 **What left the screen:** the proposition paragraph, the auditor slot, the peg paragraph over the grid, the starter credit block until its amount exists, three SEO subheadings and every sentence explaining why a figure was absent. **All of it is in `home.md`.** The state strip of `1.1` stops repeating the header balance and stops contradicting the ladder.
 
 **One correction made in the node.** `home.md` section 2.5 said the baseline's Home carries no ladder, and it read a capture that stopped at 900px. The full walk of 26 September shows the ladder there. **The correction is withdrawn and struck, not deleted**, and `D-25`'s premise stands.
+
+## D-127. The shelf stops explaining itself, and its risk filter starts working
+
+**Date:** 2026-09-27. **Stage:** 04. **Decided by:** the founder, "продовжуй", on the step. **Binds:** node `3.1` and its seven pages.
+
+**The structure was already the baseline's**, `D-65`. What changed is text: the sub-line under the H1, the count line and the peg paragraph on the full shelf, the clauses for us in two section subtitles, "End of the shelf", and two of three SEO subheadings. **The ticker stands under the header**, as on Home, because the shelf has no spend act on its first screen.
+
+**The risk band draws a sample by price, `D-124`, and the filter that sorts it is live.** Its three checkboxes were disabled with a note that the thresholds were not set, and a disabled filter over tiles that all read "Risk not available" was two pictures of one absence. **The drawer's result count read 13 on a shelf of 12 and reads 12**, found by looking at the open drawer.

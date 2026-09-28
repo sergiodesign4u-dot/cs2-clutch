@@ -16,6 +16,22 @@
 
 ---
 
+## Amended 27 September 2026 by `D-127`. The shelf stops explaining itself
+
+**Why.** The baseline distance round, `wireframes/docs/critique.md` section 13. **This node was already the closest to the baseline**, `D-65` having rebuilt it from the live page, so the change is text rather than structure.
+
+**Baseline row for this amendment**, against `walk4_cases_1440_26sep.png` and `walk4_cases_390_26sep.png`.
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Ticker under the header at 390 | **Under the header at every width** | The shelf has no spend act on its first screen, so section 1's placement after the content, which answered `D-59` for the case screen, does not reach it. Page declared, `feedTop` |
+| H1, then the category bar | **The same two, nothing between them** | The sub-line under the H1, the count line and the peg paragraph go. The count stays on the filtered and empty states, which are the states it is for |
+| Section subtitles, one short line each | **One short line each** | Daily and Featured lose their clauses for us: "no streak and no status" is a rule, and "the rating is the drop table" was an argument |
+| Tiles: likes, name, risk pips, price | **The tile** | The risk band draws a sample word by price, `D-124`: High from 20 coins, Medium from 5, Low under. The thresholds stay open in `0.11` |
+| No end marker | **No end marker** | "End of the shelf" goes: it repeated the count |
+| No SEO text on the walk | | **One H2 and one paragraph**, down from three subheadings. The sentence about how the daily panel behaves under a filter was specification in copy |
+| Filter panel with a risk filter | **The risk filter is live** | Its three checkboxes were disabled with a note that the thresholds were not set. With sample bands on the tiles there is something to sort. The drawer's result count read 13 on a shelf of 12, and reads 12 |
+
 ## 0.5 Amended 23 August 2026 by `D-82`, and section 2 wins its argument back
 
 **The founder narrowed the shelf, saw the daily panel still standing over two results, and said it should go.** That is section 2's own sentence coming back: a banner survives every filter and a case does not. `D-68` overrode it on 21 August and printed the cost. Seen on screen, the cost was the whole objection.

@@ -3273,22 +3273,18 @@ window.WF_PAY = window.WF_PAY || {
             '<p class="wf-note">Prices are in coins, and one coin is $1.00, a fixed rate.</p>' +
           '</div>' +
 
-          /* THREE CHECKBOXES AND NOT A SLIDER. The band has three values and no
-             numbers behind them yet, so a continuous control would promise a
-             precision that does not exist. The mark sits BESIDE the word and
-             never replaces it, 0.7 rule 5.5. */
+          /* THREE CHECKBOXES AND NOT A SLIDER. The band has three values, so a
+             continuous control would promise a precision that does not exist.
+             The mark sits BESIDE the word and never replaces it, 0.7 rule 5.5.
+             LIVE SINCE D-127: the tiles carry sample bands by D-124, so the
+             filter has something to sort. The thresholds stay open in 0.11. */
           '<div class="wf-fset">' +
             '<span class="wf-fset-h" id="f-risk-h">Risk level</span>' +
             '<div class="wf-riskset" role="group" aria-labelledby="f-risk-h">' +
-              '<label class="wf-riskrow"><input type="checkbox" disabled>' + pips(1) + 'Low</label>' +
-              '<label class="wf-riskrow"><input type="checkbox" disabled>' + pips(2) + 'Medium</label>' +
-              '<label class="wf-riskrow"><input type="checkbox" disabled>' + pips(3) + 'High</label>' +
+              '<label class="wf-riskrow"><input type="checkbox">' + pips(1) + 'Low</label>' +
+              '<label class="wf-riskrow"><input type="checkbox">' + pips(2) + 'Medium</label>' +
+              '<label class="wf-riskrow"><input type="checkbox">' + pips(3) + 'High</label>' +
             '</div>' +
-            /* THE ONE INERT CONTROL THIS STAGE HAS DRAWN, and D-58 does not
-               reach it: on sign in the precondition was something a person
-               could satisfy, here it is a number that does not exist in this
-               repository. So the refusal says what is missing, in words. */
-            '<p class="wf-note wf-fig-missing">Not available: where High stops and Medium begins is not set, so no case can be sorted into a band yet</p>' +
           '</div>' +
 
           /* THE ADDITIONAL GROUP IS ACCOUNT ONLY, and it is the baseline's own,
@@ -3323,7 +3319,7 @@ window.WF_PAY = window.WF_PAY || {
 
         '</div>' +
         '<div class="wf-drawer-foot">' +
-          '<button class="wf-btn wf-btn--primary" type="button" data-filter-dismiss>Show 13 cases</button>' +
+          '<button class="wf-btn wf-btn--primary" type="button" data-filter-dismiss>Show 12 cases</button>' +
         '</div>' +
       '</aside>';
   }

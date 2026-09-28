@@ -600,3 +600,7 @@
 ### 13.10 Step 3, Home, fixed on 27 September 2026 under `D-126`
 
 **Closed from 13.5:** the ticker at 360 now stands under the header on Home, and the contradiction between `home.md` section 1.2 and `catalogue.md` section 1 is answered per page rather than by one rule: a page with no act on its first screen declares `feedTop`. `home.md` section 2.5's baseline claim is withdrawn, and the baseline carries Giveaways, Case battles top and Gunfight top as LATER rows named in the amendment's baseline row. **Closed from 13.4:** all of Home's residue and its seven repeat groups. **Found while fixing:** the eight cookie pages were eight more hand copies of Home, each with the same residue, and they are the same renderer now.
+
+### 13.11 Step 4, the catalogue, fixed on 27 September 2026 under `D-127`
+
+**Closed from 13.4:** the catalogue's residue and its repeated daily and count lines. **Closed from 13.5:** the ticker at 360 on the shelf. **Found while fixing:** the filter drawer's result control read "Show 13 cases" over a shelf of 12, a canonical number drifted inside one surface, and the risk checkboxes were disabled while the tiles now carry bands.
