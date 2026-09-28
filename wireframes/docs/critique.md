@@ -596,3 +596,7 @@
 ### 13.9 Step 2, the case screen, fixed on 27 September 2026 under `D-125`
 
 **Closed from 13.5:** the "How to video" link, drawn as a route to block 10; the "Before Opening Case" warning; the stamp at the end of the table. **Closed from 13.4:** every residue string on the thirteen case pages and the seven hosts, and the repeated peg and proof claims on them. **Found while fixing, not by any instrument:** the default value held in the header read 130.60 on every page that did not set it, while 68 pages set 140.95. Two renderings of one number, the class 0.11 exists to prevent; the default is 140.95 now. **Re-read before editing:** every row above, and none withdrawn.
+
+### 13.10 Step 3, Home, fixed on 27 September 2026 under `D-126`
+
+**Closed from 13.5:** the ticker at 360 now stands under the header on Home, and the contradiction between `home.md` section 1.2 and `catalogue.md` section 1 is answered per page rather than by one rule: a page with no act on its first screen declares `feedTop`. `home.md` section 2.5's baseline claim is withdrawn, and the baseline carries Giveaways, Case battles top and Gunfight top as LATER rows named in the amendment's baseline row. **Closed from 13.4:** all of Home's residue and its seven repeat groups. **Found while fixing:** the eight cookie pages were eight more hand copies of Home, each with the same residue, and they are the same renderer now.

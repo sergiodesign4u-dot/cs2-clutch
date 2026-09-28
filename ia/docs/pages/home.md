@@ -25,6 +25,27 @@
 
 **Two obligations this node was handed, and both are honoured.** `sitemap.md`, "Free entry gets an obligation rather than a surface", makes `S-A1` carry the starter credit offer as a pre-login element: block B10. `sitemap.md`, "Detailed node map", row 1.0, makes it carry the featured case grid directly on the page rather than behind a mode hub: block B5.
 
+
+## Amended 27 September 2026 by `D-126`. Home takes the baseline's order back
+
+**Why.** Home measured 1714 words against the live page's 708, `wireframes/docs/critique.md` section 13. **The founder took the proposal** to collapse three blocks into one row of figures, and the page is now one renderer, `homeBody()` in `wireframes/_nav.js`, mounted on Home, Home with an account and the eight cookie states, which were ten hand copies.
+
+**Baseline row for this amendment**, against `walk4_home_1440_26sep.png` and `walk4_home_390_26sep.png`.
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Ticker under the header at every width | **Under the header at 390 too, since this amendment** | Home has no act on its first screen, so `D-59`'s reason for moving the strip below the content at 360 does not reach it. The case screen keeps that placement. Page declared, `feedTop` |
+| Event banner with art, countdown, JOIN EVENT | The carrier and the one control | It carries the daily ladder, `D-25`, and **no clock**: a standing offer has no published end, section 2.2 rule 2. The contradictory line "One free open per day" goes, since the free case is earned by wagering |
+| "CSGO & CS2 CASE OPENING SITE", one centred line | **One centred line** | Our words, "CS2 case opening with published odds", stage 05 owns them. **The proposition paragraph, the "See the cases" control and the auditor slot go**; the auditor is absent by section 2.3's own rule. Trustpilot stays as one sample line, `D-124`, and a link |
+| Four mode cards, no heading | **No visible heading** | The H2 stays for the outline and is visually hidden. Card lines are the baseline's length |
+| DADDY'S FEATURED CASES, tiles with likes, risk pips, price | **Featured cases** | The subtitle and the peg paragraph go. The risk band draws a sample word, `D-124` |
+| DAILY CASES with wager, countdown, five tiers | **The ladder** | The reset is a moment, `00:00 UTC`, not a clock, section 4.2 |
+| Case battles top, Gunfight top | Nothing, both LATER | **Their place carries one row of four figures**: tested RTP, median withdrawal, our commission, every round checkable, each routed to the surface that owns it. It replaces B7, B8 and B9 |
+| Nothing | | **B10, the starter credit, leaves until its amount exists.** It promised a figure it did not print |
+| Nothing | | **B11 is one H2 and one paragraph.** The three H3s repeated the row above in prose, section 8.B changes with it |
+
+**Node 1.1.** The state strip no longer repeats the balance the header carries, and it states the daily status in the ladder's own words, "0 daily cases, resets 00:00 UTC", where it used to promise a daily case the ladder said was not available.
+
 ---
 
 ## 0. Two loads on one screen, and the cost was accepted in writing
@@ -212,7 +233,7 @@
 
 ### 2.5 B6. Daily cases, with the tier ladder
 
-**A factual error inside `D-25`, found on 21 August 2026 and printed rather than quietly corrected.** `D-25` shipped this block **"as the baseline does it"**. `baseline.md` section 4 records the baseline's Home as header, ticker, hero banner with countdown, H1, four mode cards and promotional rows: **there is no ladder on it.** The ladder is on `/en/cases`. **So the premise of the decision was wrong even though the decision may still be right**, and what `D-67` did was add the surface the baseline actually uses rather than move the block. **Whether this block stays on Home at all is the founder's, and it is open**, section 6.
+**A factual error inside `D-25`, found on 21 August 2026 and printed rather than quietly corrected.** `D-25` shipped this block **"as the baseline does it"**. `baseline.md` section 4 records the baseline's Home as header, ticker, hero banner with countdown, H1, four mode cards and promotional rows: **there is no ladder on it.** **Withdrawn on 27 September 2026 by `D-126`: the correction was itself wrong.** The 11 August capture is 900px tall and stops at the mode cards; the full page walked on 26 September, `walk4_home_1440_26sep.png`, shows DAILY CASES directly under the featured cases. **`D-25`'s premise was right, and B6 sits where the baseline puts it.** The ladder is on `/en/cases`. **So the premise of the decision was wrong even though the decision may still be right**, and what `D-67` did was add the surface the baseline actually uses rather than move the block. **Whether this block stays on Home at all is the founder's, and it is open**, section 6.
 
 **In by founder decision `D-25`, and this is the largest reversal on the page.** `baseline.md` section 4 records the baseline gating its daily reward behind a **wager requirement** presented as a five tier ladder, Silver, Nova, Guardian, Legend, Elite, with a wager remaining figure and a countdown. `baseline.md` also records why it was flagged: **it is an inherited answer to the open risk in row `I2`**, that a daily free open teaches a first-session user that opening is free. Node `0.7` rule 5.3 refused the ladder outright. The founder has now chosen it.
 

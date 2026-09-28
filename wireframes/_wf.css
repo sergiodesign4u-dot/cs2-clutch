@@ -628,6 +628,12 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-hero { padding: var(--wf-s-3) 0; }
 .wf-hero h1 { max-width: 24ch; }
 .wf-hero-line { color: var(--wf-ink-dim); }
+/* D-126: THE BASELINE'S H1 IS ONE CENTRED LINE OVER THE MODE CARDS, and so is ours.
+   The two column hero with its proposition and trust unit is gone from Home. */
+.wf-hero.wf-hero--short { display: block; text-align: center; padding: var(--wf-s-3) 0 var(--wf-s-2); }
+.wf-hero--short h1 { max-width: none; margin: 0; }
+.wf-hero--short .wf-hero-line { margin: var(--wf-s-half) 0 0; font-size: var(--wf-t-s); }
+.wf-sec--flush { padding-top: 0; }
 /* A5 is "the institutional trust unit" in the node's own words, and DANGER 1's locked
    implication is a hybrid hero: the badge in the same hero unit rather than a section
    further down. Two figures floating in an empty column is not a unit, it is two

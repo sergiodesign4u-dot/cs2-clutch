@@ -1205,7 +1205,11 @@ window.WF_PAY = window.WF_PAY || {
     var main = document.querySelector('.wf-main');
     if (!main || document.querySelector('.wf-feed')) return;
     if (window.WF_SHELL && window.WF_SHELL.feed === false) return;
-    main.parentNode.insertBefore(renderFeed(), main.nextSibling);
+    // D-126: A PAGE WITH NO ACT ON ITS FIRST SCREEN PUTS THE STRIP UNDER THE
+    // HEADER at every width, which is where the baseline keeps it at 390.
+    // Home declares it. The case screen does not, and D-59's reason stands.
+    var top = !!(window.WF_SHELL && window.WF_SHELL.feedTop);
+    main.parentNode.insertBefore(renderFeed(), top ? main : main.nextSibling);
   }
 
   /* NODE 6.2, THE SELF EXCLUSION CONFIRMATION. Built once here because the
@@ -2955,6 +2959,102 @@ window.WF_PAY = window.WF_PAY || {
         '<ol class="wf-ladder">' + rungs + '</ol>' +
         '<div class="wf-panel-foot">' + act + '</div>' +
       '</div>';
+  }
+
+  /* ---------------------------------------------------------------------
+     THE HOME BODY, D-126. Node 1.0 and 1.1, built once and mounted on ten
+     pages: Home, Home with an account, and the eight cookie states, which draw
+     their layer over Home. It was ten hand copies.
+     THE ORDER IS THE BASELINE'S, walk4_home_1440_26sep.png: the banner, a
+     one line H1 over the four mode cards, the featured cases, the daily
+     ladder. Where the baseline runs Case battles top and Gunfight top, both
+     LATER, this page runs its own one row of figures, and the SEO text closes
+     it in one paragraph. Every argument that stood between those blocks is in
+     home.md section 2 and on the IA page, not here.
+     --------------------------------------------------------------------- */
+  var HOME_CASES = [['Ironbound', 'Medium', '12.40', '829', false], ['Warsteel', 'Low', '4.90', '1 204', true],
+                    ['Coldfront', 'Low', '2.10', '311', false], ['Nightfall', 'High', '31.00', '96', false]];
+
+  function homeBody(account) {
+    var out = [];
+
+    // 1.1 ONLY. THE STATE STRIP, home.md section 4.2, and it no longer
+    // repeats the balance the header already carries. It states the daily
+    // status the ladder below states, in the same words, and routes to it.
+    if (account) {
+      out.push('<section class="wf-strip" aria-label="Your state">' +
+        '<div class="wf-fig"><span class="wf-fig-v">0 daily cases</span><span class="wf-fig-c">Available now. Resets 00:00 UTC</span></div>' +
+        '<a class="wf-btn" href="#h2-daily">See your tier</a></section>');
+    }
+
+    // B2, THE BANNER, D-25. The baseline's hero carries an event; round 1's
+    // one standing offer is the daily ladder, so that is what it carries. NO
+    // CLOCK: a countdown needs a real published end, section 2.2 rule 2, and a
+    // standing offer has none.
+    out.push('<section class="wf-banner" aria-label="Promotion">' +
+      '<div class="wf-banner-art" aria-hidden="true"></div>' +
+      '<div class="wf-banner-body"><p class="wf-banner-line">Daily cases: climb five tiers, each one opens a free case</p>' +
+      '<a class="wf-btn" href="#h2-daily">See daily cases</a></div></section>');
+
+    // B3, THE H1, one line and centred over the cards, which is the
+    // baseline's "CSGO & CS2 CASE OPENING SITE". The proposition paragraph and
+    // the auditor slot left; the auditor is absent by section 2.3's own rule.
+    // TRUSTPILOT IS A SAMPLE, D-124, and a link: live or not at all in
+    // production, section 2.3.
+    out.push('<section class="wf-hero wf-hero--short" aria-labelledby="h1">' +
+      '<h1 id="h1">CS2 case opening with published odds</h1>' +
+      '<p class="wf-hero-line"><a href="https://www.trustpilot.com/" rel="external nofollow">Trustpilot 4.1, 1 870 reviews</a></p></section>');
+
+    // B4, THE FOUR MODES, D-27. No visible heading: the baseline has none and
+    // the cards say what they are. The H2 stays for the outline, hidden.
+    out.push('<section class="wf-sec wf-sec--flush" aria-labelledby="h2-modes"><h2 id="h2-modes" class="wf-vh">Ways to play</h2><div class="wf-grid wf-modes">');
+    [['Cases', 'Open a case, see every chance.', true], ['Case battles', 'Open against someone, highest total wins.'],
+     ['Gunfights', 'One round, one opponent.'], ['Upgrade', 'Trade a skin up for a better one.']].forEach(function (m) {
+      out.push('<article class="wf-mode' + (m[2] ? '' : ' is-later') + '"><span class="wf-mode-art" aria-hidden="true"></span><h3>' + m[0] + '</h3><p>' + m[1] + '</p>' +
+        (m[2] ? '<a class="wf-btn" href="catalogue.html">Open a case</a>' : '<p class="wf-fig-missing">Not launched yet</p>') + '</article>');
+    });
+    out.push('</div></section>');
+
+    // B5, FEATURED CASES, the baseline's DADDY'S FEATURED CASES. The risk band
+    // is a sample by D-124; its thresholds stay an open item in 0.11.
+    out.push('<section class="wf-sec" aria-labelledby="h2-cases"><div class="wf-sec-head"><h2 id="h2-cases">Featured cases</h2></div><div class="wf-grid">');
+    HOME_CASES.forEach(function (c) {
+      out.push('<article class="wf-tile"><a class="wf-tile-link" href="case.html"><span class="wf-tile-art" aria-hidden="true"></span>' +
+        '<span class="wf-tile-name">' + c[0] + '</span><span class="wf-tile-risk">' + c[1] + ' risk</span>' +
+        '<span class="wf-tile-price"><span class="wf-tile-cost">' + c[2] + '</span><span class="wf-tile-cur">coins</span></span></a>' +
+        '<button class="wf-fav" type="button" aria-pressed="' + c[4] + '" aria-label="Favourite, ' + c[3] + ' people"><span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">' + c[3] + '</span></button></article>');
+    });
+    out.push('</div><div class="wf-sec-foot"><a class="wf-btn" href="catalogue.html">All cases</a></div></section>');
+
+    // B6, THE DAILY LADDER, D-25 and D-67, the component 3.1 mounts too.
+    out.push('<section class="wf-sec" aria-labelledby="h2-daily"><div class="wf-sec-head"><h2 id="h2-daily">Daily cases</h2>' +
+      '<p class="wf-sec-sub">Wager to climb. The tier decides which free case you get.</p></div><div data-ladder></div></section>');
+
+    // B7, B8 AND B9 AS ONE ROW, D-126, founder. The worked case, the verifier
+    // pitch and the exit figures were three blocks of argument where the
+    // baseline runs two LATER rows. What each proved is kept as a figure with
+    // a route, and the derivations are one tap away on the surface that owns
+    // them. B10, THE STARTER CREDIT, LEAVES until its amount exists: a block
+    // promising a figure it does not print is the hole D-107 took off screens.
+    out.push('<section class="wf-sec" aria-labelledby="h2-proof"><div class="wf-sec-head"><h2 id="h2-proof">Before you spend</h2></div><div class="wf-figs">' +
+      '<a class="wf-fig wf-fig-a" href="case.html#h2-pays"><span class="wf-fig-v">94.2 %</span><span class="wf-fig-c">Tested RTP, Ironbound. Every case prints its own</span></a>' +
+      '<a class="wf-fig wf-fig-a" href="withdraw.html"><span class="wf-fig-v">1 h 40 m</span><span class="wf-fig-c">Median withdrawal to Steam</span></a>' +
+      '<div class="wf-fig"><span class="wf-fig-v">0 %</span><span class="wf-fig-c">Our commission on withdrawals</span></div>' +
+      '<a class="wf-fig wf-fig-a" href="fair.html"><span class="wf-fig-v">Every round</span><span class="wf-fig-c">Checkable without an account</span></a>' +
+      '</div></section>');
+
+    // B11, THE SEO TEXT, one H2 and one paragraph. The three H3s repeated the
+    // row above in prose; home.md section 15 carries the change.
+    out.push('<section class="wf-sec wf-prose" aria-labelledby="h2-about"><div class="wf-sec-head"><h2 id="h2-about">What opening a case here involves</h2></div>' +
+      '<p>A case is a fixed set of CS2 skins with a published chance on each one. You pay the entry cost in coins, one roll decides the item, and you can keep it, sell it back or send it to your Steam inventory. Every case shows its chances, its item values and its tested return before you open it, and every round can be checked afterwards.</p></section>');
+
+    return out.join('');
+  }
+
+  function renderHomeBodies() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-home-body]'), function (host) {
+      host.outerHTML = homeBody(host.getAttribute('data-home-body') === 'account');
+    });
   }
 
   /* ---------------------------------------------------------------------
@@ -5859,6 +5959,7 @@ window.WF_PAY = window.WF_PAY || {
     renderAuth(document.getElementById('wf-auth'));
     mountAuthDialog();
     mountFilterDrawer();
+    renderHomeBodies();
     renderCaseBodies();
     renderLadders();
     renderProofs();

@@ -5252,3 +5252,15 @@ Five instruments, Codex read only among them. **Home 1714 words against the base
 **The outcome gains its third exit as a control:** Send to Steam, 6.70 coins, beside Open again and Sell, which is the baseline's item actions. The header balance agrees with what was spent on every open and outcome page, and the default value held is 140.95 everywhere, which it was on 68 pages and was not on the rest.
 
 **The Home question, answered.** Three blocks under the case grid become one row of figures and the starter credit block goes until its amount exists. Executed at the Home step.
+
+## D-126. Home takes the baseline's order back, and three blocks of argument become one row of figures
+
+**Date:** 2026-09-27. **Stage:** 04. **Decided by:** the founder, "да давай", on the drawing of the Home question and on the step. **Binds:** nodes `1.0` and `1.1`, and the ten pages that draw Home, the eight cookie states among them.
+
+**One renderer.** Home, Home with an account and the eight cookie states carried ten hand copies of one page. It is now `homeBody()` in `wireframes/_nav.js`.
+
+**The order is the baseline's.** The ticker under the header, at 390 too, because Home has no act for it to push through the fold. The banner, carrying the daily ladder with no clock. One centred H1 line over the four mode cards, which lose their visible heading. Featured cases. Daily cases. **Where the baseline runs two LATER rows, one row of four figures** replaces the worked case, the verifier pitch and the exit block. One paragraph of SEO text.
+
+**What left the screen:** the proposition paragraph, the auditor slot, the peg paragraph over the grid, the starter credit block until its amount exists, three SEO subheadings and every sentence explaining why a figure was absent. **All of it is in `home.md`.** The state strip of `1.1` stops repeating the header balance and stops contradicting the ladder.
+
+**One correction made in the node.** `home.md` section 2.5 said the baseline's Home carries no ladder, and it read a capture that stopped at 900px. The full walk of 26 September shows the ladder there. **The correction is withdrawn and struck, not deleted**, and `D-25`'s premise stands.
