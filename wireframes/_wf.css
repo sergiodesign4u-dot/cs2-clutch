@@ -5303,9 +5303,7 @@ textarea.wf-cfg-in { min-height: 0; }
    screen, so there is no step to go back to.
    ============================================================================ */
 .wf-pay-lay { display: grid; gap: var(--wf-s-3); align-items: start; }
-@media (min-width: 900px) {
-  .wf-pay-lay { grid-template-columns: 260px minmax(0, 1fr); gap: var(--wf-s-4); }
-}
+
 .wf-pay-main { display: flex; flex-direction: column; gap: var(--wf-s-3); min-width: 0; }
 
 /* THE RAIL. BELOW 900 IT IS A ROW THAT SCROLLS SIDEWAYS rather than four stacked
@@ -5400,15 +5398,9 @@ textarea.wf-cfg-in { min-height: 0; }
   border-top: 1px solid var(--wf-line-soft);
 }
 
-@media (min-width: 1200px) {
-  /* THE LAYER EARNS ITS SECOND COLUMN BACK. The rail spends 260px, so the receipt
-     only fits beside the form once the frame is wider than the sign in dialog
-     ever needs to be. */
-  .wf-dlg--pay { max-width: 1180px; }
-}
-@media (max-width: 1199px) {
-  /* AND BELOW THAT THE RECEIPT IS THE LAST BLOCK rather than a squeezed column.
-     A 280px form beside a 320px summary is two things too narrow to read. */
+@media (max-width: 899px) {
+  /* BELOW 900 THE RECEIPT IS THE LAST BLOCK rather than a squeezed column. Since
+     D-129 the rail is gone, so the frame holds both columns from 900. */
   .wf-pay-lay .wf-fund-grid { display: block; }
   .wf-pay-lay .wf-dock { margin-top: var(--wf-s-3); }
 }
@@ -5461,3 +5453,74 @@ textarea.wf-cfg-in { min-height: 0; }
 @media (max-width: 599px) {
   .wf-invbar.is-idle .wf-invbar-acts, .wf-invbar.is-idle [data-inv-none] { display: none; }
 }
+
+/* ============================================================================
+   D-129, THE DEPOSIT LAYER ON THE BASELINE'S SHAPE. No rail: the two groups the
+   live page runs, one under the other. Ribbons on the tile corner, the promo as
+   a question, the country as a line at the foot, one-line facts, and the pay
+   row sticky inside the layer.
+   ============================================================================ */
+.wf-pay-t { position: relative; }
+.wf-pay-rib {
+  position: absolute; top: 0; left: 0;
+  padding: 2px var(--wf-s-half);
+  font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--wf-ink); color: var(--wf-bg);
+  border-radius: var(--wf-r-2) 0 var(--wf-r-1) 0;
+}
+.wf-pay-t:has(.wf-pay-rib) { padding-top: calc(var(--wf-s-1) + 14px); }
+.wf-promo summary { cursor: pointer; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-promo .wf-row { margin-top: var(--wf-s-1); }
+.wf-promo .wf-f { flex: 1 1 auto; min-width: 0; }
+.wf-pay-cty { margin: 0; }
+.wf-dep-facts { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-half); font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
+.wf-dep-facts strong { color: var(--wf-ink); font-weight: 400; font-family: var(--wf-mono); }
+/* THE SIX PRESETS ARE ONE ROW, the baseline's full-width set, and three by two
+   on a phone. As small wrapping chips they read as tags rather than as amounts. */
+.wf-amt .wf-presets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--wf-s-1); }
+@media (min-width: 600px) { .wf-amt .wf-presets { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+.wf-gift { border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2); padding: var(--wf-s-1) var(--wf-s-2); }
+.wf-gift summary { cursor: pointer; font-weight: 700; font-size: var(--wf-t-s); }
+.wf-gift .wf-presets { margin-top: var(--wf-s-1); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--wf-s-1); }
+@media (min-width: 600px) { .wf-gift .wf-presets { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+.wf-skindep { display: grid; gap: var(--wf-s-1); grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+.wf-skindep-t {
+  display: flex; flex-direction: column; gap: 2px; padding: var(--wf-s-1);
+  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2); background: var(--wf-surface);
+}
+.wf-skindep-t:has(input:checked) { border-color: var(--wf-ink-dim); }
+.wf-skindep-v { font-family: var(--wf-mono); }
+/* THE PAY ROW STAYS IN VIEW INSIDE THE LAYER, D-129, founder. D-99 refused a
+   fixed dock here because a fixed element leaves the dialog; sticky stays in it.
+   Two things make sticky work where the page measured zero travel: the frame
+   clips rather than hides, so the scroll belongs to the wrap, and the dock's
+   one-child wrapper stops being a box, so the dock travels the whole form. */
+.wf-dlg--pay { overflow: clip; }
+@media (max-width: 899px) {
+  .wf-dlg--pay .wf-fund-grid > div:last-child { display: contents; }
+  .wf-dlg--pay .wf-dock {
+    position: sticky; bottom: 0; z-index: 5;
+    background: var(--wf-surface); box-shadow: none;
+  }
+  .wf-dlg--pay .wf-dock .wf-total, .wf-dlg--pay .wf-dock .wf-card { display: none; }
+}
+@media (min-width: 900px) {
+  .wf-dlg--pay .wf-fund-grid { align-items: stretch; }
+  .wf-dlg--pay .wf-dock { position: sticky; top: var(--wf-s-2); }
+}
+/* The provider is chosen like a tile, not like a form radio: the native circle is
+   kept for the keyboard and hidden from the eye. */
+.wf-payprov-t { position: relative; cursor: pointer; min-width: 150px; }
+.wf-payprov-t input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.wf-payprov-t:has(input:checked) { border-color: var(--wf-ink); background: var(--wf-raised); }
+.wf-payprov-t:has(input:focus-visible) { outline: 2px solid var(--wf-ink); outline-offset: 2px; }
+/* ON A PHONE THE STICKY DOCK IS ONE ROW: what arrives, and Pay. */
+@media (max-width: 899px) {
+  .wf-dlg--pay .wf-dock { flex-direction: row; align-items: center; justify-content: space-between; padding: var(--wf-s-1) var(--wf-s-2); }
+  .wf-dlg--pay .wf-dock .wf-recv-v { font-size: var(--wf-t-l); }
+  .wf-dlg--pay .wf-dock .wf-refuse:empty { display: none; }
+}
+.wf-skindep-t { position: relative; cursor: pointer; }
+.wf-skindep-t input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.wf-skindep-t:has(input:checked) { border-color: var(--wf-ink); background: var(--wf-raised); }
+.wf-skindep-t:has(input:focus-visible) { outline: 2px solid var(--wf-ink); outline-offset: 2px; }

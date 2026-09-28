@@ -2722,6 +2722,7 @@ The panel now prints the question rather than picking an answer and being wrong 
 | `deposit-crypto.html` | **Step 2 with no amount field.** Network, address, code slot, live rate with an as-of, minimum, and the statement that the ceiling cannot bind here |
 | `deposit-crypto-nowallet.html` | The baseline's precondition state, inherited whole: the screen with its payload removed and one control, **not an error** |
 | `deposit-giftcards.html` | **Six third party resellers**, with the handover stated before any control |
+| `deposit-skins.html` | **Skins from the Steam inventory**, ticked, summed and deposited, `D-129`. No parent in the three legal classes, printed in `deposit.md` |
 
 **126 pages, up from 122.**
 

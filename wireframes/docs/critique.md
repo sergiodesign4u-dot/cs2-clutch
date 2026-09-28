@@ -608,3 +608,7 @@
 ### 13.12 Step 5, My items, Send to Steam and History, fixed on 27 September 2026 under `D-128`
 
 **Closed from 13.5:** the idle bar's totals, Share revealed on selection, the H1 "Send to Steam", the numbered steps with the instruction line and Cancel, the first tab of History, and the skin deposits tab named as rows of the Deposits ledger. The Distributed drops legend stays out: it marks a LATER mechanic, and that is its verdict now. **Closed from 13.4:** the residue on all eight withdrawal pages and nine history pages. **Found while fixing:** the withdrawal pages printed the median time as "not available" while Home printed 1 h 40 m, one figure read two ways across surfaces, and "Showing all 7 we hold a price for" stood under "268 on the market".
+
+### 13.13 Step 6, the deposit, fixed on 27 September 2026 under `D-129`
+
+**Closed from 13.5:** the promo bonus line on crypto and the denominations per gift card reseller. **Closed from the money auditor's deposit list:** all ten items, the first screen at 360, the ribbon, the presets, the receipt, Pay in view, the crypto and gift panes. **Measured after:** at 360 the first payment method is on the first screen and the pay row stays at the bottom of the frame while the form scrolls, bottom edge 751 in a 780 viewport; at 1440 Pay moved from y 924 to y 674. **Found while fixing:** the node's own baseline row still carried the 17 fiat count and the refused bonus, both reversed a month earlier.

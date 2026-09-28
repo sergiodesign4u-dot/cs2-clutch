@@ -17,7 +17,27 @@
 
 | What the live product does | What we keep | What we change, and why |
 |---|---|---|
-| Two numbered steps. Step 1: a partner promo code already applied, a country selector that filters the grid, then **17 fiat methods and 8 crypto**. Step 2 for card: amount, email, a terms checkbox, six presets, and a panel reading `Rate 1.00 = $1.00` with a standing **+5.00% bonus capped at 100 per 24 hours**. Crypto gives an address per network with a live rate and a minimum, and no amount field. `baseline-account.md` section 5b. | The two step shape, the published rate at the moment of funding, and the amount presets. | **No crediting time is published anywhere in that flow**, which is the whole of row `C3`, and the deposit history's most common status is REJECTED. **Ours publishes the window before the money moves.** The standing bonus and its header badge are refused, `0.1`. And one route, gift cards, leaves the product entirely to six third party resellers with no crediting story at all. |
+| Two numbered steps. Step 1: a partner promo code already applied, a country selector that filters the grid, then ~~**17 fiat methods and 8 crypto**~~ **27 fiat methods and 8 crypto**, corrected here by `D-129` after section 5b.1 of `baseline-account.md` was corrected on 25 August. Step 2 for card: amount, email, a terms checkbox, six presets, and a panel reading `Rate 1.00 = $1.00` with a standing **+5.00% bonus capped at 100 per 24 hours**. Crypto gives an address per network with a live rate and a minimum, and no amount field. `baseline-account.md` section 5b. | The two step shape, the published rate at the moment of funding, and the amount presets. | **No crediting time is published anywhere in that flow**, which is the whole of row `C3`, and the deposit history's most common status is REJECTED. **Ours publishes the window before the money moves.** ~~The standing bonus and its header badge are refused, `0.1`.~~ **Both returned by `D-94`**, and this row said otherwise until `D-129`. And one route, gift cards, leaves the product entirely to six third party resellers with no crediting story at all. |
+
+
+## Amended 27 September 2026 by `D-129`. The layer takes the baseline's shape, and the founder's three asks
+
+**Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, and three founder answers of `D-124`: keep the dialog and improve it, a sticky pay row, Gift cards and CS2 skins back in the grid. The first screen at 360 showed no payment method at all, and Pay sat below the fold at 1440.
+
+**Baseline row for this amendment**, against `research/screens/baseline-account/acct_deposit_*`.
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| One page: FIAT PAYMENT METHOD then CRYPTO PAYMENT METHOD, CS:GO Skins second with INSTANT, Gift Cards inside the fiat grid | **The two groups on the first screen, and the order** | The rail of four from `D-100` goes. **Gift cards and CS2 skins are tiles in the fiat grid again**, founder decision of 27 September 2026, and a rail of two is two headings. Our carrier stays the dialog, `D-99` |
+| BEST CHOICE ribbon on Visa, INSTANT on skins | **Ribbons on the corner** | They were caption lines that made one tile taller than its row |
+| HAVE A PROMO CODE? open, with a country selector beside it | **The question** | Collapsed until asked for. The country is a line at the foot, read and never set here, `D-98` |
+| SELECT PROVIDER, two tiles | **Two tiles** | Drawn as samples, Provider A and B, `D-124`. The sentence that card details go to the provider stays on the heading |
+| Enter the amount, six presets in a full row, billing email, terms | **All four** | Presets are one row of six, three by two on a phone. The helper under the email goes |
+| Right panel: "You will receive", rate, amount plus bonus, bonus rule, DEPOSIT | **The panel** | Four lines: what arrives, the peg, the bonus, the total. **The pay row is sticky inside the dialog**, one row on a phone, founder decision; `D-99` refused `fixed`, and `sticky` stays inside the frame |
+| Nothing under the press |  | **Three one-line facts** in the form column: the withdrawal minimum, the crediting time, the deposit limit. Samples by `D-124`, `$5.00` and `2 minutes`; their real values stay open here. The fee reads "No provider fee on this route", also a sample |
+| Crypto: network, QR and address, rate, bonus, minimum, PREVIOUS and DONE | **That order** | The bonus line is back, lost with no verdict. Address, rate and minimum are samples, the rate being the baseline's own read |
+| Gift cards: six reseller accordions, six denominations each, BUY ON DIFMARK | **The accordions and the denominations** | The denominations are outbound links, samples by `D-124`, then the field that brings the code back |
+| CS:GO Skins, INSTANT | **The route** | **A pane of its own and an address, `deposit-skins.html`**: tick skins from the Steam inventory, see the sum, deposit. **No parent in the three legal classes**, carried by founder decision and printed here, the way `I2` and the cash out are |
 
 ---
 
@@ -174,6 +194,7 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 | `deposit-crypto.html` | Network, address, code, live rate with its as-of, minimum, **no amount field**, and the `C2` statement |
 | `deposit-crypto-nowallet.html` | The baseline's own precondition state: the same screen with the payload removed and one control to create the address, rather than an error |
 | `deposit-giftcards.html` | **Six third party resellers.** The handover stated before any control, because a person is about to leave, pay a company that is not us, and come back with a code |
+| `deposit-skins.html` | **Skins from the Steam inventory**, ticked, summed and deposited, `D-129` |
 
 ### One tile has no parent and ships saying so
 
@@ -746,6 +767,7 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 | `deposit-crypto.html` | Step 2, crypto | `4.1` |
 | `deposit-crypto-nowallet.html` | Step 2, no address yet | `4.1` |
 | `deposit-giftcards.html` | Step 2, gift cards | `4.1` |
+| `deposit-skins.html` | Step 2, CS2 skins | `4.1` |
 | `deposit-ceiling-reached.html` | Deposit limit reached this period | `4.2` |
 | `deposit-ceiling-pending.html` | Limit raise pending | `4.3` |
 | `deposit-crediting.html` | Crediting, named timer | `4.4` |

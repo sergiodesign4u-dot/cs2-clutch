@@ -5282,3 +5282,21 @@ Five instruments, Codex read only among them. **Home 1714 words against the base
 **Send to Steam.** The H1 is the button's own name. **The two numbered steps, the instruction line and Cancel came back**, all three lost with no verdict. Under the total: the baseline's sentence with what is left, the line naming the three limits, then Cancel and Send; the limits themselves are one press away. The Steam listing and the offer badges draw samples by `D-124`, and so do the two published times and every stage ceiling on the clock pages, which read "not available" while Home printed 1 h 40 m.
 
 **History.** It opens on its first tab, because Rolls moved first. **Skin deposits are rows of the Deposits ledger** with the method "CS2 skins", which names the baseline tab that had no verdict. The notes under every ledger go, except one line that reconciles a deposit row with a bank.
+
+## D-129. The deposit layer takes the baseline's shape, with a sticky pay row and the grid made whole again
+
+**Date:** 2026-09-27. **Stage:** 04. **Decided by:** the founder, in `D-124`'s answers and "да" on the step. **Binds:** node `4.1` and its states, the dialog and every address that hosts the layer.
+
+**What was wrong on the screen.** At 360 the first screen of the dialog showed no payment method at all: a title, a subtitle about staying on the page, a sideways rail, an account line, the offer, an open promo field and a country block came first. At 1440 Pay sat 24px below the fold.
+
+**The rail goes, `D-100` reversed in part.** With Gift cards and CS2 skins back in the fiat grid, as the founder asked and the baseline has them, a rail of four becomes two groups, and two groups are two headings on one screen: Cards, wallets and more, then Crypto. The route bodies still key on the method, so each keeps its pane.
+
+**The first screen is the offer, one line, then the grid.** The promo is the baseline's own question, collapsed. The country is a line at the foot. Ribbons, BEST CHOICE and INSTANT, sit on tile corners.
+
+**The card pane.** Two provider tiles drawn as samples. Six presets in a full row. Four lines in the receipt. **The pay row is sticky inside the dialog**: at 360 it is one row, what arrives and Pay, that stays in view down the form. It works where the page measured zero travel because the frame clips rather than hides and the dock's one-child wrapper stops being a box. Four paragraphs under the press became three one-line facts in the form column.
+
+**Crypto** gets its bonus line back and the baseline's order. **Gift cards** get their six accordions with six denominations each. **CS2 skins** gets a pane and an address, `deposit-skins.html`, where skins are ticked, summed and deposited. **It has no parent in the three legal classes and carries that in `deposit.md`**, the same way the daily case and the cash out do.
+
+**Samples by `D-124`:** the two providers, the withdrawal minimum at $5.00, crediting within 2 minutes, no provider fee, the crypto address, rate and minimum, the reseller links. The crediting state page reads the same samples. Every real value stays an open item in the node.
+
+**Found while fixing:** `deposit.md`'s own baseline row still said 17 fiat methods, corrected to 27 on 25 August in the research file, and still said the bonus and its badge were refused, which `D-94` reversed. Both are struck and corrected rather than deleted.
