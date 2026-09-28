@@ -302,7 +302,7 @@ Founder, with the live product's layer beside ours: **"cash out - кстати �
 | **Three networks** | Ethereum, Litecoin, Tether, as a strip. Founder answer of 2 September 2026 | The live layer's own three. The current one is a pressed control, never a link to itself, `D-58` |
 | **The chain line** | `Sent on the Ethereum network` | **A coin is not an address space.** Tether has no chain named on our side, so the line says that instead of letting the field imply one |
 | **The address** | A saved-address select where one exists, a field, and Save | The live layer's shape. **Saving is not built**, and the press says so rather than pretending |
-| **The calculator** | Items selected, their value, blockchain fee, you receive, in ETH | **A line in a sum gets checked and a badge only asserts**, `D-94`. Three of the five lines are `[?]` |
+| **The calculator** | Items selected, their value, blockchain fee, you receive, in ETH | **A line in a sum gets checked and a badge only asserts**, `D-94`. Three of the five lines are samples since the second pass of round 13, `D-124` |
 | **The press** | Request cash out, live | `D-58`. It refuses with the ground that applies, and there are three of them |
 
 **The amount is read off the ticked items and is never typed.** A cash out here is a sell back with the money leaving, so what goes out is decided on the grid before the layer opens. **A free amount field would be a second way to say the same thing and the two would disagree.**
@@ -316,6 +316,8 @@ Founder, with the live product's layer beside ours: **"cash out - кстати �
 | **The coin to crypto rate at the moment of sending** | The `In ETH` line, and every crypto figure in the ledger. `D-28` publishes the peg to the dollar and nothing publishes a crypto rate | Founder |
 
 **The press refuses on all three and never on none.** Nothing ticked, no chain for this coin, no address, and where all three are satisfied it still refuses: **a request is not sent on a figure we cannot show the person.**
+
+**Updated in the second pass of round 13, `D-124`.** The canonical layer printed three unknowns in a five-line sum, which `D-124` names as the defect. **It now draws samples, and they are samples, not figures:** Tether on Tron (TRC-20); a blockchain fee of 2.40 coins on Ethereum, 0.05 on Litecoin and 1.00 on Tether; a rate of 2 450.00, 84.20 and 1.00 coins per unit. With those drawn, the press accepts once something is ticked and an address is given, and refuses when what is ticked is worth less than the fee. **All three unknowns in the table above stay open with the same owners.**
 
 ### What is deliberately not drawn
 

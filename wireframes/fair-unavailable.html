@@ -151,14 +151,14 @@
          opens. The disagreement with 0.14 section 6 is printed in the node.
          A VERIFIER THAT ONLY WORKS ON OUR PAGE IS NOT PROOF: the statement is
          complete when a stranger can write their own tool from it and get our
-         answer. Nothing below is drafted with a plausible value. -->
+         answer. The figures below are samples by D-124, and the node says so. -->
     <section class="wf-sec wf-algo" id="algorithm" aria-labelledby="h2-algo">
       <div class="wf-sec-head"><h2 id="h2-algo">The algorithm, published in full</h2></div>
       <p class="wf-algo-stamp">Version 1, published 12 Jan 2026</p>
       <h3>The computation</h3>
       <p>HMAC-SHA256 of the server seed, keyed with <code>client seed:nonce</code>. The first eight hex characters, read as a number, modulo 100 000, plus one, is the ticket. The item whose ticket range holds it is the result.</p>
       <h3>A worked example</h3>
-      <p>Server seed <code>7c1e…a904</code>, client seed <code>nightjar</code>, nonce <code>412</code>. HMAC starts <code>3a8f09c1</code>, which is 982 518 209; modulo 100 000 plus one is ticket <b>18 210</b>, in the range 11 001 to 23 000, USP-S Kill Confirmed. <a href="fair-prefilled.html">Check this round</a></p>
+      <p>Server seed <code>7c1e…a904</code>, client seed <code>nightjar</code>, nonce <code>412</code>. HMAC starts <code>3a9009c1</code>, which is 982 518 209; modulo 100 000 plus one is ticket <b>18 210</b>, in the range 11 001 to 23 000, USP-S Kill Confirmed. <a href="fair-prefilled.html">Check this round</a></p>
       <h3>Version history</h3>
       <p>Version 1, 12 Jan 2026. First published.</p>
     </section>

@@ -32,7 +32,7 @@
 | The live product | What we keep | What we change, and why |
 |---|---|---|
 | Breadcrumb, H1, deflection box, three-field form | **Breadcrumb, H1, the form** | The breadcrumb was missing. **The FAQ carries one sample question per section**, and the case screen's "what if a win cannot be sent" answer lives here |
-| Nothing |  | The deadline is a sample, 72 hours, on every support state; the email is a sample address |
+| Nothing |  | The deadline is a sample, 72 hours, on every support state; the email is a sample address; the 12 months an answer stays is a sample, and ticket retention stays open in section 9 |
 
 ---
 

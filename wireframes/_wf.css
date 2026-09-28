@@ -2862,6 +2862,10 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
   overflow-x: auto; scrollbar-width: none;
 }
 .wf-catbar-run::-webkit-scrollbar { display: none; }
+/* AT 360 THE WORD CATEGORIES COST THE STRIP HALF ITS ROOM, second pass of round
+   13: it left one chip visible beside Search and Filters. The chips name
+   themselves, so the label goes below 600 and two chips show before the edge. */
+@media (max-width: 599px) { .wf-catbar-lbl { display: none; } }
 .wf-catbar-acts { flex: 0 0 auto; display: flex; align-items: center; gap: var(--wf-s-half); }
 /* The two controls that narrow the shelf never leave the bar at any width.
    baseline.md 10.2: at 390 the chips go into the overflow and these stay. */
@@ -5496,13 +5500,20 @@ textarea.wf-cfg-in { min-height: 0; }
    clips rather than hides, so the scroll belongs to the wrap, and the dock's
    one-child wrapper stops being a box, so the dock travels the whole form. */
 .wf-dlg--pay { overflow: clip; }
+/* THE ADDRESS GETS THE SAME ROW, second pass of round 13. /deposit renders the
+   same layer as the dialog and D-100 says neither may become the reduced one, but
+   below 900 the page kept the old fixed dock of four figures, 290px of a 780
+   screen. Same rule on both now; on the page the row sits on the mobile bar. */
 @media (max-width: 899px) {
-  .wf-dlg--pay .wf-fund-grid > div:last-child { display: contents; }
-  .wf-dlg--pay .wf-dock {
-    position: sticky; bottom: 0; z-index: 5;
+  .wf-pay-lay .wf-fund-grid > div:last-child { display: contents; }
+  .wf-pay-lay .wf-dock {
+    position: sticky; bottom: var(--wf-bar-h); left: auto; right: auto; z-index: 5;
     background: var(--wf-surface); box-shadow: none;
+    border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
   }
-  .wf-dlg--pay .wf-dock .wf-total, .wf-dlg--pay .wf-dock .wf-card { display: none; }
+  .wf-dlg--pay .wf-dock { bottom: 0; }
+  .wf-screen-body:has(.wf-pay-lay .wf-dock) { padding-bottom: 0; }
+  .wf-pay-lay .wf-dock .wf-total, .wf-pay-lay .wf-dock .wf-card { display: none; }
 }
 @media (min-width: 900px) {
   .wf-dlg--pay .wf-fund-grid { align-items: stretch; }
@@ -5516,9 +5527,10 @@ textarea.wf-cfg-in { min-height: 0; }
 .wf-payprov-t:has(input:focus-visible) { outline: 2px solid var(--wf-ink); outline-offset: 2px; }
 /* ON A PHONE THE STICKY DOCK IS ONE ROW: what arrives, and Pay. */
 @media (max-width: 899px) {
-  .wf-dlg--pay .wf-dock { flex-direction: row; align-items: center; justify-content: space-between; padding: var(--wf-s-1) var(--wf-s-2); }
-  .wf-dlg--pay .wf-dock .wf-recv-v { font-size: var(--wf-t-l); }
-  .wf-dlg--pay .wf-dock .wf-refuse:empty { display: none; }
+  .wf-pay-lay .wf-dock { flex-direction: row; align-items: center; justify-content: space-between; padding: var(--wf-s-1) var(--wf-s-2); }
+  .wf-pay-lay .wf-dock .wf-recv { border-bottom: 0; padding-bottom: 0; }
+  .wf-pay-lay .wf-dock .wf-recv-v { font-size: var(--wf-t-l); white-space: nowrap; }
+  .wf-pay-lay .wf-dock .wf-refuse:empty { display: none; }
 }
 .wf-skindep-t { position: relative; cursor: pointer; }
 .wf-skindep-t input { position: absolute; opacity: 0; width: 1px; height: 1px; }

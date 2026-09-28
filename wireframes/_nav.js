@@ -848,23 +848,6 @@ window.WF_PAY = window.WF_PAY || {
     return wrap;
   }
 
-  // The reserved social row. Which channels are ours in round 1 is [?], owner founder,
-  // so the count is a reserved set rather than a guess at which networks.
-  function socialSet() {
-    var box = el('div', 'wf-foot-soc');
-    var nav = el('nav', 'wf-rail-soc-row');
-    nav.setAttribute('aria-label', 'Social');
-    for (var i = 0; i < 6; i++) {
-      var a = el('a', 'wf-rail-ico');
-      a.href = '#';
-      a.setAttribute('rel', 'external nofollow');
-      a.setAttribute('aria-label', 'Social channel');
-      nav.appendChild(a);
-    }
-    box.appendChild(nav);
-    return box;
-  }
-
   // THE ACCOUNT CONTROL OPENS A MENU RATHER THAN NAVIGATING, 0.1 section 5, added by
   // founder decision on 19 August 2026 from the baseline capture. The control keeps its
   // route target as the menu's first row, so nothing reachable becomes unreachable.
@@ -1228,14 +1211,18 @@ window.WF_PAY = window.WF_PAY || {
      TWO CONTROLS OF EQUAL WEIGHT. Neither is primary: making cancel quieter is
      the product leaning on the choice, and making confirm quieter is the product
      hedging on a decision it has just told the person is final. */
+  /* THE PERIOD IS THE ONE IN THE SELECT, second pass of round 13: the select
+     showed 5 years and the dialog confirmed 30 days. Samples by D-124, counted
+     from the prototype's now, 21 Aug 2026, 09:31. */
+  var EX_END = { '6 months': '21 Feb 2027, 09:31', '1 year': '21 Aug 2027, 09:31', '5 years': '21 Aug 2031, 09:31' };
   function excludeHTML(period) {
-    var p = period || '30 days';
+    var p = period || '5 years';
     return '<div class="wf-dlg-scrim" data-ex-dismiss></div>' +
       '<div class="wf-dlg-wrap"><div class="wf-dlg wf-dlg--plain" role="dialog" aria-modal="true" aria-label="Confirm self exclusion">' +
         '<button class="wf-dlg-close" type="button" data-ex-dismiss aria-label="Close">&#215;</button>' +
         '<div class="wf-dlg-body">' +
           '<h2 class="wf-dlg-h">Self exclusion for ' + p + '</h2>' +
-          '<p class="wf-dlg-sub">It starts now and ends on <b>21 Sep 2026, 09:31</b>.</p>' +
+          '<p class="wf-dlg-sub">It starts now and ends on <b>' + (EX_END[p] || EX_END['5 years']) + '</b>.</p>' +
           '<div class="wf-closes">' +
             '<div class="wf-closes-c"><span class="wf-closes-k">Closes</span><span>Opening a case, and adding funds.</span></div>' +
             '<div class="wf-closes-c"><span class="wf-closes-k">Stays open</span><span>Taking what you hold out to Steam. Support. Reading the product.</span></div>' +
@@ -1371,7 +1358,8 @@ window.WF_PAY = window.WF_PAY || {
       var t = e.target.closest('[data-ex-open]');
       if (!t) return;
       e.preventDefault();
-      open(t.getAttribute('data-ex-open') || '30 days', t);
+      var sel = t.closest('.wf-set-ctl') && t.closest('.wf-set-ctl').querySelector('select');
+      open((sel && sel.value) || t.getAttribute('data-ex-open') || '5 years', t);
     });
     var pinned = document.querySelector('[data-ex-pinned]');
     if (pinned) open(pinned.getAttribute('data-ex-pinned'), null);
@@ -3191,7 +3179,7 @@ window.WF_PAY = window.WF_PAY || {
         '<div class="wf-drawer-head">' +
           '<h2 class="wf-drawer-h" id="wf-drawer-h">Filter</h2>' +
           '<div class="wf-row">' +
-            '<button class="wf-btn wf-btn--small" type="button">Reset all</button>' +
+            '<button class="wf-btn wf-btn--small" type="button" data-filter-reset>Reset all</button>' +
             '<button class="wf-btn wf-btn--small wf-drawer-x" type="button" aria-label="Close the filters">x</button>' +
           '</div>' +
         '</div>' +
@@ -3235,9 +3223,9 @@ window.WF_PAY = window.WF_PAY || {
           '<div class="wf-fset">' +
             '<span class="wf-fset-h" id="f-risk-h">Risk level</span>' +
             '<div class="wf-riskset" role="group" aria-labelledby="f-risk-h">' +
-              '<label class="wf-riskrow"><input type="checkbox">' + pips(1) + 'Low</label>' +
-              '<label class="wf-riskrow"><input type="checkbox">' + pips(2) + 'Medium</label>' +
-              '<label class="wf-riskrow"><input type="checkbox">' + pips(3) + 'High</label>' +
+              '<label class="wf-riskrow"><input type="checkbox" data-risk="Low">' + pips(1) + 'Low</label>' +
+              '<label class="wf-riskrow"><input type="checkbox" data-risk="Medium">' + pips(2) + 'Medium</label>' +
+              '<label class="wf-riskrow"><input type="checkbox" data-risk="High">' + pips(3) + 'High</label>' +
             '</div>' +
           '</div>' +
 
@@ -3273,13 +3261,38 @@ window.WF_PAY = window.WF_PAY || {
 
         '</div>' +
         '<div class="wf-drawer-foot">' +
-          '<button class="wf-btn wf-btn--primary" type="button" data-filter-dismiss>Show 12 cases</button>' +
+          '<button class="wf-btn wf-btn--primary" type="button" data-filter-dismiss data-filter-apply>Show 12 cases</button>' +
         '</div>' +
       '</aside>';
   }
 
   function mountFilterDrawer() {
     var opener = null, host = null;
+    /* THE RISK BOXES FILTER, second pass of round 13: D-127 made them live but the
+       press only closed the drawer. Now the count on the press follows the boxes,
+       and the press hides the tiles outside the chosen bands. None ticked is all. */
+    var riskSel = [];
+    function riskTiles() {
+      return Array.prototype.slice.call(document.querySelectorAll('.wf-tile')).filter(function (t) { return t.querySelector('.wf-tile-risk'); });
+    }
+    function riskMatch(t, sel) {
+      if (!sel.length) return true;
+      var w = t.querySelector('.wf-tile-risk').textContent;
+      return sel.some(function (b) { return w.indexOf(b) === 0; });
+    }
+    function riskPicked() {
+      return Array.prototype.slice.call(host.querySelectorAll('[data-risk]:checked')).map(function (i) { return i.getAttribute('data-risk'); });
+    }
+    function riskCount() {
+      var sel = riskPicked(), tiles = riskTiles();
+      var n = tiles.length ? tiles.filter(function (t) { return riskMatch(t, sel); }).length : 12;
+      var b = host.querySelector('[data-filter-apply]');
+      if (b) b.textContent = 'Show ' + n + (n === 1 ? ' case' : ' cases');
+    }
+    function riskApply() {
+      riskSel = riskPicked();
+      riskTiles().forEach(function (t) { t.hidden = !riskMatch(t, riskSel); });
+    }
 
     function close() {
       if (!host) return;
@@ -3309,7 +3322,16 @@ window.WF_PAY = window.WF_PAY || {
       host.innerHTML = filterDrawerHTML(!!(window.WF_SHELL && window.WF_SHELL.account));
       document.body.appendChild(host);
       document.documentElement.style.overflow = 'hidden';
+      riskSel.forEach(function (b) { var i = host.querySelector('[data-risk="' + b + '"]'); if (i) i.checked = true; });
+      riskCount();
+      host.addEventListener('change', function (e) { if (e.target.closest('[data-risk]')) riskCount(); });
       host.addEventListener('click', function (e) {
+        if (e.target.closest('[data-filter-reset]')) {
+          host.querySelectorAll('[data-risk]').forEach(function (i) { i.checked = false; });
+          riskCount();
+          return;
+        }
+        if (e.target.closest('[data-filter-apply]')) riskApply();
         if (e.target.closest('.wf-drawer-x') || e.target.closest('[data-filter-dismiss]')) close();
       });
       document.addEventListener('keydown', onKey, true);
@@ -5108,11 +5130,9 @@ window.WF_PAY = window.WF_PAY || {
      the field stays live and THE PRESS REFUSES WITH THE REASON, D-58: a control
      that refuses says what is missing, a dimmed one says only that somebody
      decided something.
-     AND THE FEE IS [?], SO THE RESULT OF THE CALCULATOR IS [?]. The live product
-     puts a blockchain fee in this layer. Ours has no figure for it, and an amount
-     minus an unknown is an unknown: the row is drawn and the answer is not
-     invented. Three [?] in one small block is what this capability actually
-     costs today and the layer prints it rather than absorbing it.
+     THE FEE IS A SAMPLE, SO THE RESULT OF THE CALCULATOR IS A SAMPLE, D-124.
+     The live product puts a blockchain fee in this layer. Ours has no decided
+     figure; the canonical render draws one and node 5.1 says it is a sample.
      WHAT THE LIVE LAYER SAYS AND OURS DOES NOT. The baseline's notice reads that
      cashing out forfeits the deposit bonus for the rest of the day and free case
      battles and giveaways. Two of those three do not exist for us at all, battles
@@ -5122,12 +5142,14 @@ window.WF_PAY = window.WF_PAY || {
      So the sentence is not on the layer. It is an open question in node 5.1.
      --------------------------------------------------------------------- */
   var CO_NETS = [
-    { key: 'eth',  name: 'Ethereum', tick: 'ETH',  chain: 'Ethereum',
+    /* FEE AND RATE ARE SAMPLES BY D-124, second pass of round 13: the canonical
+       layer printed three unknowns in a five-line sum. The fee is in coins, the
+       rate is coins per unit, and node 5.1 carries both as samples. The Tether
+       chain is a sample too; which chain is still the founder's call. */
+    { key: 'eth',  name: 'Ethereum', tick: 'ETH',  chain: 'Ethereum', fee: 2.40, rate: 2450, dp: 6,
       saved: [{ label: 'Main wallet', v: '0x7a1f4c2e9b0d5583a17c4e2f9b6d0c8a3e51f742' }] },
-    { key: 'ltc',  name: 'Litecoin', tick: 'LTC',  chain: 'Litecoin', saved: [] },
-    /* THE ONE WITH NO CHAIN. Not a gap in the drawing: a decision nobody has
-       taken, carried where a person can see it. */
-    { key: 'usdt', name: 'Tether',   tick: 'USDT', chain: null,       saved: [] }
+    { key: 'ltc',  name: 'Litecoin', tick: 'LTC',  chain: 'Litecoin', fee: 0.05, rate: 84.20, dp: 6, saved: [] },
+    { key: 'usdt', name: 'Tether',   tick: 'USDT', chain: 'Tron (TRC-20)', fee: 1.00, rate: 1, dp: 2, saved: [] }
   ];
 
   function coRow(k, v, missing, sub) {
@@ -5225,18 +5247,19 @@ window.WF_PAY = window.WF_PAY || {
     host.appendChild(fld);
 
     /* THE CALCULATOR, AND IT IS THE PRODUCT'S OWN SUM RATHER THAN A PICTURE OF
-       ONE. Two rows are read live off the grid, two are [?], and the last is
-       [?] because it is derived from a [?]. D-94's rule holds here as it does on
+       ONE. Two rows are read live off the grid and three follow from the sample
+       fee and rate. D-94's rule holds here as it does on
        the deposit: a line in a sum gets checked, a badge only asserts. */
     var p = coPicked();
     var calc = el('div', 'wf-co-calc');
     calc.appendChild(el('h3', 'wf-co-h', 'What goes out'));
     calc.appendChild(coRow('Items selected', p.n + (p.n === 1 ? ' item' : ' items')));
     calc.appendChild(coRow('Their value', wdFmt(p.v) + ' coins'));
-    calc.appendChild(coRow('Blockchain fee', 'not published yet', true));
+    calc.appendChild(coRow('Blockchain fee', '-' + wdFmt(net.fee) + ' coins'));
+    var rec = Math.max(0, p.v - net.fee);
     var out = el('div', 'wf-co-out');
-    out.appendChild(coRow('You receive', 'not published yet', true));
-    out.appendChild(coRow('In ' + net.tick, 'not published yet', true, true));
+    out.appendChild(coRow('You receive', wdFmt(rec) + ' coins'));
+    out.appendChild(coRow('In ' + net.tick, (rec / net.rate).toFixed(net.dp) + ' ' + net.tick + ', at ' + wdFmt(net.rate).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' coins each', false, true));
     calc.appendChild(out);
     host.appendChild(calc);
 
@@ -5397,7 +5420,8 @@ window.WF_PAY = window.WF_PAY || {
           if (!p.n) say.textContent = 'Nothing is ticked. Cashing out needs at least one item, chosen on the grid behind this.';
           else if (!net.chain) say.textContent = 'Which network we send ' + net.tick + ' on is not published yet, so an address cannot be checked and this request cannot go.';
           else if (!addr) say.textContent = 'A ' + net.name + ' address is needed. Nothing is sent anywhere without one.';
-          else say.textContent = 'The blockchain fee is not published yet, so what you would receive cannot be stated, and a request is not sent on a figure we cannot show you.';
+          else if (p.v <= net.fee) say.textContent = 'What is ticked is worth less than the blockchain fee, so nothing would arrive. Tick more, or sell back instead.';
+          else say.textContent = 'Requested. ' + ((p.v - net.fee) / net.rate).toFixed(net.dp) + ' ' + net.tick + ' goes to ' + addr.slice(0, 6) + '…' + addr.slice(-4) + '. It is in History under Cash out.';
           return;
         }
       }

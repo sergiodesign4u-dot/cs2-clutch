@@ -616,3 +616,25 @@
 ### 13.14 Step 7, the remaining surfaces, fixed on 27 September 2026 under `D-130`
 
 **Closed from 13.5:** breadcrumbs on Support and Responsible play, Make me anonymous as a toggle. **Closed from 13.4:** the residue of settings, profile, public profile, fair, responsible, legal, support, sign in and the gate, among them all 12 "Not published" deadlines on the support states. **Closed from 13.7:** "cannot be turned off" was still on `player-owner.html` and `player-hidden.html` in a second wording that step 1's search for the first wording could not find. **Found while fixing:** settings still said money never leaves as money after cash out shipped, and the deadline state's overrun had to be recomputed once the deadline had a value.
+
+### 13.15 Second pass over everything the round touched, 29 September 2026
+
+**Instruments.** Claude with a browser walked all 133 wireframe pages at 360 and 1440, asserting no page error, no sideways scroll, nothing off screen, no clipped string and no overlapping controls, and then looked at 16 pages at 360 and 4 at 768 by eye. **Codex, read only, was given the 143 files the round changed and nine classes, and was cut off by its usage limit after 17 minutes, before it wrote its tables.** What it had stated in its progress messages is below, each row verified in the current file before anything was edited. **The pass is therefore not closed:** the Codex classes it did not report on are listed as pending, and it is rerun when the limit lifts.
+
+| # | Finding | Found by | Class | Status |
+|---|---|---|---|---|
+| 1 | At 360 `/deposit` kept the old fixed dock of four figures, 290px of a 780 screen, while the dialog renders the same layer as one sticky row. D-100 says neither may become the reduced one | Claude, browser | Breaks at 360 | Fixed: one rule for both below 900, the row sits on the mobile bar on the page |
+| 2 | The receive figure wrapped to two lines in the one-row dock on the skins route, and the receive block kept its bottom rule inside the row | Claude, browser | Breaks at 360 | Fixed |
+| 3 | The Legal breadcrumb rendered "Home Legal Terms of use" with no separators on all five legal pages: `D-130` wrote it without the list markup the separators hang on | Claude, browser | Breaks as a string | Fixed |
+| 4 | At 360 the word CATEGORIES took half the catalogue's jump strip, leaving one chip beside Search and Filters | Claude, browser | Breaks at 360 | Fixed: the label goes below 600 |
+| 5 | The risk boxes were live but the press only closed the drawer and always read "Show 12 cases". `D-127` said the filter starts working | Codex | Contradiction | Fixed: the count follows the boxes, the press hides tiles outside the bands, Reset clears |
+| 6 | Self exclusion's select showed 5 years and the dialog confirmed 30 days, ending 21 Sep 2026 | Codex | Contradiction | Fixed: the dialog reads the select; the excluded state ends 21 Aug 2031 |
+| 7 | The fair worked example read `3a8f09c1` as 982 518 209. It is 982 452 673, ticket 52 674, which is not the item the example names | Codex | Contradiction | Fixed: the hex is `3a9009c1`, which is 982 518 209, on all six fair pages |
+| 8 | The cash out calculator, a canonical render, still printed three "not published yet" | Codex | Residue against `D-124` | Fixed: sample fee, rate and Tether chain, marked as samples in `5.1`; the press now accepts or refuses on the figures |
+| 9 | "This answer stays here for 12 months" on `support-answered.html` is a sample the node did not mark | Codex | Sample not marked | Fixed in `0.10` and its page |
+| 10 | `socialSet()` in `_nav.js` is never called | Codex | Dead code | Fixed: removed |
+| 11 | CSS selectors with no producer | Codex | Dead code | **Pending**: Codex named the class and was cut off before the list |
+| 12 | Drift in sample marking and in IA mirror content | Codex | Contradiction | **Pending**: named in progress, not itemised |
+| 13 | Overlapping controls: the favourite counter over each case tile, the chips under Search and Filters, two wrapped inline links, the sticky pay row over the presets | Claude, browser | Overlap | **Withdrawn on verification**: the counter is an absolute badge by design, the chips are clipped by their own scroller, the links are one sentence wrapping, and the row covers what scrolls under it by `D-129` |
+
+**Zero findings, stated by Codex before the cut:** `NAV_SECTIONS`, every id present and in DOM order; no em dash in the 143 files; 1 291 local links and anchors, all resolving; the support deadline, 72 hours, and its Missed by arithmetic, 3 d 4 h.
