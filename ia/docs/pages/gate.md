@@ -18,6 +18,17 @@
 
 **Cluster 2 is three screens nobody chooses to visit.** This is the one that arrives uninvited, in the middle of somebody else's intention.
 
+
+## Amended 27 September 2026 by `D-130`. 2.1 Geo gate stops explaining itself
+
+**Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against no gate on the baseline. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Nothing |  | Each verdict is a headline, one reason, one line of what still works and two buttons. The staged cap is a sample, $100 a week. The legal ground and the register mechanics are here and on Where we operate, not in the layer |
+
 ---
 
 ## 0. The one thing this node is not

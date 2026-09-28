@@ -22,6 +22,18 @@
 |---|---|---|
 | A ticket form of three fields, Subject defaulting to Deposits, Email and Message, under an ATTENTION block pushing the FAQ first. `baseline.md` section 9.5. | The three field shape and the deflection to articles, which is reasonable and cheap. | **The submit button reads SIGN IN.** A guest can fill the form and cannot send it, so **a person locked out of their account cannot use the product's own support channel to say so.** That is the strongest single argument in this repository for the appeal route `G4` and its published deadline, and it is now a walked fact rather than an inference. |
 
+
+## Amended 27 September 2026 by `D-130`. 0.10 Support stops explaining itself
+
+**Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against `walk4_support_1440_26sep.png`. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Breadcrumb, H1, deflection box, three-field form | **Breadcrumb, H1, the form** | The breadcrumb was missing. **The FAQ carries one sample question per section**, and the case screen's "what if a win cannot be sent" answer lives here |
+| Nothing |  | The deadline is a sample, 72 hours, on every support state; the email is a sample address |
+
 ---
 
 ## 0.5 Amended 23 August 2026 by `D-82`, the founder's screen review

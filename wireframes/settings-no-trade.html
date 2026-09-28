@@ -104,7 +104,7 @@
           <div class="wf-cfg-rt">
             <span class="wf-cfg-rk">Username</span>
             <span class="wf-cfg-rv">nightjar_cs</span>
-            <p class="wf-cfg-why">No control. Your name and your picture come from Steam with the sign in, and a product that lets them drift from Steam has two names for one person.</p>
+            <p class="wf-cfg-why">From Steam.</p>
           </div>
         </div>
 
@@ -147,7 +147,7 @@
               <option>Poland</option>
               <option>Germany</option>
             </select>
-            <p class="wf-cfg-p">Only markets we have opened are listed. This is a statement you are making, and the terms treat a false one as grounds to close the account, with the reason written down and an appeal open to you.</p>
+            <p class="wf-cfg-p">Only markets we operate in are listed. A false country can close the account.</p>
           </div>
           <div class="wf-cfg-row">
             <button class="wf-btn" type="button">Save where you live</button>
@@ -179,7 +179,7 @@
               <span class="wf-cfg-ico" aria-hidden="true"></span>
               <label class="wf-cfg-l" for="cfg-url">Steam trade URL</label>
             </div>
-            <p class="wf-cfg-p">This is where your skins go. Withdrawals are sent to Steam as a trade offer, and Steam needs this link to know where to send it. It is yours, it comes from Steam, and you can change it whenever you like.</p>
+            <p class="wf-cfg-p">Steam needs this link to send you skins.</p>
             <textarea class="wf-cfg-in" id="cfg-url" rows="3" data-cfg-url spellcheck="false" autocomplete="off"></textarea>
             <!-- THE DESTINATION IS STEAM'S OWN PAGE and it is a real external href,
                  because the token is issued there and nowhere else. A helper link that
@@ -218,7 +218,6 @@
           <div class="wf-cfg-rt">
             <span class="wf-cfg-rk" id="cfg-lang-k">Language</span>
             <span class="wf-cfg-rv">English</span>
-            <p class="wf-cfg-why">The same control sits at the foot of the menu on the left, and both read one setting.</p>
           </div>
           <div class="wf-cfg-rc">
             <select class="wf-f" id="cfg-lang" aria-labelledby="cfg-lang-k">
@@ -236,7 +235,6 @@
           <div class="wf-cfg-rt">
             <span class="wf-cfg-rk" id="cfg-sound-k">Sound</span>
             <span class="wf-cfg-rv">On</span>
-            <p class="wf-cfg-why">The same control sits at the foot of the menu on the left, and both read one setting.</p>
           </div>
           <div class="wf-cfg-rc wf-cfg-sw">
             <input type="checkbox" role="switch" id="cfg-sound" aria-labelledby="cfg-sound-k" checked>
@@ -308,8 +306,8 @@
           <span class="wf-cfg-ico" aria-hidden="true"></span>
           <div class="wf-cfg-rt">
             <span class="wf-cfg-rk" id="cfg-pub-k">Public profile</span>
-            <span class="wf-cfg-rv">On. Anyone with the address sees your name and what you have won, and every item on it routes to its own round.</span>
-            <p class="wf-cfg-why">Switch it off and that address shows a stranger the same thing an account that never existed shows, and your name in the live drop strip stops being a link. It does not take back the page for a round you have already shared, and it does not take your name out of the strip.</p>
+            <span class="wf-cfg-rv" data-sw-for="cfg-pub" data-sw-on="On. Anyone with the address sees your name and your wins." data-sw-off="Off. The address shows nothing about you.">On. Anyone with the address sees your name and your wins.</span>
+            <p class="wf-cfg-why">Pages for rounds you already shared stay up.</p>
             <p class="wf-cfg-p"><a href="player-owner.html">See what is on it right now</a></p>
           </div>
           <div class="wf-cfg-rc wf-cfg-sw">
@@ -317,23 +315,19 @@
           </div>
         </div>
 
-        <!-- AND THE ANONYMITY ROW STAYS ABSENT, WITH ONE OF ITS TWO REASONS GONE.
-             It was blocked on two open questions: whether a public page of ours
-             exists, and what the strip and a shared result render about a person.
-             D-90 answered the first and D-93 answered what to do about it, so the
-             ground is now one question rather than two, and the row says which.
-             WHY THE SWITCH ABOVE DOES NOT SWALLOW THIS ONE. They are different
-             subjects: one is a page about you, the other is your name on a round
-             in a strip and on a page that was built to be shared. Merging them
-             would let a person press one control and be surprised by half of what
-             it did, and 7.1's whole argument is that a shared result is about the
-             round rather than about the person. -->
-        <div class="wf-cfg-row2 is-absent">
+        <!-- MAKE ME ANONYMOUS IS A SWITCH, D-130, founder decision of 27 September
+             2026, and the baseline's own row. It was a refusal printed in 55 words.
+             IT IS A DIFFERENT SUBJECT FROM THE SWITCH ABOVE and the value says what
+             it moves: your name on a round, in the live drops and on a result page
+             built to be shared. The page about you is the row above. -->
+        <div class="wf-cfg-row2">
           <span class="wf-cfg-ico" aria-hidden="true"></span>
           <div class="wf-cfg-rt">
-            <span class="wf-cfg-rk">Make me anonymous</span>
-            <span class="wf-cfg-rv">No switch. Your name and your picture can appear in the live drop strip and on the page for a win you share.</span>
-            <p class="wf-cfg-why">The switch above takes down your own page. This one is a different subject: whether your name appears on a round at all, in the running strip and on a result page built to be shared. It is on, and there is no switch for it yet.</p>
+            <span class="wf-cfg-rk" id="cfg-anon-k">Make me anonymous</span>
+            <span class="wf-cfg-rv" data-sw-for="cfg-anon" data-sw-on="On. Live drops and shared results show Anonymous instead of your name." data-sw-off="Off. Your name shows in live drops and on results you share.">Off. Your name shows in live drops and on results you share.</span>
+          </div>
+          <div class="wf-cfg-rc wf-cfg-sw">
+            <input type="checkbox" role="switch" id="cfg-anon" aria-labelledby="cfg-anon-k">
           </div>
         </div>
 
@@ -380,7 +374,6 @@
           <span class="wf-cfg-prov-n">Google</span>
           <span class="wf-cfg-prov-s">Not connected</span>
         </div>
-        <p class="wf-cfg-why">Linking a second way to sign in is not something this product does yet, so this list says which one carried you in.</p>
       </div>
 
       </div>
@@ -423,108 +416,22 @@
           <div class="wf-cfg-rt">
             <span class="wf-cfg-rk">Messages about your own account</span>
             <span class="wf-cfg-rv">No switch</span>
-            <p class="wf-cfg-why">A withdrawal that failed, a round that did not settle, a limit you set coming into force. You cannot opt out of being told what happened to your own money.</p>
+            <p class="wf-cfg-why">Failed withdrawals, unsettled rounds, limits coming into force. Always on.</p>
           </div>
         </div>
 
-        <!-- THE SIX SCOPE ROWS AND THE TWO PRINCIPLE ROWS SIT TOGETHER AND ARE
-             LABELLED APART. They look identical from the outside, one row with no
-             control, and they are not the same kind of refusal: six wait for a
-             capability to exist and two will still have no switch on the day the
-             product is finished. Saying which is which is the difference between a
-             backlog and a decision. -->
-        <p class="wf-cfg-sub">Not switchable yet, and why</p>
-
+        <!-- ONE ROW WHERE EIGHT STOOD, D-130. Six were switches for modes that do
+             not exist, the dead item defect a carrier is not allowed to hold, and
+             their verdicts are in settings.md. The two principle rows keep their
+             rule and lose their paragraphs; cash out joins them, since D-118 made
+             it round 1 and this row still said money never leaves as money. -->
         <div class="wf-cfg-row2 is-absent">
           <span class="wf-cfg-ico" aria-hidden="true"></span>
           <div class="wf-cfg-rt">
-            <span class="wf-cfg-rk">Sponsored games from a partner</span>
-            <span class="wf-cfg-rv">No switch</span>
-            <p class="wf-cfg-why">A partner programme is not here yet. Nothing would send this message.</p>
+            <span class="wf-cfg-rk">Confirmations</span>
+            <span class="wf-cfg-rv">Selling back, sending to Steam and cashing out always ask you first.</span>
           </div>
         </div>
-        <div class="wf-cfg-row2 is-absent">
-          <span class="wf-cfg-ico" aria-hidden="true"></span>
-          <div class="wf-cfg-rt">
-            <span class="wf-cfg-rk">Giveaway results</span>
-            <span class="wf-cfg-rv">No switch</span>
-            <p class="wf-cfg-why">Giveaways are not here yet. Until one runs there is no result to tell you about.</p>
-          </div>
-        </div>
-        <div class="wf-cfg-row2 is-absent">
-          <span class="wf-cfg-ico" aria-hidden="true"></span>
-          <div class="wf-cfg-rt">
-            <span class="wf-cfg-rk">Joining bots to case battles</span>
-            <span class="wf-cfg-rv">No switch</span>
-            <p class="wf-cfg-why">Case battles are not here yet, so nothing joins anything.</p>
-          </div>
-        </div>
-        <div class="wf-cfg-row2 is-absent">
-          <span class="wf-cfg-ico" aria-hidden="true"></span>
-          <div class="wf-cfg-rt">
-            <span class="wf-cfg-rk">Joining bots to gunfights</span>
-            <span class="wf-cfg-rv">No switch</span>
-            <p class="wf-cfg-why">Gunfights are not here yet either, and this row waits on the same thing the one above it waits on.</p>
-          </div>
-        </div>
-        <div class="wf-cfg-row2 is-absent">
-          <span class="wf-cfg-ico" aria-hidden="true"></span>
-          <div class="wf-cfg-rt">
-            <span class="wf-cfg-rk">Confirmation before an upgrade</span>
-            <span class="wf-cfg-rv">No switch</span>
-            <p class="wf-cfg-why">Upgrades are not here yet. There is no upgrade to confirm.</p>
-          </div>
-        </div>
-        <div class="wf-cfg-row2 is-absent">
-          <span class="wf-cfg-ico" aria-hidden="true"></span>
-          <div class="wf-cfg-rt">
-            <span class="wf-cfg-rk">Confirmation before a crypto withdrawal</span>
-            <span class="wf-cfg-rv">No switch</span>
-            <p class="wf-cfg-why">Taking money out as money is not something this product does. Skins go to Steam and that is the whole exit.</p>
-          </div>
-        </div>
-
-        <!-- THE TWO REFUSED ON A PRINCIPLE, AND THE ROW SAYS SO IN PLAIN WORDS.
-             Selling a skin back is round 1 since D-38 and withdrawal to Steam is
-             round 1, so scope does not refuse these. Design principle 3 does, and
-             it is quoted rather than paraphrased: "where money is about to be
-             spent, odds, cost and expected value are visible and legible. Cost
-             never hides inside excitement."
-             THE COST IS PRINTED RATHER THAN ABSORBED. Somebody who withdraws every
-             day will confirm every day, and that is friction we are choosing. The
-             answer to it is a faster confirmation, not an absent one. -->
-        <div class="wf-cfg-row2 is-absent">
-          <span class="wf-cfg-ico" aria-hidden="true"></span>
-          <div class="wf-cfg-rt">
-            <span class="wf-cfg-rk">Confirmation before selling a skin back</span>
-            <span class="wf-cfg-rv">No switch, and this one is a rule rather than a gap in the round</span>
-            <p class="wf-cfg-why">There is no switch. Selling an item back is confirmed every time, because value leaves the account when you do it.</p>
-          </div>
-        </div>
-        <div class="wf-cfg-row2 is-absent">
-          <span class="wf-cfg-ico" aria-hidden="true"></span>
-          <div class="wf-cfg-rt">
-            <span class="wf-cfg-rk">Confirmation before sending a skin to Steam</span>
-            <span class="wf-cfg-rv">No switch, and this one is a rule rather than a gap in the round</span>
-            <p class="wf-cfg-why">No switch here either. If you withdraw every day you will confirm every day, and the answer to that is a faster confirmation rather than an absent one.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- WHAT IS LEFT OF THE OLD ROUTE LIST, AND ONLY WHAT THE FOUR BLOCKS DO NOT
-           COVER. The break tool, sound, language and signing out all have a row of
-           their own now, so they are gone from here rather than said twice. These
-           five are places, not settings, and a control for any of them here would
-           make this page the second home for something that already has one. -->
-      <div class="wf-cfg-b">
-        <h2 class="wf-cfg-h">Things people look for here</h2>
-        <ul class="wf-cfg-routes">
-          <li><a href="account.html">Your skins</a><span class="wf-cfg-where">My items</span></li>
-          <li><a href="history.html">Every case you have opened</a><span class="wf-cfg-where">History</span></li>
-          <li><a href="profile.html">Your account record and your messages</a><span class="wf-cfg-where">Profile</span></li>
-          <li><a href="legal.html">Terms, privacy, cookies and refunds</a><span class="wf-cfg-where">Legal</span></li>
-          <li><span class="wf-cfg-where">Cookies</span><span class="wf-cfg-where">Cookie settings, at the foot of any page</span></li>
-        </ul>
       </div>
 
       </div>

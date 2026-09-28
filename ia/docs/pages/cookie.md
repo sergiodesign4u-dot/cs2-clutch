@@ -100,6 +100,7 @@ Two pages on `cnil.fr`, English versions, opened 12 August 2026.
 | **EDPB Guidelines 05/2020 on consent** | The landing page opened and confirms the title and an adoption date of 4 May 2020. **The PDF itself could not be parsed in this environment** | Its paragraph numbers and its wording on cookie walls and on scrolling are `[?]` here. Nothing below rests on it. The cookie wall rule in section 2 is grounded on Article 7(4), which was read in full |
 | **ICO guidance on cookies and similar technologies** | HTTP 403 to this environment | The UK position is `[?]`. It also matters less than it looks: the UK is on the inherited market list `0.12` carries as `[?]` |
 | **A consent lifetime** | No source opened this session states one | The re-ask interval in section 6 is `[?]` with an owner, rather than a plausible number |
+| **Drawn since `D-130`** | A sample, `D-124` | The layer prints "We ask again after 12 months"; the real interval stays `[?]` here. The marketing row's "whether anything sits behind this" and the Article 5(3) citation left the layer for this node |
 | **Which national implementation binds us** | Depends on establishment and on the market verdicts, both open in `0.12` | The dialog is designed to one behaviour everywhere, section 6, which is what makes the open question survivable |
 
 ---

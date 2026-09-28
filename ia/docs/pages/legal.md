@@ -24,6 +24,18 @@
 |---|---|---|
 | Four documents, all `noindex,nofollow`, each **one H1 and zero H2**. The terms run about 7,270 words as a single wall, last updated 08/01/2025; the cookie policy is dated April 2019. All carry a breadcrumb. `baseline.md` section 9.4. | The breadcrumb, and the document set itself. | **The wall.** Zero H2 in a 7,270 word contract is the defect this node exists to fix, and it is now measured rather than asserted. **And the dates:** a policy from 2019 sitting under a product that changed every year since is a document nobody re-read. |
 
+
+## Amended 27 September 2026 by `D-130`. 0.9 Legal stops explaining itself
+
+**Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against baseline.md section 9.4. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Breadcrumb, H1, one document | **The same** | The crumb reads Legal. The plain summary is three sample lines. Each clause is one short placeholder, not a sentence about counsel |
+| Company identification in the footer | **The fields** | Drawn as field values rather than "Not set" |
+
 ---
 
 ## 0. The template is the node

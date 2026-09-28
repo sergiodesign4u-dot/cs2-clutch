@@ -30,6 +30,18 @@
 |---|---|---|
 | **A public profile page**, walked by the founder's capture of 21 August 2026 and recorded in `baseline.md` section 9.9: a hexagonal avatar, the display name, **a numeric public id read as `ID 852261`**, three counters reading `N/A`, the name repeated under the avatar, four history tabs and a grid of item cards. | **The avatar, the display name and the Steam origin.** Three facts, and the baseline is the source for the fact that an account is not anonymous here. | **That it is public, and that it is a shelf.** Ours is the account's own view of itself and there is no public form of it in round 1: `D-69` records two of our own decisions pointing opposite ways on a public profile and leaves it `[?]`. **And the id is not copied.** `baseline.md` records that `852261` is sequential and that a stranger can decrement it, which makes the platform's registered-account count enumerable from outside. It is a fact about the baseline, recorded, and not a pattern to inherit. **The three `N/A` counters are not inherited either:** a counter that has never had a value is a field waiting for a score. |
 
+
+## Amended 27 September 2026 by `D-130`. 5.10 Profile stops explaining itself
+
+**Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against `acct_profile_daily.png`. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Band, tabs, daily card, messages panel | **All four** | The daily reset is a sample moment, `00:00 UTC`. The note about where the ladder lives and the two notes under the messages go |
+| Nothing else |  | **"Who this account is" leaves the screen**: the id is in the band. **"What a stranger can see" is three lines**: what the public page carries, one button, and one route to the two switches in Settings |
+
 ---
 
 ## 0.4 Amended 23 August 2026 by `D-87`, and this is the amendment the node's own rule was written to make expensive

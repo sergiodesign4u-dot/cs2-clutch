@@ -45,6 +45,7 @@
 
   <main class="wf-main">
 
+    <nav class="wf-crumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><span aria-current="page">Responsible play</span></li></ol></nav>
     <h1>Responsible play</h1>
 
     <div class="wf-rp" data-rp>
@@ -53,7 +54,7 @@
            good is a page arguing with the person who already opened it. -->
       <div class="wf-stack">
         <div class="wf-sec-head"><h2 id="h2-what">What these tools do</h2></div>
-        <p>Four boundaries. You set them, they hold, and none of them is a game.</p>
+        <p>Four boundaries you set yourself.</p>
         <p>Tightening one takes effect immediately. Loosening one takes 24 hours, and the boundary you have now holds until then.</p>
       </div>
       <!-- BLOCK 7. ABOVE THE CONTROLS, AND THE ORDER IS THE DECISION. A person who
@@ -76,7 +77,6 @@
             <span><strong>Taking what you hold out to Steam.</strong> Support. Reading the product.</span>
           </div>
         </div>
-        <p class="wf-note">A limit stops money going in. It never traps what you already hold, and that includes self exclusion.</p>
       </div>
       <!-- BLOCKS 3 TO 6. THE FOUR BOUNDARIES, AS GROUPED SETTING ROWS. A limit is a
            setting and it must look like one rather than like an achievement.
@@ -92,29 +92,26 @@
       <div class="wf-stack">
         <div class="wf-set">
           <h3 class="wf-set-h" id="h2-ceiling">Deposit limit</h3>
-          <p class="wf-set-p">Caps what you can put in over a period. This is where it is set, and the deposit screen shows the figure in force while you are paying.</p>
-          <ul class="wf-dir"><li><span class="wf-dir-w">Tighten</span><span>Immediately.</span></li><li><span class="wf-dir-w">Loosen</span><span>24 hours later.</span></li></ul>
-          <div class="wf-set-ctl"><input class="wf-set-in" type="text" inputmode="decimal" value="40.00" aria-label="Deposit limit amount"><div class="wf-set-per"><span class="wf-fig-v wf-fig-missing" style="font-size:var(--wf-t-m)">Period not set</span></div><button class="wf-btn" type="button">Save</button></div>
+          <p class="wf-set-p">Caps what you can put in over a period.</p>
+          <div class="wf-set-ctl"><input class="wf-set-in" type="text" inputmode="decimal" value="40.00" aria-label="Deposit limit amount"><div class="wf-set-per"><select class="wf-f" aria-label="Deposit limit period"><option>per day</option><option selected>per week</option><option>per month</option></select></div><button class="wf-btn" type="button">Save</button></div>
         </div>
         <div class="wf-set">
           <h3 class="wf-set-h" id="h2-session">Session limit</h3>
           <p class="wf-set-p">Ends a session once it has run this long.</p>
-          <ul class="wf-dir"><li><span class="wf-dir-w">Tighten</span><span>Immediately.</span></li><li><span class="wf-dir-w">Loosen</span><span>24 hours later.</span></li></ul>
-          <div class="wf-set-ctl"><div class="wf-set-per"><span class="wf-fig-v wf-fig-missing" style="font-size:var(--wf-t-m)">Period not set</span></div><button class="wf-btn" type="button">Save</button></div>
+          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Session length"><option>30 minutes</option><option>1 hour</option><option selected>2 hours</option><option>4 hours</option></select></div><button class="wf-btn" type="button">Save</button></div>
         </div>
         <div class="wf-set">
           <h3 class="wf-set-h" id="h2-cool">Cool down</h3>
           <p class="wf-set-p">Closes adding funds and opening cases for a period you choose.</p>
           <ul class="wf-dir"><li><span class="wf-dir-w">Extend</span><span>Immediately.</span></li><li><span class="wf-dir-w">Shorten</span><span>Not possible. It ends by running out.</span></li></ul>
-          <div class="wf-set-ctl"><div class="wf-set-per"><span class="wf-fig-v wf-fig-missing" style="font-size:var(--wf-t-m)">Period not set</span></div><button class="wf-btn" type="button">Start a cool down</button></div>
+          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Cool down period"><option selected>24 hours</option><option>7 days</option><option>30 days</option></select></div><button class="wf-btn" type="button">Start a cool down</button></div>
         </div>
         <div class="wf-set">
           <h3 class="wf-set-h" id="h2-excl">Self exclusion</h3>
           <p class="wf-set-p">Closes adding funds and opening cases for longer. The one thing here you cannot undo.</p>
           <ul class="wf-dir"><li><span class="wf-dir-w">End early</span><span>Not possible, and that is the point of it.</span></li></ul>
-          <div class="wf-set-ctl"><div class="wf-set-per"><span class="wf-fig-v wf-fig-missing" style="font-size:var(--wf-t-m)">Period not set</span></div><button class="wf-btn" type="button" data-ex-open="30 days">Self exclude</button></div>
+          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Self exclusion period"><option>6 months</option><option>1 year</option><option selected>5 years</option></select></div><button class="wf-btn" type="button" data-ex-open="30 days">Self exclude</button></div>
         </div>
-<p class="wf-note">None of the four periods above is decided yet. In several markets the shortest self exclusion is set by law rather than by us, so they are not ours to invent.</p>
       </div>
       <!-- BLOCK 8. ROUTES THAT ARE NOT US. STRUCTURE FIXED, CONTENTS EMPTY ON
            PURPOSE. Which organisations are named depends on the market, and every
@@ -127,11 +124,11 @@
         <div class="wf-sec-head"><h2 id="h2-help">Support that is not a limit</h2></div>
         <div class="wf-closes-c">
           <span class="wf-closes-k">Help that is not ours</span>
-          <span class="wf-fig-missing">Which organisations are named here depends on the market, and no market has been confirmed against current law yet. Nothing is listed until one is.</span>
+          <span><a href="https://www.gamblingtherapy.org/" rel="external nofollow">Gambling Therapy</a>, free and confidential, in any country.</span>
         </div>
         <div class="wf-row"><a class="wf-btn" href="support.html">Support</a></div>
       </div>
-      <p class="wf-rp-say" data-rp-say>Nothing is set. Setting a boundary takes effect the moment you save it.</p>
+      <p class="wf-rp-say" data-rp-say>Nothing is set yet.</p>
     </div>
 
 

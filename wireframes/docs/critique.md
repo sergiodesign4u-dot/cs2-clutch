@@ -612,3 +612,7 @@
 ### 13.13 Step 6, the deposit, fixed on 27 September 2026 under `D-129`
 
 **Closed from 13.5:** the promo bonus line on crypto and the denominations per gift card reseller. **Closed from the money auditor's deposit list:** all ten items, the first screen at 360, the ribbon, the presets, the receipt, Pay in view, the crypto and gift panes. **Measured after:** at 360 the first payment method is on the first screen and the pay row stays at the bottom of the frame while the form scrolls, bottom edge 751 in a 780 viewport; at 1440 Pay moved from y 924 to y 674. **Found while fixing:** the node's own baseline row still carried the 17 fiat count and the refused bonus, both reversed a month earlier.
+
+### 13.14 Step 7, the remaining surfaces, fixed on 27 September 2026 under `D-130`
+
+**Closed from 13.5:** breadcrumbs on Support and Responsible play, Make me anonymous as a toggle. **Closed from 13.4:** the residue of settings, profile, public profile, fair, responsible, legal, support, sign in and the gate, among them all 12 "Not published" deadlines on the support states. **Closed from 13.7:** "cannot be turned off" was still on `player-owner.html` and `player-hidden.html` in a second wording that step 1's search for the first wording could not find. **Found while fixing:** settings still said money never leaves as money after cash out shipped, and the deadline state's overrun had to be recomputed once the deadline had a value.

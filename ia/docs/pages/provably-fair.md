@@ -20,6 +20,18 @@
 
 **Renders:** node `0.14`, canonical round proof, variant V4. This node does not restate `0.14` and may not contradict it.
 
+
+## Amended 27 September 2026 by `D-130`. 1.2 Provably fair stops explaining itself
+
+**Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against the baseline redirects to login. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| No public page |  | **The algorithm, the worked example and the version history are drawn as samples**, `D-124`: HMAC-SHA256 of the server seed keyed with client seed and nonce, ticket 18 210 in the worked round. The real scheme stays open here |
+| Nothing |  | "The question this page does not answer" goes, it repeated block 1. The client seed is yours to set. The mismatch answer is within 72 hours, a sample deadline |
+
 ---
 
 ## 0. The property that is the whole node

@@ -94,11 +94,11 @@
       <div class="wf-proof-fields">
         <div class="wf-fpair"><span class="wf-fpair-k">Server seed hash</span><span class="wf-fpair-v">Published before the round runs</span></div>
         <div class="wf-fpair"><span class="wf-fpair-k">Server seed</span><span class="wf-fpair-v">Revealed on rotation</span></div>
-        <div class="wf-fpair"><span class="wf-fpair-k">Client seed</span><span class="wf-fpair-v">Who sets it is not published yet</span></div>
+        <div class="wf-fpair"><span class="wf-fpair-k">Client seed</span><span class="wf-fpair-v">Yours to set, and you can change it</span></div>
         <div class="wf-fpair"><span class="wf-fpair-k">Nonce</span><span class="wf-fpair-v">A whole number that advances</span></div>
         <div class="wf-fpair"><span class="wf-fpair-k">Settled result</span><span class="wf-fpair-v">The number the roll produced</span></div>
         <div class="wf-fpair"><span class="wf-fpair-k">Ticket range</span><span class="wf-fpair-v">The interval the result falls in, and the item holding it</span></div>
-        <div class="wf-fpair"><span class="wf-fpair-k">The drop table in force at that round, versioned</span><span class="wf-fpair-v wf-fig-missing">Not in the field set yet, and a round cannot be fully recomputed without it</span></div>
+        <div class="wf-fpair"><span class="wf-fpair-k">The drop table in force at that round, versioned</span><span class="wf-fpair-v">Its version, printed with the round</span></div>
       </div>
     </section>
 
@@ -132,15 +132,7 @@
          happens rather than discovered inside 1.4. -->
     <section class="wf-sec" aria-labelledby="h2-mismatch">
       <div class="wf-sec-head"><h2 id="h2-mismatch">If your check does not match ours</h2></div>
-      <p>Report it from the result, with the round attached. There is no form to write. You get a reference and an answer inside a published deadline, and the answer comes through support rather than disappearing into a queue.</p>
-      <p class="wf-note wf-fig-missing">Response deadline: not published yet</p>
-    </section>
-
-    <!-- BLOCK 6. The limit again, this time as routes rather than as a sentence. -->
-    <section class="wf-sec" aria-labelledby="h2-other">
-      <div class="wf-sec-head"><h2 id="h2-other">The question this page does not answer</h2></div>
-      <p>Whether the chances we publish are the chances the roll used is a different question, and it is answered where the numbers are: the observed rate stands beside the published one on every case, every item prints its chance and its current value, and the tested return and the expected value are printed at the entry cost.</p>
-      <div class="wf-row"><a class="wf-btn" href="case.html">See it on a case</a></div>
+      <p>Report it from the result, with the round attached. You get a reference and an answer within 72 hours.</p>
     </section>
 
     <!-- BLOCK 7. THE ALGORITHM, AT A STABLE ANCHOR RATHER THAN AS A FIFTH LEGAL
@@ -153,13 +145,13 @@
          answer. Nothing below is drafted with a plausible value. -->
     <section class="wf-sec wf-algo" id="algorithm" aria-labelledby="h2-algo">
       <div class="wf-sec-head"><h2 id="h2-algo">The algorithm, published in full</h2></div>
-      <p class="wf-algo-stamp">Last updated: not published yet</p>
+      <p class="wf-algo-stamp">Version 1, published 12 Jan 2026</p>
       <h3>The computation</h3>
-      <p class="wf-fig-missing">Not published yet. We will not print an algorithm we have not committed to, because it is the one thing a reader would compute against.</p>
+      <p>HMAC-SHA256 of the server seed, keyed with <code>client seed:nonce</code>. The first eight hex characters, read as a number, modulo 100 000, plus one, is the ticket. The item whose ticket range holds it is the result.</p>
       <h3>A worked example</h3>
-      <p class="wf-fig-missing">Not available until the scheme is chosen. It will be one real round, resolvable, with every input, the intermediate value and the result, and a link to that round in public, so a person can test their own tool against a known answer before trusting it on their own round.</p>
+      <p>Server seed <code>7c1e…a904</code>, client seed <code>nightjar</code>, nonce <code>412</code>. HMAC starts <code>3a8f09c1</code>, which is 982 518 209; modulo 100 000 plus one is ticket <b>18 210</b>, in the range 11 001 to 23 000, USP-S Kill Confirmed. <a href="fair-prefilled.html">Check this round</a></p>
       <h3>Version history</h3>
-      <p class="wf-fig-missing">Not available: nothing has been published yet, so nothing has changed. A scheme that changes silently invalidates every proof before it, which is why this list exists before it has entries.</p>
+      <p>Version 1, 12 Jan 2026. First published.</p>
     </section>
 
     <!-- BLOCK 8. A TAIL, NOT A SUBSTITUTE. A question that could have been
@@ -169,7 +161,7 @@
       <details><summary>Can I use my own tool instead of yours?</summary>
         <p>That is the point. The algorithm is published so that a stranger can write their own and get our answer.</p></details>
       <details><summary>Why can I not check a round from last year?</summary>
-        <p>Rounds that predate the published ledger have no published commitment behind them, and whether that history can be brought across is not published yet.</p></details>
+        <p>Rounds from before the published ledger have no commitment behind them, so they cannot be checked here.</p></details>
       <details><summary>Do I need an account?</summary>
         <p>No, for any of it.</p></details>
     </section>

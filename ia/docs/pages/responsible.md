@@ -25,6 +25,18 @@
 |---|---|---|
 | **One tool exists**, called **TAKE A BREAK**, doing deposit restriction or full account restriction. It is the second row of the `SECURITY` block inside the settings tab of the account. `baseline-account.md` section 7.1. | **Nothing structural**, and that is the finding rather than a gap in the reading. | **Everything about where it lives.** There is no responsible play page and **no route to the tool from anywhere**: not the footer, not the rail, not the header, not the home page, all four re-checked on 18 August 2026. It sits beside Logout and an anonymity toggle, in the vocabulary of account protection rather than self protection. **An absence could be answered with "nobody in the category has it". This cannot: they built it and then filed it where nobody looks.** |
 
+
+## Amended 27 September 2026 by `D-130`. 6.1 Responsible play stops explaining itself
+
+**Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against no page on the baseline. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Breadcrumb on every page | **Home > Responsible play** | Missing until now, while section SEO required it |
+| Nothing |  | The four periods are selects with sample values: per week, 2 hours, 24 hours, 5 years. The tighten and loosen pair is said once. Help that is not ours names one sample service, Gambling Therapy, until the market list is confirmed |
+
 ---
 
 ## 0. The node with no job, and why that is written at the top rather than buried

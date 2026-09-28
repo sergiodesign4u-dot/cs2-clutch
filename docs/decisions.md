@@ -5300,3 +5300,15 @@ Five instruments, Codex read only among them. **Home 1714 words against the base
 **Samples by `D-124`:** the two providers, the withdrawal minimum at $5.00, crediting within 2 minutes, no provider fee, the crypto address, rate and minimum, the reseller links. The crediting state page reads the same samples. Every real value stays an open item in the node.
 
 **Found while fixing:** `deposit.md`'s own baseline row still said 17 fiat methods, corrected to 27 on 25 August in the research file, and still said the bonus and its badge were refused, which `D-94` reversed. Both are struck and corrected rather than deleted.
+
+## D-130. Settings, profile, fair, responsible, legal, support, sign in and the gate stop explaining themselves
+
+**Date:** 2026-09-27. **Stage:** 04. **Decided by:** the founder, "да", on the step, and `D-124`'s answer on Make me anonymous. **Binds:** nodes `5.11`, `5.10`, `7.3`, `1.2`, `6.1`, `0.9`, `0.10`, `2.4` and `2.1`, and their pages.
+
+**Make me anonymous is a working switch**, the baseline's own row, and every switch on the page now says what it did when it is moved. **Six switches for modes that do not exist went**, the dead item defect a carrier may not hold, and the confirmations are one row that finally includes cash out: the old row still said money never leaves as money a month after `D-118`.
+
+**Profile and public profile** lose the blocks that argued with the reader, "Who this account is" and "What this page is", and keep a band, a shelf, a daily card, messages and one route to the switches. "Cannot be turned off" was still on two owner states after `D-124`, and it is gone.
+
+**Provably fair** draws its algorithm, a worked round and a version history as samples. **Responsible play** gets its breadcrumb, sample periods in real selects and one sample outside service. **Legal** gets a three line summary, short clause slots and its identification fields. **Support** gets its breadcrumb, one sample question per FAQ section, a 72 hour deadline on every state and an address. **Sign in** keeps two checkboxes and one never line, and the address drops three blocks built on unknowns. **The gate** says each verdict in four lines.
+
+**Every sample is marked in its node**, and every refusal that stood on a screen is kept there too.

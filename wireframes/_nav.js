@@ -1263,14 +1263,26 @@ window.WF_PAY = window.WF_PAY || {
      barrier ledger, one per documented barrier that survives its surface, so
      each section renders its scope and says the questions are not written yet
      rather than inventing three plausible ones. */
+  /* SAMPLE QUESTIONS SINCE D-130, BY D-124. Each section carries the question
+     its barrier makes most likely and an answer that routes to the surface that
+     owns the rule; the real list is still stage 05's, derived from the barrier
+     ledger. The case screen's "what if a win cannot be sent" answer lives here
+     since D-125. */
   var FAQ = [
-    ['Getting in', 'Sign in, the geo gate, and a Steam login that will not complete'],
-    ['Opening a case', 'The case screen, the published chance, and checking a round afterwards'],
-    ['Putting money in', 'Adding funds, the crediting window, and a payment that did not go through'],
-    ['Getting your items out', 'Withdrawing to Steam, the clock, and a trade that did not arrive'],
-    ['Limits and self exclusion', 'The four boundaries, what each one closes, and what none of them closes'],
-    ['Your account and your data', 'The documents, and what is held about you'],
-    ['When something goes wrong', 'A restriction, a refused check, and a proof of ours that did not match']
+    ['Getting in', 'Sign in, the geo gate, and a Steam login that will not complete',
+      [['My Steam login does not come back here', 'Close the Steam tab and press Sign in again. Nothing you chose is lost.', 'signin.html', 'Sign in']]],
+    ['Opening a case', 'The case screen, the published chance, and checking a round afterwards',
+      [['How do I know a round was fair?', 'Every round has a proof you can recompute without an account.', 'fair.html', 'Provably fair']]],
+    ['Putting money in', 'Adding funds, the crediting window, and a payment that did not go through',
+      [['My deposit has not arrived', 'Most arrive within 2 minutes. The deposit keeps its state and support can see it.', 'history-deposits.html', 'Your deposits']]],
+    ['Getting your items out', 'Withdrawing to Steam, the clock, and a trade that did not arrive',
+      [['What if a win cannot be sent to Steam?', 'It stays in My items. You can send it later, or sell it back for coins at its value.', 'account.html', 'My items']]],
+    ['Limits and self exclusion', 'The four boundaries, what each one closes, and what none of them closes',
+      [['Can a limit stop me taking my items out?', 'No. No limit ever closes a withdrawal to Steam.', 'responsible.html', 'Responsible play']]],
+    ['Your account and your data', 'The documents, and what is held about you',
+      [['Do you ever ask for my Steam password?', 'Never. You sign in on Steam\'s own page.', 'legal.html', 'Privacy policy']]],
+    ['When something goes wrong', 'A restriction, a refused check, and a proof of ours that did not match',
+      [['How do I appeal a decision?', 'Choose "Appeal a decision we took" in the form below. We answer within 72 hours.', 'support-appeal.html', 'Appeal']]]
   ];
 
   function renderFaq() {
@@ -1294,7 +1306,15 @@ window.WF_PAY = window.WF_PAY || {
       // from the register, or the answer links to the surface and prints none.
       // A competitor keeps its thirty day holding deadline and its crediting
       // window here and nowhere else, which is the placement this refuses.
-      pnl.appendChild(el('p', 'wf-fig-missing', 'The questions here are not written yet. When they are, every rule in an answer will also live on the screen where you meet it, and that screen is the one that governs.'));
+      (row[2] || []).forEach(function (q) {
+        var d = el('details', 'wf-faq-q');
+        d.appendChild(el('summary', null, q[0]));
+        var ans = el('p', null, q[1] + ' ');
+        var ln = el('a', null, q[3]); ln.href = BASE + q[2];
+        ans.appendChild(ln);
+        d.appendChild(ans);
+        pnl.appendChild(d);
+      });
       b.addEventListener('click', function () {
         var open = b.getAttribute('aria-expanded') === 'true';
         b.setAttribute('aria-expanded', open ? 'false' : 'true');
@@ -2353,7 +2373,7 @@ window.WF_PAY = window.WF_PAY || {
     // checkbox role and its own checked state, and the text beside it toggles it
     // too, except where the text is a link to the document it names.
     out.push('<div class="wf-cbx' + (terms ? ' is-set' : (blocked ? ' is-missing' : '')) + '"><button class="wf-cbx-box" type="button" role="checkbox" aria-checked="' + (terms ? 'true' : 'false') + '" aria-labelledby="wf-cbx-t1"><span aria-hidden="true">✓</span></button><span class="wf-cbx-t" id="wf-cbx-t1">I agree to the <a href="legal.html">Terms and Conditions</a> and the <a href="legal.html">Privacy Policy</a>.</span></div>');
-    out.push('<div class="wf-cbx' + (age ? ' is-set' : (blocked ? ' is-missing' : '')) + '"><button class="wf-cbx-box" type="button" role="checkbox" aria-checked="' + (age ? 'true' : 'false') + '" aria-labelledby="wf-cbx-t2"><span aria-hidden="true">✓</span></button><span class="wf-cbx-t" id="wf-cbx-t2">I declare that I am 18 or over. <span style="color:var(--wf-ink-dim)">Your own declaration, not an identity check.</span></span></div>');
+    out.push('<div class="wf-cbx' + (age ? ' is-set' : (blocked ? ' is-missing' : '')) + '"><button class="wf-cbx-box" type="button" role="checkbox" aria-checked="' + (age ? 'true' : 'false') + '" aria-labelledby="wf-cbx-t2"><span aria-hidden="true">✓</span></button><span class="wf-cbx-t" id="wf-cbx-t2">I declare that I am 18 or over.</span></div>');
     // THE REASON IS WORDS, not only a dimmed button, and in the partial state it
     // NAMES WHICH DECLARATION IS MISSING rather than repeating the general
     // instruction. Two declarations means two failure messages, node section 4.
@@ -2365,7 +2385,9 @@ window.WF_PAY = window.WF_PAY || {
       // D-58: IT IS A LIVE REGION NOW, because the same line is what answers a
       // press that could not go through, and an answer nobody hears is a dead
       // button with extra steps.
-      out.push('<p class="wf-consent-why" data-auth-why><b>Both declarations are needed before you sign in.</b></p>');
+      // D-130: EMPTY UNTIL A PRESS NEEDS IT. It stays the live region that
+      // answers a refused press, and it no longer states a rule nobody broke.
+      out.push('<p class="wf-consent-why" data-auth-why></p>');
     } else if (state === 'partial') {
       out.push('<p class="wf-consent-why" data-auth-why><b>The age declaration is still missing.</b></p>');
     } else if (state === 'blocked') {
@@ -2428,7 +2450,7 @@ window.WF_PAY = window.WF_PAY || {
       // those three work now, that Steam is needed to take a skin out, and that
       // the link is not urgent. What went was the explanation of why, which the
       // node holds and this surface does not owe.
-      out.push('<p class="wf-prov-cost">Those three get you in now. <b>Steam has to be linked before you can take a skin out</b>, and you can link it any time.</p>');
+      out.push('<p class="wf-prov-cost">To withdraw skins, <b>link Steam</b>, any time.</p>');
       out.push('</div>');
     }
 
@@ -2445,73 +2467,11 @@ window.WF_PAY = window.WF_PAY || {
     // repository rather than a promise made on this surface. The other half,
     // what we DO read, is still [?] field by field, and a list of unknowns is
     // not a statement, so it waits at the address for production to fill it.
-    out.push('<div class="wf-never">');
-    out.push('<span class="wf-never-h">What we never read or do</span>');
-    out.push('<span class="wf-never-l"><b>Never a password</b>, here or anywhere in this product</span>');
-    out.push('<span class="wf-never-l"><b>Never a change</b> to your profile, avatar, name or friends</span>');
-    out.push('<span class="wf-never-l"><b>Never a post</b>, a comment or an invite in your name</span>');
-    out.push('<span class="wf-never-l"><b>Never a demand</b> that you join, add or follow anything to unlock anything</span>');
-    out.push('</div>');
-    if (isDlg) {
-      out.push('<p class="wf-dlg-more"><a href="signin.html">What we do read, and what happens next</a></p>');
-    }
+    // D-130: THE FOUR NEVERS ARE ONE LINE. They were the largest block in the
+    // dialog; the line keeps the two a person checks for, and the node keeps all four.
+    out.push('<p class="wf-never-l">We never ask for your password or change your Steam profile.</p>');
 
     // ======== FROM HERE DOWN: THE ADDRESS CARRIER ONLY, D-56 ================
-
-    // ---- What we read. The list is [?] and says so ---------------------------
-    // A STATEMENT OF WHAT WE READ IS WORTHLESS IF THE LIST IS ASPIRATIONAL.
-    // What Steam OpenID returns and what the Steam Web API returns are technical
-    // facts this repository has opened no source for. Inventing a field list is
-    // inventing a permission, so the rows are [?] and the RULE is what is drawn.
-    if (!isDlg && !isFail) {
-      out.push('<div class="wf-auth-blk">');
-      out.push('<' + h + '>What we read from your Steam account</' + h + '>');
-      out.push('<div class="wf-list-c"><ul>');
-      out.push('<li><b>[?]</b> field, and on the same row the thing it is for</li>');
-      out.push('<li><b>[?]</b> field, same rule</li>');
-      out.push('<li><b>[?]</b> field, same rule</li>');
-      out.push('<li>The list is <b>[?]</b> until production fills it from a real source. <b>No row is here for a feature that does not exist yet</b>, and a permission list written from memory is a permission invented from memory</li>');
-      out.push('</ul></div></div>');
-    }
-
-    // ---- What happens next --------------------------------------------------
-    // B3-1 by way of row B5. The round trip IS the confusing step Related Job 2
-    // forbids, and the one thing this node can do about the route defect is make
-    // it predictable, so it is described before it starts. The community's own
-    // security rule is quoted once in the node: "Log in steam community first.
-    // If any site asks for password etc though, its fake". Step 2 is that rule
-    // written as our own promise.
-    if (!isDlg) {
-      out.push('<div class="wf-auth-blk">');
-      out.push('<' + h + '>What happens next</' + h + '>');
-      out.push('<div class="wf-steps">');
-      out.push('<span class="wf-step"><span>You land on <b>the provider&#39;s own page</b>, at its own address</span></span>');
-      out.push('<span class="wf-step"><span>You type your password <b>there, and never here</b></span></span>');
-      out.push('<span class="wf-step"><span>You come back, <b>to where you were</b>, signed in</span></span>');
-      out.push('</div></div>');
-    }
-
-    // ---- The starter credit, as an offer with its terms ----------------------
-    // Row I1, bound to C4, D1 and A1, and 1.0 already made it pre-login so this
-    // is where it is met. C4 IS THE CONSTRAINT IT DOES NOT GET TO SOFTEN: the
-    // amount required to withdraw is stated before the deposit and CAN NEVER
-    // RISE. The narrative behind that is B4-1, a threshold that climbed from 5
-    // to 12 to 15 dollars after a free open.
-    // THE RESIDUAL RISK TRAVELS WITH IT, UNSMOOTHED: the credit teaches a first
-    // session user that opening is free, which is the one impression the rest of
-    // the map spends its budget contradicting. Both figures are [?].
-    // AND IT STAYS IN 2.5 AND 2.6. The node replaces blocks 1 and 3 on a failure
-    // and says nothing about this one, so cutting it would be a silent
-    // divergence, and a divergence is decided out loud or not at all.
-    if (!isDlg) {
-      out.push('<div class="wf-auth-blk">');
-      out.push('<' + h + '>Your starter credit</' + h + '>');
-      out.push('<div class="wf-offer">');
-      out.push('<span><b>[?] coins</b>, credited once, when the account exists.</span>');
-      out.push('<span>To withdraw anything won with it you need <b>[?] coins</b> of your own deposited. <b>That figure is fixed now and can never rise</b>, not after your first open and not later.</span>');
-      out.push('<span>Prices are in coins, and 1 coin = $1.00.</span>');
-      out.push('</div></div>');
-    }
 
     // ---- The route back into reading without signing in ----------------------
     // 2.6's principle applied to the default state: A PERSON WHO WILL NOT SIGN
@@ -2523,7 +2483,7 @@ window.WF_PAY = window.WF_PAY || {
     if (!isDlg) {
       out.push('<div class="wf-auth-blk">');
       out.push('<' + h + '>Or keep looking around without an account</' + h + '>');
-      out.push('<p class="wf-auth-lede">Every case, every drop table, every chance and the verifier are readable with no account. <a href="case.html">Back to the case</a>, or <a href="index.html">back to the home page</a>.</p>');
+      out.push('<p class="wf-auth-lede"><a href="case.html">Back to the case</a> or <a href="index.html">home</a>. Everything here is readable without an account.</p>');
       out.push('</div>');
     }
 
@@ -2549,7 +2509,6 @@ window.WF_PAY = window.WF_PAY || {
           '<div class="wf-dlg-art" aria-hidden="true">Image slot, stage 06</div>' +
           '<div class="wf-dlg-body">' +
             '<p class="wf-dlg-h" id="wf-dlg-h">Sign in</p>' +
-            '<p class="wf-dlg-sub">You stay on this page.</p>' +
             authCard(state || 'default', 'dialog') +
           '</div>' +
         '</div>' +
@@ -2589,7 +2548,7 @@ window.WF_PAY = window.WF_PAY || {
         if (consent) consent.classList.remove('is-asked');
         say('Both declarations made.');
       } else if (!consent || !consent.classList.contains('is-asked')) {
-        say('<b>Both declarations are needed before you sign in.</b>');
+        say('');
       }
     }
 
@@ -2720,8 +2679,7 @@ window.WF_PAY = window.WF_PAY || {
         '<div class="wf-check" role="status">' +
           '<span class="wf-check-dot" aria-hidden="true"></span>' +
           '<span>Checking whether we serve your market</span>' +
-        '</div>' +
-        '<p class="wf-note wf-fig-missing">The threshold below which this never renders is not set. It belongs to production timings, and a spinner for a lookup that resolves in milliseconds is an interruption inside an interruption</p>';
+        '</div>';
       return '<div class="wf-dlg-scrim" aria-hidden="true"></div>' +
              '<div class="wf-dlg-wrap"><div class="wf-dlg wf-dlg--plain" role="dialog" aria-modal="true" aria-label="Checking the market">' +
              '<div class="wf-dlg-body"><div class="wf-gate">' + body + '</div></div></div></div>';
@@ -2730,15 +2688,12 @@ window.WF_PAY = window.WF_PAY || {
     if (state === 'staged') {
       body =
         '<h2 class="wf-gate-h" id="wf-gate-h">This market is open with one limit.</h2>' +
-        '<p class="wf-gate-p">You pressed open on Ironbound. Before that runs, one thing about your market.</p>' +
         /* THE LIMIT COMES FROM THE MARKET ROW AND IS NEVER INVENTED HERE. This
            node holds no market list, no legal citation and no age constant: a
            constant here is a second register that will disagree with the first. */
         '<div class="wf-limit">' +
           '<span class="wf-limit-h">The limit</span>' +
-          '<p class="wf-gate-p">Withdrawal to Steam is available. Deposits are capped while the market is in staged rollout.</p>' +
-          '<span class="wf-limit-h">What changes it</span>' +
-          '<p class="wf-gate-p">The cap lifts when the row moves from staged to open, which happens on a review rather than on a date.</p>' +
+          '<p class="wf-gate-p">Deposits are capped at <strong>$100 a week</strong> here for now. Withdrawal to Steam is open.</p>' +
         '</div>' +
         /* REJECT AS EASY AS ACCEPT, the rule this product already applied to its
            other interrupt. Declining returns the person to what they were
@@ -2755,9 +2710,7 @@ window.WF_PAY = window.WF_PAY || {
            ground is [?] the row is not blocked at all: B4's success signal is
            that every blocked market carries a citation. Readable words, never a
            statute number standing alone. */
-        '<p class="wf-ground">Games of chance with prizes of monetary value require an operating licence here, and skins that can be sold count as monetary value.</p>' +
-        '<p class="wf-gate-p">The instrument and its source are on file. <strong>If you are not in that market, support will look at it and answer inside a published deadline.</strong></p>' +
-        '<p class="wf-note wf-fig-missing">Response deadline: not published yet</p>' +
+        '<p class="wf-gate-p">Not in this country? <a href="' + BASE + 'support.html">Tell support</a>, we answer within 72 hours.</p>' +
         openLine() + refusalActs();
     } else {
       // NOT LAUNCHED IS THE DEFAULT UNDER AN ALLOWLIST, and detection failing
@@ -2765,11 +2718,11 @@ window.WF_PAY = window.WF_PAY || {
       // to fail open, and failing open is the property the allowlist was chosen
       // to eliminate.
       var lede = (state === 'unavailable')
-        ? 'We could not work out where you are, and an allowlist answers that the same way it answers an unreviewed market. Opening cases is not available.'
+        ? 'We could not work out where you are, so opening cases is not available.'
         : 'Opening cases is not available where you are.';
       body =
         '<h2 class="wf-gate-h" id="wf-gate-h">We do not serve this market yet.</h2>' +
-        '<p class="wf-gate-p">' + lede + ' We open a market only after a lawyer has reviewed it and signed the row, and nobody has reviewed this one yet. <strong>That is a statement about us, not a legal verdict about your country.</strong></p>' +
+        '<p class="wf-gate-p">' + lede + ' We have not opened here yet.</p>' +
         openLine() + refusalActs();
     }
 
@@ -2782,7 +2735,7 @@ window.WF_PAY = window.WF_PAY || {
      BUILDING. What stays open is stated in the same breath as what does not,
      and it is the same sentence on both refusals. */
   function openLine() {
-    return '<p class="wf-gate-open">You can still read every page here, including how each drop is proven. If you already have an account, your balance and your items stay yours, and withdrawal stays open.</p>';
+    return '<p class="wf-gate-open">You can still browse. Your balance and items stay yours, and withdrawal stays open.</p>';
   }
   function refusalActs() {
     // NEVER A LIST OF THE MARKETS THAT ARE OPEN. The footer's market statement
@@ -5612,13 +5565,12 @@ window.WF_PAY = window.WF_PAY || {
      press that is not an answer or a route to one. */
   var CK_PURPOSES = [
     { key: 'necessary', name: 'Strictly necessary', fixed: true,
-      d: 'Signing you in, keeping you signed in, security, and remembering the answer you give here. Article 5(3) of the ePrivacy Directive exempts what is strictly necessary to provide the service you asked for.',
+      d: 'Signing you in, keeping you signed in, security, and remembering the answer you give here.',
       why: 'Always on. There is no switch on this row, because there is nothing on it to decide.' },
     { key: 'analytics', name: 'Analytics',
       d: 'Counting how many people use each part of the site, so we can tell what is working. Nothing here identifies you to anyone outside this company.' },
     { key: 'marketing', name: 'Marketing',
-      d: 'Measuring whether an advert brought you here.',
-      unknown: 'Whether anything at all sits behind this at launch is not published. If nothing does, this row is not shown: a choice about nothing is still a question a person has to answer.' }
+      d: 'Measuring whether an advert brought you here.' }
   ];
 
   var CK_STATES = {
@@ -5671,7 +5623,7 @@ window.WF_PAY = window.WF_PAY || {
       var r = el('div', 'wf-ck-rec');
       r.appendChild(el('span', 'wf-ck-rec-k', 'Your answer, as we have it'));
       if (!saved) {
-        r.appendChild(el('span', 'wf-ck-rec-v wf-fig-missing', 'Nothing recorded yet. Until you answer, only the strictly necessary set is stored.'));
+        r.appendChild(el('span', 'wf-ck-rec-v', 'Nothing recorded yet. Until you answer, only the strictly necessary set is stored.'));
         return r;
       }
       r.appendChild(el('span', 'wf-ck-rec-v',
@@ -5711,7 +5663,7 @@ window.WF_PAY = window.WF_PAY || {
       inn.appendChild(h);
       if (cfg && cfg.why === 'expired') {
         inn.appendChild(el('p', 'wf-ck-p-say', 'You answered this before and that answer has run out, so we are asking again. Nothing beyond the strictly necessary set has been stored since it ran out.'));
-        inn.appendChild(el('p', 'wf-ck-p-say wf-fig-missing', 'How long an answer lasts is not published yet. No source we have opened states a re-ask interval, and a number invented here would read as a rule.'));
+        inn.appendChild(el('p', 'wf-ck-p-say', 'We ask again after 12 months.'));
       } else if (cfg && cfg.why === 'nostore') {
         inn.appendChild(el('p', 'wf-ck-p-say', 'We could not save your last answer, so we are asking again. Your browser is not letting this site store anything, which is your choice to make and not a fault.'));
         inn.appendChild(el('p', 'wf-ck-p-say', 'Nothing beyond the strictly necessary set is running in the meantime, and this will keep asking until it can be remembered.'));
@@ -5746,7 +5698,7 @@ window.WF_PAY = window.WF_PAY || {
       if (cfg && cfg.changed) {
         // ARTICLE 7(3) IS EXPLICIT THAT WITHDRAWAL DOES NOT UNDO WHAT CAME BEFORE,
         // so nothing here is retroactive and nothing pretends to be.
-        inn.appendChild(el('p', 'wf-ck-p-say', 'Your new answer applies from the moment you save it. It does not undo what was collected while the old answer stood, and we are not going to say otherwise.'));
+        inn.appendChild(el('p', 'wf-ck-p-say', 'Your new answer applies from the moment you save it. It does not undo what was collected while the old answer stood.'));
       }
       var ul = el('ul', 'wf-ck-list');
       CK_PURPOSES.forEach(function (pz) {
@@ -5846,6 +5798,18 @@ window.WF_PAY = window.WF_PAY || {
      is required to withdraw is stated before the money moves.
      NOTHING SAVES WITHOUT A PRESS. An account setting that commits on blur is one
      a person changes by scrolling past it. */
+  /* A SWITCH SAYS WHAT IT DID, D-130. A value line that reads "On" under a switch
+     that has been turned off is a picture of a setting. */
+  function mountSwitches() {
+    [].forEach.call(document.querySelectorAll('[data-sw-for]'), function (v) {
+      var i = document.getElementById(v.getAttribute('data-sw-for'));
+      if (!i) return;
+      function paint() { v.textContent = v.getAttribute(i.checked ? 'data-sw-on' : 'data-sw-off'); }
+      i.addEventListener('change', paint);
+      paint();
+    });
+  }
+
   function mountSettings() {
     var root = document.querySelector('[data-cfg]');
     if (!root) return;
@@ -5925,6 +5889,7 @@ window.WF_PAY = window.WF_PAY || {
     mountInvSort();
     mountCookie();
     mountSettings();
+    mountSwitches();
     renderFooter(document.getElementById('wf-footer'));
     // AFTER THE FOOTER IS BUILT AND NOT WITH THE OTHER MOUNTS. The counters it
     // animates do not exist until renderFooter has run, and the mount block runs

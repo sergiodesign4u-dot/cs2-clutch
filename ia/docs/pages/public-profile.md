@@ -18,6 +18,18 @@
 
 **States specified inside this node:** the owner reading their own page, nothing won yet, and no page to show.
 
+
+## Amended 27 September 2026 by `D-130`. 7.3 Public profile stops explaining itself
+
+**Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against baseline.md section 9.9. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Banner with the name and counters, then the shelf | **The band and the shelf** | The public id is a sample, `p-4k9x2m`. **"What this page is" leaves the screen**, with its four rows kept here |
+| Nothing |  | The owner and hidden states say what the two switches do in one line each, and "cannot be turned off" is gone from every state |
+
 ---
 
 ## 0.2 Amended 24 August 2026 by `D-93`. The page can be switched off, and it is on by default

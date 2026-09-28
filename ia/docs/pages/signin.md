@@ -14,6 +14,18 @@
 
 **Cluster 2 is three surfaces nobody chooses to visit, and since `D-54` two of the three are dialogs.** This one is the tax on the main job, and section 2 counts it rather than hiding it. **What `D-54` changed is not the size of the tax but who pays the context for it:** section 0.9.
 
+
+## Amended 27 September 2026 by `D-130`. 2.4 Sign in stops explaining itself
+
+**Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against `acct_signin_modal.png`. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Modal: providers, one checkbox, email and password | **The modal** | Two checkboxes stay, `D-26`. "You stay on this page", the identity clause and the standing "Both declarations are needed" go; the line is empty until a press needs it. **The four nevers are one line**, and all four stay here |
+| /login: one line and one button | **A short page** | The address carrier drops its [?] read list, the three next steps and the starter credit block, and keeps one line back to reading |
+
 ---
 
 ## 0.9 Amended 21 August 2026 by `D-54`. The carrier is a dialog

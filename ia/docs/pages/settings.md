@@ -18,6 +18,21 @@
 |---|---|---|
 | A two column settings tab with **twenty rows** in four groups: `GENERAL` five, `SECURITY` three, `LINKED PROFILES` four, `NOTIFICATIONS` eight. Founder captures of 18 August 2026, `baseline-account.md` section 7, and of 22 August 2026, `research/screens/baseline/founder_22aug_settings_top.png` and `founder_22aug_settings_linked.png`. | **One row: the Steam trade URL**, with its helper line, because the exit needs it and nothing else on the map holds it. | **Nineteen of twenty do not survive, and almost none of them for a reason about settings.** Eleven configure modes that are `LATER` or channels that have no backlog row at all. Five already live somewhere else on our map and would be second homes. Two are refused on a rule. One is `[?]` and belongs to the founder. **Section 1 gives the verdict on every row with its reason, because a settings page that quietly drops nineteen rows is a settings page nobody can audit against its own baseline.** |
 
+
+## Amended 27 September 2026 by `D-130`. 5.11 Settings stops explaining itself
+
+**Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against `acct_settings_full.png`. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| GENERAL, SECURITY, LINKED PROFILES, NOTIFICATIONS | **The four groups** | Unchanged |
+| "Make me Anonymous", a toggle | **A working toggle** | It was a refusal in 55 words. **Founder decision of 27 September 2026, `D-124`.** Its value line says what it moves: your name in live drops and on shared results. The public profile switch above stays a different subject |
+| Short helper lines | **Their length** | Username "From Steam", trade URL "Steam needs this link to send you skins", country one clause |
+| Switches for battles, gunfights, upgrades, giveaways, partner games | Nothing | **Six "not switchable yet" rows go**: switches for modes that do not exist are the dead item defect. The two principle rows and cash out are one row, "Confirmations", after `D-118` made cash out round 1 and the old row still said money never leaves as money |
+| No route list |  | "Things people look for here" goes |
+
 ---
 
 ## 0.4 Amended 23 August 2026 by `D-86`, and the sharpest refusal on this page is reversed with its reason corrected

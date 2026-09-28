@@ -5524,3 +5524,4 @@ textarea.wf-cfg-in { min-height: 0; }
 .wf-skindep-t input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .wf-skindep-t:has(input:checked) { border-color: var(--wf-ink); background: var(--wf-raised); }
 .wf-skindep-t:has(input:focus-visible) { outline: 2px solid var(--wf-ink); outline-offset: 2px; }
+.wf-consent-why:empty { display: none; }
