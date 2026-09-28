@@ -22,6 +22,20 @@
 |---|---|---|
 | **A public profile with four history tabs**, Inventory history, Case battle history, Gunfights history and Upgrades history, each a grid of item cards carrying the mode icon, the image, the weapon, the skin, the wear and a value in coins. Founder capture, 21 August 2026, `baseline.md` section 9.9. | **The idea that history is a first-class surface**, and the split by mode, which arrives when a second mode does. | **Everything about what a row is.** The baseline's history is an **inventory** history: it lists items, and an item is the outcome of a roll with the roll removed. Ours lists **rolls**, and the item is one column of a row. `baseline.md` section 9.9 records the same thing from the other side: that page is a trophy shelf, and `public-result.md` was written to replace the shelf with something checkable. **A history of items is the shelf again, one screen deeper.** And it is private: the baseline's is public and this one is the account's own. |
 
+
+## Amended 27 September 2026 by `D-128`. 5.9 History takes the baseline's shape back
+
+**Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, against the founder's dated captures in `research/screens/baseline-account/`. What left the screen is kept in this node, not deleted.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Sub-tabs, opening on the first | **Opening on the first tab** | Rolls moved to the first position: history.html is the rolls, and it is what opens. The node's subject is roll history |
+| "CS:GO SKINS DEPOSITS" tab | **The record, not the tab** | **Skin deposits are rows of the Deposits ledger with the method "CS2 skins"**, since `D-124` put CS2 skins back in the deposit grid. Named here where it had no verdict |
+| Ledgers with no notes under them | **No notes** | The labelled explanations under every ledger go. One line stays on deposits, "Amounts in coins, 1 coin = $1.00", which is what reconciles a row with a bank |
+| Nothing |  | The rolls page keeps one line, "Every figure is as it was on the day of the roll". State pages print the published ceiling and the appeal deadline as samples, `D-124` |
+
 ---
 
 ## 0.4 Amended 23 August 2026 by `D-88`. Four tabs, and the baseline row above was about a different screen

@@ -604,3 +604,7 @@
 ### 13.11 Step 4, the catalogue, fixed on 27 September 2026 under `D-127`
 
 **Closed from 13.4:** the catalogue's residue and its repeated daily and count lines. **Closed from 13.5:** the ticker at 360 on the shelf. **Found while fixing:** the filter drawer's result control read "Show 13 cases" over a shelf of 12, a canonical number drifted inside one surface, and the risk checkboxes were disabled while the tiles now carry bands.
+
+### 13.12 Step 5, My items, Send to Steam and History, fixed on 27 September 2026 under `D-128`
+
+**Closed from 13.5:** the idle bar's totals, Share revealed on selection, the H1 "Send to Steam", the numbered steps with the instruction line and Cancel, the first tab of History, and the skin deposits tab named as rows of the Deposits ledger. The Distributed drops legend stays out: it marks a LATER mechanic, and that is its verdict now. **Closed from 13.4:** the residue on all eight withdrawal pages and nine history pages. **Found while fixing:** the withdrawal pages printed the median time as "not available" while Home printed 1 h 40 m, one figure read two ways across surfaces, and "Showing all 7 we hold a price for" stood under "268 on the market".

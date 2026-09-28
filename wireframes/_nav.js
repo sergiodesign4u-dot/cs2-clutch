@@ -3522,8 +3522,12 @@ window.WF_PAY = window.WF_PAY || {
 
     function paint() {
       var on = picks.filter(function (i) { return i.checked; });
-      var sum = on.reduce(function (a, i) { return a + parseFloat(i.getAttribute('data-v') || '0'); }, 0);
-      nOut.textContent = on.length + (on.length === 1 ? ' item' : ' items');
+      /* WITH NOTHING TICKED THE BAR COUNTS EVERYTHING HELD, D-128, as the
+         baseline's does ("55 ITEMS 35.91"). A bar reading "0 items, 0.00 coins"
+         over a full grid was a figure about nothing. */
+      var src = on.length ? on : picks;
+      var sum = src.reduce(function (a, i) { return a + parseFloat(i.getAttribute('data-v') || '0'); }, 0);
+      nOut.textContent = src.length + (src.length === 1 ? ' item' : ' items');
       vOut.textContent = sum.toFixed(2) + ' coins';
       /* THE BAR STAYS, THE ACTIONS GO IDLE. D-85 reversed the earlier "hidden until
          something is ticked": the bar is where a person learns the exits exist, and
@@ -3763,8 +3767,11 @@ window.WF_PAY = window.WF_PAY || {
   };
 
   var HIST_TABS = [
-    { key: 'items',       label: 'Items',       file: 'history-items.html' },
+    /* ROLLS FIRST, D-128. History opens on history.html, which is the rolls,
+       and the baseline opens on its first tab. The node's subject is roll
+       history, so the tab that opens is the first one rather than the second. */
     { key: 'rolls',       label: 'Rolls',       file: 'history.html' },
+    { key: 'items',       label: 'Items',       file: 'history-items.html' },
     { key: 'deposits',    label: 'Deposits',    file: 'history-deposits.html' },
     { key: 'withdrawals', label: 'Withdrawals', file: 'history-withdrawals.html' },
     { key: 'cashout',     label: 'Cash out',    file: 'history-cashout.html' }
@@ -4098,13 +4105,25 @@ window.WF_PAY = window.WF_PAY || {
      --------------------------------------------------------------------- */
   function wdFmt(n) { return (Math.round(n * 100) / 100).toFixed(2); }
 
+  /* THE STEAM LISTING IS A SAMPLE, D-128 BY D-124. It was [?] on the card and on
+     every offer badge. The baseline prints both, its badge as a percentage under
+     Steam. Drawn from the row's own figure where the page gives one, and
+     otherwise as the cheapest copy plus twelve percent, which is only a sample:
+     the real listing and its source stay open items in withdrawal.md. */
+  function wdSteam(row) {
+    if (row.steam) return row.steam;
+    var lo = row.offers.length ? Math.min.apply(null, row.offers.map(function (o) { return o.p; })) : row.ours;
+    return Math.round(lo * 112) / 100;
+  }
+
   function wdOfferCard(row, o, i) {
     var lab = el('label', 'wf-off');
     var r = el('input', 'wf-off-r');
     r.type = 'radio'; r.name = 'off-' + row.id; r.value = String(i);
     if (i === row.pick) r.checked = true;
     lab.appendChild(r);
-    lab.appendChild(el('span', 'wf-off-badge wf-fig-missing', 'vs Steam [?]'));
+    var pct = Math.round((o.p / wdSteam(row) - 1) * 100);
+    lab.appendChild(el('span', 'wf-off-badge', (pct > 0 ? '+' : '') + pct + '% vs Steam'));
     var art = el('span', 'wf-off-art'); art.setAttribute('aria-hidden', 'true');
     lab.appendChild(art);
     /* THE STICKER ROW IS A FIELD 0.6 DOES NOT HAVE, and it is drawn either way
@@ -4132,7 +4151,7 @@ window.WF_PAY = window.WF_PAY || {
     sel.appendChild(n);
     var pr = el('div', 'wf-selskin-p');
     var p1 = el('span'); p1.appendChild(el('b', null, wdFmt(row.ours))); p1.appendChild(document.createTextNode('Our price for it'));
-    var p2 = el('span'); p2.appendChild(el('b', 'wf-fig-missing', '[?]')); p2.appendChild(document.createTextNode('The Steam listing'));
+    var p2 = el('span'); p2.appendChild(el('b', null, wdFmt(wdSteam(row)))); p2.appendChild(document.createTextNode('The Steam listing'));
     pr.appendChild(p1); pr.appendChild(p2);
     sel.appendChild(pr);
     var rm = el('button', 'wf-btn wf-btn--small', 'Remove');
@@ -4246,10 +4265,9 @@ window.WF_PAY = window.WF_PAY || {
       });
       totalEl.textContent = (total >= 0 ? '+' : '-') + wdFmt(Math.abs(total)) + ' coins';
       var bal = 74.20;
-      sayEl.innerHTML = 'Based on the copies chosen above, <strong>' + wdFmt(Math.abs(total)) + ' coins ' +
-        (total >= 0 ? 'goes onto your balance' : 'comes off your balance') + '</strong> when these go to Steam. ' +
-        'Your balance is 74.20 coins, so ' + wdFmt(bal + total) + ' would be left. ' +
-        '<strong>Pick a dearer copy and this figure moves.</strong>';
+      // THE BASELINE'S SENTENCE UNDER ITS TOTAL, D-128, with what is left.
+      sayEl.innerHTML = 'Based on the market price, <strong>' + wdFmt(Math.abs(total)) + ' coins ' +
+        (total >= 0 ? 'goes onto your balance' : 'will be taken from your balance') + '</strong>, leaving ' + wdFmt(bal + total) + '.';
       /* THE COUNT LIVED IN THE SIDE CARD AND THE SIDE CARD IS GONE, D-115. The
          button carries it now, which is where it was already being said twice. */
       btnEl.textContent = 'Send ' + going + (going === 1 ? ' item' : ' items') + ' to Steam';
@@ -4279,7 +4297,7 @@ window.WF_PAY = window.WF_PAY || {
         }
         E.count.textContent = r.total + ' on the market, cheapest first';
         E.say.textContent = vis.length === r.offers.length
-          ? 'Showing all ' + r.offers.length + ' we hold a price for.'
+          ? ''
           : 'Showing ' + vis.length + ' of ' + r.offers.length + '.';
         paint();
       }
@@ -4355,10 +4373,6 @@ window.WF_PAY = window.WF_PAY || {
     var after = [];
 
     if (kind === 'cashout') {
-      after.push({ k: 'What this list is', v: 'Every cash out this account has requested: the items sold back, the wallet the money went to, and where the request got to.' });
-      after.push({ k: 'What each status means', v: 'Requested means we have it and have not decided. Sending means we approved it and the chain has not confirmed. Sent means it is on the chain. Blocked means we refused it, and the reason is on the row.' });
-      after.push({ k: 'Amounts are in coins, and the crypto figure is not here', v: 'A row records what came off your items at 1 coin = $1.00. What that converted to in ETH, LTC or USDT depends on the rate at the moment it was sent, and that rate is not published yet.', wide: true });
-      after.push({ k: 'Selling back for coins is a different act', v: 'Selling an item back puts coins on your balance and nothing leaves. That shows on the item itself, under My items. This tab is only for money that left.', wide: true });
     }
 
     if (kind === 'cashout') {
@@ -4374,15 +4388,11 @@ window.WF_PAY = window.WF_PAY || {
          same number and a ledger with one column cannot be both. WHICH ONE A ROW HOLDS
          IS NOT DECIDED, so the note says so rather than picking one and being wrong on
          every bonused row. */
-      after.push({ k: 'What this list is', v: 'Every payment this account has made, whether it arrived or not.' });
-      after.push({ k: 'Reading a row against your bank', v: 'Amounts are in coins, at 1 coin = $1.00, so a row lines up with a bank statement one to one.' });
     } else {
       /* B8-2 IS SIX PEOPLE WAITING WITH HARD FIGURES AND NOBODY TELLING THEM
          ANYTHING. So a row carries who is being waited on, and never an ETA:
          5.3's clock shows elapsed, the published ceiling and the party, and a
          history that invents a fourth number contradicts its own screen. */
-      after.push({ k: 'What this list is', v: 'Every item this account has sent to Steam.' });
-      after.push({ k: 'What a row will not tell you', v: 'A row says who it is waiting on and how long it has been. It never estimates when it will finish, because we do not know.' });
     }
 
     if (!rows.length) {
@@ -4398,6 +4408,9 @@ window.WF_PAY = window.WF_PAY || {
     } else {
       wrap.appendChild(histTable(kind, rows));
     }
+    // D-128: THE BASELINE'S LEDGERS CARRY NO NOTES. One line stays, on the
+    // deposits ledger, because it is what lines a row up with a bank statement.
+    if (kind === 'deposits' && rows.length) wrap.appendChild(el('p', 'wf-note', 'Amounts in coins, 1 coin = $1.00'));
     if (after.length) wrap.appendChild(afterBlock(after));
     return wrap;
   }
@@ -5547,13 +5560,12 @@ window.WF_PAY = window.WF_PAY || {
      changes nothing is a picture of one, D-58, and a sort is the cheapest control
      in the product to make real: every card carries the two values it sorts on.
      PRESSING THE ACTIVE KEY FLIPS IT, PRESSING THE OTHER MOVES THE SORT.
-     Announced in words under the bar, because the reordering itself is invisible
-     to anyone who is not looking at the grid. */
+     The pressed key names the order; the line that repeated it under the bar
+     went with D-128. */
   function mountInvSort() {
     var set = document.querySelector('[data-sortset]');
     if (!set) return;
     var grid = document.querySelector('.wf-grid--inv');
-    var say  = document.querySelector('[data-sort-say]');
     if (!grid) return;
     var keys = [].slice.call(set.querySelectorAll('[data-sort]'));
 
@@ -5582,7 +5594,6 @@ window.WF_PAY = window.WF_PAY || {
         b.textContent = b.getAttribute(d ? 'data-hi' : 'data-lo');
         b.setAttribute('aria-pressed', isOn ? 'true' : 'false');
       });
-      if (say) say.textContent = on.textContent + ', ' + cards.length + ' items in this order.';
     }
 
     keys.forEach(function (b) {

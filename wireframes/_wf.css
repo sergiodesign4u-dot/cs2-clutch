@@ -3333,6 +3333,15 @@ select {
 }
 .wf-inv-out b { font-family: var(--wf-mono); font-weight: 400; color: var(--wf-ink); }
 .wf-inv-out span:last-child { text-align: right; }
+/* D-128: SHARE AND THE SETTLEMENT FIGURE ARE REVEALED WITH THE ACTS, as the
+   baseline reveals its item actions on selection. At rest the card is the baseline's
+   card: picture, name, wear, price, and the market foot. */
+.wf-inv-top > .wf-btn, .wf-inv-out { visibility: hidden; }
+.wf-inv-card:hover .wf-inv-top > .wf-btn, .wf-inv-card:focus-within .wf-inv-top > .wf-btn,
+.wf-inv-card:has(.wf-inv-pick input:checked) .wf-inv-top > .wf-btn,
+.wf-inv-card:hover .wf-inv-out, .wf-inv-card:focus-within .wf-inv-out,
+.wf-inv-card:has(.wf-inv-pick input:checked) .wf-inv-out { visibility: visible; }
+.wf-inv-foot { margin-top: var(--wf-s-2); }
 
 /* THE BLOCK HEADER AND THE SORT ROW, both the baseline's. */
 .wf-inv-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--wf-s-1) var(--wf-s-3); }
@@ -5434,3 +5443,21 @@ textarea.wf-cfg-in { min-height: 0; }
    unreadable: the founder read the built screen and asked what it was and why it
    was there. The rules are deleted rather than left unused, because a class no
    markup writes is the next collision waiting for a name. */
+
+/* D-128: THE BASELINE'S NUMBERED STEPS ON 5.3, "1 ITEMS TO WITHDRAW" AND "2 TOTAL PRICE".
+   A number in a ring before the heading, drawn as a slot until stage 06. */
+.wf-step-n {
+  display: inline-grid; place-items: center; width: 28px; height: 28px; margin-right: var(--wf-s-1);
+  border: 1px solid var(--wf-line); border-radius: 50%;
+  font-family: var(--wf-mono); font-size: var(--wf-t-s); vertical-align: middle;
+}
+/* The three limits, one press away under the line that names them. */
+.wf-lim-d { margin-top: var(--wf-s-1); font-size: var(--wf-t-s); }
+.wf-lim-d summary { cursor: pointer; color: var(--wf-ink-dim); }
+.wf-lim-d .wf-lim { margin-top: var(--wf-s-1); }
+/* D-128: ON A PHONE THE IDLE BAR IS ONE ROW, count, sum and Select all. The four
+   exits arrive with the first tick. At 360 the idle bar was 190px of disabled
+   controls over the first card, and the grid behind it could not be seen. */
+@media (max-width: 599px) {
+  .wf-invbar.is-idle .wf-invbar-acts, .wf-invbar.is-idle [data-inv-none] { display: none; }
+}

@@ -5272,3 +5272,13 @@ Five instruments, Codex read only among them. **Home 1714 words against the base
 **The structure was already the baseline's**, `D-65`. What changed is text: the sub-line under the H1, the count line and the peg paragraph on the full shelf, the clauses for us in two section subtitles, "End of the shelf", and two of three SEO subheadings. **The ticker stands under the header**, as on Home, because the shelf has no spend act on its first screen.
 
 **The risk band draws a sample by price, `D-124`, and the filter that sorts it is live.** Its three checkboxes were disabled with a note that the thresholds were not set, and a disabled filter over tiles that all read "Risk not available" was two pictures of one absence. **The drawer's result count read 13 on a shelf of 12 and reads 12**, found by looking at the open drawer.
+
+## D-128. My items, Send to Steam and History take the baseline's shape back
+
+**Date:** 2026-09-27. **Stage:** 04. **Decided by:** the founder, "да", on the step. **Binds:** nodes `5.1`, `5.3` with `5.4` to `5.8`, and `5.9`, and their pages.
+
+**My items.** The card at rest is the baseline's card, and Share and the signed settlement line arrive with the acts. **The idle bar counts everything held**, as the baseline's does, and on a phone it is one row until the first tick. Four labelled facts under the grid became one line: the as-of, `G5`'s two limits, the peg.
+
+**Send to Steam.** The H1 is the button's own name. **The two numbered steps, the instruction line and Cancel came back**, all three lost with no verdict. Under the total: the baseline's sentence with what is left, the line naming the three limits, then Cancel and Send; the limits themselves are one press away. The Steam listing and the offer badges draw samples by `D-124`, and so do the two published times and every stage ceiling on the clock pages, which read "not available" while Home printed 1 h 40 m.
+
+**History.** It opens on its first tab, because Rolls moved first. **Skin deposits are rows of the Deposits ledger** with the method "CS2 skins", which names the baseline tab that had no verdict. The notes under every ledger go, except one line that reconciles a deposit row with a bank.

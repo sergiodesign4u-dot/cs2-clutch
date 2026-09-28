@@ -16,6 +16,22 @@
 
 **Amended 23 August 2026 by `D-92`, and the largest remaining `[?]` on this node closed into a smaller and sharper one.** The founder named the market the settlement price is read from: **it is us.** The prices are ours, taken from Steam, and the market for these items is this product. **So both columns of the four column table are ours**, our credited value and our price for a copy, **and the outbound route this node kept asking for cannot exist**, because a link to our own listing confirms nothing. **What block `1b` renders instead is the relation to Steam and the hole inside it**, section 1b.1: the price is ours, it is set against the Steam market, and how far under Steam we set it is not published. **The founder's own hedge travels with all of it**, section 9b: the wording was "in principle", and if a third party supplies the copy at withdrawal time one word changes on every line above.
 
+
+## Amended 27 September 2026 by `D-128`. 5.3 Send to Steam takes the baseline's shape back
+
+**Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, against the founder's dated captures in `research/screens/baseline-account/`. What left the screen is kept in this node, not deleted.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| H1 "SEND TO STEAM", the button's own words | **The name** | "Withdraw to Steam" named one act twice, and the button already said Send to Steam |
+| "1 ITEMS TO WITHDRAW" and "2 TOTAL PRICE", numbered | **The two numbered steps** | Lost with no verdict until this round |
+| "Choose any of the offers below… Your balance amount may be increased or decreased" | **The instruction line** | "Pick any copy. Your balance goes up or down with the price you pick." It carries principle 3, which "Cheapest first" did not |
+| Offer card with a percentage badge against Steam | **The badge** | Drawn from a sample Steam listing, `D-124`, where it read "vs Steam [?]". The real listing and its source stay open items here |
+| "Based on the market price, 23.04 will be taken from your balance", CANCEL, SEND TO STEAM | **The sentence, Cancel and Send, in that order** | Our sentence adds what is left. The line naming the three limits sits above the buttons, `G5`, and what each limit means is one press away in a disclosure |
+| Nothing further |  | The commission paragraph, the Steam listing note and the "not available" times go. **The two times are drawn, 1 h 40 m and 6 h 15 m**, Home's figures, and the stage ceilings on every clock page are samples |
+
 ---
 
 ## 0. The barrier, with its own figures

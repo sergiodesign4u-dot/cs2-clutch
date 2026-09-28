@@ -41,7 +41,7 @@
          thirteen places for it to drift. -->
     <div class="wf-ah" data-acct-hero></div>
 
-    <h1>My items</h1>
+    <h1 class="wf-vh">My items</h1>
 
     <!-- THE BLOCK HEADER IS THE BASELINE'S, D-85. The word, the Steam connection
          state beside it, and the instruction that says how the grid works. The
@@ -50,8 +50,8 @@
          than offering a fix this page cannot perform. -->
     <div class="wf-inv-head">
       <h2 id="h2-items">Inventory</h2>
-      <p class="wf-inv-steam">Steam connected. <a href="settings.html">Where this is set</a></p>
-      <p class="wf-inv-hint">Select an item, or hover it, to see what you can do with it</p>
+      <p class="wf-inv-steam">Steam connected · <a href="settings.html">Settings</a></p>
+      <p class="wf-inv-hint">Click an item to select it</p>
     </div>
 
     <!-- SORT IS BACK, FOUNDER'S CALL OF 23 AUGUST 2026, AND IT REVERSES SECTION 4
@@ -80,7 +80,6 @@
         </div>
       </div>
     </div>
-    <p class="wf-sort-say" data-sort-say></p>
 
     <!-- THE LIMITS STAY, AS ONE LINE ABOVE THE SET RATHER THAN A COLUMN BESIDE IT.
          G5 asks for a limit to be met before the route runs rather than discovered
@@ -308,38 +307,14 @@
           <p class="wf-inv-out"><span>Out to Steam</span><span><b>1.55</b> more</span></p>
         </article>
       </div>
-      <p class="wf-pager-end">6 items held, and that is all of them.</p>
     </div>
 
-    <!-- WHAT THE FIGURES ABOVE ARE, D-107. Four facts that used to stand between
-         the sort bar and the first skin. NONE OF THEM IS CUT AND NONE IS SOFTENED:
-         each keeps its wording, its as-of and its named unknown, and each gains a
-         label so the block can be scanned for the one fact wanted.
-         THE COST IS PRINTED RATHER THAN ABSORBED: every card carries a signed
-         settlement figure and the rule that produces all six is now below them, so
-         a person reading only the grid meets six signed numbers before the sentence
-         that says what they are. The founder asked for the items first and this is
-         what the order costs. -->
-    <div class="wf-after">
-      <div class="wf-after-i">
-        <span class="wf-after-k">Taking an item out</span>
-        <p class="wf-after-v">What you win is credited at our price, and taking the real item out means buying a real copy on the market, <b>so the difference comes off your balance or goes back on it</b>.</p>
-      </div>
-      <div class="wf-after-i">
-        <span class="wf-after-k">Withdrawal</span>
-        <p class="wf-after-v">Withdrawals are open. <b>Commission is zero.</b> Your Steam inventory has to be public and trades unlocked. <a href="withdraw.html">Withdrawal times</a></p>
-      </div>
-      <div class="wf-after-i">
-        <span class="wf-after-k">Market figures</span>
-        <p class="wf-after-v">Read <b>23 Aug 2026 09:31</b>, the same moment for every card here. A copy comes from us, at our price, and we set our prices against the Steam market. <span class="wf-fig-missing">How far under Steam we set them is not published yet.</span></p>
-      </div>
-      <div class="wf-after-i">
-        <span class="wf-after-k">The rate</span>
-        <p class="wf-after-v">One coin is <b>$1.00</b>, a fixed rate. It carries no as-of because it is not a market read: if it ever changes we say so before you spend against it.</p>
-      </div>
-    </div>
-
-
+    <!-- ONE LINE UNDER THE GRID, D-128. It was four labelled facts under the grid, and
+         the baseline carries none. What stays is what a person needs before an exit:
+         the as-of of every figure on the cards, G5's two withdrawal limits and the
+         peg. The settlement rule is said by the card's own signed figure when an item
+         is selected, and in full on 5.3. -->
+    <p class="wf-note wf-inv-foot">Prices as of 23 Aug 2026 09:31 · Withdrawals need a public Steam inventory with trades unlocked · 1 coin = $1.00</p>
     <!-- THE BAR IS ALWAYS ON THE SCREEN, FOUNDER'S CALL OF 23 AUGUST 2026. It used
          to appear only once something was ticked, on the argument that a bar saying
          nothing is furniture. The baseline keeps it up permanently and it is right
@@ -394,7 +369,6 @@
         <button class="wf-btn wf-actb" type="button" disabled aria-label="Exchange">
           <span class="wf-actb-i" aria-hidden="true"></span><span class="wf-actb-s">Exchange</span><span class="wf-actb-f">Exchange</span></button>
       </span>
-      <p class="wf-invbar-say" data-invbar-say>Tick an item to use these</p>
     </div>
 
   </main>

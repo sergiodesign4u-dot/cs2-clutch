@@ -40,7 +40,7 @@
 
   <main class="wf-main">
 
-    <h1>Withdraw to Steam</h1>
+    <h1>Send to Steam</h1>
 
     <div class="wf-wd wf-wd--wide">
       <div class="wf-stack">
@@ -51,19 +51,19 @@
            which is our model explained to the person rather than a thing they can
            act on. The model is in the node. -->
       <div class="wf-sec-head">
-        <h2 id="h2-many">Five items</h2>
+        <h2 id="h2-many"><span class="wf-step-n">1</span> Items to withdraw</h2>
         <p class="wf-sec-sub"><a href="account.html">Change what is selected</a></p>
       </div>
 
       <div class="wf-sec-head">
         <h3 id="h3-offers">Which copy of each</h3>
-        <p class="wf-sec-sub">Cheapest first. The cheapest is picked for you and you can change it.</p>
+        <p class="wf-sec-sub">Pick any copy. Your balance goes up or down with the price you pick.</p>
       </div>
 
       <div data-wd-basket></div>
 
       <div class="wf-sec-head">
-        <h3 id="h3-total">Total price</h3>
+        <h2 id="h3-total"><span class="wf-step-n">2</span> Total price</h2>
       </div>
 
       <div class="wf-tablewrap">
@@ -83,9 +83,6 @@
 
       <div class="wf-tl"><span>Our commission</span><span class="wf-tl-v">0.00</span></div>
       <div class="wf-tl wf-tl--sum"><span>Total difference</span><span class="wf-tl-v" data-wd-total></span></div>
-      <div class="wf-row">
-        <button class="wf-btn wf-btn--primary" type="button" data-wd-go>Send four items to Steam</button>
-      </div>
       <!-- THE THREE LIMITS KEEP THEIR BLOCK AND GAIN A LINE AT THE PRESS, D-116.
            Block 4 exists because a limit met after the cost is a limit met too
            late, and its own words are "named as Steam's before anyone commits
@@ -94,22 +91,25 @@
            So the three are named in one line where the press is, and the line
            routes to the block that says what each one means. Naming them is what
            the rule asked for; explaining them is what the block is for. -->
-      <p class="wf-note">Three things can stop a withdrawal: <strong>a market we do not serve</strong>, <strong>a trade hold Steam sets</strong>, or <strong>a ban on the Steam account</strong>. <a href="#h2-limits">What each one means</a></p>
       <p class="wf-fig-c" data-wd-say></p>
-      <p class="wf-note"><strong>Our commission is zero and stays zero.</strong> The Steam Market charges <b>15%</b>, as of 18 Aug 2026, for comparison. What moves your balance is the market settlement above, and it is in the table with the price it is drawn from.</p>
+      <p class="wf-note">Three things can stop a withdrawal: <strong>a market we do not serve</strong>, <strong>a trade hold Steam sets</strong>, or <strong>a ban on the Steam account</strong>. <a href="#h2-limits">What each one means</a></p>
+      <div class="wf-row">
+        <a class="wf-btn" href="account.html">Cancel</a>
+        <button class="wf-btn wf-btn--primary" type="button" data-wd-go>Send four items to Steam</button>
+      </div>
+      
 
       <p class="wf-note"><strong>The Glock-18 cannot go to Steam and it is not stuck.</strong> There is no copy of it on sale to buy, so there is nothing to send and nothing to settle against. <strong>Selling it back to us pays our own price for it and needs no copy to exist.</strong> The row above carries that control.</p>
 
-      <p class="wf-note">Market prices read <b>23 Aug 2026 09:31</b> and they move daily. The copies come from us and the prices are ours, set against the Steam market. <span class="wf-fig-missing">How far under Steam we set them is not published yet.</span></p>
+      <p class="wf-note">Prices as of 23 Aug 2026 09:31</p>
 
-      <div class="wf-stack">
-        <div class="wf-sec-head"><h2 id="h2-limits">Before you ask, three limits</h2></div>
+      <details class="wf-lim-d" id="h2-limits"><summary>What each limit means</summary>
         <ul class="wf-lim">
           <li><span class="wf-lim-w">Ours</span><span><strong>A market we do not serve.</strong> The verdict and the ground in readable words. It lifts with the staged rollout.</span></li>
-          <li><span class="wf-lim-w">Steam&#39;s</span><span><strong>A trade hold.</strong> Steam holds a trade for a period it sets, on conditions it sets. <span class="wf-fig-missing">How long is not published here: it is Steam&#39;s number and it needs a source and a date before we print it</span></span></li>
+          <li><span class="wf-lim-w">Steam&#39;s</span><span><strong>A trade hold.</strong> Steam holds a trade for a period it sets, on conditions it sets.</span></li>
           <li><span class="wf-lim-w">Steam&#39;s</span><span><strong>A ban on the Steam account.</strong> The account cannot receive a trade. <strong>This one is not ours and we cannot lift it</strong>, and the route to fix it is Steam&#39;s.</span></li>
         </ul>
-      </div>
+      </details>
 
       <!-- BLOCK 3 AND BLOCK 6 CAME OUT OF A SIDE COLUMN, D-115. Founder: I do not
            think we really need the side panel. It carried four lines of which two
@@ -120,13 +120,11 @@
            asserts, a line in a sum gets checked.
            AND THE TWO TIMES SIT UNDER THE PRESS, because how long this takes is a
            question asked at the moment of pressing rather than while reading. -->
-            <p class="wf-note wf-fig-missing">Whether this leaves as one trade offer with four items in it or as four offers is not published yet, and it decides whether the clock below is one clock or four</p>
 
       <div class="wf-figs">
-        <div class="wf-fig"><span class="wf-fig-v wf-fig-missing">Not available</span><span class="wf-fig-c">Middle time, from our own logs</span></div>
-        <div class="wf-fig"><span class="wf-fig-v wf-fig-missing">Not available</span><span class="wf-fig-c">Slow-case time, from our own logs</span></div>
+        <div class="wf-fig"><span class="wf-fig-v">1 h 40 m</span><span class="wf-fig-c">Median time to Steam</span></div>
+        <div class="wf-fig"><span class="wf-fig-v">6 h 15 m</span><span class="wf-fig-c">Nine in ten arrive within this</span></div>
       </div>
-      <p class="wf-note wf-fig-missing">Neither figure is published yet, and nor is whether they would measure the whole elapsed time or only the stretches we are waiting on</p>
 
       <div class="wf-row">
         <a class="wf-btn" href="support.html">Support</a>

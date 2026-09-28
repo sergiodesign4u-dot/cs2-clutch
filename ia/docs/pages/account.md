@@ -20,6 +20,21 @@
 |---|---|---|
 | Four tabs as peers on one page, `INVENTORY`, `HISTORY`, `PROFILE`, `SETTINGS`. The inventory grid has two sorts, no filters and no search, and a sticky bar carrying a count, a sum and **four exits**: send to Steam, sell to site, cash out, exchange. History is **five separate histories**, three of which are empty and all three say only `History is empty...`. `baseline-account.md` sections 2 to 4. | The count and the sum of the selection, which are the same pair the header carries, and the per-item action set. | **Our map gives this node one exit and the canon has four**, and the gap narrowed twice since this row was written. **`D-38` put selling a skin back for coins in round 1**, so the second exit exists as a capability and has no placement on this page; `D-60` recorded that **the exchange for a real skin does not exist at all**, and in-platform skin-for-skin exchange stays LATER by scope. **What is still true is the shape of the finding:** the live product answers what a person does with a skin they do not want, and this node answers only what they do with one they do want. **Open item, section 8, not a divergence.** And `History is empty...` with no route is the empty state `3.2` refuses. **The four tabs are four nodes on our map since `D-36`**, `5.1`, `5.9`, `5.10` and `5.11`, so the tab strip is not inherited either. |
 
+
+## Amended 27 September 2026 by `D-128`. 5.1 My items takes the baseline's shape back
+
+**Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, against the founder's dated captures in `research/screens/baseline-account/`. What left the screen is kept in this node, not deleted.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| BACK, breadcrumb, account band, four tabs | The band and the tabs | Unchanged. The visible H1 "My items" repeated the active tab and is kept for the outline only |
+| INVENTORY, "ONLINE ?" chip, "Click on the item to select" | The row | "Steam connected · Settings" and "Click an item to select it", the baseline's length |
+| Card: image, weapon, skin, wear, price, Starting at, Offers; actions on selection | **The card at rest** | **Share and the signed settlement line are revealed with the acts**, on hover, focus or selection, as the baseline reveals its item actions |
+| Idle bar: "55 ITEMS 35.91", SELECT ALL | **Totals of everything held when nothing is ticked** | It read "0 items, 0.00 coins" over a full grid. At 360 the idle bar is one row, and the four exits arrive with the first tick |
+| Nothing under the grid |  | **One line**: the as-of, the two withdrawal limits of `G5`, the peg. It was four labelled facts, and "Verified" left by `D-124` |
+
 ---
 
 ## 0.5 Amended 23 August 2026 by `D-84` and `D-85`, and the baseline row loses two of its own sentences
