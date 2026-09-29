@@ -16,6 +16,25 @@
 
 ---
 
+## Amended 29 September 2026 by `D-136`. The shell's controls answer, and a toggle comes back to its seam
+
+**Why.** Round 14 of the critique pressed every control of the shell on every page.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| The rail's collapse control at the junction of the two seams | **The control and its place** | **It is back on the seam.** A rule written on 23 August grouped it with the deposit control and set it relative, so it sat at the foot of the rail, below a 900 fold, for five weeks |
+| Sound and language at the rail's foot, and again in settings | **Both carriers** | **One setting each**: the rail's Sound control had no listener and settings offered one language while the rail offered nine. Both carriers now read and write one state for the session |
+| LOGOUT in the account menu | **Sign out** | It signs out; it was a button with no handler. Its label lines up with the rows above it |
+| The logo and Home | **Home** | **Home of the state a person is in**: on signed-in pages the logo, the bar's Home, the footer logo and the breadcrumbs opened the guest home |
+| The live strip, with no label | Pause | **The pause lasts the session**, starts paused under reduced motion and says so, and the strip holds still while the pointer is on it, 0.8 sections 2 and 6 |
+| The 5% badge on the deposit control | **The badge** | At 360 it sits off the + glyph instead of over it |
+
+**Struck in this node:** the rail of three or four destinations, stale since `D-40`; the avatar with a display name, the avatar alone since `D-49`; four menu rows, six and Sign out; and **Responsible play inside the money control, which was never rendered**. Under a boundary the money control opens the limits, `D-134`. The struck bar paragraph of `D-124` is on this page now. **Legal and support declare the strip under the header**, `D-126`'s test: neither has an act on its first screen.
+
+---
+
 ## 0. This node was rebuilt on 11 August 2026, and the reason is worth more than the node
 
 The first version of 0.1 shipped a **bottom tab bar** on mobile and a single header row on desktop. The founder rejected it, supplied three screenshots of the baseline's own navigation, and named the model: two menus, filled with round 1 content, with the header changing on login and carrying two money figures.
@@ -220,7 +239,7 @@ Two disjoint sets would be two competing menus, which is the ambiguity Material'
 
 ### The honest cost of carrying both, named rather than defended
 
-In round 1 the rail holds three or four destinations and the bar holds three or four of the same ones. **So in round 1 the drawer's unique contribution is thin.** What it adds over the bar is Responsible play, the sound control and the logo row, and little else. Two carriers holding nearly the same list is redundancy at this size, and calling it anything else would be dressing it up.
+~~In round 1 the rail holds three or four destinations and the bar holds three or four of the same ones.~~ **Stale since `D-40`, struck in round 14 by `D-136`: the rail holds one destination, Cases, and the bar two, Home and Cases.** **So in round 1 the drawer's unique contribution is thin.** What it adds over the bar is Responsible play, the sound control and the logo row, and little else. Two carriers holding nearly the same list is redundancy at this size, and calling it anything else would be dressing it up.
 
 **What makes it a cost paid for a reason rather than an oversight is the roadmap.** `CLAUDE.md` lists eight LATER surfaces. Material's bar ceiling is five and the rail's is seven, so the bar runs out first and the drawer is what absorbs the modes as they ship. The founder is choosing to carry both from day one so that the mobile shortcut exists immediately **and** the drawer is already in place to receive the modes, rather than introducing it later as a change of navigation model in front of people who already learned one.
 
@@ -255,11 +274,11 @@ This is the state the founder specified. Left to right: rail toggle, logo, then 
 
 | Element | What it shows | Leads to |
 |---|---|---|
-| Account control | Avatar and display name, and **it opens the account menu** rather than navigating on its own | the menu, whose first item is 5.1 |
+| Account control | ~~Avatar and display name~~ **the avatar alone since `D-49`**, and **it opens the account menu** rather than navigating on its own | the menu, whose first item is 5.1 |
 | **Balance**, upper figure | Spendable funds, in coins, `D-28` | 4.1 |
 | **Value of items held**, lower figure | Current market value of the skins on the account, in coins, `D-28` | 5.1 |
 | Deposit control | A single add control beside the figures | 4.1 |
-| Responsible play, inside the money control | Persistent, unchanged from `D-19` | 6.1 |
+| ~~Responsible play, inside the money control~~ | ~~Persistent, unchanged from `D-19`~~ **Never rendered, struck in round 14 by `D-136`.** Responsible play is carried by the footer and the account menu; under a boundary the money control itself opens the limits | 6.1 |
 
 **The two figures are one stacked block and not a row, and that has been this node's word since it was written.** Upper and lower are structural, not decorative: the state matrix says "two lines" on desktop and "one line each" on mobile. Stage 04 drew them side by side with a vertical hairline between them and had to be corrected on 19 August 2026 against the founder's own baseline capture, which stacks them.
 
@@ -291,7 +310,7 @@ This is the state the founder specified. Left to right: rail toggle, logo, then 
 
 **One sentence in the row above was also wrong and is corrected rather than left.** The Withdrawals row read "this is the record, and the map has no separate history node". **The map has one now**, and the two are different records: withdrawals are what left, rolls are what happened.
 
-**Responsible play is now in three carriers and that is deliberate rather than sloppy.** The footer column since `D-29`, the entry inside the money control, and this menu. Each answers a different moment: the footer is where a person reading the site finds it, the money control is where a person about to spend meets it, and the menu is where a person managing their account looks for it. **A brake that has to be searched for at the worst moment is not a brake**, which is the base layer's own sentence.
+**Responsible play is now in three carriers and that is deliberate rather than sloppy.** The footer column since `D-29`, ~~the entry inside the money control,~~ and this menu, **the money control entry struck in round 14 by `D-136`: it was never rendered**. Each answers a different moment: the footer is where a person reading the site finds it, the money control is where a person about to spend meets it, and the menu is where a person managing their account looks for it. **A brake that has to be searched for at the worst moment is not a brake**, which is the base layer's own sentence.
 
 **And since `D-40` the menu is the only place My items lives.** It was in the rail as well, and the rule this node opens with is that **no carrier holds another's kind**: My items is an account thing and the header owns the account. **The rail did not lose a destination, it stopped holding one twice.** What that costs is one extra tap from a case screen to the inventory on desktop, and it is the reason the rail is now identical in both states.
 
@@ -375,10 +394,10 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 | Cases | Enters the catalogue, not a case | 3.1 |
 | Provably fair | Public, works with no account. **Superseded by `D-29`:** it left the rail for its own footer column, and the claim below about holding its rail position in both states is what that decision cost | 1.2 |
 | My items | **Removed from both carriers by `D-40`.** It is the first row of the account menu, section 5, and the header owns the account | 5.1, from the menu |
-| Responsible play | **Superseded by `D-29`.** It left the rail on 19 August 2026 and is now carried by the footer column, by the entry inside the money control, and by the account menu | 6.1 |
+| Responsible play | **Superseded by `D-29`.** It left the rail on 19 August 2026 and is now carried by the footer column ~~, by the entry inside the money control,~~ and by the account menu | 6.1 |
 | Sound | Toggle only. Not a destination and never in the destination group | none |
 | Sign in, guest only | A single control in the header | 2.4 |
-| Account control, account only | Avatar and name. **Opens the account menu**, four rows, section 5 | the menu, then 5.1 |
+| Account control, account only | ~~Avatar and name~~ The avatar. **Opens the account menu**, ~~four rows~~ six rows and Sign out, section 5 | the menu, then 5.1 |
 | Balance figure, account only | Spendable funds, in coins | 4.1 |
 | Value of items held, account only | Current market value in coins, timestamped when stale | 5.1 |
 | Deposit control, account only | One add control, **carrying the standing bonus badge since `D-94`**, and no badge on the pages listed in rule 4 | 4.1 |

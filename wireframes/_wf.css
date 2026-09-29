@@ -2349,15 +2349,6 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 }
 .wf-consent-why b { color: var(--wf-ink); }
 
-/* BLOCK 3. THE TWO LISTS. This is the block the node exists for, so it is on the
-   surface: not behind a link, not in a second modal, not in the terms. */
-@container auth (min-width: 520px) { .wf-lists { grid-template-columns: 1fr 1fr; } }
-
-/* BLOCK 4. THE ROUND TRIP, DESCRIBED BEFORE IT STARTS, because it is the one
-   confusing step Related Job 2 forbids and the only thing this node can do about
-   it is make it predictable. Three steps, one line. */
-@container auth (min-width: 520px) { .wf-steps { grid-template-columns: repeat(3, 1fr); } }
-
 /* THE FAILURE BLOCK, 2.5 AND 2.6. It replaces blocks 1 and 3 IN PLACE and keeps
    block 2 visible, because the moment a sign in fails is exactly when a person
    re-reads what the site wanted from them. */
@@ -2551,6 +2542,8 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 .wf-feed-clip { overflow: hidden; min-width: 0; flex: 1 1 auto; }
 .wf-feed.is-held .wf-feed-run { animation-play-state: paused; }
 @media (prefers-reduced-motion: reduce) { .wf-feed-run { animation: none; } }
+/* The target does not move while it is being aimed at, 0.8 section 6, round 14. */
+.wf-feed:hover .wf-feed-run, .wf-feed:focus-within .wf-feed-run { animation-play-state: paused; }
 
 .wf-feed-i {
   position: relative;
@@ -4831,7 +4824,10 @@ textarea.wf-cfg-in { min-height: 0; }
    fires the wrong control. Measured, then reverted on those two. They stay under
    44 with the reason recorded, and the fix for them is a layout change rather
    than a hit area. The other two have nothing within reach and keep the patch. */
-.wf-dep, .wf-rail-toggle { position: relative; }
+.wf-dep { position: relative; }
+/* THE SEAM TOGGLE KEEPS ITS OWN ABSOLUTE POSITION, round 14: grouped here it was
+   knocked to relative on 23 August and sat at the foot of the rail, below the
+   900 fold, for five weeks. Its hit area works from absolute as well. */
 .wf-dep::before, .wf-rail-toggle::before {
   content: ''; position: absolute; left: 50%; top: 50%;
   transform: translate(-50%, -50%);
@@ -5252,3 +5248,9 @@ textarea.wf-cfg-in { min-height: 0; }
   .wf-htable .wf-hnote { flex-basis: 100%; text-align: left; }
   .wf-selskin-art { aspect-ratio: auto; height: 96px; min-height: 0; }
 }
+
+/* THE BADGE CLEARS THE GLYPH ON A PHONE, round 14: at 360 it covered the top of
+   the + on a 36px control. */
+@media (max-width: 899px) { .wf-dep-b { top: -9px; right: -12px; height: 16px; min-width: 16px; font-size: 9px; padding: 0 3px; } }
+/* The account menu's Sign out lines up with the rows above it. */
+.wf-acct-out { justify-content: flex-start; text-align: left; }

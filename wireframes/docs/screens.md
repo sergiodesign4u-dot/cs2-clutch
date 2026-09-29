@@ -93,6 +93,9 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 | `5.6` | Account restricted, notice and appeal | `B8-3`, `G4` | Into `0.10` |
 | `5.7` | Restriction upheld | The ground stays on the record | **Dead end by design** |
 | `5.8` | Trade offer expired | Resend from the same record | Inside `5.3` |
+| `5.9` | Roll history, and its ledgers: items, deposits, withdrawals, cash out, with their states. **Row added in round 14, `D-136`**: the node arrived by `D-36` after this matrix was written | Core Job 1 afterwards, `F3` | From the account menu |
+| `5.10` | Profile: the daily case, messages, the public shelf. **Added in round 14** | No parent in the three legal classes, printed on the map | From the account menu |
+| `5.11` | Settings. **Added in round 14** | `G5`, the trade URL, and the switches `D-86` carries | From the account menu |
 
 ### Clusters 6 and 7
 
@@ -103,6 +106,7 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 | `6.3` | Boundary in force | The boundary holds without being a thing to engage with | Across `4.1`, `3.3`, `5.3` |
 | `7.1` | Public result | `F4`, and the shared object `D-20` created | From `0.8` and from a share |
 | `7.2` | Result gone or private | Routed into `1.2` | Inside `7.1` |
+| `7.3` | Public profile, with its owner and hidden states. **Added in round 14**, the node `D-90` created | `F4`'s shared object, and every card a route to its own round | From `7.1`'s name and from `0.8` |
 
 ### The count
 

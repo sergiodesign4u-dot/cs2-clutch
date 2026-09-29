@@ -791,7 +791,13 @@ window.WF_PAY = window.WF_PAY || {
   // The rail's control and the footer's control are one control in two places, the
   // superset rule applied to a control. Picking in either moves both, because a rail
   // reading EN above a footer reading DE is two controls with one name.
-  function setLang(code) { langCur = code; langSubs.forEach(function (f) { f(code); }); }
+  function setLang(code) { langCur = code; try { sessionStorage.setItem('wf-lang', code); } catch (e) {} langSubs.forEach(function (f) { f(code); }); }
+  try { langCur = sessionStorage.getItem('wf-lang') || 'en'; } catch (e) {}
+  /* ONE SOUND SETTING, round 14. The rail's control had no listener and the
+     settings switch moved alone; both now read and write this. */
+  var soundOn = true, soundSubs = [];
+  try { soundOn = sessionStorage.getItem('wf-sound') !== 'off'; } catch (e) {}
+  function setSound(on) { soundOn = on; try { sessionStorage.setItem('wf-sound', on ? 'on' : 'off'); } catch (e) {} soundSubs.forEach(function (f) { f(on); }); }
 
   function langControl() {
     var wrap = el('div', 'wf-lang-wrap');
@@ -903,8 +909,8 @@ window.WF_PAY = window.WF_PAY || {
       nav.appendChild(a);
     });
     menu.appendChild(nav);
-    var out = el('button', 'wf-linklike wf-acct-out');
-    out.type = 'button';
+    var out = el('a', 'wf-linklike wf-acct-out');
+    out.href = BASE + 'index.html';
     var oi = el('span', 'wf-mi');
     oi.setAttribute('aria-hidden', 'true');
     out.appendChild(oi);
@@ -1153,10 +1159,22 @@ window.WF_PAY = window.WF_PAY || {
     // ONE CONTROL, TWO PARENTS, which is the node's own wording: it is the pause
     // design principle 2 owes a strip that cannot be stopped, and it is the
     // prefers-reduced-motion answer, so one mechanism covers one state.
+    /* THE STATE LASTS THE SESSION AND STARTS FROM THE SYSTEM, round 14, 0.8
+       section 2: a pause was forgotten on the next page, and with reduced motion
+       the strip stood still while its control said Pause. */
+    function hold(on) {
+      band.classList.toggle('is-held', on);
+      pause.setAttribute('aria-pressed', on ? 'true' : 'false');
+      pause.textContent = on ? 'Resume' : 'Pause';
+    }
+    var saved = null;
+    try { saved = sessionStorage.getItem('wf-feed'); } catch (e) {}
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    hold(saved ? saved === 'held' : !!reduce);
     pause.addEventListener('click', function () {
-      var held = band.classList.toggle('is-held');
-      pause.setAttribute('aria-pressed', held ? 'true' : 'false');
-      pause.textContent = held ? 'Resume' : 'Pause';
+      var on = !band.classList.contains('is-held');
+      hold(on);
+      try { sessionStorage.setItem('wf-feed', on ? 'held' : 'run'); } catch (e) {}
     });
     return band;
   }
@@ -1431,7 +1449,6 @@ window.WF_PAY = window.WF_PAY || {
     function paint() {
       var f = depFigs(amt ? amt.value : '0');
       txt('[data-fig-recv]',  f.receive + ' coins');
-      txt('[data-fig-amt]',   '$' + f.amount);
       txt('[data-fig-bonus]', '+' + f.bonus + ' coins');
       txt('[data-fig-total]', '$' + f.amount);
     }
@@ -1502,7 +1519,7 @@ window.WF_PAY = window.WF_PAY || {
     // it will occupy, at the top of the rail, which is where the baseline keeps it.
     // Drawn as a wordmark on one line it read as a heading rather than as a brand slot.
     var logo = el('a', 'wf-rail-logo' + (cfg.active === 'index.html' ? ' is-current' : ''));
-    logo.href = BASE + 'index.html';
+    logo.href = BASE + (cfg.account ? 'index-account.html' : 'index.html');
     logo.setAttribute('aria-label', 'CS2 Clutch, home');
     if (cfg.active === 'index.html') logo.setAttribute('aria-current', 'page');
     logo.appendChild(el('span', 'wf-logo-mark', 'Logo'));
@@ -1537,9 +1554,14 @@ window.WF_PAY = window.WF_PAY || {
     // reach and belongs to what is needed least. The baseline runs the same order.
     var amb = el('div', 'wf-rail-amb');
     var snd = el('button', 'wf-btn wf-rail-snd', 'Sound on');
-    snd.setAttribute('data-lbl', 'Sound on');
     snd.type = 'button';
-    snd.setAttribute('aria-pressed', 'true');
+    function paintSnd(on) {
+      snd.textContent = on ? 'Sound on' : 'Sound off';
+      snd.setAttribute('data-lbl', snd.textContent);
+      snd.setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+    soundSubs.push(paintSnd); paintSnd(soundOn);
+    snd.addEventListener('click', function () { setSound(!soundOn); });
     amb.appendChild(snd);
     // ONE LANGUAGE, LOCKED IN CLAUDE.md. Not a switcher: it states the language and
     // carries no menu, because a picker with one option is a dead control. It shares
@@ -1942,13 +1964,12 @@ window.WF_PAY = window.WF_PAY || {
     // image in a place rather than as a new element in a finished column.
     var c1 = el('div', 'wf-foot-col wf-foot-col--brand');
     var brand = el('a', 'wf-foot-logo');
-    brand.href = BASE + 'index.html';
+    brand.href = BASE + ((window.WF_SHELL && window.WF_SHELL.account) ? 'index-account.html' : 'index.html');
     brand.setAttribute('aria-label', 'CS2 Clutch, home');
     brand.appendChild(el('span', 'wf-logo-mark', 'Logo'));
     c1.appendChild(brand);
     // The about line. One sentence, and it is the promise this product is built on
     // rather than a description of the category.
-    c1.appendChild(el('p', 'wf-foot-about', 'Every case shows the chance, the current value and the tested return before you open it. Every round can be checked after it.'));
     var ident = el('p', 'wf-foot-ident');
     // D-124: THE LINE IS DRAWN AS THE FIELDS IT WILL HOLD, the baseline's own shape
     // ("MIXABIT LTD, HE 470887, Eleftherias, 19..."), not as a sentence about their
@@ -2004,7 +2025,7 @@ window.WF_PAY = window.WF_PAY || {
                   ['Warsteel', 'case.html'], ['Coldfront', 'case.html'],
                   ['Nightfall', 'case.html']]]],
       [['Company', [['Terms of use', 'legal.html'], ['Privacy policy', 'legal.html'],
-                    ['Cookie policy', 'legal.html'], ['Refund and payments policy', 'legal.html']]]],
+                    ['Cookie policy', 'legal.html'], ['Refund and payments policy', 'legal-unpublished.html']]]],
       [['Help', [['Provably fair', 'fair.html'], ['Contact support', 'support.html']]],
        // 'WHERE WE OPERATE' HAS NO DESTINATION ON THE MAP, and the registry check
        // added on 22 August 2026 is what found it: markets.html is the IA
@@ -2017,8 +2038,10 @@ window.WF_PAY = window.WF_PAY || {
        // it: D-90 gave the avatar node 7.3 and took the mark off. This row's
        // subject is a visitor who is NOT refused, and the map still holds
        // nothing for it.
-       ['Play responsibly', [['Responsible play', 'responsible.html'],
-                             ['Where we operate', null]]]]
+       /* WHERE WE OPERATE LEFT THE COLUMN, round 14: a row with no destination
+          is the dead item a carrier may not hold, and the map has none for a
+          visitor who is not refused. footer.md carries it as an open item. */
+       ['Play responsibly', [['Responsible play', 'responsible.html']]]]
     ].forEach(function (track) {
       var c = el('div', 'wf-foot-col' + (track.length > 1 ? ' wf-foot-col--stack' : ''));
       track.forEach(function (col) {
@@ -2074,7 +2097,7 @@ window.WF_PAY = window.WF_PAY || {
     [['Daily cases', 'catalogue.html#cat-daily'], ['Featured cases', 'catalogue.html#cat-featured'],
      ['Community cases', 'catalogue.html#cat-community'], ['Classic cases', 'catalogue.html#cat-classic']
     ].forEach(function (r) { var a = el('a', null, r[0]); a.href = BASE + r[1]; seoBody.appendChild(a); });
-    accordion(seo, 'Links to priority indexed pages', seoBody);
+    accordion(seo, 'Popular cases', seoBody);
     b2.appendChild(seo);
 
     // ----------------------------------------------------------------- BAND 3, base.
@@ -2279,9 +2302,7 @@ window.WF_PAY = window.WF_PAY || {
     sync();
   }
 
-  window.WF_RENDER = { flows: renderFlows, coverage: renderCoverage, panel: renderPanel,
-                       shell: renderShell, footer: renderFooter, bar: renderBar,
-                       counts: function () { return { pages: allPages(), built: builtPages(), screens: WF.screens.length }; } };
+  // WF_RENDER, an export nothing read, left in round 14. } };
 
 
   /* ==========================================================================
@@ -2702,7 +2723,7 @@ window.WF_PAY = window.WF_PAY || {
            other interrupt. Declining returns the person to what they were
            reading and records nothing. */
         '<div class="wf-gate-acts">' +
-          '<button class="wf-btn wf-btn--primary" type="button" data-gate-dismiss>Continue</button>' +
+          '<button class="wf-btn wf-btn--primary" type="button" data-gate-dismiss data-auth-open="default">Continue</button>' +
           '<button class="wf-btn" type="button" data-gate-dismiss>Not now</button>' +
         '</div>';
     } else if (state === 'blocked') {
@@ -2786,6 +2807,15 @@ window.WF_PAY = window.WF_PAY || {
       document.addEventListener('keydown', onKey, true);
       var f = host.querySelector('button, a[href]');
       if (f) f.focus();
+      /* THE CHECK RESOLVES, round 14. The case screen's Sign in reaches sign in
+         through the gate, 2.1 before 2.4, which is the flow the map draws and the
+         click path nothing had produced. A market the allowlist opens passes
+         straight to the sign in dialog; the verdict states have their own pages. */
+      if (state === 'check' && trigger) setTimeout(function () {
+        close();
+        var go = el('button'); go.setAttribute('data-auth-open', 'default'); go.hidden = true;
+        document.body.appendChild(go); go.click(); go.remove();
+      }, 700);
     }
 
     document.addEventListener('click', function (e) {
@@ -3750,6 +3780,10 @@ window.WF_PAY = window.WF_PAY || {
       }
     });
     host.appendChild(tabs);
+    // THE CURRENT TAB IS IN VIEW, round 14: at 360 Settings sat off the strip's
+    // right edge with nothing saying the strip scrolls.
+    var on = tabs.querySelector('.is-on');
+    if (on && tabs.scrollWidth > tabs.clientWidth) tabs.scrollLeft = Math.max(0, on.offsetLeft - (tabs.clientWidth - on.offsetWidth) / 2);
   }
 
   /* THE SELECTION BAR COUNTS AND SUMS, 5.1, D-84. It is here rather than inline
@@ -4572,7 +4606,6 @@ window.WF_PAY = window.WF_PAY || {
     var totalEl = document.querySelector('[data-wd-total]');
     var sayEl = document.querySelector('[data-wd-say]');
     var btnEl = document.querySelector('[data-wd-go]');
-    var cntEl = document.querySelector('[data-wd-count]');
 
     function impact(r) { return r.pick < 0 ? null : r.ours - r.offers[r.pick].p; }
 
@@ -4616,7 +4649,6 @@ window.WF_PAY = window.WF_PAY || {
       /* THE COUNT LIVED IN THE SIDE CARD AND THE SIDE CARD IS GONE, D-115. The
          button carries it now, which is where it was already being said twice. */
       btnEl.textContent = going ? 'Send ' + going + (going === 1 ? ' item' : ' items') + ' to Steam' : 'Nothing to send';
-      if (cntEl) cntEl.textContent = going + ' of ' + rows.length;
     }
 
     rows.forEach(function (r) {
@@ -6278,6 +6310,37 @@ window.WF_PAY = window.WF_PAY || {
     });
   }
 
+  /* THE SETTINGS ROWS AND THE RAIL ARE ONE SETTING, round 14. Language offered
+     only English here while the rail offered nine, and the sound switch moved
+     without the rail following or its own value line changing. */
+  function mountShellSettings() {
+    var snd = document.getElementById('cfg-sound');
+    if (snd) {
+      var sv = snd.closest('.wf-cfg-row2') && snd.closest('.wf-cfg-row2').querySelector('.wf-cfg-rv');
+      var paint = function (on) { snd.checked = on; if (sv) sv.textContent = on ? 'On' : 'Off'; };
+      soundSubs.push(paint); paint(soundOn);
+      snd.addEventListener('change', function () { setSound(snd.checked); });
+    }
+    var lg = document.getElementById('cfg-lang');
+    if (lg) {
+      lg.innerHTML = LANGS.map(function (L) { return '<option value="' + L[0] + '">' + L[1] + '</option>'; }).join('');
+      var lv = lg.closest('.wf-cfg-row2') && lg.closest('.wf-cfg-row2').querySelector('.wf-cfg-rv');
+      var paintL = function (code) { lg.value = code; if (lv) LANGS.forEach(function (L) { if (L[0] === code) lv.textContent = L[1]; }); };
+      langSubs.push(paintL); paintL(langCur);
+      lg.addEventListener('change', function () { setLang(lg.value); });
+    }
+  }
+
+  /* HOME IS THE HOME OF THE STATE A PERSON IS IN, round 14: on signed-in pages
+     the breadcrumb, the bar and the footer logo opened the guest home, which
+     reads as being signed out. */
+  function mountHomeLinks() {
+    if (!(window.WF_SHELL && window.WF_SHELL.account)) return;
+    Array.prototype.forEach.call(document.querySelectorAll('.wf-crumb a[href="index.html"], .wf-bar a[href$="index.html"], .wf-foot-logo'), function (a) {
+      a.setAttribute('href', a.getAttribute('href').replace(/index\.html$/, 'index-account.html'));
+    });
+  }
+
   function mountSettings() {
     var root = document.querySelector('[data-cfg]');
     if (!root) return;
@@ -6366,6 +6429,8 @@ window.WF_PAY = window.WF_PAY || {
     mountSettings();
     mountSwitches();
     renderFooter(document.getElementById('wf-footer'));
+    mountShellSettings();
+    mountHomeLinks();
     // AFTER THE FOOTER IS BUILT AND NOT WITH THE OTHER MOUNTS. The counters it
     // animates do not exist until renderFooter has run, and the mount block runs
     // first: called there it found nothing and returned, silently.

@@ -20,6 +20,21 @@
 
 ---
 
+## Amended 29 September 2026 by `D-136`. Three rows of the footer stop saying what they cannot do
+
+**Why.** Round 14 of the critique followed every footer link.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| COMPANY: Terms, Privacy, Cookie, Refund | **The four** | **Refund and payments policy opens its own state**, `legal-unpublished.html`, as the legal pages' own links do; it opened the Terms |
+| No interlinking row | Ours | **Headed "Popular cases"**: it read "Links to priority indexed pages", an SEO term shown to players |
+| NEED HELP? with the Support button and the identification line | **Both** | **No tagline.** The brand block's sentence about chances and checkable rounds was the third copy on Home and the baseline has none |
+| Nothing | | **Where we operate is not drawn.** A row with no destination is the dead item a carrier may not hold; the map has no page for a visitor who is not refused. It stays an open item here |
+
+---
+
 ## 0.1 Amended 2 September 2026 by `D-121`. The strip fills, two verdicts of section 2 are reversed, and the losing ground is kept
 
 Founder, with the live strip beside ours: **"давай в футере сделаем как на продукте, все показатели которые на продукте. Да, у нас типа нет этих данных, но есть зато на продукте, и тут будем симулировать их наличие."**

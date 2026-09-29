@@ -765,3 +765,20 @@
 | A34, A35 | Values without a unit; one column of 465px cards at 360 | A | Fixed |
 | D 1.16 | My items read 23 Aug, after the prototype's now | D | Fixed |
 | B37 | "Our commission" had no value on the degraded Steam state | B | **Withdrawn on verification**: the row reads 0.00 in the file and on screen |
+
+### 14.8 Step 5, the shell, fixed on 29 September 2026 under `D-136`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| C7, C13 | The rail's Sound had no listener; settings' switch moved alone; settings offered one language against the rail's nine | C | Fixed: one state per setting for the session |
+| C8, C46 | The menu's Sign out did nothing and sat off the rows' alignment | C | Fixed |
+| C21 | Logo, bar Home, footer logo and breadcrumbs opened the guest home on signed-in pages | C | Fixed |
+| C14 | Collapsing the rail slid the strip under the header | C | **Re-diagnosed on verification**: the page scrolled 24px to reach the toggle, which had sat at the foot of the rail since 23 August. The toggle is back on the seam, and the defect found is that one |
+| C15, C16, C17 | The pause was forgotten between pages; reduced motion stopped the strip under a Pause label; the strip moved under the pointer | C | Fixed |
+| C18, C19, C20, A45 | "Links to priority indexed pages"; Where we operate with no destination; Refund opening the Terms; the tagline's third copy on Home | C, A | Fixed |
+| C22, C23 | The 5% badge over the + glyph at 360; the active account tab off the strip at 360 | C | Fixed |
+| C44, D 1.6, D 1.7, D 1.13, D 2.1 | `0.1` contradicted itself and the render: three or four rail items, avatar and name, four menu rows, a Responsible play entry in the money control never rendered; the struck bar paragraph missing from the page | C, D | Struck and amended |
+| D 1.10, D 2.2 | The footer page's crosses table gave verdicts `D-131` contradicts | D | Marked as superseded by the row, on the page |
+| D 4 | Two CSS classes, a writer and a counter writing to nothing, an unread export | D | Removed. **The gate's click path was not dead but unwired**: the case's Sign in now passes through it |
+| D 8 | `screens.md` had no rows for 5.9, 5.10, 5.11, 7.3 | D | Added, and on the overview's matrix |
+| C48 | The strip after the content on support and legal | C | Fixed: `feedTop`, by `D-126`'s test |

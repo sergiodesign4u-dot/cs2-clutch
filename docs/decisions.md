@@ -5444,3 +5444,30 @@ Ledgers and the settlement stack as label and value rows, and the selected skin'
 ### Words
 
 The state pages of 5.1, 5.3 and 5.9 lose the sentences that explained the product to the reader, as `D-128` did for their canonical pages.
+
+
+## D-136. Round 14, step 5: the shell's controls answer, and the collapse toggle is back on its seam
+
+**Date:** 2026-09-29. **Stage:** 04. **Decided by:** the founder, "давай исправлять все что нужно", round 14. **Binds:** nodes `0.1`, `0.2`, `0.8`, the gate's click path `2.1`, and every page through the shell.
+
+**What the founder said.** Fix everything round 14 raised.
+
+### The shell's controls answer
+
+The rail's Sound control had no listener and settings' switch moved alone; settings offered one language while the rail offered nine; the account menu's Sign out did nothing. **Sound and language are one setting each for the session**, read and written by both carriers, and Sign out signs out. **Home is the home of the state a person is in**: on signed-in pages the logo, the bar, the footer logo and the breadcrumbs opened the guest home.
+
+### A toggle back on its seam
+
+**The rail's collapse control had sat at the foot of the rail since 23 August**, below a 900 fold, because a rule grouping it with the deposit control set it relative. The auditor saw the strip slide under the header on collapse; that was the page scrolling to reach the control. It is back at the junction of the seams.
+
+### The strip keeps its word
+
+The pause lasts the session, starts paused under reduced motion and says Resume, and the strip holds while the pointer or focus is on it. Legal and support carry it under the header.
+
+### The gate is on the way to sign in
+
+**The case screen's Sign in now passes through the gate**, 2.1 before 2.4 as the map draws it: the click path existed and nothing produced it. The staged verdict's Continue opens sign in.
+
+### The footer and the node
+
+Refund opens its own policy; the interlinking row is "Popular cases"; the brand tagline and the "Where we operate" row with no destination left. `0.1`'s stale rows are struck, among them a Responsible play entry inside the money control that was never rendered. The matrix gains 5.9, 5.10, 5.11 and 7.3. Five pieces of dead code left.

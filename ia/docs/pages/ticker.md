@@ -22,6 +22,18 @@
 
 ---
 
+## Amended 29 September 2026 by `D-136`. The pause keeps its word
+
+**Why.** Round 14 of the critique found section 2's persistence and section 6's still target unimplemented, and the control reading Pause over a strip reduced motion had already stopped.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A strip that moves, with no pause | The strip | **The pause lasts the session**, **starts paused under reduced motion and says Resume**, and **the strip holds while the pointer or focus is on it**, so the hover layer's two links are not a moving target. On legal and support the strip sits under the header, `D-126` |
+
+---
+
 ## 0.5 Amended 21 August 2026 by `D-59`. Every page, and two more destinations inside the tile
 
 **Founder decision.** The live feed goes on every page, the item image leads the tile, the source becomes an icon, and a hover layer carries the case and the winner with a destination each.
