@@ -726,3 +726,22 @@
 | A26 | 1.1's strip read "0 daily cases, available now" | A | Fixed. **The three routes to the daily block stay**: the strip is 1.1's own block, the banner is B2, the ladder is B6, each with its own parent |
 | A40, A41, A42, A44 | The loading skeleton on the wrong figure; the peg repeated in the drawer; chips under 44px at 360; an argument in a caption | A | Fixed |
 | D 7.1, 7.2, 7.5 | Median times, the tier target and favourite counts unmarked | D | Marked in `1.0` and `3.1` |
+
+### 14.6 Step 3, the deposit and the cash out, fixed on 29 September 2026 under `D-134`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| B2, B3, B40 | Seven crypto routes showed Bitcoin's network, address, rate and minimum; the network picker changed nothing | B | Fixed: per coin figures, samples, marked in `4.1` |
+| B4 | Every tile at `/deposit` opened Visa or Bitcoin | B | Fixed: `?m=` |
+| B7, D 1.8 | The header's + opened a working Pay under a boundary | B, D | Fixed: it opens the limits; the band's Add funds too |
+| B12 | $0 and an amount over the limit reached crediting | B | Fixed |
+| B13, B14 | No skin ticked and an empty code reached crediting; Create my address, Cancel the raise and Copy answered nothing | B | Fixed |
+| B16 | Crediting read 6 min against "usually within 2 minutes" and was dated after the prototype's now | B | Fixed: 1 min, 21 Aug 09:30, one line routing to support |
+| B27, B28 | Cash out accepted "hello", refused while a saved wallet sat in the select, printed "A Ethereum", offered an unbuilt Save, and named no minimum | B | Fixed. The history row's minimum is taken at step 4 |
+| B30, B33, B49 | The declined state said "unchanged" twice and explained itself; crediting and ceiling-pending explained themselves; the crypto dock carried a card with no decision | B | Fixed |
+| B35 | The band's Add funds went to the page while the header opened the dialog | B | Fixed |
+| B39 | A preset stayed pressed after typing another amount | B | Fixed. **The default stays 40.00**: the baseline preselects $20, and 40.00 is the sample the receipt and history are drawn from |
+| B22, B43 | The step indicator and the labels Add funds and Pay had no verdict | B | Named in `4.1` |
+| D 1.9, D 2.3 | "The tile is not a link" never struck after `D-129`; the step 2 pages table missing from the page | D | Fixed |
+
+**Moved to step 4:** B21, the account's deposit limit told two ways, and B36, what a deposit row's figure is, because both live in history.

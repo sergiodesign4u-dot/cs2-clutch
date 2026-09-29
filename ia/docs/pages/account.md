@@ -319,6 +319,8 @@ Founder, with the live product's layer beside ours: **"cash out - кстати �
 
 **Updated in the second pass of round 13, `D-124`.** The canonical layer printed three unknowns in a five-line sum, which `D-124` names as the defect. **It now draws samples, and they are samples, not figures:** Tether on Tron (TRC-20); a blockchain fee of 2.40 coins on Ethereum, 0.05 on Litecoin and 1.00 on Tether; a rate of 2 450.00, 84.20 and 1.00 coins per unit. With those drawn, the press accepts once something is ticked and an address is given, and refuses when what is ticked is worth less than the fee. **All three unknowns in the table above stay open with the same owners.**
 
+**Updated in round 14, `D-134`.** A smallest cash out per network is drawn and enforced, samples 10.00 coins on Ethereum, 2.00 on Litecoin and 5.00 on Tether; the address is checked against its network's format; the saved wallet is picked already; Save, which was not built, left the layer.
+
 ### What is deliberately not drawn
 
 **The live layer's notice.** It reads that cashing out forfeits the deposit bonus for the rest of the day, and free case battles and giveaways until the end of the same day.

@@ -5390,3 +5390,30 @@ A guest's press opens sign in and a guest never sees a pressed heart. An account
 ### Samples marked
 
 Favourite counts, the 5.00 tier target and the median times to Steam are marked as samples in `1.0` and `3.1`.
+
+
+## D-134. Round 14, step 3: every coin carries its own network, and every press checks what it sends
+
+**Date:** 2026-09-29. **Stage:** 04. **Decided by:** the founder, "давай исправлять все что нужно", round 14. **Binds:** node `4.1`, the cash out layer of `5.1`, the header's money control under a boundary, `0.1`.
+
+**What the founder said.** Fix everything round 14 raised.
+
+### Every coin carries its own network
+
+**Seven of eight crypto routes rendered Bitcoin's network, address, rate and minimum**, because the dialog passed the method and the pane fell back to Bitcoin. Sent on the wrong network, coins are lost. Each coin now carries its own four figures, samples, and the network picker moves the address and the note.
+
+### The address opens what the tile names
+
+At `/deposit` every card tile opened Visa Or Mastercard and every crypto tile Bitcoin. **The method travels in the address now**, `?m=`, so the page and the dialog render the same pick.
+
+### Presses that check what they send
+
+Pay refused only a missing terms box: $0 and an amount over the limit in force reached crediting. **It refuses under $5.00 and over the limit, with the reason in place.** Deposit with nothing ticked and Redeem with no code refuse. Cancel the raise answers. **Under a boundary the header's + and the band's Add funds open the limits**, which is what `0.1` says for 6.3 and what the page under them already said.
+
+### Cash out checks the address
+
+The saved wallet is picked already; an address is checked against its network's format, where "hello" was accepted; a smallest cash out per network is printed and enforced; Save, not built, left.
+
+### Named
+
+The missing step indicator and the labels Add funds and Pay are named in `4.1`'s baseline row. The skins tile's stale "not a link" is struck, and the step 2 pages table is on the page.

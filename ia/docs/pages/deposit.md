@@ -20,6 +20,24 @@
 | Two numbered steps. Step 1: a partner promo code already applied, a country selector that filters the grid, then ~~**17 fiat methods and 8 crypto**~~ **27 fiat methods and 8 crypto**, corrected here by `D-129` after section 5b.1 of `baseline-account.md` was corrected on 25 August. Step 2 for card: amount, email, a terms checkbox, six presets, and a panel reading `Rate 1.00 = $1.00` with a standing **+5.00% bonus capped at 100 per 24 hours**. Crypto gives an address per network with a live rate and a minimum, and no amount field. `baseline-account.md` section 5b. | The two step shape, the published rate at the moment of funding, and the amount presets. | **No crediting time is published anywhere in that flow**, which is the whole of row `C3`, and the deposit history's most common status is REJECTED. **Ours publishes the window before the money moves.** ~~The standing bonus and its header badge are refused, `0.1`.~~ **Both returned by `D-94`**, and this row said otherwise until `D-129`. And one route, gift cards, leaves the product entirely to six third party resellers with no crediting story at all. |
 
 
+## Amended 29 September 2026 by `D-134`. Every coin carries its own network, and every press checks what it is sending
+
+**Why.** Round 14 of the critique exercised every route of the layer. Seven of eight crypto routes showed Bitcoin's network, address and minimum; the address opened every method as Visa or Bitcoin; $0 and an amount over the limit reached crediting; the header's + opened a working Pay on the pages that say adding funds is closed.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| "1 CHOOSE A PAYMENT METHOD", "2 DEPOSIT AMOUNT", a step indicator | **The two steps**: the grid, then the chosen method's form with Change to go back | **No numbered indicator.** `D-100` dropped it while the rail showed the method on screen; `D-129` removed the rail and the method now sits in its own row with Change, which does the indicator's one job. Named here, it had no verdict since `D-129` |
+| TOP UP YOUR BALANCE, then DEPOSIT on the press | The two places | **"Add funds" and "Pay"**: the header and the account band say Add funds, and Pay names what the press does on a card route. Named here |
+| Each coin's own network, address, rate and minimum | **All four per coin** | Samples by `D-124`: Bitcoin 64 185.74 coins and 0.0001; Ethereum 2 450.00 and 0.002; Litecoin 84.20 and 0.01; Tether 1.00 and 5, on Tron or Ethereum; Tron 0.24 and 20; XRP 0.58 and 10; Solana 146.30 and 0.05; Other, Dogecoin or BNB Smart Chain. The network picker moves the address and the note |
+
+**Presses that check.** Pay refuses under $5.00 and over the limit in force, with the reason in place. Deposit with no skin ticked, and Redeem with no code, refuse instead of reaching crediting. Cancel the raise answers. **Under a boundary**, the header's + and the account band's Add funds open the limits, as `0.1` says the deposit route closes. **The address carries the method**, `deposit-card.html?m=PayPal`, so a tile opens what it names.
+
+**Cash out, in `5.1`'s layer.** The saved wallet is picked already; an address is checked against its network's format; a smallest cash out per network is printed and enforced, samples 10.00, 2.00 and 5.00 coins; Save, which was not built, is gone.
+
+---
+
 ## Amended 27 September 2026 by `D-129`. The layer takes the baseline's shape, and the founder's three asks
 
 **Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, and three founder answers of `D-124`: keep the dialog and improve it, a sticky pay row, Gift cards and CS2 skins back in the grid. The first screen at 360 showed no payment method at all, and Pay sat below the fold at 1440.
@@ -200,7 +218,7 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 **CS:GO Skins.** Depositing skins is a real capability of the live product, marked `INSTANT` on its tile, and there is **no row in `cjm-to-be.md`, no node on the map and no flow drawn.**
 
-`CLAUDE.md`: a screen, a block or a component with no parent is cut, or carried with its orphan status printed in its own row. **It is carried, and the tile is not a link**, because a tile that opened nothing would be the dead item defect with a logo on it. **Whether skin funding is in round 1 at all is a founder decision that no file has taken.**
+`CLAUDE.md`: a screen, a block or a component with no parent is cut, or carried with its orphan status printed in its own row. ~~**It is carried, and the tile is not a link**, because a tile that opened nothing would be the dead item defect with a logo on it. **Whether skin funding is in round 1 at all is a founder decision that no file has taken.**~~ **Taken on 27 September 2026 by `D-129`:** the tile is a link to `deposit-skins.html`, and the orphan status stays printed in this row.
 
 ### The promo field is empty, and the baseline's is not
 

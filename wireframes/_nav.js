@@ -736,7 +736,7 @@ window.WF_PAY = window.WF_PAY || {
 
   function shellCfg() {
     var c = window.WF_SHELL || {};
-    return { account: !!c.account, active: c.active || currentFile() };
+    return { account: !!c.account, active: c.active || currentFile(), boundary: !!c.boundary };
   }
 
   // Three destinations before an account, four after. Home is not one of them: the
@@ -1440,6 +1440,7 @@ window.WF_PAY = window.WF_PAY || {
       amt.addEventListener('input', function () {
         var c = clean(amt.value);
         if (c !== amt.value) amt.value = c;
+        [].forEach.call(scope.querySelectorAll('[data-dep-preset]'), function (o) { o.setAttribute('aria-pressed', o.getAttribute('data-dep-preset') === c ? 'true' : 'false'); });
         paint();
       });
     }
@@ -1472,8 +1473,14 @@ window.WF_PAY = window.WF_PAY || {
 
     go.addEventListener('click', function (e) {
       var needTerms = terms && terms.querySelector('.wf-cbx-box').getAttribute('aria-pressed') !== 'true';
-      if (!needTerms) return;
+      /* THE AMOUNT IS CHECKED TOO, round 14: $0, letters and a figure over the
+         limit in force all reached crediting. */
+      var v = parseFloat(amt ? amt.value : '0') || 0, cap = parseFloat(go.getAttribute('data-ceiling') || '0');
+      var why = v < 5 ? 'Nothing went through: the smallest deposit is $5.00.'
+              : (cap && v > cap) ? 'Nothing went through: your deposit limit leaves $' + cap.toFixed(2) + ' this period.' : '';
+      if (!needTerms && !why) return;
       e.preventDefault();
+      if (!needTerms) { say.classList.add('is-said'); say.textContent = why; if (amt) amt.focus(); return; }
       // THE ANSWER IS A PLACE ON THE SCREEN AND NOT ONLY A SENTENCE ABOUT ONE.
       say.classList.add('is-said');
       say.textContent = 'Nothing went through: the terms and the refund policy have not been accepted yet.';
@@ -1692,7 +1699,15 @@ window.WF_PAY = window.WF_PAY || {
          click, a session with no script and a copied link all need it, and D-54
          spent a section on why deleting an address deletes rules nobody decided to
          delete. */
-      dep.setAttribute('data-dep-open', 'step1');
+      /* UNDER A BOUNDARY THE CONTROL OPENS THE LIMITS, round 14, navigation.md
+         section on 6.3: "the deposit route closes". It opened the full layer with
+         a working Pay on the pages that say adding funds is closed. */
+      if (cfg.boundary) {
+        dep.href = BASE + 'responsible.html';
+        dep.setAttribute('aria-label', 'Adding funds is closed for now. Your limits');
+      } else {
+        dep.setAttribute('data-dep-open', 'step1');
+      }
       // AND ONE SET OF PAGES TURNS IT OFF, WHICH IS WHAT MAKES THE BADGE SAFE TO SHIP.
       // Node 4.2's own forbidden list reads "no offer of any kind: no alternative funding
       // route, no reminder when the period resets, no invitation to raise the ceiling".
@@ -1712,7 +1727,7 @@ window.WF_PAY = window.WF_PAY || {
         // THE CAP TRAVELS WITH THE PERCENTAGE OR THE PERCENTAGE IS A HALF TRUTH.
         dep.setAttribute('aria-label',
           'Add funds. We add ' + BN.pctFull + ' in coins on top, up to ' + BN.cap + ' per ' + BN.period);
-      } else {
+      } else if (!cfg.boundary) {
         dep.setAttribute('aria-label', 'Deposit');
       }
       right.appendChild(dep);
@@ -3706,6 +3721,9 @@ window.WF_PAY = window.WF_PAY || {
     }
     var add = el('a', 'wf-btn wf-ah-add', 'Add funds');
     add.href = BASE + 'deposit.html';
+    // ONE ACT, ONE CARRIER, round 14: the header + opens the dialog, so this does.
+    if (window.WF_SHELL && window.WF_SHELL.boundary) add.href = BASE + 'responsible.html';
+    else add.setAttribute('data-dep-open', 'step1');
     money.appendChild(add);
     row.appendChild(money);
 
@@ -4712,7 +4730,7 @@ window.WF_PAY = window.WF_PAY || {
     var kind = row[1], mark = row[2];
     var node = kind ? el('a', 'wf-pay-t') : el('div', 'wf-pay-t is-noroute');
     if (kind) {
-      node.href = BASE + (window.WF_PAY.route[kind] || 'deposit.html');
+      node.href = BASE + (window.WF_PAY.route[kind] || 'deposit.html') + '?m=' + encodeURIComponent(row[0]);
       // THE METHOD TRAVELS ON THE TILE. At the address the href is the whole of
       // it; inside the layer this is read and the right pane changes, with the
       // rail and the money block staying exactly where they were.
@@ -4987,7 +5005,7 @@ window.WF_PAY = window.WF_PAY || {
             '</div>' +
             '<p class="wf-refuse" data-dep-refuse>' + (o.refuse || '') + '</p>' +
             '<div class="wf-row">' +
-              '<a class="wf-btn wf-btn--primary" data-dep-go href="' + BASE + 'deposit-crediting.html">' + (o.go || 'Pay') + '</a>' +
+              '<a class="wf-btn wf-btn--primary" data-dep-go' + (o.ceiling ? ' data-ceiling="' + o.ceiling + '"' : '') + ' href="' + BASE + 'deposit-crediting.html">' + (o.go || 'Pay') + '</a>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -5002,10 +5020,26 @@ window.WF_PAY = window.WF_PAY || {
      moment to hold it in. THE PAGE STATES THAT rather than drawing a ceiling that
      cannot bind, which would be a picture of a protection.
      THE RATE IS A MARKET READ AND CARRIES AN AS-OF, unlike the peg. */
+  /* EVERY COIN CARRIES ITS OWN NETWORK, ADDRESS, RATE AND MINIMUM, round 14.
+     The pane fell back to Bitcoin for all eight tiles, so Solana showed a bc1
+     address and a BTC minimum: coins sent on the wrong network are lost. All
+     four figures are samples by D-124, marked in 4.1. */
+  var COINS = {
+    Bitcoin:  { tick: 'BTC',  rate: '64 185.74', min: '0.0001', nets: [['Bitcoin', 'bc1q9h7x4k2m8d0v3s6n5r7t2w4y8z0p3a5c7e9x4k2'], ['Bitcoin, Lightning', 'lnurl1dp68gurn8ghj7um9wfmxjcm99e3k7mf0v9cxj0m385ekvcenxc6r2c35xvukxefcv5mkvv34x5ekzd3ev56nyd3hxqurzepexejxxepnxscrvwfnv9nxzcn9xq6xyefhvgcxxcmyxymnserxfq5fns']] },
+    Ethereum: { tick: 'ETH',  rate: '2 450.00', min: '0.002', nets: [['Ethereum, ERC-20', '0x3b9e27a4c1d05f8e6b2a9c47d1e30f5a8b6c2d94']] },
+    Litecoin: { tick: 'LTC',  rate: '84.20', min: '0.01', nets: [['Litecoin', 'ltc1qz8r4x6m2k9d7v5s3n1p0t8w6y4a2c9e7h5j3k1']] },
+    Tether:   { tick: 'USDT', rate: '1.00', min: '5', nets: [['Tron, TRC-20', 'TXa9q4VzK7mR2pL8dN3sW6yB1cF5hJ0gT'], ['Ethereum, ERC-20', '0x9f41c07b2e8d53a6f1c49e0b7d2a85c3e6f0b1d7']] },
+    Tron:     { tick: 'TRX',  rate: '0.24', min: '20', nets: [['Tron', 'TQ7nC3xLp9rV5kM1wZ8dH2sF6yB4gJ0aE']] },
+    Xrp:      { tick: 'XRP',  rate: '0.58', min: '10', nets: [['XRP Ledger', 'rN7nW3kL9pQ2xV5mD8sF1hJ4yB6cT0gZe']] },
+    Solana:   { tick: 'SOL',  rate: '146.30', min: '0.05', nets: [['Solana', '7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU']] },
+    Other:    { tick: 'DOGE', rate: '0.12', min: '25', nets: [['Dogecoin', 'DH5yaieqoZN36fDVciNyRueRGvGLR3mr7L'], ['BNB Smart Chain', '0x6d2e81b0c4a97f35e1d08c6b2f94a7e3c5d10b8f']] }
+  };
   function depCrypto(P, o) {
     var empty = (o.state === 'nowallet');
-    var coin  = o.coin || 'Bitcoin';
-    var tick  = o.tick || 'BTC';
+    var coin  = o.coin || o.method || 'Bitcoin';
+    var C = COINS[coin] || COINS.Bitcoin;
+    var tick  = C.tick;
+    var net0 = C.nets[0];
     var B = window.WF_BONUS || {};
     // THE BASELINE'S ORDER, D-129: network, code and address, rate, bonus, the
     // minimum, then Done. Rate, address and minimum are samples by D-124; the
@@ -5015,35 +5049,31 @@ window.WF_PAY = window.WF_PAY || {
         '<div class="wf-fund">' +
           '<div class="wf-stack">' +
             '<label class="wf-cfg-l" for="' + P + 'dep-net">Network</label>' +
-            '<select class="wf-f" id="' + P + 'dep-net">' +
-              (empty ? '<option>Solana</option>' : '<option>Bitcoin</option><option>Bitcoin, Lightning</option>') +
+            '<select class="wf-f" id="' + P + 'dep-net" data-dep-net data-coin="' + coin + '">' +
+              C.nets.map(function (n) { return '<option>' + n[0] + '</option>'; }).join('') +
             '</select>' +
-            '<p class="wf-note">Send on ' + (empty ? 'Solana' : coin) + ' only. Coins sent on another network are lost.</p>' +
+            '<p class="wf-note" data-dep-netnote>Send on ' + net0[0] + ' only. Coins sent on another network are lost.</p>' +
           '</div>' +
           '<div class="wf-crypto' + (empty ? ' is-empty' : '') + '">' +
             '<span class="wf-crypto-qr" aria-hidden="true">' + (empty ? 'Code slot, empty' : 'Code slot') + '</span>' +
             '<div class="wf-crypto-a">' +
               (empty
                 ? '<span class="wf-fig-c">You do not have an address on this network yet</span>' +
-                  '<div class="wf-row"><button class="wf-btn wf-btn--primary" type="button">Create my address</button></div>'
+                  '<div class="wf-row"><a class="wf-btn wf-btn--primary" href="' + BASE + 'deposit-crypto.html?m=' + encodeURIComponent(coin) + '">Create my address</a></div>'
                 : '<span class="wf-fig-c">Your deposit address</span>' +
-                  '<code class="wf-crypto-v">bc1q9h7x4k2m8d0v3s6n5r7t2w4y8z0p3a5c7e9x4k2</code>' +
-                  '<div class="wf-row"><button class="wf-btn" type="button">Copy</button></div>') +
+                  '<code class="wf-crypto-v" data-dep-addr>' + net0[1] + '</code>' +
+                  '<div class="wf-row"><button class="wf-btn" type="button" data-copy="' + net0[1] + '">Copy</button></div>') +
             '</div>' +
           '</div>' +
           '<ul class="wf-dep-facts">' +
-            '<li>Rate <strong>1 ' + tick + ' = 64 185.74 coins</strong>, read 09:31</li>' +
+            '<li>Rate <strong>1 ' + tick + ' = ' + C.rate + ' coins</strong>, read 09:31</li>' +
             '<li>Bonus <strong>+' + (B.pctFull || '5.00%') + '</strong> when the coins arrive</li>' +
-            '<li>Minimum <strong>0.0001 ' + tick + '</strong>. Less than that is lost</li>' +
+            '<li>Minimum <strong>' + C.min + ' ' + tick + '</strong>. Less than that is lost</li>' +
             '<li>A deposit limit cannot stop a transfer from your own wallet. <a href="' + BASE + 'responsible.html">Your limits</a></li>' +
           '</ul>' +
         '</div>' +
         '<div>' +
           '<div class="wf-dock">' +
-            '<div class="wf-card wf-total">' +
-              '<div class="wf-tl"><span>Charged now</span><span class="wf-tl-v">Nothing</span></div>' +
-              '<div class="wf-tl"><span>Rate</span><span class="wf-tl-v">1 coin = $1.00</span></div>' +
-            '</div>' +
             (empty
               ? ''
               : '<div class="wf-row"><a class="wf-btn wf-btn--primary" href="' + BASE + 'deposit-crediting.html">Done, I have sent it</a></div>') +
@@ -5074,7 +5104,8 @@ window.WF_PAY = window.WF_PAY || {
           '<label class="wf-cfg-l" for="' + P + 'dep-code">Card code</label>' +
           '<input class="wf-cfg-in" id="' + P + 'dep-code" type="text" placeholder="The code from the card you bought">' +
         '</div>' +
-        '<div class="wf-row"><a class="wf-btn wf-btn--primary" href="' + BASE + 'deposit-crediting.html">Redeem</a></div>' +
+        '<p class="wf-refuse" data-code-say></p>' +
+        '<div class="wf-row"><a class="wf-btn wf-btn--primary" href="' + BASE + 'deposit-crediting.html" data-code-go>Redeem</a></div>' +
       '</div>';
   }
 
@@ -5103,6 +5134,7 @@ window.WF_PAY = window.WF_PAY || {
         '<div>' +
           '<div class="wf-dock">' +
             '<div class="wf-recv"><span class="wf-fig-c">You will receive</span><span class="wf-recv-v" data-skin-sum>13.40 coins</span><span class="wf-fig-c" data-skin-n>3 skins</span></div>' +
+            '<p class="wf-refuse" data-skin-say></p>' +
             '<div class="wf-row"><a class="wf-btn wf-btn--primary" href="' + BASE + 'deposit-crediting.html" data-skin-go>Deposit 3 skins</a></div>' +
           '</div>' +
         '</div>' +
@@ -5113,23 +5145,20 @@ window.WF_PAY = window.WF_PAY || {
     'ceiling-pending':
       '<div class="wf-notice">' +
         '<h2 id="h2-pending">The higher limit is not in force yet</h2>' +
-        '<p><strong>In force now: $40.00</strong> for the period. This is the figure every number on this page uses.</p>' +
-        '<p>Pending: 120.00. It takes effect at the moment below, and until then nothing changes.</p>' +
+        '<p><strong>In force now: $40.00</strong> for the period.</p>' +
+        '<p>Pending: $120.00, from the moment below.</p>' +
         '<div class="wf-moment">' +
           '<span class="wf-moment-v">23 Aug 2026, 09:31</span>' +
           '<span class="wf-moment-l">When the higher limit takes effect</span>' +
         '</div>' +
-        '<div class="wf-row"><button class="wf-btn" type="button">Cancel the raise</button></div>' +
-        '<p class="wf-note">Cancelling is a lowering, so it takes effect immediately, at any time, with no second wait.</p>' +
-        '<p class="wf-note">Deposits inside the limit you have now continue as normal.</p>' +
+        '<div class="wf-row"><button class="wf-btn" type="button" data-cancel-raise>Cancel the raise</button></div>' +
+        '<p class="wf-note" data-cancel-say>Cancelling applies now.</p>' +
       '</div>',
     'declined':
       '<div class="wf-notice">' +
         '<h2 id="h2-declined">The payment did not go through</h2>' +
         '<p>It was refused on the payment side before anything left your account.</p>' +
-        '<p class="wf-fig-missing">No reason was given to us. We do not print one we did not receive.</p>' +
-        '<p><strong>Unchanged:</strong> your deposit limit, and the sum it will take to withdraw. A failed payment does not move either of them.</p>' +
-        '<p class="wf-note">If the refusal came from us rather than from the payment side, <a href="support.html">support</a> answers inside a published deadline.</p>' +
+        '<p>No reason was given. Your deposit limit and your withdrawal figure are unchanged.</p>' +
       '</div>'
   };
 
@@ -5193,6 +5222,7 @@ window.WF_PAY = window.WF_PAY || {
     mountDeposit(main);
     mountPromo(main);
     mountSkinDep(main);
+    mountCryptoNet(main);
   }
 
   /* THE SKIN PICK SUMS WHAT IS TICKED, D-129. A checklist whose total never moves
@@ -5209,7 +5239,38 @@ window.WF_PAY = window.WF_PAY || {
       scope.querySelector('[data-skin-go]').textContent = on.length ? 'Deposit ' + n : 'Pick a skin';
     }
     picks.forEach(function (i) { i.addEventListener('change', paint); });
+    scope.querySelector('[data-skin-go]').addEventListener('click', function (e) {
+      if (picks.some(function (i) { return i.checked; })) return;
+      e.preventDefault();
+      var sy = scope.querySelector('[data-skin-say]');
+      if (sy) { sy.textContent = 'Nothing went through: no skin is ticked.'; sy.classList.add('is-said'); }
+    });
     paint();
+  }
+
+  /* THE NETWORK PICKER MOVES THE ADDRESS AND THE NOTE, and Redeem refuses an
+     empty code, round 14. Both were pictures of controls. */
+  function mountCryptoNet(scope) {
+    var sel = scope.querySelector('[data-dep-net]');
+    if (sel) sel.addEventListener('change', function () {
+      var C = COINS[sel.getAttribute('data-coin')] || COINS.Bitcoin, n = C.nets[sel.selectedIndex] || C.nets[0];
+      var a = scope.querySelector('[data-dep-addr]'); if (a) a.textContent = n[1];
+      var c = scope.querySelector('[data-dep-addr] + .wf-row [data-copy]'); if (c) c.setAttribute('data-copy', n[1]);
+      var t = scope.querySelector('[data-dep-netnote]'); if (t) t.textContent = 'Send on ' + n[0] + ' only. Coins sent on another network are lost.';
+    });
+    var cr = scope.querySelector('[data-cancel-raise]');
+    if (cr) cr.addEventListener('click', function () {
+      var box = cr.closest('.wf-notice');
+      box.innerHTML = '<h2 id="h2-pending">Raise cancelled</h2><p><strong>$40.00</strong> stays in force for the period.</p>';
+    });
+    var cg = scope.querySelector('[data-code-go]');
+    if (cg) cg.addEventListener('click', function (e) {
+      var inp = scope.querySelector('[id$="dep-code"]');
+      if (inp && inp.value.trim().length >= 8) return;
+      e.preventDefault();
+      var sy = scope.querySelector('[data-code-say]');
+      if (sy) { sy.textContent = inp && inp.value.trim() ? 'That is not a whole card code. Paste it as printed on the card.' : 'Nothing went through: paste the code from the card first.'; sy.classList.add('is-said'); }
+    });
   }
 
   /* APPLY ANSWERS INSTEAD OF DOING NOTHING, D-58 AND D-102. No promo code exists in
@@ -5233,7 +5294,16 @@ window.WF_PAY = window.WF_PAY || {
   function mountPay() {
     var host = document.querySelector('[data-pay-layer]');
     if (!host) return;
-    payLayer(host, '', window.WF_PAYCFG || {});
+    var cfg = window.WF_PAYCFG || {};
+    /* THE ADDRESS CARRIES THE METHOD, round 14: every card tile opened "Visa Or
+       Mastercard" and every crypto tile opened Bitcoin at /deposit. */
+    var m = /[?&]m=([^&]*)/.exec(location.search);
+    if (m) {
+      var name = decodeURIComponent(m[1]);
+      var row = window.WF_PAY.fiat.concat(window.WF_PAY.crypto).filter(function (r) { return r[0] === name; })[0];
+      if (row && row[1]) { cfg.method = name; cfg.cat = row[1]; if (row[1] === 'crypto') { cfg.coin = name; if (cfg.state === 'nowallet' && name !== 'Solana') cfg.state = ''; } }
+    }
+    payLayer(host, '', cfg);
   }
 
   /* ---------------------------------------------------------------------
@@ -5395,10 +5465,10 @@ window.WF_PAY = window.WF_PAY || {
        layer printed three unknowns in a five-line sum. The fee is in coins, the
        rate is coins per unit, and node 5.1 carries both as samples. The Tether
        chain is a sample too; which chain is still the founder's call. */
-    { key: 'eth',  name: 'Ethereum', tick: 'ETH',  chain: 'Ethereum', fee: 2.40, rate: 2450, dp: 6,
+    { key: 'eth',  name: 'Ethereum', tick: 'ETH',  chain: 'Ethereum', fee: 2.40, rate: 2450, dp: 6, min: 10, re: /^0x[0-9a-fA-F]{40}$/,
       saved: [{ label: 'Main wallet', v: '0x7a1f4c2e9b0d5583a17c4e2f9b6d0c8a3e51f742' }] },
-    { key: 'ltc',  name: 'Litecoin', tick: 'LTC',  chain: 'Litecoin', fee: 0.05, rate: 84.20, dp: 6, saved: [] },
-    { key: 'usdt', name: 'Tether',   tick: 'USDT', chain: 'Tron (TRC-20)', fee: 1.00, rate: 1, dp: 2, saved: [] }
+    { key: 'ltc',  name: 'Litecoin', tick: 'LTC',  chain: 'Litecoin', fee: 0.05, rate: 84.20, dp: 6, min: 2, re: /^(ltc1[0-9a-z]{25,60}|[LM][1-9A-HJ-NP-Za-km-z]{26,33})$/, saved: [] },
+    { key: 'usdt', name: 'Tether',   tick: 'USDT', chain: 'Tron (TRC-20)', fee: 1.00, rate: 1, dp: 2, min: 5, re: /^T[1-9A-HJ-NP-Za-km-z]{33}$/, saved: [] }
   ];
 
   function coRow(k, v, missing, sub) {
@@ -5467,14 +5537,17 @@ window.WF_PAY = window.WF_PAY || {
       var sel = el('select', 'wf-co-sel');
       sel.setAttribute('data-co-saved', '');
       sel.setAttribute('aria-label', 'Saved ' + net.name + ' addresses');
-      var o0 = el('option', null, 'Use a saved address');
-      o0.value = '';
-      sel.appendChild(o0);
+      // THE SAVED ADDRESS IS PICKED ALREADY, round 14: the press refused "an
+      // address is needed" while one sat in the select.
       net.saved.forEach(function (a) {
         var o = el('option', null, a.label + ' · ' + a.v.slice(0, 6) + '…' + a.v.slice(-4));
         o.value = a.v;
         sel.appendChild(o);
       });
+      var o0 = el('option', null, 'Another address');
+      o0.value = '';
+      sel.appendChild(o0);
+      if (st.addr === '' && !st.touched) st.addr = net.saved[0].v;
       fld.appendChild(sel);
     } else {
       fld.appendChild(el('p', 'wf-co-none', 'No saved ' + net.name + ' address on this account yet.'));
@@ -5488,10 +5561,6 @@ window.WF_PAY = window.WF_PAY || {
     inp.value = st.addr || '';
     inp.placeholder = 'Paste the address';
     row.appendChild(inp);
-    var save = el('button', 'wf-btn wf-btn--small', 'Save');
-    save.type = 'button';
-    save.setAttribute('data-co-save', '');
-    row.appendChild(save);
     fld.appendChild(row);
     host.appendChild(fld);
 
@@ -5505,6 +5574,7 @@ window.WF_PAY = window.WF_PAY || {
     calc.appendChild(coRow('Items selected', p.n + (p.n === 1 ? ' item' : ' items')));
     calc.appendChild(coRow('Their value', wdFmt(p.v) + ' coins'));
     calc.appendChild(coRow('Blockchain fee', '-' + wdFmt(net.fee) + ' coins'));
+    calc.appendChild(coRow('Smallest cash out', wdFmt(net.min) + ' coins'));
     var rec = Math.max(0, p.v - net.fee);
     var out = el('div', 'wf-co-out');
     out.appendChild(coRow('You receive', wdFmt(rec) + ' coins'));
@@ -5611,7 +5681,7 @@ window.WF_PAY = window.WF_PAY || {
     function open(trigger) {
       if (host) return;
       opener = trigger || null;
-      st = { net: 0, addr: '' };
+      st = { net: 0, addr: '', touched: false };
       host = el('div', 'wf-co-host');
       host.innerHTML = '' +
         '<div class="wf-dlg-scrim" data-co-dismiss="1"></div>' +
@@ -5642,7 +5712,7 @@ window.WF_PAY = window.WF_PAY || {
         var nt = e.target.closest('[data-co-net]');
         if (nt && host.contains(nt)) {
           e.preventDefault();
-          st.addr = (host.querySelector('[data-co-in]') || {}).value || '';
+          st.addr = ''; st.touched = true;
           st.net = parseInt(nt.getAttribute('data-co-net'), 10);
           paint();
           return;
@@ -5668,8 +5738,9 @@ window.WF_PAY = window.WF_PAY || {
           say.hidden = false;
           if (!p.n) say.textContent = 'Nothing is ticked. Cashing out needs at least one item, chosen on the grid behind this.';
           else if (!net.chain) say.textContent = 'Which network we send ' + net.tick + ' on is not published yet, so an address cannot be checked and this request cannot go.';
-          else if (!addr) say.textContent = 'A ' + net.name + ' address is needed. Nothing is sent anywhere without one.';
-          else if (p.v <= net.fee) say.textContent = 'What is ticked is worth less than the blockchain fee, so nothing would arrive. Tick more, or sell back instead.';
+          else if (!addr) say.textContent = (/^[AEIOU]/.test(net.name) ? 'An ' : 'A ') + net.name + ' address is needed. Nothing is sent anywhere without one.';
+          else if (net.re && !net.re.test(addr)) say.textContent = 'That is not ' + (/^[AEIOU]/.test(net.name) ? 'an ' : 'a ') + net.name + ' address. Check it and paste it whole: coins sent to a wrong address are lost.';
+          else if (p.v < net.min) say.textContent = 'The smallest cash out on ' + net.name + ' is ' + net.min.toFixed(2) + ' coins. Tick more, or sell back instead.';
           else say.textContent = 'Requested. ' + ((p.v - net.fee) / net.rate).toFixed(net.dp) + ' ' + net.tick + ' goes to ' + addr.slice(0, 6) + '…' + addr.slice(-4) + '. It is in History under Cash out.';
           return;
         }
