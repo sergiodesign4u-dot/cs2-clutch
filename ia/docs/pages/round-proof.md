@@ -12,6 +12,18 @@
 
 ---
 
+## Amended 29 September 2026 by `D-138`. The baseline row this node never had
+
+**Why.** Round 14's source audit found no baseline row on this node.
+
+**Baseline row for this amendment.**
+
+| The live product, `walk4_fair-redirects-login_1440_26sep.png` | What we keep | What we change, and why |
+|---|---|---|
+| Provably fair behind a sign in; no proof panel on a public page | Seeds, nonce and hash as the proof's inputs | **Public, with no account**, the four variants of this node, and the scope line: the proof shows the round was fixed before the click, not that the chances held. Since `D-132` every surface reads one record per round |
+
+---
+
 ## 0. What this component proves, and what it does not
 
 **This is the spine of the node, and it is not mine.** `cjm-to-be.md` records it as the most important rejection on the whole map:

@@ -802,3 +802,20 @@
 | C42 | Cookie rows that explain themselves | C | Fixed |
 | C43 | The footer's Additional column, Partnership and FAQ with no verdict; "Online users" renamed silently | C | Named in `0.2` |
 | D 1.14, 1.15, 1.18, 1.19, 1.20 | Home citing a reversed refusal and a countdown; a risk-band comment saying the opposite of the render; "Step 2" labels after `D-100`; "ceiling" in the matrix | D | Fixed |
+
+### 14.10 Step 7, sign in, the gate and the component nodes, fixed on 29 September 2026 under `D-138`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| B41 | Sign in went to `case-open.html` from everywhere, a paid open nobody pressed | B | Fixed: the signed-in version of the page, Home from the address |
+| B42 | Two titles for one act; the dropped email and password named outside the row | B | Fixed and named in `2.4` |
+| B8, B32 | A `[?]` and probe mechanics on the Steam outage; the refused state repeating the card | B | Fixed |
+| B23, B24, B25, B46 | A failed check headlined as a verdict; a guest told about a balance; Continue going nowhere; support offered twice | B | Fixed |
+| D 6 | `0.5`, `0.6`, `0.7`, `0.14`, `2.7` without a baseline row | D | Fixed. **The two registers, `0.11` and `0.13`, are asked of the founder**: whether a register counts as a node for this rule is not written anywhere |
+| A42 | Targets under 44px at 360 | A | Partly fixed: chips, drawer controls, the outcome's proof links and the winner's name reach 44. **The strip's Pause stays under it** for the overlap measured and recorded where it was decided |
+
+### 14.11 What round 14 leaves to the founder
+
+1. **CLAUDE.md is out of date in four places**, D 1.3, 1.4, 1.5, 1.12: Home's mode cards "deferred" though `D-27` returned them; the switcher "one live option" though `D-42` draws nine; "one" MVP orphan though the favourite is a second; "twelve surfaces" without `7.3`. CLAUDE.md is edited at the stage close, after the founder's go.
+2. **`D-110` was answered in the founder's name** on "fix everything": one AK, the Field-Tested one. The row in `5.3` says it is reversible.
+3. **Whether the two registers need a baseline row.**

@@ -5494,3 +5494,26 @@ The deadline is said once per support page; the steam-down profile is one notice
 ### Named, and one withdrawn
 
 Linked profiles without a link control, and the footer's Gift cards, Pickems, Partnership and FAQ, are named in their nodes. **The auditor's reorder of responsible play is withdrawn**: what a boundary closes stays above the controls, where the node's appeal rule puts it.
+
+
+## D-138. Round 14, step 7: sign in lands where it was opened, the gate says what it knows, and five nodes get their baseline rows
+
+**Date:** 2026-09-29. **Stage:** 04. **Decided by:** the founder, "давай исправлять все что нужно", round 14. **Binds:** nodes `2.4`, `2.1`, and the component nodes `0.5`, `0.6`, `0.7`, `0.14` and `2.7`.
+
+**What the founder said.** Fix everything round 14 raised.
+
+### Sign in lands where it was opened
+
+**Every sign in went to `case-open.html`**, a case opened and paid for that nobody pressed, and a typed `/signin` opened a case the person never chose. The dialog now lands on the signed-in version of the page it was opened over, and the address on Home. The title is "Sign in" on both carriers, as the baseline's, and the dropped email and password form is named in `2.4`'s row.
+
+### Failures say one thing each
+
+The Steam outage printed a `[?]` and the health probe's mechanics; it says the fault is Steam's and to try again shortly. The refused state stops repeating what the card already says.
+
+### The gate tells the truth about itself
+
+A failed check read "We do not serve this market yet". It reads "We could not check your market". A guest is no longer told their balance and items stay theirs. The blocked state points to its Support button instead of a second link, and staged's Continue opens sign in.
+
+### Five nodes get the row the rule asks for
+
+`0.5`, `0.6`, `0.7`, `0.14` and `2.7` carry a baseline row; the toasts' row says the live product's were never walked, which is owed to the founder's next capture.

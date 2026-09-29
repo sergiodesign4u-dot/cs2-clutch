@@ -14,6 +14,18 @@
 
 ---
 
+## Amended 29 September 2026 by `D-138`. The baseline row this node never had
+
+**Why.** Round 14's source audit found no baseline row on this node.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Toasts on the live product: **not walked**, `baseline.md` records none | Nothing inherited | **The three severities of section 1 are ours.** A row here is owed to the next walk of the signed-in product, which is the founder's capture |
+
+---
+
 ## 0. The sentence this node is built around
 
 From the map's own INCLUDES line for this node: **never the only place a state is announced.**

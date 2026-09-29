@@ -27,6 +27,18 @@
 
 ---
 
+## Amended 29 September 2026 by `D-138`. The baseline row this node never had
+
+**Why.** Round 14's source audit found no baseline row on this node.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| No identity check before a withdrawal was seen on any walked or captured screen | Nothing inherited | **This node is `LATER`** and carries the free-entry hole in the open, `CLAUDE.md` compliance. Whether the live product checks identity off screen is not known here |
+
+---
+
 ## 0. The sequence is locked. The method is not
 
 **The injury in the evidence is not the weight of the check.** `cjm-to-be.md` states it at T3: the injury is that **the check is a trap sprung after money is committed**. Barrier `B8-4`, in the platform's own users' words:

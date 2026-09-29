@@ -2333,6 +2333,17 @@ window.WF_PAY = window.WF_PAY || {
      "stated in text above it" and because four inert buttons above their reason
      is worse than one.
      ========================================================================== */
+  /* WHERE SIGN IN LANDS, round 14. It went to case-open.html from everywhere,
+     which is a case opened and paid for that nobody pressed, and from a typed
+     /signin it opened a case the person never chose. It lands on the signed-in
+     version of the page it was opened over, and on Home from the address. */
+  function afterSignIn(carrier) {
+    if (carrier !== 'dialog') return 'index-account.html';
+    var f = currentFile();
+    if (/^case/.test(f) || /^gate/.test(f)) return 'case-account.html';
+    if (/^catalogue/.test(f)) return 'catalogue-account.html';
+    return 'index-account.html';
+  }
   function authCard(state, carrier) {
     var isFail = (state === 'refused' || state === 'unavailable');
     var isDlg  = (carrier === 'dialog');
@@ -2360,7 +2371,6 @@ window.WF_PAY = window.WF_PAY || {
       // state or in any state of this node. A failed third party sign in
       // followed by a password form is the exact shape B3-1's own thread warns
       // about. A retry re-runs the round trip, it never asks for a credential.
-      out.push('<p class="wf-fail-p">Trying again runs the same Steam round trip. <b>It never asks for a password, here or anywhere.</b></p>');
       out.push('</div>');
     }
 
@@ -2374,9 +2384,7 @@ window.WF_PAY = window.WF_PAY || {
       // countdown that expires into the same failure is worse than none.
       out.push('<div class="wf-fail">');
       out.push('<p class="wf-fail-h">Steam is not answering right now</p>');
-      out.push('<p class="wf-fail-p"><b>This is on Steam&#39;s side, not yours.</b> Nothing you did caused it and nothing about your account here changed.</p>');
-      out.push('<p class="wf-fail-p">We are not giving you a time, because we do not have one <span class="wf-fail-ref">[?]</span>. Our Steam health probe is what puts this message on the screen, and it reports degraded rather than freezing at its last good value.</p>');
-      out.push('<p class="wf-fail-p"><b>Everything public still works with no account:</b> the case screens and their drop tables, provably fair with its verifier, any shared result, the legal pages, support, and responsible play.</p>');
+      out.push('<p class="wf-fail-p"><b>This is on Steam&#39;s side.</b> Try again shortly. Everything public still works without an account.</p>');
       out.push('<div class="wf-fail-acts">');
       out.push('<a class="wf-btn wf-btn--primary" href="case.html">Back to the case</a>');
       out.push('<a class="wf-btn" href="fair.html">Provably fair</a>');
@@ -2433,7 +2441,7 @@ window.WF_PAY = window.WF_PAY || {
     } else if (state === 'given') {
       out.push('<p class="wf-consent-why" data-auth-why>Both declarations made.</p>');
     } else {
-      out.push('<p class="wf-consent-why">Your declarations are unchanged and nothing was recorded about this attempt.</p>');
+      out.push('<p class="wf-consent-why"></p>');
     }
     out.push('</div>');
 
@@ -2465,7 +2473,7 @@ window.WF_PAY = window.WF_PAY || {
     // reply to "why can I not" is on the screen instead of in a support queue.
     if (!isFail) {
       out.push('<div class="wf-auth-blk">');
-      out.push('<a class="wf-btn wf-btn--primary wf-prov-1" href="case-open.html" data-auth-go><span class="wf-prov-i" aria-hidden="true"></span>Sign in with Steam</a>');
+      out.push('<a class="wf-btn wf-btn--primary wf-prov-1" href="' + afterSignIn(carrier) + '" data-auth-go><span class="wf-prov-i" aria-hidden="true"></span>Sign in with Steam</a>');
       out.push('<p class="wf-or">or continue with</p>');
       /* THE THREE ARE ONE ROW OF EQUAL THIRDS AND THE CLASS IS THE FIX, D-105.
          Founder on the built dialog: stretch the three the same so the X is not
@@ -2478,7 +2486,7 @@ window.WF_PAY = window.WF_PAY || {
          86 at 1440 and the X on a line of its own at 360. */
       out.push('<div class="wf-prov-row">');
       ['Google', 'Discord', 'X'].forEach(function (n) {
-        out.push('<a class="wf-btn" href="case-open.html" data-auth-go><span class="wf-prov-i" aria-hidden="true"></span>' + n + '</a>');
+        out.push('<a class="wf-btn" href="' + afterSignIn(carrier) + '" data-auth-go><span class="wf-prov-i" aria-hidden="true"></span>' + n + '</a>');
       });
       out.push('</div>');
       // D-57: SHORTER, AND EVERY PART OF D-55's REQUIREMENT IS STILL IN IT. That
@@ -2745,7 +2753,7 @@ window.WF_PAY = window.WF_PAY || {
            ground is [?] the row is not blocked at all: B4's success signal is
            that every blocked market carries a citation. Readable words, never a
            statute number standing alone. */
-        '<p class="wf-gate-p">Not in this country? <a href="' + BASE + 'support.html">Tell support</a>, we answer within 72 hours.</p>' +
+        '<p class="wf-gate-p">Not in this country? Tell support below, we answer within 72 hours.</p>' +
         openLine() + refusalActs();
     } else {
       // NOT LAUNCHED IS THE DEFAULT UNDER AN ALLOWLIST, and detection failing
@@ -2755,9 +2763,11 @@ window.WF_PAY = window.WF_PAY || {
       var lede = (state === 'unavailable')
         ? 'We could not work out where you are, so opening cases is not available.'
         : 'Opening cases is not available where you are.';
-      body =
-        '<h2 class="wf-gate-h" id="wf-gate-h">We do not serve this market yet.</h2>' +
-        '<p class="wf-gate-p">' + lede + ' We have not opened here yet.</p>' +
+      body = (state === 'unavailable'
+        ? '<h2 class="wf-gate-h" id="wf-gate-h">We could not check your market.</h2>' +
+          '<p class="wf-gate-p">Opening cases is not available until we can. Try again shortly.</p>'
+        : '<h2 class="wf-gate-h" id="wf-gate-h">We do not serve this market yet.</h2>' +
+          '<p class="wf-gate-p">' + lede + '</p>') +
         openLine() + refusalActs();
     }
 
@@ -2770,7 +2780,8 @@ window.WF_PAY = window.WF_PAY || {
      BUILDING. What stays open is stated in the same breath as what does not,
      and it is the same sentence on both refusals. */
   function openLine() {
-    return '<p class="wf-gate-open">You can still browse. Your balance and items stay yours, and withdrawal stays open.</p>';
+    // A GUEST HAS NO BALANCE, round 14: the second half is said only to an account.
+    return '<p class="wf-gate-open">You can still browse.' + ((window.WF_SHELL && window.WF_SHELL.account) ? ' Your balance and items stay yours, and withdrawal stays open.' : '') + '</p>';
   }
   function refusalActs() {
     // NEVER A LIST OF THE MARKETS THAT ARE OPEN. The footer's market statement

@@ -15,6 +15,22 @@
 **Cluster 2 is three surfaces nobody chooses to visit, and since `D-54` two of the three are dialogs.** This one is the tax on the main job, and section 2 counts it rather than hiding it. **What `D-54` changed is not the size of the tax but who pays the context for it:** section 0.9.
 
 
+## Amended 29 September 2026 by `D-138`. Sign in lands where it was opened, and its failures say one thing each
+
+**Why.** Round 14 of the critique found sign in landing on `case-open.html` from everywhere, a case opened and paid for that nobody pressed; a `[?]` and the health probe's mechanics on the Steam outage state; two sentences on the refused state repeating what the card already says; and two titles for one act.
+
+**Baseline row for this amendment.**
+
+| The live product, `acct_signin_modal.png` | What we keep | What we change, and why |
+|---|---|---|
+| SIGN IN, a modal with Steam, email and password, and Sign up | **The title "Sign in" on both carriers** and Steam first | **No email and password form and no Sign up.** A third party sign in followed by a password field is the shape `B3-1`'s thread warns about, section 5.2; accounts are created by the first provider sign in. Named here, it was argued only in section 3 |
+| After signing in, the page the person was on | **The page they were on** | The dialog lands on the signed-in version of the page it was opened over; the address `/signin` lands on Home, signed in |
+| Steam down | One message | "This is on Steam's side. Try again shortly." and the public routes |
+
+**The case screen's Sign in passes through the gate first**, `D-136`: 2.1 before 2.4, as the map draws it.
+
+---
+
 ## Amended 27 September 2026 by `D-130`. 2.4 Sign in stops explaining itself
 
 **Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against `acct_signin_modal.png`. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.

@@ -16,6 +16,18 @@
 
 ---
 
+## Amended 29 September 2026 by `D-138`. The baseline row this node never had
+
+**Why.** Round 14's source audit found no baseline row on this node, which `CLAUDE.md` asks of every node.
+
+**Baseline row for this amendment.**
+
+| The live product, `acct_inventory_cards.png`, `acct_inventory_item_actions.png` | What we keep | What we change, and why |
+|---|---|---|
+| Item card: image, weapon, skin, wear, price, "Starting at", Offers; actions on selection | **The fields and their order** | **Chance beside value wherever a value prints**, `D2`, and the float where a copy is named, `F1`. The acts' dim covers the artwork only, `D-135` |
+
+---
+
 ## 0. Three objects, one card, and this is the thing to settle first
 
 The entity inventory in `sitemap.md` holds three separate objects, and this one card renders all three:

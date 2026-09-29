@@ -19,6 +19,18 @@
 **Cluster 2 is three screens nobody chooses to visit.** This is the one that arrives uninvited, in the middle of somebody else's intention.
 
 
+## Amended 29 September 2026 by `D-138`. A failed check is not a verdict, and a guest is not told about a balance
+
+**Why.** Round 14 of the critique found the unavailable state headlined "We do not serve this market yet" over "we could not work out where you are"; every refusal telling a guest that their balance and items stay theirs; and the blocked state offering support twice.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| One sentence in the terms and a self-selected country | Ours, the gate | **Unavailable says "We could not check your market"**; not launched keeps its verdict. The line about balance, items and withdrawal is said to an account only. The blocked state points to the Support button instead of a second link. Staged's Continue opens sign in |
+
+---
+
 ## Amended 27 September 2026 by `D-130`. 2.1 Geo gate stops explaining itself
 
 **Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against no gate on the baseline. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.

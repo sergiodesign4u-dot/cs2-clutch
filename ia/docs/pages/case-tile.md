@@ -12,6 +12,18 @@
 
 ---
 
+## Amended 29 September 2026 by `D-138`. The baseline row in the rule's shape
+
+**Why.** Round 14's source audit found this node's source table naming the baseline without the keep, change and why columns.
+
+**Baseline row for this amendment.**
+
+| The live product, `walk4_cases_1440_26sep.png` | What we keep | What we change, and why |
+|---|---|---|
+| Tile: artwork, name, price, a like count, risk skulls | **Artwork, name, price, and the heart with its count** | **The risk band is a word**, never skulls, rule 5.5; the favourite answers, `D-133`; the shelf runs four across, `D-133` |
+
+---
+
 ## 0.5 Amended 21 August 2026 by `D-60` and `D-61`. Both markers leave the tile
 
 **Founder decision, and the tile is four fields and one control now.** Artwork, name, entry cost, risk band, plus the favourite. **The two markers are gone and they went for two different reasons.**

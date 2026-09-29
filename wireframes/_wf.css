@@ -5255,3 +5255,8 @@ textarea.wf-cfg-in { min-height: 0; }
 @media (max-width: 899px) { .wf-dep-b { top: -9px; right: -12px; height: 16px; min-width: 16px; font-size: 9px; padding: 0 3px; } }
 /* The account menu's Sign out lines up with the rows above it. */
 .wf-acct-out { justify-content: flex-start; text-align: left; }
+
+/* Two more targets reach the floor at 360, round 14: the proof links under an
+   outcome and the winner's name on a result. The strip's Pause stays under it,
+   for the reason recorded where it was measured. */
+@media (max-width: 599px) { .wf-outcome-links a, .wf-who-n a { display: inline-flex; align-items: center; min-height: var(--wf-tap); } }
