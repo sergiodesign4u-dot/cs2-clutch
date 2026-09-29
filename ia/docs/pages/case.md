@@ -17,6 +17,20 @@
 **Amended 23 August 2026 by `D-92`, in three places and no figure moved.** The market the settlement is struck against is named and the answer is us, so **the per-case gap in block 7 stops waiting on anybody and starts being a number we decline to publish**, section 5.3. **The outbound link on the top item keeps its target and loses its reason**, section 3: it points at Steam, Steam is the dearer place, and a control offered as the cheaper alternative can no longer be labelled that way. **And the risk band's hole is half answered**, section 1: the three bands are an input when a case is built rather than a label derived from its drop table, which is a different object from the one `D-24` specified, and the thresholds are still `[?]`.
 
 
+## Amended 30 September 2026 by `D-142`. Each roll of a multi-roll open has its own round
+
+**Why.** Round 15 of the critique found "2 round hashes" and "5 round hashes" printing one value, the one-roll Glock's, and four rolls of the five with no record to check.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| One hash per open | The hash chip, variant V1 of `0.14` | **A multi-roll open lists one hash per roll, each with its own copy**, and every roll on the outcome opens its own verifier. The five-roll share opens the M4 of that open, not a stranger's best drop |
+
+**Samples, `D-124`, marked here:** the six rounds of the two and five roll opens, struck at 18 Aug 14:58 from the Ironbound table.
+
+---
+
 ## Amended 29 September 2026 by `D-132`. Every figure on the case screen proves the same round
 
 **Why.** Round 14 of the critique, `wireframes/docs/critique.md` section 14, walked the case family in a browser and pressed every control. Samples are drawn by `D-124` and every sample below is marked as one.

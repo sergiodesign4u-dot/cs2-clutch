@@ -916,3 +916,21 @@ A separate table from the defects, as the pack asks: a step that did not happen 
 | B2-39, J69 | Prices as of 23 Aug, after now | B2, D2 | Fixed |
 
 **Checked on screen** at 1440 and 360 on every page: no script error, no horizontal scroll.
+
+### 16.5 Step 3, one account and one story, fixed on 30 September 2026 under `D-142`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| J61, B2-24, B2-25 | The AK withdrawn two days before it was won; its expired offer could not have run out by now | D2, B2 | Fixed: the AK is won on 18 Aug 20:52 |
+| J62, J63, B2-28 | One reference, three items; the MP9 accepted after the restriction; rows out of order | D2, B2 | Fixed: one reference per withdrawal, every ledger newest first |
+| J72 | A Nova accepted that no roll holds | D2 | Fixed: the row went |
+| J64, B2-29, J65 | A deposit with two times, one after now; five rows called six; a declined top up with no ledger row | D2, B2 | Fixed |
+| J66 | Two cases "joined the shelf" after the account had opened both | D2 | Fixed: dated 12 Aug |
+| J67 | The interrupted roll with two dates and two round ids | D2 | Fixed: it is the outcome's Glock, the tenth roll, `D-142` |
+| B2-26 | The restriction at 08:02 and at 14:02, on two grounds; "Appeal open 6:31" | B2 | Fixed: 08:02, one ground, 1:29 |
+| B2-19 | The overdue AWP's "Open the withdrawal" opened the AK | B2 | Fixed: the control went, the row carries the reference |
+| B1-22, J104 part | "2 round hashes" and "5 round hashes" over one value | B1, D2 | Fixed: one hash per roll, each with its copy, each roll checkable |
+| R9 | `7.3` rendered the counter `5.10` refuses | D1 | Fixed by the founder's answer |
+| (ours) | Three cash out rows named items from a 212 roll history | lead, while fixing | Fixed: the three sold rolls |
+
+**Checked on screen** at 1440 and 360 on every page: no script error, no horizontal scroll.

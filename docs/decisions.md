@@ -5585,3 +5585,25 @@ Four statements later decisions had reversed were corrected: Home's mode cards, 
 ### Refused
 
 **An unreadable value is not sold for zero.** The degraded page could sell the AWP it could not price for +0.00; it now refuses with the reason.
+
+
+## D-142. Round 15, step 3: one account, one story
+
+**Date:** 2026-09-30. **Stage:** 04, round 15. **Decided by:** the founder, "да", on option A. **Binds:** `wireframes/_nav.js` `WF_ROLLS`, every history ledger, the profile messages, the player pages, the multi-roll opens, nodes `5.9`, `7.3`, `3.3`.
+
+**What the founder said.** Yes to A: the outcome's Glock becomes the tenth roll.
+
+### Why A and not B
+
+**B would have kept the count at nine and shipped two histories**: the account's, and a case screen whose outcome, interrupted state and proof belonged to a roll nobody held. A costs one number, ten instead of nine, and nothing else, because the Glock was sold back on the outcome screen and `5.1` does not move.
+
+### What the timeline had to give
+
+- **The Warsteel AK is won on 18 Aug at 20:52**, not 21 Aug at 08:52. Its 48 hour offer on `5.3` was sent on the 19th and could not have run out by now. The alternative, a 20 minute offer, would have changed a sample printed on three other pages.
+- **A withdrawal reference names one withdrawal.** `wd-8813fa` was the MP9, the AWP and the MP9 again. States that happen in a different world get their own reference: the overdue AWP `wd-8840c2`, the restricted AWP `wd-88b7e1`.
+- **The restriction is recorded at 08:02 on 21 Aug with one ground**, deposits from three payment instruments, on every page that names it. The appeal form said 14:02 and trade activity.
+- **The cash out tab shows what was sold back**: the Glock, the P250 and the StatTrak AK. Sending has no row now, and `5.9` says so.
+
+### Refused
+
+**The cases opened counter on `7.3`**, the founder's second answer of 30 September: `5.10` refuses it as a score and the person's public page may not carry it either.

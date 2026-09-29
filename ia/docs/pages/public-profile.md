@@ -19,6 +19,18 @@
 **States specified inside this node:** the owner reading their own page, nothing won yet, and no page to show.
 
 
+## Amended 30 September 2026 by `D-142`. No counter, and ten cards
+
+**Why.** Round 15 of the critique found this page rendering a cases opened counter that `5.10` refuses as a score on the same person's own page.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A profile with counters | The banner and the grid | **The counter leaves, founder answer of 30 September 2026**: a public page may not carry what the person's own page refuses, `0.11` rule 7. The grid renders the ten rolls of `5.9` |
+
+---
+
 ## Amended 29 September 2026 by `D-135`. The public shelf is the account's rolls
 
 **Why.** Round 14 of the critique found the three player pages carrying hand copies of five cards whose AK was won on 22 Aug from Ironbound at 21.40, while the round it opened said 18 Aug, and every card opened that one round.

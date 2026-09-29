@@ -121,17 +121,15 @@ window.WF_IA_BASE = '../ia/';
 window.WF_SHELL = { account: true, active: '' };
 window.WF_ACCT = { active: 'history' };
 window.WF_HISTTAB = 'withdrawals';
-/* THE THREE ROWS OF history-withdrawals.html, WITH ONE FIELD SET CHANGED. The
-   two settled rows are byte for byte the base ledger's, because a restriction
-   recorded on 21 August cannot reach a withdrawal that finished on 18 August or
-   one the person cancelled on 12 August. The in-flight row is the only one the
-   restriction touches, and it becomes held rather than failed: nothing was sent,
-   nothing is lost, and the outcome is the open item 5.7 already prints. */
+/* THE RESTRICTION WAS RECORDED AT 08:02 ON 21 AUGUST, round 15, D-142. The MP9
+   went out at 07:21, before it, and is the base ledger's row. The AWP was asked
+   for at 07:58 and not yet sent, so it is held rather than failed: nothing was
+   sent, nothing is lost. The AK and the Glock requests of 08:53 and 09:12 never
+   happened in this state, because withdrawal was paused. */
 window.WF_HIST = {
   withdrawals: [
-    { when: '2026-08-21 15:02:11', what: 'AWP Asiimov, Field-Tested', worth: '61.40 coins', state: 'Held while the account is restricted', why: 'Nothing has been sent to Steam and nothing is lost. It is never taken quietly.', wait: 'Us', ours: 'wd-8813fa' },
-    { when: '2026-08-22 09:40:12', what: 'MP9 Rose Iron, Minimal Wear', worth: '1.86 coins', state: 'Accepted', why: 'Finished 14 m after it was sent.', wait: 'Nobody, it is done', ours: 'wd-87f2b1' },
-    { when: '2026-08-21 09:12:44', what: 'Glock-18 Water Elemental, Factory New', worth: '3.02 coins', state: 'Cancelled by you', wait: 'Nobody', ours: 'wd-87a90c' }
+    { when: '2026-08-21 07:58:20', what: 'AWP Asiimov, Field-Tested', worth: '66.05 coins', state: 'Held while the account is restricted', why: 'Nothing has been sent to Steam and nothing is lost. It is never taken quietly.', wait: 'Us', ours: 'wd-88b7e1' },
+    { when: '2026-08-21 07:21:40', what: 'MP9 Rose Iron, Minimal Wear', worth: '1.86 coins', state: 'With Steam', why: 'Sent 2 h 10 m ago. Nine in ten arrive within 6 h 15 m.', wait: 'Steam', ours: 'wd-8813fa' }
   ]
 };
 </script>

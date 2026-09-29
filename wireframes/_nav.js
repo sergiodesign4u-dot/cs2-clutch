@@ -4195,15 +4195,22 @@ window.WF_PAY = window.WF_PAY || {
   /* ONE ACCOUNT, ONE STORY, round 14. The five rolls had the AK in four
      readings across history, the player page, My items and Send to Steam, the
      AWP both held and on its way to Steam, and two rolls dated after the
-     prototype's now, 21 Aug 2026 09:31. Nine rolls now, newest first, and every
+     prototype's now, 21 Aug 2026 09:31. Ten rolls now, newest first, and every
      item 5.1 holds is one of them at the value 5.1 prints. Samples by D-124,
      marked in 5.9. Indices 0 to 4 keep the roles the state pages point at. */
   var WF_ROLLS = [
-    { key: 'wak',     when: '21 Aug 08:52', date: '21 Aug 2026', kase: 'Warsteel Case',  w: 'AK-47',        s: 'Redline',         wear: 'Field-Tested',   cost: '4.90',  worth: '21.90', now: '21.40', chance: '0.42%',  hash: 'a91f4c2e', state: 'held' },
     { key: 'mp9n',    when: '20 Aug 23:02', date: '20 Aug 2026', kase: 'Nightfall Case', w: 'MP9',          s: 'Rose Iron',       wear: 'Minimal Wear',   cost: '31.00', worth: '1.86',  chance: '7.30%',  hash: 'c02b7d19', state: 'sending', went: '21 Aug' },
     { key: 'p250sd',  when: '20 Aug 22:57', date: '20 Aug 2026', kase: 'Nightfall Case', w: 'P250',         s: 'Sand Dune',       wear: 'Battle-Scarred', cost: '31.00', worth: '0.31',  chance: '19.80%', hash: null,       state: 'sold', went: '20 Aug' },
     { key: 'awp',     when: '20 Aug 18:40', date: '20 Aug 2026', kase: 'Warsteel Case',  w: 'AWP',          s: 'Asiimov',         wear: 'Field-Tested',   cost: '4.90',  worth: '61.40', now: '66.05', chance: '0.11%',  hash: '5d3e8b71', state: 'held' },
     { key: 'glockfn', when: '20 Aug 18:36', date: '20 Aug 2026', kase: 'Warsteel Case',  w: 'Glock-18',     s: 'Water Elemental', wear: 'Factory New',    cost: '4.90',  worth: '3.02',  now: '4.20',  chance: '5.60%',  hash: '46a0f9c3', state: 'held' },
+    /* THE AK IS WON ON 18 AUG, round 15, D-142: dated 21 Aug 08:52, its expired
+       48 hour offer on 5.3 could not have run out by now. */
+    { key: 'wak',     when: '18 Aug 20:52', date: '18 Aug 2026', kase: 'Warsteel Case',  w: 'AK-47',        s: 'Redline',         wear: 'Field-Tested',   cost: '4.90',  worth: '21.90', now: '21.40', chance: '0.42%',  hash: 'a91f4c2e', state: 'held' },
+    /* THE OUTCOME'S GLOCK IS A ROLL OF THIS ACCOUNT, round 15, D-142: the case
+       screen's outcome, its interrupted state and its proof were a tenth roll
+       nobody's history held. Sold back on the outcome screen, so 5.1 and its
+       140.95 do not change. */
+    { key: 'glock',   when: '18 Aug 14:58', date: '18 Aug 2026', kase: 'Ironbound Case', w: 'Glock-18',     s: 'Water Elemental', wear: 'Minimal Wear',   cost: '12.40', worth: '12.90', chance: '14.00%', hash: 'a3f91c58', state: 'sold', went: '18 Aug' },
     { key: 'ak',      when: '18 Aug 14:44', date: '18 Aug 2026', kase: 'Ironbound Case', w: 'AK-47',        s: 'Redline',         wear: 'Field-Tested, StatTrak', cost: '12.40', worth: '47.30', chance: '3.18%', hash: '4f2a91c7', state: 'sold', went: '18 Aug' },
     { key: 'uspc',    when: '16 Aug 19:40', date: '16 Aug 2026', kase: 'Coldfront Case', w: 'USP-S',        s: 'Cortex',          wear: 'Minimal Wear',   cost: '2.10',  worth: '7.10',  now: '7.35',  chance: '2.40%',  hash: '9e41d7a2', state: 'held' },
     { key: 'm4ft',    when: '14 Aug 08:55', date: '14 Aug 2026', kase: 'Nightfall Case', w: 'M4A1-S',       s: 'Hyper Beast',     wear: 'Field-Tested',   cost: '31.00', worth: '28.60', now: '29.90', chance: '1.20%',  hash: '3b7c0e95', state: 'held' },
@@ -4222,6 +4229,35 @@ window.WF_PAY = window.WF_PAY || {
   /* THE FEED'S ROUNDS, round 15. A tile from Ironbound takes its figures from
      CASE_ITEMS and its ticket from inside the range it proves; the rest carry
      their own. Dated minutes before the prototype's now, newest first. */
+  /* THE MULTI-ROLL OPENS' ROUNDS, round 15, D-142. "2 round hashes" and "5 round
+     hashes" printed one value, the one-roll Glock's, and four of the rolls had no
+     record to check. Each roll now has its own, struck in the same second as the
+     Glock, from the Ironbound table. Samples by D-124, marked in 3.3. */
+  [['o2mp9', 'MP9', 'Rose Iron'], ['o5p250', 'P250', 'Asiimov'], ['o5nova', 'Nova', 'Koi'],
+   ['o5mp9', 'MP9', 'Rose Iron'], ['o5usp', 'USP-S', 'Kill Confirmed'], ['o5m4', 'M4A1-S', 'Hyper Beast']].forEach(function (o, i) {
+    var it = null, tier = '';
+    CASE_ITEMS.forEach(function (g) { g[2].forEach(function (x) { if (x[0] === o[1] && x[1] === o[2]) { it = x; tier = g[0]; } }); });
+    var lo = parseInt(it[5].split(' to ')[0].replace(/\s/g, ''), 10), hi = parseInt(it[5].split(' to ')[1].replace(/\s/g, ''), 10);
+    ROUNDS[o[0]] = { w: o[1], s: o[2], axes: it[2].split(' \u00b7 ').concat(tier), won: it[4], now: it[4], at: '18 Aug 2026 14:58',
+      hash: hx(o[0] + 'h', 64), seed: hx(o[0] + 's', 64), client: '7d19f4a2', nonce: String(41209 + i).replace(/(\d)(\d{3})$/, '$1 $2'),
+      ticket: String(lo + (i * 7919) % (hi - lo + 1)).replace(/(\d)(\d{3})$/, '$1 $2'), range: it[5], kase: 'Ironbound' };
+  });
+  /* EACH HASH OF A MULTI-ROLL OPEN IS ITS OWN, with its own copy. */
+  function renderHashes() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-hashes]'), function (box) {
+      var keys = box.getAttribute('data-hashes').split(' ');
+      Array.prototype.forEach.call(box.querySelectorAll('.wf-hash-v, [data-copy]'), function (x) { x.remove(); });
+      var list = el('span', 'wf-hash-list');
+      keys.forEach(function (k) {
+        var h = ROUNDS[k].hash, row = el('span', 'wf-hash-one');
+        row.appendChild(el('span', 'wf-hash-v', h.slice(0, 6) + '\u2026' + h.slice(-6)));
+        var c = el('button', 'wf-btn wf-btn--small', 'Copy'); c.type = 'button'; c.setAttribute('data-copy', h);
+        row.appendChild(c); list.appendChild(row);
+      });
+      box.appendChild(list);
+    });
+  }
+
   FEED.forEach(function (f, i) {
     var k = f[5];
     if (!k || ROUNDS[k]) return;
@@ -6612,6 +6648,7 @@ window.WF_PAY = window.WF_PAY || {
     mountCount();
     mountOutcomeActs();
     renderProofs();
+    renderHashes();
     mountGate();
     mountDeposit();
     mountExclude();

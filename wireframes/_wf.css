@@ -1882,6 +1882,9 @@ a.wfp-state:hover { color: var(--wf-ink); }
 }
 .wf-hash-l { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
 .wf-hash-v { font-family: var(--wf-mono); font-size: var(--wf-t-s); white-space: nowrap; }
+.wf-hash[data-hashes] { flex-direction: column; align-items: center; }
+.wf-hash-list { display: flex; flex-direction: column; gap: var(--wf-s-1); }
+.wf-hash-one { display: flex; align-items: center; gap: var(--wf-s-1); }
 
 /* PHASE 3. The item lands where the artwork and then the reveal were: the third state of
    one region rather than a third layout. */
@@ -4877,11 +4880,6 @@ textarea.wf-cfg-in { min-height: 0; }
    exist, printed as empty numbers, is the dead item defect with a figure in it.
    Round 1 has one mode, so the banner carries one count and says what is absent
    underneath in words. */
-.wf-plr-stats { display: flex; flex-wrap: wrap; gap: var(--wf-s-3); margin-left: auto; }
-@media (max-width: 599px) { .wf-plr-stats { margin-left: 0; } }
-.wf-plr-stat { display: flex; flex-direction: column; gap: 2px; }
-.wf-plr-stat b { font-family: var(--wf-mono); font-weight: 400; font-size: var(--wf-t-l); }
-.wf-plr-stat span { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
 .wf-plr-card {
   position: relative;
   display: flex; flex-direction: column; gap: 2px;

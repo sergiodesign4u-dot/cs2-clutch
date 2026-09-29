@@ -23,6 +23,20 @@
 | **A public profile with four history tabs**, Inventory history, Case battle history, Gunfights history and Upgrades history, each a grid of item cards carrying the mode icon, the image, the weapon, the skin, the wear and a value in coins. Founder capture, 21 August 2026, `baseline.md` section 9.9. | **The idea that history is a first-class surface**, and the split by mode, which arrives when a second mode does. | **Everything about what a row is.** The baseline's history is an **inventory** history: it lists items, and an item is the outcome of a roll with the roll removed. Ours lists **rolls**, and the item is one column of a row. `baseline.md` section 9.9 records the same thing from the other side: that page is a trophy shelf, and `public-result.md` was written to replace the shelf with something checkable. **A history of items is the shelf again, one screen deeper.** And it is private: the baseline's is public and this one is the account's own. |
 
 
+## Amended 30 September 2026 by `D-142`. Ten rolls, one timeline, and every ledger row follows its win
+
+**Why.** Round 15 of the critique found the AK withdrawn two days before it was won, one withdrawal reference naming three items across three pages, a Nova accepted that no roll holds, a declined deposit dated after now, the interrupted roll dated 19 Aug under a second round id, and three cash out rows naming items from a 212 roll history the account no longer has.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| One account, one history | The rolls as the account, newest first | **Ten rolls**: the outcome's Glock from Ironbound, 18 Aug 14:58, is the tenth, sold back on the outcome screen, and it is the interrupted roll too. **The Warsteel AK is won on 18 Aug at 20:52** and asked for ten minutes later; its 48 hour offer expired on 20 Aug. **Withdrawals**: base Glock cancelled 09:12, MP9 with Steam 07:21, AK offer expired 18 Aug 21:02. **Overdue** adds the AWP sent 20 Aug 18:52, `wd-8840c2`. **Restricted**, recorded 21 Aug 08:02, holds the AWP asked for at 07:58, `wd-88b7e1`, beside the MP9; the AK and Glock requests never happened there. **Deposits**: the blocked ledger is the base's six rows. **Cash out**: three rows, the Glock requested, the P250 blocked, the StatTrak AK sent; Sending has no row |
+
+**Samples, `D-124`, marked here:** the ten rolls and every ledger row above, the references `wd-8840c2` and `wd-88b7e1`.
+
+---
+
 ## Amended 29 September 2026 by `D-135`. One account, one story, on one clock
 
 **Why.** Round 14 of the critique found the AK in four readings across this node, `5.1`, `5.3` and `7.3`, the AWP held in My items and on its way to Steam here, two rolls and three ledger rows dated after the prototype's now, 21 Aug 2026 09:31, "212 rolls" over an Items tab of five, and three filters with no handler.
