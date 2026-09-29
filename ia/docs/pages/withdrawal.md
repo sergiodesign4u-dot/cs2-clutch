@@ -17,6 +17,21 @@
 **Amended 23 August 2026 by `D-92`, and the largest remaining `[?]` on this node closed into a smaller and sharper one.** The founder named the market the settlement price is read from: **it is us.** The prices are ours, taken from Steam, and the market for these items is this product. **So both columns of the four column table are ours**, our credited value and our price for a copy, **and the outbound route this node kept asking for cannot exist**, because a link to our own listing confirms nothing. **What block `1b` renders instead is the relation to Steam and the hole inside it**, section 1b.1: the price is ours, it is set against the Steam market, and how far under Steam we set it is not published. **The founder's own hedge travels with all of it**, section 9b: the wording was "in principle", and if a third party supplies the copy at withdrawal time one word changes on every line above.
 
 
+## Amended 29 September 2026 by `D-135`. One AK, one market, and the main act sends
+
+**Why.** Round 14 of the critique found Send to Steam, Remove and Sell it back with no handler, and the same AK-47 Redline settling 42.40 off the balance here while `5.1` printed 2.50 back for it.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| SEND n ITEMS TO STEAM under the total | **The press and its count** | **It sends**: the in-flight state opens. With every item removed it refuses in place. Remove drops the row and repaints the totals; Sell it back answers |
+| The selected skin's large picture | The picture | **96px high at 360**, so the first market offer is on the first screen; the settlement stacks as label and value rows |
+
+**`D-110`'s open item is answered.** The AK on this page is the Field-Tested AK `5.1` holds, settled at the cheapest copy, 18.90, 2.50 back. The clock, the expired offer and the degraded Steam states follow it: 18.90 and +2.50, struck at 18.40 and +3.00 on 19 Aug, float 0.2544283. **Samples, `D-124`:** the offers, the floats, the Steam listing at the cheapest plus twelve per cent, and the median times to Steam, 1 h 40 m and 6 h 15 m, which Home publishes.
+
+---
+
 ## Amended 27 September 2026 by `D-128`. 5.3 Send to Steam takes the baseline's shape back
 
 **Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, against the founder's dated captures in `research/screens/baseline-account/`. What left the screen is kept in this node, not deleted.
@@ -728,7 +743,7 @@ Five, all numbered in the map, all specified here under their own anchors.
 |---|---|---|
 | **Whether one unbuyable item blocks a whole basket** | **Opened 2 September 2026 by `D-110`.** The page sends the four that can go and leaves the one that cannot, with the reason on its row. **The other reading refuses the batch until it is removed**, and it makes one unbuyable copy hold four sendable items. Drawn one way, and the losing way is named on the page rather than hidden | Founder |
 | **Whether a basket leaves as one trade offer or as one per item** | **Opened 2 September 2026 by `D-110`.** Steam can do either. **It decides whether the person watches one clock or four**, and `5.9`'s ledger has a row per item today, so four rows is what the record would take either way | Founder |
-| **Whether the single item page and the basket describe the same AK-47** | **Opened 2 September 2026 by `D-110`.** `5.3` settles an AK-47 Redline, Field-Tested, **StatTrak** at 21.40 against a market price of **63.80**. `5.1` prices an AK-47 Redline, Field-Tested at 21.40 with a market foot of **18.90**. **Either they are two items and `5.1` does not render the StatTrak field `0.6` gives it, or they are one item and one of the two market prices is wrong.** Neither is chosen here | Founder |
+| **Whether the single item page and the basket describe the same AK-47** | **Opened 2 September 2026 by `D-110`.** `5.3` settles an AK-47 Redline, Field-Tested, **StatTrak** at 21.40 against a market price of **63.80**. `5.1` prices an AK-47 Redline, Field-Tested at 21.40 with a market foot of **18.90**. ~~**Either they are two items and `5.1` does not render the StatTrak field `0.6` gives it, or they are one item and one of the two market prices is wrong.** Neither is chosen here~~ **Answered in round 14 by `D-135`, on the founder's "fix everything that needs fixing": one item, the Field-Tested AK `5.1` holds, and the StatTrak figure was the wrong one.** 5.3 now settles it at 18.90, 2.50 back, as the basket and `5.1` always did | Founder, and reversible |
 | **What a float is on the screen** | The baseline prints the raw number, `0.7683732`, and a coloured wear bar under it. **We have no colour until stage 07**, and a seven decimal number with no scale beside it means nothing to a person who has not learned the scale. **Raw number, wear band, both, or a bar with no colour** is a design question with a research half: whether the people this product is for read floats at all | Founder, and `0.6` field 15 |
 | **What happens when there is one copy, or none** | **The shelf assumes a shelf.** One copy is the current single-control page with the choice removed. **No copy at any price is a state this node does not have** and the three it does have, not eligible, Steam degraded, offer expired, are none of them it. **It is a new state or it is a refusal**, and either way it is drawn rather than discovered | Founder |
 | **Is a withdrawal one item or a basket** | **The baseline's total block is a table with a `TOTAL DIFFERENCE` line under it**, which only means something for several items at once. **`5.1` already has Select all and a Send to Steam over a selection.** This node is written for one record throughout: one card, one settlement, one clock, one history. **If a withdrawal is a basket, this is a different page and not a changed block**, and the clock, the states and `5.9`'s ledger all take a row per item or a row per basket | Founder, and it is the largest of the six |

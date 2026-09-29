@@ -5219,3 +5219,36 @@ textarea.wf-cfg-in { min-height: 0; }
 .wf-skel-line { display: inline-block; width: 2.4em; height: 0.8em; border-radius: 2px; background: var(--wf-line-soft); vertical-align: middle; }
 /* Chips and small controls reach the tap floor below 600, round 14. */
 @media (max-width: 599px) { .wf-cat, .wf-drawer .wf-btn--small, .wf-chip-x { min-height: var(--wf-tap); } }
+
+/* THE WON SHELF IS TWO ACROSS ON A PHONE, round 14: one column made five cards
+   4 563px of page at 360. My items keeps one, because its card carries acts. */
+@media (max-width: 599px) { .wf-itemgrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--wf-s-1); } .wf-itemgrid .wf-inv-art { min-height: 96px; } }
+
+/* THE DIM COVERS THE PICTURE AND NOT THE ITEM, round 14. It covered the whole
+   card, so at the moment of acting the name, the wear and the price were under
+   it. The baseline keeps the name and the price readable beside its buttons, so
+   the acts sit over the artwork's box and the text below stays in view. */
+.wf-inv-acts {
+  inset: auto; top: calc(var(--wf-s-2) + 32px + var(--wf-s-1)); left: var(--wf-s-2); right: var(--wf-s-2);
+  aspect-ratio: 4 / 3; padding: var(--wf-s-1); gap: 6px; border-radius: var(--wf-r-2);
+}
+.wf-inv-acts .wf-btn { min-height: 32px; padding-block: 4px; font-size: var(--wf-t-s); }
+.wf-inv-top { min-height: 32px; }
+.wf-inv-sold { margin: auto 0; font-family: var(--wf-mono); text-align: center; }
+.wf-inv-card.is-sold .wf-inv-acts { visibility: visible; }
+.wf-inv-card.is-sold { opacity: 0.7; }
+
+/* LEDGERS AND SETTLEMENTS STACK ON A PHONE, round 14. At 360 the deposit ledger
+   was 703px in a 328px box and its State column, the one a person comes to read,
+   started off screen; the settlement squeezed a skin name onto five lines. Each
+   row becomes a card of label and value, the shape the drop table already uses. */
+@media (max-width: 599px) {
+  .wf-htable, .wf-settle, table[data-settle] { min-width: 0; width: 100%; }
+  .wf-htable thead, .wf-settle thead, table[data-settle] thead { display: none; }
+  .wf-htable tr, .wf-settle tr, table[data-settle] tr { display: block; padding: var(--wf-s-1) 0; border-bottom: 1px solid var(--wf-line-soft); }
+  .wf-htable td, .wf-settle td, table[data-settle] td { display: flex; justify-content: space-between; align-items: baseline; gap: var(--wf-s-2); padding: 2px 0; border: 0; text-align: right; }
+  .wf-htable td::before, .wf-settle td::before, table[data-settle] td::before { content: attr(data-l); flex: 0 0 auto; text-align: left; font-family: var(--wf-font, inherit); font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
+  .wf-htable td.wf-hstate { flex-wrap: wrap; }
+  .wf-htable .wf-hnote { flex-basis: 100%; text-align: left; }
+  .wf-selskin-art { aspect-ratio: auto; height: 96px; min-height: 0; }
+}

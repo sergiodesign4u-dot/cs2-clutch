@@ -5417,3 +5417,30 @@ The saved wallet is picked already; an address is checked against its network's 
 ### Named
 
 The missing step indicator and the labels Add funds and Pay are named in `4.1`'s baseline row. The skins tile's stale "not a link" is struck, and the step 2 pages table is on the page.
+
+
+## D-135. Round 14, step 4: one account, one story, and the main acts of 5.1 and 5.3 work
+
+**Date:** 2026-09-29. **Stage:** 04. **Decided by:** the founder, "давай исправлять все что нужно", round 14. **Binds:** nodes `5.1`, `5.3`, `5.9` and `5.10`, `7.3`, and their pages. **Answers `D-110`'s open item.**
+
+**What the founder said.** Fix everything round 14 raised.
+
+### One account, one story
+
+**The same AK-47 Redline had four values and dates** across history, the player page, My items and Send to Steam; the AWP was held in My items and on its way to Steam in history; two rolls and three ledger rows were dated after the prototype's now. **Now nine rolls are the account**, newest first, every item My items holds is one of them at the value My items prints, the player page renders the same cards, and every roll with a proof opens its own result and verifier.
+
+### D-110 answered
+
+**One AK, the Field-Tested one My items holds.** Send to Steam settled a StatTrak copy at 63.80, 42.40 off the balance, while My items printed 2.50 back for the same item. The page and its three states now settle at 18.90, 2.50 back. The founder can reverse this; the row says so.
+
+### The main acts work
+
+Send to Steam sends, Remove removes, Sell it back answers. On My items, Sell sells and the card turns into its receipt; an idle press on the bar answers; the acts' dim covers the artwork and not the item's name and price. History's three filters filter.
+
+### At 360
+
+Ledgers and the settlement stack as label and value rows, and the selected skin's picture no longer pushes the market below the fold. The won shelf is two across.
+
+### Words
+
+The state pages of 5.1, 5.3 and 5.9 lose the sentences that explained the product to the reader, as `D-128` did for their canonical pages.

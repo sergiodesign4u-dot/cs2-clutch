@@ -19,6 +19,18 @@
 **States specified inside this node:** the owner reading their own page, nothing won yet, and no page to show.
 
 
+## Amended 29 September 2026 by `D-135`. The public shelf is the account's rolls
+
+**Why.** Round 14 of the critique found the three player pages carrying hand copies of five cards whose AK was won on 22 Aug from Ironbound at 21.40, while the round it opened said 18 Aug, and every card opened that one round.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A grid of won skins on the profile | **The grid** | **The cards are `5.9`'s Items tab cards, rendered from the same nine rolls**, each opening its own round. Two across at 360, where one column made five cards 4 563px of page. The count reads nine |
+
+---
+
 ## Amended 27 September 2026 by `D-130`. 7.3 Public profile stops explaining itself
 
 **Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against baseline.md section 9.9. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.

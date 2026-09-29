@@ -92,21 +92,19 @@ window.WF_HISTTAB = 'cashout';
    LTC or USDT depends on the rate at the moment it was sent, AND THAT RATE IS
    NOT PUBLISHED YET, so no row carries a crypto figure. */
 window.WF_HIST = { cashout: [
-  { when: '2 Sep 08:35',  what: 'Desert Eagle Conspiracy, Minimal Wear', net: 'Ethereum',
-    wallet: '0x7a1f\u20264e2f', amount: '52.10', state: 'Requested',
-    why: 'With us since 2 Sep 08:35. Nothing has been sent and nothing has been decided.' },
-  { when: '1 Sep 19:02',  what: 'AK-47 Case Hardened, Field-Tested',    net: 'Litecoin',
-    wallet: 'ltc1q\u20268f3a', amount: '41.55', state: 'Sending',
-    why: 'Approved 1 Sep 19:40. Waiting on the network, and we do not estimate when a chain confirms.' },
-  { when: '18 Aug 20:11', what: 'M4A1-S Guardian, Field-Tested',        net: 'Ethereum',
-    wallet: '0x7a1f\u20264e2f', amount: '34.80', state: 'Sent',
-    why: 'On the chain since 18 Aug 20:44.' },
-  /* THE ONE ROW THE REST OF THE PRODUCT ALREADY KNOWS ABOUT. The P250 is on the
-     Rolls tab as sold back on 21 Aug and on 7.3 as gone. It was requested as
-     crypto and refused, so the coins stayed on the balance. */
-  { when: '21 Aug 23:04', what: 'P250 Sand Dune, Battle-Scarred',       net: 'Litecoin',
+  { when: '21 Aug 08:35', what: 'Desert Eagle Conspiracy, Minimal Wear', net: 'Ethereum',
+    wallet: '0x7a1f\u2026f742', amount: '52.10', state: 'Requested',
+    why: 'With us since 21 Aug 08:35. Nothing has been sent and nothing has been decided.' },
+  /* The P250 the Rolls tab shows as sold back on 20 Aug and 7.3 as gone. */
+  { when: '20 Aug 23:04', what: 'P250 Sand Dune, Battle-Scarred',       net: 'Litecoin',
     wallet: 'ltc1q\u20268f3a', amount: '0.31',  state: 'Blocked',
-    why: 'Below the smallest amount we can send on this network, so nothing went out and the coins stayed on your balance. What that smallest amount is has not been published yet.' }
+    why: 'Below the smallest cash out on Litecoin, 2.00 coins, so nothing went out and the coins stayed on your balance.' },
+  { when: '19 Aug 19:02', what: 'AK-47 Case Hardened, Field-Tested',    net: 'Litecoin',
+    wallet: 'ltc1q\u20268f3a', amount: '41.55', state: 'Sending',
+    why: 'Approved 19 Aug 19:40. Waiting on the network, and we do not estimate when a chain confirms.' },
+  { when: '18 Aug 20:11', what: 'M4A1-S Guardian, Field-Tested',        net: 'Ethereum',
+    wallet: '0x7a1f\u2026f742', amount: '34.80', state: 'Sent',
+    why: 'On the chain since 18 Aug 20:44.' }
 ] };
 </script>
 <script src="_nav.js"></script>

@@ -23,6 +23,21 @@
 | **A public profile with four history tabs**, Inventory history, Case battle history, Gunfights history and Upgrades history, each a grid of item cards carrying the mode icon, the image, the weapon, the skin, the wear and a value in coins. Founder capture, 21 August 2026, `baseline.md` section 9.9. | **The idea that history is a first-class surface**, and the split by mode, which arrives when a second mode does. | **Everything about what a row is.** The baseline's history is an **inventory** history: it lists items, and an item is the outcome of a roll with the roll removed. Ours lists **rolls**, and the item is one column of a row. `baseline.md` section 9.9 records the same thing from the other side: that page is a trophy shelf, and `public-result.md` was written to replace the shelf with something checkable. **A history of items is the shelf again, one screen deeper.** And it is private: the baseline's is public and this one is the account's own. |
 
 
+## Amended 29 September 2026 by `D-135`. One account, one story, on one clock
+
+**Why.** Round 14 of the critique found the AK in four readings across this node, `5.1`, `5.3` and `7.3`, the AWP held in My items and on its way to Steam here, two rolls and three ledger rows dated after the prototype's now, 21 Aug 2026 09:31, "212 rolls" over an Items tab of five, and three filters with no handler.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Ledgers as tables | **The tables** | **At 360 each row stacks as label and value**: the State column started off screen at 703px in a 328px box |
+| Filters over the roll list | **The three** | **They filter**: case and date step through their values, Still held toggles, and the count follows |
+
+**The rolls are nine and they are the account.** Newest first: the Warsteel AK held, the MP9 on its way to Steam, the P250 sold back, the AWP and the Glock held, the Ironbound StatTrak AK sold back, then the USP-S, the M4A1-S and the Desert Eagle held. Every item `5.1` holds is a roll here at the value `5.1` prints; `7.3` renders the same cards; every roll with a proof opens its own result and verifier. **The ledgers sit before now**: the MP9 is the withdrawal with Steam, the AK's offer expired on 19 Aug, the cash out rows run 18 to 21 Aug, and the P250's cash out names the smallest amount on Litecoin, 2.00 coins. **Samples, `D-124`:** every roll, its case, value, chance and hash, and every ledger row. The labelled explanations under the Items tab left, as `D-128` decided for every ledger.
+
+---
+
 ## Amended 27 September 2026 by `D-128`. 5.9 History takes the baseline's shape back
 
 **Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, against the founder's dated captures in `research/screens/baseline-account/`. What left the screen is kept in this node, not deleted.

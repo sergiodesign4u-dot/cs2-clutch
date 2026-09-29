@@ -2916,7 +2916,10 @@ window.WF_PAY = window.WF_PAY || {
     if (q('.wf-result-s')) q('.wf-result-s').textContent = R.s;
     if (q('.wf-result-axes')) q('.wf-result-axes').innerHTML = R.axes.map(function (a) { return '<span class="wf-axis">' + a + '</span>'; }).join('');
     var h1 = document.querySelector('.wf-result') && document.querySelector('h1');
-    if (h1 && /won from/.test(h1.textContent)) h1.textContent = R.w + ' | ' + R.s + ', won from Ironbound';
+    var K = R.kase || 'Ironbound';
+    if (h1 && /won from/.test(h1.textContent)) h1.textContent = R.w + ' | ' + R.s + ', won from ' + K;
+    var cn = q('.wf-caserow strong'); if (cn) cn.textContent = K;
+    var cr = q('.wf-caserow'); if (cr && K !== 'Ironbound') cr.setAttribute('href', BASE + 'catalogue.html');
     var v = document.querySelectorAll('.wf-vals .wf-fig');
     if (v[0]) v[0].innerHTML = '<span class="wf-fig-v">' + R.won + ' coins</span><span class="wf-fig-c">Worth when it was won, ' + R.at + '</span>';
     if (v[1]) v[1].innerHTML = '<span class="wf-fig-v">' + R.now + ' coins</span><span class="wf-fig-c">Worth now, read 21 Aug 2026 09:31</span>';
@@ -3771,6 +3774,10 @@ window.WF_PAY = window.WF_PAY || {
       var src = on.length ? on : picks;
       var sum = src.reduce(function (a, i) { return a + parseFloat(i.getAttribute('data-v') || '0'); }, 0);
       nOut.textContent = src.length + (src.length === 1 ? ' item' : ' items');
+      // A VALUE THAT CANNOT BE READ IS SAID, round 14: the bar counted six and
+      // summed five without saying which was missing.
+      var blind = src.filter(function (i) { var c = i.closest('.wf-inv-card'); return c && c.querySelector('.wf-inv-p.wf-fig-missing'); }).length;
+      if (blind) nOut.textContent += ', ' + blind + ' not readable';
       vOut.textContent = sum.toFixed(2) + ' coins';
       /* THE BAR STAYS, THE ACTIONS GO IDLE. D-85 reversed the earlier "hidden until
          something is ticked": the bar is where a person learns the exits exist, and
@@ -3784,8 +3791,45 @@ window.WF_PAY = window.WF_PAY || {
     picks.forEach(function (i) { i.addEventListener('change', paint); });
     var all = bar.querySelector('[data-inv-all]');
     var none = bar.querySelector('[data-inv-none]');
-    if (all) all.addEventListener('click', function () { picks.forEach(function (i) { i.checked = true; }); paint(); });
+    if (all) all.addEventListener('click', function () { picks.forEach(function (i) { if (!i.disabled) i.checked = true; }); paint(); });
     if (none) none.addEventListener('click', function () { picks.forEach(function (i) { i.checked = false; }); paint(); });
+
+    /* SELL SELLS AND AN IDLE EXIT ANSWERS, round 14. "Sell for coins" reloaded
+       the page and sold nothing, and an idle press on the bar said nothing. A sold
+       card turns into its receipt and leaves the selection and the totals. */
+    var say = bar.querySelector('[data-invbar-say]');
+    if (!say) { say = el('p', 'wf-refuse'); say.setAttribute('data-invbar-say', ''); say.setAttribute('aria-live', 'polite'); bar.appendChild(say); }
+    function sell(card) {
+      var i = card.querySelector('[data-inv-pick]');
+      var v = parseFloat(card.getAttribute('data-v') || '0');
+      if (i) { i.checked = false; i.disabled = true; }
+      picks = picks.filter(function (x) { return x !== i; });
+      card.classList.add('is-sold');
+      var acts = card.querySelector('.wf-inv-acts');
+      if (acts) acts.innerHTML = '<p class="wf-inv-sold">Sold, +' + v.toFixed(2) + ' coins</p>';
+      return v;
+    }
+    document.addEventListener('click', function (e) {
+      var one = e.target.closest('[data-inv-sell]');
+      if (one) { e.preventDefault(); sell(one.closest('.wf-inv-card')); paint(); return; }
+      var act = e.target.closest('[data-invbar-act]');
+      if (!act || !bar.contains(act)) return;
+      var on = picks.filter(function (i) { return i.checked; });
+      if (!on.length) { e.preventDefault(); say.textContent = 'Tick an item first.'; return; }
+      say.textContent = '';
+      if (act.hasAttribute('data-inv-sellsel')) {
+        e.preventDefault();
+        var got = 0;
+        on.forEach(function (i) { got += sell(i.closest('.wf-inv-card')); });
+        say.textContent = 'Sold ' + on.length + (on.length === 1 ? ' item' : ' items') + ', +' + got.toFixed(2) + ' coins.';
+        paint();
+        return;
+      }
+      if (act.getAttribute('href') && /withdraw/.test(act.getAttribute('href'))) act.setAttribute('href', BASE + (on.length > 1 ? 'withdraw-many.html' : 'withdraw.html'));
+    });
+    var basePaint = paint;
+    paint = function () { basePaint(); if (none) none.hidden = !picks.some(function (i) { return i.checked; }); };
+    picks.forEach(function (i) { i.addEventListener('change', paint); });
     paint();
   }
 
@@ -3986,13 +4030,33 @@ window.WF_PAY = window.WF_PAY || {
      and what a sale credited is the cash out ledger's, and a card that mixed
      the three would be three owners on one line.
      --------------------------------------------------------------------- */
+  /* ONE ACCOUNT, ONE STORY, round 14. The five rolls had the AK in four
+     readings across history, the player page, My items and Send to Steam, the
+     AWP both held and on its way to Steam, and two rolls dated after the
+     prototype's now, 21 Aug 2026 09:31. Nine rolls now, newest first, and every
+     item 5.1 holds is one of them at the value 5.1 prints. Samples by D-124,
+     marked in 5.9. Indices 0 to 4 keep the roles the state pages point at. */
   var WF_ROLLS = [
-    { when: '22 Aug 09:14', date: '22 Aug 2026', kase: 'Ironbound Case', w: 'AK-47',    s: 'Redline',         wear: 'Field-Tested',    cost: '12.40', worth: '22.15', chance: '0.42%',  hash: 'a91f4c2e', state: 'held' },
-    { when: '21 Aug 23:02', date: '21 Aug 2026', kase: 'Nightfall Case', w: 'MP9',      s: 'Rose Iron',       wear: 'Minimal Wear',    cost: '31.00', worth: '1.86',  chance: '7.30%',  hash: 'c02b7d19', state: 'withdrawn', went: '22 Aug' },
-    { when: '21 Aug 22:57', date: '21 Aug 2026', kase: 'Nightfall Case', w: 'P250',     s: 'Sand Dune',       wear: 'Battle-Scarred',  cost: '31.00', worth: '0.31',  chance: '19.80%', hash: null,       state: 'sold',      went: '21 Aug' },
-    { when: '20 Aug 18:40', date: '20 Aug 2026', kase: 'Warsteel Case',  w: 'AWP',      s: 'Asiimov',         wear: 'Field-Tested',    cost: '4.80',  worth: '61.40', chance: '0.11%',  hash: '5d3e8b71', state: 'sending',   went: '21 Aug' },
-    { when: '20 Aug 18:36', date: '20 Aug 2026', kase: 'Warsteel Case',  w: 'Glock-18', s: 'Water Elemental', wear: 'Factory New',     cost: '4.80',  worth: '3.02',  chance: '5.60%',  hash: '46a0f9c3', state: 'held' }
+    { key: 'wak',     when: '21 Aug 08:52', date: '21 Aug 2026', kase: 'Warsteel Case',  w: 'AK-47',        s: 'Redline',         wear: 'Field-Tested',   cost: '4.90',  worth: '21.90', now: '21.40', chance: '0.42%',  hash: 'a91f4c2e', state: 'held' },
+    { key: 'mp9n',    when: '20 Aug 23:02', date: '20 Aug 2026', kase: 'Nightfall Case', w: 'MP9',          s: 'Rose Iron',       wear: 'Minimal Wear',   cost: '31.00', worth: '1.86',  chance: '7.30%',  hash: 'c02b7d19', state: 'sending', went: '21 Aug' },
+    { key: 'p250sd',  when: '20 Aug 22:57', date: '20 Aug 2026', kase: 'Nightfall Case', w: 'P250',         s: 'Sand Dune',       wear: 'Battle-Scarred', cost: '31.00', worth: '0.31',  chance: '19.80%', hash: null,       state: 'sold', went: '20 Aug' },
+    { key: 'awp',     when: '20 Aug 18:40', date: '20 Aug 2026', kase: 'Warsteel Case',  w: 'AWP',          s: 'Asiimov',         wear: 'Field-Tested',   cost: '4.90',  worth: '61.40', now: '66.05', chance: '0.11%',  hash: '5d3e8b71', state: 'held' },
+    { key: 'glockfn', when: '20 Aug 18:36', date: '20 Aug 2026', kase: 'Warsteel Case',  w: 'Glock-18',     s: 'Water Elemental', wear: 'Factory New',    cost: '4.90',  worth: '3.02',  now: '4.20',  chance: '5.60%',  hash: '46a0f9c3', state: 'held' },
+    { key: 'ak',      when: '18 Aug 14:44', date: '18 Aug 2026', kase: 'Ironbound Case', w: 'AK-47',        s: 'Redline',         wear: 'Field-Tested, StatTrak', cost: '12.40', worth: '47.30', chance: '3.18%', hash: '4f2a91c7', state: 'sold', went: '18 Aug' },
+    { key: 'uspc',    when: '16 Aug 19:40', date: '16 Aug 2026', kase: 'Coldfront Case', w: 'USP-S',        s: 'Cortex',          wear: 'Minimal Wear',   cost: '2.10',  worth: '7.10',  now: '7.35',  chance: '2.40%',  hash: '9e41d7a2', state: 'held' },
+    { key: 'm4ft',    when: '14 Aug 08:55', date: '14 Aug 2026', kase: 'Nightfall Case', w: 'M4A1-S',       s: 'Hyper Beast',     wear: 'Field-Tested',   cost: '31.00', worth: '28.60', now: '29.90', chance: '1.20%',  hash: '3b7c0e95', state: 'held' },
+    { key: 'deagle',  when: '13 Aug 20:18', date: '13 Aug 2026', kase: 'Coldfront Case', w: 'Desert Eagle', s: 'Blaze',           wear: 'Minimal Wear',   cost: '2.10',  worth: '11.80', now: '12.05', chance: '0.90%',  hash: 'd5f21a68', state: 'held' }
   ];
+  /* Every roll with a proof gets a round record, so its result page, its
+     verifier and its public card say the same thing as its history row. */
+  WF_ROLLS.forEach(function (r, i) {
+    if (!r.hash) return;
+    if (ROUNDS[r.key]) { ROUNDS[r.key].kase = r.kase.replace(' Case', ''); return; }
+    ROUNDS[r.key] = { w: r.w, s: r.s, axes: r.wear.split(', '), won: r.worth, now: r.now || r.worth,
+      at: r.date + ' ' + r.when.split(' ').pop(), hash: r.hash + hx(r.key + 'h', 56), seed: hx(r.key + 's', 64),
+      client: '7d19f4a2', nonce: String(41100 + i).replace(/(\d)(\d{3})$/, '$1 $2'),
+      ticket: String(1000 + i * 7919).replace(/(\d)(\d{3})$/, '$1 $2'), range: 'the range its case publishes', kase: r.kase.replace(' Case', '') };
+  });
 
   /* FOUR STATES, AND THE FOURTH IS THE ONE THE FOUNDER'S CAPTURE SHOWS, D-108.
      The baseline's ribbon reads SOLD on most cards and PENDING on one, and
@@ -4023,7 +4087,7 @@ window.WF_PAY = window.WF_PAY || {
   var HIST_COLS = {
     deposits: [
       { k: 'when',   h: 'When',              mono: true, num: true },
-      { k: 'amount', h: 'Amount',            mono: true, num: true },
+      { k: 'amount', h: 'Credited',          mono: true, num: true },
       { k: 'method', h: 'Method' },
       { k: 'state',  h: 'State',             state: true },
       { k: 'ours',   h: 'Our reference',     mono: true },
@@ -4075,7 +4139,7 @@ window.WF_PAY = window.WF_PAY || {
       { k: 'net',    h: 'Network' },
       { k: 'wallet', h: 'Wallet',          mono: true },
       { k: 'amount', h: 'Amount',          mono: true, num: true },
-      { k: 'state',  h: 'Status',          state: true }
+      { k: 'state',  h: 'State',           state: true }
     ]
   };
 
@@ -4096,7 +4160,7 @@ window.WF_PAY = window.WF_PAY || {
   function histTable(kind, rows) {
     var cols = HIST_COLS[kind];
     var wrap = el('div', 'wf-tablewrap');
-    var t = el('table', 'wf-table');
+    var t = el('table', 'wf-table wf-htable');
     var thead = el('thead'), tr = el('tr');
     cols.forEach(function (c) {
       var th = el('th', null, c.h);
@@ -4109,6 +4173,7 @@ window.WF_PAY = window.WF_PAY || {
       var row = el('tr');
       cols.forEach(function (c) {
         var td = el('td', c.mono ? ('wf-htx' + (c.num ? ' wf-hnum' : '')) : (c.state ? 'wf-hstate' : 'wf-tprose'));
+        td.setAttribute('data-l', c.h);
         td.appendChild(document.createTextNode(r[c.k] == null ? '' : r[c.k]));
         /* THE REASON TRAVELS WITH THE STATE AND NEVER SITS IN A TOOLTIP. B8-3
            is three accounts refused with no explanation, and a refusal whose
@@ -4166,7 +4231,7 @@ window.WF_PAY = window.WF_PAY || {
     card.appendChild(el('p', 'wf-inv-w', r.w));
     card.appendChild(el('p', 'wf-inv-s', r.s));
     card.appendChild(el('p', 'wf-inv-wear', '(' + r.wear + ')'));
-    card.appendChild(el('p', 'wf-inv-p', r.worth));
+    card.appendChild(el('p', 'wf-inv-p', r.worth + ' coins'));
     card.appendChild(el('span', 'wf-itemcard-k', 'Worth when won'));
     var meta = el('div', 'wf-plr-meta');
     var a = el('span'); a.appendChild(document.createTextNode('From'));
@@ -4177,7 +4242,7 @@ window.WF_PAY = window.WF_PAY || {
     card.appendChild(meta);
     var acts = el('div', 'wf-plr-check');
     var link = el('a', 'wf-btn wf-btn--small', r.hash ? 'Check this round' : 'No proof to check');
-    if (r.hash) { link.setAttribute('href', BASE + 'result.html'); }
+    if (r.hash) { link.setAttribute('href', BASE + 'result.html' + (r.key && r.key !== 'ak' ? '?round=' + r.key : '')); }
     else { link.setAttribute('href', BASE + 'history-no-seed.html'); }
     acts.appendChild(link);
     card.appendChild(acts);
@@ -4211,6 +4276,7 @@ window.WF_PAY = window.WF_PAY || {
   function rollRow(r, o) {
     o = o || {};
     var row = el('div', o.bad ? 'wf-roll wf-roll--bad' : 'wf-roll');
+    row.setAttribute('data-kase', r.kase); row.setAttribute('data-state', r.state || ''); row.setAttribute('data-when', r.when || '');
 
     /* CELL 1. THE MODE MARK CARRIES ITS NAME FOR A SCREEN READER AND SHOWS NO
        WORD, because the whole reason it is an icon is that the word was the
@@ -4223,7 +4289,7 @@ window.WF_PAY = window.WF_PAY || {
     mode.setAttribute('title', 'Cases');
     from.appendChild(mode);
     var kase = el('a', 'wf-roll-case', r.kase);
-    kase.href = BASE + 'case.html';
+    kase.href = BASE + (/Ironbound/.test(r.kase) ? 'case.html' : 'catalogue.html');
     from.appendChild(kase);
     /* THE ENTRY COST BELONGS TO THE CASE AND IT NOW SITS UNDER THE CASE, D-120.
        It was in the skin's cell, labelled Cost, next to the skin's own Worth, so
@@ -4299,9 +4365,10 @@ window.WF_PAY = window.WF_PAY || {
     if (hash && kind !== 'noseed') proof.appendChild(el('span', 'wf-roll-hash', hash));
     if (kind === 'ok') {
       var check = el('a', 'wf-btn wf-btn--small', 'Check it');
-      check.href = BASE + 'fair-prefilled.html';
+      var q = r.key && r.key !== 'ak' ? '?round=' + r.key : '';
+      check.href = BASE + 'fair-prefilled.html' + q;
       var pub = el('a', 'wf-btn wf-btn--small', 'Public page');
-      pub.href = BASE + 'result.html';
+      pub.href = BASE + 'result.html' + q;
       proof.appendChild(check);
       proof.appendChild(pub);
     } else {
@@ -4322,6 +4389,37 @@ window.WF_PAY = window.WF_PAY || {
     (window.WF_ROLLLIST || []).forEach(function (o) {
       var r = o.roll || WF_ROLLS[o.i];
       if (r) host.appendChild(rollRow(r, o));
+    });
+    /* THE THREE FILTERS FILTER, round 14: they were buttons with no handler.
+       Case and date step through their values; Still held toggles. The clock is
+       the prototype's now, 21 Aug 2026 09:31. */
+    var F = { kase: 0, date: 0, held: false };
+    var cases = ['All cases'].concat(Array.prototype.map.call(host.querySelectorAll('.wf-roll'), function (x) { return x.getAttribute('data-kase'); })
+      .filter(function (v, i, a) { return a.indexOf(v) === i; }));
+    var dates = [['Any date', 1e9], ['Last 24 hours', 24], ['Last 7 days', 168]];
+    function hoursAgo(w) {
+      var m = /(\d+) Aug (\d+):(\d+)/.exec(w); if (!m) return 0;
+      return (21 * 24 + 9 + 31 / 60) - (parseInt(m[1], 10) * 24 + parseInt(m[2], 10) + parseInt(m[3], 10) / 60);
+    }
+    function apply() {
+      var n = 0;
+      Array.prototype.forEach.call(host.querySelectorAll('.wf-roll'), function (x) {
+        var ok = (!F.kase || x.getAttribute('data-kase') === cases[F.kase]) &&
+                 hoursAgo(x.getAttribute('data-when')) <= dates[F.date][1] &&
+                 (!F.held || x.getAttribute('data-state') === 'held');
+        x.hidden = !ok; if (ok) n++;
+      });
+      var c = document.querySelector('#h2-rolls + .wf-fig-c');
+      if (c) c.textContent = n + (n === 1 ? ' roll' : ' rolls');
+    }
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-hf]');
+      if (!b) return;
+      var k = b.getAttribute('data-hf');
+      if (k === 'case') { F.kase = (F.kase + 1) % cases.length; b.textContent = cases[F.kase].replace(' Case', ''); if (!F.kase) b.textContent = 'All cases'; }
+      if (k === 'date') { F.date = (F.date + 1) % dates.length; b.textContent = dates[F.date][0]; }
+      if (k === 'held') { F.held = !F.held; b.setAttribute('aria-pressed', F.held ? 'true' : 'false'); }
+      apply();
     });
   }
 
@@ -4383,6 +4481,7 @@ window.WF_PAY = window.WF_PAY || {
 
   function wdRow(row) {
     var box = el('div', 'wf-wrow' + (row.offers.length ? '' : ' is-nomarket'));
+    box.setAttribute('data-wd-row', row.id);
 
     var sel = el('div', 'wf-selskin');
     sel.appendChild(el('span', 'wf-selskin-h', 'Selected skin'));
@@ -4399,6 +4498,7 @@ window.WF_PAY = window.WF_PAY || {
     sel.appendChild(pr);
     var rm = el('button', 'wf-btn wf-btn--small', 'Remove');
     rm.type = 'button';
+    rm.setAttribute('data-wd-remove', '');
     rm.appendChild(el('span', 'wf-vh', ' ' + row.w + ' ' + row.s));
     sel.appendChild(rm);
     box.appendChild(sel);
@@ -4418,6 +4518,7 @@ window.WF_PAY = window.WF_PAY || {
       e.appendChild(el('p', 'wf-empty-p', 'What still works is selling it back to us for its value, which is our price for it and not a market price, so no copy has to exist for it to happen.'));
       var row2 = el('div', 'wf-row');
       var sb = el('button', 'wf-btn wf-btn--primary', 'Sell it back for ' + wdFmt(row.ours) + ' coins'); sb.type = 'button';
+      sb.addEventListener('click', function () { sb.textContent = 'Sold, +' + wdFmt(row.ours) + ' coins'; sb.disabled = true; });
       var kp = el('a', 'wf-btn', 'Keep it and go back'); kp.setAttribute('href', BASE + 'account.html');
       row2.appendChild(sb); row2.appendChild(kp);
       e.appendChild(row2);
@@ -4479,6 +4580,7 @@ window.WF_PAY = window.WF_PAY || {
       tbody.innerHTML = '';
       var total = 0, going = 0;
       rows.forEach(function (r) {
+        if (r.removed) return;
         var tr = el('tr', r.pick < 0 ? 'is-blocked' : null);
         var c1 = el('td'); c1.setAttribute('data-l', 'Skin');
         var it = el('span', 'wf-st-item');
@@ -4510,10 +4612,10 @@ window.WF_PAY = window.WF_PAY || {
       var bal = 74.20;
       // THE BASELINE'S SENTENCE UNDER ITS TOTAL, D-128, with what is left.
       sayEl.innerHTML = 'Based on the market price, <strong>' + wdFmt(Math.abs(total)) + ' coins ' +
-        (total >= 0 ? 'goes onto your balance' : 'will be taken from your balance') + '</strong>, leaving ' + wdFmt(bal + total) + '.';
+        (total >= 0 ? 'goes onto your balance' : 'will be taken from your balance') + '</strong>, ' + (total >= 0 ? 'making it ' : 'leaving ') + wdFmt(bal + total) + '.';
       /* THE COUNT LIVED IN THE SIDE CARD AND THE SIDE CARD IS GONE, D-115. The
          button carries it now, which is where it was already being said twice. */
-      btnEl.textContent = 'Send ' + going + (going === 1 ? ' item' : ' items') + ' to Steam';
+      btnEl.textContent = going ? 'Send ' + going + (going === 1 ? ' item' : ' items') + ' to Steam' : 'Nothing to send';
       if (cntEl) cntEl.textContent = going + ' of ' + rows.length;
     }
 
@@ -4555,7 +4657,33 @@ window.WF_PAY = window.WF_PAY || {
       });
       shown();
     });
+    /* REMOVE REMOVES AND SEND SENDS, round 14. Both were buttons with no
+       listener on the main act of 5.3. Remove drops the row and repaints the
+       totals; Send goes to the in-flight state, or refuses with nothing left. */
+    host.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-wd-remove]');
+      if (!b) return;
+      var box = b.closest('[data-wd-row]');
+      var r = rows.filter(function (x) { return x.id === (box && box.getAttribute('data-wd-row')); })[0];
+      if (!r) return;
+      r.removed = true; r.pick = -1; box.hidden = true;
+      paint();
+    });
+    if (btnEl) btnEl.addEventListener('click', function () {
+      var going = rows.filter(function (r) { return !r.removed && r.pick >= 0; }).length;
+      if (going) { location.href = BASE + 'withdraw-clock.html'; return; }
+      if (sayEl) sayEl.textContent = 'Nothing is going out: every item was removed or has no copy on sale. Change what is selected.';
+    });
     paint();
+  }
+
+  /* THE PUBLIC SHELF IS THE ITEMS TAB'S CARDS, round 14. The three player pages
+     carried hand copies whose AK was won on 22 Aug, from Ironbound, at 21.40,
+     while the round it linked to said 18 Aug. One renderer now, one set. */
+  function renderPlayerShelf() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-player-shelf]'), function (g) {
+      WF_ROLLS.forEach(function (r) { g.appendChild(itemCard(r)); });
+    });
   }
 
   function itemsPanel() {
@@ -4573,12 +4701,8 @@ window.WF_PAY = window.WF_PAY || {
       rolls.forEach(function (r) { grid.appendChild(itemCard(r)); });
       wrap.appendChild(grid);
     }
-    /* THE THREE FIGURES HAVE THREE OWNERS AND THE CARD CARRIES ONE OF THEM. */
-    wrap.appendChild(afterBlock([
-      { k: 'What this list is', v: 'Every skin this account has opened, newest first, held and gone alike. An item that was sold back or sent to Steam stays here, because what happened happened.' },
-      { k: 'The figure on a card', v: 'What the item was worth at the moment it was won, dated to that moment. What it is worth today is on My items, and what a sale credited is on Cash out.' },
-      { k: 'The same five rolls', v: 'This is the Rolls tab keyed by the item instead of by the event. Nothing is here that is not there, and nothing there is missing here.', wide: true }
-    ]));
+    /* THE LABELLED EXPLANATIONS LEFT, round 14, as D-128 decided for every
+       ledger: the card already says "Worth when won" and the rest is in 5.9. */
     return wrap;
   }
 
@@ -6216,6 +6340,7 @@ window.WF_PAY = window.WF_PAY || {
     renderCaseBodies();
     renderLadders();
     mountFavs();
+    renderPlayerShelf();
     renderResult();
     renderVerifierPrefill();
     mountVerifier();

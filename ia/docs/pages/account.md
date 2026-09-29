@@ -21,6 +21,21 @@
 | Four tabs as peers on one page, `INVENTORY`, `HISTORY`, `PROFILE`, `SETTINGS`. The inventory grid has two sorts, no filters and no search, and a sticky bar carrying a count, a sum and **four exits**: send to Steam, sell to site, cash out, exchange. History is **five separate histories**, three of which are empty and all three say only `History is empty...`. `baseline-account.md` sections 2 to 4. | The count and the sum of the selection, which are the same pair the header carries, and the per-item action set. | **Our map gives this node one exit and the canon has four**, and the gap narrowed twice since this row was written. **`D-38` put selling a skin back for coins in round 1**, so the second exit exists as a capability and has no placement on this page; `D-60` recorded that **the exchange for a real skin does not exist at all**, and in-platform skin-for-skin exchange stays LATER by scope. **What is still true is the shape of the finding:** the live product answers what a person does with a skin they do not want, and this node answers only what they do with one they do want. **Open item, section 8, not a divergence.** And `History is empty...` with no route is the empty state `3.2` refuses. **The four tabs are four nodes on our map since `D-36`**, `5.1`, `5.9`, `5.10` and `5.11`, so the tab strip is not inherited either. |
 
 
+## Amended 29 September 2026 by `D-135`. Sell sells, and the acts stop covering the item
+
+**Why.** Round 14 of the critique found "Sell for coins" reloading the page and selling nothing, an idle press on the bar answering nothing, and the acts' dim laid over the name, the wear and the price at the moment of choosing.
+
+**Baseline row for this amendment.**
+
+| The live product, `acct_inventory_item_actions.png` | What we keep | What we change, and why |
+|---|---|---|
+| On selection the name and price stay readable beside the item's buttons | **The name and price in view** | **The dim covers the artwork's box only.** It covered the whole card |
+| SELL on the card and in the bar | **Both** | **They sell**: the card turns into its receipt, leaves the selection and the totals. An idle press on the bar says "Tick an item first", and Deselect all shows only when something is ticked |
+
+**The held items are the history's rolls,** dated as `5.9` dates them, and each card's Share opens that item's own public result. The degraded state's header and bar agree on 74.90 with "1 not readable". Prices are read 21 Aug 2026 09:31, the prototype's now, where they read 23 Aug.
+
+---
+
 ## Amended 27 September 2026 by `D-128`. 5.1 My items takes the baseline's shape back
 
 **Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, against the founder's dated captures in `research/screens/baseline-account/`. What left the screen is kept in this node, not deleted.

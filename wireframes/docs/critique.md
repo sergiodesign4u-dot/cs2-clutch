@@ -745,3 +745,23 @@
 | D 1.9, D 2.3 | "The tile is not a link" never struck after `D-129`; the step 2 pages table missing from the page | D | Fixed |
 
 **Moved to step 4:** B21, the account's deposit limit told two ways, and B36, what a deposit row's figure is, because both live in history.
+
+### 14.7 Step 4, My items, Send to Steam, history and the player page, fixed on 29 September 2026 under `D-135`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| B6, D 1.1, B20, A33, B19 | One AK in four readings; the AWP held and sending; "212 rolls" over five items; player cards dated against their round | B, D, A | Fixed: nine rolls are the account, rendered on history, Items and the player page; `D-110` answered |
+| B1, B10 | Send to Steam, Remove and Sell it back had no handler | B | Fixed |
+| B9, B48 | Sell for coins reloaded the page; idle exits answered nothing; Deselect all shown idle | B | Fixed |
+| B5 | The acts covered the item's name and price | B | Fixed: the dim covers the artwork only |
+| B15 | The receipt's float and "one of three at that price" contradicted the pick | B | Fixed with the AK's figures |
+| B10a, B26 | Ledgers hid State at 360; the settlement wrapped a name onto five lines; the picture pushed the market below the fold | B | Fixed: stacked rows, a 96px picture |
+| B11 | Rolls filters had no handler; a dead pager | B | Fixed |
+| B17 | The degraded bar counted six and summed five | B | Fixed: "1 not readable", the header agrees |
+| B18, B29, B31, B34, B47 | Explanations left on state pages and on the Items tab | B | Fixed |
+| B21, B36 | The deposit limit told as set and not set; a ledger figure with no meaning | B | Fixed: the limit was lifted on 12 Aug; the column is Credited |
+| B28 | The cash out row said the minimum is not published | B | Fixed: 2.00 coins on Litecoin |
+| B44, B45 | Rows out of time order; State and Status; the P250's proof told two ways | B | Fixed |
+| A34, A35 | Values without a unit; one column of 465px cards at 360 | A | Fixed |
+| D 1.16 | My items read 23 Aug, after the prototype's now | D | Fixed |
+| B37 | "Our commission" had no value on the degraded Steam state | B | **Withdrawn on verification**: the row reads 0.00 in the file and on screen |

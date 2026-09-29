@@ -134,7 +134,7 @@
            routes to the block that says what each one means. Naming them is what
            the rule asked for; explaining them is what the block is for. -->
       <p class="wf-fig-c" data-wd-say></p>
-      <p class="wf-note">Three things can stop a withdrawal: <strong>a market we do not serve</strong>, <strong>a trade hold Steam sets</strong>, or <strong>a ban on the Steam account</strong>. <a href="#h2-limits">What each one means</a></p>
+      <p class="wf-note">Three things can stop a withdrawal: <strong>a market we do not serve</strong>, <strong>a trade hold Steam sets</strong>, or <strong>a ban on the Steam account</strong>.</p>
       <div class="wf-row">
         <a class="wf-btn" href="account.html">Cancel</a>
         <button class="wf-btn wf-btn--primary" type="button" data-wd-go>Send it to Steam</button>
@@ -203,22 +203,21 @@ window.WF_IA_BASE = '../ia/';
 window.WF_SHELL = { account: true, active: '', money: { balance: '74.20 coins', held: '140.95 coins' } };
 window.WF_ACCT = { active: 'items' };
 /* THE SHELF FOR THIS ONE ITEM, cheapest first, and it is the same array shape the
-   basket declares. The cheapest is 63.80, the figure this node has settled
-   against since D-91, so the default reproduces the record this page has always
-   shown: 21.40 ours against 63.80 the market, 42.40 off the balance.
-   WHETHER THIS STATTRAK COPY IS THE SAME ITEM AS 5.1's AK-47 IS STILL OPEN,
-   D-110, and moving this page onto the renderer does not settle it: the renderer
-   reads whatever array a page declares, which is why it can host both readings
-   until the founder picks one. */
+   basket declares. ROUND 14 CLOSES D-110: the item is the AK-47 Redline 5.1 holds,
+   Field-Tested at 21.40, and its shelf is the one withdraw-many.html already drew.
+   The StatTrak copy at 63.80 settled 42.40 off the balance on this page while 5.1
+   printed 2.50 back for the same item. Samples by D-124. */
 window.WF_WD = [
-  { w: 'AK-47', s: 'Redline', wear: 'Field-Tested, StatTrak', ours: 21.40, total: 268, offers: [
-    { p: 63.80, f: 0.1725416, stk: 0 },
-    { p: 66.33, f: 0.3046331, stk: 2 },
-    { p: 68.82, f: 0.3414408, stk: 2 },
-    { p: 70.24, f: 0.3375954, stk: 0 },
-    { p: 71.05, f: 0.3405523, stk: 2 },
-    { p: 71.93, f: 0.3297132, stk: 2 },
-    { p: 73.99, f: 0.3241361, stk: 0 }
+  { w: 'AK-47', s: 'Redline', wear: 'Field-Tested', ours: 21.40, total: 412, offers: [
+    { p: 18.90, f: 0.2544283, stk: 5 },
+    { p: 19.61, f: 0.3438201, stk: 0 },
+    { p: 19.99, f: 0.2676437, stk: 0 },
+    { p: 20.26, f: 0.2213551, stk: 0 },
+    { p: 21.08, f: 0.3516645, stk: 0 },
+    { p: 21.97, f: 0.2419475, stk: 5 },
+    { p: 22.94, f: 0.2906549, stk: 0 },
+    { p: 23.87, f: 0.3386378, stk: 0 },
+    { p: 24.09, f: 0.1962262, stk: 0 }
   ] }
 ];
 </script>
