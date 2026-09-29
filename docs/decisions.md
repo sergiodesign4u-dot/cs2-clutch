@@ -5565,3 +5565,23 @@ Four statements later decisions had reversed were corrected: Home's mode cards, 
 - **Copy copies what is usable**: the full hash, the link with its round, and a refused copy says so.
 - **Controls stop lying**: the daily open refuses with its reason instead of being disabled; the inventory exits are no longer announced as unavailable; the footer headings stop reporting a collapse above 900; the 503 retry stops printing the device's clock beside the page's UTC; the + leaves pages where the money cannot be read; a page with a boundary in force carries no bonus badge; the language control's name stops denying its nine options, and settings says what the rail says.
 - **Process words leave the product surface**: "Image slot, stage 06" and "Code slot". The six social slots stop being links to `#` and both carriers draw one set.
+
+
+## D-141. Round 15, step 2: the state pages round 14 never reached
+
+**Date:** 2026-09-30. **Stage:** 04, round 15. **Decided by:** the founder, "так", on step 2. **Binds:** history, account, support, legal, deposit and withdrawal state pages, `wireframes/_nav.js`, nodes `0.9` and `0.10`.
+
+**What the founder said.** Yes, on the state pages.
+
+### The class, stated once
+
+**A round 14 fix landed on the canonical page and stopped there.** Three history states still read 212 rolls with dead filters, the degraded inventory's Sell reloaded the page, the StatTrak AK survived on two withdrawal states, the refund link in the deposit form still opened the terms. **Where the fix could move into the renderer it did**: the roll count is now the rows, and a roll with no proof never offers one.
+
+### Two decisions inside the fixes
+
+- **Privacy and cookies open the unpublished state under their own names.** The page comment had them landing on the terms "because the shape is the deliverable", and a link labelled Privacy policy that opens Terms of use is the control `CLAUDE.md` forbids. Neither document is written, `0.9`'s open items, so the unpublished state is the true one.
+- **A question gets a question ticket.** Every Send landed on an appeal, and the appeal states told a restricted person that sending to Steam stays open, which is the thing the restriction paused.
+
+### Refused
+
+**An unreadable value is not sold for zero.** The degraded page could sell the AWP it could not price for +0.00; it now refuses with the reason.

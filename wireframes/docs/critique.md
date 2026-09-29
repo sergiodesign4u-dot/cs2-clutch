@@ -893,3 +893,26 @@ A separate table from the defects, as the pack asks: a step that did not happen 
 | B1-11, J86 | Six social links to `#`; the rail kept a second list | B1, D2 | Fixed: six slots, one set, `0.2` row |
 
 **Checked on screen** at 1440 and 360 on every one of the 133 pages: no script error, no horizontal scroll.
+
+### 16.4 Step 2, the state pages round 14 never reached, fixed on 30 September 2026 under `D-141`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| B2-30, J71 | "212 rolls" on three history states | B2, D2 | Fixed: the count is the rows, derived; the states list all nine |
+| B2-6, J78 | Filters and Older rolls dead on three history states | B2, D2 | Fixed: the filters work; the pager went, there are no older rolls |
+| B2-7 part | The sold P250 has no proof and its Check it opened the AK | B2 | Fixed: a roll with no hash says so |
+| B2-47 | "we say so rather than showing a control…" on the no seed state | B2 | Fixed: the sentence went |
+| B2-5, J84 | The degraded inventory's Sell reloaded the page; Share carried no round | B2, D2 | Fixed, and an unreadable value refuses to sell for zero |
+| B2-8, J79 | Copy on four support states copied nothing | B2, D2 | Fixed |
+| B2-9, J85 | An empty appeal went to submitted | B2, D2 | Fixed, and a bad address refuses too |
+| B2-10 | A question landed on an appeal ticket | B2 | Fixed: `sp-` ticket, samples in `0.10` |
+| B2-27 | The appeal states said sending to Steam stays open under a restriction | B2 | Fixed, with the refused state's regulator line, J98 |
+| J19, J26, J49, J56, J99 | The removed cross-link row on six states; the strip after the content; no Home in the appeal trail; "up to 10 MB" with no file control; the not found id equal to the live ticket | D2 | Fixed |
+| B2-18 | Appeal this opened the generic form | B2 | Fixed: the appeal page |
+| B2-12 | The refund link in the deposit form opened the terms | B2 | Fixed |
+| B2-13, J12 | Privacy and Cookie opened the terms; the refund page linked itself | B2, D2 | Fixed: the unpublished state under each name, `D-141` |
+| B2-14, J75, J55 part | v3 marked current and read on every `?v=`; v4 had no key; a machine date against its text | B2, D2 | Fixed |
+| B2-23, J70 | The StatTrak AK on two withdrawal states | B2, D2 | Fixed |
+| B2-39, J69 | Prices as of 23 Aug, after now | B2, D2 | Fixed |
+
+**Checked on screen** at 1440 and 360 on every page: no script error, no horizontal scroll.

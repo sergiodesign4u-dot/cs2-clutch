@@ -61,7 +61,7 @@
 
 
     <div class="wf-hist">
-      <div class="wf-lbar"><h2 class="wf-lbar-h" id="h2-rolls">Rolls</h2><span class="wf-fig-c">212 rolls</span></div>
+      <div class="wf-lbar"><h2 class="wf-lbar-h" id="h2-rolls">Rolls</h2><span class="wf-fig-c">9 rolls</span></div>
       <!-- BLOCK 2. THE SCOPE LINE, IN THE SHORT FORM THE COMPONENT CARRIES
            EVERYWHERE. The proof shows the round was fixed before the click and
            not altered after it. It does not show that the published chances are
@@ -76,9 +76,9 @@
            the one sort that turns a history into a leaderboard of yourself, and
            the only order a history has is by date. -->
       <div class="wf-hfilters">
-        <button class="wf-btn wf-btn--small" type="button">All cases</button>
-        <button class="wf-btn wf-btn--small" type="button">Any date</button>
-        <button class="wf-btn wf-btn--small" type="button">Still held</button>
+        <button class="wf-btn wf-btn--small" type="button" data-hf="case">All cases</button>
+        <button class="wf-btn wf-btn--small" type="button" data-hf="date">Any date</button>
+        <button class="wf-btn wf-btn--small" type="button" data-hf="held" aria-pressed="false">Still held</button>
       </div>
       <!-- BLOCK 4. THE ROWS, RENDERED FROM THE FIVE ROLLS, D-117. Founder:
            "иконку откуда (режим), потом скин с ценой и шансом, потом Roll ID с
@@ -117,7 +117,9 @@ window.WF_ROLLLIST = [
      The roll is the same roll it is everywhere else and only its proof cell
      differs, which is why the row is declared and not written. */
   { i: 1, proof: 'mismatch', bad: true },
-  { i: 3 }
+  /* ALL NINE, round 15: the page listed three under a count of 212, and the
+     account is nine rolls on every other page. */
+  { i: 2 }, { i: 3 }, { i: 4 }, { i: 5 }, { i: 6 }, { i: 7 }, { i: 8 }
 ];
 </script>
 <script src="_nav.js"></script>

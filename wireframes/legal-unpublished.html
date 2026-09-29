@@ -68,15 +68,16 @@
         <div class="wf-row"><a class="wf-btn" href="support.html">Ask us</a></div>
       </div>
       <div class="wf-row">
-        <a class="wf-btn" href="legal.html">Privacy policy</a>
-        <a class="wf-btn" href="legal.html">Cookie policy</a>
-        <a class="wf-btn" href="legal-unpublished.html">Refund and payments policy</a>
+        <a class="wf-btn" href="legal.html" data-legal-doc="terms">Terms of use</a>
+        <a class="wf-btn" href="legal-unpublished.html?doc=privacy" data-legal-doc="privacy">Privacy policy</a>
+        <a class="wf-btn" href="legal-unpublished.html?doc=cookie" data-legal-doc="cookie">Cookie policy</a>
+        <a class="wf-btn" href="legal-unpublished.html" data-legal-doc="refund">Refund and payments policy</a>
       </div>
-      <!-- FOUR DOCUMENTS, ONE TEMPLATE, AND ONLY ONE OF THEM IS DRAWN. Each keeps
-           its own address and its own indexation; four drawings of one shape
-           would be three copies. The three links above land on the same template
-           because the shape is the deliverable, and the fourth is the state where
-           a document does not exist yet. -->
+      <!-- FOUR DOCUMENTS, ONE TEMPLATE, AND ONLY THE TERMS ARE WRITTEN. Round 15:
+           the privacy and cookie links landed on the terms, which is a control
+           doing something other than its name. Neither document exists yet,
+           legal.md section on open items, so each opens this state under its own
+           name, ?doc=, and the row shows the other three. -->
     </div>
 
 

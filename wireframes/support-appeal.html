@@ -40,6 +40,7 @@
 
     <nav class="wf-crumb" aria-label="Breadcrumb">
       <ol>
+        <li><a href="index-account.html">Home</a></li>
         <li><a href="support.html">Support</a></li>
         <li><span aria-current="page">Appeal a decision</span></li>
       </ol>
@@ -82,8 +83,7 @@
         </div>
         <label class="wf-f-l"><span class="wf-fig-c">What you say</span><textarea class="wf-f"></textarea></label>
         <label class="wf-f-l"><span class="wf-fig-c">Where to send the answer</span><input class="wf-f" type="email" value="nightjar@example.com"></label>
-        <p class="wf-note ">Images or PDF, up to 10 MB.</p>
-        <div class="wf-row"><a class="wf-btn wf-btn--primary" href="support-submitted.html">Send the appeal</a></div>
+        <div class="wf-row"><a class="wf-btn wf-btn--primary" href="support-submitted.html" data-sup-send>Send the appeal</a></div>
         <p class="wf-note">No account needed, and we never ask for an identity document here.</p>
         <p class="wf-note">We answer within 72 hours, counted from when you send.</p>
       </div>
@@ -101,7 +101,7 @@
 <script>
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';
-window.WF_SHELL = { account: true, active: '' };
+window.WF_SHELL = { account: true, active: '', feedTop: true };
 window.NAV_ACTIVE_LABEL = 'Appeal a decision';
 </script>
 <script src="_nav.js"></script>

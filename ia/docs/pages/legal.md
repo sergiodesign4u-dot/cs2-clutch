@@ -25,6 +25,18 @@
 | Four documents, all `noindex,nofollow`, each **one H1 and zero H2**. The terms run about 7,270 words as a single wall, last updated 08/01/2025; the cookie policy is dated April 2019. All carry a breadcrumb. `baseline.md` section 9.4. | The breadcrumb, and the document set itself. | **The wall.** Zero H2 in a 7,270 word contract is the defect this node exists to fix, and it is now measured rather than asserted. **And the dates:** a policy from 2019 sitting under a product that changed every year since is a document nobody re-read. |
 
 
+## Amended 30 September 2026 by `D-141`. Privacy and cookies open their own state, and the history follows the version read
+
+**Why.** Round 15 of the critique found the Privacy and Cookie links on every legal page, the footer and the cookie layer opening the terms, the superseded page marking v3 current and read on every `?v=`, and a machine date that contradicted its text.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Four documents, each at its own address | Four documents, one template, each at its own address | **Neither the privacy nor the cookie policy is written**, section on open items, so each opens the unpublished state **under its own name**, `?doc=`, with the other three in its row. **The version history marks the version being read and v4 as current**, and v4 opens the document itself |
+
+---
+
 ## Amended 29 September 2026 by `D-137`. Each version opens itself
 
 **Why.** Round 14 of the critique found "Read this version" on v2 and v1 opening v3, the old name "spend ceiling" in the history, and two sentences of reasoning on the product surface.

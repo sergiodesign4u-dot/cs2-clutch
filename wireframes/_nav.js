@@ -1331,7 +1331,7 @@ window.WF_PAY = window.WF_PAY || {
     ['Limits and self exclusion', 'The four boundaries, what each one closes, and what none of them closes',
       [['Can a limit stop me taking my items out?', 'No. No limit ever closes a withdrawal to Steam.', 'responsible.html', 'Responsible play']]],
     ['Your account and your data', 'The documents, and what is held about you',
-      [['Do you ever ask for my Steam password?', 'Never. You sign in on Steam\'s own page.', 'legal.html', 'Privacy policy']]],
+      [['Do you ever ask for my Steam password?', 'Never. You sign in on Steam\'s own page.', 'legal-unpublished.html?doc=privacy', 'Privacy policy']]],
     ['When something goes wrong', 'A restriction, a refused check, and a proof of ours that did not match',
       [['How do I appeal a decision?', 'Choose "Appeal a decision we took" in the form below. We answer within 72 hours.', 'support-appeal.html', 'Appeal']]]
   ];
@@ -2083,8 +2083,8 @@ window.WF_PAY = window.WF_PAY || {
       [['Cases', [['All cases', 'catalogue.html'], ['Ironbound', 'case.html'],
                   ['Warsteel', 'case.html'], ['Coldfront', 'case.html'],
                   ['Nightfall', 'case.html']]]],
-      [['Company', [['Terms of use', 'legal.html'], ['Privacy policy', 'legal.html'],
-                    ['Cookie policy', 'legal.html'], ['Refund and payments policy', 'legal-unpublished.html']]]],
+      [['Company', [['Terms of use', 'legal.html'], ['Privacy policy', 'legal-unpublished.html?doc=privacy'],
+                    ['Cookie policy', 'legal-unpublished.html?doc=cookie'], ['Refund and payments policy', 'legal-unpublished.html']]]],
       [['Help', [['Provably fair', 'fair.html'], ['Contact support', 'support.html']]],
        // 'WHERE WE OPERATE' HAS NO DESTINATION ON THE MAP, and the registry check
        // added on 22 August 2026 is what found it: markets.html is the IA
@@ -3938,6 +3938,12 @@ window.WF_PAY = window.WF_PAY || {
     }
     document.addEventListener('click', function (e) {
       var one = e.target.closest('[data-inv-sell]');
+      /* AN UNREADABLE VALUE IS NOT SOLD FOR ZERO, round 15: the degraded page
+         sold the AWP it could not price for +0.00. */
+      var blindOf = function (c) { return c && c.querySelector('.wf-inv-p.wf-fig-missing'); };
+      if (one && blindOf(one.closest('.wf-inv-card'))) {
+        e.preventDefault(); one.textContent = 'Not sold: its value cannot be read right now'; return;
+      }
       if (one) { e.preventDefault(); sell(one.closest('.wf-inv-card')); paint(); return; }
       var act = e.target.closest('[data-invbar-act]');
       if (!act || !bar.contains(act)) return;
@@ -3946,6 +3952,7 @@ window.WF_PAY = window.WF_PAY || {
       say.textContent = '';
       if (act.hasAttribute('data-inv-sellsel')) {
         e.preventDefault();
+        if (on.some(function (i) { return blindOf(i.closest('.wf-inv-card')); })) { say.textContent = 'Not sold: one item has a value that cannot be read right now. Untick it to sell the rest.'; return; }
         var got = 0;
         on.forEach(function (i) { got += sell(i.closest('.wf-inv-card')); });
         say.textContent = 'Sold ' + on.length + (on.length === 1 ? ' item' : ' items') + ', +' + got.toFixed(2) + ' coins.';
@@ -3980,15 +3987,32 @@ window.WF_PAY = window.WF_PAY || {
   function mountSupportSubject() {
     /* AN EMPTY TICKET IS REFUSED IN PLACE, round 14: Send went to the submitted
        state with no message in it. */
+    /* AND AN EMPTY APPEAL, AND AN ANSWER WITH NOWHERE TO GO, round 15: the
+       appeal's Send had no check at all, and neither form read the address. */
     var send = document.querySelector('[data-sup-send]');
     if (send) send.addEventListener('click', function (e) {
       var form = send.closest('.wf-form'), msg = form && form.querySelector('textarea');
-      if (msg && msg.value.trim()) return;
+      var mail = form && form.querySelector('input[type="email"]');
+      var why = '', at = null;
+      if (msg && !msg.value.trim()) { why = 'Nothing was sent: write what it is about first.'; at = msg; }
+      else if (mail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim())) { why = 'Nothing was sent: the answer needs an email address it can reach.'; at = mail; }
+      if (!why) return;
       e.preventDefault();
       var p = form.querySelector('.wf-refuse') || form.insertBefore(el('p', 'wf-refuse is-said'), send.parentNode);
-      p.textContent = 'Nothing was sent: write what it is about first.';
-      if (msg) msg.focus();
+      p.textContent = why;
+      at.focus();
     });
+    /* A QUESTION IS NOT AN APPEAL, round 15: every Send landed on an appeal
+       ticket. The entry form's Send carries ?q=1 and the ticket says what it is. */
+    if (/[?&]q=1/.test(location.search)) {
+      var tid = document.querySelector('.wf-tid-v');
+      if (tid) { tid.textContent = 'sp-2026-08-22-0032'; var cb = tid.parentNode.querySelector('[data-copy]'); if (cb) cb.setAttribute('data-copy', tid.textContent); }
+      Array.prototype.forEach.call(document.querySelectorAll('.wf-tick .wf-fig-c'), function (c) { c.textContent = c.textContent.replace('Appeal submitted', 'Question submitted'); });
+      Array.prototype.forEach.call(document.querySelectorAll('.wf-tick .wf-note, a[href="withdraw-restricted.html"], a[href="support-waiting.html"]'), function (x) { x.remove(); });
+      var what = document.querySelector('#h2-what');
+      var wp = what && what.closest('.wf-stack') && what.closest('.wf-stack').querySelector('p');
+      if (wp) wp.textContent = 'We answer at the address you gave.';
+    }
     var sel = document.querySelector('[data-sup-subject]');
     if (!sel) return;
     sel.addEventListener('change', function () {
@@ -4516,8 +4540,10 @@ window.WF_PAY = window.WF_PAY || {
        never renders a dead Check it: D-58, a control that does not do its thing
        is a picture of one. */
     var proof = el('div', 'wf-roll-proof');
-    var kind = o.proof || 'ok';
     var hash = o.hash || r.hash;
+    // A ROLL WITH NO PROOF NEVER OFFERS ONE, round 15: the sold P250 has no hash
+    // and its Check it opened the AK's round.
+    var kind = o.proof || (hash ? 'ok' : 'noseed');
     if (hash && kind !== 'noseed') proof.appendChild(el('span', 'wf-roll-hash', hash));
     if (kind === 'ok') {
       var check = el('a', 'wf-btn wf-btn--small', 'Check it');
@@ -4577,6 +4603,8 @@ window.WF_PAY = window.WF_PAY || {
       if (k === 'held') { F.held = !F.held; b.setAttribute('aria-pressed', F.held ? 'true' : 'false'); }
       apply();
     });
+    // THE COUNT IS THE ROWS, round 15: three state pages printed 212 by hand.
+    apply();
   }
 
   /* ---------------------------------------------------------------------
@@ -5224,7 +5252,7 @@ window.WF_PAY = window.WF_PAY || {
              THE BOX IS THE PRODUCT'S OWN CONTROL AND NOT THE BROWSER'S. */
           '<div class="wf-cbx" data-dep-terms>' +
             '<button class="wf-cbx-box" type="button" aria-pressed="false" aria-label="I have read and accept the terms and the refund and payments policy">&#10003;</button>' +
-            '<span class="wf-cbx-t">I have read and accept the <a href="' + BASE + 'legal.html">terms</a> and the <a href="' + BASE + 'legal.html">refund and payments policy</a>.</span>' +
+            '<span class="wf-cbx-t">I have read and accept the <a href="' + BASE + 'legal.html">terms</a> and the <a href="' + BASE + 'legal-unpublished.html">refund and payments policy</a>.</span>' +
           '</div>' +
           /* THREE FACTS, ONE LINE EACH, D-129, where four paragraphs stood under
              the press. The figures are samples by D-124 and the node holds what
@@ -6298,7 +6326,7 @@ window.WF_PAY = window.WF_PAY || {
       // THE POLICY LINK WORKS BEFORE CONSENT IS GIVEN, which 0.2 already guarantees:
       // a consent dialog that links to a policy the consent gate blocks is circular.
       var pol = el('a', null, 'Cookie policy');
-      pol.href = BASE + 'legal.html';
+      pol.href = BASE + 'legal-unpublished.html?doc=cookie';
       more.appendChild(pol);
       inn.appendChild(more);
       sec.appendChild(inn);
@@ -6364,7 +6392,7 @@ window.WF_PAY = window.WF_PAY || {
       sv.addEventListener('click', function () { save(null); });
       more.appendChild(sv);
       var pol = el('a', null, 'Cookie policy');
-      pol.href = BASE + 'legal.html';
+      pol.href = BASE + 'legal-unpublished.html?doc=cookie';
       more.appendChild(pol);
       inn.appendChild(more);
       sec.appendChild(inn);
@@ -6448,18 +6476,42 @@ window.WF_PAY = window.WF_PAY || {
      version" on v2 and v1 opened v3. Dates are samples, marked in 0.9. */
   function mountLegalVersion() {
     var m = /[?&]v=(\d)/.exec(location.search);
-    if (!m || !document.querySelector('.wf-docid')) return;
-    var V = { '3': ['4 Apr 2026', '4 Apr 2026', '1 Aug 2026', 'v4'], '2': ['12 Jan 2026', '10 Jan 2026', '4 Apr 2026', 'v3'], '1': ['3 Sep 2025', '3 Sep 2025', '12 Jan 2026', 'v2'] }[m[1]];
+    if (!m || !document.querySelector('.wf-docid') || !document.getElementById('h2-old')) return;
+    var V = { '3': ['4 Apr 2026', '4 Apr 2026', '1 Aug 2026', 'v4', '2026-04-04', '2026-04-04'], '2': ['12 Jan 2026', '10 Jan 2026', '4 Apr 2026', 'v3', '2026-01-12', '2026-01-10'], '1': ['3 Sep 2025', '3 Sep 2025', '12 Jan 2026', 'v2', '2025-09-03', '2025-09-03'] }[m[1]];
     if (!V) return;
     var f = document.querySelectorAll('.wf-docid .wf-docid-v');
     if (f[0]) f[0].textContent = 'v' + m[1];
-    if (f[1]) f[1].textContent = V[0];
-    if (f[2]) f[2].textContent = V[1];
+    if (f[1]) f[1].innerHTML = '<time datetime="' + V[4] + '">' + V[0] + '</time>';
+    if (f[2]) f[2].innerHTML = '<time datetime="' + V[5] + '">' + V[1] + '</time>';
+    /* THE HISTORY FOLLOWS THE VERSION BEING READ, round 15: every ?v= marked v3
+       as the one being read. v4 is current and opens the document itself. */
+    Array.prototype.forEach.call(document.querySelectorAll('.wf-ver'), function (row) {
+      var id = (/v(\d)/.exec(row.querySelector('.wf-ver-id').textContent) || [])[1];
+      var acts = row.querySelector('.wf-ver-acts');
+      if (!acts || !id) return;
+      acts.innerHTML = id === m[1] ? '<span class="wf-ver-k">You are reading it</span>'
+        : '<a class="wf-btn wf-btn--small" href="' + BASE + (id === '4' ? 'legal.html' : 'legal-superseded.html?v=' + id) + '">Read this version</a>';
+    });
     var band = document.querySelector('#h2-old + p');
     if (band) band.innerHTML = '<strong>v' + m[1] + '</strong> governed from ' + V[0] + ' until ' + V[2] + '. It is kept because a decision taken while it was in force is answered under it.';
   }
 
+  /* ONE UNPUBLISHED STATE, THREE DOCUMENTS, round 15. The state names the
+     document it was opened for and the row offers the other three. */
+  function mountLegalDoc() {
+    var row = document.querySelector('[data-legal-doc]');
+    if (!row) return;
+    var D = { refund: 'Refund and payments policy', privacy: 'Privacy policy', cookie: 'Cookie policy' };
+    var k = (/[?&]doc=([a-z]+)/.exec(location.search) || [])[1];
+    if (!D[k]) k = 'refund';
+    var h1 = document.querySelector('h1'); if (h1) h1.textContent = D[k];
+    var cur = document.querySelector('.wf-crumb [aria-current="page"]'); if (cur) cur.textContent = D[k];
+    document.title = D[k];
+    Array.prototype.forEach.call(document.querySelectorAll('[data-legal-doc]'), function (a) { a.hidden = a.getAttribute('data-legal-doc') === k; });
+  }
+
   function mountShellSettings() {
+    mountLegalDoc();
     mountLegalVersion();
     mountCountry();
     var snd = document.getElementById('cfg-sound');

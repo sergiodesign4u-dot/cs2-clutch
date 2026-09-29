@@ -23,6 +23,20 @@
 | A ticket form of three fields, Subject defaulting to Deposits, Email and Message, under an ATTENTION block pushing the FAQ first. `baseline.md` section 9.5. | The three field shape and the deflection to articles, which is reasonable and cheap. | **The submit button reads SIGN IN.** A guest can fill the form and cannot send it, so **a person locked out of their account cannot use the product's own support channel to say so.** That is the strongest single argument in this repository for the appeal route `G4` and its published deadline, and it is now a walked fact rather than an inference. |
 
 
+## Amended 30 September 2026 by `D-141`. A question is not an appeal, and a paused withdrawal is not called open
+
+**Why.** Round 15 of the critique found an ordinary question landing on an appeal ticket, an empty appeal sent, Copy with nothing to copy, six states still drawing the cross-link row this node removed, and the appeal states telling a restricted person that sending to Steam stays open.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A ticket per message | The ticket, its clock and its owner | **The entry form's Send lands on a question ticket**, `sp-`, and only the appeal lands on `ap-`. **Both forms refuse an empty message and an address that cannot be reached.** The appeal states say the balance is frozen and no longer that withdrawal is open, because withdrawal is what the restriction paused. The cross-link row leaves the six states, as the amendment of 27 September says. Every state carries the strip under the header, as the entry page does |
+
+**Samples, `D-124`, marked here:** the question ticket `sp-2026-08-22-0032` and the unmatched id `ap-2026-08-02-0031` on the not found state.
+
+---
+
 ## Amended 29 September 2026 by `D-137`. Every support state is the entry page with its notice on top
 
 **Why.** Round 14 of the critique found two states still in the shape `D-82` replaced, two forms side by side and an appeal form under "there is no decision here to appeal", the deadline said four times on the entry page, and Send going through with an empty message.

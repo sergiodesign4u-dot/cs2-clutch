@@ -88,7 +88,7 @@
 
 
     <div class="wf-hist">
-      <div class="wf-lbar"><h2 class="wf-lbar-h" id="h2-rolls">Rolls</h2><span class="wf-fig-c">212 rolls</span></div>
+      <div class="wf-lbar"><h2 class="wf-lbar-h" id="h2-rolls">Rolls</h2><span class="wf-fig-c">10 rolls</span></div>
       <!-- BLOCK 2. THE SCOPE LINE, IN THE SHORT FORM THE COMPONENT CARRIES
            EVERYWHERE. The proof shows the round was fixed before the click and
            not altered after it. It does not show that the published chances are
@@ -111,9 +111,9 @@
            the one sort that turns a history into a leaderboard of yourself, and
            the only order a history has is by date. -->
       <div class="wf-hfilters">
-        <button class="wf-btn wf-btn--small" type="button">All cases</button>
-        <button class="wf-btn wf-btn--small" type="button">Any date</button>
-        <button class="wf-btn wf-btn--small" type="button">Still held</button>
+        <button class="wf-btn wf-btn--small" type="button" data-hf="case">All cases</button>
+        <button class="wf-btn wf-btn--small" type="button" data-hf="date">Any date</button>
+        <button class="wf-btn wf-btn--small" type="button" data-hf="held" aria-pressed="false">Still held</button>
       </div>
       <!-- BLOCK 4. THE ROWS, RENDERED FROM THE FIVE ROLLS, D-117. Founder:
            "иконку откуда (режим), потом скин с ценой и шансом, потом Roll ID с
@@ -125,8 +125,6 @@
            12.40 were both on the product for the same roll. The page now says
            which rolls and what proof each carries, and nothing else. -->
       <div data-roll-list></div>
-
-      <div class="wf-pager"><button class="wf-btn" type="button">Older rolls</button></div>
 
       <!-- THE SCOPE LINE MOVED UNDER THE ROWS, D-107. It qualifies what the proof
            on every row does and does not cover, and a qualifier read before the
@@ -149,9 +147,9 @@ window.WF_SHELL = { account: true, active: '' };
 window.WF_ACCT = { active: 'history' };
 window.WF_HISTTAB = 'rolls';
 window.WF_ROLLLIST = [
-  { i: 0 },
-  { i: 1 },
-  { i: 3 },
+  /* ALL NINE AND THE INTERRUPTED ONE, round 15: three rows under a count of
+     212 and a pager to rolls that do not exist. */
+  { i: 0 }, { i: 1 }, { i: 2 }, { i: 3 }, { i: 4 }, { i: 5 }, { i: 6 }, { i: 7 }, { i: 8 },
   /* THE INTERRUPTED ROLL, AND EVERY FIGURE ON IT IS READ OFF 3.7 RATHER THAN
      CHOSEN HERE. case-interrupted.html is the screen this roll happened on:
      Ironbound, Glock-18 Water Elemental Minimal Wear, 14.000 % chance on this

@@ -37,19 +37,18 @@
         <div class="wf-tid">
           <span class="wf-tick-k">Ticket</span>
           <span class="wf-tid-v">ap-2026-08-22-0031</span>
-          <button class="wf-btn wf-btn--small" type="button">Copy</button>
+          <button class="wf-btn wf-btn--small" type="button" data-copy="ap-2026-08-22-0031">Copy</button>
         </div>
         <div class="wf-tick-row">
           <div class="wf-fig"><span class="wf-fig-v">22 h 33 m</span><span class="wf-fig-c">Answered 23 Aug 2026 08:04</span></div>
           <div class="wf-fig"><span class="wf-fig-v">72 h</span><span class="wf-fig-c">Our deadline for an answer</span></div>
         </div>
         <p class="wf-tick-k">Answered, and the answer has a ground in it</p>
-      <!-- STATED IN THE SAME BREATH AS THE TICKET: what is still open. A person
-           who has just been restricted and reads only that has been given a worse
-           answer than the truth. Withdrawal stays open under every boundary, and
-           under a restriction the balance is frozen rather than zeroed, which is
-           the only reason an upheld appeal can give it back. -->
-      <p class="wf-note">Taking what you already hold out to Steam stays open while this runs. Your balance is frozen, not reduced.</p>      </div>
+      <!-- STATED IN THE SAME BREATH AS THE TICKET: what the money is doing. Under
+           a restriction the balance is frozen rather than zeroed, which is the
+           only reason an upheld appeal can give it back. Withdrawal is what the
+           restriction paused, so this line no longer says it is open, round 15. -->
+      <p class="wf-note">Your balance is frozen, not reduced, while this runs.</p>      </div>
       <div class="wf-stack">
         <div class="wf-sec-head"><h2 id="h2-answer">Our answer</h2></div>
         <div class="wf-f-ro wf-ground-q">The review is finished. Trade activity between 18 and 20 Aug 2026 matched a pattern our checks flag automatically, and on review it was your own account moving your own items. The restriction is lifted and nothing was taken from your balance.</div>
@@ -78,13 +77,6 @@
         </div>
         <div class="wf-faq" data-faq></div>
       </div>
-      <!-- BLOCK 6. CROSS-LINKS to the documents and to the surfaces that own the
-           rules a question might be about. -->
-      <div class="wf-row">
-        <a class="wf-btn" href="legal.html">Terms and policies</a>
-        <a class="wf-btn" href="fair.html">Provably fair</a>
-        <a class="wf-btn" href="responsible.html">Responsible play</a>
-      </div>
     </div>
 
 
@@ -99,7 +91,7 @@
 <script>
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';
-window.WF_SHELL = { account: true, active: '' };
+window.WF_SHELL = { account: true, active: '', feedTop: true };
 </script>
 <script src="_nav.js"></script>
 </body>
