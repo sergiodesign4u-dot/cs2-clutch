@@ -53,9 +53,7 @@ window.NAV = [
       ]}
   ]},
 
-  // live: the hub and its first screens exist, so the stage is reachable while it is
-  // still in work. done stays false, so the Next badge stays here rather than moving on.
-  { label: 'Wireframes',         pageLabel: 'Overview',  page: 'wireframes/overview.html', done: false, live: true },
+  { label: 'Wireframes',         pageLabel: 'Overview',  page: 'wireframes/overview.html', done: true },
   { label: 'Voice',              pageLabel: 'Voice',     page: 'voice/voice.html',         done: false },
 
   { label: 'Concept', children: [

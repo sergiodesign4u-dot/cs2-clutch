@@ -819,3 +819,30 @@
 1. **CLAUDE.md is out of date in four places**, D 1.3, 1.4, 1.5, 1.12: Home's mode cards "deferred" though `D-27` returned them; the switcher "one live option" though `D-42` draws nine; "one" MVP orphan though the favourite is a second; "twelve surfaces" without `7.3`. CLAUDE.md is edited at the stage close, after the founder's go.
 2. **`D-110` was answered in the founder's name** on "fix everything": one AK, the Field-Tested one. The row in `5.3` says it is reversible.
 3. **Whether the two registers need a baseline row.**
+
+## 15. The stage contract, row by row, at the close on 29 September 2026
+
+A separate table from the defects, as the pack asks: a step that did not happen is in no file and on no page, so neither instrument above can see it.
+
+| Row of "Done when" | State | Why |
+|---|---|---|
+| `screens.md`, the matrix with every state and every absence reasoned | Done | Rows for 5.9, 5.10, 5.11 and 7.3 were added only in round 14 |
+| `conventions.md`, inheriting and not inventing | Done | |
+| The etalon as the workhorse; the first flow end to end | Done | Section 3 of `screens.md`, `D-139` |
+| The benchmark's strategic dimension named by a concrete element | **Owed until the close, done now** | The reveal moment, the case stage, `D-48`, named in section 3 |
+| The estimate shown before the fan-out | Done | Recorded in the steps of August |
+| Every sitemap screen in the agreed scope has a wireframe | Done | 132 pages, 19 nodes |
+| Live, mobile first, grey, no annotations | Done | The prototype's own panel is scaffolding |
+| Every state closed, no dead end | Done | Round 14 walked every control |
+| Flows linked in both directions | Done | |
+| Nothing invented outside the IA | Done | Samples by `D-124` are marked in their nodes |
+| The three markdown sources visible in the browser | Done | Matrix, Conventions, and the before and after of rounds 13 and 14 |
+| The wireframe-only panel on every stage page, the overview included | **Deviation, named** | `CLAUDE.md` requires the root registry sidebar on every page; the hub keeps it with its Built screens list, `D-139` |
+| The fan-out reconciled; the critique filled | Done | |
+| Look consolidated in `_wf.css` | Done | 145 dead selectors removed in round 13 with every page pixel identical |
+| Every screen checked at 360 | Done | Scripted over 133 pages at 360 and 1440 each round |
+| Iterations walked in the browser; **fixes delivered as prompts** | **Not kept** | Rounds 13 and 14 edited files directly. The rule stays in `CLAUDE.md` |
+| Findings verified; a second pass after the fixes | Done | 13.15, then round 14 |
+| The close ritual; `wireframes/CLAUDE.md` created | **Owed until the close, done now** | `D-139` |
+
+**Not everything is green, and it is said out loud:** one row was not kept and one deviates by a named rule.

@@ -132,6 +132,8 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 3. **Its unknowns render rather than block.** The risk band and the daily countdown both have a specified "not available" rendering. **Nothing on Home depends on an answer that could delete a whole block.**
 4. **It is where the last three decisions landed.** `D-24` rebuilt the tile it renders, `D-25` put a banner above its H1 and a ladder under its grid. **Seeing those in a live screen is the fastest correction loop available.**
 
+**The strategic dimension, named at the stage close on 29 September 2026.** `research/docs/benchmark.md`'s dimension, the reveal moment, chosen by the founder on 5 August 2026, is expressed by one element: **the case screen's stage, `.wf-stage-frame`, one size through every phase, `D-48`**, so the artwork at rest, the reel and the outcome are one region changing what it holds. It was built and never linked to the dimension here.
+
 **Rejected, and why each one loses.**
 
 | Candidate | Why it was considered | Why not |

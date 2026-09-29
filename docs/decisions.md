@@ -5517,3 +5517,26 @@ A failed check read "We do not serve this market yet". It reads "We could not ch
 ### Five nodes get the row the rule asks for
 
 `0.5`, `0.6`, `0.7`, `0.14` and `2.7` carry a baseline row; the toasts' row says the live product's were never walked, which is owed to the founder's next capture.
+
+
+## D-139. Stage 04 closed: the etalon, the first flow, what three rounds of critique gave, and the contract row by row
+
+**Date:** 2026-09-29. **Stage:** 04, closed. **Decided by:** the founder, "го", on the close table. **Binds:** `CLAUDE.md`, `wireframes/CLAUDE.md`, `README.md`, the root `_nav.js`.
+
+**What the founder said.** Go, on the table of what to change in `CLAUDE.md` and the status to set.
+
+### Why this etalon and this first flow
+
+**Home was the etalon because it was both the workhorse and the first screen**, `wireframes/docs/screens.md` section 3: the most component kinds of any screen, the densest 360 budget, unknowns that render rather than block. **The first flow is the main job**, Home, the case screen, sign in through the gate, the open, the outcome, because `CLAUDE.md` measures the product by the taps to it. The strategic dimension of the benchmark, the reveal moment, is carried by the case stage, one size through every phase, `D-48`, and it is named in section 3 now.
+
+### What the critique gave
+
+**Three rounds on two instruments.** Round 9's rules against the grey contract. **Round 13 against daddyskins.com**: 170 915 words on screen to 106 269 and 1 455 absence strings to 373, the baseline's order back on every surface. **Round 14 against every control pressed**: about forty-five controls that did nothing now act or refuse, the proof chain and the account read one record each, and seven crypto routes stop showing Bitcoin's address.
+
+### The contract, row by row
+
+Three rows were owed and are closed here: `wireframes/CLAUDE.md` created, the strategic dimension named, and this record. **One row was not kept in rounds 13 and 14: fixes went in as direct edits rather than as prompts**, and the rule stays. **One row is a named deviation from the pack**: the pack asks for the wireframe panel alone on `overview.html`, and `CLAUDE.md` requires the root registry sidebar on every page, so the hub keeps the roadmap with its Built screens list; the screens carry the panel.
+
+### CLAUDE.md, 123 lines to 127
+
+Four statements later decisions had reversed were corrected: Home's mode cards, the switcher's nine options, two MVP orphans, thirteen round 1 surfaces. Two rules were generalised rather than added: the number rule gained the sample on a screen, and the Codex rule gained the substitute. Two lines were added: `wireframes/` stays grey, and every drawn control answers. Nothing was deleted, and the file has 73 lines of budget left.
