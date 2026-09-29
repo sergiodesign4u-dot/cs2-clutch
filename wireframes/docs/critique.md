@@ -710,3 +710,19 @@
 | State registry | 1: `screens.md` section 2 has no rows for 5.9, 5.10, 5.11 or 7.3, and 50 of 133 files appear nowhere in it | Step 5. **This also withdraws a round 13 claim:** 13.15 recorded "all 132 screens are in the registry and in `screens.md`", and the second half was never true |
 
 **Zero, and stated:** 37 654 local links and anchors, none broken; no em dash; no summed money, no scored limit, no destination in the header, no money in the bar.
+
+### 14.5 Step 2, Home and the shelf, fixed on 29 September 2026 under `D-133`
+
+**The founder's answer on A3:** the five-roll outcome stays one row by `D-39`; the row is closed as decided.
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| A13, A14 | The press did not render the filtered state; name, price, steppers, Liked, case type were inert | A | Fixed: one filter state across drawer, address and page |
+| A4, A5 | The empty state's two exits printed wrong numbers; the filtered state showed a case its filter excludes | A | Fixed |
+| A15 | Chips' x, Clear all and both exits did nothing | A | Fixed: links carrying the filter in the address |
+| A10, A11 | Favourites changed nothing; a guest saw pressed hearts | A | Fixed |
+| A17 | Five columns at 1440 with the fifth empty | A | Fixed: four |
+| A12 | "Built from what people opened most last month", a popularity claim | A | Fixed, and recorded in `3.1` |
+| A26 | 1.1's strip read "0 daily cases, available now" | A | Fixed. **The three routes to the daily block stay**: the strip is 1.1's own block, the banner is B2, the ladder is B6, each with its own parent |
+| A40, A41, A42, A44 | The loading skeleton on the wrong figure; the peg repeated in the drawer; chips under 44px at 360; an argument in a caption | A | Fixed |
+| D 7.1, 7.2, 7.5 | Median times, the tier target and favourite counts unmarked | D | Marked in `1.0` and `3.1` |

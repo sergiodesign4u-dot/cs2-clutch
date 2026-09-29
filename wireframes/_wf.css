@@ -2700,9 +2700,9 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
      them, 0.7 section 4. Home stays at four across. */
   .wf-grid--shelf { grid-template-columns: repeat(4, 1fr); }
 }
-@media (min-width: 1200px) {
-  .wf-grid--shelf { grid-template-columns: repeat(5, 1fr); }
-}
+/* FOUR ACROSS AT EVERY WIDE SCREEN, round 14: at 1440 five columns left the fifth
+   empty in every section, because each section holds four, and drew the tile at
+   177px where Home draws the same tile at 226. */
 
 /* ---------------------------------------------------------------------------
    NODE 3.1 SECOND PASS, D-65. THE SHELF TAKES THE BASELINE'S SHAPE.
@@ -5213,3 +5213,9 @@ textarea.wf-cfg-in { min-height: 0; }
 .wf-skindep-t:has(input:checked) { border-color: var(--wf-ink); background: var(--wf-raised); }
 .wf-skindep-t:has(input:focus-visible) { outline: 2px solid var(--wf-ink); outline-offset: 2px; }
 .wf-consent-why:empty { display: none; }
+
+/* THE LOADING SHELF WAITS ON ONE FIGURE, round 14: the favourite count is the only
+   per-read figure on a tile, catalogue.md, so it is the one drawn as a skeleton. */
+.wf-skel-line { display: inline-block; width: 2.4em; height: 0.8em; border-radius: 2px; background: var(--wf-line-soft); vertical-align: middle; }
+/* Chips and small controls reach the tap floor below 600, round 14. */
+@media (max-width: 599px) { .wf-cat, .wf-drawer .wf-btn--small, .wf-chip-x { min-height: var(--wf-tap); } }

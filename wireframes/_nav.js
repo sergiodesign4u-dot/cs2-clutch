@@ -2987,6 +2987,29 @@ window.WF_PAY = window.WF_PAY || {
     });
   }
 
+  /* THE FAVOURITE ANSWERS, round 14. A guest's press opens sign in, which is
+     what case-tile.md asks, and a guest never renders a pressed heart. An
+     account's press toggles it and moves the count by one. */
+  function mountFavs() {
+    var guest = !(window.WF_SHELL && window.WF_SHELL.account);
+    var favs = document.querySelectorAll('.wf-fav, .wf-fav-case');
+    if (guest) Array.prototype.forEach.call(favs, function (b) { b.setAttribute('aria-pressed', 'false'); b.setAttribute('data-auth-open', 'default'); });
+    if (guest) return;
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('.wf-fav, .wf-fav-case');
+      if (!b) return;
+      e.preventDefault();
+      var on = b.getAttribute('aria-pressed') !== 'true';
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      var n = b.querySelector('.wf-fav-n');
+      if (n) {
+        var v = (parseInt(n.textContent.replace(/\s/g, ''), 10) || 0) + (on ? 1 : -1);
+        n.textContent = String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+        b.setAttribute('aria-label', 'Favourite, ' + n.textContent + ' people');
+      }
+    });
+  }
+
   function mountVerifier() {
     document.addEventListener('click', function (e) {
       var b = e.target.closest('[data-fair-go]');
@@ -3078,7 +3101,7 @@ window.WF_PAY = window.WF_PAY || {
     // status the ladder below states, in the same words, and routes to it.
     if (account) {
       out.push('<section class="wf-strip" aria-label="Your state">' +
-        '<div class="wf-fig"><span class="wf-fig-v">0 daily cases</span><span class="wf-fig-c">Available now. Resets 00:00 UTC</span></div>' +
+        '<div class="wf-fig"><span class="wf-fig-v">No daily case yet</span><span class="wf-fig-c">Next tier at 5.00 coins wagered. Resets 00:00 UTC</span></div>' +
         '<a class="wf-btn" href="#h2-daily">See your tier</a></section>');
     }
 
@@ -3132,7 +3155,7 @@ window.WF_PAY = window.WF_PAY || {
     // them. B10, THE STARTER CREDIT, LEAVES until its amount exists: a block
     // promising a figure it does not print is the hole D-107 took off screens.
     out.push('<section class="wf-sec" aria-labelledby="h2-proof"><div class="wf-sec-head"><h2 id="h2-proof">Before you spend</h2></div><div class="wf-figs">' +
-      '<a class="wf-fig wf-fig-a" href="case.html#h2-pays"><span class="wf-fig-v">94.2 %</span><span class="wf-fig-c">Tested RTP, Ironbound. Every case prints its own</span></a>' +
+      '<a class="wf-fig wf-fig-a" href="case.html#h2-pays"><span class="wf-fig-v">94.2 %</span><span class="wf-fig-c">Tested RTP, Ironbound</span></a>' +
       '<a class="wf-fig wf-fig-a" href="withdraw.html"><span class="wf-fig-v">1 h 40 m</span><span class="wf-fig-c">Median withdrawal to Steam</span></a>' +
       '<div class="wf-fig"><span class="wf-fig-v">0 %</span><span class="wf-fig-c">Our commission on withdrawals</span></div>' +
       '<a class="wf-fig wf-fig-a" href="fair.html"><span class="wf-fig-v">Every round</span><span class="wf-fig-c">Checkable without an account</span></a>' +
@@ -3351,21 +3374,20 @@ window.WF_PAY = window.WF_PAY || {
             '<input class="wf-range" type="range" min="0" max="55" value="55" aria-labelledby="f-price-h">' +
             '<div class="wf-steppers">' +
               '<div class="wf-stepper">' +
-                '<button class="wf-btn wf-btn--small" type="button" aria-label="Decrease the minimum">-</button>' +
+                '<button class="wf-btn wf-btn--small" type="button" aria-label="Decrease the minimum" data-step="f-min:-1">-</button>' +
                 '<label class="wf-vh" for="f-min">Minimum entry cost</label>' +
                 '<input id="f-min" type="text" inputmode="decimal" value="0.00">' +
-                '<button class="wf-btn wf-btn--small" type="button" aria-label="Increase the minimum">+</button>' +
+                '<button class="wf-btn wf-btn--small" type="button" aria-label="Increase the minimum" data-step="f-min:1">+</button>' +
               '</div>' +
               '<div class="wf-stepper">' +
-                '<button class="wf-btn wf-btn--small" type="button" aria-label="Decrease the maximum">-</button>' +
+                '<button class="wf-btn wf-btn--small" type="button" aria-label="Decrease the maximum" data-step="f-max:-1">-</button>' +
                 '<label class="wf-vh" for="f-max">Maximum entry cost</label>' +
                 '<input id="f-max" type="text" inputmode="decimal" value="55.00">' +
-                '<button class="wf-btn wf-btn--small" type="button" aria-label="Increase the maximum">+</button>' +
+                '<button class="wf-btn wf-btn--small" type="button" aria-label="Increase the maximum" data-step="f-max:1">+</button>' +
               '</div>' +
             '</div>' +
             /* THE PEG RENDERS HERE SINCE D-95 AND THE CODE STAYS OUT OF THE COPY, D-66:
                a wireframe states a state and never cites a decision record. */
-            '<p class="wf-note">Prices are in coins, and one coin is $1.00, a fixed rate.</p>' +
           '</div>' +
 
           /* THREE CHECKBOXES AND NOT A SLIDER. The band has three values, so a
@@ -3390,14 +3412,14 @@ window.WF_PAY = window.WF_PAY || {
           '<div class="wf-fset">' +
             '<span class="wf-fset-h" id="f-add-h">Additional</span>' +
             '<div class="wf-riskset" role="group" aria-labelledby="f-add-h">' +
-              '<label class="wf-riskrow"><input type="checkbox">Liked</label>' +
-              '<label class="wf-riskrow"><input type="checkbox">Sufficient funds to open</label>' +
+              '<label class="wf-riskrow"><input type="checkbox" data-f-liked>Liked</label>' +
+              '<label class="wf-riskrow"><input type="checkbox" data-f-funds>Sufficient funds to open</label>' +
             '</div>' +
           '</div>' : '') +
 
           '<div class="wf-fset">' +
             '<label class="wf-fset-h" for="f-type">Case type</label>' +
-            '<select id="f-type"><option>All</option></select>' +
+            '<select id="f-type"><option>All</option><option>Featured</option><option>Community</option><option>Classic</option></select>' +
           '</div>' +
 
           /* SORT WAS REFUSED HERE ON THE COMPETITOR BANK AND THE PRODUCT SORTS.
@@ -3421,31 +3443,92 @@ window.WF_PAY = window.WF_PAY || {
 
   function mountFilterDrawer() {
     var opener = null, host = null;
-    /* THE RISK BOXES FILTER, second pass of round 13: D-127 made them live but the
-       press only closed the drawer. Now the count on the press follows the boxes,
-       and the press hides the tiles outside the chosen bands. None ticked is all. */
-    var riskSel = [];
-    function riskTiles() {
-      return Array.prototype.slice.call(document.querySelectorAll('.wf-tile')).filter(function (t) { return t.querySelector('.wf-tile-risk'); });
+    /* THE SHELF FILTER IS ONE STATE, round 14. D-127 made the risk boxes live;
+       the name, the price, Liked, Sufficient funds and the case type were still
+       pictures, and the press never rendered the filtered state 3.1 draws. Now the
+       drawer, the address and the page share one state: the press hides what does
+       not match, drops the daily panel and any emptied section, prints the count
+       and badges Filters. ?risk=High&max=24.50&q=cold opens the shelf filtered,
+       which is what the chips and the empty state's two exits link to. */
+    var F = { risk: [], q: '', max: 55, liked: false, funds: false, type: 'All' };
+    var BAL = 74.20;
+    (function fromUrl() {
+      var u = location.search;
+      var g = function (k) { var m = new RegExp('[?&]' + k + '=([^&]*)').exec(u); return m ? decodeURIComponent(m[1]) : null; };
+      if (g('risk')) F.risk = g('risk').split(',');
+      if (g('q')) F.q = g('q');
+      if (g('max')) F.max = parseFloat(g('max'));
+    })();
+    function tiles() {
+      return Array.prototype.slice.call(document.querySelectorAll('.wf-cats-sec .wf-tile, .wf-grid--shelf .wf-tile')).filter(function (t) { return t.querySelector('.wf-tile-risk'); });
     }
-    function riskMatch(t, sel) {
-      if (!sel.length) return true;
-      var w = t.querySelector('.wf-tile-risk').textContent;
-      return sel.some(function (b) { return w.indexOf(b) === 0; });
+    function match(t, f) {
+      var name = (t.querySelector('.wf-tile-name') || {}).textContent || '';
+      var risk = (t.querySelector('.wf-tile-risk') || {}).textContent || '';
+      var cost = parseFloat((t.querySelector('.wf-tile-cost') || {}).textContent) || 0;
+      var sec = t.closest('.wf-cats-sec');
+      if (f.risk.length && !f.risk.some(function (b) { return risk.indexOf(b) === 0; })) return false;
+      if (f.q && name.toLowerCase().indexOf(f.q.toLowerCase()) < 0) return false;
+      if (cost > f.max) return false;
+      if (f.liked && (t.querySelector('.wf-fav') || {}).getAttribute && t.querySelector('.wf-fav').getAttribute('aria-pressed') !== 'true') return false;
+      if (f.funds && cost > BAL) return false;
+      if (f.type !== 'All' && sec && sec.id !== 'cat-' + f.type.toLowerCase()) return false;
+      return true;
     }
-    function riskPicked() {
-      return Array.prototype.slice.call(host.querySelectorAll('[data-risk]:checked')).map(function (i) { return i.getAttribute('data-risk'); });
+    function active(f) { return f.risk.length || f.q || f.max < 55 || f.liked || f.funds || f.type !== 'All'; }
+    function read() {
+      var f = { risk: [], q: '', max: 55, liked: false, funds: false, type: 'All' };
+      f.risk = Array.prototype.slice.call(host.querySelectorAll('[data-risk]:checked')).map(function (i) { return i.getAttribute('data-risk'); });
+      f.q = (host.querySelector('#f-name') || {}).value || '';
+      f.max = parseFloat((host.querySelector('#f-max') || {}).value) || 55;
+      f.liked = !!(host.querySelector('[data-f-liked]') || {}).checked;
+      f.funds = !!(host.querySelector('[data-f-funds]') || {}).checked;
+      f.type = (host.querySelector('#f-type') || {}).value || 'All';
+      return f;
     }
-    function riskCount() {
-      var sel = riskPicked(), tiles = riskTiles();
-      var n = tiles.length ? tiles.filter(function (t) { return riskMatch(t, sel); }).length : 12;
+    function write(f) {
+      host.querySelectorAll('[data-risk]').forEach(function (i) { i.checked = f.risk.indexOf(i.getAttribute('data-risk')) >= 0; });
+      var q = host.querySelector('#f-name'); if (q) q.value = f.q;
+      var mx = host.querySelector('#f-max'); if (mx) mx.value = f.max.toFixed(2);
+      var r = host.querySelector('.wf-range'); if (r) r.value = String(Math.round(f.max));
+      var l = host.querySelector('[data-f-liked]'); if (l) l.checked = f.liked;
+      var d = host.querySelector('[data-f-funds]'); if (d) d.checked = f.funds;
+      var ty = host.querySelector('#f-type'); if (ty) ty.value = f.type;
+    }
+    function count() {
+      var f = read(), n = tiles().filter(function (t) { return match(t, f); }).length;
       var b = host.querySelector('[data-filter-apply]');
       if (b) b.textContent = 'Show ' + n + (n === 1 ? ' case' : ' cases');
     }
-    function riskApply() {
-      riskSel = riskPicked();
-      riskTiles().forEach(function (t) { t.hidden = !riskMatch(t, riskSel); });
+    function apply() {
+      var all = tiles();
+      if (!all.length) return;
+      var on = active(F), n = 0;
+      all.forEach(function (t) { var ok = match(t, F); t.hidden = !ok; if (ok) n++; });
+      Array.prototype.forEach.call(document.querySelectorAll('.wf-cats-sec'), function (sec) {
+        if (sec.id === 'cat-daily') { sec.hidden = !!on; return; }
+        var ts = sec.querySelectorAll('.wf-tile');
+        if (ts.length) sec.hidden = !Array.prototype.some.call(ts, function (t) { return !t.hidden; });
+      });
+      var line = document.querySelector('[data-live-count]');
+      if (!line) {
+        var first = document.querySelector('.wf-cats-sec');
+        if (first) { line = el('p', 'wf-count-line'); line.setAttribute('data-live-count', ''); line.setAttribute('aria-live', 'polite'); first.parentNode.insertBefore(line, first); }
+      }
+      if (line) {
+        line.hidden = !on;
+        line.innerHTML = n ? n + (n === 1 ? ' case matches' : ' cases match') + ', out of ' + all.length + '. <a href="catalogue.html">Clear all</a>'
+                           : 'Nothing matches. <a href="catalogue.html">Clear all</a>';
+      }
+      var btn = document.querySelector('[data-filter-open]');
+      if (btn) {
+        var k = (F.risk.length ? 1 : 0) + (F.q ? 1 : 0) + (F.max < 55 ? 1 : 0) + (F.liked ? 1 : 0) + (F.funds ? 1 : 0) + (F.type !== 'All' ? 1 : 0);
+        var badge = btn.querySelector('.wf-badge');
+        if (k) { if (!badge) { badge = el('span', 'wf-badge'); btn.appendChild(badge); } badge.textContent = String(k); }
+        else if (badge && !btn.hasAttribute('data-badge-static')) badge.remove();
+      }
     }
+    if (active(F) && !document.querySelector('[data-filter-pinned]')) setTimeout(apply, 0);
 
     function close() {
       if (!host) return;
@@ -3475,16 +3558,29 @@ window.WF_PAY = window.WF_PAY || {
       host.innerHTML = filterDrawerHTML(!!(window.WF_SHELL && window.WF_SHELL.account));
       document.body.appendChild(host);
       document.documentElement.style.overflow = 'hidden';
-      riskSel.forEach(function (b) { var i = host.querySelector('[data-risk="' + b + '"]'); if (i) i.checked = true; });
-      riskCount();
-      host.addEventListener('change', function (e) { if (e.target.closest('[data-risk]')) riskCount(); });
+      write(F);
+      count();
+      host.addEventListener('change', count);
+      host.addEventListener('input', function (e) {
+        if (e.target.classList.contains('wf-range')) { var mx = host.querySelector('#f-max'); if (mx) mx.value = parseFloat(e.target.value).toFixed(2); }
+        count();
+      });
       host.addEventListener('click', function (e) {
         if (e.target.closest('[data-filter-reset]')) {
-          host.querySelectorAll('[data-risk]').forEach(function (i) { i.checked = false; });
-          riskCount();
+          write({ risk: [], q: '', max: 55, liked: false, funds: false, type: 'All' });
+          count();
           return;
         }
-        if (e.target.closest('[data-filter-apply]')) riskApply();
+        var st = e.target.closest('[data-step]');
+        if (st) {
+          var id = st.getAttribute('data-step').split(':'), inp = host.querySelector('#' + id[0]);
+          var v = Math.max(0, Math.min(55, (parseFloat(inp.value) || 0) + parseFloat(id[1])));
+          inp.value = v.toFixed(2);
+          if (id[0] === 'f-max') { var r = host.querySelector('.wf-range'); if (r) r.value = String(Math.round(v)); }
+          count();
+          return;
+        }
+        if (e.target.closest('[data-filter-apply]')) { F = read(); apply(); }
         if (e.target.closest('.wf-drawer-x') || e.target.closest('[data-filter-dismiss]')) close();
       });
       document.addEventListener('keydown', onKey, true);
@@ -6048,6 +6144,7 @@ window.WF_PAY = window.WF_PAY || {
     renderHomeBodies();
     renderCaseBodies();
     renderLadders();
+    mountFavs();
     renderResult();
     renderVerifierPrefill();
     mountVerifier();

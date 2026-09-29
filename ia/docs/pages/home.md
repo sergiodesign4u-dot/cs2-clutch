@@ -26,6 +26,22 @@
 **Two obligations this node was handed, and both are honoured.** `sitemap.md`, "Free entry gets an obligation rather than a surface", makes `S-A1` carry the starter credit offer as a pre-login element: block B10. `sitemap.md`, "Detailed node map", row 1.0, makes it carry the featured case grid directly on the page rather than behind a mode hub: block B5.
 
 
+## Amended 29 September 2026 by `D-133`. The favourite answers, and every figure on Home says it is a sample
+
+**Why.** Round 14 of the critique pressed every control on Home and followed every figure, `wireframes/docs/critique.md` section 14.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A heart with a count on each featured case, pressable | **The heart and its count** | **A guest's press opens sign in and a guest never sees a pressed heart**; an account's press toggles it and moves the count by one. It was a picture of a control |
+| Nothing above the banner | | **1.1's strip says the daily state in words that agree with themselves**: "No daily case yet, next tier at 5.00 coins wagered". It read "0 daily cases, available now" |
+| Nothing | | The RTP figure's caption is its subject only: "Tested RTP, Ironbound" |
+
+**Samples, `D-124`, marked here:** the favourite counts on the tiles, 829, 1 204, 311 and 96; the tier target, 5.00 coins wagered; the median time to Steam, 1 h 40 m, and nine in ten within 6 h 15 m, which `5.3` reads from here.
+
+---
+
 ## Amended 27 September 2026 by `D-126`. Home takes the baseline's order back
 
 **Why.** Home measured 1714 words against the live page's 708, `wireframes/docs/critique.md` section 13. **The founder took the proposal** to collapse three blocks into one row of figures, and the page is now one renderer, `homeBody()` in `wireframes/_nav.js`, mounted on Home, Home with an account and the eight cookie states, which were ten hand copies.

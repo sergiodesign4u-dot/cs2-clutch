@@ -5367,3 +5367,26 @@ Five instruments, Codex read only among them. **Home 1714 words against the base
 ### Named, and one question left
 
 The flanks, the title first at 360, the three-across grid and the result page's baseline row are named in `3.3` and `7.1`. **The five-roll outcome at 360 stays one row by `D-39`**; the auditor's two columns would reverse it, and that is the founder's to decide.
+
+
+## D-133. Round 14, step 2: the shelf filter is one state and the favourite answers
+
+**Date:** 2026-09-29. **Stage:** 04. **Decided by:** the founder, "1 - да 2 - да и давай исправлять все что нужно": keep the five-roll outcome in one row by `D-39`, and fix everything round 14 raised. **Binds:** nodes `1.0`, `1.1` and `3.1`, and their pages.
+
+**What the founder said.** Yes to one row, yes to step 2, and fix everything that needs fixing.
+
+### The shelf filter is one state
+
+**Half the drawer was a picture.** The name, the price range and its steppers, Liked, Sufficient funds and the case type changed nothing, and the press never rendered the filtered state `3.1` draws. **Now every control moves the count, and the press hides what does not match**, drops the daily panel and any emptied section, prints the count with Clear all and badges Filters. The address carries the same state, so the chips and the empty state's exits land on real results.
+
+### Wrong numbers on the states that print them
+
+The empty state offered to raise the ceiling to 0.80 under a 1.00 ceiling and promised twelve cases without the risk level; it is 24.50 and one. The filtered state showed a case its own filter excludes; it shows one. 1.1's strip read "0 daily cases, available now".
+
+### The favourite answers
+
+A guest's press opens sign in and a guest never sees a pressed heart. An account's press toggles it and moves the count. **The shelf is four across at 1440**, where five left an empty column in every section, and the loading state skeletons the one figure a tile waits on.
+
+### Samples marked
+
+Favourite counts, the 5.00 tier target and the median times to Steam are marked as samples in `1.0` and `3.1`.

@@ -16,6 +16,24 @@
 
 ---
 
+## Amended 29 September 2026 by `D-133`. The filter is one state, and every way out of an empty shelf works
+
+**Why.** Round 14 of the critique found half the drawer inert, the press leaving the daily panel and the headings in place, two ways out of the empty state printing wrong numbers, and the filtered state showing a case its own filter excludes.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| The filter drawer: name, price range with steppers, risk, Additional, case type, sort | **All of it** | **Every control moves the count on the press**, and the press renders the filtered state: tiles outside the filter hide, the daily panel and any emptied section go, the count line prints with Clear all, and Filters carries a badge. The case type lists the three sections |
+| The shelf at 1440 | **Four across** | It ran five columns of 177px with the fifth empty in every section of four. Home draws the same tile at four across |
+| Community, a category | **The category** | Its line is "Cases our players put together". It read "Built from what people opened most last month", a popularity claim case-tile.md refuses beside the spend |
+
+**The address carries the filter.** `?risk=High&max=24.50&q=cold` opens the shelf filtered, so the chips' x, Clear all and the empty state's two exits are links that land on a real result. The empty state now says the cheapest High risk case is 24.50 and that one case matches without the risk level; it said 0.80 and twelve. The filtered state shows the one case its two filters allow. **The loading state skeletons the favourite count**, the one figure a tile waits on, and keeps the static figures.
+
+**Samples, `D-124`:** the favourite counts on every tile.
+
+---
+
 ## Amended 27 September 2026 by `D-127`. The shelf stops explaining itself
 
 **Why.** The baseline distance round, `wireframes/docs/critique.md` section 13. **This node was already the closest to the baseline**, `D-65` having rebuilt it from the live page, so the change is text rather than structure.

@@ -53,7 +53,6 @@
       <span class="wf-catbar-lbl">Categories</span>
       <div class="wf-catbar-run">
           <a class="wf-cat" href="#cat-featured" aria-current="true">Featured</a>
-          <a class="wf-cat" href="#cat-classic">Classic</a>
       </div>
       <div class="wf-catbar-acts">
         <button class="wf-btn wf-icon-btn" type="button" aria-label="Search cases by name">Search</button>
@@ -66,17 +65,17 @@
          A CATEGORY NEVER BECOMES A CHIP: the bar jumps, it does not filter. -->
     <div class="wf-chips" role="group" aria-label="Filters in force">
       <span class="wf-chip">under 5.00 coins
-        <button class="wf-btn wf-btn--small wf-chip-x" type="button" aria-label="Remove filter: under 5.00 coins">x</button>
+        <a class="wf-btn wf-btn--small wf-chip-x" href="catalogue.html?q=cold" aria-label="Remove filter: under 5.00 coins">x</a>
       </span>
       <span class="wf-chip">name contains &quot;cold&quot;
-        <button class="wf-btn wf-btn--small wf-chip-x" type="button" aria-label="Remove filter: name contains cold">x</button>
+        <a class="wf-btn wf-btn--small wf-chip-x" href="catalogue.html?max=5.00" aria-label="Remove filter: name contains cold">x</a>
       </span>
-      <button class="wf-btn wf-btn--small" type="button">Clear all</button>
+      <a class="wf-btn wf-btn--small" href="catalogue.html">Clear all</a>
     </div>
 
     <!-- BLOCK 5. The result count, in text, above the sections. 3.2 requires a
          legible bottom to the list and a count is half of that. -->
-    <p class="wf-count-line">2 cases match, out of 12</p>
+    <p class="wf-count-line">1 case matches, out of 12</p>
 
       <!-- 0.7 section 5.1: THE PEG RENDERS ONCE ON THE SHELF, not on every tile.
            Thirteen pegs would be noise; none at all is the unconvertible price
@@ -111,22 +110,6 @@
         </div>
       </section>
 
-      <section class="wf-cats-sec" id="cat-classic" aria-labelledby="h2-classic">
-        <div class="wf-cats-h"><h2 id="h2-classic">Classic</h2><p class="wf-cats-sub">The collections that were here first</p></div>
-        <div class="wf-grid wf-grid--shelf">
-        <article class="wf-tile">
-          <a class="wf-tile-link" href="case.html">
-            <span class="wf-tile-art" aria-hidden="true"></span>
-            <span class="wf-tile-name">Deadbolt</span>
-            <span class="wf-tile-risk">Low risk</span>
-            <span class="wf-tile-price"><span class="wf-tile-cost">3.20</span><span class="wf-tile-cur">coins</span></span>
-          </a>
-          <button class="wf-fav" type="button" aria-pressed="false" aria-label="Favourite, 907 people">
-            <span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">907</span>
-          </button>
-        </article>
-        </div>
-      </section>
 
     <section class="wf-sec wf-prose" aria-labelledby="h2-about">
       <div class="wf-sec-head">
