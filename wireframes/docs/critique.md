@@ -846,3 +846,50 @@ A separate table from the defects, as the pack asks: a step that did not happen 
 | The close ritual; `wireframes/CLAUDE.md` created | **Owed until the close, done now** | `D-139` |
 
 **Not everything is green, and it is said out loud:** one row was not kept and one deviates by a named rule.
+
+## 16. Round 15, 30 September 2026: the IA against itself, the nodes against the screens, and a second pass
+
+**Asked by the founder:** analysis, critique and audit of the wireframes and the IA again, several times if needed, before stage 05.
+
+### 16.1 Instruments
+
+| # | Instrument | What it owned | Radius |
+|---|---|---|---|
+| C1, C2 | **Codex**, plugin `codex`, read only | C1 the IA against itself, C2 the nodes against the screens | Cut by the account wide usage limit after two minutes, and `gpt-5.6-sol` refused at once. **Their leads were handed to D1 and D2 to verify** |
+| D1 | **Claude subagent in Codex's place, read only** | C1's classes: contradictions, stale after a decision, orphans, baseline rows, flows against the map, md and html drift, citations, unmarked figures, rules | All IA files |
+| D2 | **Claude subagent in Codex's place, read only** | C2's classes: block without a place, element without a node, state drift, SEO without a place, samples, canonical data, dead controls, grey contract, copy ownership | 30 nodes against 133 pages |
+| B1 | Claude auditor, browser, 360 and 1440, local and live, every control pressed | Home, catalogue, the case family, result, player, sign in, gate, system, cookie, the hub | 61 pages |
+| B2 | The same | Deposit, cash out, Send to Steam, My items, history, profile, settings, responsible, fair, support, legal | 72 pages |
+| R | **The reader**, a clean context with no decisions, critique, README or root CLAUDE.md | The question stage 05 asks: can the text inventory start without asking anyone | Four screens from four flows |
+| M | A script | Em dash, colour literals, local links | Every file |
+
+### 16.2 The raised set, before verification
+
+**245 rows and 30 guesses**: D1 65, D2 104, B2 52, B1 24, the reader's 30 places where it had to guess, with 26 withdrawn by the instruments themselves on re-read and kept in their sets. **About 215 after dedup.** The reader's verdict: **no, stage 05 could not start its inventory without asking**, because no file says which one owns a string, nodes disagree with their own amendments on finished text, and four screens carry no tone and no clean main action.
+
+**Zero, and stated:** local and live byte identical on every page; no horizontal scroll at 360; no broken local link; no em dash; no colour literal on a page.
+
+**The finding that explains most of the rest.** Round 14 fixed the canonical page and the renderer kept making the defect on its states, and the IA was not audited after 12 August while `D-40` to `D-139` edited it.
+
+### 16.3 Step 1, the shared code, fixed on 30 September 2026 under `D-140`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| B1-2, B2-7, B2-17 part | The round key stopped at the first digit: mp9, p250, m4, mp9n and m4ft opened the AK | B1, B2 | Fixed: letters and digits |
+| B1-3, J14 | Every feed tile opened the AK; its name carried weapon and skin only | B1, D2 | Fixed: twelve rounds, the name as `0.8` section 5 gives it; samples marked in `0.8` |
+| J88 | An inline flex rule on every feed tile | D2 | Fixed: a class in `_wf.css` |
+| J83 | The bar's Home opened the guest home on signed-in pages | D2 | Fixed: the rewrite runs after the bar |
+| B1-4, B1-5, B2-51 | Copy copied a shortened hash, a bare file name, and threw without permission | B1, B2 | Fixed |
+| J59, B1-21, B2-33, J68 | The money pair declared 71 times; a sale left the header where it was | D2, B1, B2 | Fixed: `WF_MONEY` once, `moneyAdd` on every sale; the clock pages declare the pair after the request; samples marked in `5.1` |
+| B1-8, J81 | "Available now: 0 cases" disabled with no reason | B1, D2 | Fixed: it refuses with a fact, never a nudge |
+| B2-4 | The idle inventory exits were `aria-disabled` and `pointer-events: none`, so the refusal written in round 14 never ran | B2 | Fixed |
+| J90 | A boundary page printed +5% and "Add funds" | D2 | Fixed in the shell: a boundary turns the badge off |
+| B1-12 | The + opened a working Pay on the 500 and the 503s | B1 | Fixed: not drawn where the money cannot be read |
+| B1-10 | The footer headings reported a collapse above 900 over lists that stayed open | B1 | Fixed |
+| B1-23 | The retry printed the device clock beside the page's UTC | B1 | Fixed: no clock |
+| J91, B2-20 part | The language control's name said "no switcher"; settings named no absence | D2, B2 | Fixed |
+| B1-9, B2-20 part | German switches the control and nothing else | B1, B2 | **Withdrawn on verification**: `D-42` decided exactly that, and the panel says so |
+| B1-24, B2-50, reader | "Image slot, stage 06", "Code slot" | B1, B2, R | Fixed: "Image", "QR code" |
+| B1-11, J86 | Six social links to `#`; the rail kept a second list | B1, D2 | Fixed: six slots, one set, `0.2` row |
+
+**Checked on screen** at 1440 and 360 on every one of the 133 pages: no script error, no horizontal scroll.

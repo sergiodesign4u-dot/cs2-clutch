@@ -426,6 +426,31 @@ window.WF_BONUS = window.WF_BONUS || {
   pct: '5%', pctFull: '5.00%', cap: '100 coins', period: '24 hours', wagering: false
 };
 
+/* THE ACCOUNT'S MONEY, ONCE, round 15. The pair was typed on 68 pages and three
+   more times in this file, 71 declarations of one figure, and a sale changed
+   none of them. A page declares WF_SHELL.money only when its state differs from
+   this; every reader goes through moneyNow(), and a sale or a withdrawal moves
+   the figures through moneyAdd(), which repaints every place that shows them.
+   Samples by D-124, marked in 5.1. */
+var WF_MONEY = { balance: 74.20, held: 140.95 };
+function moneyNow() {
+  var M = (window.WF_SHELL && window.WF_SHELL.money) || {};
+  var p = function (v, d) { return v === undefined ? d : parseFloat(String(v)); };
+  return { balance: p(M.balance, WF_MONEY.balance), held: p(M.held, WF_MONEY.held) };
+}
+function moneyAdd(dBal, dHeld) {
+  var m = moneyNow();
+  var nb = (m.balance + dBal).toFixed(2) + ' coins', nh = (m.held + dHeld).toFixed(2) + ' coins';
+  window.WF_SHELL = window.WF_SHELL || {};
+  window.WF_SHELL.money = { balance: nb, held: nh };
+  Array.prototype.forEach.call(document.querySelectorAll('[data-money]'), function (e) {
+    var v = e.getAttribute('data-money') === 'balance' ? nb : nh;
+    e.textContent = v;
+    var a = e.closest('a[aria-label]');
+    if (a) a.setAttribute('aria-label', a.getAttribute('aria-label').replace(/, [\d.]+ coins$/, ', ' + v));
+  });
+}
+
 /* THE FUNDING ROUTES, D-96, AND EVERY ONE OF THEM IS WALKED RATHER THAN CHOSEN.
    research/docs/baseline-account.md section 5b.1 as corrected on 25 August 2026:
    twenty seven fiat and eight crypto, thirty five in all, in the order the live
@@ -787,6 +812,9 @@ window.WF_PAY = window.WF_PAY || {
                ['pl', 'Polish'], ['tr', 'Turkish'], ['pt', 'Portuguese'],
                ['es', 'Spanish'], ['ru', 'Russian']];
   var langCur = 'en';
+  // D-42: the eight stubs switch the control and nothing else, and every place
+  // that offers them says so in the same words.
+  var LANG_ONLY = 'Only English is available for now.';
   var langSubs = [];
   // The rail's control and the footer's control are one control in two places, the
   // superset rule applied to a control. Picking in either moves both, because a rail
@@ -798,6 +826,15 @@ window.WF_PAY = window.WF_PAY || {
   var soundOn = true, soundSubs = [];
   try { soundOn = sessionStorage.getItem('wf-sound') !== 'off'; } catch (e) {}
   function setSound(on) { soundOn = on; try { sessionStorage.setItem('wf-sound', on ? 'on' : 'off'); } catch (e) {} soundSubs.forEach(function (f) { f(on); }); }
+
+  // ONE SOCIAL SET FOR BOTH CARRIERS, round 15: the rail kept a second list of its
+  // own, which footer.md refuses. Six reserved slots until the channels are named.
+  function socialSlots() {
+    var row = el('div', 'wf-rail-soc-row');
+    row.setAttribute('aria-hidden', 'true');
+    for (var i = 0; i < 6; i++) row.appendChild(el('span', 'wf-rail-ico'));
+    return row;
+  }
 
   function langControl() {
     var wrap = el('div', 'wf-lang-wrap');
@@ -822,8 +859,7 @@ window.WF_PAY = window.WF_PAY || {
       return o;
     });
     pop.appendChild(list);
-    pop.appendChild(el('span', 'wf-fig-missing',
-      'Only English is available for now.'));
+    pop.appendChild(el('span', 'wf-fig-missing', LANG_ONLY));
 
     function paint(code) {
       abbr.textContent = code.toUpperCase();
@@ -1035,19 +1071,25 @@ window.WF_PAY = window.WF_PAY || {
   // AND THE LOOP NEEDS MORE THAN THAT FLOOR. The keyframe travels half the run,
   // so half the run has to be wider than the widest column it plays in or the
   // strip shows a gap on every reset.
+  // EVERY TILE OPENS ITS OWN ROUND, round 15: all twelve opened the AK. The
+  // sixth column is the round's key; a tile from Ironbound reads its wear, rarity,
+  // value and ticket range from that case's drop table, the others carry theirs
+  // in the last two columns. Samples by D-124, marked in 0.8.
+  // The Vulcan was listed from Ironbound, whose table does not hold it: it is a
+  // Warsteel drop.
   var FEED = [
-    ['AK-47',        'Redline',          'Ironbound', false],
-    ['AWP',          'Asiimov',          'Warsteel',  false],
-    ['Glock-18',     'Water Elemental',  'Ironbound', true ],
-    ['USP-S',        'Kill Confirmed',   'Coldfront', false, true],
-    ['M4A1-S',       'Hyper Beast',      'Warsteel',  false],
-    ['Desert Eagle', 'Blaze',            'Ironbound', false],
-    ['MP9',          'Rose Iron',        'Coldfront', false],
-    ['P250',         'Asiimov',          'Nightfall', false],
-    ['AWP',          'Neo-Noir',         'Nightfall', false, true],
-    ['AK-47',        'Vulcan',           'Ironbound', false],
-    ['Five-SeveN',   'Monkey Business',  'Coldfront', false],
-    ['SG 553',       'Cyrex',            'Warsteel',  true ]
+    ['AK-47',        'Redline',          'Ironbound', false, false, 'ak'],
+    ['AWP',          'Asiimov',          'Warsteel',  false, false, 'awp'],
+    ['Glock-18',     'Water Elemental',  'Ironbound', true,  false, 'fglock'],
+    ['USP-S',        'Kill Confirmed',   'Coldfront', false, true,  'fusp',    ['Minimal Wear', 'Covert'],        '15.10'],
+    ['M4A1-S',       'Hyper Beast',      'Warsteel',  false, false, 'fm4',     ['Field-Tested', 'Covert'],        '23.90'],
+    ['Desert Eagle', 'Blaze',            'Ironbound', false, false, 'fdeagle'],
+    ['MP9',          'Rose Iron',        'Coldfront', false, false, 'fmp9',    ['Minimal Wear', 'Mil-Spec'],      '1.90'],
+    ['P250',         'Asiimov',          'Nightfall', false, false, 'fp250',   ['Battle-Scarred', 'Mil-Spec'],    '6.80'],
+    ['AWP',          'Neo-Noir',         'Nightfall', false, true,  'fawpnn',  ['Field-Tested', 'Covert'],        '38.20'],
+    ['AK-47',        'Vulcan',           'Warsteel',  false, false, 'fvulcan', ['Field-Tested', 'Covert'],        '52.40'],
+    ['Five-SeveN',   'Monkey Business',  'Coldfront', false, false, 'ffive',   ['Minimal Wear', 'Classified'],    '3.60'],
+    ['SG 553',       'Cyrex',            'Warsteel',  true,  false, 'fsg',     ['Field-Tested', 'Restricted'],    '1.40']
   ];
 
   function feedTile(row) {
@@ -1062,7 +1104,12 @@ window.WF_PAY = window.WF_PAY || {
     // case. 7.1 is spec at this stage and the route is drawn anyway, because a
     // real route to an undrawn page is honest and a convenient one is not.
     var hit = el('a', 'wf-feed-hit');
-    hit.href = BASE + 'result.html';
+    hit.href = BASE + 'result.html' + (row[5] && row[5] !== 'ak' ? '?round=' + row[5] : '');
+    // THE NAME CARRIES SOURCE, WEAPON, SKIN, RARITY AND WINNER, ticker.md's
+    // accessible name, round 15: it read weapon and skin only.
+    var RR = ROUNDS[row[5]] || {};
+    hit.setAttribute('aria-label', row[2] + ', ' + row[0] + ' ' + row[1] +
+      (RR.axes ? ', ' + RR.axes[RR.axes.length - 1] : '') + ', ' + (row[3] ? 'a bot' : row[4] ? 'an anonymous player' : 'a player'));
     hit.appendChild(el('span', 'wf-feed-art'));
     hit.lastChild.setAttribute('aria-hidden', 'true');
     hit.appendChild(el('span', 'wf-feed-w', row[0]));
@@ -1124,8 +1171,7 @@ window.WF_PAY = window.WF_PAY || {
       whoLink.href = BASE + 'player.html';
       col.appendChild(whoLink);
     }
-    col.style.display = 'flex';
-    col.style.flexDirection = 'column';
+    col.className = 'wf-feed-whocol';
     who.appendChild(col);
     pop.appendChild(who);
 
@@ -1574,26 +1620,21 @@ window.WF_PAY = window.WF_PAY || {
     soundSubs.push(paintSnd); paintSnd(soundOn);
     snd.addEventListener('click', function () { setSound(!soundOn); });
     amb.appendChild(snd);
-    // ONE LANGUAGE, LOCKED IN CLAUDE.md. Not a switcher: it states the language and
-    // carries no menu, because a picker with one option is a dead control. It shares
-    // the row with the sound control but NOT its affordance: no border, no press
-    // state, so the half that acts and the half that reports do not look alike.
     // A REAL CONTROL SINCE D-41, and the reason is the baseline rather than a
     // preference: the live product has a switcher, the carrier is inherited, and a
     // carrier is filled with live items rather than deferred. WHAT IT DOES NOT DO IS
     // IMPLY A TRANSLATION. Round 1 ships one language, D-02 is untouched, and the
     // absence is printed inside the control instead of drawn as eight dead rows.
+    // Its accessible name is the one langControl paints, round 15: an override here
+    // said "no switcher" over the nine options D-42 draws.
     var lang = langControl();
-    lang.setAttribute('aria-label', 'Language: English. One language, so no switcher');
     amb.appendChild(lang);
     foot.appendChild(amb);
 
     var soc = el('div', 'wf-rail-soc');
     soc.setAttribute('aria-label', 'Social');
     soc.appendChild(el('span', 'wf-rail-soc-h', 'Social'));
-    var socRow = el('div', 'wf-rail-soc-row');
-    for (var si = 0; si < 6; si++) socRow.appendChild(el('span', 'wf-rail-ico'));
-    soc.appendChild(socRow);
+    soc.appendChild(socialSlots());
     foot.appendChild(soc);
     nav.appendChild(foot);
 
@@ -1664,7 +1705,7 @@ window.WF_PAY = window.WF_PAY || {
       // inventory is a different account from the one the rest of the mock uses,
       // and a header saying 130.60 over a page saying 0.00 is the same
       // contradiction one level up. One source per page, and the shell follows.
-      var M = (window.WF_SHELL && window.WF_SHELL.money) || {};
+      var MN = moneyNow();
       // NODE 0.3, THE 500. A page may declare that the figures have NO SOURCE, which
       // is not the same as declaring them zero. The money in this header comes from
       // the application, and on a 500 the application is what failed. 0.11 rule 3:
@@ -1674,12 +1715,12 @@ window.WF_PAY = window.WF_PAY || {
       // THE ROUTE COMES OFF WITH THE FIGURE. A figure with no value is not a link to
       // its own detail, and rule 1 wants a route for a number rather than for a hole.
       var noMoney = !!(window.WF_SHELL && window.WF_SHELL.money === false);
-      [[M.balance || '74.20 coins', 'Balance', 'deposit.html', 'wf-money-1'],
+      [[MN.balance.toFixed(2) + ' coins', 'Balance', 'deposit.html', 'wf-money-1', 'balance'],
        // ONE FIGURE, ONE VALUE, EVERYWHERE. It read 18.60 while 5.1 rendered a
        // holding of 130.60, which is two renderings of one number disagreeing on
        // adjacent surfaces: the exact defect 0.11 exists to prevent, and 5.1's
        // own rule is that these are the same pair the header carries.
-       [M.held || '140.95 coins', 'Value of items held', 'account.html', 'wf-money-2']].forEach(function (f) {
+       [MN.held.toFixed(2) + ' coins', 'Value of items held', 'account.html', 'wf-money-2', 'held']].forEach(function (f) {
         if (noMoney) {
           // NOT A LINK. A figure with no value is not a route to its own detail, and
           // rule 1 asks for a route on a number rather than on a hole.
@@ -1703,7 +1744,7 @@ window.WF_PAY = window.WF_PAY || {
         var ci = el('span', 'wf-coin');
         ci.setAttribute('aria-hidden', 'true');
         line.appendChild(ci);
-        line.appendChild(el('span', 'wf-fig-v', f[0]));
+        line.appendChild(el('span', 'wf-fig-v', f[0])).setAttribute('data-money', f[4]);
         d.appendChild(line);
         d.appendChild(el('span', 'wf-fig-c', f[1]));
         money.appendChild(d);
@@ -1752,7 +1793,9 @@ window.WF_PAY = window.WF_PAY || {
       // IT IS DECLARED PER PAGE AND NOT DERIVED FROM feed:false, even though the set is
       // the same today. Two rules that happen to agree are not one rule, and the day one
       // of them moves, a derived flag moves with it silently.
-      var BN = (window.WF_SHELL && window.WF_SHELL.bonus === false) ? {} : (window.WF_BONUS || {});
+      // A BOUNDARY IN FORCE TURNS THE BADGE OFF TOO, round 15: a page that forgot
+      // bonus:false printed +5% and "Add funds" over the limits it routes to.
+      var BN = (window.WF_SHELL && (window.WF_SHELL.bonus === false || window.WF_SHELL.boundary)) ? {} : (window.WF_BONUS || {});
       if (BN.pct) {
         var bb = el('span', 'wf-dep-b', BN.pct);
         bb.setAttribute('aria-hidden', 'true');
@@ -1761,9 +1804,11 @@ window.WF_PAY = window.WF_PAY || {
         dep.setAttribute('aria-label',
           'Add funds. We add ' + BN.pctFull + ' in coins on top, up to ' + BN.cap + ' per ' + BN.period);
       } else if (!cfg.boundary) {
-        dep.setAttribute('aria-label', 'Deposit');
+        dep.setAttribute('aria-label', 'Add funds');
       }
-      right.appendChild(dep);
+      // NOT ON A PAGE WHERE THE MONEY CANNOT BE READ, round 15: on the 500 and the
+      // 503s the figures say Not available and the + opened a working Pay.
+      if (!noMoney) right.appendChild(dep);
       right.appendChild(accountControl());
     } else {
       // D-54: THIS CONTROL OPENS THE DIALOG RATHER THAN ROUTING TO IT, on every
@@ -1957,6 +2002,9 @@ window.WF_PAY = window.WF_PAY || {
       b.appendChild(document.createTextNode(label));
       body.id = id;
       b.addEventListener('click', function () {
+        // ABOVE 900 THE LISTS ARE FLAT, round 15: the press flipped the state to
+        // collapsed over a list that stayed open.
+        if (window.matchMedia('(min-width: 900px)').matches) return;
         b.setAttribute('aria-expanded', b.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
       });
       hostEl.appendChild(b);
@@ -2126,18 +2174,11 @@ window.WF_PAY = window.WF_PAY || {
 
     // THE SOCIAL SET. This node owns it and the rail's drawer renders it from here
     // rather than keeping a second list. Which channels are ours in round 1 is [?],
-    // owner founder, so the row draws the reserved set and prints the hole.
+    // owner founder, so the row draws six reserved slots and, since D-124, prints
+    // no hole. SLOTS, NOT LINKS, round 15: six anchors to # jumped to the top of
+    // the page, which is a control doing something other than its name.
     var soc = el('div', 'wf-foot-soc');
-    var socNav = el('nav', 'wf-rail-soc-row');
-    socNav.setAttribute('aria-label', 'Social');
-    for (var si = 0; si < 6; si++) {
-      var sa = el('a', 'wf-rail-ico');
-      sa.href = '#';
-      sa.setAttribute('rel', 'external nofollow');
-      sa.setAttribute('aria-label', 'Social channel');
-      socNav.appendChild(sa);
-    }
-    soc.appendChild(socNav);
+    soc.appendChild(socialSlots());
     trust.appendChild(soc);
 
     // THE AGE MARK IS A MARK AND NOT A GATE. The gate is two checkboxes at sign in,
@@ -2189,7 +2230,7 @@ window.WF_PAY = window.WF_PAY || {
     // state at a phone width.
     function syncAcc() {
       var wide = window.matchMedia('(min-width: 900px)').matches;
-      accBtns.forEach(function (b) { b.setAttribute('aria-expanded', wide ? 'true' : 'false'); });
+      accBtns.forEach(function (b) { b.setAttribute('aria-expanded', wide ? 'true' : 'false'); b.tabIndex = wide ? -1 : 0; });
     }
     syncAcc();
     var wasWide = window.matchMedia('(min-width: 900px)').matches;
@@ -2549,7 +2590,7 @@ window.WF_PAY = window.WF_PAY || {
       '<div class="wf-dlg-wrap" data-auth-dismiss="1">' +
         '<div class="wf-dlg" role="dialog" aria-modal="true" aria-labelledby="wf-dlg-h">' +
           '<button class="wf-dlg-close" type="button" aria-label="Close">✕</button>' +
-          '<div class="wf-dlg-art" aria-hidden="true">Image slot, stage 06</div>' +
+          '<div class="wf-dlg-art" aria-hidden="true">Image</div>' +
           '<div class="wf-dlg-body">' +
             '<p class="wf-dlg-h" id="wf-dlg-h">Sign in</p>' +
             authCard(state || 'default', 'dialog') +
@@ -2903,7 +2944,9 @@ window.WF_PAY = window.WF_PAY || {
       client: '7d19f4a2', nonce: String(41190 + i).replace(/(\d)(\d{3})$/, '$1 $2'), ticket: r[7], range: r[8] };
   });
   function roundKey() {
-    var m = /[?&]round=([a-z]+)/.exec(location.search);
+    // LETTERS AND DIGITS, round 15: the key stopped at the first digit, so mp9,
+    // p250 and m4 fell back to the AK and ten links opened the wrong round.
+    var m = /[?&]round=([a-z0-9]+)/.exec(location.search);
     return (m && ROUNDS[m[1]]) ? m[1] : 'ak';
   }
   function proofPanel(state) {
@@ -3003,7 +3046,7 @@ window.WF_PAY = window.WF_PAY || {
       var b = e.target.closest('button.wf-count-b');
       if (!b) return;
       var box = b.closest('.wf-count');
-      var n = parseInt(b.textContent, 10), unit = 12.40, bal = 74.20;
+      var n = parseInt(b.textContent, 10), unit = 12.40, bal = moneyNow().balance;
       Array.prototype.forEach.call(box.querySelectorAll('.wf-count-b'), function (x) {
         x.removeAttribute('aria-current');
         if (x.tagName === 'BUTTON') x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
@@ -3026,17 +3069,34 @@ window.WF_PAY = window.WF_PAY || {
       if (c) {
         e.preventDefault();
         var txt = c.getAttribute('data-copy') || (c.parentNode.querySelector('.wf-hash-v') || {}).textContent || '';
-        try { if (navigator.clipboard) navigator.clipboard.writeText(txt); } catch (err) {}
+        /* WHAT IS COPIED IS WHAT IS USABLE, round 15. A shortened hash copied
+           its ellipsis, which no verifier accepts, and "Copy the link" copied a
+           bare file name with the round dropped. */
+        if (/\u2026/.test(txt)) {
+          var ends = txt.split('\u2026');
+          Object.keys(ROUNDS).forEach(function (k) {
+            var h = ROUNDS[k].hash;
+            if (h.indexOf(ends[0]) === 0 && h.slice(-ends[1].length) === ends[1]) txt = h;
+          });
+        }
+        if (/\.html$/.test(txt)) txt = new URL(txt + (/[?&]round=/.test(location.search) ? '?round=' + roundKey() : ''), location.href).href;
         var was = c.textContent;
-        c.textContent = 'Copied';
-        setTimeout(function () { c.textContent = was; }, 1600);
+        var said = function (t) { c.textContent = t; setTimeout(function () { c.textContent = was; }, 1600); };
+        /* A REFUSED COPY SAYS SO, round 15: without permission the write threw
+           and the button said nothing. */
+        try {
+          if (!navigator.clipboard) throw new Error('none');
+          navigator.clipboard.writeText(txt).then(function () { said('Copied'); }, function () { said('Not copied, select it by hand'); });
+        } catch (err) { said('Not copied, select it by hand'); }
         return;
       }
       var b = e.target.closest('button');
       if (!b || b.disabled || !/^Sell\b/.test(b.textContent.trim())) return;
       if (!b.closest('.wf-outcome-acts, .wf-won-card')) return;
       var num = function (x) { var m = /([\d.]+)(?:\s*coins)?\s*$/.exec(x.textContent.trim()); return m ? m[1] : ''; };
-      var sold = function (x) { x.textContent = 'Sold, +' + num(x); x.disabled = true; x.classList.add('is-sold'); };
+      // A SALE MOVES THE HEADER, round 15: the receipt printed +12.90 over a
+      // balance that did not change.
+      var sold = function (x) { var v = parseFloat(num(x)) || 0; x.textContent = 'Sold, +' + num(x); x.disabled = true; x.classList.add('is-sold'); moneyAdd(v, -v); };
       if (/^Sell (all|the other)/.test(b.textContent.trim())) {
         var left = document.querySelectorAll('.wf-won-card button.wf-sell:not([disabled])'), sum = 0;
         Array.prototype.forEach.call(left, function (x) { sum += parseFloat(num(x)) || 0; sold(x); });
@@ -3129,7 +3189,8 @@ window.WF_PAY = window.WF_PAY || {
       : '';
 
     var act = account
-      ? '<button class="wf-btn" type="button" disabled>Available now: 0 cases</button>'
+      ? '<button class="wf-btn" type="button" data-ladder-open>Available now: 0 cases</button>' +
+        '<p class="wf-refuse" data-ladder-say aria-live="polite"></p>'
       : '<a class="wf-btn" href="signin.html" data-auth-open="default">Sign in to see your tier</a>';
 
     return '' +
@@ -3398,6 +3459,16 @@ window.WF_PAY = window.WF_PAY || {
     Array.prototype.forEach.call(document.querySelectorAll('[data-ladder]'), function (host) {
       host.innerHTML = dailyLadder(account);
     });
+    /* THE OPEN CONTROL REFUSES WITH ITS REASON, round 15. It was disabled, which
+       conventions section 2 refuses: a precondition is said, not greyed out. The
+       reason is a fact and never a nudge, 0.15's own rule: no suggestion of what
+       to wager. */
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-ladder-open]');
+      if (!b) return;
+      var say = b.parentNode.querySelector('[data-ladder-say]');
+      if (say) { say.textContent = 'Nothing to open: no daily case has been given yet.'; say.classList.add('is-said'); }
+    });
   }
 
   /* ---------------------------------------------------------------------
@@ -3521,7 +3592,7 @@ window.WF_PAY = window.WF_PAY || {
        and badges Filters. ?risk=High&max=24.50&q=cold opens the shelf filtered,
        which is what the chips and the empty state's two exits link to. */
     var F = { risk: [], q: '', max: 55, liked: false, funds: false, type: 'All' };
-    var BAL = 74.20;
+    var BAL = moneyNow().balance;
     (function fromUrl() {
       var u = location.search;
       var g = function (k) { var m = new RegExp('[?&]' + k + '=([^&]*)').exec(u); return m ? decodeURIComponent(m[1]) : null; };
@@ -3718,7 +3789,7 @@ window.WF_PAY = window.WF_PAY || {
   function renderAcctHero(host) {
     if (!host) return;
     var cfg = window.WF_ACCT || {};
-    var M = (window.WF_SHELL && window.WF_SHELL.money) || {};
+    var MN = moneyNow();
     var active = ACCT_TABS.filter(function (t) { return t.key === cfg.active; })[0] || ACCT_TABS[0];
 
     host.innerHTML = '';
@@ -3763,10 +3834,10 @@ window.WF_PAY = window.WF_PAY || {
     var money = el('div', 'wf-ah-money');
     var noMoney = !!(window.WF_SHELL && window.WF_SHELL.money === false);
     if (!noMoney) {
-      [[M.balance || '74.20 coins', 'Balance'],
-       [M.held || '140.95 coins', 'Value of items held']].forEach(function (f) {
+      [[MN.balance.toFixed(2) + ' coins', 'Balance', 'balance'],
+       [MN.held.toFixed(2) + ' coins', 'Value of items held', 'held']].forEach(function (f) {
         var d = el('div', 'wf-fig');
-        d.appendChild(el('span', 'wf-fig-v', f[0]));
+        d.appendChild(el('span', 'wf-fig-v', f[0])).setAttribute('data-money', f[2]);
         d.appendChild(el('span', 'wf-fig-c', f[1]));
         money.appendChild(d);
       });
@@ -3840,9 +3911,8 @@ window.WF_PAY = window.WF_PAY || {
          hidden it teaches nobody. Idle is a state of a working control, which is the
          line D-58 draws: the note beside them says what makes them live. */
       bar.classList.toggle('is-idle', on.length === 0);
-      [].slice.call(bar.querySelectorAll('[data-invbar-act]')).forEach(function (a) {
-        a.setAttribute('aria-disabled', on.length === 0 ? 'true' : 'false');
-      });
+      // NO aria-disabled, round 15: it announced the exits as unavailable and
+      // the idle press answers "Tick an item first", which is D-58's line.
     }
     picks.forEach(function (i) { i.addEventListener('change', paint); });
     var all = bar.querySelector('[data-inv-all]');
@@ -3863,6 +3933,7 @@ window.WF_PAY = window.WF_PAY || {
       card.classList.add('is-sold');
       var acts = card.querySelector('.wf-inv-acts');
       if (acts) acts.innerHTML = '<p class="wf-inv-sold">Sold, +' + v.toFixed(2) + ' coins</p>';
+      moneyAdd(v, -v);
       return v;
     }
     document.addEventListener('click', function (e) {
@@ -4123,6 +4194,24 @@ window.WF_PAY = window.WF_PAY || {
       at: r.date + ' ' + r.when.split(' ').pop(), hash: r.hash + hx(r.key + 'h', 56), seed: hx(r.key + 's', 64),
       client: '7d19f4a2', nonce: String(41100 + i).replace(/(\d)(\d{3})$/, '$1 $2'),
       ticket: String(1000 + i * 7919).replace(/(\d)(\d{3})$/, '$1 $2'), range: 'the range its case publishes', kase: r.kase.replace(' Case', '') };
+  });
+  /* THE FEED'S ROUNDS, round 15. A tile from Ironbound takes its figures from
+     CASE_ITEMS and its ticket from inside the range it proves; the rest carry
+     their own. Dated minutes before the prototype's now, newest first. */
+  FEED.forEach(function (f, i) {
+    var k = f[5];
+    if (!k || ROUNDS[k]) return;
+    var hitRow = null, tier = '';
+    if (f[2] === 'Ironbound') CASE_ITEMS.forEach(function (g) { g[2].forEach(function (it) { if (it[0] === f[0] && it[1] === f[1]) { hitRow = it; tier = g[0]; } }); });
+    var won = hitRow ? hitRow[4] : f[7];
+    var range = hitRow ? hitRow[5] : 'the range its case publishes';
+    var lo = hitRow ? parseInt(range.split(' to ')[0].replace(/\s/g, ''), 10) : 1000;
+    var hi = hitRow ? parseInt(range.split(' to ')[1].replace(/\s/g, ''), 10) : 99999;
+    var t = lo + (i * 7919) % (hi - lo + 1);
+    ROUNDS[k] = { w: f[0], s: f[1], axes: hitRow ? hitRow[2].split(' \u00b7 ').concat(tier) : f[6], won: won, now: won,
+      at: '21 Aug 2026 09:' + String(30 - i * 2).padStart(2, '0'), hash: hx(k + 'h', 64), seed: hx(k + 's', 64),
+      client: '7d19f4a2', nonce: String(42100 + i).replace(/(\d)(\d{3})$/, '$1 $2'),
+      ticket: String(t).replace(/(\d)(\d{3})$/, '$1 $2'), range: range, kase: f[2] };
   });
 
   /* FOUR STATES, AND THE FOURTH IS THE ONE THE FOUNDER'S CAPTURE SHOWS, D-108.
@@ -4675,7 +4764,7 @@ window.WF_PAY = window.WF_PAY || {
         tbody.appendChild(tr);
       });
       totalEl.textContent = (total >= 0 ? '+' : '-') + wdFmt(Math.abs(total)) + ' coins';
-      var bal = 74.20;
+      var bal = moneyNow().balance;
       // THE BASELINE'S SENTENCE UNDER ITS TOTAL, D-128, with what is left.
       sayEl.innerHTML = 'Based on the market price, <strong>' + wdFmt(Math.abs(total)) + ' coins ' +
         (total >= 0 ? 'goes onto your balance' : 'will be taken from your balance') + '</strong>, ' + (total >= 0 ? 'making it ' : 'leaving ') + wdFmt(bal + total) + '.';
@@ -5244,7 +5333,7 @@ window.WF_PAY = window.WF_PAY || {
             '<p class="wf-note" data-dep-netnote>Send on ' + net0[0] + ' only. Coins sent on another network are lost.</p>' +
           '</div>' +
           '<div class="wf-crypto' + (empty ? ' is-empty' : '') + '">' +
-            '<span class="wf-crypto-qr" aria-hidden="true">' + (empty ? 'Code slot, empty' : 'Code slot') + '</span>' +
+            '<span class="wf-crypto-qr" aria-hidden="true">' + (empty ? 'No code yet' : 'QR code') + '</span>' +
             '<div class="wf-crypto-a">' +
               (empty
                 ? '<span class="wf-fig-c">You do not have an address on this network yet</span>' +
@@ -6049,12 +6138,10 @@ window.WF_PAY = window.WF_PAY || {
       var tries = 0;
       retry.addEventListener('click', function () {
         tries += 1;
-        var t = new Date();
-        var hh = String(t.getHours()).padStart(2, '0');
-        var mm = String(t.getMinutes()).padStart(2, '0');
-        var ss = String(t.getSeconds()).padStart(2, '0');
+        // NO CLOCK, round 15: the device's time sat beside the page's stated return
+        // time, hours apart, because a prototype's now is not the device's.
         if (say) {
-          say.textContent = 'Asked again at ' + hh + ':' + mm + ':' + ss + '. Still unavailable, and it is still us. '
+          say.textContent = 'Asked again just now. Still unavailable, and it is still us. '
             + (tries === 1 ? '' : tries + ' attempts from here so far. ')
             + 'Nothing is reloading on its own.';
         }
@@ -6389,6 +6476,8 @@ window.WF_PAY = window.WF_PAY || {
       var paintL = function (code) { lg.value = code; if (lv) LANGS.forEach(function (L) { if (L[0] === code) lv.textContent = L[1]; }); };
       langSubs.push(paintL); paintL(langCur);
       lg.addEventListener('change', function () { setLang(lg.value); });
+      var lrt = lg.closest('.wf-cfg-row2') && lg.closest('.wf-cfg-row2').querySelector('.wf-cfg-rt');
+      if (lrt && !lrt.querySelector('.wf-fig-missing')) lrt.appendChild(el('span', 'wf-fig-missing', LANG_ONLY));
     }
   }
 
@@ -6491,13 +6580,15 @@ window.WF_PAY = window.WF_PAY || {
     mountSwitches();
     renderFooter(document.getElementById('wf-footer'));
     mountShellSettings();
-    mountHomeLinks();
     // AFTER THE FOOTER IS BUILT AND NOT WITH THE OTHER MOUNTS. The counters it
     // animates do not exist until renderFooter has run, and the mount block runs
     // first: called there it found nothing and returned, silently.
     mountFooterTicks();
     mountRollDetail();
     renderBar(document.getElementById('wf-bar'));
+    // AFTER THE BAR, round 15: run before it, the rewrite found no bar and its
+    // Home kept opening the guest home on every signed-in page.
+    mountHomeLinks();
     mountCommitBar();
   });
 })();

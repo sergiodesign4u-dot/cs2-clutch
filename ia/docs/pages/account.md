@@ -21,6 +21,20 @@
 | Four tabs as peers on one page, `INVENTORY`, `HISTORY`, `PROFILE`, `SETTINGS`. The inventory grid has two sorts, no filters and no search, and a sticky bar carrying a count, a sum and **four exits**: send to Steam, sell to site, cash out, exchange. History is **five separate histories**, three of which are empty and all three say only `History is empty...`. `baseline-account.md` sections 2 to 4. | The count and the sum of the selection, which are the same pair the header carries, and the per-item action set. | **Our map gives this node one exit and the canon has four**, and the gap narrowed twice since this row was written. **`D-38` put selling a skin back for coins in round 1**, so the second exit exists as a capability and has no placement on this page; `D-60` recorded that **the exchange for a real skin does not exist at all**, and in-platform skin-for-skin exchange stays LATER by scope. **What is still true is the shape of the finding:** the live product answers what a person does with a skin they do not want, and this node answers only what they do with one they do want. **Open item, section 8, not a divergence.** And `History is empty...` with no route is the empty state `3.2` refuses. **The four tabs are four nodes on our map since `D-36`**, `5.1`, `5.9`, `5.10` and `5.11`, so the tab strip is not inherited either. |
 
 
+## Amended 30 September 2026 by `D-140`. The money pair is declared once, and a sale moves it
+
+**Why.** Round 15 of the critique found the header pair typed on 68 pages and three more times in the renderer, and a sale that printed its receipt over a balance that did not change.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| The header's balance moves the moment a sale lands | The two figures, never summed, `0.11` | **One declaration, `WF_MONEY` in `wireframes/_nav.js`**, read by the header and the account band; a page declares its own pair only where its state differs. **A sale adds to the balance and takes from the value held on every surface that shows them** |
+
+**Samples, `D-124`, marked here:** the balance 74.20 coins and the value held 140.95 coins, and the pair after a withdrawal request, 76.70 and 119.55.
+
+---
+
 ## Amended 29 September 2026 by `D-135`. Sell sells, and the acts stop covering the item
 
 **Why.** Round 14 of the critique found "Sell for coins" reloading the page and selling nothing, an idle press on the bar answering nothing, and the acts' dim laid over the name, the wear and the price at the moment of choosing.

@@ -22,6 +22,20 @@
 
 ---
 
+## Amended 30 September 2026 by `D-140`. Every tile opens its own round
+
+**Why.** Round 15 of the critique found all twelve tiles linking to one round, the AK's, and the tile's accessible name carrying weapon and skin only, against section 5's source, weapon, skin, rarity, winner.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A tile per win, opening that win | Target 1 lands on `7.1` | **Each tile opens the round it shows.** A tile from Ironbound reads its wear, rarity, value and ticket range from that case's drop table on `3.3`; the others carry their own. **The accessible name is source, weapon, skin, rarity and winner**, and a bot says so. The Vulcan was listed from Ironbound, whose table does not hold it, and is now a Warsteel drop |
+
+**Samples, `D-124`, marked here:** the eleven feed rounds other than the AK, their wear, rarity, value, ticket and the minutes before now they are dated; for the four other cases, values 15.10, 23.90, 1.90, 6.80, 38.20, 52.40, 3.60 and 1.40 coins.
+
+---
+
 ## Amended 29 September 2026 by `D-136`. The pause keeps its word
 
 **Why.** Round 14 of the critique found section 2's persistence and section 6's still target unimplemented, and the control reading Pause over a strip reduced motion had already stopped.

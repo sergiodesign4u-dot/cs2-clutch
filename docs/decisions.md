@@ -5540,3 +5540,28 @@ Three rows were owed and are closed here: `wireframes/CLAUDE.md` created, the st
 ### CLAUDE.md, 123 lines to 127
 
 Four statements later decisions had reversed were corrected: Home's mode cards, the switcher's nine options, two MVP orphans, thirteen round 1 surfaces. Two rules were generalised rather than added: the number rule gained the sample on a screen, and the Codex rule gained the substitute. Two lines were added: `wireframes/` stays grey, and every drawn control answers. Nothing was deleted, and the file has 73 lines of budget left.
+
+
+## D-140. Round 15, step 1: four answers from the founder, and the shared code stops making the same defect on every page
+
+**Date:** 2026-09-30. **Stage:** 04, reopened for critique after its close. **Decided by:** the founder, "так", on the merged raised set and the four recommendations. **Binds:** `wireframes/_nav.js`, `wireframes/_wf.css`, 70 wireframe pages, nodes `5.1` and `0.8`, and the steps of round 15 that follow.
+
+**What the founder said.** Yes, on the recommendation for all four questions and on starting with the shared code.
+
+### The four answers, carried by the steps that apply them
+
+1. **One main action per screen, with two named exceptions.** The outcome keeps two, `D-38`; responsible play keeps none, its node's section 2. Both are written into `conventions.md`, and every other page with two or more is brought to one.
+2. **The cases opened counter leaves `7.3`.** `5.10` refuses it as a score, and the same person's public page may not carry what their own page refuses.
+3. **Targets in the header reach 44 px.** `0.1` promises it and the money figures measured 18 to 22.
+4. **The two registers, `0.11` and `0.13`, get a baseline row**, as `0.12` already has.
+
+### Step 1: why the shared code first
+
+**Round 14 fixed canonical pages and the renderer made the defect again on their states.** One line in `_nav.js` produced about ten findings on its own: the round key stopped at the first digit, so `mp9`, `p250` and `m4` opened the AK.
+
+- **Every feed tile opens its own round**, and its accessible name carries source, weapon, skin, rarity and winner. The Vulcan was listed from Ironbound, whose table does not hold it.
+- **The money pair is declared once**, `WF_MONEY`. It was typed on 68 pages and three times in the renderer, and a sale now moves the header and the band.
+- **Home in the bar is the signed-in home**: the rewrite ran before the bar existed.
+- **Copy copies what is usable**: the full hash, the link with its round, and a refused copy says so.
+- **Controls stop lying**: the daily open refuses with its reason instead of being disabled; the inventory exits are no longer announced as unavailable; the footer headings stop reporting a collapse above 900; the 503 retry stops printing the device's clock beside the page's UTC; the + leaves pages where the money cannot be read; a page with a boundary in force carries no bonus badge; the language control's name stops denying its nine options, and settings says what the rail says.
+- **Process words leave the product surface**: "Image slot, stage 06" and "Code slot". The six social slots stop being links to `#` and both carriers draw one set.

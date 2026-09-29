@@ -163,6 +163,25 @@
   </div>
 </div>
 
+<section id="d140">
+  <div class="sec-head">
+    <h2>Updated after publication: The money pair is declared once, and a sale moves it, D-140</h2>
+    <p>30 September 2026. Round 15 of the critique found the header pair typed on 68 pages and three more times in the renderer, and a sale that printed its receipt over a balance that did not change.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Baseline row for this amendment</h4>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody>
+        <tr><td>The header's balance moves the moment a sale lands</td><td>The two figures, never summed, 0.11</td><td><strong>One declaration, WF_MONEY in wireframes/_nav.js</strong>, read by the header and the account band; a page declares its own pair only where its state differs. <strong>A sale adds to the balance and takes from the value held on every surface that shows them</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Samples, D-124, marked here:</strong> the balance 74.20 coins and the value held 140.95 coins, and the pair after a withdrawal request, 76.70 and 119.55.</p>
+</section>
+
 <section id="d135">
   <div class="sec-head">
     <h2>Updated after publication: Sell sells, and the acts stop covering the item, D-135</h2>
@@ -922,6 +941,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '5.1 Account and inventory';
 window.NAV_SECTIONS = [
   { id: 'overview', label: 'Overview' },
+  { id: 'd140', label: 'D-140 one money pair' },
   { id: 'd135', label: 'D-135 sell sells' },
   { id: 'd128', label: 'D-128, the baseline shape' },
   { id: 'bar119', label: 'D-119 the bar' },
