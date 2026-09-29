@@ -694,3 +694,19 @@
 | A3 | The five-roll outcome at 360: 56px cards, no names | A | **Partly fixed**: the sale control stacks inside its card. **The two-column layout the auditor proposes reverses `D-39`**, one row at every width, and is the founder's call |
 
 **Moved to their surface's step, not dropped:** favourites and the Home strip, A10, A11, A26, to step 2; the player cards, A33 to A35, to step 4 with the account's samples.
+
+### 14.4 Instrument D's set, in Codex's place, merged after step 1
+
+**43 rows.** They were read against a working tree that held step 1 uncommitted, so row 1.21, `D-132` cited before it was recorded, is **withdrawn on verification**: `D-132` was recorded in the same commit.
+
+| Class | Rows | Where it is taken |
+|---|---|---|
+| Contradiction between files | 21, two high: **one AK-47 Redline with four values and dates** across result, history, player, My items and Send to Steam; **Germany listed as a market we operate in**, which `markets.md` blocks | The AK at step 4 with the account's samples; Germany at step 6. The deposit route under a boundary at step 3. Stale node text at its surface's step |
+| CLAUDE.md out of date | 4: the Home mode cards "deferred" though `D-27` returned them; the switcher "one live option" though `D-42` draws nine; "one" MVP orphan though the favourite is a second; "twelve surfaces" without `7.3` | **The stage close**, where CLAUDE.md is edited only after the founder's go |
+| md and html drift | 3: `navigation.md`'s struck bar paragraph, a footer table the html has and the markdown does not, deposit's step 2 table | Step 5 for the shell, step 3 for the deposit |
+| Dead code | 5: two CSS classes, a gate click path nothing produces, three writes to nothing | Step 5 |
+| Node with no baseline row | 7 rows over 9 nodes: `0.6`, `0.14`, `0.5`, `2.7`, `0.7`, the two registers, and `7.1`, which step 1 gave one | At each node's step; the registers are asked of the founder |
+| Sample not marked | 6: the median withdrawal times, the daily tier target, the in-force limit, the legal version history, favourite counts, the settings markets | At their surfaces' steps |
+| State registry | 1: `screens.md` section 2 has no rows for 5.9, 5.10, 5.11 or 7.3, and 50 of 133 files appear nowhere in it | Step 5. **This also withdraws a round 13 claim:** 13.15 recorded "all 132 screens are in the registry and in `screens.md`", and the second half was never true |
+
+**Zero, and stated:** 37 654 local links and anchors, none broken; no em dash; no summed money, no scored limit, no destination in the header, no money in the bar.
