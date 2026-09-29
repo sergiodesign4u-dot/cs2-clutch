@@ -37,7 +37,7 @@
 | Nothing under the press |  | **Three one-line facts** in the form column: the withdrawal minimum, the crediting time, the deposit limit. Samples by `D-124`, `$5.00` and `2 minutes`; their real values stay open here. The fee reads "No provider fee on this route", also a sample |
 | Crypto: network, QR and address, rate, bonus, minimum, PREVIOUS and DONE | **That order** | The bonus line is back, lost with no verdict. Address, rate and minimum are samples, the rate being the baseline's own read |
 | Gift cards: six reseller accordions, six denominations each, BUY ON DIFMARK | **The accordions and the denominations** | The denominations are outbound links, samples by `D-124`, then the field that brings the code back |
-| CS:GO Skins, INSTANT | **The route** | **A pane of its own and an address, `deposit-skins.html`**: tick skins from the Steam inventory, see the sum, deposit. **No parent in the three legal classes**, carried by founder decision and printed here, the way `I2` and the cash out are |
+| CS:GO Skins, INSTANT | **The route** | **A pane of its own and an address, `deposit-skins.html`**: tick skins from the Steam inventory, see the sum, deposit. **The four skins and their values, 6.20, 4.90, 2.30 and 1.20 coins, and the 13.40 sum are samples**, `D-124`. **No parent in the three legal classes**, carried by founder decision and printed here, the way `I2` and the cash out are |
 
 ---
 

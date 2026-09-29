@@ -143,6 +143,16 @@
     .sw-chip { height: 46px; border-radius: 8px; border: 1px solid var(--border-strong); }
     .sw-name { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; color: var(--text-secondary); margin-top: 5px; }
     .sw-hex { font-family: 'SF Mono', Menlo, monospace; font-size: 10px; color: var(--text-muted); }
+    /* ---- round 13, before to after ---- */
+    .ba-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 12px 0 8px; }
+    .ba-pair--narrow { grid-template-columns: repeat(2, minmax(0, 300px)); }
+    .ba-pair figure { margin: 0; }
+    .ba-pair img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 8px; }
+    .ba-pair figcaption { font-size: 12px; color: var(--text-muted); margin-top: 6px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .st-fixed { color: var(--green); font-weight: 700; }
+    .st-named { color: var(--accent-blue); font-weight: 700; }
+    .st-wd { color: var(--text-muted); font-weight: 700; }
+    @media (max-width: 600px) { .ba-pair, .ba-pair--narrow { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -1109,7 +1119,6 @@
   </div>
 </section>
 
-</main>
 
 <section id="signin">
   <div class="sec-head">
@@ -2551,8 +2560,86 @@
 </section>
 
 
+<section id="round13">
+  <div class="sec-head">
+    <h2>Round 13, back towards the baseline: before and after</h2>
+    <p>26 to 29 September 2026, D-124 to D-131. The founder asked for the wireframes to come back towards daddyskins.com and to carry less. Claude with a browser and Codex read only, each set taken in full before the merge. The full log with a found-by column is <code>wireframes/docs/critique.md</code> section 13.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Measured over all 131 product pages</h4>
+    <p><strong>Words on screen: 170 915 before, 106 269 after, 38% fewer.</strong> <strong>Absence strings</strong> ("not available", "not published", [?]): <strong>1 455 before, 373 after</strong>, and the 373 now stand on degraded and system state pages, where D-124 puts the Missing state. The canonical render of every surface draws sample values, each marked as a sample in its node.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:30%">Class</th><th style="width:12%">Raised</th><th>What happened</th><th style="width:16%">Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Process residue on the product surface</strong></td><td>54 strings, 120+ quotes</td><td>Swept file by file under D-107, surface by surface, D-124 to D-130</td><td><span class="st-fixed">Fixed</span></td></tr>
+        <tr><td><strong>One claim repeated on one page</strong></td><td>21 groups</td><td>The peg, the proof promise and the bonus said once per surface</td><td><span class="st-fixed">Fixed</span></td></tr>
+        <tr><td><strong>Unnamed divergence from the baseline</strong></td><td>19</td><td>14 taken back at their surface's step; the Distributed drops legend kept out by a verdict, D-128; 4 kept with a verdict in the node, D-131</td><td><span class="st-fixed">Taken back</span> 14, <span class="st-named">named</span> 5</td></tr>
+        <tr><td><strong>Paragraph with no counterpart and no parent</strong></td><td>4</td><td>Moved into the node that owns the reasoning</td><td><span class="st-fixed">Fixed</span></td></tr>
+        <tr><td><strong>Verified contradiction between files</strong></td><td>8</td><td>All closed at step 1, D-124</td><td><span class="st-fixed">Fixed</span></td></tr>
+        <tr><td><strong>Owed to the founder</strong></td><td>4</td><td>Samples on the canonical render, Home's lower blocks as one row, the sticky pay row with the grid made whole, Make me anonymous as a toggle</td><td><span class="st-fixed">Decided and built</span></td></tr>
+        <tr><td><strong>Second pass, browser</strong></td><td>8</td><td>The page dock matching the dialog at 360, the Legal breadcrumb, the catalogue strip at 360, the Trustpilot line at 1440, a figure wrapping in the pay row, twelve IA pages scrolling sideways at 360, and this page's own sections running under the sidebar since D-54</td><td><span class="st-fixed">Fixed</span> 7, <span class="st-wd">withdrawn</span> 1</td></tr>
+        <tr><td><strong>Second pass, Codex</strong></td><td>10 rows, 145 selectors, 33 mirrors</td><td>A filter that did not filter, a period confirmed wrong, a worked example that did not compute, cash out unknowns on the canonical render, nine unmarked samples, a node page that contradicted its markdown, dead code</td><td><span class="st-fixed">Fixed</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>Withdrawn on verification, with the reason kept</h4>
+    <p><strong>Overlapping controls</strong> raised by the browser script: the favourite counter over each case tile is an absolute badge by design; the category chips sit under Search and Filters only inside their own clipped scroller; two inline links overlap because they are one sentence wrapping; the pay row covers what scrolls under it, which is what D-129 asked of it.</p>
+  </div>
+
+  <div class="card is-good">
+    <h4>Home, 1440: the baseline's order</h4>
+    <p>An argument for a hero, a trust box printing two absences and a clock with nothing in it, against the baseline's banner, one centred H1 over the mode cards and the cases straight after. <strong>At 360: 10 screens and 1 022 words before, 5.4 screens and 231 words after.</strong></p>
+    <div class="ba-pair">
+      <figure><img src="screens/r13_home-1440_before.png" alt="Before: Home at 1440" loading="lazy"><figcaption>Before, D-123</figcaption></figure>
+      <figure><img src="screens/r13_home-1440_after.png" alt="After: Home at 1440" loading="lazy"><figcaption>After, D-131</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="card is-good">
+    <h4>Case screen, 1440: everything under the stage is one renderer</h4>
+    <p>Twenty pages each carried a hand copy of the blocks under the stage. Now one renderer draws the skin prices box, best drops, the table as one grid, four figures, published against observed and two paragraphs. <strong>At 360: 10.4 screens and 1 458 words before, 7.4 and 582 after.</strong></p>
+    <div class="ba-pair">
+      <figure><img src="screens/r13_case-1440_before.png" alt="Before: Case screen at 1440" loading="lazy"><figcaption>Before, D-123</figcaption></figure>
+      <figure><img src="screens/r13_case-1440_after.png" alt="After: Case screen at 1440" loading="lazy"><figcaption>After, D-131</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="card is-good">
+    <h4>Deposit dialog, 1440: the grid made whole and Pay in view</h4>
+    <p>A rail of four method groups with a note on the register, the promo and the country as full rows, providers printed as not chosen and a receipt that said a fee is not published. After: the bonus, a promo question, the method, two provider tiles, the amount, three facts, and <strong>Pay at y 674 where it stood at 924</strong>.</p>
+    <div class="ba-pair">
+      <figure><img src="screens/r13_deposit-1440_before.png" alt="Before: Deposit dialog at 1440" loading="lazy"><figcaption>Before, D-123</figcaption></figure>
+      <figure><img src="screens/r13_deposit-1440_after.png" alt="After: Deposit dialog at 1440" loading="lazy"><figcaption>After, D-131</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="card is-good">
+    <h4>Settings, 1440: six dead switches go and one live one arrives</h4>
+    <p>Six rows of "No switch" for modes that do not exist, and explanations under every field. After: the fields with one line each, one Confirmations row that includes cash out, and Make me anonymous as the baseline's working toggle. <strong>At 360: 8.9 screens and 766 words before, 6 and 238 after.</strong></p>
+    <div class="ba-pair">
+      <figure><img src="screens/r13_settings-1440_before.png" alt="Before: Settings at 1440" loading="lazy"><figcaption>Before, D-123</figcaption></figure>
+      <figure><img src="screens/r13_settings-1440_after.png" alt="After: Settings at 1440" loading="lazy"><figcaption>After, D-131</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="card is-good">
+    <h4>Send to Steam, 360: the baseline's steps and one signed column</h4>
+    <p>"Withdraw to Steam", a Steam listing printed as [?], a balance column reading "42.40 more" beside a total of -42.40, and four paragraphs under the press. After: the baseline's H1 and numbered steps, a sample listing with each copy's distance from it, one sign in both places, one sentence, Cancel beside Send. <strong>5.8 screens and 489 words before, 4.7 and 238 after.</strong></p>
+    <div class="ba-pair ba-pair--narrow">
+      <figure><img src="screens/r13_withdraw-360_before.png" alt="Before: Send to Steam at 360" loading="lazy"><figcaption>Before, D-123</figcaption></figure>
+      <figure><img src="screens/r13_withdraw-360_after.png" alt="After: Send to Steam at 360" loading="lazy"><figcaption>After, D-131</figcaption></figure>
+    </div>
+  </div>
+</section>
 
 
+</main>
 
 <footer class="doc">
   <p>Sources of truth: <code>wireframes/docs/screens.md</code> and <code>wireframes/docs/conventions.md</code>. The screen registry: <code>wireframes/_nav.js</code>. The grey contract: <code>wireframes/_wf.css</code>.</p>
@@ -2623,6 +2710,7 @@ window.NAV_SECTIONS = [
   { id: 'marketisus',  label: 'D-92 the market is us' },
   { id: 'sevenpoints', label: 'D-93 seven points' },
   { id: 'review23',    label: 'D-82 screen review' },
+  { id: 'round13',     label: 'Round 13, before and after' },
 ];
 window.WF_BASE = '';
 window.WF_IA_BASE = '../ia/';

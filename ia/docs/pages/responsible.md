@@ -35,7 +35,7 @@
 | The live product | What we keep | What we change, and why |
 |---|---|---|
 | Breadcrumb on every page | **Home > Responsible play** | Missing until now, while section SEO required it |
-| Nothing |  | The four periods are selects with sample values: per week, 2 hours, 24 hours, 5 years. The tighten and loosen pair is said once. Help that is not ours names one sample service, Gambling Therapy, until the market list is confirmed |
+| Nothing |  | The four periods are selects with sample values: per week, 2 hours, 24 hours, 5 years. **The self exclusion end dates are samples too**, counted from the prototype's now, 21 Aug 2026 09:31: 21 Feb 2027, 21 Aug 2027 and 21 Aug 2031, the last one on the excluded state. The tighten and loosen pair is said once. Help that is not ours names one sample service, Gambling Therapy, until the market list is confirmed |
 
 ---
 

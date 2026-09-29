@@ -5213,7 +5213,7 @@ Node `0.2` section 2 recommended this figure for slot 2 in the first place, and 
 
 **Date:** 2026-09-26 and 27. **Stage:** 04. **Decided by:** the founder, on the merged critique of `wireframes/docs/critique.md` section 13. **Binds:** `ia/docs/pages/numbers.md` section 7, node `0.2`, node `1.0` section 2.5 rule 4, node `0.1` section 4, and every page in `wireframes/` through the shell.
 
-**What he said.** The wireframes are far from the original and carry too much information; compare everything with daddyskins.com, audit, keep the deposit as a dialog and improve it. Then, on the four questions the audit owed him: **better to draw the figures**; a sticky pay row, yes; Gift cards and CS2 skins back into the method grid, yes; **make Make me anonymous a real toggle in settings.** The fifth question, whether to collapse three blocks on Home into one row of figures, **he did not understand as asked**, so it is re-asked with a drawing at the Home step rather than answered here.
+**What the founder said.** The wireframes are far from the original and carry too much information; compare everything with daddyskins.com, audit, keep the deposit as a dialog and improve it. Then, on the four questions the audit owed him: **better to draw the figures**; a sticky pay row, yes; Gift cards and CS2 skins back into the method grid, yes; **make Make me anonymous a real toggle in settings.** The fifth question, whether to collapse three blocks on Home into one row of figures, **he did not understand as asked**, so it is re-asked with a drawing at the Home step rather than answered here.
 
 ### What the audit found, in one paragraph
 
@@ -5312,3 +5312,34 @@ Five instruments, Codex read only among them. **Home 1714 words against the base
 **Provably fair** draws its algorithm, a worked round and a version history as samples. **Responsible play** gets its breadcrumb, sample periods in real selects and one sample outside service. **Legal** gets a three line summary, short clause slots and its identification fields. **Support** gets its breadcrumb, one sample question per FAQ section, a 72 hour deadline on every state and an address. **Sign in** keeps two checkboxes and one never line, and the address drops three blocks built on unknowns. **The gate** says each verdict in four lines.
 
 **Every sample is marked in its node**, and every refusal that stood on a screen is kept there too.
+
+## D-131. The second pass closes round 13: the address gets the dialog's pay row, five contradictions close, and four divergences get a verdict
+
+**Date:** 2026-09-29. **Stage:** 04. **Decided by:** the founder, "давай как ти предлагаешь", on the proposal to finish the second pass with Codex before building the before to after section. **Binds:** nodes `4.1`, `3.1`, `6.1`, `1.2`, `5.1`, `0.10`, `0.2` and `0.8`, their pages, and `wireframes/_wf.css`.
+
+**What the founder said.** Do it as proposed, and if Codex is the problem, run it on another model. It was: the first run hit the usage limit of its default model, and the second ran read only on another one.
+
+### The address renders what the dialog renders
+
+**Below 900 the `/deposit` page kept the fixed dock of four figures, 290px of a 780 screen, while the dialog had been one sticky row since `D-129`.** `D-100` says the page and the dialog call one layer so that neither becomes the reduced one. **One rule now serves both:** what arrives and the press, in one row, sticky to the end of the form, on the mobile bar on the page and on the frame's edge in the dialog.
+
+### Five contradictions, each one a screen saying something its own control did not do
+
+- **The risk filter filters.** `D-127` made the boxes live and the press only closed the drawer, always reading "Show 12 cases". The count follows the boxes and the press hides the tiles outside the chosen bands.
+- **Self exclusion confirms the period in the select.** It showed 5 years and confirmed 30 days. The end dates are samples, and marked.
+- **The fair worked example computes.** Its hex did not equal the number printed beside it. It does now, on all six pages.
+- **The cash out sum draws samples, `D-124`.** A fee, a rate and a chain for Tether, each marked in `5.1`, where all three stay open with their owners. The press accepts, or refuses when what is ticked is worth less than the fee.
+- **The Legal breadcrumb has its separators**, which `D-130` wrote without the list they hang on.
+
+### Four divergences from the baseline get a verdict, and none of them reverses anything
+
+| Baseline | Verdict | Why |
+|---|---|---|
+| Footer links Contacts & Corporate Information, Counter-Strike Guides, Marketing Assets | **Not drawn** | The identification line and Contact support carry the first; the other two are content pages with no node, and a link to them is a carrier promising what the map does not hold |
+| The floating headset control, above 900 | **Not drawn** | Our support is a form answered in 72 hours, and a floating headset reads as live help |
+| BACK in the account band | **Not drawn** | The breadcrumb under it already goes back one level |
+| The ticker with no label, about 14 tiles | **Label and Pause stay; the count follows the width** | Content that moves on its own needs a way to stop it, `0.8` section 2 |
+
+### Housekeeping that changed no pixel
+
+**145 dead selector branches left `_wf.css`**, each confirmed by both instruments, and all 133 pages are pixel identical at 360 and 1440 before and after. **Four IA amendment sections and the bodies of `D-124` to `D-130` were rebuilt from their markdown**; they had been rendered at half their length or less. **Twelve IA pages stopped scrolling sideways at 360**, their new baseline tables wrapped like every other, **and `overview.html` closes its `main` where it should**, so the 38 sections after D-52 no longer run under the sidebar at 1440.

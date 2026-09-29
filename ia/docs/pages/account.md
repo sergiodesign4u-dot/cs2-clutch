@@ -29,7 +29,7 @@
 
 | The live product | What we keep | What we change, and why |
 |---|---|---|
-| BACK, breadcrumb, account band, four tabs | The band and the tabs | Unchanged. The visible H1 "My items" repeated the active tab and is kept for the outline only |
+| BACK, breadcrumb, account band, four tabs | The breadcrumb, the band and the tabs | **BACK is not drawn**, named in the second pass of round 13, `D-131`: the breadcrumb directly under it already leads back one level, and two back controls in one band is one too many. The visible H1 "My items" repeated the active tab and is kept for the outline only |
 | INVENTORY, "ONLINE ?" chip, "Click on the item to select" | The row | "Steam connected · Settings" and "Click an item to select it", the baseline's length |
 | Card: image, weapon, skin, wear, price, Starting at, Offers; actions on selection | **The card at rest** | **Share and the signed settlement line are revealed with the acts**, on hover, focus or selection, as the baseline reveals its item actions |
 | Idle bar: "55 ITEMS 35.91", SELECT ALL | **Totals of everything held when nothing is ticked** | It read "0 items, 0.00 coins" over a full grid. At 360 the idle bar is one row, and the four exits arrive with the first tick |

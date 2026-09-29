@@ -619,7 +619,7 @@
 
 ### 13.15 Second pass over everything the round touched, 29 September 2026
 
-**Instruments.** Claude with a browser walked all 133 wireframe pages at 360 and 1440, asserting no page error, no sideways scroll, nothing off screen, no clipped string and no overlapping controls, and then looked at 16 pages at 360 and 4 at 768 by eye. **Codex, read only, was given the 143 files the round changed and nine classes, and was cut off by its usage limit after 17 minutes, before it wrote its tables.** What it had stated in its progress messages is below, each row verified in the current file before anything was edited. **The pass is therefore not closed:** the Codex classes it did not report on are listed as pending, and it is rerun when the limit lifts.
+**Instruments.** Claude with a browser walked all 133 wireframe pages at 360 and 1440, asserting no page error, no sideways scroll, nothing off screen, no clipped string and no overlapping controls, and then looked at 16 pages at 360 and 4 at 768 by eye. **Codex, read only, was given the 143 files the round changed and nine classes, and was cut off by its usage limit after 17 minutes, before it wrote its tables.** What it had stated in its progress messages is rows 5 to 10, each verified in the current file before anything was edited. **Codex ran again the same night on a second model, read only, over the classes it had not reported**, and returned full tables: rows 11, 12 and 15 to 17. Every row was verified before its edit.
 
 | # | Finding | Found by | Class | Status |
 |---|---|---|---|---|
@@ -633,8 +633,18 @@
 | 8 | The cash out calculator, a canonical render, still printed three "not published yet" | Codex | Residue against `D-124` | Fixed: sample fee, rate and Tether chain, marked as samples in `5.1`; the press now accepts or refuses on the figures |
 | 9 | "This answer stays here for 12 months" on `support-answered.html` is a sample the node did not mark | Codex | Sample not marked | Fixed in `0.10` and its page |
 | 10 | `socialSet()` in `_nav.js` is never called | Codex | Dead code | Fixed: removed |
-| 11 | CSS selectors with no producer | Codex | Dead code | **Pending**: Codex named the class and was cut off before the list |
-| 12 | Drift in sample marking and in IA mirror content | Codex | Contradiction | **Pending**: named in progress, not itemised |
+| 11 | 145 selector branches in 144 rules of `_wf.css` that no page and no renderer can produce: the old clock, the trust box, the method grid, the pay rail, the country card, the settings route list and more | Codex, second run | Dead code | Fixed: removed only where a grep over every page and `_nav.js`, prefix concatenation included, agreed. 5539 lines to 5203. **All 133 pages at 360 and 1440 are pixel identical before and after** |
+| 12 | 33 places where an IA page or `decisions.html` carries less than its markdown: the amendment sections of `3.3`, `3.1`, `1.0` and `4.1`, and `D-124` to `D-130` rendered at 39 to 55% of their records where earlier records run near 90% | Codex, second run | md and html drift | Fixed: the four amendment sections and the seven decision bodies are rebuilt from their markdown |
+| 14 | Home at 1440: the Trustpilot line sat left of the centred H1, its paragraph capped at a reading width | Claude, browser | Breaks at 1440 | Fixed |
+| 15 | `ia/deposit.html` still said the standing bonus and its badge are refused, while `deposit.md` says both returned by `D-94` | Codex, second run | Contradiction | Fixed: the row is rebuilt from the markdown |
+| 16 | Eight samples unmarked in their nodes: the three self exclusion end dates, and the four skin values and their sum on the skins route | Codex, second run | Sample not marked | Fixed in `6.1` and `4.1` and their pages |
+| 17 | Four rows of 13.5 still had no verdict: the footer's Contacts, Guides and Marketing Assets links, the floating support control above 900, the account band's BACK, and the ticker's label and tile count | Claude, reading 13.5 against 13.8 to 13.14 | Unnamed divergence | Named, `D-131`: in `0.2`, `5.1` and a new baseline row on `0.8` |
+| 18 | Twelve IA node pages scrolled sideways at 360: the baseline row tables this round added sat outside the scroll wrapper every other table uses | Claude, browser, building the before to after section | Breaks at 360 | Fixed: wrapped |
+| 19 | `overview.html` closed its `main` after section D-52, so the 38 sections below it ran under the sidebar at 1440 from D-54 on | Claude, browser, same | Breaks at 1440 | Fixed: `main` closes before the footer |
 | 13 | Overlapping controls: the favourite counter over each case tile, the chips under Search and Filters, two wrapped inline links, the sticky pay row over the presets | Claude, browser | Overlap | **Withdrawn on verification**: the counter is an absolute badge by design, the chips are clipped by their own scroller, the links are one sentence wrapping, and the row covers what scrolls under it by `D-129` |
 
+**Zero findings, from the second run:** every state in a node's table has a file, and all 132 screens are in the registry and in `screens.md`, `overview.html` being the hub; no unnamed divergence introduced by this round; no residue string left on a canonical render.
+
 **Zero findings, stated by Codex before the cut:** `NAV_SECTIONS`, every id present and in DOM order; no em dash in the 143 files; 1 291 local links and anchors, all resolving; the support deadline, 72 hours, and its Missed by arithmetic, 3 d 4 h.
+
+**The pass is closed.** Raised 19 rows plus two classes at zero; 18 fixed or named, 1 withdrawn on verification with its reason.

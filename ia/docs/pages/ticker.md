@@ -14,6 +14,14 @@
 
 ---
 
+**Baseline row, `0.8`, written on 29 September 2026 in the second pass of round 13, `D-131`.** The node had none, and the rule in `CLAUDE.md` asks every node for one.
+
+| What the live product does | What we keep | What we change, and why |
+|---|---|---|
+| A strip under the header, full bleed, **no label**, about 14 tiles at 1440, moving on its own | The strip, its place under the header on every page, a tile per real win | **A label, "Live drops", and a Pause control with a text name**, section 2: content that moves on its own needs a way to stop it, and the pause is also the reduced motion answer. **The tile count follows the width**: the strip starts at the rail's edge, so at 1440 it holds about six, and it scrolls rather than shrinking tiles to fit fourteen |
+
+---
+
 ## 0.5 Amended 21 August 2026 by `D-59`. Every page, and two more destinations inside the tile
 
 **Founder decision.** The live feed goes on every page, the item image leads the tile, the source becomes an icon, and a hover layer carries the case and the winner with a destination each.

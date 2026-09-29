@@ -176,8 +176,7 @@ input, select, textarea {
    surface, which reads as two different kinds of missing thing. It is one kind: an area
    whose content arrives at stage 06. Stage 07 extracts components from these files, so
    two treatments here become two components there. */
-.wf-tile-art, .wf-item-art, .wf-banner-art, .wf-mode-art,
-.wf-ladder-art, .wf-logo-mark, .wf-rail-ico, .wf-fav-i, .wf-clock-v {
+.wf-tile-art, .wf-item-art, .wf-banner-art, .wf-mode-art, .wf-ladder-art, .wf-logo-mark, .wf-rail-ico, .wf-fav-i {
   background: var(--wf-surface);
   border: 1px dashed var(--wf-line-soft);
 }
@@ -186,7 +185,6 @@ input, select, textarea {
 .wf-stack > * + * { margin-top: var(--wf-s-2); }
 .wf-row { display: flex; gap: var(--wf-s-1); align-items: center; flex-wrap: wrap; }
 .wf-grid { display: grid; gap: var(--wf-s-2); grid-template-columns: 1fr 1fr; }
-.wf-pad { padding: var(--wf-s-2); }
 .wf-card {
   background: var(--wf-surface);
   border: 1px solid var(--wf-line-soft);
@@ -594,17 +592,8 @@ a.wfp-state:hover { color: var(--wf-ink); }
   min-height: 96px; background: var(--wf-surface);
   border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-3);
 }
-.wf-banner-clock { margin: var(--wf-s-1) 0 0; font-size: var(--wf-t-xs); }
-.wf-banner-clock p { margin: var(--wf-s-half) 0 0; font-size: var(--wf-t-xs); }
-.wf-clock { display: flex; gap: var(--wf-s-1); }
-.wf-clock-cell { display: flex; flex-direction: column; align-items: center; gap: 2px; }
 /* An empty value slot, reserving the height the figure will take. Not a dash and not a
    zero: 0.11 forbids both for a value nobody knows yet. */
-.wf-clock-v {
-  display: block; width: 34px; height: 22px;
-  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
-}
-.wf-clock-l { font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-faint); }
 .wf-banner-body { margin-top: var(--wf-s-1); }
 .wf-banner-line { font-size: var(--wf-t-m); line-height: 1.3; margin-bottom: var(--wf-s-1); }
 
@@ -634,14 +623,6 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-hero--short h1 { max-width: none; margin: 0; }
 .wf-hero--short .wf-hero-line { margin: var(--wf-s-half) 0 0; font-size: var(--wf-t-s); }
 .wf-sec--flush { padding-top: 0; }
-/* A5 is "the institutional trust unit" in the node's own words, and DANGER 1's locked
-   implication is a hybrid hero: the badge in the same hero unit rather than a section
-   further down. Two figures floating in an empty column is not a unit, it is two
-   figures. The box is what makes it one thing the eye can find. */
-.wf-hero-trust {
-  display: flex; flex-wrap: wrap; gap: var(--wf-s-3); margin-top: var(--wf-s-3);
-  padding: var(--wf-s-2); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
-}
 
 /* 0.7 The case tile. Four fields in D-24's order, two markers where true, one control.
    ONE CARD, NOT TWO OBJECTS. The border used to sit on the link, which left the
@@ -712,7 +693,6 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-fav-n { font-family: var(--wf-mono); color: var(--wf-ink-dim); }
 .wf-fav-i { width: 12px; height: 12px; border: 1px dashed var(--wf-line-soft); border-radius: 2px; }
 
-
 /* B5 the daily tier ladder, drawn as one panel: the two figures at the ends of a head
    row, the five tiers as one run, the control on its own line under them. Home only.
    A vertical run at 360px and never a horizontal scroll, home.md section 7. */
@@ -735,18 +715,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-ladder-art { flex: 0 0 32px; height: 24px; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1); }
 
 /* B6 the worked example. 0.6 skin card beside the four figures. */
-.wf-worked { display: flex; flex-wrap: wrap; gap: var(--wf-s-2); }
-.wf-item { flex: 1 1 260px; }
 .wf-item-art { display: block; height: 132px; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2); margin-bottom: var(--wf-s-1); }
-.wf-item-weapon { margin: 0; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
-.wf-item-skin { margin: 0 0 var(--wf-s-1); font-weight: 700; }
-.wf-item-axes { display: flex; flex-wrap: wrap; gap: var(--wf-s-half); margin: 0 0 var(--wf-s-1); padding: 0; list-style: none; }
-.wf-item-axes li { padding: 1px var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1); font-size: 10px; }
-.wf-item-figs { display: grid; grid-template-columns: auto 1fr; gap: 2px var(--wf-s-1); margin: 0 0 var(--wf-s-1); }
-.wf-item-figs dt { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
-.wf-item-figs dd { margin: 0; font-family: var(--wf-mono); font-size: var(--wf-t-s); }
-.wf-item-market { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); margin: 0; }
-.wf-worked .wf-stack { flex: 1 1 260px; }
 
 /* B10 prose sits at a readable measure, never full width, AND it is set below the
    argument blocks rather than beside them. It is the SEO layer, node 0.13, not the
@@ -1146,7 +1115,6 @@ a.wfp-state:hover { color: var(--wf-ink); }
      the art and the countdown slot in the far corner. */
   .wf-banner { position: relative; }
   .wf-banner-art { min-height: 0; aspect-ratio: 1000 / 220; }
-  .wf-banner-clock { position: absolute; top: var(--wf-s-2); right: var(--wf-s-2); margin: 0; text-align: right; }
   /* The line and the one control sit together at the foot of the art, centred, which
      is where the baseline puts JOIN EVENT. In the corner they read as a caption. */
   .wf-banner-body {
@@ -1160,7 +1128,6 @@ a.wfp-state:hover { color: var(--wf-ink); }
     display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
     gap: var(--wf-s-4); align-items: start;
   }
-  .wf-hero-trust { flex-direction: column; gap: var(--wf-s-2); margin-top: 0; }
 
   /* One horizontal run of five tiers, with the track behind them. The track is the
      thing that makes it a ladder rather than five boxes in a row. */
@@ -1335,21 +1302,6 @@ a.wfp-state:hover { color: var(--wf-ink); }
    1900px scroll, and the choice stops being a grid a person scans and becomes a
    list they read. Two columns at 140 fits inside 360 with the page gutters.
    ============================================================================ */
-/* PROMO AND COUNTRY SHARE ONE ROW FROM 600, D-97. Full width each they pushed
-   the grid to 777px on a 900px viewport, so a person opening the deposit screen
-   saw two form fields and a paragraph rather than the thing they came to choose
-   from. Measured before and after, and the measurement is the argument.
-   ONE COLUMN BELOW 600, because a label plus a field plus a button at 360 does
-   not share a line with anything. */
-.wf-pay-head { display: grid; gap: var(--wf-s-2); margin-bottom: var(--wf-s-2); }
-@media (min-width: 600px) { .wf-pay-head { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: end; } }
-.wf-pay-f { display: flex; flex-direction: column; gap: var(--wf-s-1); min-width: 0; }
-.wf-pay-f .wf-row { display: flex; gap: var(--wf-s-1); align-items: center; flex-wrap: nowrap; }
-/* THE BASIS GOES ON THE FIELD INSIDE THE ROW AND NEVER ON A COLUMN'S CHILD. It
-   shipped as flex: 1 1 200px on a child of a COLUMN, where flex-basis sets the
-   HEIGHT, and the country select came out 200px tall. */
-.wf-pay-f .wf-row > .wf-f { flex: 1 1 auto; min-width: 0; }
-.wf-pay-f > .wf-f { width: 100%; }
 /* THE COUNTRY IS A LINE AND NOT A FIELD, D-98, so it gets the height of the
    control beside it rather than the height of a paragraph: the two sit on one
    row from 600 and a short line floating in the middle of a 44px slot reads as a
@@ -1391,10 +1343,6 @@ a.wfp-state:hover { color: var(--wf-ink); }
    and it carries no lock: it looks like what it is, a card with a sentence on it
    saying the thing exists and does not open here. A dimmed tile invites a press. */
 .wf-pay-t.is-noroute { cursor: default; }
-.wf-pay-x {
-  font-size: var(--wf-t-xs); color: var(--wf-ink-faint);
-  text-align: left; margin-top: var(--wf-s-half);
-}
 
 /* THE BONUS BADGE, D-94. It sits ON the control rather than beside it, which is
    the baseline's own shape and the founder's reference: the offer and the way to
@@ -1480,7 +1428,6 @@ a.wfp-state:hover { color: var(--wf-ink); }
 
 /* The two visibility switches the header needs, and they are the only two in this
    file. A hidden caption is hidden, never deleted: it travels in the accessible name. */
-.wf-only-narrow { display: none; }
 .wf-avatar {
   display: inline-block; width: 20px; height: 20px; vertical-align: -4px;
   border: 1px dashed var(--wf-line-soft); border-radius: 50%; margin-right: var(--wf-s-1);
@@ -1517,8 +1464,6 @@ a.wfp-state:hover { color: var(--wf-ink); }
   .wf-money .wf-fig { gap: 0; }
   .wf-money .wf-fig-v { min-width: 0; }
   .wf-money .wf-fig-c { display: none; }
-  .wf-hide-narrow { display: none; }
-  .wf-only-narrow { display: inline; }
   .wf-header .wf-btn { padding: var(--wf-s-half); }
   .wf-dep { width: 36px; min-width: 36px; height: 36px; min-height: 36px; }
   .wf-menu { width: var(--wf-tap); min-width: var(--wf-tap); padding: 0; flex: 0 0 auto; }
@@ -1700,19 +1645,12 @@ a.wfp-state:hover { color: var(--wf-ink); }
   font-size: var(--wf-t-xs); color: var(--wf-ink);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
-/* The pair is one line and the value leads it: the value is what a person is looking
-   for and the chance is what stops the value being a promise. */
-.wf-show-f { display: flex; align-items: baseline; justify-content: space-between; gap: var(--wf-s-1); }
-.wf-show-v { font-family: var(--wf-mono); font-size: var(--wf-t-xs); color: var(--wf-ink); }
-.wf-show-c { font-size: 10px; color: var(--wf-ink-dim); white-space: nowrap; }
-.wf-show-route { margin: 0; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); text-align: center; }
 /* At a phone width the pair does not fit one line, and "47.30 coins" broken across two
    is a figure a person has to reassemble. The pair stacks instead: the unit stays,
    because a figure without its unit is 0.11 rule 1 broken to save a word. */
 @media (max-width: 599px) {
   .wf-show-i { flex-basis: 136px; }
   .wf-show-i .wf-item-art { height: 48px; }
-  .wf-show-f { flex-direction: column; align-items: flex-start; gap: 0; }
 }
 @keyframes wf-drift-x { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
 /* A drift a person cannot switch off is decoration with a job description. Section 7.3
@@ -1853,7 +1791,6 @@ a.wfp-state:hover { color: var(--wf-ink); }
 /* The single outcome fills the same frame the batch does, for the same reason. */
 .wf-won { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
 .wf-won > .wf-won-art { flex: 1 1 auto; }
-.wf-won-card .wf-won-v { font-size: var(--wf-t-m); }
 
 /* ONE ROW AT EVERY WIDTH, D-39, and it is carried all the way rather than kept for the
    widths where it is easy. N items sit in N columns at 360 exactly as they do at 1440.
@@ -1867,8 +1804,6 @@ a.wfp-state:hover { color: var(--wf-ink); }
    nothing else. The fields F1 owes moved to one receipt line per roll under the row. */
 .wf-won-grid { grid-template-columns: repeat(var(--wf-n, 1), minmax(0, 1fr)); }
 .wf-won-grid--2 { --wf-n: 2; }
-.wf-won-grid--3 { --wf-n: 3; }
-.wf-won-grid--4 { --wf-n: 4; }
 .wf-won-grid--5 { --wf-n: 5; }
 
 /* The card thins with its column instead of overflowing it. Below 900 the weapon name
@@ -1925,14 +1860,6 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-rolls li { margin-bottom: 2px; }
 .wf-rolls-l { margin: var(--wf-s-1) 0 0; width: 100%; text-align: left; }
 .wf-rolls b { font-family: var(--wf-mono); font-weight: 400; color: var(--wf-ink); }
-
-/* NODE 3.4. The card keeps every field it had and is NOT greyed out of legibility: its
-   value and its chance are inputs to whether the case is still worth opening. What marks
-   it is a border and a sentence, not an opacity. */
-.wf-drops tbody tr.wf-row-out { border-color: var(--wf-ink-faint); border-style: dashed; }
-.wf-out-tag { display: block; font-size: var(--wf-t-xs); color: var(--wf-ink); }
-.wf-out-n { font-family: var(--wf-mono); }
-.wf-drops tbody tr.wf-row-out .wf-item-art { border-style: dashed; }
 
 /* 0.14 variant V1 at the spin trigger, pre-roll. It never interrupts, never modals and
    never asks. Section 14: it truncates in the MIDDLE and keeps its copy control, and it
@@ -2367,12 +2294,6 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 .wf-auth-blk > h2, .wf-auth-blk > h3 { font-size: var(--wf-t-m); font-weight: 600; }
 .wf-auth-lede { font-size: var(--wf-t-s); color: var(--wf-ink-dim); line-height: 1.5; }
 
-/* BLOCK 1. One line, one button, and the button is inert until block 2 is done.
-   The node fixes this order and section 8 fixes that the order never changes, so
-   the reason arrives directly under the control rather than before it, and both
-   are above the fold at 360 by requirement rather than by luck. */
-.wf-auth-go { width: 100%; }
-
 /* BLOCK 2. THE CONSENT GATE, D-26. Two declarations and not one, because one
    checkbox bundles a contract consent with an age declaration and a person who
    ticks it to get past it has made one gesture that answered two questions.
@@ -2418,46 +2339,12 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 
 /* BLOCK 3. THE TWO LISTS. This is the block the node exists for, so it is on the
    surface: not behind a link, not in a second modal, not in the terms. */
-.wf-lists { display: grid; grid-template-columns: 1fr; gap: var(--wf-s-2); }
 @container auth (min-width: 520px) { .wf-lists { grid-template-columns: 1fr 1fr; } }
-.wf-list-c {
-  display: flex; flex-direction: column; gap: var(--wf-s-1);
-  padding: var(--wf-s-2);
-  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
-}
-.wf-list-c > h3 { font-size: var(--wf-t-s); font-weight: 600; }
-.wf-list-c ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--wf-s-1); }
-.wf-list-c li { font-size: var(--wf-t-xs); line-height: 1.5; color: var(--wf-ink-dim); padding-left: var(--wf-s-2); position: relative; }
-.wf-list-c li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 1px; background: var(--wf-line); }
-.wf-list-c li b { color: var(--wf-ink); font-weight: 600; }
-.wf-list-c--no li::before { top: 4px; height: 6px; width: 6px; border: 1px solid var(--wf-line); background: none; border-radius: 50%; }
 
 /* BLOCK 4. THE ROUND TRIP, DESCRIBED BEFORE IT STARTS, because it is the one
    confusing step Related Job 2 forbids and the only thing this node can do about
    it is make it predictable. Three steps, one line. */
-.wf-steps { display: grid; grid-template-columns: 1fr; gap: var(--wf-s-1); counter-reset: st; }
 @container auth (min-width: 520px) { .wf-steps { grid-template-columns: repeat(3, 1fr); } }
-.wf-step {
-  display: flex; gap: var(--wf-s-1); align-items: flex-start;
-  font-size: var(--wf-t-xs); line-height: 1.45; color: var(--wf-ink-dim);
-}
-.wf-step::before {
-  counter-increment: st; content: counter(st);
-  flex: 0 0 18px; height: 18px; border: 1px solid var(--wf-line-soft); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center; color: var(--wf-ink);
-}
-.wf-step b { color: var(--wf-ink); font-weight: 600; }
-
-/* BLOCK 5. THE STARTER CREDIT AND THE CONSTRAINT IT DOES NOT GET TO SOFTEN.
-   C4: the sum required to withdraw is stated before the deposit and can never
-   rise. If the credit is named here its threshold is named in the same block. */
-.wf-offer {
-  display: flex; flex-direction: column; gap: var(--wf-s-half);
-  padding: var(--wf-s-2);
-  border: 1px dashed var(--wf-line); border-radius: var(--wf-r-2);
-  font-size: var(--wf-t-xs); line-height: 1.5; color: var(--wf-ink-dim);
-}
-.wf-offer b { color: var(--wf-ink); font-weight: 600; }
 
 /* THE FAILURE BLOCK, 2.5 AND 2.6. It replaces blocks 1 and 3 IN PLACE and keeps
    block 2 visible, because the moment a sign in fails is exactly when a person
@@ -2557,12 +2444,9 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 /* THE FOUR ABSOLUTE LINES, D-56. The half of the statement that is finished:
    the "will read" side is still [?] and a list of unknowns is not a statement,
    so it stays at the address until production fills it. */
-.wf-never { display: flex; flex-direction: column; gap: var(--wf-s-half); }
-.wf-never-h { font-size: var(--wf-t-xs); letter-spacing: 0.1em; text-transform: uppercase; color: var(--wf-ink-faint); }
 .wf-never-l { font-size: var(--wf-t-xs); line-height: 1.5; color: var(--wf-ink-dim); padding-left: var(--wf-s-2); position: relative; }
 .wf-never-l::before { content: ''; position: absolute; left: 0; top: 5px; width: 6px; height: 6px; border: 1px solid var(--wf-line); border-radius: 50%; }
 .wf-never-l b { color: var(--wf-ink); font-weight: 600; }
-.wf-dlg-more { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); text-align: center; }
 
 /* THE TWO SHAPES OF THE DIALOG, AND THEY SIT HERE ON PURPOSE, D-57.
    Every rule they have to beat is written above them. Put earlier in the file,
@@ -2583,7 +2467,7 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
      interrupt in one product is two components at stage 07. */
   .wf-dlg--plain { display: flex; max-width: 520px; }
   .wf-dlg-art { height: auto; flex: none; border-bottom: 0; border-right: 1px solid var(--wf-line-soft); }
-  .wf-dlg-h, .wf-dlg-sub, .wf-prov-cost, .wf-dlg-more { text-align: left; }
+  .wf-dlg-h, .wf-dlg-sub, .wf-prov-cost { text-align: left; }
 }
 @media (max-width: 599px) {
   /* AT 360 IT IS A FULL HEIGHT SHEET AND NOT A CENTRED CARD, D-54 section 0.9.8:
@@ -2722,7 +2606,6 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 .wf-feed-whol { color: var(--wf-ink); text-decoration: underline; }
 .wf-feed-bot { font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-faint); }
 
-
 /* ---------------------------------------------------------------------------
    NODE 3.1, THE CASE CATALOGUE, and its state 3.2. Drawn 21 August 2026.
    Nothing in this block reports stock: D-60 took the free-unit count off the
@@ -2730,20 +2613,10 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
    shelf here narrows by price, by search and by category and never by supply.
    --------------------------------------------------------------------------- */
 
-/* Blocks 2 to 5 are one control region above the grid. They are drawn as one
-   region because they are read as one question, "narrow this to what I want",
-   and because the chips in block 4 are the route out of 3.2 and have to sit
-   beside the controls that produced them rather than under a heading of their
-   own. */
-.wf-shelf { display: flex; flex-direction: column; gap: var(--wf-s-2); }
-
 /* Block 2. The search field and the filter control on one row. The filter
    control carries an ACTIVE COUNT BADGE, bank T2 TAKE from Hellcase: a filter
    control that does not say how many filters are on is a control a person has
    to open to read. */
-.wf-find { display: flex; gap: var(--wf-s-1); align-items: stretch; flex-wrap: wrap; }
-.wf-find-f { flex: 1 1 200px; min-width: 0; }
-.wf-find-f input { min-width: 0; }
 .wf-badge {
   display: inline-flex; align-items: center; justify-content: center;
   min-width: 20px; height: 20px; padding: 0 var(--wf-s-half);
@@ -2759,7 +2632,6 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
    with invented taxonomy: CLAUDE.md, unknown is [?], and 0.11 rule 3, missing
    is a state and never a placeholder. The same treatment Home gives the
    promotion countdown, which reserves its cells and prints no number. */
-.wf-cats { display: flex; gap: var(--wf-s-1); align-items: center; flex-wrap: wrap; }
 .wf-cat {
   min-height: 32px; padding: var(--wf-s-half) var(--wf-s-2);
   font-size: var(--wf-t-s); color: var(--wf-ink);
@@ -2790,11 +2662,6 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 /* Block 7. The end of the list. Pagination as crawlable <a>, 0.13 section 8,
    and a visible end, which is what 3.2 needs so the shelf has a bottom. */
 .wf-pager { display: flex; gap: var(--wf-s-1); align-items: center; flex-wrap: wrap; }
-.wf-pager-end {
-  font-size: var(--wf-t-xs); color: var(--wf-ink-faint);
-  text-align: center; padding-top: var(--wf-s-2);
-  border-top: 1px dashed var(--wf-line-soft); margin-top: var(--wf-s-2);
-}
 
 /* The loading state. A GRID SKELETON AND NOT A SPINNER, and what it waits on
    changed with D-60: it was the live free-unit counts, and the only per-read
@@ -2816,9 +2683,6 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 /* Responsive last, after everything above that it overrides. Convention 2 in
    wireframes/docs/conventions.md, written after this file was beaten by a flat
    rule four times. */
-@media (min-width: 600px) {
-  .wf-find-f { flex: 1 1 320px; }
-}
 @media (min-width: 900px) {
   /* The shelf grid is denser than Home's featured grid: same field set, more of
      them, 0.7 section 4. Home stays at four across. */
@@ -2827,7 +2691,6 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 @media (min-width: 1200px) {
   .wf-grid--shelf { grid-template-columns: repeat(5, 1fr); }
 }
-
 
 /* ---------------------------------------------------------------------------
    NODE 3.1 SECOND PASS, D-65. THE SHELF TAKES THE BASELINE'S SHAPE.
@@ -2952,7 +2815,6 @@ select {
    who has scrolled the panel has the escape below the fold. */
 .wf-drawer-head .wf-row { gap: var(--wf-s-1); }
 
-
 /* ---------------------------------------------------------------------------
    NODE 7.1, THE PUBLIC RESULT, and its state 7.2. Drawn 21 August 2026.
    THE SURFACE THAT TRAVELS FURTHEST AND THE ONE A STRANGER MEETS FIRST. It
@@ -3058,7 +2920,6 @@ select {
   .wf-result-art { aspect-ratio: 21 / 9; max-height: 320px; }
 }
 
-
 /* ---------------------------------------------------------------------------
    NODE 2.1, THE GEO GATE, and its state 2.2. Drawn 21 August 2026.
    IT IS THE ONE SURFACE THAT ARRIVES UNINVITED, in the middle of somebody
@@ -3090,11 +2951,6 @@ select {
 .wf-gate-p { margin: 0; color: var(--wf-ink-dim); }
 /* THE GROUND IS A SENTENCE A PERSON CAN ACT ON, never a statute number standing
    alone: the instrument lives in the register and the person gets the reading. */
-.wf-ground {
-  margin: 0; padding: var(--wf-s-2);
-  border-left: 2px solid var(--wf-line); background: var(--wf-surface);
-  border-radius: 0 var(--wf-r-2) var(--wf-r-2) 0;
-}
 .wf-gate-open { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
 .wf-gate-acts { display: flex; gap: var(--wf-s-1); flex-wrap: wrap; }
 /* A STAGED MARKET STATES ITS LIMIT IN WORDS AND WHAT CHANGES IT. The limit comes
@@ -3105,7 +2961,6 @@ select {
 }
 .wf-limit-h { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
 
-
 /* ---------------------------------------------------------------------------
    NODE 5.1, ACCOUNT AND INVENTORY, and its state 5.2. Drawn 21 August 2026.
    THE PAGE IS BUILT AROUND ONE LINE OF THE BACKLOG: the receipt stays on the
@@ -3115,23 +2970,9 @@ select {
    than a display.
    --------------------------------------------------------------------------- */
 
-/* Block 1. Account state, one line. A STATEMENT OF A FACT RESOLVED EARLIER and
-   never a task raised here: B8-4 is the verification ambush at the exit, and
-   the way to not ambush somebody is to have answered it before they arrived. */
-.wf-acct-state {
-  display: flex; align-items: center; gap: var(--wf-s-1);
-  font-size: var(--wf-t-s); color: var(--wf-ink-dim);
-}
-
 /* Blocks 2 and 3 sit in a summary column beside the list from 900, and above it
    below that. Same order in both, because the order is the barrier order. */
 .wf-inv { display: flex; flex-direction: column; gap: var(--wf-s-3); }
-.wf-inv-sum { display: flex; flex-direction: column; gap: var(--wf-s-2); }
-/* The two money figures, NEVER SUMMED AND NEVER A SCORE. Same pair the header
-   carries, and 0.1's rule travels with them. */
-.wf-inv-money { display: flex; flex-direction: column; gap: var(--wf-s-2); }
-.wf-limits { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-half); }
-.wf-limits li { font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
 
 /* Block 4. The held item, 0.6 in its inventory context. */
 /* ============================================================================
@@ -3381,7 +3222,6 @@ select {
   color: var(--wf-ink); background: var(--wf-raised);
   border-color: var(--wf-ink-dim); font-weight: 700;
 }
-.wf-sort-say { margin: 0; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
 .wf-inv-limits { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
 
 /* ============================================================================
@@ -3468,8 +3308,6 @@ select {
 }
 @media (min-width: 900px) { .wf-invbar-acts { margin-left: auto; } }
 .wf-invbar.is-idle .wf-invbar-acts .wf-btn { opacity: 0.45; pointer-events: none; }
-.wf-invbar-say { margin: 0; width: 100%; font-size: var(--wf-t-xs); color: var(--wf-ink-faint); }
-.wf-invbar:not(.is-idle) .wf-invbar-say { display: none; }
 
 /* ONE COLUMN AT 360 AND THE BASELINE RUNS TWO, and the reason is D-52: a button
    label never wraps. Their five actions are unlabelled circles, so two columns cost
@@ -3607,7 +3445,7 @@ select {
 }
 /* THE CHOSEN ONE IS DRAWN AND NOT ONLY CHECKED, because a radio 130px away from
    the price it selects is a state a person has to go and find. */
-.wf-off.is-picked, .wf-off:has(.wf-off-r:checked) { border-color: var(--wf-ink); border-width: 2px; padding: calc(var(--wf-s-1) - 1px); }
+.wf-off:has(.wf-off-r:checked) { border-color: var(--wf-ink); border-width: 2px; padding: calc(var(--wf-s-1) - 1px); }
 /* THE RADIO IS 16px AND SAYS SO. Left to the browser it renders at whatever the
    platform's default is, which on this card is a 34px circle above a 4px wear
    bar, and the control ends up larger than everything it is choosing between. */
@@ -3672,9 +3510,6 @@ select {
 }
 
 /* Responsive last, after everything above that it overrides. */
-@media (min-width: 600px) {
-  .wf-grid--held { grid-template-columns: repeat(2, 1fr); }
-}
 @media (min-width: 900px) {
   /* The money and the way out are held BESIDE the list rather than above it,
      so the first screen carries the state, the money, the exit and an item.
@@ -3686,10 +3521,6 @@ select {
      carries, and wrapped one button in three paragraphs beside a grid that had no
      room. The grid takes the full column and the actions live in the bar. */
 }
-@media (min-width: 1200px) {
-  .wf-grid--held { grid-template-columns: repeat(3, 1fr); }
-}
-
 
 /* ---------------------------------------------------------------------------
    NODE 1.2, PROVABLY FAIR, and its states 1.3 and 1.4. Drawn 21 August 2026.
@@ -3764,7 +3595,6 @@ select {
   .wf-scope-two { grid-template-columns: 1fr 1fr; }
   .wf-vpair { grid-template-columns: 1fr 1fr; }
 }
-
 
 /* ---------------------------------------------------------------------------
    NODE 5.3, WITHDRAWAL, and its states 5.4 to 5.8. Drawn 21 August 2026.
@@ -3855,7 +3685,6 @@ select {
 .wf-wd { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--wf-s-3); align-items: start; }
 @media (min-width: 900px) {
   .wf-wd { grid-template-columns: minmax(0, 1fr) 300px; gap: var(--wf-s-4); }
-  .wf-wd-side { position: sticky; top: var(--wf-s-2); }
   /* THE BASKET TAKES THE WHOLE WIDTH, D-111. The two column form gives the main
      column 612px, and inside it a 200px skin card leaves 354 for the offers,
      which is two and a half cards of a strip whose whole job is to be compared
@@ -3863,9 +3692,7 @@ select {
      four short lines and it is the one thing on this page that does not need to
      be read while something else is being chosen. */
   .wf-wd--wide { grid-template-columns: minmax(0, 1fr); }
-  .wf-wd--wide .wf-wd-side { position: static; }
 }
-
 
 /* ---------------------------------------------------------------------------
    NODE 4.1, DEPOSIT, and its states 4.2 to 4.5. Drawn 22 August 2026.
@@ -3906,28 +3733,12 @@ select {
 }
 /* The converted figure. NEVER AN INPUT, and it carries the same missing-figure
    treatment as every other unpublished number rather than a plausible one. */
-.wf-conv {
-  padding: var(--wf-s-2); border: 1px dashed var(--wf-line-soft);
-  border-radius: var(--wf-r-2); display: flex; flex-direction: column; gap: 2px;
-}
 .wf-presets { display: flex; flex-wrap: wrap; gap: var(--wf-s-1); }
 
 /* THE CEILING FORM IS GONE FROM THIS NODE, D-103. Its blocks 3 and its asymmetry
    list were the deposit's own copy of a control node 6.1 already carries, and the
    founder moved the setting there. The rules are deleted rather than left unused: a
    class no markup writes is the next collision waiting for a name. */
-
-/* Block 6. Method cards, WITH THE EMPTY STATE AS THE DEFAULT COMPOSITION rather
-   than as a fallback: a screen designed for the returning depositor and patched
-   for the first one puts its worst layout in front of the person with the least
-   reason to trust it. */
-.wf-meth { display: grid; gap: var(--wf-s-2); grid-template-columns: 1fr; }
-.wf-meth-c {
-  padding: var(--wf-s-2); border: 1px solid var(--wf-line-soft);
-  border-radius: var(--wf-r-2); display: flex; flex-direction: column; gap: var(--wf-s-half);
-}
-.wf-meth-c--slot { border-style: dashed; }
-.wf-meth-x { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
 
 /* Block 8. THE PERSISTENT SUMMARY. Docked from the moment an amount exists, and
    LAST IN THE DOCUMENT so that a person reading linearly meets the summary after
@@ -3976,9 +3787,6 @@ select {
 .wf-open-list li { display: flex; flex-direction: column; gap: 2px; }
 
 /* Responsive last, after everything above that it overrides. */
-@media (min-width: 600px) {
-  .wf-meth { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
 @media (min-width: 900px) {
   /* Two columns. The block order does not change, because it comes from the
      sequence of the decision rather than from the space available. */
@@ -3992,7 +3800,6 @@ select {
   }
   .wf-screen-body:has(.wf-dock) { padding-bottom: 0; }
 }
-
 
 /* ---------------------------------------------------------------------------
    NODE 6.1, RESPONSIBLE PLAY, and its states 6.2 and 6.3. Drawn 22 August 2026.
@@ -4087,7 +3894,6 @@ select {
    nothing happen" is a place on the screen, not only a sentence about a place. */
 .wf-set.is-marked { outline: 2px dashed var(--wf-ink-dim); outline-offset: 6px; }
 
-
 /* ---------------------------------------------------------------------------
    NODE 0.10, SUPPORT AND APPEALS, and its eight states. Drawn 22 August 2026.
    NOT A HELP PAGE WITH A CONTACT FORM AT THE BOTTOM. The three reviews under
@@ -4163,7 +3969,6 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
 }
 .wf-tick-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--wf-s-2); }
 .wf-tick-k { font-size: var(--wf-t-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
-.wf-tick-v { font-family: var(--wf-mono); }
 /* THE MISSED DEADLINE IS NOT A COLOUR ALONE. Every state on this page is named
    in words first, and the grey contract has no red to spend anyway. */
 .wf-tick--late { border-style: dashed; }
@@ -4190,7 +3995,6 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
 @media (min-width: 900px) {
   .wf-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-
 
 /* ---------------------------------------------------------------------------
    NODE 0.9, LEGAL AND POLICY, and its four states. Drawn 22 August 2026.
@@ -4282,7 +4086,6 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
   .wf-toc-wrap { position: sticky; top: var(--wf-s-2); }
   .wf-ident { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
-
 
 /* ---------------------------------------------------------------------------
    NODE 5.9, ROLL HISTORY, and node 5.10, PROFILE. Drawn 22 August 2026, and
@@ -4429,21 +4232,6 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
 }
 .wf-roll--bad { outline: 1px dashed var(--wf-line); outline-offset: 6px; }
 
-/* NODE 5.10. Five short blocks in one column at every width. Five short blocks
-   in two columns is a dashboard, and this page is a record. */
-.wf-prof { display: flex; flex-direction: column; gap: var(--wf-s-4); max-width: 640px; }
-.wf-prof-band { display: flex; align-items: center; gap: var(--wf-s-3); }
-/* The avatar is decorative and its accessible name is empty, because the display
-   name is beside it as text. An avatar with the name in its alt text is the name
-   announced twice. */
-.wf-prof-av {
-  flex: 0 0 auto; width: 64px; height: 64px;
-  border: 1px dashed var(--wf-line-soft); border-radius: 50%;
-}
-.wf-prof-n { display: flex; flex-direction: column; gap: 2px; }
-.wf-prof-name { font-size: var(--wf-t-l); font-weight: 700; }
-.wf-prof-f { display: flex; flex-direction: column; gap: var(--wf-s-half); }
-
 /* Responsive last, after everything above that it overrides. */
 @media (min-width: 900px) {
 }
@@ -4489,25 +4277,6 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
 .wf-sys-head h1 { margin: 0; font-size: var(--wf-t-xl); line-height: 1.15; }
 .wf-sys-sub { margin: 0; color: var(--wf-ink-dim); max-width: 52ch; }
 
-/* THE RESPONSE, DRAWN. Three facts a person can read and a machine already has:
-   the status this page was served with, the address it was served AT, and on a
-   503 the Retry-After it published. The address matters as much as the status:
-   the response renders at the address that was requested, because a redirect to
-   /404 answers the request somewhere else and takes the mistyped address out of
-   the browser bar along with any chance of correcting it. */
-.wf-resp {
-  display: flex; flex-direction: column; gap: var(--wf-s-1);
-  padding: var(--wf-s-2); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
-  background: var(--wf-surface);
-}
-.wf-resp-r { display: flex; flex-wrap: wrap; gap: var(--wf-s-half) var(--wf-s-2); align-items: baseline; }
-.wf-resp-k {
-  flex: 0 0 128px; font-size: var(--wf-t-xs); letter-spacing: 0.08em;
-  text-transform: uppercase; color: var(--wf-ink-dim);
-}
-.wf-resp-v { font-family: var(--wf-mono); font-size: var(--wf-t-s); overflow-wrap: anywhere; min-width: 0; }
-.wf-resp-say { margin: 0; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
-
 /* ATTRIBUTION. The withdrawal clock's rule at the scale of the whole product: a
    wait with no owner is the pattern of 6 that made T8 the floor of the As-Is map.
    On a 500 and a 503 the owner is always us, and the page says so in words. */
@@ -4536,21 +4305,6 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
 .wf-retry { display: flex; flex-direction: column; gap: var(--wf-s-1); }
 .wf-retry-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--wf-s-2); }
 .wf-retry-say { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); min-height: 1.4em; }
-
-/* THE SEARCH, AND IT IS THE BLOCK SKIN.CLUB LACKS. It answers the arrival that
-   knows what it wanted. Absent on 500 and 503, because search needs the backend
-   that is down, and that absence is stated on those pages rather than left as a
-   gap. NOT AUTOFOCUSED: autofocus jumps a screen reader past the statement, which
-   is the one sentence the page exists to deliver. */
-.wf-sys-find { display: flex; flex-direction: column; gap: var(--wf-s-2); }
-.wf-hits { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-1); }
-.wf-hit {
-  display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--wf-s-1) var(--wf-s-2);
-  padding: var(--wf-s-1) var(--wf-s-2); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1);
-  min-height: var(--wf-tap);
-}
-.wf-hit-n { font-size: var(--wf-t-m); }
-.wf-hit-k { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
 
 /* QUICK LINKS ARE A STACKED LIST AND NEVER A TILE GRID. Two tiles side by side at
    360px is how the label of the longer destination gets truncated, and a
@@ -4714,12 +4468,6 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
    paragraph is not that case, and every one of the three was standalone.
    EXPANDED AS A HIT AREA RATHER THAN AS A BOX, D-77's shape: nothing on the row
    moves and the target is the size it claims to be. */
-.wf-linktap { position: relative; }
-.wf-linktap::before {
-  content: ''; position: absolute; left: 50%; top: 50%;
-  transform: translate(-50%, -50%);
-  width: max(100%, var(--wf-tap)); height: var(--wf-tap);
-}
 .wf-ck-more a, .wf-cfg-f a { position: relative; }
 .wf-ck-more a::before, .wf-cfg-f a::before {
   content: ''; position: absolute; left: 50%; top: 50%;
@@ -4741,7 +4489,7 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
   .wf-cfg { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: var(--wf-s-4); }
 }
 .wf-cfg-col { display: flex; flex-direction: column; gap: var(--wf-s-4); min-width: 0; }
-.wf-cfg-b, .wf-cfg-hole { max-width: 60ch; }
+.wf-cfg-b { max-width: 60ch; }
 /* THE GROUP IS A CARD WITH ITS NAME ON IT, which is what makes fourteen rows read
    as four things rather than as a list. The baseline groups by General, Security,
    Linked profiles and Notifications and the grouping is the part worth inheriting. */
@@ -4768,12 +4516,7 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
    the cookie node's strictly necessary row arriving a second time for the same
    reason: a disabled switch that cannot move is theatre. The row says what it
    covers and why it takes no answer. */
-.wf-cfg-fixed { display: flex; flex-direction: column; gap: 2px; }
-.wf-cfg-fixed-k { font-size: var(--wf-t-s); }
-.wf-cfg-later { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-half); }
-.wf-cfg-later li { font-size: var(--wf-t-xs); color: var(--wf-ink-faint); }
 .wf-cfg-b { display: flex; flex-direction: column; gap: var(--wf-s-2); }
-.wf-cfg-h { margin: 0; font-size: var(--wf-t-l); }
 .wf-cfg-p { margin: 0; color: var(--wf-ink-dim); max-width: 60ch; font-size: var(--wf-t-s); }
 /* A REAL LABEL, NEVER A PLACEHOLDER DOING ITS JOB: a placeholder disappears the
    moment somebody types, which is the moment they most need to know what the
@@ -4804,20 +4547,6 @@ textarea.wf-cfg-in { min-height: 0; }
   border-left: 2px solid var(--wf-line); font-size: var(--wf-t-s);
 }
 .wf-cfg-in.is-bad { border-color: var(--wf-ink); }
-/* THE ABSENCE IS RENDERED, NOT OMITTED. B2 is a control this node will not draw
-   because drawing it would decide a question two published nodes are waiting on,
-   and an absence nobody can see is indistinguishable from one nobody noticed. */
-.wf-cfg-hole {
-  display: flex; flex-direction: column; gap: var(--wf-s-1);
-  padding: var(--wf-s-2); border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2);
-}
-/* B3 IS A ROUTE LIST AND NEVER A CONTROL LIST. A control here would make this
-   page the second home for something that already has one, which is the defect
-   the whole node is built to avoid. */
-.wf-cfg-routes { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-1); }
-.wf-cfg-routes li { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--wf-s-half) var(--wf-s-2); font-size: var(--wf-t-s); }
-.wf-cfg-routes a { min-height: var(--wf-tap); display: inline-flex; align-items: center; }
-.wf-cfg-where { color: var(--wf-ink-dim); }
 
 /* ============================================================================
    NODE 5.10, PROFILE. THE BASELINE'S SHAPE, D-87. acct_profile_daily.png, the
@@ -4989,13 +4718,6 @@ textarea.wf-cfg-in { min-height: 0; }
    what the wrapper is for, and the page still does not. */
 .wf-table td.wf-hnum { white-space: nowrap; }
 .wf-hnote { display: block; margin-top: 2px; font-size: var(--wf-t-xs); color: var(--wf-ink-dim); white-space: normal; }
-/* THE FOURTH TAB HAS NO SUBJECT ON OUR MAP AND THE PANEL SAYS SO IN FULL,
-   rather than printing the baseline's "History is empty..." which is the
-   pattern 0.5 and 3.2 both refuse. */
-.wf-hgap { display: flex; flex-direction: column; gap: var(--wf-s-2); padding: var(--wf-s-3);
-  border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-2); }
-.wf-hgap-l { margin: 0; padding-left: var(--wf-s-3); display: flex; flex-direction: column; gap: var(--wf-s-1); }
-.wf-hgap-l li { font-size: var(--wf-t-s); max-width: var(--wf-measure); }
 
 /* ============================================================================
    NODE 5.11, SETTINGS, REBUILT ON THE BASELINE'S BLOCKS, D-89. The founder asked
@@ -5103,7 +4825,6 @@ textarea.wf-cfg-in { min-height: 0; }
   transform: translate(-50%, -50%);
   width: max(100%, var(--wf-tap)); height: var(--wf-tap);
 }
-
 
 /* ============================================================================
    NODE 7.3, THE PUBLIC PROFILE. BUILT 23 AUGUST 2026, D-90, AND IT SETTLES D-69
@@ -5310,38 +5031,6 @@ textarea.wf-cfg-in { min-height: 0; }
 
 .wf-pay-main { display: flex; flex-direction: column; gap: var(--wf-s-3); min-width: 0; }
 
-/* THE RAIL. BELOW 900 IT IS A ROW THAT SCROLLS SIDEWAYS rather than four stacked
-   boxes: stacked, the four of them spend the whole first screen and the pane they
-   select is never in view beside them. */
-.wf-pay-rail { display: flex; gap: var(--wf-s-1); overflow-x: auto; padding-bottom: var(--wf-s-1); }
-.wf-pay-rail > .wf-note { display: none; }
-@media (min-width: 900px) {
-  .wf-pay-rail { display: flex; flex-direction: column; gap: var(--wf-s-1); overflow: visible; padding: 0; }
-  .wf-pay-rail > .wf-note { display: block; margin-top: var(--wf-s-2); }
-}
-/* NAMED .wf-payc AND NOT .wf-cat, WHICH 3.1's CATALOGUE CHIP HAS OWNED SINCE THE
-   shelf was built. Caught before it rendered, by the collision scan this stage
-   earned after .wf-steps, .wf-offer and .wf-prov-row. */
-.wf-payc {
-  flex: 0 0 auto; min-width: 150px;
-  display: flex; flex-direction: column; align-items: flex-start; gap: var(--wf-s-half);
-  padding: var(--wf-s-2);
-  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
-  background: var(--wf-surface); color: var(--wf-ink);
-  text-align: left; min-height: var(--wf-tap);
-}
-.wf-payc:hover, .wf-payc:focus-visible { border-color: var(--wf-line); background: var(--wf-raised); }
-/* THE ONE IN VIEW CARRIES A RULE DOWN ITS EDGE rather than a fill, so that at
-   stage 07 the state is a colour decision and not a shape one. */
-.wf-payc.is-on { border-color: var(--wf-ink); background: var(--wf-raised); }
-/* FOUR SLOTS FOR THE MARKS THAT LAND AT STAGE 06, D-50. A category box with no
-   room for them would reflow on the day they arrive, and a box that is only a
-   word is not a category, it is a tab. */
-.wf-payc-art { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; width: 100%; max-width: 116px; }
-.wf-payc-slot { display: block; aspect-ratio: 1 / 1; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1); }
-.wf-payc-n { font-size: var(--wf-t-s); font-weight: 700; line-height: 1.3; }
-.wf-payc-c { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
-
 /* THE OFFER STRIP, D-94. It carries the whole offer once: the badge on the header
    control can hold five per cent and nothing else, so this is the surface where
    the cap and the period get said. */
@@ -5371,18 +5060,6 @@ textarea.wf-cfg-in { min-height: 0; }
    rather than as a line of the form. */
 .wf-bonus-t { margin: 0; font-size: var(--wf-t-s); line-height: 1.4; text-align: left; }
 
-/* PROMO AND COUNTRY, A PAIR AT THE TOP OF THE PANE SINCE D-100. */
-.wf-cty {
-  display: flex; align-items: center; gap: var(--wf-s-2);
-  min-height: var(--wf-tap);
-  padding: var(--wf-s-1) var(--wf-s-2);
-  border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
-  background: var(--wf-surface);
-}
-.wf-cty-art { flex: 0 0 28px; height: 20px; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1); }
-.wf-cty-v { display: flex; flex-direction: column; gap: 1px; flex: 1 1 auto; min-width: 0; }
-.wf-cty-c { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
-
 /* THE CHOSEN METHOD. Change goes back to the grid of its own category and never
    to a first step, because the rail never left the screen. */
 .wf-chosen {
@@ -5392,15 +5069,9 @@ textarea.wf-cfg-in { min-height: 0; }
 .wf-chosen-t { margin: 0; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
 .wf-chosen-k { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
 .wf-pay-body { display: flex; flex-direction: column; gap: var(--wf-s-3); }
-.wf-pay-g--prov { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); max-width: 320px; }
 
 /* WHAT IS READ RATHER THAN ANSWERED SITS BELOW THE PRESS, D-101. Nothing is cut:
    the three lines are on the surface, under the block they qualify. */
-.wf-fund-more {
-  display: flex; flex-direction: column; gap: var(--wf-s-2);
-  margin-top: var(--wf-s-3); padding-top: var(--wf-s-3);
-  border-top: 1px solid var(--wf-line-soft);
-}
 
 @media (max-width: 899px) {
   /* BELOW 900 THE RECEIPT IS THE LAST BLOCK rather than a squeezed column. Since
@@ -5409,13 +5080,6 @@ textarea.wf-cfg-in { min-height: 0; }
   .wf-pay-lay .wf-dock { margin-top: var(--wf-s-3); }
 }
 
-/* THE PROMO AND THE EMAIL ACROSS ONE ROW, D-102, and only those two. They are the
-   same kind of thing: one short answer each, given once, belonging to no route.
-   Below 700 they stack. */
-.wf-pay-top { display: grid; gap: var(--wf-s-2); }
-@media (min-width: 700px) {
-  .wf-pay-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
-}
 /* THE COUNTRY IS BACK IN THE PANE HEADER, D-103, and .wf-pay-foot went with the
    move rather than staying behind as a rule nothing writes. */
 /* Apply answers, and the answer is a place on the screen. */

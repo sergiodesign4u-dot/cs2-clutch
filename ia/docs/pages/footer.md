@@ -15,6 +15,8 @@
 | What the live product does | What we keep | What we change, and why |
 |---|---|---|
 | A statistics strip of four counters above four link columns, an identification line naming the operating company, a copyright range and three payment marks. `baseline.md` section 9.7. | The strip and the four column shape, and the identification line, which is the one piece of institutional evidence the footer already carries. | **Three absences, all re-checked on 18 August 2026: no 18+ mark, no responsible play route, no licence statement anywhere in the footer.** Ours carries all three, and that is the compliance constraint in `CLAUDE.md` rather than a preference. |
+| Three links with no verdict until 29 September 2026: **Contacts & Corporate Information, Counter-Strike Guides, Marketing Assets**. Named in the second pass of round 13, `D-131` | The job of the first: the identification line and Contact support already carry who we are and how to reach us | **Not drawn.** Guides and marketing assets are content pages with no node in round 1, and a link to them is a carrier promising a destination the map does not hold. They arrive with a content round, not before |
+| The floating headset control, bottom right, **at every width** | Nothing | Refused at 360 by `D-22`, section 3. **Above 900 the reason is different and it is named now, `D-131`:** our support is a form answered within 72 hours, `0.10`, and a floating headset reads as live help. A control that promises an immediacy we do not have is worse than the Support button in band 2 |
 
 ---
 
