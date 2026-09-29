@@ -25,6 +25,20 @@
 | Four documents, all `noindex,nofollow`, each **one H1 and zero H2**. The terms run about 7,270 words as a single wall, last updated 08/01/2025; the cookie policy is dated April 2019. All carry a breadcrumb. `baseline.md` section 9.4. | The breadcrumb, and the document set itself. | **The wall.** Zero H2 in a 7,270 word contract is the defect this node exists to fix, and it is now measured rather than asserted. **And the dates:** a policy from 2019 sitting under a product that changed every year since is a document nobody re-read. |
 
 
+## Amended 29 September 2026 by `D-137`. Each version opens itself
+
+**Why.** Round 14 of the critique found "Read this version" on v2 and v1 opening v3, the old name "spend ceiling" in the history, and two sentences of reasoning on the product surface.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| One page of terms | The version history | **Each "Read this version" opens that version**, `?v=`. The v3 line says "deposit limit", `D-103`. The history's lead and the unpublished state's reasoning left |
+
+**Samples, `D-124`:** the four versions and their dates, 3 Sep 2025, 12 Jan 2026, 4 Apr 2026 and 1 Aug 2026.
+
+---
+
 ## Amended 27 September 2026 by `D-130`. 0.9 Legal stops explaining itself
 
 **Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against baseline.md section 9.4. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.

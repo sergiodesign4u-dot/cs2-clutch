@@ -76,8 +76,8 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 | Node | Screen or state | Job or parent | In the flow |
 |---|---|---|---|
 | `4.1` | Deposit | `C1`, `C2`, `C3`, `C4` | From the money control, and from `3.3` with no balance |
-| `4.2` | Ceiling reached this period | `C2`, the spend ceiling | Inside `4.1` |
-| `4.3` | Ceiling raise pending 24 hours | `C2`. The old ceiling holds | Inside `4.1` |
+| `4.2` | Deposit limit reached this period | `C2`, the deposit limit, `D-103` | Inside `4.1` |
+| `4.3` | Deposit limit raise pending 24 hours | `C2`. The old limit holds | Inside `4.1` |
 | `4.4` | Crediting, with a named timer | `C3` | After the deposit |
 | `4.5` | Payment declined | `B4-3`. Ceiling and threshold preserved | Inside `4.1` |
 

@@ -31,6 +31,18 @@
 | **A public profile page**, walked by the founder's capture of 21 August 2026 and recorded in `baseline.md` section 9.9: a hexagonal avatar, the display name, **a numeric public id read as `ID 852261`**, three counters reading `N/A`, the name repeated under the avatar, four history tabs and a grid of item cards. | **The avatar, the display name and the Steam origin.** Three facts, and the baseline is the source for the fact that an account is not anonymous here. | **That it is public, and that it is a shelf.** Ours is the account's own view of itself and there is no public form of it in round 1: `D-69` records two of our own decisions pointing opposite ways on a public profile and leaves it `[?]`. **And the id is not copied.** `baseline.md` records that `852261` is sequential and that a stranger can decrement it, which makes the platform's registered-account count enumerable from outside. It is a fact about the baseline, recorded, and not a pattern to inherit. **The three `N/A` counters are not inherited either:** a counter that has never had a value is a field waiting for a score. |
 
 
+## Amended 29 September 2026 by `D-137`. The Steam outage is one notice
+
+**Why.** Round 14 of the critique found the "Who this account is" block `D-130` removed back on the Steam outage state, the id printed twice, and messages dated after the prototype's now.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| The profile band | **The band** | **The outage state is one notice**: name and picture unavailable, everything else open, two routes. The messages sit before 21 Aug 2026 09:31, and the withdrawal still with Steam is the MP9, as `5.9` has it |
+
+---
+
 ## Amended 27 September 2026 by `D-130`. 5.10 Profile stops explaining itself
 
 **Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against `acct_profile_daily.png`. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.

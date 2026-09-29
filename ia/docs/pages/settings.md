@@ -19,6 +19,20 @@
 | A two column settings tab with **twenty rows** in four groups: `GENERAL` five, `SECURITY` three, `LINKED PROFILES` four, `NOTIFICATIONS` eight. Founder captures of 18 August 2026, `baseline-account.md` section 7, and of 22 August 2026, `research/screens/baseline/founder_22aug_settings_top.png` and `founder_22aug_settings_linked.png`. | **One row: the Steam trade URL**, with its helper line, because the exit needs it and nothing else on the map holds it. | **Nineteen of twenty do not survive, and almost none of them for a reason about settings.** Eleven configure modes that are `LATER` or channels that have no backlog row at all. Five already live somewhere else on our map and would be second homes. Two are refused on a rule. One is `[?]` and belongs to the founder. **Section 1 gives the verdict on every row with its reason, because a settings page that quietly drops nineteen rows is a settings page nobody can audit against its own baseline.** |
 
 
+## Amended 29 September 2026 by `D-137`. Where you live lists only markets we could open, and saves
+
+**Why.** Round 14 of the critique found Germany in a list headed "markets we operate in", which `markets.md` blocks, and a Save with no handler on a compliance control.
+
+**Baseline row for this amendment.**
+
+| The live product, `acct_settings_linked_22aug.png` | What we keep | What we change, and why |
+|---|---|---|
+| A country selector | **The selector** | **Ukraine and Poland, samples by `D-124`**; Germany left, it is Blocked in `markets.md`. Save answers and moves the date |
+| LINKED PROFILES with a link button per provider | **The rows** | **No link control in round 1.** Sign in offers Google, Discord and X to enter; linking a second provider to an account is not in round 1, so the rows state which one is connected. Named here, `D-130` had called the group unchanged |
+| Notification rows | The rows | "Always on" where the row read "No switch"; the sign out row loses its sentence |
+
+---
+
 ## Amended 27 September 2026 by `D-130`. 5.11 Settings stops explaining itself
 
 **Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against `acct_settings_full.png`. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.

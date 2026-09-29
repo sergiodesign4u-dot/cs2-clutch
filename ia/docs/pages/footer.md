@@ -20,6 +20,19 @@
 
 ---
 
+## Amended 29 September 2026 by `D-137`. The rest of the baseline's footer, named
+
+**Why.** Round 14 of the critique found four more baseline footer items with no verdict here.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| ADDITIONAL: Gift cards, CS2 Pickems; PLATFORM: Partnership, FAQ | Nothing | **Not drawn.** Gift cards are a route inside `4.1`; Pickems and Partnership are LATER content with no node; FAQ lives in `0.10`, section 3. A carrier may not promise a destination the map does not hold |
+| "Online users" | The cell | **"Online now"**: the figure is the live count, and the label says its tense, `D-120` |
+
+---
+
 ## Amended 29 September 2026 by `D-136`. Three rows of the footer stop saying what they cannot do
 
 **Why.** Round 14 of the critique followed every footer link.

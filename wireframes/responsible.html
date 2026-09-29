@@ -49,6 +49,7 @@
     <h1>Responsible play</h1>
 
     <div class="wf-rp" data-rp>
+      <p class="wf-rp-say" data-rp-say>Nothing is set yet.</p>
       <!-- BLOCK 1. ONE PLAIN STATEMENT OF WHAT THE TOOLS DO. Not a case for using
            them, not a warning, not a mood card. A page arguing that limits are
            good is a page arguing with the person who already opened it. -->
@@ -93,18 +94,18 @@
         <div class="wf-set">
           <h3 class="wf-set-h" id="h2-ceiling">Deposit limit</h3>
           <p class="wf-set-p">Caps what you can put in over a period.</p>
-          <div class="wf-set-ctl"><input class="wf-set-in" type="text" inputmode="decimal" value="40.00" aria-label="Deposit limit amount"><div class="wf-set-per"><select class="wf-f" aria-label="Deposit limit period"><option>per day</option><option selected>per week</option><option>per month</option></select></div><button class="wf-btn" type="button">Save</button></div>
+          <div class="wf-set-ctl"><input class="wf-set-in" type="text" inputmode="decimal" value="" placeholder="Amount" aria-label="Deposit limit amount"><div class="wf-set-per"><select class="wf-f" aria-label="Deposit limit period"><option>per day</option><option selected>per week</option><option>per month</option></select></div><button class="wf-btn" type="button" data-rp-save>Save</button></div>
         </div>
         <div class="wf-set">
           <h3 class="wf-set-h" id="h2-session">Session limit</h3>
           <p class="wf-set-p">Ends a session once it has run this long.</p>
-          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Session length"><option>30 minutes</option><option>1 hour</option><option selected>2 hours</option><option>4 hours</option></select></div><button class="wf-btn" type="button">Save</button></div>
+          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Session length"><option>30 minutes</option><option>1 hour</option><option selected>2 hours</option><option>4 hours</option></select></div><button class="wf-btn" type="button" data-rp-save>Save</button></div>
         </div>
         <div class="wf-set">
           <h3 class="wf-set-h" id="h2-cool">Cool down</h3>
           <p class="wf-set-p">Closes adding funds and opening cases for a period you choose.</p>
           <ul class="wf-dir"><li><span class="wf-dir-w">Extend</span><span>Immediately.</span></li><li><span class="wf-dir-w">Shorten</span><span>Not possible. It ends by running out.</span></li></ul>
-          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Cool down period"><option selected>24 hours</option><option>7 days</option><option>30 days</option></select></div><button class="wf-btn" type="button">Start a cool down</button></div>
+          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Cool down period"><option selected>24 hours</option><option>7 days</option><option>30 days</option></select></div><button class="wf-btn" type="button" data-rp-cool>Start a cool down</button></div>
         </div>
         <div class="wf-set">
           <h3 class="wf-set-h" id="h2-excl">Self exclusion</h3>
@@ -128,7 +129,6 @@
         </div>
         <div class="wf-row"><a class="wf-btn" href="support.html">Support</a></div>
       </div>
-      <p class="wf-rp-say" data-rp-say>Nothing is set yet.</p>
     </div>
 
 

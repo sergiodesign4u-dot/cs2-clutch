@@ -782,3 +782,23 @@
 | D 4 | Two CSS classes, a writer and a counter writing to nothing, an unread export | D | Removed. **The gate's click path was not dead but unwired**: the case's Sign in now passes through it |
 | D 8 | `screens.md` had no rows for 5.9, 5.10, 5.11, 7.3 | D | Added, and on the overview's matrix |
 | C48 | The strip after the content on support and legal | C | Fixed: `feedTop`, by `D-126`'s test |
+
+### 14.9 Step 6, responsible, settings, support, legal, profile, fair, system and cookie, fixed on 29 September 2026 under `D-137`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| C6, C11, C12 | Save and cool down had no handler; refusals at the foot; a guest's instruction at the foot; the canonical field prefilled while "nothing is set" | C | Fixed |
+| C5, C35 | The excluded state called live controls locked; a sentence contradicting the strip register | C | Fixed |
+| C10, D 7.3 | "$40.00 per period"; the in-force samples unmarked | C, D | Fixed: per week, marked in `6.1`. **The dollar stays**: a deposit limit caps dollars paid in, as the deposit layer prints it |
+| C26 | Tools below the fold at 360 behind "what a boundary closes" | C | **Withdrawn on verification**: the order is the node's appeal rule, stated in the page source and kept |
+| C9, D 1.2, D 7.6 | Save where you live had no handler; Germany listed as operated; the list unmarked | C, D | Fixed, samples marked in `5.11` |
+| C24 | Linked profiles with no control and no verdict | C | Named in `5.11` |
+| C29, C30 | "No switch"; a sentence on Sign out | C | Fixed |
+| C1, C27, C34, C47 | Two support states in the old shape; 72 hours four times; process prose; an empty ticket sent | C | Fixed |
+| C36, C37, D 1.11, D 7.4 | Legal reasoning on screen; v2 and v1 opened v3; "spend ceiling"; version dates unmarked | C, D | Fixed |
+| C25, C28, C38 | A message dated after now about an AWP that is held; the removed block back on the outage state; System tab prose | C | Fixed |
+| C4, C31, C32, C33, C45 | A client seed control promised; the lead repeated as a question; a reason pointing at small print; numbers breaking across lines | C | Fixed |
+| C39, C40, C41 | "Not available" twice per cell and a date after now; two lines telling people the buttons do not work; the reference clipped | C | Fixed |
+| C42 | Cookie rows that explain themselves | C | Fixed |
+| C43 | The footer's Additional column, Partnership and FAQ with no verdict; "Online users" renamed silently | C | Named in `0.2` |
+| D 1.14, 1.15, 1.18, 1.19, 1.20 | Home citing a reversed refusal and a countdown; a risk-band comment saying the opposite of the render; "Step 2" labels after `D-100`; "ceiling" in the matrix | D | Fixed |

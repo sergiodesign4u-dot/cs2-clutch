@@ -228,11 +228,11 @@ window.WF_NAV = {
       base: 'The dialog, over the case screen',
       states: [
         { node: '4.1', label: 'Cold arrival at /deposit',     file: 'deposit.html',                 status: 'built' },
-        { node: '4.1', label: 'Step 2, card and wallets',    file: 'deposit-card.html',            status: 'built' },
-        { node: '4.1', label: 'Step 2, crypto',              file: 'deposit-crypto.html',          status: 'built' },
-        { node: '4.1', label: 'Step 2, no address yet',      file: 'deposit-crypto-nowallet.html', status: 'built' },
-        { node: '4.1', label: 'Step 2, gift cards',          file: 'deposit-giftcards.html',       status: 'built' },
-        { node: '4.1', label: 'Step 2, CS2 skins',           file: 'deposit-skins.html',           status: 'built' },
+        { node: '4.1', label: 'Card and wallets',           file: 'deposit-card.html',            status: 'built' },
+        { node: '4.1', label: 'Crypto',                     file: 'deposit-crypto.html',          status: 'built' },
+        { node: '4.1', label: 'Crypto, no address yet',     file: 'deposit-crypto-nowallet.html', status: 'built' },
+        { node: '4.1', label: 'Gift cards',                 file: 'deposit-giftcards.html',       status: 'built' },
+        { node: '4.1', label: 'CS2 skins',                  file: 'deposit-skins.html',           status: 'built' },
         { node: '4.2', label: 'Deposit limit reached this period', file: 'deposit-ceiling-reached.html', status: 'built' },
         { node: '4.3', label: 'Limit raise pending',            file: 'deposit-ceiling-pending.html', status: 'built' },
         { node: '4.4', label: 'Crediting, named timer',      file: 'deposit-crediting.html',       status: 'built' },
@@ -1388,20 +1388,31 @@ window.WF_PAY = window.WF_PAY || {
      through answers instead of not existing. On a page whose whole subject is a
      person trying to stop, a control that does nothing and explains nothing is
      the worst version of that defect in the product. */
+  /* EVERY BOUNDARY CONTROL ANSWERS BESIDE ITSELF, round 14. Save and Start a
+     cool down had no handler, and a refusal landed at the foot of the page, 770px
+     from the press at 1440. The answer is a line under the control pressed; the
+     page's status line sits under the H1. */
   function mountRp() {
     var page = document.querySelector('[data-rp]');
     if (!page) return;
-    var say = page.querySelector('[data-rp-say]');
-    if (!say) return;
+    function answer(t, text) {
+      var set = t.closest('.wf-set') || t.parentNode;
+      var p = set.querySelector('.wf-set-say');
+      if (!p) { p = el('p', 'wf-set-say wf-refuse is-said'); p.setAttribute('aria-live', 'polite'); set.appendChild(p); }
+      p.textContent = text;
+      set.classList.add('is-marked');
+    }
     page.addEventListener('click', function (e) {
       var t = e.target.closest('[data-rp-refuse]');
-      if (!t) return;
-      e.preventDefault();
-      say.classList.add('is-said');
-      say.textContent = t.getAttribute('data-rp-refuse');
-      var mark = t.closest('.wf-set');
-      if (mark) { mark.classList.add('is-marked'); }
-      say.scrollIntoView({ block: 'nearest' });
+      if (t) { e.preventDefault(); answer(t, t.getAttribute('data-rp-refuse')); return; }
+      var sv = e.target.closest('[data-rp-save]');
+      if (sv) {
+        var inp = sv.closest('.wf-set-ctl').querySelector('.wf-set-in');
+        if (inp && !(parseFloat(inp.value) > 0)) { answer(sv, 'Nothing was set: enter an amount first.'); return; }
+        answer(sv, 'Saved. A tighter limit applies now; a looser one in 24 hours.');
+        return;
+      }
+      if (e.target.closest('[data-rp-cool]')) location.href = BASE + 'responsible-in-force.html';
     });
   }
 
@@ -1882,16 +1893,16 @@ window.WF_PAY = window.WF_PAY || {
     var down = !!(window.WF_SHELL && window.WF_SHELL.stats === 'unavailable');
     [
       down
-        ? [null, 'Cases opened', 'Not available. Last read 2 Sep 2026, and a value from then is not a value for now', 'catalogue.html']
+        ? [null, 'Cases opened', 'Last read 21 Aug 2026 09:02', 'catalogue.html']
         : ['367 013 504', 'Cases opened', null, 'catalogue.html', 'up'],
       down
-        ? [null, 'Upgrades', 'Not available. Last read 2 Sep 2026', null]
+        ? [null, 'Upgrades', 'Last read 21 Aug 2026 09:02', null]
         : ['3 349 339', 'Upgrades', null, null],
       down
-        ? [null, 'Total users', 'Not available. Last read 2 Sep 2026', null]
+        ? [null, 'Total users', 'Last read 21 Aug 2026 09:02', null]
         : ['1 864 228', 'Total users', null, null],
       down
-        ? [null, 'Online now', 'Not available. Last read 2 Sep 2026', null]
+        ? [null, 'Online now', 'Last read 21 Aug 2026 09:02', null]
         : ['882', 'Online now', null, null, 'live']
       /* THE FIFTH CELL IS GONE, D-123. The founder removed the middle withdrawal
          time, so the strip is the baseline's four and nothing else.
@@ -3885,6 +3896,17 @@ window.WF_PAY = window.WF_PAY || {
      0.10 refused it before this page had two forms and still refuses it now that
      it has one. */
   function mountSupportSubject() {
+    /* AN EMPTY TICKET IS REFUSED IN PLACE, round 14: Send went to the submitted
+       state with no message in it. */
+    var send = document.querySelector('[data-sup-send]');
+    if (send) send.addEventListener('click', function (e) {
+      var form = send.closest('.wf-form'), msg = form && form.querySelector('textarea');
+      if (msg && msg.value.trim()) return;
+      e.preventDefault();
+      var p = form.querySelector('.wf-refuse') || form.insertBefore(el('p', 'wf-refuse is-said'), send.parentNode);
+      p.textContent = 'Nothing was sent: write what it is about first.';
+      if (msg) msg.focus();
+    });
     var sel = document.querySelector('[data-sup-subject]');
     if (!sel) return;
     sel.addEventListener('change', function () {
@@ -3998,7 +4020,7 @@ window.WF_PAY = window.WF_PAY || {
         acts.appendChild(d);
       }
       if (!cur.def.del) {
-        acts.appendChild(el('span', 'wf-fig-c', 'Kept. These are the record of what we told you.'));
+        acts.appendChild(el('span', 'wf-fig-c', 'Kept, and never deleted.'));
       }
       bar.appendChild(acts);
 
@@ -6038,10 +6060,10 @@ window.WF_PAY = window.WF_PAY || {
       var mark = root.querySelector('[data-sys-copied]');
       copy.addEventListener('click', function () {
         var full = copy.getAttribute('data-sys-copy') || '';
-        function done() { if (mark) mark.textContent = 'Copied'; }
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(full).then(done, done);
-        } else { done(); }
+        // THE ANSWER DOES NOT WAIT ON THE CLIPBOARD, round 14: where the promise
+        // never settles, the press said nothing.
+        if (mark) mark.textContent = 'Copied'; else { copy.textContent = 'Copied'; }
+        try { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(full); } catch (e) {}
       });
     }
   }
@@ -6066,7 +6088,7 @@ window.WF_PAY = window.WF_PAY || {
   var CK_PURPOSES = [
     { key: 'necessary', name: 'Strictly necessary', fixed: true,
       d: 'Signing you in, keeping you signed in, security, and remembering the answer you give here.',
-      why: 'Always on. There is no switch on this row, because there is nothing on it to decide.' },
+      why: 'Always on.' },
     { key: 'analytics', name: 'Analytics',
       d: 'Counting how many people use each part of the site, so we can tell what is working. Nothing here identifies you to anyone outside this company.' },
     { key: 'marketing', name: 'Marketing',
@@ -6165,8 +6187,7 @@ window.WF_PAY = window.WF_PAY || {
         inn.appendChild(el('p', 'wf-ck-p-say', 'You answered this before and that answer has run out, so we are asking again. Nothing beyond the strictly necessary set has been stored since it ran out.'));
         inn.appendChild(el('p', 'wf-ck-p-say', 'We ask again after 12 months.'));
       } else if (cfg && cfg.why === 'nostore') {
-        inn.appendChild(el('p', 'wf-ck-p-say', 'We could not save your last answer, so we are asking again. Your browser is not letting this site store anything, which is your choice to make and not a fault.'));
-        inn.appendChild(el('p', 'wf-ck-p-say', 'Nothing beyond the strictly necessary set is running in the meantime, and this will keep asking until it can be remembered.'));
+        inn.appendChild(el('p', 'wf-ck-p-say', 'We could not save your last answer because this browser does not let the site store it, so we are asking again. Only the strictly necessary set runs meanwhile.'));
       } else {
         inn.appendChild(el('p', 'wf-ck-p-say', 'A few things are stored on your device to keep this site working. Beyond those we store nothing until you say so, and you can change your answer at any time from the foot of any page.'));
       }
@@ -6313,7 +6334,36 @@ window.WF_PAY = window.WF_PAY || {
   /* THE SETTINGS ROWS AND THE RAIL ARE ONE SETTING, round 14. Language offered
      only English here while the rail offered nine, and the sound switch moved
      without the rail following or its own value line changing. */
+  /* WHERE YOU LIVE SAVES, round 14: the press had no handler on a compliance
+     control. It answers and moves the date. */
+  function mountCountry() {
+    var b = document.querySelector('[data-country-save]');
+    if (!b) return;
+    b.addEventListener('click', function () {
+      var w = b.parentNode.querySelector('.wf-quick-w');
+      var sel = document.getElementById('cfg-country');
+      if (w) w.textContent = 'Saved: ' + (sel ? sel.value : '') + ', 21 Aug 2026';
+    });
+  }
+
+  /* THE SUPERSEDED PAGE SHOWS THE VERSION ASKED FOR, round 14: "Read this
+     version" on v2 and v1 opened v3. Dates are samples, marked in 0.9. */
+  function mountLegalVersion() {
+    var m = /[?&]v=(\d)/.exec(location.search);
+    if (!m || !document.querySelector('.wf-docid')) return;
+    var V = { '3': ['4 Apr 2026', '4 Apr 2026', '1 Aug 2026', 'v4'], '2': ['12 Jan 2026', '10 Jan 2026', '4 Apr 2026', 'v3'], '1': ['3 Sep 2025', '3 Sep 2025', '12 Jan 2026', 'v2'] }[m[1]];
+    if (!V) return;
+    var f = document.querySelectorAll('.wf-docid .wf-docid-v');
+    if (f[0]) f[0].textContent = 'v' + m[1];
+    if (f[1]) f[1].textContent = V[0];
+    if (f[2]) f[2].textContent = V[1];
+    var band = document.querySelector('#h2-old + p');
+    if (band) band.innerHTML = '<strong>v' + m[1] + '</strong> governed from ' + V[0] + ' until ' + V[2] + '. It is kept because a decision taken while it was in force is answered under it.';
+  }
+
   function mountShellSettings() {
+    mountLegalVersion();
+    mountCountry();
     var snd = document.getElementById('cfg-sound');
     if (snd) {
       var sv = snd.closest('.wf-cfg-row2') && snd.closest('.wf-cfg-row2').querySelector('.wf-cfg-rv');

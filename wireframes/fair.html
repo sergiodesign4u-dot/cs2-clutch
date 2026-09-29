@@ -94,7 +94,7 @@
       <div class="wf-proof-fields">
         <div class="wf-fpair"><span class="wf-fpair-k">Server seed hash</span><span class="wf-fpair-v">Published before the round runs</span></div>
         <div class="wf-fpair"><span class="wf-fpair-k">Server seed</span><span class="wf-fpair-v">Revealed on rotation</span></div>
-        <div class="wf-fpair"><span class="wf-fpair-k">Client seed</span><span class="wf-fpair-v">Yours to set, and you can change it</span></div>
+        <div class="wf-fpair"><span class="wf-fpair-k">Client seed</span><span class="wf-fpair-v">Shown with every round</span></div>
         <div class="wf-fpair"><span class="wf-fpair-k">Nonce</span><span class="wf-fpair-v">A whole number that advances</span></div>
         <div class="wf-fpair"><span class="wf-fpair-k">Settled result</span><span class="wf-fpair-v">The number the roll produced</span></div>
         <div class="wf-fpair"><span class="wf-fpair-k">Ticket range</span><span class="wf-fpair-v">The interval the result falls in, and the item holding it</span></div>
@@ -147,9 +147,9 @@
       <div class="wf-sec-head"><h2 id="h2-algo">The algorithm, published in full</h2></div>
       <p class="wf-algo-stamp">Version 1, published 12 Jan 2026</p>
       <h3>The computation</h3>
-      <p>HMAC-SHA256 of the server seed, keyed with <code>client seed:nonce</code>. The first eight hex characters, read as a number, modulo 100 000, plus one, is the ticket. The item whose ticket range holds it is the result.</p>
+      <p>HMAC-SHA256 of the server seed, keyed with <code>client seed:nonce</code>. The first eight hex characters, read as a number, modulo 100&#160;000, plus one, is the ticket. The item whose ticket range holds it is the result.</p>
       <h3>A worked example</h3>
-      <p>Server seed <code>7c1e…a904</code>, client seed <code>nightjar</code>, nonce <code>412</code>. HMAC starts <code>3a9009c1</code>, which is 982 518 209; modulo 100 000 plus one is ticket <b>18 210</b>, in the range 11 001 to 23 000, USP-S Kill Confirmed. <a href="fair-prefilled.html">Check this round</a></p>
+      <p>Server seed <code>7c1e…a904</code>, client seed <code>nightjar</code>, nonce <code>412</code>. HMAC starts <code>3a9009c1</code>, which is 982&#160;518&#160;209; modulo 100&#160;000 plus one is ticket <b>18&#160;210</b>, in the range 11&#160;001 to 23&#160;000, USP-S Kill Confirmed. <a href="fair-prefilled.html">Check this round</a></p>
       <h3>Version history</h3>
       <p>Version 1, 12 Jan 2026. First published.</p>
     </section>
@@ -162,8 +162,6 @@
         <p>That is the point. The algorithm is published so that a stranger can write their own and get our answer.</p></details>
       <details><summary>Why can I not check a round from last year?</summary>
         <p>Rounds from before the published ledger have no commitment behind them, so they cannot be checked here.</p></details>
-      <details><summary>Do I need an account?</summary>
-        <p>No, for any of it.</p></details>
     </section>
 
   </main>

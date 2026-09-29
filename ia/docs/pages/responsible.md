@@ -26,6 +26,20 @@
 | **One tool exists**, called **TAKE A BREAK**, doing deposit restriction or full account restriction. It is the second row of the `SECURITY` block inside the settings tab of the account. `baseline-account.md` section 7.1. | **Nothing structural**, and that is the finding rather than a gap in the reading. | **Everything about where it lives.** There is no responsible play page and **no route to the tool from anywhere**: not the footer, not the rail, not the header, not the home page, all four re-checked on 18 August 2026. It sits beside Logout and an anonymity toggle, in the vocabulary of account protection rather than self protection. **An absence could be answered with "nobody in the category has it". This cannot: they built it and then filed it where nobody looks.** |
 
 
+## Amended 29 September 2026 by `D-137`. Every boundary control answers beside itself
+
+**Why.** Round 14 of the critique found Save and Start a cool down with no handler, refusals landing at the foot of the page far from the press, a guest's only instruction at the foot, the canonical state prefilled with a limit while saying nothing is set, and the excluded state saying the controls are locked while they were live.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A self exclusion tool filed under Security, with no route to it | Ours, `6.1` | **The status line sits under the H1**; each control answers on the line under itself: Save confirms or asks for an amount, Start a cool down opens the in-force state, a refusal names its ground there. The guest line carries a Sign in link |
+
+**Kept, and the auditor's reorder withdrawn:** what a boundary closes and never closes stays above the controls, because read after the choice it is the placement the appeal rule forbids, section on block order. **Samples, `D-124`:** the cool down ending 25 Aug 2026 09:31 and the $40.00 a week limit on the in-force state. The excluded state says what is true: another boundary can still be tightened, nothing can be loosened.
+
+---
+
 ## Amended 27 September 2026 by `D-130`. 6.1 Responsible play stops explaining itself
 
 **Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against no page on the baseline. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.

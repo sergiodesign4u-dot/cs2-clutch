@@ -5471,3 +5471,26 @@ The pause lasts the session, starts paused under reduced motion and says Resume,
 ### The footer and the node
 
 Refund opens its own policy; the interlinking row is "Popular cases"; the brand tagline and the "Where we operate" row with no destination left. `0.1`'s stale rows are struck, among them a Responsible play entry inside the money control that was never rendered. The matrix gains 5.9, 5.10, 5.11 and 7.3. Five pieces of dead code left.
+
+
+## D-137. Round 14, step 6: the remaining surfaces answer where they are pressed, and stop saying what is not true
+
+**Date:** 2026-09-29. **Stage:** 04. **Decided by:** the founder, "давай исправлять все что нужно", round 14. **Binds:** nodes `6.1`, `5.11`, `0.10`, `0.9`, `5.10`, `1.2`, `0.2`, `0.3`, `0.4`, and their pages.
+
+**What the founder said.** Fix everything round 14 raised.
+
+### Controls that answer where they were pressed
+
+Responsible play's Save and Start a cool down had no handler, and every refusal landed at the foot of the page. **Each control now answers on the line under itself**, and the page's status line sits under the H1. Settings' Save where you live answers. Support refuses an empty ticket. The system page's Copy answers without waiting on the clipboard.
+
+### Things the screens said that were not true
+
+**Germany was listed among markets we operate in**, and `markets.md` blocks it. The excluded state called its live controls locked. The fair pages sent a person to Settings for a client seed control no page holds. "Read this version" on v2 and v1 opened v3. Two support states still had the shape `D-82` replaced, with an appeal form under "there is no decision here to appeal".
+
+### Words
+
+The deadline is said once per support page; the steam-down profile is one notice; the fair, legal, system and cookie pages lose the sentences that explained the product. Stale lines on Home, the risk-band comment on twenty case pages, the "Step 2" labels and two matrix rows are corrected.
+
+### Named, and one withdrawn
+
+Linked profiles without a link control, and the footer's Gift cards, Pickems, Partnership and FAQ, are named in their nodes. **The auditor's reorder of responsible play is withdrawn**: what a boundary closes stays above the controls, where the node's appeal rule puts it.

@@ -4299,7 +4299,8 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
   font-family: var(--wf-mono); font-size: var(--wf-t-s);
   padding: 2px var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1);
 }
-.wf-mid-a { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.wf-mid-a { overflow-wrap: anywhere; word-break: break-all; min-width: 0; }
+/* THE REFERENCE A PERSON READS OUT IS NEVER CLIPPED, round 14: at 360 it ended in an ellipsis. */
 .wf-mid-b { flex: 0 0 auto; white-space: nowrap; }
 .wf-copied { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
 

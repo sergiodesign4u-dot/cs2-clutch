@@ -21,6 +21,18 @@
 **Renders:** node `0.14`, canonical round proof, variant V4. This node does not restate `0.14` and may not contradict it.
 
 
+## Amended 29 September 2026 by `D-137`. The verifier computes, and the page stops promising a control the map does not hold
+
+**Why.** Round 14 of the critique found Recompute and Report this round with no handler on all six pages, a link to a client seed control no settings page contains, and the page's lead repeated as a question.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Provably fair behind a login | Ours, public | **Recompute lands where the arithmetic lands**, the matched state of that round or the malformed state; Report opens the appeal, `D-132`. **The client seed line says it is shown with every round**: who sets it stays open in section 4.2, and the sentence sending a person to Settings to change it is gone. The FAQ's "Do I need an account?" left; the lead already says so. Long numbers do not break across lines |
+
+---
+
 ## Amended 27 September 2026 by `D-130`. 1.2 Provably fair stops explaining itself
 
 **Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, compared against the baseline redirects to login. What left the screen is kept in this node, not deleted, and every sample value is marked as one here.
