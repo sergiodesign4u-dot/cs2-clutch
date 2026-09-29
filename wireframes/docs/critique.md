@@ -648,3 +648,49 @@
 **Zero findings, stated by Codex before the cut:** `NAV_SECTIONS`, every id present and in DOM order; no em dash in the 143 files; 1 291 local links and anchors, all resolving; the support deadline, 72 hours, and its Missed by arithmetic, 3 d 4 h.
 
 **The pass is closed.** Raised 19 rows plus two classes at zero; 18 fixed or named, 1 withdrawn on verification with its reason.
+
+## 14. Round 14, 29 September 2026: every control pressed, every figure followed
+
+**Asked by the founder:** did everything get fixed, and run the critique and the audit again.
+
+### 14.1 Instruments
+
+| # | Instrument | What it owned | Radius |
+|---|---|---|---|
+| A | Claude auditor, browser, 1440 and 360, every control pressed | Home, catalogue, the case family, the public result, the public profile | 34 pages |
+| B | Claude auditor, the same | Sign in, the gate, deposit, Send to Steam, My items, cash out, history | 44 pages |
+| C | Claude auditor, the same | The shell on every page, profile, settings, fair, responsible, legal, support, system, cookie | 47 pages |
+| D | **Claude subagent in Codex's place, read only** | Codex's source classes: contradictions, md and html drift, links, dead code, rules, sample marking, registry | the whole repo |
+| - | A measuring script | Words and absence strings per page | 132 pages |
+
+**Codex could not run.** Its usage limit was account wide: the default model, then `gpt-5.6-sol`, then `gpt-5.6-terra`, until 17:23. Before the cut it named two leads, controls with markup and no handler, and figures in the round proof that do not match the drop table; both are in A's and B's sets. **The founder decided not to wait: "давай без кодекса а просто субагентами".** Instrument D takes Codex's classes; its set is merged when it returns.
+
+### 14.2 The raised set, before verification
+
+**143 rows from the three browser auditors**: A 46, B 49, C 48. The classes, largest first: **a control that does nothing or does something other than its label**, about a third of the set; **a sample figure that contradicts another sample** across surfaces, the proof chain above all; **money correctness** on the deposit and the cash out; **excess text on state pages** that `D-128` and `D-130` trimmed only on the canonical page; **layout at 360 and at the 1440 fold**; **unnamed divergences** from the baseline, 8. **Measured:** 106 261 words and 370 absence strings, none of them on a canonical render.
+
+**One row is ours and is a regression of a closed row.** 13.15 row 14, the Trustpilot line on Home, was marked fixed and was not: `git checkout` on `_wf.css`, run to restart the dead selector script, reverted the uncommitted fix, and the commit went out without that row being re-checked on screen.
+
+### 14.3 Step 1, the proof chain and the case family, fixed on 29 September 2026 under `D-132`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| A1 | The result page proved a Classified AK at 22.15 on ticket 7 318; the table prices it 47.30, Covert, tickets 1 to 3 180, and gives 7 318 to the M4A1-S | A | Fixed: one record per round feeds best drops, the outcome, the result and the verifier |
+| A2 | The outcome won a Glock and its Check and Share opened the AK's round | A | Fixed: `?round=glock`; multi-roll outcomes link each roll that has a record and the verifier otherwise |
+| C2, C3 | Recompute and Report this round did nothing on all six fair pages | C | Fixed: well formed inputs land on matched for that round, anything else on malformed; Report opens the appeal |
+| A6 | Open sat at y 873 on a 900 fold at 1440 | A | Fixed: the frame is 340 from 900 and How it works shares the breadcrumb's line; Open at y 698 |
+| A8 | Counts 3 and 4 did nothing | A | Fixed: they set the count, the price and the balance after |
+| A9 | Open again went to the one-roll page, and on five rolls asked for 62.00 against 12.20 | A | Fixed: two rolls reopen two; five rolls offer Add funds |
+| A16 | Sell, Sell all and Copy answered nothing; Revoke did nothing | A | Fixed: each control turns into its receipt, the batch never counts a sale twice, Revoke opens the gone state |
+| A18 to A21 | Settlement arithmetic in prose on every outcome; the commit line repeated the balance | A | Fixed: one line of signs, the net on the Steam control, the commit line is the balance after, the peg and RTP with EV, principle 3 |
+| A22 to A24 | An absence string and reasoning on the result and gone pages | A | Fixed |
+| A27, A46 | "Before opening" after the open; "one roll" over five | A | Fixed |
+| A29 | The only EUR figure in the product | A | Fixed: a coin sample |
+| A30 | The Trustpilot line off centre, a regression of 13.15 row 14 | A | Fixed again, and checked on screen this time |
+| A31, A7, A38 | 7.1 had no baseline row; the case flanks and the title order at 360 had no verdict | A | Named in `7.1` and `3.3`, `D-132`; the title comes first at 360 |
+| A36 | The row said four across and the grid never did | A | Row corrected: three across, four only above 1100, because four in 952px wraps every figure |
+| A37, A39, A43 | The info block off the column, uneven card art, "Inspect it in game" to the market | A | Fixed |
+| A25, C32 | A sentence on the empty player shelf; the scope line repeated on fair-matched | A, C | Fixed |
+| A3 | The five-roll outcome at 360: 56px cards, no names | A | **Partly fixed**: the sale control stacks inside its card. **The two-column layout the auditor proposes reverses `D-39`**, one row at every width, and is the founder's call |
+
+**Moved to their surface's step, not dropped:** favourites and the Home strip, A10, A11, A26, to step 2; the player cards, A33 to A35, to step 4 with the account's samples.

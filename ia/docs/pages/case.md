@@ -17,6 +17,24 @@
 **Amended 23 August 2026 by `D-92`, in three places and no figure moved.** The market the settlement is struck against is named and the answer is us, so **the per-case gap in block 7 stops waiting on anybody and starts being a number we decline to publish**, section 5.3. **The outbound link on the top item keeps its target and loses its reason**, section 3: it points at Steam, Steam is the dearer place, and a control offered as the cheaper alternative can no longer be labelled that way. **And the risk band's hole is half answered**, section 1: the three bands are an input when a case is built rather than a label derived from its drop table, which is a different object from the one `D-24` specified, and the thresholds are still `[?]`.
 
 
+## Amended 29 September 2026 by `D-132`. Every figure on the case screen proves the same round
+
+**Why.** Round 14 of the critique, `wireframes/docs/critique.md` section 14, walked the case family in a browser and pressed every control. Samples are drawn by `D-124` and every sample below is marked as one.
+
+**Baseline row for this amendment.**
+
+| The live product, `walk4_case_1440_26sep.png` and `walk4_case_390_26sep.png` | What we keep | What we change, and why |
+|---|---|---|
+| Flanks: CASES TO OPEN, five slots, on the left, shown to guests; the like count and the risk skulls on the right | **Two flanks around the title** | **Risk band as a word on the left, Favourite on the right, and the count switch under the stage for an account only.** The like count is refused in section 16; the count sits beside the act it multiplies; a guest has no balance to multiply. Named here, it had no verdict |
+| At 390 the title comes first, then the flanks | **The title first** | Below 900 the flanks drop to the row under the title. They stood above it |
+| CASE CONTAINS: one uniform grid | The grid | **Three across in the content column, four only above 1100px.** Four in 952px wrapped every figure onto two lines. The D-125 row said four |
+| Nothing | | **One line under block 7:** buying an item outright is cheaper on average than opening for it, `B1-2`'s cost, kept and shortened |
+| Item actions after the open | **Three exits** | The multi-roll outcomes net their settlement on the Steam control, "Send to Steam, 5.25 coins" and "Send 4 to Steam, 4.10 coins", and say the per item signs in one line. Five rolls leave 12.20 coins, so the repeat control is **Add funds to open 5 again** rather than a price the balance cannot pay |
+
+**The proof chain.** Best drops, the outcome's "Check this round" and "Share it", the result page and the verifier read one record per round in `_nav.js`. The Glock won on the outcome opens the Glock's result and the Glock's seeds. The market link on the top item reads `Steam 50.43 coins`, a sample in coins, where it read 22.15 EUR.
+
+---
+
 ## Amended 27 September 2026 by `D-125`. The screen takes the baseline's order back, and every explanation under a figure moves here
 
 **Why.** The baseline distance round, `wireframes/docs/critique.md` section 13, measured this screen at 2193 words against the live case page's 1089, most of those being skin names. The case family was also thirteen hand copies of one body, and seven host pages for the gate, sign in and deposit layers carried a fourteenth to twentieth. **Everything under the stage is now one renderer, `caseBody()` in `wireframes/_nav.js`**, with four states: default, degraded, no counter and outcome.

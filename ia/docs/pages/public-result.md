@@ -25,6 +25,22 @@
 
 ---
 
+## Amended 29 September 2026 by `D-132`. The result proves the table it points at
+
+**Why.** Round 14 of the critique found this page proving a Classified AK-47 Redline worth 22.15 coins on ticket 7 318, while the case's drop table prices it at 47.30 coins, calls it Covert and gives ticket 7 318 to the M4A1-S. The proof page contradicted the table it proves. It also found no baseline row on this node.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| No result page. A ticker tile leads to the winner's profile, `/en/profile/<id>`, `baseline.md` section 3 | The tile as a route | **A page per round**, section 0: `F4` puts a shared object into the world and the baseline has none to share. The profile route survives as the winner's name on this page, `7.3` |
+
+**One record per round.** The item, both values, the time, the seeds, the ticket and its range come from one record per round in `_nav.js`, which best drops, the outcome, this page and the verifier all read. **These are samples, `D-124`:** the AK-47 Redline, Field-Tested, StatTrak, Covert, 47.30 coins when won on 18 Aug 2026 14:44 and 46.85 now, ticket 2 417 in 1 to 3 180; the Glock-18 Water Elemental, 12.90 and 12.60, ticket 29 684; and one record each for the other best drops. `?round=` selects the record.
+
+**Cut from the screen.** "No outside listing for this float band is published yet", and on `7.2` the reason we do not say which of two causes applies. The proof panel's scope is one line with a route to published against observed.
+
+---
+
 ## 0. What this page is, in one paragraph, because the object was undefined for four steps
 
 Entity 15 in `sitemap.md`, Shared result, entered the map with **every part marked `[?]`**. Nothing in this repository said what leaves the platform when a person shares a win. `F4` is the single exception to the priority test in the whole backlog, the path does not break without it but the referral loop does, and **a capability that emits an object into the world with no definition of what that object is, is a gap.**

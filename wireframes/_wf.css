@@ -553,12 +553,15 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-cost-say .wf-fig-missing { display: block; margin-top: var(--wf-s-half); font-size: var(--wf-t-xs); }
 /* THE BASELINE'S TWO LINES UNDER THE ACT, D-125: its SKIN PRICES box and its
    "Before Opening Case" warning, in that order and at the width of the stage. */
-.wf-case-info { display: grid; gap: var(--wf-s-1); margin: var(--wf-s-3) auto 0; max-width: var(--wf-measure); }
+.wf-case-info { display: grid; gap: var(--wf-s-1); margin: var(--wf-s-3) 0 0; max-width: var(--wf-measure); }
 .wf-case-info .wf-cost-say { margin: 0; }
 .wf-case-warn { margin: 0; }
 /* The baseline's HOW TO VIDEO sits over the stage's left edge. Ours routes to the
    section that answers the same question, D-125. */
 .wf-case-how { margin: var(--wf-s-1) 0 0; font-size: var(--wf-t-s); }
+/* From 900 the route sits at the right end of the breadcrumb's line, where the
+   baseline's HOW TO VIDEO sits, instead of taking a line of its own. */
+@media (min-width: 900px) { .wf-main > * + .wf-case-how.wf-case-how { margin-top: calc(-1 * var(--wf-s-3) - 4px); text-align: right; max-width: none; } }
 /* A1's market price, on the top item itself rather than in a note under the table. */
 .wf-d-mkt { display: block; font-size: var(--wf-t-xs); }
 /* B8's figures are the same institutional claim A5 makes, and they were made the same
@@ -621,7 +624,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
    The two column hero with its proposition and trust unit is gone from Home. */
 .wf-hero.wf-hero--short { display: block; text-align: center; padding: var(--wf-s-3) 0 var(--wf-s-2); }
 .wf-hero--short h1 { max-width: none; margin: 0; }
-.wf-hero--short .wf-hero-line { margin: var(--wf-s-half) 0 0; font-size: var(--wf-t-s); }
+.wf-hero--short .wf-hero-line { margin: var(--wf-s-half) auto 0; max-width: none; font-size: var(--wf-t-s); }
 .wf-sec--flush { padding-top: 0; }
 
 /* 0.7 The case tile. Four fields in D-24's order, two markers where true, one control.
@@ -1544,9 +1547,11 @@ a.wfp-state:hover { color: var(--wf-ink); }
      budget: 584px once the fixed bar takes its 56. The stage gives the height back,
      because a frame with room to spare above the fold is room the cost is not using. */
   .wf-case-head { grid-template-columns: auto auto; justify-content: space-between; align-items: center; }
-  .wf-case-head > .wf-flank:first-child { grid-column: 1; grid-row: 1; }
-  .wf-fav-case { grid-column: 2; grid-row: 1; }
-  .wf-case-say { grid-column: 1 / -1; grid-row: 2; }
+  /* THE TITLE COMES FIRST, round 14: the baseline at 390 reads the name before
+     anything else, and the flanks drop to the row under it. */
+  .wf-case-head > .wf-flank:first-child { grid-column: 1; grid-row: 2; }
+  .wf-fav-case { grid-column: 2; grid-row: 2; }
+  .wf-case-say { grid-column: 1 / -1; grid-row: 1; }
 }
 
 /* THE STAGE. One framed region that holds the case artwork in phase 1 and the reveal in
@@ -1559,7 +1564,10 @@ a.wfp-state:hover { color: var(--wf-ink); }
   padding: var(--wf-s-2);
   border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-3);
 }
-@media (min-width: 900px) { .wf-stage-frame { --wf-frame-h: 460px; } }
+/* THE ACT ON THE FIRST SCREEN AT 1440, round 14: at 460 the frame pushed Open to
+   y 873 on a 900 fold, where the baseline has it near 590. 340 keeps the artwork
+   the largest thing on the screen and brings the act above the fold. */
+@media (min-width: 900px) { .wf-stage-frame { --wf-frame-h: 340px; } }
 .wf-case-art {
   width: 100%; max-width: 420px; min-height: 200px; border-radius: var(--wf-r-3);
   background: var(--wf-surface); border: 1px dashed var(--wf-line-soft);
@@ -1822,6 +1830,8 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-won-card .wf-sell { margin-top: auto; }
 /* A skin name is one long word often enough that a fifth of 360px breaks it out of its
    own card. It wraps inside the column instead, at whatever point it has to. */
+/* From 900 the wear line holds one line, so five cards keep one art height. */
+@media (min-width: 900px) { .wf-won-card .wf-d-axes { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; } }
 .wf-won-card .wf-won-name, .wf-won-card .wf-won-name > span {
   min-width: 0; max-width: 100%; overflow-wrap: anywhere;
 }
@@ -1842,6 +1852,8 @@ a.wfp-state:hover { color: var(--wf-ink); }
    LINE UNDER THE ROW, in the same order, where it has a full line to sit on. */
 @container card (max-width: 110px) {
   .wf-won-name { display: none; }
+  /* The verb and the number stack inside the control rather than spilling out of it. */
+  .wf-won-card .wf-sell { white-space: normal; line-height: 1.15; padding: 4px 2px; }
   /* THE CHANCE HOLDS AT 11px AND NEVER BELOW. It was set to 10px when this tier was
      keyed to the viewport, under the floor every other figure on the page holds. THE
      WORD GOES INSTEAD OF THE SIZE: the per cent sign carries the reading, and the roll's
@@ -2190,7 +2202,7 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 .wf-drops .wf-tier-h td::before { content: none; }
 .wf-drops tbody + tbody .wf-tier-h td { border-top: 0; }
 /* ONE GRID OVER THE WHOLE TABLE, D-125, and it is the baseline's shape: CASE CONTAINS
-   is one uniform grid of cards, four across on a wide column, ordered high to low. The
+   is one uniform grid of cards, ordered high to low; ours runs three across in the content column and four only above 1100px, because four in 952px wraps every figure. The
    tiers stay in the markup, each still its own row group with its own accessible name,
    and the order is still tier by tier and ticket range inside each, section 3. What
    goes is the visual break per tier: a tier of two in its own grid left empty cells on

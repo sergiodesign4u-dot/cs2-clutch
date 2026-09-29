@@ -2796,18 +2796,62 @@ window.WF_PAY = window.WF_PAY || {
      It does not show that the published chances are the chances used. That is a
      different question and D3 is its answer, on 3.3.
      --------------------------------------------------------------------- */
+  /* THE ROUNDS THIS PROTOTYPE CAN PROVE, round 14. The result page, the proof
+     panel and the verifier all read one record, so the item, its value, its
+     ticket and its hash cannot drift from the drop table they prove. Round 13
+     found the result page proving a Classified AK at 22.15 on ticket 7 318,
+     which the table gives to the M4A1-S. Samples by D-124, marked in 7.1.
+     ?round=glock is the outcome of case-outcome.html: what was won there is
+     what "Check this round" and "Share it" now open. */
+  var ROUNDS = {
+    ak: { w: 'AK-47', s: 'Redline', axes: ['Field-Tested', 'StatTrak', 'Covert'], won: '47.30', now: '46.85',
+          at: '18 Aug 2026 14:44', hash: '4f2a91c7e0b83d5619ac7f20d8e4b1663c9a05f7d21e8b4409c6fa3d7e15b208',
+          seed: 'a71c0e4b93f6d2857e0c1a4f68b95d3027ef8c61b4a09d75e3f26c8017ab54d9', client: '7d19f4a2', nonce: '41 207',
+          ticket: '2 417', range: '1 to 3 180' },
+    glock: { w: 'Glock-18', s: 'Water Elemental', axes: ['Minimal Wear', 'Restricted'], won: '12.90', now: '12.60',
+          at: '18 Aug 2026 14:58', hash: 'a3f91c58d02e4b7f6a19c3e08d5b2f7461e0c9ab38d4f25e7c61b09a3f7d20e4',
+          seed: '5c8e21f0a7b34d96e18f02c5b7a94d3e60f1b82c9d07a45e3b6c18f2d09e7a51', client: '7d19f4a2', nonce: '41 208',
+          ticket: '29 684', range: '23 001 to 37 000' },
+    m4: { w: 'M4A1-S', s: 'Hyper Beast', axes: ['Factory New', 'Classified'], won: '24.60', now: '24.10',
+          at: '18 Aug 2026 15:06', hash: 'e04b7d2a91c65f38b0d4e17a2c96f5b308d1e7c42a6f9b05d3c8e71f4a2b69c3',
+          seed: '9b2f60d4e1a87c35f09b2d6e4a71c8f3052e9d7b1c4a86f30e5d2b97c1a4f608', client: '7d19f4a2', nonce: '41 213',
+          ticket: '6 112', range: '4 201 to 8 800' }
+  };
+  /* The other four best drops get records too, so every tile on the case screen
+     opens its own round. Their seeds are generated, which is what a sample is. */
+  function hx(t, n) {
+    var h = 2166136261, o = '';
+    while (o.length < n) {
+      for (var i = 0; i < t.length; i++) { h ^= t.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; }
+      o += ('0000000' + h.toString(16)).slice(-8); t += o.length;
+    }
+    return o.slice(0, n);
+  }
+  [['usp', 'USP-S', 'Kill Confirmed', ['Minimal Wear', 'Restricted'], '14.20', '13.95', '18 Aug 2026 14:22', '15 843', '11 001 to 23 000'],
+   ['nova', 'Nova', 'Koi', ['Factory New', 'Mil-Spec'], '7.90', '7.80', '18 Aug 2026 14:39', '91 377', '80 001 to 100 000'],
+   ['mp9', 'MP9', 'Rose Iron', ['Field-Tested', 'Mil-Spec'], '7.40', '7.35', '18 Aug 2026 14:51', '44 902', '37 001 to 59 000'],
+   ['p250', 'P250', 'Asiimov', ['Battle-Scarred', 'Mil-Spec'], '6.90', '6.70', '18 Aug 2026 14:31', '66 019', '59 001 to 80 000']
+  ].forEach(function (r, i) {
+    ROUNDS[r[0]] = { w: r[1], s: r[2], axes: r[3], won: r[4], now: r[5], at: r[6], hash: hx(r[0] + 'h', 64), seed: hx(r[0] + 's', 64),
+      client: '7d19f4a2', nonce: String(41190 + i).replace(/(\d)(\d{3})$/, '$1 $2'), ticket: r[7], range: r[8] };
+  });
+  function roundKey() {
+    var m = /[?&]round=([a-z]+)/.exec(location.search);
+    return (m && ROUNDS[m[1]]) ? m[1] : 'ak';
+  }
   function proofPanel(state) {
     var tag, fields, scope, acts;
+    var R = ROUNDS[roundKey()];
 
     var SEEDS =
       '<div class="wf-fpair"><span class="wf-fpair-k">Server seed hash, published before the roll</span>' +
-        '<span class="wf-fpair-v">4f2a91c7e0b83d5619ac7f20d8e4b1663c9a05f7d21e8b4409c6fa3d7e15b208</span></div>' +
+        '<span class="wf-fpair-v">' + R.hash + '</span></div>' +
       '<div class="wf-fpair"><span class="wf-fpair-k">Server seed, revealed after</span>' +
-        '<span class="wf-fpair-v">a71c0e4b93f6d2857e0c1a4f68b95d3027ef8c61b4a09d75e3f26c8017ab54d9</span></div>' +
-      '<div class="wf-fpair"><span class="wf-fpair-k">Client seed</span><span class="wf-fpair-v">7d19f4a2</span></div>' +
-      '<div class="wf-fpair"><span class="wf-fpair-k">Nonce</span><span class="wf-fpair-v">41 207</span></div>' +
-      '<div class="wf-fpair"><span class="wf-fpair-k">Settled result</span><span class="wf-fpair-v">7 318</span></div>' +
-      '<div class="wf-fpair"><span class="wf-fpair-k">Ticket range it landed in</span><span class="wf-fpair-v">7 300 - 7 420, AK-47 Redline</span></div>';
+        '<span class="wf-fpair-v">' + R.seed + '</span></div>' +
+      '<div class="wf-fpair"><span class="wf-fpair-k">Client seed</span><span class="wf-fpair-v">' + R.client + '</span></div>' +
+      '<div class="wf-fpair"><span class="wf-fpair-k">Nonce</span><span class="wf-fpair-v">' + R.nonce + '</span></div>' +
+      '<div class="wf-fpair"><span class="wf-fpair-k">Settled result</span><span class="wf-fpair-v">' + R.ticket + '</span></div>' +
+      '<div class="wf-fpair"><span class="wf-fpair-k">Ticket range it landed in</span><span class="wf-fpair-v">' + R.range + ', ' + R.w + ' ' + R.s + '</span></div>';
 
     if (state === 'unavailable') {
       // 0.14: the real case is rounds predating the published ledger, and
@@ -2824,15 +2868,15 @@ window.WF_PAY = window.WF_PAY || {
       // for and the one where building it late costs the most.
       tag = 'Recomputed: does not match';
       fields = SEEDS +
-        '<div class="wf-fpair"><span class="wf-fpair-k">Recomputed result</span><span class="wf-fpair-v">7 902</span></div>';
+        '<div class="wf-fpair"><span class="wf-fpair-k">Recomputed result</span><span class="wf-fpair-v">30 211</span></div>';
       scope = 'The recomputation does not agree with the settled result. That is our failure, not yours, and it is reportable. The published response deadline applies to it.';
       acts = '<a class="wf-btn wf-btn--primary" href="support.html">Report this round</a>' +
              '<a class="wf-btn" href="fair.html">Recompute it yourself</a>';
     } else {
       tag = (state === 'checked') ? 'Recomputed: matches' : 'Settled';
       fields = SEEDS;
-      scope = 'This shows the round was fixed before the click and was not altered after it. It does not show that the published chances are the chances used: that is a different question, and the observed rate beside every published tier on the case screen is its answer.';
-      acts = '<a class="wf-btn wf-btn--primary" href="fair.html">Recompute this round yourself</a>';
+      scope = 'Proves the round was fixed before the click. Whether the chances hold is on the case screen, <a href="case.html#h2-observed">published against observed</a>.';
+      acts = '<a class="wf-btn wf-btn--primary" href="fair-prefilled.html' + (roundKey() === 'ak' ? '' : '?round=' + roundKey()) + '">Recompute this round yourself</a>';
     }
 
     return '' +
@@ -2845,6 +2889,115 @@ window.WF_PAY = window.WF_PAY || {
         '<p class="wf-proof-scope">' + scope + '</p>' +
         '<div class="wf-proof-acts">' + acts + '</div>' +
       '</div>';
+  }
+
+  /* The result page's own fields read the same record. */
+  function renderResult() {
+    var box = document.querySelector('.wf-result');
+    if (!box) return;
+    var R = ROUNDS[roundKey()];
+    var q = function (sel) { return document.querySelector(sel); };
+    if (q('.wf-result-w')) q('.wf-result-w').textContent = R.w;
+    if (q('.wf-result-s')) q('.wf-result-s').textContent = R.s;
+    if (q('.wf-result-axes')) q('.wf-result-axes').innerHTML = R.axes.map(function (a) { return '<span class="wf-axis">' + a + '</span>'; }).join('');
+    var h1 = document.querySelector('.wf-result') && document.querySelector('h1');
+    if (h1 && /won from/.test(h1.textContent)) h1.textContent = R.w + ' | ' + R.s + ', won from Ironbound';
+    var v = document.querySelectorAll('.wf-vals .wf-fig');
+    if (v[0]) v[0].innerHTML = '<span class="wf-fig-v">' + R.won + ' coins</span><span class="wf-fig-c">Worth when it was won, ' + R.at + '</span>';
+    if (v[1]) v[1].innerHTML = '<span class="wf-fig-v">' + R.now + ' coins</span><span class="wf-fig-c">Worth now, read 21 Aug 2026 09:31</span>';
+    var o = q('.wf-caserow .wf-fig-c');
+    if (o) o.textContent = 'Opened ' + R.at;
+  }
+
+  /* The verifier opens prefilled with the round it was sent from. */
+  function renderVerifierPrefill() {
+    var R = ROUNDS[roundKey()];
+    Array.prototype.forEach.call(document.querySelectorAll('[data-round]'), function (e) {
+      var k = e.getAttribute('data-round');
+      e.textContent = k === 'range' ? R.range + ', ' + R.w + ' ' + R.s : R[k];
+    });
+    if (!/[?&]round=/.test(location.search)) return;
+    var set = function (id, v) { var e = document.getElementById(id); if (e) e.value = v; };
+    set('v-hash', R.hash); set('v-seed', R.seed); set('v-client', R.client); set('v-nonce', R.nonce);
+  }
+
+  /* THE VERIFIER COMPUTES, round 14: the button was a picture of one on all six
+     fair pages. Four well formed inputs land on the matched state for that round,
+     anything else on the malformed state. The arithmetic itself is the page's
+     published algorithm; the prototype shows where each answer lands. */
+  /* THE COUNTS WITHOUT A STATE PAGE ANSWER IN PLACE, round 14. One, two and five
+     have pages; three and four were buttons that did nothing. They now set the
+     count, the price on the act and the balance after it. */
+  function mountCount() {
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('button.wf-count-b');
+      if (!b) return;
+      var box = b.closest('.wf-count');
+      var n = parseInt(b.textContent, 10), unit = 12.40, bal = 74.20;
+      Array.prototype.forEach.call(box.querySelectorAll('.wf-count-b'), function (x) {
+        x.removeAttribute('aria-current');
+        if (x.tagName === 'BUTTON') x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
+      });
+      b.setAttribute('aria-current', 'true');
+      var scope = box.parentNode;
+      var act = scope.querySelector('.wf-btn--primary');
+      if (act) act.textContent = 'Open for ' + (n * unit).toFixed(2) + ' coins';
+      var line = scope.parentNode.querySelector('.wf-fig-c');
+      if (line && /After this open/.test(line.innerHTML)) line.innerHTML = line.innerHTML.replace(/After this open, [\d.]+ coins/, 'After this open, ' + (bal - n * unit).toFixed(2) + ' coins');
+    });
+  }
+
+  /* COPY SAYS IT COPIED, AND SELL SELLS, round 14. Both were buttons that
+     answered nothing, on the screens where a person has just spent. A sale
+     cannot be undone, so the control turns into its receipt. */
+  function mountOutcomeActs() {
+    document.addEventListener('click', function (e) {
+      var c = e.target.closest('[data-copy]');
+      if (c) {
+        e.preventDefault();
+        var txt = c.getAttribute('data-copy') || (c.parentNode.querySelector('.wf-hash-v') || {}).textContent || '';
+        try { if (navigator.clipboard) navigator.clipboard.writeText(txt); } catch (err) {}
+        var was = c.textContent;
+        c.textContent = 'Copied';
+        setTimeout(function () { c.textContent = was; }, 1600);
+        return;
+      }
+      var b = e.target.closest('button');
+      if (!b || b.disabled || !/^Sell\b/.test(b.textContent.trim())) return;
+      if (!b.closest('.wf-outcome-acts, .wf-won-card')) return;
+      var num = function (x) { var m = /([\d.]+)(?:\s*coins)?\s*$/.exec(x.textContent.trim()); return m ? m[1] : ''; };
+      var sold = function (x) { x.textContent = 'Sold, +' + num(x); x.disabled = true; x.classList.add('is-sold'); };
+      if (/^Sell (all|the other)/.test(b.textContent.trim())) {
+        var left = document.querySelectorAll('.wf-won-card button.wf-sell:not([disabled])'), sum = 0;
+        Array.prototype.forEach.call(left, function (x) { sum += parseFloat(num(x)) || 0; sold(x); });
+        b.textContent = 'All sold, +' + sum.toFixed(2) + ' coins'; b.disabled = true;
+      } else {
+        sold(b);
+        // The batch control follows what is left, so a second sale is never counted twice.
+        var all = b.closest('.wf-won-card') && document.querySelector('.wf-outcome-acts button');
+        if (all && /^Sell (all|the other)/.test(all.textContent.trim())) {
+          var rest = document.querySelectorAll('.wf-won-card button.wf-sell:not([disabled])'), r = 0;
+          Array.prototype.forEach.call(rest, function (x) { r += parseFloat(num(x)) || 0; });
+          if (rest.length) all.textContent = 'Sell the other ' + rest.length + ' for ' + r.toFixed(2) + ' coins';
+          else { all.textContent = 'All sold'; all.disabled = true; }
+        }
+      }
+      var send = b.closest('.wf-outcome-acts') && b.closest('.wf-outcome-acts').querySelector('a[href^="withdraw"]');
+      if (send && !document.querySelector('.wf-won-card button.wf-sell:not([disabled])')) send.remove();
+    });
+  }
+
+  function mountVerifier() {
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-fair-go]');
+      if (!b) return;
+      e.preventDefault();
+      var v = function (id) { var x = document.getElementById(id); return x ? x.value.replace(/\s+/g, '') : ''; };
+      var hex = /^[0-9a-f]{64}$/i;
+      var ok = hex.test(v('v-hash')) && hex.test(v('v-seed')) && v('v-client').length > 0 && /^\d+$/.test(v('v-nonce'));
+      var q = /[?&]round=/.test(location.search) ? '?round=' + roundKey() : '';
+      location.href = (ok ? 'fair-matched.html' : 'fair-malformed.html') + q + '#check';
+    });
   }
 
   function renderProofs() {
@@ -3044,19 +3197,19 @@ window.WF_PAY = window.WF_PAY || {
     }
     // G5: the limits of a withdrawal are stated before the request. The baseline
     // says it here, before the open, and it is cheaper here than at the till.
-    out.push('<p class="wf-note wf-case-warn"><strong>Before opening.</strong> Your Steam inventory has to be public and your trade URL set, or a win cannot be sent to you. <a href="settings.html">Check your settings</a></p>');
+    out.push('<p class="wf-note wf-case-warn"><strong>' + (state === 'outcome' ? 'Before sending to Steam.' : 'Before opening.') + '</strong> Your Steam inventory has to be public and your trade URL set, or a win cannot be sent to you. <a href="settings.html">Check your settings</a></p>');
     out.push('</section>');
 
     // ---- BEST DROPS, D-30 and D-32. Ranked by value, and the one route to the
     // block that can disappoint stays, because that route is the cost D-32 kept.
-    var drops = [['AK-47', 'Redline', '47.30', '18 Aug, 14:44'], ['USP-S', 'Kill Confirmed', '14.20', '18 Aug, 14:22'],
-                 ['Glock-18', 'Water Elemental', '12.90', '18 Aug, 14:58'], ['Nova', 'Koi', '7.90', '18 Aug, 14:39'],
-                 ['MP9', 'Rose Iron', '7.40', '18 Aug, 14:51'], ['P250', 'Asiimov', '6.90', '18 Aug, 14:31']];
+    var drops = [['AK-47', 'Redline', '47.30', '18 Aug, 14:44', ''], ['USP-S', 'Kill Confirmed', '14.20', '18 Aug, 14:22', 'usp'],
+                 ['Glock-18', 'Water Elemental', '12.90', '18 Aug, 14:58', 'glock'], ['Nova', 'Koi', '7.90', '18 Aug, 14:39', 'nova'],
+                 ['MP9', 'Rose Iron', '7.40', '18 Aug, 14:51', 'mp9'], ['P250', 'Asiimov', '6.90', '18 Aug, 14:31', 'p250']];
     out.push('<section class="wf-sec" aria-labelledby="h2-recent"><div class="wf-sec-head"><h2 id="h2-recent">Best drops</h2>' +
       (state === 'nocounter' ? '' : '<p class="wf-sec-sub">By value. <a href="#h2-observed">What usually drops</a></p>') +
       '</div><ul class="wf-recent">');
     drops.forEach(function (d) {
-      out.push('<li><a href="result.html"><span class="wf-r-art" aria-hidden="true"></span><span class="wf-r-w">' + d[0] +
+      out.push('<li><a href="result.html' + (d[4] ? '?round=' + d[4] : '') + '"><span class="wf-r-art" aria-hidden="true"></span><span class="wf-r-w">' + d[0] +
         '</span><span class="wf-r-s">' + d[1] + '</span><span class="wf-r-v">' + d[2] + ' coins</span><span class="wf-r-t">' + d[3] + '</span></a></li>');
     });
     out.push('</ul></section>');
@@ -3077,7 +3230,7 @@ window.WF_PAY = window.WF_PAY || {
           '</span><span class="wf-d-axes">' + i[2] + ' · ' + t[0] + '</span>' +
           // A1: THE OUTBOUND MARKET PRICE SITS ON THE TOP ITEM ITSELF, not in a
           // note under the table, and it carries its own moment.
-          (top && !degraded ? '<a class="wf-d-mkt" href="https://steamcommunity.com/market/" rel="external nofollow">Steam 22.15 EUR, 18 Aug 14:02</a>' : '') +
+          (top && !degraded ? '<a class="wf-d-mkt" href="https://steamcommunity.com/market/" rel="external nofollow">Steam 50.43 coins, 18 Aug 14:02</a>' : '') +
           '</span></th>' +
           '<td data-l="Chance">' + i[3] + '</td>' +
           '<td data-l="Value">' + (degraded ? '<span class="wf-fig-missing">Not available</span>' : i[4] + ' coins') + '</td>' +
@@ -3108,7 +3261,7 @@ window.WF_PAY = window.WF_PAY || {
       out.push(fig(degraded ? null : '-6.2 %', 'Our values against a real copy, case average', '<a href="withdraw.html">How it settles</a>'));
     }
     out.push('</div>');
-    out.push('<p class="wf-note">If you can afford an item outright, buying it is cheaper on average than opening for it. Opening buys the chance and the reveal, not a discount.</p>');
+    out.push('<p class="wf-note">Buying an item outright is cheaper on average than opening for it.</p>');
     out.push('</section>');
 
     // ---- PUBLISHED AGAINST OBSERVED, D3. Its two conditions, D-B and D-C, and
@@ -5895,6 +6048,11 @@ window.WF_PAY = window.WF_PAY || {
     renderHomeBodies();
     renderCaseBodies();
     renderLadders();
+    renderResult();
+    renderVerifierPrefill();
+    mountVerifier();
+    mountCount();
+    mountOutcomeActs();
     renderProofs();
     mountGate();
     mountDeposit();

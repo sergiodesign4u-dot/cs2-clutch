@@ -5343,3 +5343,27 @@ Five instruments, Codex read only among them. **Home 1714 words against the base
 ### Housekeeping that changed no pixel
 
 **145 dead selector branches left `_wf.css`**, each confirmed by both instruments, and all 133 pages are pixel identical at 360 and 1440 before and after. **Four IA amendment sections and the bodies of `D-124` to `D-130` were rebuilt from their markdown**; they had been rendered at half their length or less. **Twelve IA pages stopped scrolling sideways at 360**, their new baseline tables wrapped like every other, **and `overview.html` closes its `main` where it should**, so the 38 sections after D-52 no longer run under the sidebar at 1440.
+
+## D-132. Round 14, step 1: every figure on the case screen proves the same round
+
+**Date:** 2026-09-29. **Stage:** 04. **Decided by:** the founder, "давай без кодекса а просто субагентами", after round 14's raised set. **Binds:** nodes `3.3` and `7.1`, `1.2`'s verifier, their pages.
+
+**What the founder said.** Run the critique and the audit again; when Codex could not run, use subagents instead of waiting.
+
+### The proof chain reads one record
+
+**The result page proved a round the drop table does not contain.** It showed a Classified AK-47 Redline at 22.15 coins on ticket 7 318; the table prices it at 47.30, calls it Covert and gives 7 318 to the M4A1-S. The outcome won a Glock and sent Check and Share to the AK. **Now one record per round**, a sample by `D-124`, feeds best drops, the outcome, the result page and the verifier, and `?round=` chooses it.
+
+### Controls that answer
+
+- **The verifier computes where it lands:** four well formed inputs go to the matched state of that round, anything else to the malformed state. Report this round opens the appeal.
+- **Counts 3 and 4 set the count, the price and the balance after.** Sell, Sell all and Copy become their receipts; a batch never counts a sale twice; Revoke opens the gone state.
+- **Open again reopens the same count**, and where five rolls leave 12.20 coins the control is Add funds.
+
+### The fold and the words
+
+**Open is on the first screen at 1440 again**, at y 698 where it stood at 873: the stage is 340 high from 900 and How it works shares the breadcrumb's line. The outcomes say their settlement in one line of signs and carry the net on the Steam control. The commit line says the balance after, the peg, and RTP with expected value, principle 3.
+
+### Named, and one question left
+
+The flanks, the title first at 360, the three-across grid and the result page's baseline row are named in `3.3` and `7.1`. **The five-roll outcome at 360 stays one row by `D-39`**; the auditor's two columns would reverse it, and that is the founder's to decide.
