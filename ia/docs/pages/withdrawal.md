@@ -17,6 +17,20 @@
 **Amended 23 August 2026 by `D-92`, and the largest remaining `[?]` on this node closed into a smaller and sharper one.** The founder named the market the settlement price is read from: **it is us.** The prices are ours, taken from Steam, and the market for these items is this product. **So both columns of the four column table are ours**, our credited value and our price for a copy, **and the outbound route this node kept asking for cannot exist**, because a link to our own listing confirms nothing. **What block `1b` renders instead is the relation to Steam and the hole inside it**, section 1b.1: the price is ours, it is set against the Steam market, and how far under Steam we set it is not published. **The founder's own hedge travels with all of it**, section 9b: the wording was "in principle", and if a third party supplies the copy at withdrawal time one word changes on every line above.
 
 
+## Amended 2 October 2026 by `D-143`. Every item has its shelf, the clock shows what was struck, and resend re-strikes
+
+**Why.** Round 15 of the critique found Send to Steam on five of the six items opening the AK's basket, the clock showing the AK at 18.90 whatever copy or how many items were sent, Send the offer again with no listener, and Sell it back changing neither the sum nor the header.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A withdrawal per item | One item is a basket of one, `D-114` | **The shelves live once, `WF_SHELF`**, and a card or the bar's selection opens its own basket. **The clock shows the items, copies and difference that press struck**, and the header follows. **Send the offer again re-strikes at the cheapest copy now**, `D-93`. **Sell it back asks first, then moves the money and leaves the sum** |
+
+**Samples, `D-124`, marked here:** the AWP's shelf, five copies from 61.20 to 69.40 coins.
+
+---
+
 ## Amended 29 September 2026 by `D-135`. One AK, one market, and the main act sends
 
 **Why.** Round 14 of the critique found Send to Steam, Remove and Sell it back with no handler, and the same AK-47 Redline settling 42.40 off the balance here while `5.1` printed 2.50 back for it.

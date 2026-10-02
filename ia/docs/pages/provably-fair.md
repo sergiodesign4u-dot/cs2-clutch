@@ -21,6 +21,20 @@
 **Renders:** node `0.14`, canonical round proof, variant V4. This node does not restate `0.14` and may not contradict it.
 
 
+## Amended 2 October 2026 by `D-143`. The verifier answers against what was typed, and the example is a round
+
+**Why.** Round 15 of the critique found an empty form landing on errors about values nobody typed, the unavailable and proof failed states answering agree, and the worked example's Check this round opening the AK.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A verifier | Variant V4, the four fields | **Each field says what is wrong with what was typed, in place.** Unavailable says there is nothing to recompute until the seed rotates; proof failed recomputes to the same mismatch. **The worked example is a round of its own** and opens its verifier and its public page |
+
+**Samples, `D-124`, marked here:** the example round: server seed 7c1e...a904, client seed nightjar, nonce 412, ticket 18 210.
+
+---
+
 ## Amended 29 September 2026 by `D-137`. The verifier computes, and the page stops promising a control the map does not hold
 
 **Why.** Round 14 of the critique found Recompute and Report this round with no handler on all six pages, a link to a client seed control no settings page contains, and the page's lead repeated as a question.

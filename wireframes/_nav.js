@@ -438,6 +438,17 @@ function moneyNow() {
   var p = function (v, d) { return v === undefined ? d : parseFloat(String(v)); };
   return { balance: p(M.balance, WF_MONEY.balance), held: p(M.held, WF_MONEY.held) };
 }
+/* A SALE ASKS FIRST, round 15, node 5.11 section 4.2: there is no switch that
+   turns the confirmation off, so every sale has one. The first press turns the
+   control into its question; the second sells; it disarms after five seconds. */
+function confirmFirst(b) {
+  if (b.getAttribute('data-armed') === '1') { b.removeAttribute('data-armed'); b.textContent = b.getAttribute('data-was'); return true; }
+  var was = b.textContent;
+  b.setAttribute('data-armed', '1'); b.setAttribute('data-was', was);
+  b.textContent = 'Press again to ' + was.charAt(0).toLowerCase() + was.slice(1);
+  setTimeout(function () { if (b.getAttribute('data-armed') === '1') { b.removeAttribute('data-armed'); b.textContent = was; } }, 5000);
+  return false;
+}
 function moneyAdd(dBal, dHeld) {
   var m = moneyNow();
   var nb = (m.balance + dBal).toFixed(2) + ' coins', nh = (m.held + dHeld).toFixed(2) + ' coins';
@@ -1294,7 +1305,7 @@ window.WF_PAY = window.WF_PAY || {
           '<p class="wf-note">It cannot be lifted early. That is what it is for.</p>' +
           '<div class="wf-row">' +
             '<a class="wf-btn" href="responsible.html" data-ex-dismiss>Cancel</a>' +
-            '<a class="wf-btn" href="responsible-excluded.html">Confirm</a>' +
+            '<a class="wf-btn" href="responsible-excluded.html?x=' + encodeURIComponent(p) + '">Confirm</a>' +
           '</div>' +
         '</div>' +
       '</div></div>';
@@ -1448,17 +1459,49 @@ window.WF_PAY = window.WF_PAY || {
       p.textContent = text;
       set.classList.add('is-marked');
     }
+    /* DATES ARE COUNTED FROM THE PROTOTYPE'S NOW, round 15: every cool down
+       ended on 25 Aug and a six month exclusion on 21 Aug 2031. */
+    var NOW = Date.UTC(2026, 7, 21, 9, 31), MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var COOL = { '24 hours': 1, '7 days': 7, '30 days': 30 };
+    function fmt(t) { var d = new Date(t); return d.getUTCDate() + ' ' + MON[d.getUTCMonth()] + ' ' + d.getUTCFullYear() + ', 09:31'; }
+    var q = function (k) { var m = new RegExp('[?&]' + k + '=([^&]+)').exec(location.search); return m ? decodeURIComponent(m[1]) : null; };
+    var ce = document.querySelector('[data-rp-cool-ends]');
+    if (ce && q('c') && COOL[q('c')]) { var t0 = NOW + COOL[q('c')] * 864e5; page.setAttribute('data-rp-cool-end', new Date(t0).toISOString().slice(0, 16)); ce.textContent = 'Ends ' + fmt(t0); }
+    var xe = document.querySelector('[data-rp-ex-ends]');
+    if (xe && q('x') && EX_END[q('x')]) xe.textContent = 'Ends ' + EX_END[q('x')];
     page.addEventListener('click', function (e) {
       var t = e.target.closest('[data-rp-refuse]');
       if (t) { e.preventDefault(); answer(t, t.getAttribute('data-rp-refuse')); return; }
       var sv = e.target.closest('[data-rp-save]');
       if (sv) {
         var inp = sv.closest('.wf-set-ctl').querySelector('.wf-set-in');
-        if (inp && !(parseFloat(inp.value) > 0)) { answer(sv, 'Nothing was set: enter an amount first.'); return; }
-        answer(sv, 'Saved. A tighter limit applies now; a looser one in 24 hours.');
+        if (inp) {
+          var raw = inp.value.replace(/,/g, '.').trim(), v = parseFloat(raw);
+          /* THE REASON IS THE REASON, round 15: 0 and -5 were told to enter an amount. */
+          if (!raw) { answer(sv, 'Nothing was set: enter an amount first.'); return; }
+          if (!(v > 0)) { answer(sv, 'Nothing was set: a limit has to be more than 0.'); return; }
+          var cur = parseFloat(page.getAttribute('data-rp-limit') || '0');
+          if (sv.hasAttribute('data-rp-tighten') && cur && v > cur) { answer(sv, 'Nothing changed: a self exclusion is running, so a limit can only be tightened.'); return; }
+          answer(sv, cur && v > cur ? 'Saved. A looser limit applies in 24 hours.' : 'Saved. It applies now.');
+          return;
+        }
+        answer(sv, 'Saved. A shorter session applies now; a longer one in 24 hours.');
         return;
       }
-      if (e.target.closest('[data-rp-cool]')) location.href = BASE + 'responsible-in-force.html';
+      var cb = e.target.closest('[data-rp-cool]');
+      if (cb) {
+        var sel = cb.closest('.wf-set-ctl') && cb.closest('.wf-set-ctl').querySelector('select');
+        var per = sel ? sel.value : '24 hours', end = NOW + (COOL[per] || 1) * 864e5;
+        var curEnd = page.getAttribute('data-rp-cool-end');
+        /* A RUNNING COOL DOWN EXTENDS AND NEVER SHORTENS, round 15: the press
+           reopened the same page and changed nothing. */
+        if (!curEnd) { location.href = BASE + 'responsible-in-force.html?c=' + encodeURIComponent(per); return; }
+        var ct = Date.parse(curEnd + ':00Z');
+        if (end <= ct) { answer(cb, 'Nothing changed: the cool down already runs until ' + fmt(ct) + ', and it cannot be shortened.'); return; }
+        page.setAttribute('data-rp-cool-end', new Date(end).toISOString().slice(0, 16));
+        if (ce) ce.textContent = 'Ends ' + fmt(end);
+        answer(cb, 'Extended. It now ends ' + fmt(end) + '.');
+      }
     });
   }
 
@@ -1490,7 +1533,9 @@ window.WF_PAY = window.WF_PAY || {
        can hold something that is not money, and every figure computed from it then
        reads NaN beside a Pay control. */
     function clean(v) {
-      v = String(v).replace(/[^0-9.]/g, '');
+      // A COMMA IS A DECIMAL POINT, round 15: "12,50" read as 1250 and Pay went
+      // through for $1250.00.
+      v = String(v).replace(/,/g, '.').replace(/[^0-9.]/g, '');
       var i = v.indexOf('.');
       if (i > -1) v = v.slice(0, i + 1) + v.slice(i + 1).replace(/\./g, '');
       return v;
@@ -1536,6 +1581,10 @@ window.WF_PAY = window.WF_PAY || {
     var terms = scope.querySelector('[data-dep-terms]');
     if (terms) {
       var box = terms.querySelector('.wf-cbx-box');
+      /* THE SENTENCE TOGGLES TOO, round 15: only the 20 px box did. A press on
+         one of its two links still opens the link. */
+      var line = terms.querySelector('.wf-cbx-t');
+      if (line) line.addEventListener('click', function (e) { if (!e.target.closest('a')) box.click(); });
       box.addEventListener('click', function () {
         var on = box.getAttribute('aria-pressed') === 'true';
         box.setAttribute('aria-pressed', on ? 'false' : 'true');
@@ -1550,9 +1599,13 @@ window.WF_PAY = window.WF_PAY || {
       /* THE AMOUNT IS CHECKED TOO, round 14: $0, letters and a figure over the
          limit in force all reached crediting. */
       var v = parseFloat(amt ? amt.value : '0') || 0, cap = parseFloat(go.getAttribute('data-ceiling') || '0');
+      var mail = scope.querySelector('input[type="email"]');
       var why = v < 5 ? 'Nothing went through: the smallest deposit is $5.00.'
-              : (cap && v > cap) ? 'Nothing went through: your deposit limit leaves $' + cap.toFixed(2) + ' this period.' : '';
-      if (!needTerms && !why) return;
+              : (cap && v > cap) ? 'Nothing went through: your deposit limit leaves $' + cap.toFixed(2) + ' this period.'
+              /* THE BILLING ADDRESS IS READ, round 15: empty and "not-an-email" paid. */
+              : (mail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim())) ? 'Nothing went through: the receipt needs an email address it can reach.' : '';
+      /* WHAT WAS PAID IS WHAT CREDITING SHOWS, round 15: it always read $40.00 Visa. */
+      if (!needTerms && !why) { go.setAttribute('href', BASE + 'deposit-crediting.html?a=' + v.toFixed(2) + '&m=' + encodeURIComponent(go.getAttribute('data-method') || '')); return; }
       e.preventDefault();
       if (!needTerms) { say.classList.add('is-said'); say.textContent = why; if (amt) amt.focus(); return; }
       // THE ANSWER IS A PLACE ON THE SCREEN AND NOT ONLY A SENTENCE ABOUT ONE.
@@ -3055,6 +3108,11 @@ window.WF_PAY = window.WF_PAY || {
       var scope = box.parentNode;
       var act = scope.querySelector('.wf-btn--primary');
       if (act) act.textContent = 'Open for ' + (n * unit).toFixed(2) + ' coins';
+      /* THE BAR AND THE LINE FOLLOW, round 15: the sticky bar kept the old price
+         and the line under the title kept the old count. */
+      var sb = document.querySelector('.wf-commit-bar .wf-btn--primary'); if (sb && act) sb.textContent = act.textContent;
+      var words = ['', 'one roll', 'two rolls', 'three rolls', 'four rolls', 'five rolls'];
+      var cl = document.querySelector('.wf-case-line'); if (cl) cl.textContent = cl.textContent.replace(/(one|two|three|four|five) rolls?\./, words[n] + '.');
       var line = scope.parentNode.querySelector('.wf-fig-c');
       if (line && /After this open/.test(line.innerHTML)) line.innerHTML = line.innerHTML.replace(/After this open, [\d.]+ coins/, 'After this open, ' + (bal - n * unit).toFixed(2) + ' coins');
     });
@@ -3091,8 +3149,9 @@ window.WF_PAY = window.WF_PAY || {
         return;
       }
       var b = e.target.closest('button');
-      if (!b || b.disabled || !/^Sell\b/.test(b.textContent.trim())) return;
+      if (!b || b.disabled || !/^(Sell|Press again to sell)\b/.test(b.textContent.trim())) return;
       if (!b.closest('.wf-outcome-acts, .wf-won-card')) return;
+      if (!confirmFirst(b)) return;
       var num = function (x) { var m = /([\d.]+)(?:\s*coins)?\s*$/.exec(x.textContent.trim()); return m ? m[1] : ''; };
       // A SALE MOVES THE HEADER, round 15: the receipt printed +12.90 over a
       // balance that did not change.
@@ -3146,10 +3205,33 @@ window.WF_PAY = window.WF_PAY || {
       if (!b) return;
       e.preventDefault();
       var v = function (id) { var x = document.getElementById(id); return x ? x.value.replace(/\s+/g, '') : ''; };
-      var hex = /^[0-9a-f]{64}$/i;
-      var ok = hex.test(v('v-hash')) && hex.test(v('v-seed')) && v('v-client').length > 0 && /^\d+$/.test(v('v-nonce'));
+      /* WHAT IS WRONG IS SAID AGAINST WHAT WAS TYPED, IN PLACE, round 15: an empty
+         form landed on a page of errors about values nobody typed. */
+      var hexMsg = function (x, what) { return !x ? 'Paste the ' + what + '.' : !/^[0-9a-f]*$/i.test(x) ? 'A ' + what + ' is 0 to 9 and a to f only.' : x.length !== 64 ? 'This is ' + x.length + ' characters. A ' + what + ' is 64.' : ''; };
+      var errs = {
+        'v-hash': hexMsg(v('v-hash'), 'server seed hash'),
+        'v-seed': hexMsg(v('v-seed'), 'server seed'),
+        'v-client': v('v-client') ? '' : 'Paste the client seed.',
+        'v-nonce': !v('v-nonce') ? 'Enter the nonce.' : /^\d+$/.test(v('v-nonce').replace(/,/g, '')) ? '' : 'A nonce is a whole number.'
+      };
+      var bad = false;
+      Object.keys(errs).forEach(function (id) {
+        var f = document.getElementById(id), box = f && f.closest('.wf-vf');
+        if (!box) return;
+        var p = box.querySelector('.wf-vf-err');
+        box.classList.toggle('is-bad', !!errs[id]);
+        if (errs[id]) { bad = true; if (!p) { p = el('p', 'wf-vf-err'); box.appendChild(p); } p.textContent = errs[id]; }
+        else if (p) p.remove();
+      });
+      if (bad) return;
+      /* THE STATE PAGES ANSWER AS THEIR STATE, round 15: unavailable and proof
+         failed both landed on "agree". */
+      var path = location.pathname;
+      var sayAt = b.parentNode, say = sayAt.querySelector('.wf-refuse') || sayAt.appendChild(el('p', 'wf-refuse is-said'));
+      if (/fair-unavailable/.test(path)) { say.textContent = 'Nothing to recompute yet: the server seed for this round is revealed when it rotates.'; return; }
+      if (/fair-proof-failed/.test(path)) { say.textContent = 'Recomputed again: 30 211. It still does not match 2 417, and the report above stands.'; return; }
       var q = /[?&]round=/.test(location.search) ? '?round=' + roundKey() : '';
-      location.href = (ok ? 'fair-matched.html' : 'fair-malformed.html') + q + '#check';
+      location.href = 'fair-matched.html' + q + '#check';
     });
   }
 
@@ -3591,7 +3673,8 @@ window.WF_PAY = window.WF_PAY || {
        not match, drops the daily panel and any emptied section, prints the count
        and badges Filters. ?risk=High&max=24.50&q=cold opens the shelf filtered,
        which is what the chips and the empty state's two exits link to. */
-    var F = { risk: [], q: '', max: 55, liked: false, funds: false, type: 'All' };
+    // THE MINIMUM FILTERS TOO, round 15: the drawer drew it and nothing read it.
+    var F = { risk: [], q: '', min: 0, max: 55, liked: false, funds: false, type: 'All' };
     var BAL = moneyNow().balance;
     (function fromUrl() {
       var u = location.search;
@@ -3599,6 +3682,7 @@ window.WF_PAY = window.WF_PAY || {
       if (g('risk')) F.risk = g('risk').split(',');
       if (g('q')) F.q = g('q');
       if (g('max')) F.max = parseFloat(g('max'));
+      if (g('min')) F.min = parseFloat(g('min'));
     })();
     function tiles() {
       return Array.prototype.slice.call(document.querySelectorAll('.wf-cats-sec .wf-tile, .wf-grid--shelf .wf-tile')).filter(function (t) { return t.querySelector('.wf-tile-risk'); });
@@ -3610,18 +3694,19 @@ window.WF_PAY = window.WF_PAY || {
       var sec = t.closest('.wf-cats-sec');
       if (f.risk.length && !f.risk.some(function (b) { return risk.indexOf(b) === 0; })) return false;
       if (f.q && name.toLowerCase().indexOf(f.q.toLowerCase()) < 0) return false;
-      if (cost > f.max) return false;
+      if (cost > f.max || cost < (f.min || 0)) return false;
       if (f.liked && (t.querySelector('.wf-fav') || {}).getAttribute && t.querySelector('.wf-fav').getAttribute('aria-pressed') !== 'true') return false;
       if (f.funds && cost > BAL) return false;
       if (f.type !== 'All' && sec && sec.id !== 'cat-' + f.type.toLowerCase()) return false;
       return true;
     }
-    function active(f) { return f.risk.length || f.q || f.max < 55 || f.liked || f.funds || f.type !== 'All'; }
+    function active(f) { return f.risk.length || f.q || f.min > 0 || f.max < 55 || f.liked || f.funds || f.type !== 'All'; }
     function read() {
-      var f = { risk: [], q: '', max: 55, liked: false, funds: false, type: 'All' };
+      var f = { risk: [], q: '', min: 0, max: 55, liked: false, funds: false, type: 'All' };
       f.risk = Array.prototype.slice.call(host.querySelectorAll('[data-risk]:checked')).map(function (i) { return i.getAttribute('data-risk'); });
       f.q = (host.querySelector('#f-name') || {}).value || '';
       f.max = parseFloat((host.querySelector('#f-max') || {}).value) || 55;
+      f.min = parseFloat((host.querySelector('#f-min') || {}).value) || 0;
       f.liked = !!(host.querySelector('[data-f-liked]') || {}).checked;
       f.funds = !!(host.querySelector('[data-f-funds]') || {}).checked;
       f.type = (host.querySelector('#f-type') || {}).value || 'All';
@@ -3631,6 +3716,7 @@ window.WF_PAY = window.WF_PAY || {
       host.querySelectorAll('[data-risk]').forEach(function (i) { i.checked = f.risk.indexOf(i.getAttribute('data-risk')) >= 0; });
       var q = host.querySelector('#f-name'); if (q) q.value = f.q;
       var mx = host.querySelector('#f-max'); if (mx) mx.value = f.max.toFixed(2);
+      var mn = host.querySelector('#f-min'); if (mn) mn.value = (f.min || 0).toFixed(2);
       var r = host.querySelector('.wf-range'); if (r) r.value = String(Math.round(f.max));
       var l = host.querySelector('[data-f-liked]'); if (l) l.checked = f.liked;
       var d = host.querySelector('[data-f-funds]'); if (d) d.checked = f.funds;
@@ -3663,7 +3749,7 @@ window.WF_PAY = window.WF_PAY || {
       }
       var btn = document.querySelector('[data-filter-open]');
       if (btn) {
-        var k = (F.risk.length ? 1 : 0) + (F.q ? 1 : 0) + (F.max < 55 ? 1 : 0) + (F.liked ? 1 : 0) + (F.funds ? 1 : 0) + (F.type !== 'All' ? 1 : 0);
+        var k = (F.risk.length ? 1 : 0) + (F.q ? 1 : 0) + (F.max < 55 || F.min > 0 ? 1 : 0) + (F.liked ? 1 : 0) + (F.funds ? 1 : 0) + (F.type !== 'All' ? 1 : 0);
         var badge = btn.querySelector('.wf-badge');
         if (k) { if (!badge) { badge = el('span', 'wf-badge'); btn.appendChild(badge); } badge.textContent = String(k); }
         else if (badge && !btn.hasAttribute('data-badge-static')) badge.remove();
@@ -3731,9 +3817,14 @@ window.WF_PAY = window.WF_PAY || {
 
     document.addEventListener('click', function (e) {
       var t = e.target.closest('[data-filter-open]');
-      if (!t) return;
+      /* SEARCH OPENS THE NAME FIELD, round 15: the button moved focus and nothing
+         else. The search is the drawer's Case name field, so Search opens the
+         drawer on it rather than drawing a second field. */
+      var sr = e.target.closest('[data-filter-search]');
+      if (!t && !sr) return;
       e.preventDefault();
-      open(t);
+      open(t || sr);
+      if (sr && host) { var nm = host.querySelector('#f-name'); if (nm) nm.focus(); }
     });
 
     // The state page renders it open on load, for the same reason the sign in
@@ -3944,7 +4035,7 @@ window.WF_PAY = window.WF_PAY || {
       if (one && blindOf(one.closest('.wf-inv-card'))) {
         e.preventDefault(); one.textContent = 'Not sold: its value cannot be read right now'; return;
       }
-      if (one) { e.preventDefault(); sell(one.closest('.wf-inv-card')); paint(); return; }
+      if (one) { e.preventDefault(); if (!confirmFirst(one)) return; sell(one.closest('.wf-inv-card')); paint(); return; }
       var act = e.target.closest('[data-invbar-act]');
       if (!act || !bar.contains(act)) return;
       var on = picks.filter(function (i) { return i.checked; });
@@ -3952,6 +4043,8 @@ window.WF_PAY = window.WF_PAY || {
       say.textContent = '';
       if (act.hasAttribute('data-inv-sellsel')) {
         e.preventDefault();
+        if (!say.hasAttribute('data-armed-sell')) { say.setAttribute('data-armed-sell', '1'); say.textContent = 'Press Sell for coins again to sell ' + on.length + (on.length === 1 ? ' item' : ' items') + '.'; setTimeout(function () { say.removeAttribute('data-armed-sell'); }, 5000); return; }
+        say.removeAttribute('data-armed-sell');
         if (on.some(function (i) { return blindOf(i.closest('.wf-inv-card')); })) { say.textContent = 'Not sold: one item has a value that cannot be read right now. Untick it to sell the rest.'; return; }
         var got = 0;
         on.forEach(function (i) { got += sell(i.closest('.wf-inv-card')); });
@@ -3959,7 +4052,10 @@ window.WF_PAY = window.WF_PAY || {
         paint();
         return;
       }
-      if (act.getAttribute('href') && /withdraw/.test(act.getAttribute('href'))) act.setAttribute('href', BASE + (on.length > 1 ? 'withdraw-many.html' : 'withdraw.html'));
+      /* THE SELECTION TRAVELS, round 15: one item or five, the basket opened the
+         AK's. Each card's key is the round its Share opens. */
+      var ks = on.map(function (i) { var sh = i.closest('.wf-inv-card').querySelector('a[href*="round="]'); return sh ? (/round=([a-z0-9]+)/.exec(sh.getAttribute('href')) || [])[1] : ''; }).filter(Boolean);
+      if (act.getAttribute('href') && /withdraw/.test(act.getAttribute('href'))) act.setAttribute('href', BASE + (on.length > 1 ? 'withdraw-many.html?items=' + ks.join(',') : 'withdraw.html?item=' + ks[0]));
     });
     var basePaint = paint;
     paint = function () { basePaint(); if (none) none.hidden = !picks.some(function (i) { return i.checked; }); };
@@ -4242,6 +4338,11 @@ window.WF_PAY = window.WF_PAY || {
       hash: hx(o[0] + 'h', 64), seed: hx(o[0] + 's', 64), client: '7d19f4a2', nonce: String(41209 + i).replace(/(\d)(\d{3})$/, '$1 $2'),
       ticket: String(lo + (i * 7919) % (hi - lo + 1)).replace(/(\d)(\d{3})$/, '$1 $2'), range: it[5], kase: 'Ironbound' };
   });
+  /* THE WORKED EXAMPLE ON 1.2 IS A ROUND, round 15: its "Check this round" opened
+     the AK. Its fields are the ones the example prints, server seed 7c1e...a904,
+     client seed nightjar, nonce 412, ticket 18 210 in the USP-S range. Sample. */
+  ROUNDS.ex = { w: 'USP-S', s: 'Kill Confirmed', axes: ['Minimal Wear', 'Restricted'], won: '14.20', now: '13.95', at: '18 Aug 2026 14:12',
+    hash: hx('exh', 64), seed: '7c1e' + hx('exs', 56) + 'a904', client: 'nightjar', nonce: '412', ticket: '18 210', range: '11 001 to 23 000', kase: 'Ironbound' };
   /* EACH HASH OF A MULTI-ROLL OPEN IS ITS OWN, with its own copy. */
   function renderHashes() {
     Array.prototype.forEach.call(document.querySelectorAll('[data-hashes]'), function (box) {
@@ -4738,7 +4839,14 @@ window.WF_PAY = window.WF_PAY || {
       e.appendChild(el('p', 'wf-empty-p', 'What still works is selling it back to us for its value, which is our price for it and not a market price, so no copy has to exist for it to happen.'));
       var row2 = el('div', 'wf-row');
       var sb = el('button', 'wf-btn wf-btn--primary', 'Sell it back for ' + wdFmt(row.ours) + ' coins'); sb.type = 'button';
-      sb.addEventListener('click', function () { sb.textContent = 'Sold, +' + wdFmt(row.ours) + ' coins'; sb.disabled = true; });
+      /* THE SALE MOVES THE MONEY AND LEAVES THE SUM, round 15: it printed Sold
+         over a settlement and a header that did not change. */
+      sb.addEventListener('click', function () {
+        if (!confirmFirst(sb)) return;
+        sb.textContent = 'Sold, +' + wdFmt(row.ours) + ' coins'; sb.disabled = true;
+        moneyAdd(row.ours, -row.ours); row.removed = true;
+        if (row._repaint) row._repaint();
+      });
       var kp = el('a', 'wf-btn', 'Keep it and go back'); kp.setAttribute('href', BASE + 'account.html');
       row2.appendChild(sb); row2.appendChild(kp);
       e.appendChild(row2);
@@ -4780,10 +4888,125 @@ window.WF_PAY = window.WF_PAY || {
     return box;
   }
 
+  /* THE SHELF FOR EVERY ITEM 5.1 HOLDS, ONCE, round 15, D-143. The basket lived
+     as two hand copies in withdraw.html and withdraw-many.html, and Send to Steam
+     on five of the six cards opened the AK's, because only the AK had a shelf on
+     the single page. A page names the keys it starts with; ?item= and ?items=
+     carry the selection from 5.1. Samples by D-124, marked in 5.3; the AWP's
+     shelf is new with this record. */
+  var WF_SHELF = {
+    wak: { w: 'AK-47', s: 'Redline', wear: 'Field-Tested', ours: 21.40, total: 412, offers: [
+      { p: 18.90, f: 0.2544283, stk: 5 },
+      { p: 19.61, f: 0.3438201, stk: 0 },
+      { p: 19.99, f: 0.2676437, stk: 0 },
+      { p: 20.26, f: 0.2213551, stk: 0 },
+      { p: 21.08, f: 0.3516645, stk: 0 },
+      { p: 21.97, f: 0.2419475, stk: 5 },
+      { p: 22.94, f: 0.2906549, stk: 0 },
+      { p: 23.87, f: 0.3386378, stk: 0 },
+      { p: 24.09, f: 0.1962262, stk: 0 }
+    ] },
+    uspc: { w: 'USP-S', s: 'Cortex', wear: 'Minimal Wear', ours: 7.35, total: 903, offers: [
+      { p: 6.05, f: 0.1429911, stk: 0 },
+      { p: 6.50, f: 0.1181423, stk: 5 },
+      { p: 6.88, f: 0.0826826, stk: 3 },
+      { p: 8.02, f: 0.0797353, stk: 2 },
+      { p: 9.37, f: 0.0970005, stk: 0 },
+      { p: 10.69, f: 0.1233387, stk: 4 },
+      { p: 11.73, f: 0.0774877, stk: 0 },
+      { p: 12.62, f: 0.0963690, stk: 0 }
+    ] },
+    m4ft: { w: 'M4A1-S', s: 'Hyper Beast', wear: 'Field-Tested', ours: 29.90, total: 155, offers: [
+      { p: 34.10, f: 0.2806129, stk: 0 },
+      { p: 35.27, f: 0.2155586, stk: 0 },
+      { p: 36.64, f: 0.3549544, stk: 3 },
+      { p: 38.00, f: 0.2712751, stk: 5 },
+      { p: 38.50, f: 0.3033878, stk: 0 },
+      { p: 39.03, f: 0.2226556, stk: 5 },
+      { p: 40.30, f: 0.3189648, stk: 4 }
+    ] },
+    deagle: { w: 'Desert Eagle', s: 'Blaze', wear: 'Minimal Wear', ours: 12.05, total: 74, offers: [
+      { p: 13.60, f: 0.1034146, stk: 0 },
+      { p: 13.97, f: 0.0902115, stk: 0 },
+      { p: 14.40, f: 0.1149456, stk: 0 },
+      { p: 14.75, f: 0.1109874, stk: 2 },
+      { p: 15.77, f: 0.1012467, stk: 4 },
+      { p: 16.88, f: 0.1222424, stk: 3 }
+    ] },
+    glockfn: { w: 'Glock-18', s: 'Water Elemental', wear: 'Factory New', ours: 4.20, total: 0, offers: [] },
+    awp: { w: 'AWP', s: 'Asiimov', wear: 'Field-Tested', ours: 66.05, total: 230, offers: [
+      { p: 61.20, f: 0.2214378, stk: 0 },
+      { p: 62.75, f: 0.3011462, stk: 4 },
+      { p: 64.10, f: 0.1893350, stk: 0 },
+      { p: 66.90, f: 0.2650014, stk: 0 },
+      { p: 69.40, f: 0.3377921, stk: 5 }
+    ] }
+  };
+  function wdKeys() {
+    var one = (/[?&]item=([a-z0-9]+)/.exec(location.search) || [])[1];
+    var many = (/[?&]items=([a-z0-9,]+)/.exec(location.search) || [])[1];
+    var ks = many ? many.split(',') : one ? [one] : (window.WF_WD_KEYS || []);
+    return ks.filter(function (k) { return WF_SHELF[k]; });
+  }
+
+  /* THE CLOCK READS WHAT WAS STRUCK, round 15. Opened from a press it shows the
+     items, the copies and the difference that press settled; opened from its
+     address it shows its own sample, the AK at the cheapest copy. */
+  /* SEND THE OFFER AGAIN RE-ENTERS THE OFFER STAGE, round 15, withdrawal.md and
+     D-93: it re-strikes at the price of the day, the cheapest copy now. It was the
+     main action of 5.8 with no listener. */
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-wd-resend]');
+    if (!b) return;
+    var r = WF_SHELF[b.getAttribute('data-wd-resend')], o = r && r.offers[0];
+    if (!o) return;
+    try { sessionStorage.setItem('wf-wd-struck', JSON.stringify([{ key: b.getAttribute('data-wd-resend'), w: r.w, s: r.s, wear: r.wear, ours: r.ours, p: o.p, f: o.f }])); } catch (err) {}
+    location.href = BASE + 'withdraw-clock.html';
+  });
+
+  function mountClockStruck() {
+    var tbl = document.querySelector('[data-settle]');
+    if (!tbl || !document.querySelector('.wf-held')) return;
+    var st = null;
+    try { st = JSON.parse(sessionStorage.getItem('wf-wd-struck') || 'null'); sessionStorage.removeItem('wf-wd-struck'); } catch (e) {}
+    if (!st || !st.length) return;
+    var tb = tbl.querySelector('tbody'); tb.innerHTML = '';
+    var total = 0, ours = 0;
+    st.forEach(function (r) {
+      var d = r.ours - r.p; total += d; ours += r.ours;
+      var tr = el('tr');
+      [[r.w + ' ' + r.s + ', ' + r.wear, 'Skin name'], [wdFmt(r.ours), 'Your skin price'], [wdFmt(r.p), 'Market skin price'], [(d >= 0 ? '+' : '-') + wdFmt(Math.abs(d)), 'Your balance impact']].forEach(function (c) {
+        var td = el('td', null, c[0]); td.setAttribute('data-l', c[1]); tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+    });
+    var t = (total >= 0 ? '+' : '-') + wdFmt(Math.abs(total));
+    var te = document.querySelector('[data-total]'); if (te) te.textContent = t + ' coins';
+    var line = te && te.closest('.wf-stack') && te.closest('.wf-stack').querySelector('.wf-tl--sum + .wf-fig-c');
+    if (line) line.innerHTML = 'Based on the market price, <strong>' + wdFmt(Math.abs(total)) + ' coins ' + (total >= 0 ? 'were added to your balance' : 'were taken from your balance') + '</strong> when you asked. Nothing further moves while this is in flight.';
+    var fl = line && line.nextElementSibling;
+    if (fl && st.length === 1) fl.innerHTML = 'The copy bought for you carries float <b>' + st[0].f.toFixed(7) + '</b>, ' + st[0].wear + '. Market price read 21 Aug 2026 09:31.';
+    else if (fl) fl.textContent = 'Each copy bought for you is named by its float in the table above. Market prices read 21 Aug 2026 09:31.';
+    var held = document.querySelector('.wf-held');
+    if (st.length > 1) {
+      held.querySelector('.wf-held-w').textContent = st.length + ' items';
+      held.querySelector('.wf-held-s').textContent = st.map(function (r) { return r.w + ' ' + r.s; }).join(', ');
+      var ax = held.querySelector('.wf-result-axes'); if (ax) ax.remove();
+    } else {
+      held.querySelector('.wf-held-w').textContent = st[0].w; held.querySelector('.wf-held-s').textContent = st[0].s;
+      var ax1 = held.querySelector('.wf-result-axes'); if (ax1) ax1.innerHTML = '<span class="wf-axis">' + st[0].wear + '</span>';
+    }
+    var hv = held.querySelector('.wf-held-figs .wf-fig-v'); if (hv) hv.textContent = wdFmt(ours) + ' coins';
+    /* The header follows the struck difference from the account's pair. */
+    window.WF_SHELL.money = { balance: (WF_MONEY.balance + total).toFixed(2) + ' coins', held: (WF_MONEY.held - ours).toFixed(2) + ' coins' };
+    moneyAdd(0, 0);
+  }
+
   function mountWithdrawMany() {
     var host = document.querySelector('[data-wd-basket]');
-    if (!host || !window.WF_WD) return;
-    var rows = window.WF_WD;
+    if (!host) return;
+    var rows = wdKeys().map(function (k) { var c = JSON.parse(JSON.stringify(WF_SHELF[k])); c.key = k; return c; });
+    if (!rows.length) return;
     rows.forEach(function (r, i) { r.id = 'r' + i; r.pick = r.offers.length ? 0 : -1; });
 
     rows.forEach(function (r) { host.appendChild(wdRow(r)); });
@@ -4887,9 +5110,16 @@ window.WF_PAY = window.WF_PAY || {
       r.removed = true; r.pick = -1; box.hidden = true;
       paint();
     });
+    rows.forEach(function (r) { r._repaint = paint; });
     if (btnEl) btnEl.addEventListener('click', function () {
-      var going = rows.filter(function (r) { return !r.removed && r.pick >= 0; }).length;
-      if (going) { location.href = BASE + 'withdraw-clock.html'; return; }
+      var out = rows.filter(function (r) { return !r.removed && r.pick >= 0; });
+      /* THE CLOCK SHOWS WHAT WAS STRUCK, round 15: it showed the AK at 18.90 and
+         +2.50 whatever copy was picked and however many items went. */
+      if (out.length) {
+        var struck = out.map(function (r) { var o = r.offers[r.pick]; return { key: r.key, w: r.w, s: r.s, wear: r.wear, ours: r.ours, p: o.p, f: o.f }; });
+        try { sessionStorage.setItem('wf-wd-struck', JSON.stringify(struck)); } catch (e) {}
+        location.href = BASE + 'withdraw-clock.html'; return;
+      }
       if (sayEl) sayEl.textContent = 'Nothing is going out: every item was removed or has no copy on sale. Change what is selected.';
     });
     paint();
@@ -5158,7 +5388,8 @@ window.WF_PAY = window.WF_PAY || {
      D-98, so it is not among the things being answered. */
   function payCountry() {
     var c = el('p', 'wf-note wf-pay-cty');
-    c.appendChild(document.createTextNode('Payment methods for Ukraine · '));
+    // THE SAVED COUNTRY, round 15: settings saved Poland and this still read Ukraine.
+    c.appendChild(document.createTextNode('Payment methods for ' + countryNow() + ' · '));
     var a = el('a', null, 'Change');
     a.href = BASE + 'settings.html';
     c.appendChild(a);
@@ -5561,6 +5792,7 @@ window.WF_PAY = window.WF_PAY || {
     main.appendChild(payCountry());
 
     host.appendChild(main);
+    var dg = main.querySelector('[data-dep-go]'); if (dg && cfg.method) dg.setAttribute('data-method', cfg.method);
     mountDeposit(main);
     mountPromo(main);
     mountSkinDep(main);
@@ -5576,8 +5808,12 @@ window.WF_PAY = window.WF_PAY || {
       var on = picks.filter(function (i) { return i.checked; });
       var sum = on.reduce(function (a, i) { return a + parseFloat(i.getAttribute('data-skin-v')); }, 0);
       var n = on.length + (on.length === 1 ? ' skin' : ' skins');
-      scope.querySelector('[data-skin-sum]').textContent = sum.toFixed(2) + ' coins';
-      scope.querySelector('[data-skin-n]').textContent = n;
+      /* THE BONUS IS ON EVERY DEPOSIT, deposit.md 2b, so it is on skins too, round
+         15: the banner promised it and the sum left it out. */
+      var f = depFigs(sum);
+      scope.querySelector('[data-skin-sum]').textContent = f.receive + ' coins';
+      scope.querySelector('[data-skin-n]').textContent = n + ', ' + sum.toFixed(2) + ' plus ' + f.bonus + ' bonus';
+      scope.querySelector('[data-skin-go]').setAttribute('href', BASE + 'deposit-crediting.html?a=' + f.receive + '&m=CS2%20skins');
       scope.querySelector('[data-skin-go]').textContent = on.length ? 'Deposit ' + n : 'Pick a skin';
     }
     picks.forEach(function (i) { i.addEventListener('change', paint); });
@@ -5631,6 +5867,17 @@ window.WF_PAY = window.WF_PAY || {
         : 'Nothing to apply: the field is empty. A code is optional and the offer above does not need one.';
       say.classList.add('is-said');
     });
+  }
+
+  /* CREDITING SHOWS WHAT WAS PAID, round 15: $40.00 by Visa whatever was typed
+     or chosen. The address carries the amount and the method from the press. */
+  function mountCrediting() {
+    var am = document.querySelector('[data-cred-amt]'), mm = document.querySelector('[data-cred-m]');
+    if (!am) return;
+    var a = (/[?&]a=([0-9.]+)/.exec(location.search) || [])[1], m = (/[?&]m=([^&]+)/.exec(location.search) || [])[1];
+    m = m ? decodeURIComponent(m) : '';
+    if (a) am.textContent = m === 'CS2 skins' ? a + ' coins' : '$' + parseFloat(a).toFixed(2);
+    if (m && mm) mm.textContent = m;
   }
 
   function mountPay() {
@@ -6498,12 +6745,17 @@ window.WF_PAY = window.WF_PAY || {
      without the rail following or its own value line changing. */
   /* WHERE YOU LIVE SAVES, round 14: the press had no handler on a compliance
      control. It answers and moves the date. */
+  /* ONE COUNTRY FOR THE SESSION, round 15, the way language and sound are one
+     setting: what settings saves is what the deposit lists methods for. */
+  function countryNow() { try { return sessionStorage.getItem('wf-country') || 'Ukraine'; } catch (e) { return 'Ukraine'; } }
   function mountCountry() {
     var b = document.querySelector('[data-country-save]');
     if (!b) return;
+    var sel = document.getElementById('cfg-country');
+    if (sel) sel.value = countryNow();
     b.addEventListener('click', function () {
       var w = b.parentNode.querySelector('.wf-quick-w');
-      var sel = document.getElementById('cfg-country');
+      try { if (sel) sessionStorage.setItem('wf-country', sel.value); } catch (e) {}
       if (w) w.textContent = 'Saved: ' + (sel ? sel.value : '') + ', 21 Aug 2026';
     });
   }
@@ -6661,7 +6913,9 @@ window.WF_PAY = window.WF_PAY || {
     mountRolls();
     mountCashout();
     mountWithdrawMany();
+    mountClockStruck();
     mountPay();
+    mountCrediting();
     mountDepositDialog();
     mountInvSort();
     mountCookie();

@@ -16,6 +16,18 @@
 
 ---
 
+## Amended 2 October 2026 by `D-143`. Search opens the name field, and the minimum filters
+
+**Why.** Round 15 of the critique found Search moving focus and nothing else on all seven shelf pages, open since round 9, and the drawer's minimum price read by nothing.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A search field and a filter | The drawer as the one filter surface, `D-66` | **Search opens the drawer on its Case name field**, so the search is one field and not two. **The minimum price filters**, counts and travels in the address as `?min=` |
+
+---
+
 ## Amended 29 September 2026 by `D-133`. The filter is one state, and every way out of an empty shelf works
 
 **Why.** Round 14 of the critique found half the drawer inert, the press leaving the daily panel and the headings in place, two ways out of the empty state printing wrong numbers, and the filtered state showing a case its own filter excludes.

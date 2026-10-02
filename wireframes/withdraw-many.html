@@ -151,47 +151,9 @@ window.WF_ACCT = { active: 'items' };
    selection reproduces the inventory's settlement exactly. Floats sit inside the
    wear band the skin is, because a replacement copy of a Field-Tested skin is a
    Field-Tested copy. */
-window.WF_WD = [
-  { w: 'AK-47', s: 'Redline', wear: 'Field-Tested', ours: 21.40, total: 412, offers: [
-    { p: 18.90, f: 0.2544283, stk: 5 },
-    { p: 19.61, f: 0.3438201, stk: 0 },
-    { p: 19.99, f: 0.2676437, stk: 0 },
-    { p: 20.26, f: 0.2213551, stk: 0 },
-    { p: 21.08, f: 0.3516645, stk: 0 },
-    { p: 21.97, f: 0.2419475, stk: 5 },
-    { p: 22.94, f: 0.2906549, stk: 0 },
-    { p: 23.87, f: 0.3386378, stk: 0 },
-    { p: 24.09, f: 0.1962262, stk: 0 }
-  ] },
-  { w: 'USP-S', s: 'Cortex', wear: 'Minimal Wear', ours: 7.35, total: 903, offers: [
-    { p: 6.05, f: 0.1429911, stk: 0 },
-    { p: 6.50, f: 0.1181423, stk: 5 },
-    { p: 6.88, f: 0.0826826, stk: 3 },
-    { p: 8.02, f: 0.0797353, stk: 2 },
-    { p: 9.37, f: 0.0970005, stk: 0 },
-    { p: 10.69, f: 0.1233387, stk: 4 },
-    { p: 11.73, f: 0.0774877, stk: 0 },
-    { p: 12.62, f: 0.0963690, stk: 0 }
-  ] },
-  { w: 'M4A1-S', s: 'Hyper Beast', wear: 'Field-Tested', ours: 29.90, total: 155, offers: [
-    { p: 34.10, f: 0.2806129, stk: 0 },
-    { p: 35.27, f: 0.2155586, stk: 0 },
-    { p: 36.64, f: 0.3549544, stk: 3 },
-    { p: 38.00, f: 0.2712751, stk: 5 },
-    { p: 38.50, f: 0.3033878, stk: 0 },
-    { p: 39.03, f: 0.2226556, stk: 5 },
-    { p: 40.30, f: 0.3189648, stk: 4 }
-  ] },
-  { w: 'Desert Eagle', s: 'Blaze', wear: 'Minimal Wear', ours: 12.05, total: 74, offers: [
-    { p: 13.60, f: 0.1034146, stk: 0 },
-    { p: 13.97, f: 0.0902115, stk: 0 },
-    { p: 14.40, f: 0.1149456, stk: 0 },
-    { p: 14.75, f: 0.1109874, stk: 2 },
-    { p: 15.77, f: 0.1012467, stk: 4 },
-    { p: 16.88, f: 0.1222424, stk: 3 }
-  ] },
-  { w: 'Glock-18', s: 'Water Elemental', wear: 'Factory New', ours: 4.20, total: 0, offers: [] }
-];
+/* THE SHELVES LIVE ONCE IN _nav.js, WF_SHELF, round 15. This page names the
+   keys it starts with; ?item= or ?items= from 5.1 replaces them. */
+window.WF_WD_KEYS = ['wak', 'uspc', 'm4ft', 'deagle', 'glockfn'];
 </script>
 <script src="_nav.js"></script>
 </body>

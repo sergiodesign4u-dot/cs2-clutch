@@ -149,7 +149,7 @@
       <h3>The computation</h3>
       <p>HMAC-SHA256 of the server seed, keyed with <code>client seed:nonce</code>. The first eight hex characters, read as a number, modulo 100&#160;000, plus one, is the ticket. The item whose ticket range holds it is the result.</p>
       <h3>A worked example</h3>
-      <p>Server seed <code>7c1e…a904</code>, client seed <code>nightjar</code>, nonce <code>412</code>. HMAC starts <code>3a9009c1</code>, which is 982&#160;518&#160;209; modulo 100&#160;000 plus one is ticket <b>18&#160;210</b>, in the range 11&#160;001 to 23&#160;000, USP-S Kill Confirmed. <a href="fair-prefilled.html">Check this round</a></p>
+      <p>Server seed <code>7c1e…a904</code>, client seed <code>nightjar</code>, nonce <code>412</code>. HMAC starts <code>3a9009c1</code>, which is 982&#160;518&#160;209; modulo 100&#160;000 plus one is ticket <b>18&#160;210</b>, in the range 11&#160;001 to 23&#160;000, USP-S Kill Confirmed. <a href="fair-prefilled.html?round=ex">Check this round</a> <a href="result.html?round=ex">Its public page</a></p>
       <h3>Version history</h3>
       <p>Version 1, 12 Jan 2026. First published.</p>
     </section>

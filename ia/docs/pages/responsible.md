@@ -26,6 +26,18 @@
 | **One tool exists**, called **TAKE A BREAK**, doing deposit restriction or full account restriction. It is the second row of the `SECURITY` block inside the settings tab of the account. `baseline-account.md` section 7.1. | **Nothing structural**, and that is the finding rather than a gap in the reading. | **Everything about where it lives.** There is no responsible play page and **no route to the tool from anywhere**: not the footer, not the rail, not the header, not the home page, all four re-checked on 18 August 2026. It sits beside Logout and an anonymity toggle, in the vocabulary of account protection rather than self protection. **An absence could be answered with "nobody in the category has it". This cannot: they built it and then filed it where nobody looks.** |
 
 
+## Amended 2 October 2026 by `D-143`. Dates count from now, a running cool down only extends, and an exclusion still lets a person tighten
+
+**Why.** Round 15 of the critique found every cool down ending 25 Aug, a six month exclusion ending in 2031, Start a cool down doing nothing while one runs, every control refused under an exclusion that promised tightening, a 0 told to enter an amount, and a limit prefilled where none is in force.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Limits a person sets | The four boundaries and their direction rules | **The end of a cool down or an exclusion is counted from the moment it starts.** **A running cool down extends and refuses to shorten, with the date it runs to.** **Under a self exclusion a deposit limit can still be set or lowered**, section 6's locked for the duration, and a cool down or a second exclusion refuses with the reason. A 0 is refused as a 0. No limit is prefilled where none is in force |
+
+---
+
 ## Amended 29 September 2026 by `D-137`. Every boundary control answers beside itself
 
 **Why.** Round 14 of the critique found Save and Start a cool down with no handler, refusals landing at the foot of the page far from the press, a guest's only instruction at the foot, the canonical state prefilled with a limit while saying nothing is set, and the excluded state saying the controls are locked while they were live.

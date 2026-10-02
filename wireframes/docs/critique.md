@@ -934,3 +934,29 @@ A separate table from the defects, as the pack asks: a step that did not happen 
 | (ours) | Three cash out rows named items from a 212 roll history | lead, while fixing | Fixed: the three sold rolls |
 
 **Checked on screen** at 1440 and 360 on every page: no script error, no horizontal scroll.
+
+### 16.6 Step 4, the controls that were still lying, fixed on 2 October 2026 under `D-143`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| B2-31 | Crediting always read $40.00 by Visa | B2 | Fixed: it reads the press |
+| B2-36 | "12,50" read as 1250 | B2 | Fixed |
+| B2-11 | The billing email never read | B2 | Fixed |
+| B2-45 | The terms sentence did not toggle its box | B2 | Fixed |
+| B2-37 | The skins dock left out the bonus the banner promised | B2 | Fixed: the bonus applies, `D-143` |
+| B2-38 | The saved country never reached the deposit | B2 | Fixed |
+| J82 | Send to Steam on five of six cards opened the AK | D2 | Fixed: `WF_SHELF`, one shelf per item |
+| B2-35 | The clock ignored the copy picked and the number of items | B2 | Fixed |
+| B2-1, J80 | Send the offer again had no listener | B2, D2 | Fixed: it re-strikes at the cheapest copy now |
+| B2-34 | Sell it back changed neither the sum nor the header | B2 | Fixed |
+| B2-2, B2-32 | Start a cool down did nothing while one ran; every end date was 25 Aug; six months ended in 2031 | B2 | Fixed |
+| B2-3, J95 | Under an exclusion every control refused and the page promised tightening; 40.00 prefilled with no limit | B2, D2 | Fixed, `D-143` |
+| B2-22 | A 0 limit was told to enter an amount | B2 | Fixed |
+| B1-6, J77 | Search did nothing on seven pages, open since round 9 | B1, D2 | Fixed: it opens the name field |
+| B1-7 | The minimum price filtered nothing | B1 | Fixed |
+| B1-20 | Picking three left the sticky bar and the line at one | B1 | Fixed |
+| B1-1 | Picking three or four opens the one roll page | B1 | **Open, the founder's call**, `D-143` |
+| B2-15, B2-16, B2-17, J74 | The verifier invented its errors; two states answered agree; the example opened the AK | B2, D2 | Fixed |
+| B2-21 | "Always ask you first" while every sale went through | B2 | Fixed: every sale asks |
+
+**Checked on screen** at 1440 and 360 on every page: no script error, no horizontal scroll.

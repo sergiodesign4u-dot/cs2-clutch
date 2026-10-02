@@ -19,6 +19,18 @@
 | A two column settings tab with **twenty rows** in four groups: `GENERAL` five, `SECURITY` three, `LINKED PROFILES` four, `NOTIFICATIONS` eight. Founder captures of 18 August 2026, `baseline-account.md` section 7, and of 22 August 2026, `research/screens/baseline/founder_22aug_settings_top.png` and `founder_22aug_settings_linked.png`. | **One row: the Steam trade URL**, with its helper line, because the exit needs it and nothing else on the map holds it. | **Nineteen of twenty do not survive, and almost none of them for a reason about settings.** Eleven configure modes that are `LATER` or channels that have no backlog row at all. Five already live somewhere else on our map and would be second homes. Two are refused on a rule. One is `[?]` and belongs to the founder. **Section 1 gives the verdict on every row with its reason, because a settings page that quietly drops nineteen rows is a settings page nobody can audit against its own baseline.** |
 
 
+## Amended 2 October 2026 by `D-143`. The confirmation the row promises exists
+
+**Why.** Round 15 of the critique found the Confirmations row promising that selling back always asks first while every sale went through on the first press.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Confirmation switches | No switch, section 4.2 | **Every sale now asks**: the first press turns the control into its question, the second sells. Sending to Steam and cashing out confirm on their review screens. **The country saved here is the one the deposit lists methods for** |
+
+---
+
 ## Amended 29 September 2026 by `D-137`. Where you live lists only markets we could open, and saves
 
 **Why.** Round 14 of the critique found Germany in a list headed "markets we operate in", which `markets.md` blocks, and a Save with no handler on a compliance control.

@@ -5607,3 +5607,24 @@ Four statements later decisions had reversed were corrected: Home's mode cards, 
 ### Refused
 
 **The cases opened counter on `7.3`**, the founder's second answer of 30 September: `5.10` refuses it as a score and the person's public page may not carry it either.
+
+
+## D-143. Round 15, step 4: the controls that were still lying
+
+**Date:** 2026-10-02. **Stage:** 04, round 15. **Decided by:** the founder, "да", on step 4. **Binds:** `wireframes/_nav.js`, the deposit, withdrawal, responsible, catalogue, fair, case and settings pages, nodes `4.1`, `5.3`, `6.1`, `3.1`, `1.2`, `5.11`.
+
+**What the founder said.** Yes, on the controls.
+
+### Three decisions inside the fixes
+
+- **The standing bonus applies to a skin deposit.** `4.1` section 2b says every deposit and the banner says every top-up; the skins dock left it out, so either the banner lied or the dock did. The dock now shows it.
+- **Every sale asks first**, because `5.11` section 4.2 refuses a switch that removes the confirmation and the row said every one is confirmed. The first press turns the control into its question; review screens are the confirmation for sending and cashing out.
+- **Under a self exclusion a deposit limit can still be set or lowered.** `6.1` says other boundaries can still be tightened, and every control on the page refused.
+
+### One data move
+
+**The withdrawal shelves live once, `WF_SHELF`.** They were two hand copies with only the AK on the single page, which is why five of six Send to Steam presses opened the AK.
+
+### Left open, for the founder
+
+**Opening three or four at once.** The count switch offers 1 to 5 as the baseline does, and only 1, 2 and 5 have open pages. The label and the sticky bar now say 37.20 for three, and the press still opens the one roll page.
