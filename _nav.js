@@ -19,7 +19,7 @@
    registered in ia/_nav.js as window.IA_NAV.
 
    Why a replacement rather than a branch inside the roadmap: twelve stages plus
-   twenty six nodes in one panel is a list nobody scans. Standing inside the detail
+   the thirty detail nodes in one panel is a list nobody scans. Standing inside the detail
    layer, the only list that helps is the detail layer. The registry stays in
    ia/_nav.js and is never copied here: this file reads it if it is present and falls
    back to the roadmap with a single satellite item if it is not.

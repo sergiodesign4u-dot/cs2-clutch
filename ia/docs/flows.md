@@ -12,9 +12,17 @@ Stage 03a, step 4, written on 11 August 2026. **Revised at step 6** after the tw
 - **Red:** a real dead end, a node with no path onward to the goal.
 - **Grey:** everything between the ends. Intermediate screens, decision diamonds, loading, empty, and errors that recover with an arrow back.
 
-**Four red nodes in this file are deliberate.** The rule is applied mechanically: no path to the goal means red, whatever the intent. The market exit and the two compliance exits in flow 1, the ceiling stop in flow 2 and the upheld restriction in flow 3 are designed outcomes rather than defects, and each is explained under its diagram. Colouring them grey to make the map look healthier would be the same dishonesty the product is built against.
+~~**Four red nodes in this file are deliberate.**~~ **Six red nodes in this file are deliberate, recounted from the class lines on 3 October 2026:** `D-26` dissolved `Under`, and the old figure did not match its own list. The rule is applied mechanically: no path to the goal means red, whatever the intent. ~~The market exit and the two compliance exits in flow 1~~ **The declined evaluation, our own outbound market link and the geo block in flow 1**, the ceiling stop in flow 2, the upheld restriction in flow 3 **and the failed proof in flow 4** are designed outcomes rather than defects, and each is explained under its diagram. Colouring them grey to make the map look healthier would be the same dishonesty the product is built against.
 
 **Arrow colour is left out on purpose.** The pack makes node colour mandatory and arrow colour a bonus, and `linkStyle` indexes by position, so one edit silently repaints the wrong path. Node classes carry the whole signal here, which is the escape the pack itself names.
+
+---
+
+## Amended 3 October 2026 by `D-147`. The map and the flows catch up
+
+**Why.** Round 15 of the critique found the map and the flows still describing decisions later ones had reversed, and the node count one short.
+
+**What changed.** Flow 1 no longer passes the dissolved 2.3: the 18+ declaration is a decision inside sign in with `D-58`'s refusal. Flow 2 reads the limit in force instead of setting one, `D-103`. Flow 2a starts from the footer or the account menu. Flow 3's receipt is the card's settlement line, `D-90` and `D-91`. A new Flow 5 reaches 5.9, 5.10, 5.11 and 7.3. Six red nodes, recounted. Every diagram parses.
 
 ---
 
@@ -32,12 +40,13 @@ flowchart TD
     Case --> Gate["S-B1 Geo gate, fires at first case interaction"]
     Gate --> Geo{"Is this market open?"}
     Geo -->|no| Blocked["Dead end: geo blocked, with the legal ground cited, B4"]
-    Geo -->|yes| Age{"18 or over, declared?"}
-    Age -->|no| Under["Dead end: under age, no route onward"]
-    Age -->|yes| Read["Reads chance, current value, tested RTP and EV at this cost, D2 and D4"]
+    Geo -->|yes| Read["Reads chance, current value, tested RTP and EV at this cost, D2 and D4"]
     Read --> Funds{"Anything to open with?"}
-    Funds -->|no| Signin["S-B2 Sign in with Steam"]
-    Signin --> SteamWait["Loading: Steam OpenID redirect out and back"]
+    Funds -->|no| Signin["S-B2 Sign in with Steam, with the consent gate: terms and the 18+ declaration, two separate checkboxes, B3 since D-26"]
+    Signin --> Declared{"Both boxes set?"}
+    Declared -->|no| Refuse["Refused: the press stays live and names the box that is missing, D-58. Nothing is stored"]
+    Refuse --> Signin
+    Declared -->|yes| SteamWait["Loading: Steam OpenID redirect out and back"]
     SteamWait --> SteamOk{"Did Steam return?"}
     SteamOk -->|"refused"| SteamErr["Error: readable Steam login failure, B5"]
     SteamErr --> Signin
@@ -62,8 +71,8 @@ flowchart TD
     classDef dead fill:#3a1618,stroke:#e5484d,color:#ffd7d7;
     classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
     class Start,Win,Story,PFout success;
-    class Leave,Market,Blocked,Under dead;
-    class Home,Real,Case,Gate,Geo,Age,Read,Stock,Out,Funds,Signin,SteamWait,SteamOk,SteamErr,SteamDown,Credit,Open,Reveal,Landed,Resume,Outcome,Share,Alive,Gone neutral;
+    class Leave,Market,Blocked dead;
+    class Home,Real,Case,Gate,Geo,Read,Funds,Signin,Declared,Refuse,SteamWait,SteamOk,SteamErr,SteamDown,Credit,Open,Reveal,Landed,Resume,Outcome,Share,Alive,Gone neutral;
 ```
 
 **ACTIVATION NODE: `Outcome`.** `aarrr.md` "Primary metric (OMTM)" defines activation as users who arrive and complete at least one case open, so the promised value first lands when the reveal resolves and the receipt appears. It is a concrete node in the diagram rather than an implication.
@@ -74,13 +83,13 @@ flowchart TD
 
 **The obvious fix is already rejected on the record, so this is carried rather than solved.** A free demo reveal on identical odds and seeds was dropped in the T2 divergence, `cjm-to-be.md` "T2. First contact, before any account", on the grounds that it argues our case by demonstrating the sceptic is right about the odds and it spends the reveal, the one thing we sell, before anyone has decided anything. Reopening that here would be re-litigating a converged decision.
 
-**Decisions in this flow.** Does this place survive a second look, T1 and T2, barrier `B1-1`. Is this market open, `B4`. Is the person 18 or over, `B3`. Is there anything to open with, T4. **The stock decision left this flow on 21 August 2026, `D-60`:** "are there free units on the wanted item, `B8-1`" stood between reading the numbers and finding the funds, and the flow is one decision shorter because the condition cannot occur. Did Steam return, and in which of the two ways it can fail, `B3-1`. Did the reveal finish on this device. Does the shared result still resolve.
+**Decisions in this flow.** Does this place survive a second look, T1 and T2, barrier `B1-1`. Is this market open, `B4`. Is there anything to open with, T4. ~~Is the person 18 or over, `B3`.~~ **Are both boxes set, terms and the 18+ declaration, `B3`, asked inside sign in since `D-26` rather than at the gate.** **The stock decision left this flow on 21 August 2026, `D-60`:** "are there free units on the wanted item, `B8-1`" stood between reading the numbers and finding the funds, and the flow is one decision shorter because the condition cannot occur. Did Steam return, and in which of the two ways it can fail, `B3-1`. Did the reveal finish on this device. Does the shared result still resolve.
 
-**States in this flow.** Empty: a shared result that no longer resolves, routed into the public provably fair page rather than into nothing. **The other empty left with `D-60`**, the item at zero free units returning to the case screen, and it is the only state this map has ever lost. Error: a readable Steam refusal returning to sign in, and Steam being unavailable, which returns to the case screen so a person who cannot sign in can still read the product. Loading: the Steam redirect, and the reveal. Interrupted: the reveal that did not finish on this device.
+**States in this flow.** Empty: a shared result that no longer resolves, routed into the public provably fair page rather than into nothing. **The other empty left with `D-60`**, the item at zero free units returning to the case screen, and it is the only state this map has ever lost. Error: a readable Steam refusal returning to sign in, and Steam being unavailable, which returns to the case screen so a person who cannot sign in can still read the product. **Refused: a press with a box unset, which stays on sign in and names what is missing, `D-58`, and stores nothing.** Loading: the Steam redirect, and the reveal. Interrupted: the reveal that did not finish on this device.
 
 **Why the interrupted reveal is a state and not an error, and why it was the sharpest thing this critique found.** `E1` settles the roll before the animation begins, so at the moment a connection drops the result already exists in the ledger. Without a return path the person sees an animation that never resolved beside a balance that says they won, which is `B6-1`, the animation and the credited item disagreeing, arriving through the back door of a missing state rather than through the front door of a bug.
 
-**The red nodes, and why each is there.** `Market` is our own outbound link to buy the item on the open market instead, capability A1. It has no path to our goal, so the rule paints it red, and T2 accepted that cost in writing: some share of visitors will click it and buy instead, and that is the price of the claim being believable. `Blocked` and `Under` are people the product must not serve: dead ends in the diagram and successes in the constraint. **`Leave` is the visitor who evaluated the product and declined**, which is the null result of a free evaluation rather than a broken route. It is red because the rule is mechanical, and it is the one red node a reader should not try to fix.
+**The red nodes, and why each is there.** `Market` is our own outbound link to buy the item on the open market instead, capability A1. It has no path to our goal, so the rule paints it red, and T2 accepted that cost in writing: some share of visitors will click it and buy instead, and that is the price of the claim being believable. `Blocked` ~~and `Under` are people~~ **is a person** the product must not serve: a dead end in the diagram and a success in the constraint. **`Under` left with `D-26`:** a declaration a person declines to make is not a refusal that can be recorded, so the consent gate's own refusal stands in its place, and it is grey because it returns to sign in. **`Leave` is the visitor who evaluated the product and declined**, which is the null result of a free evaluation rather than a broken route. It is red because the rule is mechanical, and it is the one red node a reader should not try to fix.
 
 ---
 
@@ -113,28 +122,29 @@ flowchart TD
 
 ---
 
-## Flow 2. Funding the account and setting the ceiling
+## Flow 2. Funding the account inside the limit
+
+**Retitled after `D-103`.** It read "Funding the account and setting the ceiling" until round 15: the founder moved the setting of `C2` to `S-F1` on 27 August 2026, so the deposit reads the limit in force and never sets it.
 
 Phase T4. **This flow closes no job and says so.** Its parents are barriers `B4-3`, `B4-1` and `B7-4`, and `jtbd.md` "Matrix Conclusion: 3 Jobs for MVP Core" records that deposit closes none of the three core jobs and is justified by documented barriers and compliance. It gets a flow because it is a locked round 1 surface with real dead ends, not because a job asked for it.
 
 ```mermaid
 flowchart TD
     D0(["Starter credit is spent and they want to keep opening"]) --> Dep["S-D1 Deposit"]
-    Dep --> Hit{"Spend ceiling already reached this period?"}
+    Dep --> Hit{"Deposit limit already reached this period?"}
     Hit -->|yes| Stop["Deposits stop. Opening from balance and withdrawal stay fully open, C2"]
+    Hit -->|"no, and a raise set on S-F1 is pending"| Pending24["Pending: the raise applies 24 hours after it was set. The old limit holds and deposits inside it continue"]
     Hit -->|no| Amount["Chooses an amount, sees the coins it buys and the rate, C1 after D-28"]
+    Pending24 --> Amount
     Ident["S-B3 Identity verification. It stood here, before funding. LATER since D-26, and before withdrawal when it returns"]
     Ident -.->|"parked, not drawn"| Amount
-    Amount --> Ceiling["Sets a spend ceiling for a named period, pre-filled, accepted or changed, C2"]
-    Ceiling --> Dir{"First ceiling, or a change to an existing one?"}
-    Dir -->|"first, lower, or unchanged"| Threshold["The sum required to withdraw is stated here and can never rise, C4"]
-    Dir -->|"raising an existing ceiling"| Pending24["Pending: a raise applies 24 hours later. The old ceiling holds until then"]
-    Pending24 --> Threshold
+    Amount --> Limit["Reads the limit in force as a line in the receipt with a route to S-F1, or None set beside set one. Set on S-F1 since D-103, never here"]
+    Limit --> Threshold["The sum required to withdraw is stated here and can never rise, C4"]
     Threshold --> Pay["Loading: payment in progress"]
     Pay --> Credited{"Credited?"}
     Credited -->|"not yet"| Pending["Crediting shown as a state with a named timer, C3"]
     Pending --> Credited
-    Credited -->|failed| PayErr["Error: payment declined. Ceiling and threshold preserved"]
+    Credited -->|failed| PayErr["Error: payment declined. The limit in force and the threshold preserved"]
     PayErr --> Amount
     Credited -->|yes| Bal(["Balance available, back to the case screen"])
 
@@ -145,12 +155,12 @@ flowchart TD
     class D0,Bal success;
     class Stop dead;
     class Ident parked;
-    class Dep,Hit,Amount,Ceiling,Dir,Pending24,Threshold,Pay,Credited,Pending,PayErr neutral;
+    class Dep,Hit,Pending24,Amount,Limit,Threshold,Pay,Credited,Pending,PayErr neutral;
 ```
 
-**Decisions.** Has the ceiling been reached this period, `B7-4`. Which direction the ceiling moved. Did the payment credit, `B4-3`. **Three, and it was six until 22 August 2026:** the identity decision, the pass, and the appeal all left with `D-26`.
+**Decisions.** Has the limit been reached this period, `B7-4`, and is a raise pending. ~~Which direction the ceiling moved.~~ Did the payment credit, `B4-3`. ~~**Three, and it was six until 22 August 2026:**~~ **Two since `D-103`, three until then and six until 22 August 2026:** the identity decision, the pass, and the appeal all left with `D-26`, **and the direction of a change left with `D-103`, because a limit is set, raised and lowered on `S-F1` and only read here.**
 
-**States.** Loading: payment in progress. Error: a declined payment that returns to the amount with the ceiling and threshold intact. **The identity review and the failed verification left with `D-26`**, and they were the only two asynchronous states in this flow. Pending: crediting with a named timer, `C3`, and **a ceiling raise waiting out its 24 hours**, which `cjm-to-be.md` "T4. Getting something to open with" specifies and which was in no flow until step 6. Without that state a later stage would write the ceiling as instantaneous in both directions, which deletes the whole point of it.
+**States.** Loading: payment in progress. Error: a declined payment that returns to the amount with the limit in force and the threshold intact. **The identity review and the failed verification left with `D-26`**, and they were the only two asynchronous states in this flow. Pending: crediting with a named timer, `C3`, and **a ceiling raise waiting out its 24 hours**, **set on `S-F1` since `D-103` and read here as `4.3`**, which `cjm-to-be.md` "T4. Getting something to open with" specifies and which was in no flow until step 6. Without that state a later stage would write the ceiling as instantaneous in both directions, which deletes the whole point of it.
 
 **The identity branch left this flow on 22 August 2026, and the argument that was drawn inside it is kept here rather than deleted with the nodes.** Step 6 had found the failed check drawn as an absolute dead end while capability `B2` guarantees the withdrawal route carries no verification branch at all, and the fix gave it two exits: an appeal mirroring `G4`, and the withdrawal route that was open the whole time. **`D-26` then took the whole branch out of round 1**, so the correction now applies to a parked node. It stays written because the contradiction it resolved comes back the moment the branch does.
 
@@ -162,16 +172,16 @@ flowchart TD
 
 ## Flow 2a. Setting a limit and stopping
 
-Added at step 7. `S-F1 Responsible play` was the last MVP screen with no route through it, which is the same defect step 6 fixed for the catalogue and left standing here. Step 6 also promoted it out of the deep classification into the Balance control, so it now has an entry point and needs a route to match.
+Added at step 7. `S-F1 Responsible play` was the last MVP screen with no route through it, which is the same defect step 6 fixed for the catalogue and left standing here. Step 6 also promoted it out of the deep classification into the Balance control, so it now has an entry point and needs a route to match. **That entry was never rendered and `D-136` struck it: the entries are the footer column on every page and, since `D-40`, the account menu's Responsible play row, and under a boundary the + opens the limits.**
 
 **Parents:** `B7-4`, the escalation loop, pattern of 12, plus the compliance constraint in `CLAUDE.md`, "responsible play tooling (deposit limits, session limits, self exclusion, cool down)". **No job, and there never will be one:** nobody arrives wanting to limit themselves.
 
 ```mermaid
 flowchart TD
-    R0(["Decides to put a boundary on this, or is told about one"]) --> Bal["Balance control, persistent once an account exists"]
-    Bal --> RP["S-F1 Responsible play"]
+    R0(["Decides to put a boundary on this, or is told about one"]) --> Entry["The footer column on every page, or the account menu's Responsible play row"]
+    Entry --> RP["S-F1 Responsible play"]
     RP --> Which{"Which boundary?"}
-    Which -->|"spend ceiling"| Ceil2["Set or lower the ceiling, C2. Lowering applies immediately"]
+    Which -->|"deposit limit"| Ceil2["Set, raise or lower the deposit limit, C2, the only place it is set since D-103. Lowering applies immediately, a raise waits 24 hours"]
     Which -->|"session limit"| Sess["Set a session limit, C5"]
     Which -->|"cool down"| Cool["Cool down for a chosen period, C5"]
     Which -->|"self exclusion"| Self["Self exclusion, C5"]
@@ -186,7 +196,7 @@ flowchart TD
     classDef success fill:#12351f,stroke:#4ade80,color:#eafff9;
     classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
     class R0,InForce success;
-    class Bal,RP,Which,Ceil2,Sess,Cool,Self,Confirm,Excluded neutral;
+    class Entry,RP,Which,Ceil2,Sess,Cool,Self,Confirm,Excluded neutral;
 ```
 
 **Decisions.** Which boundary, and for self exclusion only, an explicit confirmation with the period stated, because it is the one choice here that a person cannot undo on impulse.
@@ -211,8 +221,8 @@ flowchart TD
     Inv --> Has{"Anything in the inventory?"}
     Has -->|no| Empty3["Empty: nothing held yet, with the route back to the catalogue"]
     Empty3 --> Cat3["S-C1 Case catalogue"]
-    Has -->|yes| Rec["Every item carries its instance value receipt, F2"]
-    Rec --> Limits["Named limits stated before entry: blocked countries, Steam trade holds, Steam-side bans, G5"]
+    Has -->|yes| Settle["Every card carries its settlement line, more or back against the balance, D-91"]
+    Settle --> Limits["Named limits stated before entry: blocked countries, Steam trade holds, Steam-side bans, G5"]
     Limits --> Elig{"Eligible to withdraw?"}
     Elig -->|no| NotYet["Empty: the limit is met before the withdrawal rather than inside it, G5"]
     NotYet --> Inv
@@ -238,8 +248,10 @@ flowchart TD
     classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
     class W0,Done success;
     class Refused dead;
-    class Inv,Has,Empty3,Cat3,Rec,Limits,Elig,NotYet,Start2,Clock,Health,Degraded,Review,Notice,Appeal,Resolved,Send,Accept,Expired neutral;
+    class Inv,Has,Empty3,Cat3,Settle,Limits,Elig,NotYet,Start2,Clock,Health,Degraded,Review,Notice,Appeal,Resolved,Send,Accept,Expired neutral;
 ```
+
+**The receipt on every card left this flow with `D-90`, 23 August 2026**, by founder decision, and the row it vacated on the card is the settlement since `D-91`, which is what the node in its place draws.
 
 **Decisions.** Is there anything in the inventory at all. Eligible to withdraw, `B8-3` and `G5`. Steam API healthy, `B8-2`. Account restricted, `B8-3`. Offer accepted in Steam, which is outside our system.
 
@@ -249,7 +261,7 @@ flowchart TD
 
 **No verification appears anywhere in this flow.** That absence is capability `B2` and it is the direct answer to `B8-4`, verification ambushes at the exit, pattern of 5.
 
-**One hole this flow exposed and does not close, carried with an owner.** A person who only ever uses free entry, the starter credit or a daily free case, can reach this flow and take out a real skin **without ever having met an identity check**, because `B1` gated funding and `B2` forbids the check at the exit, and someone who never funds never met the gate. **Since `D-26` it is wider than that:** round 1 has no identity check anywhere, so the hole is not the free-entry route, it is every route. The shape that closes it without reopening `B8-4` is to raise the check **when the account first holds a withdrawable item**, at the outcome, so the person learns it with the item in hand and nothing lost rather than at the exit with everything staked. **That shape is proposed and not drawn**, because it is a compliance decision riding on `D-A`, which counsel already owns. Drawing an unconfirmed legal route into the information architecture would be the median this project's rules exist to prevent.
+**One hole this flow exposed and does not close, carried with an owner.** A person who only ever uses free entry, the starter credit or a daily free case, can reach this flow and take out a real skin **without ever having met an identity check**, because `B1` gated funding and `B2` forbids the check at the exit, and someone who never funds never met the gate. **Since `D-26` it is wider than that:** round 1 has no identity check anywhere, so the hole is not the free-entry route, it is every route. The shape that closes it without reopening `B8-4` is to raise the check **when the account first holds a withdrawable item**, at the outcome, so the person learns it with the item in hand and nothing lost rather than at the exit with everything staked. **That shape is proposed and not drawn**, because it is a compliance decision riding on `D-A`, which counsel already owns. Drawing an unconfirmed legal route into the information architecture would be the median this project's rules exist to prevent. **Still open on 3 October 2026, `D-146` item 8: where the check fires before withdrawal, and what closes while it runs, is the founder's with counsel.**
 
 ---
 
@@ -297,10 +309,47 @@ flowchart TD
 
 ---
 
+## Flow 5. The account's own pages, and a stranger's view of one
+
+Added in round 15 of the critique, on 3 October 2026. **Four MVP pages had no route through any flow:** `5.9` History, `5.10` Profile, `5.11` Settings and `7.3` Public profile, the three `D-36` put on the map for the account menu and the one `D-90` built for the live feed's names. A page with no route has no states anyone has walked, which is the defect step 6 fixed for the catalogue. **This flow draws only transitions the four nodes and the wireframes already hold, and adds no screen.** The four carry no `S-` code because they arrived after the codes were set, so they are named by node number.
+
+**Parents, printed rather than borrowed.** `5.9` stands on `F3` and Related Job 3, `jtbd.md` "Section 2". `5.10` and `7.3` have no parent in the three legal classes and print the empty cell, `D-36` and `D-90`. `5.11` has none of its own, and the field it exists for, the Steam trade URL, does, `G1` and `G5` on `B8-2` and `B8-3`, `D-81`.
+
+```mermaid
+flowchart TD
+    A0(["Signed in, opens the account menu from the avatar"]) --> Menu["0.1 Account menu: My items, History, Withdrawals, Profile, Settings, Responsible play, Sign out"]
+    Menu -->|"History"| Hist["5.9 History: Items, Rolls, Deposits, Withdrawals, Cash out"]
+    Hist --> Checked(["A roll checked: one route per row into S-A2, Related Job 3"])
+    Menu -->|"Settings"| Set["5.11 Settings: the Steam trade URL, checked when it is offered"]
+    Set --> Ready(["The exit has its one input, and S-E2 can send"])
+    Menu -->|"Profile"| Prof["5.10 Profile"]
+    Prof -->|"See yourself as a stranger does"| Pub["7.3 Public profile: one card per win, each with a route to its own round proof, and no total"]
+    T0(["A stranger taps a winner's name in the live drops, or Won by on S-G1"]) --> Pub
+    Pub --> Shown{"Is there a page to show?"}
+    Shown -->|"no account, or hidden by its owner"| NoPage["Empty: no page to show. One message for both causes, so a stranger is never told a page is hidden"]
+    NoPage --> Routed(["Routed into S-A1 and S-A2, never into nothing"])
+    Shown -->|yes| Shelf(["Every card routes to its own proof on S-A2"])
+
+    classDef success fill:#12351f,stroke:#4ade80,color:#eafff9;
+    classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
+    class A0,T0,Checked,Ready,Shelf,Routed success;
+    class Menu,Hist,Set,Prof,Pub,Shown,NoPage neutral;
+```
+
+**Decisions.** Is there a page to show, for a stranger arriving at `7.3`. **One, on purpose:** the account's own three pages are reading surfaces, and what a person does on them is already drawn in the flows that own those acts, verifying in flow 4 and withdrawing in flow 3.
+
+**States.** Empty: no page to show, which is the same screen for an account that never existed and for one its owner hid, `D-93`, and routes into Home and the provably fair page rather than into nothing. **The owner's view of a hidden page, nothing won yet, and the states of `5.9`, `5.10` and `5.11` are internal states their nodes specify and this flow does not number**, on the rule `sitemap.md` applies to all four.
+
+**No dead ends, and no red nodes.** Every end is either a closed job or a route back into the product.
+
+---
+
 ## What these flows changed in the concept sitemap
 
 **Step 4 changed nothing.** Every screen node existed already, which is the result step 2's second slice was supposed to produce.
 
 **Step 6 changed two things.** All twelve screen codes gained the `S-` prefix, and the catalogue gained flow 1a, which it needed because it was an MVP screen with no route through it and therefore no states.
 
-**One screen appears in a flow while its scope is unsettled.** `S-G1 Public result` is drawn as a branch off the outcome in flow 1 and carries the scope question raised at step 2: it is a ninth public surface against a round locked at eight. It stays drawn and marked until the founder answers.
+**Round 15 changed nothing on the map.** Flow 5 gave four existing MVP nodes the route they lacked, `5.9`, `5.10`, `5.11` and `7.3`, and every node it draws was already on the map.
+
+~~**One screen appears in a flow while its scope is unsettled.**~~ `S-G1 Public result` is drawn as a branch off the outcome in flow 1 and carried the scope question raised at step 2: it is a ninth public surface against a round locked at eight. ~~It stays drawn and marked until the founder answers.~~ **Answered on 11 August 2026 by the founder, `D-20`: option 1, the public result page exists as node `7.1`, and round 1 became nine surfaces.**

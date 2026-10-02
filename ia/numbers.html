@@ -142,6 +142,19 @@
 </div>
 
 <!-- WHY -->
+<section id="baseline-row">
+  <div class="sec-head">
+    <h2>Baseline row</h2>
+    <p>Written on 3 October 2026 by founder decision D-140, answer 4. The rule in <code>CLAUDE.md</code>: every node carries one baseline row, what the live product does, what we keep, what we change and why. The first column is sourced only from the walked baseline; what the walks do not record is [?].</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:36%">What the live product does</th><th style="width:22%">What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody><tr><td><strong>Per item, pre-login, on the case page:</strong> value in coins, drop chance as a percentage down to 0.01, and the ticket range the roll resolves against, fifty percentages on the case walked, <code>baseline.md</code> sections 4 and 9.2. <strong>On the catalogue tile</strong> the price in coins and a risk band of three named values drawn as skull pips, sections 4 and 10.3; <strong>on the case page</strong> a like count, 186 on the walk, and the entry cost hidden until sign in, section 9.2. <strong>No tested RTP, no expected value and no observed rate on the walked case page</strong>, section 4; behind the open control it is <code>[?]</code>, because the open was never captured, <code>baseline-account.md</code> section 9. <strong>The footer strip:</strong> four counters, cases opened, upgrades, total users and online users, with cases opened rising between reads and whether it tracks real opens <code>[?]</code>, <code>baseline.md</code> sections 2 and 9.7; on the sign-in page the same four carry icons only, section 4. <strong>Money:</strong> two figures in the account header, inventory and balance, never summed, <code>baseline-account.md</code> section 1, and the peg, <code>Rate 1.00 = $1.00</code>, printed at the deposit step and on no spending surface, section 5b.2. <strong>Market reference:</strong> an inventory card's "Starting at" price and offer count with no timestamp and no link, section 3, and at withdrawal a Steam price beside market offers badged -39 percent, section 5. <strong>Times:</strong> no deposit crediting time anywhere in the flow, section 5b.5; no withdrawal time is recorded on the two Send to Steam steps and the withdraw history was empty, so whether one is published is <code>[?]</code>, sections 5 and 9</td><td><strong>The per-item pair and its roll interval:</strong> published chance and current value per item, with the ticket range in the chance row's route, group A. <strong>Cases opened as a running total</strong>, group A, by founder decision of 11 August 2026, the inherited strip. <strong>The risk band of three named values and the favourite count per case</strong>, both group A. <strong>The two money figures never summed</strong>, rule 7, and <strong>the peg at the walked value, 1 coin = $1.00</strong>, section 2f</td><td><strong>Every figure gets a route, an as-of where it moves, and a missing state that is never a zero</strong>, rules 1 to 3 of section 5, because a number without a route is decoration that looks like evidence, <code>D-14</code>. <strong>The footer strip loses its unverifiable half:</strong> total users and upgrades are cut, online users ships only if it counts humans in real time, section 4, and cases opened is reconciled per case through the observed counter, conditional on <code>D-B</code>, group A. <strong>What the baseline does not publish is added:</strong> observed rate per tier, tested RTP and expected value at this entry cost, group A, on <code>B7-2</code> and design principle 3. <strong>The peg is printed wherever money is spent</strong>, rule 10, not once where money enters. <strong>The market price carries a timestamp and an outbound link</strong>, row <code>A1</code> in group B, and section 2c is where that link's job is worked out. <strong>Withdrawal and deposit times become published figures:</strong> rolling median and p90, a ceiling and a timer per withdrawal state, and a deposit crediting window, group A, on <code>B8-2</code> and <code>B4-3</code>, with the window lengths and the crediting value <code>[?]</code></td></tr></tbody>
+    </table>
+  </div>
+</section>
+
 <section id="why">
   <div class="sec-head">
     <h2>Why this is a node</h2>
@@ -734,6 +747,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.11 Published numbers';
 window.NAV_SECTIONS = [
   { id: 'overview',  label: 'Overview' },
+  { id: 'baseline-row', label: 'Baseline row' },
   { id: 'why',       label: 'Why this is a node' },
   { id: 'dc',        label: 'The condition above every row' },
   { id: 'ours',      label: 'Group A: ours' },

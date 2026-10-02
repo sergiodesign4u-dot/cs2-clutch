@@ -995,3 +995,18 @@ A separate table from the defects, as the pack asks: a step that did not happen 
 | Found while fixing | the sticky bar's trigger a span; three and four not redrawing the stage; "All 5 saved" at three; an unsigned Send to Steam | lead, from a node editor's render notes | Fixed |
 
 **Carried to the founder**, eight items, `D-145`. **Checked on screen** at 1440 and 360 on every page: no script error, no horizontal scroll, at most one primary outside the named exceptions.
+
+### 16.9 Step 7, the IA layer against itself, fixed on 3 October 2026 under `D-147`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| R1, R2 | The count table one short: 68 and 52, and a third total of 49 | D1 | Fixed: 69 and 53, recounted from the table |
+| R3, R4, R5 | The registry counted four states on 3.3 and three on 7.3, and called 5.11 unwritten | D1 | Fixed |
+| R6, R7 | README said stage 03 in progress, 26 node pages and twelve surfaces | D1 | Fixed |
+| R10, R11, R13 to R26 | Stale lines in the map after later decisions | D1 | Fixed, struck with their decisions |
+| R29, R30 | `0.11` and `0.13` had no baseline row | D1 | Fixed, founder answer 4 of `D-140` |
+| R31 to R34 | Flows through dissolved nodes and removed steps; four MVP pages no flow reached | D1 | Fixed; Flow 5 added; every diagram parses |
+| R65 | Line citations in the map | D1 | Fixed: section names |
+| R12 | CLAUDE.md's list of parentless MVP capabilities is short | D1 | **Carried to the stage close**, with a second, `D-31`'s count |
+
+The HTML pages of the map and the flows carry an Updated after publication block now; their bodies are rebuilt from the markdown in step 8.

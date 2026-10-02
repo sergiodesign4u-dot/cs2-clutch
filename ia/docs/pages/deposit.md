@@ -659,7 +659,7 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 
 **Type:** state. **Scope:** MVP. **Parent:** `C2`, on `B7-4`, plus the limits rule in `CLAUDE.md`. **Route out: none for this flow, by design.**
 
-**This is the node the whole cluster is for.** `flows.md` flow 2 draws it as one of four deliberate red nodes in the file and explains the colour: "`Stop` is the ceiling doing its job. It is red because this flow's goal is more balance and there is no path to it this period. It is not a failure."
+**This is the node the whole cluster is for.** `flows.md` flow 2 draws it as one of ~~four~~ **six, recounted in round 15,** deliberate red nodes in the file and explains the colour: "`Stop` is the ceiling doing its job. It is red because this flow's goal is more balance and there is no path to it this period. It is not a failure."
 
 **What is closed, and what is open.** Deposits stop. **Opening from existing balance stays fully open. Withdrawal stays fully open.** Both are stated on the screen rather than left to be discovered, because a person who reads "you have reached your limit" and assumes the account is frozen has been given a worse answer than the truth.
 

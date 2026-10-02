@@ -5696,3 +5696,28 @@ Where the node held a promise no decision had withdrawn, the page now keeps it: 
 6. **One footer line says where we serve**, with no link, because the register is not a page of the product. The recommendation said a link to the register; on building it, the register turned out to have no product address, and a link to an IA page from the product would be the wrong kind of destination.
 7. **V2 opens the verifier prefilled; phase 2 prints no settlement rule; the account Open passes no gate.** Each was what the render already did, now with a reason.
 8. **Identity verification stays open** as an item for the founder with counsel: where the check fires before withdrawal, and what closes while it runs.
+
+
+## D-147. Round 15, step 7: the map, the flows, the registry and the status catch up, and the two registers get their baseline rows
+
+**Date:** 2026-10-03. **Stage:** 04, round 15, reaching back into 03. **Decided by:** the founder, "як рекомендуєш", which carried the go for step 7; the two baseline rows by the founder's answer 4 of 30 September 2026, `D-140`. **Binds:** `ia/docs/sitemap.md`, `ia/docs/flows.md`, `ia/_nav.js`, the root `_nav.js` comment, `README.md`, nodes `0.11` and `0.13`.
+
+### The count, recounted
+
+**69 nodes, 53 MVP, 16 LATER.** Cluster 0 holds fifteen nodes and the count table said fourteen, because `0.15` was registered by `D-67` and never counted. `sitemap.md` owns the number and every restatement now points to it; `README.md` reads it.
+
+### What the map and the flows had to give
+
+About thirty lines that later decisions had reversed are struck in place with the decision that reversed them. Flow 1 stops passing a dissolved node, Flow 2 stops setting a limit the deposit no longer sets, Flow 3 stops routing through a receipt the card no longer carries, and a small Flow 5 reaches the four MVP pages no flow reached. Line citations became section names, as `CLAUDE.md` asks.
+
+### The two registers
+
+`0.11` and `0.13` carry a baseline row, sourced only from the walked baseline, with `[?]` where the walks recorded nothing.
+
+### Status
+
+Stage 03 reads **Done** in `README.md`, as `_nav.js` already said. The IA registry counts three states on `3.3` since `D-60` and none on `7.3`, whose states are unnumbered.
+
+### Carried to the stage close, because `CLAUDE.md` is edited only there
+
+`CLAUDE.md` lists two MVP capabilities with no parent; `D-118`'s crypto cash out and `D-31`'s one to five count are two more. Its "fifteen since `D-36`" is ambiguous between MVP and LATER screens.
