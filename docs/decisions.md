@@ -5682,3 +5682,17 @@ Where the node held a promise no decision had withdrawn, the page now keeps it: 
 6. A public statement of the markets we serve, gone with Where we operate.
 7. V2 of the proof opening in place, the phase 2 pages' missing settlement rule, and the account Open control passing no gate.
 8. Identity verification, a `LATER` node still written around funding while `D-26` moved it before withdrawal; this one needs counsel.
+
+
+## D-146. Eight answers carried by step 6, taken as recommended
+
+**Date:** 2026-10-03. **Stage:** 04, round 15. **Decided by:** the founder, "як рекомендуєш", on the eight items `D-145` carried. **Binds:** `wireframes/docs/conventions.md`, `support-appeal.html`, the two 500 pages, the footer, nodes `0.10`, `0.3`, `1.2`, `6.1`, `0.2`, `3.3`, `0.14`, `2.7`.
+
+1. **A page for reading may have no main action.** The rule is never more than one, with `D-140`'s two exceptions.
+2. **The appeal's evidence field is drawn**, optional, with no size or type printed because both are `[?]`.
+3. **The 500's reference is `E-4F1C-9A72`**, short enough to read over the phone.
+4. **The 1.2 contents column is dropped.**
+5. **Responsible play's meta description is section 8A's**, and the screen keeps `D-130`'s two lines.
+6. **One footer line says where we serve**, with no link, because the register is not a page of the product. The recommendation said a link to the register; on building it, the register turned out to have no product address, and a link to an IA page from the product would be the wrong kind of destination.
+7. **V2 opens the verifier prefilled; phase 2 prints no settlement rule; the account Open passes no gate.** Each was what the render already did, now with a reason.
+8. **Identity verification stays open** as an item for the founder with counsel: where the check fires before withdrawal, and what closes while it runs.

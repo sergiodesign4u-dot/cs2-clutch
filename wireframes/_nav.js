@@ -2249,6 +2249,10 @@ window.WF_PAY = window.WF_PAY || {
     var ageTxt = el('div', 'wf-foot-age-t');
     ageTxt.appendChild(el('p', 'wf-compliance',
       'Over 18 only. Opening a case is a paid chance, never an investment. Set a deposit or session limit before you start.'));
+    /* THE MARKET STATEMENT, D-146: with Where we operate gone nothing public said
+       where we serve before the gate. One line, and no link, because the register
+       is an IA node and not a page of the product. */
+    ageTxt.appendChild(el('p', 'wf-compliance', 'Open only in the markets we have cleared. Anywhere else, this site says so before anything can be paid.'));
     age.appendChild(ageTxt);
     trust.appendChild(age);
 

@@ -20,6 +20,20 @@
 
 ---
 
+## Amended 3 October 2026 by `D-146`. A reference a person can read over the phone
+
+**Why.** Step 6 of round 15 found the 500's reference 40 characters long against section 9's short enough to read over the phone; the founder chose on 3 October 2026 to shorten the sample.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| An error page | A reference, copyable | **The reference is `E-4F1C-9A72`**, eleven characters, read in four groups |
+
+**Samples, `D-124`, marked here:** `E-4F1C-9A72`.
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
@@ -44,7 +58,7 @@
 
 ## 0.6 Amended 23 August 2026 by `D-82`, the founder's screen review
 
-**Samples, `D-124`, marked here:** the planned 503's end time, "03:20 UTC, which is about forty minutes from now"; the 500's reference `err-4f1c9a72-0d38-4b6e-9c51-a7b204ee31f8`, which is also longer than section 9 asks a reference to be, "short enough to read over the phone", and is printed here as that conflict rather than smoothed; and the retired case's name, Highwater.
+**Samples, `D-124`, marked here:** the planned 503's end time, "03:20 UTC, which is about forty minutes from now"; the 500's reference ~~`err-4f1c9a72-0d38-4b6e-9c51-a7b204ee31f8`, which is also longer than section 9 asks a reference to be~~ **`E-4F1C-9A72`, shortened by founder decision of 3 October 2026, `D-146`, so it can be read over the phone as section 9 asks**; and the retired case's name, Highwater.
 
 **The founder opened the drawn 404 and asked what all of it was for.** Four things left the page and one page left the node. Nothing here is a new idea: three of the four were already raised by the audit of 22 August as findings this node had not acted on.
 

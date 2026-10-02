@@ -20,6 +20,18 @@
 
 ---
 
+## Amended 3 October 2026 by `D-146`. One line says where we serve
+
+**Why.** Step 6 of round 15 found that with Where we operate gone, `D-136`, nothing public stated the market position before the gate; the founder chose on 3 October 2026 to restore a statement.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A footer with legal lines | No Where we operate row: a row with no destination is a dead item | **One compliance line under the 18+ statement**: Open only in the markets we have cleared. Anywhere else, this site says so before anything can be paid. **No link**, because the register is an IA node and not a page of the product |
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.

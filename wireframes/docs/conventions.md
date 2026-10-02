@@ -69,6 +69,8 @@ The shell `0.1`, the footer `0.2`, the skin card `0.6`, the case tile `0.7`, the
 - **The outcome keeps two**, `3.6` and its sibling `3.7`, the interrupted reveal, which carries the same two acts. Open again and Sell are both main actions by `D-38`: "the acts become the accent of the screen: two big controls", and keeping is what happens when nothing is tapped.
 - **Responsible play keeps none**, `6.1`, its node's section 2: four independent boundaries with none promoted over the others, because promoting one is the product choosing which brake a person should want.
 
+**A page for reading may have no main action**, founder decision of 3 October 2026, `D-146`: a ledger, a document, a shelf or a list of answers is read, and a primary placed on it to satisfy the count would be the product choosing an act the person did not come for. **The rule is never more than one.**
+
 **A layer is its own screen.** While a gate layer or a dialog is open, `gate-*.html` and `signin-dialog.html` among them, the layer's one main action is the screen's, and the shell's Sign in behind the scrim does not count against it.
 
 ---

@@ -305,6 +305,7 @@ Whether a second attempt at the check is allowed at all depends on the method an
 | **The published review deadline** | `2.8`. Registered as a candidate row for `0.11` rather than guessed | `0.10` for the service level, `0.11` if it is published |
 | **Whether a failed check may be retried** | Section 7.4. It depends on the method and on what counsel permits | Counsel |
 | **The exit window when a market closes** | Section 4, step 6. Nothing in this repository sets it | Founder with counsel. `markets.md` section 12 already carries it |
+| **Where the check fires and what closes while it runs, now that `D-26` put it before withdrawal** | Sections 0, 2, 5, 6 and 7 still assume before funding. `B2` forbids a check on the exit, so the answer is not a rename. Kept open by founder decision of 3 October 2026, `D-146` | Founder with counsel |
 | **Minimum age and age method per open market** | This node inherits them from `0.12` and the first open market is the first row that needs them | Counsel, as each market opens |
 
 **And what belongs elsewhere.** The wording of every string: stage 05. How the page looks: stages 06 and 07. The deposit screen that shows the resolved account state: `4.1`. The withdrawal route this node is forbidden to touch: `5.3`. The register whose verdict can override a passed check: `0.12`.

@@ -21,6 +21,18 @@
 **Renders:** node `0.14`, canonical round proof, variant V4. This node does not restate `0.14` and may not contradict it.
 
 
+## Amended 3 October 2026 by `D-146`. No contents column
+
+**Why.** Step 6 of round 15 found a desktop contents column specified in sections 3 and 8 and never drawn; the founder chose on 3 October 2026 to drop it.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A long help article with contents | The measured content column | **The contents column is dropped**: six H2s are read without one, and a column of six links would repeat the headings beside them |
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
@@ -322,7 +334,7 @@ Both render the same state with a different reason printed, and both point back 
 
 **Desktop.**
 
-- A measured content column, ~~plus a contents column on the left carrying the eight H2s~~, from the Refero WhatsApp row in `blocks.md` section 8, reused across nodes as section 3 records. **The rendered page has six H2s and no contents column**, section 10 B; whether stage 07 adds the column is section 11's.
+- A measured content column, ~~plus a contents column on the left carrying the eight H2s~~ **(the contents column is dropped by `D-146`)**, from the Refero WhatsApp row in `blocks.md` section 8, reused across nodes as section 3 records. **The rendered page has six H2s and no contents column**, section 10 B; whether stage 07 adds the column is section 11's.
 - The verifier stays the full width of the content column. **It never becomes a sidebar widget**, which is the shape the Key-Drop mock verifier takes and the shape that reads as decoration.
 - The mismatch comparison goes side by side.
 
@@ -427,7 +439,7 @@ Everything structural is inherited from node `0.13`. What is below is this node'
 | **Whether pre-migration rounds carry proofs, `D-B`** | Decides how common the unavailable state is on day one, and whether row `D3` exists to be linked to at all in block 1's routes | Founder, question of fact to the live platform |
 | **`0.11` names `1.2` as a consumer and no row in it lists `1.2`** | Two figures this page needs have no row in the register: the published response deadline as it applies here, and the date from which published proofs exist, which the unavailable state reads | **Finding for `0.11`** |
 | **`0.13` holds no row for `/provably-fair?round=<id>`** | This node uses `0.13`'s own rule for a parameterised view of an indexed page rather than inventing one, section 5.1. The row belongs there | **Finding for `0.13`** |
-| **The desktop contents column** | Section 3 borrows it and section 8 places it; the grey page never drew it and nothing decided to drop it | Founder, at stage 07 |
+| ~~**The desktop contents column**~~ **Closed 3 October 2026, `D-146`: dropped. Six H2s are read without a contents column** |
 | **Where the algorithm document lives** | Decided here as option C, section 4.1, which diverges from `0.14` section 6. Reversible at the cost of one document on the `0.9` template and one row in `0.13` | Founder, if they disagree |
 | **A named third-party auditor** | Row `A5`, and `research.md` section 4 cites a 2026 audit finding that no operator in the category names one. We do not have one either, `0.11`. **This page badges nobody** | Founder |
 | **A citation drift, found while writing this node** | `0.14` cites the "we have PF against you can verify before you deposit" sentence and the 2026 auditor audit to `research.md` section 5b. Both live in section 4, "3 Common Patterns". The facts are unchanged and the pointers are wrong | **Finding for `0.14`**, not edited here |

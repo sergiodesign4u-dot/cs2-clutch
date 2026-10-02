@@ -12,6 +12,18 @@
 
 ---
 
+## Amended 3 October 2026 by `D-146`. V2 opens the verifier, decided
+
+**Why.** Step 6 of round 15 found V2 navigating to the verifier while this node said in place, with no decision behind the change.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A proof link | One tap to check this round | **V2 opens 1.2's verifier with the round's fields filled in**, founder decision of 3 October 2026: the check happens where the scheme is explained |
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
