@@ -6,7 +6,7 @@
 
 **Purpose.** Resolve one question once, at the first case interaction: is this market open. Nothing else is asked here, and the word only in "the 18+ declaration only" is about scope rather than about the number.
 
-**Jobs served.** None of its own. **Parent class:** the compliance constraint in `CLAUDE.md`, quoted, **"a market allowlist closed by default, so a market with no row is `not launched`"**, `D-23`, by way of row `B3`, whose own parent cell also names barrier `B8-4`; and the compliance constraints "geo blocking informed by cited legal research" and "staged regional rollout resting on cited law", by way of row `B4`. Constraint class throughout, and that is the third of the three legal classes rather than an absence of a parent.
+**Jobs served.** None of its own. **Parent class:** the compliance constraint in `CLAUDE.md`, quoted, **"a market allowlist closed by default, so a market with no row is `not launched`"**, `D-23`, by way of row `B3`, whose own parent cell also names barrier `B8-4`; and the compliance constraints ~~"geo blocking informed by cited legal research" and~~ "staged regional rollout resting on cited law", by way of row `B4`. **The struck quote is no longer in `CLAUDE.md`**; the compliance paragraph there now carries the allowlist clause quoted above and "staged regional rollout resting on cited law", both word for word. Constraint class throughout, and that is the third of the three legal classes rather than an absence of a parent.
 
 **URL.** None. It is a dialog and it renders at the URL the person is already on, which is `0.13` section 2's rule: a state has no URL of its own unless a person can arrive at it from outside, and nobody arrives at a gate from outside.
 
@@ -19,6 +19,14 @@
 **Cluster 2 is three screens nobody chooses to visit.** This is the one that arrives uninvited, in the middle of somebody else's intention.
 
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** The parent quote that left CLAUDE.md is struck and the current clauses quoted; the blocked layer prints its ground from the register row, a sample; the 72 hour answer is marked as a sample.
+
+---
+
 ## Amended 29 September 2026 by `D-138`. A failed check is not a verdict, and a guest is not told about a balance
 
 **Why.** Round 14 of the critique found the unavailable state headlined "We do not serve this market yet" over "we could not work out where you are"; every refusal telling a guest that their balance and items stay theirs; and the blocked state offering support twice.
@@ -28,6 +36,8 @@
 | The live product | What we keep | What we change, and why |
 |---|---|---|
 | One sentence in the terms and a self-selected country | Ours, the gate | **Unavailable says "We could not check your market"**; not launched keeps its verdict. The line about balance, items and withdrawal is said to an account only. The blocked state points to the Support button instead of a second link. Staged's Continue opens sign in |
+
+**Samples, `D-124`, marked here:** the 72 hour answer on `gate-blocked.html`, "we answer within 72 hours", standing in for the published response deadline `0.10` owns, section 12; and the blocked market's ground, which `gate-blocked.html` prints from one row of the register in `markets.md` while every verdict there is `[?]` until counsel signs it.
 
 ---
 
@@ -39,7 +49,7 @@
 
 | The live product | What we keep | What we change, and why |
 |---|---|---|
-| Nothing |  | Each verdict is a headline, one reason, one line of what still works and two buttons. The staged cap is a sample, $100 a week. The legal ground and the register mechanics are here and on Where we operate, not in the layer |
+| Nothing |  | Each verdict is a headline, one reason, one line of what still works and two buttons. The staged cap is a sample, $100 a week. ~~The legal ground and the register mechanics are here and on Where we operate, not in the layer~~ **Superseded in round 15:** `D-136` took Where we operate out of the footer, which left the ground with no place. **The layer prints it**, one sentence from the market's register row under "The law where you are does not allow what this site does", section 7.2. The register mechanics stay here |
 
 ---
 
@@ -216,7 +226,7 @@ It is declared here rather than added quietly, because the map's own rule is tha
 >
 > [Support] [How drops are proven]
 
-**The ground sentence is per market and comes from the register.** Where the row's ground is `[?]`, the row is not `blocked`, because `B4`'s success signal is that every blocked market carries a citation. A blocked row with no ground is a defect in the register, not a copy problem here.
+**The ground sentence is per market and comes from the register.** `gate-blocked.html` prints it as the register row's Ground field, one readable sentence under the law line, and it is the only place a blocked person reads it since `D-136` removed Where we operate from the footer. Where the row's ground is `[?]`, the row is not `blocked`, because `B4`'s success signal is that every blocked market carries a citation. A blocked row with no ground is a defect in the register, not a copy problem here.
 
 ### 7.3 The four rules this state obeys
 
@@ -247,7 +257,7 @@ From `markets.md` section 9, and they are the register's rules rather than this 
 - **A statute number as the whole message.** It is the ground's source, not the ground.
 - **"Temporarily unavailable"** when nothing about it is temporary.
 - **An error code**, a stack trace, or the word error.
-- **A list of the markets that are open.** The footer's market statement is the public face of the register, `0.2`, and it is crawlable everywhere. This dialog answers one person's question, it does not publish the register.
+- **A list of the markets that are open.** ~~The footer's market statement is the public face of the register, `0.2`, and it is crawlable everywhere.~~ **The footer carries no market statement since `D-136`**, which removed its Where we operate row for having no destination. This dialog answers one person's question, it does not publish the register.
 
 ---
 
@@ -347,11 +357,11 @@ From `markets.md` section 9, and they are the register's rules rather than this 
 | Open item | What is missing | Owner |
 |---|---|---|
 | **Every market verdict** | Each one is `[?]` until re-verified against current law. This node renders a verdict, it never takes one | Counsel, under `D-A`. `0.12` |
-| **The published response deadline** | The number in `2.2`'s appeal sentence and in `2.9`'s. It is `G4`'s requirement and nothing in this repository sets the figure | `0.10`, then `0.11` if it becomes a published number |
+| **The published response deadline** | The number in `2.2`'s appeal sentence and in `2.9`'s. It is `G4`'s requirement and nothing in this repository sets the figure. **The render prints 72 hours as a sample**, `D-124` | `0.10`, then `0.11` if it becomes a published number |
 | **How long the `2.3` decline persists, and what it is keyed to** | Session, device or account, and for how long. Both are production and privacy questions with no researched answer here | Production, with counsel on the privacy half |
 | **The geolocation provider and its accuracy** | Detection quality decides how often the wrongly-blocked route in section 7.5 runs | Production. `[?]`, and `markets.md` section 12 already carries it |
 | **The flash threshold for the market lookup** | Section 6. It needs a real timing, not a guess | Stage 04, with production timings |
 | **Minimum age and age method per open market** | No market is open yet, so the first open row is the first one that needs them | Counsel, as each market opens |
 | **The conversion cost of the gate** | Row `B3` says compliance rather than conversion, and the cost is measured separately with **target `[?]`**. It has had no target since the backlog was written | Founder. Carried in `CLAUDE.md` as one of the marks that travel with the backlog |
 
-**And what belongs elsewhere.** The wording of every message: stage 05, which takes the drafts in sections 7 and 8 as a requirement of what information must be present rather than as final copy. How the dialog looks: stages 06 and 07. Where the market statement sits in the footer: `0.2`, already specified. The register itself: `0.12`.
+**And what belongs elsewhere.** The wording of every message: stage 05, which takes the drafts in sections 7 and 8 as a requirement of what information must be present rather than as final copy. How the dialog looks: stages 06 and 07. ~~Where the market statement sits in the footer: `0.2`, already specified.~~ **The footer holds no market statement since `D-136`.** The register itself: `0.12`.

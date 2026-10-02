@@ -25,6 +25,14 @@
 | Four documents, all `noindex,nofollow`, each **one H1 and zero H2**. The terms run about 7,270 words as a single wall, last updated 08/01/2025; the cookie policy is dated April 2019. All carry a breadcrumb. `baseline.md` section 9.4. | The breadcrumb, and the document set itself. | **The wall.** Zero H2 in a 7,270 word contract is the defect this node exists to fix, and it is now measured rather than asserted. **And the dates:** a policy from 2019 sitting under a product that changed every year since is a document nobody re-read. |
 
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** The publication dates and the agreed version are marked as samples; consent pending is recorded as not drawn since `D-141`; five of seven states are drawn.
+
+---
+
 ## Amended 30 September 2026 by `D-141`. Privacy and cookies open their own state, and the history follows the version read
 
 **Why.** Round 15 of the critique found the Privacy and Cookie links on every legal page, the footer and the cookie layer opening the terms, the superseded page marking v3 current and read on every `?v=`, and a machine date that contradicted its text.
@@ -47,7 +55,7 @@
 |---|---|---|
 | One page of terms | The version history | **Each "Read this version" opens that version**, `?v=`. The v3 line says "deposit limit", `D-103`. The history's lead and the unpublished state's reasoning left |
 
-**Samples, `D-124`:** the four versions and their dates, 3 Sep 2025, 12 Jan 2026, 4 Apr 2026 and 1 Aug 2026.
+**Samples, `D-124`:** the four versions and their dates, 3 Sep 2025, 12 Jan 2026, 4 Apr 2026 and 1 Aug 2026. **Added in round 15:** the published dates beside them, 3 Sep 2025, 10 Jan 2026, 4 Apr 2026 and 26 Jul 2026, and on the changed state the date the person agreed to v3, 12 Apr 2026.
 
 ---
 
@@ -211,7 +219,7 @@ The summary is the reason the four documents share a template at all. It is also
 
 ## 6. States
 
-Seven, and every one of the four documents inherits all seven.
+Seven, and every one of the four documents inherits all seven. **Five are drawn**, the registry table below: consent pending has no page, its row says why, and geo blocked or a boundary in force renders the current page unchanged.
 
 | State | What the page shows | Route out |
 |---|---|---|
@@ -220,7 +228,7 @@ Seven, and every one of the four documents inherits all seven.
 | **Guest, never agreed** | The same page with no agreement band at all. **Every document is public and readable before login**, `B1-1`, the visitor arrives pre-suspected | Anywhere. Nothing is gated |
 | **Reading a superseded version** | That this version is not the current one, the dates it governed between, and the current version beside it. **Never rendered as if it were live** | The current document |
 | **Not yet published** | That this document is not published, and the route to ask. **Never an empty page and never placeholder legal text**, `0.11` rule 3, missing is a state and never a zero | `0.10` |
-| **Consent pending**, `0.4` | The cookie policy renders in full with the consent dialog still open, and carries the control that reopens the choice | `0.4`, and the choice is changeable afterwards from here |
+| **Consent pending**, `0.4` | The cookie policy renders in full with the consent dialog still open, and carries the control that reopens the choice. **Not drawn in round 1, and that follows from `D-141`:** the cookie policy is not written, so every link to it opens the unpublished state under its own name, `legal-unpublished.html?doc=cookie`, and there is no rendered policy for the dialog to sit over. The dialog itself is drawn in `0.4`. The state stays specified here for the day the document is published | `0.4`, and the choice is changeable afterwards from here |
 | **Geo blocked** `2.2`, **or a boundary in force** `6.3` | Unchanged, in full. `markets.md` section 9 rule 3 keeps reading the legal pages open in the same breath as the refusal | `0.10` stays reachable |
 
 ### The state that earns the node

@@ -20,6 +20,14 @@
 
 ---
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** The 404's search is struck in five places, `D-82`; quick links are two buttons; the 503's return time and the 500's reference are marked as samples.
+
+---
+
 ## 0.5 Amended 22 August 2026 by `D-79`, the day this node was drawn
 
 **Three things changed and none of them is a new idea.** Two were decisions taken elsewhere that had never reached this file, and one is a page count this node's own states table had been asking for since it was written.
@@ -35,6 +43,8 @@
 ---
 
 ## 0.6 Amended 23 August 2026 by `D-82`, the founder's screen review
+
+**Samples, `D-124`, marked here:** the planned 503's end time, "03:20 UTC, which is about forty minutes from now"; the 500's reference `err-4f1c9a72-0d38-4b6e-9c51-a7b204ee31f8`, which is also longer than section 9 asks a reference to be, "short enough to read over the phone", and is printed here as that conflict rather than smoothed; and the retired case's name, Highwater.
 
 **The founder opened the drawn 404 and asked what all of it was for.** Four things left the page and one page left the node. Nothing here is a new idea: three of the four were already raised by the audit of 22 August as findings this node had not acted on.
 
@@ -106,7 +116,7 @@ One template, three fillings. A block that is absent on a surface is absent for 
 |---|---|---|---|---|---|
 | **B1. Status statement** | Yes | Yes | Yes | Row `B5`, on `B3-1` | The H1 is what happened in words. **The number is secondary text, never the heading.** Key-Drop's page has no H1 at all, which is how a person reads a home page and learns nothing |
 | **B2. Attribution: who it is waiting on** | n/a | Yes | Yes | Rows `G1` and `G2`, on `B8-2` | The withdrawal clock's rule at site scale: a wait with no owner is the pattern of 6 that made T8 the floor of the As-Is map. On 500 the owner is us. On 503 the owner is us and the figure is published |
-| **B3. Search** | **Yes, and it is the block skin.club lacks** | No | No | Core Job 1, `jtbd.md`, arrive with enough confidence to try | A 404 has two kinds of arrival, section 3. Search answers the one that knows what it wanted. Absent on 500 and 503 because search needs the backend that is down |
+| ~~**B3. Search**~~ | ~~**Yes, and it is the block skin.club lacks**~~ | No | No | Core Job 1, `jtbd.md`, arrive with enough confidence to try | ~~A 404 has two kinds of arrival, section 3. Search answers the one that knows what it wanted.~~ **Left the 404 by `D-82`**: a field with a submit beside it was a second job on a page that says one sentence. The person who knows what they wanted reaches the shelf's search through All cases, one press away. Absent on 500 and 503 because search needs the backend that is down |
 | **B4. Quick links** | Yes | Yes | Yes | The map's transitions, `1.0` and `3.1`, and Core Job 1 | The other kind of arrival. **Text links, real `<a href>`**, per the linking planes in `0.13`: a destination reachable only by script does not exist for a crawler and often not for a keyboard either |
 | **B5. Support route** | Yes | Yes | Yes | Row `G4`, on `B8-3`, and node `0.10`, which exists for Article 5(c) rapid contact | Reached through the footer, which `0.2` already declares renders in full on 404 and 500. On 500 it is the only route that is certainly not broken by the same failure |
 | **B6. Reference** | No | **Yes** | No | Row `B5`, on `B3-1`, plus `G4`'s published response deadline | One short identifier a person can paste into a support ticket. A failure with no handle is a failure support cannot look up, which makes the published deadline unmeetable |
@@ -132,7 +142,7 @@ A person reaching a 404 is in one of two states, and each needs a different bloc
 
 | Arrival | What they know | The block that answers it |
 |---|---|---|
-| **Rot or a typo, no referrer** | They know what they wanted. A case name, a policy, a result they were sent | **Search.** They can name it |
+| **Rot or a typo, no referrer** | They know what they wanted. A case name, a policy, a result they were sent | ~~**Search.** They can name it~~ **All cases, since `D-82`**, where the shelf's own search is. They can name it there |
 | **Our own dead link, internal referrer** | They know nothing except that we sent them here. **This is our defect, not theirs** | **Quick links.** There is nothing to search for, and the honest move is to put the two live destinations in front of them |
 
 **One of those two is a signal we own.** A 404 with an internal referrer means a link inside this product points at nothing, which is exactly the defect the rule against phantom destinations exists to catch. The page looks the same to the person either way. What differs is that the internal case is worth counting, and that instrumentation belongs to production rather than here.
@@ -181,7 +191,7 @@ Node `0.13`'s register carries one row for this node: **`0.3` System pages, no U
 - **No URL of its own is the mechanism, not an omission.** The response renders **at the address that was requested**. That is what makes the status honest: a redirect to `/404` would answer the request with a 200 or a 301 somewhere else, and the address the person typed would vanish from the browser bar along with any chance of correcting it.
 - **The status code is the instrument here, not the meta tag.** A `noindex` on a 404 is belt and braces at best. What removes the URL from an index is the 404 itself, and what keeps a maintenance window from removing the whole site is that a 503 is temporary by definition.
 - **`robots.txt` disallows nothing for this node**, and `0.13` already explains why in general terms: a page a crawler is forbidden to read is a page whose instructions the crawler cannot read. Here it is simpler still. There are no error paths to disallow, because there are no error URLs.
-- **The search on the 404 must not mint indexable URLs.** `0.13` marks `/cases?...` as `noindex, follow`, canonical to `/cases`. The 404's search field submits into that same route and inherits that same rule rather than inventing a second search surface.
+- ~~**The search on the 404 must not mint indexable URLs.** `0.13` marks `/cases?...` as `noindex, follow`, canonical to `/cases`. The 404's search field submits into that same route and inherits that same rule rather than inventing a second search surface.~~ **Moot since `D-82`**: the 404 carries no search field, so it mints no URL at all.
 - **The geo block is not one of these pages and must never become one.** `0.12` section 9: the block returns 200 with content, is a state rather than a failure, and renders at the URL the person is on. A market we do not serve is not a missing page.
 
 ---
@@ -192,13 +202,13 @@ Every state below is a state of this node. None of them is a separate node in th
 
 | State | What renders | Route out |
 |---|---|---|
-| **404, external arrival** | Statement, search, quick links, footer | Search into `3.1`, or the two quick links |
+| **404, external arrival** | Statement, ~~search,~~ quick links as two buttons, Home primary and All cases, footer. **The search left with `D-82`** | ~~Search into `3.1`, or~~ The two quick links |
 | **404, internal referrer** | Identical to the person | The same, plus a counted signal that a link inside the product is dead |
 | **404 on a retired case slug** | The statement names that the case is gone rather than mistyped, **if the product knows that**, which is the 410 question | `3.1`, where the rest of the shelf is |
 | **500** | Statement, attribution, reference, quick links, footer. **No figures, no search.** **Drawn twice**, with the carriers and without, because section 4 makes them conditional and section 9 leaves the condition to production | Support through the footer, quick links, retry by reloading the address they wanted |
 | **503, planned** | Statement, owner, the end time, the retry control | The retry control, support |
 | **503, unplanned** | Statement, owner, **no invented end time**, the retry control, support | Support, which is the only route that is not the thing that is down |
-| **Search returns nothing**, inside the 404 | The empty result, in the same block, with the quick links still under it. **A page of its own since `D-79`**, and the search on every 404 is a live control that reaches it, because a state only a description mentions is a state nobody checks | `3.1`, the full shelf, never a blank page |
+| ~~**Search returns nothing**, inside the 404~~ | ~~The empty result, in the same block, with the quick links still under it. **A page of its own since `D-79`**, and the search on every 404 is a live control that reaches it, because a state only a description mentions is a state nobody checks~~ **Deleted by `D-82` with the search it belonged to**, `system-404-noresult.html` gone, section 0.6: a state whose subject is gone is deleted rather than carried as an empty page | ~~`3.1`, the full shelf, never a blank page~~ |
 | **Boundary in force**, `6.3` | Unchanged. A system page does not editorialise about a limit | Same as its base state |
 | **Consent pending**, `0.4` | The banner renders here too, and nothing non-essential fires on an error page any more than anywhere else | Same as its base state |
 
@@ -206,13 +216,13 @@ Every state below is a state of this node. None of them is a separate node in th
 
 ## 8. Adaptive behaviour and accessibility
 
-**Mobile, base, 360px.** The statement, then the search field at full width, then the quick links as a stacked list rather than a tile grid. **Two tiles side by side at 360px is how the label of the longer destination gets truncated**, and a truncated route is the defect the block exists to remove. The footer follows in its own stacked form, `0.2` section 6.
+**Mobile, base, 360px.** The statement, ~~then the search field at full width,~~ then the quick links ~~as a stacked list rather than a tile grid~~, **two buttons since `D-82`, and the stacked list only on `system-500-noshell.html`**, section 0.6. **Two tiles side by side at 360px is how the label of the longer destination gets truncated**, and a truncated route is the defect the block exists to remove. The footer follows in its own stacked form, `0.2` section 6.
 
-**Desktop, from 900px.** The rail keeps its place, the statement and the search sit in the content column at a readable measure rather than centred across the full width, and the quick links stay a list.
+**Desktop, from 900px.** The rail keeps its place, the statement sits in the content column at a readable measure rather than centred across the full width, and the quick links stay two buttons beside each other, the stacked list again only where the carriers cannot render.
 
 - **Exactly one H1, and it is what happened in words**, per `0.13` section 5. Never the numeral alone. The numeral is present, because a person reporting the problem needs it, and it is secondary text.
 - **The `<title>` carries the same statement.** It is what a person sees in the tab and in their history, and it is the one part of an error page that survives being left open in a background tab.
-- **The search field is not autofocused.** Autofocus jumps a screen reader past the statement, which is the one sentence the page exists to deliver.
+- ~~**The search field is not autofocused.**~~ **No field on these pages is autofocused**, and since `D-82` the 404 has none. Autofocus jumps a screen reader past the statement, which is the one sentence the page exists to deliver.
 - **Focus starts at the top of the main landmark**, so the statement is the first thing read.
 - **The statement is text, never an image**, generalising `0.11` rule 8. An error a person cannot select, copy or have read aloud cannot be reported.
 - **Colour never carries the state.** The words carry it.

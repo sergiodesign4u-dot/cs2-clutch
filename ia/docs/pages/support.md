@@ -23,6 +23,14 @@
 | A ticket form of three fields, Subject defaulting to Deposits, Email and Message, under an ATTENTION block pushing the FAQ first. `baseline.md` section 9.5. | The three field shape and the deflection to articles, which is reasonable and cheap. | **The submit button reads SIGN IN.** A guest can fill the form and cannot send it, so **a person locked out of their account cannot use the product's own support channel to say so.** That is the strongest single argument in this repository for the appeal route `G4` and its published deadline, and it is now a walked fact rather than an inference. |
 
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** Eight states with the appeal; blocks in the rendered order with Your tickets in its empty state; the cross-links struck; the H2 list follows the render; the evidence field is recorded as not drawn.
+
+---
+
 ## Amended 30 September 2026 by `D-141`. A question is not an appeal, and a paused withdrawal is not called open
 
 **Why.** Round 15 of the critique found an ordinary question landing on an appeal ticket, an empty appeal sent, Copy with nothing to copy, six states still drawing the cross-link row this node removed, and the appeal states telling a restricted person that sending to Steam stays open.
@@ -136,7 +144,7 @@
 | **The round id or the transaction id** | The product where the route carries it, pasteable where it does not | The object under dispute. A round id comes from `0.14`, a transaction id from the deposit or withdrawal record. **A stranger arriving from a shared `7.1` link has neither prefilled and must be able to paste one** |
 | **The version of the document the decision was taken under** | The product, linked into `0.9` | **A restriction taken under version 3 of the terms is not answered by version 4.** This is the join between the two nodes and it is why `0.9`'s version history is not decorative |
 | **What the person says** | The person | The only field they have to write |
-| **Evidence, optional** | The person | Attachment limits and accepted types are `[?]`, section 8 |
+| **Evidence, optional** | The person | Attachment limits and accepted types are `[?]`, section 9. **Not drawn in the wireframe:** `support-appeal.html` renders no file control, and the one line that described one, "Images or PDF, up to 10 MB", left with `D-141` because it printed a limit this node holds as `[?]` |
 | **Where to send the answer** | The account's address, or one the person gives | **A geo-blocked person has no account.** The form cannot assume one exists |
 
 ### Three things the form must not do
@@ -174,12 +182,13 @@
 
 ## 5. States
 
-Seven, and the last one is the reason this is a node rather than a form.
+Eight, and the last one is the reason this is a node rather than a form. **The appeal form is the second row**: `D-82` gave it a page of its own and this table did not get the row until round 15.
 
 | State | What the page shows | Route out |
 |---|---|---|
-| **Entry** | The two routes, the printed email address, the published deadline above the fold, the FAQ below | Either form, or the surface that owns the rule |
-| **Appeal submitted** | The ticket id, copyable. The clock started. The deadline as **both** the published duration and this ticket's own date. **What is still open, in the same breath:** withdrawal stays open under every boundary, `6.3` | `5.3`, which stays reachable |
+| **Entry** | ~~The two routes, the printed email address, the published deadline above the fold, the FAQ below~~ **Since `D-82`:** the deadline in the lead under the H1, the FAQ first, one form whose subject "Appeal a decision we took" opens the appeal page, the printed email address, and for an account, its tickets | The form, the appeal page, or the surface that owns the rule |
+| **Appeal a decision**, `support-appeal.html` | The decision, the ground we gave quoted back, the round or transaction, the version of the terms it was taken under, then what the person says and where to send the answer. The deadline under the Send | Appeal submitted |
+| **Appeal submitted** | The ticket id, copyable. The clock started. The deadline as **both** the published duration and this ticket's own date. ~~**What is still open, in the same breath:** withdrawal stays open under every boundary, `6.3`~~ **Since `D-141`:** the balance is frozen and not reduced, and the page no longer says withdrawal is open, because withdrawal is what the restriction paused | `5.3`, which stays reachable and says it is paused |
 | **Waiting, with attribution** | Whose turn it is: **waiting on us, waiting on you, or waiting on Steam.** The same three-way attribution `G1` puts on the withdrawal clock, because a wait with no owner is the silence `B8-2` records | Back to the ticket, or the thing we asked for |
 | **Appeal answered** | The answer, with its ground, on the record and retrievable. **Not only an email**, which vanishes into a mailbox the product cannot cite | Upheld or refused |
 | **Appeal upheld** | The decision reversed. The restriction lifts and **the frozen balance unfreezes**, which is only possible because `G4` froze it rather than zeroing it. The route back into the flow the person was ejected from | `5.3`, `4.1`, or `3.3` |
@@ -219,12 +228,13 @@ Seven, and the last one is the reason this is a node rather than a form.
 
 **Blocks in mobile-first priority order**, composition from `blocks.md` section 8:
 
-1. **H1 and the deadline**, on the first screen. The number is above the fold because it is the entire difference between this page and a help page.
-2. **Two routes:** contact, and appeal a decision.
+**Head. H1 and the deadline**, on the first screen, the deadline in the lead: "Ask a question or appeal a decision. We answer within 72 hours." The number is above the fold because it is the entire difference between this page and a help page.
+
+1. **The FAQ**, sectioned accordions. ~~below the substance~~ **First since `D-82`**, the founder's screen review: the cheapest resolution is the block a person meets.
+2. **Write to us**, one form: what it is about, where to send the answer, the message. ~~Two routes: contact, and appeal a decision.~~ **Since `D-82` the subject "Appeal a decision we took" opens the appeal on its own page**, `support-appeal.html`, rather than a second form beside this one.
 3. **The email address**, printed as text and as a `mailto:` link, Article 5(1)(c).
-4. **Your tickets**, account only. Without a record, "answered" is an email.
-5. **The FAQ**, sectioned accordions, below the substance.
-6. **Cross-links** to `0.9` and to the surfaces that own the rules.
+4. **Your tickets**, account only. Without a record, "answered" is an email. **At the prototype's now this account has sent nothing**, so the signed-in entry draws the empty state: "None yet. A message you send here gets a ticket, and its answer and its deadline stay on it." The ticket `ap-2026-08-22-0031` belongs to the later states.
+5. ~~**Cross-links** to `0.9` and to the surfaces that own the rules.~~ **Removed by `D-82`, and from the six states by `D-141`**: the footer carries the same destinations on every page.
 
 **Mobile, base, 360px.** One column throughout. The accordion is the FAQ's natural mobile shape and needs no second treatment.
 
@@ -233,9 +243,9 @@ Seven, and the last one is the reason this is a node rather than a form.
 - **The deadline is text with the unit attached**, `0.11` section 8: "72" is not a figure, "an answer within 72 hours" is. The unit and the as-of belong to the accessible name, not only to the visual.
 - **Every target at least 44 by 44 CSS pixels**, matching `0.1`.
 - **The form's errors name the field and the fix**, `B5`'s rule for readable failure states applied to our own form. A support form that fails unreadably is the barrier arriving on the page built to answer it.
-- **The two entry points are two headings and two forms**, not tabs. A tab hides one of two routes from a person who arrived needing the other.
+- ~~**The two entry points are two headings and two forms**, not tabs.~~ **Since `D-82` the entry page carries one form and the appeal has its own page**, which keeps the rule's point: no tab hides one of two routes from a person who arrived needing the other.
 
-**Desktop, from 900px.** The two routes sit side by side, the FAQ stays one column with the section list beside it, per the Refero WhatsApp row in the bank. The deadline stays with the H1 and never moves into a margin.
+**Desktop, from 900px.** ~~The two routes sit side by side~~ **One form since `D-82`**, the FAQ stays one column with the section list beside it, per the Refero WhatsApp row in the bank. The deadline stays with the H1 and never moves into a margin.
 
 ---
 
@@ -254,19 +264,18 @@ Inherited from `0.13` section 3: `/support`, **indexed, canonical self, `WebPage
 
 **H1: Support.** It matches the footer's button label exactly, `0.1`'s rule that one destination carries one label in every carrier, applied to the heading and the address bar together. The title tag carries the longer form because a title is not a carrier label.
 
-**H2 order, matching the block order in section 7:**
+**H2 order, matching the block order in section 7**, as the entry page renders it since `D-82`. ~~Contact us, Appeal a decision, When you get an answer, Your tickets, Questions and answers.~~ The appeal is the H1 of its own page, and the deadline is in the lead rather than under a heading.
 
-1. Contact us
-2. Appeal a decision
-3. When you get an answer
+1. Questions and answers
+2. Write to us
+3. By email
 4. Your tickets
-5. Questions and answers
 
-The seven FAQ sections in section 4 are H3s under heading 5.
+The seven FAQ sections in section 4 are H3s under heading 1.
 
 ### C. Ready page text
 
-- **Lead.** "Two routes: ask us something, or appeal a decision we took. Both go to the same queue, both get an id, and both are answered inside the deadline below."
+- **Lead.** ~~"Two routes: ask us something, or appeal a decision we took. Both go to the same queue, both get an id, and both are answered inside the deadline below."~~ **As rendered since `D-130`:** "Ask a question or appeal a decision. We answer within 72 hours." The appeal page's lead is "The decision and its ground are filled in for you."
 - **Above the deadline.** "We answer every ticket within {deadline}. That is a deadline for an answer with a reason in it, not for a resolution, and it starts when the ticket is created."
 - **Above the appeal form.** "If we restricted your account, refused a check, or our own proof did not match, this is where you dispute it. We carry the decision and the ground we gave into the form, so you do not have to remember either."
 - **Above the FAQ.** "Answers to the questions people ask most. Every rule here also lives on the screen where you meet it, and that screen is the one that governs."

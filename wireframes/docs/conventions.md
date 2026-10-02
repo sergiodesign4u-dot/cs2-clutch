@@ -64,12 +64,20 @@ The shell `0.1`, the footer `0.2`, the skin card `0.6`, the case tile `0.7`, the
 
 **A zone that cannot answer "why is it here" is a defect, not filler.** On any screen there is **exactly one main action**. **The footer is secondary and never competes with it.**
 
+**Two named exceptions, founder decision of 30 September 2026, `D-140`, and no third without a decision of its own:**
+
+- **The outcome keeps two**, `3.6` and its sibling `3.7`, the interrupted reveal, which carries the same two acts. Open again and Sell are both main actions by `D-38`: "the acts become the accent of the screen: two big controls", and keeping is what happens when nothing is tapped.
+- **Responsible play keeps none**, `6.1`, its node's section 2: four independent boundaries with none promoted over the others, because promoting one is the product choosing which brake a person should want.
+
+**A layer is its own screen.** While a gate layer or a dialog is open, `gate-*.html` and `signin-dialog.html` among them, the layer's one main action is the screen's, and the shell's Sign in behind the scrim does not count against it.
+
 ---
 
 ## 2. Fidelity, and what grey means
 
 - **A live screen, not a diagram.** A real page at full viewport that clicks and scrolls. Zones carry real content and a clickable main action, **a real button or link**. No annotation labels on zones, no mockup frames, no skeleton placeholders standing in for a screen.
 - **Structure, hierarchy and zones only**, in grey. **No colour, type choices, brand, icons, shadows, images or finished UI.** Those are stages 06 to 08. If look creeps in, put it back in grey.
+- **A figure is never split from its unit.** Added 3 October 2026, `D-144`. A number and its coins or %, a day and its month, a month and its year, a date and its time are joined by a no-break space, so "21.90 / coins" and "20 / Aug / 2026" never land on two lines at 360. **One pass does it for every page**, `nbspFigures` in `wireframes/_nav.js`, over the rendered text, so a page does not type its own no-break spaces and a new page inherits the rule without knowing it.
 - **A button label never wraps.** Added 20 August 2026, `D-52`. A label broken over two lines is a label read twice: the eye finds the verb, loses the amount, and comes back for it, **on the one control where the amount is the decision**. It also makes the control taller than the one beside it, so a row of two acts stops being a row of two equal acts. **What gives instead is the row, not the label:** below 599 the acts take a line each at full width. **And a control that sits in a row of controls is the height of that row**, or the row reads as controls plus an afterthought.
 - **An icon is stage 06's. Its space is this stage's.** Amended 20 August 2026, `D-50`, generalising the rule the rail has followed since it was drawn: "a destination whose icon has no reserved space gets one bolted on later, which moves every label in the carrier on the day it arrives". **Every row, every destination, every figure with a unit mark gets a slot the size the icon will be**, so what arrives at stage 06 is an image in a place rather than a new element in a full row. **This is a game product and its carriers carry icons**, `CLAUDE.md` design principle 4: the main stage, not a back room. **A carrier drawn without its icon zones is not simpler, it is unfinished**, and the account menu, the mobile bar and the two money figures each shipped that way before this rule was written down.
 - **Semantic HTML.** `header`, `nav`, `main`, `section`, `article`, `form`, `button`. Not a pile of divs. **Controls and fields are real elements**, because stage 07 reads these files and a styled span is not a button.
@@ -187,7 +195,7 @@ The report was three things at once: the block composition, the proportions, and
 - **`inline-flex`, centred by construction** rather than by the accident of line-height, so a one word label and a four word label are the same component.
 - **No underline inside a control.** Underline belongs to links in prose, where it is the only thing marking them.
 - **Two sizes and no third.** The default is a 44px tap target. `.wf-btn--small` is for a control that sits **inside** another component rather than under one, the ticker's pause and the tile's favourite. **A third size needs a reason written here first.**
-- **One `.wf-btn--primary` per screen**, unchanged from section 1.6.
+- **One `.wf-btn--primary` per screen**, section 1.6, **with that section's two named exceptions since `D-140`:** the outcome, `3.6` and `3.7`, carries two, and responsible play carries none. A layer counts as its own screen.
 
 ### 9.1 The mobile drawer: specified by `0.1`, never drawn until now
 

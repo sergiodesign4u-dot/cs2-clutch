@@ -5652,3 +5652,33 @@ Four statements later decisions had reversed were corrected: Home's mode cards, 
 ### A rule for every page
 
 **A figure is never split from its unit**: one pass joins a number to coins or %, a day to its month, a month to its year and a date to its time. A scan of every page at 360 and 1440 finds none split.
+
+
+## D-145. Round 15, step 6: the nodes catch up with the render, and the render keeps the nodes' remaining promises
+
+**Date:** 2026-10-03. **Stage:** 04, round 15. **Decided by:** the founder, "да", on step 6. **Binds:** 27 nodes in `ia/docs/pages/`, `wireframes/docs/screens.md`, `wireframes/docs/conventions.md`, and the wireframe pages listed below.
+
+**What the founder said.** Yes, on the nodes catching up.
+
+### The rule this step ran on
+
+**Where a node and the render disagreed, the node caught up**, because rounds 13 and 14 redrew the pages on later founder decisions while the nodes still described the earlier ones. Stale lines are struck in place with the decision that replaced them, never deleted. Four node editors worked in parallel, each on its own files, and every row was re-read before it was changed.
+
+### Where the render caught up instead
+
+Where the node held a promise no decision had withdrawn, the page now keeps it: the Steam account is named before the press; the sign in failure states replace the never line; signed in support has its tickets block, empty at the prototype's now; the proof failure prints a reference and a deadline; a tile's name reads in the node's order; private pages carry `noindex, follow` and a canonical; responsible, fair and support carry their node's title and description; the result's title follows the round; the bonus line carries its cap and period; the hide row names both exclusions; the revoke sentence states its limit; the blocked gate prints a market's ground; the hash field has one name in every variant; the published withdrawal times are declared once.
+
+### One main action, written down
+
+`conventions.md` section 1.6 keeps "exactly one main action" and names the founder's two exceptions, the outcome and responsible play, plus one note: a layer is its own screen. Every page now has at most one primary outside those.
+
+### Carried to the founder, not decided
+
+1. Pages with no primary at all, against "exactly one".
+2. The appeal's evidence field, specified and not drawn.
+3. The 500 reference, 40 characters against "short enough to read over the phone".
+4. The desktop contents column on 1.2.
+5. Responsible play's SEO body: the node's finished text or `D-130`'s two lines.
+6. A public statement of the markets we serve, gone with Where we operate.
+7. V2 of the proof opening in place, the phase 2 pages' missing settlement rule, and the account Open control passing no gate.
+8. Identity verification, a `LATER` node still written around funding while `D-26` moved it before withdrawal; this one needs counsel.

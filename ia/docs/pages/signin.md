@@ -15,6 +15,14 @@
 **Cluster 2 is three surfaces nobody chooses to visit, and since `D-54` two of the three are dialogs.** This one is the tax on the main job, and section 2 counts it rather than hiding it. **What `D-54` changed is not the size of the tax but who pays the context for it:** section 0.9.
 
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** The address follows `D-130` and `D-138`: H1 Sign in and one H2; the never statement is one line; a failure state replaces blocks 1 and 3; `SR-4471` is marked as a sample.
+
+---
+
 ## Amended 29 September 2026 by `D-138`. Sign in lands where it was opened, and its failures say one thing each
 
 **Why.** Round 14 of the critique found sign in landing on `case-open.html` from everywhere, a case opened and paid for that nobody pressed; a `[?]` and the health probe's mechanics on the Steam outage state; two sentences on the refused state repeating what the card already says; and two titles for one act.
@@ -26,6 +34,8 @@
 | SIGN IN, a modal with Steam, email and password, and Sign up | **The title "Sign in" on both carriers** and Steam first | **No email and password form and no Sign up.** A third party sign in followed by a password field is the shape `B3-1`'s thread warns about, section 5.2; accounts are created by the first provider sign in. Named here, it was argued only in section 3 |
 | After signing in, the page the person was on | **The page they were on** | The dialog lands on the signed-in version of the page it was opened over; the address `/signin` lands on Home, signed in |
 | Steam down | One message | "This is on Steam's side. Try again shortly." and the public routes |
+
+**Samples, `D-124`, marked here:** the support reference `SR-4471` on `2.5`. The format of a real reference is production's.
 
 **The case screen's Sign in passes through the gate first**, `D-136`: 2.1 before 2.4, as the map draws it.
 
@@ -158,10 +168,10 @@
 | Title and one line | Yes | The H1 and its lede |
 | **The two declarations** | Yes | Yes |
 | **The four providers** | Yes | Yes |
-| **What we never read or do**, four lines | **Yes** | Yes |
-| What we read, the field list | **No** | Yes |
-| What happens next, three steps | No | Yes |
-| The starter credit | No | Yes |
+| **What we never read or do**, four lines | **Yes** | Yes. **One line in both carriers since `D-130`**, and the node keeps all four |
+| What we read, the field list | **No** | ~~Yes~~ **No since `D-130`**: the `[?]` list left the address too |
+| What happens next, three steps | No | ~~Yes~~ **No since `D-130`** |
+| The starter credit | No | ~~Yes~~ **No since `D-130`** |
 | Block 6, the route back | **The dismissal is block 6** | A crawlable link |
 | The footer `0.2`, the H1 | No | Yes |
 
@@ -314,9 +324,9 @@ Composition from `blocks.md` section 6, T5. Refero ShareWillow gives the craft f
 |---|---|---|
 | 1 | **What this is, and the controls.** One line. **Four providers since `D-55`**, Steam as the act and Google, Discord and X as one secondary row, with the Steam requirement printed beside them. Centred single card, one column. **Now second in the order, `D-56`** | Refero ShareWillow, `blocks.md` T5. Related Job 2. `D-55` |
 | 2 | **First in the order since `D-56`.** **The consent gate: two declarations, and no press goes through until both are made.** The terms consent naming and linking each document it covers, and **the age declaration on its own line as its own act**. **No press in block 1 goes through** until both are set, `D-58` having replaced the disabling with a refusal that answers, and this block says why in words rather than only by dimming a button | `D-26`, and the compliance constraint in `CLAUDE.md`. **This is layer 1 of `D-A` and it always was: what `D-26` changed is that it is enforced rather than decorative** |
-| 3 | **The will and will not read statement**, on the page, not behind a link, not in a modal, not in the terms | `B3-2` by way of row `B6`. **This is the node's reason for existing**, section 0 |
-| 4 | **What happens next**, three steps in one line: you land on Steam, you type your password there and never here, you come back | `B3-1` by way of row `B5`. The round trip is the confusing step Related Job 2 forbids, so it is described before it starts |
-| 5 | **The starter credit, stated as an offer with its terms**, because `1.0` already made it pre-login and this is where it is met | Row `I1`, bound to `C4`, `D1` and `A1`, which is not optional, `cjm-to-be.md` answer 1 |
+| 3 | **The will and will not read statement**, on the page, not behind a link, not in a modal, not in the terms. **Rendered as one line in both carriers since `D-130`**, "We never ask for your password or change your Steam profile.", and section 0 keeps both lists | `B3-2` by way of row `B6`. **This is the node's reason for existing**, section 0 |
+| 4 | **What happens next**, three steps in one line: you land on Steam, you type your password there and never here, you come back. **Not rendered on either carrier since `D-130`**, which took it off the address | `B3-1` by way of row `B5`. The round trip is the confusing step Related Job 2 forbids, so it is described before it starts |
+| 5 | **The starter credit, stated as an offer with its terms**, because `1.0` already made it pre-login and this is where it is met. **Not rendered on either carrier since `D-130`** | Row `I1`, bound to `C4`, `D1` and `A1`, which is not optional, `cjm-to-be.md` answer 1 |
 | 6 | **The route back into reading without signing in.** **In the dialog this is the dismissal, `D-54`**, and at the address it is a link | `2.6`'s principle applied to the default state: a person who will not sign in is not ejected. Related Job 1 |
 | 7 | **The footer** `0.2`, carrying the 18+ statement, the responsible play link and the market statement. **At the address only since `D-54`:** a dialog carries no footer, and the surface behind it already has this one | The compliance constraints in `CLAUDE.md`. Inherited, not specified here |
 
@@ -334,7 +344,7 @@ Composition from `blocks.md` section 6, T5. Refero ShareWillow gives the craft f
 
 | State | Node? | Behaviour |
 |---|---|---|
-| **Default, consent not given** | no | **The landing state.** Both checkboxes clear, **the provider controls live and not disabled since `D-58`**, and the reason stated in text under them. `D-26` is enforced on the press rather than by removing the control, section 0.10.6 |
+| **Default, consent not given** | no | **The landing state.** Both checkboxes clear, **the provider controls live and not disabled since `D-58`**, ~~and the reason stated in text under them~~. **Superseded by `D-130`:** the line under the declarations is empty until a press needs it, and it stays the live region that answers a refused press. `D-26` is enforced on the press rather than by removing the control, section 0.10.6 |
 | **Consent given** | no | The press now goes through. **Nothing else on the page changes**, because a page that rearranges itself when a box is ticked has moved the target a person was aiming at |
 | **One of two given** | no | **The text names which declaration is still missing**, rather than repeating the general instruction. Two declarations means two failure messages |
 | **Press refused, a declaration missing** | no | **Added by `D-58`.** The missing declarations are marked on themselves, the line names which, and the keyboard goes to the first of them. Nothing was signed in and nothing was recorded |
@@ -431,7 +441,7 @@ That is a genuine cross-node dependency and it runs both ways: if the probe is n
 
 **The block order is the mobile order and it does not change on desktop.** The one hard requirement at 360px: **blocks 1 and 2 are both above the fold.** The statement is what answers `B3-2`, and a statement a person has to scroll to reach has been designed as fine print. If something must fall below the fold at 360px it is block 4 or block 5, never block 2.
 
-**`2.5` and `2.6` replace blocks 1 and 3 in place** and keep block 2 visible, because the moment a sign in fails is exactly when a person re-reads what the site wanted from them.
+**`2.5` and `2.6` take the place of blocks 1 and 3.** On both failure states neither the providers nor the never line renders: the failure message heads the card, block 2 stays visible under it with both declarations ticked, and the route out is the failure's own two controls. Block 2 stays because the moment a sign in fails is exactly when a person re-reads what the site wanted from them.
 
 ---
 
@@ -443,7 +453,7 @@ That is a genuine cross-node dependency and it runs both ways: if the probe is n
 
 | Field | Value |
 |---|---|
-| `title` | Sign in with Steam. CS2 Clutch (33 characters, under 60) |
+| `title` | Sign in with Steam. CS2 Clutch (30 characters, under 60). The two failure states carry their own: `Steam refused the sign in. CS2 Clutch` on `2.5` and `Steam is not answering. CS2 Clutch` on `2.6` |
 | `description` | Sign in with Steam OpenID. We never ask for your password and we never change anything on your Steam account. (110 characters, under 155) |
 | `canonical` | Self, `/signin` |
 | `robots` | `noindex, follow`. `0.13` section 3 |
@@ -452,11 +462,13 @@ That is a genuine cross-node dependency and it runs both ways: if the probe is n
 
 **B. Headings.** One H1, and the H2 list is the block order, which is `0.13` section 5's mechanical check. **This is the address's outline. The dialog carries no H1 at all, `D-54`**, section 0.9.9.
 
-- **H1:** Sign in with Steam
-- **H2:** What we read from your Steam account
-- **H2:** What happens next
-- **H2:** Your starter credit
+- **H1:** ~~Sign in with Steam~~ **Sign in.** **Superseded by `D-138`:** one title for one act on both carriers
+- ~~**H2:** What we read from your Steam account~~
+- ~~**H2:** What happens next~~
+- ~~**H2:** Your starter credit~~
 - **H2:** Or keep looking around without an account
+
+**The three struck H2s left with their blocks, `D-130`**, which took the read list, the three next steps and the starter credit off the address. The address renders one H2, block 6.
 
 **C. SEO body text.** **None, and that is the correct answer for a `noindex` page rather than a gap.** What the node owes instead is the requirement of which information must be present, which is section 0's two lists and section 5.1's four causes. Stage 05 writes the words and syncs them back here. Interface strings move to `voice/docs/microcopy.md` after stage 05; the requirement stays here.
 

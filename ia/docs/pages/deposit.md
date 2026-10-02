@@ -20,6 +20,14 @@
 | Two numbered steps. Step 1: a partner promo code already applied, a country selector that filters the grid, then ~~**17 fiat methods and 8 crypto**~~ **27 fiat methods and 8 crypto**, corrected here by `D-129` after section 5b.1 of `baseline-account.md` was corrected on 25 August. Step 2 for card: amount, email, a terms checkbox, six presets, and a panel reading `Rate 1.00 = $1.00` with a standing **+5.00% bonus capped at 100 per 24 hours**. Crypto gives an address per network with a live rate and a minimum, and no amount field. `baseline-account.md` section 5b. | The two step shape, the published rate at the moment of funding, and the amount presets. | **No crediting time is published anywhere in that flow**, which is the whole of row `C3`, and the deposit history's most common status is REJECTED. **Ours publishes the window before the money moves.** ~~The standing bonus and its header badge are refused, `0.1`.~~ **Both returned by `D-94`**, and this row said otherwise until `D-129`. And one route, gift cards, leaves the product entirely to six third party resellers with no crediting story at all. |
 
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** The account state strip, the spend ceiling form, the receipt's Amount line and the country and market notes are struck against `D-103`, `D-104` and `D-129`; the section 2 table records the order drawn today; the receipt, the limit sentence and the H2 list are written from the render; the state pages' samples are marked.
+
+---
+
 ## Amended 3 October 2026 by `D-144`. The pay row sits on the mobile bar on every state
 
 **Why.** Round 15 of the critique measured Pay at 871 of 800 on the pending state and Try again under the mobile bar on the declined one, at 360: sticky cannot leave its grid, and a notice above the grid pushed it down.
@@ -29,6 +37,8 @@
 | The live product | What we keep | What we change, and why |
 |---|---|---|
 | A pay row at the foot of the screen | The row, `D-129` | **On the address the row is fixed to the mobile bar below 900**, on every state; in the dialog it stays sticky, because a fixed element leaves the dialog |
+
+**Samples, `D-124`, marked here:** the deposit limit in force, $40.00; the pending raise on `4.3`, $120.00, and the moment it takes effect, 23 Aug 2026, 09:31; the period reset on `4.2`, 1 Sep 2026, 00:00; the crediting start on `4.4`, 21 Aug 2026, 09:30, and its elapsed, 1 min.
 
 ---
 
@@ -113,7 +123,7 @@
 | Identity unresolved | Nothing. There is no identity to resolve | **Parked with `2.7`**, `D-26` |
 | Identity failed, appeal open | Nothing. **Kept in the state table below rather than deleted**, so the hole stays where a reader meets it | **Parked with `2.9`**, `D-26` |
 
-**And what block 1 says instead.** The account state, and funding open. **It does not promise anything about the exit**, in either direction. Stating "the exit carries no check" would be true today and would become false the day layer 2 lands, which is `B4-1`'s shape applied to a condition instead of to a number: something the exit demands that was not named before the money went in. **Stating that a check may arrive later is the other half of the same problem** and it is a product-copy call with a compliance edge, so it is an open item in section 12 with the founder as owner rather than a block drawn on a guess.
+**And what block 1 says instead.** ~~The account state, and funding open.~~ **Superseded by `D-129`: block 1 is the H1 alone, and no deposit page draws an account state line.** **It does not promise anything about the exit**, in either direction. Stating "the exit carries no check" would be true today and would become false the day layer 2 lands, which is `B4-1`'s shape applied to a condition instead of to a number: something the exit demands that was not named before the money went in. **Stating that a check may arrive later is the other half of the same problem** and it is a product-copy call with a compliance edge, so it is an open item in section 12 with the founder as owner rather than a block drawn on a guess.
 
 ---
 
@@ -123,15 +133,17 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 | # | Block | What it holds | Parent | First screen at 360px |
 |---|---|---|---|---|
-| 1 | **H1 and account state** | The page's job in words, plus funding open. **The exit promise left this block with `D-26`**, section 1 | `B8-4` directly. `B1` and `B2` were the parents and both are parked with `2.7`, so the block answers the barrier without the two rows that used to stand between | Yes |
+| 1 | **H1** ~~**and account state**~~ | The page's job in words ~~plus funding open~~. **The exit promise left this block with `D-26`**, section 1, **and the account line left with `D-129`**: no deposit page draws an account state strip, and the first screen is the offer, the promo question, then the grid | `B8-4` directly. `B1` and `B2` were the parents and both are parked with `2.7`, so the block answers the barrier without the two rows that used to stand between | Yes |
 | 2 | **Amount, and the rate beside it** | One input. **Since `D-28` this block is where the conversion lives rather than where it is forbidden:** the person types in real money, the coins it buys render beside it, and the rate is published with its as-of | `C1` as `D-28` rewrote it, still on `B7-1` pattern of 7, plus `0.11` rule 10 | Yes |
-| 3 | **Spend ceiling for a named period** | Pre-filled with the amount just typed, period selector, and the asymmetry stated in the interface: lowering applies immediately, raising waits 24 hours | `C2`, on `B7-4` pattern of 12 | Yes |
+| ~~3~~ | ~~**Spend ceiling for a named period**~~ | ~~Pre-filled with the amount just typed, period selector, and the asymmetry stated in the interface: lowering applies immediately, raising waits 24 hours~~ **Superseded by `D-103`**: the form left this node for `6.1`. What stays is one fact line under the press, `Deposit limit $40.00 in force. Change it` or `No deposit limit set. Set one`, section 2j | `C2`, on `B7-4` pattern of 12 | ~~Yes~~ No, a line in the form column |
 | 4 | **The other three limits live on `6.1`** | One plain line, one link, to session limit, cool down and self exclusion | `C5`, and the compliance constraint quoted above | Partly |
 | 5 | **Withdrawal threshold** | The sum required to withdraw, stated here, frozen from this moment, and never able to rise | `C4`, on `B4-1` | No, and section 5 explains why that is not a demotion |
 | 6 | **Payment methods** | Cards, one per method, **with every exclusion printed on the card it excludes**, and an empty state for the first deposit | `B4-3`, plus the bank's Navan and Hellcase FAQ rows | No |
 | 7 | **What happens after you pay** | The crediting window as a published number, stated **before** the payment, and what to do if it passes | `C3`, on `B4-3` pattern of 4, plus design principle 3 | No |
-| 8 | **Persistent summary and the one control** | Amount, ceiling in force after this deposit, withdrawal threshold, total charged. Docked, so it is on screen while blocks 5 to 7 are read | Design principle 3, and the Fresha row in the bank, which traces to `C2` | **Persistent**, see below |
+| 8 | **Persistent summary and the one control** | ~~Amount, ceiling in force after this deposit, withdrawal threshold, total charged.~~ **Superseded by `D-104` and `D-129`: four lines, what arrives in coins, the peg, the bonus with its cap and period, the total charged, with the fee as a caption on the total.** Docked, so it is on screen while blocks 5 to 7 are read | Design principle 3, and the Fresha row in the bank, which traces to `C2` | **Persistent**, see below |
 | 9 | Footer, node `0.2` | Trust strip, 18+, responsible play, market statement | `0.2` | No |
+
+**The order above is the node's first one and the render no longer follows it, `D-96` to `D-129`.** What the pages draw now: the offer, the promo question, the grid in two groups, Cards, wallets and more then Crypto, and the country as a line at the foot; on a method's pane the method with Change, the provider, the amount with six presets, the billing email, the terms, three one-line facts, then the receipt and Pay. Sections 2d to 2k carry each move.
 
 **Block 8 is not in the scroll order.** It docks to the bottom edge at 360px from the moment an amount exists, and it is the right column on desktop. In the document it sits after block 7, so that a person reading linearly, with a screen reader or with styles off, meets the summary after everything it summarises rather than before.
 
@@ -291,9 +303,9 @@ The live product arrives with a partner code **already in the field, ticked, and
 
 **Three. One option is a picture of a choice, `D-58`**, and it is the smallest fault and the one that made the other two visible.
 
-**What renders instead:** a line, `Ukraine, the country on your account`, with a route to `5.11`.
+**What renders instead:** a line, ~~`Ukraine, the country on your account`~~ **`Payment methods for Ukraine · Change` since `D-129`, a line at the foot of the grid, reading the country saved on `5.11` since `D-143`**, with a route to `5.11`.
 
-**And the register's state is printed rather than implied.** `D-23`: the allowlist is closed by default and there is no market we can open this month, so the note under the grid says **no market is open yet**. **A selector of open markets is a control with nothing true to put in it.**
+**And the register's state is printed rather than implied.** `D-23`: the allowlist is closed by default and there is no market we can open this month, so the note under the grid says **no market is open yet**. **A selector of open markets is a control with nothing true to put in it.** **Superseded by `D-129`: the register note left with the account line, and no deposit page prints it.** The argument against a selector of open markets stands.
 
 ---
 
@@ -482,7 +494,7 @@ The receipt had six lines and **three of them carried no figure at all**: `Not p
 | Row taken out | Where the fact is now | What it cost |
 |---|---|---|
 | `To withdraw, you will need`, `Not published` | Already below the press, word for word, with the never-rises clause the row had no room for | Nothing. The row was a duplicate of a fuller statement two blocks down |
-| `Deposit limit in force`, `None set` | The boundaries note below the press, **which now states the figure when one is in force**, "A deposit limit of $40.00 is in force", and says "No deposit limit is set" when there is none | The figure left the money column for a line below the button |
+| `Deposit limit in force`, `None set` | The boundaries note below the press, **which now states the figure when one is in force**, ~~"A deposit limit of $40.00 is in force", and says "No deposit limit is set"~~ **`Deposit limit $40.00 in force. Change it`, and says `No deposit limit set. Set one`, in the words of `D-129`'s three one-line facts,** when there is none | The figure left the money column for a line below the button |
 | `Fee`, `Not published` | **Attached to the total as its qualifier**, one caption under it | This is the one that could not simply leave |
 
 **The fee is the finding of this step.** `Total charged $200.00` is a claim, and an unpublished fee is precisely the thing that can falsify it. Deleting the row and saying nothing would have turned a visible unknown into a total that reads final, which is `B4-1` one level down: a figure that moves after the person committed to it. **So the fee stops being a row and becomes a sentence about the total.** `C4`'s three properties are untouched: the threshold is still stated on this screen before the payment, still frozen at this moment, still below the press where it always was.
@@ -596,7 +608,7 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 
 | Line in the summary | Where the number comes from | Rule it carries |
 |---|---|---|
-| Amount | Block 2 | Real money in, coins out, and the rate with its as-of, `C1` as `D-28` rewrote it |
+| ~~Amount~~ | ~~Block 2~~ | ~~Real money in, coins out, and the rate with its as-of, `C1` as `D-28` rewrote it~~ **Superseded by `D-129`: the receipt opens on what arrives, `You will receive 42.00 coins`, with the peg under it, `at 1 coin = $1.00`.** The amount in real money is the field and the total; the rule `C1` carries is unchanged |
 | Total charged | Amount plus any fee. **Fee is `[?]`** | If the two ever differ, both are shown. A total that silently differs from the typed amount is the defect |
 | ~~Ceiling in force after this deposit~~ | ~~Block 3, and `4.3` if a raise is pending~~ | **Removed from the summary by `D-104`**, after `D-103` removed the form it read from. The figure is a note below the press and it is quoted here rather than deleted |
 | ~~Withdrawal threshold~~ | ~~Block 5~~ | **Removed from the summary by `D-104` as a duplicate.** Block 5 below the press already carried it with its never-rises clause, which the summary line had no room for. `C4` is unchanged: still stated on this screen, still frozen at this moment |
@@ -759,13 +771,13 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 
 ## 9. Responsive
 
-**Mobile 360px, the base.** One column. Blocks 1 to 7 stack in the order of section 2. The summary docks to the bottom edge from the moment an amount exists and is the last element in the document. **No horizontal scroll at any point**: the method cards stack rather than scrolling sideways, and the only element permitted its own horizontal overflow is a table, inside its own container.
+**Mobile 360px, the base.** One column. ~~Blocks 1 to 7 stack in the order of section 2.~~ **The page stacks in the order the note under section 2's table records, `D-129`.** The summary docks to the bottom edge from the moment an amount exists and is the last element in the document. **No horizontal scroll at any point**: the method cards stack rather than scrolling sideways, and the only element permitted its own horizontal overflow is a table, inside its own container.
 
 **The amount field.** The unit is text beside the input, never a glyph baked into an image, `0.11` rule 8, and never a placeholder that disappears on focus. A person who focuses the field must still be able to see what unit they are typing. **And since `D-28` there are two units on this screen rather than one**, so the field states which one it takes and the converted figure is never editable: two editable money fields on one form is where a person types into the wrong one.
 
 **Desktop.** Two columns. Blocks 1 to 7 on the left, the summary and the control as a sticky right column, which is the Fresha shape at its native width. **The block order does not change**, because the order is derived from the sequence of the decision rather than from the space available.
 
-**Between the two.** The ceiling control is the one element whose form changes: a stacked value and period at 360px, one row on desktop. Nothing else re-orders.
+~~**Between the two.** The ceiling control is the one element whose form changes: a stacked value and period at 360px, one row on desktop.~~ **Superseded by `D-103`: there is no ceiling control on this node, and the limit is a fact line in the form column at every width.** **What changes between the two is the pay row**: sticky inside the dialog, and fixed to the mobile bar on the address below 900, `D-144`. Nothing else re-orders.
 
 ---
 
@@ -775,7 +787,7 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 
 **So this node adds nothing to that table**, and the absence is the correct entry rather than a cell to fill. `sitemap.md` states the standard in the same section: "inventing a trust page to fill a cell is worse than an honest empty."
 
-**One microcopy placeholder is reserved, and it is not emotional support.** The account state strip in block 1 states that the exit carries no check, `B2`. That is a factual promise about a code rule, its place in the layout is fixed by this node, and its words belong to stage 05.
+~~**One microcopy placeholder is reserved, and it is not emotional support.** The account state strip in block 1 states that the exit carries no check, `B2`. That is a factual promise about a code rule, its place in the layout is fixed by this node, and its words belong to stage 05.~~ **Superseded twice: section 1 took the exit promise out of block 1 with `D-26`, and `D-129` took the account state strip off the page.** No microcopy slot is reserved here; whether the screen says anything about a future check is the open item in section 12.
 
 ---
 
@@ -785,7 +797,7 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 
 **A. Meta.** `robots: noindex, follow`. Canonical: self. Title and description exist for the browser tab and for history, not for a result page, so they follow the pattern in `0.13` section 2 and carry no keyword work. **No OG or Twitter card:** nothing here is shareable, and an unfurl preview for a private money screen is a card that should never be generated. One language, so no `hreflang`, per the locked decision in `CLAUDE.md`.
 
-**B. Headings.** Exactly one H1, and it is the page's job in words. The H2 list is the block order from section 2, which is what makes the stage 04 check mechanical: account state, amount, spend ceiling, other limits, withdrawal threshold, payment method, what happens after you pay. The summary in block 8 is not an H2: it is a persistent element rather than a section of the document.
+**B. Headings.** Exactly one H1, and it is the page's job in words: **`Add funds`** on every address of the node. ~~The H2 list is the block order from section 2, which is what makes the stage 04 check mechanical: account state, amount, spend ceiling, other limits, withdrawal threshold, payment method, what happens after you pay.~~ **Superseded by `D-97`, `D-103` and `D-129`, and written here from the render.** The grid's two groups are the H2s, `Cards, wallets and more` and `Crypto`, `D-97` keeping them as headings for the outline. A card route's pane adds `Select provider. Your card details go to the provider, not to us`, and the skins pane `From your Steam inventory`; the crypto and gift card panes add none. Each state adds its own: `4.2` `Your deposit limit for this period is reached` and `What is still open`; `4.3` `The higher limit is not in force yet`; `4.4` `Crediting` and `The deposit, while it is pending`; `4.5` `The payment did not go through`. **In the dialog the host page keeps its own H1**, the case's name on `deposit-dialog.html`, and the layer's headings sit under it. The summary in block 8 is not an H2: it is a persistent element rather than a section of the document.
 
 **C. SEO text.** None, and the reason is `noindex`. **What the node holds instead is the requirement of which information must be present**, which is sections 3 to 5 and the state tables in section 7. Interface strings do not live here: after stage 05 they live in `voice/docs/microcopy.md`, and this node keeps the requirement rather than the words.
 

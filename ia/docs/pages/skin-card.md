@@ -16,6 +16,14 @@
 
 ---
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** Field 12 on the case screen's top item is Steam in coins since `D-132`; at phase 3 the chance stays and the value sits on the sell control; rule 5.5 is partly superseded by `D-38` and `D-143`.
+
+---
+
 ## Amended 29 September 2026 by `D-138`. The baseline row this node never had
 
 **Why.** Round 14's source audit found no baseline row on this node, which `CLAUDE.md` asks of every node.
@@ -61,7 +69,7 @@ Fifteen fields. Fourteen ship and one is carried with its orphan status printed,
 | 9 | **Ticket range** | Drop table entry | Rows `E4` and `F3`, both standing on Related Job 3. The proof has to resolve against something, and `0.14` lists the ticket range as a proof field | job |
 | ~~10~~ | ~~**Live free-unit count**~~ | Drop table entry | Row `A2`, which stood on `B8-1`, the stock question. **Withdrawn 21 August 2026, `D-60`**, and the row is kept rather than renumbered so that the field list of this card can still be read against every document that cites a field by its number | ~~barrier~~ |
 | 11 | **Observed rate** | Read from `0.11` | Row `D3`, which stands on `B7-2` and `B6-2`. **Conditional on `D-B`** | barrier |
-| 12 | **Market price, its as-of and its outbound link** | Skin | Row `A1`, which stands on `B1-2` and `B2-1`. `A1` puts it **on the top item**, and that wording is carried rather than generalised. **Amended 23 August 2026 by `D-92`, and the field now holds two different numbers at two densities**, section 3.3: **on `3.3` phase 1 it is the Steam price in EUR with a Steam link**, and **on `5.1` and `5.3` it is our own price for a copy, in coins, with no link**. Both are right where they sit and one field name covers both | barrier |
+| 12 | **Market price, its as-of and its outbound link** | Skin | Row `A1`, which stands on `B1-2` and `B2-1`. `A1` puts it **on the top item**, and that wording is carried rather than generalised. **Amended 23 August 2026 by `D-92`, and the field now holds two different numbers at two densities**, section 3.3: **on `3.3` phase 1 it is the Steam price ~~in EUR~~ in coins since `D-132` with a Steam link**, and **on `5.1` and `5.3` it is our own price for a copy, in coins, with no link**. Both are right where they sit and one field name covers both | barrier |
 | 13 | **Instance value receipt** | Skin instance | Rows `F1` and `F2`, both on `B7-1`. What this unit was worth at the moment it was won, with that moment attached | barrier |
 | 14 | **Instance state**, held, withdrawing, withdrawn | Skin instance | Row `G1`, named states, which stands on `B8-2` | barrier |
 | 15 | **Float and pattern** | Skin instance | ~~**None. `[ORPHAN]`**~~ **Closed 23 August 2026 by `D-91`.** Related Job 5, `jtbd.md`, by way of `5.3` block `1b`: **the platform buys a real copy on the market and several copies of one skin sit at one price, so the float is the only thing between them.** Also barrier `B7-1` through `F1`, whose whole argument is that a name is not an instance | ~~none~~ **job, with a barrier behind it** |
@@ -126,7 +134,7 @@ Fifteen fields. Fourteen ship and one is carried with its orphan status printed,
 | Wear grade | x | x | x | x | x |
 | StatTrak flag | x | x | x | x | x |
 | Rarity treatment | x | x | x | x | x |
-| Published drop chance | | p1 | | | x, the entry that was hit |
+| Published drop chance | | p1, ~~and not p3~~ **and p3 since `D-34`**, printed above the won item | | | x, the entry that was hit |
 | Current value | | p1 | | | |
 | Ticket range | | p1 | | | x |
 | ~~Live free-unit count~~ | | | | | **Withdrawn, `D-60`** |
@@ -140,7 +148,7 @@ Fifteen fields. Fourteen ship and one is carried with its orphan status printed,
 
 **V2, the drop table row at `3.3` phase 1.** The fullest density and the only one that carries the decision numbers. **Must not** hide the chance behind a control. skin.club puts its odds behind a `[ CHECK ODDS RANGE ]` door, `blocks.md` section 4, and this is the one place in the product where the number a person came for is the number that must be on the surface.
 
-**V2 again, the won item at `3.3` phase 3.** The same card at the moment `F1` mints the receipt. The chance, the value and the market price leave, because the decision is over; the receipt arrives and never leaves the item again. **Must not** carry a sell control, a repeat control or an upgrade control, see rule 5.
+**V2 again, the won item at `3.3` phase 3.** The same card at the moment `F1` mints the receipt. ~~The chance, the value and the market price leave, because the decision is over;~~ **Caught up with the render: the chance stays, printed above the item, `D-34`, read off the same drop table so it is checkable; the value is printed on the sell control, `Sell 6.90` on a batch card, `D-38` and `D-39`; and the market price leaves as a figure and stays as a link, `See it on the Steam Market`.** The receipt arrives and never leaves the item again. **Must not** carry ~~a sell control,~~ a repeat control or an upgrade control, see rule 5. **The sell control arrived by `D-38`, a founder decision with no parent, and it asks before it acts, `D-143`.**
 
 **V3, the inventory item at `5.1`.** The receipt with its moment, and the instance state. This is where `F2` proves itself: the same receipt is retrievable a week later. **Must not** replace the receipt with anything else, and must not restate the value without saying which moment it belongs to.
 
@@ -172,7 +180,7 @@ Fifteen fields. Fourteen ship and one is carried with its orphan status printed,
 
 | Where | What the number is | What the route is |
 |---|---|---|
-| `3.3` phase 1, the drop table's top item | **Steam, in EUR**, with its own as-of, marked not comparable to the coin value until the peg is published | **A live outbound link to Steam's market** |
+| `3.3` phase 1, the drop table's top item | ~~**Steam, in EUR**, with its own as-of, marked not comparable to the coin value until the peg is published~~ **Steam, in coins since `D-132`**, `Steam 50.43 coins, 18 Aug 14:02`, a sample, with its own as-of | **A live outbound link to Steam's market** |
 | `5.1` the market foot, `5.3` the market column | **Ours, in coins**, the price we charge for a real copy, since `D-92` | **None**, and none is possible: a link to our own listing confirms nothing |
 
 **Before `D-92` those were one number read at two moments.** After it they are two numbers with two owners, **and the field set calls them one field.** `0.11` section 2c.2 records the same split from the register's side and calls it the failure that register exists to prevent, arriving on the one backlog row with a pattern of 14 behind it.
@@ -224,7 +232,7 @@ Same rule as `0.14` rule 2, for the same reason. The chance is published configu
 
 `blocks.md` section 12 calls Hellcase's keyboard row the single most telling block in the whole bank: **GET on ENTER, QUICK STOP on SPACE, SELL on S, REPEAT on R.** One key liquidates what you won and one key spends again.
 
-None of the three is a capability in round 1. There is no sell row, no repeat row and no upgrade row in the MVP backlog, and upgrades are `LATER` on Related Job 4. **If one arrives it arrives with a parent and with a confirmation, not with a keystroke.** This rule is on the card rather than on `3.6` because the card is where such a control would naturally be added by someone who had not read this.
+~~None of the three is a capability in round 1. There is no sell row, no repeat row and no upgrade row in the MVP backlog, and upgrades are `LATER` on Related Job 4.~~ **Superseded in part by `D-38`: selling back for coins is in round 1 with no backlog row and no parent, and it sits on the phase 3 card of a batch with a confirmation, `D-143`.** There is still no repeat row and no upgrade row, and upgrades are `LATER` on Related Job 4. **If one arrives it arrives with a parent and with a confirmation, not with a keystroke.** This rule is on the card rather than on `3.6` because the card is where such a control would naturally be added by someone who had not read this.
 
 ---
 

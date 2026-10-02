@@ -16,6 +16,14 @@
 
 ---
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** Responsible play has two carriers, the footer and the account menu; the bar is two items and the rail one in both states, `D-40`; the guest header holds Sign in only.
+
+---
+
 ## Amended 3 October 2026 by `D-144`. The header's figures reach 44, side by side
 
 **Why.** Round 15 of the critique measured the two header figures at 20 and 17 px high at 360 and 22 and 18 at the tap, against this node's 44, and the founder answered on 30 September 2026 that the header's targets reach it.
@@ -173,7 +181,7 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 | **Ambient**, at the foot | Sound | yes | yes | no destination, `[?]` below |
 | | Language | yes | yes | no destination. **A switcher since `D-41`, with nine options since `D-42`**, the baseline's own set. English is live, **the other eight switch the control and leave the interface in English** and the panel says so. **`D-02` is untouched: no second language ships and the page keeps `lang="en"`** |
 | | Social links | yes | yes | outbound |
-| **Boundary** | Responsible play | **no** since `D-29` | **no** | 6.1, from the footer, the money control and the account menu |
+| **Boundary** | Responsible play | **no** since `D-29` | **no** | 6.1, from the footer and the account menu. ~~the money control~~ **The money control entry was never rendered and `D-136` struck it**; under a boundary the + opens the limits |
 
 **One destination in both states, and the count has to be printed rather than let stand.** This table read "three items for a guest, four with an account" until 20 August 2026, and it was **two decisions out of date**: `D-29` moved Provably fair and Responsible play to the footer on 19 August, `D-40` moved My items into the account menu on 20 August, and the table was amended for the second only. **Found by the two-instrument audit rather than by either decision**, which is the point of running it.
 
@@ -274,7 +282,7 @@ Two disjoint sets would be two competing menus, which is the ambiguity Material'
 
 ### Guest
 
-Left to right: rail toggle, logo, then the right group: **Sign in**, routing to 2.4, and the sound control.
+Left to right: rail toggle, ~~logo,~~ then the right group: **Sign in**, routing to 2.4, ~~and the sound control~~. **The logo is the rail's, as the navigation model in `CLAUDE.md` gives it, and the sound control moved to the rail's foot with `D-29`**, so the guest header holds Sign in and nothing else.
 
 **The slot the baseline fills with the race pot stays empty.** `baseline.md` records that pre-login there is no balance widget at all and that a promotion occupies its place. That promotion is `8.9` and has no parent. Nothing is invented to fill the gap.
 
@@ -322,7 +330,7 @@ This is the state the founder specified. Left to right: rail toggle, logo, then 
 
 **One sentence in the row above was also wrong and is corrected rather than left.** The Withdrawals row read "this is the record, and the map has no separate history node". **The map has one now**, and the two are different records: withdrawals are what left, rolls are what happened.
 
-**Responsible play is now in three carriers and that is deliberate rather than sloppy.** The footer column since `D-29`, ~~the entry inside the money control,~~ and this menu, **the money control entry struck in round 14 by `D-136`: it was never rendered**. Each answers a different moment: the footer is where a person reading the site finds it, the money control is where a person about to spend meets it, and the menu is where a person managing their account looks for it. **A brake that has to be searched for at the worst moment is not a brake**, which is the base layer's own sentence.
+~~**Responsible play is now in three carriers and that is deliberate rather than sloppy.**~~ **Responsible play is in two carriers since `D-136`, and that is deliberate rather than sloppy.** The footer column since `D-29`, ~~the entry inside the money control,~~ and this menu, **the money control entry struck in round 14 by `D-136`: it was never rendered**. Each answers a different moment: the footer is where a person reading the site finds it, ~~the money control is where a person about to spend meets it,~~ and the menu is where a person managing their account looks for it. **The moment before spending is met by refusal rather than by an entry:** under a boundary the + opens the limits instead of the deposit layer, `D-134`. **A brake that has to be searched for at the worst moment is not a brake**, which is the base layer's own sentence.
 
 **And since `D-40` the menu is the only place My items lives.** It was in the rail as well, and the rule this node opens with is that **no carrier holds another's kind**: My items is an account thing and the header owns the account. **The rail did not lose a destination, it stopped holding one twice.** What that costs is one extra tap from a case screen to the inventory on desktop, and it is the reason the rail is now identical in both states.
 
@@ -374,7 +382,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 | **Rail toggle** | On the junction of the two seams. Collapses to icons | Header, leading edge. Opens the modal drawer | Same | Same |
 | **Money** | Nothing. There is no balance before an account | Nothing | Balance and value of items held, two lines, with the deposit control | Both figures, condensed to one line each, deposit control kept |
 | **Account** | Sign in, routes to 2.4 | Sign in, routes to 2.4 | **Avatar only, `D-49`**, opens the menu, whose first row routes to 5.1 | **Avatar only. Identical to desktop since `D-49`** |
-| **Boundary** | Rail entry only. Nothing to limit yet | Rail entry only | Rail entry plus the entry inside the money control | Same |
+| **Boundary** | ~~Rail entry only. Nothing to limit yet~~ **The footer's Play responsibly section only**: off the rail since `D-29`, and nothing to limit yet | ~~Rail entry only~~ **The same, in the footer** | ~~Rail entry plus the entry inside the money control~~ **The footer section plus the account menu's Responsible play row**; the money control entry was never rendered, `D-136`, and under a boundary the + opens the limits | Same |
 | **Ambient**, at the foot of the rail since `D-29`, never in the header | Sound control, language, social links. Ticker 0.8 on 1.0 only since `D-31` | **No sound control at this width**, answered by stage 04 on 18 August 2026: the one row rule in section 9 does not fit menu plus two figures plus deposit plus avatar plus sound at 360px, and the baseline makes the same cut at 390px. The ticker is unchanged | Same as guest desktop | **Same cut.** The control that matters during a reveal belongs to `3.5`, on the screen where the sound plays |
 
 **No role dimension.** One user role in round 1. No operator, moderator or seller view is in scope, so the matrix has two account states and nothing else. Stated so that a later stage does not read the absence as an oversight.
@@ -447,7 +455,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 
 ## 9. Adaptive behaviour
 
-**Mobile is the base, 360px.** One header row: menu icon, then the money and account zone, **and no sound control since `D-29` moved it to the foot of the rail**. A bottom bar with **two destinations before an account and three after**, `D-29`. The rail is a modal drawer, closed by default, its first row is the logo, and its foot carries the sound control, the language and the social links.
+**Mobile is the base, 360px.** One header row: menu icon, then the money and account zone, **and no sound control since `D-29` moved it to the foot of the rail**. A bottom bar with ~~**two destinations before an account and three after**, `D-29`~~ **two destinations, Home and Cases, in both states since `D-40`**. The rail is a modal drawer, closed by default, its first row is the logo, and its foot carries the sound control, the language and the social links.
 
 **The menu has to be reachable, and it was not, `D-49`.** It hung four pixels below the control, and those four pixels are outside the control's own box, so **moving the pointer down towards the menu left the control and closed it before it could be entered.** A hover menu a person cannot move into is a menu that only works by click. The panel keeps its gap and carries an invisible bridge across it. **The gap is a visual decision and the hover target is a functional one, and they were the same box.**
 
@@ -461,9 +469,9 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 
 **Between the two,** the drawer becomes standard rather than modal and the bar disappears. **No destination is added or removed at any breakpoint, only the carrier that presents it changes.** A person who resizes a window loses a bar and keeps every route, because everything the bar held is in the rail by the superset rule.
 
-**Expanded by default on desktop is a decision, not a default.** Material allows either. With three or four items there is no space pressure, labels are the cheapest thing a navigation can carry, and the collapsed variant exists for a person who wants the width back.
+**Expanded by default on desktop is a decision, not a default.** Material allows either. With ~~three or four items~~ **one destination since `D-40`** there is no space pressure, labels are the cheapest thing a navigation can carry, and the collapsed variant exists for a person who wants the width back.
 
-**Growth is bounded, the bound is written now, and the two carriers hit it at different places.** Material's collapsed rail tops out at seven and its bar at five. Round 1 uses three or four in both, so five of the eight LATER destinations fit in the rail before the component is the constraint, and **the bar runs out two destinations earlier**. At eight the rail needs section labels and a scroll, which is what the baseline does at nine.
+**Growth is bounded, the bound is written now, and the two carriers hit it at different places.** Material's collapsed rail tops out at seven and its bar at five. Round 1 uses ~~three or four in both~~ **one in the rail and two in the bar since `D-40`**, so ~~five~~ **six** of the eight LATER destinations fit in the rail before the component is the constraint, and **the bar runs out two destinations earlier**. At eight the rail needs section labels and a scroll, which is what the baseline does at nine.
 
 **So the bar is the first carrier to stop growing, and it is supposed to.** It is a shortcut set, not the list. Whichever round ships the fifth destination decides which of them earns the bar's slots, and it decides that against the primary persona rather than by adding a slot. **That is a real ceiling and it arrives inside this product's own roadmap**, so it is handed forward rather than discovered there.
 

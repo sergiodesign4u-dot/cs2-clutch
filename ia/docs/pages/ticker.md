@@ -2,7 +2,7 @@
 
 **Type:** component. **Group:** `global`. **Scope:** MVP. **Cluster:** 0, global shell.
 
-**Purpose.** A continuous strip of real wins, on two surfaces only, where every tile is a link to a checkable object. It is the product's evidence that drops actually happen, and it is the one component whose whole value dies the moment anything in it is invented.
+**Purpose.** A continuous strip of real wins, ~~on two surfaces only~~ **on every page that does not refuse it on its own parent, `D-59` and `D-77`, section 3.3**, where every tile is a link to a checkable object. It is the product's evidence that drops actually happen, and it is the one component whose whole value dies the moment anything in it is invented.
 
 **Jobs served.** Social Job 2, `jtbd.md` Section 3, be part of a platform that feels alive. Also Related Job 1 before login, arrive with enough confidence to try. **Parent class:** job, by row `A3`, which `cjm-to-be.md` marks **job only, no barrier** in its own priority cell and whose success signal is `[?]` because no isolated measurement of it exists.
 
@@ -19,6 +19,14 @@
 | What the live product does | What we keep | What we change, and why |
 |---|---|---|
 | A strip under the header, full bleed, **no label**, about 14 tiles at 1440, moving on its own | The strip, its place under the header on every page, a tile per real win | **A label, "Live drops", and a Pause control with a text name**, section 2: content that moves on its own needs a way to stop it, and the pause is also the reduced motion answer. **The tile count follows the width**: the strip starts at the rail's edge, so at 1440 it holds about six, and it scrolls rather than shrinking tiles to fit fourteen |
+
+---
+
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** The strip is on every page that does not refuse it on its own parent; the opt-out register is recounted, 0.3 has seven pages and the total is thirteen.
 
 ---
 
@@ -215,10 +223,10 @@ This section used to read: **the baseline puts it on every page walked**, 120px 
 |---|---|---|
 | **`4.2` Ceiling reached** | Its forbidden list, written before this question arose: "no offer of any kind: no alternative funding route, no reminder when the period resets, no invitation to raise the ceiling". Twenty four other people's wins beside a deposit control that will not fire this period is an offer with a scroll on it. `D-74` | 1 |
 | **`6.1` Responsible play**, all states | Its own refusal, which survived losing its citation: this is the page where a run of other people's wins would do harm rather than merely be noise. `D-75` | 5 |
-| **`0.3` System pages**, all states | Its own sentence in section 2 of that node: a live feed of other people's wins beside our own failure is the tone this product does not have. `D-79` | 8 |
+| **`0.3` System pages**, all states | Its own sentence in section 2 of that node: a live feed of other people's wins beside our own failure is the tone this product does not have. `D-79` | ~~8~~ **7**, the seven pages the registry holds for `0.3` |
 | **`0.10` Support and appeals** | **None, and that is why the strip is on it.** I removed it there with no parent and put it back the same day, `D-77`. The argument for removing it went to the founder as an open item rather than into the file | 0 |
 
-**Fourteen pages of the built product refuse it and the rest carry it.** The exception is not a hole in `D-59`: the founder's decision was that the strip is furniture, and a page whose whole job is a boundary holding, a failure, or a refusal is the one place furniture reads as indifference. **What `D-79` fixes is that the count was invisible.** A component whose specification says "every page" while its renderer carries an opt-out flag is a component nobody can audit.
+~~**Fourteen pages of the built product refuse it and the rest carry it.**~~ **Thirteen pages of the built product refuse it and the rest carry it**, recounted in round 15 against the pages that declare the opt-out: one, five and seven. The exception is not a hole in `D-59`: the founder's decision was that the strip is furniture, and a page whose whole job is a boundary holding, a failure, or a refusal is the one place furniture reads as indifference. **What `D-79` fixes is that the count was invisible.** A component whose specification says "every page" while its renderer carries an opt-out flag is a component nobody can audit.
 
 **On `3.3` the strip pauses itself for phases 2 and 3.** The reveal is the moment the whole product is built around, `E3`, and a second moving strip beside it competes for the same attention and can be read as a second outcome. Design principle 2: motion without an emotional or informational job gets cut, and during a reveal the strip has neither. It resumes when the person leaves the outcome. **Node `3.3` confirms the placement at step 6; this node states the behaviour.**
 
@@ -308,4 +316,4 @@ The baseline runs 26 tiles of 92px at 1440px, `baseline.md` section 3. At 360px 
 
 **Neither answer touches rule 5.4 or rule 5.5.** The tile still offers exactly one destination and no second action, and rarity is still a tint plus a word in the accessible name. **An image is not a route and it is not a rarity label.**
 
-**And what belongs elsewhere.** The words in the empty and degraded states: stage 05. Where the strip sits on each of the two surfaces and how tall it is: nodes `1.0` and `3.3` at steps 5 and 6. The object every tile lands on: node `7.1`. The proof that object carries: node `0.14`. The item as it appears there: node `0.6`.
+**And what belongs elsewhere.** The words in the empty and degraded states: stage 05. Where the strip sits ~~on each of the two surfaces~~ **on a page, at the top or after the content, `feedTop`,** and how tall it is: ~~nodes `1.0` and `3.3` at steps 5 and 6~~ **each page's own node, since `D-59` made the strip global**. The object every tile lands on: node `7.1`. The proof that object carries: node `0.14`. The item as it appears there: node `0.6`.

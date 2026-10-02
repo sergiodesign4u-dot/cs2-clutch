@@ -27,6 +27,14 @@
 
 ---
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** Block 2's reason and the SEO description say before withdrawal, as `D-26` moved the check; the rest of this LATER node still assumes before funding and is carried to the founder and counsel rather than rewritten.
+
+---
+
 ## Amended 29 September 2026 by `D-138`. The baseline row this node never had
 
 **Why.** Round 14's source audit found no baseline row on this node.
@@ -110,7 +118,7 @@ Composition from `blocks.md` section 5, T4. **That type has no competitor screen
 | # | Block | Traces to |
 |---|---|---|
 | 1 | **Step indicator.** How many steps, which one you are on | Refero Wealthsimple, `blocks.md` T4, taken explicitly so `2.7` can be drawn as a superset. The superset has a variable step count and a person is owed the number |
-| 2 | **What is being asked and why, in one line**, with the reason being funding rather than us | `B8-4`. The barrier is a check whose reason arrived after the money. Naming the reason before the ask is the whole correction |
+| 2 | **What is being asked and why, in one line**, with the reason being ~~funding~~ **the withdrawal it comes before, since `D-26`,** rather than us | `B8-4`. The barrier is a check whose reason arrived after the money. Naming the reason before the ask is the whole correction |
 | 3 | **The account state strip:** what is resolved, what is not, what each one unlocks | Row `B1`, which requires the account state on the deposit screen. Here it is the same object before it is true |
 | 4 | **The method block**, branch dependent, section 1 | `D-A`. Contents `[?]` |
 | 5 | **The code card**, six digit code with submit, cancel, **resend** and **log out**, plus a support line | Refero New Balance, `blocks.md` T4, named there as "the craft floor for `2.7`". Whether a code exists at all is `[?]` and branch dependent; its four controls are not |
@@ -255,7 +263,7 @@ Whether a second attempt at the check is allowed at all depends on the method an
 | Field | Value |
 |---|---|
 | `title` | Verify your identity. CS2 Clutch (31 characters, under 60) |
-| `description` | Identity is checked once, before you add money. It is never checked on the way out. (81 characters, under 155) |
+| `description` | ~~Identity is checked once, before you add money. It is never checked on the way out. (81 characters, under 155)~~ **Superseded by `D-26`, which moved the check from before funding to before withdrawal:** Identity is checked once, before your first withdrawal. It is never a step on the way out. (90 characters, under 155) |
 | `canonical` | Self, `/verify-identity` |
 | `robots` | `noindex`. `0.13` section 3 |
 | `hreflang` | **None.** One language, `0.13` section 1 |

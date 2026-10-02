@@ -21,6 +21,14 @@
 **Renders:** node `0.14`, canonical round proof, variant V4. This node does not restate `0.14` and may not contradict it.
 
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** Block 6 is struck by `D-130`; the six rendered H2s are listed; the desktop contents column is marked as never drawn and carried to the founder.
+
+---
+
 ## Amended 2 October 2026 by `D-143`. The verifier answers against what was typed, and the example is a round
 
 **Why.** Round 15 of the critique found an empty form landing on errors about values nobody typed, the unavailable and proof failed states answering agree, and the worked example's Check this round opening the AK.
@@ -111,18 +119,18 @@ Composition is taken from `blocks.md` section 8, type T7, document and explainer
 
 | # | Block | First screen at 360px | What it holds | Parent |
 |---|---|---|---|---|
-| **1** | **What this proves, and what it does not** | **Yes** | H1, one line saying the page is public and needs no account, the two part scope statement from section 2, and two jump links, "Check a round" and "Read the algorithm" | Design principle 1 as limited by `D-14`; row `H1` |
+| **1** | **What this proves, and what it does not** | **Yes** | H1, one line saying the page is public and needs no account, the two part scope statement from section 2, and two jump links, "Check a round" and "Read the algorithm". **It sits under the H1 with no H2 of its own**, its halves labelled "What this proves" and "What this does not prove", and since `D-130` the second half carries block 6's three routes as "Where that is answered" | Design principle 1 as limited by `D-14`; row `H1` |
 | **2** | **How a round is fixed before you click** | No | Four steps in plain words: the commitment, the seeds and the nonce, the settled roll, the reveal of the server seed on rotation. Plus the two reasons a round may have no proof to check yet, section 5.3 | Related Job 3; rows `E4` and `E1`; the Round proof entity in `sitemap.md` |
 | **3** | **What a round proof is made of** | No | The field set from `0.14` section 1, as a definition list on mobile and a table on desktop. Read only, no inputs here | `0.14`, whose parents are Related Job 3 and Core Job 1 |
 | **4** | **Check a round** | No | Variant V4 of `0.14`. The inputs, one control, the result in place. **The page's one call to action** | Row `H1`, "public provably fair page, no login, working verifier" |
 | **5** | **If your check does not match ours** | No | What we do, what you get, and the published response deadline. The explanation state `1.4` links into | Row `G4`, "an appeal with a published response deadline"; node `1.4` |
-| **6** | **The question this page does not answer** | No | The long form of the limit again, this time as routes: the observed rate counter on the case screen, the published chance and value per item, the published tested RTP and expected value | `D-14`; rows `D3`, `D2` and `D4` |
+| ~~**6**~~ | ~~**The question this page does not answer**~~ | ~~No~~ | ~~The long form of the limit again, this time as routes: the observed rate counter on the case screen, the published chance and value per item, the published tested RTP and expected value~~ **Removed by `D-130`: it repeated block 1.** Its three routes live in block 1 | `D-14`; rows `D3`, `D2` and `D4` |
 | **7** | **The algorithm, published in full** | No | Three parts on the `0.9` template's shape: the computation, a worked example on a real round, the version history. Section 4 | `0.14` rule 4.1 and `0.14` section 6 |
 | **8** | **Questions** | No | Accordion for the tail only, holding questions this page's own substance raises and nothing else | `B2-1`, the pre-login information wall |
 
 **Blocks 2 and 8 are the two the bank supplied and the jobs did not.** Block 8 is the Refero Ableton row in `blocks.md` section 8, "FAQ accordion below the substance rather than instead of it", plus the Hellcase sectioned FAQ structure row on the same table. It is a tail, not a substitute: a question that could have been answered by block 2 is a defect in block 2.
 
-**One block was borrowed across nodes and it is named rather than smuggled.** The Refero WhatsApp two column help article in `blocks.md` section 8 is assigned there to node `0.10`. Its left hand contents column is reused here at desktop width only, section 8, because this page is long and its parts are entered from different places. Same source, different node, said out loud.
+**One block was borrowed across nodes and it is named rather than smuggled.** The Refero WhatsApp two column help article in `blocks.md` section 8 is assigned there to node `0.10`. Its left hand contents column is reused here at desktop width only, section 8, because this page is long and its parts are entered from different places. Same source, different node, said out loud. **Not drawn at stage 04:** the grey page is one column at every width and carries no contents column, section 8.
 
 **One block was refused although the bank offers it.** The skin.club About block with an H3 "Provably Fair" inside a marketing section is marked DIFFERENT in the bank against design principle 1. Nothing on this page restates the product's virtues, section 6.
 
@@ -314,7 +322,7 @@ Both render the same state with a different reason printed, and both point back 
 
 **Desktop.**
 
-- A measured content column, plus a contents column on the left carrying the eight H2s, from the Refero WhatsApp row in `blocks.md` section 8, reused across nodes as section 3 records.
+- A measured content column, ~~plus a contents column on the left carrying the eight H2s~~, from the Refero WhatsApp row in `blocks.md` section 8, reused across nodes as section 3 records. **The rendered page has six H2s and no contents column**, section 10 B; whether stage 07 adds the column is section 11's.
 - The verifier stays the full width of the content column. **It never becomes a sidebar widget**, which is the shape the Key-Drop mock verifier takes and the shape that reads as decoration.
 - The mismatch comparison goes side by side.
 
@@ -349,16 +357,16 @@ Everything structural is inherited from node `0.13`. What is below is this node'
 
 **H2 list, in block order, which is the mechanical check at stage 04:**
 
-1. What this proves, and what it does not
-2. How a round is fixed before you click
-3. What a round proof is made of
-4. Check a round
-5. If your check does not match ours
-6. The question this page does not answer
-7. The algorithm, published in full
-8. Questions
+1. How a round is fixed before you click
+2. What a round proof is made of
+3. Check a round
+4. If your check does not match ours
+5. The algorithm, published in full
+6. Questions
 
-H3s exist only under H2 7: the computation, a worked example, version history.
+**Two H2s left the list, struck rather than deleted:** ~~What this proves, and what it does not~~, because block 1 sits under the H1 with no H2 of its own, section 3; and ~~The question this page does not answer~~, removed with its block by `D-130`.
+
+**Six H2s, as rendered.** H3s exist only under "The algorithm, published in full": the computation, a worked example, version history.
 
 ### C. SEO text, finished
 
@@ -380,13 +388,13 @@ H3s exist only under H2 7: the computation, a worked example, version history.
 
 ### E. Optimisation checklist
 
-1. Exactly one H1, and the eight H2s in block order.
+1. Exactly one H1, and the six H2s in block order.
 2. The breadcrumb Home > Provably fair is drawn, and `BreadcrumbList` markup only because it is visible, `0.13` section 6.
 3. Every route out is a crawlable `<a href>`: the case screen, `0.10`, `7.1`, `1.0`. `0.13` section 8.
 4. Canonical present. No hreflang anywhere.
 5. **Every field value is text, never an image**, `0.11` rule 8 and `0.14` section 5. A hash in a picture cannot be pasted into anyone's verifier, and it is invisible to a screen reader in the same stroke.
 6. **LCP is the first screen text block**, so block 1 carries no image that could take that slot from it. Design principle 5, speed is trust.
-7. **Blocks 1, 2, 3, 5, 6, 7 and 8 render without script.** Only the recompute control needs it, and it says so rather than rendering dead.
+7. **Blocks 1, 2, 3, 5, 7 and 8 render without script.** Only the recompute control needs it, and it says so rather than rendering dead.
 8. The description has a source on the page, which is block 1, rather than being invented at production time.
 
 ---
@@ -416,9 +424,10 @@ H3s exist only under H2 7: the computation, a worked example, version history.
 | **Who sets the client seed** | `0.14`'s first open item, recommendation user settable, no backlog row. **This node adds a consequence:** it also decides whether a person can force a rotation and make their own round checkable today, section 5.3 | Founder, one backlog row |
 | **The drop table in force at a round is not a field** | An independent recomputation needs the whole table as it stood at that round, not only the winning entry's ticket range, and `0.14`'s field set carries the latter. **The same gap covers the algorithm version**, which section 4.4 shows a round proof has to point at | **Finding for `0.14`**, plus production |
 | **The response deadline for a proof failure** | The value is `[?]`, and so is the queue: row `G4` publishes a deadline for an appeal against a withdrawal restriction, and a mismatch report is not that. `0.10` holds the service level | Founder, with `0.10` |
-| **Whether pre-migration rounds carry proofs, `D-B`** | Decides how common the unavailable state is on day one, and whether row `D3` exists to be linked to at all in block 6 | Founder, question of fact to the live platform |
+| **Whether pre-migration rounds carry proofs, `D-B`** | Decides how common the unavailable state is on day one, and whether row `D3` exists to be linked to at all in block 1's routes | Founder, question of fact to the live platform |
 | **`0.11` names `1.2` as a consumer and no row in it lists `1.2`** | Two figures this page needs have no row in the register: the published response deadline as it applies here, and the date from which published proofs exist, which the unavailable state reads | **Finding for `0.11`** |
 | **`0.13` holds no row for `/provably-fair?round=<id>`** | This node uses `0.13`'s own rule for a parameterised view of an indexed page rather than inventing one, section 5.1. The row belongs there | **Finding for `0.13`** |
+| **The desktop contents column** | Section 3 borrows it and section 8 places it; the grey page never drew it and nothing decided to drop it | Founder, at stage 07 |
 | **Where the algorithm document lives** | Decided here as option C, section 4.1, which diverges from `0.14` section 6. Reversible at the cost of one document on the `0.9` template and one row in `0.13` | Founder, if they disagree |
 | **A named third-party auditor** | Row `A5`, and `research.md` section 4 cites a 2026 audit finding that no operator in the category names one. We do not have one either, `0.11`. **This page badges nobody** | Founder |
 | **A citation drift, found while writing this node** | `0.14` cites the "we have PF against you can verify before you deposit" sentence and the 2026 auditor audit to `research.md` section 5b. Both live in section 4, "3 Common Patterns". The facts are unchanged and the pointers are wrong | **Finding for `0.14`**, not edited here |

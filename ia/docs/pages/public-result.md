@@ -25,6 +25,14 @@
 
 ---
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** The title follows the round shown; the H1 is the hidden Weapon, Skin, won from Case; one H2; the revoke row quotes the limit sentence the owner's page prints.
+
+---
+
 ## Amended 29 September 2026 by `D-132`. The result proves the table it points at
 
 **Why.** Round 14 of the critique found this page proving a Classified AK-47 Redline worth 22.15 coins on ticket 7 318, while the case's drop table prices it at 47.30 coins, calls it Covert and gives ticket 7 318 to the M4A1-S. The proof page contradicted the table it proves. It also found no baseline row on this node.
@@ -131,7 +139,7 @@ Each refusal has a parent or an explicit no-parent verdict. This table is half t
 | **Revoke** | The URL stops resolving as a result and renders `7.2`. Copies of the link already sitting in a chat resolve to `7.2` as well, which is the point | One response for every reason, section 6 |
 | **The ticker tile** | Stops linking here. Whether the tile itself is removed is `[?]`, owner `0.8` | |
 | **Publish again** | **Restores the same URL.** A second id for one round would put two proof pages for one object into the world, which the one-canonical-rendering rule in `0.14` forbids | Derived from `0.14`, not invented here |
-| **What it cannot do** | Unsend a screenshot, or retract an unfurl preview already rendered in somebody's chat client. **The page says so rather than implying a power it does not have** | Own research |
+| **What it cannot do** | Unsend a screenshot, or retract an unfurl preview already rendered in somebody's chat client. **The page says so rather than implying a power it does not have**, in these words under the revoke control: "Revoking takes the page down, and every copy of its link then opens the gone page. It cannot unsend a screenshot or a preview already shown in someone's chat." ~~"Revoking takes it down for everyone"~~ was the drawn sentence until round 15, and it claimed the power this row denies | Own research |
 | **Appearance** | How the account appears is the person's, per `0.8`. Changing it changes it here | `0.8` |
 
 ---
@@ -240,26 +248,29 @@ The pack gives a full A to E block to indexed pages and `noindex, no schema` to 
 
 **A. Meta tags, finished copy.**
 
-- **Title, a pattern rather than a string, because every instance is a different object:** `<Skin name> (<wear>) from <Case name>`. The template is 37 characters before substitution. **Whether every real instance stays inside 60 is `[?]`**, because the values come from the catalogue and no skin or case name lengths are recorded anywhere in this repository. Truncation rule owed by production
+- **Title, a pattern rather than a string, because every instance is a different object:** ~~`<Skin name> (<wear>) from <Case name>`~~ `<Skin name>, <wear>, from <Case name>`, as rendered, for example `AK-47 Redline, Field-Tested, from Ironbound`. **It follows the round shown, round 15**: `?round=` changes it with the record. The template is 37 characters before substitution. **Whether every real instance stays inside 60 is `[?]`**, because the values come from the catalogue and no skin or case name lengths are recorded anywhere in this repository. Truncation rule owed by production
 - **Description:** nearly irrelevant, per `0.13`. It renders the OG description below rather than being written twice
 - **Canonical:** `https://<host>/r/<id>`, self. Host is `[?]`, `0.13` open items
 - **Robots:** `noindex, follow`
 - **hreflang:** none, anywhere. One language
 - **OG and Twitter, the hard requirement on this node:**
   - `og:type` `article`, `og:url` the canonical, `twitter:card` `summary_large_image`
-  - `og:title`: `<Skin name> (<wear>) from <Case name>`
+  - `og:title`: the title pattern above, ~~`<Skin name> (<wear>) from <Case name>`~~
   - `og:description`, 102 characters: `One open, with the case it came from and the proof of the round. Check it yourself. No account needed.`
   - `og:image`: the skin and the case. **No value, no multiplier, no verified mark**, section 5
 
 **B. Heading structure, in block order.**
 
-- **H1:** `<Skin name> (<wear>)`
-- **H2:** What it was worth
-- **H2:** The case it came from
-- **H2:** The proof of this round
-- **H2:** Check it yourself
-- **H2:** Won by *(rendered only where the account chooses to appear)*
-- **H2:** Your share link *(owner only)*
+- **H1:** ~~`<Skin name> (<wear>)`~~ `<Weapon> | <Skin>, won from <Case name>`, as rendered, for example `AK-47 | Redline, won from Ironbound`. It is visually hidden: the card in block 1 shows the weapon, the skin and the wear, StatTrak and rarity as separate fields, and the H1 names the result for a screen reader and the outline
+- **H2:** The round, and how to check it, which heads the proof panel, blocks 4 and 5
+- ~~**H2:** What it was worth~~
+- ~~**H2:** The case it came from~~
+- ~~**H2:** The proof of this round~~
+- ~~**H2:** Check it yourself~~
+- ~~**H2:** Won by *(rendered only where the account chooses to appear)*~~
+- ~~**H2:** Your share link *(owner only)*~~
+
+**One H2, as rendered.** The other blocks carry their labels as captions rather than headings: the two values each name what they are and when, the case row names the case and the moment of the open, the winner sits under "Won by", and the owner's controls sit under "Yours". The struck H2s are kept as the outline this block first specified.
 
 **C. The strings that travel.** Product language, English. Stage 05 aligns them to voice and syncs the final version back into this block.
 

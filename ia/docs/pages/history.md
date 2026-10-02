@@ -23,6 +23,14 @@
 | **A public profile with four history tabs**, Inventory history, Case battle history, Gunfights history and Upgrades history, each a grid of item cards carrying the mode icon, the image, the weapon, the skin, the wear and a value in coins. Founder capture, 21 August 2026, `baseline.md` section 9.9. | **The idea that history is a first-class surface**, and the split by mode, which arrives when a second mode does. | **Everything about what a row is.** The baseline's history is an **inventory** history: it lists items, and an item is the outcome of a roll with the roll removed. Ours lists **rolls**, and the item is one column of a row. `baseline.md` section 9.9 records the same thing from the other side: that page is a trophy shelf, and `public-result.md` was written to replace the shelf with something checkable. **A history of items is the shelf again, one screen deeper.** And it is private: the baseline's is public and this one is the account's own. |
 
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** Block 2, the scope line, is struck by `D-107` and `D-128`; the headings are one H2 per tab page; the item state gains Sending to Steam; outside the amendment blocks the node agrees with `D-142`'s ten rolls and three cash out rows.
+
+---
+
 ## Amended 30 September 2026 by `D-142`. Ten rolls, one timeline, and every ledger row follows its win
 
 **Why.** Round 15 of the critique found the AK withdrawn two days before it was won, one withdrawal reference naming three items across three pages, a Nova accepted that no roll holds, a declined deposit dated after now, the interrupted roll dated 19 Aug under a second round id, and three cash out rows naming items from a 212 roll history the account no longer has.
@@ -208,7 +216,7 @@ Section 0.4 refused this tab an empty-state control on a rule it stated out loud
 
 **There is an act now.** Selling an item back starts on `5.1`, so that is where the control goes. The rule did not bend; its input changed.
 
-**One state page, `history-cashout-empty.html`.** The filled page carries exactly one row, the P250 the Rolls tab marks and `7.3` shows as gone. **A second invented row would be a sale no other surface has ever heard of.**
+**One state page, `history-cashout-empty.html`.** ~~The filled page carries exactly one row, the P250 the Rolls tab marks and `7.3` shows as gone.~~ **Superseded by `D-118` and `D-142`: the filled page carries three rows, the Glock requested, the P250 blocked and the StatTrak AK sent, each one a roll of the ten**, section 0.11. **A second invented row would be a sale no other surface has ever heard of**, and the rule holds: none of the three is invented.
 
 ---
 
@@ -367,6 +375,8 @@ Three cells, in the founder's order.
 | `history-no-seed.html` | Three rolls, none of them with material kept |
 | `history-unfinished.html` | Three rolls, plus one passed inline: the interrupted open, every figure read off `3.7` |
 
+**Superseded by `D-135`, `D-141` and `D-142`:** every page in the table lists **the ten rolls**, the count is read off the rows, and what a page still declares is the proof each roll carries. The interrupted open is the tenth roll, the Ironbound Glock of 18 Aug 14:58, under its own round id rather than a second one.
+
 ### Two corrections this forced, both of them the array telling the pages they were wrong
 
 **One round id was on four different rounds.** `a91f4c2e` was the chip on every row of every page. **On a provably fair product the round id is the round**, and four rolls sharing one is the one identifier a person would paste to check, pointing at something that is not theirs. Each roll now carries its own. The mismatch page's `c02b7d19` was already the MP9's id on that page and it is now the MP9's id everywhere.
@@ -481,11 +491,11 @@ It is round 1 since `D-38`, **nothing leaves the product when it happens**, and 
 
 ### The four rows, and two thirds of them are not reconciled
 
-**One is.** The P250 is on the Rolls tab as sold back on 21 August and on `7.3` as gone. It was requested as crypto for `0.31 coins` and **blocked, because 0.31 will not cover any chain**, which is exactly why those coins are on the balance the header shows. **The smallest amount we can send is `[?]`** and the row says so rather than naming one.
+**One is.** The P250 is on the Rolls tab as sold back on 21 August and on `7.3` as gone. It was requested as crypto for `0.31 coins` and **blocked, because 0.31 will not cover any chain**, which is exactly why those coins are on the balance the header shows. **The smallest amount we can send is `[?]`** and the row says so rather than naming one. **Superseded on two facts:** the P250 is sold back on 20 Aug, the roll's own date since `D-135`, and the row names the smallest cash out on Litecoin, 2.00 coins, a sample by `D-134`; the real value is still `[?]`.
 
-**Three are not.** They name items this account opened in **the 207 rolls this history pages past**: the Rolls tab reads `212 rolls` and lists five, and the Items tab lists the same five. **So the items behind those three rows are legitimately outside every list on this page, and they are also unverifiable against anything.** `D-93` refused invented rows on the ground that "a second invented row would be a sale no other surface has ever heard of", and that ground held while the tab had one act to show. **A ledger with four statuses and one row cannot show three of its four statuses.**
+~~**Three are not.** They name items this account opened in **the 207 rolls this history pages past**: the Rolls tab reads `212 rolls` and lists five, and the Items tab lists the same five. **So the items behind those three rows are legitimately outside every list on this page, and they are also unverifiable against anything.** `D-93` refused invented rows on the ground that "a second invented row would be a sale no other surface has ever heard of", and that ground held while the tab had one act to show. **A ledger with four statuses and one row cannot show three of its four statuses.**~~
 
-**Carried as a debt against this node**, not resolved: if the corpus ever needs those three items on another surface, they were written here first.
+~~**Carried as a debt against this node**, not resolved: if the corpus ever needs those three items on another surface, they were written here first.~~ **Superseded by `D-142`, and the debt is closed.** The account is ten rolls and the tab carries three rows, every one of them a roll the Rolls tab and the Items tab list: **the Ironbound Glock requested on Ethereum, the P250 blocked on Litecoin under the smallest cash out there, 2.00 coins, `D-134`, and the Ironbound StatTrak AK sent.** The Sending status has no row, and the tab shows three of its four statuses.
 
 ---
 
@@ -501,7 +511,7 @@ A row is **a roll**, not an item. Seven fields, and every one of them exists bec
 | **What it returned** | The item, as `0.6`, with the `F1` receipt figure it was worth at that moment | Two dated figures, never one, and never a third made out of them. Same rule as `5.1` |
 | **The published chance** | The chance of that outcome, as published at the moment of the roll | `D3` and `D4` live on `3.3` and they are about the case. **This is the same claim about one event**, and it is what makes a row checkable rather than merely recorded |
 | **The round proof** | Component `0.14`, variant V1 in the row and V3 on demand | The whole reason this page exists |
-| **The state of the roll's item** | Held, sold back, or withdrawn | **Derived and stated, because the item is the part of a roll that moves.** A row whose item has gone is not an error and it is not a gap: it is a roll whose outcome left, and `7.2` already has that shape for a public result |
+| **The state of the roll's item** | Held, sold back, or withdrawn, **and since `D-108` a fourth, Sending to Steam, section 0.9.** The rolls tab prints it as a line under the skin, `Sold back, 20 Aug` or `Sending to Steam, 21 Aug`, and prints nothing for held | **Derived and stated, because the item is the part of a roll that moves.** A row whose item has gone is not an error and it is not a gap: it is a roll whose outcome left, and `7.2` already has that shape for a public result |
 
 **No row is ever removed.** Selling the item back or withdrawing it changes one field and deletes nothing. **A history that loses a roll when its item leaves is a history of the inventory again**, which is the exact thing the baseline row above rejects.
 
@@ -531,7 +541,7 @@ Composition from `blocks.md` section 3, **T2 listing with an empty state**, rows
 | # | Block | What it holds | Parent | First screen at 360 |
 |---|---|---|---|---|
 | **1** | **H1 and the count** | Every roll on this account, and how many. **A count and never a total** | `F3` | Yes |
-| **2** | **The scope line** | What a proof here shows and what it does not, from `0.14` section 0, in the short form the component carries everywhere | `0.14`, design principle 1 | Yes |
+| ~~**2**~~ | ~~**The scope line**~~ | ~~What a proof here shows and what it does not, from `0.14` section 0, in the short form the component carries everywhere~~ **Superseded by `D-128`:** `D-107` moved the line under the rows, and `D-128` took the notes under every ledger off the page except one line, which on the rolls tab is `Every figure is as it was on the day of the roll`. **The page draws no scope line**; what a proof shows and does not is said on `1.2`, one press away through each row's `Check it` | `0.14`, design principle 1 | ~~Yes~~ No |
 | **3** | **Filters** | By case, by date range, by whether the item is still held. **No filter by outcome value** | `F3`, and the refusal below | Partly |
 | **4** | **The rows** | Section 0, one per roll | `F3`, Related Job 3 | Yes |
 | **5** | **The empty state** | No rolls yet, with the route to a case | `blocks.md` T2, which makes the empty state the default composition rather than a fallback | Yes when it fires |
@@ -610,7 +620,7 @@ Composition from `blocks.md` section 3, **T2 listing with an empty state**, rows
 
 **A. Meta.** `robots: noindex, follow`. Canonical self. Title and description exist for the tab and for history, not for a result page. **No OG or Twitter card:** this page is one account's record and an unfurl preview of it is a card that should never be generated. One language, no `hreflang`.
 
-**B. Headings.** One H1, the page's job in words. H2s in block order: the scope line, the filters, the rolls, and the pager is not a heading.
+**B. Headings.** One H1, ~~the page's job in words~~ **`History`, on every tab, `D-88`**. ~~H2s in block order: the scope line, the filters, the rolls, and the pager is not a heading.~~ **Superseded by `D-88`, `D-89` and `D-128`, as section 0.4 said and this block never followed: one H2 per tab page, the tab's own name**, `Rolls`, `Items`, `Deposits`, `Withdrawals` or `Cash out`, with the count beside it. The scope line is not drawn, section 2, the filters are controls rather than a section, and the pager is not a heading.
 
 **C. SEO text.** None, and the reason is `noindex`. What the node holds instead is the field list in section 0.
 

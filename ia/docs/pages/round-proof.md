@@ -12,6 +12,14 @@
 
 ---
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** V1 names its field Server seed hash, as V3 and V4 do; V2 opens the verifier prefilled and computes nothing, and whether it should open in place again is carried to the founder.
+
+---
+
 ## Amended 29 September 2026 by `D-138`. The baseline row this node never had
 
 **Why.** Round 14's source audit found no baseline row on this node.
@@ -62,8 +70,8 @@ From the Round proof entity in `ia/docs/sitemap.md`:
 
 | Variant | Where | Shows | Must not |
 |---|---|---|---|
-| **V1, the hash chip** | `3.3` phase 2, at the spin trigger, row `E4` | Server seed hash, truncated, plus the scope line in one short clause | **Interrupt the reveal.** `research.md` section 6 specifies a small persistent element that does not stop the animation. It never blocks, never modals, never asks |
-| **V2, the verification link** | `3.3` phase 3, the outcome, row `F3` | One tap to check this round | **Take the person out of the flow.** It opens the proof in place. The outcome screen is where the win is, and the win is not interrupted for paperwork |
+| **V1, the hash chip** | `3.3` phase 2, at the spin trigger, row `E4` | Server seed hash, truncated, plus the scope line in one short clause. **Labelled `Server seed hash`, the name V3 and V4 use, and `N server seed hashes` on a multi-roll open, one value and one copy per roll since `D-142`.** It read `Round hash`, which is the field named differently that the rule under this table forbids | **Interrupt the reveal.** `research.md` section 6 specifies a small persistent element that does not stop the animation. It never blocks, never modals, never asks |
+| **V2, the verification link** | `3.3` phase 3, the outcome, row `F3`, and `3.7` | One tap to check this round: `Check this round`, and on a batch `Check all N rolls` plus one `check this roll` per receipt line | ~~**Take the person out of the flow.** It opens the proof in place. The outcome screen is where the win is, and the win is not interrupted for paperwork~~ **Caught up with the render in round 15: it opens `1.2`'s verifier, V4, with this round's fields filled in and nothing computed**, while the win stays in My items. No decision records the move away from "in place", so whether V2 should open in place again is carried to the founder. **What it still must not do is compute for the person**: the press is theirs |
 | **V3, the full proof panel** | `7.1` Public result | Every field, the result, the ticket range, the recompute route, the scope line in full | **Require an account.** A stranger holds this link and can check it. That is the whole reason `1.2` and `7.1` are public |
 | **V4, the verifier form** | `1.2` Provably fair | The same fields as inputs, plus the explanation the page opens with | **Ask for a seed before it has explained anything.** The node's own INCLUDES says the page opens and explains first |
 

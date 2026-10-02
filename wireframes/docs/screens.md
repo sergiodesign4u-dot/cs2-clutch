@@ -26,16 +26,16 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 
 ## 2. The matrix, screen by state
 
-**One page per row.** Job column is the job or barrier the node names as its parent, shortened. Flow column is where `flows.md` puts it. **A row marked `unnumbered` is a state its own spec declares and the map does not number**, so it gets a page here and no code: inventing a map code at stage 04 would be the defect this file exists to avoid.
+~~**One page per row.**~~ **Since round 15 a row is a map code, and it names each page `wireframes/_nav.js` registers for it**, and a state the registry holds under a parent node is listed in that parent's row or in the row of the map code it draws. Job column is the job or barrier the node names as its parent, shortened. Flow column is where `flows.md` puts it. **A row marked `unnumbered` is a state its own spec declares and the map does not number**, so it gets a page here and no code: inventing a map code at stage 04 would be the defect this file exists to avoid.
 
 ### Cluster 0, the shell surfaces that are screens
 
 | Node | Screen or state | Job or parent | In the flow |
 |---|---|---|---|
-| `0.3` | System pages: **404 external arrival**, **404 internal referrer**, **404 on a retired case slug**, **500**, **503 planned**, **503 unplanned** | Six states, one template. `B5`, and the withdrawal clock for the 503 | Off-flow, reachable from any wrong address |
-| `0.4` | Cookie consent: **pending**, **accepted**, **rejected**, **partial**, **changed later**, **consent expired** | Compliance constraint. Fires on arrival, so it lands on `1.0` | Layer over the first screen |
+| `0.3` | System pages: **404 external arrival**, **404 internal referrer**, **404 on a retired case slug**, **500, carriers render**, **500, carriers cannot**, **503 planned**, **503 unplanned** | ~~Six states~~ **Seven pages since `D-79` drew the 500 twice**, one template. `B5`, and the withdrawal clock for the 503 | Off-flow, reachable from any wrong address |
+| `0.4` | Cookie consent: **pending**, **layer 2, nothing chosen**, **accepted**, **rejected**, **partial**, **changed later**, **consent expired**, **storage unavailable**. Eight pages | Compliance constraint. Fires on arrival, so it lands on `1.0` | Layer over the first screen |
 | `0.9` | Legal and policy: **current**, **changed since you last agreed**, **guest never agreed**, **superseded version**, **not yet published** | Compliance constraint, four documents on one template | Footer routes |
-| `0.10` | Support and contact: **entry**, **appeal submitted**, **waiting with attribution**, **appeal answered**, **upheld**, **refused**, **deadline missed**, **no dispute to appeal**, **ticket id not found** | `B8-3`, row `G4` | Footer routes, and the exit from `5.6` |
+| `0.10` | Support and contact: **entry**, **appeal a decision**, its own page since `D-82`, **appeal submitted**, **waiting with attribution**, **appeal answered**, **upheld**, **refused**, **deadline missed**, **no dispute to appeal**, **ticket id not found**. Ten pages | `B8-3`, row `G4` | Footer routes, and the exit from `5.6` |
 
 ### Cluster 1, decide whether this place is real
 
@@ -43,7 +43,7 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 |---|---|---|---|
 | **`1.0`** | **Home, guest** | `B1-1`, Main Job, Related Job 1 | **Entry. Tap 1 of the main job** |
 | `1.1` | Home, account exists | Same page, state-dependent strip | After sign in |
-| `1.2` | Provably fair, public, with the verifier | Design principle 1 as limited by `D-14`, Core Job 1 | From `1.0` B7 and from `3.6` |
+| `1.2` | Provably fair, public, with the verifier: **default, verifier idle**, **prefilled, nothing computed**, **checked and matched**, **proof not available yet** | Design principle 1 as limited by `D-14`, Core Job 1 | From `1.0` B7 and from `3.6` |
 | `1.3` | Verifier, malformed round | Names which part is missing | Inside `1.2` |
 | `1.4` | Verifier, our own proof failed | A report route and an incident with a deadline | Inside `1.2` |
 
@@ -51,10 +51,11 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 
 | Node | Screen or state | Job or parent | In the flow |
 |---|---|---|---|
-| `2.1` | **Geo gate** | `D-23`, the allowlist closed by default | Fires at first case interaction |
-| `2.2` | Geo blocked | Legal ground cited | **Dead end by design** |
-| **`2.4`** | **Sign in, consent not given** | `B6`, `B3-2`, and the consent gate `D-26` added | **Tap 2 of the main job** |
+| `2.1` | **Geo gate**: **checking the market**, **staged market, one limit**, **not launched, the default**, **detection unavailable** | `D-23`, the allowlist closed by default | Fires at first case interaction |
+| `2.2` | Geo blocked, **blocked, with the ground**, registered as a state of `2.1`, `gate-blocked.html` | Legal ground cited | **Dead end by design** |
+| **`2.4`** | **Sign in, consent not given**, drawn twice: **the dialog, over the case screen**, and **cold arrival at /signin** | `B6`, `B3-2`, and the consent gate `D-26` added | **Tap 2 of the main job** |
 | `2.4`, unnumbered | Sign in, **one of two given** | `D-26`. The control names which declaration is missing | Inside `2.4` |
+| `2.4`, unnumbered | Sign in, **press refused, nothing declared**, the refusal beside the live control, `D-58` | `D-26`. The press names both missing declarations | Inside `2.4` |
 | `2.4`, unnumbered | Sign in, **consent given** | `D-26`. The provider control becomes available | Inside `2.4` |
 | `2.5` | Steam refused | `B5`, a readable failure rather than a code | Back into `2.4` |
 | `2.6` | Steam unavailable | Reading the product stays open | Into `3.3` |
@@ -63,19 +64,19 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 
 | Node | Screen or state | Job or parent | In the flow |
 |---|---|---|---|
-| `3.1` | Case catalogue | Main Job, `D-20` puts it off the main path | "All cases" from `1.0` |
+| `3.1` | Case catalogue: **guest, unfiltered**, **account**, **filter drawer open**, **filtered**, **loading**, **degraded** | Main Job, `D-20` puts it off the main path | "All cases" from `1.0` |
 | `3.2` | Catalogue, nothing matches | Node `3.2` itself, which needs a route out. **It read `D1`, the shelf is legibly empty rather than silently short, until 21 August 2026**, `D-60` | Inside `3.1` |
-| **`3.3`** | **Case screen, phase 1, choosing** | Main Job, `D2`, `D3`, `D4` | **The screen the main job is decided on** |
+| **`3.3`** | **Case screen, phase 1, choosing**, and its registered states: **signed in, funded**, **two chosen, stage at rest**, **five chosen, stage at rest**, **`D-B` negative, no counter**, **values degraded**. Three and four chosen render on the five pages under `?n=`, `D-144`, and are not pages of their own | Main Job, `D2`, `D3`, `D4` | **The screen the main job is decided on** |
 | ~~`3.4`~~ | ~~Item at zero free units~~ | ~~`D1`, `B8-1`~~ **Dissolved 21 August 2026, `D-60`** | |
-| **`3.5`** | **Case screen, phase 2, the open** | `E1`, `E4`, design principle 2 | **Tap 3 of the main job** |
-| **`3.6`** | **Case screen, phase 3, the outcome** | `F1`, `F2`, `F4`, `E3` | The end of the main job |
+| **`3.5`** | **Case screen, phase 2, the open**, with **the open, 2 rolls** and **the open, 5 rolls** | `E1`, `E4`, design principle 2 | **Tap 3 of the main job** |
+| **`3.6`** | **Case screen, phase 3, the outcome**, with **the outcome, 2 items** and **the outcome, 5 items** | `F1`, `F2`, `F4`, `E3` | The end of the main job |
 | `3.7` | Interrupted reveal | `E1`. The roll settled before the animation | Out of `3.5` |
 
 ### Cluster 4, put money in
 
 | Node | Screen or state | Job or parent | In the flow |
 |---|---|---|---|
-| `4.1` | Deposit | `C1`, `C2`, `C3`, `C4` | From the money control, and from `3.3` with no balance |
+| `4.1` | Deposit: **the dialog, over the case screen**, **cold arrival at /deposit**, **card and wallets**, **crypto**, **crypto, no address yet**, **gift cards**, **CS2 skins** | `C1`, `C2`, `C3`, `C4` | From the money control, and from `3.3` with no balance |
 | `4.2` | Deposit limit reached this period | `C2`, the deposit limit, `D-103` | Inside `4.1` |
 | `4.3` | Deposit limit raise pending 24 hours | `C2`. The old limit holds | Inside `4.1` |
 | `4.4` | Crediting, with a named timer | `C3` | After the deposit |
@@ -85,28 +86,28 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 
 | Node | Screen or state | Job or parent | In the flow |
 |---|---|---|---|
-| `5.1` | Account and inventory | Related Job 5, `F2`, `G5` | From the shell |
+| `5.1` | Account and inventory: **items held**, **values degraded**, **cash out, the layer** | Related Job 5, `F2`, `G5` | From the shell |
 | `5.2` | Inventory empty | Where every new account starts | Inside `5.1` |
-| `5.3` | Withdrawal, with the public clock | `B8-2`, `G1`, `G2`, `G6` | From `5.1` |
+| `5.3` | Withdrawal, with the public clock: **before the request**, **requested, the clock running**, **several items at once** | `B8-2`, `G1`, `G2`, `G6` | From `5.1` |
 | `5.4` | Not eligible, limit stated before entry | `G5` | Inside `5.3` |
 | `5.5` | Steam degraded | `G2`, the health probe | Inside `5.3` |
 | `5.6` | Account restricted, notice and appeal | `B8-3`, `G4` | Into `0.10` |
 | `5.7` | Restriction upheld | The ground stays on the record | **Dead end by design** |
 | `5.8` | Trade offer expired | Resend from the same record | Inside `5.3` |
-| `5.9` | Roll history, and its ledgers: items, deposits, withdrawals, cash out, with their states. **Row added in round 14, `D-136`**: the node arrived by `D-36` after this matrix was written | Core Job 1 afterwards, `F3` | From the account menu |
-| `5.10` | Profile: the daily case, messages, the public shelf. **Added in round 14** | No parent in the three legal classes, printed on the map | From the account menu |
-| `5.11` | Settings. **Added in round 14** | `G5`, the trade URL, and the switches `D-86` carries | From the account menu |
+| `5.9` | Roll history, and its ledgers: items, deposits, withdrawals, cash out, with their states. **Sixteen pages:** every roll, items, items none yet, no rolls yet, nothing to check (`D-C` is no), a proof that does not match, deposits, deposits none yet, withdrawals, withdrawals none yet, withdrawals past our ceiling, cash out four statuses, cash out none yet, an open that did not finish, deposits with a boundary in force, withdrawals with the account restricted. **Row added in round 14, `D-136`**: the node arrived by `D-36` after this matrix was written | Core Job 1 afterwards, `F3` | From the account menu |
+| `5.10` | Profile: the daily case, messages, the public shelf, then **nothing to read** and **Steam unreadable**. **Added in round 14** | No parent in the three legal classes, printed on the map | From the account menu |
+| `5.11` | Settings: **the trade URL is set**, **trade URL not set**, **saved value refused**, **no Steam account linked**. **Added in round 14** | `G5`, the trade URL, and the switches `D-86` carries | From the account menu |
 
 ### Clusters 6 and 7
 
 | Node | Screen or state | Job or parent | In the flow |
 |---|---|---|---|
-| `6.1` | Responsible play | **No job. The compliance constraint, quoted** | From the rail and the footer |
+| `6.1` | Responsible play: **no boundary in force**, **guest, no account**, and **self excluded** | **No job. The compliance constraint, quoted** | From ~~the rail and~~ the footer and the account menu, off the rail since `D-29` |
 | `6.2` | Self exclusion confirmation | An explicit confirmation with the period named | Inside `6.1` |
 | `6.3` | Boundary in force | The boundary holds without being a thing to engage with | Across `4.1`, `3.3`, `5.3` |
-| `7.1` | Public result | `F4`, and the shared object `D-20` created | From `0.8` and from a share |
+| `7.1` | Public result: **stranger, no account**, **the owner**, **recomputed, matched**, **recomputed, mismatched**, **proof not available** | `F4`, and the shared object `D-20` created | From `0.8` and from a share |
 | `7.2` | Result gone or private | Routed into `1.2` | Inside `7.1` |
-| `7.3` | Public profile, with its owner and hidden states. **Added in round 14**, the node `D-90` created | `F4`'s shared object, and every card a route to its own round | From `7.1`'s name and from `0.8` |
+| `7.3` | Public profile: **a stranger reading it**, **the owner reading their own**, **nothing won yet**, **no page to show**, **hidden, the owner looking at it**. **Added in round 14**, the node `D-90` created | `F4`'s shared object, and every card a route to its own round | From `7.1`'s name and from `0.8` |
 
 ### The count
 
@@ -116,6 +117,7 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 | Clusters 1 to 7, numbered MVP nodes | **35** |
 | Sign-in consent states the spec adds and the map does not number | **2** |
 | **Floor for the prototype** | **63 pages** |
+| **Registered since round 15**, `wireframes/_nav.js` | **132 pages**, 30 of them in cluster 0 |
 
 **Sixty three is a floor and not an estimate, and the live list has since passed it.** `wireframes/_nav.js` is that list and every count the prototype prints is computed from it. The floor stays here as what the matrix produced on 18 August 2026. Internal states that a spec declares without numbering, catalogue's guest, account, loading, filtered and degraded among them, are drawn where the node says they change the screen. **The number goes up at step 6, never down**, and a state that is not in this matrix does not get drawn.
 

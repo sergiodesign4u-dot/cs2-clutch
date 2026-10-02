@@ -205,14 +205,17 @@
     <p>The coverage map answers "what is built". <strong>This answers "what has to exist at all"</strong>, and until now it lived only in markdown. Stage 05 step 4 and stage 07 step 2 both read this table.</p>
   </div>
 
+  <div class="card is-note"><h4>Updated after publication, round 15, D-145</h4><p>The state matrix in <code>docs/screens.md</code> now names every page the registry holds for each node; the three rows above that had fallen behind, 0.3, 0.4 and 0.10, are corrected here. Three and four counts on the case screen render under <code>?n=</code> and are not pages.</p></div>
+
+
   <div class="table-wrap">
     <table>
       <thead><tr><th style="width:16%">Node</th><th style="width:22%">Screen</th><th>Pages it owes</th><th style="width:12%">Scope</th></tr></thead>
       <tbody>
-        <tr><td><span class="n">0.3</span></td><td>System pages</td><td>404 external · 404 internal · 404 retired slug · 500 · 503 planned · 503 unplanned</td><td>MVP</td></tr>
-        <tr><td><span class="n">0.4</span></td><td>Cookie consent</td><td>pending · accepted · rejected · partial · changed later · expired. <strong>Six pages or two with four variants is step 5</strong></td><td>MVP</td></tr>
+        <tr><td><span class="n">0.3</span></td><td>System pages</td><td>404 external · 404 internal · 404 retired slug · 500, carriers render · 500, carriers cannot · 503 planned · 503 unplanned</td><td>MVP</td></tr>
+        <tr><td><span class="n">0.4</span></td><td>Cookie consent</td><td>pending · layer 2, nothing chosen · accepted · rejected · partial · changed later · expired · storage unavailable</td><td>MVP</td></tr>
         <tr><td><span class="n">0.9</span></td><td>Legal and policy</td><td>current · changed since you agreed · guest never agreed · superseded · not yet published</td><td>MVP</td></tr>
-        <tr><td><span class="n">0.10</span></td><td>Support and contact</td><td>entry · submitted · waiting · answered · upheld · refused · deadline missed · no dispute · ticket not found</td><td>MVP</td></tr>
+        <tr><td><span class="n">0.10</span></td><td>Support and contact</td><td>entry · appeal a decision · submitted · waiting · answered · upheld · refused · deadline missed · no dispute · ticket not found</td><td>MVP</td></tr>
         <tr><td><span class="n">1.0</span></td><td><strong>Home</strong> <span class="pill pill-r1">etalon</span></td><td>guest · account exists</td><td>MVP</td></tr>
         <tr><td><span class="n">1.2</span></td><td>Provably fair</td><td>verifier idle · 1.3 malformed round · 1.4 our own proof failed</td><td>MVP</td></tr>
         <tr><td><span class="n">2.1</span></td><td>Geo gate</td><td>checking the market · 2.2 geo blocked <em>dead end by design</em></td><td>MVP</td></tr>
@@ -245,6 +248,9 @@
     <h2>Conventions</h2>
     <p>The grey contract every screen and every subagent obeys, live from <code>wireframes/docs/conventions.md</code>. <strong>This is the file the step 9 critique checks against, so it has to be in front of you at the moment of checking.</strong></p>
   </div>
+
+  <div class="card is-note"><h4>Updated after publication, round 15, D-140 and D-144</h4><p><strong>Exactly one main action per screen, with two named exceptions</strong>: the outcome, 3.6 and 3.7, keeps two, D-38, and responsible play keeps none, its node's section 2. A gate layer or a dialog is its own screen; the shell's Sign in behind it does not count. <strong>A figure is never split from its unit</strong>: a number and coins or %, a day and its month, a month and its year, a date and its time are joined with a no-break space, once, by <code>nbspFigures</code> in <code>_nav.js</code>.</p></div>
+
 
   <div class="card">
     <h4>The grey palette, inherited rather than invented</h4>

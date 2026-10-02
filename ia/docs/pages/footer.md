@@ -20,6 +20,14 @@
 
 ---
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** `D-136`'s removals are struck: the about line, Where we operate and the money control as a carrier; the switcher paragraph is superseded by `D-45`; the matrix and the bottom order follow the render; the rail carries one destination.
+
+---
+
 ## Amended 29 September 2026 by `D-137`. The rest of the baseline's footer, named
 
 **Why.** Round 14 of the critique found four more baseline footer items with no verdict here.
@@ -204,11 +212,11 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 
 | Column | Contents | Leads to |
 |---|---|---|
-| **Brand and help** | **The logo slot**, at the size the live product gives a footer logo. Then the **about line**, one sentence. Then the **identification block** in small text. Then a "Need help?" label over a **Support button**, an outlined pill rather than a text link | 1.0, 0.10 |
+| **Brand and help** | **The logo slot**, at the size the live product gives a footer logo. ~~Then the **about line**, one sentence.~~ **No about line since `D-136`.** Then the **identification block** in small text. Then a "Need help?" label over a **Support button**, an outlined pill rather than a text link | 1.0, 0.10 |
 | **Play** | Cases, and nothing else. **One game, because the product has one** | 3.1 |
 | **Cases** | All cases, then the four cases this prototype holds: Ironbound, Warsteel, Coldfront, Nightfall. **Which cases belong here is a merchandising decision and it is `[?]`**, carried in this node and **not printed in the column since `D-124`** | 3.1, 3.3 |
 | **Company** | Terms of use, Privacy policy, Cookie policy, Refund and payments policy, **Cookie settings** | 0.9, and dialog 0.4 links the cookie policy. **Cookie settings added by the step 8 audit:** GDPR Article 7(3), quoted in node `0.4`, says "It shall be as easy to withdraw as to give consent", and a banner shown once is not a route back. It is a control rather than a link and the only control in this column. **And it opened nothing until 22 August 2026, `D-80`:** `0.4` was unbuilt, so the control shipped as a button with no handler on all ninety four pages, which is the defect `D-58` forbids. **The fix for Article 7(3) was itself a picture of a control**, and it was invisible to both nodes because this one owns the carrier and `0.4` owns what it carries. **One thing is still not equal and it is printed here rather than in the other file:** below 900 this column is an accordion collapsed by default, so the route back is two presses while giving was one, and Article 7(3) is a rule about that count |
-| **Help**, and **Play responsibly under it in the same track**, `D-45` | Help: Provably fair, Contact support. **No FAQ row**, and since `D-124` the absence is recorded here rather than printed. Then Play responsibly: Responsible play, Where we operate | 1.2, 0.10, then 6.1, 2.2 |
+| **Help**, and **Play responsibly under it in the same track**, `D-45` | Help: Provably fair, Contact support. **No FAQ row**, and since `D-124` the absence is recorded here rather than printed. Then Play responsibly: Responsible play~~, Where we operate~~. **Where we operate left the column by `D-136`**: a row with no destination is the dead item a carrier may not hold, and it stays an open item here | 1.2, 0.10, then 6.1 ~~, 2.2~~ |
 | **Brand art** | **A reserved slot, founder request of 20 August 2026, `D-43`.** Same kind of object as the logo slot: an area whose content arrives at stage 06 | Nothing. It is not a route |
 
 **Play holds one game because the product has one.** The column is inherited and filled with what is live, and the LATER modes enter it as they ship, exactly as they enter the rail. **A short column is the truth about the round**, and padding it with a route the map does not hold would be the dead item defect one carrier down, which is the rule that took the rail from nine to one.
@@ -239,9 +247,9 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 
 **The logo leads the column rather than a wordmark, and that is a change of 20 August 2026.** The column opened with the words "CS2 Clutch" set in bold, which is a placeholder pretending to be finished. **The logo is an asset stage 06 draws, and what this stage owes it is the space it will occupy**, so it arrives as an image in a place rather than as a new element in a finished column. Both references the founder supplied lead with a large logo and so does the baseline.
 
-**The about line is one sentence and it is the product's promise, not the category's description.** "Every case shows the chance, the current value and the tested return before you open it. Every round can be checked after it." That is design principle 1 and `D-14`'s stated limit in one line: **what answers the doubt people record is published chance, current value and tested RTP at the moment of spending.**
+~~**The about line is one sentence and it is the product's promise, not the category's description.** "Every case shows the chance, the current value and the tested return before you open it. Every round can be checked after it." That is design principle 1 and `D-14`'s stated limit in one line: **what answers the doubt people record is published chance, current value and tested RTP at the moment of spending.**~~ **Removed by `D-136`:** the sentence was the third copy of the same promise after Home, and the baseline's brand block carries none. The column is the logo, the identification line and the support button.
 
-**The language switcher moved into this column, `D-43`, and it was in the bottom row for one day.** Both supplied references put it here and the reason survives the reference: **it is the only control in the footer that changes how the whole page reads**, so it belongs where the page says who it is, not in a row of fine print. It is drawn wide with the full language name and a caret, while the rail keeps the two character form. **Same control, two labels, written by one function so they cannot disagree.** Nine options, one live, `D-42`.
+~~**The language switcher moved into this column, `D-43`, and it was in the bottom row for one day.**~~ **Superseded by `D-45`: the switcher sits in band 3, above the payment marks**, the Language row of the trust table below. The paragraph is kept for the reasoning it records. Both supplied references put it here and the reason survives the reference: **it is the only control in the footer that changes how the whole page reads**, so it belongs where the page says who it is, not in a row of fine print. It is drawn wide with the full language name and a caret, while the rail keeps the two character form. **Same control, two labels, written by one function so they cannot disagree.** Nine options, one live, `D-42`.
 
 **The support button is inherited deliberately and it is an upgrade on the first version of this node**, which had support as one link among four in a column. `G4` requires an appeal with a published response deadline and Article 5(c) requires rapid contact. Neither is served well by a link that looks like a policy.
 
@@ -268,7 +276,7 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 
 **Its rule is unchanged and it is the one rule in this node that holds at every width: the compliance statement never becomes an accordion.** A compliance statement a person has to open is not a statement.
 
-**Responsible play loses nothing by any of this.** It has three entries: **this band, the money control, and the account menu**. **The rail is not one of them and this sentence said it was until 22 August 2026:** `D-29` moved it off the rail on 19 August and `D-40` put it in the account menu on 20 August, and section 143 of this same file already says "Responsible play has had no other carrier since `D-40` took it off the rail". **One file, two counts, six lines apart.**
+**Responsible play loses nothing by any of this.** ~~It has three entries: **this band, the money control, and the account menu**.~~ **It has two carriers since `D-136`: the Play responsibly section of band 2, and the account menu.** The entry inside the money control was struck by `D-136` as never rendered; under a boundary the header's + opens the limits page instead of the deposit layer, which routes a refusal rather than adding a carrier. **The rail is not one of them and this sentence said it was until 22 August 2026:** `D-29` moved it off the rail on 19 August and `D-40` put it in the account menu on 20 August, and section 143 of this same file already says "Responsible play has had no other carrier since `D-40` took it off the rail". **One file, two counts, six lines apart.**
 
 **The three cells of the trust row are three different kinds on purpose:** a way to reach us, a statement about who may be here, a claim about what we accept. They share one row because **a stranger checks all three in one look**, which is what the row is for. **The statement takes the whole row before it takes a column**: two paragraphs in a third of a narrow column became a ribbon eleven lines tall, so one row of three happens only where the middle cell can hold 420px.
 
@@ -283,10 +291,10 @@ The baseline runs a fixed circular headset button, bottom right, above the foote
 | Zone | Guest, desktop | Guest, mobile | Account, desktop | Account, mobile |
 |---|---|---|---|---|
 | **Statistics strip** | Four cells in one row | **Two by two grid**, never a horizontal scroll | Same | Same |
-| **Brand and help** | First column: logo, support button, tagline, identification | First block, full width | Same | Same |
-| **Link columns** | Three columns beside the brand column, all expanded | Three accordions, **collapsed by default and present in the DOM** | Same | Same |
+| **Brand and help** | First column: logo, identification, then "Need help?" over the support button. ~~tagline~~ None since `D-136` | First block, full width | Same | Same |
+| **Link columns** | ~~Three columns~~ **Five groups in four tracks since `D-44` and `D-45`**, Play, Cases, Company, then Help with Play responsibly stacked under it, beside the brand column, all expanded, the brand art slot last where it fits | Five accordions, **collapsed by default and present in the DOM** | Same | Same |
 | **Interlinking block** | Flat list, expanded | One accordion, collapsed by default, present in the DOM | Same | Same |
-| **Bottom row** | Compliance line, copyright, payment marks in one row | Stacked: compliance line, then copyright, then marks | Same | Same |
+| **Bottom row** | ~~Compliance line, copyright, payment marks in one row~~ **Two rows as rendered:** the trust row, social slots, the 18+ mark with its statement, then the language switcher over the payment marks; then the fine print, copyright and the coin note. The statement takes a row of its own above the other two cells until the middle cell can hold 420px | Stacked: social slots, the 18+ statement, the language switcher and the marks, then copyright and the coin note | Same | Same |
 
 **No account dimension.** The footer is identical in both account states. Everything in it is public: proof of scale, legal identity, compliance statements, support, and indexed routes. **A footer that changed on login would mean it held something private**, which the rule above forbids.
 
@@ -305,7 +313,7 @@ The baseline runs a fixed circular headset button, bottom right, above the foote
 
 ## 5. SEO and accessibility
 
-**This is the second interlinking plane, and it is the one that carries the long tail.** The rail carries three or four destinations. The footer carries every indexed node the rail cannot hold, plus the legal set. Together they mean **every indexed page is reachable from every other page in at most two hops.**
+**This is the second interlinking plane, and it is the one that carries the long tail.** ~~The rail carries three or four destinations.~~ **The rail carries one destination, Cases, in both states since `D-40`.** The footer carries every indexed node the rail cannot hold, plus the legal set. Together they mean **every indexed page is reachable from every other page in at most two hops.**
 
 **No H1.** A global element is not a page. **`<footer>` with `<nav>` around each link column, each with an accessible name.** Four unnamed navigation landmarks in one region is worse than none.
 
@@ -326,9 +334,9 @@ The baseline runs a fixed circular headset button, bottom right, above the foote
 
 ## 6. Adaptive behaviour
 
-**Mobile, base, 360px.** Statistics as a two by two grid, never a horizontal scroll and never a carousel: four numbers a person cannot see at once are four numbers that prove nothing. Then the brand block, full width, with the support button at full width under it. Then three accordions, collapsed. Then the interlinking accordion, collapsed. Then the bottom row stacked, compliance line first, then copyright, then the marks.
+**Mobile, base, 360px.** Statistics as a two by two grid, never a horizontal scroll and never a carousel: four numbers a person cannot see at once are four numbers that prove nothing. Then the brand block, full width, with the support button at full width under it. Then ~~three~~ **five** accordions, collapsed. Then the interlinking accordion, collapsed. Then the bottom row stacked ~~, compliance line first, then copyright, then the marks~~ **as the render draws it: social slots, the 18+ statement, the language switcher over the marks, then copyright and the coin note.**
 
-**Desktop, from 900px.** Statistics as one row of four. Brand column plus three link columns. Interlinking block as a flat list below them. Bottom row as one line.
+**Desktop, from 900px.** Statistics as one row of four. Brand column plus ~~three link columns~~ **four link tracks, the last holding Help and Play responsibly, and the brand art slot where the width holds it**. Interlinking block as a flat list below them. Bottom row as ~~one line~~ **the trust row of three cells, then the fine print**.
 
 **The compliance line never becomes an accordion at any width.** The one rule in this node that holds everywhere.
 

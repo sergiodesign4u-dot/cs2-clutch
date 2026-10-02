@@ -26,6 +26,14 @@
 | **One tool exists**, called **TAKE A BREAK**, doing deposit restriction or full account restriction. It is the second row of the `SECURITY` block inside the settings tab of the account. `baseline-account.md` section 7.1. | **Nothing structural**, and that is the finding rather than a gap in the reading. | **Everything about where it lives.** There is no responsible play page and **no route to the tool from anywhere**: not the footer, not the rail, not the header, not the home page, all four re-checked on 18 August 2026. It sits beside Logout and an anonymity toggle, in the vocabulary of account protection rather than self protection. **An absence could be answered with "nobody in the category has it". This cannot: they built it and then filed it where nobody looks.** |
 
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** Deposit limit replaces spend ceiling throughout, `D-103`; the headings follow the render; every drawn period is marked as a sample; which SEO body ships is carried to the founder.
+
+---
+
 ## Amended 2 October 2026 by `D-143`. Dates count from now, a running cool down only extends, and an exclusion still lets a person tighten
 
 **Why.** Round 15 of the critique found every cool down ending 25 Aug, a six month exclusion ending in 2031, Start a cool down doing nothing while one runs, every control refused under an exclusion that promised tightening, a 0 told to enter an amount, and a limit prefilled where none is in force.
@@ -35,6 +43,8 @@
 | The live product | What we keep | What we change, and why |
 |---|---|---|
 | Limits a person sets | The four boundaries and their direction rules | **The end of a cool down or an exclusion is counted from the moment it starts.** **A running cool down extends and refuses to shorten, with the date it runs to.** **Under a self exclusion a deposit limit can still be set or lowered**, section 6's locked for the duration, and a cool down or a second exclusion refuses with the reason. A 0 is refused as a 0. No limit is prefilled where none is in force |
+
+**Samples, `D-124`, marked here:** every period a select offers, not only the selected one `D-130` marked. Deposit limit per day, per week, per month; session limit 30 minutes, 1 hour, 2 hours, 4 hours; cool down 24 hours, 7 days, 30 days; self exclusion 6 months, 1 year, 5 years. None is a decided set, section 3.
 
 ---
 
@@ -122,7 +132,7 @@ Composition is taken from `blocks.md` section 7, type T6, rows marked TAKE, plus
 |---|---|---|---|---|
 | **1** | **H1 and one plain statement of what these tools do.** Not a case for using them, not a warning, not a mood card | Key-Drop principle card 2, framing refused | Compliance constraint, `CLAUDE.md` | MVP |
 | **2** | **What is in force now**, if anything: each active boundary, its period, the moment it ends, and the route to change it. Absent entirely when nothing is set | Own research. The state `6.3` needs a home on its own page | `B7-4`, `C2`, `C5` | MVP |
-| **3** | **Spend ceiling**, `C2`. Amount and period. Lowering applies immediately, raising waits 24 hours, which is the asymmetry that makes it a brake rather than a setting | Key-Drop deposit limits, Refero grouped settings | `B7-4`, pattern of 12, through `C2` | MVP |
+| **3** | ~~**Spend ceiling**~~ **Deposit limit**, `C2`, the label `D-103` gave it so the deposit and this page use one name. Amount and period. Lowering applies immediately, raising waits 24 hours, which is the asymmetry that makes it a brake rather than a setting | Key-Drop deposit limits, Refero grouped settings | `B7-4`, pattern of 12, through `C2` | MVP |
 | **4** | **Session limit**, `C5`. Length of a single session, after which the session ends | Key-Drop session reminders, **refused as a reminder and taken as a limit** | `B7-4`, plus the compliance constraint | MVP |
 | **5** | **Cool down**, `C5`. A chosen period during which opening and depositing are closed. Ends by running out | Key-Drop time-outs | `B7-4`, plus the compliance constraint | MVP |
 | **6** | **Self exclusion**, `C5`. The one control on this page a person cannot undo on impulse. Opens `6.2` | Key-Drop self exclusion | `B7-4`, plus the compliance constraint | MVP |
@@ -154,12 +164,12 @@ Composition is taken from `blocks.md` section 7, type T6, rows marked TAKE, plus
 
 | Boundary | Row | What it closes | What stays open | Direction rule | Period |
 |---|---|---|---|---|---|
-| **Spend ceiling** | `C2` | Deposits, once the ceiling for the period is reached, which is state `4.2` | Opening from existing balance, and withdrawal | **Lowering applies immediately. Raising applies 24 hours later and the old ceiling holds until then**, which is state `4.3` | A named period, chosen at the deposit. The set of periods is `[?]` |
+| **Deposit limit**, ~~Spend ceiling~~ | `C2` | Deposits, once the limit for the period is reached, which is state `4.2` | Opening from existing balance, and withdrawal | **Lowering applies immediately. Raising applies 24 hours later and the old limit holds until then**, which is state `4.3` | A named period, ~~chosen at the deposit~~ chosen here since `D-103`. The set of periods is `[?]` |
 | **Session limit** | `C5` | The session, when the length is reached | Withdrawal, support, reading | Shortening immediate. Lengthening waits 24 hours, by the same asymmetry | `[?]` |
 | **Cool down** | `C5` | Opening and depositing, for the chosen period | Withdrawal, support, reading | Extending immediate. It cannot be shortened or lifted early | `[?]` |
 | **Self exclusion** | `C5` | Opening and depositing | **Withdrawal, support, reading** | **No early exit at all.** It ends by running out, which is the point of it | `[?]` |
 
-**Every period in this table is `[?]` and none is invented.** Key-Drop runs 24 hours to 7 days for time-outs and up to permanent for self exclusion, and that is their number recorded from their page, not ours. Ours is a founder decision with counsel, because in several markets the minimum self exclusion period is set by law rather than by product.
+**Every period in this table is `[?]` and none is invented.** The options the selects draw are samples, `D-124`, listed at the top of this node, every one of them and not only the selected four. Key-Drop runs 24 hours to 7 days for time-outs and up to permanent for self exclusion, and that is their number recorded from their page, not ours. Ours is a founder decision with counsel, because in several markets the minimum self exclusion period is set by law rather than by product.
 
 **The direction asymmetry is one rule with four instances, and it comes from `C2`.** `cjm-to-be.md` T4: lowering applies immediately and raising applies 24 hours later. Generalised here: **a change that tightens a boundary takes effect at once, and a change that loosens one waits.** Without that rule every control on this page is a setting a person can undo in the same minute they set it, which is the definition of not being a brake.
 
@@ -247,7 +257,7 @@ Columns are the account state. **The page reads in full for a guest**, which is 
 |---|---|---|---|---|
 | **Block 1, statement** | Full | Full | Full | Full |
 | **Block 2, what is in force** | Absent | Absent | Present, per `6.3` | Present, with the end date |
-| **Blocks 3 to 6, the four controls** | **Visible and inert, with the reason: an account is needed to set one.** Never a sign-in wall over the page | Live, nothing set | Live. Tightening immediate, loosening waits 24 hours | **Locked for the duration.** Other boundaries can still be tightened |
+| **Blocks 3 to 6, the four controls** | **Visible and inert, with the reason: an account is needed to set one.** Never a sign-in wall over the page | Live, nothing set | Live. Tightening immediate, loosening waits 24 hours | ~~**Locked for the duration.** Other boundaries can still be tightened~~ **Amended by `D-143`:** a deposit limit can still be set or lowered; a cool down or a second exclusion refuses with its reason beside the control; nothing loosens |
 | **Block 7, what a boundary does not close** | Full | Full | Full | Full |
 | **Blocks 8 and 9, external routes and support** | Full | Full | Full | Full |
 | **The money control in `0.1`** | Absent, no account | Balance and value of items held | Opens to the limits rather than to add funds | Same |
@@ -290,7 +300,7 @@ Columns are the account state. **The page reads in full for a guest**, which is 
 **A. Meta tags, finished copy.**
 
 - **Title, 54 characters:** `Responsible play: limits, cool down and self exclusion`
-- **Description, 144 characters:** `Set a spend ceiling, a session limit, a cool down or a self exclusion. Withdrawal stays open under every one of them. No account needed to read.`
+- **Description, 144 characters:** ~~`Set a spend ceiling, ...`~~ `Set a deposit limit, a session limit, a cool down or a self exclusion. Withdrawal stays open under every one of them. No account needed to read.` **The boundary's name follows `D-103`**, as the five pages render it
 - **Canonical:** `https://<host>/responsible-play`, self. Host is `[?]`, `0.13` open items.
 - **Robots:** `index, follow`
 - **hreflang:** none, anywhere. One language, `0.13` section 1
@@ -302,15 +312,19 @@ Columns are the account state. **The page reads in full for a guest**, which is 
 
 **B. Heading structure, in block order.**
 
+**Rewritten in round 15 to the rendered outline.** The four boundaries were H2s named after `C2` and `C5`; the pages draw them as H3 setting rows, the first one named Deposit limit since `D-103`, and the status sits under the H1 since `D-137`.
+
 - **H1:** Responsible play
+- **H2:** What is in force now *(rendered only when something is, directly under the H1)*
 - **H2:** What these tools do
-- **H2:** What is in force now *(rendered only when something is)*
-- **H2:** Spend ceiling
-- **H2:** Session limit
-- **H2:** Cool down
-- **H2:** Self exclusion
 - **H2:** What a boundary closes, and what it never closes
+- **H3:** Deposit limit, ~~Spend ceiling~~
+- **H3:** Session limit
+- **H3:** Cool down
+- **H3:** Self exclusion
 - **H2:** Support that is not a limit
+
+**What a boundary closes stays above the four controls**, section 2's order rule, and the four H3 rows follow it.
 
 **C. Finished SEO text.** Product language, English. Stage 05 aligns it to voice and syncs the final version back into this block.
 
@@ -318,13 +332,15 @@ Columns are the account state. **The page reads in full for a guest**, which is 
 >
 > Four boundaries. You set them, they hold, and none of them is a game.
 >
-> A spend ceiling caps what you can put in over a period you choose. A session limit ends a session at a length you choose. A cool down closes opening and depositing for a period. Self exclusion closes them for longer, and it cannot be lifted early.
+> A deposit limit caps what you can put in over a period you choose. A session limit ends a session at a length you choose. A cool down closes opening and depositing for a period. Self exclusion closes them for longer, and it cannot be lifted early.
 >
 > Tightening a boundary takes effect immediately. Loosening one takes 24 hours, and the old boundary holds until then.
 >
 > **Withdrawal stays open under every boundary, self exclusion included.** A limit stops money going in. It never traps what you already hold.
 >
 > There is no score here, no streak and no reward for staying inside a limit. A boundary that congratulates you is a boundary that has started keeping count.
+
+**The pages render a shorter text since `D-130`**: "Four boundaries you set yourself." and "Tightening one takes effect immediately. Loosening one takes 24 hours, and the boundary you have now holds until then." The block above is kept as the finished SEO text of the one indexed page in this cluster, and which of the two ships is open, section 9.
 
 **D. Structured data.** `WebPage`. Nothing more, per section 7 of `0.13` and the refusal above.
 
@@ -357,6 +373,7 @@ Columns are the account state. **The page reads in full for a guest**, which is 
 | **The external help routes in block 8** | Which organisations are named, per market. Every market verdict in `0.12` is `[?]` until re-verified against current law, and a plausible list here would be model memory presented as a legal fact | Founder with counsel |
 | **Whether a boundary is announced anywhere outside the product** | A self exclusion that runs for months implies a signal reaching the person off the page. The global sweep already recorded that **no notification, email or push row exists anywhere in `cjm-to-be.md`**, for withdrawal or for anything else. Named here in the same treatment rather than invented | Backlog, then the founder |
 | ~~**Whether the spend ceiling is per deposit, per period, or both**~~ | **Answered by `4.1` and closed.** One ceiling is in force at a time and it belongs to the named period. A ceiling that reset per deposit could never be reached, and `4.2`, ceiling reached this period, is a numbered node, so the map already excluded that reading. **The second deposit inside one period pre-fills again and the pre-filled figure is then a change to the ceiling in force**, taking the direction rule with it | Closed, node `4.1` |
+| **Which SEO text the indexed page ships** | Block C above is finished copy; the rendered page carries the two line form `D-130` cut it to. An indexed page whose body text is two lines is thin, and the long form is more than the stop explaining round wanted on screen | Founder, with stage 05 |
 | **The conversion cost of any of this** | `CLAUDE.md` carries the age gate's cost as having no target. The same is true here and it is worse measured, since `C2`'s own success signal in `cjm-to-be.md` reads "targets `[?]`" | Production |
 
 **Two findings for other nodes, raised rather than edited, per the verify-before-fixing rule.**

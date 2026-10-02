@@ -4,7 +4,7 @@
 
 **Purpose.** Hold one row per market: the verdict, the cited ground, the minimum age, the age method that market requires, the evidence the verdict rests on, and the date it was last verified. Described once, read by seven nodes, and never re-derived at any of them.
 
-**Jobs served.** None. **Parent class:** the compliance constraint in `CLAUDE.md`, quoted, "geo blocking informed by cited legal research" and "staged regional rollout resting on cited law", by way of row `B4`; plus barrier `B8-3`, pattern of 3, by way of rows `G4` and `G5`, which is what makes a wrong verdict a route rather than a wall. Constraint and barrier classes.
+**Jobs served.** None. **Parent class:** the compliance constraint in `CLAUDE.md`, quoted, ~~"geo blocking informed by cited legal research" and~~ "a market allowlist closed by default, so a market with no row is `not launched` rather than open and that is the state the geo layer is designed around, `D-23`" and "staged regional rollout resting on cited law", by way of row `B4`. **The struck quote is no longer in `CLAUDE.md`, round 15**; the allowlist clause is its current wording, quoted exactly; plus barrier `B8-3`, pattern of 3, by way of rows `G4` and `G5`, which is what makes a wrong verdict a route rather than a wall. Constraint and barrier classes.
 
 **Read by seven nodes:** `2.1` the gate, `2.2` geo blocked, `2.7` identity verification, `4.1` deposit, `5.3` withdrawal, `0.2` footer, `0.9` legal pages.
 
@@ -17,6 +17,14 @@
 | What the live product does | What we keep | What we change, and why |
 |---|---|---|
 | The entire market control of the live product is one sentence in the terms, "services exclusively to residents of countries where such activities are not prohibited", plus a self-selected country in the settings with a `CHANGE` button. `baseline.md` section 9.4 and `baseline-account.md` section 7.2. | Nothing. There is no register to inherit. | **Everything, and `D-23` is the largest single divergence in the project.** Theirs is a blocklist enforced by the person's own declaration with no list published. **And it does not even hold itself together:** the settings country reads United States while the deposit country selector, in the same account on the same day, reads Ukraine. **Two independent self-declared values, unreconciled.** |
+
+---
+
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** The parent quote that left CLAUDE.md is replaced with the allowlist clause; the footer's market statement is struck with `D-136`, and that nothing public now states the market position before the gate is carried to the founder.
 
 ---
 
@@ -305,7 +313,7 @@ The full record is operator-side. What reaches a person is **the verdict and the
 
 - **The block is a state inside the flow, never a server-level ban on reading the site.** `2.1` fires at first case interaction, not on arrival, `B3` and `D-17`, which means the public surfaces stay readable and crawlable from every market. **This is also what stops a crawler from being served the blocked state and indexing it**, which is a real risk for any product that blocks at the edge by IP.
 - **The blocked state returns 200 with content**, not 404 and not 403. It is an answer, not a missing page.
-- **The footer's market statement is public and crawlable everywhere**, node `0.2`. It is the only place a person can read our position before meeting a gate.
+- ~~**The footer's market statement is public and crawlable everywhere**, node `0.2`. It is the only place a person can read our position before meeting a gate.~~ **Superseded by `D-136`:** the footer's Where we operate row left for having no destination, so no public surface states our position before the gate. **The ground reaches a person in the blocked layer**, `2.2`, which prints it from the row's Ground field.
 - **The ground is text**, not an image and not colour alone, so a screen reader reads the reason and not only the refusal.
 
 ---
@@ -353,4 +361,4 @@ The full record is operator-side. What reaches a person is **the verdict and the
 | **Minimum age and age method per open market** | Two markets in our file carry a value and both are blocked, so the first open market will be the first row that needs one | Counsel, as each market opens |
 | **Whether this category is gambling** | Unsettled and varies by jurisdiction, `CLAUDE.md`. The register is built so that the answer is a field rather than an assumption | Nobody. It stays open by design |
 
-**And what belongs elsewhere.** The wording of the blocked message: stage 05. How the blocked state looks: stages 06 and 07. Where the market statement sits in the footer: node `0.2`, already specified. What the gate asks: node `2.1`, which reads three fields from here rather than holding its own constants.
+**And what belongs elsewhere.** The wording of the blocked message: stage 05. How the blocked state looks: stages 06 and 07. ~~Where the market statement sits in the footer: node `0.2`, already specified.~~ **The footer holds no market statement since `D-136`.** What the gate asks: node `2.1`, which reads three fields from here rather than holding its own constants.

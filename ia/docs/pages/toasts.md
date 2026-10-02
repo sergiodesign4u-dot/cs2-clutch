@@ -14,6 +14,14 @@
 
 ---
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** The bottom bar is two destinations, Home and Cases, in both states, `D-40`.
+
+---
+
 ## Amended 29 September 2026 by `D-138`. The baseline row this node never had
 
 **Why.** Round 14's source audit found no baseline row on this node.
@@ -81,7 +89,7 @@ Two sources, opened in a browser on 12 August 2026.
 
 **The cap is not a taste number. It is the number that fits above the mobile bar at 360px without covering it.**
 
-- `0.1` puts three live destinations in the bottom bar, rising to four with an account, and they are the only persistent route home at that width.
+- `0.1` puts ~~three live destinations in the bottom bar, rising to four with an account~~ **two live destinations in the bottom bar, Home and Cases, in both states since `D-40`**, and they are the only persistent route home at that width.
 - `0.2` already cut the baseline's floating support control for exactly this reason, `D-22`: an affordance anchored bottom right sits on top of the bar at 360px, and a control that covers a navigation destination is worse than no control.
 - **So the cap is whatever count clears the bar with the tallest message this product actually sends.** The integer is `[?]` and stage 04 measures it rather than this node guessing it.
 

@@ -31,6 +31,14 @@
 | **A public profile page**, walked by the founder's capture of 21 August 2026 and recorded in `baseline.md` section 9.9: a hexagonal avatar, the display name, **a numeric public id read as `ID 852261`**, three counters reading `N/A`, the name repeated under the avatar, four history tabs and a grid of item cards. | **The avatar, the display name and the Steam origin.** Three facts, and the baseline is the source for the fact that an account is not anonymous here. | **That it is public, and that it is a shelf.** Ours is the account's own view of itself and there is no public form of it in round 1: `D-69` records two of our own decisions pointing opposite ways on a public profile and leaves it `[?]`. **And the id is not copied.** `baseline.md` records that `852261` is sequential and that a stranger can decrement it, which makes the platform's registered-account count enumerable from outside. It is a fact about the baseline, recorded, and not a pattern to inherit. **The three `N/A` counters are not inherited either:** a counter that has never had a value is a field waiting for a score. |
 
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** The outline and the 360 order follow the render; the quiet and Steam down states are in the table; the cannot be turned off lines are superseded by `D-93`.
+
+---
+
 ## Amended 29 September 2026 by `D-137`. The Steam outage is one notice
 
 **Why.** Round 14 of the critique found the "Who this account is" block `D-130` removed back on the Steam outage state, the id printed twice, and messages dated after the prototype's now.
@@ -189,7 +197,7 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 
 **Block 4 is the only one that is not obviously a fact, and it is the one this page is worth having for.** `D-69` left the public profile `[?]` with two of our own decisions against each other: `0.8` gives the feed's avatar a destination and `7.1` block 6 refuses an owner profile outright, on the ground that it would rebuild the trophy shelf that node was created to replace. **A person cannot be told what is public about them by a product that has not decided**, so block 4 stated exactly what was true at the time: a shared result carries the display name and the avatar, ~~and there is no page a stranger can reach that lists what this account has won~~.
 
-**The day arrived on 23 August 2026 and the block is rewritten, as this paragraph said it would be.** `D-90` built `7.3`, so the third row above is now false and is corrected: **there is a page a stranger can reach that lists what this account has won, it exists for every account, and it cannot be turned off.** The row says that, in those terms, because this is the page whose whole job is telling a person what we hold about them.
+**The day arrived on 23 August 2026 and the block is rewritten, as this paragraph said it would be.** `D-90` built `7.3`, so the third row above is now false and is corrected: **there is a page a stranger can reach that lists what this account has won, it exists for every account, ~~and it cannot be turned off~~.** **Superseded by `D-93`: the person can switch it off, and it is on by default.** The block says what the page carries and routes to the switch in Settings. The row says that, in those terms, because this is the page whose whole job is telling a person what we hold about them.
 
 **And the main action points at it.** "See yourself as a stranger does" opened one of this account's own results while there was nothing else to open. **It opens `7.3` now**, in the owner state, `player-owner.html`, which is the page a stranger reads with a band on top saying so and a route back here. The route to a single result is not lost: it is one card on that page and every other card carries the same route to its own round.
 
@@ -221,9 +229,10 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 
 | State | What the page does | Where it is specified |
 |---|---|---|
-| **Account exists** | The five blocks. This is the only state the page has of its own | Here |
+| **Account exists** | ~~The five blocks.~~ The account band, then your daily case, your messages and your public page, `D-87`, `D-90` and `D-130`. This is the only account state the page has of its own | Here, `profile.html` |
+| **No messages in either tab** | Added by `D-87`. The messages panel says nothing has been sent and where the channel is switched off; the rest of the page is unchanged. **The state the baseline capture was taken in** | Here, `profile-quiet.html` |
 | **Guest** | Never rendered. There is no public form of this page | `0.13`'s transactional zone, and `D-69` |
-| **The Steam link is broken or the account is unlinked** | The band renders with the origin marked unreadable and the route to `0.10`. **Never a silent fallback to a generated name**, because a name the product invented is a second name for one person | `B5`, readable failure states |
+| **The Steam link is broken or the account is unlinked** | The band renders with the origin marked unreadable, "Name unavailable", and one notice, "Steam cannot be read right now", with two routes, `D-137`. **Never a silent fallback to a generated name**, because a name the product invented is a second name for one person | `B5`, readable failure states. `profile-steam-down.html` |
 | **Boundary in force `6.3`** | Unchanged. Reading who you are is never closed by a boundary | `6.1` |
 | **Restricted `5.6`** | Unchanged, and the written ground is not repeated here. `5.6` owns it and two renderings of one ground is the defect `0.9` names about the identification block | `5.6`, `0.9` section 2 |
 
@@ -244,7 +253,7 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 
 ## 4. Responsive and accessibility
 
-**Mobile 360, the base.** One column: the identity band, the Steam origin, the account id, what is public, the routes.
+**Mobile 360, the base.** One column: ~~the identity band, the Steam origin, the account id, what is public, the routes~~ the account band with the name and the id, then your daily case, your messages and your public page, which is the DOM order `D-87` fixed: what changes today first.
 
 ~~**Desktop from 900.** The same single column held to a readable measure. **Nothing here becomes two columns**, because five short blocks in two columns is a dashboard, and this page is a record.~~ **Amended by `D-87`:** two columns from 1000, one column below it. A list that grows, beside a short record, is a reading surface.
 
@@ -263,7 +272,7 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 
 **A. Meta.** `robots: noindex, follow`, canonical self. No OG or Twitter card: **an unfurl preview of a person's own account page is a card that should never be generated**, and the same sentence is in `4.1` for the same reason. One language, no `hreflang`.
 
-**B. Headings.** One H1. H2s in block order: the Steam origin, your account id, what is public about you.
+**B. Headings.** One H1, Profile. ~~H2s in block order: the Steam origin, your account id, what is public about you.~~ **H2s in block order, as rendered:** Your daily case; Your messages, with the open tab's name as an H3 inside it; Your public page. On `profile-steam-down.html` the notice "Steam cannot be read right now" is an H2 between the messages and the public page. The account id has no heading: it is in the band since `D-130` removed "Who this account is".
 
 **C. SEO text.** None, `noindex`.
 
@@ -291,7 +300,7 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 
 | Open item | What is missing | Owner |
 |---|---|---|
-| ~~**Whether a public profile exists at all**~~ | **Closed 23 August 2026 by `D-90`.** It exists: node `7.3`, built over `7.1` block 6's refusal, which is kept with its reason. **Block 4 was rewritten the day the answer was taken, exactly as this row said it would be.** What replaces this row is narrower and it is not this node's: **whether an account can hide `7.3`.** There is no toggle and there will not be one until it is decided, `D-58`, so both `7.3` and this page render the absence as a sentence | Closed here. The remaining half sits on `7.3`, owner the founder |
+| ~~**Whether a public profile exists at all**~~ | **Closed 23 August 2026 by `D-90`.** It exists: node `7.3`, built over `7.1` block 6's refusal, which is kept with its reason. **Block 4 was rewritten the day the answer was taken, exactly as this row said it would be.** What replaces this row is narrower and it is not this node's: **whether an account can hide `7.3`.** ~~There is no toggle and there will not be one until it is decided, `D-58`, so both `7.3` and this page render the absence as a sentence~~ **Closed 24 August 2026 by `D-93`: yes, default visible.** The switch is on `5.11`, and this page's "Your public page" block routes to it | Closed, both halves |
 | **Whether a person can change their display name here** | Refused above as a new capability with no row. **If the answer is that they can, it is a backlog row first and a block second**, not the other way round | Founder, then `cjm-to-be.md` |
 | **The three register rows** | `0.13` has none for `5.9`, `5.10` or `5.11`. Shape in `history.md` section 8 | Node `0.13` |
 | **Whether this page survives its own orphan status** | **The honest question, asked here rather than left implicit.** It has no parent, it holds five facts, and three of them are one line each. `D-36` put it on the map because the founder said it would exist. **If it is cut, the account menu loses a row and the rule that put it there applies again in the other direction** | Founder |

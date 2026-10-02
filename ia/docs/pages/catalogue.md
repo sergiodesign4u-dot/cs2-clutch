@@ -16,6 +16,14 @@
 
 ---
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** The promised Find a case H2 is struck, the category bar being a labelled navigation region; the copy is `D-127`'s one paragraph; the tile costs, 00:00 UTC and 0.00 of 5.00 are marked as samples.
+
+---
+
 ## Amended 2 October 2026 by `D-143`. Search opens the name field, and the minimum filters
 
 **Why.** Round 15 of the critique found Search moving focus and nothing else on all seven shelf pages, open since round 9, and the drawer's minimum price read by nothing.
@@ -42,7 +50,7 @@
 
 **The address carries the filter.** `?risk=High&max=24.50&q=cold` opens the shelf filtered, so the chips' x, Clear all and the empty state's two exits are links that land on a real result. The empty state now says the cheapest High risk case is 24.50 and that one case matches without the risk level; it said 0.80 and twelve. The filtered state shows the one case its two filters allow. **The loading state skeletons the favourite count**, the one figure a tile waits on, and keeps the static figures.
 
-**Samples, `D-124`:** the favourite counts on every tile.
+**Samples, `D-124`:** the favourite counts on every tile; **added by round 15 step 6:** the entry cost on every tile, and on the daily panel the reset moment, `00:00 UTC`, and with an account the tier target, `0.00 of 5.00` coins wagered, the same samples `1.0` marks for the same component `0.15`.
 
 ---
 
@@ -321,11 +329,11 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 ### B. Headings, exactly one H1 and the H2 list in block order
 
 - **H1:** All CS2 cases, with published chances and values
-- **H2:** Find a case _(the search, filter and category bar, blocks 2 to 4)_
+- ~~**H2:** Find a case _(the search, filter and category bar, blocks 2 to 4)_~~ **No H2, caught up with the render: the category bar is a labelled navigation region, `Categories`, rather than a section**, the same exception `1.0` section 8.B takes for its ticker and banner, and the H1 sits directly above it with nothing between them since `D-127`. The search and the filter open the drawer, a dialog whose own heading, `Filter`, exists only while it is open
 - **H2, once per category section** _(block 6, and the category name is the heading)_. **Changed 21 August 2026 by `D-65`:** it read a single H2, All cases, over one flat grid, and the shelf is a run of named sections. **The chips in block 3 jump to these headings**, so the bar and the heading list are the same list read twice, which is what makes the jump checkable rather than decorative
 - **H2:** What the numbers on a case mean _(SEO text)_
-- **H3:** Where the chance and the value come from
-- **H3:** The daily free case
+- ~~**H3:** Where the chance and the value come from~~
+- ~~**H3:** The daily free case~~ **Both H3s left with `D-127`, which cut the SEO text to one H2 and one paragraph**, section C
 
 **One consequence, printed rather than discovered at stage 07:** the H2 count now moves with the catalogue. `0.13`'s mechanical check is that the H2 list matches the block order, and with sections that check reads the section list rather than a fixed list of three.
 
@@ -335,11 +343,9 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 
 ### C. SEO text, finished copy
 
-> **What the numbers on a case mean.** Every tile carries three things and each one is a fact you can check. The entry cost is what one open costs. The risk band says what the case is shaped like, High, Medium or Low, and it is read from the same drop table you can open and read yourself. Every item in that table shows its chance and what it is worth right now, and the chances add up to a hundred in front of you.
->
-> **Where the chance and the value come from.** The chance is the share of the roll interval the item occupies, and the interval is printed beside it, so the two are the same fact written twice. The value is a live market price with the moment it was read attached to it. Neither is a number we ask you to take on faith, and the case page shows the tested return and the expected value at that entry cost beside them.
->
-> **The daily free case.** One case a day opens without a balance. It sits in the grid with everything else rather than in a banner, so it is filtered and searched like any other case, and it shows the same chances and the same values as the ones that cost money.
+> **What the numbers on a case mean.** Every tile shows the entry cost of one open and the risk band of the case, High, Medium or Low, read from its drop table. Open a case to see every item with its chance, its current value and the ticket range the roll resolves against. The daily case is earned by wagering, and the tier you reach decides which case it opens.
+
+**Replaced by the render of `D-127`, one H2 and one paragraph.** The earlier finished copy ran three paragraphs under two H3s and is struck rather than deleted: ~~"Every tile carries three things and each one is a fact you can check. [...] The value is a live market price with the moment it was read attached to it. [...] The daily free case. One case a day opens without a balance. It sits in the grid with everything else rather than in a banner, so it is filtered and searched like any other case"~~. **Two of its claims were already false against the render**: the daily case is earned by wagering and sits in its own panel, `D-25` and `D-68`, and the value is our price rather than a live market read, `D-91`.
 
 **This block stays the property of this node.** Stage 05 aligns it to voice and syncs the final version back here. Interface strings, the filter labels, the empty state sentence and the chip text, do not move into this block: after stage 05 they live in `voice/docs/microcopy.md`, and this node holds the requirement that the information exists in that place.
 

@@ -16,8 +16,16 @@
 
 | What the live product does | What we keep | What we change, and why |
 |---|---|---|
-| A two column settings tab with **twenty rows** in four groups: `GENERAL` five, `SECURITY` three, `LINKED PROFILES` four, `NOTIFICATIONS` eight. Founder captures of 18 August 2026, `baseline-account.md` section 7, and of 22 August 2026, `research/screens/baseline/founder_22aug_settings_top.png` and `founder_22aug_settings_linked.png`. | **One row: the Steam trade URL**, with its helper line, because the exit needs it and nothing else on the map holds it. | **Nineteen of twenty do not survive, and almost none of them for a reason about settings.** Eleven configure modes that are `LATER` or channels that have no backlog row at all. Five already live somewhere else on our map and would be second homes. Two are refused on a rule. One is `[?]` and belongs to the founder. **Section 1 gives the verdict on every row with its reason, because a settings page that quietly drops nineteen rows is a settings page nobody can audit against its own baseline.** |
+| A two column settings tab with **twenty rows** in four groups: `GENERAL` five, `SECURITY` three, `LINKED PROFILES` four, `NOTIFICATIONS` eight. Founder captures of 18 August 2026, `baseline-account.md` section 7, and of 22 August 2026, `research/screens/baseline-account/acct_settings_top_22aug.png` and `acct_settings_linked_22aug.png`. | **One row: the Steam trade URL**, with its helper line, because the exit needs it and nothing else on the map holds it. | **Nineteen of twenty do not survive, and almost none of them for a reason about settings.** Eleven configure modes that are `LATER` or channels that have no backlog row at all. Five already live somewhere else on our map and would be second homes. Two are refused on a rule. One is `[?]` and belongs to the founder. **Section 1 gives the verdict on every row with its reason, because a settings page that quietly drops nineteen rows is a settings page nobody can audit against its own baseline.** |
 
+
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** The baseline shots point at the real files; the sample values are marked; the public page row prints both exclusions; the meta is noindex, follow with a self canonical.
+
+---
 
 ## Amended 2 October 2026 by `D-143`. The confirmation the row promises exists
 
@@ -28,6 +36,8 @@
 | The live product | What we keep | What we change, and why |
 |---|---|---|
 | Confirmation switches | No switch, section 4.2 | **Every sale now asks**: the first press turns the control into its question, the second sells. Sending to Steam and cashing out confirm on their review screens. **The country saved here is the one the deposit lists methods for** |
+
+**Samples, `D-124`, marked here:** the saved trade URL, `https://steamcommunity.com/tradeoffer/new/?partner=104518222&token=xJ2n-Qf7`; "Last changed 14 Aug 2026" under it; and "Last changed 11 Aug 2026" under where you live.
 
 ---
 
@@ -112,7 +122,7 @@
 
 **The switch is real and it moves something, `D-58`.** It decides which of two built pages a stranger gets at the address, and whether `0.8` renders the winner's name as a link.
 
-**And the row states its own limit in the same breath.** Hiding the page does not retract a round already shared and does not take the name out of the strip. **A switch trusted for more than it does is worse than no switch**, so the two exclusions are on the row rather than only in `7.3`.
+**And the row states its own limit in the same breath.** Hiding the page does not retract a round already shared and does not take the name out of the strip. **A switch trusted for more than it does is worse than no switch**, so the two exclusions are on the row rather than only in `7.3`. **Both render on the row since round 15**, "Pages for rounds you already shared stay up, and your name stays in the live drops." The name leaves the strip only by Make me anonymous, the row under it since `D-124`, and `player-hidden.html` says so.
 
 **The row carries a route and not a preview:** "See what is on it right now" opens `7.3`'s owner view. A settings page that rendered the public page inside itself would be a second copy of a screen that already exists.
 
@@ -145,7 +155,7 @@
 
 **The source was already in the repository and it was four days old.** `research/docs/baseline-account.md` section 7 has carried this screen since the founder's capture of 18 August 2026, with all twenty rows written out. **What was missing was the derivation, not the input**, and the input gate exists to tell those two apart.
 
-**The founder supplied the captures again on 22 August 2026 and they are filed** in `research/screens/baseline/`, dated, as `CLAUDE.md` requires. They confirm section 7 and they contradict it in one place, section 1.5.
+**The founder supplied the captures again on 22 August 2026 and they are filed** in `research/screens/baseline-account/`, dated, as `CLAUDE.md` requires. They confirm section 7 and they contradict it in one place, section 1.5.
 
 ---
 
@@ -193,7 +203,7 @@
 |---|---|
 | `baseline.md`, second walk of 18 August 2026, from the sign-in modal | Steam, **Facebook**, X, Google |
 | `baseline-account.md` section 7, founder capture of 18 August 2026 | Steam, **Facebook**, Twitter, Google |
-| **Founder capture of 22 August 2026**, `founder_22aug_settings_linked.png` | Steam, **Discord**, Twitter as the X mark, Google |
+| **Founder capture of 22 August 2026**, `acct_settings_linked_22aug.png` | Steam, **Discord**, Twitter as the X mark, Google |
 
 **This is not a misreading and it did not have to be guessed at, because both shots are in the repository.** `acct_settings_security_linked.png` of 18 August labels the row **Facebook** with the Facebook mark, and `acct_settings_linked_22aug.png` of 22 August labels the same row **Discord** with the Discord mark. **The live product changed between the two dates**, and both records were correct when they were written.
 
@@ -218,7 +228,7 @@
 | Block | Parent | Notes |
 |---|---|---|
 | **B1. The Steam trade URL** | Rows `G1` and `G5` at `cjm-to-be.md`, on barriers `B8-2` and `B8-3`, by way of node `5.3` | Section 2.1 |
-| **B2. Make me anonymous** | `7.1`'s own open item, quoted in section 3.2 | **Not drawn. Rendered as a stated absence with its owner**, because drawing the control would decide a question two other nodes are waiting on |
+| **B2. Make me anonymous** | `7.1`'s own open item, quoted in section 3.2 | ~~**Not drawn. Rendered as a stated absence with its owner**, because drawing the control would decide a question two other nodes are waiting on~~ **Superseded by `D-124`: a working switch, off by default**, whose value line says what it moves, the name in live drops and on shared results |
 | **B3. Where the rest of it lives** | The account menu on `0.1` and the map's transitions | Section 2.2 |
 
 **Three blocks, and one of them is a list of things that are not here.** That is unusual and it is deliberate: this page's baseline has twenty rows and ours has one, so a person arriving from a product where sound, language and the break tool are all in settings will look for them here.
@@ -299,7 +309,7 @@ Sound, language, the break tool and sign out are all somewhere already. **They a
 
 ## 5. SEO and indexation
 
-**Not indexed, no canonical, no schema, no breadcrumb**, and it carries a `noindex` header. This is a private account surface and `0.13`'s register treats the whole `5.x` group that way.
+**Not indexed, ~~no canonical~~, no schema, no breadcrumb**, and it carries `noindex, follow` as a meta tag with a canonical to itself, round 15, the treatment every private page renders. This is a private account surface and `0.13`'s register treats the whole `5.x` group that way.
 
 **It owes `0.13` a row and does not have one.** `D-78` already recorded that the register has no row for `5.9`, `5.10` or `5.11`, and its closing count of nine indexed against six not indexed was taken before those three nodes existed. **This node repeats that finding rather than editing another node's register.**
 
@@ -342,7 +352,7 @@ Sound, language, the break tool and sign out are all somewhere already. **They a
 | Open item | What is missing | Owner |
 |---|---|---|
 | **Whether `5.11` survives at all** | It holds one block. **If the founder would rather the trade URL live only on `5.3`, this node is cut and the account menu loses a row**, and the rule that put the row there applies again in the other direction. Recommended: keep it, because a field that only exists inside a flow can only be corrected by re-entering the flow | Founder |
-| **Whether a person can turn off their public appearance** | Section 3.2. `7.1` has carried this open since 21 August 2026 and the baseline shows the control exists in the live product | Founder, with `7.1` and `0.8` |
+| ~~**Whether a person can turn off their public appearance**~~ | ~~Section 3.2. `7.1` has carried this open since 21 August 2026 and the baseline shows the control exists in the live product~~ **Closed by `D-124`**: Make me anonymous is a working switch | Closed |
 | **What a refused trade URL says** | The cause is stated in one voice, `B5`, but the actual failure classes are Steam's and no page has been opened for them | Production, one sourced check |
 | **Whether the trade URL can be checked before the exit at all** | Section 3.3 assumes it can. If Steam offers no way to validate one without sending an offer, the refused state moves to the exit and `5.3` gains it | Production |
 | **The fourth surface `D-55`'s debt reaches** | Section 1.3. That record printed three unbuilt states and this node adds a fourth | The owners `D-55` named, `5.1`, `5.3` and `4.1` |

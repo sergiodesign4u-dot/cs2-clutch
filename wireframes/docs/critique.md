@@ -976,3 +976,22 @@ A separate table from the defects, as the pack asks: a step that did not happen 
 | B1-13 | Sell on the five roll outcome 22 px wide at 360 | B1 | Fixed: 49 wide. The card is its own container, so the query that thinned its padding never applied to it; a media rule does now. **A first verification here wrongly withdrew it, reading another page's 117 by 40, and was corrected on re-measuring** |
 
 **Checked on screen** at 1440 and 360 on every page: no script error, no horizontal scroll, no figure split from its unit.
+
+### 16.8 Step 6, the nodes against the render, fixed on 3 October 2026 under `D-145`
+
+**Four node editors, each on its own files**, read every D2 row of classes 1 to 5 and 9 and the node rows of D1 against the current file and the render. **The node caught up where the render carries a later decision; the render caught up where the node held a promise no decision withdrew.**
+
+| Class | Rows | Status |
+|---|---|---|
+| Block without a place | J1 to J15 | J1, J2, J3, J4, J6, J7, J8 struck in the node with their decisions; J5, J9, J10, J11, J13, J15 drawn; J12, J14 closed in steps 1 and 2 |
+| Element without a node | J16 to J20 | Named in the node |
+| State drift | J21 to J32 | `screens.md` names every registered page; the nodes' state tables follow the registry; J26 withdrawn, closed by `D-141` |
+| SEO without a place | J33 to J49 | Headings: the node follows the render. Metas: the page follows the node. J36, J39 in part, J49 withdrawn on verification |
+| Sample not marked | J50 to J58 | Marked in their nodes |
+| Canonical data | J60 | Fixed: the published times are declared once, `WF_PUB` |
+| Primaries | J89 | Fixed: at most one outside the two exceptions and layers, written in `conventions.md` 1.6 |
+| Copy ownership | J92 to J104 | J92 Send to Steam everywhere it was the act; J93, J96, J97, J104 rendered; J94, J100 to J103 in the nodes |
+| D1 node rows | R8, R9, R16, R17, R22, R27, R28, R62, R63, R64 | Fixed in the nodes |
+| Found while fixing | the sticky bar's trigger a span; three and four not redrawing the stage; "All 5 saved" at three; an unsigned Send to Steam | lead, from a node editor's render notes | Fixed |
+
+**Carried to the founder**, eight items, `D-145`. **Checked on screen** at 1440 and 360 on every page: no script error, no horizontal scroll, at most one primary outside the named exceptions.

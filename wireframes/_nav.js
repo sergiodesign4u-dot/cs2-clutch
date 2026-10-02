@@ -433,6 +433,11 @@ window.WF_BONUS = window.WF_BONUS || {
    the figures through moneyAdd(), which repaints every place that shows them.
    Samples by D-124, marked in 5.1. */
 var WF_MONEY = { balance: 74.20, held: 140.95 };
+/* OUR PUBLISHED WITHDRAWAL TIMES, ONCE, round 15: the pair was typed on seven
+   withdrawal pages and in Home's renderer, while home.md said 5.3 reads them from
+   one place. Elements carrying data-pub are filled from here. Samples, D-124,
+   marked in 1.0. */
+var WF_PUB = { median: '1 h 40 m', p90: '6 h 15 m' };
 function moneyNow() {
   var M = (window.WF_SHELL && window.WF_SHELL.money) || {};
   var p = function (v, d) { return v === undefined ? d : parseFloat(String(v)); };
@@ -2372,7 +2377,11 @@ window.WF_PAY = window.WF_PAY || {
     // figure the block no longer has, because two places to read one number is how the
     // two drift apart. Where a figure does exist it is still carried.
     if (cost) { bar.appendChild(el('span', 'wf-commit-bar-v', cost.textContent)); }
-    var t = el('span', 'wf-btn wf-btn--primary', trigger.textContent);
+    /* A LINK AND NOT A PICTURE OF ONE, round 15: the bar's trigger was a span, so
+       a tap on it did nothing. It carries the trigger's address and stays out of
+       the tab order, because the trigger itself is still in the document. */
+    var t = el('a', 'wf-btn wf-btn--primary', trigger.textContent);
+    t.setAttribute('href', trigger.getAttribute('href') || '#'); t.tabIndex = -1;
     bar.appendChild(t);
     document.querySelector('.wf-screen-body').appendChild(bar);
 
@@ -2606,7 +2615,9 @@ window.WF_PAY = window.WF_PAY || {
     // not a statement, so it waits at the address for production to fill it.
     // D-130: THE FOUR NEVERS ARE ONE LINE. They were the largest block in the
     // dialog; the line keeps the two a person checks for, and the node keeps all four.
-    out.push('<p class="wf-never-l">We never ask for your password or change your Steam profile.</p>');
+    // 2.5 AND 2.6 REPLACE BLOCKS 1 AND 3 IN PLACE, round 15: the line stayed on
+    // both failure states, where the node says the failure takes its place.
+    if (!isFail) out.push('<p class="wf-never-l">We never ask for your password or change your Steam profile.</p>');
 
     // ======== FROM HERE DOWN: THE ADDRESS CARRIER ONLY, D-56 ================
 
@@ -2846,7 +2857,10 @@ window.WF_PAY = window.WF_PAY || {
         /* THE GROUND IS PER MARKET AND COMES FROM THE REGISTER. Where a row's
            ground is [?] the row is not blocked at all: B4's success signal is
            that every blocked market carries a citation. Readable words, never a
-           statute number standing alone. */
+           statute number standing alone. DRAWN SINCE ROUND 15: the ground had no
+           place once D-136 removed Where we operate. The sample market is
+           Washington, markets.md section 2's readable sentence, D-124. */
+        '<p class="wf-gate-p">Washington State Gambling Commission ordered Valve to stop allowing skin transfers for gambling, October 2016.</p>' +
         '<p class="wf-gate-p">Not in this country? Tell support below, we answer within 72 hours.</p>' +
         openLine() + refusalActs();
     } else {
@@ -3066,6 +3080,9 @@ window.WF_PAY = window.WF_PAY || {
     var h1 = document.querySelector('.wf-result') && document.querySelector('h1');
     var K = R.kase || 'Ironbound';
     if (h1 && /won from/.test(h1.textContent)) h1.textContent = R.w + ' | ' + R.s + ', won from ' + K;
+    // THE TITLE FOLLOWS THE ROUND, round 15: ?round=glock showed a Glock under an AK title.
+    document.title = R.w + ' ' + R.s + ', ' + R.axes[0] + ', from ' + K;
+    var og = document.querySelector('meta[property="og:title"]'); if (og) og.setAttribute('content', document.title);
     var cn = q('.wf-caserow strong'); if (cn) cn.textContent = K;
     var cr = q('.wf-caserow'); if (cr && K !== 'Ironbound') cr.setAttribute('href', BASE + 'catalogue.html');
     var v = document.querySelectorAll('.wf-vals .wf-fig');
@@ -3105,14 +3122,25 @@ window.WF_PAY = window.WF_PAY || {
     { w: 'M4A1-S', key: 'o5m4', v: 24.60, st: null }
   ];
   function mountMultiCount() {
-    if (!/case-(open|outcome)-5\.html/.test(location.pathname)) return;
+    if (!/case-(open|outcome|account)-5\.html/.test(location.pathname)) return;
     var n = parseInt((/[?&]n=([34])/.exec(location.search) || [])[1], 10);
     if (!n) return;
     var R = MULTI.slice(0, n), WORD = { 3: 'three', 4: 'four' }[n], unit = 12.40;
     var spent = n * unit, won = R.reduce(function (a, r) { return a + r.v; }, 0);
     var swap = function (sel, re, to) { Array.prototype.forEach.call(document.querySelectorAll(sel), function (x) { x.innerHTML = x.innerHTML.replace(re, to); }); };
     swap('.wf-case-line', /five rolls/, WORD + ' rolls');
-    swap('.wf-fig-c, .wf-hash-l, .wf-sr, .wf-outcome-links a', /\b5( rolls| results| round hashes)/g, n + '$1');
+    swap('.wf-fig-c, .wf-hash-l, .wf-sr, .wf-outcome-links a', /\b(?:All )?5( rolls| results| server seed hashes| saved)/g, function (m, w) { return (/^All/.test(m) ? 'All ' : '') + n + w; });
+    /* ON THE COMMIT STATE THE SWITCH, THE TRIGGER AND THE LINE FOLLOW THE COUNT. */
+    if (/case-account-5/.test(location.pathname)) {
+      /* THE BOXES ARE ONE PER CHOSEN ROLL, D-47: the stage at rest shows n. */
+      var bx = document.querySelector('.wf-boxes--5');
+      if (bx) { Array.prototype.forEach.call(bx.children, function (c, i) { if (i >= n) c.hidden = true; }); }
+      Array.prototype.forEach.call(document.querySelectorAll('.wf-count-b'), function (x) { if (x.textContent.trim() === String(n)) x.setAttribute('aria-current', 'true'); else x.removeAttribute('aria-current'); });
+      var tr = document.querySelector('.wf-commit-act .wf-btn--primary');
+      if (tr) { tr.textContent = 'Open for ' + spent.toFixed(2) + ' coins'; tr.setAttribute('href', BASE + 'case-open-5.html?n=' + n); }
+      swap('.wf-commit .wf-fig-c', /After this open, [\d.]+/, 'After this open, ' + (moneyNow().balance - spent).toFixed(2));
+      return;
+    }
     Array.prototype.forEach.call(document.querySelectorAll('.wf-lane--live'), function (l, i) { if (i >= n) l.hidden = true; });
     var cost = document.querySelector('.wf-commit-cost .wf-fig-v'); if (cost) cost.textContent = spent.toFixed(2) + ' coins';
     var hs = document.querySelector('[data-hashes]'); if (hs) hs.setAttribute('data-hashes', R.map(function (r) { return r.key; }).join(' '));
@@ -3285,6 +3313,10 @@ window.WF_PAY = window.WF_PAY || {
   function renderProofs() {
     Array.prototype.forEach.call(document.querySelectorAll('[data-proof]'), function (host) {
       host.innerHTML = proofPanel(host.getAttribute('data-proof') || 'settled');
+      /* ONE MAIN ACTION, round 15, D-140: where the page has its own, the owner's
+         Copy the link above all, the proof's recompute steps down. */
+      var mine = host.querySelector('.wf-btn--primary'), other = Array.prototype.some.call(document.querySelectorAll('.wf-main .wf-btn--primary'), function (x) { return !host.contains(x); });
+      if (mine && other) mine.classList.remove('wf-btn--primary');
     });
   }
 
@@ -3416,13 +3448,13 @@ window.WF_PAY = window.WF_PAY || {
     // promising a figure it does not print is the hole D-107 took off screens.
     out.push('<section class="wf-sec" aria-labelledby="h2-proof"><div class="wf-sec-head"><h2 id="h2-proof">Before you spend</h2></div><div class="wf-figs">' +
       '<a class="wf-fig wf-fig-a" href="case.html#h2-pays"><span class="wf-fig-v">94.2 %</span><span class="wf-fig-c">Tested RTP, Ironbound</span></a>' +
-      '<a class="wf-fig wf-fig-a" href="withdraw.html"><span class="wf-fig-v">1 h 40 m</span><span class="wf-fig-c">Median withdrawal to Steam</span></a>' +
+      '<a class="wf-fig wf-fig-a" href="withdraw.html"><span class="wf-fig-v">' + WF_PUB.median + '</span><span class="wf-fig-c">Median withdrawal to Steam</span></a>' +
       '<div class="wf-fig"><span class="wf-fig-v">0 %</span><span class="wf-fig-c">Our commission on withdrawals</span></div>' +
       '<a class="wf-fig wf-fig-a" href="fair.html"><span class="wf-fig-v">Every round</span><span class="wf-fig-c">Checkable without an account</span></a>' +
       '</div></section>');
 
     // B11, THE SEO TEXT, one H2 and one paragraph. The three H3s repeated the
-    // row above in prose; home.md section 15 carries the change.
+    // row above in prose; home.md section 8.C carries the change.
     out.push('<section class="wf-sec wf-prose" aria-labelledby="h2-about"><div class="wf-sec-head"><h2 id="h2-about">What opening a case here involves</h2></div>' +
       '<p>A case is a fixed set of CS2 skins with a published chance on each one. You pay the entry cost in coins, one roll decides the item, and you can keep it, sell it back or send it to your Steam inventory. Every case shows its chances, its item values and its tested return before you open it, and every round can be checked afterwards.</p></section>');
 
@@ -4885,7 +4917,7 @@ window.WF_PAY = window.WF_PAY || {
       e.appendChild(el('p', 'wf-empty-p', 'Sending a skin out means buying a real copy of it, and right now there is none on sale at any price. It cannot go to Steam today.'));
       e.appendChild(el('p', 'wf-empty-p', 'What still works is selling it back to us for its value, which is our price for it and not a market price, so no copy has to exist for it to happen.'));
       var row2 = el('div', 'wf-row');
-      var sb = el('button', 'wf-btn wf-btn--primary', 'Sell it back for ' + wdFmt(row.ours) + ' coins'); sb.type = 'button';
+      var sb = el('button', 'wf-btn', 'Sell it back for ' + wdFmt(row.ours) + ' coins'); sb.type = 'button';
       /* THE SALE MOVES THE MONEY AND LEAVES THE SUM, round 15: it printed Sold
          over a settlement and a header that did not change. */
       sb.addEventListener('click', function () {
@@ -5618,7 +5650,9 @@ window.WF_PAY = window.WF_PAY || {
                  does not exist here until stage 07. */
               '<div class="wf-bonusrow">' +
                 '<span class="wf-bonusrow-v" data-fig-bonus>+' + f.bonus + ' coins</span>' +
-                '<span class="wf-bonusrow-t">Bonus, ' + (B.pctFull || '5.00%') + '</span>' +
+                // THE CAP AND THE PERIOD TRAVEL WITH THE PERCENTAGE, round 15: the
+                // line said only 5.00%, while the comment above already claimed both.
+                '<span class="wf-bonusrow-t">Bonus, ' + (B.pctFull || '5.00%') + ', up to ' + (B.cap || '100 coins') + ' per ' + (B.period || '24 hours') + '</span>' +
               '</div>' +
               '<div class="wf-tl wf-tl--sum"><span>Total charged</span><span class="wf-tl-v" data-fig-total>$' + f.amount + '</span></div>' +
               '<p class="wf-tl-c">No provider fee on this route</p>' +
@@ -6923,6 +6957,17 @@ window.WF_PAY = window.WF_PAY || {
      / %", "20 / Aug / 2026" and a time alone on its own line at 360. One pass
      over the rendered text joins a number to its unit, a day to its month, a
      month to its year and a date to its time with a no-break space. */
+  /* A TILE'S NAME READS NAME, COST, RISK, THEN ITS MARKERS, round 15, case-tile.md
+     section on the accessible name: the markup order read name, risk, cost. */
+  function mountTileNames() {
+    Array.prototype.forEach.call(document.querySelectorAll('a.wf-tile-link'), function (a) {
+      var t = function (sel) { var e = a.querySelector(sel); return e ? e.textContent.trim() : ''; };
+      var marks = Array.prototype.map.call(a.querySelectorAll('.wf-tile-mark, .wf-tile-flag'), function (e) { return e.textContent.trim(); }).filter(Boolean);
+      if (!t('.wf-tile-name')) return;
+      a.setAttribute('aria-label', [t('.wf-tile-name'), t('.wf-tile-cost') + ' coins', t('.wf-tile-risk')].concat(marks).filter(Boolean).join(', '));
+    });
+  }
+
   function nbspFigures() {
     var MON = '(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)';
     var rules = [[/(\d) (?=coins?\b|%|UTC\b)/g, '$1\u00a0'], [new RegExp('(\\d{1,2}) (' + MON + ')\\b', 'g'), '$1\u00a0$2'],
@@ -6999,6 +7044,8 @@ window.WF_PAY = window.WF_PAY || {
     // Home kept opening the guest home on every signed-in page.
     mountHomeLinks();
     mountCommitBar();
+    mountTileNames();
+    Array.prototype.forEach.call(document.querySelectorAll('[data-pub]'), function (e) { e.textContent = WF_PUB[e.getAttribute('data-pub')] || e.textContent; });
     nbspFigures();
   });
 })();

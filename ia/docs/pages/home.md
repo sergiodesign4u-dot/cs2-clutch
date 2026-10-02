@@ -26,6 +26,14 @@
 **Two obligations this node was handed, and both are honoured.** `sitemap.md`, "Free entry gets an obligation rather than a surface", makes `S-A1` carry the starter credit offer as a pre-login element: block B10. `sitemap.md`, "Detailed node map", row 1.0, makes it carry the featured case grid directly on the page rather than behind a mode hub: block B5.
 
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** The H1, the H2 list and the copy follow `D-126`; B10 is out and B11 is one paragraph; the shell is one rail item and two bar items in both states, `D-40`; 94.2 % and the tile costs are marked as samples.
+
+---
+
 ## Amended 29 September 2026 by `D-133`. The favourite answers, and every figure on Home says it is a sample
 
 **Why.** Round 14 of the critique pressed every control on Home and followed every figure, `wireframes/docs/critique.md` section 14.
@@ -38,7 +46,7 @@
 | Nothing above the banner | | **1.1's strip says the daily state in words that agree with themselves**: "No daily case yet, next tier at 5.00 coins wagered". It read "0 daily cases, available now" |
 | Nothing | | The RTP figure's caption is its subject only: "Tested RTP, Ironbound" |
 
-**Samples, `D-124`, marked here:** the favourite counts on the tiles, 829, 1 204, 311 and 96; the tier target, 5.00 coins wagered; the median time to Steam, 1 h 40 m, and nine in ten within 6 h 15 m, which `5.3` reads from here.
+**Samples, `D-124`, marked here:** the favourite counts on the tiles, 829, 1 204, 311 and 96; the tier target, 5.00 coins wagered; the median time to Steam, 1 h 40 m, and nine in ten within 6 h 15 m, which `5.3` reads from here; **added by round 15 step 6:** the tested RTP in the Before you spend row, `94.2 %`, Ironbound's, which `3.3` prints too; and the four entry costs on the featured tiles, Ironbound 12.40, Warsteel 4.90, Coldfront 2.10 and Nightfall 31.00 coins.
 
 ---
 
@@ -345,7 +353,7 @@
 
 | Component | Variant on this node | Owner |
 |---|---|---|
-| **`0.1` Navigation** | Rail with three destinations as a guest and four with an account; header with Sign in as a guest and the two money figures with an account; mobile bar with three items as a guest and four with an account. Home is bar item 1 and is active on arrival | `0.1` |
+| **`0.1` Navigation** | ~~Rail with three destinations as a guest and four with an account~~ **Rail with one destination, Cases, in both states, `D-40`**; header with Sign in as a guest and the two money figures with an account; ~~mobile bar with three items as a guest and four with an account~~ **mobile bar with two items, Home and Cases, in both states, `D-40`**. Home is bar item 1 and is active on arrival | `0.1` |
 | **`0.2` Footer** | One account state, unchanged. It carries the compliance line, 18+, responsible play and the market statement, so **Home does not repeat any of them** | `0.2` |
 | **`0.4` Cookie consent** | Fires on arrival, so this node is where it is met. Section 1.2 records the two consequences | `0.4` |
 | **`0.7` Canonical case tile** | Featured variant. Four fields, the stock marker only when the shelf is short, the daily marker only if the daily free case is in the featured set, the favourite control always | `0.7` |
@@ -380,9 +388,9 @@
 | **Grid B5** | Unchanged | Unchanged |
 | **Daily B6** | **The ladder renders as a description of what exists**, with no progress and no wager figure, because a guest has none. The control routes to `2.4` | The ladder with the person's own tier, the wager remaining figure in coins, ~~the reset countdown~~ the reset moment, `D-124`, and the count of cases available |
 | **B7 to B11** | Unchanged | Unchanged |
-| **Shell** | Sign in in the header, **one rail item, two bar items** | Two money figures and the deposit control in the header, **two rail items, three bar items**. Each money figure carries its own route, balance to `4.1` and value of items held to `5.1` |
+| **Shell** | Sign in in the header, **one rail item, two bar items** | Two money figures and the deposit control in the header, ~~**two rail items, three bar items**~~ **one rail item, two bar items, the same as a guest, `D-40`**: My items is the first row of the account menu rather than a rail or bar item. Each money figure carries its own route, balance to `4.1` and value of items held to `5.1` |
 
-**The shell row was superseded on 19 August 2026 by `D-29`** and the counts above are the ones that hold. It read "three rail items, three bar items" against "four rail items, four bar items", written when the rail still carried Provably fair and Responsible play. `D-29` moved both into the footer and left the rail with Cases, plus My items once an account exists. The old counts are recorded here rather than deleted because they are what the fold argument in section 1.2 was measured against.
+**The shell row was superseded on 19 August 2026 by `D-29`** ~~and the counts above are the ones that hold~~ **and its account cell again by `D-40`, which carries one destination, Cases, in the rail and Home plus Cases in the bar in both states.** It read "three rail items, three bar items" against "four rail items, four bar items", written when the rail still carried Provably fair and Responsible play. `D-29` moved both into the footer and left the rail with Cases, plus My items once an account exists. The old counts are recorded here rather than deleted because they are what the fold argument in section 1.2 was measured against.
 
 **Nothing is removed in either direction.** This is the YouTube signed-out row from `blocks.md` T1 taken literally: "one page, a state-dependent strip, not a different page", and never a login wall.
 
@@ -525,7 +533,7 @@ Not sign in, not deposit, not claim the credit. The route is the main job's tap 
 
 ### B. Headings: exactly one H1, then the H2 list in block order
 
-**H1:** `Open CS2 cases with the chance, the value and the payout time on the page before you spend`
+**H1:** ~~`Open CS2 cases with the chance, the value and the payout time on the page before you spend`~~ **`CS2 case opening with published odds`**, one centred line over the mode cards as `D-126` drew it against the baseline's one line, and the string the render carries. Stage 05 owns the final wording.
 
 **The structural requirement, which outlives that string:** the H1 names the action and the condition attached to it. Never the product name alone, never a slogan, never "CSGO & CS2 CASE OPENING SITE", which is what the baseline runs, `baseline.md` section 4. Stage 05 owns the final wording and syncs it back here.
 
@@ -534,14 +542,14 @@ Not sign in, not deposit, not claim the credit. The route is the main job's tap 
 | 1 | *(no H2)* | **B1 ticker.** A labelled region rather than a section: `<section aria-label>`, no heading |
 | 2 | *(no H2)* | **B2 banner.** A labelled region. Its line is body text at any size, rule 4 of section 2.2, and it never takes H1 or H2 markup |
 | 3 | *(no H2)* | **B3 hero.** Its heading is the page's H1 |
-| 4 | `Ways to play` | B4. **Its four card names are H3s**, so the row has a heading tree rather than four bold lines |
-| 5 | `Cases you can open right now` | B5 |
-| 6 | `Your daily case` | B6 |
-| 7 | `What this case actually costs` | B7 |
-| 8 | `Check any round without an account` | B8 |
-| 9 | `Getting your skin out` | B9 |
-| 10 | `Your first open, without a deposit` | B10 |
-| 11 | `What opening a case here involves` | B11, with H3s inside it, listed in block C |
+| 4 | `Ways to play` | B4. **Its four card names are H3s**, so the row has a heading tree rather than four bold lines. **Visually hidden since `D-126`**: the baseline's row has no heading and the cards say what they are, so the H2 stays for the outline only |
+| 5 | ~~`Cases you can open right now`~~ **`Featured cases`** | B5, the baseline's name for the block, `D-126` |
+| 6 | ~~`Your daily case`~~ **`Daily cases`** | B6, `D-126` |
+| 7 | ~~`What this case actually costs`~~ **`Before you spend`** | ~~B7~~ **B7, B8 and B9 as one row of four figures, `D-126`**: tested RTP for one case, the median withdrawal to Steam, our commission on withdrawals, and every round checkable without an account, each routed to the surface that owns it |
+| ~~8~~ | ~~`Check any round without an account`~~ | ~~B8~~ **Folded into the row above by `D-126`** |
+| ~~9~~ | ~~`Getting your skin out`~~ | ~~B9~~ **Folded into the row above by `D-126`** |
+| ~~10~~ | ~~`Your first open, without a deposit`~~ | ~~B10~~ **B10 left the page by `D-126` until its amount exists** |
+| 8 | `What opening a case here involves` | B11, ~~with H3s inside it, listed in block C~~ **one paragraph and no H3, `D-126`** |
 
 **Three blocks carry no H2 and the reason is written here so the stage 04 check stays mechanical.** `0.13` section 5 makes the H2 list the block order and the check "read the block order, read the H2 list, they match or the node is wrong". The rule with its two exceptions: **every content block carries an H2 in order; the hero does not, because its heading is the H1; the ticker and the banner do not, because both are labelled regions rather than sections.** The banner's exemption is the one that has to be enforced rather than assumed: a promotion is the block most likely to arrive from a marketing hand with a heading already on it.
 
@@ -549,24 +557,14 @@ Not sign in, not deposit, not claim the credit. The route is the main job's tap 
 
 Rendered in block B11, under the H2 `What opening a case here involves`.
 
-> A case is a fixed set of CS2 skins with a published chance on each one. You pay the entry cost in coins, one roll decides the item, and the item moves to your Steam inventory when you withdraw it. What one coin is worth in real money is published wherever money is spent, so a price can be converted back by the person reading it rather than only by us.
->
-> **### The numbers we publish before you spend**
->
-> Every case prints the chance and the current value of each item it holds, the tested return to player for that case, and the expected value at that entry cost. The number of units we actually hold of each item is printed on the item, because a chance at something we cannot deliver is not a chance.
->
-> **### What happens when you want to leave**
->
-> Withdrawal goes to your Steam inventory and we take no commission on it. How long it takes is published on this page from our own logs, as a middle time and a slow-case time, and every withdrawal in progress shows which side it is waiting on: us, Steam, or you.
->
-> **### What the fairness proof covers, and what it does not**
->
-> Every round is committed before you click and can be recomputed afterwards with a published algorithm, by us or by any tool you trust. That proves the outcome was fixed before the click and was not altered after it. It does not prove that the published chances are the chances used, and that is a different question with a different answer: the observed rate stands beside the published one on every case.
+> A case is a fixed set of CS2 skins with a published chance on each one. You pay the entry cost in coins, one roll decides the item, and you can keep it, sell it back or send it to your Steam inventory. Every case shows its chances, its item values and its tested return before you open it, and every round can be checked afterwards.
 
-**Two dependencies inside this text, printed rather than left to be discovered.**
+**Replaced by the render of `D-126`, which cut B11 to one H2 and one paragraph** because the three H3s repeated the Before you spend row in prose. The paragraph also names the sell-back exit `D-38` added. The earlier finished copy, struck rather than deleted: ~~"A case is a fixed set of CS2 skins with a published chance on each one. You pay the entry cost in coins, one roll decides the item, and the item moves to your Steam inventory when you withdraw it. What one coin is worth in real money is published wherever money is spent, so a price can be converted back by the person reading it rather than only by us." Then three H3s: "The numbers we publish before you spend", which still promised a held-unit count `D-60` removed; "What happens when you want to leave"; and "What the fairness proof covers, and what it does not", whose last sentence promised the observed rate on every case.~~
 
-1. **"the tested return to player" assumes a test exists.** `0.11` section 10 carries "who tests our RTP" as an open item: tested by whom, over how many opens, republished when. If it is never answered, the phrase changes and `D4` changes with it.
-2. **The last sentence is conditional on `D-B`.** The observed rate counter `D3` assumes six years of roll history migrates and can be published. If `D-B` comes back negative the row is withdrawn, and **this sentence is deleted with it rather than left standing as a claim the product does not make**.
+**~~Two dependencies~~ One dependency inside this text, printed rather than left to be discovered.**
+
+1. **"its tested return" assumes a test exists.** `0.11` section 10 carries "who tests our RTP" as an open item: tested by whom, over how many opens, republished when. If it is never answered, the phrase changes and `D4` changes with it.
+2. ~~**The last sentence is conditional on `D-B`.** The observed rate counter `D3` assumes six years of roll history migrates and can be published. If `D-B` comes back negative the row is withdrawn, and **this sentence is deleted with it rather than left standing as a claim the product does not make**.~~ **Gone with the H3 that carried it, `D-126`.** The rendered paragraph claims checkable rounds and not an observed rate, so it does not depend on `D-B`.
 
 **Interface strings do not live here.** Buttons, field labels and state texts move to `voice/docs/microcopy.md` after stage 05. What this node keeps is the requirement about which information belongs in each place.
 

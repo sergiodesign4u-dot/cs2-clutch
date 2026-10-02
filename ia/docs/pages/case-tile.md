@@ -12,6 +12,14 @@
 
 ---
 
+## Amended 3 October 2026 by `D-145`. The node catches up with its render
+
+**Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
+
+**What changed.** Section 5.7 says the visual order and the spoken order differ on purpose: name, cost, risk band, then markers, now rendered.
+
+---
+
 ## Amended 29 September 2026 by `D-138`. The baseline row in the rule's shape
 
 **Why.** Round 14's source audit found this node's source table naming the baseline without the keep, change and why columns.
@@ -185,7 +193,7 @@ The count is the number of accounts that have marked this case, it is text, and 
 
 ### 5.7 The four fields run in the baseline's visual order, artwork, name, risk, cost
 
-**Section 1 lists the fields. It does not order them on screen**, and stage 04 owns that. The order is the baseline's: name, risk, price. **The price last is what makes it the thing the eye lands on**, because the cost is the last fact before the decision rather than one of four facts in a column, and design principle 3 says cost never hides inside excitement.
+**Section 1 lists the fields. It does not order them on screen**, and stage 04 owns that. The order is the baseline's: name, risk, price. **The visual order is not the spoken order, and round 15 found the two confused**: the tile's accessible name reads name, then cost, then risk band, then the markers, section 6, while the eye reads cost last. Each order serves its reader and neither is derived from the other. **The price last is what makes it the thing the eye lands on**, because the cost is the last fact before the decision rather than one of four facts in a column, and design principle 3 says cost never hides inside excitement.
 
 **The entry cost also takes the slack at the foot of the tile**, so a tile carrying a stock marker and a tile carrying none still line their prices up across a row. A price that floats to a different height in every cell is a price the eye has to hunt for.
 
