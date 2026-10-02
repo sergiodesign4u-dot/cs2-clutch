@@ -5314,3 +5314,14 @@ details > summary { min-height: var(--wf-tap); display: list-item; padding-block
 .wf-roll-case, .wf-cfg-p a, .wf-msg-m a, .wf-sec-sub a, .wf-f-ro a, a[href^="mailto"] {
   display: inline-block; padding-block: 14px; margin-block: -14px;
 }
+
+/* THE FIVE CARD ROW AT 360, round 15. The card is its own container, so the
+   container query that thinned its padding never applied to the card itself:
+   16 px each side left the Sell control 22 px wide, under WCAG's 24, and the
+   chance ran out of its card once its per cent sign was kept with its number.
+   The row gap and the card's own padding thin here instead. */
+@media (max-width: 599px) {
+  .wf-won-grid--5 { gap: 4px; }
+  .wf-won-grid--5 .wf-won-card { padding: 4px; gap: 2px; }
+  .wf-won-grid--5 .wf-won-odds b { font-size: var(--wf-t-xs); letter-spacing: -0.04em; }
+}

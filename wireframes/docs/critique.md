@@ -973,6 +973,6 @@ A separate table from the defects, as the pack asks: a step that did not happen 
 | B1-14 | The error reference left one character on a line | B1 | Fixed: it breaks at its hyphens |
 | B2-46, B1-18 | Header figures 20 and 17 high; rail items 31; crumbs 16 | B2, B1 | Fixed: 44, with the coin slot giving way below 600, `D-144` |
 | B2-44, B1-18 part | Standalone text links and summaries under 44 | B2, B1 | Fixed as hit areas; small buttons in content stay at 32, `D-144` |
-| B1-13 | Sell on the five roll outcome 22 px wide at 360 | B1 | **Withdrawn on verification**: measured 117 by 40 after round 14's stacking |
+| B1-13 | Sell on the five roll outcome 22 px wide at 360 | B1 | Fixed: 49 wide. The card is its own container, so the query that thinned its padding never applied to it; a media rule does now. **A first verification here wrongly withdrew it, reading another page's 117 by 40, and was corrected on re-measuring** |
 
 **Checked on screen** at 1440 and 360 on every page: no script error, no horizontal scroll, no figure split from its unit.
