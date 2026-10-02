@@ -17,6 +17,18 @@
 **Amended 23 August 2026 by `D-92`, in three places and no figure moved.** The market the settlement is struck against is named and the answer is us, so **the per-case gap in block 7 stops waiting on anybody and starts being a number we decline to publish**, section 5.3. **The outbound link on the top item keeps its target and loses its reason**, section 3: it points at Steam, Steam is the dearer place, and a control offered as the cheaper alternative can no longer be labelled that way. **And the risk band's hole is half answered**, section 1: the three bands are an input when a case is built rather than a label derived from its drop table, which is a different object from the one `D-24` specified, and the thresholds are still `[?]`.
 
 
+## Amended 3 October 2026 by `D-144`. Three and four open honestly
+
+**Why.** Round 15 of the critique found the count switch offering 1 to 5, as the baseline does, while three and four opened the one roll page and spent 12.40; the founder chose on 2 October 2026 to make them work.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A count from one to five | The switch, the total on the trigger | **Three and four render the five roll pages with the first three or four rolls**: what was spent, the hashes, the lanes, the balance after, Sell all, Send to Steam and the settlement line are computed for the count. **Send to Steam on the outcome is signed** like every other settlement figure |
+
+---
+
 ## Amended 30 September 2026 by `D-142`. Each roll of a multi-roll open has its own round
 
 **Why.** Round 15 of the critique found "2 round hashes" and "5 round hashes" printing one value, the one-roll Glock's, and four rolls of the five with no record to check.

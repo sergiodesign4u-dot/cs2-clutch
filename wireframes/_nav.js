@@ -3094,6 +3094,52 @@ window.WF_PAY = window.WF_PAY || {
   /* THE COUNTS WITHOUT A STATE PAGE ANSWER IN PLACE, round 14. One, two and five
      have pages; three and four were buttons that did nothing. They now set the
      count, the price on the act and the balance after it. */
+  /* THREE AND FOUR ARE THE FIVE ROLL PAGES WITH FEWER ROLLS, round 15, D-144.
+     The switch offered 1 to 5 as the baseline does and only 1, 2 and 5 had pages,
+     so three opened the one roll page. ?n=3 and ?n=4 render the first rolls of the
+     five, and every figure that depends on the count is computed here: what was
+     spent, the hashes, the balance, what selling or sending them settles. */
+  var MULTI = [
+    { w: 'P250', key: 'o5p250', v: 6.90, st: 2.70 }, { w: 'Nova', key: 'o5nova', v: 7.90, st: -1.40 },
+    { w: 'MP9', key: 'o5mp9', v: 7.40, st: 1.45 }, { w: 'USP-S', key: 'o5usp', v: 14.20, st: -6.85 },
+    { w: 'M4A1-S', key: 'o5m4', v: 24.60, st: null }
+  ];
+  function mountMultiCount() {
+    if (!/case-(open|outcome)-5\.html/.test(location.pathname)) return;
+    var n = parseInt((/[?&]n=([34])/.exec(location.search) || [])[1], 10);
+    if (!n) return;
+    var R = MULTI.slice(0, n), WORD = { 3: 'three', 4: 'four' }[n], unit = 12.40;
+    var spent = n * unit, won = R.reduce(function (a, r) { return a + r.v; }, 0);
+    var swap = function (sel, re, to) { Array.prototype.forEach.call(document.querySelectorAll(sel), function (x) { x.innerHTML = x.innerHTML.replace(re, to); }); };
+    swap('.wf-case-line', /five rolls/, WORD + ' rolls');
+    swap('.wf-fig-c, .wf-hash-l, .wf-sr, .wf-outcome-links a', /\b5( rolls| results| round hashes)/g, n + '$1');
+    Array.prototype.forEach.call(document.querySelectorAll('.wf-lane--live'), function (l, i) { if (i >= n) l.hidden = true; });
+    var cost = document.querySelector('.wf-commit-cost .wf-fig-v'); if (cost) cost.textContent = spent.toFixed(2) + ' coins';
+    var hs = document.querySelector('[data-hashes]'); if (hs) hs.setAttribute('data-hashes', R.map(function (r) { return r.key; }).join(' '));
+    Array.prototype.forEach.call(document.querySelectorAll('.wf-won-card'), function (c, i) { if (i >= n) c.remove(); });
+    Array.prototype.forEach.call(document.querySelectorAll('a[href*="round=o5"]'), function (a) {
+      var k = (/round=(o5[a-z0-9]+)/.exec(a.getAttribute('href')) || [])[1];
+      if (!R.some(function (r) { return r.key === k; })) { var li = a.closest('li'); if (li) li.remove(); else a.setAttribute('href', a.getAttribute('href').replace(k, R[n - 1].key)); }
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.wf-outcome-acts a, .wf-outcome-acts button'), function (b) {
+      var t = b.textContent;
+      if (/^Add funds to open/.test(t)) b.textContent = 'Add funds to open ' + n + ' again';
+      if (/^Sell all/.test(t)) b.textContent = 'Sell all ' + n + ' for ' + won.toFixed(2) + ' coins';
+      if (/^Send \d+ to Steam/.test(t)) {
+        var st = R.reduce(function (a, r) { return a + (r.st || 0); }, 0);
+        b.textContent = 'Send ' + n + ' to Steam, ' + (st >= 0 ? '+' : '-') + Math.abs(st).toFixed(2) + ' coins';
+      }
+    });
+    var lines = document.querySelectorAll('.wf-instance');
+    if (lines[0] && /Sending to Steam/.test(lines[0].textContent)) {
+      lines[0].innerHTML = 'Sending to Steam: ' + R.map(function (r) { return r.w + ' <b>' + (r.st >= 0 ? '+' : '-') + Math.abs(r.st).toFixed(2) + '</b>'; }).join(', ') + ' on your balance.';
+      if (lines[1] && /no copy on sale/.test(lines[1].textContent)) lines[1].remove();
+    }
+    var out = /outcome/.test(location.pathname);
+    window.WF_SHELL.money = { balance: (WF_MONEY.balance - spent).toFixed(2) + ' coins', held: (WF_MONEY.held + (out ? won : 0)).toFixed(2) + ' coins' };
+    moneyAdd(0, 0);
+  }
+
   function mountCount() {
     document.addEventListener('click', function (e) {
       var b = e.target.closest('button.wf-count-b');
@@ -3108,13 +3154,14 @@ window.WF_PAY = window.WF_PAY || {
       var scope = box.parentNode;
       var act = scope.querySelector('.wf-btn--primary');
       if (act) act.textContent = 'Open for ' + (n * unit).toFixed(2) + ' coins';
+      if (act && (n === 3 || n === 4)) act.setAttribute('href', BASE + 'case-open-5.html?n=' + n);
       /* THE BAR AND THE LINE FOLLOW, round 15: the sticky bar kept the old price
          and the line under the title kept the old count. */
       var sb = document.querySelector('.wf-commit-bar .wf-btn--primary'); if (sb && act) sb.textContent = act.textContent;
       var words = ['', 'one roll', 'two rolls', 'three rolls', 'four rolls', 'five rolls'];
       var cl = document.querySelector('.wf-case-line'); if (cl) cl.textContent = cl.textContent.replace(/(one|two|three|four|five) rolls?\./, words[n] + '.');
       var line = scope.parentNode.querySelector('.wf-fig-c');
-      if (line && /After this open/.test(line.innerHTML)) line.innerHTML = line.innerHTML.replace(/After this open, [\d.]+ coins/, 'After this open, ' + (bal - n * unit).toFixed(2) + ' coins');
+      if (line && /After this open/.test(line.innerHTML)) line.innerHTML = line.innerHTML.replace(/After this open, [\d.]+(\s|&nbsp;)coins/, 'After this open, ' + (bal - n * unit).toFixed(2) + '\u00a0coins');
     });
   }
 
@@ -6872,6 +6919,24 @@ window.WF_PAY = window.WF_PAY || {
     });
   }
 
+  /* A FIGURE IS NEVER SPLIT FROM ITS UNIT, round 15: "21.90 / coins", "RTP 94.2
+     / %", "20 / Aug / 2026" and a time alone on its own line at 360. One pass
+     over the rendered text joins a number to its unit, a day to its month, a
+     month to its year and a date to its time with a no-break space. */
+  function nbspFigures() {
+    var MON = '(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)';
+    var rules = [[/(\d) (?=coins?\b|%|UTC\b)/g, '$1\u00a0'], [new RegExp('(\\d{1,2}) (' + MON + ')\\b', 'g'), '$1\u00a0$2'],
+                 [new RegExp('(' + MON + ') (\\d{4})', 'g'), '$1\u00a0$2'], [/(\d{4})(,?) (\d{1,2}:\d{2})/g, '$1$2\u00a0$3']];
+    var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: function (n) {
+      return n.parentNode && /^(SCRIPT|STYLE|TEXTAREA|OPTION)$/.test(n.parentNode.nodeName) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; } });
+    var t;
+    while ((t = w.nextNode())) {
+      var v = t.nodeValue, o = v;
+      rules.forEach(function (r) { v = v.replace(r[0], r[1]); });
+      if (v !== o) t.nodeValue = v;
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     // The hero counters are derived, never typed: a hardcoded 0 beside a registry
     // that says 2 is the drift this file exists to prevent.
@@ -6900,6 +6965,7 @@ window.WF_PAY = window.WF_PAY || {
     mountCount();
     mountOutcomeActs();
     renderProofs();
+    mountMultiCount();
     renderHashes();
     mountGate();
     mountDeposit();
@@ -6933,5 +6999,6 @@ window.WF_PAY = window.WF_PAY || {
     // Home kept opening the guest home on every signed-in page.
     mountHomeLinks();
     mountCommitBar();
+    nbspFigures();
   });
 })();

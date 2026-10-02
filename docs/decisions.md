@@ -5628,3 +5628,27 @@ Four statements later decisions had reversed were corrected: Home's mode cards, 
 ### Left open, for the founder
 
 **Opening three or four at once.** The count switch offers 1 to 5 as the baseline does, and only 1, 2 and 5 have open pages. The label and the sticky bar now say 37.20 for three, and the press still opens the one roll page.
+
+
+## D-144. Round 15, step 5: three and four open, and the phone gets its first screen and its targets
+
+**Date:** 2026-10-03. **Stage:** 04, round 15. **Decided by:** the founder, "да", on option A for three and four and on step 5. **Binds:** `wireframes/_nav.js`, `wireframes/_wf.css`, nodes `3.3`, `0.1`, `5.3`, `4.1`.
+
+**What the founder said.** Yes: A, and the 360 step.
+
+### Three and four
+
+**The five roll pages render the first three or four rolls under `?n=`**, and every figure the count moves is computed: spent, hashes, lanes, balance after, Sell all, Send to Steam, the settlement line. B, removing three and four, would have been a named divergence from the baseline's switch for a prototype's convenience.
+
+### What gives way at 360, named
+
+- **The coin slot in the header, below 600.** Two 44 high figures side by side need 218 px with their coin marks and have 180. The word coins stays, so the unit is printed; what goes is the space `D-50` kept for stage 06's mark, on a phone only.
+- **Nothing else moved to make room.** Text links gain their 44 as a hit area taken back by a negative margin, the pattern the + already used.
+
+### Kept under 44, and why
+
+**Small buttons inside content stay at 32**, above WCAG 2.2's 24, because 0.1's 44 is a claim about the shell and the founder's answer was about the header. **The strip's Pause stays at 26**, recorded in round 14.
+
+### A rule for every page
+
+**A figure is never split from its unit**: one pass joins a number to coins or %, a day to its month, a month to its year and a date to its time. A scan of every page at 360 and 1440 finds none split.

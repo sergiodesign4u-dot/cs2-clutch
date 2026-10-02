@@ -4303,7 +4303,7 @@ select.wf-f { background-color: var(--wf-surface); min-height: var(--wf-tap); pa
   font-family: var(--wf-mono); font-size: var(--wf-t-s);
   padding: 2px var(--wf-s-1); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-1);
 }
-.wf-mid-a { overflow-wrap: anywhere; word-break: break-all; min-width: 0; }
+.wf-mid-a { overflow-wrap: break-word; min-width: 0; } /* breaks at its hyphens, never one character alone, round 15 */
 /* THE REFERENCE A PERSON READS OUT IS NEVER CLIPPED, round 14: at 360 it ended in an ellipsis. */
 .wf-mid-b { flex: 0 0 auto; white-space: nowrap; }
 .wf-copied { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); }
@@ -4914,10 +4914,11 @@ textarea.wf-cfg-in { min-height: 0; }
   border-bottom: 1px solid var(--wf-line-soft);
   font-size: var(--wf-t-xs); letter-spacing: 0.03em; text-transform: uppercase;
   color: var(--wf-ink-dim);
-  /* THE BAND IS ONE LINE ON EVERY CARD. "Sent to Steam, 22 Aug" wrapping while
-     "Still held" did not put the five cards on two different rhythms, which is
-     the one thing a status band exists to prevent. */
-  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  /* THE BAND KEEPS ONE RHYTHM ON EVERY CARD, and since round 15 it does it by
+     height rather than by cutting: one line clipped "Sending to Steam, 21 Aug"
+     to "SENDING TO ST..." at 360 and lost where the item went and when. Every
+     band reserves two lines, so a wrapped one and a short one sit alike. */
+  min-height: calc(2 * 1.4em + 2 * var(--wf-s-half, 4px)); line-height: 1.4;
 }
 /* AN ITEM THAT HAS GONE IS MARKED HARDER THAN ONE THAT HAS NOT, and the weight
    is on the state that changed rather than on the state that is normal. */
@@ -5185,6 +5186,15 @@ textarea.wf-cfg-in { min-height: 0; }
   }
   .wf-dlg--pay .wf-dock { bottom: 0; }
   .wf-screen-body:has(.wf-pay-lay .wf-dock) { padding-bottom: 0; }
+  /* ON THE ADDRESS THE ROW IS FIXED, round 15. Sticky cannot leave its grid, and
+     on the declined and the pending states a notice above the grid pushed the
+     grid, and with it the pay row, under the mobile bar: Pay at 871 of 800. The
+     dialog keeps sticky, because a fixed element leaves the dialog. */
+  .wf-screen-body > .wf-main .wf-pay-lay .wf-dock {
+    position: fixed; left: 0; right: 0; bottom: var(--wf-bar-h); z-index: 30;
+    border-radius: 0; border-width: 1px 0 0;
+  }
+  .wf-screen-body:has(> .wf-main .wf-pay-lay .wf-dock) { padding-bottom: 96px; }
   .wf-pay-lay .wf-dock .wf-total, .wf-pay-lay .wf-dock .wf-card { display: none; }
 }
 @media (min-width: 900px) {
@@ -5247,6 +5257,15 @@ textarea.wf-cfg-in { min-height: 0; }
   .wf-htable td.wf-hstate { flex-wrap: wrap; }
   .wf-htable .wf-hnote { flex-basis: 100%; text-align: left; }
   .wf-selskin-art { aspect-ratio: auto; height: 96px; min-height: 0; }
+  /* THE SKIN BESIDE ITS PICTURE AT 360, round 15: stacked, the first market
+     offer started at 814 of 800, and 5.3 puts it on the first screen. */
+  .wf-selskin { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: var(--wf-s-1) var(--wf-s-2); align-items: start; }
+  .wf-selskin-h, .wf-selskin > .wf-btn { grid-column: 1 / -1; }
+  .wf-selskin-art { height: 72px; grid-row: span 2; }
+  .wf-selskin-p { flex-direction: row; gap: var(--wf-s-2); }
+  .wf-offilt { gap: var(--wf-s-1); }
+  .wf-offilt-r { width: 64px; }
+  .wf-offilt-i:nth-child(-n+2) .wf-fig-c { font-size: var(--wf-t-xs); }
 }
 
 /* THE BADGE CLEARS THE GLYPH ON A PHONE, round 14: at 360 it covered the top of
@@ -5259,3 +5278,39 @@ textarea.wf-cfg-in { min-height: 0; }
    outcome and the winner's name on a result. The strip's Pause stays under it,
    for the reason recorded where it was measured. */
 @media (max-width: 599px) { .wf-outcome-links a, .wf-who-n a { display: inline-flex; align-items: center; min-height: var(--wf-tap); } }
+
+/* THE SEND ROW STAYS ON THE SCREEN, round 15. 5.3 puts the one control on the
+   first screen and it sat at 1166 of 900 at 1440 and 1488 of 800 at 360. Sticky
+   in its own column, on the mobile bar below 900. */
+.wf-wd .wf-row:has([data-wd-go]) {
+  position: sticky; bottom: 0; z-index: 20;
+  padding: var(--wf-s-1) 0; background: var(--wf-bg); border-top: 1px solid var(--wf-line-soft);
+}
+@media (max-width: 899px) { .wf-wd .wf-row:has([data-wd-go]) { bottom: var(--wf-bar-h); } }
+
+/* TARGETS REACH 44, round 15, founder answer of 30 September 2026 for the header
+   and 0.1's own claim for the shell. Three ways, chosen per place:
+   1. THE HEADER'S TWO FIGURES SIT SIDE BY SIDE BELOW 900, each 44 high. Stacked
+      they were 20 and 17, and two 44 targets cannot stack in a 60 high header
+      without one covering the other.
+   2. A RAIL ITEM AND A SUMMARY GROW TO 44, because nothing sits close enough to
+      overlap.
+   3. A STANDALONE TEXT LINK KEEPS ITS LINE AND GAINS A 44 HIGH HIT AREA, the
+      pattern the + and the seam toggle already use: padding taken back by an
+      equal negative margin, so nothing moves. */
+@media (max-width: 899px) {
+  .wf-money { flex-direction: row; align-items: center; gap: var(--wf-s-1); }
+  .wf-money .wf-fig-a { min-height: var(--wf-tap); display: flex; align-items: center; }
+  .wf-money .wf-fig-v { min-width: 0; }
+}
+/* AND BELOW 600 THE COIN SLOT GIVES WAY, round 15, D-144. Side by side the two
+   figures need 218 px with their coin marks and the header leaves them 180. The
+   word coins stays on both, so the unit is printed, 0.11 rule 1; what goes is
+   the slot D-50 reserved for stage 06's mark, at phone width only. */
+@media (max-width: 599px) { .wf-money .wf-coin { display: none; } }
+.wf-rail-item { min-height: var(--wf-tap); }
+details > summary { min-height: var(--wf-tap); display: list-item; padding-block: 12px; box-sizing: border-box; }
+.wf-crumb a, .wf-case-how a, .wf-d-mkt, .wf-hero-line a, .wf-note > a, .wf-ck-more > a,
+.wf-roll-case, .wf-cfg-p a, .wf-msg-m a, .wf-sec-sub a, .wf-f-ro a, a[href^="mailto"] {
+  display: inline-block; padding-block: 14px; margin-block: -14px;
+}

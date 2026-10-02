@@ -960,3 +960,19 @@ A separate table from the defects, as the pack asks: a step that did not happen 
 | B2-21 | "Always ask you first" while every sale went through | B2 | Fixed: every sale asks |
 
 **Checked on screen** at 1440 and 360 on every page: no script error, no horizontal scroll.
+
+### 16.7 Step 5, three and four, the first screen and the targets, fixed on 3 October 2026 under `D-144`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| B1-1 | Three or four opened the one roll page | B1 | Fixed: the five roll pages under `?n=`, founder's option A |
+| B2-40 | Pay under the mobile bar on the declined and pending states | B2 | Fixed: the row is fixed to the bar on the address |
+| B2-41 | The send control at 1166 of 900 and 1488 of 800; the first offer at 814 | B2 | Fixed: a sticky send row; the first offer at 610 |
+| B2-42, B1-15, B1-16, B1-17 part | A figure split from its unit; a date from its time | B2, B1 | Fixed on every page, and scanned: none split |
+| B2-43, B1-17 part | The status band cut to "SENDING TO ST..." | B2, B1 | Fixed: the band wraps and every band reserves two lines |
+| B1-14 | The error reference left one character on a line | B1 | Fixed: it breaks at its hyphens |
+| B2-46, B1-18 | Header figures 20 and 17 high; rail items 31; crumbs 16 | B2, B1 | Fixed: 44, with the coin slot giving way below 600, `D-144` |
+| B2-44, B1-18 part | Standalone text links and summaries under 44 | B2, B1 | Fixed as hit areas; small buttons in content stay at 32, `D-144` |
+| B1-13 | Sell on the five roll outcome 22 px wide at 360 | B1 | **Withdrawn on verification**: measured 117 by 40 after round 14's stacking |
+
+**Checked on screen** at 1440 and 360 on every page: no script error, no horizontal scroll, no figure split from its unit.

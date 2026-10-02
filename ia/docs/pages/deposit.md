@@ -20,6 +20,18 @@
 | Two numbered steps. Step 1: a partner promo code already applied, a country selector that filters the grid, then ~~**17 fiat methods and 8 crypto**~~ **27 fiat methods and 8 crypto**, corrected here by `D-129` after section 5b.1 of `baseline-account.md` was corrected on 25 August. Step 2 for card: amount, email, a terms checkbox, six presets, and a panel reading `Rate 1.00 = $1.00` with a standing **+5.00% bonus capped at 100 per 24 hours**. Crypto gives an address per network with a live rate and a minimum, and no amount field. `baseline-account.md` section 5b. | The two step shape, the published rate at the moment of funding, and the amount presets. | **No crediting time is published anywhere in that flow**, which is the whole of row `C3`, and the deposit history's most common status is REJECTED. **Ours publishes the window before the money moves.** ~~The standing bonus and its header badge are refused, `0.1`.~~ **Both returned by `D-94`**, and this row said otherwise until `D-129`. And one route, gift cards, leaves the product entirely to six third party resellers with no crediting story at all. |
 
 
+## Amended 3 October 2026 by `D-144`. The pay row sits on the mobile bar on every state
+
+**Why.** Round 15 of the critique measured Pay at 871 of 800 on the pending state and Try again under the mobile bar on the declined one, at 360: sticky cannot leave its grid, and a notice above the grid pushed it down.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A pay row at the foot of the screen | The row, `D-129` | **On the address the row is fixed to the mobile bar below 900**, on every state; in the dialog it stays sticky, because a fixed element leaves the dialog |
+
+---
+
 ## Amended 2 October 2026 by `D-143`. What was paid is what crediting shows, and the bonus is on skins too
 
 **Why.** Round 15 of the critique found crediting printing $40.00 by Visa whatever was paid, "12,50" read as 1250, the billing email never read, the terms sentence dead beside its box, the skins dock leaving out the bonus the banner promised, and the saved country not reaching the method list.

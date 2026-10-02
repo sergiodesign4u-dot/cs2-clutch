@@ -17,6 +17,18 @@
 **Amended 23 August 2026 by `D-92`, and the largest remaining `[?]` on this node closed into a smaller and sharper one.** The founder named the market the settlement price is read from: **it is us.** The prices are ours, taken from Steam, and the market for these items is this product. **So both columns of the four column table are ours**, our credited value and our price for a copy, **and the outbound route this node kept asking for cannot exist**, because a link to our own listing confirms nothing. **What block `1b` renders instead is the relation to Steam and the hole inside it**, section 1b.1: the price is ours, it is set against the Steam market, and how far under Steam we set it is not published. **The founder's own hedge travels with all of it**, section 9b: the wording was "in principle", and if a third party supplies the copy at withdrawal time one word changes on every line above.
 
 
+## Amended 3 October 2026 by `D-144`. The send row stays on the screen
+
+**Why.** Round 15 of the critique measured the one control at 1166 of 900 at 1440 and 1488 of 800 at 360, and the first market offer at 814 of 800, against section 1 and the amendment of 29 September.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| The send control under the sum | The order: the item, the copy, the sum, the press | **The Cancel and Send row is sticky**, on the mobile bar below 900, so the press is on every screen of the page. **At 360 the skin sits beside its picture and the float filters share a line**, and the first offer starts at 610 |
+
+---
+
 ## Amended 2 October 2026 by `D-143`. Every item has its shelf, the clock shows what was struck, and resend re-strikes
 
 **Why.** Round 15 of the critique found Send to Steam on five of the six items opening the AK's basket, the clock showing the AK at 18.90 whatever copy or how many items were sent, Send the offer again with no listener, and Sell it back changing neither the sum nor the header.

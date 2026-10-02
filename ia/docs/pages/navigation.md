@@ -16,6 +16,18 @@
 
 ---
 
+## Amended 3 October 2026 by `D-144`. The header's figures reach 44, side by side
+
+**Why.** Round 15 of the critique measured the two header figures at 20 and 17 px high at 360 and 22 and 18 at the tap, against this node's 44, and the founder answered on 30 September 2026 that the header's targets reach it.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Two figures in the header | Both figures, never summed, the + beside them | **Below 900 the two figures sit side by side, each 44 high**: stacked, two 44 targets cannot fit a 60 high header. **Below 600 the coin slot gives way**, because the pair needs 218 px with it and has 180; the word coins stays on both, so the unit is printed, and only the space `D-50` reserved for stage 06's mark goes, at phone width. Rail items grow to 44; breadcrumbs and standalone text links gain a 44 high hit area without moving |
+
+---
+
 ## Amended 29 September 2026 by `D-136`. The shell's controls answer, and a toggle comes back to its seam
 
 **Why.** Round 14 of the critique pressed every control of the shell on every page.
