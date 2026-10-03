@@ -222,7 +222,7 @@
   </div>
 
   <div class="card is-note">
-    <p><strong>Fires on arrival, and the interrupt order is already settled.</strong> The map records it rather than this node re-deriving it: <code>0.4</code> fires on arrival, <span class="surf">2.1</span> fires at first case interaction by <span class="row-code">B3</span> and <code>D-17</code>, so the two never contend for the same moment.</p>
+    <p><strong>Fires on arrival, and the interrupt order is already settled.</strong> The map records it rather than this node re-deriving it: <code>0.4</code> fires on arrival, <span class="surf">2.1</span> fires at first case interaction <s>by <span class="row-code">B3</span> and <code>D-17</code></s>, <strong>the geo gate alone since <code>D-26</code> moved the 18+ declaration into sign in</strong>, so the two never contend for the same moment.</p>
     <p><strong>Transitions:</strong> the cookie policy on <span class="surf">0.9</span>, at <code>/legal/cookies</code> per <code>0.13</code>. <span class="surf">0.2</span> already guarantees that link works before consent is given, because a consent dialog that links to a policy the consent gate blocks is circular.</p>
   </div>
 </section>
@@ -385,9 +385,9 @@
 
   <div class="card is-note">
     <h4>One question this node will not answer from memory: what the age gate stores</h4>
-    <p><span class="surf">2.1</span> takes an 18 plus declaration and something has to remember it, which is storage in terminal equipment and therefore inside Article 5(3). Whether a compliance-mandated declaration falls inside the "strictly necessary" exception is a legal reading, not a design one.</p>
+    <p><s><span class="surf">2.1</span> takes an 18 plus declaration</s> <strong>The sign-in consent gate on <span class="surf">2.4</span> takes the 18 plus declaration since <code>D-26</code></strong> and something has to remember it, which is storage in terminal equipment and therefore inside Article 5(3). Whether a compliance-mandated declaration falls inside the "strictly necessary" exception is a legal reading, not a design one.</p>
     <p><strong>The safe default this node designs to:</strong> it is treated as strictly necessary and named in the policy on that basis.</p>
-    <p><strong>If counsel disagrees</strong>, the gate stores nothing and re-asks on every visit, which costs conversion and is not otherwise fatal, since <span class="surf">2.1</span> already fires at first case interaction rather than on arrival.</p>
+    <p><strong>If counsel disagrees</strong>, the gate stores nothing and re-asks on every <s>visit</s> <strong>sign in</strong>, which costs conversion and is not otherwise fatal, since <s><span class="surf">2.1</span> already fires at first case interaction</s> <strong>the declaration is asked at sign in, <code>D-26</code>,</strong> rather than on arrival.</p>
     <p><strong>Owner:</strong> counsel under <code>D-A</code>, with <code>0.12</code>. <span class="q">[?]</span> until then.</p>
   </div>
 </section>
@@ -540,7 +540,7 @@
     <p><strong>How it looks, including the symmetry that decides whether this node worked.</strong> Stages 06 and 07.</p>
     <p><strong>The policy text itself.</strong> Node <span class="surf">0.9</span>.</p>
     <p><strong>The live region that announces it.</strong> Node <code>0.5</code>.</p>
-    <p><strong>The order against the age gate.</strong> Already settled in the map and not reopened here.</p>
+    <p><strong>The order against the <s>age gate</s> geo gate, <code>D-26</code>.</strong> Already settled in the map and not reopened here.</p>
   </div>
 
   <a class="backlink" href="structure.html">Back to Structure</a>

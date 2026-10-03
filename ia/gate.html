@@ -144,7 +144,7 @@
 <div class="hero" id="overview">
   <div class="section-eyebrow">Information architecture, detail layer - node 2.1</div>
   <h1>Geo gate</h1>
-  <p class="lede"><strong>Rescoped on 18 August 2026 by <code>D-26</code>: the 18+ declaration left this node</strong> and now lives in the consent gate of <span class="surf">2.4</span>, two separate checkboxes with the provider control inert until both are set. <strong>What this node keeps is the market question</strong>, which <code>D-23</code> requires a surface for. One question, once, at the first case interaction: is this market open. <strong>It fires at the first case interaction and never on arrival</strong>, so the pre-login trust evaluation runs before the product starts asking for things. Identity verification is a different node at a different moment, which is <code>D-17</code>, and it is why the depth to the main job stays at three taps with this gate as one of them.</p>
+  <p class="lede"><strong>Rescoped on 18 August 2026 by <code>D-26</code>: the 18+ declaration left this node</strong> and now lives in the consent gate of <span class="surf">2.4</span>, two separate checkboxes with <s>the provider control inert until both are set</s> <strong>no press going through until both are set, the controls live since <code>D-58</code> so the refusal can say what is missing</strong>. <strong>What this node keeps is the market question</strong>, which <code>D-23</code> requires a surface for. One question, once, at the first case interaction: is this market open. <strong>It fires at the first case interaction and never on arrival</strong>, so the pre-login trust evaluation runs before the product starts asking for things. Identity verification is a different node at a different moment, which is <code>D-17</code>, and it is why the depth to the main job stays at three taps with this gate as one of them.</p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Question, since <code>D-26</code></div></div>
     <div><div class="hero-stat-value">1</div><div class="hero-stat-label">State, a dead end by design</div></div>
@@ -241,10 +241,10 @@
     <table>
       <thead><tr><th style="width:50%">Fires</th><th>Does not fire</th></tr></thead>
       <tbody>
-        <tr><td>The open control on <span class="surf">3.3</span></td><td>Opening a case page to read its drop table, its chances and its published RTP</td></tr>
-        <tr><td>Claiming the daily free case</td><td>Browsing <span class="surf">3.1</span>, filtering it, searching it</td></tr>
-        <tr><td>Accepting the starter credit offer <span class="row-code">I1</span></td><td>Reading <span class="surf">1.2</span> and using the verifier</td></tr>
-        <tr><td>Any control that commits the person to a roll</td><td>Reading <span class="surf">7.1</span>, <span class="surf">0.9</span>, <span class="surf">0.10</span>, <span class="surf">6.1</span></td></tr>
+        <tr><td><s>The open control on <span class="surf">3.3</span></s> <strong>The guest Sign in press, D-136; the account Open passes no gate, because the gate was passed at sign in, D-146 item 7</strong></td><td>Opening a case page to read its drop table, its chances and its published RTP</td></tr>
+        <tr><td><s>Claiming the daily free case</s> <strong>Moot: the daily case is claimed signed in, D-146 item 7</strong></td><td>Browsing <span class="surf">3.1</span>, filtering it, searching it</td></tr>
+        <tr><td><s>Accepting the starter credit offer <span class="row-code">I1</span></s> <strong>Moot: the starter credit left the address with D-130</strong></td><td>Reading <span class="surf">1.2</span> and using the verifier</td></tr>
+        <tr><td><s>Any control that commits the person to a roll</s> <strong>Every roll is committed signed in, so the gate sits at sign in</strong></td><td>Reading <span class="surf">7.1</span>, <span class="surf">0.9</span>, <span class="surf">0.10</span>, <span class="surf">6.1</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -253,8 +253,8 @@
     <p><strong>Reading is never gated, and that is architecture rather than courtesy.</strong> Node <code>0.13</code> records that because the gate fires here rather than on arrival, every public surface stays readable by anyone from anywhere, crawler included, <strong>without serving a crawler anything different from a person.</strong> The category's usual login wall in front of the fairness page is also an indexation wall. Ours does not exist, so cloaking is not needed and is not used.</p>
     <p><strong>It never contends with the cookie banner.</strong> <span class="surf">0.4</span> fires on arrival, <span class="surf">2.1</span> fires at first case interaction, so the two interrupts never want the same moment.</p>
     <p><strong>Amended 1 September 2026 by <code>D-105</code>. The built prototype wired this node to a control the table above excludes, and to none of the ones it names.</strong> The one live trigger was the guest sign-in press on <span class="surf">3.3</span>, <strong>and signing in commits nobody to a roll</strong>, which is the phrase in the right hand column. The <code>Open</code> control on the three account states, named first in the left hand column, carried no trigger at all. <strong>The table is unchanged and it was always right. What was wrong was the wiring.</strong></p>
-    <p><strong>The wrong wire is out and the right one is not in</strong>, and the reason is this node's own check state: it renders a spinner carrying a note that its own threshold is not set, and <strong>nothing behind it resolves it</strong>. Putting that in front of <code>Open</code> would turn the one control that commits a person to a roll into a dead end. <strong>So <span class="surf">2.1</span> now renders only on its five pinned pages and fires nowhere.</strong></p>
-    <p><strong>Two questions this leaves, and both are this node's.</strong> Where it fires in the prototype, which needs the check state to resolve before any wire is honest. <strong>And whether it should render at all on an open market:</strong> it renders nothing there today, which is what lets the guest press go straight through to <span class="surf">2.4</span>, and it also means this node has no observable behaviour on the happy path. <strong>A layer that is invisible when the answer is yes is correct for the person and unreviewable for us.</strong></p>
+    <p><strong>The wrong wire is out and the right one is not in</strong>, and the reason is this node's own check state: it renders a spinner carrying a note that its own threshold is not set, and <strong>nothing behind it resolves it</strong>. Putting that in front of <code>Open</code> would turn the one control that commits a person to a roll into a dead end. <s><strong>So <span class="surf">2.1</span> now renders only on its five pinned pages and fires nowhere.</strong></s> <strong>Superseded by <code>D-136</code>:</strong> the guest <code>Sign in</code> press on the case screen passes through <span class="surf">2.1</span>'s check state on its way to <span class="surf">2.4</span>, and the staged verdict's Continue opens sign in; the verdict states keep their pinned pages.</p>
+    <p><strong>Two questions this leaves, and both are this node's.</strong> <s>Where it fires in the prototype, which needs the check state to resolve before any wire is honest.</s> <strong>Answered by <code>D-136</code> and <code>D-146</code>:</strong> on the guest <code>Sign in</code> press, and <strong>the <code>Open</code> control on the account states passes no gate because the gate was passed at sign in.</strong> That leaves the table above naming the open control as a trigger the render does not wire, printed here rather than smoothed. <strong>And whether it should render at all on an open market:</strong> it renders nothing there today, which is what lets the guest press go straight through to <span class="surf">2.4</span>, and it also means this node has no observable behaviour on the happy path. <strong>A layer that is invisible when the answer is yes is correct for the person and unreviewable for us.</strong></p>
   </div>
 </section>
 
@@ -276,8 +276,8 @@
       <thead><tr><th>Field read from <span class="surf">0.12</span></th><th>What the gate does with it</th><th>If it is missing</th></tr></thead>
       <tbody>
         <tr><td><strong>Verdict</strong></td><td>Decides which of the four person-facing paths runs</td><td>Under <code>D-23</code> an allowlist denies. No row is <code>not launched</code></td></tr>
-        <tr><td><strong>Minimum age</strong></td><td>Sets the number in the declaration</td><td>The market cannot be open: a row missing a field stays <code>under review</code></td></tr>
-        <tr><td><strong>Age method</strong></td><td>Decides whether a declaration is lawful here at all</td><td>Same as above</td></tr>
+        <tr><td><strong>Minimum age</strong></td><td><s>Sets the number in the declaration</s> <strong>No declaration here since <code>D-26</code></strong>: the field only keeps a market from opening without it</td><td>The market cannot be open: a row missing a field stays <code>under review</code></td></tr>
+        <tr><td><strong>Age method</strong></td><td><s>Decides whether a declaration is lawful here at all</s> <strong>No declaration here since <code>D-26</code></strong>: whether <span class="surf">2.4</span>'s self-declaration is lawful in the market, the break the honest limit above names</td><td>Same as above</td></tr>
         <tr><td><strong>Ground</strong></td><td>Becomes the readable sentence in <span class="surf">2.2</span></td><td>A blocked row with no ground violates <span class="row-code">B4</span>'s own success signal</td></tr>
       </tbody>
     </table>
@@ -378,8 +378,8 @@
     <table>
       <thead><tr><th>Verdict</th><th>What the gate does</th><th>Where it is specified</th></tr></thead>
       <tbody>
-        <tr><td><strong>Open</strong></td><td>Runs the declaration. The normal case</td><td>The blocks above</td></tr>
-        <tr><td><strong>Staged</strong></td><td>Runs the declaration, plus the named limit in words and what changes it</td><td>The blocks above, with the limit appended</td></tr>
+        <tr><td><strong>Open</strong></td><td><s>Runs the declaration. The normal case</s> <strong>Renders nothing since <code>D-26</code> and <code>D-70</code></strong>: the lookup resolves and the case interaction proceeds. The normal case</td><td>The open market rule above</td></tr>
+        <tr><td><strong>Staged</strong></td><td><s>Runs the declaration, plus</s> <strong>Three blocks since <code>D-70</code>:</strong> the named limit in words and what changes it, then Continue and a decline at equal weight</td><td>The staged blocks above</td></tr>
         <tr><td><strong>Blocked</strong></td><td><span class="surf">2.2</span>, narrower message</td><td>Below</td></tr>
         <tr><td><strong>Not launched</strong></td><td><span class="surf">2.2</span>, <strong>default message</strong></td><td>Below</td></tr>
         <tr><td><strong>Under review</strong></td><td>Behaves as its previous verdict. The person sees nothing new</td><td><span class="surf">0.12</span>. Nothing renders</td></tr>
@@ -429,7 +429,7 @@
           <div class="wf-block-p"><b>That is a statement about us, not a legal verdict about your country.</b></div>
           <div class="wf-btn is-ghost">Support</div>
           <div class="wf-btn is-ghost">How drops are proven</div>
-          <div class="wf-open"><b>Still open:</b> every page here, the legal pages, support, and, if you have an account, your balance, your items and withdrawal.</div>
+          <div class="wf-open"><b>Still open:</b> every page here, the legal pages, support, and, if you have an account, your balance, your items and withdrawal. <b>Said to an account only since <code>D-138</code>.</b></div>
         </div>
         <span class="wf-http">HTTP 200, at the URL you are on</span>
       </div>
@@ -573,7 +573,7 @@
 
   <div class="card">
     <p><strong>The two controls stack and never differ in visual weight.</strong> That is <span class="surf">0.4</span>'s reject-as-easy-as-accept rule applied to the second interrupt, and stacking is what stops the decline control from landing under a thumb that is already moving.</p>
-    <p><strong>The whole of blocks 1 to 3 fits above the fold at 360px without scrolling</strong>, because a declaration a person has to scroll to find has been designed as an obstacle rather than a question. If it does not fit, block 5 moves below the fold, never block 3.</p>
+    <p><strong>The whole of blocks 1 to 3 fits above the fold at 360px without scrolling</strong>, because <s>a declaration</s> <strong>a question</strong> a person has to scroll to find has been designed as an obstacle rather than a question. <s>If it does not fit, block 5 moves below the fold, never block 3.</s> <strong>Since <code>D-70</code> the staged layer has three blocks and no block 5</strong>, so all three stay above the fold and none moves below it.</p>
     <p><strong>Desktop</strong> is the same order in a centred dialog, focus trapped, Escape closing it, the page behind it dimmed rather than removed: what the person was reading is the context for why they are being asked.</p>
     <p><strong><span class="surf">2.2</span> is not a dialog at 360px.</strong> They replace the dialog's content in place, because there is nothing to return to behind them.</p>
   </div>
@@ -599,7 +599,7 @@
     <h4>Accessibility, and two of these are compliance rather than craft</h4>
     <ul>
       <li><strong>The ground is text</strong>, never an image and never colour alone. A screen reader reads the reason and not only the refusal.</li>
-      <li><strong>The declaration is a real control with an accessible name that states the age</strong>, not a styled div and not a label the control does not carry.</li>
+      <li><s><strong>The declaration is a real control with an accessible name that states the age</strong>, not a styled div and not a label the control does not carry.</s> <strong>The declaration left for <span class="surf">2.4</span> with <code>D-26</code></strong>, and the rule travels with it.</li>
       <li><strong>Focus moves into the dialog on open and is trapped</strong>, and returns to the control that triggered it on dismissal.</li>
       <li><strong>Escape closes it</strong>, and closing records nothing.</li>
       <li><strong>The route out of <span class="surf">2.2</span> is a crawlable <code>&lt;a href&gt;</code></strong>, <span class="surf">0.13</span> section 8. A destination reachable only by script does not exist for a keyboard either.</li>
@@ -642,7 +642,7 @@
       <tbody>
         <tr><td><strong>Every market verdict</strong></td><td>Each one is <span class="q">[?]</span> until re-verified against current law. <strong>This node renders a verdict, it never takes one</strong></td><td>Counsel, under <code>D-A</code>. Node <span class="surf">0.12</span></td></tr>
         <tr><td><strong>The published response deadline</strong></td><td>The number in <span class="surf">2.2</span>'s appeal sentence and in <span class="surf">2.9</span>'s. It is <span class="row-code">G4</span>'s requirement and nothing in this repository sets the figure. <strong>The render prints 72 hours as a sample</strong>, <code>D-124</code></td><td><span class="surf">0.10</span>, then <span class="surf">0.11</span> if it becomes a published number</td></tr>
-        <tr><td><strong>How long the 2.3 decline persists</strong></td><td>Session, device or account, and for how long. Production and privacy questions with no researched answer here</td><td>Production, with counsel on the privacy half</td></tr>
+        <tr><td><s><strong>How long the 2.3 decline persists</strong></s></td><td><s>Session, device or account, and for how long. Production and privacy questions with no researched answer here</s> <strong>Closed by <code>D-26</code>:</strong> 2.3 is dissolved, so there is no under-age decline to persist</td><td><s>Production, with counsel on the privacy half</s></td></tr>
         <tr><td><strong>The geolocation provider and its accuracy</strong></td><td>Detection quality decides how often the wrongly-blocked route runs</td><td>Production. <span class="q">[?]</span></td></tr>
         <tr><td><strong>The flash threshold for the market lookup</strong></td><td>It needs a real timing, not a guess</td><td>Stage 04, with production timings</td></tr>
         <tr><td><strong>Minimum age and age method per open market</strong></td><td>No market is open yet, so the first open row is the first one that needs them</td><td>Counsel, as each market opens</td></tr>

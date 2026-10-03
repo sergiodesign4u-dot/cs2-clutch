@@ -197,7 +197,7 @@
       <thead><tr><th style="width:38%">What changed</th><th>Why</th></tr></thead>
       <tbody>
         <tr><td><strong>The ticker refusal loses its citation and keeps its reason</strong>, blocks section</td><td>It cited D-31, which D-59 reversed on 21 August. D-77 fixed the rule that decides what happens next: a surface may take the shell&#39;s feed off itself only on a parent written in its own file. This node has one, and it is the sentence after the citation</td></tr>
-        <tr><td><strong>The 404&#39;s search is a control here, not a description of one</strong></td><td>The empty result is a state in the states table and it had no page. A search that returns nothing is the one branch of this block that can go wrong, and it was the only state of this node nobody could look at</td></tr>
+        <tr><td><s><strong>The 404&#39;s search is a control here, not a description of one</strong></s></td><td><s>The empty result is a state in the states table and it had no page. A search that returns nothing is the one branch of this block that can go wrong, and it was the only state of this node nobody could look at</s> <strong>Reversed the next day by <code>D-82</code>: the search left the 404 and its empty result page was deleted</strong></td></tr>
         <tr><td><strong>The 500 is drawn twice</strong>, with the carriers and without</td><td>The open list already said stage 04 draws both versions. It had not, and a conditional block drawn once is drawn in whichever condition the person who drew it assumed</td></tr>
       </tbody>
     </table>
@@ -587,7 +587,7 @@
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
-    <p>Seven open items, and two of them are requirements this node states and does not own.</p>
+    <p><s>Seven</s> Six open items, the seventh struck as closed by <code>D-82</code>, and two of them are requirements this node states and does not own.</p>
   </div>
 
   <div class="table-wrap">
@@ -597,9 +597,9 @@
         <tr><td><strong>404 against 410 for a retired case</strong></td><td>RFC 9110 15.5.5 prefers 410 where the condition is known to be permanent. <code>0.13</code> covers renames with a 301 and says nothing about retirement, and whether a retired case is permanent is a product answer, not a technical one</td><td>Node <span class="surf">0.13</span>, with the founder on whether a case can return</td></tr>
         <tr><td><strong>Where the three responses are served from</strong></td><td>A 500 that must not touch the backend and a 503 that must survive the origin being down both point at the edge. This node states the requirement and does not own the answer</td><td>Production, before stage 04 draws the template as final</td></tr>
         <tr><td>Whether the carriers can render on a 500 at all</td><td>They are conditional on being renderable without the backend. Whether the shell is static enough for that is unknown here. <strong>Both versions are drawn since D-79, 22 August 2026, so the question is now which one production serves rather than what either looks like</strong></td><td>Production. Stage 04 has paid its half</td></tr>
-        <tr><td>The reference format</td><td>One short identifier, correlatable with a log, short enough to read over the phone. The format is <span class="q">[?]</span></td><td>Production, with <span class="surf">0.10</span> which has to look it up inside the published deadline</td></tr>
+        <tr><td>The reference format</td><td>One short identifier, correlatable with a log, short enough to read over the phone. <s>The format is <span class="q">[?]</span></s> <strong>The drawn sample's shape is set by <code>D-146</code>, <code>E-4F1C-9A72</code>, eleven characters in four groups; the production format is still <span class="q">[?]</span></strong></td><td>Production, with <span class="surf">0.10</span> which has to look it up inside the published deadline</td></tr>
         <tr><td><strong>How a person learns about a planned 503 before it starts</strong></td><td>There is <strong>no notification, email or push row anywhere in cjm-to-be.md</strong>, which the global sweep already recorded as a hole with no parent. A person off the site cannot be told, so a planned window is discovered by arriving at it. <strong>Named, not invented</strong></td><td>Founder, one backlog row if it is wanted</td></tr>
-        <tr><td>Whether the quick links should carry a third destination</td><td>The map's transitions hold <span class="surf">1.0</span> and <span class="surf">3.1</span>. Adding <span class="surf">1.2</span> or <span class="surf">0.10</span> to the body is a change to the map</td><td>The step 8 audit of this stage</td></tr>
+        <tr><td><s>Whether the quick links should carry a third destination</s></td><td><s>The map's transitions hold <span class="surf">1.0</span> and <span class="surf">3.1</span>. Adding <span class="surf">1.2</span> or <span class="surf">0.10</span> to the body is a change to the map</s></td><td><s>The step 8 audit of this stage</s> <strong>Closed by <code>D-82</code>: the answer is no, two buttons, Home and All cases</strong></td></tr>
         <tr><td>Rate limiting and its status code</td><td>429 exists and is not in this node's INCLUDES. Whether the product ever returns one, and whether it reuses this template, is undecided</td><td>Production</td></tr>
       </tbody>
     </table>

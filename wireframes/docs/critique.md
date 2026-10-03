@@ -1017,3 +1017,13 @@ The HTML pages of the map and the flows carry an Updated after publication block
 |---|---|---|---|
 | R35 to R61 | About twenty IA pages showing superseded content, eight without Components, two without SEO, counters that disagree with their tables | D1 | Fixed on 33 pages by five builders; all 35 pages checked at 1440 and 360 |
 | (builders) | About seventy places where a node's markdown contradicts itself | the builders, reading every file end to end | **Carried to a markdown pass of its own**, then the pages follow |
+
+### 16.11 Step 8b, the markdown against itself, fixed on 3 October 2026 under `D-149`
+
+| Source | Rows | Status |
+|---|---|---|
+| The step 8 builders' list | about 70 self-contradictions in 24 node files, the map and the flows | Fixed, none withdrawn; pages follow |
+| The step 8b editors, in the same files | many more of the same kind | Fixed |
+| `concept-map.html` | the base layer of 11 August presented as current | Brought to today |
+| The editors' notes | gate trigger table; skin card users; a stale open row; a registry label | Fixed by the lead |
+| The editors' notes | ten items | **Carried to the founder**, `D-149` |

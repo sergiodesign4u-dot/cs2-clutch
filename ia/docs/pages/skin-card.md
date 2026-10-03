@@ -54,7 +54,7 @@ The entity inventory in `sitemap.md` holds three separate objects, and this one 
 
 ## 1. The field set
 
-Fifteen fields. Fourteen ship and one is carried with its orphan status printed, which is the treatment `CLAUDE.md` requires rather than a quiet deletion.
+Fifteen fields. ~~Fourteen ship and one is carried with its orphan status printed, which is the treatment `CLAUDE.md` requires rather than a quiet deletion.~~ **Fourteen ship and one is withdrawn: field 10 left with `D-60` and keeps its number. Field 15, the orphan this line used to count, gained a parent by `D-91`, section 1.1.**
 
 | # | Field | Object | Parent | Class |
 |---|---|---|---|---|
@@ -144,7 +144,7 @@ Fifteen fields. Fourteen ship and one is carried with its orphan status printed,
 | Instance state | | | x | x | |
 | Float and pattern | | | | **x, and this is the density that closed the orphan.** The float on each copy on offer, so the person picks which one is bought. Section 1.1 | |
 
-**V1, the preview at `3.1`.** Identification only, and no number that is part of a spend decision. **This variant is the answer to the bank's sharpest finding about the category:** competitor tiles carry name plus price plus image, so a person has to open the case to learn what is in it, `blocks.md` section 3. Node `0.7` answers half of that with an item count. This variant answers the other half by naming the items. **Must not** carry a chance or a value, because `3.1` does not show the entry cost of each case beside each item and a chance without its cost is not a decision.
+**V1, the preview at `3.1`.** Identification only, and no number that is part of a spend decision. **This variant is the answer to the bank's sharpest finding about the category:** competitor tiles carry name plus price plus image, so a person has to open the case to learn what is in it, `blocks.md` section 3. Node `0.7` answers half of that with ~~an item count~~ **a risk band, since `D-24` replaced the item count**. This variant answers the other half by naming the items. **Must not** carry a chance or a value, because `3.1` does not show the entry cost of each case beside each item and a chance without its cost is not a decision.
 
 **V2, the drop table row at `3.3` phase 1.** The fullest density and the only one that carries the decision numbers. **Must not** hide the chance behind a control. skin.club puts its odds behind a `[ CHECK ODDS RANGE ]` door, `blocks.md` section 4, and this is the one place in the product where the number a person came for is the number that must be on the surface.
 
@@ -200,11 +200,11 @@ Fifteen fields. Fourteen ship and one is carried with its orphan status printed,
 | **Value unavailable** | An explicit "not available" and what would produce it. **Never a zero, never a dash.** `0.11` rule 3: a dash that reads as zero and a zero that means we do not know are the same lie in two typefaces | The route that would produce the figure |
 | **Value stale** | The value with its real as-of, marked as older than its refresh promise. Value is a per-read figure in `0.11` section 6, so its as-of is not optional | Refresh, and the market link on the top item where `A1` applies |
 | **Observed rate below the sample floor** | N and the published chance. **No observed percentage.** `0.11` rule 4 | The explanation on `1.2` |
-| **Won, receipt minted** | The item plus `F1`, its value and its moment. The chance and the market price are gone, because they were inputs to a decision that has been taken | `5.1`, `7.1`, and the proof through `0.14` |
+| **Won, receipt minted** | The item plus `F1`, its value and its moment. ~~The chance and the market price are gone, because they were inputs to a decision that has been taken~~ **The chance stays, printed above the item, `D-34`; the value sits on the sell control, `D-38` and `D-39`; the market price leaves as a figure and stays as a link**, section 3 | `5.1`, `7.1`, and the proof through `0.14` |
 | **Withdrawing or withdrawn** | The instance state, and the receipt still attached. **A withdrawn item does not lose its receipt**, which is the whole of `F2` | `5.3` |
 | **Image unavailable** | Every load-bearing field is text and the card is still complete: weapon, skin, wear, rarity in words, value. `0.11` rule 8 is the reason the identity was never in the picture in the first place | None needed. The card is not broken, it is plainer |
 
-**The zero-stock state is the one that earns the node.** No competitor in the bank does it: `blocks.md` section 3 records that skin.club and Hellcase drop unavailable items rather than mark them, so their shelf is silently short instead of legibly empty. `D1` is an architecture row, and this state is the only place a person ever sees that architecture working.
+~~**The zero-stock state is the one that earns the node.** No competitor in the bank does it: `blocks.md` section 3 records that skin.club and Hellcase drop unavailable items rather than mark them, so their shelf is silently short instead of legibly empty. `D1` is an architecture row, and this state is the only place a person ever sees that architecture working.~~ **Void since `D-60`, with the state it praised: what earns the node now is section 0's rule, one field set across five densities.**
 
 ---
 
@@ -228,7 +228,7 @@ Seven tiers are established. The treatment is stage 06's, and it is constrained 
 
 Same rule as `0.14` rule 2, for the same reason. The chance is published configuration, the value is fetched, the receipt is a settled fact, the ticket range comes with the entry. **No field on this card is derived in the browser.** `E1` makes divergence between what is animated and what is credited impossible by construction, and a card that recomputes a value reintroduces exactly that class of divergence one screen later.
 
-### 5.5 No sell, no repeat, no upgrade, and no key bound to any of them
+### 5.5 ~~No sell,~~ no repeat, no upgrade, and no key bound to any of them. **Sell arrived by `D-38`**
 
 `blocks.md` section 12 calls Hellcase's keyboard row the single most telling block in the whole bank: **GET on ENTER, QUICK STOP on SPACE, SELL on S, REPEAT on R.** One key liquidates what you won and one key spends again.
 
@@ -261,7 +261,7 @@ A skin's identity is three fields and sometimes four: **AK-47, Redline, Field-Te
 | **Which field carries float at `3.3` phase 3, `5.1` and `7.1`** | **Opened here 23 August 2026, and the contradiction predates the decision that exposed it.** `F1` requires float and phase on the receipt, field 13, and the density table showed field 15 rendering nowhere. **`case.md` section 17 carries the same contradiction from the entity's side.** `D-91` gave field 15 a parent and did not decide which of the two fields owns those values on the three densities where both would apply | This node and `sitemap.md`, at the pass that reconciles them |
 | **Where the instance value receipt lives, or whether it lives at all** | **Not opened here and recorded here for the first time: `D-90` deleted the receipt from the `5.1` card on 23 August 2026**, and this file went on listing field 13 as rendering there. Section 3.1 corrects the density table. **The capability question is `account.md` section 0.7's and this node may not answer it**, because it decides whether field 13 has any density left besides `3.3` phase 3 | **Founder**, through `account.md` section 0.7 |
 | **Which number field 12 is, on the density that is rendering it** | **Opened here 23 August 2026 by `D-92`, section 3.3.** The field is one field and it now carries the Steam price on `3.3` phase 1 and our own price for a copy on `5.1` and `5.3`. **Neither a sixteenth field nor a rename is available to this node**, section 0, so the contradiction is printed. **What this node does decide is the mitigation**: a density that renders field 12 must say in words which of the two it is showing, and all three that render it already do | Whoever settles what `A1` means on this product, `numbers.md` section 2c |
-| **Where the preview density sits on `3.1`** | The map's `used by` line names `3.1`, and `3.1`'s own INCLUDES names case tiles and not item cards. Inside the tile, on expansion, or in a search result is a placement question rather than a field question | Node `3.1` at step 6 |
+| **Where the preview density sits on `3.1`** | The map's `used by` line names `3.1`, and `3.1`'s own INCLUDES names case tiles and not item cards. Inside the tile, on expansion, or in a search result is a placement question rather than a field question. **Node `3.1` answered at its step: `catalogue.md` section 5 says no `0.6` renders on the shelf, because `D-24`'s risk band summarises the contents. So V1 and the `3.1` column above have no surface, and the `used by` line still lists one** | ~~Node `3.1` at step 6~~ **`sitemap.md`, to strike `3.1` from the `used by` line, or the founder if V1 should come back** |
 | **A holding deadline on an unwithdrawn item** | Hellcase converts an unwithdrawn drop to balance after thirty days, stated only in its public FAQ, `blocks.md` section 5. Whether we carry any such rule is `[?]`. **If we do, `G5` puts it on this card before it runs**, which makes it a sixteenth field | Founder, product decision |
 | **The rarity treatment itself** | Colour, shape, weight. Seven values exist; what they look like is not IA | Stages 06 and 07 |
 

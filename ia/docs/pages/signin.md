@@ -175,9 +175,9 @@
 | Block 6, the route back | **The dismissal is block 6** | A crawlable link |
 | The footer `0.2`, the H1 | No | Yes |
 
-**The line the split is drawn on: the dialog carries every part of the statement that is finished.** The four "never" lines are absolute, and each is a rule written down elsewhere in this repository rather than a promise made on this surface. **The "what we read" side is still `[?]` field by field**, and a list of unknowns is not a statement yet, so it waits at the address for production to fill it. **When production fills it, this split is re-decided rather than inherited.**
+**The line the split is drawn on: the dialog carries every part of the statement that is finished.** The four "never" lines are absolute, and each is a rule written down elsewhere in this repository rather than a promise made on this surface. **The "what we read" side is still `[?]` field by field**, and a list of unknowns is not a statement yet, so it ~~waits at the address for production to fill it~~ **waits in this node, not at the address, since `D-130`**, which took the list off the address too. **When production fills it, this split is re-decided rather than inherited.**
 
-**And the two blocks that stay at the address are stayed for a reason of their own:** the round trip description and the starter credit are what a person reads when they arrive cold with no context. In the dialog the context is the surface behind them, which is the whole of `D-54`.
+~~**And the two blocks that stay at the address are stayed for a reason of their own:** the round trip description and the starter credit are what a person reads when they arrive cold with no context. In the dialog the context is the surface behind them, which is the whole of `D-54`.~~ **Superseded by `D-130`:** neither block stays at the address, and both render on neither carrier, section 3.
 
 ### 0.10.4 The order changed, in both carriers, and that is why `D-54`'s rule still holds
 
@@ -216,7 +216,7 @@
 | The line under them | **Names which one is missing.** Two declarations means two failure messages, section 4 | That rule was written for a dimmed control. **It is worth more here, where the sentence is the entire reply to a press** |
 | The keyboard | Moves to the first missing declaration | A message about a control somewhere above is a message a person has to go and find |
 
-**The ambient line stays.** It is not either the ambient reason or the reply on press: the reason says what is needed before anyone presses anything, and the reply says what is missing after they did. **Removing the first would make the press the only way to learn the requirement, which is the dead button's own defect wearing different clothes.**
+~~**The ambient line stays.** It is not either the ambient reason or the reply on press: the reason says what is needed before anyone presses anything, and the reply says what is missing after they did. **Removing the first would make the press the only way to learn the requirement, which is the dead button's own defect wearing different clothes.**~~ **Superseded by `D-130`:** the standing "Both declarations are needed" left the surface, and the line under the declarations is empty until a press needs it, section 4's default state.
 
 **And a link inside a declaration is a link.** Opening the terms is not agreeing to them, and one click may not do both.
 
@@ -292,11 +292,11 @@ The case screen's guest trigger read `Sign in with Steam` and now reads `Sign in
 
 ## 1. What this page is not
 
-**It is not registration in the ordinary sense, and the map is why.** There is no password field, no email field, no username, no profile step and no second provider. Hellcase's arrival modal offers three providers, `blocks.md` section 6. This product offers one.
+**It is not registration in the ordinary sense, and the map is why.** There is no password field, no email field, no username, no profile step ~~and no second provider~~. Hellcase's arrival modal offers three providers, `blocks.md` section 6. ~~This product offers one.~~ **Four since `D-55`, one of them the act.**
 
 **Overridden on 21 August 2026 by `D-55`. Four providers, one of them the act.** The paragraph below is kept rather than deleted, because the argument was sound and the founder overrode it knowingly, and a deleted argument cannot be reread when the decision is revisited. **What `D-55` changed is not the exit but the entrance**, and what it costs is in section 0.10.
 
-**One route, and it follows from the exit rather than from simplicity.** Withdrawal is to Steam and Steam only at launch, `jtbd.md` Decision 4, so an account not tied to a Steam identity cannot receive what it wins. A second provider would create accounts that can pay in and cannot take out, which is barrier `B4-1`'s shape built into the sign-up.
+~~**One route, and it follows from the exit rather than from simplicity.** Withdrawal is to Steam and Steam only at launch, `jtbd.md` Decision 4, so an account not tied to a Steam identity cannot receive what it wins. A second provider would create accounts that can pay in and cannot take out, which is barrier `B4-1`'s shape built into the sign-up.~~
 
 **And one absence is a known orphan rather than an oversight.** There is no email anywhere on this map. `sitemap.md`'s global sweep records it in the open: an out-of-product notification channel has **no node, because it has no parent**, and there is no notification, email or push row anywhere in `cjm-to-be.md`, while `5.3` and `5.8` imply a signal that reaches a person outside the page. This node does not fix that by quietly adding an email field. It carries the orphan.
 
@@ -427,7 +427,7 @@ That is a genuine cross-node dependency and it runs both ways: if the probe is n
 
 **Used:** `0.2` the footer. Nothing else from the canonical set: no skin card `0.6`, no case tile `0.7`, no ticker `0.8`, no round proof `0.14`. `0.5` toasts are available and are not the place any state here is announced, per `0.5`'s own rule.
 
-**`0.1` renders**, and in its guest shape: three rail destinations, no money figures in the header, and on mobile a bottom bar of three. Sign in is not a rail destination, it is reached from the header's account control and from `1.0`.
+**`0.1` renders**, and in its guest shape: ~~three rail destinations~~ **one rail destination, Cases, `D-40`**, no money figures in the header, and on mobile a bottom bar of ~~three~~ **two, Home plus Cases, the same in both states since `D-40`**. Sign in is not a rail destination, it is reached from the header's account control and from `1.0`.
 
 **The scrim and the modal contract are `0.1`'s**, section 6, taken whole rather than written again here. `D-54`, and section 0.9.5 names the one renamed dismissal.
 
@@ -439,7 +439,7 @@ That is a genuine cross-node dependency and it runs both ways: if the probe is n
 
 **One column at every width.** A centred single card, `blocks.md` T5, with a measure that does not stretch on desktop. **Since `D-54` the carrier decides which shape carries that column at 360px**, and section 0.9.8 is the rule: a full height sheet at 360px, a centred card above it, the same block order in both.
 
-**The block order is the mobile order and it does not change on desktop.** The one hard requirement at 360px: **blocks 1 and 2 are both above the fold.** The statement is what answers `B3-2`, and a statement a person has to scroll to reach has been designed as fine print. If something must fall below the fold at 360px it is block 4 or block 5, never block 2.
+**The block order is the mobile order and it does not change on desktop.** The one hard requirement at 360px: **blocks 1 and 2 are both above the fold.** The statement is what answers `B3-2`, and a statement a person has to scroll to reach has been designed as fine print. ~~If something must fall below the fold at 360px it is block 4 or block 5, never block 2.~~ **Since `D-130` blocks 4 and 5 render on neither carrier**, so neither is left to fall below the fold, and block 2 still never does.
 
 **`2.5` and `2.6` take the place of blocks 1 and 3.** On both failure states neither the providers nor the never line renders: the failure message heads the card, block 2 stays visible under it with both declarations ticked, and the route out is the failure's own two controls. Block 2 stays because the moment a sign in fails is exactly when a person re-reads what the site wanted from them.
 
@@ -479,7 +479,7 @@ That is a genuine cross-node dependency and it runs both ways: if the probe is n
 - Exactly one H1.
 - The route back into the product is a crawlable `<a href>`, not a script handler, `0.13` section 8.
 - **`noindex` is a meta tag and `/signin` is not disallowed in `robots.txt`**, `0.13` section 4.5: a page a crawler may not read is a page whose `noindex` it cannot read.
-- The statement in block 2 is text, never an image, so it is readable by a screen reader and quotable by a person who wants to check us.
+- The statement in ~~block 2~~ **block 3**, the number section 3's table gives it, is text, never an image, so it is readable by a screen reader and quotable by a person who wants to check us.
 - No cloaking. The page is identical for a person and a crawler, which is the property `0.13` section 4.3 protects across the whole product.
 - LCP is the card, and there is no hero image to make it anything else.
 
@@ -512,6 +512,6 @@ That is a genuine cross-node dependency and it runs both ways: if the probe is n
 | **The out-of-product notification channel** | No email, push or notification row exists anywhere in `cjm-to-be.md`, while `5.3` and `5.8` imply one. **Carried as an orphan, not solved by adding a field here** | Founder. Already named in `sitemap.md`'s global sweep |
 | **The retry interval in `2.6`** | Whether the page retries at all against a down provider, and how often | Production. `[?]` |
 | **The starter credit's amount and its withdrawal threshold** | Row `I1` is bounded and the bound is not a number in this repository. `C4` fixes that whatever it is, it is stated before the money and never rises | Founder, with case mathematics |
-| **The four-screen route defect** | Named in `flows.md` and carried here. The one rejected fix stays rejected | Stage 04, as a constraint on the wireframe rather than a problem to solve here |
+| **The ~~four-screen~~ route defect, three screens since `D-54`** | Named in `flows.md` and carried here, narrowed by section 0.9.1 and not closed. The one rejected fix stays rejected | Stage 04, as a constraint on the wireframe rather than a problem to solve here |
 
 **And what belongs elsewhere.** The wording of every string: stage 05. How the page looks: stages 06 and 07. What the gate asks before this page is reached: `2.1`. What happens after the account exists and before money moves: `2.7`.

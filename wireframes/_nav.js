@@ -300,7 +300,7 @@ window.WF_NAV = {
         { node: '5.9', label: 'Withdrawals',                  file: 'history-withdrawals.html',         status: 'built' },
         { node: '5.9', label: 'Withdrawals, none yet',        file: 'history-withdrawals-empty.html',   status: 'built' },
         { node: '5.9', label: 'Withdrawals, past our ceiling',file: 'history-withdrawals-overdue.html', status: 'built' },
-        { node: '5.9', label: 'Cash out, four statuses',      file: 'history-cashout.html',             status: 'built' },
+        { node: '5.9', label: 'Cash out, three rows',      file: 'history-cashout.html',             status: 'built' },
         { node: '5.9', label: 'Cash out, none yet',           file: 'history-cashout-empty.html',       status: 'built' },
         // THE STATE SET WAS COMPLETED PER TAB ON 23 AUGUST 2026, D-90, on the
         // founder's instruction that every tab carry its own states rather than

@@ -5732,3 +5732,16 @@ Stage 03 reads **Done** in `README.md`, as `_nav.js` already said. The IA regist
 **Checked.** All 35 IA pages at 1440 and 360: no script error, no horizontal scroll, every sidebar section present, no em dash.
 
 **What the rebuild found, and where it goes.** Reading every markdown file end to end surfaced about seventy places where a node contradicts itself: a line a later decision reversed and nobody struck, two sections that disagree on a count. The pages render them as written; the markdown is corrected in a pass of its own, and the pages follow.
+
+
+## D-149. Round 15, step 8b: the markdown stops contradicting itself
+
+**Date:** 2026-10-03. **Stage:** 04, round 15, reaching back into 03. **Decided by:** the founder, "давай", on step 8b. **Binds:** 24 node files, `sitemap.md`, `flows.md` and their 26 pages, `ia/concept-map.html`, and one registry label in `wireframes/_nav.js`.
+
+**What was done.** Four editors, each on its own files, took the about seventy self-contradictions step 8 surfaced, verified every one in the current file, and struck each stale line in place with the decision that replaced it; the pages follow at the same spots. **None was withdrawn on verification. Each editor found and fixed many more of the same kind while in the file**, among them three questions `D-93` had answered in August that `case.md` still read as open, `D-126`'s fold of B7 to B10 across `home.md`, the blocking ceiling `D-103` removed across `deposit.md`, and five passages in `numbers.md` still calling a withdrawn finding a defect. `concept-map.html` turned out to describe the base layer of 11 August and is brought to the map of today.
+
+**Closed by the lead, from the editors' notes.** The gate's trigger table follows `D-136` and `D-146` item 7; the skin card's users are recounted to 3.3, 5.1, 5.3, 7.1 and 7.3; a new open row about the stage at three and four is closed, because `D-145` already redrew it; the cash out page's registry label says three rows.
+
+**Checked.** All 35 IA pages and all 133 wireframe pages at 1440 and 360: no script error, no horizontal scroll, every sidebar section present, no em dash.
+
+**Carried to the founder.** The SEO register has no rows for 5.9, 5.10, 5.11 and 7.3; the sound control in the rail has no parent; four items owed "before stage 04" are still open: the social set, the canonical host, `D-55`'s Steam link on 5.3, 5.1 and 4.1; `numbers.md`'s withdrawal gap figure has no refresh class; `D-109` raised as blocking a question `D-93` had closed; three basket questions on 5.3 and 5.1; settings' section 1 still reads as its first derivation.

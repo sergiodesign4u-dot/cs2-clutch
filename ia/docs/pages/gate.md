@@ -2,7 +2,7 @@
 
 **Type:** dialog. **Group:** `pages`. **Scope:** MVP. **Cluster:** 2, get through the door. **Alias:** `S-B1`.
 
-**Rescoped on 18 August 2026 by `D-26`. The 18+ declaration left this node.** It now lives in the consent gate of `2.4`, as two separate checkboxes with the provider control inert until both are set. **What this node keeps is the market question**, which `D-23` requires a surface for, and the reasoning below is unchanged for that half. The paragraphs that argued the two questions belong together are kept and marked, because the argument was sound and the founder overrode it knowingly, and a deleted argument cannot be reread when the decision is revisited.
+**Rescoped on 18 August 2026 by `D-26`. The 18+ declaration left this node.** It now lives in the consent gate of `2.4`, as two separate checkboxes with ~~the provider control inert until both are set~~ **no press going through until both are set, the controls live since `D-58` so the refusal can say what is missing**. **What this node keeps is the market question**, which `D-23` requires a surface for, and the reasoning below is unchanged for that half. The paragraphs that argued the two questions belong together are kept and marked, because the argument was sound and the founder overrode it knowingly, and a deleted argument cannot be reread when the decision is revisited.
 
 **Purpose.** Resolve one question once, at the first case interaction: is this market open. Nothing else is asked here, and the word only in "the 18+ declaration only" is about scope rather than about the number.
 
@@ -75,10 +75,10 @@
 
 | Fires | Does not fire |
 |---|---|
-| The open control on `3.3` | Opening a case page to read its drop table, its chances and its published RTP |
-| Claiming the daily free case | Browsing `3.1`, filtering it, searching it |
-| Accepting the starter credit offer `I1` | Reading `1.2` and using the verifier |
-| Any control that commits the person to a roll | Reading `7.1`, `0.9`, `0.10`, `6.1` |
+| ~~The open control on `3.3`~~ **The guest `Sign in` press, `D-136`; the account `Open` passes no gate, because the gate was passed at sign in, `D-146` item 7** | Opening a case page to read its drop table, its chances and its published RTP |
+| ~~Claiming the daily free case~~ **Moot: the daily case is claimed signed in, so the gate was passed, `D-146` item 7** | Browsing `3.1`, filtering it, searching it |
+| ~~Accepting the starter credit offer `I1`~~ **Moot: the starter credit left the address with `D-130`, and any offer is taken signed in** | Reading `1.2` and using the verifier |
+| ~~Any control that commits the person to a roll~~ **Every roll is committed signed in, so the gate sits at the one door every committing control passes, sign in** | Reading `7.1`, `0.9`, `0.10`, `6.1` |
 
 **Reading is never gated.** This is not a courtesy, it is architecture: `0.13` section 4.3 records that because the gate fires here rather than on arrival, every public surface stays readable by anyone from anywhere, crawler included, **without serving a crawler anything different from a person**. The competitor pattern of a login wall in front of the provably fair page is also an indexation wall. Ours does not exist, so cloaking is not needed and is not used.
 
@@ -86,11 +86,11 @@
 
 **Amended 1 September 2026 by `D-105`. The built prototype wired this node to a control the table above excludes, and to none of the ones it names.** The one live trigger was the guest sign-in press on `3.3`, **and signing in commits nobody to a roll**, which is the phrase in the right hand column. The `Open` control on the three account states, which the left hand column names first, carried no trigger at all. **The table is unchanged and it was always right. What was wrong was the wiring.**
 
-**The wrong wire is out and the right one is not in**, and the reason is this node's own check state: it renders a spinner carrying a note that its own threshold is not set, and **nothing behind it resolves it**. Putting that in front of `Open` would turn the one control that commits a person to a roll into a dead end, which is a worse defect than the one being repaired. **So `2.1` now renders only on its five pinned pages and fires nowhere.**
+**The wrong wire is out and the right one is not in**, and the reason is this node's own check state: it renders a spinner carrying a note that its own threshold is not set, and **nothing behind it resolves it**. Putting that in front of `Open` would turn the one control that commits a person to a roll into a dead end, which is a worse defect than the one being repaired. ~~**So `2.1` now renders only on its five pinned pages and fires nowhere.**~~ **Superseded by `D-136`:** the guest `Sign in` press on the case screen passes through `2.1`'s check state on its way to `2.4`, and the staged verdict's Continue opens sign in; the verdict states keep their pinned pages.
 
 **Two questions this leaves, and both are here rather than on `3.3`:**
 
-**Where it fires in the prototype**, which needs the check state to resolve before any wire is honest. **And whether it should render at all on an open market**: it renders nothing there today, which is the rule that lets the guest press go straight through to `2.4`, and it also means **this node has no observable behaviour on the happy path.** A layer that is invisible when the answer is yes is correct for the person and unreviewable for us.
+~~**Where it fires in the prototype**, which needs the check state to resolve before any wire is honest.~~ **Answered by `D-136` and `D-146`:** on the guest `Sign in` press, and **the `Open` control on the account states passes no gate because the gate was passed at sign in.** That leaves the table above naming the open control as a trigger the render does not wire, and it is printed here rather than smoothed. **And whether it should render at all on an open market**: it renders nothing there today, which is the rule that lets the guest press go straight through to `2.4`, and it also means **this node has no observable behaviour on the happy path.** A layer that is invisible when the answer is yes is correct for the person and unreviewable for us.
 
 ---
 
@@ -110,8 +110,8 @@
 | Field read from `0.12` | What the gate does with it | If it is missing |
 |---|---|---|
 | **Verdict** | Decides which of the four person-facing paths runs, section 5 | Under `D-23` an allowlist denies. No row is `not launched` |
-| **Minimum age** | Sets the number in the declaration | The market cannot be open, because `markets.md` section 3.7 keeps a row without it at `under review` |
-| **Age method** | Decides whether a declaration is lawful here at all | Same as above |
+| **Minimum age** | ~~Sets the number in the declaration~~ **No declaration here since `D-26`**: the field only keeps a market from opening without it | The market cannot be open, because `markets.md` section 3.7 keeps a row without it at `under review` |
+| **Age method** | ~~Decides whether a declaration is lawful here at all~~ **No declaration here since `D-26`**: whether `2.4`'s self-declaration is lawful in the market, the break section 0 names | Same as above |
 | **Ground** | Becomes the readable sentence in `2.2` | A blocked row with no ground violates `B4`'s own success signal |
 
 **This node holds no market list, no legal citation and no age constant.** A constant here is a second register that will disagree with the first one. `markets.md` section 12 closes with the same sentence from the other direction: what the gate asks is node `2.1`, which reads three fields from the register rather than holding its own.
@@ -168,8 +168,8 @@ Four verdicts reach this node, and two of the six in `markets.md` section 11 do 
 
 | Verdict | What the gate does | Where it is specified |
 |---|---|---|
-| **Open** | Runs the declaration. The normal case | Section 4 |
-| **Staged** | Runs the declaration, plus the named limit in words and what changes it | Section 4, with the limit block appended |
+| **Open** | ~~Runs the declaration. The normal case~~ **Renders nothing since `D-26` and `D-70`**: the lookup resolves and the case interaction proceeds. The normal case | Section 4.1 |
+| **Staged** | ~~Runs the declaration, plus~~ **Three blocks since `D-70`:** the named limit in words and what changes it, then Continue and a decline at equal weight | Section 4.2 |
 | **Blocked** | `2.2`, narrower message | Section 7 |
 | **Not launched** | `2.2`, default message | Section 7 |
 | **Under review** | Behaves as its previous verdict and the person sees nothing new | `markets.md` section 11. Nothing renders |
@@ -210,7 +210,7 @@ It is declared here rather than added quietly, because the map's own rule is tha
 >
 > Opening cases is not available where you are. We open a market only after a lawyer has reviewed it and signed the row, and nobody has reviewed this one yet. **That is a statement about us, not a legal verdict about your country.**
 >
-> You can still read every page here, including how each drop is proven. If you already have an account, your balance and your items stay yours, and withdrawal stays open.
+> You can still read every page here, including how each drop is proven. If you already have an account, your balance and your items stay yours, and withdrawal stays open. **Said to an account only since `D-138`:** a guest is not told about a balance.
 >
 > [Support] [How drops are proven]
 
@@ -222,7 +222,7 @@ It is declared here rather than added quietly, because the map's own rule is tha
 >
 > The instrument and its source are on file. **If you are not in that market, support will look at it and answer inside `<published deadline>`.**
 >
-> You can still read every page here. If you already have an account, your balance and your items stay yours, and withdrawal stays open.
+> You can still read every page here. If you already have an account, your balance and your items stay yours, and withdrawal stays open. **Said to an account only since `D-138`.**
 >
 > [Support] [How drops are proven]
 
@@ -263,7 +263,7 @@ From `markets.md` section 9, and they are the register's rules rather than this 
 
 ## 8. State 2.3. Under age. **Dissolved by `D-26`, 18 August 2026, and kept for the argument**
 
-**Why it is gone.** The age control is now two checkboxes on `2.4` that a person either ticks or does not. **A declaration you decline to make is not a refusal that can be recorded**, so there is no under-age event, nothing to store and no screen to draw. What replaces it is `2.4`'s own state, consent not given, where the provider controls stay inert and nothing is written.
+**Why it is gone.** The age control is now two checkboxes on `2.4` that a person either ticks or does not. **A declaration you decline to make is not a refusal that can be recorded**, so there is no under-age event, nothing to store and no screen to draw. What replaces it is `2.4`'s own state, consent not given, where ~~the provider controls stay inert~~ **a press is refused and says what is missing, `D-58`,** and nothing is written.
 
 **Why the section stays.** The distinction it drew, between declining to answer and declaring under 18, is the reason this node existed at all, and it is the first thing anyone will re-derive if the decision is revisited. **A deleted argument cannot be reread.**
 
@@ -310,7 +310,7 @@ From `markets.md` section 9, and they are the register's rules rather than this 
 
 **360px is the base.** The dialog is a sheet rather than a centred card at this width, and the two controls stack. **They never differ in visual weight**, which is `0.4`'s reject-as-easy-as-accept rule applied to the second interrupt, and stacking is what stops the decline control from landing under a thumb that is already moving.
 
-**The whole of blocks 1 to 3 fits above the fold at 360px without scrolling**, because a declaration a person has to scroll to find has been designed as an obstacle rather than a question. If it does not fit, block 5 moves below the fold, never block 3.
+**The whole of blocks 1 to 3 fits above the fold at 360px without scrolling**, because ~~a declaration~~ **a question** a person has to scroll to find has been designed as an obstacle rather than a question. ~~If it does not fit, block 5 moves below the fold, never block 3.~~ **Since `D-70` the staged layer has three blocks and no block 5**, so all three stay above the fold and none moves below it.
 
 **Desktop** is the same order in a centred dialog, focus trapped, Escape closing it, and the page behind it dimmed rather than removed: what the person was reading is the context for why they are being asked.
 
@@ -329,7 +329,7 @@ From `markets.md` section 9, and they are the register's rules rather than this 
 **Accessibility, and two of these are compliance rather than craft:**
 
 - **The ground is text**, never an image and never colour alone, `markets.md` section 10. A screen reader reads the reason and not only the refusal.
-- **The declaration is a real control with an accessible name that states the age**, not a styled div and not a label the control does not carry.
+- ~~**The declaration is a real control with an accessible name that states the age**, not a styled div and not a label the control does not carry.~~ **The declaration left for `2.4` with `D-26`**, and the rule travels with it.
 - **Focus moves into the dialog on open and is trapped**, and returns to the control that triggered it on dismissal.
 - **Escape closes it**, and closing records nothing.
 - **The route out of `2.2` is a crawlable `<a href>`**, `0.13` section 8. A destination reachable only by script does not exist for a keyboard either.
@@ -358,7 +358,7 @@ From `markets.md` section 9, and they are the register's rules rather than this 
 |---|---|---|
 | **Every market verdict** | Each one is `[?]` until re-verified against current law. This node renders a verdict, it never takes one | Counsel, under `D-A`. `0.12` |
 | **The published response deadline** | The number in `2.2`'s appeal sentence and in `2.9`'s. It is `G4`'s requirement and nothing in this repository sets the figure. **The render prints 72 hours as a sample**, `D-124` | `0.10`, then `0.11` if it becomes a published number |
-| **How long the `2.3` decline persists, and what it is keyed to** | Session, device or account, and for how long. Both are production and privacy questions with no researched answer here | Production, with counsel on the privacy half |
+| ~~**How long the `2.3` decline persists, and what it is keyed to**~~ | ~~Session, device or account, and for how long. Both are production and privacy questions with no researched answer here~~ **Closed by `D-26`:** `2.3` is dissolved, section 8, so there is no under-age decline to persist | ~~Production, with counsel on the privacy half~~ |
 | **The geolocation provider and its accuracy** | Detection quality decides how often the wrongly-blocked route in section 7.5 runs | Production. `[?]`, and `markets.md` section 12 already carries it |
 | **The flash threshold for the market lookup** | Section 6. It needs a real timing, not a guess | Stage 04, with production timings |
 | **Minimum age and age method per open market** | No market is open yet, so the first open row is the first one that needs them | Counsel, as each market opens |

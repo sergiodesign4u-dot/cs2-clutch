@@ -141,7 +141,7 @@
 |---|---|---|
 | **A pause control** | `blocks.md` section 2, taken from Key-Drop's ticker. Parents: row `A3`, and design principle 2, motion serves emotion, since a strip that cannot be stopped serves neither | It is also the `prefers-reduced-motion` answer, so **one control carries two parents** rather than the product shipping two mechanisms for one state. Section 2 |
 | **The winner, as the account chooses to appear** | Entity 14 in `sitemap.md` lists the winning account as a part, and row `A3` regulates it directly: no invented names, and any bot present labelled as one | The map's INCLUDES line names the item and not the person. **A feed of items with no people is a stock ticker**, and Social Job 2 is about people. The rejected alternative is kept in section 1 with its real merit |
-| **The source field carries the case name in round 1** | The baseline's tile carries a source mode label such as "Case Battle", `baseline.md` section 3. **Round 1 ships one mode** | A label reading the same word on every tile is the dead item defect `CLAUDE.md` names. The carrier is inherited and filled with a live item: the case. When a second mode arrives the same field carries the mode |
+| **The source field carries the case name in round 1** | The baseline's tile carries a source mode label such as "Case Battle", `baseline.md` section 3. **Round 1 ships one mode** | A label reading the same word on every tile is the dead item defect `CLAUDE.md` names. The carrier is inherited and filled with a live item: the case. When a second mode arrives the same field carries the mode. **Split by `D-59`, section 0.5.3: the icon carries the mode, a constant in round 1 with its cost printed, and the case moves into the hover layer** |
 
 ---
 
@@ -149,7 +149,7 @@
 
 | # | Field | Object | Parent | Class |
 |---|---|---|---|---|
-| 1 | **Source**, the case in round 1 | Live drop event | Social Job 2, and Related Job 1: "drops actually happen" is not a claim until a person can see which case produced one | job |
+| 1 | **Source**, ~~the case in round 1~~ **a mode icon on the tile and the case in the hover layer, `D-59`** | Live drop event | Social Job 2, and Related Job 1: "drops actually happen" is not a claim until a person can see which case produced one | job |
 | 2 | **Weapon name** | Skin | Main Job, `jtbd.md` Section 1 | job |
 | 3 | **Skin name** | Skin | Main Job | job |
 | 4 | **Rarity treatment** | Skin | Row `E3`, and `blocks.md` section 10, the seven tier ladder walked live. The same slot as `0.6`, carrying the same `[?]` | job |
@@ -211,7 +211,7 @@
 
 This section used to read: **the baseline puts it on every page walked**, 120px tall, directly under the header and above the hero, `baseline.md` section 3, **and that is the divergence**.
 
-**There is no divergence left in the placement.** `D-59` converged on the baseline. What diverges now is one thing and it is smaller and it is named: **the strip sits after the content at 360px rather than under the header**, because under the header it pushed the case screen's act through the fold. `CLAUDE.md` requires a divergence to be named out loud; it does not require one to be preserved after it has been decided away, and a sentence claiming a divergence that no longer exists is the same defect as an unnamed one.
+**There is no divergence left in the placement.** `D-59` converged on the baseline. What diverges now is one thing and it is smaller and it is named: **the strip sits after the content at 360px rather than under the header**, because under the header it pushed the case screen's act through the fold. **Narrowed since: Home, the shelf, legal and support declare `feedTop` and keep it under the header at every width, `D-126`, `D-127` and `D-136`, because none of them has an act on its first screen.** `CLAUDE.md` requires a divergence to be named out loud; it does not require one to be preserved after it has been decided away, and a sentence claiming a divergence that no longer exists is the same defect as an unnamed one.
 
 ### 3.3 Every page, and the register of what refuses it
 
@@ -268,9 +268,9 @@ A continuous loop built from four events looks like forty. **Below the minimum c
 
 ### 5.4 Every tile is a link to a checkable object, and that is the only route it offers
 
-**One destination, `7.1`, and no second action anywhere on the tile.** No route into the case, no open control, no share control. A ticker tile that opens a case turns social proof into a spend prompt, and the tile is not a place where cost is visible.
+~~**One destination, `7.1`, and no second action anywhere on the tile.** No route into the case, no open control, no share control.~~ **Since `D-59` the tile body goes to `7.1` and the hover layer adds two targets, the case to `3.3` and the winner to `7.3`, section 0.5.4; on touch the tile keeps exactly one destination, `7.1`.** No open control and no share control. A ticker tile that opens a case turns social proof into a spend prompt, and the tile is not a place where cost is visible: **the case target lands on the case screen, where the cost is, rather than opening anything.**
 
-**The destination changed and the change is the point.** The baseline links every tile to the winner's public profile at `/en/profile/<id>`, `baseline.md` section 3, and no job in this repository requires a profile object at all. `D-20` approved `7.1`, so the social proof surface now points at something a stranger can check rather than at a stranger's trophy shelf.
+**The destination changed and the change is the point.** The baseline links every tile to the winner's public profile at `/en/profile/<id>`, `baseline.md` section 3, and ~~no job in this repository requires a profile object at all~~ **a public profile now exists, `7.3`, by `D-90`, and the winner's name in the hover layer reaches it, section 0.5.5; the tile body does not**. `D-20` approved `7.1`, so the social proof surface now points at something a stranger can check rather than at a stranger's trophy shelf.
 
 **And no proof inline.** `0.14` renders on `7.1`, which is where the tile lands. A truncated hash in a 92px tile is not evidence, it is a decoration shaped like evidence, and `0.14` section 0 is the rule against exactly that.
 
@@ -314,6 +314,6 @@ The baseline runs 26 tiles of 92px at 1440px, `baseline.md` section 3. At 360px 
 | **The minimum tile count**, rule 5.2 | **Eight.** Below eight the strip is a static row and says so | One row at 360px holds 3.9 tiles of 92px, so a loop needs two screenfuls of tiles before it can run without a visible gap. The etalon draws twelve, the first count that still reads as a feed at 1440px |
 | **Whether the tile carries the item image** | **It does.** Field 8 above | The strip is read at a glance rather than read, and `baseline.md` section 3 runs artwork at exactly the 92 by 120 this component inherits, so legibility at that size is walked rather than assumed. Four text fields alone at 92px read as a list |
 
-**Neither answer touches rule 5.4 or rule 5.5.** The tile still offers exactly one destination and no second action, and rarity is still a tint plus a word in the accessible name. **An image is not a route and it is not a rarity label.**
+**Neither answer touches rule 5.4 or rule 5.5.** The tile still offers ~~exactly one destination and no second action~~ **one destination for its body, `7.1`, and two hover targets since `D-59`, with no second action**, and rarity is still a tint plus a word in the accessible name. **An image is not a route and it is not a rarity label.**
 
 **And what belongs elsewhere.** The words in the empty and degraded states: stage 05. Where the strip sits ~~on each of the two surfaces~~ **on a page, at the top or after the content, `feedTop`,** and how tall it is: ~~nodes `1.0` and `3.3` at steps 5 and 6~~ **each page's own node, since `D-59` made the strip global**. The object every tile lands on: node `7.1`. The proof that object carries: node `0.14`. The item as it appears there: node `0.6`.

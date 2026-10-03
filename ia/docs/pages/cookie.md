@@ -8,7 +8,7 @@
 
 **The law is not one of the three parent classes, and that gap is a finding rather than a technicality.** `CLAUDE.md` enumerates five compliance constraints and none of them is data protection, so the legal ground below has no class to sit in. It is carried here in full, cited, and the missing constraint is raised in section 9 as a candidate for the stage close. The alternative, quietly widening the third class, is the thing that rule exists to stop.
 
-**Fires on arrival.** The map already settled the interrupt order and it is not re-derived here: `0.4` fires on arrival, `2.1` fires at first case interaction by `B3` and `D-17`, so the two never contend for the same moment.
+**Fires on arrival.** The map already settled the interrupt order and it is not re-derived here: `0.4` fires on arrival, `2.1` fires at first case interaction ~~by `B3` and `D-17`~~, **the geo gate alone since `D-26` moved the 18+ declaration into sign in, `sitemap.md` section "The global sweep"**, so the two never contend for the same moment.
 
 **Transitions:** the cookie policy on `0.9`, at `/legal/cookies` per `0.13`. `0.2` already guarantees that link works before consent is given, because a consent dialog that links to a policy the consent gate blocks is circular.
 
@@ -146,10 +146,10 @@ Two pages on `cnil.fr`, English versions, opened 12 August 2026.
 | **Marketing** | **Off until opted in** | Same. And it may be empty at launch, next row |
 | **A purpose with nothing in it is not shown** | n/a | Round 1 has no referral programme, which is LATER with no parent, so **whether any marketing tag exists at launch is `[?]`.** Printing an empty choice invites a decision about nothing |
 
-**One question this node will not answer from memory: what the age gate stores.** `2.1` takes an 18 plus declaration and something has to remember it, which is storage in terminal equipment and therefore inside Article 5(3). Whether a compliance-mandated declaration falls inside the "strictly necessary" exception is a legal reading, not a design one.
+**One question this node will not answer from memory: what the age gate stores.** ~~`2.1` takes an 18 plus declaration~~ **The sign-in consent gate on `2.4` takes the 18 plus declaration since `D-26`** and something has to remember it, which is storage in terminal equipment and therefore inside Article 5(3). Whether a compliance-mandated declaration falls inside the "strictly necessary" exception is a legal reading, not a design one.
 
 - **The safe default this node designs to:** it is treated as strictly necessary and named in the policy on that basis.
-- **If counsel disagrees**, the gate stores nothing and re-asks on every visit, which costs conversion and is not otherwise fatal, since `2.1` already fires at first case interaction rather than on arrival.
+- **If counsel disagrees**, the gate stores nothing and re-asks on every ~~visit~~ **sign in**, which costs conversion and is not otherwise fatal, since ~~`2.1` already fires at first case interaction~~ **the declaration is asked at sign in, `D-26`,** rather than on arrival.
 - **Owner:** counsel under `D-A`, with `0.12`. `[?]` until then.
 
 ---
@@ -249,4 +249,4 @@ Two pages on `cnil.fr`, English versions, opened 12 August 2026.
 | ~~**The persistent re-open route**~~ **Closed 22 August 2026.** `0.2` carries **Cookie settings** in its Company column, added by the step 8 audit, and it opens layer 2 with the current answer since `D-80` | What replaces it is narrower: **at 360 the route back is two presses against one**, section 8, because that column is an accordion collapsed by default | The step 8 audit, then node `0.2` |
 | **A consent management platform, or our own** | Not an IA question. What is fixed here is the behaviour any implementation has to produce | Production |
 
-**And what belongs elsewhere.** The words in the dialog: stage 05. How it looks, including the symmetry that decides whether this node worked: stages 06 and 07. The policy text itself: `0.9`. The live region that announces it: `0.5`. The order against the age gate: already settled in `ia/docs/sitemap.md` and not reopened here.
+**And what belongs elsewhere.** The words in the dialog: stage 05. How it looks, including the symmetry that decides whether this node worked: stages 06 and 07. The policy text itself: `0.9`. The live region that announces it: `0.5`. The order against the ~~age gate~~ **geo gate, `D-26`**: already settled in `ia/docs/sitemap.md` and not reopened here.

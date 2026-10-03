@@ -99,7 +99,7 @@
 | **Rolls** | job | `F3`, Related Job 3. Unchanged | **A roll**, seven fields, section 0 below |
 | **Deposits** | barrier | **`B4-3`, money leaves and does not arrive.** Pattern of 4 across 3 platforms, ledger U-04 | A payment: when, amount in coins, method, state, our reference, the payment reference |
 | **Withdrawals** | barrier | **`B8-2`, waiting with numbers.** Six people with hard figures, and what each describes is silence rather than slowness | An item sent to Steam: when, what, worth then, state, **who it is waiting on**, our reference |
-| **Cash out** | **none** | **No parent in any of the three classes** | Nothing. A rendered absence, below |
+| **Cash out** | **none** | **No parent in any of the three classes** | ~~Nothing. A rendered absence, below~~ **Superseded twice: the sell back ledger by `D-93`, section 0.7, then the crypto payout ledger by `D-118`, section 0.11, which still has no parent in the three classes** |
 
 **So the three-tab proposal was refusing two capabilities with real barriers behind them.** Neither is new: `4.1` and `5.3` are round 1 nodes with drawn states. **What was missing was the place a person reads their own record of them afterwards**, which is the same shape as `D-87`'s system messages one node over.
 
@@ -109,10 +109,10 @@
 
 **Turning coins back into money is not a capability anywhere in `cjm-to-be.md`, and the only capture of that tab is empty**, so the source cannot say what a row would hold. The panel prints both readings:
 
-- **Taking a balance out as money.** Nothing on this product does it, **and there is no unit for it either** while the peg is unpublished.
+- ~~**Taking a balance out as money.** Nothing on this product does it, **and there is no unit for it either** while the peg is unpublished.~~ **Superseded by `D-95` and `D-118`: the coin is pegged one to one, and a balance leaves as crypto from `5.1`, section 0.11.**
 - **Selling an item back for coins**, `D-38`. That exists, and it is already recorded on the Rolls tab by the roll it came from.
 
-**The baseline prints `History is empty...` on three of its five tabs and nothing else**, which is the pattern `0.5` and `3.2` both refuse. **The difference between a rendered absence and a dead item is that a dead item promises something.**
+**The baseline prints `History is empty...` on three of its five tabs and nothing else**, which is the pattern `0.5` and `3.2` both refuse. **The difference between a rendered absence and a dead item is that a dead item promises something.** **The tab stopped being an absence with `D-93` and `D-118`, sections 0.7 and 0.11; the absence is now its empty state, `history-cashout-empty.html`.**
 
 ### What else changed in this file
 
@@ -121,7 +121,7 @@
 | **Title and URL** | **`Roll history` becomes `History`, `/roll-history` becomes `/history`.** A destination whose label names one of the four things behind it under-describes, which is the same defect as over-promising with the sign reversed. `0.1` row 2 and the account strip follow. **`0.13` owes the URL row with the three it already owes**, section 8 |
 | **Section 2, blocks** | **Block 1 becomes the tab strip plus one count per tab**, and the count is still a count and never a total |
 | **Section 2, refusals** | **Unchanged and now binding three more lists.** No total, no net, no profit, no ratio, no streak, on any tab. **Three ledgers make the temptation larger:** deposited against withdrawn is one subtraction away, and it is the same number in an accountant's clothes |
-| **The deposits panel** | Says on the panel that **it cannot be reconciled against a bank statement**, because the peg is unpublished. `D-28` arriving on a fourth surface |
+| **The deposits panel** | ~~Says on the panel that **it cannot be reconciled against a bank statement**, because the peg is unpublished. `D-28` arriving on a fourth surface~~ **Superseded by `D-95`: at one to one a row lines up with a statement, and since `D-128` the one line under the ledger is `Amounts in coins, 1 coin = $1.00`** |
 | **The withdrawals panel** | Carries **who a row is waiting on and how long it has been, and never an ETA**, which is `5.3`'s clock rule applied to a list |
 | **Section 5 B, headings** | **Rewritten.** H1 History. One H2 per panel, and the panel headings are Rolls, Deposits, Withdrawals, Cash out |
 | **States** | **Unchanged in count.** `history-no-seed` and `history-mismatch` are states of tab one and of nothing else, which is why each notice sits inside the rolls panel rather than above the strip: a banner over four tabs would claim a payment failed to check out, and that is not a thing a payment can do |
@@ -143,13 +143,13 @@
 | `history-deposits.html`, `-empty` | The payment ledger, `B4-3` |
 | **`history-deposits-blocked.html`** | **A boundary in force, read from the ledger's side**, added by `D-90`, section 0.6 |
 | `history-withdrawals.html`, `-empty` | The Steam ledger, `B8-2` |
-| **`history-withdrawals-overdue.html`** | **A row past our own published ceiling**, and the ceiling itself is `[?]`, section 0.5 |
+| **`history-withdrawals-overdue.html`** | **A row past our own published ceiling**, and the ceiling itself is `[?]`, section 0.5, **drawn as a sample, `6 h 15 m`, since `D-128`** |
 | **`history-withdrawals-restricted.html`** | **`G4`'s written ground and appeal, read from the ledger's side**, added by `D-90`, section 0.6 |
-| `history-cashout.html` | The rendered absence. **It gains no second state and section 0.6 says why** |
+| `history-cashout.html` | ~~The rendered absence. **It gains no second state and section 0.6 says why**~~ **The sell back ledger by `D-93`, then the crypto payout ledger by `D-118`, with `history-cashout-empty.html` as its second state since `D-93`** |
 
 **The overdue state is the one worth building, and the argument is one this project has already made.** `0.10` earned its place because a published deadline with no state for its own failure is a number nobody has to meet. **A withdrawal ceiling is the same object.** The row is past our own published ceiling, it is our number and our failure, **and it was not the person's job to notice.**
 
-**Corrected 23 August 2026, and the correction is a number this node invented.** ~~The page says we published 48 hours~~ **is deleted: no such figure exists anywhere in this repository.** `withdraw-clock.html` renders every ceiling as `not published`, and `0.11` is the register that would own the figure if there were one. **Caught by the agent that built the new states**, in `history-withdrawals-overdue.html`, which had carried the same 48 and was corrected on 23 August to refuse the figure and print why it is absent. **The wireframe was fixed and the node that specifies it was not**, which is the drift this correction closes. **The ceiling is `[?]` until `0.11` publishes one**, and the overdue state renders the absence rather than a number.
+**Corrected 23 August 2026, and the correction is a number this node invented.** ~~The page says we published 48 hours~~ **is deleted: no such figure exists anywhere in this repository.** `withdraw-clock.html` renders every ceiling as `not published`, and `0.11` is the register that would own the figure if there were one. **Caught by the agent that built the new states**, in `history-withdrawals-overdue.html`, which had carried the same 48 and was corrected on 23 August to refuse the figure and print why it is absent. **The wireframe was fixed and the node that specifies it was not**, which is the drift this correction closes. **The ceiling is `[?]` until `0.11` publishes one**, ~~and the overdue state renders the absence rather than a number~~ **and since `D-128` the overdue state prints it as a sample, `6 h 15 m`, the slow-case time Home publishes, `D-124`.**
 
 ---
 
@@ -169,7 +169,7 @@
 
 ### Cash out gains nothing, and that is correct
 
-**It is already a rendered absence**, `history-cashout.html`, it is the best-reasoned page in the set, and **a second empty state for a tab that is entirely empty would be a page about a page.** The tab has no rows because the capability behind it has no backlog row at all, `D-38`, and the absence names both readings of that. **An empty state for an empty tab would render the absence of the absence**, which describes nothing a person could act on.
+~~**It is already a rendered absence**, `history-cashout.html`, it is the best-reasoned page in the set, and **a second empty state for a tab that is entirely empty would be a page about a page.** The tab has no rows because the capability behind it has no backlog row at all, `D-38`, and the absence names both readings of that. **An empty state for an empty tab would render the absence of the absence**, which describes nothing a person could act on.~~ **Superseded the next day by `D-93`: the tab gained a subject and rows, so it gained its empty state, `history-cashout-empty.html`, section 0.7.**
 
 ### One finding this node raises rather than fixes
 
@@ -192,7 +192,7 @@
 
 **The `D-88` argument was right on a wrong premise and it is superseded, not deleted.** Section 0.4 shipped this tab as a rendered absence on the ground that "turning coins back into money is not a capability anywhere in the backlog" and that the only capture of the tab is empty. **Both halves of that are still true.** What was wrong is the conclusion that the tab therefore had no subject, and **the rendered absence named the subject itself**: "selling an item back for coins, which does exist, is in round 1, and is already recorded one page over".
 
-**Both readings stay on the page, because the label is still the baseline's.** Taking a balance out as money is not built, and the coin has no published rate to do it at, so that reading is stated in one line under the bar and never performed. A tab that gained a subject and dropped the reading its label carries would be a promise nobody made.
+**Both readings stay on the page, because the label is still the baseline's.** ~~Taking a balance out as money is not built, and the coin has no published rate to do it at, so that reading is stated in one line under the bar and never performed.~~ **Superseded by `D-95` and `D-118`: the coin is pegged, and taking a balance out as crypto is built, section 0.11.** A tab that gained a subject and dropped the reading its label carries would be a promise nobody made.
 
 ### The columns, and the one that is deliberately absent
 
@@ -208,7 +208,7 @@
 
 **"Credited" and not "worth", and `D-91` is the reason.** Inside the coin economy a win is credited at our value and a sell back pays our value, so on the same day they are one number and on a later day they are not. The column name has to survive the later day.
 
-**And the second price is named under the bar.** What a real copy of the same skin costs is our other price, and the difference between selling back and taking it out is the whole of `D-91`. **A ledger that prints one of the two teaches that there is only one.**
+~~**And the second price is named under the bar.** What a real copy of the same skin costs is our other price, and the difference between selling back and taking it out is the whole of `D-91`. **A ledger that prints one of the two teaches that there is only one.**~~ **Superseded by `D-118` and `D-128`: the tab is the crypto payout ledger, and no note sits under it.**
 
 ### The empty gains a route, and the `D-88` rule survives its own reversal
 
@@ -224,7 +224,7 @@ Section 0.4 refused this tab an empty-state control on a rule it stated out loud
 
 **Founder, on the built pages:** why is there so much text, and what are these explanations on every page for.
 
-**Every tab opened with its notes between the count and the first row.** They now sit under the set, in one labelled block: what the list is, and what a row will or will not tell you. **Nothing is cut.** The rolls page moved its proof scope line the same way, under the rows it describes and after the filters, which stay above because they control what is shown.
+**Every tab opened with its notes between the count and the first row.** They now sit under the set, in one labelled block: what the list is, and what a row will or will not tell you. ~~**Nothing is cut.**~~ **Superseded by `D-128`: the labelled blocks went, and one line stays on deposits and one on rolls, section 2.** The rolls page moved its proof scope line the same way, under the rows it describes and after the filters, which stay above because they control what is shown.
 
 ### The line that left the screen entirely, and it is here instead
 
@@ -284,13 +284,13 @@ Section 0's seventh field reads **held, sold back, or withdrawn**. **The withdra
 
 **One card per item**, the status first and in words rather than a colour band, since colour arrives at stage 07. **One figure, worth when won, dated to the roll.** What an item is worth today belongs to `5.1` and what a sale credited belongs to the cash out ledger: **three figures, three owners, and a card carrying all three would be three owners on one line.**
 
-**The five rolls are declared once**, in `_nav.js`, and this tab renders from that array. **Its empty state empties the array rather than copying the page**, so the two states cannot disagree about what a card looks like.
+**The ~~five~~ ten rolls, since `D-135` and `D-142`, are declared once**, in `_nav.js`, and this tab renders from that array. **Its empty state empties the array rather than copying the page**, so the two states cannot disagree about what a card looks like.
 
 ### The debt this leaves, named rather than left as a surprise
 
-~~**The roll rows and `7.3`'s card grid are still hand written.**~~ This tab cannot drift from them because it is generated, **and they can still drift from each other until they are moved onto the same array.** The shared array now exists, which is the only thing that was missing. **Carried against this node and `7.3`.** **Half closed 2 September 2026 by `D-117`, section 0.10: the roll rows render from the array, and they were carrying two figures `D-90` had corrected ten days earlier. `7.3`'s grid is the last hand copy.**
+~~**The roll rows and `7.3`'s card grid are still hand written.**~~ This tab cannot drift from them because it is generated, **and they can still drift from each other until they are moved onto the same array.** The shared array now exists, which is the only thing that was missing. **Carried against this node and `7.3`.** **Half closed 2 September 2026 by `D-117`, section 0.10: the roll rows render from the array, and they were carrying two figures `D-90` had corrected ten days earlier. `7.3`'s grid is the last hand copy.** **Closed in round 14, `D-135`: the player pages render the same cards from the same array.**
 
-**And `5.1` still lists the AWP with no mark while it is in flight**, so a person could try to sell back an item that is halfway to Steam. **What an inventory does with an item under a live withdrawal is `[?]` and it is not this node's to answer.**
+~~**And `5.1` still lists the AWP with no mark while it is in flight**, so a person could try to sell back an item that is halfway to Steam.~~ **Superseded by `D-135`: the item on its way to Steam, the MP9 since the timeline was rebuilt, is not on `5.1`, so nothing in flight can be sold back.** **Whether an inventory shows an item under a live withdrawal with a mark, rather than not at all, is `5.1`'s to answer.**
 
 ---
 
@@ -385,7 +385,7 @@ Three cells, in the founder's order.
 
 ### What this closes and what it does not
 
-**Section 0.9's debt is half closed.** ~~The roll rows and `7.3`'s card grid are still hand written.~~ **The roll rows are generated from the array. `7.3`'s card grid is still a hand copy** and is the last one, carried against that node.
+**Section 0.9's debt is half closed.** ~~The roll rows and `7.3`'s card grid are still hand written.~~ **The roll rows are generated from the array.** ~~**`7.3`'s card grid is still a hand copy** and is the last one, carried against that node.~~ **`7.3`'s grid renders from the same array since `D-135`, and the debt is closed.**
 
 **And the instrument was wrong before the code was.** The dead class scan reported `wf-roll` and `wf-roll--bad` dead the moment the renderer chose between them with a ternary, because its pattern only matched a class name written as a literal argument. **A false positive in a detector is worse than a miss**, since it is read as a finding and spends a step being verified. The scan now counts any quoted string in the renderer whose whole contents are class tokens, and the dead count is 56 before this change and 56 after, where it read 65 both sides before the fix.
 
@@ -487,9 +487,9 @@ Founder: **"в истории нужно это отметить, там ест�
 
 ### Selling back for coins did not stop existing, and it is not on this tab
 
-It is round 1 since `D-38`, **nothing leaves the product when it happens**, and its record belongs to the item under `5.1`. **This tab is only for money that left.** The line saying so is in the block under the rows.
+It is round 1 since `D-38`, **nothing leaves the product when it happens**, and its record belongs to the item under `5.1`. **This tab is only for money that left.** ~~The line saying so is in the block under the rows.~~ **Since `D-128` no note sits under the ledger, and the sentence lives here.**
 
-### The four rows, and two thirds of them are not reconciled
+### ~~The four rows, and two thirds of them are not reconciled~~ Three rows since `D-142`, and every one is reconciled
 
 **One is.** The P250 is on the Rolls tab as sold back on 21 August and on `7.3` as gone. It was requested as crypto for `0.31 coins` and **blocked, because 0.31 will not cover any chain**, which is exactly why those coins are on the balance the header shows. **The smallest amount we can send is `[?]`** and the row says so rather than naming one. **Superseded on two facts:** the P250 is sold back on 20 Aug, the roll's own date since `D-135`, and the row names the smallest cash out on Litecoin, 2.00 coins, a sample by `D-134`; the real value is still `[?]`.
 
@@ -508,7 +508,7 @@ A row is **a roll**, not an item. Seven fields, and every one of them exists bec
 | **When** | The moment of the roll, to the minute | The only field a person navigates by. Everything else is looked up once they have found the row |
 | **The case** | Which case was opened, with a route to it | A roll with no case is an event with no price and no chance attached |
 | **What it cost** | The entry cost at the moment of the roll, in coins | **The cost is dated to the roll and never re-read from the case today.** A case whose price changed would otherwise rewrite what every past roll cost |
-| **What it returned** | The item, as `0.6`, with the `F1` receipt figure it was worth at that moment | Two dated figures, never one, and never a third made out of them. Same rule as `5.1` |
+| **What it returned** | The item, as `0.6`, with the `F1` receipt figure it was worth at that moment | ~~Two dated figures, never one, and never a third made out of them. Same rule as `5.1`~~ **One figure since `D-90` and `D-120`, what the item was worth on the day of the roll; what it is worth today lives on `5.1`.** Never a third made out of the two |
 | **The published chance** | The chance of that outcome, as published at the moment of the roll | `D3` and `D4` live on `3.3` and they are about the case. **This is the same claim about one event**, and it is what makes a row checkable rather than merely recorded |
 | **The round proof** | Component `0.14`, variant V1 in the row and V3 on demand | The whole reason this page exists |
 | **The state of the roll's item** | Held, sold back, or withdrawn, **and since `D-108` a fourth, Sending to Steam, section 0.9.** The rolls tab prints it as a line under the skin, `Sold back, 20 Aug` or `Sending to Steam, 21 Aug`, and prints nothing for held | **Derived and stated, because the item is the part of a roll that moves.** A row whose item has gone is not an error and it is not a gap: it is a roll whose outcome left, and `7.2` already has that shape for a public result |
@@ -599,7 +599,7 @@ Composition from `blocks.md` section 3, **T2 listing with an empty state**, rows
 |---|---|---|
 | Navigation `0.1` | Shell | Account exists. The account menu row is the current destination |
 | Footer `0.2` | Below | Full |
-| Skin card `0.6` | The item column of a row | Compact, two dated figures |
+| Skin card `0.6` | The item column of a row | ~~Compact, two dated figures~~ **Compact, one figure dated to the roll, `D-120`** |
 | Round proof `0.14` | Every row | **V1 in the row, V3 on demand.** No new variant |
 | Live feed `0.8` | Shell | Full. **This node refuses nothing**, and the absence of a refusal is deliberate rather than unnoticed |
 | Toasts `0.5` | `aria-live` | Never the only place a state is announced |
@@ -667,7 +667,7 @@ Composition from `blocks.md` section 3, **T2 listing with an empty state**, rows
 | `history-withdrawals.html` | Withdrawals | `5.9` |
 | `history-withdrawals-empty.html` | Withdrawals, none yet | `5.9` |
 | `history-withdrawals-overdue.html` | Withdrawals, past our ceiling | `5.9` |
-| `history-cashout.html` | Cash out, four statuses | `5.9` |
+| `history-cashout.html` | Cash out, four statuses, **the registry's label: three render since `D-142`, and Sending has no row** | `5.9` |
 | `history-cashout-empty.html` | Cash out, none yet | `5.9` |
 | `history-unfinished.html` | An open that did not finish | `5.9` |
 | `history-deposits-blocked.html` | Deposits, a boundary in force | `5.9` |
@@ -686,6 +686,6 @@ Composition from `blocks.md` section 3, **T2 listing with an empty state**, rows
 | **What a row shows when the case itself is gone** | A case can be retired. The roll happened and the case page may not exist. **Named rather than assumed either way** | Node `3.1`, then here |
 | **The page size and what the pager is** | `blocks.md` T2 gives the shape and no number | Production |
 | ~~**Whether the deposit boundary's unit and period are known**~~ **Half closed 25 August 2026 by `D-95`** | Section 0.6. It read: `history-deposits.html` renders "40.00 coins for the week" and `responsible-in-force.html` renders "40.00 unit not set per period", one boundary in two renderings disagreeing about what is known. **The unit is known: the peg is one to one and both surfaces now render `$40.00`.** The two renderings agreed all along and the disagreement was about the unit rather than the figure. **The period is still `[?]`** and `responsible-in-force.html` still reads `Period not set` | Founder, with `6.1` |
-| **The published withdrawal ceiling** | Section 0.5. The overdue state needs a figure to be past and **no figure exists in this repository**: `withdraw-clock.html` renders every ceiling as `not published`. It is `[?]` until `0.11` publishes one | Node `0.11`, then production |
+| **The published withdrawal ceiling** | Section 0.5. The overdue state needs a figure to be past and **no figure exists in this repository**: ~~`withdraw-clock.html` renders every ceiling as `not published`.~~ **since `D-128` the clock and the overdue state print a sample, `6 h 15 m`, `D-124`.** It is `[?]` until `0.11` publishes one | Node `0.11`, then production |
 
 **And what belongs elsewhere.** The words: stage 05. How it looks: stages 06 and 07. The verifier itself: `1.2`. The proof component's anatomy: `0.14`. The public form of one round: `7.1`. The item's own record: `5.1`.

@@ -11,7 +11,7 @@
 
 **Reached from:** the deposit control and the balance figure in the header, node `0.1`; the state-dependent strip on `1.1`; `3.3` when the balance will not cover an entry cost; and nothing else. **Nothing stands in front of this screen in round 1:** `2.7` did, and `D-26` took it out, section 1. **Never reached from the rail:** money is not a destination, `D-19`.
 
-**Leads to:** `4.2` to `4.5` as its own states, `6.1` for the other three limits, `3.3` or `1.1` on credit, `5.3` which stays open in every state on this page, and `0.10` when a named window passes. **`2.7` was on this list and `D-26` took it off.**
+**Leads to:** `4.2` to `4.5` as its own states, `6.1` for ~~the other three limits~~ **all four limits, the deposit limit among them since `D-103`**, `3.3` or `1.1` on credit, `5.3` which stays open in every state on this page, and `0.10` when a named window passes. **`2.7` was on this list and `D-26` took it off.**
 
 **Baseline row, `4.1`.** The rule in `CLAUDE.md`: every node carries one baseline row, what the live product does, what we keep, what we change and why.
 
@@ -103,7 +103,7 @@
 
 **Design principle 3, clarity at every risk moment:** "Where money is about to be spent, odds, cost and expected value are visible and legible. **Cost never hides inside excitement.**" On `3.3` that principle fights an animation. Here it fights nothing at all, which is why failing it here would be inexcusable: there is no reveal to compete with, only a form, and the whole cost of the transaction is knowable at the moment it is typed.
 
-**The limits rule:** "A limit never acquires completion mechanics, streaks, status or a session score: at that point it stops being a boundary and becomes a reason to keep going." The spend ceiling `C2` is set on this screen, is reached on this screen, and is raised on this screen. **Three of the five nodes in this cluster are the limit doing something**, so this is the node where that rule is most likely to be broken by a well-meaning addition, and every state below carries its own forbidden list rather than a reference to this paragraph.
+**The limits rule:** "A limit never acquires completion mechanics, streaks, status or a session score: at that point it stops being a boundary and becomes a reason to keep going." ~~The spend ceiling `C2` is set on this screen, is reached on this screen, and is raised on this screen.~~ **Since `D-103` the deposit limit is set and raised on `6.1`, and this screen states it, stops at it and holds a raise, `4.2` and `4.3`.** **Three of the five nodes in this cluster are the limit doing something**, so this is the node where that rule is most likely to be broken by a well-meaning addition, and every state below carries its own forbidden list rather than a reference to this paragraph.
 
 ---
 
@@ -134,9 +134,9 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 | # | Block | What it holds | Parent | First screen at 360px |
 |---|---|---|---|---|
 | 1 | **H1** ~~**and account state**~~ | The page's job in words ~~plus funding open~~. **The exit promise left this block with `D-26`**, section 1, **and the account line left with `D-129`**: no deposit page draws an account state strip, and the first screen is the offer, the promo question, then the grid | `B8-4` directly. `B1` and `B2` were the parents and both are parked with `2.7`, so the block answers the barrier without the two rows that used to stand between | Yes |
-| 2 | **Amount, and the rate beside it** | One input. **Since `D-28` this block is where the conversion lives rather than where it is forbidden:** the person types in real money, the coins it buys render beside it, and the rate is published with its as-of | `C1` as `D-28` rewrote it, still on `B7-1` pattern of 7, plus `0.11` rule 10 | Yes |
+| 2 | **Amount, and the rate beside it** | One input. **Since `D-28` this block is where the conversion lives rather than where it is forbidden:** the person types in real money, the coins it buys render beside it, and the rate is published ~~with its as-of~~ **as a peg with no as-of, `D-95`, section 2c** | `C1` as `D-28` rewrote it, still on `B7-1` pattern of 7, plus `0.11` rule 10 | Yes |
 | ~~3~~ | ~~**Spend ceiling for a named period**~~ | ~~Pre-filled with the amount just typed, period selector, and the asymmetry stated in the interface: lowering applies immediately, raising waits 24 hours~~ **Superseded by `D-103`**: the form left this node for `6.1`. What stays is one fact line under the press, `Deposit limit $40.00 in force. Change it` or `No deposit limit set. Set one`, section 2j | `C2`, on `B7-4` pattern of 12 | ~~Yes~~ No, a line in the form column |
-| 4 | **The other three limits live on `6.1`** | One plain line, one link, to session limit, cool down and self exclusion | `C5`, and the compliance constraint quoted above | Partly |
+| 4 | **~~The other three limits~~ All four limits live on `6.1`** | One plain line, one link, to ~~session limit, cool down and self exclusion~~ **the deposit limit since `D-103`, the session limit, the cool down and self exclusion** | `C5`, and the compliance constraint quoted above | Partly |
 | 5 | **Withdrawal threshold** | The sum required to withdraw, stated here, frozen from this moment, and never able to rise | `C4`, on `B4-1` | No, and section 5 explains why that is not a demotion |
 | 6 | **Payment methods** | Cards, one per method, **with every exclusion printed on the card it excludes**, and an empty state for the first deposit | `B4-3`, plus the bank's Navan and Hellcase FAQ rows | No |
 | 7 | **What happens after you pay** | The crediting window as a published number, stated **before** the payment, and what to do if it passes | `C3`, on `B4-3` pattern of 4, plus design principle 3 | No |
@@ -147,7 +147,7 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 **Block 8 is not in the scroll order.** It docks to the bottom edge at 360px from the moment an amount exists, and it is the right column on desktop. In the document it sits after block 7, so that a person reading linearly, with a screen reader or with styles off, meets the summary after everything it summarises rather than before.
 
-**Why this order and not the category's.** The category's order is method, then amount, then pay. Ours puts the amount first because the ceiling is pre-filled from it, `cjm-to-be.md` T4: "the amount just typed is pre-filled as a ceiling with a period selector". **A method chosen before an amount makes the ceiling arrive as an interruption at the end**, which is exactly the shape that turns a brake into an obstacle. The two brakes therefore sit between the amount and the method, in the gap where a person is deciding rather than committing.
+~~**Why this order and not the category's.** The category's order is method, then amount, then pay. Ours puts the amount first because the ceiling is pre-filled from it, `cjm-to-be.md` T4: "the amount just typed is pre-filled as a ceiling with a period selector". **A method chosen before an amount makes the ceiling arrive as an interruption at the end**, which is exactly the shape that turns a brake into an obstacle. The two brakes therefore sit between the amount and the method, in the gap where a person is deciding rather than committing.~~ **Superseded by `D-96`, section 2d, and its ground by `D-103`, section 2j:** crypto has no amount field, so the method comes first, and nothing on this screen is pre-filled from the amount any more.
 
 **One block the bank has and this page does not.** The step indicator from the Wealthsimple row. This is one screen with one control, so a step indicator would be drawing a process that does not exist. It stays with `2.7`, where the branch that needs it lives, and that node already names the overlap: the code card, the step indicator and the review card are shared T4 candidates for the stage 07 inventory rather than IA nodes, since a candidate with one consumer is not global.
 
@@ -157,7 +157,7 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 **Founder decision.** The header's deposit control carries a standing `5%` badge, `navigation.md` rule 4, reversed there. **This node owns the other half of it.**
 
-**Block 2b sits between the amount and the ceiling**, and the position is the argument. The founder's own wording is that we lead a person from the control to the deposit screen: **a percentage advertised on a persistent control and not restated where the money goes in is a condition that arrives after the decision instead of before it**, which is the shape `B4-1` describes.
+~~**Block 2b sits between the amount and the ceiling**~~ **Block 2b sat between the amount and the ceiling until `D-103` took the ceiling off this node; since `D-129` the offer is the first line of the layer and the bonus a line of the receipt**, and the position is the argument. The founder's own wording is that we lead a person from the control to the deposit screen: **a percentage advertised on a persistent control and not restated where the money goes in is a condition that arrives after the decision instead of before it**, which is the shape `B4-1` describes.
 
 | What the block states | Why it is here and not in a footnote |
 |---|---|
@@ -168,9 +168,9 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 **One declaration, two surfaces.** The number lives once, in `WF_BONUS`, and both the badge and this block read it. **This project has already shipped two renderings of one fact across seventy-two pages**, and a promotional percentage that disagreed with itself between the control and the screen would be that defect on the surface where money moves.
 
-**The bonus is a line in the summary and never a badge on it**, which is the rule `5.3` already runs on a commission of zero: a badge asserts, a line in a sum gets checked. It sits below the fee and above the ceiling, because it is part of what the transaction does rather than part of what it costs.
+**The bonus is a line in the summary and never a badge on it**, which is the rule `5.3` already runs on a commission of zero: a badge asserts, a line in a sum gets checked. ~~It sits below the fee and above the ceiling~~ **It sits between the peg and the total since `D-104` and `D-129`, the fee being a caption on the total and the limit a line below the press**, because it is part of what the transaction does rather than part of what it costs.
 
-**And the coins figure cannot be drawn.** Five per cent of the amount is a coin figure and **1 coin in real money is not published**, so the block states the rate in full and marks the one number it cannot compute. **This is now the most expensive place that hole sits:** a person is being offered something they cannot size.
+~~**And the coins figure cannot be drawn.** Five per cent of the amount is a coin figure and **1 coin in real money is not published**, so the block states the rate in full and marks the one number it cannot compute. **This is now the most expensive place that hole sits:** a person is being offered something they cannot size.~~ **Superseded the same day by `D-95`, section 2c: the bonus adds 2.00 coins on $40.00, and the figure is drawn.**
 
 **What this node still refuses.** No animation on the badge, no pulse, no count, no streak, and no rendering anywhere of a bonus total accumulated. `CLAUDE.md`'s limits rule is one level over and the instinct is the same: **an offer never becomes a score.**
 
@@ -192,7 +192,7 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 **The rate carries no as-of and that is deliberate.** `0.11` rule 2 wants a time on every figure because a figure with no time is read as current forever. **A peg is not a market read**: it is a fixed rate we set, so what it owes is a promise rather than a timestamp, and the screen makes it, if it ever changes we say so before you spend against it. **An as-of on a peg would say it moves.**
 
-**What is still `[?]` on this block:** the fee. A fee is not the peg and adopting one did not produce the other, so the summary still carries `Fee: not published`, and the rule stands that if the total ever differs from the typed amount both are shown.
+**What is still `[?]` on this block:** the fee. A fee is not the peg and adopting one did not produce the other, so ~~the summary still carries `Fee: not published`~~ **the fee is a caption on the total since `D-104`, and since `D-129` it reads `No provider fee on this route`, a sample**, and the rule stands that if the total ever differs from the typed amount both are shown.
 
 ---
 
@@ -226,9 +226,9 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 
 **Crypto has no amount field at all.** `baseline-account.md` 5b.3: the person sends what they send and the rate at the top converts it. **On eight of the thirty five routes there is nothing to type**, so asking for an amount before the route is known produces a screen that has to be taken back.
 
-**What the old argument protected is kept by placement.** The ceiling sits directly under the amount on step 2, before the pay control. **The worry was never the global order; it was the ceiling appearing last.**
+**What the old argument protected is kept by placement.** ~~The ceiling sits directly under the amount on step 2, before the pay control.~~ **The worry was never the global order; it was the ceiling appearing last.** **Superseded by `D-103`, section 2j: the ceiling left this node.**
 
-**And the step indicator arrives with the second screen.** Section 2 refused one on the ground that a step indicator draws a process that does not exist. There are two screens now, so it exists.
+~~**And the step indicator arrives with the second screen.** Section 2 refused one on the ground that a step indicator draws a process that does not exist. There are two screens now, so it exists.~~ **Superseded by `D-100`, section 2h: the indicator left by the argument that brought it.**
 
 ### `C2` does not work on the crypto route, and that is the largest thing this build found
 
@@ -239,6 +239,8 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 **The page states that rather than drawing a ceiling that cannot bind.** A pre-filled ceiling there would be a picture of a control, `D-58`, and worse than that: **a picture of a protection.**
 
 **What could replace it is a decision and not a drawing.** A ceiling enforced on arrival refuses money already sent, which means holding it or returning it, and **neither has a row, a policy or a node.** Owner: the founder.
+
+**The asymmetry closed with `D-103`, section 2j:** with no acceptance step on any route, the crypto route lost nothing the card route keeps. **Enforcement on arrival stays open**, section 12.
 
 ### Three step 2 pages, and the one that leaves the product
 
@@ -283,7 +285,7 @@ The live product arrives with a partner code **already in the field, ticked, and
 
 **The withdrawal threshold and the crediting window each became a line rather than a section.** Both were a heading over one unpublished number, and every clause of both survives.
 
-**What did not move: the ceiling.** It keeps its own section and its own heading, because it is the only blocking control on the screen and **compressing a brake into a line is how a brake becomes a setting.**
+**What did not move: the ceiling.** It keeps its own section and its own heading, because it is the only blocking control on the screen and **compressing a brake into a line is how a brake becomes a setting.** **Two days later `D-103` moved the limit off this node and left it a line, which is the cost that decision prints, section 2j.**
 
 ### The finding, and it is not a layout one
 
@@ -331,7 +333,7 @@ The live product arrives with a partner code **already in the field, ticked, and
 
 **The H1 and the footer**, for `D-54`'s own reasons: the host page owns the outline and already has a footer.
 
-**And the dock is in flow inside the layer where it is fixed on the page.** Below 900px the page docks the summary to the bottom of the viewport; a fixed element inside a dialog has no viewport of its own and leaves the frame it belongs to. In the layer the summary is simply the last block, which is where the document order already put it.
+**And the dock is in flow inside the layer where it is fixed on the page.** Below 900px the page docks the summary to the bottom of the viewport; a fixed element inside a dialog has no viewport of its own and leaves the frame it belongs to. ~~In the layer the summary is simply the last block, which is where the document order already put it.~~ **Superseded by `D-129`: in the dialog the pay row is sticky inside the frame, which keeps it in view without leaving the dialog.**
 
 ### What the rebuild fixed that nobody had asked about
 
@@ -364,7 +366,7 @@ The live product arrives with a partner code **already in the field, ticked, and
 | Cards, wallets and bank transfer | 25 | `route: card` |
 | Crypto | 8 | `route: crypto` |
 | Gift cards | 1 | `route: gift` |
-| CS2 skins | 1 | No route. The orphan, carried with its status printed |
+| CS2 skins | 1 | ~~No route.~~ **A route since `D-129`, `deposit-skins.html`.** The orphan, carried with its status printed |
 
 **Our own step 2 already split on route**, because the route is what the second pane asks for, and `baseline-account.md` 5b.1 shows the live list in exactly two groups. **A finer split into cards, wallets, bank transfers and vouchers is a taxonomy of payment brands and no file here holds one.** Founder's, and the payment side has the answer.
 
@@ -374,13 +376,13 @@ The live product arrives with a partner code **already in the field, ticked, and
 
 **Below the press:** the withdrawal threshold, the crediting window, the bonus rule and the route to the other limits. **All four are read rather than answered**, so they sit after the block they qualify. Nothing was cut, and the exit price is also a line in the receipt where it stays in view.
 
-**The ceiling did not move.** `C2` pre-fills it with the amount just typed and it blocks the press, so a brake met after scrolling past the control it brakes is a brake that arrives second. **What changed is its size**, and putting it beside the amount tells `C2`'s own story in the layout: the ceiling carries the amount just typed, so the two are one gesture.
+**The ceiling did not move.** `C2` pre-fills it with the amount just typed and it blocks the press, so a brake met after scrolling past the control it brakes is a brake that arrives second. **What changed is its size**, and putting it beside the amount tells `C2`'s own story in the layout: the ceiling carries the amount just typed, so the two are one gesture. **Overridden a day later by `D-103`, section 2j: the ceiling is set on `6.1`, and nothing here pre-fills or blocks.**
 
 ### Three controls were pictures of controls, on the one screen where a control has to be believed
 
 **The six presets changed nothing.** **The money field took letters**, so its value could not be arithmetic and every figure computed from it read `NaN` beside a Pay control. **The receipt was a string printed once at render** and said 42.00 coins whatever the amount became.
 
-**All three are live, and the arithmetic is one function.** The cap binds at 100 coins rather than being described, and **the ceiling follows the amount until it is settled**, which is `C2`'s first property working rather than being written down.
+**All three are live, and the arithmetic is one function.** The cap binds at 100 coins rather than being described, ~~and **the ceiling follows the amount until it is settled**, which is `C2`'s first property working rather than being written down~~ **and the ceiling following the amount went with the form, `D-103`**.
 
 **And the terms box was the browser's rather than the product's**, a bare input inside a row built for a 20px box, so it rendered as a large white square with its label stranded across the screen. It is `2.4`'s control now: one component, two screens, and Pay names which of the two conditions is missing.
 
@@ -402,7 +404,7 @@ The live product arrives with a partner code **already in the field, ticked, and
 
 **And `D-101` had disguised it.** That record put the limit beside the amount and argued the placement told `C2`'s own story: the limit carries the figure just typed, so the two are one gesture. **What it actually produced was two money fields side by side holding the same number**, one of them labelled with a word that does not say what it does. The argument was right about the relationship and wrong about the drawing. The limit is under the amount again.
 
-**`C2` itself is untouched.** Pre-filled from the amount just typed, blocking, the only blocking control here, lowering immediate and raising delayed, and never a score. **Nothing about the brake was weakened to make it readable.** The period it runs for is still `[?]`.
+**`C2` itself is untouched.** Pre-filled from the amount just typed, blocking, the only blocking control here, lowering immediate and raising delayed, and never a score. **Nothing about the brake was weakened to make it readable.** The period it runs for is still `[?]`. **The same day `D-103` took the form off this node, section 2j: the limit is set on `6.1`, and this node keeps the figure.**
 
 ### What moved, and every move has one reason
 
@@ -425,7 +427,7 @@ The founder found three on this screen on 26 August. **`Apply` was the fourth an
 
 **Nothing is hidden by it:** the receipt is fixed to the bottom of the viewport the whole way down, so what the money buys is on every screen even when the amount field is not. **But this contradicts the note he made a day earlier**, that the amount belongs in the first view, and it contradicts the mobile first stance in `CLAUDE.md`.
 
-**The reflow that would fix it is his call**, because it makes the mobile order differ from the desktop one: below 700 the promo and email pair moves under the money row. The reference itself puts its promo code last. **Not taken here**, because an order he stated in his own words is not something to quietly rearrange.
+**The reflow that would fix it is his call**, because it makes the mobile order differ from the desktop one: below 700 the promo and email pair moves under the money row. The reference itself puts its promo code last. **Not taken here**, because an order he stated in his own words is not something to quietly rearrange. **Dissolved by `D-129`, section 2j.**
 
 ### A fifth collision, and this one was made in the same build
 
@@ -477,7 +479,7 @@ The deposit screen said **deposit limit** and `6.1` said **spend ceiling**. **Tw
 
 ### The cost that did not go away
 
-**At 360 the amount starts at 984px**, against 943 after `D-102` and 564 before it. The provider block coming back is most of the difference. **The pane is shorter overall**, its end moved from 1916px to 1733px, but the header the founder asked for still puts the money field below the first screen on a phone. The receipt stays fixed to the bottom of the viewport throughout, so what the money buys is on every screen even when the field is not. **Still open, still his:** whether the promo and country row moves under the money below 700.
+**At 360 the amount starts at 984px**, against 943 after `D-102` and 564 before it. The provider block coming back is most of the difference. **The pane is shorter overall**, its end moved from 1916px to 1733px, but the header the founder asked for still puts the money field below the first screen on a phone. The receipt stays fixed to the bottom of the viewport throughout, so what the money buys is on every screen even when the field is not. ~~**Still open, still his:** whether the promo and country row moves under the money below 700.~~ **Dissolved by `D-129`: the promo is the baseline's collapsed question and the country a line at the foot, so there is no row to move.**
 
 ---
 
@@ -533,28 +535,28 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 
 **What it now deletes, and it is a much smaller thing than before.** The baseline runs an internal coin denomination **with no visible conversion rate**, `baseline.md` section 4, where case prices are quoted from 0.53 to 161.36 coins. **`D-28` takes the denomination and refuses the second half.** Every competitor in the bank runs the same abstraction: Clash.gg in Gems, Hellcase in a bare number with no unit at all, Key-Drop in local currency, `blocks.md` section 5, **and not one of them publishes a rate at the moment of spending.**
 
-**So the divergence moved rather than disappeared.** It used to be the unit. It is now the rate: a coin with a published, timestamped rate against real money, on this screen where the conversion actually happens and on `3.3` where it is spent. A second currency still hides the price when nobody can convert it, and a hidden price is still what lets a payout wear a label that is not a price. **`D-28` accepted the unit and kept the argument.**
+**So the divergence moved rather than disappeared.** It used to be the unit. It is now the rate: a coin with a published~~, timestamped~~ rate against real money, **a peg with no as-of since `D-95`,** on this screen where the conversion actually happens and on `3.3` where it is spent. A second currency still hides the price when nobody can convert it, and a hidden price is still what lets a payout wear a label that is not a price. **`D-28` accepted the unit and kept the argument.**
 
 **What it means on this screen, concretely, and this paragraph said the opposite until 22 August 2026.** It read: "one input, one unit, one number. No conversion preview, no 'you will receive'... a deposit screen that prints two numbers with two units is the defect." **That is the pre-`D-28` rule**, and block 2 of section 2, the summary in section 5 and the responsive note in section 9 had all carried the post-`D-28` one since 19 August. The file argued with itself across four sections and the drawing pass is what made it visible.
 
-**What holds.** One editable input, in real money. The coins it buys render beside it and are never a second field. The rate is published with its as-of. **What survives from the old wording is the half that was never about the unit:** no bonus units, no rounding to a package, and no third figure made out of the two. The defect was never two units. It was two numbers a person cannot get from one another, and the peg is what makes them one number read twice.
+**What holds.** One editable input, in real money. The coins it buys render beside it and are never a second field. The rate is published ~~with its as-of~~ **as a peg, with no as-of, `D-95`**. **What survives from the old wording is the half that was never about the unit:** no bonus units, no rounding to a package, and no third figure made out of the two. The defect was never two units. It was two numbers a person cannot get from one another, and the peg is what makes them one number read twice.
 
 ### 3.2 `C2`. The spend ceiling, and the asymmetry that makes it a brake
 
 **Parent:** `B7-4`, the escalation loop, pattern of 12 who gave a concrete figure unprompted. Figures in the As-Is ledger run from 350 dollars to 50,000 dollars on a single site.
 
-**The mechanism, from `cjm-to-be.md` T4 verbatim:** "the amount just typed is pre-filled as a ceiling with a period selector, the deposit cannot be submitted until the user accepts or changes it, lowering it applies immediately and raising it applies 24 hours later. When the ceiling is reached, deposits stop while opening from existing balance and withdrawal stay fully open."
+**The mechanism, from `cjm-to-be.md` T4 verbatim:** "the amount just typed is pre-filled as a ceiling with a period selector, the deposit cannot be submitted until the user accepts or changes it, lowering it applies immediately and raising it applies 24 hours later. When the ceiling is reached, deposits stop while opening from existing balance and withdrawal stay fully open." **Overridden in part by `D-103`, section 2j: the ceiling is set on `6.1`, so nothing on this screen is pre-filled and nothing blocks the press. What this node keeps is the figure in force, a line under the press, and states `4.2` and `4.3`.**
 
 **Four properties, and each one is load bearing.**
 
-1. **Pre-filled from the amount just typed.** Not from a default we chose, and not from a list of suggested tiers. `cjm-to-be.md` is precise about why this binds where a terms page does not: "one tap on a number they chose themselves, at the one moment they are calm."
-2. **Blocking, and it is the only blocking element on the page.** The control does not submit until the ceiling is accepted or changed. This is the Wealthsimple pattern in the bank, submit disabled until the condition is met, used once and for the one thing that earns it.
+1. ~~**Pre-filled from the amount just typed.** Not from a default we chose, and not from a list of suggested tiers. `cjm-to-be.md` is precise about why this binds where a terms page does not: "one tap on a number they chose themselves, at the one moment they are calm."~~ **Overridden by `D-103`: nothing is pre-filled, and the cost of that is T4's own argument, section 2j.**
+2. ~~**Blocking, and it is the only blocking element on the page.** The control does not submit until the ceiling is accepted or changed. This is the Wealthsimple pattern in the bank, submit disabled until the condition is met, used once and for the one thing that earns it.~~ **Overridden by `D-103`: the limit no longer blocks the press; the terms box is the only blocking condition, section 5.**
 3. **The asymmetry is stated in the interface, not in terms.** Lowering applies immediately. Raising waits 24 hours. **No competitor has this**, `blocks.md` section 5, and a ceiling that can be raised on impulse in the moment it binds is a setting rather than a brake.
 4. **It is never a score.** No progress bar toward it, no share of it consumed, no periods survived. See the forbidden list under `4.2`.
 
-**Per period, not per deposit, and this node was asked the question by name.** Node `6.1` carries it as an open item with the owner stated: "whether the spend ceiling is per deposit, per period, or both... Node `4.1`, which owns the moment the ceiling is set". **Answered here from the map rather than by preference: one ceiling is in force at a time and it belongs to the named period.** A ceiling that reset per deposit could never be reached, and `4.2`, ceiling reached this period, is a numbered node in `sitemap.md`, so that reading is already excluded by the map.
+**Per period, not per deposit, and this node was asked the question by name.** Node `6.1` carries it as an open item with the owner stated: "whether the spend ceiling is per deposit, per period, or both... Node `4.1`, which owns the moment the ceiling is set". **Since `D-103` that moment is `6.1`'s, and the answer below holds there.** **Answered here from the map rather than by preference: one ceiling is in force at a time and it belongs to the named period.** A ceiling that reset per deposit could never be reached, and `4.2`, ceiling reached this period, is a numbered node in `sitemap.md`, so that reading is already excluded by the map.
 
-**What that makes the second deposit inside one period.** The pre-fill still offers the amount just typed, because that is `C2`'s mechanism, and **the pre-filled value is then a change to the ceiling in force and takes the direction rule with it.** Below the current ceiling it applies immediately. Above it, it is a raise and waits 24 hours while the old ceiling holds, which is state `4.3`. **Without this line the second deposit of a session would quietly raise the ceiling by being typed**, which is the exact behaviour `C2` exists to prevent.
+~~**What that makes the second deposit inside one period.** The pre-fill still offers the amount just typed, because that is `C2`'s mechanism, and **the pre-filled value is then a change to the ceiling in force and takes the direction rule with it.** Below the current ceiling it applies immediately. Above it, it is a raise and waits 24 hours while the old ceiling holds, which is state `4.3`. **Without this line the second deposit of a session would quietly raise the ceiling by being typed**, which is the exact behaviour `C2` exists to prevent.~~ **Superseded by `D-103`: no pre-fill exists, so typing an amount changes no limit; a raise is made on `6.1` and waits 24 hours, state `4.3`.**
 
 **The cost, carried openly rather than discovered later.** `cjm-to-be.md`: this caps the second and third deposit of a losing session, "so the cost lands almost entirely on the top revenue decile", and a user blocked for 24 hours can deposit somewhere with no delay, so what is at risk is the account and not one deposit. That is on the record at the CJM stage and this node does not soften it.
 
@@ -566,7 +568,7 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 
 **Three properties.**
 
-- **Stated before the payment, on this screen, in the summary.** Not on `5.3`, not in a policy, not on first attempt to withdraw.
+- **Stated before the payment, on this screen, ~~in the summary~~ as one of the three one-line facts in the form column since `D-104` and `D-129`.** Not on `5.3`, not in a policy, not on first attempt to withdraw.
 - **Frozen at this moment.** The figure stated at this deposit is the figure that applies to what this deposit funds. A later change may lower it and may never raise it, for money already in.
 - **A bonus with a wagering requirement cannot ship beside it, and that half is untouched.** `cjm-to-be.md` answer 3: "a wagering requirement is `B4-1` in better clothes and it contradicts C4 directly". **Amended 25 August 2026 by `D-94`, and only the second sentence moved.** A standing bonus **does** ship, at +5.00% capped at 100 coins per 24 hours, and it ships **with zero wagering**, so `C4` holds unchanged: the coins it adds behave like every other coin and the withdrawal threshold does not move because of it. `navigation.md` rule 4 carries the reversal on the header control, which now runs the badge with the cap in its accessible name.
 
@@ -596,7 +598,7 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 
 **Empty state, first deposit.** No saved methods is the normal case for the account this screen is designed for, since `flows.md` flow 2 opens on "the starter credit is spent and they want to keep opening". The empty state is the default composition of block 6, and the populated state is the variant. **Stated in that order deliberately:** a screen designed for the returning depositor and patched for the first one puts its worst layout in front of the person with the least reason to trust it.
 
-**What is `[?]` and stays `[?]`:** the method list, any fee, any minimum, any maximum per method, and whether a method carries its own crediting window different from the published one. `baseline.md` section 2 records deposit as `[?]` with no pre-login route found, and no source in this repository names a method. **None of these is invented here**, and block 6 is specified as a shape with an unknown list, which is a drawable instruction: one card per method, exclusions on the card, empty state first.
+**What is `[?]` and stays `[?]`:** ~~the method list,~~ any fee, any minimum, any maximum per method, and whether a method carries its own crediting window different from the published one. `baseline.md` section 2 records deposit as `[?]` with no pre-login route found~~, and no source in this repository names a method~~. **The method list is named since `D-96`, section 2d: 27 fiat and 8 crypto, from our own baseline.** **None of these is invented here**, and block 6 is specified as a shape with an unknown list, which is a drawable instruction: one card per method, exclusions on the card, empty state first.
 
 ---
 
@@ -604,7 +606,7 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 
 **Craft parent:** Refero Fresha `3d6c5b9f` in the bank, "persistent summary card carrying the total, beside the choice, with a full width continue", verdict `TAKE`, traced to `C2` and design principle 3: "cost stays on screen while the choice is made rather than appearing after it."
 
-**Four figures when this was written, three since `D-104`, and they are the answer to why block 5 is not on the first screen.** The withdrawal threshold sits fifth in the scroll order and **is on the first screen anyway**, because the summary docks and carries it. The block below is the full statement with its rule; the summary is the figure, present continuously from the moment an amount exists.
+**Four figures when this was written, three since `D-104`, and four lines since `D-129`, which counts the peg under what arrives.** ~~**And they are the answer to why block 5 is not on the first screen.** The withdrawal threshold sits fifth in the scroll order and **is on the first screen anyway**, because the summary docks and carries it. The block below is the full statement with its rule; the summary is the figure, present continuously from the moment an amount exists.~~ **`D-104` took the withdrawal threshold out of the summary, so the docked row no longer carries it: it is one of the three one-line facts in the form column, and the summary is present continuously from the moment an amount exists.**
 
 | Line in the summary | Where the number comes from | Rule it carries |
 |---|---|---|
@@ -615,7 +617,7 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 | Bonus | The standing offer, `D-94` | Raised into a band of its own by `D-104` and still a line in the sum, never a badge. The cap and the period travel with the percentage |
 | Fee | `[?]` | **A caption on the total since `D-104`, not a row.** An unpublished fee is what can falsify a total, so it stays attached to the figure it qualifies |
 
-**One control, and one next step.** The primary control submits the deposit. **The clause that followed here was "and it is inert until the ceiling is accepted or changed", and it is overridden twice over:** `D-103` took the ceiling off this node, and `D-58` had already ruled that a live control which refuses beats a dimmed one. **The terms checkbox is the only blocking condition on the screen**, and pressing Pay without it says what is missing rather than doing nothing. **Nothing else on this page is a primary control.** The responsible play entry is a link, the method cards are a choice inside block 6, and the amount presets, if any ship, are inputs into block 2 rather than actions.
+**One control, and one next step.** The primary control submits the deposit. **The clause that followed here was "and it is inert until the ceiling is accepted or changed", and it is overridden twice over:** `D-103` took the ceiling off this node, and `D-58` had already ruled that a live control which refuses beats a dimmed one. **The terms checkbox is the only blocking condition on the screen**, and pressing Pay without it says what is missing rather than doing nothing. **Nothing else on this page is a primary control.** The responsible play entry is a link, the method cards are a choice inside block 6, and the amount presets, ~~if any ship,~~ **six since `D-95`,** are inputs into block 2 rather than actions.
 
 **Two things the summary must never do.** It never sums the deposit with the value of items held, which is `navigation.md` rule 2 applied one level down: they are different kinds, and a combined figure reads as net worth. And it never renders a projected balance as an achievement, a tier or a threshold crossed.
 
@@ -834,13 +836,13 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 | Open item | What is missing | Owner |
 |---|---|---|
 | ~~**Payment methods**~~ **Closed 25 August 2026 by `D-96`.** Fees, minimums and maximums | ~~No source in this repository names one~~ **The methods are named: 27 fiat and 8 crypto, `baseline-account.md` 5b.1 as corrected.** What stays open is every number attached to them: no fee, no minimum, no maximum, and whether any route carries its own crediting window | Founder, then production |
-| **Whether the spend ceiling can bind on the crypto route** | Section 2d. `C2` works by being accepted before a submission and **the crypto route has neither.** Enforcing on arrival means refusing money already sent, which is holding it or returning it, and neither has a row, a policy or a node | Founder |
-| **Whether depositing skins is in round 1** | The `CS:GO Skins` tile exists on the live product and has **no row in `cjm-to-be.md`, no node and no flow.** Carried with its orphan printed and not drawn | Founder |
+| ~~**Whether the spend ceiling can bind on the crypto route**~~ **Narrowed by `D-103` to enforcement on arrival** | Section 2d. ~~`C2` works by being accepted before a submission and **the crypto route has neither.**~~ **With no acceptance step on any route since `D-103`, the asymmetry is gone.** Enforcing on arrival means refusing money already sent, which is holding it or returning it, and neither has a row, a policy or a node | Founder |
+| ~~**Whether depositing skins is in round 1**~~ **Closed 27 September 2026 by `D-129`** | The `CS:GO Skins` tile exists on the live product and has **no row in `cjm-to-be.md`, no node and no flow.** ~~Carried with its orphan printed and not drawn~~ **Drawn, `deposit-skins.html`, with its orphan status printed in the baseline row** | Founder, answered |
 | **Which payment providers take the money** | Step 2 for cards opens a provider sub-choice, `baseline-account.md` 5b.2. Ours has none chosen | Founder, then production |
-| **Which of the six gift card resellers we send people to** | The baseline sends to all six. None is a link in ours until this is answered | Founder |
+| **Which of the six gift card resellers we send people to** | The baseline sends to all six. ~~None is a link in ours until this is answered~~ **Since `D-129` the six are drawn as samples whose denominations are outbound links, `D-124`; which real resellers is still open** | Founder |
 | **The published crediting window** | The number `C3` promises. **The register row exists since the step 8 audit and the value does not**, section 8 | Founder |
 | **Attribution on the crediting timer** | Whether the state names who the wait belongs to, as `G1` does for withdrawal. Recommended, and it is not in any row | Founder, one line on row `C3` |
-| **The default pre-filled period for the ceiling, and the list of periods offered** | `C2` says "a named period" and a period selector. Which periods is nowhere. Key-Drop's safety portal runs daily, weekly and monthly, `blocks.md` section 7, and that is a competitor observation rather than our decision | Founder, with `6.1` |
+| **The ~~default pre-filled~~ period for the ceiling, and the list of periods offered** | `C2` says "a named period" ~~and a period selector~~, **and since `D-103` the limit is set on `6.1`, not pre-filled here.** Which periods is nowhere. Key-Drop's safety portal runs daily, weekly and monthly, `blocks.md` section 7, and that is a competitor observation rather than our decision | Founder, with `6.1`, **which sets the limit since `D-103`** |
 | **The withdrawal threshold value** | `C4` fixes the rule, that it is stated before the deposit and can never rise. The number is `[?]` | Founder |
 | **Whether a deposit can be reversed while crediting** | Refunds are a document on `0.9`, Refund and payments policy, and no capability row covers a reversal. **Named rather than assumed either way** | Founder, then `0.9` |
 | **The exit window when a market closes on the payment instrument** | `markets.md` section 7 step 6: "the window length is `[?]`" | Counsel, under `D-A` |
@@ -848,4 +850,4 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 | **Whether this screen says anything about a future identity check** | `D-26` deleted the exit promise from block 1, section 1. The silence is the safe default and it is not free: a person who deposits today under no check, and meets one at the exit in a later round, met a condition that was not named before the money went in. **Naming it costs a sentence on a conversion surface and the sentence describes a node that does not exist** | Founder |
 | **The live feed on `4.2`** | This node suppresses it there and `0.8` says every page. **A finding to `0.8` rather than an edit to it**, section 6 | Node `0.8` |
 
-**And what belongs elsewhere.** The words: stage 05, then `voice/docs/microcopy.md`. How it looks: stages 06 and 07. Where the header's deposit control sits: `0.1`, already decided. The other three limits: `6.1`. The verification branch: `2.7`, and it is not on this screen by rule. The market verdicts and their grounds: `0.12`, which this node reads and never edits.
+**And what belongs elsewhere.** The words: stage 05, then `voice/docs/microcopy.md`. How it looks: stages 06 and 07. Where the header's deposit control sits: `0.1`, already decided. ~~The other three limits~~ **All four limits, the deposit limit among them since `D-103`**: `6.1`. The verification branch: `2.7`, and it is not on this screen by rule. The market verdicts and their grounds: `0.12`, which this node reads and never edits.

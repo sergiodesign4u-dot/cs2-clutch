@@ -97,7 +97,7 @@ flowchart TD
 
 Added at step 6. The catalogue was an MVP screen carrying the Main Job at phase T5 with no flow passing through it at all, so it had no loading, no empty and no route.
 
-**Deliberately minimal, and here is why.** A full browse-and-filter route would commit depth and structure that decision `D-D` may delete: if the backed catalogue is small enough, Home absorbs the catalogue and this node stops existing. What is drawn are the three states the screen needs **whether it is a page or a section of Home**, so none of this work can be thrown away by that decision.
+**Deliberately minimal, and here is why.** A full browse-and-filter route would commit depth and structure that decision `D-D` may delete: ~~if the backed catalogue is small enough, Home absorbs the catalogue and this node stops existing.~~ **`D-20` closed that fork by structure on 11 August 2026: node 3.1 stays and comes off the main path, `sitemap.md` section "Depth to the main job, counted".** The minimal drawing stands on its own reason now: the main job never routes through the catalogue. What is drawn are the three states the screen needs **whether it is a page or a section of Home**, so none of this work can be thrown away by that decision.
 
 ```mermaid
 flowchart TD
@@ -205,7 +205,7 @@ flowchart TD
 
 **Withdrawal stays open under self exclusion**, which is the same rule the ceiling follows at `cjm-to-be.md` "T4. Getting something to open with". A boundary stops money going in and stops play. It never traps what the person already holds, because a limit that also locks the exit would be a punishment rather than a brake, and it would give anyone a reason never to set one.
 
-**No dead ends, and no red nodes at all.** This is the only flow in the file with none. A person can always leave a boundary screen without setting anything, and every boundary they do set is reversible except self exclusion, which is reversible only by waiting out the period they chose themselves.
+**No dead ends, and no red nodes at all.** ~~This is the only flow in the file with none.~~ **Flows 1a and 5 have none either, so it is one of three.** A person can always leave a boundary screen without setting anything, and every boundary they do set is reversible except self exclusion, which is reversible only by waiting out the period they chose themselves.
 
 **The constraint that governs this whole screen, repeated here because it is the thing most likely to be lost.** No counters, no streaks, no status, no session score, no celebration of staying inside a limit. T4 attaches the same rule to the spend ceiling at `cjm-to-be.md` "T4. Getting something to open with": the moment a limit acquires completion mechanics it stops being a boundary and becomes a reason to keep going.
 

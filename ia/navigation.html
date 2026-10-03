@@ -189,7 +189,7 @@
 <div class="hero" id="overview">
   <div class="section-eyebrow">Node 0.1 - global element - cluster 0 - MVP</div>
   <h1>Navigation</h1>
-  <p class="lede">The shell every screen inherits: a rail on the left that owns every destination, a header on top that owns money and the account, and on mobile a bottom bar that is a shortcut subset of the rail. No carrier holds another's kind. It has no job of its own, because a carrier is not a destination. It is the surface on which four jobs and one compliance constraint reach their screens.</p>
+  <p class="lede">The shell every screen inherits: a rail on the left that owns every destination, a header on top that owns money and the account, and on mobile a bottom bar that is a shortcut subset of the rail. No carrier holds another's kind. It has no job of its own, because a carrier is not a destination. It is the surface on which <s>four</s> two jobs and one compliance constraint reach their screens: <strong>the provably fair page, which carried Related Jobs 1 and 3, is reached from the footer since <code>D-29</code></strong>.</p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">3 / 2</div><div class="hero-stat-label">Carriers, mobile / desktop</div></div>
     <div><div class="hero-stat-value">1 / 2</div><div class="hero-stat-label">Destinations, rail / bar, both states</div></div>
@@ -302,7 +302,7 @@
       <thead><tr><th style="width:24%">Carrier</th><th style="width:38%">Owns</th><th>Never holds</th></tr></thead>
       <tbody>
         <tr><td>The rail, full height at the leading edge, collapsible, a modal drawer on mobile</td><td>The logo at its top, <strong>every</strong> destination, its <strong>ambient controls and social links at its foot</strong> since <code>D-29</code>, and its own toggle on the seam. It is the complete list of destinations</td><td>Money. Actions. The account control</td></tr>
-        <tr><td>The header, starting at the rail's edge</td><td>Money, the account control, ambient controls</td><td><strong>Any destination at all.</strong> No exception, not even the logo</td></tr>
+        <tr><td>The header, starting at the rail's edge</td><td>Money, the account control<s>, ambient controls</s> <strong>The ambient controls moved to the rail's foot with <code>D-29</code></strong></td><td><strong>Any destination at all.</strong> No exception, not even the logo</td></tr>
         <tr><td>The mobile bar, below 900px only, added by <code>D-22</code></td><td>A subset of the rail's destinations, plus Home</td><td>Money. Actions. Any item the rail does not hold</td></tr>
       </tbody>
     </table>
@@ -580,7 +580,7 @@
     <blockquote>"Use a tab bar to support <strong>navigation, not to provide actions</strong>."</blockquote>
     <blockquote>"<strong>Don't disable or hide tab bar buttons, even when their content is unavailable.</strong>"</blockquote>
     <p>The first rule survives every revision of this node and still binds it: it is why the deposit control is not a destination, and why Balance never becomes a bar item.</p>
-    <p><strong>The second rule was retired by <code>D-21</code> and is back in force under <code>D-22</code>.</strong> The mobile bar adds a fourth item when an account exists and removes none, ever, which is the shape this rule asks for. It was correct to retire it when nothing we shipped was a tab bar. Something we ship is one again.</p>
+    <p><strong>The second rule was retired by <code>D-21</code> and is back in force under <code>D-22</code>.</strong> <s>The mobile bar adds a fourth item when an account exists and removes none, ever, which is the shape this rule asks for.</s> <strong>Stale since <code>D-40</code>: the bar is Home and Cases in both states and adds nothing on sign in</strong>, which meets the rule the strongest way. It was correct to retire it when nothing we shipped was a tab bar. Something we ship is one again.</p>
   </div>
 
   <div class="card is-src">
@@ -615,7 +615,7 @@
       <thead><tr><th>Group</th><th>Item</th><th>Guest</th><th>Account</th><th>Leads to</th></tr></thead>
       <tbody>
         <tr><td>Destinations</td><td>Cases</td><td>yes</td><td>yes</td><td>3.1</td></tr>
-        <tr><td></td><td>Provably fair</td><td><strong>no</strong> since D-29</td><td><strong>no</strong></td><td>1.2, from the footer's Play column</td></tr>
+        <tr><td></td><td>Provably fair</td><td><strong>no</strong> since D-29</td><td><strong>no</strong></td><td>1.2, from the footer's <s>Play</s> Help column, <code>D-44</code></td></tr>
         <tr><td></td><td>My items</td><td><strong>no</strong> since D-40</td><td><strong>no</strong>. It is the account menu's first row</td><td>5.1, from the menu</td></tr>
         <tr><td>Ambient, at the foot</td><td>Sound</td><td>yes</td><td>yes</td><td>no destination, <span class="q">[?]</span> below</td></tr>
         <tr><td></td><td>Language</td><td>yes</td><td>yes</td><td>no destination. <strong>A switcher since D-41, with nine options since D-42</strong>, the baseline's own set. English is live, <strong>the other eight switch the control and leave the interface in English</strong> and the panel says so. <strong>D-02 is untouched: no second language ships and the page keeps <code>lang="en"</code></strong></td></tr>
@@ -626,8 +626,8 @@
   </div>
 
   <div class="card">
-    <h4>Responsible play in the rail is an addition to the base layer, named rather than absorbed</h4>
-    <p>The base layer gave it a persistent entry inside the Balance control and a footer link, <code>sitemap.md</code> section "Global navigation: the rail's destinations and the job behind each", on the argument that a brake which has to be searched for at the worst moment is not a brake. <strong>That entry is unchanged.</strong> This adds a second one, in the rail's lower group, affordable now for the same reason the rail is: there is space. <strong>Parent:</strong> <code>B7-4</code>, pattern of 12, plus the compliance constraint at <code>CLAUDE.md</code>, "responsible play tooling". Both legal.</p>
+    <h4><s>Responsible play in the rail is an addition to the base layer, named rather than absorbed</s></h4>
+    <p><s>The base layer gave it a persistent entry inside the Balance control and a footer link, <code>sitemap.md</code> section "Global navigation: the rail's destinations and the job behind each", on the argument that a brake which has to be searched for at the worst moment is not a brake. That entry is unchanged. This adds a second one, in the rail's lower group, affordable now for the same reason the rail is: there is space.</s> <strong>Stale twice: <code>D-29</code> took Responsible play out of the rail, and <code>D-136</code> struck the Balance control entry, which was never rendered. It is carried by the footer and the account menu.</strong> <strong>Parent:</strong> <code>B7-4</code>, pattern of 12, plus the compliance constraint at <code>CLAUDE.md</code>, "responsible play tooling". Both legal.</p>
   </div>
 
   <div class="card">
@@ -644,7 +644,7 @@
         <tr><td>The promotional partner tile above the destinations</td><td>Cut from round 1</td><td>A paid third party placement. No barrier, no job, no constraint behind it. If it returns it returns as a revenue decision with a named owner, not as inherited furniture</td></tr>
         <tr><td>The language switcher</td><td><strong>Reversed on 20 August 2026, and this row is kept rather than deleted.</strong> It read "cut permanently, <code>D-02</code>, one language"</td><td><strong>D-41 inherited the carrier and D-42 filled it with the baseline's nine.</strong> What "permanently" was right about is still right: <b>no second language ships</b>, D-02 and its three consequences are untouched, and the page keeps <code>lang="en"</code>. What it got wrong was reading a decision about content as a decision about a control. The cost of eight options that change nothing is printed in <code>0.2</code> band 4 and inside the control itself</td></tr>
         <tr><td>The social icon row at the foot of the drawer</td><td>Deferred to 0.2</td><td>The footer owns the canonical social set. The drawer may render it, from that one source and never a second list</td></tr>
-        <tr><td>The daily free case, <code>I2</code></td><td>Deliberately absent, and this is the interesting one</td><td>It is MVP by founder decision and it is the product's only free entry point, so a rail slot is tempting. It is <strong>not a node in <code>sitemap.md</code></strong>: <code>sitemap.md</code> section "Global navigation: the rail's destinations and the job behind each" places it inside the catalogue as an addressable case. The rule this stage applies to the footer applies here too. A carrier may not promise a destination the map does not hold. Either it becomes a node or it stays inside 3.1. <strong>Owed a decision before step 5</strong></td></tr>
+        <tr><td>The daily free case, <code>I2</code></td><td>Deliberately absent, and this is the interesting one</td><td>It is MVP by founder decision and it is the product's only free entry point, so a rail slot is tempting. It is <strong>not a node in <code>sitemap.md</code></strong>: <code>sitemap.md</code> section "Global navigation: the rail's destinations and the job behind each" places it inside the catalogue as an addressable case. The rule this stage applies to the footer applies here too. A carrier may not promise a destination the map does not hold. Either it becomes a node or it stays inside 3.1. <s>Owed a decision before step 5</s> <strong>Answered: the rail carries Cases alone, <code>D-29</code>, and the daily case lives inside 3.1 as the tier ladder <code>0.15</code> in the Daily section with no tile under it, <code>D-67</code> then <code>D-68</code></strong></td></tr>
       </tbody>
     </table>
   </div>
@@ -652,7 +652,7 @@
   <div class="card is-note">
     <h4>The cost of the carrier choice, and what paid it down</h4>
     <p>On mobile the rail is a modal drawer behind a menu icon, which is the baseline's own behaviour, <code>baseline.md</code>. <strong><code>D-21</code> accepted a named cost for that: on mobile, from any screen that is not Home, reaching the catalogue cost two taps rather than one.</strong> That was the price of Material's compact-window advice being declined.</p>
-    <p>It was affordable for one reason and the reason is checkable: <strong>the main job never routes through the rail.</strong> <code>CLAUDE.md</code> fixes the main flow as home, case screen, age gate, open, and <code>D-20</code> put the featured case grid on Home directly. Tap 1 is a case tile on Home, tap 2 is the gate, tap 3 is Open. <strong>The three tap budget was untouched by that change, and it is untouched by this one.</strong> The browsing route was already four taps and already not the main-job route, <code>sitemap.md</code> section "Global navigation".</p>
+    <p>It was affordable for one reason and the reason is checkable: <strong>the main job never routes through the rail.</strong> <code>CLAUDE.md</code> fixes the main flow as home, case screen, <s>age gate,</s> <strong>sign in with its consent gate, <code>D-26</code>,</strong> open, and <code>D-20</code> put the featured case grid on Home directly. Tap 1 is a case tile on Home, tap 2 is the gate, tap 3 is Open. <strong>The three tap budget was untouched by that change, and it is untouched by this one.</strong> The browsing route was already four taps and already not the main-job route, <code>sitemap.md</code> section "Global navigation".</p>
     <p><strong><code>D-22</code> paid the cost off rather than re-argued it.</strong> The mobile bar carries Cases in position 2, so from any screen the catalogue is one tap again. This is the founder answering a cost the previous decision wrote down, <strong>which is the whole reason <code>D-21</code> was required to write it down.</strong></p>
   </div>
 </section>
@@ -679,7 +679,7 @@
     <p style="margin-top:12px">Two disjoint sets would be two competing menus, which is the ambiguity Material's sentence exists to prevent: a person who found something in one place and not the other cannot tell which list is the product. One complete list plus one shortcut set drawn from it is a different object. <strong>There is one navigation model and two ways into it.</strong></p>
     <p><strong>If a later stage puts an item in the bar that the rail does not hold, the model is broken rather than extended</strong>, and this node has been violated. That is the acceptance test, and it is checkable by reading two lists.</p>
     <p><strong>The superset holds literally rather than nearly, and the logo is why.</strong> The drawer's first row is the logo and the logo routes to 1.0, so Home is in the rail as well as in the bar. The adaptive section records that the logo moved back into the drawer for this reason among others.</p>
-    <p><strong>And the superset is about labels as much as about hrefs: one destination carries one label in every carrier.</strong> The first draft of the bar shortened Provably fair to "Fairness" to meet Material's "all navigation items require a one word label text". Two labels for one destination, rendered on the same 360px screen in the bar and in the drawer, is the superset rule failing at the one place a person actually reads it. <strong>The bar says Provably fair.</strong> Material's one-word preference loses here to a rule this node already carries: "provably" is the word that holds design principle 1 and the <code>D-14</code> limit, and "My items" is already two words in the same bar, so the preference was being bent one item along regardless.</p>
+    <p><strong>And the superset is about labels as much as about hrefs: one destination carries one label in every carrier.</strong> The first draft of the bar shortened Provably fair to "Fairness" to meet Material's "all navigation items require a one word label text". Two labels for one destination, rendered on the same 360px screen in the bar and in the drawer, is the superset rule failing at the one place a person actually reads it. <s>The bar says Provably fair.</s> <strong>The bar holds no Provably fair since <code>D-29</code> and no My items since <code>D-40</code>; the rule stands for any item it holds.</strong> Material's one-word preference loses here to a rule this node already carries: "provably" is the word that holds design principle 1 and the <code>D-14</code> limit, and "My items" is already two words in the same bar, so the preference was being bent one item along regardless.</p>
   </div>
 
   <h3>What the bar carries</h3>
@@ -751,7 +751,7 @@
     </div>
     <div class="card">
       <h4>Account exists</h4>
-      <p>This is the state the founder specified. Left to right: rail toggle, logo, then the right group: the <strong>two figures</strong>, the <strong>deposit control</strong>, and <strong>the account control at the far right, <code>D-49</code></strong>.</p>
+      <p>This is the state the founder specified. Left to right: rail toggle, <s>logo,</s> then the right group: the <strong>two figures</strong>, the <strong>deposit control</strong>, and <strong>the account control at the far right, <code>D-49</code></strong>.</p>
       <p><strong>The order changed on 20 August 2026 and it was "the account control, the two figures, the deposit control".</strong> That came from the founder's first reading of a baseline capture. <strong>The baseline itself puts the user panel at the right edge</strong>, <code>baseline.md</code> section on the header: "<code>.user-panel-right</code>, right aligned at <code>x=1174</code>". <strong>And the new order is the order of the job:</strong> what I have, how to add to it, who I am. The account control is the least used of the three and it is the one that opens a menu, so it belongs at the edge the menu hangs from.</p>
     </div>
   </div>
@@ -771,8 +771,8 @@
 
   <div class="card is-fix">
     <h4>The two figures are one stacked block and not a row, and that has been this node's word since it was written</h4>
-    <p>Upper and lower are structural rather than decorative: the state matrix says "two lines" on desktop and "one line each" on mobile. <strong>Stage 04 drew them side by side with a vertical hairline between them and was corrected on 19 August 2026</strong> against the founder's own baseline capture, which stacks them.</p>
-    <p><strong>What replaces the hairline as the thing that stops them being added by eye.</strong> The rule is number 2 below, never summed and never a total, and a vertical rule was one way to enforce it. Stacked, the separation is carried by weight and by caption instead: <strong>the balance is the larger figure and the value of items held is smaller and dimmer, and each keeps its own caption on its own line.</strong> Two figures of equal weight in a column is a receipt, which is the one reading this zone may not produce.</p>
+    <p><strong>From 900 up since <code>D-144</code>: below 900 they sit side by side, each 44 high, and below 600 the coin slot gives way.</strong> Upper and lower are structural rather than decorative: the state matrix says "two lines" on desktop <s>and "one line each" on mobile</s>. <strong>Stage 04 drew them side by side with a vertical hairline between them and was corrected on 19 August 2026</strong> against the founder's own baseline capture, which stacks them.</p>
+    <p><strong>What replaces the hairline as the thing that stops them being added by eye.</strong> The rule is number 2 below, never summed and never a total, and a vertical rule was one way to enforce it. Stacked, and side by side below 900, the separation is carried by weight and by caption instead: <strong>the balance is the larger figure and the value of items held is smaller and dimmer, and each keeps its own caption on its own line.</strong> Two figures of equal weight in a column is a receipt, which is the one reading this zone may not produce.</p>
     <p><strong>Below 900px the two figures sit side by side, each 44 high, since <code>D-144</code></strong>, in the amendment at the top of this page: stacked, two 44 targets cannot fit a 60 high header.</p>
   </div>
 
@@ -886,7 +886,7 @@
         <tr><td>Mobile bar</td><td>Does not exist at this width</td><td><strong>Home, Cases.</strong> Two, below Material's floor since <code>D-29</code>, printed as a violation there</td><td>Does not exist at this width</td><td><strong>The same two since D-40.</strong> The bar no longer changes with the account at all</td></tr>
         <tr><td>Brand and home</td><td>Logo at the top of the rail, routes to 1.0</td><td><strong>Logo is the drawer's first row.</strong> The persistent route home is bar item 1</td><td>Same</td><td>Same</td></tr>
         <tr><td>Rail toggle</td><td>On the junction of the two seams. Collapses to icons</td><td>Header, leading edge. Opens the modal drawer</td><td>Same</td><td>Same</td></tr>
-        <tr><td>Money</td><td>Nothing. There is no balance before an account</td><td>Nothing</td><td>Balance and value of items held, two lines, with the deposit control</td><td>Both figures, condensed to one line each, deposit control kept</td></tr>
+        <tr><td>Money</td><td>Nothing. There is no balance before an account</td><td>Nothing</td><td>Balance and value of items held, two lines, with the deposit control</td><td><s>Both figures, condensed to one line each, deposit control kept</s> <strong>Both figures side by side, each 44 high, the coin slot gone below 600 and the word coins kept, <code>D-144</code></strong>; deposit control kept</td></tr>
         <tr><td>Account</td><td>Sign in, routes to 2.4</td><td>Sign in, routes to 2.4</td><td><strong>Avatar only, <code>D-49</code></strong>, opens the menu, whose first row routes to 5.1</td><td><strong>Avatar only. Identical to desktop since D-49</strong></td></tr>
         <tr><td>Boundary</td><td><s>Rail entry only. Nothing to limit yet</s> <strong>The footer's Play responsibly section only</strong>: off the rail since <code>D-29</code>, and nothing to limit yet</td><td><s>Rail entry only</s> <strong>The same, in the footer</strong></td><td><s>Rail entry plus the entry inside the money control</s> <strong>The footer section plus the account menu's Responsible play row</strong>; the money control entry was never rendered, <code>D-136</code>, and under a boundary the + opens the limits</td><td>Same</td></tr>
         <tr><td>Ambient, at the foot of the rail since <code>D-29</code>, never in the header</td><td>Sound control, language, social links. Ticker 0.8 on 1.0 only since <code>D-31</code></td><td><strong>No sound control at this width</strong>, answered by stage 04 on 18 August 2026: the one row rule does not fit menu plus two figures plus deposit plus avatar plus sound at 360px, and the baseline makes the same cut at 390px. The ticker is unchanged</td><td>Same as guest desktop</td><td><strong>Same cut.</strong> The control that matters during a reveal belongs to 3.5, on the screen where the sound plays</td></tr>
@@ -946,7 +946,8 @@
   </div>
 
   <div class="card is-pick">
-    <h4>Provably fair holds its rail position in both states, and that is the structural claim of this node</h4>
+    <h4><s>Provably fair holds its rail position in both states, and that is the structural claim of this node</s></h4>
+    <p><strong>Stale since <code>D-29</code>: Provably fair left the rail for the footer's Play column, in Help since <code>D-44</code>, and the bar followed by the superset rule.</strong> What follows is the argument as it stood, kept because it lost to a later decision and not to a counter argument.</p>
     <p><code>jtbd.md</code> Section 3, Emotional and Social Jobs names a public provably fair surface as one of three things no competitor offers pre-login, and the baseline walk verified that our own baseline still redirects that route to login and demotes it to a footer link, <code>baseline.md</code>. Design principle 1 says trust is the product. Letting the item slide down or out when the account arrives would say the proof was a sales argument. It carries the <code>D-14</code> limit with it: its position is not a claim that a verifier converts a sceptic.</p>
   </div>
 </section>
@@ -962,7 +963,7 @@
     <h4>No H1, and the main internal linking plane</h4>
     <p><strong>This node carries no H1.</strong> A global element is not a page and never owns the document heading. Every node that renders it supplies its own single H1.</p>
     <p>Every destination is a crawlable <code>&lt;a&gt;</code> with a real href, never a script handler, so the global routes are reachable by a crawler from every page. The footer, node 0.2, is the second plane and carries the long tail.</p>
-    <p><strong>The mobile bar renders four of those hrefs a second time in the same document, and that is fine as long as it is the same set.</strong> Duplicate internal links between a header and a footer are ordinary and cost nothing. What would cost something is a <strong>different</strong> set: a bar pointing somewhere the rail does not, which is the superset rule stated as an SEO consequence rather than a navigation one.</p>
+    <p><strong>The mobile bar renders <s>four</s> two of those hrefs, Home and Cases since <code>D-40</code>, a second time in the same document, and that is fine as long as it is the same set.</strong> Duplicate internal links between a header and a footer are ordinary and cost nothing. What would cost something is a <strong>different</strong> set: a bar pointing somewhere the rail does not, which is the superset rule stated as an SEO consequence rather than a navigation one.</p>
     <p><strong>Nothing here is indexed as its own URL.</strong> Nodes it links into carry their own rules, and <strong>node 0.13 owns them</strong>: 1.0, 1.2, 3.1 and 6.1 are indexed, and 2.4, 2.7, 4.1, 5.1, 5.3 and <strong>7.1</strong> are noindex. <strong>Corrected by the step 8 audit:</strong> this line previously listed 7.1 as indexed, against the register that decides it.</p>
   </div>
 
@@ -1021,7 +1022,7 @@
 <section id="open">
   <div class="sec-head">
     <h2>Open, carried, and what this node does not decide</h2>
-    <p>Two items are open and both are named rather than filled with a median.</p>
+    <p><s>Two items are open and both are named rather than filled with a median.</s> <strong>One item is open; the daily free case was answered by <code>D-67</code> and <code>D-68</code>.</strong></p>
   </div>
 
   <div class="table-wrap">
@@ -1029,7 +1030,7 @@
       <thead><tr><th style="width:22%">Open item</th><th>What is missing</th><th style="width:22%">Owner and when</th></tr></thead>
       <tbody>
         <tr><td>The sound control</td><td>It is in the baseline header and drawer, <code>baseline.md</code>, and dropped by the baseline itself at 390px. It has <strong>no parent in any of the three legal classes</strong>. Design principle 2 covers motion, not audio, and no backlog row mentions sound. It is drawn here because the reveal has audio and a person needs to be able to stop it, which is an argument this stage cannot ratify on its own</td><td>Founder, before stage 04. It ships with a stated parent or it does not ship</td></tr>
-        <tr><td>The daily free case, <code>I2</code>, in the rail</td><td>MVP and the only free entry point, but not a node in <code>sitemap.md</code>. A carrier may not promise a destination the map does not hold</td><td>This stage, before step 5. Either it becomes a node or it stays inside 3.1</td></tr>
+        <tr><td><s>The daily free case, <code>I2</code>, in the rail</s></td><td><s>MVP and the only free entry point, but not a node in <code>sitemap.md</code>. A carrier may not promise a destination the map does not hold</s></td><td><s>This stage, before step 5. Either it becomes a node or it stays inside 3.1</s> <strong>Closed: it stays inside 3.1, as the ladder <code>0.15</code> in the Daily section, <code>D-67</code> then <code>D-68</code>, and the rail carries Cases alone, <code>D-29</code></strong></td></tr>
       </tbody>
     </table>
   </div>

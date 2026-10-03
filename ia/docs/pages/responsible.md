@@ -11,7 +11,7 @@
 - **Barrier `B7-4`**, the escalation loop, pattern of 12 who gave a concrete loss figure unprompted, `cjm-as-is.md` growth zone Z5. One user in that ledger names his own brake and it is a third-party tool, which is the evidence that the need is real rather than assumed.
 - **The compliance constraint in `CLAUDE.md`**, quoted: "responsible play tooling (deposit limits, session limits, self exclusion, cool down)".
 
-**Capabilities:** `C2` spend ceiling chosen at deposit, `C5` session limit, cool down and self exclusion.
+**Capabilities:** `C2` ~~spend ceiling chosen at deposit~~ **deposit limit, chosen on this page since `D-103`**, `C5` session limit, cool down and self exclusion.
 
 **URL:** `/responsible-play`. **Indexed:** yes, canonical self, schema `WebPage`, breadcrumb Home > Responsible play. All four inherited from `0.13` section 3 and not re-decided here.
 
@@ -257,7 +257,7 @@ Focus is trapped while open, Escape closes it back to `6.1`, focus returns to th
 
 ### The open item this state cannot close on its own
 
-**Whether self exclusion also removes the case grid and the ticker from what the person sees.** The map says opening and depositing close. It does not say the product becomes unreadable, and nothing in this repository decides whether a self-excluded person should still be shown a reveal-driven shelf. **Recommendation, not a decision: the case grid and the ticker are removed for the duration of a self exclusion and of a cool down, and are unaffected by a spend ceiling or a session limit**, because the first two are the person removing themselves from the activity and the last two are the person sizing it. It needs a founder decision and it may need counsel. Carried in section 9 with an owner rather than drawn.
+**Whether self exclusion also removes the case grid and the ticker from what the person sees.** The map says opening and depositing close. It does not say the product becomes unreadable, and nothing in this repository decides whether a self-excluded person should still be shown a reveal-driven shelf. **Recommendation, not a decision: the case grid and the ticker are removed for the duration of a self exclusion and of a cool down, and are unaffected by a ~~spend ceiling~~ deposit limit, the name since `D-103`, or a session limit**, because the first two are the person removing themselves from the activity and the last two are the person sizing it. It needs a founder decision and it may need counsel. Carried in section 9 with an owner rather than drawn.
 
 ---
 
@@ -352,7 +352,7 @@ Columns are the account state. **The page reads in full for a guest**, which is 
 >
 > There is no score here, no streak and no reward for staying inside a limit. A boundary that congratulates you is a boundary that has started keeping count.
 
-**The pages render a shorter text since `D-130`**: "Four boundaries you set yourself." and "Tightening one takes effect immediately. Loosening one takes 24 hours, and the boundary you have now holds until then." The block above is kept as the finished SEO text of the one indexed page in this cluster, and which of the two ships is open, section 9.
+**The pages render a shorter text since `D-130`**: "Four boundaries you set yourself." and "Tightening one takes effect immediately. Loosening one takes 24 hours, and the boundary you have now holds until then." The block above is kept as the finished SEO text of the one indexed page in this cluster, ~~and which of the two ships is open, section 9~~ **and `D-146` decided which ships: the two lines stay on screen, section 8A's description is the meta description, and this block is its source and is not rendered.**
 
 **D. Structured data.** `WebPage`. Nothing more, per section 7 of `0.13` and the refusal above.
 
@@ -384,8 +384,8 @@ Columns are the account state. **The page reads in full for a guest**, which is 
 | **Whether self exclusion also removes the case grid and the ticker** | Section 5. The map closes opening and depositing and says nothing about reading. Recommendation carried there, not drawn | Founder, possibly counsel |
 | **The external help routes in block 8** | Which organisations are named, per market. Every market verdict in `0.12` is `[?]` until re-verified against current law, and a plausible list here would be model memory presented as a legal fact | Founder with counsel |
 | **Whether a boundary is announced anywhere outside the product** | A self exclusion that runs for months implies a signal reaching the person off the page. The global sweep already recorded that **no notification, email or push row exists anywhere in `cjm-to-be.md`**, for withdrawal or for anything else. Named here in the same treatment rather than invented | Backlog, then the founder |
-| ~~**Whether the spend ceiling is per deposit, per period, or both**~~ | **Answered by `4.1` and closed.** One ceiling is in force at a time and it belongs to the named period. A ceiling that reset per deposit could never be reached, and `4.2`, ceiling reached this period, is a numbered node, so the map already excluded that reading. **The second deposit inside one period pre-fills again and the pre-filled figure is then a change to the ceiling in force**, taking the direction rule with it | Closed, node `4.1` |
-| **Which SEO text the indexed page ships** | Block C above is finished copy; the rendered page carries the two line form `D-130` cut it to. An indexed page whose body text is two lines is thin, and the long form is more than the stop explaining round wanted on screen | Founder, with stage 05 |
+| ~~**Whether the spend ceiling is per deposit, per period, or both**~~ | **Answered by `4.1` and closed.** One ceiling is in force at a time and it belongs to the named period. A ceiling that reset per deposit could never be reached, and `4.2`, ceiling reached this period, is a numbered node, so the map already excluded that reading. ~~**The second deposit inside one period pre-fills again and the pre-filled figure is then a change to the ceiling in force**, taking the direction rule with it~~ **Since `D-103` the deposit no longer asks, so nothing pre-fills: the limit is set and changed here, block 3** | Closed, node `4.1` |
+| ~~**Which SEO text the indexed page ships**~~ | ~~Block C above is finished copy; the rendered page carries the two line form `D-130` cut it to. An indexed page whose body text is two lines is thin, and the long form is more than the stop explaining round wanted on screen~~ **Closed by `D-146`:** section 8A's description ships as the meta description and the screen keeps `D-130`'s two lines | ~~Founder, with stage 05~~ Closed |
 | **The conversion cost of any of this** | `CLAUDE.md` carries the age gate's cost as having no target. The same is true here and it is worse measured, since `C2`'s own success signal in `cjm-to-be.md` reads "targets `[?]`" | Production |
 
 **Two findings for other nodes, raised rather than edited, per the verify-before-fixing rule.**
@@ -393,4 +393,4 @@ Columns are the account state. **The page reads in full for a guest**, which is 
 1. **`0.2` renders its statistics strip on this page.** The footer has no account dimension and no per-node dimension, by its own rule, so a cases-opened figure in the hundreds of millions sits below a self exclusion control. That is inherited rather than chosen, and it is the kind of adjacency this stage should notice out loud. Owner: `0.2`, then stage 04.
 2. **The three-entry count is right and the list was wrong in three files at once.** This node named the rail, `footer.md` section on the compliance column names the rail, and `sitemap.md` says "Responsible play gains a rail entry and keeps the one it had". **All three predate `D-29`**, which moved it off the rail on 19 August, and `D-40`, which put it in the account menu on 20 August. Fixed in this node and in `footer.md`; `sitemap.md`'s sentence is a record of what step 6 of the base layer decided and is marked rather than rewritten. **The count never changed. Every file naming the members was wrong.**
 
-**And what belongs elsewhere.** The words: structural here, stage 05 owns the final strings and syncs them back into block C. How any of it looks: stages 06 and 07. The moment the ceiling is first chosen: `4.1`. The behaviour of the exit under a boundary: `5.3`, which changes nothing, which is the point.
+**And what belongs elsewhere.** The words: structural here, stage 05 owns the final strings and syncs them back into block C. How any of it looks: stages 06 and 07. ~~The moment the ceiling is first chosen: `4.1`.~~ **The deposit limit is chosen here since `D-103`; `4.1` keeps the figure.** The behaviour of the exit under a boundary: `5.3`, which changes nothing, which is the point.

@@ -48,7 +48,7 @@
 
 **Daily and bonus cases are their own cases now**, not a marker on a case that is otherwise normal. So marker 6 has nowhere to sit on this tile: a case that is a daily case is named as one, the same way any case is named.
 
-**`I2` still has no parent in any of the three legal classes** and still sits in MVP by founder decision of 11 August 2026, `D-15`. **That is unchanged and is not quietly cleared by the marker leaving.** What changed is which object carries it. **Rule 5.3 below is unchanged and still binds**: a daily case is a label and never a mechanic, no tier, no wager figure, no progress on the tile.
+**`I2` still has no parent in any of the three legal classes** and still sits in MVP by founder decision of 11 August 2026, `D-15`. **That is unchanged and is not quietly cleared by the marker leaving.** What changed is which object carries it. ~~**Rule 5.3 below is unchanged and still binds**: a daily case is a label and never a mechanic, no tier, no wager figure, no progress on the tile.~~ **Rule 5.3 has no subject since `D-68` took the daily case's tile off every surface**; what survives of it is that no tile ever carries a tier, a wager figure or progress.
 
 ### 0.5.3 What did not leave, and why, because "maximally simplified" has a floor
 
@@ -56,7 +56,7 @@
 
 **The favourite stays and stays orphaned.** It is the one element left on this tile with no parent in the three legal classes, `D-24`, and none of the three captures carries one. **It is the next candidate if this tile has to get simpler again**, and it is named here rather than cut without a decision.
 
-**Rewritten on 18 August 2026 by founder decision `D-24`.** The tile the first version specified was six always-on fields. It is now **four fields, two conditional markers and one control**, and the reasoning of every surviving rule is unchanged. What changed, why, and what it costs is in `docs/decisions.md` D-24. The paragraphs below are the specification, not the diff.
+**Rewritten on 18 August 2026 by founder decision `D-24`.** The tile the first version specified was six always-on fields. It is now **four fields, ~~two conditional markers~~ and one control**, **the markers having left with `D-60` and `D-61`, section 0.5**, and the reasoning of every surviving rule is unchanged. What changed, why, and what it costs is in `docs/decisions.md` D-24. The paragraphs below are the specification, not the diff.
 
 ---
 
@@ -74,11 +74,11 @@
 | Baseline, daddyskins | Name, image, risk label, price **in coins**, item count, a favourite control with a public count | Name, image, **risk band**, price, favourite. **In coins as well, since `D-28` of 19 August 2026 reversed `C1`.** What does not cross is a coin with no published rate: `0.11` rule 10 puts the peg wherever money is spent |
 | **This node** | **Artwork, name, entry cost, risk band, plus the favourite control.** Both markers left on 21 August 2026, `D-60` and `D-61`, section 0.5 | Four things a person reads before deciding, and nothing that reads as a statistic |
 
-**The one thing the first version had that this one drops is the item count**, and it is dropped because the risk band answers the same question better. "Forty items" says how long the table is. **The risk band says what the table is shaped like**, it is computed from the same table, and it is the version of that fact a person can act on. The count still renders on `3.3`, where the table itself is, so no fact is lost, only an early and weaker rendering of it.
+**The one thing the first version had that this one drops is the item count**, and it is dropped because the risk band answers the same question better. "Forty items" says how long the table is. **The risk band says what the table is shaped like**, it is computed from the same table, and it is the version of that fact a person can act on. **Since `D-92` the band is an input set when a case is built rather than a figure computed from its table**, `case.md` section 1, so "computed from the same table" reads as the reasoning of `D-24` and not as the method. The count still renders on `3.3`, where the table itself is, so no fact is lost, only an early and weaker rendering of it.
 
 ---
 
-## 1. Four fields, two markers, one control
+## 1. Four fields, ~~two markers,~~ one control
 
 | # | Element | Kind | Object | Parent | Class |
 |---|---|---|---|---|---|
@@ -90,9 +90,9 @@
 | ~~6~~ | ~~**Daily marker**~~ | **Removed 21 August 2026, `D-61`.** Daily and bonus cases are their own cases now. **Row `I2` still has no parent and is still in MVP by founder decision**, `D-15`, on a different object | **none, printed, moved** |
 | 7 | **Favourite control**, a toggle and its public count | Control | Case, plus the account that pressed it | **None in the three legal classes.** In MVP by founder decision of 18 August 2026, `D-24`, which also amends `0.11` rule 7 to let it exist | **none, printed** |
 
-**Two elements carry an empty parent cell and neither of them borrows one.** `I2` and the favourite are the only two things on this tile that no barrier, job or named constraint asks for. `cjm-to-be.md` prints `I2` that way already. `D-24` prints the favourite the same way rather than inventing a job for it after the fact, because a parent written to justify a decision already taken is the thing the three legal classes exist to stop.
+**Two elements carry an empty parent cell and neither of them borrows one.** `I2` and the favourite ~~are the only two things on this tile~~ **were the two things on this tile** that no barrier, job or named constraint asks for. **Since `D-61` the daily marker has left and the favourite is the only one on the tile**; `I2` keeps its empty parent on the daily case and the ladder `0.15`. `cjm-to-be.md` prints `I2` that way already. `D-24` prints the favourite the same way rather than inventing a job for it after the fact, because a parent written to justify a decision already taken is the thing the three legal classes exist to stop.
 
-**Field 4 is a label over a number, and the number is not on the tile.** The band is derived from the drop table, register `0.11` owns the definition, and the figure it is derived from is published on `3.3` beside RTP and expected value. The tile says High, Medium or Low. **The case screen says what that meant.** A band with no published number behind it is an adjective, and an adjective about risk on a page that sells risk is marketing.
+**Field 4 is a label over a number, and the number is not on the tile.** ~~The band is derived from the drop table~~ **The band is an input set when a case is built, `D-92`**, register `0.11` owns the definition, and the figure it is derived from is published on `3.3` beside RTP and expected value. The tile says High, Medium or Low. **The case screen says what that meant.** A band with no published number behind it is an adjective, and an adjective about risk on a page that sells risk is marketing.
 
 **Field 5 is removed, `D-60`, and the paragraph is kept because it is the reasoning that a later stage would otherwise redo.** Field 5 counted entries at zero, not units. `A2` is a live free-unit count **per item**, and that number belongs on `0.6` at `3.3` where a person is looking at one item. Summing free units across items of different value into one tile figure would be summing across kinds, which `0.11` rule 7 forbids in as many words. So the marker says "3 items out of stock" or "every item out of stock", and it says nothing at all when everything is available. **Silence is the available state**, which is what makes the marker readable when it appears.
 
@@ -102,12 +102,12 @@
 
 | Variant | Where | Shows | Must not |
 |---|---|---|---|
-| **V1, the featured tile** | `1.0` Home, in the case grid that sits **directly on the page** rather than behind a mode hub, `D-20` | All four fields, the markers that apply, the control. Largest size the grid allows | **Carry urgency.** `blocks.md` section 2 leaves the Key-Drop and Hellcase event banner with its countdown: no parent in round 1, and a countdown is urgency attached to spending. **And no TOP badge**, `0.11` rule 7 |
+| **V1, the featured tile** | `1.0` Home, in the case grid that sits **directly on the page** rather than behind a mode hub, `D-20` | All four fields, ~~the markers that apply,~~ the control. **No markers since `D-60` and `D-61`.** Largest size the grid allows | **Carry urgency.** `blocks.md` section 2 leaves the Key-Drop and Hellcase event banner with its countdown: no parent in round 1, and a countdown is urgency attached to spending. **And no TOP badge**, `0.11` rule 7 |
 | **V2, the catalogue tile** | `3.1` Case catalogue, in the full shelf with the category bar, search and filters | The same set, denser, in a grid that has to survive `3.2` | **The must-not was the out-of-stock rule and it is void since `D-60`**, section 0.5.1. Nothing replaces it: the condition it protected against cannot occur |
 
 **One element set, two densities, and no third.** `1.1` is the same page as `1.0` in a different account state.
 
-**The tile still has no signed-in variant, and the favourite does not create one.** The control renders in both states. Signed out it renders unpressed and its press routes to `2.4`, sign in with Steam, and returns to the tile it was pressed from. **What differs by account is the pressed state of one control, not the composition of the tile**, and that distinction is what keeps `1.1` a state-dependent strip on one page rather than a second page.
+**The tile still has no signed-in variant, and the favourite does not create one.** The control renders in both states. Signed out it renders unpressed and its press routes to `2.4`, sign in ~~with Steam~~ **through any of its four providers, `D-55`**, and returns to the tile it was pressed from. **What differs by account is the pressed state of one control, not the composition of the tile**, and that distinction is what keeps `1.1` a state-dependent strip on one page rather than a second page.
 
 **The two densities differ in size and in neighbours, never in elements.** On `1.0` the tile is the first spend-shaped object a pre-suspected visitor meets, `B1-1`, and it is doing trust work. On `3.1` it is one of many and it is doing comparison work. **A tile that dropped its entry cost or its risk band in the denser grid would be hiding the two decision fields exactly where comparison happens.**
 
@@ -140,9 +140,9 @@
 
 **Why there is still no open control on the tile.** The numbers that make an open a decision live on `3.3` and nowhere else: published chance and current value per item `D2`, published tested RTP and the expected value at this entry cost `D4`, the observed rate counter `D3`, and now the figure the risk band is derived from. An open control on a tile puts the spend before all of them, which is design principle 3 read backwards. `blocks.md` section 4 leaves Hellcase's multi-open selector for the same reason: a spend multiplier next to the trigger, before any ceiling is visible.
 
-**Tap one of three.** The main flow is home, case screen, age gate, open, `CLAUDE.md`. The tile is tap one, `2.1` is tap two and the open is tap three. **Anything added to the tile that costs a tap costs the whole depth budget**, which is why `3.1` is off the main path by `D-20` and reached as "all cases" rather than as a compulsory hop.
+**Tap one of three.** The main flow is home, case screen, ~~age gate~~ **sign in with its consent gate, `D-26`**, open, `CLAUDE.md`. The tile is tap one, `2.1` is tap two and the open is tap three. **Anything added to the tile that costs a tap costs the whole depth budget**, which is why `3.1` is off the main path by `D-20` and reached as "all cases" rather than as a compulsory hop.
 
-**The tile is a strict subset of the screen it opens, from one source.** Same rule as `0.14` and `0.6`: nothing on the tile that the case screen does not have, nothing named differently, nothing ordered against it. **The risk band and the stock marker are read from the drop table at read time**, not stored beside the case. A tile that says Low-risk over a table that computes High is the defect this rule exists to prevent, and it is the same class of defect as `B7-2`: the numbers shown are not the numbers used.
+**The tile is a strict subset of the screen it opens, from one source.** Same rule as `0.14` and `0.6`: nothing on the tile that the case screen does not have, nothing named differently, nothing ordered against it. ~~**The risk band and the stock marker are read from the drop table at read time**, not stored beside the case.~~ **The stock marker left with `D-60`, and since `D-92` the risk band is an input set when the case is built, so tile and screen read it from one field of the case rather than from the table.** A tile that says Low-risk over a ~~table that computes~~ **case screen that says** High is the defect this rule exists to prevent, and it is the same class of defect as `B7-2`: the numbers shown are not the numbers used.
 
 **What the tile does not carry, and why each one was considered.**
 
@@ -171,15 +171,15 @@
 
 Same rule as `0.6` rule 5.3 and for the same reason. A dimmed tile does not say "the entry cost could not be read", it says "something is wrong with this tile", and it says nothing at all to a person who cannot separate the two treatments.
 
-### 5.3 The daily marker is a label, not a mechanic
+### 5.3 The daily marker is a label, not a mechanic. **No subject since `D-61` removed the marker and `D-68` the daily tile**, kept for the narrowing it records
 
-It says the case is free today, or that it is taken and when it returns. **The marker itself never becomes a streak, a ladder, a counter or a status**, at either density, on either page that renders this tile.
+~~It says the case is free today, or that it is taken and when it returns.~~ **The marker itself never becomes a streak, a ladder, a counter or a status**, at either density, on either page that renders this tile.
 
-**Narrowed on 18 August 2026 by `D-25`, and the narrowing is named rather than stepped over.** This rule used to read "a boundary or an entitlement", which generalised `CLAUDE.md`'s limits rule from limits to entitlements. **That generalisation was this repository's own extension and it is withdrawn.** `CLAUDE.md` binds limits, deposit, session, self exclusion and cool down, and that rule is untouched and absolute. The daily case is an entitlement. The founder chose the baseline's five tier ladder with its wager remaining figure, and **it lives in block B6 of node `1.0` under three rules of its own, and since `D-67` in the Daily section of `3.1` as well, as component `0.15`. Never on this tile.** The tile still carries a marker and nothing more: no tier, no wager figure, no progress.
+**Narrowed on 18 August 2026 by `D-25`, and the narrowing is named rather than stepped over.** This rule used to read "a boundary or an entitlement", which generalised `CLAUDE.md`'s limits rule from limits to entitlements. **That generalisation was this repository's own extension and it is withdrawn.** `CLAUDE.md` binds limits, deposit, session, self exclusion and cool down, and that rule is untouched and absolute. The daily case is an entitlement. The founder chose the baseline's five tier ladder with its wager remaining figure, and **it lives in block B6 of node `1.0` under three rules of its own, and since `D-67` in the Daily section of `3.1` as well, as component `0.15`. Never on this tile.** ~~The tile still carries a marker and nothing more~~ **The tile carries no daily marker since `D-61`, and nothing in its place**: no tier, no wager figure, no progress.
 
 ### 5.4 The artwork is the largest element and still carries no fact
 
-`D-24` makes the image the visual weight of the tile, which is what the baseline and the whole category do and what makes a shelf of cases readable at a glance. **The rule underneath it does not move:** every load-bearing element is text, `0.11` rule 8, and that is now name, entry cost, risk band and the markers. A tile whose image fails is plainer and still a complete offer, and the pre-login case grid is a large part of the product's argument to search and to a screen reader.
+`D-24` makes the image the visual weight of the tile, which is what the baseline and the whole category do and what makes a shelf of cases readable at a glance. **The rule underneath it does not move:** every load-bearing element is text, `0.11` rule 8, and that is now name, entry cost~~, risk band and the markers~~ **and risk band, the markers having left with `D-60` and `D-61`**. A tile whose image fails is plainer and still a complete offer, and the pre-login case grid is a large part of the product's argument to search and to a screen reader.
 
 ### 5.5 The risk band is three named values, and never an icon alone
 
@@ -193,9 +193,9 @@ The count is the number of accounts that have marked this case, it is text, and 
 
 ### 5.7 The four fields run in the baseline's visual order, artwork, name, risk, cost
 
-**Section 1 lists the fields. It does not order them on screen**, and stage 04 owns that. The order is the baseline's: name, risk, price. **The visual order is not the spoken order, and round 15 found the two confused**: the tile's accessible name reads name, then cost, then risk band, then the markers, section 6, while the eye reads cost last. Each order serves its reader and neither is derived from the other. **The price last is what makes it the thing the eye lands on**, because the cost is the last fact before the decision rather than one of four facts in a column, and design principle 3 says cost never hides inside excitement.
+**Section 1 lists the fields. It does not order them on screen**, and stage 04 owns that. The order is the baseline's: name, risk, price. **The visual order is not the spoken order, and round 15 found the two confused**: the tile's accessible name reads name, then cost, then risk band~~, then the markers~~, section 6, while the eye reads cost last. Each order serves its reader and neither is derived from the other. **The price last is what makes it the thing the eye lands on**, because the cost is the last fact before the decision rather than one of four facts in a column, and design principle 3 says cost never hides inside excitement.
 
-**The entry cost also takes the slack at the foot of the tile**, so a tile carrying a stock marker and a tile carrying none still line their prices up across a row. A price that floats to a different height in every cell is a price the eye has to hunt for.
+**The entry cost also takes the slack at the foot of the tile**, so ~~a tile carrying a stock marker and a tile carrying none~~ **a tile with a one line name and a tile with a two line name** still line their prices up across a row. **The stock marker this sentence named left with `D-60`.** A price that floats to a different height in every cell is a price the eye has to hunt for.
 
 ---
 
@@ -208,7 +208,7 @@ Four fields and a control in a grid cell, and the grid is the densest surface in
 - **The entry cost never truncates and never shrinks below the name.** Money is the field the tile exists to state. Design principle 3.
 - **The risk band is words, and it holds its size beside the price.** If a width cannot hold both, the width is wrong, not the band.
 - **The tile is the whole target and the favourite is the one exception.** The card is a link, the link is the tile, and the favourite is a nested button with its own name, its own focus stop and a target no smaller than 44px that does not overlap the link's own tap area at any width. **A control that steals the tile's tap on a phone is worse than no control.**
-- **The accessible name is name, then cost, then risk band, then the markers.** The order is the decision order, and a screen reader that opens with a number has announced a statistic rather than a case. The favourite announces separately, as a toggle with a pressed state and its own count.
+- **The accessible name is name, then cost, then risk band~~, then the markers~~.** **No markers since `D-60` and `D-61`.** The order is the decision order, and a screen reader that opens with a number has announced a statistic rather than a case. The favourite announces separately, as a toggle with a pressed state and its own count.
 
 ---
 
@@ -217,12 +217,12 @@ Four fields and a control in a grid cell, and the grid is the densest surface in
 | Open item | What is missing | Owner |
 |---|---|---|
 | **The backlog rows for the risk band and the favourite** | Both are on the tile with a parent named, and **neither has a row in `cjm-to-be.md`**, which is the single owner of the MVP capability list. Adding two rows moves that file's count and the line in `CLAUDE.md` that quotes it, **and that is a named decision rather than a side effect of a component edit** | Founder, and the go is explicit |
-| **The thresholds of the risk band** | The method is owned by `0.11`. **Where High stops and Medium begins is `[?]`**, and it is a treasury question rather than a design one. The band cannot render until it is answered | Founder, with `0.11` |
-| **Where the favourite list renders** | The mark exists; the list of marked cases has no home. A filter on `3.1` and a section on `5.1` are the two candidates and neither is decided here | Nodes `3.1` and `5.1` at their own steps |
-| **The parent of the daily free case** | `I2` sits in MVP with no parent in any of the three legal classes, by founder decision. Marker 6 exists because of that decision and carries its cost in the open, `D-15` | Founder |
-| **Reset and availability of the daily case** | Entity 13 marks both `[?]`. The taken state cannot say when the case returns until this is answered | Founder, product decision |
-| **Whether the daily case is gated the way the baseline gates it** | **Answered on 18 August 2026 by `D-25`: yes, as the baseline gates it**, and it became component `0.15` on 21 August 2026 when `3.1` gained it too, `D-67`. **What is still open is the trade it makes**, that a free entry is now earned by wagering. **And one thing that was not open until it was checked:** `D-25` shipped the ladder onto Home "as the baseline does it", and the baseline has no ladder on Home | Founder |
-| **How many tiles a grid holds, and the sort order** | Featured on `1.0` and the full shelf on `3.1` are different problems. skin.club runs 248 case links on one page with no pagination and no result count, `blocks.md` section 3, which `3.2` already refuses | Nodes `1.0` and `3.1` at steps 5 and 6 |
-| **The catalogue's scale** | `D-D`. **The question changed shape on 21 August 2026:** it was how large a stock-backed catalogue can be, and without a shelf it is a different and possibly smaller question, `D-60`. It still decides whether category grouping is required at all | Founder |
+| **The thresholds of the risk band** | The method is owned by `0.11`. **Where High stops and Medium begins is `[?]`**, and it is a treasury question rather than a design one. ~~The band cannot render until it is answered~~ **Since `D-124` and `D-127` the tile draws a sample band by price, High from 20 coins, Medium from 5, Low under, and the real thresholds stay open** | Founder, with `0.11` |
+| ~~**Where the favourite list renders**~~ | ~~The mark exists; the list of marked cases has no home. A filter on `3.1` and a section on `5.1` are the two candidates and neither is decided here~~ **Closed by `D-66`: the Liked filter in the Additional group of `3.1`'s drawer finds the marked cases**, `catalogue.md` section 4 | ~~Nodes `3.1` and `5.1` at their own steps~~ **Closed** |
+| **The parent of the daily free case** | `I2` sits in MVP with no parent in any of the three legal classes, by founder decision. ~~Marker 6 exists because of that decision and carries its cost in the open~~ **Marker 6 left with `D-61`; the cost now rides on the daily case and the ladder `0.15`**, `D-15` | Founder |
+| **Reset and availability of the daily case** | Entity 13 marks both `[?]`. ~~The taken state cannot say when the case returns until this is answered~~ **The taken state is void since `D-68`; the reset moment is the ladder's, drawn as a sample, `00:00 UTC`, since `D-124`, and open in `home.md` section 9** | Founder, product decision, **on `0.15` rather than this node** |
+| **Whether the daily case is gated the way the baseline gates it** | **Answered on 18 August 2026 by `D-25`: yes, as the baseline gates it**, and it became component `0.15` on 21 August 2026 when `3.1` gained it too, `D-67`. **What is still open is the trade it makes**, that a free entry is now earned by wagering. ~~**And one thing that was not open until it was checked:** `D-25` shipped the ladder onto Home "as the baseline does it", and the baseline has no ladder on Home~~ **That check was itself withdrawn by `D-126`: the full walk of 26 September shows the ladder on the baseline's Home, so `D-25`'s premise stands** | Founder |
+| **How many tiles a grid holds~~, and the sort order~~** | **The shelf's sort is answered by `D-65`, date newest first, and both grids run four across at 1440 by `D-133`.** Featured on `1.0` and the full shelf on `3.1` are different problems. skin.club runs 248 case links on one page with no pagination and no result count, `blocks.md` section 3, which `3.2` already refuses | Nodes `1.0` and `3.1` at steps 5 and 6 |
+| **The catalogue's scale** | `D-D`. **The question changed shape on 21 August 2026:** it was how large a stock-backed catalogue can be, and without a shelf it is a different and possibly smaller question, `D-60`. ~~It still decides whether category grouping is required at all~~ **It no longer decides whether category grouping exists, `D-65`: the sections are inherited and `D-D` decides how many** | Founder |
 
 **And what belongs elsewhere.** The words on the tile: stage 05. The grid, the filters and the empty result: nodes `1.0`, `3.1` and `3.2`. The definition and failure behaviour of the risk band and of the favourite count: node `0.11`. **The free-unit figure was the third and it is withdrawn there**, `D-60`. The items inside the case: node `0.6`. Indexation and the collection schema of the pages that render the tile: node `0.13`.

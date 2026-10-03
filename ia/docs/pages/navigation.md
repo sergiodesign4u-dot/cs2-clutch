@@ -4,9 +4,9 @@
 
 **Purpose.** Carry the product's destinations, its money figures and its account control on every screen, in two account states and at two widths, in the carrier model the baseline runs plus one shortcut layer on mobile, without ever advertising a destination that does not exist yet.
 
-**Jobs served.** No job of its own: a global element is a carrier. It is the surface on which Main Job `jtbd.md` "Section 1" reaches the case grid, on which Related Job 1 `jtbd.md` Section 2, Related Jobs and Related Job 3 `jtbd.md` Section 2, Related Jobs reach the public provably fair page, on which Related Job 5 `jtbd.md` "Section 2" reaches inventory, and on which the compliance constraint in `CLAUDE.md`, responsible play tooling, gets its persistent entry. **Parent class:** design principle 1 for the provably fair item, design principle 1 as limited by `D-14` for the value figure, the compliance constraint for the boundary entry. All three are legal parents under the three class rule.
+**Jobs served.** No job of its own: a global element is a carrier. It is the surface on which Main Job `jtbd.md` "Section 1" reaches the case grid, ~~on which Related Job 1 `jtbd.md` Section 2, Related Jobs and Related Job 3 `jtbd.md` Section 2, Related Jobs reach the public provably fair page,~~ **the provably fair page is reached from the footer since `D-29`, in its Help column since `D-44`, node `0.2`,** on which Related Job 5 `jtbd.md` "Section 2" reaches inventory, and on which the compliance constraint in `CLAUDE.md`, responsible play tooling, gets its persistent entry. **Parent class:** ~~design principle 1 for the provably fair item,~~ **struck with the item, `D-29`;** design principle 1 as limited by `D-14` for the value figure, the compliance constraint for the boundary entry. All three are legal parents under the three class rule.
 
-**Sitemap transitions:** 1.0, 1.2, 2.4, 3.1, 4.1, 5.1, 6.1.
+**Sitemap transitions:** 1.0, ~~1.2,~~ 2.4, 3.1, 4.1, 5.1, 6.1, **and from the account menu 5.3, 5.9, 5.10 and 5.11**, `sitemap.md` section "Node table". **1.2 is struck: it left the rail for the footer, `D-29`.**
 
 **Baseline row, `0.1`.** The rule in `CLAUDE.md`: every node carries one baseline row, what the live product does, what we keep, what we change and why.
 
@@ -74,7 +74,7 @@ The baseline runs **three** carriers that do not overlap, `baseline.md`: the lef
 | Carrier | Owns | Never holds |
 |---|---|---|
 | **The rail**, full height at the leading edge, collapsible, a modal drawer on mobile | The logo at its top, **every** destination, its **ambient controls and social links at its foot** since `D-29`, and its own toggle on the seam. It is the complete list of destinations | Money. Actions. The account control |
-| **The header**, starting at the rail's edge | Money, the account control, and ambient controls | **Any destination at all.** No exception, not even the logo |
+| **The header**, starting at the rail's edge | Money, the account control~~, and ambient controls~~ **The ambient controls moved to the rail's foot with `D-29`**, section 6 | **Any destination at all.** No exception, not even the logo |
 | **The mobile bar**, below 900px only, added by `D-22` | A subset of the rail's destinations, plus Home | Money. Actions. Any item the rail does not hold |
 
 **The kind separation survives the third carrier intact**, and the wording is exact on purpose: the bar holds destinations and nothing else. Not the balance, not the deposit control, not the account, not the sound toggle. **A control that is not a destination has never belonged in a navigation carrier in this node, and the arrival of a second destination carrier does not create a place for one.**
@@ -152,7 +152,7 @@ The rest of this section stands as written. The ceiling sentence is the reason t
 
 The first rule survives every revision of this node and still binds it: it is why the deposit control is not a destination, and it is why Balance never becomes a bar item.
 
-**The second rule was retired by `D-21` and is back in force under `D-22`.** The mobile bar adds a fourth item when an account exists and removes none, ever, which is the shape this rule asks for. It was correct to retire it when nothing we shipped was a tab bar. Something we ship is one again.
+**The second rule was retired by `D-21` and is back in force under `D-22`.** ~~The mobile bar adds a fourth item when an account exists and removes none, ever, which is the shape this rule asks for.~~ **Stale since `D-40`: the bar is Home and Cases in both states and adds nothing on sign in**, which meets the rule the strongest way, section 4. It was correct to retire it when nothing we shipped was a tab bar. Something we ship is one again.
 
 ### WCAG 2.2, target size, carried
 
@@ -176,7 +176,7 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 | Group | Item | Guest | Account | Leads to |
 |---|---|---|---|---|
 | **Destinations** | Cases | yes | yes | 3.1 |
-| | Provably fair | **no** since `D-29` | **no** | 1.2, from the footer's Play column |
+| | Provably fair | **no** since `D-29` | **no** | 1.2, from the footer's ~~Play~~ Help column, `D-44` |
 | | My items | **no** since `D-40` | **no**. It is the account menu's first row | 5.1, from the menu |
 | **Ambient**, at the foot | Sound | yes | yes | no destination, `[?]` below |
 | | Language | yes | yes | no destination. **A switcher since `D-41`, with nine options since `D-42`**, the baseline's own set. English is live, **the other eight switch the control and leave the interface in English** and the panel says so. **`D-02` is untouched: no second language ships and the page keeps `lang="en"`** |
@@ -187,7 +187,7 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 
 **And correcting it surfaces a cost neither record printed.** Material's collapsed rail wants **3 to 7** destinations. This table used to say the guest state "clears the floor exactly", on three. **At one it does not clear it at all.** `D-29` printed the mobile bar's floor violation and `D-40` widened that one to both states; **neither of them said the same thing about the rail itself**, and it is the same violation one carrier up. It is printed here rather than absorbed, and the way out is the same one `D-29` named and did not take: round 1 ships one way to play, and the rail fills as modes arrive.
 
-**Responsible play in the rail is an addition to the base layer and it is named rather than absorbed.** The base layer gave it a persistent entry inside the Balance control and a footer link, `sitemap.md` section "Global navigation: the rail's destinations and the job behind each"`, on the argument that a brake which has to be searched for at the worst moment is not a brake. That entry is unchanged. This adds a second one, in the rail's lower group, and it is affordable now for the same reason the rail is: there is space. **Parent:** `B7-4`, pattern of 12, plus the compliance constraint at `CLAUDE.md`, "responsible play tooling". Both legal.
+~~**Responsible play in the rail is an addition to the base layer and it is named rather than absorbed.** The base layer gave it a persistent entry inside the Balance control and a footer link, `sitemap.md` section "Global navigation: the rail's destinations and the job behind each"`, on the argument that a brake which has to be searched for at the worst moment is not a brake. That entry is unchanged. This adds a second one, in the rail's lower group, and it is affordable now for the same reason the rail is: there is space.~~ **Stale twice: `D-29` took Responsible play out of the rail, and `D-136` struck the Balance control entry, which was never rendered. It is carried by the footer and the account menu, section 5.** **Parent:** `B7-4`, pattern of 12, plus the compliance constraint at `CLAUDE.md`, "responsible play tooling". Both legal.
 
 **The logo sits at the top of the rail and routes to 1.0**, which is the baseline's placement, `baseline.md`. It is inside the rail rather than above it: the rail is the full-height carrier and the logo is its first row.
 
@@ -200,13 +200,13 @@ Two groups, separated by one full-width divider, per Material's rule that divide
 | The promotional partner tile above the destinations | Cut from round 1 | A paid third party placement. No barrier, no job, no constraint behind it. If it returns it returns as a revenue decision with a named owner, not as inherited furniture |
 | The language switcher | **Reversed on 20 August 2026, and this row is kept rather than deleted.** It read "cut permanently, `D-02`, one language" | **`D-41` inherited the carrier and `D-42` filled it with the baseline's nine.** What "permanently" was right about is still right: **no second language ships**, `D-02` and its three consequences are untouched, and the page keeps `lang="en"`. What it got wrong was reading a decision about content as a decision about a control. The cost of eight options that change nothing is printed in `0.2` band 4 and inside the control itself |
 | The social icon row at the foot of the drawer | Deferred to 0.2 | The footer owns the canonical social set. The drawer may render it, from that one source and never a second list |
-| The daily free case, `I2` | Deliberately absent, and this is the interesting one | It is MVP by founder decision and it is the product's only free entry point, so a rail slot is tempting. It is **not a node in `sitemap.md`**: `sitemap.md` section "Global navigation: the rail's destinations and the job behind each"` places it inside the catalogue as an addressable case. The rule this stage applies to the footer applies here too. A carrier may not promise a destination the map does not hold. Either it becomes a node or it stays inside 3.1. **Owed a decision before step 5** |
+| The daily free case, `I2` | Deliberately absent, and this is the interesting one | It is MVP by founder decision and it is the product's only free entry point, so a rail slot is tempting. It is **not a node in `sitemap.md`**: `sitemap.md` section "Global navigation: the rail's destinations and the job behind each"` places it inside the catalogue as an addressable case. The rule this stage applies to the footer applies here too. A carrier may not promise a destination the map does not hold. Either it becomes a node or it stays inside 3.1. ~~**Owed a decision before step 5**~~ **Answered: the rail carries Cases alone, `D-29`, and the daily case lives inside 3.1 as the tier ladder `0.15` in the Daily section with no tile under it, `D-67` then `D-68`** |
 
 ### The cost of the carrier choice, and what paid it down
 
 On mobile the rail is a modal drawer behind a menu icon, which is the baseline's own behaviour, `baseline.md`. **`D-21` accepted a named cost for that: on mobile, from any screen that is not Home, reaching the catalogue cost two taps rather than one.** That was the price of Material's compact-window advice being declined.
 
-It was affordable for one reason and the reason is checkable: **the main job never routes through the rail.** `CLAUDE.md` fixes the main flow as home, case screen, age gate, open, and `D-20` put the featured case grid on Home directly. Tap 1 is a case tile on Home, tap 2 is the gate, tap 3 is Open. **The three tap budget was untouched by that change**, and it is untouched by this one. The browsing route was already four taps and already not the main-job route, `sitemap.md` section "Global navigation".
+It was affordable for one reason and the reason is checkable: **the main job never routes through the rail.** `CLAUDE.md` fixes the main flow as home, case screen, ~~age gate,~~ **sign in with its consent gate, `D-26`,** open, and `D-20` put the featured case grid on Home directly. Tap 1 is a case tile on Home, tap 2 is the gate, tap 3 is Open. **The three tap budget was untouched by that change**, and it is untouched by this one. The browsing route was already four taps and already not the main-job route, `sitemap.md` section "Global navigation".
 
 **`D-22` paid the cost off rather than re-argued it.** The mobile bar carries Cases in position 2, so from any screen the catalogue is one tap again. **This is the founder answering a cost the previous decision wrote down**, which is the whole reason `D-21` was required to write it down.
 
@@ -236,7 +236,7 @@ Two disjoint sets would be two competing menus, which is the ambiguity Material'
 
 **The superset holds literally rather than nearly, and the logo is why.** The drawer's first row is the logo and the logo routes to 1.0, so Home is in the rail as well as in the bar. Section 9 records that the logo moved back into the drawer for this reason among others.
 
-**And the superset is about labels as much as about hrefs: one destination carries one label in every carrier.** The first draft of the bar shortened Provably fair to "Fairness" to meet Material's "all navigation items require a one word label text". Two labels for one destination, rendered on the same 360px screen in the bar and in the drawer, is the superset rule failing where a person actually reads it. **The bar says Provably fair.** Material's one-word preference loses here to a rule this node already carries: the word "provably" is what holds design principle 1 and the `D-14` limit, and "My items" is already two words in the same bar, so the preference was being bent one item along regardless.
+**And the superset is about labels as much as about hrefs: one destination carries one label in every carrier.** The first draft of the bar shortened Provably fair to "Fairness" to meet Material's "all navigation items require a one word label text". Two labels for one destination, rendered on the same 360px screen in the bar and in the drawer, is the superset rule failing where a person actually reads it. ~~**The bar says Provably fair.**~~ **The bar holds no Provably fair since `D-29` and no My items since `D-40`; the rule stands for any item it holds.** Material's one-word preference loses here to a rule this node already carries: the word "provably" is what holds design principle 1 and the `D-14` limit, and "My items" is already two words in the same bar, so the preference was being bent one item along regardless.
 
 ### What the bar carries
 
@@ -288,7 +288,7 @@ Left to right: rail toggle, ~~logo,~~ then the right group: **Sign in**, routing
 
 ### Account exists
 
-This is the state the founder specified. Left to right: rail toggle, logo, then the right group: the **two figures**, the **deposit control**, and **the account control at the far right, `D-49`**.
+This is the state the founder specified. Left to right: rail toggle, ~~logo,~~ then the right group: the **two figures**, the **deposit control**, and **the account control at the far right, `D-49`**.
 
 **The order changed on 20 August 2026 and it was "the account control, the two figures, the deposit control".** That came from the founder's first reading of a baseline capture. **The baseline itself puts the user panel at the right edge**, `baseline.md` section on the header: "`.user-panel-right`, right aligned at `x=1174`". **And the new order is the order of the job:** what I have, how to add to it, who I am. The account control is the least used of the three and it is the one that opens a menu, so it belongs at the edge the menu hangs from.
 
@@ -300,9 +300,9 @@ This is the state the founder specified. Left to right: rail toggle, logo, then 
 | Deposit control | A single add control beside the figures | 4.1 |
 | ~~Responsible play, inside the money control~~ | ~~Persistent, unchanged from `D-19`~~ **Never rendered, struck in round 14 by `D-136`.** Responsible play is carried by the footer and the account menu; under a boundary the money control itself opens the limits | 6.1 |
 
-**The two figures are one stacked block and not a row, and that has been this node's word since it was written.** Upper and lower are structural, not decorative: the state matrix says "two lines" on desktop and "one line each" on mobile. Stage 04 drew them side by side with a vertical hairline between them and had to be corrected on 19 August 2026 against the founder's own baseline capture, which stacks them.
+**The two figures are one stacked block and not a row, and that has been this node's word since it was written.** **From 900 up since `D-144`: below 900 they sit side by side, each 44 high, because two stacked 44 targets cannot fit a 60 high header, and below 600 the coin slot gives way.** Upper and lower are structural, not decorative: the state matrix says "two lines" on desktop ~~and "one line each" on mobile~~. Stage 04 drew them side by side with a vertical hairline between them and had to be corrected on 19 August 2026 against the founder's own baseline capture, which stacks them.
 
-**What replaces the hairline as the thing that stops them being added by eye.** The rule they carry is rule 2 below, never summed and never a total, and a vertical rule was one way to enforce it. Stacked, the separation is carried by weight and by caption instead: **the balance is the larger figure and the value of items held is smaller and dimmer, and each keeps its own caption on its own line.** Two figures of equal weight in a column is a receipt, which is the one reading this zone may not produce.
+**What replaces the hairline as the thing that stops them being added by eye.** The rule they carry is rule 2 below, never summed and never a total, and a vertical rule was one way to enforce it. Stacked, and side by side below 900, the separation is carried by weight and by caption instead: **the balance is the larger figure and the value of items held is smaller and dimmer, and each keeps its own caption on its own line.** Two figures of equal weight in a column is a receipt, which is the one reading this zone may not produce.
 
 ### The account menu, added 19 August 2026 by founder decision
 
@@ -380,7 +380,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 | **Mobile bar** | Does not exist at this width | **Home, Cases.** Two, below Material's floor since `D-29`, printed as a violation there | Does not exist at this width | **The same two since `D-40`.** The bar no longer changes with the account at all |
 | **Brand and home** | Logo at the top of the rail, routes to 1.0 | **Logo is the drawer's first row.** The persistent route home is bar item 1 | Same | Same |
 | **Rail toggle** | On the junction of the two seams. Collapses to icons | Header, leading edge. Opens the modal drawer | Same | Same |
-| **Money** | Nothing. There is no balance before an account | Nothing | Balance and value of items held, two lines, with the deposit control | Both figures, condensed to one line each, deposit control kept |
+| **Money** | Nothing. There is no balance before an account | Nothing | Balance and value of items held, two lines, with the deposit control | ~~Both figures, condensed to one line each, deposit control kept~~ **Both figures side by side, each 44 high, the coin slot gone below 600 and the word coins kept, `D-144`**; deposit control kept |
 | **Account** | Sign in, routes to 2.4 | Sign in, routes to 2.4 | **Avatar only, `D-49`**, opens the menu, whose first row routes to 5.1 | **Avatar only. Identical to desktop since `D-49`** |
 | **Boundary** | ~~Rail entry only. Nothing to limit yet~~ **The footer's Play responsibly section only**: off the rail since `D-29`, and nothing to limit yet | ~~Rail entry only~~ **The same, in the footer** | ~~Rail entry plus the entry inside the money control~~ **The footer section plus the account menu's Responsible play row**; the money control entry was never rendered, `D-136`, and under a boundary the + opens the limits | Same |
 | **Ambient**, at the foot of the rail since `D-29`, never in the header | Sound control, language, social links. Ticker 0.8 on 1.0 only since `D-31` | **No sound control at this width**, answered by stage 04 on 18 August 2026: the one row rule in section 9 does not fit menu plus two figures plus deposit plus avatar plus sound at 360px, and the baseline makes the same cut at 390px. The ticker is unchanged | Same as guest desktop | **Same cut.** The control that matters during a reveal belongs to `3.5`, on the screen where the sound plays |
@@ -423,7 +423,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 | Deposit control, account only | One add control, **carrying the standing bonus badge since `D-94`**, and no badge on the pages listed in rule 4 | 4.1 |
 | Active indicator | Exactly one destination is active at any time, **across the rail, the drawer and the mobile bar together**, never one in each | current node |
 
-**Provably fair holds its rail position in both states, and that is the structural claim of this node.** `jtbd.md` Section 3, Emotional and Social Jobs names a public provably fair surface as one of three things no competitor offers pre-login, and `baseline.md` verified that our own baseline still redirects that route to login and demotes it to a footer link, `baseline.md`. Design principle 1 says trust is the product. Letting the item slide down or out when the account arrives would say the proof was a sales argument. It carries the `D-14` limit with it: its position is not a claim that a verifier converts a sceptic.
+~~**Provably fair holds its rail position in both states, and that is the structural claim of this node.**~~ **Stale since `D-29`: Provably fair left the rail for the footer's Play column, in Help since `D-44`, and the bar followed by the superset rule.** What follows is the argument as it stood, kept because it lost to a later decision and not to a counter argument. `jtbd.md` Section 3, Emotional and Social Jobs names a public provably fair surface as one of three things no competitor offers pre-login, and `baseline.md` verified that our own baseline still redirects that route to login and demotes it to a footer link, `baseline.md`. Design principle 1 says trust is the product. Letting the item slide down or out when the account arrives would say the proof was a sales argument. It carries the `D-14` limit with it: its position is not a claim that a verifier converts a sceptic.
 
 ---
 
@@ -433,7 +433,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 
 **It is the product's main internal linking plane.** Every destination is a crawlable `<a>` with a real href, never a script handler, so the global routes are reachable by a crawler from every page. The footer, node 0.2, is the second plane and carries the long tail.
 
-**The mobile bar renders four of those hrefs a second time in the same document, and that is fine as long as it is the same set.** Duplicate internal links between a header and a footer are ordinary and cost nothing. What would cost something is a **different** set: a bar pointing somewhere the rail does not, which is the superset rule in section 4 stated as an SEO consequence rather than a navigation one.
+**The mobile bar renders ~~four~~ two of those hrefs, Home and Cases since `D-40`, a second time in the same document, and that is fine as long as it is the same set.** Duplicate internal links between a header and a footer are ordinary and cost nothing. What would cost something is a **different** set: a bar pointing somewhere the rail does not, which is the superset rule in section 4 stated as an SEO consequence rather than a navigation one.
 
 **The mobile drawer is a display concern and never a crawl concern.** The rail's links are present in the markup at every width, and the menu icon toggles their visibility rather than their existence. A drawer that renders its links only after a click hides the product's main linking plane from a crawler, which is the standard way this pattern is shipped wrong.
 
@@ -479,12 +479,12 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 
 ## 10. Open, carried, and what this node does not decide
 
-**Two items are open and both are named rather than filled with a median.**
+~~**Two items are open and both are named rather than filled with a median.**~~ **One item is open; the daily free case was answered by `D-67` and `D-68`.**
 
 | Open item | What is missing | Owner and when |
 |---|---|---|
 | **The sound control** | It is in the baseline header and drawer, `baseline.md`, and dropped by the baseline itself at 390px, `baseline.md`. It has **no parent in any of the three legal classes**. Design principle 2 covers motion, not audio, and no backlog row mentions sound. It is drawn here because the reveal has audio and a person needs to be able to stop it, which is an argument this stage cannot ratify on its own | Founder, before stage 04. It ships with a stated parent or it does not ship |
-| **The daily free case, `I2`, in the rail** | It is MVP and it is the only free entry point, but it is not a node in `sitemap.md`. A carrier may not promise a destination the map does not hold | This stage, before step 5. Either it becomes a node or it stays inside 3.1 |
+| ~~**The daily free case, `I2`, in the rail**~~ | ~~It is MVP and it is the only free entry point, but it is not a node in `sitemap.md`. A carrier may not promise a destination the map does not hold~~ | ~~This stage, before step 5. Either it becomes a node or it stays inside 3.1~~ **Closed: it stays inside 3.1, as the ladder `0.15` in the Daily section, `D-67` then `D-68`, and the rail carries Cases alone, `D-29`** |
 
 **What this node does not decide.**
 

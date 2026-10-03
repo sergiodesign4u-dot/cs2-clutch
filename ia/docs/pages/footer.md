@@ -6,9 +6,9 @@
 
 **Jobs served.** No job of its own: like 0.1 it is a carrier. **Parent class:** barrier `B1-1`, the visitor arrives pre-suspected, for the statistics strip; the compliance constraints in `CLAUDE.md`, age verification, geo blocking and responsible play tooling, for the compliance line; barrier `B8-3` by way of row `G4` for the support and appeal route; a named legal requirement, quoted below and opened live, for the identification block. All legal parents under the three class rule.
 
-**Sitemap transitions:** 1.0, 1.2, 3.1, 6.1, 2.2, 0.4, 0.9, 0.10.
+**Sitemap transitions:** 1.0, 1.2, 3.1, 6.1, ~~2.2,~~ 0.4, 0.9, 0.10. **2.2 left with Where we operate, `D-136`.**
 
-**This node grew the map.** A carrier may not promise a destination the map does not hold, and this one promised six. **`0.9` Legal and policy pages** and **`0.10` Support and contact** were registered before this specification was written. The map is 66 nodes, 53 MVP, after the global sweep at step 3 added four more.
+**This node grew the map.** A carrier may not promise a destination the map does not hold, and this one promised six. **`0.9` Legal and policy pages** and **`0.10` Support and contact** were registered before this specification was written. ~~The map is 66 nodes, 53 MVP, after the global sweep at step 3 added four more.~~ **A dated count: the map's count is listed once, in `sitemap.md` section "Counts, and the one the base layer got wrong", `D-147`.**
 
 **Baseline row, `0.2`.** The rule in `CLAUDE.md`: every node carries one baseline row, what the live product does, what we keep, what we change and why.
 
@@ -64,7 +64,7 @@
 | COMPANY: Terms, Privacy, Cookie, Refund | **The four** | **Refund and payments policy opens its own state**, `legal-unpublished.html`, as the legal pages' own links do; it opened the Terms |
 | No interlinking row | Ours | **Headed "Popular cases"**: it read "Links to priority indexed pages", an SEO term shown to players |
 | NEED HELP? with the Support button and the identification line | **Both** | **No tagline.** The brand block's sentence about chances and checkable rounds was the third copy on Home and the baseline has none |
-| Nothing | | **Where we operate is not drawn.** A row with no destination is the dead item a carrier may not hold; the map has no page for a visitor who is not refused. It stays an open item here |
+| Nothing | | **Where we operate is not drawn.** A row with no destination is the dead item a carrier may not hold; the map has no page for a visitor who is not refused. ~~It stays an open item here~~ **Closed by `D-146`: one line under the 18+ statement says where we serve, with no link** |
 
 ---
 
@@ -99,9 +99,9 @@ Founder, with the live strip beside ours: **"давай в футере сдел
 
 **The aggregate tested RTP cell is dropped from the strip and not from this node.** It was a proposal with no backlog row, it rendered `Not available` on every page, and section 2 still holds it as a proposal for the founder.
 
-### Two of the five move, and three do not, and that difference is now drawn
+### Two of the ~~five~~ four move, and ~~three~~ two do not, and that difference is now drawn
 
-`baseline.md` records cases opened moving across three reads minutes apart, +30 then +48, **and total users standing still across all three.** So the strip holds one cumulative counter that only ever rises, one headcount that moves both ways, and three figures that do not move in a session.
+**Counts corrected for `D-123`, which removed the fifth cell the same day.** `baseline.md` records cases opened moving across three reads minutes apart, +30 then +48, **and total users standing still across all three.** So the strip holds one cumulative counter that only ever rises, one headcount that moves both ways, and ~~three figures~~ **two figures, upgrades and total users,** that do not move in a session.
 
 **A counter that never moves is a picture of a counter**, and an online count frozen for a whole session is precisely the unverifiable claim our own research names, rendered as a still image. **Cases opened rises by one or two every few seconds. Online now drifts both ways and is bounded**, so a page left open for an hour does not end on a number nobody wrote.
 
@@ -115,7 +115,7 @@ Founder, with the live strip beside ours: **"давай в футере сдел
 
 ### What the strip still is not
 
-**Not a badge row.** No trust seals, no "100% secure", no invented certifications. `D-14` names what answers the recorded doubt: published chance, current value and tested RTP. **A seal answers none of it, and neither does a user count.** Section 2's rule is unchanged by this decision: **every number here either reconciles against something a stranger can open, or it is decoration that looks like evidence. Two of the five are now the second kind, by decision, and this section is where that is written down.**
+**Not a badge row.** No trust seals, no "100% secure", no invented certifications. `D-14` names what answers the recorded doubt: published chance, current value and tested RTP. **A seal answers none of it, and neither does a user count.** Section 2's rule is unchanged by this decision: **every number here either reconciles against something a stranger can open, or it is decoration that looks like evidence. ~~Two of the five~~ Three of the four, since `D-123`, are now the second kind, by decision, and this section is where that is written down.**
 
 ---
 
@@ -198,9 +198,9 @@ And the risk is documented rather than hypothetical: the bot-name concern record
 
 ~~**Slot 2, recommended: the rolling median and p90 withdrawal time from our own logs.**~~ **Shipped 22 August 2026 and removed 2 September 2026 by `D-123`, section 0.1. The recommendation is kept because it was the right one and it lost to a founder decision rather than to an argument.**  Rows `A4` and `G3`, already MVP, already required to be visible before login. It is the strongest trust signal the product owns and it is checkable in the only way that matters, by the person who withdraws.
 
-**This is the same question the first version of this node handed to the founder and it now has a better answer.** Both rows say "same feature as A4, two surfaces", and those two are the entry surface and the withdrawal surface, so the footer is a third. **The founder's own request created the surface that wants it.** The ask is no longer "add a band", it is "fill a slot that would otherwise hold a number nobody can check". **Owner: the founder. Cost: one line in the backlog.**
+**This is the same question the first version of this node handed to the founder and it now has a better answer.** Both rows say "same feature as A4, two surfaces", and those two are the entry surface and the withdrawal surface, so the footer is a third. **The founder's own request created the surface that wants it.** The ask is no longer "add a band", it is "fill a slot that would otherwise hold a number nobody can check". ~~**Owner: the founder. Cost: one line in the backlog.**~~ **Answered by `D-121` then `D-123`: the founder took the baseline's four, and the slot holds Upgrades.**
 
-**Slot 4, if online-users cannot be made honest: published aggregate tested RTP.** `aarrr.md` "Key hypotheses" makes matching or beating the tested category figures, Hellcase 82.1 percent and DatDrop 80.6 percent, both a trust position and a regulatory hedge, and `D4` already publishes RTP per case. An aggregate is adjacent to `D4` rather than inside it, so **it needs its own backlog row before it can ship.** Marked as a proposal, not asserted as a capability.
+**Slot 4, if online-users cannot be made honest: published aggregate tested RTP.** **The condition is met since `D-121`, so this stays a fallback proposal and nothing waits on it.** `aarrr.md` "Key hypotheses" makes matching or beating the tested category figures, Hellcase 82.1 percent and DatDrop 80.6 percent, both a trust position and a regulatory hedge, and `D4` already publishes RTP per case. An aggregate is adjacent to `D4` rather than inside it, so **it needs its own backlog row before it can ship.** Marked as a proposal, not asserted as a capability.
 
 **What the strip is not.** Not a badge row. No trust seals, no "100% secure", no invented certifications. `D-14` names what answers the recorded doubt: published chance, current value and tested RTP. A seal answers none of it.
 
@@ -214,7 +214,7 @@ And the risk is documented rather than hypothetical: the bot-name concern record
 
 ### Band 1: the statistics strip
 
-Full width, its own surface, four cells, each an icon zone plus a figure plus a caption. Contents per section 2. **Every figure that claims to be checkable carries its route:** cases opened links to the case screens carrying the observed rate counters `D3`, the withdrawal figure links to `5.3`. The route for cases opened is per case rather than one total, per the correction in section 2.
+Full width, its own surface, four cells, each an icon zone plus a figure plus a caption. Contents per section 2. **Every figure that claims to be checkable carries its route:** cases opened links to the case screens carrying the observed rate counters `D3`~~, the withdrawal figure links to `5.3`~~. **The withdrawal cell left the strip with `D-123`, and its route with it.** The route for cases opened is per case rather than one total, per the correction in section 2.
 
 **The figure never breaks across lines.** A number read down two lines is a different number, so the type steps down when the column narrows instead of wrapping.
 
@@ -228,7 +228,7 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 | **Play** | Cases, and nothing else. **One game, because the product has one** | 3.1 |
 | **Cases** | All cases, then the four cases this prototype holds: Ironbound, Warsteel, Coldfront, Nightfall. **Which cases belong here is a merchandising decision and it is `[?]`**, carried in this node and **not printed in the column since `D-124`** | 3.1, 3.3 |
 | **Company** | Terms of use, Privacy policy, Cookie policy, Refund and payments policy, **Cookie settings** | 0.9, and dialog 0.4 links the cookie policy. **Cookie settings added by the step 8 audit:** GDPR Article 7(3), quoted in node `0.4`, says "It shall be as easy to withdraw as to give consent", and a banner shown once is not a route back. It is a control rather than a link and the only control in this column. **And it opened nothing until 22 August 2026, `D-80`:** `0.4` was unbuilt, so the control shipped as a button with no handler on all ninety four pages, which is the defect `D-58` forbids. **The fix for Article 7(3) was itself a picture of a control**, and it was invisible to both nodes because this one owns the carrier and `0.4` owns what it carries. **One thing is still not equal and it is printed here rather than in the other file:** below 900 this column is an accordion collapsed by default, so the route back is two presses while giving was one, and Article 7(3) is a rule about that count |
-| **Help**, and **Play responsibly under it in the same track**, `D-45` | Help: Provably fair, Contact support. **No FAQ row**, and since `D-124` the absence is recorded here rather than printed. Then Play responsibly: Responsible play~~, Where we operate~~. **Where we operate left the column by `D-136`**: a row with no destination is the dead item a carrier may not hold, and it stays an open item here | 1.2, 0.10, then 6.1 ~~, 2.2~~ |
+| **Help**, and **Play responsibly under it in the same track**, `D-45` | Help: Provably fair, Contact support. **No FAQ row**, and since `D-124` the absence is recorded here rather than printed. Then Play responsibly: Responsible play~~, Where we operate~~. **Where we operate left the column by `D-136`**: a row with no destination is the dead item a carrier may not hold~~, and it stays an open item here~~. **Closed by `D-146`: the market position is one line in band 3, with no link** | 1.2, 0.10, then 6.1 ~~, 2.2~~ |
 | **Brand art** | **A reserved slot, founder request of 20 August 2026, `D-43`.** Same kind of object as the logo slot: an area whose content arrives at stage 06 | Nothing. It is not a route |
 
 **Play holds one game because the product has one.** The column is inherited and filled with what is live, and the LATER modes enter it as they ship, exactly as they enter the rail. **A short column is the truth about the round**, and padding it with a route the map does not hold would be the dead item defect one carrier down, which is the rule that took the rail from nine to one.
@@ -237,7 +237,7 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 
 **Provably fair moved from Play into Help, `D-44`.** A person looking for the proof is checking us, not choosing a mode. **`CLAUDE.md`'s rule is untouched:** "Provably fair and Responsible play are carried by the footer, which holds each in its own column." Each still has one. They are not the same two columns as before.
 
-**There is no FAQ row and that is not an oversight.** `sitemap.md`, section on what was cut from the baseline's footer, cut the FAQ **on an argument rather than on scope**: its two load bearing jobs on the baseline are the whole of the age control and the whole of the geo statement, both of which move to real surfaces here, `2.1` and `6.1`, and the residue goes to `0.10`. **A row for it would be a carrier promising a destination the map does not hold.** ~~The absence is printed in the column in the smallest type in this footer, so the founder can reverse it deliberately rather than discover it missing.~~ **Not printed since `D-124`:** `D-107`'s test puts our side of an unknown in the node, and this paragraph is where the founder reads it.
+**There is no FAQ row and that is not an oversight.** `sitemap.md`, section on what was cut from the baseline's footer, cut the FAQ **on an argument rather than on scope**: its two load bearing jobs on the baseline are the whole of the age control and the whole of the geo statement, both of which move to real surfaces here, `2.1` and `6.1`, **and since `D-26` the age half sits in the sign-in consent gate on `2.4`, with `2.1` keeping the geo half**, and the residue goes to `0.10`. **A row for it would be a carrier promising a destination the map does not hold.** ~~The absence is printed in the column in the smallest type in this footer, so the founder can reverse it deliberately rather than discover it missing.~~ **Not printed since `D-124`:** `D-107`'s test puts our side of an unknown in the node, and this paragraph is where the founder reads it.
 
 **Asked directly on 20 August: should Help and Play responsibly merge? No. Should Play responsibly sit under Help? Yes, and the difference between those two answers is the whole of `D-45`.**
 
@@ -245,7 +245,7 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 
 | | |
 |---|---|
-| **The rule** | `CLAUDE.md`: "Provably fair and Responsible play are carried by the footer, **which holds each in its own column**." **Responsible play has had no other carrier since `D-40` took it off the rail** |
+| **The rule** | `CLAUDE.md`: "Provably fair and Responsible play are carried by the footer, **which holds each in its own column**." ~~**Responsible play has had no other carrier since `D-40` took it off the rail**~~ **`D-29` took Responsible play off the rail and `D-40` put it in the account menu: the footer is its only public carrier, and the menu its only signed-in one** |
 | **The kind** | Help is *I have a problem, help me*. **A limit you set on yourself is not help, it is a boundary** |
 | **The divergence** | The compliance section is the whole reason this band diverges from the baseline. `baseline.md` section 6: no responsible play route, no footer link, no age statement anywhere on the live product |
 
@@ -265,7 +265,7 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 
 **The support button is inherited deliberately and it is an upgrade on the first version of this node**, which had support as one link among four in a column. `G4` requires an appeal with a published response deadline and Article 5(c) requires rapid contact. Neither is served well by a link that looks like a policy.
 
-**The compliance column is the one the baseline does not have.** Its three columns are Platform, Company and Additional. There is no compliance column anywhere in its footer, because there is no responsible play page and no age statement anywhere on the product, `baseline.md` section 6. **This column is the divergence.** It carries the two routes and no longer carries the statements: those are in band 3, see below.
+**The compliance column is the one the baseline does not have.** Its three columns are Platform, Company and Additional. There is no compliance column anywhere in its footer, because there is no responsible play page and no age statement anywhere on the product, `baseline.md` section 6. **This column is the divergence.** It carries ~~the two routes~~ **one route, Responsible play, since `D-136` took Where we operate out,** and no longer carries the statements: those are in band 3, see below.
 
 **The brand art slot carries no information and says so.** It is `aria-hidden`, it carries no label since `D-124`, and **because it carries nothing it is the first thing to go**: it leaves when the column can no longer hold five, rather than competing with four columns of real routes. **It is the one element in this footer with no parent in the three legal classes**, and it is carried with that printed rather than argued into one.
 
@@ -279,7 +279,7 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 |---|---|---|
 | **Social links** | The canonical set. **This node owns it**, and the rail's drawer renders it from here rather than keeping a second list | The set is `[?]`, owner founder. Drawn as a reserved row of six slots, **and the hole is not printed since `D-124`** |
 | **Language** | The switcher, **above the payment marks since `D-45`** | Its third address in two days: band 4 by `D-42`, the brand column by `D-43`, here now. **What settles it is that this cell is already the page's meta corner**, what we accept as payment and now what language you are reading. The brand column says who we are, and a preference of the session is not part of that answer. Nine options, one live, `D-42` |
-| **The age mark and the compliance statements** | An 18+ mark and **one** age and limits statement since `D-124`: "Over 18 only. Opening a case is a paid chance, never an investment. Set a deposit or session limit before you start." The allowlist statement left the footer: it belongs to Where we operate, and the streak clause is a rule for us, not a statement to a player | **A mark and not a gate.** The gate is two checkboxes at sign in, `D-26`. Anything pressable here would be a second age gate that lets a person past |
+| **The age mark and the compliance statements** | An 18+ mark and **one** age and limits statement since `D-124`: "Over 18 only. Opening a case is a paid chance, never an investment. Set a deposit or session limit before you start." ~~The allowlist statement left the footer: it belongs to Where we operate~~ **The market line came back by `D-146`, under the age statement: "Open only in the markets we have cleared. Anywhere else, this site says so before anything can be paid."**, and the streak clause is a rule for us, not a statement to a player | **A mark and not a gate.** The gate is two checkboxes at sign in, `D-26`. Anything pressable here would be a second age gate that lets a person past |
 | Payment and provider marks | The baseline runs three, ZEN, Visa and Mastercard, read live | **Structure fixed, contents `[?]`.** Which providers we run is a contract, and a payment mark is a claim about one. **Drawn as Card, Wallet, Crypto with no printed hole since `D-124`** |
 | Copyright | Year and the operating entity name | Entity name `[?]`, Article 5(a). **Drawn as "© 2026 CS2 Clutch"**, the working name standing in the entity's place, and the identification line above it drawn as its three fields, `D-124` |
 | The coin note | "Prices are in coins. 1 coin = $1.00" | `D-28`, and the rate published at one to one by `D-95`. **It read `[?]` here until `D-124`** |
@@ -288,7 +288,7 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 
 **Its rule is unchanged and it is the one rule in this node that holds at every width: the compliance statement never becomes an accordion.** A compliance statement a person has to open is not a statement.
 
-**Responsible play loses nothing by any of this.** ~~It has three entries: **this band, the money control, and the account menu**.~~ **It has two carriers since `D-136`: the Play responsibly section of band 2, and the account menu.** The entry inside the money control was struck by `D-136` as never rendered; under a boundary the header's + opens the limits page instead of the deposit layer, which routes a refusal rather than adding a carrier. **The rail is not one of them and this sentence said it was until 22 August 2026:** `D-29` moved it off the rail on 19 August and `D-40` put it in the account menu on 20 August, and section 143 of this same file already says "Responsible play has had no other carrier since `D-40` took it off the rail". **One file, two counts, six lines apart.**
+**Responsible play loses nothing by any of this.** ~~It has three entries: **this band, the money control, and the account menu**.~~ **It has two carriers since `D-136`: the Play responsibly section of band 2, and the account menu.** The entry inside the money control was struck by `D-136` as never rendered; under a boundary the header's + opens the limits page instead of the deposit layer, which routes a refusal rather than adding a carrier. **The rail is not one of them and this sentence said it was until 22 August 2026:** `D-29` moved it off the rail on 19 August and `D-40` put it in the account menu on 20 August, and the `D-45` table in section 3 of this same file said "Responsible play has had no other carrier since `D-40` took it off the rail". **One file, two counts.** **That table row was itself wrong about which decision did what, and is struck in this pass.**
 
 **The three cells of the trust row are three different kinds on purpose:** a way to reach us, a statement about who may be here, a claim about what we accept. They share one row because **a stranger checks all three in one look**, which is what the row is for. **The statement takes the whole row before it takes a column**: two paragraphs in a third of a narrow column became a ribbon eleven lines tall, so one row of three happens only where the middle cell can hold 420px.
 
@@ -306,7 +306,7 @@ The baseline runs a fixed circular headset button, bottom right, above the foote
 | **Brand and help** | First column: logo, identification, then "Need help?" over the support button. ~~tagline~~ None since `D-136` | First block, full width | Same | Same |
 | **Link columns** | ~~Three columns~~ **Five groups in four tracks since `D-44` and `D-45`**, Play, Cases, Company, then Help with Play responsibly stacked under it, beside the brand column, all expanded, the brand art slot last where it fits | Five accordions, **collapsed by default and present in the DOM** | Same | Same |
 | **Interlinking block** | Flat list, expanded | One accordion, collapsed by default, present in the DOM | Same | Same |
-| **Bottom row** | ~~Compliance line, copyright, payment marks in one row~~ **Two rows as rendered:** the trust row, social slots, the 18+ mark with its statement, then the language switcher over the payment marks; then the fine print, copyright and the coin note. The statement takes a row of its own above the other two cells until the middle cell can hold 420px | Stacked: social slots, the 18+ statement, the language switcher and the marks, then copyright and the coin note | Same | Same |
+| **Bottom row** | ~~Compliance line, copyright, payment marks in one row~~ **Two rows as rendered:** the trust row, social slots, the 18+ mark with its statement **and the market line, `D-146`**, then the language switcher over the payment marks; then the fine print, copyright and the coin note. The statement takes a row of its own above the other two cells until the middle cell can hold 420px | Stacked: social slots, the 18+ statement **and the market line**, the language switcher and the marks, then copyright and the coin note | Same | Same |
 
 **No account dimension.** The footer is identical in both account states. Everything in it is public: proof of scale, legal identity, compliance statements, support, and indexed routes. **A footer that changed on login would mean it held something private**, which the rule above forbids.
 
@@ -327,7 +327,7 @@ The baseline runs a fixed circular headset button, bottom right, above the foote
 
 **This is the second interlinking plane, and it is the one that carries the long tail.** ~~The rail carries three or four destinations.~~ **The rail carries one destination, Cases, in both states since `D-40`.** The footer carries every indexed node the rail cannot hold, plus the legal set. Together they mean **every indexed page is reachable from every other page in at most two hops.**
 
-**No H1.** A global element is not a page. **`<footer>` with `<nav>` around each link column, each with an accessible name.** Four unnamed navigation landmarks in one region is worse than none.
+**No H1.** A global element is not a page. **`<footer>` with `<nav>` around each link column, each with an accessible name.** ~~Four~~ **Five, since `D-44`,** unnamed navigation landmarks in one region is worse than none.
 
 **The accordions are collapsed for reading, never for existence.** Every link is in the DOM at every width and the accordion toggles visibility. **This is the same rule 0.1 applies to the mobile drawer, and it is stated twice on purpose:** it is the single most common way both patterns are shipped wrong.
 
@@ -346,7 +346,7 @@ The baseline runs a fixed circular headset button, bottom right, above the foote
 
 ## 6. Adaptive behaviour
 
-**Mobile, base, 360px.** Statistics as a two by two grid, never a horizontal scroll and never a carousel: four numbers a person cannot see at once are four numbers that prove nothing. Then the brand block, full width, with the support button at full width under it. Then ~~three~~ **five** accordions, collapsed. Then the interlinking accordion, collapsed. Then the bottom row stacked ~~, compliance line first, then copyright, then the marks~~ **as the render draws it: social slots, the 18+ statement, the language switcher over the marks, then copyright and the coin note.**
+**Mobile, base, 360px.** Statistics as a two by two grid, never a horizontal scroll and never a carousel: four numbers a person cannot see at once are four numbers that prove nothing. Then the brand block, full width, with the support button at full width under it. Then ~~three~~ **five** accordions, collapsed. Then the interlinking accordion, collapsed. Then the bottom row stacked ~~, compliance line first, then copyright, then the marks~~ **as the render draws it: social slots, the 18+ statement and the market line, the language switcher over the marks, then copyright and the coin note.**
 
 **Desktop, from 900px.** Statistics as one row of four. Brand column plus ~~three link columns~~ **four link tracks, the last holding Help and Play responsibly, and the brand art slot where the width holds it**. Interlinking block as a flat list below them. Bottom row as ~~one line~~ **the trust row of three cells, then the fine print**.
 
@@ -367,11 +367,11 @@ The baseline runs a fixed circular headset button, bottom right, above the foote
 
 | Open item | What is missing | Owner |
 |---|---|---|
-| **Statistics slots 2 and 4** | Slot 2 recommended: median and p90 withdrawal time, `A4` and `G3`, which needs a yes because the footer is a third surface. Slot 4: online users ships only if it counts humans in real time, otherwise aggregate RTP, which needs its own backlog row | **Founder, before stage 04** |
+| ~~**Statistics slots 2 and 4**~~ | ~~Slot 2 recommended: median and p90 withdrawal time, `A4` and `G3`, which needs a yes because the footer is a third surface. Slot 4: online users ships only if it counts humans in real time, otherwise aggregate RTP, which needs its own backlog row~~ | **Closed by the founder, `D-121` then `D-123`:** the strip is the baseline's four, Upgrades in slot 2 and Online now in slot 4, its condition met; the withdrawal cell was drawn and removed |
 | **Whether cases opened keeps its route at all** | Added by the global sweep, 12 August 2026. Its reconciliation runs through `D3` and therefore through `D-B`, whether six years of roll history can migrate and be published. A browsable public round ledger would restore a single auditable total and it is not a backlog row today | Node `0.11`, then the founder |
 | The identification block contents | Operating entity, registered address, register and number, VAT number, supervisory authority. Structure fixed, every value unresolved | Founder with counsel, on the same answer as `D-A` |
 | Whether a support form satisfies Article 5(c) | The Article asks for an email address by name. The baseline prints none | Counsel |
-| The interlinking block contents | The catalogue's category structure | Node `3.1`, then production for the queries |
+| The interlinking block contents | ~~The catalogue's category structure~~ **Filled by `D-124` from `3.1`'s sections, `D-65`**; query volumes may reorder or extend it | ~~Node `3.1`, then~~ production for the queries |
 | Payment and provider marks | Which providers we run is a contract | Founder |
 | The canonical social set | Seven icons on the baseline; which are ours in round 1 is not decided | Founder, before stage 04 |
 

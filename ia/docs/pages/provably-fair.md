@@ -76,7 +76,7 @@
 | The live product | What we keep | What we change, and why |
 |---|---|---|
 | No public page |  | **The algorithm, the worked example and the version history are drawn as samples**, `D-124`: HMAC-SHA256 of the server seed keyed with client seed and nonce, ticket 18 210 in the worked round. The real scheme stays open here |
-| Nothing |  | "The question this page does not answer" goes, it repeated block 1. The client seed is yours to set. The mismatch answer is within 72 hours, a sample deadline |
+| Nothing |  | "The question this page does not answer" goes, it repeated block 1. ~~The client seed is yours to set.~~ **Superseded by `D-137`:** who sets it stays open, section 4.2. The mismatch answer is within 72 hours, a sample deadline |
 
 ---
 
@@ -142,7 +142,7 @@ Composition is taken from `blocks.md` section 8, type T7, document and explainer
 
 **Blocks 2 and 8 are the two the bank supplied and the jobs did not.** Block 8 is the Refero Ableton row in `blocks.md` section 8, "FAQ accordion below the substance rather than instead of it", plus the Hellcase sectioned FAQ structure row on the same table. It is a tail, not a substitute: a question that could have been answered by block 2 is a defect in block 2.
 
-**One block was borrowed across nodes and it is named rather than smuggled.** The Refero WhatsApp two column help article in `blocks.md` section 8 is assigned there to node `0.10`. Its left hand contents column is reused here at desktop width only, section 8, because this page is long and its parts are entered from different places. Same source, different node, said out loud. **Not drawn at stage 04:** the grey page is one column at every width and carries no contents column, section 8.
+**One block was borrowed across nodes and it is named rather than smuggled.** The Refero WhatsApp two column help article in `blocks.md` section 8 is assigned there to node `0.10`. ~~Its left hand contents column is reused here at desktop width only, section 8, because this page is long and its parts are entered from different places. Same source, different node, said out loud.~~ **Dropped by `D-146`:** the page is one column at every width and carries no contents column, section 8.
 
 **One block was refused although the bank offers it.** The skin.club About block with an H3 "Provably Fair" inside a marketing section is marked DIFFERENT in the bank against design principle 1. Nothing on this page restates the product's virtues, section 6.
 
@@ -213,12 +213,12 @@ Rows are every state this page can be in. **Two of them are numbered nodes in `s
 | **Verifier idle** | Empty inputs with visible labels, and the explanation above them already read | Into the check |
 | **Verifier prefilled** | A round arrived in the address, from row `F3` or from a shared result. The fields carry it and **nothing has been computed yet** | The person presses the control. Section 5.1 |
 | **Recomputing** | The parent's own skeleton on the result area only. The inputs stay readable and stay editable | Into a result |
-| **Checked and matched** | The recomputation and its inputs, plainly, **and not a badge**, `0.14` section 0 | Back, or block 6 for the other question |
+| **Checked and matched** | The recomputation and its inputs, plainly, **and not a badge**, `0.14` section 0 | Back, or ~~block 6~~ **block 1's "Where that is answered" since `D-130`** for the other question |
 | **Checked and mismatched** | Ours and the recomputation side by side, and the report route | **Node `1.4`** |
 | **Malformed round** | Which part is missing or unreadable, and the input again | **Node `1.3`** |
 | **Proof unavailable** | That this round has no proof to check yet, and which of the two reasons applies | Section 5.3, and the explanation in block 2 |
-| **Script unavailable** | Blocks 1, 2, 3, 5, 6, 7 and 8 in full. The control says it needs script instead of rendering dead | The published algorithm, which is the point: the page still hands over everything a third-party tool needs |
-| **`D3` withdrawn** | Block 6 loses the observed rate counter and keeps `D2` and `D4`, with the withdrawn figure declared per `0.11` rule 3 and its withdrawn state | The case screen anyway |
+| **Script unavailable** | Blocks 1, 2, 3, 5, ~~6,~~ 7 and 8 in full, **block 6 removed by `D-130`**. The control says it needs script instead of rendering dead | The published algorithm, which is the point: the page still hands over everything a third-party tool needs |
+| **`D3` withdrawn** | ~~Block 6 loses~~ **Block 1's routes, since `D-130`, lose** the observed rate counter and keep `D2` and `D4`, with the withdrawn figure declared per `0.11` rule 3 and its withdrawn state | The case screen anyway |
 
 **Three failures, three different states, and conflating any two of them is the defect.** Malformed is a round we could not read. Unavailable is a round we can read and cannot prove yet. Mismatched is a round we can read, can prove, and our proof is wrong. They have three different causes, three different routes and three different owners.
 
@@ -334,7 +334,7 @@ Both render the same state with a different reason printed, and both point back 
 
 **Desktop.**
 
-- A measured content column, ~~plus a contents column on the left carrying the eight H2s~~ **(the contents column is dropped by `D-146`)**, from the Refero WhatsApp row in `blocks.md` section 8, reused across nodes as section 3 records. **The rendered page has six H2s and no contents column**, section 10 B; whether stage 07 adds the column is section 11's.
+- A measured content column, ~~plus a contents column on the left carrying the eight H2s~~ **(the contents column is dropped by `D-146`)**, from the Refero WhatsApp row in `blocks.md` section 8, reused across nodes as section 3 records. **The rendered page has six H2s and no contents column**, section 10 B; ~~whether stage 07 adds the column is section 11's~~ **section 11's open item is closed by `D-146`**.
 - The verifier stays the full width of the content column. **It never becomes a sidebar widget**, which is the shape the Key-Drop mock verifier takes and the shape that reads as decoration.
 - The mismatch comparison goes side by side.
 
@@ -435,7 +435,7 @@ Everything structural is inherited from node `0.13`. What is below is this node'
 | **The exact commit reveal scheme** | The category standard is HMAC-SHA256 over server seed, client seed and nonce, `research.md` sections 4 and 5b. Ours is not chosen. Section 4.2 holds the shape of the statement with the value empty | Production, before stage 04 treats the field list as final. Inherited from `0.14` |
 | **Who sets the client seed** | `0.14`'s first open item, recommendation user settable, no backlog row. **This node adds a consequence:** it also decides whether a person can force a rotation and make their own round checkable today, section 5.3 | Founder, one backlog row |
 | **The drop table in force at a round is not a field** | An independent recomputation needs the whole table as it stood at that round, not only the winning entry's ticket range, and `0.14`'s field set carries the latter. **The same gap covers the algorithm version**, which section 4.4 shows a round proof has to point at | **Finding for `0.14`**, plus production |
-| **The response deadline for a proof failure** | The value is `[?]`, and so is the queue: row `G4` publishes a deadline for an appeal against a withdrawal restriction, and a mismatch report is not that. `0.10` holds the service level | Founder, with `0.10` |
+| **The response deadline for a proof failure** | The value is `[?]`, **and the render prints 72 hours as a sample, `D-124`**, and so is the queue: row `G4` publishes a deadline for an appeal against a withdrawal restriction, and a mismatch report is not that. `0.10` holds the service level | Founder, with `0.10` |
 | **Whether pre-migration rounds carry proofs, `D-B`** | Decides how common the unavailable state is on day one, and whether row `D3` exists to be linked to at all in block 1's routes | Founder, question of fact to the live platform |
 | **`0.11` names `1.2` as a consumer and no row in it lists `1.2`** | Two figures this page needs have no row in the register: the published response deadline as it applies here, and the date from which published proofs exist, which the unavailable state reads | **Finding for `0.11`** |
 | **`0.13` holds no row for `/provably-fair?round=<id>`** | This node uses `0.13`'s own rule for a parameterised view of an indexed page rather than inventing one, section 5.1. The row belongs there | **Finding for `0.13`** |
