@@ -4002,6 +4002,11 @@ window.WF_PAY = window.WF_PAY || {
     /* THE ID IS THE ONE THING A PERSON READS OUT TO SUPPORT, so it is text and
        monospace like every other identifier in this product, never an image. */
     names.appendChild(el('p', 'wf-ah-id', 'ID ' + (cfg.id || WHO.id)));
+    /* THE LINKED STEAM ACCOUNT IS NAMED, D-150: since D-55 an account can exist
+       without one, so the account says which one its items go to. Unlinking and
+       linking live in settings, 5.11. */
+    var st = el('a', 'wf-ah-id', 'Steam ' + (cfg.steam || WHO.name)); st.href = BASE + 'settings.html#cfg-steam';
+    names.appendChild(st);
     who.appendChild(names);
     row.appendChild(who);
 
@@ -4060,6 +4065,23 @@ window.WF_PAY = window.WF_PAY || {
      grid cannot disagree. Select all and Deselect all are real and they dispatch
      change, because a control that sets a checkbox without telling the page is a
      control that half works. */
+  /* AN ITEM ON ITS WAY TO STEAM STAYS IN SIGHT, WITH ITS MARK, D-150. It is not
+     in the value held, 0.11 rule 7: that figure is what can still be acted on.
+     No tick, no acts: the request is made and its clock is on 5.9. */
+  function mountInFlight() {
+    var grid = document.querySelector('.wf-grid--inv');
+    if (!grid || !document.querySelector('[data-invbar]')) return;
+    WF_ROLLS.filter(function (r) { return r.state === 'sending'; }).forEach(function (r) {
+      var c = el('article', 'wf-inv-card is-inflight');
+      c.innerHTML = '<p class="wf-inv-mark">On its way to Steam, since ' + (r.went || '') + '</p>' +
+        '<span class="wf-inv-art" aria-hidden="true"></span>' +
+        '<p class="wf-inv-w">' + r.w + '</p><p class="wf-inv-s">' + r.s + '</p><p class="wf-inv-wear">(' + r.wear + ')</p>' +
+        '<p class="wf-inv-p">' + r.worth + '</p>' +
+        '<div class="wf-inv-acts"><a class="wf-btn" href="' + BASE + 'history-withdrawals.html">Its clock</a></div>';
+      grid.appendChild(c);
+    });
+  }
+
   function mountInvBar() {
     var bar = document.querySelector('[data-invbar]');
     if (!bar) return;
@@ -5779,6 +5801,7 @@ window.WF_PAY = window.WF_PAY || {
       '<div class="wf-fund-grid">' +
         '<div class="wf-fund">' +
           '<h2 class="wf-pay-gh" id="' + P + 'h2-skins">From your Steam inventory</h2>' +
+          '<p class="wf-note">Steam account <strong>' + WHO.name + '</strong></p>' +
           '<div class="wf-skindep">' +
             inv.map(function (k, i) {
               return '<label class="wf-skindep-t"><input type="checkbox" data-skin-v="' + k[3] + '"' + (i < 3 ? ' checked' : '') + '>' +
@@ -6998,6 +7021,7 @@ window.WF_PAY = window.WF_PAY || {
     renderPanel(document.getElementById('wf-panel'));
     renderShell(document.getElementById('wf-shell'));
     renderAcctHero(document.querySelector('[data-acct-hero]'));
+    mountInFlight();
     mountInvBar();
     mountFeed();
     renderAuth(document.getElementById('wf-auth'));

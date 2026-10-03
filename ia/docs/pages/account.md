@@ -21,6 +21,14 @@
 | Four tabs as peers on one page, `INVENTORY`, `HISTORY`, `PROFILE`, `SETTINGS`. The inventory grid has two sorts, no filters and no search, and a sticky bar carrying a count, a sum and **four exits**: send to Steam, sell to site, cash out, exchange. History is **five separate histories**, three of which are empty and all three say only `History is empty...`. `baseline-account.md` sections 2 to 4. | The count and the sum of the selection, which are the same pair the header carries, and the per-item action set. | **Our map gives this node one exit and the canon has four**, and the gap narrowed twice since this row was written. **`D-38` put selling a skin back for coins in round 1**, so the second exit exists as a capability ~~and has no placement on this page~~ **and is placed on this page since `D-85`, Sell for coins on each card and in the bar, and it sells since `D-135`**; `D-60` recorded that **the exchange for a real skin does not exist at all**, and in-platform skin-for-skin exchange stays LATER by scope. ~~**What is still true is the shape of the finding:** the live product answers what a person does with a skin they do not want, and this node answers only what they do with one they do want. **Open item, section 8, not a divergence.**~~ **Closed by `D-85` and `D-135`, section 8.** And `History is empty...` with no route is the empty state `3.2` refuses. **The four tabs are four nodes on our map since `D-36`**, `5.1`, `5.9`, `5.10` and `5.11`, ~~so the tab strip is not inherited either~~ **and `D-84` inherited the strip as a carrier between them, section 0.5**. |
 
 
+## Amended 3 October 2026 by `D-150`. An item on its way stays in sight, and the linked Steam account is named
+
+**Why.** Founder answers of 3 October 2026.
+
+**What changed.** **An item on its way to Steam stays on My items with its mark**, no tick and no acts, and **outside the value held**, `0.11` rule 7. **The band names the linked Steam account**, a link to settings' linked profiles. This is the positive half of `D-55`'s debt; the no Steam linked state is still owed, `sitemap.md` section on that debt.
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.

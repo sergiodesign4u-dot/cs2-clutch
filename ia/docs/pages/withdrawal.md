@@ -17,6 +17,16 @@
 **Amended 23 August 2026 by `D-92`, and the largest remaining `[?]` on this node closed into a smaller and sharper one.** The founder named the market the settlement price is read from: **it is us.** The prices are ours, taken from Steam, and the market for these items is this product. **So both columns of the four column table are ours**, our credited value and our price for a copy, **and the outbound route this node kept asking for cannot exist**, because a link to our own listing confirms nothing. **What block `1b` renders instead is the relation to Steam and the hole inside it**, section 1b.1: the price is ours, it is set against the Steam market, and how far under Steam we set it is not published. ~~**The founder's own hedge travels with all of it**, section 9b: the wording was "in principle", and if a third party supplies the copy at withdrawal time one word changes on every line above.~~ **The hedge was spent by `D-93` the next day, section 0c: our market, we sell the copy.**
 
 
+## Amended 3 October 2026 by `D-150`. Three basket questions answered
+
+| Question | Answer | Why |
+|---|---|---|
+| **Does one item with no copy on sale block the basket** | **No.** It stays behind with its own row, Sell it back or Keep it, and the rest goes | The person asked for several things; one missing copy is that item's state, not the basket's |
+| **One trade offer or one per item** | **One trade offer for the basket** | One acceptance on Steam for one press here, and one clock |
+| **Does 5.1 show an item on its way to Steam** | **Yes, with its mark**, and outside the value held | The person sees where it is; the value held stays the sum of what can still be acted on, `0.11` rule 7 |
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
@@ -272,7 +282,7 @@ At 1440 the record card is 612 wide. **A 4/3 slot in a single column made the pi
 
 | # | The question | Where it stands |
 |---|---|---|
-| **1** | **Are the copies ours or the market's at the moment of the press.** The shelf renders six of them, and **a stable list of our own stock needs no expiry while a snapshot of somebody else's does** | Already open since `D-92`. **Raised to blocking.** **It had been closed before it was raised: `D-93` answered it on 24 August, our market, we sell the copy** |
+| **1** | ~~**Are the copies ours or the market's at the moment of the press.**~~ **Raised by `D-109` after `D-93` had closed it on 24 August; `D-93` stands, recorded by `D-150`: our market, we sell the copy.** The shelf renders six of them, and **a stable list of our own stock needs no expiry while a snapshot of somebody else's does** | Already open since `D-92`. **Raised to blocking.** **It had been closed before it was raised: `D-93` answered it on 24 August, our market, we sell the copy** |
 | **2** | **Do we publish how far under Steam we set a copy.** The baseline puts a green `-29%` on every card and **that badge is exactly this figure** | Already open since `D-92`. **Raised to blocking.** A badge computed from a figure we decline to publish is the figure published |
 | **3** | **Does the person pick the copy, or do we** | Already open since `D-91`. **Building the shelf answers it**, and the cost is that a person can choose a dearer copy of the same skin and pay the difference. **Answered by `D-111`: the person picks** |
 | **4** | **What a float is on the screen.** Raw `0.7683732`, a wear band, or a bar. The baseline's bar is coloured and **colour does not exist here until stage 07** | **New.** **Answered by `D-111`, section 1e: the number and a bar** |

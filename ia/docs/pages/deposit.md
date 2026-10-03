@@ -20,6 +20,12 @@
 | Two numbered steps. Step 1: a partner promo code already applied, a country selector that filters the grid, then ~~**17 fiat methods and 8 crypto**~~ **27 fiat methods and 8 crypto**, corrected here by `D-129` after section 5b.1 of `baseline-account.md` was corrected on 25 August. Step 2 for card: amount, email, a terms checkbox, six presets, and a panel reading `Rate 1.00 = $1.00` with a standing **+5.00% bonus capped at 100 per 24 hours**. Crypto gives an address per network with a live rate and a minimum, and no amount field. `baseline-account.md` section 5b. | The two step shape, the published rate at the moment of funding, and the amount presets. | **No crediting time is published anywhere in that flow**, which is the whole of row `C3`, and the deposit history's most common status is REJECTED. **Ours publishes the window before the money moves.** ~~The standing bonus and its header badge are refused, `0.1`.~~ **Both returned by `D-94`**, and this row said otherwise until `D-129`. And one route, gift cards, leaves the product entirely to six third party resellers with no crediting story at all. |
 
 
+## Amended 3 October 2026 by `D-150`. The skins route names its Steam account
+
+**What changed.** The skins route says which Steam account the skins come from. Whether a person with no Steam linked gets a warning, a block or nothing before spending stays the founder's, `D-55`'s debt.
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.

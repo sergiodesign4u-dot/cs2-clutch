@@ -373,6 +373,6 @@ The baseline runs a fixed circular headset button, bottom right, above the foote
 | Whether a support form satisfies Article 5(c) | The Article asks for an email address by name. The baseline prints none | Counsel |
 | The interlinking block contents | ~~The catalogue's category structure~~ **Filled by `D-124` from `3.1`'s sections, `D-65`**; query volumes may reorder or extend it | ~~Node `3.1`, then~~ production for the queries |
 | Payment and provider marks | Which providers we run is a contract | Founder |
-| The canonical social set | Seven icons on the baseline; which are ours in round 1 is not decided | Founder, before stage 04 |
+| The canonical social set | Seven icons on the baseline; which are ours in round 1 is not decided | ~~Founder, before stage 04~~ **Founder, at stage 06, `D-150`: six reserved slots stay until then** |
 
 **And what belongs elsewhere.** The text of any legal document: `0.9` specifies the page shape, counsel drafts the documents. Visual treatment: monochrome wireframes only, and column widths, type scale and the treatment of the statistics strip are stage 06 and 07. Microcopy: labels here are structural, stage 05 owns the final strings and syncs them back.

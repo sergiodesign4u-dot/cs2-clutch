@@ -5325,3 +5325,7 @@ details > summary { min-height: var(--wf-tap); display: list-item; padding-block
   .wf-won-grid--5 .wf-won-card { padding: 4px; gap: 2px; }
   .wf-won-grid--5 .wf-won-odds b { font-size: var(--wf-t-xs); letter-spacing: -0.04em; }
 }
+
+/* AN ITEM IN FLIGHT, D-150: marked in words, quieter than the items that can still be acted on. */
+.wf-inv-card.is-inflight { border-style: dashed; }
+.wf-inv-mark { margin: 0; font-size: var(--wf-t-xs); letter-spacing: 0.03em; text-transform: uppercase; color: var(--wf-ink-dim); }

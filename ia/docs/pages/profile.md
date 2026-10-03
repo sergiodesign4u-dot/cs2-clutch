@@ -18,7 +18,7 @@
 
 **And that has one consequence this node enforces on itself.** An orphan may not grow. **Every block below has to be either a fact the product already holds about this account or a control that already exists somewhere else on the map.** Nothing on this page may be the first home of a new capability, because a capability whose only justification is a page that has no parent has no parent either.
 
-**URL:** `/profile`. **Indexed:** no, `noindex, follow`. **Canonical:** self. **Schema:** none. **Breadcrumb:** none. **Not inherited, because `0.13` has no row for this node**; the finding and the shape of the three missing rows are in `history.md` section 8 and are not restated here.
+**URL:** `/profile`. **Indexed:** no, `noindex, follow`. **Canonical:** self. **Schema:** none. **Breadcrumb:** none. **Not inherited, because `0.13` has no row for this node**; the finding and the shape of the three missing rows are in `history.md` section 8 and are not restated here. **`0.13` has its row since `D-150`, the same values.**
 
 **Reached from:** the account menu, `0.1`, row 4. **Leads to:** `5.11` settings, `5.1`, `5.9`, all three by the account band's tab strip since `D-90` deleted the button row, and **`7.3` the public profile** from block 4.
 

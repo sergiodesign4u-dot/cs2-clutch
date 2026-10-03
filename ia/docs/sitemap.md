@@ -762,7 +762,7 @@ The full defect log with both instruments, the merge and the verification notes 
 | `5.1` Account and inventory | **Link Steam**, reachable at any time rather than only at the exit. The requirement is stated at sign in, so the place to satisfy it exists before the exit | The step that writes `5.1` |
 | `4.1` Deposit | **Somebody with no Steam linked is about to spend money.** Whether that is a warning, a block or nothing at all is `[?]` | Founder. It is `C4`'s own subject and not a layout question |
 
-**This is printed rather than absorbed**, because the entrance widening is a scope decision and the three states are its price. `docs/decisions.md` D-55, and node `2.4` section 0.10.2.
+**This is printed rather than absorbed**, because the entrance widening is a scope decision and the three states are its price. **Status on 3 October 2026, `D-150`:** the linked account is named on `5.3` and `5.1` and on `4.1`'s skins route, which is the state where Steam is linked; **the three no Steam linked states are still owed**. `docs/decisions.md` D-55, and node `2.4` section 0.10.2.
 
 
 ---

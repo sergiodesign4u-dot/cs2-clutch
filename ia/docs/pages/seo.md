@@ -100,9 +100,13 @@ One row per node with a URL. This is the table stage 04 checks against and the t
 | `4.1` Deposit | `/deposit` | **No** | Self | None | None |
 | `5.1` My items | `/my-items` | **No** | Self | None | None |
 | `5.3` Withdrawal | `/withdraw` | **No** | Self | None | None |
+| `5.9` History | `/history` | **No.** `noindex, follow`. Added 3 October 2026, `D-150` | Self | None | None |
+| `5.10` Profile | `/profile` | **No.** `noindex, follow`. Added by `D-150` | Self | None | None |
+| `5.11` Settings | `/settings` | **No.** `noindex, follow`. Added by `D-150` | Self | None | None |
+| `7.3` Public profile | `/u/<public-id>` | **No.** `noindex, follow`, as `7.1`: a stranger's link, not a result page. Added by `D-150` | Self | None | None |
 | `0.3` System pages | No URL of their own | **No** | n/a | None | None |
 
-**Nine indexed surfaces and six that are not**, and the split is not a preference: everything in the transactional zone is personal or pointless in a result page, and everything outside it is the pre-login argument.
+~~**Nine indexed surfaces and six that are not**~~ **Nine indexed surfaces and ten that are not since `D-150` added `5.9`, `5.10`, `5.11` and `7.3`, which `D-36` and `D-90` had put on the map without a row here**, and the split is not a preference: everything in the transactional zone is personal or pointless in a result page, and everything outside it is the pre-login argument.
 
 ---
 
@@ -132,7 +136,7 @@ From node `0.12`: the block is a state that renders at the URL the person is alr
 
 ### 4.5 Disallow is not noindex, and the private zone uses the right one
 
-The six unindexed nodes carry a `noindex` meta tag and **are not disallowed in `robots.txt`**. The mechanism, in one line: **a page a crawler is forbidden to read is a page whose `noindex` the crawler cannot read**, so a disallowed URL can still be listed from inbound links while the instruction that would have prevented it sits unread inside. Disallow is for crawl budget. Noindex is for indexation. They are not interchangeable and the private zone needs the second.
+The ~~six~~ **ten, since `D-150`,** unindexed nodes carry a `noindex` meta tag and **are not disallowed in `robots.txt`**. The mechanism, in one line: **a page a crawler is forbidden to read is a page whose `noindex` the crawler cannot read**, so a disallowed URL can still be listed from inbound links while the instruction that would have prevented it sits unread inside. Disallow is for crawl budget. Noindex is for indexation. They are not interchangeable and the private zone needs the second.
 
 ### 4.6 Rich results in this category are `[?]`
 
@@ -233,7 +237,7 @@ Row `A1` puts an outbound market link on the top item, and `F1` links the venue 
 |---|---|---|
 | **The interlinking block contents** | ~~Needs the category structure from `3.1` and~~ **Filled from `3.1`'s sections by `D-124`; needs** real query volumes | ~~Node `3.1`, then~~ production |
 | **Whether category URLs ship at all** | Rides on `D-D`, catalogue size | Founder, with the treasury answer |
-| **The canonical host** | Apex against `www`, and the domain itself is not chosen | Founder, before stage 04 |
+| **The canonical host** | Apex against `www`, and the domain itself is not chosen | ~~Founder, before stage 04~~ **At handoff, `D-150`: a production decision, not a design one** |
 | **Rich result eligibility** | Policy for an age-restricted category, unknowable from outside | Production |
 | **Final titles and descriptions** | **The pattern, written here rather than promised:** `<node H1 subject>` then a separator then `CS2 Clutch`, one line, the subject first because the tail truncates. Copy in each node's A to E block, voice at stage 05 | Stage 05, then production |
 | **Whether `7.1` should be indexed after all** | Decided here as `noindex, follow` with three reasons. It is reversible and it is the founder's if they want wins in search results | Founder, if they disagree |

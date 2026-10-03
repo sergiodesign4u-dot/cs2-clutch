@@ -5745,3 +5745,19 @@ Stage 03 reads **Done** in `README.md`, as `_nav.js` already said. The IA regist
 **Checked.** All 35 IA pages and all 133 wireframe pages at 1440 and 360: no script error, no horizontal scroll, every sidebar section present, no em dash.
 
 **Carried to the founder.** The SEO register has no rows for 5.9, 5.10, 5.11 and 7.3; the sound control in the rail has no parent; four items owed "before stage 04" are still open: the social set, the canonical host, `D-55`'s Steam link on 5.3, 5.1 and 4.1; `numbers.md`'s withdrawal gap figure has no refresh class; `D-109` raised as blocking a question `D-93` had closed; three basket questions on 5.3 and 5.1; settings' section 1 still reads as its first derivation.
+
+
+## D-150. Ten answers carried by step 8b, taken as recommended, with one recommendation that misread its debt
+
+**Date:** 2026-10-03. **Stage:** 04, round 15. **Decided by:** the founder, "як рекомендуєш". **Binds:** nodes `0.13`, `0.1`, `0.2`, `0.11`, `5.3`, `5.1`, `4.1`, `5.9`, `5.10`, `5.11`, `sitemap.md`, `wireframes/_nav.js`.
+
+1. **The SEO register gains `5.9`, `5.10`, `5.11` and `7.3`**, all `noindex, follow` with a self canonical. Nine indexed, ten not.
+2. **The sound control's parent is design principle 2**, read as covering the reveal's sound.
+3. **The social set is the founder's at stage 06**; six reserved slots until then.
+4. **The canonical host moves to handoff.**
+5. **The linked Steam account is named on 5.1 and on 4.1's skins route**, as it already was on 5.3. **Correction, said out loud:** the recommendation described `D-55`'s debt as "Steam not shown". The debt is three **no Steam linked** states, for accounts that came in through the other three providers. Naming the linked account is the positive half; the three states are still owed and `sitemap.md` says so.
+6. **The per-case gap figure refreshes daily and on `D-93`'s two events**, whichever comes first. **Correction:** the recommendation said `D-93` had set a daily rhythm; it set the two events. Daily is added as a floor, not read from `D-93`.
+7. **`D-109`'s row 1 is answered by `D-93`**, which had closed it three weeks before.
+8. **The basket:** an item with no copy stays behind and the rest goes; one trade offer per basket; My items shows an item on its way to Steam with its mark, outside the value held.
+9. **Settings' section 1** is rewritten in step 9.
+10. **Identity verification** stays with the founder and counsel, `D-146` item 8.

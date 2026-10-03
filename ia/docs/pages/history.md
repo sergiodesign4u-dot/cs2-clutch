@@ -632,7 +632,7 @@ Composition from `blocks.md` section 3, **T2 listing with an empty state**, rows
 
 ## 8. The finding this node cannot fix, and the register that owes it
 
-**`0.13` has no row for `5.9`, `5.10` or `5.11`.** Its URL map lists fourteen addresses and its indexation register lists sixteen rows, and **none of them is one of the three nodes `D-36` added on 20 August.** The register's closing sentence, "nine indexed surfaces and six that are not", is a count taken before those nodes existed.
+~~**`0.13` has no row for `5.9`, `5.10` or `5.11`.**~~ **`0.13` has the three rows since `D-150`.** Its URL map lists fourteen addresses and its indexation register lists sixteen rows, and **none of them is one of the three nodes `D-36` added on 20 August.** The register's closing sentence, "nine indexed surfaces and six that are not", is a count taken before those nodes existed.
 
 **The URL above is derived from the register's own rules rather than invented:** no language prefix, and one destination carries one label in every carrier, which is the rule that produced `/my-items` and is stated in `0.13` section 2 as "not a styling choice". ~~The account menu's label is Roll history, so the address is `/roll-history`.~~ **Corrected 23 August 2026: the label became History and the address became `/history`, `D-88` and section 0.4, and this section went on printing the old value.** The rule is unchanged and its output moved with the label. **The old value is kept struck rather than deleted**, the treatment `D-89` used on the settings node's equivalent self-contradiction, because the derivation is what this paragraph is for and a derivation with its input hidden proves nothing.
 
