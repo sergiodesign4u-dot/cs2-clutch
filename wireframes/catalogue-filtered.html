@@ -34,11 +34,11 @@
          it duplicates the browser and the rail, catalogue.md section 1. -->
     <nav class="wf-crumb" aria-label="Breadcrumb">
       <ol>
-        <li><a href="index.html">Home</a></li>
-        <li><span aria-current="page">Cases</span></li>
+        <li><a href="index.html"><span data-str="home">Home</span></a></li>
+        <li><span aria-current="page" data-str="cases">Cases</span></li>
       </ol>
     </nav>
-    <h1>All CS2 cases, with published chances and values</h1>
+    <h1><span data-str="catalogueH1">All CS2 cases, with published chances and values</span></h1>
 
     <!-- BLOCKS 2 AND 3 ARE ONE BAR, AND THAT IS THE BASELINE'S SHAPE, D-65.
          The bar is a JUMP LIST over the sections below, not a filter: a chip
@@ -50,13 +50,13 @@
          width. baseline.md 10.2: at 390 the chips go into the overflow and these
          two stay, because they are what narrows the shelf. -->
     <div class="wf-catbar" role="navigation" aria-label="Categories">
-      <span class="wf-catbar-lbl">Categories</span>
+      <span class="wf-catbar-lbl" data-str="categories">Categories</span>
       <div class="wf-catbar-run">
-          <a class="wf-cat" href="#cat-featured" aria-current="true">Featured</a>
+          <a class="wf-cat" href="#cat-featured" aria-current="true"><span data-str="featured">Featured</span></a>
       </div>
       <div class="wf-catbar-acts">
-        <button class="wf-btn wf-icon-btn" type="button" aria-label="Search cases by name" data-filter-search>Search</button>
-        <button class="wf-btn wf-icon-btn" type="button" data-filter-open aria-expanded="false" aria-label="Filters">Filters<span class="wf-badge">2</span></button>
+        <button class="wf-btn wf-icon-btn" type="button" aria-label="Search cases by name" data-filter-search><span data-str="search">Search</span></button>
+        <button class="wf-btn wf-icon-btn" type="button" data-filter-open aria-expanded="false" aria-label="Filters"><span data-str="filters">Filters</span><span class="wf-badge">2</span></button>
       </div>
     </div>
     <!-- BLOCK 4. Active filter chips. THE ROUTE OUT OF 3.2, which is why this
@@ -94,7 +94,7 @@
            page is a dead control, D-58, and that rule was already written on
            this screen. -->
       <section class="wf-cats-sec" id="cat-featured" aria-labelledby="h2-featured">
-        <div class="wf-cats-h"><h2 id="h2-featured">Featured</h2><p class="wf-cats-sub">Our pick of the shelf</p></div>
+        <div class="wf-cats-h"><h2 id="h2-featured"><span data-str="featured">Featured</span></h2><p class="wf-cats-sub"><span data-str="featuredSub">Our pick of the shelf</span></p></div>
         <div class="wf-grid wf-grid--shelf">
         <article class="wf-tile">
           <a class="wf-tile-link" href="case.html">
@@ -113,10 +113,10 @@
 
     <section class="wf-sec wf-prose" aria-labelledby="h2-about">
       <div class="wf-sec-head">
-        <h2 id="h2-about">What the numbers on a case mean</h2>
+        <h2 id="h2-about"><span data-str="numbersH2">What the numbers on a case mean</span></h2>
       </div>
       <div class="wf-prose-cols">
-        <p>Every tile shows the entry cost of one open and the risk band of the case, High, Medium or Low, read from its drop table. Open a case to see every item with its chance, its current value and the ticket range the roll resolves against. The daily case is earned by wagering, and the tier you reach decides which case it opens.</p>
+        <p><span data-str="numbersBody">Every tile shows the entry cost of one open and the risk band of the case, High, Medium or Low, read from its drop table. Open a case to see every item with its chance, its current value and the ticket range the roll resolves against. The daily case is earned by wagering, and the tier you reach decides which case it opens.</span></p>
       </div>
     </section>
 

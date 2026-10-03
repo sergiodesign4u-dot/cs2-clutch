@@ -5761,3 +5761,24 @@ Stage 03 reads **Done** in `README.md`, as `_nav.js` already said. The IA regist
 8. **The basket:** an item with no copy stays behind and the rest goes; one trade offer per basket; My items shows an item on its way to Steam with its mark, outside the value held.
 9. **Settings' section 1** is rewritten in step 9.
 10. **Identity verification** stays with the founder and counsel, `D-146` item 8.
+
+
+## D-151. Round 15, step 9: stage 05 can start its inventory from the files
+
+**Date:** 2026-10-03. **Stage:** 04, round 15. **Decided by:** the founder, "да", on step 9. **Binds:** `wireframes/_nav.js`, 126 wireframe pages, `wireframes/docs/voice-input.md` (new), `wireframes/docs/conventions.md`, `wireframes/overview.html`, `ia/docs/flows.md`, `ia/docs/pages/settings.md`, `ia/docs/pages/ticker.md` and their pages.
+
+**Why this step existed.** A reader with a clean context tried stage 05's first step on four screens and answered no: no file said which one owns a string, nodes disagreed with their own amendments, and two screens had no tone and no clean main action. Thirty places where it had to guess.
+
+### What was done
+
+- **One source per repeated string.** Every product string typed on five or more pages is one entry in `WF_STR`, 161 keys; the pages mark it and the shell's renderers read it. The visible text of every page is identical before and after. `wireframes/CLAUDE.md` rule 6 now covers copy as well as figures. The account's name reads from `WF_WHO` and Ironbound's RTP line from `WF_STR`.
+- **Comments that contradicted their page are corrected**, about fifteen, each naming the decision that changed the page.
+- **The live drops name their winners with samples**, marked in `0.8`; a bot keeps its label and a hidden profile is a name without a link, `D-93`.
+- **Responsible play has a phase**, T7 and T4, and a target emotion, T4's "in control of a decision already made", in `flows.md` Flow 2a.
+- **Settings' section 1 states today's verdicts**, twenty rows, with the first derivation kept as history.
+- **`voice-input.md`** says where every string lives, what is scaffolding and not copy, the concepts named more than one way with which wording a decision fixed and which is the glossary's, the main action and the phase of every screen, and the reader's thirty guesses answered. It has a section on the overview.
+- **The three Withdraw buttons the file found are Send to Steam**, as `D-128` decided.
+
+### Left to stage 05, with an owner and no decision needed first
+
+Six of the reader's thirty guesses, all wording: the sign on Send to Steam's figure, "Saved to My items" after a sale, "Our price for it" against "Your skin price", "market" for our own shelf, "Back to the case" on a sign in reached directly, and "the one thing you cannot undo" beside a cool down that cannot be shortened. Seven screens with no phase printed anywhere, for stage 05 step 2.

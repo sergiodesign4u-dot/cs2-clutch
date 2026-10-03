@@ -37,8 +37,8 @@
   <main class="wf-main">
     <nav class="wf-crumb" aria-label="Breadcrumb">
       <ol>
-        <li><a href="index.html">Home</a></li>
-        <li><span aria-current="page">Provably fair</span></li>
+        <li><a href="index.html"><span data-str="home">Home</span></a></li>
+        <li><span aria-current="page" data-str="provablyFair">Provably fair</span></li>
       </ol>
     </nav>
 
@@ -49,85 +49,85 @@
          exactly that claim, and this block is where the withdrawal becomes
          markup rather than a sentence in a decision record. -->
     <section class="wf-sec" aria-labelledby="h1-fair">
-      <h1 id="h1-fair">Provably fair: check any round yourself</h1>
-      <p class="wf-sec-sub">This page is public. You do not need an account to read it, and you do not need one to check a round.</p>
+      <h1 id="h1-fair"><span data-str="fairH1">Provably fair: check any round yourself</span></h1>
+      <p class="wf-sec-sub"><span data-str="fairPublic">This page is public. You do not need an account to read it, and you do not need one to check a round.</span></p>
 
       <div class="wf-scope-two">
         <div class="wf-scope-cell">
-          <span class="wf-scope-k">What this proves</span>
-          <p class="wf-gate-p">The result of this round was fixed before you clicked, and it was not changed afterwards.</p>
+          <span class="wf-scope-k" data-str="fairProves">What this proves</span>
+          <p class="wf-gate-p"><span data-str="fairProvesBody">The result of this round was fixed before you clicked, and it was not changed afterwards.</span></p>
         </div>
         <div class="wf-scope-cell">
-          <span class="wf-scope-k">What this does not prove</span>
-          <p class="wf-gate-p">That the chances we publish are the chances the roll used.</p>
+          <span class="wf-scope-k" data-str="fairNotProves">What this does not prove</span>
+          <p class="wf-gate-p"><span data-str="fairNotProvesBody">That the chances we publish are the chances the roll used.</span></p>
           <!-- THE THIRD ROW IS A LIST AND NOT A DESTINATION. D3 is conditional on
                D-B, and if it is withdrawn this block loses one route and keeps
                two rather than losing its only one. -->
-          <span class="wf-scope-k">Where that is answered</span>
+          <span class="wf-scope-k" data-str="fairAnswered">Where that is answered</span>
           <ul class="wf-scope-routes">
-            <li>The observed rate beside every published percentage on the case screen</li>
-            <li>The published chance and current value on every item</li>
-            <li>The tested return and the expected value at that entry cost</li>
+            <li><span data-str="fairObserved">The observed rate beside every published percentage on the case screen</span></li>
+            <li><span data-str="fairPublished">The published chance and current value on every item</span></li>
+            <li><span data-str="fairTested">The tested return and the expected value at that entry cost</span></li>
           </ul>
         </div>
       </div>
 
       <div class="wf-row">
-        <a class="wf-btn" href="#check">Check a round</a>
-        <a class="wf-btn" href="#algorithm">Read the algorithm</a>
+        <a class="wf-btn" href="#check"><span data-str="checkARound">Check a round</span></a>
+        <a class="wf-btn" href="#algorithm"><span data-str="readAlgorithm">Read the algorithm</span></a>
       </div>
     </section>
 
     <!-- BLOCK 2. Four steps in plain words. A question that could have been
          answered here is a defect in this block rather than a row for block 8. -->
     <section class="wf-sec" aria-labelledby="h2-how">
-      <div class="wf-sec-head"><h2 id="h2-how">How a round is fixed before you click</h2></div>
+      <div class="wf-sec-head"><h2 id="h2-how"><span data-str="fairFixedH">How a round is fixed before you click</span></h2></div>
       <ol class="wf-howto">
-        <li><span>We publish the hash of a server seed before the round is offered. The hash is a commitment: the seed behind it cannot be swapped later without the hash changing.</span></li>
-        <li><span>Your round is settled once, from that server seed, a client seed and a nonce.</span></li>
-        <li><span>The reveal plays back a result that already exists rather than deciding one while you watch.</span></li>
-        <li><span>The server seed is revealed when the seed rotates, and from then on anyone can recompute the round.</span></li>
+        <li><span data-str="fairStep1">We publish the hash of a server seed before the round is offered. The hash is a commitment: the seed behind it cannot be swapped later without the hash changing.</span></li>
+        <li><span data-str="fairStep2">Your round is settled once, from that server seed, a client seed and a nonce.</span></li>
+        <li><span data-str="fairStep3">The reveal plays back a result that already exists rather than deciding one while you watch.</span></li>
+        <li><span data-str="fairStep4">The server seed is revealed when the seed rotates, and from then on anyone can recompute the round.</span></li>
       </ol>
-      <p class="wf-note">Two reasons a round may have no proof to check yet: it predates the published ledger, or its seed has not rotated. Neither means anything went wrong.</p>
+      <p class="wf-note"><span data-str="fairNoProof">Two reasons a round may have no proof to check yet: it predates the published ledger, or its seed has not rotated. Neither means anything went wrong.</span></p>
     </section>
 
     <!-- BLOCK 3. The field set from 0.14, read only. No inputs here: the inputs
          are block 4, and a field set that also takes typing is two blocks. -->
     <section class="wf-sec" aria-labelledby="h2-made">
-      <div class="wf-sec-head"><h2 id="h2-made">What a round proof is made of</h2></div>
+      <div class="wf-sec-head"><h2 id="h2-made"><span data-str="fairMadeOf">What a round proof is made of</span></h2></div>
       <div class="wf-proof-fields">
-        <div class="wf-fpair"><span class="wf-fpair-k">Server seed hash</span><span class="wf-fpair-v">Published before the round runs</span></div>
-        <div class="wf-fpair"><span class="wf-fpair-k">Server seed</span><span class="wf-fpair-v">Revealed on rotation</span></div>
-        <div class="wf-fpair"><span class="wf-fpair-k">Client seed</span><span class="wf-fpair-v">Shown with every round</span></div>
-        <div class="wf-fpair"><span class="wf-fpair-k">Nonce</span><span class="wf-fpair-v">A whole number that advances</span></div>
-        <div class="wf-fpair"><span class="wf-fpair-k">Settled result</span><span class="wf-fpair-v">The number the roll produced</span></div>
-        <div class="wf-fpair"><span class="wf-fpair-k">Ticket range</span><span class="wf-fpair-v">The interval the result falls in, and the item holding it</span></div>
-        <div class="wf-fpair"><span class="wf-fpair-k">The drop table in force at that round, versioned</span><span class="wf-fpair-v">Its version, printed with the round</span></div>
+        <div class="wf-fpair"><span class="wf-fpair-k" data-str="serverSeedHash">Server seed hash</span><span class="wf-fpair-v" data-str="fairHashWhen">Published before the round runs</span></div>
+        <div class="wf-fpair"><span class="wf-fpair-k" data-str="serverSeed">Server seed</span><span class="wf-fpair-v" data-str="fairSeedWhen">Revealed on rotation</span></div>
+        <div class="wf-fpair"><span class="wf-fpair-k" data-str="clientSeed">Client seed</span><span class="wf-fpair-v" data-str="fairClientWhen">Shown with every round</span></div>
+        <div class="wf-fpair"><span class="wf-fpair-k" data-str="nonce">Nonce</span><span class="wf-fpair-v" data-str="fairNonceWhat">A whole number that advances</span></div>
+        <div class="wf-fpair"><span class="wf-fpair-k" data-str="settledResult">Settled result</span><span class="wf-fpair-v" data-str="fairResultWhat">The number the roll produced</span></div>
+        <div class="wf-fpair"><span class="wf-fpair-k" data-str="ticketRange">Ticket range</span><span class="wf-fpair-v" data-str="fairRangeWhat">The interval the result falls in, and the item holding it</span></div>
+        <div class="wf-fpair"><span class="wf-fpair-k" data-str="fairTableRow">The drop table in force at that round, versioned</span><span class="wf-fpair-v" data-str="fairTableWhat">Its version, printed with the round</span></div>
       </div>
     </section>
 
     <!-- BLOCK 4. 0.14 VARIANT V4. The page's one call to action. -->
     <section class="wf-sec" id="check" aria-labelledby="h2-check">
-      <div class="wf-sec-head"><h2 id="h2-check">Check a round</h2></div>
+      <div class="wf-sec-head"><h2 id="h2-check"><span data-str="checkARound">Check a round</span></h2></div>
       <div class="wf-verify">
           <div class="wf-vf">
-            <label class="wf-vf-l" for="v-hash">Server seed hash, published before the round</label>
+            <label class="wf-vf-l" for="v-hash"><span data-str="fairHashLabel">Server seed hash, published before the round</span></label>
             <textarea id="v-hash" rows="2">4f2a91c7e0b83d5619ac7f20d8e4b1663c9a05f7d21e8b4409c6fa3d7e15b208</textarea>
           </div>
           <div class="wf-vf">
-            <label class="wf-vf-l" for="v-seed">Server seed, revealed on rotation</label>
+            <label class="wf-vf-l" for="v-seed"><span data-str="fairSeedLabel">Server seed, revealed on rotation</span></label>
             <textarea id="v-seed" rows="2">a71c0e4b93f6d2857e0c1a4f68b95d3027ef8c61b4a09d75e3f26c8017ab54d9</textarea>
           </div>
           <div class="wf-vf">
-            <label class="wf-vf-l" for="v-client">Client seed</label>
+            <label class="wf-vf-l" for="v-client"><span data-str="clientSeed">Client seed</span></label>
             <input id="v-client" type="text" value="7d19f4a2">
           </div>
           <div class="wf-vf">
-            <label class="wf-vf-l" for="v-nonce">Nonce</label>
+            <label class="wf-vf-l" for="v-nonce"><span data-str="nonce">Nonce</span></label>
             <input id="v-nonce" type="text" value="41 207">
           </div>
         <div class="wf-row">
-          <button class="wf-btn wf-btn--primary" type="button" data-fair-go>Recompute this round</button>
+          <button class="wf-btn wf-btn--primary" type="button" data-fair-go><span data-str="recompute">Recompute this round</span></button>
         </div>
         <div class="wf-vout">
           <!-- THE THIRD FAILURE, AND IT IS NOT THE OTHER TWO. Malformed is a
@@ -143,8 +143,8 @@
     <!-- BLOCK 5. What we do if your check does not match ours, read before it
          happens rather than discovered inside 1.4. -->
     <section class="wf-sec" aria-labelledby="h2-mismatch">
-      <div class="wf-sec-head"><h2 id="h2-mismatch">If your check does not match ours</h2></div>
-      <p>Report it from the result, with the round attached. You get a reference and an answer within 72 hours.</p>
+      <div class="wf-sec-head"><h2 id="h2-mismatch"><span data-str="fairMismatchH">If your check does not match ours</span></h2></div>
+      <p><span data-str="fairMismatchBody">Report it from the result, with the round attached. You get a reference and an answer within 72 hours.</span></p>
     </section>
 
     <!-- BLOCK 7. THE ALGORITHM, AT A STABLE ANCHOR RATHER THAN AS A FIFTH LEGAL
@@ -156,24 +156,24 @@
          complete when a stranger can write their own tool from it and get our
          answer. The figures below are samples by D-124, and the node says so. -->
     <section class="wf-sec wf-algo" id="algorithm" aria-labelledby="h2-algo">
-      <div class="wf-sec-head"><h2 id="h2-algo">The algorithm, published in full</h2></div>
-      <p class="wf-algo-stamp">Version 1, published 12 Jan 2026</p>
-      <h3>The computation</h3>
-      <p>HMAC-SHA256 of the server seed, keyed with <code>client seed:nonce</code>. The first eight hex characters, read as a number, modulo 100&#160;000, plus one, is the ticket. The item whose ticket range holds it is the result.</p>
-      <h3>A worked example</h3>
-      <p>Server seed <code>7c1e…a904</code>, client seed <code>nightjar</code>, nonce <code>412</code>. HMAC starts <code>3a9009c1</code>, which is 982&#160;518&#160;209; modulo 100&#160;000 plus one is ticket <b>18&#160;210</b>, in the range 11&#160;001 to 23&#160;000, USP-S Kill Confirmed. <a href="fair-prefilled.html?round=ex">Check this round</a> <a href="result.html?round=ex">Its public page</a></p>
-      <h3>Version history</h3>
-      <p>Version 1, 12 Jan 2026. First published.</p>
+      <div class="wf-sec-head"><h2 id="h2-algo"><span data-str="fairAlgoH">The algorithm, published in full</span></h2></div>
+      <p class="wf-algo-stamp"><span data-str="fairAlgoStamp">Version 1, published 12 Jan 2026</span></p>
+      <h3><span data-str="fairComputation">The computation</span></h3>
+      <p><span data-str="fairAlgo">HMAC-SHA256 of the server seed, keyed with <code>client seed:nonce</code>. The first eight hex characters, read as a number, modulo 100&#160;000, plus one, is the ticket. The item whose ticket range holds it is the result.</span></p>
+      <h3><span data-str="fairExampleH">A worked example</span></h3>
+      <p><span data-str="fairExample">Server seed <code>7c1e…a904</code>, client seed <code>nightjar</code>, nonce <code>412</code>. HMAC starts <code>3a9009c1</code>, which is 982&#160;518&#160;209; modulo 100&#160;000 plus one is ticket <b>18&#160;210</b>, in the range 11&#160;001 to 23&#160;000, USP-S Kill Confirmed.</span> <a href="fair-prefilled.html?round=ex"><span data-str="checkRound">Check this round</span></a> <a href="result.html?round=ex"><span data-str="itsPublicPage">Its public page</span></a></p>
+      <h3><span data-str="versionHistory">Version history</span></h3>
+      <p><span data-str="fairVersionRow">Version 1, 12 Jan 2026. First published.</span></p>
     </section>
 
     <!-- BLOCK 8. A TAIL, NOT A SUBSTITUTE. A question that could have been
          answered by block 2 is a defect in block 2. -->
     <section class="wf-sec" aria-labelledby="h2-q">
-      <div class="wf-sec-head"><h2 id="h2-q">Questions</h2></div>
-      <details><summary>Can I use my own tool instead of yours?</summary>
-        <p>That is the point. The algorithm is published so that a stranger can write their own and get our answer.</p></details>
-      <details><summary>Why can I not check a round from last year?</summary>
-        <p>Rounds from before the published ledger have no commitment behind them, so they cannot be checked here.</p></details>
+      <div class="wf-sec-head"><h2 id="h2-q"><span data-str="questions">Questions</span></h2></div>
+      <details><summary><span data-str="fairQ1">Can I use my own tool instead of yours?</span></summary>
+        <p><span data-str="fairA1">That is the point. The algorithm is published so that a stranger can write their own and get our answer.</span></p></details>
+      <details><summary><span data-str="fairQ2">Why can I not check a round from last year?</span></summary>
+        <p><span data-str="fairA2">Rounds from before the published ledger have no commitment behind them, so they cannot be checked here.</span></p></details>
     </section>
 
   </main>

@@ -42,7 +42,7 @@
          thirteen places for it to drift. -->
     <div class="wf-ah" data-acct-hero></div>
 
-    <h1 class="wf-vh">My items</h1>
+    <h1 class="wf-vh"><span data-str="myItems">My items</span></h1>
 
     <!-- THE BLOCK HEADER IS THE BASELINE'S, D-85. The word, the Steam connection
          state beside it, and the instruction that says how the grid works. The
@@ -51,7 +51,7 @@
          than offering a fix this page cannot perform. -->
     <div class="wf-inv-head">
       <h2 id="h2-items">Inventory</h2>
-      <p class="wf-inv-steam">Steam connected · <a href="settings.html">Settings</a></p>
+      <p class="wf-inv-steam">Steam connected · <a href="settings.html"><span data-str="settings">Settings</span></a></p>
       <p class="wf-inv-hint">Click an item to select it</p>
     </div>
 
@@ -187,7 +187,7 @@
           <p class="wf-inv-p">21.40</p>
           <div class="wf-inv-acts">
             <button class="wf-btn" type="button" data-inv-sell>Sell for coins</button>
-            <a class="wf-btn" href="withdraw.html?item=wak">Send to Steam</a>
+            <a class="wf-btn" href="withdraw.html?item=wak"><span data-str="sendToSteam">Send to Steam</span></a>
             <button class="wf-btn" type="button" disabled>Exchange</button>
             <p class="wf-inv-why">Exchange is not here yet</p>
           </div>
@@ -209,7 +209,7 @@
           <p class="wf-inv-p">66.05</p>
           <div class="wf-inv-acts">
             <button class="wf-btn" type="button" data-inv-sell>Sell for coins</button>
-            <a class="wf-btn" href="withdraw.html?item=awp">Send to Steam</a>
+            <a class="wf-btn" href="withdraw.html?item=awp"><span data-str="sendToSteam">Send to Steam</span></a>
             <button class="wf-btn" type="button" disabled>Exchange</button>
             <p class="wf-inv-why">Exchange is not here yet</p>
           </div>
@@ -231,7 +231,7 @@
           <p class="wf-inv-p">7.35</p>
           <div class="wf-inv-acts">
             <button class="wf-btn" type="button" data-inv-sell>Sell for coins</button>
-            <a class="wf-btn" href="withdraw.html?item=uspc">Send to Steam</a>
+            <a class="wf-btn" href="withdraw.html?item=uspc"><span data-str="sendToSteam">Send to Steam</span></a>
             <button class="wf-btn" type="button" disabled>Exchange</button>
             <p class="wf-inv-why">Exchange is not here yet</p>
           </div>
@@ -253,7 +253,7 @@
           <p class="wf-inv-p">4.20</p>
           <div class="wf-inv-acts">
             <button class="wf-btn" type="button" data-inv-sell>Sell for coins</button>
-            <a class="wf-btn" href="withdraw.html?item=glockfn">Send to Steam</a>
+            <a class="wf-btn" href="withdraw.html?item=glockfn"><span data-str="sendToSteam">Send to Steam</span></a>
             <button class="wf-btn" type="button" disabled>Exchange</button>
             <p class="wf-inv-why">Exchange is not here yet</p>
           </div>
@@ -275,7 +275,7 @@
           <p class="wf-inv-p">29.90</p>
           <div class="wf-inv-acts">
             <button class="wf-btn" type="button" data-inv-sell>Sell for coins</button>
-            <a class="wf-btn" href="withdraw.html?item=m4ft">Send to Steam</a>
+            <a class="wf-btn" href="withdraw.html?item=m4ft"><span data-str="sendToSteam">Send to Steam</span></a>
             <button class="wf-btn" type="button" disabled>Exchange</button>
             <p class="wf-inv-why">Exchange is not here yet</p>
           </div>
@@ -297,7 +297,7 @@
           <p class="wf-inv-p">12.05</p>
           <div class="wf-inv-acts">
             <button class="wf-btn" type="button" data-inv-sell>Sell for coins</button>
-            <a class="wf-btn" href="withdraw.html?item=deagle">Send to Steam</a>
+            <a class="wf-btn" href="withdraw.html?item=deagle"><span data-str="sendToSteam">Send to Steam</span></a>
             <button class="wf-btn" type="button" disabled>Exchange</button>
             <p class="wf-inv-why">Exchange is not here yet</p>
           </div>
@@ -315,7 +315,7 @@
          the as-of of every figure on the cards, G5's two withdrawal limits and the
          peg. The settlement rule is said by the card's own signed figure when an item
          is selected, and in full on 5.3. -->
-    <p class="wf-note wf-inv-foot">Prices as of 21 Aug 2026 09:31 · Withdrawals need a public Steam inventory with trades unlocked · 1 coin = $1.00</p>
+    <p class="wf-note wf-inv-foot">Prices as of 21 Aug 2026 09:31 · Withdrawals need a public Steam inventory with trades unlocked · <span data-str="peg">1 coin = $1.00</span></p>
     <!-- THE BAR IS ALWAYS ON THE SCREEN, FOUNDER'S CALL OF 23 AUGUST 2026. It used
          to appear only once something was ticked, on the argument that a bar saying
          nothing is furniture. The baseline keeps it up permanently and it is right
@@ -362,7 +362,7 @@
            and an abbreviation there buys nothing. -->
       <span class="wf-invbar-acts">
         <a class="wf-btn wf-btn--primary wf-actb" href="withdraw.html" data-invbar-act aria-label="Send to Steam">
-          <span class="wf-actb-i" aria-hidden="true"></span><span class="wf-actb-s">Steam</span><span class="wf-actb-f">Send to Steam</span></a>
+          <span class="wf-actb-i" aria-hidden="true"></span><span class="wf-actb-s">Steam</span><span class="wf-actb-f" data-str="sendToSteam">Send to Steam</span></a>
         <a class="wf-btn wf-actb" href="account.html" data-invbar-act data-inv-sellsel aria-label="Sell for coins">
           <span class="wf-actb-i" aria-hidden="true"></span><span class="wf-actb-s">Sell</span><span class="wf-actb-f">Sell for coins</span></a>
         <button class="wf-btn wf-actb" type="button" data-invbar-act data-co-open aria-label="Cash out">

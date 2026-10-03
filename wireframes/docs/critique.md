@@ -1027,3 +1027,16 @@ The HTML pages of the map and the flows carry an Updated after publication block
 | `concept-map.html` | the base layer of 11 August presented as current | Brought to today |
 | The editors' notes | gate trigger table; skin card users; a stale open row; a registry label | Fixed by the lead |
 | The editors' notes | ten items | **Carried to the founder**, `D-149` |
+
+### 16.12 Step 9, readiness for stage 05, done on 3 October 2026 under `D-151`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| R reader, 1 | No file says which one owns a string; hand copies on up to 21 pages | R | Fixed: `WF_STR`, 161 keys; `voice-input.md` section a |
+| R reader, 1 | Html comments contradicting their page | R | Fixed, about fifteen |
+| R reader, 1, B1-24 part | "winner, as shown" on the product surface | R | Fixed: samples, `0.8` |
+| R reader, 2 | Nodes disagreeing with their own amendments on finished text | R | Fixed in steps 6, 8 and 8b |
+| R reader, 3 | Responsible play with no phase; two screens without a clean main action | R | Fixed: Flow 2a's phase, `D-140` and `D-146`'s rule |
+| R reader, concepts | About 17 concepts named more than one way | R | **Listed for the Voice glossary** with what a decision fixed, `voice-input.md` section c; three stray Withdraw buttons fixed |
+| R reader, guesses | 30 places it had to guess | R | 24 answered by the files, 6 left to stage 05 with owners |
+| D-150 item 9 | Settings' section 1 read as its first derivation | founder | Fixed |

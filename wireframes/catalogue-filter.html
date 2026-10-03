@@ -34,11 +34,11 @@
          it duplicates the browser and the rail, catalogue.md section 1. -->
     <nav class="wf-crumb" aria-label="Breadcrumb">
       <ol>
-        <li><a href="index.html">Home</a></li>
-        <li><span aria-current="page">Cases</span></li>
+        <li><a href="index.html"><span data-str="home">Home</span></a></li>
+        <li><span aria-current="page" data-str="cases">Cases</span></li>
       </ol>
     </nav>
-    <h1>All CS2 cases, with published chances and values</h1>
+    <h1><span data-str="catalogueH1">All CS2 cases, with published chances and values</span></h1>
 
     <!-- BLOCKS 2 AND 3 ARE ONE BAR, AND THAT IS THE BASELINE'S SHAPE, D-65.
          The bar is a JUMP LIST over the sections below, not a filter: a chip
@@ -50,16 +50,16 @@
          width. baseline.md 10.2: at 390 the chips go into the overflow and these
          two stay, because they are what narrows the shelf. -->
     <div class="wf-catbar" role="navigation" aria-label="Categories">
-      <span class="wf-catbar-lbl">Categories</span>
+      <span class="wf-catbar-lbl" data-str="categories">Categories</span>
       <div class="wf-catbar-run">
-          <a class="wf-cat" href="#cat-daily" aria-current="true">Daily</a>
-          <a class="wf-cat" href="#cat-featured">Featured</a>
-          <a class="wf-cat" href="#cat-community">Community</a>
-          <a class="wf-cat" href="#cat-classic">Classic</a>
+          <a class="wf-cat" href="#cat-daily" aria-current="true"><span data-str="daily">Daily</span></a>
+          <a class="wf-cat" href="#cat-featured"><span data-str="featured">Featured</span></a>
+          <a class="wf-cat" href="#cat-community"><span data-str="community">Community</span></a>
+          <a class="wf-cat" href="#cat-classic"><span data-str="classic">Classic</span></a>
       </div>
       <div class="wf-catbar-acts">
-        <button class="wf-btn wf-icon-btn" type="button" aria-label="Search cases by name" data-filter-search>Search</button>
-        <button class="wf-btn wf-icon-btn" type="button" data-filter-open aria-expanded="false" aria-label="Filters">Filters</button>
+        <button class="wf-btn wf-icon-btn" type="button" aria-label="Search cases by name" data-filter-search><span data-str="search">Search</span></button>
+        <button class="wf-btn wf-icon-btn" type="button" data-filter-open aria-expanded="false" aria-label="Filters"><span data-str="filters">Filters</span></button>
       </div>
     </div>
 
@@ -84,16 +84,16 @@
            anywhere renders a daily case, so 0.7's two daily states are void. -->
       <section class="wf-cats-sec" id="cat-daily" aria-labelledby="h2-daily">
         <div class="wf-cats-h">
-          <h2 id="h2-daily">Daily</h2>
-          <p class="wf-cats-sub">Wager to climb. The tier decides which free case you get</p>
+          <h2 id="h2-daily"><span data-str="daily">Daily</span></h2>
+          <p class="wf-cats-sub"><span data-str="dailySub">Wager to climb. The tier decides which free case you get</span></p>
         </div>
         <div data-ladder></div>
       </section>
 
       <section class="wf-cats-sec" id="cat-featured" aria-labelledby="h2-featured">
         <div class="wf-cats-h">
-          <h2 id="h2-featured">Featured</h2>
-          <p class="wf-cats-sub">Our pick of the shelf</p>
+          <h2 id="h2-featured"><span data-str="featured">Featured</span></h2>
+          <p class="wf-cats-sub"><span data-str="featuredSub">Our pick of the shelf</span></p>
         </div>
         <div class="wf-grid wf-grid--shelf">
         <article class="wf-tile">
@@ -145,8 +145,8 @@
 
       <section class="wf-cats-sec" id="cat-community" aria-labelledby="h2-community">
         <div class="wf-cats-h">
-          <h2 id="h2-community">Community</h2>
-          <p class="wf-cats-sub">Cases our players put together</p>
+          <h2 id="h2-community"><span data-str="community">Community</span></h2>
+          <p class="wf-cats-sub"><span data-str="communitySub">Cases our players put together</span></p>
         </div>
         <div class="wf-grid wf-grid--shelf">
         <article class="wf-tile">
@@ -198,8 +198,8 @@
 
       <section class="wf-cats-sec" id="cat-classic" aria-labelledby="h2-classic">
         <div class="wf-cats-h">
-          <h2 id="h2-classic">Classic</h2>
-          <p class="wf-cats-sub">The collections that were here first</p>
+          <h2 id="h2-classic"><span data-str="classic">Classic</span></h2>
+          <p class="wf-cats-sub"><span data-str="classicSub">The collections that were here first</span></p>
         </div>
         <div class="wf-grid wf-grid--shelf">
         <article class="wf-tile">
@@ -255,10 +255,10 @@
 
     <section class="wf-sec wf-prose" aria-labelledby="h2-about">
       <div class="wf-sec-head">
-        <h2 id="h2-about">What the numbers on a case mean</h2>
+        <h2 id="h2-about"><span data-str="numbersH2">What the numbers on a case mean</span></h2>
       </div>
       <div class="wf-prose-cols">
-        <p>Every tile shows the entry cost of one open and the risk band of the case, High, Medium or Low, read from its drop table. Open a case to see every item with its chance, its current value and the ticket range the roll resolves against. The daily case is earned by wagering, and the tier you reach decides which case it opens.</p>
+        <p><span data-str="numbersBody">Every tile shows the entry cost of one open and the risk band of the case, High, Medium or Low, read from its drop table. Open a case to see every item with its chance, its current value and the ticket range the roll resolves against. The daily case is earned by wagering, and the tier you reach decides which case it opens.</span></p>
       </div>
     </section>
 

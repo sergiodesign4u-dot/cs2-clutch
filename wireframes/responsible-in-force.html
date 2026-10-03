@@ -36,8 +36,8 @@
 
   <main class="wf-main">
 
-    <nav class="wf-crumb" aria-label="Breadcrumb"><ol><li><a href="index.html">Home</a></li><li><span aria-current="page">Responsible play</span></li></ol></nav>
-    <h1>Responsible play</h1>
+    <nav class="wf-crumb" aria-label="Breadcrumb"><ol><li><a href="index.html"><span data-str="home">Home</span></a></li><li><span aria-current="page" data-str="responsiblePlay">Responsible play</span></li></ol></nav>
+    <h1><span data-str="responsiblePlay">Responsible play</span></h1>
 
     <div class="wf-rp" data-rp data-rp-cool-end="2026-08-25T09:31" data-rp-limit="40.00">
       <p class="wf-rp-say" data-rp-say>A cool down is running. Boundaries can still be tightened while it does.</p>
@@ -46,25 +46,25 @@
         <h2 id="h2-force">What is in force now</h2>
         <ul class="wf-force-l">
           <li>
-            <span class="wf-force-n">Cool down</span>
+            <span class="wf-force-n" data-str="coolDown">Cool down</span>
             <span class="wf-force-e" data-rp-cool-ends>Ends 25 Aug 2026, 09:31</span>
             <span class="wf-force-c">Adding funds and opening cases are closed until then. It cannot be shortened, and extending it takes effect immediately.</span>
           </li>
           <li>
-            <span class="wf-force-n">Deposit limit</span>
+            <span class="wf-force-n" data-str="depositLimit">Deposit limit</span>
             <span class="wf-force-e">$40.00 per week</span>
           </li>
         </ul>
         <p class="wf-note">Taking what you hold out to Steam is open, and it stays open under every boundary here.</p>
-        <div class="wf-row"><a class="wf-btn" href="withdraw.html">Withdraw</a></div>
+        <div class="wf-row"><a class="wf-btn" href="withdraw.html"><span data-str="sendToSteam">Send to Steam</span></a></div>
       </div>
       <!-- BLOCK 1. ONE PLAIN STATEMENT OF WHAT THE TOOLS DO. Not a case for using
            them, not a warning, not a mood card. A page arguing that limits are
            good is a page arguing with the person who already opened it. -->
       <div class="wf-stack">
-        <div class="wf-sec-head"><h2 id="h2-what">What these tools do</h2></div>
-        <p>Four boundaries you set yourself.</p>
-        <p>Tightening one takes effect immediately. Loosening one takes 24 hours, and the boundary you have now holds until then.</p>
+        <div class="wf-sec-head"><h2 id="h2-what"><span data-str="rpWhat">What these tools do</span></h2></div>
+        <p><span data-str="rpFour">Four boundaries you set yourself.</span></p>
+        <p><span data-str="rpTighten">Tightening one takes effect immediately. Loosening one takes 24 hours, and the boundary you have now holds until then.</span></p>
       </div>
       <!-- BLOCK 7. ABOVE THE CONTROLS, AND THE ORDER IS THE DECISION. A person who
            does not know that self exclusion leaves the exit open cannot evaluate
@@ -74,16 +74,16 @@
            the rule most likely to be traded away for a cleaner implementation. -->
       <div class="wf-stack">
         <div class="wf-sec-head">
-          <h2 id="h2-closes">What a boundary closes, and what it never closes</h2>
+          <h2 id="h2-closes"><span data-str="rpClosesH">What a boundary closes, and what it never closes</span></h2>
         </div>
         <div class="wf-closes">
           <div class="wf-closes-c">
-            <span class="wf-closes-k">A boundary can close</span>
-            <span>Adding funds. Opening a case. A session, when its length is reached.</span>
+            <span class="wf-closes-k" data-str="rpCanClose">A boundary can close</span>
+            <span data-str="rpCanCloseList">Adding funds. Opening a case. A session, when its length is reached.</span>
           </div>
           <div class="wf-closes-c">
-            <span class="wf-closes-k">No boundary ever closes</span>
-            <span><strong>Taking what you hold out to Steam.</strong> Support. Reading the product.</span>
+            <span class="wf-closes-k" data-str="rpNeverClose">No boundary ever closes</span>
+            <span data-str="rpNeverCloseList"><strong>Taking what you hold out to Steam.</strong> Support. Reading the product.</span>
           </div>
         </div>
       </div>
@@ -97,45 +97,47 @@
            NO PRIMARY CONTROL ON THIS PAGE, and the absence is deliberate. Four
            independent boundaries with none promoted over the others is the honest
            shape: promoting one is the product choosing which brake a person should
-           want. EVERY PERIOD IS UNKNOWN AND NONE IS INVENTED. -->
+           want. EVERY PERIOD IS UNKNOWN: the ones in the selects are samples by D-124,
+           drawn by D-130 and marked in the node. -->
       <div class="wf-stack">
         <div class="wf-set">
-          <h3 class="wf-set-h" id="h2-ceiling">Deposit limit</h3>
-          <p class="wf-set-p">Caps what you can put in over a period.</p>
-          <div class="wf-set-ctl"><input class="wf-set-in" type="text" inputmode="decimal" value="40.00" aria-label="Deposit limit amount"><div class="wf-set-per"><select class="wf-f" aria-label="Deposit limit period"><option>per day</option><option selected>per week</option><option>per month</option></select></div><button class="wf-btn" type="button" data-rp-save>Save</button></div>
+          <h3 class="wf-set-h" id="h2-ceiling"><span data-str="depositLimit">Deposit limit</span></h3>
+          <p class="wf-set-p"><span data-str="rpDepositWhat">Caps what you can put in over a period.</span></p>
+          <div class="wf-set-ctl"><input class="wf-set-in" type="text" inputmode="decimal" value="40.00" aria-label="Deposit limit amount"><div class="wf-set-per"><select class="wf-f" aria-label="Deposit limit period"><option data-str="perDay">per day</option><option selected data-str="perWeek">per week</option><option data-str="perMonth">per month</option></select></div><button class="wf-btn" type="button" data-rp-save><span data-str="save">Save</span></button></div>
         </div>
         <div class="wf-set">
-          <h3 class="wf-set-h" id="h2-session">Session limit</h3>
-          <p class="wf-set-p">Ends a session once it has run this long.</p>
-          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Session length"><option>30 minutes</option><option>1 hour</option><option selected>2 hours</option><option>4 hours</option></select></div><button class="wf-btn" type="button" data-rp-save>Save</button></div>
+          <h3 class="wf-set-h" id="h2-session"><span data-str="sessionLimit">Session limit</span></h3>
+          <p class="wf-set-p"><span data-str="rpSessionWhat">Ends a session once it has run this long.</span></p>
+          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Session length"><option data-str="min30">30 minutes</option><option data-str="hour1">1 hour</option><option selected data-str="hours2">2 hours</option><option data-str="hours4">4 hours</option></select></div><button class="wf-btn" type="button" data-rp-save><span data-str="save">Save</span></button></div>
         </div>
         <div class="wf-set">
-          <h3 class="wf-set-h" id="h2-cool">Cool down</h3>
-          <p class="wf-set-p">Closes adding funds and opening cases for a period you choose.</p>
-          <ul class="wf-dir"><li><span class="wf-dir-w">Extend</span><span>Immediately.</span></li><li><span class="wf-dir-w">Shorten</span><span>Not possible. It ends by running out.</span></li></ul>
-          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Cool down period"><option selected>24 hours</option><option>7 days</option><option>30 days</option></select></div><button class="wf-btn" type="button" data-rp-cool>Start a cool down</button></div>
+          <h3 class="wf-set-h" id="h2-cool"><span data-str="coolDown">Cool down</span></h3>
+          <p class="wf-set-p"><span data-str="rpCoolWhat">Closes adding funds and opening cases for a period you choose.</span></p>
+          <ul class="wf-dir"><li><span class="wf-dir-w" data-str="extend">Extend</span><span data-str="immediately">Immediately.</span></li><li><span class="wf-dir-w" data-str="shorten">Shorten</span><span data-str="rpShortenNo">Not possible. It ends by running out.</span></li></ul>
+          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Cool down period"><option selected data-str="hours24">24 hours</option><option data-str="days7">7 days</option><option data-str="days30">30 days</option></select></div><button class="wf-btn" type="button" data-rp-cool><span data-str="startCoolDown">Start a cool down</span></button></div>
         </div>
         <div class="wf-set">
-          <h3 class="wf-set-h" id="h2-excl">Self exclusion</h3>
-          <p class="wf-set-p">Closes adding funds and opening cases for longer. The one thing here you cannot undo.</p>
-          <ul class="wf-dir"><li><span class="wf-dir-w">End early</span><span>Not possible, and that is the point of it.</span></li></ul>
-          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Self exclusion period"><option>6 months</option><option>1 year</option><option selected>5 years</option></select></div><button class="wf-btn" type="button" data-ex-open="5 years">Self exclude</button></div>
+          <h3 class="wf-set-h" id="h2-excl"><span data-str="selfExclusion">Self exclusion</span></h3>
+          <p class="wf-set-p"><span data-str="rpExclWhat">Closes adding funds and opening cases for longer. The one thing here you cannot undo.</span></p>
+          <ul class="wf-dir"><li><span class="wf-dir-w" data-str="endEarly">End early</span><span data-str="rpEndEarlyNo">Not possible, and that is the point of it.</span></li></ul>
+          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Self exclusion period"><option data-str="months6">6 months</option><option data-str="year1">1 year</option><option selected data-str="years5">5 years</option></select></div><button class="wf-btn" type="button" data-ex-open="5 years"><span data-str="selfExclude">Self exclude</span></button></div>
         </div>
       </div>
-      <!-- BLOCK 8. ROUTES THAT ARE NOT US. STRUCTURE FIXED, CONTENTS EMPTY ON
-           PURPOSE. Which organisations are named depends on the market, and every
-           market verdict is unverified against current law. A plausible list of
-           helplines here would be model memory presented as a legal fact, in the
-           one place in the product where that would do the most damage.
+      <!-- BLOCK 8. ROUTES THAT ARE NOT US. STRUCTURE FIXED, AND SINCE D-130 IT
+           CARRIES ONE SAMPLE, Gambling Therapy, by D-124 and marked as one in the node.
+           Which organisations are named depends on the market, and every market
+           verdict is unverified against current law, so the sample is not a verified
+           list: a plausible list of helplines presented as a legal fact would do the
+           most damage in exactly this place.
            BLOCK 9. SUPPORT, for the person inside a boundary who needs something
            from us, with its published response deadline. -->
       <div class="wf-stack">
-        <div class="wf-sec-head"><h2 id="h2-help">Support that is not a limit</h2></div>
+        <div class="wf-sec-head"><h2 id="h2-help"><span data-str="rpNotLimit">Support that is not a limit</span></h2></div>
         <div class="wf-closes-c">
-          <span class="wf-closes-k">Help that is not ours</span>
-          <span><a href="https://www.gamblingtherapy.org/" rel="external nofollow">Gambling Therapy</a>, free and confidential, in any country.</span>
+          <span class="wf-closes-k" data-str="rpNotOurs">Help that is not ours</span>
+          <span data-str="rpTherapy"><a href="https://www.gamblingtherapy.org/" rel="external nofollow">Gambling Therapy</a>, free and confidential, in any country.</span>
         </div>
-        <div class="wf-row"><a class="wf-btn" href="support.html">Support</a></div>
+        <div class="wf-row"><a class="wf-btn" href="support.html"><span data-str="support">Support</span></a></div>
       </div>
     </div>
 

@@ -29,12 +29,12 @@
          markup rather than a decorative string: 0.13 section 6 marks it up. -->
     <nav class="wf-crumb" aria-label="Breadcrumb">
       <ol>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="catalogue.html">Cases</a></li>
+        <li><a href="index.html"><span data-str="home">Home</span></a></li>
+        <li><a href="catalogue.html"><span data-str="cases">Cases</span></a></li>
         <li><span aria-current="page">Ironbound</span></li>
       </ol>
     </nav>
-    <p class="wf-case-how"><a href="#h2-how">How it works</a></p>
+    <p class="wf-case-how"><a href="#h2-how"><span data-str="howItWorks">How it works</span></a></p>
 
     <!-- BLOCKS 2 AND 3, drawn as one centred stage after the founder put two live case
          screens beside this one on 19 August 2026.
@@ -66,7 +66,7 @@
              is not text, and 0.7 rule 5.5, the tier has a name and the name is in the
              markup. -->
         <div class="wf-flank wf-risk">
-          <span class="wf-risk-l">Risk band</span>
+          <span class="wf-risk-l" data-str="riskBand">Risk band</span>
           <span>Medium</span>
         </div>
         <div class="wf-case-say">
@@ -84,7 +84,7 @@
              press on their own shelf and claims nothing beyond itself, while a like
              count is a popularity figure printed beside a spend trigger. -->
         <button class="wf-flank wf-fav-case" type="button" aria-pressed="false" aria-label="Favourite this case">
-          <span class="wf-fav-i" aria-hidden="true"></span><span>Favourite</span>
+          <span class="wf-fav-i" aria-hidden="true"></span><span data-str="favourite">Favourite</span>
         </button>
       </div>
 
@@ -276,7 +276,7 @@
            the trigger carries the total; a total with no unit beside it is a cost a person
            cannot check against the drop table. D-31 still holds: the trigger never carries
            the unit, so the unit had to land somewhere that survives the switch. -->
-      <p class="wf-fig-c">After this open, 49.40 coins &#183; 1 coin = $1.00 · <a href="#h2-pays">RTP 94.2 %, expected value 11.68 coins</a></p>
+      <p class="wf-fig-c">After this open, 49.40 coins &#183; <span data-str="peg">1 coin = $1.00</span> · <a href="#h2-pays"><span data-str="rtpEv">RTP 94.2 %, expected value 11.68 coins</span></a></p>
     </section>
 
     </div>

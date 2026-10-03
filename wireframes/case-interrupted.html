@@ -29,12 +29,12 @@
          markup rather than a decorative string: 0.13 section 6 marks it up. -->
     <nav class="wf-crumb" aria-label="Breadcrumb">
       <ol>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="catalogue.html">Cases</a></li>
+        <li><a href="index.html"><span data-str="home">Home</span></a></li>
+        <li><a href="catalogue.html"><span data-str="cases">Cases</span></a></li>
         <li><span aria-current="page">Ironbound</span></li>
       </ol>
     </nav>
-    <p class="wf-case-how"><a href="#h2-how">How it works</a></p>
+    <p class="wf-case-how"><a href="#h2-how"><span data-str="howItWorks">How it works</span></a></p>
 
     <!-- BLOCKS 2 AND 3, drawn as one centred stage after the founder put two live case
          screens beside this one on 19 August 2026.
@@ -66,7 +66,7 @@
              is not text, and 0.7 rule 5.5, the tier has a name and the name is in the
              markup. -->
         <div class="wf-flank wf-risk">
-          <span class="wf-risk-l">Risk band</span>
+          <span class="wf-risk-l" data-str="riskBand">Risk band</span>
           <span>Medium</span>
         </div>
         <div class="wf-case-say">
@@ -76,7 +76,7 @@
                pushed the entry cost off the first screen, which section 14 forbids; what
                it was saying beyond the count is already the drop table's own section
                head, two blocks down, where it is read beside the numbers it describes. -->
-          <p class="wf-case-line">Nine items, one roll.</p>
+          <p class="wf-case-line"><span data-str="nineItems">Nine items, one roll.</span></p>
         </div>
         <!-- Right flank. The favourite, 0.7 field 7, in MVP by founder decision D-24
              with NO PARENT IN THE THREE LEGAL CLASSES, carried with that cell printed.
@@ -84,7 +84,7 @@
              press on their own shelf and claims nothing beyond itself, while a like
              count is a popularity figure printed beside a spend trigger. -->
         <button class="wf-flank wf-fav-case" type="button" aria-pressed="false" aria-label="Favourite this case">
-          <span class="wf-fav-i" aria-hidden="true"></span><span>Favourite</span>
+          <span class="wf-fav-i" aria-hidden="true"></span><span data-str="favourite">Favourite</span>
         </button>
       </div>
 
@@ -166,20 +166,22 @@
            above them printed 12.90 and the sell control printed 12.90, which is the same
            duplication D-33 removed from the commit block. The number stays; the second
            printing of it goes. THE THIRD CONTROL THE REFERENCE CARRIES IS UPGRADE, and
-           that capability does not exist here, so there are two rather than a placeholder. -->
+           that capability does not exist here, so it gets no placeholder. The third
+           control drawn is Send to Steam, the baseline's own item action, by D-125. -->
       <div class="wf-outcome-acts wf-outcome-acts--big">
         <a class="wf-btn wf-btn--primary" href="case-account.html">Open again for 12.40 coins</a>
         <button type="button" class="wf-btn wf-btn--primary">Sell for 12.90 coins</button>
         <a class="wf-btn" href="withdraw.html">Send to Steam, 6.70 coins</a>
       </div>
-      <p class="wf-fig-c">Saved to <a href="account.html">My items</a>. <strong>Selling can&#39;t be undone.</strong></p>
+      <p class="wf-fig-c">Saved to <a href="account.html"><span data-str="myItems">My items</span></a>. <strong>Selling can&#39;t be undone.</strong></p>
       <!-- 0.14 V2 OPENS IN PLACE and sits directly under the receipt, section 8.2: the
            receipt is the claim and the proof is the check on it. -->
-      <p class="wf-outcome-links"><a href="fair-prefilled.html?round=glock">Check this round</a> <a href="result.html?round=glock">Share it</a> <a href="https://steamcommunity.com/market/" rel="external nofollow">See it on the Steam Market</a></p>
-      <!-- BOTH HOLES ON ONE DIM LINE. F1 wants a venue listing filtered to this float
-           band and the two venues are not chosen, so the route is drawn as the hole it is
-           rather than as a link to nothing. The peg is the second, C1 as D-28 rewrote it. -->
-      <p class="wf-fig-c">1 coin = $1.00</p>
+      <p class="wf-outcome-links"><a href="fair-prefilled.html?round=glock"><span data-str="checkRound">Check this round</span></a> <a href="result.html?round=glock">Share it</a> <a href="https://steamcommunity.com/market/" rel="external nofollow">See it on the Steam Market</a></p>
+      <!-- THE PEG ON ONE DIM LINE, C1 as D-28 rewrote it. The venue route F1 asks for is
+           no longer a hole on this line: D-132 drew it as the live "See it on the Steam
+           Market" link above, pointed at Steam by D-92; the filter to this float band is
+           still owed, case.md section 8.1. -->
+      <p class="wf-fig-c"><span data-str="peg">1 coin = $1.00</span></p>
     </section>
 
     </div>

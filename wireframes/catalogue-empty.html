@@ -34,11 +34,11 @@
          it duplicates the browser and the rail, catalogue.md section 1. -->
     <nav class="wf-crumb" aria-label="Breadcrumb">
       <ol>
-        <li><a href="index.html">Home</a></li>
-        <li><span aria-current="page">Cases</span></li>
+        <li><a href="index.html"><span data-str="home">Home</span></a></li>
+        <li><span aria-current="page" data-str="cases">Cases</span></li>
       </ol>
     </nav>
-    <h1>All CS2 cases, with published chances and values</h1>
+    <h1><span data-str="catalogueH1">All CS2 cases, with published chances and values</span></h1>
 
     <!-- NO JUMP LIST IN THIS STATE. Nothing matched, so every category heading
          the bar would point at is off the page, and a jump list of dead targets
@@ -46,8 +46,8 @@
          are what narrows the shelf and they are the route out of 3.2. -->
     <div class="wf-catbar" role="navigation" aria-label="Categories">
       <div class="wf-catbar-acts">
-        <button class="wf-btn wf-icon-btn" type="button" aria-label="Search cases by name" data-filter-search>Search</button>
-        <button class="wf-btn wf-icon-btn" type="button" data-filter-open aria-expanded="false" aria-label="Filters">Filters<span class="wf-badge">2</span></button>
+        <button class="wf-btn wf-icon-btn" type="button" aria-label="Search cases by name" data-filter-search><span data-str="search">Search</span></button>
+        <button class="wf-btn wf-icon-btn" type="button" data-filter-open aria-expanded="false" aria-label="Filters"><span data-str="filters">Filters</span><span class="wf-badge">2</span></button>
       </div>
     </div>
     <!-- BLOCK 4. Active filter chips. THE ROUTE OUT OF 3.2, which is why this
@@ -95,10 +95,10 @@
 
     <section class="wf-sec wf-prose" aria-labelledby="h2-about">
       <div class="wf-sec-head">
-        <h2 id="h2-about">What the numbers on a case mean</h2>
+        <h2 id="h2-about"><span data-str="numbersH2">What the numbers on a case mean</span></h2>
       </div>
       <div class="wf-prose-cols">
-        <p>Every tile shows the entry cost of one open and the risk band of the case, High, Medium or Low, read from its drop table. Open a case to see every item with its chance, its current value and the ticket range the roll resolves against. The daily case is earned by wagering, and the tier you reach decides which case it opens.</p>
+        <p><span data-str="numbersBody">Every tile shows the entry cost of one open and the risk band of the case, High, Medium or Low, read from its drop table. Open a case to see every item with its chance, its current value and the ticket range the roll resolves against. The daily case is earned by wagering, and the tier you reach decides which case it opens.</span></p>
       </div>
     </section>
 

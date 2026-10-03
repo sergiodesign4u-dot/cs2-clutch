@@ -29,12 +29,12 @@
          markup rather than a decorative string: 0.13 section 6 marks it up. -->
     <nav class="wf-crumb" aria-label="Breadcrumb">
       <ol>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="catalogue.html">Cases</a></li>
+        <li><a href="index.html"><span data-str="home">Home</span></a></li>
+        <li><a href="catalogue.html"><span data-str="cases">Cases</span></a></li>
         <li><span aria-current="page">Ironbound</span></li>
       </ol>
     </nav>
-    <p class="wf-case-how"><a href="#h2-how">How it works</a></p>
+    <p class="wf-case-how"><a href="#h2-how"><span data-str="howItWorks">How it works</span></a></p>
 
     <!-- BLOCKS 2 AND 3, drawn as one centred stage after the founder put two live case
          screens beside this one on 19 August 2026.
@@ -66,7 +66,7 @@
              is not text, and 0.7 rule 5.5, the tier has a name and the name is in the
              markup. -->
         <div class="wf-flank wf-risk">
-          <span class="wf-risk-l">Risk band</span>
+          <span class="wf-risk-l" data-str="riskBand">Risk band</span>
           <span>Medium</span>
         </div>
         <div class="wf-case-say">
@@ -84,7 +84,7 @@
              press on their own shelf and claims nothing beyond itself, while a like
              count is a popularity figure printed beside a spend trigger. -->
         <button class="wf-flank wf-fav-case" type="button" aria-pressed="false" aria-label="Favourite this case">
-          <span class="wf-fav-i" aria-hidden="true"></span><span>Favourite</span>
+          <span class="wf-fav-i" aria-hidden="true"></span><span data-str="favourite">Favourite</span>
         </button>
       </div>
 
@@ -193,9 +193,11 @@
          TWO HARD DEPENDENCIES TRAVEL WITH IT: the peg, because a receipt in a unit the
          reader cannot price fails its own test, and the venue link FILTERED TO THE FLOAT
          BAND, so the person checks it themselves rather than taking our word.
-         WHAT IS DELIBERATELY ABSENT, each with a source: no sell control, because round 1
-         has exactly one exit and it is withdrawal to Steam; no one-key repeat, which is
-         one key to liquidate and one key to spend again; no streak, no session tally and
+         WHAT IS DELIBERATELY ABSENT, each with a source. The sell control and Open again
+         are drawn since D-38, which reversed both refusals and kept their reasons: Sell
+         ships with no parent, and Open again re-enters phase 1 with the cost, the RTP and
+         the expected value on screen, never a key that re-rolls in place. Send to Steam
+         joined them as the third exit by D-125. Still absent: no streak, no session tally and
          no "you were due" line in any wording; no similar cases, which is an advertisement
          wearing a receipt; and no celebration that scales with anything except the
          person's own outcome rarity.
@@ -285,12 +287,12 @@
           </div>
         </div>
       </div>
-      <p class="wf-fig-c">All 5 saved to <a href="account.html">My items</a>. <strong>Selling can&#39;t be undone.</strong></p>
+      <p class="wf-fig-c">All 5 saved to <a href="account.html"><span data-str="myItems">My items</span></a>. <strong>Selling can&#39;t be undone.</strong></p>
             <p class="wf-outcome-links"><a href="fair.html#check">Check all 5 rolls</a> <a href="result.html?round=o5m4">Share a result</a> <a href="https://steamcommunity.com/market/" rel="external nofollow">See it on the Steam Market</a></p>
       <!-- THE SHARE IS PER ITEM AND NOT PER BATCH. 7.1 owns one object per result, and a
            batch card would be a new shared object nothing on the map defines. The route
            here opens the result page of one item, chosen there. -->
-      <p class="wf-fig-c">1 coin = $1.00</p>
+      <p class="wf-fig-c"><span data-str="peg">1 coin = $1.00</span></p>
     </section>
 
     </div>

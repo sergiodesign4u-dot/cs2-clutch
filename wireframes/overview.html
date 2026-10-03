@@ -251,6 +251,8 @@
 
   <div class="card is-note"><h4>Updated after publication, round 15, D-140 and D-144</h4><p><strong>Exactly one main action per screen, with two named exceptions</strong>: the outcome, 3.6 and 3.7, keeps two, D-38, and responsible play keeps none, its node's section 2. A gate layer or a dialog is its own screen; the shell's Sign in behind it does not count. <strong>A page for reading may have no main action</strong>, founder decision of 3 October 2026, D-146: the rule is never more than one. <strong>A figure is never split from its unit</strong>: a number and coins or %, a day and its month, a month and its year, a date and its time are joined with a no-break space, once, by <code>nbspFigures</code> in <code>_nav.js</code>.</p></div>
 
+  <div class="card is-note"><h4>Updated after publication, round 15, D-151</h4><p><strong>A slot label is scaffolding, not copy</strong>: <code>Logo</code>, <code>Social</code>, <code>Image</code>, <code>QR code</code>, the footer identification fields and payment marks and the legal sample values render in product carriers and are still not product text; the list is section b of <code>docs/voice-input.md</code>. <strong>A string repeated on five or more screens is read from <code>WF_STR</code></strong>, rule 6 of <code>wireframes/CLAUDE.md</code> extended to copy, and stage 05 rewrites it there once. See <a href="#voice-input">Input for stage 05</a>.</p></div>
+
 
   <div class="card">
     <h4>The grey palette, inherited rather than invented</h4>
@@ -298,6 +300,79 @@
   <div class="card" style="border-left:3px solid var(--text-muted)">
     <h4>Three readers, named by step, because a usage rule with no executing step dies on the stage that wrote it</h4>
     <p><strong>Stage 05 step 4</strong> takes the one-main-action rule and the state rules: microcopy must not create a second competing action, and that is checked in the text rather than in the layout. <strong>Stage 07</strong> takes what is inherited from the IA and does not change when the screens are coloured. <strong>Stage 09 step 1</strong> reformulates the same rule in system class terms, "no more than one <code>.btn--primary</code> per screen", into <code>design/kit/docs/architecture.md</code>.</p>
+  </div>
+</section>
+
+<!-- STAGE 05 INPUT, round 15 step 9, D-151. The visible place of docs/voice-input.md. -->
+<section id="voice-input">
+  <div class="sec-head">
+    <h2>Input for stage 05, Voice</h2>
+    <p>Where every string lives, what is not copy, which concepts carry two names, the main action and the target emotion of every screen, and what a clean reader still had to guess. <strong>It drafts no copy and decides no wording.</strong> Source of truth: <a href="docs/voice-input.md"><code>wireframes/docs/voice-input.md</code></a>.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Why it exists, D-151</h4>
+    <p>Stage 05 step 1 inventories unique strings and needs one column above all: <strong>where each string lives</strong>, so step 7 knows which file to open. A clean-context reader tried that on four screens in round 15 and could list the text but not sort it: <strong>thirty guesses and about seventeen concepts named two ways.</strong> Every claim here was re-read in the current <code>_nav.js</code> and in the render of all 132 product pages on 3 October 2026.</p>
+  </div>
+
+  <div class="card">
+    <h4>a. Where every string lives: five places, and a string lives in one</h4>
+    <p><strong>The page html</strong> for what is unique to a screen. <strong>A render function in <code>_nav.js</code></strong> for the shell and shared blocks, whose strings are absent from the html: header and rail <code>renderShell</code> with <code>railItems</code>, <code>langControl</code>, <code>socialSlots</code>; bar <code>renderBar</code>; footer <code>renderFooter</code>; account menu <code>accountControl</code>; sign-in card <code>authCard</code> and <code>authDialogHTML</code>; filter drawer <code>filterDrawerHTML</code>; deposit layer <code>payLayer</code> and the <code>dep*</code> family; cookie layer <code>mountCookie</code>; gate layer <code>gateHTML</code>; FAQ <code>FAQ</code> and <code>renderFaq</code>. A label the script rewrites at run time belongs to the function, never to the html it overwrites.</p>
+    <p><strong><code>WF_STR</code></strong>, one declaration for every string on five or more pages: <strong>161 keys in ten groups</strong>, shared navigation words and acts 22, case head 6, catalogue 12, result and player 5, withdrawal 6, support 2, provably fair 52, legal 15, responsible play 40, and the published pair. <strong>1&#160;221 marks on 122 of 132 pages</strong>, 61 reads by renderers, four values that hold markup. <strong>The other declarations</strong>, <code>WF_MONEY</code>, <code>WF_PUB</code>, <code>WF_WHO</code>, <code>WF_BONUS</code>, <code>WF_ROLLS</code>, <code>ROUNDS</code>, <code>WF_SHELF</code>, <code>FEED</code> and <code>FEED_WHO</code>, <code>CASE_ITEMS</code>, <code>LANGS</code>, hold data; <code>FAQ</code>, <code>ITEM_STATE</code>, <code>ROLL_PROOF</code>, the tab and column declarations, <code>CK_PURPOSES</code> and <code>PAY_CATS</code> hold copy. <strong>Data, never copy:</strong> names of cases, items, wears, providers; every figure, hash and reference.</p>
+  </div>
+
+  <div class="card is-fix">
+    <h4>b. What is not product copy</h4>
+    <p><strong>Slot labels</strong>: <code>Logo</code>, <code>Social</code>, <code>Image</code>, <code>QR code</code>. <strong>Placeholder fields</strong>: the footer's identification fields and payment marks, the six legal <code>...Sample</code> values. <strong>The working name</strong> <code>CS2 Clutch</code>. <strong>The prototype panel</strong> and this hub. <strong>Comments.</strong> <strong>Samples by D-124</strong>, which each node marks in its own "Samples, D-124, marked here" paragraph. Stage 05 inventories none of these as copy, and <code>conventions.md</code> section 2 says so since D-151. Input placeholders such as <code>Amount</code> are copy.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:22%">c. Concept</th><th>Fixed by a decision</th><th style="width:36%">Open for the glossary</th></tr></thead>
+      <tbody>
+        <tr><td>Taking an item out to Steam</td><td><span class="st-fixed">Send to Steam</span>, D-128. The three stray <code>Withdraw</code> buttons read Send to Steam since D-151</td><td>The noun for the record and the menu row, <code>Withdrawals</code></td></tr>
+        <tr><td>Our value for an item</td><td>None</td><td><code>Our price for it</code> and <code>Your skin price</code> for one figure on one screen; <code>Credited</code> in two senses</td></tr>
+        <tr><td>"Market" in three senses</td><td>What the shelf is: us, D-92. Not its name</td><td>Our shelf, the Steam Market, a jurisdiction</td></tr>
+        <tr><td>Adding money</td><td><span class="st-fixed">Add funds</span>, WF_STR, D-94, D-134</td><td><code>deposit</code> as a noun; <code>Deposit 3 skins</code>; <code>put in</code></td></tr>
+        <tr><td>Limit and boundary</td><td><span class="st-fixed">Deposit limit</span>, D-103</td><td>The umbrella word; withdrawal obstacles and the staged cap reusing "limit"</td></tr>
+        <tr><td>Support</td><td><code>Support</code> as the destination, WF_STR</td><td><code>Contact support</code>, <code>Help</code>, <code>Need help?</code></td></tr>
+        <tr><td>Responsible play</td><td>Column <code>Play responsibly</code> holds page <code>Responsible play</code>, D-29, D-44</td><td>Whether one place needs two names</td></tr>
+        <tr><td>Legal document names</td><td><span class="st-fixed">Terms of use</span> and the other three, node 0.9 and WF_STR</td><td>None; the sign-in consent line strays</td></tr>
+        <tr><td>Roll, round, open</td><td>The act is <code>open</code>; the proven unit is <code>round</code>, node 0.14</td><td>Roll against round, live in one label: "published before the round" and "before the roll"</td></tr>
+        <tr><td>Item, skin, win, drop</td><td><code>My items</code>, D-128</td><td>The general noun for what a person owns</td></tr>
+        <tr><td>Coins printed or dropped</td><td>The rule: a money figure carries its unit, node 0.11 rule 10</td><td>Units on limits and minimums, in dollars; the sign of a settlement figure</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Smaller splits in the file: selling back, risk band against risk level, favourite against liked, the cost of one open, the fairness destination, two links that do not match their headings. Sign in and age are fixed.</p>
+
+  <div class="card is-good">
+    <h4>d. Main action per screen</h4>
+    <p><strong>Exactly one, never more</strong>, <code>conventions.md</code> section 1.6. <strong>Two exceptions, D-140:</strong> the outcome, 3.6 and 3.7, keeps two, Open again and Sell; responsible play, 6.1, keeps none. <strong>A page for reading may have none, D-146.</strong> A layer is its own screen. <strong>Checked in the text, not by class:</strong> Home and the catalogue carry their main action as a case tile. Measured with none on purpose: the open 3.5, cookie consent by symmetry, the ledgers and documents, the withdrawal after its request, the waits on deposit and support.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:16%">e. Node</th><th style="width:22%">Phase</th><th>Target emotion, <code>cjm-to-be.md</code></th></tr></thead>
+      <tbody>
+        <tr><td><span class="n">1.0</span> Home</td><td>T1, T2</td><td>Curiosity that survives a second look; disarmed</td></tr>
+        <tr><td><span class="n">1.2</span> Provably fair</td><td>T2, T7</td><td>Disarmed; a result that is understood</td></tr>
+        <tr><td><span class="n">2.1, 2.4</span> Gate, sign in</td><td>T3</td><td>Settled</td></tr>
+        <tr><td><span class="n">3.1, 3.3</span> Catalogue, case</td><td>T5</td><td>Informed appetite</td></tr>
+        <tr><td><span class="n">3.5</span> The open</td><td>T6</td><td>Projected, not measured: genuine suspense, U-13</td></tr>
+        <tr><td><span class="n">3.6, 3.7, 7.1</span></td><td>T7</td><td>A result that is understood, whether it is good or bad</td></tr>
+        <tr><td><span class="n">4.1</span> Deposit</td><td>T4</td><td>In control of a decision already made</td></tr>
+        <tr><td><span class="n">5.1, 5.3</span> My items, withdrawal</td><td>T8</td><td>Waiting without suspicion; appeals on 0.10 too</td></tr>
+        <tr><td><span class="n">6.1</span> Responsible play</td><td>T7 and T4, D-151</td><td>T4's, never T7's: it never celebrates, urges or counts down</td></tr>
+        <tr><td><span class="n">0.3, 0.4, 0.9, 5.9, 5.10, 5.11, 7.3</span></td><td>None printed</td><td><span class="st-named">Open</span>, owner stage 05 step 2; parents named where they exist</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <h4>f. The reader's thirty guesses: 24 answered, 6 open</h4>
+    <p><strong>Answered by the files now</strong>, among them: the slot labels, the sample winner names, the working name, accessible names as copy, SEO strings as the node's, which strings live in <code>WF_STR</code>, comments as non-authority, the outcome's two acts, the tone of T7 and T8, the sign-in H1, responsible play's phase, its sample helpline and its on-screen text, <code>Add funds</code> on the <code>+</code> in every state.</p>
+    <p><strong>Still open, each with an owner in stage 05:</strong> the sign of <code>Send to Steam, 6.70 coins</code> (step 4); <code>Saved to My items</code> after a sale (step 4); <code>Our price for it</code> against <code>Your skin price</code> (step 3); "market" for our own shelf (step 3); <code>Back to the case</code> on a cold sign-in arrival (step 4); the self exclusion line against cool down (step 4). None needs a decision before stage 05 starts.</p>
   </div>
 </section>
 
@@ -2717,6 +2792,7 @@ window.NAV_SECTIONS = [
   { id: 'coverage',    label: 'Coverage map' },
   { id: 'matrix',      label: 'State matrix' },
   { id: 'conventions', label: 'Conventions' },
+  { id: 'voice-input', label: 'Input for stage 05' },
   { id: 'shell',       label: 'Shell contract' },
   { id: 'audit',       label: 'Home audit' },
   { id: 'case',        label: '3.3 Case screen' },

@@ -16,7 +16,7 @@
 
 | What the live product does | What we keep | What we change, and why |
 |---|---|---|
-| A two column settings tab with **twenty rows** in four groups: `GENERAL` five, `SECURITY` three, `LINKED PROFILES` four, `NOTIFICATIONS` eight. Founder captures of 18 August 2026, `baseline-account.md` section 7, and of 22 August 2026, `research/screens/baseline-account/acct_settings_top_22aug.png` and `acct_settings_linked_22aug.png`. | **One row: the Steam trade URL**, with its helper line, because the exit needs it and nothing else on the map holds it. | **Nineteen of twenty do not survive, and almost none of them for a reason about settings.** Eleven configure modes that are `LATER` or channels that have no backlog row at all. Five already live somewhere else on our map and would be second homes. Two are refused on a rule. One is `[?]` and belongs to the founder. **Section 1 gives the verdict on every row with its reason, because a settings page that quietly drops nineteen rows is a settings page nobody can audit against its own baseline.** **Since `D-86`, `D-89`, `D-93` and `D-124` the page renders four groups and sixteen rows**, the baseline's shape, and section 1 is the record of the first derivation |
+| A two column settings tab with **twenty rows** in four groups: `GENERAL` five, `SECURITY` three, `LINKED PROFILES` four, `NOTIFICATIONS` eight. Founder captures of 18 August 2026, `baseline-account.md` section 7, and of 22 August 2026, `research/screens/baseline-account/acct_settings_top_22aug.png` and `acct_settings_linked_22aug.png`. | **One row: the Steam trade URL**, with its helper line, because the exit needs it and nothing else on the map holds it. | ~~**Nineteen of twenty do not survive, and almost none of them for a reason about settings.** Eleven configure modes that are `LATER` or channels that have no backlog row at all. Five already live somewhere else on our map and would be second homes. Two are refused on a rule. One is `[?]` and belongs to the founder.~~ **As first derived. Today, `D-150`: fifteen of the twenty are on the page, five are `LATER`, and none is refused whole; section 1's current table gives every row.** **Section 1 gives the verdict on every row with its reason, because a settings page that quietly drops nineteen rows is a settings page nobody can audit against its own baseline.** **Since `D-86`, `D-89`, `D-93` and `D-124` the page renders four groups and sixteen rows**, the baseline's shape, and section 1 is the record of the first derivation |
 
 
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
@@ -161,33 +161,75 @@
 
 ## 1. The baseline's twenty rows, and the verdict on each
 
-**Four verdicts and they are not the same kind of thing.** `LATER` means the row configures something round 1 does not ship. `ELSEWHERE` means the capability is ours and already has a home, so a control here would be a second one. `REFUSED` means the row is a thing we are choosing not to build, with a rule behind the choice. `KEEP` and `[?]` are what is left.
+**Rewritten 3 October 2026 by `D-150` item 9.** For six weeks this section read as its first derivation while `D-86`, `D-89`, `D-124`, `D-130`, `D-136` and `D-143` reversed most of it. The verdicts as they stand come first. The first derivation follows under its own heading, kept as history, every superseded verdict struck in place beside the decision that replaced it.
 
-### 1.1 `GENERAL`, five rows, ~~one survives~~ **four survive since `D-86` and `D-89`; Username is shown, not editable**
+**Five verdicts, and they are not the same kind of thing.** `KEEP` means the row renders here with its control. `KEEP as a statement` means the row renders here and states a fact with no control, or with the control that would change it refused. `ELSEWHERE` means the capability is ours and already has a home, and the row here is at most a route to it. `REFUSED` means a thing we choose not to build, with a rule behind the choice. `LATER` means the row configures something round 1 does not ship.
+
+**Sources.** The twenty rows are `research/docs/baseline-account.md` section 7, the founder capture of 18 August 2026 (`acct_settings_top.png`, `acct_settings_full.png`, `acct_settings_security_linked.png`), recaptured 22 August 2026 (`acct_settings_top_22aug.png`, `acct_settings_linked_22aug.png`), all in `research/screens/baseline-account/`.
+
+### The verdicts as they stand, 3 October 2026
+
+**Twenty rows: five `KEEP`, nine `KEEP as a statement`, one `ELSEWHERE`, five `LATER`, and none `REFUSED` whole.** What is refused is four controls inside rows that survive: the username's `EDIT` and the three confirmation switches. **Fifteen of the twenty are on the page; the five that are not are the `LATER` rows.**
+
+| # | Group | Baseline row | Verdict now | Where, or why | Parent | Set by |
+|---|---|---|---|---|---|---|
+| 1 | General | **Username**, `EDIT` | **KEEP as a statement**; the `EDIT` is **REFUSED** | The name shows with "From Steam" and nothing here changes it. `5.10` refuses a name change: no row in `cjm-to-be.md`, and a name that drifts from Steam is two names for one person | `B6` | `D-81` refused the row; `D-89` printed it in its section; `D-130` cut its line to "From Steam" |
+| 2 | General | **Your Selected Country**, `CHANGE` | **KEEP as a statement** | A declaration with its own Save, offering launched markets only; a false one can close the account. One answer per account, and the deposit lists methods for it. The refusal's argument is section 1.4 | Compliance constraint, the market allowlist closed by default, `D-23` | `D-86`; `D-137` (launched markets only, Save answers); `D-143` (the deposit reads it) |
+| 3 | General | **Steam trade URL**, `EDIT` | **KEEP** | A `textarea` with Save and a link to Steam's own page. Section 2.1 | Rows `G1` and `G5` at `cjm-to-be.md`, barriers `B8-2` and `B8-3` | `D-81`; `D-86` made it a `textarea` |
+| 4 | General | **Language**, dropdown `EN` | **KEEP** | One setting, read and written by this row and by the switcher at the foot of the rail; one live option | The locked Language decision, `D-41` | `D-89`; `D-136` |
+| 5 | General | **Sound**, `OFF` / `ON` | **KEEP** | One setting, read and written by this row and by the foot of the rail | Design principle 2, read as covering the reveal's sound, `D-150` item 2 | `D-89`; `D-136` |
+| 6 | Security | **Make me Anonymous**, `OFF` / `ON` | **KEEP** | A working switch, off by default, moving the name in live drops and on shared results. Section 3.2 | `7.1`'s open item, block B2 | `D-124` |
+| 7 | Security | **Deposit restriction or full account restriction**, `TAKE A BREAK` | **ELSEWHERE**, `6.1` | The row here is a route to `6.1`'s four tools and holds none of them | Compliance constraint, responsible play tooling | `D-81`; the route row since `D-89` |
+| 8 | Security | **Account Control**, `LOGOUT` | **KEEP** | Sign out here and as row seven of the account menu on `0.1` | `0.1`'s account menu | `D-89` |
+| 9 | Linked profiles | **Steam**, linked | **KEEP as a statement** | "Connected. This is how you sign in." No link control | `D-55`'s sign in set; section 1.3 | `D-86`; `D-89`; `D-137` |
+| 10 | Linked profiles | **Discord**, unlinked (Facebook on 18 August, section 1.5) | **KEEP as a statement**; no link control | "Not connected". Linking a second provider to one account has no row in `cjm-to-be.md` and no node on the map | `D-55`'s sign in set; section 1.3 | `D-86`; `D-89`; `D-137` |
+| 11 | Linked profiles | **Twitter**, as the X mark, unlinked | **KEEP as a statement**; no link control | As row 10 | `D-55`'s sign in set; section 1.3 | `D-86`; `D-89`; `D-137` |
+| 12 | Linked profiles | **Google**, unlinked | **KEEP as a statement**; no link control | As row 10 | `D-55`'s sign in set; section 1.3 | `D-86`; `D-89`; `D-137` |
+| 13 | Notifications, game | **Sponsored games from my partner** | **LATER**, and on neither list | Not on the page. A partner programme has no row anywhere in this repository. Section 4.1 | None | `D-81`; row removed by `D-130` |
+| 14 | Notifications, game | **Giveaway results** | **LATER** | Not on the page. Giveaways are on the `LATER` list | The `LATER` list | `D-81`; row removed by `D-130` |
+| 15 | Notifications, confirmation | **Joining bots to case battles** | **LATER** | Not on the page. Case battles are on the `LATER` list | The `LATER` list | `D-81`; row removed by `D-130` |
+| 16 | Notifications, confirmation | **Joining bots to gunfights** | **LATER** | Not on the page. Gunfights are on the `LATER` list | The `LATER` list | `D-81`; row removed by `D-130` |
+| 17 | Notifications, confirmation | **Upgrade** | **LATER** | Not on the page. Upgrades are on the `LATER` list | The `LATER` list | `D-81`; row removed by `D-130` |
+| 18 | Notifications, confirmation | **Crypto withdrawal** | **KEEP as a statement**; the switch is **REFUSED** | Inside the one "Confirmations" row: cashing out always asks first, on its review screen. Section 4.2 | Design principle 3 | `D-118` made cash out round 1; `D-130` folded it into Confirmations; `D-143` |
+| 19 | Notifications, confirmation | **Skins selling** | **KEEP as a statement**; the switch is **REFUSED** | Inside "Confirmations": every sale asks, the first press turns the control into its question. Section 4.2 | Design principle 3 | `D-81` refused the switch; `D-89` printed the row; `D-130` one row; `D-143` the sale asks |
+| 20 | Notifications, confirmation | **Skins withdrawal** | **KEEP as a statement**; the switch is **REFUSED** | Inside "Confirmations": sending to Steam asks on its review screen. Section 4.2 | Design principle 3 | `D-81` refused the switch; `D-89` printed the row; `D-130` one row; `D-143` |
+
+**Checked against `wireframes/settings.html` on 3 October 2026:** it renders four groups and sixteen rows, General five, Security four, Linked profiles four and Notifications three, which is the fifteen baseline rows above on thirteen rendered rows, rows 18 to 20 sharing one Confirmations row, plus three rows with no baseline row, Public profile by `D-93` and the offers switch and Messages about your own account by `D-86`, and every verdict above matches what it draws.
+
+**Against the first derivation, thirteen verdicts moved and seven held.** Moved: Username and the country from `REFUSED`, language, sound and sign out from `ELSEWHERE`, anonymity from `[?]`, the four linked profiles from "another node's debt", crypto withdrawal from `LATER`, and the selling and withdrawal confirmations from `REFUSED`, the last two keeping their switch refused. Held: the trade URL `KEEP`, the break tool `ELSEWHERE`, and five `LATER` rows.
+
+### As first derived, 11 to 22 August 2026
+
+**`D-81`'s verdicts, written on 22 August 2026 from the walk of 11 August and the captures of 18 and 22 August.** Kept as the record, not as the answer: every verdict that moved is struck in place with the decision that moved it, and the reasons stay readable because several still argue for the verdict that replaced them. The subsections keep their numbers because sections 0.4, 3 and 7 cite 1.3, 1.4 and 1.5, and the arguments in those three still stand.
+
+~~**Four verdicts and they are not the same kind of thing.** `LATER` means the row configures something round 1 does not ship. `ELSEWHERE` means the capability is ours and already has a home, so a control here would be a second one. `REFUSED` means the row is a thing we are choosing not to build, with a rule behind the choice. `KEEP` and `[?]` are what is left.~~ **Superseded by the five verdicts above, `D-150`.**
+
+
+#### 1.1 `GENERAL`, five rows, ~~one survives~~ **four survive since `D-86` and `D-89`; Username is shown, not editable**
 
 | Row | Verdict | Reason |
 |---|---|---|
-| **Username**, with `EDIT` | **REFUSED** | `5.10` already refuses a name change in as many words: it is a new capability with no row in `cjm-to-be.md`, the name and the avatar come from Steam under `B6`, and **a product that lets them diverge from Steam has two names for one person.** That node also states the route if it is ever wanted: a backlog row first and a block second, never the other way round. **`5.11` may not re-home a control another node refused**, and doing so would be exactly how a refusal gets reversed without a decision |
+| **Username**, with `EDIT` | ~~**REFUSED**~~ **KEEP as a statement since `D-89`; the `EDIT` stays refused** | `5.10` already refuses a name change in as many words: it is a new capability with no row in `cjm-to-be.md`, the name and the avatar come from Steam under `B6`, and **a product that lets them diverge from Steam has two names for one person.** That node also states the route if it is ever wanted: a backlog row first and a block second, never the other way round. **`5.11` may not re-home a control another node refused**, and doing so would be exactly how a refusal gets reversed without a decision |
 | **Your Selected Country**, with `CHANGE` | ~~**REFUSED, and it is the sharpest refusal on the page**~~ **KEEP, as a statement, since `D-86`** | Section 1.4 holds the refusal's argument, section 0.4 the reversal |
-| **Steam trade URL**, with `EDIT` | **KEEP** | Section 2. The only surviving row |
+| **Steam trade URL**, with `EDIT` | **KEEP** | Section 2. ~~The only surviving row~~ **One of fifteen baseline rows on the page since `D-89`** |
 | **Language**, a dropdown reading `EN` | ~~**ELSEWHERE**~~ **KEEP since `D-89`**, and **one setting read and written by both carriers since `D-136`** | One language is a locked stage 01 decision. `D-41` drew the switcher, and it lives at the foot of the rail with one live option and the absent ones named. A second control for one setting is two places to change one thing |
 | **Sound**, `OFF` / `ON` | ~~**ELSEWHERE**~~ **KEEP since `D-89`**, and **one setting read and written by both carriers since `D-136`** | `D-29` put it at the foot of the rail on 19 August 2026, which is where the baseline keeps it too. Same argument |
 
-### 1.2 `SECURITY`, three rows, ~~none survives and one becomes an open item~~ **all three render since `D-89` and `D-124`**
+#### 1.2 `SECURITY`, three rows, ~~none survives and one becomes an open item~~ **all three render since `D-89` and `D-124`**
 
 | Row | Verdict | Reason |
 |---|---|---|
 | **Make me Anonymous**, `OFF` / `ON` | ~~**`[?]`, and it is the founder's**~~ **KEEP, closed by `D-124`** | Section 3.2. It has a live subject and it changes what two other nodes render, which is why this node does not decide it. **Answered by the founder, `D-124`: a working switch, off by default, block B2** |
-| **Deposit restriction or full account restriction**, `TAKE A BREAK` | **ELSEWHERE** | This is `6.1`, an entire surface with four tools, and the account menu already carries a row to it. **The baseline's version of this row is the strongest argument node `6.1` has:** `baseline-account.md` section 7.1 records that the tool exists, has no route to it from anywhere, and is filed under Security beside Logout and an anonymity toggle, which is the vocabulary of account protection rather than of self protection |
+| **Deposit restriction or full account restriction**, `TAKE A BREAK` | **ELSEWHERE**, held; the row here is a route to `6.1` since `D-89` | This is `6.1`, an entire surface with four tools, and the account menu already carries a row to it. **The baseline's version of this row is the strongest argument node `6.1` has:** `baseline-account.md` section 7.1 records that the tool exists, has no route to it from anywhere, and is filed under Security beside Logout and an anonymity toggle, which is the vocabulary of account protection rather than of self protection |
 | **Account Control**, `LOGOUT` | ~~**ELSEWHERE**~~ **KEEP since `D-89`**, beside the account menu's row | `0.1` carries Sign out as row seven of the account menu, and `navigation.md` states it there as a control rather than a destination |
 
-### 1.3 `LINKED PROFILES`, four rows, and they are another node's unbuilt debt
+#### 1.3 `LINKED PROFILES`, four rows, and they are another node's unbuilt debt; **the rows render as statements since `D-86`, `D-89` and `D-137`**
 
 **Steam shown linked, then three unlinked.** Round 1 has four sign-in providers since `D-55`, and only one of them can receive a skin.
 
-**This is not a block for this node and it is not nothing either.** `D-55` printed three states as debt on 21 August 2026 and none of them is built: **no Steam linked** on `5.3`, **Link Steam** on `5.1`, and somebody with no Steam linked about to spend on `4.1`. **This capture adds a fourth surface that debt reaches**, because the one field this node holds cannot be filled by an account that has no Steam identity at all. Section 3.4 draws that state and section 7 sends the finding back to `D-55`'s three owners rather than absorbing it here.
+**This is not a block for this node and it is not nothing either.** `D-55` printed three states as debt on 21 August 2026 and none of them is built: **no Steam linked** on `5.3`, **Link Steam** on `5.1`, and somebody with no Steam linked about to spend on `4.1`. **This capture adds a fourth surface that debt reaches**, because the one field this node holds cannot be filled by an account that has no Steam identity at all. ~~Section 3.4~~ **Section 3, row "No Steam account linked",** draws that state and section 7 sends the finding back to `D-55`'s three owners rather than absorbing it here.
 
-### 1.4 The country control, and why refusing it is a compliance decision rather than a scope one
+#### 1.4 The country control, and why refusing it is a compliance decision rather than a scope one
 
 **Reversed by `D-86`, section 0.4: the control came back as a statement.** The argument below is kept because the reversal corrected its reason rather than its facts.
 
@@ -199,7 +241,7 @@
 
 **Quoted parent:** the compliance constraint in `CLAUDE.md`, "a market allowlist closed by default, so a market with no row is `not launched` rather than open and that is the state the geo layer is designed around, `D-23`".
 
-### 1.5 The capture of 22 August contradicts the record of 18 August in one place
+#### 1.5 The capture of 22 August contradicts the record of 18 August in one place
 
 | Record | Providers in `LINKED PROFILES` |
 |---|---|
@@ -213,13 +255,13 @@
 
 **And `D-55` shipped the newer set four days before it appeared in our own baseline.** It chose **Steam, Google, Discord and X** on 21 August, from three competitor modals beside the node rather than from our own product. **What was a divergence from the baseline on 21 August is a match to it on 22 August.** That is a coincidence and it is recorded as one: nothing in the decision claims the baseline as its source, and nothing built changes either way.
 
-### 1.6 `NOTIFICATIONS`, eight rows, and none of them has a subject in round 1
+#### 1.6 `NOTIFICATIONS`, eight rows, ~~and none of them has a subject in round 1~~ **and three have one since `D-118`, stated as one Confirmations row since `D-130`**
 
 | Group | Rows | Verdict |
 |---|---|---|
-| **Game notifications** | Notify about sponsored games from my partner; notify about giveaway results | **LATER, and worse than LATER for one of them.** Giveaways are on the `LATER` list. **A partner programme is not on either list**, so the first row configures something with no row anywhere in this repository |
-| **Confirmation messages** | Joining bots to case battles; joining bots to gunfights; upgrade; crypto withdrawal | **LATER.** Case battles, gunfights and upgrades are all on the `LATER` list, ~~and withdrawal in round 1 is to Steam and nothing else~~ **and crypto is round 1 since `D-118`, cash out, so its confirmation joined the one "Confirmations" row, `D-130`** |
-| **Confirmation messages** | Skins selling; skins withdrawal | **REFUSED, and on a principle rather than on scope**, section 4.2 |
+| **Game notifications** | Notify about sponsored games from my partner; notify about giveaway results | **LATER, and worse than LATER for one of them**, held; both rows left the page with `D-130`. Giveaways are on the `LATER` list. **A partner programme is not on either list**, so the first row configures something with no row anywhere in this repository |
+| **Confirmation messages** | Joining bots to case battles; joining bots to gunfights; upgrade; crypto withdrawal | **LATER**, held for three, which left the page with `D-130`. Case battles, gunfights and upgrades are all on the `LATER` list, ~~and withdrawal in round 1 is to Steam and nothing else~~ **and crypto is round 1 since `D-118`, cash out, so its confirmation joined the one "Confirmations" row, `D-130`** |
+| **Confirmation messages** | Skins selling; skins withdrawal | ~~**REFUSED, and on a principle rather than on scope**~~ **The switch stays REFUSED on a principle, section 4.2; the row is stated since `D-89`, one Confirmations row since `D-130`, and every sale asks since `D-143`** |
 
 **And there is a hole under the whole group that this node did not open.** **There is no notification, email or push row anywhere in `cjm-to-be.md`**, recorded by the global sweep as a gap with no parent and printed again by `0.3` when it found that nobody can learn about a planned maintenance window before arriving at it. **A toggle that turns a channel off is a control over a channel**, so even the rows whose subjects arrive later cannot be built until that row exists.
 

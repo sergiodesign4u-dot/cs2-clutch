@@ -176,6 +176,8 @@ Added at step 7. `S-F1 Responsible play` was the last MVP screen with no route t
 
 **Parents:** `B7-4`, the escalation loop, pattern of 12, plus the compliance constraint in `CLAUDE.md`, "responsible play tooling (deposit limits, session limits, self exclusion, cool down)". **No job, and there never will be one:** nobody arrives wanting to limit themselves.
 
+**Phase, added 3 October 2026 for stage 05, `D-151`.** **T7 and T4 of `cjm-to-be.md`.** `B7-4`, the escalation loop, starts at T7, the outcome, and the limit set here is read at T4, getting something to open with, since `D-103` moved the moment it is set to this page. **Target emotion for the voice: T4's "in control of a decision already made".** Not T7's: this page is never a reaction to a result, and its tone never celebrates, never urges and never counts down.
+
 ```mermaid
 flowchart TD
     R0(["Decides to put a boundary on this, or is told about one"]) --> Entry["The footer column on every page, or the account menu's Responsible play row"]

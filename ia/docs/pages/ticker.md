@@ -40,7 +40,7 @@
 |---|---|---|
 | A tile per win, opening that win | Target 1 lands on `7.1` | **Each tile opens the round it shows.** A tile from Ironbound reads its wear, rarity, value and ticket range from that case's drop table on `3.3`; the others carry their own. **The accessible name is source, weapon, skin, rarity and winner**, and a bot says so. The Vulcan was listed from Ironbound, whose table does not hold it, and is now a Warsteel drop |
 
-**Samples, `D-124`, marked here:** the eleven feed rounds other than the AK, their wear, rarity, value, ticket and the minutes before now they are dated; for the four other cases, values 15.10, 23.90, 1.90, 6.80, 38.20, 52.40, 3.60 and 1.40 coins.
+**Samples, `D-124`, marked here:** the eleven feed rounds other than the AK, their wear, rarity, value, ticket and the minutes before now they are dated; for the four other cases, values 15.10, 23.90, 1.90, 6.80, 38.20, 52.40, 3.60 and 1.40 coins; and the winners' names, kestrel, quill and ghostline (the two bots), mira_cs and duskrunner (the two hidden profiles), vandal88, frostbyte, okapi, lynx_cs, saltyfox and emberjay, with the AK carrying the account's own sample name, nightjar_cs.
 
 ---
 

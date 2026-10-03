@@ -438,6 +438,186 @@ var WF_MONEY = { balance: 74.20, held: 140.95 };
    one place. Elements carrying data-pub are filled from here. Samples, D-124,
    marked in 1.0. */
 var WF_PUB = { median: '1 h 40 m', p90: '6 h 15 m' };
+/* ONE SOURCE PER REPEATED STRING, round 15 step 9, wireframes/CLAUDE.md rule 6.
+   Every product string typed by hand on five or more wireframe pages lives here
+   once. A page marks each copy <span data-str="key">text</span>, the text kept as
+   the no-script fallback, and the boot fills it from here; the renderers below read
+   the same entry. Stage 05 rewrites a string here, never page by page. A value
+   holding markup is written as markup and filled as markup. Names, case data and
+   figures that differ by page are not strings and are not here. */
+var WF_STR = {
+  // Ironbound's published pair, round 15: typed on twelve case pages.
+  rtpEv: 'RTP 94.2 %, expected value 11.68 coins',
+  /* Shared navigation words and acts */
+  home: 'Home',
+  cases: 'Cases',
+  allCases: 'All cases',
+  support: 'Support',
+  signIn: 'Sign in',
+  history: 'History',
+  settings: 'Settings',
+  myItems: 'My items',
+  addFunds: 'Add funds',
+  sendToSteam: 'Send to Steam',
+  responsiblePlay: 'Responsible play',
+  provablyFair: 'Provably fair',
+  legal: 'Legal',
+  termsOfUse: 'Terms of use',
+  privacyPolicy: 'Privacy policy',
+  cookiePolicy: 'Cookie policy',
+  refundPolicy: 'Refund and payments policy',
+  copy: 'Copy',
+  save: 'Save',
+  search: 'Search',
+  filters: 'Filters',
+  peg: '1 coin = $1.00',
+  /* Case head */
+  howItWorks: 'How it works',
+  riskBand: 'Risk band',
+  favourite: 'Favourite',
+  nineItems: 'Nine items, one roll.',
+  entryCost: 'Entry cost, one roll',
+  checkRound: 'Check this round',
+  /* Catalogue */
+  catalogueH1: 'All CS2 cases, with published chances and values',
+  categories: 'Categories',
+  daily: 'Daily',
+  dailySub: 'Wager to climb. The tier decides which free case you get',
+  featured: 'Featured',
+  featuredSub: 'Our pick of the shelf',
+  community: 'Community',
+  communitySub: 'Cases our players put together',
+  classic: 'Classic',
+  classicSub: 'The collections that were here first',
+  numbersH2: 'What the numbers on a case mean',
+  numbersBody: 'Every tile shows the entry cost of one open and the risk band of the case, High, Medium or Low, read from its drop table. Open a case to see every item with its chance, its current value and the ticket range the roll resolves against. The daily case is earned by wagering, and the tier you reach decides which case it opens.',
+  /* Result and player */
+  whatThisPlaceIs: 'What this place is',
+  howProofWorks: 'How the proof works',
+  wonBy: 'Won by',
+  worthNow: 'Worth now, read 21 Aug 2026 09:31',
+  rolls: 'Rolls',
+  /* Withdrawal */
+  goingToSteam: 'Going to Steam account',
+  medianToSteam: 'Median time to Steam',
+  p90ToSteam: 'Nine in ten arrive within this',
+  yourSkinPrice: 'Your skin price',
+  marketSkinPrice: 'Market skin price',
+  balanceImpact: 'Your balance impact',
+  /* Support */
+  questionsAnswers: 'Questions and answers',
+  closed: 'closed',
+  /* Provably fair */
+  versionHistory: 'Version history',
+  fairH1: 'Provably fair: check any round yourself',
+  fairPublic: 'This page is public. You do not need an account to read it, and you do not need one to check a round.',
+  fairProves: 'What this proves',
+  fairProvesBody: 'The result of this round was fixed before you clicked, and it was not changed afterwards.',
+  fairNotProves: 'What this does not prove',
+  fairNotProvesBody: 'That the chances we publish are the chances the roll used.',
+  fairAnswered: 'Where that is answered',
+  fairObserved: 'The observed rate beside every published percentage on the case screen',
+  fairPublished: 'The published chance and current value on every item',
+  fairTested: 'The tested return and the expected value at that entry cost',
+  checkARound: 'Check a round',
+  readAlgorithm: 'Read the algorithm',
+  fairFixedH: 'How a round is fixed before you click',
+  fairStep1: 'We publish the hash of a server seed before the round is offered. The hash is a commitment: the seed behind it cannot be swapped later without the hash changing.',
+  fairStep2: 'Your round is settled once, from that server seed, a client seed and a nonce.',
+  fairStep3: 'The reveal plays back a result that already exists rather than deciding one while you watch.',
+  fairStep4: 'The server seed is revealed when the seed rotates, and from then on anyone can recompute the round.',
+  fairNoProof: 'Two reasons a round may have no proof to check yet: it predates the published ledger, or its seed has not rotated. Neither means anything went wrong.',
+  fairMadeOf: 'What a round proof is made of',
+  serverSeedHash: 'Server seed hash',
+  fairHashWhen: 'Published before the round runs',
+  serverSeed: 'Server seed',
+  fairSeedWhen: 'Revealed on rotation',
+  clientSeed: 'Client seed',
+  fairClientWhen: 'Shown with every round',
+  nonce: 'Nonce',
+  fairNonceWhat: 'A whole number that advances',
+  settledResult: 'Settled result',
+  fairResultWhat: 'The number the roll produced',
+  ticketRange: 'Ticket range',
+  fairRangeWhat: 'The interval the result falls in, and the item holding it',
+  fairTableRow: 'The drop table in force at that round, versioned',
+  fairTableWhat: 'Its version, printed with the round',
+  fairHashLabel: 'Server seed hash, published before the round',
+  fairSeedLabel: 'Server seed, revealed on rotation',
+  recompute: 'Recompute this round',
+  fairMismatchH: 'If your check does not match ours',
+  fairMismatchBody: 'Report it from the result, with the round attached. You get a reference and an answer within 72 hours.',
+  fairAlgoH: 'The algorithm, published in full',
+  fairAlgoStamp: 'Version 1, published 12 Jan 2026',
+  fairComputation: 'The computation',
+  fairAlgo: 'HMAC-SHA256 of the server seed, keyed with <code>client seed:nonce</code>. The first eight hex characters, read as a number, modulo 100&#160;000, plus one, is the ticket. The item whose ticket range holds it is the result.',
+  fairExampleH: 'A worked example',
+  fairExample: 'Server seed <code>7c1e…a904</code>, client seed <code>nightjar</code>, nonce <code>412</code>. HMAC starts <code>3a9009c1</code>, which is 982&#160;518&#160;209; modulo 100&#160;000 plus one is ticket <b>18&#160;210</b>, in the range 11&#160;001 to 23&#160;000, USP-S Kill Confirmed.',
+  itsPublicPage: 'Its public page',
+  fairVersionRow: 'Version 1, 12 Jan 2026. First published.',
+  questions: 'Questions',
+  fairQ1: 'Can I use my own tool instead of yours?',
+  fairA1: 'That is the point. The algorithm is published so that a stranger can write their own and get our answer.',
+  fairQ2: 'Why can I not check a round from last year?',
+  fairA2: 'Rounds from before the published ledger have no commitment behind them, so they cannot be checked here.',
+  /* Legal */
+  legalWho: 'Who we are',
+  operatingCompany: 'Operating company',
+  operatingCompanySample: 'Operating company name',
+  registeredAddress: 'Registered address',
+  registeredAddressSample: 'Street, city, country',
+  email: 'Email',
+  emailSample: 'legal@cs2clutch.example',
+  tradeRegister: 'Trade register and number',
+  tradeRegisterSample: 'Register, no. 000000',
+  supervisoryAuthority: 'Supervisory authority',
+  supervisoryAuthoritySample: 'Licensing authority name',
+  vatNumber: 'VAT number',
+  vatNumberSample: 'VAT no. 000000000',
+  legalQuestions: 'Questions about this document',
+  askUs: 'Ask us',
+  /* Responsible play */
+  rpWhat: 'What these tools do',
+  rpFour: 'Four boundaries you set yourself.',
+  rpTighten: 'Tightening one takes effect immediately. Loosening one takes 24 hours, and the boundary you have now holds until then.',
+  rpClosesH: 'What a boundary closes, and what it never closes',
+  rpCanClose: 'A boundary can close',
+  rpCanCloseList: 'Adding funds. Opening a case. A session, when its length is reached.',
+  rpNeverClose: 'No boundary ever closes',
+  rpNeverCloseList: '<strong>Taking what you hold out to Steam.</strong> Support. Reading the product.',
+  depositLimit: 'Deposit limit',
+  rpDepositWhat: 'Caps what you can put in over a period.',
+  perDay: 'per day',
+  perWeek: 'per week',
+  perMonth: 'per month',
+  sessionLimit: 'Session limit',
+  rpSessionWhat: 'Ends a session once it has run this long.',
+  min30: '30 minutes',
+  hour1: '1 hour',
+  hours2: '2 hours',
+  hours4: '4 hours',
+  coolDown: 'Cool down',
+  rpCoolWhat: 'Closes adding funds and opening cases for a period you choose.',
+  extend: 'Extend',
+  immediately: 'Immediately.',
+  shorten: 'Shorten',
+  rpShortenNo: 'Not possible. It ends by running out.',
+  hours24: '24 hours',
+  days7: '7 days',
+  days30: '30 days',
+  startCoolDown: 'Start a cool down',
+  selfExclusion: 'Self exclusion',
+  rpExclWhat: 'Closes adding funds and opening cases for longer. The one thing here you cannot undo.',
+  endEarly: 'End early',
+  rpEndEarlyNo: 'Not possible, and that is the point of it.',
+  months6: '6 months',
+  year1: '1 year',
+  years5: '5 years',
+  selfExclude: 'Self exclude',
+  rpNotLimit: 'Support that is not a limit',
+  rpNotOurs: 'Help that is not ours',
+  rpTherapy: '<a href="https://www.gamblingtherapy.org/" rel="external nofollow">Gambling Therapy</a>, free and confidential, in any country.'
+};
 function moneyNow() {
   var M = (window.WF_SHELL && window.WF_SHELL.money) || {};
   var p = function (v, d) { return v === undefined ? d : parseFloat(String(v)); };
@@ -477,13 +657,14 @@ function moneyAdd(dBal, dHeld) {
    the screen.
    THE THIRD FIELD IS WHERE STEP 2 GOES, and it is the whole reason this is data
    rather than markup. Twenty five of the twenty seven land on the same form, one
-   leaves the product, and one has nowhere to land at all.
+   leaves the product, and one, CS2 Skins, lands on its own pane since D-129.
    CS:GO SKINS HAS NO PARENT AND SHIPS SAYING SO. Depositing skins is a real
    capability of the live product and there is no row for it in cjm-to-be.md, no
    node on the map and no flow drawn. CLAUDE.md: a screen, a block or a component
    with no parent is cut, or carried with its orphan status printed in its own
-   row. It is carried, and the tile is not a link, because a tile that opened
-   nothing would be the dead item defect with a logo on it. */
+   row. It is carried. It was not a link while it opened nothing, the dead item
+   defect with a logo on it; since the founder took it back into the grid, D-124
+   and D-129, it routes to deposit-skins.html, WF_PAY.route below. */
 window.WF_PAY = window.WF_PAY || {
   fiat: [
     ['Visa Or Mastercard', 'card', 'best'],
@@ -793,14 +974,14 @@ window.WF_PAY = window.WF_PAY || {
   // that no carrier holds another's kind. My items is an account thing and the header
   // owns the account.
   function railItems() {
-    return [{ label: 'Cases', file: 'catalogue.html' }];
+    return [{ label: WF_STR.cases, file: 'catalogue.html' }];
   }
 
   // The bar is a subset of the rail plus Home, and it never holds money.
   function barItems() {
     return [
-      { label: 'Home',  file: 'index.html' },
-      { label: 'Cases', file: 'catalogue.html' }
+      { label: WF_STR.home,  file: 'index.html' },
+      { label: WF_STR.cases, file: 'catalogue.html' }
       // The superset rule holds: every bar item exists in the rail. D-29 took Provably
       // fair out of the rail and it left the bar in the same step; D-40 does the same to
       // My items. THE BAR IS NOW TWO ITEMS IN BOTH STATES, below Material's floor of
@@ -814,8 +995,9 @@ window.WF_PAY = window.WF_PAY || {
   // D-41 shipped one option and refused the other eight by the rule that fills every
   // other carrier in this project: a carrier is inherited and filled with live items,
   // and only a dead item is deferred. THE FOUNDER REVERSED THAT FOR THIS CONTROL ALONE,
-  // so the prototype shows the shape the live product has. The eight are inert, the
-  // panel says so in its own words, and D-42 records what that costs. It is not a
+  // so the prototype shows the shape the live product has. The eight switch the
+  // control's label and nothing else (setLang below; the page language never moves),
+  // the panel says so in its own words, and D-42 records what that costs. It is not a
   // precedent: no other carrier here gets dead items on this argument.
   // THE NINE ARE SOURCED, NOT INVENTED: baseline.md section "Header", walked live on
   // 11 August 2026, "a language switcher offering nine languages, en de zh fr pl tr pt
@@ -943,9 +1125,9 @@ window.WF_PAY = window.WF_PAY || {
     menu.appendChild(el('div', 'wf-acct-who', window.WF_WHO.name));
     var nav = el('nav', null);
     nav.setAttribute('aria-label', 'Account');
-    [['My items', 'account.html'], ['History', 'history.html'],
+    [[WF_STR.myItems, 'account.html'], [WF_STR.history, 'history.html'],
      ['Withdrawals', 'withdraw.html'], ['Profile', 'profile.html'],
-     ['Settings', 'settings.html'], ['Responsible play', 'responsible.html']].forEach(function (r) {
+     [WF_STR.settings, 'settings.html'], [WF_STR.responsiblePlay, 'responsible.html']].forEach(function (r) {
       // A SLOT, NOT AN ICON, D-50, and it is the rule the rail has followed since it was
       // drawn: "the grey contract defers icons to stages 06 to 08, and a destination
       // whose icon has no reserved space gets one bolted on later, which moves every
@@ -1107,6 +1289,14 @@ window.WF_PAY = window.WF_PAY || {
     ['Five-SeveN',   'Monkey Business',  'Coldfront', false, false, 'ffive',   ['Minimal Wear', 'Classified'],    '3.60'],
     ['SG 553',       'Cyrex',            'Warsteel',  true,  false, 'fsg',     ['Field-Tested', 'Restricted'],    '1.40']
   ];
+  /* THE WINNERS ARE SAMPLE NAMES, round 15 step 9, D-124, marked in ticker.md's
+     D-140 amendment. The tile printed "winner, as shown", a designer's label on
+     the product surface. Row A3 still binds the live product: no invented names,
+     a bot labelled as one. The AK is the account's own round, so it carries the
+     account's name; a hidden profile keeps its name and loses the link, D-93. */
+  var FEED_WHO = { ak: window.WF_WHO.name, awp: 'kestrel', fglock: 'quill', fusp: 'mira_cs',
+                   fm4: 'vandal88', fdeagle: 'frostbyte', fmp9: 'okapi', fp250: 'lynx_cs',
+                   fawpnn: 'duskrunner', fvulcan: 'saltyfox', ffive: 'emberjay', fsg: 'ghostline' };
 
   function feedTile(row) {
     // FOUR THINGS AND A HOVER LAYER. The image leads, D-59 and the founder's own
@@ -1125,7 +1315,7 @@ window.WF_PAY = window.WF_PAY || {
     // accessible name, round 15: it read weapon and skin only.
     var RR = ROUNDS[row[5]] || {};
     hit.setAttribute('aria-label', row[2] + ', ' + row[0] + ' ' + row[1] +
-      (RR.axes ? ', ' + RR.axes[RR.axes.length - 1] : '') + ', ' + (row[3] ? 'a bot' : row[4] ? 'an anonymous player' : 'a player'));
+      (RR.axes ? ', ' + RR.axes[RR.axes.length - 1] : '') + ', won by ' + (FEED_WHO[row[5]] || 'a player') + (row[3] ? ', a bot' : ''));
     hit.appendChild(el('span', 'wf-feed-art'));
     hit.lastChild.setAttribute('aria-hidden', 'true');
     hit.appendChild(el('span', 'wf-feed-w', row[0]));
@@ -1177,13 +1367,14 @@ window.WF_PAY = window.WF_PAY || {
     who.appendChild(el('span', 'wf-feed-av'));
     who.lastChild.setAttribute('aria-hidden', 'true');
     var col = el('span');
+    var whoName = FEED_WHO[row[5]];
     if (row[3]) {
-      col.appendChild(el('span', null, 'winner, as shown'));
+      col.appendChild(el('span', null, whoName));
       col.appendChild(el('span', 'wf-feed-bot', ' bot'));
     } else if (row[4]) {
-      col.appendChild(el('span', null, 'winner, as shown'));
+      col.appendChild(el('span', null, whoName));
     } else {
-      var whoLink = el('a', 'wf-feed-whol', 'winner, as shown');
+      var whoLink = el('a', 'wf-feed-whol', whoName);
       whoLink.href = BASE + 'player.html';
       col.appendChild(whoLink);
     }
@@ -1294,15 +1485,16 @@ window.WF_PAY = window.WF_PAY || {
   /* THE PERIOD IS THE ONE IN THE SELECT, second pass of round 13: the select
      showed 5 years and the dialog confirmed 30 days. Samples by D-124, counted
      from the prototype's now, 21 Aug 2026, 09:31. */
-  var EX_END = { '6 months': '21 Feb 2027, 09:31', '1 year': '21 Aug 2027, 09:31', '5 years': '21 Aug 2031, 09:31' };
+  var EX_END = {};
+  EX_END[WF_STR.months6] = '21 Feb 2027, 09:31'; EX_END[WF_STR.year1] = '21 Aug 2027, 09:31'; EX_END[WF_STR.years5] = '21 Aug 2031, 09:31';
   function excludeHTML(period) {
-    var p = period || '5 years';
+    var p = period || WF_STR.years5;
     return '<div class="wf-dlg-scrim" data-ex-dismiss></div>' +
       '<div class="wf-dlg-wrap"><div class="wf-dlg wf-dlg--plain" role="dialog" aria-modal="true" aria-label="Confirm self exclusion">' +
         '<button class="wf-dlg-close" type="button" data-ex-dismiss aria-label="Close">&#215;</button>' +
         '<div class="wf-dlg-body">' +
           '<h2 class="wf-dlg-h">Self exclusion for ' + p + '</h2>' +
-          '<p class="wf-dlg-sub">It starts now and ends on <b>' + (EX_END[p] || EX_END['5 years']) + '</b>.</p>' +
+          '<p class="wf-dlg-sub">It starts now and ends on <b>' + (EX_END[p] || EX_END[WF_STR.years5]) + '</b>.</p>' +
           '<div class="wf-closes">' +
             '<div class="wf-closes-c"><span class="wf-closes-k">Closes</span><span>Opening a case, and adding funds.</span></div>' +
             '<div class="wf-closes-c"><span class="wf-closes-k">Stays open</span><span>Taking what you hold out to Steam. Support. Reading the product.</span></div>' +
@@ -1326,10 +1518,10 @@ window.WF_PAY = window.WF_PAY || {
      the node's second rule is that no answer is the only place a rule appears,
      and an answer with no owning surface printed beside it is the case that rule
      forbids, rendered.
-     WHICH QUESTIONS EXIST IS NOT DRAWN. They are derived at stage 05 from the
-     barrier ledger, one per documented barrier that survives its surface, so
-     each section renders its scope and says the questions are not written yet
-     rather than inventing three plausible ones. */
+     WHICH QUESTIONS EXIST IS STAGE 05's. They are derived from the barrier
+     ledger, one per documented barrier that survives its surface. Until D-130 each
+     section rendered its scope and said the questions were not written yet; it now
+     carries one sample, below. */
   /* SAMPLE QUESTIONS SINCE D-130, BY D-124. Each section carries the question
      its barrier makes most likely and an answer that routes to the surface that
      owns the rule; the real list is still stage 05's, derived from the barrier
@@ -1337,17 +1529,17 @@ window.WF_PAY = window.WF_PAY || {
      since D-125. */
   var FAQ = [
     ['Getting in', 'Sign in, the geo gate, and a Steam login that will not complete',
-      [['My Steam login does not come back here', 'Close the Steam tab and press Sign in again. Nothing you chose is lost.', 'signin.html', 'Sign in']]],
+      [['My Steam login does not come back here', 'Close the Steam tab and press Sign in again. Nothing you chose is lost.', 'signin.html', WF_STR.signIn]]],
     ['Opening a case', 'The case screen, the published chance, and checking a round afterwards',
-      [['How do I know a round was fair?', 'Every round has a proof you can recompute without an account.', 'fair.html', 'Provably fair']]],
+      [['How do I know a round was fair?', 'Every round has a proof you can recompute without an account.', 'fair.html', WF_STR.provablyFair]]],
     ['Putting money in', 'Adding funds, the crediting window, and a payment that did not go through',
       [['My deposit has not arrived', 'Most arrive within 2 minutes. The deposit keeps its state and support can see it.', 'history-deposits.html', 'Your deposits']]],
     ['Getting your items out', 'Withdrawing to Steam, the clock, and a trade that did not arrive',
-      [['What if a win cannot be sent to Steam?', 'It stays in My items. You can send it later, or sell it back for coins at its value.', 'account.html', 'My items']]],
+      [['What if a win cannot be sent to Steam?', 'It stays in My items. You can send it later, or sell it back for coins at its value.', 'account.html', WF_STR.myItems]]],
     ['Limits and self exclusion', 'The four boundaries, what each one closes, and what none of them closes',
-      [['Can a limit stop me taking my items out?', 'No. No limit ever closes a withdrawal to Steam.', 'responsible.html', 'Responsible play']]],
+      [['Can a limit stop me taking my items out?', 'No. No limit ever closes a withdrawal to Steam.', 'responsible.html', WF_STR.responsiblePlay]]],
     ['Your account and your data', 'The documents, and what is held about you',
-      [['Do you ever ask for my Steam password?', 'Never. You sign in on Steam\'s own page.', 'legal-unpublished.html?doc=privacy', 'Privacy policy']]],
+      [['Do you ever ask for my Steam password?', 'Never. You sign in on Steam\'s own page.', 'legal-unpublished.html?doc=privacy', WF_STR.privacyPolicy]]],
     ['When something goes wrong', 'A restriction, a refused check, and a proof of ours that did not match',
       [['How do I appeal a decision?', 'Choose "Appeal a decision we took" in the form below. We answer within 72 hours.', 'support-appeal.html', 'Appeal']]]
   ];
@@ -1439,7 +1631,7 @@ window.WF_PAY = window.WF_PAY || {
       if (!t) return;
       e.preventDefault();
       var sel = t.closest('.wf-set-ctl') && t.closest('.wf-set-ctl').querySelector('select');
-      open((sel && sel.value) || t.getAttribute('data-ex-open') || '5 years', t);
+      open((sel && sel.value) || t.getAttribute('data-ex-open') || WF_STR.years5, t);
     });
     var pinned = document.querySelector('[data-ex-pinned]');
     if (pinned) open(pinned.getAttribute('data-ex-pinned'), null);
@@ -1467,7 +1659,7 @@ window.WF_PAY = window.WF_PAY || {
     /* DATES ARE COUNTED FROM THE PROTOTYPE'S NOW, round 15: every cool down
        ended on 25 Aug and a six month exclusion on 21 Aug 2031. */
     var NOW = Date.UTC(2026, 7, 21, 9, 31), MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    var COOL = { '24 hours': 1, '7 days': 7, '30 days': 30 };
+    var COOL = {}; COOL[WF_STR.hours24] = 1; COOL[WF_STR.days7] = 7; COOL[WF_STR.days30] = 30;
     function fmt(t) { var d = new Date(t); return d.getUTCDate() + ' ' + MON[d.getUTCMonth()] + ' ' + d.getUTCFullYear() + ', 09:31'; }
     var q = function (k) { var m = new RegExp('[?&]' + k + '=([^&]+)').exec(location.search); return m ? decodeURIComponent(m[1]) : null; };
     var ce = document.querySelector('[data-rp-cool-ends]');
@@ -1496,7 +1688,7 @@ window.WF_PAY = window.WF_PAY || {
       var cb = e.target.closest('[data-rp-cool]');
       if (cb) {
         var sel = cb.closest('.wf-set-ctl') && cb.closest('.wf-set-ctl').querySelector('select');
-        var per = sel ? sel.value : '24 hours', end = NOW + (COOL[per] || 1) * 864e5;
+        var per = sel ? sel.value : WF_STR.hours24, end = NOW + (COOL[per] || 1) * 864e5;
         var curEnd = page.getAttribute('data-rp-cool-end');
         /* A RUNNING COOL DOWN EXTENDS AND NEVER SHORTENS, round 15: the press
            reopened the same page and changed nothing. */
@@ -1874,7 +2066,7 @@ window.WF_PAY = window.WF_PAY || {
       // copied link and a session with no script all still reach the address.
       // A trigger whose only route is a script handler is a destination that
       // does not exist for a keyboard either, 0.13 section 8.
-      var si = el('a', 'wf-btn', 'Sign in');
+      var si = el('a', 'wf-btn', WF_STR.signIn);
       si.href = BASE + 'signin.html';
       si.setAttribute('data-auth-open', 'default');
       right.appendChild(si);
@@ -2099,7 +2291,7 @@ window.WF_PAY = window.WF_PAY || {
     // that looks like a policy.
     var help = el('div', 'wf-foot-help');
     help.appendChild(el('p', 'wf-foot-h', 'Need help?'));
-    var sup = el('a', 'wf-btn', 'Support');
+    var sup = el('a', 'wf-btn', WF_STR.support);
     sup.href = BASE + 'support.html';
     help.appendChild(sup);
     c1.appendChild(help);
@@ -2137,13 +2329,13 @@ window.WF_PAY = window.WF_PAY || {
     // by this and that is said out loud in D-45 rather than reasoned away: what the
     // rule protects, a titled section that is nobody's subheading, is intact.
     [
-      [['Play', [['Cases', 'catalogue.html']]]],
-      [['Cases', [['All cases', 'catalogue.html'], ['Ironbound', 'case.html'],
+      [['Play', [[WF_STR.cases, 'catalogue.html']]]],
+      [[WF_STR.cases, [[WF_STR.allCases, 'catalogue.html'], ['Ironbound', 'case.html'],
                   ['Warsteel', 'case.html'], ['Coldfront', 'case.html'],
                   ['Nightfall', 'case.html']]]],
-      [['Company', [['Terms of use', 'legal.html'], ['Privacy policy', 'legal-unpublished.html?doc=privacy'],
-                    ['Cookie policy', 'legal-unpublished.html?doc=cookie'], ['Refund and payments policy', 'legal-unpublished.html']]]],
-      [['Help', [['Provably fair', 'fair.html'], ['Contact support', 'support.html']]],
+      [['Company', [[WF_STR.termsOfUse, 'legal.html'], [WF_STR.privacyPolicy, 'legal-unpublished.html?doc=privacy'],
+                    [WF_STR.cookiePolicy, 'legal-unpublished.html?doc=cookie'], [WF_STR.refundPolicy, 'legal-unpublished.html']]]],
+      [['Help', [[WF_STR.provablyFair, 'fair.html'], ['Contact support', 'support.html']]],
        // 'WHERE WE OPERATE' HAS NO DESTINATION ON THE MAP, and the registry check
        // added on 22 August 2026 is what found it: markets.html is the IA
        // filename of register 0.12, and a register is read rather than visited.
@@ -2158,7 +2350,7 @@ window.WF_PAY = window.WF_PAY || {
        /* WHERE WE OPERATE LEFT THE COLUMN, round 14: a row with no destination
           is the dead item a carrier may not hold, and the map has none for a
           visitor who is not refused. footer.md carries it as an open item. */
-       ['Play responsibly', [['Responsible play', 'responsible.html']]]]
+       ['Play responsibly', [[WF_STR.responsiblePlay, 'responsible.html']]]]
     ].forEach(function (track) {
       var c = el('div', 'wf-foot-col' + (track.length > 1 ? ' wf-foot-col--stack' : ''));
       track.forEach(function (col) {
@@ -2282,7 +2474,7 @@ window.WF_PAY = window.WF_PAY || {
     // THE SENTENCE STAYS, and it is the only part that was ever product copy: rule 10
     // of the published-numbers register is what makes it true, and a person reading a
     // price is owed it whether or not a record number is stapled to the end.
-    fine.appendChild(el('span', 'wf-fig-c', 'Prices are in coins. 1 coin = $1.00'));
+    fine.appendChild(el('span', 'wf-fig-c', 'Prices are in coins. ' + WF_STR.peg));
     b3.appendChild(fine);
 
     // Collapsed is a MOBILE default, not a state the desktop inherits. Above 900 the
@@ -2437,8 +2629,9 @@ window.WF_PAY = window.WF_PAY || {
      half that is still [?], and a list of unknowns is not a statement yet.
      THE ORDER IS THE SAME IN BOTH CARRIERS. The declarations come before the
      providers, D-56, because the node's own default state says the reason is
-     "stated in text above it" and because four inert buttons above their reason
-     is worse than one.
+     "stated in text above it", and four buttons above their reason was worse than
+     one. Since D-58 the buttons are live and a press refuses; since D-130 the line
+     above them is empty until that press needs it.
      ========================================================================== */
   /* WHERE SIGN IN LANDS, round 14. It went to case-open.html from everywhere,
      which is a case opened and paid for that nobody pressed, and from a typed
@@ -2494,7 +2687,7 @@ window.WF_PAY = window.WF_PAY || {
       out.push('<p class="wf-fail-p"><b>This is on Steam&#39;s side.</b> Try again shortly. Everything public still works without an account.</p>');
       out.push('<div class="wf-fail-acts">');
       out.push('<a class="wf-btn wf-btn--primary" href="case.html">Back to the case</a>');
-      out.push('<a class="wf-btn" href="fair.html">Provably fair</a>');
+      out.push('<a class="wf-btn" href="fair.html">' + WF_STR.provablyFair + '</a>');
       out.push('</div>');
       out.push('</div>');
     }
@@ -2660,7 +2853,7 @@ window.WF_PAY = window.WF_PAY || {
           '<button class="wf-dlg-close" type="button" aria-label="Close">✕</button>' +
           '<div class="wf-dlg-art" aria-hidden="true">Image</div>' +
           '<div class="wf-dlg-body">' +
-            '<p class="wf-dlg-h" id="wf-dlg-h">Sign in</p>' +
+            '<p class="wf-dlg-h" id="wf-dlg-h">' + WF_STR.signIn + '</p>' +
             authCard(state || 'default', 'dialog') +
           '</div>' +
         '</div>' +
@@ -2899,7 +3092,7 @@ window.WF_PAY = window.WF_PAY || {
     // NEVER A LIST OF THE MARKETS THAT ARE OPEN. The footer's market statement
     // is the public face of the register; this dialog answers one person.
     return '<div class="wf-gate-acts">' +
-      '<a class="wf-btn wf-btn--primary" href="support.html">Support</a>' +
+      '<a class="wf-btn wf-btn--primary" href="support.html">' + WF_STR.support + '</a>' +
       '<a class="wf-btn" href="fair.html">How drops are proven</a>' +
     '</div>';
   }
@@ -3029,9 +3222,9 @@ window.WF_PAY = window.WF_PAY || {
         '<span class="wf-fpair-v">' + R.hash + '</span></div>' +
       '<div class="wf-fpair"><span class="wf-fpair-k">Server seed, revealed after</span>' +
         '<span class="wf-fpair-v">' + R.seed + '</span></div>' +
-      '<div class="wf-fpair"><span class="wf-fpair-k">Client seed</span><span class="wf-fpair-v">' + R.client + '</span></div>' +
-      '<div class="wf-fpair"><span class="wf-fpair-k">Nonce</span><span class="wf-fpair-v">' + R.nonce + '</span></div>' +
-      '<div class="wf-fpair"><span class="wf-fpair-k">Settled result</span><span class="wf-fpair-v">' + R.ticket + '</span></div>' +
+      '<div class="wf-fpair"><span class="wf-fpair-k">' + WF_STR.clientSeed + '</span><span class="wf-fpair-v">' + R.client + '</span></div>' +
+      '<div class="wf-fpair"><span class="wf-fpair-k">' + WF_STR.nonce + '</span><span class="wf-fpair-v">' + R.nonce + '</span></div>' +
+      '<div class="wf-fpair"><span class="wf-fpair-k">' + WF_STR.settledResult + '</span><span class="wf-fpair-v">' + R.ticket + '</span></div>' +
       '<div class="wf-fpair"><span class="wf-fpair-k">Ticket range it landed in</span><span class="wf-fpair-v">' + R.range + ', ' + R.w + ' ' + R.s + '</span></div>';
 
     if (state === 'unavailable') {
@@ -3091,9 +3284,20 @@ window.WF_PAY = window.WF_PAY || {
     var cr = q('.wf-caserow'); if (cr && K !== 'Ironbound') cr.setAttribute('href', BASE + 'catalogue.html');
     var v = document.querySelectorAll('.wf-vals .wf-fig');
     if (v[0]) v[0].innerHTML = '<span class="wf-fig-v">' + R.won + ' coins</span><span class="wf-fig-c">Worth when it was won, ' + R.at + '</span>';
-    if (v[1]) v[1].innerHTML = '<span class="wf-fig-v">' + R.now + ' coins</span><span class="wf-fig-c">Worth now, read 21 Aug 2026 09:31</span>';
+    if (v[1]) v[1].innerHTML = '<span class="wf-fig-v">' + R.now + ' coins</span><span class="wf-fig-c">' + WF_STR.worthNow + '</span>';
     var o = q('.wf-caserow .wf-fig-c');
     if (o) o.textContent = 'Opened ' + R.at;
+    // THE WINNER FOLLOWS THE ROUND, round 15 step 9: a tile naming a sample winner
+    // opened a page won by the account. A bot or a hidden profile is not a link,
+    // ticker.md 0.6, and a bot keeps its label.
+    var fr = FEED.filter(function (r) { return r[5] === roundKey(); })[0];
+    var wn = q('.wf-who-n');
+    if (fr && wn && roundKey() !== 'ak') {
+      var wa = wn.querySelector('a'), ws = wn.querySelector('strong');
+      if (ws) ws.textContent = FEED_WHO[fr[5]];
+      if (wa && (fr[3] || fr[4])) wa.replaceWith(ws);
+      if (fr[3]) wn.appendChild(el('span', 'wf-feed-bot', ' bot'));
+    }
   }
 
   /* The verifier opens prefilled with the round it was sent from. */
@@ -3422,7 +3626,7 @@ window.WF_PAY = window.WF_PAY || {
     // B4, THE FOUR MODES, D-27. No visible heading: the baseline has none and
     // the cards say what they are. The H2 stays for the outline, hidden.
     out.push('<section class="wf-sec wf-sec--flush" aria-labelledby="h2-modes"><h2 id="h2-modes" class="wf-vh">Ways to play</h2><div class="wf-grid wf-modes">');
-    [['Cases', 'Open a case, see every chance.', true], ['Case battles', 'Open against someone, highest total wins.'],
+    [[WF_STR.cases, 'Open a case, see every chance.', true], ['Case battles', 'Open against someone, highest total wins.'],
      ['Gunfights', 'One round, one opponent.'], ['Upgrade', 'Trade a skin up for a better one.']].forEach(function (m) {
       out.push('<article class="wf-mode' + (m[2] ? '' : ' is-later') + '"><span class="wf-mode-art" aria-hidden="true"></span><h3>' + m[0] + '</h3><p>' + m[1] + '</p>' +
         (m[2] ? '<a class="wf-btn" href="catalogue.html">Open a case</a>' : '<p class="wf-fig-missing">Not launched yet</p>') + '</article>');
@@ -3438,7 +3642,7 @@ window.WF_PAY = window.WF_PAY || {
         '<span class="wf-tile-price"><span class="wf-tile-cost">' + c[2] + '</span><span class="wf-tile-cur">coins</span></span></a>' +
         '<button class="wf-fav" type="button" aria-pressed="' + c[4] + '" aria-label="Favourite, ' + c[3] + ' people"><span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">' + c[3] + '</span></button></article>');
     });
-    out.push('</div><div class="wf-sec-foot"><a class="wf-btn" href="catalogue.html">All cases</a></div></section>');
+    out.push('</div><div class="wf-sec-foot"><a class="wf-btn" href="catalogue.html">' + WF_STR.allCases + '</a></div></section>');
 
     // B6, THE DAILY LADDER, D-25 and D-67, the component 3.1 mounts too.
     out.push('<section class="wf-sec" aria-labelledby="h2-daily"><div class="wf-sec-head"><h2 id="h2-daily">Daily cases</h2>' +
@@ -3593,7 +3797,7 @@ window.WF_PAY = window.WF_PAY || {
       out.push('<section class="wf-sec" aria-labelledby="h2-observed"><div class="wf-sec-head"><h2 id="h2-observed">Published against observed</h2>' +
         '<p class="wf-sec-sub">What we publish for each tier, and what actually came out.</p></div>' +
         '<div class="wf-tablewrap"><table class="wf-table"><caption class="wf-vh">Published and observed rate per rarity tier</caption>' +
-        '<thead><tr><th scope="col">Tier</th><th scope="col">Published</th><th scope="col">Observed</th><th scope="col">Rolls</th></tr></thead><tbody>' +
+        '<thead><tr><th scope="col">Tier</th><th scope="col">Published</th><th scope="col">Observed</th><th scope="col">' + WF_STR.rolls + '</th></tr></thead><tbody>' +
         '<tr><th scope="row">Covert</th><td>4.200 %</td><td>4.06 %</td><td>41 208</td></tr>' +
         '<tr><th scope="row">Classified</th><td>6.800 %</td><td>6.94 %</td><td>41 208</td></tr>' +
         '<tr><th scope="row">Restricted</th><td>26.000 %</td><td>25.71 %</td><td>41 208</td></tr>' +
@@ -3725,7 +3929,7 @@ window.WF_PAY = window.WF_PAY || {
 
           '<div class="wf-fset">' +
             '<label class="wf-fset-h" for="f-type">Case type</label>' +
-            '<select id="f-type"><option>All</option><option>Featured</option><option>Community</option><option>Classic</option></select>' +
+            '<select id="f-type"><option>All</option><option>' + WF_STR.featured + '</option><option>' + WF_STR.community + '</option><option>' + WF_STR.classic + '</option></select>' +
           '</div>' +
 
           /* SORT WAS REFUSED HERE ON THE COMPETITOR BANK AND THE PRODUCT SORTS.
@@ -3954,10 +4158,10 @@ window.WF_PAY = window.WF_PAY || {
   var WHO = window.WF_WHO;
 
   var ACCT_TABS = [
-    { key: 'items',    label: 'My items',     file: 'account.html' },
-    { key: 'history',  label: 'History',      file: 'history.html' },
+    { key: 'items',    label: WF_STR.myItems,  file: 'account.html' },
+    { key: 'history',  label: WF_STR.history,  file: 'history.html' },
     { key: 'profile',  label: 'Profile',      file: 'profile.html' },
-    { key: 'settings', label: 'Settings',     file: 'settings.html' }
+    { key: 'settings', label: WF_STR.settings, file: 'settings.html' }
   ];
 
   function renderAcctHero(host) {
@@ -3979,7 +4183,7 @@ window.WF_PAY = window.WF_PAY || {
     crumb.setAttribute('aria-label', 'Breadcrumb');
     var ol = el('ol');
     var home = el('li');
-    var ha = el('a', null, 'Home'); ha.href = BASE + 'index-account.html';
+    var ha = el('a', null, WF_STR.home); ha.href = BASE + 'index-account.html';
     home.appendChild(ha); ol.appendChild(home);
     var mid = el('li');
     var ma = el('a', null, 'My account'); ma.href = BASE + 'account.html';
@@ -4024,7 +4228,7 @@ window.WF_PAY = window.WF_PAY || {
       /* AN UNREADABLE FIGURE IS SAID, NEVER ZEROED. Same rule the header follows. */
       money.appendChild(el('p', 'wf-fig-missing', 'Money not available: this account could not be read'));
     }
-    var add = el('a', 'wf-btn wf-ah-add', 'Add funds');
+    var add = el('a', 'wf-btn wf-ah-add', WF_STR.addFunds);
     add.href = BASE + 'deposit.html';
     // ONE ACT, ONE CARRIER, round 14: the header + opens the dialog, so this does.
     if (window.WF_SHELL && window.WF_SHELL.boundary) add.href = BASE + 'responsible.html';
@@ -4457,7 +4661,7 @@ window.WF_PAY = window.WF_PAY || {
       keys.forEach(function (k) {
         var h = ROUNDS[k].hash, row = el('span', 'wf-hash-one');
         row.appendChild(el('span', 'wf-hash-v', h.slice(0, 6) + '\u2026' + h.slice(-6)));
-        var c = el('button', 'wf-btn wf-btn--small', 'Copy'); c.type = 'button'; c.setAttribute('data-copy', h);
+        var c = el('button', 'wf-btn wf-btn--small', WF_STR.copy); c.type = 'button'; c.setAttribute('data-copy', h);
         row.appendChild(c); list.appendChild(row);
       });
       box.appendChild(list);
@@ -4499,7 +4703,7 @@ window.WF_PAY = window.WF_PAY || {
     /* ROLLS FIRST, D-128. History opens on history.html, which is the rolls,
        and the baseline opens on its first tab. The node's subject is roll
        history, so the tab that opens is the first one rather than the second. */
-    { key: 'rolls',       label: 'Rolls',       file: 'history.html' },
+    { key: 'rolls',       label: WF_STR.rolls,  file: 'history.html' },
     { key: 'items',       label: 'Items',       file: 'history-items.html' },
     { key: 'deposits',    label: 'Deposits',    file: 'history-deposits.html' },
     { key: 'withdrawals', label: 'Withdrawals', file: 'history-withdrawals.html' },
@@ -4663,7 +4867,7 @@ window.WF_PAY = window.WF_PAY || {
     meta.appendChild(a); meta.appendChild(bq);
     card.appendChild(meta);
     var acts = el('div', 'wf-plr-check');
-    var link = el('a', 'wf-btn wf-btn--small', r.hash ? 'Check this round' : 'No proof to check');
+    var link = el('a', 'wf-btn wf-btn--small', r.hash ? WF_STR.checkRound : 'No proof to check');
     if (r.hash) { link.setAttribute('href', BASE + 'result.html' + (r.key && r.key !== 'ak' ? '?round=' + r.key : '')); }
     else { link.setAttribute('href', BASE + 'history-no-seed.html'); }
     acts.appendChild(link);
@@ -4818,7 +5022,7 @@ window.WF_PAY = window.WF_PAY || {
        Case and date step through their values; Still held toggles. The clock is
        the prototype's now, 21 Aug 2026 09:31. */
     var F = { kase: 0, date: 0, held: false };
-    var cases = ['All cases'].concat(Array.prototype.map.call(host.querySelectorAll('.wf-roll'), function (x) { return x.getAttribute('data-kase'); })
+    var cases = [WF_STR.allCases].concat(Array.prototype.map.call(host.querySelectorAll('.wf-roll'), function (x) { return x.getAttribute('data-kase'); })
       .filter(function (v, i, a) { return a.indexOf(v) === i; }));
     var dates = [['Any date', 1e9], ['Last 24 hours', 24], ['Last 7 days', 168]];
     function hoursAgo(w) {
@@ -4840,7 +5044,7 @@ window.WF_PAY = window.WF_PAY || {
       var b = e.target.closest('[data-hf]');
       if (!b) return;
       var k = b.getAttribute('data-hf');
-      if (k === 'case') { F.kase = (F.kase + 1) % cases.length; b.textContent = cases[F.kase].replace(' Case', ''); if (!F.kase) b.textContent = 'All cases'; }
+      if (k === 'case') { F.kase = (F.kase + 1) % cases.length; b.textContent = cases[F.kase].replace(' Case', ''); if (!F.kase) b.textContent = WF_STR.allCases; }
       if (k === 'date') { F.date = (F.date + 1) % dates.length; b.textContent = dates[F.date][0]; }
       if (k === 'held') { F.held = !F.held; b.setAttribute('aria-pressed', F.held ? 'true' : 'false'); }
       apply();
@@ -5080,7 +5284,7 @@ window.WF_PAY = window.WF_PAY || {
     st.forEach(function (r) {
       var d = r.ours - r.p; total += d; ours += r.ours;
       var tr = el('tr');
-      [[r.w + ' ' + r.s + ', ' + r.wear, 'Skin name'], [wdFmt(r.ours), 'Your skin price'], [wdFmt(r.p), 'Market skin price'], [(d >= 0 ? '+' : '-') + wdFmt(Math.abs(d)), 'Your balance impact']].forEach(function (c) {
+      [[r.w + ' ' + r.s + ', ' + r.wear, 'Skin name'], [wdFmt(r.ours), WF_STR.yourSkinPrice], [wdFmt(r.p), WF_STR.marketSkinPrice], [(d >= 0 ? '+' : '-') + wdFmt(Math.abs(d)), WF_STR.balanceImpact]].forEach(function (c) {
         var td = el('td', null, c[0]); td.setAttribute('data-l', c[1]); tr.appendChild(td);
       });
       tb.appendChild(tr);
@@ -5137,12 +5341,12 @@ window.WF_PAY = window.WF_PAY || {
         nn.appendChild(el('span', null, r.wear + (r.pick >= 0 ? ', float ' + r.offers[r.pick].f.toFixed(7) : '')));
         it.appendChild(nn); c1.appendChild(it); tr.appendChild(c1);
 
-        var c2 = el('td', null, wdFmt(r.ours)); c2.setAttribute('data-l', 'Your skin price'); tr.appendChild(c2);
-        var c3 = el('td'); c3.setAttribute('data-l', 'Market skin price');
+        var c2 = el('td', null, wdFmt(r.ours)); c2.setAttribute('data-l', WF_STR.yourSkinPrice); tr.appendChild(c2);
+        var c3 = el('td'); c3.setAttribute('data-l', WF_STR.marketSkinPrice);
         if (r.pick < 0) c3.appendChild(el('span', 'wf-fig-missing', 'Nobody is offering one'));
         else c3.appendChild(document.createTextNode(wdFmt(r.offers[r.pick].p)));
         tr.appendChild(c3);
-        var c4 = el('td'); c4.setAttribute('data-l', 'Your balance impact');
+        var c4 = el('td'); c4.setAttribute('data-l', WF_STR.balanceImpact);
         if (r.pick < 0) c4.appendChild(el('span', 'wf-fig-missing', 'Not going out'));
         else {
           var d = impact(r);
@@ -5319,18 +5523,18 @@ window.WF_PAY = window.WF_PAY || {
       /* THE EMPTY OFFERS A ROUTE HERE BECAUSE THERE IS NOW AN ACT THAT FILLS IT,
          which is exactly the test the D-88 panel used to refuse itself one. */
       if (kind === 'cashout') {
-        wrap.appendChild(histEmpty('No cash out yet', 'When you cash items out to a wallet, the row lands here and stays, with the network, the wallet, the amount and where the request got to.', 'account.html', 'My items'));
+        wrap.appendChild(histEmpty('No cash out yet', 'When you cash items out to a wallet, the row lands here and stays, with the network, the wallet, the amount and where the request got to.', 'account.html', WF_STR.myItems));
       } else {
         wrap.appendChild(kind === 'deposits'
-          ? histEmpty('No payments yet', 'When you add funds, every attempt lands here, the ones that went through and the ones that did not.', 'deposit.html', 'Add funds')
-          : histEmpty('Nothing sent to Steam yet', 'When you send an item to Steam, the row lands here and stays, with who it is waiting on and how long it has been.', 'account.html', 'My items'));
+          ? histEmpty('No payments yet', 'When you add funds, every attempt lands here, the ones that went through and the ones that did not.', 'deposit.html', WF_STR.addFunds)
+          : histEmpty('Nothing sent to Steam yet', 'When you send an item to Steam, the row lands here and stays, with who it is waiting on and how long it has been.', 'account.html', WF_STR.myItems));
       }
     } else {
       wrap.appendChild(histTable(kind, rows));
     }
     // D-128: THE BASELINE'S LEDGERS CARRY NO NOTES. One line stays, on the
     // deposits ledger, because it is what lines a row up with a bank statement.
-    if (kind === 'deposits' && rows.length) wrap.appendChild(el('p', 'wf-note', 'Amounts in coins, 1 coin = $1.00'));
+    if (kind === 'deposits' && rows.length) wrap.appendChild(el('p', 'wf-note', 'Amounts in coins, ' + WF_STR.peg));
     if (after.length) wrap.appendChild(afterBlock(after));
     return wrap;
   }
@@ -5633,7 +5837,7 @@ window.WF_PAY = window.WF_PAY || {
              the banner. */
           '<ul class="wf-dep-facts">' +
             '<li>To withdraw, deposit at least <strong>$5.00</strong> first. It never rises.</li>' +
-            '<li>Usually credited within <strong>2 minutes</strong>. <a href="' + BASE + 'support.html">Support</a> if not.</li>' +
+            '<li>Usually credited within <strong>2 minutes</strong>. <a href="' + BASE + 'support.html">' + WF_STR.support + '</a> if not.</li>' +
             '<li>' + (o.ceiling ? 'Deposit limit <strong>$' + o.ceiling + '</strong> in force.' : 'No deposit limit set.') + ' <a href="' + BASE + 'responsible.html">' + (o.ceiling ? 'Change it' : 'Set one') + '</a></li>' +
           '</ul>' +
         '</div>' +
@@ -5652,7 +5856,7 @@ window.WF_PAY = window.WF_PAY || {
                  the same two figures were on the pane three times. The peg itself
                  stays: D-95 requires it printed at the moment money is spent, and it
                  is what makes dollars in and coins out addable at all. */
-              '<span class="wf-fig-c">at 1 coin = $1.00</span>' +
+              '<span class="wf-fig-c">at ' + WF_STR.peg + '</span>' +
             '</div>' +
             /* THE RECEIPT HOLDS WHAT MOVES THE NUMBER AND NOTHING ELSE, D-104.
                Founder on the built screen: simplify this part. It had six rows of
@@ -5742,7 +5946,7 @@ window.WF_PAY = window.WF_PAY || {
                   '<div class="wf-row"><a class="wf-btn wf-btn--primary" href="' + BASE + 'deposit-crypto.html?m=' + encodeURIComponent(coin) + '">Create my address</a></div>'
                 : '<span class="wf-fig-c">Your deposit address</span>' +
                   '<code class="wf-crypto-v" data-dep-addr>' + net0[1] + '</code>' +
-                  '<div class="wf-row"><button class="wf-btn" type="button" data-copy="' + net0[1] + '">Copy</button></div>') +
+                  '<div class="wf-row"><button class="wf-btn" type="button" data-copy="' + net0[1] + '">' + WF_STR.copy + '</button></div>') +
             '</div>' +
           '</div>' +
           '<ul class="wf-dep-facts">' +
@@ -6068,7 +6272,7 @@ window.WF_PAY = window.WF_PAY || {
           '<div class="wf-dlg wf-dlg--plain wf-dlg--pay" role="dialog" aria-modal="true" aria-labelledby="wf-dep-h">' +
             '<button class="wf-dlg-close" type="button" aria-label="Close">&#10005;</button>' +
             '<div class="wf-dlg-body">' +
-              '<p class="wf-dlg-h" id="wf-dep-h">Add funds</p>' +
+              '<p class="wf-dlg-h" id="wf-dep-h">' + WF_STR.addFunds + '</p>' +
               '<div data-pay-layer></div>' +
             '</div>' +
           '</div>' +
@@ -6716,7 +6920,7 @@ window.WF_PAY = window.WF_PAY || {
       more.appendChild(mg);
       // THE POLICY LINK WORKS BEFORE CONSENT IS GIVEN, which 0.2 already guarantees:
       // a consent dialog that links to a policy the consent gate blocks is circular.
-      var pol = el('a', null, 'Cookie policy');
+      var pol = el('a', null, WF_STR.cookiePolicy);
       pol.href = BASE + 'legal-unpublished.html?doc=cookie';
       more.appendChild(pol);
       inn.appendChild(more);
@@ -6782,7 +6986,7 @@ window.WF_PAY = window.WF_PAY || {
       sv.type = 'button';
       sv.addEventListener('click', function () { save(null); });
       more.appendChild(sv);
-      var pol = el('a', null, 'Cookie policy');
+      var pol = el('a', null, WF_STR.cookiePolicy);
       pol.href = BASE + 'legal-unpublished.html?doc=cookie';
       more.appendChild(pol);
       inn.appendChild(more);
@@ -6897,7 +7101,7 @@ window.WF_PAY = window.WF_PAY || {
   function mountLegalDoc() {
     var row = document.querySelector('[data-legal-doc]');
     if (!row) return;
-    var D = { refund: 'Refund and payments policy', privacy: 'Privacy policy', cookie: 'Cookie policy' };
+    var D = { refund: WF_STR.refundPolicy, privacy: WF_STR.privacyPolicy, cookie: WF_STR.cookiePolicy };
     var k = (/[?&]doc=([a-z]+)/.exec(location.search) || [])[1];
     if (!D[k]) k = 'refund';
     var h1 = document.querySelector('h1'); if (h1) h1.textContent = D[k];
@@ -7074,6 +7278,13 @@ window.WF_PAY = window.WF_PAY || {
     mountCommitBar();
     mountTileNames();
     Array.prototype.forEach.call(document.querySelectorAll('[data-pub]'), function (e) { e.textContent = WF_PUB[e.getAttribute('data-pub')] || e.textContent; });
+    // THE ACCOUNT'S NAME, ONCE, round 15: typed on twenty pages; WF_WHO owns it.
+    Array.prototype.forEach.call(document.querySelectorAll('[data-who]'), function (e) { var w = window.WF_WHO || {}; e.textContent = w[e.getAttribute('data-who')] || e.textContent; });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-str]'), function (e) {
+      var v = WF_STR[e.getAttribute('data-str')];
+      if (v === undefined) return;
+      if (v.indexOf('<') >= 0) e.innerHTML = v; else e.textContent = v;
+    });
     nbspFigures();
   });
 })();
