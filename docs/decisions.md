@@ -5721,3 +5721,14 @@ Stage 03 reads **Done** in `README.md`, as `_nav.js` already said. The IA regist
 ### Carried to the stage close, because `CLAUDE.md` is edited only there
 
 `CLAUDE.md` lists two MVP capabilities with no parent; `D-118`'s crypto cash out and `D-31`'s one to five count are two more. Its "fifteen since `D-36`" is ambiguous between MVP and LATER screens.
+
+
+## D-148. Round 15, step 8: the IA pages render their markdown again
+
+**Date:** 2026-10-03. **Stage:** 04, round 15, reaching back into 03. **Decided by:** the founder, "да", on step 8. **Binds:** 33 pages in `ia/`.
+
+**What was done.** Five builders, each on its own pages, made every IA page render what its markdown says now: every section has a place and a sidebar entry, struck lines render struck with the decision that replaced them, counters equal the tables they head, and the Components, SEO, Responsive and Emotional support sections that were missing on about a dozen pages are drawn. The map's and the hub's counts read 69 nodes, 53 MVP, 30 pages, 25 numbered states; the flows page carries the markdown's seven diagrams line for line, the new Flow 5 among them.
+
+**Checked.** All 35 IA pages at 1440 and 360: no script error, no horizontal scroll, every sidebar section present, no em dash.
+
+**What the rebuild found, and where it goes.** Reading every markdown file end to end surfaced about seventy places where a node contradicts itself: a line a later decision reversed and nobody struck, two sections that disagree on a count. The pages render them as written; the markdown is corrected in a pass of its own, and the pages follow.

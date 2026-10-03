@@ -139,7 +139,7 @@
   <p class="lede">Three failure surfaces on one template, 404, 500 and 503, so that a request this product cannot answer still gets an answer: what happened in words a person reads, an honest status code for the machine reading the same response, and a route onward that is inside the body rather than only in the footer. <strong>Never a soft 404, never a dead end.</strong></p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Surfaces, one template</div></div>
-    <div><div class="hero-stat-value">9</div><div class="hero-stat-label">Blocks, each with a parent</div></div>
+    <div><div class="hero-stat-value">8</div><div class="hero-stat-label">Blocks, each with a parent, B3 struck by D-82</div></div>
     <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Live competitor failures</div></div>
     <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Marketing lines</div></div>
   </div>
@@ -214,14 +214,17 @@
     <h2>Amended 23 August 2026 by D-82, the founder's screen review</h2>
     <p><strong>The founder opened the drawn 404 and asked what all of it was for.</strong> Four things left the page and one page left the node. Nothing here is a new idea: three of the four were already raised by the audit of 22 August as findings this node had not acted on.</p>
   </div>
+  <div class="card is-note">
+    <p><strong>Samples, D-124, marked here:</strong> the planned 503's end time, "03:20 UTC, which is about forty minutes from now"; the 500's reference <s><code>err-4f1c9a72-0d38-4b6e-9c51-a7b204ee31f8</code>, which is also longer than the open list asks a reference to be</s> <strong><code>E-4F1C-9A72</code>, shortened by founder decision of 3 October 2026, <code>D-146</code>, so it can be read over the phone as the open list asks</strong>; and the retired case's name, Highwater.</p>
+  </div>
   <div class="table-wrap">
     <table>
       <thead><tr><th style="width:38%">What changed</th><th>Why</th></tr></thead>
       <tbody>
         <tr><td><strong>The response block leaves the body of all seven pages</strong></td><td>Status, Served at and Retry-After are the machine half of the response printed to the human half. <code>D-66</code> forbids process prose on the product surface and the 22 August audit raised it as such. It is kept as each page&#39;s own annotation, where a reviewer still reads it against the words beside it. <strong>The address bar already shows the served address</strong>, which made the block redundant as well as wrong</td></tr>
-        <tr><td><strong>The search field leaves the 404</strong></td><td>It worked and its empty result was a real state, and neither was the objection. The page exists to say one sentence and offer one way out; a field with a submit beside it was a second job on it. The shelf carries a search and All cases is one press away</td></tr>
-        <tr><td><strong>Seven pages, not eight.</strong> <code>system-404-noresult.html</code> is deleted</td><td>Its subject was the search. A state whose subject is gone is deleted rather than carried as an empty page</td></tr>
-        <tr><td><strong>The two quick-link cards become two buttons</strong>, Home primary and All cases beside it</td><td>The destinations did not change: the transitions row still holds <code>1.0</code> and <code>3.1</code>. What went is a name plus a line of explanation each, on a page whose whole job is one sentence. <code>conventions.md</code> 1.6 holds again, one main action</td></tr>
+        <tr><td><strong>The search field leaves the 404</strong>, block B3 and the two arrivals</td><td>It worked and its empty result was a real state, and neither was the objection. The page exists to say one sentence and offer one way out; a field with a submit beside it was a second job on it. The shelf carries a search and All cases is one press away</td></tr>
+        <tr><td><strong>Seven pages, not eight.</strong> <code>system-404-noresult.html</code> is deleted, states table</td><td>Its subject was the search. A state whose subject is gone is deleted rather than carried as an empty page</td></tr>
+        <tr><td><strong>The two quick-link cards become two buttons</strong>, Home primary and All cases beside it</td><td>The destinations did not change: the transitions row still holds <code>1.0</code> and <code>3.1</code>. What went is a name plus a line of explanation each, on a page whose whole job is one sentence. <code>conventions.md</code> 1.6 holds again, one main action. <strong>This also closes the open list's item on a third destination: the answer is no</strong></td></tr>
         <tr><td><strong>And <code>system-500-noshell.html</code> keeps the stacked list</strong></td><td>Section 4&#39;s argument is that page&#39;s entire subject: on a 500 the carriers may not render, so the body is the part that is certain to. A button row is fine where the shell is standing. That page is the one where it is not</td></tr>
       </tbody>
     </table>
@@ -277,9 +280,8 @@
         <div class="wf-status">HTTP 404</div>
         <div class="wf-h1">There is nothing at this address</div>
         <div class="wf-sub">Two ways on from here.</div>
-        <div class="wf-field">Search cases</div>
-        <div class="wf-link">Home</div><div class="wf-link">All cases</div>
-        <div class="wf-foot">Full footer: legal identity, compliance line, support.</div>
+        <div class="wf-btn">Home</div><div class="wf-btn">All cases</div>
+        <div class="wf-foot">Full footer: legal identity, compliance line, support. <b>No search field since D-82.</b></div>
       </div>
 
     </div>
@@ -338,13 +340,13 @@
       <tbody>
         <tr><td><strong>B1. Status statement</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Row <span class="row-code">B5</span>, on <span class="row-code">B3-1</span></td><td>The H1 is what happened in words. <strong>The number is secondary text, never the heading.</strong> Key-Drop's page has no H1 at all</td></tr>
         <tr><td><strong>B2. Attribution: who it is waiting on</strong></td><td>n/a</td><td>Yes</td><td>Yes</td><td>Rows <span class="row-code">G1</span> and <span class="row-code">G2</span>, on <span class="row-code">B8-2</span></td><td>The withdrawal clock's rule at site scale. A wait with no owner is the pattern of 6 that made T8 the floor of the As-Is map</td></tr>
-        <tr><td><strong>B3. Search</strong></td><td><strong>Yes, the block skin.club lacks</strong></td><td>No</td><td>No</td><td>Core Job 1, <code>jtbd.md</code></td><td>A 404 has two kinds of arrival. Search answers the one that knows what it wanted. Absent on 500 and 503 because search needs the backend that is down</td></tr>
-        <tr><td><strong>B4. Quick links</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>The map's transitions, <span class="surf">1.0</span> and <span class="surf">3.1</span>, and Core Job 1</td><td>The other kind of arrival. <strong>Real anchors</strong>, per the linking planes in <code>0.13</code>: a destination reachable only by script does not exist for a crawler or for a keyboard</td></tr>
-        <tr><td><strong>B5. Support route</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Row <span class="row-code">G4</span>, and node <span class="surf">0.10</span> for Article 5(c) rapid contact</td><td>Reached through the footer, which <span class="surf">0.2</span> already declares renders in full on 404 and 500. On 500 it is the only route certainly not broken by the same failure</td></tr>
+        <tr><td><s><strong>B3. Search</strong></s></td><td><s><strong>Yes, and it is the block skin.club lacks</strong></s></td><td>No</td><td>No</td><td>Core Job 1, <code>jtbd.md</code>, arrive with enough confidence to try</td><td><s>A 404 has two kinds of arrival. Search answers the one that knows what it wanted.</s> <strong>Left the 404 by <code>D-82</code></strong>: a field with a submit beside it was a second job on a page that says one sentence. The person who knows what they wanted reaches the shelf's search through All cases, one press away. Absent on 500 and 503 because search needs the backend that is down</td></tr>
+        <tr><td><strong>B4. Quick links</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>The map's transitions, <span class="surf">1.0</span> and <span class="surf">3.1</span>, and Core Job 1</td><td>The other kind of arrival. <strong>Text links, real <code>&lt;a href&gt;</code></strong>, per the linking planes in <code>0.13</code>: a destination reachable only by script does not exist for a crawler and often not for a keyboard either</td></tr>
+        <tr><td><strong>B5. Support route</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Row <span class="row-code">G4</span>, on <span class="row-code">B8-3</span>, and node <span class="surf">0.10</span>, which exists for Article 5(c) rapid contact</td><td>Reached through the footer, which <span class="surf">0.2</span> already declares renders in full on 404 and 500. On 500 it is the only route certainly not broken by the same failure</td></tr>
         <tr><td><strong>B6. Reference</strong></td><td>No</td><td><strong>Yes</strong></td><td>No</td><td>Row <span class="row-code">B5</span>, plus <span class="row-code">G4</span>'s published deadline</td><td>One short identifier a person can paste into a ticket. A failure with no handle is one support cannot look up, which makes the deadline unmeetable</td></tr>
         <tr><td><strong>B7. Retry control and the stated end</strong></td><td>No</td><td>No</td><td><strong>Yes</strong></td><td>Row <span class="row-code">G2</span>, on <span class="row-code">B8-2</span></td><td>The Retry-After figure said in words, with a control that retries. Never an automatic reload loop</td></tr>
         <tr><td><strong>B8. Footer 0.2, in full</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="surf">0.2</span> transient states, which name <span class="surf">0.3</span> by number</td><td>Legal identity, compliance line, market statement, support button. It is what makes "never a dead end" true rather than asserted. <strong>0.2 names 404 and 500 explicitly and not 503, so the third surface inherits the same treatment and the extension is named here</strong></td></tr>
-        <tr><td><strong>B9. Navigation carriers 0.1</strong></td><td>Yes</td><td><strong>Conditional</strong></td><td>Conditional</td><td><code>D-21</code> and <code>D-22</code></td><td>Removing the carriers would make an error read as an ejection. On 500 they render only if they can render without the backend</td></tr>
+        <tr><td><strong>B9. Navigation carriers 0.1</strong></td><td>Yes</td><td><strong>Conditional, the 500 section</strong></td><td>Conditional</td><td><code>D-21</code> and <code>D-22</code>, the inherited rail and the mobile bar</td><td>Removing the carriers would make an error read as an ejection. On 500 they render only if they can render without the backend</td></tr>
       </tbody>
     </table>
   </div>
@@ -355,7 +357,7 @@
       <thead><tr><th>Refused</th><th>Why</th></tr></thead>
       <tbody>
         <tr><td><strong>The marketing sentence</strong></td><td>skin.club spends its one error line on one. <code>0.11</code> rule 1: a claim without a route is decoration that looks like evidence, and an error page is the worst place in the product to make one</td></tr>
-        <tr><td><strong>The ticker 0.8</strong></td><td><strong>The citation this row carried is dead and the refusal is not.</strong> It read &quot;renders on 1.0 and 3.3 only&quot;, and D-59 of 21 August 2026 put the feed in the shell on every page. <strong>What survives is this node&#39;s own sentence: a live feed of other people&#39;s wins beside our own failure is the tone this product does not have.</strong> That is a parent written in this file, which is what D-77 requires of any surface that takes the feed off itself, and the refusal is registered in 0.8 section 3 rather than only here</td></tr>
+        <tr><td><strong>The ticker 0.8</strong></td><td><strong>The citation this row carried is dead and the refusal is not.</strong> It read &quot;renders on <code>1.0</code> only since <code>D-31</code>&quot;, and <code>D-59</code> of 21 August 2026 put the feed in the shell on every page, so the row had been resting on a reversed rule. <strong>What survives is this node&#39;s own sentence: a live feed of other people&#39;s wins beside our own failure is the tone this product does not have.</strong> That is a parent written in this file, which is what D-77 requires of any surface that takes the feed off itself, and the refusal is registered in 0.8 section 3 rather than only here</td></tr>
         <tr><td><strong>Any live figure from 0.11</strong></td><td>On 500 and 503 the source of those figures is the thing that failed. Rule 6 of that register makes a failed source degraded rather than frozen, and the cheapest way to obey it is not to print the figure</td></tr>
       </tbody>
     </table>
@@ -379,7 +381,7 @@
     <table>
       <thead><tr><th>Arrival</th><th>What they know</th><th>The block that answers it</th></tr></thead>
       <tbody>
-        <tr><td><strong>Rot or a typo, no referrer</strong></td><td>They know what they wanted: a case name, a policy, a result they were sent</td><td><strong>Search.</strong> They can name it</td></tr>
+        <tr><td><strong>Rot or a typo, no referrer</strong></td><td>They know what they wanted: a case name, a policy, a result they were sent</td><td><s><strong>Search.</strong> They can name it</s> <strong>All cases, since <code>D-82</code></strong>, where the shelf's own search is. They can name it there</td></tr>
         <tr><td><strong>Our own dead link, internal referrer</strong></td><td>They know nothing except that we sent them here. <strong>This is our defect, not theirs</strong></td><td><strong>Quick links.</strong> There is nothing to search for, and the honest move is to put the two live destinations in front of them</td></tr>
       </tbody>
     </table>
@@ -423,8 +425,8 @@
         <div class="wf-h1">Something on our side failed</div>
         <div class="wf-sub">We know. Nothing you did caused it.</div>
         <div class="wf-kv" style="margin-top:12px"><span class="wf-k">Waiting on</span><span class="wf-v">us</span></div>
-        <div class="wf-kv"><span class="wf-k">Reference</span><span class="wf-v">7f2a ... 91c4</span></div>
-        <div class="wf-link">Home</div><div class="wf-link">All cases</div>
+        <div class="wf-kv"><span class="wf-k">Reference</span><span class="wf-v">E-4F1C-9A72 (sample)</span></div>
+        <div class="wf-btn">Home</div><div class="wf-btn">All cases</div>
         <div class="wf-scope"><b>No figures. No search. No ticker.</b> Static document, no backend call.</div>
       </div>
 
@@ -433,19 +435,19 @@
         <div class="wf-status">HTTP 503 + Retry-After</div>
         <div class="wf-h1">We are down on purpose</div>
         <div class="wf-sub">Maintenance. Waiting on us.</div>
-        <div class="wf-kv" style="margin-top:12px"><span class="wf-k">Back at</span><span class="wf-v">the published time, in words</span></div>
+        <div class="wf-kv" style="margin-top:12px"><span class="wf-k">Back at</span><span class="wf-v">03:20 UTC, about forty minutes from now (sample)</span></div>
         <div class="wf-btn">Try again</div>
         <div class="wf-scope">The header figure and the words are <b>the same figure</b>. No automatic reload.</div>
       </div>
 
       <div class="wf-proof">
         <div class="wf-proof-lbl">503, unplanned</div>
-        <div class="wf-status">HTTP 503 + Retry-After</div>
+        <div class="wf-status">HTTP 503, no Retry-After</div>
         <div class="wf-h1">We are under load and refusing requests</div>
         <div class="wf-sub">Waiting on us. No end time yet.</div>
         <div class="wf-btn">Try again</div>
         <div class="wf-link">Support</div>
-        <div class="wf-scope"><b>No invented end time.</b> Rule 3 of the numbers register forbids it everywhere else, and it forbids it here.</div>
+        <div class="wf-scope"><b>No invented end time, and the header is not sent at all.</b> Rule 3 of the numbers register forbids it everywhere else, and it forbids it here.</div>
       </div>
 
     </div>
@@ -485,14 +487,14 @@
 <section id="indexation">
   <div class="sec-head">
     <h2>Indexation, read from 0.13 rather than decided again</h2>
-    <p>The register carries one row for this node: no URL of their own, not indexed, no canonical, no schema, no breadcrumb.</p>
+    <p>Node <code>0.13</code>'s register carries one row for this node: <strong>0.3 System pages, no URL of their own, not indexed, no canonical, no schema, no breadcrumb.</strong></p>
   </div>
 
   <div class="card is-good">
     <p><strong>No URL of its own is the mechanism, not an omission.</strong> The response renders <strong>at the address that was requested</strong>. That is what makes the status honest: a redirect to <code>/404</code> would answer the request somewhere else, and the address the person typed would vanish from the browser bar along with any chance of correcting it.</p>
     <p><strong>The status code is the instrument here, not the meta tag.</strong> A <code>noindex</code> on a 404 is belt and braces at best. What removes the URL from an index is the 404 itself, and what keeps a maintenance window from removing the whole site is that a 503 is temporary by definition.</p>
     <p><strong>robots.txt disallows nothing for this node.</strong> <code>0.13</code> already explains why in general: a page a crawler is forbidden to read is a page whose instructions the crawler cannot read. Here it is simpler still, because there are no error paths to disallow.</p>
-    <p><strong>The search on the 404 must not mint indexable URLs.</strong> <code>0.13</code> marks <code>/cases?...</code> as <code>noindex, follow</code>, canonical to <code>/cases</code>. The 404's search field submits into that same route rather than inventing a second search surface.</p>
+    <p><s><strong>The search on the 404 must not mint indexable URLs.</strong> <code>0.13</code> marks <code>/cases?...</code> as <code>noindex, follow</code>, canonical to <code>/cases</code>. The 404's search field submits into that same route and inherits that same rule rather than inventing a second search surface.</s> <strong>Moot since <code>D-82</code></strong>: the 404 carries no search field, so it mints no URL at all.</p>
     <p><strong>The geo block is not one of these pages and must never become one.</strong> <code>0.12</code> section 9: the block returns 200 with content, is a state rather than a failure, and renders at the URL the person is on. A market we do not serve is not a missing page.</p>
   </div>
 </section>
@@ -508,13 +510,13 @@
     <table>
       <thead><tr><th>State</th><th>What renders</th><th>Route out</th></tr></thead>
       <tbody>
-        <tr><td><strong>404, external arrival</strong></td><td>Statement, search, quick links, footer</td><td>Search into <span class="surf">3.1</span>, or the two quick links</td></tr>
+        <tr><td><strong>404, external arrival</strong></td><td>Statement, <s>search,</s> quick links as two buttons, Home primary and All cases, footer. <strong>The search left with <code>D-82</code></strong></td><td><s>Search into <span class="surf">3.1</span>, or</s> The two quick links</td></tr>
         <tr><td><strong>404, internal referrer</strong></td><td>Identical to the person</td><td>The same, plus a counted signal that a link inside the product is dead</td></tr>
         <tr><td><strong>404 on a retired case slug</strong></td><td>The statement names that the case is gone rather than mistyped, <strong>if the product knows that</strong>, which is the 410 question</td><td><span class="surf">3.1</span>, where the rest of the shelf is</td></tr>
         <tr><td><strong>500</strong></td><td>Statement, attribution, reference, quick links, footer. <strong>No figures, no search.</strong> <strong>Drawn twice</strong>, with the carriers and without, because the 500 section makes them conditional and the open list leaves the condition to production</td><td>Support through the footer, quick links, retry by reloading the address they wanted</td></tr>
         <tr><td><strong>503, planned</strong></td><td>Statement, owner, the end time, the retry control</td><td>The retry control, support</td></tr>
         <tr><td><strong>503, unplanned</strong></td><td>Statement, owner, <strong>no invented end time</strong>, the retry control, support</td><td>Support, which is the only route that is not the thing that is down</td></tr>
-        <tr><td><strong>Search returns nothing</strong>, inside the 404</td><td>The empty result, in the same block, with the quick links still under it. <strong>A page of its own since D-79</strong>, and the search on every 404 is a live control that reaches it, because a state only a description mentions is a state nobody checks</td><td><span class="surf">3.1</span>, the full shelf, never a blank page</td></tr>
+        <tr><td><s><strong>Search returns nothing</strong>, inside the 404</s></td><td><s>The empty result, in the same block, with the quick links still under it. <strong>A page of its own since D-79</strong>, and the search on every 404 is a live control that reaches it, because a state only a description mentions is a state nobody checks</s> <strong>Deleted by <code>D-82</code> with the search it belonged to</strong>, <code>system-404-noresult.html</code> gone: a state whose subject is gone is deleted rather than carried as an empty page</td><td><s><span class="surf">3.1</span>, the full shelf, never a blank page</s></td></tr>
         <tr><td><strong>Boundary in force</strong>, <span class="surf">6.3</span></td><td>Unchanged. A system page does not editorialise about a limit</td><td>Same as its base state</td></tr>
         <tr><td><strong>Consent pending</strong>, <span class="surf">0.4</span></td><td>The banner renders here too, and nothing non-essential fires on an error page any more than anywhere else</td><td>Same as its base state</td></tr>
       </tbody>
@@ -526,28 +528,30 @@
 <section id="a11y">
   <div class="sec-head">
     <h2>Adaptive behaviour and accessibility</h2>
-    <p>Mobile base 360px, and the one thing that breaks at that width is a two-tile quick link grid.</p>
+    <p>Mobile base 360px. The quick links are two buttons since D-82, and the stacked list survives only on <code>system-500-noshell.html</code>.</p>
   </div>
 
   <div class="wf-stage">
-    <div class="wf-cap">Mobile 360px - the 404, and why the quick links are a stacked list</div>
+    <div class="wf-cap">Mobile 360px - the 404, two buttons and no search since D-82</div>
     <div class="wf-phone">
       <div class="wf-proof" style="border:none;background:none;padding:0">
         <div class="wf-status">HTTP 404</div>
         <div class="wf-h1">There is nothing at this address</div>
         <div class="wf-sub">It may have moved, or the link that sent you here was ours and was wrong.</div>
-        <div class="wf-field">Search cases</div>
-        <div class="wf-kv" style="margin-top:12px"><span class="wf-k">Go to</span><span class="wf-v">Home</span></div>
-        <div class="wf-kv"><span class="wf-k"></span><span class="wf-v">All cases</span></div>
-        <div class="wf-foot">Footer below: legal identity, compliance line, support button.<br><b>Two tiles side by side at this width truncate the longer label, and a truncated route is the defect the block exists to remove.</b></div>
+        <div class="wf-btn">Home</div><div class="wf-btn">All cases</div>
+        <div class="wf-foot">Footer below: legal identity, compliance line, support button.<br><b>Two tiles side by side at this width truncate the longer label, and a truncated route is the defect the block exists to remove.</b> Two short buttons do not; the stacked list is kept only where the carriers cannot render.</div>
       </div>
     </div>
   </div>
 
   <div class="card">
+    <p><strong>Mobile, base, 360px.</strong> The statement, <s>then the search field at full width,</s> then the quick links <s>as a stacked list rather than a tile grid</s>, <strong>two buttons since <code>D-82</code>, and the stacked list only on <code>system-500-noshell.html</code></strong>. <strong>Two tiles side by side at 360px is how the label of the longer destination gets truncated</strong>, and a truncated route is the defect the block exists to remove. The footer follows in its own stacked form, <code>0.2</code> section 6.</p>
+    <p><strong>Desktop, from 900px.</strong> The rail keeps its place, the statement sits in the content column at a readable measure rather than centred across the full width, and the quick links stay two buttons beside each other, the stacked list again only where the carriers cannot render.</p>
+  </div>
+  <div class="card">
     <p><strong>Exactly one H1, and it is what happened in words</strong>, per <code>0.13</code>. Never the numeral alone. The numeral is present, because a person reporting the problem needs it, and it is secondary text.</p>
     <p><strong>The title carries the same statement.</strong> It is what a person sees in the tab and in their history, and it is the one part of an error page that survives being left open in a background tab.</p>
-    <p><strong>The search field is not autofocused.</strong> Autofocus jumps a screen reader past the statement, which is the one sentence the page exists to deliver.</p>
+    <p><s><strong>The search field is not autofocused.</strong></s> <strong>No field on these pages is autofocused</strong>, and since <code>D-82</code> the 404 has none. Autofocus jumps a screen reader past the statement, which is the one sentence the page exists to deliver.</p>
     <p><strong>Focus starts at the top of the main landmark</strong>, so the statement is the first thing read.</p>
     <p><strong>The statement is text, never an image</strong>, generalising <code>0.11</code> rule 8. An error a person cannot select, copy or have read aloud cannot be reported.</p>
     <p><strong>Colour never carries the state.</strong> The words carry it.</p>

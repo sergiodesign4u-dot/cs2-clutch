@@ -155,9 +155,14 @@
   <p class="lede">The page explains what a round proof does and does not prove, in public and with no account, and then lets anyone recompute a round with our algorithm or with somebody else's. It carries the <code>D-14</code> limit in long form: <strong>the proof shows the outcome was fixed before you clicked, and it does not show that the published chances are the chances used.</strong> The second question has a different answer in this product, and this page routes to it rather than pretending to cover it.</p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Accounts required, ever</div></div>
-    <div><div class="hero-stat-value">8</div><div class="hero-stat-label">Blocks, mobile first</div></div>
+    <div><div class="hero-stat-value">7</div><div class="hero-stat-label">Blocks, mobile first, and block 6 struck by D-130</div></div>
     <div><div class="hero-stat-value">2</div><div class="hero-stat-label">States that are nodes: 1.3, 1.4</div></div>
     <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Call to action</div></div>
+  </div>
+  <div class="card" style="margin-top:28px">
+    <p><strong>Type:</strong> page. <strong>Group:</strong> <code>pages</code>. <strong>Scope:</strong> MVP. <strong>Cluster:</strong> 1, decide whether this place is real. <strong>Alias:</strong> <code>S-A2</code>. <strong>States that are numbered nodes:</strong> <span class="surf">1.3</span> verifier, malformed round, and <span class="surf">1.4</span> verifier, our own proof failed.</p>
+    <p><strong>URL:</strong> <code>/provably-fair</code>. <strong>Breadcrumb:</strong> Home &gt; Provably fair. <strong>Indexed</strong>, canonical self, schema <code>WebPage</code>. All four are inherited from node <span class="surf">0.13</span> sections 3 and 7, not decided here. <strong>Renders:</strong> node <span class="surf">0.14</span>, canonical round proof, variant V4. This node does not restate <span class="surf">0.14</span> and may not contradict it.</p>
+    <p><strong>Jobs served.</strong> Related Job 3, verify the outcome after I open, and Core Job 1, arrive with confidence to try, before login. <strong>Parent class, all three present:</strong> job, backlog row <span class="row-code">H1</span>; barrier, <code>B2-1</code> the pre-login information wall; constraint, "provable fairness as a legal and trust requirement", plus design principle 1 quoted by its <code>D-14</code> limit.</p>
   </div>
 </div>
 
@@ -326,12 +331,12 @@
     <table>
       <thead><tr><th>#</th><th>Block</th><th>First screen</th><th>Parent</th></tr></thead>
       <tbody>
-        <tr><td><strong>1</strong></td><td><strong>What this proves, and what it does not.</strong> H1, one line saying the page is public, the two part scope statement, two jump links</td><td><strong>Yes</strong></td><td>Design principle 1 as limited by <code>D-14</code>; row <span class="row-code">H1</span></td></tr>
+        <tr><td><strong>1</strong></td><td><strong>What this proves, and what it does not.</strong> H1, one line saying the page is public and needs no account, the two part scope statement, and two jump links, "Check a round" and "Read the algorithm". <strong>It sits under the H1 with no H2 of its own</strong>, its halves labelled "What this proves" and "What this does not prove", and since <code>D-130</code> the second half carries block 6's three routes as "Where that is answered"</td><td><strong>Yes</strong></td><td>Design principle 1 as limited by <code>D-14</code>; row <span class="row-code">H1</span></td></tr>
         <tr><td><strong>2</strong></td><td><strong>How a round is fixed before you click.</strong> Four steps in plain words, plus the two reasons a round may have no proof to check yet</td><td>No</td><td>Related Job 3; rows <span class="row-code">E4</span> and <span class="row-code">E1</span></td></tr>
         <tr><td><strong>3</strong></td><td><strong>What a round proof is made of.</strong> The field set from <span class="surf">0.14</span>, read only, no inputs</td><td>No</td><td><span class="surf">0.14</span>, whose parents are Related Job 3 and Core Job 1</td></tr>
         <tr><td><strong>4</strong></td><td><strong>Check a round.</strong> Variant V4 of <span class="surf">0.14</span>. The page's one call to action</td><td>No</td><td>Row <span class="row-code">H1</span>, "public provably fair page, no login, working verifier"</td></tr>
         <tr><td><strong>5</strong></td><td><strong>If your check does not match ours.</strong> What we do, what you get, the published response deadline</td><td>No</td><td>Row <span class="row-code">G4</span>; node <span class="surf">1.4</span></td></tr>
-        <tr><td><strong>6</strong></td><td><strong>The question this page does not answer.</strong> The limit again, this time as routes</td><td>No</td><td><code>D-14</code>; rows <span class="row-code">D3</span>, <span class="row-code">D2</span>, <span class="row-code">D4</span></td></tr>
+        <tr><td><s><strong>6</strong></s></td><td><s><strong>The question this page does not answer.</strong> The long form of the limit again, this time as routes</s> <strong>Removed by <code>D-130</code>: it repeated block 1.</strong> Its three routes live in block 1</td><td><s>No</s></td><td><code>D-14</code>; rows <span class="row-code">D3</span>, <span class="row-code">D2</span>, <span class="row-code">D4</span></td></tr>
         <tr><td><strong>7</strong></td><td><strong>The algorithm, published in full.</strong> The computation, a worked example, the version history</td><td>No</td><td><span class="surf">0.14</span> rule 4.1 and section 6</td></tr>
         <tr><td><strong>8</strong></td><td><strong>Questions.</strong> Accordion for the tail only</td><td>No</td><td><code>B2-1</code>, the pre-login information wall</td></tr>
       </tbody>
@@ -351,7 +356,8 @@
         <div class="wf-txt">This page is public. You do not need an account to read it, and you do not need one to check a round.</div>
         <div class="wf-stack" style="margin-top:9px">
           <div><div class="wf-mm-h">What this proves</div><div class="wf-txt" style="margin-top:0">The result was fixed before you clicked and was not changed afterwards</div></div>
-          <div><div class="wf-mm-h">What this does not prove</div><div class="wf-txt" style="margin-top:0">That the chances we publish are the chances the roll used. <b>That question is answered on the case screen.</b></div></div>
+          <div><div class="wf-mm-h">What this does not prove</div><div class="wf-txt" style="margin-top:0">That the chances we publish are the chances the roll used.</div></div>
+          <div><div class="wf-mm-h">Where that is answered</div><div class="wf-txt" style="margin-top:0">The observed rate beside the published percentage, the chance and value on every item, the tested RTP and expected value at the entry cost.</div></div>
         </div>
         <div class="wf-link">Check a round</div>
         <div class="wf-link" style="margin-left:14px">Read the algorithm</div>
@@ -377,14 +383,16 @@
       <div class="wf-blk is-cta">
         <div class="wf-blk-n">Block 4 - variant V4 of 0.14. The one call to action</div>
         <div class="wf-h2">Check a round</div>
-        <div class="wf-lbl">Server seed hash</div>
+        <div class="wf-lbl">Server seed hash, published before the round</div>
+        <div class="wf-input">paste</div>
+        <div class="wf-lbl">Server seed, revealed on rotation</div>
         <div class="wf-input">paste</div>
         <div class="wf-lbl">Client seed</div>
         <div class="wf-input">paste</div>
         <div class="wf-lbl">Nonce</div>
         <div class="wf-input">paste</div>
         <div class="wf-btn">Check this round</div>
-        <div class="wf-note">Labels above the fields, never a placeholder as the only label.</div>
+        <div class="wf-note">The four fields of variant V4. Labels above the fields, never a placeholder as the only label.</div>
       </div>
 
       <div class="wf-blk">
@@ -393,12 +401,7 @@
         <div class="wf-txt">What we do, what you get, and the deadline we answer inside. This is the block state <b>1.4</b> links into.</div>
       </div>
 
-      <div class="wf-blk">
-        <div class="wf-blk-n">Block 6</div>
-        <div class="wf-h2">The question this page does not answer</div>
-        <div class="wf-txt">Whether the published chances are the chances used. <b>Three routes:</b> the observed rate counter beside the published percentage, the chance and value on every item, the tested RTP and expected value at the entry cost.</div>
-        <div class="wf-link">Open a case screen and see all three</div>
-      </div>
+      <div class="wf-note" style="margin:0 0 10px"><s>Block 6, The question this page does not answer</s>. Removed by <code>D-130</code>: it repeated block 1, and its three routes live there.</div>
 
       <div class="wf-blk">
         <div class="wf-blk-n">Block 7</div>
@@ -413,26 +416,15 @@
       </div>
 
       <div class="wf-bar" style="margin-top:8px;margin-bottom:0"><span>footer 0.2</span></div>
-      <div class="wf-bar" style="margin-bottom:0"><span>home</span><span>cases</span><span>provably fair</span></div>
+      <div class="wf-bar" style="margin-bottom:0"><span>home</span><span>cases</span></div>
 
     </div>
-    <div class="wf-note" style="margin-top:12px">The bottom bar carries Provably fair as one of three, a shortcut subset of the rail, node <code>0.1</code>. Values in every mockup on this page are wireframe placeholders carried from <code>0.14</code>'s own mockup, not data.</div>
+    <div class="wf-note" style="margin-top:12px">The bottom bar is a shortcut subset of the rail, node <code>0.1</code>; Provably fair is carried by the footer. Values in every mockup on this page are wireframe placeholders carried from <code>0.14</code>'s own mockup, not data.</div>
   </div>
 
   <div class="wf-stage">
-    <div class="wf-cap">Desktop - a contents column and a measured content column</div>
-    <div class="wf-two">
-      <div class="wf-toc">
-        <b>On this page</b>
-        1. What this proves<br>
-        2. How a round is fixed<br>
-        3. What a proof is made of<br>
-        4. Check a round<br>
-        5. If it does not match<br>
-        6. The question this page does not answer<br>
-        7. The algorithm<br>
-        8. Questions
-      </div>
+    <div class="wf-cap">Desktop - a measured content column, and no contents column since D-146</div>
+    <div>
       <div>
         <div class="wf-blk">
           <div class="wf-h1">Provably fair: check any round yourself</div>
@@ -457,7 +449,7 @@
   <div class="card is-note">
     <h4>Two blocks the bank supplied and the jobs did not, plus one borrowed across nodes</h4>
     <p><strong>Block 8</strong> is the Refero Ableton row in <code>blocks.md</code> section 8, "FAQ accordion below the substance rather than instead of it", plus the Hellcase sectioned FAQ structure on the same table.</p>
-    <p><strong>The desktop contents column</strong> is the Refero WhatsApp two column help article, which the bank assigns to node <span class="surf">0.10</span>. It is reused here at desktop width only, and it is named rather than smuggled in.</p>
+    <p><strong>The desktop contents column</strong> is the Refero WhatsApp two column help article, which the bank assigns to node <span class="surf">0.10</span>. It is reused here at desktop width only, and it is named rather than smuggled in. <strong>Not drawn at stage 04:</strong> the grey page is one column at every width and carries no contents column, and <code>D-146</code> dropped it.</p>
     <p><strong>And one block was refused although the bank offers it.</strong> The skin.club About block with an H3 "Provably Fair" inside a marketing section is marked DIFFERENT against design principle 1. Nothing on this page restates the product's virtues.</p>
   </div>
 </section>
@@ -486,6 +478,10 @@
         <tr><td><strong><span class="row-code">D3</span> withdrawn</strong></td><td>Block 6 loses the observed rate counter and keeps <span class="row-code">D2</span> and <span class="row-code">D4</span></td><td>The case screen anyway</td></tr>
       </tbody>
     </table>
+  </div>
+
+  <div class="card is-soon">
+    <p>The rows that still name block 6 are the node's wording. <strong>Block 6 was removed by <code>D-130</code></strong> and its three routes live in block 1, "Where that is answered".</p>
   </div>
 
   <div class="card is-fix">
@@ -520,7 +516,7 @@
         <div class="wf-kv"><span class="wf-k">Recomputes</span><span class="wf-v">7 341</span></div>
         <div class="wf-kv"><span class="wf-k">We published</span><span class="wf-v">7 341, in 7 300 - 7 420</span></div>
         <div class="wf-scope"><b>No badge, no tick, no counter.</b> The recomputation and its inputs, plainly. A person who verifies once is not rewarded for verifying twice.</div>
-        <div class="wf-link">The question this does not answer</div>
+        <div class="wf-link">Where that is answered</div>
       </div>
 
       <div class="wf-proof">
@@ -600,7 +596,7 @@
         <div class="wf-txt"><b>These do not agree, and that is ours to explain rather than yours to prove.</b></div>
         <div class="wf-btn">Report this round</div>
         <div class="wf-txt">The round is attached automatically. There is no form to fill in.</div>
-        <div class="wf-scope"><b>Reference:</b> given on report. <b>You get an answer inside</b> <span class="q">[?]</span>, the published deadline. <b>It arrives at</b> support, node 0.10.</div>
+        <div class="wf-scope"><b>Reference:</b> given on report. <b>You get an answer within 72 hours</b>, a sample deadline, <code>D-130</code>; the published value is <span class="q">[?]</span>. <b>It arrives at</b> support, node 0.10.</div>
         <div class="wf-note">No open a case. No try another round. No next. The dead end keeps its shape.</div>
       </div>
     </div>
@@ -717,6 +713,35 @@
   </div>
 </section>
 
+<!-- RESPONSIVE -->
+<section id="responsive">
+  <div class="sec-head">
+    <h2>Responsive</h2>
+    <p>Mobile, 360px base, and desktop designed deliberately rather than stretched.</p>
+  </div>
+
+  <div class="card">
+    <h4>Mobile, 360px base</h4>
+    <ul>
+      <li>One column throughout. The scope statement in block 1 is two stacked halves with a heading on each, never a two column table at this width.</li>
+      <li>Block 3's field set renders as a definition list rather than a table. A three column table at 320px of content width is a horizontal scroll on the page's most quoted block.</li>
+      <li>Every hash truncates in the middle with a copy control beside it, <span class="surf">0.14</span> section 5. Copy is a control, not a hover affordance.</li>
+      <li>Verifier inputs are full width with a visible label above each. <strong>A placeholder is never the only label</strong>, because the label disappears at the moment the person is comparing what they pasted against what they meant to paste.</li>
+      <li>The mismatch comparison stacks, ours above the recomputation, with a full label on each. Two unlabelled columns of hex at 320px is the one layout this state cannot afford.</li>
+      <li>The version history table is the only table permitted to scroll inside its own container, and it scrolls inside the container rather than moving the page.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4>Desktop</h4>
+    <ul>
+      <li>A measured content column, <s>plus a contents column on the left carrying the eight H2s</s> <strong>(the contents column is dropped by <code>D-146</code>)</strong>, from the Refero WhatsApp row in <code>blocks.md</code> section 8, reused across nodes. <strong>The rendered page has six H2s and no contents column.</strong></li>
+      <li>The verifier stays the full width of the content column. <strong>It never becomes a sidebar widget</strong>, which is the shape the Key-Drop mock verifier takes and the shape that reads as decoration.</li>
+      <li>The mismatch comparison goes side by side.</li>
+    </ul>
+  </div>
+</section>
+
 <!-- SEO -->
 <section id="seo">
   <div class="sec-head">
@@ -743,8 +768,17 @@
   <h3>B. Headings</h3>
   <div class="card">
     <p><strong>One H1:</strong> Provably fair: check any round yourself. It carries the destination's own label, which node <span class="surf">0.1</span> fixes as one label per destination in every carrier, and it says the page's job in words, which <span class="surf">0.13</span> section 5 requires.</p>
-    <p><strong>H2 list, in block order, which is the mechanical check at stage 04:</strong> 1. What this proves, and what it does not. 2. How a round is fixed before you click. 3. What a round proof is made of. 4. Check a round. 5. If your check does not match ours. 6. The question this page does not answer. 7. The algorithm, published in full. 8. Questions.</p>
-    <p>H3s exist only under H2 7: the computation, a worked example, version history.</p>
+    <p><strong>H2 list, in block order, which is the mechanical check at stage 04:</strong></p>
+    <ol>
+      <li>How a round is fixed before you click</li>
+      <li>What a round proof is made of</li>
+      <li>Check a round</li>
+      <li>If your check does not match ours</li>
+      <li>The algorithm, published in full</li>
+      <li>Questions</li>
+    </ol>
+    <p><strong>Two H2s left the list, struck rather than deleted:</strong> <s>What this proves, and what it does not</s>, because block 1 sits under the H1 with no H2 of its own; and <s>The question this page does not answer</s>, removed with its block by <code>D-130</code>.</p>
+    <p><strong>Six H2s, as rendered.</strong> H3s exist only under "The algorithm, published in full": the computation, a worked example, version history.</p>
   </div>
 
   <h3>C. SEO text, finished</h3>
@@ -766,8 +800,8 @@
 
   <h3>E. Optimisation checklist</h3>
   <div class="card">
-    <p>1. Exactly one H1, and the eight H2s in block order. 2. The breadcrumb Home &gt; Provably fair is drawn, and <code>BreadcrumbList</code> markup only because it is visible. 3. Every route out is a crawlable <code>&lt;a href&gt;</code>: the case screen, <span class="surf">0.10</span>, <span class="surf">7.1</span>, <span class="surf">1.0</span>. 4. Canonical present, no hreflang anywhere.</p>
-    <p>5. <strong>Every field value is text, never an image</strong>, <code>0.11</code> rule 8 and <code>0.14</code> section 5. A hash in a picture cannot be pasted into anyone's verifier, and it is invisible to a screen reader in the same stroke. 6. <strong>LCP is the first screen text block</strong>, so block 1 carries no image that could take that slot from it, design principle 5. 7. <strong>Blocks 1, 2, 3, 5, 6, 7 and 8 render without script.</strong> Only the recompute control needs it, and it says so rather than rendering dead. 8. The description has a source on the page, which is block 1.</p>
+    <p>1. Exactly one H1, and the six H2s in block order. 2. The breadcrumb Home &gt; Provably fair is drawn, and <code>BreadcrumbList</code> markup only because it is visible. 3. Every route out is a crawlable <code>&lt;a href&gt;</code>: the case screen, <span class="surf">0.10</span>, <span class="surf">7.1</span>, <span class="surf">1.0</span>. 4. Canonical present, no hreflang anywhere.</p>
+    <p>5. <strong>Every field value is text, never an image</strong>, <code>0.11</code> rule 8 and <code>0.14</code> section 5. A hash in a picture cannot be pasted into anyone's verifier, and it is invisible to a screen reader in the same stroke. 6. <strong>LCP is the first screen text block</strong>, so block 1 carries no image that could take that slot from it, design principle 5. 7. <strong>Blocks 1, 2, 3, 5, 7 and 8 render without script.</strong> Only the recompute control needs it, and it says so rather than rendering dead. 8. The description has a source on the page, which is block 1.</p>
   </div>
 </section>
 
@@ -798,7 +832,7 @@
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
-    <p>Ten items, and four of them are findings this node hands back to a node that is already built.</p>
+    <p>Ten open items, four of them findings this node hands back to a node that is already built, and one closed by <code>D-146</code>.</p>
   </div>
 
   <div class="table-wrap">
@@ -809,9 +843,10 @@
         <tr><td><strong>Who sets the client seed</strong></td><td><span class="surf">0.14</span>'s first open item, recommendation user settable, no backlog row. <strong>This node adds a consequence:</strong> it also decides whether a person can force a rotation and make their own round checkable today, rather than waiting on us</td><td>Founder, one backlog row</td></tr>
         <tr><td><strong>The drop table in force at a round is not a field</strong></td><td>An independent recomputation needs the whole table as it stood at that round, not only the winning entry's ticket range, and <span class="surf">0.14</span>'s field set carries the latter. <strong>The same gap covers the algorithm version</strong>, which a round proof has to point at once a second version exists</td><td><strong>Finding for <span class="surf">0.14</span></strong>, plus production</td></tr>
         <tr><td><strong>The response deadline for a proof failure</strong></td><td>The value is <span class="q">[?]</span>, and so is the queue: row <span class="row-code">G4</span> publishes a deadline for an appeal against a withdrawal restriction, and a mismatch report is not that. <span class="surf">0.10</span> holds the service level</td><td>Founder, with <span class="surf">0.10</span></td></tr>
-        <tr><td><strong>Whether pre-migration rounds carry proofs, <code>D-B</code></strong></td><td>Decides how common the unavailable state is on day one, and whether row <span class="row-code">D3</span> exists to be linked to at all in block 6</td><td>Founder, question of fact to the live platform</td></tr>
+        <tr><td><strong>Whether pre-migration rounds carry proofs, <code>D-B</code></strong></td><td>Decides how common the unavailable state is on day one, and whether row <span class="row-code">D3</span> exists to be linked to at all in block 1's routes</td><td>Founder, question of fact to the live platform</td></tr>
         <tr><td><strong><span class="surf">0.11</span> names 1.2 as a consumer and no row in it lists 1.2</strong></td><td>Two figures this page needs have no row in the register: the published response deadline as it applies here, and the date from which published proofs exist, which the unavailable state reads</td><td><strong>Finding for <span class="surf">0.11</span></strong></td></tr>
         <tr><td><strong><span class="surf">0.13</span> holds no row for <code>/provably-fair?round=&lt;id&gt;</code></strong></td><td>This node uses <span class="surf">0.13</span>'s own rule for a parameterised view of an indexed page rather than inventing one. The row belongs there</td><td><strong>Finding for <span class="surf">0.13</span></strong></td></tr>
+        <tr><td><s><strong>The desktop contents column</strong></s></td><td colspan="2"><strong>Closed 3 October 2026, <code>D-146</code>: dropped.</strong> Six H2s are read without a contents column</td></tr>
         <tr><td><strong>Where the algorithm document lives</strong></td><td>Decided here as a named section on this page, which diverges from <code>0.14</code> section 6. Reversible at the cost of one document on the <span class="surf">0.9</span> template and one row in <span class="surf">0.13</span></td><td>Founder, if they disagree</td></tr>
         <tr><td><strong>A named third-party auditor</strong></td><td>Row <span class="row-code">A5</span>, and <code>research.md</code> section 4 cites a 2026 audit finding that no operator in the category names one. We do not have one either. <strong>This page badges nobody</strong></td><td>Founder</td></tr>
         <tr><td><strong>A citation drift, found while writing this node</strong></td><td><code>0.14</code> cites the "we have PF against you can verify before you deposit" sentence and the 2026 auditor audit to <code>research.md</code> section 5b. Both live in section 4, "3 Common Patterns". <strong>The facts are unchanged and the pointers are wrong</strong></td><td><strong>Finding for <span class="surf">0.14</span></strong>, not edited here</td></tr>
@@ -848,10 +883,11 @@ window.NAV_SECTIONS = [
   { id: 'public',    label: 'Public, no account' },
   { id: 'reader',    label: 'Who it is built for' },
   { id: 'limit',     label: 'The D-14 limit' },
-  { id: 'blocks',    label: 'Eight blocks' },
+  { id: 'blocks',    label: 'Blocks' },
   { id: 'states',    label: 'States, 1.3 and 1.4' },
   { id: 'algorithm', label: 'The algorithm' },
   { id: 'refuses',   label: 'What it refuses' },
+  { id: 'responsive', label: 'Responsive' },
   { id: 'seo',       label: 'SEO A to E' },
   { id: 'pages', label: 'Pages that draw it' },
   { id: 'open',      label: 'Open' },

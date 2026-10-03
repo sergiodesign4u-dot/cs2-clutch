@@ -151,6 +151,11 @@
     <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Register fields read, none held</div></div>
     <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Identity checks, here</div></div>
   </div>
+  <div class="card" style="margin-top:28px">
+    <p><strong>Type:</strong> dialog. <strong>Group:</strong> <code>pages</code>. <strong>Scope:</strong> MVP. <strong>Cluster:</strong> 2, get through the door. <strong>Alias:</strong> <code>S-B1</code>. <strong>URL:</strong> none. It renders at the URL the person is already on: a state has no URL of its own unless a person can arrive at it from outside, and nobody arrives at a gate from outside.</p>
+    <p><strong>Parent class:</strong> the compliance constraint in <code>CLAUDE.md</code>, quoted, <strong>"a market allowlist closed by default, so a market with no row is <code>not launched</code>"</strong>, <code>D-23</code>, by way of row <span class="row-code">B3</span>, whose own parent cell also names barrier <span class="row-code">B8-4</span>; and the compliance constraints <s>"geo blocking informed by cited legal research" and</s> "staged regional rollout resting on cited law", by way of row <span class="row-code">B4</span>. <strong>The struck quote is no longer in <code>CLAUDE.md</code></strong>; the compliance paragraph there now carries the allowlist clause and "staged regional rollout resting on cited law", both word for word. Constraint class throughout.</p>
+    <p><strong>States:</strong> <span class="surf">2.2</span> geo blocked. <strong><span class="surf">2.3</span> under age was dissolved by <code>D-26</code></strong> and its section is kept below, marked. <strong>Transitions:</strong> <span class="surf">2.2</span>, back into <span class="surf">3.3</span>. <strong>Reads <span class="surf">0.12</span> rather than holding its own constants:</strong> the verdict, the ground, the minimum age and the age method all come from the market row.</p>
+  </div>
 </div>
 
 <section id="d145">
@@ -177,6 +182,9 @@
       </tbody>
     </table>
   </div>
+  <div class="card is-note">
+    <p><strong>Samples, <code>D-124</code>, marked here:</strong> the 72 hour answer on <code>gate-blocked.html</code>, "we answer within 72 hours", standing in for the published response deadline <span class="surf">0.10</span> owns, section 12; and the blocked market's ground, which <code>gate-blocked.html</code> prints from one row of the register while every verdict there is <span class="q">[?]</span> until counsel signs it.</p>
+  </div>
 </section>
 
 <section id="d130">
@@ -189,7 +197,7 @@
     <div class="table-wrap"><table>
       <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
       <tbody>
-        <tr><td>Nothing</td><td></td><td>Each verdict is a headline, one reason, one line of what still works and two buttons. The staged cap is a sample, $100 a week. The legal ground and the register mechanics are here and on Where we operate, not in the layer</td></tr>
+        <tr><td>Nothing</td><td></td><td>Each verdict is a headline, one reason, one line of what still works and two buttons. The staged cap is a sample, $100 a week. <s>The legal ground and the register mechanics are here and on Where we operate, not in the layer</s> <strong>Superseded in round 15:</strong> <code>D-136</code> took Where we operate out of the footer, which left the ground with no place. <strong>The layer prints it</strong>, one sentence from the market's register row under "The law where you are does not allow what this site does", state 2.2 below. The register mechanics stay here</td></tr>
       </tbody>
     </table></div>
   </div>
@@ -283,15 +291,61 @@
 <!-- BLOCKS -->
 <section id="blocks">
   <div class="sec-head">
-    <h2>Five blocks, and the sixth is the one we refused</h2>
-    <p>A dialog gets a short list on purpose. Ordered as they stack at 360px.</p>
+    <h2>Blocks, mobile first. Rewritten 21 August 2026 by D-70, because D-26 had reached this node's header and not its body</h2>
+    <p><strong>What <code>D-26</code> did on 18 August 2026:</strong> the 18+ declaration left this node for the consent gate of <span class="surf">2.4</span>. <strong>The header said so and this section did not</strong>, and it went on listing the declaration, its decline control and its recording line as blocks 2, 3 and 4. <strong>Three days of this node specifying a control that had been moved.</strong></p>
+  </div>
+
+  <div class="card is-good">
+    <h4>What is left when the declaration goes is smaller than a dialog</h4>
+    <p>On an open market this node <strong>renders nothing at all</strong>: it resolves a lookup and the person continues into what they were doing. <strong>The interrupt only exists when the answer is no, or when the answer comes with a limit.</strong></p>
+  </div>
+
+  <h3>Open market: no blocks, and that is the specification</h3>
+  <div class="card">
+    <p><strong>Nothing renders.</strong> The market lookup resolves, the verdict is <code>open</code>, and the case interaction proceeds. <strong>The only thing this node may put on screen is the loading state, and its one hard rule is that it must not flash.</strong></p>
+    <p><strong>This is the whole of the change <code>D-26</code> made to the main job.</strong> The gate is still one of the three taps in the map's count, because the person still waits on it, but on an open market it costs a moment rather than a decision.</p>
+  </div>
+
+  <h3>Staged market: three blocks</h3>
+  <div class="wf-stage">
+    <div class="wf-cap">Desktop - the gate, staged market, as gate-staged.html draws it. Black and white until stage 06</div>
+    <div class="wf-anat">
+      <div class="wf-fig">
+        <div class="wf-fig-state">2.1 staged</div>
+        <div class="wf-dim">the case screen, dimmed and still there</div>
+        <div class="wf-block">
+          <div class="wf-block-h">This market is open with one limit.</div>
+          <div class="wf-block-p">Deposits are capped at <b>$100 a week</b> here for now. Withdrawal to Steam is open.</div>
+          <div class="wf-btn">Continue</div>
+          <div class="wf-btn is-ghost">Not now</div>
+          <div class="wf-open"><b>$100 a week is a sample</b>, <code>D-130</code>: the limit comes from the market row and is never invented here. Continue opens sign in, <code>D-138</code>.</div>
+        </div>
+      </div>
+      <div class="wf-legend">
+        <div class="wf-leg"><span class="wf-leg-n">1</span><span class="wf-leg-t"><b>What this is and why now</b>, one line naming the case interaction that triggered it, so the interrupt is legible as a consequence of what the person just did. <span class="row-code">B3</span>, design principle 3</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">2</span><span class="wf-leg-t"><b>The named limit in words, and what changes it.</b> From the market row, never invented here. <span class="surf">0.12</span> section 11, the <code>staged</code> verdict, and <span class="row-code">B4</span></span></div>
+        <div class="wf-leg"><span class="wf-leg-n">3</span><span class="wf-leg-t"><b>Continue, and a decline at equal weight.</b> Declining returns the person to what they were reading and records nothing. <span class="surf">0.4</span>'s "reject as easy as accept"</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Blocked or not launched: state 2.2 below</h3>
+  <div class="card is-fix">
+    <h4>No block for sign in, and it is the sharpest LEAVE in the bank</h4>
+    <p>No sign in, no case image, no balance, no bonus, no countdown, nothing that makes the interrupt feel like an offer. <strong>Merging sign in into this dialog is the Hellcase pattern.</strong></p>
+    <p><strong>Dismissal is not a declaration.</strong> Escape closes the dialog and returns the person to what they were reading. Nothing is recorded, and the gate fires again at the next case interaction.</p>
+  </div>
+
+  <h3>Kept, unedited, as the record of what this node used to hold</h3>
+  <div class="card is-soon">
+    <p><strong>The five blocks below were this node's specification until <code>D-70</code>.</strong> Blocks 2 to 5 are <span class="surf">2.4</span>'s now. The record is kept rather than deleted for the same reason state 2.3 is: the argument for putting the two questions in one place was sound, the founder overrode it knowingly, and <strong>a deleted argument cannot be reread when the decision is revisited.</strong></p>
   </div>
 
   <div class="wf-stage">
-    <div class="wf-cap">Desktop - the gate, default state, market open. Black and white until stage 06</div>
+    <div class="wf-cap">No longer built - the declaration gate as it stood until D-70</div>
     <div class="wf-anat">
       <div class="wf-fig">
-        <div class="wf-fig-state">2.1 default</div>
+        <div class="wf-fig-state"><s>2.1 default</s>, void since D-26</div>
         <div class="wf-dim">the case screen, dimmed and still there</div>
         <div class="wf-block">
           <div class="wf-block-h">Before you open this case</div>
@@ -310,12 +364,6 @@
         <div class="wf-leg"><span class="wf-leg-n">5</span><span class="wf-leg-t"><b>The 18+ statement and the route to <span class="surf">6.1</span></b>, plus the age section of <span class="surf">0.9</span></span></div>
       </div>
     </div>
-  </div>
-
-  <div class="card is-fix">
-    <h4>No block for sign in, and it is the sharpest LEAVE in the bank</h4>
-    <p>No sign in, no case image, no balance, no bonus, no countdown, nothing that makes the interrupt feel like an offer. <strong>Merging sign in into this dialog is the Hellcase pattern.</strong></p>
-    <p><strong>Dismissal is not a declaration.</strong> Escape closes the dialog and returns the person to what they were reading. Nothing is recorded, and the gate fires again at the next case interaction.</p>
   </div>
 </section>
 
@@ -344,16 +392,16 @@
     <table>
       <thead><tr><th style="width:26%">The parent's own states</th><th>Behaviour</th></tr></thead>
       <tbody>
-        <tr><td><strong>Default</strong></td><td>The declaration, unanswered, no control preselected</td></tr>
+        <tr><td><strong>Default</strong></td><td><s>The declaration, unanswered, no control preselected.</s> <strong>Void since <code>D-26</code>, carried through on 21 August 2026 by <code>D-70</code>.</strong> On an open market the default state of this node is <strong>nothing on screen</strong></td></tr>
         <tr><td><strong>Checking the market</strong></td><td>A <strong>sixth internal loading state</strong>, and the map fixed a list of five. Declared rather than smuggled in. Not a node: it has no copy of its own and no route out that differs from its parent. <strong>Its one hard rule is that it must not flash</strong>, and the threshold below which it never renders is <span class="q">[?]</span></td></tr>
         <tr><td><strong>Detection unavailable</strong></td><td>The lookup failed or returned nothing. <strong>Under an allowlist a missing row denies</strong>, <code>D-23</code>, so this renders the <code>not launched</code> message. Named because the tempting default is to fail open, and failing open is the property the allowlist was chosen to eliminate</td></tr>
-        <tr><td><strong>Declined</strong></td><td>The decline control, or Escape. Returns the person to what they were reading, records nothing, <strong>and is not a dead end</strong></td></tr>
+        <tr><td><strong>Declined</strong></td><td>The decline control, or Escape. Returns the person to what they were reading, records nothing, <strong>and is not a dead end</strong>. <strong>It survives <code>D-26</code> and its subject changed:</strong> what is declined is a staged market's limit, not an age declaration</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="card is-note">
-    <p><strong>Declined and <span class="surf">2.3</span> are not the same event, and that distinction is the whole reason 2.3 is a node.</strong> Declining to answer is a refusal to state anything. Declaring under age is a statement, and a statement we act on.</p>
+    <p><strong>Declined and <span class="surf">2.3</span> were not the same event, and the distinction is the whole reason 2.3 was a node.</strong> <strong><span class="surf">2.3</span> is dissolved</strong>, state 2.3 below, and this paragraph is kept with it. Declining to answer is a refusal to state anything. Declaring under age is a statement, and a statement we act on.</p>
   </div>
 </section>
 
@@ -393,15 +441,20 @@
           <div class="wf-block-h">We cannot serve this market</div>
           <div class="wf-block-p">The law where you are does not allow what this site does.</div>
           <div class="wf-block-p is-dim">&lt;the ground, in one readable sentence, from the row's Ground field&gt;</div>
-          <div class="wf-block-p">The instrument and its source are on file. <b>If you are not in that market, support will look at it and answer inside</b> <span class="q">[?]</span>.</div>
+          <div class="wf-block-p">The instrument and its source are on file. <b>If you are not in that market, support will look at it and answer inside</b> &lt;published deadline&gt;.</div>
           <div class="wf-btn is-ghost">Support</div>
           <div class="wf-btn is-ghost">How drops are proven</div>
-          <div class="wf-open"><b>Still open:</b> the same list. A blocked market is a restriction on service, not an ejection from the building.</div>
+          <div class="wf-open"><b>Still open:</b> the same list. A blocked market is a restriction on service, not an ejection from the building. <b>The render prints one register row's ground and "72 hours", both samples, <code>D-124</code>.</b></div>
         </div>
         <span class="wf-http">HTTP 200, at the URL you are on</span>
       </div>
 
     </div>
+  </div>
+
+  <div class="card is-note">
+    <h4>The ground sentence is per market and comes from the register</h4>
+    <p><code>gate-blocked.html</code> prints it as the register row's Ground field, one readable sentence under the law line, and <strong>it is the only place a blocked person reads it since <code>D-136</code> removed Where we operate from the footer.</strong> Where the row's ground is <span class="q">[?]</span>, the row is not <code>blocked</code>, because <span class="row-code">B4</span>'s success signal is that every blocked market carries a citation. A blocked row with no ground is a defect in the register, not a copy problem here.</p>
   </div>
 
   <div class="card">
@@ -428,7 +481,7 @@
 
   <div class="card">
     <h4>What this state must never say</h4>
-    <p><strong>"Blocked"</strong> when the row is <code>not launched</code>, because that is a legal verdict we do not hold. <strong>A statute number as the whole message</strong>, because it is the ground's source and not the ground. <strong>"Temporarily unavailable"</strong> when nothing about it is temporary. <strong>An error code</strong>, a stack trace, or the word error. <strong>A list of the markets that are open</strong>: the footer's market statement is the public face of the register and it is crawlable everywhere, and this dialog answers one person's question rather than publishing the register.</p>
+    <p><strong>"Blocked"</strong> when the row is <code>not launched</code>, because that is a legal verdict we do not hold. <strong>A statute number as the whole message</strong>, because it is the ground's source and not the ground. <strong>"Temporarily unavailable"</strong> when nothing about it is temporary. <strong>An error code</strong>, a stack trace, or the word error. <strong>A list of the markets that are open.</strong> <s>The footer's market statement is the public face of the register, <span class="surf">0.2</span>, and it is crawlable everywhere.</s> <strong>The footer carries no market statement since <code>D-136</code></strong>, which removed its Where we operate row for having no destination. This dialog answers one person's question, it does not publish the register.</p>
   </div>
 </section>
 
@@ -484,6 +537,19 @@
   </div>
 </section>
 
+<!-- COMPONENTS -->
+<section id="components">
+  <div class="sec-head">
+    <h2>Components, and the one that is not a node</h2>
+  </div>
+
+  <div class="card">
+    <p><strong>Used:</strong> nothing from the canonical set. This dialog renders no skin card <span class="surf">0.6</span>, no case tile <span class="surf">0.7</span>, no ticker <span class="surf">0.8</span> and no round proof <span class="surf">0.14</span>.</p>
+    <p><strong>The dialog shell itself is not an IA node</strong>, and that was settled at the global sweep: the set the pack imagines, sign in plus confirm plus pick a place, is three dialogs in this product and each already has a home, <span class="surf">0.4</span>, <span class="surf">2.1</span> and <span class="surf">6.2</span> inside <span class="surf">6.1</span>. Whether <span class="surf">0.4</span> and <span class="surf">2.1</span> share one shell component is a stage 07 inventory question, not a map question. Named here so it is not rediscovered as a gap.</p>
+    <p><strong>Nothing from the emotional and social table lives on this node.</strong> Checked against the sitemap's "Emotional and social jobs: what carries them" rather than assumed: all four mechanisms sit on <code>S-A1</code>, <code>S-C2</code> and <code>S-G1</code>.</p>
+  </div>
+</section>
+
 <!-- ADAPTIVE -->
 <section id="adaptive">
   <div class="sec-head">
@@ -492,31 +558,52 @@
   </div>
 
   <div class="wf-stage">
-    <div class="wf-cap">Mobile 360px - the sheet, and the stack that keeps the decline reachable</div>
+    <div class="wf-cap">Mobile 360px - the sheet on a staged market, and the stack that keeps the decline reachable</div>
     <div class="wf-phone">
       <div class="wf-dim">the case screen behind it, dimmed and still there</div>
       <div class="wf-block">
-        <div class="wf-block-h">Before you open this case</div>
-        <div class="wf-block-p is-dim">You tapped Open on Chroma Case. Two things first.</div>
-        <div class="wf-check"><span class="wf-box"></span><span class="wf-check-t">I am 18 or over</span></div>
-        <div class="wf-btn">Continue to the case</div>
+        <div class="wf-block-h">This market is open with one limit.</div>
+        <div class="wf-block-p">Deposits are capped at <b>$100 a week</b> here for now, a sample. Withdrawal to Steam is open.</div>
+        <div class="wf-btn">Continue</div>
         <div class="wf-btn is-ghost">Not now</div>
-        <div class="wf-open">We record the declaration and its date. <b>No date of birth.</b><br>18+ only. Playing safely. How we handle age.</div>
       </div>
-      <div class="wf-note"><b>Blocks 1 to 3 fit above the fold at 360px.</b> A declaration a person has to scroll to find has been designed as an obstacle rather than a question. If something must fall below, it is block 5, never block 3.</div>
+      <div class="wf-note"><b>The whole of the blocks fits above the fold at 360px.</b> A question a person has to scroll to find has been designed as an obstacle rather than a question.</div>
     </div>
   </div>
 
   <div class="card">
     <p><strong>The two controls stack and never differ in visual weight.</strong> That is <span class="surf">0.4</span>'s reject-as-easy-as-accept rule applied to the second interrupt, and stacking is what stops the decline control from landing under a thumb that is already moving.</p>
+    <p><strong>The whole of blocks 1 to 3 fits above the fold at 360px without scrolling</strong>, because a declaration a person has to scroll to find has been designed as an obstacle rather than a question. If it does not fit, block 5 moves below the fold, never block 3.</p>
     <p><strong>Desktop</strong> is the same order in a centred dialog, focus trapped, Escape closing it, the page behind it dimmed rather than removed: what the person was reading is the context for why they are being asked.</p>
     <p><strong><span class="surf">2.2</span> is not a dialog at 360px.</strong> They replace the dialog's content in place, because there is nothing to return to behind them.</p>
   </div>
+</section>
+
+<!-- SEO -->
+<section id="seo">
+  <div class="sec-head">
+    <h2>SEO and accessibility</h2>
+  </div>
 
   <div class="card is-note">
-    <h4>No A to E block, and the reason is structural</h4>
-    <p>This node has no URL, so it has no row in the indexation register, no canonical, no schema and nothing to index. What it owes SEO is three properties and all three are fixed elsewhere: <strong>it does not fire on arrival</strong>, so no public surface is gated for a person or a crawler; <strong><span class="surf">2.2</span> returns 200 at the URL the person is already on</strong>, so the block cannot be indexed; <strong>one language</strong>, so no hreflang anywhere.</p>
-    <p><strong>Accessibility, and two of these are compliance rather than craft.</strong> The ground is text, never an image and never colour alone, so a screen reader reads the reason and not only the refusal. The declaration is a real control with an accessible name that states the age. Focus moves into the dialog on open, is trapped, and returns to the trigger on dismissal. Escape closes it and records nothing. Every route out of <span class="surf">2.2</span> and <span class="surf">2.3</span> is a crawlable <code>&lt;a href&gt;</code>, because a destination reachable only by script does not exist for a keyboard either.</p>
+    <h4>No A to E block, and the reason is structural rather than an omission</h4>
+    <p>This node has no URL, so it has no row in <span class="surf">0.13</span> section 3, no canonical, no schema and nothing to index. What it owes SEO is three properties, and all three are already fixed elsewhere:</p>
+    <ul>
+      <li><strong>It does not fire on arrival</strong>, so no public surface is gated for a person or a crawler, <span class="surf">0.13</span> section 4.3.</li>
+      <li><strong><span class="surf">2.2</span> returns 200 at the URL the person is already on</strong>, so the block cannot be indexed and cannot be served in place of a real page, <span class="surf">0.13</span> section 4.4.</li>
+      <li><strong>One language</strong>, so no hreflang anywhere, <span class="surf">0.13</span> section 1.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h4>Accessibility, and two of these are compliance rather than craft</h4>
+    <ul>
+      <li><strong>The ground is text</strong>, never an image and never colour alone. A screen reader reads the reason and not only the refusal.</li>
+      <li><strong>The declaration is a real control with an accessible name that states the age</strong>, not a styled div and not a label the control does not carry.</li>
+      <li><strong>Focus moves into the dialog on open and is trapped</strong>, and returns to the control that triggered it on dismissal.</li>
+      <li><strong>Escape closes it</strong>, and closing records nothing.</li>
+      <li><strong>The route out of <span class="surf">2.2</span> is a crawlable <code>&lt;a href&gt;</code></strong>, <span class="surf">0.13</span> section 8. A destination reachable only by script does not exist for a keyboard either.</li>
+    </ul>
   </div>
 </section>
 
@@ -554,7 +641,7 @@
       <thead><tr><th style="width:26%">Open item</th><th style="width:46%">What is missing</th><th>Owner</th></tr></thead>
       <tbody>
         <tr><td><strong>Every market verdict</strong></td><td>Each one is <span class="q">[?]</span> until re-verified against current law. <strong>This node renders a verdict, it never takes one</strong></td><td>Counsel, under <code>D-A</code>. Node <span class="surf">0.12</span></td></tr>
-        <tr><td><strong>The published response deadline</strong></td><td>The number in <span class="surf">2.2</span>'s appeal sentence and in <span class="surf">2.9</span>'s. It is <span class="row-code">G4</span>'s requirement and nothing in this repository sets the figure</td><td><span class="surf">0.10</span>, then <span class="surf">0.11</span> if it becomes a published number</td></tr>
+        <tr><td><strong>The published response deadline</strong></td><td>The number in <span class="surf">2.2</span>'s appeal sentence and in <span class="surf">2.9</span>'s. It is <span class="row-code">G4</span>'s requirement and nothing in this repository sets the figure. <strong>The render prints 72 hours as a sample</strong>, <code>D-124</code></td><td><span class="surf">0.10</span>, then <span class="surf">0.11</span> if it becomes a published number</td></tr>
         <tr><td><strong>How long the 2.3 decline persists</strong></td><td>Session, device or account, and for how long. Production and privacy questions with no researched answer here</td><td>Production, with counsel on the privacy half</td></tr>
         <tr><td><strong>The geolocation provider and its accuracy</strong></td><td>Detection quality decides how often the wrongly-blocked route runs</td><td>Production. <span class="q">[?]</span></td></tr>
         <tr><td><strong>The flash threshold for the market lookup</strong></td><td>It needs a real timing, not a guess</td><td>Stage 04, with production timings</td></tr>
@@ -568,7 +655,7 @@
     <h4>And what belongs elsewhere</h4>
     <p><strong>The wording of every message.</strong> Stage 05, which takes the drafts above as a requirement of what information must be present rather than as final copy.</p>
     <p><strong>How the dialog looks.</strong> Stages 06 and 07.</p>
-    <p><strong>Where the market statement sits in the footer.</strong> Node <span class="surf">0.2</span>, already specified.</p>
+    <p><s><strong>Where the market statement sits in the footer.</strong> Node <span class="surf">0.2</span>, already specified.</s> <strong>The footer holds no market statement since <code>D-136</code>.</strong></p>
     <p><strong>The register itself.</strong> Node <span class="surf">0.12</span>.</p>
   </div>
 
@@ -598,7 +685,9 @@ window.NAV_SECTIONS = [
   { id: 'states',    label: 'States' },
   { id: 'blocked',   label: '2.2 Geo blocked' },
   { id: 'underage',  label: '2.3 Under age' },
-  { id: 'adaptive',  label: '360px and SEO' },
+  { id: 'components', label: 'Components' },
+  { id: 'adaptive',  label: '360px' },
+  { id: 'seo',       label: 'SEO and accessibility' },
   { id: 'pages', label: 'Pages that draw it' },
   { id: 'open',      label: 'Open' },
 ];

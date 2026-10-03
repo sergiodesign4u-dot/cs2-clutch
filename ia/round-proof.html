@@ -152,9 +152,10 @@
   <div class="section-eyebrow">Information architecture, detail layer - node 0.14</div>
   <h1>Canonical round proof</h1>
   <p class="lede">One rendering of one object in four variants across four sites, so that the thing this product offers as evidence looks and behaves identically everywhere it appears. Design principle 1 is what makes it canonical rather than three separate implementations: <strong>the one thing that must never look different in two places is the evidence.</strong></p>
+  <p class="lede"><strong>Used by:</strong> <span class="surf">1.2</span> Provably fair with its verifier, <span class="surf">3.3</span> at phase 2 the spin trigger and phase 3 the outcome, <span class="surf">7.1</span> Public result. <strong>Not a page:</strong> it has no URL of its own and renders inside nodes that do. Parent class: job, by rows <span class="row-code">E4</span>, <span class="row-code">F3</span> and <span class="row-code">H1</span>.</p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Variants, one field set</div></div>
-    <div><div class="hero-stat-value">7</div><div class="hero-stat-label">States, all inherited</div></div>
+    <div><div class="hero-stat-value">7</div><div class="hero-stat-label">States, no site renders all seven</div></div>
     <div><div class="hero-stat-value">1</div><div class="hero-stat-label">Proposition it proves</div></div>
     <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Verified badges, ever</div></div>
   </div>
@@ -262,8 +263,8 @@
     <table>
       <thead><tr><th>Variant</th><th>Where</th><th>Shows</th><th>Must not</th></tr></thead>
       <tbody>
-        <tr><td><strong>V1, the hash chip</strong></td><td><span class="surf">3.3</span> phase 2, the spin trigger, row <span class="row-code">E4</span></td><td>Server seed hash, truncated, plus the scope line in one short clause</td><td><strong>Interrupt the reveal.</strong> The research specifies a small persistent element that does not stop the animation. It never blocks, never modals, never asks</td></tr>
-        <tr><td><strong>V2, the verification link</strong></td><td><span class="surf">3.3</span> phase 3, the outcome, row <span class="row-code">F3</span></td><td>One tap to check this round</td><td><strong>Take the person out of the flow.</strong> It opens the proof in place. The outcome screen is where the win is, and the win is not interrupted for paperwork</td></tr>
+        <tr><td><strong>V1, the hash chip</strong></td><td><span class="surf">3.3</span> phase 2, the spin trigger, row <span class="row-code">E4</span></td><td>Server seed hash, truncated, plus the scope line in one short clause. <strong>Labelled <code>Server seed hash</code>, the name V3 and V4 use, and <code>N server seed hashes</code> on a multi-roll open, one value and one copy per roll since <code>D-142</code>.</strong> It read <code>Round hash</code>, which is the field named differently that the rule under this table forbids</td><td><strong>Interrupt the reveal.</strong> The research specifies a small persistent element that does not stop the animation. It never blocks, never modals, never asks</td></tr>
+        <tr><td><strong>V2, the verification link</strong></td><td><span class="surf">3.3</span> phase 3, the outcome, row <span class="row-code">F3</span>, and <span class="surf">3.7</span></td><td>One tap to check this round: <code>Check this round</code>, and on a batch <code>Check all N rolls</code> plus one <code>check this roll</code> per receipt line</td><td><s><strong>Take the person out of the flow.</strong> It opens the proof in place. The outcome screen is where the win is, and the win is not interrupted for paperwork</s> <strong>Caught up with the render in round 15: it opens <span class="surf">1.2</span>'s verifier, V4, with this round's fields filled in and nothing computed</strong>, while the win stays in My items. No decision records the move away from "in place", so whether V2 should open in place again is carried to the founder. <strong>What it still must not do is compute for the person</strong>: the press is theirs</td></tr>
         <tr><td><strong>V3, the full proof panel</strong></td><td><span class="surf">7.1</span> Public result</td><td>Every field, the result, the ticket range, the recompute route, the scope line in full</td><td><strong>Require an account.</strong> A stranger holds this link and can check it. That is the whole reason 1.2 and 7.1 are public</td></tr>
         <tr><td><strong>V4, the verifier form</strong></td><td><span class="surf">1.2</span> Provably fair</td><td>The same fields as inputs, plus the explanation the page opens with</td><td><strong>Ask for a seed before it has explained anything.</strong> That node's own INCLUDES says the page opens and explains first</td></tr>
       </tbody>
@@ -277,7 +278,7 @@
       <div class="wf-spin">
         <div class="wf-proof-lbl" style="text-align:left">V1 - hash chip, at the spin trigger</div>
         <div class="wf-spin-strip">the reveal, uninterrupted</div>
-        <div class="wf-chip"><span class="wf-chip-k">round hash</span><span class="wf-chip-v">a41f...e07c</span><span class="wf-copy">copy</span></div>
+        <div class="wf-chip"><span class="wf-chip-k">server seed hash</span><span class="wf-chip-v">a41f...e07c</span><span class="wf-copy">copy</span></div>
         <div class="wf-scope" style="text-align:left"><b>Fixed before you click.</b> Check it after.</div>
       </div>
 
@@ -285,12 +286,12 @@
         <div class="wf-proof-lbl">V2 - verification link, at the outcome</div>
         <div class="wf-kv"><span class="wf-k">You won</span><span class="wf-v is-dim">the item, its value receipt, its case</span></div>
         <div class="wf-link">Check this round</div>
-        <div class="wf-scope">Opens in place. <b>The win is not interrupted for paperwork.</b></div>
+        <div class="wf-scope">Opens 1.2's verifier with this round's fields filled in. <b>Nothing is computed for you; the press is yours.</b></div>
       </div>
 
       <div class="wf-proof">
         <div class="wf-proof-lbl">V3 - full panel, on a public result</div>
-        <div class="wf-kv"><span class="wf-k">Hash</span><span class="wf-v">a41f9b2c...77e07c<span class="wf-copy">copy</span></span></div>
+        <div class="wf-kv"><span class="wf-k">Server seed hash</span><span class="wf-v">a41f9b2c...77e07c<span class="wf-copy">copy</span></span></div>
         <div class="wf-kv"><span class="wf-k">Client seed</span><span class="wf-v">tW3k...9pQ2<span class="wf-copy">copy</span></span></div>
         <div class="wf-kv"><span class="wf-k">Nonce</span><span class="wf-v">418</span></div>
         <div class="wf-kv"><span class="wf-k">Result</span><span class="wf-v">7 341</span></div>
@@ -302,7 +303,7 @@
       <div class="wf-proof">
         <div class="wf-proof-lbl">V4 - verifier form, on provably fair</div>
         <div class="wf-kv"><span class="wf-k">Explain</span><span class="wf-v is-dim">the page opens and explains first</span></div>
-        <div class="wf-kv"><span class="wf-k">Hash</span><span class="wf-v is-dim">paste</span></div>
+        <div class="wf-kv"><span class="wf-k">Server seed hash</span><span class="wf-v is-dim">paste</span></div>
         <div class="wf-kv"><span class="wf-k">Client seed</span><span class="wf-v is-dim">paste</span></div>
         <div class="wf-kv"><span class="wf-k">Nonce</span><span class="wf-v is-dim">paste</span></div>
         <div class="wf-link">Verify</div>
@@ -317,7 +318,11 @@
 <section id="states">
   <div class="sec-head">
     <h2>Seven states, and no site renders all of them</h2>
-    <p>One of them is the reason this is a node rather than a happy path drawn three times.</p>
+    <p>Seven in the object, and <strong>no site renders all seven</strong>. One of them is the reason this is a node rather than a happy path drawn three times.</p>
+  </div>
+  <div class="card is-fix">
+    <h4>Corrected by the step 8 audit</h4>
+    <p>This section claimed universal inheritance and its own table contradicts it, since gone or private exists on <span class="surf">7.1</span> only and pre-roll has no moment on a verifier. <strong>Each variant inherits the states its own moment can reach</strong>, and the table's scope column is what decides.</p>
   </div>
 
   <div class="table-wrap">
@@ -330,7 +335,7 @@
         <tr><td><strong>Checked and mismatched</strong></td><td>The two values side by side, ours and the recomputation, and <strong>a report route with a published response deadline</strong></td><td><span class="surf">1.4</span>, which the flows mark a deliberate dead end for the job: nothing can close it while the proof is wrong</td></tr>
         <tr><td><strong>Malformed input</strong></td><td>Which part is missing or unreadable, and the input again</td><td><span class="surf">1.3</span>, back to the form rather than a silent rejection</td></tr>
         <tr><td><strong>Proof unavailable</strong></td><td>That this round has no published proof, and why. <strong>Rounds predating the published ledger are the real case</strong>, and whether six years of history migrates at all is <code>D-B</code></td><td>The explanation on <span class="surf">1.2</span></td></tr>
-        <tr><td><strong>Gone or private</strong></td><td>On <span class="surf">7.1</span> only: the result is no longer public. <strong>The round can still be checked without the page</strong></td><td><span class="surf">7.2</span>, then <span class="surf">1.2</span></td></tr>
+        <tr><td><strong>Gone or private</strong></td><td>On <span class="surf">7.1</span> only: the result is no longer public. <strong>The round can still be checked without the page</strong>, so it routes into the verifier</td><td><span class="surf">7.2</span>, then <span class="surf">1.2</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -389,7 +394,7 @@
     <div class="wf-phone" style="width:360px;max-width:100%">
       <div class="wf-proof" style="border:none;background:none;padding:0">
         <div class="wf-proof-lbl">Round proof</div>
-        <div class="wf-kv"><span class="wf-k">Hash</span><span class="wf-v">a41f9b2c ... 77e07c<span class="wf-copy">copy</span></span></div>
+        <div class="wf-kv"><span class="wf-k">Server seed hash</span><span class="wf-v">a41f9b2c ... 77e07c<span class="wf-copy">copy</span></span></div>
         <div class="wf-kv"><span class="wf-k">Client seed</span><span class="wf-v">tW3k ... 9pQ2<span class="wf-copy">copy</span></span></div>
         <div class="wf-kv"><span class="wf-k">Nonce</span><span class="wf-v">418</span></div>
         <div class="wf-kv"><span class="wf-k">Result</span><span class="wf-v">7 341, in 7 300 - 7 420</span></div>

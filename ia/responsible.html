@@ -149,6 +149,10 @@
     <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Entries to the page</div></div>
     <div><div class="hero-stat-value">0</div><div class="hero-stat-label">Counters, streaks or scores</div></div>
   </div>
+  <div class="card" style="margin-top:28px">
+    <p><strong>Type:</strong> page. <strong>Group:</strong> <code>pages</code>. <strong>Scope:</strong> MVP. <strong>Cluster:</strong> 6, keep myself in check. <strong>Capabilities:</strong> <code>C2</code> spend ceiling chosen at deposit, <code>C5</code> session limit, cool down and self exclusion.</p>
+    <p><strong>URL:</strong> <code>/responsible-play</code>. <strong>Indexed:</strong> yes, canonical self, schema <code>WebPage</code>, breadcrumb Home &gt; Responsible play. All four inherited from <span class="surf">0.13</span> section 3 and not re-decided here. <strong>Sitemap transitions:</strong> <span class="surf">6.2</span>, <span class="surf">6.3</span>; <span class="surf">5.3</span> stays reachable under every boundary. <strong>States specified inside this node:</strong> <span class="surf">6.2</span> self exclusion confirmation, a dialog, and <span class="surf">6.3</span> boundary in force, a state.</p>
+  </div>
 </div>
 
 <section id="d146">
@@ -192,6 +196,9 @@
         <tr><td>Limits a person sets</td><td>The four boundaries and their direction rules</td><td><strong>The end of a cool down or an exclusion is counted from the moment it starts.</strong> <strong>A running cool down extends and refuses to shorten, with the date it runs to.</strong> <strong>Under a self exclusion a deposit limit can still be set or lowered</strong>, section 6's locked for the duration, and a cool down or a second exclusion refuses with the reason. A 0 is refused as a 0. No limit is prefilled where none is in force</td></tr>
       </tbody>
     </table>
+  </div>
+  <div class="card is-note">
+    <p><strong>Samples, <code>D-124</code>, marked here:</strong> every period a select offers, not only the selected one <code>D-130</code> marked. Deposit limit per day, per week, per month; session limit 30 minutes, 1 hour, 2 hours, 4 hours; cool down 24 hours, 7 days, 30 days; self exclusion 6 months, 1 year, 5 years. None is a decided set.</p>
   </div>
 </section>
 
@@ -321,17 +328,17 @@
 
   <div class="table-wrap">
     <table>
-      <thead><tr><th style="width:5%">#</th><th style="width:34%">Block</th><th style="width:22%">Source</th><th>Traces to</th></tr></thead>
+      <thead><tr><th style="width:5%">#</th><th style="width:34%">Block</th><th style="width:20%">Source</th><th>Traces to</th><th style="width:9%">Scope</th></tr></thead>
       <tbody>
-        <tr><td><strong>1</strong></td><td><strong>H1 and one plain statement of what these tools do.</strong> Not a case for using them, not a warning, not a mood card</td><td>Key-Drop principle card 2, framing refused</td><td>Compliance constraint, <code>CLAUDE.md</code></td></tr>
-        <tr><td><strong>2</strong></td><td><strong>What is in force now</strong>, if anything: each boundary, its period, the moment it ends, and the route to change it. Absent entirely when nothing is set</td><td>Own research</td><td><code>B7-4</code>, <code>C2</code>, <code>C5</code></td></tr>
-        <tr><td><strong>3</strong></td><td><strong>Spend ceiling</strong>, <code>C2</code>. Lowering applies immediately, raising waits 24 hours</td><td>Key-Drop deposit limits, Refero grouped settings</td><td><code>B7-4</code>, pattern of 12, through <code>C2</code></td></tr>
-        <tr><td><strong>4</strong></td><td><strong>Session limit</strong>, <code>C5</code>. The session ends when the length is reached</td><td>Key-Drop session reminders, <strong>refused as a reminder, taken as a limit</strong></td><td><code>B7-4</code>, plus the compliance constraint</td></tr>
-        <tr><td><strong>5</strong></td><td><strong>Cool down</strong>, <code>C5</code>. Opening and depositing close for a chosen period. Ends by running out</td><td>Key-Drop time-outs</td><td><code>B7-4</code>, plus the compliance constraint</td></tr>
-        <tr><td><strong>6</strong></td><td><strong>Self exclusion</strong>, <code>C5</code>. The one control here a person cannot undo on impulse. Opens <span class="surf">6.2</span></td><td>Key-Drop self exclusion</td><td><code>B7-4</code>, plus the compliance constraint</td></tr>
-        <tr><td><strong>7</strong></td><td><strong>What every boundary does and does not close</strong>, stated <strong>above</strong> the controls. Withdrawal stays open under every one of them</td><td>Own research, <code>flows.md</code> flow 2a</td><td><code>B7-4</code>, and <code>B2</code> by consequence</td></tr>
-        <tr><td><strong>8</strong></td><td><strong>Routes that are not us:</strong> external help. Structure fixed, contents <span class="q">[?]</span></td><td><code>cjm-as-is.md</code> Z5, where one user names a third-party tool as his own brake</td><td><code>B7-4</code></td></tr>
-        <tr><td><strong>9</strong></td><td><strong>Support route</strong>, <span class="surf">0.10</span>, for the person inside a boundary who needs something from us</td><td>Block bank T7, Article 5(c), row <code>G4</code></td><td><code>B8-3</code> by way of <code>G4</code></td></tr>
+        <tr><td><strong>1</strong></td><td><strong>H1 and one plain statement of what these tools do.</strong> Not a case for using them, not a warning, not a mood card</td><td>Key-Drop principle card 2, framing refused</td><td>Compliance constraint, <code>CLAUDE.md</code></td><td>MVP</td></tr>
+        <tr><td><strong>2</strong></td><td><strong>What is in force now</strong>, if anything: each boundary, its period, the moment it ends, and the route to change it. Absent entirely when nothing is set</td><td>Own research</td><td><code>B7-4</code>, <code>C2</code>, <code>C5</code></td><td>MVP</td></tr>
+        <tr><td><strong>3</strong></td><td><s><strong>Spend ceiling</strong></s> <strong>Deposit limit</strong>, <code>C2</code>, the label <code>D-103</code> gave it so the deposit and this page use one name. Amount and period. Lowering applies immediately, raising waits 24 hours, which is the asymmetry that makes it a brake rather than a setting</td><td>Key-Drop deposit limits, Refero grouped settings</td><td><code>B7-4</code>, pattern of 12, through <code>C2</code></td><td>MVP</td></tr>
+        <tr><td><strong>4</strong></td><td><strong>Session limit</strong>, <code>C5</code>. The session ends when the length is reached</td><td>Key-Drop session reminders, <strong>refused as a reminder, taken as a limit</strong></td><td><code>B7-4</code>, plus the compliance constraint</td><td>MVP</td></tr>
+        <tr><td><strong>5</strong></td><td><strong>Cool down</strong>, <code>C5</code>. Opening and depositing close for a chosen period. Ends by running out</td><td>Key-Drop time-outs</td><td><code>B7-4</code>, plus the compliance constraint</td><td>MVP</td></tr>
+        <tr><td><strong>6</strong></td><td><strong>Self exclusion</strong>, <code>C5</code>. The one control here a person cannot undo on impulse. Opens <span class="surf">6.2</span></td><td>Key-Drop self exclusion</td><td><code>B7-4</code>, plus the compliance constraint</td><td>MVP</td></tr>
+        <tr><td><strong>7</strong></td><td><strong>What every boundary does and does not close</strong>, stated <strong>above</strong> the controls. Withdrawal stays open under every one of them</td><td>Own research, <code>flows.md</code> flow 2a</td><td><code>B7-4</code>, and <code>B2</code> by consequence</td><td>MVP</td></tr>
+        <tr><td><strong>8</strong></td><td><strong>Routes that are not us:</strong> external help. Structure fixed, contents <span class="q">[?]</span></td><td><code>cjm-as-is.md</code> Z5, where one user names a third-party tool as his own brake</td><td><code>B7-4</code></td><td>MVP, contents <span class="q">[?]</span></td></tr>
+        <tr><td><strong>9</strong></td><td><strong>Support route</strong>, <span class="surf">0.10</span>, for the person inside a boundary who needs something from us</td><td>Block bank T7, Article 5(c), row <code>G4</code></td><td><code>B8-3</code> by way of <code>G4</code></td><td>MVP</td></tr>
       </tbody>
     </table>
   </div>
@@ -350,7 +357,8 @@
     <div class="wf-cap">Desktop - the page, account state, nothing set. Black and white until stage 06</div>
     <div class="wf-page" style="max-width:620px">
       <div class="wf-h1">Responsible play</div>
-      <div class="wf-sub">Four boundaries. You set them, they hold, and none of them is a game.</div>
+      <div class="wf-sub">Four boundaries you set yourself.</div>
+      <div class="wf-sub">Tightening one takes effect immediately. Loosening one takes 24 hours, and the boundary you have now holds until then.</div>
 
       <div class="wf-band">
         <div class="wf-band-h">Block 7 - what a boundary closes, and what it never closes</div>
@@ -360,7 +368,7 @@
       <div class="wf-band">
         <div class="wf-band-h">Blocks 3 to 6 - the four boundaries</div>
         <div class="wf-row">
-          <div class="wf-row-t"><div class="wf-row-k">Spend ceiling</div><div class="wf-row-d">Caps deposits over a period you choose. Lowering applies now, raising waits 24 hours</div></div>
+          <div class="wf-row-t"><div class="wf-row-k">Deposit limit</div><div class="wf-row-d">Caps deposits over a period you choose. Lowering applies now, raising waits 24 hours</div></div>
           <div class="wf-ctl"><span class="wf-val">not set</span><span class="wf-btn">Set</span></div>
         </div>
         <div class="wf-row">
@@ -421,7 +429,7 @@
     <table>
       <thead><tr><th>Boundary</th><th>Row</th><th>Closes</th><th>Stays open</th><th>Direction rule</th><th>Period</th></tr></thead>
       <tbody>
-        <tr><td><strong>Spend ceiling</strong></td><td><code>C2</code></td><td>Deposits, once the ceiling for the period is reached, state <span class="surf">4.2</span></td><td>Opening from existing balance, and withdrawal</td><td><strong>Lowering applies immediately. Raising applies 24 hours later</strong>, state <span class="surf">4.3</span></td><td>A named period, chosen at the deposit. Set of periods <span class="q">[?]</span></td></tr>
+        <tr><td><strong>Deposit limit</strong>, <s>Spend ceiling</s></td><td><code>C2</code></td><td>Deposits, once the limit for the period is reached, which is state <span class="surf">4.2</span></td><td>Opening from existing balance, and withdrawal</td><td><strong>Lowering applies immediately. Raising applies 24 hours later and the old limit holds until then</strong>, which is state <span class="surf">4.3</span></td><td>A named period, <s>chosen at the deposit</s> chosen here since <code>D-103</code>. The set of periods is <span class="q">[?]</span></td></tr>
         <tr><td><strong>Session limit</strong></td><td><code>C5</code></td><td>The session, at the chosen length</td><td>Withdrawal, support, reading</td><td>Shortening immediate. Lengthening waits 24 hours</td><td><span class="q">[?]</span></td></tr>
         <tr><td><strong>Cool down</strong></td><td><code>C5</code></td><td>Opening and depositing, for the chosen period</td><td>Withdrawal, support, reading</td><td>Extending immediate. Cannot be shortened or lifted early</td><td><span class="q">[?]</span></td></tr>
         <tr><td><strong>Self exclusion</strong></td><td><code>C5</code></td><td>Opening and depositing</td><td><strong>Withdrawal, support, reading</strong></td><td><strong>No early exit at all.</strong> It ends by running out, which is the point of it</td><td><span class="q">[?]</span></td></tr>
@@ -436,14 +444,15 @@
 
   <div class="card is-note">
     <h4>Key-Drop's numbers are recorded, not adopted</h4>
-    <p>24 hours to 7 days for time-outs and up to permanent for self exclusion are <strong>their</strong> values, read from their page. Ours are a founder decision with counsel, because in several markets the minimum self exclusion period is set by law rather than by product.</p>
+    <p><strong>Every period in this table is <span class="q">[?]</span> and none is invented.</strong> The options the selects draw are samples, <code>D-124</code>, listed in the D-143 amendment above, every one of them and not only the selected four. 24 hours to 7 days for time-outs and up to permanent for self exclusion are <strong>their</strong> values, read from their page. Ours are a founder decision with counsel, because in several markets the minimum self exclusion period is set by law rather than by product.</p>
   </div>
 
   <div class="card">
     <h4>This page owns the deposit limit outright since D-103</h4>
-    <p>The card here read: <em>"C2 puts the ceiling at the money decision, where the person is calm and the number is one they typed themselves. This page is where the same ceiling is read and lowered later, and 4.1 owns the moment it is first chosen."</em> <strong>Kept as the argument that was overridden, not deleted.</strong></p>
+    <p>The clause here read: <em>"The ceiling is set at the deposit and changed here, and both are true at once. C2 puts the choice at the money decision, where cjm-to-be.md says the person is calm and the number is one they typed themselves. Two surfaces, one value, and 4.1 owns the moment it is first chosen."</em> <strong>Kept as the argument that was overridden, not deleted.</strong></p>
     <p><strong>What is true now.</strong> The founder read the drawn deposit screen on 27 August 2026, could not name the control, and moved it here, where the other three boundaries already were. Block 3 was already built and the move did not change it: an amount, a period, the tighten and loosen asymmetry, a save. It gains the whole of <code>C2</code> rather than half of it, and it now carries the label the deposit screen uses, <strong>Deposit limit</strong> rather than <strong>Spend ceiling</strong>, because two names for one boundary across two surfaces is how a person stops believing they are the same thing.</p>
-    <p><strong><span class="surf">4.1</span> keeps the figure and loses the form.</strong> The limit in force is a line in its receipt with a route here, so the number is still in front of a person at the moment of spending, which is design principle 3. What the deposit no longer does is ask, and the cost of that is printed in D-103.</p>
+    <p><strong><span class="surf">4.1</span> keeps the figure and loses the form.</strong> The limit in force is a line in its receipt with a route here, so the number is still in front of a person at the moment of spending, which is design principle 3. What the deposit no longer does is ask. The cost of that is <code>D-103</code>&#39;s and it is printed there: a boundary a person has to come here to set is a boundary most people never set, and <code>cjm-to-be.md</code> T4 chose the deposit moment over two alternatives for exactly that reason.</p>
+    <p><strong>A boundary never locks the exit.</strong> <code>flows.md</code> flow 2a states the reason: a limit that also locks the exit would be a punishment rather than a brake, and it would give anyone a reason never to set one. <code>B2</code> makes the same thing true from the other end, since the withdrawal route carries no branch of any kind.</p>
   </div>
 </section>
 
@@ -556,7 +565,7 @@
       <tbody>
         <tr><td>Block 1, statement</td><td>Full</td><td>Full</td><td>Full</td><td>Full</td></tr>
         <tr><td>Block 2, what is in force</td><td>Absent</td><td>Absent</td><td>Present, per <span class="surf">6.3</span></td><td>Present, with the end date</td></tr>
-        <tr><td>Blocks 3 to 6, the controls</td><td><strong>Visible and inert, with the reason.</strong> Never a sign-in wall over the page</td><td>Live, nothing set</td><td>Live. Tightening immediate, loosening waits 24 hours</td><td><strong>Locked for the duration.</strong> Other boundaries can still be tightened</td></tr>
+        <tr><td>Blocks 3 to 6, the controls</td><td><strong>Visible and inert, with the reason: an account is needed to set one.</strong> Never a sign-in wall over the page</td><td>Live, nothing set</td><td>Live. Tightening immediate, loosening waits 24 hours</td><td><s><strong>Locked for the duration.</strong> Other boundaries can still be tightened</s> <strong>Amended by <code>D-143</code>:</strong> a deposit limit can still be set or lowered; a cool down or a second exclusion refuses with its reason beside the control; nothing loosens</td></tr>
         <tr><td>Block 7, what is never closed</td><td>Full</td><td>Full</td><td>Full</td><td>Full</td></tr>
         <tr><td>Blocks 8 and 9, external and support</td><td>Full</td><td>Full</td><td>Full</td><td>Full</td></tr>
         <tr><td>The money control in <span class="surf">0.1</span></td><td>Absent, no account</td><td>Balance and value of items held</td><td>Opens to the limits rather than to add funds</td><td>Same</td></tr>
@@ -581,7 +590,7 @@
     <div class="wf-cap">Mobile 360px - the full stack, guest state, and no horizontal scroll anywhere</div>
     <div class="wf-phone">
       <div class="wf-h1">Responsible play</div>
-      <div class="wf-sub">Four boundaries. You set them, they hold, and none of them is a game.</div>
+      <div class="wf-sub">Four boundaries you set yourself.</div>
 
       <div class="wf-band">
         <div class="wf-band-h">Block 7</div>
@@ -591,7 +600,7 @@
       <div class="wf-band">
         <div class="wf-band-h">Blocks 3 to 6</div>
         <div class="wf-row" style="border-top:none;padding-top:4px">
-          <div class="wf-row-t"><div class="wf-row-k">Spend ceiling</div><div class="wf-row-d">Sign in to set one</div></div>
+          <div class="wf-row-t"><div class="wf-row-k">Deposit limit</div><div class="wf-row-d">Sign in to set one</div></div>
           <div class="wf-ctl"><span class="wf-btn is-off">Set</span></div>
         </div>
         <div class="wf-row">
@@ -619,6 +628,12 @@
   </div>
 
   <div class="card">
+    <h4>Mobile, base, 360px</h4>
+    <p>One column throughout. Statement, then what is in force, then the four controls stacked as grouped rows with the control right-aligned on the row, then what a boundary does not close, then the external routes and support. <strong>A control never wraps below its own label into what looks like a separate row</strong>, and the amount field on the ceiling is full width under its label rather than squeezed beside it.</p>
+    <p><strong>No horizontal scroll anywhere, and one specific thing that would cause it:</strong> the period selector. Four or five periods as a horizontal chip row is a scroll at 360px. It stacks or it becomes a select.</p>
+  </div>
+
+  <div class="card">
     <h4>Desktop, from 900px</h4>
     <p>The same single column, held to a readable measure rather than stretched to the viewport. <strong>Nothing on this page becomes a multi-column dashboard at width</strong>, because a dashboard of limits is a dashboard, and a dashboard is a thing to check.</p>
   </div>
@@ -635,7 +650,7 @@
     <h4>A. Meta tags, finished copy</h4>
     <ul>
       <li><strong>Title, 54 characters:</strong> <code>Responsible play: limits, cool down and self exclusion</code></li>
-      <li><strong>Description, 144 characters:</strong> <code>Set a spend ceiling, a session limit, a cool down or a self exclusion. Withdrawal stays open under every one of them. No account needed to read.</code></li>
+      <li><strong>Description, 144 characters:</strong> <s><code>Set a spend ceiling, ...</code></s> <code>Set a deposit limit, a session limit, a cool down or a self exclusion. Withdrawal stays open under every one of them. No account needed to read.</code> <strong>The boundary&#39;s name follows <code>D-103</code></strong>, as the five pages render it. <strong>It ships as the meta description, <code>D-146</code></strong></li>
       <li><strong>Canonical:</strong> <code>https://&lt;host&gt;/responsible-play</code>, self. Host is <span class="q">[?]</span></li>
       <li><strong>Robots:</strong> <code>index, follow</code>. <strong>hreflang:</strong> none, anywhere. One language</li>
       <li><strong>OG and Twitter:</strong> title and description as above, summary card. <strong>No image of a skin and no image of a case</strong>, for the obvious reason</li>
@@ -650,19 +665,33 @@
 
   <div class="card">
     <h4>B. Heading structure, in block order</h4>
-    <p><strong>H1:</strong> Responsible play</p>
-    <p><strong>H2:</strong> What these tools do &middot; What is in force now <em>(only when something is)</em> &middot; Spend ceiling &middot; Session limit &middot; Cool down &middot; Self exclusion &middot; What a boundary closes, and what it never closes &middot; Support that is not a limit</p>
+    <p><strong>Rewritten in round 15 to the rendered outline.</strong> The four boundaries were H2s named after <code>C2</code> and <code>C5</code>; the pages draw them as H3 setting rows, the first one named Deposit limit since <code>D-103</code>, and the status sits under the H1 since <code>D-137</code>.</p>
+    <ul>
+      <li><strong>H1:</strong> Responsible play</li>
+      <li><strong>H2:</strong> What is in force now <em>(rendered only when something is, directly under the H1)</em></li>
+      <li><strong>H2:</strong> What these tools do</li>
+      <li><strong>H2:</strong> What a boundary closes, and what it never closes</li>
+      <li><strong>H3:</strong> Deposit limit, <s>Spend ceiling</s></li>
+      <li><strong>H3:</strong> Session limit</li>
+      <li><strong>H3:</strong> Cool down</li>
+      <li><strong>H3:</strong> Self exclusion</li>
+      <li><strong>H2:</strong> Support that is not a limit</li>
+    </ul>
+    <p><strong>What a boundary closes stays above the four controls</strong>, the block order rule, and the four H3 rows follow it.</p>
   </div>
 
   <div class="card is-good">
     <h4>C. Finished SEO text</h4>
     <p><strong>Responsible play</strong></p>
     <p>Four boundaries. You set them, they hold, and none of them is a game.</p>
-    <p>A spend ceiling caps what you can put in over a period you choose. A session limit ends a session at a length you choose. A cool down closes opening and depositing for a period. Self exclusion closes them for longer, and it cannot be lifted early.</p>
+    <p>A deposit limit caps what you can put in over a period you choose. A session limit ends a session at a length you choose. A cool down closes opening and depositing for a period. Self exclusion closes them for longer, and it cannot be lifted early.</p>
     <p>Tightening a boundary takes effect immediately. Loosening one takes 24 hours, and the old boundary holds until then.</p>
     <p><strong>Withdrawal stays open under every boundary, self exclusion included.</strong> A limit stops money going in. It never traps what you already hold.</p>
     <p>There is no score here, no streak and no reward for staying inside a limit. A boundary that congratulates you is a boundary that has started keeping count.</p>
     <p class="wf-x" style="color:var(--text-muted)">Stage 05 aligns this to voice and syncs the final version back into block C of the md.</p>
+  </div>
+  <div class="card is-note">
+    <p><strong>The pages render a shorter text since <code>D-130</code></strong>: "Four boundaries you set yourself." and "Tightening one takes effect immediately. Loosening one takes 24 hours, and the boundary you have now holds until then." <strong>Since <code>D-146</code> the block above is the source of the meta description and is not rendered</strong>; the on-screen text stays <code>D-130</code>&#39;s two lines.</p>
   </div>
 
   <div class="card">
@@ -699,7 +728,7 @@
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
-    <p>Six open items, and every period on the page is one of them.</p>
+    <p>Six open items and one closed, and every period on the page is one of them.</p>
   </div>
 
   <div class="table-wrap">
@@ -711,6 +740,7 @@
         <tr><td><strong>The external help routes, block 8</strong></td><td>Which organisations are named, per market. Every market verdict in <span class="surf">0.12</span> is <span class="q">[?]</span>, and a plausible list here would be model memory presented as a legal fact</td><td>Founder with counsel</td></tr>
         <tr><td><strong>Whether a boundary is announced outside the product</strong></td><td>A self exclusion running for months implies a signal reaching the person off the page. The global sweep already recorded that <strong>no notification, email or push row exists anywhere in <code>cjm-to-be.md</code></strong>. Named in the same treatment rather than invented</td><td>Backlog, then the founder</td></tr>
         <tr><td><s>Whether the ceiling is per deposit, per period, or both</s></td><td><strong>Answered by 4.1 and closed.</strong> One ceiling is in force at a time and it belongs to the named period. A ceiling that reset per deposit could never be reached, and 4.2 is a numbered node, so the map already excluded that reading. <strong>The second deposit inside one period pre-fills again and the pre-filled figure is then a change to the ceiling in force</strong>, taking the direction rule with it</td><td>Closed, node <span class="surf">4.1</span></td></tr>
+        <tr><td><strong>Which SEO text the indexed page ships</strong></td><td>Block C above is finished copy; the rendered page carries the two line form <code>D-130</code> cut it to. An indexed page whose body text is two lines is thin, and the long form is more than the stop explaining round wanted on screen</td><td>Founder, with stage 05</td></tr>
         <tr><td><strong>The conversion cost of any of this</strong></td><td><code>CLAUDE.md</code> carries the age gate's cost with no target. The same is true here and worse measured: <code>C2</code>'s own success signal reads "targets <span class="q">[?]</span>"</td><td>Production</td></tr>
       </tbody>
     </table>

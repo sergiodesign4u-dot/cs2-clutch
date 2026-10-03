@@ -154,6 +154,15 @@
     .wf-tab.is-new { border: 1px dashed var(--wf-ink-dim); border-radius: 3px; }
 
     .wf-phone { width: 100%; max-width: 300px; margin: 0 auto; }
+    /* Deposit control with the standing bonus badge, D-94; at 360 it sits off the + glyph, D-136 */
+    .wf-plus { position: relative; }
+    .wf-badge { position: absolute; top: -7px; right: -11px; border: 1px solid var(--wf-line); background: var(--wf-bg); border-radius: 7px; padding: 0 3px; font-size: 7.5px; line-height: 12px; color: var(--wf-ink); font-family: 'SF Mono', Menlo, monospace; }
+    /* Below 900 the two figures sit side by side, D-144 */
+    .wf-money2.is-row { display: flex; gap: 7px; padding: 4px 6px; }
+    .wf-money2.is-row .wf-m-row { font-size: 9.5px; }
+    .wf-money2.is-row .wf-m-row.is-dim { font-size: 9px; }
+    .wf-railfoot { display: flex; gap: 5px; align-items: center; padding: 4px 7px; font-size: 9px; color: var(--wf-ink-dim); }
+    .wf-railfoot span { border: 1px solid var(--wf-line-soft); border-radius: 3px; padding: 1px 5px; }
     .wf-note { font-size: 11px; color: var(--text-muted); margin-top: 10px; line-height: 1.55; }
     .wf-note b { color: var(--text-secondary); font-weight: 600; }
 
@@ -183,8 +192,8 @@
   <p class="lede">The shell every screen inherits: a rail on the left that owns every destination, a header on top that owns money and the account, and on mobile a bottom bar that is a shortcut subset of the rail. No carrier holds another's kind. It has no job of its own, because a carrier is not a destination. It is the surface on which four jobs and one compliance constraint reach their screens.</p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">3 / 2</div><div class="hero-stat-label">Carriers, mobile / desktop</div></div>
-    <div><div class="hero-stat-value">3 to 4</div><div class="hero-stat-label">Destinations by state</div></div>
-    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Money figures, both in currency</div></div>
+    <div><div class="hero-stat-value">1 / 2</div><div class="hero-stat-label">Destinations, rail / bar, both states</div></div>
+    <div><div class="hero-stat-value">2</div><div class="hero-stat-label">Money figures, both in coins</div></div>
     <div><div class="hero-stat-value">44px</div><div class="hero-stat-label">Minimum target, AAA</div></div>
   </div>
 </div>
@@ -251,7 +260,7 @@
   <div class="table-wrap">
     <table>
       <thead><tr><th style="width:36%">What the live product does</th><th style="width:22%">What we keep</th><th>What we change, and why</th></tr></thead>
-      <tbody><tr><td>The header carries <strong>two money figures side by side and never summed</strong>, labelled <code>INVENTORY</code> and <code>BALANCE</code>, with a round <code>+</code> beside them for deposit. The rail is a full height icon column of nine destinations. <code>baseline-account.md</code> section 1.</td><td><strong>The money rule, exactly.</strong> <code>CLAUDE.md</code> fixes two figures, balance and value of items held, never summed. <strong>The canon already runs it</strong>, which is the strongest confirmation in the capture.</td><td>The denomination, <code>C1</code>. And <strong>the <code>+</code> control carries a permanent <code>5%</code> badge</strong> advertising the standing deposit bonus, <code>baseline-account.md</code> section 5b.2. <strong>Ours carries no badge:</strong> a promotional percentage welded to a money control turns the shell into an advertisement that never stops running.</td></tr></tbody>
+      <tbody><tr><td>The header carries <strong>two money figures side by side and never summed</strong>, labelled <code>INVENTORY</code> and <code>BALANCE</code>, with a round <code>+</code> beside them for deposit. The rail is a full height icon column of nine destinations. <code>baseline-account.md</code> section 1.</td><td><strong>The money rule, exactly.</strong> <code>CLAUDE.md</code> fixes two figures, balance and value of items held, never summed. <strong>The canon already runs it</strong>, which is the strongest confirmation in the capture.</td><td>The denomination, <code>C1</code>. And <strong>the <code>+</code> control carries a permanent <code>5%</code> badge</strong> advertising the standing deposit bonus, <code>baseline-account.md</code> section 5b.2. <s><strong>Ours carries no badge:</strong> a promotional percentage welded to a money control turns the shell into an advertisement that never stops running.</s> <strong>Amended 25 August 2026, <code>D-94</code>: ours carries the badge.</strong> The founder's ground is in <code>aarrr.md</code>, where every competitor in the bank runs an offer, and the refusal had priced only one side. <strong>What survives of the old sentence is the guard:</strong> the badge is off on every page whose own rule forbids an offer, and the cap travels with the percentage. Rule 4.</td></tr></tbody>
     </table>
   </div>
 </section>
@@ -306,7 +315,8 @@
     <p><strong>On desktop the product sits inside Material's supported configuration.</strong> The drawer guidance says "avoid using two navigation components on the same screen", and a top app bar is not a navigation component in that taxonomy: it is the thing the drawer is opened from. So above 900px the count is one primary navigation component plus one app bar, which is the standard shape.</p>
     <p><strong>On mobile it does not, and that is stated here rather than left for a reader to notice.</strong> <code>D-22</code> adds a navigation bar beside a navigation drawer, which is the configuration that sentence forbids by name. <strong>The section on the bar carries the conflict, the condition the decision rests on, and its cost.</strong> It is not resolved by reinterpretation.</p>
     <p><strong>The toggle carries a menu icon and never a chevron</strong>, and stage 04 drew it that way on 20 August 2026 after rendering a chevron first. The quote is already on this page: "the expanded navigation rail <strong>should always open from a menu icon</strong>". <strong>A chevron names a direction; a menu icon names what is behind the control</strong>, and it is the same glyph the mobile header uses for the same job, so one control reads as one control at every width. The wireframe had invented the chevron against this node's own source, which is <strong>a render diverging from its specification rather than a decision</strong>.</p>
-    <p><strong>The geometry is what makes the rule absolute.</strong> The rail runs the full height and the logo sits at the top of it, so the header starts at the rail's edge and holds no destination at all, not even a route home. The earlier version put the logo in the header and needed the words "except the logo" to stay true. It no longer does. <strong>The toggle sits on the junction of the two seams</strong>, which also settles Material's caution structurally: "avoid using logos that could be mistaken as buttons, don't use a logo as a menu button to expand the navigation rail." Here the logo cannot be mistaken for the toggle, because the toggle is a separate control in a different place.</p>
+    <p><strong>The geometry is what makes the rule absolute.</strong> The rail runs the full height and the logo sits at the top of it, so the header starts at the rail's edge and holds no destination at all, not even a route home. The earlier version put the logo in the header and needed the words "except the logo" to stay true. It no longer does. <strong>The toggle sits on the junction of the two seams</strong>, which also settles Material's caution structurally: "avoid using logos that could be mistaken as buttons, don't use a logo as a menu button to expand the navigation rail." Here the logo cannot be mistaken for the toggle, because the toggle is a separate control in a different place. It is anchored there rather than placed in either carrier, so when the rail collapses the toggle tracks its width instead of jumping.</p>
+    <p><strong>One inherited fact does not match, and it is marked rather than overwritten.</strong> <code>baseline.md</code> records the baseline header as full width with the logo at <code>x=5</code> and the toggle at <code>x=51</code>, which is not this geometry. Either the walk captured the collapsed state, or the founder is diverging from the baseline deliberately here. <strong><span class="q">[?]</span>, and the next baseline walk resolves it.</strong> <code>baseline.md</code> is not edited from a screenshot: it says what was walked.</p>
   </div>
 </section>
 
@@ -318,10 +328,8 @@
   </div>
 
   <div class="card is-fix">
-    <h4>Updated after publication: these eight drawings are the model of 18 August 2026</h4>
-    <p><strong>Two decisions have moved items out of the rail since they were drawn, and the drawings still show the old contents.</strong> They are left rather than half corrected, because a diagram edited for one of the two would look current and still be wrong.</p>
-    <p><strong>What is stale in every drawing below:</strong> the rail and the drawer still carry <strong>Provably fair</strong> and <strong>Responsible</strong>, which <code>D-29</code> moved to the footer on 19 August; the bar still carries <strong>Provably fair</strong> for the same reason; and both still carry <strong>My items</strong>, which <code>D-40</code> moved into the account menu on 20 August.</p>
-    <p><strong>What the carriers hold now:</strong> the rail holds <strong>Cases</strong> and its foot, identically in both states; the bar holds <strong>Home and Cases</strong>, identically in both states; the account menu holds the seven rows in the section below. <strong>The tables on this page are current. The pictures are not.</strong></p>
+    <h4>Updated after publication: the drawings were redrawn on 3 October 2026 to the carriers as they are now</h4>
+    <p>The eight drawings first published here were the model of 18 August 2026 and carried Provably fair and Responsible play in the rail, the drawer and the bar, which <code>D-29</code> moved to the footer, and My items in both carriers, which <code>D-40</code> moved into the account menu. <strong>They now draw what the tables on this page say:</strong> the rail holds <strong>Cases</strong> and its foot, identically in both states; the bar holds <strong>Home and Cases</strong>, identically in both states; the header holds the two figures in coins, the deposit control with its <code>D-94</code> badge, and the avatar alone at the far right, <code>D-49</code>. Below 900px the two figures sit side by side, <code>D-144</code>.</p>
   </div>
 
   <div class="wf-row">
@@ -334,22 +342,21 @@
               <div class="wf-railhead"><div class="wf-logo">LOGO</div></div>
               <div class="wf-seam">&#9776;</div>
               <div class="wf-item is-on"><span class="wf-item-ico"></span><span class="wf-item-lbl">Cases</span></div>
-              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Provably fair</span></div>
               <div class="wf-div"></div>
-              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Responsible</span></div>
+              <div class="wf-railfoot"><span>&#9834; Sound</span><span>EN</span></div>
+              <div class="wf-railfoot"><span>social</span></div>
             </div>
             <div class="wf-right">
               <div class="wf-bar is-seamed">
                 <div class="wf-spacer"></div>
                 <div class="wf-btn is-solid">Sign in</div>
-                <div class="wf-ico">&#9834;</div>
               </div>
               <div class="wf-body">Page content</div>
             </div>
           </div>
         </div>
       </div>
-      <p class="wf-note"><b>The rail runs the full height and the logo lives at the top of it.</b> The header starts at the rail's edge rather than spanning the window, and <b>the toggle sits on the junction of the two seams</b>, straddling both. <b>Three destinations.</b> Material's collapsed rail wants 3 to 7, so the guest state clears the floor exactly. One full-width divider separates the two groups, never individual items. The money zone is empty because there is no balance before an account.</p>
+      <p class="wf-note"><b>The rail runs the full height and the logo lives at the top of it.</b> The header starts at the rail's edge rather than spanning the window, and <b>the toggle sits on the junction of the two seams</b>, straddling both. <b>One destination, Cases, since <code>D-40</code></b>: Material's collapsed rail wants 3 to 7, and at one the rail does not clear the floor at all, which the rail section prints. One full-width divider separates the destinations from the foot, where sound, language and the social links sit since <code>D-29</code>. <b>The guest header holds Sign in and nothing else.</b> The money zone is empty because there is no balance before an account.</p>
     </div>
 
     <div class="wf-col">
@@ -361,29 +368,26 @@
               <div class="wf-railhead"><div class="wf-logo">LOGO</div></div>
               <div class="wf-seam">&#9776;</div>
               <div class="wf-item is-on"><span class="wf-item-ico"></span><span class="wf-item-lbl">Cases</span></div>
-              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Provably fair</span></div>
-              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">My items</span></div>
               <div class="wf-div"></div>
-              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Responsible</span></div>
+              <div class="wf-railfoot"><span>&#9834; Sound</span><span>EN</span></div>
+              <div class="wf-railfoot"><span>social</span></div>
             </div>
             <div class="wf-right">
               <div class="wf-bar is-seamed">
                 <div class="wf-spacer"></div>
-                <div class="wf-avatar"></div>
-                <div class="wf-name">Player</div>
                 <div class="wf-money2">
-                  <div class="wf-m-row">$588.08 <span class="wf-m-tag">balance</span></div>
-                  <div class="wf-m-row is-dim">$35.91 <span class="wf-m-tag">in items</span></div>
+                  <div class="wf-m-row">588.08 coins <span class="wf-m-tag">balance</span></div>
+                  <div class="wf-m-row is-dim">35.91 coins <span class="wf-m-tag">in items</span></div>
                 </div>
-                <div class="wf-plus">+</div>
-                <div class="wf-ico">&#9834;</div>
+                <div class="wf-plus">+<span class="wf-badge">5%</span></div>
+                <div class="wf-avatar"></div>
               </div>
               <div class="wf-body">Page content</div>
             </div>
           </div>
         </div>
       </div>
-      <p class="wf-note"><b>Superseded by D-40: no slot is added to the rail any more, and the rail is identical in both states.</b> My items is the first row of the account menu instead, because the header owns the account. In the header, the two figures and the deposit control appear. <b>Both figures are in coins since <code>D-28</code>, and the peg lives where money is spent rather than in a bar that is on screen at all times.</b></p>
+      <p class="wf-note"><b>The rail is identical in both states since <code>D-40</code>.</b> My items is the first row of the account menu instead, because the header owns the account. In the header: the two figures, the deposit control and <b>the avatar alone at the far right, <code>D-49</code></b>, the order of the job. <b>Both figures are in coins since <code>D-28</code>, and the peg lives where money is spent rather than in a bar that is on screen at all times.</b> The <b>+</b> carries the standing bonus badge since <code>D-94</code>, with the cap in its accessible name.</p>
     </div>
   </div>
 
@@ -397,27 +401,26 @@
               <div class="wf-railhead"><div class="wf-logo is-mark">C</div></div>
               <div class="wf-seam">&#9776;</div>
               <div class="wf-item is-on is-narrow"><span class="wf-item-ico"></span></div>
-              <div class="wf-item is-narrow"><span class="wf-item-ico"></span></div>
-              <div class="wf-item is-narrow"><span class="wf-item-ico"></span></div>
               <div class="wf-div"></div>
-              <div class="wf-item is-narrow"><span class="wf-item-ico"></span></div>
+              <div class="wf-railfoot" style="justify-content:center;padding:4px 0"><span>&#9834;</span></div>
+              <div class="wf-railfoot" style="justify-content:center;padding:4px 0"><span>EN</span></div>
             </div>
             <div class="wf-right">
               <div class="wf-bar is-seamed">
                 <div class="wf-spacer"></div>
-                <div class="wf-avatar"></div>
                 <div class="wf-money2">
-                  <div class="wf-m-row">$588.08 <span class="wf-m-tag">balance</span></div>
-                  <div class="wf-m-row is-dim">$35.91 <span class="wf-m-tag">in items</span></div>
+                  <div class="wf-m-row">588.08 coins <span class="wf-m-tag">balance</span></div>
+                  <div class="wf-m-row is-dim">35.91 coins <span class="wf-m-tag">in items</span></div>
                 </div>
-                <div class="wf-plus">+</div>
+                <div class="wf-plus">+<span class="wf-badge">5%</span></div>
+                <div class="wf-avatar"></div>
               </div>
               <div class="wf-body">Page content, wider</div>
             </div>
           </div>
         </div>
       </div>
-      <p class="wf-note"><b>The only place a label may be absent.</b> Material sanctions icon-only presentation in the collapsed variant and the expanded variant is one control away. Tooltips on hover and on focus. The choice persists. <b>The collapsed rail is never hidden on desktop.</b> The logo narrows to a mark and stays where it was, and the toggle does not move: it is anchored to the seam, so it tracks the rail's width instead of jumping.</p>
+      <p class="wf-note"><b>The only place a label may be absent.</b> Material sanctions icon-only presentation in the collapsed variant and the expanded variant is one control away. Tooltips on hover and on focus. The choice persists. <b>The collapsed rail is never hidden on desktop.</b> The labels go and <b>the controls do not</b>: the sound control becomes its glyph and the language keeps its two characters. The logo narrows to a mark and stays where it was, and the toggle does not move: it is anchored to the seam, so it tracks the rail's width instead of jumping.</p>
     </div>
 
     <div class="wf-col">
@@ -427,35 +430,32 @@
           <div class="wf-bar is-thin">
             <div class="wf-ico is-menu">&#9776;</div>
             <div class="wf-spacer"></div>
-            <div class="wf-avatar"></div>
-            <div class="wf-money2">
-              <div class="wf-m-row">$588.08</div>
-              <div class="wf-m-row is-dim">$35.91</div>
+            <div class="wf-money2 is-row">
+              <div class="wf-m-row">588.08 coins</div>
+              <div class="wf-m-row is-dim">35.91 coins</div>
             </div>
-            <div class="wf-plus">+</div>
+            <div class="wf-plus">+<span class="wf-badge">5%</span></div>
+            <div class="wf-avatar"></div>
           </div>
           <div class="wf-stage">
             <div class="wf-body" style="min-height:172px">Page content</div>
             <div class="wf-tabs">
-              <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Home</span></div>
+              <div class="wf-tab is-on"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Home</span></div>
               <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Cases</span></div>
-              <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Provably fair</span></div>
-              <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">My items</span></div>
             </div>
             <div class="wf-scrim"></div>
             <div class="wf-drawer">
               <div class="wf-railhead" style="margin:0 -7px 8px"><div class="wf-logo">LOGO</div></div>
               <div class="wf-item is-on"><span class="wf-item-ico"></span><span class="wf-item-lbl">Cases</span></div>
-              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Provably fair</span></div>
-              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">My items</span></div>
               <div class="wf-div"></div>
-              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Responsible</span></div>
+              <div class="wf-railfoot"><span>&#9834; Sound</span><span>EN</span></div>
+              <div class="wf-railfoot"><span>social</span></div>
             </div>
             <div class="wf-scrim-tag">scrim, tap to dismiss</div>
           </div>
         </div>
       </div>
-      <p class="wf-note"><b>Modal drawer with a scrim,</b> dismissed three ways per Material: selecting an item, tapping the scrim, swiping toward the left edge. A keyboard user gets a fourth, Escape, and focus returns to the menu icon. <b>The bar sits behind the scrim with the content and is not raised above it</b>: a bar left live above a scrim is content the scrim failed to block. <b>The drawer's first row is the logo</b>, which is what makes Home exist in the rail as well as in the bar. The display name and the sound control drop at this width, which is what the baseline itself does at 390px, <code>baseline.md</code>.</p>
+      <p class="wf-note"><b>Modal drawer with a scrim,</b> dismissed three ways per Material: selecting an item, tapping the scrim, swiping toward the left edge. A keyboard user gets a fourth, Escape, and focus returns to the menu icon. <b>The bar sits behind the scrim with the content and is not raised above it</b>: a bar left live above a scrim is content the scrim failed to block. <b>The drawer's first row is the logo</b>, which is what makes Home exist in the rail as well as in the bar. The sound control drops from the header at this width, which is what the baseline itself does at 390px, <code>baseline.md</code>, and lives at the drawer's foot. <b>The two figures sit side by side, each 44 high, <code>D-144</code></b>, and the word coins stays on both.</p>
     </div>
   </div>
 
@@ -471,31 +471,28 @@
           </div>
           <div class="wf-body" style="min-height:74px">Page content</div>
           <div class="wf-tabs">
-            <div class="wf-tab is-on"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Home</span></div>
-            <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Cases</span></div>
-            <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Provably fair</span></div>
-          </div>
+              <div class="wf-tab is-on"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Home</span></div>
+              <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Cases</span></div>
+            </div>
           <div style="height:14px"></div>
           <div class="wf-bar is-thin">
             <div class="wf-ico is-menu">&#9776;</div>
             <div class="wf-spacer"></div>
-            <div class="wf-avatar"></div>
-            <div class="wf-money2">
-              <div class="wf-m-row">$588.08</div>
-              <div class="wf-m-row is-dim">$35.91</div>
+            <div class="wf-money2 is-row">
+              <div class="wf-m-row">588.08 coins</div>
+              <div class="wf-m-row is-dim">35.91 coins</div>
             </div>
-            <div class="wf-plus">+</div>
+            <div class="wf-plus">+<span class="wf-badge">5%</span></div>
+            <div class="wf-avatar"></div>
           </div>
           <div class="wf-body" style="min-height:74px">Page content</div>
           <div class="wf-tabs">
-            <div class="wf-tab is-on"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Home</span></div>
-            <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Cases</span></div>
-            <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Provably fair</span></div>
-            <div class="wf-tab is-new"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">My items</span></div>
-          </div>
+              <div class="wf-tab is-on"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Home</span></div>
+              <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Cases</span></div>
+            </div>
         </div>
       </div>
-      <p class="wf-note"><b>Three before an account, four after, and the dashed slot is the only thing that changes.</b> Positions 1 to 3 never move and nothing is ever removed, which is Apple's stability rule answered rather than argued with. Three clears Material's own floor exactly. <b>The logo is gone from the header</b>: bar item 1 is the persistent route home, and the brand mark lives at the top of the drawer. <b>Balance is not a tab in either state.</b> Money stays in the header.</p>
+      <p class="wf-note"><b>Two items in both states, and nothing changes on sign in, <code>D-40</code>.</b> Positions never move, nothing is ever removed and nothing is ever added, which is Apple's stability rule met the strongest way available. <b>Two is below Material's floor of three</b>, printed in the bar section rather than reinterpreted. <b>The logo is gone from the header</b>: bar item 1 is the persistent route home, and the brand mark lives at the top of the drawer. <b>Balance is not a tab in either state.</b> Money stays in the header.</p>
     </div>
 
     <div class="wf-col">
@@ -507,19 +504,15 @@
               <div class="wf-railhead"><div class="wf-logo">LOGO</div></div>
               <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Home, via logo</span></div>
               <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Cases</span></div>
-              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Provably fair</span></div>
-              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">My items</span></div>
               <div class="wf-div"></div>
-              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Responsible</span></div>
-              <div class="wf-item"><span class="wf-item-ico"></span><span class="wf-item-lbl">Sound</span></div>
+              <div class="wf-railfoot"><span>&#9834; Sound</span><span>EN</span></div>
+              <div class="wf-railfoot"><span>social</span></div>
             </div>
             <div class="wf-right">
               <div class="wf-body" style="min-height:0;padding:14px 10px">The rail is the complete list</div>
               <div class="wf-tabs" style="margin:0 8px 8px">
                 <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Home</span></div>
                 <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Cases</span></div>
-                <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">Provably fair</span></div>
-                <div class="wf-tab"><span class="wf-tab-ico"></span><span class="wf-tab-lbl">My items</span></div>
               </div>
             </div>
           </div>
@@ -540,12 +533,15 @@
   <div class="card is-src">
     <h4>Material Design 3, navigation rail guidelines - new</h4>
     <span class="src-url">https://m3.material.io/components/navigation-rail/guidelines</span>
+    <p>Opened live with a rendered browser, because the page is a JS application and a plain fetch returns only its title.</p>
     <blockquote>"The collapsed nav rail runs along the leading edge of the window, and should contain <strong>3 to 7 navigation items</strong>. <strong>It should not be hidden.</strong>"</blockquote>
-    <blockquote>"The expanded navigation rail can be standard or modal, and <strong>should always open from a menu icon</strong>."</blockquote>
+    <blockquote>"There are two variants of navigation rails, collapsed and expanded, which can easily transform into each other when the menu button is selected."</blockquote>
+    <blockquote>"The expanded navigation rail can be standard or modal, and <strong>should always open from a menu icon</strong>. An expanded rail can reveal secondary destinations not visible when collapsed."</blockquote>
     <blockquote>"A navigation rail should be <strong>the only visible navigation element</strong>."</blockquote>
     <blockquote>"<strong>Compact windows should always use a navigation bar.</strong>"</blockquote>
     <blockquote>"The top of the rail can also be used for a logo, however <strong>avoid using logos that could be mistaken as buttons</strong>. Don't use a logo as a menu button to expand the navigation rail."</blockquote>
-    <blockquote>"<strong>All navigation items require a one word label text.</strong>" "Don't use the active indicator for more than one navigation item at a time."</blockquote>
+    <blockquote>"Use the active indicator only for the current open page." "Don't use the active indicator for more than one navigation item at a time."</blockquote>
+    <blockquote>"<strong>All navigation items require a one word label text.</strong>"</blockquote>
   </div>
 
   <div class="card is-src">
@@ -553,9 +549,11 @@
     <span class="src-url">https://m3.material.io/components/navigation-drawer/guidelines</span>
     <blockquote>"Navigation drawers are recommended for: apps with <strong>5 or more top-level destinations</strong>; apps with 2 or more levels of navigation hierarchy; quick navigation between unrelated destinations."</blockquote>
     <blockquote>"<strong>Avoid using a navigation drawer with other primary navigation components, such as a navigation bar.</strong> Avoid using two navigation components on the same screen."</blockquote>
-    <blockquote>"<strong>Modal navigation drawers use a scrim to block interaction</strong> with the rest of an app's content. Modal navigation drawers can be used in any breakpoint, but are <strong>primarily used in compact and medium sizes</strong>."</blockquote>
+    <blockquote>"Navigation bars for compact breakpoints. Navigation rails for medium and expanded breakpoints. Standard navigation drawers for expanded, large and extra-large breakpoints."</blockquote>
+    <blockquote>"<strong>Modal navigation drawers use a scrim to block interaction</strong> with the rest of an app's content, and don't affect the screen's layout grid. Modal navigation drawers can be used in any breakpoint, but are <strong>primarily used in compact and medium sizes</strong>."</blockquote>
     <blockquote>Modal drawers "can be dismissed by: selecting a drawer item; tapping the scrim; <strong>swiping toward the drawer's anchoring edge</strong>."</blockquote>
     <blockquote>"Use <strong>full-width dividers</strong> to separate <strong>groups</strong> of destinations." "<strong>Don't use dividers to separate individual destinations.</strong>"</blockquote>
+    <blockquote>"One navigation destination is always active."</blockquote>
   </div>
 
   <div class="card is-src">
@@ -570,9 +568,10 @@
     <h4>These two sentences point opposite ways at two moments in this product's life</h4>
     <p>At round 1's count, three destinations for a guest and four with an account, Material would pick a bar. At the scope this product is locked to, nine rail destinations in the baseline and eight LATER surfaces in <code>CLAUDE.md</code>, Material forbids a bar outright.</p>
     <p><strong>The primary carrier is therefore built for the destination rather than for the round</strong>, which is why it is the rail. The cost is named below rather than absorbed.</p>
-    <p><strong><code>D-22</code> did not overturn that conclusion, it added a second carrier beside it.</strong> The floor sentence is what the mobile bar has to clear, and it clears it exactly: three destinations before an account. The ceiling sentence is the reason the bar can never become the primary carrier: at six destinations Material forbids it and the rail is still legal to seven. <strong>The bar is a shortcut over the model, not the model.</strong></p>
-    <p><strong>Superseded in part on 19 August 2026 by <code>D-29</code>.</strong> The rail then carried <strong>one</strong> destination before an account and two after, Cases plus My items, and Provably fair and Responsible play moved to the footer. The floor sentence became violated rather than cleared: the bar held Home plus Cases, which is two.</p>
-    <p><strong>Superseded again on 20 August 2026 by <code>D-40</code>, and this time the count is the same in both states.</strong> My items left the rail, so the rail carries <strong>one destination, Cases, whether or not there is an account</strong>, and the bar carries <strong>Home and Cases, two, in both states</strong>. <strong>The floor is now missed for a signed-in person as well as for a guest.</strong> The way out D-29 named is unchanged and still not taken, and this record is bigger than it was: the violation used to apply to one state.</p>
+    <p><strong><code>D-22</code> did not overturn that conclusion, it added a second carrier beside it.</strong> The floor sentence is what the mobile bar has to clear, and it clears it exactly: three destinations before an account.</p>
+    <p><strong>Superseded in part on 19 August 2026 by <code>D-29</code>.</strong> The rail then carried <strong>one</strong> destination before an account and two after, Cases plus My items, and Provably fair and Responsible play moved to the footer. <strong>The floor sentence became violated rather than cleared:</strong> the bar held Home plus Cases, which is two. <code>D-29</code> printed that instead of reinterpreting the quote, and named the two honest ways out without taking either.</p>
+    <p><strong>Superseded again on 20 August 2026 by <code>D-40</code>, and this time the count is the same in both states.</strong> My items left the rail, so the rail carries <strong>one destination, Cases, whether or not there is an account</strong>, and the bar carries <strong>Home and Cases, two, in both states</strong>. <strong>The floor is now missed for a signed-in person as well as for a guest.</strong> <strong>The way out <code>D-29</code> named is unchanged and still not taken</strong>, and this record is bigger than it was: the violation used to apply to one state.</p>
+    <p>The rest of this section stands as written. The ceiling sentence is the reason the bar can never become the primary carrier: at six destinations Material forbids it and the rail is still legal to seven. <strong>The bar is a shortcut over the model, not the model.</strong></p>
   </div>
 
   <div class="card is-src">
@@ -587,8 +586,9 @@
   <div class="card is-src">
     <h4>WCAG 2.2, target size - carried</h4>
     <span class="src-url">https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html</span>
+    <span class="src-url">https://www.w3.org/WAI/WCAG22/Understanding/target-size-enhanced.html</span>
     <blockquote><strong>2.5.8 Minimum, AA:</strong> at least 24 by 24 CSS pixels. <strong>2.5.5 Enhanced, AAA:</strong> at least 44 by 44 CSS pixels.</blockquote>
-    <p><strong>This node takes 44 by 44, the AAA figure, and it is a choice rather than an inheritance.</strong> Nothing obliges an AA product to meet a AAA criterion. Recorded so that a later stage does not read 44 as a WCAG obligation and apply it everywhere by mistake.</p>
+    <p><strong>This node takes 44 by 44, the AAA figure, and it is a choice rather than an inheritance.</strong> Nothing obliges an AA product to meet a AAA criterion. Navigation is the one surface every screen carries and the one a person hits while moving. Recorded so that a later stage does not read 44 as a WCAG obligation and apply it everywhere by mistake.</p>
   </div>
 </section>
 
@@ -606,7 +606,7 @@
 
   <div class="card is-fix">
     <h4>One destination in both states, and correcting the table surfaced a cost neither record printed</h4>
-    <p><strong>The table below read "three items for a guest, four with an account" until 20 August 2026.</strong> It was two decisions out of date: D-29 moved Provably fair and Responsible play to the footer, D-40 moved My items into the account menu, and it had been amended for the second only.</p>
+    <p><strong>The table below read "three items for a guest, four with an account" until 20 August 2026.</strong> It was two decisions out of date: D-29 moved Provably fair and Responsible play to the footer, D-40 moved My items into the account menu, and it had been amended for the second only. <strong>Found by the two-instrument audit rather than by either decision</strong>, which is the point of running it.</p>
     <p><strong>Material's collapsed rail wants 3 to 7 destinations.</strong> This section used to say the guest state "clears the floor exactly", on three. <strong>At one it does not clear it at all.</strong> D-29 printed the mobile bar's floor violation and D-40 widened that one to both states; <strong>neither said the same thing about the rail itself</strong>, and it is the same violation one carrier up. Printed here rather than absorbed. The way out is the one D-29 named and did not take: round 1 ships one way to play, and the rail fills as modes arrive.</p>
   </div>
 
@@ -617,17 +617,21 @@
         <tr><td>Destinations</td><td>Cases</td><td>yes</td><td>yes</td><td>3.1</td></tr>
         <tr><td></td><td>Provably fair</td><td><strong>no</strong> since D-29</td><td><strong>no</strong></td><td>1.2, from the footer's Play column</td></tr>
         <tr><td></td><td>My items</td><td><strong>no</strong> since D-40</td><td><strong>no</strong>. It is the account menu's first row</td><td>5.1, from the menu</td></tr>
-        <tr><td>Ambient, at the foot</td><td>Sound</td><td>yes</td><td>yes</td><td>no destination, open below</td></tr>
+        <tr><td>Ambient, at the foot</td><td>Sound</td><td>yes</td><td>yes</td><td>no destination, <span class="q">[?]</span> below</td></tr>
         <tr><td></td><td>Language</td><td>yes</td><td>yes</td><td>no destination. <strong>A switcher since D-41, with nine options since D-42</strong>, the baseline's own set. English is live, <strong>the other eight switch the control and leave the interface in English</strong> and the panel says so. <strong>D-02 is untouched: no second language ships and the page keeps <code>lang="en"</code></strong></td></tr>
         <tr><td></td><td>Social links</td><td>yes</td><td>yes</td><td>outbound</td></tr>
-        <tr><td>Boundary</td><td>Responsible play</td><td><strong>no</strong> since D-29</td><td><strong>no</strong></td><td>6.1, from the footer, the money control and the account menu</td></tr>
+        <tr><td>Boundary</td><td>Responsible play</td><td><strong>no</strong> since D-29</td><td><strong>no</strong></td><td>6.1, from the footer and the account menu. <s>the money control</s> <strong>The money control entry was never rendered and <code>D-136</code> struck it</strong>; under a boundary the + opens the limits</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="card">
     <h4>Responsible play in the rail is an addition to the base layer, named rather than absorbed</h4>
-    <p>The base layer gave it a persistent entry inside the Balance control and a footer link, <code>sitemap.md` section "Global navigation: the rail's destinations and the job behind each"</code>, on the argument that a brake which has to be searched for at the worst moment is not a brake. <strong>That entry is unchanged.</strong> This adds a second one, in the rail's lower group, affordable now for the same reason the rail is: there is space. <strong>Parent:</strong> <code>B7-4</code>, pattern of 12, plus the compliance constraint at <code>CLAUDE.md</code>. Both legal.</p>
+    <p>The base layer gave it a persistent entry inside the Balance control and a footer link, <code>sitemap.md</code> section "Global navigation: the rail's destinations and the job behind each", on the argument that a brake which has to be searched for at the worst moment is not a brake. <strong>That entry is unchanged.</strong> This adds a second one, in the rail's lower group, affordable now for the same reason the rail is: there is space. <strong>Parent:</strong> <code>B7-4</code>, pattern of 12, plus the compliance constraint at <code>CLAUDE.md</code>, "responsible play tooling". Both legal.</p>
+  </div>
+
+  <div class="card">
+    <p><strong>The logo sits at the top of the rail and routes to 1.0</strong>, which is the baseline's placement, <code>baseline.md</code>. It is inside the rail rather than above it: the rail is the full-height carrier and the logo is its first row.</p>
   </div>
 
   <h3>What is not in it, each with its reason</h3>
@@ -640,7 +644,7 @@
         <tr><td>The promotional partner tile above the destinations</td><td>Cut from round 1</td><td>A paid third party placement. No barrier, no job, no constraint behind it. If it returns it returns as a revenue decision with a named owner, not as inherited furniture</td></tr>
         <tr><td>The language switcher</td><td><strong>Reversed on 20 August 2026, and this row is kept rather than deleted.</strong> It read "cut permanently, <code>D-02</code>, one language"</td><td><strong>D-41 inherited the carrier and D-42 filled it with the baseline's nine.</strong> What "permanently" was right about is still right: <b>no second language ships</b>, D-02 and its three consequences are untouched, and the page keeps <code>lang="en"</code>. What it got wrong was reading a decision about content as a decision about a control. The cost of eight options that change nothing is printed in <code>0.2</code> band 4 and inside the control itself</td></tr>
         <tr><td>The social icon row at the foot of the drawer</td><td>Deferred to 0.2</td><td>The footer owns the canonical social set. The drawer may render it, from that one source and never a second list</td></tr>
-        <tr><td>The daily free case, <code>I2</code></td><td>Deliberately absent</td><td>MVP by founder decision and the product's only free entry point, so a rail slot is tempting. But it is <strong>not a node in <code>sitemap.md</code></strong>: <code>sitemap.md` section "Global navigation: the rail's destinations and the job behind each"</code> places it inside the catalogue as an addressable case. A carrier may not promise a destination the map does not hold. <strong>Owed a decision before step 5</strong></td></tr>
+        <tr><td>The daily free case, <code>I2</code></td><td>Deliberately absent, and this is the interesting one</td><td>It is MVP by founder decision and it is the product's only free entry point, so a rail slot is tempting. It is <strong>not a node in <code>sitemap.md</code></strong>: <code>sitemap.md</code> section "Global navigation: the rail's destinations and the job behind each" places it inside the catalogue as an addressable case. The rule this stage applies to the footer applies here too. A carrier may not promise a destination the map does not hold. Either it becomes a node or it stays inside 3.1. <strong>Owed a decision before step 5</strong></td></tr>
       </tbody>
     </table>
   </div>
@@ -674,8 +678,8 @@
     <blockquote><strong>Every item in the bar also exists in the rail, and the rail is always a superset.</strong></blockquote>
     <p style="margin-top:12px">Two disjoint sets would be two competing menus, which is the ambiguity Material's sentence exists to prevent: a person who found something in one place and not the other cannot tell which list is the product. One complete list plus one shortcut set drawn from it is a different object. <strong>There is one navigation model and two ways into it.</strong></p>
     <p><strong>If a later stage puts an item in the bar that the rail does not hold, the model is broken rather than extended</strong>, and this node has been violated. That is the acceptance test, and it is checkable by reading two lists.</p>
-    <p>The superset holds literally rather than nearly, and the logo is why: <strong>the drawer's first row is the logo and the logo routes to 1.0</strong>, so Home is in the rail as well as in the bar.</p>
-    <p><strong>And the superset is about labels as much as about hrefs: one destination carries one label in every carrier.</strong> The first draft of the bar shortened Provably fair to "Fairness" to meet Material's "all navigation items require a one word label text". Two labels for one destination, rendered on the same 360px screen in the bar and in the drawer, is the superset rule failing at the one place a person actually reads it. <strong>The bar says Provably fair.</strong> Material's one-word preference loses here to a rule this node already carries: "provably" is the word that holds design principle 1 and the <code>D-14</code> limit, and "My items" is already two words in the same bar.</p>
+    <p><strong>The superset holds literally rather than nearly, and the logo is why.</strong> The drawer's first row is the logo and the logo routes to 1.0, so Home is in the rail as well as in the bar. The adaptive section records that the logo moved back into the drawer for this reason among others.</p>
+    <p><strong>And the superset is about labels as much as about hrefs: one destination carries one label in every carrier.</strong> The first draft of the bar shortened Provably fair to "Fairness" to meet Material's "all navigation items require a one word label text". Two labels for one destination, rendered on the same 360px screen in the bar and in the drawer, is the superset rule failing at the one place a person actually reads it. <strong>The bar says Provably fair.</strong> Material's one-word preference loses here to a rule this node already carries: "provably" is the word that holds design principle 1 and the <code>D-14</code> limit, and "My items" is already two words in the same bar, so the preference was being bent one item along regardless.</p>
   </div>
 
   <h3>What the bar carries</h3>
@@ -693,9 +697,15 @@
 
   <div class="card">
     <h4>Two items, in both states</h4>
-    <p><strong>This table read "three before an account, four after" until 20 August 2026 and it was out of date by two decisions</strong>, for the same reason the rail table above was: the superset rule means an item leaving the rail leaves the bar in the same step, and only the My items row had been amended. <strong>Found by the two-instrument audit rather than by either decision.</strong></p>
+    <p><strong>This table read "three before an account, four after" until 20 August 2026 and it was out of date by two decisions</strong>, for the same reason the rail table above was: the superset rule means an item leaving the rail leaves the bar in the same step, and only the My items row had been amended.</p>
     <p><strong>Below Material's floor in both states.</strong> "Don't use a navigation bar for fewer than three destinations." D-29 printed that violation when it applied to a guest; D-40 widened it to both. The way out both records name and neither takes is unchanged.</p>
-    <p><strong>Positions never move, nothing is ever removed, and now nothing is ever added either.</strong> Apple's stability rule - "don't disable or hide tab bar buttons, even when their content is unavailable" - is met the strongest way available: <strong>the bar is identical before and after sign in</strong>, so there is no slot appearing at the moment an account is created.</p>
+    <p><strong>Positions never move, nothing is ever removed, and now nothing is ever added either.</strong> Apple's stability rule, "don't disable or hide tab bar buttons, even when their content is unavailable", is met the strongest way available: <strong>the bar is identical before and after sign in</strong>, so there is no slot appearing at the moment an account is created. The research section records that this rule had been retired by <code>D-21</code> and is now back in force.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4><s>Provably fair holds position 3 in both states</s></h4>
+    <p><strong>Stale since <code>D-40</code>, struck on 26 September 2026 by <code>D-124</code>: the bar carries Home and Cases and nothing else, and Provably fair is carried by the footer.</strong> What follows is the argument as it stood, kept because it lost to a later decision and not to a counter argument.</p>
+    <p><s>Same structural claim the rail makes, on the same parents: <code>jtbd.md</code> Section 3, Emotional and Social Jobs names a public provably fair surface as one of three things no competitor offers pre-login, and design principle 1 says trust is the product. It carries the <code>D-14</code> limit with it: its position is not a claim that a verifier converts a sceptic.</s></p>
   </div>
 
   <div class="card is-drop">
@@ -736,46 +746,63 @@
   <div class="split">
     <div class="card">
       <h4>Guest</h4>
-      <p>Rail toggle, logo, then the right group: <strong>Sign in</strong> routing to 2.4, and the sound control.</p>
+      <p>Left to right: rail toggle, <s>logo,</s> then the right group: <strong>Sign in</strong>, routing to 2.4, <s>and the sound control</s>. <strong>The logo is the rail's, as the navigation model in <code>CLAUDE.md</code> gives it, and the sound control moved to the rail's foot with <code>D-29</code></strong>, so the guest header holds Sign in and nothing else.</p>
       <p><strong>The slot the baseline fills with the race pot stays empty.</strong> <code>baseline.md</code> records that pre-login there is no balance widget at all and that a promotion occupies its place. That promotion is <code>8.9</code> and has no parent. Nothing is invented to fill the gap.</p>
     </div>
     <div class="card">
       <h4>Account exists</h4>
-      <p>Rail toggle, logo, then the right group: the <strong>two figures</strong>, the <strong>deposit control</strong> routing to 4.1, and <strong>the account control at the far right, D-49</strong>. The sound control left the header for the rail foot with <code>D-29</code>.</p>
-    <p><strong>The order changed on 20 August 2026</strong> and it was "the account control, the two figures, the deposit control", from the founder's first reading of a baseline capture. <strong>The baseline itself puts the user panel at the right edge</strong>, <code>baseline.md</code>: "<code>.user-panel-right</code>, right aligned at x=1174". <strong>And the new order is the order of the job:</strong> what I have, how to add to it, who I am. The account control is the least used of the three and the one that opens a menu, so it belongs at the edge the menu hangs from.</p>
-      <p><strong>The account control opens the account menu rather than navigating on its own</strong>, added 19 August 2026 by founder decision, and 5.1 is the menu's first row.</p>
-      <p><del>Responsible play keeps its entry inside the money control, unchanged from <code>D-19</code>, routing to 6.1,</del> <strong>Never rendered, struck in round 14 by D-136.</strong> Responsible play and it now has a second persistent entry in the menu.</p>
+      <p>This is the state the founder specified. Left to right: rail toggle, logo, then the right group: the <strong>two figures</strong>, the <strong>deposit control</strong>, and <strong>the account control at the far right, <code>D-49</code></strong>.</p>
+      <p><strong>The order changed on 20 August 2026 and it was "the account control, the two figures, the deposit control".</strong> That came from the founder's first reading of a baseline capture. <strong>The baseline itself puts the user panel at the right edge</strong>, <code>baseline.md</code> section on the header: "<code>.user-panel-right</code>, right aligned at <code>x=1174</code>". <strong>And the new order is the order of the job:</strong> what I have, how to add to it, who I am. The account control is the least used of the three and it is the one that opens a menu, so it belongs at the edge the menu hangs from.</p>
     </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:24%">Element</th><th>What it shows</th><th style="width:18%">Leads to</th></tr></thead>
+      <tbody>
+        <tr><td>Account control</td><td><s>Avatar and display name</s> <strong>the avatar alone since <code>D-49</code></strong>, and <strong>it opens the account menu</strong> rather than navigating on its own</td><td>the menu, whose first item is 5.1</td></tr>
+        <tr><td>Balance, upper figure</td><td>Spendable funds, in coins, <code>D-28</code></td><td>4.1</td></tr>
+        <tr><td>Value of items held, lower figure</td><td>Current market value of the skins on the account, in coins, <code>D-28</code></td><td>5.1</td></tr>
+        <tr><td>Deposit control</td><td>A single add control beside the figures</td><td>4.1</td></tr>
+        <tr><td><s>Responsible play, inside the money control</s></td><td><s>Persistent, unchanged from <code>D-19</code></s> <strong>Never rendered, struck in round 14 by <code>D-136</code>.</strong> Responsible play is carried by the footer and the account menu; under a boundary the money control itself opens the limits</td><td>6.1</td></tr>
+      </tbody>
+    </table>
   </div>
 
   <div class="card is-fix">
     <h4>The two figures are one stacked block and not a row, and that has been this node's word since it was written</h4>
     <p>Upper and lower are structural rather than decorative: the state matrix says "two lines" on desktop and "one line each" on mobile. <strong>Stage 04 drew them side by side with a vertical hairline between them and was corrected on 19 August 2026</strong> against the founder's own baseline capture, which stacks them.</p>
-    <p><strong>What replaces the hairline as the thing that stops them being added by eye.</strong> The rule is number 2 below, never summed and never a total, and a vertical rule was one way to enforce it. Stacked, the separation is carried by weight and by caption instead: the balance is the larger figure, the value of items held is smaller and dimmer, and each keeps its own caption on its own line. <strong>Two figures of equal weight in a column is a receipt</strong>, which is the one reading this zone may not produce.</p>
+    <p><strong>What replaces the hairline as the thing that stops them being added by eye.</strong> The rule is number 2 below, never summed and never a total, and a vertical rule was one way to enforce it. Stacked, the separation is carried by weight and by caption instead: <strong>the balance is the larger figure and the value of items held is smaller and dimmer, and each keeps its own caption on its own line.</strong> Two figures of equal weight in a column is a receipt, which is the one reading this zone may not produce.</p>
+    <p><strong>Below 900px the two figures sit side by side, each 44 high, since <code>D-144</code></strong>, in the amendment at the top of this page: stacked, two 44 targets cannot fit a 60 high header.</p>
   </div>
 
   <div class="card is-note">
     <h4>The account menu, added 19 August 2026 by founder decision</h4>
-    <p>The baseline opens a menu under the avatar and the founder specified it from that capture. The control keeps its accessible name and its route target as the menu's first row, so nothing that was reachable becomes unreachable.</p>
+    <p><strong>The account control opens a menu instead of navigating.</strong> The baseline does this and the founder specified it from the baseline capture. <strong>It is the avatar alone at every width since <code>D-49</code>, and the display name is the menu's first line.</strong></p>
+    <p><strong>Every row of the menu reserves its icon slot, <code>D-50</code></strong>, and so does the mobile bar and each of the two money figures. It is the rule the rail has followed since it was drawn, applied to the three carriers that were not following it. <code>wireframes/docs/conventions.md</code> section 2.</p>
+    <p><strong>One control in two forms was the defect.</strong> It carried the name on desktop and dropped it at 360, which is a difference a person can see and cannot explain. <strong>The name is not information a signed-in person needs on every screen: they know who they are.</strong> What it is for is confirming <strong>which</strong> account you are in, and that question is asked at the moment the menu opens, so the answer moved there. <strong>It stays in the control's accessible name</strong>, so nothing is lost to a reader. The control keeps its accessible name and its route target as the menu's first item, so nothing that was reachable becomes unreachable.</p>
     <div class="table-wrap">
-<table>
+    <table>
       <thead><tr><th>Row</th><th>Node</th><th>Parent</th></tr></thead>
       <tbody>
-        <tr><td><strong>My items</strong></td><td>5.1</td><td>Related Job 5, and the inventory row <span class="row-code">B7</span></td></tr>
-        <tr><td><strong>History</strong></td><td>5.9</td><td><span class="row-code">F3</span> and Related Job 3, verify the outcome after I open. <strong>Added by D-36.</strong> Labelled Roll history until D-88 gave the node four tabs: <strong>a row that names one of the four things behind it under-describes, which is the same defect as over-promising with the sign reversed</strong></td></tr>
+        <tr><td><strong>My items</strong></td><td>5.1</td><td>Related Job 5, and the inventory row <span class="row-code">B7</span> at <code>cjm-to-be.md</code></td></tr>
+        <tr><td><strong>History</strong></td><td>5.9</td><td><span class="row-code">F3</span> and Related Job 3, verify the outcome after I open. <strong>Added by <code>D-36</code>.</strong> Labelled Roll history until <code>D-88</code> gave the node four tabs: <strong>a row that names one of the four things behind it under-describes, which is the same defect as over-promising with the sign reversed</strong></td></tr>
         <tr><td><strong>Withdrawals</strong></td><td>5.3</td><td><span class="row-code">G1</span>, named states with a per-state clock</td></tr>
-        <tr><td><strong>Profile</strong></td><td>5.10</td><td><strong>None. Founder decision D-36, and the empty cell is printed rather than filled</strong></td></tr>
-        <tr><td><strong>Settings</strong></td><td>5.11</td><td><strong>None yet. What it holds in round 1 is [?]</strong>, D-36</td></tr>
-        <tr><td><strong>Responsible play</strong></td><td>6.1</td><td>The compliance constraint at <code>CLAUDE.md</code>, plus this node's requirement that the entry is persistent</td></tr>
-        <tr><td><strong>Sign out</strong></td><td>none. A control rather than a destination</td><td>The account state itself</td></tr>
+        <tr><td><strong>Profile</strong></td><td>5.10</td><td><strong>None. Founder decision <code>D-36</code>, and the empty cell is printed rather than filled</strong></td></tr>
+        <tr><td><strong>Settings</strong></td><td>5.11</td><td><strong>None yet. What it holds in round 1 is <span class="q">[?]</span></strong>, <code>D-36</code></td></tr>
+        <tr><td><strong>Responsible play</strong></td><td>6.1</td><td>The compliance constraint at <code>CLAUDE.md</code>, "responsible play tooling", plus this node's own requirement that the entry is persistent</td></tr>
+        <tr><td><strong>Sign out</strong></td><td>none. It is a control rather than a destination</td><td>The account state itself</td></tr>
       </tbody>
     </table>
-</div>
-    <p><strong>Seven rows since 20 August 2026, and the count changed because the map changed rather than because the menu did.</strong> Until that date this section carried four and refused PROFILE and SETTINGS on a stated argument: no node held either, and a carrier is inherited and filled with live items while only a dead item is deferred, so a row for a page nobody has specified is the dead item defect inside a menu.</p>
-    <p><strong>That argument was answered rather than overruled, and it is worth being exact about which.</strong> The rule points at the gap without saying which side closes it. <strong>The founder closed it on the map's side:</strong> Profile, Settings and Roll history became nodes 5.10, 5.11 and 5.9, so the rows are live items and the menu is filled with what exists, exactly as the rule requires. <strong>What travelled with them is the price:</strong> two of the three have no parent in the three legal classes and say so on the map. Roll history arrived with a real parent, <span class="row-code">F3</span>, and with a real dependency: D-C decides whether roll history is retained per roll in a publishable form at all.</p>
-    <p><strong>One sentence in the table above was also wrong and is corrected rather than left.</strong> The Withdrawals row read "this is the record, and the map has no separate history node". The map has one now, and the two are different records: <strong>withdrawals are what left, rolls are what happened.</strong></p>
-    <p><strong>Hover is not the only way in, and that is an accessibility limit rather than a preference.</strong> The reference opens on hover. Hover alone excludes touch entirely and the keyboard almost entirely, so the control opens on hover, on click and on Enter or Space, and closes on Escape, on a click outside, and when focus leaves.</p>
-    <p><strong>No badge on the deposit control, and the reference shows exactly the badge being refused.</strong> The capture carries a green 5 percent on its add control. Rule 4 below blocks it behind a named model with a named owner. <strong>The shape is taken, a single compact add control beside the figures; the promotion welded onto it is not.</strong></p>
+    </div>
+    <p><strong>Seven rows since 20 August 2026, and the count changed because the map changed rather than because the menu did.</strong> Until that date this section carried four rows and refused PROFILE and SETTINGS on a stated argument: no node in the map held either, and <code>CLAUDE.md</code>'s rule is that a carrier is inherited and filled with live items while only a dead item is deferred, so a row for a page nobody has specified is the dead item defect inside a menu.</p>
+    <p><strong>That argument was answered rather than overruled, and it is worth being exact about which.</strong> The rule points at the gap without saying which side closes it. <strong>The founder closed it on the map's side:</strong> Profile, Settings and Roll history became nodes <code>5.10</code>, <code>5.11</code> and <code>5.9</code>, so the rows are live items now and the menu is filled with what exists, exactly as the rule requires. <code>docs/decisions.md</code> <code>D-36</code>.</p>
+    <p><strong>What travelled with them is the price.</strong> Two of the three have <strong>no parent in the three legal classes</strong> and say so in their own rows above and on the map. <strong>Roll history is the one that arrived with a real parent</strong>, <span class="row-code">F3</span>, and it also inherits a real dependency: <code>D-C</code> decides whether roll history is retained per roll in a publishable form at all.</p>
+    <p><strong>One sentence in the table above was also wrong and is corrected rather than left.</strong> The Withdrawals row read "this is the record, and the map has no separate history node". <strong>The map has one now</strong>, and the two are different records: withdrawals are what left, rolls are what happened.</p>
+    <p><s><strong>Responsible play is now in three carriers and that is deliberate rather than sloppy.</strong></s> <strong>Responsible play is in two carriers since <code>D-136</code>, and that is deliberate rather than sloppy.</strong> The footer column since <code>D-29</code>, <s>the entry inside the money control,</s> and this menu, <strong>the money control entry struck in round 14 by <code>D-136</code>: it was never rendered</strong>. Each answers a different moment: the footer is where a person reading the site finds it, <s>the money control is where a person about to spend meets it,</s> and the menu is where a person managing their account looks for it. <strong>The moment before spending is met by refusal rather than by an entry:</strong> under a boundary the + opens the limits instead of the deposit layer, <code>D-134</code>. <strong>A brake that has to be searched for at the worst moment is not a brake</strong>, which is the base layer's own sentence.</p>
+    <p><strong>And since <code>D-40</code> the menu is the only place My items lives.</strong> It was in the rail as well, and the rule this node opens with is that <strong>no carrier holds another's kind</strong>: My items is an account thing and the header owns the account. <strong>The rail did not lose a destination, it stopped holding one twice.</strong> What that costs is one extra tap from a case screen to the inventory on desktop, and it is the reason the rail is now identical in both states.</p>
+    <p><strong>Hover is not the only way in, and this is an accessibility limit rather than a preference.</strong> The founder's reference opens the menu on hover. Hover alone excludes touch entirely and the keyboard almost entirely, so the control opens on hover, on click and on Enter or Space, and closes on Escape, on a click outside and when focus leaves. WCAG 2.2 is already carried by this node in the research section for target size; the same section is why a hover-only disclosure does not ship.</p>
+    <p><s><strong>No badge on the deposit control, and the reference shows exactly the badge being refused.</strong></s> <strong>Amended 25 August 2026, <code>D-94</code>.</strong> The baseline capture carries a green 5 percent on its add control and <strong>ours carries one too</strong>. The <strong>shape</strong> was always taken, a single compact add control beside the figures; since <code>D-94</code> the promotion on it is taken as well, <strong>with the cap in the accessible name and the whole offer restated on <code>4.1</code>.</strong> Rule 4 below.</p>
   </div>
 
   <h3>Four rules the two figures carry, and every one is derived rather than styled</h3>
@@ -784,23 +811,21 @@
     <h4>1. Both figures are in coins, and neither is a coin nobody can price</h4>
     <p><strong>Rewritten on 19 August 2026 by <code>D-28</code>, which reversed <code>C1</code>.</strong> The old rule read "one real currency throughout, no internal coin denomination anywhere" and called the baseline's branded coin glyph the single hardest divergence in this node. <strong>The founder took the coin, and the decision record prints what that cost: <code>C1</code> was the whole structural answer to <span class="row-code">B7-1</span>, a pattern of 7.</strong></p>
     <p><strong>What the header owes instead is the peg, and the header is not where it goes.</strong> <span class="surf">0.11</span> rule 10 puts the peg wherever money is spent, and the header is a persistent carrier rather than a spend moment: <strong>a conversion rate in a bar that is on screen at all times is wallpaper</strong>, and by the time it matters nobody reads it. So the two figures carry the coin and their unit, and the peg lives on 4.1, on 3.3 and on the withdrawal record. A header figure carrying the peg would also be the fourth number in a zone this node holds to two.</p>
-    <p>This is the single hardest divergence in this node and it is not negotiable at IA level, because <code>C1</code> exists to make <code>B7-1</code> impossible: a payout cannot wear a label that is not a price.</p>
   </div>
 
   <div class="card is-note">
     <h4>2. The two figures are never summed and never presented as a total</h4>
-    <p>They are different kinds. The upper one is spendable now. The lower one is an estimate of what a set of objects would fetch, and the only exit for those objects in round 1 is withdrawal to Steam, <code>`cjm-to-be.md` "T7. The outcome"</code>. A combined number would read as net worth, which is a claim the product cannot honour, and it would sit one line above a deposit control.</p>
+    <p>They are different kinds. The upper one is spendable now. The lower one is an estimate of what a set of objects would fetch, and the only exit for those objects in round 1 is withdrawal to Steam, <code>cjm-to-be.md</code> "T7. The outcome". A combined number would read as net worth, which is a claim the product cannot honour, and it would sit one line above a deposit control.</p>
   </div>
 
   <div class="card is-note">
     <h4>3. The lower figure is a current market value, never profit, gain or growth</h4>
-    <p>It moves without the person acting, because skin prices move. <strong>A figure that can fall is honest only if it never claimed to be a score.</strong> <strong>Parent:</strong> design principle 1 as limited by <code>D-14</code>, "what answers the doubt people actually record is published chance, <strong>current value</strong> and tested RTP", plus row <code>B7</code> at <code>`cjm-to-be.md` "2. Registration, account, age, geography"</code>, the account and inventory with each item carrying its receipt. The header figure is the sum of those receipts and must reconcile with 5.1 exactly.</p>
+    <p>It moves without the person acting, because skin prices move. <strong>A figure that can fall is honest only if it never claimed to be a score.</strong> <strong>Parent:</strong> design principle 1 as limited by <code>D-14</code>, "what answers the doubt people actually record is published chance, <strong>current value</strong> and tested RTP", plus row <code>B7</code> at <code>cjm-to-be.md</code> "2. Registration, account, age, geography", the account and inventory with each item carrying its receipt. The header figure is the sum of those receipts and must reconcile with 5.1 exactly.</p>
   </div>
 
-  <div class="card is-drop">
-    <h4>4. No percentage badge on the deposit control in round 1</h4>
-    <p>The baseline runs a green 5 percent badge on its add control. <code>`cjm-to-be.md` "Cut at this step"</code> cuts <strong>any</strong> first-deposit bonus in round 1, including the zero-wagering variant, because <code>`aarrr.md` "MVP product decision"</code> requires case mathematics to be modelled before any bonus is designed and that model does not exist.</p>
-    <p>The control ships without the badge. <strong>The badge is not forbidden forever, it is blocked behind a named model with a named owner.</strong></p>
+  <div class="card is-pick">
+    <h4>4. <s>No percentage badge on the deposit control in round 1.</s> Reversed 25 August 2026 by the founder, D-94. The control carries the badge</h4>
+    <p>The refusal is kept whole rather than deleted, and the founder's ground, the three things that bind the badge and the pages that turn it off follow in the <a href="#d94">D-94 section</a> directly below.</p>
   </div>
 
   <div class="card is-note">
@@ -812,13 +837,13 @@
 <!-- MATRIX -->
 <section id="d94">
   <div class="sec-head">
-    <h2>Amended 25 August 2026 by D-94. Rule 4 is reversed and the deposit control carries the badge</h2>
+    <h2>Rule 4, amended 25 August 2026 by D-94: the deposit control carries the badge</h2>
     <p><strong>Founder decision.</strong> The header&#39;s <code>+</code> control runs the standing 5 per cent badge the baseline runs.</p>
   </div>
 
   <div class="card is-drop">
     <h4>The refusal, kept whole rather than deleted</h4>
-    <p>Rule 4 read: <strong>no percentage badge on the deposit control in round 1.</strong> cjm-to-be.md "Cut at this step" cuts <strong>any</strong> bonus in round 1, including the zero-wagering variant, because aarrr.md requires case mathematics to be modelled before any bonus is designed <strong>and that model does not exist.</strong></p>
+    <p>Rule 4 read: <strong>no percentage badge on the deposit control in round 1.</strong> The baseline runs a green 5 percent badge on its add control. <code>cjm-to-be.md</code> "Cut at this step" cuts <strong>any</strong> first-deposit bonus in round 1, including the zero-wagering variant, because <code>aarrr.md</code> "MVP product decision" requires case mathematics to be modelled before any bonus is designed <strong>and that model does not exist.</strong></p>
     <p><strong>The model still does not exist.</strong> The refusal was not wrong about the fact. It lost to a cost it had not weighed.</p>
   </div>
 
@@ -832,8 +857,8 @@
     <table>
       <thead><tr><th style="width:34%">What binds the badge</th><th>Why, and what happens without it</th></tr></thead>
       <tbody>
-        <tr><td><strong>The percentage never travels without its cap</strong></td><td>A circle holds <code>5%</code> and nothing else, so the control&#39;s <strong>accessible name carries both</strong>. A rate advertised on a persistent control whose limit is discoverable only at the end of the form is <strong>B4-1 with the sign reversed</strong></td></tr>
-        <tr><td><strong>The promise is kept where it lands</strong></td><td>4.1 states the whole offer. <strong>One declaration, WF_BONUS, read by both surfaces</strong>, because this project has already shipped two renderings of one fact across seventy-two pages</td></tr>
+        <tr><td><strong>The percentage never travels without its cap</strong></td><td>A circle holds <code>5%</code> and nothing else, so the control&#39;s <strong>accessible name carries both</strong>: "Add funds. We add 5.00% in coins on top, up to 100 coins per 24 hours." A rate advertised on a persistent control whose limit is discoverable only at the end of the form is <strong>B4-1 with the sign reversed</strong></td></tr>
+        <tr><td><strong>The promise is kept where it lands</strong></td><td>The founder's own wording is that we lead a person from the control to the deposit screen, so 4.1 states the whole offer. <strong>One declaration, WF_BONUS, read by both surfaces</strong>, because this project has already shipped two renderings of one fact across seventy-two pages</td></tr>
         <tr><td><strong>Zero wagering, printed</strong></td><td>C4 is an MVP rule and a wagering requirement is B4-1 in better clothes. The bonus adds coins and <strong>changes nothing about what it takes to withdraw</strong></td></tr>
       </tbody>
     </table>
@@ -861,9 +886,9 @@
         <tr><td>Mobile bar</td><td>Does not exist at this width</td><td><strong>Home, Cases.</strong> Two, below Material's floor since <code>D-29</code>, printed as a violation there</td><td>Does not exist at this width</td><td><strong>The same two since D-40.</strong> The bar no longer changes with the account at all</td></tr>
         <tr><td>Brand and home</td><td>Logo at the top of the rail, routes to 1.0</td><td><strong>Logo is the drawer's first row.</strong> The persistent route home is bar item 1</td><td>Same</td><td>Same</td></tr>
         <tr><td>Rail toggle</td><td>On the junction of the two seams. Collapses to icons</td><td>Header, leading edge. Opens the modal drawer</td><td>Same</td><td>Same</td></tr>
-        <tr><td>Money</td><td>Nothing. There is no balance before an account</td><td>Nothing</td><td>Balance and value of items held, two lines, with the deposit control</td><td>Both figures, condensed, deposit control kept</td></tr>
-        <tr><td>Account</td><td>Sign in, routes to 2.4</td><td>Sign in, routes to 2.4</td><td><strong>Avatar only, D-49</strong>, opens the account menu, whose first line is the display name and whose first row is 5.1</td><td><strong>Avatar only. Identical to desktop since D-49</strong></td></tr>
-        <tr><td>Boundary</td><td>Rail entry only. Nothing to limit yet</td><td>Rail entry only</td><td>Rail entry plus the entry inside the money control</td><td>Same</td></tr>
+        <tr><td>Money</td><td>Nothing. There is no balance before an account</td><td>Nothing</td><td>Balance and value of items held, two lines, with the deposit control</td><td>Both figures, condensed to one line each, deposit control kept</td></tr>
+        <tr><td>Account</td><td>Sign in, routes to 2.4</td><td>Sign in, routes to 2.4</td><td><strong>Avatar only, <code>D-49</code></strong>, opens the menu, whose first row routes to 5.1</td><td><strong>Avatar only. Identical to desktop since D-49</strong></td></tr>
+        <tr><td>Boundary</td><td><s>Rail entry only. Nothing to limit yet</s> <strong>The footer's Play responsibly section only</strong>: off the rail since <code>D-29</code>, and nothing to limit yet</td><td><s>Rail entry only</s> <strong>The same, in the footer</strong></td><td><s>Rail entry plus the entry inside the money control</s> <strong>The footer section plus the account menu's Responsible play row</strong>; the money control entry was never rendered, <code>D-136</code>, and under a boundary the + opens the limits</td><td>Same</td></tr>
         <tr><td>Ambient, at the foot of the rail since <code>D-29</code>, never in the header</td><td>Sound control, language, social links. Ticker 0.8 on 1.0 only since <code>D-31</code></td><td><strong>No sound control at this width</strong>, answered by stage 04 on 18 August 2026: the one row rule does not fit menu plus two figures plus deposit plus avatar plus sound at 360px, and the baseline makes the same cut at 390px. The ticker is unchanged</td><td>Same as guest desktop</td><td><strong>Same cut.</strong> The control that matters during a reveal belongs to 3.5, on the screen where the sound plays</td></tr>
       </tbody>
     </table>
@@ -876,8 +901,8 @@
     <table>
       <thead><tr><th style="width:24%">State</th><th style="width:40%">What the navigation does</th><th>Why</th></tr></thead>
       <tbody>
-        <tr><td>Rail collapsed</td><td>Icons with the active indicator, labels gone, tooltips on hover and on focus</td><td>Material: collapsed and expanded transform into each other from the menu button. The collapsed rail is never hidden on desktop <strong>Drawn on 20 August 2026, and it had been specified here since the node was written without any page rendering it.</strong> The rail goes 220px to 64px, the labels go, <strong>the controls do not</strong>: the sound control becomes its glyph and the language keeps its two characters.</td></tr>
-        <tr><td>Drawer open, mobile</td><td>Scrim blocks the content behind. Dismissed by selecting an item, tapping the scrim, or swiping toward the left edge. <strong>The bar sits behind the scrim with the content and is not raised above it</strong></td><td>Material's modal drawer contract, all three dismissals. A bar left live above the scrim is content the scrim failed to block</td></tr>
+        <tr><td>Rail collapsed</td><td>Icons with the active indicator, labels gone, tooltips on hover and on focus</td><td>Material: collapsed and expanded transform into each other from the menu button. The collapsed rail is never hidden on desktop. <strong>Drawn on 20 August 2026, and it had been specified here since the node was written without any page rendering it.</strong> The rail goes 220px to 64px, the labels go, <strong>the controls do not</strong>: the sound control becomes its glyph and the language keeps its two characters, because a label is a name for something still on screen while a control that disappears is a control that was removed</td></tr>
+        <tr><td>Drawer open, mobile</td><td>Scrim blocks the content behind. Dismissed by selecting an item, tapping the scrim, or swiping toward the left edge. <strong>The bar sits behind the scrim with the content and is not raised above it</strong></td><td>Material's modal drawer contract, all three dismissals, quoted in the research section. A bar left live above the scrim is content the scrim failed to block</td></tr>
         <tr><td>Scrolled</td><td>Header stays fixed. The rail stays. The mobile bar stays. None of the three condenses or hides</td><td>Hiding navigation to buy pixels costs orientation on the one surface that provides it</td></tr>
         <tr><td>Balance crediting, <code>C3</code></td><td>The figure carries a named timer beside it rather than a spinner, and does not silently change</td><td>Deposit node 4.4 owns the timer, the navigation renders the state</td></tr>
         <tr><td>Item value stale or unavailable</td><td>The lower figure states that it is stale with its timestamp. It never renders a stale number as current, and never renders zero for unknown</td><td>Rule 3 above. <code>[?]</code> is a legal value in this project and a wrong number is not</td></tr>
@@ -903,18 +928,18 @@
       <tbody>
         <tr><td>Logo</td><td>Top of the rail on desktop, and the drawer's first row on mobile. Always the route home, never the control that expands the rail</td><td>1.0</td></tr>
         <tr><td>Rail toggle</td><td>Anchored to the junction of the two seams and tracks the rail's width. Desktop: collapse to icons and back, and the choice persists. Mobile: leading edge of the header, opens the modal drawer</td><td>current node</td></tr>
-        <tr><td>Mobile bar, below 900px only</td><td>Positions 1 to 3 fixed, one slot added with an account and none ever removed. Destinations only, never money and never an action</td><td>1.0, 3.1, 1.2, 5.1</td></tr>
+        <tr><td>Mobile bar, below 900px only</td><td>Positions fixed, destinations only, never money and never an action. <strong><code>D-29</code> took it to Home and Cases rising to three with My items, and <code>D-40</code> removed the third</strong>, so it is two in both states and does not change on sign in</td><td>1.0, 3.1</td></tr>
         <tr><td>Home, mobile bar only</td><td>Position 1, active on arrival. <strong>The only persistent route home at 360px</strong></td><td>1.0</td></tr>
         <tr><td>Cases</td><td>Enters the catalogue, not a case</td><td>3.1</td></tr>
         <tr><td>Provably fair</td><td>Public, works with no account. <strong>Superseded by <code>D-29</code>:</strong> it left the rail for its own footer column, and the claim about holding its rail position in both states is what that decision cost</td><td>1.2</td></tr>
-        <tr><td>My items, account only</td><td>Inventory with receipts, and the entry to withdrawal</td><td>5.1</td></tr>
-        <tr><td>Responsible play</td><td><strong>Superseded by <code>D-29</code>.</strong> It left the rail and is now carried by the footer column, <del>by the entry inside the money control,</del> and by the account menu</td><td>6.1</td></tr>
+        <tr><td>My items</td><td><strong>Removed from both carriers by <code>D-40</code>.</strong> It is the first row of the account menu, in the header section, and the header owns the account</td><td>5.1, from the menu</td></tr>
+        <tr><td>Responsible play</td><td><strong>Superseded by <code>D-29</code>.</strong> It left the rail on 19 August 2026 and is now carried by the footer column, <del>by the entry inside the money control,</del> and by the account menu</td><td>6.1</td></tr>
         <tr><td>Sound</td><td>Toggle only. Not a destination and never in the destination group</td><td>none</td></tr>
         <tr><td>Sign in, guest only</td><td>A single control in the header</td><td>2.4</td></tr>
-        <tr><td>Account control, account only</td><td><strong>Avatar only since D-49.</strong> Opens the account menu, whose first line is the display name, seven rows since D-36</td><td>the menu, then 5.1</td></tr>
+        <tr><td>Account control, account only</td><td><s>Avatar and name</s> The avatar. <strong>Opens the account menu</strong>, <s>four rows</s> six rows and Sign out, in the header section</td><td>the menu, then 5.1</td></tr>
         <tr><td>Balance figure, account only</td><td>Spendable funds, in coins</td><td>4.1</td></tr>
         <tr><td>Value of items held, account only</td><td>Current market value in coins, timestamped when stale</td><td>5.1</td></tr>
-        <tr><td>Deposit control, account only</td><td>One add control. No badge in round 1</td><td>4.1</td></tr>
+        <tr><td>Deposit control, account only</td><td>One add control, <strong>carrying the standing bonus badge since <code>D-94</code></strong>, and no badge on the pages listed in rule 4</td><td>4.1</td></tr>
         <tr><td>Active indicator</td><td>Exactly one destination is active at any time, <strong>across the rail, the drawer and the mobile bar together</strong>, never one in each</td><td>current node</td></tr>
       </tbody>
     </table>
@@ -922,7 +947,7 @@
 
   <div class="card is-pick">
     <h4>Provably fair holds its rail position in both states, and that is the structural claim of this node</h4>
-    <p><code>`jtbd.md` Section 3, Emotional and Social Jobs</code> names a public provably fair surface as one of three things no competitor offers pre-login, and the baseline walk verified that our own baseline still redirects that route to login and demotes it to a footer link, <code>baseline.md</code>. Design principle 1 says trust is the product. Letting the item slide down or out when the account arrives would say the proof was a sales argument. It carries the <code>D-14</code> limit with it: its position is not a claim that a verifier converts a sceptic.</p>
+    <p><code>jtbd.md</code> Section 3, Emotional and Social Jobs names a public provably fair surface as one of three things no competitor offers pre-login, and the baseline walk verified that our own baseline still redirects that route to login and demotes it to a footer link, <code>baseline.md</code>. Design principle 1 says trust is the product. Letting the item slide down or out when the account arrives would say the proof was a sales argument. It carries the <code>D-14</code> limit with it: its position is not a claim that a verifier converts a sceptic.</p>
   </div>
 </section>
 
@@ -971,26 +996,24 @@
   <div class="split">
     <div class="card">
       <h4>Mobile, base, 360px</h4>
-      <p>One header row: menu icon, then the money and account zone, <strong>and no sound control since <code>D-29</code> moved it to the foot of the rail</strong>. A bottom bar with <strong>two destinations before an account and three after</strong>, <code>D-29</code>. The rail is a modal drawer, closed by default, its first row is the logo, and its foot carries the sound control, the language and the social links.</p>
-    <p><strong>The menu has to be reachable, and it was not, D-49.</strong> It hung four pixels below the control, and those four pixels are outside the control's own box, so <strong>moving the pointer down towards the menu left the control and closed it before it could be entered</strong>. A hover menu a person cannot move into is a menu that only works by click. The panel keeps its gap and carries an invisible bridge across it. <strong>The gap is a visual decision and the hover target is a functional one, and they were the same box.</strong></p>
-    <p><strong>Every row of the menu reserves its icon slot, D-50</strong>, and so does the mobile bar and each of the two money figures. It is the rule the rail has followed since it was drawn, applied to the three carriers that were not following it: <em>a destination whose icon has no reserved space gets one bolted on later, which moves every label in the carrier on the day it arrives</em>. <strong>The zone is structure and the glyph is look.</strong></p>
-    <p><strong>The account control is the avatar alone at every width since D-49</strong>, and the display name is the menu's first line. It carried the name on desktop and dropped it at 360, which is a difference a person can see and cannot explain. <strong>The name is not information a signed-in person needs on every screen: they know who they are.</strong> What it is for is confirming <b>which</b> account you are in, and that question is asked at the moment the menu opens. It stays in the control's accessible name, so nothing is lost to a reader.</p>
-    <p><strong>The order inside the foot is a rule, not a layout preference.</strong> The ambient pair sits <strong>above</strong> the social row: sound and language are controls of the session in progress, the social links are an <strong>exit from the product</strong>, and a control used inside does not sit below a link that leads out. On mobile the drawer scrolls, so the lowest row is the hardest to reach and belongs to what is needed least. <strong>The pair shares one strip and, since D-41, one affordance:</strong> both are buttons. <strong>The sentence that stood here said the language was a label with no press state because one language is locked and there is nothing to pick</strong>, and it stayed after D-41 had already made it a control, which is how a node contradicts itself in two places at once. It is corrected rather than deleted: <b>the reasoning was sound and the premise moved.</b> There are nine options now, D-42, one of them live.</p>
-      <p><strong>The logo leaves the mobile header, which reverses <code>D-21</code>, and <code>D-21</code> supplies the reason.</strong> It was moved into the header for exactly one stated reason: the rail sits behind a menu icon and a route home may not. <strong>Bar item 1 is now that route</strong>, permanently visible, labelled and never removed. Keeping the logo there as well would be two controls doing one job on the narrowest width the product supports. <strong>It also returns the mobile header to the baseline's own composition:</strong> <code>baseline.md</code> records that the baseline's mobile header keeps the hamburger, the money slot and the account control, and carries no logo.</p>
-      <p><strong>The two figures survive at 360px</strong>, which is why the header's right group is designed before its left one.</p>
+      <p>One header row: menu icon, then the money and account zone, <strong>and no sound control since <code>D-29</code> moved it to the foot of the rail</strong>. A bottom bar with <s><strong>two destinations before an account and three after</strong>, <code>D-29</code></s> <strong>two destinations, Home and Cases, in both states since <code>D-40</code></strong>. The rail is a modal drawer, closed by default, its first row is the logo, and its foot carries the sound control, the language and the social links.</p>
+      <p><strong>The menu has to be reachable, and it was not, <code>D-49</code>.</strong> It hung four pixels below the control, and those four pixels are outside the control's own box, so <strong>moving the pointer down towards the menu left the control and closed it before it could be entered.</strong> A hover menu a person cannot move into is a menu that only works by click. The panel keeps its gap and carries an invisible bridge across it. <strong>The gap is a visual decision and the hover target is a functional one, and they were the same box.</strong></p>
+      <p><strong>The order inside the foot is a rule, not a layout preference.</strong> The ambient pair sits <strong>above</strong> the social row: sound and language are controls of the session in progress, the social links are an <strong>exit from the product</strong>, and a control used inside does not sit below a link that leads out. On mobile the drawer scrolls, so the lowest row is the hardest to reach and belongs to what is needed least. <strong>The pair shares one strip and, since <code>D-41</code>, one affordance:</strong> both are buttons. <strong>The sentence that stood here said the language was a label with no press state because one language is locked and there is nothing to pick</strong>, and it stayed after <code>D-41</code> had already made it a control, which is how a node contradicts itself in two places at once. It is corrected rather than deleted: <strong>the reasoning was sound and the premise moved.</strong> There are nine options now, <code>D-42</code>, one of them live.</p>
+      <p><strong>The logo leaves the mobile header, which reverses <code>D-21</code>, and <code>D-21</code> supplies the reason.</strong> It was moved into the header for exactly one stated reason: the rail sits behind a menu icon and a route home may not. <strong>Bar item 1 is now that route</strong>, permanently visible, labelled, and never removed in either state. The reason has been met by a better carrier, so keeping the logo in the header as well would be two controls doing one job on the narrowest width the product supports. <strong>It also returns the mobile header to the baseline's own composition:</strong> <code>baseline.md</code> records that the baseline's mobile header keeps the hamburger, the money slot and the account control, and carries no logo. The brand mark is one tap away at the top of the drawer, where the rail keeps it at every other width.</p>
+      <p><strong>The two figures survive at 360px</strong>, which is the width this node was reasoned from rather than checked against afterwards: they are the reason the header's right group is designed before its left one. Measured in the mockup before the logo was removed, the whole mobile header group needed 298px and still left a 77px flexible gap. Removing the logo mark returns roughly 31px of that budget.</p>
     </div>
     <div class="card">
       <h4>Desktop, from 900px</h4>
       <p>Rail at the full height of the window, logo at its top, expanded by default with labels, collapsible to icons and the choice persists. The header starts at the rail's edge and holds only the money and account group. The toggle is on the seam between them.</p>
-      <p><strong>Expanded by default is a decision, not a default.</strong> Material allows either. With three or four items there is no space pressure, and the collapsed variant exists for a person who wants the width back.</p>
+      <p><strong>Between the two,</strong> the drawer becomes standard rather than modal and the bar disappears. <strong>No destination is added or removed at any breakpoint, only the carrier that presents it changes.</strong> A person who resizes a window loses a bar and keeps every route, because everything the bar held is in the rail by the superset rule.</p>
+      <p><strong>Expanded by default on desktop is a decision, not a default.</strong> Material allows either. With <s>three or four items</s> <strong>one destination since <code>D-40</code></strong> there is no space pressure, labels are the cheapest thing a navigation can carry, and the collapsed variant exists for a person who wants the width back.</p>
     </div>
   </div>
 
   <div class="card is-note">
-    <h4>Growth is bounded and the bound is written now</h4>
-    <p>Material's collapsed rail tops out at seven and its bar at five. Round 1 uses three or four in both, so <strong>five of the eight LATER destinations fit in the rail before the component is the constraint, and the bar runs out two destinations earlier</strong>. At eight the rail needs section labels and a scroll, which is what the baseline does at nine.</p>
-    <p><strong>So the bar is the first carrier to stop growing, and it is supposed to.</strong> It is a shortcut set, not the list. Whichever round ships the fifth destination decides which of them earns the bar's slots, and decides it against the primary persona rather than by adding a slot. That ceiling arrives inside this product's own roadmap, so it is handed forward rather than discovered there.</p>
-    <p>Between the two widths the drawer becomes standard rather than modal and the bar disappears. <strong>No destination is added or removed at any breakpoint, only the carrier that presents it changes.</strong> A person who resizes a window loses a bar and keeps every route, because everything the bar held is in the rail by the superset rule.</p>
+    <h4>Growth is bounded, the bound is written now, and the two carriers hit it at different places</h4>
+    <p>Material's collapsed rail tops out at seven and its bar at five. Round 1 uses <s>three or four in both</s> <strong>one in the rail and two in the bar since <code>D-40</code></strong>, so <s>five</s> <strong>six</strong> of the eight LATER destinations fit in the rail before the component is the constraint, and <strong>the bar runs out two destinations earlier</strong>. At eight the rail needs section labels and a scroll, which is what the baseline does at nine.</p>
+    <p><strong>So the bar is the first carrier to stop growing, and it is supposed to.</strong> It is a shortcut set, not the list. Whichever round ships the fifth destination decides which of them earns the bar's slots, and it decides that against the primary persona rather than by adding a slot. <strong>That is a real ceiling and it arrives inside this product's own roadmap</strong>, so it is handed forward rather than discovered there.</p>
   </div>
 </section>
 

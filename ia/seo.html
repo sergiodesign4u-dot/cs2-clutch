@@ -211,20 +211,43 @@
 <section id="urls">
   <div class="sec-head">
     <h2>URL and slug conventions</h2>
-    <p>Seven rules, then the map.</p>
+    <p>Seven rules, then the map of fourteen addresses.</p>
   </div>
 
   <div class="table-wrap">
     <table>
       <thead><tr><th>Rule</th><th>Value</th><th>Why</th></tr></thead>
       <tbody>
-        <tr><td><strong>Case</strong></td><td>Lowercase only</td><td>One canonical form. Mixed case is two URLs for one page on any case-sensitive host</td></tr>
+        <tr><td><strong>Case</strong></td><td>Lowercase only</td><td>One canonical form. Mixed case creates two URLs for one page on any case-sensitive host</td></tr>
         <tr><td><strong>Words</strong></td><td>Hyphens, never underscores or camel case</td><td></td></tr>
         <tr><td><strong>Trailing slash</strong></td><td>None. The other form 301s to it</td><td>Both forms resolving is duplication nobody notices until it is in the index twice</td></tr>
         <tr><td><strong>Slug source</strong></td><td>The object's own name, in the product language, which is English</td><td></td></tr>
         <tr><td><strong>Slug stability</strong></td><td><strong>A rename is a 301 and the old slug is never reused.</strong> A slug is not edited in place</td><td>A silently changed slug is a dead link in every share, every chat and every index</td></tr>
         <tr><td><strong>IDs</strong></td><td>Never in a slug, with one exception: <code>/r/&lt;id&gt;</code>, where the object is a record and has no name</td><td></td></tr>
-        <tr><td><strong>Reserved first segments</strong></td><td><code>cases</code>, <code>legal</code>, <code>r</code>, <code>support</code>, and the transactional set</td><td>Without this rule <code>/cases/category</code> collides with a case named "category"</td></tr>
+        <tr><td><strong>Reserved first segments</strong></td><td><code>cases</code>, <code>legal</code>, <code>r</code>, <code>support</code>, and the transactional set below</td><td>Without this rule <code>/cases/category</code> collides with a case named "category"</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>The map</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Node</th><th>URL</th></tr></thead>
+      <tbody>
+        <tr><td><span class="surf">1.0</span> Home</td><td><code>/</code></td></tr>
+        <tr><td><span class="surf">3.1</span> Catalogue</td><td><code>/cases</code></td></tr>
+        <tr><td><span class="surf">3.1</span> Category view</td><td><code>/cases/category/&lt;category-slug&gt;</code></td></tr>
+        <tr><td><span class="surf">3.3</span> Case screen</td><td><code>/cases/&lt;case-slug&gt;</code></td></tr>
+        <tr><td><span class="surf">1.2</span> Provably fair</td><td><code>/provably-fair</code></td></tr>
+        <tr><td><span class="surf">6.1</span> Responsible play</td><td><code>/responsible-play</code></td></tr>
+        <tr><td><span class="surf">7.1</span> Public result</td><td><code>/r/&lt;id&gt;</code></td></tr>
+        <tr><td><span class="surf">0.9</span> Legal, four documents</td><td><code>/legal/terms</code>, <code>/legal/privacy</code>, <code>/legal/cookies</code>, <code>/legal/refunds</code></td></tr>
+        <tr><td><span class="surf">0.10</span> Support</td><td><code>/support</code></td></tr>
+        <tr><td><span class="surf">2.4</span> Sign in</td><td><code>/signin</code></td></tr>
+        <tr><td><span class="surf">2.7</span> Identity verification</td><td><code>/verify-identity</code></td></tr>
+        <tr><td><span class="surf">4.1</span> Deposit</td><td><code>/deposit</code></td></tr>
+        <tr><td><span class="surf">5.1</span> Account and inventory</td><td><code>/my-items</code></td></tr>
+        <tr><td><span class="surf">5.3</span> Withdrawal</td><td><code>/withdraw</code></td></tr>
       </tbody>
     </table>
   </div>
@@ -261,7 +284,7 @@
         <tr><td><span class="surf">7.1</span> Public result</td><td><code>/r/&lt;id&gt;</code></td><td><strong>No.</strong> noindex, follow</td><td>Self</td><td>None</td><td>None</td></tr>
         <tr><td><span class="surf">0.9</span> Legal, each of four</td><td><code>/legal/&lt;doc&gt;</code></td><td>Yes</td><td>Self</td><td><code>WebPage</code></td><td>Home &gt; Legal &gt; Document</td></tr>
         <tr><td><span class="surf">0.10</span> Support</td><td><code>/support</code></td><td>Yes</td><td>Self</td><td><code>WebPage</code> + <code>ContactPage</code></td><td>Home &gt; Support</td></tr>
-        <tr><td><span class="surf">2.4</span> Sign in</td><td><code>/signin</code></td><td><strong>No</strong></td><td>Self</td><td>None</td><td>None</td></tr>
+        <tr><td><span class="surf">2.4</span> Sign in</td><td><code>/signin</code></td><td><strong>No.</strong> noindex, follow</td><td>Self</td><td>None</td><td>None</td></tr>
         <tr><td><span class="surf">2.7</span> Identity</td><td><code>/verify-identity</code></td><td><strong>No</strong></td><td>Self</td><td>None</td><td>None</td></tr>
         <tr><td><span class="surf">4.1</span> Deposit</td><td><code>/deposit</code></td><td><strong>No</strong></td><td>Self</td><td>None</td><td>None</td></tr>
         <tr><td><span class="surf">5.1</span> My items</td><td><code>/my-items</code></td><td><strong>No</strong></td><td>Self</td><td>None</td><td>None</td></tr>

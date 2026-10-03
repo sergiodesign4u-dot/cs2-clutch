@@ -313,7 +313,7 @@
             <div class="wf-step">3 review</div>
           </div>
           <div class="wf-block-h">Verify your identity</div>
-          <div class="wf-block-p">This is asked once, <b>before you add money</b>. It is never asked on the way out.</div>
+          <div class="wf-block-p">This is asked once, <b>before your first withdrawal</b>. It is never a step on the way out.</div>
           <div class="wf-list">
             <div class="wf-list-h">your account</div>
             <div class="wf-li"><span class="wf-li-m">+</span><span>Signed in with Steam</span></div>
@@ -340,7 +340,7 @@
       </div>
       <div class="wf-legend">
         <div class="wf-leg"><span class="wf-leg-n">1</span><span class="wf-leg-t"><b>Step indicator.</b> Refero Wealthsimple, taken explicitly so this node can be drawn as a superset. The superset has a variable step count and a person is owed the number</span></div>
-        <div class="wf-leg"><span class="wf-leg-n">2</span><span class="wf-leg-t"><b>What is being asked and why</b>, with the reason being funding rather than us. <span class="row-code">B8-4</span> is a check whose reason arrived after the money</span></div>
+        <div class="wf-leg"><span class="wf-leg-n">2</span><span class="wf-leg-t"><b>What is being asked and why</b>, with the reason being <s>funding</s> <b>the withdrawal it comes before, since <code>D-26</code>,</b> rather than us. <span class="row-code">B8-4</span> is a check whose reason arrived after the money</span></div>
         <div class="wf-leg"><span class="wf-leg-n">3</span><span class="wf-leg-t"><b>The account state strip.</b> Row <span class="row-code">B1</span> requires it on the deposit screen. Here it is the same object before it is true</span></div>
         <div class="wf-leg"><span class="wf-leg-n">4</span><span class="wf-leg-t"><b>The method block</b>, branch dependent. Contents <span class="q">[?]</span></span></div>
         <div class="wf-leg"><span class="wf-leg-n">5</span><span class="wf-leg-t"><b>The code card:</b> six digits, submit, cancel, <b>resend</b>, <b>log out</b>. Refero New Balance, named in the bank as "the craft floor for 2.7". Whether a code exists at all is <span class="q">[?]</span>; its four controls are not</span></div>
@@ -350,6 +350,7 @@
         <div class="wf-leg"><span class="wf-leg-n">9</span><span class="wf-leg-t"><b>Support, with the published response deadline.</b> Row <span class="row-code">G4</span>, routed through <span class="surf">0.10</span></span></div>
       </div>
     </div>
+    <div class="wf-note"><b>Block 2 reads before withdrawal since <code>D-26</code>, <code>D-145</code>.</b> The account strip and the exit block still carry the before funding reading of sections 0, 2, 5, 6 and 7, which this LATER node keeps open for the founder with counsel, <code>D-146</code>. See the open items below.</div>
   </div>
 
   <div class="card is-fix">
@@ -513,6 +514,29 @@
   </div>
 </section>
 
+<!-- COMPONENTS -->
+<section id="components">
+  <div class="sec-head">
+    <h2>Components</h2>
+    <p>Three globals used, four named as not used, and three candidates left for the stage 07 inventory rather than promoted to nodes.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th style="width:18%"></th><th>Components</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Used</strong></td><td><span class="surf">0.1</span> in its account shape, four rail destinations and the money control in the header; <span class="surf">0.2</span> the footer; <span class="surf">0.5</span> toasts, which are never the only place a state here is announced, per <span class="surf">0.5</span>&#39;s own rule</td></tr>
+        <tr><td><strong>Not used</strong></td><td><span class="surf">0.6</span>, <span class="surf">0.7</span>, <span class="surf">0.8</span>, <span class="surf">0.14</span>. No case object appears on this page in any state</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card is-note">
+    <p><strong>The code card, the step indicator and the review card are candidates for the stage 07 inventory rather than IA nodes.</strong> <span class="surf">4.1</span> and <span class="surf">5.3</span> are the same type, T4, and the global sweep&#39;s rule stands: a candidate with one consumer is not global. Named here so the overlap is visible when those two nodes are written.</p>
+    <p><strong>Nothing from the emotional and social table lives on this node</strong>, checked against <code>sitemap.md</code> rather than assumed.</p>
+  </div>
+</section>
+
 <!-- ADAPTIVE -->
 <section id="adaptive">
   <div class="sec-head">
@@ -547,6 +571,7 @@
   <div class="card">
     <p><strong>One column at 360px, one column on desktop.</strong> A verification form in two columns is a form that hides a required field beside a completed one.</p>
     <p><strong>Order at 360px:</strong> step indicator, why, then the current step. <strong>The account state strip and the exit block sit at the end in the default state and move up in <span class="surf">2.8</span> and <span class="surf">2.9</span></strong>, because in those two states they are the answer rather than the context.</p>
+    <p><strong>The exit block is in the first viewport of <span class="surf">2.9</span> at 360px.</strong> The withdrawal route section of state 2.9, and it is the one adaptive rule in this node that is an acceptance test rather than a layout note.</p>
     <p><strong>A document upload at 360px is a camera capture in practice.</strong> The design accommodates a person holding one device rather than a desktop with a file picker, and that is a stage 04 constraint stated here rather than discovered there.</p>
   </div>
 </section>
@@ -563,10 +588,10 @@
       <thead><tr><th style="width:20%">A. Meta</th><th>Value</th></tr></thead>
       <tbody>
         <tr><td><code>title</code></td><td>Verify your identity. CS2 Clutch <span class="wf-li-r">(31 characters, under 60)</span></td></tr>
-        <tr><td><code>description</code></td><td>Identity is checked once, before you add money. It is never checked on the way out. <span class="wf-li-r">(81 characters, under 155)</span></td></tr>
+        <tr><td><code>description</code></td><td><s>Identity is checked once, before you add money. It is never checked on the way out. (81 characters, under 155)</s> <strong>Superseded by <code>D-26</code>, which moved the check from before funding to before withdrawal:</strong> Identity is checked once, before your first withdrawal. It is never a step on the way out. <span class="wf-li-r">(90 characters, under 155)</span></td></tr>
         <tr><td><code>canonical</code></td><td>Self, <code>/verify-identity</code></td></tr>
-        <tr><td><code>robots</code></td><td><strong><code>noindex</code></strong></td></tr>
-        <tr><td><code>hreflang</code></td><td><strong>None.</strong> One language</td></tr>
+        <tr><td><code>robots</code></td><td><strong><code>noindex</code></strong>. <span class="surf">0.13</span> section 3</td></tr>
+        <tr><td><code>hreflang</code></td><td><strong>None.</strong> One language, <span class="surf">0.13</span> section 1</td></tr>
         <tr><td>OG and Twitter</td><td><strong>Absent.</strong> Nothing here is shareable and nothing links here from outside</td></tr>
       </tbody>
     </table>
@@ -605,7 +630,7 @@
 <section id="open">
   <div class="sec-head">
     <h2>What this node does not decide</h2>
-    <p>Eight, and the first one is the decision this whole node is shaped around.</p>
+    <p>Nine, and the first one is the decision this whole node is shaped around.</p>
   </div>
 
   <div class="table-wrap">
@@ -619,6 +644,7 @@
         <tr><td><strong>The published review deadline</strong></td><td><span class="surf">2.8</span>. Registered as a candidate row for <span class="surf">0.11</span> rather than guessed</td><td><span class="surf">0.10</span> for the service level, <span class="surf">0.11</span> if it is published</td></tr>
         <tr><td><strong>Whether a failed check may be retried</strong></td><td>It depends on the method and on what counsel permits</td><td>Counsel</td></tr>
         <tr><td><strong>The exit window when a market closes</strong></td><td>Nothing in this repository sets it</td><td>Founder with counsel</td></tr>
+        <tr><td><strong>Where the check fires and what closes while it runs, now that <code>D-26</code> put it before withdrawal</strong></td><td>Sections 0, 2, 5, 6 and 7 still assume before funding. <span class="row-code">B2</span> forbids a check on the exit, so the answer is not a rename. Kept open by founder decision of 3 October 2026, <code>D-146</code></td><td>Founder with counsel</td></tr>
         <tr><td><strong>Minimum age and age method per open market</strong></td><td>Inherited from <span class="surf">0.12</span>. The first open market is the first row that needs them</td><td>Counsel, as each market opens</td></tr>
       </tbody>
     </table>
@@ -659,6 +685,7 @@ window.NAV_SECTIONS = [
   { id: 'states',    label: 'States' },
   { id: 'pending',   label: '2.8 Pending review' },
   { id: 'failed',    label: '2.9 Failed and appeal' },
+  { id: 'components', label: 'Components' },
   { id: 'adaptive',  label: '360px' },
   { id: 'seo',       label: 'SEO A to E' },
   { id: 'open',      label: 'Open' },

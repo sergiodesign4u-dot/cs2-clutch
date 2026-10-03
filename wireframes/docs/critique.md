@@ -1010,3 +1010,10 @@ A separate table from the defects, as the pack asks: a step that did not happen 
 | R12 | CLAUDE.md's list of parentless MVP capabilities is short | D1 | **Carried to the stage close**, with a second, `D-31`'s count |
 
 The HTML pages of the map and the flows carry an Updated after publication block now; their bodies are rebuilt from the markdown in step 8.
+
+### 16.10 Step 8, the IA pages against their markdown, fixed on 3 October 2026 under `D-148`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| R35 to R61 | About twenty IA pages showing superseded content, eight without Components, two without SEO, counters that disagree with their tables | D1 | Fixed on 33 pages by five builders; all 35 pages checked at 1440 and 360 |
+| (builders) | About seventy places where a node's markdown contradicts itself | the builders, reading every file end to end | **Carried to a markdown pass of its own**, then the pages follow |
