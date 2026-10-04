@@ -22,6 +22,18 @@
 
 ---
 
+## Amended 4 October 2026 by `D-162`. The feed's rounds carry their winners' seeds
+
+**Why.** Round 17 found every feed round on the account's client seed, with nonces above the account's own.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Live drops with a public round each | Twelve sample rounds | **Each feed round has its own client seed and nonce**, and a feed round from a case with a table lands in that case's row |
+
+---
+
 ## Amended 4 October 2026 by `D-156`. A winner's name links only where a profile is drawn
 
 **Why.** Round 16 found every winner's name opening nightjar_cs's public profile, and the feed's AWP sharing its key with the account's own AWP roll.

@@ -17,6 +17,20 @@
 **Amended 23 August 2026 by `D-92`, in three places and no figure moved.** The market the settlement is struck against is named and the answer is us, so **the per-case gap in block 7 stops waiting on anybody and starts being a number we decline to publish**, section 5.3. **The outbound link on the top item keeps its target and loses its reason**, section 3: it points at Steam, Steam is the dearer place, and a control offered as the cheaper alternative can no longer be labelled that way. **And the risk band's hole is half answered**, section 1: the three bands are an input when a case is built rather than a label derived from its drop table, which is a different object from the one `D-24` specified, and the thresholds are still `[?]`.
 
 
+## Amended 4 October 2026 by `D-162`. Each case its own table, and an open reveals its own items
+
+**Why.** Round 17 found Warsteel's table, Ironbound's scaled, holding none of Warsteel's recorded items while their rounds landed in other items' ranges; one Glock with one float and pattern at three values across three cases; Steam's price changing with the case; Open again and Add funds chosen against the balance the wrong way; and a negative balance printed after an open that could not happen. The founder answered `D-160` answer 2.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| One table per case | Ironbound's table as drawn; chances, values and ticket ranges in one table | **A case with rounds on record holds those items** at their recorded chance and their value now, and fills the rest from skins the prototype already prices, never rescaled, with chances solved so the expected value meets the tested RTP of the entry cost; its rounds' tickets land in their own rows. **A case with none keeps Ironbound's rows scaled**, `D-155`. **Steam's price is never scaled.** What this case pays and Published against observed read the case's table. **An open in another case reveals rows of that case's table**, each with its own float and pattern, and an open's value when won and now are one figure. **The outcome's first act follows the balance**: Open again where it covers the next open, Add funds where it does not. **Where the balance cannot cover an open the line says so** instead of printing a negative |
+
+**Samples, `D-124`, marked here:** every table but Ironbound's, its chances and its observed rates; the Steam price of a top item with no shelf, 8 % over our value; with only the prototype's priced skins, an expensive case such as Nightfall puts a high chance on its dearest row to meet the RTP
+
+---
+
 ## Amended 4 October 2026 by `D-161`. The outcome remembers what was sold or sent
 
 **Why.** Round 17 found an outcome reopened after a send offering Sell and Send again, and after a partial sale its batch control counting the sold items.

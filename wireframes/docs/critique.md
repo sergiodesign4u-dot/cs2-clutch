@@ -1219,3 +1219,14 @@ Withdrawn on verification: none.
 | B2-21 | A state page's link into 6.1 found "Nothing is set yet" | B2 | **Kept and named**: a cost of the hybrid, `conventions.md` section 4.1, `D-160` |
 | C3-1, C6-1 | History appends the session's opens while 4.1 called history rows snapshots | C1 | Fixed in `conventions.md`: an open's row on History itself is carried, `D-152` answer 3 |
 | C3-2 | The resend hand-off used its own storage key outside `WF_SESS` | C1 | Fixed: moved into `WF_SESS`; interface preferences named as stored beside it and not state |
+
+### 18.4 Step 2, the cases' data, fixed on 4 October 2026 under `D-162`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| B1-8 | Warsteel's table held none of Warsteel's items; its rounds landed in other items' ranges; "the range its case publishes" printed as a range | B1 | Fixed: Warsteel, Nightfall and Coldfront hold their recorded items; every round lands in its own row |
+| B1-7 | One Glock, one float and pattern, three values across three cases; Steam's price changed with the case | B1 | Fixed: an open reveals its case's own rows, each with its own float and pattern; Steam's price never scales |
+| B1-9 | Feed rounds on the account's client seed | B1 | Fixed: each its own seed and nonce |
+| B1-10 | A session open's value now differed from its value when won | B1 | Fixed: one figure at the moment of the open |
+| B1-6 | Open again and Add funds chosen against the balance the wrong way | B1 | Fixed: the act follows the balance |
+| B1-19 | "After this open, -80.80 coins" | B1 | Fixed: the line says the balance does not cover it and by how much |

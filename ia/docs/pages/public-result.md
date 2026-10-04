@@ -25,6 +25,18 @@
 
 ---
 
+## Amended 4 October 2026 by `D-162`. A result's ticket lands in the table it points at
+
+**Why.** Round 17 found rounds of Warsteel, Coldfront and Nightfall settled on tickets inside other items' ranges, and the range field reading "the range its case publishes".
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| The proof's ticket and range | `D-132`: the result proves the table it points at | **Every round of a case with a table prints the range of its own row**, and its ticket falls inside it |
+
+---
+
 ## Amended 4 October 2026 by `D-161`. An address with no round behind it renders the gone state
 
 **Why.** Round 17 found a session's round, opened in another browser, rendering the AK.

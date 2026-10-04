@@ -3577,7 +3577,8 @@ window.WF_PAY = window.WF_PAY || {
       var words = ['', 'one roll', 'two rolls', 'three rolls', 'four rolls', 'five rolls'];
       var cl = document.querySelector('.wf-case-line'); if (cl) cl.textContent = cl.textContent.replace(/(one|two|three|four|five) rolls?\./, words[n] + '.');
       var line = scope.parentNode.querySelector('.wf-fig-c');
-      if (line && /After this open/.test(line.innerHTML)) line.innerHTML = line.innerHTML.replace(/After this open, [\d.]+(\s|&nbsp;)coins/, 'After this open, ' + (bal - n * unit).toFixed(2) + '\u00a0coins');
+      var af = bal - n * unit;
+      if (line && /After this open|does not cover/.test(line.innerHTML)) line.innerHTML = line.innerHTML.replace(/(After this open, -?[\d.]+|The balance does not cover this open, short by [\d.]+)/, af >= 0 ? 'After this open, ' + af.toFixed(2) : 'The balance does not cover this open, short by ' + (-af).toFixed(2));
     });
   }
 
@@ -3688,8 +3689,11 @@ window.WF_PAY = window.WF_PAY || {
   function mountCaseTemplate() {
     var page = location.pathname.split('/').pop();
     if (!/^(case|deposit-dialog)/.test(page)) return;
-    var k = caseKey(), nw = parseInt((/[?&]now=(\d+)/.exec(location.search) || [])[1], 10), op = nw && (WF_SESS.get('opens') || [])[nw - 1];
+    var k = caseKey(), nw = parseInt((/[?&]now=(\d+)/.exec(location.search) || [])[1], 10) || (/^case-open/.test(page) && WF_SESS.get('opening')), op = nw && (WF_SESS.get('opens') || [])[nw - 1];
     if (op && op.c) k = op.c;
+    /* AN OPEN OR AN OUTCOME OPENED BY ITS ADDRESS IS IRONBOUND'S SAMPLE, round
+       17: scaled, it printed Ironbound's items at another case's values. */
+    else if (/^case-(open|outcome|interrupted)/.test(page)) k = 'ironbound';
     var main = document.querySelector('.wf-main');
     if (!main) return;
     if (k !== 'ironbound') {
@@ -3715,7 +3719,9 @@ window.WF_PAY = window.WF_PAY || {
     Array.prototype.forEach.call(main.querySelectorAll('.wf-fig-c'), function (x) {
       if (!/After this open/.test(x.innerHTML)) return;
       var cur = main.querySelector('.wf-count-b[aria-current="true"]'), n = cur ? parseInt(cur.textContent, 10) || 1 : (/case-account-2/.test(page) ? 2 : /case-account-5/.test(page) ? (parseInt((/[?&]n=([345])/.exec(location.search) || [])[1], 10) || 5) : 1);
-      x.innerHTML = x.innerHTML.replace(/After this open, [\d.]+/, 'After this open, ' + (moneyNow().balance - n * WF_CASES[k][1]).toFixed(2));
+      var after = moneyNow().balance - n * WF_CASES[k][1];
+      /* NEVER A NEGATIVE BALANCE AFTER AN OPEN THAT CANNOT HAPPEN, round 17, B1-19. */
+      x.innerHTML = x.innerHTML.replace(/After this open, -?[\d.]+/, after >= 0 ? 'After this open, ' + after.toFixed(2) : 'The balance does not cover this open, short by ' + (-after).toFixed(2));
     });
   }
 
@@ -3742,7 +3748,8 @@ window.WF_PAY = window.WF_PAY || {
         return;
       }
       var opens = WF_SESS.get('opens') || [], before = openKeys().length;
-      var keys = openBases(o.outcome, o.n).map(function (b, i) { return { key: 'n' + (before + i + 1) + b, base: b, c: ck }; });
+      var ord = ck === 'ironbound' ? null : caseTable(ck).rows.map(function (r, i) { return i; }).sort(function (a, b) { return caseTable(ck).rows[b].ch - caseTable(ck).rows[a].ch; });
+      var keys = openBases(o.outcome, o.n).map(function (b, i) { var k = { key: 'n' + (before + i + 1) + b, base: b, c: ck }; if (ord) k.row = ord[(before + i) % ord.length]; return k; });
       opens.push({ n: o.n, outcome: o.outcome, keys: keys, credited: false, c: ck });
       WF_SESS.set('opens', opens); WF_SESS.set('opening', opens.length);
       moneyAdd(-cost, 0);
@@ -3780,6 +3787,34 @@ window.WF_PAY = window.WF_PAY || {
         bases.forEach(function (b, i) { a.setAttribute('href', a.getAttribute('href').replace(new RegExp('round=' + b + '(?![a-z0-9])'), 'round=' + keys[i])); });
       });
       Array.prototype.forEach.call(document.querySelectorAll('.wf-commit .wf-instance'), function (x) { x.innerHTML = x.innerHTML.replace(/\d{1,2} Aug 2026,? \d\d:\d\d/g, OPEN_AT); });
+      /* EACH ITEM IS ITS OWN, round 17, B1-7: three opens printed one Glock
+         with one float and pattern at three values. The outcome reads what the
+         session's rounds hold: name, chance, value, float and pattern. */
+      var fig2 = function (v) { return parseFloat(v).toFixed(2); };
+      var holders = cards.length ? [].slice.call(cards) : [document.querySelector('.wf-stage-frame')];
+      holders.forEach(function (c, i) {
+        var R = ROUNDS[keys[i]]; if (!R || !c) return;
+        var set = function (sel, t) { var e = c.querySelector(sel); if (e) e.textContent = t; };
+        set('.wf-d-weapon', R.w); set('.wf-d-skin', R.s); set('.wf-d-axes', R.axes.join(' \u00b7 '));
+        var odds = c.querySelector('.wf-won-odds b'), tr = null;
+        caseTable(on.c || 'ironbound').rows.forEach(function (x) { if (x.w === R.w && x.s === R.s) tr = x; });
+        if (odds && tr) odds.textContent = tr.ch.toFixed(3) + ' %';
+        var sb = cards.length ? c.querySelector('button.wf-sell') : [].slice.call(acts.querySelectorAll('button')).filter(function (x) { return /^Sell for/.test(x.textContent.trim()); })[0];
+        if (sb && !sb.disabled) sb.innerHTML = cards.length ? 'Sell<span class="wf-sell-w"> for</span> ' + fig2(R.won) + '<span class="wf-sell-w"> coins</span>' : 'Sell for ' + fig2(R.won) + ' coins';
+      });
+      var inst = document.querySelectorAll('.wf-commit .wf-instance');
+      if (!cards.length && inst.length) {
+        var R0 = ROUNDS[keys[0]], sh0 = WF_SHELF[keys[0]];
+        if (inst[0] && /Float/.test(inst[0].textContent)) inst[0].innerHTML = 'As of ' + OPEN_AT + ' &#183; Float <b>' + R0.float + '</b> &#183; Pattern <b>' + R0.pattern + '</b>';
+        if (inst[1] && /Credited/.test(inst[1].textContent)) inst[1].innerHTML = 'Credited <b>' + fig2(R0.won) + '</b> &#183; ' + (sh0 && sh0.offers.length ? 'a copy from us <b>' + sh0.offers[0].p.toFixed(2) + '</b>, read ' + OPEN_AT : 'no copy on sale to buy');
+      }
+      Array.prototype.forEach.call(document.querySelectorAll('.wf-rolls li'), function (li, i) {
+        var R = ROUNDS[keys[i]]; if (!R) return;
+        var a = li.querySelector('a'), href = a ? a.outerHTML : '';
+        li.innerHTML = R.w + ' ' + R.s + ' &#183; float <b>' + R.float + '</b> &#183; pattern <b>' + R.pattern + '</b> &#183; ' + href;
+      });
+      var bt = [].slice.call(acts.querySelectorAll('button')).filter(function (x) { return /^Sell all/.test(x.textContent.trim()); })[0];
+      if (bt && cards.length) bt.textContent = 'Sell all ' + keys.length + ' for ' + keys.reduce(function (a, k) { return a + parseFloat(ROUNDS[k].won); }, 0).toFixed(2) + ' coins';
       /* WHAT WAS ALREADY SOLD STAYS SOLD on a reload of the same outcome. */
       /* AND WHAT WAS SENT IS NOT SOLD AFTER, round 17, B1-4 and B1-5: a
          reload offered Sell and Send again for an item already sent or sold,
@@ -3812,6 +3847,21 @@ window.WF_PAY = window.WF_PAY || {
       ca.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); if (db.getAttribute('aria-expanded') !== 'true') db.click(); var f = document.querySelector('#wf-rolls-pop a'); if (f) f.focus(); });
     }
     outcomeLeft();
+  }
+
+  /* OPEN AGAIN OR ADD FUNDS, BY THE BALANCE, round 17, B1-6: the five roll
+     outcome said Add funds with the balance covering it, and the two roll
+     outcome said Open again with the balance short. */
+  function outcomeAgain() {
+    if (!/^case-(outcome|interrupted)/.test(location.pathname.split('/').pop())) return;
+    var acts = document.querySelector('.wf-outcome-acts');
+    var a = acts && [].slice.call(acts.querySelectorAll('a')).filter(function (x) { return /^(Open again|Add funds to open)/.test(x.textContent.trim()); })[0];
+    if (!a) return;
+    var n = document.querySelectorAll('.wf-won-card').length || 1, nw = parseInt((/[?&]now=(\d+)/.exec(location.search) || [])[1], 10), op = nw && (WF_SESS.get('opens') || [])[nw - 1];
+    var ck = op && op.c ? op.c : 'ironbound', cost = Math.round(n * WF_CASES[ck][1] * 100) / 100, page = n === 1 ? 'case-account.html' : n === 2 ? 'case-account-2.html' : 'case-account-5.html';
+    var q = [n > 2 && n < 5 ? 'n=' + n : '', ck !== 'ironbound' ? 'case=' + ck : ''].filter(Boolean).join('&');
+    if (moneyNow().balance >= cost) { a.textContent = 'Open again for ' + cost.toFixed(2) + ' coins'; a.setAttribute('href', BASE + page + (q ? '?' + q : '')); a.removeAttribute('data-dep-open'); a.classList.add('wf-btn--primary'); }
+    else { a.textContent = 'Add funds to open ' + (n > 1 ? n + ' ' : '') + 'again for ' + cost.toFixed(2) + ' coins'; a.setAttribute('href', BASE + 'deposit.html'); a.setAttribute('data-dep-open', 'step1'); }
   }
 
   /* THE FAVOURITE ANSWERS, round 14. A guest's press opens sign in, which is
@@ -4074,6 +4124,86 @@ window.WF_PAY = window.WF_PAY || {
       ['Nova', 'Koi', 'Factory New', '20.000 %', '7.90', '80 001 to 100 000']]]
   ];
 
+  /* EACH CASE'S TABLE, round 17, D-160 answer 2. Round 16 drew every other
+     case as Ironbound's table scaled, so Warsteel's own rounds landed in other
+     items' ranges and its items were not in it, and a skin's value and Steam's
+     price changed with the case it came from. Now:
+     - a case with rounds on record holds those items, at their recorded chance
+       and their value now, and fills the rest from skins already priced in the
+       prototype, never rescaled, with chances set so the expected value is the
+       tested RTP of the entry cost; its rounds' tickets land in their own rows;
+     - a case with none keeps Ironbound's rows scaled to its entry cost, the
+       sample D-155 named; Steam's price is never scaled.
+     Samples, D-124, marked in 3.3. */
+  var RARITY = { 'AWP Asiimov': 'Covert', 'AK-47 Redline': 'Covert', 'AK-47 Vulcan': 'Covert', 'AWP Neo-Noir': 'Covert',
+    'M4A1-S Hyper Beast': 'Classified', 'Desert Eagle Blaze': 'Classified', 'USP-S Cortex': 'Classified', 'Five-SeveN Monkey Business': 'Classified',
+    'USP-S Kill Confirmed': 'Restricted', 'Glock-18 Water Elemental': 'Restricted', 'SG 553 Cyrex': 'Restricted',
+    'MP9 Rose Iron': 'Mil-Spec', 'P250 Asiimov': 'Mil-Spec', 'Nova Koi': 'Mil-Spec', 'P250 Sand Dune': 'Consumer Grade' };
+  var TIER_ORDER = ['Covert', 'Classified', 'Restricted', 'Mil-Spec', 'Consumer Grade'];
+  var TIER_CH = { 'Covert': 0.25, 'Classified': 1.5, 'Restricted': 5, 'Mil-Spec': 15, 'Consumer Grade': 25 };
+  var STEAM_AT = { 'AWP Asiimov|Field-Tested': 61.20, 'AK-47 Redline|Field-Tested': 18.90, 'USP-S Cortex|Minimal Wear': 6.05,
+    'M4A1-S Hyper Beast|Field-Tested': 34.10, 'Desert Eagle Blaze|Minimal Wear': 13.60, 'Glock-18 Water Elemental|Factory New': null };
+  var CASE_TABLES = {};
+  function fmtCh(c) { return c.toFixed(3) + ' %'; }
+  function fmtT(n) { return String(n).replace(/(\d)(\d{3})$/, '$1 $2'); }
+  function caseTable(k) {
+    if (CASE_TABLES[k]) return CASE_TABLES[k];
+    var K = WF_CASES[k] || WF_CASES.ironbound, q = K[1] / 12.40, rows = [];
+    var rec = [];
+    if (k !== 'ironbound') {
+      var seen = {};
+      WF_ROLLS.forEach(function (r) { if (caseOf(r.kase) !== k) return; var id = r.w + ' ' + r.s + '|' + r.wear.split(', ')[0]; if (seen[id]) { seen[id].keys.push(r.key); return; }
+        seen[id] = { w: r.w, s: r.s, wear: r.wear.split(', ')[0], v: parseFloat(r.now || r.worth), ch: parseFloat(r.chance), keys: [r.key] }; rec.push(seen[id]); });
+      FEED.forEach(function (f) { if (caseOf(f[2]) !== k || !f[6]) return; var id = f[0] + ' ' + f[1] + '|' + f[6][0]; if (seen[id]) { seen[id].keys.push(f[5]); return; }
+        seen[id] = { w: f[0], s: f[1], wear: f[6][0], v: parseFloat(f[7]), ch: null, keys: [f[5]] }; rec.push(seen[id]); });
+    }
+    if (!rec.length) {
+      CASE_ITEMS.forEach(function (t) { t[2].forEach(function (i) {
+        rows.push({ w: i[0], s: i[1], wear: i[2], tier: t[0], ch: parseFloat(i[3]), v: k === 'ironbound' ? parseFloat(i[4]) : Math.round(parseFloat(i[4]) * q * 100) / 100, keys: [] });
+      }); });
+    } else {
+      rec.forEach(function (r) { r.tier = RARITY[r.w + ' ' + r.s] || 'Mil-Spec'; if (!(r.ch > 0)) r.ch = TIER_CH[r.tier]; });
+      var target = 0.942 * K[1], used = rec.reduce(function (a, r) { return a + r.ch; }, 0), er = rec.reduce(function (a, r) { return a + r.ch / 100 * r.v; }, 0);
+      var have = {}; rec.forEach(function (r) { have[r.w + ' ' + r.s] = 1; });
+      var pool = [];
+      CASE_ITEMS.forEach(function (t) { t[2].forEach(function (i) { if (!have[i[0] + ' ' + i[1]]) pool.push({ w: i[0], s: i[1], wear: i[2], tier: t[0], v: parseFloat(i[4]), keys: [] }); }); });
+      WF_ROLLS.forEach(function (r) { if (!have[r.w + ' ' + r.s] && !pool.some(function (x) { return x.w === r.w && x.s === r.s; })) pool.push({ w: r.w, s: r.s, wear: r.wear.split(', ')[0], tier: RARITY[r.w + ' ' + r.s] || 'Mil-Spec', v: parseFloat(r.now || r.worth), keys: [] }); });
+      pool.sort(function (a, b) { return a.v - b.v; });
+      var cf = Math.max(0, 100 - used), need = cf ? (target - er) / (cf / 100) : 0;
+      /* THE FILLERS CLOSEST TO WHAT IS NEEDED, so no one row carries the case. */
+      var above = pool.filter(function (x) { return x.v >= need; }), hi = above[0] || pool[pool.length - 1];
+      var rest = pool.filter(function (x) { return x !== hi; }).sort(function (a, b) { return Math.abs(a.v - need) - Math.abs(b.v - need); });
+      var lo = rest[1] || rest[0], mid = rest[0];
+      var la = (lo.v + mid.v) / 2, a = hi.v > la ? Math.min(0.9, Math.max(0.02, (need - la) / (hi.v - la))) : 0.02;
+      lo.ch = cf * (1 - a) / 2; mid.ch = cf * (1 - a) / 2; hi.ch = cf * a;
+      rows = rec.concat([lo, mid, hi]);
+    }
+    /* null: no copy on sale; undefined: not read, a sample is used. */
+    rows.forEach(function (r) { var id = r.w + ' ' + r.s + '|' + r.wear; r.steam = STEAM_AT.hasOwnProperty(id) ? STEAM_AT[id] : undefined; });
+    rows.sort(function (a, b) { return TIER_ORDER.indexOf(a.tier) - TIER_ORDER.indexOf(b.tier) || b.v - a.v; });
+    var sum = rows.reduce(function (a, r) { return a + r.ch; }, 0), at = 1;
+    rows.forEach(function (r, i) {
+      r.ch = r.ch * 100 / sum;
+      var n = i === rows.length - 1 ? 100001 - at : Math.max(1, Math.round(r.ch * 1000));
+      r.lo = at; r.hi = at + n - 1; at += n; r.range = fmtT(r.lo) + ' to ' + fmtT(r.hi);
+    });
+    var tiers = [];
+    rows.forEach(function (r) { var t = tiers.filter(function (x) { return x[0] === r.tier; })[0]; if (!t) { t = [r.tier, 0, []]; tiers.push(t); } t[1] += r.ch; t[2].push(r); });
+    tiers.ev = rows.reduce(function (a, r) { return a + r.ch / 100 * r.v; }, 0);
+    tiers.back = rows.reduce(function (a, r) { return a + (r.v >= K[1] ? r.ch : 0); }, 0);
+    tiers.rows = rows;
+    return (CASE_TABLES[k] = tiers);
+  }
+
+  /* STEAM'S PRICE OF THE TOP ITEM, read in dollars at the peg and never scaled
+     with a case, D-159: a skin with a shelf reads it, the drawn AK keeps its
+     50.43, and any other is a sample at 8 % over our value, marked in 3.3. */
+  function steamTop(k) {
+    var r = caseTable(k).rows[0];
+    if (r.steam != null) return r.steam.toFixed(2);
+    if (r.w === 'AK-47' && r.s === 'Redline' && /StatTrak/.test(r.wear)) return '50.43';
+    return (Math.round(r.v * 108) / 100).toFixed(2);
+  }
   function caseBody(state) {
     var degraded = state === 'degraded';
     var out = [];
@@ -4116,20 +4246,24 @@ window.WF_PAY = window.WF_PAY || {
     // ---- WHAT IS IN THIS CASE. Grouped by tier, section 3, and the table
     // markup stays a table. THE STAMP IS AT THE END, where the baseline puts
     // "Last updated": it dates the values a person has just read.
-    out.push('<section class="wf-sec" aria-labelledby="h2-contents"><div class="wf-sec-head"><h2 id="h2-contents">What is in this case</h2></div>');
-    out.push('<div class="wf-tablewrap"><table class="wf-table wf-drops"><caption class="wf-vh">Every item in Ironbound with its chance, value and ticket range</caption>' +
+    out.push('<section class="wf-sec" data-noscale aria-labelledby="h2-contents"><div class="wf-sec-head"><h2 id="h2-contents">What is in this case</h2></div>');
+    out.push('<div class="wf-tablewrap"><table class="wf-table wf-drops"><caption class="wf-vh">Every item in ' + WF_CASES[caseKey()][0] + ' with its chance, value and ticket range</caption>' +
       '<thead><tr><th scope="col">Item image</th><th scope="col">Item</th><th scope="col">Chance</th><th scope="col">Value</th><th scope="col">Tickets</th></tr></thead>');
-    CASE_ITEMS.forEach(function (t) {
-      out.push('<tbody class="wf-tier" aria-label="' + t[0] + ', ' + t[1].replace(' %', ' percent') + '">' +
+    var CK = caseKey();
+    var TBL = CK === 'ironbound' ? CASE_ITEMS : caseTable(CK).map(function (t) {
+      return [t[0], fmtCh(t[1]), t[2].map(function (r) { return [r.w, r.s, r.wear, fmtCh(r.ch), r.v.toFixed(2), r.range, r.steam]; })];
+    });
+    TBL.forEach(function (t) {
+      out.push('<tbody class="wf-tier" data-noscale aria-label="' + t[0] + ', ' + t[1].replace(' %', ' percent') + '">' +
         '<tr class="wf-tier-h"><td colspan="6"><span class="wf-tier-n">' + t[0] + '</span> <span class="wf-fig-c">' + t[1] + '</span></td></tr>');
       t[2].forEach(function (i, n) {
-        var top = t[0] === 'Covert' && n === 0;
+        var top = t === TBL[0] && n === 0;
         out.push('<tr><td class="wf-art-c"><span class="wf-item-art" aria-hidden="true"></span></td>' +
           '<th scope="row"><span class="wf-d-name"><span class="wf-d-weapon">' + i[0] + '</span><span class="wf-d-skin">' + i[1] +
           '</span><span class="wf-d-axes">' + i[2] + ' · ' + t[0] + '</span>' +
           // A1: THE OUTBOUND MARKET PRICE SITS ON THE TOP ITEM ITSELF, not in a
           // note under the table, and it carries its own moment.
-          (top && !degraded ? '<a class="wf-d-mkt" href="https://steamcommunity.com/market/" rel="external nofollow">Steam 50.43 coins, 18 Aug 14:02</a>' : '') +
+          (top && !degraded ? '<a class="wf-d-mkt" href="https://steamcommunity.com/market/" rel="external nofollow">Steam ' + steamTop(CK) + ' coins, 18 Aug 14:02</a>' : '') +
           '</span></th>' +
           '<td data-l="Chance">' + i[3] + '</td>' +
           '<td data-l="Value">' + (degraded ? '<span class="wf-fig-missing">Not available</span>' : i[4] + ' coins') + '</td>' +
@@ -4152,10 +4286,11 @@ window.WF_PAY = window.WF_PAY || {
       return '<div class="wf-fig"><span class="wf-fig-v' + (v ? '' : ' wf-fig-missing') + '">' + (v || 'Not available') + '</span>' +
         '<span class="wf-fig-c">' + c + (route ? ' ' + route : '') + '</span></div>';
     }
-    out.push('<section class="wf-sec" aria-labelledby="h2-pays"><div class="wf-sec-head"><h2 id="h2-pays">What this case pays</h2></div><div class="wf-figs">');
+    out.push('<section class="wf-sec" data-noscale aria-labelledby="h2-pays"><div class="wf-sec-head"><h2 id="h2-pays">What this case pays</h2></div><div class="wf-figs">');
+    var CT = caseTable(CK), CC = WF_CASES[CK][1];
     out.push(fig('94.2 %', 'Tested RTP, in coins at our values'));
-    out.push(fig(degraded ? null : '11.68 coins', 'Expected value per open: every chance above times its value'));
-    out.push(fig(degraded ? null : '37.000 %', 'Chance to get back at least the 12.40 entry cost'));
+    out.push(fig(degraded ? null : (CK === 'ironbound' ? '11.68' : CT.ev.toFixed(2)) + ' coins', 'Expected value per open: every chance above times its value'));
+    out.push(fig(degraded ? null : (CK === 'ironbound' ? '37.000' : CT.back.toFixed(3)) + ' %', 'Chance to get back at least the ' + CC.toFixed(2) + ' entry cost'));
     if (state !== 'outcome') {
       out.push(fig(degraded ? null : '-6.2 %', 'Our values against a real copy, case average', '<a href="withdraw.html">How it settles</a>'));
     }
@@ -4174,10 +4309,13 @@ window.WF_PAY = window.WF_PAY || {
         '<p class="wf-sec-sub">What we publish for each tier, and what actually came out.</p></div>' +
         '<div class="wf-tablewrap"><table class="wf-table"><caption class="wf-vh">Published and observed rate per rarity tier</caption>' +
         '<thead><tr><th scope="col">Tier</th><th scope="col">Published</th><th scope="col">Observed</th><th scope="col">' + WF_STR.rolls + '</th></tr></thead><tbody>' +
-        '<tr><th scope="row">Covert</th><td>4.200 %</td><td>4.06 %</td><td>41 208</td></tr>' +
-        '<tr><th scope="row">Classified</th><td>6.800 %</td><td>6.94 %</td><td>41 208</td></tr>' +
-        '<tr><th scope="row">Restricted</th><td>26.000 %</td><td>25.71 %</td><td>41 208</td></tr>' +
-        '<tr><th scope="row">Mil-Spec</th><td>63.000 %</td><td>63.29 %</td><td>41 208</td></tr>' +
+        /* PUBLISHED FROM THE TABLE ABOVE, OBSERVED A SAMPLE BESIDE IT, round 17. */
+        (CK === 'ironbound'
+          ? '<tr><th scope="row">Covert</th><td>4.200 %</td><td>4.06 %</td><td>41 208</td></tr>' +
+            '<tr><th scope="row">Classified</th><td>6.800 %</td><td>6.94 %</td><td>41 208</td></tr>' +
+            '<tr><th scope="row">Restricted</th><td>26.000 %</td><td>25.71 %</td><td>41 208</td></tr>' +
+            '<tr><th scope="row">Mil-Spec</th><td>63.000 %</td><td>63.29 %</td><td>41 208</td></tr>'
+          : caseTable(CK).map(function (t, i) { var ob = t[1] * (1 + ((i % 2 ? 1 : -1) * 0.012)); return '<tr><th scope="row">' + t[0] + '</th><td>' + fmtCh(t[1]) + '</td><td>' + ob.toFixed(2) + ' %</td><td>' + fmtT(Math.round(60000 / CC)) + '</td></tr>'; }).join('')) +
         '</tbody></table></div>' +
         '<p class="wf-note">Counted since this case launched, never reset. <a href="fair.html">How rounds are checked</a></p></section>');
     }
@@ -5144,18 +5282,28 @@ window.WF_PAY = window.WF_PAY || {
   var BORN = [];
   function stOf(k) {
     var o = openKeys().filter(function (x) { return x.key === k; })[0], b = o ? o.base : k, st = OPEN_ST[b];
-    if (st === null || st === undefined) return st;
-    return st * (o ? WF_CASES[o.c || 'ironbound'][1] : WF_CASES[caseKey()][1]) / 12.40;
+    if (o && o.row !== undefined) { var tr = caseTable(o.c).rows[o.row]; return tr.steam === null ? null : tr.v - (tr.steam !== undefined ? tr.steam : Math.round(tr.v * 108) / 100); }
+    return st;
   }
   function openKeys() { var o = []; (WF_SESS.get('opens') || []).forEach(function (x) { o = o.concat(x.keys); }); return o; }
   openKeys().forEach(function (k, i) {
     var b = ROUNDS[k.base]; if (!b || ROUNDS[k.key]) return;
-    var r = JSON.parse(JSON.stringify(b)), cr = WF_CASES[k.c || 'ironbound'], q = cr[1] / 12.40;
+    var r = JSON.parse(JSON.stringify(b)), cr = WF_CASES[k.c || 'ironbound'];
     r.at = OPEN_AT; r.hash = hx(k.key + 'h', 64); r.seed = hx(k.key + 's', 64); r.kase = cr[0];
-    if (q !== 1) { r.won = (parseFloat(r.won) * q).toFixed(2); r.now = (parseFloat(r.now) * q).toFixed(2); }
+    /* ANOTHER CASE OPENS ITS OWN ITEMS, round 17, D-160: a Warsteel open
+       revealed Ironbound's Glock at a scaled value. The row comes from the
+       case's own table, and its ticket from inside that row. */
+    if (k.row !== undefined) {
+      var tr = caseTable(k.c).rows[k.row];
+      r.w = tr.w; r.s = tr.s; r.axes = [tr.wear, tr.tier]; r.won = tr.v.toFixed(2);
+      r.ticket = fmtT(tr.lo + parseInt(hx(k.key + 't', 6), 16) % (tr.hi - tr.lo + 1)); r.range = tr.range;
+    }
+    /* WON AND WORTH NOW ARE ONE FIGURE AT THE MOMENT OF THE OPEN, round 17, B1-10. */
+    r.now = r.won;
+    r.float = ((parseInt(hx(k.key + 'f', 6), 16) % 9000) / 10000 + 0.05).toFixed(4); r.pattern = String(parseInt(hx(k.key + 'p', 4), 16) % 1000).padStart(3, '0');
     r.nonce = String(41221 + i).replace(/(\d)(\d{3})$/, '$1 $2');
     ROUNDS[k.key] = r;
-    var ch = ''; CASE_ITEMS.forEach(function (g) { g[2].forEach(function (x) { if (x[0] === r.w && x[1] === r.s) ch = parseFloat(x[3]).toFixed(2) + '%'; }); });
+    var ch = ''; caseTable(k.c || 'ironbound').rows.forEach(function (x) { if (x.w === r.w && x.s === r.s) ch = x.ch.toFixed(2) + '%'; });
     var how = (WF_SESS.get('gone') || {})[k.key];
     BORN.unshift({ key: k.key, when: '21 Aug 09:31', date: '21 Aug 2026', kase: cr[0] + ' Case', w: r.w, s: r.s, wear: r.axes[0], cost: cr[1].toFixed(2), worth: r.won, chance: ch,
       hash: r.hash.slice(0, 8), state: how === 'sold' || how === 'cashed' ? 'sold' : how === 'sent' ? 'sending' : 'held', went: how ? '21 Aug' : undefined, born: true });
@@ -5189,8 +5337,22 @@ window.WF_PAY = window.WF_PAY || {
     var t = lo + (i * 7919) % (hi - lo + 1);
     ROUNDS[k] = { w: f[0], s: f[1], axes: hitRow ? hitRow[2].split(' \u00b7 ').concat(tier) : f[6], won: won, now: won,
       at: '21 Aug 2026 09:' + String(30 - i * 2).padStart(2, '0'), hash: hx(k + 'h', 64), seed: hx(k + 's', 64),
-      client: '7d19f4a2', nonce: String(42100 + i).replace(/(\d)(\d{3})$/, '$1 $2'),
+      /* OTHER PEOPLE'S ROUNDS, OTHER PEOPLE'S SEEDS, round 17, B1-9: the
+         feed's rounds carried the account's client seed and nonces above it. */
+      client: hx(k + 'c', 8), nonce: String(17000 + (i * 3511) % 40000).replace(/(\d)(\d{3})$/, '$1 $2'),
       ticket: String(t).replace(/(\d)(\d{3})$/, '$1 $2'), range: range, kase: f[2] };
+  });
+  /* A CASE'S ROUNDS LAND IN ITS OWN ROWS, round 17, B1-8: Warsteel's AWP
+     settled 16 838, inside the USP-S's range of a table the AWP was not in. */
+  Object.keys(WF_CASES).forEach(function (ck) {
+    if (ck === 'ironbound') return;
+    caseTable(ck).rows.forEach(function (r) {
+      r.keys.forEach(function (key, j) {
+        var R = ROUNDS[key]; if (!R) return;
+        var span = r.hi - r.lo + 1, t = r.lo + (parseInt(hx(key + 't', 6), 16) + j) % span;
+        R.ticket = fmtT(t); R.range = r.range; R.axes = [R.axes[0], r.tier]; R.kase = WF_CASES[ck][0];
+      });
+    });
   });
 
   /* FOUR STATES, AND THE FOURTH IS THE ONE THE FOUNDER'S CAPTURE SHOWS, D-108.
@@ -5787,11 +5949,13 @@ window.WF_PAY = window.WF_PAY || {
     }) };
   });
   openKeys().forEach(function (k) {
-    var b = WF_SHELF[k.base], q = WF_CASES[k.c || 'ironbound'][1] / 12.40;
-    if (!b || WF_SHELF[k.key]) return;
-    var c = JSON.parse(JSON.stringify(b)); c.ours = Math.round(c.ours * q * 100) / 100;
-    c.offers.forEach(function (o) { o.p = Math.round(o.p * q * 100) / 100; });
-    WF_SHELF[k.key] = c;
+    if (WF_SHELF[k.key]) return;
+    if (k.row !== undefined) {
+      var tr = caseTable(k.c).rows[k.row], cp = tr.steam === null ? null : tr.steam !== undefined ? tr.steam : Math.round(tr.v * 108) / 100;
+      WF_SHELF[k.key] = { w: tr.w, s: tr.s, wear: tr.wear, ours: tr.v, total: cp === null ? 0 : 40, offers: cp === null ? [] : [0, 0.04, 0.09].map(function (d, j) { return { p: Math.round(cp * (1 + d) * 100) / 100, f: parseFloat(ROUNDS[k.key].float) + j * 0.0101, stk: 0 }; }) };
+      return;
+    }
+    if (WF_SHELF[k.base]) WF_SHELF[k.key] = WF_SHELF[k.base];
   });
   function wdKeys() {
     var one = (/[?&]item=([a-z0-9]+)/.exec(location.search) || [])[1];
@@ -8002,6 +8166,7 @@ window.WF_PAY = window.WF_PAY || {
     renderHashes();
     mountCaseTemplate();
     mountOpenNow();
+    outcomeAgain();
     mountGate();
     mountDeposit();
     mountExclude();

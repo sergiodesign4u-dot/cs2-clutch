@@ -5934,3 +5934,20 @@ Rejected: Steam's price in its own currency beside the coin value, the recommend
 - **Smaller**: the bar's sum after a cash out, an unknown round opening the gone state, the resend hand-off inside `WF_SESS`, `conventions.md` section 4.1 rewritten in place.
 
 Verified on screen: four footer documents keep a guest a guest; a sign in over Warsteel lands on Warsteel signed in; a sent AK is not offered again; a reopened outcome reads "On its way to Steam"; skins refuse under a cool down; a $40 weekly limit reads $0.00 left and Pay refuses; a cool down inside an exclusion is refused; 134 pages at 360 and 1440 with no error and no sideways scroll; one current element per page.
+
+## D-162. Round 17, step 2: each case its own table
+
+**Date:** 2026-10-04. **Stage:** 04, round 17. **Decided by:** the founder, "да" on step 2, under `D-160` answer 2. **Binds:** `wireframes/_nav.js`, nodes `3.3`, `0.8`, `7.1` and their pages.
+
+### What was done
+
+- **Tables.** Warsteel, Nightfall and Coldfront hold the items their rounds on record name, at the recorded chance and today's value, filled from skins the prototype already prices and never rescaled, with chances solved so the expected value meets the tested RTP at the entry cost. The eight cases with no records keep Ironbound's rows scaled. What a case pays and its published against observed read its table. Steam's price is never scaled.
+- **Rounds.** Every round of a case with a table lands in its own row; feed rounds carry their own seeds.
+- **Opens.** An open in another case reveals rows of that case's table, each with its own float and pattern, its own shelf and its own Send figure; its value when won and now are one figure.
+- **The outcome's act** follows the balance; a balance that cannot cover an open is said, not printed negative.
+
+### What it costs, named
+
+The prototype prices about fifteen skins. An expensive case filled only from them puts a high chance on its dearest row to meet the RTP: Nightfall's StatTrak AK sits near half the table. That is a sample, marked in `3.3`; real tables are production data.
+
+Verified on screen: each table sums to 100 % with ranges to 100 000; Warsteel's AWP settles inside 1 to 110, its own row; a Warsteel open reveals a USP-S Cortex with its own float, and My items holds it at 7.35; feed rounds carry their own seeds; 134 pages and 48 templated case pages with no error and no sideways scroll.
