@@ -1072,3 +1072,16 @@ The HTML pages of the map and the flows carry an Updated after publication block
 | D1-5, B1-17 | The sign in consent's Privacy Policy opened Terms on seven surfaces, the dialog being rendered and round 15 having fixed only the pages | D1, B1 | Fixed: the unpublished state for privacy |
 | D1-9 | Categories and Filters typed as labels on seven catalogue pages | D1 | Fixed: `data-str-aria` reads `WF_STR` |
 | D1-10 | Renderers typing Add funds, Cases, History and Favourite into labels | D1 | Fixed: read from `WF_STR` |
+
+### 17.4 Step 2, what a session carries, fixed on 4 October 2026 under `D-154`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| B2-10, B1-8 part | Every way back to a case from a signed-in page opened the guest catalogue or case, 63 pages; Check and Public page landed on the guest shell | B2, B1 | Fixed: links to the guest home, catalogue and case open the account's own; fair, result, player and the catalogue's states render the account's shell while the session is signed in. Share to the owner's view is step 3 |
+| B1-4, B2-26, B2-33 | A sale moved the header and the next page said 74.20 again | B1, B2 | Fixed: an act writes the pair to the session and every signed-in page reads it first |
+| B2-25 part | A cash out request left no trace | B2 | Fixed for the grid and the value held; the ledger stays a snapshot, `conventions.md` section 4.1 |
+| B2-26 part | A sent item stayed sellable in My items | B2 | Fixed: it carries the on its way mark D-150 set |
+| B2-11, B2-12 | A saved limit was forgotten: the form said "Nothing is set yet" and the deposit said "No deposit limit set"; a second, looser save said "applies now" | B2 | Fixed: 6.1 states what is in force, the receipt reads the limit, and the looser save waits 24 hours |
+| B2-13 | The cool down landing listed a $40.00 limit nobody set | B2 | Fixed: a landing the session reached reads the session's limits |
+| B2-14, B2-15, B2-16 | Under a boundary the + opened an empty form, the Balance figure opened Pay, and the boundary reached no other page | B2 | Fixed: the + and the figure open what is in force, Pay and Open refuse with the end date on every signed-in page, the +5% badge goes |
+| D1-24 | The crediting state is not in the header | D1 | **Kept, and said**: crediting's end is not drawn, so a deposit in crediting does not move the balance, section 4.1 |

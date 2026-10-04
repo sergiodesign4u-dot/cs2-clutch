@@ -5810,3 +5810,20 @@ Six of the reader's thirty guesses, all wording: the sign on Send to Steam's fig
 - **Labels read the declaration too.** Categories and Filters on seven catalogue pages through `data-str-aria`, and Add funds, Cases, History and Favourite in the renderers.
 
 Verified on screen: four result rounds name their own winners, three legal states their own crumb; 133 pages at 360 and 1440 with no error and no sideways scroll.
+
+## D-154. Round 16, step 2: a session carries three things
+
+**Date:** 2026-10-04. **Stage:** 04, round 16. **Decided by:** the founder, "да" on step 2, under `D-152` option C. **Binds:** `wireframes/_nav.js`, `wireframes/docs/conventions.md` section 4.1, `wireframes/overview.html`.
+
+### What was done
+
+- **`WF_SESS`, one session record in `_nav.js`.** It holds the signed-in state, the money pair after an act, what left My items, and the limits set. Nothing else is stored.
+- **The signed-in state.** Any signed-in page sets it; a sign in screen and Sign out clear it. While it holds, a link to the guest home, catalogue or case opens the account's own, rewritten on load and again at the press, and fair, result, player and the catalogue's states render the account's shell.
+- **Money and items.** A sale on My items, on the outcome or on Send to Steam, a send and a cash out write the pair, and every signed-in page reads it before its own sample. Sold and cashed out items leave My items; a sent one keeps its card with the on its way mark.
+- **Limits.** 6.1's Save, cool down and self exclusion write what was set. 6.1 says what is in force, the deposit receipt reads the limit, and a landing the session reached lists only what the session set. A cool down or an exclusion in force makes every signed-in page a boundary: the + and the Balance figure open what is in force, Pay refuses, Open refuses beside itself with the end date, and the +5% badge goes.
+
+### What stays a snapshot, named
+
+Ledgers, history rows, tickets and deposit records; every state page opened by its address before any act; a deposit in crediting, which moves no balance because crediting's end is not drawn. A state page opened by its address after an act shows the session's figures in the header and its own sample in its body. That is the cost of the hybrid and it is printed in `conventions.md` section 4.1.
+
+Verified on screen: a sale of the AWP moves 74.20 / 140.95 to 140.25 / 74.90 on the next three pages, a send of the USP-S adds its difference and marks the card, a $25.00 limit shows on 6.1 and in the receipt, a cool down lands with that limit only, closes Open and Pay and turns the + to what is in force, and Sign out returns the public pages to the guest shell. 133 pages at 360 and 1440 with no error and no sideways scroll; 24 carried pages at 360 with none.

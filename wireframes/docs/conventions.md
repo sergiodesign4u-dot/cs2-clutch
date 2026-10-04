@@ -126,6 +126,18 @@ The shell `0.1`, the footer `0.2`, the skin card `0.6`, the case tile `0.7`, the
 - **Every state has a visible way out**, checked against `ia/docs/flows.md`. **No dead ends**, except the two the map declares dead by design and names as such: **`2.2` geo blocked** and **`5.7` restriction upheld**. Everything else has a way out, and `flows.md` states it for the catalogue in as many words: a person who finds nothing can always widen what they are looking at.
 - **Missing is a state, never a zero.** `0.11` rule 3, and it is why `_wf.css` carries `.wf-fig-missing`. The eight holes in `screens.md` all render through it.
 
+### 4.1 What a session carries, and what stays a snapshot, `D-152`
+
+Round 16 walked the prototype page to page and found that nothing a person did reached the next page. **The founder chose a hybrid.** Within one browser session three things are carried, in `WF_SESS` in `_nav.js`, and nothing else is:
+
+| Carried | Set by | Read by |
+|---|---|---|
+| **The signed-in state** | Any signed-in page sets it; a sign in screen and Sign out clear it | Every signed-in page opens the account's home, catalogue and case instead of the guest's. The public pages both states can read, fair, result, player and the catalogue's states, render the account's shell |
+| **Money and items after an act** | A sale, a send to Steam, a cash out; an open from round 16 step 3 | The header and the account's pair on every signed-in page, before the page's own sample. My items drops what was sold or cashed out and marks what was sent |
+| **The limits set** | 6.1: a deposit limit, a session length, a cool down, a self exclusion | 6.1 says what is in force; the deposit receipt's limit line; under a cool down or an exclusion, the header's + and Balance figure open what is in force, Pay refuses and Open refuses beside itself |
+
+**Everything else is the snapshot its page draws, dated 21 Aug 2026 09:31**: the ledgers and history rows, the tickets, the deposit records, and every state page opened by its own address before any act. A deposit in crediting does not move the balance, because crediting's end is not drawn. **A state page reached by its address after an act shows the session's figures in the header and its own sample in its body**, and that is the cost of the hybrid, named rather than hidden. The session ends with the browser tab.
+
 ---
 
 ## 5. Nothing new gets drawn

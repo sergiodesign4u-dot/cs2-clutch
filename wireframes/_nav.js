@@ -618,8 +618,57 @@ var WF_STR = {
   rpNotOurs: 'Help that is not ours',
   rpTherapy: '<a href="https://www.gamblingtherapy.org/" rel="external nofollow">Gambling Therapy</a>, free and confidential, in any country.'
 };
+/* WHAT A SESSION CARRIES, round 16, D-152, option C. Round 16 walked page to
+   page and nothing a person did reached the next page: a sale, a limit, a sign
+   in. Three things now travel within one browser session and nothing else does:
+   - THE SIGNED-IN STATE. Any signed-in page sets it, a sign in screen and Sign
+     out clear it. While it is set, a link to the guest home, catalogue or case
+     opens the account's own, and the public pages that both states can read,
+     fair, result, player and the catalogue's states, render the account's shell.
+   - MONEY AND ITEMS AFTER AN ACT. A sale, a send, a cash out or an open writes
+     the pair here, and every signed-in page reads it before its own sample. An
+     item sold or cashed out leaves My items; one sent shows its clock mark.
+   - THE LIMITS SET. A deposit limit, a session length, a cool down and a self
+     exclusion. A cool down or an exclusion in force is a boundary on every
+     signed-in page: the header's + opens what is in force, Pay and Open refuse.
+   Everything else is the snapshot its page draws, dated 21 Aug 2026 09:31: the
+   ledgers, the history rows, the tickets and every state page reached by its
+   own address before any act. conventions.md section 4.1 holds the boundary. */
+var WF_SESS = (function () {
+  var K = 'wf-sess';
+  function all() { try { return JSON.parse(sessionStorage.getItem(K) || '{}') || {}; } catch (e) { return {}; } }
+  return {
+    get: function (k) { return all()[k]; },
+    set: function (k, v) { var s = all(); if (v === undefined || v === null) delete s[k]; else s[k] = v; try { sessionStorage.setItem(K, JSON.stringify(s)); } catch (e) {} },
+    gone: function (key, how) { if (!key) return; var g = this.get('gone') || {}; g[key] = how; this.set('gone', g); }
+  };
+})();
+/* A cool down or an exclusion in force, read against the prototype's now. */
+function sessBoundary() {
+  var L = WF_SESS.get('limits') || {};
+  if (L.excl) return { kind: 'excl', until: L.excl.until, route: 'responsible-excluded.html?x=' + encodeURIComponent(L.excl.per) };
+  if (L.cool && Date.parse(L.cool + ':00Z') > Date.UTC(2026, 7, 21, 9, 31)) {
+    var d = new Date(Date.parse(L.cool + ':00Z')), M = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return { kind: 'cool', until: d.getUTCDate() + ' ' + M[d.getUTCMonth()] + ' ' + d.getUTCFullYear() + ', 09:31', route: 'responsible-in-force.html' };
+  }
+  return null;
+}
+(function sessBoot() {
+  var c = window.WF_SHELL;
+  if (!c) return;
+  var f = location.pathname.split('/').pop() || 'index.html';
+  if (/^signin/.test(f)) WF_SESS.set('signed');
+  else if (c.account) WF_SESS.set('signed', true);
+  else if (WF_SESS.get('signed') && /^(fair|result|player|catalogue)/.test(f)) { c.account = true; c.carried = true; }
+  if (c.account && sessBoundary()) { c.boundary = true; c.bonus = false; }
+})();
+/* Where a boundary sends a person: what is in force, never the empty form. */
+function boundaryRoute() { var b = sessBoundary(); return b ? b.route : 'responsible-in-force.html'; }
+
 function moneyNow() {
   var M = (window.WF_SHELL && window.WF_SHELL.money) || {};
+  var S = WF_SESS.get('money');
+  if (S && window.WF_SHELL && window.WF_SHELL.account && window.WF_SHELL.money !== false) return { balance: S.balance, held: S.held };
   var p = function (v, d) { return v === undefined ? d : parseFloat(String(v)); };
   return { balance: p(M.balance, WF_MONEY.balance), held: p(M.held, WF_MONEY.held) };
 }
@@ -639,6 +688,8 @@ function moneyAdd(dBal, dHeld) {
   var nb = (m.balance + dBal).toFixed(2) + ' coins', nh = (m.held + dHeld).toFixed(2) + ' coins';
   window.WF_SHELL = window.WF_SHELL || {};
   window.WF_SHELL.money = { balance: nb, held: nh };
+  // AN ACT IS CARRIED, A REPAINT IS NOT: moneyAdd(0, 0) only redraws.
+  if (dBal || dHeld) WF_SESS.set('money', { balance: parseFloat(nb), held: parseFloat(nh) });
   Array.prototype.forEach.call(document.querySelectorAll('[data-money]'), function (e) {
     var v = e.getAttribute('data-money') === 'balance' ? nb : nh;
     e.textContent = v;
@@ -1487,6 +1538,13 @@ window.WF_PAY = window.WF_PAY || {
      from the prototype's now, 21 Aug 2026, 09:31. */
   var EX_END = {};
   EX_END[WF_STR.months6] = '21 Feb 2027, 09:31'; EX_END[WF_STR.year1] = '21 Aug 2027, 09:31'; EX_END[WF_STR.years5] = '21 Aug 2031, 09:31';
+  document.addEventListener('click', function (e) {
+    var c = e.target.closest('[data-ex-confirm]');
+    if (!c) return;
+    var p = c.getAttribute('data-ex-confirm'), L = WF_SESS.get('limits') || {};
+    L.excl = { per: p, until: EX_END[p] || EX_END[WF_STR.years5] };
+    WF_SESS.set('limits', L);
+  });
   function excludeHTML(period) {
     var p = period || WF_STR.years5;
     return '<div class="wf-dlg-scrim" data-ex-dismiss></div>' +
@@ -1502,7 +1560,7 @@ window.WF_PAY = window.WF_PAY || {
           '<p class="wf-note">It cannot be lifted early. That is what it is for.</p>' +
           '<div class="wf-row">' +
             '<a class="wf-btn" href="responsible.html" data-ex-dismiss>Cancel</a>' +
-            '<a class="wf-btn" href="responsible-excluded.html?x=' + encodeURIComponent(p) + '">Confirm</a>' +
+            '<a class="wf-btn" href="responsible-excluded.html?x=' + encodeURIComponent(p) + '" data-ex-confirm="' + p + '">Confirm</a>' +
           '</div>' +
         '</div>' +
       '</div></div>';
@@ -1666,6 +1724,39 @@ window.WF_PAY = window.WF_PAY || {
     if (ce && q('c') && COOL[q('c')]) { var t0 = NOW + COOL[q('c')] * 864e5; page.setAttribute('data-rp-cool-end', new Date(t0).toISOString().slice(0, 16)); ce.textContent = 'Ends ' + fmt(t0); }
     var xe = document.querySelector('[data-rp-ex-ends]');
     if (xe && q('x') && EX_END[q('x')]) xe.textContent = 'Ends ' + EX_END[q('x')];
+    /* WHAT THE SESSION SET IS WHAT THE PAGE SAYS, round 16, D-152. The cool
+       down landing listed a $40.00 limit nobody set, and the form one press
+       after a Save said "Nothing is set yet". A page whose boundary the session
+       started reads the session's; a state page opened by its address keeps its
+       own sample. */
+    var L0 = WF_SESS.get('limits') || {}, ce0 = page.getAttribute('data-rp-cool-end');
+    var mine = (ce0 && L0.cool) || (xe && L0.excl) || (!ce0 && !xe);
+    if (mine) {
+      if (ce0 && L0.cool) { page.setAttribute('data-rp-cool-end', L0.cool); if (ce) ce.textContent = 'Ends ' + fmt(Date.parse(L0.cool + ':00Z')); }
+      if (xe && L0.excl) xe.textContent = 'Ends ' + L0.excl.until;
+      var dl = document.querySelector('.wf-force-l [data-str="depositLimit"]');
+      var din = page.querySelector('.wf-set-in');
+      if (L0.dep) {
+        page.setAttribute('data-rp-limit', L0.dep.amt);
+        if (din) { din.value = L0.dep.amt; var ds = din.closest('.wf-set-ctl').querySelector('select'); if (ds) ds.value = L0.dep.per; }
+        if (dl) dl.parentNode.querySelector('.wf-force-e').textContent = '$' + L0.dep.amt + ' ' + L0.dep.per;
+      } else if (ce0 || xe) {
+        page.removeAttribute('data-rp-limit');
+        if (din) din.value = '';
+        if (dl) dl.closest('li').remove();
+      }
+    }
+    function rpSay() {
+      var say = page.querySelector('[data-rp-say]');
+      if (!say || page.getAttribute('data-rp-cool-end') || xe) return;
+      var L = WF_SESS.get('limits') || {}, bits = [], SB = sessBoundary();
+      if (L.dep) bits.push('a deposit limit of $' + L.dep.amt + ' ' + L.dep.per + (L.depNext ? ', $' + L.depNext.amt + ' ' + L.depNext.per + ' from 22 Aug 2026, 09:31' : ''));
+      if (L.session) bits.push('a session length of ' + L.session);
+      if (SB) bits.push((SB.kind === 'excl' ? 'a self exclusion' : 'a cool down') + ' until ' + SB.until);
+      if (!bits.length) return;
+      say.innerHTML = 'In force: ' + bits.join('; ') + '.' + (SB ? ' <a href="' + BASE + SB.route + '">What is in force</a>' : '');
+    }
+    if (mine) rpSay();
     page.addEventListener('click', function (e) {
       var t = e.target.closest('[data-rp-refuse]');
       if (t) { e.preventDefault(); answer(t, t.getAttribute('data-rp-refuse')); return; }
@@ -1679,9 +1770,17 @@ window.WF_PAY = window.WF_PAY || {
           if (!(v > 0)) { answer(sv, 'Nothing was set: a limit has to be more than 0.'); return; }
           var cur = parseFloat(page.getAttribute('data-rp-limit') || '0');
           if (sv.hasAttribute('data-rp-tighten') && cur && v > cur) { answer(sv, 'Nothing changed: a self exclusion is running, so a limit can only be tightened.'); return; }
+          var per = (sv.closest('.wf-set-ctl').querySelector('select') || {}).value || WF_STR.perWeek;
+          var L = WF_SESS.get('limits') || {};
+          /* A SAVED LIMIT IS THE ACCOUNT'S LIMIT, round 16, D-152: it was said
+             and forgotten, and the next page said "Nothing is set yet". */
+          if (cur && v > cur) L.depNext = { amt: v.toFixed(2), per: per };
+          else { L.dep = { amt: v.toFixed(2), per: per }; delete L.depNext; page.setAttribute('data-rp-limit', v.toFixed(2)); }
+          WF_SESS.set('limits', L); rpSay();
           answer(sv, cur && v > cur ? 'Saved. A looser limit applies in 24 hours.' : 'Saved. It applies now.');
           return;
         }
+        var sl = WF_SESS.get('limits') || {}; sl.session = (sv.closest('.wf-set-ctl').querySelector('select') || {}).value; WF_SESS.set('limits', sl); rpSay();
         answer(sv, 'Saved. A shorter session applies now; a longer one in 24 hours.');
         return;
       }
@@ -1692,10 +1791,12 @@ window.WF_PAY = window.WF_PAY || {
         var curEnd = page.getAttribute('data-rp-cool-end');
         /* A RUNNING COOL DOWN EXTENDS AND NEVER SHORTENS, round 15: the press
            reopened the same page and changed nothing. */
-        if (!curEnd) { location.href = BASE + 'responsible-in-force.html?c=' + encodeURIComponent(per); return; }
+        var CL = WF_SESS.get('limits') || {};
+        if (!curEnd) { CL.cool = new Date(end).toISOString().slice(0, 16); WF_SESS.set('limits', CL); location.href = BASE + 'responsible-in-force.html?c=' + encodeURIComponent(per); return; }
         var ct = Date.parse(curEnd + ':00Z');
         if (end <= ct) { answer(cb, 'Nothing changed: the cool down already runs until ' + fmt(ct) + ', and it cannot be shortened.'); return; }
         page.setAttribute('data-rp-cool-end', new Date(end).toISOString().slice(0, 16));
+        CL.cool = new Date(end).toISOString().slice(0, 16); WF_SESS.set('limits', CL);
         if (ce) ce.textContent = 'Ends ' + fmt(end);
         answer(cb, 'Extended. It now ends ' + fmt(end) + '.');
       }
@@ -1797,7 +1898,9 @@ window.WF_PAY = window.WF_PAY || {
          limit in force all reached crediting. */
       var v = parseFloat(amt ? amt.value : '0') || 0, cap = parseFloat(go.getAttribute('data-ceiling') || '0');
       var mail = scope.querySelector('input[type="email"]');
-      var why = v < 5 ? 'Nothing went through: the smallest deposit is $5.00.'
+      var SB = sessBoundary();
+      var why = SB ? 'Nothing went through: adding funds is closed until ' + SB.until + ' by the ' + (SB.kind === 'excl' ? 'self exclusion' : 'cool down') + ' you set.'
+              : v < 5 ? 'Nothing went through: the smallest deposit is $5.00.'
               : (cap && v > cap) ? 'Nothing went through: your deposit limit leaves $' + cap.toFixed(2) + ' this period.'
               /* THE BILLING ADDRESS IS READ, round 15: empty and "not-an-email" paid. */
               : (mail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim())) ? 'Nothing went through: the receipt needs an email address it can reach.' : '';
@@ -1986,6 +2089,9 @@ window.WF_PAY = window.WF_PAY || {
         }
         var d = el('a', 'wf-fig wf-fig-a ' + f[3]);
         d.href = BASE + f[2];
+        /* UNDER A BOUNDARY THE BALANCE IS NOT A WAY IN EITHER, round 16, B2-15:
+           the + opened what is in force and the figure beside it opened Pay. */
+        if (f[4] === 'balance' && cfg.boundary) d.href = BASE + boundaryRoute();
         d.setAttribute('aria-label', f[1] + ', ' + f[0]);
         // THE COIN SLOT, D-50. The baseline sets a coin mark against both figures and
         // this stage owes it the space. It sits with the VALUE and not with the caption,
@@ -2027,7 +2133,7 @@ window.WF_PAY = window.WF_PAY || {
          section on 6.3: "the deposit route closes". It opened the full layer with
          a working Pay on the pages that say adding funds is closed. */
       if (cfg.boundary) {
-        dep.href = BASE + 'responsible.html';
+        dep.href = BASE + boundaryRoute();
         dep.setAttribute('aria-label', 'Adding funds is closed for now. Your limits');
       } else {
         dep.setAttribute('data-dep-open', 'step1');
@@ -3438,7 +3544,7 @@ window.WF_PAY = window.WF_PAY || {
       var num = function (x) { var m = /([\d.]+)(?:\s*coins)?\s*$/.exec(x.textContent.trim()); return m ? m[1] : ''; };
       // A SALE MOVES THE HEADER, round 15: the receipt printed +12.90 over a
       // balance that did not change.
-      var sold = function (x) { var v = parseFloat(num(x)) || 0; x.textContent = 'Sold, +' + num(x); x.disabled = true; x.classList.add('is-sold'); moneyAdd(v, -v); };
+      var sold = function (x) { var v = parseFloat(num(x)) || 0; x.textContent = 'Sold, +' + num(x); x.disabled = true; x.classList.add('is-sold'); moneyAdd(v, -v); WF_SESS.gone(invKey(x.closest('.wf-won-card')) || roundKey(), 'sold'); };
       if (/^Sell (all|the other)/.test(b.textContent.trim())) {
         var left = document.querySelectorAll('.wf-won-card button.wf-sell:not([disabled])'), sum = 0;
         Array.prototype.forEach.call(left, function (x) { sum += parseFloat(num(x)) || 0; sold(x); });
@@ -4231,7 +4337,7 @@ window.WF_PAY = window.WF_PAY || {
     var add = el('a', 'wf-btn wf-ah-add', WF_STR.addFunds);
     add.href = BASE + 'deposit.html';
     // ONE ACT, ONE CARRIER, round 14: the header + opens the dialog, so this does.
-    if (window.WF_SHELL && window.WF_SHELL.boundary) add.href = BASE + 'responsible.html';
+    if (window.WF_SHELL && window.WF_SHELL.boundary) add.href = BASE + boundaryRoute();
     else add.setAttribute('data-dep-open', 'step1');
     money.appendChild(add);
     row.appendChild(money);
@@ -4272,9 +4378,26 @@ window.WF_PAY = window.WF_PAY || {
   /* AN ITEM ON ITS WAY TO STEAM STAYS IN SIGHT, WITH ITS MARK, D-150. It is not
      in the value held, 0.11 rule 7: that figure is what can still be acted on.
      No tick, no acts: the request is made and its clock is on 5.9. */
+  /* A card's key is the round its Share opens. */
+  function invKey(card) {
+    var a = card && card.querySelector('a[href*="round="]');
+    return a ? (/round=([a-z0-9]+)/.exec(a.getAttribute('href')) || [])[1] : '';
+  }
   function mountInFlight() {
     var grid = document.querySelector('.wf-grid--inv');
     if (!grid || !document.querySelector('[data-invbar]')) return;
+    /* WHAT LEFT IN THIS SESSION LEAVES MY ITEMS, D-152: sold and cashed out go,
+       sent stays in sight with its mark, the rule D-150 set for a sending item. */
+    var gone = WF_SESS.get('gone') || {};
+    Array.prototype.forEach.call(grid.querySelectorAll('.wf-inv-card'), function (c) {
+      var how = gone[invKey(c)];
+      if (how === 'sold' || how === 'cashed') { c.remove(); return; }
+      if (how !== 'sent') return;
+      c.classList.add('is-inflight');
+      var pk = c.querySelector('[data-inv-pick]'); if (pk) { var lb = pk.closest('label'); (lb || pk).remove(); }
+      c.insertBefore(el('p', 'wf-inv-mark', 'On its way to Steam, since 21 Aug'), c.firstChild);
+      var acts = c.querySelector('.wf-inv-acts'); if (acts) acts.innerHTML = '<a class="wf-btn" href="' + BASE + 'history-withdrawals.html">Its clock</a>';
+    });
     WF_ROLLS.filter(function (r) { return r.state === 'sending'; }).forEach(function (r) {
       var c = el('article', 'wf-inv-card is-inflight');
       c.innerHTML = '<p class="wf-inv-mark">On its way to Steam, since ' + (r.went || '') + '</p>' +
@@ -4334,6 +4457,7 @@ window.WF_PAY = window.WF_PAY || {
       var acts = card.querySelector('.wf-inv-acts');
       if (acts) acts.innerHTML = '<p class="wf-inv-sold">Sold, +' + v.toFixed(2) + ' coins</p>';
       moneyAdd(v, -v);
+      WF_SESS.gone(invKey(card), 'sold');
       return v;
     }
     document.addEventListener('click', function (e) {
@@ -5153,7 +5277,7 @@ window.WF_PAY = window.WF_PAY || {
       sb.addEventListener('click', function () {
         if (!confirmFirst(sb)) return;
         sb.textContent = 'Sold, +' + wdFmt(row.ours) + ' coins'; sb.disabled = true;
-        moneyAdd(row.ours, -row.ours); row.removed = true;
+        moneyAdd(row.ours, -row.ours); row.removed = true; WF_SESS.gone(row.key || wdKeys()[0], 'sold');
         if (row._repaint) row._repaint();
       });
       var kp = el('a', 'wf-btn', 'Keep it and go back'); kp.setAttribute('href', BASE + 'account.html');
@@ -5306,9 +5430,12 @@ window.WF_PAY = window.WF_PAY || {
       var ax1 = held.querySelector('.wf-result-axes'); if (ax1) ax1.innerHTML = '<span class="wf-axis">' + st[0].wear + '</span>';
     }
     var hv = held.querySelector('.wf-held-figs .wf-fig-v'); if (hv) hv.textContent = wdFmt(ours) + ' coins';
-    /* The header follows the struck difference from the account's pair. */
-    window.WF_SHELL.money = { balance: (WF_MONEY.balance + total).toFixed(2) + ' coins', held: (WF_MONEY.held - ours).toFixed(2) + ' coins' };
-    moneyAdd(0, 0);
+    /* The header follows the struck difference from the account's pair, and the
+       press is an act the session carries, D-152: the base is the session's pair
+       when one exists, else the account's, never this page's own sample. */
+    if (!WF_SESS.get('money')) window.WF_SHELL.money = { balance: WF_MONEY.balance, held: WF_MONEY.held };
+    moneyAdd(total, -ours);
+    st.forEach(function (r) { WF_SESS.gone(r.key, 'sent'); });
   }
 
   function mountWithdrawMany() {
@@ -5789,6 +5916,10 @@ window.WF_PAY = window.WF_PAY || {
      carries it on the line under the figure. A second rendering of one fact on one
      screen is what D-97 already removed three of. */
   function depCard(P, o) {
+    /* THE LIMIT SET IN THIS SESSION IS THE LIMIT, round 16, B2-11: saved on 6.1
+       and the layer one press later said "No deposit limit set". */
+    var SL = (WF_SESS.get('limits') || {}).dep;
+    if (SL) { o = JSON.parse(JSON.stringify(o)); o.ceiling = SL.amt; o.ceilPer = SL.per; }
     var f = depFigs(o.amount);
     var B = window.WF_BONUS || {};
     return '' +
@@ -5838,7 +5969,7 @@ window.WF_PAY = window.WF_PAY || {
           '<ul class="wf-dep-facts">' +
             '<li>To withdraw, deposit at least <strong>$5.00</strong> first. It never rises.</li>' +
             '<li>Usually credited within <strong>2 minutes</strong>. <a href="' + BASE + 'support.html">' + WF_STR.support + '</a> if not.</li>' +
-            '<li>' + (o.ceiling ? 'Deposit limit <strong>$' + o.ceiling + '</strong> in force.' : 'No deposit limit set.') + ' <a href="' + BASE + 'responsible.html">' + (o.ceiling ? 'Change it' : 'Set one') + '</a></li>' +
+            '<li>' + (o.ceiling ? 'Deposit limit <strong>$' + o.ceiling + '</strong>' + (o.ceilPer ? ' ' + o.ceilPer : '') + ' in force.' : 'No deposit limit set.') + ' <a href="' + BASE + 'responsible.html">' + (o.ceiling ? 'Change it' : 'Set one') + '</a></li>' +
           '</ul>' +
         '</div>' +
         '<div>' +
@@ -6642,7 +6773,19 @@ window.WF_PAY = window.WF_PAY || {
           else if (!addr) say.textContent = (/^[AEIOU]/.test(net.name) ? 'An ' : 'A ') + net.name + ' address is needed. Nothing is sent anywhere without one.';
           else if (net.re && !net.re.test(addr)) say.textContent = 'That is not ' + (/^[AEIOU]/.test(net.name) ? 'an ' : 'a ') + net.name + ' address. Check it and paste it whole: coins sent to a wrong address are lost.';
           else if (p.v < net.min) say.textContent = 'The smallest cash out on ' + net.name + ' is ' + net.min.toFixed(2) + ' coins. Tick more, or sell back instead.';
-          else say.textContent = 'Requested. ' + ((p.v - net.fee) / net.rate).toFixed(net.dp) + ' ' + net.tick + ' goes to ' + addr.slice(0, 6) + '…' + addr.slice(-4) + '. It is in History under Cash out.';
+          else {
+            say.textContent = 'Requested. ' + ((p.v - net.fee) / net.rate).toFixed(net.dp) + ' ' + net.tick + ' goes to ' + addr.slice(0, 6) + '…' + addr.slice(-4) + '. It is in History under Cash out.';
+            /* THE REQUEST LEAVES A TRACE, round 16, B2-25: the items it sold
+               back leave the grid and the value held, for this session. */
+            Array.prototype.forEach.call(document.querySelectorAll('[data-inv-pick]:checked'), function (i) {
+              var c = i.closest('.wf-inv-card'); WF_SESS.gone(invKey(c), 'cashed');
+              i.checked = false; i.disabled = true; c.classList.add('is-sold');
+              var a = c.querySelector('.wf-inv-acts'); if (a) a.innerHTML = '<p class="wf-inv-sold">Cash out requested</p>';
+              i.dispatchEvent(new Event('change'));
+            });
+            if (document.querySelector('[data-inv-pick]')) moneyAdd(0, -p.v);
+            g.disabled = true;
+          }
           return;
         }
       }
@@ -7136,11 +7279,43 @@ window.WF_PAY = window.WF_PAY || {
   /* HOME IS THE HOME OF THE STATE A PERSON IS IN, round 14: on signed-in pages
      the breadcrumb, the bar and the footer logo opened the guest home, which
      reads as being signed out. */
+  /* AND A CASE IS THE CASE OF THE STATE A PERSON IS IN, round 16, D-152: every
+     way back to a case from a signed-in page opened the guest catalogue or the
+     guest case, 63 pages, which reads as being signed out. Every link to the
+     guest home, catalogue or case opens the account's own, rewritten on load
+     and again at the press, so a link a renderer builds later follows too.
+     Sign out is the one link to the guest home that stays, and it ends the
+     signed-in state of the session. */
+  var TWIN = { 'index.html': 'index-account.html', 'catalogue.html': 'catalogue-account.html', 'case.html': 'case-account.html' };
+  function twinHref(a) {
+    var h = a.getAttribute('href');
+    if (!h || a.classList.contains('wf-acct-out')) return;
+    var m = /^((?:\.\.\/)*(?:wireframes\/)?)(index|catalogue|case)\.html([?#].*)?$/.exec(h);
+    if (m) a.setAttribute('href', m[1] + TWIN[m[2] + '.html'] + (m[3] || ''));
+  }
   function mountHomeLinks() {
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('.wf-acct-out')) { WF_SESS.set('signed'); return; }
+      var a = e.target.closest('a[href]');
+      if (a && window.WF_SHELL && window.WF_SHELL.account) twinHref(a);
+    }, true);
+    /* UNDER A BOUNDARY THE SESSION SET, OPEN AND ADD FUNDS ANSWER, round 16,
+       D-152: a cool down started on 6.1 reached no other page. Open refuses
+       beside itself, the way D-58 refuses; a way to add funds opens what is in
+       force, the way the header's + already does. */
+    document.addEventListener('click', function (e) {
+      var SB = window.WF_SHELL && window.WF_SHELL.account && sessBoundary();
+      if (!SB) return;
+      var t = e.target.closest('a[href*="case-open"], [data-dep-open], a[href^="deposit"], a[href*="/deposit"]');
+      if (!t || t.closest('.wf-dlg') || /deposit-(crediting|declined)/.test(t.getAttribute('href') || '')) return;
+      e.preventDefault(); e.stopPropagation();
+      if (!/case-open/.test(t.getAttribute('href') || '')) { location.href = BASE + SB.route; return; }
+      var row = t.closest('.wf-row, .wf-commit-bar') || t.parentNode, p = row.nextElementSibling;
+      if (!p || !p.hasAttribute('data-sb-say')) { p = el('p', 'wf-refuse is-said'); p.setAttribute('data-sb-say', ''); p.setAttribute('aria-live', 'polite'); row.parentNode.insertBefore(p, row.nextSibling); }
+      p.innerHTML = 'Not opened: opening cases is closed until ' + SB.until + ' by the ' + (SB.kind === 'excl' ? 'self exclusion' : 'cool down') + ' you set. <a href="' + BASE + SB.route + '">What is in force</a>';
+    }, true);
     if (!(window.WF_SHELL && window.WF_SHELL.account)) return;
-    Array.prototype.forEach.call(document.querySelectorAll('.wf-crumb a[href="index.html"], .wf-bar a[href$="index.html"], .wf-foot-logo'), function (a) {
-      a.setAttribute('href', a.getAttribute('href').replace(/index\.html$/, 'index-account.html'));
-    });
+    Array.prototype.forEach.call(document.querySelectorAll('a[href]'), twinHref);
   }
 
   function mountSettings() {
