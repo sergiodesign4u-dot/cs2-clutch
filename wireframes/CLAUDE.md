@@ -6,4 +6,5 @@
 4. **`index.html` is the product's Home; the hub listing every screen is `overview.html`.**
 5. **An unknown figure is drawn as a sample and marked as one in its IA node, `D-124`.** "Not available" belongs to degraded and system states only.
 6. **Every drawn control answers**: it acts as labelled or refuses with its reason beside it, and one figure on several screens is read from one declaration in `_nav.js`.
-7. Conventions in detail: `docs/conventions.md`. The screen registry: `_nav.js`.
+7. **A session carries three things and nothing else, in `WF_SESS`, `D-152`:** the signed-in state, money and items after an act, and the limits set. Only a sign in that goes through signs a session in, `D-160`; everything else is the snapshot its page draws, and interface preferences are not state. Detail: `docs/conventions.md` section 4.1.
+8. Conventions in detail: `docs/conventions.md`. The screen registry: `_nav.js`.

@@ -5977,3 +5977,21 @@ Verified on screen: each table sums to 100 % with ranges to 100 000; Warsteel's 
 - **The rounds 15 to 17 before and after** is a section of the overview, with three pairs.
 
 Verified: 134 pages at 360 and 1440, 48 templated case pages, 35 IA pages, all with no error and no sideways scroll; one current element per page; no figure split from its unit.
+
+## D-165. Stage 04 closed again after rounds 15 to 17
+
+**Date:** 2026-10-04. **Stage:** 04, close. **Decided by:** the founder, "го" on the close proposal. **Binds:** `CLAUDE.md` sections Scope and Information architecture, `wireframes/CLAUDE.md`, `README.md`.
+
+### What was decided
+
+Stage 04 closed on 29 September 2026 and was reopened by the founder for repeated critique of the wireframes and the IA. Rounds 15 to 17 took about 330 findings on two instruments and closed with a clean control pass, `D-151` to `D-164`. **The stage is closed again, its status stays Done, and stage 05 Voice is next.**
+
+### What the close wrote
+
+- **`CLAUDE.md`, three counts corrected in place, 127 lines before and 127 after.** The round 1 list moved four times, not three: `D-90` added the public profile on 23 August and the sentence had stopped at `D-36`. The MVP screens are fifteen since `D-90`, not since `D-36`. The parentless list named two capabilities while the repository carries more: the sentence now says the two backlog rows, and that what founder decisions later put in round 1 without a parent, the sell control `D-38`, profile and settings `D-36` and the skins deposit route `D-129` among it, is counted in its own node rather than here, so the rule cannot go stale again by one more decision.
+- **`wireframes/CLAUDE.md`, 9 lines to 10, its cap.** One rule: a session carries three things and nothing else, and only a sign in that goes through signs it in, `D-152` and `D-160`. Breaking it is how a guest was signed in by reading the terms.
+- **`README.md`:** 133 grey pages, six critique rounds, reopened and closed again on 4 October 2026. `/_nav.js` needed no change: the stage was already `done: true` and Next already points at Voice.
+
+### What was not written
+
+The Codex model choice stays in memory: it is a tool preference, not a rule of this artefact. Nothing was deleted from `CLAUDE.md` beyond the three wrong counts, because every other rule there was read against rounds 15 to 17 and still holds.
