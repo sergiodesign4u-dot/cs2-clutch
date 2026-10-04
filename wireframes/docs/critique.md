@@ -1267,3 +1267,14 @@ Withdrawn on verification: none.
 ### 18.7 Round 17 closed
 
 **About 47 rows after dedup: 41 fixed, 3 kept and named as costs, 3 withdrawn on verification.** The kept ones: a state page's link into 6.1 opening it as the session has it; the five roll Sell stacking below 110px of card; Nightfall's table leaning on its dearest row. The rounds 15 to 17 before and after is on the overview.
+
+### 18.8 The control pass, 4 October 2026
+
+Codex read only, `gpt-5.6-terra` at medium effort, over the wireframes and the IA after round 17. Every class zero but four rows; local and live identical on 169 of 171 pages, the two others the known `?v=` collision and Mermaid's timing.
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| K1-C3-1 | The overview still counted 1 221 string marks | Codex | Fixed: struck and recounted, 1 245 |
+| K1-C5-1 | With the session state unknown, a legal page opened by its address keeps its drawn signed-in shell | Codex | Fixed in `conventions.md` section 4.1: while the state is unknown, a page both can read renders as drawn and sets nothing, the snapshot rule; it never signs a session in |
+| K1-C6-1 | The session comment in `_nav.js` still said any signed-in page sets the state | Codex | Fixed |
+| K2-C2-1 | `CLAUDE.md` says the round 1 list moved three times; `account.md` says four | Codex | **Carried to the stage close**, as `D-158` recorded |

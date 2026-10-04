@@ -622,8 +622,9 @@ var WF_STR = {
 /* WHAT A SESSION CARRIES, round 16, D-152, option C. Round 16 walked page to
    page and nothing a person did reached the next page: a sale, a limit, a sign
    in. Three things now travel within one browser session and nothing else does:
-   - THE SIGNED-IN STATE. Any signed-in page sets it, a sign in screen and Sign
-     out clear it. While it is set, a link to the guest home, catalogue or case
+   - THE SIGNED-IN STATE. Since D-160 only a sign in that goes through, or a
+     page only an account can have opened by its address, sets it; a sign in
+     screen, Sign out and a guest page make it a guest. While it is set, a link to the guest home, catalogue or case
      opens the account's own, and the public pages that both states can read,
      fair, result, player and the catalogue's states, render the account's shell.
    - MONEY AND ITEMS AFTER AN ACT. A sale, a send, a cash out or an open writes
