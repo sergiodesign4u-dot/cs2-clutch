@@ -1922,6 +1922,9 @@ window.WF_PAY = window.WF_PAY || {
         terms.classList.toggle('is-set', !on);
         terms.classList.remove('is-missing');
         say.classList.remove('is-said');
+        /* A REFUSAL LEAVES WITH ITS CAUSE, round 17, B2-15: "not accepted yet"
+           stayed under a ticked box. */
+        if (!on && /not been accepted/.test(say.textContent)) say.textContent = '';
       });
     }
 
@@ -3531,6 +3534,8 @@ window.WF_PAY = window.WF_PAY || {
     var cost = document.querySelector('.wf-commit-cost .wf-fig-v'); if (cost) cost.textContent = spent.toFixed(2) + ' coins';
     var hs = document.querySelector('[data-hashes]'); if (hs) hs.setAttribute('data-hashes', R.map(function (r) { return r.key; }).join(' '));
     Array.prototype.forEach.call(document.querySelectorAll('.wf-won-card'), function (c, i) { if (i >= n) c.remove(); });
+    /* THREE OR FOUR CARDS FILL THE ROW, round 17, B1-11. */
+    var wg = document.querySelector('.wf-won-grid--5'); if (wg) wg.setAttribute('data-n', String(n));
     Array.prototype.forEach.call(document.querySelectorAll('a[href*="round=o5"]'), function (a) {
       var k = (/round=(o5[a-z0-9]+)/.exec(a.getAttribute('href')) || [])[1];
       if (!R.some(function (r) { return r.key === k; })) { var li = a.closest('li'); if (li) li.remove(); else a.setAttribute('href', a.getAttribute('href').replace(k, R[n - 1].key)); }
@@ -4991,6 +4996,16 @@ window.WF_PAY = window.WF_PAY || {
       var why = '', at = null;
       if (msg && !msg.value.trim()) { why = 'Nothing was sent: write what it is about first.'; at = msg; }
       else if (mail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim())) { why = 'Nothing was sent: the answer needs an email address it can reach.'; at = mail; }
+      /* A REPLY STAYS ON ITS TICKET, round 17, B2-6: it opened another
+         ticket answered before the reply was sent. */
+      if (!why && send.hasAttribute('data-sup-reply')) {
+        e.preventDefault();
+        var tk = document.querySelector('.wf-tick .wf-tick-k:last-of-type'); if (tk) tk.textContent = 'Waiting on us';
+        var done = el('p', 'wf-note', 'Your reply was added at 09:31, 21 Aug 2026. The deadline still counts from when the ticket was sent.');
+        send.parentNode.parentNode.insertBefore(done, send.parentNode.nextSibling);
+        msg.value = ''; send.remove();
+        return;
+      }
       if (!why) return;
       e.preventDefault();
       var p = form.querySelector('.wf-refuse') || form.insertBefore(el('p', 'wf-refuse is-said'), send.parentNode);
@@ -5218,9 +5233,11 @@ window.WF_PAY = window.WF_PAY || {
     { key: 'wak',     when: '18 Aug 20:52', date: '18 Aug 2026', kase: 'Warsteel Case',  w: 'AK-47',        s: 'Redline',         wear: 'Field-Tested',   cost: '4.90',  worth: '21.90', now: '21.40', chance: '0.42%',  hash: 'a91f4c2e', state: 'held' },
     /* THE OUTCOME'S GLOCK IS A ROLL OF THIS ACCOUNT, round 15, D-142: the case
        screen's outcome, its interrupted state and its proof were a tenth roll
-       nobody's history held. Sold back on the outcome screen, so 5.1 and its
-       140.95 do not change. */
-    { key: 'glock',   when: '18 Aug 14:58', date: '18 Aug 2026', kase: 'Ironbound Case', w: 'Glock-18',     s: 'Water Elemental', wear: 'Minimal Wear',   cost: '12.40', worth: '12.90', chance: '14.00%', hash: 'a3f91c58', state: 'sold', went: '18 Aug' },
+       nobody's history held. SOLD BACK BY
+       THE CASH OUT OF 21 AUG 08:35, round 17, B2-13: the cash out ledger asks for
+       it that morning, and an item sold on 18 Aug could not be cashed out on 21;
+       5.1 and its 140.95 still do not hold it. */
+    { key: 'glock',   when: '18 Aug 14:58', date: '18 Aug 2026', kase: 'Ironbound Case', w: 'Glock-18',     s: 'Water Elemental', wear: 'Minimal Wear',   cost: '12.40', worth: '12.90', chance: '14.00%', hash: 'a3f91c58', state: 'sold', went: '21 Aug' },
     { key: 'ak',      when: '18 Aug 14:44', date: '18 Aug 2026', kase: 'Ironbound Case', w: 'AK-47',        s: 'Redline',         wear: 'Field-Tested, StatTrak', cost: '12.40', worth: '47.30', chance: '3.18%', hash: '4f2a91c7', state: 'sold', went: '18 Aug' },
     { key: 'uspc',    when: '16 Aug 19:40', date: '16 Aug 2026', kase: 'Coldfront Case', w: 'USP-S',        s: 'Cortex',          wear: 'Minimal Wear',   cost: '2.10',  worth: '7.10',  now: '7.35',  chance: '2.40%',  hash: '9e41d7a2', state: 'held' },
     { key: 'm4ft',    when: '14 Aug 08:55', date: '14 Aug 2026', kase: 'Nightfall Case', w: 'M4A1-S',       s: 'Hyper Beast',     wear: 'Field-Tested',   cost: '31.00', worth: '28.60', now: '29.90', chance: '1.20%',  hash: '3b7c0e95', state: 'held' },
@@ -5837,6 +5854,10 @@ window.WF_PAY = window.WF_PAY || {
         if (!confirmFirst(sb)) return;
         sb.textContent = 'Sold, +' + wdFmt(row.ours) + ' coins'; sb.disabled = true;
         var sh0 = sel.querySelector('.wf-selskin-h'); if (sh0) sh0.textContent = 'Sold back';
+        /* WHAT IS SOLD IS NOT DESCRIBED AS STILL HELD, round 17, B2-16. */
+        Array.prototype.forEach.call(e.querySelectorAll('.wf-empty-p'), function (x) { x.remove(); });
+        var eh = e.querySelector('.wf-empty-h'); if (eh) eh.textContent = 'Sold back for ' + wdFmt(row.ours) + ' coins. It has left this basket.';
+        kp.remove();
         moneyAdd(row.ours, -row.ours); row.removed = true; WF_SESS.gone(row.key || wdKeys()[0], 'sold');
         if (row._repaint) row._repaint();
       });
@@ -6034,7 +6055,7 @@ window.WF_PAY = window.WF_PAY || {
       ck.parentNode.insertBefore(hs, ck.nextSibling);
     }
     var hl = document.querySelector('#h2-history') && document.querySelector('#h2-history').closest('.wf-stack').querySelector('.wf-clock-list');
-    if (hl && st[0].hist) hl.innerHTML = st[0].hist + '<li class="wf-cs is-done"><span class="wf-cs-n">Offer sent again</span><span class="wf-cs-who">waiting on us</span><span class="wf-cs-t"><span class="wf-cs-e">0:00</span><span class="wf-cs-c">21 Aug 09:31</span></span></li>';
+    if (hl && st[0].hist) hl.innerHTML = st[0].hist + '<li class="wf-cs is-done"><span class="wf-cs-n">Offer sent again</span><span class="wf-cs-who">waiting on you</span><span class="wf-cs-t"><span class="wf-cs-e">0:00</span><span class="wf-cs-c">21 Aug 09:31</span></span></li>';
     st.forEach(function (r) { WF_SESS.gone(r.key, 'sent'); });
   }
 
@@ -6896,7 +6917,8 @@ window.WF_PAY = window.WF_PAY || {
       scope.querySelector('[data-skin-go]').setAttribute('href', BASE + 'deposit-crediting.html?a=' + f.receive + '&m=CS2%20skins');
       scope.querySelector('[data-skin-go]').textContent = on.length ? 'Deposit ' + n : 'Pick a skin';
     }
-    picks.forEach(function (i) { i.addEventListener('change', paint); });
+    /* A REFUSAL LEAVES WITH ITS CAUSE, round 17, B2-15. */
+    picks.forEach(function (i) { i.addEventListener('change', function () { var sy = scope.querySelector('[data-skin-say]'); if (sy && picks.some(function (x) { return x.checked; })) { sy.textContent = ''; sy.classList.remove('is-said'); } paint(); }); });
     scope.querySelector('[data-skin-go]').addEventListener('click', function (e) {
       if (picks.some(function (i) { return i.checked; })) return;
       e.preventDefault();
@@ -7395,7 +7417,8 @@ window.WF_PAY = window.WF_PAY || {
         var nt = e.target.closest('[data-co-net]');
         if (nt && host.contains(nt)) {
           e.preventDefault();
-          st.addr = ''; st.touched = true;
+          /* RETURNING TO A NETWORK RESTORES ITS SAVED WALLET, round 17, B2-11. */
+          st.addr = ''; st.touched = false;
           st.net = parseInt(nt.getAttribute('data-co-net'), 10);
           paint();
           return;
@@ -7571,8 +7594,11 @@ window.WF_PAY = window.WF_PAY || {
         var full = copy.getAttribute('data-sys-copy') || '';
         // THE ANSWER DOES NOT WAIT ON THE CLIPBOARD, round 14: where the promise
         // never settles, the press said nothing.
-        if (mark) mark.textContent = 'Copied'; else { copy.textContent = 'Copied'; }
-        try { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(full); } catch (e) {}
+        /* AND IT SAYS WHAT HAPPENED, round 17, B2-20: a refused write threw and
+           the mark still said Copied. */
+        var put = function (t) { if (mark) mark.textContent = t; else copy.textContent = t; };
+        var no = function () { put('Not copied, select it by hand'); };
+        try { if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(full).then(function () { put('Copied'); }, no); else no(); } catch (e) { no(); }
       });
     }
   }
@@ -7974,6 +8000,8 @@ window.WF_PAY = window.WF_PAY || {
       var row = t.closest('.wf-row, .wf-commit-bar') || t.parentNode, p = row.nextElementSibling;
       if (!p || !p.hasAttribute('data-sb-say')) { p = el('p', 'wf-refuse is-said'); p.setAttribute('data-sb-say', ''); p.setAttribute('aria-live', 'polite'); row.parentNode.insertBefore(p, row.nextSibling); }
       p.innerHTML = 'Not opened: opening cases is closed until ' + SB.until + ' by the ' + (SB.kind === 'excl' ? 'self exclusion' : 'cool down') + ' you set. <a href="' + BASE + SB.route + '">What is in force</a>';
+      /* SEEN WHERE IT IS SAID, round 17, B2-18: at 360 it landed under the bottom bar. */
+      if (p.scrollIntoView) p.scrollIntoView({ block: 'center' });
     }, true);
     /* A GUEST IS NOT SENT INTO AN ACCOUNT, round 16, B1-9: "How a withdrawal
        settles", the median and "Check your settings" opened signed-in pages
@@ -8065,7 +8093,7 @@ window.WF_PAY = window.WF_PAY || {
 
   function nbspFigures() {
     var MON = '(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)';
-    var rules = [[/(\d) (?=coins?\b|%|UTC\b)/g, '$1\u00a0'], [new RegExp('(\\d{1,2}) (' + MON + ')\\b', 'g'), '$1\u00a0$2'],
+    var rules = [[/(\d) (?=coins?\b|%|UTC\b)/g, '$1\u00a0'], [/(\d[ \u00a0]coins?) = (\$)/g, '$1\u00a0=\u00a0$2'], [new RegExp('(\\d{1,2}) (' + MON + ')\\b', 'g'), '$1\u00a0$2'],
                  [new RegExp('(' + MON + ') (\\d{4})', 'g'), '$1\u00a0$2'], [/(\d{4})(,?) (\d{1,2}:\d{2})/g, '$1$2\u00a0$3']];
     var w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, { acceptNode: function (n) {
       return n.parentNode && /^(SCRIPT|STYLE|TEXTAREA|OPTION)$/.test(n.parentNode.nodeName) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; } });
@@ -8204,5 +8232,11 @@ window.WF_PAY = window.WF_PAY || {
     mountWithdrawPeg();
     oneCurrent();
     nbspFigures();
+    /* TEXT A PRESS WRITES IS JOINED TOO, round 17, B2-18 and B2-19: refusals
+       and the cash out lines are written after load and split at 360. */
+    if (window.MutationObserver) {
+      var nbT = null;
+      new MutationObserver(function () { clearTimeout(nbT); nbT = setTimeout(nbspFigures, 30); }).observe(document.body, { childList: true, subtree: true, characterData: true });
+    }
   });
 })();

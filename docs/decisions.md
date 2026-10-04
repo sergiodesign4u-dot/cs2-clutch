@@ -5951,3 +5951,16 @@ Verified on screen: four footer documents keep a guest a guest; a sign in over W
 The prototype prices about fifteen skins. An expensive case filled only from them puts a high chance on its dearest row to meet the RTP: Nightfall's StatTrak AK sits near half the table. That is a sample, marked in `3.3`; real tables are production data.
 
 Verified on screen: each table sums to 100 % with ranges to 100 000; Warsteel's AWP settles inside 1 to 110, its own row; a Warsteel open reveals a USP-S Cortex with its own float, and My items holds it at 7.35; feed rounds carry their own seeds; 134 pages and 48 templated case pages with no error and no sideways scroll.
+
+## D-163. Round 17, step 3: controls that say what they did
+
+**Date:** 2026-10-04. **Stage:** 04, round 17. **Decided by:** the founder, "гоу" on step 3. **Binds:** `wireframes/_nav.js`, `wireframes/_wf.css`, seven wireframe pages, `wireframes/docs/conventions.md` section 2, nodes `0.10`, `5.3`, `5.1`, `0.9`, `5.9`, `4.1`, `0.3`, `3.3`.
+
+### What was done
+
+- **Support:** a reply stays on its ticket and the deadline keeps its start; the submitted page is the ticket; a question is never an appeal; a lifted restriction drops the frozen line.
+- **Money pages:** the saved wallet survives a network switch; a sold basket row says it left; "Offer sent again" waits on you; refusals leave with their cause; the refund summary says what a limit cannot stop.
+- **One story:** the Minimal Wear Glock was sold back by the cash out of 21 Aug, so its two ledgers agree.
+- **360:** the boundary refusal scrolls into view; a MutationObserver joins figures in every text written after load, the peg among them; three and four rolls fill their row.
+- **Copy** on the 500 says what happened.
+- **Named exception:** a Sell control on a five roll card below 110px stacks verb over figure inside itself, written into `conventions.md` section 2 beside the rule it departs from.

@@ -17,6 +17,18 @@
 **Amended 23 August 2026 by `D-92`, and the largest remaining `[?]` on this node closed into a smaller and sharper one.** The founder named the market the settlement price is read from: **it is us.** The prices are ours, taken from Steam, and the market for these items is this product. **So both columns of the four column table are ours**, our credited value and our price for a copy, **and the outbound route this node kept asking for cannot exist**, because a link to our own listing confirms nothing. **What block `1b` renders instead is the relation to Steam and the hole inside it**, section 1b.1: the price is ours, it is set against the Steam market, and how far under Steam we set it is not published. ~~**The founder's own hedge travels with all of it**, section 9b: the wording was "in principle", and if a third party supplies the copy at withdrawal time one word changes on every line above.~~ **The hedge was spent by `D-93` the next day, section 0c: our market, we sell the copy.**
 
 
+## Amended 4 October 2026 by `D-163`. A sold row says it is sold, and sending again waits on you
+
+**Why.** Round 17 found a no-copy row in the basket keeping "Keep it and go back" after it was sold, the resend history saying waiting on us under a clock waiting on you, and the expired record timing a stage it never reached.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| The basket and the clock | Both | **A sold no-copy row reads "Sold back for N coins. It has left this basket."** **"Offer sent again" waits on you**, as the clock does. **A stage never reached prints "-"** |
+
+---
+
 ## Amended 4 October 2026 by `D-161`. An item that already left is not offered again
 
 **Why.** Round 17 found the send form offering an item the session had sent, sold or cashed out, so the money moved twice, down to a negative value held.

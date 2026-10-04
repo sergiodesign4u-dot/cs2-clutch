@@ -21,6 +21,18 @@
 | Four tabs as peers on one page, `INVENTORY`, `HISTORY`, `PROFILE`, `SETTINGS`. The inventory grid has two sorts, no filters and no search, and a sticky bar carrying a count, a sum and **four exits**: send to Steam, sell to site, cash out, exchange. History is **five separate histories**, three of which are empty and all three say only `History is empty...`. `baseline-account.md` sections 2 to 4. | The count and the sum of the selection, which are the same pair the header carries, and the per-item action set. | **Our map gives this node one exit and the canon has four**, and the gap narrowed twice since this row was written. **`D-38` put selling a skin back for coins in round 1**, so the second exit exists as a capability ~~and has no placement on this page~~ **and is placed on this page since `D-85`, Sell for coins on each card and in the bar, and it sells since `D-135`**; `D-60` recorded that **the exchange for a real skin does not exist at all**, and in-platform skin-for-skin exchange stays LATER by scope. ~~**What is still true is the shape of the finding:** the live product answers what a person does with a skin they do not want, and this node answers only what they do with one they do want. **Open item, section 8, not a divergence.**~~ **Closed by `D-85` and `D-135`, section 8.** And `History is empty...` with no route is the empty state `3.2` refuses. **The four tabs are four nodes on our map since `D-36`**, `5.1`, `5.9`, `5.10` and `5.11`, ~~so the tab strip is not inherited either~~ **and `D-84` inherited the strip as a carrier between them, section 0.5**. |
 
 
+## Amended 4 October 2026 by `D-163`. Cash out keeps a network's saved wallet, and its peg holds together
+
+**Why.** Round 17 found the saved wallet lost after switching networks and back, so Request refused with "an address is needed"; and the peg line split at 360.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Cash out | The saved wallet, picked already, round 14 | **Returning to a network restores its saved wallet.** Text written after load joins its figures too, so "1 coin = $1.00" never splits |
+
+---
+
 ## Amended 4 October 2026 by `D-159`. Cash out prints the dollar value at the peg
 
 **Why.** The founder decided on 4 October 2026 that the ratio is shown where cash leaves.

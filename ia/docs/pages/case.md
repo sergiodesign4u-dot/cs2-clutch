@@ -17,6 +17,18 @@
 **Amended 23 August 2026 by `D-92`, in three places and no figure moved.** The market the settlement is struck against is named and the answer is us, so **the per-case gap in block 7 stops waiting on anybody and starts being a number we decline to publish**, section 5.3. **The outbound link on the top item keeps its target and loses its reason**, section 3: it points at Steam, Steam is the dearer place, and a control offered as the cheaper alternative can no longer be labelled that way. **And the risk band's hole is half answered**, section 1: the three bands are an input when a case is built rather than a label derived from its drop table, which is a different object from the one `D-24` specified, and the thresholds are still `[?]`.
 
 
+## Amended 4 October 2026 by `D-163`. Three and four rolls fill their row
+
+**Why.** Round 17 found three cards on the five roll page using three fifths of the row at 360, names hidden.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A row of won items | One row, `D-35` | **Three or four rolls lay out in three or four columns.** A Sell control on a five roll card below 110px stacks its verb over its figure, the one named exception to the no-wrap rule, `conventions.md` |
+
+---
+
 ## Amended 4 October 2026 by `D-162`. Each case its own table, and an open reveals its own items
 
 **Why.** Round 17 found Warsteel's table, Ironbound's scaled, holding none of Warsteel's recorded items while their rounds landed in other items' ranges; one Glock with one float and pattern at three values across three cases; Steam's price changing with the case; Open again and Add funds chosen against the balance the wrong way; and a negative balance printed after an open that could not happen. The founder answered `D-160` answer 2.

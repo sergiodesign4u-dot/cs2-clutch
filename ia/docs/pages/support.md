@@ -23,6 +23,18 @@
 | A ticket form of three fields, Subject defaulting to Deposits, Email and Message, under an ATTENTION block pushing the FAQ first. `baseline.md` section 9.5. | The three field shape and the deflection to articles, which is reasonable and cheap. | **The submit button reads SIGN IN.** A guest can fill the form and cannot send it, so **a person locked out of their account cannot use the product's own support channel to say so.** That is the strongest single argument in this repository for the appeal route `G4` and its published deadline, and it is now a walked fact rather than an inference. |
 
 
+## Amended 4 October 2026 by `D-163`. A reply stays on its ticket, and a question is never an appeal
+
+**Why.** Round 17 found a reply opening a different ticket answered before it was sent, the submitted appeal's "The ticket" opening another ticket, the forms on two states landing as appeals, and an answer that lifts a restriction above a line saying the balance is frozen.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Support tickets | Seven states | **A reply is added to its own ticket in place**, now waiting on us, and the deadline still counts from the send. **The submitted page is the ticket** and links to none. **A message from the states with no dispute is a question**, `?q=1`. **The answered ticket drops the frozen line** |
+
+---
+
 ## Amended 4 October 2026 by `D-156`. Each appeal state is a moment before now, and the answer meets its ground
 
 **Why.** Round 16 found every ticket dated 22 or 23 Aug, after the prototype's now; the answer addressing a trade-activity ground the restriction never gave; the waiting state asking for a trade offer id where no offer existed; an empty Reply going through; two email addresses for one account.

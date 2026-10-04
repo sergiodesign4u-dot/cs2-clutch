@@ -1230,3 +1230,20 @@ Withdrawn on verification: none.
 | B1-10 | A session open's value now differed from its value when won | B1 | Fixed: one figure at the moment of the open |
 | B1-6 | Open again and Add funds chosen against the balance the wrong way | B1 | Fixed: the act follows the balance |
 | B1-19 | "After this open, -80.80 coins" | B1 | Fixed: the line says the balance does not cover it and by how much |
+
+### 18.5 Step 3, controls and copy, fixed on 4 October 2026 under `D-163`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| B2-6, B2-7 | A reply opened another ticket answered before it; "The ticket" on the submitted page opened another | B2 | Fixed: the reply stays on its ticket; the submitted page is the ticket |
+| B2-8 | Questions from the no-dispute and not-found states landed as appeals | B2 | Fixed: `?q=1` |
+| B2-17 | "Lifted" above "your balance is frozen" | B2 | Fixed |
+| B2-10 | The refund summary against the crypto pane on what a limit stops | B2 | Fixed: one answer |
+| B2-11 | The saved wallet lost after switching networks | B2 | Fixed |
+| B2-13 | The Glock cashed out on 21 Aug and sold back on 18 Aug | B2 | Fixed: sold back by that cash out; two stale node lines struck |
+| B2-14 | "Offer sent again" waiting on us under a clock waiting on you; a stage never reached timed 0:00 | B2 | Fixed |
+| B2-15 | Refusals outliving their cause | B2 | Fixed |
+| B2-16 | A sold no-copy row still describing a held item | B2 | Fixed |
+| B2-18, B2-19 | At 360 the boundary refusal hid under the bottom bar; text written after load split its figures, the peg among them | B2 | Fixed: the refusal scrolls into view; an observer joins figures in text written after load |
+| B2-20 | Copy on the 500 threw and said Copied | B2 | Fixed |
+| B1-11 | Three rolls used three fifths of the row; five rolls' Sell stacks at 360 | B1 | Fixed for three and four; **the five roll stack is kept** as the no-wrap rule's one named exception, `conventions.md` section 2 |

@@ -1815,6 +1815,9 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-won-grid { grid-template-columns: repeat(var(--wf-n, 1), minmax(0, 1fr)); }
 .wf-won-grid--2 { --wf-n: 2; }
 .wf-won-grid--5 { --wf-n: 5; }
+/* Three or four rolls on the five roll page fill the row, round 17, B1-11. */
+.wf-won-grid--5[data-n="3"] { --wf-n: 3; }
+.wf-won-grid--5[data-n="4"] { --wf-n: 4; }
 
 /* The card thins with its column instead of overflowing it. Below 900 the weapon name
    and the wear line leave the card at four columns and above: they are the two fields

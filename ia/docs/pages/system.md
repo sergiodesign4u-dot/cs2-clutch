@@ -20,6 +20,18 @@
 
 ---
 
+## Amended 4 October 2026 by `D-163`. Copy says what happened
+
+**Why.** Round 17 found Copy on the 500 throwing where the clipboard refused and still saying Copied.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| An error reference | Copy as a first-class control | **Copied only when the clipboard took it, otherwise "Not copied, select it by hand"** |
+
+---
+
 ## Amended 3 October 2026 by `D-146`. A reference a person can read over the phone
 
 **Why.** Step 6 of round 15 found the 500's reference 40 characters long against section 9's short enough to read over the phone; the founder chose on 3 October 2026 to shorten the sample.
