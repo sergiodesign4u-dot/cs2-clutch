@@ -5782,3 +5782,31 @@ Stage 03 reads **Done** in `README.md`, as `_nav.js` already said. The IA regist
 ### Left to stage 05, with an owner and no decision needed first
 
 Six of the reader's thirty guesses, all wording: the sign on Send to Steam's figure, "Saved to My items" after a sale, "Our price for it" against "Your skin price", "market" for our own shelf, "Back to the case" on a sign in reached directly, and "the one thing you cannot undo" beside a cool down that cannot be shortened. Seven screens with no phase printed anywhere, for stage 05 step 2.
+
+## D-152. Round 16: what a session carries between pages, and four answers on the raised set
+
+**Date:** 2026-10-04. **Stage:** 04, round 16. **Decided by:** the founder, "по идее должен бути гібрид" on the state model, then "як рекомендуєш і так на рішення, по Pay - треба просто зробити сторінку потрібну і все". **Binds:** `wireframes/_nav.js`, `wireframes/docs/conventions.md`, the case, outcome, fair, deposit and legal pages, and their nodes.
+
+**Why it was asked.** Round 16 walked the journeys from page to page and found that nothing a person did on one page reached the next: a sale, a limit, a sign in. A prototype of static pages can either carry state or say plainly that every page is a snapshot. Neither half alone works: all snapshot leaves the journeys broken, all carried makes 133 state pages unreachable as they are drawn.
+
+### What was decided
+
+1. **A hybrid, option C.** Within one browser session the prototype carries three things between pages: **the signed-in state**, so a way back to a case from the account keeps the account's shell; **money and items after an act**, a sale, a send, a cash out or an open; and **the limits set**, so the header's +, the Balance figure and the deposit see them. Everything else stays the snapshot its page draws, dated 21 Aug 2026 09:31. The boundary is written in `conventions.md`. Rejected: A, all snapshot, because it leaves Flow 1 and Flow 2a unable to complete; B, everything carried, because every state page reached by its own address would then depend on what was pressed before it.
+2. **Cases, as recommended: a `?case=` template.** One case page renders whichever case its tile names, from a declared table. Rejected: Ironbound as the only drawn case with the other tiles refusing, because eleven of twelve tiles would then be controls that only refuse.
+3. **An Open pressed now, as recommended, makes a round dated now**, and history appends it. An outcome page opened by its own address stays the 18 Aug state it draws.
+4. **The verifier, as recommended,** compares what was typed with the round's record and says "does not match this round" and what differed, instead of agreeing with any well formed input.
+5. **The refund and payments policy gets its own page, by the founder's own answer.** The recommendation was to narrow Pay's consent to Terms and print that the policy is not published yet. The founder chose the other way: make the page. So Pay's consent stays as drawn and its link opens a page that exists. Privacy and cookie keep their unpublished state; the founder answered for this one document.
+
+## D-153. Round 16, step 1: the fills that ran last
+
+**Date:** 2026-10-04. **Stage:** 04, round 16. **Decided by:** the founder, "так" on the round 16 plan. **Binds:** `wireframes/_nav.js`, seven catalogue pages.
+
+**What was wrong.** Round 15 step 9 moved repeated strings and the account's name into declarations and filled them at the very end of page load. Run last, the fill wrote over what a renderer had already set for that page: the result page of a bot's round said "Won by nightjar_cs", and the privacy and cookie states said "Refund and payments policy" in their crumb.
+
+### What was done
+
+- **The declared fills run first and once more at the end.** The second pass touches only an element a renderer built in between, so a renderer's answer for its page is never overwritten.
+- **The sign in consent's Privacy Policy opens the unpublished privacy state.** Round 15 fixed it on the pages; the dialog is rendered and kept the old link on seven surfaces.
+- **Labels read the declaration too.** Categories and Filters on seven catalogue pages through `data-str-aria`, and Add funds, Cases, History and Favourite in the renderers.
+
+Verified on screen: four result rounds name their own winners, three legal states their own crumb; 133 pages at 360 and 1440 with no error and no sideways scroll.

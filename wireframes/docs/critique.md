@@ -1040,3 +1040,35 @@ The HTML pages of the map and the flows carry an Updated after publication block
 | R reader, concepts | About 17 concepts named more than one way | R | **Listed for the Voice glossary** with what a decision fixed, `voice-input.md` section c; three stray Withdraw buttons fixed |
 | R reader, guesses | 30 places it had to guess | R | 24 answered by the files, 6 left to stage 05 with owners |
 | D-150 item 9 | Settings' section 1 read as its first derivation | founder | Fixed |
+
+## 17. Round 16, 3 October 2026: the journeys, page to page
+
+**Asked by the founder:** the same critique a second time, before stage 05. Round 15 audited each page; this round walked from one page to the next the way a person does.
+
+### 17.1 Instruments
+
+| # | Instrument | What it owned | Radius |
+|---|---|---|---|
+| C1, C2 | **Codex**, plugin `codex`, read only | C1 one source, render against node, render against itself, dead controls in source; C2 the IA against itself | Cut by the usage limit on the default model at once. **Their prompts were handed to D1 and D2 unchanged**, founder decision of 29 September 2026; the next Codex call names `gpt-5.6-terra` at medium effort |
+| D1 | **Claude subagent in Codex's place, read only** | C1's classes | `wireframes/` against `ia/docs/pages/` |
+| D2 | **Claude subagent in Codex's place, read only** | C2's classes | `ia/`, `README.md`, `CLAUDE.md` |
+| B1 | Claude auditor, browser, 360 and 1440, every link followed to the next page | The open journey: Home, catalogue, case, open, outcome, result, fair, history, player | Flows 1, 1a, 4 |
+| B2 | The same | The money journeys: deposit, Send to Steam, cash out, limits, support, legal | Flows 2, 2a, 3, 5 |
+
+### 17.2 The raised set, before verification
+
+**About 115 rows and 95 after dedup**: B1 23, B2 36, D1 26 plus twelve lower, D2 30, with 24 withdrawn by the instruments on re-read and kept in their sets. **The finding that explains most of the rest: nothing a person did on one page reached the next one.** A sale changed the header and the next page said 74.20 again; a limit saved said "Nothing is set yet" one click later; every way back to a case from a signed-in page landed on the guest shell; eleven of twelve case tiles opened Ironbound; and the open screen had no way to reach its own outcome.
+
+**Zero, and stated:** horizontal scroll at 360 and 1440 on 133 pages; console errors; local and live identical at the close of round 15.
+
+**Founder decisions taken on the raised set**, `D-152`: carried between pages within a session are the signed-in state, money and items after an act, and the limits set; everything else stays a snapshot. A `?case=` template for the cases. An Open pressed now makes a round dated now. The verifier says "does not match this round" and what differed. The refund and payments policy gets its own page.
+
+### 17.3 Step 1, the regressions round 15 step 9 made, fixed on 4 October 2026 under `D-153`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| D1-1, B1-10 part | The account's name filled in last, over the sample winner the result page had set: a bot's round read "Won by nightjar_cs" | D1, B1 | Fixed: the declared fills run before the renderers and again after, touching only what a renderer built in between |
+| D1-2, B2-36 | The same late fill wrote "Refund and payments policy" back over the privacy and cookie crumb | D1, B2 | Fixed by the same change |
+| D1-5, B1-17 | The sign in consent's Privacy Policy opened Terms on seven surfaces, the dialog being rendered and round 15 having fixed only the pages | D1, B1 | Fixed: the unpublished state for privacy |
+| D1-9 | Categories and Filters typed as labels on seven catalogue pages | D1 | Fixed: `data-str-aria` reads `WF_STR` |
+| D1-10 | Renderers typing Add funds, Cases, History and Favourite into labels | D1 | Fixed: read from `WF_STR` |

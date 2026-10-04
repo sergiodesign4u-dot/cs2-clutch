@@ -2054,7 +2054,7 @@ window.WF_PAY = window.WF_PAY || {
         dep.setAttribute('aria-label',
           'Add funds. We add ' + BN.pctFull + ' in coins on top, up to ' + BN.cap + ' per ' + BN.period);
       } else if (!cfg.boundary) {
-        dep.setAttribute('aria-label', 'Add funds');
+        dep.setAttribute('aria-label', WF_STR.addFunds);
       }
       // NOT ON A PAGE WHERE THE MONEY CANNOT BE READ, round 15: on the 500 and the
       // 503s the figures say Not available and the + opened a working Pay.
@@ -2715,7 +2715,7 @@ window.WF_PAY = window.WF_PAY || {
     // REAL CONTROLS, NOT DRAWINGS OF CONTROLS. Each one is a button with the
     // checkbox role and its own checked state, and the text beside it toggles it
     // too, except where the text is a link to the document it names.
-    out.push('<div class="wf-cbx' + (terms ? ' is-set' : (blocked ? ' is-missing' : '')) + '"><button class="wf-cbx-box" type="button" role="checkbox" aria-checked="' + (terms ? 'true' : 'false') + '" aria-labelledby="wf-cbx-t1"><span aria-hidden="true">✓</span></button><span class="wf-cbx-t" id="wf-cbx-t1">I agree to the <a href="legal.html">Terms and Conditions</a> and the <a href="legal.html">Privacy Policy</a>.</span></div>');
+    out.push('<div class="wf-cbx' + (terms ? ' is-set' : (blocked ? ' is-missing' : '')) + '"><button class="wf-cbx-box" type="button" role="checkbox" aria-checked="' + (terms ? 'true' : 'false') + '" aria-labelledby="wf-cbx-t1"><span aria-hidden="true">✓</span></button><span class="wf-cbx-t" id="wf-cbx-t1">I agree to the <a href="legal.html">Terms and Conditions</a> and the <a href="legal-unpublished.html?doc=privacy">Privacy Policy</a>.</span></div>');
     out.push('<div class="wf-cbx' + (age ? ' is-set' : (blocked ? ' is-missing' : '')) + '"><button class="wf-cbx-box" type="button" role="checkbox" aria-checked="' + (age ? 'true' : 'false') + '" aria-labelledby="wf-cbx-t2"><span aria-hidden="true">✓</span></button><span class="wf-cbx-t" id="wf-cbx-t2">I declare that I am 18 or over.</span></div>');
     // THE REASON IS WORDS, not only a dimmed button, and in the partial state it
     // NAMES WHICH DECLARATION IS MISSING rather than repeating the general
@@ -3477,7 +3477,7 @@ window.WF_PAY = window.WF_PAY || {
       if (n) {
         var v = (parseInt(n.textContent.replace(/\s/g, ''), 10) || 0) + (on ? 1 : -1);
         n.textContent = String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-        b.setAttribute('aria-label', 'Favourite, ' + n.textContent + ' people');
+        b.setAttribute('aria-label', WF_STR.favourite + ', ' + n.textContent + ' people');
       }
     });
   }
@@ -4912,7 +4912,7 @@ window.WF_PAY = window.WF_PAY || {
     var mode = el('span', 'wf-roll-mode');
     mode.setAttribute('role', 'img');
     mode.setAttribute('aria-label', 'Mode: Cases');
-    mode.setAttribute('title', 'Cases');
+    mode.setAttribute('title', WF_STR.cases);
     from.appendChild(mode);
     var kase = el('a', 'wf-roll-case', r.kase);
     kase.href = BASE + (/Ironbound/.test(r.kase) ? 'case.html' : 'catalogue.html');
@@ -6673,7 +6673,7 @@ window.WF_PAY = window.WF_PAY || {
     if (tabsHost) {
       var here = window.WF_HISTTAB || 'rolls';
       var strip = el('nav', 'wf-htabs');
-      strip.setAttribute('aria-label', 'History');
+      strip.setAttribute('aria-label', WF_STR.history);
       HIST_TABS.forEach(function (t) {
         if (t.key === here) {
           var c = el('span', 'wf-tabb is-on', t.label);
@@ -7213,7 +7213,27 @@ window.WF_PAY = window.WF_PAY || {
     }
   }
 
+  /* THE DECLARED FILLS RUN FIRST, round 16: run last, they wrote over what a
+     renderer had already set for this page, a sample winner turned back into the
+     account and a privacy crumb back into Refund. They run once before the
+     renderers and once after, and the second pass touches only what a renderer
+     built in between. */
+  function fillDeclared() {
+    var w = window.WF_WHO || {};
+    var each = function (sel, f) { Array.prototype.forEach.call(document.querySelectorAll(sel), function (e) { if (e.hasAttribute('data-filled')) return; e.setAttribute('data-filled', ''); f(e); }); };
+    each('[data-pub]', function (e) { e.textContent = WF_PUB[e.getAttribute('data-pub')] || e.textContent; });
+    // THE ACCOUNT'S NAME, ONCE, round 15: typed on twenty pages; WF_WHO owns it.
+    each('[data-who]', function (e) { e.textContent = w[e.getAttribute('data-who')] || e.textContent; });
+    each('[data-str]', function (e) {
+      var v = WF_STR[e.getAttribute('data-str')];
+      if (v === undefined) return;
+      if (v.indexOf('<') >= 0) e.innerHTML = v; else e.textContent = v;
+    });
+    each('[data-str-aria]', function (e) { var v = WF_STR[e.getAttribute('data-str-aria')]; if (v !== undefined) e.setAttribute('aria-label', v); });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
+    fillDeclared();
     // The hero counters are derived, never typed: a hardcoded 0 beside a registry
     // that says 2 is the drift this file exists to prevent.
     var b = document.getElementById('wf-built');
@@ -7277,14 +7297,7 @@ window.WF_PAY = window.WF_PAY || {
     mountHomeLinks();
     mountCommitBar();
     mountTileNames();
-    Array.prototype.forEach.call(document.querySelectorAll('[data-pub]'), function (e) { e.textContent = WF_PUB[e.getAttribute('data-pub')] || e.textContent; });
-    // THE ACCOUNT'S NAME, ONCE, round 15: typed on twenty pages; WF_WHO owns it.
-    Array.prototype.forEach.call(document.querySelectorAll('[data-who]'), function (e) { var w = window.WF_WHO || {}; e.textContent = w[e.getAttribute('data-who')] || e.textContent; });
-    Array.prototype.forEach.call(document.querySelectorAll('[data-str]'), function (e) {
-      var v = WF_STR[e.getAttribute('data-str')];
-      if (v === undefined) return;
-      if (v.indexOf('<') >= 0) e.innerHTML = v; else e.textContent = v;
-    });
+    fillDeclared();
     nbspFigures();
   });
 })();
