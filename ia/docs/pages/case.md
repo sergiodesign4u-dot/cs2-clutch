@@ -17,6 +17,18 @@
 **Amended 23 August 2026 by `D-92`, in three places and no figure moved.** The market the settlement is struck against is named and the answer is us, so **the per-case gap in block 7 stops waiting on anybody and starts being a number we decline to publish**, section 5.3. **The outbound link on the top item keeps its target and loses its reason**, section 3: it points at Steam, Steam is the dearer place, and a control offered as the cheaper alternative can no longer be labelled that way. **And the risk band's hole is half answered**, section 1: the three bands are an input when a case is built rather than a label derived from its drop table, which is a different object from the one `D-24` specified, and the thresholds are still `[?]`.
 
 
+## Amended 4 October 2026 by `D-157`. The five roll outcome prints what was spent
+
+**Why.** Round 16 found the five roll outcome printing no spent figure, while `3.6` block 3 keeps the cost legible and the one and two roll outcomes carry it on their act.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| An outcome after a spend | The figure on the act, `D-38` | **Add funds to open N again for X coins**, at three, four and five rolls |
+
+---
+
 ## Amended 4 October 2026 by `D-156`. Best drops are read from their rounds and name their winners
 
 **Why.** Round 16 found Best drops typing its rounds' figures a second time, and the result pages of four of them saying the account won rounds its history does not hold.

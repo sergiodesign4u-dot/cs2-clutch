@@ -198,7 +198,7 @@ The report was three things at once: the block composition, the proportions, and
 
 **And one thing was demoted rather than redrawn.** The SEO text block B10 was set at the same weight as the argument blocks B6 to B9, which doubled the page's apparent text. It is the SEO layer, `0.13`, not the page's case, so it now renders smaller and dimmer. **No word of it was cut**: the node owns that copy and stage 05 owns its final wording.
 
-**The one block in the reference we still do not draw is the row of four game mode cards.** `D-20` defers it because one live card of four is the dead item defect, and `home.md` section 0 refuses a hub of nine when we would ship one. **It comes back when a second mode exists, or when the founder reverses `D-20` in writing.**
+~~**The one block in the reference we still do not draw is the row of four game mode cards.** `D-20` defers it because one live card of four is the dead item defect, and `home.md` section 0 refuses a hub of nine when we would ship one. **It comes back when a second mode exists, or when the founder reverses `D-20` in writing.**~~ **Drawn since `D-27`**, struck in round 16 by `D-157`: the founder returned the row, one live card and three saying they are not launched, with its cost printed in `home.md`.
 
 ---
 

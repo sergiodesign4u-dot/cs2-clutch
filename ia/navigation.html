@@ -198,6 +198,24 @@
   </div>
 </div>
 
+<section id="d157">
+  <div class="sec-head">
+    <h2>Updated after publication: One current element, and the header captions under 900, D-157</h2>
+    <p>4 October 2026. Round 16 found aria-current on the rail, the breadcrumb, the bar and the tabs together, against section 7's exactly one; and the header hiding both captions below 900, against this node's "each keeps its own caption on its own line".</p>
+  </div>
+  <div class="card is-note">
+    <h4>Baseline row for this amendment</h4>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody>
+        <tr><td>Rail, bar, breadcrumb and header figures</td><td>Every carrier as drawn</td><td><strong>Exactly one element carries <code>aria-current="page"</code></strong>: the bar where it shows, else the rail, else the account tabs, else the breadcrumb; the others keep their look. <strong>Below 900 each figure keeps its caption on its own line</strong>, at the smallest size, and below 600 the long caption wraps under its figure</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="d155">
   <div class="sec-head">
     <h2>Updated after publication: The menu's Withdrawals opens the record, and a guest is not sent into an account, D-155</h2>
@@ -1085,6 +1103,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.1 Navigation';
 window.NAV_SECTIONS = [
   { id: 'overview', label: 'Overview' },
+  { id: 'd157', label: 'D-157 current, captions' },
   { id: 'd155', label: 'D-155 journeys' },
   { id: 'd150', label: 'D-150 answers' },
   { id: 'd145', label: 'D-145 catch-up' },

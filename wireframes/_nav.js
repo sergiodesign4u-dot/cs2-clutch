@@ -3160,7 +3160,9 @@ window.WF_PAY = window.WF_PAY || {
            other interrupt. Declining returns the person to what they were
            reading and records nothing. */
         '<div class="wf-gate-acts">' +
-          '<button class="wf-btn wf-btn--primary" type="button" data-gate-dismiss data-auth-open="default">Continue</button>' +
+          /* EQUAL WEIGHT, gate.md section 4.2 block 3, round 16, D1-23: Continue
+             was primary beside a plain Not now. */
+          '<button class="wf-btn" type="button" data-gate-dismiss data-auth-open="default">Continue</button>' +
           '<button class="wf-btn" type="button" data-gate-dismiss>Not now</button>' +
         '</div>';
     } else if (state === 'blocked') {
@@ -3349,11 +3351,14 @@ window.WF_PAY = window.WF_PAY || {
     var tag, fields, scope, acts;
     var R = ROUNDS[roundKey()];
 
+    /* COPY IS A FIRST-CLASS CONTROL, 0.14 section 5, round 16, D1-26: the
+       panel printed both 64 character values whole with no way to copy them. */
+    var cp = function (v) { return ' <button class="wf-btn wf-btn--small" type="button" data-copy="' + v + '">' + WF_STR.copy + '</button>'; };
     var SEEDS =
       '<div class="wf-fpair"><span class="wf-fpair-k">Server seed hash, published before the roll</span>' +
-        '<span class="wf-fpair-v">' + R.hash + '</span></div>' +
+        '<span class="wf-fpair-v">' + R.hash + cp(R.hash) + '</span></div>' +
       '<div class="wf-fpair"><span class="wf-fpair-k">Server seed, revealed after</span>' +
-        '<span class="wf-fpair-v">' + R.seed + '</span></div>' +
+        '<span class="wf-fpair-v">' + R.seed + cp(R.seed) + '</span></div>' +
       '<div class="wf-fpair"><span class="wf-fpair-k">' + WF_STR.clientSeed + '</span><span class="wf-fpair-v">' + R.client + '</span></div>' +
       '<div class="wf-fpair"><span class="wf-fpair-k">' + WF_STR.nonce + '</span><span class="wf-fpair-v">' + R.nonce + '</span></div>' +
       '<div class="wf-fpair"><span class="wf-fpair-k">' + WF_STR.settledResult + '</span><span class="wf-fpair-v">' + R.ticket + '</span></div>' +
@@ -3500,7 +3505,9 @@ window.WF_PAY = window.WF_PAY || {
     });
     Array.prototype.forEach.call(document.querySelectorAll('.wf-outcome-acts a, .wf-outcome-acts button'), function (b) {
       var t = b.textContent;
-      if (/^Add funds to open/.test(t)) b.textContent = 'Add funds to open ' + n + ' again';
+      /* THE COST SPENT STAYS LEGIBLE, 3.6 block 3, round 16, D1-21: the five
+         roll outcome printed no spent figure where the others carry it on the act. */
+      if (/^Add funds to open/.test(t)) b.textContent = 'Add funds to open ' + n + ' again for ' + spent.toFixed(2) + ' coins';
       if (/^Sell all/.test(t)) b.textContent = 'Sell all ' + n + ' for ' + won.toFixed(2) + ' coins';
       if (/^Send \d+ to Steam/.test(t)) {
         var st = R.reduce(function (a, r) { return a + (r.st || 0); }, 0);
@@ -4551,7 +4558,9 @@ window.WF_PAY = window.WF_PAY || {
     /* THE LINKED STEAM ACCOUNT IS NAMED, D-150: since D-55 an account can exist
        without one, so the account says which one its items go to. Unlinking and
        linking live in settings, 5.11. */
-    var st = el('a', 'wf-ah-id', 'Steam ' + (cfg.steam || WHO.name)); st.href = BASE + 'settings.html#cfg-steam';
+    /* AND SAYS SO WHEN THERE IS NONE, round 16, D1-20: the no-Steam state
+       named nightjar_cs as the linked account. */
+    var st = el('a', 'wf-ah-id' + (cfg.steam === false ? ' wf-fig-missing' : ''), cfg.steam === false ? 'No Steam account linked' : 'Steam ' + (cfg.steam || WHO.name)); st.href = BASE + 'settings.html#cfg-steam';
     names.appendChild(st);
     who.appendChild(names);
     row.appendChild(who);
@@ -7146,17 +7155,7 @@ window.WF_PAY = window.WF_PAY || {
           paint();
           return;
         }
-        var sv = e.target.closest('[data-co-save]');
-        if (sv && host.contains(sv)) {
-          e.preventDefault();
-          var v = (host.querySelector('[data-co-in]') || {}).value || '';
-          var s2 = host.querySelector('[data-co-say]');
-          s2.hidden = false;
-          s2.textContent = v.trim()
-            ? 'Saving an address is not built yet, so this one is used for this request only.'
-            : 'There is nothing in the field to save.';
-          return;
-        }
+        /* The address Save left with D-134, and its handler with it, round 16, D1-6. */
         var g = e.target.closest('[data-co-go]');
         if (g && host.contains(g)) {
           e.preventDefault();
@@ -7807,6 +7806,23 @@ window.WF_PAY = window.WF_PAY || {
     }
   }
 
+  /* ONE ELEMENT CARRIES aria-current="page", round 16, D1-22, navigation.md
+     section 7: the rail, the bar, the breadcrumb and the tabs each carried it.
+     Every candidate keeps a data-cur mark for its look; the one that carries it
+     is the visible carrier of the destination, the bar where the bar shows and
+     the rail elsewhere, then the account tabs, then the breadcrumb. */
+  function oneCurrent() {
+    var all = document.querySelectorAll('[aria-current="page"], [data-cur]');
+    if (!all.length) return;
+    Array.prototype.forEach.call(all, function (e) { e.setAttribute('data-cur', ''); e.removeAttribute('aria-current'); });
+    var shown = function (e) { return e && e.offsetParent !== null && getComputedStyle(e).visibility !== 'hidden'; };
+    var pick = ['.wf-bar [data-cur]', '.wf-rail [data-cur]', '.wf-ah-tabs [data-cur], .wf-htabs [data-cur]', '.wf-crumb [data-cur]', '[data-cur]'].reduce(function (got, sel) {
+      return got || [].slice.call(document.querySelectorAll(sel)).filter(shown)[0];
+    }, null);
+    if (pick) pick.setAttribute('aria-current', 'page');
+  }
+  window.addEventListener('resize', function () { clearTimeout(oneCurrent.t); oneCurrent.t = setTimeout(oneCurrent, 150); });
+
   /* THE DECLARED FILLS RUN FIRST, round 16: run last, they wrote over what a
      renderer had already set for this page, a sample winner turned back into the
      account and a privacy crumb back into Refund. They run once before the
@@ -7898,6 +7914,7 @@ window.WF_PAY = window.WF_PAY || {
     mountCommitBar();
     mountTileNames();
     fillDeclared();
+    oneCurrent();
     nbspFigures();
   });
 })();

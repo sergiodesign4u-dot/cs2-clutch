@@ -19,6 +19,18 @@
 **Cluster 2 is three screens nobody chooses to visit.** This is the one that arrives uninvited, in the middle of somebody else's intention.
 
 
+## Amended 4 October 2026 by `D-157`. Continue and Not now at equal weight, as drawn
+
+**Why.** Round 16 found the staged gate rendering Continue as the main action beside a plain Not now, against section 4.2 block 3.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A staged market layer | Its three blocks | **Both controls are drawn at the same weight** |
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.

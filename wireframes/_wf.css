@@ -1457,16 +1457,18 @@ a.wfp-state:hover { color: var(--wf-ink); }
     padding-block: var(--wf-s-1);
   }
   .wf-header .wf-row { flex-wrap: nowrap; gap: var(--wf-s-1); min-width: 0; }
-  /* 0.1 state matrix, account on mobile: "Both figures, condensed to ONE LINE EACH,
-     deposit control kept" and "Avatar only". Condensed means the caption leaves the
-     visible line, never the document: it travels in the figure's accessible name, and
-     0.11 section 9 says that name carries the unit rather than bare digits. */
+  /* 0.1, as amended by D-144: side by side below 900, and EACH KEEPS ITS OWN
+     CAPTION ON ITS OWN LINE, round 16, D1-25. The state matrix's "one line each"
+     on mobile is struck in the node, and the caption is what keeps two figures
+     side by side from reading as a sum. It is the smallest size and one line. */
   .wf-header .wf-fig-v { white-space: nowrap; }
   .wf-money-1 .wf-fig-v { font-size: var(--wf-t-s); }
   .wf-money-2 .wf-fig-v { font-size: var(--wf-t-xs); }
   .wf-money .wf-fig { gap: 0; }
   .wf-money .wf-fig-v { min-width: 0; }
-  .wf-money .wf-fig-c { display: none; }
+  .wf-money .wf-fig { flex-direction: column; align-items: flex-start; justify-content: center; }
+  .wf-money .wf-fig-c { display: block; font-size: 10px; line-height: 1.1; white-space: nowrap; }
+  @media (max-width: 599px) { .wf-money .wf-fig-c { white-space: normal; max-width: 12ch; } }
   .wf-header .wf-btn { padding: var(--wf-s-half); }
   .wf-dep { width: 36px; min-width: 36px; height: 36px; min-height: 36px; }
   .wf-menu { width: var(--wf-tap); min-width: var(--wf-tap); padding: 0; flex: 0 0 auto; }
@@ -1512,7 +1514,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
 .wf-crumb ol { display: flex; flex-wrap: wrap; gap: var(--wf-s-half); margin: 0; padding: 0; list-style: none; }
 .wf-crumb li + li::before { content: '/'; margin-right: var(--wf-s-half); color: var(--wf-ink-faint); }
 .wf-crumb a { color: var(--wf-ink-dim); }
-.wf-crumb [aria-current] { color: var(--wf-ink); }
+.wf-crumb [aria-current], .wf-crumb [data-cur] { color: var(--wf-ink); }
 
 /* BLOCKS 2 AND 3. The case, then the commit block. They stack at 360 and sit side
    by side from 900, which is section 14's own sentence rather than a preference. */

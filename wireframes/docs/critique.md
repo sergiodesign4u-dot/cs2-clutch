@@ -1134,3 +1134,22 @@ The HTML pages of the map and the flows carry an Updated after publication block
 | B1-22 | The 503 came back at 03:20 UTC "forty minutes from now" at 09:31 | B1 | Fixed: 10:11 UTC |
 | B1-23 | The Glock's proof unreadable in history and settled on its public page | B1 | Fixed: unreadable on both |
 | D1-7, D1-8, D1-11 | The money pair, the published time and the best drops typed outside their declarations | D1 | Fixed |
+
+### 17.7 Step 5, the render against its nodes, fixed on 4 October 2026 under `D-157`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| D1-14 | The owner's result rendered a balance and a deposit route the node refuses | D1 | **Fixed in the node**: the refusal binds the page's blocks, none of which renders either; the header is `0.1`'s global carrier |
+| D1-20 | The no-Steam state's band named a linked Steam account | D1 | Fixed: "No Steam account linked" |
+| D1-21 | The five roll outcome printed no spent figure | D1 | Fixed: on the act, at three, four and five |
+| D1-22 | aria-current on the rail, the breadcrumb, the bar and the tabs | D1 | Fixed: exactly one, the visible carrier first |
+| D1-23 | The staged gate's Continue primary beside Not now | D1 | Fixed: equal weight |
+| D1-24 | The crediting state is not in the header | D1 | Kept and said in step 2, `conventions.md` section 4.1 |
+| D1-25 | Header captions hidden below 900 | D1 | Fixed: each keeps its caption on its own line; checked at 360, 600 and 899 with no overflow |
+| D1-26 | The proof panel printed both values with no copy | D1 | Fixed |
+| D1-6 | A handler for the address Save D-134 removed | D1 | Removed |
+| D1-13 | A figure split from its unit by markup on the expired offer | D1 | Fixed |
+| D1-15 | `conventions.md` said the mode cards are not drawn | D1 | Struck in place: drawn since `D-27` |
+| D1-16 | `voice-input.md` counted 1 221 marks | D1 | Recounted: 1 245 on 123 of 133 pages |
+| B2-36 | The privacy and cookie crumb said Refund | B2 | Fixed in step 1 |
+| D1 lower list | Twelve lower rows, among them the drawer's focus trap, the support H2 order and the staged gate's stack at 360 | D1 | **Carried to the second pass**, which re-reads them against the render rather than fixing from the list |

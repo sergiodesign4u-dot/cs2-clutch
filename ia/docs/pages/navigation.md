@@ -16,6 +16,18 @@
 
 ---
 
+## Amended 4 October 2026 by `D-157`. One current element, and the header captions under 900
+
+**Why.** Round 16 found aria-current on the rail, the breadcrumb, the bar and the tabs together, against section 7's exactly one; and the header hiding both captions below 900, against this node's "each keeps its own caption on its own line".
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Rail, bar, breadcrumb and header figures | Every carrier as drawn | **Exactly one element carries `aria-current="page"`**: the bar where it shows, else the rail, else the account tabs, else the breadcrumb; the others keep their look. **Below 900 each figure keeps its caption on its own line**, at the smallest size, and below 600 the long caption wraps under its figure |
+
+---
+
 ## Amended 4 October 2026 by `D-155`. The menu's Withdrawals opens the record, and a guest is not sent into an account
 
 **Why.** Round 16 found the account menu's Withdrawals opening a new send form, and guest pages linking into signed-in pages.

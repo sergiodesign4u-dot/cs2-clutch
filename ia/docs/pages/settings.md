@@ -19,6 +19,18 @@
 | A two column settings tab with **twenty rows** in four groups: `GENERAL` five, `SECURITY` three, `LINKED PROFILES` four, `NOTIFICATIONS` eight. Founder captures of 18 August 2026, `baseline-account.md` section 7, and of 22 August 2026, `research/screens/baseline-account/acct_settings_top_22aug.png` and `acct_settings_linked_22aug.png`. | **One row: the Steam trade URL**, with its helper line, because the exit needs it and nothing else on the map holds it. | ~~**Nineteen of twenty do not survive, and almost none of them for a reason about settings.** Eleven configure modes that are `LATER` or channels that have no backlog row at all. Five already live somewhere else on our map and would be second homes. Two are refused on a rule. One is `[?]` and belongs to the founder.~~ **As first derived. Today, `D-150`: fifteen of the twenty are on the page, five are `LATER`, and none is refused whole; section 1's current table gives every row.** **Section 1 gives the verdict on every row with its reason, because a settings page that quietly drops nineteen rows is a settings page nobody can audit against its own baseline.** **Since `D-86`, `D-89`, `D-93` and `D-124` the page renders four groups and sixteen rows**, the baseline's shape, and section 1 is the record of the first derivation |
 
 
+## Amended 4 October 2026 by `D-157`. With no Steam account linked, the band says so
+
+**Why.** Round 16 found the no-Steam state's account band naming nightjar_cs as the linked Steam account.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Settings with a linked Steam account | The band naming the linked account, `D-150` | **On the no-Steam state the band reads "No Steam account linked"**, as a missing value, linking to the field |
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.

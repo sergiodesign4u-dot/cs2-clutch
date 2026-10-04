@@ -5864,3 +5864,16 @@ Verified on screen: a Warsteel open from 74.20 lands at 69.30 / 146.05 with a 5.
 - **"Upheld"** goes to the Voice glossary as a concept named in opposite senses.
 
 Verified on screen: the AWP card reads 61.20, 230 offers, 4.85 back, as its shelf does; a USP-S best drop names tallowcs without a link; the Glock's public page says its proof is unreadable right now; an empty reply is refused; 134 pages at 360 and 1440 with no error and no sideways scroll; 35 IA pages clean.
+
+## D-157. Round 16, step 5: the render and its nodes say the same thing
+
+**Date:** 2026-10-04. **Stage:** 04, round 16. **Decided by:** the founder, "гоу" on step 5. **Binds:** `wireframes/_nav.js`, `wireframes/_wf.css`, four wireframe pages, `wireframes/docs/conventions.md`, `wireframes/docs/voice-input.md`, nodes `7.1`, `5.11`, `3.3`, `0.1`, `2.1`, `0.14` and their pages.
+
+### What was done
+
+- **Render fixed to its node:** the no-Steam band says none is linked; the five roll outcome prints what was spent; one element carries `aria-current="page"`; the staged gate's two controls are equal; the header keeps both captions below 900, wrapping the long one below 600; the proof panel copies its two long values.
+- **Node fixed to its render, where the render was right:** `7.1`'s refusal of a balance binds its blocks, and the header's money is `0.1`'s global carrier.
+- **Files that contradicted the render:** `conventions.md` struck its "mode cards not drawn"; `voice-input.md` recounted its marks; a dead handler and a split figure went.
+- **Carried, not fixed from the list:** D1's twelve lower rows go to the second pass, to be re-read against the render first.
+
+Verified on screen: exactly one current element on all 133 pages at 360 and 1440; the header at 360, 600 and 899 with captions and no overflow; 134 pages with no error and no sideways scroll; 35 IA pages clean.

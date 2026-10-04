@@ -12,6 +12,18 @@
 
 ---
 
+## Amended 4 October 2026 by `D-157`. The proof panel copies its values
+
+**Why.** Round 16 found the full proof panel printing the server seed hash and the server seed whole with no copy control, against section 5.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A proof panel | The values printed whole | **The hash and the seed each carry a Copy control**, and a refused copy says so, as everywhere |
+
+---
+
 ## Amended 3 October 2026 by `D-146`. V2 opens the verifier, decided
 
 **Why.** Step 6 of round 15 found V2 navigating to the verifier while this node said in place, with no decision behind the change.

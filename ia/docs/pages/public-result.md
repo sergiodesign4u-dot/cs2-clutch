@@ -25,6 +25,18 @@
 
 ---
 
+## Amended 4 October 2026 by `D-157`. The refused balance is the page's, not the shell's
+
+**Why.** Round 16 read the owner's view rendering a balance and a deposit route against section 5's refusal of both.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A public result page | No spend control in any block | **The refusal binds the page's eight blocks, and none renders one.** The header is the global carrier, `0.1`: it carries the account's money on every signed-in page, the owner's view included, and a stranger's view carries none. Stated here so the two do not read as a contradiction |
+
+---
+
 ## Amended 4 October 2026 by `D-156`. A proof unreadable this minute is unreadable on every surface
 
 **Why.** Round 16 found history saying the Factory New Glock's proof source could not be read while its public page printed it settled, and the mismatched state's Report opening a support form with no ticket.
