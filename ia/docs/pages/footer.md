@@ -20,6 +20,18 @@
 
 ---
 
+## Amended 4 October 2026 by `D-155`. The refund policy link opens its page
+
+**Why.** The refund and payments policy is drawn since `D-152` answer 5.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| COMPANY: Terms, Privacy, Cookie, Refund | The four | ~~Refund and payments policy opens its own state, `legal-unpublished.html`~~ **It opens `legal-refund.html`**; privacy and cookies keep the unpublished state. The Cases column's Warsteel, Coldfront and Nightfall open their own case, `?case=` |
+
+---
+
 ## Amended 3 October 2026 by `D-146`. One line says where we serve
 
 **Why.** Step 6 of round 15 found that with Where we operate gone, `D-136`, nothing public stated the market position before the gate; the founder chose on 3 October 2026 to restore a statement.
@@ -61,7 +73,7 @@
 
 | The live product | What we keep | What we change, and why |
 |---|---|---|
-| COMPANY: Terms, Privacy, Cookie, Refund | **The four** | **Refund and payments policy opens its own state**, `legal-unpublished.html`, as the legal pages' own links do; it opened the Terms |
+| COMPANY: Terms, Privacy, Cookie, Refund | **The four** | ~~**Refund and payments policy opens its own state**, `legal-unpublished.html`, as the legal pages' own links do;~~ **it opens `legal-refund.html` since `D-155`;** it opened the Terms |
 | No interlinking row | Ours | **Headed "Popular cases"**: it read "Links to priority indexed pages", an SEO term shown to players |
 | NEED HELP? with the Support button and the identification line | **Both** | **No tagline.** The brand block's sentence about chances and checkable rounds was the third copy on Home and the baseline has none |
 | Nothing | | **Where we operate is not drawn.** A row with no destination is the dead item a carrier may not hold; the map has no page for a visitor who is not refused. ~~It stays an open item here~~ **Closed by `D-146`: one line under the 18+ statement says where we serve, with no link** |

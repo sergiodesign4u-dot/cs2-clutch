@@ -1085,3 +1085,29 @@ The HTML pages of the map and the flows carry an Updated after publication block
 | B2-13 | The cool down landing listed a $40.00 limit nobody set | B2 | Fixed: a landing the session reached reads the session's limits |
 | B2-14, B2-15, B2-16 | Under a boundary the + opened an empty form, the Balance figure opened Pay, and the boundary reached no other page | B2 | Fixed: the + and the figure open what is in force, Pay and Open refuse with the end date on every signed-in page, the +5% badge goes |
 | D1-24 | The crediting state is not in the header | D1 | **Kept, and said**: crediting's end is not drawn, so a deposit in crediting does not move the balance, section 4.1 |
+
+### 17.5 Step 3, the journeys wired, fixed on 4 October 2026 under `D-155`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| B1-1 | Eleven of twelve case tiles, Home's three, the feed's case link, the footer's three and the result's case row opened Ironbound | B1 | Fixed: `?case=` from `WF_CASES`; other cases render scaled to their entry cost, samples marked in 3.3 |
+| B1-2 | The open screen had no way to its outcome: Flow 1 could not complete | B1 | Fixed: an Open pressed in the session takes its cost, runs the reveal and lands on the outcome |
+| B1-3 | The outcome was dated 18 Aug while pressed now | B1 | Fixed: the open is a new round dated 21 Aug 2026 09:31; an outcome opened by its address keeps its sample |
+| B1-5 | The outcome's item was not in My items | B1 | Fixed: held there first, and listed first in history |
+| B1-6 | Outcome Send to Steam opened the AK | B1 | Fixed: `?item=` and `?items=`, with shelf rows for the outcome's items |
+| B1-7, B1-21 | After a sale the Send label and the Sending line named the sold item, "All 2 saved" stood over receipts; the Send figure's sign differed by count | B1 | Fixed: everything names what is still held; the figure is signed on every count |
+| B1-8 part | Share opened the stranger's view of the person's own round | B1 | Fixed: the owner's view |
+| B1-9 | Guest pages linked into signed-in pages | B1 | Fixed: such a link opens sign in, keeping its address |
+| B1-11 | The verifier agreed with any well formed input | B1 | Fixed: compared with the round whose hash was entered, each differing field named |
+| B1-12, B1-13 | Report on a failed proof opened the restriction appeal; the mismatched row's ticket opened an empty form; the two named different rounds | B1 | Fixed: both open the round report ticket, `?r=`, for MP9 Rose Iron |
+| B1-14 | A public profile's "No proof to check" opened the owner's private history | B1 | Fixed: the public reason on 1.2 |
+| B1-15, B2-21 | The menu's Withdrawals opened a new send form | B1, B2 | Fixed: the withdrawals record |
+| B1-16 | A live filter to nothing named no facet and offered no chip | B1 | Fixed: a chip per filter in force, each removable, and the empty line names them |
+| B1-19 | Check all N opened an empty verifier | B1 | Fixed: opens the list of rolls, each with its check |
+| B2-1, D1-19 | Crypto and gift crediting read $40.00 Visa | B2, D1 | Fixed: each route's method, party and amount |
+| B2-2 | Skins crediting waited on the payment provider | B2 | Fixed: waits on Steam |
+| B2-9 | Pay asked to accept an unpublished policy | B2 | Fixed by the founder's answer: `legal-refund.html` |
+| B2-22, D1-17 | Sending an expired offer again credited +2.50 over the 3.00 already added | B2, D1 | Fixed: -0.50, the difference between settlements |
+| B2-23 | The expired record was unreachable from its row | B2 | Fixed: the row opens it |
+| B2-24 | Cash out with nothing ticked refused and opened the dialog | B2 | Fixed: refuses only |
+| D1-18 | Sending again opened a fresh clock, the expired stretch lost | D1 | Fixed: the record's history travels |

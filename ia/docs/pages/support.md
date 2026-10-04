@@ -23,6 +23,20 @@
 | A ticket form of three fields, Subject defaulting to Deposits, Email and Message, under an ATTENTION block pushing the FAQ first. `baseline.md` section 9.5. | The three field shape and the deflection to articles, which is reasonable and cheap. | **The submit button reads SIGN IN.** A guest can fill the form and cannot send it, so **a person locked out of their account cannot use the product's own support channel to say so.** That is the strongest single argument in this repository for the appeal route `G4` and its published deadline, and it is now a walked fact rather than an inference. |
 
 
+## Amended 4 October 2026 by `D-155`. A round that did not verify is its own ticket
+
+**Why.** Round 16 found Report on a failed proof opening the restriction appeal with an empty round field.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Support with a ticket per request | The submitted ticket's shape | **`?r=` renders the round report**: its own reference, "Round reported", the round attached with its item, time and nonce, and a way to the round. Report this round on the failed proof and the history row both open it; the failed proof's round is the one history marks, MP9 Rose Iron |
+
+**Samples, `D-124`, marked here:** the reference rp-2026-08-21-0041 and its time
+
+---
+
 ## Amended 3 October 2026 by `D-146`. The appeal carries its evidence field
 
 **Why.** Step 6 of round 15 found section 3's optional evidence field specified and never drawn, and the founder chose on 3 October 2026 to draw it.

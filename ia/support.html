@@ -164,6 +164,25 @@
   </div>
 </div>
 
+<section id="d155">
+  <div class="sec-head">
+    <h2>Updated after publication: A round that did not verify is its own ticket, D-155</h2>
+    <p>4 October 2026. Round 16 found Report on a failed proof opening the restriction appeal with an empty round field.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Baseline row for this amendment</h4>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody>
+        <tr><td>Support with a ticket per request</td><td>The submitted ticket's shape</td><td><strong><code>?r=</code> renders the round report</strong>: its own reference, "Round reported", the round attached with its item, time and nonce, and a way to the round. Report this round on the failed proof and the history row both open it; the failed proof's round is the one history marks, MP9 Rose Iron</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Samples, D-124, marked here:</strong> the reference rp-2026-08-21-0041 and its time</p>
+</section>
+
 <section id="d146">
   <div class="sec-head">
     <h2>Updated after publication: The appeal carries its evidence field, D-146</h2>
@@ -730,6 +749,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.10 Support and contact';
 window.NAV_SECTIONS = [
   { id: 'overview', label: 'Overview' },
+  { id: 'd155', label: 'D-155 round report' },
   { id: 'd146', label: 'D-146 evidence' },
   { id: 'd145', label: 'D-145 catch-up' },
   { id: 'd141', label: 'D-141 question' },

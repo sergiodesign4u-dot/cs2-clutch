@@ -23,6 +23,18 @@
 | **A public profile with four history tabs**, Inventory history, Case battle history, Gunfights history and Upgrades history, each a grid of item cards carrying the mode icon, the image, the weapon, the skin, the wear and a value in coins. Founder capture, 21 August 2026, `baseline.md` section 9.9. | **The idea that history is a first-class surface**, and the split by mode, which arrives when a second mode does. | **Everything about what a row is.** The baseline's history is an **inventory** history: it lists items, and an item is the outcome of a roll with the roll removed. Ours lists **rolls**, and the item is one column of a row. `baseline.md` section 9.9 records the same thing from the other side: that page is a trophy shelf, and `public-result.md` was written to replace the shelf with something checkable. **A history of items is the shelf again, one screen deeper.** And it is private: the baseline's is public and this one is the account's own. |
 
 
+## Amended 4 October 2026 by `D-155`. The session's rolls, the expired record and the report ticket
+
+**Why.** Round 16 found an open's roll in no history, the expired offer's record unreachable from its row, and the mismatched row's "The ticket" opening a support form with no ticket.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A roll history and a withdrawals ledger | Both, as snapshots, `conventions.md` section 4.1 | **Rolls opened in this session come first** on the history and on Items, and the count follows. **A ledger row that has a record opens it**: the expired AK opens `withdraw-offer-expired.html`. **The mismatched row's ticket is the ticket the report made**, `support-submitted.html?r=`, with the round |
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.

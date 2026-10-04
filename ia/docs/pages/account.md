@@ -21,6 +21,18 @@
 | Four tabs as peers on one page, `INVENTORY`, `HISTORY`, `PROFILE`, `SETTINGS`. The inventory grid has two sorts, no filters and no search, and a sticky bar carrying a count, a sum and **four exits**: send to Steam, sell to site, cash out, exchange. History is **five separate histories**, three of which are empty and all three say only `History is empty...`. `baseline-account.md` sections 2 to 4. | The count and the sum of the selection, which are the same pair the header carries, and the per-item action set. | **Our map gives this node one exit and the canon has four**, and the gap narrowed twice since this row was written. **`D-38` put selling a skin back for coins in round 1**, so the second exit exists as a capability ~~and has no placement on this page~~ **and is placed on this page since `D-85`, Sell for coins on each card and in the bar, and it sells since `D-135`**; `D-60` recorded that **the exchange for a real skin does not exist at all**, and in-platform skin-for-skin exchange stays LATER by scope. ~~**What is still true is the shape of the finding:** the live product answers what a person does with a skin they do not want, and this node answers only what they do with one they do want. **Open item, section 8, not a divergence.**~~ **Closed by `D-85` and `D-135`, section 8.** And `History is empty...` with no route is the empty state `3.2` refuses. **The four tabs are four nodes on our map since `D-36`**, `5.1`, `5.9`, `5.10` and `5.11`, ~~so the tab strip is not inherited either~~ **and `D-84` inherited the strip as a carrier between them, section 0.5**. |
 
 
+## Amended 4 October 2026 by `D-155`. What an open won is held, and Cash out waits for a tick
+
+**Why.** Round 16 found the outcome saying "Saved to My items" while My items did not hold it, and Cash out opening its dialog over "Tick an item first".
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| My items and its exits | The grid and the bar | **An item an open in this session won is a card here**, first, with its sell, its send and its share, until it is sold or sent. **Cash out with nothing ticked answers on the bar and opens nothing** |
+
+---
+
 ## Amended 3 October 2026 by `D-150`. An item on its way stays in sight, and the linked Steam account is named
 
 **Why.** Founder answers of 3 October 2026.

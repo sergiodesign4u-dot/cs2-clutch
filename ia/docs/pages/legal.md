@@ -25,6 +25,20 @@
 | Four documents, all `noindex,nofollow`, each **one H1 and zero H2**. The terms run about 7,270 words as a single wall, last updated 08/01/2025; the cookie policy is dated April 2019. All carry a breadcrumb. `baseline.md` section 9.4. | The breadcrumb, and the document set itself. | **The wall.** Zero H2 in a 7,270 word contract is the defect this node exists to fix, and it is now measured rather than asserted. **And the dates:** a policy from 2019 sitting under a product that changed every year since is a document nobody re-read. |
 
 
+## Amended 4 October 2026 by `D-155`. The refund and payments policy is drawn
+
+**Why.** Round 16 found Pay's consent asking a person to accept a document that opened the unpublished state. The founder answered on 4 October 2026, `D-152`: make the page.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Four documents, each at its own address, `/en/refund-policy` among them | Four documents, one template, each at its own address | **The refund and payments policy renders on the template**, `legal-refund.html`, with the lead section 8 C gives it, a summary of four facts the deposit receipt already prints, seven clause headings following that lead, and counsel's text. **The unpublished state now names privacy and cookies only**, and an old `?doc=refund` opens the document. Section 6's "Not yet published" row and this node's page table read accordingly |
+
+**Samples, `D-124`, marked here:** the version, v1, effective 1 Aug 2026 and published 26 Jul 2026; the summary's minimum, crediting time and limit rule, which are 4.1's samples
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
@@ -351,6 +365,7 @@ The clause text is counsel's. **These four leads are the node's own copy and the
 | `legal-guest.html` | Guest, never agreed | `0.9` |
 | `legal-superseded.html` | Reading a superseded version | `0.9` |
 | `legal-unpublished.html` | Not yet published | `0.9` |
+| `legal-refund.html` | The refund and payments policy, current, `D-155` | `0.9` |
 
 ---
 

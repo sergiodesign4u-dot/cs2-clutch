@@ -98,7 +98,8 @@ window.WF_NAV = {
         { label: 'Changed since you last agreed', file: 'legal-changed.html',    status: 'built' },
         { label: 'Guest, never agreed',           file: 'legal-guest.html',      status: 'built' },
         { label: 'Reading a superseded version',  file: 'legal-superseded.html', status: 'built' },
-        { label: 'Not yet published',             file: 'legal-unpublished.html',status: 'built' }
+        { label: 'Not yet published',             file: 'legal-unpublished.html',status: 'built' },
+        { label: 'Refund and payments policy',    file: 'legal-refund.html',     status: 'built' }
       ] },
 
     // DRAWN 22 AUGUST 2026. Nine pages, and the ninth is the one that earns the
@@ -1177,7 +1178,7 @@ window.WF_PAY = window.WF_PAY || {
     var nav = el('nav', null);
     nav.setAttribute('aria-label', 'Account');
     [[WF_STR.myItems, 'account.html'], [WF_STR.history, 'history.html'],
-     ['Withdrawals', 'withdraw.html'], ['Profile', 'profile.html'],
+     ['Withdrawals', 'history-withdrawals.html'], ['Profile', 'profile.html'],
      [WF_STR.settings, 'settings.html'], [WF_STR.responsiblePlay, 'responsible.html']].forEach(function (r) {
       // A SLOT, NOT AN ICON, D-50, and it is the rule the rail has followed since it was
       // drawn: "the grey contract defers icons to stages 06 to 08, and a destination
@@ -1387,7 +1388,7 @@ window.WF_PAY = window.WF_PAY || {
     // TARGET 2, THE CASE, GOES TO 3.3. The feed is evidence that drops happen;
     // the case is how a person acts on it.
     var cs = el('a', 'wf-feed-case');
-    cs.href = BASE + 'case.html';
+    cs.href = BASE + caseHref(row[2], false);
     cs.appendChild(el('span', 'wf-feed-case-art'));
     cs.lastChild.setAttribute('aria-hidden', 'true');
     cs.appendChild(el('span', null, row[2]));
@@ -2437,10 +2438,10 @@ window.WF_PAY = window.WF_PAY || {
     [
       [['Play', [[WF_STR.cases, 'catalogue.html']]]],
       [[WF_STR.cases, [[WF_STR.allCases, 'catalogue.html'], ['Ironbound', 'case.html'],
-                  ['Warsteel', 'case.html'], ['Coldfront', 'case.html'],
-                  ['Nightfall', 'case.html']]]],
+                  ['Warsteel', 'case.html?case=warsteel'], ['Coldfront', 'case.html?case=coldfront'],
+                  ['Nightfall', 'case.html?case=nightfall']]]],
       [['Company', [[WF_STR.termsOfUse, 'legal.html'], [WF_STR.privacyPolicy, 'legal-unpublished.html?doc=privacy'],
-                    [WF_STR.cookiePolicy, 'legal-unpublished.html?doc=cookie'], [WF_STR.refundPolicy, 'legal-unpublished.html']]]],
+                    [WF_STR.cookiePolicy, 'legal-unpublished.html?doc=cookie'], [WF_STR.refundPolicy, 'legal-refund.html']]]],
       [['Help', [[WF_STR.provablyFair, 'fair.html'], ['Contact support', 'support.html']]],
        // 'WHERE WE OPERATE' HAS NO DESTINATION ON THE MAP, and the registry check
        // added on 22 August 2026 is what found it: markets.html is the IA
@@ -3281,6 +3282,22 @@ window.WF_PAY = window.WF_PAY || {
      which the table gives to the M4A1-S. Samples by D-124, marked in 7.1.
      ?round=glock is the outcome of case-outcome.html: what was won there is
      what "Check this round" and "Share it" now open. */
+  /* THE CASES, ONCE, round 16, D-152 answer 2, B1-1. Eleven of twelve tiles
+     opened Ironbound, the only case drawn. One case page now renders whichever
+     case its address names, ?case=, from this table: name, entry cost and risk
+     band are the tiles' own. Ironbound is the drawn case and every other one
+     renders its screens scaled to its entry cost, so its values, its expected
+     value and its open read in proportion while chances, tickets and RTP stay.
+     Samples by D-124, marked in 3.3: the real tables are production data. */
+  var WF_CASES = { ironbound: ['Ironbound', 12.40, 'Medium'], warsteel: ['Warsteel', 4.90, 'Low'], coldfront: ['Coldfront', 2.10, 'Low'],
+    nightfall: ['Nightfall', 31.00, 'High'], emberline: ['Emberline', 7.60, 'Medium'], saltmarsh: ['Saltmarsh', 1.35, 'Low'],
+    blacklight: ['Blacklight', 18.90, 'Medium'], riftwork: ['Riftwork', 55.00, 'High'], deadbolt: ['Deadbolt', 3.20, 'Low'],
+    overcast: ['Overcast', 9.75, 'Medium'], tinderbox: ['Tinderbox', 24.50, 'High'], halfmoon: ['Halfmoon', 0.80, 'Low'] };
+  function caseKey() { var m = /[?&]case=([a-z]+)/.exec(location.search); return m && WF_CASES[m[1]] ? m[1] : 'ironbound'; }
+  function caseOf(name) { var k = String(name || '').replace(' Case', '').toLowerCase(); return WF_CASES[k] ? k : ''; }
+  /* The address of a case, on the shelf of the state a person is in. */
+  function caseHref(name, account) { var k = caseOf(name); return (account ? 'case-account.html' : 'case.html') + (k && k !== 'ironbound' ? '?case=' + k : ''); }
+
   var ROUNDS = {
     ak: { w: 'AK-47', s: 'Redline', axes: ['Field-Tested', 'StatTrak', 'Covert'], won: '47.30', now: '46.85',
           at: '18 Aug 2026 14:44', hash: '4f2a91c7e0b83d5619ac7f20d8e4b1663c9a05f7d21e8b4409c6fa3d7e15b208',
@@ -3317,7 +3334,7 @@ window.WF_PAY = window.WF_PAY || {
     // LETTERS AND DIGITS, round 15: the key stopped at the first digit, so mp9,
     // p250 and m4 fell back to the AK and ten links opened the wrong round.
     var m = /[?&]round=([a-z0-9]+)/.exec(location.search);
-    return (m && ROUNDS[m[1]]) ? m[1] : 'ak';
+    return (m && ROUNDS[m[1]]) ? m[1] : (window.WF_ROUND_DEFAULT || 'ak');
   }
   function proofPanel(state) {
     var tag, fields, scope, acts;
@@ -3355,7 +3372,7 @@ window.WF_PAY = window.WF_PAY || {
     } else {
       tag = (state === 'checked') ? 'Recomputed: matches' : 'Settled';
       fields = SEEDS;
-      scope = 'Proves the round was fixed before the click. Whether the chances hold is on the case screen, <a href="case.html#h2-observed">published against observed</a>.';
+      scope = 'Proves the round was fixed before the click. Whether the chances hold is on the case screen, <a href="' + BASE + caseHref(R.kase || 'Ironbound', false) + '#h2-observed">published against observed</a>.';
       acts = '<a class="wf-btn wf-btn--primary" href="fair-prefilled.html' + (roundKey() === 'ak' ? '' : '?round=' + roundKey()) + '">Recompute this round yourself</a>';
     }
 
@@ -3387,7 +3404,7 @@ window.WF_PAY = window.WF_PAY || {
     document.title = R.w + ' ' + R.s + ', ' + R.axes[0] + ', from ' + K;
     var og = document.querySelector('meta[property="og:title"]'); if (og) og.setAttribute('content', document.title);
     var cn = q('.wf-caserow strong'); if (cn) cn.textContent = K;
-    var cr = q('.wf-caserow'); if (cr && K !== 'Ironbound') cr.setAttribute('href', BASE + 'catalogue.html');
+    var cr = q('.wf-caserow'); if (cr && K !== 'Ironbound') cr.setAttribute('href', BASE + caseHref(K, false));
     var v = document.querySelectorAll('.wf-vals .wf-fig');
     if (v[0]) v[0].innerHTML = '<span class="wf-fig-v">' + R.won + ' coins</span><span class="wf-fig-c">Worth when it was won, ' + R.at + '</span>';
     if (v[1]) v[1].innerHTML = '<span class="wf-fig-v">' + R.now + ' coins</span><span class="wf-fig-c">' + WF_STR.worthNow + '</span>';
@@ -3409,6 +3426,7 @@ window.WF_PAY = window.WF_PAY || {
   /* The verifier opens prefilled with the round it was sent from. */
   function renderVerifierPrefill() {
     var R = ROUNDS[roundKey()];
+    Array.prototype.forEach.call(document.querySelectorAll('a[href*="support-submitted.html?r="]'), function (a) { a.setAttribute('href', BASE + 'support-submitted.html?r=' + roundKey()); });
     Array.prototype.forEach.call(document.querySelectorAll('[data-round]'), function (e) {
       var k = e.getAttribute('data-round');
       e.textContent = k === 'range' ? R.range + ', ' + R.w + ' ' + R.s : R[k];
@@ -3487,7 +3505,7 @@ window.WF_PAY = window.WF_PAY || {
       var b = e.target.closest('button.wf-count-b');
       if (!b) return;
       var box = b.closest('.wf-count');
-      var n = parseInt(b.textContent, 10), unit = 12.40, bal = moneyNow().balance;
+      var n = parseInt(b.textContent, 10), unit = WF_CASES[caseKey()][1], bal = moneyNow().balance;
       Array.prototype.forEach.call(box.querySelectorAll('.wf-count-b'), function (x) {
         x.removeAttribute('aria-current');
         if (x.tagName === 'BUTTON') x.setAttribute('aria-pressed', x === b ? 'true' : 'false');
@@ -3544,7 +3562,7 @@ window.WF_PAY = window.WF_PAY || {
       var num = function (x) { var m = /([\d.]+)(?:\s*coins)?\s*$/.exec(x.textContent.trim()); return m ? m[1] : ''; };
       // A SALE MOVES THE HEADER, round 15: the receipt printed +12.90 over a
       // balance that did not change.
-      var sold = function (x) { var v = parseFloat(num(x)) || 0; x.textContent = 'Sold, +' + num(x); x.disabled = true; x.classList.add('is-sold'); moneyAdd(v, -v); WF_SESS.gone(invKey(x.closest('.wf-won-card')) || roundKey(), 'sold'); };
+      var sold = function (x) { var v = parseFloat(num(x)) || 0; x.textContent = 'Sold, +' + num(x); x.disabled = true; x.classList.add('is-sold'); moneyAdd(v, -v); WF_SESS.gone(invKey(x), 'sold'); };
       if (/^Sell (all|the other)/.test(b.textContent.trim())) {
         var left = document.querySelectorAll('.wf-won-card button.wf-sell:not([disabled])'), sum = 0;
         Array.prototype.forEach.call(left, function (x) { sum += parseFloat(num(x)) || 0; sold(x); });
@@ -3560,9 +3578,167 @@ window.WF_PAY = window.WF_PAY || {
           else { all.textContent = 'All sold'; all.disabled = true; }
         }
       }
-      var send = b.closest('.wf-outcome-acts') && b.closest('.wf-outcome-acts').querySelector('a[href^="withdraw"]');
-      if (send && !document.querySelector('.wf-won-card button.wf-sell:not([disabled])')) send.remove();
+      outcomeLeft();
     });
+  }
+
+  /* WHAT IS LEFT AFTER A SALE, round 16, B1-7. A sold item stayed in the Send
+     label and in the Sending line, "All 2 saved" stood over two receipts, and a
+     single sale printed Sold beside "Saved to My items". Everything on the
+     outcome that names the items now names the ones still held. The Send figure
+     is the change on the balance, signed, on every count, B1-21; how it is
+     worded is stage 05's. */
+  function outcomeLeft() {
+    var acts = document.querySelector('.wf-outcome-acts');
+    if (!acts) return;
+    var cards = [].slice.call(document.querySelectorAll('.wf-won-card'));
+    var held = cards.length
+      ? cards.filter(function (c) { var x = c.querySelector('button.wf-sell'); return x && !x.disabled; }).map(function (c) { return c.getAttribute('data-key'); })
+      : [].slice.call(acts.querySelectorAll('button')).some(function (x) { return /^(Sell|Press again to sell)\b/.test(x.textContent.trim()) && !x.disabled; }) ? [acts.getAttribute('data-key')] : [];
+    var sendable = held.filter(function (k) { return stOf(k) !== null && stOf(k) !== undefined; });
+    var sum = sendable.reduce(function (a, k) { return a + stOf(k); }, 0);
+    var sg = function (v) { return (v >= 0 ? '+' : '-') + Math.abs(v).toFixed(2); };
+    var send = acts.querySelector('a[href^="withdraw"]');
+    if (send) {
+      if (!sendable.length) send.remove();
+      else {
+        send.textContent = (cards.length ? 'Send ' + sendable.length + ' to Steam, ' : 'Send to Steam, ') + sg(sum) + ' coins';
+        send.setAttribute('href', BASE + (sendable.length > 1 ? 'withdraw-many.html?items=' + sendable.join(',') : 'withdraw.html?item=' + sendable[0]));
+      }
+    }
+    var line = [].slice.call(document.querySelectorAll('.wf-instance')).filter(function (x) { return /Sending to Steam/.test(x.textContent); })[0];
+    if (line) {
+      if (!sendable.length) line.remove();
+      else line.innerHTML = 'Sending to Steam: ' + sendable.map(function (k) { return ROUNDS[k].w + ' <b>' + sg(stOf(k)) + '</b>'; }).join(', ') + ' on your balance.';
+    }
+    var saved = [].slice.call(document.querySelectorAll('.wf-commit .wf-fig-c')).filter(function (x) { return /saved to/i.test(x.textContent) || x.hasAttribute('data-saved'); })[0];
+    if (saved) {
+      saved.setAttribute('data-saved', '');
+      var mi = '<a href="' + BASE + 'account.html">' + WF_STR.myItems + '</a>';
+      var n = cards.length || 1;
+      if (!held.length) saved.innerHTML = (n > 1 ? 'All ' + n + ' sold.' : 'Sold.') + ' Nothing from this open is in ' + mi + '.';
+      else if (held.length < n) saved.innerHTML = held.length + ' of ' + n + ' saved to ' + mi + '. <strong>Selling can&#39;t be undone.</strong>';
+    }
+  }
+
+  /* ONE CASE PAGE, MANY CASES, round 16, D-152 answer 2. On a case family page
+     whose address names another case, the name, the risk band and every coin
+     figure on the page follow it; the header's money, the peg, the records in
+     Best drops and anything marked data-noscale do not. Links within the family
+     keep the case. */
+  function mountCaseTemplate() {
+    var page = location.pathname.split('/').pop();
+    if (!/^case/.test(page)) return;
+    var k = caseKey(), nw = parseInt((/[?&]now=(\d+)/.exec(location.search) || [])[1], 10), op = nw && (WF_SESS.get('opens') || [])[nw - 1];
+    if (op && op.c) k = op.c;
+    var main = document.querySelector('.wf-main');
+    if (!main) return;
+    if (k !== 'ironbound') {
+      var K = WF_CASES[k], q = K[1] / 12.40;
+      document.title = document.title.replace(/Ironbound/g, K[0]);
+      var md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute('content', md.getAttribute('content').replace(/Ironbound/g, K[0]));
+      var w = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, { acceptNode: function (n) {
+        return n.parentNode.closest('[data-noscale], [data-money], .wf-hash, code, textarea, script') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT; } });
+      var t, list = [];
+      while ((t = w.nextNode())) list.push(t);
+      list.forEach(function (n) {
+        var v = n.nodeValue.replace(/Ironbound/g, K[0]).replace(/(^|[^$\d.])(\d+\.\d{2})(?![\d%]|\s?%)/g, function (m, pre, num) { return pre + (parseFloat(num) * q).toFixed(2); });
+        if (v !== n.nodeValue) n.nodeValue = v;
+      });
+      Array.prototype.forEach.call(main.querySelectorAll('[aria-label]'), function (x) { x.setAttribute('aria-label', x.getAttribute('aria-label').replace(/Ironbound/g, K[0])); });
+      var rb = main.querySelector('.wf-risk span:not(.wf-risk-l)'); if (rb) rb.textContent = K[2];
+      Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (a) {
+        var h = a.getAttribute('href');
+        if (/^case(-account(-\d)?|-open(-\d)?|-outcome(-\d)?|-interrupted)?\.html/.test(h) && !/[?&]case=/.test(h)) a.setAttribute('href', h.replace(/\.html(\?)?/, function (m0, qm) { return '.html?case=' + k + (qm ? '&' : ''); }));
+      });
+    }
+    /* "AFTER THIS OPEN" IS THE BALANCE LESS THE OPEN, never a scaled figure. */
+    Array.prototype.forEach.call(main.querySelectorAll('.wf-fig-c'), function (x) {
+      if (!/After this open/.test(x.innerHTML)) return;
+      var cur = main.querySelector('.wf-count-b[aria-current="true"]'), n = cur ? parseInt(cur.textContent, 10) || 1 : (/case-account-2/.test(page) ? 2 : /case-account-5/.test(page) ? (parseInt((/[?&]n=([345])/.exec(location.search) || [])[1], 10) || 5) : 1);
+      x.innerHTML = x.innerHTML.replace(/After this open, [\d.]+/, 'After this open, ' + (moneyNow().balance - n * WF_CASES[k][1]).toFixed(2));
+    });
+  }
+
+  /* THE OPEN, PRESSED NOW, round 16, D-152 answer 3, B1-2. The open screen had
+     no way to its outcome. A press records the open, takes its cost from the
+     balance and lets the reveal run; the reveal ends on the outcome, which
+     credits what was won to the value held, once. An open screen or an outcome
+     opened by its address shows its own sample and moves nothing. */
+  function openFromHref(h) {
+    var five = /case-open-5/.test(h), two = /case-open-2/.test(h);
+    return { n: five ? parseInt((/[?&]n=([345])/.exec(h) || [])[1] || '5', 10) : two ? 2 : 1,
+      outcome: five ? 'case-outcome-5.html' : two ? 'case-outcome-2.html' : 'case-outcome.html' };
+  }
+  function mountOpenNow() {
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href*="case-open"]');
+      if (!a || e.defaultPrevented || !(window.WF_SHELL && window.WF_SHELL.account)) return;
+      var o = openFromHref(a.getAttribute('href')), ck = caseKey(), cost = Math.round(o.n * WF_CASES[ck][1] * 100) / 100, bal = moneyNow().balance;
+      if (bal < cost) {
+        e.preventDefault();
+        var row = a.closest('.wf-row, .wf-commit-act, .wf-commit-bar') || a.parentNode, p = row.nextElementSibling;
+        if (!p || !p.hasAttribute('data-open-say')) { p = el('p', 'wf-refuse is-said'); p.setAttribute('data-open-say', ''); p.setAttribute('aria-live', 'polite'); row.parentNode.insertBefore(p, row.nextSibling); }
+        p.innerHTML = 'Not opened: this open costs ' + cost.toFixed(2) + ' coins and the balance is ' + bal.toFixed(2) + ' coins. <a href="' + BASE + 'deposit.html" data-dep-open="step1">' + WF_STR.addFunds + '</a>';
+        return;
+      }
+      var opens = WF_SESS.get('opens') || [], before = openKeys().length;
+      var keys = openBases(o.outcome, o.n).map(function (b, i) { return { key: 'n' + (before + i + 1) + b, base: b, c: ck }; });
+      opens.push({ n: o.n, outcome: o.outcome, keys: keys, credited: false, c: ck });
+      WF_SESS.set('opens', opens); WF_SESS.set('opening', opens.length);
+      moneyAdd(-cost, 0);
+    });
+    var page = location.pathname.split('/').pop();
+    var opens = WF_SESS.get('opens') || [];
+    if (/^case-open/.test(page)) {
+      var seq = WF_SESS.get('opening'), op = seq && opens[seq - 1];
+      if (!op) return;
+      WF_SESS.set('opening');
+      var hs = document.querySelector('[data-hashes]');
+      if (hs) { hs.setAttribute('data-hashes', op.keys.map(function (k) { return k.key; }).join(' ')); Array.prototype.forEach.call(hs.querySelectorAll('.wf-hash-list'), function (x) { x.remove(); }); renderHashes(); }
+      else {
+        var h = ROUNDS[op.keys[0].key].hash, hv = document.querySelector('.wf-hash-v'), hc = document.querySelector('.wf-hash [data-copy]');
+        if (hv) hv.textContent = h.slice(0, 6) + '\u2026' + h.slice(-6);
+        if (hc) hc.setAttribute('data-copy', h);
+      }
+      setTimeout(function () { location.replace(BASE + op.outcome + '?' + (/-5/.test(op.outcome) && op.n < 5 ? 'n=' + op.n + '&' : '') + (op.c && op.c !== 'ironbound' ? 'case=' + op.c + '&' : '') + 'now=' + seq); }, 2400);
+      return;
+    }
+    if (!/^case-(outcome|interrupted)/.test(page)) return;
+    var nw = parseInt((/[?&]now=(\d+)/.exec(location.search) || [])[1], 10), on = nw && opens[nw - 1];
+    var bases = openBases(page, parseInt((/[?&]n=([345])/.exec(location.search) || [])[1], 10));
+    var keys = on ? on.keys.map(function (k) { return k.key; }) : bases;
+    if (on && !on.credited) {
+      moneyAdd(0, keys.reduce(function (a, k) { return a + parseFloat(ROUNDS[k].won); }, 0));
+      on.credited = true; WF_SESS.set('opens', opens);
+    }
+    var cards = document.querySelectorAll('.wf-won-card'), acts = document.querySelector('.wf-outcome-acts');
+    Array.prototype.forEach.call(cards, function (c, i) { c.setAttribute('data-key', keys[i]); });
+    if (acts && !cards.length) acts.setAttribute('data-key', keys[0]);
+    var gone = WF_SESS.get('gone') || {};
+    if (on) {
+      Array.prototype.forEach.call(document.querySelectorAll('.wf-commit a[href*="round="], .wf-won-grid a[href*="round="]'), function (a) {
+        bases.forEach(function (b, i) { a.setAttribute('href', a.getAttribute('href').replace(new RegExp('round=' + b + '(?![a-z0-9])'), 'round=' + keys[i])); });
+      });
+      Array.prototype.forEach.call(document.querySelectorAll('.wf-commit .wf-instance'), function (x) { x.innerHTML = x.innerHTML.replace(/\d{1,2} Aug 2026,? \d\d:\d\d/g, OPEN_AT); });
+      /* WHAT WAS ALREADY SOLD STAYS SOLD on a reload of the same outcome. */
+      Array.prototype.forEach.call(cards.length ? cards : [acts], function (c) {
+        if (gone[c.getAttribute('data-key')] !== 'sold') return;
+        Array.prototype.forEach.call(c.querySelectorAll('button'), function (x) { if (/^Sell\b/.test(x.textContent.trim()) && !/^Sell all/.test(x.textContent.trim())) { x.textContent = 'Sold'; x.disabled = true; x.classList.add('is-sold'); } });
+      });
+    }
+    /* THE OWNER SHARES FROM THE OWNER'S VIEW, round 16, B1-8: Share opened the
+       stranger's page of the person's own round. */
+    Array.prototype.forEach.call(document.querySelectorAll('.wf-commit a[href^="result.html?round="]'), function (a) { a.setAttribute('href', a.getAttribute('href').replace('result.html', 'result-owner.html')); });
+    /* CHECK ALL N OPENS EVERY ROLL, round 16, B1-19: it opened an empty
+       verifier. A verifier checks one round, so the control opens the list of
+       rolls, each with its own check. */
+    var ca = [].slice.call(document.querySelectorAll('.wf-outcome-links a[href="fair.html#check"]'))[0], db = document.querySelector('.wf-detail-b');
+    if (ca && db) {
+      ca.setAttribute('href', '#wf-rolls-pop'); ca.textContent = 'Check each of the ' + keys.length + ' rolls';
+      ca.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); if (db.getAttribute('aria-expanded') !== 'true') db.click(); var f = document.querySelector('#wf-rolls-pop a'); if (f) f.focus(); });
+    }
+    outcomeLeft();
   }
 
   /* THE FAVOURITE ANSWERS, round 14. A guest's press opens sign in, which is
@@ -3619,8 +3795,22 @@ window.WF_PAY = window.WF_PAY || {
       var sayAt = b.parentNode, say = sayAt.querySelector('.wf-refuse') || sayAt.appendChild(el('p', 'wf-refuse is-said'));
       if (/fair-unavailable/.test(path)) { say.textContent = 'Nothing to recompute yet: the server seed for this round is revealed when it rotates.'; return; }
       if (/fair-proof-failed/.test(path)) { say.textContent = 'Recomputed again: 30 211. It still does not match 2 417, and the report above stands.'; return; }
-      var q = /[?&]round=/.test(location.search) ? '?round=' + roundKey() : '';
-      location.href = 'fair-matched.html' + q + '#check';
+      /* WHAT WAS TYPED IS COMPARED WITH THE ROUND, round 16, D-152 answer 4,
+         B1-11. Any well formed input agreed, which is a verifier that cannot
+         say no. The round is the one whose published hash was entered; each
+         field that differs from its record is named beside itself. */
+      var hk = Object.keys(ROUNDS).filter(function (k) { return ROUNDS[k].hash === v('v-hash').toLowerCase(); })[0];
+      if (!hk) { say.textContent = 'No published round has this server seed hash. Check it was copied whole, from the round you mean.'; return; }
+      var RR = ROUNDS[hk], diff = [];
+      [['v-seed', RR.seed.toLowerCase(), 'server seed'], ['v-client', RR.client, 'client seed'], ['v-nonce', String(RR.nonce).replace(/\s+/g, ''), 'nonce']].forEach(function (c) {
+        var got = c[0] === 'v-nonce' ? v(c[0]).replace(/,/g, '') : v(c[0]).toLowerCase();
+        if (got === c[1].toLowerCase()) return;
+        diff.push(c[2]);
+        var box = document.getElementById(c[0]).closest('.wf-vf'), pe = el('p', 'wf-vf-err', 'Not the ' + c[2] + ' published for this round.');
+        box.classList.add('is-bad'); box.appendChild(pe);
+      });
+      if (diff.length) { say.textContent = 'Does not match this round, ' + RR.w + ' ' + RR.s + ', ' + RR.at + ': the ' + diff.join(' and the ') + (diff.length > 1 ? ' differ' : ' differs') + ' from its record. Nothing was recomputed from a mix of two rounds.'; return; }
+      location.href = 'fair-matched.html' + (hk === 'ak' ? '' : '?round=' + hk) + '#check';
     });
   }
 
@@ -3834,11 +4024,17 @@ window.WF_PAY = window.WF_PAY || {
     var drops = [['AK-47', 'Redline', '47.30', '18 Aug, 14:44', ''], ['USP-S', 'Kill Confirmed', '14.20', '18 Aug, 14:22', 'usp'],
                  ['Glock-18', 'Water Elemental', '12.90', '18 Aug, 14:58', 'glock'], ['Nova', 'Koi', '7.90', '18 Aug, 14:39', 'nova'],
                  ['MP9', 'Rose Iron', '7.40', '18 Aug, 14:51', 'mp9'], ['P250', 'Asiimov', '6.90', '18 Aug, 14:31', 'p250']];
-    out.push('<section class="wf-sec" aria-labelledby="h2-recent"><div class="wf-sec-head"><h2 id="h2-recent">Best drops</h2>' +
+    /* ANOTHER CASE'S BEST DROPS ARE ITS OWN RECORDS, round 16: the rolls on
+       record from it, by value, and none where there are none. */
+    if (caseKey() !== 'ironbound') drops = WF_ROLLS.filter(function (r) { return caseOf(r.kase) === caseKey() && r.hash; })
+      .sort(function (a, b) { return parseFloat(b.worth) - parseFloat(a.worth); })
+      .map(function (r) { return [r.w, r.s, r.worth, r.when.replace(' ', ' ').replace(/ (\d\d:)/, ', $1'), r.key]; });
+    out.push('<section class="wf-sec" data-noscale aria-labelledby="h2-recent"><div class="wf-sec-head"><h2 id="h2-recent">Best drops</h2>' +
       (state === 'nocounter' ? '' : '<p class="wf-sec-sub">By value. <a href="#h2-observed">What usually drops</a></p>') +
       '</div><ul class="wf-recent">');
+    if (!drops.length) out.push('<li class="wf-fig-c">Nothing opened from this case is on record yet.</li>');
     drops.forEach(function (d) {
-      out.push('<li><a href="result.html' + (d[4] ? '?round=' + d[4] : '') + '"><span class="wf-r-art" aria-hidden="true"></span><span class="wf-r-w">' + d[0] +
+      out.push('<li><a href="result.html' + (d[4] && d[4] !== 'ak' ? '?round=' + d[4] : '') + '"><span class="wf-r-art" aria-hidden="true"></span><span class="wf-r-w">' + d[0] +
         '</span><span class="wf-r-s">' + d[1] + '</span><span class="wf-r-v">' + d[2] + ' coins</span><span class="wf-r-t">' + d[3] + '</span></a></li>');
     });
     out.push('</ul></section>');
@@ -4135,10 +4331,32 @@ window.WF_PAY = window.WF_PAY || {
         var first = document.querySelector('.wf-cats-sec');
         if (first) { line = el('p', 'wf-count-line'); line.setAttribute('data-live-count', ''); line.setAttribute('aria-live', 'polite'); first.parentNode.insertBefore(line, first); }
       }
+      /* THE FILTERS IN FORCE ARE NAMED AND EACH ONE COMES OFF, round 16, B1-16:
+         a live filter down to nothing said "Nothing matches" with no chips and
+         no facet named, while flows.md 1a promises a way to widen and the drawn
+         empty state carries both. */
+      var CH = [];
+      if (F.risk.length) CH.push([F.risk.join(' or ') + ' risk', function () { F.risk = []; }]);
+      if (F.q) CH.push(['Name has \u201c' + F.q + '\u201d', function () { F.q = ''; }]);
+      if (F.max < 55 || F.min > 0) CH.push([(F.min > 0 ? F.min.toFixed(2) + ' to ' : 'under ') + F.max.toFixed(2) + ' coins', function () { F.min = 0; F.max = 55; }]);
+      if (F.liked) CH.push(['Favourites only', function () { F.liked = false; }]);
+      if (F.funds) CH.push(['Within my balance', function () { F.funds = false; }]);
+      if (F.type !== 'All') CH.push([F.type + ' only', function () { F.type = 'All'; }]);
+      var chips = document.querySelector('[data-live-chips]');
+      if (!chips && line) { chips = el('div', 'wf-chips'); chips.setAttribute('data-live-chips', ''); chips.setAttribute('role', 'group'); chips.setAttribute('aria-label', 'Filters in force'); line.parentNode.insertBefore(chips, line); }
+      if (chips) {
+        chips.hidden = !on; chips.innerHTML = '';
+        CH.forEach(function (c) {
+          var ch = el('span', 'wf-chip', c[0] + ' ');
+          var x = el('button', 'wf-btn wf-btn--small wf-chip-x', 'x'); x.type = 'button'; x.setAttribute('aria-label', 'Remove filter: ' + c[0]);
+          x.addEventListener('click', function () { c[1](); write(F); apply(); });
+          ch.appendChild(x); chips.appendChild(ch);
+        });
+      }
       if (line) {
         line.hidden = !on;
         line.innerHTML = n ? n + (n === 1 ? ' case matches' : ' cases match') + ', out of ' + all.length + '. <a href="catalogue.html">Clear all</a>'
-                           : 'Nothing matches. <a href="catalogue.html">Clear all</a>';
+                           : 'Nothing matches ' + CH.map(function (c) { return c[0]; }).join(' and ') + '. Remove one above, or <a href="catalogue.html">clear all</a>.';
       }
       var btn = document.querySelector('[data-filter-open]');
       if (btn) {
@@ -4380,6 +4598,8 @@ window.WF_PAY = window.WF_PAY || {
      No tick, no acts: the request is made and its clock is on 5.9. */
   /* A card's key is the round its Share opens. */
   function invKey(card) {
+    var dk = card && card.closest && card.closest('[data-key]');
+    if (dk) return dk.getAttribute('data-key');
     var a = card && card.querySelector('a[href*="round="]');
     return a ? (/round=([a-z0-9]+)/.exec(a.getAttribute('href')) || [])[1] : '';
   }
@@ -4388,6 +4608,22 @@ window.WF_PAY = window.WF_PAY || {
     if (!grid || !document.querySelector('[data-invbar]')) return;
     /* WHAT LEFT IN THIS SESSION LEAVES MY ITEMS, D-152: sold and cashed out go,
        sent stays in sight with its mark, the rule D-150 set for a sending item. */
+    /* AND WHAT AN OPEN IN THIS SESSION WON IS HELD HERE, round 16, B1-5: the
+       outcome said "Saved to My items" and My items did not have it. */
+    BORN.filter(function (r) { return r.state === 'held'; }).reverse().forEach(function (r) {
+      var sh = WF_SHELF[r.key], st = stOf(r.key);
+      var c = el('article', 'wf-inv-card'); c.setAttribute('data-v', r.worth); c.setAttribute('data-when', '2026-08-21T09:31');
+      c.innerHTML = '<div class="wf-inv-top"><label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="' + r.worth + '"><span class="wf-vh">Select ' + r.w + ' ' + r.s + '</span></label>' +
+        '<a class="wf-btn wf-btn--small" href="' + BASE + 'result-owner.html?round=' + r.key + '">Share</a></div>' +
+        '<span class="wf-inv-art" aria-hidden="true"></span>' +
+        '<p class="wf-inv-w">' + r.w + '</p><p class="wf-inv-s">' + r.s + '</p><p class="wf-inv-wear">(' + r.wear + ')</p><p class="wf-inv-p">' + r.worth + '</p>' +
+        '<div class="wf-inv-acts"><button class="wf-btn" type="button" data-inv-sell>Sell for coins</button>' +
+        (sh && sh.offers.length ? '<a class="wf-btn" href="' + BASE + 'withdraw.html?item=' + r.key + '">' + WF_STR.sendToSteam + '</a>' : '') +
+        '<button class="wf-btn" type="button" disabled>Exchange</button><p class="wf-inv-why">Exchange is not here yet</p></div>' +
+        (sh && sh.offers.length ? '<div class="wf-inv-mkt"><span>Starting at<b>' + sh.offers[0].p.toFixed(2) + '</b></span><span>Offers<b>' + sh.total + '</b></span></div>' +
+          '<p class="wf-inv-out"><span>Out to Steam</span><span><b>' + Math.abs(st).toFixed(2) + '</b> ' + (st >= 0 ? 'back' : 'more') + '</span></p>' : '<p class="wf-inv-out"><span>Out to Steam</span><span class="wf-fig-missing">no copy on sale to buy</span></p>');
+      grid.insertBefore(c, grid.firstChild);
+    });
     var gone = WF_SESS.get('gone') || {};
     Array.prototype.forEach.call(grid.querySelectorAll('.wf-inv-card'), function (c) {
       var how = gone[invKey(c)];
@@ -4398,7 +4634,7 @@ window.WF_PAY = window.WF_PAY || {
       c.insertBefore(el('p', 'wf-inv-mark', 'On its way to Steam, since 21 Aug'), c.firstChild);
       var acts = c.querySelector('.wf-inv-acts'); if (acts) acts.innerHTML = '<a class="wf-btn" href="' + BASE + 'history-withdrawals.html">Its clock</a>';
     });
-    WF_ROLLS.filter(function (r) { return r.state === 'sending'; }).forEach(function (r) {
+    BORN.concat(WF_ROLLS).filter(function (r) { return r.state === 'sending'; }).forEach(function (r) {
       var c = el('article', 'wf-inv-card is-inflight');
       c.innerHTML = '<p class="wf-inv-mark">On its way to Steam, since ' + (r.went || '') + '</p>' +
         '<span class="wf-inv-art" aria-hidden="true"></span>' +
@@ -4533,6 +4769,21 @@ window.WF_PAY = window.WF_PAY || {
     });
     /* A QUESTION IS NOT AN APPEAL, round 15: every Send landed on an appeal
        ticket. The entry form's Send carries ?q=1 and the ticket says what it is. */
+    /* A ROUND THAT DID NOT VERIFY IS ITS OWN TICKET, round 16, B1-12 and B1-13.
+       Report on a failed proof opened the restriction appeal with an empty round
+       field, and the history row's "The ticket" opened a support form with no
+       ticket in it. Both now open the ticket the report made, with the round. */
+    var rk = (/[?&]r=([a-z0-9]+)/.exec(location.search) || [])[1];
+    if (rk && ROUNDS[rk]) {
+      var RR = ROUNDS[rk], tv = document.querySelector('.wf-tid-v');
+      if (tv) { tv.textContent = 'rp-2026-08-21-0041'; var cp = tv.parentNode.querySelector('[data-copy]'); if (cp) cp.setAttribute('data-copy', tv.textContent); }
+      Array.prototype.forEach.call(document.querySelectorAll('.wf-tick .wf-fig-c'), function (c) { c.textContent = c.textContent.replace(/Appeal submitted, .*/, 'Round reported, 21 Aug 2026 09:31'); });
+      Array.prototype.forEach.call(document.querySelectorAll('.wf-tick .wf-note, a[href="withdraw-restricted.html"], a[href="support-waiting.html"]'), function (x) { x.remove(); });
+      var wh = document.querySelector('#h2-what'), wb = wh && wh.closest('.wf-stack') && wh.closest('.wf-stack').querySelector('p');
+      if (wb) wb.innerHTML = 'Our recomputation of this round did not match what we published, and the round is attached: <strong>' + RR.w + ' ' + RR.s + '</strong>, ' + RR.at + ', nonce ' + RR.nonce + '. We answer with what we found and what we do about it.';
+      var wr = wh && wh.closest('.wf-stack') && wh.closest('.wf-stack').querySelector('.wf-row');
+      if (wr) wr.innerHTML = '<a class="wf-btn" href="' + BASE + 'fair-prefilled.html?round=' + rk + '">The round</a>';
+    }
     if (/[?&]q=1/.test(location.search)) {
       var tid = document.querySelector('.wf-tid-v');
       if (tid) { tid.textContent = 'sp-2026-08-22-0032'; var cb = tid.parentNode.querySelector('[data-copy]'); if (cb) cb.setAttribute('data-copy', tid.textContent); }
@@ -4776,6 +5027,43 @@ window.WF_PAY = window.WF_PAY || {
      client seed nightjar, nonce 412, ticket 18 210 in the USP-S range. Sample. */
   ROUNDS.ex = { w: 'USP-S', s: 'Kill Confirmed', axes: ['Minimal Wear', 'Restricted'], won: '14.20', now: '13.95', at: '18 Aug 2026 14:12',
     hash: hx('exh', 64), seed: '7c1e' + hx('exs', 56) + 'a904', client: 'nightjar', nonce: '412', ticket: '18 210', range: '11 001 to 23 000', kase: 'Ironbound' };
+  /* AN OPEN PRESSED NOW IS A ROUND DATED NOW, round 16, D-152 answer 3. The
+     open screen had no way to its outcome, and the outcome it showed was dated
+     18 Aug while the press was made at the prototype's now. A press records an
+     open in the session: which rolls it struck, each a new round from the same
+     Ironbound sample it draws, its own seed, nonce and hash, dated 21 Aug 2026
+     09:31. History appends it and My items holds it until it is sold or sent.
+     An outcome page opened by its address stays the 18 Aug state it draws. */
+  var OPEN_AT = '21 Aug 2026 09:31';
+  var OPEN_ST = { glock: -6.70, o2mp9: 1.45 };
+  MULTI.forEach(function (m) { OPEN_ST[m.key] = m.st; });
+  function openBases(page, n) {
+    if (/case-(open|outcome)-2/.test(page)) return ['glock', 'o2mp9'];
+    if (/case-(open|outcome)-5/.test(page)) return MULTI.slice(0, n || 5).map(function (m) { return m.key; });
+    return ['glock'];
+  }
+  /* BORN IN THIS SESSION, AND KEPT APART: history's states read WF_ROLLS by
+     position, so a roll put in front of it would move every row they name. */
+  var BORN = [];
+  function stOf(k) {
+    var o = openKeys().filter(function (x) { return x.key === k; })[0], b = o ? o.base : k, st = OPEN_ST[b];
+    if (st === null || st === undefined) return st;
+    return st * (o ? WF_CASES[o.c || 'ironbound'][1] : WF_CASES[caseKey()][1]) / 12.40;
+  }
+  function openKeys() { var o = []; (WF_SESS.get('opens') || []).forEach(function (x) { o = o.concat(x.keys); }); return o; }
+  openKeys().forEach(function (k, i) {
+    var b = ROUNDS[k.base]; if (!b || ROUNDS[k.key]) return;
+    var r = JSON.parse(JSON.stringify(b)), cr = WF_CASES[k.c || 'ironbound'], q = cr[1] / 12.40;
+    r.at = OPEN_AT; r.hash = hx(k.key + 'h', 64); r.seed = hx(k.key + 's', 64); r.kase = cr[0];
+    if (q !== 1) { r.won = (parseFloat(r.won) * q).toFixed(2); r.now = (parseFloat(r.now) * q).toFixed(2); }
+    r.nonce = String(41300 + i).replace(/(\d)(\d{3})$/, '$1 $2');
+    ROUNDS[k.key] = r;
+    var ch = ''; CASE_ITEMS.forEach(function (g) { g[2].forEach(function (x) { if (x[0] === r.w && x[1] === r.s) ch = parseFloat(x[3]).toFixed(2) + '%'; }); });
+    var how = (WF_SESS.get('gone') || {})[k.key];
+    BORN.unshift({ key: k.key, when: '21 Aug 09:31', date: '21 Aug 2026', kase: cr[0] + ' Case', w: r.w, s: r.s, wear: r.axes[0], cost: cr[1].toFixed(2), worth: r.won, chance: ch,
+      hash: r.hash.slice(0, 8), state: how === 'sold' || how === 'cashed' ? 'sold' : how === 'sent' ? 'sending' : 'held', went: how ? '21 Aug' : undefined, born: true });
+  });
+
   /* EACH HASH OF A MULTI-ROLL OPEN IS ITS OWN, with its own copy. */
   function renderHashes() {
     Array.prototype.forEach.call(document.querySelectorAll('[data-hashes]'), function (box) {
@@ -4929,6 +5217,9 @@ window.WF_PAY = window.WF_PAY || {
            is three accounts refused with no explanation, and a refusal whose
            ground is only in a hover is a refusal with no ground on a phone. */
         if (c.state && r.why) td.appendChild(el('span', 'wf-hnote', r.why));
+        /* A ROW THAT HAS A RECORD OPENS IT, round 16, B2-23: the expired offer's
+           page, the one place it can be sent again, had no way in from here. */
+        if (c.state && r.rec) { var ra = el('a', 'wf-hnote', 'Open the record'); ra.setAttribute('href', BASE + r.rec); td.appendChild(ra); }
         row.appendChild(td);
       });
       tb.appendChild(row);
@@ -4993,7 +5284,10 @@ window.WF_PAY = window.WF_PAY || {
     var acts = el('div', 'wf-plr-check');
     var link = el('a', 'wf-btn wf-btn--small', r.hash ? WF_STR.checkRound : 'No proof to check');
     if (r.hash) { link.setAttribute('href', BASE + 'result.html' + (r.key && r.key !== 'ak' ? '?round=' + r.key : '')); }
-    else { link.setAttribute('href', BASE + 'history-no-seed.html'); }
+    /* A STRANGER IS NOT SENT INTO SOMEONE'S HISTORY, round 16, B1-14: on a
+       public profile the link opened the owner's private history state. There
+       it opens the public reason a round may have no proof. */
+    else { link.setAttribute('href', BASE + (/(^|\/)player/.test(location.pathname) ? 'fair.html#h2-how' : 'history-no-seed.html')); }
     acts.appendChild(link);
     card.appendChild(acts);
     return card;
@@ -5039,7 +5333,7 @@ window.WF_PAY = window.WF_PAY || {
     mode.setAttribute('title', WF_STR.cases);
     from.appendChild(mode);
     var kase = el('a', 'wf-roll-case', r.kase);
-    kase.href = BASE + (/Ironbound/.test(r.kase) ? 'case.html' : 'catalogue.html');
+    kase.href = BASE + caseHref(r.kase, false);
     from.appendChild(kase);
     /* THE ENTRY COST BELONGS TO THE CASE AND IT NOW SITS UNDER THE CASE, D-120.
        It was in the skin's cell, labelled Cost, next to the skin's own Worth, so
@@ -5127,7 +5421,7 @@ window.WF_PAY = window.WF_PAY || {
       proof.appendChild(el('span', 'wf-fig-missing', ROLL_PROOF[kind]));
       if (kind === 'mismatch') {
         var tick = el('a', 'wf-btn wf-btn--small', 'The ticket');
-        tick.href = BASE + 'support.html';
+        tick.href = BASE + 'support-submitted.html?r=' + r.key;
         proof.appendChild(tick);
       }
     }
@@ -5138,10 +5432,15 @@ window.WF_PAY = window.WF_PAY || {
   function mountRolls() {
     var host = document.querySelector('[data-roll-list]');
     if (!host) return;
+    /* The rolls this session opened come first on the history itself; its
+       states are snapshots and keep their own rows. */
+    if (/(^|\/)history\.html$/.test(location.pathname)) BORN.forEach(function (r) { host.appendChild(rollRow(r, {})); });
     (window.WF_ROLLLIST || []).forEach(function (o) {
       var r = o.roll || WF_ROLLS[o.i];
       if (r) host.appendChild(rollRow(r, o));
     });
+    var c0 = document.querySelector('#h2-rolls + .wf-fig-c'), n0 = host.querySelectorAll('.wf-roll').length;
+    if (c0 && BORN.length) c0.textContent = n0 + ' rolls';
     /* THE THREE FILTERS FILTER, round 14: they were buttons with no handler.
        Case and date step through their values; Still held toggles. The clock is
        the prototype's now, 21 Aug 2026 09:31. */
@@ -5375,6 +5674,26 @@ window.WF_PAY = window.WF_PAY || {
       { p: 69.40, f: 0.3377921, stk: 5 }
     ] }
   };
+  /* THE OUTCOME'S ITEMS HAVE SHELVES, round 16, B1-6: Send to Steam on the
+     outcome opened the AK, because the Glock and the multi-roll items had no
+     row here. Each row is derived from the figure its outcome already prints:
+     the copy costs the item's value less its Send figure, and an item with no
+     Send figure has no copy on sale. Floats are samples, D-124, marked in 5.3.
+     A round born in this session takes its base item's shelf. */
+  Object.keys(OPEN_ST).forEach(function (k, i) {
+    var R = ROUNDS[k]; if (!R || WF_SHELF[k]) return;
+    var v = parseFloat(R.won), st = OPEN_ST[k], p0 = st === null ? 0 : v - st;
+    WF_SHELF[k] = { w: R.w, s: R.s, wear: R.axes[0], ours: v, total: st === null ? 0 : 40 + i * 37, offers: st === null ? [] : [0, 0.04, 0.09].map(function (d, j) {
+      return { p: Math.round(p0 * (1 + d) * 100) / 100, f: parseFloat((0.1 + ((i * 7 + j * 13) % 40) / 100 + 0.0004321).toFixed(7)), stk: 0 };
+    }) };
+  });
+  openKeys().forEach(function (k) {
+    var b = WF_SHELF[k.base], q = WF_CASES[k.c || 'ironbound'][1] / 12.40;
+    if (!b || WF_SHELF[k.key]) return;
+    var c = JSON.parse(JSON.stringify(b)); c.ours = Math.round(c.ours * q * 100) / 100;
+    c.offers.forEach(function (o) { o.p = Math.round(o.p * q * 100) / 100; });
+    WF_SHELF[k.key] = c;
+  });
   function wdKeys() {
     var one = (/[?&]item=([a-z0-9]+)/.exec(location.search) || [])[1];
     var many = (/[?&]items=([a-z0-9,]+)/.exec(location.search) || [])[1];
@@ -5393,7 +5712,13 @@ window.WF_PAY = window.WF_PAY || {
     if (!b) return;
     var r = WF_SHELF[b.getAttribute('data-wd-resend')], o = r && r.offers[0];
     if (!o) return;
-    try { sessionStorage.setItem('wf-wd-struck', JSON.stringify([{ key: b.getAttribute('data-wd-resend'), w: r.w, s: r.s, wear: r.wear, ours: r.ours, p: o.p, f: o.f }])); } catch (err) {}
+    /* AGAIN IS NOT A SECOND SETTLEMENT, round 16, D1-17 and D1-18: the clock
+       credited the whole difference a second time, +2.50 over the 3.00 already
+       added, and opened with the expired stretch gone. The press moves the
+       balance by the difference between the two settlements, and the record's
+       history travels to the clock. */
+    var hist = document.querySelector('#h2-history') && document.querySelector('#h2-history').closest('.wf-stack').querySelector('.wf-clock-list');
+    try { sessionStorage.setItem('wf-wd-struck', JSON.stringify([{ key: b.getAttribute('data-wd-resend'), w: r.w, s: r.s, wear: r.wear, ours: r.ours, p: o.p, f: o.f, prior: parseFloat(b.getAttribute('data-wd-prior') || '0'), hist: hist ? hist.innerHTML : '' }])); } catch (err) {}
     location.href = BASE + 'withdraw-clock.html';
   });
 
@@ -5434,7 +5759,17 @@ window.WF_PAY = window.WF_PAY || {
        press is an act the session carries, D-152: the base is the session's pair
        when one exists, else the account's, never this page's own sample. */
     if (!WF_SESS.get('money')) window.WF_SHELL.money = { balance: WF_MONEY.balance, held: WF_MONEY.held };
-    moneyAdd(total, -ours);
+    var prior = st.reduce(function (a, r) { return a + (r.prior || 0); }, 0);
+    moneyAdd(total - prior, -ours);
+    if (prior && line) line.innerHTML = 'Settled again at today&#39;s price: ' + wdFmt(Math.abs(total)) + ' coins against the ' + wdFmt(prior) + ' added the first time, so <strong>' + wdFmt(Math.abs(total - prior)) + ' coins ' + (total - prior >= 0 ? 'were added to' : 'were taken from') + ' your balance</strong> when you asked. Nothing further moves while this is in flight.';
+    var ck = document.querySelector('#h2-clock') && document.querySelector('#h2-clock').closest('.wf-stack');
+    if (ck && st[0].hist) {
+      var hs = el('div', 'wf-stack');
+      hs.innerHTML = '<div class="wf-sec-head"><h2 id="h2-history">Everything this record has done</h2></div><ol class="wf-clock-list"></ol>';
+      ck.parentNode.insertBefore(hs, ck.nextSibling);
+    }
+    var hl = document.querySelector('#h2-history') && document.querySelector('#h2-history').closest('.wf-stack').querySelector('.wf-clock-list');
+    if (hl && st[0].hist) hl.innerHTML = st[0].hist + '<li class="wf-cs is-done"><span class="wf-cs-n">Offer sent again</span><span class="wf-cs-who">waiting on us</span><span class="wf-cs-t"><span class="wf-cs-e">0:00</span><span class="wf-cs-c">21 Aug 09:31</span></span></li>';
     st.forEach(function (r) { WF_SESS.gone(r.key, 'sent'); });
   }
 
@@ -5574,7 +5909,7 @@ window.WF_PAY = window.WF_PAY || {
     var wrap = el('div', 'wf-hpanel');
     /* THE EMPTY STATE EMPTIES THE ARRAY RATHER THAN COPYING THE PAGE, so the two
        states cannot disagree about what a card looks like. */
-    var rolls = window.WF_ROLLS_EMPTY ? [] : WF_ROLLS;
+    var rolls = window.WF_ROLLS_EMPTY ? [] : BORN.concat(WF_ROLLS);
     wrap.appendChild(histBar('Items', rolls.length, 'items'));
     if (!rolls.length) {
       wrap.appendChild(histEmpty('Nothing won yet',
@@ -5959,7 +6294,7 @@ window.WF_PAY = window.WF_PAY || {
              THE BOX IS THE PRODUCT'S OWN CONTROL AND NOT THE BROWSER'S. */
           '<div class="wf-cbx" data-dep-terms>' +
             '<button class="wf-cbx-box" type="button" aria-pressed="false" aria-label="I have read and accept the terms and the refund and payments policy">&#10003;</button>' +
-            '<span class="wf-cbx-t">I have read and accept the <a href="' + BASE + 'legal.html">terms</a> and the <a href="' + BASE + 'legal-unpublished.html">refund and payments policy</a>.</span>' +
+            '<span class="wf-cbx-t">I have read and accept the <a href="' + BASE + 'legal.html">terms</a> and the <a href="' + BASE + 'legal-refund.html">refund and payments policy</a>.</span>' +
           '</div>' +
           /* THREE FACTS, ONE LINE EACH, D-129, where four paragraphs stood under
              the press. The figures are samples by D-124 and the node holds what
@@ -6091,7 +6426,7 @@ window.WF_PAY = window.WF_PAY || {
           '<div class="wf-dock">' +
             (empty
               ? ''
-              : '<div class="wf-row"><a class="wf-btn wf-btn--primary" href="' + BASE + 'deposit-crediting.html">Done, I have sent it</a></div>') +
+              : '<div class="wf-row"><a class="wf-btn wf-btn--primary" href="' + BASE + 'deposit-crediting.html?m=' + encodeURIComponent(coin) + '">Done, I have sent it</a></div>') +
           '</div>' +
         '</div>' +
       '</div>';
@@ -6287,7 +6622,7 @@ window.WF_PAY = window.WF_PAY || {
     var cg = scope.querySelector('[data-code-go]');
     if (cg) cg.addEventListener('click', function (e) {
       var inp = scope.querySelector('[id$="dep-code"]');
-      if (inp && inp.value.trim().length >= 8) return;
+      if (inp && inp.value.trim().length >= 8) { cg.setAttribute('href', BASE + 'deposit-crediting.html?m=' + encodeURIComponent('Gift Cards')); return; }
       e.preventDefault();
       var sy = scope.querySelector('[data-code-say]');
       if (sy) { sy.textContent = inp && inp.value.trim() ? 'That is not a whole card code. Paste it as printed on the card.' : 'Nothing went through: paste the code from the card first.'; sy.classList.add('is-said'); }
@@ -6321,6 +6656,20 @@ window.WF_PAY = window.WF_PAY || {
     m = m ? decodeURIComponent(m) : '';
     if (a) am.textContent = m === 'CS2 skins' ? a + ' coins' : '$' + parseFloat(a).toFixed(2);
     if (m && mm) mm.textContent = m;
+    /* EACH ROUTE WAITS ON ITS OWN PARTY, round 16, B2-1, B2-2, D1-19. Crypto and
+       gift cards reached this page with no method and read $40.00 Visa; skins
+       read "waiting on the payment provider". A transfer's amount is what
+       arrives and a card's is what it carries, so neither is a figure here until
+       it is read. Times are samples, D-124, marked in 4.4. */
+    var crypto = (window.WF_PAY.crypto || []).some(function (r) { return r[0] === m; });
+    var who = document.querySelector('.wf-clock-list .wf-cs-who'), when = document.querySelector('.wf-clock-list .wf-cs-c');
+    var setAmt = function (t) { am.textContent = t; am.classList.add('wf-fig-missing'); };
+    var lead = document.querySelector('#h2-crediting + p');
+    if (m === 'CS2 skins') { if (who) who.textContent = 'waiting on Steam to complete the trade'; if (when) when.textContent = 'Steam sets this'; if (lead) lead.textContent = 'Your skins have left your Steam inventory. The balance is not there yet, and this state stays until it is.'; }
+    else if (crypto) { if (lead) lead.textContent = 'Your transfer is on its way. The balance is not there yet, and this state stays until it is.'; setAmt('What arrives, read when it lands'); if (who) who.textContent = 'waiting on the ' + m + ' network'; if (when) when.textContent = 'the network sets this'; }
+    else if (m === 'Gift Cards') { setAmt('What the card carries, read on redeeming'); if (who) who.textContent = 'waiting on the reseller to confirm the code'; }
+    var nt = [].slice.call(document.querySelectorAll('.wf-note')).filter(function (x) { return /after 2 minutes/.test(x.textContent); })[0];
+    if (nt && (m === 'CS2 skins' || crypto)) nt.innerHTML = nt.innerHTML.replace('Not there after 2 minutes?', 'Not there when the ' + (crypto ? 'network' : 'trade') + ' has finished?');
   }
 
   function mountPay() {
@@ -6792,6 +7141,10 @@ window.WF_PAY = window.WF_PAY || {
       var t = e.target.closest('[data-co-open]');
       if (!t) return;
       e.preventDefault();
+      /* NOTHING TICKED, NOTHING OPENS, round 16, B2-24: the bar said "Tick an
+         item first" and the dialog opened over it anyway. */
+      var pk = document.querySelectorAll('[data-inv-pick]');
+      if (pk.length && !document.querySelector('[data-inv-pick]:checked')) return;
       open(t);
     });
 
@@ -7244,9 +7597,12 @@ window.WF_PAY = window.WF_PAY || {
   function mountLegalDoc() {
     var row = document.querySelector('[data-legal-doc]');
     if (!row) return;
-    var D = { refund: WF_STR.refundPolicy, privacy: WF_STR.privacyPolicy, cookie: WF_STR.cookiePolicy };
+    /* THE REFUND POLICY HAS ITS PAGE SINCE D-152, so this state names two
+       documents, and an old ?doc=refund goes to the document. */
+    var D = { privacy: WF_STR.privacyPolicy, cookie: WF_STR.cookiePolicy };
     var k = (/[?&]doc=([a-z]+)/.exec(location.search) || [])[1];
-    if (!D[k]) k = 'refund';
+    if (k === 'refund') { location.replace(BASE + 'legal-refund.html'); return; }
+    if (!D[k]) k = 'privacy';
     var h1 = document.querySelector('h1'); if (h1) h1.textContent = D[k];
     var cur = document.querySelector('.wf-crumb [aria-current="page"]'); if (cur) cur.textContent = D[k];
     document.title = D[k];
@@ -7314,7 +7670,17 @@ window.WF_PAY = window.WF_PAY || {
       if (!p || !p.hasAttribute('data-sb-say')) { p = el('p', 'wf-refuse is-said'); p.setAttribute('data-sb-say', ''); p.setAttribute('aria-live', 'polite'); row.parentNode.insertBefore(p, row.nextSibling); }
       p.innerHTML = 'Not opened: opening cases is closed until ' + SB.until + ' by the ' + (SB.kind === 'excl' ? 'self exclusion' : 'cool down') + ' you set. <a href="' + BASE + SB.route + '">What is in force</a>';
     }, true);
-    if (!(window.WF_SHELL && window.WF_SHELL.account)) return;
+    /* A GUEST IS NOT SENT INTO AN ACCOUNT, round 16, B1-9: "How a withdrawal
+       settles", the median and "Check your settings" opened signed-in pages
+       from guest ones. On a guest page a link into the account opens sign in,
+       D-54's way, and keeps its address. */
+    if (window.WF_SHELL && !window.WF_SHELL.account) {
+      Array.prototype.forEach.call(document.querySelectorAll('.wf-screen-body a[href]'), function (a) {
+        if (/^(account|withdraw|settings|history|deposit|profile|cashout)[^\/]*\.html/.test(a.getAttribute('href'))) a.setAttribute('data-auth-open', 'default');
+      });
+      return;
+    }
+    if (!window.WF_SHELL) return;
     Array.prototype.forEach.call(document.querySelectorAll('a[href]'), twinHref);
   }
 
@@ -7370,6 +7736,9 @@ window.WF_PAY = window.WF_PAY || {
       var t = function (sel) { var e = a.querySelector(sel); return e ? e.textContent.trim() : ''; };
       var marks = Array.prototype.map.call(a.querySelectorAll('.wf-tile-mark, .wf-tile-flag'), function (e) { return e.textContent.trim(); }).filter(Boolean);
       if (!t('.wf-tile-name')) return;
+      /* A TILE OPENS THE CASE IT NAMES, round 16, B1-1. */
+      var h = a.getAttribute('href') || '', ck = caseOf(t('.wf-tile-name'));
+      if (ck && ck !== 'ironbound' && /^case(-account)?\.html$/.test(h)) a.setAttribute('href', h + '?case=' + ck);
       a.setAttribute('aria-label', [t('.wf-tile-name'), t('.wf-tile-cost') + ' coins', t('.wf-tile-risk')].concat(marks).filter(Boolean).join(', '));
     });
   }
@@ -7439,6 +7808,8 @@ window.WF_PAY = window.WF_PAY || {
     renderProofs();
     mountMultiCount();
     renderHashes();
+    mountCaseTemplate();
+    mountOpenNow();
     mountGate();
     mountDeposit();
     mountExclude();

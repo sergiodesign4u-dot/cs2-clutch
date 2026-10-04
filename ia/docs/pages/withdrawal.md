@@ -17,6 +17,20 @@
 **Amended 23 August 2026 by `D-92`, and the largest remaining `[?]` on this node closed into a smaller and sharper one.** The founder named the market the settlement price is read from: **it is us.** The prices are ours, taken from Steam, and the market for these items is this product. **So both columns of the four column table are ours**, our credited value and our price for a copy, **and the outbound route this node kept asking for cannot exist**, because a link to our own listing confirms nothing. **What block `1b` renders instead is the relation to Steam and the hole inside it**, section 1b.1: the price is ours, it is set against the Steam market, and how far under Steam we set it is not published. ~~**The founder's own hedge travels with all of it**, section 9b: the wording was "in principle", and if a third party supplies the copy at withdrawal time one word changes on every line above.~~ **The hedge was spent by `D-93` the next day, section 0c: our market, we sell the copy.**
 
 
+## Amended 4 October 2026 by `D-155`. Sending an expired offer again settles the difference, and the outcome's items have shelves
+
+**Why.** Round 16 found Send the offer again crediting the whole difference a second time, +2.50 over the 3.00 already added, and the clock opening with the expired stretch gone; Send to Steam on the outcome opened the AK, because its items had no shelf; the menu's Withdrawals opened a new send form rather than the record.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| An expired offer is sent again from its record | Re-striking at the day's price, `D-93` | **The press moves the balance by the difference between the two settlements**, -0.50 on the sample, and the clock carries the record's history with "Offer sent again" added. **The outcome's items have shelf rows**, each copy priced at the item's value less its printed Send figure, and none for an item with no copy on sale. **The account menu's Withdrawals opens the record**, `history-withdrawals.html` |
+
+**Samples, `D-124`, marked here:** the outcome items' copy prices, counts and floats
+
+---
+
 ## Amended 3 October 2026 by `D-150`. Three basket questions answered
 
 | Question | Answer | Why |

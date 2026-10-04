@@ -5827,3 +5827,23 @@ Verified on screen: four result rounds name their own winners, three legal state
 Ledgers, history rows, tickets and deposit records; every state page opened by its address before any act; a deposit in crediting, which moves no balance because crediting's end is not drawn. A state page opened by its address after an act shows the session's figures in the header and its own sample in its body. That is the cost of the hybrid and it is printed in `conventions.md` section 4.1.
 
 Verified on screen: a sale of the AWP moves 74.20 / 140.95 to 140.25 / 74.90 on the next three pages, a send of the USP-S adds its difference and marks the card, a $25.00 limit shows on 6.1 and in the receipt, a cool down lands with that limit only, closes Open and Pay and turns the + to what is in force, and Sign out returns the public pages to the guest shell. 133 pages at 360 and 1440 with no error and no sideways scroll; 24 carried pages at 360 with none.
+
+## D-155. Round 16, step 3: the journeys reach their ends
+
+**Date:** 2026-10-04. **Stage:** 04, round 16. **Decided by:** the founder, "так" on step 3, under `D-152` answers 2 to 5. **Binds:** `wireframes/_nav.js`, `wireframes/legal-refund.html` (new) and nine wireframe pages; nodes `0.9`, `0.2`, `3.3`, `5.3`, `5.9`, `0.10`, `1.2`, `4.1`, `3.2`, `5.12`, `0.1`, `5.1` and their pages.
+
+### What was done
+
+- **One case page for every case**, `?case=`, from `WF_CASES`. Ironbound is the drawn case; the eleven others render scaled to their entry cost, with chances, tickets and RTP unchanged and Best drops from their own records. Every tile, the footer's cases, the feed's and the result's case links open the case they name.
+- **The open reaches its outcome.** An Open pressed in the session takes its cost, runs the reveal for 2.4 seconds and lands on the outcome: a new round dated 21 Aug 2026 09:31 with its own seed, nonce and hash, credited to the value held once, first in history and held in My items. An Open the balance cannot cover refuses with both figures.
+- **The outcome after a sale** names only what is still held; the Send figure is the change on the balance, signed, on every count; Send to Steam carries its items; Share opens the owner's view; Check all N opens the list of rolls.
+- **The refund and payments policy is a page**, the founder's answer: `legal-refund.html` on the legal template. Pay's consent, the footer and the legal pages open it; the unpublished state keeps privacy and cookies.
+- **The verifier compares** what was typed with the round whose hash was entered and names what differs.
+- **Records reach their records.** The expired offer's row opens it; sending it again settles only the difference, -0.50, and keeps its history; the menu's Withdrawals opens the ledger; a failed proof and the mismatched row open one round report ticket; crypto, gift and skins crediting wait on their own party.
+- **Smaller answers.** Live filter chips; Cash out with nothing ticked opens nothing; a public profile's "No proof to check" opens the public reason; a guest's link into the account opens sign in.
+
+### What it costs, named
+
+Every case other than Ironbound shows Ironbound's items at its own scale, so a Warsteel open can reveal a Glock. That is a sample, marked in `3.3`, and the real tables are production data. The Send figure's sign is now the same on every count; how it reads is still stage 05's, one of the six guesses `D-151` left.
+
+Verified on screen: a Warsteel open from 74.20 lands at 69.30 / 146.05 with a 5.10 Glock first in My items; a two-roll open sold one, leaving "Send 1 to Steam, +1.45 coins" and "1 of 2 saved"; the verifier names a wrong nonce; 134 pages at 360 and 1440 and 48 templated case pages with no error and no sideways scroll; 35 IA pages clean.

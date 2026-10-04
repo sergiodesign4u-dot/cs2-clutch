@@ -16,6 +16,18 @@
 
 ---
 
+## Amended 4 October 2026 by `D-155`. A live filter names what is in force and each one comes off
+
+**Why.** Round 16 found a live filter down to nothing printing "Nothing matches" with no chips and no facet named, while Flow 1a promises a way to widen.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A filter drawer | The drawer and the drawn empty state | **Every filter in force is a chip with its own remove**, and the empty line names the facets that met nowhere. A tile opens the case it names, `3.3` |
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.

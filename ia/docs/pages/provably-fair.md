@@ -21,6 +21,18 @@
 **Renders:** node `0.14`, canonical round proof, variant V4. This node does not restate `0.14` and may not contradict it.
 
 
+## Amended 4 October 2026 by `D-155`. The verifier compares what was typed with the round
+
+**Why.** Round 16 found the verifier agreeing with any well formed input. The founder answered `D-152` answer 4.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A verifier that recomputes from what is entered | Recomputation from four public values | **The round is the one whose published hash was entered.** A hash no round published is said; a seed, client seed or nonce that differs from that round's record is named beside its field, and the line says "Does not match this round" with the round and what differed. Only a full match opens the matched state |
+
+---
+
 ## Amended 3 October 2026 by `D-146`. No contents column
 
 **Why.** Step 6 of round 15 found a desktop contents column specified in sections 3 and 8 and never drawn; the founder chose on 3 October 2026 to drop it.

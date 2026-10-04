@@ -17,6 +17,20 @@
 **Amended 23 August 2026 by `D-92`, in three places and no figure moved.** The market the settlement is struck against is named and the answer is us, so **the per-case gap in block 7 stops waiting on anybody and starts being a number we decline to publish**, section 5.3. **The outbound link on the top item keeps its target and loses its reason**, section 3: it points at Steam, Steam is the dearer place, and a control offered as the cheaper alternative can no longer be labelled that way. **And the risk band's hole is half answered**, section 1: the three bands are an input when a case is built rather than a label derived from its drop table, which is a different object from the one `D-24` specified, and the thresholds are still `[?]`.
 
 
+## Amended 4 October 2026 by `D-155`. One case page for every case, and an open that reaches its outcome
+
+**Why.** Round 16 walked the open journey: eleven of twelve tiles opened Ironbound, the open screen had no way to its outcome, the outcome was dated 18 Aug while pressed now, Send to Steam opened the AK, a sale left the Send label and the Sending line naming the sold item, Share opened the stranger's view and Check all opened an empty verifier. The founder answered `D-152` answers 2 and 3.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| One case page per case, an open that reveals and lands on what was won | The three phases of one page and their states | **`?case=` names the case** from one declaration, `WF_CASES`: name, entry cost and risk band are the tiles'; Ironbound is the drawn case and the others render scaled to their entry cost, chances, tickets and RTP unchanged, Best drops from their own records. **An Open pressed in the session takes its cost, runs the reveal for 2.4 seconds and lands on the outcome**, a new round dated 21 Aug 2026 09:31 with its own seed, nonce and hash, credited to the value held once; history lists it first and My items holds it. An Open the balance cannot cover refuses beside itself with both figures. **After a sale** the Send control, its figure and the Sending line name only what is still held, and the saved line says what is left. **The Send figure is the change on the balance, signed, on every count**; its wording is stage 05's. **Share opens the owner's view**, `5.10`. **Check all N opens the list of rolls**, each with its own check |
+
+**Samples, `D-124`, marked here:** every case other than Ironbound, its table and its open, scaled from Ironbound's; the 2.4 second reveal; the session's rounds' seeds and nonces
+
+---
+
 ## Amended 3 October 2026 by `D-146`. Three things the render did without a decision, now decided
 
 **Why.** Step 6 of round 15 found three behaviours with no decision behind them; the founder decided them on 3 October 2026.

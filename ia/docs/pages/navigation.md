@@ -16,6 +16,18 @@
 
 ---
 
+## Amended 4 October 2026 by `D-155`. The menu's Withdrawals opens the record, and a guest is not sent into an account
+
+**Why.** Round 16 found the account menu's Withdrawals opening a new send form, and guest pages linking into signed-in pages.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| An account menu and guest pages | Both carriers | **Withdrawals opens `history-withdrawals.html`.** **On a guest page a link into the account opens sign in**, `D-54`'s way, keeping its address. A signed-in session keeps the account's home, catalogue and case, `D-154` |
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.

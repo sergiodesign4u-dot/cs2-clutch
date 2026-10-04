@@ -166,6 +166,24 @@
   </div>
 </div>
 
+<section id="d155">
+  <div class="sec-head">
+    <h2>Updated after publication: The verifier compares what was typed with the round, D-155</h2>
+    <p>4 October 2026. Round 16 found the verifier agreeing with any well formed input. The founder answered <code>D-152</code> answer 4.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Baseline row for this amendment</h4>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody>
+        <tr><td>A verifier that recomputes from what is entered</td><td>Recomputation from four public values</td><td><strong>The round is the one whose published hash was entered.</strong> A hash no round published is said; a seed, client seed or nonce that differs from that round's record is named beside its field, and the line says "Does not match this round" with the round and what differed. Only a full match opens the matched state</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="d146">
   <div class="sec-head">
     <h2>Updated after publication: No contents column, D-146</h2>
@@ -871,6 +889,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '1.2 Provably fair';
 window.NAV_SECTIONS = [
   { id: 'overview',  label: 'Overview' },
+  { id: 'd155', label: 'D-155 verifier' },
   { id: 'd146', label: 'D-146 no contents' },
   { id: 'd145', label: 'D-145 catch-up' },
   { id: 'd143', label: 'D-143 in place' },

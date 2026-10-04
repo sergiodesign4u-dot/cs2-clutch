@@ -19,6 +19,18 @@
 **States specified inside this node:** the owner reading their own page, the page hidden with the owner looking at it, `D-93`, nothing won yet, and no page to show.
 
 
+## Amended 4 October 2026 by `D-155`. No proof to check opens the public reason
+
+**Why.** Round 16 found a stranger sent from a public profile into the owner's private history state.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A public shelf of wins | The shelf and its check links | **On a public profile "No proof to check" opens why a round may have none**, on `1.2`; the owner's history keeps its own state |
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
