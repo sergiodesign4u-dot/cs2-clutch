@@ -5913,3 +5913,24 @@ Verified: 35 IA pages with no error, no sideways scroll, no duplicate id and val
 - **Rule 10** is rewritten in place, the old sentence and the carried question struck; section 2f's euro paragraph is struck as history.
 
 Rejected: Steam's price in its own currency beside the coin value, the recommendation; the founder kept one unit on the screen and the ratio beside it.
+
+## D-160. Round 17: three answers on the raised set
+
+**Date:** 2026-10-04. **Stage:** 04, round 17. **Decided by:** the founder, "як рекомендуєш". **Binds:** `wireframes/_nav.js`, `wireframes/docs/conventions.md` section 4.1, the case pages, nodes `2.4`, `0.9`, `6.1`, `3.3`.
+
+1. **The session has three states: unknown, guest and signed in.** Only a sign in that goes through signs it in, besides a page only an account can have, opened by its address. The pages both can read follow the session, so a guest reads the documents, support and responsible play as a guest. Rejected: any signed-in page signing the session in, which is how a guest was signed in by reading the terms.
+2. **Cases with records get tables holding their recorded items**, at their chances and with ticket ranges their rounds land in, the rest of the rows from Ironbound; cases with none keep Ironbound's scaled table; **Steam's price and an instance never scale**. Rejected: one scaled table for every case, which contradicted the rounds on record.
+3. **A link from a state page into 6.1 opens 6.1 as the session has it.** A named cost of the hybrid, printed in `conventions.md` section 4.1. Rejected: carrying a state page's limit into the session, which would make reading a page an act.
+
+## D-161. Round 17, step 1: the session and compliance
+
+**Date:** 2026-10-04. **Stage:** 04, round 17. **Decided by:** the founder, under `D-160`. **Binds:** `wireframes/_nav.js`, `wireframes/docs/conventions.md`, nodes `2.4`, `0.9`, `6.1`, `5.3`, `3.3`, `4.1`, `7.1`.
+
+### What was done
+
+- **Signing in signs in**, and a guest stays a guest on every page both can read; the footer opens the guest terms and guest responsible play; sign in lands with its address.
+- **What left is never offered again**: the send form and a reopened outcome say an item was sent, sold or cashed out.
+- **Boundaries and limits**: every route of adding funds refuses under a cool down or an exclusion; the receipt states the limit, what the period has used and what is left, and Pay refuses at nothing left; a page's own limit wins; a cool down inside an exclusion is refused.
+- **Smaller**: the bar's sum after a cash out, an unknown round opening the gone state, the resend hand-off inside `WF_SESS`, `conventions.md` section 4.1 rewritten in place.
+
+Verified on screen: four footer documents keep a guest a guest; a sign in over Warsteel lands on Warsteel signed in; a sent AK is not offered again; a reopened outcome reads "On its way to Steam"; skins refuse under a cool down; a $40 weekly limit reads $0.00 left and Pay refuses; a cool down inside an exclusion is refused; 134 pages at 360 and 1440 with no error and no sideways scroll; one current element per page.

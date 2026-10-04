@@ -17,6 +17,18 @@
 **Amended 23 August 2026 by `D-92`, and the largest remaining `[?]` on this node closed into a smaller and sharper one.** The founder named the market the settlement price is read from: **it is us.** The prices are ours, taken from Steam, and the market for these items is this product. **So both columns of the four column table are ours**, our credited value and our price for a copy, **and the outbound route this node kept asking for cannot exist**, because a link to our own listing confirms nothing. **What block `1b` renders instead is the relation to Steam and the hole inside it**, section 1b.1: the price is ours, it is set against the Steam market, and how far under Steam we set it is not published. ~~**The founder's own hedge travels with all of it**, section 9b: the wording was "in principle", and if a third party supplies the copy at withdrawal time one word changes on every line above.~~ **The hedge was spent by `D-93` the next day, section 0c: our market, we sell the copy.**
 
 
+## Amended 4 October 2026 by `D-161`. An item that already left is not offered again
+
+**Why.** Round 17 found the send form offering an item the session had sent, sold or cashed out, so the money moved twice, down to a negative value held.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Send to Steam from My items | The basket and its shelves | **An item the session sent, sold or cashed out is not offered**, and the form says which and how. The press's hand-off to the clock lives in `WF_SESS` |
+
+---
+
 ## Amended 4 October 2026 by `D-159`. The settlement prints the peg
 
 **Why.** The founder decided on 4 October 2026 that the ratio is shown where a skin or cash leaves, as it is at the deposit.

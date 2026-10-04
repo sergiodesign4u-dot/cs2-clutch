@@ -15,6 +15,18 @@
 **Cluster 2 is three surfaces nobody chooses to visit, and since `D-54` two of the three are dialogs.** This one is the tax on the main job, and section 2 counts it rather than hiding it. **What `D-54` changed is not the size of the tax but who pays the context for it:** section 0.9.
 
 
+## Amended 4 October 2026 by `D-161`. Signing in is what signs a session in, and it lands with its address
+
+**Why.** Round 17 found a guest signed in by opening the terms from the footer, with no consent, no 18+ declaration and no gate, and a sign in over Warsteel landing on Ironbound, one over a result on Home.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Sign in with Steam | The consent gate, `D-26` and `D-58`, and `D-138`'s landing | **Only a sign in that goes through signs the session in**, besides a page only an account can have opened by its address; a guest reading a shared page stays a guest, `D-160`. **It lands on the signed-in version of the page it was opened over with its address**: a case keeps its `?case=`, a result, the fair page or a profile reopen signed in |
+
+---
+
 ## Amended 4 October 2026 by `D-158`. Stale lines struck in place
 
 **Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.

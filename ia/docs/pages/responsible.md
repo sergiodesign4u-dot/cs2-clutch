@@ -26,6 +26,18 @@
 | **One tool exists**, called **TAKE A BREAK**, doing deposit restriction or full account restriction. It is the second row of the `SECURITY` block inside the settings tab of the account. `baseline-account.md` section 7.1. | **Nothing structural**, and that is the finding rather than a gap in the reading. | **Everything about where it lives.** There is no responsible play page and **no route to the tool from anywhere**: not the footer, not the rail, not the header, not the home page, all four re-checked on 18 August 2026. It sits beside Logout and an anonymity toggle, in the vocabulary of account protection rather than self protection. **An absence could be answered with "nobody in the category has it". This cannot: they built it and then filed it where nobody looks.** |
 
 
+## Amended 4 October 2026 by `D-161`. A guest's responsible play, and an exclusion that a cool down cannot reopen
+
+**Why.** Round 17 found the footer opening the signed-in 6.1 for a guest, a cool down accepted inside a running self exclusion with neither landing naming the other, and the exclusion landing omitting a limit the session set.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Responsible play | The four boundaries | **A guest opens `responsible-guest.html`**, `D-160`. **A cool down inside a self exclusion is refused with the exclusion's end.** The exclusion landing lists a deposit limit the session set. A link from a state page into 6.1 opens it as the session has it, a named cost, `conventions.md` section 4.1 |
+
+---
+
 ## Amended 4 October 2026 by `D-158`. Stale lines struck in place
 
 **Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.

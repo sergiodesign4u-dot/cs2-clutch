@@ -25,6 +25,18 @@
 | Four documents, all `noindex,nofollow`, each **one H1 and zero H2**. The terms run about 7,270 words as a single wall, last updated 08/01/2025; the cookie policy is dated April 2019. All carry a breadcrumb. `baseline.md` section 9.4. | The breadcrumb, and the document set itself. | **The wall.** Zero H2 in a 7,270 word contract is the defect this node exists to fix, and it is now measured rather than asserted. **And the dates:** a policy from 2019 sitting under a product that changed every year since is a document nobody re-read. |
 
 
+## Amended 4 October 2026 by `D-161`. A guest reads the documents as a guest
+
+**Why.** Round 17 found the footer's documents opening the signed-in pages for a guest, which then signed the session in.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Four documents for everyone | Four documents, one template | **For a guest the documents render the guest shell**, and the footer's terms open the guest state, `legal-guest.html`, `D-160` |
+
+---
+
 ## Amended 4 October 2026 by `D-155`. The refund and payments policy is drawn
 
 **Why.** Round 16 found Pay's consent asking a person to accept a document that opened the unpublished state. The founder answered on 4 October 2026, `D-152`: make the page.

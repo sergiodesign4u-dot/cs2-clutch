@@ -25,6 +25,18 @@
 
 ---
 
+## Amended 4 October 2026 by `D-161`. An address with no round behind it renders the gone state
+
+**Why.** Round 17 found a session's round, opened in another browser, rendering the AK.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A public result | `7.2`, gone or private | **An unknown round opens `7.2`** |
+
+---
+
 ## Amended 4 October 2026 by `D-158`. The value at the moment of the win is the round's, and this page is one of its surfaces
 
 **Why.** Round 16's audit found this node and `0.6` disagreeing on whether the receipt is part of the card, and this node still counting `5.1` and `5.3` among the receipt's consumers after `D-90` and `D-91` took it off both.

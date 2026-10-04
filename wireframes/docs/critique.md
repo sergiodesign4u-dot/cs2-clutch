@@ -1183,3 +1183,39 @@ Withdrawn on verification: none.
 | Row | Finding | Found by | Status |
 |---|---|---|---|
 | D2-7 rest | Rule 10 kept an outside figure in its own unit; the render printed Steam's price in coins at an unpublished rate | D2 | **Answered by the founder**: coins at the peg, Steam read in dollars, the peg printed at the deposit, Send to Steam and Cash out. Rule 10 rewritten |
+
+## 18. Round 17, 4 October 2026: verifying round 16, journeys again
+
+**Asked by the founder:** a second pass after round 16, before stage 05.
+
+### 18.1 Instruments
+
+| # | Instrument | What it owned | Radius |
+|---|---|---|---|
+| C1, C2 | **Codex**, plugin `codex`, read only, `gpt-5.6-terra` at medium effort | C1 one source, render against node, render against itself, dead controls, rules, stale comments; C2 the IA against itself | Both ran in full this time. C1: four rows; C2: six rows; every other class zero, with what was checked |
+| B1 | Claude subagent, browser, 360 and 1440, a fresh context per journey | Flows 1, 1a and 4, and the twelve lower rows round 16 carried | 20 rows |
+| B2 | The same | Flows 2, 2a, 3, 5 and 6 | 21 rows |
+
+### 18.2 The raised set, before verification
+
+**51 rows, about 47 after dedup**, with 22 withdrawn by the instruments on re-check and kept in their sets. Both browser auditors confirmed most of round 16's rows fixed, and listed them. **What they found is mostly the price of round 16's session model**: state that should carry and did not, or carried where it must not. **The worst row is a compliance one**: a guest who opened the terms from the footer was signed in with no consent and no 18+ declaration, and could spend.
+
+**Founder decisions on the raised set**, `D-160`: three states for the session, signing in being what signs it in; the cases with records get tables holding their recorded items, Steam's price and an instance never scale; a link from a state page into 6.1 opens it as the session has it, a named cost.
+
+### 18.3 Step 1, the session and compliance, fixed on 4 October 2026 under `D-161`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| B1-3, B2-9 | A guest opening the terms, privacy, refund, support or responsible play from the footer was signed in, with no consent, and could open a case | B1, B2 | Fixed: three states; only a sign in that goes through signs the session in; shared pages render as a guest's; the footer opens the guest terms and guest responsible play |
+| B1-1, B1-2 | Sign in over Warsteel landed on Ironbound; over a result or the fair page, on Home | B1 | Fixed: it lands with its address |
+| B2-1 | The send form offered an item already sent, sold or cashed out; the money moved twice, to a negative value held | B2 | Fixed: not offered, and said |
+| B1-4, B1-5 | The outcome, reopened, offered Sell and Send again for what was sent; its batch counted sold items; the no-copy line stayed | B1 | Fixed |
+| B2-2 | Skins, gift and crypto reached crediting under a cool down | B2 | Fixed: every route refuses beside itself |
+| B2-3 | A $40 weekly limit passed a payment after 50.00 that week | B2 | Fixed: the receipt says what is used and left; Pay refuses at nothing left |
+| B2-4 | The pending state stated two limits; a waiting raise never reached the receipt | B2 | Fixed: a page's own limit wins; the raise is named |
+| B2-5 | A cool down accepted inside an exclusion; the landings forgot each other | B2 | Fixed: refused with the exclusion's end; the landing lists the session's limit |
+| B2-12 | The bar counted cashed items | B2 | Fixed |
+| B1-20 | An unknown round rendered the AK | B1 | Fixed: the gone state |
+| B2-21 | A state page's link into 6.1 found "Nothing is set yet" | B2 | **Kept and named**: a cost of the hybrid, `conventions.md` section 4.1, `D-160` |
+| C3-1, C6-1 | History appends the session's opens while 4.1 called history rows snapshots | C1 | Fixed in `conventions.md`: an open's row on History itself is carried, `D-152` answer 3 |
+| C3-2 | The resend hand-off used its own storage key outside `WF_SESS` | C1 | Fixed: moved into `WF_SESS`; interface preferences named as stored beside it and not state |

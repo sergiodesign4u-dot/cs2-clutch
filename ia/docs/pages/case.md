@@ -17,6 +17,18 @@
 **Amended 23 August 2026 by `D-92`, in three places and no figure moved.** The market the settlement is struck against is named and the answer is us, so **the per-case gap in block 7 stops waiting on anybody and starts being a number we decline to publish**, section 5.3. **The outbound link on the top item keeps its target and loses its reason**, section 3: it points at Steam, Steam is the dearer place, and a control offered as the cheaper alternative can no longer be labelled that way. **And the risk band's hole is half answered**, section 1: the three bands are an input when a case is built rather than a label derived from its drop table, which is a different object from the one `D-24` specified, and the thresholds are still `[?]`.
 
 
+## Amended 4 October 2026 by `D-161`. The outcome remembers what was sold or sent
+
+**Why.** Round 17 found an outcome reopened after a send offering Sell and Send again, and after a partial sale its batch control counting the sold items.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| An outcome after acts | The outcome's acts, `D-38` | **Reopened, the outcome shows each item as sold, cashed out or on its way to Steam**, the batch control counts only what is held, and the no-copy line leaves with its item |
+
+---
+
 ## Amended 4 October 2026 by `D-158`. Stale lines struck in place
 
 **Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.
