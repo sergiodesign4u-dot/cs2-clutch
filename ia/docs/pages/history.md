@@ -23,6 +23,18 @@
 | **A public profile with four history tabs**, Inventory history, Case battle history, Gunfights history and Upgrades history, each a grid of item cards carrying the mode icon, the image, the weapon, the skin, the wear and a value in coins. Founder capture, 21 August 2026, `baseline.md` section 9.9. | **The idea that history is a first-class surface**, and the split by mode, which arrives when a second mode does. | **Everything about what a row is.** The baseline's history is an **inventory** history: it lists items, and an item is the outcome of a roll with the roll removed. Ours lists **rolls**, and the item is one column of a row. `baseline.md` section 9.9 records the same thing from the other side: that page is a trophy shelf, and `public-result.md` was written to replace the shelf with something checkable. **A history of items is the shelf again, one screen deeper.** And it is private: the baseline's is public and this one is the account's own. |
 
 
+## Amended 4 October 2026 by `D-156`. Nonces rise with time, and a blocked cash out the form cannot prevent
+
+**Why.** Round 16 found the account's nonces falling as its rolls got newer on one client seed, and a blocked cash out row that the cash out form refuses before it can be sent.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Roll history and the cash out ledger | Both, as snapshots | **The account's nonces rise with time**: Desert Eagle 41 190 to MP9 41 220 around the AK's 41 207 and the Glock's 41 208, and an open in the session continues from 41 221. **The blocked cash out is the Factory New Glock**, stopped by a fee that rose after the request, which is why My items still holds it. **A published time in a ledger reason reads `WF_PUB`** |
+
+---
+
 ## Amended 4 October 2026 by `D-155`. The session's rolls, the expired record and the report ticket
 
 **Why.** Round 16 found an open's roll in no history, the expired offer's record unreachable from its row, and the mismatched row's "The ticket" opening a support form with no ticket.

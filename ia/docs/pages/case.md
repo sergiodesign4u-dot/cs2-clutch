@@ -17,6 +17,20 @@
 **Amended 23 August 2026 by `D-92`, in three places and no figure moved.** The market the settlement is struck against is named and the answer is us, so **the per-case gap in block 7 stops waiting on anybody and starts being a number we decline to publish**, section 5.3. **The outbound link on the top item keeps its target and loses its reason**, section 3: it points at Steam, Steam is the dearer place, and a control offered as the cheaper alternative can no longer be labelled that way. **And the risk band's hole is half answered**, section 1: the three bands are an input when a case is built rather than a label derived from its drop table, which is a different object from the one `D-24` specified, and the thresholds are still `[?]`.
 
 
+## Amended 4 October 2026 by `D-156`. Best drops are read from their rounds and name their winners
+
+**Why.** Round 16 found Best drops typing its rounds' figures a second time, and the result pages of four of them saying the account won rounds its history does not hold.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Best drops of a case | Six by value | **The rows read `ROUNDS`.** **The USP-S, Nova, MP9, P250 and the Factory New M4A1-S were won by other people**, each with its own client seed and nonce; the account's AK and Glock keep theirs |
+
+**Samples, `D-124`, marked here:** the winners' names, tallowcs, brisk, oriole_cs, harrow and vandal88, and their seeds
+
+---
+
 ## Amended 4 October 2026 by `D-155`. One case page for every case, and an open that reaches its outcome
 
 **Why.** Round 16 walked the open journey: eleven of twelve tiles opened Ironbound, the open screen had no way to its outcome, the outcome was dated 18 Aug while pressed now, Send to Steam opened the AK, a sale left the Send label and the Sending line naming the sold item, Share opened the stranger's view and Check all opened an empty verifier. The founder answered `D-152` answers 2 and 3.

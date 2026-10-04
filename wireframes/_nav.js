@@ -407,7 +407,7 @@ window.WF_NAV = {
    IT IS DECLARED HERE, ABOVE THE FIRST READER, AND NOTHING ELSE MAY CARRY A NAME.
    A page overrides it before _nav.js loads, which is how profile-steam-down states
    that Steam cannot be read: one page, one override, one source still. */
-window.WF_WHO = window.WF_WHO || { name: 'nightjar_cs', id: 'acc-7f3a91c4', since: '12 Jan 2026' };
+window.WF_WHO = window.WF_WHO || { name: 'nightjar_cs', id: 'acc-7f3a91c4', since: '12 Jan 2026', email: 'nightjar_cs@example.com' };
 
 /* THE STANDING DEPOSIT BONUS, D-94, founder decision of 25 August 2026, AND IT IS
    DECLARED HERE FOR THE REASON WF_WHO IS. The badge on the header control and the
@@ -1329,7 +1329,7 @@ window.WF_PAY = window.WF_PAY || {
   // Warsteel drop.
   var FEED = [
     ['AK-47',        'Redline',          'Ironbound', false, false, 'ak'],
-    ['AWP',          'Asiimov',          'Warsteel',  false, false, 'awp'],
+    ['AWP',          'Asiimov',          'Warsteel',  false, false, 'fawp',    ['Field-Tested', 'Covert'],        '64.80'],
     ['Glock-18',     'Water Elemental',  'Ironbound', true,  false, 'fglock'],
     ['USP-S',        'Kill Confirmed',   'Coldfront', false, true,  'fusp',    ['Minimal Wear', 'Covert'],        '15.10'],
     ['M4A1-S',       'Hyper Beast',      'Warsteel',  false, false, 'fm4',     ['Field-Tested', 'Covert'],        '23.90'],
@@ -1346,9 +1346,13 @@ window.WF_PAY = window.WF_PAY || {
      the product surface. Row A3 still binds the live product: no invented names,
      a bot labelled as one. The AK is the account's own round, so it carries the
      account's name; a hidden profile keeps its name and loses the link, D-93. */
-  var FEED_WHO = { ak: window.WF_WHO.name, awp: 'kestrel', fglock: 'quill', fusp: 'mira_cs',
+  var FEED_WHO = { ak: window.WF_WHO.name, fawp: 'kestrel', fglock: 'quill', fusp: 'mira_cs',
                    fm4: 'vandal88', fdeagle: 'frostbyte', fmp9: 'okapi', fp250: 'lynx_cs',
-                   fawpnn: 'duskrunner', fvulcan: 'saltyfox', ffive: 'emberjay', fsg: 'ghostline' };
+                   fawpnn: 'duskrunner', fvulcan: 'saltyfox', ffive: 'emberjay', fsg: 'ghostline',
+                   /* THE CASE'S BEST DROPS WERE WON BY OTHER PEOPLE, round 16, B1-10:
+                      their pages said nightjar_cs, whose history holds none of them.
+                      Samples, D-124, marked in 3.3. */
+                   usp: 'tallowcs', nova: 'brisk', mp9: 'oriole_cs', p250: 'harrow', m4: 'vandal88' };
 
   function feedTile(row) {
     // FOUR THINGS AND A HOVER LAYER. The image leads, D-59 and the founder's own
@@ -1424,6 +1428,11 @@ window.WF_PAY = window.WF_PAY || {
       col.appendChild(el('span', null, whoName));
       col.appendChild(el('span', 'wf-feed-bot', ' bot'));
     } else if (row[4]) {
+      col.appendChild(el('span', null, whoName));
+    } else if (whoName !== window.WF_WHO.name) {
+      /* ONE PUBLIC PROFILE IS DRAWN, THE ACCOUNT'S, round 16, D1-4: every
+         winner's name opened nightjar_cs's page. Another winner's name is text
+         until their page exists, the treatment a hidden profile already gets. */
       col.appendChild(el('span', null, whoName));
     } else {
       var whoLink = el('a', 'wf-feed-whol', whoName);
@@ -3309,7 +3318,7 @@ window.WF_PAY = window.WF_PAY || {
           ticket: '29 684', range: '23 001 to 37 000' },
     m4: { w: 'M4A1-S', s: 'Hyper Beast', axes: ['Factory New', 'Classified'], won: '24.60', now: '24.10',
           at: '18 Aug 2026 15:06', hash: 'e04b7d2a91c65f38b0d4e17a2c96f5b308d1e7c42a6f9b05d3c8e71f4a2b69c3',
-          seed: '9b2f60d4e1a87c35f09b2d6e4a71c8f3052e9d7b1c4a86f30e5d2b97c1a4f608', client: '7d19f4a2', nonce: '41 213',
+          seed: '9b2f60d4e1a87c35f09b2d6e4a71c8f3052e9d7b1c4a86f30e5d2b97c1a4f608', client: 'e3a0c95b', nonce: '27 044',
           ticket: '6 112', range: '4 201 to 8 800' }
   };
   /* The other four best drops get records too, so every tile on the case screen
@@ -3328,7 +3337,7 @@ window.WF_PAY = window.WF_PAY || {
    ['p250', 'P250', 'Asiimov', ['Battle-Scarred', 'Mil-Spec'], '6.90', '6.70', '18 Aug 2026 14:31', '66 019', '59 001 to 80 000']
   ].forEach(function (r, i) {
     ROUNDS[r[0]] = { w: r[1], s: r[2], axes: r[3], won: r[4], now: r[5], at: r[6], hash: hx(r[0] + 'h', 64), seed: hx(r[0] + 's', 64),
-      client: '7d19f4a2', nonce: String(41190 + i).replace(/(\d)(\d{3})$/, '$1 $2'), ticket: r[7], range: r[8] };
+      client: hx(r[0] + 'c', 8), nonce: String(30411 + i * 977).replace(/(\d)(\d{3})$/, '$1 $2'), ticket: r[7], range: r[8] };
   });
   function roundKey() {
     // LETTERS AND DIGITS, round 15: the key stopped at the first digit, so mp9,
@@ -3367,8 +3376,16 @@ window.WF_PAY = window.WF_PAY || {
       fields = SEEDS +
         '<div class="wf-fpair"><span class="wf-fpair-k">Recomputed result</span><span class="wf-fpair-v">30 211</span></div>';
       scope = 'The recomputation does not agree with the settled result. That is our failure, not yours, and it is reportable. The published response deadline applies to it.';
-      acts = '<a class="wf-btn wf-btn--primary" href="support.html">Report this round</a>' +
+      acts = '<a class="wf-btn wf-btn--primary" href="' + BASE + 'support-submitted.html?r=' + roundKey() + '">Report this round</a>' +
              '<a class="wf-btn" href="fair.html">Recompute it yourself</a>';
+    } else if (R.unreadable && state !== 'checked') {
+      /* THE SAME MINUTE ON EVERY SURFACE, round 16, B1-23: history said the
+         Factory New Glock's proof source could not be read and its public page
+         printed it settled. */
+      tag = 'Proof unreadable right now';
+      fields = '<div class="wf-fpair"><span class="wf-fpair-k">Why</span><span class="wf-fpair-v wf-fig-missing">' + ROLL_PROOF.unreadable + '</span></div>';
+      scope = 'The round happened and its material is kept. Nothing about the result changes while it cannot be read.';
+      acts = '<a class="wf-btn" href="' + location.pathname.split('/').pop() + location.search + '">Try again</a>';
     } else {
       tag = (state === 'checked') ? 'Recomputed: matches' : 'Settled';
       fields = SEEDS;
@@ -3413,12 +3430,12 @@ window.WF_PAY = window.WF_PAY || {
     // THE WINNER FOLLOWS THE ROUND, round 15 step 9: a tile naming a sample winner
     // opened a page won by the account. A bot or a hidden profile is not a link,
     // ticker.md 0.6, and a bot keeps its label.
-    var fr = FEED.filter(function (r) { return r[5] === roundKey(); })[0];
-    var wn = q('.wf-who-n');
-    if (fr && wn && roundKey() !== 'ak') {
+    var fr = FEED.filter(function (r) { return r[5] === roundKey(); })[0] || [0, 0, 0, false, false, roundKey()];
+    var wn = q('.wf-who-n'), nm = FEED_WHO[fr[5]];
+    if (nm && wn && roundKey() !== 'ak') {
       var wa = wn.querySelector('a'), ws = wn.querySelector('strong');
-      if (ws) ws.textContent = FEED_WHO[fr[5]];
-      if (wa && (fr[3] || fr[4])) wa.replaceWith(ws);
+      if (ws) ws.textContent = nm;
+      if (wa && (fr[3] || fr[4] || nm !== window.WF_WHO.name)) wa.replaceWith(ws);
       if (fr[3]) wn.appendChild(el('span', 'wf-feed-bot', ' bot'));
     }
   }
@@ -3628,7 +3645,7 @@ window.WF_PAY = window.WF_PAY || {
      keep the case. */
   function mountCaseTemplate() {
     var page = location.pathname.split('/').pop();
-    if (!/^case/.test(page)) return;
+    if (!/^(case|deposit-dialog)/.test(page)) return;
     var k = caseKey(), nw = parseInt((/[?&]now=(\d+)/.exec(location.search) || [])[1], 10), op = nw && (WF_SESS.get('opens') || [])[nw - 1];
     if (op && op.c) k = op.c;
     var main = document.querySelector('.wf-main');
@@ -4021,9 +4038,10 @@ window.WF_PAY = window.WF_PAY || {
 
     // ---- BEST DROPS, D-30 and D-32. Ranked by value, and the one route to the
     // block that can disappoint stays, because that route is the cost D-32 kept.
-    var drops = [['AK-47', 'Redline', '47.30', '18 Aug, 14:44', ''], ['USP-S', 'Kill Confirmed', '14.20', '18 Aug, 14:22', 'usp'],
-                 ['Glock-18', 'Water Elemental', '12.90', '18 Aug, 14:58', 'glock'], ['Nova', 'Koi', '7.90', '18 Aug, 14:39', 'nova'],
-                 ['MP9', 'Rose Iron', '7.40', '18 Aug, 14:51', 'mp9'], ['P250', 'Asiimov', '6.90', '18 Aug, 14:31', 'p250']];
+    /* THE ROUNDS ARE READ, NOT TYPED AGAIN, round 16, D1-11. */
+    var drops = ['ak', 'usp', 'glock', 'nova', 'mp9', 'p250'].map(function (k) {
+      var R = ROUNDS[k]; return [R.w, R.s, R.won, R.at.replace(/ 2026 /, ', '), k];
+    });
     /* ANOTHER CASE'S BEST DROPS ARE ITS OWN RECORDS, round 16: the rolls on
        record from it, by value, and none where there are none. */
     if (caseKey() !== 'ironbound') drops = WF_ROLLS.filter(function (r) { return caseOf(r.kase) === caseKey() && r.hash; })
@@ -4624,6 +4642,20 @@ window.WF_PAY = window.WF_PAY || {
           '<p class="wf-inv-out"><span>Out to Steam</span><span><b>' + Math.abs(st).toFixed(2) + '</b> ' + (st >= 0 ? 'back' : 'more') + '</span></p>' : '<p class="wf-inv-out"><span>Out to Steam</span><span class="wf-fig-missing">no copy on sale to buy</span></p>');
       grid.insertBefore(c, grid.firstChild);
     });
+    /* THE MARKET LINE IS THE SHELF'S, round 16, B2-18: the AWP card said
+       "Starting at 71.20, 268 offers, 5.15 more" and its Send to Steam opened a
+       shelf starting at 61.20 with 230 offers, 4.85 back. A card with a shelf
+       reads it; one without keeps its own line. */
+    Array.prototype.forEach.call(grid.querySelectorAll('.wf-inv-card'), function (c) {
+      var sa = c.querySelector('a[href*="withdraw.html?item="]'), k = sa && (/item=([a-z0-9]+)/.exec(sa.getAttribute('href')) || [])[1], sh = k && WF_SHELF[k];
+      if (!sh) return;
+      var mk = c.querySelectorAll('.wf-inv-mkt b'), out = c.querySelector('.wf-inv-out');
+      if (!sh.offers.length) { if (out) out.innerHTML = '<span>Out to Steam</span><span class="wf-fig-missing">no copy on sale to buy</span>'; return; }
+      var d = sh.ours - sh.offers[0].p;
+      if (mk[0]) mk[0].textContent = sh.offers[0].p.toFixed(2);
+      if (mk[1]) mk[1].textContent = String(sh.total);
+      if (out) out.innerHTML = '<span>Out to Steam</span><span><b>' + Math.abs(d).toFixed(2) + '</b> ' + (d >= 0 ? 'back' : 'more') + '</span>';
+    });
     var gone = WF_SESS.get('gone') || {};
     Array.prototype.forEach.call(grid.querySelectorAll('.wf-inv-card'), function (c) {
       var how = gone[invKey(c)];
@@ -4756,7 +4788,7 @@ window.WF_PAY = window.WF_PAY || {
        appeal's Send had no check at all, and neither form read the address. */
     var send = document.querySelector('[data-sup-send]');
     if (send) send.addEventListener('click', function (e) {
-      var form = send.closest('.wf-form'), msg = form && form.querySelector('textarea');
+      var form = send.closest('.wf-form, .wf-stack'), msg = form && form.querySelector('textarea');
       var mail = form && form.querySelector('input[type="email"]');
       var why = '', at = null;
       if (msg && !msg.value.trim()) { why = 'Nothing was sent: write what it is about first.'; at = msg; }
@@ -4786,7 +4818,7 @@ window.WF_PAY = window.WF_PAY || {
     }
     if (/[?&]q=1/.test(location.search)) {
       var tid = document.querySelector('.wf-tid-v');
-      if (tid) { tid.textContent = 'sp-2026-08-22-0032'; var cb = tid.parentNode.querySelector('[data-copy]'); if (cb) cb.setAttribute('data-copy', tid.textContent); }
+      if (tid) { tid.textContent = 'sp-2026-08-21-0032'; var cb = tid.parentNode.querySelector('[data-copy]'); if (cb) cb.setAttribute('data-copy', tid.textContent); }
       Array.prototype.forEach.call(document.querySelectorAll('.wf-tick .wf-fig-c'), function (c) { c.textContent = c.textContent.replace('Appeal submitted', 'Question submitted'); });
       Array.prototype.forEach.call(document.querySelectorAll('.wf-tick .wf-note, a[href="withdraw-restricted.html"], a[href="support-waiting.html"]'), function (x) { x.remove(); });
       var what = document.querySelector('#h2-what');
@@ -5003,9 +5035,14 @@ window.WF_PAY = window.WF_PAY || {
     if (ROUNDS[r.key]) { ROUNDS[r.key].kase = r.kase.replace(' Case', ''); return; }
     ROUNDS[r.key] = { w: r.w, s: r.s, axes: r.wear.split(', '), won: r.worth, now: r.now || r.worth,
       at: r.date + ' ' + r.when.split(' ').pop(), hash: r.hash + hx(r.key + 'h', 56), seed: hx(r.key + 's', 64),
-      client: '7d19f4a2', nonce: String(41100 + i).replace(/(\d)(\d{3})$/, '$1 $2'),
+      /* NONCES RISE WITH TIME ON ONE CLIENT SEED, round 16, B1-18: they were
+         counted by list position, newest first, so they fell as rolls got newer.
+         The AK and the Glock keep 41 207 and 41 208, the multi-roll opens follow
+         them, and these fit around both. */
+      client: '7d19f4a2', nonce: String({ deagle: 41190, m4ft: 41195, uspc: 41201, wak: 41216, glockfn: 41217, awp: 41218, mp9n: 41220 }[r.key] || 41100 + i).replace(/(\d)(\d{3})$/, '$1 $2'),
       ticket: String(1000 + i * 7919).replace(/(\d)(\d{3})$/, '$1 $2'), range: 'the range its case publishes', kase: r.kase.replace(' Case', '') };
   });
+  if (ROUNDS.glockfn) ROUNDS.glockfn.unreadable = true;
   /* THE FEED'S ROUNDS, round 15. A tile from Ironbound takes its figures from
      CASE_ITEMS and its ticket from inside the range it proves; the rest carry
      their own. Dated minutes before the prototype's now, newest first. */
@@ -5056,7 +5093,7 @@ window.WF_PAY = window.WF_PAY || {
     var r = JSON.parse(JSON.stringify(b)), cr = WF_CASES[k.c || 'ironbound'], q = cr[1] / 12.40;
     r.at = OPEN_AT; r.hash = hx(k.key + 'h', 64); r.seed = hx(k.key + 's', 64); r.kase = cr[0];
     if (q !== 1) { r.won = (parseFloat(r.won) * q).toFixed(2); r.now = (parseFloat(r.now) * q).toFixed(2); }
-    r.nonce = String(41300 + i).replace(/(\d)(\d{3})$/, '$1 $2');
+    r.nonce = String(41221 + i).replace(/(\d)(\d{3})$/, '$1 $2');
     ROUNDS[k.key] = r;
     var ch = ''; CASE_ITEMS.forEach(function (g) { g[2].forEach(function (x) { if (x[0] === r.w && x[1] === r.s) ch = parseFloat(x[3]).toFixed(2) + '%'; }); });
     var how = (WF_SESS.get('gone') || {})[k.key];
@@ -5216,7 +5253,8 @@ window.WF_PAY = window.WF_PAY || {
         /* THE REASON TRAVELS WITH THE STATE AND NEVER SITS IN A TOOLTIP. B8-3
            is three accounts refused with no explanation, and a refusal whose
            ground is only in a hover is a refusal with no ground on a phone. */
-        if (c.state && r.why) td.appendChild(el('span', 'wf-hnote', r.why));
+        /* A PUBLISHED TIME IN A REASON IS READ FROM WF_PUB, round 16, D1-8. */
+        if (c.state && r.why) td.appendChild(el('span', 'wf-hnote', r.why.replace(/\{(median|p90)\}/g, function (m, k) { return WF_PUB[k]; })));
         /* A ROW THAT HAS A RECORD OPENS IT, round 16, B2-23: the expired offer's
            page, the one place it can be sent again, had no way in from here. */
         if (c.state && r.rec) { var ra = el('a', 'wf-hnote', 'Open the record'); ra.setAttribute('href', BASE + r.rec); td.appendChild(ra); }
@@ -5576,6 +5614,7 @@ window.WF_PAY = window.WF_PAY || {
       sb.addEventListener('click', function () {
         if (!confirmFirst(sb)) return;
         sb.textContent = 'Sold, +' + wdFmt(row.ours) + ' coins'; sb.disabled = true;
+        var sh0 = sel.querySelector('.wf-selskin-h'); if (sh0) sh0.textContent = 'Sold back';
         moneyAdd(row.ours, -row.ours); row.removed = true; WF_SESS.gone(row.key || wdKeys()[0], 'sold');
         if (row._repaint) row._repaint();
       });
@@ -5821,6 +5860,12 @@ window.WF_PAY = window.WF_PAY || {
         tr.appendChild(c4);
         tbody.appendChild(tr);
       });
+      /* A ROW WITH NO COPY IS NAMED BY THE NOTE ONLY WHILE IT IS IN THE BASKET,
+         round 16, B2-19 and B2-20: the Glock's note stood when no Glock was
+         picked, and a basket of only no-copy rows totalled +0.00. */
+      var nc = document.querySelector('[data-wd-nocopy]'), ncRows = rows.filter(function (r) { return !r.removed && !r.offers.length; });
+      if (nc) { nc.hidden = !ncRows.length; if (ncRows.length) nc.innerHTML = '<strong>' + ncRows.map(function (r) { return r.w + ' ' + r.s; }).join(' and ') + ' cannot go to Steam and ' + (ncRows.length > 1 ? 'they are' : 'it is') + ' not stuck.</strong> There is no copy on sale to buy, so there is nothing to send and nothing to settle against. <strong>Selling back to us pays our own price and needs no copy to exist.</strong> The row above carries that control.'; }
+      if (!going) { totalEl.textContent = 'Nothing settles'; sayEl.textContent = 'Nothing goes out, so nothing settles against your balance.'; btnEl.textContent = 'Nothing to send'; return; }
       totalEl.textContent = (total >= 0 ? '+' : '-') + wdFmt(Math.abs(total)) + ' coins';
       var bal = moneyNow().balance;
       // THE BASELINE'S SENTENCE UNDER ITS TOTAL, D-128, with what is left.
@@ -6285,7 +6330,7 @@ window.WF_PAY = window.WF_PAY || {
              not know who it is talking to. Ours is filled and editable. */
           '<div class="wf-cfg-f">' +
             '<label class="wf-cfg-l" for="' + P + 'dep-email">Billing email</label>' +
-            '<input class="wf-cfg-in" id="' + P + 'dep-email" type="email" value="nightjar_cs@example.com">' +
+            '<input class="wf-cfg-in" id="' + P + 'dep-email" type="email" value="' + window.WF_WHO.email + '">' +
           '</div>' +
           /* THE TERMS ARE ASKED AGAIN, the baseline's own behaviour: the sign-in
              consent is about the account and this one is about a payment. IT IS THE
@@ -6302,7 +6347,10 @@ window.WF_PAY = window.WF_PAY || {
              C3, and the limit, which is set on 6.1. The bonus is said once, in
              the banner. */
           '<ul class="wf-dep-facts">' +
-            '<li>To withdraw, deposit at least <strong>$5.00</strong> first. It never rises.</li>' +
+            /* THE MINIMUM IS SAID AS THIS ACCOUNT STANDS, round 16, B2-3: it asked
+               for a first $5.00 above a ledger of completed deposits. C4's line for
+               an account with none stays in 4.1 for the day that state is drawn. */
+            '<li>The <strong>$5.00</strong> minimum to withdraw is met by your deposits. It never rises.</li>' +
             '<li>Usually credited within <strong>2 minutes</strong>. <a href="' + BASE + 'support.html">' + WF_STR.support + '</a> if not.</li>' +
             '<li>' + (o.ceiling ? 'Deposit limit <strong>$' + o.ceiling + '</strong>' + (o.ceilPer ? ' ' + o.ceilPer : '') + ' in force.' : 'No deposit limit set.') + ' <a href="' + BASE + 'responsible.html">' + (o.ceiling ? 'Change it' : 'Set one') + '</a></li>' +
           '</ul>' +
@@ -6499,7 +6547,7 @@ window.WF_PAY = window.WF_PAY || {
         '<p><strong>In force now: $40.00</strong> for the period.</p>' +
         '<p>Pending: $120.00, from the moment below.</p>' +
         '<div class="wf-moment">' +
-          '<span class="wf-moment-v">23 Aug 2026, 09:31</span>' +
+          '<span class="wf-moment-v">22 Aug 2026, 09:15</span>' +
           '<span class="wf-moment-l">When the higher limit takes effect</span>' +
         '</div>' +
         '<div class="wf-row"><button class="wf-btn" type="button" data-cancel-raise>Cancel the raise</button></div>' +
@@ -7320,7 +7368,7 @@ window.WF_PAY = window.WF_PAY || {
     accepted: { layer: 2, answer: { analytics: true,  marketing: true  }, saved: '20 Aug 2026 at 14:02' },
     rejected: { layer: 2, answer: { analytics: false, marketing: false }, saved: '20 Aug 2026 at 14:02' },
     partial:  { layer: 2, answer: { analytics: true,  marketing: false }, saved: '20 Aug 2026 at 14:02' },
-    changed:  { layer: 2, answer: { analytics: false, marketing: false }, saved: '22 Aug 2026 at 09:31', changed: true }
+    changed:  { layer: 2, answer: { analytics: false, marketing: false }, saved: '21 Aug 2026 at 09:12', changed: true }
   };
 
   function mountCookie() {
@@ -7722,6 +7770,8 @@ window.WF_PAY = window.WF_PAY || {
         return;
       }
       if (say) say.textContent = 'Saved just now. Withdrawals will go to this address.';
+      /* THE DATE BESIDE SAVE FOLLOWS THE SAVE, round 16, B1-20. */
+      var lc = save.parentNode.querySelector('.wf-quick-w'); if (lc) lc.textContent = 'Last changed 21 Aug 2026';
     });
   }
 
@@ -7767,12 +7817,16 @@ window.WF_PAY = window.WF_PAY || {
     var each = function (sel, f) { Array.prototype.forEach.call(document.querySelectorAll(sel), function (e) { if (e.hasAttribute('data-filled')) return; e.setAttribute('data-filled', ''); f(e); }); };
     each('[data-pub]', function (e) { e.textContent = WF_PUB[e.getAttribute('data-pub')] || e.textContent; });
     // THE ACCOUNT'S NAME, ONCE, round 15: typed on twenty pages; WF_WHO owns it.
-    each('[data-who]', function (e) { e.textContent = w[e.getAttribute('data-who')] || e.textContent; });
+    /* ONE ADDRESS, round 16, D1-12: support said nightjar@ and the deposit said nightjar_cs@. */
+    each('[data-who]', function (e) { var v = w[e.getAttribute('data-who')]; if (!v) return; if (e.tagName === 'INPUT') e.value = v; else e.textContent = v; });
     each('[data-str]', function (e) {
       var v = WF_STR[e.getAttribute('data-str')];
       if (v === undefined) return;
       if (v.indexOf('<') >= 0) e.innerHTML = v; else e.textContent = v;
     });
+    /* THE ACCOUNT'S PAIR IN A PAGE'S BODY READS THE DECLARATION TOO, round 16,
+       D1-7: four pages typed it, and a sale moved the header and not them. */
+    if (!(window.WF_SHELL && window.WF_SHELL.money === false)) each('[data-money]', function (e) { var k = e.getAttribute('data-money'); e.textContent = moneyNow()[k].toFixed(2) + ' coins'; });
     each('[data-str-aria]', function (e) { var v = WF_STR[e.getAttribute('data-str-aria')]; if (v !== undefined) e.setAttribute('aria-label', v); });
   }
 

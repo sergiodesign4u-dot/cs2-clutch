@@ -25,6 +25,18 @@
 
 ---
 
+## Amended 4 October 2026 by `D-156`. A proof unreadable this minute is unreadable on every surface
+
+**Why.** Round 16 found history saying the Factory New Glock's proof source could not be read while its public page printed it settled, and the mismatched state's Report opening a support form with no ticket.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| The public result's proof block | Settled, checked, unavailable, mismatched | **A round whose proof source is unreadable shows that here**, with a way to try again; nothing about the result changes. **Report this round opens the round report ticket**, `0.10` |
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.

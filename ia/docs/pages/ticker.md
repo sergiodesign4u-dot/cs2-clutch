@@ -22,6 +22,18 @@
 
 ---
 
+## Amended 4 October 2026 by `D-156`. A winner's name links only where a profile is drawn
+
+**Why.** Round 16 found every winner's name opening nightjar_cs's public profile, and the feed's AWP sharing its key with the account's own AWP roll.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Winner names in the ticker | Names, the bot label, a hidden profile as text | **Only the account's own name is a link**, because one public profile is drawn; another winner's name is text until their page exists, the treatment a hidden profile already gets. **The feed's AWP is its own round**, `fawp` |
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.

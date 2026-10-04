@@ -17,6 +17,20 @@
 **Amended 23 August 2026 by `D-92`, and the largest remaining `[?]` on this node closed into a smaller and sharper one.** The founder named the market the settlement price is read from: **it is us.** The prices are ours, taken from Steam, and the market for these items is this product. **So both columns of the four column table are ours**, our credited value and our price for a copy, **and the outbound route this node kept asking for cannot exist**, because a link to our own listing confirms nothing. **What block `1b` renders instead is the relation to Steam and the hole inside it**, section 1b.1: the price is ours, it is set against the Steam market, and how far under Steam we set it is not published. ~~**The founder's own hedge travels with all of it**, section 9b: the wording was "in principle", and if a third party supplies the copy at withdrawal time one word changes on every line above.~~ **The hedge was spent by `D-93` the next day, section 0c: our market, we sell the copy.**
 
 
+## Amended 4 October 2026 by `D-156`. The restriction and its appeal, on one timeline before now
+
+**Why.** Round 16 found the restricted withdrawal naming the AK where its ledger named the AWP, an MP9 accepted after the restriction, an appeal shown open on the page that offers it, appeal dates after now, and the AWP card's market figures disagreeing with its shelf.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A restricted withdrawal and its appeal | Every state, `5.7` and its clock | **The restriction is recorded 17 Aug 2026 08:02** and the held withdrawal is the AWP, wd-88b7e1, requested 21 Aug 07:58; nothing went out after it. **The restricted page carries no appeal row**: it is the state before one. **The upheld restriction's appeal** ran from 20 Aug 09:31 to 21 Aug 08:04. **The figures beside it read the account's pair.** A My items card's market line reads its shelf. **A basket of only no-copy items settles nothing** and the no-copy note names what is in the basket |
+
+**Samples, `D-124`, marked here:** the restriction's date and the appeal's times
+
+---
+
 ## Amended 4 October 2026 by `D-155`. Sending an expired offer again settles the difference, and the outcome's items have shelves
 
 **Why.** Round 16 found Send the offer again crediting the whole difference a second time, +2.50 over the 3.00 already added, and the clock opening with the expired stretch gone; Send to Steam on the outcome opened the AK, because its items had no shelf; the menu's Withdrawals opened a new send form rather than the record.

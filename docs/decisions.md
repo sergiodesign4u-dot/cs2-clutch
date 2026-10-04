@@ -5847,3 +5847,20 @@ Verified on screen: a sale of the AWP moves 74.20 / 140.95 to 140.25 / 74.90 on 
 Every case other than Ironbound shows Ironbound's items at its own scale, so a Warsteel open can reveal a Glock. That is a sample, marked in `3.3`, and the real tables are production data. The Send figure's sign is now the same on every count; how it reads is still stage 05's, one of the six guesses `D-151` left.
 
 Verified on screen: a Warsteel open from 74.20 lands at 69.30 / 146.05 with a 5.10 Glock first in My items; a two-roll open sold one, leaving "Send 1 to Steam, +1.45 coins" and "1 of 2 saved"; the verifier names a wrong nonce; 134 pages at 360 and 1440 and 48 templated case pages with no error and no sideways scroll; 35 IA pages clean.
+
+## D-156. Round 16, step 4: one account told one way
+
+**Date:** 2026-10-04. **Stage:** 04, round 16. **Decided by:** the founder, "гоу" on step 4. **Binds:** `wireframes/_nav.js`, twenty wireframe pages, `wireframes/docs/voice-input.md`, nodes `4.1`, `5.3`, `0.10`, `0.8`, `3.3`, `5.9`, `7.1` and their pages.
+
+**The rule this step applied.** Every state page is the account at the prototype's now, 21 Aug 2026 09:31, in a different situation; no date on any of them falls after now, and within one situation every page tells the same story.
+
+### What was done
+
+- **Deposits and limits:** one weekly $40.00 limit with its history; the reached state counts this week and resets Monday 24 Aug; the pending raise takes effect 22 Aug 09:15; a cool down refuses the attempt inside it; the receipt says the $5.00 minimum is met.
+- **The restriction and its appeal:** recorded 17 Aug 08:02 on deposits from three instruments; the held withdrawal is the AWP; every appeal state is a moment before now; the ground quoted, the answer and the question asked all address that ground; an empty reply is refused; one email address.
+- **Rounds:** the account's nonces rise with time; other people's rounds have their own seeds and named winners; only the account's name is a link; the feed's AWP is its own round; Best drops read their rounds; an unreadable proof is unreadable on its public page too.
+- **Items and money:** My items cards read their shelf; the basket's no-copy note and total follow what is in it; the blocked cash out is one the form could not have prevented; the money pair in four page bodies and the published time in ledger reasons read their declarations.
+- **Dates:** the 503's return, the settings save date and the cookie change are before or at now.
+- **"Upheld"** goes to the Voice glossary as a concept named in opposite senses.
+
+Verified on screen: the AWP card reads 61.20, 230 offers, 4.85 back, as its shelf does; a USP-S best drop names tallowcs without a link; the Glock's public page says its proof is unreadable right now; an empty reply is refused; 134 pages at 360 and 1440 with no error and no sideways scroll; 35 IA pages clean.

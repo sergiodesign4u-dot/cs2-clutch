@@ -37,8 +37,9 @@
      THREE ROWS AND EVERY ONE IS A ROLL OF THIS ACCOUNT, round 15, D-142. They
      were four, and three named items from a 212 roll history the account no
      longer has. What was sold back is the P250, the StatTrak AK and the Glock
-     from the outcome, and those are the three. The P250 is BLOCKED because 0.31
-     will not cover any chain, which is why those coins are on the balance.
+     from the outcome, and those were the three. Since round 16 the blocked row
+     is the Factory New Glock, whose cash out a rising fee stopped, which is why
+     My items still holds it; the P250 was sold back, which this tab does not list.
      Sending is the one status no row carries now; node 5.9 names it. -->
 <button class="wfp-toggle" type="button" aria-label="Screens and states" aria-expanded="false">&#8801;</button>
 <aside id="wf-panel"></aside>
@@ -93,10 +94,13 @@ window.WF_HIST = { cashout: [
   { when: '21 Aug 08:35', what: 'Glock-18 Water Elemental, Minimal Wear', net: 'Ethereum',
     wallet: '0x7a1f\u2026f742', amount: '12.90', state: 'Requested',
     why: 'With us since 21 Aug 08:35. Nothing has been sent and nothing has been decided.' },
-  /* The P250 the Rolls tab shows as sold back on 20 Aug and 7.3 as gone. */
-  { when: '20 Aug 23:04', what: 'P250 Sand Dune, Battle-Scarred',       net: 'Litecoin',
-    wallet: 'ltc1q\u20268f3a', amount: '0.31',  state: 'Blocked',
-    why: 'Below the smallest cash out on Litecoin, 2.00 coins, so nothing went out and the coins stayed on your balance.' },
+  /* A BLOCK THE FORM CANNOT SEE COMING, round 16, B2-27: the row was a 0.31
+     request under the 2.00 minimum, which the form refuses before it is sent,
+     so the state could never be produced. A fee that rises after the request
+     can. The Glock is the one My items still holds. Sample, D-124. */
+  { when: '20 Aug 23:04', what: 'Glock-18 Water Elemental, Factory New', net: 'Litecoin',
+    wallet: 'ltc1q\u20268f3a', amount: '4.20',  state: 'Blocked',
+    why: 'The Litecoin fee rose above the item\u2019s value before it went out. Nothing was sent, and the Glock is back in My items.' },
   { when: '18 Aug 20:11', what: 'AK-47 Redline, Field-Tested, StatTrak', net: 'Ethereum',
     wallet: '0x7a1f\u2026f742', amount: '47.30', state: 'Sent',
     why: 'On the chain since 18 Aug 20:44.' }

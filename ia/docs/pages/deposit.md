@@ -20,6 +20,20 @@
 | Two numbered steps. Step 1: a partner promo code already applied, a country selector that filters the grid, then ~~**17 fiat methods and 8 crypto**~~ **27 fiat methods and 8 crypto**, corrected here by `D-129` after section 5b.1 of `baseline-account.md` was corrected on 25 August. Step 2 for card: amount, email, a terms checkbox, six presets, and a panel reading `Rate 1.00 = $1.00` with a standing **+5.00% bonus capped at 100 per 24 hours**. Crypto gives an address per network with a live rate and a minimum, and no amount field. `baseline-account.md` section 5b. | The two step shape, the published rate at the moment of funding, and the amount presets. | **No crediting time is published anywhere in that flow**, which is the whole of row `C3`, and the deposit history's most common status is REJECTED. **Ours publishes the window before the money moves.** ~~The standing bonus and its header badge are refused, `0.1`.~~ **Both returned by `D-94`**, and this row said otherwise until `D-129`. And one route, gift cards, leaves the product entirely to six third party resellers with no crediting story at all. |
 
 
+## Amended 4 October 2026 by `D-156`. One deposit and limit story, dated before now
+
+**Why.** Round 16 found one account told three ways: a first $5.00 asked for above completed deposits, a limit refusal with no deposit before it that week, a raise taking effect from a moment after now, a cool down ledger with a bank decline inside it, and a reached limit whose period held 50.00.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A deposit receipt, a ledger, limit states | Every state page | **The minimum line says it is met**, since the ledger holds completed deposits; C4's first-deposit line waits for that state to be drawn. **The limit is $40.00 a week**, refused on 9 Aug after 30.00 on 8 Aug, lifted on 12 Aug, set again on 18 Aug with the cool down; under the cool down the 21 Aug attempt is refused by it and no payment is tried. **The reached state** counts this week's 50.00 against the weekly limit and resets on Monday 24 Aug. **The pending raise** takes effect 22 Aug 09:15, set 24 hours before. Samples struck and replaced in place |
+
+**Samples, `D-124`, marked here:** the 8 Aug deposit of 30.00, dep-4bcf11
+
+---
+
 ## Amended 4 October 2026 by `D-155`. Each route's crediting waits on its own party
 
 **Why.** Round 16 found crypto and gift card deposits landing on crediting as $40.00 Visa, and skins waiting on "the payment provider" within 2 minutes.
@@ -56,7 +70,7 @@
 |---|---|---|
 | A pay row at the foot of the screen | The row, `D-129` | **On the address the row is fixed to the mobile bar below 900**, on every state; in the dialog it stays sticky, because a fixed element leaves the dialog |
 
-**Samples, `D-124`, marked here:** the deposit limit in force, $40.00; the pending raise on `4.3`, $120.00, and the moment it takes effect, 23 Aug 2026, 09:31; the period reset on `4.2`, 1 Sep 2026, 00:00; the crediting start on `4.4`, 21 Aug 2026, 09:30, and its elapsed, 1 min.
+**Samples, `D-124`, marked here:** the deposit limit in force, $40.00; the pending raise on `4.3`, $120.00, and the moment it takes effect, ~~23 Aug 2026, 09:31~~ **22 Aug 2026, 09:15 since `D-156`**; the period reset on `4.2`, ~~1 Sep 2026, 00:00~~ **24 Aug 2026, 00:00, a weekly limit set on 18 Aug, since `D-156`**; the crediting start on `4.4`, 21 Aug 2026, 09:30, and its elapsed, 1 min.
 
 ---
 

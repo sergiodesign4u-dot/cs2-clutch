@@ -1111,3 +1111,26 @@ The HTML pages of the map and the flows carry an Updated after publication block
 | B2-23 | The expired record was unreachable from its row | B2 | Fixed: the row opens it |
 | B2-24 | Cash out with nothing ticked refused and opened the dialog | B2 | Fixed: refuses only |
 | D1-18 | Sending again opened a fresh clock, the expired stretch lost | D1 | Fixed: the record's history travels |
+
+### 17.6 Step 4, one account told one way, fixed on 4 October 2026 under `D-156`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| B2-3 | The receipt asked for a first $5.00 above completed deposits | B2 | Fixed: the minimum is said as met |
+| B2-4, B2-5, B2-7 | Three limits on one account; a refusal with nothing deposited that week; a bank decline inside a cool down | B2 | Fixed: one weekly $40.00 limit, refused 9 Aug after 8 Aug's 30.00, lifted 12 Aug, set again 18 Aug; the 21 Aug attempt refused by the cool down |
+| B2-6 | A pending raise taking effect from a moment after now | B2 | Fixed: 22 Aug 09:15 |
+| B2-18 | The AWP card's market line disagreed with its shelf, sign flipped | B2 | Fixed: cards read the shelf |
+| B2-19, B2-20 | The Glock's note stood with no Glock picked; a no-copy basket totalled +0.00; a sold row still said Selected skin | B2 | Fixed |
+| B2-27 | A blocked cash out the form refuses before it can exist | B2 | Fixed: a fee that rose after the request, on the Glock My items holds |
+| B2-28, B2-34 | The restricted withdrawal named the AK, the ledger the AWP; an MP9 accepted after the restriction; the restricted page showed an appeal open | B2 | Fixed: the AWP, restriction 17 Aug, no appeal row |
+| B2-29, B2-30, B2-32 | The quoted ground, the answer and the question asked addressed three different grounds | B2 | Fixed: all address the restriction's own sentence |
+| B2-31 | Appeal dates after now | B2 | Fixed: each state a moment before 21 Aug 09:31 |
+| B2-33 | An empty Reply went through | B2 | Fixed: refused in place |
+| B2-8, D1-12 | Two email addresses | B2, D1 | Fixed: `WF_WHO.email` |
+| B2-35 | "Upheld" in opposite senses | B2 | **Carried to the glossary**, `voice-input.md` section c |
+| B1-10 part, D1-3, D1-4 | Every winner's name opened the account's profile; the feed's AWP shared the account's key; best drops said the account won rounds its history lacks | B1, D1 | Fixed: other winners are text, `fawp`, best drops' winners named |
+| B1-18 | Nonces fell as rolls got newer on one client seed | B1 | Fixed: they rise; other people's rounds have their own seeds |
+| B1-20 | Settings kept "Last changed 14 Aug" beside "Saved just now" | B1 | Fixed |
+| B1-22 | The 503 came back at 03:20 UTC "forty minutes from now" at 09:31 | B1 | Fixed: 10:11 UTC |
+| B1-23 | The Glock's proof unreadable in history and settled on its public page | B1 | Fixed: unreadable on both |
+| D1-7, D1-8, D1-11 | The money pair, the published time and the best drops typed outside their declarations | D1 | Fixed |

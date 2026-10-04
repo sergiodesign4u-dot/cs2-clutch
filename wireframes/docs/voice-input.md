@@ -136,6 +136,7 @@ Re-verified against the render of 3 October 2026. **"Fixed" means a decision or 
 | Links that do not match their target heading | `How it works` to `How this case works`; `What usually drops` to `Published against observed` | Open |
 | Signing in | `Sign in`, `Sign in with Steam`, `or continue with`, `link Steam`, `Sign out` | **Fixed**: the act and the title are `Sign in`, `D-138`; the provider control names Steam, `D-105` |
 | Age | `18+`, `Over 18 only`, `I declare that I am 18 or over` | Three functions, a mark, a statement, a declaration; the declaration's form is `D-26` and `D-58` |
+| **Upheld, in opposite senses**, added by round 16, `D-156` | `The restriction stands` and the clock's `Upheld` on `withdraw-restriction-upheld` (node `5.7`: our decision upheld, the appeal lost); `Your appeal was upheld` and `The restriction is lifted` on `support-upheld` (node `0.10`: the appeal won) | **Open.** One word names both outcomes of one appeal; the glossary picks a word for each |
 
 ---
 
