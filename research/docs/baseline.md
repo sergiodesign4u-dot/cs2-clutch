@@ -448,6 +448,11 @@ Every row was opened in a live browser on 11 August 2026, pre-login, in one sess
 | Support: ticket form whose submit is Sign in | `https://daddyskins.com/en/support` | `walk2_support_1440.png` |
 | 404 with no shell, HTTP 404 | probe URL under `https://daddyskins.com/en/` | `walk2_404_1440.png` |
 | Terms, cookie policy: robots, heading counts, dates, three clauses | `/en/terms`, `/en/cookie-policy` | values in section 9.4 |
+| **Fifth walk, 5 October 2026, the voice.** Home, its copy and the share of capitals set by the stylesheet | `https://daddyskins.com/en` at 1440 and 390 | `walk5_home_1440_5oct.png`, `walk5_home_390_5oct.png`, `walk5_arrival_cookie_1440_5oct.png` |
+| Catalogue and case page copy | `/en/cases`, `/en/case/premium` at 1440 and 390 | `walk5_cases_*_5oct.png`, `walk5_case_*_5oct.png` |
+| FAQ, the answers register | `/en/faq` at 1440 and 390 | `walk5_faq_*_5oct.png` |
+| Support, sign in, 404 | `/en/support`, `/en/provably-fair` to `/en/login`, a probe URL | `walk5_support_1440_5oct.png`, `walk5_fair_1440_5oct.png`, `walk5_404_1440_5oct.png` |
+| Terms, privacy, cookie and refund policies | `/en/terms`, `/en/privacy-policy`, `/en/cookie-policy`, `/en/refund-policy` | `walk5_terms_1440_5oct.png` and three more |
 
 ---
 
@@ -500,3 +505,44 @@ Founder capture, 21 August 2026, **source `[?]`: it is not daddyskins and this s
 - **A "sufficient balance to open" toggle**, which filters the shelf to what the account can afford right now. **Corrected 21 August 2026: this one is not only in the reference. It is on our own baseline**, as `Sufficient Funds to open` in the Additional group above, and the reference merely puts it in the bar instead of in a drawer.
 
 **The third one is not a neutral convenience and this file says so rather than passing it on quietly, and being inherited does not make it one.** A control that answers "what can I afford right now" sits one step from "top up to see the rest", and `CLAUDE.md` binds this stage: a limit never acquires completion mechanics, and where money is about to be spent the cost never hides inside excitement. It is the founder's call and it belongs in front of him with that cost printed.
+
+---
+
+## 11. Fifth walk, 5 October 2026: the voice
+
+**Why this walk ran.** On 5 October 2026 the founder decided that **the product's voice is daddyskins.com's voice: it is the foundation**, `docs/decisions.md` D-166. Until then copy sat on the "not inherited" list in `CLAUDE.md`, so no walk had ever written the baseline's words down; sections 1 to 10 quote copy only where a structure needed it. **Inheriting a thing means having it written down first**, so this section is the voice as it exists, before stage 05 derives anything from it. Public pages walked live at 1440 and 390, nothing logged into, screenshots `research/screens/baseline/walk5_*_5oct.png`. The signed-in copy is read from the founder's 28 dated captures in `research/screens/baseline-account/` (18 and 22 August 2026), transcribed verbatim; the 29th capture in that folder is another product and is left out.
+
+### 11.1 Capitals are type, not copy
+
+Every heading, button and rail item reads in capitals on screen. **Measured on 5 October: all 149 capitalised strings on Home and all 131 on the FAQ are written in mixed case in the page and capitalised by the stylesheet**; on the case page 59 of 74 are, and the other 15 are item and wear names. So `OPEN CASE` is the string "Open Case" set in capitals. **Capitals belong to the type decision of stages 06 and 07, not to the voice.** What the voice inherits is the words.
+
+### 11.2 Five registers, and they do not sound alike
+
+| Register | Where | Verbatim, as written in the page |
+|---|---|---|
+| **Promotion** | Home mode cards, giveaways, battle and gunfight tops, category lines | "Open your lucky case!", "Compete for the best loot!", "Win your duel!", "Upgrade your loot!", "Join now and win amazing prizes in our hourly, daily, weekly, and monthly giveaways!", "Join top case battles now and multiply your prize with every win!", "Enter top gunfights and score massive rewards with valuable cases!", "Claim Your Daily Rewards for Staying Active!", "Uncover the trend-setting skins every player dreams of owning!", "Claim your 3 Free cases", "You can get your favorite skin at the best prices." |
+| **Answers** | FAQ | Short, first person plural, blunt: "Yes, we do.", "No. We never contact our users directly by any means.", "We do not recommend you do that.", "Well, first: we take this business seriously. Second: our mission is to provide people with a positive experience all around. Third: we are not greedy, and operate with really the lowest profit margin we can." Casual in places, "get some extra $$". Uneven English in places, "one of the veteran in this niche". And one claim this project's footer contradicts word for word: "targeted to an audience willing to have fun and profit out of it" |
+| **Money moving** | Deposit, Send to Steam, inventory (captures) | Plain "you" and "your", no exclamation: "Based on the market price, {n} will be taken from your balance", "Choose any of the offers below for the skin withdrawal. Your balance amount may be increased or decreased, based on the market price selected", "You will receive", "Your deposit bonus is +5.00%, but max {n} per 24 hours", "I have read and accept the Terms and Conditions" |
+| **Explaining** | Case page | "The chances of obtaining skins are tied to their prices, which collectively determine the final price of a case. Therefore, the prices of skins in a case are fixed.", "Be sure to check your account trades settings, otherwise our system may not be able to send you the items." |
+| **Stops and states** | Sign in, support, 404, history, crypto deposit | Curt, sometimes alarmed: "Please, sign in first", "You must log in to be able to Open cases and get your winnings chance", "ATTENTION!!! Before you submit this ticket, please review the ARTICLES HERE", "Attention! Minimal deposit {n} BTC", "The page you are looking for is not available!", "History is empty...", "In order to continue you need to create your solana wallet address" |
+
+**Counted.** Exclamation marks: 9 strings in promotion, 1 in the FAQ, 3 in stops and states, **0 in money moving and 0 in explaining**. Emoji: 0 anywhere. The person is "you"; the product is "we" in the FAQ, the cookie banner and nowhere else; in consent and settings the person speaks as "I" and "me" ("I'm 18+ and I agree to the Terms and Conditions", "Make me Anonymous").
+
+### 11.3 The words it uses
+
+| Thing or act | The baseline's words, with where |
+|---|---|
+| Putting money in | "Top up your balance" (deposit heading), "Balance refill" (breadcrumb), "Deposit" (button, history), "refill my balance", "filling up your balance", "update your balance" (FAQ). **Five wordings for one act** |
+| Taking an item out | "Send to Steam" (inventory card, bar, withdrawal heading and button), "Items to withdraw", "skin withdrawal", "Withdraw history", "withdraw to your steam account" (FAQ) |
+| Selling back | "Sell", "Sell to site", "sell the item back to the site in exchange for the site balance" (FAQ), "Sold" |
+| What a person holds | "Inventory" (header, tab, heading, breadcrumb), "All skins", "{n} Items", "Selected skin" |
+| What comes out of a case | "winnings", "loot", "prize", "drops" ("Best drops"), "skins" |
+| A risk band | "Low-risk case", "Medium-risk case", "High-risk case" |
+| A break | "Take a break" (settings), "Deposit restriction or full account restriction" |
+| Daily rewards | "Daily cases", "Open Daily Cases", "Wager remaining", "Next level up at {n} wager" |
+| Help | "Need help?" over "Support"; "Open a support ticket" (FAQ) |
+| Signing in | "Sign in", "Sign up", "log in" and "register" in one FAQ |
+
+### 11.4 What our grey product already carries from it
+
+The withdrawal table's three heads, `Your skin price`, `Market skin price` and `Your balance impact`, and its settlement line, "Based on the market price, {n} coins will be taken from your balance", are the baseline's own words, kept by `D-128`. So are `Send to Steam`, the case page's `Skin prices` paragraph and its `Before opening` warning, and the risk words on the tiles. **The inheritance did not start on 5 October; it was never named.**

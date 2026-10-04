@@ -485,6 +485,61 @@
 </section>
 
 <!-- FINDINGS -->
+<section id="walk5">
+  <div class="sec-head">
+    <h2>Fifth walk, 5 October 2026: the voice</h2>
+    <p>The founder decided the product speaks in daddyskins.com's voice, <code>D-166</code>, so the voice is written down here before stage 05 derives anything. Public pages at 1440 and 390, nothing logged into, shots prefixed <code>walk5_</code>. Signed-in copy is read from the founder's 28 dated captures in <code>research/screens/baseline-account/</code>.</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Capitals are type, not copy</h4>
+    <p>All 149 capitalised strings on Home and all 131 on the FAQ are written in mixed case and capitalised by the stylesheet. <code>OPEN CASE</code> is "Open Case" set in capitals. <strong>Capitals belong to stages 06 and 07; the voice inherits the words.</strong></p>
+  </div>
+
+  <div class="card">
+    <h4>Five registers, and they do not sound alike</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Register</th><th>Where</th><th>Verbatim</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Promotion</strong></td><td>Home cards, giveaways, battle tops, category lines</td><td>"Open your lucky case!", "Compete for the best loot!", "Win your duel!", "Join now and win amazing prizes in our hourly, daily, weekly, and monthly giveaways!", "Join top case battles now and multiply your prize with every win!", "Claim Your Daily Rewards for Staying Active!", "Claim your 3 Free cases"</td></tr>
+          <tr><td><strong>Answers</strong></td><td>FAQ</td><td>Short, "we", blunt: "Yes, we do.", "No. We never contact our users directly by any means.", "We do not recommend you do that.", "we are not greedy". Also "targeted to an audience willing to have fun and profit out of it"</td></tr>
+          <tr><td><strong>Money moving</strong></td><td>Deposit, Send to Steam, inventory</td><td>"Based on the market price, {n} will be taken from your balance", "Your balance amount may be increased or decreased, based on the market price selected", "You will receive", "Your deposit bonus is +5.00%, but max {n} per 24 hours"</td></tr>
+          <tr><td><strong>Explaining</strong></td><td>Case page</td><td>"The chances of obtaining skins are tied to their prices...", "Be sure to check your account trades settings, otherwise our system may not be able to send you the items."</td></tr>
+          <tr><td><strong>Stops and states</strong></td><td>Sign in, support, 404, history, crypto</td><td>"Please, sign in first", "ATTENTION!!! Before you submit this ticket, please review the ARTICLES HERE", "Attention! Minimal deposit {n} BTC", "The page you are looking for is not available!", "History is empty..."</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Counted:</strong> exclamation marks in 9 promotion strings, 1 answer and 3 stops; <strong>none where money moves and none in explaining</strong>. No emoji anywhere. The person is "you", the product is "we" only in the FAQ and the cookie banner, and in consent the person speaks as "I".</p>
+  </div>
+
+  <div class="card">
+    <h4>The words it uses</h4>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Thing or act</th><th>The baseline's words</th></tr></thead>
+        <tbody>
+          <tr><td>Putting money in</td><td>"Top up your balance", "Balance refill", "Deposit", "refill my balance", "filling up your balance", "update your balance": five wordings for one act</td></tr>
+          <tr><td>Taking an item out</td><td>"Send to Steam", "Items to withdraw", "skin withdrawal", "Withdraw history"</td></tr>
+          <tr><td>Selling back</td><td>"Sell", "Sell to site", "Sold"</td></tr>
+          <tr><td>What a person holds</td><td>"Inventory", "All skins", "{n} Items", "Selected skin"</td></tr>
+          <tr><td>What comes out of a case</td><td>"winnings", "loot", "prize", "drops", "skins"</td></tr>
+          <tr><td>A risk band</td><td>"Low-risk case", "Medium-risk case", "High-risk case"</td></tr>
+          <tr><td>A break</td><td>"Take a break", "Deposit restriction or full account restriction"</td></tr>
+          <tr><td>Daily rewards</td><td>"Daily cases", "Wager remaining", "Next level up at {n} wager"</td></tr>
+          <tr><td>Help</td><td>"Need help?" over "Support"; "Open a support ticket"</td></tr>
+          <tr><td>Signing in</td><td>"Sign in", "Sign up", "log in", "register"</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card is-keep">
+    <h4>What the grey product already carries from it</h4>
+    <p><code>Your skin price</code>, <code>Market skin price</code>, <code>Your balance impact</code>, the settlement line "Based on the market price, {n} coins will be taken from your balance", <code>Send to Steam</code>, the <code>Skin prices</code> paragraph and the <code>Before opening</code> warning are the baseline's own words. <strong>The inheritance did not start on 5 October; it was never named.</strong></p>
+  </div>
+</section>
+
 <section id="findings">
   <div class="sec-head">
     <h2>What this walk changes</h2>
@@ -525,6 +580,7 @@
         <tr><td>Provably fair redirect, sign-in composition, footer</td><td><code>daddyskins.com/en/provably-fair</code></td><td><code>walk_pf_redirects_to_login_1440.png</code></td></tr>
         <tr><td>Age answer, absence of responsible play</td><td><code>daddyskins.com/en/faq</code></td><td><code>walk_faq_age_1440.png</code></td></tr>
         <tr><td>Colour values, type, geometry</td><td>computed styles on the pages above</td><td>values in the Colour section</td></tr>
+        <tr><td><strong>5 October 2026, the voice:</strong> Home, catalogue, case, FAQ, support, sign in, 404, four policies</td><td><code>daddyskins.com/en</code> and the pages under it, 1440 and 390</td><td><code>walk5_*_5oct.png</code></td></tr>
       </tbody>
     </table>
   </div>
@@ -548,6 +604,7 @@ window.NAV_SECTIONS = [
   { id: 'compliance', label: 'Compliance today' },
   { id: 'walk2', label: 'Second walk, 18 Aug' },
   { id: 'walk3', label: 'Third walk, 21 Aug' },
+  { id: 'walk5', label: 'The voice, 5 Oct' },
   { id: 'findings', label: 'What it changes' },
   { id: 'sources', label: 'Sources' },
 ];

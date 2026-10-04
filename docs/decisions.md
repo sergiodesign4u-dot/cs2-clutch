@@ -5995,3 +5995,44 @@ Stage 04 closed on 29 September 2026 and was reopened by the founder for repeate
 ### What was not written
 
 The Codex model choice stays in memory: it is a tool preference, not a rule of this artefact. Nothing was deleted from `CLAUDE.md` beyond the three wrong counts, because every other rule there was read against rounds 15 to 17 and still holds.
+
+## D-166. The voice is daddyskins.com's voice, and copy leaves the "not inherited" list
+
+**Date:** 2026-10-05. **Stage:** 05, step 2, before any principle was written. **Decided by:** the founder, in their words: "голос у нас должен бути как на daddyskins.com, єто основа и наш фундамент" (our voice must be like daddyskins.com; it is the base and our foundation). **Amends:** the Baseline section of `CLAUDE.md`, whose "Not inherited" list names copy. **Binds:** stage 05 throughout, `voice/docs/voice.md` when it is written, `research/docs/baseline.md` section 11.
+
+**Chosen.** The baseline's voice is the foundation of ours. Stage 05 stops deriving a voice from personas and competitors alone and starts from the voice the founder's product already has, the route the stage 05 pack calls the fourth source: an existing brand position, matched against what the data says.
+
+**What this overturns, stated rather than quietly reinterpreted.** `CLAUDE.md` lists copy as not inherited, beside logo, typography, shape, motion and component look. That clause no longer holds for copy. `CLAUDE.md` changes only at a stage close, so the line is corrected at the close of stage 05, and until then this record governs and the line is read with it. The same move as `D-18` for colour, and for the same reason: the founder owns the product and the brand and the call is theirs.
+
+**Inheriting means writing it down first, so the walk ran the same day.** No file in this repository held the baseline's words: copy was on the not-inherited list, so seven walks had quoted it only where a structure needed it. `research/docs/baseline.md` section 11, visible on `research/baseline.html` as "The voice, 5 Oct", now holds it: public pages walked live at 1440 and 390, and the signed-in copy transcribed from the founder's 28 dated captures.
+
+**What the walk found that the decision has to meet.**
+
+- **Capitals are type, not voice.** All 149 capitalised strings on Home and all 131 on the FAQ are mixed case set in capitals by the stylesheet. Whether we set them in capitals is a stage 06 and 07 question; stage 05 inherits the words.
+- **The baseline does not have one voice; it has five registers**: promotion, answers, money moving, explaining, stops and states. They do not sound alike. The money and explaining registers carry no exclamation mark at all; the promotion register carries nine.
+- **Two of them collide with rules this project already holds.** The promotion register ("Join now and win amazing prizes", "multiply your prize with every win!") and one FAQ line ("an audience willing to have fun and profit out of it") meet the compliance constraint and principle 3 in `CLAUDE.md`: a case is "a paid chance, never an investment", and cost never hides inside excitement. Which registers are the foundation is therefore asked of the founder as "the brand says X, the data says Y" before any principle is written, as the pack requires, rather than smoothed here.
+- **Several words collide with founder decisions already taken**: `Inventory` against `My items`, `D-128`; five wordings for adding money against `Add funds`, `D-94`; `Take a break` against `Cool down` and `Self exclusion`, node `6.1`; `Sign up` against sign in only, `D-138`. Each goes to the founder as a pair. **Neither side wins by default.**
+- **Part of it was inherited already and never named**: the withdrawal table's heads and its settlement line, `Send to Steam`, the case page's skin prices paragraph and its warning before opening. Those are the baseline's words, carried by `D-128`.
+
+**Answered the same day, "давай как ти рекомендуешь", every pair as recommended.**
+
+| Collision | Answer |
+|---|---|
+| The answers register, the FAQ | Inherited as the core of the voice: short, "we" and "you", the answer first |
+| The money and explaining registers | Inherited whole |
+| The promotion register | The short act verb is inherited; promises of winning, "lucky", profit and exclamation marks are not |
+| Stops and states | Brevity inherited; alarm ("ATTENTION!!!") and dead ends ("History is empty...") are not |
+| "an audience willing to have fun and profit out of it" | Not inherited |
+| Capitals | Not a voice question: copy is written in sentence case, capitals are stages 06 and 07 |
+| `Inventory` against `My items` | `My items` stays: "inventory" already names the Steam inventory on our screens |
+| Five wordings for adding money against `Add funds` | `Add funds` stays as the act; "deposit" is the noun for one payment |
+| `Take a break` against `Cool down` and `Self exclusion` | The regulated names stay |
+| `Sign up` against sign in only | Sign in only, `D-138` |
+| `Sell to site` against `Sell` | `Sell`, `D-38` |
+| `winnings`, `loot`, `prize`, `drops`, `skins` | "skins" and "drops" inherited; "winnings" and "prize" not, because they frame an open as money won |
+| `Low-risk case` against `Low risk` | The baseline's form inherited |
+| Competitor language | A short pass rather than a corpus: `research/docs/research.md` section 11, six landing pages, 5 October 2026 |
+
+The principles that rest on these answers are `voice/docs/voice.md` "Principles".
+
+**Limits of this record.** The logo, typography, shape, motion and component look stay not inherited. "A reference is an input, never an output" still binds: stage 05 still writes rules with a source behind each, and no screen's copy is carried over whole without passing them.

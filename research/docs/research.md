@@ -513,3 +513,30 @@ Appended by stage 03a step 8. Nothing above this line was edited. These are gaps
 **Nobody describes meeting a limit they set themselves.** The responsible play flow was drawn from `B7-4`, a pattern of 12 people inside an escalation loop, and from the compliance constraint. The barrier evidence describes the loop; it does not describe anyone using a tool to stop, because on the baseline and across the competitor set there is nothing to use. `research.md` section 7 carries the legal requirement; the behaviour behind it is `[?]`.
 
 **One question the routes raised that is not a research hole but a compliance one.** A person who only ever uses free entry can reach the withdrawal route and take out a real skin without ever meeting an identity check, because verification gates funding and is forbidden on the exit route. Recorded in `ia/docs/flows.md` under flow 3 with a proposed shape and no route drawn, because it rides on decision `D-A`, which counsel owns.
+
+---
+
+## 11. Competitor language, October 2026
+
+Appended by stage 05 step 2, 5 October 2026. Nothing above this line was edited. **What it is for:** where every site in the category writes the same thing, a difference has to come from the voice, the stage 05 pack's second source for principles. Since `D-166` the voice's foundation is the baseline's own, `baseline.md` section 11, so this is a short pass rather than a corpus.
+
+**Method.** Public landing pages opened live in a browser on 5 October 2026, pre-login, nothing logged into: Hellcase, Key-Drop, skin.club, DatDrop and Clash.gg, plus daddyskins.com from `baseline.md` section 11. CSGORoll answered "Your activity has been flagged as suspicious" and is `[?]`. Every visible string of two words or more was read, page titles and descriptions included. Screenshots `research/screens/voice_<site>_1440_5oct.png`.
+
+**What all six write, in their own words.**
+
+| Pattern | On how many of the six | Verbatim |
+|---|---|---|
+| **A superlative with no number behind it** | 6 of 6 | "the best case opening site on the web" (Key-Drop), "a leader among CS2 case opening sites" (Hellcase), "the go-to destination for CS2 enthusiasts" (DatDrop), "Best CSGO Skin Gaming Sites" (Clash.gg), "The most trusted CS2 (CSGO) case opening site" (daddyskins) |
+| **Trust claimed rather than shown** | 6 of 6 | "Join thousands of players who trust Hellcase", "a trusted and well-established platform" (DatDrop), "Trust the choices of other players" (skin.club, daddyskins) |
+| **Provably fair as a badge word** | 6 of 6 | "a provably fair system that ensures transparency" (Hellcase), "every outcome on DatDrop is fully verifiable and tamper-proof", "Provably fair technology" (skin.club) |
+| **Winning promised** | 5 of 6 | "Win the Best CS2 Skins!" (Key-Drop), "win epic skins" (skin.club), "Win real skins" (DatDrop), "win rare skins" (Clash.gg), "win amazing prizes" (daddyskins) |
+| **Excitement as a product feature** | 4 of 6 | "nonstop excitement", "the thrill of CS2 (CS:GO) case opening" (Hellcase), "a secure and thrilling way to open CS2 cases" (DatDrop), "instant excitement" |
+| **Free as the hook** | 6 of 6 | "Claim Free 3 Cases" (Clash.gg), "Get free cases daily" (Key-Drop), "Claim your 3 Free cases" (daddyskins) |
+| **Exclamation marks** | 5 of 6 | DatDrop is the one that uses none on its landing |
+
+**The two that break the pattern, and they are the useful ones.**
+
+- **Key-Drop's own explainer is plain and checkable**: "Each CS2 case holds a published, fixed list of Counter-Strike items", then five numbered steps from "Sign in with your Steam account" to "Send the item to your Steam inventory", and "every case lists its full contents before you open it". A number of users and opens instead of a superlative: "More than 14.9 million registered users have opened over 553 million CS2 cases here."
+- **Clash.gg prints a sentence no one else does**: "Remember, online gaming is risky if not done responsibly. Stick to trusted sites, set limits, and remember it's supposed to be fun, not a way to get rich quickly."
+
+**What this gives stage 05.** The category speaks in superlatives, claimed trust, promised wins and a fairness badge. **Where all six say the same, the difference is to say the number, show the check and leave the outcome open.** That is a voice difference, not a feature: `CLAUDE.md` principle 1 already says the product makes its own numbers checkable, and `D-14` limits what "provably fair" may claim.
