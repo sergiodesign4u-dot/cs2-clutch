@@ -7015,7 +7015,7 @@ window.WF_PAY = window.WF_PAY || {
     calc.appendChild(coRow('Smallest cash out', wdFmt(net.min) + ' coins'));
     var rec = Math.max(0, p.v - net.fee);
     var out = el('div', 'wf-co-out');
-    out.appendChild(coRow('You receive', wdFmt(rec) + ' coins'));
+    out.appendChild(coRow('You receive', wdFmt(rec) + ' coins, $' + wdFmt(rec) + ' at ' + WF_STR.peg));
     out.appendChild(coRow('In ' + net.tick, (rec / net.rate).toFixed(net.dp) + ' ' + net.tick + ', at ' + wdFmt(net.rate).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' coins each', false, true));
     calc.appendChild(out);
     host.appendChild(calc);
@@ -7828,6 +7828,21 @@ window.WF_PAY = window.WF_PAY || {
      account and a privacy crumb back into Refund. They run once before the
      renderers and once after, and the second pass touches only what a renderer
      built in between. */
+  /* THE RATIO IS PRINTED WHERE MONEY LEAVES, founder decision of 4 October
+     2026, D-159: "при депозите показываем какой у нас соотношение ... и при
+     выводе скина либо кеша". The deposit prints the peg; Send to Steam, its
+     clock and its records now print it under their settlement, with the line
+     that the Steam price is read in dollars and converted at it. */
+  function mountWithdrawPeg() {
+    Array.prototype.forEach.call(document.querySelectorAll('.wf-wd .wf-tl--sum'), function (sum) {
+      if (sum.parentNode.querySelector('[data-wd-peg]')) return;
+      var p = el('p', 'wf-fig-c', 'Prices in coins at ' + WF_STR.peg + '. The Steam market price is read in US dollars and converted at it.');
+      p.setAttribute('data-wd-peg', '');
+      var after = sum.nextElementSibling && sum.nextElementSibling.matches('.wf-fig-c, [data-wd-say]') ? sum.nextElementSibling : sum;
+      after.parentNode.insertBefore(p, after.nextSibling);
+    });
+  }
+
   function fillDeclared() {
     var w = window.WF_WHO || {};
     var each = function (sel, f) { Array.prototype.forEach.call(document.querySelectorAll(sel), function (e) { if (e.hasAttribute('data-filled')) return; e.setAttribute('data-filled', ''); f(e); }); };
@@ -7914,6 +7929,7 @@ window.WF_PAY = window.WF_PAY || {
     mountCommitBar();
     mountTileNames();
     fillDeclared();
+    mountWithdrawPeg();
     oneCurrent();
     nbspFigures();
   });

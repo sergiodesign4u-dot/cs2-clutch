@@ -1177,3 +1177,9 @@ Three Claude subagents took D2's thirty rows on disjoint file sets, each verifyi
 | D2-30 | Support's 72 hours unmarked in `footer.md` | D2 | Fixed: a sample, `D-124` |
 
 Withdrawn on verification: none.
+
+### 17.9 The founder's answer on D2-7, 4 October 2026, `D-159`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| D2-7 rest | Rule 10 kept an outside figure in its own unit; the render printed Steam's price in coins at an unpublished rate | D2 | **Answered by the founder**: coins at the peg, Steam read in dollars, the peg printed at the deposit, Send to Steam and Cash out. Rule 10 rewritten |

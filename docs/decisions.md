@@ -5897,3 +5897,19 @@ Verified on screen: exactly one current element on all 133 pages at 360 and 1440
 - **For the stage close, D2-28:** `CLAUDE.md` says the round 1 list moved three times; its own decisions count four.
 
 Verified: 35 IA pages with no error, no sideways scroll, no duplicate id and valid section registries; eight Mermaid diagrams render; no em dash.
+
+## D-159. Steam's price in coins, at the peg, printed wherever money moves
+
+**Date:** 2026-10-04. **Stage:** 04, round 16. **Decided by:** the founder, answering the question `D-158` carried: "По стим, ми при депозите показиваем какой у нас соотношение, по крайней мере там должни ну и при віводе скина либо кеша". **Binds:** `wireframes/_nav.js`, node `0.11` rule 10 in `numbers.md`, nodes `5.3` and `5.1`, and their pages.
+
+**The question.** `numbers.md` rule 10 said a figure quoted from outside stays in its own unit; since `D-132` the render printed Steam's market price in coins, converted at a rate published nowhere.
+
+**The answer.** Coins stay, and the ratio is printed where money moves. Steam's price is read in US dollars, which the published peg, 1 coin = $1.00, converts exactly, so no second rate exists to publish.
+
+### What was done
+
+- **Send to Steam, its basket, its clock and its records** print under the settlement: "Prices in coins at 1 coin = $1.00. The Steam market price is read in US dollars and converted at it."
+- **Cash out** prints what you receive in coins and in dollars at the peg, beside the network's own rate.
+- **Rule 10** is rewritten in place, the old sentence and the carried question struck; section 2f's euro paragraph is struck as history.
+
+Rejected: Steam's price in its own currency beside the coin value, the recommendation; the founder kept one unit on the screen and the ratio beside it.
