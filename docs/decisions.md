@@ -5830,7 +5830,7 @@ Verified on screen: a sale of the AWP moves 74.20 / 140.95 to 140.25 / 74.90 on 
 
 ## D-155. Round 16, step 3: the journeys reach their ends
 
-**Date:** 2026-10-04. **Stage:** 04, round 16. **Decided by:** the founder, "так" on step 3, under `D-152` answers 2 to 5. **Binds:** `wireframes/_nav.js`, `wireframes/legal-refund.html` (new) and nine wireframe pages; nodes `0.9`, `0.2`, `3.3`, `5.3`, `5.9`, `0.10`, `1.2`, `4.1`, `3.2`, `5.12`, `0.1`, `5.1` and their pages.
+**Date:** 2026-10-04. **Stage:** 04, round 16. **Decided by:** the founder, "так" on step 3, under `D-152` answers 2 to 5. **Binds:** `wireframes/_nav.js`, `wireframes/legal-refund.html` (new) and nine wireframe pages; nodes `0.9`, `0.2`, `3.3`, `5.3`, `5.9`, `0.10`, `1.2`, `4.1`, `3.1`, `7.3`, `0.1`, `5.1` and their pages.
 
 ### What was done
 
