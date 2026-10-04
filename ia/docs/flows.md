@@ -26,6 +26,14 @@ Stage 03a, step 4, written on 11 August 2026. **Revised at step 6** after the tw
 
 ---
 
+## Amended 4 October 2026 by `D-158`. The gate where its node puts it, and the shell's own pages get a route
+
+**Why.** Round 16 of the critique found Flow 1 firing the geo gate between the case screen and the reading of it, and gating an account's Open, against `ia/docs/pages/gate.md` section 1: reading is never gated, the gate fires on the guest Sign in press, and the account's Open passes no gate, `D-136` and `D-146` item 7. It also found three MVP pages, `0.3`, `0.9` and `0.10`, reached by no flow while Flow 5 said four pages were the whole gap.
+
+**What changed.** Flow 1 reads first, asks whether an account exists, and only a guest meets the gate, on the way into sign in; sign in lands back on the signed-in case screen, `D-138`, and the starter credit node left the diagram until its amount exists, `D-126` and `D-130`. A new Flow 6 reaches `0.3`, `0.9`, `0.10` and the cookie consent `0.4`. Eight diagrams; still six red nodes, because Flow 6 has none.
+
+---
+
 ## Flow 1. Main job: arrive, open, get the thrill
 
 `jtbd.md` "Section 1". Primary persona The Opener. Covers phases T1, T2, T3, T5, T6 and T7.
@@ -37,12 +45,13 @@ flowchart TD
     Real -->|no| Leave["Dead end: leaves still pre-suspected, B1-1 unanswered"]
     Real -->|"buys on the market instead"| Market["Leaves through our own outbound market link, A1"]
     Real -->|yes| Case["S-C2 Case screen, phase 1 choosing"]
-    Case --> Gate["S-B1 Geo gate, fires at first case interaction"]
+    Case --> Read["Reads chance, current value, tested RTP and EV at this cost, D2 and D4. Reading is never gated"]
+    Read --> Acct{"Signed in yet?"}
+    Acct -->|yes| Funds{"Anything to open with?"}
+    Acct -->|"no, presses Sign in"| Gate["S-B1 Geo gate, on the guest Sign in press since D-136, never on arrival and never on reading"]
     Gate --> Geo{"Is this market open?"}
     Geo -->|no| Blocked["Dead end: geo blocked, with the legal ground cited, B4"]
-    Geo -->|yes| Read["Reads chance, current value, tested RTP and EV at this cost, D2 and D4"]
-    Read --> Funds{"Anything to open with?"}
-    Funds -->|no| Signin["S-B2 Sign in with Steam, with the consent gate: terms and the 18+ declaration, two separate checkboxes, B3 since D-26"]
+    Geo -->|"yes, or staged and Continue"| Signin["S-B2 Sign in with Steam, with the consent gate: terms and the 18+ declaration, two separate checkboxes, B3 since D-26"]
     Signin --> Declared{"Both boxes set?"}
     Declared -->|no| Refuse["Refused: the press stays live and names the box that is missing, D-58. Nothing is stored"]
     Refuse --> Signin
@@ -52,9 +61,10 @@ flowchart TD
     SteamErr --> Signin
     SteamOk -->|"Steam is down"| SteamDown["Error: Steam unavailable, try later. Reading the product stays open"]
     SteamDown --> Case
-    SteamOk -->|yes| Credit["Bounded no-deposit starter credit granted, I1"]
-    Credit --> Open["S-C2 phase 2, the open. Round hash visible at the spin trigger, E4"]
-    Funds -->|yes| Open
+    SteamOk -->|yes| Back["Lands on the signed-in case screen it was opened over, D-138"]
+    Back --> Funds
+    Funds -->|no| ToDeposit(["Open refuses with both figures and Add funds enters flow 2 at S-D1, D-155"])
+    Funds -->|"yes: a balance, or the starter credit I1 once its amount exists"| Open["S-C2 phase 2, the open. Round hash visible at the spin trigger, E4. An account's Open passes no gate, D-146"]
     Open --> Reveal["Loading: the reveal renders the settled roll and computes nothing again, E1"]
     Reveal --> Landed{"Did the reveal finish on this device?"}
     Landed -->|no| Resume["Interrupted: the roll was settled before the animation, so the result waits on S-C2 phase 3 and is also in S-E1"]
@@ -70,9 +80,9 @@ flowchart TD
     classDef success fill:#12351f,stroke:#4ade80,color:#eafff9;
     classDef dead fill:#3a1618,stroke:#e5484d,color:#ffd7d7;
     classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
-    class Start,Win,Story,PFout success;
+    class Start,Win,Story,PFout,ToDeposit success;
     class Leave,Market,Blocked dead;
-    class Home,Real,Case,Gate,Geo,Read,Funds,Signin,Declared,Refuse,SteamWait,SteamOk,SteamErr,SteamDown,Credit,Open,Reveal,Landed,Resume,Outcome,Share,Alive,Gone neutral;
+    class Home,Real,Case,Read,Acct,Gate,Geo,Funds,Signin,Declared,Refuse,SteamWait,SteamOk,SteamErr,SteamDown,Back,Open,Reveal,Landed,Resume,Outcome,Share,Alive,Gone neutral;
 ```
 
 **ACTIVATION NODE: `Outcome`.** `aarrr.md` "Primary metric (OMTM)" defines activation as users who arrive and complete at least one case open, so the promised value first lands when the reveal resolves and the receipt appears. It is a concrete node in the diagram rather than an implication.
@@ -83,9 +93,11 @@ flowchart TD
 
 **The obvious fix is already rejected on the record, so this is carried rather than solved.** A free demo reveal on identical odds and seeds was dropped in the T2 divergence, `cjm-to-be.md` "T2. First contact, before any account", on the grounds that it argues our case by demonstrating the sceptic is right about the odds and it spends the reveal, the one thing we sell, before anyone has decided anything. Reopening that here would be re-litigating a converged decision.
 
-**Decisions in this flow.** Does this place survive a second look, T1 and T2, barrier `B1-1`. Is this market open, `B4`. Is there anything to open with, T4. ~~Is the person 18 or over, `B3`.~~ **Are both boxes set, terms and the 18+ declaration, `B3`, asked inside sign in since `D-26` rather than at the gate.** **The stock decision left this flow on 21 August 2026, `D-60`:** "are there free units on the wanted item, `B8-1`" stood between reading the numbers and finding the funds, and the flow is one decision shorter because the condition cannot occur. Did Steam return, and in which of the two ways it can fail, `B3-1`. Did the reveal finish on this device. Does the shared result still resolve.
+**Decisions in this flow.** Does this place survive a second look, T1 and T2, barrier `B1-1`. **Signed in yet, added in round 16 by `D-158`: it decides whether the gate and sign in stand in the route at all.** Is this market open, `B4`, **asked on the guest Sign in press since `D-136`, after the case has been read and never before an account's Open, `D-146` item 7, reordered in round 16 by `D-158`**. Is there anything to open with, T4. ~~Is the person 18 or over, `B3`.~~ **Are both boxes set, terms and the 18+ declaration, `B3`, asked inside sign in since `D-26` rather than at the gate.** **The stock decision left this flow on 21 August 2026, `D-60`:** "are there free units on the wanted item, `B8-1`" stood between reading the numbers and finding the funds, and the flow is one decision shorter because the condition cannot occur. Did Steam return, and in which of the two ways it can fail, `B3-1`. Did the reveal finish on this device. Does the shared result still resolve.
 
-**States in this flow.** Empty: a shared result that no longer resolves, routed into the public provably fair page rather than into nothing. **The other empty left with `D-60`**, the item at zero free units returning to the case screen, and it is the only state this map has ever lost. Error: a readable Steam refusal returning to sign in, and Steam being unavailable, which returns to the case screen so a person who cannot sign in can still read the product. **Refused: a press with a box unset, which stays on sign in and names what is missing, `D-58`, and stores nothing.** Loading: the Steam redirect, and the reveal. Interrupted: the reveal that did not finish on this device.
+**States in this flow.** Empty: a shared result that no longer resolves, routed into the public provably fair page rather than into nothing. **The other empty left with `D-60`**, the item at zero free units returning to the case screen, and it is the only state this map has ever lost. Error: a readable Steam refusal returning to sign in, and Steam being unavailable, which returns to the case screen so a person who cannot sign in can still read the product. **Refused: a press with a box unset, which stays on sign in and names what is missing, `D-58`, and stores nothing; and an Open the balance cannot cover, which refuses with both figures and hands on to flow 2 through Add funds, `D-155`, added in round 16 by `D-158`.** Loading: the Steam redirect, and the reveal. Interrupted: the reveal that did not finish on this device.
+
+**Two nodes moved or left in round 16, `D-158`, and the diagram above is the corrected one.** `Gate` stood between `Case` and `Read`, so the drawing gated the reading of a case and every Open, an account's included. It now stands on the guest Sign in press, where `gate.md` section 1 has always put it: reading is never gated, and the account's Open passes no gate because the gate was passed at sign in. `Credit`, "bounded no-deposit starter credit granted, I1", stood between sign in and the open; it left, because `D-126` and `D-130` took the offer off Home and off both sign in carriers until its amount exists, and since `D-138` sign in lands on the signed-in page it was opened over rather than in the open. The starter credit stays on the `Funds` edge, as a way to have something to open with once it exists.
 
 **Why the interrupted reveal is a state and not an error, and why it was the sharpest thing this critique found.** `E1` settles the roll before the animation begins, so at the moment a connection drops the result already exists in the ledger. Without a return path the person sees an animation that never resolved beside a balance that says they won, which is `B6-1`, the animation and the credited item disagreeing, arriving through the back door of a missing state rather than through the front door of a bug.
 
@@ -207,7 +219,7 @@ flowchart TD
 
 **Withdrawal stays open under self exclusion**, which is the same rule the ceiling follows at `cjm-to-be.md` "T4. Getting something to open with". A boundary stops money going in and stops play. It never traps what the person already holds, because a limit that also locks the exit would be a punishment rather than a brake, and it would give anyone a reason never to set one.
 
-**No dead ends, and no red nodes at all.** ~~This is the only flow in the file with none.~~ **Flows 1a and 5 have none either, so it is one of three.** A person can always leave a boundary screen without setting anything, and every boundary they do set is reversible except self exclusion, which is reversible only by waiting out the period they chose themselves.
+**No dead ends, and no red nodes at all.** ~~This is the only flow in the file with none.~~ ~~**Flows 1a and 5 have none either, so it is one of three.**~~ **Flows 1a, 5 and 6 have none either, so it is one of four, recounted in round 16 by `D-158`.** A person can always leave a boundary screen without setting anything, and every boundary they do set is reversible except self exclusion, which is reversible only by waiting out the period they chose themselves.
 
 **The constraint that governs this whole screen, repeated here because it is the thing most likely to be lost.** No counters, no streaks, no status, no session score, no celebration of staying inside a limit. T4 attaches the same rule to the spend ceiling at `cjm-to-be.md` "T4. Getting something to open with": the moment a limit acquires completion mechanics it stops being a boundary and becomes a reason to keep going.
 
@@ -313,7 +325,7 @@ flowchart TD
 
 ## Flow 5. The account's own pages, and a stranger's view of one
 
-Added in round 15 of the critique, on 3 October 2026. **Four MVP pages had no route through any flow:** `5.9` History, `5.10` Profile, `5.11` Settings and `7.3` Public profile, the three `D-36` put on the map for the account menu and the one `D-90` built for the live feed's names. A page with no route has no states anyone has walked, which is the defect step 6 fixed for the catalogue. **This flow draws only transitions the four nodes and the wireframes already hold, and adds no screen.** The four carry no `S-` code because they arrived after the codes were set, so they are named by node number.
+Added in round 15 of the critique, on 3 October 2026. ~~**Four MVP pages had no route through any flow:**~~ **Four of the seven MVP pages with no route through any flow, struck in round 16 by `D-158`; the other three, `0.3`, `0.9` and `0.10`, get theirs in Flow 6:** `5.9` History, `5.10` Profile, `5.11` Settings and `7.3` Public profile, the three `D-36` put on the map for the account menu and the one `D-90` built for the live feed's names. A page with no route has no states anyone has walked, which is the defect step 6 fixed for the catalogue. **This flow draws only transitions the four nodes and the wireframes already hold, and adds no screen.** The four carry no `S-` code because they arrived after the codes were set, so they are named by node number.
 
 **Parents, printed rather than borrowed.** `5.9` stands on `F3` and Related Job 3, `jtbd.md` "Section 2". `5.10` and `7.3` have no parent in the three legal classes and print the empty cell, `D-36` and `D-90`. `5.11` has none of its own, and the field it exists for, the Steam trade URL, does, `G1` and `G5` on `B8-2` and `B8-3`, `D-81`.
 
@@ -346,6 +358,48 @@ flowchart TD
 
 ---
 
+## Flow 6. The shell's own pages: a wrong address, a document, a person to ask
+
+Added in round 16 of the critique, on 4 October 2026, `D-158`. **Three MVP pages had no route through any flow:** `0.3` System pages, `0.9` Legal and policy pages and `0.10` Support and contact, and the cookie consent dialog `0.4` had none either. Flow 5 had named four pages as the whole gap. **This flow draws only transitions the four nodes already hold**, `system.md`, `legal.md`, `support.md` and `cookie.md`, **and adds no screen.** They carry no `S-` code, because cluster 0 never had one, so they are named by node number.
+
+**Parents, printed in each node and none of them a job.** Nobody arrives wanting an error page, a policy or a consent banner. `0.3` stands on `B3-1` by way of `B5` and on `B8-2` by way of `G1` and `G2`; `0.9` stands per block on Directive 2000/31/EC Article 5(1), on `B8-3` by way of `G5`, on `B4-1` and `B4-3` by way of `C4` and `C3`, and on design principle 1; `0.10` stands per route on Article 5(1)(c), on `B8-3` by way of `G4`, and on `B3-1` by way of `B5`; `0.4` on `B1-1` and design principle 1, with the law it cites carried as a gap in the three classes, `cookie.md`.
+
+```mermaid
+flowchart TD
+    S0(["Arrives on any page, from a link or a typed address"]) --> Cookie["0.4 Cookie consent, on arrival: reject as easy as accept, analytics and marketing off until opted in"]
+    Cookie --> Answer{"Can the product answer this address?"}
+    Answer -->|"no such page"| NotFound["0.3 System pages, 404: the shell stays, with two ways out, Home and All cases"]
+    Answer -->|"our server failed, or a stop"| ServerErr["0.3 System pages, 500, or 503 with Retry-After where the end is planned: who it is waiting on, in words"]
+    NotFound --> Back(["Back in the product at S-A1 Home or S-C1 Case catalogue"])
+    ServerErr --> Back
+    Answer -->|yes| Foot["0.2 Footer, on every page"]
+    Foot -->|"Support"| Sup["0.10 Support and contact: a ticket, or an appeal with a published response deadline, G4"]
+    ServerErr -->|"Support"| Sup
+    F0(["Sent here by a failure branch: a restriction in flow 3, a failed proof in flow 4, a blocked market in flow 1"]) --> Sup
+    Foot -->|"Terms, Privacy, Cookies, Refund"| Legal["0.9 Legal and policy pages: summary, document and version history on one template"]
+    Cookie -->|"Cookie policy"| Legal
+    Legal --> Published{"Is this document published?"}
+    Published -->|"yes: terms, and the refund and payments policy since D-155"| ReadDoc(["Read in plain words, with what changed since the version agreed to"])
+    Published -->|"no: privacy and cookies, D-141"| Unpub["Not yet published, under its own name, with the route to ask. Never placeholder legal text"]
+    Unpub --> Sup
+    Sup --> Answered(["A ticket or an appeal on the record, with the deadline it is answered against"])
+
+    classDef success fill:#12351f,stroke:#4ade80,color:#eafff9;
+    classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
+    class S0,F0,Back,ReadDoc,Answered success;
+    class Cookie,Answer,NotFound,ServerErr,Foot,Sup,Legal,Published,Unpub neutral;
+```
+
+**Decisions.** Can the product answer this address, which is `0.3`'s three causes: no such page, our server failed, or a stop. Is this document published, which is `D-141`'s answer for privacy and cookies and `D-155`'s page for the refund and payments policy.
+
+**States.** Error: the 404, which keeps the shell and offers Home and All cases, `D-82`; the 500 and the 503, which say who the wait is on, and the 503 carries `Retry-After` only where the end is planned. Empty: a document not yet published, under its own name and with the route to ask, never placeholder text. The appeal and ticket states of `0.10`, and consent pending on `0.4`, are internal states their nodes specify and this flow does not number.
+
+**Routes in that other flows already draw.** `0.10` is where three failure branches land: the restriction and its appeal in flow 3, `5.6`; the failed proof's report in flow 4, `1.4`; and a market blocked in error in flow 1, `2.2`, which `gate.md` routes to `0.10`. They are drawn here as one entry rather than redrawn.
+
+**No dead ends, and no red nodes.** Every end is a document read, a ticket on the record or a way back into the product. **With this flow every MVP page and dialog on the map is reached by at least one flow.**
+
+---
+
 ## What these flows changed in the concept sitemap
 
 **Step 4 changed nothing.** Every screen node existed already, which is the result step 2's second slice was supposed to produce.
@@ -353,5 +407,7 @@ flowchart TD
 **Step 6 changed two things.** All twelve screen codes gained the `S-` prefix, and the catalogue gained flow 1a, which it needed because it was an MVP screen with no route through it and therefore no states.
 
 **Round 15 changed nothing on the map.** Flow 5 gave four existing MVP nodes the route they lacked, `5.9`, `5.10`, `5.11` and `7.3`, and every node it draws was already on the map.
+
+**Round 16 changed nothing on the map either, `D-158`.** Flow 6 gave `0.3`, `0.9`, `0.10` and the cookie consent `0.4` the route they lacked, and Flow 1 moved the gate to where its node puts it. Every node either flow draws was already on the map.
 
 ~~**One screen appears in a flow while its scope is unsettled.**~~ `S-G1 Public result` is drawn as a branch off the outcome in flow 1 and carried the scope question raised at step 2: it is a ninth public surface against a round locked at eight. ~~It stays drawn and marked until the founder answers.~~ **Answered on 11 August 2026 by the founder, `D-20`: option 1, the public result page exists as node `7.1`, and round 1 became nine surfaces.**

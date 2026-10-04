@@ -10,7 +10,7 @@
 
 **And the parent is stronger than the row that names it.** `F3` is one link on one outcome screen. **Until this node existed, the only trace of a roll a person could reach was the item it produced**, `D-36`. An item is not a round: it survives a sale, it can be withdrawn away, and it carries no seed material. A product whose whole trust claim is "every round can be checked afterwards" had no afterwards.
 
-**URL:** `/history`, renamed from `/roll-history` by `D-88`, section 0.4. **Indexed:** no, `noindex, follow`. **Canonical:** self. **Schema:** none. **Breadcrumb:** none. **Not inherited, because `0.13` has no row for this node**, section 8.
+**URL:** `/history`, renamed from `/roll-history` by `D-88`, section 0.4. **Indexed:** no, `noindex, follow`. **Canonical:** self. **Schema:** none. **Breadcrumb:** none. ~~**Not inherited, because `0.13` has no row for this node**, section 8.~~ **Inherited since `D-150`, which gave `0.13` this node's row with the same values, struck in round 16 by `D-158`.**
 
 **Reached from:** the account menu, `0.1`, row 2; `5.1` beside the items; `3.6` the outcome, as the place the roll goes after the screen closes. **Leads to:** `1.2` the verifier, one route per row; `7.1` the public result, one route per row; `5.1`; `0.10` where a roll cannot be produced.
 
@@ -22,6 +22,18 @@
 |---|---|---|
 | **A public profile with four history tabs**, Inventory history, Case battle history, Gunfights history and Upgrades history, each a grid of item cards carrying the mode icon, the image, the weapon, the skin, the wear and a value in coins. Founder capture, 21 August 2026, `baseline.md` section 9.9. | **The idea that history is a first-class surface**, and the split by mode, which arrives when a second mode does. | **Everything about what a row is.** The baseline's history is an **inventory** history: it lists items, and an item is the outcome of a roll with the roll removed. Ours lists **rolls**, and the item is one column of a row. `baseline.md` section 9.9 records the same thing from the other side: that page is a trophy shelf, and `public-result.md` was written to replace the shelf with something checkable. **A history of items is the shelf again, one screen deeper.** And it is private: the baseline's is public and this one is the account's own. |
 
+
+## Amended 4 October 2026 by `D-158`. Stale lines struck in place
+
+**Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| As in the node's own baseline row | Everything the node decided | "0.13 has no row" is struck, D-150 added the rows; nine indexed and ten not; seo.md's URL map now lists /history |
+
+---
 
 ## Amended 4 October 2026 by `D-156`. Nonces rise with time, and a blocked cash out the form cannot prevent
 
@@ -656,7 +668,7 @@ Composition from `blocks.md` section 3, **T2 listing with an empty state**, rows
 
 ## 8. The finding this node cannot fix, and the register that owes it
 
-~~**`0.13` has no row for `5.9`, `5.10` or `5.11`.**~~ **`0.13` has the three rows since `D-150`.** Its URL map lists fourteen addresses and its indexation register lists sixteen rows, and **none of them is one of the three nodes `D-36` added on 20 August.** The register's closing sentence, "nine indexed surfaces and six that are not", is a count taken before those nodes existed.
+~~**`0.13` has no row for `5.9`, `5.10` or `5.11`.**~~ **`0.13` has the three rows since `D-150`.** ~~Its URL map lists fourteen addresses and its indexation register lists sixteen rows, and **none of them is one of the three nodes `D-36` added on 20 August.** The register's closing sentence, "nine indexed surfaces and six that are not", is a count taken before those nodes existed.~~ **Struck in round 16 by `D-158`, since `D-150`: the indexation register in `0.13` section 3 now holds these three rows and `7.3`'s, and its closing sentence reads nine indexed and ten not. One half of the old finding still holds and is returned to that register rather than fixed here: the URL map in `0.13` section 2 still lists fourteen addresses and none of the four.**
 
 **The URL above is derived from the register's own rules rather than invented:** no language prefix, and one destination carries one label in every carrier, which is the rule that produced `/my-items` and is stated in `0.13` section 2 as "not a styling choice". ~~The account menu's label is Roll history, so the address is `/roll-history`.~~ **Corrected 23 August 2026: the label became History and the address became `/history`, `D-88` and section 0.4, and this section went on printing the old value.** The rule is unchanged and its output moved with the label. **The old value is kept struck rather than deleted**, the treatment `D-89` used on the settings node's equivalent self-contradiction, because the derivation is what this paragraph is for and a derivation with its input hidden proves nothing.
 
@@ -668,7 +680,7 @@ Composition from `blocks.md` section 3, **T2 listing with an empty state**, rows
 | `5.10` Profile | `/profile` | No | Self | None | None |
 | `5.11` Settings | `/settings` | No | Self | None | None |
 
-**And the count sentence moves with them:** nine indexed and six that are not becomes nine and nine. The indexed half does not change, which is why this is a bookkeeping error rather than a scope one, and it is exactly the class the step 8 audit calls count reconciliation.
+**And the count sentence moves with them:** nine indexed and six that are not becomes ~~nine and nine~~ **nine and ten, because `D-150` added `7.3` with these three, struck in round 16 by `D-158`**. The indexed half does not change, which is why this is a bookkeeping error rather than a scope one, and it is exactly the class the step 8 audit calls count reconciliation.
 
 ---
 

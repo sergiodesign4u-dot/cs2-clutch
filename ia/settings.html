@@ -156,6 +156,24 @@
   </div>
 </div>
 
+<section id="d158">
+  <div class="sec-head">
+    <h2>Updated after publication: Stale lines struck in place, D-158</h2>
+    <p>4 October 2026. Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Baseline row for this amendment</h4>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody>
+        <tr><td>As in the node's own baseline row</td><td>Everything the node decided</td><td>"0.13 has no row" is struck, D-150</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="d157">
   <div class="sec-head">
     <h2>Updated after publication: With no Steam account linked, the band says so, D-157</h2>
@@ -559,9 +577,9 @@
     <h2>SEO and indexation</h2>
   </div>
   <div class="card is-note">
-    <h4>Not indexed, and it owes 0.13 a row it does not have</h4>
+    <h4>Not indexed, <s>and it owes 0.13 a row it does not have</s> <strong>and its 0.13 row exists since D-150</strong></h4>
     <p><strong>Not indexed, <s>no canonical</s>, no schema, no breadcrumb</strong>, and it carries <code>noindex, follow</code> as a meta tag with a canonical to itself, round 15, the treatment every private page renders. A private account surface, and the register treats the whole 5.x group that way. URL <code>/settings</code>, derived from the register&#39;s own rules, no language prefix, and one destination carrying one label in every carrier.</p>
-    <p>D-78 already recorded that the register has no row for 5.9, 5.10 or 5.11, and its closing count of nine indexed against six not indexed was taken before those three nodes existed. <strong>This node repeats that finding rather than editing another node&#39;s register.</strong></p>
+    <p><s><strong>It owes <code>0.13</code> a row and does not have one.</strong> <code>D-78</code> already recorded that the register has no row for <code>5.9</code>, <code>5.10</code> or <code>5.11</code>, and its closing count of nine indexed against six not indexed was taken before those three nodes existed. <strong>This node repeats that finding rather than editing another node&#39;s register.</strong></s> <strong>Struck in round 16 by <code>D-158</code>: <code>D-150</code> gave <code>0.13</code> this node's row, <code>noindex, follow</code> with a self canonical, the values above, and the register's count now reads nine indexed and ten not.</strong></p>
   </div>
 </section>
 
@@ -634,6 +652,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '5.11 Settings';
 window.NAV_SECTIONS = [
   { id: 'overview',     label: 'Overview' },
+  { id: 'd158', label: 'D-158 SEO register' },
   { id: 'd157', label: 'D-157 no Steam band' },
   { id: 'd150', label: 'D-150 answers' },
   { id: 'd145', label: 'D-145 catch-up' },

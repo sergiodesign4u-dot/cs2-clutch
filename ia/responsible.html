@@ -155,6 +155,24 @@
   </div>
 </div>
 
+<section id="d158">
+  <div class="sec-head">
+    <h2>Updated after publication: Stale lines struck in place, D-158</h2>
+    <p>4 October 2026. Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Baseline row for this amendment</h4>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody>
+        <tr><td>As in the node's own baseline row</td><td>Everything the node decided</td><td>Three entries become two, footer and account menu, D-136, with the + opening the limits under a boundary, D-134</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="d146">
   <div class="sec-head">
     <h2>Updated after publication: The finished text is the description, the two lines stay on screen, D-146</h2>
@@ -276,19 +294,20 @@
   </div>
 
   <div class="card is-fix">
-    <h4>Reachability is not prominence, and the three entries were not these three</h4>
+    <h4>Reachability is not prominence, and the entries were not these</h4>
+    <p><s><strong>The page has three entries and they are not the three this section named until 22 August 2026.</strong></s> <strong>The page has two entries since <code>D-136</code>, struck in round 16 by <code>D-158</code>: the money control entry was never rendered. And until 22 August 2026 they were not the ones this section named.</strong></p>
     <p>This card read "the rail in its lower group, a persistent entry inside the money control, and the footer's fourth column" until 22 August 2026. <strong>The rail entry had been gone since D-29 of 19 August and the account menu entry arrived with D-40 on 20 August.</strong> Two decisions out of date in one sentence, and <code>navigation.md</code> had already printed both.</p>
     <div class="table-wrap">
       <table>
         <thead><tr><th>Entry</th><th>Which moment it answers</th><th>Where it is fixed</th></tr></thead>
         <tbody>
           <tr><td><strong>The footer&#39;s Play responsibly column</strong></td><td>A person reading the site finds it</td><td><code>CLAUDE.md</code>: each carried in its own column</td></tr>
-          <tr><td><strong>The entry inside the money control</strong></td><td>A person about to spend meets it, two taps from anywhere</td><td><code>navigation.md</code>, unchanged since <code>D-19</code></td></tr>
+          <tr><td><s><strong>The entry inside the money control</strong></s></td><td><s>A person about to spend meets it, two taps from anywhere</s></td><td><s><code>navigation.md</code>, unchanged since <code>D-19</code></s> <strong>Never rendered, struck in round 14 by <code>D-136</code> and here in round 16 by <code>D-158</code>. The moment before spending is met by refusal rather than by an entry: under a boundary the + opens the limits, <code>D-134</code>, <code>navigation.md</code> section 5</strong></td></tr>
           <tr><td><strong>The account menu</strong></td><td>A person managing their account looks for it</td><td><code>navigation.md</code> since <code>D-40</code></td></tr>
         </tbody>
       </table>
     </div>
-    <p><strong>The rail is not one of them and it may not become one again by accident:</strong> it carries one destination in both states. Three entries are still how a person finds a brake at the worst moment. <strong>None of them is a promotion, and none of them is a number.</strong></p>
+    <p><strong>The rail is not one of them and it may not become one again by accident:</strong> it carries one destination in both states. <s>Three entries are still how a person finds a brake at the worst moment.</s> <strong>Two entries, and the + that opens the limits under a boundary, are still how a person finds a brake at the worst moment, struck in round 16 by <code>D-158</code>, since <code>D-136</code>.</strong> <strong>None of them is a promotion, and none of them is a number.</strong></p>
   </div>
 </section>
 
@@ -309,7 +328,7 @@
       <thead><tr><th style="width:30%">What Key-Drop does</th><th style="width:16%">Verdict</th><th>Reason</th></tr></thead>
       <tbody>
         <tr><td>Calls its session control <strong>"session reminders: gentle alerts during long play sessions"</strong></td><td><strong>Refused</strong></td><td>A reminder a person can ignore forever is not a limit. <code>C5</code> is a limit: when the session limit is reached the session ends and <span class="surf">6.3</span> holds it. <strong>A gentle alert is the interface admitting it does not intend to stop anything</strong></td></tr>
-        <tr><td><strong>Puts the whole surface on a separate subdomain</strong></td><td><strong>Refused</strong></td><td>The brake lives outside the room where the spending happens. Ours is a node of this product at <code>/responsible-play</code>, entered from the rail, from the money control and from the footer, rendering the same shell as every other page</td></tr>
+        <tr><td><strong>Puts the whole surface on a separate subdomain</strong></td><td><strong>Refused</strong></td><td>The brake lives outside the room where the spending happens. Ours is a node of this product at <code>/responsible-play</code>, entered <s>from the rail, from the money control and from the footer</s> <strong>from the footer and from the account menu, struck in round 16 by <code>D-158</code>: the rail entry left with <code>D-29</code> and the money control entry was never rendered, <code>D-136</code></strong>, rendering the same shell as every other page</td></tr>
         <tr><td>Carries a <strong>decorative verifier widget</strong> printing a fake server seed, a fake client seed and <strong>"Outcome Verified: DRAGON LORE (FN)"</strong> for a round that never happened</td><td><strong>Refused, and it is the live instance of a rule we already wrote</strong></td><td><span class="surf">0.14</span> section 0 forbids a verified badge in any variant, because it asserts the one proposition the scheme does not prove. <strong>A responsible play page is the last surface in a product that should carry a fabricated proof, and it is where this one carries it</strong></td></tr>
         <tr><td>Three principle cards: fun first, collectibles not investments, healthy play mindset</td><td>Take the second, leave the framing</td><td>"Collectibles, not investments" is a true and useful sentence. The other two are mood</td></tr>
         <tr><td>18+ badges: NO MINORS, ID MATCH REQUIRED, KYC VERIFICATION</td><td><strong>Refused</strong></td><td>Claims about a mechanism, printed as badges, with nothing to check. <code>0.11</code> rule 9 and <code>D-A</code>: our identity method is <span class="q">[?]</span> and will be described rather than badged</td></tr>
@@ -749,7 +768,7 @@
   <div class="card is-fix">
     <h4>Two findings for other nodes, raised rather than edited</h4>
     <p><strong>1. <span class="surf">0.2</span> renders its statistics strip on this page.</strong> The footer has no account dimension and no per-node dimension, by its own rule, so a cases-opened figure in the hundreds of millions sits below a self exclusion control. Inherited rather than chosen, and the kind of adjacency this stage should notice out loud. Owner: <span class="surf">0.2</span>, then stage 04.</p>
-    <p><strong>2. The three-entry count is right and the list was wrong in three files at once.</strong> This node named the rail, <code>footer.md</code> names the rail, and <code>sitemap.md</code> says responsible play "gains a rail entry and keeps the one it had". <strong>All three predate D-29</strong>, which moved it off the rail on 19 August, and <strong>D-40</strong>, which put it in the account menu on 20 August. Fixed here and in <code>footer.md</code>; the sitemap sentence is a record of what step 6 decided and is marked rather than rewritten. <strong>The count never changed. Every file naming the members was wrong.</strong></p>
+    <p><strong>2.</strong> <s><strong>The three-entry count is right and the list was wrong in three files at once.</strong></s> <strong>The list was wrong in three files at once, and since <code>D-136</code> the count is two rather than three, struck in round 16 by <code>D-158</code>.</strong> This node named the rail, <code>footer.md</code> names the rail, and <code>sitemap.md</code> says responsible play "gains a rail entry and keeps the one it had". <strong>All three predate D-29</strong>, which moved it off the rail on 19 August, and <strong>D-40</strong>, which put it in the account menu on 20 August. Fixed here and in <code>footer.md</code>; the sitemap sentence is a record of what step 6 decided and is marked rather than rewritten. <s><strong>The count never changed.</strong></s> <strong>The count changed once, to two, when <code>D-136</code> struck the money control entry, struck in round 16 by <code>D-158</code>.</strong> <strong>Every file naming the members was wrong.</strong></p>
   </div>
 
   <div class="card" style="border-left:3px solid var(--text-muted)">
@@ -776,6 +795,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '6.1 Responsible play';
 window.NAV_SECTIONS = [
   { id: 'overview',   label: 'Overview' },
+  { id: 'd158', label: 'D-158 entries' },
   { id: 'd146', label: 'D-146 SEO body' },
   { id: 'd145', label: 'D-145 catch-up' },
   { id: 'd143', label: 'D-143 from now' },

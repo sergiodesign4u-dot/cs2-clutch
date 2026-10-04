@@ -154,9 +154,27 @@
   <div class="card" style="margin-top:28px">
     <p><strong>Type:</strong> dialog. <strong>Group:</strong> <code>pages</code>. <strong>Scope:</strong> MVP. <strong>Cluster:</strong> 2, get through the door. <strong>Alias:</strong> <code>S-B1</code>. <strong>URL:</strong> none. It renders at the URL the person is already on: a state has no URL of its own unless a person can arrive at it from outside, and nobody arrives at a gate from outside.</p>
     <p><strong>Parent class:</strong> the compliance constraint in <code>CLAUDE.md</code>, quoted, <strong>"a market allowlist closed by default, so a market with no row is <code>not launched</code>"</strong>, <code>D-23</code>, by way of row <span class="row-code">B3</span>, whose own parent cell also names barrier <span class="row-code">B8-4</span>; and the compliance constraints <s>"geo blocking informed by cited legal research" and</s> "staged regional rollout resting on cited law", by way of row <span class="row-code">B4</span>. <strong>The struck quote is no longer in <code>CLAUDE.md</code></strong>; the compliance paragraph there now carries the allowlist clause and "staged regional rollout resting on cited law", both word for word. Constraint class throughout.</p>
-    <p><strong>States:</strong> <span class="surf">2.2</span> geo blocked. <strong><span class="surf">2.3</span> under age was dissolved by <code>D-26</code></strong> and its section is kept below, marked. <strong>Transitions:</strong> <span class="surf">2.2</span>, back into <span class="surf">3.3</span>. <strong>Reads <span class="surf">0.12</span> rather than holding its own constants:</strong> the verdict, the ground, the minimum age and the age method all come from the market row.</p>
+    <p><strong>States:</strong> <span class="surf">2.2</span> geo blocked. <strong><span class="surf">2.3</span> under age was dissolved by <code>D-26</code></strong> and its section is kept below, marked. <strong>Transitions:</strong> <span class="surf">2.2</span>, back into <span class="surf">3.3</span>, <strong>and <span class="surf">2.4</span> sign in since <code>D-136</code>: the guest <code>Sign in</code> press passes through the check state on its way to <span class="surf">2.4</span>, and the staged verdict's Continue opens sign in. Added in round 16 by <code>D-158</code>.</strong> <strong>Reads <span class="surf">0.12</span> rather than holding its own constants:</strong> the verdict, the ground, the minimum age and the age method all come from the market row.</p>
   </div>
 </div>
+
+<section id="d158">
+  <div class="sec-head">
+    <h2>Updated after publication: Stale lines struck in place, D-158</h2>
+    <p>4 October 2026. Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Baseline row for this amendment</h4>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody>
+        <tr><td>As in the node's own baseline row</td><td>Everything the node decided</td><td>The transitions include 2.4, D-136; the sentence about a trigger table naming the open control is struck, D-149</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
 <section id="d157">
   <div class="sec-head">
@@ -272,7 +290,7 @@
     <p><strong>It never contends with the cookie banner.</strong> <span class="surf">0.4</span> fires on arrival, <span class="surf">2.1</span> fires at first case interaction, so the two interrupts never want the same moment.</p>
     <p><strong>Amended 1 September 2026 by <code>D-105</code>. The built prototype wired this node to a control the table above excludes, and to none of the ones it names.</strong> The one live trigger was the guest sign-in press on <span class="surf">3.3</span>, <strong>and signing in commits nobody to a roll</strong>, which is the phrase in the right hand column. The <code>Open</code> control on the three account states, named first in the left hand column, carried no trigger at all. <strong>The table is unchanged and it was always right. What was wrong was the wiring.</strong></p>
     <p><strong>The wrong wire is out and the right one is not in</strong>, and the reason is this node's own check state: it renders a spinner carrying a note that its own threshold is not set, and <strong>nothing behind it resolves it</strong>. Putting that in front of <code>Open</code> would turn the one control that commits a person to a roll into a dead end. <s><strong>So <span class="surf">2.1</span> now renders only on its five pinned pages and fires nowhere.</strong></s> <strong>Superseded by <code>D-136</code>:</strong> the guest <code>Sign in</code> press on the case screen passes through <span class="surf">2.1</span>'s check state on its way to <span class="surf">2.4</span>, and the staged verdict's Continue opens sign in; the verdict states keep their pinned pages.</p>
-    <p><strong>Two questions this leaves, and both are this node's.</strong> <s>Where it fires in the prototype, which needs the check state to resolve before any wire is honest.</s> <strong>Answered by <code>D-136</code> and <code>D-146</code>:</strong> on the guest <code>Sign in</code> press, and <strong>the <code>Open</code> control on the account states passes no gate because the gate was passed at sign in.</strong> That leaves the table above naming the open control as a trigger the render does not wire, printed here rather than smoothed. <strong>And whether it should render at all on an open market:</strong> it renders nothing there today, which is what lets the guest press go straight through to <span class="surf">2.4</span>, and it also means this node has no observable behaviour on the happy path. <strong>A layer that is invisible when the answer is yes is correct for the person and unreviewable for us.</strong></p>
+    <p><strong>Two questions this leaves, and both are this node's.</strong> <s>Where it fires in the prototype, which needs the check state to resolve before any wire is honest.</s> <strong>Answered by <code>D-136</code> and <code>D-146</code>:</strong> on the guest <code>Sign in</code> press, and <strong>the <code>Open</code> control on the account states passes no gate because the gate was passed at sign in.</strong> <s>That leaves the table above naming the open control as a trigger the render does not wire, printed here rather than smoothed.</s> <strong>The table above no longer names it: round 15, step 8b, <code>D-149</code>, struck the open control and put the guest <code>Sign in</code> press in its place, so table and render agree. Struck in round 16 by <code>D-158</code>.</strong> <strong>And whether it should render at all on an open market:</strong> it renders nothing there today, which is what lets the guest press go straight through to <span class="surf">2.4</span>, and it also means this node has no observable behaviour on the happy path. <strong>A layer that is invisible when the answer is yes is correct for the person and unreviewable for us.</strong></p>
   </div>
 </section>
 
@@ -693,6 +711,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '2.1 Geo gate';
 window.NAV_SECTIONS = [
   { id: 'overview',  label: 'Overview' },
+  { id: 'd158', label: 'D-158 transitions' },
   { id: 'd157', label: 'D-157 equal weight' },
   { id: 'd145', label: 'D-145 catch-up' },
   { id: 'd138', label: 'D-138 check' },

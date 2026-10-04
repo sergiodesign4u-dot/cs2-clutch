@@ -18,6 +18,18 @@
 
 ---
 
+## Amended 4 October 2026 by `D-158`. Stale lines struck in place
+
+**Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| As in the node's own baseline row | Everything the node decided | The URL map gains /history, /profile, /settings and /u/<public-id>, which the register has carried since D-150, and u joins the reserved first segments |
+
+---
+
 ## 0. What this register is, and what it is not
 
 `CLAUDE.md` splits SEO across three stages and this is the first of them:
@@ -52,7 +64,7 @@ The locked decision in `CLAUDE.md` is one language, English. That decision pays 
 | **Slug source** | The object's own name, in the product language, which is English | |
 | **Slug stability** | **A rename is a 301 and the old slug is never reused.** A slug is not edited in place | A silently changed slug is a dead link in every share, every chat and every index |
 | **IDs** | Never in a slug, with one exception: `/r/<id>`, where the object is a record and has no name | |
-| **Reserved first segments** | `cases`, `legal`, `r`, `support`, and the transactional set below. A case slug may not equal a reserved word | Without this rule `/cases/category` collides with a case named "category" |
+| **Reserved first segments** | `cases`, `legal`, `r`, `support`, **`u` since `D-158`**, and the transactional set below. A case slug may not equal a reserved word | Without this rule `/cases/category` collides with a case named "category" |
 
 ### The map
 
@@ -72,6 +84,10 @@ The locked decision in `CLAUDE.md` is one language, English. That decision pays 
 | `4.1` Deposit | `/deposit` |
 | `5.1` Account and inventory | `/my-items` |
 | `5.3` Withdrawal | `/withdraw` |
+| `5.9` History | `/history`, **added to the map in round 16 by `D-158`; the register has carried it since `D-150`** |
+| `5.10` Profile | `/profile`, **the same** |
+| `5.11` Settings | `/settings`, **the same** |
+| `7.3` Public profile | `/u/<public-id>`, **the same; `u` joins the reserved first segments** |
 
 **`/my-items` is not a styling choice.** The ~~rail's~~ **account menu's, since `D-40` took it off the rail,** label for that destination is My items, and node `0.1` fixed the rule that one destination carries one label in every carrier. **The URL is a carrier too**, and a person who reads `/account` in the address bar after tapping My items has met a second name for one place.
 

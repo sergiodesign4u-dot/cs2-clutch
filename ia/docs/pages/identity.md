@@ -27,6 +27,18 @@
 
 ---
 
+## Amended 4 October 2026 by `D-158`. Stale lines struck in place
+
+**Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| As in the node's own baseline row | Everything the node decided | Four rail destinations become one, Cases, D-40 |
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.
@@ -232,7 +244,7 @@ Whether a second attempt at the check is allowed at all depends on the method an
 
 ## 8. Components
 
-**Used:** `0.1` in its account shape, four rail destinations and the money control in the header; `0.2` the footer; `0.5` toasts, which are never the only place a state here is announced, per `0.5`'s own rule.
+**Used:** `0.1` in its account shape, ~~four rail destinations~~ **one rail destination, Cases, with My items in the account menu, struck in round 16 by `D-158`, since `D-40`,** and the money control in the header; `0.2` the footer; `0.5` toasts, which are never the only place a state here is announced, per `0.5`'s own rule.
 
 **Not used:** `0.6`, `0.7`, `0.8`, `0.14`. No case object appears on this page in any state.
 

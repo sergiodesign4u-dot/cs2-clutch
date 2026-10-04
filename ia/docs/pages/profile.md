@@ -18,7 +18,7 @@
 
 **And that has one consequence this node enforces on itself.** An orphan may not grow. **Every block below has to be either a fact the product already holds about this account or a control that already exists somewhere else on the map.** Nothing on this page may be the first home of a new capability, because a capability whose only justification is a page that has no parent has no parent either.
 
-**URL:** `/profile`. **Indexed:** no, `noindex, follow`. **Canonical:** self. **Schema:** none. **Breadcrumb:** none. **Not inherited, because `0.13` has no row for this node**; the finding and the shape of the three missing rows are in `history.md` section 8 and are not restated here. **`0.13` has its row since `D-150`, the same values.**
+**URL:** `/profile`. **Indexed:** no, `noindex, follow`. **Canonical:** self. **Schema:** none. **Breadcrumb:** none. ~~**Not inherited, because `0.13` has no row for this node**; the finding and the shape of the three missing rows are in `history.md` section 8 and are not restated here.~~ **`0.13` has its row since `D-150`, the same values, so they are inherited; struck in round 16 by `D-158`.**
 
 **Reached from:** the account menu, `0.1`, row 4. **Leads to:** `5.11` settings, `5.1`, `5.9`, all three by the account band's tab strip since `D-90` deleted the button row, and **`7.3` the public profile** from block 4.
 
@@ -30,6 +30,18 @@
 |---|---|---|
 | **A public profile page**, walked by the founder's capture of 21 August 2026 and recorded in `baseline.md` section 9.9: a hexagonal avatar, the display name, **a numeric public id read as `ID 852261`**, three counters reading `N/A`, the name repeated under the avatar, four history tabs and a grid of item cards. | **The avatar, the display name and the Steam origin.** Three facts, and the baseline is the source for the fact that an account is not anonymous here. | **That it is public, and that it is a shelf.** Ours is the account's own view of itself and there is no public form of it in round 1: `D-69` records two of our own decisions pointing opposite ways on a public profile and leaves it `[?]`. **And the id is not copied.** `baseline.md` records that `852261` is sequential and that a stranger can decrement it, which makes the platform's registered-account count enumerable from outside. It is a fact about the baseline, recorded, and not a pattern to inherit. **The three `N/A` counters are not inherited either:** a counter that has never had a value is a field waiting for a score. |
 
+
+## Amended 4 October 2026 by `D-158`. Stale lines struck in place
+
+**Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| As in the node's own baseline row | Everything the node decided | "0.13 has no row" is struck, D-150 |
+
+---
 
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
@@ -276,7 +288,7 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 
 **C. SEO text.** None, `noindex`.
 
-**D. Structured data.** None. **Explicitly not `Person` and not `ProfilePage`:** `0.13` section 7 assigns the schema and it has no row for this node, and a node that adds a type its register did not assign has done the thing the register exists to stop. `0.9` refused `FAQPage` on the same reasoning.
+**D. Structured data.** None. **Explicitly not `Person` and not `ProfilePage`:** `0.13` section 7 assigns the schema and ~~it has no row for this node~~ **its register row for this node, since `D-150`, assigns none, struck in round 16 by `D-158`**, and a node that adds a type its register did not assign has done the thing the register exists to stop. `0.9` refused `FAQPage` on the same reasoning.
 
 **E. Checklist.** One H1. `noindex` as a meta tag, never a `robots.txt` disallow. The account id is crawlable text. No horizontal scroll at 360. **No colour-only state anywhere**, which here is the broken Steam link.
 

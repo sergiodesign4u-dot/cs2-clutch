@@ -1153,3 +1153,27 @@ The HTML pages of the map and the flows carry an Updated after publication block
 | D1-16 | `voice-input.md` counted 1 221 marks | D1 | Recounted: 1 245 on 123 of 133 pages |
 | B2-36 | The privacy and cookie crumb said Refund | B2 | Fixed in step 1 |
 | D1 lower list | Twelve lower rows, among them the drawer's focus trap, the support H2 order and the staged gate's stack at 360 | D1 | **Carried to the second pass**, which re-reads them against the render rather than fixing from the list |
+
+### 17.8 Step 6, the IA against itself, fixed on 4 October 2026 under `D-158`
+
+Three Claude subagents took D2's thirty rows on disjoint file sets, each verifying before editing; the lead closed what fell between their sets.
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| D2-1 | The rail called the complete list of destinations | D2 | Fixed in `sitemap.md` and `navigation.md`: Cases alone, `D-40` |
+| D2-2, D2-3, D2-4 | Responsible play with three entries, in the money control, on the rail and in the drawer; four rail destinations | D2 | Fixed: two entries, footer and account menu, `D-136`; the drawer is the rail |
+| D2-5, D2-6 | The ticker on 1.0 only; Settings `[?]` | D2 | Fixed: `D-59`, `D-150` |
+| D2-7 | Steam's market figure in EUR in the map and `numbers.md` | D2 | Fixed to coins, `D-132`. **Needs the founder:** rule 10 says an outside figure keeps its own unit, and the render converts Steam's price at a rate published nowhere |
+| D2-8, D2-9 | The receipt said to live on the 5.1 card in nine places; the map and two nodes disagreed on whether it is a field of 0.6 | D2 | Fixed: a field of 0.6 whose subject is the round, `D-91`, printed on 3.6, 7.1, 7.3 and 5.9, never on 5.1 or 5.3; `structure.html`'s sweep corrected by the lead |
+| D2-10, D2-11, D2-12 | `skin-card.md` used by 3.1 not 7.3; 0.14 omits 5.9; 7.3 "three states" | D2 | Fixed |
+| D2-13 | Flow 1 gated reading and an account's Open | D2 | Fixed: the gate on the guest Sign in press, never on reading |
+| D2-14, D2-15, D2-16, D2-17 | Gate transitions without 2.4; a table that no longer exists; the starter credit into 3.5 and on Home | D2 | Fixed: `D-136`, `D-149`, `D-138`, `D-126` |
+| D2-18, D2-19, D2-20 | "0.13 has no row" in three nodes; `seo.html` behind its md; an unstruck line on `history.html` | D2 | Fixed; the lead added the four D-150 addresses to `seo.md`'s URL map |
+| D2-21 | 5.1 and 3.6 transitions without 5.9 | D2 | Fixed; 3.6 reaches it through the account menu, said in the node |
+| D2-22, D2-23, D2-24 | Line citations into `jtbd.md`, a cited "Node table" that does not exist, Section 3 for Section 5 | D2 | Fixed: section names |
+| D2-25 | 0.3, 0.9 and 0.10 reached by no flow; Flow 5's claim false | D2 | Fixed: Flow 6, the shell's own pages; eight flows |
+| D2-26, D2-27, D2-29 | README: six flows, a hole `D-93` closed, 38 over 37 | D2 | Fixed: eight, closed, 40 over 39 |
+| D2-28 | `CLAUDE.md` says the round 1 list moved three times, four by its own record | D2 | **Carried to the stage close**, the one moment `CLAUDE.md` is edited, with the founder's go |
+| D2-30 | Support's 72 hours unmarked in `footer.md` | D2 | Fixed: a sample, `D-124` |
+
+Withdrawn on verification: none.

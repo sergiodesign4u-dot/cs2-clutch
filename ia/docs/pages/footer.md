@@ -16,7 +16,19 @@
 |---|---|---|
 | A statistics strip of four counters above four link columns, an identification line naming the operating company, a copyright range and three payment marks. `baseline.md` section 9.7. | The strip and the four column shape, and the identification line, which is the one piece of institutional evidence the footer already carries. | **Three absences, all re-checked on 18 August 2026: no 18+ mark, no responsible play route, no licence statement anywhere in the footer.** Ours carries all three, and that is the compliance constraint in `CLAUDE.md` rather than a preference. |
 | Three links with no verdict until 29 September 2026: **Contacts & Corporate Information, Counter-Strike Guides, Marketing Assets**. Named in the second pass of round 13, `D-131` | The job of the first: the identification line and Contact support already carry who we are and how to reach us | **Not drawn.** Guides and marketing assets are content pages with no node in round 1, and a link to them is a carrier promising a destination the map does not hold. They arrive with a content round, not before |
-| The floating headset control, bottom right, **at every width** | Nothing | Refused at 360 by `D-22`, section 3. **Above 900 the reason is different and it is named now, `D-131`:** our support is a form answered within 72 hours, `0.10`, and a floating headset reads as live help. A control that promises an immediacy we do not have is worse than the Support button in band 2 |
+| The floating headset control, bottom right, **at every width** | Nothing | Refused at 360 by `D-22`, section 3. **Above 900 the reason is different and it is named now, `D-131`:** our support is a form answered within 72 hours, **a sample by `D-124` as `0.10` marks it, marked here in round 16 by `D-158`**, `0.10`, and a floating headset reads as live help. A control that promises an immediacy we do not have is worse than the Support button in band 2 |
+
+---
+
+## Amended 4 October 2026 by `D-158`. Stale lines struck in place
+
+**Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| As in the node's own baseline row | Everything the node decided | Support's 72 hours is marked as a sample, D-124, as 0.10 marks it |
 
 ---
 

@@ -149,13 +149,31 @@
   <p class="lede">The structural SEO layer, held once: URL and slug conventions, one indexation row per node, the schema map, the single H1 rule, breadcrumbs and the internal linking planes. Every A to E block on every node inherits from here instead of deriving it a second time, and stage 04 validates against this table rather than against twenty six private opinions.</p>
   <div class="hero-meta">
     <div><div class="hero-stat-value">9</div><div class="hero-stat-label">Indexed surfaces</div></div>
-    <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Deliberately not</div></div>
+    <div><div class="hero-stat-value">10</div><div class="hero-stat-label">Deliberately not, six until D-150</div></div>
     <div><div class="hero-stat-value">4</div><div class="hero-stat-label">Linking planes</div></div>
     <div><div class="hero-stat-value">0</div><div class="hero-stat-label">hreflang tags, ever</div></div>
   </div>
 </div>
 
 <!-- SCOPE -->
+<section id="d158">
+  <div class="sec-head">
+    <h2>Updated after publication: Stale lines struck in place, D-158</h2>
+    <p>4 October 2026. Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Baseline row for this amendment</h4>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody>
+        <tr><td>As in the node's own baseline row</td><td>Everything the node decided</td><td>The URL map gains /history, /profile, /settings and /u/&lt;public-id&gt;, which the register has carried since D-150, and u joins the reserved first segments</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section id="d150">
   <div class="sec-head">
     <h2>Updated after publication: founder answers, D-150</h2>
@@ -232,7 +250,7 @@
         <tr><td><strong>Slug source</strong></td><td>The object's own name, in the product language, which is English</td><td></td></tr>
         <tr><td><strong>Slug stability</strong></td><td><strong>A rename is a 301 and the old slug is never reused.</strong> A slug is not edited in place</td><td>A silently changed slug is a dead link in every share, every chat and every index</td></tr>
         <tr><td><strong>IDs</strong></td><td>Never in a slug, with one exception: <code>/r/&lt;id&gt;</code>, where the object is a record and has no name</td><td></td></tr>
-        <tr><td><strong>Reserved first segments</strong></td><td><code>cases</code>, <code>legal</code>, <code>r</code>, <code>support</code>, and the transactional set below</td><td>Without this rule <code>/cases/category</code> collides with a case named "category"</td></tr>
+        <tr><td><strong>Reserved first segments</strong></td><td><code>cases</code>, <code>legal</code>, <code>r</code>, <code>support</code>, <strong><code>u</code> since D-158</strong>, and the transactional set below</td><td>Without this rule <code>/cases/category</code> collides with a case named "category"</td></tr>
       </tbody>
     </table>
   </div>
@@ -256,6 +274,10 @@
         <tr><td><span class="surf">4.1</span> Deposit</td><td><code>/deposit</code></td></tr>
         <tr><td><span class="surf">5.1</span> Account and inventory</td><td><code>/my-items</code></td></tr>
         <tr><td><span class="surf">5.3</span> Withdrawal</td><td><code>/withdraw</code></td></tr>
+        <tr><td><span class="surf">5.9</span> History</td><td><code>/history</code>, <strong>added to the map in round 16 by D-158; the register has carried it since D-150</strong></td></tr>
+        <tr><td><span class="surf">5.10</span> Profile</td><td><code>/profile</code>, <strong>the same</strong></td></tr>
+        <tr><td><span class="surf">5.11</span> Settings</td><td><code>/settings</code>, <strong>the same</strong></td></tr>
+        <tr><td><span class="surf">7.3</span> Public profile</td><td><code>/u/&lt;public-id&gt;</code>, <strong>the same; <code>u</code> joins the reserved first segments</strong></td></tr>
       </tbody>
     </table>
   </div>
@@ -297,13 +319,17 @@
         <tr><td><span class="surf">4.1</span> Deposit</td><td><code>/deposit</code></td><td><strong>No</strong></td><td>Self</td><td>None</td><td>None</td></tr>
         <tr><td><span class="surf">5.1</span> My items</td><td><code>/my-items</code></td><td><strong>No</strong></td><td>Self</td><td>None</td><td>None</td></tr>
         <tr><td><span class="surf">5.3</span> Withdrawal</td><td><code>/withdraw</code></td><td><strong>No</strong></td><td>Self</td><td>None</td><td>None</td></tr>
+        <tr><td><span class="surf">5.9</span> History</td><td><code>/history</code></td><td><strong>No.</strong> <code>noindex, follow</code>. Added 3 October 2026, <code>D-150</code></td><td>Self</td><td>None</td><td>None</td></tr>
+        <tr><td><span class="surf">5.10</span> Profile</td><td><code>/profile</code></td><td><strong>No.</strong> <code>noindex, follow</code>. Added by <code>D-150</code></td><td>Self</td><td>None</td><td>None</td></tr>
+        <tr><td><span class="surf">5.11</span> Settings</td><td><code>/settings</code></td><td><strong>No.</strong> <code>noindex, follow</code>. Added by <code>D-150</code></td><td>Self</td><td>None</td><td>None</td></tr>
+        <tr><td><span class="surf">7.3</span> Public profile</td><td><code>/u/&lt;public-id&gt;</code></td><td><strong>No.</strong> <code>noindex, follow</code>, as <code>7.1</code>: a stranger's link, not a result page. Added by <code>D-150</code></td><td>Self</td><td>None</td><td>None</td></tr>
         <tr><td><span class="surf">0.3</span> System pages</td><td>No URL of their own</td><td><strong>No</strong></td><td>n/a</td><td>None</td><td>None</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="card is-good">
-    <p><strong>Nine indexed surfaces and six that are not</strong>, and the split is not a preference: everything in the transactional zone is personal or pointless in a result page, and everything outside it is the pre-login argument.</p>
+    <p><s><strong>Nine indexed surfaces and six that are not</strong></s> <strong>Nine indexed surfaces and ten that are not since <code>D-150</code> added <code>5.9</code>, <code>5.10</code>, <code>5.11</code> and <code>7.3</code>, which <code>D-36</code> and <code>D-90</code> had put on the map without a row here</strong>, and the split is not a preference: everything in the transactional zone is personal or pointless in a result page, and everything outside it is the pre-login argument.</p>
   </div>
 </section>
 
@@ -340,7 +366,7 @@
 
   <div class="card is-fix">
     <h4>5. Disallow is not noindex, and the private zone uses the right one</h4>
-    <p>The six unindexed nodes carry a <code>noindex</code> meta tag and <strong>are not disallowed in <code>robots.txt</code></strong>. The mechanism, in one line: <strong>a page a crawler is forbidden to read is a page whose noindex the crawler cannot read</strong>, so a disallowed URL can still be listed from inbound links while the instruction that would have prevented it sits unread inside. Disallow is for crawl budget. Noindex is for indexation. The private zone needs the second.</p>
+    <p>The <s>six</s> <strong>ten, since <code>D-150</code>,</strong> unindexed nodes carry a <code>noindex</code> meta tag and <strong>are not disallowed in <code>robots.txt</code></strong>. The mechanism, in one line: <strong>a page a crawler is forbidden to read is a page whose noindex the crawler cannot read</strong>, so a disallowed URL can still be listed from inbound links while the instruction that would have prevented it sits unread inside. Disallow is for crawl budget. Noindex is for indexation. The private zone needs the second.</p>
   </div>
 
   <div class="card is-note">
@@ -495,7 +521,7 @@
       <tbody>
         <tr><td>The interlinking block contents</td><td><s>Needs the category structure from <span class="surf">3.1</span> and</s> <strong>Filled from <span class="surf">3.1</span>'s sections by <code>D-124</code>; needs</strong> real query volumes</td><td><s>Node <span class="surf">3.1</span>, then</s> production</td></tr>
         <tr><td>Whether category URLs ship at all</td><td>Rides on <code>D-D</code>, catalogue size</td><td>Founder, with the treasury answer</td></tr>
-        <tr><td>The canonical host</td><td>Apex against www, and the domain itself is not chosen</td><td>Founder, before stage 04</td></tr>
+        <tr><td><strong>The canonical host</strong></td><td>Apex against <code>www</code>, and the domain itself is not chosen</td><td><s>Founder, before stage 04</s> <strong>At handoff, <code>D-150</code>: a production decision, not a design one</strong></td></tr>
         <tr><td>Rich result eligibility</td><td>Policy for an age-restricted category, unknowable from outside</td><td>Production</td></tr>
         <tr><td>Final titles and descriptions</td><td><strong>The pattern, written here rather than promised:</strong> <code>&lt;node H1 subject&gt;</code> then a separator then <code>CS2 Clutch</code>, one line, the subject first because the tail truncates. Copy in each node's A to E block, voice at stage 05</td><td>Stage 05, then production</td></tr>
         <tr><td><strong>Whether 7.1 should be indexed after all</strong></td><td>Decided here as noindex, follow with three reasons. <strong>Reversible, and it is the founder's if they want wins in search results</strong></td><td>Founder, if they disagree</td></tr>
@@ -526,6 +552,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.13 SEO and indexation';
 window.NAV_SECTIONS = [
   { id: 'overview',  label: 'Overview' },
+  { id: 'd158', label: 'D-158 URL map' },
   { id: 'd150', label: 'D-150 answers' },
   { id: 'baseline-row', label: 'Baseline row' },
   { id: 'scope',     label: 'What it is not' },

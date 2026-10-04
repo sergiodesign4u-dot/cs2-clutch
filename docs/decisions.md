@@ -5877,3 +5877,23 @@ Verified on screen: the AWP card reads 61.20, 230 offers, 4.85 back, as its shel
 - **Carried, not fixed from the list:** D1's twelve lower rows go to the second pass, to be re-read against the render first.
 
 Verified on screen: exactly one current element on all 133 pages at 360 and 1440; the header at 360, 600 and 899 with captions and no overflow; 134 pages with no error and no sideways scroll; 35 IA pages clean.
+
+## D-158. Round 16, step 6: the IA stops contradicting itself again
+
+**Date:** 2026-10-04. **Stage:** 04, round 16. **Decided by:** the founder, "го" on step 6. **Binds:** `ia/docs/sitemap.md`, `ia/docs/flows.md`, sixteen node files, their pages, `ia/structure.html`, `ia/concept-map.html`, `ia/_nav.js`, `README.md`.
+
+### What was done
+
+- **Three subagents on disjoint files**, each re-reading before editing; none of the thirty rows was withdrawn. Every stale line is struck in place with the decision that replaced it, mirrored on its page, and each touched node carries a `D-158` amendment.
+- **The carriers as they are:** the rail is Cases alone; Responsible play has two entries; the drawer is the rail; the ticker renders where its register allows; Settings' contents are decided.
+- **The receipt** is a field of 0.6 whose subject is the round, `D-91`, printed on surfaces about a round and never on 5.1 or 5.3; nine places that still put it on 5.1 are struck.
+- **Flows:** Flow 1 gates neither the reading of a case nor an account's Open; Flow 6, the shell's own pages, reaches 0.3, 0.9, 0.10 and 0.4; eight flows, every MVP page reached.
+- **Citations** by line number and to sections that do not exist are replaced by section names; the SEO URL map gains the four addresses its register already held.
+- **README** counts eight flows and 40 MVP rows over 39 capabilities, and stops listing a hole `D-93` closed.
+
+### Left open, named
+
+- **For the founder, from D2-7:** `numbers.md` rule 10 says a figure quoted from outside keeps its own unit, and since `D-132` the render prints Steam's market price in coins at a rate published nowhere. Either the rule or the render gives way.
+- **For the stage close, D2-28:** `CLAUDE.md` says the round 1 list moved three times; its own decisions count four.
+
+Verified: 35 IA pages with no error, no sideways scroll, no duplicate id and valid section registries; eight Mermaid diagrams render; no em dash.

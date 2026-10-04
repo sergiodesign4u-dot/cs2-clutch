@@ -103,10 +103,10 @@
 <div class="hero" id="intro">
   <div class="section-eyebrow">Information architecture, base layer - steps 4 and 6</div>
   <h1>User flows</h1>
-  <p class="lede">Seven routes through the product, drawn as decisions and states rather than as happy paths. The skeleton of every one is the eight phase To-Be journey from the CJM stage, and every decision point and dead end is an As-Is barrier, because a barrier is exactly a place where a real person stopped. Screen names come from the concept sitemap and no flow here introduces a screen that does not already exist in it.</p>
-  <p class="lede" style="margin-top:12px;font-size:15px">Written at stage 03a step 4 on 11 August 2026 and <strong>revised at step 6</strong> after the two instrument critique: nine defects fixed, one screen code namespace renamed, one flow added. Round 15 of the critique added Flow 5 on 3 October 2026.</p>
+  <p class="lede">Eight routes through the product, drawn as decisions and states rather than as happy paths. The skeleton of every one is the eight phase To-Be journey from the CJM stage, and every decision point and dead end is an As-Is barrier, because a barrier is exactly a place where a real person stopped. Screen names come from the concept sitemap and no flow here introduces a screen that does not already exist in it.</p>
+  <p class="lede" style="margin-top:12px;font-size:15px">Written at stage 03a step 4 on 11 August 2026 and <strong>revised at step 6</strong> after the two instrument critique: nine defects fixed, one screen code namespace renamed, one flow added. Round 15 of the critique added Flow 5 on 3 October 2026, and round 16 added Flow 6 on 4 October 2026, <code>D-158</code>.</p>
   <div class="hero-meta">
-    <div><div class="hero-stat-value">7</div><div class="hero-stat-label">Flows</div></div>
+    <div><div class="hero-stat-value">8</div><div class="hero-stat-label">Flows</div></div>
     <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Red nodes</div></div>
     <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Of them deliberate</div></div>
     <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Screens before activation, since D-54</div></div>
@@ -145,6 +145,14 @@
   <div class="card is-note"><p>Flow 1 no longer passes the dissolved 2.3: the 18+ declaration is a decision inside sign in with <code>D-58</code>'s refusal. Flow 2 reads the limit in force instead of setting one, <code>D-103</code>. Flow 2a starts from the footer or the account menu. Flow 3's receipt is the card's settlement line, <code>D-90</code> and <code>D-91</code>. A new Flow 5 reaches 5.9, 5.10, 5.11 and 7.3. Six red nodes, recounted. Every diagram parses.</p></div>
 </section>
 
+<section id="d158">
+  <div class="sec-head">
+    <h2>Updated after publication: the gate where its node puts it, and the shell's own pages get a route, D-158</h2>
+    <p>4 October 2026. Round 16 of the critique found Flow 1 firing the geo gate between the case screen and the reading of it, and gating an account's Open, against <a href="gate.html">gate.md</a> section 1: reading is never gated, the gate fires on the guest Sign in press, and the account's Open passes no gate, <code>D-136</code> and <code>D-146</code> item 7. It also found three MVP pages, <code>0.3</code>, <code>0.9</code> and <code>0.10</code>, reached by no flow while Flow 5 said four pages were the whole gap.</p>
+  </div>
+  <div class="card is-note"><p>Flow 1 reads first, asks whether an account exists, and only a guest meets the gate, on the way into sign in; sign in lands back on the signed-in case screen, <code>D-138</code>, and the starter credit node left the diagram until its amount exists, <code>D-126</code> and <code>D-130</code>. A new Flow 6 reaches <code>0.3</code>, <code>0.9</code>, <code>0.10</code> and the cookie consent <code>0.4</code>. Eight diagrams; still six red nodes, because Flow 6 has none.</p></div>
+</section>
+
 <section id="main-job">
   <div class="sec-head">
     <h2>Flow 1. Main job: arrive, open, get the thrill</h2>
@@ -158,12 +166,13 @@ flowchart TD
     Real -->|no| Leave["Dead end: leaves still pre-suspected, B1-1 unanswered"]
     Real -->|"buys on the market instead"| Market["Leaves through our own outbound market link, A1"]
     Real -->|yes| Case["S-C2 Case screen, phase 1 choosing"]
-    Case --> Gate["S-B1 Geo gate, fires at first case interaction"]
+    Case --> Read["Reads chance, current value, tested RTP and EV at this cost, D2 and D4. Reading is never gated"]
+    Read --> Acct{"Signed in yet?"}
+    Acct -->|yes| Funds{"Anything to open with?"}
+    Acct -->|"no, presses Sign in"| Gate["S-B1 Geo gate, on the guest Sign in press since D-136, never on arrival and never on reading"]
     Gate --> Geo{"Is this market open?"}
     Geo -->|no| Blocked["Dead end: geo blocked, with the legal ground cited, B4"]
-    Geo -->|yes| Read["Reads chance, current value, tested RTP and EV at this cost, D2 and D4"]
-    Read --> Funds{"Anything to open with?"}
-    Funds -->|no| Signin["S-B2 Sign in with Steam, with the consent gate: terms and the 18+ declaration, two separate checkboxes, B3 since D-26"]
+    Geo -->|"yes, or staged and Continue"| Signin["S-B2 Sign in with Steam, with the consent gate: terms and the 18+ declaration, two separate checkboxes, B3 since D-26"]
     Signin --> Declared{"Both boxes set?"}
     Declared -->|no| Refuse["Refused: the press stays live and names the box that is missing, D-58. Nothing is stored"]
     Refuse --> Signin
@@ -173,9 +182,10 @@ flowchart TD
     SteamErr --> Signin
     SteamOk -->|"Steam is down"| SteamDown["Error: Steam unavailable, try later. Reading the product stays open"]
     SteamDown --> Case
-    SteamOk -->|yes| Credit["Bounded no-deposit starter credit granted, I1"]
-    Credit --> Open["S-C2 phase 2, the open. Round hash visible at the spin trigger, E4"]
-    Funds -->|yes| Open
+    SteamOk -->|yes| Back["Lands on the signed-in case screen it was opened over, D-138"]
+    Back --> Funds
+    Funds -->|no| ToDeposit(["Open refuses with both figures and Add funds enters flow 2 at S-D1, D-155"])
+    Funds -->|"yes: a balance, or the starter credit I1 once its amount exists"| Open["S-C2 phase 2, the open. Round hash visible at the spin trigger, E4. An account's Open passes no gate, D-146"]
     Open --> Reveal["Loading: the reveal renders the settled roll and computes nothing again, E1"]
     Reveal --> Landed{"Did the reveal finish on this device?"}
     Landed -->|no| Resume["Interrupted: the roll was settled before the animation, so the result waits on S-C2 phase 3 and is also in S-E1"]
@@ -191,9 +201,9 @@ flowchart TD
     classDef success fill:#12351f,stroke:#4ade80,color:#eafff9;
     classDef dead fill:#3a1618,stroke:#e5484d,color:#ffd7d7;
     classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
-    class Start,Win,Story,PFout success;
+    class Start,Win,Story,PFout,ToDeposit success;
     class Leave,Market,Blocked dead;
-    class Home,Real,Case,Gate,Geo,Read,Funds,Signin,Declared,Refuse,SteamWait,SteamOk,SteamErr,SteamDown,Credit,Open,Reveal,Landed,Resume,Outcome,Share,Alive,Gone neutral;
+    class Home,Real,Case,Read,Acct,Gate,Geo,Funds,Signin,Declared,Refuse,SteamWait,SteamOk,SteamErr,SteamDown,Back,Open,Reveal,Landed,Resume,Outcome,Share,Alive,Gone neutral;
   </pre></div>
 
   <div class="card is-activation">
@@ -210,9 +220,14 @@ flowchart TD
 
   <div class="card">
     <dl class="kv">
-      <dt>Decisions</dt><dd>Does this place survive a second look, T1 and T2, barrier <code>B1-1</code>. Is this market open, <code>B4</code>. Is there anything to open with, T4. <s>Is the person 18 or over, <code>B3</code>.</s> <strong>Are both boxes set, terms and the 18+ declaration, <code>B3</code>, asked inside sign in since <code>D-26</code> rather than at the gate.</strong> <b>The stock decision left this flow on 21 August 2026, <code>D-60</code>:</b> "are there free units on the wanted item, <code>B8-1</code>" stood between reading the numbers and finding the funds, and the flow is one decision shorter because the condition cannot occur. Did Steam return, and in which of the two ways it can fail, <code>B3-1</code>. Did the reveal finish on this device. Does the shared result still resolve.</dd>
-      <dt>States</dt><dd><strong>Empty:</strong> a shared result that no longer resolves, routed into the public provably fair page rather than into nothing. <b>The other empty left with <code>D-60</code></b>, the item at zero free units returning to the case screen, and it is the only state this map has ever lost. <strong>Error:</strong> a readable Steam refusal returning to sign in, and Steam being unavailable, which returns to the case screen so a person who cannot sign in can still read the product. <strong>Refused:</strong> a press with a box unset, which stays on sign in and names what is missing, <code>D-58</code>, and stores nothing. <strong>Loading:</strong> the Steam redirect, and the reveal. <strong>Interrupted:</strong> the reveal that did not finish on this device.</dd>
+      <dt>Decisions</dt><dd>Does this place survive a second look, T1 and T2, barrier <code>B1-1</code>. <strong>Signed in yet, added in round 16 by <code>D-158</code>: it decides whether the gate and sign in stand in the route at all.</strong> Is this market open, <code>B4</code>, <strong>asked on the guest Sign in press since <code>D-136</code>, after the case has been read and never before an account's Open, <code>D-146</code> item 7, reordered in round 16 by <code>D-158</code></strong>. Is there anything to open with, T4. <s>Is the person 18 or over, <code>B3</code>.</s> <strong>Are both boxes set, terms and the 18+ declaration, <code>B3</code>, asked inside sign in since <code>D-26</code> rather than at the gate.</strong> <b>The stock decision left this flow on 21 August 2026, <code>D-60</code>:</b> "are there free units on the wanted item, <code>B8-1</code>" stood between reading the numbers and finding the funds, and the flow is one decision shorter because the condition cannot occur. Did Steam return, and in which of the two ways it can fail, <code>B3-1</code>. Did the reveal finish on this device. Does the shared result still resolve.</dd>
+      <dt>States</dt><dd><strong>Empty:</strong> a shared result that no longer resolves, routed into the public provably fair page rather than into nothing. <b>The other empty left with <code>D-60</code></b>, the item at zero free units returning to the case screen, and it is the only state this map has ever lost. <strong>Error:</strong> a readable Steam refusal returning to sign in, and Steam being unavailable, which returns to the case screen so a person who cannot sign in can still read the product. <strong>Refused:</strong> a press with a box unset, which stays on sign in and names what is missing, <code>D-58</code>, and stores nothing<strong>; and an Open the balance cannot cover, which refuses with both figures and hands on to flow 2 through Add funds, <code>D-155</code>, added in round 16 by <code>D-158</code></strong>. <strong>Loading:</strong> the Steam redirect, and the reveal. <strong>Interrupted:</strong> the reveal that did not finish on this device.</dd>
     </dl>
+  </div>
+
+  <div class="card is-defect">
+    <h4>Two nodes moved or left in round 16, D-158, and the diagram above is the corrected one</h4>
+    <p><code>Gate</code> stood between <code>Case</code> and <code>Read</code>, so the drawing gated the reading of a case and every Open, an account's included. It now stands on the guest Sign in press, where <a href="gate.html">gate.md</a> section 1 has always put it: reading is never gated, and the account's Open passes no gate because the gate was passed at sign in. <code>Credit</code>, "bounded no-deposit starter credit granted, I1", stood between sign in and the open; it left, because <code>D-126</code> and <code>D-130</code> took the offer off Home and off both sign in carriers until its amount exists, and since <code>D-138</code> sign in lands on the signed-in page it was opened over rather than in the open. The starter credit stays on the <code>Funds</code> edge, as a way to have something to open with once it exists.</p>
   </div>
 
   <div class="card is-note">
@@ -369,7 +384,7 @@ flowchart TD
     <dl class="kv">
       <dt>Decisions</dt><dd>Which boundary, and for self exclusion only, an explicit confirmation with the period stated, because it is the one choice here that a person cannot undo on impulse.</dd>
       <dt>States</dt><dd>In force, for each boundary. <strong>No loading and no error node</strong>, and that is deliberate rather than an omission: every action on this screen is a local state change, and a brake that can fail to apply is not a brake.</dd>
-      <dt>Dead ends</dt><dd><strong>No dead ends, and no red nodes at all.</strong> <s>This is the only flow in the file with none.</s> <strong>Flows 1a and 5 have none either, so it is one of three.</strong> A person can always leave a boundary screen without setting anything, and every boundary they do set is reversible except self exclusion, which is reversible only by waiting out the period they chose themselves.</dd>
+      <dt>Dead ends</dt><dd><strong>No dead ends, and no red nodes at all.</strong> <s>This is the only flow in the file with none.</s> <s><strong>Flows 1a and 5 have none either, so it is one of three.</strong></s> <strong>Flows 1a, 5 and 6 have none either, so it is one of four, recounted in round 16 by <code>D-158</code>.</strong> A person can always leave a boundary screen without setting anything, and every boundary they do set is reversible except self exclusion, which is reversible only by waiting out the period they chose themselves.</dd>
     </dl>
   </div>
 
@@ -514,8 +529,8 @@ flowchart TD
   </div>
 
   <div class="card is-note">
-    <h4>Four MVP pages had no route through any flow</h4>
-    <p><a href="history.html">5.9 History</a>, <a href="profile.html">5.10 Profile</a>, <a href="settings.html">5.11 Settings</a> and <a href="public-profile.html">7.3 Public profile</a>: the three <code>D-36</code> put on the map for the account menu and the one <code>D-90</code> built for the live feed's names. A page with no route has no states anyone has walked, which is the defect step 6 fixed for the catalogue. <strong>This flow draws only transitions the four nodes and the wireframes already hold, and adds no screen.</strong> The four carry no <code>S-</code> code because they arrived after the codes were set, so they are named by node number.</p>
+    <h4>Four of the seven MVP pages with no route through any flow</h4>
+    <p><s><strong>Four MVP pages had no route through any flow:</strong></s> <strong>Four of the seven MVP pages with no route through any flow, struck in round 16 by <code>D-158</code>; the other three, <code>0.3</code>, <code>0.9</code> and <code>0.10</code>, get theirs in Flow 6:</strong> <a href="history.html">5.9 History</a>, <a href="profile.html">5.10 Profile</a>, <a href="settings.html">5.11 Settings</a> and <a href="public-profile.html">7.3 Public profile</a>: the three <code>D-36</code> put on the map for the account menu and the one <code>D-90</code> built for the live feed's names. A page with no route has no states anyone has walked, which is the defect step 6 fixed for the catalogue. <strong>This flow draws only transitions the four nodes and the wireframes already hold, and adds no screen.</strong> The four carry no <code>S-</code> code because they arrived after the codes were set, so they are named by node number.</p>
     <p><strong>Parents, printed rather than borrowed.</strong> <code>5.9</code> stands on <code>F3</code> and Related Job 3, <code>jtbd.md</code> "Section 2". <code>5.10</code> and <code>7.3</code> have no parent in the three legal classes and print the empty cell, <code>D-36</code> and <code>D-90</code>. <code>5.11</code> has none of its own, and the field it exists for, the Steam trade URL, does, <code>G1</code> and <code>G5</code> on <code>B8-2</code> and <code>B8-3</code>, <code>D-81</code>.</p>
   </div>
 
@@ -549,16 +564,66 @@ flowchart TD
   </div>
 </section>
 
+<!-- FLOW 6 -->
+<section id="shell-pages">
+  <div class="sec-head">
+    <h2>Flow 6. The shell's own pages: a wrong address, a document, a person to ask</h2>
+    <p class="flow-meta">Added in round 16 of the critique, 4 October 2026, <code>D-158</code> · nodes <code>0.3</code>, <code>0.9</code>, <code>0.10</code> and <code>0.4</code> · no <code>S-</code> code, named by node number</p>
+  </div>
+
+  <div class="card is-note">
+    <h4>Three MVP pages had no route through any flow</h4>
+    <p><a href="system.html">0.3 System pages</a>, <a href="legal.html">0.9 Legal and policy pages</a> and <a href="support.html">0.10 Support and contact</a>, and the cookie consent dialog <a href="cookie.html">0.4</a> had none either. Flow 5 had named four pages as the whole gap. <strong>This flow draws only transitions the four nodes already hold</strong>, <code>system.md</code>, <code>legal.md</code>, <code>support.md</code> and <code>cookie.md</code>, <strong>and adds no screen.</strong> They carry no <code>S-</code> code, because cluster 0 never had one, so they are named by node number.</p>
+    <p><strong>Parents, printed in each node and none of them a job.</strong> Nobody arrives wanting an error page, a policy or a consent banner. <code>0.3</code> stands on <code>B3-1</code> by way of <code>B5</code> and on <code>B8-2</code> by way of <code>G1</code> and <code>G2</code>; <code>0.9</code> stands per block on Directive 2000/31/EC Article 5(1), on <code>B8-3</code> by way of <code>G5</code>, on <code>B4-1</code> and <code>B4-3</code> by way of <code>C4</code> and <code>C3</code>, and on design principle 1; <code>0.10</code> stands per route on Article 5(1)(c), on <code>B8-3</code> by way of <code>G4</code>, and on <code>B3-1</code> by way of <code>B5</code>; <code>0.4</code> on <code>B1-1</code> and design principle 1, with the law it cites carried as a gap in the three classes, <code>cookie.md</code>.</p>
+  </div>
+
+  <div class="diagram"><pre class="mermaid">
+flowchart TD
+    S0(["Arrives on any page, from a link or a typed address"]) --> Cookie["0.4 Cookie consent, on arrival: reject as easy as accept, analytics and marketing off until opted in"]
+    Cookie --> Answer{"Can the product answer this address?"}
+    Answer -->|"no such page"| NotFound["0.3 System pages, 404: the shell stays, with two ways out, Home and All cases"]
+    Answer -->|"our server failed, or a stop"| ServerErr["0.3 System pages, 500, or 503 with Retry-After where the end is planned: who it is waiting on, in words"]
+    NotFound --> Back(["Back in the product at S-A1 Home or S-C1 Case catalogue"])
+    ServerErr --> Back
+    Answer -->|yes| Foot["0.2 Footer, on every page"]
+    Foot -->|"Support"| Sup["0.10 Support and contact: a ticket, or an appeal with a published response deadline, G4"]
+    ServerErr -->|"Support"| Sup
+    F0(["Sent here by a failure branch: a restriction in flow 3, a failed proof in flow 4, a blocked market in flow 1"]) --> Sup
+    Foot -->|"Terms, Privacy, Cookies, Refund"| Legal["0.9 Legal and policy pages: summary, document and version history on one template"]
+    Cookie -->|"Cookie policy"| Legal
+    Legal --> Published{"Is this document published?"}
+    Published -->|"yes: terms, and the refund and payments policy since D-155"| ReadDoc(["Read in plain words, with what changed since the version agreed to"])
+    Published -->|"no: privacy and cookies, D-141"| Unpub["Not yet published, under its own name, with the route to ask. Never placeholder legal text"]
+    Unpub --> Sup
+    Sup --> Answered(["A ticket or an appeal on the record, with the deadline it is answered against"])
+
+    classDef success fill:#12351f,stroke:#4ade80,color:#eafff9;
+    classDef neutral fill:#0f0c35,stroke:#5a5a5a,color:#dddddd;
+    class S0,F0,Back,ReadDoc,Answered success;
+    class Cookie,Answer,NotFound,ServerErr,Foot,Sup,Legal,Published,Unpub neutral;
+  </pre></div>
+
+  <div class="card">
+    <dl class="kv">
+      <dt>Decisions</dt><dd>Can the product answer this address, which is <code>0.3</code>'s three causes: no such page, our server failed, or a stop. Is this document published, which is <code>D-141</code>'s answer for privacy and cookies and <code>D-155</code>'s page for the refund and payments policy.</dd>
+      <dt>States</dt><dd><strong>Error:</strong> the 404, which keeps the shell and offers Home and All cases, <code>D-82</code>; the 500 and the 503, which say who the wait is on, and the 503 carries <code>Retry-After</code> only where the end is planned. <strong>Empty:</strong> a document not yet published, under its own name and with the route to ask, never placeholder text. The appeal and ticket states of <code>0.10</code>, and consent pending on <code>0.4</code>, are internal states their nodes specify and this flow does not number.</dd>
+      <dt>Routes in</dt><dd><strong>Routes in that other flows already draw.</strong> <code>0.10</code> is where three failure branches land: the restriction and its appeal in flow 3, <code>5.6</code>; the failed proof's report in flow 4, <code>1.4</code>; and a market blocked in error in flow 1, <code>2.2</code>, which <code>gate.md</code> routes to <code>0.10</code>. They are drawn here as one entry rather than redrawn.</dd>
+      <dt>Dead ends</dt><dd><strong>No dead ends, and no red nodes.</strong> Every end is a document read, a ticket on the record or a way back into the product. <strong>With this flow every MVP page and dialog on the map is reached by at least one flow.</strong></dd>
+    </dl>
+  </div>
+</section>
+
 <!-- CHANGES -->
 <section id="changes">
   <div class="sec-head">
     <h2>What these flows changed in the concept sitemap</h2>
-    <p>Nothing at step 4, two things at step 6, and nothing on the map in round 15.</p>
+    <p>Nothing at step 4, two things at step 6, and nothing on the map in rounds 15 and 16.</p>
   </div>
   <div class="card">
     <p><strong>Step 4 changed nothing.</strong> Every screen node existed already, which is the result step 2's second slice was supposed to produce.</p>
     <p><strong>Step 6 changed two things.</strong> All twelve screen codes gained the <code>S-</code> prefix, and the catalogue gained flow 1a, which it needed because it was an MVP screen with no route through it and therefore no states. The full defect log is in <code>ia/docs/critique.md</code>.</p>
     <p><strong>Round 15 changed nothing on the map.</strong> Flow 5 gave four existing MVP nodes the route they lacked, <code>5.9</code>, <code>5.10</code>, <code>5.11</code> and <code>7.3</code>, and every node it draws was already on the map.</p>
+    <p><strong>Round 16 changed nothing on the map either, <code>D-158</code>.</strong> Flow 6 gave <code>0.3</code>, <code>0.9</code>, <code>0.10</code> and the cookie consent <code>0.4</code> the route they lacked, and Flow 1 moved the gate to where its node puts it. Every node either flow draws was already on the map.</p>
     <p><s><strong>One screen appears in a flow while its scope is unsettled.</strong></s> <code>S-G1 Public result</code> is drawn as a branch off the outcome in flow 1 and carried the scope question raised at step 2: it is a ninth public surface against a round locked at eight. <s>It stays drawn and marked until the founder answers.</s> <strong>Answered on 11 August 2026 by the founder, <code>D-20</code>: option 1, the public result page exists as node <a href="public-result.html">7.1</a>, and round 1 became nine surfaces.</strong></p>
   </div>
 </section>
@@ -595,6 +660,7 @@ flowchart TD
 window.NAV_BASE = '../';
 window.NAV_SECTIONS = [
   { id: 'd147', label: 'D-147 catch-up' },
+  { id: 'd158', label: 'D-158 gate and shell pages' },
   { id: 'main-job', label: 'Flow 1. Main job' },
   { id: 'catalogue', label: 'Flow 1a. Catalogue' },
   { id: 'deposit', label: 'Flow 2. Funding inside the limit' },
@@ -602,6 +668,7 @@ window.NAV_SECTIONS = [
   { id: 'withdraw', label: 'Flow 3. Withdraw' },
   { id: 'verify', label: 'Flow 4. Verify' },
   { id: 'account-pages', label: 'Flow 5. Account pages' },
+  { id: 'shell-pages', label: 'Flow 6. Shell pages' },
   { id: 'changes', label: 'What changed' },
 ];
 </script>

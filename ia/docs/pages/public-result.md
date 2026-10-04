@@ -25,6 +25,18 @@
 
 ---
 
+## Amended 4 October 2026 by `D-158`. The value at the moment of the win is the round's, and this page is one of its surfaces
+
+**Why.** Round 16's audit found this node and `0.6` disagreeing on whether the receipt is part of the card, and this node still counting `5.1` and `5.3` among the receipt's consumers after `D-90` and `D-91` took it off both.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| No result page, `baseline.md` section 3 | **Block 1 prints the receipt with its moment**, as the render does: `47.30 coins`, `Worth when it was won, 18 Aug 2026 14:44`, a sample | **The rule is `D-91`'s and it is stated the same way in `0.6`: one fact, stored once, on the round.** A surface about a round prints it, this page and `5.9`'s roll row, with `3.3` phase 3 where it is minted; a surface about the item held now, `5.1` and `5.3`, does not. The card renders it as field 13, whose subject is the round |
+
+---
+
 ## Amended 4 October 2026 by `D-157`. The refused balance is the page's, not the shell's
 
 **Why.** Round 16 read the owner's view rendering a balance and a deposit route against section 5's refusal of both.
@@ -87,7 +99,7 @@ This node is the definition. **One open, one page: the skin instance that was wo
 
 **`0.14`, the canonical round proof, variant V3.** Every field, the result, the ticket range, the recompute route and the scope line in full. Its rule for this site is one line and it is the reason `7.1` exists as a public surface: **it must not require an account.** A stranger holds this link and can check it. All seven of the component's states are inherited here, and this node adds nothing to the field set, renames nothing and reorders nothing.
 
-**`0.6`, the canonical skin card, with the canonical value receipt inside it.** The global sweep found the receipt has four consumers and still refused to make it a node, because all four render `0.6` already, `3.6`, `5.1`, `5.3` and this one. The receipt is written once inside `0.6` and referenced. Rarity, wear and StatTrak are three fields on that card and not one, per the rarity walk in `blocks.md` section 10.
+**`0.6`, the canonical skin card, with the canonical value receipt inside it.** ~~The global sweep found the receipt has four consumers and still refused to make it a node, because all four render `0.6` already, `3.6`, `5.1`, `5.3` and this one.~~ **Since `D-90` and `D-91` the receipt is the round's fact, stored once on the round: it prints where the surface is about a round, `3.6`, `5.9`'s roll row and this page, and not on `5.1` or `5.3`. Struck in round 16 by `D-158`.** The receipt is written once inside `0.6`, **as field 13,** and referenced. Rarity, wear and StatTrak are three fields on that card and not one, per the rarity walk in `blocks.md` section 10.
 
 ---
 

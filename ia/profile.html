@@ -150,10 +150,28 @@
   </div>
   <div class="card" style="margin-top:28px">
     <p><strong>Type:</strong> page. <strong>Group:</strong> <code>pages</code>. <strong>Scope:</strong> MVP. <strong>Cluster:</strong> 5, take out what I earned. <strong>Written 22 August 2026, two days after <code>D-36</code> put it on the map.</strong> <strong>Jobs served:</strong> none. <strong>Parent class:</strong> none, printed below.</p>
-    <p><strong>URL:</strong> <code>/profile</code>. <strong>Indexed:</strong> no, <code>noindex, follow</code>. <strong>Canonical:</strong> self. <strong>Schema:</strong> none. <strong>Breadcrumb:</strong> none. <strong>Not inherited, because <span class="surf">0.13</span> has no row for this node</strong>; the finding and the shape of the three missing rows are in <code>history.md</code> section 8 and are not restated here.</p>
+    <p><strong>URL:</strong> <code>/profile</code>. <strong>Indexed:</strong> no, <code>noindex, follow</code>. <strong>Canonical:</strong> self. <strong>Schema:</strong> none. <strong>Breadcrumb:</strong> none. <s><strong>Not inherited, because <span class="surf">0.13</span> has no row for this node</strong>; the finding and the shape of the three missing rows are in <code>history.md</code> section 8 and are not restated here.</s> <strong><code>0.13</code> has its row since <code>D-150</code>, the same values, so they are inherited; struck in round 16 by <code>D-158</code>.</strong></p>
     <p><strong>Reached from:</strong> the account menu, <span class="surf">0.1</span>, row 4. <strong>Leads to:</strong> <span class="surf">5.11</span> settings, <span class="surf">5.1</span>, <span class="surf">5.9</span>, all three by the account band's tab strip since <code>D-90</code> deleted the button row, and <strong><a href="public-profile.html">7.3</a> the public profile</strong> from block 4. <strong>States specified inside this file:</strong> none numbered.</p>
   </div>
 </div>
+
+<section id="d158">
+  <div class="sec-head">
+    <h2>Updated after publication: Stale lines struck in place, D-158</h2>
+    <p>4 October 2026. Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Baseline row for this amendment</h4>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody>
+        <tr><td>As in the node's own baseline row</td><td>Everything the node decided</td><td>"0.13 has no row" is struck, D-150</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
 <section id="d150">
   <div class="sec-head">
@@ -494,7 +512,7 @@
         <tr><td><strong>A. Meta</strong></td><td><code>robots: noindex, follow</code>, canonical self. <strong>No OG or Twitter card: an unfurl preview of a person's own account page is a card that should never be generated</strong>, and the same sentence is in <span class="surf">4.1</span> for the same reason. One language, no <code>hreflang</code></td></tr>
         <tr><td><strong>B. Headings</strong></td><td>One H1, Profile. <s>H2s in block order: the Steam origin, your account id, what is public about you.</s> <strong>H2s in block order, as rendered:</strong> Your daily case; Your messages, with the open tab's name as an H3 inside it; Your public page. On <code>profile-steam-down.html</code> the notice "Steam cannot be read right now" is an H2 between the messages and the public page. The account id has no heading: it is in the band since <code>D-130</code> removed "Who this account is"</td></tr>
         <tr><td><strong>C. SEO text</strong></td><td>None, <code>noindex</code></td></tr>
-        <tr><td><strong>D. Structured data</strong></td><td>None. <strong>Explicitly not <code>Person</code> and not <code>ProfilePage</code>:</strong> <span class="surf">0.13</span> section 7 assigns the schema and it has no row for this node, and a node that adds a type its register did not assign has done the thing the register exists to stop. <span class="surf">0.9</span> refused <code>FAQPage</code> on the same reasoning</td></tr>
+        <tr><td><strong>D. Structured data</strong></td><td>None. <strong>Explicitly not <code>Person</code> and not <code>ProfilePage</code>:</strong> <span class="surf">0.13</span> section 7 assigns the schema and <s>it has no row for this node</s> <strong>its register row for this node, since <code>D-150</code>, assigns none, struck in round 16 by <code>D-158</code></strong>, and a node that adds a type its register did not assign has done the thing the register exists to stop. <span class="surf">0.9</span> refused <code>FAQPage</code> on the same reasoning</td></tr>
         <tr><td><strong>E. Checklist</strong></td><td>One H1. <code>noindex</code> as a meta tag, never a <code>robots.txt</code> disallow. The account id is crawlable text. No horizontal scroll at 360. <strong>No colour-only state anywhere</strong>, which here is the broken Steam link</td></tr>
       </tbody>
     </table>
@@ -551,6 +569,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '5.10 Profile';
 window.NAV_SECTIONS = [
   { id: 'overview', label: 'Overview' },
+  { id: 'd158', label: 'D-158 SEO register' },
   { id: 'd150', label: 'D-150 answers' },
   { id: 'd145', label: 'D-145 catch-up' },
   { id: 'd137', label: 'D-137 outage' },

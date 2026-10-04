@@ -26,6 +26,18 @@
 | **One tool exists**, called **TAKE A BREAK**, doing deposit restriction or full account restriction. It is the second row of the `SECURITY` block inside the settings tab of the account. `baseline-account.md` section 7.1. | **Nothing structural**, and that is the finding rather than a gap in the reading. | **Everything about where it lives.** There is no responsible play page and **no route to the tool from anywhere**: not the footer, not the rail, not the header, not the home page, all four re-checked on 18 August 2026. It sits beside Logout and an anonymity toggle, in the vocabulary of account protection rather than self protection. **An absence could be answered with "nobody in the category has it". This cannot: they built it and then filed it where nobody looks.** |
 
 
+## Amended 4 October 2026 by `D-158`. Stale lines struck in place
+
+**Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| As in the node's own baseline row | Everything the node decided | Three entries become two, footer and account menu, D-136, with the + opening the limits under a boundary, D-134 |
+
+---
+
 ## Amended 3 October 2026 by `D-146`. The finished text is the description, the two lines stay on screen
 
 **Why.** Step 6 of round 15 found two candidates for the one indexed page in this cluster: section 8C's finished text and the two lines `D-130` left on screen.
@@ -97,15 +109,15 @@ Three consequences follow, and they run through every section below.
 2. **Nothing on this page rewards.** The hard rule from `CLAUDE.md` binds here first: "A limit never acquires completion mechanics, streaks, status or a session score: at that point it stops being a boundary and becomes a reason to keep going." `cjm-to-be.md` attaches the same rule to `C2` at T4, and `flows.md` flow 2a repeats it because it is the thing most likely to be lost.
 3. **Nothing on this page can fail.** `flows.md` flow 2a: no loading node and no error node, deliberately, because a brake that can fail to apply is not a brake.
 
-**Reachability is not prominence**, which `sitemap.md` states and this node inherits. **The page has three entries and they are not the three this section named until 22 August 2026.** It read "the rail, in its lower group; a persistent entry inside the money control; and the footer's fourth column", and the rail entry had been gone since `D-29` of 19 August while the account menu entry arrived with `D-40` on 20 August. **Two decisions out of date in one sentence, and `navigation.md` had already printed both.** The current three:
+**Reachability is not prominence**, which `sitemap.md` states and this node inherits. ~~**The page has three entries and they are not the three this section named until 22 August 2026.**~~ **The page has two entries since `D-136`, struck in round 16 by `D-158`: the money control entry was never rendered. And until 22 August 2026 they were not the ones this section named.** It read "the rail, in its lower group; a persistent entry inside the money control; and the footer's fourth column", and the rail entry had been gone since `D-29` of 19 August while the account menu entry arrived with `D-40` on 20 August. **Two decisions out of date in one sentence, and `navigation.md` had already printed both.** ~~The current three:~~ **The current two, struck in round 16 by `D-158`:**
 
 | Entry | Which moment it answers | Where it is fixed |
 |---|---|---|
 | **The footer's Play responsibly column** | A person reading the site finds it | `footer.md`, and `CLAUDE.md`: "Provably fair and Responsible play are carried by the footer, which holds each in its own column" |
-| **The entry inside the money control** | A person about to spend meets it, two taps from anywhere | `navigation.md`, unchanged since `D-19` |
+| ~~**The entry inside the money control**~~ | ~~A person about to spend meets it, two taps from anywhere~~ | ~~`navigation.md`, unchanged since `D-19`~~ **Never rendered, struck in round 14 by `D-136` and here in round 16 by `D-158`. The moment before spending is met by refusal rather than by an entry: under a boundary the + opens the limits, `D-134`, `navigation.md` section 5** |
 | **The account menu** | A person managing their account looks for it | `navigation.md` since `D-40` |
 
-**The rail is not one of them and it may not become one again by accident:** it carries one destination in both states, Cases, `D-40`. Three entries are still how a person finds a brake at the worst moment. None of them is a promotion, and none of them is a number.
+**The rail is not one of them and it may not become one again by accident:** it carries one destination in both states, Cases, `D-40`. ~~Three entries are still how a person finds a brake at the worst moment.~~ **Two entries, and the + that opens the limits under a boundary, are still how a person finds a brake at the worst moment, struck in round 16 by `D-158`, since `D-136`.** None of them is a promotion, and none of them is a number.
 
 ---
 
@@ -122,7 +134,7 @@ Its four tools are deposit limits by day, week and month; session reminders; tim
 | What Key-Drop does | Verdict | Reason |
 |---|---|---|
 | Calls its session control **"session reminders: gentle alerts during long play sessions"** | **Refused** | A reminder a person can ignore forever is not a limit. `C5` is a limit: when the session limit is reached the session ends and `6.3` holds it. A gentle alert is the interface admitting it does not intend to stop anything |
-| **Puts the whole surface on a separate subdomain** | **Refused** | The brake lives outside the room where the spending happens. Ours is a node of this product at `/responsible-play`, entered from the rail, from the money control and from the footer, and it renders the same shell as every other page |
+| **Puts the whole surface on a separate subdomain** | **Refused** | The brake lives outside the room where the spending happens. Ours is a node of this product at `/responsible-play`, entered ~~from the rail, from the money control and from the footer~~ **from the footer and from the account menu, struck in round 16 by `D-158`: the rail entry left with `D-29` and the money control entry was never rendered, `D-136`**, and it renders the same shell as every other page |
 | Carries a **decorative verifier widget** printing a fake server seed, a fake client seed and **"Outcome Verified: DRAGON LORE (FN)"** for a round that never happened | **Refused, and it is the live instance of a rule this project already wrote** | `0.14` section 0 forbids a verified badge in any variant, for exactly this reason: it asserts a proposition the scheme does not prove. A responsible play page is the last surface in a product that should carry a fabricated proof, and it is where this one carries it |
 
 ### And two smaller ones
@@ -391,6 +403,6 @@ Columns are the account state. **The page reads in full for a guest**, which is 
 **Two findings for other nodes, raised rather than edited, per the verify-before-fixing rule.**
 
 1. **`0.2` renders its statistics strip on this page.** The footer has no account dimension and no per-node dimension, by its own rule, so a cases-opened figure in the hundreds of millions sits below a self exclusion control. That is inherited rather than chosen, and it is the kind of adjacency this stage should notice out loud. Owner: `0.2`, then stage 04.
-2. **The three-entry count is right and the list was wrong in three files at once.** This node named the rail, `footer.md` section on the compliance column names the rail, and `sitemap.md` says "Responsible play gains a rail entry and keeps the one it had". **All three predate `D-29`**, which moved it off the rail on 19 August, and `D-40`, which put it in the account menu on 20 August. Fixed in this node and in `footer.md`; `sitemap.md`'s sentence is a record of what step 6 of the base layer decided and is marked rather than rewritten. **The count never changed. Every file naming the members was wrong.**
+2. ~~**The three-entry count is right and the list was wrong in three files at once.**~~ **The list was wrong in three files at once, and since `D-136` the count is two rather than three, struck in round 16 by `D-158`.** This node named the rail, `footer.md` section on the compliance column names the rail, and `sitemap.md` says "Responsible play gains a rail entry and keeps the one it had". **All three predate `D-29`**, which moved it off the rail on 19 August, and `D-40`, which put it in the account menu on 20 August. Fixed in this node and in `footer.md`; `sitemap.md`'s sentence is a record of what step 6 of the base layer decided and is marked rather than rewritten. ~~**The count never changed.**~~ **The count changed once, to two, when `D-136` struck the money control entry, struck in round 16 by `D-158`.** **Every file naming the members was wrong.**
 
 **And what belongs elsewhere.** The words: structural here, stage 05 owns the final strings and syncs them back into block C. How any of it looks: stages 06 and 07. ~~The moment the ceiling is first chosen: `4.1`.~~ **The deposit limit is chosen here since `D-103`; `4.1` keeps the figure.** The behaviour of the exit under a boundary: `5.3`, which changes nothing, which is the point.

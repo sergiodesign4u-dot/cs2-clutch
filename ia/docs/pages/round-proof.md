@@ -2,13 +2,25 @@
 
 **Type:** component. **Group:** `global`. **Scope:** MVP. **Cluster:** 0, global shell.
 
-**Purpose.** One rendering of one object, the round proof, in four variants across four sites, so that the thing the product offers as evidence looks and behaves identically everywhere it appears.
+**Purpose.** One rendering of one object, the round proof, in four variants across ~~four sites~~ **five sites, `5.9` the fifth, struck in round 16 by `D-158`**, so that the thing the product offers as evidence looks and behaves identically everywhere it appears.
 
 **Jobs served.** Related Job 3, verify the outcome, and Core Job 1 before login. **Parent class:** job, by rows `E4`, `F3` and `H1`. Design principle 1 in `CLAUDE.md` is what makes it canonical rather than three separate renderings: **the one thing that must never look different in two places is the evidence.**
 
-**Used by:** `1.2` Provably fair with its verifier, `3.3` at phase 2 the spin trigger and phase 3 the outcome, `7.1` Public result.
+**Used by:** `1.2` Provably fair with its verifier, `3.3` at phase 2 the spin trigger and phase 3 the outcome, `7.1` Public result, **and `5.9` History, V1 in every row and V3 on demand, `history.md` sections 3 and 5. Added in round 16 by `D-158`.**
 
 **Not a page.** It has no URL of its own. It renders inside nodes that do.
+
+---
+
+## Amended 4 October 2026 by `D-158`. Stale lines struck in place
+
+**Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| As in the node's own baseline row | Everything the node decided | 5.9 joins the sites that render the proof, V1 in every row and V3 on demand |
 
 ---
 
@@ -94,9 +106,9 @@ From the Round proof entity in `ia/docs/sitemap.md`:
 
 | Variant | Where | Shows | Must not |
 |---|---|---|---|
-| **V1, the hash chip** | `3.3` phase 2, at the spin trigger, row `E4` | Server seed hash, truncated, plus the scope line in one short clause. **Labelled `Server seed hash`, the name V3 and V4 use, and `N server seed hashes` on a multi-roll open, one value and one copy per roll since `D-142`.** It read `Round hash`, which is the field named differently that the rule under this table forbids | **Interrupt the reveal.** `research.md` section 6 specifies a small persistent element that does not stop the animation. It never blocks, never modals, never asks |
+| **V1, the hash chip** | `3.3` phase 2, at the spin trigger, row `E4`; **and every row of `5.9`, `D-158`** | Server seed hash, truncated, plus the scope line in one short clause. **Labelled `Server seed hash`, the name V3 and V4 use, and `N server seed hashes` on a multi-roll open, one value and one copy per roll since `D-142`.** It read `Round hash`, which is the field named differently that the rule under this table forbids | **Interrupt the reveal.** `research.md` section 6 specifies a small persistent element that does not stop the animation. It never blocks, never modals, never asks |
 | **V2, the verification link** | `3.3` phase 3, the outcome, row `F3`, and `3.7` | One tap to check this round: `Check this round`, and on a batch `Check all N rolls` plus one `check this roll` per receipt line | ~~**Take the person out of the flow.** It opens the proof in place. The outcome screen is where the win is, and the win is not interrupted for paperwork~~ **Caught up with the render in round 15: it opens `1.2`'s verifier, V4, with this round's fields filled in and nothing computed**, while the win stays in My items. No decision records the move away from "in place", so whether V2 should open in place again is carried to the founder. **What it still must not do is compute for the person**: the press is theirs |
-| **V3, the full proof panel** | `7.1` Public result | Every field, the result, the ticket range, the recompute route, the scope line in full | **Require an account.** A stranger holds this link and can check it. That is the whole reason `1.2` and `7.1` are public |
+| **V3, the full proof panel** | `7.1` Public result; **and `5.9` on demand, `D-158`** | Every field, the result, the ticket range, the recompute route, the scope line in full | **Require an account.** A stranger holds this link and can check it. That is the whole reason `1.2` and `7.1` are public |
 | **V4, the verifier form** | `1.2` Provably fair | The same fields as inputs, plus the explanation the page opens with | **Ask for a seed before it has explained anything.** The node's own INCLUDES says the page opens and explains first |
 
 **One field set, four densities.** A variant may show fewer fields. **No variant may show a field the others do not have, name a field differently, or order them differently.** That rule is the reason this is a node and not three implementations.

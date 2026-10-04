@@ -19,6 +19,18 @@
 | A two column settings tab with **twenty rows** in four groups: `GENERAL` five, `SECURITY` three, `LINKED PROFILES` four, `NOTIFICATIONS` eight. Founder captures of 18 August 2026, `baseline-account.md` section 7, and of 22 August 2026, `research/screens/baseline-account/acct_settings_top_22aug.png` and `acct_settings_linked_22aug.png`. | **One row: the Steam trade URL**, with its helper line, because the exit needs it and nothing else on the map holds it. | ~~**Nineteen of twenty do not survive, and almost none of them for a reason about settings.** Eleven configure modes that are `LATER` or channels that have no backlog row at all. Five already live somewhere else on our map and would be second homes. Two are refused on a rule. One is `[?]` and belongs to the founder.~~ **As first derived. Today, `D-150`: fifteen of the twenty are on the page, five are `LATER`, and none is refused whole; section 1's current table gives every row.** **Section 1 gives the verdict on every row with its reason, because a settings page that quietly drops nineteen rows is a settings page nobody can audit against its own baseline.** **Since `D-86`, `D-89`, `D-93` and `D-124` the page renders four groups and sixteen rows**, the baseline's shape, and section 1 is the record of the first derivation |
 
 
+## Amended 4 October 2026 by `D-158`. Stale lines struck in place
+
+**Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| As in the node's own baseline row | Everything the node decided | "0.13 has no row" is struck, D-150 |
+
+---
+
 ## Amended 4 October 2026 by `D-157`. With no Steam account linked, the band says so
 
 **Why.** Round 16 found the no-Steam state's account band naming nightjar_cs as the linked Steam account.
@@ -369,7 +381,7 @@ Sound, language, the break tool and sign out are all somewhere already. ~~**They
 
 **Not indexed, ~~no canonical~~, no schema, no breadcrumb**, and it carries `noindex, follow` as a meta tag with a canonical to itself, round 15, the treatment every private page renders. This is a private account surface and `0.13`'s register treats the whole `5.x` group that way.
 
-**It owes `0.13` a row and does not have one.** `D-78` already recorded that the register has no row for `5.9`, `5.10` or `5.11`, and its closing count of nine indexed against six not indexed was taken before those three nodes existed. **This node repeats that finding rather than editing another node's register.**
+~~**It owes `0.13` a row and does not have one.** `D-78` already recorded that the register has no row for `5.9`, `5.10` or `5.11`, and its closing count of nine indexed against six not indexed was taken before those three nodes existed. **This node repeats that finding rather than editing another node's register.**~~ **Struck in round 16 by `D-158`: `D-150` gave `0.13` this node's row, `noindex, follow` with a self canonical, the values above, and the register's count now reads nine indexed and ten not.**
 
 **URL:** `/settings`, derived from the register's own rules, no language prefix, and one destination carrying one label in every carrier.
 

@@ -12,12 +12,24 @@
 
 **States:** `2.2` geo blocked, specified below under its own anchor. **`2.3` under age was dissolved by `D-26` and its section is kept below, marked, rather than deleted.**
 
-**Transitions:** `2.2`, back into `3.3`.
+**Transitions:** `2.2`, back into `3.3`, **and `2.4` sign in since `D-136`: the guest `Sign in` press passes through the check state on its way to `2.4`, and the staged verdict's Continue opens sign in. Added in round 16 by `D-158`.**
 
 **Reads `0.12` rather than holding its own constants:** the verdict, the ground, the minimum age and the age method all come from the market row. Three of those four are values this node would otherwise have hard-coded, and `markets.md` section 2 records what that costs.
 
 **Cluster 2 is three screens nobody chooses to visit.** This is the one that arrives uninvited, in the middle of somebody else's intention.
 
+
+## Amended 4 October 2026 by `D-158`. Stale lines struck in place
+
+**Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| As in the node's own baseline row | Everything the node decided | The transitions include 2.4, D-136; the sentence about a trigger table naming the open control is struck, D-149 |
+
+---
 
 ## Amended 4 October 2026 by `D-157`. Continue and Not now at equal weight, as drawn
 
@@ -102,7 +114,7 @@
 
 **Two questions this leaves, and both are here rather than on `3.3`:**
 
-~~**Where it fires in the prototype**, which needs the check state to resolve before any wire is honest.~~ **Answered by `D-136` and `D-146`:** on the guest `Sign in` press, and **the `Open` control on the account states passes no gate because the gate was passed at sign in.** That leaves the table above naming the open control as a trigger the render does not wire, and it is printed here rather than smoothed. **And whether it should render at all on an open market**: it renders nothing there today, which is the rule that lets the guest press go straight through to `2.4`, and it also means **this node has no observable behaviour on the happy path.** A layer that is invisible when the answer is yes is correct for the person and unreviewable for us.
+~~**Where it fires in the prototype**, which needs the check state to resolve before any wire is honest.~~ **Answered by `D-136` and `D-146`:** on the guest `Sign in` press, and **the `Open` control on the account states passes no gate because the gate was passed at sign in.** ~~That leaves the table above naming the open control as a trigger the render does not wire, and it is printed here rather than smoothed.~~ **The table above no longer names it: round 15, step 8b, `D-149`, struck the open control and put the guest `Sign in` press in its place, so table and render agree. Struck in round 16 by `D-158`.** **And whether it should render at all on an open market**: it renders nothing there today, which is the rule that lets the guest press go straight through to `2.4`, and it also means **this node has no observable behaviour on the happy path.** A layer that is invisible when the answer is yes is correct for the person and unreviewable for us.
 
 ---
 

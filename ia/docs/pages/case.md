@@ -12,10 +12,22 @@
 
 **States held in this file:** `3.5` phase 2 the open, `3.6` phase 3 the outcome, `3.7` interrupted reveal. Each under its own anchor, none as a separate file. **`3.4` item at zero free units was dissolved on 21 August 2026 by `D-60`** and its section is kept as a record, section 6.
 
-**Transitions:** `2.1`, `3.5`, then `3.6` and `3.7`, then `1.2`, `5.1`, `7.1`. Entered from `1.0`, from `3.1`, from search, and from any shared link. **`3.4` left this list on 21 August 2026, `D-60`.**
+**Transitions:** `2.1`, `3.5`, then `3.6` and `3.7`, then `1.2`, `5.1`, `7.1`, **and `5.9` from `3.6`, the map's row for the outcome: where the roll goes once the screen closes. An open made in the session lands first in that history since `D-155`; the outcome draws no direct link to it and the render reaches it through the account menu, `0.1`. Added in round 16 by `D-158`.** Entered from `1.0`, from `3.1`, from search, and from any shared link. **`3.4` left this list on 21 August 2026, `D-60`.**
 
 **Amended 23 August 2026 by `D-92`, in three places and no figure moved.** The market the settlement is struck against is named and the answer is us, so **the per-case gap in block 7 stops waiting on anybody and starts being a number we decline to publish**, section 5.3. **The outbound link on the top item keeps its target and loses its reason**, section 3: it points at Steam, Steam is the dearer place, and a control offered as the cheaper alternative can no longer be labelled that way. **And the risk band's hole is half answered**, section 1: the three bands are an input when a case is built rather than a label derived from its drop table, which is a different object from the one `D-24` specified, and the thresholds are still `[?]`.
 
+
+## Amended 4 October 2026 by `D-158`. Stale lines struck in place
+
+**Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| As in the node's own baseline row | Everything the node decided | The receipt no longer stays on 5.1 or 5.3, D-90 and D-91; 3.6 lists 5.9 among its transitions, reached through the account menu |
+
+---
 
 ## Amended 4 October 2026 by `D-157`. The five roll outcome prints what was spent
 
@@ -564,7 +576,7 @@ Composition from `blocks.md` section 4, T3 object detail with a live event. Orde
 - **Denominated in coins, with the peg on the receipt.** The dropped rival, sell price everywhere, left its load-bearing rule attached to the pick: a receipt in a unit the reader cannot price fails its own test. **`D-28` chose the coin, so the rule moved rather than died:** the peg travels with the receipt, `0.11` rule 10.
 - **The venue link is filtered to the float band**, so the person checks it themselves rather than taking our word. **Which two venues is `[?]`**, `0.11` section 10, owner founder, before stage 04. **Narrowed 23 August 2026 by `D-92` and not closed:** the decision answers the settlement's venue and not this one, **and what it does settle is that neither of the two can be us**, since our price quoted beside our price is one reading printed twice and the point of this receipt is that the person does not take our word.
 
-**And it persists, which is row `F2`.** The receipt stays attached to the item in inventory `5.1` and on the withdrawal record `5.3`. Success signal from the backlog: the same receipt is retrievable a week later. **This node does not own those surfaces**, it owns the obligation that what it renders here is the same object they render later.
+**And it persists, which is row `F2`.** ~~The receipt stays attached to the item in inventory `5.1` and on the withdrawal record `5.3`.~~ **Since `D-90` and `D-91` it persists on the round and not on the item: one fact, stored once, printed on `5.9`'s roll row and on `7.1`, and never on `5.1` or `5.3`. Struck in round 16 by `D-158`.** Success signal from the backlog: the same receipt is retrievable a week later. **This node does not own those surfaces**, it owns the obligation that what it renders here is the same object they render later.
 
 ### 8.1b One thing `F1` did not know it was about, added 23 August 2026 by `D-91`
 

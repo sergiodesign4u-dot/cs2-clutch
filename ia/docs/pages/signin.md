@@ -10,10 +10,22 @@
 
 **States:** `2.5` Steam refused and `2.6` Steam unavailable, both specified below under their own anchors.
 
-**Transitions:** `2.5`, `2.6`, then the starter credit into `3.5`.
+**Transitions:** `2.5`, `2.6`, then ~~the starter credit into `3.5`~~ **the signed-in version of the page the dialog was opened over, and Home from the address `/signin`, since `D-138`; the starter credit left both carriers with `D-130`. Struck in round 16 by `D-158`.**
 
 **Cluster 2 is three surfaces nobody chooses to visit, and since `D-54` two of the three are dialogs.** This one is the tax on the main job, and section 2 counts it rather than hiding it. **What `D-54` changed is not the size of the tax but who pays the context for it:** section 0.9.
 
+
+## Amended 4 October 2026 by `D-158`. Stale lines struck in place
+
+**Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| As in the node's own baseline row | Everything the node decided | Sign in lands on the signed-in version of the page it was opened over, or Home from /signin, D-138; the starter credit into 3.5 is struck, D-130 |
+
+---
 
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 

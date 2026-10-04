@@ -95,8 +95,10 @@ window.IA_NAV = [
   // against 7.1 block 6, which refuses a page of this shape because it would rebuild the trophy
   // shelf that node was created to replace: a founder decision taken over this project's own
   // argument, and the argument is kept with its reason rather than amended into agreement.
-  // states: 0, like 5.9 and 5.10: its three states are specified inside the node and not numbered on
-  // the map, round 15, so the hub's derived total equals the map's numbered states.
+  // states: 0, like 5.9 and 5.10: its ~~three~~ four states, the hidden one added by D-93, are specified
+  // inside the node and not numbered on the map, round 15, so the hub's derived total equals the map's
+  // numbered states. Three corrected to four in round 16 by D-158, against wireframes/_nav.js, which
+  // registers four 7.3 states.
   { node: '7.3', label: 'Public profile',          file: 'public-profile.html', group: 'pages', type: 'page',         states: 0, done: true  },
 ];
 
