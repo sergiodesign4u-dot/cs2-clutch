@@ -2252,6 +2252,14 @@ window.WF_PAY = window.WF_PAY || {
     });
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && nav.classList.contains('is-open')) closeDrawer();
+      /* FOCUS STAYS IN THE OPEN DRAWER, round 17, B1-12, navigation.md section 8:
+         Tab left it for the page behind the scrim. */
+      if (e.key !== 'Tab' || !nav.classList.contains('is-open')) return;
+      var f = [].slice.call(nav.querySelectorAll('a[href], button:not([disabled]), select, input')).filter(function (x) { return x.offsetParent !== null && !x.closest('[hidden]'); });
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && (document.activeElement === first || !nav.contains(document.activeElement))) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && (document.activeElement === last || !nav.contains(document.activeElement))) { e.preventDefault(); first.focus(); }
     });
   }
 
@@ -3857,6 +3865,15 @@ window.WF_PAY = window.WF_PAY || {
   /* OPEN AGAIN OR ADD FUNDS, BY THE BALANCE, round 17, B1-6: the five roll
      outcome said Add funds with the balance covering it, and the two roll
      outcome said Open again with the balance short. */
+  /* THE RECEIPT CARRIES THE INSPECT LINK, case.md section 8 block 2, round 17,
+     B1-18: the outcome had none. The link is Steam's own in-game preview; its
+     asset id is a sample, D-124, marked in 3.3. */
+  function mountInspect() {
+    if (!/^case-(outcome|interrupted)/.test(location.pathname.split('/').pop())) return;
+    var link = function (seed) { return ' &#183; <a class="wf-inspect" href="steam://rungame/730/76561202255233023/+csgo_econ_action_preview%20S76561198000000000A' + parseInt(hx(seed, 8), 16) + 'D' + parseInt(hx(seed + 'd', 8), 16) + '" rel="nofollow">Inspect in game</a>'; };
+    Array.prototype.forEach.call(document.querySelectorAll('.wf-commit .wf-instance'), function (x, i) { if (/Float/.test(x.textContent) && !x.querySelector('.wf-inspect')) x.insertAdjacentHTML('beforeend', link('in' + i + location.search)); });
+    Array.prototype.forEach.call(document.querySelectorAll('.wf-rolls li'), function (li, i) { if (!li.querySelector('.wf-inspect')) li.insertAdjacentHTML('beforeend', link('roll' + i + location.search)); });
+  }
   function outcomeAgain() {
     if (!/^case-(outcome|interrupted)/.test(location.pathname.split('/').pop())) return;
     var acts = document.querySelector('.wf-outcome-acts');
@@ -4043,9 +4060,12 @@ window.WF_PAY = window.WF_PAY || {
     // the auditor slot left; the auditor is absent by section 2.3's own rule.
     // TRUSTPILOT IS A SAMPLE, D-124, and a link: live or not at all in
     // production, section 2.3.
+    /* ON 1.1 THE TRUST UNIT GOES BELOW THE GRID, home.md section 4.1, Hero B3
+       row, round 17, B1-16: a person with an account has decided whether this
+       place is real, and the first screen is for what to open. */
+    var A5 = '<p class="wf-hero-line"><a href="https://www.trustpilot.com/" rel="external nofollow">Trustpilot 4.1, 1 870 reviews</a></p>';
     out.push('<section class="wf-hero wf-hero--short" aria-labelledby="h1">' +
-      '<h1 id="h1">CS2 case opening with published odds</h1>' +
-      '<p class="wf-hero-line"><a href="https://www.trustpilot.com/" rel="external nofollow">Trustpilot 4.1, 1 870 reviews</a></p></section>');
+      '<h1 id="h1">CS2 case opening with published odds</h1>' + (account ? '' : A5) + '</section>');
 
     // B4, THE FOUR MODES, D-27. No visible heading: the baseline has none and
     // the cards say what they are. The H2 stays for the outline, hidden.
@@ -4067,6 +4087,7 @@ window.WF_PAY = window.WF_PAY || {
         '<button class="wf-fav" type="button" aria-pressed="' + c[4] + '" aria-label="Favourite, ' + c[3] + ' people"><span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">' + c[3] + '</span></button></article>');
     });
     out.push('</div><div class="wf-sec-foot"><a class="wf-btn" href="catalogue.html">' + WF_STR.allCases + '</a></div></section>');
+    if (account) out.push('<section class="wf-sec" aria-label="Reviews">' + A5 + '</section>');
 
     // B6, THE DAILY LADDER, D-25 and D-67, the component 3.1 mounts too.
     out.push('<section class="wf-sec" aria-labelledby="h2-daily"><div class="wf-sec-head"><h2 id="h2-daily">Daily cases</h2>' +
@@ -4081,7 +4102,9 @@ window.WF_PAY = window.WF_PAY || {
     out.push('<section class="wf-sec" aria-labelledby="h2-proof"><div class="wf-sec-head"><h2 id="h2-proof">Before you spend</h2></div><div class="wf-figs">' +
       '<a class="wf-fig wf-fig-a" href="case.html#h2-pays"><span class="wf-fig-v">94.2 %</span><span class="wf-fig-c">Tested RTP, Ironbound</span></a>' +
       '<a class="wf-fig wf-fig-a" href="withdraw.html"><span class="wf-fig-v">' + WF_PUB.median + '</span><span class="wf-fig-c">Median withdrawal to Steam</span></a>' +
-      '<div class="wf-fig"><span class="wf-fig-v">0 %</span><span class="wf-fig-c">Our commission on withdrawals</span></div>' +
+      /* EVERY FIGURE ROUTED, round 17, B1-17: the commission is a line in the
+         settlement it is charged in. */
+      '<a class="wf-fig wf-fig-a" href="withdraw.html#h3-total"><span class="wf-fig-v">0 %</span><span class="wf-fig-c">Our commission on withdrawals</span></a>' +
       '<a class="wf-fig wf-fig-a" href="fair.html"><span class="wf-fig-v">Every round</span><span class="wf-fig-c">Checkable without an account</span></a>' +
       '</div></section>');
 
@@ -4175,13 +4198,16 @@ window.WF_PAY = window.WF_PAY || {
       WF_ROLLS.forEach(function (r) { if (!have[r.w + ' ' + r.s] && !pool.some(function (x) { return x.w === r.w && x.s === r.s; })) pool.push({ w: r.w, s: r.s, wear: r.wear.split(', ')[0], tier: RARITY[r.w + ' ' + r.s] || 'Mil-Spec', v: parseFloat(r.now || r.worth), keys: [] }); });
       pool.sort(function (a, b) { return a.v - b.v; });
       var cf = Math.max(0, 100 - used), need = cf ? (target - er) / (cf / 100) : 0;
-      /* THE FILLERS CLOSEST TO WHAT IS NEEDED, so no one row carries the case. */
-      var above = pool.filter(function (x) { return x.v >= need; }), hi = above[0] || pool[pool.length - 1];
-      var rest = pool.filter(function (x) { return x !== hi; }).sort(function (a, b) { return Math.abs(a.v - need) - Math.abs(b.v - need); });
-      var lo = rest[1] || rest[0], mid = rest[0];
-      var la = (lo.v + mid.v) / 2, a = hi.v > la ? Math.min(0.9, Math.max(0.02, (need - la) / (hi.v - la))) : 0.02;
-      lo.ch = cf * (1 - a) / 2; mid.ch = cf * (1 - a) / 2; hi.ch = cf * a;
-      rows = rec.concat([lo, mid, hi]);
+      /* TWO FILLERS, ONE EITHER SIDE OF WHAT IS NEEDED, the nearest each way,
+         their chances solved so the expected value is the target exactly. */
+      var below = pool.filter(function (x) { return x.v < need; }).sort(function (a, b) { return b.v - a.v; });
+      var above = pool.filter(function (x) { return x.v >= need; }).sort(function (a, b) { return a.v - b.v; });
+      var fill;
+      if (below.length && above.length) {
+        var lo = below[0], hi = above[0], a = (need - lo.v) / (hi.v - lo.v);
+        lo.ch = cf * (1 - a); hi.ch = cf * a; fill = [lo, hi];
+      } else { var one = below[0] || above[0]; one.ch = cf; fill = [one]; }
+      rows = rec.concat(fill);
     }
     /* null: no copy on sale; undefined: not read, a sample is used. */
     rows.forEach(function (r) { var id = r.w + ' ' + r.s + '|' + r.wear; r.steam = STEAM_AT.hasOwnProperty(id) ? STEAM_AT[id] : undefined; });
@@ -7927,7 +7953,29 @@ window.WF_PAY = window.WF_PAY || {
     Array.prototype.forEach.call(document.querySelectorAll('[data-legal-doc]'), function (a) { a.hidden = a.getAttribute('data-legal-doc') === k; });
   }
 
+  /* THE CONTENTS AND THE VERSION HISTORY COLLAPSE AT 360, legal.md sections 5
+     and 7, round 17, B1-14: neither did, and the history's header was no button.
+     The header becomes a button with aria-expanded and aria-controls; every row
+     stays in the DOM at every width; below 600 both start closed, the document
+     itself never does. */
+  function mountLegalCollapse() {
+    var narrow = window.matchMedia && window.matchMedia('(max-width: 599px)').matches;
+    [['#h2-contents', '.wf-toc', 'wf-toc-body'], ['#h2-versions', '.wf-vers', 'wf-vers-body']].forEach(function (c) {
+      var h = document.querySelector('.wf-doc ' + c[0]), body = h && h.closest('.wf-toc-wrap, .wf-stack') && h.closest('.wf-toc-wrap, .wf-stack').querySelector(c[1]);
+      if (!h || !body) return;
+      body.id = body.id || c[2];
+      var b = el('button', 'wf-acc-b'); b.type = 'button';
+      b.setAttribute('aria-controls', body.id);
+      while (h.firstChild) b.appendChild(h.firstChild);
+      h.appendChild(b);
+      var set = function (open) { b.setAttribute('aria-expanded', open ? 'true' : 'false'); body.classList.toggle('wf-acc-shut', !open); };
+      set(!narrow);
+      b.addEventListener('click', function () { set(b.getAttribute('aria-expanded') !== 'true'); });
+    });
+  }
+
   function mountShellSettings() {
+    mountLegalCollapse();
     mountLegalDoc();
     mountLegalVersion();
     mountCountry();
@@ -8194,6 +8242,7 @@ window.WF_PAY = window.WF_PAY || {
     renderHashes();
     mountCaseTemplate();
     mountOpenNow();
+    mountInspect();
     outcomeAgain();
     mountGate();
     mountDeposit();

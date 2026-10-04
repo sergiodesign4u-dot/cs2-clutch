@@ -10,9 +10,21 @@
 
 **Jobs served.** Main Job, `jtbd.md` Section 1, a chance at a rare skin I actually want. Related Job 5, withdraw and get what I earned. **Parent class:** job, through the Main Job and Related Job 5, plus barriers `B7-1` and `B7-2` carried by rows `D2`, `F1` and `F2`. **`B8-1` reached this card through `D1` and left on 21 August 2026 with `D-60`**, together with field 10 and one of the eight states. Design principle 3 in `CLAUDE.md` is what makes it canonical rather than five implementations: **where money is about to be spent, odds, cost and expected value are visible and legible**, and a field that appears on one surface and quietly leaves on another is a field that hides.
 
-**Used by:** ~~`3.1` Case catalogue,~~ `3.3` Case screen at phase 1 and at phase 3, `5.1` Account and inventory, `5.3` Withdrawal, `7.1` Public result, **`7.3` Public profile since `D-90`, and `5.9` History on its Items tab; `3.1` renders none, `catalogue.md` section 5. Struck in round 16 by `D-158`.** The list is the `used by` line of node `0.6` in `ia/docs/sitemap.md`, cluster 0, **which since round 15 reads `3.3`, `5.1`, `5.3`, `7.1` and `7.3` and does not yet hold `5.9`, a finding returned to the map rather than fixed here.**
+**Used by:** ~~`3.1` Case catalogue,~~ `3.3` Case screen at phase 1 and at phase 3, `5.1` Account and inventory, `5.3` Withdrawal, `7.1` Public result, **`7.3` Public profile since `D-90`, and `5.9` History on its Items tab; `3.1` renders none, `catalogue.md` section 5. Struck in round 16 by `D-158`.** The list is the `used by` line of node `0.6` in `ia/docs/sitemap.md`, cluster 0, **~~which since round 15 reads `3.3`, `5.1`, `5.3`, `7.1` and `7.3` and does not yet hold `5.9`, a finding returned to the map rather than fixed here.~~ which holds `5.9` since `D-158`, struck in round 17 by `D-164`.**
 
 **Not a page.** It has no URL of its own. It renders inside nodes that do.
+
+---
+
+## Amended 4 October 2026 by `D-164`. A stale line struck
+
+**Why.** Round 17 re-read twelve lower rows round 16 carried, against the render; seven still held, and Codex found six stale IA lines.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| As in the node's own baseline row | Everything the node decided | The used-by sentence that said the map did not hold 5.9 is struck: it does since `D-158` |
 
 ---
 

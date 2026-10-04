@@ -17,6 +17,18 @@
 **Amended 23 August 2026 by `D-92`, in three places and no figure moved.** The market the settlement is struck against is named and the answer is us, so **the per-case gap in block 7 stops waiting on anybody and starts being a number we decline to publish**, section 5.3. **The outbound link on the top item keeps its target and loses its reason**, section 3: it points at Steam, Steam is the dearer place, and a control offered as the cheaper alternative can no longer be labelled that way. **And the risk band's hole is half answered**, section 1: the three bands are an input when a case is built rather than a label derived from its drop table, which is a different object from the one `D-24` specified, and the thresholds are still `[?]`.
 
 
+## Amended 4 October 2026 by `D-164`. The receipt carries the inspect link
+
+**Why.** Round 17 re-read twelve lower rows round 16 carried, against the render; seven still held, and Codex found six stale IA lines.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| An outcome's receipt | Block 2 | **Each receipt line and each roll carries Inspect in game**, Steam's own preview; its asset id is a sample, `D-124` |
+
+---
+
 ## Amended 4 October 2026 by `D-163`. Three and four rolls fill their row
 
 **Why.** Round 17 found three cards on the five roll page using three fifths of the row at 360, names hidden.

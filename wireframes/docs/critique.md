@@ -1247,3 +1247,23 @@ Withdrawn on verification: none.
 | B2-18, B2-19 | At 360 the boundary refusal hid under the bottom bar; text written after load split its figures, the peg among them | B2 | Fixed: the refusal scrolls into view; an observer joins figures in text written after load |
 | B2-20 | Copy on the 500 threw and said Copied | B2 | Fixed |
 | B1-11 | Three rolls used three fifths of the row; five rolls' Sell stacks at 360 | B1 | Fixed for three and four; **the five roll stack is kept** as the no-wrap rule's one named exception, `conventions.md` section 2 |
+
+### 18.6 Step 4, the lower rows and the IA, fixed on 4 October 2026 under `D-164`
+
+| Row | Finding | Found by | Status |
+|---|---|---|---|
+| B1-12 | Tab left the open drawer | B1 | Fixed: focus cycles inside it |
+| B1-13 | The staged gate's controls side by side at 360 | B1 | Fixed: they stack |
+| B1-14 | Legal contents and version history not collapsed at 360; no button; 32px version links | B1 | Fixed |
+| B1-15 | Support's H2 order | B1 | Fixed |
+| B1-16 | 1.1's Trustpilot line above the grid | B1 | Fixed: below it |
+| B1-17 | The 0 % commission with no route | B1 | Fixed: to the settlement |
+| B1-18 | No inspect link on the outcome | B1 | Fixed: on each receipt line and roll, a sample asset id |
+| C2-1, C2-2, C2-3, C2-4, C2-5 | Stale lines in `skin-card.md`, `numbers.md` and `sitemap.html` after `D-158` and `D-159` | C2 | Fixed: struck in place |
+| C2-6 | A line citation into `jtbd.md` in `account.md` | C2 | **Withdrawn on verification**: it sits inside a verbatim quotation of `cjm-to-be.md`; the node's own citation is by section name |
+| C5-1 | `overview.html` carries colour literals | C1 | **Withdrawn on verification**: the overview is the stage's documentation hub in the project's documentation style, on `../_nav.css` like every IA page; `wireframes/CLAUDE.md` rules 1 and 3 govern the product's screens |
+| Step 2 follow-up | Warsteel's and Coldfront's tables overshot the RTP: two fillers on the same side of what was needed | lead, on the after screenshot | Fixed: one filler either side, chances solved exactly; Nightfall stays below target, its six rows holding no cheaper skin, a sample |
+
+### 18.7 Round 17 closed
+
+**About 47 rows after dedup: 41 fixed, 3 kept and named as costs, 3 withdrawn on verification.** The kept ones: a state page's link into 6.1 opening it as the session has it; the five roll Sell stacking below 110px of card; Nightfall's table leaning on its dearest row. The rounds 15 to 17 before and after is on the overview.

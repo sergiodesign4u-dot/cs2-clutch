@@ -28,6 +28,18 @@
 **Two obligations this node was handed, and both are honoured.** `sitemap.md`, "Free entry gets an obligation rather than a surface", makes `S-A1` carry the starter credit offer as a pre-login element: block B10. **Suspended by `D-126`: B10 left the page until its amount exists, so this obligation is carried as open, section 9.** `sitemap.md`, "Detailed node map", row 1.0, makes it carry the featured case grid directly on the page rather than behind a mode hub: block B5.
 
 
+## Amended 4 October 2026 by `D-164`. The trust line below the grid on 1.1, and every figure routed
+
+**Why.** Round 17 re-read twelve lower rows round 16 carried, against the render; seven still held, and Codex found six stale IA lines.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Home for a guest and for an account | The row of four, `D-126` | **On 1.1 the Trustpilot line sits below the featured grid**, section 4.1; **the 0 % commission routes to the settlement it is charged in** |
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.

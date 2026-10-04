@@ -2967,6 +2967,9 @@ select {
    alone: the instrument lives in the register and the person gets the reading. */
 .wf-gate-open { margin: 0; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
 .wf-gate-acts { display: flex; gap: var(--wf-s-1); flex-wrap: wrap; }
+/* AT 360 THE GATE'S CONTROLS STACK, gate.md section 10, round 17, B1-13, each
+   the full width, so neither reads as the lesser. */
+@media (max-width: 599px) { .wf-gate-acts { flex-direction: column; } .wf-gate-acts > .wf-btn { width: 100%; } }
 /* A STAGED MARKET STATES ITS LIMIT IN WORDS AND WHAT CHANGES IT. The limit comes
    from the market row and is never invented on this surface. */
 .wf-limit {
@@ -5334,3 +5337,12 @@ details > summary { min-height: var(--wf-tap); display: list-item; padding-block
 /* AN ITEM IN FLIGHT, D-150: marked in words, quieter than the items that can still be acted on. */
 .wf-inv-card.is-inflight { border-style: dashed; }
 .wf-inv-mark { margin: 0; font-size: var(--wf-t-xs); letter-spacing: 0.03em; text-transform: uppercase; color: var(--wf-ink-dim); }
+
+/* THE LEGAL ACCORDIONS, round 17, B1-14, legal.md section 7. The header is a
+   button the size of a target; a shut body leaves the layout, not the DOM. */
+.wf-acc-b { all: unset; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: var(--wf-s-1); width: 100%; min-height: var(--wf-tap); cursor: pointer; font: inherit; }
+.wf-acc-b::after { content: "+"; color: var(--wf-ink-dim); }
+.wf-acc-b[aria-expanded="true"]::after { content: "\2212"; }
+.wf-acc-b:focus-visible { outline: 2px solid var(--wf-ink); outline-offset: 2px; }
+.wf-acc-shut { display: none; }
+.wf-ver-acts .wf-btn { min-height: var(--wf-tap); }

@@ -19,6 +19,18 @@
 **Cluster 2 is three screens nobody chooses to visit.** This is the one that arrives uninvited, in the middle of somebody else's intention.
 
 
+## Amended 4 October 2026 by `D-164`. The two controls stack at 360
+
+**Why.** Round 17 re-read twelve lower rows round 16 carried, against the render; seven still held, and Codex found six stale IA lines.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A staged market layer | Equal weight, `D-157` | **Below 600 Continue and Not now stack, each the full width**, section 10 |
+
+---
+
 ## Amended 4 October 2026 by `D-158`. Stale lines struck in place
 
 **Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.

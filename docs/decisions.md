@@ -5964,3 +5964,16 @@ Verified on screen: each table sums to 100 % with ranges to 100 000; Warsteel's 
 - **360:** the boundary refusal scrolls into view; a MutationObserver joins figures in every text written after load, the peg among them; three and four rolls fill their row.
 - **Copy** on the 500 says what happened.
 - **Named exception:** a Sell control on a five roll card below 110px stacks verb over figure inside itself, written into `conventions.md` section 2 beside the rule it departs from.
+
+## D-164. Round 17, step 4: the lower rows, the IA, and the round closed
+
+**Date:** 2026-10-04. **Stage:** 04, round 17. **Decided by:** the founder, "гоу" on step 4. **Binds:** `wireframes/_nav.js`, `wireframes/_wf.css`, `wireframes/support.html`, `wireframes/overview.html`, nodes `0.1`, `2.1`, `0.9`, `0.10`, `1.0`, `3.3`, `0.15`, `0.11`, and `ia/sitemap.html`.
+
+### What was done
+
+- **Seven lower rows from round 16:** the drawer keeps focus; the staged gate stacks at 360; the legal contents and version history collapse at 360 under real buttons; support's headings in their order; 1.1's trust line below the grid; the commission figure routed; the outcome's inspect link.
+- **Six IA lines from Codex:** five struck in place, one withdrawn on verification as a verbatim quotation.
+- **A follow-up on step 2** caught on the after screenshot: two of the new tables overshot the RTP; the solver now puts one filler either side of what is needed.
+- **The rounds 15 to 17 before and after** is a section of the overview, with three pairs.
+
+Verified: 134 pages at 360 and 1440, 48 templated case pages, 35 IA pages, all with no error and no sideways scroll; one current element per page; no figure split from its unit.

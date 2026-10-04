@@ -23,6 +23,18 @@
 | A ticket form of three fields, Subject defaulting to Deposits, Email and Message, under an ATTENTION block pushing the FAQ first. `baseline.md` section 9.5. | The three field shape and the deflection to articles, which is reasonable and cheap. | **The submit button reads SIGN IN.** A guest can fill the form and cannot send it, so **a person locked out of their account cannot use the product's own support channel to say so.** That is the strongest single argument in this repository for the appeal route `G4` and its published deadline, and it is now a walked fact rather than an inference. |
 
 
+## Amended 4 October 2026 by `D-164`. The headings in their order
+
+**Why.** Round 17 re-read twelve lower rows round 16 carried, against the render; seven still held, and Codex found six stale IA lines.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Support and contact | Section 8B's list | **Questions and answers, Write to us, By email, Your tickets**, as section 8B orders them |
+
+---
+
 ## Amended 4 October 2026 by `D-163`. A reply stays on its ticket, and a question is never an appeal
 
 **Why.** Round 17 found a reply opening a different ticket answered before it was sent, the submitted appeal's "The ticket" opening another ticket, the forms on two states landing as appeals, and an answer that lifts a restriction above a line saying the balance is frozen.

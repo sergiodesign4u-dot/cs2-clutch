@@ -25,6 +25,18 @@
 | Four documents, all `noindex,nofollow`, each **one H1 and zero H2**. The terms run about 7,270 words as a single wall, last updated 08/01/2025; the cookie policy is dated April 2019. All carry a breadcrumb. `baseline.md` section 9.4. | The breadcrumb, and the document set itself. | **The wall.** Zero H2 in a 7,270 word contract is the defect this node exists to fix, and it is now measured rather than asserted. **And the dates:** a policy from 2019 sitting under a product that changed every year since is a document nobody re-read. |
 
 
+## Amended 4 October 2026 by `D-164`. Contents and version history collapse at 360
+
+**Why.** Round 17 re-read twelve lower rows round 16 carried, against the render; seven still held, and Codex found six stale IA lines.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Four documents on one template | The document is never behind an accordion | **Below 600 the contents and the version history start closed under a button with `aria-expanded` and `aria-controls`**, every row in the DOM; every version control is 44 high |
+
+---
+
 ## Amended 4 October 2026 by `D-163`. The refund summary agrees with the crypto pane
 
 **Why.** Round 17 found the refund policy's summary saying a deposit limit holds every payment, while the crypto pane says a limit cannot stop a transfer from a person's own wallet.
