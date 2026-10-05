@@ -6036,3 +6036,21 @@ The Codex model choice stays in memory: it is a tool preference, not a rule of t
 The principles that rest on these answers are `voice/docs/voice.md` "Principles".
 
 **Limits of this record.** The logo, typography, shape, motion and component look stay not inherited. "A reference is an input, never an output" still binds: stage 05 still writes rules with a source behind each, and no screen's copy is carried over whole without passing them.
+
+## D-167. One concept, one word: the glossary, and US spelling
+
+**Date:** 2026-10-05. **Stage:** 05, step 3. **Decided by:** the founder, "так і гоу", on the glossary as shown and on the one question it carried. **Binds:** `voice/docs/voice.md` "Glossary" and "Forbidden", steps 4 to 8 of stage 05, every string the product shows.
+
+**What was decided.** Every divergence `voice/docs/microcopy.md` section 4 marked is closed in `voice.md` "Glossary": one word per concept, the words it replaces, and why. **US spelling**, because the voice is the baseline's, `D-166`, and the baseline writes "favorite"; the grey product carried British spellings about two hundred times and steps 6 and 7 respell as they rewrite.
+
+**Rejected, and why, for the choices a reader would question first.**
+
+- **"Inventory" for My items**, though it is the baseline's word: on our screens it already names the Steam inventory, and two inventories on one deposit screen is the defect this file exists to stop. `D-128` stands.
+- **"Withdraw" for the act**: the act is the button's own name, `Send to Steam`, `D-128`. The noun "withdrawal" stays, because the baseline's history and the people's own complaints use it.
+- **"Market" for our shelf**: `D-92` says the shelf is us, so the word sold it as something it is not. "Copies on sale" names what it is.
+- **"Roll" beside "round"**: two words for one proven unit split a hash label live. "Round" is the fair page's and node `0.14`'s word; the count of opens is in cases, the baseline's "Cases to open".
+- **"Boundary" as the umbrella**: it was this project's internal word. People and the one honest competitor line say "set limits". What we set is a "cap", so a limit is always the person's own.
+- **"Upheld"**: it named both outcomes of one appeal, `D-156`.
+- **One named exception to one concept, one word:** the withdrawal settlement table keeps the baseline's "Your skin price / Market skin price" beside the market's price, `D-128` and `D-166`; on that screen "Our price for it" becomes "Your skin price", so the screen still has one name.
+
+**Closed by this step:** rows 12, 18 and 19 of `wireframes/docs/voice-input.md` section f. Rows 13, 22 and 29 are microcopy rules and go to step 4.
