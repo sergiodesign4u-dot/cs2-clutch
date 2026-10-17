@@ -31,6 +31,8 @@
 | Three link columns, no interlinking row | The column shape of band 2 | **The Cases column carries `3.1`'s sections:** All cases, Daily cases, Featured cases, Community cases, Classic cases. **The interlinking row is gone.** This node had already said the two "may turn out to be one list, in which case the row goes and the column stays", and the founder chose the list. The four named cases leave the column, which also closes this node's open merchandising item about which four deserved the slot |
 | One row of columns on a desktop | **One row on every desktop window** | From a 600px content column in a 900px window, the brand block and the four link tracks hold one row; the brand art slot still waits for 1180px. Below a 900px window the footer is the accordion stack it was. Measured on 17 October 2026 at 915, 1024, 1180, 1280, 1440 and 1920px: one row at all six |
 
+**Extended the same day:** band 3, the trust row, folded the same way, the 18+ statement on a row of its own with the socials and the language under it, and the founder read it as the same scattering. **From a 700px content column in a 900px window its three cells share one row** and the statement takes what is left, never under 260px.
+
 **What it costs.** No named case is put in front of a person from every page any more. The crawler job the row did is kept, because the same section links now sit in the column.
 
 ---

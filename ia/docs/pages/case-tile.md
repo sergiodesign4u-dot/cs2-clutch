@@ -12,6 +12,18 @@
 
 ---
 
+## Amended 17 October 2026 by `D-173`. The favorite shows on hover
+
+**Why.** The founder read the featured tiles on Home: the favorite chip sat tight against its count, and it should appear only on hover.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A heart with a count on each case tile | **The mark, its count, and its press** | **Where a pointer can hover, the favorite appears on hover of the tile**, and on keyboard focus inside it. **On touch it always shows**, because touch has no hover. **A favorite the person has set stays visible**, because it is their own mark. The chip gained four pixels of room around the mark and the count |
+
+---
+
 ## Amended 3 October 2026 by `D-145`. The node catches up with its render
 
 **Why.** Round 15 of the critique found this node describing pages that rounds 13 and 14 had redrawn. The founder approved on 3 October 2026 that the nodes catch up with the render, where the render carries the later decisions; stale lines are struck in place with the decision that replaced them.

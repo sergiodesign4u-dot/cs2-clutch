@@ -425,6 +425,14 @@ Four columns: **NEED HELP?** with a Support button and the identification line "
 
 ---
 
+## 12. Sixth walk, 17 October 2026: the rail at desktop widths, and the event banner
+
+**Why this walk ran.** The founder compared our grey Home with the live product on 17 October 2026 and asked for the rail and the event banner to behave as the baseline's do. Public page `https://daddyskins.com/en`, nothing logged into, measured with Playwright the same day.
+
+**The rail, measured.** The rail element `aside.main-sidebar` is **250px wide at 1441, 1460, 1480, 1500, 1520, 1560, 1599, 1600 and 1920px** and **70px wide at 1440, 1366, 1280, 1200, 1100, 1024 and 960px.** So the product reserves its expanded rail above a 1440px window and its collapsed one at 1440 and below. **What the expanded rail does at those widths comes from the founder's captures of the same day**, filed as `research/screens/baseline/founder_rail_collapsed_1000_17oct.png` and `founder_rail_open_overlay_1000_17oct.png`: collapsed to icons by default, and opened from its menu icon it lies over the page at full width with the page dimmed behind it, the page not moving. The walk's own attempt to open it was covered by a sign-up dialog and its screenshot was discarded rather than kept as evidence.
+
+**The event banner.** `founder_event_banner_17oct.png`: the art fills the banner and carries the event's name, a box in the top right corner counts down in days, hours, minutes and seconds, and the one control, JOIN EVENT, sits centred at the foot of the art. It agrees with section 4 of this file and adds the anatomy.
+
 ## Source index
 
 Every row was opened in a live browser on 11 August 2026, pre-login, in one session.

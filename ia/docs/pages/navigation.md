@@ -16,6 +16,20 @@
 
 ---
 
+## Amended 17 October 2026 by `D-171`. On a compact desktop the rail starts collapsed and opens over the page
+
+**Why.** The founder compared the rail with the live product at about 1000px: ours stood expanded and pushed the page, the baseline's stands collapsed and opens over it.
+
+**Baseline row for this amendment**, `baseline.md` section 12, measured on 17 October 2026.
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Rail 250px above a 1440px window, 70px at 1440 and below; opened there, it lies over the dimmed page | **Both behaviours and the 1440 line** | **A product column of 1440px or less starts with the rail collapsed** and the toggle opens it as an overlay over the dimmed page, which never moves; it closes from the toggle, a press on the dimmed page, or Escape. Above 1440 the rail is as section 7 specified, expanded by default, collapsible, the choice kept. **The line is asked of the product's width, not the window's**, because the prototype's screens panel takes 220px of the window from 1200px up |
+
+**And one leak it exposed.** Nine collapsed-rail rules matched the footer's logo slot and language control, which share their classes, so the footer logo lost its label and the language control its padding once the collapsed rail became the default. All nine are scoped to the rail.
+
+---
+
 ## Amended 4 October 2026 by `D-164`. The drawer keeps focus while open
 
 **Why.** Round 17 re-read twelve lower rows round 16 carried, against the render; seven still held, and Codex found six stale IA lines.
@@ -513,7 +527,7 @@ Rows are zones. Columns are account state by width. A cell says what is shown.
 
 **The two figures survive at 360px**, which is the width this node was reasoned from rather than checked against afterwards: they are the reason the header's right group is designed before its left one. Measured in the mockup before the logo was removed, the whole mobile header group needed 298px and still left a 77px flexible gap. Removing the logo mark returns roughly 31px of that budget.
 
-**Desktop, from 900px.** Rail at the full height of the window, logo at its top, expanded by default with labels, collapsible to icons and the choice persists. The header starts at the rail's edge and holds only the money and account group. The toggle is on the seam between them.
+**Desktop, from 900px.** Rail at the full height of the window, logo at its top, ~~expanded by default with labels, collapsible to icons and the choice persists~~ **above a 1440px product column expanded by default with labels, collapsible to icons and the choice persists; at 1440 and below collapsed by default and opened as an overlay over the dimmed page, `D-171`**. The header starts at the rail's edge and holds only the money and account group. The toggle is on the seam between them.
 
 **Between the two,** the drawer becomes standard rather than modal and the bar disappears. **No destination is added or removed at any breakpoint, only the carrier that presents it changes.** A person who resizes a window loses a bar and keeps every route, because everything the bar held is in the rail by the superset rule.
 

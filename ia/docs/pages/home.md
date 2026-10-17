@@ -43,7 +43,9 @@
 
 **No parent, printed.** Events have no row in the CJM To-Be backlog and no parent in the three legal classes. The banner is carried by founder decision, `D-169`, as it was by `D-25`, and the cost `D-25` printed stands: a countdown beside a route to spending is pressure.
 
-**Samples, `D-124`, marked here:** the event, "Coldfront week", its end, 24 Oct 2026, 18:00 UTC, and the time left, 6 d 08 h 39 m. The prototype draws one event to show the principle; which events run is operations', not this node's.
+**Samples, `D-124`, marked here:** the event, "Coldfront week", its end, 24 Oct 2026, 18:00 UTC, ~~and the time left, 6 d 08 h 39 m~~ **and the countdown, which since `D-172` is computed from that end every second.** The prototype draws one event to show the principle; which events run is operations', not this node's.
+
+**Extended the same day by `D-172`: the banner's anatomy is the baseline's**, founder capture `research/screens/baseline/founder_event_banner_17oct.png`, `baseline.md` section 12. The art fills the banner and carries the event's name; the countdown is a box in the top right corner, days, hours, minutes and seconds, ticking to the published end and stopping at zero; the one control sits centred at the foot. **One thing is ours:** the end is printed under the four figures, "Ends 24 Oct 2026, 18:00 UTC", because a clock with no stated end is the urgency `voice.md` "Forbidden" names. At 360px the art is taller, 1000 by 640, so the name, the box and the control do not touch; the H1 still begins on the first screen, at 485px against 584px.
 
 ---
 

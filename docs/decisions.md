@@ -6084,3 +6084,25 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 **What was decided.** The Cases column lists All cases, Daily, Featured, Community and Classic cases; the Popular cases row is removed. From a 600px content column in a 900px window, the brand block and the four link tracks hold one row; the art slot still waits for 1180px; below 900px the accordion stack stays.
 
 **Rejected, and why.** Keeping the four named cases: which four deserved the slot was never decided, and the sections were, `D-65`. Keeping only the row: the footer would lose the Cases column a person scans for.
+
+## D-171. On a compact desktop the rail starts collapsed and opens over the page
+
+**Date:** 2026-10-17. **Stage:** 04 reopened during stage 05. **Decided by:** the founder, on screen, against the live product: the rail at about 1000px "должно быть вот таким, как на сайте оригинале", and opened it should "не двигать контент, а уже быть поверх". **Binds:** node `0.1` section 7, `wireframes/_nav.js` `renderShell`, `wireframes/_wf.css`.
+
+**What was decided.** A product column of 1440px or less starts with the rail collapsed, and the toggle opens it as an overlay over the dimmed page, which never moves; the toggle, a press on the page and Escape close it. Above 1440px nothing changes. The 1440 line is the baseline's, measured live on 17 October 2026, `baseline.md` section 12. It is asked of the product's width, because the prototype's screens panel takes 220px of the window from 1200px up.
+
+**What it exposed.** Nine collapsed-rail rules reached the footer's logo slot and language control, which share their classes; scoped to the rail.
+
+## D-172. The event banner takes the baseline's anatomy
+
+**Date:** 2026-10-17. **Stage:** 04 reopened during stage 05. **Decided by:** the founder, comparing our banner with the live one: "а должен быть" the baseline's. **Binds:** node `1.0` section 2.2 as `D-169` amended it, `homeBody`, the banner styles.
+
+**What was decided.** The art fills the banner and carries the event's name; a box in the top right corner counts down days, hours, minutes and seconds to the published end, computed every second and stopping at zero; the control is centred at the foot. **Ours, not the baseline's:** the end is printed under the four figures, because a clock without a stated end is urgency, `voice.md` "Forbidden". The H1 still begins on the first screen at 360px.
+
+## D-173. The favorite on a case tile shows on hover
+
+**Date:** 2026-10-17. **Stage:** 04 reopened during stage 05. **Decided by:** the founder: "поправить лайки и их показывать только по ховеру". **Binds:** node `0.7`, the tile styles.
+
+**What was decided.** Where a pointer can hover, the favorite appears on hover of the tile and on keyboard focus inside it. **Three limits, ours, said out loud:** on touch it always shows, because touch has no hover; a favorite the person has set stays visible, because it is their own mark; the case screen's own favorite is not a tile and is unchanged. The chip gained four pixels of room around its mark and count.
+
+**D-170 was extended the same day:** the footer's trust row holds one row from a 700px content column, for the reason the column row does.

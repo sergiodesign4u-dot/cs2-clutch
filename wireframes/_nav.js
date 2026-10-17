@@ -2045,20 +2045,64 @@ window.WF_PAY = window.WF_PAY || {
     // button". IT IS NEVER HIDDEN ON DESKTOP, which is what separates this from the
     // mobile drawer: below 900 the same rail is modal and the header's menu opens it.
     var COLLAPSE_KEY = 'wf-rail-collapsed';
+    var root = document.documentElement;
     function applyRail(on) {
-      document.documentElement.classList.toggle('is-rail-collapsed', on);
+      root.classList.toggle('is-rail-collapsed', on);
       toggle.setAttribute('aria-expanded', on ? 'false' : 'true');
       toggle.setAttribute('aria-label', on ? 'Expand the rail' : 'Collapse the rail');
     }
-    var stored = false;
-    try { stored = sessionStorage.getItem(COLLAPSE_KEY) === '1'; } catch (e) {}
-    applyRail(stored);
+    /* THE COMPACT DESKTOP, D-171, the baseline measured live on 17 October 2026:
+       daddyskins.com reserves its expanded rail, 250px, above a 1440px window and its
+       collapsed one, 70px, at 1440 and below, where the expanded rail opens OVER the
+       page with the page dimmed behind it, founder captures of the same day. So here:
+       a product column of 1440 or less starts collapsed whatever was chosen on a wider
+       one, and the toggle opens the rail as an overlay that never moves the content.
+       It is the product's width that is asked, not the window's: the screens panel of
+       this prototype takes 220px of the window from 1200 up. */
+    var body = document.querySelector('.wf-screen-body');
+    var scrim = el('div', 'wf-rail-scrim');
+    scrim.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(scrim);
+    function compact() {
+      return window.innerWidth >= 900 && !!body && body.clientWidth <= 1440;
+    }
+    function setOverlay(open) {
+      root.classList.toggle('is-rail-overlay', open);
+      applyRail(!open);
+    }
+    function settle() {
+      var c = compact();
+      root.classList.toggle('is-rail-compact', c);
+      if (body) root.style.setProperty('--wf-body-x', body.getBoundingClientRect().left + 'px');
+      if (c) { setOverlay(false); return; }
+      root.classList.remove('is-rail-overlay');
+      var stored = false;
+      try { stored = sessionStorage.getItem(COLLAPSE_KEY) === '1'; } catch (e) {}
+      applyRail(stored);
+    }
+    settle();
+    var lastCompact = compact();
+    window.addEventListener('resize', function () {
+      if (body) root.style.setProperty('--wf-body-x', body.getBoundingClientRect().left + 'px');
+      var c = compact();
+      if (c !== lastCompact) { lastCompact = c; settle(); }
+    });
     toggle.addEventListener('click', function () {
-      var on = !document.documentElement.classList.contains('is-rail-collapsed');
+      if (root.classList.contains('is-rail-compact')) {
+        setOverlay(!root.classList.contains('is-rail-overlay'));
+        return;
+      }
+      var on = !root.classList.contains('is-rail-collapsed');
       applyRail(on);
       // The choice survives a click through the prototype. That is scaffolding
       // convenience and not a product claim: nothing in 0.1 says the state persists.
       try { sessionStorage.setItem(COLLAPSE_KEY, on ? '1' : '0'); } catch (e) {}
+    });
+    // The overlay closes the three ways a modal rail closes: its own toggle, a press
+    // on the dimmed page, and Escape.
+    scrim.addEventListener('click', function () { setOverlay(false); toggle.focus(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && root.classList.contains('is-rail-overlay')) { setOverlay(false); toggle.focus(); }
     });
 
     var head = el('header', 'wf-header');
@@ -4033,17 +4077,23 @@ window.WF_PAY = window.WF_PAY || {
     // 1.1 HAS NO STATE STRIP SINCE D-169. The daily status it carried is the
     // ladder's own, B6, further down; the first screen opens on the event.
 
-    // B2, THE EVENT BANNER, D-169. It always carries the current event, and
-    // when that event ends the next one takes its place: one at a time, never a
-    // carousel. An event in round 1 is a case or a set of cases, so its one
-    // control routes to a case screen and the banner prints no price, odds or
-    // chance. The countdown runs to the event's published end. THE EVENT, ITS
-    // END AND THE TIME LEFT ARE SAMPLES, D-124, marked in home.md.
-    out.push('<section class="wf-banner" aria-label="Event">' +
+    // B2, THE EVENT BANNER, D-169 and D-172. It always carries the current event,
+    // and when that event ends the next one takes its place: one at a time, never a
+    // carousel. An event in round 1 is a case or a set of cases, so its one control
+    // routes to a case screen and the banner prints no price, odds or chance.
+    // ITS ANATOMY IS THE BASELINE'S, D-172: the art fills the banner and carries the
+    // name, the countdown is a box in the top right corner, days to seconds, ticking
+    // to the event's published end, and the control is centred at the foot. The end
+    // is printed under the four figures, because a clock without a stated end is
+    // urgency, voice.md "Forbidden". THE EVENT AND ITS END ARE SAMPLES, D-124.
+    var cell = function (u, l) { return '<span class="wf-event-cell"><b data-u="' + u + '">00</b><span>' + l + '</span></span>'; };
+    out.push('<section class="wf-banner wf-event" aria-label="Event">' +
       '<div class="wf-banner-art" aria-hidden="true"></div>' +
-      '<div class="wf-banner-body"><p class="wf-banner-line">Coldfront week: this week\'s event case</p>' +
-      '<p class="wf-banner-clock" role="timer">6 d 08 h 39 m left · ends 24 Oct 2026, 18:00 UTC</p>' +
-      '<a class="wf-btn" href="' + caseHref('Coldfront', account) + '">See Coldfront</a></div></section>');
+      '<p class="wf-banner-line wf-event-name">Coldfront week</p>' +
+      '<div class="wf-event-clock" role="timer" aria-label="Time left in Coldfront week" data-ends="2026-10-24T18:00:00Z">' +
+        cell('d', 'Days') + cell('h', 'Hours') + cell('m', 'Minutes') + cell('s', 'Seconds') +
+        '<span class="wf-event-end">Ends 24 Oct 2026, 18:00 UTC</span></div>' +
+      '<a class="wf-btn wf-event-go" href="' + caseHref('Coldfront', account) + '">See Coldfront</a></section>');
 
     // B3, THE H1, one line and centred over the cards, which is the
     // baseline's "CSGO & CS2 CASE OPENING SITE". The proposition paragraph and
@@ -4110,6 +4160,25 @@ window.WF_PAY = window.WF_PAY || {
     Array.prototype.forEach.call(document.querySelectorAll('[data-home-body]'), function (host) {
       host.outerHTML = homeBody(host.getAttribute('data-home-body') === 'account');
     });
+    tickEvents();
+  }
+
+  /* THE EVENT COUNTDOWN TICKS TO ITS PUBLISHED END, node 1.0 section 2.2 rule 2: it is
+     computed from the end every second, never restarted per visit, and it stops at zero.
+     The end is a sample, D-124, so after 24 Oct 2026 the sample reads 00 everywhere. */
+  function tickEvents() {
+    var clocks = document.querySelectorAll('.wf-event-clock[data-ends]');
+    if (!clocks.length) return;
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    function tick() {
+      Array.prototype.forEach.call(clocks, function (c) {
+        var left = Math.max(0, Math.floor((Date.parse(c.getAttribute('data-ends')) - Date.now()) / 1000));
+        var v = { d: Math.floor(left / 86400), h: Math.floor(left % 86400 / 3600), m: Math.floor(left % 3600 / 60), s: left % 60 };
+        Object.keys(v).forEach(function (k) { var b = c.querySelector('[data-u="' + k + '"]'); if (b) b.textContent = pad(v[k]); });
+      });
+    }
+    tick();
+    setInterval(tick, 1000);
   }
 
   /* ---------------------------------------------------------------------

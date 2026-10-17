@@ -278,7 +278,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.4-7 | head | Cookie settings, one purpose on and one off. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-partial |  |  |
 | 0.4-8 | head | Cookie settings, everything refused. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-rejected |  |  |
 | 0.4-9 | head | Home, with the cookie answer still pending. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie |  |  |
-| 0.4-10 | main | Daily cases: climb five tiers, each one opens a free case | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` | N1 | Coldfront week: this week's event case (`D-169`; the event is a sample, `D-124`) |
+| 0.4-10 | main | Daily cases: climb five tiers, each one opens a free case | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` | N1 | Coldfront week (`D-169`, `D-172`: the event's name on its art; a sample, `D-124`) |
 | 0.4-11 | main | See daily cases | button (link) | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` | N1 | See {d} (`D-169`: the event case) |
 | 0.4-12 | main | CS{n} case opening with published odds | SEO H1, SEO / IA ownership | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept |
 | 0.4-13 | main | Trustpilot {n} reviews | link | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept |
@@ -544,7 +544,10 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 1.0-4 | main | See your tier | button (link) | `_nav.js homeBody` | index-account |  | removed, `D-169` |
 | 1.0-5 | main | Your state | accessible name | `_nav.js homeBody` | index-account |  | removed, `D-169` |
 | 1.0-6 | main | Reviews | accessible name | `_nav.js homeBody` | index-account |  | kept |
-| 1.0-7 | main | {n} d {n} h {n} m left · ends {date}, {time} UTC | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | new at `D-169`; written by `voice.md` "Figures, dates and times" |
+| 1.0-7 | main | {n} d {n} h {n} m left · ends {date}, {time} UTC | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | replaced by `D-172`: the four cells and the stated end, rows 1.0-8 to 1.0-10 |
+| 1.0-8 | main | Days · Hours · Minutes · Seconds | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | new at `D-172`, the baseline's four units |
+| 1.0-9 | main | Ends {date}, {time} UTC | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | new at `D-172`; `voice.md` "Forbidden": a stated end, never a bare clock |
+| 1.0-10 | main | Time left in {d} | accessible name | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | new at `D-172` |
 
 ### `1.2` Provably fair
 

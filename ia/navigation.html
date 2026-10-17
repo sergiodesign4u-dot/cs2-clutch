@@ -198,6 +198,25 @@
   </div>
 </div>
 
+<section id="d171">
+  <div class="sec-head">
+    <h2>Updated after publication: On a compact desktop the rail starts collapsed and opens over the page, D-171</h2>
+    <p>17 October 2026. The founder compared the rail with the live product at about 1000px: ours stood expanded and pushed the page, the baseline's stands collapsed and opens over it.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Baseline row for this amendment</h4>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody>
+        <tr><td>Rail 250px above a 1440px window, 70px at 1440 and below; opened there, it lies over the dimmed page</td><td><strong>Both behaviours and the 1440 line</strong></td><td><strong>A product column of 1440px or less starts collapsed</strong>; the toggle opens the rail over the dimmed page, which never moves; toggle, a press on the page or Escape close it. Above 1440 nothing changes. The line is the product's width, not the window's, because the screens panel takes 220px from 1200px up</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card"><p><strong>A leak it exposed:</strong> nine collapsed-rail rules reached the footer's logo slot and language control, which share their classes. All nine are scoped to the rail.</p></div>
+</section>
+
 <section id="d164">
   <div class="sec-head">
     <h2>Updated after publication: The drawer keeps focus while open, D-164</h2>
@@ -1139,6 +1158,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.1 Navigation';
 window.NAV_SECTIONS = [
   { id: 'overview', label: 'Overview' },
+  { id: 'd171', label: 'D-171 compact rail' },
   { id: 'd164', label: 'D-164 drawer' },
   { id: 'd158', label: 'D-158 carriers' },
   { id: 'd157', label: 'D-157 current, captions' },

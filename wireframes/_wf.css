@@ -426,6 +426,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
    so this control has nothing to collapse and is not shown. It was rendering there as a
    chevron that did nothing, which is a dead control in a carrier. */
 .wf-rail-toggle { display: none; }
+.wf-rail-scrim { display: none; }
 /* 0.1 section 6: the rail is "Cases, Provably fair, divider, Responsible play". The
    break is carried as SPACE rather than as a second hairline: every row already ends in
    one, so a drawn divider put two lines four pixels apart and read as a fault. The
@@ -599,6 +600,35 @@ a.wfp-state:hover { color: var(--wf-ink); }
    zero: 0.11 forbids both for a value nobody knows yet. */
 .wf-banner-body { margin-top: var(--wf-s-1); }
 .wf-banner-line { font-size: var(--wf-t-m); line-height: 1.3; margin-bottom: var(--wf-s-1); }
+/* THE EVENT BANNER, D-172, drawn as the baseline draws it, founder capture of
+   17 October 2026: the art takes the whole banner and carries the event's name, the
+   countdown sits in its own box in the top right corner as days, hours, minutes and
+   seconds, and the one control sits at the foot, centred. */
+.wf-event { position: relative; }
+.wf-event .wf-banner-art { min-height: 0; aspect-ratio: 1000 / 640; }
+.wf-event .wf-event-name {
+  position: absolute; left: var(--wf-s-2); right: var(--wf-s-2); top: 54%; transform: translateY(-50%);
+  margin: 0; text-align: center; font-size: var(--wf-t-xl); font-weight: 800; line-height: 1.1;
+}
+.wf-event-clock {
+  position: absolute; top: var(--wf-s-1); right: var(--wf-s-1);
+  display: grid; grid-template-columns: repeat(4, auto); gap: 2px var(--wf-s-1);
+  padding: var(--wf-s-half) var(--wf-s-1); text-align: center;
+  background: var(--wf-raised); border: 1px solid var(--wf-line-soft); border-radius: var(--wf-r-2);
+}
+.wf-event-cell b { display: block; font-family: var(--wf-mono); font-size: var(--wf-t-s); font-weight: 600; }
+.wf-event-cell span { display: block; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-dim); }
+.wf-event-end { grid-column: 1 / -1; font-size: 10px; color: var(--wf-ink-dim); }
+.wf-event-go { position: absolute; left: 50%; bottom: var(--wf-s-2); transform: translateX(-50%); white-space: nowrap; }
+@media (min-width: 900px) {
+  .wf-event .wf-banner-art { aspect-ratio: 1000 / 300; }
+  .wf-event .wf-event-name { font-size: clamp(32px, 4vw, 60px); top: 42%; }
+  .wf-event-clock { top: var(--wf-s-2); right: var(--wf-s-2); gap: 2px var(--wf-s-3); padding: var(--wf-s-1) var(--wf-s-2); }
+  .wf-event-cell b { font-size: var(--wf-t-l); }
+  .wf-event-cell span { font-size: var(--wf-t-xs); }
+  .wf-event-end { font-size: var(--wf-t-xs); }
+  .wf-event-go { bottom: var(--wf-s-3); }
+}
 /* D-169: the event's time left and its published end, one line under the event's name. */
 .wf-banner-clock { font-family: var(--wf-mono); font-size: var(--wf-t-s); color: var(--wf-ink-dim); margin: 0 0 var(--wf-s-1); }
 
@@ -686,7 +716,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
 /* The chip is drawn behind the two marks rather than on the button, so the target can
    be 44 while the thing a person sees stays a corner mark. */
 .wf-fav::before {
-  content: ''; position: absolute; inset: var(--wf-s-1);
+  content: ''; position: absolute; inset: var(--wf-s-half);
   background: var(--wf-bg); border: 1px solid var(--wf-line-soft);
   border-radius: var(--wf-r-1);
 }
@@ -697,6 +727,13 @@ a.wfp-state:hover { color: var(--wf-ink); }
    mark carrying a count, in that order. */
 .wf-fav-n { font-family: var(--wf-mono); color: var(--wf-ink-dim); }
 .wf-fav-i { width: 12px; height: 12px; border: 1px dashed var(--wf-line-soft); border-radius: 2px; }
+/* ON A TILE THE FAVORITE SHOWS ON HOVER, D-173, founder. Only where a pointer can hover:
+   on touch there is no hover, so the mark stays. It also shows on keyboard focus, and a
+   favorite the person has set stays visible, because it is their own mark on the tile. */
+@media (hover: hover) and (pointer: fine) {
+  .wf-tile .wf-fav { opacity: 0; transition: opacity .15s ease; }
+  .wf-tile:hover .wf-fav, .wf-tile:focus-within .wf-fav, .wf-tile .wf-fav[aria-pressed="true"] { opacity: 1; }
+}
 
 /* B5 the daily tier ladder, drawn as one panel: the two figures at the ends of a head
    row, the five tiers as one run, the control on its own line under them. Home only.
@@ -930,6 +967,16 @@ a.wfp-state:hover { color: var(--wf-ink); }
   .wf-foot-trust { grid-template-columns: auto minmax(420px, 1fr) auto; justify-content: stretch; gap: var(--wf-s-4); }
   .wf-foot-age { grid-column: auto; order: 0; }
 }
+/* ONE ROW ON EVERY DESKTOP WINDOW, D-170 extended the same day: the statement on a row
+   of its own with the socials and the language under it read as scattered, as the
+   column row did. From a 700px column the three cells share one row and the statement
+   takes what is left, never under 260px. */
+@media (min-width: 900px) {
+  @container col (min-width: 700px) {
+    .wf-foot-trust { grid-template-columns: auto minmax(260px, 1fr) auto; justify-content: stretch; gap: var(--wf-s-3); }
+    .wf-foot-age { grid-column: auto; order: 0; }
+  }
+}
 .wf-foot-soc { display: flex; flex-direction: column; align-items: flex-start; gap: var(--wf-s-1); }
 .wf-foot-soc .wf-rail-ico { flex: 0 0 28px; height: 28px; }
 
@@ -1044,16 +1091,32 @@ a.wfp-state:hover { color: var(--wf-ink); }
      put it there rather than inside either carrier.
      ============================================================================ */
   .is-rail-collapsed .wf-screen-body { grid-template-columns: var(--wf-rail-w-collapsed) minmax(0, 1fr); }
+  /* THE COMPACT DESKTOP, D-171: a product column of 1440 or less keeps the collapsed
+     track whether the rail is open or not, so opening it never moves the page. Open, the
+     rail leaves its track and lies over the page at its full width, with the page dimmed
+     behind it, as the baseline does at the same widths. */
+  .is-rail-compact .wf-screen-body { grid-template-columns: var(--wf-rail-w-collapsed) minmax(0, 1fr); }
+  .is-rail-overlay .wf-rail {
+    position: fixed; top: 0; left: var(--wf-body-x, 0); width: var(--wf-rail-w); height: 100vh;
+    z-index: 70; background: var(--wf-bg); box-shadow: 8px 0 24px rgba(0, 0, 0, 0.45);
+  }
+  .is-rail-overlay .wf-rail-scrim {
+    display: block; position: fixed; top: 0; right: 0; bottom: 0; left: var(--wf-body-x, 0);
+    z-index: 65; background: rgba(0, 0, 0, 0.6);
+  }
   .is-rail-collapsed .wf-rail { padding-left: var(--wf-s-half); padding-right: var(--wf-s-half); }
   /* THE LABELS GO AND THE CONTROLS DO NOT. The destination labels and the SOCIAL
      heading are names for things still on screen; the language is a control, two
      characters wide, and hiding it would leave a tooltip on nothing. */
-  .is-rail-collapsed .wf-rail-lbl,
-  .is-rail-collapsed .wf-rail-soc-h { display: none; }
-  .is-rail-collapsed .wf-rail-lang { padding: 0; text-align: center; }
-  .is-rail-collapsed .wf-rail-item { justify-content: center; padding-left: 0; padding-right: 0; }
-  .is-rail-collapsed .wf-rail-logo { margin: 0 0 var(--wf-s-3); }
-  .is-rail-collapsed .wf-logo-mark { height: 48px; font-size: 0; }
+  /* SCOPED TO THE RAIL, D-171: unscoped, these reached the footer's logo slot and its
+     language control, which share the classes, as soon as the compact desktop made the
+     collapsed rail the default. */
+  .is-rail-collapsed .wf-rail .wf-rail-lbl,
+  .is-rail-collapsed .wf-rail .wf-rail-soc-h { display: none; }
+  .is-rail-collapsed .wf-rail .wf-rail-lang { padding: 0; text-align: center; }
+  .is-rail-collapsed .wf-rail .wf-rail-item { justify-content: center; padding-left: 0; padding-right: 0; }
+  .is-rail-collapsed .wf-rail .wf-rail-logo { margin: 0 0 var(--wf-s-3); }
+  .is-rail-collapsed .wf-rail .wf-logo-mark { height: 48px; font-size: 0; }
   /* The ambient foot collapses the same way rather than being dropped: D-29 put the
      sound control, the language and the social links here, and a state that loses them
      would be a different rail rather than the same one narrower. */
@@ -1067,11 +1130,11 @@ a.wfp-state:hover { color: var(--wf-ink); }
      so the quote had outlived its premise in the CSS as well as in the node. Both are
      replaced by this one. The language keeps its two characters and says the rest in
      the tooltip, which is what every other item in this rail does when collapsed. */
-  .is-rail-collapsed .wf-rail-amb { grid-template-columns: 1fr; }
-  .is-rail-collapsed .wf-rail-snd { font-size: 0; min-width: 0; padding: 0; min-height: 40px; }
-  .is-rail-collapsed .wf-rail-snd::before { content: '\266A'; font-size: var(--wf-t-m); }
-  .is-rail-collapsed .wf-lang-wrap { width: 100%; }
-  .is-rail-collapsed .wf-rail-lang {
+  .is-rail-collapsed .wf-rail .wf-rail-amb { grid-template-columns: 1fr; }
+  .is-rail-collapsed .wf-rail .wf-rail-snd { font-size: 0; min-width: 0; padding: 0; min-height: 40px; }
+  .is-rail-collapsed .wf-rail .wf-rail-snd::before { content: '\266A'; font-size: var(--wf-t-m); }
+  .is-rail-collapsed .wf-rail .wf-lang-wrap { width: 100%; }
+  .is-rail-collapsed .wf-rail .wf-rail-lang {
     border-left: 0; border-top: 1px solid var(--wf-line-soft); min-height: 40px;
   }
   /* SCOPED TO THE RAIL, and it was not until 20 August 2026. Written for the collapsed
@@ -1079,8 +1142,8 @@ a.wfp-state:hover { color: var(--wf-ink); }
      the footer's own rule on source order, so in the collapsed state the footer panel
      opened past the right edge of the screen. Found by measuring the footer control in
      the collapsed state, which the D-41 pass had not opened. */
-  .is-rail-collapsed .wf-rail-amb .wf-lang-wrap.is-open .wf-lang-pop { left: calc(100% + var(--wf-s-2)); bottom: 0; }
-  .is-rail-collapsed .wf-rail-soc-row { justify-content: center; }
+  .is-rail-collapsed .wf-rail .wf-rail-amb .wf-lang-wrap.is-open .wf-lang-pop { left: calc(100% + var(--wf-s-2)); bottom: 0; }
+  .is-rail-collapsed .wf-rail .wf-rail-soc-row { justify-content: center; }
 
   /* THE TOOLTIP IS THE LABEL AND NOTHING ELSE. A tooltip that says something the
      expanded rail does not say would be a second name for one destination, which the
