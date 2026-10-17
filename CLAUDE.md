@@ -4,7 +4,7 @@ Redesign of a live CS2 skin platform. Working placeholder name. This file holds 
 
 ## Pipeline
 
-The stage packs live outside this repo, in `/Users/sergiyshevchenko/Claud Projects/AI Design Workflow/`: `CLAUDE.md` (course source of truth) plus `01 - Research.md` through `10 - Responsive.md`. Read the pack of the stage being worked on before its first step. Nothing from that folder is copied into this repo. The twelve stage list is not repeated here: it lives in `/_nav.js`, which is the roadmap every page in the project renders from.
+The stage packs live outside this repo, in `/Users/sergiyshevchenko/Claud Projects/AI Design Workflow/`: `CLAUDE.md` (course source of truth) plus `01 - Research.md` through `13 - Handoff.md`. Read the pack of the stage being worked on before its first step. Nothing from that folder is copied into this repo. The thirteen stage list is not repeated here: it lives in `/_nav.js`, which is the roadmap every page in the project renders from.
 
 ## Locked decisions
 

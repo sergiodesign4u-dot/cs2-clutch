@@ -6054,3 +6054,15 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 - **One named exception to one concept, one word:** the withdrawal settlement table keeps the baseline's "Your skin price / Market skin price" beside the market's price, `D-128` and `D-166`; on that screen "Our price for it" becomes "Your skin price", so the screen still has one name.
 
 **Closed by this step:** rows 12, 18 and 19 of `wireframes/docs/voice-input.md` section f. Rows 13, 22 and 29 are microcopy rules and go to step 4.
+
+## D-168. Rollout enters the roadmap as stage 12, and Handoff becomes 13
+
+**Date:** 2026-10-17. **Stage:** 05, between steps 5 and 6. **Decided by:** the founder, "да добавить", on the drift the status report named. **Binds:** `/_nav.js`, the `README.md` status table, the pipeline pointer in `CLAUDE.md`, the roadmap lede in `index.html`.
+
+**What was found.** The pipeline this project runs on has thirteen stages: `AI Design Workflow/12 - Rollout.md` and `13 - Handoff.md` exist and the `dp-pipeline` registry lists both. This project's roadmap still carried twelve, with Handoff as 12, and `CLAUDE.md` pointed at packs "01 through 10". Nothing was lost yet, because no stage after 05 has started, and that is why it is cheap to fix now.
+
+**What was decided.** Rollout is stage 12, between Animation and Handoff, with no page until the stage defines one. Handoff is 13. The roadmap renders the new row from `/_nav.js` on every page; no page was edited by hand for it.
+
+**What it means for the stages ahead.** Rollout is where the grey product is assembled in colour on the finished system, once, after responsive and motion are in it. So stage 07 keeps its sample of five to seven screens, and the rest of the product waits for 12 rather than being coloured at 07 or 08.
+
+**Not changed.** Pages that record a past state keep their wording: the stage 01 research page says "stage 01 of twelve" because that was the plan when it was written.

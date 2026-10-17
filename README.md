@@ -1,6 +1,6 @@
 # CS2 Clutch
 
-Redesign of a live CS2 skin platform, built as a twelve stage product design pipeline. Working placeholder name. Baseline: daddyskins.com, the founder's own product, six years live.
+Redesign of a live CS2 skin platform, built as a thirteen stage product design pipeline. Working placeholder name. Baseline: daddyskins.com, the founder's own product, six years live.
 
 **Live: [project roadmap](https://sergiodesign4u-dot.github.io/cs2-clutch/)**
 
@@ -24,7 +24,8 @@ This table and `_nav.js` are the only two places where status lives. Nothing els
 | 09 | Design System | why, patterns, states | Not started |
 | 10 | Responsive | defined by the stage | Not started |
 | 11 | Animation | defined by the stage | Not started |
-| 12 | Handoff | defined by the stage | Not started |
+| 12 | Rollout | defined by the stage | Not started |
+| 13 | Handoff | defined by the stage | Not started |
 
 **Stage 01 critique: done and closed.** It ran on two instruments in August 2026 and produced 22 confirmed findings, 2 withdrawn on verification. All 22 are now fixed, and the summary is visible on the research page under "Before and after" (D-10).
 
