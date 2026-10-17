@@ -1,6 +1,6 @@
 # Voice
 
-**Stage 05. Written 5 October 2026: the sources, the principles and the tone by phase at step 2, the glossary and the forbidden list at step 3.** The microcopy rules arrive at step 4. Every line of the product is written by this file once it is complete. **Its visible place** is `voice/voice.html`, built at step 5, one section per heading here.
+**Stage 05. Written 5 October 2026: the sources, the principles and the tone by phase at step 2, the glossary and the forbidden list at step 3, the microcopy rules at step 4.** With step 4 the file is complete: every line of the product is written by it from here. Every line of the product is written by this file once it is complete. **Its visible place** is `voice/voice.html`, built at step 5, one section per heading here.
 
 **A principle here is a rule, not a mood.** Each one carries a rule in one sentence, an example written by it, an anti-example that breaks it, and the source it comes from. A principle that could not be given all four was not kept.
 
@@ -210,3 +210,79 @@
 | **An accusation in a stop** | "Suspicious activity detected" · "Your account has been flagged" | "Withdrawals are paused while we check three payments. Your balance and items stay yours." (`B8-3`) |
 | **Emoji and decorative glyphs in copy** | "Withdrawal sent 🚀" | Text only; the ✓ and ✕ marks are icons hidden from assistive technology, not copy |
 | **A curt request with nothing after it** | "Please, sign in first" (baseline) | "Sign in to open this case." |
+
+---
+
+## Microcopy
+
+**Rules by kind of element, each with one line from this product.** A rule here never contradicts a principle, the glossary or the tone of the phase a screen sits on; where a phase needs more than the general rule, the phase's addition is printed under the rule rather than left to be inferred. Examples are written by the rules; where a line already in the product passes, it is quoted as it is.
+
+### By kind of element
+
+| Element | Rule | Example | Not this |
+|---|---|---|---|
+| **Button** | A verb, and the result it produces. Where money moves, the figure with its unit is in the label; where it changes the balance, its sign, glossary C11. Never wraps, `conventions.md` section 2 | "Open for 12.40 coins" · "Send 1 item to Steam" · "Sell for 12.90 coins" | "OK" · "Continue" · "Submit" · "Go" |
+| **A second act beside the main one** | It keeps a plain verb and loses the result: no figure, no count, unless the figure is money about to move (principle 3 outranks this row) | "Remove" beside "Send 4 items to Steam" · "Recompute it yourself" beside "Report this round" | Two strong verbs side by side: "Recompute this round" beside "Report this round" |
+| **Screen heading, H1** | What this place is, in glossary words; a state's H1 says the state. **Title, description and H1 are the node's**, `ia/docs/pages/`, so Voice aligns them within the node's limits (title 60 or fewer, one H1, the query intent kept) and step 7 syncs them back | "Send to Steam" · "The trade offer expired" · "This one cannot go yet" | "Welcome to your inventory" · "Withdrawal" on a page whose act is Send to Steam |
+| **Section heading, H2** | Names what the block holds or answers, so a reader scanning headings alone gets the page | "What is in this case" · "What this settled at" | "Details" · "More info" |
+| **Field label** | What to enter, as a noun | "Trade URL" · "Billing email" · "Amount, in US dollars" | "Enter here" · "Your input" |
+| **Field hint** | How to enter it, or where to find it, in one line | "Find it in Steam under Inventory, Trade offers, Who can send me trade offers." | Repeating the label |
+| **Validation message** | What exactly to fix, beside the field, in one line; never "invalid" | "That is not a whole card code. Paste it as printed on the card." | "Invalid input" · "Error" · "Please check the field" |
+| **A refusal beside a control**, `wireframes/CLAUDE.md` rule 6 | Opens "Nothing went through:" or "Not opened:" or "Not sold:", then the reason, then what still works if anything does | "Nothing went through: the smallest deposit is $5.00." · "Not sold: one item has a value that cannot be read right now. Untick it to sell the rest." | "Action failed" · "ATTENTION!!!" |
+| **Empty state** | Why it is empty, then what to do next, in two lines at most | "No rounds yet. Open a case and it is listed here." | "History is empty..." · "Nothing here yet" |
+| **Error, a page or a service** | What happened, whose side it is on, what still works, what to do; no apology and no joke | "Asked again just now. Still unavailable, and it is still us." · "Nothing is reloading on its own." | "Oops, something went wrong" · "Sorry for the inconvenience" |
+| **Loading** | Says nothing, or says exactly what is being read | "Reading the round" | "Magic is happening" · "Preparing something special" · "Loading..." with nothing after it |
+| **Success** | The fact, the figure, and where the thing is now; no celebration, no "successfully" | "Saved. Withdrawals go to this address." · "Sold. 12.90 coins are on your balance." | "Success!" · "Saved successfully" · "Great choice!" |
+| **Dangerous act**, one that cannot be undone | Before the press, say what will happen and exactly what cannot be undone and for how long; the confirmation repeats the act's own verb | "Self exclusion closes adding funds and opening cases until {date}. It cannot be ended early, by you or by us." · "Press again to sell" | "Are you sure?" · "This action is irreversible" with no subject |
+| **A line about where an item is** | Follows the item's state, and changes when the state changes | Before: "Saved to My items." After a sale: "Sold. 12.90 coins are on your balance." | "Saved to My items" still printed after the sale |
+| **A link** | Names its destination, or the act it starts; a link back names where it goes back to, and is printed only when there is somewhere to go back to | "Back to Ironbound" · "Check this round" · "Provably fair" | "Click here" · "Back to the case" on an arrival that came from no case |
+| **A status in a timeline**, the withdrawal clock | The state, who it waits on (us, Steam or you), and the time it is allowed | "Waiting on Steam. Steam sets this." · "Waiting on us, within {time}" | "Processing" · "Pending" with no owner |
+| **A note under a block** | One fact that changes how the block is read; never a second argument | "Buying an item outright is cheaper on average than opening for it." | A paragraph explaining the design |
+| **Accessible name** | The visible label's own words, then what the eye gets from layout; a figure keeps its unit | "Balance, 74.20 coins" · "Ironbound, 12.40 coins, Medium-risk case" | A name that says what the button looks like |
+| **A line that shares a result**, Emotional Job 2 | Names the round as well as the item, so the share carries its own proof | "Share this round" | "Share it" |
+| **A name in the ticker**, Social Job 2 | A real account name; a bot is named as one | "quill, a bot" | An invented name; a bot shown as a person |
+| **Consent** | The person speaks as "I"; the documents carry their glossary names; one statement per box, `D-58` | "I agree to the Terms of use and the Privacy policy." · "I declare that I am 18 or over." | "I agree to the Terms and Conditions" |
+| **Figures, dates and times** | A figure is never split from its unit; dates read "21 Aug 2026", times "09:31", with the zone where a deadline depends on it | "Ends 25 Aug 2026, 09:31 UTC" | "25/08", "in 3 days" for a deadline |
+
+### What the phase adds to the rule
+
+**A screen sits on a phase, `voice.md` "Tone by phase", and the general rule is not always enough there.** Where the phase asks for more, it is written here; where a phase and a rule pull apart, it is named rather than smoothed.
+
+| Phase | Rule it touches | What the phase adds |
+|---|---|---|
+| **T8, the floor** | Error, status, refusal | "What to do" is not enough at the floor. **Every stop on the way out also says who the wait is on and that nothing is lost**, because the barrier is `B8-2`, a wait no one owns, and `B8-3`, winning treated as suspicious: "Nothing has been sent to Steam and nothing is lost. It is never taken quietly." |
+| **T7, level with the floor** | Success | **Divergence, named.** The success rule says "the fact and where the thing is now"; at T7 the fact is a value, and the target is a result understood whether good or bad. **So the outcome never calls a value good or bad, and it never names one next step as the next step.** The two acts `D-140` keeps, Open again and Sell, are controls, not a line urging either; keeping is what happens when nothing is pressed. The escalation loop `B7-4` starts here |
+| **T7** | Empty state | History's empty state leads to opening, but in the plain form only: "Open a case and it is listed here", never "Start opening now" |
+| **T4** | Dangerous act, success | **Limits get no completion words**, `CLAUDE.md`: "Deposit limit $40.00 a week, in force", never "You set your limit!". Raising a limit says when it applies, lowering says it applies now |
+| **T4** | Button | Pay carries the total charged: "Pay $40.00"; the deposit is the one moment the person is calm, `cjm-to-be.md` T4, and the number is theirs |
+| **T6** | Loading | The open is not a loading state. Its one line is that the result was already fixed: "Opening. The result was fixed before the animation started." |
+| **T2** | Note, heading | Disarmed: the line that concedes is printed in our own voice, not as a disclaimer, `cjm-to-be.md` T2: "Buying an item outright is cheaper on average than opening for it." |
+| **T3** | Refusal | Settled: a sign-in refusal says what is missing and keeps the control live, `D-58`: "The agreement to the terms is still missing." |
+
+### Three lines stage 04 left open, closed by these rules
+
+| `voice-input.md` f row | What was open | Closed by |
+|---|---|---|
+| 13 | "Saved to My items." stays after the item is sold | "A line about where an item is": it changes with the state, "Sold. 12.90 coins are on your balance." The line lives in the outcome page html and in `mountOutcomeActs`; node `3.3` "Sold" carries the requirement |
+| 22 | "Back to the case" on a sign-in arrival that came from no case | "A link": a link back names where it goes and is printed only when there is one. With a case: "Back to Ironbound"; with none: "See the cases". The route is node `2.4` block 6 |
+| 29 | Self exclusion's "The one thing here you cannot undo" two rows from cool down's "Not possible" | "Dangerous act": each control says exactly what it cannot undo. Self exclusion: "It cannot be ended early, by you or by us."; cool down: "It cannot be shortened." Neither claims to be the only one. Node `6.1` block 6's meaning is kept: the one a person cannot undo on impulse |
+
+### One main action, checked in the text
+
+**`conventions.md` section 1.6: exactly one main action per screen, two named exceptions by `D-140`, none on a reading page by `D-146`, and a layer is its own screen.** Stage 05 checks it in the words, because two strong verbs side by side compete whatever their styling. **Read on all 133 pages at 1440 on 5 October 2026**: the primary control against every other visible control in the main area or the open layer that starts with a result verb. 23 pages had one; this is each of them and what the text does about it.
+
+| Screen | Main action | The second strong verb | Verdict |
+|---|---|---|---|
+| `5.1` My items, and its degraded state | "Send to Steam" | "Sell for coins", "Cash out" on the same selection bar | **Kept.** Three exits for the same selection, by node `5.1`; one is promoted and the other two are already plain verbs with no figure. Rule "a second act" holds |
+| `3.6`, `3.7` outcome | "Open again for 12.40 coins" and "Sell for 12.90 coins", two by `D-140` | "Send to Steam, −6.70 coins" | **Kept, with its figure**: money about to move, principle 3. Signed by glossary C11 |
+| `3.6` five and two rounds | "Sell all 5 for 61.00 coins" | "Sell 6.90" on each card | **Kept.** "All" separates the group act from the per-item act; the per-item label names its figure only, as the five-card exception of `D-163` already requires |
+| `1.2` proof failed | "Report this round" | "Recompute this round" | **Rewritten at step 7:** the second becomes "Recompute it yourself", the wording `7.1`'s mismatched state already uses |
+| `7.1` mismatched, `7.1` owner | "Report this round" · "Copy the link" | "Recompute it yourself" · "Recompute this round yourself" | **Aligned at step 7** to one wording, "Recompute it yourself" |
+| `5.11` settings, four pages | "Save" | "Save where you live" | **Rewritten at step 7: two saves name their objects**, "Save trade URL" and "Save country". Two forms with two saves are the node's structure, not the words'; neither save competes once each says what it saves |
+| `5.10` profile | "See it as a stranger does" | "Delete all" | **Rewritten at step 7:** a destructive act names its object, "Delete all messages" |
+| `5.3` withdrawal, several items | "Send 4 items to Steam" | "Sell it back for 4.20 coins" in the row of an item with no copy on sale | **Kept**, re-worded by glossary S1 to "Sell for 4.20 coins": the only exit that item has, inside its own row |
+| `0.3` 503 pages | "Home" | "Try again" | **Kept.** Node `0.3` makes Home the main action; "Try again" is the plain verb of a retry |
+| `4.1` raise pending, `5.3` one item | "Pay" · "Send 1 item to Steam" | "Cancel the raise" · "Cancel", "Remove" | **Kept.** Cancelling is not a competing result |
+| The account pages, from My items to settings | Each page's own | "Add funds" in the account band | **Not counted.** The band is a carrier, `renderAcctHero`, and like the shell's controls it does not count against a screen's main action, section 1.6 |
+
+**No screen has two equal main actions by design that this check found new**, so nothing goes up to the IA. The two that exist are `D-140`'s and stay.
