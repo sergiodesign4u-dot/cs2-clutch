@@ -571,7 +571,9 @@ Not sign in, not deposit, not claim the credit. The route is the main job's tap 
 
 Rendered in block B11, under the H2 `What opening a case here involves`.
 
-> A case is a fixed set of CS2 skins with a published chance on each one. You pay the entry cost in coins, one roll decides the item, and you can keep it, sell it back or send it to your Steam inventory. Every case shows its chances, its item values and its tested return before you open it, and every round can be checked afterwards.
+> A case is a fixed set of CS2 skins with a published chance on each one. You pay its price in coins, one round decides the item, and you can keep it, sell it or send it to your Steam inventory. Every case shows its chances, its item values and its tested return before you open it, and every round can be checked afterwards.
+
+**Aligned by stage 05 step 6, 17 October 2026, words only:** "the entry cost" became "its price", glossary S4; "one roll" became "one round", C9; "sell it back" became "sell it", S1. The paragraph was ~~"You pay the entry cost in coins, one roll decides the item, and you can keep it, sell it back or send it to your Steam inventory."~~ Nothing it claims changed, and the dependency below still holds.
 
 **Replaced by the render of `D-126`, which cut B11 to one H2 and one paragraph** because the three H3s repeated the Before you spend row in prose. The paragraph also names the sell-back exit `D-38` added. The earlier finished copy, struck rather than deleted: ~~"A case is a fixed set of CS2 skins with a published chance on each one. You pay the entry cost in coins, one roll decides the item, and the item moves to your Steam inventory when you withdraw it. What one coin is worth in real money is published wherever money is spent, so a price can be converted back by the person reading it rather than only by us." Then three H3s: "The numbers we publish before you spend", which still promised a held-unit count `D-60` removed; "What happens when you want to leave"; and "What the fairness proof covers, and what it does not", whose last sentence promised the observed rate on every case.~~
 

@@ -483,7 +483,7 @@ var WF_STR = {
   catalogueH1: 'All CS2 cases, with published chances and values',
   categories: 'Categories',
   daily: 'Daily',
-  dailySub: 'Wager to climb. The tier decides which free case you get',
+  dailySub: 'Wager to climb. Your tier decides which daily case you get.',
   featured: 'Featured',
   featuredSub: 'Our pick of the shelf',
   community: 'Community',
@@ -3995,12 +3995,12 @@ window.WF_PAY = window.WF_PAY || {
     }).join('');
 
     var wager = account
-      ? '<div class="wf-fig"><span class="wf-fig-v">0.00 of 5.00</span>' +
-        '<span class="wf-fig-c">Wagered towards the next tier, in coins</span></div>'
+      ? '<div class="wf-fig"><span class="wf-fig-v">0.00 of 5.00 coins</span>' +
+        '<span class="wf-fig-c">Wagered toward the next tier</span></div>'
       : '';
 
     var act = account
-      ? '<button class="wf-btn" type="button" data-ladder-open>Available now: 0 cases</button>' +
+      ? '<button class="wf-btn" type="button" data-ladder-open>Open daily case</button>' +
         '<p class="wf-refuse" data-ladder-say aria-live="polite"></p>'
       : '<a class="wf-btn" href="signin.html" data-auth-open="default">Sign in to see your tier</a>';
 
@@ -4053,7 +4053,7 @@ window.WF_PAY = window.WF_PAY || {
     // standing offer has none.
     out.push('<section class="wf-banner" aria-label="Promotion">' +
       '<div class="wf-banner-art" aria-hidden="true"></div>' +
-      '<div class="wf-banner-body"><p class="wf-banner-line">Daily cases: climb five tiers, each one opens a free case</p>' +
+      '<div class="wf-banner-body"><p class="wf-banner-line">Daily cases: one a day at your tier, and it costs nothing</p>' +
       '<a class="wf-btn" href="#h2-daily">See daily cases</a></div></section>');
 
     // B3, THE H1, one line and centred over the cards, which is the
@@ -4072,7 +4072,7 @@ window.WF_PAY = window.WF_PAY || {
     // the cards say what they are. The H2 stays for the outline, hidden.
     out.push('<section class="wf-sec wf-sec--flush" aria-labelledby="h2-modes"><h2 id="h2-modes" class="wf-vh">Ways to play</h2><div class="wf-grid wf-modes">');
     [[WF_STR.cases, 'Open a case, see every chance.', true], ['Case battles', 'Open against someone, highest total wins.'],
-     ['Gunfights', 'One round, one opponent.'], ['Upgrade', 'Trade a skin up for a better one.']].forEach(function (m) {
+     ['Gunfights', 'One round, one opponent.'], ['Upgrade', 'Trade a skin for one worth more.']].forEach(function (m) {
       out.push('<article class="wf-mode' + (m[2] ? '' : ' is-later') + '"><span class="wf-mode-art" aria-hidden="true"></span><h3>' + m[0] + '</h3><p>' + m[1] + '</p>' +
         (m[2] ? '<a class="wf-btn" href="catalogue.html">Open a case</a>' : '<p class="wf-fig-missing">Not launched yet</p>') + '</article>');
     });
@@ -4083,16 +4083,16 @@ window.WF_PAY = window.WF_PAY || {
     out.push('<section class="wf-sec" aria-labelledby="h2-cases"><div class="wf-sec-head"><h2 id="h2-cases">Featured cases</h2></div><div class="wf-grid">');
     HOME_CASES.forEach(function (c) {
       out.push('<article class="wf-tile"><a class="wf-tile-link" href="case.html"><span class="wf-tile-art" aria-hidden="true"></span>' +
-        '<span class="wf-tile-name">' + c[0] + '</span><span class="wf-tile-risk">' + c[1] + ' risk</span>' +
+        '<span class="wf-tile-name">' + c[0] + '</span><span class="wf-tile-risk">' + c[1] + '-risk case</span>' +
         '<span class="wf-tile-price"><span class="wf-tile-cost">' + c[2] + '</span><span class="wf-tile-cur">coins</span></span></a>' +
-        '<button class="wf-fav" type="button" aria-pressed="' + c[4] + '" aria-label="Favourite, ' + c[3] + ' people"><span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">' + c[3] + '</span></button></article>');
+        '<button class="wf-fav" type="button" aria-pressed="' + c[4] + '" aria-label="Favorite, marked by ' + c[3] + ' people"><span class="wf-fav-i" aria-hidden="true"></span><span class="wf-fav-n">' + c[3] + '</span></button></article>');
     });
     out.push('</div><div class="wf-sec-foot"><a class="wf-btn" href="catalogue.html">' + WF_STR.allCases + '</a></div></section>');
     if (account) out.push('<section class="wf-sec" aria-label="Reviews">' + A5 + '</section>');
 
     // B6, THE DAILY LADDER, D-25 and D-67, the component 3.1 mounts too.
     out.push('<section class="wf-sec" aria-labelledby="h2-daily"><div class="wf-sec-head"><h2 id="h2-daily">Daily cases</h2>' +
-      '<p class="wf-sec-sub">Wager to climb. The tier decides which free case you get.</p></div><div data-ladder></div></section>');
+      '<p class="wf-sec-sub">' + WF_STR.dailySub + '</p></div><div data-ladder></div></section>');
 
     // B7, B8 AND B9 AS ONE ROW, D-126, founder. The worked case, the verifier
     // pitch and the exit figures were three blocks of argument where the
@@ -4102,7 +4102,7 @@ window.WF_PAY = window.WF_PAY || {
     // promising a figure it does not print is the hole D-107 took off screens.
     out.push('<section class="wf-sec" aria-labelledby="h2-proof"><div class="wf-sec-head"><h2 id="h2-proof">Before you spend</h2></div><div class="wf-figs">' +
       '<a class="wf-fig wf-fig-a" href="case.html#h2-pays"><span class="wf-fig-v">94.2 %</span><span class="wf-fig-c">Tested RTP, Ironbound</span></a>' +
-      '<a class="wf-fig wf-fig-a" href="withdraw.html"><span class="wf-fig-v">' + WF_PUB.median + '</span><span class="wf-fig-c">Median withdrawal to Steam</span></a>' +
+      '<a class="wf-fig wf-fig-a" href="withdraw.html"><span class="wf-fig-v">' + WF_PUB.median + '</span><span class="wf-fig-c">Median time to Steam</span></a>' +
       /* EVERY FIGURE ROUTED, round 17, B1-17: the commission is a line in the
          settlement it is charged in. */
       '<a class="wf-fig wf-fig-a" href="withdraw.html#h3-total"><span class="wf-fig-v">0 %</span><span class="wf-fig-c">Our commission on withdrawals</span></a>' +
@@ -4112,7 +4112,7 @@ window.WF_PAY = window.WF_PAY || {
     // B11, THE SEO TEXT, one H2 and one paragraph. The three H3s repeated the
     // row above in prose; home.md section 8.C carries the change.
     out.push('<section class="wf-sec wf-prose" aria-labelledby="h2-about"><div class="wf-sec-head"><h2 id="h2-about">What opening a case here involves</h2></div>' +
-      '<p>A case is a fixed set of CS2 skins with a published chance on each one. You pay the entry cost in coins, one roll decides the item, and you can keep it, sell it back or send it to your Steam inventory. Every case shows its chances, its item values and its tested return before you open it, and every round can be checked afterwards.</p></section>');
+      '<p>A case is a fixed set of CS2 skins with a published chance on each one. You pay its price in coins, one round decides the item, and you can keep it, sell it or send it to your Steam inventory. Every case shows its chances, its item values and its tested return before you open it, and every round can be checked afterwards.</p></section>');
 
     return out.join('');
   }
@@ -4382,7 +4382,7 @@ window.WF_PAY = window.WF_PAY || {
       var b = e.target.closest('[data-ladder-open]');
       if (!b) return;
       var say = b.parentNode.querySelector('[data-ladder-say]');
-      if (say) { say.textContent = 'Nothing to open: no daily case has been given yet.'; say.classList.add('is-said'); }
+      if (say) { say.textContent = 'Not opened: no daily case yet.'; say.classList.add('is-said'); }
     });
   }
 
