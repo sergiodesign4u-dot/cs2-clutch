@@ -28,6 +28,25 @@
 **Two obligations this node was handed, and both are honoured.** `sitemap.md`, "Free entry gets an obligation rather than a surface", makes `S-A1` carry the starter credit offer as a pre-login element: block B10. **Suspended by `D-126`: B10 left the page until its amount exists, so this obligation is carried as open, section 9.** `sitemap.md`, "Detailed node map", row 1.0, makes it carry the featured case grid directly on the page rather than behind a mode hub: block B5.
 
 
+## Amended 17 October 2026 by `D-169`. The first screen opens on an event, and the daily status leaves it
+
+**Why.** The founder read Home on screen at stage 05 and asked for the daily cases to leave the first screen and for the banner to carry the site's events.
+
+**Baseline row for this amendment**, against `walk_home_1440.png`, `baseline.md` section 4: "a full-width hero banner for the current event carrying a countdown in days, hours, minutes and seconds and a single CTA".
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Event banner with art, countdown, JOIN EVENT | **The event, its countdown and its one control, as the baseline runs them** | The control routes to the event's case or cases, `3.3` or `3.1`, because an event in round 1 is a case or a set of cases; **no event page is added to the map**. From `D-126` to this amendment the banner carried the daily ladder |
+| Nothing above the banner | | **1.1 draws no state strip.** Its daily status was the ladder's own, B6, in the same words, so nothing a person could read is lost |
+
+**What changes in section 2.2.** Rule 5 is replaced: **the banner always carries the current event, and when an event ends the next one takes its place.** Rule 1 is unchanged, one event at a time, so the replacement is a schedule and never a carousel. Rule 2 holds and now always applies: an event has a published end, so its countdown renders. **An empty banner is not a state of this page but an operations defect**, and keeping the next event scheduled is the operator's obligation, an open item of this amendment. **Rules 3, 4 and 6 are untouched:** no price, odds or chance on the banner, never H1, and the H1 still begins on the first screen at 360px, measured on 17 October 2026 at 467px against a first screen that ends at 584px.
+
+**No parent, printed.** Events have no row in the CJM To-Be backlog and no parent in the three legal classes. The banner is carried by founder decision, `D-169`, as it was by `D-25`, and the cost `D-25` printed stands: a countdown beside a route to spending is pressure.
+
+**Samples, `D-124`, marked here:** the event, "Coldfront week", its end, 24 Oct 2026, 18:00 UTC, and the time left, 6 d 08 h 39 m. The prototype draws one event to show the principle; which events run is operations', not this node's.
+
+---
+
 ## Amended 4 October 2026 by `D-164`. The trust line below the grid on 1.1, and every figure routed
 
 **Why.** Round 17 re-read twelve lower rows round 16 carried, against the render; seven still held, and Codex found six stale IA lines.
@@ -214,12 +233,12 @@
 2. **The countdown counts to a real, published end.** A timer that resets on its own, restarts per visit or runs per visitor is a fabricated deadline. `CLAUDE.md` says never invent a number, and **a time is a number.** If the end is not known, the countdown does not render and the promotion still can.
 3. **It carries no odds, no price and no chance.** If a promotion involves money, the money is stated on the surface it leads to, under design principle 3. **The banner is a route, not an offer sheet.**
 4. **It is not the H1 and it never carries H1 markup.** `0.13` allows exactly one H1 on this page and it belongs to the hero, section 8 block B. The banner's line is body text, whatever its size.
-5. **It never occupies the block on its own.** ~~Round 1 has no event.~~ **Since `D-126` round 1's one standing offer, the daily ladder, is what it carries.** **The empty state of this block is that it does not render at all**, and it never renders a placeholder, a spinner or a coming-soon. Same rule `A5` obeys for the auditor it does not have.
+5. ~~**It never occupies the block on its own.** Round 1 has no event. **Since `D-126` round 1's one standing offer, the daily ladder, is what it carries.** **The empty state of this block is that it does not render at all**, and it never renders a placeholder, a spinner or a coming-soon. Same rule `A5` obeys for the auditor it does not have.~~ **Replaced by `D-169`: the banner always carries the current event, and the next one takes its place when it ends.**
 6. **It obeys the height budget, the same instrument the ticker obeys.** At 360px the banner plus the ticker may not push the H1 further than section 1.2 allows. The pixel value is stage 04's; the ceiling is this node's.
 
 **What it may not become.** A second banner further down the page. A promotion inside the featured grid, which is the Triple Fun tile the baseline drops into its own case shelf, `baseline.md` section 4, **an advertisement shaped exactly like a case tile in a grid of case tiles**. That one is refused by name: the grid holds cases, and a paid slot dressed as the product is the clearest possible version of the thing design principle 1 exists to prevent.
 
-**States:** present with a countdown, present without one, and absent. There is no fourth.
+~~**States:** present with a countdown, present without one, and absent. There is no fourth.~~ **Since `D-169`: present, with its countdown. Rule 5 is replaced by the amendment at the top of this node: the banner always carries the current event.**
 
 ### 2.3 B3. The hero
 
@@ -411,6 +430,8 @@
 ### 4.2 Node 1.1, Home with an account
 
 **`1.1` is a numbered node in `sitemap.md` and it is specified here, under its own anchor, because it is a state of this page rather than a page of its own.** Its `INCLUDES`: "The same page with a state-dependent strip: balance, the next step, daily free entry status. A different first screen, not a different page." Its transitions: `3.3`, `4.1`, `5.1`.
+
+**Struck by `D-169`: 1.1 draws no state strip, and the ladder B6 carries the daily status. The specification below is kept as it stood.**
 
 **The strip carries ~~three things and no fourth~~ two things since `D-126`, which took the balance out because the header already carries it.**
 

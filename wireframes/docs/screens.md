@@ -42,7 +42,7 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 | Node | Screen or state | Job or parent | In the flow |
 |---|---|---|---|
 | **`1.0`** | **Home, guest** | `B1-1`, Main Job, Related Job 1 | **Entry. Tap 1 of the main job** |
-| `1.1` | Home, account exists | Same page, state-dependent strip | After sign in |
+| `1.1` | Home, account exists | Same page, account state; ~~state-dependent strip~~ no strip since `D-169` | After sign in |
 | `1.2` | Provably fair, public, with the verifier: **default, verifier idle**, **prefilled, nothing computed**, **checked and matched**, **proof not available yet** | Design principle 1 as limited by `D-14`, Core Job 1 | From `1.0` B7 and from `3.6` |
 | `1.3` | Verifier, malformed round | Names which part is missing | Inside `1.2` |
 | `1.4` | Verifier, our own proof failed | A report route and an incident with a deadline | Inside `1.2` |

@@ -20,6 +20,21 @@
 
 ---
 
+## Amended 17 October 2026 by `D-170`. One list of cases, and one row on a desktop
+
+**Why.** The founder read the footer on screen at stage 05: on a desktop window with the screens panel open the column grid folded into a stack and read as scattered, and cases were listed twice, in the Cases column and in the Popular cases row.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Three link columns, no interlinking row | The column shape of band 2 | **The Cases column carries `3.1`'s sections:** All cases, Daily cases, Featured cases, Community cases, Classic cases. **The interlinking row is gone.** This node had already said the two "may turn out to be one list, in which case the row goes and the column stays", and the founder chose the list. The four named cases leave the column, which also closes this node's open merchandising item about which four deserved the slot |
+| One row of columns on a desktop | **One row on every desktop window** | From a 600px content column in a 900px window, the brand block and the four link tracks hold one row; the brand art slot still waits for 1180px. Below a 900px window the footer is the accordion stack it was. Measured on 17 October 2026 at 915, 1024, 1180, 1280, 1440 and 1920px: one row at all six |
+
+**What it costs.** No named case is put in front of a person from every page any more. The crawler job the row did is kept, because the same section links now sit in the column.
+
+---
+
 ## Amended 4 October 2026 by `D-158`. Stale lines struck in place
 
 **Why.** Round 16 of the critique, step 6, found lines in this node that later decisions had reversed and nobody had struck, read by a Claude subagent in Codex's place. They are struck in place, each followed by the line that replaces it and the decision behind it.
@@ -250,14 +265,16 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 |---|---|---|
 | **Brand and help** | **The logo slot**, at the size the live product gives a footer logo. ~~Then the **about line**, one sentence.~~ **No about line since `D-136`.** Then the **identification block** in small text. Then a "Need help?" label over a **Support button**, an outlined pill rather than a text link | 1.0, 0.10 |
 | **Play** | Cases, and nothing else. **One game, because the product has one** | 3.1 |
-| **Cases** | All cases, then the four cases this prototype holds: Ironbound, Warsteel, Coldfront, Nightfall. **Which cases belong here is a merchandising decision and it is `[?]`**, carried in this node and **not printed in the column since `D-124`** | 3.1, 3.3 |
+| **Cases** | ~~All cases, then the four cases this prototype holds: Ironbound, Warsteel, Coldfront, Nightfall. **Which cases belong here is a merchandising decision and it is `[?]`**, carried in this node and **not printed in the column since `D-124`**~~ **Since `D-170`: All cases, then `3.1`'s sections, Daily, Featured, Community and Classic** | 3.1 |
 | **Company** | Terms of use, Privacy policy, Cookie policy, Refund and payments policy, **Cookie settings** | 0.9, and dialog 0.4 links the cookie policy. **Cookie settings added by the step 8 audit:** GDPR Article 7(3), quoted in node `0.4`, says "It shall be as easy to withdraw as to give consent", and a banner shown once is not a route back. It is a control rather than a link and the only control in this column. **And it opened nothing until 22 August 2026, `D-80`:** `0.4` was unbuilt, so the control shipped as a button with no handler on all ninety four pages, which is the defect `D-58` forbids. **The fix for Article 7(3) was itself a picture of a control**, and it was invisible to both nodes because this one owns the carrier and `0.4` owns what it carries. **One thing is still not equal and it is printed here rather than in the other file:** below 900 this column is an accordion collapsed by default, so the route back is two presses while giving was one, and Article 7(3) is a rule about that count |
 | **Help**, and **Play responsibly under it in the same track**, `D-45` | Help: Provably fair, Contact support. **No FAQ row**, and since `D-124` the absence is recorded here rather than printed. Then Play responsibly: Responsible play~~, Where we operate~~. **Where we operate left the column by `D-136`**: a row with no destination is the dead item a carrier may not hold~~, and it stays an open item here~~. **Closed by `D-146`: the market position is one line in band 3, with no link** | 1.2, 0.10, then 6.1 ~~, 2.2~~ |
 | **Brand art** | **A reserved slot, founder request of 20 August 2026, `D-43`.** Same kind of object as the logo slot: an area whose content arrives at stage 06 | Nothing. It is not a route |
 
 **Play holds one game because the product has one.** The column is inherited and filled with what is live, and the LATER modes enter it as they ship, exactly as they enter the rail. **A short column is the truth about the round**, and padding it with a route the map does not hold would be the dead item defect one carrier down, which is the rule that took the rail from nine to one.
 
-**The Cases column is the curated few, and it is not the interlinking row.** The row below it points a crawler at the priority indexed set; this column points a person at the cases we are putting forward. **They are different jobs and they may turn out to be one list**, in which case the row goes and the column stays. `3.1` decides that. **The four names are the ones this prototype already draws** on Home and on `3.3` rather than four plausible-sounding new ones, and **which four deserve the slot is a merchandising decision that is not made**, recorded in this node and, since `D-124`, not printed inside the column.
+**Resolved by `D-170`: they were one list, the row went and the column stays with the sections.** The paragraph is kept as the reasoning it records.
+
+~~**The Cases column is the curated few, and it is not the interlinking row.** The row below it points a crawler at the priority indexed set; this column points a person at the cases we are putting forward. **They are different jobs and they may turn out to be one list**, in which case the row goes and the column stays. `3.1` decides that. **The four names are the ones this prototype already draws** on Home and on `3.3` rather than four plausible-sounding new ones, and **which four deserve the slot is a merchandising decision that is not made**, recorded in this node and, since `D-124`, not printed inside the column.~~
 
 **Provably fair moved from Play into Help, `D-44`.** A person looking for the proof is checking us, not choosing a mode. **`CLAUDE.md`'s rule is untouched:** "Provably fair and Responsible play are carried by the footer, which holds each in its own column." Each still has one. They are not the same two columns as before.
 
@@ -293,7 +310,7 @@ Full width, its own surface, four cells, each an icon zone plus a figure plus a 
 
 **The brand art slot carries no information and says so.** It is `aria-hidden`, it carries no label since `D-124`, and **because it carries nothing it is the first thing to go**: it leaves when the column can no longer hold five, rather than competing with four columns of real routes. **It is the one element in this footer with no parent in the three legal classes**, and it is carried with that printed rather than argued into one.
 
-**The interlinking row closes the band.** The baseline has none, this one is ours. ~~**The structure is fixed here and the contents are `[?]`, which is correct rather than unfinished:** the natural contents are case categories, node `3.1` decides them, and real query volumes belong to production.~~ **Filled on 26 September 2026 by `D-124`:** `3.1` decided its sections on 21 August, `D-65`, so the row carries them, Daily, Featured, Community and Classic, each linking to its section. **Query volumes still belong to production and may reorder or extend the row**; that is an open item here, not a sentence under the links.
+**Removed by `D-170`: its four sections are the Cases column now.** ~~**The interlinking row closes the band.** The baseline has none, this one is ours. ~~**The structure is fixed here and the contents are `[?]`, which is correct rather than unfinished:** the natural contents are case categories, node `3.1` decides them, and real query volumes belong to production.~~ **Filled on 26 September 2026 by `D-124`:** `3.1` decided its sections on 21 August, `D-65`, so the row carries them, Daily, Featured, Community and Classic, each linking to its section. **Query volumes still belong to production and may reorder or extend the row**; that is an open item here, not a sentence under the links.~~
 
 **The footer links no private transactional node.** Deposit `4.1`, account `5.1`, withdrawal `5.3`, sign in `2.4` and identity `2.7` are all noindex and none appears here. A global footer is crawled on every page, and pointing it at noindex routes spends crawl budget on pages that decline to be indexed while putting private routes on every screen a stranger sees. **The correct way not to pass a link is not to draw it**, so no `nofollow` is needed anywhere.
 
@@ -370,9 +387,9 @@ The baseline runs a fixed circular headset button, bottom right, above the foote
 
 ## 6. Adaptive behaviour
 
-**Mobile, base, 360px.** Statistics as a two by two grid, never a horizontal scroll and never a carousel: four numbers a person cannot see at once are four numbers that prove nothing. Then the brand block, full width, with the support button at full width under it. Then ~~three~~ **five** accordions, collapsed. Then the interlinking accordion, collapsed. Then the bottom row stacked ~~, compliance line first, then copyright, then the marks~~ **as the render draws it: social slots, the 18+ statement and the market line, the language switcher over the marks, then copyright and the coin note.**
+**Mobile, base, 360px.** Statistics as a two by two grid, never a horizontal scroll and never a carousel: four numbers a person cannot see at once are four numbers that prove nothing. Then the brand block, full width, with the support button at full width under it. Then ~~three~~ **five** accordions, collapsed. ~~Then the interlinking accordion, collapsed.~~ Then the bottom row stacked ~~, compliance line first, then copyright, then the marks~~ **as the render draws it: social slots, the 18+ statement and the market line, the language switcher over the marks, then copyright and the coin note.**
 
-**Desktop, from 900px.** Statistics as one row of four. Brand column plus ~~three link columns~~ **four link tracks, the last holding Help and Play responsibly, and the brand art slot where the width holds it**. Interlinking block as a flat list below them. Bottom row as ~~one line~~ **the trust row of three cells, then the fine print**.
+**Desktop, from 900px.** Statistics as one row of four. Brand column plus ~~three link columns~~ **four link tracks, the last holding Help and Play responsibly, and the brand art slot where the width holds it**. ~~Interlinking block as a flat list below them.~~ **One row from a 600px content column, `D-170`.** Bottom row as ~~one line~~ **the trust row of three cells, then the fine print**.
 
 **The compliance line never becomes an accordion at any width.** The one rule in this node that holds everywhere.
 

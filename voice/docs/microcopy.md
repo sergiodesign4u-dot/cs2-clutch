@@ -138,7 +138,7 @@ The Marks column flags where screens say the same thing in different words, or w
 | G66 | footer | Payment methods | accessible name | `_nav.js payCountry/renderFooter` | 133 pages, 19 screens |  |  |
 | G67 | footer | Play | button | `_nav.js FAQ/accountControl` | 133 pages, 19 screens |  |  |
 | G68 | footer | Play responsibly | button | `_nav.js renderFooter/shellCfg` | 133 pages, 19 screens | C7 |  |
-| G69 | footer | Popular cases | button | `_nav.js renderFooter` | 133 pages, 19 screens |  |  |
+| G69 | footer | Popular cases | button | `_nav.js renderFooter` | 133 pages, 19 screens |  | removed, `D-170`: its sections are the Cases column |
 | G70 | footer | Prices are in coins. {n} coin = {n} | text | `_nav.js renderFooter` | 133 pages, 19 screens | C11 |  |
 | G71 | footer | Privacy policy | link | `WF_STR.privacyPolicy` | 133 pages, 19 screens | C8 K |  |
 | G72 | footer | Provably fair | link | `WF_STR.provablyFair` | 133 pages, 19 screens | S5 |  |
@@ -278,8 +278,8 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.4-7 | head | Cookie settings, one purpose on and one off. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-partial |  |  |
 | 0.4-8 | head | Cookie settings, everything refused. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-rejected |  |  |
 | 0.4-9 | head | Home, with the cookie answer still pending. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie |  |  |
-| 0.4-10 | main | Daily cases: climb five tiers, each one opens a free case | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` | N1 | Daily cases: one a day at your tier, and it costs nothing |
-| 0.4-11 | main | See daily cases | button (link) | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` | N1 | kept |
+| 0.4-10 | main | Daily cases: climb five tiers, each one opens a free case | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` | N1 | Coldfront week: this week's event case (`D-169`; the event is a sample, `D-124`) |
+| 0.4-11 | main | See daily cases | button (link) | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` | N1 | See {d} (`D-169`: the event case) |
 | 0.4-12 | main | CS{n} case opening with published odds | SEO H1, SEO / IA ownership | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept |
 | 0.4-13 | main | Trustpilot {n} reviews | link | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept |
 | 0.4-14 | main | Ways to play | heading | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept |
@@ -315,7 +315,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.4-44 | layer: cookie | Accept all | button | `_nav.js mountCookie` | all 8 of `0.4` |  |  |
 | 0.4-45 | layer: cookie | Reject all | button | `_nav.js mountCookie` | all 8 of `0.4` |  |  |
 | 0.4-46 | layer: cookie | Save my choices | button | `_nav.js mountCookie` | cookie-accepted, cookie-changed, cookie-manage, cookie-partial, cookie-rejected |  |  |
-| 0.4-47 | main | Promotion | accessible name | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept |
+| 0.4-47 | main | Promotion | accessible name | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | Event (`D-169`) |
 | 0.4-48 | layer: cookie | Your new answer applies from the moment you save it. It does not undo what was collected while the old answer stood. | text | `_nav.js mountCookie` | cookie-changed |  |  |
 | 0.4-49 | layer: cookie | Analytics off, marketing off | text | _nav.js, assembled | cookie-changed, cookie-rejected |  |  |
 | 0.4-50 | layer: cookie | Before we store anything on your device | text | `_nav.js mountCookie` | cookie-expired, cookie-nostore, cookie |  |  |
@@ -539,11 +539,12 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
 | 1.0-1 | head | Open CS{n} cases with published odds and payout times | SEO title, SEO / IA ownership | page | all 2 of `1.0` |  | kept |
-| 1.0-2 | main | No daily case yet | text | `_nav.js homeBody` | index-account | N1 | kept |
-| 1.0-3 | main | Next tier at {n} coins wagered. Resets {time} | text | `_nav.js homeBody` | index-account | N2 | kept |
-| 1.0-4 | main | See your tier | button (link) | `_nav.js homeBody` | index-account |  | kept |
-| 1.0-5 | main | Your state | accessible name | `_nav.js homeBody` | index-account |  | kept |
+| 1.0-2 | main | No daily case yet | text | `_nav.js homeBody` | index-account | N1 | removed, `D-169` |
+| 1.0-3 | main | Next tier at {n} coins wagered. Resets {time} | text | `_nav.js homeBody` | index-account | N2 | removed, `D-169` |
+| 1.0-4 | main | See your tier | button (link) | `_nav.js homeBody` | index-account |  | removed, `D-169` |
+| 1.0-5 | main | Your state | accessible name | `_nav.js homeBody` | index-account |  | removed, `D-169` |
 | 1.0-6 | main | Reviews | accessible name | `_nav.js homeBody` | index-account |  | kept |
+| 1.0-7 | main | {n} d {n} h {n} m left · ends {date}, {time} UTC | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | new at `D-169`; written by `voice.md` "Figures, dates and times" |
 
 ### `1.2` Provably fair
 

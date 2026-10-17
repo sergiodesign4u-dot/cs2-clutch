@@ -6066,3 +6066,21 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 **What it means for the stages ahead.** Rollout is where the grey product is assembled in colour on the finished system, once, after responsive and motion are in it. So stage 07 keeps its sample of five to seven screens, and the rest of the product waits for 12 rather than being coloured at 07 or 08.
 
 **Not changed.** Pages that record a past state keep their wording: the stage 01 research page says "stage 01 of twelve" because that was the plan when it was written.
+
+## D-169. Home's first screen opens on an event, and the daily status leaves it
+
+**Date:** 2026-10-17. **Stage:** 04 reopened during stage 05, before step 7. **Decided by:** the founder, reading Home on screen: "их надо убрать с первого екрана и сделать баннер на котором ми будем показивать ивенти на сайте", then four answers: the strip goes entirely, the control routes to the event's case or cases, the banner is always there and changes when an event ends, and the wireframe draws a sample event with a countdown. **Binds:** node `1.0` section 2.2 and section 4.2, map row `1.1`, `wireframes/_nav.js` `homeBody`.
+
+**What was decided.** The banner carries the site's current event, one at a time, and the next event replaces it when it ends; it is never empty, and keeping the next one scheduled is an operations obligation. An event in round 1 is a case or a set of cases, so the control routes to `3.3` or `3.1` and no event page enters the map. The countdown runs to the event's published end. `1.1` draws no state strip; the daily status stays in the ladder, B6, further down.
+
+**Rejected, and why.** An event page of its own, `/en/events` on the baseline: a new node and a new round 1 surface for a capability with no backlog row. A fallback such as the daily cases when no event runs: the founder's answer is that one always runs. Moving the strip below the grid: it repeated the ladder in the ladder's own words.
+
+**No parent, printed.** Events have no CJM backlog row and no parent in the three legal classes, carried by founder decision as `D-25` carried the banner. The event, its end and the time left are samples, `D-124`, marked in node `1.0`.
+
+## D-170. The footer lists cases once, and holds one row on a desktop
+
+**Date:** 2026-10-17. **Stage:** 04 reopened during stage 05, before step 7. **Decided by:** the founder, on screen: the footer "такой разбросан" on a desktop window with the screens panel open, "нет смисла показывать и Cases и Популяр кейси, надо что то одно", then two answers: one Cases column with `3.1`'s sections, and the desktop one row at that width too. **Binds:** node `0.2` band 2 and section 6, `wireframes/_nav.js` `renderFooter`, `wireframes/_wf.css`.
+
+**What was decided.** The Cases column lists All cases, Daily, Featured, Community and Classic cases; the Popular cases row is removed. From a 600px content column in a 900px window, the brand block and the four link tracks hold one row; the art slot still waits for 1180px; below 900px the accordion stack stays.
+
+**Rejected, and why.** Keeping the four named cases: which four deserved the slot was never decided, and the sections were, `D-65`. Keeping only the row: the footer would lose the Cases column a person scans for.

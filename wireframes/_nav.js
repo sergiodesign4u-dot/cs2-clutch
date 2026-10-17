@@ -2482,9 +2482,13 @@ window.WF_PAY = window.WF_PAY || {
     // rule protects, a titled section that is nobody's subheading, is intact.
     [
       [['Play', [[WF_STR.cases, 'catalogue.html']]]],
-      [[WF_STR.cases, [[WF_STR.allCases, 'catalogue.html'], ['Ironbound', 'case.html'],
-                  ['Warsteel', 'case.html?case=warsteel'], ['Coldfront', 'case.html?case=coldfront'],
-                  ['Nightfall', 'case.html?case=nightfall']]]],
+      /* ONE LIST OF CASES, D-170. The column held four named cases and a row
+         under the band held 3.1's four sections, so the footer showed cases
+         twice. The founder kept one: the sections, which 3.1 decided, D-65,
+         where the named four were a merchandising choice nobody had made. */
+      [[WF_STR.cases, [[WF_STR.allCases, 'catalogue.html'], ['Daily cases', 'catalogue.html#cat-daily'],
+                  ['Featured cases', 'catalogue.html#cat-featured'], ['Community cases', 'catalogue.html#cat-community'],
+                  ['Classic cases', 'catalogue.html#cat-classic']]]],
       [['Company', [[WF_STR.termsOfUse, 'legal.html'], [WF_STR.privacyPolicy, 'legal-unpublished.html?doc=privacy'],
                     [WF_STR.cookiePolicy, 'legal-unpublished.html?doc=cookie'], [WF_STR.refundPolicy, 'legal-refund.html']]]],
       [['Help', [[WF_STR.provablyFair, 'fair.html'], ['Contact support', 'support.html']]],
@@ -2547,19 +2551,7 @@ window.WF_PAY = window.WF_PAY || {
     cols.appendChild(art);
     b2.appendChild(cols);
 
-    // The interlinking row. The baseline has none, this one is ours, and its CONTENTS
-    // are [?] on purpose: the categories are 3.1's to decide and real query volumes
-    // belong to production. Writing a plausible list now is model memory.
-    var seo = el('div', 'wf-foot-seo');
-    // D-124: 3.1 DECIDED ITS SECTIONS ON 21 AUGUST, D-65, so the row carries them.
-    // Query volumes still belong to production and may reorder it; that is an
-    // open item in footer.md, not a sentence under the links.
-    var seoBody = el('div', 'wf-foot-list');
-    [['Daily cases', 'catalogue.html#cat-daily'], ['Featured cases', 'catalogue.html#cat-featured'],
-     ['Community cases', 'catalogue.html#cat-community'], ['Classic cases', 'catalogue.html#cat-classic']
-    ].forEach(function (r) { var a = el('a', null, r[0]); a.href = BASE + r[1]; seoBody.appendChild(a); });
-    accordion(seo, 'Popular cases', seoBody);
-    b2.appendChild(seo);
+    // THE INTERLINKING ROW LEFT BY D-170: its four sections are the Cases column now.
 
     // ----------------------------------------------------------------- BAND 3, base.
     // THE COMPLIANCE LINES ARE HERE AND NOT IN A COLUMN, which is what node 0.2 has
@@ -4038,23 +4030,20 @@ window.WF_PAY = window.WF_PAY || {
   function homeBody(account) {
     var out = [];
 
-    // 1.1 ONLY. THE STATE STRIP, home.md section 4.2, and it no longer
-    // repeats the balance the header already carries. It states the daily
-    // status the ladder below states, in the same words, and routes to it.
-    if (account) {
-      out.push('<section class="wf-strip" aria-label="Your state">' +
-        '<div class="wf-fig"><span class="wf-fig-v">No daily case yet</span><span class="wf-fig-c">Next tier at 5.00 coins wagered. Resets 00:00 UTC</span></div>' +
-        '<a class="wf-btn" href="#h2-daily">See your tier</a></section>');
-    }
+    // 1.1 HAS NO STATE STRIP SINCE D-169. The daily status it carried is the
+    // ladder's own, B6, further down; the first screen opens on the event.
 
-    // B2, THE BANNER, D-25. The baseline's hero carries an event; round 1's
-    // one standing offer is the daily ladder, so that is what it carries. NO
-    // CLOCK: a countdown needs a real published end, section 2.2 rule 2, and a
-    // standing offer has none.
-    out.push('<section class="wf-banner" aria-label="Promotion">' +
+    // B2, THE EVENT BANNER, D-169. It always carries the current event, and
+    // when that event ends the next one takes its place: one at a time, never a
+    // carousel. An event in round 1 is a case or a set of cases, so its one
+    // control routes to a case screen and the banner prints no price, odds or
+    // chance. The countdown runs to the event's published end. THE EVENT, ITS
+    // END AND THE TIME LEFT ARE SAMPLES, D-124, marked in home.md.
+    out.push('<section class="wf-banner" aria-label="Event">' +
       '<div class="wf-banner-art" aria-hidden="true"></div>' +
-      '<div class="wf-banner-body"><p class="wf-banner-line">Daily cases: one a day at your tier, and it costs nothing</p>' +
-      '<a class="wf-btn" href="#h2-daily">See daily cases</a></div></section>');
+      '<div class="wf-banner-body"><p class="wf-banner-line">Coldfront week: this week\'s event case</p>' +
+      '<p class="wf-banner-clock" role="timer">6 d 08 h 39 m left · ends 24 Oct 2026, 18:00 UTC</p>' +
+      '<a class="wf-btn" href="' + caseHref('Coldfront', account) + '">See Coldfront</a></div></section>');
 
     // B3, THE H1, one line and centred over the cards, which is the
     // baseline's "CSGO & CS2 CASE OPENING SITE". The proposition paragraph and

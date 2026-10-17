@@ -599,6 +599,8 @@ a.wfp-state:hover { color: var(--wf-ink); }
    zero: 0.11 forbids both for a value nobody knows yet. */
 .wf-banner-body { margin-top: var(--wf-s-1); }
 .wf-banner-line { font-size: var(--wf-t-m); line-height: 1.3; margin-bottom: var(--wf-s-1); }
+/* D-169: the event's time left and its published end, one line under the event's name. */
+.wf-banner-clock { font-family: var(--wf-mono); font-size: var(--wf-t-s); color: var(--wf-ink-dim); margin: 0 0 var(--wf-s-1); }
 
 /* B3a the entry row, pending D-27. A card per way to play, and the ones that do not
    exist say so instead of carrying a control. is-later is the whole mechanism: no
@@ -796,6 +798,18 @@ a.wfp-state:hover { color: var(--wf-ink); }
   .wf-foot-col--brand { grid-column: 1 / -1; }
 }
 @container col (min-width: 690px) { .wf-foot-cols { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* ONE ROW ONCE THE WINDOW IS A DESKTOP, D-170. Between a 600 and a 900 pixel column,
+   which a desktop window gives whenever the rail and the screens panel are open, the
+   grid used to fold to three columns with the brand block over them and Help wrapping
+   under, and the founder read that as scattered. The desktop row holds from 600: the
+   art slot is the only thing that waits for 1180. Below a 900 window the footer is the
+   accordion stack and this rule does not reach it. */
+@media (min-width: 900px) {
+  @container col (min-width: 600px) {
+    .wf-foot-cols { grid-template-columns: 1.5fr 0.6fr 1.05fr 1.25fr 1.2fr; gap: var(--wf-s-3); }
+    .wf-foot-col--brand { grid-column: auto; }
+  }
+}
 @container col (min-width: 900px) {
   .wf-foot-cols { grid-template-columns: 1.5fr 0.6fr 1.05fr 1.25fr 1.2fr; gap: var(--wf-s-3); }
   .wf-foot-col--brand { grid-column: auto; }
@@ -898,15 +912,6 @@ a.wfp-state:hover { color: var(--wf-ink); }
   .wf-foot-h[aria-expanded="true"] + .wf-foot-list { padding: var(--wf-s-1) 0; }
 }
 
-.wf-foot-seo {
-  display: flex; flex-direction: column; gap: 2px;
-  margin-top: var(--wf-s-4); padding-top: var(--wf-s-3);
-  border-top: 1px solid var(--wf-line-soft);
-}
-/* Below 900 every column label already carries its own rule as an accordion header, so
-   this band's separator landed a second hairline a few pixels under the last one and
-   read as an empty row. The band is still a band, it just stops drawing its own line. */
-@media (max-width: 899px) { .wf-foot-seo { margin-top: 0; padding-top: 0; border-top: 0; } }
 
 /* THE TRUST ROW. Three cells, and each is a different kind on purpose: a way to reach
    us, a statement about who may be here, a claim about what we accept. They share one
@@ -1125,6 +1130,7 @@ a.wfp-state:hover { color: var(--wf-ink); }
     display: flex; flex-direction: column; align-items: center; gap: var(--wf-s-1);
   }
   .wf-banner-line { font-size: var(--wf-t-l); margin: 0; text-align: center; }
+  .wf-banner-clock { margin: 0; text-align: center; }
 
   /* B3 splits into two: what we say on one side, the institutional unit on the other. */
   .wf-hero {
@@ -1187,8 +1193,8 @@ a.wfp-state:hover { color: var(--wf-ink); }
      below 8 tiles: that is the answer to 0.8's other open item, the minimum count. */
 }
 
-/* 1.1 The state strip. Three slots and no fourth, inserted directly under the ticker.
-   It is the only thing the account state adds to this page. */
+/* The state strip. Drawn on 1.1 until D-169 took it off Home; 7.3's owner and hidden
+   pages still carry it. */
 .wf-strip {
   display: flex; flex-wrap: wrap; gap: var(--wf-s-2); align-items: center;
   padding: var(--wf-s-2); margin: var(--wf-s-2) 0;
