@@ -2,7 +2,7 @@
 
 **Stage 05, step 1, written 5 October 2026.** Every string the grey product shows, inventoried once per unique string rather than once per occurrence, with where it lives so step 7 knows which file to open. **Nothing here is rewritten yet.** The columns "was" and "now" arrive at step 6 for the etalon and at step 7 for the rest; until then the string column is the "was".
 
-**Its visible place** is the Microcopy section of `voice/voice.html`, built at step 5 with the rest of the Voice page, both tables shown.
+**Its visible place** is the Inventory section of `voice/voice.html`, next to the Microcopy rules, built at step 5 with the rest of the Voice page and read from this file at load, so both parts, Global and By screen, show whatever this file holds.
 
 **Placeholders in the String column:** `{n}` a figure, `{d}` a data name (case, item, wear, rarity, payment method, account name), `{date}`, `{time}`, `{hash}`, `{id}` a reference. They stand where the product prints a sample, so the row shows the frame Voice owns and not the figure it never rewrites.
 

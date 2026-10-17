@@ -1,6 +1,6 @@
 # Voice
 
-**Stage 05. Written 5 October 2026: the sources, the principles and the tone by phase at step 2, the glossary and the forbidden list at step 3, the microcopy rules at step 4.** With step 4 the file is complete: every line of the product is written by it from here. Every line of the product is written by this file once it is complete. **Its visible place** is `voice/voice.html`, built at step 5, one section per heading here.
+**Stage 05. Written 5 October 2026: the sources, the principles and the tone by phase at step 2, the glossary and the forbidden list at step 3, the microcopy rules at step 4.** With step 4 the file is complete: every line of the product is written by it from here. **Its visible place** is `voice/voice.html`, built at step 5, one section per heading here.
 
 **A principle here is a rule, not a mood.** Each one carries a rule in one sentence, an example written by it, an anti-example that breaks it, and the source it comes from. A principle that could not be given all four was not kept.
 

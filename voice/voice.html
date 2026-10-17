@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS2 Clutch - Voice</title>
+  <link rel="stylesheet" href="../_nav.css">
+  <style>
+    /* Theme and tokens taken from research/research.html, not redefined. */
+    :root {
+      --bg: #040319;
+      --bg-card: #0a0827;
+      --bg-surface: #0f0c35;
+      --accent-pink: #E94D8B;
+      --accent-blue: #65A3FF;
+      --accent-yellow: #FADA62;
+      --text-primary: #F0EEF8;
+      --text-secondary: #8B89A8;
+      --text-muted: #534F72;
+      --border: rgba(255,255,255,0.06);
+      --border-strong: rgba(255,255,255,0.12);
+      --glow-pink: rgba(233,77,139,0.15);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(rgba(101,163,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(101,163,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    main { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 64px 40px 80px; }
+    @media (min-width: 900px) {
+      main { margin-left: var(--nav-w); padding-top: 48px; }
+      footer { margin-left: var(--nav-w); }
+    }
+    section { margin-bottom: 88px; }
+    .section-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--accent-pink); margin-bottom: 10px;
+    }
+    h1 { font-size: clamp(30px,5vw,52px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 18px; }
+    h2 { font-size: 26px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 8px; }
+    h3 { font-size: 17px; font-weight: 600; margin: 28px 0 6px; }
+    h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin: 22px 0 6px; }
+    p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 14px; }
+    p strong, li strong, td strong { color: var(--text-primary); font-weight: 600; }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    code {
+      font-family: ui-monospace, 'SF Mono', Menlo, monospace; font-size: 0.86em;
+      color: var(--text-primary); background: rgba(255,255,255,0.05);
+      padding: 1px 5px; border-radius: 4px; overflow-wrap: break-word;
+    }
+    ul.md { padding-left: 18px; margin-bottom: 14px; }
+    ul.md li { font-size: 14px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 8px; }
+    .sep { height: 1px; background: var(--border); margin: 28px 0; }
+    /* HERO */
+    .hero { padding: 48px 0 32px; border-bottom: 1px solid var(--border); margin-bottom: 72px; }
+    .hero-meta { display: flex; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+    .hero-stat-value { font-size: 24px; font-weight: 800; color: var(--text-primary); }
+    .hero-stat-label { font-size: 11px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 2px; }
+    .source-note {
+      margin-top: 14px; padding: 14px 18px; border-radius: 10px;
+      border: 1px solid rgba(101,163,255,0.22); background: rgba(101,163,255,0.05);
+      font-size: 14px; color: var(--text-secondary);
+    }
+    .load-error {
+      padding: 14px 18px; border-radius: 10px;
+      border: 1px solid rgba(250,218,98,0.28); background: rgba(250,218,98,0.06);
+      font-size: 14px; color: var(--text-secondary);
+    }
+    .load-error strong { color: var(--accent-yellow); }
+    /* TABLES */
+    .table-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--border); margin: 16px 0 20px; scrollbar-color: var(--text-muted) transparent; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .table-wrap table { min-width: 640px; }
+    th { padding: 12px 14px; text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
+    td { padding: 12px 14px; border-bottom: 1px solid var(--border); color: var(--text-secondary); vertical-align: top; line-height: 1.5; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,0.01); }
+    /* Example and anti-example are told apart by colour and by label, never by colour alone. */
+    td.good { color: var(--text-primary); box-shadow: inset 2px 0 0 var(--accent-blue); }
+    td.bad { box-shadow: inset 2px 0 0 var(--accent-pink); }
+    th.good { color: var(--accent-blue); }
+    th.bad { color: var(--accent-pink); }
+    td.str { color: var(--text-primary); }
+    tr.floor td { background: rgba(233,77,139,0.06); }
+    .floor-badge {
+      display: inline-block; margin-top: 6px; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 9px; border-radius: 20px;
+      background: rgba(233,77,139,0.12); color: var(--accent-pink); border: 1px solid rgba(233,77,139,0.3);
+      white-space: nowrap;
+    }
+    /* PRINCIPLE CARDS */
+    .principles { display: grid; gap: 14px; margin-top: 20px; }
+    .principle { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .principle h3 { margin: 0 0 14px; font-size: 18px; }
+    .principle h3 .num { color: var(--accent-pink); margin-right: 8px; }
+    .p-row { display: grid; grid-template-columns: 116px 1fr; gap: 16px; padding: 12px 0; border-top: 1px solid var(--border); }
+    .p-row p { margin: 0; font-size: 14px; }
+    .p-label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); padding-top: 4px; }
+    .p-rule p { color: var(--text-primary); font-size: 15px; }
+    .p-ex { background: rgba(101,163,255,0.05); box-shadow: inset 2px 0 0 var(--accent-blue); padding-left: 14px; padding-right: 14px; }
+    .p-ex .p-label { color: var(--accent-blue); }
+    .p-ex p { color: var(--text-primary); }
+    .p-anti { background: rgba(233,77,139,0.05); box-shadow: inset 2px 0 0 var(--accent-pink); padding-left: 14px; padding-right: 14px; }
+    .p-anti .p-label { color: var(--accent-pink); }
+    .p-src p { font-size: 13px; }
+    @media (max-width: 600px) {
+      .p-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+    /* INVENTORY */
+    .inv-tools { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 20px 0 8px; }
+    .inv-tools label { font-size: 12px; color: var(--text-muted); letter-spacing: 0.04em; }
+    .inv-tools input {
+      flex: 1 1 260px; min-width: 0; background: var(--bg-card); color: var(--text-primary);
+      border: 1px solid var(--border-strong); border-radius: 8px; padding: 10px 12px; font: inherit; font-size: 14px;
+    }
+    .inv-tools input:focus { outline: 2px solid var(--accent-blue); outline-offset: 1px; }
+    .inv-result { font-size: 13px; color: var(--text-secondary); min-height: 20px; margin-bottom: 8px; }
+    details.inv-group { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; margin: 8px 0; }
+    details.inv-group > summary {
+      cursor: pointer; padding: 12px 16px; display: flex; gap: 12px; justify-content: space-between; align-items: baseline;
+      font-size: 14px; color: var(--text-primary); list-style: none;
+    }
+    details.inv-group > summary::-webkit-details-marker { display: none; }
+    details.inv-group > summary::before { content: '+'; color: var(--accent-pink); font-weight: 700; width: 12px; flex: none; }
+    details.inv-group[open] > summary::before { content: '-'; }
+    .sum-title { flex: 1; min-width: 0; }
+    .sum-count { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
+    details.inv-group .table-wrap { margin: 0 12px 12px; }
+    /* FOOTER */
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 28px 40px; max-width: 1140px; margin: 0 auto; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    footer p { font-size: 12px; color: var(--text-muted); margin: 0; }
+    @media (max-width: 860px) {
+      main { padding: 64px 20px 60px; }
+      footer { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<aside id="sidebar"></aside>
+
+<main>
+
+<div class="hero" id="intro">
+  <div class="section-eyebrow">Stage 05 - Voice, October 2026</div>
+  <h1>CS2 Clutch<br>Voice</h1>
+  <p>The rules every line of the product is written by, and the inventory of every line the grey product shows today. The voice is daddyskins.com's own, kept where the data agrees with it and changed, out loud, where it does not.</p>
+  <div id="intro-md"></div>
+  <p class="source-note">Every section below is read at load from its markdown source, <code>voice/docs/voice.md</code> for the rules and <code>voice/docs/microcopy.md</code> for the inventory, so the page shows whatever those two files hold and cannot fall behind them.</p>
+  <div class="hero-meta" id="hero-meta"></div>
+</div>
+
+<section id="sources">
+  <div class="section-eyebrow">Where the voice comes from</div>
+  <h2>Sources</h2>
+  <div class="md-body" data-md="voice" data-heading="Sources"></div>
+</section>
+
+<section id="brand">
+  <div class="section-eyebrow">The baseline's voice against the data</div>
+  <h2>The brand says, the data says</h2>
+  <div class="md-body" data-md="voice" data-heading="The brand says, the data says: how it was settled"></div>
+</section>
+
+<section id="principles">
+  <div class="section-eyebrow">Rules, not moods</div>
+  <h2>Principles</h2>
+  <div class="md-body" data-md="voice" data-heading="Principles" data-kind="principles"></div>
+</section>
+
+<section id="tone">
+  <div class="section-eyebrow">The phase sets the tone of a state</div>
+  <h2>Tone by phase</h2>
+  <div class="md-body" data-md="voice" data-heading="Tone by phase" data-kind="tone"></div>
+</section>
+
+<section id="glossary">
+  <div class="section-eyebrow">One concept, one word</div>
+  <h2>Glossary</h2>
+  <div class="md-body" data-md="voice" data-heading="Glossary"></div>
+</section>
+
+<section id="forbidden">
+  <div class="section-eyebrow">Never written, and what is written instead</div>
+  <h2>Forbidden</h2>
+  <div class="md-body" data-md="voice" data-heading="Forbidden"></div>
+</section>
+
+<section id="microcopy">
+  <div class="section-eyebrow">Rules by kind of element</div>
+  <h2>Microcopy</h2>
+  <div class="md-body" data-md="voice" data-heading="Microcopy"></div>
+</section>
+
+<section id="inventory">
+  <div class="section-eyebrow">Microcopy, the inventory</div>
+  <h2>Every string the product shows</h2>
+  <div class="inv-tools">
+    <label for="inv-filter">Find a string</label>
+    <input id="inv-filter" type="search" placeholder="A word, a code such as C4, or a page name" autocomplete="off">
+  </div>
+  <div class="inv-result" id="inv-result" aria-live="polite"></div>
+  <div class="md-body" data-md="microcopy" data-kind="inventory"></div>
+</section>
+
+</main>
+
+<footer>
+  <p>CS2 Clutch, stage 05, Voice. Baseline: daddyskins.com. Working placeholder name.</p>
+  <p>Sources: <code>voice/docs/voice.md</code>, <code>voice/docs/microcopy.md</code>.</p>
+</footer>
+
+<script>
+(function () {
+  var SRC = { voice: 'docs/voice.md', microcopy: 'docs/microcopy.md' };
+  var REPO = 'https://github.com/sergiodesign4u-dot/cs2-clutch/blob/main/voice/';
+
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+  // Code spans first, so bold may run across them; then escape; then bold.
+  function inline(s) {
+    var codes = [];
+    s = s.replace(/`([^`]+)`/g, function (m, c) { codes.push(c); return '\u0000' + (codes.length - 1) + '\u0000'; });
+    s = esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    return s.replace(/\u0000(\d+)\u0000/g, function (m, i) { return '<code>' + esc(codes[+i]) + '</code>'; });
+  }
+  function plain(s) { return s.replace(/\*\*|`/g, '').trim(); }
+
+  function cells(line) {
+    return line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(function (c) { return c.trim(); });
+  }
+
+  // Columns that hold a line written by the rules, and columns that hold one that breaks them.
+  var GOOD = { 'example': 1, 'should be': 1, 'the word': 1 };
+  var BAD = { 'not this': 1, 'was': 1, 'not used': 1, 'not used for it': 1 };
+  var STR = { 'string': 1, 'piece': 1 };
+
+  function table(lines, opts) {
+    var head = cells(lines[0]);
+    var body = lines.slice(2).map(cells);
+    var cls = head.map(function (h) {
+      var k = plain(h).toLowerCase();
+      return GOOD[k] ? 'good' : BAD[k] ? 'bad' : STR[k] ? 'str' : '';
+    });
+    var h = '<div class="table-wrap"><table><thead><tr>';
+    head.forEach(function (c, i) { h += '<th' + (cls[i] ? ' class="' + cls[i] + '"' : '') + '>' + inline(c) + '</th>'; });
+    h += '</tr></thead><tbody>';
+    body.forEach(function (row) {
+      // The phase that names the floor in its own cell gets that phrase as a mark, taken from the file.
+      var floorRe = /,?\s*\*\*([^*]*floor[^*]*)\*\*/i;
+      var floor = opts && opts.tone && floorRe.exec(row[0] || '');
+      h += '<tr' + (floor ? ' class="floor"' : '') + '>';
+      row.forEach(function (c, i) {
+        var inner = floor && i === 0 ? inline(c.replace(floorRe, '')) : inline(c);
+        if (floor && i === 0) inner += '<br><span class="floor-badge">' + esc(floor[1]) + '</span>';
+        h += '<td' + (cls[i] ? ' class="' + cls[i] + '"' : '') + '>' + inner + '</td>';
+      });
+      h += '</tr>';
+    });
+    return { html: h + '</tbody></table></div>', rows: body.length };
+  }
+
+  // A small block renderer: paragraphs, tables, lists, headings. Nothing else is used by the two files.
+  function blocks(text, opts) {
+    opts = opts || {};
+    var out = [], lines = text.split('\n'), i = 0, para = [];
+    function flush() { if (para.length) { out.push({ t: 'p', html: '<p>' + inline(para.join(' ')) + '</p>' }); para = []; } }
+    while (i < lines.length) {
+      var l = lines[i];
+      if (!l.trim() || /^---\s*$/.test(l)) { flush(); i++; continue; }
+      var m = l.match(/^(#{2,4}) (.*)$/);
+      if (m) {
+        flush();
+        var level = Math.min(m[1].length + 1, 4);
+        out.push({ t: 'h', text: m[2], html: '<h' + level + '>' + inline(m[2]) + '</h' + level + '>' });
+        i++; continue;
+      }
+      if (/^\|/.test(l)) {
+        flush();
+        var tl = [];
+        while (i < lines.length && /^\|/.test(lines[i])) { tl.push(lines[i]); i++; }
+        var t = table(tl, opts);
+        out.push({ t: 'table', html: t.html, rows: t.rows });
+        continue;
+      }
+      if (/^- /.test(l)) {
+        flush();
+        var items = [];
+        while (i < lines.length && /^- /.test(lines[i])) { items.push('<li>' + inline(lines[i].slice(2)) + '</li>'); i++; }
+        out.push({ t: 'ul', html: '<ul class="md">' + items.join('') + '</ul>' });
+        continue;
+      }
+      para.push(l.trim()); i++;
+    }
+    flush();
+    return out;
+  }
+
+  function render(text, opts) { return blocks(text, opts).map(function (b) { return b.html; }).join(''); }
+
+  // voice.md: the text under each "## " heading, keyed by the heading.
+  function sectionsOf(md) {
+    var map = {}, parts = md.split(/\n(?=## )/);
+    map[''] = parts[0].replace(/^# .*\n/, '');
+    parts.slice(1).forEach(function (p) {
+      var nl = p.indexOf('\n');
+      map[p.slice(3, nl).trim()] = p.slice(nl + 1);
+    });
+    return map;
+  }
+
+  var LABEL = { 'Rule': 'p-rule', 'Example': 'p-ex', 'Anti-example': 'p-anti', 'Source': 'p-src' };
+
+  function principles(text) {
+    var chunks = text.split(/\n(?=### )/).filter(function (c) { return c.trim(); }), html = '';
+    var lead = chunks[0].trim() && !/^### /.test(chunks[0]) ? render(chunks.shift()) : '';
+    html += lead + '<div class="principles">';
+    chunks.forEach(function (c) {
+      var nl = c.indexOf('\n');
+      var title = c.slice(4, nl).trim();
+      var m = title.match(/^Principle (\d+)\. (.*)$/);
+      html += '<article class="principle"><h3>' + (m ? '<span class="num">' + m[1] + '</span>' + inline(m[2]) : inline(title)) + '</h3>';
+      c.slice(nl + 1).split(/\n\s*\n/).forEach(function (para) {
+        para = para.trim();
+        if (!para) return;
+        var lm = para.match(/^\*\*([A-Za-z-]+):\*\*\s*([\s\S]*)$/);
+        if (lm && LABEL[lm[1]]) {
+          html += '<div class="p-row ' + LABEL[lm[1]] + '"><span class="p-label">' + lm[1] + '</span><p>' + inline(lm[2].replace(/\n/g, ' ')) + '</p></div>';
+        } else {
+          html += render(para);
+        }
+      });
+      html += '</article>';
+    });
+    return html + '</div>';
+  }
+
+  // microcopy.md: every screen's table, and every other table longer than ten rows,
+  // folds into a group named by its heading, so the search reaches all of them.
+  function inventory(md) {
+    var bs = blocks(md.replace(/^# .*\n/, '')), out = [], lastHeading = '';
+    bs.forEach(function (b, idx) {
+      if (b.t === 'h') { lastHeading = b.text; out.push(b.html); return; }
+      var prev = bs[idx - 1];
+      var screen = prev && prev.t === 'h' && /^`/.test(prev.text);
+      if (b.t === 'table' && (b.rows > 10 || screen)) {
+        if (prev && prev.t === 'h') out.pop();
+        var name = prev && prev.t === 'h' ? prev.text : lastHeading;
+        out.push('<details class="inv-group"><summary><span class="sum-title">' + inline(name) +
+          '</span><span class="sum-count" data-rows="' + b.rows + '">' + b.rows + ' rows</span></summary>' + b.html + '</details>');
+        return;
+      }
+      out.push(b.html);
+    });
+    return out.join('');
+  }
+
+  function stat(value, label) {
+    return '<div><div class="hero-stat-value">' + esc(String(value)) + '</div><div class="hero-stat-label">' + esc(label) + '</div></div>';
+  }
+
+  // Each figure in the hero is counted from the files, never typed.
+  function heroStats(voice, micro) {
+    var s = sectionsOf(voice);
+    var principlesN = (s['Principles'] || '').split('\n').filter(function (l) { return /^### Principle \d+/.test(l); }).length;
+    var phasesN = (s['Tone by phase'] || '').split('\n').filter(function (l) { return /^\| \*\*T\d/.test(l); }).length;
+    var concepts = (s['Glossary'] || '').split('### Concepts')[1] || '';
+    var conceptsN = concepts.split('\n').filter(function (l) { return /^\|/.test(l); }).length - 2;
+    var forbiddenN = (s['Forbidden'] || '').split('\n').filter(function (l) { return /^\| \*\*/.test(l); }).length;
+    var uniq = micro && micro.match(/\| Unique strings rendered \| ([\d\s]+) \|/);
+    var html = stat(principlesN, 'Principles') + stat(phasesN, 'Phases with a tone') +
+      stat(conceptsN, 'Concepts in the glossary') + stat(forbiddenN, 'Forbidden patterns');
+    if (uniq) html += stat(uniq[1].trim(), 'Unique strings inventoried');
+    document.getElementById('hero-meta').innerHTML = html;
+  }
+
+  function failed(el, key) {
+    el.innerHTML = '<p class="load-error"><strong>Not read.</strong> This section is read from <code>voice/' + SRC[key] +
+      '</code> at load, and the file could not be fetched here, which is what happens when the page is opened from disk rather than over http. ' +
+      '<a href="' + REPO + SRC[key] + '">Read the file on GitHub</a>.</p>';
+  }
+
+  function get(key) {
+    return fetch(SRC[key], { cache: 'no-cache' }).then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      return r.text();
+    });
+  }
+
+  Promise.all([get('voice').catch(function () { return null; }), get('microcopy').catch(function () { return null; })])
+    .then(function (res) {
+      var voice = res[0], micro = res[1];
+      var map = voice ? sectionsOf(voice) : null;
+      if (map) document.getElementById('intro-md').innerHTML = render(map['']);
+      document.querySelectorAll('.md-body').forEach(function (el) {
+        var key = el.getAttribute('data-md'), kind = el.getAttribute('data-kind');
+        if (key === 'microcopy') { if (micro) el.innerHTML = inventory(micro); else failed(el, key); return; }
+        var text = map && map[el.getAttribute('data-heading')];
+        if (text == null) { failed(el, key); return; }
+        el.innerHTML = kind === 'principles' ? principles(text) : render(text, { tone: kind === 'tone' });
+      });
+      if (voice) heroStats(voice, micro);
+      wireFilter();
+      if (location.hash) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
+    });
+
+  // The filter does what its label says: it shows only the rows holding the text, and says how many.
+  function wireFilter() {
+    var input = document.getElementById('inv-filter'), out = document.getElementById('inv-result');
+    var groups = document.querySelectorAll('#inventory details.inv-group');
+    if (!groups.length) { input.disabled = true; out.textContent = 'Nothing to search: the inventory was not read.'; return; }
+    // The search sits right above the tables it reads, not above the file's own preface.
+    var first = groups[0];
+    first.parentNode.insertBefore(input.parentNode, first);
+    first.parentNode.insertBefore(out, first);
+    input.addEventListener('input', function () {
+      var q = input.value.trim().toLowerCase(), total = 0, inGroups = 0;
+      groups.forEach(function (g) {
+        var n = 0;
+        g.querySelectorAll('tbody tr').forEach(function (tr) {
+          var hit = !q || tr.textContent.toLowerCase().indexOf(q) !== -1;
+          tr.hidden = !hit;
+          if (hit) n++;
+        });
+        var count = g.querySelector('.sum-count');
+        count.textContent = q ? n + ' of ' + count.getAttribute('data-rows') + ' rows' : count.getAttribute('data-rows') + ' rows';
+        g.hidden = !!q && n === 0;
+        g.open = !!q && n > 0;
+        total += n;
+        if (n) inGroups++;
+      });
+      if (!q) out.textContent = '';
+      else if (!total) out.textContent = 'Nothing matches "' + input.value.trim() + '". The search reads every row of every group.';
+      else out.textContent = total + ' rows match, in ' + inGroups + (inGroups === 1 ? ' group' : ' groups') + ', opened below.';
+    });
+  }
+})();
+</script>
+
+<script>
+window.NAV_BASE = '../';
+window.NAV_SECTIONS = [
+  { id: 'intro', label: 'Intro' },
+  { id: 'sources', label: 'Sources' },
+  { id: 'brand', label: 'Brand and data' },
+  { id: 'principles', label: 'Principles' },
+  { id: 'tone', label: 'Tone by phase' },
+  { id: 'glossary', label: 'Glossary' },
+  { id: 'forbidden', label: 'Forbidden' },
+  { id: 'microcopy', label: 'Microcopy' },
+  { id: 'inventory', label: 'Inventory' },
+];
+</script>
+<script src="../_nav.js"></script>
+</body>
+</html>

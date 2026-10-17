@@ -54,7 +54,7 @@ window.NAV = [
   ]},
 
   { label: 'Wireframes',         pageLabel: 'Overview',  page: 'wireframes/overview.html', done: true },
-  { label: 'Voice',              pageLabel: 'Voice',     page: 'voice/voice.html',         done: false },
+  { label: 'Voice',              pageLabel: 'Voice',     page: 'voice/voice.html',         done: false, live: true },
 
   { label: 'Concept', children: [
       { label: 'Directions', page: 'design/concept/directions.html', done: false },
