@@ -151,6 +151,40 @@
   </div>
 </div>
 
+<section id="d176">
+  <div class="sec-head">
+    <h2>Updated after publication: Full width, a corner tab, and a tile that turns over, D-176</h2>
+    <p>18 October 2026. The founder, on the strip: run it the screen's whole width, put "Live drops" in the right corner over it on a backing, and show the pause only on hover; on the tile, show on hover where it dropped from, the case or later the mode, and the player, as the baseline does.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Baseline row for this amendment</h4>
+    <p>Against <code>research/screens/baseline/founder_ticker_hover_18oct.png</code>, the founder's capture of 18 October 2026, and baseline.md section 3.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody>
+        <tr><td>A full bleed strip with no label. On hover a tile turns over: the source's art with the skin over it, the source named under it, CASE BATTLE, and the winner's avatar in the corner</td><td><strong>The full bleed and the turn over in place</strong>: the case art, the case name, the winner's avatar and name, a bot labelled, A3</td><td><strong>The label stays, as a tab over the top right corner</strong>, and the pause sits in it, shown on hover, on focus and while held, and always on a screen with no hover, section 2. <strong>The back of the tile holds no target</strong>: the tile lands on 7.1 on every input</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Window</th><th>Strip before</th><th>Strip after</th><th>Band height</th></tr></thead>
+      <tbody>
+        <tr><td>360</td><td>328px, 2.4 tiles</td><td>360px, 2.6 tiles</td><td><strong>143 to 101px</strong>, one row</td></tr>
+        <tr><td>1024</td><td>738px, 5.4 tiles</td><td>945px, 6.9 tiles</td><td>101px</td></tr>
+        <tr><td>1440</td><td>934px, 6.9 tiles</td><td>1141px, 8.4 tiles</td><td>101px</td></tr>
+        <tr><td>1920</td><td>1061px, 7.8 tiles</td><td>1465px, 10.8 tiles</td><td>101px</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <p><strong>What it reverses.</strong> D-59's hover layer sat under the tile, and the strip's clip ends where the tile does: measured, the layer opened at 156px under a clip ending at 153px. <strong>It was never seen, and a keyboard focused its two links invisibly.</strong> The two inner targets go with it, and the route already given for touch becomes the route for every input: the case and the winner are links on 7.1. D-156's one linked name is reached from 7.1 block 6.</p>
+    <p><strong>Swept:</strong> 134 pages at a 375 and a 1440 window, 0 script errors, no horizontal scroll, the tab flush with the band's corner on all 120 pages that carry the strip.</p>
+  </div>
+</section>
+
 <section id="d162">
   <div class="sec-head">
     <h2>Updated after publication: The feed's rounds carry their winners' seeds, D-162</h2>
@@ -240,7 +274,7 @@
   <div class="table-wrap">
     <table>
       <thead><tr><th>What the live product does</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
-      <tbody><tr><td>A strip under the header, full bleed, <strong>no label</strong>, about 14 tiles at 1440, moving on its own</td><td>The strip, its place under the header on every page, a tile per real win</td><td><strong>A label, "Live drops", and a Pause control with a text name</strong>, section 2: content that moves on its own needs a way to stop it, and the pause is also the reduced motion answer. <strong>The tile count follows the width</strong>: the strip starts at the rail's edge, so at 1440 it holds about six, and it scrolls rather than shrinking tiles to fit fourteen</td></tr></tbody>
+      <tbody><tr><td>A strip under the header, full bleed, <strong>no label</strong>, about 14 tiles at 1440, moving on its own</td><td>The strip, its place under the header on every page, a tile per real win</td><td><strong>A label, "Live drops", and a Pause control with a text name</strong>, section 2: content that moves on its own needs a way to stop it, and the pause is also the reduced motion answer. <strong>The tile count follows the width</strong>: the strip starts at the rail's edge, so at 1440 it holds about <s>six</s> <strong>eight, full bleed since <code>D-176</code></strong>, and it scrolls rather than shrinking tiles to fit fourteen</td></tr></tbody>
     </table>
   </div>
 </section>
@@ -292,8 +326,8 @@
       <thead><tr><th>Three targets in one tile</th><th>Goes to</th><th>Why it is not the tile&#39;s own destination</th></tr></thead>
       <tbody>
         <tr><td><strong>The tile body</strong></td><td>7.1, the shared result</td><td>Unchanged. <strong>It is the checkable object</strong>, which is the whole reason this component exists</td></tr>
-        <tr><td><strong>The case</strong>, in the hover layer</td><td>3.3</td><td>The feed is evidence that drops happen; the case is how a person acts on it</td></tr>
-        <tr><td><strong>The avatar and the name</strong>, in the hover layer</td><td><a href="public-profile.html">7.3</a>, the public profile, since <code>D-90</code></td><td><strong>Only where there is an account behind the name.</strong> A bot is labelled and never linked. See below</td></tr>
+        <tr><td><strong>The case</strong>, <s>in the hover layer</s> <strong>on the back of the tile, <code>D-176</code></strong></td><td><s>3.3</s> <strong>no target in the strip; 3.3 from the case row on 7.1</strong></td><td>The feed is evidence that drops happen; the case is how a person acts on it</td></tr>
+        <tr><td><strong>The avatar and the name</strong>, <s>in the hover layer</s> <strong>on the back of the tile, <code>D-176</code></strong></td><td><s>7.3, the public profile, since <code>D-90</code></s> <strong>no target in the strip; <a href="public-profile.html">7.3</a> from 7.1 block 6</strong></td><td><strong>Only where there is an account behind the name.</strong> A bot is labelled and never linked. See below</td></tr>
       </tbody>
     </table>
   </div>
@@ -428,7 +462,7 @@
     <table>
       <thead><tr><th>Question</th><th>Answer</th></tr></thead>
       <tbody>
-        <tr><td><strong>Where</strong></td><td>On the strip, always visible, reachable by keyboard, with a text label rather than an icon alone</td></tr>
+        <tr><td><strong>Where</strong></td><td><s>On the strip, always visible,</s> <strong>In the tab over the strip's top right corner, shown on hover, on focus and while held, and always on a screen with no hover, <code>D-176</code>;</strong> reachable by keyboard, with a text label rather than an icon alone</td></tr>
         <tr><td><strong>Initial state</strong></td><td><strong>The system preference decides it.</strong> Where <code>prefers-reduced-motion</code> is set, the strip starts paused, every time, and nothing on the site silently overrides that</td></tr>
         <tr><td><strong>What paused means</strong></td><td>The strip stops moving. It stays <strong>fully readable and fully linked</strong>: every visible tile keeps its destination. New events do not shove the strip while it is paused</td></tr>
         <tr><td><strong>What resuming means</strong></td><td>It resumes from the current feed. <strong>It never replays a backlog</strong>, because a burst of old wins arriving at once is a manufactured moment and <code>E2</code> is the rule against those</td></tr>
@@ -600,8 +634,8 @@
 
   <div class="card is-good">
     <h4>4. Every tile is a link to a checkable object, and that is the only route it offers</h4>
-    <p><s><strong>One destination, 7.1, and no second action anywhere on the tile.</strong> No route into the case, no open control, no share control.</s> <strong>Since <code>D-59</code> the tile body goes to 7.1 and the hover layer adds two targets, the case to 3.3 and the winner to 7.3; on touch the tile keeps exactly one destination, 7.1.</strong> No open control and no share control. A ticker tile that opens a case turns social proof into a spend prompt, and the tile is not a place where cost is visible: <strong>the case target lands on the case screen, where the cost is, rather than opening anything.</strong></p>
-    <p><strong>The destination changed and the change is the point.</strong> The baseline links every tile to the winner's public profile at <code>/en/profile/&lt;id&gt;</code>, and <s>no job in this repository requires a profile object at all</s> <strong>a public profile now exists, 7.3, by <code>D-90</code>, and the winner's name in the hover layer reaches it; the tile body does not</strong>. <code>D-20</code> approved 7.1, so the social proof surface now points at something a stranger can check rather than at a stranger's trophy shelf.</p>
+    <p><s><strong>One destination, 7.1, and no second action anywhere on the tile.</strong> No route into the case, no open control, no share control.</s> <s><strong>Since <code>D-59</code> the tile body goes to 7.1 and the hover layer adds two targets, the case to 3.3 and the winner to 7.3; on touch the tile keeps exactly one destination, 7.1.</strong></s> <strong>Since <code>D-176</code> the tile has one destination on every input, 7.1; its back shows the case and the winner and holds no target.</strong> No open control and no share control. A ticker tile that opens a case turns social proof into a spend prompt, and the tile is not a place where cost is visible: <strong>the case target lands on the case screen, where the cost is, rather than opening anything.</strong></p>
+    <p><strong>The destination changed and the change is the point.</strong> The baseline links every tile to the winner's public profile at <code>/en/profile/&lt;id&gt;</code>, and <s>no job in this repository requires a profile object at all</s> <strong>a public profile now exists, 7.3, by <code>D-90</code>, <s>and the winner's name in the hover layer reaches it</s> and 7.1 block 6 reaches it, <code>D-176</code>; the tile body does not</strong>. <code>D-20</code> approved 7.1, so the social proof surface now points at something a stranger can check rather than at a stranger's trophy shelf.</p>
     <p><strong>And no proof inline.</strong> <code>0.14</code> renders on 7.1, which is where the tile lands. A truncated hash in a 92px tile is not evidence, it is a decoration shaped like evidence, and <code>0.14</code> is the rule against exactly that.</p>
   </div>
 
@@ -698,6 +732,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.8 Live drop ticker';
 window.NAV_SECTIONS = [
   { id: 'overview',  label: 'Overview' },
+  { id: 'd176', label: 'D-176 full width' },
   { id: 'd162', label: 'D-162 seeds' },
   { id: 'd156', label: 'D-156 winners' },
   { id: 'd145', label: 'D-145 catch-up' },

@@ -2570,33 +2570,46 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
    strip is built to be furniture: one row, no figure, no colour, no urgency,
    and the smallest height that keeps the item legible.
    ============================================================================ */
+/* FULL BLEED, D-176, the baseline's own strip: the tiles run from the band's
+   left edge to its right at every width, where they stopped at the content
+   column with the label beside them. */
 .wf-feed {
+  position: relative;
   width: 100%;
   border-bottom: 1px solid var(--wf-line-soft);
   background: var(--wf-raised);
-  padding-inline: max(var(--wf-s-2), (100% - var(--wf-content)) / 2);
   padding-block: var(--wf-s-1);
 }
-@media (min-width: 900px) {
-  .wf-feed { padding-inline: max(var(--wf-s-3), (100% - var(--wf-content)) / 2); }
+/* ONE ROW AT EVERY WIDTH. The label sat beside the strip and took its own line
+   below 600; as a tab over the strip's corner it costs the band no height and
+   the strip no width, D-176. */
+.wf-feed-head {
+  position: absolute; z-index: 2; top: 0; right: 0;
+  display: flex; align-items: center; gap: var(--wf-s-1);
+  padding: 2px var(--wf-s-1);
+  background: var(--wf-raised);
+  border-left: 1px solid var(--wf-line); border-bottom: 1px solid var(--wf-line);
+  border-bottom-left-radius: var(--wf-r-2);
 }
-/* ONE ROW, NOT TWO. D-31 cut this component from the case screen for taking too
-   much of it, so every pixel here is argued for: the label and the control sit
-   BESIDE the strip rather than above it, which is 28px of a band that has to be
-   furniture. Below 600 they take their own line, because at 360 a label, a
-   control and a scrolling strip on one line leaves the strip nothing. */
-.wf-feed-in { display: flex; align-items: center; gap: var(--wf-s-2); }
-@media (max-width: 599px) { .wf-feed-in { flex-wrap: wrap; } .wf-feed-clip { flex-basis: 100%; } }
-.wf-feed-head { display: flex; align-items: center; gap: var(--wf-s-2); }
 .wf-feed-lbl {
   font-size: var(--wf-t-xs); letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--wf-ink-dim); white-space: nowrap;
 }
 /* ONE CONTROL, TWO PARENTS, and that is the node's own wording: it is the pause
    the strip owes design principle 2, and it is the prefers-reduced-motion answer,
-   so the product ships one mechanism for one state rather than two. */
-.wf-feed-pause { min-height: 26px; padding: 0 var(--wf-s-1); font-size: var(--wf-t-xs); }
-@media (max-width: 599px) { .wf-feed-head { width: 100%; } .wf-feed-pause { margin-left: auto; } }
+   so the product ships one mechanism for one state rather than two.
+   IT SHOWS WHEN IT CAN BE WANTED, D-176: on hover, on keyboard focus, and while
+   the strip is held, where it reads Resume and is the only sign of the state.
+   Hidden it stays focusable, so a key finds it without a pointer. A screen with
+   no hover keeps it at all times. It sits left of the label so the label never
+   moves. */
+.wf-feed-pause { order: -1; min-height: 26px; padding: 0 var(--wf-s-1); font-size: var(--wf-t-xs); }
+@media (hover: hover) {
+  .wf-feed:not(:hover):not(:focus-within):not(.is-held) .wf-feed-pause {
+    position: absolute; width: 1px; height: 1px; min-height: 0; padding: 0; margin: -1px;
+    overflow: hidden; clip-path: inset(50%); border: 0; white-space: nowrap;
+  }
+}
 
 /* THE STRIP SCROLLS INSIDE ITS OWN FRAME AND NEVER TAKES THE PAGE WITH IT.
    Written at the end of its own section because a flat rule later in the file
@@ -2648,42 +2661,30 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
   background: var(--wf-raised);
 }
 
-/* THE HOVER LAYER, AND NOTHING IS REACHABLE ONLY THROUGH IT.
-   Hover does not exist on a touch screen. On touch the tile has exactly one
-   destination, 7.1, and both objects below are on 7.1 one tap further, D-59.
-   That is why this layer is @media (hover: hover) and not a tap target. */
-.wf-feed-pop {
-  display: none; position: absolute; z-index: 70;
-  top: calc(100% + var(--wf-s-half)); left: 0;
-  width: max-content; max-width: 240px;
+/* THE BACK OF THE TILE, D-176: the case and the winner, turned over in place.
+   It replaced a layer drawn under the tile, which the strip's own clip hid.
+   NOTHING IS REACHABLE ONLY THROUGH IT: it holds no target, and the tile still
+   lands on 7.1, where the case and the winner are links. Hover does not exist
+   on a touch screen, so there it never shows and the tile's name carries both. */
+.wf-feed-back {
+  display: none; position: absolute; inset: 0;
+  flex-direction: column; gap: 2px;
   padding: var(--wf-s-1);
-  background: var(--wf-raised); border: 1px solid var(--wf-line); border-radius: var(--wf-r-2);
-}
-.wf-feed-pop::before {
-  content: ''; position: absolute; left: 0; right: 0;
-  top: calc(var(--wf-s-half) * -1 - 1px); height: calc(var(--wf-s-half) + 2px);
+  background: var(--wf-surface); border-radius: var(--wf-r-2);
 }
 @media (hover: hover) {
-  .wf-feed-i:hover .wf-feed-pop, .wf-feed-i:focus-within .wf-feed-pop { display: block; }
+  .wf-feed-i:hover .wf-feed-back, .wf-feed-i:focus-within .wf-feed-back { display: flex; }
 }
-.wf-feed-case {
-  display: flex; align-items: center; gap: var(--wf-s-1);
-  font-size: var(--wf-t-xs); color: var(--wf-ink); text-decoration: none;
-  padding: var(--wf-s-half); border-radius: var(--wf-r-1);
-}
-.wf-feed-case-art { flex: 0 0 40px; height: 30px; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1); }
+/* The case reads as a box, not as a second skin. */
+.wf-feed-back .wf-feed-art { width: 48px; align-self: center; }
 .wf-feed-who {
-  display: flex; align-items: center; gap: var(--wf-s-1);
-  font-size: var(--wf-t-xs); color: var(--wf-ink-dim);
-  padding: var(--wf-s-half); margin-top: var(--wf-s-half);
-  border-top: 1px dashed var(--wf-line-soft);
+  display: flex; align-items: center; gap: 4px; min-width: 0;
+  font-size: var(--wf-t-xs); color: var(--wf-ink-dim); line-height: 1.25;
 }
-.wf-feed-whocol { display: flex; flex-direction: column; }
-.wf-feed-av { flex: 0 0 22px; height: 22px; border: 1px dashed var(--wf-line-soft); border-radius: 50%; }
-/* THE WINNER'S NAME IS A LINK SINCE D-90 and it is the second target inside the
-   hover layer, so it is underlined rather than merely coloured: two live areas
-   in one small panel need to be told apart without a pointer on them. */
-.wf-feed-whol { color: var(--wf-ink); text-decoration: underline; }
+.wf-feed-whon { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.wf-feed-av { flex: 0 0 14px; height: 14px; border: 1px dashed var(--wf-line-soft); border-radius: 50%; }
+/* The case art on 7.1's case row, which borrowed this component's class. */
+.wf-feed-case-art { flex: 0 0 40px; height: 30px; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1); }
 .wf-feed-bot { font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wf-ink-faint); }
 
 /* ---------------------------------------------------------------------------

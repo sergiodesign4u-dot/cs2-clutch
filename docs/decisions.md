@@ -6129,3 +6129,18 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **Said out loud.** The won shelf, on History items and on the player pages, uses the same card with its own column steps and is unchanged here.
 
+## D-176. The live strip runs full width, its label is a corner tab, and a tile turns over to show the case and the winner
+
+**Date:** 2026-10-18. **Stage:** 04 reopened during stage 05. **Decided by:** the founder, on the strip: "на всю ширину экрана, live drops написать где-то в правом углу поверх на подложке аккуратно, а паузу показывать только при наведении", and on the tile: "при наведении показывать откуда упало (с какого кейса или режима) и ещё игрока", with a dated capture of the baseline's hover, `founder_ticker_hover_18oct.png`. **Binds:** node `0.8`, `_nav.js` `feedTile` and `renderFeed`, the feed block of `_wf.css`.
+
+**What was decided.**
+
+1. **The tiles run the band's whole width**, edge to edge, where they stopped at the content column. Measured on Home: the strip is 1141px at a 1440 window against 934, about 8.4 tiles against 6.9; 945px at 1024 against 738.
+2. **"Live drops" is a tab over the strip's top right corner**, on the band's own surface with a hairline border. It costs no height: at 360 the band is 101px against 143, because the label no longer takes its own line.
+3. **Pause shows on hover, on keyboard focus and while the strip is held**, where it reads Resume and is the only sign of the state. Hidden it stays focusable. **On a screen with no hover it stays visible**, because nothing else could reveal it, and content that moves on its own needs a way to stop it, section 2 of the node.
+4. **On hover or focus a tile turns over in place**, the baseline's own behaviour: the case art, the case name, and the winner with an avatar, a bot labelled. A mode with no case will name the mode, as the baseline's CASE BATTLE does.
+
+**What it reverses, and why that is a fix rather than a loss.** `D-59` drew the case and the winner as a layer under the tile with a link each. **Measured before this change: the layer opened at 156px and the strip's clip ends at 153px, so it was never seen,** and a keyboard focused two links nobody could see. The back of the tile holds no target: the tile lands on `7.1` on every input, and the case and the winner are links there, which `0.8` section 0.5.4 already gave as the route on touch. `D-156`'s one linked name, the account's own, is reached from `7.1` block 6 the same way.
+
+**Said out loud.** On a phone the tab sits over the corner of whichever tile passes under it, and while held it covers part of one. The tile does not turn over on touch, which has no hover; the accessible name carries the case and the winner on every input.
+

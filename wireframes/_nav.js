@@ -1372,16 +1372,15 @@ window.WF_PAY = window.WF_PAY || {
                    usp: 'tallowcs', nova: 'brisk', mp9: 'oriole_cs', p250: 'harrow', m4: 'vandal88' };
 
   function feedTile(row) {
-    // FOUR THINGS AND A HOVER LAYER. The image leads, D-59 and the founder's own
-    // ordering: a skin is recognised by its finish before it is recognised by
-    // its name, and the strip is looked at rather than read.
+    // THE IMAGE LEADS, D-59 and the founder's own ordering: a skin is recognised
+    // by its finish before it is recognised by its name, and the strip is looked
+    // at rather than read.
     var li = el('li', 'wf-feed-i');
 
-    // TARGET 1, THE TILE BODY, LANDS ON 7.1. Field 7 of the node and D-20: the
-    // whole reason this component exists is that every tile is a link to a
-    // CHECKABLE object, so the body goes to the shared result and not to the
-    // case. 7.1 is spec at this stage and the route is drawn anyway, because a
-    // real route to an undrawn page is honest and a convenient one is not.
+    // ONE TARGET, THE TILE BODY, AND IT LANDS ON 7.1. Field 7 of the node and
+    // D-20: the whole reason this component exists is that every tile is a link
+    // to a CHECKABLE object, so the body goes to the shared result and not to the
+    // case. The case and the winner are links on 7.1, one tap further.
     var hit = el('a', 'wf-feed-hit');
     hit.href = BASE + 'result.html' + (row[5] && row[5] !== 'ak' ? '?round=' + row[5] : '');
     // THE NAME CARRIES SOURCE, WEAPON, SKIN, RARITY AND WINNER, ticker.md's
@@ -1393,74 +1392,39 @@ window.WF_PAY = window.WF_PAY || {
     hit.lastChild.setAttribute('aria-hidden', 'true');
     hit.appendChild(el('span', 'wf-feed-w', row[0]));
     hit.appendChild(el('span', 'wf-feed-s', row[1]));
+
+    /* THE BACK OF THE TILE, D-176: where it dropped from and who won it, turned
+       over in place on hover, which is how the baseline does it,
+       founder_ticker_hover_18oct.png. D-59 drew this as a layer under the tile
+       with two links in it, and the strip clips everything below itself: the
+       layer was never seen, and a keyboard focused two links nobody could see.
+       IT HOLDS NO TARGET OF ITS OWN, so the tile keeps one destination for a
+       pointer, a finger and a key alike. The source line names the case in round
+       1; a mode with no case names the mode, the baseline's CASE BATTLE.
+       ROW A3 STILL BINDS THE WINNER: no invented names, a bot labelled as one.
+       Hidden from the accessibility tree because the tile's name already says
+       both, in the order section 6 fixes. */
+    var back = el('span', 'wf-feed-back');
+    back.setAttribute('aria-hidden', 'true');
+    back.appendChild(el('span', 'wf-feed-art'));
+    back.appendChild(el('span', 'wf-feed-w', row[2]));
+    var who = el('span', 'wf-feed-who');
+    who.appendChild(el('span', 'wf-feed-av'));
+    who.appendChild(el('span', 'wf-feed-whon', FEED_WHO[row[5]] || 'a player'));
+    if (row[3]) who.appendChild(el('span', 'wf-feed-bot', ' bot'));
+    back.appendChild(who);
+    hit.appendChild(back);
     li.appendChild(hit);
 
     // THE MODE ICON. Section 0 of the node fixed that the source field carries
     // the CASE in round 1, because a label reading the same word on every tile
     // is the dead item defect. D-59 splits it: the icon takes the mode, the case
-    // moves into the hover layer. ROUND 1 SHIPS ONE MODE, so this is the same
+    // moves to the back of the tile. ROUND 1 SHIPS ONE MODE, so this is the same
     // glyph on every tile forever until a second one arrives. That cost is
     // printed in the node and in D-59 rather than absorbed here.
     var mode = el('span', 'wf-feed-mode');
     mode.setAttribute('aria-label', 'Case opening');
     li.appendChild(mode);
-
-    var pop = el('div', 'wf-feed-pop');
-    // TARGET 2, THE CASE, GOES TO 3.3. The feed is evidence that drops happen;
-    // the case is how a person acts on it.
-    var cs = el('a', 'wf-feed-case');
-    cs.href = BASE + caseHref(row[2], false);
-    cs.appendChild(el('span', 'wf-feed-case-art'));
-    cs.lastChild.setAttribute('aria-hidden', 'true');
-    cs.appendChild(el('span', null, row[2]));
-    pop.appendChild(cs);
-
-    // TARGET 3, THE WINNER, AND IT HAS A ROUTE SINCE 23 AUGUST 2026, D-90.
-    // Field 5: the winner as the account chooses to appear, and an avatar is a
-    // way of appearing. ROW A3 IS UNCHANGED AND BINDS IT: no invented names, and
-    // any bot present labelled as one. A stock avatar over an invented account
-    // is A3 broken with a picture on top.
-    // IT WAS A TARGET WITH NO ROUTE FOR TWO DAYS AND THE MARK IS NOW OFF. D-59
-    // drew the destination and printed "public profile: no node yet" on every
-    // tile of every page, because the map held no node for it and 5.10 is the
-    // account's own view of itself. The founder created 7.3 and the destination
-    // is real. The line that named the absence goes with the absence: a mark
-    // left standing after its subject is fixed is the next false statement.
-    // A BOT DOES NOT GET ONE. Row A3 requires a bot to be labelled, and a bot
-    // has nothing a public profile could hold, so the name is only a link where
-    // there is an account behind it.
-    // AND NEITHER DOES SOMEONE WHO HAS HIDDEN THEIRS, D-93. Field 5 of row A3 is
-    // the winner as the account chooses to appear, and choosing not to have a
-    // public page is one of the ways of appearing. So a hidden account keeps its
-    // name in the strip and loses the link, which is the only thing hiding
-    // changes here. IT CARRIES NO LABEL. A "hidden" badge would publish the very
-    // fact the setting exists to withhold, and it would tell a stranger which
-    // accounts have something to look at.
-    var who = el('div', 'wf-feed-who');
-    who.appendChild(el('span', 'wf-feed-av'));
-    who.lastChild.setAttribute('aria-hidden', 'true');
-    var col = el('span');
-    var whoName = FEED_WHO[row[5]];
-    if (row[3]) {
-      col.appendChild(el('span', null, whoName));
-      col.appendChild(el('span', 'wf-feed-bot', ' bot'));
-    } else if (row[4]) {
-      col.appendChild(el('span', null, whoName));
-    } else if (whoName !== window.WF_WHO.name) {
-      /* ONE PUBLIC PROFILE IS DRAWN, THE ACCOUNT'S, round 16, D1-4: every
-         winner's name opened nightjar_cs's page. Another winner's name is text
-         until their page exists, the treatment a hidden profile already gets. */
-      col.appendChild(el('span', null, whoName));
-    } else {
-      var whoLink = el('a', 'wf-feed-whol', whoName);
-      whoLink.href = BASE + 'player.html';
-      col.appendChild(whoLink);
-    }
-    col.className = 'wf-feed-whocol';
-    who.appendChild(col);
-    pop.appendChild(who);
-
-    li.appendChild(pop);
     return li;
   }
 
@@ -1468,6 +1432,9 @@ window.WF_PAY = window.WF_PAY || {
     var band = el('section', 'wf-feed');
     band.setAttribute('aria-label', 'Live drops');
 
+    // THE LABEL IS A TAB IN THE CORNER, OVER THE STRIP, D-176, so the strip runs
+    // the band's whole width. The pause shows on hover, on focus and while held,
+    // and stays on a screen with no hover, where nothing else could reveal it.
     var head = el('div', 'wf-feed-head');
     head.appendChild(el('span', 'wf-feed-lbl', 'Live drops'));
     var pause = el('button', 'wf-btn wf-feed-pause', 'Pause');
@@ -1513,7 +1480,7 @@ window.WF_PAY = window.WF_PAY || {
   /* WHERE THE FEED GOES, AND THE MEASUREMENT DECIDED IT RATHER THAN THE ARGUMENT.
      D-59 put it under the header and the node pre-committed: "stage 04 measures
      what it costs the first screen at 360, and the measurement outranks this
-     paragraph." It was measured. At 360 the band is 143px, and on the case
+     paragraph." It was measured. At 360 the band was 143px, 101 since D-176, and on the case
      screen at 360x800 it moved the act from 744 to 886, THROUGH THE FOLD. Node
      3.3 section 14 forbids exactly that.
      SO ON MOBILE IT SITS AFTER THE CONTENT, and on desktop the grid puts it back

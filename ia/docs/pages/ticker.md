@@ -18,7 +18,32 @@
 
 | What the live product does | What we keep | What we change, and why |
 |---|---|---|
-| A strip under the header, full bleed, **no label**, about 14 tiles at 1440, moving on its own | The strip, its place under the header on every page, a tile per real win | **A label, "Live drops", and a Pause control with a text name**, section 2: content that moves on its own needs a way to stop it, and the pause is also the reduced motion answer. **The tile count follows the width**: the strip starts at the rail's edge, so at 1440 it holds about six, and it scrolls rather than shrinking tiles to fit fourteen |
+| A strip under the header, full bleed, **no label**, about 14 tiles at 1440, moving on its own | The strip, its place under the header on every page, a tile per real win | **A label, "Live drops", and a Pause control with a text name**, section 2: content that moves on its own needs a way to stop it, and the pause is also the reduced motion answer. **The tile count follows the width**: the strip starts at the rail's edge, so at 1440 it holds about ~~six~~ **eight, full bleed since `D-176`**, and it scrolls rather than shrinking tiles to fit fourteen |
+
+---
+
+## Amended 18 October 2026 by `D-176`. Full width, a corner tab, and a tile that turns over
+
+**Why.** The founder, on the strip: run it the screen's whole width, put "Live drops" in the right corner over it on a backing, and show the pause only on hover; on the tile, show on hover where it dropped from, the case or later the mode, and the player, as the baseline does.
+
+**Baseline row for this amendment**, against `research/screens/baseline/founder_ticker_hover_18oct.png`, the founder's capture of 18 October 2026, and `baseline.md` section 3.
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A full bleed strip with no label. On hover a tile turns over: the source's art with the skin over it, the source named under it, CASE BATTLE, and the winner's avatar in the corner | **The full bleed and the turn over in place**: the case art, the case name, the winner's avatar and name, a bot labelled, `A3` | **The label stays, as a tab over the top right corner**, and the pause sits in it, shown on hover, on focus and while held, and always on a screen with no hover, section 2. **The back of the tile holds no target**: the tile lands on `7.1` on every input |
+
+**Measured on Home before and after:**
+
+| Window | Strip before | Strip after | Band height |
+|---|---|---|---|
+| 360 | 328px, 2.4 tiles | 360px, 2.6 tiles | **143 to 101px**, one row |
+| 1024 | 738px, 5.4 tiles | 945px, 6.9 tiles | 101px |
+| 1440 | 934px, 6.9 tiles | 1141px, 8.4 tiles | 101px |
+| 1920 | 1061px, 7.8 tiles | 1465px, 10.8 tiles | 101px |
+
+**What it reverses.** `D-59`'s hover layer sat under the tile, and the strip's clip ends where the tile does: measured, the layer opened at 156px under a clip ending at 153px. **It was never seen, and a keyboard focused its two links invisibly.** Section 0.5.4's two inner targets go with it, and the route section 0.5.4 already gave for touch becomes the route for every input: the case and the winner are links on `7.1`. `D-156`'s one linked name is reached from `7.1` block 6.
+
+**Swept:** 134 pages at a 375 and a 1440 window, 0 script errors, no horizontal scroll, the tab flush with the band's corner on all 120 pages that carry the strip.
 
 ---
 
@@ -120,8 +145,8 @@
 | Target | Goes to | Why it is not the tile's own destination |
 |---|---|---|
 | **The tile body** | `7.1`, the shared result | Unchanged. **It is the checkable object**, which is the whole reason this component exists |
-| **The case**, in the hover layer | `3.3` | The feed is evidence that drops happen; the case is how a person acts on it |
-| **The avatar and the name**, in the hover layer | **`7.3`, the public profile**, since `D-90`, 23 August 2026. **Only where there is an account behind the name:** a bot is labelled and never linked | Section 0.5.5 |
+| **The case**, ~~in the hover layer~~ **on the back of the tile, `D-176`** | ~~`3.3`~~ **no target in the strip; `3.3` from the case row on `7.1`** | The feed is evidence that drops happen; the case is how a person acts on it |
+| **The avatar and the name**, ~~in the hover layer~~ **on the back of the tile, `D-176`** | ~~**`7.3`, the public profile**, since `D-90`, 23 August 2026.~~ **No target in the strip; `7.3` from `7.1` block 6.** **Only where there is an account behind the name:** a bot is labelled and never linked | Section 0.5.5 |
 
 **Hover does not exist on a touch screen, and this node does not pretend otherwise.** On touch the tile has **exactly one destination, `7.1`**, and both other objects are on `7.1`, one tap further. **Nothing in this component is reachable only by hover**, which is the rule that keeps the two input models from being two products.
 
@@ -194,7 +219,7 @@
 
 | Question | Answer |
 |---|---|
-| **Where** | On the strip, always visible, reachable by keyboard, with a text label rather than an icon alone |
+| **Where** | ~~On the strip, always visible,~~ **In the tab over the strip's top right corner, shown on hover, on focus and while held, and always on a screen with no hover, `D-176`;** reachable by keyboard, with a text label rather than an icon alone |
 | **Initial state** | **The system preference decides it.** Where `prefers-reduced-motion` is set, the strip starts paused, every time, and nothing on the site silently overrides that |
 | **What paused means** | The strip stops moving. It stays **fully readable and fully linked**: every visible tile keeps its destination. New events do not shove the strip while it is paused |
 | **What resuming means** | It resumes from the current feed. **It never replays a backlog**, because a burst of old wins arriving at once is a manufactured moment and `E2` is the rule against those |
@@ -292,9 +317,9 @@ A continuous loop built from four events looks like forty. **Below the minimum c
 
 ### 5.4 Every tile is a link to a checkable object, and that is the only route it offers
 
-~~**One destination, `7.1`, and no second action anywhere on the tile.** No route into the case, no open control, no share control.~~ **Since `D-59` the tile body goes to `7.1` and the hover layer adds two targets, the case to `3.3` and the winner to `7.3`, section 0.5.4; on touch the tile keeps exactly one destination, `7.1`.** No open control and no share control. A ticker tile that opens a case turns social proof into a spend prompt, and the tile is not a place where cost is visible: **the case target lands on the case screen, where the cost is, rather than opening anything.**
+~~**One destination, `7.1`, and no second action anywhere on the tile.** No route into the case, no open control, no share control.~~ ~~**Since `D-59` the tile body goes to `7.1` and the hover layer adds two targets, the case to `3.3` and the winner to `7.3`, section 0.5.4; on touch the tile keeps exactly one destination, `7.1`.**~~ **Since `D-176` the tile has one destination on every input, `7.1`; its back shows the case and the winner and holds no target.** No open control and no share control. A ticker tile that opens a case turns social proof into a spend prompt, and the tile is not a place where cost is visible: **the case target lands on the case screen, where the cost is, rather than opening anything.**
 
-**The destination changed and the change is the point.** The baseline links every tile to the winner's public profile at `/en/profile/<id>`, `baseline.md` section 3, and ~~no job in this repository requires a profile object at all~~ **a public profile now exists, `7.3`, by `D-90`, and the winner's name in the hover layer reaches it, section 0.5.5; the tile body does not**. `D-20` approved `7.1`, so the social proof surface now points at something a stranger can check rather than at a stranger's trophy shelf.
+**The destination changed and the change is the point.** The baseline links every tile to the winner's public profile at `/en/profile/<id>`, `baseline.md` section 3, and ~~no job in this repository requires a profile object at all~~ **a public profile now exists, `7.3`, by `D-90`, ~~and the winner's name in the hover layer reaches it, section 0.5.5~~ and `7.1` block 6 reaches it, `D-176`; the tile body does not**. `D-20` approved `7.1`, so the social proof surface now points at something a stranger can check rather than at a stranger's trophy shelf.
 
 **And no proof inline.** `0.14` renders on `7.1`, which is where the tile lands. A truncated hash in a 92px tile is not evidence, it is a decoration shaped like evidence, and `0.14` section 0 is the rule against exactly that.
 
