@@ -36,6 +36,8 @@
 
 Found while measuring and fixed: since D-177 the tiles' mode icons sat at z-index 2, the same as the corner tab, so at 360 a tile's icon covered the Pause control. The tab is raised to 3.
 
+**Fixed the same day, D-179, on the founder's look at it:** the first tile sat flush at the rail's seam, under the rail toggle, and now stands 24px off the edge at 900 and up, 16px below; and while an arriving tile opened its slot its names wrapped in the narrow box, the tile grew 14px, the row stretched with it and the page under the strip jumped, measured 100.5 to 114.3px on the case screen. The arriving tile now keeps its full width inside, and a tile's names hold one line each, cut with an ellipsis. Measured after: the band stays 100.5px and the content under it does not move through two arrivals at 1440, 1024 and 360; the first tile starts 9px clear of the toggle.
+
 **The cost.** On a touch screen nothing holds the strip before the first touch, so a tap in the 700ms of an arrival can land on the tile that just moved into that place. The drift had the same exposure all the time; this has it for 700ms every 3s.
 
 ---

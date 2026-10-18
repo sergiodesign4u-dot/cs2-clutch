@@ -6173,3 +6173,12 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **The cost, said out loud.** On a touch screen nothing holds the strip before the first touch, so a tap in the 700ms of an arrival can land on the tile that just moved into that place. The drift had the same exposure all the time; this has it for 700ms every 3s.
 
+## D-179. The live strip's first tile stands off the edge, and an arrival no longer moves the page
+
+**Date:** 2026-10-19. **Stage:** 04 reopened during stage 05. **Decided by:** the founder, on `D-178`: "отступ у первого дропа", and "иногда при дропе у некоторых элементов чуть прыгает, сайт двигает баннер и весь контент". **Binds:** node `0.8`, the feed block of `_wf.css`.
+
+**What was decided.** The strip's tiles start 24px in from the rail's seam at 900 and up, clear of the rail toggle that straddles it, and 16px in below 900. An arriving tile keeps its full width inside while its slot opens, and a tile's weapon and skin hold one line each, cut with an ellipsis, so no tile can make the row taller.
+
+**Why.** Measured before: on the case screen at 1440 the band went from 100.5 to 114.3px during every arrival, because the names wrapped in the opening slot and the row stretched to the tallest tile. After: 100.5px throughout, and the content under it does not move, at 1440, 1024 and 360.
+
+**The cost.** A name longer than a tile is cut on the tile; the whole name stays in the tile's accessible name and on `7.1`.

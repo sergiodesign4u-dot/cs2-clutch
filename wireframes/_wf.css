@@ -2617,18 +2617,25 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
    Written at the end of its own section because a flat rule later in the file
    beats a media query on equal specificity, which this project has now hit four
    times, D-62. */
+/* THE FIRST TILE STANDS OFF THE EDGE, D-179: flush at the rail's seam it sat
+   under the rail toggle, which straddles the seam 16px each way at 900 and up. */
 .wf-feed-run {
   display: flex; gap: var(--wf-s-1);
-  list-style: none; margin: 0; padding: 0;
+  list-style: none; margin: 0; padding: 0 0 0 var(--wf-s-2);
   width: max-content;
 }
+@media (min-width: 900px) { .wf-feed-run { padding-left: var(--wf-s-3); } }
 .wf-feed-clip { overflow: hidden; min-width: 0; flex: 1 1 auto; }
 /* THE STRIP NO LONGER DRIFTS, D-178: it stands still and a new drop arrives at
    the front. The tile first opens its slot, so the row is pushed one place to
    the right, the direction the founder chose on 21 August 2026, and then drops
    in from above the strip's clip. Holding, aiming and focus are answered in
    _nav.js, where arrivals stop. The timing is a sample for stage 11. */
-.wf-feed-i.is-new { animation: wf-feed-arrive 700ms ease-out; }
+.wf-feed-i.is-new { animation: wf-feed-arrive 700ms ease-out; overflow: hidden; }
+/* THE ARRIVING TILE KEEPS ITS FULL WIDTH INSIDE, D-179: while its slot opened its
+   names wrapped in the narrow box, the tile grew 14px taller, the whole row
+   stretched with it, and everything under the strip jumped. */
+.wf-feed-i.is-new .wf-feed-hit { min-width: 126px; }
 @keyframes wf-feed-arrive {
   0% { flex-basis: 0; margin-right: calc(-1 * var(--wf-s-1)); opacity: 0; transform: translateY(-100%); }
   45% { flex-basis: 128px; margin-right: 0; opacity: 0; transform: translateY(-100%); }
@@ -2653,6 +2660,9 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 .wf-feed-art { height: 34px; border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1); }
 .wf-feed-w { font-size: var(--wf-t-xs); font-weight: 600; line-height: 1.25; }
 .wf-feed-s { font-size: var(--wf-t-xs); color: var(--wf-ink-dim); line-height: 1.25; }
+/* One line each, so a long name cannot make one tile, and with it the row and
+   the page under it, taller when it arrives or leaves, D-179. */
+.wf-feed-hit .wf-feed-w, .wf-feed-hit .wf-feed-s { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 /* THE MODE ICON, AND ITS COST IS PRINTED IN THE NODE RATHER THAN HIDDEN HERE.
    Round 1 ships one mode, so this is the same glyph on every tile on every page
    until a second mode arrives, and a constant is not information. It is drawn
