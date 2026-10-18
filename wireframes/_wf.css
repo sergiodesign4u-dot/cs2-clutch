@@ -2583,8 +2583,10 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
 /* ONE ROW AT EVERY WIDTH. The label sat beside the strip and took its own line
    below 600; as a tab over the strip's corner it costs the band no height and
    the strip no width, D-176. */
+/* Above the tiles' mode icons, which sit at z-index 2 since D-177 and covered
+   the pause at 360, D-178. */
 .wf-feed-head {
-  position: absolute; z-index: 2; top: 0; right: 0;
+  position: absolute; z-index: 3; top: 0; right: 0;
   display: flex; align-items: center; gap: var(--wf-s-1);
   padding: 2px var(--wf-s-1);
   background: var(--wf-raised);
@@ -2619,18 +2621,20 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
   display: flex; gap: var(--wf-s-1);
   list-style: none; margin: 0; padding: 0;
   width: max-content;
-  animation: wf-drift-x 90s linear infinite;
-  /* IT RUNS THE OTHER WAY, founder decision of 21 August 2026. Reversed here
-     rather than by flipping wf-drift-x, because the case screen's showcase run
-     shares that keyframe and it is not what changed. A shared keyframe edited
-     for one consumer is the drift this file's own header warns about. */
-  animation-direction: reverse;
 }
 .wf-feed-clip { overflow: hidden; min-width: 0; flex: 1 1 auto; }
-.wf-feed.is-held .wf-feed-run { animation-play-state: paused; }
-@media (prefers-reduced-motion: reduce) { .wf-feed-run { animation: none; } }
-/* The target does not move while it is being aimed at, 0.8 section 6, round 14. */
-.wf-feed:hover .wf-feed-run, .wf-feed:focus-within .wf-feed-run { animation-play-state: paused; }
+/* THE STRIP NO LONGER DRIFTS, D-178: it stands still and a new drop arrives at
+   the front. The tile first opens its slot, so the row is pushed one place to
+   the right, the direction the founder chose on 21 August 2026, and then drops
+   in from above the strip's clip. Holding, aiming and focus are answered in
+   _nav.js, where arrivals stop. The timing is a sample for stage 11. */
+.wf-feed-i.is-new { animation: wf-feed-arrive 700ms ease-out; }
+@keyframes wf-feed-arrive {
+  0% { flex-basis: 0; margin-right: calc(-1 * var(--wf-s-1)); opacity: 0; transform: translateY(-100%); }
+  45% { flex-basis: 128px; margin-right: 0; opacity: 0; transform: translateY(-100%); }
+  100% { flex-basis: 128px; margin-right: 0; opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .wf-feed-i.is-new { animation: none; } }
 
 .wf-feed-i {
   position: relative;

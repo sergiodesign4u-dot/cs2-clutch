@@ -6156,3 +6156,20 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **The cost, said out loud.** With a mouse, a turned tile covers itself, so a pointer reaches the case and the player and no longer the round from the strip. The round is one click further, from the player's card. This is the trade the founder chose; `0.8` field 7 names `7.1` as the tile's destination and that is now true for keyboard and touch only.
 
+## D-178. The live strip stops drifting: a new drop arrives at the front and pushes the row one place
+
+**Date:** 2026-10-19. **Stage:** 04 reopened during stage 05. **Decided by:** the founder: "должно как бы добавляться к ленте, а не крутиться: новый дроп вылазит сверху и двигает всё на один", "чтобы потом нормально перенести на визуал". **Binds:** node `0.8` sections 2, 4 and 5.2, `_nav.js` `renderFeed`, the feed block of `_wf.css`.
+
+**What was decided.**
+
+1. **The strip stands still.** The 90s drift is gone.
+2. **A new drop arrives at the front**: its tile opens a slot, the row moves one place to the right, the direction of 21 August 2026, and the tile drops in from above the strip. The oldest leaves past the far edge, and no more than 24 tiles are kept.
+3. **Nothing arrives while the strip is held, hovered or focused**, section 2 of the node: new events do not shove a paused strip. A resume never replays what was skipped, `E2`. With reduced motion the strip starts held, and an arrival after a resume has no motion.
+4. **The wireframe has no feed, so arrivals replay the sample rows**, one every 3s, the motion 700ms. Both are samples, `D-124`, for stage 11 to set.
+
+**What it fixes.** The loop drew every event twice so the drift could reset without a gap, and rule 5.2 of the node says the strip never repeats an event to fill space. It now draws each one once.
+
+**Found and fixed on the way.** Found while measuring and fixed: since D-177 the tiles' mode icons sat at z-index 2, the same as the corner tab, so at 360 a tile's icon covered the Pause control. The tab is raised to 3.
+
+**The cost, said out loud.** On a touch screen nothing holds the strip before the first touch, so a tap in the 700ms of an arrival can land on the tile that just moved into that place. The drift had the same exposure all the time; this has it for 700ms every 3s.
+

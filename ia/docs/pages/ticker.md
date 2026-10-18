@@ -22,6 +22,24 @@
 
 ---
 
+## Amended 19 October 2026 by `D-178`. A new drop arrives at the front
+
+**Why.** The founder, on the strip: it does not scroll, it grows; a new drop comes in from above at the front and moves everything along by one, so the motion carries over to the visual stage as it is meant.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| New drops arrive at the front and push the row along, by the founder's account; the motion is in no dated capture, `[?]` | **The strip, its direction to the right since 21 August 2026, a tile per win** | **No drift: a tile opens its slot at the front, the row moves one place and the tile drops in from above.** Nothing arrives while held, hovered or focused, section 2. Each event is drawn once, rule 5.2, where the loop drew it twice. The 3s between arrivals and the 700ms motion are samples, `D-124`, for stage 11 |
+
+**Measured.** Measured on Home at 1440: before an arrival the first three tiles stand at x 284, 420 and 556; after it the same three places hold the new tile, then the two that were first, so the row moved one place, 136px. Mid arrival the new tile is 91px wide, transparent and 83px above its place. Arrivals in 3.3s while hovered: 0. In 6.5s while held: 0. In 3.3s with focus inside: 0. After resume: 1. With reduced motion the strip starts held and nothing arrives. At 360 the strip reaches 24 tiles and stays there. 134 pages at 375 and 1440: 0 errors, no horizontal scroll, 12 tiles on every load that has the strip.
+
+Found while measuring and fixed: since D-177 the tiles' mode icons sat at z-index 2, the same as the corner tab, so at 360 a tile's icon covered the Pause control. The tab is raised to 3.
+
+**The cost.** On a touch screen nothing holds the strip before the first touch, so a tap in the 700ms of an arrival can land on the tile that just moved into that place. The drift had the same exposure all the time; this has it for 700ms every 3s.
+
+---
+
 ## Amended 18 October 2026 by `D-177`. The back opens the case and the player
 
 **Why.** The founder, on the turned tile: the click goes to the case, and the small row with the player goes to that player's profile.
@@ -301,7 +319,7 @@ This section used to read: **the baseline puts it on every page walked**, 120px 
 
 | State | What the strip shows | Route out |
 |---|---|---|
-| **Running** | Tiles moving continuously, each one a link. The normal case | `7.1`, from any tile |
+| **Running** | ~~Tiles moving continuously~~ **Standing still; a new drop arrives at the front and pushes the row one place, `D-178`**, each tile a link. The normal case | `7.1`, from any tile |
 | **Paused** | The same tiles, stopped, fully readable and fully linked. By the control, by the system preference, by a touch, or by phase 2 on `3.3` | `7.1`, and the control back to running |
 | **Empty** | **The strip holds its space and says, in text, that no drops have landed yet**, with the route into the case grid on the same page. It does not collapse and it does not invent a tile | `3.1` from `1.0`, the drop table from `3.3` |
 | **Degraded**, the feed is not updating | It **stops** and says the feed is not updating. The tiles already on screen stay readable and stay linked, because they are real settled events. `0.11` rule 6: a failed source is marked degraded, **never frozen at its last good value**, and a strip that keeps scrolling stale events is precisely a frozen value pretending to be live | `7.1` from the tiles that are there. The staleness threshold is `[?]` |
@@ -321,7 +339,7 @@ This section used to read: **the baseline puts it on every page walked**, 120px 
 
 ### 5.2 The strip never repeats an event to fill space
 
-A continuous loop built from four events looks like forty. **Below the minimum count the strip is a static row and says nothing about volume**, because a loop is a quantity claim made silently. This is the same proposition `A3` protects at the level of names, applied to counts.
+A continuous loop built from four events looks like forty. **Below the minimum count the strip is a static row and says nothing about volume**, because a loop is a quantity claim made silently. This is the same proposition `A3` protects at the level of names, applied to counts. **Since `D-178` the strip draws each event once; the loop it replaced drew every event twice.**
 
 ### 5.3 No values, no multipliers, no crowd figures
 

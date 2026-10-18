@@ -1465,12 +1465,33 @@ window.WF_PAY = window.WF_PAY || {
 
     var clip = el('div', 'wf-feed-clip');
     var run = el('ul', 'wf-feed-run');
-    // DOUBLED FOR A SEAMLESS LOOP, the same trick the case showcase uses: the
-    // keyframe travels exactly half the run, so the second copy is where the
-    // first one was when it resets.
-    FEED.concat(FEED).forEach(function (row) { run.appendChild(feedTile(row)); });
+    // NEWEST FIRST, ONE COPY, D-178. The strip stopped being a doubled loop:
+    // rule 5.2 of the node says it never repeats an event to fill space, and the
+    // loop did exactly that on every reset.
+    FEED.forEach(function (row) { run.appendChild(feedTile(row)); });
     clip.appendChild(run);
     inn.appendChild(clip);
+
+    /* A NEW DROP ARRIVES AT THE FRONT AND PUSHES THE REST ONE PLACE, D-178, the
+       founder's: "должно добавляться к ленте, а не крутиться". The tile opens
+       its slot, drops in from above the strip, and the oldest leaves past the
+       far edge. The wireframe has no feed, so arrivals replay the sample rows,
+       the oldest first, every FEED_EVERY ms, a sample, D-124.
+       NOTHING ARRIVES WHILE THE STRIP IS HELD, AIMED AT OR FOCUSED, section 2 and
+       section 6 of the node: new events do not shove a paused strip, and a
+       target does not move while it is being aimed at. A resume never replays
+       what was skipped, so no burst of old wins lands at once, E2. */
+    var FEED_EVERY = 3000, FEED_KEEP = 24, next = FEED.length - 1;
+    setInterval(function () {
+      if (!band.isConnected || document.hidden || band.classList.contains('is-held') ||
+          band.matches(':hover') || band.contains(document.activeElement)) return;
+      var li = feedTile(FEED[next]);
+      next = (next + FEED.length - 1) % FEED.length;
+      li.classList.add('is-new');
+      li.addEventListener('animationend', function () { li.classList.remove('is-new'); });
+      run.insertBefore(li, run.firstChild);
+      while (run.children.length > FEED_KEEP) run.removeChild(run.lastChild);
+    }, FEED_EVERY);
 
     // ONE CONTROL, TWO PARENTS, which is the node's own wording: it is the pause
     // design principle 2 owes a strip that cannot be stopped, and it is the
