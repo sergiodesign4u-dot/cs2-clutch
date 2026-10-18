@@ -6511,26 +6511,28 @@ window.WF_PAY = window.WF_PAY || {
   }
 
   /* THE PROMO AND THE COUNTRY ARE THE PANE HEADER, D-103, founder of 27 August
-     2026 on the D-102 build: still overloaded, and put the country here.
+     2026 on the D-102 build: still overloaded, and put the country here. D-129
+     folded both away and D-174 put them back.
      THE EMAIL WENT DOWN UNDER THE AMOUNT. It was in this row for one build. The
      founder's reason is placement rather than kind, and he is right about the kind
      too: the promo and the country are both about the account, and the email is
      about this payment, so it belongs with the payment.
-     THE COUNTRY IS STILL READ AND NEVER SET, D-98. 5.11 owns the one answer, so it
-     is a value with a route rather than a select with one option in it.
+     THE COUNTRY IS ONE ANSWER, D-98: 5.11 and this select write the same value.
      THE PROMO FIELD IS EMPTY AND THE BASELINE'S IS NOT, D-96, and APPLY ANSWERS
      RATHER THAN DOING NOTHING, D-58 and D-102. */
   function payHead(idp) {
-    // THE PROMO IS THE BASELINE'S "HAVE A PROMO CODE?", collapsed until asked
-    // for, D-129. Open, it pushed every payment method off the first screen at 360.
-    var promo = el('details', 'wf-promo');
-    promo.appendChild(el('summary', null, 'Have a promo code?'));
-    var pr = el('div', 'wf-row');
-    var pl = el('label', 'wf-vh', 'Promo or partner code');
+    /* THE PROMO IS OPEN AND THE COUNTRY SITS BESIDE IT, D-174, founder of 18
+       October 2026: the collapsed question hid the field, and the country was a
+       line at the foot of the grid. This is the baseline's own row, 5b.1: the code
+       on the left, the country that the methods are listed for on the right. */
+    var head = el('div', 'wf-pay-head');
+    var promo = el('div', 'wf-promo');
+    var pl = el('label', 'wf-cfg-l', 'Promo or partner code');
     pl.setAttribute('for', idp + 'pay-promo');
-    pr.appendChild(pl);
+    promo.appendChild(pl);
+    var pr = el('div', 'wf-row');
     var pin = el('input', 'wf-f');
-    pin.id = idp + 'pay-promo'; pin.type = 'text'; pin.placeholder = 'Promo or partner code';
+    pin.id = idp + 'pay-promo'; pin.type = 'text'; pin.autocomplete = 'off';
     pr.appendChild(pin);
     var pb = el('button', 'wf-btn', 'Apply');
     pb.type = 'button';
@@ -6540,18 +6542,29 @@ window.WF_PAY = window.WF_PAY || {
     var psay = el('p', 'wf-cfg-p');
     psay.setAttribute('data-promo-say', '');
     promo.appendChild(psay);
-    return [promo];
+    head.appendChild(promo);
+    head.appendChild(payCountry(idp));
+    return [head];
   }
 
-  /* THE COUNTRY IS A LINE AT THE FOOT, D-129. It is read and never set here,
-     D-98, so it is not among the things being answered. */
-  function payCountry() {
-    var c = el('p', 'wf-note wf-pay-cty');
-    // THE SAVED COUNTRY, round 15: settings saved Poland and this still read Ukraine.
-    c.appendChild(document.createTextNode('Payment methods for ' + countryNow() + ' · '));
-    var a = el('a', null, 'Change');
-    a.href = BASE + 'settings.html';
-    c.appendChild(a);
+  /* THE COUNTRY IS A SELECT AGAIN, D-174, AND IT IS STILL ONE ANSWER, D-98. It
+     reads and writes the same value 5.11 saves, so the two places can never
+     disagree the way the baseline's do, 5b.6. Its options are 5.11's, so the
+     Isle of Man fault D-98 found cannot come back through this door. */
+  function payCountry(idp) {
+    var c = el('div', 'wf-pay-cty');
+    var l = el('label', 'wf-cfg-l', 'Payment methods for');
+    l.setAttribute('for', idp + 'pay-cty');
+    c.appendChild(l);
+    var sel = el('select', 'wf-f');
+    sel.id = idp + 'pay-cty';
+    sel.setAttribute('data-pay-cty', '');
+    WF_COUNTRIES.forEach(function (n) { sel.appendChild(el('option', null, n)); });
+    sel.value = countryNow();
+    c.appendChild(sel);
+    var say = el('p', 'wf-cfg-p');
+    say.setAttribute('data-cty-say', '');
+    c.appendChild(say);
     return c;
   }
 
@@ -6944,8 +6957,7 @@ window.WF_PAY = window.WF_PAY || {
     host.className = 'wf-pay-lay';
     var main = el('div', 'wf-pay-main');
 
-    // D-129: THE BANNER, THEN THE PROMO QUESTION, THEN THE METHODS. The account
-    // line and the register note left; the country is a line at the foot.
+    // D-129: THE BANNER, THEN THE PROMO AND THE COUNTRY, D-174, THEN THE METHODS.
     var offer = payOffer();
     if (offer) main.appendChild(offer);
     payHead(idp2).forEach(function (n) { main.appendChild(n); });
@@ -6975,12 +6987,12 @@ window.WF_PAY = window.WF_PAY || {
         main.appendChild(sec);
       });
     }
-    main.appendChild(payCountry());
 
     host.appendChild(main);
     var dg = main.querySelector('[data-dep-go]'); if (dg && cfg.method) dg.setAttribute('data-method', cfg.method);
     mountDeposit(main);
     mountPromo(main);
+    mountPayCountry(main);
     mountSkinDep(main);
     mountCryptoNet(main);
   }
@@ -7053,6 +7065,19 @@ window.WF_PAY = window.WF_PAY || {
         ? 'Nothing applied: no promo or partner code has been issued yet, so there is none to recognise.'
         : 'Nothing to apply: the field is empty. A code is optional and the offer above does not need one.';
       say.classList.add('is-said');
+    });
+  }
+
+  /* THE COUNTRY ANSWERS, D-174: it saves the one value 5.11 reads and says so.
+     Which methods each country really has is [?], so the grid does not pretend
+     to filter. */
+  function mountPayCountry(scope) {
+    var sel = scope.querySelector('[data-pay-cty]');
+    if (!sel) return;
+    var say = scope.querySelector('[data-cty-say]');
+    sel.addEventListener('change', function () {
+      try { sessionStorage.setItem('wf-country', sel.value); } catch (e) {}
+      if (say) { say.textContent = 'Saved. Settings shows the same country.'; say.classList.add('is-said'); }
     });
   }
 
@@ -7958,6 +7983,7 @@ window.WF_PAY = window.WF_PAY || {
      control. It answers and moves the date. */
   /* ONE COUNTRY FOR THE SESSION, round 15, the way language and sound are one
      setting: what settings saves is what the deposit lists methods for. */
+  var WF_COUNTRIES = ['Ukraine', 'Poland'];
   function countryNow() { try { return sessionStorage.getItem('wf-country') || 'Ukraine'; } catch (e) { return 'Ukraine'; } }
   function mountCountry() {
     var b = document.querySelector('[data-country-save]');

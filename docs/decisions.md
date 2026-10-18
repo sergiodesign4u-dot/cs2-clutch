@@ -6106,3 +6106,16 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 **What was decided.** Where a pointer can hover, the favorite appears on hover of the tile and on keyboard focus inside it. **Three limits, ours, said out loud:** on touch it always shows, because touch has no hover; a favorite the person has set stays visible, because it is their own mark; the case screen's own favorite is not a tile and is unchanged. The chip gained four pixels of room around its mark and count.
 
 **D-170 was extended the same day:** the footer's trust row holds one row from a 700px content column, for the reason the column row does.
+
+## D-174. The deposit's promo field is open, and the country is a select beside it
+
+**Date:** 2026-10-18. **Stage:** 04 reopened during stage 05. **Decided by:** the founder, on the funding dialog: "промокод должен быть виден плюс не хватает выбора страны рядом". **Binds:** node `4.1` and its nine surfaces, `wireframes/_nav.js` `payHead` and `payCountry`, the `.wf-pay-head` styles.
+
+**What was decided.** The promo or partner code is a labelled field with Apply, open without a click. Beside it, a select labelled `Payment methods for`, holding the country. One row where the column has room, stacked on a phone. This is the baseline's own row, `baseline-account.md` 5b.1. The line at the foot of the grid, `Payment methods for Ukraine · Change`, is gone.
+
+**What it reverses.** `D-129` folded the promo into a collapsed question because, open, it pushed every payment method off the first screen at 360. **Measured now at a real 360: the first method tile starts at 494px on `/deposit` and at 442px in the dialog**, on a 740px tall screen, so the first row of methods is still on the first screen. With the promo folded it started at 379px.
+
+**What it keeps from `D-98`, and that is the argument that mattered.** `D-98` refused a country control here because the baseline carries two self-declared countries that disagree, 5b.6. **This select writes the same one value `5.11` saves,** so a change in either place shows in the other, and its options are `5.11`'s, so our regulator cannot appear in it again. Changing it answers in place: "Saved. Settings shows the same country."
+
+**Said out loud.** Which methods each country really has is `[?]`, so the grid does not change with the country and does not pretend to. The warning on `5.11`, that a false country can close the account, is not repeated here: an assumption of ours, to keep the row short, and the founder may want it.
+

@@ -20,6 +20,20 @@
 | Two numbered steps. Step 1: a partner promo code already applied, a country selector that filters the grid, then ~~**17 fiat methods and 8 crypto**~~ **27 fiat methods and 8 crypto**, corrected here by `D-129` after section 5b.1 of `baseline-account.md` was corrected on 25 August. Step 2 for card: amount, email, a terms checkbox, six presets, and a panel reading `Rate 1.00 = $1.00` with a standing **+5.00% bonus capped at 100 per 24 hours**. Crypto gives an address per network with a live rate and a minimum, and no amount field. `baseline-account.md` section 5b. | The two step shape, the published rate at the moment of funding, and the amount presets. | **No crediting time is published anywhere in that flow**, which is the whole of row `C3`, and the deposit history's most common status is REJECTED. **Ours publishes the window before the money moves.** ~~The standing bonus and its header badge are refused, `0.1`.~~ **Both returned by `D-94`**, and this row said otherwise until `D-129`. And one route, gift cards, leaves the product entirely to six third party resellers with no crediting story at all. |
 
 
+## Amended 18 October 2026 by `D-174`. The promo field is open and the country is a select beside it
+
+**Why.** The founder, on the dialog: the promo code has to be visible, and the country choice is missing beside it.
+
+**Baseline row for this amendment**, against `research/screens/baseline-account/acct_deposit_step1_methods.png`.
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| HAVE A PROMO CODE? with the field open and APPLY, and a country selector on the same row that filters the grid | **The row: the code on the left, the country on the right, open** | The field starts empty, `D-96`. **The country is one value with `5.11`**: the select reads and writes what settings saves, so the two cannot disagree the way the baseline's do, 5b.6, `D-98`. It answers "Saved. Settings shows the same country." **The grid does not filter: which methods each country has is `[?]`** |
+
+**The cost `D-129` named, measured again at a real 360.** The first method tile starts at 494px on `/deposit` and at 442px in the dialog, against 379px with the promo folded. On a 740px screen the first row of methods is still above the fold.
+
+---
+
 ## Amended 4 October 2026 by `D-163`. A refusal leaves with its cause
 
 **Why.** Round 17 found "not been accepted yet" under a ticked box, and "no skin is ticked" beside "Deposit 1 skin".
@@ -138,7 +152,7 @@
 |---|---|---|
 | One page: FIAT PAYMENT METHOD then CRYPTO PAYMENT METHOD, CS:GO Skins second with INSTANT, Gift Cards inside the fiat grid | **The two groups on the first screen, and the order** | The rail of four from `D-100` goes. **Gift cards and CS2 skins are tiles in the fiat grid again**, founder decision of 27 September 2026, and a rail of two is two headings. Our carrier stays the dialog, `D-99` |
 | BEST CHOICE ribbon on Visa, INSTANT on skins | **Ribbons on the corner** | They were caption lines that made one tile taller than its row |
-| HAVE A PROMO CODE? open, with a country selector beside it | **The question** | Collapsed until asked for. The country is a line at the foot, read and never set here, `D-98` |
+| HAVE A PROMO CODE? open, with a country selector beside it | **The question** | ~~Collapsed until asked for. The country is a line at the foot, read and never set here, `D-98`~~ **Open, with the country select beside it, since `D-174`** |
 | SELECT PROVIDER, two tiles | **Two tiles** | Drawn as samples, Provider A and B, `D-124`. The sentence that card details go to the provider stays on the heading |
 | Enter the amount, six presets in a full row, billing email, terms | **All four** | Presets are one row of six, three by two on a phone. The helper under the email goes |
 | Right panel: "You will receive", rate, amount plus bonus, bonus rule, DEPOSIT | **The panel** | Four lines: what arrives, the peg, the bonus, the total. **The pay row is sticky inside the dialog**, one row on a phone, founder decision; `D-99` refused `fixed`, and `sticky` stays inside the frame |
@@ -199,7 +213,7 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 | 8 | **Persistent summary and the one control** | ~~Amount, ceiling in force after this deposit, withdrawal threshold, total charged.~~ **Superseded by `D-104` and `D-129`: four lines, what arrives in coins, the peg, the bonus with its cap and period, the total charged, with the fee as a caption on the total.** Docked, so it is on screen while blocks 5 to 7 are read | Design principle 3, and the Fresha row in the bank, which traces to `C2` | **Persistent**, see below |
 | 9 | Footer, node `0.2` | Trust strip, 18+, responsible play, market statement | `0.2` | No |
 
-**The order above is the node's first one and the render no longer follows it, `D-96` to `D-129`.** What the pages draw now: the offer, the promo question, the grid in two groups, Cards, wallets and more then Crypto, and the country as a line at the foot; on a method's pane the method with Change, the provider, the amount with six presets, the billing email, the terms, three one-line facts, then the receipt and Pay. Sections 2d to 2k carry each move.
+**The order above is the node's first one and the render no longer follows it, `D-96` to `D-129`.** What the pages draw now: the offer, ~~the promo question~~ **the promo field and the country select on one row, `D-174`**, the grid in two groups, Cards, wallets and more then Crypto~~, and the country as a line at the foot~~; on a method's pane the method with Change, the provider, the amount with six presets, the billing email, the terms, three one-line facts, then the receipt and Pay. Sections 2d to 2k carry each move.
 
 **Block 8 is not in the scroll order.** It docks to the bottom edge at 360px from the moment an amount exists, and it is the right column on desktop. In the document it sits after block 7, so that a person reading linearly, with a screen reader or with styles off, meets the summary after everything it summarises rather than before.
 
@@ -361,7 +375,7 @@ The live product arrives with a partner code **already in the field, ticked, and
 
 **Three. One option is a picture of a choice, `D-58`**, and it is the smallest fault and the one that made the other two visible.
 
-**What renders instead:** a line, ~~`Ukraine, the country on your account`~~ **`Payment methods for Ukraine · Change` since `D-129`, a line at the foot of the grid, reading the country saved on `5.11` since `D-143`**, with a route to `5.11`.
+**What renders instead:** a line, ~~`Ukraine, the country on your account`~~ **`Payment methods for Ukraine · Change` since `D-129`, a line at the foot of the grid, reading the country saved on `5.11` since `D-143`**, with a route to `5.11`. **Since `D-174` a select beside the promo field, writing the same one value `5.11` saves.**
 
 **And the register's state is printed rather than implied.** `D-23`: the allowlist is closed by default and there is no market we can open this month, so the note under the grid says **no market is open yet**. **A selector of open markets is a control with nothing true to put in it.** **Superseded by `D-129`: the register note left with the account line, and no deposit page prints it.** The argument against a selector of open markets stands.
 

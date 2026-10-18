@@ -798,8 +798,8 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 4.1-8 | head | Add funds, gift cards | SEO title, SEO / IA ownership | page | deposit-giftcards | C4 |  |
 | 4.1-9 | head | Add funds, CS{n} skins | SEO title, SEO / IA ownership | page | deposit-skins | C4 C10 |  |
 | 4.1-10 | main | {n} bonus on every top-up, up to {n} coins per {n} hours. No wagering. | text | `_nav.js payOffer` | deposit-card, deposit-ceiling-pending, deposit-crypto-nowallet, deposit-crypto, deposit-declined, deposit-dialog, deposit-giftcards, deposit-skins, deposit | C4 C11 N2 |  |
-| 4.1-11 | main | Have a promo code? | disclosure | `_nav.js payHead` | deposit-card, deposit-ceiling-pending, deposit-crypto-nowallet, deposit-crypto, deposit-declined, deposit-dialog, deposit-giftcards, deposit-skins, deposit |  |  |
-| 4.1-12 | main | Promo or partner code | field label | `_nav.js payHead` | deposit-card, deposit-ceiling-pending, deposit-crypto-nowallet, deposit-crypto, deposit-declined, deposit-dialog, deposit-giftcards, deposit-skins, deposit |  |  |
+| 4.1-11 | main | Have a promo code? | disclosure | `_nav.js payHead` | deposit-card, deposit-ceiling-pending, deposit-crypto-nowallet, deposit-crypto, deposit-declined, deposit-dialog, deposit-giftcards, deposit-skins, deposit |  | removed, `D-174`: the field is open and 4.1-12 labels it |
+| 4.1-12 | main | Promo or partner code | field label | `_nav.js payHead` | deposit-card, deposit-ceiling-pending, deposit-crypto-nowallet, deposit-crypto, deposit-declined, deposit-dialog, deposit-giftcards, deposit-skins, deposit |  | kept, now a visible label (`D-174`) |
 | 4.1-13 | main | Apply | button | `_nav.js payHead` | deposit-card, deposit-ceiling-pending, deposit-crypto-nowallet, deposit-crypto, deposit-declined, deposit-dialog, deposit-giftcards, deposit-skins, deposit |  |  |
 | 4.1-14 | main | Cards, wallets and more {d} | text | `_nav.js PAY_CATS`, page script | deposit-card, deposit-ceiling-pending, deposit-declined |  |  |
 | 4.1-15 | main | Change | button (link) | `_nav.js depCard/mountWithdrawMany` | deposit-card, deposit-ceiling-pending, deposit-crypto-nowallet, deposit-crypto, deposit-declined, deposit-dialog, deposit-giftcards, deposit-skins, deposit |  |  |
@@ -822,7 +822,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 4.1-32 | main | Total charged | text | `_nav.js depCard` | deposit-card, deposit-ceiling-pending, deposit-declined |  |  |
 | 4.1-33 | main | No provider fee on this route | text | `_nav.js depCard` | deposit-card, deposit-ceiling-pending, deposit-declined |  |  |
 | 4.1-34 | main | Pay | button (link) | `_nav.js depCard` | deposit-card, deposit-ceiling-pending |  |  |
-| 4.1-35 | main | Payment methods for Ukraine · Change | note | `_nav.js payCountry` | deposit-card, deposit-ceiling-pending, deposit-crypto-nowallet, deposit-crypto, deposit-declined, deposit-dialog, deposit-giftcards, deposit-skins, deposit |  |  |
+| 4.1-35 | main | Payment methods for Ukraine · Change | note | `_nav.js payCountry` | deposit-card, deposit-ceiling-pending, deposit-crypto-nowallet, deposit-crypto, deposit-declined, deposit-dialog, deposit-giftcards, deposit-skins, deposit |  | removed, `D-174`: replaced by 4.1-100 and the select |
 | 4.1-36 | main | I have read and accept the terms and the refund and payments policy | accessible name | `_nav.js depCard` | deposit-card, deposit-ceiling-pending, deposit-declined | C8 P |  |
 | 4.1-37 | main | The higher limit is not in force yet | heading | `_nav.js STEP2_BANNER` | deposit-ceiling-pending | C5 |  |
 | 4.1-38 | main | In force now: {n} for the period. | text | `_nav.js STEP2_BANNER`, `_nav.js STEP2_BANNER/mountCryptoNet` | deposit-ceiling-pending | C11 |  |
@@ -887,6 +887,8 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 4.1-97 | main | From your Steam inventory | heading | `_nav.js depSkins` | deposit-skins |  |  |
 | 4.1-98 | main | Steam account {d} | note | `_nav.js depSkins/renderAcctHero` | deposit-skins |  |  |
 | 4.1-99 | main | {d} Slate {d} {n} coins | field label | _nav.js, assembled | deposit-skins |  |  |
+| 4.1-100 | main | Payment methods for | field label | `_nav.js payCountry` | deposit-card, deposit-ceiling-pending, deposit-crypto-nowallet, deposit-crypto, deposit-declined, deposit-dialog, deposit-giftcards, deposit-skins, deposit |  | new, `D-174` |
+| 4.1-101 | main | Saved. Settings shows the same country. | text | `_nav.js mountPayCountry` | deposit-card, deposit-ceiling-pending, deposit-crypto-nowallet, deposit-crypto, deposit-declined, deposit-dialog, deposit-giftcards, deposit-skins, deposit |  | new, `D-174` |
 | 4.1-100 | main | M{n}A{n} Temukau {d} {n} coins | field label | _nav.js, assembled | deposit-skins |  |  |
 | 4.1-101 | main | {d} Vogue {d} {n} coins | field label | _nav.js, assembled | deposit-skins |  |  |
 | 4.1-102 | main | Credited at our value for each skin once Steam completes the trade. | note | `_nav.js depSkins` | deposit-skins | C2 C10 |  |

@@ -1374,11 +1374,8 @@ a.wfp-state:hover { color: var(--wf-ink); }
    1900px scroll, and the choice stops being a grid a person scans and becomes a
    list they read. Two columns at 140 fits inside 360 with the page gutters.
    ============================================================================ */
-/* THE COUNTRY IS A LINE AND NOT A FIELD, D-98, so it gets the height of the
-   control beside it rather than the height of a paragraph: the two sit on one
-   row from 600 and a short line floating in the middle of a 44px slot reads as a
-   field that failed to render. */
-.wf-pay-cty { margin: 0; min-height: var(--wf-tap); display: flex; align-items: center; flex-wrap: wrap; gap: 4px; font-size: var(--wf-t-s); }
+/* THE COUNTRY WAS A LINE HERE FROM D-98 TO D-129. Since D-174 it is a select
+   beside the promo, styled with it under .wf-pay-head. */
 
 /* THE GROUP HEADING IS A LABEL, D-97. Two section heads were costing 96px of the
    first screen and the grid under them is what the page is for. It keeps its h2
@@ -5223,10 +5220,16 @@ textarea.wf-cfg-in { min-height: 0; }
   border-radius: var(--wf-r-2) 0 var(--wf-r-1) 0;
 }
 .wf-pay-t:has(.wf-pay-rib) { padding-top: calc(var(--wf-s-1) + 14px); }
-.wf-promo summary { cursor: pointer; font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
-.wf-promo .wf-row { margin-top: var(--wf-s-1); }
+/* THE PROMO AND THE COUNTRY, ONE ROW WHERE THERE IS ROOM, D-174. Each takes
+   at least 260px, so the pair stacks on a phone without a breakpoint of its own. */
+.wf-pay-head { display: flex; flex-wrap: wrap; gap: var(--wf-s-2); align-items: flex-start; }
+.wf-pay-head > * { flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: var(--wf-s-half); }
+.wf-promo .wf-row { flex-wrap: nowrap; }
 .wf-promo .wf-f { flex: 1 1 auto; min-width: 0; }
-.wf-pay-cty { margin: 0; }
+/* One height across the row: the text field drops to the select's 44. */
+.wf-pay-head .wf-f { min-height: var(--wf-tap); padding-block: var(--wf-s-1); }
+.wf-pay-head .wf-cfg-p { margin: 0; }
+.wf-pay-head .wf-cfg-p:empty { display: none; }
 .wf-dep-facts { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--wf-s-half); font-size: var(--wf-t-s); color: var(--wf-ink-dim); }
 .wf-dep-facts strong { color: var(--wf-ink); font-weight: 400; font-family: var(--wf-mono); }
 /* THE SIX PRESETS ARE ONE ROW, the baseline's full-width set, and three by two
