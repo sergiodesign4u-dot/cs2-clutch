@@ -474,10 +474,10 @@ var WF_STR = {
   peg: '1 coin = $1.00',
   /* Case head */
   howItWorks: 'How it works',
-  riskBand: 'Risk band',
-  favourite: 'Favourite',
-  nineItems: 'Nine items, one roll.',
-  entryCost: 'Entry cost, one roll',
+  riskBand: 'Risk',
+  favourite: 'Favorite',
+  nineItems: 'Nine items, one open.',
+  entryCost: 'Price, one open',
   checkRound: 'Check this round',
   /* Catalogue */
   catalogueH1: 'All CS2 cases, with published chances and values',
@@ -494,10 +494,10 @@ var WF_STR = {
   numbersBody: 'Every tile shows the entry cost of one open and the risk band of the case, High, Medium or Low, read from its drop table. Open a case to see every item with its chance, its current value and the ticket range the roll resolves against. The daily case is earned by wagering, and the tier you reach decides which case it opens.',
   /* Result and player */
   whatThisPlaceIs: 'What this place is',
-  howProofWorks: 'How the proof works',
+  howProofWorks: 'Provably fair',
   wonBy: 'Won by',
-  worthNow: 'Worth now, read 21 Aug 2026 09:31',
-  rolls: 'Rolls',
+  worthNow: 'Value now, read 21 Aug 2026 09:31',
+  rolls: 'Rounds',
   /* Withdrawal */
   goingToSteam: 'Going to Steam account',
   medianToSteam: 'Median time to Steam',
@@ -1968,7 +1968,7 @@ window.WF_PAY = window.WF_PAY || {
 
     var nav = el('nav', 'wf-rail');
     nav.id = 'wf-rail';
-    nav.setAttribute('aria-label', 'Destinations');
+    nav.setAttribute('aria-label', 'Menu');
     // The logo is an asset, and stage 06 draws it. What this stage owes it is the SPACE
     // it will occupy, at the top of the rail, which is where the baseline keeps it.
     // Drawn as a wordmark on one line it read as a heading rather than as a brand slot.
@@ -2055,7 +2055,7 @@ window.WF_PAY = window.WF_PAY || {
     function applyRail(on) {
       root.classList.toggle('is-rail-collapsed', on);
       toggle.setAttribute('aria-expanded', on ? 'false' : 'true');
-      toggle.setAttribute('aria-label', on ? 'Expand the rail' : 'Collapse the rail');
+      toggle.setAttribute('aria-label', on ? 'Expand the menu' : 'Collapse the menu');
     }
     /* THE COMPACT DESKTOP, D-171, the baseline measured live on 17 October 2026:
        daddyskins.com reserves its expanded rail, 250px, above a 1440px window and its
@@ -2116,7 +2116,7 @@ window.WF_PAY = window.WF_PAY || {
     menu.type = 'button';
     menu.setAttribute('aria-controls', 'wf-rail');
     menu.setAttribute('aria-expanded', 'false');
-    menu.setAttribute('aria-label', 'Destinations');
+    menu.setAttribute('aria-label', 'Menu');
     head.appendChild(menu);
 
     var right = el('div', 'wf-row');
@@ -2541,7 +2541,7 @@ window.WF_PAY = window.WF_PAY || {
                   ['Classic cases', 'catalogue.html#cat-classic']]]],
       [['Company', [[WF_STR.termsOfUse, 'legal.html'], [WF_STR.privacyPolicy, 'legal-unpublished.html?doc=privacy'],
                     [WF_STR.cookiePolicy, 'legal-unpublished.html?doc=cookie'], [WF_STR.refundPolicy, 'legal-refund.html']]]],
-      [['Help', [[WF_STR.provablyFair, 'fair.html'], ['Contact support', 'support.html']]],
+      [['Platform', [[WF_STR.provablyFair, 'fair.html'], [WF_STR.support, 'support.html']]],
        // 'WHERE WE OPERATE' HAS NO DESTINATION ON THE MAP, and the registry check
        // added on 22 August 2026 is what found it: markets.html is the IA
        // filename of register 0.12, and a register is read rather than visited.
@@ -2634,11 +2634,11 @@ window.WF_PAY = window.WF_PAY || {
     age.appendChild(mark);
     var ageTxt = el('div', 'wf-foot-age-t');
     ageTxt.appendChild(el('p', 'wf-compliance',
-      'Over 18 only. Opening a case is a paid chance, never an investment. Set a deposit or session limit before you start.'));
+      'For people 18 or over. Opening a case is a paid chance, never an investment. Set a deposit or session limit before you start.'));
     /* THE MARKET STATEMENT, D-146: with Where we operate gone nothing public said
        where we serve before the gate. One line, and no link, because the register
        is an IA node and not a page of the product. */
-    ageTxt.appendChild(el('p', 'wf-compliance', 'Open only in the markets we have cleared. Anywhere else, this site says so before anything can be paid.'));
+    ageTxt.appendChild(el('p', 'wf-compliance', 'Available only in the countries we have cleared. Anywhere else, this site says so before anything can be paid.'));
     age.appendChild(ageTxt);
     trust.appendChild(age);
 
@@ -2863,7 +2863,7 @@ window.WF_PAY = window.WF_PAY || {
       out.push('<p class="wf-fail-ref">Reference SR-4471 for support</p>');
       out.push('<div class="wf-fail-acts">');
       out.push('<a class="wf-btn wf-btn--primary" href="signin.html">Try again</a>');
-      out.push('<a class="wf-btn" href="support.html">Contact support</a>');
+      out.push('<a class="wf-btn" href="support.html">' + WF_STR.support + '</a>');
       out.push('</div>');
       // 5.2, THE RULE THAT OUTRANKS THE COPY: no password field appears in this
       // state or in any state of this node. A failed third party sign in
@@ -3950,7 +3950,7 @@ window.WF_PAY = window.WF_PAY || {
       if (n) {
         var v = (parseInt(n.textContent.replace(/\s/g, ''), 10) || 0) + (on ? 1 : -1);
         n.textContent = String(v).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-        b.setAttribute('aria-label', WF_STR.favourite + ', ' + n.textContent + ' people');
+        b.setAttribute('aria-label', WF_STR.favourite + ', marked by ' + n.textContent + ' people');
       }
     });
   }
@@ -4313,12 +4313,12 @@ window.WF_PAY = window.WF_PAY || {
     out.push('<section class="wf-case-info" aria-label="Before you open">');
     if (state !== 'outcome') {
       out.push('<p class="wf-cost-say"><strong>Skin prices.</strong> Values in this case are fixed when the case is priced. ' +
-        'Sending a win to Steam buys a real copy at that day&#39;s price, and the difference settles against your balance in either direction. ' +
+        'Sending an item to Steam buys a real copy at that day&#39;s price, and the difference settles against your balance in either direction. ' +
         '<a href="withdraw.html">How a withdrawal settles</a></p>');
     }
     // G5: the limits of a withdrawal are stated before the request. The baseline
     // says it here, before the open, and it is cheaper here than at the till.
-    out.push('<p class="wf-note wf-case-warn"><strong>' + (state === 'outcome' ? 'Before sending to Steam.' : 'Before opening.') + '</strong> Your Steam inventory has to be public and your trade URL set, or a win cannot be sent to you. <a href="settings.html">Check your settings</a></p>');
+    out.push('<p class="wf-note wf-case-warn"><strong>' + (state === 'outcome' ? 'Before sending to Steam.' : 'Before opening.') + '</strong> Your Steam inventory has to be public and your trade URL set, or an item cannot be sent to you. <a href="settings.html">Check your settings</a></p>');
     out.push('</section>');
 
     // ---- BEST DROPS, D-30 and D-32. Ranked by value, and the one route to the
@@ -4389,7 +4389,7 @@ window.WF_PAY = window.WF_PAY || {
     var CT = caseTable(CK), CC = WF_CASES[CK][1];
     out.push(fig('94.2 %', 'Tested RTP, in coins at our values'));
     out.push(fig(degraded ? null : (CK === 'ironbound' ? '11.68' : CT.ev.toFixed(2)) + ' coins', 'Expected value per open: every chance above times its value'));
-    out.push(fig(degraded ? null : (CK === 'ironbound' ? '37.000' : CT.back.toFixed(3)) + ' %', 'Chance to get back at least the ' + CC.toFixed(2) + ' entry cost'));
+    out.push(fig(degraded ? null : (CK === 'ironbound' ? '37.000' : CT.back.toFixed(3)) + ' %', 'Chance to get back at least its price, ' + CC.toFixed(2) + ' coins'));
     if (state !== 'outcome') {
       out.push(fig(degraded ? null : '-6.2 %', 'Our values against a real copy, case average', '<a href="withdraw.html">How it settles</a>'));
     }
@@ -4402,7 +4402,7 @@ window.WF_PAY = window.WF_PAY || {
     // block is the withdrawn state of 0.11 and says so in one line.
     if (state === 'nocounter') {
       out.push('<section class="wf-sec" aria-label="Published against observed, withdrawn">' +
-        '<p class="wf-note wf-fig-missing">The observed rate for this case is not published. Every chance and value is above, and every round can be checked after it opens. <a href="fair.html">How rounds are checked</a></p></section>');
+        '<p class="wf-note wf-fig-missing">The observed rate for this case is not published. Every chance and value is above, and every round can be checked after it opens. <a href="fair.html">' + WF_STR.provablyFair + '</a></p></section>');
     } else {
       out.push('<section class="wf-sec" aria-labelledby="h2-observed"><div class="wf-sec-head"><h2 id="h2-observed">Published against observed</h2>' +
         '<p class="wf-sec-sub">What we publish for each tier, and what actually came out.</p></div>' +
@@ -4416,13 +4416,13 @@ window.WF_PAY = window.WF_PAY || {
             '<tr><th scope="row">Mil-Spec</th><td>63.000 %</td><td>63.29 %</td><td>41 208</td></tr>'
           : caseTable(CK).map(function (t, i) { var ob = t[1] * (1 + ((i % 2 ? 1 : -1) * 0.012)); return '<tr><th scope="row">' + t[0] + '</th><td>' + fmtCh(t[1]) + '</td><td>' + ob.toFixed(2) + ' %</td><td>' + fmtT(Math.round(60000 / CC)) + '</td></tr>'; }).join('')) +
         '</tbody></table></div>' +
-        '<p class="wf-note">Counted since this case launched, never reset. <a href="fair.html">How rounds are checked</a></p></section>');
+        '<p class="wf-note">Counted since this case launched, never reset. <a href="fair.html">' + WF_STR.provablyFair + '</a></p></section>');
     }
 
     // ---- THE SEO TEXT, 15C, cut to what a first reader needs. The delivery
     // failure answer moved to support's questions; the table rule is ours.
     out.push('<section class="wf-sec wf-prose" aria-labelledby="h2-how"><div class="wf-sec-head"><h2 id="h2-how">How this case works</h2></div><div class="wf-prose-cols">' +
-      '<p>The entry cost buys one roll, and the roll lands on one item. Every item&#39;s chance is printed as a percentage and as a ticket range: the range is what the roll resolves against, which is what makes a result checkable.</p>' +
+      '<p>The price buys one round, and the round lands on one item. Every item&#39;s chance is printed as a percentage and as a ticket range: the range is what the round resolves against, which is what makes a result checkable.</p>' +
       '<h3>How a round is checked</h3>' +
       '<p>The round is fixed before the animation starts and its hash is on screen when you open. After the reveal, one link checks the round against that hash.</p>' +
       '</div></section>');

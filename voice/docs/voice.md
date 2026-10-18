@@ -73,7 +73,7 @@
 
 **Rule:** the act may be short and quick, "Open", "Open again"; no line promises a win, calls a case lucky, or frames an open as profit, before or after it.
 
-**Example:** "Open for 12.40 coins" · "Nine items, one roll." · "Opening. The result was fixed before the animation started."
+**Example:** "Open for 12.40 coins" · "Nine items, one open." · "Opening. The result was fixed before the animation started."
 
 **Anti-example:** "Open your lucky case!" · "multiply your prize with every win!" · "an audience willing to have fun and profit out of it" (all three the baseline's)
 

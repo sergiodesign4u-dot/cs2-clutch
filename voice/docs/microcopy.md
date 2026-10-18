@@ -1,6 +1,6 @@
 # Microcopy inventory
 
-**Stage 05, step 1, written 5 October 2026.** Every string the grey product shows, inventoried once per unique string rather than once per occurrence, with where it lives so step 7 knows which file to open. **Nothing here is rewritten yet.** The columns "was" and "now" arrive at step 6 for the etalon and at step 7 for the rest; until then the string column is the "was". **Step 6, 17 October 2026:** sections 1 to 3 carry a Now column. It is filled for every row the etalon, `1.0` Home in both account states, shows: the new string, or `kept` where the string passed `voice.md` as it stands. An empty cell is a row step 7 has not reached yet.
+**Stage 05, step 1, written 5 October 2026.** Every string the grey product shows, inventoried once per unique string rather than once per occurrence, with where it lives so step 7 knows which file to open. **Nothing here is rewritten yet.** The columns "was" and "now" arrive at step 6 for the etalon and at step 7 for the rest; until then the string column is the "was". **Step 6, 17 October 2026:** sections 1 to 3 carry a Now column. It is filled for every row the etalon, `1.0` Home in both account states, shows: the new string, or `kept` where the string passed `voice.md` as it stands. An empty cell is a row step 7 has not reached yet. **Step 7, first move, 19 October 2026:** every row of section 1, Global, carries its Now, rewritten by the parent in the file the row names before any fanout, with the rule each change follows; `kept` means the string passes `voice.md` as it stands.
 
 **Its visible place** is the Inventory section of `voice/voice.html`, next to the Microcopy rules, built at step 5 with the rest of the Voice page and read from this file at load, so both parts, Global and By screen, show whatever this file holds.
 
@@ -70,170 +70,170 @@ The Marks column flags where screens say the same thing in different words, or w
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| G1 | rail | Cases | link | `WF_STR.cases`, page | 133 pages, 19 screens |  |  |
-| G2 | rail | Chinese ZH | button | `_nav.js LANGS` | 133 pages, 19 screens |  |  |
-| G3 | rail | CS{n} Clutch, home | accessible name | `_nav.js renderFooter/renderShell` | 133 pages, 19 screens |  |  |
-| G4 | rail | EN English | button | page, `_nav.js LANGS/barItems`, `_nav.js LANGS/langControl/setLang` | 133 pages, 19 screens |  |  |
-| G5 | rail | English EN | button | page, `_nav.js LANGS/barItems`, `_nav.js LANGS/langControl/setLang` | 133 pages, 19 screens |  |  |
-| G6 | rail | French FR | button | `_nav.js LANGS` | 133 pages, 19 screens |  |  |
-| G7 | rail | German DE | button | `_nav.js LANGS`, `_nav.js LANGS/barItems` | 133 pages, 19 screens |  |  |
-| G8 | rail | Language | accessible name | page, `_nav.js langControl/mountSwitches` | 133 pages, 19 screens |  |  |
-| G9 | rail | Language, English | accessible name | `_nav.js langControl/mountSwitches` | 133 pages, 19 screens |  |  |
-| G10 | rail | Only English is available for now. | text | `_nav.js LANGS` | 133 pages, 19 screens |  |  |
-| G11 | rail | Polish PL | button | `_nav.js LANGS` | 133 pages, 19 screens |  |  |
-| G12 | rail | Portuguese PT | button | `_nav.js LANGS` | 133 pages, 19 screens |  |  |
-| G13 | rail | Russian RU | button | `_nav.js LANGS` | 133 pages, 19 screens |  |  |
-| G14 | rail | Spanish ES | button | `_nav.js LANGS` | 133 pages, 19 screens |  |  |
-| G15 | rail | Turkish TR | button | `_nav.js LANGS`, `_nav.js LANGS/histTable/mountClockStruck` | 133 pages, 19 screens |  |  |
-| G16 | rail | Collapse the rail | accessible name | `_nav.js renderShell` | 132 pages, 19 screens |  |  |
-| G17 | rail | Destinations | accessible name | `_nav.js renderShell` | 132 pages, 19 screens |  |  |
-| G18 | rail | Social | accessible name | `_nav.js renderShell` | 132 pages, 19 screens |  |  |
-| G19 | rail | Sound on | button | `_nav.js renderShell` | 132 pages, 19 screens |  |  |
-| G20 | header | Responsible play | link | `WF_STR.responsiblePlay`, page | 133 pages, 19 screens | C7 |  |
-| G21 | header | My items | link | `WF_STR.myItems`, page | 86 pages, 15 screens |  |  |
-| G22 | header | Account | accessible name | page, `_nav.js accountControl/renderAcctHero` | 85 pages, 15 screens |  |  |
-| G23 | header | History | link | `WF_STR.history`, page | 85 pages, 15 screens |  |  |
-| G24 | header | Profile | link | page, `_nav.js ACCT_TABS/accountControl` | 85 pages, 15 screens | N3 |  |
-| G25 | header | Settings | link | `WF_STR.settings`, page | 85 pages, 15 screens |  |  |
-| G26 | header | Sign out | link | page, `_nav.js accountControl/langControl` | 85 pages, 15 screens |  |  |
-| G27 | header | Withdrawals | link | page, `_nav.js HIST_TABS/accountControl` | 85 pages, 15 screens | C1 |  |
-| G28 | header | Account, {d} | accessible name | _nav.js, assembled | 84 pages, 15 screens |  |  |
-| G29 | header | {n} coins Balance | link | page, `_nav.js renderAcctHero/renderShell`, page script | 82 pages, 15 screens |  |  |
-| G30 | header | {n} coins Value of items held | link | page, `_nav.js renderAcctHero/renderShell`, page script | 82 pages, 15 screens | C2 |  |
-| G31 | header | Balance, {n} coins | accessible name | _nav.js, assembled | 82 pages, 15 screens |  |  |
-| G32 | header | Value of items held, {n} coins | accessible name | `_nav.js renderAcctHero/renderShell` | 82 pages, 15 screens | C2 |  |
-| G33 | header | Add funds. We add {n} in coins on top, up to {n} coins per {n} hours | accessible name | `_nav.js renderShell` | 73 pages, 13 screens | C4 |  |
-| G34 | header | Sign in | button (link) | `WF_STR.signIn`, page | 55 pages, 12 screens |  |  |
-| G35 | header | Not available | text | page, `_nav.js caseBody/renderFooter` | system-500-noshell, system-500, system-503-planned, system-503-unplanned; case-degraded; account-degraded |  |  |
-| G36 | header | Adding funds is closed for now. Your limits | accessible name | `_nav.js renderShell` | deposit-ceiling-reached; history-deposits-blocked; responsible-excluded, responsible-in-force | C4 C5 |  |
-| G37 | header | Balance, not available | accessible name | `_nav.js gateHTML/proofPanel` | system-500, system-503-planned, system-503-unplanned |  |  |
-| G38 | header | Value of items held, not available | accessible name | `_nav.js renderAcctHero/renderShell` | system-500, system-503-planned, system-503-unplanned | C2 |  |
-| G39 | header | Account, Name unavailable | accessible name | _nav.js, assembled | profile-steam-down |  |  |
-| G40 | header | Name unavailable | text | page script | profile-steam-down |  |  |
-| G41 | ticker | Case opening | accessible name | `_nav.js feedTile` | 120 pages, 17 screens |  |  |
-| G42 | ticker | {d}, {d} {d}, Restricted, won by {d} | accessible name | `_nav.js TIER_CH/TIER_ORDER` | 120 pages, 17 screens |  |  |
-| G43 | ticker | {d}, {d} {d}, {d}, won by {d} | accessible name | _nav.js, assembled | 120 pages, 17 screens |  |  |
-| G44 | ticker | {d}, {d} {d}, Restricted, won by {d}, a bot | accessible name | `_nav.js TIER_CH/TIER_ORDER` | 120 pages, 17 screens |  |  |
-| G45 | ticker | Live drops | text | `_nav.js renderFeed` | 120 pages, 17 screens | C10 |  |
-| G46 | ticker | Pause | button | `_nav.js renderFeed` | 120 pages, 17 screens |  |  |
-| G47 | ticker | {d}, {d} {d}, {d}, won by Name unavailable | accessible name | _nav.js, assembled | profile-steam-down |  |  |
-| G48 | bar | Shortcuts | accessible name | `_nav.js renderBar` | 132 pages, 19 screens |  |  |
-| G49 | footer | All cases | link | `WF_STR.allCases`, page | 133 pages, 19 screens |  |  |
-| G50 | footer | Card | text | `_nav.js PAY_CATS/authCard`, page script | 133 pages, 19 screens |  |  |
-| G51 | footer | Classic cases | link | `_nav.js renderFooter` | 133 pages, 19 screens |  |  |
-| G52 | footer | Community cases | link | `_nav.js renderFooter` | 133 pages, 19 screens |  |  |
-| G53 | footer | Company | button | `_nav.js renderFooter` | 133 pages, 19 screens |  |  |
-| G54 | footer | Contact support | link | `_nav.js authCard/renderFooter` | 133 pages, 19 screens | C6 |  |
-| G55 | footer | Cookie policy | link | `WF_STR.cookiePolicy` | 133 pages, 19 screens | C8 |  |
-| G56 | footer | Cookie settings | button | page, `_nav.js mountCookie/renderFooter` | 133 pages, 19 screens |  |  |
-| G57 | footer | Crypto | text | `_nav.js PAY_CATS/depBody`, page script | 133 pages, 19 screens |  |  |
-| G58 | footer | Daily cases | link | `_nav.js homeBody/renderFooter` | 133 pages, 19 screens | N1 |  |
-| G59 | footer | Featured cases | link | `_nav.js homeBody/renderFooter` | 133 pages, 19 screens |  |  |
-| G60 | footer | Help | button | page, `_nav.js renderFooter` | 133 pages, 19 screens | C6 |  |
-| G61 | footer | Need help? | text | `_nav.js renderFooter` | 133 pages, 19 screens | C6 |  |
-| G62 | footer | Online now | text | `_nav.js renderFooter` | 133 pages, 19 screens |  |  |
-| G63 | footer | Open only in the markets we have cleared. Anywhere else, this site says so before anything can be paid. | text | `_nav.js renderFooter` | 133 pages, 19 screens | C3 |  |
-| G64 | footer | Operating company · Registration no. · Registered address | text | `_nav.js renderFooter` | 133 pages, 19 screens | PH |  |
-| G65 | footer | Over {n} only. Opening a case is a paid chance, never an investment. Set a deposit or session limit before you start. | text | `_nav.js renderFooter` | 133 pages, 19 screens | C4 C5 |  |
-| G66 | footer | Payment methods | accessible name | `_nav.js payCountry/renderFooter` | 133 pages, 19 screens |  |  |
-| G67 | footer | Play | button | `_nav.js FAQ/accountControl` | 133 pages, 19 screens |  |  |
-| G68 | footer | Play responsibly | button | `_nav.js renderFooter/shellCfg` | 133 pages, 19 screens | C7 |  |
+| G1 | rail | Cases | link | `WF_STR.cases`, page | 133 pages, 19 screens |  | kept |
+| G2 | rail | Chinese ZH | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
+| G3 | rail | CS{n} Clutch, home | accessible name | `_nav.js renderFooter/renderShell` | 133 pages, 19 screens |  | kept |
+| G4 | rail | EN English | button | page, `_nav.js LANGS/barItems`, `_nav.js LANGS/langControl/setLang` | 133 pages, 19 screens |  | kept |
+| G5 | rail | English EN | button | page, `_nav.js LANGS/barItems`, `_nav.js LANGS/langControl/setLang` | 133 pages, 19 screens |  | kept |
+| G6 | rail | French FR | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
+| G7 | rail | German DE | button | `_nav.js LANGS`, `_nav.js LANGS/barItems` | 133 pages, 19 screens |  | kept |
+| G8 | rail | Language | accessible name | page, `_nav.js langControl/mountSwitches` | 133 pages, 19 screens |  | kept |
+| G9 | rail | Language, English | accessible name | `_nav.js langControl/mountSwitches` | 133 pages, 19 screens |  | kept |
+| G10 | rail | Only English is available for now. | text | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
+| G11 | rail | Polish PL | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
+| G12 | rail | Portuguese PT | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
+| G13 | rail | Russian RU | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
+| G14 | rail | Spanish ES | button | `_nav.js LANGS` | 133 pages, 19 screens |  | kept |
+| G15 | rail | Turkish TR | button | `_nav.js LANGS`, `_nav.js LANGS/histTable/mountClockStruck` | 133 pages, 19 screens |  | kept |
+| G16 | rail | Collapse the rail | accessible name | `_nav.js renderShell` | 132 pages, 19 screens |  | Collapse the menu; Expand the menu when collapsed. "Rail" is our word, not the reader's |
+| G17 | rail | Destinations | accessible name | `_nav.js renderShell` | 132 pages, 19 screens |  | Menu, on the rail and on the header's menu button. "Destinations" is IA vocabulary |
+| G18 | rail | Social | accessible name | `_nav.js renderShell` | 132 pages, 19 screens |  | kept |
+| G19 | rail | Sound on | button | `_nav.js renderShell` | 132 pages, 19 screens |  | kept |
+| G20 | header | Responsible play | link | `WF_STR.responsiblePlay`, page | 133 pages, 19 screens | C7 | kept |
+| G21 | header | My items | link | `WF_STR.myItems`, page | 86 pages, 15 screens |  | kept |
+| G22 | header | Account | accessible name | page, `_nav.js accountControl/renderAcctHero` | 85 pages, 15 screens |  | kept |
+| G23 | header | History | link | `WF_STR.history`, page | 85 pages, 15 screens |  | kept |
+| G24 | header | Profile | link | page, `_nav.js ACCT_TABS/accountControl` | 85 pages, 15 screens | N3 | kept |
+| G25 | header | Settings | link | `WF_STR.settings`, page | 85 pages, 15 screens |  | kept |
+| G26 | header | Sign out | link | page, `_nav.js accountControl/langControl` | 85 pages, 15 screens |  | kept |
+| G27 | header | Withdrawals | link | page, `_nav.js HIST_TABS/accountControl` | 85 pages, 15 screens | C1 | kept |
+| G28 | header | Account, {d} | accessible name | _nav.js, assembled | 84 pages, 15 screens |  | kept |
+| G29 | header | {n} coins Balance | link | page, `_nav.js renderAcctHero/renderShell`, page script | 82 pages, 15 screens |  | kept |
+| G30 | header | {n} coins Value of items held | link | page, `_nav.js renderAcctHero/renderShell`, page script | 82 pages, 15 screens | C2 | kept |
+| G31 | header | Balance, {n} coins | accessible name | _nav.js, assembled | 82 pages, 15 screens |  | kept |
+| G32 | header | Value of items held, {n} coins | accessible name | `_nav.js renderAcctHero/renderShell` | 82 pages, 15 screens | C2 | kept |
+| G33 | header | Add funds. We add {n} in coins on top, up to {n} coins per {n} hours | accessible name | `_nav.js renderShell` | 73 pages, 13 screens | C4 | kept |
+| G34 | header | Sign in | button (link) | `WF_STR.signIn`, page | 55 pages, 12 screens |  | kept |
+| G35 | header | Not available | text | page, `_nav.js caseBody/renderFooter` | system-500-noshell, system-500, system-503-planned, system-503-unplanned; case-degraded; account-degraded |  | kept |
+| G36 | header | Adding funds is closed for now. Your limits | accessible name | `_nav.js renderShell` | deposit-ceiling-reached; history-deposits-blocked; responsible-excluded, responsible-in-force | C4 C5 | kept |
+| G37 | header | Balance, not available | accessible name | `_nav.js gateHTML/proofPanel` | system-500, system-503-planned, system-503-unplanned |  | kept |
+| G38 | header | Value of items held, not available | accessible name | `_nav.js renderAcctHero/renderShell` | system-500, system-503-planned, system-503-unplanned | C2 | kept |
+| G39 | header | Account, Name unavailable | accessible name | _nav.js, assembled | profile-steam-down |  | kept |
+| G40 | header | Name unavailable | text | page script | profile-steam-down |  | kept |
+| G41 | ticker | Case opening | accessible name | `_nav.js feedTile` | 120 pages, 17 screens |  | kept |
+| G42 | ticker | {d}, {d} {d}, Restricted, won by {d} | accessible name | `_nav.js TIER_CH/TIER_ORDER` | 120 pages, 17 screens |  | kept |
+| G43 | ticker | {d}, {d} {d}, {d}, won by {d} | accessible name | _nav.js, assembled | 120 pages, 17 screens |  | kept |
+| G44 | ticker | {d}, {d} {d}, Restricted, won by {d}, a bot | accessible name | `_nav.js TIER_CH/TIER_ORDER` | 120 pages, 17 screens |  | kept |
+| G45 | ticker | Live drops | text | `_nav.js renderFeed` | 120 pages, 17 screens | C10 | kept |
+| G46 | ticker | Pause | button | `_nav.js renderFeed` | 120 pages, 17 screens |  | kept |
+| G47 | ticker | {d}, {d} {d}, {d}, won by Name unavailable | accessible name | _nav.js, assembled | profile-steam-down |  | kept |
+| G48 | bar | Shortcuts | accessible name | `_nav.js renderBar` | 132 pages, 19 screens |  | kept |
+| G49 | footer | All cases | link | `WF_STR.allCases`, page | 133 pages, 19 screens |  | kept |
+| G50 | footer | Card | text | `_nav.js PAY_CATS/authCard`, page script | 133 pages, 19 screens |  | kept |
+| G51 | footer | Classic cases | link | `_nav.js renderFooter` | 133 pages, 19 screens |  | kept |
+| G52 | footer | Community cases | link | `_nav.js renderFooter` | 133 pages, 19 screens |  | kept |
+| G53 | footer | Company | button | `_nav.js renderFooter` | 133 pages, 19 screens |  | kept |
+| G54 | footer | Contact support | link | `_nav.js authCard/renderFooter` | 133 pages, 19 screens | C6 | Support, glossary C6 |
+| G55 | footer | Cookie policy | link | `WF_STR.cookiePolicy` | 133 pages, 19 screens | C8 | kept |
+| G56 | footer | Cookie settings | button | page, `_nav.js mountCookie/renderFooter` | 133 pages, 19 screens |  | kept |
+| G57 | footer | Crypto | text | `_nav.js PAY_CATS/depBody`, page script | 133 pages, 19 screens |  | kept |
+| G58 | footer | Daily cases | link | `_nav.js homeBody/renderFooter` | 133 pages, 19 screens | N1 | kept |
+| G59 | footer | Featured cases | link | `_nav.js homeBody/renderFooter` | 133 pages, 19 screens |  | kept |
+| G60 | footer | Help | button | page, `_nav.js renderFooter` | 133 pages, 19 screens | C6 | Platform, the baseline's own heading for the column holding Provably fair, `baseline.md` "The footer"; glossary C6 keeps "Help" off headings |
+| G61 | footer | Need help? | text | `_nav.js renderFooter` | 133 pages, 19 screens | C6 | kept |
+| G62 | footer | Online now | text | `_nav.js renderFooter` | 133 pages, 19 screens |  | kept |
+| G63 | footer | Open only in the markets we have cleared. Anywhere else, this site says so before anything can be paid. | text | `_nav.js renderFooter` | 133 pages, 19 screens | C3 | Available only in the countries we have cleared. Anywhere else, this site says so before anything can be paid. (C3 c "country"; C9 "available" for availability) |
+| G64 | footer | Operating company · Registration no. · Registered address | text | `_nav.js renderFooter` | 133 pages, 19 screens | PH | kept |
+| G65 | footer | Over {n} only. Opening a case is a paid chance, never an investment. Set a deposit or session limit before you start. | text | `_nav.js renderFooter` | 133 pages, 19 screens | C4 C5 | For people 18 or over. Opening a case is a paid chance, never an investment. Set a deposit or session limit before you start. ("Over 18" left out an 18-year-old; the consent says "18 or over") |
+| G66 | footer | Payment methods | accessible name | `_nav.js payCountry/renderFooter` | 133 pages, 19 screens |  | kept |
+| G67 | footer | Play | button | `_nav.js FAQ/accountControl` | 133 pages, 19 screens |  | kept |
+| G68 | footer | Play responsibly | button | `_nav.js renderFooter/shellCfg` | 133 pages, 19 screens | C7 | kept |
 | G69 | footer | Popular cases | button | `_nav.js renderFooter` | 133 pages, 19 screens |  | removed, `D-170`: its sections are the Cases column |
-| G70 | footer | Prices are in coins. {n} coin = {n} | text | `_nav.js renderFooter` | 133 pages, 19 screens | C11 |  |
-| G71 | footer | Privacy policy | link | `WF_STR.privacyPolicy` | 133 pages, 19 screens | C8 K |  |
-| G72 | footer | Provably fair | link | `WF_STR.provablyFair` | 133 pages, 19 screens | S5 |  |
-| G73 | footer | Refund and payments policy | link | `WF_STR.refundPolicy` | 133 pages, 19 screens | C8 K |  |
-| G74 | footer | Support | button (link) | `WF_STR.support` | 133 pages, 19 screens | C6 |  |
-| G75 | footer | Terms of use | link | `WF_STR.termsOfUse`, page | 133 pages, 19 screens | C8 K |  |
-| G76 | footer | Total users | text | `_nav.js renderFooter` | 133 pages, 19 screens |  |  |
-| G77 | footer | Upgrades | text | `_nav.js renderFooter` | 133 pages, 19 screens |  |  |
-| G78 | footer | Wallet | text | `_nav.js HIST_COLS/renderFooter` | 133 pages, 19 screens |  |  |
-| G79 | footer | © {n} CS{n} Clutch. All rights reserved | text | `_nav.js renderFooter` | 133 pages, 19 screens |  |  |
-| G80 | footer | {n} Cases opened | link | `_nav.js renderFooter` | 129 pages, 19 screens |  |  |
-| G81 | footer | Last read {date} {time} | text | `_nav.js renderFooter` | system-500-noshell, system-500, system-503-planned, system-503-unplanned |  |  |
-| G82 | footer | Not available Cases opened Last read {date} {time} | link | `_nav.js caseBody/renderFooter`, `_nav.js renderFooter` | system-500-noshell, system-500, system-503-planned, system-503-unplanned |  |  |
-| G83 | layer: dialog | Close | accessible name | page, `_nav.js FAQ/authDialogHTML` | signin-dialog; deposit-dialog; cashout-dialog; responsible-confirm |  |  |
-| G84 | main | Home | link | `WF_STR.home`, page | 132 pages, 19 screens | K |  |
-| G85 | main | Breadcrumb | accessible name | page, `_nav.js renderAcctHero` | 83 pages, 14 screens |  |  |
-| G86 | main | Rolls | column head | `WF_STR.rolls`, page | 35 pages, 5 screens | C9 |  |
-| G87 | main | Balance | text | page, `_nav.js renderAcctHero/renderShell` | 33 pages, 7 screens |  |  |
-| G88 | main | Value of items held | text | page, `_nav.js renderAcctHero/renderShell` | 33 pages, 7 screens | C2 |  |
-| G89 | main | My account | link | page, `_nav.js renderAcctHero` | 32 pages, 6 screens |  |  |
-| G90 | main | Medium | text | page | 21 pages, 5 screens |  |  |
-| G91 | main | Before you open | accessible name | `_nav.js caseBody` | 20 pages, 4 screens |  |  |
-| G92 | main | Best drops | heading | `_nav.js caseBody/outcomeLeft` | 20 pages, 4 screens | C10 |  |
-| G93 | main | Buying an item outright is cheaper on average than opening for it. | note | `_nav.js caseBody` | 20 pages, 4 screens |  |  |
-| G94 | main | Chance | column head | `_nav.js caseBody/rollRow` | 20 pages, 4 screens |  |  |
-| G95 | main | Chance to get back at least the {n} entry cost | text | `_nav.js caseBody` | 20 pages, 4 screens | S4 |  |
-| G96 | main | Check your settings | link | `_nav.js caseBody/mountHomeLinks` | 20 pages, 4 screens |  |  |
-| G97 | main | Every item in {d} with its chance, value and ticket range | text | `_nav.js caseBody/keepScroll` | 20 pages, 4 screens |  |  |
-| G98 | main | Expected value per open: every chance above times its value | text | `_nav.js caseBody` | 20 pages, 4 screens |  |  |
-| G99 | main | Favourite | button | `WF_STR.favourite` | 20 pages, 4 screens | S3 |  |
-| G100 | main | Favourite this case | accessible name | page | 20 pages, 4 screens | S3 |  |
-| G101 | main | How a round is checked | heading | `_nav.js caseBody` | 20 pages, 4 screens | C9 S5 |  |
-| G102 | main | How it works | link | `WF_STR.howItWorks` | 20 pages, 4 screens |  |  |
-| G103 | main | How rounds are checked | link | `_nav.js caseBody` | 20 pages, 4 screens | C9 S5 |  |
-| G104 | main | How this case works | heading | `_nav.js caseBody` | 20 pages, 4 screens |  |  |
-| G105 | main | Item | column head | `_nav.js ACCT_TABS/FAQ` | 20 pages, 4 screens |  |  |
-| G106 | main | Item image | column head | `_nav.js caseBody` | 20 pages, 4 screens |  |  |
-| G107 | main | Risk band | text | `WF_STR.riskBand` | 20 pages, 4 screens | S2 |  |
-| G108 | main | Tested RTP, in coins at our values | text | `_nav.js caseBody` | 20 pages, 4 screens | C2 |  |
-| G109 | main | The entry cost buys one roll, and the roll lands on one item. Every item's chance is printed as a percentage and as a ticket range: the range is what the roll resolves against, which is what makes a result checkable. | text | `_nav.js caseBody` | 20 pages, 4 screens | C9 S4 |  |
-| G110 | main | The round is fixed before the animation starts and its hash is on screen when you open. After the reveal, one link checks the round against that hash. | text | `_nav.js caseBody` | 20 pages, 4 screens | C9 |  |
-| G111 | main | Tickets | column head | `_nav.js caseBody` | 20 pages, 4 screens |  |  |
-| G112 | main | Value | column head | `_nav.js caseBody/depGift` | 20 pages, 4 screens |  |  |
-| G113 | main | What is in this case | heading | `_nav.js caseBody` | 20 pages, 4 screens |  |  |
-| G114 | main | What this case pays | heading | `_nav.js caseBody` | 20 pages, 4 screens |  |  |
-| G115 | main | By value. What usually drops | text | `_nav.js caseBody` | 19 pages, 4 screens | C10 |  |
-| G116 | main | Counted since this case launched, never reset. How rounds are checked | note | `_nav.js caseBody` | 19 pages, 4 screens | C9 S5 |  |
-| G117 | main | Last updated {date} {time} | text | `_nav.js caseBody` | 19 pages, 4 screens |  |  |
-| G118 | main | Observed | column head | `_nav.js caseBody` | 19 pages, 4 screens |  |  |
-| G119 | main | Published | column head | `_nav.js caseBody` | 19 pages, 4 screens |  |  |
-| G120 | main | Published against observed | heading | `_nav.js caseBody` | 19 pages, 4 screens | K |  |
-| G121 | main | Published and observed rate per rarity tier | text | `_nav.js caseBody` | 19 pages, 4 screens |  |  |
-| G122 | main | Restricted | column head | page, `_nav.js TIER_CH/TIER_ORDER` | 19 pages, 4 screens |  |  |
-| G123 | main | Tier | column head | `_nav.js caseBody` | 19 pages, 4 screens |  |  |
-| G124 | main | What usually drops | link | `_nav.js caseBody` | 19 pages, 4 screens | C10 |  |
-| G125 | main | What we publish for each tier, and what actually came out. | text | `_nav.js caseBody` | 19 pages, 4 screens |  |  |
+| G70 | footer | Prices are in coins. {n} coin = {n} | text | `_nav.js renderFooter` | 133 pages, 19 screens | C11 | kept |
+| G71 | footer | Privacy policy | link | `WF_STR.privacyPolicy` | 133 pages, 19 screens | C8 K | kept |
+| G72 | footer | Provably fair | link | `WF_STR.provablyFair` | 133 pages, 19 screens | S5 | kept |
+| G73 | footer | Refund and payments policy | link | `WF_STR.refundPolicy` | 133 pages, 19 screens | C8 K | kept |
+| G74 | footer | Support | button (link) | `WF_STR.support` | 133 pages, 19 screens | C6 | kept |
+| G75 | footer | Terms of use | link | `WF_STR.termsOfUse`, page | 133 pages, 19 screens | C8 K | kept |
+| G76 | footer | Total users | text | `_nav.js renderFooter` | 133 pages, 19 screens |  | kept |
+| G77 | footer | Upgrades | text | `_nav.js renderFooter` | 133 pages, 19 screens |  | kept |
+| G78 | footer | Wallet | text | `_nav.js HIST_COLS/renderFooter` | 133 pages, 19 screens |  | kept |
+| G79 | footer | © {n} CS{n} Clutch. All rights reserved | text | `_nav.js renderFooter` | 133 pages, 19 screens |  | kept |
+| G80 | footer | {n} Cases opened | link | `_nav.js renderFooter` | 129 pages, 19 screens |  | kept |
+| G81 | footer | Last read {date} {time} | text | `_nav.js renderFooter` | system-500-noshell, system-500, system-503-planned, system-503-unplanned |  | kept |
+| G82 | footer | Not available Cases opened Last read {date} {time} | link | `_nav.js caseBody/renderFooter`, `_nav.js renderFooter` | system-500-noshell, system-500, system-503-planned, system-503-unplanned |  | kept |
+| G83 | layer: dialog | Close | accessible name | page, `_nav.js FAQ/authDialogHTML` | signin-dialog; deposit-dialog; cashout-dialog; responsible-confirm |  | kept |
+| G84 | main | Home | link | `WF_STR.home`, page | 132 pages, 19 screens | K | kept |
+| G85 | main | Breadcrumb | accessible name | page, `_nav.js renderAcctHero` | 83 pages, 14 screens |  | kept |
+| G86 | main | Rolls | column head | `WF_STR.rolls`, page | 35 pages, 5 screens | C9 | Rounds, glossary C9 |
+| G87 | main | Balance | text | page, `_nav.js renderAcctHero/renderShell` | 33 pages, 7 screens |  | kept |
+| G88 | main | Value of items held | text | page, `_nav.js renderAcctHero/renderShell` | 33 pages, 7 screens | C2 | kept |
+| G89 | main | My account | link | page, `_nav.js renderAcctHero` | 32 pages, 6 screens |  | kept |
+| G90 | main | Medium | text | page | 21 pages, 5 screens |  | kept |
+| G91 | main | Before you open | accessible name | `_nav.js caseBody` | 20 pages, 4 screens |  | kept |
+| G92 | main | Best drops | heading | `_nav.js caseBody/outcomeLeft` | 20 pages, 4 screens | C10 | kept |
+| G93 | main | Buying an item outright is cheaper on average than opening for it. | note | `_nav.js caseBody` | 20 pages, 4 screens |  | kept |
+| G94 | main | Chance | column head | `_nav.js caseBody/rollRow` | 20 pages, 4 screens |  | kept |
+| G95 | main | Chance to get back at least the {n} entry cost | text | `_nav.js caseBody` | 20 pages, 4 screens | S4 | Chance to get back at least its price, {n} coins (S4; the figure gets its unit, C11) |
+| G96 | main | Check your settings | link | `_nav.js caseBody/mountHomeLinks` | 20 pages, 4 screens |  | kept |
+| G97 | main | Every item in {d} with its chance, value and ticket range | text | `_nav.js caseBody/keepScroll` | 20 pages, 4 screens |  | kept |
+| G98 | main | Expected value per open: every chance above times its value | text | `_nav.js caseBody` | 20 pages, 4 screens |  | kept |
+| G99 | main | Favourite | button | `WF_STR.favourite` | 20 pages, 4 screens | S3 | Favorite, US spelling |
+| G100 | main | Favourite this case | accessible name | page | 20 pages, 4 screens | S3 | Favorite this case |
+| G101 | main | How a round is checked | heading | `_nav.js caseBody` | 20 pages, 4 screens | C9 S5 | kept |
+| G102 | main | How it works | link | `WF_STR.howItWorks` | 20 pages, 4 screens |  | kept |
+| G103 | main | How rounds are checked | link | `_nav.js caseBody` | 20 pages, 4 screens | C9 S5 | Provably fair, glossary S5: a link names its destination |
+| G104 | main | How this case works | heading | `_nav.js caseBody` | 20 pages, 4 screens |  | kept |
+| G105 | main | Item | column head | `_nav.js ACCT_TABS/FAQ` | 20 pages, 4 screens |  | kept |
+| G106 | main | Item image | column head | `_nav.js caseBody` | 20 pages, 4 screens |  | kept |
+| G107 | main | Risk band | text | `WF_STR.riskBand` | 20 pages, 4 screens | S2 | Risk, glossary S2 |
+| G108 | main | Tested RTP, in coins at our values | text | `_nav.js caseBody` | 20 pages, 4 screens | C2 | kept |
+| G109 | main | The entry cost buys one roll, and the roll lands on one item. Every item's chance is printed as a percentage and as a ticket range: the range is what the roll resolves against, which is what makes a result checkable. | text | `_nav.js caseBody` | 20 pages, 4 screens | C9 S4 | The price buys one round, and the round lands on one item. Every item's chance is printed as a percentage and as a ticket range: the range is what the round resolves against, which is what makes a result checkable. (S4, C9) |
+| G110 | main | The round is fixed before the animation starts and its hash is on screen when you open. After the reveal, one link checks the round against that hash. | text | `_nav.js caseBody` | 20 pages, 4 screens | C9 | kept |
+| G111 | main | Tickets | column head | `_nav.js caseBody` | 20 pages, 4 screens |  | kept |
+| G112 | main | Value | column head | `_nav.js caseBody/depGift` | 20 pages, 4 screens |  | kept |
+| G113 | main | What is in this case | heading | `_nav.js caseBody` | 20 pages, 4 screens |  | kept |
+| G114 | main | What this case pays | heading | `_nav.js caseBody` | 20 pages, 4 screens |  | kept |
+| G115 | main | By value. What usually drops | text | `_nav.js caseBody` | 19 pages, 4 screens | C10 | kept |
+| G116 | main | Counted since this case launched, never reset. How rounds are checked | note | `_nav.js caseBody` | 19 pages, 4 screens | C9 S5 | Counted since this case launched, never reset. Provably fair (S5) |
+| G117 | main | Last updated {date} {time} | text | `_nav.js caseBody` | 19 pages, 4 screens |  | kept |
+| G118 | main | Observed | column head | `_nav.js caseBody` | 19 pages, 4 screens |  | kept |
+| G119 | main | Published | column head | `_nav.js caseBody` | 19 pages, 4 screens |  | kept |
+| G120 | main | Published against observed | heading | `_nav.js caseBody` | 19 pages, 4 screens | K | kept |
+| G121 | main | Published and observed rate per rarity tier | text | `_nav.js caseBody` | 19 pages, 4 screens |  | kept |
+| G122 | main | Restricted | column head | page, `_nav.js TIER_CH/TIER_ORDER` | 19 pages, 4 screens |  | kept |
+| G123 | main | Tier | column head | `_nav.js caseBody` | 19 pages, 4 screens |  | kept |
+| G124 | main | What usually drops | link | `_nav.js caseBody` | 19 pages, 4 screens | C10 | kept |
+| G125 | main | What we publish for each tier, and what actually came out. | text | `_nav.js caseBody` | 19 pages, 4 screens |  | kept |
 | G126 | main | Daily reset | text | page, `_nav.js dailyLadder` | 18 pages, 4 screens |  | kept |
-| G127 | main | Favourite, {n} people | accessible name | page, `_nav.js homeBody/mountFilterDrawer` | 16 pages, 3 screens | S3 | Favorite, marked by {n} people (on `1.0`; the catalogue pages at step 7) |
-| G128 | main | {d} Low risk {n} coins | link | page, `_nav.js FAQ/HIST_COLS` | 16 pages, 3 screens | S2 |  |
-| G129 | main | {d}, {n} coins, Low risk | accessible name | _nav.js, assembled | 16 pages, 3 screens | S2 | {d}, {n} coins, Low-risk case (on `1.0`; the catalogue pages at step 7) |
-| G130 | main | Elite | text | `_nav.js LADDER` | 15 pages, 3 screens |  |  |
-| G131 | main | Guardian | text | `_nav.js LADDER` | 15 pages, 3 screens |  |  |
-| G132 | main | {d} Medium risk {n} coins | link | page, `_nav.js FAQ/HIST_COLS` | 15 pages, 3 screens | S2 |  |
-| G133 | main | {d}, {n} coins, Medium risk | accessible name | _nav.js, assembled | 15 pages, 3 screens | S2 | {d}, {n} coins, Medium-risk case (on `1.0`; the catalogue pages at step 7) |
-| G134 | main | Legend | text | `_nav.js LADDER` | 15 pages, 3 screens |  |  |
-| G135 | main | {d} High risk {n} coins | link | page, `_nav.js FAQ/HIST_COLS` | 15 pages, 3 screens | S2 |  |
-| G136 | main | {d}, {n} coins, High risk | accessible name | _nav.js, assembled | 15 pages, 3 screens | S2 | {d}, {n} coins, High-risk case (on `1.0`; the catalogue pages at step 7) |
-| G137 | main | Silver | text | `_nav.js LADDER` | 15 pages, 3 screens |  |  |
-| G138 | main | Copy | button | `WF_STR.copy`, page | 14 pages, 5 screens |  |  |
-| G139 | main | Nine items, one roll. | text | `WF_STR.nineItems` | 14 pages, 4 screens | C9 |  |
-| G140 | main | Before opening. Your Steam inventory has to be public and your trade URL set, or a win cannot be sent to you. Check your settings | note | `_nav.js caseBody` | 13 pages, 4 screens | C10 |  |
-| G141 | main | How a withdrawal settles | link | `_nav.js caseBody` | 13 pages, 4 screens | C1 |  |
-| G142 | main | How it settles | link | `_nav.js caseBody` | 13 pages, 4 screens |  |  |
-| G143 | main | Open this case | accessible name | page | 13 pages, 4 screens |  |  |
-| G144 | main | Our values against a real copy, case average How it settles | text | `_nav.js caseBody` | 13 pages, 4 screens |  |  |
+| G127 | main | Favourite, {n} people | accessible name | page, `_nav.js homeBody/mountFilterDrawer` | 16 pages, 3 screens | S3 | Favorite, marked by {n} people |
+| G128 | main | {d} Low risk {n} coins | link | page, `_nav.js FAQ/HIST_COLS` | 16 pages, 3 screens | S2 | {d} Low-risk case {n} coins, glossary S2, the baseline's tile form |
+| G129 | main | {d}, {n} coins, Low risk | accessible name | _nav.js, assembled | 16 pages, 3 screens | S2 | {d}, {n} coins, Low-risk case |
+| G130 | main | Elite | text | `_nav.js LADDER` | 15 pages, 3 screens |  | kept |
+| G131 | main | Guardian | text | `_nav.js LADDER` | 15 pages, 3 screens |  | kept |
+| G132 | main | {d} Medium risk {n} coins | link | page, `_nav.js FAQ/HIST_COLS` | 15 pages, 3 screens | S2 | {d} Medium-risk case {n} coins |
+| G133 | main | {d}, {n} coins, Medium risk | accessible name | _nav.js, assembled | 15 pages, 3 screens | S2 | {d}, {n} coins, Medium-risk case |
+| G134 | main | Legend | text | `_nav.js LADDER` | 15 pages, 3 screens |  | kept |
+| G135 | main | {d} High risk {n} coins | link | page, `_nav.js FAQ/HIST_COLS` | 15 pages, 3 screens | S2 | {d} High-risk case {n} coins |
+| G136 | main | {d}, {n} coins, High risk | accessible name | _nav.js, assembled | 15 pages, 3 screens | S2 | {d}, {n} coins, High-risk case |
+| G137 | main | Silver | text | `_nav.js LADDER` | 15 pages, 3 screens |  | kept |
+| G138 | main | Copy | button | `WF_STR.copy`, page | 14 pages, 5 screens |  | kept |
+| G139 | main | Nine items, one roll. | text | `WF_STR.nineItems` | 14 pages, 4 screens | C9 | Nine items, one open. (C9 retires "roll"; principle 4's example is corrected with it) |
+| G140 | main | Before opening. Your Steam inventory has to be public and your trade URL set, or a win cannot be sent to you. Check your settings | note | `_nav.js caseBody` | 13 pages, 4 screens | C10 | Before opening. Your Steam inventory has to be public and your trade URL set, or an item cannot be sent to you. Check your settings (C10) |
+| G141 | main | How a withdrawal settles | link | `_nav.js caseBody` | 13 pages, 4 screens | C1 | kept |
+| G142 | main | How it settles | link | `_nav.js caseBody` | 13 pages, 4 screens |  | kept |
+| G143 | main | Open this case | accessible name | page | 13 pages, 4 screens |  | kept |
+| G144 | main | Our values against a real copy, case average How it settles | text | `_nav.js caseBody` | 13 pages, 4 screens |  | kept |
 | G145 | main | Sign in to see your tier | button (link) | `_nav.js dailyLadder` | 13 pages, 3 screens |  | kept |
-| G146 | main | Skin prices. Values in this case are fixed when the case is priced. Sending a win to Steam buys a real copy at that day's price, and the difference settles against your balance in either direction. How a withdrawal settles | text | `_nav.js caseBody` | 13 pages, 4 screens | C1 C10 |  |
-| G147 | main | Check this round | link | `WF_STR.checkRound` | 12 pages, 4 screens | C9 |  |
-| G148 | main | RTP {n} %, expected value {n} coins | link | `WF_STR.rtpEv` | 12 pages, 4 screens |  |  |
-| G149 | main | Version history | heading | `WF_STR.versionHistory` | legal-changed, legal-guest, legal-refund, legal-superseded, legal; all 6 of `1.2` |  |  |
-| G150 | main | What this place is | button (link) | `WF_STR.whatThisPlaceIs` | all 6 of `7.1`; all 5 of `7.3` |  |  |
-| G151 | main | Client seed | text | `WF_STR.clientSeed` | all 6 of `1.2`; result-checked, result-mismatched, result-owner, result |  |  |
-| G152 | main | How the proof works | button (link) | `WF_STR.howProofWorks` | result-checked, result-mismatched, result-noproof, result-owner, result; all 5 of `7.3` | S5 |  |
-| G153 | main | Nonce | text | `WF_STR.nonce` | all 6 of `1.2`; result-checked, result-mismatched, result-owner, result |  |  |
-| G154 | main | Settled result | text | `WF_STR.settledResult` | all 6 of `1.2`; result-checked, result-mismatched, result-owner, result |  |  |
-| G155 | main | Worth now, read {date} {time} | text | `WF_STR.worthNow`, page | withdraw-clock, withdraw-not-eligible, withdraw-offer-expired, withdraw-restricted, withdraw-steam-degraded; result-checked, result-mismatched, result-noproof, result-owner, result | C2 |  |
-| G156 | main | Entry cost, one roll | text | `WF_STR.entryCost` | all 5 of `2.1`; signin-dialog; case-degraded, case-nocounter, case | C9 S4 |  |
-| G157 | main | {n} coin = {n} · RTP {n} %, expected value {n} coins | text | `WF_STR.peg` | all 5 of `2.1`; signin-dialog; case-nocounter, case | C11 |  |
-| G158 | main | Save | button | `WF_STR.save` | settings-no-trade, settings-refused, settings; all 5 of `6.1` |  |  |
-| G159 | main | Server seed hash | text | `WF_STR.serverSeedHash` | all 6 of `1.2`; case-open |  |  |
-| G160 | main | Amount | placeholder | page, `_nav.js HIST_COLS/histPanel` | deposit-crediting; history-cashout; responsible-confirm, responsible-excluded, responsible-guest, responsible |  |  |
+| G146 | main | Skin prices. Values in this case are fixed when the case is priced. Sending a win to Steam buys a real copy at that day's price, and the difference settles against your balance in either direction. How a withdrawal settles | text | `_nav.js caseBody` | 13 pages, 4 screens | C1 C10 | Skin prices. Values in this case are fixed when the case is priced. Sending an item to Steam buys a real copy at that day's price, and the difference settles against your balance in either direction. How a withdrawal settles (C10) |
+| G147 | main | Check this round | link | `WF_STR.checkRound` | 12 pages, 4 screens | C9 | kept |
+| G148 | main | RTP {n} %, expected value {n} coins | link | `WF_STR.rtpEv` | 12 pages, 4 screens |  | kept |
+| G149 | main | Version history | heading | `WF_STR.versionHistory` | legal-changed, legal-guest, legal-refund, legal-superseded, legal; all 6 of `1.2` |  | kept |
+| G150 | main | What this place is | button (link) | `WF_STR.whatThisPlaceIs` | all 6 of `7.1`; all 5 of `7.3` |  | kept |
+| G151 | main | Client seed | text | `WF_STR.clientSeed` | all 6 of `1.2`; result-checked, result-mismatched, result-owner, result |  | kept |
+| G152 | main | How the proof works | button (link) | `WF_STR.howProofWorks` | result-checked, result-mismatched, result-noproof, result-owner, result; all 5 of `7.3` | S5 | Provably fair, glossary S5 |
+| G153 | main | Nonce | text | `WF_STR.nonce` | all 6 of `1.2`; result-checked, result-mismatched, result-owner, result |  | kept |
+| G154 | main | Settled result | text | `WF_STR.settledResult` | all 6 of `1.2`; result-checked, result-mismatched, result-owner, result |  | kept |
+| G155 | main | Worth now, read {date} {time} | text | `WF_STR.worthNow`, page | withdraw-clock, withdraw-not-eligible, withdraw-offer-expired, withdraw-restricted, withdraw-steam-degraded; result-checked, result-mismatched, result-noproof, result-owner, result | C2 | Value now, read {date} {time}, glossary C2 |
+| G156 | main | Entry cost, one roll | text | `WF_STR.entryCost` | all 5 of `2.1`; signin-dialog; case-degraded, case-nocounter, case | C9 S4 | Price, one open (S4, C9) |
+| G157 | main | {n} coin = {n} · RTP {n} %, expected value {n} coins | text | `WF_STR.peg` | all 5 of `2.1`; signin-dialog; case-nocounter, case | C11 | kept |
+| G158 | main | Save | button | `WF_STR.save` | settings-no-trade, settings-refused, settings; all 5 of `6.1` |  | kept |
+| G159 | main | Server seed hash | text | `WF_STR.serverSeedHash` | all 6 of `1.2`; case-open |  | kept |
+| G160 | main | Amount | placeholder | page, `_nav.js HIST_COLS/histPanel` | deposit-crediting; history-cashout; responsible-confirm, responsible-excluded, responsible-guest, responsible |  | kept |
 | G161 | main | Wagered towards the next tier, in coins | text | page, `_nav.js dailyLadder` | index-account; catalogue-account; all 3 of `5.10` | N2 | Wagered toward the next tier (the figure above it now carries its unit, "{n} of {n} coins") |
-| G162 | main | Network | field label | `_nav.js HIST_COLS/coLayer` | deposit-crypto-nowallet, deposit-crypto; cashout-dialog; history-cashout |  |  |
-| G163 | main | Try again | button (link) | page, `_nav.js authCard/gateHTML`, page script | system-503-planned, system-503-unplanned; signin-steam-refused; deposit-declined |  |  |
-| G164 | main | Your account is restricted while we look at a pattern of deposits made from three payment instruments that do not belong to the same person. | text | page | support-appeal; withdraw-restricted, withdraw-restriction-upheld; history-withdrawals-restricted | C4 |  |
+| G162 | main | Network | field label | `_nav.js HIST_COLS/coLayer` | deposit-crypto-nowallet, deposit-crypto; cashout-dialog; history-cashout |  | kept |
+| G163 | main | Try again | button (link) | page, `_nav.js authCard/gateHTML`, page script | system-503-planned, system-503-unplanned; signin-steam-refused; deposit-declined |  | kept |
+| G164 | main | Your account is restricted while we look at a pattern of deposits made from three payment instruments that do not belong to the same person. | text | page | support-appeal; withdraw-restricted, withdraw-restriction-upheld; history-withdrawals-restricted | C4 | Withdrawals are paused while we check three deposits made with payment methods in different names. Your balance and items stay yours. (Forbidden: an accusation in a stop, `B8-3`) |
 
 ## 2. By screen
 

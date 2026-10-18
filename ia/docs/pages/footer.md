@@ -20,6 +20,20 @@
 
 ---
 
+## Updated after publication, 19 October 2026. The footer's words, by stage 05
+
+**Why.** Stage 05 step 7 rewrote the footer's global strings by voice.md. The words are owned by voice/docs/microcopy.md, rows G54, G60, G63 and G65; this section records what the node quoted that no longer reads so.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A column headed PLATFORM holding Provably Fair among others; "NEED HELP?" over a SUPPORT button, `baseline.md` "The footer" | **The column and its two rows, and the brand block's "Need help?" over Support** | **The column's heading reads Platform**, the baseline's own word, where it read Help: glossary C6 keeps "Help" off headings. **Its link reads Support**, where it read Contact support. **The age line reads "For people 18 or over."**, where "Over 18 only" left out an 18-year-old and the consent says "18 or over". **The market line reads "Available only in the countries we have cleared."**, glossary C3 and C9 |
+
+Where section 3 below quotes "Help", "Contact support", "Over 18 only" or "Open only in the markets we have cleared", it is the text before stage 05; the current words are the rows above.
+
+---
+
 ## Amended 17 October 2026 by `D-170`. One list of cases, and one row on a desktop
 
 **Why.** The founder read the footer on screen at stage 05: on a desktop window with the screens panel open the column grid folded into a stack and read as scattered, and cases were listed twice, in the Cases column and in the Popular cases row.
