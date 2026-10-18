@@ -21,6 +21,31 @@
 | Four tabs as peers on one page, `INVENTORY`, `HISTORY`, `PROFILE`, `SETTINGS`. The inventory grid has two sorts, no filters and no search, and a sticky bar carrying a count, a sum and **four exits**: send to Steam, sell to site, cash out, exchange. History is **five separate histories**, three of which are empty and all three say only `History is empty...`. `baseline-account.md` sections 2 to 4. | The count and the sum of the selection, which are the same pair the header carries, and the per-item action set. | **Our map gives this node one exit and the canon has four**, and the gap narrowed twice since this row was written. **`D-38` put selling a skin back for coins in round 1**, so the second exit exists as a capability ~~and has no placement on this page~~ **and is placed on this page since `D-85`, Sell for coins on each card and in the bar, and it sells since `D-135`**; `D-60` recorded that **the exchange for a real skin does not exist at all**, and in-platform skin-for-skin exchange stays LATER by scope. ~~**What is still true is the shape of the finding:** the live product answers what a person does with a skin they do not want, and this node answers only what they do with one they do want. **Open item, section 8, not a divergence.**~~ **Closed by `D-85` and `D-135`, section 8.** And `History is empty...` with no route is the empty state `3.2` refuses. **The four tabs are four nodes on our map since `D-36`**, `5.1`, `5.9`, `5.10` and `5.11`, ~~so the tab strip is not inherited either~~ **and `D-84` inherited the strip as a carrier between them, section 0.5**. |
 
 
+## Amended 18 October 2026 by `D-175`. The cards are smaller and a row holds one more
+
+**Why.** The founder, on the All skins grid: the cards are too large, one more should fit in a row.
+
+**Baseline row for this amendment**, against `research/screens/baseline-account/acct_inventory_cards.png`.
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Five cards across on a desktop, small artwork, name, skin, wear, price, then Starting at and Offers | **The card's fields and order, unchanged** | **From 600px the grid fits as many cards as a 200px floor allows**, instead of steps at 1000 and 1400. The floor is the card's own: "Send to Steam" unwrapped, `D-52`, and the acts inside the picture, which keeps 136px as its floor |
+
+**Measured on `account.html`, columns and card width before and after:**
+
+| Window | Before | After |
+|---|---|---|
+| 360 | 1 | 1, unchanged |
+| 700 | 2, 319px | **3, 207px** |
+| 1024 | 3, 288px | **4, 212px** |
+| 1280 | 3, 300px | **4, 221px** |
+| 1440 | 4, 261px | **5, 206px** |
+| 1920 | 4, 293px | **5, 231px** |
+
+**No act label wraps at any of these widths and the acts never reach the name.** The won shelf on History items and the player pages keeps its own steps.
+
+---
+
 ## Amended 4 October 2026 by `D-163`. Cash out keeps a network's saved wallet, and its peg holds together
 
 **Why.** Round 17 found the saved wallet lost after switching networks and back, so Request refused with "an address is needed"; and the peg line split at 360.

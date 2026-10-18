@@ -6119,3 +6119,13 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **Said out loud.** Which methods each country really has is `[?]`, so the grid does not change with the country and does not pretend to. The warning on `5.11`, that a false country can close the account, is not repeated here: an assumption of ours, to keep the row short, and the founder may want it.
 
+## D-175. My items cards are smaller, so a row holds one more
+
+**Date:** 2026-10-18. **Stage:** 04 reopened during stage 05. **Decided by:** the founder, on the All skins grid: "сделать карточки компактнее по размерам, чтобы помещалась например на 1 больше". **Binds:** node `5.1`, `.wf-grid--inv` and the acts panel in `wireframes/_wf.css`.
+
+**What was decided.** From 600px the grid fits as many cards as a 200px floor allows, instead of three viewport steps. Measured on `account.html`: 4 cards at a 1280 window where there were 3, 5 at 1440 where there were 4. One column at 360 is unchanged, for `D-52`'s reason. The baseline runs five across, `acct_inventory_cards.png`.
+
+**What the floor protects.** "Send to Steam" never wraps, and the three acts with their reason line stay inside the picture: they need 136px, so the picture keeps 136px as its floor on the narrowest card, and the acts panel lost 2px of gap and padding. Measured at 700, 900, 1024, 1280, 1440 and 1920: no label wraps and the acts never reach the name.
+
+**Said out loud.** The won shelf, on History items and on the player pages, uses the same card with its own column steps and is unchanged here.
+

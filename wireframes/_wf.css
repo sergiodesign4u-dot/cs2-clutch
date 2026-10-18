@@ -3408,9 +3408,11 @@ select {
    card's inner width at three columns is 199px. The first version of this comment
    said 153 against 206 and called it measured; it was an estimate in the voice of
    a measurement, and it reached five files before a browser was opened on it. */
-@media (min-width: 600px)  { .wf-grid--inv { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 1000px) { .wf-grid--inv { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (min-width: 1400px) { .wf-grid--inv { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* THE CARD IS 200px AT LEAST AND THE GRID FITS AS MANY AS THAT ALLOWS, D-175,
+   founder of 18 October 2026: the cards were too large, one more should fit.
+   The three viewport steps gave 300px cards at a 1280 window; the floor is still
+   the card's own, "Send to Steam" unwrapped and the acts inside the picture. */
+@media (min-width: 600px) { .wf-grid--inv { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); } }
 
 .wf-held {
   display: flex; flex-direction: column; gap: var(--wf-s-1);
@@ -5320,6 +5322,12 @@ textarea.wf-cfg-in { min-height: 0; }
 }
 .wf-inv-acts .wf-btn { min-height: 32px; padding-block: 4px; font-size: var(--wf-t-s); }
 .wf-inv-top { min-height: 32px; }
+/* THE ACTS STILL FIT THE PICTURE ON A 200px CARD, D-175. Three buttons and the
+   reason line need 136px with this gap and padding, and a 4 by 3 picture on the
+   narrowest card is 129px, so the picture keeps 136px as its floor rather than
+   letting the dim spill over the name. */
+.wf-inv-acts { padding: 6px; gap: 4px; }
+.wf-inv-card:has(.wf-inv-acts) .wf-inv-art { min-height: 136px; }
 .wf-inv-sold { margin: auto 0; font-family: var(--wf-mono); text-align: center; }
 .wf-inv-card.is-sold .wf-inv-acts { visibility: visible; }
 .wf-inv-card.is-sold { opacity: 0.7; }

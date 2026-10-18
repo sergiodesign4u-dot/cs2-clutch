@@ -163,6 +163,41 @@
   </div>
 </div>
 
+<section id="d175">
+  <div class="sec-head">
+    <h2>Updated after publication: The cards are smaller and a row holds one more, D-175</h2>
+    <p>18 October 2026. The founder, on the All skins grid: the cards are too large, one more should fit in a row.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Baseline row for this amendment</h4>
+    <p>Against <code>research/screens/baseline-account/acct_inventory_cards.png</code>.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody>
+        <tr><td>Five cards across on a desktop, small artwork, name, skin, wear, price, then Starting at and Offers</td><td><strong>The card's fields and order, unchanged</strong></td><td><strong>From 600px the grid fits as many cards as a 200px floor allows</strong>, instead of steps at 1000 and 1400. The floor is the card's own: "Send to Steam" unwrapped, <code>D-52</code>, and the acts inside the picture, which keeps 136px as its floor</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Window</th><th>Before</th><th>After</th></tr></thead>
+      <tbody>
+        <tr><td>360</td><td>1</td><td>1, unchanged</td></tr>
+        <tr><td>700</td><td>2, 319px</td><td><strong>3, 207px</strong></td></tr>
+        <tr><td>1024</td><td>3, 288px</td><td><strong>4, 212px</strong></td></tr>
+        <tr><td>1280</td><td>3, 300px</td><td><strong>4, 221px</strong></td></tr>
+        <tr><td>1440</td><td>4, 261px</td><td><strong>5, 206px</strong></td></tr>
+        <tr><td>1920</td><td>4, 293px</td><td><strong>5, 231px</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <p><strong>No act label wraps at any of these widths and the acts never reach the name.</strong> The won shelf on History items and the player pages keeps its own steps.</p>
+  </div>
+</section>
+
 <section id="d163">
   <div class="sec-head">
     <h2>Updated after publication: Cash out keeps a network's saved wallet, and its peg holds together, D-163</h2>
@@ -1107,6 +1142,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '5.1 Account and inventory';
 window.NAV_SECTIONS = [
   { id: 'overview', label: 'Overview' },
+  { id: 'd175', label: 'D-175 compact cards' },
   { id: 'd163', label: 'D-163 cash out' },
   { id: 'd159', label: 'D-159 the peg' },
   { id: 'd158', label: 'D-158 F2 and History' },
