@@ -151,6 +151,29 @@
   </div>
 </div>
 
+<section id="d177">
+  <div class="sec-head">
+    <h2>Updated after publication: The back opens the case and the player, D-177</h2>
+    <p>18 October 2026. The founder, on the turned tile: the click goes to the case, and the small row with the player goes to that player's profile.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Baseline row for this amendment</h4>
+    <p>Against <code>founder_ticker_hover_18oct.png</code>.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody>
+        <tr><td>A turned tile showing the source and the winner's avatar; where a click on it lands is not in the capture, [?]</td><td><strong>The back of D-176</strong></td><td><strong>Two links cover it: the case to 3.3, the player row to 7.3</strong>, 24px tall because it sits flush against the case target. A bot or a hidden profile is text, A3, D-93</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <p><strong>Measured on Home at 1440:</strong> a pointer on the turned tile's art lands on the case link, at its foot on the player link; the tile is 84px and the back does not overflow; Tab runs tile, case, player.</p>
+    <p><strong>The cost.</strong> Field 7 says the tile lands on 7.1. <strong>With a mouse that is no longer true from the strip</strong>, because the turned tile covers itself; it stays true by keyboard and by touch.</p>
+  </div>
+</section>
+
 <section id="d176">
   <div class="sec-head">
     <h2>Updated after publication: Full width, a corner tab, and a tile that turns over, D-176</h2>
@@ -164,7 +187,7 @@
     <table>
       <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
       <tbody>
-        <tr><td>A full bleed strip with no label. On hover a tile turns over: the source's art with the skin over it, the source named under it, CASE BATTLE, and the winner's avatar in the corner</td><td><strong>The full bleed and the turn over in place</strong>: the case art, the case name, the winner's avatar and name, a bot labelled, A3</td><td><strong>The label stays, as a tab over the top right corner</strong>, and the pause sits in it, shown on hover, on focus and while held, and always on a screen with no hover, section 2. <strong>The back of the tile holds no target</strong>: the tile lands on 7.1 on every input</td></tr>
+        <tr><td>A full bleed strip with no label. On hover a tile turns over: the source's art with the skin over it, the source named under it, CASE BATTLE, and the winner's avatar in the corner</td><td><strong>The full bleed and the turn over in place</strong>: the case art, the case name, the winner's avatar and name, a bot labelled, A3</td><td><strong>The label stays, as a tab over the top right corner</strong>, and the pause sits in it, shown on hover, on focus and while held, and always on a screen with no hover, section 2. <s><strong>The back of the tile holds no target</strong>: the tile lands on 7.1 on every input</s> <strong>Two targets since D-177</strong></td></tr>
       </tbody>
     </table>
   </div>
@@ -326,8 +349,8 @@
       <thead><tr><th>Three targets in one tile</th><th>Goes to</th><th>Why it is not the tile&#39;s own destination</th></tr></thead>
       <tbody>
         <tr><td><strong>The tile body</strong></td><td>7.1, the shared result</td><td>Unchanged. <strong>It is the checkable object</strong>, which is the whole reason this component exists</td></tr>
-        <tr><td><strong>The case</strong>, <s>in the hover layer</s> <strong>on the back of the tile, <code>D-176</code></strong></td><td><s>3.3</s> <strong>no target in the strip; 3.3 from the case row on 7.1</strong></td><td>The feed is evidence that drops happen; the case is how a person acts on it</td></tr>
-        <tr><td><strong>The avatar and the name</strong>, <s>in the hover layer</s> <strong>on the back of the tile, <code>D-176</code></strong></td><td><s>7.3, the public profile, since <code>D-90</code></s> <strong>no target in the strip; <a href="public-profile.html">7.3</a> from 7.1 block 6</strong></td><td><strong>Only where there is an account behind the name.</strong> A bot is labelled and never linked. See below</td></tr>
+        <tr><td><strong>The case</strong>, <s>in the hover layer</s> <strong>on the back of the tile, <code>D-176</code></strong></td><td><s>3.3</s> <s>no target in the strip</s> <strong>3.3, from the back, <code>D-177</code></strong></td><td>The feed is evidence that drops happen; the case is how a person acts on it</td></tr>
+        <tr><td><strong>The avatar and the name</strong>, <s>in the hover layer</s> <strong>on the back of the tile, <code>D-176</code></strong></td><td><s>7.3, the public profile, since <code>D-90</code></s> <s>no target in the strip</s> <strong><a href="public-profile.html">7.3</a>, from the player row on the back, <code>D-177</code>; a bot or a hidden profile is text</strong></td><td><strong>Only where there is an account behind the name.</strong> A bot is labelled and never linked. See below</td></tr>
       </tbody>
     </table>
   </div>
@@ -634,7 +657,7 @@
 
   <div class="card is-good">
     <h4>4. Every tile is a link to a checkable object, and that is the only route it offers</h4>
-    <p><s><strong>One destination, 7.1, and no second action anywhere on the tile.</strong> No route into the case, no open control, no share control.</s> <s><strong>Since <code>D-59</code> the tile body goes to 7.1 and the hover layer adds two targets, the case to 3.3 and the winner to 7.3; on touch the tile keeps exactly one destination, 7.1.</strong></s> <strong>Since <code>D-176</code> the tile has one destination on every input, 7.1; its back shows the case and the winner and holds no target.</strong> No open control and no share control. A ticker tile that opens a case turns social proof into a spend prompt, and the tile is not a place where cost is visible: <strong>the case target lands on the case screen, where the cost is, rather than opening anything.</strong></p>
+    <p><s><strong>One destination, 7.1, and no second action anywhere on the tile.</strong> No route into the case, no open control, no share control.</s> <s><strong>Since <code>D-59</code> the tile body goes to 7.1 and the hover layer adds two targets, the case to 3.3 and the winner to 7.3; on touch the tile keeps exactly one destination, 7.1.</strong></s> <s><strong>Since <code>D-176</code> the tile has one destination on every input, 7.1; its back shows the case and the winner and holds no target.</strong></s> <strong>Since <code>D-177</code> the back opens the case and the player; the tile lands on 7.1 by keyboard and by touch.</strong> No open control and no share control. A ticker tile that opens a case turns social proof into a spend prompt, and the tile is not a place where cost is visible: <strong>the case target lands on the case screen, where the cost is, rather than opening anything.</strong></p>
     <p><strong>The destination changed and the change is the point.</strong> The baseline links every tile to the winner's public profile at <code>/en/profile/&lt;id&gt;</code>, and <s>no job in this repository requires a profile object at all</s> <strong>a public profile now exists, 7.3, by <code>D-90</code>, <s>and the winner's name in the hover layer reaches it</s> and 7.1 block 6 reaches it, <code>D-176</code>; the tile body does not</strong>. <code>D-20</code> approved 7.1, so the social proof surface now points at something a stranger can check rather than at a stranger's trophy shelf.</p>
     <p><strong>And no proof inline.</strong> <code>0.14</code> renders on 7.1, which is where the tile lands. A truncated hash in a 92px tile is not evidence, it is a decoration shaped like evidence, and <code>0.14</code> is the rule against exactly that.</p>
   </div>
@@ -732,6 +755,7 @@ window.NAV_ACTIVE = 'ia/structure.html';
 window.NAV_ACTIVE_LABEL = '0.8 Live drop ticker';
 window.NAV_SECTIONS = [
   { id: 'overview',  label: 'Overview' },
+  { id: 'd177', label: 'D-177 case and player' },
   { id: 'd176', label: 'D-176 full width' },
   { id: 'd162', label: 'D-162 seeds' },
   { id: 'd156', label: 'D-156 winners' },

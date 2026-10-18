@@ -25,6 +25,18 @@
 
 ---
 
+## Amended 18 October 2026 by `D-177`. A winner's name opens their page
+
+**Why.** The founder gave every feed winner a profile, through the live strip, and the round they won has to give the same answer as the strip.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| The winner on a shared drop | Block 6, the winner as they choose to appear | **The name is a link to their `7.3` wherever they have one**, `?round=ffive` opens emberjay's page; a bot or a hidden profile stays text, `A3`, `D-93` |
+
+---
+
 ## Amended 4 October 2026 by `D-162`. A result's ticket lands in the table it points at
 
 **Why.** Round 17 found rounds of Warsteel, Coldfront and Nightfall settled on tickets inside other items' ranges, and the range field reading "the range its case publishes".

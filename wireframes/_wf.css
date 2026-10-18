@@ -2659,28 +2659,46 @@ a.wf-count-b[aria-current] { border-color: var(--wf-ink); color: var(--wf-ink); 
   width: 14px; height: 14px;
   border: 1px dashed var(--wf-line-soft); border-radius: var(--wf-r-1);
   background: var(--wf-raised);
+  /* Above the back of the tile and never a target: it is the mode, not a link. */
+  z-index: 2; pointer-events: none;
 }
 
 /* THE BACK OF THE TILE, D-176: the case and the winner, turned over in place.
    It replaced a layer drawn under the tile, which the strip's own clip hid.
-   NOTHING IS REACHABLE ONLY THROUGH IT: it holds no target, and the tile still
-   lands on 7.1, where the case and the winner are links. Hover does not exist
-   on a touch screen, so there it never shows and the tile's name carries both. */
+   TWO TARGETS ON IT SINCE D-177, the founder's: the case above, the winner's
+   profile in the row at the foot, and between them they cover the back, so a
+   pointer on a turned tile reaches the case or the person and not 7.1.
+   HIDDEN IT STAYS IN THE TAB ORDER, after the tile, and turns over when one of
+   its links takes focus. Hover does not exist on a touch screen, so there it
+   never turns over, a tap lands on 7.1, and both links are one tap further. */
 .wf-feed-back {
-  display: none; position: absolute; inset: 0;
-  flex-direction: column; gap: 2px;
-  padding: var(--wf-s-1);
+  position: absolute; inset: 0; z-index: 1;
+  display: flex; flex-direction: column;
   background: var(--wf-surface); border-radius: var(--wf-r-2);
+  opacity: 0; pointer-events: none;
 }
+.wf-feed-back:focus-within { opacity: 1; pointer-events: auto; }
 @media (hover: hover) {
-  .wf-feed-i:hover .wf-feed-back, .wf-feed-i:focus-within .wf-feed-back { display: flex; }
+  .wf-feed-i:hover .wf-feed-back { opacity: 1; pointer-events: auto; }
+}
+.wf-feed-tocase {
+  flex: 1 1 auto; display: flex; flex-direction: column; gap: 2px;
+  padding: var(--wf-s-1) var(--wf-s-1) 0;
+  color: var(--wf-ink); text-decoration: none; border-radius: var(--wf-r-2) var(--wf-r-2) 0 0;
 }
 /* The case reads as a box, not as a second skin. */
-.wf-feed-back .wf-feed-art { width: 48px; align-self: center; }
+.wf-feed-back .wf-feed-art { flex: none; width: 48px; height: 30px; align-self: center; }
+/* THE WINNER'S ROW IS 24px TALL, the AA floor, because it sits flush against
+   the case target and the spacing exception cannot apply. */
 .wf-feed-who {
-  display: flex; align-items: center; gap: 4px; min-width: 0;
+  display: flex; align-items: center; gap: 4px; min-width: 0; min-height: 24px;
+  padding: 0 var(--wf-s-1) 2px;
   font-size: var(--wf-t-xs); color: var(--wf-ink-dim); line-height: 1.25;
+  text-decoration: none; border-radius: 0 0 var(--wf-r-2) var(--wf-r-2);
 }
+/* Underlined where it is a link, so two targets in one small tile are told
+   apart without a pointer on them; a bot's or a hidden name is plain. */
+a.wf-feed-who .wf-feed-whon { color: var(--wf-ink); text-decoration: underline; }
 .wf-feed-whon { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .wf-feed-av { flex: 0 0 14px; height: 14px; border: 1px dashed var(--wf-line-soft); border-radius: 50%; }
 /* The case art on 7.1's case row, which borrowed this component's class. */

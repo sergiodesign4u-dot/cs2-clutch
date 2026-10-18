@@ -19,6 +19,20 @@
 **States specified inside this node:** the owner reading their own page, the page hidden with the owner looking at it, `D-93`, nothing won yet, and no page to show.
 
 
+## Amended 18 October 2026 by `D-177`. Every feed winner has a page
+
+**Why.** The founder, on the turned tile: the click goes to the case, and the small row with the player goes to that player's profile. `D-156` had drawn one profile, the account's, and kept every other name as text.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| One profile page per account, reached from a live drop | **The page as `D-90` drew it** | **Every feed winner with an account has one**: `player.html?u=<name>` draws their name, an id and a shelf of the feed rounds they won, each with its route to the round. **A sample, `D-124`**: the shelf holds only the rounds this product draws for them, marked "Still held" by default. An address naming no such winner renders no page to show; a bot or a hidden profile has no page, `A3`, `D-93` |
+
+**Measured:** `?u=emberjay` draws emberjay with one card, the Five-SeveN from Coldfront, and its check link opens that round; `?u=nobody` lands on `player-gone.html`; no parameter draws nightjar_cs with ten cards as before.
+
+---
+
 ## Amended 4 October 2026 by `D-155`. No proof to check opens the public reason
 
 **Why.** Round 16 found a stranger sent from a public profile into the owner's private history state.

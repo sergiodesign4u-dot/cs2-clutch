@@ -6144,3 +6144,15 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **Said out loud.** On a phone the tab sits over the corner of whichever tile passes under it, and while held it covers part of one. The tile does not turn over on touch, which has no hover; the accessible name carries the case and the winner on every input.
 
+## D-177. The back of a live tile opens the case, and its player row opens the player's profile
+
+**Date:** 2026-10-18. **Stage:** 04 reopened during stage 05. **Decided by:** the founder, on the tile `D-176` turned over: "переход надо сделать на кейс, а в маленьком, где юзер, переход на профайл юзера". **Binds:** node `0.8`, `7.3`, `7.1` block 6, `_nav.js` `feedTile`, `playerHref`, `mountPlayerGuest`.
+
+**What was decided.** The back of the tile carries two links and they cover it: the case art and name go to `3.3`, the player row at the foot, 24px tall, goes to `7.3`. **Every feed winner with an account has a page now:** `player.html?u=<name>` draws `7.3` for them, their name, a sample id and a shelf of the feed rounds they won, each with its route to the round. An address naming no such winner renders `7.3`'s no page to show state. `7.1` block 6 gives the same answer, so a winner's name is a link on the round as it is in the strip.
+
+**What it reverses.** `D-176` kept the back free of targets. `D-156` drew one public profile and kept every other name as text; a page per winner retires that, and the sample shelf is marked in `7.3`.
+
+**Kept.** A bot and a hidden profile are names, never links, row `A3` and `D-93`. The tile itself still lands on `7.1`, by keyboard and by touch, where the back never turns over.
+
+**The cost, said out loud.** With a mouse, a turned tile covers itself, so a pointer reaches the case and the player and no longer the round from the strip. The round is one click further, from the player's card. This is the trade the founder chose; `0.8` field 7 names `7.1` as the tile's destination and that is now true for keyboard and touch only.
+

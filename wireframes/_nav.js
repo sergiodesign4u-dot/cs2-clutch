@@ -1371,6 +1371,18 @@ window.WF_PAY = window.WF_PAY || {
                       Samples, D-124, marked in 3.3. */
                    usp: 'tallowcs', nova: 'brisk', mp9: 'oriole_cs', p250: 'harrow', m4: 'vandal88' };
 
+  /* WHERE A WINNER'S NAME GOES, ONE ANSWER FOR THE STRIP AND FOR 7.1, D-177.
+     The account's own name opens its page. Another winner of a feed round opens
+     7.3 drawn for them, mountPlayerGuest. A bot or a hidden profile has no page,
+     row A3 and D-93, and a name with no feed round behind it has nothing a page
+     could hold, so those stay text. */
+  function playerHref(name) {
+    if (name === window.WF_WHO.name) return 'player.html';
+    var rows = FEED.filter(function (f) { return FEED_WHO[f[5]] === name; });
+    if (!rows.length || rows.some(function (f) { return f[3] || f[4]; })) return null;
+    return 'player.html?u=' + encodeURIComponent(name);
+  }
+
   function feedTile(row) {
     // THE IMAGE LEADS, D-59 and the founder's own ordering: a skin is recognised
     // by its finish before it is recognised by its name, and the strip is looked
@@ -1398,23 +1410,29 @@ window.WF_PAY = window.WF_PAY || {
        founder_ticker_hover_18oct.png. D-59 drew this as a layer under the tile
        with two links in it, and the strip clips everything below itself: the
        layer was never seen, and a keyboard focused two links nobody could see.
-       IT HOLDS NO TARGET OF ITS OWN, so the tile keeps one destination for a
-       pointer, a finger and a key alike. The source line names the case in round
-       1; a mode with no case names the mode, the baseline's CASE BATTLE.
-       ROW A3 STILL BINDS THE WINNER: no invented names, a bot labelled as one.
-       Hidden from the accessibility tree because the tile's name already says
-       both, in the order section 6 fixes. */
-    var back = el('span', 'wf-feed-back');
-    back.setAttribute('aria-hidden', 'true');
-    back.appendChild(el('span', 'wf-feed-art'));
-    back.appendChild(el('span', 'wf-feed-w', row[2]));
-    var who = el('span', 'wf-feed-who');
+       TWO TARGETS, D-177, the founder of 18 October 2026: the case goes to 3.3
+       and the winner to their public profile, 7.3. A sibling of the tile's link
+       and not inside it, so no link sits in a link. The source line names the
+       case in round 1; a mode with no case names the mode, the baseline's CASE
+       BATTLE. ROW A3 STILL BINDS THE WINNER: no invented names, and a bot or a
+       hidden profile is a name and not a link, D-93. */
+    li.appendChild(hit);
+    var back = el('div', 'wf-feed-back');
+    var cs = el('a', 'wf-feed-tocase');
+    cs.href = BASE + caseHref(row[2], false);
+    cs.appendChild(el('span', 'wf-feed-art'));
+    cs.lastChild.setAttribute('aria-hidden', 'true');
+    cs.appendChild(el('span', 'wf-feed-w', row[2]));
+    back.appendChild(cs);
+    var whoName = FEED_WHO[row[5]] || 'a player', whoHref = playerHref(whoName);
+    var who = el(whoHref ? 'a' : 'span', 'wf-feed-who');
+    if (whoHref) who.href = BASE + whoHref;
     who.appendChild(el('span', 'wf-feed-av'));
-    who.appendChild(el('span', 'wf-feed-whon', FEED_WHO[row[5]] || 'a player'));
+    who.lastChild.setAttribute('aria-hidden', 'true');
+    who.appendChild(el('span', 'wf-feed-whon', whoName));
     if (row[3]) who.appendChild(el('span', 'wf-feed-bot', ' bot'));
     back.appendChild(who);
-    hit.appendChild(back);
-    li.appendChild(hit);
+    li.appendChild(back);
 
     // THE MODE ICON. Section 0 of the node fixed that the source field carries
     // the CASE in round 1, because a label reading the same word on every tile
@@ -3487,7 +3505,10 @@ window.WF_PAY = window.WF_PAY || {
     if (nm && wn && roundKey() !== 'ak') {
       var wa = wn.querySelector('a'), ws = wn.querySelector('strong');
       if (ws) ws.textContent = nm;
-      if (wa && (fr[3] || fr[4] || nm !== window.WF_WHO.name)) wa.replaceWith(ws);
+      // A FEED WINNER'S NAME OPENS THEIR PAGE, D-177, the same answer the strip gives.
+      var ph = playerHref(nm);
+      if (wa && ph) wa.setAttribute('href', BASE + ph);
+      else if (wa) wa.replaceWith(ws);
       if (fr[3]) wn.appendChild(el('span', 'wf-feed-bot', ' bot'));
     }
   }
@@ -6260,6 +6281,33 @@ window.WF_PAY = window.WF_PAY || {
     });
   }
 
+  /* 7.3 FOR ANOTHER WINNER, D-177: the strip's name opens the page of the
+     person who won, so the page reads who from its address. Their shelf is the
+     feed rounds they won and nothing else, because those are the only rounds of
+     theirs this product draws: a sample, D-124, marked in 7.3. An address naming
+     no such winner renders 7.3's own no page to show state. */
+  function mountPlayerGuest() {
+    var m = /[?&]u=([^&]+)/.exec(location.search);
+    var shelves = document.querySelectorAll('[data-player-shelf]');
+    if (!m || !shelves.length) return;
+    var name = decodeURIComponent(m[1]);
+    if (name === window.WF_WHO.name) return;
+    if (!playerHref(name)) { location.replace(BASE + 'player-gone.html'); return; }
+    var h = document.querySelector('.wf-plr-n'); if (h) h.textContent = name;
+    var id = document.querySelector('.wf-plr-id'); if (id) id.textContent = 'ID p-' + hx(name + 'id', 6);
+    document.title = name + ', what this account has won';
+    var og = document.querySelector('meta[property="og:title"]'); if (og) og.setAttribute('content', document.title);
+    var rows = FEED.filter(function (f) { return FEED_WHO[f[5]] === name; });
+    Array.prototype.forEach.call(shelves, function (g) {
+      g.textContent = '';
+      rows.forEach(function (f) {
+        var R = ROUNDS[f[5]];
+        g.appendChild(itemCard({ key: f[5], date: R.at.replace(/ \d\d:\d\d$/, ''), kase: f[2], w: f[0], s: f[1],
+          wear: R.axes[0], worth: R.won, hash: R.hash, state: 'held' }));
+      });
+    });
+  }
+
   function itemsPanel() {
     var wrap = el('div', 'wf-hpanel');
     /* THE EMPTY STATE EMPTIES THE ARRAY RATHER THAN COPYING THE PAGE, so the two
@@ -8284,6 +8332,7 @@ window.WF_PAY = window.WF_PAY || {
     renderLadders();
     mountFavs();
     renderPlayerShelf();
+    mountPlayerGuest();
     renderResult();
     renderVerifierPrefill();
     mountVerifier();

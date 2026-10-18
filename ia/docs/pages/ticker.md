@@ -22,6 +22,22 @@
 
 ---
 
+## Amended 18 October 2026 by `D-177`. The back opens the case and the player
+
+**Why.** The founder, on the turned tile: the click goes to the case, and the small row with the player goes to that player's profile.
+
+**Baseline row for this amendment**, against `founder_ticker_hover_18oct.png`.
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| A turned tile showing the source and the winner's avatar; where a click on it lands is not in the capture, `[?]` | **The back of `D-176`** | **Two links cover it: the case to `3.3`, the player row to `7.3`**, 24px tall because it sits flush against the case target. A bot or a hidden profile is text, `A3`, `D-93` |
+
+**Measured on Home at 1440:** a pointer on the turned tile's art lands on the case link, at its foot on the player link; the tile is 84px and the back does not overflow; Tab runs tile, case, player, and the back turns over on the second.
+
+**The cost.** Section 1 field 7 says the tile lands on `7.1`. **With a mouse that is no longer true from the strip**, because the turned tile covers itself; it stays true by keyboard and by touch. The round is one click further, from the player's card.
+
+---
+
 ## Amended 18 October 2026 by `D-176`. Full width, a corner tab, and a tile that turns over
 
 **Why.** The founder, on the strip: run it the screen's whole width, put "Live drops" in the right corner over it on a backing, and show the pause only on hover; on the tile, show on hover where it dropped from, the case or later the mode, and the player, as the baseline does.
@@ -30,7 +46,7 @@
 
 | The live product | What we keep | What we change, and why |
 |---|---|---|
-| A full bleed strip with no label. On hover a tile turns over: the source's art with the skin over it, the source named under it, CASE BATTLE, and the winner's avatar in the corner | **The full bleed and the turn over in place**: the case art, the case name, the winner's avatar and name, a bot labelled, `A3` | **The label stays, as a tab over the top right corner**, and the pause sits in it, shown on hover, on focus and while held, and always on a screen with no hover, section 2. **The back of the tile holds no target**: the tile lands on `7.1` on every input |
+| A full bleed strip with no label. On hover a tile turns over: the source's art with the skin over it, the source named under it, CASE BATTLE, and the winner's avatar in the corner | **The full bleed and the turn over in place**: the case art, the case name, the winner's avatar and name, a bot labelled, `A3` | **The label stays, as a tab over the top right corner**, and the pause sits in it, shown on hover, on focus and while held, and always on a screen with no hover, section 2. ~~**The back of the tile holds no target**: the tile lands on `7.1` on every input~~ **Two targets since `D-177`** |
 
 **Measured on Home before and after:**
 
@@ -145,8 +161,8 @@
 | Target | Goes to | Why it is not the tile's own destination |
 |---|---|---|
 | **The tile body** | `7.1`, the shared result | Unchanged. **It is the checkable object**, which is the whole reason this component exists |
-| **The case**, ~~in the hover layer~~ **on the back of the tile, `D-176`** | ~~`3.3`~~ **no target in the strip; `3.3` from the case row on `7.1`** | The feed is evidence that drops happen; the case is how a person acts on it |
-| **The avatar and the name**, ~~in the hover layer~~ **on the back of the tile, `D-176`** | ~~**`7.3`, the public profile**, since `D-90`, 23 August 2026.~~ **No target in the strip; `7.3` from `7.1` block 6.** **Only where there is an account behind the name:** a bot is labelled and never linked | Section 0.5.5 |
+| **The case**, ~~in the hover layer~~ **on the back of the tile, `D-176`** | ~~`3.3`~~ ~~no target in the strip~~ **`3.3`, from the back, `D-177`** | The feed is evidence that drops happen; the case is how a person acts on it |
+| **The avatar and the name**, ~~in the hover layer~~ **on the back of the tile, `D-176`** | ~~**`7.3`, the public profile**, since `D-90`, 23 August 2026.~~ ~~No target in the strip~~ **`7.3`, from the player row on the back, `D-177`; a bot or a hidden profile is text** **Only where there is an account behind the name:** a bot is labelled and never linked | Section 0.5.5 |
 
 **Hover does not exist on a touch screen, and this node does not pretend otherwise.** On touch the tile has **exactly one destination, `7.1`**, and both other objects are on `7.1`, one tap further. **Nothing in this component is reachable only by hover**, which is the rule that keeps the two input models from being two products.
 
@@ -317,7 +333,7 @@ A continuous loop built from four events looks like forty. **Below the minimum c
 
 ### 5.4 Every tile is a link to a checkable object, and that is the only route it offers
 
-~~**One destination, `7.1`, and no second action anywhere on the tile.** No route into the case, no open control, no share control.~~ ~~**Since `D-59` the tile body goes to `7.1` and the hover layer adds two targets, the case to `3.3` and the winner to `7.3`, section 0.5.4; on touch the tile keeps exactly one destination, `7.1`.**~~ **Since `D-176` the tile has one destination on every input, `7.1`; its back shows the case and the winner and holds no target.** No open control and no share control. A ticker tile that opens a case turns social proof into a spend prompt, and the tile is not a place where cost is visible: **the case target lands on the case screen, where the cost is, rather than opening anything.**
+~~**One destination, `7.1`, and no second action anywhere on the tile.** No route into the case, no open control, no share control.~~ ~~**Since `D-59` the tile body goes to `7.1` and the hover layer adds two targets, the case to `3.3` and the winner to `7.3`, section 0.5.4; on touch the tile keeps exactly one destination, `7.1`.**~~ ~~**Since `D-176` the tile has one destination on every input, `7.1`; its back shows the case and the winner and holds no target.**~~ **Since `D-177` the back opens the case and the player; the tile lands on `7.1` by keyboard and by touch.** No open control and no share control. A ticker tile that opens a case turns social proof into a spend prompt, and the tile is not a place where cost is visible: **the case target lands on the case screen, where the cost is, rather than opening anything.**
 
 **The destination changed and the change is the point.** The baseline links every tile to the winner's public profile at `/en/profile/<id>`, `baseline.md` section 3, and ~~no job in this repository requires a profile object at all~~ **a public profile now exists, `7.3`, by `D-90`, ~~and the winner's name in the hover layer reaches it, section 0.5.5~~ and `7.1` block 6 reaches it, `D-176`; the tile body does not**. `D-20` approved `7.1`, so the social proof surface now points at something a stranger can check rather than at a stranger's trophy shelf.
 
