@@ -24,7 +24,7 @@ daddyskins.com is the product being redesigned. It is the founder's own product,
 
 - **Inherited, deliberately close to identical:** navigation model, page inventory, page composition, flows, the live drop ticker, the placement of the money and account actions. **The navigation model is two inherited carriers and no carrier holds another's kind:** a full height left rail owning the logo, the destinations and its own toggle on the seam, and a header starting at the rail's edge owning money and the account and holding no destination at all. **Mobile carries a third the baseline does not have, a bottom bar, and it is a shortcut subset of the rail rather than a second model: every item in it exists in the rail and the rail is always the superset.** **A carrier is inherited and filled with live items. Only a dead item is deferred, never the carrier that would have held it.** So the baseline's rail of nine ships as three live destinations and grows as modes arrive, and the row of four game mode cards on Home returned by founder decision `D-27`, one live and three saying they are not launched, a cost printed in `home.md`. A guideline about a component may not be used to select that component. `docs/decisions.md` D-19, D-20, D-21.
 - **Also inherited, by founder decision of 11 August 2026:** the colour register. Stage 06 collects the baseline values before it derives anything, and its route becomes one collected plate plus a named list of what the founder wants changed, not three plates from nothing. Reasoning and limits: `docs/decisions.md` D-18.
-- **Not inherited:** logo, typography, shape language, motion, component look, copy. That list is a limit, not an omission: nothing else follows the colour across.
+- **Not inherited:** logo, typography, shape language, motion, component look. Copy left this list by `D-166`: the voice is the baseline's own. That list is a limit, not an omission: nothing else follows the colour across.
 
 The rule of the course still holds and outranks the resemblance target: a reference is an input, never an output. No screen is carried over whole. Where the inherited structure loses to research, research wins and the divergence is named out loud in the IA node. **And it is named in one fixed place: every node carries a baseline row, what the live product does, what we keep, what we change and why.** An unnamed divergence is how a redesign becomes a different product without anyone deciding to.
 
@@ -50,7 +50,7 @@ Seven clusters by intent, not by site section: decide whether this place is real
 
 **Main flow:** home, case screen, sign in with its consent gate, open, outcome. **The rail carries one destination, Cases, in both states since `D-40`**, with the ambient controls and the social links at its foot. **Provably fair and Responsible play are carried by the footer**, which holds each in its own column, and **My items is the first row of the account menu**, so nothing is lost and no carrier holds another's kind. **On mobile a bottom bar carries a shortcut subset of it, Home plus Cases, in both states**, and it is below Material's floor of three in both: `D-29` printed that for one state and `D-40` widened it rather than reinterpreting the quote. The header carries the money as **two figures, balance and value of items held, both in the coin and never summed and never a score**, and money is never a bar item in either state. **The coin ships pegged and the peg is printed wherever money is spent, `D-28`:** a coin whose rate is not published is the abstraction `B7-1` describes, and that reversal of `C1` is a founder decision carrying a pattern of 7 as its cost. **Depth to the main job is three taps for a first visit and two once an account exists**, and the third is the geo layer where it fires: `2.1` is the geo gate alone since `D-26` moved the 18+ declaration into sign in. `docs/decisions.md` D-17, D-19, D-21, D-22 and D-26.
 
-**Screen codes carry an `S-` prefix, backlog capability codes do not.** They shared one namespace through four steps and collided on all twelve, and both readings parsed. 03b writes one node and one page per screen from these codes, 04 draws them and 07 colours them.
+**Screen codes carry an `S-` prefix, backlog capability codes do not.**
 
 ## Product substance
 
@@ -84,11 +84,15 @@ Compliance is a first class product constraint, not a later feature: **an 18+ de
 
 **Critique runs on two instruments.** Every critique and audit step goes through Claude and through Codex (plugin `codex`, read only, stated explicitly on every call, reading this local working folder). Sets are taken independently and in full before any merge; dedup happens afterwards on complete data. Codex owns what is falsifiable in the source: contradiction between files, orphan without a parent, state absent from code, value drifted from its token, broken link, violated rule, fact without a source. Claude with a browser keeps what breaks at 360px, what breaks a layout as a string, and pixel comparisons. Every critique log carries a "found by" column. Codex unavailable: rerun on another model, and if the limit is account wide a read-only Claude subagent takes its classes and the log names it as the substitute, founder decision of 29 September 2026. Never a quiet single instrument pass. Its entry point is `AGENTS.md` in this root.
 
-**Every drawn control answers**: it does what its label says or refuses with its reason beside it, and one figure shown on several surfaces is read from one declaration. Round 14 found forty-five controls and a proof chain that did neither.
+**Every drawn control answers**: it does what its label says or refuses with its reason beside it, and one figure shown on several surfaces is read from one declaration.
 
 **Verify before fixing.** Re-read the place in the file before editing it: a parallel auditor reads a snapshot and can describe what is already gone. A finding that does not survive verification stays in the log marked "withdrawn on verification" with the reason, and is never deleted silently.
 
 **Repeated prompt equals a rule here.** Typing the same instruction a third time means it belongs in this file, called by a trigger word, not in memory.
+
+## Voice
+
+**Every product string is written by `voice/docs/voice.md` and lives in `voice/docs/microcopy.md`; SEO lines live in their IA node's block C, never in both.** The voice is daddyskins.com's own, `D-166`: a straight answer from someone on the scene, the number rather than the superlative, money lines that say how much, which way and who the wait is on, and a stop that says what happened and what still works. A term outside the glossary is replaced by the glossary's word; a bad string no rule rejects means the rule is fixed first. A rewritten string that breaks the layout is shortened, never re-laid out. **From stage 06 on the text in `wireframes/` is frozen:** copies in `design/` take their words from `microcopy.md`.
 
 ## Files and structure
 
