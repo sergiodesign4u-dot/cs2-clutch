@@ -43,9 +43,17 @@ sx, sy = W['spark'][0] * S6, W['spark'][1] * S6
 def spark(cx, cy, a, b):
     p = lambda dx, dy: '%.1f %.1f' % (cx + dx, cy + dy)
     return 'M%s Q%s %s Q%s %s Q%s %s Q%s %sZ' % (p(0, -a), p(b, -b), p(a, 0), p(b, b), p(0, a), p(-b, b), p(-a, 0), p(-b, -b), p(0, -a))
-SPARK = spark(sx, sy, 100, 30)
-SPARK_IN = spark(sx, sy, 58, 14)
-FLARE = spark(sx, sy, 160, 5)
+def sparkle(cx, cy, tips, b):
+    """four needle tips, each pair joined by a cubic whose handles sit near the centre, so the arms are thin and concave"""
+    pts = [(cx + x, cy + y) for x, y in tips]
+    d = 'M%.1f %.1f' % pts[0]
+    for i in range(4):
+        (x0, y0), (x1, y1) = pts[i], pts[(i + 1) % 4]
+        mx, my = (x0 + x1) / 2 - cx, (y0 + y1) / 2 - cy; n = (mx * mx + my * my) ** .5
+        d += 'C%.1f %.1f %.1f %.1f %.1f %.1f' % (cx + mx / n * b, cy + my / n * b, cx + mx / n * b, cy + my / n * b, x1, y1)
+    return d + 'Z'
+# tips measured on a 2.5x zoom of A1-a: the vertical axis leans right with the italic, the horizontal one dips a little
+SPARK = sparkle(sx, sy, ((21, -121), (127, -10), (-21, 121), (-127, 10)), 22)
 
 # the four speed streaks, measured on an overlay of A1-a (crop pixels of the 1000px view, mapped to trace units);
 # drawn as clean lenses pointed at both ends because the traced ones came out lumpy
@@ -76,13 +84,16 @@ def wordmark(spark_on=True, mode='screen', mono=None, pink=PINK):
         lf, bf = (mono or WHITE), (mono or BLUE)
     if mode == 'screen':
         # the picture's letters have a crisp white rim and the pink haze outside it, not a blur on the letter itself
-        defs += glow('gp', pink, 8, 26, 1, .9) + glow('gb', BLUE, 8, 26, 1, .9) + glow('gs', pink, 12, 34, 1, 1) + soft('fc', 9)
-        defs += '<radialGradient id="sk"><stop offset="0" stop-color="%s"/><stop offset="0.75" stop-color="%s"/></radialGradient>' % (mix(pink, WHITE, .35), pink)
+        defs += glow('gp', pink, 8, 26, 1, .9) + glow('gb', BLUE, 8, 26, 1, .9) + glow('gs', pink, 6, 30, 1, .8) + soft('fc', 14) + soft('hz', 40)
+        defs += '<radialGradient id="sk"><stop offset="0" stop-color="%s"/><stop offset="0.35" stop-color="%s"/></radialGradient>' % (mix(pink, WHITE, .45), pink)
         fp, fb = ' filter="url(#gp)"', ' filter="url(#gb)"'
         rim_l = ' stroke="%s" stroke-width="90" stroke-linejoin="round"' % WHITE
         rim_b = ' stroke="%s" stroke-width="70" stroke-linejoin="round"' % mix(BLUE, WHITE, .6)
     body = '<defs>%s</defs>' % defs if defs else ''
     sc = mono or pink
+    if spark_on and mode == 'screen':
+        # the picture fills the drop cap's mouth with a deep magenta haze behind the spark; it sits under the letters
+        body += '<ellipse cx="%.1f" cy="%.1f" rx="150" ry="125" fill="%s" fill-opacity="0.85" filter="url(#hz)"/>' % (sx, sy, mix(pink, '#060A1E', .5))
     body += '<g%s><path id="streaks" fill="%s" d="%s"/>' % (fp, sc, STREAKS)
     if mode == 'screen': body += '<path id="streak-cores" fill="%s" d="%s"/>' % (mix(pink, WHITE, .45), STREAK_CORES)
     body += '</g>'
@@ -90,9 +101,10 @@ def wordmark(spark_on=True, mode='screen', mono=None, pink=PINK):
     body += '<g%s>%s</g>' % (fb, layer('word', 'blue', bf, attrs=rim_b))
     if spark_on:
         if mode == 'screen':
-            body += ('<g filter="url(#gs)"><path id="spark" fill="url(#sk)" d="%s"/></g><path fill="%s" fill-opacity="0.55" d="%s"/>'
-                     '<path fill="%s" d="%s"/><circle cx="%.1f" cy="%.1f" r="14" fill="%s" filter="url(#fc)"/><circle cx="%.1f" cy="%.1f" r="7" fill="%s"/>'
-                     % (SPARK, WHITE, FLARE, mix(pink, WHITE, .55), SPARK_IN, sx, sy, WHITE, sx, sy, WHITE))
+            # as on the picture: a hot pink star with thin concave arms, a lighter heart and a small white core, its own tight haze
+            body += ('<g filter="url(#gs)"><path id="spark" fill="url(#sk)" d="%s"/></g>'
+                     '<circle cx="%.1f" cy="%.1f" r="22" fill="%s" fill-opacity="0.6" filter="url(#fc)"/>'
+                     % (SPARK, sx, sy, mix(pink, WHITE, .6)))
         else:
             body += '<path id="spark" fill="%s" d="%s"/>' % (sc, SPARK)
     return body
