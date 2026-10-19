@@ -16,7 +16,7 @@ These are the stage 01 boundary answers. They were asked, not assumed, and they 
 | Existing brand | Own logo, inherited colour | Amended 11 August 2026, `D-18`. Logo is ours. The colour register comes from the baseline, so stage 06 collects before it derives. |
 | Existing design system | None | Stages 06 to 08 run as written. |
 | Product size | Above the 8 screen floor | Stages 07 to 09 pay their full price and are worth it. |
-| Baseline inheritance | Structure, IA and colour | See "Baseline" below. |
+| Baseline inheritance | Structure, IA, colour, voice and visual language | See "Baseline" below. |
 
 ## Baseline
 
@@ -24,11 +24,11 @@ daddyskins.com is the product being redesigned. It is the founder's own product,
 
 - **Inherited, deliberately close to identical:** navigation model, page inventory, page composition, flows, the live drop ticker, the placement of the money and account actions. **The navigation model is two inherited carriers and no carrier holds another's kind:** a full height left rail owning the logo, the destinations and its own toggle on the seam, and a header starting at the rail's edge owning money and the account and holding no destination at all. **Mobile carries a third the baseline does not have, a bottom bar, and it is a shortcut subset of the rail rather than a second model: every item in it exists in the rail and the rail is always the superset.** **A carrier is inherited and filled with live items. Only a dead item is deferred, never the carrier that would have held it.** So the baseline's rail of nine ships as three live destinations and grows as modes arrive, and the row of four game mode cards on Home returned by founder decision `D-27`, one live and three saying they are not launched, a cost printed in `home.md`. A guideline about a component may not be used to select that component. `docs/decisions.md` D-19, D-20, D-21.
 - **Also inherited, by founder decision of 11 August 2026:** the colour register. Stage 06 collects the baseline values before it derives anything, and its route becomes one collected plate plus a named list of what the founder wants changed, not three plates from nothing. Reasoning and limits: `docs/decisions.md` D-18.
-- **Not inherited:** logo, typography, shape language, motion, component look. Copy left this list by `D-166`: the voice is the baseline's own. That list is a limit, not an omission: nothing else follows the colour across.
+- **Not inherited:** logo and motion. Copy left this list by `D-166`: the voice is the baseline's own. Typography, shape language and component look left it by `D-181`: they are collected from the baseline first, then brought to one value per job, and where the baseline gives two answers the founder picks and the loser is named. That list is a limit, not an omission.
 
 The rule of the course still holds and outranks the resemblance target: a reference is an input, never an output. No screen is carried over whole. Where the inherited structure loses to research, research wins and the divergence is named out loud in the IA node. **And it is named in one fixed place: every node carries a baseline row, what the live product does, what we keep, what we change and why.** An unnamed divergence is how a redesign becomes a different product without anyone deciding to.
 
-**Inheriting a thing means having it written down first.** Everything in the list above is in `research/docs/baseline.md`, walked live on public pre-login pages on 11 August 2026 with proof screenshots. What is not in it is the rarity ladder, and the stage that needs it walks it the same way before building on it. Reconstructing the baseline from images plus model memory is the median the input gate exists to prevent, and it reads as knowledge until someone asks where a node came from.
+**Inheriting a thing means having it written down first.** Everything in the list above is in `research/docs/baseline.md`, walked live on public pre-login pages on 11 August 2026 with proof screenshots. What is not in it is the rarity ladder and, since `D-181`, the type scale, the shapes and the components, and the stage that needs them walks them the same way before building on them. Reconstructing the baseline from images plus model memory is the median the input gate exists to prevent, and it reads as knowledge until someone asks where a node came from.
 
 ## Scope
 

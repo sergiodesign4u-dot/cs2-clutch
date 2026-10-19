@@ -4,7 +4,7 @@ Redesign of a live CS2 skin platform, built as a thirteen stage product design p
 
 **Live: [project roadmap](https://sergiodesign4u-dot.github.io/cs2-clutch/)**
 
-Every stage leaves two outputs: a markdown source of truth in `docs/` for the model, and an html page in the browser for the person who decides. Structure and information architecture are inherited from the baseline, and so is the colour register since 11 August 2026. Typography, shape language, motion and copy are derived at stage 06.
+Every stage leaves two outputs: a markdown source of truth in `docs/` for the model, and an html page in the browser for the person who decides. Structure and information architecture are inherited from the baseline, and so is the colour register since 11 August 2026 (`D-18`), the voice since 5 October 2026 (`D-166`), and typography, shape language and component look since 19 October 2026 (`D-181`), collected first and then made consistent. Logo and motion are ours, and so is the consistency: stage 06 brings the inherited visual language to one value per job, stage 11 derives the motion.
 
 ## Status
 
@@ -62,7 +62,7 @@ One thing the re-run could not deliver, named rather than hidden: no product in 
 | Language | One, English |
 | Existing brand | Own logo. **Colour register inherited from the baseline** by founder decision, 11 Aug 2026, D-18 |
 | Existing design system | None |
-| Baseline inheritance | Structure, IA and colour. Typography, shape, motion and copy are ours |
+| Baseline inheritance | Structure, IA, colour, voice (`D-166`), typography, shape language and component look (`D-181`), made consistent. Logo and motion are ours |
 
 Full reasoning and consequences: `CLAUDE.md`. Decision records: `docs/decisions.md`.
 
@@ -109,7 +109,11 @@ _nav.css            the one sidebar theme
 CLAUDE.md           rules that must hold next session, no status
 AGENTS.md           entry point for the Codex critic
 docs/decisions.md   decision records, never auto loaded
+docs/decisions.html the decision records in the browser
 research/           stages 01, 02 and 02+
+ia/                 stage 03, base and detail layers
+wireframes/         stage 04, the grey prototype, frozen since stage 05
+voice/              stage 05, voice, glossary and microcopy
 ```
 
 The stage packs live outside this repo, in `AI Design Workflow/`. Nothing from there is committed here.

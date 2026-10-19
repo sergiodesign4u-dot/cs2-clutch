@@ -6197,3 +6197,24 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 - **Kept as the fanout wrote them:** the legal clause headings "Appeals" and "Cash out", marked `[?]` until counsel confirms them; the deposit sample in dollars, `4.1-46`, by glossary C11; "Send to Steam again" with no figure, `5.3-70`, because `D-52` took the figure out when the button wrapped at 360 and the figure is printed in the block above it.
 
 **The cost.** The ribbon now makes a claim a payment contract can falsify: if production adds a card fee, the ribbon goes with it. Two legal headings wait on counsel.
+
+## D-181. The baseline's visual language is inherited too, and stage 06 makes it consistent rather than replacing it
+
+**Date:** 2026-10-19. **Stage:** 06, before its input gate. **Decided by:** the founder, in their words: "у нас как би daddyskins которий надо сделать круче по визуалу, оставить шрифти, цвета, структуру, форми, и превести их к консистентности" (ours is daddyskins made stronger visually: keep the fonts, colours, structure and shapes, and bring them to consistency), with the reason "дизайн я делал к етому проекту в течении 6 лет" (I designed this project for six years). **Amends:** the Baseline section of `CLAUDE.md`, whose "Not inherited" list names typography, shape language and component look; `D-04`; the limits clause of `D-18`; `README.md`. **Binds:** stage 06 throughout, its route above all; stages 07 and 08, which read the values it collects.
+
+**Chosen.** Typography, shape language and component look join structure, IA, colour and voice as inherited. Inherited means the starting point, not the finish: the baseline's own fonts, colours, shapes and components are collected first, then brought into one system and finished better. The visual half's job, as the founder put it: daddyskins, made consistent and stronger.
+
+**What "consistent" means, so that it can be checked rather than felt.** One value per job across the product. The founder's example: half the live site has square corners and half rounded ones. Where the baseline holds two answers to one question, stage 06 records both with where each was read, and the founder picks one; the loser is named, not dropped. A new value enters only where the baseline has none, and is marked as ours.
+
+**What stays ours.** The logo, `D-18`. Motion, stage 11. The consistency itself: the ladders, the choice between the baseline's competing values, and the finish.
+
+**Visual references named by the founder: skin.club/en and skin.fans/battles**, as the bar for finish. They are inputs, never outputs, the course rule in `CLAUDE.md`: a technique is taken, never a screen. skin.club is in the corpus at trust level only, `benchmark.md` Part 2; skin.fans is in no file. Every fact about either comes from a page opened in stage 06, or it is `[?]`.
+
+**Rejected.**
+- **Inherit as is, a reskin.** The founder dislikes parts of it now, and the inconsistencies would reach the tokens at stage 08 as two tokens for one job.
+- **Derive typography, shapes and components, the rule before this record.** It throws away six years of the founder's own design on a product whose structure was kept for the same reason, and sends stage 06 looking for a language the product already speaks.
+- **Inherit component anatomy only and derive type and shape**, option C as first put. The founder took its direction and kept fonts and shapes as well.
+
+**Consequence for stage 06, named before its gate so the gate does not discover it.** `research/docs/baseline.md` section 5 holds colour, one family, Roboto, and one button, a 25px pill. It holds no type scale, no radius inventory, no input, card or border treatment, and the rarity ladder is `[?]`. So the stage collects before it decides: a live walk of the baseline's computed styles for type, shape and components, an inventory of where it contradicts itself, then one collected plate and a named list of changes. How the pack's steps 1 to 4, Refero, taste, plates and three directions, shrink on this route is settled at the gate with the founder, not here.
+
+**The cost.** Roboto is a platform default, so principle 4, dark and electric, is carried by colour, finish and motion rather than by type. And the product reads as daddyskins first: that is the intent, and it means distinctiveness against skin.club and the rest is earned by finish, not by a new language.
