@@ -9,9 +9,23 @@ def traced(d, name):
     s = open(os.path.join(here, d, name + '.svg')).read()
     return re.search(r'<g transform="([^"]*)"', s).group(1), re.findall(r'<path d="([^"]*)"', s, re.S)
 
-def layer(d, name, fill, extra=''):
+def layer(d, name, fill, extra='', attrs=''):
     tr, paths = traced(d, name)
-    return '<g transform="%s"%s><path fill="%s" d="%s"/></g>' % (tr, extra, fill, ' '.join(p.replace('\n', ' ') for p in paths))
+    return '<g transform="%s"%s><path fill="%s"%s d="%s"/></g>' % (tr, extra, fill, attrs, ' '.join(p.replace('\n', ' ') for p in paths))
+
+def mix(a, b, t):
+    """a derived tint: t of the way from colour a to colour b, both brand values"""
+    a, b = [int(a[i:i + 2], 16) for i in (1, 3, 5)], [int(b[i:i + 2], 16) for i in (1, 3, 5)]
+    return '#%02X%02X%02X' % tuple(round(x + (y - x) * t) for x, y in zip(a, b))
+
+def inner_light(fid, erode, blur, a=.55):
+    """a light core inside a shape, as on the picture's blades: the shape shrunk, blurred, lit white, kept inside"""
+    return ('<filter id="%s" color-interpolation-filters="sRGB"><feMorphology in="SourceAlpha" operator="erode" radius="%s" result="e"/>'
+            '<feGaussianBlur in="e" stdDeviation="%s" result="eb"/><feFlood flood-color="#FFFFFF" flood-opacity="%s"/><feComposite in2="eb" operator="in" result="l"/>'
+            '<feComposite in="l" in2="SourceAlpha" operator="in" result="li"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="li"/></feMerge></filter>') % (fid, erode, blur, a)
+
+def soft(fid, std):
+    return '<filter id="%s" x="-100%%" y="-100%%" width="300%%" height="300%%"><feGaussianBlur stdDeviation="%s"/></filter>' % (fid, std)
 
 def glow(fid, col, near, far, a1=1, a2=.5):
     return ('<filter id="%s" x="-30%%" y="-30%%" width="160%%" height="160%%" color-interpolation-filters="sRGB">'
@@ -30,6 +44,8 @@ def spark(cx, cy, a, b):
     p = lambda dx, dy: '%.1f %.1f' % (cx + dx, cy + dy)
     return 'M%s Q%s %s Q%s %s Q%s %s Q%s %sZ' % (p(0, -a), p(b, -b), p(a, 0), p(b, b), p(0, a), p(-b, b), p(-a, 0), p(-b, -b), p(0, -a))
 SPARK = spark(sx, sy, 100, 30)
+SPARK_IN = spark(sx, sy, 58, 14)
+FLARE = spark(sx, sy, 160, 5)
 
 # the four speed streaks, measured on an overlay of A1-a (crop pixels of the 1000px view, mapped to trace units);
 # drawn as clean lenses pointed at both ends because the traced ones came out lumpy
@@ -39,39 +55,66 @@ def lens(p0, p1, h):
     dx, dy = x1 - x0, y1 - y0; n = (dx * dx + dy * dy) ** .5; nx, ny = -dy / n * h, dx / n * h
     mx, my = (x0 + x1) / 2, (y0 + y1) / 2
     return 'M%.1f %.1fQ%.1f %.1f %.1f %.1fQ%.1f %.1f %.1f %.1fZ' % (x0, y0, mx + nx, my + ny, x1, y1, mx - nx, my - ny, x0, y0)
-STREAKS = ''.join(lens(*s) for s in (((410, 112), (852, 30), 32), ((330, 138), (882, 62), 36), ((135, 384), (640, 292), 40), ((245, 397), (556, 343), 32)))
+STREAK_SET = (((410, 112), (852, 30), 32), ((330, 138), (882, 62), 36), ((135, 384), (640, 292), 40), ((245, 397), (556, 343), 32))
+STREAKS = ''.join(lens(*s) for s in STREAK_SET)
+def core(p0, p1, h):  # a lighter, thinner lens down the middle of each streak, the picture's hot centre line
+    k = .18; q0 = (p0[0] + (p1[0] - p0[0]) * k, p0[1] + (p1[1] - p0[1]) * k); q1 = (p1[0] - (p1[0] - p0[0]) * k, p1[1] - (p1[1] - p0[1]) * k)
+    return lens(q0, q1, h * .35)
+STREAK_CORES = ''.join(core(*s) for s in STREAK_SET)
 
 def wordmark(spark_on=True, mode='screen', mono=None, pink=PINK):
-    """mode: screen (gradients and glow), gradient (gradient, no glow), flat (white, blue, pink), mono"""
-    defs, fp, fb, fs = '', '', '', ''
+    """mode: screen (gradients, rims, glow), gradient (gradient, no glow), flat (white, blue, pink), mono"""
+    defs, fp, fb = '', '', ''
     lt, bt = W['st']['letters'], W['st']['blue']
+    rim_l = rim_b = ''
     if mode in ('screen', 'gradient'):
         defs += ('<linearGradient id="wm" gradientUnits="userSpaceOnUse" x1="0" y1="%d" x2="0" y2="%d"><stop offset="0.3" stop-color="%s"/><stop offset="1" stop-color="%s"/></linearGradient>'
                  '<linearGradient id="cs" gradientUnits="userSpaceOnUse" x1="0" y1="%d" x2="0" y2="%d"><stop offset="0" stop-color="%s"/><stop offset="0.35" stop-color="%s"/></linearGradient>'
-                 '<radialGradient id="sk"><stop offset="0.04" stop-color="%s"/><stop offset="0.32" stop-color="%s"/></radialGradient>'
-                 % (loc(lt['y0']), loc(lt['y1'] + 60), WHITE, pink, loc(bt['y0']), loc(bt['y1']), WHITE, BLUE, WHITE, pink))
-        lf, bf, sf = 'url(#wm)', 'url(#cs)', 'url(#sk)'
+                 % (loc(lt['y0']), loc(lt['y1'] + 60), WHITE, pink, loc(bt['y0']), loc(bt['y1']), WHITE, BLUE))
+        lf, bf = 'url(#wm)', 'url(#cs)'
     else:
-        lf, bf, sf = (mono or WHITE), (mono or BLUE), (mono or pink)
+        lf, bf = (mono or WHITE), (mono or BLUE)
     if mode == 'screen':
-        defs += glow('gp', pink, 8, 26, 1, .7) + glow('gb', BLUE, 8, 26, 1, .7)
+        # the picture's letters have a crisp white rim and the pink haze outside it, not a blur on the letter itself
+        defs += glow('gp', pink, 8, 26, 1, .9) + glow('gb', BLUE, 8, 26, 1, .9) + glow('gs', pink, 12, 34, 1, 1) + soft('fc', 9)
+        defs += '<radialGradient id="sk"><stop offset="0" stop-color="%s"/><stop offset="0.75" stop-color="%s"/></radialGradient>' % (mix(pink, WHITE, .35), pink)
         fp, fb = ' filter="url(#gp)"', ' filter="url(#gb)"'
+        rim_l = ' stroke="%s" stroke-width="90" stroke-linejoin="round"' % WHITE
+        rim_b = ' stroke="%s" stroke-width="70" stroke-linejoin="round"' % mix(BLUE, WHITE, .6)
     body = '<defs>%s</defs>' % defs if defs else ''
-    body += '<g%s><path id="streaks" fill="%s" d="%s"/></g>' % (fp, mono or pink, STREAKS)
-    body += '<g%s>%s</g>' % (fp, layer('word', 'letters', lf))
-    body += '<g%s>%s</g>' % (fb, layer('word', 'blue', bf))
-    if spark_on: body += '<g%s><path id="spark" fill="%s" d="%s"/></g>' % (fp, sf, SPARK)
+    sc = mono or pink
+    body += '<g%s><path id="streaks" fill="%s" d="%s"/>' % (fp, sc, STREAKS)
+    if mode == 'screen': body += '<path id="streak-cores" fill="%s" d="%s"/>' % (mix(pink, WHITE, .45), STREAK_CORES)
+    body += '</g>'
+    body += '<g%s>%s</g>' % (fp, layer('word', 'letters', lf, attrs=rim_l))
+    body += '<g%s>%s</g>' % (fb, layer('word', 'blue', bf, attrs=rim_b))
+    if spark_on:
+        if mode == 'screen':
+            body += ('<g filter="url(#gs)"><path id="spark" fill="url(#sk)" d="%s"/></g><path fill="%s" fill-opacity="0.55" d="%s"/>'
+                     '<path fill="%s" d="%s"/><circle cx="%.1f" cy="%.1f" r="14" fill="%s" filter="url(#fc)"/><circle cx="%.1f" cy="%.1f" r="7" fill="%s"/>'
+                     % (SPARK, WHITE, FLARE, mix(pink, WHITE, .55), SPARK_IN, sx, sy, WHITE, sx, sy, WHITE))
+        else:
+            body += '<path id="spark" fill="%s" d="%s"/>' % (sc, SPARK)
     return body
 
 def symbol(mode='screen', mono=None, pink=PINK):
     g = Y['st']['gold']; cx, cy, r = (g['x0'] + g['x1']) / 2, (g['y0'] + g['y1']) / 2, (g['x1'] - g['x0']) / 2
-    defs, fp, fb, fg, dot = '', '', '', '', mono or GOLD
-    if mode == 'screen':
-        defs = ('<defs>%s%s%s<radialGradient id="dl" cx="0.4" cy="0.38" r="0.65"><stop offset="0" stop-color="%s"/><stop offset="0.45" stop-color="%s"/></radialGradient></defs>'
-                % (glow('sp', pink, 14, 44, 1, .7), glow('sb', BLUE, 14, 44, 1, .7), glow('sg', GOLD, 16, 50, 1, .8), WHITE, GOLD))
-        fp, fb, fg, dot = ' filter="url(#sp)"', ' filter="url(#sb)"', ' filter="url(#sg)"', 'url(#dl)'
-    return (defs + '<g%s>%s</g>' % (fp, layer('sym', 'pink', mono or pink)) + '<g%s>%s</g>' % (fb, layer('sym', 'blue', mono or BLUE))
-            + '<g%s><circle id="dot" cx="%.1f" cy="%.1f" r="%.1f" fill="%s"/></g>' % (fg, cx, cy, r, dot))
+    if mode != 'screen':
+        return ('<g>%s</g>' % layer('sym', 'pink', mono or pink) + '<g>%s</g>' % layer('sym', 'blue', mono or BLUE)
+                + '<circle id="dot" cx="%.1f" cy="%.1f" r="%.1f" fill="%s"/>' % (cx, cy, r, mono or GOLD))
+    # the picture's vortex: each blade lit from inside with a lighter rim and its own haze; the dot a lit sphere
+    # with a white highlight, a warm edge and a gold haze
+    defs = ('<defs>%s%s%s%s%s<radialGradient id="dl" cx="0.38" cy="0.34" r="0.7"><stop offset="0" stop-color="%s"/><stop offset="0.3" stop-color="%s"/>'
+            '<stop offset="0.62" stop-color="%s"/><stop offset="1" stop-color="%s"/></radialGradient></defs>'
+            % (glow('sp', pink, 14, 44, 1, .9), glow('sb', BLUE, 14, 44, 1, .9), glow('sg', GOLD, 16, 56, 1, .9), inner_light('il', 40, 34, .22), soft('hs', 10),
+               WHITE, mix(GOLD, WHITE, .45), GOLD, mix(GOLD, PINK, .3)))
+    blades = ''
+    for name, col in (('pink', pink), ('blue', BLUE)):
+        blades += '<g filter="url(#s%s)"><g filter="url(#il)">%s</g></g>' % (name[0], layer('sym', name, col, attrs=' stroke="%s" stroke-width="110" stroke-linejoin="round"' % mix(col, WHITE, .22)))
+    dot = ('<g filter="url(#sg)"><circle id="dot" cx="%.1f" cy="%.1f" r="%.1f" fill="url(#dl)"/></g>'
+           '<ellipse cx="%.1f" cy="%.1f" rx="%.1f" ry="%.1f" fill="%s" fill-opacity="0.8" filter="url(#hs)"/>'
+           % (cx, cy, r, cx - r * .32, cy - r * .36, r * .28, r * .18, WHITE))
+    return defs + blades + dot
 
 def bounds(st, pad):
     x0 = min(v['x0'] for v in st.values()); y0 = min(v['y0'] for v in st.values())
