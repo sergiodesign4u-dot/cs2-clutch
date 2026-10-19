@@ -1296,7 +1296,7 @@ The three untracked PNGs in the repository root, `_a_top.png`, `s1440-top.png` a
 
 ## 39. Nothing on the sign in surface is disabled, `D-58`
 
-**Founder decision of 21 August 2026, from his own operating experience:** a person meets a dead control, cannot see what to do about it, and **either leaves or writes to support**. Four dead controls in a row is that four times over, which is the wall section 37 already named.
+**Founder decision of 21 August 2026, from category experience:** a person meets a dead control, cannot see what to do about it, and **either leaves or writes to support**. Four dead controls in a row is that four times over, which is the wall section 37 already named.
 
 **`D-26` is enforced exactly as before.** The press does not sign anyone in. **The baseline's defect was that its provider buttons worked with the box unticked**, with no `required` attribute anywhere; these do not work. **The collision was with the word inert in the node's wording, not with the rule underneath it.**
 
@@ -1433,7 +1433,7 @@ The rail carries one destination, Cases, `D-40`, and **it pointed at `catalogue.
 
 ## 42. Node `3.1` second pass, `D-65`: the shelf takes the baseline's shape
 
-**Drawn 21 August 2026, hours after section 41.** The founder pointed at the live catalogue and three of the node's rows turned out to be wrong about our own product. The walk is `baseline.md` section 10; the decision is `D-65`.
+**Drawn 21 August 2026, hours after section 41.** The founder pointed at the live catalogue and three of the node's rows turned out to be wrong about the baseline. The walk is `baseline.md` section 10; the decision is `D-65`.
 
 ### What changed on the page
 
@@ -1495,7 +1495,7 @@ Built once in `_nav.js`, mounted on every catalogue page, seven copies avoided. 
 
 **The pre-login walk had missed a group.** The founder's capture of the same panel signed in has **Additional**, holding **Liked** and **Sufficient Funds to open**, between Risk Level and Case Type. Both read an account, so a guest meets neither and a public walk could not have found them.
 
-**That cuts against a refusal written three hours earlier.** `D-65` refused a sufficient-funds filter partly because its source was `[?]`. **It is on our own baseline.** Both ship, and the argument against the second is kept in `catalogue.md` section 4.4 rather than deleted, along with the line that binds stage 07: **when it empties the result, the nearest facet to relax is the filter itself, never a deposit.**
+**That cuts against a refusal written three hours earlier.** `D-65` refused a sufficient-funds filter partly because its source was `[?]`. **It is on the baseline.** Both ship, and the argument against the second is kept in `catalogue.md` section 4.4 rather than deleted, along with the line that binds stage 07: **when it empties the result, the nearest facet to relax is the filter itself, never a deposit.**
 
 ### Measured
 

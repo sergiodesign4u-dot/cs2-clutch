@@ -44,7 +44,7 @@ The baseline has a live brand: dark violet ground, hot pink accent, a top hat sk
 
 **Date:** 2026-08-05. **Stage:** migration, binding on 03a and 03b.
 
-daddyskins.com is the founder's own product, six years live. Its structure carries six years of validated behaviour, which is a stronger input than anything a fresh IA exercise could produce.
+daddyskins.com is the baseline, the closest established competitor. Its structure carries years of validated behaviour, which is a stronger input than anything a fresh IA exercise could produce.
 
 **Inherited, deliberately close to identical:** navigation model, page inventory, page composition, flows, the left icon rail, the live drop ticker, the placement of money and account actions.
 
@@ -274,9 +274,9 @@ The To-Be map closed carrying four decisions it had no right to take by itself. 
 
 **Owners.** The method inside layer 2: stage 03b. The cited legal research and counsel: the founder, running in parallel because it costs calendar rather than session time.
 
-### `D-B`. The roll history migration is a question to the platform, not a decision by the design
+### `D-B`. Whether earlier roll history is publishable is a question of fact, not a decision by the design
 
-**Chosen: ask, and proceed with the fallback recorded rather than wait.** Two parts, both factual: whether six years of roll history exists in a form that migrates into a new ledger, and whether any legal or contractual reason prevents publishing it.
+**Chosen: ask, and proceed with the fallback recorded rather than wait.** Two parts, both factual: whether earlier roll history exists in a form a new ledger can publish, and whether any legal or contractual reason prevents publishing it.
 
 Until an answer arrives, 03a proceeds with D3, the observed rate counter, in the map, because a counter that starts at launch is worth building on day one and worthless to retrofit. If the answer is negative, the capability is disqualified by its own evidence rule until volume accrues, and the finite visible pool returns from the cut table by default rather than by preference. That fallback is already written at `cjm-to-be.md:283` and has a row to return to.
 
@@ -300,7 +300,7 @@ It is placed before stage 04 rather than before 03a because it changes no node a
 
 **Chosen.** The structure of daddyskins.com is matched closely, with improvements, which D-04 already said and which this record only confirms. What is new: **the colour register is taken from the baseline rather than derived to sit near it.**
 
-**What this overturns, stated rather than quietly reinterpreted.** D-03 chose the full "no brand yet" route and explicitly rejected "the brand already exists route with one collected plate and values lifted from the baseline". D-04 listed the palette under "not inherited". `CLAUDE.md` said the register enters stage 06 as an attribute feeding the plates, "adjacent by derivation, not by copy". Those clauses no longer hold as written. The founder owns the product and the brand and the call is theirs; what this record refuses to do is leave two files saying opposite things and let stage 06 pick whichever it reads first.
+**What this overturns, stated rather than quietly reinterpreted.** D-03 chose the full "no brand yet" route and explicitly rejected "the brand already exists route with one collected plate and values lifted from the baseline". D-04 listed the palette under "not inherited". `CLAUDE.md` said the register enters stage 06 as an attribute feeding the plates, "adjacent by derivation, not by copy". Those clauses no longer hold as written. The founder sets this product's direction and the call is theirs; what this record refuses to do is leave two files saying opposite things and let stage 06 pick whichever it reads first.
 
 **What is deliberately not decided yet, and why later is better than now.** Whether "take the colours" means the exact values or the register carried by our own values cannot be answered today, because **no file in this repository holds a single colour value from the baseline.** The corpus documents daddyskins at the trust and competitive level: eleven mentions in `research.md`, a benchmark score of 15 out of 40, six screenshots in `research/screens/baseline/`. Not one hex value anywhere. Answering now would be choosing between two descriptions. Answering after the values are extracted is choosing between two things on the table, which is a different quality of decision for the same price.
 
@@ -328,7 +328,7 @@ It is placed before stage 04 rather than before 03a because it changes no node a
 
 **Chosen: four global items in two states**, and pre-login it is two. Cases, Provably fair, and after an account exists My items and Balance.
 
-**Provably fair in the global navigation is the one structural claim here that no competitor makes.** `jtbd.md:180` names a public provably fair surface as one of three things no competitor offers pre-login, and the baseline walk verified on 11 August 2026 that our own baseline still redirects that route to login. A principle that does not reach the navigation is a slogan. It carries the limit `D-14` attached to it: the position is not a claim that a verifier converts a sceptic.
+**Provably fair in the global navigation is the one structural claim here that no competitor makes.** `jtbd.md:180` names a public provably fair surface as one of three things no competitor offers pre-login, and the baseline walk verified on 11 August 2026 that the baseline still redirects that route to login. A principle that does not reach the navigation is a slogan. It carries the limit `D-14` attached to it: the position is not a claim that a verifier converts a sceptic.
 
 **Rejected: keeping the baseline's left icon rail.** The rail is a mode switcher with nine destinations and **exactly one of them is in our round 1**. A rail carrying one live item and eight dead ones advertises absence on every screen. Deferred with its trigger named, battles at Phase 1.5, rather than deleted. This is the largest single divergence from the inherited structure and it is named here because `CLAUDE.md` requires divergences to be named rather than absorbed.
 
@@ -362,7 +362,7 @@ All twelve screen codes collided with backlog capability codes: `C1` was the cat
 
 ## D-20. The 03b input gate: three answers, and one structural input that changed the shape of Home
 
-**Date:** 2026-08-11. **Stage:** 03b input gate. **Decided by:** the founder. **Closes:** `D-D`, and the ninth surface question `sitemap.md` raised and refused to answer. **Schedules:** `D-C` together with `D-B`, as one request to the live platform. **Amends:** the round 1 scope list in `CLAUDE.md`, from eight surfaces to nine.
+**Date:** 2026-08-11. **Stage:** 03b input gate. **Decided by:** the founder. **Closes:** `D-D`, and the ninth surface question `sitemap.md` raised and refused to answer. **Schedules:** `D-C` together with `D-B`, as one open question of fact. **Amends:** the round 1 scope list in `CLAUDE.md`, from eight surfaces to nine.
 
 The gate found no missing file. All five declared inputs exist and are substantive. What it found instead were three decisions 03a had deliberately left, all three landing inside the first steps of this stage, and all three were answered in one move.
 
@@ -394,15 +394,15 @@ Reasoning taken as recommended and already written at `ia/docs/sitemap.md`: row 
 
 **Consequence:** the scope line in `CLAUDE.md` changes from eight surfaces to nine. That is a rule edit and it goes through the budget, not around it.
 
-### `D-C` and `D-B` go to the platform as one request
+### `D-C` and `D-B` are answered together, as one question of fact
 
 **Chosen: send now, in parallel with steps 1 to 3, because it costs calendar rather than session time.** `D-17` scheduled `D-C` before stage 04, and 03b is the last stage before it, so the deadline is real rather than nominal.
 
-Both questions are answered by the same query against the live platform's roll history, which is why they travel together:
+Both questions are answered by the same query against the round history, which is why they travel together:
 
 1. For each live case, the published per item drop chance against the observed per item hit rate, with `N`, and the difference.
 2. The aggregate observed RTP against the RTP the platform publishes or claims.
-3. Whether roll history is retained per roll with its server seed, client seed and nonce, which is what makes it migratable into a published ledger. This part is `D-B`.
+3. Whether roll history is retained per roll with its server seed, client seed and nonce, which is what makes it publishable in a ledger. This part is `D-B`.
 4. Whether any legal or contractual reason prevents publishing it. Also `D-B`.
 
 A negative answer to 1 or 2 changes no node and no route. It changes whether the routes are worth drawing at all, which is the pairing `D-17` described as the cheapest test in the project with the largest blast radius.
@@ -610,7 +610,7 @@ The bar does not hide or condense on scroll, for the same reason the header and 
 | **Anjouan, Tobique, Kahnawake** | Generic cover only, no skins provision found. Cheapest, and the cheapness is the whole of the case for them |
 | **Malta, MGA** | Virtual tokens as payment need prior approval case by case. That is the classification question again, with the heaviest process on the list attached to it |
 | **Costa Rica** | There is no gambling licence to hold. A structure, not a permission |
-| **No licence at all** | **This is the status quo of the live product**, and it is what makes every row in the register a guess. It is also what the Netherlands is fining at EUR 280,000 a week and what Michigan wrote to forty five operators about |
+| **No licence at all** | **This is the baseline's apparent status**, and it is what makes every row in the register a guess. It is also what the Netherlands is fining at EUR 280,000 a week and what Michigan wrote to forty five operators about |
 
 **Every fee in that comparison is a secondary source and none was checked against a regulator's own schedule. Counsel checks that first, and the direction survives a surprise on the fee because it does not rest on the fee.**
 
@@ -622,7 +622,7 @@ The bar does not hide or condense on scroll, for the same reason the header and 
 
 | # | Memo | Why it sits in this position |
 |---|---|---|
-| **M1** | **The operating structure and its current exposure.** Who contracts with players today, what the Cypriot entity is exposed to for gambling offered outside Cyprus, and what has to move | **It is about a product that is already live.** Every other question is about a market we have not entered. This one is about six years that already happened |
+| **M1** | **The operating structure and its exposure.** Which entity contracts with players, what it is exposed to for gambling offered outside its home market, and what has to move | **It is about the operator, not a market.** Every other question is about a market we have not entered. This one is about the operating structure as it stands |
 | **M2** | **Isle of Man licensability of our exact mechanics**, taken to a pre-application conversation: paid entry, randomised outcome, withdrawal of a tradable item to Steam. Not online casino in general | It decides whether part 2 survives contact with the regulator. **Nothing downstream is worth paying for until it does** |
 | **M3** | **The first allowlist row.** The target is chosen after M2 returns, not now | Because the licence constrains the market list rather than the other way round. Choosing the market first is how a plan gets built on the wrong permission |
 
@@ -1746,7 +1746,7 @@ The two remaining blocks stay at the address for a reason of their own: the roun
 
 ## D-58. No control on this surface is disabled, and `D-26` is enforced exactly as before
 
-**Date:** 2026-08-21. **Stage:** 04. **Decided by:** the founder, from his own operating experience. **Binds:** node `2.4` section 0.10.6, the consent block in `wireframes/_nav.js`, and **it needs one clause of `CLAUDE.md` amended.**
+**Date:** 2026-08-21. **Stage:** 04. **Decided by:** the founder, from category experience. **Binds:** node `2.4` section 0.10.6, the consent block in `wireframes/_nav.js`, and **it needs one clause of `CLAUDE.md` amended.**
 
 **What was decided.** **The four provider controls are live in every state.** A press that cannot go through **answers** instead of not existing.
 
@@ -1989,7 +1989,7 @@ A wireframe that loses a state loses a slot, and an empty slot reads as an overs
 
 ---
 
-## D-65. The shelf takes the baseline's shape, and three of this node's rows were wrong about our own product
+## D-65. The shelf takes the baseline's shape, and three of this node's rows were wrong about the baseline
 
 **Date:** 2026-08-21. **Stage:** 04, after the founder pointed at the live catalogue. **Decided by:** the founder, then stage 04 on the detail. **Binds:** node `3.1`, `baseline.md`, and the six wireframe pages drawn earlier the same day.
 
@@ -2016,9 +2016,9 @@ Public, pre-login, Playwright at 1440 and 390, 21 August 2026. Five shots in `re
 
 ### The two reversals, kept with what overturned them
 
-**The risk band as a filter.** Refused on `0.11` rule 1, a figure ships with a route or it does not. **What overturned it is the page, not an argument.** What is still missing is smaller and still missing: **the thresholds.** That moves from "no computation exists" to **a question of fact to the live platform**, in the same class as `D-B`. Until it is answered the band renders as not available on every tile and the facet cannot be applied.
+**The risk band as a filter.** Refused on `0.11` rule 1, a figure ships with a route or it does not. **What overturned it is the page, not an argument.** What is still missing is smaller and still missing: **the thresholds.** That moves from "no computation exists" to **an open question of fact**, in the same class as `D-B`. Until it is answered the band renders as not available on every tile and the facet cannot be applied.
 
-**Sort.** Refused because the competitor bank has no T2 row for one. **The bank is competitors. This is the product.** One limit travels with it and is not inherited: **never by chance, value, tested RTP or popularity.** `0.11` rule 7, a number is never a score, and a shelf ranked by how good a bet each case looks is a ranking with no cost beside it.
+**Sort.** Refused because the competitor bank has no T2 row for one. **The bank is other competitors. This is the baseline.** One limit travels with it and is not inherited: **never by chance, value, tested RTP or popularity.** `0.11` rule 7, a number is never a score, and a shelf ranked by how good a bet each case looks is a ranking with no cost beside it.
 
 ### The founder's reference, and the one thing in it that is refused with its reason
 
@@ -2036,7 +2036,7 @@ The capture the founder supplied is **not daddyskins and this session did not op
 
 ### The rule this leaves
 
-**A node about our own product is not finished until someone has opened our own product.** `catalogue.md` cited the competitor bank eleven times and the baseline twice, and all three of its wrong rows were places where the bank was consulted and the product was not.
+**A node that inherits from the baseline is not finished until someone has opened the baseline.** `catalogue.md` cited the competitor bank eleven times and the baseline twice, and all three of its wrong rows were places where the bank was consulted and the product was not.
 
 ---
 
@@ -2060,7 +2060,7 @@ The drawer is built once in `wireframes/_nav.js` and mounted on every catalogue 
 
 ### 3. The pre-login walk had missed a group, and the correction cuts against a refusal I wrote
 
-**`D-65` refused a "sufficient balance to open" filter**, partly on the grounds that it came from a reference capture whose source is `[?]`. **It is on our own baseline.** The founder's capture of the same panel signed in has a group headed **Additional**, holding **Liked** and **Sufficient Funds to open**, sitting between Risk Level and Case Type.
+**`D-65` refused a "sufficient balance to open" filter**, partly on the grounds that it came from a reference capture whose source is `[?]`. **It is on the baseline.** The founder's capture of the same panel signed in has a group headed **Additional**, holding **Liked** and **Sufficient Funds to open**, sitting between Risk Level and Case Type.
 
 **The walk was not wrong, it was pre-login.** Both rows read an account: Liked reads the favourite `D-24` sets, sufficient funds reads the balance. **A guest meets neither**, which is why a public walk could not have found them. `baseline.md` section 9.8 already names this hole in exactly these words.
 
@@ -2495,7 +2495,7 @@ Every other surface prints a coin figure and marks the rate missing beside it. *
 
 ### `C2` is the only blocking thing on the page, and it blocks the way `D-58` fixed rather than the way the bank drew it
 
-The block bank's Wealthsimple row is "submit disabled until the condition is met" and `deposit.md` section 3.2 took that wording. **`D-58` had already replaced that form on the consent gate**, on the founder's own operating argument: a person meets a dead control, cannot see what to do about it, and either leaves or writes to support.
+The block bank's Wealthsimple row is "submit disabled until the condition is met" and `deposit.md` section 3.2 took that wording. **`D-58` had already replaced that form on the consent gate**, on the founder's argument: a person meets a dead control, cannot see what to do about it, and either leaves or writes to support.
 
 **Extended here rather than re-argued, and the rule underneath is untouched: no press goes through until the ceiling is accepted or changed.** The refused press marks the condition on itself, names which one in a line under the summary, and moves focus to it. **The old wording stays in `deposit.md` section 3.2** as the argument that was overridden.
 
@@ -2974,7 +2974,7 @@ It read: "whether this ships as six pages or two with four variants is step 5, c
 
 **Neither record is corrected, because both are right on their own date.** **This is the case the dating rule exists for:** a source with a date survives the thing it describes changing, and a source without one becomes wrong silently. Both shots are filed beside each other.
 
-**And `D-55` shipped the newer set four days before it appeared in our own baseline.** It chose Steam, Google, Discord and X on 21 August from three competitor modals, not from this product. **What was a divergence on 21 August is a match on 22 August**, and it is recorded as a coincidence rather than as a source: nothing in that decision claims the baseline, and nothing built changes either way.
+**And `D-55` shipped the newer set four days before it appeared in the baseline.** It chose Steam, Google, Discord and X on 21 August from three competitor modals, not from this product. **What was a divergence on 21 August is a match on 22 August**, and it is recorded as a coincidence rather than as a source: nothing in that decision claims the baseline, and nothing built changes either way.
 
 ### `D-55`'s debt reaches a fourth surface
 
@@ -3888,7 +3888,7 @@ The peg is published and **the comparison is still not exact.** The coin is doll
 
 **And the source addressed this node by name.** `baseline-account.md` 5b.1: *"our node `4.1` was drawn against a method list that is `[?]`. It now has a real one, and the shape of the problem changes."*
 
-**Why the wrong statement read as sourced.** The node cited two things that were true. No competitor screen of this type may be opened, `blocks.md` section 0. `baseline.md` section 2 records deposit as `[?]` with no pre-login route. **Neither covers our own signed-in baseline**, which is the one exception `CLAUDE.md` carves out for exactly this material.
+**Why the wrong statement read as sourced.** The node cited two things that were true. No competitor screen of this type may be opened, `blocks.md` section 0. `baseline.md` section 2 records deposit as `[?]` with no pre-login route. **Neither covers the baseline's signed-in surfaces**, which is the one exception `CLAUDE.md` carves out for exactly this material.
 
 **And the gate that would have caught it does not run here.** The input gate runs **before step 1 of a stage**. A source that arrives mid-stage passes no gate at all, and the node that needs it has already been written. **Candidate line for the stage close.**
 
@@ -6000,9 +6000,9 @@ The Codex model choice stays in memory: it is a tool preference, not a rule of t
 
 **Date:** 2026-10-05. **Stage:** 05, step 2, before any principle was written. **Decided by:** the founder, in their words: "голос у нас должен бути как на daddyskins.com, єто основа и наш фундамент" (our voice must be like daddyskins.com; it is the base and our foundation). **Amends:** the Baseline section of `CLAUDE.md`, whose "Not inherited" list names copy. **Binds:** stage 05 throughout, `voice/docs/voice.md` when it is written, `research/docs/baseline.md` section 11.
 
-**Chosen.** The baseline's voice is the foundation of ours. Stage 05 stops deriving a voice from personas and competitors alone and starts from the voice the founder's product already has, the route the stage 05 pack calls the fourth source: an existing brand position, matched against what the data says.
+**Chosen.** The baseline's voice is the foundation of ours. Stage 05 stops deriving a voice from personas and competitors alone and starts from the baseline's voice, the route the stage 05 pack calls the fourth source: an existing brand position, matched against what the data says.
 
-**What this overturns, stated rather than quietly reinterpreted.** `CLAUDE.md` lists copy as not inherited, beside logo, typography, shape, motion and component look. That clause no longer holds for copy. `CLAUDE.md` changes only at a stage close, so the line is corrected at the close of stage 05, and until then this record governs and the line is read with it. The same move as `D-18` for colour, and for the same reason: the founder owns the product and the brand and the call is theirs.
+**What this overturns, stated rather than quietly reinterpreted.** `CLAUDE.md` lists copy as not inherited, beside logo, typography, shape, motion and component look. That clause no longer holds for copy. `CLAUDE.md` changes only at a stage close, so the line is corrected at the close of stage 05, and until then this record governs and the line is read with it. The same move as `D-18` for colour, and for the same reason: the founder sets this product's direction and the call is theirs.
 
 **Inheriting means writing it down first, so the walk ran the same day.** No file in this repository held the baseline's words: copy was on the not-inherited list, so seven walks had quoted it only where a structure needed it. `research/docs/baseline.md` section 11, visible on `research/baseline.html` as "The voice, 5 Oct", now holds it: public pages walked live at 1440 and 390, and the signed-in copy transcribed from the founder's 28 dated captures.
 
@@ -6200,9 +6200,9 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 ## D-181. The baseline's visual language is inherited too, and stage 06 makes it consistent rather than replacing it
 
-**Date:** 2026-10-19. **Stage:** 06, before its input gate. **Decided by:** the founder, in their words: "у нас как би daddyskins которий надо сделать круче по визуалу, оставить шрифти, цвета, структуру, форми, и превести их к консистентности" (ours is daddyskins made stronger visually: keep the fonts, colours, structure and shapes, and bring them to consistency), with the reason "дизайн я делал к етому проекту в течении 6 лет" (I designed this project for six years). **Amends:** the Baseline section of `CLAUDE.md`, whose "Not inherited" list names typography, shape language and component look; `D-04`; the limits clause of `D-18`; `README.md`. **Binds:** stage 06 throughout, its route above all; stages 07 and 08, which read the values it collects.
+**Date:** 2026-10-19. **Stage:** 06, before its input gate. **Decided by:** the founder, paraphrased: take the baseline and make it stronger visually, keep its fonts, colours, structure and shapes, and bring them to consistency. **Amends:** the Baseline section of `CLAUDE.md`, whose "Not inherited" list names typography, shape language and component look; `D-04`; the limits clause of `D-18`; `README.md`. **Binds:** stage 06 throughout, its route above all; stages 07 and 08, which read the values it collects.
 
-**Chosen.** Typography, shape language and component look join structure, IA, colour and voice as inherited. Inherited means the starting point, not the finish: the baseline's own fonts, colours, shapes and components are collected first, then brought into one system and finished better. The visual half's job, as the founder put it: daddyskins, made consistent and stronger.
+**Chosen.** Typography, shape language and component look join structure, IA, colour and voice as inherited. Inherited means the starting point, not the finish: the baseline's own fonts, colours, shapes and components are collected first, then brought into one system and finished better. The visual half's job, as the founder put it: the baseline, made consistent and stronger.
 
 **What "consistent" means, so that it can be checked rather than felt.** One value per job across the product. The founder's example: half the live site has square corners and half rounded ones. Where the baseline holds two answers to one question, stage 06 records both with where each was read, and the founder picks one; the loser is named, not dropped. A new value enters only where the baseline has none, and is marked as ours.
 
@@ -6212,23 +6212,23 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **Rejected.**
 - **Inherit as is, a reskin.** The founder dislikes parts of it now, and the inconsistencies would reach the tokens at stage 08 as two tokens for one job.
-- **Derive typography, shapes and components, the rule before this record.** It throws away six years of the founder's own design on a product whose structure was kept for the same reason, and sends stage 06 looking for a language the product already speaks.
+- **Derive typography, shapes and components, the rule before this record.** It throws away a visual language users already know, on a product whose structure was kept for the same reason, and sends stage 06 looking for a language the product already speaks.
 - **Inherit component anatomy only and derive type and shape**, option C as first put. The founder took its direction and kept fonts and shapes as well.
 
 **Consequence for stage 06, named before its gate so the gate does not discover it.** `research/docs/baseline.md` section 5 holds colour, one family, Roboto, and one button, a 25px pill. It holds no type scale, no radius inventory, no input, card or border treatment, and the rarity ladder is `[?]`. So the stage collects before it decides: a live walk of the baseline's computed styles for type, shape and components, an inventory of where it contradicts itself, then one collected plate and a named list of changes. How the pack's steps 1 to 4, Refero, taste, plates and three directions, shrink on this route is settled at the gate with the founder, not here.
 
-**The cost.** Roboto is a platform default, so principle 4, dark and electric, is carried by colour, finish and motion rather than by type. And the product reads as daddyskins first: that is the intent, and it means distinctiveness against skin.club and the rest is earned by finish, not by a new language.
+**The cost.** Roboto is a platform default, so principle 4, dark and electric, is carried by colour, finish and motion rather than by type. And the product reads close to the baseline at first glance: that is the intent, and it means distinctiveness against skin.club and the rest is earned by finish, not by a new language.
 
 ## D-182. Stage 06 input gate: the route on an inherited visual language
 
-**Date:** 2026-10-19. **Stage:** 06, input gate. **Decided by:** the founder, on five holes the gate named, in their words: "1. как рекомендуешь 2. как рекомендуешь 3. ... skin.club и skin.fans наверное не как финиш а как к чему стоит стремиться но визуал наш должен бути. 4. ... у нас там на Home все прямое я би скорее всего шел би в скругления мелкие средние большие. 5. ... только Робото". **Binds:** stage 06 steps 1 to 7; `research/docs/baseline.md`; `DESIGN-artifacts.md` when it is written.
+**Date:** 2026-10-19. **Stage:** 06, input gate. **Decided by:** the founder, on five holes the gate named, in their words: "1. как рекомендуешь 2. как рекомендуешь 3. ... skin.club и skin.fans наверное не как финиш а как к чему стоит стремиться но визуал наш должен бути. 4. ... на Home все прямое я би скорее всего шел би в скругления мелкие средние большие. 5. ... только Робото". **Binds:** stage 06 steps 1 to 7; `research/docs/baseline.md`; `DESIGN-artifacts.md` when it is written.
 
 **What the gate found.** Every input the pack declares exists. Five holes did not come from a missing file but from `D-181` meeting a pack written for a product that derives its language.
 
 **What was decided.**
 1. **The contrast screen is `3.3`, the case screen.** The pack asks for another density and `screens.md` names none. `3.3` carries the same skin card and case tile as Home, packed into the drop table, so it tests whether one card reads as one product at two densities. Rejected: My items, a grid with no second density; `3.6`, the outcome, whose job is the reveal and belongs to stage 11 as much as to this one.
 2. **A step 0 before step 1: the baseline's visual language collected live.** Computed styles from public pre-login pages of daddyskins.com, the founder's dated captures for the signed-in surfaces, written into `baseline.md` with where each value was read, plus an inventory of where the baseline contradicts itself. Without it the origin `наявний бренд` has nothing to point at.
-3. **References split by job.** skin.club/en and skin.fans/battles are **the level to aim at, not the finish and not the look**: the visual stays ours, which since `D-181` means daddyskins made consistent. They are walked live with Playwright. The out-of-category benchmark of `research.md`, the reveal moment, stays the source for the reveal, through Refero.
+3. **References split by job.** skin.club/en and skin.fans/battles are **the level to aim at, not the finish and not the look**: the visual stays ours, which since `D-181` means the baseline made consistent. They are walked live with Playwright. The out-of-category benchmark of `research.md`, the reveal moment, stays the source for the reveal, through Refero.
 4. **Shape goes rounded, on a three step ladder, small, medium and large.** The founder's direction, set against the baseline's Home, which is square almost throughout. Values come from the baseline where it already rounds, and a step the baseline has no value for is marked as ours. The pack's step 4, three layout directions differing by composition, has no subject on a product whose composition is inherited; its three directions become three ways of resolving the baseline's contradictions, chosen after step 0 shows what they are.
 5. **Roboto only.** Origin `наявний бренд`. The pack's two Google Fonts candidates per role are not drawn: the baseline has one family and no display face, and none is added. The reveal and the figures are carried by colour, weight and motion.
 

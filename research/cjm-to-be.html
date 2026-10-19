@@ -1374,7 +1374,7 @@
   </div>
 
   <div class="qa">
-    <div class="qa-q">2. The observed rate counter depends on a migration that is not ours to promise.</div>
+    <div class="qa-q">2. The observed rate counter depends on a round history this design cannot promise.</div>
     <div class="qa-a">Answer: demote the claim, keep the row</div>
     <p>D3 stays in MVP as infrastructure, because a counter that starts at launch is worth building on day one and worthless to retrofit. What is withdrawn is the claim that it closes <code>B7-2</code> at launch. At small N the counter is honest and weak, and since it prints its own N it says so itself.</p>
     <p>Until <code>D-B</code> is resolved, <code>B7-2</code>, a pattern of 11 people across 6 sources rather than 11 sources, is answered at launch by D2 and D4 and by nothing else. That is a materially weaker answer and it is recorded as one rather than assumed away. If <code>D-B</code> comes back negative, the candidate rejected at step 7, the finite visible pool, returns to the table by default rather than by preference.</p>
@@ -1392,7 +1392,7 @@
 
   <div class="decision-note">
     <strong>All four answered on 11 August 2026, at the stage 03a input gate</strong>
-    The answers live in <a href="../docs/decisions.html#gate">decision record D-17</a>. The wording below is kept exactly as this map left it, because a map records the question it could not close and the answer is a different document's job. In short: <strong style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit;color:var(--text-primary)">D-A</strong> becomes two layers, a declaration at registration plus identity verification before funding, with the method inside layer 2 still open and the flow drawn as a superset. <strong style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit;color:var(--text-primary)">D-B</strong> goes to the live platform as a question of fact, and this map's fallback stands until it returns. <strong style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit;color:var(--text-primary)">D-C</strong> is scheduled before stage 04. <strong style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit;color:var(--text-primary)">D-D</strong> is deferred to 03b on purpose.
+    The answers live in <a href="../docs/decisions.html#gate">decision record D-17</a>. The wording below is kept exactly as this map left it, because a map records the question it could not close and the answer is a different document's job. In short: <strong style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit;color:var(--text-primary)">D-A</strong> becomes two layers, a declaration at registration plus identity verification before funding, with the method inside layer 2 still open and the flow drawn as a superset. <strong style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit;color:var(--text-primary)">D-B</strong> stays an open question of fact, and this map's fallback stands until it returns. <strong style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit;color:var(--text-primary)">D-C</strong> is scheduled before stage 04. <strong style="display:inline;text-transform:none;letter-spacing:0;font-size:inherit;color:var(--text-primary)">D-D</strong> is deferred to 03b on purpose.
   </div>
 
   <div class="dec">
@@ -1403,12 +1403,12 @@
   <div class="dec">
     <div class="dec-code">D-B</div>
     <h3>The observed rate counter is worth nothing at N = 0</h3>
-    <p>It assumes six years of roll history from the live platform migrates into the new ledger and can be published. If that history cannot come across, or cannot be published for a legal reason, the capability is disqualified by its own evidence rule until volume accrues, and the finite visible pool becomes the fallback by default rather than by preference. Confirm the ledger migration before this reaches information architecture.</p>
+    <p>It assumes earlier roll history exists in a form the new ledger can publish. If that history cannot come across, or cannot be published for a legal reason, the capability is disqualified by its own evidence rule until volume accrues, and the finite visible pool becomes the fallback by default rather than by preference. Confirm whether earlier history is publishable before this reaches information architecture.</p>
   </div>
   <div class="dec">
     <div class="dec-code">D-C</div>
     <h3>The internal check that must run before any of this is drawn</h3>
-    <p>Every capability above is a commitment device that only works for an operator whose published weights are already true. The observed-against-published check ships to the public and is never taken down. It has to be run internally on the live platform's data first, and if it does not hold, that is a business decision that precedes the design one.</p>
+    <p>Every capability above is a commitment device that only works for an operator whose published weights are already true. The observed-against-published check ships to the public and is never taken down. It has to be run internally on round data first, and if it does not hold, that is a business decision that precedes the design one.</p>
   </div>
   <div class="dec">
     <div class="dec-code">D-D</div>

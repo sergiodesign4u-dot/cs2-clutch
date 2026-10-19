@@ -567,7 +567,7 @@ A row is **a roll**, not an item. Seven fields, and every one of them exists bec
 
 ## 1. The dependency this node inherits, and what it does if the answer is no
 
-**`D-C` decides whether roll history is retained per roll, with seed and nonce, in a publishable form.** It was scheduled before stage 04 by `D-17`, sent to the live platform with `D-B` as one request by `D-20`, and **it has not come back.** `D-36` already wrote what happens if it comes back no: "the page renders the rolls without the seed material and says so."
+**`D-C` decides whether roll history is retained per roll, with seed and nonce, in a publishable form.** It was scheduled before stage 04 by `D-17`, carried with `D-B` as one open question by `D-20`, and **it has not come back.** `D-36` already wrote what happens if it comes back no: "the page renders the rolls without the seed material and says so."
 
 **This node draws both readings rather than waiting**, because the shape does not change and only one block does.
 
@@ -727,7 +727,7 @@ Composition from `blocks.md` section 3, **T2 listing with an empty state**, rows
 
 | Open item | What is missing | Owner |
 |---|---|---|
-| **`D-C`, whether rolls are retained with seed and nonce** | Sent to the platform on 11 August with `D-B` as one request and not returned. **Section 1 draws both answers and the page shape survives either**, but which one ships is not a design choice | The live platform, then the founder |
+| **`D-C`, whether rolls are retained with seed and nonce** | Sent to the platform on 11 August with `D-B` as one request and not returned. **Section 1 draws both answers and the page shape survives either**, but which one ships is not a design choice | The founder |
 | **How far back the history goes** | Whether it is every roll ever or a window. **A window is a retention decision with a privacy face**, so it belongs in the privacy document, which does not exist | Counsel, then production |
 | **The three register rows** | Section 8 | Node `0.13` |
 | **Whether a roll can be hidden by its owner** | `7.1` publishes one round to a stranger with a link. Whether a person can keep a specific roll out of that is not decided anywhere, and this page is where they would do it. **Narrowed 24 August 2026 by `D-93` and not closed:** the founder gave the whole public profile a switch, and that switch takes down the page rather than a round. `D-93` says so on the row itself, because a switch trusted for more than it does is worse than no switch | Founder, with `7.1` |

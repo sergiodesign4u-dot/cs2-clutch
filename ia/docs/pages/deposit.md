@@ -279,7 +279,7 @@ Composition taken from `ia/docs/blocks.md` section 5, T4 Transactional form with
 | 22 Aug 2026 | `deposit.html` drawn, **two days later**, with two empty slot cards and "which methods this product takes is not decided" |
 | 25 Aug 2026 | Founder points at the screen. Rebuilt |
 
-**Why the wrong statement read as sourced.** It cited two things that were true: no competitor screen of this type may be opened, `blocks.md` section 0, and `baseline.md` section 2 records deposit as `[?]` with no pre-login route. **Neither of those covers our own signed-in baseline**, which is the single exception `CLAUDE.md` carves out. **The input gate runs before step 1 of a stage**, so a source arriving mid-stage passes no gate at all.
+**Why the wrong statement read as sourced.** It cited two things that were true: no competitor screen of this type may be opened, `blocks.md` section 0, and `baseline.md` section 2 records deposit as `[?]` with no pre-login route. **Neither of those covers the baseline's signed-in surfaces**, which is the single exception `CLAUDE.md` carves out. **The input gate runs before step 1 of a stage**, so a source arriving mid-stage passes no gate at all.
 
 ### The count was wrong too, and the way it was wrong is the finding
 
@@ -656,7 +656,7 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 
 ## 4. Method cards, exclusions, and the empty first deposit
 
-**No competitor screen of this type exists that we may open.** `blocks.md` section 0 declares the gap before the tables: deposit, withdrawal and identity verification are behind login on all five hard competitors, and this project never logs in. The substitute is public documentation plus the As-Is barriers plus Refero for the craft. ~~**This section inherits that gap rather than covering it**, which is why the method list itself is `[?]` instead of a plausible list of five.~~ **Amended 25 August 2026 by `D-96`, and the sentence above is the one this node got wrong for three days.** The competitor gap is real and it never covered **our own baseline**, which `CLAUDE.md` makes a source in the same class as a walked page. `baseline-account.md` section 5b.1 has held the list since 20 August. **Thirty five routes, section 2d.**
+**No competitor screen of this type exists that we may open.** `blocks.md` section 0 declares the gap before the tables: deposit, withdrawal and identity verification are behind login on all five hard competitors, and this project never logs in. The substitute is public documentation plus the As-Is barriers plus Refero for the craft. ~~**This section inherits that gap rather than covering it**, which is why the method list itself is `[?]` instead of a plausible list of five.~~ **Amended 25 August 2026 by `D-96`, and the sentence above is the one this node got wrong for three days.** The competitor gap is real and it never covered **the baseline**, which `CLAUDE.md` makes a source in the same class as a walked page. `baseline-account.md` section 5b.1 has held the list since 20 August. **Thirty five routes, section 2d.**
 
 **The craft, from the bank.** Payment methods as cards with an empty state, Refero Navan `803e703a`: "the empty first deposit is the common case and is designed rather than met."
 
@@ -668,7 +668,7 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 
 **Empty state, first deposit.** No saved methods is the normal case for the account this screen is designed for, since `flows.md` flow 2 opens on "the starter credit is spent and they want to keep opening". The empty state is the default composition of block 6, and the populated state is the variant. **Stated in that order deliberately:** a screen designed for the returning depositor and patched for the first one puts its worst layout in front of the person with the least reason to trust it.
 
-**What is `[?]` and stays `[?]`:** ~~the method list,~~ any fee, any minimum, any maximum per method, and whether a method carries its own crediting window different from the published one. `baseline.md` section 2 records deposit as `[?]` with no pre-login route found~~, and no source in this repository names a method~~. **The method list is named since `D-96`, section 2d: 27 fiat and 8 crypto, from our own baseline.** **None of these is invented here**, and block 6 is specified as a shape with an unknown list, which is a drawable instruction: one card per method, exclusions on the card, empty state first.
+**What is `[?]` and stays `[?]`:** ~~the method list,~~ any fee, any minimum, any maximum per method, and whether a method carries its own crediting window different from the published one. `baseline.md` section 2 records deposit as `[?]` with no pre-login route found~~, and no source in this repository names a method~~. **The method list is named since `D-96`, section 2d: 27 fiat and 8 crypto, from the baseline.** **None of these is invented here**, and block 6 is specified as a shape with an unknown list, which is a drawable instruction: one card per method, exclusions on the card, empty state first.
 
 ---
 

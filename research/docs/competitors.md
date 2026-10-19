@@ -197,7 +197,7 @@ Third-party testing in 2026 found Key-Drop at 89%, DatDrop at 80.6%, and Hellcas
 
 ### 3.5 DaddySkins Baseline Comparison
 
-DaddySkins (https://daddyskins.com, operated by MIXABIT LTD, Cyprus, HE 470887, since 2016) is the platform being redesigned. Against the five competitors, it shows clear relative strengths and significant gaps.
+DaddySkins (https://daddyskins.com, operated by MIXABIT LTD, Cyprus, HE 470887, since 2016) is the baseline, the reference product whose structure this project inherits. Against the five competitors, it shows clear relative strengths and significant gaps.
 
 **Where DaddySkins is competitive:**
 - Ten-year operating history (2016-2026) and 1.856M registered users are credible scale signals, surfaced in footer stats (Cases Opened: 354,120,367; Upgrades: 3,309,744; Online: 659 at time of visit).
@@ -206,7 +206,7 @@ DaddySkins (https://daddyskins.com, operated by MIXABIT LTD, Cyprus, HE 470887, 
 - Withdrawal is stated as commission-free in ToS - a competitive claim skin.club and Hellcase do not clearly make pre-login.
 
 **Where DaddySkins falls behind:**
-- Provably Fair is login-gated: footer links to /en/provably-fair but visiting it redirects to login. This is the most direct trust gap relative to CSGORoll (fully public fairness docs) and skin.club (public roll history). The highest-leverage single fix in the redesign. The page is already built, since the route exists and redirects rather than 404s; the cost of unlocking it is [?] unknown from the outside.
+- Provably Fair is login-gated: footer links to /en/provably-fair but visiting it redirects to login. This is the most direct trust gap relative to CSGORoll (fully public fairness docs) and skin.club (public roll history). The highest-leverage single gap for the new product to close. The page is already built, since the route exists and redirects rather than 404s; the cost of unlocking it is [?] unknown from the outside.
 - No third-party trust signals: no Trustpilot widget, no gambling license number, no independent audit badge. Key-Drop has 22,000+ Trustpilot reviews at 4.8/5 shown publicly.
 - Bot visibility is the worst in category: "[BOT] Darth Vader", "[BOT] HAL 9000", "[BOT] Patrick Bateman", "[BOT] Sauron" visible on first visit. No competitor makes bot activity this obvious.
 - Withdrawal information is invisible to new visitors. No speed badge, no Steam integration confirmation, no fees disclosure pre-login.

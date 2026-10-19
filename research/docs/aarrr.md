@@ -289,7 +289,7 @@ All targets are hypotheses. Replace with live data at each stage.
 
 ## Key Takeaways (updated from v1)
 
-1. The case opening reveal is the single most important product moment. Activation, retention, referral, and revenue all flow from the quality of this one experience. The linear reveal (Pattern A from ux-patterns.md) is the correct choice; execution quality is where the redesign wins.
+1. The case opening reveal is the single most important product moment. Activation, retention, referral, and revenue all flow from the quality of this one experience. The linear reveal (Pattern A from ux-patterns.md) is the correct choice; execution quality is where the new product wins.
 
 2. The house edge hypothesis in v1 (25-40%) was materially wrong FOR MINI-GAMES. The market operates at 7-10% on mini-games (confirmed from Clash.gg RTP disclosure). Cases are a different surface: case RTP is still [?] unknown and must be modeled before launch, and round 1 ships cases, not mini-games. Do not design bonus and wagering structures before case math is set.
 

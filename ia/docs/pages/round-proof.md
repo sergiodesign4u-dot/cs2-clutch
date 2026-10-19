@@ -126,7 +126,7 @@ Seven in the object, and **no site renders all seven**. **Corrected by the step 
 | **Checked and matched** | The recomputation and its inputs, plainly. **Not a badge**, section 0 | Back, or to `D3` for the other question |
 | **Checked and mismatched** | The two values side by side, ours and the recomputation, and **a report route with a published response deadline** | `1.4`, which `flows.md` marks a deliberate dead end for the job: nothing can close it while the proof is wrong |
 | **Malformed input** | Which part is missing or unreadable, and the input again | `1.3`, back to the form rather than a silent rejection |
-| **Proof unavailable** | That this round has no published proof, and why. **Rounds predating the published ledger are the real case**, and whether six years of history can migrate at all is `D-B` | The explanation on `1.2` |
+| **Proof unavailable** | That this round has no published proof, and why. **Rounds predating the published ledger are the real case**, and whether earlier history is publishable at all is `D-B` | The explanation on `1.2` |
 | **Gone or private** | On `7.1` only: the result is no longer public. **The round can still be checked without the page**, so it routes into the verifier | `7.2`, then `1.2` |
 
 **The mismatch state is the one that earns the node.** A component built only for the happy path would meet its first real failure as an incident with no interface, and it is the failure this product least wants to improvise: our own proof failing in front of the person it was shown to.
@@ -170,7 +170,7 @@ A server seed hash is a long hex string. At 360px it does not fit, and it is the
 | **Does the person control the client seed** | The entity lists a client seed and nothing anywhere says who sets it. **If both halves are ours, the commitment proves less**, and the category standard is a user-settable or at least user-rotatable client seed. **Recommendation: user-settable, and it needs its own backlog row** because no row covers it today | Founder, one backlog row |
 | **The exact scheme** | The category standard is HMAC-SHA256 over server seed, client seed and nonce. Ours is not chosen, and the choice belongs with the people who build the settlement | Production, before stage 04 draws the field list as final |
 | **Where the published algorithm lives** | It is a document. `1.2` explains, `0.9` holds documents. A version history is required either way, because a scheme that changes silently invalidates every proof before it | Node `1.2` at step 6 |
-| **Pre-migration rounds** | Whether six years of history arrives with proofs, which is `D-B`. It decides how common the unavailable state is on day one | Founder, question of fact to the live platform |
+| **Rounds before the ledger** | Whether earlier rounds arrive with proofs, which is `D-B`. It decides how common the unavailable state is on day one | Founder, open question of fact |
 | **A named third-party auditor** | Row `A5`, and `research.md` section 5b cites a 2026 audit finding that **no operator in the category names one**. We do not have one either, `0.11` | Founder |
 
 **And what belongs elsewhere.** The explanation copy: `1.2`, then stage 05. Where the block sits on each screen: those nodes at steps 5 and 6. How it looks: stages 06 and 07. Indexation: `0.13`, which indexes `1.2` and keeps `7.1` out.

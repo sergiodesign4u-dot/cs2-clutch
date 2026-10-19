@@ -14,7 +14,7 @@ One-page glance view of the research foundation. It overlaps with section 8 of `
 
 ## 1. Business problem
 
-The CS2 skin case-opening market is mature but undifferentiated on trust. Every competitor claims provably fair; none has a named third-party RNG auditor, none has robust age verification, and all have visible bot activity in live feeds. The platform being redesigned (daddyskins.com) scored 15/40 on the trust benchmark, the lowest in category. Its highest-leverage gap is a login-gated provably fair page. The page is already built, since the route exists and redirects rather than returning 404; the cost of unlocking it is [?] unknown from the outside.
+The CS2 skin case-opening market is mature but undifferentiated on trust. Every competitor claims provably fair; none has a named third-party RNG auditor, none has robust age verification, and all have visible bot activity in live feeds. The baseline (daddyskins.com) scored 15/40 on the trust benchmark, the lowest in category. Its highest-leverage gap is a login-gated provably fair page. The page is already built, since the route exists and redirects rather than returning 404; the cost of unlocking it is [?] unknown from the outside.
 
 ## 2. Business outcomes
 

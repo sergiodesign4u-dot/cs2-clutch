@@ -144,7 +144,7 @@ Verdict: **blocked, and no longer a copied row.** `[?] text not opened`, citatio
 | **Michigan** | **Blocked. New** | Lawful Internet Gaming Act and Lawful Sports Betting Act; 45 cease-and-desist orders in four months to 7 April 2026 | **Opened live** |
 | **Idaho** | **Blocked. New** | Idaho Code 18-3801 plus a constitutional prohibition with three narrow exceptions | Search results. `[?] text not opened` |
 | **Lithuania** | **Blocked. New** | Permit required for remote gambling; regulator blacklist with DNS and payment blocking | Search results. `[?] text not opened` |
-| **Cyprus** | **Blocked. New, and it is where our own entity sits** | Betting Law class B excludes online casino games of chance; the NBA blocks operators offering them | **Opened live** |
+| **Cyprus** | **Blocked. New: Cyprus issues no licence for a game of chance** | Betting Law class B excludes online casino games of chance; the NBA blocks operators offering them | **Opened live** |
 
 **Six became ten, and the shape of the change is the point.** Not one row was added by copying anyone. Three came from law, one came from reading our own footer, and the one row that was a copy turned out to have a stronger ground than the copy knew.
 
@@ -344,7 +344,7 @@ The full record is operator-side. What reaches a person is **the verdict and the
 | ~~Allowlist or blocklist~~ | The structural fork | **`D-23`: allowlist, closed by default.** The property that decided it is that a missing row grants access under the other one, which makes never having looked behave exactly like having looked |
 | ~~Where we may operate from~~ | Never asked in this repository at all | Cyprus issues no licence for a game of chance and becomes a blocked market. Opened live |
 | ~~The licence~~ | One decision with the fork above | **`D-23`: the Isle of Man, as a direction and not as a filing.** Curacao, Anjouan, Malta, Costa Rica and no licence at all were each rejected with a reason on the record |
-| ~~The first memo batch~~ | Which markets are worth paying counsel for | **`D-23`: three memos in order, and the first is not about a market at all.** M1 the operating structure and its current exposure, M2 Isle of Man licensability of our exact mechanics, M3 the first allowlist row with its target chosen after M2. **The fee per memo is still `[?]`** and three quotes come before the first instruction |
+| ~~The first memo batch~~ | Which markets are worth paying counsel for | **`D-23`: three memos in order, and the first is not about a market at all.** M1 the operating structure and its exposure, M2 Isle of Man licensability of our exact mechanics, M3 the first allowlist row with its target chosen after M2. **The fee per memo is still `[?]`** and three quotes come before the first instruction |
 
 **Still open, and the list is shorter and sharper.**
 

@@ -1,4 +1,4 @@
-# JTBD: CS2 Skin Platform Redesign
+# JTBD: CS2 Skin Platform
 
 **Version:** 1.0
 **Date:** June 2026

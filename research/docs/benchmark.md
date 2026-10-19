@@ -143,7 +143,7 @@ So there is a consolation mechanism (past losses feed the model) and the user is
 
 Nike's scarcity is physical and external. A shoe run is genuinely finite and Nike did not invent the constraint at the moment of sale. Our scarcity is entirely manufactured by us, in software, and a user who suspects the numbers were chosen to suit us has no counter-evidence unless we supply it.
 
-Nike's brand is the guarantee. Six decades of product underwrite the claim that the process is fair even though it is opaque. Our brand does not exist yet, and the redesign brief makes verifiability the differentiator. Opacity would be spending trust we have not earned on an effect we do not need.
+Nike's brand is the guarantee. Six decades of product underwrite the claim that the process is fair even though it is opaque. Our brand does not exist yet, and the product brief makes verifiability the differentiator. Opacity would be spending trust we have not earned on an effect we do not need.
 
 Nike's loser pays nothing. A failed SNKRS entry costs a notification. Every one of our outcomes is paid for in advance, including the bad ones. Opacity where money has already changed hands is not mystique, it is the thing regulators and reviewers look for first.
 
@@ -194,7 +194,7 @@ It stays in this file rather than moving, for one reason with a date on it: twel
 
 **Original header, kept for provenance:** Benchmark: Trust and Fairness. Updated with Phase 3 competitive analysis data. Created 2026-06-10, last updated 2026-06-10.
 
-Products scored: Clash.gg, Key-Drop, CSGORoll, skin.club, daddyskins.com (our baseline).
+Products scored: Clash.gg, Key-Drop, CSGORoll, skin.club, daddyskins.com (the baseline).
 Previous products (hellcase.com, datdrop.com) removed pending dedicated research. This document reflects only verified Phase 3 data.
 
 ### 1. Evaluation Criteria (Scale 1-5)
@@ -248,7 +248,7 @@ Key-Drop offers a cryptographic seed-based provably-fair system and some odds di
 
 **Citations:** key-drop.com case pages; cs2pulse.com odds analysis; community reports of 2026 crypto withdrawal delays.
 
-#### daddyskins.com (our baseline)
+#### daddyskins.com (the baseline)
 
 The most critical gap is the provably-fair page: the footer links to /en/provably-fair but the page redirects to login, meaning no anonymous visitor can access the fairness mechanism. This is the lowest score in the set for the most important criterion. Odds per case are visible pre-login on a 1-100,000 scale, which is a genuine positive, but edge and EV are never stated, and no withdrawal speed or fee information is visible to anonymous users. The bot-filled live feed (named accounts "Darth Vader," "HAL 9000") actively signals inauthenticity to technically literate CS2 players. There is no meaningful age-gate (only "18+" text in FAQ) and no responsible-play tools, which is the clearest compliance gap in the set.
 

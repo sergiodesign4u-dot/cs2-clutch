@@ -133,7 +133,7 @@ The long form, which is block 1 and is on the first screen at 360px:
 
 **No verified badge, in any state, anywhere on this page.** `0.14` section 0 forbids it in every variant, and this is the page where the temptation is largest because it is the page with the form.
 
-**The route out of the limit has a condition on it, and the page has to survive the condition failing.** Row `D3` is conditional on `D-B`, whether six years of roll history can migrate and be published at all, and `cjm-to-be.md` answer 2 records what happens if it comes back negative: at launch `B7-2` is answered by `D2` and `D4` and by nothing else. **So the third row of that table is written as a list rather than as a single destination**, and if `D3` is withdrawn under `0.11`'s withdrawn state the block loses one route and keeps two, instead of losing its only one.
+**The route out of the limit has a condition on it, and the page has to survive the condition failing.** Row `D3` is conditional on `D-B`, whether earlier roll history exists in a publishable form at all, and `cjm-to-be.md` answer 2 records what happens if it comes back negative: at launch `B7-2` is answered by `D2` and `D4` and by nothing else. **So the third row of that table is written as a list rather than as a single destination**, and if `D3` is withdrawn under `0.11`'s withdrawn state the block loses one route and keeps two, instead of losing its only one.
 
 ---
 
@@ -277,7 +277,7 @@ A person arriving from row `F3`, the post reveal verification link, or from a sh
 
 Not a numbered node, and it has two causes with two different owners:
 
-- **The round predates the published ledger.** `0.14` calls this the real case, and whether six years of history migrates at all is `D-B`. The state says so, in words, and does not imply the person did anything wrong.
+- **The round predates the published ledger.** `0.14` calls this the real case, and whether earlier history is publishable at all is `D-B`. The state says so, in words, and does not imply the person did anything wrong.
 - **The rotation has not happened yet, so the server seed for this round is not revealed.** This follows from the commit reveal shape rather than from any choice of ours: the seed is revealed on rotation, not per round, so a round can be complete, correct, and not yet checkable. **The route out of this one is `[?]`**, because it depends on whether a person can force a rotation, which is `0.14`'s open question about who controls the client seed. That question is not cosmetic: it decides whether a person can make their own round checkable today or has to wait on us.
 
 Both render the same state with a different reason printed, and both point back at block 2, which is where the page explains the shape.
@@ -448,7 +448,7 @@ Everything structural is inherited from node `0.13`. What is below is this node'
 | **Who sets the client seed** | `0.14`'s first open item, recommendation user settable, no backlog row. **This node adds a consequence:** it also decides whether a person can force a rotation and make their own round checkable today, section 5.3 | Founder, one backlog row |
 | **The drop table in force at a round is not a field** | An independent recomputation needs the whole table as it stood at that round, not only the winning entry's ticket range, and `0.14`'s field set carries the latter. **The same gap covers the algorithm version**, which section 4.4 shows a round proof has to point at | **Finding for `0.14`**, plus production |
 | **The response deadline for a proof failure** | The value is `[?]`, **and the render prints 72 hours as a sample, `D-124`**, and so is the queue: row `G4` publishes a deadline for an appeal against a withdrawal restriction, and a mismatch report is not that. `0.10` holds the service level | Founder, with `0.10` |
-| **Whether pre-migration rounds carry proofs, `D-B`** | Decides how common the unavailable state is on day one, and whether row `D3` exists to be linked to at all in block 1's routes | Founder, question of fact to the live platform |
+| **Whether rounds before the ledger carry proofs, `D-B`** | Decides how common the unavailable state is on day one, and whether row `D3` exists to be linked to at all in block 1's routes | Founder, open question of fact |
 | **`0.11` names `1.2` as a consumer and no row in it lists `1.2`** | Two figures this page needs have no row in the register: the published response deadline as it applies here, and the date from which published proofs exist, which the unavailable state reads | **Finding for `0.11`** |
 | **`0.13` holds no row for `/provably-fair?round=<id>`** | This node uses `0.13`'s own rule for a parameterised view of an indexed page rather than inventing one, section 5.1. The row belongs there | **Finding for `0.13`** |
 | ~~**The desktop contents column**~~ **Closed 3 October 2026, `D-146`: dropped. Six H2s are read without a contents column** |

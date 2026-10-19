@@ -135,7 +135,7 @@ Three consequences follow, and they run through every section below.
 
 ## 1. The only surface of this kind in the category, walked
 
-**Key-Drop's safety portal, `safety.key-drop.com`, opened live on 12 August 2026** and recorded in `blocks.md` section 7 with proof at `research/screens/blocks/t6-keydrop-safety.jpeg`. **It is the only responsible play surface any of the five hard competitors publishes.** Hellcase's footer carries no link of the kind at all, and `baseline.md` section 6 records zero responsible play routes, zero footer links and zero matches for self exclusion, deposit limit, cool down or gambling anywhere on our own baseline.
+**Key-Drop's safety portal, `safety.key-drop.com`, opened live on 12 August 2026** and recorded in `blocks.md` section 7 with proof at `research/screens/blocks/t6-keydrop-safety.jpeg`. **It is the only responsible play surface any of the five hard competitors publishes.** Hellcase's footer carries no link of the kind at all, and `baseline.md` section 6 records zero responsible play routes, zero footer links and zero matches for self exclusion, deposit limit, cool down or gambling anywhere on the baseline.
 
 ### What it settles
 

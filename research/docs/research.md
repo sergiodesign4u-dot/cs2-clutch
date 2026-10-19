@@ -1,4 +1,4 @@
-# Master Research: CS2 Skin Platform Redesign
+# Master Research: CS2 Skin Platform
 
 **Single source of truth. Version: v_refresh (Strategy migration, competitor and AARRR updates applied).**
 **Date:** June 2026. Baseline: daddyskins.com. Placeholder name: CS2 Clutch.
@@ -11,15 +11,15 @@ Every factual claim in this document cites its source. Unknowns are marked [?]. 
 
 ### Purpose
 
-This document is the synthesis of seven phases of structured product research into a CS2 skin case-opening platform redesign. It is the primary input for the wireframe phase. All downstream design decisions should trace to this document or explicitly note where they diverge from it and why.
+This document is the synthesis of seven phases of structured product research into a CS2 skin case-opening platform. It is the primary input for the wireframe phase. All downstream design decisions should trace to this document or explicitly note where they diverge from it and why.
 
 ### The Problem Being Solved
 
 The market for CS2 skin case-opening platforms is mature but poorly differentiated on the dimensions that matter most. Every major platform offers case opening, case battles, and upgrades. None has solved the category's core trust deficit: no mystery box operator in the category names a public third-party RNG auditor (betterchecked.com 2026 audit, https://www.betterchecked.com/the-state-of-provably-fair-in-2026-who-actually-proves-it-who-just-talks-about-it), none has implemented robust age verification beyond self-declaration (DCMS review Oct 2025, https://cms.law/en/gbr/legal-updates/inside-the-skins-gambling-surge-dcms-review-exposes-risks-and-regulatory-gaps-in-skins-gambling), and every major platform's live feeds contain visible bot activity.
 
-The platform being redesigned (daddyskins.com) scored 15 out of 40 on the trust and fairness benchmark, the lowest in the competitive set. Its most critical gap -- a login-gated provably fair page that redirects to login rather than showing the mechanism -- is the highest-leverage single fix in the redesign. The page is already built, since the route exists and redirects rather than returning 404; the cost of unlocking it is [?] unknown from the outside.
+The baseline (daddyskins.com) scored 15 out of 40 on the trust and fairness benchmark, the lowest in the competitive set. Its most critical gap -- a login-gated provably fair page that redirects to login rather than showing the mechanism -- is the highest-leverage single gap for the new product to close. The page is already built, since the route exists and redirects rather than returning 404; the cost of unlocking it is [?] unknown from the outside.
 
-The redesign hypothesis: a platform that builds genuine trust infrastructure (third-party RNG audit, real age verification, public provably fair page, bot-free live feeds) can differentiate on the dimension competitors have structurally failed to address, while matching or exceeding the category standard on core loop quality (animation, battles, upgrades).
+The product hypothesis: a platform that builds genuine trust infrastructure (third-party RNG audit, real age verification, public provably fair page, bot-free live feeds) can differentiate on the dimension competitors have structurally failed to address, while matching or exceeding the category standard on core loop quality (animation, battles, upgrades).
 
 ### Approach
 
@@ -45,7 +45,7 @@ Phases 0-7 of this sprint:
 
 4. The Collector segment does not drive platform design at scale. No platform in the studied set leads with odds tables or EV calculators; all lead with win animations and big-drop social proof. Source: direct observation of six landing pages, June 2026, screenshots in research/screens/. Collector needs are served by table-stakes transparency features, not by dedicated feature investment. Note the boundary: this argues against a dedicated Collector feature track, not against odds transparency, which stays in the top three MVP mechanisms as table stakes (benchmark.md, Mechanism 2).
 
-5. The reveal animation quality is the most direct competitive surface available to the redesign. The category uses the linear reveal universally, but execution quality varies enormously. DaddySkins' current implementation is flat. Key-Drop's rarity-tiered animations and Clash.gg's Champion mode mechanics show the quality bar. This is where the redesign can win without inventing a new mechanic.
+5. The reveal animation quality is the most direct competitive surface available to the new product. The category uses the linear reveal universally, but execution quality varies enormously. DaddySkins' current implementation is flat. Key-Drop's rarity-tiered animations and Clash.gg's Champion mode mechanics show the quality bar. This is where the new product can win without inventing a new mechanic.
 
 ---
 

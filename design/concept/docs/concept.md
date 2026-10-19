@@ -4,7 +4,7 @@
 
 **Visible place.** The sections "Designer's taste", "Attributes", "Logo" and "Brand plate" on `design/concept/concept.html`, built at step 5, the attributes as a table with their source rows. Until step 5 this file has no page, the same as `references.md`.
 
-**Route.** Brand exists, no system: `CLAUDE.md`, "Locked decisions", amended by `D-18`, `D-166` and `D-181`. The look is daddyskins.com's own, collected in `research/docs/baseline.md` section 13 and made consistent here.
+**Route.** An inherited visual language, no system: `CLAUDE.md`, "Locked decisions", amended by `D-18`, `D-166` and `D-181`. The look is the baseline's, collected in `research/docs/baseline.md` section 13 and made consistent here.
 
 ---
 
@@ -19,7 +19,7 @@ Written on 19 October 2026 from the founder's own words, not inferred. The block
 - **skin.club**: the same words. Two details, `references.md` 3.2.
 
 **Anti-references, named.**
-- **daddyskins.com as it is today**: dated, sharp corners, flat, static, boring. The product being redesigned is its own first anti-reference, at the level of finish only: its structure, colour, voice and type stay, `D-181`.
+- **daddyskins.com as it is today**: dated, sharp corners, flat, static, boring. The baseline is the first anti-reference, at the level of finish only: its structure, colour, voice and type stay, `D-181`.
 - **AI slop.** The founder named it without listing it. It was translated into checkable markers and the founder confirmed them with amendments, in their words: "да, но с нюансами, прям все отказаться тоже не хочеться вот те же рефернси там у них есть свечения, градиенти, иконки в кружочках может бути, но в целом да иконок должно убти багато и еще и интерактивніх, там всякие штуки например бордери цветние сбоку со скруглениями и так далее, по генерациям скорее всего ми будем генерировать картинки под баннера, может по кейси, но тоже какие наши уникальние стильние кейси а вот скині". So slop is not a list of banned elements but one test: **an element that carries no job and no rarity.**
   1. **Glass cards, blurred translucent panels.** Out.
   2. **A glow or gradient with no job.** Out. Glows and gradients as such stay, as the references use them: each lights one thing, the primary action or a rarity, `references.md` S3 and C1.

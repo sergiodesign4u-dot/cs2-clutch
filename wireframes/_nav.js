@@ -3449,7 +3449,7 @@ window.WF_PAY = window.WF_PAY || {
 
     if (state === 'unavailable') {
       // 0.14: the real case is rounds predating the published ledger, and
-      // whether six years of history can migrate at all is D-B. THE PAGE DOES
+      // whether earlier history is publishable at all is D-B. THE PAGE DOES
       // NOT HIDE AND DOES NOT PRETEND.
       tag = 'Proof not available';
       fields = '<div class="wf-fpair"><span class="wf-fpair-k">Why</span>' +

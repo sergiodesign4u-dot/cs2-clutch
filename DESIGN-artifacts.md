@@ -4,7 +4,7 @@
 
 **Visible place.** `design/concept/concept.html`, built at step 5: palette, type, shape and icons render there live, each with its attribute and origin. Until step 5 this file has no page, the same as `concept.md`.
 
-**Route.** Brand exists, no system, `D-18`, `D-181`, `D-182`. So the plate is one and collected, and **`наявний бренд` outranks `піксель плейта`**: a pixel is taken only where the brand gives no value. Where the baseline gives two answers, the founder picks and the loser is named, `D-181`; those picks are in section 9 and nothing here pretends to have made them.
+**Route.** An inherited visual language, no system, `D-18`, `D-181`, `D-182`. So the plate is one and collected, and **`наявний бренд` outranks `піксель плейта`**: a pixel is taken only where the brand gives no value. Where the baseline gives two answers, the founder picks and the loser is named, `D-181`; those picks are in section 9 and nothing here pretends to have made them.
 
 **Origins used.** `наявний бренд` (read live in `research/docs/baseline.md`, cited by section) · `піксель плейта, зона <N>` (sampled from `design/concept/assets/brand-plate.png`) · `рішення користувача` (cited by decision) · `атрибут A<n>` (from `design/concept/docs/concept.md` section 3).
 

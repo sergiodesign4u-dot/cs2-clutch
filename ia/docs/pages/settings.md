@@ -277,7 +277,7 @@
 
 **So neither record is corrected and both are dated.** That is the whole point of the rule that a screenshot without a date is model memory with a picture attached: a source with a date survives the thing it describes changing, and a source without one becomes wrong silently.
 
-**And `D-55` shipped the newer set four days before it appeared in our own baseline.** It chose **Steam, Google, Discord and X** on 21 August, from three competitor modals beside the node rather than from our own product. **What was a divergence from the baseline on 21 August is a match to it on 22 August.** That is a coincidence and it is recorded as one: nothing in the decision claims the baseline as its source, and nothing built changes either way.
+**And `D-55` shipped the newer set four days before it appeared in the baseline.** It chose **Steam, Google, Discord and X** on 21 August, from three competitor modals beside the node rather than from the baseline. **What was a divergence from the baseline on 21 August is a match to it on 22 August.** That is a coincidence and it is recorded as one: nothing in the decision claims the baseline as its source, and nothing built changes either way.
 
 #### 1.6 `NOTIFICATIONS`, eight rows, ~~and none of them has a subject in round 1~~ **and three have one since `D-118`, stated as one Confirmations row since `D-130`**
 

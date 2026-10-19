@@ -4,7 +4,7 @@ The rules of this repository live in **`CLAUDE.md`** at the root. Read it on you
 
 ## What this repository is
 
-Not an application. A **product design pipeline** for a CS2 skin platform redesign: twelve stages, each leaving a markdown source of truth in its `docs/` folder and an html page that renders the shared sidebar from the root `/_nav.js`. Nothing here is executed. The material is text and structure, and it is checked as text and structure.
+Not an application. A **product design pipeline** for a CS2 skin platform: twelve stages, each leaving a markdown source of truth in its `docs/` folder and an html page that renders the shared sidebar from the root `/_nav.js`. Nothing here is executed. The material is text and structure, and it is checked as text and structure.
 
 Stage packs are not in this repo. They live in `AI Design Workflow/` alongside it, and nothing from there is committed here.
 

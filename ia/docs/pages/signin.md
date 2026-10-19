@@ -228,7 +228,7 @@
 
 ### 0.10.6 `D-58`. No control on this surface is disabled, and `D-26` is enforced exactly as before
 
-**Founder decision of 21 August 2026, from his own operating experience:** a person meets a dead control, cannot see what to do about it, and **either leaves or writes to support**. Four dead controls in a row is that four times over, which is the wall section 0.10.4 already named.
+**Founder decision of 21 August 2026, from category experience:** a person meets a dead control, cannot see what to do about it, and **either leaves or writes to support**. Four dead controls in a row is that four times over, which is the wall section 0.10.4 already named.
 
 **What `D-26` requires is that nobody gets through without both declarations, and that is unchanged.** The press does not sign anyone in. **The baseline's defect was that its provider buttons worked with the box unticked**, `baseline-account.md`, and these do not. **The collision was with the word inert in the earlier wording of this node, not with the rule underneath it.**
 

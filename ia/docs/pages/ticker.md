@@ -386,7 +386,7 @@ The baseline runs 26 tiles of 92px at 1440px, `baseline.md` section 3. At 360px 
 |---|---|---|
 | **Whether the winner appears at all** | Section 1 converges on yes and keeps the no. **The decision reverses if `A3`'s bot labelling cannot be enforced at the data layer**, and `baseline.md` section 3 marks the current state of that question `[?]` | Founder, plus whoever owns the feed data |
 | **The staleness threshold** | How long a silent feed stays running before it is degraded. `0.11` puts the strip in the real-time class, where any lag is a wrong answer, and gives no number | Production, with the feed |
-| **Volume and rate** | How many events per minute a real feed produces at launch, which decides whether the empty state or the running state is the common one on day one | Founder, question of fact to the live platform |
+| **Volume and rate** | How many events per minute a real feed produces at launch, which decides whether the empty state or the running state is the common one on day one | Founder, open question of fact |
 | **Pause persistence beyond the session** | Section 2. A remembered preference is a setting. **This row used to read "this product has one settings surface, `6.1`" and that stopped being true on 20 August 2026**, when `D-36` put `5.11` Settings on the map: `6.1` is a boundary surface and never was the settings one. `5.11`'s round 1 contents are `[?]` by that decision's own words, **and this is one of the few concrete candidates for them** | Founder, with `5.11`. Then production |
 | **The rarity treatment** | Seven tiers exist, one is conditional on the case, and whether the ladder is the game's own palette is `[?]`, `0.6` section 2 | Stage 06 |
 

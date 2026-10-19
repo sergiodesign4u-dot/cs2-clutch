@@ -1,6 +1,6 @@
 # CS2 Clutch
 
-Redesign of a live CS2 skin platform, built as a thirteen stage product design pipeline. Working placeholder name. Baseline: daddyskins.com, the founder's own product, six years live.
+A new CS2 skin case-opening platform, designed against its closest established competitor as the baseline, built as a thirteen stage product design pipeline. Working placeholder name. Baseline: daddyskins.com, the reference product whose structure this project inherits.
 
 **Live: [project roadmap](https://sergiodesign4u-dot.github.io/cs2-clutch/)**
 
@@ -39,7 +39,7 @@ One thing the re-run could not deliver, named rather than hidden: no product in 
 
 **IA base layer: done, August 2026.** Sixteen entities before any screen, twelve MVP screens in seven intent clusters against thirteen LATER, six flows in Mermaid with states and dead ends rather than happy paths, eight since round 15 added Flow 5 and round 16 Flow 6, and the main job at three taps. The tracing matrix carries a scope row and a budget line, and both critiques ran on two instruments: 31 findings, Codex 13, Claude 13, both 5, with 25 fixed and the withdrawn ones visible with their reasons. **One thing it decided did not survive the detail layer.** The base layer flattened the baseline's nine item rail into a header of four items; on 11 August 2026 the founder reversed that at node 0.1. The model is the baseline's own two carriers, a rail that owns destinations and a header that owns money in two figures, with the rail filled by round 1's live items only. Reasoning: `docs/decisions.md` D-19 and D-21.
 
-**Stage 03 input gate: passed on 11 August 2026, and it found more than it expected.** All seven declared inputs exist. The four decisions the CJM map could not close were answered (D-17): the age gate becomes two layers, a declaration at registration plus identity verification before funding, **and `D-26` later parked the second layer out of round 1 and moved it to before withdrawal**; the roll history migration goes to the platform as a question of fact; the internal weights check is scheduled before stage 04; inventory capital is deferred to 03b. The founder also decided the colour register is taken from the baseline rather than derived near it (D-18), which reverses part of D-03. Then the gate found that "the structure is inherited" had no source document: seven things were listed as inherited and none of them was written down. That produced `baseline.md`, a live walk of daddyskins.com on public pre-login pages, whose sharpest finding is that **only one of the nine left rail destinations is in round 1**.
+**Stage 03 input gate: passed on 11 August 2026, and it found more than it expected.** All seven declared inputs exist. The four decisions the CJM map could not close were answered (D-17): the age gate becomes two layers, a declaration at registration plus identity verification before funding, **and `D-26` later parked the second layer out of round 1 and moved it to before withdrawal**; whether earlier roll history is publishable stays a question of fact; the internal weights check is scheduled before stage 04; inventory capital is deferred to 03b. The founder also decided the colour register is taken from the baseline rather than derived near it (D-18), which reverses part of D-03. Then the gate found that "the structure is inherited" had no source document: seven things were listed as inherited and none of them was written down. That produced `baseline.md`, a live walk of daddyskins.com on public pre-login pages, whose sharpest finding is that **only one of the nine left rail destinations is in round 1**.
 
 ## Wireframes
 
@@ -60,7 +60,7 @@ One thing the re-run could not deliver, named rather than hidden: no product in 
 | Decision | Value |
 |---|---|
 | Language | One, English |
-| Existing brand | Own logo. **Colour register inherited from the baseline** by founder decision, 11 Aug 2026, D-18 |
+| Brand | New logo. **Colour register inherited from the baseline** by founder decision, 11 Aug 2026, D-18 |
 | Existing design system | None |
 | Baseline inheritance | Structure, IA, colour, voice (`D-166`), typography, shape language and component look (`D-181`), made consistent. Logo and motion are ours |
 

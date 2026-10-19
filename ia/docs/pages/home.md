@@ -472,7 +472,7 @@
 | **Degraded** | The market price `A1`, the Trustpilot score `A5` | The last known value **and** the fact that the source is failing, or nothing at all where a wrong number is worse than no number |
 | **Withdrawn** | `A5`'s auditor half today. `A4` if `D-C` comes back negative | The figure is gone, and where it was load bearing the surface says a number used to be here and why it is not |
 
-**`0.11`'s condition stands above all of them.** `D-C`, the internal observed-against-published check, runs on live platform data before any of this is ~~drawn~~ **published; since `D-124` the page draws marked samples meanwhile**, and it is scheduled before stage 04. If it fails, the rows conditional on it are not redesigned, they are withdrawn, and this page loses B7's `D4` figures and part of B9.
+**`0.11`'s condition stands above all of them.** `D-C`, the internal observed-against-published check, runs on round data before any of this is ~~drawn~~ **published; since `D-124` the page draws marked samples meanwhile**, and it is scheduled before stage 04. If it fails, the rows conditional on it are not redesigned, they are withdrawn, and this page loses B7's `D4` figures and part of B9.
 
 ### 4.4 Loading, and the one rule that is not cosmetic
 
@@ -603,7 +603,7 @@ Rendered in block B11, under the H2 `What opening a case here involves`.
 **~~Two dependencies~~ One dependency inside this text, printed rather than left to be discovered.**
 
 1. **"its tested return" assumes a test exists.** `0.11` section 10 carries "who tests our RTP" as an open item: tested by whom, over how many opens, republished when. If it is never answered, the phrase changes and `D4` changes with it.
-2. ~~**The last sentence is conditional on `D-B`.** The observed rate counter `D3` assumes six years of roll history migrates and can be published. If `D-B` comes back negative the row is withdrawn, and **this sentence is deleted with it rather than left standing as a claim the product does not make**.~~ **Gone with the H3 that carried it, `D-126`.** The rendered paragraph claims checkable rounds and not an observed rate, so it does not depend on `D-B`.
+2. ~~**The last sentence is conditional on `D-B`.** The observed rate counter `D3` assumes earlier roll history exists in a publishable form. If `D-B` comes back negative the row is withdrawn, and **this sentence is deleted with it rather than left standing as a claim the product does not make**.~~ **Gone with the H3 that carried it, `D-126`.** The rendered paragraph claims checkable rounds and not an observed rate, so it does not depend on `D-B`.
 
 **Interface strings do not live here.** Buttons, field labels and state texts move to `voice/docs/microcopy.md` after stage 05. What this node keeps is the requirement about which information belongs in each place.
 
@@ -657,7 +657,7 @@ Rendered in block B11, under the H2 `What opening a case here involves`.
 | **How many tiles the featured grid holds** | It rides on `D-D`, whose subject changed on 21 August 2026: it was inventory capital for stock-backed tables and since `D-60` there is no shelf to capitalise, so what it sets is simply how large the catalogue is. Two boundaries are fixed here and the number is not: it may not be small enough to read as the dead item defect `D-20` describes, and it may not grow into the shelf that `3.1` owns | Founder, with the treasury answer |
 | **How the featured set is chosen** | "Featured" is a claim about why these cases and not others. Hand-curated, by volume, by margin, by stock: nothing anywhere in this repository says | Founder, before stage 04 |
 | ~~**Whether the daily free case appears in the featured grid**~~ | ~~It is an addressable case on `3.1` by the sitemap's obligation, and `0.7` carries a daily marker "where it applies". Whether it applies on Home is part of the selection rule above. `0.1` carries the matching open item for the rail and reaches the same conclusion: either it becomes a node or it stays inside `3.1`~~ **Closed by `D-68`: no surface renders a daily case as a tile, and the ladder B6 is its route** | ~~Same owner as the row above~~ **Closed** |
-| **Whether we have a Trustpilot score at all** | `A5` requires it live or absent. Whether the redesigned product inherits the baseline's reviews, starts empty, or is a different entity is not decided anywhere | Founder |
+| **Whether we have a Trustpilot score at all** | `A5` requires it live or absent. Whether the new product shows a review score at launch or starts empty is not decided anywhere | Founder |
 | **The named auditor** | `A5`'s other half. Nobody in the category has one, `research.md`, and we do not either. **It cannot render today** | Founder |
 | **The rolling window for the median and p90** | Seven days, thirty, ninety. The length is part of the claim and has to be printed with it, `0.11` | Founder with the data, before stage 04 |
 | **Who tests our RTP** | `D4` says published tested RTP. Tested by whom, over how many opens, republished when. ~~Block C's second paragraph~~ **Block C's one paragraph, "its tested return",** depends on the answer | Founder, `0.11` section 10 |
