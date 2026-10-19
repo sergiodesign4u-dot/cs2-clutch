@@ -6182,3 +6182,18 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 **Why.** Measured before: on the case screen at 1440 the band went from 100.5 to 114.3px during every arrival, because the names wrapped in the opening slot and the row stretched to the tallest tile. After: 100.5px throughout, and the content under it does not move, at 1440, 1024 and 360.
 
 **The cost.** A name longer than a tile is cut on the tile; the whole name stays in the tile's accessible name and on `7.1`.
+
+## D-180. Stage 05 step 7: the badge says No fee, and six wording calls the fanout left open
+
+**Date:** 2026-10-19. **Stage:** 05, step 7. **Decided by:** the founder, on the fanout report: "давай поставим No fee и все остальное как рекомендуешь" (put No fee, and the rest as you recommend). **Binds:** `voice/docs/microcopy.md` rows `4.1-81`, `0.3-20`, `0.10-89`, `3.1-38`, `5.1-5`, `G158`, `0.9-27`, `0.9-37`, `0.9-79`, `0.9-85`, `4.1-46`, `5.3-70`; node `4.1`.
+
+**What was decided.**
+- **The card tile's ribbon reads No fee**, where it read the baseline's Best choice, `D-129`. A superlative with no number breaks principle 2; the fact under it is that the card total equals the amount, which the Pay button prints.
+- **The unplanned 503 says "Support is at the foot of this page."**, not "Support still works": the page can see where Support is, not whether it is up.
+- **The appeal's record reads "Appeal sent"**, as its button reads "Send the appeal"; the question variant reads "Question sent".
+- **The filter drawer clears with "Clear all"**, the shelf's word, where it said "Reset all".
+- **My items says "Select an item for its options"**, where "Click" was a desktop verb on a mobile-first screen.
+- **The trade URL save reads "Save trade URL"**, a page string of its own, so `WF_STR.save` stays "Save" for the limits on `6.1`.
+- **Kept as the fanout wrote them:** the legal clause headings "Appeals" and "Cash out", marked `[?]` until counsel confirms them; the deposit sample in dollars, `4.1-46`, by glossary C11; "Send to Steam again" with no figure, `5.3-70`, because `D-52` took the figure out when the button wrapped at 360 and the figure is printed in the block above it.
+
+**The cost.** The ribbon now makes a claim a payment contract can falsify: if production adds a card fee, the ribbon goes with it. Two legal headings wait on counsel.

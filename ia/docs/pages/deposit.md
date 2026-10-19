@@ -930,9 +930,10 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 
 | The live product | What we keep | What we change, and why |
 |---|---|---|
-| Its own copy, which is not inherited (`CLAUDE.md`, Baseline: copy is on the not inherited list) | **Every block, state and requirement of this node** | **The words in the table below**, each by the rule named on its row |
+| Its own voice, the foundation of ours by `D-166`, `research/docs/baseline.md` section 11 | **That voice, and every block, state and requirement of this node** | **The words in the table below**, each by the `voice.md` rule named on its row |
 
 | Row | Was | Now | Rule |
 |---|---|---|---|
 | `4.1-48` | What is still open | What still works | Glossary C9: 'open' for availability is not used; principle 5, a stop says what still works |
 | `4.1-59` | The deposit, while it is pending | This deposit | Section heading names what the block holds; the state is already said by the H2 above; glossary C4, deposit is one payment |
+| `4.1-81` | {d} Best choice | {d} No fee | principle 2: a fact, not a superlative; the card total equals the amount, `D-180` |

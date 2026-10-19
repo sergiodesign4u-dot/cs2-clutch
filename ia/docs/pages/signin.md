@@ -548,7 +548,7 @@ That is a genuine cross-node dependency and it runs both ways: if the probe is n
 
 | The live product | What we keep | What we change, and why |
 |---|---|---|
-| Its own copy, which is not inherited (`CLAUDE.md`, Baseline: copy is on the not inherited list) | **Every block, state and requirement of this node** | **The words in the table below**, each by the rule named on its row |
+| Its own voice, the foundation of ours by `D-166`, `research/docs/baseline.md` section 11 | **That voice, and every block, state and requirement of this node** | **The words in the table below**, each by the `voice.md` rule named on its row |
 
 | Row | Was | Now | Rule |
 |---|---|---|---|

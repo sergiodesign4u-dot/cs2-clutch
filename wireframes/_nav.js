@@ -4479,7 +4479,7 @@ window.WF_PAY = window.WF_PAY || {
         '<div class="wf-drawer-head">' +
           '<h2 class="wf-drawer-h" id="wf-drawer-h">Filter</h2>' +
           '<div class="wf-row">' +
-            '<button class="wf-btn wf-btn--small" type="button" data-filter-reset>Reset all</button>' +
+            '<button class="wf-btn wf-btn--small" type="button" data-filter-reset>Clear all</button>' +
             '<button class="wf-btn wf-btn--small wf-drawer-x" type="button" aria-label="Close the filters">x</button>' +
           '</div>' +
         '</div>' +
@@ -5117,7 +5117,7 @@ window.WF_PAY = window.WF_PAY || {
     if (rk && ROUNDS[rk]) {
       var RR = ROUNDS[rk], tv = document.querySelector('.wf-tid-v');
       if (tv) { tv.textContent = 'rp-2026-08-21-0041'; var cp = tv.parentNode.querySelector('[data-copy]'); if (cp) cp.setAttribute('data-copy', tv.textContent); }
-      Array.prototype.forEach.call(document.querySelectorAll('.wf-tick .wf-fig-c'), function (c) { c.textContent = c.textContent.replace(/Appeal submitted, .*/, 'Round reported, 21 Aug 2026 09:31'); });
+      Array.prototype.forEach.call(document.querySelectorAll('.wf-tick .wf-fig-c'), function (c) { c.textContent = c.textContent.replace(/Appeal sent, .*/, 'Round reported, 21 Aug 2026 09:31'); });
       Array.prototype.forEach.call(document.querySelectorAll('.wf-tick .wf-note, a[href="withdraw-restricted.html"], a[href="support-waiting.html"]'), function (x) { x.remove(); });
       var wh = document.querySelector('#h2-what'), wb = wh && wh.closest('.wf-stack') && wh.closest('.wf-stack').querySelector('p');
       if (wb) wb.innerHTML = 'Our recomputation of this round did not match what we published, and the round is attached: <strong>' + RR.w + ' ' + RR.s + '</strong>, ' + RR.at + ', nonce ' + RR.nonce + '. We answer with what we found and what we do about it.';
@@ -5127,7 +5127,7 @@ window.WF_PAY = window.WF_PAY || {
     if (/[?&]q=1/.test(location.search)) {
       var tid = document.querySelector('.wf-tid-v');
       if (tid) { tid.textContent = 'sp-2026-08-21-0032'; var cb = tid.parentNode.querySelector('[data-copy]'); if (cb) cb.setAttribute('data-copy', tid.textContent); }
-      Array.prototype.forEach.call(document.querySelectorAll('.wf-tick .wf-fig-c'), function (c) { c.textContent = c.textContent.replace('Appeal submitted', 'Question submitted'); });
+      Array.prototype.forEach.call(document.querySelectorAll('.wf-tick .wf-fig-c'), function (c) { c.textContent = c.textContent.replace('Appeal sent', 'Question sent'); });
       Array.prototype.forEach.call(document.querySelectorAll('.wf-tick .wf-note, a[href="withdraw-restricted.html"], a[href="support-waiting.html"]'), function (x) { x.remove(); });
       var what = document.querySelector('#h2-what');
       var wp = what && what.closest('.wf-stack') && what.closest('.wf-stack').querySelector('p');
@@ -6511,7 +6511,7 @@ window.WF_PAY = window.WF_PAY || {
     node.appendChild(el('span', 'wf-pay-n', row[0]));
     // THE MARK IS A RIBBON ON THE CORNER, D-129, the baseline's BEST CHOICE and
     // INSTANT. As a caption line it made its tile taller than the row.
-    if (mark === 'best')    node.appendChild(el('span', 'wf-pay-rib', 'Best choice'));
+    if (mark === 'best')    node.appendChild(el('span', 'wf-pay-rib', 'No fee'));
     if (mark === 'instant') node.appendChild(el('span', 'wf-pay-rib', 'Instant'));
     /* THE MARK IS ON THE TILE AND THE REASON IS ONE LINE UNDER THE GRID, D-97.
        The whole sentence sat on the tile and stretched the first row from 74px to

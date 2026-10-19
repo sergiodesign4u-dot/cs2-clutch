@@ -227,7 +227,7 @@ The Marks column flags where screens say the same thing in different words, or w
 | G155 | main | Worth now, read {date} {time} | text | `WF_STR.worthNow`, page | withdraw-clock, withdraw-not-eligible, withdraw-offer-expired, withdraw-restricted, withdraw-steam-degraded; result-checked, result-mismatched, result-noproof, result-owner, result | C2 | Value now, read {date} {time}, glossary C2 |
 | G156 | main | Entry cost, one roll | text | `WF_STR.entryCost` | all 5 of `2.1`; signin-dialog; case-degraded, case-nocounter, case | C9 S4 | Price, one open (S4, C9) |
 | G157 | main | {n} coin = {n} · RTP {n} %, expected value {n} coins | text | `WF_STR.peg` | all 5 of `2.1`; signin-dialog; case-nocounter, case | C11 | kept |
-| G158 | main | Save | button | `WF_STR.save` | settings-no-trade, settings-refused, settings; all 5 of `6.1` |  | kept |
+| G158 | main | Save | button | `WF_STR.save` | settings-no-trade, settings-refused, settings; all 5 of `6.1` |  | kept; on `5.11` the trade URL button reads Save trade URL, voice.md "One main action", `D-180` |
 | G159 | main | Server seed hash | text | `WF_STR.serverSeedHash` | all 6 of `1.2`; case-open |  | kept |
 | G160 | main | Amount | placeholder | page, `_nav.js HIST_COLS/histPanel` | deposit-crediting; history-cashout; responsible-confirm, responsible-excluded, responsible-guest, responsible |  | kept |
 | G161 | main | Wagered towards the next tier, in coins | text | page, `_nav.js dailyLadder` | index-account; catalogue-account; all 3 of `5.10` | N2 | Wagered toward the next tier (the figure above it now carries its unit, "{n} of {n} coins") |
@@ -262,7 +262,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.3-17 | main | We took the service down on purpose. It comes back at {time}, which is about forty minutes from now. | text | page | system-503-planned |  | We took the service down on purpose. It comes back at {time}, about {n} minutes from now. (Principle 2, the number: the figure as a numeral, '40' not 'forty'; Microcopy 'Figures, dates and times', the absolute time with its zone stays first and the relative one only follows it; padding 'which is' removed, principle 1) |
 | 0.3-18 | main | Nothing here reloads on its own. | text | page | system-503-planned, system-503-unplanned |  | kept |
 | 0.3-19 | main | Something is overloaded, and it is us | SEO H1, SEO / IA ownership | page | system-503-unplanned |  | kept |
-| 0.3-20 | main | We are working on it. There is no end time yet, and we are not going to put up a number we cannot keep. | text | page | system-503-unplanned |  | We are working on it. There is no end time yet, and we will not post one we cannot keep. Support still works, at the foot of this page. (Principle 5 and Microcopy 'Error, a page or a service': says what still works; node 0.3 section 7, the unplanned 503's route out is Support, the only route that is not the thing that is down; glossary C6 'Support') |
+| 0.3-20 | main | We are working on it. There is no end time yet, and we are not going to put up a number we cannot keep. | text | page | system-503-unplanned |  | We are working on it. There is no end time yet, and we will not post one we cannot keep. Support is at the foot of this page. (principle 5; the page claims only what it can see, `D-180`) |
 | 0.3-21 | main | Either the link was wrong, or what used to be here has gone. Nothing on our side is broken. | text | page | system |  | kept |
 
 ### `0.4` Cookie consent
@@ -357,7 +357,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.9-24 | main | Money in, money out | link | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
 | 0.9-25 | main | Limits you set on yourself | link | page | legal-changed, legal-guest, legal-superseded, legal | C5 | kept |
 | 0.9-26 | main | When we restrict an account | link | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
-| 0.9-27 | main | Disputes, and how to raise one | link | page | legal-changed, legal-guest, legal-superseded, legal | N4 | Appeals, and how to make one (Glossary N4: appeal is the person asking us to change a decision; 'dispute' is retired; matches 0.9-18 and 0.9-42) |
+| 0.9-27 | main | Disputes, and how to raise one | link | page | legal-changed, legal-guest, legal-superseded, legal | N4 | Appeals, and how to make one (Glossary N4: appeal is the person asking us to change a decision; 'dispute' is retired; matches 0.9-18 and 0.9-42); `[?]` counsel confirms the clause heading, `D-180` |
 | 0.9-28 | main | Changes to this document | link | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
 | 0.9-29 | main | {n}. Who we are and what this covers | heading | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
 | 0.9-30 | main | Clause text, written by counsel. | note | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal | PH | kept |
@@ -367,7 +367,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.9-34 | main | {n}. Money in, money out | heading | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
 | 0.9-35 | main | {n}. Limits you set on yourself | heading | page | legal-changed, legal-guest, legal-superseded, legal | C5 | kept |
 | 0.9-36 | main | {n}. When we restrict an account | heading | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
-| 0.9-37 | main | {n}. Disputes, and how to raise one | heading | page | legal-changed, legal-guest, legal-superseded, legal | N4 | {n}. Appeals, and how to make one (Glossary N4, as 0.9-27) |
+| 0.9-37 | main | {n}. Disputes, and how to raise one | heading | page | legal-changed, legal-guest, legal-superseded, legal | N4 | {n}. Appeals, and how to make one (Glossary N4, as 0.9-27); `[?]` counsel confirms the clause heading, `D-180` |
 | 0.9-38 | main | {n}. Changes to this document | heading | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
 | 0.9-39 | main | v{n} current | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
 | 0.9-40 | main | current | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
@@ -409,13 +409,13 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.9-76 | main | When a payment fails | link | page | legal-refund |  | kept |
 | 0.9-77 | main | A charge you did not make, or dispute | link | page | legal-refund | N4 | A charge you did not make, or a chargeback (Glossary N4 (c): chargeback, not 'dispute') |
 | 0.9-78 | main | What you can get back | link | page | legal-refund |  | kept |
-| 0.9-79 | main | Taking money out | link | page | legal-refund |  | Cash out (Glossary N6 and C11: money paid out of the product is a cash out) |
+| 0.9-79 | main | Taking money out | link | page | legal-refund |  | Cash out (Glossary N6 and C11: money paid out of the product is a cash out); `[?]` counsel confirms the clause heading, `D-180` |
 | 0.9-80 | main | {n}. What this policy covers | heading | page | legal-refund |  | kept |
 | 0.9-81 | main | {n}. Paying in | heading | page | legal-refund |  | {n}. Adding funds (Glossary C4, as 0.9-75) |
 | 0.9-82 | main | {n}. When a payment fails | heading | page | legal-refund |  | kept |
 | 0.9-83 | main | {n}. A charge you did not make, or dispute | heading | page | legal-refund | N4 | {n}. A charge you did not make, or a chargeback (Glossary N4 (c), as 0.9-77) |
 | 0.9-84 | main | {n}. What you can get back | heading | page | legal-refund |  | kept |
-| 0.9-85 | main | {n}. Taking money out | heading | page | legal-refund |  | {n}. Cash out (Glossary N6, as 0.9-79) |
+| 0.9-85 | main | {n}. Taking money out | heading | page | legal-refund |  | {n}. Cash out (Glossary N6, as 0.9-79); `[?]` counsel confirms the clause heading, `D-180` |
 | 0.9-86 | main | This is not the current version | heading | page | legal-superseded |  | kept |
 | 0.9-87 | main | v{n} governed from {date} until {date}. It is kept because a decision taken while it was in force is answered under it. | text | page | legal-superseded |  | kept |
 | 0.9-88 | main | Read the current version, v{n} | button (link) | page | legal-superseded |  | kept |
@@ -515,7 +515,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.10-86 | main | Time to an answer | text | page | support-refused, support-upheld |  | kept |
 | 0.10-87 | main | Every ticket gets an answer within {n} hours of being sent, with the reason in it. | text | page | support-refused, support-upheld |  | kept |
 | 0.10-88 | main | {n} min | text | page | support-submitted |  | kept |
-| 0.10-89 | main | Appeal submitted, {date} {time} | text | page | support-submitted | N4 | kept |
+| 0.10-89 | main | Appeal submitted, {date} {time} | text | page | support-submitted | N4 | Appeal sent, {date} {time} (the record says what "Send the appeal" said, `D-180`) |
 | 0.10-90 | main | Waiting on us | text | page | support-submitted |  | kept |
 | 0.10-91 | main | What happens now | heading | page | support-submitted |  | kept |
 | 0.10-92 | main | We answer with what we decided and on what ground. | text | page | support-submitted |  | We answer with what we decided and why. (Principle 1, plain words) |
@@ -707,7 +707,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 3.1-35 | main | Remove filter: under {n} coins | accessible name | page | catalogue-empty, catalogue-filtered |  | Remove filter: Under {n} coins (Accessible name: the visible label's own words (follows 3.1-22); same form the live chip builds, 'Remove filter: ' + label) |
 | 3.1-36 | main | Remove filter: High risk only | accessible name | page | catalogue-empty | S2 | Remove filter: High risk (Accessible name: the visible label's own words (follows 3.1-23); glossary S2) |
 | 3.1-37 | layer: filter drawer | Filter | heading | page | catalogue-filter |  | kept |
-| 3.1-38 | layer: filter drawer | Reset all | button | `_nav.js filterDrawerHTML` | catalogue-filter |  | kept |
+| 3.1-38 | layer: filter drawer | Reset all | button | `_nav.js filterDrawerHTML` | catalogue-filter |  | Clear all (one word with the shelf, 3.1-24, `D-180`) |
 | 3.1-39 | layer: filter drawer | Case name | field label | `_nav.js filterDrawerHTML/mountFilterDrawer` | catalogue-filter |  | kept |
 | 3.1-40 | layer: filter drawer | Price amount, in coins | text | `_nav.js filterDrawerHTML` | catalogue-filter | S4 | Price, in coins (S4) |
 | 3.1-41 | layer: filter drawer | Minimum entry cost | field label | `_nav.js filterDrawerHTML` | catalogue-filter | S4 | Minimum price |
@@ -833,7 +833,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 4.1-43 | main | Deposit limit {n} in force. Change it | text | `WF_STR.depositLimit` | deposit-ceiling-pending, deposit-declined | C4 C5 C11 | kept |
 | 4.1-44 | main | Change it | link | `_nav.js depCard` | deposit-ceiling-pending, deposit-declined |  | kept |
 | 4.1-45 | main | Your deposit limit for this period is reached | heading | page | deposit-ceiling-reached | C4 C5 | kept |
-| 4.1-46 | main | You set a deposit limit of {n} per week on {date}. This week's deposits, {n} coins on {date}, already pass it, so deposits stop until the week resets. | text | page | deposit-ceiling-reached | C4 C5 C11 | You set a deposit limit of {n} a week on {date}. Your deposits this week, {n} on {date}, already pass it, so adding funds is closed until the week resets. (C11: a deposit amount is in dollars (50.00 coins became $50.00 at the printed peg 1 coin = $1.00); C4: adding funds is the act, the wording G36 and _nav.js already use; 'a week' as in the T4 example) |
+| 4.1-46 | main | You set a deposit limit of {n} per week on {date}. This week's deposits, {n} coins on {date}, already pass it, so deposits stop until the week resets. | text | page | deposit-ceiling-reached | C4 C5 C11 | You set a deposit limit of {n} a week on {date}. Your deposits this week, {n} on {date}, already pass it, so adding funds is closed until the week resets. (C11: a deposit amount is in dollars (50.00 coins became $50.00 at the printed peg 1 coin = $1.00); C4: adding funds is the act, the wording G36 and _nav.js already use; 'a week' as in the T4 example); kept by the founder, `D-180` |
 | 4.1-47 | main | When the period resets | text | page | deposit-ceiling-reached |  | kept |
 | 4.1-48 | main | What is still open | heading | page | deposit-ceiling-reached |  | What still works (Glossary C9: 'open' for availability is not used; principle 5, a stop says what still works) |
 | 4.1-49 | main | Deposits stopped. Nothing else did. | text | page | deposit-ceiling-reached | C4 | kept |
@@ -868,7 +868,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 4.1-78 | main | No reason was given. Your deposit limit and your withdrawal figure are unchanged. | text | `_nav.js STEP2_BANNER` | deposit-declined | C1 C4 C5 | kept |
 | 4.1-79 | main | {n} × {n} coins. Balance {n} coins. After this open, {n} coins. {n} coin = {n} · RTP {n} %, expected value {n} coins | text | `WF_STR.peg`, page | deposit-dialog | C11 | kept |
 | 4.1-80 | layer: dialog | Cards, wallets and more | heading | `_nav.js PAY_CATS` | deposit-dialog, deposit |  | kept |
-| 4.1-81 | layer: dialog | {d} Best choice | link | `_nav.js payTile` | deposit-dialog, deposit |  | kept |
+| 4.1-81 | layer: dialog | {d} Best choice | link | `_nav.js payTile` | deposit-dialog, deposit |  | {d} No fee (principle 2: a fact, not a superlative; the card total equals the amount, `D-180`) |
 | 4.1-82 | layer: dialog | CS{n} Skins Instant | link | `_nav.js WF_SHELL`, `_nav.js payTile` | deposit-dialog, deposit | C10 | kept |
 | 4.1-83 | layer: dialog | Gift Cards | link | `_nav.js histPanel/mountCrediting` | deposit-dialog, deposit |  | kept |
 | 4.1-84 | layer: dialog | Other | link | _nav.js, assembled | deposit-dialog, deposit |  | kept |
@@ -903,7 +903,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 5.1-2 | main | Add funds | button (link) | `WF_STR.addFunds` | 45 pages, 8 screens | C4 | kept |
 | 5.1-3 | main | Inventory | heading | page | all 4 of `5.1` |  | kept |
 | 5.1-4 | main | Steam connected · Settings | text | page | account-degraded, account-empty, account |  | kept |
-| 5.1-5 | main | Click an item to select it | note | page | account-degraded, account |  | kept |
+| 5.1-5 | main | Click an item to select it | note | page | account-degraded, account |  | Select an item for its options (mobile first: no desktop verb, `D-180`) |
 | 5.1-6 | main | All skins | heading | page | account-degraded, account | C10 | All items (C10 (a): a thing a person owns is an item; skin is for the Steam or market context) |
 | 5.1-7 | main | Sort by | text | page, `_nav.js filterDrawerHTML` | catalogue-filter; account-degraded, account |  | kept |
 | 5.1-8 | main | Newest first | button | page | account-degraded, account |  | kept |
@@ -1035,7 +1035,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 5.3-67 | main | Sending it again settles again, at today's price. The market moved while this offer sat, so pressing this adds {n} coins to your balance instead of the {n} already added. The difference of {n} coins comes off when you press. | text | page | withdraw-offer-expired | C3 N5 | Sending it again settles again, at today's price. The market price moved while the trade offer waited, so pressing this adds {n} coins to your balance instead of the {n} already added. The difference, {n} coins, will be taken from your balance when you press. (C3 a market price, N5 trade offer; principle 3: the baseline's money sentence names the direction, 'will be taken from your balance') |
 | 5.3-68 | main | What sending the offer again would settle at, read today | text | page | withdraw-offer-expired | N5 | What sending to Steam again would settle at, read today (C1, matches the button 5.3-70) |
 | 5.3-69 | main | Read {date} {time}. It moves daily, so what you are shown when you press is what you are charged, and it is read again at that moment. | note | page | withdraw-offer-expired |  | Read {date} {time}. The market price moves daily, so it is read again when you press, and what is shown then is what settles. (principle 3: 'charged' named one direction for a figure that moves both ways; C3 a) |
-| 5.3-70 | main | Send the offer again | button | page | withdraw-offer-expired | N5 | Send to Steam again (glossary C1 (Send to Steam is the act) and N5; shorter than before (19 against 20)) |
+| 5.3-70 | main | Send the offer again | button | page | withdraw-offer-expired | N5 | Send to Steam again (glossary C1 (Send to Steam is the act) and N5; shorter than before (19 against 20)); kept by the founder, `D-180` |
 | 5.3-71 | main | Offer sent, waiting for you in Steam waiting on you {time} expired. Steam sets this period | text | page | withdraw-offer-expired | N5 | Trade offer sent, waiting for you in Steam waiting on you {time} expired. Steam sets this period (glossary N5) |
 | 5.3-72 | main | Everything this record has done | heading | page | withdraw-offer-expired |  | kept |
 | 5.3-73 | main | Requested waiting on us {time} {date} {time} | text | page | withdraw-offer-expired |  | kept |
