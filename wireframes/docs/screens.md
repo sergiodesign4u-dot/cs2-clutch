@@ -2547,7 +2547,7 @@ Stage 04 proposed **three** tabs and refused cash out because it has no subject 
 
 ### The shape is the baseline's own and it was walked
 
-**Four columns: skin name, your skin price, market skin price, your balance impact, and the total difference under it.** `research/docs/baseline-account.md` section 5. **Inherited rather than invented because six years of people have read it in that order.**
+**Four columns: skin name, your skin price, market skin price, your balance impact, and the total difference under it.** `research/docs/baseline-account.md` section 5. **Inherited rather than invented because years of people have read it in that order.**
 
 **Your skin price is the worth now figure from the record above, 21.40, and never the worth when won.** A settlement struck against a price we no longer publish is a settlement nobody can check. **The win time value left the record on all seven pages** for the same reason `D-91` gives on the card, and on these pages it was doing no work anyway: **the settlement subtracts our price today from what a copy costs today, 22.15 is neither operand, and a third figure beside two that are being subtracted invites the reader to subtract it instead.**
 

@@ -288,7 +288,7 @@ Composition from `blocks.md`, type **T4 Transactional form with named states**, 
 
 ## 1b. The settlement block, its shape, and the two things the baseline does not have
 
-**The shape is inherited and it was walked.** Four columns, skin name, your skin price, market skin price, your balance impact, then the total difference underneath. `research/docs/baseline-account.md` section 5. **It is inherited rather than invented because six years of people have read it in that order**, which is the same rule the rest of this project's baseline inheritance runs on.
+**The shape is inherited and it was walked.** Four columns, skin name, your skin price, market skin price, your balance impact, then the total difference underneath. `research/docs/baseline-account.md` section 5. **It is inherited rather than invented because years of people have read it in that order**, which is the same rule the rest of this project's baseline inheritance runs on.
 
 **Which of our two figures is `your skin price`, and it is not a free choice.** It is **the worth-now figure**, the current value with its own as-of, and never the worth-when-won. **A settlement struck against a price we no longer publish is a settlement nobody can check**, which is design principle 1 under its `D-14` limit failing in one step.
 
