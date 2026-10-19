@@ -38,9 +38,11 @@ U  = [(0,0,12),(44,0,12),(44,100,12),(66,100,12),(66,0,12),(110,0,12),(110,140,4
 T  = [(0,0,12),(104,0,12),(104,38,12),(74,38,10),(74,140,12),(30,140,12),(30,38,10),(0,38,12)]
 C2 = [(106,0,8),(0,0,54),(0,140,54),(96,140,8),(106,102,8),(44,102,14),(44,38,14),(96,38,8)]
 H  = [(0,0,12),(44,0,12),(44,50,8),(66,50,8),(66,0,12),(110,0,12),(110,140,12),(66,140,12),(66,88,8),(44,88,8),(44,140,12),(0,140,12)]
+VS, CW = 1.15, 1.08  # measured on an overlay of A1-a: its letters stand 15 percent taller for their width, its C 8 percent wider
+C1 = [(x_ * CW, y_, r_) for x_, y_, r_ in C1]
 word, x = [], 0
-for g, w in ((C1,188),(L,86),(U,110),(T,104),(C2,106),(H,110)):
-    word.append(fillet(place(g, x, 0, CAP))); x += w + 8
+for g, w in ((C1,188 * CW),(L,86),(U,110),(T,104),(C2,106),(H,110)):
+    word.append(fillet(place([(x_, y_ * VS, r_) for x_, y_, r_ in g], x, 0, CAP * VS))); x += w + 8
 word_right = x - 8
 
 # ---- CS2: stem 14 on a cap height of 64, drawn at 1.15, the same 15 degree slant and the same terminal cut
@@ -53,7 +55,7 @@ cs, cx = [], 0
 for g, w in ((c,56),(S,52),(two,52)):
     cs.append(([(x2 * K, y2 * K, r2 * K) for x2, y2, r2 in g], cx)); cx += (w + 7) * K
 cs_w = cx - 7 * K
-CS_TOP = 148
+CS_TOP = 170
 cs_dx = word_right - 72 - cs_w  # CS2 tucked under TCH, its right edge under the middle of the H once the word is tilted, as in A1-a
 cs_paths = [fillet(place(g, cs_dx + ox, CS_TOP, CS_TOP + 64 * K)) for g, ox in cs]
 
@@ -61,7 +63,7 @@ cs_paths = [fillet(place(g, cs_dx + ox, CS_TOP, CS_TOP + 64 * K)) for g, ox in c
 def spark(cx_, cy_, a, b):
     p = lambda dx, dy: '%s %s' % (f(cx_ + dx), f(cy_ + dy))
     return ('M%s Q%s %s Q%s %s Q%s %s Q%s %sZ' % (p(0,-a), p(b,-b), p(a,0), p(b,b), p(0,a), p(-b,b), p(-a,0), p(-b,-b), p(0,-a)))
-SPARK = spark(118 + (CAP - 70) * T15, 70, 40, 6)
+SPARK = spark(118 * CW + (CAP - 70) * VS * T15, 70 * VS, 44, 6)
 
 # ---- speed streaks, A1-a: lenses pointed at both ends, two over the word, two leading into CS2, 4 degrees steeper than the word
 def streak(x0, x1, y, th):
@@ -81,7 +83,7 @@ def glow(fid, col, near, far, a1=.85, a2=.5):
 def wordmark(spark_on=True, flat=False, mono=None, screen=False):
     body, fp, fb = '', '', ''
     if screen:
-        body += ('<defs><linearGradient id="wm" gradientUnits="userSpaceOnUse" x1="0" y1="-30" x2="0" y2="210">'
+        body += ('<defs><linearGradient id="wm" gradientUnits="userSpaceOnUse" x1="0" y1="-34" x2="0" y2="240">'
                  '<stop offset="0.3" stop-color="%s"/><stop offset="1" stop-color="%s"/></linearGradient>'
                  '<linearGradient id="cs" gradientUnits="userSpaceOnUse" x1="0" y1="%s" x2="0" y2="%s">'
                  '<stop offset="0" stop-color="%s"/><stop offset="0.3" stop-color="%s"/></linearGradient>%s%s</defs>'
@@ -90,12 +92,12 @@ def wordmark(spark_on=True, flat=False, mono=None, screen=False):
         rim = ''
     else:
         if not flat and not mono:
-            body += ('<defs><linearGradient id="wm" gradientUnits="userSpaceOnUse" x1="0" y1="-30" x2="0" y2="170">'
+            body += ('<defs><linearGradient id="wm" gradientUnits="userSpaceOnUse" x1="0" y1="-34" x2="0" y2="196">'
                      '<stop offset="0.3" stop-color="%s"/><stop offset="1" stop-color="%s"/></linearGradient></defs>' % (WHITE, PINK))
         top, csf, rim = (mono or ('url(#wm)' if not flat else WHITE)), (mono or BLUE), ''
     sc = mono or PINK
     rot = lambda a, cx_, cy_: ' transform="rotate(%s %s %s)"' % (a, f(cx_), f(cy_))
-    body += '<g id="tilt"%s>' % rot(WORD_TILT, word_right / 2, 70)
+    body += '<g id="tilt"%s>' % rot(WORD_TILT, word_right / 2, 80)
     body += '<g%s><path id="streaks" fill="%s" d="%s"/></g>' % (fp, sc, ''.join(STREAKS_DOWN))
     body += '<g%s><path id="streaks-up" fill="%s"%s d="%s"/></g>' % (fp, sc, rot(STREAK_TILT, 560, -40), ''.join(STREAKS_UP))
     body += '<g%s><path id="clutch" fill="%s"%s d="%s"/></g>' % (fp, top, rim, ''.join(word))
@@ -107,7 +109,7 @@ def wordmark(spark_on=True, flat=False, mono=None, screen=False):
     return body + '</g>'
 
 def tilt_box(pad):
-    a = math.radians(WORD_TILT); cx_, cy_ = word_right / 2, 70
+    a = math.radians(WORD_TILT); cx_, cy_ = word_right / 2, 80
     xs, ys = [], []
     for x_, y_ in ((-40, -60), (word_right + 40, -60), (-40, CS_TOP + 84), (word_right + 40, CS_TOP + 84)):
         dx, dy = x_ - cx_, y_ - cy_
@@ -160,29 +162,13 @@ def lockup(spark_on=True, flat=False, mono=None, small_symbol=False, screen=Fals
     x, y, w, h = WM_BOX
     s = 290 / 256  # the symbol about twice the cap height, as in G2-b
     g = 10
-    sy = 70 - 128 * s + 30
+    sy = 80 - 128 * s + 30
     body = '<g id="symbol" transform="translate(%s %s) scale(%s)">%s</g>' % (f(x - g - 256 * s), f(sy), f(s), symbol(small_symbol, mono, screen))
     body += '<g id="wordmark">%s</g>' % wordmark(spark_on, flat, mono, screen)
     x0, y0 = x - g - 256 * s - 12, min(y, sy - 12)
     return svg(body, '%s %s %s %s' % (f(x0), f(y0), f(x + w - x0), f(max(y + h, sy + 256 * s + 12) - y0)), 'CS2 Clutch logo')
 
-files = {
-  'symbol.svg': svg(symbol(), '0 0 256 256', 'CS2 Clutch symbol'),
-  'symbol-screen.svg': svg(symbol(screen=True), '-16 -16 288 288', 'CS2 Clutch symbol, screen'),
-  'symbol-small.svg': svg(symbol(True), '0 0 256 256', 'CS2 Clutch symbol, small-size cut'),
-  'symbol-white.svg': svg(symbol(mono=WHITE), '0 0 256 256', 'CS2 Clutch symbol, white'),
-  'app-icon.svg': svg('<rect width="256" height="256" rx="56" fill="%s"/><g transform="translate(38.4 38.4) scale(0.7)">%s</g>' % (CARD, symbol(True, screen=True)), '0 0 256 256', 'CS2 Clutch app icon'),
-  'wordmark.svg': svg(wordmark(), '%s %s %s %s' % WM_BOX, 'CS2 Clutch wordmark'),
-  'wordmark-screen.svg': svg(wordmark(screen=True), '%s %s %s %s' % WM_BOX, 'CS2 Clutch wordmark, screen'),
-  'lockup-screen.svg': lockup(screen=True),
-  'lockup-screen-nospark.svg': lockup(spark_on=False, screen=True),
-  'lockup.svg': lockup(),
-  'lockup-nospark.svg': lockup(spark_on=False),
-  'lockup-flat.svg': lockup(flat=True),
-  'lockup-white.svg': lockup(mono=WHITE),
-  'lockup-black.svg': lockup(mono='#000000'),
-}
-# the same screen lockup in the pink the approved plate actually renders, sampled from its pixels, for the founder to compare
-files['lockup-screen-plate-pink.svg'] = files['lockup-screen.svg'].replace(PINK, '#FB3F8A')
+# since the traced round this generator keeps only the small-size cut: at 16 and 24px the traced blades are too thin
+files = {'symbol-small.svg': svg(symbol(True), '0 0 256 256', 'CS2 Clutch symbol, small-size cut')}
 for n, s in files.items(): open(os.path.join(out, n), 'w').write(s)
 print('ok', word_right, cs_dx, WM_BOX)
