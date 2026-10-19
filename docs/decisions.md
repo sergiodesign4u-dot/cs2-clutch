@@ -6273,3 +6273,18 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 **Rejected.** Keeping `#E94D8B` in the interface beside a `#FB3F8A` logo, two pinks one step apart.
 
 **The cost.** White text on the new pink measures 3.40:1, against 3.56:1 on the old one, both under WCAG AA's 4.5:1 for normal text and over 3:1 for large text and UI parts. So a white 14px label on a pink button fails either way, and step 8's audit carries it; the new pink as text on the grounds passes, 5.78:1 on `#060A1E` and 5.53:1 on `#0F0E2B`. The documentation pages of this repo keep `#E94D8B`: they are not the product.
+
+## D-186. Stage 06 step 3b: the open picks of the palette and the radius ladder
+
+**Date:** 2026-10-20. **Stage:** 06, step 3b. **Decided by:** the founder, taking the recommendations as a set: "Все что ты рекомендуешь". **Binds:** `DESIGN-artifacts.md` sections 3, 5 and 9; step 6's `design/_theme.css`.
+
+**What was decided.**
+1. **Body text is `#9F9F9F`**, the baseline's dominant text colour, 940 elements, 7.42:1 on the ground. Loser named: `#A5A5A5`, 174 elements, equally legible, a second value for one job.
+2. **Muted text is `#9E9DB1`**, 7.08:1 on a card, its violet lean sitting with the grounds. Losers named: `#727B8C`, 4.41:1 on a card, under AA; `#CECED4` as text.
+3. **`#CECED4` stays as the edge of a field or a checkbox**, where the baseline already uses it, and is never text.
+4. **`--radius-l` is 24px**, a step of our own, closing an even ladder of 8, 16 and 24.
+5. **`#180A35` and `#7E2DC8` are left out of the palette** until a screen names a job for them; the violet fails 3:1 as text.
+
+**Rejected.** Carrying all three muted greys with named jobs: three values where one serves.
+
+**The cost.** Two baseline values leave the product's surface, and a screen that relied on them is redrawn in the kept ones.

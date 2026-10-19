@@ -41,7 +41,6 @@ The plate column is the pixel actually sampled from the plate's swatch, shown so
 | `--color-card` | `#0F0E2B` | card, primary | `наявний бренд`, `baseline.md` 5, 36 elements | `#0E0E28`, zone 2 | A2 |
 | `--color-card-2` | `#090827` | card, secondary; the rail | `наявний бренд`, `baseline.md` 5, 33 elements | `#060720`, zone 2 | A2 |
 | `--color-raised` | `#223660` | panel, raised | `наявний бренд`, `baseline.md` 5, 12 elements | `#23385D`, zone 2 | A1, depth |
-| `--color-panel-violet` | `#180A35` | panel, violet | `наявний бренд`, `baseline.md` 5, 6 elements | not on the plate | role `[?]`, see section 9 |
 
 ### Accents
 
@@ -51,15 +50,15 @@ The plate column is the pixel actually sampled from the plate's swatch, shown so
 | `--color-blue` | `#65A3FF` | secondary accent | `наявний бренд`, `baseline.md` 5 | `#609DFC`, zone 2 | A1 |
 | `--color-gold` | `#FADA62` | the coin and every price | `наявний бренд`, `baseline.md` 5 | `#FADB58`, zone 2 | A5 |
 | `--color-green` | `#33CC66` | success | `наявний бренд`, `baseline.md` 5 | `#25D562`, zone 2 | A5 |
-| `--color-violet` | `#7E2DC8` | 11 text elements, role `[?]` | `наявний бренд`, `baseline.md` 5 | not on the plate | see section 9 |
 
 ### Text
 
 | Variable | Value | Role | Origin | Plate pixel | Attribute |
 |---|---|---|---|---|---|
 | `--color-text-hi` | `#FFFFFF` | high emphasis, figures | `наявний бренд`, `baseline.md` 5, 221 elements | `#FEFEFE`, zone 2 | A5 |
-| body text | open | body | two answers, `#9F9F9F` (940 elements) and `#A5A5A5` (174) | `#9B9B9B`, zone 2 | section 9 |
-| muted text | open | secondary lines | three answers, `#CECED4`, `#727B8C`, `#9E9DB1` | not on the plate | section 9 |
+| `--color-text` | `#9F9F9F` | body | `наявний бренд`, `baseline.md` 5, 940 elements; `рішення користувача`, `D-186`, over `#A5A5A5` (174) | `#9B9B9B`, zone 2 | A5 |
+| `--color-text-muted` | `#9E9DB1` | secondary lines, meta, labels | `наявний бренд`, `baseline.md` 5; `рішення користувача`, `D-186`, over `#727B8C`, which fails AA on a card | not on the plate | A3, calm |
+| `--color-field-edge` | `#CECED4` | the edge of a field or a checkbox, never text | `наявний бренд`, `baseline.md` 13.3, the checkbox edge; `рішення користувача`, `D-186` | not on the plate | A2 |
 
 ### Rarity ladder
 
@@ -120,7 +119,7 @@ The founder's direction: rounded, on a three step ladder, small, medium and larg
 |---|---|---|---|
 | `--radius-s` | `8px` | `наявний бренд`, `baseline.md` 13.2: 47 surfaces, the most frequent rounded value | A2 |
 | `--radius-m` | `16px` | `наявний бренд`, `baseline.md` 13.2: the welcome dialog | A2 |
-| `--radius-l` | open | the baseline has no larger panel radius; the plate's caption reads 24px, a drawn caption, not a pixel | section 9 |
+| `--radius-l` | `24px` | `рішення користувача`, `D-186`: a step of our own, the baseline has no larger panel radius; it closes an even ladder 8, 16, 24 | A2 |
 | `--radius-pill` | `999px` | `наявний бренд`, `baseline.md` 13.2: every text button is a full pill, written both `25px` and `999px`; one spelling of one shape, `baseline.md` 13.5 point 2 | A2, A3 |
 
 **The rounded side border in the rarity colour** is in, `D-183` point 2, A4. Its width and radius are a step 4 choice.
@@ -161,8 +160,6 @@ Dark and electric, never heavy, `CLAUDE.md` principle 4. Energy sits in the item
 
 These have more than one answer in the baseline, or none, and are the founder's or step 4's to settle. Nothing above assumes them.
 
-1. **Body text:** `#9F9F9F` (940 elements) or `#A5A5A5` (174). Both pass AA.
-2. **Muted text:** one of `#CECED4`, `#727B8C`, `#9E9DB1`, or two with named jobs. `#727B8C` fails AA on a card.
-3. **`--radius-l`:** the baseline has no value; a step of our own is needed, `D-182` point 4.
-4. **Roles of `#180A35` and `#7E2DC8`:** the violet text fails 3:1.
-5. **Step 4, the baseline's contradictions,** `baseline.md` 13.5: thirteen type sizes, four button heights, six letter-spacings, five line colours, two field values outside the palette (`#0F0D3E`, `#332CD1`), and the label colour on the pink button.
+Closed by `D-186` on 20 October 2026: body text `#9F9F9F`, muted text `#9E9DB1`, `#CECED4` for field edges only, `--radius-l` 24px; `#727B8C`, `#A5A5A5`, `#180A35` and `#7E2DC8` are left out of the palette until a screen needs them, the violet failing 3:1 as text.
+
+1. **Step 4, the baseline's contradictions,** `baseline.md` 13.5: thirteen type sizes, four button heights, six letter-spacings, five line colours, two field values outside the palette (`#0F0D3E`, `#332CD1`), and the label colour on the pink button.
