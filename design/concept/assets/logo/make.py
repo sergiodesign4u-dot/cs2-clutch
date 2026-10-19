@@ -28,43 +28,46 @@ def place(pts, dx, dy, base):
     """move a letter and slant it 15 degrees about its own baseline"""
     return [(x + (base - y) * T15 + dx, y + dy, r) for x, y, r in pts]
 
-# ---- wordmark, CLUTCH: stem 40 on a cap height of 128; the first C is a drop cap, 8 over and 8 under
-C1 = [(146,-8,10),(0,-8,60),(0,136,60),(110,136,10),(121,92,8),(44,92,16),(44,36,16),(132,36,8)]
-L  = [(0,0,12),(40,0,12),(40,88,12),(90,88,12),(90,128,12),(0,128,20)]
-U  = [(0,0,12),(40,0,12),(40,88,16),(72,88,16),(72,0,12),(112,0,12),(112,128,48),(0,128,48)]
-T  = [(0,0,12),(108,0,12),(108,40,12),(74,40,10),(74,128,12),(34,128,12),(34,40,10),(0,40,12)]
-C2 = [(116,0,10),(0,0,56),(0,128,56),(106,128,10),(116,88,8),(40,88,14),(40,40,14),(106,40,8)]
-H  = [(0,0,12),(40,0,12),(40,44,8),(72,44,8),(72,0,12),(112,0,12),(112,128,12),(72,128,12),(72,84,8),(40,84,8),(40,128,12),(0,128,12)]
+# ---- wordmark, CLUTCH: cap height 140, stems 44, horizontals 38, so it reads condensed and heavy like A1-a;
+# the first C is a drop cap, 10 over and 10 under, its top arm ending in a fin cut steeply up to the right
+CAP = 140
+C1 = [(152,-10,4),(0,-10,64),(0,150,64),(106,150,8),(118,110,8),(46,110,14),(46,32,14),(128,32,6)]
+L  = [(0,0,12),(44,0,12),(44,102,10),(86,102,12),(86,140,12),(0,140,20)]
+U  = [(0,0,12),(44,0,12),(44,100,12),(66,100,12),(66,0,12),(110,0,12),(110,140,46),(0,140,46)]
+T  = [(0,0,12),(104,0,12),(104,38,12),(74,38,10),(74,140,12),(30,140,12),(30,38,10),(0,38,12)]
+C2 = [(106,0,8),(0,0,54),(0,140,54),(96,140,8),(106,102,8),(44,102,14),(44,38,14),(96,38,8)]
+H  = [(0,0,12),(44,0,12),(44,50,8),(66,50,8),(66,0,12),(110,0,12),(110,140,12),(66,140,12),(66,88,8),(44,88,8),(44,140,12),(0,140,12)]
 word, x = [], 0
-for g, w in ((C1,128),(L,90),(U,112),(T,108),(C2,116),(H,112)):
-    word.append(fillet(place(g, x, 0, 128))); x += w + 10
-word_right = x - 10
+for g, w in ((C1,150),(L,86),(U,110),(T,104),(C2,106),(H,110)):
+    word.append(fillet(place(g, x, 0, CAP))); x += w + 8
+word_right = x - 8
 
-# ---- CS2: stem 14 on a cap height of 64, the same 15 degree slant and the same terminal cut
+# ---- CS2: stem 14 on a cap height of 64, drawn at 1.15, the same 15 degree slant and the same terminal cut
+K = 1.15
 c  = [(56,0,3),(0,0,26),(0,64,26),(52.5,64,3),(56,50,3),(14,50,6),(14,14,6),(52.5,14,3)]
-S  = [(52,0,3),(0,0,22),(0,39,10),(38,39,4),(38,50,4),(0,50,3),(0,64,3),(52,64,22),(52,25,10),(14,25,4),(14,14,4),(52,14,3)]
+S  = [(52,0,5),(0,0,24),(0,39,16),(38,39,6),(38,50,6),(0,50,5),(0,64,5),(52,64,24),(52,25,16),(14,25,6),(14,14,6),(52,14,5)]
 two = [(52 - x2, y2, r2) for x2, y2, r2 in S]
-two = [(x2, y2, {(52,0):22,(0,64):3,(52,39):10,(0,25):10}.get((x2, y2), r2 if r2 < 10 else 3)) for x2, y2, r2 in two]
+two = [(x2, y2, {(52,0):26,(0,64):4,(52,39):16,(0,25):12}.get((x2, y2), r2 if r2 < 10 else 5)) for x2, y2, r2 in two]
 cs, cx = [], 0
 for g, w in ((c,56),(S,52),(two,52)):
-    cs.append((g, cx)); cx += w + 8
-cs_w = cx - 8
-CS_TOP = 140
-cs_dx = word_right - 18 - cs_w - 64 * T15 * 0  # right edge under the H
-cs_paths = [fillet(place(g, cs_dx + ox, CS_TOP, CS_TOP + 64)) for g, ox in cs]
+    cs.append(([(x2 * K, y2 * K, r2 * K) for x2, y2, r2 in g], cx)); cx += (w + 7) * K
+cs_w = cx - 7 * K
+CS_TOP = 154
+cs_dx = word_right - 10 - cs_w  # right edge under the H
+cs_paths = [fillet(place(g, cs_dx + ox, CS_TOP, CS_TOP + 64 * K)) for g, ox in cs]
 
 # ---- the spark in the mouth of the drop cap, A1-a
 def spark(cx_, cy_, a, b):
     p = lambda dx, dy: '%s %s' % (f(cx_ + dx), f(cy_ + dy))
     return ('M%s Q%s %s Q%s %s Q%s %s Q%s %sZ' % (p(0,-a), p(b,-b), p(a,0), p(b,b), p(0,a), p(-b,b), p(-a,0), p(-b,-b), p(0,-a)))
-SPARK = spark(86 + (128 - 64) * T15, 64, 26, 6)
+SPARK = spark(84 + (CAP - 71) * T15, 71, 33, 5)
 
 # ---- speed streaks, A1-a: lenses pointed at both ends, two over the word, two leading into CS2, 4 degrees steeper than the word
 def streak(x0, x1, y, th):
     xm, h = (x0 + x1) / 2, th
     return 'M%s %sQ%s %s %s %sQ%s %s %s %sZ' % (f(x0), f(y), f(xm), f(y - h), f(x1), f(y), f(xm), f(y + h), f(x0), f(y))
-STREAKS_UP = [streak(300, 760, -30, 9), streak(400, 760, -50, 6)]
-STREAKS_DOWN = [streak(20, cs_dx - 10, CS_TOP + 18, 9), streak(130, cs_dx - 30, CS_TOP + 40, 6)]
+STREAKS_UP = [streak(300, 770, -30, 11), streak(400, 770, -52, 8)]
+STREAKS_DOWN = [streak(-30, cs_dx - 4, CS_TOP + 22, 11), streak(80, cs_dx - 24, CS_TOP + 48, 8)]
 STREAK_TILT = -4
 WORD_TILT = -8
 
@@ -77,35 +80,35 @@ def glow(fid, col, near, far, a1=.85, a2=.5):
 def wordmark(spark_on=True, flat=False, mono=None, screen=False):
     body, fp, fb = '', '', ''
     if screen:
-        body += ('<defs><linearGradient id="wm" gradientUnits="userSpaceOnUse" x1="0" y1="-8" x2="0" y2="190">'
+        body += ('<defs><linearGradient id="wm" gradientUnits="userSpaceOnUse" x1="0" y1="-10" x2="0" y2="210">'
                  '<stop offset="0.3" stop-color="%s"/><stop offset="1" stop-color="%s"/></linearGradient>'
                  '<linearGradient id="cs" gradientUnits="userSpaceOnUse" x1="0" y1="%s" x2="0" y2="%s">'
-                 '<stop offset="0" stop-color="%s"/><stop offset="0.75" stop-color="%s"/></linearGradient>%s%s</defs>'
-                 % (WHITE, PINK, CS_TOP - 10, CS_TOP + 64, WHITE, BLUE, glow('gp', PINK, 4, 18, .95, .7), glow('gb', BLUE, 4, 18, .95, .75)))
+                 '<stop offset="0" stop-color="%s"/><stop offset="0.3" stop-color="%s"/></linearGradient>%s%s</defs>'
+                 % (WHITE, PINK, CS_TOP, CS_TOP + 64 * K, WHITE, BLUE, glow('gp', PINK, 2.5, 8, 1, .5), glow('gb', BLUE, 2.5, 8, 1, .55)))
         top, csf, fp, fb = 'url(#wm)', 'url(#cs)', ' filter="url(#gp)"', ' filter="url(#gb)"'
-        rim = ' stroke="%s" stroke-width="5" stroke-linejoin="round" paint-order="stroke"' % PINK
+        rim = ''
     else:
         if not flat and not mono:
-            body += ('<defs><linearGradient id="wm" gradientUnits="userSpaceOnUse" x1="0" y1="-8" x2="0" y2="136">'
+            body += ('<defs><linearGradient id="wm" gradientUnits="userSpaceOnUse" x1="0" y1="-10" x2="0" y2="150">'
                      '<stop offset="0.3" stop-color="%s"/><stop offset="1" stop-color="%s"/></linearGradient></defs>' % (WHITE, PINK))
         top, csf, rim = (mono or ('url(#wm)' if not flat else WHITE)), (mono or BLUE), ''
     sc = mono or PINK
     rot = lambda a, cx_, cy_: ' transform="rotate(%s %s %s)"' % (a, f(cx_), f(cy_))
-    body += '<g id="tilt"%s>' % rot(WORD_TILT, word_right / 2, 64)
+    body += '<g id="tilt"%s>' % rot(WORD_TILT, word_right / 2, 70)
     body += '<g%s><path id="streaks" fill="%s" d="%s"/></g>' % (fp, sc, ''.join(STREAKS_DOWN))
     body += '<g%s><path id="streaks-up" fill="%s"%s d="%s"/></g>' % (fp, sc, rot(STREAK_TILT, 560, -40), ''.join(STREAKS_UP))
     body += '<g%s><path id="clutch" fill="%s"%s d="%s"/></g>' % (fp, top, rim, ''.join(word))
     body += '<g%s><path id="cs2" fill="%s" d="%s"/></g>' % (fb, csf, ''.join(cs_paths))
     if spark_on and screen:
-        body += ('<defs><radialGradient id="sk"><stop offset="0.15" stop-color="%s"/><stop offset="0.6" stop-color="%s"/></radialGradient></defs>' % (WHITE, PINK))
+        body += ('<defs><radialGradient id="sk"><stop offset="0.04" stop-color="%s"/><stop offset="0.3" stop-color="%s"/></radialGradient></defs>' % (WHITE, PINK))
         body += '<g%s><path id="spark" fill="url(#sk)" d="%s"/></g>' % (fp, SPARK)
     elif spark_on: body += '<g%s><path id="spark" fill="%s" d="%s"/></g>' % (fp, sc, SPARK)
     return body + '</g>'
 
 def tilt_box(pad):
-    a = math.radians(WORD_TILT); cx_, cy_ = word_right / 2, 64
+    a = math.radians(WORD_TILT); cx_, cy_ = word_right / 2, 70
     xs, ys = [], []
-    for x_, y_ in ((-4, -60), (word_right + 40, -60), (-4, CS_TOP + 72), (word_right + 40, CS_TOP + 72)):
+    for x_, y_ in ((-40, -60), (word_right + 40, -60), (-40, CS_TOP + 84), (word_right + 40, CS_TOP + 84)):
         dx, dy = x_ - cx_, y_ - cy_
         xs.append(cx_ + dx * math.cos(a) - dy * math.sin(a)); ys.append(cy_ + dx * math.sin(a) + dy * math.cos(a))
     return (min(xs) - pad, min(ys) - pad, max(xs) - min(xs) + 2 * pad, max(ys) - min(ys) + 2 * pad)
@@ -143,7 +146,7 @@ def symbol(small=False, mono=None, screen=False):
         b = ['<path fill="%s" d="%s%s"/>' % (mono or col, blade(k, **kw), blade(k + 2, **kw)) for k, col in ((0, PINK), (1, BLUE))]
         return ''.join(b) + '<circle id="dot" cx="128" cy="128" r="%d" fill="%s"/>' % (dot, mono or GOLD)
     d = ('<defs>%s%s%s<radialGradient id="dl" cx="0.4" cy="0.38" r="0.65"><stop offset="0" stop-color="%s"/><stop offset="0.45" stop-color="%s"/></radialGradient></defs>'
-         % (glow('sp', PINK, 4, 14, .95, .7), glow('sb', BLUE, 4, 14, .95, .7), glow('sg', GOLD, 5, 18, 1, .85), WHITE, GOLD))
+         % (glow('sp', PINK, 2.5, 8, 1, .5), glow('sb', BLUE, 2.5, 8, 1, .5), glow('sg', GOLD, 3, 10, 1, .7), WHITE, GOLD))
     b = ['<g filter="url(#%s)"><path fill="%s" d="%s%s"/></g>' % (fid, col, blade(k, **kw), blade(k + 2, **kw)) for k, col, fid in ((0, PINK, 'sp'), (1, BLUE, 'sb'))]
     return d + ''.join(b) + '<g filter="url(#sg)"><circle id="dot" cx="128" cy="128" r="%d" fill="url(#dl)"/></g>' % dot
 
@@ -156,7 +159,7 @@ def lockup(spark_on=True, flat=False, mono=None, small_symbol=False, screen=Fals
     x, y, w, h = WM_BOX
     s = 290 / 256  # the symbol about twice the cap height, as in G2-b
     g = 10
-    sy = 64 - 128 * s + 30
+    sy = 70 - 128 * s + 30
     body = '<g id="symbol" transform="translate(%s %s) scale(%s)">%s</g>' % (f(x - g - 256 * s), f(sy), f(s), symbol(small_symbol, mono, screen))
     body += '<g id="wordmark">%s</g>' % wordmark(spark_on, flat, mono, screen)
     x0, y0 = x - g - 256 * s - 12, min(y, sy - 12)
