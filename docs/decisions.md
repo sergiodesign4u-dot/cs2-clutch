@@ -6233,3 +6233,17 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 5. **Roboto only.** Origin `наявний бренд`. The pack's two Google Fonts candidates per role are not drawn: the baseline has one family and no display face, and none is added. The reveal and the figures are carried by colour, weight and motion.
 
 **The cost.** No display face means principle 4, dark and electric, and the reveal lean on colour, finish and stage 11. The two aspiration references are in-category, so the course rule, a reference is an input, is held by taking a technique and never a screen, and every fact about them comes from a page opened in this stage.
+
+## D-183. Stage 06 step 2: the founder's taste, the slop test and where game feel comes from
+
+**Date:** 2026-10-19. **Stage:** 06, step 2. **Decided by:** the founder, in their words: "1. да, но с нюансами, прям все отказаться тоже не хочеться ... иконок должно убти багато и еще и интерактивніх, там всякие штуки например бордери цветние сбоку со скруглениями ... по генерациям скорее всего ми будем генерировать картинки под баннера, может по кейси, но тоже какие наши уникальние стильние кейси а вот скині 2. а, как рекомендуешь". **Binds:** `design/concept/docs/concept.md`; stage 06 steps 3 to 8; the stage 08 and 11 audits.
+
+**What was decided.**
+1. **Slop is one test, not a list of bans: an element that carries no job and no rarity.** Out: glass panels, a glow or gradient with no job, icons as filler, radii and shadows by eye, art not in our own style. Glows, gradients, icons in a circle that is the control, and many interactive icons stay.
+2. **Coloured rounded side borders are in, with a job.** The border carries the item's rarity colour. impeccable's craft floor refuses side stripes and flags glows; the founder's taste wins, and the audit at step 8 reads a stripe or glow as a decision when it carries a rarity or lights the primary action, and as a defect otherwise.
+3. **Generation scope.** Banners are generated, and case art may be, in a style of our own. Skins are never generated: a skin is the real in-game item.
+4. **Game feel is carried by the skins, their rarity colour, our own banner and case art, and scale in Roboto 900.** `D-182` point 5 stands.
+
+**Rejected.** Roboto Condensed for headings, which would have amended `D-182` point 5; an illustration layer of our own on the skin.fans model, which no stage has scoped.
+
+**The cost.** skin.fans's playfulness rests largely on its cartoon illustration and condensed display face, and this product has neither, so the game feel has to be earned by item art, light and scale, and finally by the reveal at stage 11. A stripe or a glow is legal only through this record, so every one of them needs its job readable on the screen.
