@@ -63,6 +63,12 @@ def lens(p0, p1, h):
     dx, dy = x1 - x0, y1 - y0; n = (dx * dx + dy * dy) ** .5; nx, ny = -dy / n * h, dx / n * h
     mx, my = (x0 + x1) / 2, (y0 + y1) / 2
     return 'M%.1f %.1fQ%.1f %.1f %.1f %.1fQ%.1f %.1f %.1f %.1fZ' % (x0, y0, mx + nx, my + ny, x1, y1, mx - nx, my - ny, x0, y0)
+# the letters' own top line and baseline, measured at the L on A1-a, baseline rising 6.5 degrees; the gradient runs along
+# their normal from the top line to 120 units under the baseline, so the drop cap's foot reaches the full pink
+import math
+_n = (math.sin(math.radians(6.5)), math.cos(math.radians(6.5)))
+_top = u(250, 150)
+GRAD = (_top, (_top[0] + _n[0] * 582, _top[1] + _n[1] * 582))
 STREAK_SET = (((410, 112), (852, 30), 32), ((330, 138), (882, 62), 36), ((135, 384), (640, 292), 40), ((245, 397), (556, 343), 32))
 STREAKS = ''.join(lens(*s) for s in STREAK_SET)
 def core(p0, p1, h):  # a lighter, thinner lens down the middle of each streak, the picture's hot centre line
@@ -70,15 +76,18 @@ def core(p0, p1, h):  # a lighter, thinner lens down the middle of each streak, 
     return lens(q0, q1, h * .35)
 STREAK_CORES = ''.join(core(*s) for s in STREAK_SET)
 
-def wordmark(spark_on=True, mode='screen', mono=None, pink=PINK):
+def wordmark(spark_on=False, mode='screen', mono=None, pink=PINK):
     """mode: screen (gradients, rims, glow), gradient (gradient, no glow), flat (white, blue, pink), mono"""
     defs, fp, fb = '', '', ''
     lt, bt = W['st']['letters'], W['st']['blue']
     rim_l = rim_b = ''
     if mode in ('screen', 'gradient'):
-        defs += ('<linearGradient id="wm" gradientUnits="userSpaceOnUse" x1="0" y1="%d" x2="0" y2="%d"><stop offset="0.3" stop-color="%s"/><stop offset="1" stop-color="%s"/></linearGradient>'
-                 '<linearGradient id="cs" gradientUnits="userSpaceOnUse" x1="0" y1="%d" x2="0" y2="%d"><stop offset="0" stop-color="%s"/><stop offset="0.35" stop-color="%s"/></linearGradient>'
-                 % (loc(lt['y0']), loc(lt['y1'] + 60), WHITE, pink, loc(bt['y0']), loc(bt['y1']), WHITE, BLUE))
+        # the picture's gradient runs across the tilted letters, not down the screen: white to 40 percent of the cap height,
+        # then pink, so every letter's foot is pink, the H's as much as the C's. Top line and baseline measured on A1-a.
+        (tx, ty), (bx, by) = GRAD
+        defs += ('<linearGradient id="wm" gradientUnits="userSpaceOnUse" x1="%.0f" y1="%.0f" x2="%.0f" y2="%.0f"><stop offset="0.4" stop-color="%s"/><stop offset="1" stop-color="%s"/></linearGradient>' % (tx * 10, loc(ty), bx * 10, loc(by), WHITE, pink))
+        defs += ('<linearGradient id="cs" gradientUnits="userSpaceOnUse" x1="0" y1="%d" x2="0" y2="%d"><stop offset="0" stop-color="%s"/><stop offset="0.35" stop-color="%s"/></linearGradient>'
+                 % (loc(bt['y0']), loc(bt['y1']), WHITE, BLUE))
         lf, bf = 'url(#wm)', 'url(#cs)'
     else:
         lf, bf = (mono or WHITE), (mono or BLUE)
@@ -139,7 +148,7 @@ def svg(body, vb, title):
     return ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="%s" width="%d" height="%d" role="img" aria-labelledby="title"><title id="title">%s</title>%s</svg>\n'
             % (' '.join('%.0f' % v for v in vb), vb[2] / 4, vb[3] / 4, title, body))
 
-def lockup(spark_on=True, mode='screen', mono=None, pink=PINK):
+def lockup(spark_on=False, mode='screen', mono=None, pink=PINK):
     size = 1000  # the symbol a little taller than the drop cap, centred on it
     cy = (W['st']['letters']['y0'] + W['st']['letters']['y1']) / 2 + 40
     sx0 = WB[0] - size - 20
@@ -156,10 +165,9 @@ files = {
     'symbol.svg': svg(symbol('flat'), SB, 'CS2 Clutch symbol'),
     'symbol-white.svg': svg(symbol('mono', WHITE), SB, 'CS2 Clutch symbol, white'),
     'lockup-screen.svg': lockup(),
-    'lockup-screen-nospark.svg': lockup(False),
+    'lockup-screen-spark.svg': lockup(True),
     'lockup-screen-plate-pink.svg': lockup(pink='#FB3F8A'),  # the pink the approved plate renders, for the founder to compare
     'lockup.svg': lockup(mode='gradient'),
-    'lockup-nospark.svg': lockup(False, 'gradient'),
     'lockup-flat.svg': lockup(mode='flat'),
     'lockup-white.svg': lockup(mode='mono', mono=WHITE),
     'lockup-black.svg': lockup(mode='mono', mono='#000000'),
