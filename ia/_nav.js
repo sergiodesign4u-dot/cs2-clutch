@@ -140,7 +140,7 @@ window.IA_NAV = [
     rows.forEach(function (n) {
       var el = document.createElement(n.done ? 'a' : 'div');
       // The chip carries the node number as its id, because every node page links back
-      // to structure.html#<node>. Without it those 23 backlinks resolve to nothing.
+      // to structure.html#<node>. Without it those backlinks, 27 to a node on 20 October 2026, resolve to nothing.
       // Found by the step 8 audit, Codex, class "broken link".
       el.id = n.node;
       el.className = 'ia-chip' + (n.done ? '' : ' is-planned') + (n.node === activeNode ? ' is-active' : '');

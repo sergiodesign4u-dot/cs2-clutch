@@ -18,7 +18,7 @@ This table and `_nav.js` are the only two places where status lives. Nothing els
 | 03 | Information Architecture (Base, Detail) | [Flows](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/flows.html), [Concept map](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/concept-map.html), [Sitemap](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/sitemap.html), [Structure](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/structure.html), [0.1 Navigation](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/navigation.html), [0.2 Footer](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/footer.html), [0.11 Published numbers](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/numbers.html), [0.12 Markets](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/markets.html), [0.13 SEO](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/seo.html), [0.14 Round proof](https://sergiodesign4u-dot.github.io/cs2-clutch/ia/round-proof.html) | **Done.** Base layer done, Detail layer complete, **30 of 30 node pages, 69 map nodes of which 53 are MVP**, the count read from `ia/docs/sitemap.md`, which owns it, **recounted in round 15 on 3 Oct 2026 because `0.15` had never been counted**, and before that corrected here on 23 Aug 2026 after `D-90` added `7.3` and this table went on saying 67 and 51, `D-60` of 21 Aug 2026 having dissolved `3.4` when stock left the product and `D-64` of the same day having carried that withdrawal through the six live files it had not reached, `numbers.md` above all, where the register's own **withdrawn** state was used for the first time, `D-36` of 20 Aug 2026 having added `5.9` Roll history, `5.10` Profile and `5.11` Settings so the account menu's rows have destinations, block bank built, two-instrument audit run. **Amended 18 Aug 2026 by D-24 to D-26:** the case tile rebuilt, Home took the baseline's shape, the sign-in consent gate added, identity verification parked as LATER. **Amended 23 Aug 2026 by `D-91` and `D-92`:** withdrawal is a purchase and the settlement lands on `5.1`, `5.3`, `3.3` and `3.6`, then the market it is struck against is named and the answer is us. **Five node docs carry it**, `0.11` above all, where **section 2c restates row `A1` for this product and returns partly satisfied rather than closing it**, the venue rows on `0.11`, `5.1`, `5.3` and the map close with their arguments kept, **the per-case gap stays `[?]` with a decision behind it rather than a dependency**, and three narrower holes replaced the one that closed, of which two are still open: how far under Steam we set a copy, and what the outbound link says it is for. The third, whether the copies are in fact ours at withdrawal time, was closed by `D-93` on 24 Aug 2026: our market, we sell the copy |
 | 04 | Wireframes | [Overview](https://sergiodesign4u-dot.github.io/cs2-clutch/wireframes/overview.html), [1.0 Home](https://sergiodesign4u-dot.github.io/cs2-clutch/wireframes/index.html), [1.1 Home, account exists](https://sergiodesign4u-dot.github.io/cs2-clutch/wireframes/index-account.html), [3.3 Case screen](https://sergiodesign4u-dot.github.io/cs2-clutch/wireframes/case.html), [3.5 The open](https://sergiodesign4u-dot.github.io/cs2-clutch/wireframes/case-open.html), [3.6 The outcome](https://sergiodesign4u-dot.github.io/cs2-clutch/wireframes/case-outcome.html), [2.4 Sign in](https://sergiodesign4u-dot.github.io/cs2-clutch/wireframes/signin.html) | **Done**, 29 September 2026; reopened for critique rounds 15 to 17 and closed again 4 October 2026 |
 | 05 | Voice | [Voice](https://sergiodesign4u-dot.github.io/cs2-clutch/voice/voice.html) | **Done**, 19 October 2026: 1 263 unique strings inventoried and every one carrying its Now, five principles with tone by phase, glossary and forbidden, microcopy rules, the etalon accepted on screen, 17 screens rewritten by a fanout closed 17 of 17, critique on two instruments in `voice/docs/critique.md` |
-| 06 | Concept | directions, concept | Not started |
+| 06 | Concept | directions, concept | **In progress.** Steps 1 to 3b done, 19 October 2026: references, taste and attributes (`D-183`), the collected brand plate, the logo and its kit (`D-184`), the brand pink `#FB3F8A` (`D-185`), `DESIGN-artifacts.md`. Next: step 4, three directions |
 | 07 | UI + Visual | overview, index, sample screens | Not started |
 | 08 | Tokens + Components | kit overview, foundations, component pages | Not started |
 | 09 | Design System | why, patterns, states | Not started |
@@ -81,7 +81,8 @@ research/docs/
 ├── cjm-as-is.md        As-Is journey: 8 phases, emotions with sources, barriers, growth zones
 ├── cjm-evidence.md     the counted quotes behind every As-Is pattern
 ├── cjm-to-be.md        To-Be journey, divergences, backlog and MVP core
-├── baseline.md         daddyskins.com walked live: inventory, navigation, composition, colour
+├── baseline.md         the baseline walked live: inventory, navigation, composition, colour, type, shape
+├── baseline-account.md the baseline's signed-in surfaces, from dated captures
 ├── strategy.md         objectives, segments, business model, four locked founder decisions
 ├── live-research.md    post-persona verification: 5 confirmed, 1 killed, 2 unresolved
 ├── quality-check.md    quality gate, claim verification
@@ -89,12 +90,21 @@ research/docs/
 ia/docs/
 ├── sitemap.md          entities, detailed node map (clusters 0..8), navigation, tracing matrix
 ├── flows.md            eight user flows in Mermaid: decisions, states, both ends
+├── blocks.md           the block bank the node pages draw from
 ├── critique.md         both critique passes, two instruments, with a found-by column
+├── critique-03b.md     the detail layer's critique log
 └── pages/              one md per file-level node, 30
     ├── navigation.md   node 0.1, the two carriers: rail and header, state matrix, anatomy, SEO and a11y
     └── footer.md       node 0.2, the second interlinking plane, the trust strip and the legal ground
+voice/docs/
+├── voice.md            principles, tone by phase, glossary and forbidden phrases
+├── microcopy.md        every product string with where it lives
+└── critique.md         the voice critique, two instruments
+design/concept/docs/
+├── references.md       the techniques taken from outside, with what each answers
+└── concept.md          taste, attributes, logo and brand plate
 research/screens/            competitor screenshots
-research/screens/baseline/   daddyskins.com baseline screenshots
+research/screens/baseline/   baseline screenshots
 research/screens/benchmark/  out-of-category reveal-moment sources
 ```
 
@@ -114,6 +124,8 @@ research/           stages 01, 02 and 02+
 ia/                 stage 03, base and detail layers
 wireframes/         stage 04, the grey prototype, frozen since stage 05
 voice/              stage 05, voice, glossary and microcopy
+design/             stage 06 on, the visual half: concept/ now, kit/ and system/ later
+DESIGN-artifacts.md the draft design document, every value with its origin
 ```
 
 The stage packs live outside this repo, in `AI Design Workflow/`. Nothing from there is committed here.

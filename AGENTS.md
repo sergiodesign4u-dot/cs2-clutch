@@ -4,7 +4,7 @@ The rules of this repository live in **`CLAUDE.md`** at the root. Read it on you
 
 ## What this repository is
 
-Not an application. A **product design pipeline** for a CS2 skin platform: twelve stages, each leaving a markdown source of truth in its `docs/` folder and an html page that renders the shared sidebar from the root `/_nav.js`. Nothing here is executed. The material is text and structure, and it is checked as text and structure.
+Not an application. A **product design pipeline** for a CS2 skin platform: thirteen stages, each leaving a markdown source of truth in its `docs/` folder and an html page that renders the shared sidebar from the root `/_nav.js`. Nothing here is executed. The material is text and structure, and it is checked as text and structure.
 
 Stage packs are not in this repo. They live in `AI Design Workflow/` alongside it, and nothing from there is committed here.
 
@@ -14,7 +14,7 @@ Stage packs are not in this repo. They live in `AI Design Workflow/` alongside i
 2. **A finding without proof is not a finding.** Every claim quotes a line that actually exists in the file. If it does not survive a re-read, it is not submitted.
 3. **General advice is noise.** "Add examples", "structure this better", "consider automating" are worthless here. Only falsifiable divergences count: a quote contradicting another quote, a promise with no one to keep it, a step number disagreeing with its heading, a path that no longer resolves, a fact without a source.
 4. **Deliberate decisions are not defects.** Read `CLAUDE.md` and `docs/decisions.md` before calling something broken. Already decided, on the record, and not up for rediscovery:
-   - The structural resemblance to daddyskins.com is the point, not laziness. The visual language is deliberately not inherited.
+   - The structural resemblance to the baseline is the point, not laziness. Since `D-181` its visual language is inherited too and made consistent; the logo and motion are new.
    - `[?]` marks a claim the research could not source. It is honest bookkeeping, not a hole.
    - Four files in `research/docs/` are named migration residue in `README.md` and `docs/decisions.md`. Naming them is the decision; they are not orphans.
    - Stage 01 carries two openly named gaps. They are in `README.md`. Reporting them again is not a finding.

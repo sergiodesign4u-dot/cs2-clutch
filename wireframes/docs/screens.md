@@ -117,7 +117,7 @@ The map holds 26 file-level nodes and **not all of them are screens.** The rule 
 | Clusters 1 to 7, numbered MVP nodes | **35** |
 | Sign-in consent states the spec adds and the map does not number | **2** |
 | **Floor for the prototype** | **63 pages** |
-| **Registered since round 15**, `wireframes/_nav.js` | **132 pages**, 30 of them in cluster 0 |
+| **Registered since round 15**, `wireframes/_nav.js` | **133 pages**, 30 of them in cluster 0 at round 15 |
 
 **Sixty three is a floor and not an estimate, and the live list has since passed it.** `wireframes/_nav.js` is that list and every count the prototype prints is computed from it. The floor stays here as what the matrix produced on 18 August 2026. Internal states that a spec declares without numbering, catalogue's guest, account, loading, filtered and degraded among them, are drawn where the node says they change the screen. **The number goes up at step 6, never down**, and a state that is not in this matrix does not get drawn.
 

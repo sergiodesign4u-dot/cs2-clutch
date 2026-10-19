@@ -399,7 +399,9 @@
     var concepts = (s['Glossary'] || '').split('### Concepts')[1] || '';
     var conceptsN = concepts.split('\n').filter(function (l) { return /^\|/.test(l); }).length - 2;
     var forbiddenN = (s['Forbidden'] || '').split('\n').filter(function (l) { return /^\| \*\*/.test(l); }).length;
-    var uniq = micro && micro.match(/\| Unique strings rendered \| ([\d\s]+) \|/);
+    // the cell keeps its history ("1257 at step 1; 1263 since ..."): the current count is the one before "since"
+    var cell = micro && micro.match(/\| Unique strings rendered \| ([^|\n]+) \|/);
+    var uniq = cell && (cell[1].match(/(\d[\d\s]*\d|\d) since/) || cell[1].match(/^(\d[\d\s]*\d|\d)/));
     var html = stat(principlesN, 'Principles') + stat(phasesN, 'Phases with a tone') +
       stat(conceptsN, 'Concepts in the glossary') + stat(forbiddenN, 'Forbidden patterns');
     if (uniq) html += stat(uniq[1].trim(), 'Unique strings inventoried');

@@ -3,7 +3,7 @@
 1. **This folder is grey and is never recoloured.** Colour goes onto copies in `design/`, never here.
 2. **Structure and the set of states belong to this folder.** A coloured copy owns only the visual layer; copy text from stage 05 belongs to `voice/docs/microcopy.md` and the IA node, and only sits here.
 3. **`_wf.css` is the grey contract and the only source of look.** Inline CSS on a screen lives only as a one-off rule through `var()`; anything repeated, and every token value, lives in `_wf.css`.
-4. **`index.html` is the product's Home; the hub listing every screen is `overview.html`.**
+4. **`index.html` is the product's Home; the hub listing every screen is `overview.html`.** Screens carry the wireframe panel, `<aside id="wf-panel">` rendered by this folder's `_nav.js`, in place of the root sidebar of the root `CLAUDE.md`: a screen shows screens and states, and the roadmap sidebar lives on `overview.html`.
 5. **An unknown figure is drawn as a sample and marked as one in its IA node, `D-124`.** "Not available" belongs to degraded and system states only.
 6. **Every drawn control answers**: it acts as labelled or refuses with its reason beside it, and one figure on several screens is read from one declaration in `_nav.js`.
 7. **A session carries three things and nothing else, in `WF_SESS`, `D-152`:** the signed-in state, money and items after an act, and the limits set. Only a sign in that goes through signs a session in, `D-160`; everything else is the snapshot its page draws, and interface preferences are not state. Detail: `docs/conventions.md` section 4.1.
