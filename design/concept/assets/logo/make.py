@@ -29,16 +29,17 @@ def place(pts, dx, dy, base):
     return [(x + (base - y) * T15 + dx, y + dy, r) for x, y, r in pts]
 
 # ---- wordmark, CLUTCH: cap height 140, stems 44, horizontals 38, so it reads condensed and heavy like A1-a;
-# the first C is a drop cap, 10 over and 10 under, its top arm ending in a fin cut steeply up to the right
+# the first C is a drop cap 1.43 times the cap height, 30 over and 30 under, about a quarter of the word's width as in A1-a,
+# its top arm ending in a fin cut steeply up to the right, the spark in its mouth
 CAP = 140
-C1 = [(152,-10,4),(0,-10,64),(0,150,64),(106,150,8),(118,110,8),(46,110,14),(46,32,14),(128,32,6)]
+C1 = [(205,-30,5),(0,-30,84),(0,170,84),(150,170,10),(166,118,10),(58,118,18),(58,22,18),(180,22,8)]
 L  = [(0,0,12),(44,0,12),(44,102,10),(86,102,12),(86,140,12),(0,140,20)]
 U  = [(0,0,12),(44,0,12),(44,100,12),(66,100,12),(66,0,12),(110,0,12),(110,140,46),(0,140,46)]
 T  = [(0,0,12),(104,0,12),(104,38,12),(74,38,10),(74,140,12),(30,140,12),(30,38,10),(0,38,12)]
 C2 = [(106,0,8),(0,0,54),(0,140,54),(96,140,8),(106,102,8),(44,102,14),(44,38,14),(96,38,8)]
 H  = [(0,0,12),(44,0,12),(44,50,8),(66,50,8),(66,0,12),(110,0,12),(110,140,12),(66,140,12),(66,88,8),(44,88,8),(44,140,12),(0,140,12)]
 word, x = [], 0
-for g, w in ((C1,150),(L,86),(U,110),(T,104),(C2,106),(H,110)):
+for g, w in ((C1,188),(L,86),(U,110),(T,104),(C2,106),(H,110)):
     word.append(fillet(place(g, x, 0, CAP))); x += w + 8
 word_right = x - 8
 
@@ -52,22 +53,22 @@ cs, cx = [], 0
 for g, w in ((c,56),(S,52),(two,52)):
     cs.append(([(x2 * K, y2 * K, r2 * K) for x2, y2, r2 in g], cx)); cx += (w + 7) * K
 cs_w = cx - 7 * K
-CS_TOP = 154
-cs_dx = word_right - 10 - cs_w  # right edge under the H
+CS_TOP = 148
+cs_dx = word_right - 72 - cs_w  # CS2 tucked under TCH, its right edge under the middle of the H once the word is tilted, as in A1-a
 cs_paths = [fillet(place(g, cs_dx + ox, CS_TOP, CS_TOP + 64 * K)) for g, ox in cs]
 
 # ---- the spark in the mouth of the drop cap, A1-a
 def spark(cx_, cy_, a, b):
     p = lambda dx, dy: '%s %s' % (f(cx_ + dx), f(cy_ + dy))
     return ('M%s Q%s %s Q%s %s Q%s %s Q%s %sZ' % (p(0,-a), p(b,-b), p(a,0), p(b,b), p(0,a), p(-b,b), p(-a,0), p(-b,-b), p(0,-a)))
-SPARK = spark(84 + (CAP - 71) * T15, 71, 33, 5)
+SPARK = spark(118 + (CAP - 70) * T15, 70, 40, 6)
 
 # ---- speed streaks, A1-a: lenses pointed at both ends, two over the word, two leading into CS2, 4 degrees steeper than the word
 def streak(x0, x1, y, th):
     xm, h = (x0 + x1) / 2, th
     return 'M%s %sQ%s %s %s %sQ%s %s %s %sZ' % (f(x0), f(y), f(xm), f(y - h), f(x1), f(y), f(xm), f(y + h), f(x0), f(y))
 STREAKS_UP = [streak(300, 770, -30, 11), streak(400, 770, -52, 8)]
-STREAKS_DOWN = [streak(-30, cs_dx - 4, CS_TOP + 22, 11), streak(80, cs_dx - 24, CS_TOP + 48, 8)]
+STREAKS_DOWN = [streak(-20, cs_dx - 6, CS_TOP + 32, 11), streak(90, cs_dx - 26, CS_TOP + 54, 8)]
 STREAK_TILT = -4
 WORD_TILT = -8
 
@@ -80,7 +81,7 @@ def glow(fid, col, near, far, a1=.85, a2=.5):
 def wordmark(spark_on=True, flat=False, mono=None, screen=False):
     body, fp, fb = '', '', ''
     if screen:
-        body += ('<defs><linearGradient id="wm" gradientUnits="userSpaceOnUse" x1="0" y1="-10" x2="0" y2="210">'
+        body += ('<defs><linearGradient id="wm" gradientUnits="userSpaceOnUse" x1="0" y1="-30" x2="0" y2="210">'
                  '<stop offset="0.3" stop-color="%s"/><stop offset="1" stop-color="%s"/></linearGradient>'
                  '<linearGradient id="cs" gradientUnits="userSpaceOnUse" x1="0" y1="%s" x2="0" y2="%s">'
                  '<stop offset="0" stop-color="%s"/><stop offset="0.3" stop-color="%s"/></linearGradient>%s%s</defs>'
@@ -89,7 +90,7 @@ def wordmark(spark_on=True, flat=False, mono=None, screen=False):
         rim = ''
     else:
         if not flat and not mono:
-            body += ('<defs><linearGradient id="wm" gradientUnits="userSpaceOnUse" x1="0" y1="-10" x2="0" y2="150">'
+            body += ('<defs><linearGradient id="wm" gradientUnits="userSpaceOnUse" x1="0" y1="-30" x2="0" y2="170">'
                      '<stop offset="0.3" stop-color="%s"/><stop offset="1" stop-color="%s"/></linearGradient></defs>' % (WHITE, PINK))
         top, csf, rim = (mono or ('url(#wm)' if not flat else WHITE)), (mono or BLUE), ''
     sc = mono or PINK
