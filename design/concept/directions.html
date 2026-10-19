@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Three Directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../_nav.css">
+<style>
+/* values from DESIGN-artifacts.md; flat names, origins there */
+:root {
+  --color-ground: #060A1E; --color-card: #0F0E2B; --color-card-2: #090827; --color-raised: #223660;
+  --color-pink: #FB3F8A; --color-blue: #65A3FF; --color-gold: #FADA62; --color-green: #33CC66;
+  --color-text-hi: #FFFFFF; --color-text: #9F9F9F; --color-text-muted: #9E9DB1; --color-field-edge: #CECED4;
+  --radius-s: 8px; --radius-m: 16px; --radius-l: 24px; --radius-pill: 999px;
+  --font-family: Roboto, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--color-ground); color: var(--color-text); font-family: var(--font-family); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+main { max-width: 1180px; margin: 0 auto; padding: 64px 40px 96px; }
+@media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } }
+@media (max-width: 860px) { main { padding: 64px 16px 64px; } }
+code { font-size: .9em; color: var(--color-text-hi); background: rgba(255,255,255,.06); padding: 1px 5px; border-radius: 4px; }
+img { display: block; max-width: 100%; }
+.ic { width: 18px; height: 18px; flex: none; }
+.coin { width: 1em; height: 1em; flex: none; }
+
+.intro { max-width: 760px; margin-bottom: 72px; }
+.intro h1 { color: var(--color-text-hi); font-weight: 900; font-size: clamp(32px, 5vw, 48px); line-height: 1.05; letter-spacing: -.02em; margin-bottom: 20px; text-wrap: balance; }
+.intro p { font-size: 16px; margin-bottom: 12px; }
+.intro .small { font-size: 14px; color: var(--color-text-muted); }
+
+.dir { margin-bottom: 96px; scroll-margin-top: 24px; }
+.dir-head { margin-bottom: 24px; max-width: 760px; }
+.dir-head h2 { color: var(--color-text-hi); font-weight: 900; font-size: 28px; display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.dn { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--color-raised); color: var(--color-text-hi); font-size: 18px; }
+.dir-head p { font-size: 15px; }
+.stage { background: var(--color-card-2); border-radius: var(--radius-l); padding: 24px; }
+@media (max-width: 600px) { .stage { padding: 12px; border-radius: var(--radius-m); } }
+
+/* shared case block */
+.case-info { min-width: 0; }
+.case { display: grid; gap: 24px; align-items: center; background: var(--color-card); border-radius: var(--radius-m); padding: 20px; }
+.case-art img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-m); }
+.case-name { color: var(--color-text-hi); font-weight: 900; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.risk { font-size: 12px; font-weight: 700; color: var(--color-gold); border: 1px solid rgba(250,218,98,.45); border-radius: var(--radius-pill); padding: 3px 10px; text-transform: uppercase; letter-spacing: .04em; }
+.case-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 14px; color: var(--color-text-muted); margin: 8px 0 18px; }
+.case-meta .ic { color: var(--color-blue); }
+.case-meta > span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+.case-meta .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--color-text-muted); margin: 0 6px; }
+.case-buy { display: flex; flex-wrap: wrap; align-items: stretch; gap: 10px; }
+.price-chip { display: inline-flex; align-items: center; gap: 8px; background: var(--color-card-2); border-radius: var(--radius-pill); padding: 0 18px; color: var(--color-gold); font-weight: 900; font-variant-numeric: tabular-nums; }
+.price-chip small { color: var(--color-text-muted); font-weight: 500; font-size: 12px; }
+.btn-open { white-space: nowrap; display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--color-pink); color: var(--color-ground); font-weight: 900; text-decoration: none; text-transform: uppercase; letter-spacing: .02em; border-radius: var(--radius-pill); padding: 0 28px; box-shadow: 0 6px 24px rgba(251,63,138,.35); transition: transform .15s ease-out, box-shadow .15s ease-out; }
+.btn-open:hover { transform: translateY(-1px); box-shadow: 0 10px 32px rgba(251,63,138,.5); }
+.btn-open:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 3px; }
+.ic-go { width: 18px; height: 18px; }
+.peg { font-size: 13px; color: var(--color-text-muted); margin-top: 14px; font-variant-numeric: tabular-nums; }
+.note { font-size: 12px; color: var(--color-text-muted); margin-top: 6px; }
+
+.drops { margin-top: 20px; }
+.drops-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+.drops-head h4 { color: var(--color-text-hi); font-size: 16px; font-weight: 700; }
+.drops-head .col { display: none; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--color-text-muted); }
+.grid { list-style: none; display: grid; }
+.item { position: relative; color: var(--color-text-hi); font-variant-numeric: tabular-nums; }
+.i-name { font-size: 14px; color: var(--color-text); }
+.i-name b { color: var(--color-text-hi); font-weight: 700; }
+.i-price { display: inline-flex; align-items: center; gap: 5px; color: var(--color-gold); font-weight: 900; }
+.i-chance { color: var(--color-text-hi); font-weight: 700; }
+
+/* 1 The shelf: dense tiles, bottom glow, a line under the name */
+.d1 .case { grid-template-columns: 200px 1fr; }
+.d1 .case-name { font-size: 28px; }
+.d1 .case-buy > * { height: 44px; }
+.d1 .btn-open { font-size: 14px; }
+.d1 .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.d1 .item { background: linear-gradient(to top, color-mix(in srgb, var(--r) 28%, transparent), transparent 65%), var(--color-card); border-radius: var(--radius-s); padding: 12px 12px 14px; display: grid; gap: 4px; }
+.d1 .item img { aspect-ratio: 4/3; object-fit: contain; margin-bottom: 4px; }
+.d1 .item .i-name { font-size: 12px; line-height: 1.3; padding-bottom: 6px; border-bottom: 2px solid var(--r); box-shadow: 0 6px 8px -6px var(--r); }
+.d1 .item .i-price { font-size: 14px; }
+.d1 .item .i-chance { position: absolute; top: 10px; right: 10px; font-size: 12px; background: rgba(6,10,30,.7); padding: 2px 8px; border-radius: var(--radius-pill); }
+@media (max-width: 600px) { .d1 .case { grid-template-columns: 1fr; } .d1 .case-art { max-width: 200px; } .d1 .grid { grid-template-columns: repeat(2, 1fr); gap: 8px; } }
+
+/* 2 The stage: hero case, three big cards, a rounded side border in the rarity colour */
+.d2 .case { grid-template-columns: minmax(0, 1.1fr) 1fr; padding: 32px; border-radius: var(--radius-l); background: radial-gradient(120% 90% at 20% 30%, rgba(101,163,255,.18), transparent 60%), var(--color-card); }
+.d2 .case-name { font-size: 40px; line-height: 1.05; }
+.d2 .case-meta { font-size: 15px; }
+.d2 .case-buy > * { height: 56px; }
+.d2 .price-chip { font-size: 18px; }
+.d2 .btn-open { color: var(--color-text-hi); font-size: 20px; padding: 0 32px; box-shadow: 0 8px 36px rgba(251,63,138,.45); }
+.d2 .grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.d2 .item { background: var(--color-card); border-radius: var(--radius-m); padding: 18px 18px 18px 22px; display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; overflow: hidden; }
+.d2 .item::before { content: ''; position: absolute; left: 0; top: 14px; bottom: 14px; width: 4px; border-radius: 0 4px 4px 0; background: var(--r); box-shadow: 0 0 14px var(--r); }
+.d2 .item img { grid-column: 1 / -1; aspect-ratio: 4/3; object-fit: contain; filter: drop-shadow(0 10px 18px color-mix(in srgb, var(--r) 40%, transparent)); }
+.d2 .item .i-name { grid-column: 1 / -1; font-size: 15px; }
+.d2 .item .i-price { font-size: 18px; }
+.d2 .item .i-chance { font-size: 15px; color: var(--color-text-muted); align-self: center; }
+@media (max-width: 760px) { .d2 .case { grid-template-columns: 1fr; padding: 20px; } .d2 .case-name { font-size: 32px; } .d2 .case-art { max-width: 280px; } .d2 .btn-open { flex: 1 1 100%; padding: 8px 16px; white-space: normal; text-align: center; text-wrap: balance; height: auto; min-height: 56px; letter-spacing: 0; } .d2 .btn-open .ic-go { display: none; } .d2 .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } .d2 .item { padding: 12px 10px 12px 14px; grid-template-columns: 1fr; } .d2 .item .i-name { font-size: 13px; } .d2 .item .i-price { font-size: 15px; } .d2 .item .i-chance { font-size: 13px; } }
+
+/* 3 The ledger: rows, aligned figures, a rounded mark at the row's start */
+.d3 .case { grid-template-columns: 120px 1fr; }
+.d3 .case-name { font-size: 32px; }
+.d3 .case-buy > * { height: 48px; }
+.d3 .btn-open { font-size: 15px; }
+.d3 .drops-head .col { display: flex; gap: 0; }
+.d3 .drops-head .col span { width: 92px; text-align: right; }
+.d3 .grid { gap: 6px; }
+.d3 .item { display: grid; grid-template-columns: 8px 72px 1fr auto 76px; align-items: center; gap: 14px; height: 56px; padding: 0 16px 0 0; background: linear-gradient(90deg, color-mix(in srgb, var(--r) 14%, transparent), transparent 40%), var(--color-card); border-radius: var(--radius-s); }
+.d3 .item::before { content: ''; height: 32px; width: 8px; border-radius: 0 6px 6px 0; background: var(--r); box-shadow: 0 0 10px var(--r); }
+.d3 .item img { width: 72px; height: 48px; object-fit: contain; }
+.d3 .item .i-name { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.d3 .item .i-price { font-size: 15px; justify-self: end; }
+.d3 .item .i-chance { font-size: 15px; text-align: right; }
+@media (max-width: 600px) { .d3 .drops-head .col span:first-child { display: none; } .d3 .drops-head .col span { width: 64px; } .d3 .case { grid-template-columns: 1fr; gap: 14px; padding: 14px; } .d3 .case-art { width: 96px; } .d3 .btn-open { flex: 1 1 100%; } .d3 .case-name { font-size: 24px; } .d3 .item { grid-template-columns: 6px 52px 1fr 64px; gap: 10px; } .d3 .item img { width: 52px; } .d3 .item .i-price { display: none; } }
+
+.spec { width: 100%; max-width: 760px; border-collapse: collapse; margin-top: 20px; font-size: 14px; }
+.spec th { text-align: left; color: var(--color-text-hi); font-weight: 700; padding: 10px 16px 10px 0; vertical-align: top; width: 140px; border-top: 1px solid rgba(255,255,255,.08); }
+.spec td { padding: 10px 0; border-top: 1px solid rgba(255,255,255,.08); }
+
+.compare h2 { color: var(--color-text-hi); font-weight: 900; font-size: 28px; margin-bottom: 16px; }
+.tw { overflow-x: auto; }
+.compare table { width: 100%; min-width: 620px; border-collapse: collapse; font-size: 14px; }
+.compare th, .compare td { text-align: left; padding: 12px 14px; border-top: 1px solid rgba(255,255,255,.08); vertical-align: top; }
+.compare thead th { color: var(--color-text-hi); font-weight: 900; border-top: 0; }
+.compare tbody th { color: var(--color-text-hi); font-weight: 700; }
+
+</style>
+</head>
+<body>
+<aside id="sidebar"></aside>
+<main>
+<section id="intro" class="intro">
+  <h1>Three directions, one brand</h1>
+  <p>The palette, Roboto, the radius ladder and the Solar icons are the same in all three, read from <code>DESIGN-artifacts.md</code>. What changes is composition: density, rhythm, the shape of the item card, where rarity and the price sit. Each one also settles the baseline's contradictions its own way, <code>baseline.md</code> 13.5: thirteen type sizes, four button heights, and a white label on the pink that fails AA.</p>
+  <p class="small">Skins are the real items, images from the Steam CDN. Case art is generated in our own style, <code>D-183</code>. Every figure, the case name and its counts are samples, <code>D-124</code>. Which rarity step each Steam grade takes is an assumption, <code>[?]</code> in <code>DESIGN-artifacts.md</code>. Pick one by number and name.</p>
+</section>
+<section id="d1" class="dir d1">
+  <header class="dir-head"><h2><span class="dn">1</span> The shelf</h2><p>Close to the baseline: dense, the drop table as a grid of tiles, every value on the small end of the ladder.</p></header>
+  <div class="stage">
+    <div class="case">
+  <div class="case-art"><img src="assets/cases/case-pink.png" alt="Sample case art"></div>
+  <div class="case-info">
+    <h3 class="case-name">Night Shift <span class="risk">Medium risk</span></h3>
+    <p class="case-meta"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M3 10.4167C3 7.21907 3 5.62028 3.37752 5.08241C3.75503 4.54454 5.25832 4.02996 8.26491 3.00079L8.83772 2.80472C10.405 2.26824 11.1886 2 12 2C12.8114 2 13.595 2.26824 15.1623 2.80472L15.7351 3.00079C18.7417 4.02996 20.245 4.54454 20.6225 5.08241C21 5.62028 21 7.21907 21 10.4167C21 10.8996 21 11.4234 21 11.9914C21 17.6294 16.761 20.3655 14.1014 21.5273C13.38 21.8424 13.0193 22 12 22C10.9807 22 10.62 21.8424 9.89856 21.5273C7.23896 20.3655 3 17.6294 3 11.9914C3 11.4234 3 10.8996 3 10.4167Z"/><path stroke-linejoin="round" d="M9.5 12.4L10.9286 14L14.5 10"/></g></svg> Provably fair</span><span class="sep"></span><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M20 13.1111C20 20.2222 13.9556 22 10.9333 22C8.28889 22 3 20.2222 3 13.1111C3 10.3295 4.46147 8.46138 5.85996 7.39454C6.63841 6.80069 7.6304 7.39197 7.73017 8.36598L7.816 9.20382C7.92052 10.2241 8.84932 11.0606 9.70932 10.5017C11.3938 9.40705 12 6.7752 12 5.33334V5.00971C12 3.58 13.4438 2.65985 14.6023 3.49767C17.1653 5.35127 20 8.58427 20 13.1111Z"/><path d="M8 18.4445C8 21.2889 10.4889 22 11.7333 22C12.8222 22 15 21.2889 15 18.4445C15 17.3435 14.4107 16.6002 13.8404 16.1713C13.4424 15.872 12.8828 16.1408 12.7459 16.6196C12.5675 17.2437 11.9228 17.636 11.5944 17.0759C11.2941 16.5638 11.2941 15.7957 11.2941 15.3334C11.2941 14.6968 10.6539 14.2847 10.1389 14.6589C9.10649 15.4091 8 16.6815 8 18.4445Z"/></g></svg> 412 opened today</span></p>
+    <div class="case-buy">
+      <span class="price-chip"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg><b>2.40</b><small>Price, one open</small></span>
+      <a class="btn-open" href="#" role="button">Open for 2.40 coins <svg class="ic ic-go" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></a>
+    </div>
+    <p class="peg">1 coin = $1.00 · RTP 92.4 %, expected value 2.22 coins</p>
+    <p class="note">Label dark on pink, 5.78:1. The baseline pink with white text fails AA, 3.40:1.</p>
+  </div>
+</div>
+    <div class="drops">
+      <div class="drops-head"><h4>Every item in this case with its chance</h4><span class="col"><span>Value</span><span>Chance</span></span></div>
+      <ul class="grid"><li class="item" style="--r:#F6C915"><img src="assets/skins/karambit-tiger-tooth.png" alt="★ Karambit | Tiger Tooth" loading="lazy"><span class="i-name"><b>★ Karambit</b> Tiger Tooth</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>1 920.00</span><span class="i-chance">0.05 %</span></li><li class="item" style="--r:#D1273E"><img src="assets/skins/awp-asiimov.png" alt="AWP | Asiimov" loading="lazy"><span class="i-name"><b>AWP</b> Asiimov</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>148.20</span><span class="i-chance">0.60 %</span></li><li class="item" style="--r:#D1273E"><img src="assets/skins/m4a4-the-emperor.png" alt="M4A4 | The Emperor" loading="lazy"><span class="i-name"><b>M4A4</b> The Emperor</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>61.40</span><span class="i-chance">1.50 %</span></li><li class="item" style="--r:#D22BCE"><img src="assets/skins/glock-18-vogue.png" alt="Glock-18 | Vogue" loading="lazy"><span class="i-name"><b>Glock-18</b> Vogue</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>9.85</span><span class="i-chance">6.00 %</span></li><li class="item" style="--r:#6B42B9"><img src="assets/skins/usp-s-ticket-to-hell.png" alt="USP-S | Ticket to Hell" loading="lazy"><span class="i-name"><b>USP-S</b> Ticket to Hell</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>3.10</span><span class="i-chance">14.85 %</span></li><li class="item" style="--r:#6B42B9"><img src="assets/skins/mp9-goo.png" alt="MP9 | Goo" loading="lazy"><span class="i-name"><b>MP9</b> Goo</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>1.20</span><span class="i-chance">27.00 %</span></li><li class="item" style="--r:#3955E8"><img src="assets/skins/ak-47-elite-build.png" alt="AK-47 | Elite Build" loading="lazy"><span class="i-name"><b>AK-47</b> Elite Build</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>0.95</span><span class="i-chance">20.00 %</span></li><li class="item" style="--r:#DDDDDD"><img src="assets/skins/p250-sand-dune.png" alt="P250 | Sand Dune" loading="lazy"><span class="i-name"><b>P250</b> Sand Dune</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>0.08</span><span class="i-chance">30.00 %</span></li></ul>
+    </div>
+  </div>
+  <table class="spec"><tbody><tr><th>Density</th><td>Four to six tiles a row, 12px gaps, as the baseline packs its table</td></tr><tr><th>Type scale</th><td>12, 14, 16, 20, 28. Thirteen baseline sizes become five</td></tr><tr><th>Buttons</th><td>One height, 44px, weight 900; the price chip beside it</td></tr><tr><th>Radius</th><td>S 8 on tiles, M 16 on the case panel</td></tr><tr><th>Rarity</th><td>A bottom glow in the rarity colour and a line under the name, S4 and C1</td></tr><tr><th>Attributes</th><td>A2 one piece, A5 the chance on every tile</td></tr></tbody></table>
+</section>
+<section id="d2" class="dir d2">
+  <header class="dir-head"><h2><span class="dn">2</span> The stage</h2><p>The case is the hero: big art, one lit action, fewer and larger item cards with a rounded side border in the rarity colour.</p></header>
+  <div class="stage">
+    <div class="case">
+  <div class="case-art"><img src="assets/cases/case-blue.png" alt="Sample case art"></div>
+  <div class="case-info">
+    <h3 class="case-name">Night Shift <span class="risk">Medium risk</span></h3>
+    <p class="case-meta"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M3 10.4167C3 7.21907 3 5.62028 3.37752 5.08241C3.75503 4.54454 5.25832 4.02996 8.26491 3.00079L8.83772 2.80472C10.405 2.26824 11.1886 2 12 2C12.8114 2 13.595 2.26824 15.1623 2.80472L15.7351 3.00079C18.7417 4.02996 20.245 4.54454 20.6225 5.08241C21 5.62028 21 7.21907 21 10.4167C21 10.8996 21 11.4234 21 11.9914C21 17.6294 16.761 20.3655 14.1014 21.5273C13.38 21.8424 13.0193 22 12 22C10.9807 22 10.62 21.8424 9.89856 21.5273C7.23896 20.3655 3 17.6294 3 11.9914C3 11.4234 3 10.8996 3 10.4167Z"/><path stroke-linejoin="round" d="M9.5 12.4L10.9286 14L14.5 10"/></g></svg> Provably fair</span><span class="sep"></span><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M20 13.1111C20 20.2222 13.9556 22 10.9333 22C8.28889 22 3 20.2222 3 13.1111C3 10.3295 4.46147 8.46138 5.85996 7.39454C6.63841 6.80069 7.6304 7.39197 7.73017 8.36598L7.816 9.20382C7.92052 10.2241 8.84932 11.0606 9.70932 10.5017C11.3938 9.40705 12 6.7752 12 5.33334V5.00971C12 3.58 13.4438 2.65985 14.6023 3.49767C17.1653 5.35127 20 8.58427 20 13.1111Z"/><path d="M8 18.4445C8 21.2889 10.4889 22 11.7333 22C12.8222 22 15 21.2889 15 18.4445C15 17.3435 14.4107 16.6002 13.8404 16.1713C13.4424 15.872 12.8828 16.1408 12.7459 16.6196C12.5675 17.2437 11.9228 17.636 11.5944 17.0759C11.2941 16.5638 11.2941 15.7957 11.2941 15.3334C11.2941 14.6968 10.6539 14.2847 10.1389 14.6589C9.10649 15.4091 8 16.6815 8 18.4445Z"/></g></svg> 412 opened today</span></p>
+    <div class="case-buy">
+      <span class="price-chip"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg><b>2.40</b><small>Price, one open</small></span>
+      <a class="btn-open" href="#" role="button">Open for 2.40 coins <svg class="ic ic-go" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></a>
+    </div>
+    <p class="peg">1 coin = $1.00 · RTP 92.4 %, expected value 2.22 coins</p>
+    <p class="note">White label on pink at 20px weight 900, large text: 3.40:1 passes the 3:1 floor for large text only.</p>
+  </div>
+</div>
+    <div class="drops">
+      <div class="drops-head"><h4>Every item in this case with its chance</h4><span class="col"><span>Value</span><span>Chance</span></span></div>
+      <ul class="grid"><li class="item" style="--r:#F6C915"><img src="assets/skins/karambit-tiger-tooth.png" alt="★ Karambit | Tiger Tooth" loading="lazy"><span class="i-name"><b>★ Karambit</b> Tiger Tooth</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>1 920.00</span><span class="i-chance">0.05 %</span></li><li class="item" style="--r:#D1273E"><img src="assets/skins/awp-asiimov.png" alt="AWP | Asiimov" loading="lazy"><span class="i-name"><b>AWP</b> Asiimov</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>148.20</span><span class="i-chance">0.60 %</span></li><li class="item" style="--r:#D1273E"><img src="assets/skins/m4a4-the-emperor.png" alt="M4A4 | The Emperor" loading="lazy"><span class="i-name"><b>M4A4</b> The Emperor</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>61.40</span><span class="i-chance">1.50 %</span></li><li class="item" style="--r:#D22BCE"><img src="assets/skins/glock-18-vogue.png" alt="Glock-18 | Vogue" loading="lazy"><span class="i-name"><b>Glock-18</b> Vogue</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>9.85</span><span class="i-chance">6.00 %</span></li><li class="item" style="--r:#6B42B9"><img src="assets/skins/usp-s-ticket-to-hell.png" alt="USP-S | Ticket to Hell" loading="lazy"><span class="i-name"><b>USP-S</b> Ticket to Hell</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>3.10</span><span class="i-chance">14.85 %</span></li><li class="item" style="--r:#6B42B9"><img src="assets/skins/mp9-goo.png" alt="MP9 | Goo" loading="lazy"><span class="i-name"><b>MP9</b> Goo</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>1.20</span><span class="i-chance">27.00 %</span></li><li class="item" style="--r:#3955E8"><img src="assets/skins/ak-47-elite-build.png" alt="AK-47 | Elite Build" loading="lazy"><span class="i-name"><b>AK-47</b> Elite Build</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>0.95</span><span class="i-chance">20.00 %</span></li><li class="item" style="--r:#DDDDDD"><img src="assets/skins/p250-sand-dune.png" alt="P250 | Sand Dune" loading="lazy"><span class="i-name"><b>P250</b> Sand Dune</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>0.08</span><span class="i-chance">30.00 %</span></li></ul>
+    </div>
+  </div>
+  <table class="spec"><tbody><tr><th>Density</th><td>Three cards a row on desktop, 20px gaps, more air round the art</td></tr><tr><th>Type scale</th><td>13, 15, 18, 24, 40. Scale carries the game feel, D-183</td></tr><tr><th>Buttons</th><td>One height, 56px; the action is the only pink on screen</td></tr><tr><th>Radius</th><td>M 16 on cards, L 24 on the case panel</td></tr><tr><th>Rarity</th><td>A rounded side border in the rarity colour with its glow, the founder's liked detail, D-183</td></tr><tr><th>Attributes</th><td>A1 alive, A3 energy in the item and the one action</td></tr></tbody></table>
+</section>
+<section id="d3" class="dir d3">
+  <header class="dir-head"><h2><span class="dn">3</span> The ledger</h2><p>Numbers first: the drop table as rows, chance and value in aligned columns, the case compact above it.</p></header>
+  <div class="stage">
+    <div class="case">
+  <div class="case-art"><img src="assets/cases/case-gold.png" alt="Sample case art"></div>
+  <div class="case-info">
+    <h3 class="case-name">Night Shift <span class="risk">Medium risk</span></h3>
+    <p class="case-meta"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M3 10.4167C3 7.21907 3 5.62028 3.37752 5.08241C3.75503 4.54454 5.25832 4.02996 8.26491 3.00079L8.83772 2.80472C10.405 2.26824 11.1886 2 12 2C12.8114 2 13.595 2.26824 15.1623 2.80472L15.7351 3.00079C18.7417 4.02996 20.245 4.54454 20.6225 5.08241C21 5.62028 21 7.21907 21 10.4167C21 10.8996 21 11.4234 21 11.9914C21 17.6294 16.761 20.3655 14.1014 21.5273C13.38 21.8424 13.0193 22 12 22C10.9807 22 10.62 21.8424 9.89856 21.5273C7.23896 20.3655 3 17.6294 3 11.9914C3 11.4234 3 10.8996 3 10.4167Z"/><path stroke-linejoin="round" d="M9.5 12.4L10.9286 14L14.5 10"/></g></svg> Provably fair</span><span class="sep"></span><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M20 13.1111C20 20.2222 13.9556 22 10.9333 22C8.28889 22 3 20.2222 3 13.1111C3 10.3295 4.46147 8.46138 5.85996 7.39454C6.63841 6.80069 7.6304 7.39197 7.73017 8.36598L7.816 9.20382C7.92052 10.2241 8.84932 11.0606 9.70932 10.5017C11.3938 9.40705 12 6.7752 12 5.33334V5.00971C12 3.58 13.4438 2.65985 14.6023 3.49767C17.1653 5.35127 20 8.58427 20 13.1111Z"/><path d="M8 18.4445C8 21.2889 10.4889 22 11.7333 22C12.8222 22 15 21.2889 15 18.4445C15 17.3435 14.4107 16.6002 13.8404 16.1713C13.4424 15.872 12.8828 16.1408 12.7459 16.6196C12.5675 17.2437 11.9228 17.636 11.5944 17.0759C11.2941 16.5638 11.2941 15.7957 11.2941 15.3334C11.2941 14.6968 10.6539 14.2847 10.1389 14.6589C9.10649 15.4091 8 16.6815 8 18.4445Z"/></g></svg> 412 opened today</span></p>
+    <div class="case-buy">
+      <span class="price-chip"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg><b>2.40</b><small>Price, one open</small></span>
+      <a class="btn-open" href="#" role="button">Open for 2.40 coins <svg class="ic ic-go" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></a>
+    </div>
+    <p class="peg">1 coin = $1.00 · RTP 92.4 %, expected value 2.22 coins</p>
+    <p class="note">Label dark on pink, 5.78:1; the chance column right-aligned in tabular figures.</p>
+  </div>
+</div>
+    <div class="drops">
+      <div class="drops-head"><h4>Every item in this case with its chance</h4><span class="col"><span>Value</span><span>Chance</span></span></div>
+      <ul class="grid"><li class="item" style="--r:#F6C915"><img src="assets/skins/karambit-tiger-tooth.png" alt="★ Karambit | Tiger Tooth" loading="lazy"><span class="i-name"><b>★ Karambit</b> Tiger Tooth</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>1 920.00</span><span class="i-chance">0.05 %</span></li><li class="item" style="--r:#D1273E"><img src="assets/skins/awp-asiimov.png" alt="AWP | Asiimov" loading="lazy"><span class="i-name"><b>AWP</b> Asiimov</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>148.20</span><span class="i-chance">0.60 %</span></li><li class="item" style="--r:#D1273E"><img src="assets/skins/m4a4-the-emperor.png" alt="M4A4 | The Emperor" loading="lazy"><span class="i-name"><b>M4A4</b> The Emperor</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>61.40</span><span class="i-chance">1.50 %</span></li><li class="item" style="--r:#D22BCE"><img src="assets/skins/glock-18-vogue.png" alt="Glock-18 | Vogue" loading="lazy"><span class="i-name"><b>Glock-18</b> Vogue</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>9.85</span><span class="i-chance">6.00 %</span></li><li class="item" style="--r:#6B42B9"><img src="assets/skins/usp-s-ticket-to-hell.png" alt="USP-S | Ticket to Hell" loading="lazy"><span class="i-name"><b>USP-S</b> Ticket to Hell</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>3.10</span><span class="i-chance">14.85 %</span></li><li class="item" style="--r:#6B42B9"><img src="assets/skins/mp9-goo.png" alt="MP9 | Goo" loading="lazy"><span class="i-name"><b>MP9</b> Goo</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>1.20</span><span class="i-chance">27.00 %</span></li><li class="item" style="--r:#3955E8"><img src="assets/skins/ak-47-elite-build.png" alt="AK-47 | Elite Build" loading="lazy"><span class="i-name"><b>AK-47</b> Elite Build</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>0.95</span><span class="i-chance">20.00 %</span></li><li class="item" style="--r:#DDDDDD"><img src="assets/skins/p250-sand-dune.png" alt="P250 | Sand Dune" loading="lazy"><span class="i-name"><b>P250</b> Sand Dune</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>0.08</span><span class="i-chance">30.00 %</span></li></ul>
+    </div>
+  </div>
+  <table class="spec"><tbody><tr><th>Density</th><td>One row per item, 56px rows, the whole table readable without a scroll on desktop</td></tr><tr><th>Type scale</th><td>12, 14, 16, 22, 32. Figures in tabular numerals</td></tr><tr><th>Buttons</th><td>One height, 48px</td></tr><tr><th>Radius</th><td>S 8 on rows, M 16 on panels</td></tr><tr><th>Rarity</th><td>A rounded mark at the row's start and a faint row tint in the rarity colour</td></tr><tr><th>Attributes</th><td>A5 honest numbers in plain sight, A3 calm at the money</td></tr></tbody></table>
+</section>
+<section id="compare" class="compare">
+  <h2>Side by side</h2>
+  <div class="tw"><table>
+    <thead><tr><th></th><th>1 The shelf</th><th>2 The stage</th><th>3 The ledger</th></tr></thead>
+    <tbody>
+      <tr><th>Reads first</th><td>The whole table</td><td>The case and the one action</td><td>The chances and values</td></tr>
+      <tr><th>Closest to</th><td>The baseline as it is</td><td>skin.fans, the finish reference</td><td>The provably fair promise, D-14</td></tr>
+      <tr><th>Button label on pink</th><td>Dark, 5.78:1</td><td>White, large text only</td><td>Dark, 5.78:1</td></tr>
+      <tr><th>Risk</th><td>Least change from the baseline; least lift in finish</td><td>Most game feel; fewer items above the fold at 360</td><td>Calmest; the reveal has to carry the energy, stage 11</td></tr>
+    </tbody>
+  </table></div>
+</section>
+</main>
+<script>
+window.NAV_BASE = '../../';
+window.NAV_SECTIONS = [
+  { id: 'intro', label: 'Three directions' },
+  { id: 'd1', label: '1 The shelf' },
+  { id: 'd2', label: '2 The stage' },
+  { id: 'd3', label: '3 The ledger' },
+  { id: 'compare', label: 'Side by side' },
+];
+document.querySelectorAll('a[href="#"]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); }); });
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>
