@@ -147,6 +147,11 @@
       main { padding: 64px 20px 60px; }
       footer { padding: 24px 20px; }
     }
+    .shots { display: flex; flex-wrap: wrap; gap: 16px; margin: 20px 0 8px; }
+    .shots figure { margin: 0; flex: 1 1 260px; max-width: 328px; }
+    .shots img { width: 100%; height: auto; display: block; border: 1px solid var(--border); border-radius: 8px; }
+    .shots figcaption { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+    .sub-h { margin-top: 32px; }
   </style>
 </head>
 <body>
@@ -217,6 +222,19 @@
   <div class="md-body" data-md="microcopy" data-kind="inventory"></div>
 </section>
 
+<section id="wasnow">
+  <div class="section-eyebrow">Step 8, the critique closed</div>
+  <h2>Was to now</h2>
+  <div class="md-body" data-md="critique" data-heading="Was to now"></div>
+  <div class="shots">
+    <figure><img src="screens/step8-layout-360-defect.png" alt="At 360, the heading These rounds cannot be checked takes two lines" width="328"><figcaption>Was, at 360: two lines</figcaption></figure>
+    <figure><img src="screens/step8-layout-360-fixed.png" alt="At 360, the heading No proof for these rounds takes one line" width="328"><figcaption>Now, at 360: one line</figcaption></figure>
+  </div>
+  <h3 class="sub-h">The stage contract, as a checklist</h3>
+  <div class="md-body" data-md="critique" data-heading="The stage contract, as a checklist"></div>
+  <p class="source-note">The full log, every finding with its file, its finder and its status: <code>voice/docs/critique.md</code>.</p>
+</section>
+
 </main>
 
 <footer>
@@ -226,7 +244,7 @@
 
 <script>
 (function () {
-  var SRC = { voice: 'docs/voice.md', microcopy: 'docs/microcopy.md' };
+  var SRC = { voice: 'docs/voice.md', microcopy: 'docs/microcopy.md', critique: 'docs/critique.md' };
   var REPO = 'https://github.com/sergiodesign4u-dot/cs2-clutch/blob/main/voice/';
 
   function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
@@ -401,15 +419,16 @@
     });
   }
 
-  Promise.all([get('voice').catch(function () { return null; }), get('microcopy').catch(function () { return null; })])
+  Promise.all([get('voice').catch(function () { return null; }), get('microcopy').catch(function () { return null; }), get('critique').catch(function () { return null; })])
     .then(function (res) {
-      var voice = res[0], micro = res[1];
-      var map = voice ? sectionsOf(voice) : null;
+      var voice = res[0], micro = res[1], crit = res[2];
+      var map = voice ? sectionsOf(voice) : null, cmap = crit ? sectionsOf(crit) : null;
       if (map) document.getElementById('intro-md').innerHTML = render(map['']);
       document.querySelectorAll('.md-body').forEach(function (el) {
         var key = el.getAttribute('data-md'), kind = el.getAttribute('data-kind');
         if (key === 'microcopy') { if (micro) el.innerHTML = inventory(micro); else failed(el, key); return; }
-        var text = map && map[el.getAttribute('data-heading')];
+        var from = key === 'critique' ? cmap : map;
+        var text = from && from[el.getAttribute('data-heading')];
         if (text == null) { failed(el, key); return; }
         el.innerHTML = kind === 'principles' ? principles(text) : render(text, { tone: kind === 'tone' });
       });
@@ -463,6 +482,7 @@ window.NAV_SECTIONS = [
   { id: 'forbidden', label: 'Forbidden' },
   { id: 'microcopy', label: 'Microcopy' },
   { id: 'inventory', label: 'Inventory' },
+  { id: 'wasnow', label: 'Was to now' },
 ];
 </script>
 <script src="../_nav.js"></script>

@@ -1619,14 +1619,14 @@ window.WF_PAY = window.WF_PAY || {
      ledger. The case screen's "what if a win cannot be sent" answer lives here
      since D-125. */
   var FAQ = [
-    ['Getting in', 'Sign in, the geo gate, and a Steam login that will not complete',
-      [['My Steam login does not come back here', 'Close the Steam tab and press Sign in again. Nothing you chose is lost.', 'signin.html', WF_STR.signIn]]],
+    ['Getting in', 'Sign in, the geo gate, and a Steam sign in that will not complete',
+      [['My Steam sign in does not come back here', 'Close the Steam tab and press Sign in again. Nothing you chose is lost.', 'signin.html', WF_STR.signIn]]],
     ['Opening a case', 'The case screen, the published chance, and checking a round afterwards',
       [['How do I know a round was fair?', 'Every round has a proof you can recompute without an account.', 'fair.html', WF_STR.provablyFair]]],
     ['Putting money in', 'Adding funds, the crediting window, and a payment that did not go through',
       [['My deposit has not arrived', 'Most arrive within 2 minutes. The deposit keeps its state and support can see it.', 'history-deposits.html', 'Your deposits']]],
     ['Getting your items out', 'Sending to Steam, the clock, and a trade offer that did not arrive',
-      [['What if an item cannot be sent to Steam?', 'It stays in My items. You can send it later, or sell it for coins at its value.', 'account.html', WF_STR.myItems]]],
+      [['What if an item cannot be sent to Steam?', 'It stays in My items. You can send it later, or sell it for coins.', 'account.html', WF_STR.myItems]]],
     ['Limits and self exclusion', 'Your four limits, what each one closes, and what none of them closes',
       [['Can a limit stop me taking my items out?', 'No. No limit ever stops you sending items to Steam.', 'responsible.html', WF_STR.responsiblePlay]]],
     ['Your account and your data', 'The documents, and what is held about you',
@@ -4930,11 +4930,11 @@ window.WF_PAY = window.WF_PAY || {
       c.innerHTML = '<div class="wf-inv-top"><label class="wf-inv-pick"><input type="checkbox" data-inv-pick data-v="' + r.worth + '"><span class="wf-vh">Select ' + r.w + ' ' + r.s + '</span></label>' +
         '<a class="wf-btn wf-btn--small" href="' + BASE + 'result-owner.html?round=' + r.key + '">Share</a></div>' +
         '<span class="wf-inv-art" aria-hidden="true"></span>' +
-        '<p class="wf-inv-w">' + r.w + '</p><p class="wf-inv-s">' + r.s + '</p><p class="wf-inv-wear">(' + r.wear + ')</p><p class="wf-inv-p">' + r.worth + '</p>' +
+        '<p class="wf-inv-w">' + r.w + '</p><p class="wf-inv-s">' + r.s + '</p><p class="wf-inv-wear">(' + r.wear + ')</p><p class="wf-inv-p">' + r.worth + ' coins</p>' +
         '<div class="wf-inv-acts"><button class="wf-btn" type="button" data-inv-sell>Sell for coins</button>' +
         (sh && sh.offers.length ? '<a class="wf-btn" href="' + BASE + 'withdraw.html?item=' + r.key + '">' + WF_STR.sendToSteam + '</a>' : '') +
         '<button class="wf-btn" type="button" disabled>Exchange</button><p class="wf-inv-why">Exchange is not here yet</p></div>' +
-        (sh && sh.offers.length ? '<div class="wf-inv-mkt"><span>Starting at<b>' + sh.offers[0].p.toFixed(2) + '</b></span><span>Offers<b>' + sh.total + '</b></span></div>' +
+        (sh && sh.offers.length ? '<div class="wf-inv-mkt"><span>Starting at<b>' + sh.offers[0].p.toFixed(2) + ' coins</b></span><span>On sale<b>' + sh.total + '</b></span></div>' +
           '<p class="wf-inv-out"><span>Out to Steam</span><span>' + (st >= 0 ? '+' : '−') + '<b>' + Math.abs(st).toFixed(2) + '</b> coins</span></p>' : '<p class="wf-inv-out"><span>Out to Steam</span><span class="wf-fig-missing">no copy on sale to buy</span></p>');
       grid.insertBefore(c, grid.firstChild);
     });
@@ -4948,7 +4948,7 @@ window.WF_PAY = window.WF_PAY || {
       var mk = c.querySelectorAll('.wf-inv-mkt b'), out = c.querySelector('.wf-inv-out');
       if (!sh.offers.length) { if (out) out.innerHTML = '<span>Out to Steam</span><span class="wf-fig-missing">no copy on sale to buy</span>'; return; }
       var d = sh.ours - sh.offers[0].p;
-      if (mk[0]) mk[0].textContent = sh.offers[0].p.toFixed(2);
+      if (mk[0]) mk[0].textContent = sh.offers[0].p.toFixed(2) + ' coins';
       if (mk[1]) mk[1].textContent = String(sh.total);
       if (out) out.innerHTML = '<span>Out to Steam</span><span>' + (d >= 0 ? '+' : '−') + '<b>' + Math.abs(d).toFixed(2) + '</b> coins</span>';
     });
@@ -4967,7 +4967,7 @@ window.WF_PAY = window.WF_PAY || {
       c.innerHTML = '<p class="wf-inv-mark">On its way to Steam, since ' + (r.went || '') + '</p>' +
         '<span class="wf-inv-art" aria-hidden="true"></span>' +
         '<p class="wf-inv-w">' + r.w + '</p><p class="wf-inv-s">' + r.s + '</p><p class="wf-inv-wear">(' + r.wear + ')</p>' +
-        '<p class="wf-inv-p">' + r.worth + '</p>' +
+        '<p class="wf-inv-p">' + r.worth + ' coins</p>' +
         '<div class="wf-inv-acts"><a class="wf-btn" href="' + BASE + 'history-withdrawals.html">Its clock</a></div>';
       grid.appendChild(c);
     });
@@ -5936,7 +5936,7 @@ window.WF_PAY = window.WF_PAY || {
 
     if (!row.offers.length) {
       head.lastChild.className = 'wf-fig-c wf-fig-missing';
-      head.lastChild.textContent = 'Nobody is offering one';
+      head.lastChild.textContent = 'None on sale';
       var e = el('div', 'wf-empty');
       e.appendChild(el('p', 'wf-empty-h', 'There is no copy of this to buy'));
       e.appendChild(el('p', 'wf-empty-p', 'Sending a skin out means buying a real copy of it, and right now there is none on sale at any price. It cannot go to Steam today.'));
@@ -6197,7 +6197,7 @@ window.WF_PAY = window.WF_PAY || {
 
         var c2 = el('td', null, wdFmt(r.ours)); c2.setAttribute('data-l', WF_STR.yourSkinPrice); tr.appendChild(c2);
         var c3 = el('td'); c3.setAttribute('data-l', WF_STR.marketSkinPrice);
-        if (r.pick < 0) c3.appendChild(el('span', 'wf-fig-missing', 'Nobody is offering one'));
+        if (r.pick < 0) c3.appendChild(el('span', 'wf-fig-missing', 'None on sale'));
         else c3.appendChild(document.createTextNode(wdFmt(r.offers[r.pick].p)));
         tr.appendChild(c3);
         var c4 = el('td'); c4.setAttribute('data-l', WF_STR.balanceImpact);

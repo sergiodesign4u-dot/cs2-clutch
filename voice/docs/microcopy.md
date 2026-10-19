@@ -21,9 +21,9 @@
 | What | Count |
 |---|---|
 | Product pages read, each at 1440 and 360 | 133 |
-| Unique strings rendered | 1257 |
+| Unique strings rendered | 1257 at step 1; 1263 since `D-169` to `D-174` added six screen strings, counted at step 8 |
 | of them Global | 164 |
-| of them By screen | 1093 |
+| of them By screen | 1093 at step 1; 1099 since `D-169` to `D-174` |
 | of them SEO / IA ownership | 86 |
 | Strings written only on a press, in `_nav.js` (section 3) | 154 |
 | Data occurrences skipped as not copy | 20 036 |
@@ -345,7 +345,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.9-12 | main | Read v{n}, the one you agreed to | button (link) | page | legal-changed |  | kept |
 | 0.9-13 | main | Taking what you already hold out to Steam stays open, agreed or not. | note | page | legal-changed |  | Sending what you hold to Steam stays open, agreed or not. (Glossary C1: Send to Steam for the act; shorter) |
 | 0.9-14 | main | In short | heading | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
-| 0.9-15 | main | These are the rules between you and us: what you can do here, what we do, and what happens when something goes wrong. | text | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-15 | main | These are the rules between you and us: what you can do here, what we do, and what happens when something goes wrong. | text | page | legal-changed, legal-guest, legal-superseded, legal |  | IA owns it: block C of `ia/docs/pages/legal.md` holds the Terms lead, now "between you and us" with its second sentence on the page too (step 8) |
 | 0.9-16 | main | You must be {n} or over, and cases are a paid chance, never an investment. | text | page | legal-changed, legal-guest, legal-superseded, legal |  | You must be {n} or over. Opening a case is a paid chance, never an investment. (Aligned to G65 Now, the footer: the open is the paid chance, not the case) |
 | 0.9-17 | main | What you win can be kept, sold back, or sent to your Steam account. | text | page | legal-changed, legal-guest, legal-superseded, legal | C10 S1 | An item you get from a case can be kept, sold, or sent to your Steam account. (Glossary C10 (an item, not 'what you win') and S1 ('sold', not 'sold back')) |
 | 0.9-18 | main | You can appeal any decision we take about your account. | text | page | legal-changed, legal-guest, legal-superseded, legal | N4 | kept |
@@ -398,7 +398,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.9-65 | main | VAT no. {hash} | text | `WF_STR.vatNumberSample` | all 6 of `0.9` | PH | kept |
 | 0.9-66 | main | Questions about this document | heading | `WF_STR.legalQuestions` | all 6 of `0.9` |  | kept |
 | 0.9-67 | main | Ask us | button (link) | `WF_STR.askUs` | all 6 of `0.9` |  | kept |
-| 0.9-68 | main | How money moves in and out, what happens when a payment fails or is disputed, and what you can get back. | text | page | legal-refund | N4 | How money moves in and out, what happens when a payment fails or is charged back, and what you can get back. (Glossary N4 (c): a card payment reversed through the bank is a chargeback; 'disputed' was the word doing two jobs) |
+| 0.9-68 | main | How money moves in and out, what happens when a payment fails or is disputed, and what you can get back. | text | page | legal-refund | N4 | IA owns it: block C of `ia/docs/pages/legal.md` holds the aligned line, "...fails or is charged back..." plus its second sentence (N4 (c), step 8) |
 | 0.9-69 | main | One coin is {n}, and every price here is in coins. | text | page | legal-refund | C11 | kept |
 | 0.9-70 | main | The smallest deposit is {n}. A deposit is usually credited within {n} minutes. | text | page | legal-refund | C2 C4 C11 | kept |
 | 0.9-71 | main | A deposit limit you set holds every payment we take, and raising it takes {n} hours. A transfer from your own crypto wallet cannot be stopped by it. | text | page | legal-refund | C4 C5 | A deposit limit you set applies to every payment we take, and raising it takes {n} hours. It cannot stop a transfer from your own crypto wallet. (Principle 1: plain verb ('applies to' for 'holds') and active voice; glossary C5 'Deposit limit' kept; no fact changed) |
@@ -407,13 +407,13 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.9-74 | main | What this policy covers | link | page | legal-refund |  | kept |
 | 0.9-75 | main | Paying in | link | page | legal-refund |  | Adding funds (Glossary C4: Add funds is the only word for putting money onto the balance) |
 | 0.9-76 | main | When a payment fails | link | page | legal-refund |  | kept |
-| 0.9-77 | main | A charge you did not make, or dispute | link | page | legal-refund | N4 | A charge you did not make, or a chargeback (Glossary N4 (c): chargeback, not 'dispute') |
+| 0.9-77 | main | A charge you did not make, or dispute | link | page | legal-refund | N4 | Unknown charges and chargebacks (N4 (c); shortened at step 8: the heading took two lines at 360) |
 | 0.9-78 | main | What you can get back | link | page | legal-refund |  | kept |
 | 0.9-79 | main | Taking money out | link | page | legal-refund |  | Cash out (Glossary N6 and C11: money paid out of the product is a cash out); `[?]` counsel confirms the clause heading, `D-180` |
 | 0.9-80 | main | {n}. What this policy covers | heading | page | legal-refund |  | kept |
 | 0.9-81 | main | {n}. Paying in | heading | page | legal-refund |  | {n}. Adding funds (Glossary C4, as 0.9-75) |
 | 0.9-82 | main | {n}. When a payment fails | heading | page | legal-refund |  | kept |
-| 0.9-83 | main | {n}. A charge you did not make, or dispute | heading | page | legal-refund | N4 | {n}. A charge you did not make, or a chargeback (Glossary N4 (c), as 0.9-77) |
+| 0.9-83 | main | {n}. A charge you did not make, or dispute | heading | page | legal-refund | N4 | {n}. Unknown charges and chargebacks (as 0.9-77) |
 | 0.9-84 | main | {n}. What you can get back | heading | page | legal-refund |  | kept |
 | 0.9-85 | main | {n}. Taking money out | heading | page | legal-refund |  | {n}. Cash out (Glossary N6, as 0.9-79); `[?]` counsel confirms the clause heading, `D-180` |
 | 0.9-86 | main | This is not the current version | heading | page | legal-superseded |  | kept |
@@ -421,7 +421,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.9-88 | main | Read the current version, v{n} | button (link) | page | legal-superseded |  | kept |
 | 0.9-89 | main | This document is not published yet | heading | page | legal-unpublished |  | kept |
 | 0.9-90 | main | There is no version of it, so there is nothing here to read and nothing you have agreed to. | text | page | legal-unpublished |  | kept |
-| 0.9-91 | main | Ask us about it | button (link) | page | legal-unpublished |  | kept |
+| 0.9-91 | main | Ask us about it | button (link) | page | legal-unpublished |  | Ask us (one wording with `WF_STR.askUs` on every legal page, step 8) |
 
 ### `0.10` Support and contact
 
@@ -439,8 +439,8 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.10-10 | main | Where that leaves you | button (link) | page | support-answered |  | Your account now (A link names its destination: the page shows the balance, what is frozen and the way back to Steam) |
 | 0.10-11 | main | Questions and answers | heading | `WF_STR.questionsAnswers` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support |  | kept |
 | 0.10-12 | main | Getting in | button | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support |  | kept |
-| 0.10-13 | main | Sign in, the geo gate, and a Steam login that will not complete | text | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support |  | kept |
-| 0.10-14 | main | My Steam login does not come back here | disclosure | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support |  | kept |
+| 0.10-13 | main | Sign in, the geo gate, and a Steam login that will not complete | text | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support |  | Sign in, the geo gate, and a Steam sign in that will not complete (glossary: "login" is retired, step 8) |
+| 0.10-14 | main | My Steam login does not come back here | disclosure | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support |  | My Steam sign in does not come back here (as 0.10-13) |
 | 0.10-15 | main | Close the Steam tab and press Sign in again. Nothing you chose is lost. Sign in | text | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support |  | kept |
 | 0.10-16 | main | Opening a case | button | `_nav.js FAQ/excludeHTML` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support |  | kept |
 | 0.10-17 | main | The case screen, the published chance, and checking a round afterwards | text | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support | C9 | kept |
@@ -454,7 +454,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.10-25 | main | Getting your items out | button | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support |  | kept |
 | 0.10-26 | main | Withdrawing to Steam, the clock, and a trade that did not arrive | text | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support | C1 | Sending to Steam, the clock, and a trade offer that did not arrive (C1, N5) |
 | 0.10-27 | main | What if a win cannot be sent to Steam? | disclosure | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support | C1 C10 | What if an item cannot be sent to Steam? (C10) |
-| 0.10-28 | main | It stays in My items. You can send it later, or sell it back for coins at its value. My items | text | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support | C2 S1 | It stays in My items. You can send it later, or sell it for coins at its value. My items (S1) |
+| 0.10-28 | main | It stays in My items. You can send it later, or sell it back for coins at its value. My items | text | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support | C2 S1 | It stays in My items. You can send it later, or sell it for coins. My items (S1; C2 retires "at its value" phrased as a price, step 8) |
 | 0.10-29 | main | Limits and self exclusion | button | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support | C5 | kept |
 | 0.10-30 | main | The four boundaries, what each one closes, and what none of them closes | text | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support | C5 | Your four limits, what each one closes, and what none of them closes (C5) |
 | 0.10-31 | main | Can a limit stop me taking my items out? | disclosure | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support | C5 | kept |
@@ -917,10 +917,10 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 5.1-16 | main | Exchange is not here yet | text | page | account-degraded, account |  | kept |
 | 5.1-17 | main | No market figure: the source is failing | text | page | account-degraded | C3 | Copies on sale cannot be read right now (C3 (b) copies on sale, not "market figure"; matches 5.1-10's wording for the same fault) |
 | 5.1-18 | main | Out to Steam {n} back | text | page | account-degraded, account |  | Out to Steam +{n} coins (C11: a figure that changes the balance carries its sign and its unit) |
-| 5.1-19 | main | Nobody is offering one | text | page, `_nav.js mountWithdrawMany/wdRow` | account-degraded, account; withdraw-many |  | kept |
+| 5.1-19 | main | Nobody is offering one | text | page, `_nav.js mountWithdrawMany/wdRow` | account-degraded, account; withdraw-many |  | None on sale (C3 (b); shortened at step 8, second run: beside "On sale {n}" the old line took three lines on a 206px card at 1440) |
 | 5.1-20 | main | Offers {n} | text | page | account-degraded, account | N5 | On sale {n} (C3 (b) and N5: "offer" alone is retired, the count is of copies on sale (parent's 5.3-32 Copies on sale)) |
 | 5.1-21 | main | Out to Steam no copy on sale to buy | text | page | account-degraded, account |  | kept |
-| 5.1-22 | main | Starting at {n} | text | page | account-degraded, account |  | kept |
+| 5.1-22 | main | Starting at {n} | text | page | account-degraded, account |  | Starting at {n} coins (C11: a card figure carries its unit, step 8) |
 | 5.1-23 | main | Out to Steam {n} more | text | page | account-degraded, account |  | Out to Steam −{n} coins (C11: a figure that changes the balance carries its sign and its unit) |
 | 5.1-24 | main | On its way to Steam, since {date} | text | `_nav.js mountInFlight` | account-degraded, account |  | kept |
 | 5.1-25 | main | Its clock | button (link) | `_nav.js mountInFlight` | account-degraded, account |  | kept |
@@ -982,7 +982,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 5.3-14 | main | Your skin price | column head | `WF_STR.yourSkinPrice` | withdraw-clock, withdraw-many, withdraw-offer-expired, withdraw-steam-degraded, withdraw | C2 C10 | kept |
 | 5.3-15 | main | Market skin price | column head | `WF_STR.marketSkinPrice` | withdraw-clock, withdraw-many, withdraw-offer-expired, withdraw-steam-degraded, withdraw | C3 C10 | kept |
 | 5.3-16 | main | Your balance impact | column head | `WF_STR.balanceImpact` | withdraw-clock, withdraw-many, withdraw-offer-expired, withdraw-steam-degraded, withdraw |  | kept |
-| 5.3-17 | main | Our commission | text | page | withdraw-clock, withdraw-many, withdraw-steam-degraded, withdraw |  | kept |
+| 5.3-17 | main | Our commission | text | page | withdraw-clock, withdraw-many, withdraw-steam-degraded, withdraw |  | Our commission, its figure reading {n} coins (C11, step 8) |
 | 5.3-18 | main | Total difference | text | page | withdraw-clock, withdraw-many, withdraw-steam-degraded, withdraw |  | kept |
 | 5.3-19 | main | Based on the market price, {n} coins were added to your balance when you asked. Nothing further moves while this is in flight. | text | page | withdraw-clock | C3 | Based on the market price, {n} coins were added to your balance when you asked. Nothing more moves before delivery. (principle 3, money register kept whole; 'while this is in flight' is jargon, principle 1) |
 | 5.3-20 | main | Prices in coins at {n} coin = {n}. The Steam market price is read in US dollars and converted at it. | text | `_nav.js mountWithdrawPeg` | withdraw-clock, withdraw-many, withdraw-offer-expired, withdraw-steam-degraded, withdraw | C3 C11 | kept |
@@ -1060,7 +1060,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 5.3-92 | main | Answered by us {date} {time} | text | page | withdraw-restriction-upheld |  | kept |
 | 5.3-93 | main | Upheld closed - no further step | text | `WF_STR.closed`, page | withdraw-restriction-upheld | S6 | Restriction stays closed - no further step (S6) |
 | 5.3-94 | main | Nothing was taken for this withdrawal. Your balance and your items stay frozen, not zeroed, until the review ends. | note | page | withdraw-restriction-upheld | C1 N4 | No copy was bought and nothing was settled for this withdrawal. Your balance and your items stay frozen, not zeroed. (node 5.3 state 5.7 wording (no copy bought, nothing settled), same as 5.3-61 and 5.3-87; 'until the review ends' dropped, see notes) |
-| 5.3-95 | main | Steam is degraded right now, as of {date} {time}. | text | page | withdraw-steam-degraded |  | kept |
+| 5.3-95 | main | Steam is degraded right now, as of {date} {time}. | text | page | withdraw-steam-degraded |  | Steam is not working normally right now, as of {date} {time}. (principle 1: no engineer's word in a stop, step 8) |
 | 5.3-96 | main | Your withdrawal is still in the queue and nothing is lost. It is waiting on Steam rather than on us or on you. | text | page | withdraw-steam-degraded | C1 | kept |
 | 5.3-97 | main | The published ceiling for that stage does not apply while this lasts, and it starts applying again when Steam recovers. | text | page | withdraw-steam-degraded | C5 | The time cap we publish for this stage does not apply while this lasts, and it applies again when Steam recovers. (glossary C5 b: a ceiling we set is a cap; 'that stage' pointed nowhere, the stage is the current one) |
 | 5.3-98 | main | Steam has not said how long the outage will last. | note | page | withdraw-steam-degraded |  | kept |
@@ -1154,7 +1154,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 5.9-75 | main | Public page | button (link) | `_nav.js rollRow` | history-mismatch, history-unfinished, history |  | kept |
 | 5.9-76 | main | Every figure is as it was on the day of the roll. | note | page | history-mismatch, history-no-seed, history-unfinished, history | C9 | Every figure is as it was on the day of the round. (glossary C9) |
 | 5.9-77 | main | Mode: Cases | accessible name | `_nav.js rollRow` | history-mismatch, history-no-seed, history-unfinished, history |  | kept |
-| 5.9-78 | main | These rolls cannot be checked | heading | page | history-no-seed | C9 | These rounds cannot be checked (glossary C9) |
+| 5.9-78 | main | These rolls cannot be checked | heading | page | history-no-seed | C9 | No proof for these rounds (C9; shortened at step 8: "These rounds cannot be checked" took two lines at 360) |
 | 5.9-79 | main | The seed and nonce behind each roll were not kept in a form anyone can recompute, so there is nothing here to verify against. | text | page | history-no-seed | C9 | The seed and nonce behind each round were not kept in a form anyone can recompute, so there is nothing here to check. The rounds and their records are complete. (glossary C9 and S5 (check, not verify); principle 5: a stop says what still works, matching 5.9-73's Now "The round is real and its record is complete") |
 | 5.9-80 | main | One open here stopped part way | heading | page | history-unfinished |  | kept |
 | 5.9-81 | main | The round was settled before the animation started, so an animation that stopped part way changed nothing about what you got. What you got and the round are on the row below. | text | page | history-unfinished | C9 | kept |
@@ -1353,7 +1353,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 6.1-53 | main | A self exclusion is running. You can still tighten another boundary; nothing can be loosened. | text | page | responsible-excluded | C5 | A self exclusion is running. You can still tighten another limit; nothing can be loosened. (Glossary C5: limit, never boundary) |
 | 6.1-54 | main | What is in force now | heading | page | responsible-excluded, responsible-in-force |  | kept |
 | 6.1-55 | main | Self exclusion Ends {date}, {time} Adding funds and opening cases are closed until then. It cannot be lifted early. | text | `WF_STR.selfExclusion`, page | responsible-excluded | C4 | Self exclusion Ends {date}, {time} Adding funds and opening cases are closed until then. It cannot be ended early, by you or by us. (step 4, "Dangerous act") |
-| 6.1-56 | main | Taking what you hold out to Steam is open. So is support, and so is reading the product. | note | page | responsible-excluded | C6 | kept |
+| 6.1-56 | main | Taking what you hold out to Steam is open. So is support, and so is reading the product. | note | page | responsible-excluded | C6 | Sending items to Steam stays available. So does support, and so does reading the product. (C9: availability is "available"; C1, step 8) |
 | 6.1-57 | main | Reading this page needs no account. Setting a boundary does: Sign in. | text | page | responsible-guest | C5 | Reading this page needs no account. Setting a limit does: Sign in. (Glossary C5: limit, never boundary) |
 | 6.1-58 | main | A cool down is running. Boundaries can still be tightened while it does. | text | page | responsible-in-force | C5 | A cool down is running. Limits can still be tightened while it does. (Glossary C5: limit, never boundary) |
 | 6.1-59 | main | Cool down Ends {date}, {time} Adding funds and opening cases are closed until then. It cannot be shortened, and extending it takes effect immediately. | text | `WF_STR.coolDown`, page | responsible-in-force | C4 | kept |

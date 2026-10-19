@@ -322,7 +322,7 @@ Inherited from `0.13` rather than derived. Indexation, canonical, schema and bre
 | Terms of use | `/legal/terms` | `Terms of use - CS2 Clutch` | `The rules between you and CS2 Clutch, in plain words above the full text, with every past version and the date each one took effect.` |
 | Privacy policy | `/legal/privacy` | `Privacy policy - CS2 Clutch` | `What data CS2 Clutch collects, why, and what you can ask us to do with it. A plain summary above the full policy, and every past version kept.` |
 | Cookie policy | `/legal/cookies` | `Cookie policy - CS2 Clutch` | `Which cookies CS2 Clutch sets, what each one is for, and how to change your choices at any time. A plain summary above the full policy.` |
-| Refund and payments policy | `/legal/refunds` | `Refund and payments policy - CS2 Clutch` | `How payments, refunds and disputed charges work on CS2 Clutch, and what happens to money that moves the wrong way. Plain summary above the policy.` |
+| Refund and payments policy | `/legal/refunds` | `Refund and payments policy - CS2 Clutch` | `How payments, refunds and chargebacks work on CS2 Clutch, and what happens to money that moves the wrong way. Plain summary above the policy.` |
 
 **Four titles, and they are the third node to answer one question, which means the question can no longer be avoided.** `0.13`'s pattern is `<node H1 subject>` then a separator then `CS2 Clutch`. **This node follows it four times. `0.10` follows it once. `6.1` refuses it.** All six of those pages are indexed, `CS2 Clutch` is a working placeholder, and **a title is the one string that reaches search results and browser history before anyone reviews it.** Two nodes disagreeing was an inconsistency; three nodes and six indexed URLs is a decision that has to be taken. **The titles above stay as written and the collision is carried in section 10**, because rewriting them here would settle it by editing order rather than by a decision.
 
@@ -347,10 +347,10 @@ Inherited from `0.13` rather than derived. Indexation, canonical, schema and bre
 
 The clause text is counsel's. **These four leads are the node's own copy and they carry no legal claim**, only a description of the page.
 
-- **Terms of use.** "These are the rules between you and CS2 Clutch: what you can do here, what we do, and what happens when something goes wrong. The short version is first. The full text is below it, and the full text is the one that governs."
+- **Terms of use.** "These are the rules between you and us: what you can do here, what we do, and what happens when something goes wrong. The short version is first. The full text is below it, and the full text is the one that governs."
 - **Privacy policy.** "What we collect, why we collect it, who else sees it, and what you can ask us to do with it. The short version is first, the full policy is below it, and every earlier version is kept where you can read it."
 - **Cookie policy.** "What we store on your device, what each thing is for, and how to change your mind. You can change your choices from this page at any time."
-- **Refund and payments policy.** "How money moves in and out, what happens when a payment fails or is disputed, and what you can get back. The short version is first and the full policy is below it."
+- **Refund and payments policy.** "How money moves in and out, what happens when a payment fails or is charged back, and what you can get back. The short version is first and the full policy is below it."
 
 **One line is not a lead and it appears on all four**, above the version history: "This document has changed *N* times. Every version is below, with the date it took effect and what changed." The count is read from the version register, never typed.
 
