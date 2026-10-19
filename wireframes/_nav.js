@@ -491,7 +491,7 @@ var WF_STR = {
   classic: 'Classic',
   classicSub: 'The collections that were here first',
   numbersH2: 'What the numbers on a case mean',
-  numbersBody: 'Every tile shows the entry cost of one open and the risk band of the case, High, Medium or Low, read from its drop table. Open a case to see every item with its chance, its current value and the ticket range the roll resolves against. The daily case is earned by wagering, and the tier you reach decides which case it opens.',
+  numbersBody: 'Every tile shows the price of one open and the risk of the case, high, medium or low, read from its drop table. Open a case to see every item with its chance, its current value and the ticket range the round resolves against. The daily case is earned by wagering, and the tier you reach decides which case it opens.',
   /* Result and player */
   whatThisPlaceIs: 'What this place is',
   howProofWorks: 'Provably fair',
@@ -515,11 +515,11 @@ var WF_STR = {
   fairProves: 'What this proves',
   fairProvesBody: 'The result of this round was fixed before you clicked, and it was not changed afterwards.',
   fairNotProves: 'What this does not prove',
-  fairNotProvesBody: 'That the chances we publish are the chances the roll used.',
+  fairNotProvesBody: 'That the chances we publish are the chances the round used.',
   fairAnswered: 'Where that is answered',
   fairObserved: 'The observed rate beside every published percentage on the case screen',
   fairPublished: 'The published chance and current value on every item',
-  fairTested: 'The tested return and the expected value at that entry cost',
+  fairTested: 'The tested return and the expected value at that price',
   checkARound: 'Check a round',
   readAlgorithm: 'Read the algorithm',
   fairFixedH: 'How a round is fixed before you click',
@@ -538,14 +538,14 @@ var WF_STR = {
   nonce: 'Nonce',
   fairNonceWhat: 'A whole number that advances',
   settledResult: 'Settled result',
-  fairResultWhat: 'The number the roll produced',
+  fairResultWhat: 'The number the round produced',
   ticketRange: 'Ticket range',
   fairRangeWhat: 'The interval the result falls in, and the item holding it',
   fairTableRow: 'The drop table in force at that round, versioned',
   fairTableWhat: 'Its version, printed with the round',
   fairHashLabel: 'Server seed hash, published before the round',
   fairSeedLabel: 'Server seed, revealed on rotation',
-  recompute: 'Recompute this round',
+  recompute: 'Recompute it yourself',
   fairMismatchH: 'If your check does not match ours',
   fairMismatchBody: 'Report it from the result, with the round attached. You get a reference and an answer within 72 hours.',
   fairAlgoH: 'The algorithm, published in full',
@@ -579,12 +579,12 @@ var WF_STR = {
   askUs: 'Ask us',
   /* Responsible play */
   rpWhat: 'What these tools do',
-  rpFour: 'Four boundaries you set yourself.',
-  rpTighten: 'Tightening one takes effect immediately. Loosening one takes 24 hours, and the boundary you have now holds until then.',
-  rpClosesH: 'What a boundary closes, and what it never closes',
-  rpCanClose: 'A boundary can close',
+  rpFour: 'Four limits you set yourself.',
+  rpTighten: 'Tightening one takes effect immediately. Loosening one takes 24 hours, and the limit you have now holds until then.',
+  rpClosesH: 'What a limit closes, and what it never closes',
+  rpCanClose: 'A limit can close',
   rpCanCloseList: 'Adding funds. Opening a case. A session, when its length is reached.',
-  rpNeverClose: 'No boundary ever closes',
+  rpNeverClose: 'No limit ever closes',
   rpNeverCloseList: '<strong>Taking what you hold out to Steam.</strong> Support. Reading the product.',
   depositLimit: 'Deposit limit',
   rpDepositWhat: 'Caps what you can put in over a period.',
@@ -608,9 +608,9 @@ var WF_STR = {
   days30: '30 days',
   startCoolDown: 'Start a cool down',
   selfExclusion: 'Self exclusion',
-  rpExclWhat: 'Closes adding funds and opening cases for longer. The one thing here you cannot undo.',
+  rpExclWhat: 'Closes adding funds and opening cases for longer. It cannot be ended early, by you or by us.',
   endEarly: 'End early',
-  rpEndEarlyNo: 'Not possible, and that is the point of it.',
+  rpEndEarlyNo: 'Not possible, by you or by us.',
   months6: '6 months',
   year1: '1 year',
   years5: '5 years',
@@ -1590,10 +1590,10 @@ window.WF_PAY = window.WF_PAY || {
             '<div class="wf-closes-c"><span class="wf-closes-k">Closes</span><span>Opening a case, and adding funds.</span></div>' +
             '<div class="wf-closes-c"><span class="wf-closes-k">Stays open</span><span>Taking what you hold out to Steam. Support. Reading the product.</span></div>' +
           '</div>' +
-          '<p class="wf-note">It cannot be lifted early. That is what it is for.</p>' +
+          '<p class="wf-note">It cannot be ended early, by you or by us.</p>' +
           '<div class="wf-row">' +
             '<a class="wf-btn" href="responsible.html" data-ex-dismiss>Cancel</a>' +
-            '<a class="wf-btn" href="responsible-excluded.html?x=' + encodeURIComponent(p) + '" data-ex-confirm="' + p + '">Confirm</a>' +
+            '<a class="wf-btn" href="responsible-excluded.html?x=' + encodeURIComponent(p) + '" data-ex-confirm="' + p + '">Start self exclusion</a>' +
           '</div>' +
         '</div>' +
       '</div></div>';
@@ -1625,10 +1625,10 @@ window.WF_PAY = window.WF_PAY || {
       [['How do I know a round was fair?', 'Every round has a proof you can recompute without an account.', 'fair.html', WF_STR.provablyFair]]],
     ['Putting money in', 'Adding funds, the crediting window, and a payment that did not go through',
       [['My deposit has not arrived', 'Most arrive within 2 minutes. The deposit keeps its state and support can see it.', 'history-deposits.html', 'Your deposits']]],
-    ['Getting your items out', 'Withdrawing to Steam, the clock, and a trade that did not arrive',
-      [['What if a win cannot be sent to Steam?', 'It stays in My items. You can send it later, or sell it back for coins at its value.', 'account.html', WF_STR.myItems]]],
-    ['Limits and self exclusion', 'The four boundaries, what each one closes, and what none of them closes',
-      [['Can a limit stop me taking my items out?', 'No. No limit ever closes a withdrawal to Steam.', 'responsible.html', WF_STR.responsiblePlay]]],
+    ['Getting your items out', 'Sending to Steam, the clock, and a trade offer that did not arrive',
+      [['What if an item cannot be sent to Steam?', 'It stays in My items. You can send it later, or sell it for coins at its value.', 'account.html', WF_STR.myItems]]],
+    ['Limits and self exclusion', 'Your four limits, what each one closes, and what none of them closes',
+      [['Can a limit stop me taking my items out?', 'No. No limit ever stops you sending items to Steam.', 'responsible.html', WF_STR.responsiblePlay]]],
     ['Your account and your data', 'The documents, and what is held about you',
       [['Do you ever ask for my Steam password?', 'Never. You sign in on Steam\'s own page.', 'legal-unpublished.html?doc=privacy', WF_STR.privacyPolicy]]],
     ['When something goes wrong', 'A restriction, a refused check, and a proof of ours that did not match',
@@ -1891,6 +1891,7 @@ window.WF_PAY = window.WF_PAY || {
       txt('[data-fig-recv]',  f.receive + ' coins');
       txt('[data-fig-bonus]', '+' + f.bonus + ' coins');
       txt('[data-fig-total]', '$' + f.amount);
+      txt('[data-fig-pay]', f.amount);
     }
 
     if (amt) {
@@ -1954,7 +1955,7 @@ window.WF_PAY = window.WF_PAY || {
       if (!needTerms) { say.classList.add('is-said'); say.textContent = why; if (amt) amt.focus(); return; }
       // THE ANSWER IS A PLACE ON THE SCREEN AND NOT ONLY A SENTENCE ABOUT ONE.
       say.classList.add('is-said');
-      say.textContent = 'Nothing went through: the terms and the refund policy have not been accepted yet.';
+      say.textContent = 'Nothing went through: the Terms of use and the Refund and payments policy have not been accepted yet.';
       terms.classList.add('is-missing');
       terms.querySelector('.wf-cbx-box').focus();
     });
@@ -2884,7 +2885,7 @@ window.WF_PAY = window.WF_PAY || {
       out.push('<p class="wf-fail-h">Steam is not answering right now</p>');
       out.push('<p class="wf-fail-p"><b>This is on Steam&#39;s side.</b> Try again shortly. Everything public still works without an account.</p>');
       out.push('<div class="wf-fail-acts">');
-      out.push('<a class="wf-btn wf-btn--primary" href="case.html">Back to the case</a>');
+      out.push('<a class="wf-btn wf-btn--primary" href="catalogue.html">See the cases</a>');
       out.push('<a class="wf-btn" href="fair.html">' + WF_STR.provablyFair + '</a>');
       out.push('</div>');
       out.push('</div>');
@@ -2913,7 +2914,7 @@ window.WF_PAY = window.WF_PAY || {
     // REAL CONTROLS, NOT DRAWINGS OF CONTROLS. Each one is a button with the
     // checkbox role and its own checked state, and the text beside it toggles it
     // too, except where the text is a link to the document it names.
-    out.push('<div class="wf-cbx' + (terms ? ' is-set' : (blocked ? ' is-missing' : '')) + '"><button class="wf-cbx-box" type="button" role="checkbox" aria-checked="' + (terms ? 'true' : 'false') + '" aria-labelledby="wf-cbx-t1"><span aria-hidden="true">✓</span></button><span class="wf-cbx-t" id="wf-cbx-t1">I agree to the <a href="legal.html">Terms and Conditions</a> and the <a href="legal-unpublished.html?doc=privacy">Privacy Policy</a>.</span></div>');
+    out.push('<div class="wf-cbx' + (terms ? ' is-set' : (blocked ? ' is-missing' : '')) + '"><button class="wf-cbx-box" type="button" role="checkbox" aria-checked="' + (terms ? 'true' : 'false') + '" aria-labelledby="wf-cbx-t1"><span aria-hidden="true">✓</span></button><span class="wf-cbx-t" id="wf-cbx-t1">I agree to the <a href="legal.html">' + WF_STR.termsOfUse + '</a> and the <a href="legal-unpublished.html?doc=privacy">' + WF_STR.privacyPolicy + '</a>.</span></div>');
     out.push('<div class="wf-cbx' + (age ? ' is-set' : (blocked ? ' is-missing' : '')) + '"><button class="wf-cbx-box" type="button" role="checkbox" aria-checked="' + (age ? 'true' : 'false') + '" aria-labelledby="wf-cbx-t2"><span aria-hidden="true">✓</span></button><span class="wf-cbx-t" id="wf-cbx-t2">I declare that I am 18 or over.</span></div>');
     // THE REASON IS WORDS, not only a dimmed button, and in the partial state it
     // NAMES WHICH DECLARATION IS MISSING rather than repeating the general
@@ -2991,7 +2992,7 @@ window.WF_PAY = window.WF_PAY || {
       // those three work now, that Steam is needed to take a skin out, and that
       // the link is not urgent. What went was the explanation of why, which the
       // node holds and this surface does not owe.
-      out.push('<p class="wf-prov-cost">To withdraw skins, <b>link Steam</b>, any time.</p>');
+      out.push('<p class="wf-prov-cost">To send items to Steam, <b>link your Steam account</b>, any time.</p>');
       out.push('</div>');
     }
 
@@ -3026,7 +3027,7 @@ window.WF_PAY = window.WF_PAY || {
     if (!isDlg) {
       out.push('<div class="wf-auth-blk">');
       out.push('<' + h + '>Or keep looking around without an account</' + h + '>');
-      out.push('<p class="wf-auth-lede"><a href="case.html">Back to the case</a> or <a href="index.html">home</a>. Everything here is readable without an account.</p>');
+      out.push('<p class="wf-auth-lede"><a href="catalogue.html">See the cases</a> or go <a href="index.html">home</a>. Everything here is readable without an account.</p>');
       out.push('</div>');
     }
 
@@ -3221,22 +3222,22 @@ window.WF_PAY = window.WF_PAY || {
       body =
         '<div class="wf-check" role="status">' +
           '<span class="wf-check-dot" aria-hidden="true"></span>' +
-          '<span>Checking whether we serve your market</span>' +
+          '<span>Checking whether we serve your country</span>' +
         '</div>';
       return '<div class="wf-dlg-scrim" aria-hidden="true"></div>' +
-             '<div class="wf-dlg-wrap"><div class="wf-dlg wf-dlg--plain" role="dialog" aria-modal="true" aria-label="Checking the market">' +
+             '<div class="wf-dlg-wrap"><div class="wf-dlg wf-dlg--plain" role="dialog" aria-modal="true" aria-label="Checking your country">' +
              '<div class="wf-dlg-body"><div class="wf-gate">' + body + '</div></div></div></div>';
     }
 
     if (state === 'staged') {
       body =
-        '<h2 class="wf-gate-h" id="wf-gate-h">This market is open with one limit.</h2>' +
+        '<h2 class="wf-gate-h" id="wf-gate-h">Available here, with one cap.</h2>' +
         /* THE LIMIT COMES FROM THE MARKET ROW AND IS NEVER INVENTED HERE. This
            node holds no market list, no legal citation and no age constant: a
            constant here is a second register that will disagree with the first. */
         '<div class="wf-limit">' +
-          '<span class="wf-limit-h">The limit</span>' +
-          '<p class="wf-gate-p">Deposits are capped at <strong>$100 a week</strong> here for now. Withdrawal to Steam is open.</p>' +
+          '<span class="wf-limit-h">The cap</span>' +
+          '<p class="wf-gate-p">Deposits are capped at <strong>$100 a week</strong> here for now. Sending to Steam is available.</p>' +
         '</div>' +
         /* REJECT AS EASY AS ACCEPT, the rule this product already applied to its
            other interrupt. Declining returns the person to what they were
@@ -3244,12 +3245,12 @@ window.WF_PAY = window.WF_PAY || {
         '<div class="wf-gate-acts">' +
           /* EQUAL WEIGHT, gate.md section 4.2 block 3, round 16, D1-23: Continue
              was primary beside a plain Not now. */
-          '<button class="wf-btn" type="button" data-gate-dismiss data-auth-open="default">Continue</button>' +
+          '<button class="wf-btn" type="button" data-gate-dismiss data-auth-open="default">Continue to sign in</button>' +
           '<button class="wf-btn" type="button" data-gate-dismiss>Not now</button>' +
         '</div>';
     } else if (state === 'blocked') {
       body =
-        '<h2 class="wf-gate-h" id="wf-gate-h">We cannot serve this market.</h2>' +
+        '<h2 class="wf-gate-h" id="wf-gate-h">We cannot serve this country.</h2>' +
         '<p class="wf-gate-p">The law where you are does not allow what this site does.</p>' +
         /* THE GROUND IS PER MARKET AND COMES FROM THE REGISTER. Where a row's
            ground is [?] the row is not blocked at all: B4's success signal is
@@ -3269,9 +3270,9 @@ window.WF_PAY = window.WF_PAY || {
         ? 'We could not work out where you are, so opening cases is not available.'
         : 'Opening cases is not available where you are.';
       body = (state === 'unavailable'
-        ? '<h2 class="wf-gate-h" id="wf-gate-h">We could not check your market.</h2>' +
+        ? '<h2 class="wf-gate-h" id="wf-gate-h">We could not check your country.</h2>' +
           '<p class="wf-gate-p">Opening cases is not available until we can. Try again shortly.</p>'
-        : '<h2 class="wf-gate-h" id="wf-gate-h">We do not serve this market yet.</h2>' +
+        : '<h2 class="wf-gate-h" id="wf-gate-h">We do not serve this country yet.</h2>' +
           '<p class="wf-gate-p">' + lede + '</p>') +
         openLine() + refusalActs();
     }
@@ -3286,14 +3287,14 @@ window.WF_PAY = window.WF_PAY || {
      and it is the same sentence on both refusals. */
   function openLine() {
     // A GUEST HAS NO BALANCE, round 14: the second half is said only to an account.
-    return '<p class="wf-gate-open">You can still browse.' + ((window.WF_SHELL && window.WF_SHELL.account) ? ' Your balance and items stay yours, and withdrawal stays open.' : '') + '</p>';
+    return '<p class="wf-gate-open">You can still browse.' + ((window.WF_SHELL && window.WF_SHELL.account) ? ' Your balance and items stay yours, and sending to Steam stays available.' : '') + '</p>';
   }
   function refusalActs() {
     // NEVER A LIST OF THE MARKETS THAT ARE OPEN. The footer's market statement
     // is the public face of the register; this dialog answers one person.
     return '<div class="wf-gate-acts">' +
       '<a class="wf-btn wf-btn--primary" href="support.html">' + WF_STR.support + '</a>' +
-      '<a class="wf-btn" href="fair.html">How drops are proven</a>' +
+      '<a class="wf-btn" href="fair.html">' + WF_STR.provablyFair + '</a>' +
     '</div>';
   }
 
@@ -3437,9 +3438,9 @@ window.WF_PAY = window.WF_PAY || {
        panel printed both 64 character values whole with no way to copy them. */
     var cp = function (v) { return ' <button class="wf-btn wf-btn--small" type="button" data-copy="' + v + '">' + WF_STR.copy + '</button>'; };
     var SEEDS =
-      '<div class="wf-fpair"><span class="wf-fpair-k">Server seed hash, published before the roll</span>' +
+      '<div class="wf-fpair"><span class="wf-fpair-k">' + WF_STR.fairHashLabel + '</span>' +
         '<span class="wf-fpair-v">' + R.hash + cp(R.hash) + '</span></div>' +
-      '<div class="wf-fpair"><span class="wf-fpair-k">Server seed, revealed after</span>' +
+      '<div class="wf-fpair"><span class="wf-fpair-k">' + WF_STR.fairSeedLabel + '</span>' +
         '<span class="wf-fpair-v">' + R.seed + cp(R.seed) + '</span></div>' +
       '<div class="wf-fpair"><span class="wf-fpair-k">' + WF_STR.clientSeed + '</span><span class="wf-fpair-v">' + R.client + '</span></div>' +
       '<div class="wf-fpair"><span class="wf-fpair-k">' + WF_STR.nonce + '</span><span class="wf-fpair-v">' + R.nonce + '</span></div>' +
@@ -3477,7 +3478,7 @@ window.WF_PAY = window.WF_PAY || {
       tag = (state === 'checked') ? 'Recomputed: matches' : 'Settled';
       fields = SEEDS;
       scope = 'Proves the round was fixed before the click. Whether the chances hold is on the case screen, <a href="' + BASE + caseHref(R.kase || 'Ironbound', false) + '#h2-observed">published against observed</a>.';
-      acts = '<a class="wf-btn wf-btn--primary" href="fair-prefilled.html' + (roundKey() === 'ak' ? '' : '?round=' + roundKey()) + '">Recompute this round yourself</a>';
+      acts = '<a class="wf-btn wf-btn--primary" href="fair-prefilled.html' + (roundKey() === 'ak' ? '' : '?round=' + roundKey()) + '">Recompute it yourself</a>';
     }
 
     return '' +
@@ -3514,7 +3515,7 @@ window.WF_PAY = window.WF_PAY || {
     var cn = q('.wf-caserow strong'); if (cn) cn.textContent = K;
     var cr = q('.wf-caserow'); if (cr && K !== 'Ironbound') cr.setAttribute('href', BASE + caseHref(K, false));
     var v = document.querySelectorAll('.wf-vals .wf-fig');
-    if (v[0]) v[0].innerHTML = '<span class="wf-fig-v">' + R.won + ' coins</span><span class="wf-fig-c">Worth when it was won, ' + R.at + '</span>';
+    if (v[0]) v[0].innerHTML = '<span class="wf-fig-v">' + R.won + ' coins</span><span class="wf-fig-c">Value when it was won, ' + R.at + '</span>';
     if (v[1]) v[1].innerHTML = '<span class="wf-fig-v">' + R.now + ' coins</span><span class="wf-fig-c">' + WF_STR.worthNow + '</span>';
     var o = q('.wf-caserow .wf-fig-c');
     if (o) o.textContent = 'Opened ' + R.at;
@@ -3633,8 +3634,8 @@ window.WF_PAY = window.WF_PAY || {
       /* THE BAR AND THE LINE FOLLOW, round 15: the sticky bar kept the old price
          and the line under the title kept the old count. */
       var sb = document.querySelector('.wf-commit-bar .wf-btn--primary'); if (sb && act) sb.textContent = act.textContent;
-      var words = ['', 'one roll', 'two rolls', 'three rolls', 'four rolls', 'five rolls'];
-      var cl = document.querySelector('.wf-case-line'); if (cl) cl.textContent = cl.textContent.replace(/(one|two|three|four|five) rolls?\./, words[n] + '.');
+      var words = ['', 'one open', 'two opens', 'three opens', 'four opens', 'five opens'];
+      var cl = document.querySelector('.wf-case-line'); if (cl) cl.textContent = cl.textContent.replace(/(one|two|three|four|five) (rolls?|opens?)\./, words[n] + '.');
       var line = scope.parentNode.querySelector('.wf-fig-c');
       var af = bal - n * unit;
       if (line && /After this open|does not cover/.test(line.innerHTML)) line.innerHTML = line.innerHTML.replace(/(After this open, -?[\d.]+|The balance does not cover this open, short by [\d.]+)/, af >= 0 ? 'After this open, ' + af.toFixed(2) : 'The balance does not cover this open, short by ' + (-af).toFixed(2));
@@ -3902,7 +3903,7 @@ window.WF_PAY = window.WF_PAY || {
        rolls, each with its own check. */
     var ca = [].slice.call(document.querySelectorAll('.wf-outcome-links a[href="fair.html#check"]'))[0], db = document.querySelector('.wf-detail-b');
     if (ca && db) {
-      ca.setAttribute('href', '#wf-rolls-pop'); ca.textContent = 'Check each of the ' + keys.length + ' rolls';
+      ca.setAttribute('href', '#wf-rolls-pop'); ca.textContent = 'Check each of the ' + keys.length + ' rounds';
       ca.addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); if (db.getAttribute('aria-expanded') !== 'true') db.click(); var f = document.querySelector('#wf-rolls-pop a'); if (f) f.focus(); });
     }
     outcomeLeft();
@@ -4493,18 +4494,18 @@ window.WF_PAY = window.WF_PAY || {
              decoration: a slider cannot be typed into, and a person holding a
              ceiling in their head has a number rather than a gesture. */
           '<div class="wf-fset">' +
-            '<span class="wf-fset-h" id="f-price-h">Price amount, in coins</span>' +
+            '<span class="wf-fset-h" id="f-price-h">Price, in coins</span>' +
             '<input class="wf-range" type="range" min="0" max="55" value="55" aria-labelledby="f-price-h">' +
             '<div class="wf-steppers">' +
               '<div class="wf-stepper">' +
                 '<button class="wf-btn wf-btn--small" type="button" aria-label="Decrease the minimum" data-step="f-min:-1">-</button>' +
-                '<label class="wf-vh" for="f-min">Minimum entry cost</label>' +
+                '<label class="wf-vh" for="f-min">Minimum price</label>' +
                 '<input id="f-min" type="text" inputmode="decimal" value="0.00">' +
                 '<button class="wf-btn wf-btn--small" type="button" aria-label="Increase the minimum" data-step="f-min:1">+</button>' +
               '</div>' +
               '<div class="wf-stepper">' +
                 '<button class="wf-btn wf-btn--small" type="button" aria-label="Decrease the maximum" data-step="f-max:-1">-</button>' +
-                '<label class="wf-vh" for="f-max">Maximum entry cost</label>' +
+                '<label class="wf-vh" for="f-max">Maximum price</label>' +
                 '<input id="f-max" type="text" inputmode="decimal" value="55.00">' +
                 '<button class="wf-btn wf-btn--small" type="button" aria-label="Increase the maximum" data-step="f-max:1">+</button>' +
               '</div>' +
@@ -4519,7 +4520,7 @@ window.WF_PAY = window.WF_PAY || {
              LIVE SINCE D-127: the tiles carry sample bands by D-124, so the
              filter has something to sort. The thresholds stay open in 0.11. */
           '<div class="wf-fset">' +
-            '<span class="wf-fset-h" id="f-risk-h">Risk level</span>' +
+            '<span class="wf-fset-h" id="f-risk-h">Risk</span>' +
             '<div class="wf-riskset" role="group" aria-labelledby="f-risk-h">' +
               '<label class="wf-riskrow"><input type="checkbox" data-risk="Low">' + pips(1) + 'Low</label>' +
               '<label class="wf-riskrow"><input type="checkbox" data-risk="Medium">' + pips(2) + 'Medium</label>' +
@@ -4535,7 +4536,7 @@ window.WF_PAY = window.WF_PAY || {
           '<div class="wf-fset">' +
             '<span class="wf-fset-h" id="f-add-h">Additional</span>' +
             '<div class="wf-riskset" role="group" aria-labelledby="f-add-h">' +
-              '<label class="wf-riskrow"><input type="checkbox" data-f-liked>Liked</label>' +
+              '<label class="wf-riskrow"><input type="checkbox" data-f-liked>Favorites</label>' +
               '<label class="wf-riskrow"><input type="checkbox" data-f-funds>Sufficient funds to open</label>' +
             '</div>' +
           '</div>' : '') +
@@ -4552,8 +4553,8 @@ window.WF_PAY = window.WF_PAY || {
             '<label class="wf-fset-h" for="f-sort">Sort by</label>' +
             '<select id="f-sort">' +
               '<option>Date, newest first</option>' +
-              '<option>Entry cost, low to high</option>' +
-              '<option>Entry cost, high to low</option>' +
+              '<option>Price, low to high</option>' +
+              '<option>Price, high to low</option>' +
             '</select>' +
           '</div>' +
 
@@ -4650,7 +4651,7 @@ window.WF_PAY = window.WF_PAY || {
       if (F.risk.length) CH.push([F.risk.join(' or ') + ' risk', function () { F.risk = []; }]);
       if (F.q) CH.push(['Name has \u201c' + F.q + '\u201d', function () { F.q = ''; }]);
       if (F.max < 55 || F.min > 0) CH.push([(F.min > 0 ? F.min.toFixed(2) + ' to ' : 'under ') + F.max.toFixed(2) + ' coins', function () { F.min = 0; F.max = 55; }]);
-      if (F.liked) CH.push(['Favourites only', function () { F.liked = false; }]);
+      if (F.liked) CH.push(['Favorites only', function () { F.liked = false; }]);
       if (F.funds) CH.push(['Within my balance', function () { F.funds = false; }]);
       if (F.type !== 'All') CH.push([F.type + ' only', function () { F.type = 'All'; }]);
       var chips = document.querySelector('[data-live-chips]');
@@ -5239,7 +5240,7 @@ window.WF_PAY = window.WF_PAY || {
         acts.appendChild(r);
       }
       if (cur.def.del && cur.items.length) {
-        var d = el('button', 'wf-btn wf-btn--small', 'Delete all');
+        var d = el('button', 'wf-btn wf-btn--small', 'Delete all messages');
         d.type = 'button';
         d.addEventListener('click', function () { cur.items = []; draw(); });
         acts.appendChild(d);
@@ -5504,7 +5505,7 @@ window.WF_PAY = window.WF_PAY || {
     withdrawals: [
       { k: 'when',  h: 'When',           mono: true, num: true },
       { k: 'what',  h: 'What' },
-      { k: 'worth', h: 'Worth then',     mono: true, num: true },
+      { k: 'worth', h: 'Value then',     mono: true, num: true },
       { k: 'state', h: 'State',          state: true },
       { k: 'wait',  h: 'Waiting on',     },
       { k: 'ours',  h: 'Our reference',  mono: true }
@@ -5644,7 +5645,7 @@ window.WF_PAY = window.WF_PAY || {
     card.appendChild(el('p', 'wf-inv-s', r.s));
     card.appendChild(el('p', 'wf-inv-wear', '(' + r.wear + ')'));
     card.appendChild(el('p', 'wf-inv-p', r.worth + ' coins'));
-    card.appendChild(el('span', 'wf-itemcard-k', 'Worth when won'));
+    card.appendChild(el('span', 'wf-itemcard-k', 'Value when won'));
     var meta = el('div', 'wf-plr-meta');
     var a = el('span'); a.appendChild(document.createTextNode('From'));
     a.appendChild(el('b', null, r.kase.replace(' Case', '')));
@@ -5683,8 +5684,8 @@ window.WF_PAY = window.WF_PAY || {
      set the Items tab also renders.
      --------------------------------------------------------------------- */
   var ROLL_PROOF = {
-    unreadable: 'The proof source could not be read just now. This is not the same as never having been kept: the roll still has its material and we cannot reach it this minute.',
-    noseed:     'No seed or nonce was kept for this roll, so there is nothing here to check. The roll is real and its record is complete. The proof is not.',
+    unreadable: 'The proof source could not be read just now. This is not the same as never having been kept: the round still has its material and we cannot reach it this minute.',
+    noseed:     'No seed or nonce was kept for this round, so there is nothing here to check. The round is real and its record is complete. The proof is not.',
     mismatch:   'Our own recomputation of this round does not match what we published. Reported automatically, with the round attached.'
   };
 
@@ -5712,7 +5713,7 @@ window.WF_PAY = window.WF_PAY || {
        contradiction about one object rather than two facts about two. THE NUMBER
        DID NOT NEED A BETTER LABEL, IT NEEDED THE RIGHT CELL. Under the case name
        it needs no label at all beyond what it does: coins to open. */
-    from.appendChild(el('span', 'wf-roll-cost', r.cost + ' coins to open'));
+    from.appendChild(el('span', 'wf-roll-cost', 'Price ' + r.cost + ' coins'));
     from.appendChild(el('span', 'wf-roll-when', r.when));
     row.appendChild(from);
 
@@ -5736,9 +5737,9 @@ window.WF_PAY = window.WF_PAY || {
     } else if (r.state === 'sending') {
       name.appendChild(el('span', 'wf-roll-flight', 'Sending to Steam, ' + r.went));
     } else if (r.state === 'sold') {
-      name.appendChild(el('span', 'wf-roll-gone', 'Sold back, ' + r.went));
+      name.appendChild(el('span', 'wf-roll-gone', 'Sold, ' + r.went));
     } else if (r.state === 'withdrawn') {
-      name.appendChild(el('span', 'wf-roll-gone', 'Withdrawn to Steam, ' + r.went));
+      name.appendChild(el('span', 'wf-roll-gone', 'Sent to Steam, ' + r.went));
     }
     /* EVERY FIGURE NAMES ITS OWN SUBJECT, D-120, and this is the third build of
        this strip in one day. It shipped as Cost / Worth / Chance, the founder
@@ -5756,7 +5757,7 @@ window.WF_PAY = window.WF_PAY || {
        always about. */
     var figs = el('span', 'wf-roll-figs');
     var fWorth = el('span', 'wf-roll-f');
-    fWorth.appendChild(el('span', 'wf-roll-k', 'Worth'));
+    fWorth.appendChild(el('span', 'wf-roll-k', 'Value'));
     fWorth.appendChild(el('b', 'wf-roll-v', r.worth + ' coins'));
     figs.appendChild(fWorth);
     /* THE CHANCE PUTS ITS FIGURE FIRST AND ITS SUBJECT AFTER, because the subject
@@ -5916,7 +5917,7 @@ window.WF_PAY = window.WF_PAY || {
     n.appendChild(el('span', null, '(' + row.wear + ')'));
     sel.appendChild(n);
     var pr = el('div', 'wf-selskin-p');
-    var p1 = el('span'); p1.appendChild(el('b', null, wdFmt(row.ours))); p1.appendChild(document.createTextNode('Our price for it'));
+    var p1 = el('span'); p1.appendChild(el('b', null, wdFmt(row.ours))); p1.appendChild(document.createTextNode(WF_STR.yourSkinPrice));
     var p2 = el('span'); p2.appendChild(el('b', null, wdFmt(wdSteam(row)))); p2.appendChild(document.createTextNode('The Steam listing'));
     pr.appendChild(p1); pr.appendChild(p2);
     sel.appendChild(pr);
@@ -5929,7 +5930,7 @@ window.WF_PAY = window.WF_PAY || {
 
     var right = el('div', 'wf-offs-b');
     var head = el('div', 'wf-offs-h');
-    head.appendChild(el('span', 'wf-offs-t', 'Market offers'));
+    head.appendChild(el('span', 'wf-offs-t', 'Copies on sale'));
     head.appendChild(el('span', 'wf-fig-c', '', 'wd-count'));
     right.appendChild(head);
 
@@ -5939,9 +5940,9 @@ window.WF_PAY = window.WF_PAY || {
       var e = el('div', 'wf-empty');
       e.appendChild(el('p', 'wf-empty-h', 'There is no copy of this to buy'));
       e.appendChild(el('p', 'wf-empty-p', 'Sending a skin out means buying a real copy of it, and right now there is none on sale at any price. It cannot go to Steam today.'));
-      e.appendChild(el('p', 'wf-empty-p', 'What still works is selling it back to us for its value, which is our price for it and not a market price, so no copy has to exist for it to happen.'));
+      e.appendChild(el('p', 'wf-empty-p', 'What still works is selling it to us for its value, your skin price rather than a market price, so no copy has to exist for it to happen.'));
       var row2 = el('div', 'wf-row');
-      var sb = el('button', 'wf-btn', 'Sell it back for ' + wdFmt(row.ours) + ' coins'); sb.type = 'button';
+      var sb = el('button', 'wf-btn', 'Sell for ' + wdFmt(row.ours) + ' coins'); sb.type = 'button';
       /* THE SALE MOVES THE MONEY AND LEAVES THE SUM, round 15: it printed Sold
          over a settlement and a header that did not change. */
       sb.addEventListener('click', function () {
@@ -5950,7 +5951,7 @@ window.WF_PAY = window.WF_PAY || {
         var sh0 = sel.querySelector('.wf-selskin-h'); if (sh0) sh0.textContent = 'Sold back';
         /* WHAT IS SOLD IS NOT DESCRIBED AS STILL HELD, round 17, B2-16. */
         Array.prototype.forEach.call(e.querySelectorAll('.wf-empty-p'), function (x) { x.remove(); });
-        var eh = e.querySelector('.wf-empty-h'); if (eh) eh.textContent = 'Sold back for ' + wdFmt(row.ours) + ' coins. It has left this basket.';
+        var eh = e.querySelector('.wf-empty-h'); if (eh) eh.textContent = 'Sold for ' + wdFmt(row.ours) + ' coins. It has left this basket.';
         kp.remove();
         moneyAdd(row.ours, -row.ours); row.removed = true; WF_SESS.gone(row.key || wdKeys()[0], 'sold');
         if (row._repaint) row._repaint();
@@ -6162,7 +6163,7 @@ window.WF_PAY = window.WF_PAY || {
     /* WHAT ALREADY LEFT IS NOT OFFERED AGAIN, round 17, B2-1: an item the
        session had sent, sold or cashed out could be sent again and the money
        moved twice, down to a negative value held. */
-    var GONE = WF_SESS.get('gone') || {}, HOW = { sent: 'is already on its way to Steam', sold: 'was sold back', cashed: 'was cashed out' };
+    var GONE = WF_SESS.get('gone') || {}, HOW = { sent: 'is already on its way to Steam', sold: 'was sold', cashed: 'was cashed out' };
     var left = rows.filter(function (r) { return GONE[r.key]; });
     if (left.length) {
       var gn = el('p', 'wf-refuse is-said');
@@ -6216,7 +6217,7 @@ window.WF_PAY = window.WF_PAY || {
          round 16, B2-19 and B2-20: the Glock's note stood when no Glock was
          picked, and a basket of only no-copy rows totalled +0.00. */
       var nc = document.querySelector('[data-wd-nocopy]'), ncRows = rows.filter(function (r) { return !r.removed && !r.offers.length; });
-      if (nc) { nc.hidden = !ncRows.length; if (ncRows.length) nc.innerHTML = '<strong>' + ncRows.map(function (r) { return r.w + ' ' + r.s; }).join(' and ') + ' cannot go to Steam and ' + (ncRows.length > 1 ? 'they are' : 'it is') + ' not stuck.</strong> There is no copy on sale to buy, so there is nothing to send and nothing to settle against. <strong>Selling back to us pays our own price and needs no copy to exist.</strong> The row above carries that control.'; }
+      if (nc) { nc.hidden = !ncRows.length; if (ncRows.length) nc.innerHTML = '<strong>' + ncRows.map(function (r) { return r.w + ' ' + r.s; }).join(' and ') + ' cannot go to Steam and ' + (ncRows.length > 1 ? 'they are' : 'it is') + ' not stuck.</strong> There is no copy on sale to buy, so there is nothing to send and nothing to settle against. <strong>Selling it to us pays your skin price and needs no copy to exist.</strong> The row above carries that control.'; }
       if (!going) { totalEl.textContent = 'Nothing settles'; sayEl.textContent = 'Nothing goes out, so nothing settles against your balance.'; btnEl.textContent = 'Nothing to send'; return; }
       totalEl.textContent = (total >= 0 ? '+' : '-') + wdFmt(Math.abs(total)) + ' coins';
       var bal = moneyNow().balance;
@@ -6249,7 +6250,7 @@ window.WF_PAY = window.WF_PAY || {
           r.pick = vis.length ? vis[0] : r.pick;
           if (vis.length) E.strip.children[r.pick].querySelector('.wf-off-r').checked = true;
         }
-        E.count.textContent = r.total + ' on the market, cheapest first';
+        E.count.textContent = r.total + ' on sale, cheapest first';
         E.say.textContent = vis.length === r.offers.length
           ? ''
           : 'Showing ' + vis.length + ' of ' + r.offers.length + '.';
@@ -6337,8 +6338,8 @@ window.WF_PAY = window.WF_PAY || {
     wrap.appendChild(histBar('Items', rolls.length, 'items'));
     if (!rolls.length) {
       wrap.appendChild(histEmpty('Nothing won yet',
-        'Every skin this account opens lands here and stays, with what it was worth at that moment and where it went afterwards.',
-        'catalogue.html', 'The case shelf'));
+        'Every skin this account opens lands here and stays, with its value at that moment and where it went afterwards.',
+        'catalogue.html', 'See the cases'));
     } else {
       var grid = el('div', 'wf-grid wf-grid--inv wf-itemgrid');
       rolls.forEach(function (r) { grid.appendChild(itemCard(r)); });
@@ -6515,7 +6516,7 @@ window.WF_PAY = window.WF_PAY || {
     /* THE MARK IS ON THE TILE AND THE REASON IS ONE LINE UNDER THE GRID, D-97.
        The whole sentence sat on the tile and stretched the first row from 74px to
        210px, so one orphan reshaped the grid for the other thirty four. */
-    if (!kind) node.appendChild(el('span', 'wf-pay-m wf-fig-missing', 'Not open yet'));
+    if (!kind) node.appendChild(el('span', 'wf-pay-m wf-fig-missing', 'Not available yet'));
     return node;
   }
 
@@ -6534,8 +6535,8 @@ window.WF_PAY = window.WF_PAY || {
     if (!B.pct) return null;
     var strip = el('div', 'wf-bonus-strip');
     var t = el('p', 'wf-bonus-t');
-    t.appendChild(el('strong', null, '+' + B.pctFull + ' bonus on every top-up'));
-    t.appendChild(document.createTextNode(', up to ' + B.cap + ' per ' + B.period + '. No wagering.'));
+    t.appendChild(el('strong', null, '+' + B.pctFull + ' bonus on every deposit'));
+    t.appendChild(document.createTextNode(', up to ' + B.cap + ' per ' + B.period + '. The bonus has no conditions.'));
     strip.appendChild(t);
     /* THE IMAGE IS A SLOT AND ITS SPACE IS THIS STAGE'S, D-50. It is on the right
        because that is where the reference banner carries its picture and because a
@@ -6570,7 +6571,7 @@ window.WF_PAY = window.WF_PAY || {
     var pin = el('input', 'wf-f');
     pin.id = idp + 'pay-promo'; pin.type = 'text'; pin.autocomplete = 'off';
     pr.appendChild(pin);
-    var pb = el('button', 'wf-btn', 'Apply');
+    var pb = el('button', 'wf-btn', 'Apply code');
     pb.type = 'button';
     pb.setAttribute('data-promo-apply', '');
     pr.appendChild(pb);
@@ -6659,7 +6660,7 @@ window.WF_PAY = window.WF_PAY || {
     // that matters where card details are typed, and it stays.
     return '' +
       '<div class="wf-stack">' +
-        '<h2 class="wf-pay-gh" id="' + P + 'h2-prov">Select provider. <span class="wf-pay-gh-s">Your card details go to the provider, not to us</span></h2>' +
+        '<h2 class="wf-pay-gh" id="' + P + 'h2-prov">Choose a provider. <span class="wf-pay-gh-s">Your card details go to the provider, not to us</span></h2>' +
         '<div class="wf-payprov" role="radiogroup" aria-labelledby="' + P + 'h2-prov">' +
           '<label class="wf-payprov-t"><input type="radio" name="' + P + 'prov" checked><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n">Provider A</span></label>' +
           '<label class="wf-payprov-t"><input type="radio" name="' + P + 'prov"><span class="wf-pay-art" aria-hidden="true"></span><span class="wf-pay-n">Provider B</span></label>' +
@@ -6721,7 +6722,7 @@ window.WF_PAY = window.WF_PAY || {
              field took letters, so a money field accepted a value that is not money
              and the receipt beside it read NaN. */
           '<div class="wf-amt">' +
-            '<label class="wf-cfg-l" id="' + P + 'h2-amount" for="' + P + 'dep-amt">Enter the amount</label>' +
+            '<label class="wf-cfg-l" id="' + P + 'h2-amount" for="' + P + 'dep-amt">Amount, in US dollars</label>' +
             '<div class="wf-amt-row">' +
               '<input class="wf-amt-in" id="' + P + 'dep-amt" data-dep-amt type="text" inputmode="decimal" value="' + f.amount + '" aria-describedby="' + P + 'dep-unit">' +
               '<span class="wf-amt-unit" id="' + P + 'dep-unit">US dollars</span>' +
@@ -6747,8 +6748,8 @@ window.WF_PAY = window.WF_PAY || {
              D-58 fixed: the press stays live and answers.
              THE BOX IS THE PRODUCT'S OWN CONTROL AND NOT THE BROWSER'S. */
           '<div class="wf-cbx" data-dep-terms>' +
-            '<button class="wf-cbx-box" type="button" aria-pressed="false" aria-label="I have read and accept the terms and the refund and payments policy">&#10003;</button>' +
-            '<span class="wf-cbx-t">I have read and accept the <a href="' + BASE + 'legal.html">terms</a> and the <a href="' + BASE + 'legal-refund.html">refund and payments policy</a>.</span>' +
+            '<button class="wf-cbx-box" type="button" aria-pressed="false" aria-label="I have read and accept the Terms of use and the Refund and payments policy">&#10003;</button>' +
+            '<span class="wf-cbx-t">I have read and accept the <a href="' + BASE + 'legal.html">' + WF_STR.termsOfUse + '</a> and the <a href="' + BASE + 'legal-refund.html">' + WF_STR.refundPolicy + '</a>.</span>' +
           '</div>' +
           /* THREE FACTS, ONE LINE EACH, D-129, where four paragraphs stood under
              the press. The figures are samples by D-124 and the node holds what
@@ -6759,7 +6760,7 @@ window.WF_PAY = window.WF_PAY || {
             /* THE MINIMUM IS SAID AS THIS ACCOUNT STANDS, round 16, B2-3: it asked
                for a first $5.00 above a ledger of completed deposits. C4's line for
                an account with none stays in 4.1 for the day that state is drawn. */
-            '<li>The <strong>$5.00</strong> minimum to withdraw is met by your deposits. It never rises.</li>' +
+            '<li>The <strong>$5.00</strong> minimum for sending to Steam is met by your deposits. It never rises.</li>' +
             '<li>Usually credited within <strong>2 minutes</strong>. <a href="' + BASE + 'support.html">' + WF_STR.support + '</a> if not.</li>' +
             '<li>' + (o.ceilAmt ? 'Deposit limit <strong>$' + o.ceilAmt + ' ' + o.ceilPer + '</strong> in force, <strong>$' + o.ceiling + '</strong> left this period after ' + o.ceilUsed.toFixed(2) + ' coins already in' + (o.ceilNext ? '; $' + o.ceilNext.amt + ' ' + o.ceilNext.per + ' from 22 Aug 2026, 09:31' : '') + '.' : o.ceiling ? 'Deposit limit <strong>$' + o.ceiling + '</strong>' + (o.ceilPer ? ' ' + o.ceilPer : '') + ' in force.' : 'No deposit limit set.') + ' <a href="' + BASE + 'responsible.html">' + (o.ceiling ? 'Change it' : 'Set one') + '</a></li>' +
           '</ul>' +
@@ -6812,7 +6813,7 @@ window.WF_PAY = window.WF_PAY || {
             '</div>' +
             '<p class="wf-refuse" data-dep-refuse>' + (o.refuse || '') + '</p>' +
             '<div class="wf-row">' +
-              '<a class="wf-btn wf-btn--primary" data-dep-go' + (o.ceiling ? ' data-ceiling="' + o.ceiling + '"' : '') + ' href="' + BASE + 'deposit-crediting.html">' + (o.go || 'Pay') + '</a>' +
+              '<a class="wf-btn wf-btn--primary" data-dep-go' + (o.ceiling ? ' data-ceiling="' + o.ceiling + '"' : '') + ' href="' + BASE + 'deposit-crediting.html">' + (o.go || 'Pay $<span data-fig-pay>' + f.amount + '</span>') + '</a>' +
             '</div>' +
           '</div>' +
         '</div>' +
@@ -6943,7 +6944,7 @@ window.WF_PAY = window.WF_PAY || {
           '<div class="wf-dock">' +
             '<div class="wf-recv"><span class="wf-fig-c">You will receive</span><span class="wf-recv-v" data-skin-sum>13.40 coins</span><span class="wf-fig-c" data-skin-n>3 skins</span></div>' +
             '<p class="wf-refuse" data-skin-say></p>' +
-            '<div class="wf-row"><a class="wf-btn wf-btn--primary" href="' + BASE + 'deposit-crediting.html" data-skin-go>Deposit 3 skins</a></div>' +
+            '<div class="wf-row"><a class="wf-btn wf-btn--primary" href="' + BASE + 'deposit-crediting.html" data-skin-go>Add 3 skins</a></div>' +
           '</div>' +
         '</div>' +
       '</div>';
@@ -7048,7 +7049,7 @@ window.WF_PAY = window.WF_PAY || {
       scope.querySelector('[data-skin-sum]').textContent = f.receive + ' coins';
       scope.querySelector('[data-skin-n]').textContent = n + ', ' + sum.toFixed(2) + ' plus ' + f.bonus + ' bonus';
       scope.querySelector('[data-skin-go]').setAttribute('href', BASE + 'deposit-crediting.html?a=' + f.receive + '&m=CS2%20skins');
-      scope.querySelector('[data-skin-go]').textContent = on.length ? 'Deposit ' + n : 'Pick a skin';
+      scope.querySelector('[data-skin-go]').textContent = on.length ? 'Add ' + n : 'Pick a skin';
     }
     /* A REFUSAL LEAVES WITH ITS CAUSE, round 17, B2-15. */
     picks.forEach(function (i) { i.addEventListener('change', function () { var sy = scope.querySelector('[data-skin-say]'); if (sy && picks.some(function (x) { return x.checked; })) { sy.textContent = ''; sy.classList.remove('is-said'); } paint(); }); });
@@ -7099,7 +7100,7 @@ window.WF_PAY = window.WF_PAY || {
       var v = (input && input.value || '').trim();
       say.textContent = v
         ? 'Nothing applied: no promo or partner code has been issued yet, so there is none to recognise.'
-        : 'Nothing to apply: the field is empty. A code is optional and the offer above does not need one.';
+        : 'Nothing to apply: the field is empty. A code is optional and the bonus does not need one.';
       say.classList.add('is-said');
     });
   }
@@ -7541,7 +7542,7 @@ window.WF_PAY = window.WF_PAY || {
             '<button class="wf-dlg-close" type="button" aria-label="Close">&#10005;</button>' +
             '<div class="wf-dlg-body">' +
               '<p class="wf-dlg-h" id="wf-co-h">Cash out</p>' +
-              '<p class="wf-dlg-sub">The items you ticked are sold back, and the money goes to a wallet you own.</p>' +
+              '<p class="wf-dlg-sub">The items you ticked are sold to us, and the money goes to a wallet you own.</p>' +
               '<div class="wf-co-lay" data-co-layer></div>' +
             '</div>' +
           '</div>' +
@@ -7582,7 +7583,7 @@ window.WF_PAY = window.WF_PAY || {
           else if (!net.chain) say.textContent = 'Which network we send ' + net.tick + ' on is not published yet, so an address cannot be checked and this request cannot go.';
           else if (!addr) say.textContent = (/^[AEIOU]/.test(net.name) ? 'An ' : 'A ') + net.name + ' address is needed. Nothing is sent anywhere without one.';
           else if (net.re && !net.re.test(addr)) say.textContent = 'That is not ' + (/^[AEIOU]/.test(net.name) ? 'an ' : 'a ') + net.name + ' address. Check it and paste it whole: coins sent to a wrong address are lost.';
-          else if (p.v < net.min) say.textContent = 'The smallest cash out on ' + net.name + ' is ' + net.min.toFixed(2) + ' coins. Tick more, or sell back instead.';
+          else if (p.v < net.min) say.textContent = 'The smallest cash out on ' + net.name + ' is ' + net.min.toFixed(2) + ' coins. Tick more, or sell instead.';
           else {
             say.textContent = 'Requested. ' + ((p.v - net.fee) / net.rate).toFixed(net.dp) + ' ' + net.tick + ' goes to ' + addr.slice(0, 6) + '…' + addr.slice(-4) + '. It is in History under Cash out.';
             /* THE REQUEST LEAVES A TRACE, round 16, B2-25: the items it sold
@@ -7836,7 +7837,7 @@ window.WF_PAY = window.WF_PAY || {
       // A POLICY THAT CHANGES SILENTLY INVALIDATES THE CONSENT GIVEN UNDER THE OLD
       // ONE, which is the same argument 0.9 makes for version history and 0.14 for
       // the proof scheme. So the record carries which version was agreed to.
-      r.appendChild(el('span', 'wf-ck-rec-k', 'Against'));
+      r.appendChild(el('span', 'wf-ck-rec-k', 'Under'));
       r.appendChild(el('span', 'wf-ck-rec-v', 'Cookie policy v3'));
       return r;
     }
@@ -8219,7 +8220,7 @@ window.WF_PAY = window.WF_PAY || {
       input.classList.remove('is-bad');
       input.removeAttribute('aria-invalid');
       if (!v) {
-        refuse('Nothing to save yet. Until this is filled in, a withdrawal cannot be sent.');
+        refuse('Nothing to save yet. Until this is filled in, nothing can be sent to Steam.');
         return;
       }
       // The shape Steam publishes: the offer path, a partner id and a token. A
@@ -8236,7 +8237,7 @@ window.WF_PAY = window.WF_PAY || {
         refuse('Steam will not accept this one: ' + missing.join(', ') + '. Get a fresh link from Steam and paste it whole.');
         return;
       }
-      if (say) say.textContent = 'Saved just now. Withdrawals will go to this address.';
+      if (say) say.textContent = 'Saved. Withdrawals go to this address.';
       /* THE DATE BESIDE SAVE FOLLOWS THE SAVE, round 16, B1-20. */
       var lc = save.parentNode.querySelector('.wf-quick-w'); if (lc) lc.textContent = 'Last changed 21 Aug 2026';
     });
