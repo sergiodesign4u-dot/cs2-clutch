@@ -162,6 +162,16 @@ def lockup(spark_on=False, mode='screen', mono=None, pink=PINK):
     vb = (sx0 - 40, y0, WB[0] + WB[2] - sx0 + 40, y1 - y0)
     return svg(sym + wordmark(spark_on, mode, mono, pink), vb, 'CS2 Clutch logo')
 
+def stacked(mode='screen', mono=None, pink=PINK):
+    """the symbol centred above the wordmark, for square and tall places"""
+    size, gap = 1100, 20
+    s = size / SB[2]
+    sx0 = WB[0] + WB[2] / 2 - size / 2
+    sy0 = WB[1] - gap - size
+    sym = '<g transform="translate(%.1f %.1f) scale(%.4f) translate(%.1f %.1f)">%s</g>' % (sx0, sy0, s, -SB[0], -SB[1], symbol(mode, mono, pink))
+    vb = (WB[0], sy0 - 40, WB[2], WB[1] + WB[3] - sy0 + 40)
+    return svg(sym + wordmark(False, mode, mono, pink), vb, 'CS2 Clutch logo, stacked')
+
 files = {
     'wordmark-screen.svg': svg(wordmark(), WB, 'CS2 Clutch wordmark'),
     'wordmark.svg': svg(wordmark(mode='gradient'), WB, 'CS2 Clutch wordmark'),
@@ -172,6 +182,15 @@ files = {
     'lockup-screen-spark.svg': lockup(True),
     'lockup.svg': lockup(mode='gradient'),
     'lockup-flat.svg': lockup(mode='flat'),
+    'lockup-stacked-screen.svg': stacked(),
+    'lockup-stacked-flat.svg': stacked('flat'),
+    'lockup-stacked-white.svg': stacked('mono', WHITE),
+    'wordmark-flat.svg': svg(wordmark(mode='flat'), WB, 'CS2 Clutch wordmark'),
+    'wordmark-white.svg': svg(wordmark(mode='mono', mono=WHITE), WB, 'CS2 Clutch wordmark, white'),
+    'symbol-black.svg': svg(symbol('mono', '#000000'), SB, 'CS2 Clutch symbol, black'),
+    # maskable: full-bleed ground, the symbol inside the 80 percent safe circle
+    'app-icon-maskable.svg': svg('<rect x="%.0f" y="%.0f" width="%.0f" height="%.0f" fill="%s"/><g transform="translate(%.1f %.1f) scale(0.6) translate(%.1f %.1f)">%s</g>'
+                                 % (SB[0], SB[1], side, side, CARD, SB[0] + side * 0.2, SB[1] + side * 0.2, -SB[0], -SB[1], symbol()), SB, 'CS2 Clutch app icon, maskable'),
     'lockup-white.svg': lockup(mode='mono', mono=WHITE),
     'lockup-black.svg': lockup(mode='mono', mono='#000000'),
     'app-icon.svg': svg('<rect x="%.0f" y="%.0f" width="%.0f" height="%.0f" rx="%.0f" fill="%s"/><g transform="translate(%.1f %.1f) scale(0.72) translate(%.1f %.1f)">%s</g>'

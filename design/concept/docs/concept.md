@@ -2,7 +2,7 @@
 
 **What this file is.** The two inputs every visual decision of stage 06 must name as its parent: the founder's taste, written down, and the attribute pairs built from research data, the taste and a technique from `references.md`. A colour, a shape or a type value with no pair here is invented. A reference is never a third parent: `references.md` says how something is done, a pair here says why it fits this product.
 
-**Visible place.** The sections "Designer's taste" and "Attributes" on `design/concept/concept.html`, built at step 5, the attributes as a table with their source rows. Until step 5 this file has no page, the same as `references.md`.
+**Visible place.** The sections "Designer's taste", "Attributes" and "Logo" on `design/concept/concept.html`, built at step 5, the attributes as a table with their source rows. Until step 5 this file has no page, the same as `references.md`.
 
 **Route.** Brand exists, no system: `CLAUDE.md`, "Locked decisions", amended by `D-18`, `D-166` and `D-181`. The look is daddyskins.com's own, collected in `research/docs/baseline.md` section 13 and made consistent here.
 
@@ -63,7 +63,7 @@ Five pairs. Each names the research row, the taste and the technique it is built
 |---|---|---|---|---|
 | A1 | **Alive, not static** | `personas.md`, The Opener, "Trust triggers": convinced by a platform that "feels alive", scared off by one that "feels slow or visually dead" | "плоское, статичное, скучное"; "иконок должно быть много и ещё и интерактивных" | S2 layered depth, C1 glowing rarity mark |
 | A2 | **Rounded and of one piece, not cut and patched** | `baseline.md` 13.5 points 1 to 3: ten radii, two dialogs in two shapes, four button heights | "острые углы, устаревшее"; `D-182` point 4, small, medium and large | S1 one radius family |
-| A3 | **Energy in the item and the one action, calm at the money** | `CLAUDE.md`, principle 3: "where money is about to be spent, odds, cost and expected value are visible and legible"; principle 4 | "энергичное, привлекающее внимание" | S3 one lit primary, in `#E94D8B` |
+| A3 | **Energy in the item and the one action, calm at the money** | `CLAUDE.md`, principle 3: "where money is about to be spent, odds, cost and expected value are visible and legible"; principle 4 | "энергичное, привлекающее внимание" | S3 one lit primary, in `#FB3F8A` since `D-185` |
 | A4 | **Game-like through the skin and its rarity, not through decoration with no job** | `jtbd.md`, primary job, the reveal clause; `personas.md`, The Opener, "Pains": "no rarity-tiered animation variation"; `cjm-evidence.md` U-13c: gold on blue "puts me off" | "веселое, игровое"; "бордеры цветные сбоку со скруглениями" | S4 rarity line, C1 glow, a rounded side border in the rarity colour; the gold step never flat on a blue ground |
 | A5 | **Honest numbers in plain sight, not hidden in the show** | `CLAUDE.md`, principle 1 as limited by `D-14`: published chance and current value at the moment of spending | "чтобы хотелось вернуться": trust is what brings a person back to a money product | C2 price chip and the age of a published figure |
 
@@ -74,3 +74,21 @@ Five pairs. Each names the research row, the taste and the technique it is built
 **"Game-like" has lost two of its carriers.** On skin.fans most of the playfulness is carried by its cartoon illustration and its condensed display face, DIN Pro Cond, seen on `ref_skinfans_1440_19oct.png`. Both were rejected: the illustration as skin.fans's own voice, `references.md` 3.1, the display face by `D-182` point 5, Roboto only. So A4 puts the game feel on what this product already owns: the skins, their rarity colour, the baseline's own case and banner art, `walk7_home_1440_19oct.png`, and a step of scale in Roboto 900. The two ways back, both rejected:
 - (b) Roboto Condensed for headings only, a sibling of the inherited family, which would have amended `D-182` point 5;
 - (c) an illustration layer of our own, which no stage has scoped. Generated banner and case art in our own style is not that layer: it is content, and it is in.
+
+---
+
+## 4. Logo
+
+**Decided by `D-184` and `D-185` on 19 October 2026.** The G2-b symbol beside the A1-a wordmark, both from `design/concept/assets/logo-styles-r3.png`, traced from the picture. The kit sheet is `design/concept/assets/logo-kit.png`; the masters are in `design/concept/assets/logo/`, rebuilt by `trace.sh`.
+
+**Parent.** A1, alive, the tilt, the glow and the streaks; A2, rounded and of one piece, the rounded letters; A4, game-like, the founder's own words for skin.club and skin.fans. The gold dot is the coin colour, `baseline.md` section 5.
+
+**Versions.** Horizontal, the default, in the rail; stacked, for square and tall places; the symbol alone, in the closed rail and as the app icon; the wordmark alone only where the symbol stands nearby; a flat master for print and wherever glow cannot render; white and black one-colour versions; a small-size cut for 16 to 23px.
+
+**Clear space** is the diameter of the gold dot on every side. **Minimum size** on screen: the horizontal lockup 40px high, the smallest at which CS2 still reads; the symbol 24px; below that the small-size cut. Print sizes and CMYK or Pantone values are `[?]`: print is not in round 1.
+
+**Colour.** Pink `#FB3F8A` (`піксель плейта`, the brand primary since `D-185`), blue `#65A3FF` and gold `#FADA62` (`наявний бренд`), white. The screen version adds tints mixed from these and sphere shades sampled from the picture; they draw light and volume and are not brand values.
+
+**Backgrounds.** The screen version on the product's dark grounds, `#060A1E`, `#0F0E2B` and `#090827`; white on art, banners and photos; black on light grounds; never the screen version on a light ground, where its white letters vanish.
+
+**Never.** Stretch it, recolour it, straighten or re-tilt the word, rearrange the parts, add effects of our own, set it on a busy ground, bring back the spark, or put it in a pill or chip, where it reads as a button, Material as quoted in `D-21`. It lives in the rail, never in the header, `CLAUDE.md`, "Baseline".

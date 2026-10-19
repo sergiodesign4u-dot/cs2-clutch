@@ -26,6 +26,15 @@ const res = await p.evaluate(async ({ data, mode, sx, sy, sw, sh, s }) => {
     for (const k in rules) { const on = !junk && rules[k](r, g, bb, px, py); m[k][j] = on ? 0 : 255; if (on) { const q = st[k] || (st[k] = { n: 0, x: 0, y: 0, x0: 1e9, y0: 1e9, x1: 0, y1: 0 }); const X = j % W, Y = Math.floor(j / W); q.n++; q.x += X; q.y += Y; q.x0 = Math.min(q.x0, X); q.y0 = Math.min(q.y0, Y); q.x1 = Math.max(q.x1, X); q.y1 = Math.max(q.y1, Y); } }
     if (mode === 'word' && px > 65 && px < 115 && py > 100 && py < 155 && r > 225 && g < 95) { sxs += px; sys += py; sn++; }
   }
+  // smooth each mask before tracing: blur by one source pixel and threshold again, so potrace follows the letter, not the pixel steps
+  for (const k in m) {
+    const src = document.createElement('canvas'); src.width = W; src.height = H; const sc = src.getContext('2d');
+    const id = sc.createImageData(W, H); for (let j = 0; j < W * H; j++) { const v = m[k][j]; id.data[j * 4] = id.data[j * 4 + 1] = id.data[j * 4 + 2] = v; id.data[j * 4 + 3] = 255; }
+    sc.putImageData(id, 0, 0);
+    const dst = document.createElement('canvas'); dst.width = W; dst.height = H; const dc = dst.getContext('2d');
+    dc.fillStyle = '#fff'; dc.fillRect(0, 0, W, H); dc.filter = `blur(${s}px)`; dc.drawImage(src, 0, 0);
+    const bd = dc.getImageData(0, 0, W, H).data; for (let j = 0; j < W * H; j++) m[k][j] = bd[j * 4] < 128 ? 0 : 255;
+  }
   return { W, H, m: Object.fromEntries(Object.entries(m).map(([k, v]) => [k, Array.from(v)])), spark: sn ? [sxs / sn, sys / sn, sn / s / s] : null, st };
 }, { data, mode, sx: +SX, sy: +SY, sw: +SW, sh: +SH, s: +S });
 for (const k in res.m) fs.writeFileSync(`${outdir}/${k}.pgm`, Buffer.concat([Buffer.from(`P5\n${res.W} ${res.H}\n255\n`), Buffer.from(res.m[k])]));

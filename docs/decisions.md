@@ -6261,3 +6261,15 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 **Rejected.** A hand-built geometric vector of the same pair, three passes, because it read flatter and off in its letters; the spark; the baseline pink in the logo.
 
 **The cost.** The logo's pink and the interface's pink now differ by one step unless the founder moves the brand pink too, which this record does not do and which stays open. The traced outlines are heavy, 811 anchors in the symbol and about 1 900 in the lockup, against a library median of 53 to 75, and are simplified at the kit. The screen version carries SVG filters and gradients; print and one-colour work use the flat masters. The 16px favicon uses a separately drawn small-size cut, so the symbol has two drawings. "CS2" in the name is Valve's mark, and its clearance is `[?]`, the founder's to check.
+
+## D-185. Stage 06: the brand pink moves to the logo's `#FB3F8A`
+
+**Date:** 2026-10-19. **Stage:** 06, logo, before step 3b. **Decided by:** the founder, in their words: "да, переводим на #FB3F8A и собирай набор". **Binds:** step 3b's `DESIGN-artifacts.md` and every stage after it; `design/concept/docs/concept.md` A3 and section 4; `design/concept/docs/references.md` S3.
+
+**Variable, value, why.** The primary accent, `#E94D8B` (`наявний бренд`, `baseline.md` section 5) becomes `#FB3F8A` (`піксель плейта`: the pink the approved brand plate renders, sampled from its pixels, and the logo's pink by `D-184`). Why: one pink for the logo and the interface, so the brand is one colour, and the plate the founder approved already shows it.
+
+**What it amends.** `D-18` inherited the colour register whole; this moves one value of it, out loud. `baseline.md` is not edited: it records the live product as it is. Blue `#65A3FF`, gold `#FADA62` and the grounds stay inherited.
+
+**Rejected.** Keeping `#E94D8B` in the interface beside a `#FB3F8A` logo, two pinks one step apart.
+
+**The cost.** White text on the new pink measures 3.40:1, against 3.56:1 on the old one, both under WCAG AA's 4.5:1 for normal text and over 3:1 for large text and UI parts. So a white 14px label on a pink button fails either way, and step 8's audit carries it; the new pink as text on the grounds passes, 5.78:1 on `#060A1E` and 5.53:1 on `#0F0E2B`. The documentation pages of this repo keep `#E94D8B`: they are not the product.
