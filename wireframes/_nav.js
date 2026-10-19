@@ -394,10 +394,10 @@ window.WF_NAV = {
 
 /* ONE ACCOUNT, ONE SOURCE, AND IT IS DECLARED BEFORE ANYTHING READS IT, D-90.
    D-89 CLOSED THIS CLASS AND CLOSED IT ON ONE CARRIER OUT OF TWO. It found the
-   account band reading Spectacle and ID 953709 while the profile's own record
+   account band reading [captured name] and ID [captured id] while the profile's own record
    card read nightjar_cs and acc-7f3a91c4, fixed the band, wrote WF_WHO, and
    declared the defect closed. The account MENU hanging off that same band went
-   on printing a hardcoded Spectacle, in its text and in the control's accessible
+   on printing a hardcoded [captured name], in its text and in the control's accessible
    name, ON EVERY PAGE THAT CARRIES THE SHELL. Two decisions in a row say this
    class is shut while it was live on seventy two pages.
    IT WAS MISSED FOR THE REASON THE CLASS ALWAYS SURVIVES: the fix went where the
@@ -4783,7 +4783,7 @@ window.WF_PAY = window.WF_PAY || {
      THE PLUS IS A LABELLED LINK, NOT A GLYPH. D-52 and D-58: a control that does not
      do its thing is a picture of it, and a bare + is a picture of a word. */
   /* ONE ACCOUNT, ONE NAME, ONE ID, AND THE PAGE READS THEM RATHER THAN REPEATING
-     THEM, D-89. The band said Spectacle and ID 953709 while 5.10's record card
+     THEM, D-89. The band said [captured name] and ID [captured id] while 5.10's record card
      said nightjar_cs and acc-7f3a91c4, on the same page, ten pixels apart. Same
      defect class as the header reading 18.60 while the page read 130.60: two
      renderings of one fact with no shared source. Anything that prints identity

@@ -4897,7 +4897,7 @@ textarea.wf-cfg-in { min-height: 0; }
 /* ============================================================================
    NODE 5.10's RECORD, REBUILT, D-89. The first build repeated the avatar and the
    display name that the account band ten pixels above already carries, and the
-   two disagreed: the band read Spectacle and ID 953709 while the card read
+   two disagreed: the band read [captured name] and ID [captured id] while the card read
    nightjar_cs and acc-7f3a91c4. ONE ACCOUNT, TWO NAMES AND TWO IDS ON ONE PAGE,
    which is the same defect class as the header reading 18.60 while the page read
    130.60, and it is what made the column look wrong before anyone could say why.

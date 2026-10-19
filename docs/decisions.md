@@ -3364,7 +3364,7 @@ Stage 04 proposed **three** tabs, rolls, deposits and withdrawals, and refused t
 
 **One: `[hidden]` does nothing to an element with a display rule.** `[hidden]` is a user-agent rule, and the author rule `.wf-hist { display: flex }` beats it. So the rolls panel marked hidden went on rendering, and the founder's screenshot shows **Deposits selected with the rolls list underneath it**. The sweep checked that the tab strip rendered and that the selected panel appeared. **It never checked that the other one had gone.**
 
-**Two: one account with two names and two ids on one page.** The account band read `Spectacle` and `ID 953709`; the record card ten pixels below read `nightjar_cs` and `acc-7f3a91c4`. **This is the third instance of one class:** the header once read 18.60 for the value of items held while the page read 130.60, and the fix then was to make the shell read the page. **The class is two renderings of one fact with no shared source**, and the answer is the same every time: one source, both read it. `WF_WHO` holds identity now.
+**Two: one account with two names and two ids on one page.** The account band read `[captured name]` and `ID [captured id]`; the record card ten pixels below read `nightjar_cs` and `acc-7f3a91c4`. **This is the third instance of one class:** the header once read 18.60 for the value of items held while the page read 130.60, and the fix then was to make the shell read the page. **The class is two renderings of one fact with no shared source**, and the answer is the same every time: one source, both read it. `WF_WHO` holds identity now.
 
 **Both belong to the same gap: an assertion that reads one element cannot catch a contradiction between two.** The sweep gained a rule for the money figures after the first instance and it was written for money rather than for the class. Candidate line for the stage close.
 
@@ -3497,13 +3497,13 @@ This stage draws no icons. **The room an icon takes is a layout fact and it is d
 
 The result pages called this account **Nightjar**. Everything else in the prototype calls it **nightjar_cs**: `WF_WHO` in `_nav.js`, the account band on every signed-in page, and now `7.3`. `result-owner.html` is the owner state of those pages, so it is the same account with two names.
 
-**Three earlier instances:** the header reading 18.60 while the page read 130.60; the profile band reading `Spectacle` and `ID 953709` while its own record card read `nightjar_cs` and `acc-7f3a91c4`; and the deposit figures. **The mechanism is identical every time: two renderings of one fact with no shared source, and the second one drifts because nothing makes it move.** Fixed by pointing the result pages at the same name the rest of the product uses.
+**Three earlier instances:** the header reading 18.60 while the page read 130.60; the profile band reading `[captured name]` and `ID [captured id]` while its own record card read `nightjar_cs` and `acc-7f3a91c4`; and the deposit figures. **The mechanism is identical every time: two renderings of one fact with no shared source, and the second one drifts because nothing makes it move.** Fixed by pointing the result pages at the same name the rest of the product uses.
 
 ### And then a fifth instance, found by writing the assertion for the fourth
 
 **The instrument written to prove the fourth instance was closed found a fifth, live on seventy two pages.**
 
-`renderAcct` in `_nav.js` hardcoded the string `Spectacle` twice, into the account menu's own name line and into the control's accessible name, **on every page that carries the shell**. `D-89` had found the account band reading `Spectacle` and `ID 953709` against the profile card's `nightjar_cs` and `acc-7f3a91c4`, fixed the band, written `WF_WHO`, and declared the class closed. **The menu hanging off that same band was never looked at.**
+`renderAcct` in `_nav.js` hardcoded the string `[captured name]` twice, into the account menu's own name line and into the control's accessible name, **on every page that carries the shell**. `D-89` had found the account band reading `[captured name]` and `ID [captured id]` against the profile card's `nightjar_cs` and `acc-7f3a91c4`, fixed the band, written `WF_WHO`, and declared the class closed. **The menu hanging off that same band was never looked at.**
 
 **And it could not have used the fix even if it had looked.** `WF_WHO` was declared halfway down `_nav.js`, below the function that renders the menu. **The single source was written under one of its own readers.** It is now declared above the first reader, and nothing else in the product carries a name.
 

@@ -124,7 +124,7 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 
 ### One account, two names, two ids, one page
 
-**The account band renders the avatar and the display name. The record card ten pixels below rendered them again with different values:** the band read `Spectacle` and `ID 953709`, the card read `nightjar_cs` and `acc-7f3a91c4`.
+**The account band renders the avatar and the display name. The record card ten pixels below rendered them again with different values:** the band read `[captured name]` and `ID [captured id]`, the card read `nightjar_cs` and `acc-7f3a91c4`.
 
 **This is the third instance of one class.** `5.1` once had the header reading 18.60 for the value of items held while the page read 130.60, and the fix was to make the shell read the page. **The class is two renderings of one fact with no shared source.** Identity now has one, and anything that prints it reads it.
 
