@@ -312,7 +312,7 @@
 
   <div class="card is-open">
     <h4>What was not extracted, with an owner</h4>
-    <p>The <strong>rarity ladder</strong>. Rarity renders as a per-card background gradient rather than a flat colour on the element holding the percentage, so a value-level ladder was not read in this pass. It is visible in the drop table capture above and it is <span class="q">[?]</span> at value level. Owner: stage 06, which is the stage that needs it. Naming the owner here means the next stage does not rediscover the gap.</p>
+    <p>The <strong>rarity ladder</strong>. Rarity renders as a per-card background gradient rather than a flat colour on the element holding the percentage, so a value-level ladder was not read in this pass. It is visible in the drop table capture above and it is <span class="q">[?]</span> at value level. Owner: stage 06, which is the stage that needs it. Naming the owner here means the next stage does not rediscover the gap. <strong>Read on 19 October 2026, in the seventh walk below.</strong></p>
   </div>
 
   <div class="card is-gap">
@@ -552,6 +552,95 @@
   </div>
 </section>
 
+<section id="walk7">
+  <div class="sec-head">
+    <h2>Seventh walk, 19 October 2026: type, shape and components</h2>
+    <p>D-181 made typography, shape language and component look inherited, and D-182 put a step 0 in front of stage 06 because this page held colour, one family and one button. Public pre-login pages, nothing logged into, Playwright, computed styles of every visible element: Home, the catalogue, the Legend and Heroic case pages at 1440, Home and Heroic at 390, four case pages for the rarity ladder, the FAQ and the sign-in dialog. Counts are elements summed over Home, the catalogue and the two case pages at 1440.</p>
+  </div>
+
+  <h3>Type</h3>
+  <p><strong>One family, Roboto</strong>, loaded at 300, 400, 500, 700 and 900, beside one icon font. <strong>Thirteen sizes in use</strong>: 9, 10, 11.2, 12, 12.8, 13, 14, 15, 16, 18, 20, 22 and 30px, two of them fractional. A price is set three ways, 20/700 on the case tile, 20/900 in the drop table, 14/900 in smaller rows. Uppercase comes from the stylesheet, with six letter-spacing values: normal, 0.04, 0.4, 0.44, 0.52 and 0.88px.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Size, weight, line height</th><th>Elements</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>14 / 400 / 20</td><td>299</td><td>risk band label, body lines</td></tr>
+        <tr><td>14 / 700 / 20, uppercase</td><td>246</td><td>case tile name</td></tr>
+        <tr><td>20 / 700 / 24</td><td>241</td><td>case tile price</td></tr>
+        <tr><td>14 / 400 / 24</td><td>241</td><td>tile counters</td></tr>
+        <tr><td>12 / 400 / 12, upper and lower case</td><td>102 each</td><td>mode labels, weapon name in the ticker</td></tr>
+        <tr><td>9 / 400 / 9, +0.4px</td><td>101</td><td>ticker second line</td></tr>
+        <tr><td>20 / 900 / 20</td><td>40</td><td>drop table price</td></tr>
+        <tr><td>30 / 700 / 40, uppercase</td><td>16</td><td>statistics figures in the footer strip</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Shape</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Radius</th><th>Surfaces</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td><strong>0px</strong></td><td><strong>1 830</strong></td><td>the rail, the header, the ticker, case tiles, drop table boxes, the sign-in dialog, its fields, the toast</td></tr>
+        <tr><td>50%</td><td>93</td><td>rail toggle 38px, support button 40px, avatars</td></tr>
+        <tr><td>8px</td><td>47</td><td>race widget 200x44, the case page notice 790x136, the countdown at 390</td></tr>
+        <tr><td>25px</td><td>34</td><td>every text button, a full pill up to 50px high</td></tr>
+        <tr><td>16px</td><td>4</td><td>the welcome dialog 580x721, the daily progress bar, the triple case banner</td></tr>
+        <tr><td>10px</td><td>4</td><td>the four provider buttons in sign in, 52x52</td></tr>
+        <tr><td>12px</td><td>1</td><td>team pill, at 390</td></tr>
+        <tr><td>6px</td><td>2</td><td>scrollbar thumb</td></tr>
+        <tr><td>2px</td><td>1</td><td>checkbox</td></tr>
+        <tr><td>999px</td><td>1</td><td>the case page SIGN UP, 270x64</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Shadow, almost none:</strong> two in the whole walk. Depth comes from steps of ground and from gradients. <strong>Lines:</strong> 2px #E94D8B round every pill and under the ticker; 1px in five greys and violets, #A5A5A5, #9F9F9F, #353446, #262950 and #332CD1; 1px #FADA62 on the case page notice; 2px #65A3FF across the top of the footer; 2px #FADA62 across the top of the sign-in header.</p>
+
+  <h3>Components</h3>
+  <p><strong>Buttons, two kinds, both pills:</strong> filled #E94D8B with white text, and ghost, transparent with a 2px #E94D8B edge.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Kind</th><th>Height</th><th>Type</th><th>Seen on</th></tr></thead>
+      <tbody>
+        <tr><td>filled</td><td>28</td><td>12 / 700</td><td>OPEN CASE, JOIN BATTLE on the Home mode cards</td></tr>
+        <tr><td>filled</td><td>40</td><td>14 / 700</td><td>SIGN IN in the header, RELOAD</td></tr>
+        <tr><td>filled</td><td>40</td><td>11.2 / 700</td><td>SIGN IN, a second rule for the same control</td></tr>
+        <tr><td>filled</td><td>48</td><td>16 / 900</td><td>ALL CASES, JOIN CASE BATTLES</td></tr>
+        <tr><td>filled</td><td>64, radius 999px</td><td>18 / 900</td><td>SIGN UP on the case page</td></tr>
+        <tr><td>ghost</td><td>40</td><td>14 / 700</td><td>WATCH, OPEN</td></tr>
+        <tr><td>ghost</td><td>40</td><td>15 / 900</td><td>SUPPORT</td></tr>
+        <tr><td>ghost</td><td>48</td><td>16 / 900</td><td>CREATE CASE BATTLE, CREATE GUNFIGHT</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Rail and header items</strong> are square, 50px high, ground #090827, 14 / 500 uppercase. <strong>Fields, in sign in:</strong> ground #0F0D3E, no radius, 56px high, a 10px label inside, only a bottom edge of 1px #332CD1; neither value is in the Colour section. <strong>Checkbox</strong> 18px, 2px #CECED4 edge, 2px radius. <strong>Provider buttons</strong> 52x52, 10px radius, 1.5px #65A3FF edge. <strong>Dialogs in two shapes:</strong> sign in square with a #020C17 header and a 2px #FADA62 top edge; the welcome dialog 16px round with a 1px #262950 edge. <strong>Drop table box:</strong> #0F0E2B under a bottom-up gradient in the rarity colour, full to 40 percent to transparent.</p>
+
+  <h3>The rarity ladder, the [?] the Colour section left with stage 06</h3>
+  <div class="swatches">
+    <div class="sw"><div class="sw-chip" style="background:#F6C915"></div><div class="sw-body"><div class="sw-hex">#F6C915</div><div class="sw-role">Heroic, Guardian. Knives and gloves</div></div></div>
+    <div class="sw"><div class="sw-chip" style="background:#D1273E"></div><div class="sw-body"><div class="sw-hex">#D1273E</div><div class="sw-role">Heroic, Nova, Guardian. AK-47 Gold Arabesque, AWP Asiimov</div></div></div>
+    <div class="sw"><div class="sw-chip" style="background:#D22BCE"></div><div class="sw-body"><div class="sw-hex">#D22BCE</div><div class="sw-role">All four. Glock-18 Vogue</div></div></div>
+    <div class="sw"><div class="sw-chip" style="background:#6B42B9"></div><div class="sw-body"><div class="sw-hex">#6B42B9</div><div class="sw-role">Heroic, Nova, Guardian. Five-SeveN Case Hardened</div></div></div>
+    <div class="sw"><div class="sw-chip" style="background:#3955E8"></div><div class="sw-body"><div class="sw-hex">#3955E8</div><div class="sw-role">Silver, Nova</div></div></div>
+    <div class="sw"><div class="sw-chip" style="background:#305F8D"></div><div class="sw-body"><div class="sw-hex">#305F8D</div><div class="sw-role">Silver, Nova. The cheapest rows</div></div></div>
+    <div class="sw"><div class="sw-chip" style="background:#DDDDDD"></div><div class="sw-body"><div class="sw-hex">#DDDDDD</div><div class="sw-role">Silver</div></div></div>
+  </div>
+  <p>Seven steps, read from the gradient of every drop table box on four case pages; their order follows price in every case walked. Which step carries which in-game rarity name was not read and is <span class="q">[?]</span>.</p>
+
+  <h3>Where the baseline contradicts itself, the input to stage 06 step 4</h3>
+  <div class="card">
+    <p><strong>1. Corners.</strong> 1 830 square surfaces against round buttons, notices, one dialog, provider buttons and a checkbox: ten radius values. Two dialogs in two shapes.</p>
+    <p><strong>2. One pill written two ways</strong>, 25px and 999px.</p>
+    <p><strong>3. Buttons:</strong> four heights, five text sizes, weights 700 and 900 with no rule, the header SIGN IN under two rules.</p>
+    <p><strong>4. Type:</strong> thirteen sizes, two fractional, a price in three treatments.</p>
+    <p><strong>5. Letter-spacing:</strong> six values for one uppercase register.</p>
+    <p><strong>6. Lines:</strong> five greys and violets for a 1px line.</p>
+    <p><strong>7. Two values outside the palette</strong>, the field ground #0F0D3E and its underline #332CD1.</p>
+    <p><strong>8. Flat:</strong> two shadows in four pages.</p>
+  </div>
+  <p><strong>Not reached:</strong> computed values of the signed-in surfaces, which exist only as the founder's captures; hover, focus, pressed and disabled states; there is no light theme to read.</p>
+</section>
+
 <section id="findings">
   <div class="sec-head">
     <h2>What this walk changes</h2>
@@ -593,6 +682,7 @@
         <tr><td>Age answer, absence of responsible play</td><td><code>daddyskins.com/en/faq</code></td><td><code>walk_faq_age_1440.png</code></td></tr>
         <tr><td>Colour values, type, geometry</td><td>computed styles on the pages above</td><td>values in the Colour section</td></tr>
         <tr><td><strong>5 October 2026, the voice:</strong> Home, catalogue, case, FAQ, support, sign in, 404, four policies</td><td><code>daddyskins.com/en</code> and the pages under it, 1440 and 390</td><td><code>walk5_*_5oct.png</code></td></tr>
+        <tr><td><strong>19 October 2026, type, shape and components:</strong> Home, catalogue, the Legend and Heroic case pages, FAQ, sign in; four case pages for the rarity ladder</td><td><code>daddyskins.com/en</code> and the pages under it, 1440 and 390</td><td><code>walk7_*_19oct.png</code></td></tr>
       </tbody>
     </table>
   </div>
@@ -618,6 +708,7 @@ window.NAV_SECTIONS = [
   { id: 'walk3', label: 'Third walk, 21 Aug' },
   { id: 'walk5', label: 'The voice, 5 Oct' },
   { id: 'walk6', label: 'Rail and banner, 17 Oct' },
+  { id: 'walk7', label: 'Type and shape, 19 Oct' },
   { id: 'findings', label: 'What it changes' },
   { id: 'sources', label: 'Sources' },
 ];

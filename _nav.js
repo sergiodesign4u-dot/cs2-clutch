@@ -24,8 +24,9 @@
    ia/_nav.js and is never copied here: this file reads it if it is present and falls
    back to the roadmap with a single satellite item if it is not.
 
-   Two manual flags, and they are not the same question.
+   Three manual flags, and they are not the same question.
      done: true   the page is FINISHED. It drives the Next badge and the stage count.
+     wip: true    on a stage: its work has begun; taken off when it closes. The Next badge reads WIP.
      live: true   the page EXISTS and is reachable, while the stage is still in work.
    done was carrying both meanings and the second one lost: a stage in progress had a
    hub, two built screens and no way in from anywhere else in the project. A reader
@@ -56,7 +57,7 @@ window.NAV = [
   { label: 'Wireframes',         pageLabel: 'Overview',  page: 'wireframes/overview.html', done: true },
   { label: 'Voice',              pageLabel: 'Voice',     page: 'voice/voice.html',         done: true },
 
-  { label: 'Concept', children: [
+  { label: 'Concept', wip: true, children: [
       { label: 'Directions', page: 'design/concept/directions.html', done: false },
       { label: 'Concept',    page: 'design/concept/concept.html',    done: false }
   ]},
@@ -198,6 +199,8 @@ window.NAV = [
   function badge(kind, text) {
     return el('span', 'nav-badge nav-badge-' + kind, text);
   }
+  // A stage marked wip is the Next stage with its work begun: the badge says so, and Next does not move.
+  function nextBadge(stage) { return stage.wip ? badge('wip', 'WIP') : badge('next', 'Next'); }
 
   function sectionsBlock() {
     var secs = window.NAV_SECTIONS;
@@ -398,7 +401,7 @@ window.NAV = [
         head = el('span', 'nav-top', stage.label);
       }
       item.appendChild(head);
-      if (i === nextIdx) item.appendChild(badge('next', 'Next'));
+      if (i === nextIdx) item.appendChild(nextBadge(stage));
       else if (!m.complete) item.appendChild(badge('soon', 'SOON'));
       root.appendChild(item);
       return;
@@ -409,7 +412,7 @@ window.NAV = [
     if (isGroup) {
       head = el('span', 'nav-top', stage.label);
       item.appendChild(head);
-      if (i === nextIdx) item.appendChild(badge('next', 'Next'));
+      if (i === nextIdx) item.appendChild(nextBadge(stage));
 
       var sub = el('div', 'nav-sub');
       stage.children.forEach(function (c) {
@@ -424,7 +427,7 @@ window.NAV = [
     } else {
       head = link('nav-top nav-link' + (isSatellite ? '' : ' is-current'), stage, stage.label);
       item.appendChild(head);
-      if (i === nextIdx) item.appendChild(badge('next', 'Next'));
+      if (i === nextIdx) item.appendChild(nextBadge(stage));
       if (isSatellite) {
         var sub2 = el('div', 'nav-sub');
         sub2.appendChild(satelliteItem());

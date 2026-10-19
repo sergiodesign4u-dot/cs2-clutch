@@ -230,7 +230,7 @@ The Sign in control is a `button`, not a link, and its destination is resolved i
 
 ### What was not extracted
 
-The **rarity ladder**. Rarity renders as a per-card background gradient rather than as a flat colour on the element that holds the percentage, so a value-level ladder was not read in this pass. It is visible in `walk_case_droptable_1440.png` and it is `[?]` at value level. Owner: stage 06, which is the stage that needs it. Naming the owner here means the next stage does not rediscover the gap.
+The **rarity ladder**. Rarity renders as a per-card background gradient rather than as a flat colour on the element that holds the percentage, so a value-level ladder was not read in this pass. It is visible in `walk_case_droptable_1440.png` and it is `[?]` at value level. Owner: stage 06, which is the stage that needs it. Naming the owner here means the next stage does not rediscover the gap. **Read on 19 October 2026, section 13.4.**
 
 ---
 
@@ -461,6 +461,8 @@ Every row was opened in a live browser on 11 August 2026, pre-login, in one sess
 | FAQ, the answers register | `/en/faq` at 1440 and 390 | `walk5_faq_*_5oct.png` |
 | Support, sign in, 404 | `/en/support`, `/en/provably-fair` to `/en/login`, a probe URL | `walk5_support_1440_5oct.png`, `walk5_fair_1440_5oct.png`, `walk5_404_1440_5oct.png` |
 | Terms, privacy, cookie and refund policies | `/en/terms`, `/en/privacy-policy`, `/en/cookie-policy`, `/en/refund-policy` | `walk5_terms_1440_5oct.png` and three more |
+| **Seventh walk, 19 October 2026, type, shape and components.** Home, catalogue, two case pages, FAQ, sign in, computed styles | `https://daddyskins.com/en`, `/en/cases`, `/en/case/legend`, `/en/case/heroic`, `/en/faq`, at 1440; Home and Heroic at 390 | `walk7_home_1440_19oct.png`, `walk7_home_390_19oct.png`, `walk7_cases_1440_19oct.png`, `walk7_case-legend_1440_19oct.png`, `walk7_case-heroic_1440_19oct.png`, `walk7_case-heroic_390_19oct.png`, `walk7_faq_1440_19oct.png`, `walk7_signin_1440_19oct.png` |
+| Rarity ladder | `/en/case/heroic`, `/silver`, `/nova`, `/guardian` | values in section 13.4 |
 
 ---
 
@@ -554,3 +556,103 @@ Every heading, button and rail item reads in capitals on screen. **Measured on 5
 ### 11.4 What our grey product already carries from it
 
 The withdrawal table's three heads, `Your skin price`, `Market skin price` and `Your balance impact`, and its settlement line, "Based on the market price, {n} coins will be taken from your balance", are the baseline's own words, kept by `D-128`. So are `Send to Steam`, the case page's `Skin prices` paragraph and its `Before opening` warning, and the risk words on the tiles. **The inheritance did not start on 5 October; it was never named.**
+
+---
+
+## 13. Seventh walk, 19 October 2026: type, shape and components
+
+**Why this walk ran.** `D-181` made typography, shape language and component look inherited, and `D-182` put a step 0 in front of stage 06 because this file held colour, one family and one button and nothing else. Public pre-login pages only, nothing logged into, Playwright, computed styles of every visible element. **Pages:** `https://daddyskins.com/en`, `/en/cases`, `/en/case/legend`, `/en/case/heroic`, all at 1440; Home and `/en/case/heroic` at 390; `/en/case/silver`, `/en/case/nova` and `/en/case/guardian` for the rarity ladder only; `/en/faq`; the sign-in dialog opened from the header control. **Counts are elements summed over Home, the catalogue and the two case pages at 1440**, unless a row says otherwise. The raw collection was not committed; the screenshots were, listed in the source index.
+
+### 13.1 Type
+
+- **One family, Roboto**, loaded at 300, 400, 500, 700 and 900; 100 is declared and never loaded. Beside it one icon font, `app-icons`. Section 5 said one family and no display face, and the walk confirms it.
+- **Thirteen sizes in use:** 9, 10, 11.2, 12, 12.8, 13, 14, 15, 16, 18, 20, 22 and 30px. Two are fractional, 11.2 and 12.8, which read as 0.7 and 0.8 of 16.
+- **The workhorses:**
+
+| Size, weight, line height | Elements | Where |
+|---|---|---|
+| 14 / 400 / 20 | 299 | risk band label, body lines |
+| 14 / 700 / 20, uppercase | 246 | case tile name |
+| 20 / 700 / 24 | 241 | case tile price |
+| 14 / 400 / 24 | 241 | tile counters |
+| 12 / 400 / 12, upper and lower case | 102 each | mode labels, weapon name in the ticker |
+| 9 / 400 / 9, +0.4px | 101 | ticker second line |
+| 20 / 900 / 20 | 40 | drop table price |
+| 30 / 700 / 40, uppercase | 16 | statistics figures in the footer strip |
+
+- **A price is set three ways:** 20/700 on the case tile, 20/900 in the drop table, 14/900 in smaller rows.
+- **Uppercase is set by the stylesheet** on labels, buttons and headings, section 11.1, with **six letter-spacing values:** normal, 0.04, 0.4, 0.44, 0.52 and 0.88px.
+- **Line heights:** 9, 12, 14, 15, 16, 18, 20, 24, 28, 36 and 40px, and `normal`.
+
+### 13.2 Shape
+
+| Radius | Surfaces | Where |
+|---|---|---|
+| **0px** | **1 830** | the rail, the header, the ticker, case tiles, drop table boxes, the sign-in dialog, its fields, the toast |
+| 50% | 93 | rail toggle 38px, support button 40px, avatars |
+| 8px | 47 | race widget 200x44, the case page notice 790x136, the countdown at 390 |
+| 25px | 34 | every text button, a full pill up to 50px high |
+| 16px | 4 | the welcome dialog 580x721, the daily progress bar, the triple case banner |
+| 10px | 4 | the four provider buttons in sign in, 52x52 |
+| 12px | 1 | team pill, at 390 |
+| 6px | 2 | scrollbar thumb |
+| 2px | 1 | checkbox |
+| 999px | 1 | the case page SIGN UP, 270x64 |
+
+**Shadow, almost none:** two in the whole walk, a drop shadow on the support button, `rgba(0,0,0,0.5) 0 4px 12px`, and an inner glow on the race widget, `#2568D9`. Depth comes from steps of ground and from gradients.
+
+**Lines:** 2px `#E94D8B` round every pill and under the ticker; 1px `#A5A5A5`, 50 elements, on the Home mode banners; 1px `#9F9F9F`, 20, on battle type chips; 1px `#353446` on the rail toggle; 1px `#262950` on the welcome dialog; 1px `#FADA62` on the case page notice; 2px `#65A3FF` across the top of the footer; 2px `#FADA62` across the top of the sign-in header; 1px `#332CD1` under each sign-in field.
+
+### 13.3 Components
+
+**Buttons, two kinds, both pills:** filled `#E94D8B` with white text, and ghost, transparent with a 2px `#E94D8B` edge and white text.
+
+| Kind | Height | Type | Seen on |
+|---|---|---|---|
+| filled | 28 | 12 / 700, padding 6 8 | OPEN CASE, JOIN BATTLE on the Home mode cards |
+| filled | 40 | 14 / 700, padding 0 16 | SIGN IN in the header, RELOAD, AVAILABLE 0 CASE(S) |
+| filled | 40 | 11.2 / 700, padding 8.96 17.92 | SIGN IN, a second rule for the same control |
+| filled | 48 | 16 / 900 | ALL CASES, JOIN CASE BATTLES |
+| filled | 64, radius 999px | 18 / 900 | SIGN UP on the case page |
+| ghost | 40 | 14 / 700 | WATCH, OPEN |
+| ghost | 40 | 15 / 900, padding 12 40 | SUPPORT |
+| ghost | 48 | 16 / 900 | CREATE CASE BATTLE, CREATE GUNFIGHT |
+
+**Rail and header items** are square, 50px high, ground `#090827`, 14 / 500 uppercase.
+
+**Fields, in sign in:** ground `#0F0D3E`, no radius, 56px high, 16px text, a 10px label inside the field, and **only a bottom edge**, 1px `#332CD1`. Neither `#0F0D3E` nor `#332CD1` is in section 5. **Checkbox:** 18px, 2px `#CECED4` edge, 2px radius. **Provider buttons:** 52x52, 10px radius, 1.5px `#65A3FF` edge.
+
+**Dialogs, two shapes:** sign in is square, 540 wide, ground `#090827`, a `#020C17` header with a 2px `#FADA62` top edge; the welcome dialog is 16px round with a 1px `#262950` edge.
+
+**Drop table box:** ground `#0F0E2B` under a bottom-up gradient in the item's rarity colour, from full to 40 percent to transparent. **Open control panel:** a gradient from `#1D1B4B` to `#0F0E2B`.
+
+### 13.4 The rarity ladder, the `[?]` section 5 left with stage 06
+
+Read from the gradient on every `.product-box` of four case pages, Heroic, Silver, Nova and Guardian, 1440.
+
+| Value | Seen on | Example rows |
+|---|---|---|
+| `#F6C915` | Heroic, Guardian | ★ knives and gloves at the top of the table |
+| `#D1273E` | Heroic, Nova, Guardian | AK-47 Gold Arabesque, AWP Asiimov |
+| `#D22BCE` | Heroic, Silver, Nova, Guardian | Glock-18 Vogue |
+| `#6B42B9` | Heroic, Nova, Guardian | Five-SeveN Case Hardened |
+| `#3955E8` | Silver, Nova | rows at 1 to 18 percent |
+| `#305F8D` | Silver, Nova | the cheapest rows |
+| `#DDDDDD` | Silver | rows at 1 to 15 percent |
+
+**Seven steps.** Their order follows price inside every case walked. **Which step carries which in-game rarity name was not read** and is `[?]`: no element on the page names it.
+
+### 13.5 Where the baseline contradicts itself, the input to stage 06 step 4
+
+1. **Corners.** 1 830 square surfaces against round buttons, notices, one dialog, provider buttons and a checkbox: ten radius values in all. **Two dialogs in two shapes**, sign in square and welcome at 16px.
+2. **One pill written two ways**, 25px and 999px.
+3. **Buttons:** four heights, 28, 40, 48 and 64; five text sizes from 11.2 to 18; weights 700 and 900 with no rule for which; the header SIGN IN under two rules.
+4. **Type:** thirteen sizes, two of them fractional, and a price in three treatments.
+5. **Letter-spacing:** six values for one uppercase register.
+6. **Lines:** five greys and violets for a 1px line, `#A5A5A5`, `#9F9F9F`, `#353446`, `#262950` and `#332CD1`, besides the three accent edges.
+7. **Two values outside the palette**, the field ground `#0F0D3E` and its underline `#332CD1`.
+8. **Flat:** two shadows in four pages.
+
+### 13.6 What this walk did not reach
+
+Computed values of the signed-in surfaces: deposit, inventory, settings and history exist only as the founder's captures in `research/screens/baseline-account/`, which are pixels, not styles. Hover, focus, pressed and disabled states were not measured. There is no light theme to read.
