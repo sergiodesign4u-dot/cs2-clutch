@@ -6247,3 +6247,17 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 **Rejected.** Roboto Condensed for headings, which would have amended `D-182` point 5; an illustration layer of our own on the skin.fans model, which no stage has scoped.
 
 **The cost.** skin.fans's playfulness rests largely on its cartoon illustration and condensed display face, and this product has neither, so the game feel has to be earned by item art, light and scale, and finally by the reveal at stage 11. A stripe or a glow is legal only through this record, so every one of them needs its job readable on the screen.
+
+## D-184. Stage 06: the logo, the G2-b symbol with the A1-a wordmark, traced, no spark, in the plate's pink
+
+**Date:** 2026-10-19. **Stage:** 06, logo, between steps 3 and 3b. **Decided by:** the founder, over four rounds, in their words: "давай попробуем как ти говоришь знак G2-b + надпись A1-a мне чуть больше заходит"; on the hand-built vector, "оно ж по другому виглядит, хуже чем картинки"; on tracing, "а давай установим то что тебе надо"; "давай попробуем без искры"; and on the lockup in `#FB3F8A`, "давай вот этот берем за основу". **Binds:** `design/concept/assets/logo/`, the rail's logo slot, step 3b's `DESIGN-artifacts.md`, the kit.
+
+**What was decided.**
+1. **The logo is the G2-b symbol beside the A1-a wordmark**, both from `design/concept/assets/logo-styles-r3.png`, a sheet Codex generated on gpt-5.6-terra.
+2. **The letterforms and the blades are the picture's own, traced.** potrace 1.16 was installed with the founder's go; colour masks split the picture and potrace outlines each mask. The streaks, the dot and the sphere's shading are drawn clean from values measured on the picture. `trace.sh` rebuilds every master.
+3. **No spark** in the drop cap; the version with it was shown and dropped.
+4. **The logo's pink is `#FB3F8A`**, the pink the approved plate renders (`піксель плейта`), not the baseline's `#E94D8B`. Blue `#65A3FF` and gold `#FADA62` stay the baseline's (`наявний бренд`).
+
+**Rejected.** A hand-built geometric vector of the same pair, three passes, because it read flatter and off in its letters; the spark; the baseline pink in the logo.
+
+**The cost.** The logo's pink and the interface's pink now differ by one step unless the founder moves the brand pink too, which this record does not do and which stays open. The traced outlines are heavy, 811 anchors in the symbol and about 1 900 in the lockup, against a library median of 53 to 75, and are simplified at the kit. The screen version carries SVG filters and gradients; print and one-colour work use the flat masters. The 16px favicon uses a separately drawn small-size cut, so the symbol has two drawings. "CS2" in the name is Valve's mark, and its clearance is `[?]`, the founder's to check.

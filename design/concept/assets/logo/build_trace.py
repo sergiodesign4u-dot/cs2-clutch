@@ -3,7 +3,8 @@ in design/concept/assets/logo-styles-r3.png. Called by trace.sh, which traces in
 import json, os, re, sys
 out = sys.argv[1]
 here = sys.argv[2]  # the work folder trace.sh traced into
-PINK, BLUE, GOLD, WHITE, CARD = '#E94D8B', '#65A3FF', '#FADA62', '#FFFFFF', '#0F0E2B'  # baseline section 5
+BLUE, GOLD, WHITE, CARD = '#65A3FF', '#FADA62', '#FFFFFF', '#0F0E2B'  # baseline section 5
+PINK = '#FB3F8A'  # the pink the approved brand plate renders, picked for the logo by the founder, D-184; the UI pink stays #E94D8B
 
 def traced(d, name):
     s = open(os.path.join(here, d, name + '.svg')).read()
@@ -169,7 +170,6 @@ files = {
     'symbol-white.svg': svg(symbol('mono', WHITE), SB, 'CS2 Clutch symbol, white'),
     'lockup-screen.svg': lockup(),
     'lockup-screen-spark.svg': lockup(True),
-    'lockup-screen-plate-pink.svg': lockup(pink='#FB3F8A'),  # the pink the approved plate renders, for the founder to compare
     'lockup.svg': lockup(mode='gradient'),
     'lockup-flat.svg': lockup(mode='flat'),
     'lockup-white.svg': lockup(mode='mono', mono=WHITE),

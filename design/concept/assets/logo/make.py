@@ -1,6 +1,7 @@
 import os, math
 out = os.path.dirname(os.path.abspath(__file__))  
-PINK, BLUE, GOLD, WHITE, CARD = '#E94D8B', '#65A3FF', '#FADA62', '#FFFFFF', '#0F0E2B'  # baseline section 5
+BLUE, GOLD, WHITE, CARD = '#65A3FF', '#FADA62', '#FFFFFF', '#0F0E2B'  # baseline section 5
+PINK = '#FB3F8A'  # the pink the approved brand plate renders, picked for the logo by the founder, D-184; the UI pink stays #E94D8B
 T15 = math.tan(math.radians(15))
 
 def f(v): return ('%.2f' % v).rstrip('0').rstrip('.')
