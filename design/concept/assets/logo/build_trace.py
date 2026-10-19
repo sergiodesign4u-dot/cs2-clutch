@@ -125,16 +125,19 @@ def symbol(mode='screen', mono=None, pink=PINK):
                 + '<circle id="dot" cx="%.1f" cy="%.1f" r="%.1f" fill="%s"/>' % (cx, cy, r, mono or GOLD))
     # the picture's vortex: each blade lit from inside with a lighter rim and its own haze; the dot a lit sphere
     # with a white highlight, a warm edge and a gold haze
-    defs = ('<defs>%s%s%s%s%s<radialGradient id="dl" cx="0.38" cy="0.34" r="0.7"><stop offset="0" stop-color="%s"/><stop offset="0.3" stop-color="%s"/>'
-            '<stop offset="0.62" stop-color="%s"/><stop offset="1" stop-color="%s"/></radialGradient></defs>'
-            % (glow('sp', pink, 14, 44, 1, .9), glow('sb', BLUE, 14, 44, 1, .9), glow('sg', GOLD, 16, 56, 1, .9), inner_light('il', 40, 34, .22), soft('hs', 10),
-               WHITE, mix(GOLD, WHITE, .45), GOLD, mix(GOLD, PINK, .3)))
+    # the sphere's shading, sampled along six radii of the dot on G2-b: a cream highlight above centre, deeper gold
+    # towards the foot, a bright rim just inside the edge, a dark amber edge, then a warm haze
+    defs = ('<defs>%s%s%s%s'
+            '<radialGradient id="dl" cx="0.5" cy="0.36" r="0.62" fx="0.47" fy="0.3"><stop offset="0" stop-color="#FEFBC5"/><stop offset="0.25" stop-color="#FCEC8B"/>'
+            '<stop offset="0.6" stop-color="#FCD452"/><stop offset="0.88" stop-color="#FBC836"/></radialGradient>'
+            '<radialGradient id="dr"><stop offset="0.8" stop-color="#FEE865" stop-opacity="0"/><stop offset="0.91" stop-color="#FEE865" stop-opacity="0.85"/>'
+            '<stop offset="0.965" stop-color="#D49F3A"/><stop offset="1" stop-color="#B7832E"/></radialGradient></defs>'
+            % (glow('sp', pink, 14, 44, 1, .9), glow('sb', BLUE, 14, 44, 1, .9), glow('sg', '#D49F3A', 10, 50, 1, .95), inner_light('il', 40, 34, .22)))
     blades = ''
     for name, col in (('pink', pink), ('blue', BLUE)):
         blades += '<g filter="url(#s%s)"><g filter="url(#il)">%s</g></g>' % (name[0], layer('sym', name, col, attrs=' stroke="%s" stroke-width="110" stroke-linejoin="round"' % mix(col, WHITE, .22)))
     dot = ('<g filter="url(#sg)"><circle id="dot" cx="%.1f" cy="%.1f" r="%.1f" fill="url(#dl)"/></g>'
-           '<ellipse cx="%.1f" cy="%.1f" rx="%.1f" ry="%.1f" fill="%s" fill-opacity="0.8" filter="url(#hs)"/>'
-           % (cx, cy, r, cx - r * .32, cy - r * .36, r * .28, r * .18, WHITE))
+           '<circle cx="%.1f" cy="%.1f" r="%.1f" fill="url(#dr)"/>' % (cx, cy, r, cx, cy, r))
     return defs + blades + dot
 
 def bounds(st, pad):
