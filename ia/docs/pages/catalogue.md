@@ -330,7 +330,7 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 | Field | Value |
 |---|---|
 | **Title**, 48 characters | `All CS2 cases, with published chances and values` |
-| **Description**, 151 characters | `Every case here shows what is inside before you open it: the entry cost, the risk band, and every item with its published chance and its current value.` |
+| **Description**, 151 characters | `Every case here shows what is inside before you open it: the price, the risk, and every item with its published chance and its current value.` |
 | **Canonical** | Self, `/cases`. Category views self-canonical. **Filtered, searched and paginated views canonical to `/cases`** |
 | **hreflang** | None, anywhere. One language, `0.13` section 1 |
 | **Robots** | `index, follow`. `/cases?...` is `noindex, follow` |
@@ -429,3 +429,17 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 | **The rarity ladder's origin** | `blocks.md` section 10 walked seven tiers live and left one claim `[?]`: whether six of the seven values are the CS2 client's own palette, which would mean we may not restyle them freely. It does not touch this page, since no tile carries rarity, and it is carried because `0.6` on `3.3` does | Whoever specifies `0.6` |
 
 **And what belongs elsewhere.** How a tile looks: `0.7`, then stages 06 and 07. The words on the controls: stage 05. Where the shelf sits relative to Home: `D-20`, already decided. What happens after the tap: node `3.3`.
+
+## Updated after publication, 19 October 2026. Words by stage 05
+
+**Why.** Stage 05 step 7 rewrote this screen's words by `voice/docs/voice.md`. Interface strings are owned by `voice/docs/microcopy.md`, and the rows named below carry them there; SEO lines stay owned by this node and block C holds the aligned line. Where an earlier section quotes the text in the Was column, it is the text before stage 05.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Its own copy, which is not inherited (`CLAUDE.md`, Baseline: copy is on the not inherited list) | **Every block, state and requirement of this node** | **The words in the table below**, each by the rule named on its row |
+
+| Row | Was | Now | Rule |
+|---|---|---|---|
+| `3.1-1` | Every case here shows what is inside before you open it: the entry cost, the risk band, and every item with its published chance and its current value. | Every case here shows what is inside before you open it: the price, the risk, and every item with its published chance and its current value. | Glossary S4 (price, not entry cost) and S2 (risk, not risk band) |

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All CS2 cases, with published chances and values</title>
-  <meta name="description" content="Every case here shows what is inside before you open it: the entry cost, the risk band, and every item with its published chance and its current value.">
+  <meta name="description" content="Every case here shows what is inside before you open it: the price, the risk, and every item with its published chance and its current value.">
   <meta name="robots" content="noindex, follow">
   <link rel="stylesheet" href="_wf.css">
 </head>
@@ -55,11 +55,11 @@
          New Balance, and NO COMPETITOR IN THE BANK PROVIDES IT.
          A CATEGORY NEVER BECOMES A CHIP: the bar jumps, it does not filter. -->
     <div class="wf-chips" role="group" aria-label="Filters in force">
-      <span class="wf-chip">under 1.00 coins
-        <a class="wf-btn wf-btn--small wf-chip-x" href="catalogue.html?risk=High" aria-label="Remove filter: under 1.00 coins">x</a>
+      <span class="wf-chip">Under 1.00 coins
+        <a class="wf-btn wf-btn--small wf-chip-x" href="catalogue.html?risk=High" aria-label="Remove filter: Under 1.00 coins">x</a>
       </span>
-      <span class="wf-chip">High risk only
-        <a class="wf-btn wf-btn--small wf-chip-x" href="catalogue.html?max=1.00" aria-label="Remove filter: High risk only">x</a>
+      <span class="wf-chip">High risk
+        <a class="wf-btn wf-btn--small wf-chip-x" href="catalogue.html?max=1.00" aria-label="Remove filter: High risk">x</a>
       </span>
       <a class="wf-btn wf-btn--small" href="catalogue.html">Clear all</a>
     </div>
@@ -83,12 +83,12 @@
            this screen. -->
       <div class="wf-empty" id="3.2">
         <p class="wf-empty-h">Nothing matches these two filters.</p>
-        <p class="wf-empty-p">Under 1.00 coins, and High risk only. No case on the shelf is both.</p>
+        <p class="wf-empty-p">No case on the shelf is both under 1.00 coins and high risk.</p>
         <ul class="wf-widen">
-          <li>The cheapest High risk case is <strong>24.50 coins</strong>.
-            <a class="wf-btn wf-btn--small" href="catalogue.html?risk=High&amp;max=24.50">Raise the ceiling to 24.50</a></li>
-          <li>One case matches if the risk level is dropped.
-            <a class="wf-btn wf-btn--small" href="catalogue.html?max=1.00">Drop the risk level</a></li>
+          <li>The cheapest high-risk case is <strong>24.50 coins</strong>.
+            <a class="wf-btn wf-btn--small" href="catalogue.html?risk=High&amp;max=24.50">Show cases up to 24.50 coins</a></li>
+          <li>One case matches without the risk filter.
+            <a class="wf-btn wf-btn--small" href="catalogue.html?max=1.00">Drop the risk filter</a></li>
         </ul>
         <p class="wf-count-line">The shelf holds 12 cases in 3 sections. <a href="catalogue.html">See all of them</a></p>
       </div>

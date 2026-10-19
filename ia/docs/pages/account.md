@@ -673,3 +673,16 @@ The route to the catalogue is the offer. A person who wants to open finds the fr
 | **What a cash out does when values are degraded** | `5.1`'s degraded state renders values that cannot be read, and **a cash out is a sale at a value.** The control is drawn there and the answer is not | Founder, with `0.11` |
 | **Whether identity verification is required before money leaves** | **Answered 2 September 2026 and the answer is no**, as on the live product. Identity verification stays `LATER` on the map. **The hole is that money leaves this product with no check on who is taking it**, and it is printed here rather than closed | Founder, decided |
 
+## Updated after publication, 19 October 2026. Words by stage 05
+
+**Why.** Stage 05 step 7 rewrote this screen's words by `voice/docs/voice.md`. Interface strings are owned by `voice/docs/microcopy.md`, and the rows named below carry them there; SEO lines stay owned by this node and block C holds the aligned line. Where an earlier section quotes the text in the Was column, it is the text before stage 05.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Its own copy, which is not inherited (`CLAUDE.md`, Baseline: copy is on the not inherited list) | **Every block, state and requirement of this node** | **The words in the table below**, each by the rule named on its row |
+
+| Row | Was | Now | Rule |
+|---|---|---|---|
+| `5.1-6` | All skins | All items | C10 (a): a thing a person owns is an item; skin is for the Steam or market context |

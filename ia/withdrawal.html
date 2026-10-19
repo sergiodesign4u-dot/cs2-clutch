@@ -1109,7 +1109,7 @@
 
       <div class="wf-proof">
         <div class="wf-proof-lbl">5.6 - account restricted</div>
-        <div class="wf-txt"><b>This account is restricted</b></div>
+        <div class="wf-txt"><b>Withdrawals are paused</b></div>
         <div class="wf-txt is-dim">A written ground, in readable words, as text.</div>
         <div class="wf-kv" style="margin-top:8px"><span class="wf-k">Balance</span><span class="wf-v">000.00 frozen</span></div>
         <div class="wf-kv"><span class="wf-k">Items</span><span class="wf-v">held, still listed</span></div>
@@ -1121,7 +1121,7 @@
 
       <div class="wf-proof">
         <div class="wf-proof-lbl">5.7 - restriction upheld</div>
-        <div class="wf-txt"><b>The restriction stands</b></div>
+        <div class="wf-txt"><b>The restriction stays</b></div>
         <div class="wf-kv" style="margin-top:8px"><span class="wf-k">Ground</span><span class="wf-v">on the record</span></div>
         <div class="wf-kv"><span class="wf-k">Appeal</span><span class="wf-v">ran, answered</span></div>
         <div class="wf-kv"><span class="wf-k">Balance</span><span class="wf-v" style="color:var(--accent-yellow)">[?]</span></div>
@@ -1318,6 +1318,28 @@
 </section>
 
 <!-- OPEN -->
+<section id="voice05">
+  <div class="sec-head">
+    <h2>Updated after publication: words by stage 05</h2>
+    <p>19 October 2026. Stage 05 step 7 rewrote this screen's words by voice/docs/voice.md. Interface strings are owned by voice/docs/microcopy.md, and the rows named below carry them there; SEO lines stay owned by this node and block C holds the aligned line. Where an earlier section quotes the text in the Was column, it is the text before stage 05.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Baseline row for this amendment</h4>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody><tr><td>Its own copy, which is not inherited (CLAUDE.md, Baseline)</td><td><strong>Every block, state and requirement of this node</strong></td><td><strong>The words in the table below</strong>, each by the rule named on its row</td></tr></tbody>
+    </table>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Row</th><th>Was</th><th>Now</th><th>Rule</th></tr></thead>
+      <tbody><tr><td>5.3-84</td><td>This account is restricted</td><td>Withdrawals are paused</td><td>Forbidden 'an accusation in a stop' (B8-3) and H1 rule 'a state's H1 says the state': only withdrawals stop, balance and items stay the person's; aligned with G164's Now</td></tr><tr><td>5.3-89</td><td>The restriction stands</td><td>The restriction stays</td><td>glossary S6: our decision reads 'The restriction stays'</td></tr><tr><td>5.3-24</td><td>{n} Items to withdraw</td><td>{n} Items to send</td><td>glossary C1: 'Items to withdraw' is named as not used; the act is Send to Steam, which the H1 already says</td></tr><tr><td>5.3-44</td><td>{n} Total price</td><td>{n} What this settles at</td><td>Section heading H2: names what the block holds; the block is a settlement that can add to the balance (+2.50 on the AK), so 'Total price' named a cost that is not one. Present tense before the request, past tense 'What this settled at' after it, as node 5.3 section 8 B wants the tense to carry quote against record</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
 <section id="pages">
   <div class="sec-head">
     <h2>The pages that draw this node, and the registry is where the list comes from</h2>
@@ -1446,6 +1468,7 @@ window.NAV_SECTIONS = [
   { id: 'states',      label: 'Five states' },
   { id: 'shell',       label: 'Components and CTA' },
   { id: 'seo',         label: 'SEO' },
+  { id: 'voice05', label: 'Stage 05 words' },
   { id: 'pages', label: 'Pages that draw it' },
   { id: 'open',        label: 'Open' },
 ];

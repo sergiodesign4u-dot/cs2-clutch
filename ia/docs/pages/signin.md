@@ -477,7 +477,7 @@ That is a genuine cross-node dependency and it runs both ways: if the probe is n
 
 | Field | Value |
 |---|---|
-| `title` | Sign in with Steam. CS2 Clutch (30 characters, under 60). The two failure states carry their own: `Steam refused the sign in. CS2 Clutch` on `2.5` and `Steam is not answering. CS2 Clutch` on `2.6` |
+| `title` | Sign in with Steam. CS2 Clutch (30 characters, under 60). The two failure states carry their own: `The sign in did not go through. CS2 Clutch` on `2.5` and `Steam is not answering. CS2 Clutch` on `2.6` |
 | `description` | Sign in with Steam OpenID. We never ask for your password and we never change anything on your Steam account. (110 characters, under 155) |
 | `canonical` | Self, `/signin` |
 | `robots` | `noindex, follow`. `0.13` section 3 |
@@ -539,3 +539,17 @@ That is a genuine cross-node dependency and it runs both ways: if the probe is n
 | **The ~~four-screen~~ route defect, three screens since `D-54`** | Named in `flows.md` and carried here, narrowed by section 0.9.1 and not closed. The one rejected fix stays rejected | Stage 04, as a constraint on the wireframe rather than a problem to solve here |
 
 **And what belongs elsewhere.** The wording of every string: stage 05. How the page looks: stages 06 and 07. What the gate asks before this page is reached: `2.1`. What happens after the account exists and before money moves: `2.7`.
+
+## Updated after publication, 19 October 2026. Words by stage 05
+
+**Why.** Stage 05 step 7 rewrote this screen's words by `voice/docs/voice.md`. Interface strings are owned by `voice/docs/microcopy.md`, and the rows named below carry them there; SEO lines stay owned by this node and block C holds the aligned line. Where an earlier section quotes the text in the Was column, it is the text before stage 05.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Its own copy, which is not inherited (`CLAUDE.md`, Baseline: copy is on the not inherited list) | **Every block, state and requirement of this node** | **The words in the table below**, each by the rule named on its row |
+
+| Row | Was | Now | Rule |
+|---|---|---|---|
+| `2.4-4` | Steam refused the sign in. CS{n} Clutch | The sign in did not go through. CS{n} Clutch | Principle 5 and the node's section 5.1 rule, the message names which side failed: the drawn cause says "This is on our side", and the causes include "We do not know", so a title blaming Steam is false for the drawn state and for two of four causes. The state is said without naming a side the page has not established |

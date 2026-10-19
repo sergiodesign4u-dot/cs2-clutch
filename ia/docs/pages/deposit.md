@@ -921,3 +921,18 @@ The caption under the headline read "200.00 for the money, 10.00 the bonus, at 1
 | **The live feed on `4.2`** | This node suppresses it there and `0.8` says every page. **A finding to `0.8` rather than an edit to it**, section 6 | Node `0.8` |
 
 **And what belongs elsewhere.** The words: stage 05, then `voice/docs/microcopy.md`. How it looks: stages 06 and 07. Where the header's deposit control sits: `0.1`, already decided. ~~The other three limits~~ **All four limits, the deposit limit among them since `D-103`**: `6.1`. The verification branch: `2.7`, and it is not on this screen by rule. The market verdicts and their grounds: `0.12`, which this node reads and never edits.
+
+## Updated after publication, 19 October 2026. Words by stage 05
+
+**Why.** Stage 05 step 7 rewrote this screen's words by `voice/docs/voice.md`. Interface strings are owned by `voice/docs/microcopy.md`, and the rows named below carry them there; SEO lines stay owned by this node and block C holds the aligned line. Where an earlier section quotes the text in the Was column, it is the text before stage 05.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Its own copy, which is not inherited (`CLAUDE.md`, Baseline: copy is on the not inherited list) | **Every block, state and requirement of this node** | **The words in the table below**, each by the rule named on its row |
+
+| Row | Was | Now | Rule |
+|---|---|---|---|
+| `4.1-48` | What is still open | What still works | Glossary C9: 'open' for availability is not used; principle 5, a stop says what still works |
+| `4.1-59` | The deposit, while it is pending | This deposit | Section heading names what the block holds; the state is already said by the H2 above; glossary C4, deposit is one payment |

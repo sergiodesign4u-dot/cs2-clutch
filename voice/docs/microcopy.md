@@ -1,6 +1,6 @@
 # Microcopy inventory
 
-**Stage 05, step 1, written 5 October 2026.** Every string the grey product shows, inventoried once per unique string rather than once per occurrence, with where it lives so step 7 knows which file to open. **Nothing here is rewritten yet.** The columns "was" and "now" arrive at step 6 for the etalon and at step 7 for the rest; until then the string column is the "was". **Step 6, 17 October 2026:** sections 1 to 3 carry a Now column. It is filled for every row the etalon, `1.0` Home in both account states, shows: the new string, or `kept` where the string passed `voice.md` as it stands. An empty cell is a row step 7 has not reached yet. **Step 7, first move, 19 October 2026:** every row of section 1, Global, carries its Now, rewritten by the parent in the file the row names before any fanout, with the rule each change follows; `kept` means the string passes `voice.md` as it stands. **Step 7, second move, 19 October 2026:** every row the parent owns, a row living in `_nav.js` or in a `WF_STR` value, carries its Now; the rows living only in a page are the fanout's.
+**Stage 05, step 1, written 5 October 2026.** Every string the grey product shows, inventoried once per unique string rather than once per occurrence, with where it lives so step 7 knows which file to open. **Nothing here is rewritten yet.** The columns "was" and "now" arrive at step 6 for the etalon and at step 7 for the rest; until then the string column is the "was". **Step 6, 17 October 2026:** sections 1 to 3 carry a Now column. It is filled for every row the etalon, `1.0` Home in both account states, shows: the new string, or `kept` where the string passed `voice.md` as it stands. An empty cell is a row step 7 has not reached yet. **Step 7, first move, 19 October 2026:** every row of section 1, Global, carries its Now, rewritten by the parent in the file the row names before any fanout, with the rule each change follows; `kept` means the string passes `voice.md` as it stands. **Step 7, second move, 19 October 2026:** every row the parent owns, a row living in `_nav.js` or in a `WF_STR` value, carries its Now; the rows living only in a page are the fanout's. **Step 7, third move, 19 October 2026:** the rows living only in a page were rewritten by seventeen agents, one per screen, and every row of section 2 now carries its Now. The same move found strings the step 1 scan did not list, all rewritten by the parent: the System messages of `5.10` (`WF_MSGS`, read only after a tab press), the refusals in `data-rp-refuse` on `6.1`, the `Sold back` labels of `_nav.js`, and the settlement, count and sign literals `_nav.js` writes over a page at load. Four Lives in cells are wrong and are read as corrected: `3.1-37`, `3.1-44`, `3.1-45` and `3.1-47` live in `_nav.js filterDrawerHTML`, `6.1-41` in `_nav.js excludeHTML`, and `5.9-84` and `5.9-110` in `_nav.js` from `WF_HIST`.
 
 **Its visible place** is the Inventory section of `voice/voice.html`, next to the Microcopy rules, built at step 5 with the rest of the Voice page and read from this file at load, so both parts, Global and By screen, show whatever this file holds.
 
@@ -243,41 +243,41 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 0.3-1 | main | {n} · Not found | text | page | system-404-internal, system-404-retired, system |  | |
-| 0.3-2 | main | This address has nothing at it | SEO H1, SEO / IA ownership | page | system-404-internal, system |  | |
-| 0.3-3 | main | A link on one of our own pages sent you here, and that is our mistake rather than yours. | text | page | system-404-internal |  | |
-| 0.3-4 | main | Highwater has been retired | SEO H1, SEO / IA ownership | page | system-404-retired |  | |
-| 0.3-5 | main | This case is gone rather than mistyped. | text | page | system-404-retired |  | |
-| 0.3-6 | main | {n} · Internal server error | text | page | system-500-noshell, system-500 |  | |
-| 0.3-7 | main | Something on our side failed | SEO H1, SEO / IA ownership | page | system-500-noshell, system-500 |  | |
-| 0.3-8 | main | We already know, and it is ours to fix. | text | page | system-500-noshell, system-500 |  | |
-| 0.3-9 | main | Who this is waiting on | text | page | system-500-noshell, system-500, system-503-planned, system-503-unplanned |  | |
-| 0.3-10 | main | Quote this if you get in touch | text | page | system-500-noshell, system-500 |  | |
-| 0.3-11 | main | E{n}F{n}C{n}A{n} | text | page | system-500-noshell, system-500 |  | |
-| 0.3-12 | main | Where to go from here | text | page | system-500-noshell |  | |
+| 0.3-1 | main | {n} · Not found | text | page | system-404-internal, system-404-retired, system |  | kept |
+| 0.3-2 | main | This address has nothing at it | SEO H1, SEO / IA ownership | page | system-404-internal, system |  | kept |
+| 0.3-3 | main | A link on one of our own pages sent you here, and that is our mistake rather than yours. | text | page | system-404-internal |  | kept |
+| 0.3-4 | main | Highwater has been retired | SEO H1, SEO / IA ownership | page | system-404-retired |  | kept |
+| 0.3-5 | main | This case is gone rather than mistyped. | text | page | system-404-retired |  | The address is right: this case was taken off the shelf. The rest are in All cases. (Principle 5 and Microcopy 'Error, a page or a service': the line said what happened but not what still works; it now names the rest of the shelf and the route to it (the page's own All cases button)) |
+| 0.3-6 | main | {n} · Internal server error | text | page | system-500-noshell, system-500 |  | kept |
+| 0.3-7 | main | Something on our side failed | SEO H1, SEO / IA ownership | page | system-500-noshell, system-500 |  | kept |
+| 0.3-8 | main | We already know, and it is ours to fix. | text | page | system-500-noshell, system-500 |  | kept |
+| 0.3-9 | main | Who this is waiting on | text | page | system-500-noshell, system-500, system-503-planned, system-503-unplanned |  | kept |
+| 0.3-10 | main | Quote this if you get in touch | text | page | system-500-noshell, system-500 |  | Quote this to Support (Glossary C6, Support for the destination and every link to it; 'get in touch' named no destination. Microcopy 'A link' names its destination) |
+| 0.3-11 | main | E{n}F{n}C{n}A{n} | text | page | system-500-noshell, system-500 |  | kept |
+| 0.3-12 | main | Where to go from here | text | page | system-500-noshell |  | kept |
 | 0.3-13 | main | Home The featured cases, and what this place is | link | `WF_STR.home`, page | system-500-noshell |  | kept |
 | 0.3-14 | main | All cases The full shelf | link | `WF_STR.allCases`, page | system-500-noshell |  | kept |
-| 0.3-15 | main | {n} · Service unavailable | text | page | system-503-planned, system-503-unplanned |  | |
-| 0.3-16 | main | This is planned maintenance | SEO H1, SEO / IA ownership | page | system-503-planned |  | |
-| 0.3-17 | main | We took the service down on purpose. It comes back at {time}, which is about forty minutes from now. | text | page | system-503-planned |  | |
-| 0.3-18 | main | Nothing here reloads on its own. | text | page | system-503-planned, system-503-unplanned |  | |
-| 0.3-19 | main | Something is overloaded, and it is us | SEO H1, SEO / IA ownership | page | system-503-unplanned |  | |
-| 0.3-20 | main | We are working on it. There is no end time yet, and we are not going to put up a number we cannot keep. | text | page | system-503-unplanned |  | |
-| 0.3-21 | main | Either the link was wrong, or what used to be here has gone. Nothing on our side is broken. | text | page | system |  | |
+| 0.3-15 | main | {n} · Service unavailable | text | page | system-503-planned, system-503-unplanned |  | kept |
+| 0.3-16 | main | This is planned maintenance | SEO H1, SEO / IA ownership | page | system-503-planned |  | kept |
+| 0.3-17 | main | We took the service down on purpose. It comes back at {time}, which is about forty minutes from now. | text | page | system-503-planned |  | We took the service down on purpose. It comes back at {time}, about {n} minutes from now. (Principle 2, the number: the figure as a numeral, '40' not 'forty'; Microcopy 'Figures, dates and times', the absolute time with its zone stays first and the relative one only follows it; padding 'which is' removed, principle 1) |
+| 0.3-18 | main | Nothing here reloads on its own. | text | page | system-503-planned, system-503-unplanned |  | kept |
+| 0.3-19 | main | Something is overloaded, and it is us | SEO H1, SEO / IA ownership | page | system-503-unplanned |  | kept |
+| 0.3-20 | main | We are working on it. There is no end time yet, and we are not going to put up a number we cannot keep. | text | page | system-503-unplanned |  | We are working on it. There is no end time yet, and we will not post one we cannot keep. Support still works, at the foot of this page. (Principle 5 and Microcopy 'Error, a page or a service': says what still works; node 0.3 section 7, the unplanned 503's route out is Support, the only route that is not the thing that is down; glossary C6 'Support') |
+| 0.3-21 | main | Either the link was wrong, or what used to be here has gone. Nothing on our side is broken. | text | page | system |  | kept |
 
 ### `0.4` Cookie consent
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 0.4-1 | head | Cookie settings, everything accepted. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-accepted |  | |
+| 0.4-1 | head | Cookie settings, everything accepted. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-accepted |  | kept |
 | 0.4-2 | head | Every case shows the chance and current value of each item, plus tested RTP and expected value at that cost. Withdrawals go to Steam, commission free. | SEO description, SEO / IA ownership | page | all 8 of `0.4`; all 2 of `1.0` | C1 | kept |
-| 0.4-3 | head | Cookie settings, the answer just changed. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-changed |  | |
-| 0.4-4 | head | Home, the cookie answer has expired. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-expired |  | |
-| 0.4-5 | head | Choosing what may be stored, nothing chosen yet. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-manage |  | |
-| 0.4-6 | head | Home, the cookie answer could not be saved. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-nostore |  | |
-| 0.4-7 | head | Cookie settings, one purpose on and one off. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-partial |  | |
-| 0.4-8 | head | Cookie settings, everything refused. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-rejected |  | |
-| 0.4-9 | head | Home, with the cookie answer still pending. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie |  | |
+| 0.4-3 | head | Cookie settings, the answer just changed. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-changed |  | kept |
+| 0.4-4 | head | Home, the cookie answer has expired. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-expired |  | kept |
+| 0.4-5 | head | Choosing what may be stored, nothing chosen yet. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-manage |  | Cookie settings, nothing chosen yet. CS{n} Clutch (Glossary, one concept one word: the same layer is titled "Cookie settings" on the accepted, changed, partial and rejected pages and the footer control that opens it is Cookie settings (G56); Screen heading rule, a state's title says the state) |
+| 0.4-6 | head | Home, the cookie answer could not be saved. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-nostore |  | kept |
+| 0.4-7 | head | Cookie settings, one purpose on and one off. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-partial |  | kept |
+| 0.4-8 | head | Cookie settings, everything refused. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie-rejected |  | Cookie settings, everything rejected. CS{n} Clutch (Glossary, one concept one word: the act is "Reject all" (0.4-45), so the state reads rejected, as "accepted" matches "Accept all"; "refused" is the appeal's word, S6) |
+| 0.4-9 | head | Home, with the cookie answer still pending. CS{n} Clutch | SEO title, SEO / IA ownership | page | cookie |  | Home, no cookie answer yet. CS{n} Clutch (Microcopy, a status: never "pending" with no owner; the plain fact, in the wording of the layer's own "Nothing recorded yet" (0.4-54) and the manage title) |
 | 0.4-10 | main | Daily cases: climb five tiers, each one opens a free case | text | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` | N1 | Coldfront week (`D-169`, `D-172`: the event's name on its art; a sample, `D-124`) |
 | 0.4-11 | main | See daily cases | button (link) | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` | N1 | See {d} (`D-169`: the event case) |
 | 0.4-12 | main | CS{n} case opening with published odds | SEO H1, SEO / IA ownership | `_nav.js homeBody` | all 8 of `0.4`; all 2 of `1.0` |  | kept |
@@ -331,58 +331,58 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 0.9-1 | head | Terms changed since you agreed | SEO title, SEO / IA ownership | page | legal-changed |  | |
-| 0.9-2 | head | Terms of use, guest | SEO title, SEO / IA ownership | page | legal-guest | C8 | |
-| 0.9-3 | head | A superseded version | SEO title, SEO / IA ownership | page | legal-superseded |  | |
+| 0.9-1 | head | Terms changed since you agreed | SEO title, SEO / IA ownership | page | legal-changed |  | Terms of use, changed since you agreed (Glossary C8: the document carries its name; H1/title rule, the state said after the subject) |
+| 0.9-2 | head | Terms of use, guest | SEO title, SEO / IA ownership | page | legal-guest | C8 | kept |
+| 0.9-3 | head | A superseded version | SEO title, SEO / IA ownership | page | legal-superseded |  | Terms of use, an earlier version (Glossary C8; principle 1, the plain word over 'superseded'; the title names the document as the H1 does) |
 | 0.9-4 | main | Legal | text | `WF_STR.legal` | all 6 of `0.9` |  | kept |
-| 0.9-5 | main | Version | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | |
-| 0.9-6 | main | Effective from | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | |
-| 0.9-7 | main | Published on | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | |
-| 0.9-8 | main | This changed after you agreed | heading | page | legal-changed |  | |
-| 0.9-9 | main | You agreed to v{n} on {date}. v{n} took effect on {date}. | text | page | legal-changed |  | |
-| 0.9-10 | main | What changed: the appeal route gained a published deadline for an answer. | text | page | legal-changed | N4 | |
-| 0.9-11 | main | Nothing here is blocked. You can read either version now, and we ask you to agree at the next thing you do that depends on it. | text | page | legal-changed |  | |
-| 0.9-12 | main | Read v{n}, the one you agreed to | button (link) | page | legal-changed |  | |
-| 0.9-13 | main | Taking what you already hold out to Steam stays open, agreed or not. | note | page | legal-changed |  | |
-| 0.9-14 | main | In short | heading | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | |
-| 0.9-15 | main | These are the rules between you and us: what you can do here, what we do, and what happens when something goes wrong. | text | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-16 | main | You must be {n} or over, and cases are a paid chance, never an investment. | text | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-17 | main | What you win can be kept, sold back, or sent to your Steam account. | text | page | legal-changed, legal-guest, legal-superseded, legal | C10 S1 | |
-| 0.9-18 | main | You can appeal any decision we take about your account. | text | page | legal-changed, legal-guest, legal-superseded, legal | N4 | |
-| 0.9-19 | main | Where this summary and the document below disagree, the document is the one that governs. | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | |
-| 0.9-20 | main | Contents | button | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | |
-| 0.9-21 | main | Who we are and what this covers | link | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-22 | main | Your account | link | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-23 | main | Opening a case, and what a chance is | link | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-24 | main | Money in, money out | link | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-25 | main | Limits you set on yourself | link | page | legal-changed, legal-guest, legal-superseded, legal | C5 | |
-| 0.9-26 | main | When we restrict an account | link | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-27 | main | Disputes, and how to raise one | link | page | legal-changed, legal-guest, legal-superseded, legal | N4 | |
-| 0.9-28 | main | Changes to this document | link | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | |
-| 0.9-29 | main | {n}. Who we are and what this covers | heading | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-30 | main | Clause text, written by counsel. | note | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal | PH | |
-| 0.9-31 | main | {n}. Your account | heading | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-32 | main | Clause text. | note | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal | PH | |
-| 0.9-33 | main | {n}. Opening a case, and what a chance is | heading | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-34 | main | {n}. Money in, money out | heading | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-35 | main | {n}. Limits you set on yourself | heading | page | legal-changed, legal-guest, legal-superseded, legal | C5 | |
-| 0.9-36 | main | {n}. When we restrict an account | heading | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-37 | main | {n}. Disputes, and how to raise one | heading | page | legal-changed, legal-guest, legal-superseded, legal | N4 | |
-| 0.9-38 | main | {n}. Changes to this document | heading | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | |
-| 0.9-39 | main | v{n} current | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | |
-| 0.9-40 | main | current | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | |
-| 0.9-41 | main | Effective {date} · published {date} · supersedes v{n} | text | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-42 | main | The appeal route gained a published deadline for an answer. | text | page | legal-changed, legal-guest, legal-superseded, legal | N4 | |
-| 0.9-43 | main | Required a new agreement: Yes | text | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-44 | main | Yes | text | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-45 | main | You are reading it | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | |
-| 0.9-46 | main | The deposit limit was added, with the {n} hour rule on raising it. | text | page | legal-changed, legal-guest, legal-superseded, legal | C4 C5 | |
-| 0.9-47 | main | Read this version | button (link) | page | legal-changed, legal-guest, legal-superseded, legal |  | |
-| 0.9-48 | main | Withdrawal wording aligned to what the product does. | text | page | legal-changed, legal-guest, legal-superseded, legal | C1 | |
-| 0.9-49 | main | Required a new agreement: No | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | |
-| 0.9-50 | main | No | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | |
-| 0.9-51 | main | Effective {date} · published {date} | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | |
-| 0.9-52 | main | First version. | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | |
+| 0.9-5 | main | Version | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
+| 0.9-6 | main | Effective from | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
+| 0.9-7 | main | Published on | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
+| 0.9-8 | main | This changed after you agreed | heading | page | legal-changed |  | kept |
+| 0.9-9 | main | You agreed to v{n} on {date}. v{n} took effect on {date}. | text | page | legal-changed |  | kept |
+| 0.9-10 | main | What changed: the appeal route gained a published deadline for an answer. | text | page | legal-changed | N4 | kept |
+| 0.9-11 | main | Nothing here is blocked. You can read either version now, and we ask you to agree at the next thing you do that depends on it. | text | page | legal-changed |  | Nothing is blocked. You can read either version now, and we ask you to agree when you next do something that depends on it. (Principle 1 and 5: what still works, said plainly; 'at the next thing you do' was clumsy) |
+| 0.9-12 | main | Read v{n}, the one you agreed to | button (link) | page | legal-changed |  | kept |
+| 0.9-13 | main | Taking what you already hold out to Steam stays open, agreed or not. | note | page | legal-changed |  | Sending what you hold to Steam stays open, agreed or not. (Glossary C1: Send to Steam for the act; shorter) |
+| 0.9-14 | main | In short | heading | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
+| 0.9-15 | main | These are the rules between you and us: what you can do here, what we do, and what happens when something goes wrong. | text | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-16 | main | You must be {n} or over, and cases are a paid chance, never an investment. | text | page | legal-changed, legal-guest, legal-superseded, legal |  | You must be {n} or over. Opening a case is a paid chance, never an investment. (Aligned to G65 Now, the footer: the open is the paid chance, not the case) |
+| 0.9-17 | main | What you win can be kept, sold back, or sent to your Steam account. | text | page | legal-changed, legal-guest, legal-superseded, legal | C10 S1 | An item you get from a case can be kept, sold, or sent to your Steam account. (Glossary C10 (an item, not 'what you win') and S1 ('sold', not 'sold back')) |
+| 0.9-18 | main | You can appeal any decision we take about your account. | text | page | legal-changed, legal-guest, legal-superseded, legal | N4 | kept |
+| 0.9-19 | main | Where this summary and the document below disagree, the document is the one that governs. | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
+| 0.9-20 | main | Contents | button | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
+| 0.9-21 | main | Who we are and what this covers | link | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-22 | main | Your account | link | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-23 | main | Opening a case, and what a chance is | link | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-24 | main | Money in, money out | link | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-25 | main | Limits you set on yourself | link | page | legal-changed, legal-guest, legal-superseded, legal | C5 | kept |
+| 0.9-26 | main | When we restrict an account | link | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-27 | main | Disputes, and how to raise one | link | page | legal-changed, legal-guest, legal-superseded, legal | N4 | Appeals, and how to make one (Glossary N4: appeal is the person asking us to change a decision; 'dispute' is retired; matches 0.9-18 and 0.9-42) |
+| 0.9-28 | main | Changes to this document | link | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
+| 0.9-29 | main | {n}. Who we are and what this covers | heading | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-30 | main | Clause text, written by counsel. | note | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal | PH | kept |
+| 0.9-31 | main | {n}. Your account | heading | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-32 | main | Clause text. | note | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal | PH | kept |
+| 0.9-33 | main | {n}. Opening a case, and what a chance is | heading | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-34 | main | {n}. Money in, money out | heading | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-35 | main | {n}. Limits you set on yourself | heading | page | legal-changed, legal-guest, legal-superseded, legal | C5 | kept |
+| 0.9-36 | main | {n}. When we restrict an account | heading | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-37 | main | {n}. Disputes, and how to raise one | heading | page | legal-changed, legal-guest, legal-superseded, legal | N4 | {n}. Appeals, and how to make one (Glossary N4, as 0.9-27) |
+| 0.9-38 | main | {n}. Changes to this document | heading | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
+| 0.9-39 | main | v{n} current | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
+| 0.9-40 | main | current | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
+| 0.9-41 | main | Effective {date} · published {date} · supersedes v{n} | text | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-42 | main | The appeal route gained a published deadline for an answer. | text | page | legal-changed, legal-guest, legal-superseded, legal | N4 | kept |
+| 0.9-43 | main | Required a new agreement: Yes | text | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-44 | main | Yes | text | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-45 | main | You are reading it | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
+| 0.9-46 | main | The deposit limit was added, with the {n} hour rule on raising it. | text | page | legal-changed, legal-guest, legal-superseded, legal | C4 C5 | kept |
+| 0.9-47 | main | Read this version | button (link) | page | legal-changed, legal-guest, legal-superseded, legal |  | kept |
+| 0.9-48 | main | Withdrawal wording aligned to what the product does. | text | page | legal-changed, legal-guest, legal-superseded, legal | C1 | kept |
+| 0.9-49 | main | Required a new agreement: No | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
+| 0.9-50 | main | No | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
+| 0.9-51 | main | Effective {date} · published {date} | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
+| 0.9-52 | main | First version. | text | page | legal-changed, legal-guest, legal-refund, legal-superseded, legal |  | kept |
 | 0.9-53 | main | Who we are | heading | `WF_STR.legalWho` | all 6 of `0.9` |  | kept |
 | 0.9-54 | main | Operating company | text | `WF_STR.operatingCompany` | all 6 of `0.9` |  | kept |
 | 0.9-55 | main | Operating company name | text | `WF_STR.operatingCompanySample` | all 6 of `0.9` | PH | kept |
@@ -398,45 +398,45 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.9-65 | main | VAT no. {hash} | text | `WF_STR.vatNumberSample` | all 6 of `0.9` | PH | kept |
 | 0.9-66 | main | Questions about this document | heading | `WF_STR.legalQuestions` | all 6 of `0.9` |  | kept |
 | 0.9-67 | main | Ask us | button (link) | `WF_STR.askUs` | all 6 of `0.9` |  | kept |
-| 0.9-68 | main | How money moves in and out, what happens when a payment fails or is disputed, and what you can get back. | text | page | legal-refund | N4 | |
-| 0.9-69 | main | One coin is {n}, and every price here is in coins. | text | page | legal-refund | C11 | |
-| 0.9-70 | main | The smallest deposit is {n}. A deposit is usually credited within {n} minutes. | text | page | legal-refund | C2 C4 C11 | |
-| 0.9-71 | main | A deposit limit you set holds every payment we take, and raising it takes {n} hours. A transfer from your own crypto wallet cannot be stopped by it. | text | page | legal-refund | C4 C5 | |
-| 0.9-72 | main | Items you hold are not covered here: keeping, selling and sending them are in the terms of use. | text | page | legal-refund | C8 S1 | |
-| 0.9-73 | main | terms of use | link | page | legal-refund | C8 K | |
-| 0.9-74 | main | What this policy covers | link | page | legal-refund |  | |
-| 0.9-75 | main | Paying in | link | page | legal-refund |  | |
-| 0.9-76 | main | When a payment fails | link | page | legal-refund |  | |
-| 0.9-77 | main | A charge you did not make, or dispute | link | page | legal-refund | N4 | |
-| 0.9-78 | main | What you can get back | link | page | legal-refund |  | |
-| 0.9-79 | main | Taking money out | link | page | legal-refund |  | |
-| 0.9-80 | main | {n}. What this policy covers | heading | page | legal-refund |  | |
-| 0.9-81 | main | {n}. Paying in | heading | page | legal-refund |  | |
-| 0.9-82 | main | {n}. When a payment fails | heading | page | legal-refund |  | |
-| 0.9-83 | main | {n}. A charge you did not make, or dispute | heading | page | legal-refund | N4 | |
-| 0.9-84 | main | {n}. What you can get back | heading | page | legal-refund |  | |
-| 0.9-85 | main | {n}. Taking money out | heading | page | legal-refund |  | |
-| 0.9-86 | main | This is not the current version | heading | page | legal-superseded |  | |
-| 0.9-87 | main | v{n} governed from {date} until {date}. It is kept because a decision taken while it was in force is answered under it. | text | page | legal-superseded |  | |
-| 0.9-88 | main | Read the current version, v{n} | button (link) | page | legal-superseded |  | |
-| 0.9-89 | main | This document is not published yet | heading | page | legal-unpublished |  | |
-| 0.9-90 | main | There is no version of it, so there is nothing here to read and nothing you have agreed to. | text | page | legal-unpublished |  | |
-| 0.9-91 | main | Ask us about it | button (link) | page | legal-unpublished |  | |
+| 0.9-68 | main | How money moves in and out, what happens when a payment fails or is disputed, and what you can get back. | text | page | legal-refund | N4 | How money moves in and out, what happens when a payment fails or is charged back, and what you can get back. (Glossary N4 (c): a card payment reversed through the bank is a chargeback; 'disputed' was the word doing two jobs) |
+| 0.9-69 | main | One coin is {n}, and every price here is in coins. | text | page | legal-refund | C11 | kept |
+| 0.9-70 | main | The smallest deposit is {n}. A deposit is usually credited within {n} minutes. | text | page | legal-refund | C2 C4 C11 | kept |
+| 0.9-71 | main | A deposit limit you set holds every payment we take, and raising it takes {n} hours. A transfer from your own crypto wallet cannot be stopped by it. | text | page | legal-refund | C4 C5 | A deposit limit you set applies to every payment we take, and raising it takes {n} hours. It cannot stop a transfer from your own crypto wallet. (Principle 1: plain verb ('applies to' for 'holds') and active voice; glossary C5 'Deposit limit' kept; no fact changed) |
+| 0.9-72 | main | Items you hold are not covered here: keeping, selling and sending them are in the terms of use. | text | page | legal-refund | C8 S1 | Items you hold are not covered here: keeping, selling and sending them to Steam are in the Terms of use. (Glossary C8 (document name capitalised as everywhere) and C1 (sending to Steam named)) |
+| 0.9-73 | main | terms of use | link | page | legal-refund | C8 K | Terms of use (Glossary C8, marks K: the document name in sentence case with its capital) |
+| 0.9-74 | main | What this policy covers | link | page | legal-refund |  | kept |
+| 0.9-75 | main | Paying in | link | page | legal-refund |  | Adding funds (Glossary C4: Add funds is the only word for putting money onto the balance) |
+| 0.9-76 | main | When a payment fails | link | page | legal-refund |  | kept |
+| 0.9-77 | main | A charge you did not make, or dispute | link | page | legal-refund | N4 | A charge you did not make, or a chargeback (Glossary N4 (c): chargeback, not 'dispute') |
+| 0.9-78 | main | What you can get back | link | page | legal-refund |  | kept |
+| 0.9-79 | main | Taking money out | link | page | legal-refund |  | Cash out (Glossary N6 and C11: money paid out of the product is a cash out) |
+| 0.9-80 | main | {n}. What this policy covers | heading | page | legal-refund |  | kept |
+| 0.9-81 | main | {n}. Paying in | heading | page | legal-refund |  | {n}. Adding funds (Glossary C4, as 0.9-75) |
+| 0.9-82 | main | {n}. When a payment fails | heading | page | legal-refund |  | kept |
+| 0.9-83 | main | {n}. A charge you did not make, or dispute | heading | page | legal-refund | N4 | {n}. A charge you did not make, or a chargeback (Glossary N4 (c), as 0.9-77) |
+| 0.9-84 | main | {n}. What you can get back | heading | page | legal-refund |  | kept |
+| 0.9-85 | main | {n}. Taking money out | heading | page | legal-refund |  | {n}. Cash out (Glossary N6, as 0.9-79) |
+| 0.9-86 | main | This is not the current version | heading | page | legal-superseded |  | kept |
+| 0.9-87 | main | v{n} governed from {date} until {date}. It is kept because a decision taken while it was in force is answered under it. | text | page | legal-superseded |  | kept |
+| 0.9-88 | main | Read the current version, v{n} | button (link) | page | legal-superseded |  | kept |
+| 0.9-89 | main | This document is not published yet | heading | page | legal-unpublished |  | kept |
+| 0.9-90 | main | There is no version of it, so there is nothing here to read and nothing you have agreed to. | text | page | legal-unpublished |  | kept |
+| 0.9-91 | main | Ask us about it | button (link) | page | legal-unpublished |  | kept |
 
 ### `0.10` Support and contact
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 0.10-1 | head | Support and appeals - CS{n} Clutch | SEO title, SEO / IA ownership | page | all 10 of `0.10` | C6 N4 | |
-| 0.10-2 | head | Contact us or appeal a decision, with a published deadline for an answer. Every restriction carries a written ground and a route to dispute it. | SEO description, SEO / IA ownership | page | all 10 of `0.10` | N4 | |
-| 0.10-3 | main | Ticket | text | page | support-answered, support-deadline, support-submitted, support-waiting |  | |
-| 0.10-4 | main | Answered {date} {time} | text | page | support-answered |  | |
-| 0.10-5 | main | Our deadline for an answer | text | page | support-answered, support-deadline, support-submitted, support-waiting |  | |
-| 0.10-6 | main | Answered, and the answer has a ground in it | text | page | support-answered |  | |
-| 0.10-7 | main | Our answer | heading | page | support-answered |  | |
-| 0.10-8 | main | The review is finished. The three payment instruments are in your name, as the statements you sent show. The restriction is lifted and nothing was taken from your balance. | text | page | support-answered | S6 N4 | |
-| 0.10-9 | main | This answer stays here for {n} months. | note | page | support-answered |  | |
-| 0.10-10 | main | Where that leaves you | button (link) | page | support-answered |  | |
+| 0.10-1 | head | Support and appeals - CS{n} Clutch | SEO title, SEO / IA ownership | page | all 10 of `0.10` | C6 N4 | kept |
+| 0.10-2 | head | Contact us or appeal a decision, with a published deadline for an answer. Every restriction carries a written ground and a route to dispute it. | SEO description, SEO / IA ownership | page | all 10 of `0.10` | N4 | IA owns it: block C of `ia/docs/pages/support.md` holds the aligned line |
+| 0.10-3 | main | Ticket | text | page | support-answered, support-deadline, support-submitted, support-waiting |  | kept |
+| 0.10-4 | main | Answered {date} {time} | text | page | support-answered |  | kept |
+| 0.10-5 | main | Our deadline for an answer | text | page | support-answered, support-deadline, support-submitted, support-waiting |  | kept |
+| 0.10-6 | main | Answered, and the answer has a ground in it | text | page | support-answered |  | Answered, with the reason (Status in a timeline: the state in one line; principle 1, reason not ground) |
+| 0.10-7 | main | Our answer | heading | page | support-answered |  | kept |
+| 0.10-8 | main | The review is finished. The three payment instruments are in your name, as the statements you sent show. The restriction is lifted and nothing was taken from your balance. | text | page | support-answered | S6 N4 | The restriction is lifted. The statements you sent show all three payment methods are in your name. Nothing was taken from your balance. (Principle 1, the answer first; glossary S6 The restriction is lifted; payment methods as in G164) |
+| 0.10-9 | main | This answer stays here for {n} months. | note | page | support-answered |  | kept |
+| 0.10-10 | main | Where that leaves you | button (link) | page | support-answered |  | Your account now (A link names its destination: the page shows the balance, what is frozen and the way back to Steam) |
 | 0.10-11 | main | Questions and answers | heading | `WF_STR.questionsAnswers` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support |  | kept |
 | 0.10-12 | main | Getting in | button | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support |  | kept |
 | 0.10-13 | main | Sign in, the geo gate, and a Steam login that will not complete | text | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support |  | kept |
@@ -468,71 +468,71 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 0.10-39 | main | How do I appeal a decision? | disclosure | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support | N4 | kept |
 | 0.10-40 | main | Choose "Appeal a decision we took" in the form below. We answer within {n} hours. Appeal | text | `_nav.js FAQ` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support | N4 | kept |
 | 0.10-41 | main | Appeal | link | page, `_nav.js FAQ/mountSupportSubject` | support-answered, support-deadline, support-nodispute, support-notfound, support-refused, support-submitted, support-upheld, support-waiting, support | N4 | kept |
-| 0.10-42 | main | Appeal a decision | text | page | support-appeal | N4 | |
-| 0.10-43 | main | The decision and its ground are filled in for you. | text | page | support-appeal |  | |
-| 0.10-44 | main | The decision you are appealing | text | page | support-appeal | N4 | |
-| 0.10-45 | main | Account restricted, {date}, {time} | text | page | support-appeal |  | |
-| 0.10-46 | main | The ground we gave, quoted back | text | page | support-appeal |  | |
-| 0.10-47 | main | The round or transaction under dispute | text | page | support-appeal | C9 N4 | |
-| 0.10-48 | main | The version of the document it was taken under | text | page | support-appeal |  | |
-| 0.10-49 | main | Terms of use, version in force on {date} | text | page | support-appeal | C8 | |
-| 0.10-50 | main | version in force on {date} | link | page | support-appeal |  | |
-| 0.10-51 | main | What you say | field label | page | support-appeal |  | |
-| 0.10-52 | main | Evidence, optional | field label | page | support-appeal |  | |
-| 0.10-53 | main | Where to send the answer | field label | page | support-appeal, support-nodispute, support-notfound, support |  | |
-| 0.10-54 | main | Send the appeal | button (link) | page | support-appeal | N4 | |
-| 0.10-55 | main | No account needed, and we never ask for an identity document here. | note | page | support-appeal, support-nodispute, support-notfound, support |  | |
-| 0.10-56 | main | We answer within {n} hours, counted from when you send. | note | page | support-appeal |  | |
-| 0.10-57 | main | Open since {date} {time} | text | page | support-deadline, support-waiting |  | |
-| 0.10-58 | main | Waiting on us, and past the deadline | text | page | support-deadline |  | |
-| 0.10-59 | main | Your balance is frozen, not reduced, while this runs. | note | page | support-deadline, support-submitted, support-waiting |  | |
-| 0.10-60 | main | We are late | heading | page | support-deadline |  | |
-| 0.10-61 | main | This ticket has passed the deadline we publish for an answer. The clock keeps running and it is not reset. | text | page | support-deadline |  | |
-| 0.10-62 | main | Missed by {n} d {n} h. | note | page | support-deadline |  | |
-| 0.10-63 | main | The answer still comes with its ground. | note | page | support-deadline |  | |
-| 0.10-64 | main | There is no decision here to appeal | heading | page | support-nodispute | N4 | |
-| 0.10-65 | main | Nothing on this account is restricted and no check of ours has failed. If you are disputing something, tell us what it is and we will find it. | text | page | support-nodispute | N4 | |
-| 0.10-66 | main | Write to us | heading | page | support-nodispute, support-notfound, support |  | |
-| 0.10-67 | main | What it is about Choose one A deposit A withdrawal A case or a round My account Appeal a decision we took Something else | field label | page | support-nodispute, support-notfound, support | C1 C4 C9 N4 | |
-| 0.10-68 | main | Choose one | option | page | support-nodispute, support-notfound, support |  | |
-| 0.10-69 | main | A deposit | option | page | support-nodispute, support-notfound, support | C4 | |
-| 0.10-70 | main | A withdrawal | option | page | support-nodispute, support-notfound, support | C1 | |
-| 0.10-71 | main | A case or a round | option | page | support-nodispute, support-notfound, support | C9 | |
-| 0.10-72 | main | Appeal a decision we took | option | page | support-nodispute, support-notfound, support | N4 | |
-| 0.10-73 | main | Something else | option | page | support-nodispute, support-notfound, support |  | |
-| 0.10-74 | main | Your message | field label | page | support-nodispute, support-notfound, support |  | |
-| 0.10-75 | main | Send | button (link) | page | support-nodispute, support-notfound, support |  | |
-| 0.10-76 | main | By email | heading | page | support-nodispute, support-notfound, support |  | |
-| 0.10-77 | main | support@cs{n}clutch.example | link | page | support-nodispute, support-notfound, support | C6 PH | |
-| 0.10-78 | main | We cannot find that ticket | heading | page | support-notfound |  | |
-| 0.10-79 | main | The id {id}{n}{n}{n} does not match anything we hold. It may be mistyped, or it may belong to a different address. | text | page | support-notfound |  | |
-| 0.10-80 | main | Send us the id below and we will look. | note | page | support-notfound |  | |
-| 0.10-81 | main | The appeal was refused | heading | page | support-refused | N4 | |
-| 0.10-82 | main | Answered {date}, {time}. The original decision stands and its ground stays on the record here. | text | page | support-refused |  | |
-| 0.10-83 | main | The review found that the deposits came from payment instruments belonging to people other than you, which the terms in force on that date do not permit. The restriction stands. | text | page | support-refused | C4 S6 N4 | |
-| 0.10-84 | main | Your balance is frozen and has not been reduced. | note | page | support-refused |  | |
-| 0.10-85 | main | The terms this was decided under | button (link) | page | support-refused |  | |
-| 0.10-86 | main | Time to an answer | text | page | support-refused, support-upheld |  | |
-| 0.10-87 | main | Every ticket gets an answer within {n} hours of being sent, with the reason in it. | text | page | support-refused, support-upheld |  | |
-| 0.10-88 | main | {n} min | text | page | support-submitted |  | |
-| 0.10-89 | main | Appeal submitted, {date} {time} | text | page | support-submitted | N4 | |
-| 0.10-90 | main | Waiting on us | text | page | support-submitted |  | |
-| 0.10-91 | main | What happens now | heading | page | support-submitted |  | |
-| 0.10-92 | main | We answer with what we decided and on what ground. | text | page | support-submitted |  | |
-| 0.10-93 | main | The restriction is lifted | heading | page | support-upheld | S6 | |
-| 0.10-94 | main | Your appeal was upheld on {date}, {time}, and the ground for the original decision stays on the record with the answer. | text | page | support-upheld | S6 N4 | |
-| 0.10-95 | main | Frozen | text | page | support-upheld |  | |
-| 0.10-96 | main | Nothing | text | page | support-upheld |  | |
-| 0.10-97 | main | It was frozen, not reduced, which is why there is nothing to restore. | note | page | support-upheld |  | |
-| 0.10-98 | main | Back to the withdrawal | button (link) | page | support-upheld | C1 | |
-| 0.10-99 | main | Waiting on you | text | page | support-waiting |  | |
-| 0.10-100 | main | What we asked you for | heading | page | support-waiting |  | |
-| 0.10-101 | main | Which of the three payment instruments are yours, with a statement or a screenshot showing your name on each. If one is not yours, say which. | text | page | support-waiting |  | |
-| 0.10-102 | main | Your reply | field label | page | support-waiting |  | |
-| 0.10-103 | main | Reply | button (link) | page | support-waiting |  | |
-| 0.10-104 | main | Ask a question or appeal a decision. We answer within {n} hours. | text | page | support | N4 | |
-| 0.10-105 | main | Your tickets | heading | page | support |  | |
-| 0.10-106 | main | None yet. A message you send here gets a ticket, and its answer and its deadline stay on it. | text | page | support |  | |
+| 0.10-42 | main | Appeal a decision | text | page | support-appeal | N4 | kept |
+| 0.10-43 | main | The decision and its ground are filled in for you. | text | page | support-appeal |  | The decision and its reason are filled in for you. (Principle 1, plain words: reason, not the IA's ground) |
+| 0.10-44 | main | The decision you are appealing | text | page | support-appeal | N4 | kept |
+| 0.10-45 | main | Account restricted, {date}, {time} | text | page | support-appeal |  | kept |
+| 0.10-46 | main | The ground we gave, quoted back | text | page | support-appeal |  | Our reason, as we gave it (Field label as a noun; reason, not ground) |
+| 0.10-47 | main | The round or transaction under dispute | text | page | support-appeal | C9 N4 | The round or transaction it is about (Glossary N4: dispute is not used) |
+| 0.10-48 | main | The version of the document it was taken under | text | page | support-appeal |  | Version of the terms it was decided under (Field label as a noun, the document named (C8) instead of 'the document') |
+| 0.10-49 | main | Terms of use, version in force on {date} | text | page | support-appeal | C8 | kept |
+| 0.10-50 | main | version in force on {date} | link | page | support-appeal |  | kept |
+| 0.10-51 | main | What you say | field label | page | support-appeal |  | Your appeal (Field label is a noun: what to enter (N4 appeal)) |
+| 0.10-52 | main | Evidence, optional | field label | page | support-appeal |  | kept |
+| 0.10-53 | main | Where to send the answer | field label | page | support-appeal, support-nodispute, support-notfound, support |  | Email for the answer (Field label is a noun naming what to enter, an email address) |
+| 0.10-54 | main | Send the appeal | button (link) | page | support-appeal | N4 | kept |
+| 0.10-55 | main | No account needed, and we never ask for an identity document here. | note | page | support-appeal, support-nodispute, support-notfound, support |  | kept |
+| 0.10-56 | main | We answer within {n} hours, counted from when you send. | note | page | support-appeal |  | kept |
+| 0.10-57 | main | Open since {date} {time} | text | page | support-deadline, support-waiting |  | kept |
+| 0.10-58 | main | Waiting on us, and past the deadline | text | page | support-deadline |  | kept |
+| 0.10-59 | main | Your balance is frozen, not reduced, while this runs. | note | page | support-deadline, support-submitted, support-waiting |  | Your balance is frozen, not reduced, while the appeal is open. (T8: say that nothing is lost and for how long; 'while this runs' named no subject) |
+| 0.10-60 | main | We are late | heading | page | support-deadline |  | kept |
+| 0.10-61 | main | This ticket has passed the deadline we publish for an answer. The clock keeps running and it is not reset. | text | page | support-deadline |  | kept |
+| 0.10-62 | main | Missed by {n} d {n} h. | note | page | support-deadline |  | kept |
+| 0.10-63 | main | The answer still comes with its ground. | note | page | support-deadline |  | The answer still comes with its reason. (Principle 1, reason not ground) |
+| 0.10-64 | main | There is no decision here to appeal | heading | page | support-nodispute | N4 | kept |
+| 0.10-65 | main | Nothing on this account is restricted and no check of ours has failed. If you are disputing something, tell us what it is and we will find it. | text | page | support-nodispute | N4 | Nothing on this account is restricted and no check of ours has failed. If you think we got something wrong, tell us what it is and we will find it. (Glossary N4: dispute is not used) |
+| 0.10-66 | main | Write to us | heading | page | support-nodispute, support-notfound, support |  | kept |
+| 0.10-67 | main | What it is about Choose one A deposit A withdrawal A case or a round My account Appeal a decision we took Something else | field label | page | support-nodispute, support-notfound, support | C1 C4 C9 N4 | kept |
+| 0.10-68 | main | Choose one | option | page | support-nodispute, support-notfound, support |  | kept |
+| 0.10-69 | main | A deposit | option | page | support-nodispute, support-notfound, support | C4 | kept |
+| 0.10-70 | main | A withdrawal | option | page | support-nodispute, support-notfound, support | C1 | kept |
+| 0.10-71 | main | A case or a round | option | page | support-nodispute, support-notfound, support | C9 | kept |
+| 0.10-72 | main | Appeal a decision we took | option | page | support-nodispute, support-notfound, support | N4 | kept |
+| 0.10-73 | main | Something else | option | page | support-nodispute, support-notfound, support |  | kept |
+| 0.10-74 | main | Your message | field label | page | support-nodispute, support-notfound, support |  | kept |
+| 0.10-75 | main | Send | button (link) | page | support-nodispute, support-notfound, support |  | Send the message (Button: a verb and the result it produces; one family with Send the appeal and Send the reply) |
+| 0.10-76 | main | By email | heading | page | support-nodispute, support-notfound, support |  | kept |
+| 0.10-77 | main | support@cs{n}clutch.example | link | page | support-nodispute, support-notfound, support | C6 PH | kept |
+| 0.10-78 | main | We cannot find that ticket | heading | page | support-notfound |  | kept |
+| 0.10-79 | main | The id {id}{n}{n}{n} does not match anything we hold. It may be mistyped, or it may belong to a different address. | text | page | support-notfound |  | The id {id} does not match any ticket we hold. It may be mistyped, or it may belong to another email address. (Principle 5: what happened, said exactly ('any ticket', 'email address')) |
+| 0.10-80 | main | Send us the id below and we will look. | note | page | support-notfound |  | Send it to us with the form below and we will look. (Principle 5, what to do next; the old line put the id 'below' when it is above and the form is below) |
+| 0.10-81 | main | The appeal was refused | heading | page | support-refused | N4 | kept |
+| 0.10-82 | main | Answered {date}, {time}. The original decision stands and its ground stays on the record here. | text | page | support-refused |  | Answered {date}, {time}. The restriction stays, and its reason is kept on the record here. (Glossary S6: The restriction stays; reason not ground) |
+| 0.10-83 | main | The review found that the deposits came from payment instruments belonging to people other than you, which the terms in force on that date do not permit. The restriction stands. | text | page | support-refused | C4 S6 N4 | The review found the deposits were made with payment methods in other people's names. The terms in force on that date do not allow that. The restriction stays. (Glossary S6 The restriction stays; C4; flat finding, no accusation (Forbidden, B8-3), payment methods as in G164) |
+| 0.10-84 | main | Your balance is frozen and has not been reduced. | note | page | support-refused |  | kept |
+| 0.10-85 | main | The terms this was decided under | button (link) | page | support-refused |  | kept |
+| 0.10-86 | main | Time to an answer | text | page | support-refused, support-upheld |  | kept |
+| 0.10-87 | main | Every ticket gets an answer within {n} hours of being sent, with the reason in it. | text | page | support-refused, support-upheld |  | kept |
+| 0.10-88 | main | {n} min | text | page | support-submitted |  | kept |
+| 0.10-89 | main | Appeal submitted, {date} {time} | text | page | support-submitted | N4 | kept |
+| 0.10-90 | main | Waiting on us | text | page | support-submitted |  | kept |
+| 0.10-91 | main | What happens now | heading | page | support-submitted |  | kept |
+| 0.10-92 | main | We answer with what we decided and on what ground. | text | page | support-submitted |  | We answer with what we decided and why. (Principle 1, plain words) |
+| 0.10-93 | main | The restriction is lifted | heading | page | support-upheld | S6 | kept |
+| 0.10-94 | main | Your appeal was upheld on {date}, {time}, and the ground for the original decision stays on the record with the answer. | text | page | support-upheld | S6 N4 | Your appeal was accepted on {date}, {time}. The reason for the original decision stays on the record with the answer. (Glossary S6: accepted, never upheld) |
+| 0.10-95 | main | Frozen | text | page | support-upheld |  | kept |
+| 0.10-96 | main | Nothing | text | page | support-upheld |  | kept |
+| 0.10-97 | main | It was frozen, not reduced, which is why there is nothing to restore. | note | page | support-upheld |  | kept |
+| 0.10-98 | main | Back to the withdrawal | button (link) | page | support-upheld | C1 | Send to Steam (Glossary C1: the act is Send to Steam; a link names the act it starts (withdraw.html, whose act is Send to Steam)) |
+| 0.10-99 | main | Waiting on you | text | page | support-waiting |  | kept |
+| 0.10-100 | main | What we asked you for | heading | page | support-waiting |  | kept |
+| 0.10-101 | main | Which of the three payment instruments are yours, with a statement or a screenshot showing your name on each. If one is not yours, say which. | text | page | support-waiting |  | Which of the three payment methods are yours, with a statement or a screenshot showing your name on each. If one is not yours, say which. (Payment methods, the wording G164 set for the same restriction) |
+| 0.10-102 | main | Your reply | field label | page | support-waiting |  | kept |
+| 0.10-103 | main | Reply | button (link) | page | support-waiting |  | Send the reply (Button: a verb and the result; one family with Send the appeal and Send the message) |
+| 0.10-104 | main | Ask a question or appeal a decision. We answer within {n} hours. | text | page | support | N4 | kept |
+| 0.10-105 | main | Your tickets | heading | page | support |  | kept |
+| 0.10-106 | main | None yet. A message you send here gets a ticket, and its answer and its deadline stay on it. | text | page | support |  | No tickets yet. Write to us above and the ticket is listed here, with its answer and its deadline. (Empty state: why it is empty, then what to do next, in the form of 'No rounds yet. Open a case and it is listed here.') |
 
 ### `1.0` Home
 
@@ -553,8 +553,8 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 1.2-1 | head | Provably fair: check any round yourself \| CS{n} Clutch | SEO title, SEO / IA ownership | page | all 6 of `1.2` | C9 S5 | |
-| 1.2-2 | head | See what a commit-reveal proof does and does not show, then paste a round and recompute it yourself. Public page, no account, algorithm published in full. | SEO description, SEO / IA ownership | page | all 6 of `1.2` | C9 | |
+| 1.2-1 | head | Provably fair: check any round yourself \| CS{n} Clutch | SEO title, SEO / IA ownership | page | all 6 of `1.2` | C9 S5 | kept |
+| 1.2-2 | head | See what a commit-reveal proof does and does not show, then paste a round and recompute it yourself. Public page, no account, algorithm published in full. | SEO description, SEO / IA ownership | page | all 6 of `1.2` | C9 | kept |
 | 1.2-3 | main | Provably fair: check any round yourself | SEO H1, SEO / IA ownership | `WF_STR.fairH1` | all 6 of `1.2` | C9 S5 | kept |
 | 1.2-4 | main | This page is public. You do not need an account to read it, and you do not need one to check a round. | text | `WF_STR.fairPublic` | all 6 of `1.2` | C9 | kept |
 | 1.2-5 | main | What this proves | text | `WF_STR.fairProves` | all 6 of `1.2` |  | kept |
@@ -585,9 +585,9 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 1.2-30 | main | The drop table in force at that round, versioned | text | `WF_STR.fairTableRow` | all 6 of `1.2` | C9 C10 | kept |
 | 1.2-31 | main | Its version, printed with the round | text | `WF_STR.fairTableWhat` | all 6 of `1.2` | C9 | kept |
 | 1.2-32 | main | Server seed hash, published before the round | field label | `WF_STR.fairHashLabel` | all 6 of `1.2` | C9 | kept |
-| 1.2-33 | main | This is {n} characters. A server seed hash is {n}. | text | page | fair-malformed |  | |
+| 1.2-33 | main | This is {n} characters. A server seed hash is {n}. | text | page | fair-malformed |  | kept |
 | 1.2-34 | main | Server seed, revealed on rotation | field label | `WF_STR.fairSeedLabel` | all 6 of `1.2` |  | kept |
-| 1.2-35 | main | A nonce is a whole number. This one has a decimal point in it. | text | page | fair-malformed |  | |
+| 1.2-35 | main | A nonce is a whole number. This one has a decimal point in it. | text | page | fair-malformed |  | kept |
 | 1.2-36 | main | Recompute this round | button | `WF_STR.recompute` | all 6 of `1.2` | C9 | Recompute it yourself (step 4) |
 | 1.2-37 | main | If your check does not match ours | heading | `WF_STR.fairMismatchH` | all 6 of `1.2` |  | kept |
 | 1.2-38 | main | Report it from the result, with the round attached. You get a reference and an answer within {n} hours. | text | `WF_STR.fairMismatchBody` | all 6 of `1.2` | C9 | kept |
@@ -604,15 +604,15 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 1.2-49 | main | That is the point. The algorithm is published so that a stranger can write their own and get our answer. | text | `WF_STR.fairA1` | all 6 of `1.2` |  | kept |
 | 1.2-50 | main | Why can I not check a round from last year? | disclosure | `WF_STR.fairQ2` | all 6 of `1.2` | C9 | kept |
 | 1.2-51 | main | Rounds from before the published ledger have no commitment behind them, so they cannot be checked here. | text | `WF_STR.fairA2` | all 6 of `1.2` | C9 | kept |
-| 1.2-52 | main | Your recomputation and ours agree. | text | page | fair-matched |  | |
-| 1.2-53 | main | Settled result, ours | text | page | fair-matched, fair-proof-failed |  | |
-| 1.2-54 | main | Recomputed here | text | page | fair-matched, fair-proof-failed |  | |
-| 1.2-55 | main | Ticket range it lands in | text | page | fair-matched |  | |
-| 1.2-56 | main | These do not agree, and that is ours to explain rather than yours to prove. We do not yet know why. | text | page | fair-proof-failed |  | |
+| 1.2-52 | main | Your recomputation and ours agree. | text | page | fair-matched |  | kept |
+| 1.2-53 | main | Settled result, ours | text | page | fair-matched, fair-proof-failed |  | kept |
+| 1.2-54 | main | Recomputed here | text | page | fair-matched, fair-proof-failed |  | kept |
+| 1.2-55 | main | Ticket range it lands in | text | page | fair-matched |  | Ticket range it landed in (Glossary "One concept, one word": the same label as 7.1-14, kept, on the result page; the round is already settled, so past tense) |
+| 1.2-56 | main | These do not agree, and that is ours to explain rather than yours to prove. We do not yet know why. | text | page | fair-proof-failed |  | kept |
 | 1.2-57 | main | Report this round | button (link) | page, `_nav.js proofPanel` | fair-proof-failed; result-mismatched | C9 | kept |
-| 1.2-58 | main | Reference {id}{n}{n}{n}. The round and every field on this page go with it, and we answer within {n} hours. | text | page | fair-proof-failed | C9 | |
-| 1.2-59 | main | No proof yet: this round's server seed has not rotated. | text | page | fair-unavailable | C9 | |
-| 1.2-60 | main | The round is complete and correct. It becomes checkable when the seed rotates. | text | page | fair-unavailable | C9 | |
+| 1.2-58 | main | Reference {id}{n}{n}{n}. The round and every field on this page go with it, and we answer within {n} hours. | text | page | fair-proof-failed | C9 | kept |
+| 1.2-59 | main | No proof yet: this round's server seed has not rotated. | text | page | fair-unavailable | C9 | kept |
+| 1.2-60 | main | The round is complete and correct. It becomes checkable when the seed rotates. | text | page | fair-unavailable | C9 | The round is settled and the item is real. It becomes checkable when the seed rotates. (Principle 2: no claim the page cannot yet prove ("correct" stood beside "No proof yet"); principle 5, what still holds; wording from 7.1-30, kept) |
 
 ### `2.1` Geo gate
 
@@ -640,11 +640,11 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 2.4-1 | head | Sign in with Steam. CS{n} Clutch | SEO title, SEO / IA ownership | page | signin-blocked, signin-consent-given, signin-consent-partial, signin |  | |
-| 2.4-2 | head | Sign in with Steam OpenID. We never ask for your password and we never change anything on your Steam account. | SEO description, SEO / IA ownership | page | signin-blocked, signin-consent-given, signin-consent-partial, signin-steam-refused, signin-steam-unavailable, signin |  | |
-| 2.4-3 | head | Sign in dialog over the case screen. CS{n} Clutch | SEO title, SEO / IA ownership | page | signin-dialog |  | |
-| 2.4-4 | head | Steam refused the sign in. CS{n} Clutch | SEO title, SEO / IA ownership | page | signin-steam-refused |  | |
-| 2.4-5 | head | Steam is not answering. CS{n} Clutch | SEO title, SEO / IA ownership | page | signin-steam-unavailable |  | |
+| 2.4-1 | head | Sign in with Steam. CS{n} Clutch | SEO title, SEO / IA ownership | page | signin-blocked, signin-consent-given, signin-consent-partial, signin |  | kept |
+| 2.4-2 | head | Sign in with Steam OpenID. We never ask for your password and we never change anything on your Steam account. | SEO description, SEO / IA ownership | page | signin-blocked, signin-consent-given, signin-consent-partial, signin-steam-refused, signin-steam-unavailable, signin |  | kept |
+| 2.4-3 | head | Sign in dialog over the case screen. CS{n} Clutch | SEO title, SEO / IA ownership | page | signin-dialog |  | kept |
+| 2.4-4 | head | Steam refused the sign in. CS{n} Clutch | SEO title, SEO / IA ownership | page | signin-steam-refused |  | IA owns it: block C of `ia/docs/pages/signin.md` holds the aligned line |
+| 2.4-5 | head | Steam is not answering. CS{n} Clutch | SEO title, SEO / IA ownership | page | signin-steam-unavailable |  | kept |
 | 2.4-6 | main | I agree to the Terms and Conditions and the Privacy Policy. | text | page, `_nav.js ?/HIST_COLS`, `_nav.js authCard` | all 7 of `2.4` | C8 | I agree to the Terms of use and the Privacy policy. (C8, the consent rule) |
 | 2.4-7 | main | Terms and Conditions | link | `_nav.js authCard` | all 7 of `2.4` | C8 | Terms of use |
 | 2.4-8 | main | Privacy Policy | link | `_nav.js authCard` | all 7 of `2.4` | C8 K | Privacy policy |
@@ -670,7 +670,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 3.1-1 | head | Every case here shows what is inside before you open it: the entry cost, the risk band, and every item with its published chance and its current value. | SEO description, SEO / IA ownership | page | all 7 of `3.1` | S2 S4 | |
+| 3.1-1 | head | Every case here shows what is inside before you open it: the entry cost, the risk band, and every item with its published chance and its current value. | SEO description, SEO / IA ownership | page | all 7 of `3.1` | S2 S4 | IA owns it: block C of `ia/docs/pages/catalogue.md` holds the aligned line |
 | 3.1-2 | main | All CS{n} cases, with published chances and values | SEO H1, SEO / IA ownership | `WF_STR.catalogueH1` | all 7 of `3.1` |  | kept |
 | 3.1-3 | main | Categories | text | `WF_STR.categories`, page | all 7 of `3.1` |  | kept |
 | 3.1-4 | main | Daily | link | `WF_STR.daily` | catalogue-account, catalogue-degraded, catalogue-filter, catalogue-loading, catalogue |  | kept |
@@ -686,37 +686,37 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 3.1-14 | main | The collections that were here first | text | `WF_STR.classicSub` | catalogue-account, catalogue-degraded, catalogue-filter, catalogue-loading, catalogue |  | kept |
 | 3.1-15 | main | What the numbers on a case mean | heading | `WF_STR.numbersH2` | all 7 of `3.1` |  | kept |
 | 3.1-16 | main | Every tile shows the entry cost of one open and the risk band of the case, High, Medium or Low, read from its drop table. Open a case to see every item with its chance, its current value and the ticket range the roll resolves against. The daily case is earned by wagering, and the tier you reach decides which case it opens. | text | `WF_STR.numbersBody` | all 7 of `3.1` | C9 C10 S2 S4 N1 N2 | Every tile shows the price of one open and the risk of the case, high, medium or low, read from its drop table. Open a case to see every item with its chance, its current value and the ticket range the round resolves against. The daily case is earned by wagering, and the tier you reach decides which case it opens. (S2, S4, C9) |
-| 3.1-17 | main | Search cases by name | accessible name | page | all 7 of `3.1` |  | |
-| 3.1-18 | main | {d} Risk not available Cost not available | link | page | catalogue-degraded | S2 | |
-| 3.1-19 | main | Favourite count not available | note | page | catalogue-degraded | S3 | |
+| 3.1-17 | main | Search cases by name | accessible name | page | all 7 of `3.1` |  | kept |
+| 3.1-18 | main | {d} Risk not available Cost not available | link | page | catalogue-degraded | S2 | {d} Risk not available Price not available (Glossary S4: price, not cost; Risk not available kept (S2 label word)) |
+| 3.1-19 | main | Favourite count not available | note | page | catalogue-degraded | S3 | Favorite count not available (Glossary S3, US spelling) |
 | 3.1-20 | main | {d}, Cost not available coins, Risk not available | accessible name | _nav.js, assembled | catalogue-degraded | S2 | kept |
 | 3.1-21 | main | Filters {n} | button | `WF_STR.filters` | catalogue-empty, catalogue-filtered |  | kept |
-| 3.1-22 | main | under {n} coins x | text | page | catalogue-empty, catalogue-filtered |  | |
-| 3.1-23 | main | High risk only x | text | page | catalogue-empty | S2 | |
-| 3.1-24 | main | Clear all | button (link) | page | catalogue-empty, catalogue-filtered |  | |
-| 3.1-25 | main | {n} cases match, out of {n} | text | page | catalogue-empty |  | |
-| 3.1-26 | main | Nothing matches these two filters. | empty state | page | catalogue-empty |  | |
-| 3.1-27 | main | Under {n} coins, and High risk only. No case on the shelf is both. | empty state | page | catalogue-empty | S2 | |
-| 3.1-28 | main | The cheapest High risk case is {n} coins. Raise the ceiling to {n} | text | page | catalogue-empty | C5 S2 | |
-| 3.1-29 | main | Raise the ceiling to {n} | button (link) | page | catalogue-empty | C5 | |
-| 3.1-30 | main | One case matches if the risk level is dropped. Drop the risk level | text | page | catalogue-empty | C10 S2 | |
-| 3.1-31 | main | Drop the risk level | button (link) | page | catalogue-empty | C10 S2 | |
-| 3.1-32 | main | The shelf holds {n} cases in {n} sections. See all of them | text | page | catalogue-empty |  | |
-| 3.1-33 | main | See all of them | link | page | catalogue-empty |  | |
-| 3.1-34 | main | Filters in force | accessible name | page | catalogue-empty, catalogue-filtered |  | |
-| 3.1-35 | main | Remove filter: under {n} coins | accessible name | page | catalogue-empty, catalogue-filtered |  | |
-| 3.1-36 | main | Remove filter: High risk only | accessible name | page | catalogue-empty | S2 | |
-| 3.1-37 | layer: filter drawer | Filter | heading | page | catalogue-filter |  | |
+| 3.1-22 | main | under {n} coins x | text | page | catalogue-empty, catalogue-filtered |  | Under {n} coins x (Sentence case everywhere (glossary, how the product addresses people)) |
+| 3.1-23 | main | High risk only x | text | page | catalogue-empty | S2 | High risk x (Glossary S2; aligned to the live chip mountFilterDrawer writes (F.risk + ' risk'), one wording for one chip) |
+| 3.1-24 | main | Clear all | button (link) | page | catalogue-empty, catalogue-filtered |  | kept |
+| 3.1-25 | main | {n} cases match, out of {n} | text | page | catalogue-empty |  | kept |
+| 3.1-26 | main | Nothing matches these two filters. | empty state | page | catalogue-empty |  | kept |
+| 3.1-27 | main | Under {n} coins, and High risk only. No case on the shelf is both. | empty state | page | catalogue-empty | S2 | No case on the shelf is both under {n} coins and high risk. (Empty state: why it is empty in one line; glossary S2 (risk, sentence case inside a sentence)) |
+| 3.1-28 | main | The cheapest High risk case is {n} coins. Raise the ceiling to {n} | text | page | catalogue-empty | C5 S2 | The cheapest high-risk case is {n} coins. Show cases up to {n} coins (Glossary S2 tile form (high-risk case); C5: ceiling is not used; button names its result and a figure keeps its unit) |
+| 3.1-29 | main | Raise the ceiling to {n} | button (link) | page | catalogue-empty | C5 | Show cases up to {n} coins (Button: a verb and the result it produces; C5 retires ceiling; a figure is never split from its unit) |
+| 3.1-30 | main | One case matches if the risk level is dropped. Drop the risk level | text | page | catalogue-empty | C10 S2 | One case matches without the risk filter. Drop the risk filter (Glossary S2: Risk, not risk level) |
+| 3.1-31 | main | Drop the risk level | button (link) | page | catalogue-empty | C10 S2 | Drop the risk filter (Glossary S2: Risk, not risk level; button names what it removes) |
+| 3.1-32 | main | The shelf holds {n} cases in {n} sections. See all of them | text | page | catalogue-empty |  | kept |
+| 3.1-33 | main | See all of them | link | page | catalogue-empty |  | kept |
+| 3.1-34 | main | Filters in force | accessible name | page | catalogue-empty, catalogue-filtered |  | kept |
+| 3.1-35 | main | Remove filter: under {n} coins | accessible name | page | catalogue-empty, catalogue-filtered |  | Remove filter: Under {n} coins (Accessible name: the visible label's own words (follows 3.1-22); same form the live chip builds, 'Remove filter: ' + label) |
+| 3.1-36 | main | Remove filter: High risk only | accessible name | page | catalogue-empty | S2 | Remove filter: High risk (Accessible name: the visible label's own words (follows 3.1-23); glossary S2) |
+| 3.1-37 | layer: filter drawer | Filter | heading | page | catalogue-filter |  | kept |
 | 3.1-38 | layer: filter drawer | Reset all | button | `_nav.js filterDrawerHTML` | catalogue-filter |  | kept |
 | 3.1-39 | layer: filter drawer | Case name | field label | `_nav.js filterDrawerHTML/mountFilterDrawer` | catalogue-filter |  | kept |
 | 3.1-40 | layer: filter drawer | Price amount, in coins | text | `_nav.js filterDrawerHTML` | catalogue-filter | S4 | Price, in coins (S4) |
 | 3.1-41 | layer: filter drawer | Minimum entry cost | field label | `_nav.js filterDrawerHTML` | catalogue-filter | S4 | Minimum price |
 | 3.1-42 | layer: filter drawer | Maximum entry cost | field label | `_nav.js filterDrawerHTML` | catalogue-filter | S4 | Maximum price |
 | 3.1-43 | layer: filter drawer | Risk level | text | `_nav.js filterDrawerHTML` | catalogue-filter | S2 | Risk (S2) |
-| 3.1-44 | layer: filter drawer | Low | field label | page | catalogue-filter |  | |
-| 3.1-45 | layer: filter drawer | High | field label | page | catalogue-filter |  | |
+| 3.1-44 | layer: filter drawer | Low | field label | page | catalogue-filter |  | kept |
+| 3.1-45 | layer: filter drawer | High | field label | page | catalogue-filter |  | kept |
 | 3.1-46 | layer: filter drawer | Case type | field label | `_nav.js filterDrawerHTML` | catalogue-filter |  | kept |
-| 3.1-47 | layer: filter drawer | All | option | page | catalogue-filter |  | |
+| 3.1-47 | layer: filter drawer | All | option | page | catalogue-filter |  | kept |
 | 3.1-48 | layer: filter drawer | Date, newest first | option | `_nav.js filterDrawerHTML` | catalogue-filter |  | kept |
 | 3.1-49 | layer: filter drawer | Entry cost, low to high | option | `_nav.js filterDrawerHTML` | catalogue-filter | S4 | Price, low to high |
 | 3.1-50 | layer: filter drawer | Entry cost, high to low | option | `_nav.js filterDrawerHTML` | catalogue-filter | S4 | Price, high to low |
@@ -726,77 +726,77 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 3.1-54 | layer: filter drawer | Increase the minimum | accessible name | `_nav.js filterDrawerHTML` | catalogue-filter |  | kept |
 | 3.1-55 | layer: filter drawer | Decrease the maximum | accessible name | `_nav.js filterDrawerHTML` | catalogue-filter |  | kept |
 | 3.1-56 | layer: filter drawer | Increase the maximum | accessible name | `_nav.js filterDrawerHTML` | catalogue-filter |  | kept |
-| 3.1-57 | main | name contains "cold" x | text | page | catalogue-filtered |  | |
-| 3.1-58 | main | {n} case matches, out of {n} | text | page | catalogue-filtered |  | |
-| 3.1-59 | main | Remove filter: name contains cold | accessible name | page | catalogue-filtered |  | |
-| 3.1-60 | main | Loading the shelf | text | page | catalogue-loading |  | |
-| 3.1-61 | main | Loading | accessible name | page | catalogue-loading |  | |
+| 3.1-57 | main | name contains "cold" x | text | page | catalogue-filtered |  | Name has “cold” x (Sentence case; aligned to the live chip mountFilterDrawer writes (R62 'Name has “', kept by the parent), one wording for one chip) |
+| 3.1-58 | main | {n} case matches, out of {n} | text | page | catalogue-filtered |  | kept |
+| 3.1-59 | main | Remove filter: name contains cold | accessible name | page | catalogue-filtered |  | Remove filter: Name has “cold” (Accessible name: the visible label's own words (follows 3.1-57), as the live chip builds it) |
+| 3.1-60 | main | Loading the shelf | text | page | catalogue-loading |  | Reading the favorite counts (Loading: says exactly what is being read; node 3.1 (D-133): the loading state waits only on the favorite count, the static figures stay, so 'the shelf' was not what loads) |
+| 3.1-61 | main | Loading | accessible name | page | catalogue-loading |  | Reading the favorite count (Loading: never 'Loading' with nothing after it; says what is being read) |
 
 ### `3.3` Case screen
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 3.3-1 | head | {d}: drop chances, values and tested RTP | SEO title, SEO / IA ownership | page | 18 pages, 2 screens | C10 | |
-| 3.3-2 | head | Every item in {d} with its chance, its current value and its ticket range, plus the tested RTP and the expected value at this entry cost. | SEO description, SEO / IA ownership | page | 20 pages, 4 screens | S4 | |
-| 3.3-3 | main | Nine items, two rolls. | text | page | case-account-2, case-open-2, case-outcome-2 | C9 | |
-| 3.3-4 | main | How many | text | page | case-account-2, case-account-5, case-account; deposit-dialog |  | |
-| 3.3-5 | main | Open for {n} coins | button (link) | page | case-account-2, case-account-5, case-account; deposit-dialog | S4 | |
+| 3.3-1 | head | {d}: drop chances, values and tested RTP | SEO title, SEO / IA ownership | page | 18 pages, 2 screens | C10 | kept |
+| 3.3-2 | head | Every item in {d} with its chance, its current value and its ticket range, plus the tested RTP and the expected value at this entry cost. | SEO description, SEO / IA ownership | page | 20 pages, 4 screens | S4 | IA owns it: block C of `ia/docs/pages/case.md` holds the aligned line |
+| 3.3-3 | main | Nine items, two rolls. | text | page | case-account-2, case-open-2, case-outcome-2 | C9 | Nine items, two opens. (Glossary C9: roll retired; the parent's Now on 3.3-42 and G139 'Nine items, one open.') |
+| 3.3-4 | main | How many | text | page | case-account-2, case-account-5, case-account; deposit-dialog |  | Cases to open (Field label is a noun; glossary C9 (c), the baseline's 'Cases to open') |
+| 3.3-5 | main | Open for {n} coins | button (link) | page | case-account-2, case-account-5, case-account; deposit-dialog | S4 | kept |
 | 3.3-6 | main | After this open, {n} coins · {n} coin = {n} · RTP {n} %, expected value {n} coins | text | `WF_STR.peg`, page | case-account-2, case-account-5, case-account | C11 | kept |
-| 3.3-7 | main | How many to open | accessible name | page | case-account-2, case-account-5, case-account; deposit-dialog | S4 | |
-| 3.3-8 | main | Nine items, five rolls. | text | page | case-account-5, case-open-5, case-outcome-5 | C9 | |
+| 3.3-7 | main | How many to open | accessible name | page | case-account-2, case-account-5, case-account; deposit-dialog | S4 | Cases to open (Accessible name = the visible label's own words; glossary C9 (c)) |
+| 3.3-8 | main | Nine items, five rolls. | text | page | case-account-5, case-open-5, case-outcome-5 | C9 | Nine items, five opens. (Glossary C9; matches 3.3-3 and G139) |
 | 3.3-9 | main | {n} coin = {n} · RTP {n} %, expected value below | text | `WF_STR.peg` | case-degraded | C11 | kept |
-| 3.3-10 | main | RTP {n} %, expected value below | link | page | case-degraded |  | |
+| 3.3-10 | main | RTP {n} %, expected value below | link | page | case-degraded |  | kept |
 | 3.3-11 | main | Values could not be read. Last read {date} {time}, and nothing here shows a value from then. | text | `_nav.js caseBody` | case-degraded |  | kept |
-| 3.3-12 | main | {n} % chance on this case | text | page | case-interrupted, case-outcome |  | |
-| 3.3-13 | main | This round did not finish on this device. The result was decided before the animation started, so it is already yours and it is below. | note | page | case-interrupted | C9 | |
-| 3.3-14 | main | As of {date} {time} · Float {n} · Pattern {n} · Inspect in game | text | page | case-interrupted, case-outcome |  | |
+| 3.3-12 | main | {n} % chance on this case | text | page | case-interrupted, case-outcome |  | kept |
+| 3.3-13 | main | This round did not finish on this device. The result was decided before the animation started, so it is already yours and it is below. | note | page | case-interrupted | C9 | The reveal did not finish on this device. The result was fixed before the animation started, so it is already yours and it is below. (Principle 5 (say what happened: the animation stopped, not the round, which was settled); T6 wording 'fixed before the animation started') |
+| 3.3-14 | main | As of {date} {time} · Float {n} · Pattern {n} · Inspect in game | text | page | case-interrupted, case-outcome |  | kept |
 | 3.3-15 | main | Inspect in game | link | `_nav.js mountInspect` | case-interrupted, case-outcome-2, case-outcome-5, case-outcome |  | kept |
-| 3.3-16 | main | Credited {n} · a copy from us {n}, read {date} {time} | text | page | case-interrupted, case-outcome | C2 | |
-| 3.3-17 | main | Open again for {n} coins | button (link) | page | case-interrupted, case-outcome-2, case-outcome |  | |
-| 3.3-18 | main | Sell for {n} coins | button | page | case-interrupted, case-outcome-2, case-outcome-5, case-outcome | S1 | |
-| 3.3-19 | main | Send to Steam, {n} coins | button (link) | page | case-interrupted, case-outcome | C1 C11 | |
-| 3.3-20 | main | Saved to My items. Selling can't be undone. | text | page | case-interrupted, case-outcome | S1 | |
-| 3.3-21 | main | Share it | link | page | case-interrupted, case-outcome |  | |
-| 3.3-22 | main | See it on the Steam Market | link | page | case-interrupted, case-outcome-2, case-outcome-5, case-outcome | C3 | |
+| 3.3-16 | main | Credited {n} · a copy from us {n}, read {date} {time} | text | page | case-interrupted, case-outcome | C2 | Value {n} coins · a copy on sale {n} coins, read {date} {time} (Glossary C2 (value, not 'Credited' for a win), C3 b (copies on sale), C11 (a coin figure carries its unit)) |
+| 3.3-17 | main | Open again for {n} coins | button (link) | page | case-interrupted, case-outcome-2, case-outcome |  | kept |
+| 3.3-18 | main | Sell for {n} coins | button | page | case-interrupted, case-outcome-2, case-outcome-5, case-outcome | S1 | kept |
+| 3.3-19 | main | Send to Steam, {n} coins | button (link) | page | case-interrupted, case-outcome | C1 C11 | kept |
+| 3.3-20 | main | Saved to My items. Selling can't be undone. | text | page | case-interrupted, case-outcome | S1 | Saved to My items. Selling cannot be undone. (Dangerous act, said plainly; 'cannot' as everywhere else in the product (the only contraction found)) |
+| 3.3-21 | main | Share it | link | page | case-interrupted, case-outcome |  | Share this round (Microcopy 'A line that shares a result': names the round, never 'Share it') |
+| 3.3-22 | main | See it on the Steam Market | link | page | case-interrupted, case-outcome-2, case-outcome-5, case-outcome | C3 | kept |
 | 3.3-23 | main | Before sending to Steam. Your Steam inventory has to be public and your trade URL set, or a win cannot be sent to you. Check your settings | note | `_nav.js caseBody` | case-interrupted, case-open-2, case-open-5, case-open, case-outcome-2, case-outcome-5, case-outcome | C1 C10 | Before sending to Steam. Your Steam inventory has to be public and your trade URL set, or an item cannot be sent to you. Check your settings (C10) |
-| 3.3-24 | main | This round | accessible name | page | case-interrupted, case-open-2, case-open-5, case-open | C9 | |
+| 3.3-24 | main | This round | accessible name | page | case-interrupted, case-open-2, case-open-5, case-open | C9 | This round (one open, kept); These rounds on the two and five open pages (Accessible name follows what the block holds: several rounds and hashes on a multi open; glossary C9) |
 | 3.3-25 | main | The observed rate for this case is not published. Every chance and value is above, and every round can be checked after it opens. How rounds are checked | note | `_nav.js caseBody` | case-nocounter | C9 S5 | The observed rate for this case is not published. Every chance and value is above, and every round can be checked after it opens. Provably fair (S5) |
 | 3.3-26 | main | Published against observed, withdrawn | accessible name | `_nav.js caseBody` | case-nocounter |  | kept |
-| 3.3-27 | main | Opening {n} rolls. All {n} results were settled before this animation started. | text | page | case-open-2, case-open-5 | C9 | |
-| 3.3-28 | main | Spent | text | page | case-open-2, case-open-5, case-open |  | |
-| 3.3-29 | main | {n} server seed hashes | text | page | case-open-2, case-open-5 |  | |
-| 3.3-30 | main | Each of the {n} rolls was fixed before you clicked, and each has its own hash. After the reveal, every roll is checked on its own. | text | page | case-open-2, case-open-5 | C9 | |
-| 3.3-31 | main | Opening. The result was fixed before the animation started. | text | page | case-open |  | |
-| 3.3-32 | main | {n} % chance {d} {d} {d} · Restricted Sell for {n} coins | text | page | case-outcome-2, case-outcome-5 | S1 | |
-| 3.3-33 | main | {n} % chance {d} {d} {d} · {d} Sell for {n} coins | text | page | case-outcome-2, case-outcome-5 | S1 | |
-| 3.3-34 | main | Sending to Steam: {d} {n}, {d} {n} on your balance. | text | page | case-outcome-2 | C1 C11 | |
-| 3.3-35 | main | Sell all {n} for {n} coins | button | page | case-outcome-2, case-outcome-5 | S1 | |
-| 3.3-36 | main | Send {n} to Steam, {n} coins | button (link) | page | case-outcome-2, case-outcome-5 | C1 C11 | |
-| 3.3-37 | main | Roll details, {n} rolls | button | page | case-outcome-2, case-outcome-5 | C9 | |
-| 3.3-38 | main | Every roll, in the order of the row above, which is the order of the reels it came out of. | text | page | case-outcome-2, case-outcome-5 | C9 | |
-| 3.3-39 | main | {d} {d} · float {n} · pattern {n} · check this roll · Inspect in game | text | page | case-outcome-2, case-outcome-5 | C9 | |
-| 3.3-40 | main | check this roll | link | page | case-outcome-2, case-outcome-5 | C9 | |
-| 3.3-41 | main | All {n} saved to My items. Selling can't be undone. | text | page | case-outcome-2, case-outcome-5 | S1 | |
+| 3.3-27 | main | Opening {n} rolls. All {n} results were settled before this animation started. | text | page | case-open-2, case-open-5 | C9 | Opening {n} cases. All {n} results were fixed before the animation started. (Glossary C9 c ('Opening 2 cases'); T6 line 'The result was fixed before the animation started') |
+| 3.3-28 | main | Spent | text | page | case-open-2, case-open-5, case-open |  | kept |
+| 3.3-29 | main | {n} server seed hashes | text | page | case-open-2, case-open-5 |  | kept |
+| 3.3-30 | main | Each of the {n} rolls was fixed before you clicked, and each has its own hash. After the reveal, every roll is checked on its own. | text | page | case-open-2, case-open-5 | C9 | Each of the {n} rounds was fixed before you opened, and each has its own hash. After the reveal, each round is checked on its own. (Glossary C9 (round); 'opened' instead of 'clicked', mobile first) |
+| 3.3-31 | main | Opening. The result was fixed before the animation started. | text | page | case-open |  | kept |
+| 3.3-32 | main | {n} % chance {d} {d} {d} · Restricted Sell for {n} coins | text | page | case-outcome-2, case-outcome-5 | S1 | kept |
+| 3.3-33 | main | {n} % chance {d} {d} {d} · {d} Sell for {n} coins | text | page | case-outcome-2, case-outcome-5 | S1 | kept |
+| 3.3-34 | main | Sending to Steam: {d} {n}, {d} {n} on your balance. | text | page | case-outcome-2 | C1 C11 | Sending to Steam: {d} {n} coins, {d} {n} coins on your balance. (Principle 3 and C11: every signed figure keeps its unit) |
+| 3.3-35 | main | Sell all {n} for {n} coins | button | page | case-outcome-2, case-outcome-5 | S1 | kept |
+| 3.3-36 | main | Send {n} to Steam, {n} coins | button (link) | page | case-outcome-2, case-outcome-5 | C1 C11 | kept |
+| 3.3-37 | main | Roll details, {n} rolls | button | page | case-outcome-2, case-outcome-5 | C9 | Round details, {n} rounds (Glossary C9: 'Roll details' is listed as not used) |
+| 3.3-38 | main | Every roll, in the order of the row above, which is the order of the reels it came out of. | text | page | case-outcome-2, case-outcome-5 | C9 | Every round, in the order of the row above, which is the order of the reels. (Glossary C9; note under a block keeps one fact, shorter) |
+| 3.3-39 | main | {d} {d} · float {n} · pattern {n} · check this roll · Inspect in game | text | page | case-outcome-2, case-outcome-5 | C9 | {d} {d} · Float {n} · Pattern {n} · Check this round · Inspect in game (Glossary C9 and S5 (Check this round); Float and Pattern capitalised as on the single receipt 3.3-14, one label one form (mark K)) |
+| 3.3-40 | main | check this roll | link | page | case-outcome-2, case-outcome-5 | C9 | Check this round (Glossary C9 and S5, the WF_STR.checkRound wording) |
+| 3.3-41 | main | All {n} saved to My items. Selling can't be undone. | text | page | case-outcome-2, case-outcome-5 | S1 | All {n} saved to My items. Selling cannot be undone. (As 3.3-20) |
 | 3.3-42 | main | Check each of the {n} rolls | link | `_nav.js mountOpenNow` | case-outcome-2, case-outcome-5 | C9 | Check each of the {n} rounds (C9); the line under the title counts opens, "Nine items, two opens." |
-| 3.3-43 | main | Share a result | link | page | case-outcome-2, case-outcome-5 |  | |
-| 3.3-44 | main | What you got | accessible name | page | case-outcome-2, case-outcome-5, case-outcome |  | |
-| 3.3-45 | main | Sending to Steam: {d} {n}, {d} {n}, {d} {n}, {d} {n} on your balance. | text | page | case-outcome-5 | C1 C11 | |
-| 3.3-46 | main | {d} {d} has no copy on sale, so it cannot be sent yet. | text | page | case-outcome-5 |  | |
-| 3.3-47 | main | Add funds to open {n} again for {n} coins | button (link) | page | case-outcome-5 | C4 S4 | |
+| 3.3-43 | main | Share a result | link | page | case-outcome-2, case-outcome-5 |  | Share a round (Microcopy 'A line that shares a result': names the round) |
+| 3.3-44 | main | What you got | accessible name | page | case-outcome-2, case-outcome-5, case-outcome |  | kept |
+| 3.3-45 | main | Sending to Steam: {d} {n}, {d} {n}, {d} {n}, {d} {n} on your balance. | text | page | case-outcome-5 | C1 C11 | Sending to Steam: {d} {n} coins, {d} {n} coins, {d} {n} coins, {d} {n} coins on your balance. (As 3.3-34) |
+| 3.3-46 | main | {d} {d} has no copy on sale, so it cannot be sent yet. | text | page | case-outcome-5 |  | kept |
+| 3.3-47 | main | Add funds to open {n} again for {n} coins | button (link) | page | case-outcome-5 | C4 S4 | kept |
 
 ### `4.1` Deposit
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 4.1-1 | head | Add funds, how much | SEO title, SEO / IA ownership | page | deposit-card | C4 | |
-| 4.1-2 | head | Limit raise pending | SEO title, SEO / IA ownership | page | deposit-ceiling-pending | C5 | |
-| 4.1-3 | head | Deposit limit reached | SEO title, SEO / IA ownership | page | deposit-ceiling-reached | C4 C5 | |
-| 4.1-4 | head | Add funds, no address yet | SEO title, SEO / IA ownership | page | deposit-crypto-nowallet | C4 | |
-| 4.1-5 | head | Add funds, crypto | SEO title, SEO / IA ownership | page | deposit-crypto | C4 | |
-| 4.1-6 | head | Payment declined | SEO title, SEO / IA ownership | page | deposit-declined |  | |
-| 4.1-7 | head | Deposit dialog over the case screen. CS{n} Clutch | SEO title, SEO / IA ownership | page | deposit-dialog | C4 | |
-| 4.1-8 | head | Add funds, gift cards | SEO title, SEO / IA ownership | page | deposit-giftcards | C4 | |
-| 4.1-9 | head | Add funds, CS{n} skins | SEO title, SEO / IA ownership | page | deposit-skins | C4 C10 | |
+| 4.1-1 | head | Add funds, how much | SEO title, SEO / IA ownership | page | deposit-card | C4 | Add funds, cards and wallets (Screen heading/title: names the route as its sibling titles do (crypto, gift cards, CS2 skins); the grid's group is 'Cards, wallets and more') |
+| 4.1-2 | head | Limit raise pending | SEO title, SEO / IA ownership | page | deposit-ceiling-pending | C5 | kept |
+| 4.1-3 | head | Deposit limit reached | SEO title, SEO / IA ownership | page | deposit-ceiling-reached | C4 C5 | kept |
+| 4.1-4 | head | Add funds, no address yet | SEO title, SEO / IA ownership | page | deposit-crypto-nowallet | C4 | kept |
+| 4.1-5 | head | Add funds, crypto | SEO title, SEO / IA ownership | page | deposit-crypto | C4 | kept |
+| 4.1-6 | head | Payment declined | SEO title, SEO / IA ownership | page | deposit-declined |  | kept |
+| 4.1-7 | head | Deposit dialog over the case screen. CS{n} Clutch | SEO title, SEO / IA ownership | page | deposit-dialog | C4 | Add funds dialog over the case screen. CS{n} Clutch (Glossary C4: Add funds is the act, deposit is one payment; parallel to the sign in dialog's title) |
+| 4.1-8 | head | Add funds, gift cards | SEO title, SEO / IA ownership | page | deposit-giftcards | C4 | kept |
+| 4.1-9 | head | Add funds, CS{n} skins | SEO title, SEO / IA ownership | page | deposit-skins | C4 C10 | kept |
 | 4.1-10 | main | {n} bonus on every top-up, up to {n} coins per {n} hours. No wagering. | text | `_nav.js payOffer` | deposit-card, deposit-ceiling-pending, deposit-crypto-nowallet, deposit-crypto, deposit-declined, deposit-dialog, deposit-giftcards, deposit-skins, deposit | C4 C11 N2 | {n} bonus on every deposit, up to {n} coins per {n} hours. The bonus has no conditions. (C4, N2) |
 | 4.1-11 | main | Have a promo code? | disclosure | `_nav.js payHead` | deposit-card, deposit-ceiling-pending, deposit-crypto-nowallet, deposit-crypto, deposit-declined, deposit-dialog, deposit-giftcards, deposit-skins, deposit |  | removed, `D-174`: the field is open and 4.1-12 labels it |
 | 4.1-12 | main | Promo or partner code | field label | `_nav.js payHead` | deposit-card, deposit-ceiling-pending, deposit-crypto-nowallet, deposit-crypto, deposit-declined, deposit-dialog, deposit-giftcards, deposit-skins, deposit |  | kept, now a visible label (`D-174`) |
@@ -832,26 +832,26 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 4.1-42 | main | Cancelling applies now. | note | `_nav.js STEP2_BANNER` | deposit-ceiling-pending |  | kept |
 | 4.1-43 | main | Deposit limit {n} in force. Change it | text | `WF_STR.depositLimit` | deposit-ceiling-pending, deposit-declined | C4 C5 C11 | kept |
 | 4.1-44 | main | Change it | link | `_nav.js depCard` | deposit-ceiling-pending, deposit-declined |  | kept |
-| 4.1-45 | main | Your deposit limit for this period is reached | heading | page | deposit-ceiling-reached | C4 C5 | |
-| 4.1-46 | main | You set a deposit limit of {n} per week on {date}. This week's deposits, {n} coins on {date}, already pass it, so deposits stop until the week resets. | text | page | deposit-ceiling-reached | C4 C5 C11 | |
-| 4.1-47 | main | When the period resets | text | page | deposit-ceiling-reached |  | |
-| 4.1-48 | main | What is still open | heading | page | deposit-ceiling-reached |  | |
-| 4.1-49 | main | Deposits stopped. Nothing else did. | text | page | deposit-ceiling-reached | C4 | |
-| 4.1-50 | main | Open a case from the balance you already hold | link | page | deposit-ceiling-reached |  | |
-| 4.1-51 | main | Open a case from the balance you already hold {n} coins, and the limit has nothing to do with spending it. | text | page | deposit-ceiling-reached | C5 | |
-| 4.1-52 | main | Send to Steam Open in every state on this screen. | text | page | deposit-ceiling-reached | C1 | |
-| 4.1-53 | main | Lower the limit further | link | page | deposit-ceiling-reached | C5 | |
-| 4.1-54 | main | Lower the limit further A lowering takes effect immediately. | text | page | deposit-ceiling-reached | C5 | |
-| 4.1-55 | main | Raising the limit from here will not lift this period's stop. A raise takes effect {n} hours later, and the limit you have now holds until then. | note | page | deposit-ceiling-reached | C5 | |
-| 4.1-56 | main | Crediting | heading | page | deposit-crediting |  | |
-| 4.1-57 | main | Your payment has left. The balance is not there yet, and this state stays until it is. | text | page | deposit-crediting |  | |
-| 4.1-58 | main | Crediting waiting on the payment provider {n} min usually within {n} minutes | text | page | deposit-crediting |  | |
-| 4.1-59 | main | The deposit, while it is pending | heading | page | deposit-crediting | C4 | |
+| 4.1-45 | main | Your deposit limit for this period is reached | heading | page | deposit-ceiling-reached | C4 C5 | kept |
+| 4.1-46 | main | You set a deposit limit of {n} per week on {date}. This week's deposits, {n} coins on {date}, already pass it, so deposits stop until the week resets. | text | page | deposit-ceiling-reached | C4 C5 C11 | You set a deposit limit of {n} a week on {date}. Your deposits this week, {n} on {date}, already pass it, so adding funds is closed until the week resets. (C11: a deposit amount is in dollars (50.00 coins became $50.00 at the printed peg 1 coin = $1.00); C4: adding funds is the act, the wording G36 and _nav.js already use; 'a week' as in the T4 example) |
+| 4.1-47 | main | When the period resets | text | page | deposit-ceiling-reached |  | kept |
+| 4.1-48 | main | What is still open | heading | page | deposit-ceiling-reached |  | What still works (Glossary C9: 'open' for availability is not used; principle 5, a stop says what still works) |
+| 4.1-49 | main | Deposits stopped. Nothing else did. | text | page | deposit-ceiling-reached | C4 | kept |
+| 4.1-50 | main | Open a case from the balance you already hold | link | page | deposit-ceiling-reached |  | Open a case with your balance (A link names the act it starts; shorter (29 against 45 characters)) |
+| 4.1-51 | main | Open a case from the balance you already hold {n} coins, and the limit has nothing to do with spending it. | text | page | deposit-ceiling-reached | C5 | Open a case with your balance {n} coins. The limit only stops adding funds. (Principle 1, the fact without padding; C4 adding funds) |
+| 4.1-52 | main | Send to Steam Open in every state on this screen. | text | page | deposit-ceiling-reached | C1 | Send to Steam The limit never stops it. (Glossary C9: 'open' for availability is not used; 'every state on this screen' was prototype vocabulary, not the reader's) |
+| 4.1-53 | main | Lower the limit further | link | page | deposit-ceiling-reached | C5 | kept |
+| 4.1-54 | main | Lower the limit further A lowering takes effect immediately. | text | page | deposit-ceiling-reached | C5 | Lower the limit further A lowering applies now. (Phase T4 addition: lowering a limit says it applies now; matches 4.1-42 'Cancelling applies now.') |
+| 4.1-55 | main | Raising the limit from here will not lift this period's stop. A raise takes effect {n} hours later, and the limit you have now holds until then. | note | page | deposit-ceiling-reached | C5 | Raising the limit does not lift this stop. A raise applies {n} hours after you ask for it, and the limit you have now holds until then. (Phase T4 addition: raising a limit says when it applies; 'from here' dropped, the raise is made on 6.1) |
+| 4.1-56 | main | Crediting | heading | page | deposit-crediting |  | kept |
+| 4.1-57 | main | Your payment has left. The balance is not there yet, and this state stays until it is. | text | page | deposit-crediting |  | The payment has left your account and is not on your balance yet. It stays listed here until it is, and nothing is lost. (Principle 3, which way the money moved; phase T4 sounding line 'Nothing is lost') |
+| 4.1-58 | main | Crediting waiting on the payment provider {n} min usually within {n} minutes | text | page | deposit-crediting |  | kept |
+| 4.1-59 | main | The deposit, while it is pending | heading | page | deposit-crediting | C4 | This deposit (Section heading names what the block holds; the state is already said by the H2 above; glossary C4, deposit is one payment) |
 | 4.1-60 | main | Method | column head | page, `_nav.js HIST_COLS` | deposit-crediting; history-deposits-blocked, history-deposits |  | kept |
-| 4.1-61 | main | Started | text | page | deposit-crediting |  | |
-| 4.1-62 | main | Minimum to withdraw | text | page | deposit-crediting | C1 | |
-| 4.1-63 | main | {n}, met | text | page | deposit-crediting | C11 | |
-| 4.1-64 | main | Not there after {n} minutes? Support answers within {n} hours. | note | page | deposit-crediting | C6 | |
+| 4.1-61 | main | Started | text | page | deposit-crediting |  | kept |
+| 4.1-62 | main | Minimum to withdraw | text | page | deposit-crediting | C1 | Minimum to send to Steam (Glossary C1: 'withdraw' is not used as a verb; matches the parent's 4.1-25 'minimum for sending to Steam') |
+| 4.1-63 | main | {n}, met | text | page | deposit-crediting | C11 | kept |
+| 4.1-64 | main | Not there after {n} minutes? Support answers within {n} hours. | note | page | deposit-crediting | C6 | kept |
 | 4.1-65 | main | Crypto {d} | text | `_nav.js PAY_CATS/depBody`, page script | deposit-crypto-nowallet, deposit-crypto |  | kept |
 | 4.1-66 | main | Send on {d} only. Coins sent on another network are lost. | note | `_nav.js depCrypto/mountCryptoNet` | deposit-crypto-nowallet, deposit-crypto |  | kept |
 | 4.1-67 | main | You do not have an address on this network yet | text | `_nav.js depCrypto` | deposit-crypto-nowallet |  | kept |
@@ -899,50 +899,50 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 5.1-1 | head | Cash out layer over My items. CS{n} Clutch | SEO title, SEO / IA ownership | page | cashout-dialog | N6 | |
+| 5.1-1 | head | Cash out layer over My items. CS{n} Clutch | SEO title, SEO / IA ownership | page | cashout-dialog | N6 | Cash out from My items. CS{n} Clutch (N6; Screen heading/title: what this place is in glossary words, "layer" is IA vocabulary) |
 | 5.1-2 | main | Add funds | button (link) | `WF_STR.addFunds` | 45 pages, 8 screens | C4 | kept |
-| 5.1-3 | main | Inventory | heading | page | all 4 of `5.1` |  | |
-| 5.1-4 | main | Steam connected · Settings | text | page | account-degraded, account-empty, account |  | |
-| 5.1-5 | main | Click an item to select it | note | page | account-degraded, account |  | |
-| 5.1-6 | main | All skins | heading | page | account-degraded, account | C10 | |
+| 5.1-3 | main | Inventory | heading | page | all 4 of `5.1` |  | kept |
+| 5.1-4 | main | Steam connected · Settings | text | page | account-degraded, account-empty, account |  | kept |
+| 5.1-5 | main | Click an item to select it | note | page | account-degraded, account |  | kept |
+| 5.1-6 | main | All skins | heading | page | account-degraded, account | C10 | All items (C10 (a): a thing a person owns is an item; skin is for the Steam or market context) |
 | 5.1-7 | main | Sort by | text | page, `_nav.js filterDrawerHTML` | catalogue-filter; account-degraded, account |  | kept |
-| 5.1-8 | main | Newest first | button | page | account-degraded, account |  | |
-| 5.1-9 | main | Highest value | button | page | account-degraded, account |  | |
-| 5.1-10 | main | Some current values cannot be read right now. The items themselves are unaffected and nothing you hold has been lost. | text | page | account-degraded |  | |
-| 5.1-11 | main | Select {d} {d} | field label | page | account-degraded, account |  | |
-| 5.1-12 | main | Share | button (link) | page | account-degraded, account |  | |
-| 5.1-13 | main | Sell for coins | button | page | account-degraded, account | S1 | |
+| 5.1-8 | main | Newest first | button | page | account-degraded, account |  | kept |
+| 5.1-9 | main | Highest value | button | page | account-degraded, account |  | kept |
+| 5.1-10 | main | Some current values cannot be read right now. The items themselves are unaffected and nothing you hold has been lost. | text | page | account-degraded |  | Some values cannot be read right now, and that is on us. Your items are all here and nothing is lost. (Principle 5 and the T8 addition: what happened, whose side the fault is on, and that nothing is lost) |
+| 5.1-11 | main | Select {d} {d} | field label | page | account-degraded, account |  | kept |
+| 5.1-12 | main | Share | button (link) | page | account-degraded, account |  | Share this round (A line that shares a result names the round, Emotional Job 2) |
+| 5.1-13 | main | Sell for coins | button | page | account-degraded, account | S1 | kept |
 | 5.1-14 | main | Send to Steam | button (link) | `WF_STR.sendToSteam`, page | 15 pages, 5 screens | C1 | kept |
-| 5.1-15 | main | Exchange | button | page | account-degraded, account |  | |
-| 5.1-16 | main | Exchange is not here yet | text | page | account-degraded, account |  | |
-| 5.1-17 | main | No market figure: the source is failing | text | page | account-degraded | C3 | |
-| 5.1-18 | main | Out to Steam {n} back | text | page | account-degraded, account |  | |
+| 5.1-15 | main | Exchange | button | page | account-degraded, account |  | kept |
+| 5.1-16 | main | Exchange is not here yet | text | page | account-degraded, account |  | kept |
+| 5.1-17 | main | No market figure: the source is failing | text | page | account-degraded | C3 | Copies on sale cannot be read right now (C3 (b) copies on sale, not "market figure"; matches 5.1-10's wording for the same fault) |
+| 5.1-18 | main | Out to Steam {n} back | text | page | account-degraded, account |  | Out to Steam +{n} coins (C11: a figure that changes the balance carries its sign and its unit) |
 | 5.1-19 | main | Nobody is offering one | text | page, `_nav.js mountWithdrawMany/wdRow` | account-degraded, account; withdraw-many |  | kept |
-| 5.1-20 | main | Offers {n} | text | page | account-degraded, account | N5 | |
-| 5.1-21 | main | Out to Steam no copy on sale to buy | text | page | account-degraded, account |  | |
-| 5.1-22 | main | Starting at {n} | text | page | account-degraded, account |  | |
-| 5.1-23 | main | Out to Steam {n} more | text | page | account-degraded, account |  | |
+| 5.1-20 | main | Offers {n} | text | page | account-degraded, account | N5 | On sale {n} (C3 (b) and N5: "offer" alone is retired, the count is of copies on sale (parent's 5.3-32 Copies on sale)) |
+| 5.1-21 | main | Out to Steam no copy on sale to buy | text | page | account-degraded, account |  | kept |
+| 5.1-22 | main | Starting at {n} | text | page | account-degraded, account |  | kept |
+| 5.1-23 | main | Out to Steam {n} more | text | page | account-degraded, account |  | Out to Steam −{n} coins (C11: a figure that changes the balance carries its sign and its unit) |
 | 5.1-24 | main | On its way to Steam, since {date} | text | `_nav.js mountInFlight` | account-degraded, account |  | kept |
 | 5.1-25 | main | Its clock | button (link) | `_nav.js mountInFlight` | account-degraded, account |  | kept |
 | 5.1-26 | main | Prices as of {date} {time} · Withdrawals need a public Steam inventory with trades unlocked · {n} coin = {n} | note | `WF_STR.peg`, page | account-degraded, account | C1 C11 | kept |
 | 5.1-27 | main | {n} items, {n} not readable | text | `_nav.js mountInvBar` | account-degraded |  | kept |
-| 5.1-28 | main | Select all | button | page | account-degraded, account |  | |
-| 5.1-29 | main | Deselect all | button | page | account-degraded, account |  | |
+| 5.1-28 | main | Select all | button | page | account-degraded, account |  | kept |
+| 5.1-29 | main | Deselect all | button | page | account-degraded, account |  | kept |
 | 5.1-30 | main | Steam Send to Steam | button (link) | `WF_STR.sendToSteam`, page | account-degraded, account | C1 | kept |
-| 5.1-31 | main | Sell Sell for coins | button (link) | page | account-degraded, account | S1 | |
-| 5.1-32 | main | Cash out Cash out | button | page | account-degraded, account | N6 | |
-| 5.1-33 | main | Exchange Exchange | button | page | account-degraded, account |  | |
+| 5.1-31 | main | Sell Sell for coins | button (link) | page | account-degraded, account | S1 | kept |
+| 5.1-32 | main | Cash out Cash out | button | page | account-degraded, account | N6 | kept |
+| 5.1-33 | main | Exchange Exchange | button | page | account-degraded, account |  | kept |
 | 5.1-34 | main | Cash out | link | page, `_nav.js HIST_TABS/coLayer` | 19 pages, 2 screens | N6 | kept |
-| 5.1-35 | main | Items held | heading | page | account-empty |  | |
-| 5.1-36 | main | You are not holding anything yet. | empty state | page | account-empty |  | |
-| 5.1-37 | main | Items you open appear here. | empty state | page | account-empty |  | |
-| 5.1-38 | main | See the cases | button (link) | page | account-empty |  | |
+| 5.1-35 | main | Items held | heading | page | account-empty |  | kept |
+| 5.1-36 | main | You are not holding anything yet. | empty state | page | account-empty |  | No items yet. (Empty state: why it is empty. "You are not holding anything" is false when the balance is not zero, node 5.1 section 5.2) |
+| 5.1-37 | main | Items you open appear here. | empty state | page | account-empty |  | Open a case and the item is listed here, with its value and the price of a copy on sale. (Empty state leads to an action in the plain form (T7 addition); says what a card carries, node 5.1 section 5.2; C3 (b)) |
+| 5.1-38 | main | See the cases | button (link) | page | account-empty |  | kept |
 | 5.1-39 | main | Withdrawals need a public Steam inventory with trades unlocked. {n} coin = {n} | note | `WF_STR.peg`, page | account-empty | C1 C11 | kept |
 | 5.1-40 | main | {n} items | text | `_nav.js mountInvBar` | account, cashout-dialog; history-items-empty, history-items |  | kept |
-| 5.1-41 | main | Steam connected. Where this is set | text | page | cashout-dialog |  | |
-| 5.1-42 | main | Where this is set | link | page | cashout-dialog |  | |
-| 5.1-43 | main | Two items are ticked on the grid. The grid itself | note | page | cashout-dialog |  | |
-| 5.1-44 | main | The grid itself | link | page | cashout-dialog |  | |
+| 5.1-41 | main | Steam connected. Where this is set | text | page | cashout-dialog |  | Steam connected · Settings (A link names its destination; one wording for the same line as 5.1-4) |
+| 5.1-42 | main | Where this is set | link | page | cashout-dialog |  | Settings (A link names its destination (G25)) |
+| 5.1-43 | main | Two items are ticked on the grid. The grid itself | note | page | cashout-dialog |  | Two items are selected. See all items ("Ticked on the grid" and "the grid itself" are build vocabulary; the link names the act it starts; "selected" as in 5.1-5) |
+| 5.1-44 | main | The grid itself | link | page | cashout-dialog |  | See all items (A link names its destination or the act it starts) |
 | 5.1-45 | layer: dialog | The items you ticked are sold back, and the money goes to a wallet you own. | text | `_nav.js mountCashout` | cashout-dialog | S1 | The items you ticked are sold to us, and the money goes to a wallet you own. (S1) |
 | 5.1-46 | layer: dialog | Sent on the {d} network. | text | `_nav.js coLayer` | cashout-dialog |  | kept |
 | 5.1-47 | layer: dialog | {d} address | field label | _nav.js, assembled | cashout-dialog |  | kept |
@@ -966,33 +966,33 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 5.3-1 | head | Send to Steam, several items | SEO title, SEO / IA ownership | page | withdraw-many | C1 | |
-| 5.3-2 | main | Withdrawal in progress | SEO H1, SEO / IA ownership | page | withdraw-clock, withdraw-steam-degraded | C1 | |
-| 5.3-3 | main | Where it is now | heading | page | withdraw-clock, withdraw-offer-expired, withdraw-restricted, withdraw-steam-degraded |  | |
-| 5.3-4 | main | Requested waiting on us {time} within {time} | text | page | withdraw-clock, withdraw-offer-expired, withdraw-restricted, withdraw-steam-degraded |  | |
-| 5.3-5 | main | Our checks waiting on us {time} within {time} | text | page | withdraw-clock, withdraw-offer-expired, withdraw-restricted, withdraw-steam-degraded |  | |
-| 5.3-6 | main | Offer sent, waiting for you in Steam waiting on you {time} Steam holds it {time} | text | page | withdraw-clock, withdraw-steam-degraded | N5 | |
-| 5.3-7 | main | Steam completing the trade waiting on Steam - Steam sets this | text | page | withdraw-clock, withdraw-offer-expired, withdraw-restricted |  | |
+| 5.3-1 | head | Send to Steam, several items | SEO title, SEO / IA ownership | page | withdraw-many | C1 | kept |
+| 5.3-2 | main | Withdrawal in progress | SEO H1, SEO / IA ownership | page | withdraw-clock, withdraw-steam-degraded | C1 | kept |
+| 5.3-3 | main | Where it is now | heading | page | withdraw-clock, withdraw-offer-expired, withdraw-restricted, withdraw-steam-degraded |  | kept |
+| 5.3-4 | main | Requested waiting on us {time} within {time} | text | page | withdraw-clock, withdraw-offer-expired, withdraw-restricted, withdraw-steam-degraded |  | kept |
+| 5.3-5 | main | Our checks waiting on us {time} within {time} | text | page | withdraw-clock, withdraw-offer-expired, withdraw-restricted, withdraw-steam-degraded |  | kept |
+| 5.3-6 | main | Offer sent, waiting for you in Steam waiting on you {time} Steam holds it {time} | text | page | withdraw-clock, withdraw-steam-degraded | N5 | Trade offer sent, waiting for you in Steam waiting on you {time} Steam holds it {time} (glossary N5: trade offer, never offer alone) |
+| 5.3-7 | main | Steam completing the trade waiting on Steam - Steam sets this | text | page | withdraw-clock, withdraw-offer-expired, withdraw-restricted |  | kept |
 | 5.3-8 | main | Delivered closed - - | text | `WF_STR.closed`, page | withdraw-clock, withdraw-offer-expired, withdraw-restricted, withdraw-steam-degraded |  | kept |
 | 5.3-9 | main | Going to Steam account {d} | text | `WF_STR.goingToSteam`, page | withdraw-clock, withdraw-many, withdraw-not-eligible, withdraw-offer-expired, withdraw-restricted, withdraw-steam-degraded, withdraw |  | kept |
-| 5.3-10 | main | What this settled at | heading | page | withdraw-clock, withdraw-steam-degraded |  | |
-| 5.3-11 | main | Struck when you asked, on the copy you picked. It does not move again while this is in flight. | text | page | withdraw-clock |  | |
-| 5.3-12 | main | What this item was worth here, what the copy cost on the market, and what settled against your balance | text | page | withdraw-clock, withdraw-steam-degraded | C3 | |
-| 5.3-13 | main | Skin name | column head | page | withdraw-clock, withdraw-offer-expired, withdraw-steam-degraded | C10 | |
+| 5.3-10 | main | What this settled at | heading | page | withdraw-clock, withdraw-steam-degraded |  | kept |
+| 5.3-11 | main | Struck when you asked, on the copy you picked. It does not move again while this is in flight. | text | page | withdraw-clock |  | Settled when you asked, on the copy you picked. It does not change before delivery. (principle 1, plain words: 'struck' and 'in flight' are our jargon; 'settled' matches the H2 'What this settled at') |
+| 5.3-12 | main | What this item was worth here, what the copy cost on the market, and what settled against your balance | text | page | withdraw-clock, withdraw-steam-degraded | C3 | Your skin price, the market price of the copy bought, and what settled against your balance (glossary C2 (the settlement table's own name for our value on this screen) and C3 a (market price)) |
+| 5.3-13 | main | Skin name | column head | page | withdraw-clock, withdraw-offer-expired, withdraw-steam-degraded | C10 | Skin (one concept, one word: the same settlement column is 'Skin' on withdraw and withdraw-many (5.3-46) and in the basket renderer's data-l; th and the cell's data-l both changed) |
 | 5.3-14 | main | Your skin price | column head | `WF_STR.yourSkinPrice` | withdraw-clock, withdraw-many, withdraw-offer-expired, withdraw-steam-degraded, withdraw | C2 C10 | kept |
 | 5.3-15 | main | Market skin price | column head | `WF_STR.marketSkinPrice` | withdraw-clock, withdraw-many, withdraw-offer-expired, withdraw-steam-degraded, withdraw | C3 C10 | kept |
 | 5.3-16 | main | Your balance impact | column head | `WF_STR.balanceImpact` | withdraw-clock, withdraw-many, withdraw-offer-expired, withdraw-steam-degraded, withdraw |  | kept |
-| 5.3-17 | main | Our commission | text | page | withdraw-clock, withdraw-many, withdraw-steam-degraded, withdraw |  | |
-| 5.3-18 | main | Total difference | text | page | withdraw-clock, withdraw-many, withdraw-steam-degraded, withdraw |  | |
-| 5.3-19 | main | Based on the market price, {n} coins were added to your balance when you asked. Nothing further moves while this is in flight. | text | page | withdraw-clock | C3 | |
+| 5.3-17 | main | Our commission | text | page | withdraw-clock, withdraw-many, withdraw-steam-degraded, withdraw |  | kept |
+| 5.3-18 | main | Total difference | text | page | withdraw-clock, withdraw-many, withdraw-steam-degraded, withdraw |  | kept |
+| 5.3-19 | main | Based on the market price, {n} coins were added to your balance when you asked. Nothing further moves while this is in flight. | text | page | withdraw-clock | C3 | Based on the market price, {n} coins were added to your balance when you asked. Nothing more moves before delivery. (principle 3, money register kept whole; 'while this is in flight' is jargon, principle 1) |
 | 5.3-20 | main | Prices in coins at {n} coin = {n}. The Steam market price is read in US dollars and converted at it. | text | `_nav.js mountWithdrawPeg` | withdraw-clock, withdraw-many, withdraw-offer-expired, withdraw-steam-degraded, withdraw | C3 C11 | kept |
-| 5.3-21 | main | The copy bought for you carries float {n}, {d}. Market price read {date} {time}. | note | page | withdraw-clock, withdraw-steam-degraded | C3 | |
+| 5.3-21 | main | The copy bought for you carries float {n}, {d}. Market price read {date} {time}. | note | page | withdraw-clock, withdraw-steam-degraded | C3 | kept |
 | 5.3-22 | main | Median time to Steam | text | `WF_STR.medianToSteam` | withdraw-clock, withdraw-many, withdraw-not-eligible, withdraw-offer-expired, withdraw-restricted, withdraw-steam-degraded, withdraw |  | kept |
 | 5.3-23 | main | Nine in ten arrive within this | text | `WF_STR.p90ToSteam` | withdraw-clock, withdraw-many, withdraw-not-eligible, withdraw-offer-expired, withdraw-restricted, withdraw-steam-degraded, withdraw |  | kept |
-| 5.3-24 | main | {n} Items to withdraw | heading | page | withdraw-many, withdraw | C1 | |
-| 5.3-25 | main | Change what is selected | link | page | withdraw-many, withdraw |  | |
-| 5.3-26 | main | Which copy of each | heading | page | withdraw-many |  | |
-| 5.3-27 | main | Pick any copy. Your balance goes up or down with the price you pick. | text | page | withdraw-many, withdraw |  | |
+| 5.3-24 | main | {n} Items to withdraw | heading | page | withdraw-many, withdraw | C1 | {n} Items to send (glossary C1: 'Items to withdraw' is named as not used; the act is Send to Steam, which the H1 already says) |
+| 5.3-25 | main | Change what is selected | link | page | withdraw-many, withdraw |  | kept |
+| 5.3-26 | main | Which copy of each | heading | page | withdraw-many |  | kept |
+| 5.3-27 | main | Pick any copy. Your balance goes up or down with the price you pick. | text | page | withdraw-many, withdraw |  | kept |
 | 5.3-28 | main | Selected skin | text | `_nav.js wdRow` | withdraw-many, withdraw | C10 | kept |
 | 5.3-29 | main | {n} Our price for it | text | `_nav.js wdRow` | withdraw-many, withdraw | C2 | {n} Your skin price (C2, the settlement table's name) |
 | 5.3-30 | main | {n} The Steam listing | text | `_nav.js wdRow` | withdraw-many, withdraw |  | kept |
@@ -1009,67 +1009,67 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 5.3-41 | main | What still works is selling it back to us for its value, which is our price for it and not a market price, so no copy has to exist for it to happen. | empty state | `_nav.js wdRow` | withdraw-many | C2 C3 S1 | What still works is selling it to us for its value, your skin price rather than a market price, so no copy has to exist for it to happen. (S1, C2) |
 | 5.3-42 | main | Sell it back for {n} coins | button | `_nav.js wdRow` | withdraw-many | S1 | Sell for {n} coins (S1) |
 | 5.3-43 | main | Keep it and go back | button (link) | `_nav.js wdRow` | withdraw-many |  | kept |
-| 5.3-44 | main | {n} Total price | heading | page | withdraw-many, withdraw |  | |
-| 5.3-45 | main | Each item, what it is worth here, what the copy you chose costs, and what settles against your balance | text | page | withdraw-many |  | |
-| 5.3-46 | main | Skin | column head | page | withdraw-many, withdraw | C10 | |
+| 5.3-44 | main | {n} Total price | heading | page | withdraw-many, withdraw |  | {n} What this settles at (Section heading H2: names what the block holds; the block is a settlement that can add to the balance (+2.50 on the AK), so 'Total price' named a cost that is not one. Present tense before the request, past tense 'What this settled at' after it, as node 5.3 section 8 B wants the tense to carry quote against record) |
+| 5.3-45 | main | Each item, what it is worth here, what the copy you chose costs, and what settles against your balance | text | page | withdraw-many |  | Each item with your skin price, the market price of the copy you chose, and what settles against your balance (glossary C2 (Your skin price on this screen) and C3 a; 'worth' retired by C2) |
+| 5.3-46 | main | Skin | column head | page | withdraw-many, withdraw | C10 | kept |
 | 5.3-47 | main | Not going out | cell | `_nav.js mountWithdrawMany` | withdraw-many |  | kept |
 | 5.3-48 | main | Based on the market price, {n} coins will be taken from your balance, leaving {n}. | text | `_nav.js mountClockStruck/mountWithdrawMany`, `_nav.js mountWithdrawMany` | withdraw-many | C3 | kept |
-| 5.3-49 | main | Three things can stop a withdrawal: a market we do not serve, a trade hold Steam sets, or a ban on the Steam account. | note | page | withdraw-many, withdraw | C1 C3 | |
+| 5.3-49 | main | Three things can stop a withdrawal: a market we do not serve, a trade hold Steam sets, or a ban on the Steam account. | note | page | withdraw-many, withdraw | C1 C3 | Three things can stop a withdrawal: a country we do not serve, a trade hold Steam sets, or a ban on the Steam account. (glossary C3 c: country, never 'a market we do not serve') |
 | 5.3-50 | main | Send {n} items to Steam | button | _nav.js, assembled | withdraw-many | C1 | kept |
 | 5.3-51 | main | {d} {d} cannot go to Steam and it is not stuck. There is no copy on sale to buy, so there is nothing to send and nothing to settle against. Selling back to us pays our own price and needs no copy to exist. The row above carries that control. | note | page, `_nav.js mountWithdrawMany`, `_nav.js mountWithdrawMany/wdRow` | withdraw-many | S1 | {d} {d} cannot go to Steam and it is not stuck. There is no copy on sale to buy, so there is nothing to send and nothing to settle against. Selling it to us pays your skin price and needs no copy to exist. The row above carries that control. (S1) |
-| 5.3-52 | main | Prices as of {date} {time} | note | page | withdraw-many, withdraw |  | |
-| 5.3-53 | main | What each limit means | disclosure | page | withdraw-many, withdraw | C5 | |
-| 5.3-54 | main | Ours A market we do not serve. The verdict and the ground in readable words. It lifts with the staged rollout. | text | page | withdraw-many, withdraw | C3 | |
-| 5.3-55 | main | Steam's A trade hold. Steam holds a trade for a period it sets, on conditions it sets. | text | page | withdraw-many, withdraw |  | |
-| 5.3-56 | main | Steam's A ban on the Steam account. The account cannot receive a trade. This one is not ours and we cannot lift it, and the route to fix it is Steam's. | text | page | withdraw-many, withdraw |  | |
-| 5.3-57 | main | This one cannot go yet | SEO H1, SEO / IA ownership | page | withdraw-not-eligible |  | |
-| 5.3-58 | main | Steam's | text | page | withdraw-not-eligible |  | |
-| 5.3-59 | main | A trade hold. Steam holds a trade for a period it sets, on conditions it sets. | text | page | withdraw-not-eligible |  | |
-| 5.3-60 | main | The item is still in My items. | text | page | withdraw-not-eligible |  | |
-| 5.3-61 | main | Nothing was settled against your balance. | text | page | withdraw-not-eligible |  | |
-| 5.3-62 | main | The price is read again when it goes out. | note | page | withdraw-not-eligible |  | |
-| 5.3-63 | main | Back to my items | button (link) | page | withdraw-not-eligible |  | |
-| 5.3-64 | main | The trade offer expired | SEO H1, SEO / IA ownership | page | withdraw-offer-expired | N5 | |
-| 5.3-65 | main | The offer we sent has expired, and Steam is what expires it. | text | page | withdraw-offer-expired | N5 | |
-| 5.3-66 | main | Steam closes an offer after a period it sets. | note | page | withdraw-offer-expired | N5 | |
-| 5.3-67 | main | Sending it again settles again, at today's price. The market moved while this offer sat, so pressing this adds {n} coins to your balance instead of the {n} already added. The difference of {n} coins comes off when you press. | text | page | withdraw-offer-expired | C3 N5 | |
-| 5.3-68 | main | What sending the offer again would settle at, read today | text | page | withdraw-offer-expired | N5 | |
-| 5.3-69 | main | Read {date} {time}. It moves daily, so what you are shown when you press is what you are charged, and it is read again at that moment. | note | page | withdraw-offer-expired |  | |
-| 5.3-70 | main | Send the offer again | button | page | withdraw-offer-expired | N5 | |
-| 5.3-71 | main | Offer sent, waiting for you in Steam waiting on you {time} expired. Steam sets this period | text | page | withdraw-offer-expired | N5 | |
-| 5.3-72 | main | Everything this record has done | heading | page | withdraw-offer-expired |  | |
-| 5.3-73 | main | Requested waiting on us {time} {date} {time} | text | page | withdraw-offer-expired |  | |
-| 5.3-74 | main | Our checks waiting on us {time} {date} {time} | text | page | withdraw-offer-expired |  | |
-| 5.3-75 | main | Offer sent, expired waiting on you {time} {date} {time} | text | page | withdraw-offer-expired | N5 | |
-| 5.3-76 | main | What this settled at, and why that figure is now old | heading | page | withdraw-offer-expired |  | |
-| 5.3-77 | main | The copy was bought on {date} at the market price of {date}. That is the record. It is not what a copy costs today. | text | page | withdraw-offer-expired | C3 | |
-| 5.3-78 | main | What this item was worth here, what the copy cost on the market on {date}, and what settled against your balance | text | page | withdraw-offer-expired | C3 | |
-| 5.3-79 | main | Total difference, as struck on {date} | text | page | withdraw-offer-expired |  | |
-| 5.3-80 | main | Based on the market price of that day, {n} coins were added to your balance when you asked. Nothing has moved since. | text | page | withdraw-offer-expired | C3 | |
-| 5.3-81 | main | Struck at {n} coins, read {date} {time}. Read again {date} {time} the same copy is {n} coins, {n} more. | note | page | withdraw-offer-expired |  | |
-| 5.3-82 | main | The copy bought for you carries float {n}, {d}. | note | page | withdraw-offer-expired |  | |
-| 5.3-83 | main | Nothing above is erased and nothing is relabelled. The expired stretch stays on you, because that is what happened. | note | page | withdraw-offer-expired |  | |
-| 5.3-84 | main | This account is restricted | SEO H1, SEO / IA ownership | page | withdraw-restricted |  | |
-| 5.3-85 | main | Balance, frozen | text | page | withdraw-restricted |  | |
-| 5.3-86 | main | Value of items held, still yours | text | page | withdraw-restricted | C2 | |
-| 5.3-87 | main | No copy was bought for this withdrawal and nothing was settled against either figure above. The purchase only runs once our checks pass, and they have not. | text | page | withdraw-restricted | C1 | |
-| 5.3-88 | main | Offer sent, waiting for you in Steam waiting on you - Steam holds it {time} | text | page | withdraw-restricted | N5 | |
-| 5.3-89 | main | The restriction stands | SEO H1, SEO / IA ownership | page | withdraw-restriction-upheld | S6 | |
-| 5.3-90 | main | The appeal that ran | heading | page | withdraw-restriction-upheld | N4 | |
-| 5.3-91 | main | Appeal opened by you {date} {time} | text | page | withdraw-restriction-upheld | N4 | |
-| 5.3-92 | main | Answered by us {date} {time} | text | page | withdraw-restriction-upheld |  | |
-| 5.3-93 | main | Upheld closed - no further step | text | `WF_STR.closed`, page | withdraw-restriction-upheld | S6 | kept |
-| 5.3-94 | main | Nothing was taken for this withdrawal. Your balance and your items stay frozen, not zeroed, until the review ends. | note | page | withdraw-restriction-upheld | C1 N4 | |
-| 5.3-95 | main | Steam is degraded right now, as of {date} {time}. | text | page | withdraw-steam-degraded |  | |
-| 5.3-96 | main | Your withdrawal is still in the queue and nothing is lost. It is waiting on Steam rather than on us or on you. | text | page | withdraw-steam-degraded | C1 | |
-| 5.3-97 | main | The published ceiling for that stage does not apply while this lasts, and it starts applying again when Steam recovers. | text | page | withdraw-steam-degraded | C5 | |
-| 5.3-98 | main | Steam has not said how long the outage will last. | note | page | withdraw-steam-degraded |  | |
-| 5.3-99 | main | Steam completing the trade waiting on Steam {time} ceiling suspended while Steam is degraded | text | page | withdraw-steam-degraded | C5 | |
-| 5.3-100 | main | Struck when you asked, on the copy you picked. The outage does not {id} it. | text | page | withdraw-steam-degraded |  | |
-| 5.3-101 | main | Based on the market price, {n} coins were added to your balance when you asked. It is not read again while Steam is degraded, or when it recovers. The wait is Steam's; the price is not. | text | page | withdraw-steam-degraded | C3 | |
-| 5.3-102 | main | Outage days stay in the window our published figures are computed over. A rolling figure that drops its bad days is not a measurement. | note | page | withdraw-steam-degraded | C10 | |
-| 5.3-103 | main | Which copy | heading | page | withdraw |  | |
-| 5.3-104 | main | What this item is worth here, what the copy you chose costs, and what settles against your balance | text | page | withdraw |  | |
+| 5.3-52 | main | Prices as of {date} {time} | note | page | withdraw-many, withdraw |  | Prices read {date} {time} (one wording for the as-of moment on this screen: 'read', as in 'Value now, read' and 'Market price read') |
+| 5.3-53 | main | What each limit means | disclosure | page | withdraw-many, withdraw | C5 | What can stop it (glossary C5: a stop set by Steam or a country is not a limit; C5 names this disclosure 'What can stop it') |
+| 5.3-54 | main | Ours A market we do not serve. The verdict and the ground in readable words. It lifts with the staged rollout. | text | page | withdraw-many, withdraw | C3 | Ours A country we do not serve. We name the country and the reason. It lifts if we clear that country. (glossary C3 c; principle 1: 'The verdict and the ground in readable words' was spec language read to the person; 'staged rollout' is ours, footer G63 says countries we have cleared; 'if', not 'when', because no date exists) |
+| 5.3-55 | main | Steam's A trade hold. Steam holds a trade for a period it sets, on conditions it sets. | text | page | withdraw-many, withdraw |  | kept |
+| 5.3-56 | main | Steam's A ban on the Steam account. The account cannot receive a trade. This one is not ours and we cannot lift it, and the route to fix it is Steam's. | text | page | withdraw-many, withdraw |  | Steam's A ban on the Steam account. The account cannot receive a trade. This one is not ours and we cannot lift it. Only Steam can. (principle 1: the short answer, nothing padded; 'the route to fix it is Steam's' said the same thing in more words) |
+| 5.3-57 | main | This one cannot go yet | SEO H1, SEO / IA ownership | page | withdraw-not-eligible |  | kept |
+| 5.3-58 | main | Steam's | text | page | withdraw-not-eligible |  | kept |
+| 5.3-59 | main | A trade hold. Steam holds a trade for a period it sets, on conditions it sets. | text | page | withdraw-not-eligible |  | kept |
+| 5.3-60 | main | The item is still in My items. | text | page | withdraw-not-eligible |  | kept |
+| 5.3-61 | main | Nothing was settled against your balance. | text | page | withdraw-not-eligible |  | No copy was bought and nothing was settled against your balance. (T8: a stop says nothing is lost; node 5.3 state 5.4 asks for both facts, nothing bought and nothing settled; same wording as 5.3-87) |
+| 5.3-62 | main | The price is read again when it goes out. | note | page | withdraw-not-eligible |  | The price is read again when the item goes to Steam. (principle 1: 'it goes out' had no clear subject; C1) |
+| 5.3-63 | main | Back to my items | button (link) | page | withdraw-not-eligible |  | Back to My items (A link names where it goes back to; the destination's name is My items, D-128) |
+| 5.3-64 | main | The trade offer expired | SEO H1, SEO / IA ownership | page | withdraw-offer-expired | N5 | kept |
+| 5.3-65 | main | The offer we sent has expired, and Steam is what expires it. | text | page | withdraw-offer-expired | N5 | The trade offer we sent expired. The item is still yours and nothing is lost. (N5; T8 phase addition: every stop on the way out says nothing is lost (who closed it moves to the note under it, 5.3-66)) |
+| 5.3-66 | main | Steam closes an offer after a period it sets. | note | page | withdraw-offer-expired | N5 | Steam closes a trade offer after a period it sets. (glossary N5) |
+| 5.3-67 | main | Sending it again settles again, at today's price. The market moved while this offer sat, so pressing this adds {n} coins to your balance instead of the {n} already added. The difference of {n} coins comes off when you press. | text | page | withdraw-offer-expired | C3 N5 | Sending it again settles again, at today's price. The market price moved while the trade offer waited, so pressing this adds {n} coins to your balance instead of the {n} already added. The difference, {n} coins, will be taken from your balance when you press. (C3 a market price, N5 trade offer; principle 3: the baseline's money sentence names the direction, 'will be taken from your balance') |
+| 5.3-68 | main | What sending the offer again would settle at, read today | text | page | withdraw-offer-expired | N5 | What sending to Steam again would settle at, read today (C1, matches the button 5.3-70) |
+| 5.3-69 | main | Read {date} {time}. It moves daily, so what you are shown when you press is what you are charged, and it is read again at that moment. | note | page | withdraw-offer-expired |  | Read {date} {time}. The market price moves daily, so it is read again when you press, and what is shown then is what settles. (principle 3: 'charged' named one direction for a figure that moves both ways; C3 a) |
+| 5.3-70 | main | Send the offer again | button | page | withdraw-offer-expired | N5 | Send to Steam again (glossary C1 (Send to Steam is the act) and N5; shorter than before (19 against 20)) |
+| 5.3-71 | main | Offer sent, waiting for you in Steam waiting on you {time} expired. Steam sets this period | text | page | withdraw-offer-expired | N5 | Trade offer sent, waiting for you in Steam waiting on you {time} expired. Steam sets this period (glossary N5) |
+| 5.3-72 | main | Everything this record has done | heading | page | withdraw-offer-expired |  | kept |
+| 5.3-73 | main | Requested waiting on us {time} {date} {time} | text | page | withdraw-offer-expired |  | kept |
+| 5.3-74 | main | Our checks waiting on us {time} {date} {time} | text | page | withdraw-offer-expired |  | kept |
+| 5.3-75 | main | Offer sent, expired waiting on you {time} {date} {time} | text | page | withdraw-offer-expired | N5 | Trade offer sent, expired waiting on you {time} {date} {time} (glossary N5) |
+| 5.3-76 | main | What this settled at, and why that figure is now old | heading | page | withdraw-offer-expired |  | kept |
+| 5.3-77 | main | The copy was bought on {date} at the market price of {date}. That is the record. It is not what a copy costs today. | text | page | withdraw-offer-expired | C3 | kept |
+| 5.3-78 | main | What this item was worth here, what the copy cost on the market on {date}, and what settled against your balance | text | page | withdraw-offer-expired | C3 | Your skin price, the market price of the copy on {date}, and what settled against your balance (glossary C2 and C3 a) |
+| 5.3-79 | main | Total difference, as struck on {date} | text | page | withdraw-offer-expired |  | Total difference, settled {date} (principle 1: 'as struck on' is jargon; 'settled' is the heading's word) |
+| 5.3-80 | main | Based on the market price of that day, {n} coins were added to your balance when you asked. Nothing has moved since. | text | page | withdraw-offer-expired | C3 | kept |
+| 5.3-81 | main | Struck at {n} coins, read {date} {time}. Read again {date} {time} the same copy is {n} coins, {n} more. | note | page | withdraw-offer-expired |  | Market price {n} coins, read {date} {time}. Read again {date} {time}, the same copy is {n} coins, {n} more. (principle 1 and C3 a: says which price the figure is instead of 'Struck at') |
+| 5.3-82 | main | The copy bought for you carries float {n}, {d}. | note | page | withdraw-offer-expired |  | kept |
+| 5.3-83 | main | Nothing above is erased and nothing is relabelled. The expired stretch stays on you, because that is what happened. | note | page | withdraw-offer-expired |  | Nothing above is erased or relabeled. The time the trade offer waited stays marked as waiting on you, because it was. (US spelling (relabeled); principle 1: 'the expired stretch stays on you' read as blame, the line now says what the record shows) |
+| 5.3-84 | main | This account is restricted | SEO H1, SEO / IA ownership | page | withdraw-restricted |  | Withdrawals are paused (Forbidden 'an accusation in a stop' (B8-3) and H1 rule 'a state's H1 says the state': only withdrawals stop, balance and items stay the person's; aligned with G164's Now) |
+| 5.3-85 | main | Balance, frozen | text | page | withdraw-restricted |  | kept |
+| 5.3-86 | main | Value of items held, still yours | text | page | withdraw-restricted | C2 | kept |
+| 5.3-87 | main | No copy was bought for this withdrawal and nothing was settled against either figure above. The purchase only runs once our checks pass, and they have not. | text | page | withdraw-restricted | C1 | kept |
+| 5.3-88 | main | Offer sent, waiting for you in Steam waiting on you - Steam holds it {time} | text | page | withdraw-restricted | N5 | Trade offer sent, waiting for you in Steam waiting on you - Steam holds it {time} (glossary N5) |
+| 5.3-89 | main | The restriction stands | SEO H1, SEO / IA ownership | page | withdraw-restriction-upheld | S6 | The restriction stays (glossary S6: our decision reads 'The restriction stays') |
+| 5.3-90 | main | The appeal that ran | heading | page | withdraw-restriction-upheld | N4 | kept |
+| 5.3-91 | main | Appeal opened by you {date} {time} | text | page | withdraw-restriction-upheld | N4 | kept |
+| 5.3-92 | main | Answered by us {date} {time} | text | page | withdraw-restriction-upheld |  | kept |
+| 5.3-93 | main | Upheld closed - no further step | text | `WF_STR.closed`, page | withdraw-restriction-upheld | S6 | Restriction stays closed - no further step (S6) |
+| 5.3-94 | main | Nothing was taken for this withdrawal. Your balance and your items stay frozen, not zeroed, until the review ends. | note | page | withdraw-restriction-upheld | C1 N4 | No copy was bought and nothing was settled for this withdrawal. Your balance and your items stay frozen, not zeroed. (node 5.3 state 5.7 wording (no copy bought, nothing settled), same as 5.3-61 and 5.3-87; 'until the review ends' dropped, see notes) |
+| 5.3-95 | main | Steam is degraded right now, as of {date} {time}. | text | page | withdraw-steam-degraded |  | kept |
+| 5.3-96 | main | Your withdrawal is still in the queue and nothing is lost. It is waiting on Steam rather than on us or on you. | text | page | withdraw-steam-degraded | C1 | kept |
+| 5.3-97 | main | The published ceiling for that stage does not apply while this lasts, and it starts applying again when Steam recovers. | text | page | withdraw-steam-degraded | C5 | The time cap we publish for this stage does not apply while this lasts, and it applies again when Steam recovers. (glossary C5 b: a ceiling we set is a cap; 'that stage' pointed nowhere, the stage is the current one) |
+| 5.3-98 | main | Steam has not said how long the outage will last. | note | page | withdraw-steam-degraded |  | kept |
+| 5.3-99 | main | Steam completing the trade waiting on Steam {time} ceiling suspended while Steam is degraded | text | page | withdraw-steam-degraded | C5 | Steam completing the trade waiting on Steam {time} no cap while Steam is degraded (glossary C5 b; shorter) |
+| 5.3-100 | main | Struck when you asked, on the copy you picked. The outage does not {id} it. | text | page | withdraw-steam-degraded |  | Settled when you asked, on the copy you picked. The outage does not reopen it. (principle 1, same wording as 5.3-11; US spelling 'reopen') |
+| 5.3-101 | main | Based on the market price, {n} coins were added to your balance when you asked. It is not read again while Steam is degraded, or when it recovers. The wait is Steam's; the price is not. | text | page | withdraw-steam-degraded | C3 | Based on the market price, {n} coins were added to your balance when you asked. The price is not read again while Steam is degraded, or when it recovers. The wait is Steam's; the price is not. (principle 3: 'It' had two possible subjects; the line names the price) |
+| 5.3-102 | main | Outage days stay in the window our published figures are computed over. A rolling figure that drops its bad days is not a measurement. | note | page | withdraw-steam-degraded | C10 | Outage days are counted in our published times. (A note under a block: one fact, never a second argument; the rolling-figure sentence was the design argument) |
+| 5.3-103 | main | Which copy | heading | page | withdraw |  | kept |
+| 5.3-104 | main | What this item is worth here, what the copy you chose costs, and what settles against your balance | text | page | withdraw |  | Your skin price, the market price of the copy you chose, and what settles against your balance (glossary C2 and C3 a) |
 | 5.3-105 | main | Based on the market price, {n} coins goes onto your balance, making it {n}. | text | `_nav.js mountClockStruck/mountWithdrawMany`, `_nav.js mountWithdrawMany` | withdraw | C3 | kept |
 | 5.3-106 | main | Send {n} item to Steam | button | `_nav.js histPanel` | withdraw | C1 | kept |
 
@@ -1077,21 +1077,21 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 5.9-1 | head | History, cash out, none yet | SEO title, SEO / IA ownership | page | history-cashout-empty | N6 | |
-| 5.9-2 | head | History, cash out | SEO title, SEO / IA ownership | page | history-cashout | N6 | |
-| 5.9-3 | head | History, deposits, a boundary in force | SEO title, SEO / IA ownership | page | history-deposits-blocked | C4 C5 | |
-| 5.9-4 | head | History, no deposits yet | SEO title, SEO / IA ownership | page | history-deposits-empty | C4 | |
-| 5.9-5 | head | History, deposits | SEO title, SEO / IA ownership | page | history-deposits | C4 | |
-| 5.9-6 | head | History, empty | SEO title, SEO / IA ownership | page | history-empty |  | |
-| 5.9-7 | head | History, items, none yet | SEO title, SEO / IA ownership | page | history-items-empty |  | |
-| 5.9-8 | head | History, items | SEO title, SEO / IA ownership | page | history-items |  | |
-| 5.9-9 | head | History, a proof that does not match | SEO title, SEO / IA ownership | page | history-mismatch |  | |
-| 5.9-10 | head | History, nothing to check | SEO title, SEO / IA ownership | page | history-no-seed |  | |
-| 5.9-11 | head | History, an open that did not finish | SEO title, SEO / IA ownership | page | history-unfinished |  | |
-| 5.9-12 | head | History, nothing sent to Steam | SEO title, SEO / IA ownership | page | history-withdrawals-empty | C1 | |
-| 5.9-13 | head | History, past our own ceiling | SEO title, SEO / IA ownership | page | history-withdrawals-overdue | C5 | |
-| 5.9-14 | head | History, withdrawals, account restricted | SEO title, SEO / IA ownership | page | history-withdrawals-restricted | C1 | |
-| 5.9-15 | head | History, withdrawals | SEO title, SEO / IA ownership | page | history-withdrawals | C1 | |
+| 5.9-1 | head | History, cash out, none yet | SEO title, SEO / IA ownership | page | history-cashout-empty | N6 | kept |
+| 5.9-2 | head | History, cash out | SEO title, SEO / IA ownership | page | history-cashout | N6 | kept |
+| 5.9-3 | head | History, deposits, a boundary in force | SEO title, SEO / IA ownership | page | history-deposits-blocked | C4 C5 | History, deposits, a limit in force (glossary C5: limit, not boundary) |
+| 5.9-4 | head | History, no deposits yet | SEO title, SEO / IA ownership | page | history-deposits-empty | C4 | kept |
+| 5.9-5 | head | History, deposits | SEO title, SEO / IA ownership | page | history-deposits | C4 | kept |
+| 5.9-6 | head | History, empty | SEO title, SEO / IA ownership | page | history-empty |  | History, no rounds yet (glossary C9 round; Forbidden: a dead end ("History is empty"); aligned with the state's own heading) |
+| 5.9-7 | head | History, items, none yet | SEO title, SEO / IA ownership | page | history-items-empty |  | kept |
+| 5.9-8 | head | History, items | SEO title, SEO / IA ownership | page | history-items |  | kept |
+| 5.9-9 | head | History, a proof that does not match | SEO title, SEO / IA ownership | page | history-mismatch |  | kept |
+| 5.9-10 | head | History, nothing to check | SEO title, SEO / IA ownership | page | history-no-seed |  | kept |
+| 5.9-11 | head | History, an open that did not finish | SEO title, SEO / IA ownership | page | history-unfinished |  | kept |
+| 5.9-12 | head | History, nothing sent to Steam | SEO title, SEO / IA ownership | page | history-withdrawals-empty | C1 | kept |
+| 5.9-13 | head | History, past our own ceiling | SEO title, SEO / IA ownership | page | history-withdrawals-overdue | C5 | History, a withdrawal past our published time (glossary C5: "ceiling" not used, and a published time is not a cap; principle 2) |
+| 5.9-14 | head | History, withdrawals, account restricted | SEO title, SEO / IA ownership | page | history-withdrawals-restricted | C1 | History, withdrawals, paused (Forbidden: an accusation in a stop; aligned with G164's Now "Withdrawals are paused") |
+| 5.9-15 | head | History, withdrawals | SEO title, SEO / IA ownership | page | history-withdrawals | C1 | kept |
 | 5.9-16 | main | Items | link | `_nav.js ACCT_TABS/FAQ` | 16 pages, 1 screens |  | kept |
 | 5.9-17 | main | Deposits | link | `_nav.js HIST_COLS/HIST_TABS` | 16 pages, 1 screens | C4 | kept |
 | 5.9-18 | main | {n} cash outs | text | `_nav.js histPanel` | history-cashout-empty, history-cashout | N6 | kept |
@@ -1100,36 +1100,36 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 5.9-21 | main | When | column head | `_nav.js FAQ/HIST_COLS` | history-cashout, history-deposits-blocked, history-deposits, history-withdrawals-overdue, history-withdrawals-restricted, history-withdrawals |  | kept |
 | 5.9-22 | main | What you sold | column head | `_nav.js HIST_COLS` | history-cashout | S1 | kept |
 | 5.9-23 | main | State | column head | `_nav.js HIST_COLS/gateHTML` | history-cashout, history-deposits-blocked, history-deposits, history-withdrawals-overdue, history-withdrawals-restricted, history-withdrawals |  | kept |
-| 5.9-24 | main | Requested With us since {date} {time}. Nothing has been sent and nothing has been decided. | cell | page script | history-cashout |  | |
+| 5.9-24 | main | Requested With us since {date} {time}. Nothing has been sent and nothing has been decided. | cell | page script | history-cashout |  | kept |
 | 5.9-25 | main | ltc{n}q…{n}f{n}a | cell | _nav.js, assembled | history-cashout |  | kept |
-| 5.9-26 | main | Blocked The {d} fee rose above the item’s value before it went out. Nothing was sent, and the Glock is back in My items. | cell | page script | history-cashout |  | |
-| 5.9-27 | main | Sent On the chain since {date} {time}. | cell | page script | history-cashout |  | |
-| 5.9-28 | main | You cannot add funds right now | heading | page | history-deposits-blocked | C4 | |
-| 5.9-29 | main | A cool down you set is running, and it ends {date}, {time}. Adding funds and opening cases are closed until then. | text | page | history-deposits-blocked | C4 | |
-| 5.9-30 | main | It cannot be shortened, and extending it takes effect immediately. A deposit limit is set as well, and it is not what closed this. | note | page | history-deposits-blocked | C4 C5 | |
-| 5.9-31 | main | No payment is attempted until then. | note | page | history-deposits-blocked |  | |
-| 5.9-32 | main | Taking what you hold out to Steam is open, and it stays open under every boundary here. | note | page | history-deposits-blocked; responsible-in-force | C5 | |
+| 5.9-26 | main | Blocked The {d} fee rose above the item’s value before it went out. Nothing was sent, and the Glock is back in My items. | cell | page script | history-cashout |  | kept |
+| 5.9-27 | main | Sent On the chain since {date} {time}. | cell | page script | history-cashout |  | kept |
+| 5.9-28 | main | You cannot add funds right now | heading | page | history-deposits-blocked | C4 | kept |
+| 5.9-29 | main | A cool down you set is running, and it ends {date}, {time}. Adding funds and opening cases are closed until then. | text | page | history-deposits-blocked | C4 | kept |
+| 5.9-30 | main | It cannot be shortened, and extending it takes effect immediately. A deposit limit is set as well, and it is not what closed this. | note | page | history-deposits-blocked | C4 C5 | kept |
+| 5.9-31 | main | No payment is attempted until then. | note | page | history-deposits-blocked |  | kept |
+| 5.9-32 | main | Taking what you hold out to Steam is open, and it stays open under every boundary here. | note | page | history-deposits-blocked; responsible-in-force | C5 | Taking what you hold out to Steam stays available under every one of your limits. (glossary C5 limit for boundary; C9 "available" for availability, not "open"; keeps 6.1's kept phrase "Taking what you hold out to Steam") |
 | 5.9-33 | main | {n} payments | text | `_nav.js HIST_COLS/depCard` | history-deposits-blocked, history-deposits-empty, history-deposits |  | kept |
 | 5.9-34 | main | Credited | column head | `_nav.js HIST_COLS/depSkins` | history-deposits-blocked, history-deposits | C2 | kept |
 | 5.9-35 | main | Our reference | column head | `_nav.js HIST_COLS` | history-deposits-blocked, history-deposits, history-withdrawals-overdue, history-withdrawals-restricted, history-withdrawals |  | kept |
 | 5.9-36 | main | Payment reference | column head | `_nav.js HIST_COLS` | history-deposits-blocked, history-deposits |  | kept |
-| 5.9-37 | main | Refused by your cool down A cool down runs until {date}, {time}. No payment was attempted. | cell | page script | history-deposits-blocked |  | |
-| 5.9-38 | main | not issued | cell | page script | history-deposits-blocked, history-deposits |  | |
-| 5.9-39 | main | Complete | cell | page script | history-deposits-blocked, history-deposits |  | |
-| 5.9-40 | main | CS{n} skins | cell | page script | history-deposits-blocked, history-deposits | C10 | |
-| 5.9-41 | main | trade {hash} | cell | page script | history-deposits-blocked, history-deposits |  | |
-| 5.9-42 | main | Crypto, {d} | cell | page script | history-deposits-blocked, history-deposits |  | |
-| 5.9-43 | main | Crediting Waiting on the network to confirm it. Nothing is lost. | cell | page script | history-deposits-blocked, history-deposits |  | |
-| 5.9-44 | main | {n}x{n}a{n}f{n}c{n}d{n}e{n}b{n}f{n}a{n}c{n}e{n}b{n}d{n}f | cell | page script | history-deposits-blocked, history-deposits |  | |
-| 5.9-45 | main | Refused by your deposit limit Your limit then was {n} a week, with {n} used. It was lifted on {date} and set again on {date}, with the cool down. | cell | page script | history-deposits-blocked | C4 C5 C11 | |
+| 5.9-37 | main | Refused by your cool down A cool down runs until {date}, {time}. No payment was attempted. | cell | page script | history-deposits-blocked |  | kept |
+| 5.9-38 | main | not issued | cell | page script | history-deposits-blocked, history-deposits |  | Not issued (sentence case everywhere (glossary, how the product addresses people)) |
+| 5.9-39 | main | Complete | cell | page script | history-deposits-blocked, history-deposits |  | kept |
+| 5.9-40 | main | CS{n} skins | cell | page script | history-deposits-blocked, history-deposits | C10 | kept |
+| 5.9-41 | main | trade {hash} | cell | page script | history-deposits-blocked, history-deposits |  | kept |
+| 5.9-42 | main | Crypto, {d} | cell | page script | history-deposits-blocked, history-deposits |  | kept |
+| 5.9-43 | main | Crediting Waiting on the network to confirm it. Nothing is lost. | cell | page script | history-deposits-blocked, history-deposits |  | kept |
+| 5.9-44 | main | {n}x{n}a{n}f{n}c{n}d{n}e{n}b{n}f{n}a{n}c{n}e{n}b{n}d{n}f | cell | page script | history-deposits-blocked, history-deposits |  | kept |
+| 5.9-45 | main | Refused by your deposit limit Your limit then was {n} a week, with {n} used. It was lifted on {date} and set again on {date}, with the cool down. | cell | page script | history-deposits-blocked | C4 C5 C11 | Refused by your deposit limit Your limit then was ${n} a week, with ${n} used. It was lifted on {date} and set again on {date}, with the cool down. (glossary C11: a figure is never without its unit; dollars for a deposit limit ("with 30.00 used" became "with $30.00 used")) |
 | 5.9-46 | main | Amounts in coins, {n} coin = {n} | note | `_nav.js histPanel` | history-deposits-blocked, history-deposits | C11 | kept |
 | 5.9-47 | main | No payments yet | heading | `_nav.js histPanel` | history-deposits-empty |  | kept |
 | 5.9-48 | main | When you add funds, every attempt lands here, the ones that went through and the ones that did not. | empty state | `_nav.js histPanel` | history-deposits-empty | C4 | kept |
-| 5.9-49 | main | Declined Your bank refused it. Nothing was charged. | cell | page script | history-deposits |  | |
-| 5.9-50 | main | Refused by your deposit limit Your limit then was {n} a week, with {n} used. It was lifted on {date}. | cell | page script | history-deposits | C4 C5 C11 | |
-| 5.9-51 | main | {n} rolls | text | page | history-empty, history-mismatch, history-no-seed, history-unfinished, history | C9 | |
-| 5.9-52 | main | No rolls yet | heading | page | history-empty | C9 | |
-| 5.9-53 | main | When you open a case, the roll lands here with its proof, and it stays here whatever happens to the item afterwards. | empty state | page | history-empty | C9 | |
+| 5.9-49 | main | Declined Your bank refused it. Nothing was charged. | cell | page script | history-deposits |  | kept |
+| 5.9-50 | main | Refused by your deposit limit Your limit then was {n} a week, with {n} used. It was lifted on {date}. | cell | page script | history-deposits | C4 C5 C11 | Refused by your deposit limit Your limit then was ${n} a week, with ${n} used. It was lifted on {date}. (glossary C11: unit on the used figure, dollars for a deposit limit) |
+| 5.9-51 | main | {n} rolls | text | page | history-empty, history-mismatch, history-no-seed, history-unfinished, history | C9 | {n} rounds (glossary C9: round, not roll) |
+| 5.9-52 | main | No rolls yet | heading | page | history-empty | C9 | No rounds yet (glossary C9; Forbidden "A dead end" example "No rounds yet") |
+| 5.9-53 | main | When you open a case, the roll lands here with its proof, and it stays here whatever happens to the item afterwards. | empty state | page | history-empty | C9 | Open a case and its round is listed here, with its proof. It stays whatever happens to the item afterwards. (Empty state rule plus T7 addition: leads to opening in the plain form, "Open a case and it is listed here"; C9) |
 | 5.9-54 | main | Nothing won yet | heading | `_nav.js itemsPanel` | history-items-empty |  | kept |
 | 5.9-55 | main | Every skin this account opens lands here and stays, with what it was worth at that moment and where it went afterwards. | empty state | `_nav.js itemsPanel` | history-items-empty | C10 | Every skin this account opens lands here and stays, with its value at that moment and where it went afterwards. (C2) |
 | 5.9-56 | main | The case shelf | button (link) | `_nav.js itemsPanel` | history-items-empty |  | See the cases |
@@ -1140,10 +1140,10 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 5.9-61 | main | Sold back, {date} | text | `_nav.js HIST_COLS/ITEM_STATE` | history-items, history-mismatch, history-no-seed, history-unfinished, history; player-hidden, player-owner, player | S1 | Sold, {date} (S1) |
 | 5.9-62 | main | No proof to check | button (link) | `_nav.js itemCard` | history-items; player-hidden, player-owner, player |  | kept |
 | 5.9-63 | main | Still held | text | page, `_nav.js ITEM_STATE/mountRolls` | history-items, history-mismatch, history-no-seed, history-unfinished, history; player-hidden, player-owner, player |  | kept |
-| 5.9-64 | main | One roll here does not check out | heading | page | history-mismatch | C9 | |
-| 5.9-65 | main | We recomputed the round below and our result does not match what we published for it. That is our failure and not yours. | text | page | history-mismatch | C9 | |
-| 5.9-66 | main | It was reported the moment we found it, with the round attached, and nothing about the other rolls on this page changes. | note | page | history-mismatch | C9 | |
-| 5.9-67 | main | Any date | button | page | history-mismatch, history-no-seed, history-unfinished, history |  | |
+| 5.9-64 | main | One roll here does not check out | heading | page | history-mismatch | C9 | One round here does not check out (glossary C9) |
+| 5.9-65 | main | We recomputed the round below and our result does not match what we published for it. That is our failure and not yours. | text | page | history-mismatch | C9 | kept |
+| 5.9-66 | main | It was reported the moment we found it, with the round attached, and nothing about the other rolls on this page changes. | note | page | history-mismatch | C9 | It was reported the moment we found it, with the round attached, and nothing about the other rounds on this page changes. (glossary C9) |
+| 5.9-67 | main | Any date | button | page | history-mismatch, history-no-seed, history-unfinished, history |  | kept |
 | 5.9-68 | main | {n} coins to open | text | `_nav.js rollRow` | history-mismatch, history-no-seed, history-unfinished, history | S4 | Price {n} coins (S4) |
 | 5.9-69 | main | Worth | text | `_nav.js HIST_COLS/itemCard` | history-mismatch, history-no-seed, history-unfinished, history |  | Value (C2) |
 | 5.9-70 | main | chance of this skin | text | `_nav.js rollRow` | history-mismatch, history-no-seed, history-unfinished, history | C10 | kept |
@@ -1152,103 +1152,103 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 5.9-73 | main | No seed or nonce was kept for this roll, so there is nothing here to check. The roll is real and its record is complete. The proof is not. | text | `_nav.js ROLL_PROOF` | history-mismatch, history-no-seed, history-unfinished, history | C9 | No seed or nonce was kept for this round, so there is nothing here to check. The round is real and its record is complete. The proof is not. (C9) |
 | 5.9-74 | main | Check it | button (link) | `_nav.js mountCashout/mountVerifier` | history-mismatch, history-unfinished, history |  | kept |
 | 5.9-75 | main | Public page | button (link) | `_nav.js rollRow` | history-mismatch, history-unfinished, history |  | kept |
-| 5.9-76 | main | Every figure is as it was on the day of the roll. | note | page | history-mismatch, history-no-seed, history-unfinished, history | C9 | |
+| 5.9-76 | main | Every figure is as it was on the day of the roll. | note | page | history-mismatch, history-no-seed, history-unfinished, history | C9 | Every figure is as it was on the day of the round. (glossary C9) |
 | 5.9-77 | main | Mode: Cases | accessible name | `_nav.js rollRow` | history-mismatch, history-no-seed, history-unfinished, history |  | kept |
-| 5.9-78 | main | These rolls cannot be checked | heading | page | history-no-seed | C9 | |
-| 5.9-79 | main | The seed and nonce behind each roll were not kept in a form anyone can recompute, so there is nothing here to verify against. | text | page | history-no-seed | C9 | |
-| 5.9-80 | main | One open here stopped part way | heading | page | history-unfinished |  | |
-| 5.9-81 | main | The round was settled before the animation started, so an animation that stopped part way changed nothing about what you got. What you got and the round are on the row below. | text | page | history-unfinished | C9 | |
-| 5.9-82 | main | Check the round | button (link) | page | history-unfinished | C9 | |
-| 5.9-83 | main | The open stopped part way. The round had already settled. | text | page script | history-unfinished | C9 | |
-| 5.9-84 | main | {n} withdrawals | text | page script | history-withdrawals-empty, history-withdrawals-overdue, history-withdrawals | C1 | |
+| 5.9-78 | main | These rolls cannot be checked | heading | page | history-no-seed | C9 | These rounds cannot be checked (glossary C9) |
+| 5.9-79 | main | The seed and nonce behind each roll were not kept in a form anyone can recompute, so there is nothing here to verify against. | text | page | history-no-seed | C9 | The seed and nonce behind each round were not kept in a form anyone can recompute, so there is nothing here to check. The rounds and their records are complete. (glossary C9 and S5 (check, not verify); principle 5: a stop says what still works, matching 5.9-73's Now "The round is real and its record is complete") |
+| 5.9-80 | main | One open here stopped part way | heading | page | history-unfinished |  | kept |
+| 5.9-81 | main | The round was settled before the animation started, so an animation that stopped part way changed nothing about what you got. What you got and the round are on the row below. | text | page | history-unfinished | C9 | kept |
+| 5.9-82 | main | Check the round | button (link) | page | history-unfinished | C9 | Check this round (glossary S5: "Check this round" for a link to one round) |
+| 5.9-83 | main | The open stopped part way. The round had already settled. | text | page script | history-unfinished | C9 | kept |
+| 5.9-84 | main | {n} withdrawals | text | page script | history-withdrawals-empty, history-withdrawals-overdue, history-withdrawals | C1 | kept |
 | 5.9-85 | main | Nothing sent to Steam yet | heading | `_nav.js histPanel` | history-withdrawals-empty | C1 | kept |
 | 5.9-86 | main | When you send an item to Steam, the row lands here and stays, with who it is waiting on and how long it has been. | empty state | `_nav.js histPanel` | history-withdrawals-empty | C1 | kept |
-| 5.9-87 | main | One of these has passed the time we published | heading | page | history-withdrawals-overdue |  | |
-| 5.9-88 | main | One withdrawal below is past the time we publish for it. That is on us. | text | page | history-withdrawals-overdue | C1 | |
-| 5.9-89 | main | It has passed our published {n} h {n} m. | note | page | history-withdrawals-overdue |  | |
-| 5.9-90 | main | Nothing about the item is lost. The row below carries the reference support needs, and support already has it. | note | page | history-withdrawals-overdue | C6 | |
+| 5.9-87 | main | One of these has passed the time we published | heading | page | history-withdrawals-overdue |  | One withdrawal is past our published time (H2 names what the block holds; principle 1, answer first ("One of these" made the reader find which)) |
+| 5.9-88 | main | One withdrawal below is past the time we publish for it. That is on us. | text | page | history-withdrawals-overdue | C1 | It is still with Steam, and late. That is on us. (principle 3 and T8: says who the wait is on; the heading now carries the fact this line used to repeat) |
+| 5.9-89 | main | It has passed our published {n} h {n} m. | note | page | history-withdrawals-overdue |  | Nine in ten arrive within {n} h {n} m. This one has not. (principle 2: the published figure in the product's own wording (voice.md example "Nine in ten arrive within 6 h 15 m")) |
+| 5.9-90 | main | Nothing about the item is lost. The row below carries the reference support needs, and support already has it. | note | page | history-withdrawals-overdue | C6 | kept |
 | 5.9-91 | main | What | column head | `_nav.js FAQ/HIST_COLS` | history-withdrawals-overdue, history-withdrawals-restricted, history-withdrawals |  | kept |
 | 5.9-92 | main | Worth then | column head | `_nav.js HIST_COLS` | history-withdrawals-overdue, history-withdrawals-restricted, history-withdrawals |  | Value then (C2) |
 | 5.9-93 | main | Waiting on | column head | `_nav.js HIST_COLS/mountSupportSubject` | history-withdrawals-overdue, history-withdrawals-restricted, history-withdrawals |  | kept |
-| 5.9-94 | main | Cancelled by you | cell | page script | history-withdrawals-overdue, history-withdrawals |  | |
-| 5.9-95 | main | Nobody | cell | page script | history-withdrawals-overdue, history-withdrawals |  | |
-| 5.9-96 | main | With Steam Sent {n} h {n} m ago. Nine in ten arrive within {n} h {n} m. | cell | page script | history-withdrawals-overdue, history-withdrawals |  | |
-| 5.9-97 | main | Steam | text | page, page script | history-withdrawals-overdue, history-withdrawals; all 4 of `5.11` |  | |
-| 5.9-98 | main | Past the time we publish Sent {n} h {n} m ago, which is past the time we publish for this. We have missed it, we know, and support has this row already. | cell | page script | history-withdrawals-overdue | C6 | |
-| 5.9-99 | main | Steam, and us | cell | page script | history-withdrawals-overdue |  | |
-| 5.9-100 | main | Offer expired Steam’s trade offer ran out. The skin is back in My items. Open the record | cell | page script | history-withdrawals-overdue, history-withdrawals | C10 N5 | |
+| 5.9-94 | main | Cancelled by you | cell | page script | history-withdrawals-overdue, history-withdrawals |  | Canceled by you (US spelling, glossary ("canceled")) |
+| 5.9-95 | main | Nobody | cell | page script | history-withdrawals-overdue, history-withdrawals |  | kept |
+| 5.9-96 | main | With Steam Sent {n} h {n} m ago. Nine in ten arrive within {n} h {n} m. | cell | page script | history-withdrawals-overdue, history-withdrawals |  | kept |
+| 5.9-97 | main | Steam | text | page, page script | history-withdrawals-overdue, history-withdrawals; all 4 of `5.11` |  | kept |
+| 5.9-98 | main | Past the time we publish Sent {n} h {n} m ago, which is past the time we publish for this. We have missed it, we know, and support has this row already. | cell | page script | history-withdrawals-overdue | C6 | Past the time we publish Sent {n} h {n} m ago, past the time we publish. That is on us, and support already has this row. Nothing is lost. (T8 addition: every stop on the way out says who the wait is on and that nothing is lost; principle 1, padding cut ("We have missed it, we know")) |
+| 5.9-99 | main | Steam, and us | cell | page script | history-withdrawals-overdue |  | kept |
+| 5.9-100 | main | Offer expired Steam’s trade offer ran out. The skin is back in My items. Open the record | cell | page script | history-withdrawals-overdue, history-withdrawals | C10 N5 | Trade offer expired Steam closed it before it was accepted. The item is back in My items. Open the record (glossary N5: "trade offer", never "offer" alone; C10: item for what the person owns ("The skin is back in My items"); "Open the record" is 5.9-101, parent-owned and untouched) |
 | 5.9-101 | main | Open the record | link | `_nav.js histTable` | history-withdrawals-overdue, history-withdrawals |  | kept |
-| 5.9-102 | main | You | cell | page script | history-withdrawals-overdue, history-withdrawals |  | |
-| 5.9-103 | main | Withdrawals are stopped on this account | heading | page | history-withdrawals-restricted | C1 | |
-| 5.9-104 | main | Recorded {date} {time}. This text is yours to copy. | text | page | withdraw-restricted, withdraw-restriction-upheld; history-withdrawals-restricted |  | |
-| 5.9-105 | main | Nothing here is taken. The balance is frozen rather than emptied and the items you hold are still yours, and everything you have already sent to Steam is below and unchanged. | note | page | history-withdrawals-restricted | C1 | |
-| 5.9-106 | main | We answer an appeal within {n} hours. | note | page | withdraw-restricted; history-withdrawals-restricted | N4 | |
-| 5.9-107 | main | Your balance and your items stay frozen, not zeroed, until the review ends. | note | page | history-withdrawals-restricted | N4 | |
-| 5.9-108 | main | Appeal this | button (link) | page | withdraw-restricted; history-withdrawals-restricted | N4 | |
-| 5.9-109 | main | The restriction | button (link) | page | support-refused, support-submitted; history-withdrawals-restricted |  | |
-| 5.9-110 | main | {n} withdrawal | text | page script | history-withdrawals-restricted | C1 | |
-| 5.9-111 | main | Held while the account is restricted Nothing has been sent to Steam and nothing is lost. It is never taken quietly. | cell | page script | history-withdrawals-restricted | C1 | |
-| 5.9-112 | main | Us | text | page | system-500-noshell, system-500, system-503-planned, system-503-unplanned; history-withdrawals-restricted |  | |
+| 5.9-102 | main | You | cell | page script | history-withdrawals-overdue, history-withdrawals |  | kept |
+| 5.9-103 | main | Withdrawals are stopped on this account | heading | page | history-withdrawals-restricted | C1 | Withdrawals are paused (Forbidden: an accusation in a stop; aligned with G164's Now; a state's heading says the state) |
+| 5.9-104 | main | Recorded {date} {time}. This text is yours to copy. | text | page | withdraw-restricted, withdraw-restriction-upheld; history-withdrawals-restricted |  | kept |
+| 5.9-105 | main | Nothing here is taken. The balance is frozen rather than emptied and the items you hold are still yours, and everything you have already sent to Steam is below and unchanged. | note | page | history-withdrawals-restricted | C1 | Nothing is taken. Everything you have already sent to Steam is below, unchanged. (principle 1, nothing padded: G164's Now directly above already says "Your balance and items stay yours" and 5.9-107 says frozen, not zeroed, so the third telling is cut) |
+| 5.9-106 | main | We answer an appeal within {n} hours. | note | page | withdraw-restricted; history-withdrawals-restricted | N4 | kept |
+| 5.9-107 | main | Your balance and your items stay frozen, not zeroed, until the review ends. | note | page | history-withdrawals-restricted | N4 | kept |
+| 5.9-108 | main | Appeal this | button (link) | page | withdraw-restricted; history-withdrawals-restricted | N4 | kept |
+| 5.9-109 | main | The restriction | button (link) | page | support-refused, support-submitted; history-withdrawals-restricted |  | kept |
+| 5.9-110 | main | {n} withdrawal | text | page script | history-withdrawals-restricted | C1 | kept |
+| 5.9-111 | main | Held while the account is restricted Nothing has been sent to Steam and nothing is lost. It is never taken quietly. | cell | page script | history-withdrawals-restricted | C1 | Held while withdrawals are paused Nothing has been sent to Steam and nothing is lost. It is never taken quietly. (Forbidden: an accusation in a stop; aligned with G164 and 5.9-103 ("paused"); the why kept) |
+| 5.9-112 | main | Us | text | page | system-500-noshell, system-500, system-503-planned, system-503-unplanned; history-withdrawals-restricted |  | kept |
 | 5.9-113 | main | The proof source could not be read just now. This is not the same as never having been kept: the roll still has its material and we cannot reach it this minute. | text | `_nav.js ROLL_PROOF` | history | C9 | The proof source could not be read just now. This is not the same as never having been kept: the round still has its material and we cannot reach it this minute. (C9) |
 
 ### `5.10` Profile
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 5.10-1 | head | Profile: nothing to read | SEO title, SEO / IA ownership | page | profile-quiet | N3 | |
-| 5.10-2 | head | Profile: Steam unreadable | SEO title, SEO / IA ownership | page | profile-steam-down | N3 | |
-| 5.10-3 | main | Your daily case | heading | page | all 3 of `5.10` | N1 | |
-| 5.10-4 | main | Free entries you can open right now | text | page | all 3 of `5.10` |  | |
-| 5.10-5 | main | See the daily case | button (link) | page | all 3 of `5.10` | N1 | |
-| 5.10-6 | main | Your messages | heading | page | all 3 of `5.10` |  | |
+| 5.10-1 | head | Profile: nothing to read | SEO title, SEO / IA ownership | page | profile-quiet | N3 | Profile: no messages (Screen heading: a state's title says the state; 'nothing to read' named no subject) |
+| 5.10-2 | head | Profile: Steam unreadable | SEO title, SEO / IA ownership | page | profile-steam-down | N3 | kept |
+| 5.10-3 | main | Your daily case | heading | page | all 3 of `5.10` | N1 | kept |
+| 5.10-4 | main | Free entries you can open right now | text | page | all 3 of `5.10` |  | Daily cases you can open now (Glossary N1: daily case, never free entry; Forbidden, free as the hook) |
+| 5.10-5 | main | See the daily case | button (link) | page | all 3 of `5.10` | N1 | kept |
+| 5.10-6 | main | Your messages | heading | page | all 3 of `5.10` |  | kept |
 | 5.10-7 | main | Promo | button | `_nav.js MSG_TABS/homeBody` | profile-quiet |  | kept |
 | 5.10-8 | main | System | button | `_nav.js MSG_TABS/fillDeclared` | profile-quiet |  | kept |
 | 5.10-9 | main | Marketing messages | heading | `_nav.js MSG_TABS` | all 3 of `5.10` |  | kept |
 | 5.10-10 | main | No marketing messages | empty state | `_nav.js MSG_TABS` | profile-quiet |  | kept |
 | 5.10-11 | main | Nothing has been sent to you. You can switch this channel off in Settings. | empty state | `_nav.js MSG_TABS` | profile-quiet |  | kept |
-| 5.10-12 | main | Your public page | heading | page | all 3 of `5.10` |  | |
-| 5.10-13 | main | Your name, your picture and every skin you have won, each with its round. | note | page | all 3 of `5.10` | C9 C10 | |
-| 5.10-14 | main | See it as a stranger does | button (link) | page | all 3 of `5.10` |  | |
-| 5.10-15 | main | Switch it off, or hide your name from live drops, in Settings. | note | page | all 3 of `5.10` | C10 | |
+| 5.10-12 | main | Your public page | heading | page | all 3 of `5.10` |  | Your public profile (Glossary N3: public profile for what others see; matches the Settings switch 'Public profile') |
+| 5.10-13 | main | Your name, your picture and every skin you have won, each with its round. | note | page | all 3 of `5.10` | C9 C10 | Your name, your picture and every item you have won, each with its round. (Glossary C10 (a): item for a thing a person owns or got; skin is the Steam/market sense) |
+| 5.10-14 | main | See it as a stranger does | button (link) | page | all 3 of `5.10` |  | kept |
+| 5.10-15 | main | Switch it off, or hide your name from live drops, in Settings. | note | page | all 3 of `5.10` | C10 | kept |
 | 5.10-16 | main | Steam Name unavailable | link | _nav.js, assembled | profile-steam-down |  | kept |
 | 5.10-17 | main | Promo {n} | button | `_nav.js MSG_TABS/homeBody` | profile-steam-down, profile |  | kept |
 | 5.10-18 | main | System {n} | button | `_nav.js MSG_TABS/fillDeclared` | profile-steam-down, profile |  | kept |
 | 5.10-19 | main | Mark all as read | button | `_nav.js mountMsgs` | profile-steam-down, profile |  | kept |
 | 5.10-20 | main | Delete all | button | `_nav.js mountMsgs/mountSupportSubject` | profile-steam-down, profile |  | Delete all messages (step 4: a destructive act names its object) |
-| 5.10-21 | main | Two cases joined the shelf | text | page script | profile-steam-down, profile |  | |
-| 5.10-22 | main | {d} and {d} are open from today, both with their chances and tested return published on the case page. | text | page script | profile-steam-down, profile |  | |
+| 5.10-21 | main | Two cases joined the shelf | text | page script | profile-steam-down, profile |  | kept |
+| 5.10-22 | main | {d} and {d} are open from today, both with their chances and tested return published on the case page. | text | page script | profile-steam-down, profile |  | {d} and {d} are available from today, both with their chances and tested return published on the case page. (Glossary C9: 'open' is the act; availability says available) |
 | 5.10-23 | main | Two cases joined the shelf {d} and {d} are open from today, both with their chances and tested return published on the case page. Unread {date} {time} See the shelf | text | `_nav.js msgRow`, page script | profile-steam-down, profile |  | kept |
-| 5.10-24 | main | See the shelf | link | page script | profile-steam-down, profile |  | |
-| 5.10-25 | main | Your daily entry is waiting | text | page script | profile-steam-down, profile | N1 | |
-| 5.10-26 | main | You have not used a free entry since {date}. It costs nothing and it does not stack. | text | page script | profile-steam-down, profile | N1 | |
+| 5.10-24 | main | See the shelf | link | page script | profile-steam-down, profile |  | kept |
+| 5.10-25 | main | Your daily entry is waiting | text | page script | profile-steam-down, profile | N1 | Your daily case is waiting (Glossary N1: daily case, never daily entry) |
+| 5.10-26 | main | You have not used a free entry since {date}. It costs nothing and it does not stack. | text | page script | profile-steam-down, profile | N1 | You have not opened a daily case since {date}. It costs nothing and it does not stack. (Glossary N1: daily case, never free entry; 'costs nothing' kept as the fact) |
 | 5.10-27 | main | Your daily entry is waiting You have not used a free entry since {date}. It costs nothing and it does not stack. Unread {date} {time} Open the daily case | text | `_nav.js msgRow`, page script | profile-steam-down, profile | N1 | kept |
-| 5.10-28 | main | Open the daily case | link | page script | profile-steam-down, profile | N1 | |
-| 5.10-29 | main | Steam cannot be read right now | heading | page | profile-steam-down |  | |
-| 5.10-30 | main | Your name and picture are unavailable. Your items, rolls, messages and withdrawals are open. | text | page | profile-steam-down | C1 C9 | |
-| 5.10-31 | main | While Steam cannot be read, it shows no name and no picture either. Your wins still list in full. | note | page | profile-steam-down | C10 | |
+| 5.10-28 | main | Open the daily case | link | page script | profile-steam-down, profile | N1 | kept |
+| 5.10-29 | main | Steam cannot be read right now | heading | page | profile-steam-down |  | kept |
+| 5.10-30 | main | Your name and picture are unavailable. Your items, rolls, messages and withdrawals are open. | text | page | profile-steam-down | C1 C9 | Your name and picture are unavailable. Your items, rounds, messages and withdrawals still work. (Glossary C9: rounds, not rolls, and 'open' not used for availability; principle 5, a stop says what still works) |
+| 5.10-31 | main | While Steam cannot be read, it shows no name and no picture either. Your wins still list in full. | note | page | profile-steam-down | C10 | While Steam cannot be read, it shows no name and no picture either. Every item you have won is still listed. (Glossary C10: 'wins' never names items; aligned with 5.10-13) |
 | 5.10-32 | main | {n} unread | accessible name | _nav.js, assembled | profile-steam-down, profile |  | kept |
 
 ### `5.11` Settings
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 5.11-1 | head | Settings. CS{n} Clutch | SEO title, SEO / IA ownership | page | all 4 of `5.11` |  | |
+| 5.11-1 | head | Settings. CS{n} Clutch | SEO title, SEO / IA ownership | page | all 4 of `5.11` |  | kept |
 | 5.11-2 | main | No Steam account linked | link | `_nav.js renderAcctHero` | settings-no-steam |  | kept |
-| 5.11-3 | main | General | text | page | all 4 of `5.11` |  | |
-| 5.11-4 | main | Username | text | page | all 4 of `5.11` |  | |
-| 5.11-5 | main | From your Google account. | text | page | settings-no-steam |  | |
-| 5.11-6 | main | Where you live | field label | page | all 4 of `5.11` |  | |
-| 5.11-7 | main | Ukraine | option | page | all 4 of `5.11` |  | |
-| 5.11-8 | main | Poland | option | page | all 4 of `5.11` |  | |
-| 5.11-9 | main | Only markets we operate in are listed. A false country can close the account. | text | page | all 4 of `5.11` | C3 | |
-| 5.11-10 | main | Save where you live | button | page | all 4 of `5.11` |  | |
-| 5.11-11 | main | Last changed {date} | text | page | all 4 of `5.11` |  | |
-| 5.11-12 | main | Steam trade URL | field label | page | all 4 of `5.11` |  | |
-| 5.11-13 | main | Skins can only be sent to a Steam account. Link one to withdraw. | text | page | settings-no-steam | C1 C10 | |
-| 5.11-14 | main | What this costs right now | text | page | settings-no-steam, settings-no-trade |  | |
-| 5.11-15 | main | You can add money and open cases. You cannot take a skin out, because there is nowhere for it to go. | text | page | settings-no-steam | C10 | |
-| 5.11-16 | main | Go to My items | button (link) | page | settings-no-steam |  | |
-| 5.11-17 | main | English | text | page | all 4 of `5.11` |  | |
+| 5.11-3 | main | General | text | page | all 4 of `5.11` |  | kept |
+| 5.11-4 | main | Username | text | page | all 4 of `5.11` |  | kept |
+| 5.11-5 | main | From your Google account. | text | page | settings-no-steam |  | kept |
+| 5.11-6 | main | Where you live | field label | page | all 4 of `5.11` |  | Country (Field label is a noun; glossary C3 c, country) |
+| 5.11-7 | main | Ukraine | option | page | all 4 of `5.11` |  | kept |
+| 5.11-8 | main | Poland | option | page | all 4 of `5.11` |  | kept |
+| 5.11-9 | main | Only markets we operate in are listed. A false country can close the account. | text | page | all 4 of `5.11` | C3 | Only countries we operate in are listed. A false one can close the account. (Glossary C3 c: country, never market for where a person lives) |
+| 5.11-10 | main | Save where you live | button | page | all 4 of `5.11` |  | Save country (voice.md One main action, 5.11 row: two saves name their objects) |
+| 5.11-11 | main | Last changed {date} | text | page | all 4 of `5.11` |  | kept |
+| 5.11-12 | main | Steam trade URL | field label | page | all 4 of `5.11` |  | kept |
+| 5.11-13 | main | Skins can only be sent to a Steam account. Link one to withdraw. | text | page | settings-no-steam | C1 C10 | Skins can only be sent to a Steam account, and none is linked yet. (Glossary C1: withdraw is not a verb; principle 5, say what happened) |
+| 5.11-14 | main | What this costs right now | text | page | settings-no-steam, settings-no-trade |  | What this stops right now (Section heading names what the block holds; glossary S4 keeps 'costs' for a price, and this block holds no money) |
+| 5.11-15 | main | You can add money and open cases. You cannot take a skin out, because there is nowhere for it to go. | text | page | settings-no-steam | C10 | You can add funds and open cases, and your items stay in My items. Sending to Steam waits until a Steam account is linked. (Glossary C4 Add funds, C1 Send to Steam; principle 5 and T8: what still works and that nothing is lost) |
+| 5.11-16 | main | Go to My items | button (link) | page | settings-no-steam |  | kept |
+| 5.11-17 | main | English | text | page | all 4 of `5.11` |  | kept |
 | 5.11-18 | main | German | option | `_nav.js LANGS/barItems` | all 4 of `5.11` |  | kept |
 | 5.11-19 | main | Chinese | option | `_nav.js LANGS` | all 4 of `5.11` |  | kept |
 | 5.11-20 | main | French | option | `_nav.js LANGS` | all 4 of `5.11` |  | kept |
@@ -1257,49 +1257,49 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 5.11-23 | main | Portuguese | option | `_nav.js LANGS` | all 4 of `5.11` |  | kept |
 | 5.11-24 | main | Spanish | option | `_nav.js LANGS` | all 4 of `5.11` |  | kept |
 | 5.11-25 | main | Russian | option | `_nav.js LANGS` | all 4 of `5.11` |  | kept |
-| 5.11-26 | main | Sound | text | page | all 4 of `5.11` |  | |
-| 5.11-27 | main | On | text | page | all 4 of `5.11` |  | |
-| 5.11-28 | main | Security | text | page | all 4 of `5.11` |  | |
-| 5.11-29 | main | Take a break | text | page | all 4 of `5.11` |  | |
-| 5.11-30 | main | Deposit limits, session limits, a cool down and self exclusion. | text | page | all 4 of `5.11` | C4 C5 | |
-| 5.11-31 | main | Public profile | text | page | all 4 of `5.11` | N3 | |
-| 5.11-32 | main | On. Anyone with the address sees your name and your wins. | text | page | all 4 of `5.11` | C10 | |
-| 5.11-33 | main | Pages for rounds you already shared stay up, and your name stays in the live drops. | text | page | all 4 of `5.11` | C9 C10 | |
-| 5.11-34 | main | See what is on it right now | link | page | all 4 of `5.11` |  | |
-| 5.11-35 | main | Make me anonymous | text | page | all 4 of `5.11` |  | |
-| 5.11-36 | main | Off. Your name shows in live drops and on results you share. | text | page | all 4 of `5.11` | C10 | |
-| 5.11-37 | main | Linked profiles | text | page | all 4 of `5.11` |  | |
-| 5.11-38 | main | Not connected. This is the one a skin can be sent to. | text | page | settings-no-steam | C10 | |
+| 5.11-26 | main | Sound | text | page | all 4 of `5.11` |  | kept |
+| 5.11-27 | main | On | text | page | all 4 of `5.11` |  | kept |
+| 5.11-28 | main | Security | text | page | all 4 of `5.11` |  | kept |
+| 5.11-29 | main | Take a break | text | page | all 4 of `5.11` |  | Your limits (the row key); Set limits (the link to responsible.html) (Glossary C5: 'your limits' for all four, 'Set limits' as people say it; D-166 settled the regulated names over 'Take a break'; a link names the act it starts) |
+| 5.11-30 | main | Deposit limits, session limits, a cool down and self exclusion. | text | page | all 4 of `5.11` | C4 C5 | Deposit limit, session limit, cool down and self exclusion. (Glossary C5: the four by name) |
+| 5.11-31 | main | Public profile | text | page | all 4 of `5.11` | N3 | kept |
+| 5.11-32 | main | On. Anyone with the address sees your name and your wins. | text | page | all 4 of `5.11` | C10 | On. Anyone with the address sees your name and your drops. (Glossary C10: 'wins' is not used for items; drop is what came out of an open in the social sense) |
+| 5.11-33 | main | Pages for rounds you already shared stay up, and your name stays in the live drops. | text | page | all 4 of `5.11` | C9 C10 | kept |
+| 5.11-34 | main | See what is on it right now | link | page | all 4 of `5.11` |  | kept |
+| 5.11-35 | main | Make me anonymous | text | page | all 4 of `5.11` |  | kept |
+| 5.11-36 | main | Off. Your name shows in live drops and on results you share. | text | page | all 4 of `5.11` | C10 | kept |
+| 5.11-37 | main | Linked profiles | text | page | all 4 of `5.11` |  | Linked accounts (Glossary N3: profile is the page about a person; a Steam or Google sign-in is an account, as 'No Steam account linked' already says) |
+| 5.11-38 | main | Not connected. This is the one a skin can be sent to. | text | page | settings-no-steam | C10 | Not linked. Skins can only be sent to this one. (One concept, one word: linked, matching the group heading and 'No Steam account linked'; answer first, principle 1) |
 | 5.11-39 | main | Discord | button (link) | page, `_nav.js authCard` | signin-blocked, signin-consent-given, signin-consent-partial, signin-dialog, signin; all 4 of `5.11` |  | kept |
-| 5.11-40 | main | Not connected | text | page | all 4 of `5.11` |  | |
+| 5.11-40 | main | Not connected | text | page | all 4 of `5.11` |  | Not linked (One concept, one word: linked) |
 | 5.11-41 | main | Google | button (link) | page, `_nav.js authCard` | signin-blocked, signin-consent-given, signin-consent-partial, signin-dialog, signin; all 4 of `5.11` |  | kept |
-| 5.11-42 | main | Connected. This is how you sign in. | text | page | all 4 of `5.11` |  | |
-| 5.11-43 | main | Link Steam to be able to send skins out. | text | page | settings-no-steam | C10 | |
-| 5.11-44 | main | Notifications | text | page | all 4 of `5.11` |  | |
-| 5.11-45 | main | What we send you | text | page | all 4 of `5.11` |  | |
-| 5.11-46 | main | Offers, free cases and anything else we want to sell you | field label | page | all 4 of `5.11` | S1 N1 N5 | |
-| 5.11-47 | main | Read your messages | link | page | all 4 of `5.11` |  | |
-| 5.11-48 | main | About your own account | text | page | all 4 of `5.11` |  | |
-| 5.11-49 | main | Messages about your own account | text | page | all 4 of `5.11` |  | |
-| 5.11-50 | main | Always on | text | page | all 4 of `5.11` |  | |
-| 5.11-51 | main | Failed withdrawals, unsettled rounds, limits coming into force. | text | page | all 4 of `5.11` | C1 C5 C9 | |
-| 5.11-52 | main | Confirmations | text | page | all 4 of `5.11` |  | |
-| 5.11-53 | main | Selling back, sending to Steam and cashing out always ask you first. | text | page | all 4 of `5.11` | C1 S1 N6 | |
-| 5.11-54 | main | From Steam. | text | page | settings-no-trade, settings-refused, settings |  | |
-| 5.11-55 | main | Steam needs this link to send you skins. | text | page | settings-no-trade, settings-refused, settings | C10 | |
-| 5.11-56 | main | Where to get this link on Steam | link | page | settings-no-trade, settings-refused, settings |  | |
-| 5.11-57 | main | Never set | text | page | settings-no-trade |  | |
-| 5.11-58 | main | Withdrawals cannot be sent until this is filled in. Everything else on the account works. | text | page | settings-no-trade | C1 | |
-| 5.11-59 | main | https://steamcommunity.com/profiles/{hash} | text | page | settings-refused |  | |
-| 5.11-60 | main | Steam will not accept this one: it does not start with the Steam trade offer address, there is no partner number in it, there is no token in it. Get a fresh link from Steam and paste it whole. | text | page | settings-refused | N5 | |
-| 5.11-61 | main | https://steamcommunity.com/tradeoffer/new/?partner={hash}&token=xJ{n}n-Qf{n} | text | page | settings |  | |
+| 5.11-42 | main | Connected. This is how you sign in. | text | page | all 4 of `5.11` |  | Linked. This is how you sign in. (One concept, one word: linked) |
+| 5.11-43 | main | Link Steam to be able to send skins out. | text | page | settings-no-steam | C10 | Link a Steam account to use Send to Steam. (Glossary C1: the act is Send to Steam, not 'send skins out') |
+| 5.11-44 | main | Notifications | text | page | all 4 of `5.11` |  | kept |
+| 5.11-45 | main | What we send you | text | page | all 4 of `5.11` |  | kept |
+| 5.11-46 | main | Offers, free cases and anything else we want to sell you | field label | page | all 4 of `5.11` | S1 N1 N5 | Promotions, bonuses and anything else we want to sell you (Glossary N5: 'offer' alone is only a trade offer; Forbidden, free as the hook, and N1 retires 'free cases') |
+| 5.11-47 | main | Read your messages | link | page | all 4 of `5.11` |  | kept |
+| 5.11-48 | main | About your own account | text | page | all 4 of `5.11` |  | kept |
+| 5.11-49 | main | Messages about your own account | text | page | all 4 of `5.11` |  | kept |
+| 5.11-50 | main | Always on | text | page | all 4 of `5.11` |  | kept |
+| 5.11-51 | main | Failed withdrawals, unsettled rounds, limits coming into force. | text | page | all 4 of `5.11` | C1 C5 C9 | kept |
+| 5.11-52 | main | Confirmations | text | page | all 4 of `5.11` |  | kept |
+| 5.11-53 | main | Selling back, sending to Steam and cashing out always ask you first. | text | page | all 4 of `5.11` | C1 S1 N6 | Selling, sending to Steam and cashing out always ask you first. (Glossary S1: Sell, never 'selling back') |
+| 5.11-54 | main | From Steam. | text | page | settings-no-trade, settings-refused, settings |  | kept |
+| 5.11-55 | main | Steam needs this link to send you skins. | text | page | settings-no-trade, settings-refused, settings | C10 | kept |
+| 5.11-56 | main | Where to get this link on Steam | link | page | settings-no-trade, settings-refused, settings |  | kept |
+| 5.11-57 | main | Never set | text | page | settings-no-trade |  | kept |
+| 5.11-58 | main | Withdrawals cannot be sent until this is filled in. Everything else on the account works. | text | page | settings-no-trade | C1 | Nothing can be sent to Steam until this is set. Your items stay in My items, and everything else works. (Glossary C1: withdrawal is the record, the act is Send to Steam; T8 adds that nothing is lost) |
+| 5.11-59 | main | https://steamcommunity.com/profiles/{hash} | text | page | settings-refused |  | kept |
+| 5.11-60 | main | Steam will not accept this one: it does not start with the Steam trade offer address, there is no partner number in it, there is no token in it. Get a fresh link from Steam and paste it whole. | text | page | settings-refused | N5 | Not saved: Steam will not accept this link. It does not start with the Steam trade offer address, and it has no partner number and no token. Get a fresh link from Steam and paste it whole. (A refusal beside a control opens with what did not go through, then the reason, then what to do) |
+| 5.11-61 | main | https://steamcommunity.com/tradeoffer/new/?partner={hash}&token=xJ{n}n-Qf{n} | text | page | settings |  | kept |
 
 ### `6.1` Responsible play
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 6.1-1 | head | Responsible play: limits, cool down and self exclusion | SEO title, SEO / IA ownership | page | all 5 of `6.1` | C5 C7 | |
-| 6.1-2 | head | Set a deposit limit, a session limit, a cool down or a self exclusion. Withdrawal stays open under every one of them. No account needed to read. | SEO description, SEO / IA ownership | page | all 5 of `6.1` | C1 C4 C5 | |
+| 6.1-1 | head | Responsible play: limits, cool down and self exclusion | SEO title, SEO / IA ownership | page | all 5 of `6.1` | C5 C7 | kept |
+| 6.1-2 | head | Set a deposit limit, a session limit, a cool down or a self exclusion. Withdrawal stays open under every one of them. No account needed to read. | SEO description, SEO / IA ownership | page | all 5 of `6.1` | C1 C4 C5 | IA owns it: block C of `ia/docs/pages/responsible.md` holds the aligned line |
 | 6.1-3 | main | What these tools do | heading | `WF_STR.rpWhat` | all 5 of `6.1` |  | kept |
 | 6.1-4 | main | Four boundaries you set yourself. | text | `WF_STR.rpFour` | all 5 of `6.1` | C5 | Four limits you set yourself. (C5) |
 | 6.1-5 | main | Tightening one takes effect immediately. Loosening one takes {n} hours, and the boundary you have now holds until then. | text | `WF_STR.rpTighten` | all 5 of `6.1` | C5 | Tightening one takes effect immediately. Loosening one takes {n} hours, and the limit you have now holds until then. |
@@ -1307,7 +1307,7 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 6.1-7 | main | A boundary can close | text | `WF_STR.rpCanClose` | all 5 of `6.1` | C5 | A limit can close |
 | 6.1-8 | main | Adding funds. Opening a case. A session, when its length is reached. | text | `WF_STR.rpCanCloseList` | all 5 of `6.1` | C4 | kept |
 | 6.1-9 | main | No boundary ever closes | text | `WF_STR.rpNeverClose` | all 5 of `6.1` | C5 | No limit ever closes |
-| 6.1-10 | main | Taking what you hold out to Steam. | text | page | all 5 of `6.1` |  | |
+| 6.1-10 | main | Taking what you hold out to Steam. | text | page | all 5 of `6.1` |  | kept |
 | 6.1-11 | main | Taking what you hold out to Steam. Support. Reading the product. | text | `WF_STR.rpNeverCloseList` | all 5 of `6.1` | C6 | kept |
 | 6.1-12 | main | Deposit limit | heading | `WF_STR.depositLimit` | all 5 of `6.1` | C4 C5 | kept |
 | 6.1-13 | main | Caps what you can put in over a period. | text | `WF_STR.rpDepositWhat` | all 5 of `6.1` | C4 | kept |
@@ -1334,43 +1334,43 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 6.1-34 | main | Self exclude | button | `WF_STR.selfExclude` | all 5 of `6.1` |  | kept |
 | 6.1-35 | main | Support that is not a limit | heading | `WF_STR.rpNotLimit` | all 5 of `6.1` | C5 C6 | kept |
 | 6.1-36 | main | Help that is not ours | text | `WF_STR.rpNotOurs` | all 5 of `6.1` | C6 | kept |
-| 6.1-37 | main | Gambling Therapy | link | page | all 5 of `6.1` |  | |
+| 6.1-37 | main | Gambling Therapy | link | page | all 5 of `6.1` |  | kept |
 | 6.1-38 | main | Gambling Therapy, free and confidential, in any country. | text | `WF_STR.rpTherapy` | all 5 of `6.1` |  | kept |
 | 6.1-39 | layer: dialog | Self exclusion for {n} years | heading | `_nav.js excludeHTML` | responsible-confirm |  | kept |
 | 6.1-40 | layer: dialog | It starts now and ends on {date}, {time}. | text | `_nav.js excludeHTML` | responsible-confirm |  | kept |
-| 6.1-41 | layer: dialog | Closes | text | page | responsible-confirm |  | |
+| 6.1-41 | layer: dialog | Closes | text | page | responsible-confirm |  | kept |
 | 6.1-42 | layer: dialog | Opening a case, and adding funds. | text | `_nav.js excludeHTML` | responsible-confirm | C4 | kept |
 | 6.1-43 | layer: dialog | Stays open | text | `_nav.js excludeHTML` | responsible-confirm |  | kept |
 | 6.1-44 | layer: dialog | It cannot be lifted early. That is what it is for. | note | `_nav.js excludeHTML` | responsible-confirm |  | It cannot be ended early, by you or by us. (step 4, "Dangerous act") |
 | 6.1-45 | main | Cancel | button (link) | page, `_nav.js STEP2_BANNER/excludeHTML` | withdraw-many, withdraw; responsible-confirm |  | kept |
 | 6.1-46 | layer: dialog | Confirm | button (link) | `_nav.js excludeHTML/hx` | responsible-confirm |  | Start self exclusion (the confirmation repeats the act) |
-| 6.1-47 | main | Deposit limit amount | accessible name | page | all 5 of `6.1` | C4 C5 | |
-| 6.1-48 | main | Deposit limit period | accessible name | page | all 5 of `6.1` | C4 C5 | |
-| 6.1-49 | main | Session length | accessible name | page | all 5 of `6.1` |  | |
-| 6.1-50 | main | Cool down period | accessible name | page | all 5 of `6.1` |  | |
-| 6.1-51 | main | Self exclusion period | accessible name | page | all 5 of `6.1` |  | |
+| 6.1-47 | main | Deposit limit amount | accessible name | page | all 5 of `6.1` | C4 C5 | kept |
+| 6.1-48 | main | Deposit limit period | accessible name | page | all 5 of `6.1` | C4 C5 | kept |
+| 6.1-49 | main | Session length | accessible name | page | all 5 of `6.1` |  | Session limit length (Microcopy, Accessible name: the visible label's own words (the row's heading is Session limit, glossary C5); now parallel to Deposit limit period, Cool down period, Self exclusion period) |
+| 6.1-50 | main | Cool down period | accessible name | page | all 5 of `6.1` |  | kept |
+| 6.1-51 | main | Self exclusion period | accessible name | page | all 5 of `6.1` |  | kept |
 | 6.1-52 | layer: dialog | Confirm self exclusion | accessible name | `_nav.js excludeHTML` | responsible-confirm |  | kept |
-| 6.1-53 | main | A self exclusion is running. You can still tighten another boundary; nothing can be loosened. | text | page | responsible-excluded | C5 | |
-| 6.1-54 | main | What is in force now | heading | page | responsible-excluded, responsible-in-force |  | |
-| 6.1-55 | main | Self exclusion Ends {date}, {time} Adding funds and opening cases are closed until then. It cannot be lifted early. | text | `WF_STR.selfExclusion`, page | responsible-excluded | C4 | kept |
-| 6.1-56 | main | Taking what you hold out to Steam is open. So is support, and so is reading the product. | note | page | responsible-excluded | C6 | |
-| 6.1-57 | main | Reading this page needs no account. Setting a boundary does: Sign in. | text | page | responsible-guest | C5 | |
-| 6.1-58 | main | A cool down is running. Boundaries can still be tightened while it does. | text | page | responsible-in-force | C5 | |
+| 6.1-53 | main | A self exclusion is running. You can still tighten another boundary; nothing can be loosened. | text | page | responsible-excluded | C5 | A self exclusion is running. You can still tighten another limit; nothing can be loosened. (Glossary C5: limit, never boundary) |
+| 6.1-54 | main | What is in force now | heading | page | responsible-excluded, responsible-in-force |  | kept |
+| 6.1-55 | main | Self exclusion Ends {date}, {time} Adding funds and opening cases are closed until then. It cannot be lifted early. | text | `WF_STR.selfExclusion`, page | responsible-excluded | C4 | Self exclusion Ends {date}, {time} Adding funds and opening cases are closed until then. It cannot be ended early, by you or by us. (step 4, "Dangerous act") |
+| 6.1-56 | main | Taking what you hold out to Steam is open. So is support, and so is reading the product. | note | page | responsible-excluded | C6 | kept |
+| 6.1-57 | main | Reading this page needs no account. Setting a boundary does: Sign in. | text | page | responsible-guest | C5 | Reading this page needs no account. Setting a limit does: Sign in. (Glossary C5: limit, never boundary) |
+| 6.1-58 | main | A cool down is running. Boundaries can still be tightened while it does. | text | page | responsible-in-force | C5 | A cool down is running. Limits can still be tightened while it does. (Glossary C5: limit, never boundary) |
 | 6.1-59 | main | Cool down Ends {date}, {time} Adding funds and opening cases are closed until then. It cannot be shortened, and extending it takes effect immediately. | text | `WF_STR.coolDown`, page | responsible-in-force | C4 | kept |
 | 6.1-60 | main | Deposit limit {n} per week | text | `WF_STR.depositLimit`, page | responsible-in-force | C4 C5 C11 | kept |
-| 6.1-61 | main | Nothing is set yet. | text | page | responsible |  | |
+| 6.1-61 | main | Nothing is set yet. | text | page | responsible |  | No limits are set. (Glossary C5 names what is not set; principle 5, one plain line. No 'yet' and no lead to one control: node 6.1 section 2 refuses a primary call to action, and the T4 rule gives a limit no completion or progress words) |
 
 ### `7.1` Public result
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 7.1-1 | head | {d} {d}, {d}, from {d} | SEO title, SEO / IA ownership | page | result-checked, result-mismatched, result-noproof, result-owner, result |  | |
-| 7.1-2 | head | The round proof for this open is on the page and needs no account to check. | SEO description, SEO / IA ownership | page | result-checked, result-mismatched, result-noproof, result-owner, result | C9 | |
-| 7.1-3 | head | This result is not available | SEO title, SEO / IA ownership | page | result-gone | P | |
-| 7.1-4 | head | The round can still be checked without this page. | SEO description, SEO / IA ownership | page | result-gone | C9 | |
-| 7.1-5 | main | {d} \| {d}, won from {d} | SEO H1, SEO / IA ownership | page | result-checked, result-mismatched, result-noproof, result-owner, result |  | |
-| 7.1-6 | main | Worth when it was won, {date} {time} | text | page | result-checked, result-mismatched, result-noproof, result-owner, result | C2 | |
-| 7.1-7 | main | {d} Opened {date} {time} | link | page | result-checked, result-mismatched, result-noproof, result-owner, result |  | |
+| 7.1-1 | head | {d} {d}, {d}, from {d} | SEO title, SEO / IA ownership | page | result-checked, result-mismatched, result-noproof, result-owner, result |  | kept |
+| 7.1-2 | head | The round proof for this open is on the page and needs no account to check. | SEO description, SEO / IA ownership | page | result-checked, result-mismatched, result-noproof, result-owner, result | C9 | kept |
+| 7.1-3 | head | This result is not available | SEO title, SEO / IA ownership | page | result-gone | P | kept |
+| 7.1-4 | head | The round can still be checked without this page. | SEO description, SEO / IA ownership | page | result-gone | C9 | kept |
+| 7.1-5 | main | {d} \| {d}, won from {d} | SEO H1, SEO / IA ownership | page | result-checked, result-mismatched, result-noproof, result-owner, result |  | kept |
+| 7.1-6 | main | Worth when it was won, {date} {time} | text | page | result-checked, result-mismatched, result-noproof, result-owner, result | C2 | Value when it was won, {date} {time} (Glossary C2: our value is "value", the listed form "Value when it was won"; matches R32 renderResult and the neighbouring "Value now") |
+| 7.1-7 | main | {d} Opened {date} {time} | link | page | result-checked, result-mismatched, result-noproof, result-owner, result |  | kept |
 | 7.1-8 | main | The round, and how to check it | heading | `_nav.js proofPanel` | result-checked, result-mismatched, result-noproof, result-owner, result | C9 | kept |
 | 7.1-9 | main | Recomputed: matches | text | `_nav.js proofPanel` | result-checked |  | kept |
 | 7.1-10 | main | Server seed hash, published before the roll | text | `_nav.js proofPanel` | result-checked, result-mismatched, result-owner, result | C9 | Server seed hash, published before the round (C9, the one hash label) |
@@ -1382,10 +1382,10 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 7.1-16 | main | published against observed | link | `_nav.js proofPanel/renderHomeBodies` | result-checked, result-owner, result | K | kept |
 | 7.1-17 | main | Recompute this round yourself | button (link) | `_nav.js proofPanel` | result-checked, result-owner, result | C9 | Recompute it yourself (step 4) |
 | 7.1-18 | main | Won by | text | `WF_STR.wonBy` | result-checked, result-mismatched, result-noproof, result-owner, result |  | kept |
-| 7.1-19 | main | This result is not available. | SEO H1, SEO / IA ownership | page | result-gone | P | |
-| 7.1-20 | main | It may have been taken down by the person who won it, or the link may never have pointed at anything. | empty state | page | result-gone |  | |
-| 7.1-21 | main | The round can still be checked without this page. The verifier needs the server seed, the client seed and the nonce. Whoever sent you this link has them. | empty state | page | result-gone | C9 | |
-| 7.1-22 | main | Open the verifier | button (link) | page | result-gone |  | |
+| 7.1-19 | main | This result is not available. | SEO H1, SEO / IA ownership | page | result-gone | P | kept |
+| 7.1-20 | main | It may have been taken down by the person who won it, or the link may never have pointed at anything. | empty state | page | result-gone |  | It was taken down, or the link never pointed at one. We do not say which. (Principle 1, the short answer then the fact, no hedging; principle 5; node 7.2's one message for all three arrivals (the old line named only two and stacked two "may")) |
+| 7.1-21 | main | The round can still be checked without this page. The verifier needs the server seed, the client seed and the nonce. Whoever sent you this link has them. | empty state | page | result-gone | C9 | kept |
+| 7.1-22 | main | Open the verifier | button (link) | page | result-gone |  | Check a round (Microcopy "A link": names the act it starts, in the destination's own words (fair.html H2 "Check a round", S5); glossary C9 keeps "open" for opening a case) |
 | 7.1-23 | main | Recomputed: does not match | text | `_nav.js proofPanel` | result-mismatched |  | kept |
 | 7.1-24 | main | Recomputed result | text | `_nav.js proofPanel` | result-mismatched |  | kept |
 | 7.1-25 | main | The recomputation does not agree with the settled result. That is our failure, not yours, and it is reportable. The published response deadline applies to it. | text | `_nav.js proofPanel` | result-mismatched |  | kept |
@@ -1395,43 +1395,43 @@ Grouped by node in the registry order. Pages lists every page of the screen fami
 | 7.1-29 | main | This round predates the published ledger | text | `_nav.js proofPanel` | result-noproof | C9 | kept |
 | 7.1-30 | main | The round happened and the item is real. What is missing is the published commitment, because this open is older than the ledger that publishes them. | text | `_nav.js proofPanel` | result-noproof | C9 | kept |
 | 7.1-31 | main | Read what the proof covers | button (link) | `_nav.js proofPanel` | result-noproof |  | kept |
-| 7.1-32 | main | Yours | text | page | result-owner |  | |
-| 7.1-33 | main | Copy the link | button | page | result-owner |  | |
-| 7.1-34 | main | Revoke this page | button (link) | page | result-owner |  | |
-| 7.1-35 | main | Revoking takes the page down, and every copy of its link then opens the gone page. It cannot unsend a screenshot or a preview already shown in someone's chat. The round stays checkable by anyone holding its seeds. | note | page | result-owner | C9 | |
+| 7.1-32 | main | Yours | text | page | result-owner |  | kept |
+| 7.1-33 | main | Copy the link | button | page | result-owner |  | kept |
+| 7.1-34 | main | Revoke this page | button (link) | page | result-owner |  | kept |
+| 7.1-35 | main | Revoking takes the page down, and every copy of its link then opens the gone page. It cannot unsend a screenshot or a preview already shown in someone's chat. The round stays checkable by anyone holding its seeds. | note | page | result-owner | C9 | Revoking takes the page down for every copy of its link. It cannot unsend a screenshot or a preview already shown in someone's chat. The round stays checkable by anyone holding its seeds. (Principle 1 and microcopy "Dangerous act": say what will happen in the reader's words; "the gone page" was the node's internal name for state 7.2, not a word the reader has. The limit sentence stays whole) |
 | 7.1-36 | main | Settled | text | `_nav.js mountClockStruck/proofPanel` | result-owner, result |  | kept |
 
 ### `7.3` Public profile
 
 | # | Zone | String | Type | Lives in | Pages | Marks | Now |
 |---|---|---|---|---|---|---|---|
-| 7.3-1 | head | {d}, nothing won from a case yet | SEO title, SEO / IA ownership | page | player-empty |  | |
-| 7.3-2 | head | This account has not won a skin from a case yet, so there is nothing on the shelf. | SEO description, SEO / IA ownership | page | player-empty | C10 | |
-| 7.3-3 | head | This page is not available | SEO title, SEO / IA ownership | page | player-gone | P | |
-| 7.3-4 | head | There is nothing at this address to show. | SEO description, SEO / IA ownership | page | player-gone |  | |
-| 7.3-5 | head | Your public page, hidden | SEO title, SEO / IA ownership | page | player-hidden |  | |
-| 7.3-6 | head | Your public page, as a stranger reads it | SEO title, SEO / IA ownership | page | player-owner |  | |
-| 7.3-7 | head | {d}, what this account has won | SEO title, SEO / IA ownership | page | player |  | |
-| 7.3-8 | head | Every skin this account has won, each one with the round a stranger can recompute. | SEO description, SEO / IA ownership | page | player | C9 C10 | |
-| 7.3-9 | main | ID p{n}k{n}x{n}m | text | page | player-empty, player-hidden, player-owner, player |  | |
-| 7.3-10 | main | What this account has won | heading | page | player-empty, player-hidden, player-owner, player |  | |
-| 7.3-11 | main | This account has not opened a case yet. | empty state | page | player-empty |  | |
-| 7.3-12 | main | The first skin it wins appears here the moment the case is opened, with the case it came from, what it was worth at that moment, and the round anyone can recompute. | empty state | page | player-empty | C9 C10 | |
-| 7.3-13 | main | This page is not available. | SEO H1, SEO / IA ownership | page | player-gone | P | |
-| 7.3-14 | main | There may never have been an account at this address, or there may have been one that is no longer public. We do not say which. | empty state | page | player-gone |  | |
-| 7.3-15 | main | Any result link you were sent still works, with its own proof. | empty state | page | player-gone |  | |
-| 7.3-16 | main | Hidden. Nobody but you can open this | text | page | player-hidden |  | |
-| 7.3-17 | main | A stranger at this address sees the same page as for an account that never existed. | text | page | player-hidden |  | |
-| 7.3-18 | main | Change this in Settings | button (link) | page | player-hidden |  | |
-| 7.3-19 | main | Two things stay. Your name in live drops, unless you turn on Make me anonymous, and the pages for rounds you shared. A shared round looks like this | text | page | player-hidden | C9 C10 | |
-| 7.3-20 | main | A shared round looks like this | link | page | player-hidden | C9 | |
-| 7.3-21 | main | Everything this account has won, including items since sent to Steam or sold. | note | page | player-hidden, player-owner, player | C1 S1 | |
-| 7.3-22 | main | Whose page this is | accessible name | page | player-hidden, player-owner |  | |
-| 7.3-23 | main | Your own public page | text | page | player-owner |  | |
-| 7.3-24 | main | This is what a stranger sees at this address. | text | page | player-owner |  | |
-| 7.3-25 | main | Back to your profile | button (link) | page | player-owner | N3 | |
-| 7.3-26 | main | This page is on. Public profile in Settings | note | page | player-owner | N3 | |
-| 7.3-27 | main | Public profile in Settings | link | page | player-owner | N3 | |
+| 7.3-1 | head | {d}, nothing won from a case yet | SEO title, SEO / IA ownership | page | player-empty |  | {d}, no cases opened yet (Principle 4, the outcome stays open: every open lands on an item, so 'nothing won' framed an open as win or lose; aligned with the empty state 7.3-11) |
+| 7.3-2 | head | This account has not won a skin from a case yet, so there is nothing on the shelf. | SEO description, SEO / IA ownership | page | player-empty | C10 | This account has not opened a case yet, so nothing is listed here. (Principle 4 as in 7.3-1; 'shelf' is node vocabulary, not the reader's; empty state rule, why it is empty) |
+| 7.3-3 | head | This page is not available | SEO title, SEO / IA ownership | page | player-gone | P | kept |
+| 7.3-4 | head | There is nothing at this address to show. | SEO description, SEO / IA ownership | page | player-gone |  | kept |
+| 7.3-5 | head | Your public page, hidden | SEO title, SEO / IA ownership | page | player-hidden |  | Your public profile, hidden (Glossary N3 (b): public profile for what others see) |
+| 7.3-6 | head | Your public page, as a stranger reads it | SEO title, SEO / IA ownership | page | player-owner |  | Your public profile, as a stranger sees it (Glossary N3 (b); 'sees' as in 7.3-24 and 5.10's 'See it as a stranger does') |
+| 7.3-7 | head | {d}, what this account has won | SEO title, SEO / IA ownership | page | player |  | kept |
+| 7.3-8 | head | Every skin this account has won, each one with the round a stranger can recompute. | SEO description, SEO / IA ownership | page | player | C9 C10 | Every item this account has won, each with the round anyone can recompute. (Glossary C10 (a): item for what an account has won, matching the note 7.3-21; 'anyone' as in 7.3-12, since no account is needed to check) |
+| 7.3-9 | main | ID p{n}k{n}x{n}m | text | page | player-empty, player-hidden, player-owner, player |  | kept |
+| 7.3-10 | main | What this account has won | heading | page | player-empty, player-hidden, player-owner, player |  | kept |
+| 7.3-11 | main | This account has not opened a case yet. | empty state | page | player-empty |  | kept |
+| 7.3-12 | main | The first skin it wins appears here the moment the case is opened, with the case it came from, what it was worth at that moment, and the round anyone can recompute. | empty state | page | player-empty | C9 C10 | The first item it wins is listed here as soon as the case is opened, with the case it came from, its value when won, and the round anyone can recompute. (Glossary C10 (a) item; C2 value, matching the card label 'Value when won' (5.9-58)) |
+| 7.3-13 | main | This page is not available. | SEO H1, SEO / IA ownership | page | player-gone | P | kept |
+| 7.3-14 | main | There may never have been an account at this address, or there may have been one that is no longer public. We do not say which. | empty state | page | player-gone |  | kept |
+| 7.3-15 | main | Any result link you were sent still works, with its own proof. | empty state | page | player-gone |  | kept |
+| 7.3-16 | main | Hidden. Nobody but you can open this | text | page | player-hidden |  | kept |
+| 7.3-17 | main | A stranger at this address sees the same page as for an account that never existed. | text | page | player-hidden |  | A stranger at this address sees the page shown for an account that never existed. (Principle 1, plain sentence: 'the same page as for' did not parse on a first read) |
+| 7.3-18 | main | Change this in Settings | button (link) | page | player-hidden |  | kept |
+| 7.3-19 | main | Two things stay. Your name in live drops, unless you turn on Make me anonymous, and the pages for rounds you shared. A shared round looks like this | text | page | player-hidden | C9 C10 | kept |
+| 7.3-20 | main | A shared round looks like this | link | page | player-hidden | C9 | kept |
+| 7.3-21 | main | Everything this account has won, including items since sent to Steam or sold. | note | page | player-hidden, player-owner, player | C1 S1 | kept |
+| 7.3-22 | main | Whose page this is | accessible name | page | player-hidden, player-owner |  | kept |
+| 7.3-23 | main | Your own public page | text | page | player-owner |  | Your public profile (Glossary N3 (b); the same words as 5.10's heading over this page) |
+| 7.3-24 | main | This is what a stranger sees at this address. | text | page | player-owner |  | kept |
+| 7.3-25 | main | Back to your profile | button (link) | page | player-owner | N3 | kept |
+| 7.3-26 | main | This page is on. Public profile in Settings | note | page | player-owner | N3 | kept |
+| 7.3-27 | main | Public profile in Settings | link | page | player-owner | N3 | kept |
 
 ## 3. Written only on a press
 

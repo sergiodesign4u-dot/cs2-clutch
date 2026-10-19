@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Responsible play: limits, cool down and self exclusion</title>
-  <meta name="description" content="Set a deposit limit, a session limit, a cool down or a self exclusion. Withdrawal stays open under every one of them. No account needed to read.">
+  <meta name="description" content="Set a deposit limit, a session limit, a cool down or a self exclusion. Sending items to Steam stays open under every one. No account needed to read.">
   <meta name="robots" content="index, follow">
   <link rel="stylesheet" href="_wf.css">
 </head>
@@ -36,7 +36,7 @@
     <h1><span data-str="responsiblePlay">Responsible play</span></h1>
 
     <div class="wf-rp" data-rp>
-      <p class="wf-rp-say" data-rp-say>Reading this page needs no account. Setting a boundary does: <a href="signin.html" data-auth-open="default"><span data-str="signIn">Sign in</span></a>.</p>
+      <p class="wf-rp-say" data-rp-say>Reading this page needs no account. Setting a limit does: <a href="signin.html" data-auth-open="default"><span data-str="signIn">Sign in</span></a>.</p>
       <!-- BLOCK 1. ONE PLAIN STATEMENT OF WHAT THE TOOLS DO. Not a case for using
            them, not a warning, not a mood card. A page arguing that limits are
            good is a page arguing with the person who already opened it. -->
@@ -82,24 +82,24 @@
         <div class="wf-set">
           <h3 class="wf-set-h" id="h2-ceiling"><span data-str="depositLimit">Deposit limit</span></h3>
           <p class="wf-set-p"><span data-str="rpDepositWhat">Caps what you can put in over a period.</span></p>
-          <div class="wf-set-ctl"><input class="wf-set-in" type="text" inputmode="decimal" value="" placeholder="Amount" aria-label="Deposit limit amount"><div class="wf-set-per"><select class="wf-f" aria-label="Deposit limit period"><option data-str="perDay">per day</option><option selected data-str="perWeek">per week</option><option data-str="perMonth">per month</option></select></div><button class="wf-btn" data-rp-refuse="Nothing was set: a boundary belongs to an account and there is no account signed in. Everything on this page reads without one." type="button"><span data-str="save">Save</span></button></div>
+          <div class="wf-set-ctl"><input class="wf-set-in" type="text" inputmode="decimal" value="" placeholder="Amount" aria-label="Deposit limit amount"><div class="wf-set-per"><select class="wf-f" aria-label="Deposit limit period"><option data-str="perDay">per day</option><option selected data-str="perWeek">per week</option><option data-str="perMonth">per month</option></select></div><button class="wf-btn" data-rp-refuse="Nothing was set: a limit belongs to an account and there is no account signed in. Everything on this page reads without one." type="button"><span data-str="save">Save</span></button></div>
         </div>
         <div class="wf-set">
           <h3 class="wf-set-h" id="h2-session"><span data-str="sessionLimit">Session limit</span></h3>
           <p class="wf-set-p"><span data-str="rpSessionWhat">Ends a session once it has run this long.</span></p>
-          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Session length"><option data-str="min30">30 minutes</option><option data-str="hour1">1 hour</option><option selected data-str="hours2">2 hours</option><option data-str="hours4">4 hours</option></select></div><button class="wf-btn" data-rp-refuse="Nothing was set: a boundary belongs to an account and there is no account signed in. Everything on this page reads without one." type="button"><span data-str="save">Save</span></button></div>
+          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Session limit length"><option data-str="min30">30 minutes</option><option data-str="hour1">1 hour</option><option selected data-str="hours2">2 hours</option><option data-str="hours4">4 hours</option></select></div><button class="wf-btn" data-rp-refuse="Nothing was set: a limit belongs to an account and there is no account signed in. Everything on this page reads without one." type="button"><span data-str="save">Save</span></button></div>
         </div>
         <div class="wf-set">
           <h3 class="wf-set-h" id="h2-cool"><span data-str="coolDown">Cool down</span></h3>
           <p class="wf-set-p"><span data-str="rpCoolWhat">Closes adding funds and opening cases for a period you choose.</span></p>
           <ul class="wf-dir"><li><span class="wf-dir-w" data-str="extend">Extend</span><span data-str="immediately">Immediately.</span></li><li><span class="wf-dir-w" data-str="shorten">Shorten</span><span data-str="rpShortenNo">Not possible. It ends by running out.</span></li></ul>
-          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Cool down period"><option selected data-str="hours24">24 hours</option><option data-str="days7">7 days</option><option data-str="days30">30 days</option></select></div><button class="wf-btn" data-rp-refuse="Nothing was set: a boundary belongs to an account and there is no account signed in. Everything on this page reads without one." type="button"><span data-str="startCoolDown">Start a cool down</span></button></div>
+          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Cool down period"><option selected data-str="hours24">24 hours</option><option data-str="days7">7 days</option><option data-str="days30">30 days</option></select></div><button class="wf-btn" data-rp-refuse="Nothing was set: a limit belongs to an account and there is no account signed in. Everything on this page reads without one." type="button"><span data-str="startCoolDown">Start a cool down</span></button></div>
         </div>
         <div class="wf-set">
           <h3 class="wf-set-h" id="h2-excl"><span data-str="selfExclusion">Self exclusion</span></h3>
           <p class="wf-set-p"><span data-str="rpExclWhat">Closes adding funds and opening cases for longer. It cannot be ended early, by you or by us.</span></p>
           <ul class="wf-dir"><li><span class="wf-dir-w" data-str="endEarly">End early</span><span data-str="rpEndEarlyNo">Not possible, by you or by us.</span></li></ul>
-          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Self exclusion period"><option data-str="months6">6 months</option><option data-str="year1">1 year</option><option selected data-str="years5">5 years</option></select></div><button class="wf-btn" data-rp-refuse="Nothing was set: a boundary belongs to an account and there is no account signed in. Everything on this page reads without one." type="button"><span data-str="selfExclude">Self exclude</span></button></div>
+          <div class="wf-set-ctl"><div class="wf-set-per"><select class="wf-f" aria-label="Self exclusion period"><option data-str="months6">6 months</option><option data-str="year1">1 year</option><option selected data-str="years5">5 years</option></select></div><button class="wf-btn" data-rp-refuse="Nothing was set: a limit belongs to an account and there is no account signed in. Everything on this page reads without one." type="button"><span data-str="selfExclude">Self exclude</span></button></div>
         </div>
       </div>
       <!-- BLOCK 8. ROUTES THAT ARE NOT US. STRUCTURE FIXED, AND SINCE D-130 IT

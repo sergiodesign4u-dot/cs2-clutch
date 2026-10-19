@@ -396,3 +396,17 @@ The pack gives a full A to E block to indexed pages and `noindex, no schema` to 
 2. **`0.1` gives this node a breadcrumb and `0.13` gives it none.** `navigation.md`: "they belong to nodes with a parent to point at, 3.3 under 3.1 and 7.1 under 1.2". `0.13` section 3 puts `None` in the breadcrumb column, and section 6 explains why the set is short. **A result is not a child of the verifier**, it is a record that links to one. This node inherits `0.13`. Owner: `0.1`.
 
 **And what belongs elsewhere.** The words in any of it: stage 05, which syncs the final version back into block C. How it looks, including how a rarity tier reads without a legend: stages 06 and 07, on the ladder walked in `blocks.md` section 10. The reveal that produces the object: `3.6`. The explanation of what a proof does and does not cover: `1.2`, and the component that renders it: `0.14`.
+
+## Updated after publication, 19 October 2026. Words by stage 05
+
+**Why.** Stage 05 step 7 rewrote this screen's words by `voice/docs/voice.md`. Interface strings are owned by `voice/docs/microcopy.md`, and the rows named below carry them there; SEO lines stay owned by this node and block C holds the aligned line. Where an earlier section quotes the text in the Was column, it is the text before stage 05.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Its own copy, which is not inherited (`CLAUDE.md`, Baseline: copy is on the not inherited list) | **Every block, state and requirement of this node** | **The words in the table below**, each by the rule named on its row |
+
+| Row | Was | Now | Rule |
+|---|---|---|---|
+| `7.1-35` | Revoking takes the page down, and every copy of its link then opens the gone page. It cannot unsend a screenshot or a preview already shown in someone's chat. The round stays checkable by anyone holding its seeds. | Revoking takes the page down for every copy of its link. It cannot unsend a screenshot or a preview already shown in someone's chat. The round stays checkable by anyone holding its seeds. | Principle 1 and microcopy "Dangerous act": say what will happen in the reader's words; "the gone page" was the node's internal name for state 7.2, not a word the reader has. The limit sentence stays whole |

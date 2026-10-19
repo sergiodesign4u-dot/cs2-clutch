@@ -320,7 +320,7 @@ Inherited from `0.13` section 3: `/support`, **indexed, canonical self, `WebPage
 ### A. Meta tags, ready copy
 
 - **Title, <= 60:** `Support and appeals - CS2 Clutch`. **This follows the `0.13` pattern and node `6.1` refuses to**, section 9. Two indexed pages, two answers, one pattern, and the difference is that `CS2 Clutch` is a working placeholder. **Neither node is wrong on its own reasoning and they cannot both ship.** Printed rather than quietly reconciled
-- **Description, <= 155:** `Contact us or appeal a decision, with a published deadline for an answer. Every restriction carries a written ground and a route to dispute it.`
+- **Description, <= 155:** `Contact us or appeal a decision, with a published deadline for an answer. Every restriction comes with a written reason and a way to appeal it.`
 - **Canonical:** self. **Robots:** `index, follow`. **No hreflang**, `0.13` section 1.
 - **OG and Twitter:** the same title and description. No per-ticket card: a ticket is private and has no public URL.
 
@@ -406,3 +406,21 @@ The seven FAQ sections in section 4 are H3s under heading 1.
 | **Whether an indexed title carries the placeholder brand** | `0.13` writes the pattern with `CS2 Clutch` in it. **This node follows it and `6.1` refuses it**, on the ground that a title is the one string that reaches search results and browser history before anyone reviews it. **Two indexed surfaces cannot answer this differently**, and the answer is the naming decision rather than a copy preference | Founder, with the product name |
 
 **And what belongs elsewhere.** The words of every interface string: stage 05, which syncs the voice-aligned version back. How the page looks: stages 06 and 07. The written ground itself: the surface that takes the decision, `5.6`, `2.9`, `1.4` and `2.2`, each under `G4`. The documents a question might be about: `0.9`. Indexation and URL: `0.13`.
+
+## Updated after publication, 19 October 2026. Words by stage 05
+
+**Why.** Stage 05 step 7 rewrote this screen's words by `voice/docs/voice.md`. Interface strings are owned by `voice/docs/microcopy.md`, and the rows named below carry them there; SEO lines stay owned by this node and block C holds the aligned line. Where an earlier section quotes the text in the Was column, it is the text before stage 05.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Its own copy, which is not inherited (`CLAUDE.md`, Baseline: copy is on the not inherited list) | **Every block, state and requirement of this node** | **The words in the table below**, each by the rule named on its row |
+
+| Row | Was | Now | Rule |
+|---|---|---|---|
+| `0.10-2` | Contact us or appeal a decision, with a published deadline for an answer. Every restriction carries a written ground and a route to dispute it. | Contact us or appeal a decision, with a published deadline for an answer. Every restriction comes with a written reason and a way to appeal it. | Glossary N4: appeal, not dispute; principle 1, plain words: reason, not ground |
+| `0.10-43` | The decision and its ground are filled in for you. | The decision and its reason are filled in for you. | Principle 1, plain words: reason, not the IA's ground |
+| `0.10-46` | The ground we gave, quoted back | Our reason, as we gave it | Field label as a noun; reason, not ground |
+| `0.10-63` | The answer still comes with its ground. | The answer still comes with its reason. | Principle 1, reason not ground |
+| `0.10-106` | None yet. A message you send here gets a ticket, and its answer and its deadline stay on it. | No tickets yet. Write to us above and the ticket is listed here, with its answer and its deadline. | Empty state: why it is empty, then what to do next, in the form of 'No rounds yet. Open a case and it is listed here.' |

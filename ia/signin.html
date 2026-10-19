@@ -810,7 +810,7 @@
     <table>
       <thead><tr><th style="width:20%">A. Meta</th><th>Value</th></tr></thead>
       <tbody>
-        <tr><td><code>title</code></td><td>Sign in with Steam. CS2 Clutch <span class="wf-li-r">(30 characters, under 60)</span>. The two failure states carry their own: <code>Steam refused the sign in. CS2 Clutch</code> on <span class="surf">2.5</span> and <code>Steam is not answering. CS2 Clutch</code> on <span class="surf">2.6</span></td></tr>
+        <tr><td><code>title</code></td><td>Sign in with Steam. CS2 Clutch <span class="wf-li-r">(30 characters, under 60)</span>. The two failure states carry their own: <code>The sign in did not go through. CS2 Clutch</code> on <span class="surf">2.5</span> and <code>Steam is not answering. CS2 Clutch</code> on <span class="surf">2.6</span></td></tr>
         <tr><td><code>description</code></td><td>Sign in with Steam OpenID. We never ask for your password and we never change anything on your Steam account. <span class="wf-li-r">(110 characters, under 155)</span></td></tr>
         <tr><td><code>canonical</code></td><td>Self, <code>/signin</code></td></tr>
         <tr><td><code>robots</code></td><td><strong><code>noindex, follow</code></strong></td></tr>
@@ -857,6 +857,28 @@
 </section>
 
 <!-- OPEN -->
+<section id="voice05">
+  <div class="sec-head">
+    <h2>Updated after publication: words by stage 05</h2>
+    <p>19 October 2026. Stage 05 step 7 rewrote this screen's words by voice/docs/voice.md. Interface strings are owned by voice/docs/microcopy.md, and the rows named below carry them there; SEO lines stay owned by this node and block C holds the aligned line. Where an earlier section quotes the text in the Was column, it is the text before stage 05.</p>
+  </div>
+  <div class="card is-note">
+    <h4>Baseline row for this amendment</h4>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>The live product</th><th>What we keep</th><th>What we change, and why</th></tr></thead>
+      <tbody><tr><td>Its own copy, which is not inherited (CLAUDE.md, Baseline)</td><td><strong>Every block, state and requirement of this node</strong></td><td><strong>The words in the table below</strong>, each by the rule named on its row</td></tr></tbody>
+    </table>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Row</th><th>Was</th><th>Now</th><th>Rule</th></tr></thead>
+      <tbody><tr><td>2.4-4</td><td>Steam refused the sign in. CS{n} Clutch</td><td>The sign in did not go through. CS{n} Clutch</td><td>Principle 5 and the node's section 5.1 rule, the message names which side failed: the drawn cause says "This is on our side", and the causes include "We do not know", so a title blaming Steam is false for the drawn state and for two of four causes. The state is said without naming a side the page has not established</td></tr></tbody>
+    </table>
+  </div>
+</section>
+
 <section id="pages">
   <div class="sec-head">
     <h2>The pages that draw this node, and the registry is where the list comes from</h2>
@@ -942,6 +964,7 @@ window.NAV_SECTIONS = [
   { id: 'components', label: 'Components' },
   { id: 'adaptive',  label: '360px' },
   { id: 'seo',       label: 'SEO A to E' },
+  { id: 'voice05', label: 'Stage 05 words' },
   { id: 'pages', label: 'Pages that draw it' },
   { id: 'open',      label: 'Open' },
 ];

@@ -796,7 +796,7 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 | Field | Value |
 |---|---|
 | **Title**, pattern, 37 characters plus the case name | `<Case name>: drop chances, values and tested RTP` |
-| **Description**, pattern, 134 characters plus the case name | `Every item in <Case name> with its chance, its current value and its ticket range, plus the tested RTP and the expected value at this entry cost.` |
+| **Description**, pattern, 129 characters plus the case name | `Every item in <Case name> with its chance, its current value and its ticket range, plus the tested RTP and the expected value at this price.` |
 | **Canonical** | Self, `/cases/<case-slug>` |
 | **hreflang** | None. One language, `0.13` section 1 |
 | **Robots** | `index, follow` |
@@ -928,3 +928,17 @@ Inherited from `0.13`. Nothing below re-decides a row of that register.
 | **The exact reveal timing inside 4 to 6 seconds** | `research.md` gives two ranges, section 7.2. The chosen curve, the deceleration and the hold are stage 06's, tested there | Stage 06 |
 
 **And what belongs elsewhere.** How the reveal looks and sounds: stages 06 and 07, and `cjm-to-be.md` T6 states plainly that the target emotion for this phase is projected rather than measured, because no first-person account of joy at one's own reveal was found anywhere in the corpus. The words: stage 05. The gate: `2.1`. The market verdict behind it: `0.12`. The shared object: `7.1`. Where the receipt lives afterwards: `5.1` and `5.3`.
+
+## Updated after publication, 19 October 2026. Words by stage 05
+
+**Why.** Stage 05 step 7 rewrote this screen's words by `voice/docs/voice.md`. Interface strings are owned by `voice/docs/microcopy.md`, and the rows named below carry them there; SEO lines stay owned by this node and block C holds the aligned line. Where an earlier section quotes the text in the Was column, it is the text before stage 05.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Its own copy, which is not inherited (`CLAUDE.md`, Baseline: copy is on the not inherited list) | **Every block, state and requirement of this node** | **The words in the table below**, each by the rule named on its row |
+
+| Row | Was | Now | Rule |
+|---|---|---|---|
+| `3.3-2` | Every item in {d} with its chance, its current value and its ticket range, plus the tested RTP and the expected value at this entry cost. | Every item in {d} with its chance, its current value and its ticket range, plus the tested RTP and the expected value at this price. | Glossary S4: price, never entry cost |

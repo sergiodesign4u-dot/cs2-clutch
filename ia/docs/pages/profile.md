@@ -319,3 +319,17 @@ The baseline's profile shows the daily mechanic **compressed**, with no ladder: 
 | **What the account id looks like** | Not the baseline's sequential number, section 0. Beyond that it is `[?]` and it is a production decision with a privacy face | Production, then counsel |
 
 **And what belongs elsewhere.** Controls: `5.11`. The items: `5.1`. The rolls: `5.9`. The public form of one round: `7.1`. Identity verification: `2.7`, and it is `LATER`. The words: stage 05.
+
+## Updated after publication, 19 October 2026. Words by stage 05
+
+**Why.** Stage 05 step 7 rewrote this screen's words by `voice/docs/voice.md`. Interface strings are owned by `voice/docs/microcopy.md`, and the rows named below carry them there; SEO lines stay owned by this node and block C holds the aligned line. Where an earlier section quotes the text in the Was column, it is the text before stage 05.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Its own copy, which is not inherited (`CLAUDE.md`, Baseline: copy is on the not inherited list) | **Every block, state and requirement of this node** | **The words in the table below**, each by the rule named on its row |
+
+| Row | Was | Now | Rule |
+|---|---|---|---|
+| `5.10-12` | Your public page | Your public profile | Glossary N3: public profile for what others see; matches the Settings switch 'Public profile' |

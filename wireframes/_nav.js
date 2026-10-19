@@ -3572,8 +3572,8 @@ window.WF_PAY = window.WF_PAY || {
     var R = MULTI.slice(0, n), WORD = { 3: 'three', 4: 'four' }[n], unit = 12.40;
     var spent = n * unit, won = R.reduce(function (a, r) { return a + r.v; }, 0);
     var swap = function (sel, re, to) { Array.prototype.forEach.call(document.querySelectorAll(sel), function (x) { x.innerHTML = x.innerHTML.replace(re, to); }); };
-    swap('.wf-case-line', /five rolls/, WORD + ' rolls');
-    swap('.wf-fig-c, .wf-hash-l, .wf-sr, .wf-outcome-links a', /\b(?:All )?5( rolls| results| server seed hashes| saved)/g, function (m, w) { return (/^All/.test(m) ? 'All ' : '') + n + w; });
+    swap('.wf-case-line', /five opens/, WORD + ' opens');
+    swap('.wf-fig-c, .wf-hash-l, .wf-sr, .wf-outcome-links a', /\b(?:All |Opening |of the )?5( rolls?| rounds?| cases| results| server seed hashes| saved)/g, function (m, w) { return (/^(All|Opening|of the) /.exec(m) || [''])[0] + n + w; });
     /* ON THE COMMIT STATE THE SWITCH, THE TRIGGER AND THE LINE FOLLOW THE COUNT. */
     if (/case-account-5/.test(location.pathname)) {
       /* THE BOXES ARE ONE PER CHOSEN ROLL, D-47: the stage at rest shows n. */
@@ -3603,12 +3603,12 @@ window.WF_PAY = window.WF_PAY || {
       if (/^Sell all/.test(t)) b.textContent = 'Sell all ' + n + ' for ' + won.toFixed(2) + ' coins';
       if (/^Send \d+ to Steam/.test(t)) {
         var st = R.reduce(function (a, r) { return a + (r.st || 0); }, 0);
-        b.textContent = 'Send ' + n + ' to Steam, ' + (st >= 0 ? '+' : '-') + Math.abs(st).toFixed(2) + ' coins';
+        b.textContent = 'Send ' + n + ' to Steam, ' + (st >= 0 ? '+' : '−') + Math.abs(st).toFixed(2) + ' coins';
       }
     });
     var lines = document.querySelectorAll('.wf-instance');
     if (lines[0] && /Sending to Steam/.test(lines[0].textContent)) {
-      lines[0].innerHTML = 'Sending to Steam: ' + R.map(function (r) { return r.w + ' <b>' + (r.st >= 0 ? '+' : '-') + Math.abs(r.st).toFixed(2) + '</b>'; }).join(', ') + ' on your balance.';
+      lines[0].innerHTML = 'Sending to Steam: ' + R.map(function (r) { return r.w + ' <b>' + (r.st >= 0 ? '+' : '−') + Math.abs(r.st).toFixed(2) + '</b> coins'; }).join(', ') + ' on your balance.';
       if (lines[1] && /no copy on sale/.test(lines[1].textContent)) lines[1].remove();
     }
     var out = /outcome/.test(location.pathname);
@@ -3714,7 +3714,7 @@ window.WF_PAY = window.WF_PAY || {
       : [].slice.call(acts.querySelectorAll('button')).some(function (x) { return /^(Sell|Press again to sell)\b/.test(x.textContent.trim()) && !x.disabled; }) ? [acts.getAttribute('data-key')] : [];
     var sendable = held.filter(function (k) { return stOf(k) !== null && stOf(k) !== undefined; });
     var sum = sendable.reduce(function (a, k) { return a + stOf(k); }, 0);
-    var sg = function (v) { return (v >= 0 ? '+' : '-') + Math.abs(v).toFixed(2); };
+    var sg = function (v) { return (v >= 0 ? '+' : '−') + Math.abs(v).toFixed(2); };
     var send = acts.querySelector('a[href^="withdraw"]');
     if (send) {
       if (!sendable.length) send.remove();
@@ -3729,7 +3729,7 @@ window.WF_PAY = window.WF_PAY || {
     var line = [].slice.call(document.querySelectorAll('.wf-instance')).filter(function (x) { return /Sending to Steam/.test(x.textContent); })[0];
     if (line) {
       if (!sendable.length) line.remove();
-      else line.innerHTML = 'Sending to Steam: ' + sendable.map(function (k) { return ROUNDS[k].w + ' <b>' + sg(stOf(k)) + '</b>'; }).join(', ') + ' on your balance.';
+      else line.innerHTML = 'Sending to Steam: ' + sendable.map(function (k) { return ROUNDS[k].w + ' <b>' + sg(stOf(k)) + '</b> coins'; }).join(', ') + ' on your balance.';
     }
     var saved = [].slice.call(document.querySelectorAll('.wf-commit .wf-fig-c')).filter(function (x) { return /saved to/i.test(x.textContent) || x.hasAttribute('data-saved'); })[0];
     if (saved) {
@@ -4650,7 +4650,7 @@ window.WF_PAY = window.WF_PAY || {
       var CH = [];
       if (F.risk.length) CH.push([F.risk.join(' or ') + ' risk', function () { F.risk = []; }]);
       if (F.q) CH.push(['Name has \u201c' + F.q + '\u201d', function () { F.q = ''; }]);
-      if (F.max < 55 || F.min > 0) CH.push([(F.min > 0 ? F.min.toFixed(2) + ' to ' : 'under ') + F.max.toFixed(2) + ' coins', function () { F.min = 0; F.max = 55; }]);
+      if (F.max < 55 || F.min > 0) CH.push([(F.min > 0 ? F.min.toFixed(2) + ' to ' : 'Under ') + F.max.toFixed(2) + ' coins', function () { F.min = 0; F.max = 55; }]);
       if (F.liked) CH.push(['Favorites only', function () { F.liked = false; }]);
       if (F.funds) CH.push(['Within my balance', function () { F.funds = false; }]);
       if (F.type !== 'All') CH.push([F.type + ' only', function () { F.type = 'All'; }]);
@@ -4935,7 +4935,7 @@ window.WF_PAY = window.WF_PAY || {
         (sh && sh.offers.length ? '<a class="wf-btn" href="' + BASE + 'withdraw.html?item=' + r.key + '">' + WF_STR.sendToSteam + '</a>' : '') +
         '<button class="wf-btn" type="button" disabled>Exchange</button><p class="wf-inv-why">Exchange is not here yet</p></div>' +
         (sh && sh.offers.length ? '<div class="wf-inv-mkt"><span>Starting at<b>' + sh.offers[0].p.toFixed(2) + '</b></span><span>Offers<b>' + sh.total + '</b></span></div>' +
-          '<p class="wf-inv-out"><span>Out to Steam</span><span><b>' + Math.abs(st).toFixed(2) + '</b> ' + (st >= 0 ? 'back' : 'more') + '</span></p>' : '<p class="wf-inv-out"><span>Out to Steam</span><span class="wf-fig-missing">no copy on sale to buy</span></p>');
+          '<p class="wf-inv-out"><span>Out to Steam</span><span>' + (st >= 0 ? '+' : '−') + '<b>' + Math.abs(st).toFixed(2) + '</b> coins</span></p>' : '<p class="wf-inv-out"><span>Out to Steam</span><span class="wf-fig-missing">no copy on sale to buy</span></p>');
       grid.insertBefore(c, grid.firstChild);
     });
     /* THE MARKET LINE IS THE SHELF'S, round 16, B2-18: the AWP card said
@@ -4950,7 +4950,7 @@ window.WF_PAY = window.WF_PAY || {
       var d = sh.ours - sh.offers[0].p;
       if (mk[0]) mk[0].textContent = sh.offers[0].p.toFixed(2);
       if (mk[1]) mk[1].textContent = String(sh.total);
-      if (out) out.innerHTML = '<span>Out to Steam</span><span><b>' + Math.abs(d).toFixed(2) + '</b> ' + (d >= 0 ? 'back' : 'more') + '</span>';
+      if (out) out.innerHTML = '<span>Out to Steam</span><span>' + (d >= 0 ? '+' : '−') + '<b>' + Math.abs(d).toFixed(2) + '</b> coins</span>';
     });
     var gone = WF_SESS.get('gone') || {};
     Array.prototype.forEach.call(grid.querySelectorAll('.wf-inv-card'), function (c) {
@@ -5478,7 +5478,7 @@ window.WF_PAY = window.WF_PAY || {
   var ITEM_STATE = {
     held:      'Still held',
     sending:   'Sending to Steam',
-    sold:      'Sold back',
+    sold:      'Sold',
     withdrawn: 'Sent to Steam'
   };
 
@@ -5812,7 +5812,7 @@ window.WF_PAY = window.WF_PAY || {
       if (r) host.appendChild(rollRow(r, o));
     });
     var c0 = document.querySelector('#h2-rolls + .wf-fig-c'), n0 = host.querySelectorAll('.wf-roll').length;
-    if (c0 && BORN.length) c0.textContent = n0 + ' rolls';
+    if (c0 && BORN.length) c0.textContent = n0 + ' rounds';
     /* THE THREE FILTERS FILTER, round 14: they were buttons with no handler.
        Case and date step through their values; Still held toggles. The clock is
        the prototype's now, 21 Aug 2026 09:31. */
@@ -5833,7 +5833,7 @@ window.WF_PAY = window.WF_PAY || {
         x.hidden = !ok; if (ok) n++;
       });
       var c = document.querySelector('#h2-rolls + .wf-fig-c');
-      if (c) c.textContent = n + (n === 1 ? ' roll' : ' rolls');
+      if (c) c.textContent = n + (n === 1 ? ' round' : ' rounds');
     }
     document.addEventListener('click', function (e) {
       var b = e.target.closest('[data-hf]');
@@ -5948,7 +5948,7 @@ window.WF_PAY = window.WF_PAY || {
       sb.addEventListener('click', function () {
         if (!confirmFirst(sb)) return;
         sb.textContent = 'Sold, +' + wdFmt(row.ours) + ' coins'; sb.disabled = true;
-        var sh0 = sel.querySelector('.wf-selskin-h'); if (sh0) sh0.textContent = 'Sold back';
+        var sh0 = sel.querySelector('.wf-selskin-h'); if (sh0) sh0.textContent = 'Sold';
         /* WHAT IS SOLD IS NOT DESCRIBED AS STILL HELD, round 17, B2-16. */
         Array.prototype.forEach.call(e.querySelectorAll('.wf-empty-p'), function (x) { x.remove(); });
         var eh = e.querySelector('.wf-empty-h'); if (eh) eh.textContent = 'Sold for ' + wdFmt(row.ours) + ' coins. It has left this basket.';
@@ -6114,15 +6114,15 @@ window.WF_PAY = window.WF_PAY || {
     st.forEach(function (r) {
       var d = r.ours - r.p; total += d; ours += r.ours;
       var tr = el('tr');
-      [[r.w + ' ' + r.s + ', ' + r.wear, 'Skin name'], [wdFmt(r.ours), WF_STR.yourSkinPrice], [wdFmt(r.p), WF_STR.marketSkinPrice], [(d >= 0 ? '+' : '-') + wdFmt(Math.abs(d)), WF_STR.balanceImpact]].forEach(function (c) {
+      [[r.w + ' ' + r.s + ', ' + r.wear, 'Skin'], [wdFmt(r.ours), WF_STR.yourSkinPrice], [wdFmt(r.p), WF_STR.marketSkinPrice], [(d >= 0 ? '+' : '−') + wdFmt(Math.abs(d)), WF_STR.balanceImpact]].forEach(function (c) {
         var td = el('td', null, c[0]); td.setAttribute('data-l', c[1]); tr.appendChild(td);
       });
       tb.appendChild(tr);
     });
-    var t = (total >= 0 ? '+' : '-') + wdFmt(Math.abs(total));
+    var t = (total >= 0 ? '+' : '−') + wdFmt(Math.abs(total));
     var te = document.querySelector('[data-total]'); if (te) te.textContent = t + ' coins';
     var line = te && te.closest('.wf-stack') && te.closest('.wf-stack').querySelector('.wf-tl--sum + .wf-fig-c');
-    if (line) line.innerHTML = 'Based on the market price, <strong>' + wdFmt(Math.abs(total)) + ' coins ' + (total >= 0 ? 'were added to your balance' : 'were taken from your balance') + '</strong> when you asked. Nothing further moves while this is in flight.';
+    if (line) line.innerHTML = 'Based on the market price, <strong>' + wdFmt(Math.abs(total)) + ' coins ' + (total >= 0 ? 'were added to your balance' : 'were taken from your balance') + '</strong> when you asked. Nothing more moves before delivery.';
     var fl = line && line.nextElementSibling;
     if (fl && st.length === 1) fl.innerHTML = 'The copy bought for you carries float <b>' + st[0].f.toFixed(7) + '</b>, ' + st[0].wear + '. Market price read 21 Aug 2026 09:31.';
     else if (fl) fl.textContent = 'Each copy bought for you is named by its float in the table above. Market prices read 21 Aug 2026 09:31.';
@@ -6142,7 +6142,7 @@ window.WF_PAY = window.WF_PAY || {
     if (!WF_SESS.get('money')) window.WF_SHELL.money = { balance: WF_MONEY.balance, held: WF_MONEY.held };
     var prior = st.reduce(function (a, r) { return a + (r.prior || 0); }, 0);
     moneyAdd(total - prior, -ours);
-    if (prior && line) line.innerHTML = 'Settled again at today&#39;s price: ' + wdFmt(Math.abs(total)) + ' coins against the ' + wdFmt(prior) + ' added the first time, so <strong>' + wdFmt(Math.abs(total - prior)) + ' coins ' + (total - prior >= 0 ? 'were added to' : 'were taken from') + ' your balance</strong> when you asked. Nothing further moves while this is in flight.';
+    if (prior && line) line.innerHTML = 'Settled again at today&#39;s price: ' + wdFmt(Math.abs(total)) + ' coins against the ' + wdFmt(prior) + ' added the first time, so <strong>' + wdFmt(Math.abs(total - prior)) + ' coins ' + (total - prior >= 0 ? 'were added to' : 'were taken from') + ' your balance</strong> when you asked. Nothing more moves before delivery.';
     var ck = document.querySelector('#h2-clock') && document.querySelector('#h2-clock').closest('.wf-stack');
     if (ck && st[0].hist) {
       var hs = el('div', 'wf-stack');
@@ -6150,7 +6150,7 @@ window.WF_PAY = window.WF_PAY || {
       ck.parentNode.insertBefore(hs, ck.nextSibling);
     }
     var hl = document.querySelector('#h2-history') && document.querySelector('#h2-history').closest('.wf-stack').querySelector('.wf-clock-list');
-    if (hl && st[0].hist) hl.innerHTML = st[0].hist + '<li class="wf-cs is-done"><span class="wf-cs-n">Offer sent again</span><span class="wf-cs-who">waiting on you</span><span class="wf-cs-t"><span class="wf-cs-e">0:00</span><span class="wf-cs-c">21 Aug 09:31</span></span></li>';
+    if (hl && st[0].hist) hl.innerHTML = st[0].hist + '<li class="wf-cs is-done"><span class="wf-cs-n">Trade offer sent again</span><span class="wf-cs-who">waiting on you</span><span class="wf-cs-t"><span class="wf-cs-e">0:00</span><span class="wf-cs-c">21 Aug 09:31</span></span></li>';
     st.forEach(function (r) { WF_SESS.gone(r.key, 'sent'); });
   }
 
@@ -6208,7 +6208,7 @@ window.WF_PAY = window.WF_PAY || {
           // ONE SIGN FOR ONE FIGURE, D-124. The row read "42.40 more" while the
           // total under it read "-42.40": two spellings of one number. The
           // baseline signs both, and so does this.
-          c4.appendChild(document.createTextNode((d >= 0 ? '+' : '-') + wdFmt(Math.abs(d))));
+          c4.appendChild(document.createTextNode((d >= 0 ? '+' : '−') + wdFmt(Math.abs(d))));
         }
         tr.appendChild(c4);
         tbody.appendChild(tr);
@@ -6219,7 +6219,7 @@ window.WF_PAY = window.WF_PAY || {
       var nc = document.querySelector('[data-wd-nocopy]'), ncRows = rows.filter(function (r) { return !r.removed && !r.offers.length; });
       if (nc) { nc.hidden = !ncRows.length; if (ncRows.length) nc.innerHTML = '<strong>' + ncRows.map(function (r) { return r.w + ' ' + r.s; }).join(' and ') + ' cannot go to Steam and ' + (ncRows.length > 1 ? 'they are' : 'it is') + ' not stuck.</strong> There is no copy on sale to buy, so there is nothing to send and nothing to settle against. <strong>Selling it to us pays your skin price and needs no copy to exist.</strong> The row above carries that control.'; }
       if (!going) { totalEl.textContent = 'Nothing settles'; sayEl.textContent = 'Nothing goes out, so nothing settles against your balance.'; btnEl.textContent = 'Nothing to send'; return; }
-      totalEl.textContent = (total >= 0 ? '+' : '-') + wdFmt(Math.abs(total)) + ' coins';
+      totalEl.textContent = (total >= 0 ? '+' : '−') + wdFmt(Math.abs(total)) + ' coins';
       var bal = moneyNow().balance;
       // THE BASELINE'S SENTENCE UNDER ITS TOTAL, D-128, with what is left.
       sayEl.innerHTML = 'Based on the market price, <strong>' + wdFmt(Math.abs(total)) + ' coins ' +
@@ -7425,7 +7425,7 @@ window.WF_PAY = window.WF_PAY || {
     calc.appendChild(el('h3', 'wf-co-h', 'What goes out'));
     calc.appendChild(coRow('Items selected', p.n + (p.n === 1 ? ' item' : ' items')));
     calc.appendChild(coRow('Their value', wdFmt(p.v) + ' coins'));
-    calc.appendChild(coRow('Blockchain fee', '-' + wdFmt(net.fee) + ' coins'));
+    calc.appendChild(coRow('Blockchain fee', '−' + wdFmt(net.fee) + ' coins'));
     calc.appendChild(coRow('Smallest cash out', wdFmt(net.min) + ' coins'));
     var rec = Math.max(0, p.v - net.fee);
     var out = el('div', 'wf-co-out');
@@ -8257,7 +8257,7 @@ window.WF_PAY = window.WF_PAY || {
       /* A TILE OPENS THE CASE IT NAMES, round 16, B1-1. */
       var h = a.getAttribute('href') || '', ck = caseOf(t('.wf-tile-name'));
       if (ck && ck !== 'ironbound' && /^case(-account)?\.html$/.test(h)) a.setAttribute('href', h + '?case=' + ck);
-      a.setAttribute('aria-label', [t('.wf-tile-name'), t('.wf-tile-cost') + ' coins', t('.wf-tile-risk')].concat(marks).filter(Boolean).join(', '));
+      a.setAttribute('aria-label', [t('.wf-tile-name'), /\d/.test(t('.wf-tile-cost')) ? t('.wf-tile-cost') + ' coins' : t('.wf-tile-cost'), t('.wf-tile-risk')].concat(marks).filter(Boolean).join(', '));
     });
   }
 

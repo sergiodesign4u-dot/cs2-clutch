@@ -874,3 +874,20 @@ Five, all numbered in the map, all specified here under their own anchors.
 | **The identity hole on the free-entry path** | ~~`B1` gates funding~~ **`B1` was parked with `2.7` by `D-26`**, `B2` forbids the check at the exit, and a person who only ever used free entry meets neither. The proposed shape raises it at the outcome, with the item in hand. **Proposed and not drawn** | Counsel, under `D-A` |
 
 **And what belongs elsewhere.** The words on every state and every control: stage 05. How a state, a ceiling or an owner label looks: stages 06 and 07. The values of every published figure: `0.11`, and `D-C` above all of them, which decides whether this class of number is published at all. The legal ground behind a blocked market: `0.12`. The appeal's own surface: `0.10`.
+
+## Updated after publication, 19 October 2026. Words by stage 05
+
+**Why.** Stage 05 step 7 rewrote this screen's words by `voice/docs/voice.md`. Interface strings are owned by `voice/docs/microcopy.md`, and the rows named below carry them there; SEO lines stay owned by this node and block C holds the aligned line. Where an earlier section quotes the text in the Was column, it is the text before stage 05.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Its own copy, which is not inherited (`CLAUDE.md`, Baseline: copy is on the not inherited list) | **Every block, state and requirement of this node** | **The words in the table below**, each by the rule named on its row |
+
+| Row | Was | Now | Rule |
+|---|---|---|---|
+| `5.3-84` | This account is restricted | Withdrawals are paused | Forbidden 'an accusation in a stop' (B8-3) and H1 rule 'a state's H1 says the state': only withdrawals stop, balance and items stay the person's; aligned with G164's Now |
+| `5.3-89` | The restriction stands | The restriction stays | glossary S6: our decision reads 'The restriction stays' |
+| `5.3-24` | {n} Items to withdraw | {n} Items to send | glossary C1: 'Items to withdraw' is named as not used; the act is Send to Steam, which the H1 already says |
+| `5.3-44` | {n} Total price | {n} What this settles at | Section heading H2: names what the block holds; the block is a settlement that can add to the balance (+2.50 on the AK), so 'Total price' named a cost that is not one. Present tense before the request, past tense 'What this settled at' after it, as node 5.3 section 8 B wants the tense to carry quote against record |

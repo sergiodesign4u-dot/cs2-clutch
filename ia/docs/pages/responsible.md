@@ -336,7 +336,7 @@ Columns are the account state. **The page reads in full for a guest**, which is 
 **A. Meta tags, finished copy.**
 
 - **Title, 54 characters:** `Responsible play: limits, cool down and self exclusion`
-- **Description, 144 characters:** ~~`Set a spend ceiling, ...`~~ `Set a deposit limit, a session limit, a cool down or a self exclusion. Withdrawal stays open under every one of them. No account needed to read.` **The boundary's name follows `D-103`**, as the five pages render it
+- **Description, 144 characters:** ~~`Set a spend ceiling, ...`~~ `Set a deposit limit, a session limit, a cool down or a self exclusion. Sending items to Steam stays open under every one. No account needed to read.` **The boundary's name follows `D-103`**, as the five pages render it
 - **Canonical:** `https://<host>/responsible-play`, self. Host is `[?]`, `0.13` open items.
 - **Robots:** `index, follow`
 - **hreflang:** none, anywhere. One language, `0.13` section 1
@@ -418,3 +418,17 @@ Columns are the account state. **The page reads in full for a guest**, which is 
 2. ~~**The three-entry count is right and the list was wrong in three files at once.**~~ **The list was wrong in three files at once, and since `D-136` the count is two rather than three, struck in round 16 by `D-158`.** This node named the rail, `footer.md` section on the compliance column names the rail, and `sitemap.md` says "Responsible play gains a rail entry and keeps the one it had". **All three predate `D-29`**, which moved it off the rail on 19 August, and `D-40`, which put it in the account menu on 20 August. Fixed in this node and in `footer.md`; `sitemap.md`'s sentence is a record of what step 6 of the base layer decided and is marked rather than rewritten. ~~**The count never changed.**~~ **The count changed once, to two, when `D-136` struck the money control entry, struck in round 16 by `D-158`.** **Every file naming the members was wrong.**
 
 **And what belongs elsewhere.** The words: structural here, stage 05 owns the final strings and syncs them back into block C. How any of it looks: stages 06 and 07. ~~The moment the ceiling is first chosen: `4.1`.~~ **The deposit limit is chosen here since `D-103`; `4.1` keeps the figure.** The behaviour of the exit under a boundary: `5.3`, which changes nothing, which is the point.
+
+## Updated after publication, 19 October 2026. Words by stage 05
+
+**Why.** Stage 05 step 7 rewrote this screen's words by `voice/docs/voice.md`. Interface strings are owned by `voice/docs/microcopy.md`, and the rows named below carry them there; SEO lines stay owned by this node and block C holds the aligned line. Where an earlier section quotes the text in the Was column, it is the text before stage 05.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Its own copy, which is not inherited (`CLAUDE.md`, Baseline: copy is on the not inherited list) | **Every block, state and requirement of this node** | **The words in the table below**, each by the rule named on its row |
+
+| Row | Was | Now | Rule |
+|---|---|---|---|
+| `6.1-2` | Set a deposit limit, a session limit, a cool down or a self exclusion. Withdrawal stays open under every one of them. No account needed to read. | Set a deposit limit, a session limit, a cool down or a self exclusion. Sending items to Steam stays open under every one. No account needed to read. | Glossary C1: the act is Send to Steam, withdrawal is only its record |

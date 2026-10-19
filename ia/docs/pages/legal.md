@@ -421,3 +421,17 @@ The clause text is counsel's. **These four leads are the node's own copy and the
 | **Whether an indexed title carries the placeholder brand** | `0.13`'s pattern bakes in `CS2 Clutch`, which is a working placeholder. **This node follows it on four indexed documents, `0.10` follows it once, and `6.1` refuses it.** Six indexed URLs and two answers. The fix is not a copy edit, it is the naming decision | Founder, with the product name |
 
 **And what belongs elsewhere.** The consent mechanics: `0.4`, already specified. The footer's rendering of the identification block: `0.2`, already specified. The response deadline for a question about a document: `0.10` and `0.11`. Indexation and URLs: `0.13`. The words of any interface string: stage 05. How the page looks: stages 06 and 07.
+
+## Updated after publication, 19 October 2026. Words by stage 05
+
+**Why.** Stage 05 step 7 rewrote this screen's words by `voice/docs/voice.md`. Interface strings are owned by `voice/docs/microcopy.md`, and the rows named below carry them there; SEO lines stay owned by this node and block C holds the aligned line. Where an earlier section quotes the text in the Was column, it is the text before stage 05.
+
+**Baseline row for this amendment.**
+
+| The live product | What we keep | What we change, and why |
+|---|---|---|
+| Its own copy, which is not inherited (`CLAUDE.md`, Baseline: copy is on the not inherited list) | **Every block, state and requirement of this node** | **The words in the table below**, each by the rule named on its row |
+
+| Row | Was | Now | Rule |
+|---|---|---|---|
+| `0.9-68` | How money moves in and out, what happens when a payment fails or is disputed, and what you can get back. | How money moves in and out, what happens when a payment fails or is charged back, and what you can get back. | Glossary N4 (c): a card payment reversed through the bank is a chargeback; 'disputed' was the word doing two jobs |
