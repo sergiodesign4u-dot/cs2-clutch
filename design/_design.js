@@ -18,7 +18,8 @@
   var SKINS = ['ak-47-elite-build', 'ak-47-gold-arabesque', 'ak-47-redline', 'awp-asiimov', 'awp-neo-noir',
     'desert-eagle-blaze', 'five-seven-case-hardened', 'glock-18-vogue', 'glock-18-water-elemental',
     'karambit-tiger-tooth', 'm4a1-s-hyper-beast', 'm4a4-the-emperor', 'mp9-goo', 'mp9-rose-iron', 'nova-koi',
-    'p250-asiimov', 'p250-sand-dune', 'usp-s-kill-confirmed', 'usp-s-ticket-to-hell'];
+    'p250-asiimov', 'p250-sand-dune', 'usp-s-kill-confirmed', 'usp-s-ticket-to-hell',
+    'ak-47-vulcan', 'five-seven-monkey-business', 'sg-553-cyrex'];
   // The tier a drop names, onto the rarity step of DESIGN-artifacts.md section 3. The same
   // mapping the stand draws; which in-game tier each step names is still [?] there.
   var TIERS = { Covert: 'r2', Classified: 'r3', Restricted: 'r4', 'Mil-Spec': 'r5', 'Industrial Grade': 'r6', 'Consumer Grade': 'r7' };

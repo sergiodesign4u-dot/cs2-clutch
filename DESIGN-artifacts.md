@@ -276,3 +276,20 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | `--icon-box`, `-battle`, `-target`, `-arrow-up` | drawn marks | the four modes, wherever they appear | drawn for `D-193` after the baseline's chest, swords, crosshair and rising bars |
 | `--icon-skull`, `--icon-rail` | `mdi:skull`, `mdi:menu-open` | a risk mark, the rail toggle | `D-193` |
 | every other `--icon-*` | Solar Bold | the same jobs as before | `D-193`, was Solar Linear |
+
+**Third pass, `D-194`.** A deep walk of the baseline's Home on 20 October 2026, every element with its pseudo-elements: the values below are its computed styles. The covers and mode arts are Codex variations of the baseline's own, at the founder's ask, with our emblems.
+
+| Variable | Value | Job | Origin |
+|---|---|---|---|
+| `--size-content` | `1298px` | the content column at 1440 | `наявний бренд`, deep walk of 20 Oct 2026, the game previews and section heads; the grey screen drew 1220 |
+| `--size-drop` | `92px` | a drop in the ticker | `наявний бренд`, deep walk, cases-live-tape-item |
+| `--size-micro` | `9px` | a skin name in the ticker | `наявний бренд`, deep walk, cases-live-tape-item h6 |
+| `--shape-hex-fill`, `--shape-hex-line` | the baseline's hexagon geometry, 136 by 118 | the hexagon behind a drop, filled with its rarity, three lines, one dashed | `наявний бренд`, deep walk, hex-bg |
+| `--color-mode-light` | `#7E2DC8` | the light behind a mode card art | `наявний бренд`, deep walk, game-preview::before |
+| `--blur-mode` | `40px` | its blur | `наявний бренд`, deep walk, game-preview::before filter |
+| `--color-card-hover` | `#17144B` | a case card under the pointer | `наявний бренд`, deep walk, case-card:hover |
+| `--art-case-*` | `assets/home/cover-*.webp` | a case cover | Codex image generation, `D-194`, a variation of a baseline case |
+| `--art-mode-*` | `assets/home/mode-*.webp` | a mode card | Codex image generation, `D-194`, a variation of the baseline mode art |
+| `--art-banner-bg`, `-case`, `-operator`, `-shards` | `assets/home/banner-*.webp` | the event banner in four layers | Codex image generation, `D-194` |
+| `--motion-drift`, `-float`, `-sway`, `-snow` | `26s`, `6s`, `9s`, `14s` | the banner's motion | `підібрано під характер`, `D-194`; motion is not inherited |
+
