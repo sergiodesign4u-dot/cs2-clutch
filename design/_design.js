@@ -54,6 +54,10 @@
       var c = CASES[txt(t, '.wf-tile-name')], art = t.querySelector('.wf-tile-art');
       if (art && c) art.setAttribute('data-art', c);
     });
+    root.querySelectorAll('.wf-tile-risk:not([data-risk])').forEach(function (r) {
+      var m = /^(Low|Medium|High)-risk/.exec(r.textContent.trim());
+      r.setAttribute('data-risk', m ? m[1].toLowerCase() : '');
+    });
     root.querySelectorAll('.wf-banner-art').forEach(function (b) {
       var m = (txt(b.parentNode, '.wf-banner-line') || '').split(' ')[0];
       if (CASES[m]) b.setAttribute('data-art', CASES[m]);
