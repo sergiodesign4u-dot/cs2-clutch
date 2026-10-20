@@ -269,6 +269,8 @@ Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The sta
 | `--color-mode-glow` | `#2B1751` | the purple glow at the art end of a mode card, the glow in the counter band | `наявний бренд`, founder screenshots of 20 Oct 2026, pixel at the foot of the Cases card |
 | `--color-skull-off` | `#272D3F` | a risk skull not lit | `наявний бренд`, founder screenshots of 20 Oct 2026, pixel, the dark skulls under a case |
 | `--shape-hex` | a dashed hexagon, SVG | the hexagon behind a drop in the ticker | `наявний бренд`, founder screenshots of 20 Oct 2026, the ticker drop, drawn as an outline |
+| `--art-coin` | three radial gradients in `--color-gold` | the coin beside a price: a gold disc, a struck rim, a highlight | `наявний бренд`, founder screenshots of 20 Oct 2026, the coin beside a price, drawn in our gold |
+| `--art-daily-bg` | `assets/home/daily-bg.webp` | the Daily cases panel, violet with a rifle silhouette as a watermark | Codex image generation, `D-192`, redrawn `D-193` |
 | `--art-case-ironbound`, `-warsteel`, `-coldfront`, `-nightfall` | `assets/home/case-*.webp` | a case cover in the case grid, a drop from the feed laid over it | Codex image generation, `D-193` |
 | `--art-mode-*` | `assets/home/mode-*.webp` | a mode card, redrawn cut out in gold and violet | Codex image generation, `D-192`, redrawn `D-193` |
 | `--icon-box`, `-battle`, `-target`, `-arrow-up` | drawn marks | the four modes, wherever they appear | drawn for `D-193` after the baseline's chest, swords, crosshair and rising bars |
