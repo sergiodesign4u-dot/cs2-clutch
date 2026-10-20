@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concept Stand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../_nav.css">
+<style>
+/* values: one :root, each with its origin, read from DESIGN-artifacts.md */
+:root {
+  --color-ground: #060A1E; /* page ground; наявний бренд, baseline.md 5 */
+  --color-ticker: #020C17; /* live drop ticker plate; наявний бренд, baseline.md 5 */
+  --color-card: #0F0E2B; /* card, primary; наявний бренд, baseline.md 5 */
+  --color-card-2: #090827; /* card, secondary; the rail; наявний бренд, baseline.md 5 */
+  --color-raised: #223660; /* panel, raised; hover; наявний бренд, baseline.md 5 */
+  --color-pink: #FB3F8A; /* the one lit action, the logo; рішення користувача, D-185 */
+  --color-blue: #65A3FF; /* links, secondary accent; наявний бренд, baseline.md 5 */
+  --color-gold: #FADA62; /* the coin and every price; наявний бренд, baseline.md 5 */
+  --color-green: #33CC66; /* success; наявний бренд, baseline.md 5 */
+  --color-text-hi: #FFFFFF; /* high emphasis, figures; наявний бренд, baseline.md 5 */
+  --color-text: #9F9F9F; /* body; наявний бренд; рішення користувача, D-186 */
+  --color-text-muted: #9E9DB1; /* meta, labels; наявний бренд; рішення користувача, D-186 */
+  --color-field-edge: #CECED4; /* edge of a field or a checkbox, never text; наявний бренд; рішення користувача, D-186 */
+  --color-rarity-1: #F6C915; /* rarity step 1; наявний бренд, baseline.md 13.4 */
+  --color-rarity-2: #D1273E; /* rarity step 2; наявний бренд, baseline.md 13.4 */
+  --color-rarity-3: #D22BCE; /* rarity step 3; наявний бренд, baseline.md 13.4 */
+  --color-rarity-4: #6B42B9; /* rarity step 4; наявний бренд, baseline.md 13.4 */
+  --color-rarity-5: #3955E8; /* rarity step 5; наявний бренд, baseline.md 13.4 */
+  --color-rarity-6: #305F8D; /* rarity step 6; наявний бренд, baseline.md 13.4 */
+  --color-rarity-7: #DDDDDD; /* rarity step 7; наявний бренд, baseline.md 13.4 */
+  --size-xl: 40px; /* case name, the screen title; рішення користувача, D-187 */
+  --size-l: 24px; /* section heading, a figure in a panel; рішення користувача, D-187 */
+  --size-m: 18px; /* skin name on a card, price on the act; рішення користувача, D-187 */
+  --size-s: 15px; /* body, figures in a card; рішення користувача, D-187 */
+  --size-xs: 13px; /* meta, labels, the peg; рішення користувача, D-187 */
+  --size-action: 56px; /* height of every button; рішення користувача, D-187 */
+  --size-action-label: 20px; /* label of the one lit action, weight 900; large text; рішення користувача, D-187 */
+  --size-rarity-edge: 4px; /* the rounded side border in the rarity colour; рішення користувача, D-183, D-187 */
+  --radius-s: 8px; /* small: chips, ticker tiles; наявний бренд, baseline.md 13.2 */
+  --radius-m: 16px; /* medium: cards, flanks, fields; наявний бренд, baseline.md 13.2 */
+  --radius-l: 24px; /* large: the stage, panels; рішення користувача, D-186 */
+  --radius-pill: 999px; /* every text button, the price chip; наявний бренд, baseline.md 13.2 */
+  --shadow-action: 0 8px 36px rgba(251, 63, 138, .45); /* the glow of the one lit action; рішення користувача, D-187; references.md S3 */
+  --shadow-glow: 0 0 12px; /* rarity glow, in the rarity colour; рішення користувача, D-187; references.md C1 */
+  --font-family: Roboto, sans-serif; /* the one family, 400 500 700 900; наявний бренд, baseline.md 5; D-182 point 5 */
+  --space-1: 4px; /* proposed at step 5 from the gaps The stage drew, D-187; open until step 6 */
+  --space-2: 8px; /* proposed at step 5 from the gaps The stage drew, D-187; open until step 6 */
+  --space-3: 12px; /* proposed at step 5 from the gaps The stage drew, D-187; open until step 6 */
+  --space-4: 16px; /* proposed at step 5 from the gaps The stage drew, D-187; open until step 6 */
+  --space-5: 24px; /* proposed at step 5 from the gaps The stage drew, D-187; open until step 6 */
+  --space-6: 32px; /* proposed at step 5 from the gaps The stage drew, D-187; open until step 6 */
+  --space-7: 56px; /* proposed at step 5 from the gaps The stage drew, D-187; open until step 6 */
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--color-ground); color: var(--color-text); font-family: var(--font-family); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+main { max-width: 1180px; margin: 0 auto; padding: 64px 40px 96px; }
+@media (min-width: 900px) { main { margin-left: var(--nav-w); padding-top: 48px; } }
+@media (max-width: 860px) { main { padding: 64px 16px 64px; } }
+code { font-size: .9em; color: var(--color-text-hi); background: rgba(255,255,255,.06); padding: 1px 5px; border-radius: 4px; }
+img { display: block; max-width: 100%; }
+.ic { width: 18px; height: 18px; flex: none; }
+.coin { width: 1em; height: 1em; flex: none; }
+
+.intro { max-width: 760px; margin-bottom: 72px; }
+.intro h1 { color: var(--color-text-hi); font-weight: 900; font-size: clamp(32px, 5vw, 48px); line-height: 1.05; letter-spacing: -.02em; margin-bottom: 20px; text-wrap: balance; }
+.intro p { font-size: 16px; margin-bottom: 12px; }
+.intro .small { font-size: 14px; color: var(--color-text-muted); }
+
+.dir { margin-bottom: 96px; scroll-margin-top: 24px; }
+.dir-head { margin-bottom: 24px; max-width: 760px; }
+.dir-head h2 { color: var(--color-text-hi); font-weight: 900; font-size: 28px; display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.dn { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--color-raised); color: var(--color-text-hi); font-size: 18px; }
+.dir-head p { font-size: 15px; }
+.stage { background: var(--color-card-2); border-radius: var(--radius-l); padding: 24px; }
+@media (max-width: 600px) { .stage { padding: 12px; border-radius: var(--radius-m); } }
+
+/* 2 The stage, on the 3.3 skeleton. Scale 13, 15, 18, 24, 40; button 56; radius M 16 on cards, L 24 on the stage */
+.chosen { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-ground); background: var(--color-gold); border-radius: var(--radius-pill); padding: 3px 10px; vertical-align: middle; }
+.upd { border: 1px solid rgba(250,218,98,.4); border-radius: var(--radius-m); padding: 16px 20px; margin: 20px 0 16px; font-size: 15px; }
+.upd b { color: var(--color-gold); }
+.scr { container-type: inline-size; display: flex; flex-direction: column; background: var(--color-ground); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius-l); overflow: hidden; color: var(--color-text); font-size: 15px; }
+.scr a { color: var(--color-blue); text-underline-offset: 3px; }
+.r1 { --r: var(--color-rarity-1); } .r2 { --r: var(--color-rarity-2); } .r3 { --r: var(--color-rarity-3); } .r4 { --r: var(--color-rarity-4); } .r5 { --r: var(--color-rarity-5); } .r6 { --r: var(--color-rarity-6); } .r7 { --r: var(--color-rarity-7); }
+.scr .coin { width: .95em; height: .95em; }
+
+.s-feed { position: relative; background: var(--color-ticker); border-bottom: 1px solid rgba(255,255,255,.06); padding: 10px 0 10px 12px; overflow: hidden; }
+.s-feed-l { position: absolute; top: 0; right: 0; z-index: 1; background: var(--color-pink); color: var(--color-ground); font-size: 13px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; padding: 3px 10px; border-radius: 0 0 0 var(--radius-s); }
+.s-feed-run { list-style: none; display: flex; gap: 8px; }
+.s-feed-run li { flex: none; width: 124px; background: linear-gradient(to top, color-mix(in srgb, var(--r) 30%, transparent), transparent 70%), var(--color-card); border-radius: var(--radius-s); padding: 6px 8px 8px; border-bottom: 2px solid var(--r); display: grid; }
+.s-feed-run img { height: 40px; width: 100%; object-fit: contain; margin-bottom: 2px; }
+.s-feed-w { font-size: 13px; font-weight: 700; color: var(--color-text-hi); line-height: 1.3; }
+.s-feed-s { font-size: 13px; color: var(--color-text-muted); line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.s-body { padding: 24px 32px 40px; }
+.s-crumbrow { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 13px; }
+.s-crumb { display: flex; flex-wrap: wrap; gap: 6px; color: var(--color-text-muted); }
+.s-crumb a { color: var(--color-text-muted); }
+.s-crumb [aria-current] { color: var(--color-text-hi); }
+.scr .s-how { display: inline-flex; align-items: center; gap: 6px; color: var(--color-text-hi); font-weight: 500; }
+.s-how .ic { width: 16px; height: 16px; color: var(--color-blue); }
+
+.s-head { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; margin: 20px 0 20px; }
+.s-flank { background: var(--color-card); border: 0; border-radius: var(--radius-m); padding: 10px 16px; font-family: inherit; }
+.s-risk { justify-self: start; display: grid; }
+.s-risk-l { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--color-text-muted); }
+.s-risk-v { font-size: 15px; font-weight: 700; color: var(--color-gold); }
+.s-fav { justify-self: end; display: inline-flex; align-items: center; gap: 8px; color: var(--color-text-hi); font-size: 15px; font-weight: 500; cursor: pointer; height: 48px; }
+.s-fav .ic { color: var(--color-gold); }
+.s-fav[aria-pressed="true"] .ic { fill: var(--color-gold); }
+.s-fav:focus-visible, .s-btn:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 3px; }
+.s-say { text-align: center; }
+.s-title { color: var(--color-text-hi); font-size: 40px; font-weight: 900; line-height: 1.05; letter-spacing: -.01em; }
+.s-line { font-size: 15px; color: var(--color-text-muted); margin-top: 6px; }
+
+.s-stage { position: relative; border-radius: var(--radius-l); background: radial-gradient(60% 70% at 50% 35%, rgba(101,163,255,.22), transparent 70%), var(--color-card); padding: 24px 0 20px; overflow: hidden; }
+.s-art { display: grid; place-items: center; }
+.s-art img { width: min(340px, 70%); aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-m); -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent); mask-image: radial-gradient(closest-side, #000 72%, transparent); }
+.s-show { margin-top: 8px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.s-show-run { list-style: none; display: flex; gap: 12px; width: max-content; animation: s-drift 60s linear infinite; }
+.s-show-run li { flex: none; width: 148px; background: var(--color-card-2); border-radius: var(--radius-m); padding: 8px 10px 10px 14px; position: relative; font-size: 13px; color: var(--color-text-hi); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.s-show-run li::before, .s-best a::before, .s-card::before { content: ''; position: absolute; left: 0; top: 12px; bottom: 12px; width: 4px; border-radius: 0 4px 4px 0; background: var(--r); box-shadow: 0 0 12px var(--r); }
+.s-show-run img { height: 64px; width: 100%; object-fit: contain; margin-bottom: 4px; }
+@keyframes s-drift { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .s-show-run { animation: none; } }
+
+.s-commit { display: grid; justify-items: center; gap: 12px; margin-top: 24px; }
+.s-act { display: flex; align-items: stretch; gap: 12px; }
+.s-cost { display: grid; align-content: center; justify-items: center; height: 56px; padding: 0 24px; background: var(--color-card); border-radius: var(--radius-pill); }
+.s-cost-v { display: inline-flex; align-items: center; gap: 6px; color: var(--color-gold); font-size: 18px; font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.s-cost-c { font-size: 13px; color: var(--color-text-muted); }
+.scr .s-btn { display: inline-flex; align-items: center; justify-content: center; height: 56px; min-width: 200px; padding: 0 36px; background: var(--color-pink); color: var(--color-text-hi); font-size: 20px; font-weight: 900; letter-spacing: .02em; text-transform: uppercase; text-decoration: none; border-radius: var(--radius-pill); box-shadow: 0 8px 36px rgba(251,63,138,.45); transition: transform .15s ease-out, box-shadow .15s ease-out; }
+.scr .s-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 40px rgba(251,63,138,.6); }
+.s-peg { font-size: 13px; color: var(--color-text-muted); text-align: center; font-variant-numeric: tabular-nums; }
+
+.s-info { max-width: 760px; margin: 32px auto 0; display: grid; gap: 12px; }
+.s-prices { border: 1px solid rgba(250,218,98,.35); border-radius: var(--radius-m); padding: 14px 18px; font-size: 13px; line-height: 1.55; }
+.s-prices strong { color: var(--color-gold); text-transform: uppercase; letter-spacing: .04em; font-size: 13px; margin-right: 4px; }
+.s-warn { display: flex; justify-content: center; gap: 8px; font-size: 13px; color: var(--color-text-muted); text-align: center; }
+.s-warn .ic { width: 16px; height: 16px; margin-top: 2px; color: var(--color-gold); }
+.s-warn strong { color: var(--color-text-hi); font-weight: 500; }
+
+.s-sec { margin-top: 56px; scroll-margin-top: 24px; }
+.s-sec-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin-bottom: 16px; }
+.s-sec-head h4 { color: var(--color-text-hi); font-size: 24px; font-weight: 900; }
+.s-sub { font-size: 15px; color: var(--color-text-muted); }
+
+.s-best { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.scr .s-best a { position: relative; display: grid; background: var(--color-card); border-radius: var(--radius-m); padding: 12px 12px 12px 18px; text-decoration: none; color: var(--color-text); font-size: 13px; line-height: 1.35; height: 100%; transition: background .15s ease-out; }
+.scr .s-best a:hover { background: var(--color-raised); }
+.s-best img { height: 72px; width: 100%; object-fit: contain; margin-bottom: 6px; filter: drop-shadow(0 8px 14px color-mix(in srgb, var(--r) 40%, transparent)); }
+.s-b-w { color: var(--color-text-muted); }
+.s-b-s { color: var(--color-text-hi); font-weight: 700; font-size: 15px; }
+.s-b-v { display: inline-flex; align-items: center; gap: 5px; color: var(--color-gold); font-weight: 900; font-size: 15px; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.s-b-t { color: var(--color-text-muted); font-size: 13px; }
+
+.s-drops { list-style: none; display: grid; grid-template-columns: 1fr; gap: 12px; }
+@container (min-width: 440px) { .s-drops { grid-template-columns: repeat(2, 1fr); } }
+@container (min-width: 700px) { .s-drops { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+@container (min-width: 1000px) { .s-drops { grid-template-columns: repeat(4, 1fr); } }
+.s-card { position: relative; display: grid; align-content: start; background: var(--color-card); border-radius: var(--radius-m); padding: 16px 16px 16px 20px; }
+.s-c-art { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; margin-bottom: 10px; filter: drop-shadow(0 10px 18px color-mix(in srgb, var(--r) 45%, transparent)); }
+.s-c-txt { display: grid; min-width: 0; }
+.s-c-w { font-size: 13px; color: var(--color-text-muted); }
+.s-c-s { font-size: 18px; font-weight: 700; color: var(--color-text-hi); line-height: 1.25; }
+.s-c-ax { font-size: 13px; color: var(--color-text-muted); margin-top: 2px; }
+.scr .s-mkt { font-size: 13px; margin-top: 4px; }
+.s-c-figs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.07); }
+.s-c-figs dt { font-size: 13px; color: var(--color-text-muted); }
+.s-c-figs dd { font-size: 15px; font-weight: 700; color: var(--color-text-hi); font-variant-numeric: tabular-nums; }
+.s-c-figs dd.s-gold { display: inline-flex; align-items: center; gap: 5px; color: var(--color-gold); font-weight: 900; }
+.s-c-tk { grid-column: 1 / -1; }
+.s-stamp { font-size: 13px; color: var(--color-text-muted); text-align: right; margin-top: 12px; font-style: italic; }
+@container (max-width: 439px) {
+  .s-card { grid-template-columns: 96px 1fr; gap: 12px; padding: 14px 14px 14px 18px; }
+  .s-c-art { margin: 0; align-self: start; }
+  .s-c-s { font-size: 15px; }
+  .s-c-art { width: 100%; }
+  .s-c-figs { grid-template-columns: 1fr; gap: 4px; }
+  .s-c-figs > div { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .s-c-figs dd { white-space: nowrap; }
+  .s-c-figs .s-c-tk dd { white-space: normal; text-align: right; }
+}
+
+.s-figs { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--color-card); border-radius: var(--radius-m); }
+.s-fig { display: grid; align-content: start; gap: 6px; padding: 20px; border-left: 1px solid rgba(255,255,255,.07); }
+.s-fig:first-child { border-left: 0; }
+.s-fig-v { color: var(--color-text-hi); font-size: 24px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.s-fig-c { font-size: 13px; color: var(--color-text-muted); }
+@container (max-width: 760px) { .s-figs { grid-template-columns: 1fr 1fr; } .s-fig:nth-child(3) { border-left: 0; } .s-fig:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.07); } }
+.s-note { font-size: 13px; color: var(--color-text-muted); margin-top: 12px; }
+
+.s-tw { overflow-x: auto; }
+.s-ladder { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+.s-ladder th, .s-ladder td { text-align: left; padding: 12px 14px; border-top: 1px solid rgba(255,255,255,.07); }
+.s-ladder thead th { border-top: 0; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-text-muted); }
+.s-ladder tbody th { color: var(--color-text-hi); font-weight: 700; white-space: nowrap; }
+.s-ladder td { color: var(--color-text-hi); }
+.s-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--r); box-shadow: 0 0 8px var(--r); margin-right: 10px; }
+
+.s-prose { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 40px; font-size: 15px; line-height: 1.6; }
+.s-prose h5 { color: var(--color-text-hi); font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+
+@container (max-width: 600px) {
+  .s-feed { order: 2; border-bottom: 0; border-top: 1px solid rgba(255,255,255,.06); }
+  .s-body { padding: 16px 16px 32px; }
+  .s-head { grid-template-columns: 1fr 1fr; grid-template-areas: "risk fav" "say say"; margin: 14px 0 16px; }
+  .s-risk { grid-area: risk; } .s-fav { grid-area: fav; } .s-say { grid-area: say; }
+  .s-stage { padding: 16px 0 12px; border-radius: var(--radius-m); }
+  .s-show-run li { width: 120px; }
+  .s-show-run img { height: 48px; }
+  .s-commit { justify-items: stretch; }
+  .s-act { width: 100%; }
+  .s-cost { padding: 0 16px; flex: none; }
+  .scr .s-btn { flex: 1; min-width: 0; padding: 0 16px; }
+  .s-sec { margin-top: 40px; }
+  .s-best { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .s-figs { grid-template-columns: 1fr 1fr; }
+  .s-fig { padding: 14px; } .s-fig-v { font-size: 18px; }
+  .s-ladder th, .s-ladder td { padding: 10px 4px; font-size: 13px; }
+  .s-ladder thead th { font-size: 13px; letter-spacing: .02em; }
+  .s-dot { width: 8px; height: 8px; margin-right: 5px; }
+  .s-prose { grid-template-columns: 1fr; }
+}
+
+.compose { margin-bottom: 96px; scroll-margin-top: 24px; }
+.compose h2, .notchosen h2 { color: var(--color-text-hi); font-weight: 900; font-size: 28px; margin-bottom: 8px; }
+.compose > p, .notchosen > p { max-width: 760px; font-size: 15px; margin-bottom: 20px; }
+.shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.shots figure { background: var(--color-card); border-radius: var(--radius-m); padding: 12px; }
+.shots img { width: 100%; height: auto; border-radius: var(--radius-s); }
+.shots figcaption { font-size: 13px; color: var(--color-text-muted); margin-top: 10px; }
+.shots figcaption b { color: var(--color-text-hi); }
+@media (max-width: 760px) { .shots { grid-template-columns: 1fr; } }
+.notchosen { scroll-margin-top: 24px; margin-bottom: 40px; }
+/* the stand: sections of the language, every value through a variable */
+.eyebrow { font-size: var(--size-xs); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--color-pink); margin-bottom: var(--space-3); }
+.intro { margin-bottom: var(--space-6); }
+.intro a, .sec a { color: var(--color-blue); text-underline-offset: 3px; }
+.live { margin-bottom: var(--space-7); }
+.scr-short .s-body { padding-bottom: var(--space-6); }
+
+.sec { margin-bottom: var(--space-7); padding-top: var(--space-6); border-top: 1px solid rgba(255,255,255,.06); scroll-margin-top: var(--space-5); }
+.sec h2 { color: var(--color-text-hi); font-size: var(--size-l); font-weight: 900; margin-bottom: var(--space-2); }
+.sec h3 { color: var(--color-text-hi); font-size: var(--size-m); font-weight: 700; margin: var(--space-6) 0 var(--space-3); }
+.lead { max-width: 760px; font-size: var(--size-s); margin-bottom: var(--space-5); }
+.small { max-width: 760px; font-size: var(--size-xs); color: var(--color-text-muted); margin-bottom: var(--space-3); }
+
+.tw { overflow-x: auto; }
+.tbl { width: 100%; min-width: 640px; border-collapse: collapse; font-size: var(--size-xs); }
+.tbl th, .tbl td { text-align: left; vertical-align: top; padding: var(--space-3); border-top: 1px solid rgba(255,255,255,.07); }
+.tbl thead th { border-top: 0; color: var(--color-text-muted); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.tbl tbody th { color: var(--color-text-hi); font-weight: 700; }
+.tbl .num { color: var(--color-text-hi); font-weight: 700; font-variant-numeric: tabular-nums; }
+.a-id { display: inline-grid; place-items: center; min-width: 32px; height: 24px; margin-right: var(--space-2); border-radius: var(--radius-pill); background: var(--color-raised); color: var(--color-text-hi); font-size: var(--size-xs); }
+
+.taste { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-4); margin-top: var(--space-5); }
+.taste > div { background: var(--color-card); border-radius: var(--radius-m); padding: var(--space-4) var(--space-5); font-size: var(--size-xs); }
+.taste h3 { margin: 0 0 var(--space-2); font-size: var(--size-s); }
+.taste b { color: var(--color-text-hi); }
+
+.sws { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-3); }
+.sw { display: grid; gap: 2px; background: var(--color-card); border-radius: var(--radius-m); padding: var(--space-3); font-size: var(--size-xs); }
+.chip { height: 56px; border-radius: var(--radius-s); margin-bottom: var(--space-2); box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
+.sw-t { color: var(--color-text-hi); }
+.sw-j { color: var(--color-text); }
+.sw-o { color: var(--color-text-muted); }
+
+.weights { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-5); }
+.wt { display: grid; background: var(--color-card); border-radius: var(--radius-m); padding: var(--space-3) var(--space-4); color: var(--color-text-hi); font-size: var(--size-l); line-height: 1.1; }
+.wt small { font-size: var(--size-xs); font-weight: 400; color: var(--color-text-muted); margin-top: 4px; }
+.wt400 { font-weight: 400; } .wt500 { font-weight: 500; } .wt700 { font-weight: 700; } .wt900 { font-weight: 900; }
+.scale { display: grid; gap: var(--space-2); }
+.ts { display: grid; grid-template-columns: 260px 1fr; gap: var(--space-5); align-items: baseline; padding: var(--space-4) 0; border-top: 1px solid rgba(255,255,255,.07); }
+.ts-m { display: grid; gap: 2px; font-size: var(--size-xs); }
+.ts-m code { justify-self: start; }
+.ts-s { color: var(--color-text-hi); line-height: 1.15; min-width: 0; overflow-wrap: anywhere; }
+
+.radii { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); }
+.radii li { display: grid; gap: 4px; font-size: var(--size-xs); }
+.radii b { color: var(--color-text-hi); }
+.radii code, .space code { justify-self: start; }
+.rbox { height: 96px; background: var(--color-card); border: 1px solid rgba(255,255,255,.1); margin-bottom: var(--space-2); }
+.shape-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-5); }
+.demo { background: var(--color-card-2); border-radius: var(--radius-l); padding: var(--space-5); font-size: var(--size-xs); }
+.demo h3 { margin-top: 0; }
+.demo p { margin-bottom: var(--space-4); }
+.edges { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.edge { position: relative; background: var(--color-card); border-radius: var(--radius-m); padding: var(--space-3) var(--space-3) var(--space-3) var(--space-5); color: var(--color-text-hi); font-size: var(--size-xs); }
+.edge::before { content: ''; position: absolute; left: 0; top: var(--space-2); bottom: var(--space-2); width: var(--size-rarity-edge); border-radius: 0 4px 4px 0; background: var(--r); box-shadow: var(--shadow-glow) var(--r); }
+
+.acts { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+.btn { display: inline-flex; align-items: center; justify-content: center; height: var(--size-action); padding: 0 var(--space-6); border-radius: var(--radius-pill); font-family: inherit; font-size: var(--size-s); font-weight: 700; text-decoration: none; border: 0; cursor: pointer; transition: transform .15s ease-out, box-shadow .15s ease-out, background .15s ease-out; }
+.sec a.btn, .btn { color: var(--color-text-hi); }
+.btn-lit { background: var(--color-pink); font-size: var(--size-action-label); font-weight: 900; text-transform: uppercase; letter-spacing: .02em; box-shadow: var(--shadow-action); }
+.btn-lit:hover, .btn-lit.is-hover { transform: translateY(-1px); box-shadow: 0 10px 40px rgba(251, 63, 138, .6); }
+.btn-lit:active, .btn-lit.is-press { transform: translateY(1px); box-shadow: 0 4px 18px rgba(251, 63, 138, .4); }
+.btn-quiet { background: var(--color-card); box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); }
+.btn-quiet:hover { background: var(--color-raised); }
+.btn:focus-visible, .btn.is-focus { outline: 2px solid var(--color-text-hi); outline-offset: 3px; }
+.states { display: grid; grid-template-columns: repeat(4, auto 1fr); align-items: center; gap: var(--space-3); margin-top: var(--space-5); }
+.st-l { font-size: var(--size-xs); color: var(--color-text-muted); }
+.states .btn { min-width: 0; padding: 0 var(--space-4); }
+
+.space { list-style: none; display: grid; gap: var(--space-2); margin-bottom: var(--space-5); }
+.space code { white-space: nowrap; }
+.space li { display: grid; grid-template-columns: 90px 56px 1fr; align-items: center; gap: var(--space-3); font-size: var(--size-xs); }
+.space b { color: var(--color-text-hi); }
+.bar { display: block; height: 12px; border-radius: 3px; background: var(--color-blue); grid-column: 3; grid-row: 1; }
+
+.skins { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--space-3); }
+.skins li { display: grid; background: var(--color-card); border-radius: var(--radius-m); padding: var(--space-3); font-size: var(--size-xs); color: var(--color-text-muted); }
+.skins img { aspect-ratio: 4 / 3; object-fit: contain; width: 100%; margin-bottom: var(--space-2); }
+.skins b { color: var(--color-text-hi); font-weight: 700; }
+.cases { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); }
+.cases img { width: 100%; border-radius: var(--radius-m); }
+
+.igs { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+.ig { background: var(--color-card-2); border-radius: var(--radius-l); padding: var(--space-4) var(--space-5); }
+.ig h3 { margin: 0 0 var(--space-3); font-size: var(--size-s); }
+.ig ul { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.icb { display: inline-flex; align-items: center; gap: var(--space-2); height: 44px; padding: 0 var(--space-3); border: 0; border-radius: var(--radius-pill); background: transparent; color: var(--color-text); font-family: inherit; font-size: var(--size-xs); cursor: pointer; transition: color .15s ease-out, background .15s ease-out; }
+.icb .ic { width: 22px; height: 22px; }
+.icb:hover { color: var(--color-text-hi); background: rgba(255,255,255,.05); }
+.icb[aria-pressed="true"] { color: var(--color-pink); background: rgba(251, 63, 138, .1); }
+.icb:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 2px; }
+
+.logo-row { display: grid; grid-template-columns: 2fr 1fr; gap: var(--space-4); }
+.logo-row figure { display: grid; align-content: space-between; gap: var(--space-4); background: var(--color-ground); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius-l); padding: var(--space-6); }
+.logo-on img { width: min(100%, 440px); }
+.logo-sym img { width: 120px; }
+figcaption { font-size: var(--size-xs); color: var(--color-text-muted); }
+figure.wide { margin-top: var(--space-4); background: var(--color-card); border-radius: var(--radius-l); padding: var(--space-3); }
+figure.wide img { width: 100%; border-radius: var(--radius-m); margin-bottom: var(--space-3); }
+
+.won { position: relative; display: grid; justify-items: center; text-align: center; max-width: 520px; margin: 0 auto; background: radial-gradient(60% 50% at 50% 30%, color-mix(in srgb, var(--r) 30%, transparent), transparent 70%), var(--color-card); border-radius: var(--radius-l); padding: var(--space-5) var(--space-5) var(--space-5) var(--space-6); font-size: var(--size-xs); }
+.won::before { content: ''; position: absolute; left: 0; top: var(--space-5); bottom: var(--space-5); width: var(--size-rarity-edge); border-radius: 0 4px 4px 0; background: var(--r); box-shadow: var(--shadow-glow) var(--r); }
+.won-odds { color: var(--color-text-muted); }
+.won-odds b { color: var(--color-text-hi); }
+.won-art { width: min(100%, 320px); aspect-ratio: 4 / 3; object-fit: contain; filter: drop-shadow(0 12px 24px color-mix(in srgb, var(--r) 50%, transparent)); }
+.won-w { color: var(--color-text-muted); font-size: var(--size-s); }
+.won-s { color: var(--color-text-hi); font-size: var(--size-l); font-weight: 900; line-height: 1.15; }
+.won-ax { color: var(--color-text-muted); margin-bottom: var(--space-3); }
+.won-inst { color: var(--color-text-muted); margin-top: 4px; font-variant-numeric: tabular-nums; }
+.won-inst b { color: var(--color-text-hi); }
+.won-inst b.gold { display: inline-flex; align-items: center; gap: 4px; color: var(--color-gold); }
+.sec a.proof { display: inline-flex; align-items: center; gap: var(--space-2); margin-top: var(--space-4); height: 44px; padding: 0 var(--space-4); border-radius: var(--radius-pill); background: rgba(51, 204, 102, .1); box-shadow: inset 0 0 0 1px rgba(51, 204, 102, .45); color: var(--color-green); font-weight: 700; text-decoration: none; }
+.proof .ic { width: 20px; height: 20px; }
+.sec a.proof:hover { background: rgba(51, 204, 102, .18); }
+
+.field { max-width: 560px; display: grid; gap: var(--space-2); background: var(--color-card); border-radius: var(--radius-l); padding: var(--space-5); }
+.f-l { color: var(--color-text-hi); font-size: var(--size-s); font-weight: 700; }
+.f-p { font-size: var(--size-xs); color: var(--color-text-muted); }
+.f-in { width: 100%; resize: vertical; background: var(--color-ground); color: var(--color-text-hi); border: 1px solid var(--color-field-edge); border-radius: var(--radius-m); padding: var(--space-3) var(--space-4); font-family: inherit; font-size: var(--size-s); line-height: 1.4; }
+.f-in:focus { outline: 2px solid var(--color-blue); outline-offset: 1px; }
+.f-in.is-bad { border-color: var(--color-pink); }
+.f-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); margin-top: var(--space-2); }
+.f-when { font-size: var(--size-xs); color: var(--color-text-muted); }
+.f-say { font-size: var(--size-xs); min-height: 1em; }
+.f-say.is-bad { color: var(--color-pink); }
+.f-say.is-ok { color: var(--color-green); }
+.f-cost { font-size: var(--size-xs); border-top: 1px solid rgba(255,255,255,.07); padding-top: var(--space-3); }
+.f-cost strong { color: var(--color-text-hi); display: block; }
+
+@media (max-width: 760px) {
+  .taste, .shape-row, .igs, .logo-row { grid-template-columns: 1fr; }
+  .radii { grid-template-columns: repeat(2, 1fr); }
+  .ts { grid-template-columns: 1fr; gap: var(--space-2); }
+  .cases { grid-template-columns: repeat(2, 1fr); }
+  .skins { grid-template-columns: repeat(2, 1fr); }
+  .states { grid-template-columns: auto 1fr; }
+  .btn { padding: 0 var(--space-5); }
+  .acts .btn { flex: 1 1 100%; }
+  .space li { grid-template-columns: 90px 44px 1fr; }
+  .acts .btn-lit { height: auto; min-height: var(--size-action); padding: var(--space-2) var(--space-5); text-align: center; line-height: 1.15; }
+  .logo-row figure { padding: var(--space-5); }
+}
+/* specimens read their value from the same variable they name */
+.chip[data-v="--color-ground"] { background: var(--color-ground); }
+.chip[data-v="--color-ticker"] { background: var(--color-ticker); }
+.chip[data-v="--color-card"] { background: var(--color-card); }
+.chip[data-v="--color-card-2"] { background: var(--color-card-2); }
+.chip[data-v="--color-raised"] { background: var(--color-raised); }
+.chip[data-v="--color-pink"] { background: var(--color-pink); }
+.chip[data-v="--color-blue"] { background: var(--color-blue); }
+.chip[data-v="--color-gold"] { background: var(--color-gold); }
+.chip[data-v="--color-green"] { background: var(--color-green); }
+.chip[data-v="--color-text-hi"] { background: var(--color-text-hi); }
+.chip[data-v="--color-text"] { background: var(--color-text); }
+.chip[data-v="--color-text-muted"] { background: var(--color-text-muted); }
+.chip[data-v="--color-field-edge"] { background: var(--color-field-edge); }
+.chip[data-v="--color-rarity-1"] { background: var(--color-rarity-1); }
+.chip[data-v="--color-rarity-2"] { background: var(--color-rarity-2); }
+.chip[data-v="--color-rarity-3"] { background: var(--color-rarity-3); }
+.chip[data-v="--color-rarity-4"] { background: var(--color-rarity-4); }
+.chip[data-v="--color-rarity-5"] { background: var(--color-rarity-5); }
+.chip[data-v="--color-rarity-6"] { background: var(--color-rarity-6); }
+.chip[data-v="--color-rarity-7"] { background: var(--color-rarity-7); }
+.ts-s[data-size="--size-xl"] { font-size: var(--size-xl); font-weight: 900; }
+.ts-s[data-size="--size-l"] { font-size: var(--size-l); font-weight: 900; }
+.ts-s[data-size="--size-m"] { font-size: var(--size-m); font-weight: 700; }
+.ts-s[data-size="--size-s"] { font-size: var(--size-s); font-weight: 400; }
+.ts-s[data-size="--size-xs"] { font-size: var(--size-xs); font-weight: 400; }
+.rbox[data-r="--radius-s"] { border-radius: var(--radius-s); }
+.rbox[data-r="--radius-m"] { border-radius: var(--radius-m); }
+.rbox[data-r="--radius-l"] { border-radius: var(--radius-l); }
+.rbox[data-r="--radius-pill"] { border-radius: var(--radius-pill); }
+.bar[data-s="--space-1"] { width: var(--space-1); }
+.bar[data-s="--space-2"] { width: var(--space-2); }
+.bar[data-s="--space-3"] { width: var(--space-3); }
+.bar[data-s="--space-4"] { width: var(--space-4); }
+.bar[data-s="--space-5"] { width: var(--space-5); }
+.bar[data-s="--space-6"] { width: var(--space-6); }
+.bar[data-s="--space-7"] { width: var(--space-7); }
+
+</style>
+</head>
+<body>
+<aside id="sidebar"></aside>
+<main>
+<section id="live" class="intro">
+  <p class="eyebrow">Stage 06, step 5</p>
+  <h1>The concept, live</h1>
+  <p>Direction 2, The stage, <code>D-187</code>, on the brand of <code>DESIGN-artifacts.md</code>. The case is the hero on its stage, one pink act, money calm and gold, rarity as a lit side border. Below the live piece: the attributes it answers to, then every value with its origin. The full case screen in this language is on <a href="directions.html#d2">Directions</a>; step 6 paints the etalon screen itself.</p>
+</section>
+<div class="live"><div class="scr scr-short"><section class="s-feed" aria-label="Live drops"><span class="s-feed-l">Live drops</span><ul class="s-feed-run"><li class="r2"><img src="assets/skins/ak-47-redline.png" alt="" loading="lazy"><span class="s-feed-w">AK-47</span><span class="s-feed-s">Redline</span></li><li class="r2"><img src="assets/skins/awp-asiimov.png" alt="" loading="lazy"><span class="s-feed-w">AWP</span><span class="s-feed-s">Asiimov</span></li><li class="r4"><img src="assets/skins/glock-18-water-elemental.png" alt="" loading="lazy"><span class="s-feed-w">Glock-18</span><span class="s-feed-s">Water Elemental</span></li><li class="r4"><img src="assets/skins/usp-s-kill-confirmed.png" alt="" loading="lazy"><span class="s-feed-w">USP-S</span><span class="s-feed-s">Kill Confirmed</span></li><li class="r3"><img src="assets/skins/m4a1-s-hyper-beast.png" alt="" loading="lazy"><span class="s-feed-w">M4A1-S</span><span class="s-feed-s">Hyper Beast</span></li><li class="r3"><img src="assets/skins/desert-eagle-blaze.png" alt="" loading="lazy"><span class="s-feed-w">Desert Eagle</span><span class="s-feed-s">Blaze</span></li><li class="r5"><img src="assets/skins/mp9-rose-iron.png" alt="" loading="lazy"><span class="s-feed-w">MP9</span><span class="s-feed-s">Rose Iron</span></li><li class="r5"><img src="assets/skins/p250-asiimov.png" alt="" loading="lazy"><span class="s-feed-w">P250</span><span class="s-feed-s">Asiimov</span></li><li class="r2"><img src="assets/skins/awp-neo-noir.png" alt="" loading="lazy"><span class="s-feed-w">AWP</span><span class="s-feed-s">Neo-Noir</span></li></ul></section><div class="s-body"><div class="s-crumbrow"><nav class="s-crumb" aria-label="Breadcrumb"><a href="../../wireframes/index.html">Home</a><span>/</span><a href="../../wireframes/catalogue.html">Cases</a><span>/</span><span aria-current="page">Ironbound</span></nav><a class="s-how" href="#s-how"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13"/><path stroke-linejoin="round" d="M12 16H12.0001"/></g></svg> How it works</a></div><div class="s-head"><div class="s-flank s-risk"><span class="s-risk-l">Risk</span><span class="s-risk-v">Medium</span></div><div class="s-say"><h3 class="s-title">Ironbound</h3><p class="s-line">Nine items, one open.</p></div><button class="s-flank s-fav" type="button" aria-pressed="false" aria-label="Favorite this case"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"/></svg><span>Favorite</span></button></div><div class="s-stage"><div class="s-art"><img src="assets/cases/case-blue.png" alt="Ironbound case"></div><div class="s-show" aria-hidden="true"><ul class="s-show-run"><li class="r2"><img src="assets/skins/ak-47-redline.png" alt="" loading="lazy"><span>AK-47 Redline</span></li><li class="r2"><img src="assets/skins/awp-asiimov.png" alt="" loading="lazy"><span>AWP Asiimov</span></li><li class="r3"><img src="assets/skins/m4a1-s-hyper-beast.png" alt="" loading="lazy"><span>M4A1-S Hyper Beast</span></li><li class="r3"><img src="assets/skins/desert-eagle-blaze.png" alt="" loading="lazy"><span>Desert Eagle Blaze</span></li><li class="r4"><img src="assets/skins/usp-s-kill-confirmed.png" alt="" loading="lazy"><span>USP-S Kill Confirmed</span></li><li class="r4"><img src="assets/skins/glock-18-water-elemental.png" alt="" loading="lazy"><span>Glock-18 Water Elemental</span></li><li class="r5"><img src="assets/skins/mp9-rose-iron.png" alt="" loading="lazy"><span>MP9 Rose Iron</span></li><li class="r5"><img src="assets/skins/p250-asiimov.png" alt="" loading="lazy"><span>P250 Asiimov</span></li><li class="r5"><img src="assets/skins/nova-koi.png" alt="" loading="lazy"><span>Nova Koi</span></li><li class="r2"><img src="assets/skins/ak-47-redline.png" alt="" loading="lazy"><span>AK-47 Redline</span></li><li class="r2"><img src="assets/skins/awp-asiimov.png" alt="" loading="lazy"><span>AWP Asiimov</span></li><li class="r3"><img src="assets/skins/m4a1-s-hyper-beast.png" alt="" loading="lazy"><span>M4A1-S Hyper Beast</span></li><li class="r3"><img src="assets/skins/desert-eagle-blaze.png" alt="" loading="lazy"><span>Desert Eagle Blaze</span></li><li class="r4"><img src="assets/skins/usp-s-kill-confirmed.png" alt="" loading="lazy"><span>USP-S Kill Confirmed</span></li><li class="r4"><img src="assets/skins/glock-18-water-elemental.png" alt="" loading="lazy"><span>Glock-18 Water Elemental</span></li><li class="r5"><img src="assets/skins/mp9-rose-iron.png" alt="" loading="lazy"><span>MP9 Rose Iron</span></li><li class="r5"><img src="assets/skins/p250-asiimov.png" alt="" loading="lazy"><span>P250 Asiimov</span></li><li class="r5"><img src="assets/skins/nova-koi.png" alt="" loading="lazy"><span>Nova Koi</span></li></ul></div></div><div class="s-commit"><div class="s-act"><span class="s-cost"><span class="s-cost-v"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>12.40&nbsp;coins</span><span class="s-cost-c">Price, one open</span></span><a class="s-btn" href="../../wireframes/signin.html">Sign in</a></div><p class="s-peg">1 coin = $1.00 · <a href="#s-pays">RTP 94.2&nbsp;%, expected value 11.68&nbsp;coins</a></p></div><section class="s-info" aria-label="Before you open"><p class="s-prices"><strong>Skin prices.</strong> Values in this case are fixed when the case is priced. Sending an item to Steam buys a real copy at that day's price, and the difference settles against your balance in either direction. <a href="../../wireframes/withdraw.html">How a withdrawal settles</a></p><p class="s-warn"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 17V11"/><path stroke-linejoin="round" d="M12 8H12.0001"/></g></svg><span><strong>Before opening.</strong> Your Steam inventory has to be public and your trade URL set, or an item cannot be sent to you. <a href="../../wireframes/settings.html">Check your settings</a></span></p></section><section class="s-sec"><div class="s-sec-head"><h4>What is in this case</h4></div><ul class="s-drops"><li class="s-card r2"><img class="s-c-art" src="assets/skins/ak-47-redline.png" alt="" loading="lazy"><div class="s-c-txt"><span class="s-c-w">AK-47</span><span class="s-c-s">Redline</span><span class="s-c-ax">Field-Tested · StatTrak · Covert</span><dl class="s-c-figs"><div><dt>Chance</dt><dd>3.180&nbsp;%</dd></div><div><dt>Value</dt><dd class="s-gold"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>47.30&nbsp;coins</dd></div><div class="s-c-tk"><dt>Tickets</dt><dd>1 to 3&nbsp;180</dd></div></dl></div></li><li class="s-card r3"><img class="s-c-art" src="assets/skins/m4a1-s-hyper-beast.png" alt="" loading="lazy"><div class="s-c-txt"><span class="s-c-w">M4A1-S</span><span class="s-c-s">Hyper Beast</span><span class="s-c-ax">Factory New · Classified</span><dl class="s-c-figs"><div><dt>Chance</dt><dd>4.600&nbsp;%</dd></div><div><dt>Value</dt><dd class="s-gold"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>24.60&nbsp;coins</dd></div><div class="s-c-tk"><dt>Tickets</dt><dd>4&nbsp;201 to 8&nbsp;800</dd></div></dl></div></li><li class="s-card r4"><img class="s-c-art" src="assets/skins/usp-s-kill-confirmed.png" alt="" loading="lazy"><div class="s-c-txt"><span class="s-c-w">USP-S</span><span class="s-c-s">Kill Confirmed</span><span class="s-c-ax">Minimal Wear · Restricted</span><dl class="s-c-figs"><div><dt>Chance</dt><dd>12.000&nbsp;%</dd></div><div><dt>Value</dt><dd class="s-gold"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>14.20&nbsp;coins</dd></div><div class="s-c-tk"><dt>Tickets</dt><dd>11&nbsp;001 to 23&nbsp;000</dd></div></dl></div></li><li class="s-card r5"><img class="s-c-art" src="assets/skins/mp9-rose-iron.png" alt="" loading="lazy"><div class="s-c-txt"><span class="s-c-w">MP9</span><span class="s-c-s">Rose Iron</span><span class="s-c-ax">Field-Tested · Mil-Spec</span><dl class="s-c-figs"><div><dt>Chance</dt><dd>22.000&nbsp;%</dd></div><div><dt>Value</dt><dd class="s-gold"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>7.40&nbsp;coins</dd></div><div class="s-c-tk"><dt>Tickets</dt><dd>37&nbsp;001 to 59&nbsp;000</dd></div></dl></div></li></ul></section></div></div></div>
+<section id="attributes" class="sec">
+  <h2>Attributes</h2>
+  <p class="lead">The thesis of the stage in one table. Every value further down names one of these, and a value with no attribute is invented, <code>concept.md</code> section 3. Accepted by the founder on 19 October 2026.</p>
+  <div class="tw"><table class="tbl"><thead><tr><th>Attribute, this and not that</th><th>From the data</th><th>From the taste</th><th>Technique</th><th>Where on this page</th></tr></thead><tbody><tr><th scope="row"><span class="a-id">A1</span>Alive, not static</th><td>personas.md, The Opener, "Trust triggers": "feels alive"</td><td>"плоское, статичное, скучное"</td><td>S2 depth, C1 glowing rarity</td><td>the drifting showcase, the lit act, rarity glows</td></tr><tr><th scope="row"><span class="a-id">A2</span>Rounded and of one piece, not cut and patched</th><td>baseline.md 13.5 points 1 to 3: ten radii, four button heights</td><td>"острые углы, устаревшее"</td><td>S1 one radius family</td><td>the radius ladder, one button height, one family</td></tr><tr><th scope="row"><span class="a-id">A3</span>Energy in the item and the one action, calm at the money</th><td>CLAUDE.md principles 3 and 4</td><td>"энергичное, привлекающее внимание"</td><td>S3 one lit primary</td><td>Sign in is the only pink; the price chip is quiet gold</td></tr><tr><th scope="row"><span class="a-id">A4</span>Game-like through the skin and its rarity, not decoration with no job</th><td>jtbd.md, the reveal clause; cjm-evidence.md U-13c</td><td>"веселое, игровое"; "бордеры цветные сбоку со скруглениями"</td><td>S4 line, C1 glow, the rounded side border</td><td>real skins, a 4px rarity edge on every card</td></tr><tr><th scope="row"><span class="a-id">A5</span>Honest numbers in plain sight, not hidden in the show</th><td>CLAUDE.md principle 1 as limited by D-14</td><td>"чтобы хотелось вернуться"</td><td>C2 price chip and the age of a figure</td><td>price, peg, chance and value on the card, the stamp</td></tr></tbody></table></div>
+  <div class="taste">
+    <div><h3>Liked</h3><p><b>skin.fans</b>, primary for finish; <b>skin.club</b>, two details. In the founder's words: "веселое, игровое, активное, привлекающее внимание".</p></div>
+    <div><h3>Anti-references</h3><p><b>The baseline as it looks today</b>: dated, sharp corners, flat, static, at the level of finish only. <b>AI slop</b>, read as one test: an element that carries no job and no rarity.</p></div>
+    <div><h3>Kept on purpose</h3><p>Glows and gradients that light one thing, many interactive icons, coloured side borders with rounding, our own generated case and banner art. <b>Skins are never generated.</b></p></div>
+  </div>
+</section>
+<section id="palette" class="sec">
+  <h2>Palette</h2>
+  <p class="lead">The baseline's register, collected rather than derived, <code>D-18</code>, with one pink of our own, <code>D-185</code>. Origin beside every value: <code>наявний бренд</code> is read live in <code>baseline.md</code>, <code>рішення користувача</code> is a founder decision. The body grey stays neutral by <code>D-186</code>; the lean toward the accent is carried by the muted line, <code>#9E9DB1</code>, and by the blue-violet grounds.</p>
+  <h3>Grounds and surfaces</h3><ul class="sws"><li class="sw"><span class="chip" data-v="--color-ground"></span><span class="sw-t"><b>#060A1E</b> <code>--color-ground</code></span><span class="sw-j">page ground</span><span class="sw-o">наявний бренд, baseline.md 5 · principle 4, A3</span></li><li class="sw"><span class="chip" data-v="--color-ticker"></span><span class="sw-t"><b>#020C17</b> <code>--color-ticker</code></span><span class="sw-j">live drop ticker plate</span><span class="sw-o">наявний бренд, baseline.md 5 · A1</span></li><li class="sw"><span class="chip" data-v="--color-card"></span><span class="sw-t"><b>#0F0E2B</b> <code>--color-card</code></span><span class="sw-j">card, primary</span><span class="sw-o">наявний бренд, baseline.md 5 · A2</span></li><li class="sw"><span class="chip" data-v="--color-card-2"></span><span class="sw-t"><b>#090827</b> <code>--color-card-2</code></span><span class="sw-j">card, secondary; the rail</span><span class="sw-o">наявний бренд, baseline.md 5 · A2</span></li><li class="sw"><span class="chip" data-v="--color-raised"></span><span class="sw-t"><b>#223660</b> <code>--color-raised</code></span><span class="sw-j">panel, raised; hover</span><span class="sw-o">наявний бренд, baseline.md 5 · A1</span></li></ul><h3>Accents</h3><ul class="sws"><li class="sw"><span class="chip" data-v="--color-pink"></span><span class="sw-t"><b>#FB3F8A</b> <code>--color-pink</code></span><span class="sw-j">the one lit action, the logo</span><span class="sw-o">рішення користувача, D-185 · A3</span></li><li class="sw"><span class="chip" data-v="--color-blue"></span><span class="sw-t"><b>#65A3FF</b> <code>--color-blue</code></span><span class="sw-j">links, secondary accent</span><span class="sw-o">наявний бренд, baseline.md 5 · A1</span></li><li class="sw"><span class="chip" data-v="--color-gold"></span><span class="sw-t"><b>#FADA62</b> <code>--color-gold</code></span><span class="sw-j">the coin and every price</span><span class="sw-o">наявний бренд, baseline.md 5 · A5</span></li><li class="sw"><span class="chip" data-v="--color-green"></span><span class="sw-t"><b>#33CC66</b> <code>--color-green</code></span><span class="sw-j">success</span><span class="sw-o">наявний бренд, baseline.md 5 · A5</span></li></ul><h3>Text and edges</h3><ul class="sws"><li class="sw"><span class="chip" data-v="--color-text-hi"></span><span class="sw-t"><b>#FFFFFF</b> <code>--color-text-hi</code></span><span class="sw-j">high emphasis, figures</span><span class="sw-o">наявний бренд, baseline.md 5 · A5</span></li><li class="sw"><span class="chip" data-v="--color-text"></span><span class="sw-t"><b>#9F9F9F</b> <code>--color-text</code></span><span class="sw-j">body</span><span class="sw-o">наявний бренд; рішення користувача, D-186 · A5</span></li><li class="sw"><span class="chip" data-v="--color-text-muted"></span><span class="sw-t"><b>#9E9DB1</b> <code>--color-text-muted</code></span><span class="sw-j">meta, labels</span><span class="sw-o">наявний бренд; рішення користувача, D-186 · A3</span></li><li class="sw"><span class="chip" data-v="--color-field-edge"></span><span class="sw-t"><b>#CECED4</b> <code>--color-field-edge</code></span><span class="sw-j">edge of a field or a checkbox, never text</span><span class="sw-o">наявний бренд; рішення користувача, D-186 · A2</span></li></ul><h3>Rarity ladder, rarest first</h3><ul class="sws"><li class="sw"><span class="chip" data-v="--color-rarity-1"></span><span class="sw-t"><b>#F6C915</b> <code>--color-rarity-1</code></span><span class="sw-j">rarity step 1</span><span class="sw-o">наявний бренд, baseline.md 13.4 · A4</span></li><li class="sw"><span class="chip" data-v="--color-rarity-2"></span><span class="sw-t"><b>#D1273E</b> <code>--color-rarity-2</code></span><span class="sw-j">rarity step 2</span><span class="sw-o">наявний бренд, baseline.md 13.4 · A4</span></li><li class="sw"><span class="chip" data-v="--color-rarity-3"></span><span class="sw-t"><b>#D22BCE</b> <code>--color-rarity-3</code></span><span class="sw-j">rarity step 3</span><span class="sw-o">наявний бренд, baseline.md 13.4 · A4</span></li><li class="sw"><span class="chip" data-v="--color-rarity-4"></span><span class="sw-t"><b>#6B42B9</b> <code>--color-rarity-4</code></span><span class="sw-j">rarity step 4</span><span class="sw-o">наявний бренд, baseline.md 13.4 · A4</span></li><li class="sw"><span class="chip" data-v="--color-rarity-5"></span><span class="sw-t"><b>#3955E8</b> <code>--color-rarity-5</code></span><span class="sw-j">rarity step 5</span><span class="sw-o">наявний бренд, baseline.md 13.4 · A4</span></li><li class="sw"><span class="chip" data-v="--color-rarity-6"></span><span class="sw-t"><b>#305F8D</b> <code>--color-rarity-6</code></span><span class="sw-j">rarity step 6</span><span class="sw-o">наявний бренд, baseline.md 13.4 · A4</span></li><li class="sw"><span class="chip" data-v="--color-rarity-7"></span><span class="sw-t"><b>#DDDDDD</b> <code>--color-rarity-7</code></span><span class="sw-j">rarity step 7</span><span class="sw-o">наявний бренд, baseline.md 13.4 · A4</span></li></ul>
+  <h3 id="contrast">Contrast, WCAG 2</h3>
+  <div class="tw"><table class="tbl"><thead><tr><th>Pair</th><th>Where</th><th>Ratio</th><th>Reading</th></tr></thead><tbody><tr><td><code>#FFFFFF on #FB3F8A</code></td><td>white label on the pink act, 20px weight 900</td><td class="num">3.40</td><td>passes as large text only, 3:1; never below 18px bold, D-187</td></tr><tr><td><code>#FB3F8A on #060A1E</code></td><td>pink as text on the ground</td><td class="num">5.78</td><td>passes AA</td></tr><tr><td><code>#FFFFFF on #0F0E2B</code></td><td>names and figures on a card</td><td class="num">18.78</td><td>passes</td></tr><tr><td><code>#9F9F9F on #060A1E</code></td><td>body on the ground</td><td class="num">7.42</td><td>passes</td></tr><tr><td><code>#9F9F9F on #0F0E2B</code></td><td>body on a card</td><td class="num">7.10</td><td>passes</td></tr><tr><td><code>#9E9DB1 on #0F0E2B</code></td><td>meta on a card</td><td class="num">7.08</td><td>passes</td></tr><tr><td><code>#9E9DB1 on #020C17</code></td><td>meta on the ticker</td><td class="num">7.41</td><td>passes</td></tr><tr><td><code>#FADA62 on #0F0E2B</code></td><td>a price on a card</td><td class="num">13.66</td><td>passes</td></tr><tr><td><code>#65A3FF on #0F0E2B</code></td><td>a link on a card</td><td class="num">7.37</td><td>passes</td></tr><tr><td><code>#CECED4 on #0F0E2B</code></td><td>a field edge on a card, UI part</td><td class="num">11.99</td><td>passes 3:1</td></tr><tr><td><code>#D1273E on #0F0E2B</code></td><td>rarity 2 edge</td><td class="num">3.64</td><td>passes 3:1 as a mark</td></tr><tr><td><code>#6B42B9 on #0F0E2B</code></td><td>rarity 4 edge</td><td class="num">2.78</td><td>fails 3:1 alone; read through its glow, DESIGN-artifacts 3</td></tr></tbody></table></div>
+</section>
+<section id="type" class="sec">
+  <h2>Typography</h2>
+  <p class="lead">Roboto alone, the baseline's family, <code>D-182</code> point 5, loaded from Google Fonts. Thirteen baseline sizes become five, <code>D-187</code>, and the game feel is carried by scale in weight 900, <code>D-183</code>. The action label is the one size outside the scale: 20px weight 900, so that white on the pink counts as large text.</p>
+  <div class="weights"><span class="wt wt400">400<small>body</small></span><span class="wt wt500">500<small>rail and header</small></span><span class="wt wt700">700<small>names, tile prices</small></span><span class="wt wt900">900<small>the act, figures, titles</small></span></div>
+  <div class="scale"><div class="ts"><div class="ts-m"><code>--size-xl</code><span>40px · 900</span><span>case name, the screen title</span><span class="sw-o">рішення користувача, D-187 · A3, A4</span></div><p class="ts-s" data-size="--size-xl" data-w="900">Ironbound</p></div><div class="ts"><div class="ts-m"><code>--size-l</code><span>24px · 900</span><span>section heading, a figure in a panel</span><span class="sw-o">рішення користувача, D-187 · A2</span></div><p class="ts-s" data-size="--size-l" data-w="900">What is in this case</p></div><div class="ts"><div class="ts-m"><code>--size-m</code><span>18px · 700</span><span>skin name on a card, price on the act</span><span class="sw-o">рішення користувача, D-187 · A4</span></div><p class="ts-s" data-size="--size-m" data-w="700">Water Elemental</p></div><div class="ts"><div class="ts-m"><code>--size-s</code><span>15px · 400</span><span>body, figures in a card</span><span class="sw-o">рішення користувача, D-187 · A5</span></div><p class="ts-s" data-size="--size-s" data-w="400">The price buys one round, and the round lands on one item.</p></div><div class="ts"><div class="ts-m"><code>--size-xs</code><span>13px · 400</span><span>meta, labels, the peg</span><span class="sw-o">рішення користувача, D-187 · A3</span></div><p class="ts-s" data-size="--size-xs" data-w="400">Nine items, one open.</p></div></div>
+</section>
+<section id="shape" class="sec">
+  <h2>Shape</h2>
+  <p class="lead">One radius family, A2, technique S1: every surface sits on a step of it, and every button is a pill of one height, 56px.</p>
+  <ul class="radii"><li><span class="rbox" data-r="--radius-s"></span><code>--radius-s</code><b>8px</b><span>small: chips, ticker tiles</span></li><li><span class="rbox" data-r="--radius-m"></span><code>--radius-m</code><b>16px</b><span>medium: cards, flanks, fields</span></li><li><span class="rbox" data-r="--radius-l"></span><code>--radius-l</code><b>24px</b><span>large: the stage, panels</span></li><li><span class="rbox" data-r="--radius-pill"></span><code>--radius-pill</code><b>999px</b><span>every text button, the price chip</span></li></ul>
+  <div class="shape-row">
+    <div class="demo"><h3>The rarity edge</h3><p>4px, rounded on its free side, with a glow of its own colour, <code>D-183</code>, <code>D-187</code>, A4. It is the only side stripe the product carries, because it carries the rarity.</p>
+      <div class="edges"><span class="edge r1">Rarity 1</span><span class="edge r2">Rarity 2</span><span class="edge r3">Rarity 3</span><span class="edge r4">Rarity 4</span><span class="edge r5">Rarity 5</span><span class="edge r6">Rarity 6</span><span class="edge r7">Rarity 7</span></div></div>
+    <div class="demo"><h3>The one lit action</h3><p>The pink act glows in its own colour, <code>--shadow-action</code>, technique S3, A3. Every other button is quiet: no glow, no fill of the accent.</p>
+      <div class="acts"><a class="btn btn-lit" href="#components">Open for 12.40 coins</a><a class="btn btn-quiet" href="#components">Send to Steam, &minus;6.70 coins</a></div></div>
+  </div>
+  <h3>Spacing</h3>
+  <p class="small"><b>Proposed, not yet decided:</b> seven steps read from the gaps The stage drew, <code>D-187</code>. The founder confirms them on the coloured screen at step 6, <code>DESIGN-artifacts.md</code> section 9.</p>
+  <ul class="space"><li><span class="bar" data-s="--space-1"></span><code>--space-1</code><b>4px</b></li><li><span class="bar" data-s="--space-2"></span><code>--space-2</code><b>8px</b></li><li><span class="bar" data-s="--space-3"></span><code>--space-3</code><b>12px</b></li><li><span class="bar" data-s="--space-4"></span><code>--space-4</code><b>16px</b></li><li><span class="bar" data-s="--space-5"></span><code>--space-5</code><b>24px</b></li><li><span class="bar" data-s="--space-6"></span><code>--space-6</code><b>32px</b></li><li><span class="bar" data-s="--space-7"></span><code>--space-7</code><b>56px</b></li></ul>
+  <p class="small"><b>Depth for items and containers stays open</b>: the two step shadow of technique S2 is a principle in <code>DESIGN-artifacts.md</code> section 6, and The stage drew no value for it. It is chosen on the coloured screen at step 6.</p>
+</section>
+<section id="imagery" class="sec">
+  <h2>Imagery</h2>
+  <p class="lead">No stock photography: this product's pictures are its items. <b>Skins are the real items, never generated</b>, <code>D-183</code>: nineteen images from the Steam CDN, links read from the public dataset ByMykel/CSGO-API. <b>Case and banner art is ours, generated in one style</b>, four crates in one family by Codex. Nothing here comes from the baseline's servers. The list is in <code>concept.md</code> section 6.</p>
+  <h3>Skins, Valve's art, shown as the items themselves</h3>
+  <ul class="skins"><li><img src="assets/skins/ak-47-redline.png" alt="AK-47 | Redline" loading="lazy"><span>AK-47 <b>Redline</b></span></li><li><img src="assets/skins/awp-asiimov.png" alt="AWP | Asiimov" loading="lazy"><span>AWP <b>Asiimov</b></span></li><li><img src="assets/skins/m4a1-s-hyper-beast.png" alt="M4A1-S | Hyper Beast" loading="lazy"><span>M4A1-S <b>Hyper Beast</b></span></li><li><img src="assets/skins/desert-eagle-blaze.png" alt="Desert Eagle | Blaze" loading="lazy"><span>Desert Eagle <b>Blaze</b></span></li><li><img src="assets/skins/usp-s-kill-confirmed.png" alt="USP-S | Kill Confirmed" loading="lazy"><span>USP-S <b>Kill Confirmed</b></span></li><li><img src="assets/skins/glock-18-water-elemental.png" alt="Glock-18 | Water Elemental" loading="lazy"><span>Glock-18 <b>Water Elemental</b></span></li><li><img src="assets/skins/mp9-rose-iron.png" alt="MP9 | Rose Iron" loading="lazy"><span>MP9 <b>Rose Iron</b></span></li><li><img src="assets/skins/p250-asiimov.png" alt="P250 | Asiimov" loading="lazy"><span>P250 <b>Asiimov</b></span></li><li><img src="assets/skins/nova-koi.png" alt="Nova | Koi" loading="lazy"><span>Nova <b>Koi</b></span></li><li><img src="assets/skins/awp-neo-noir.png" alt="AWP | Neo-Noir" loading="lazy"><span>AWP <b>Neo-Noir</b></span></li><li><img src="assets/skins/karambit-tiger-tooth.png" alt="★ Karambit | Tiger Tooth" loading="lazy"><span>★ Karambit <b>Tiger Tooth</b></span></li><li><img src="assets/skins/m4a4-the-emperor.png" alt="M4A4 | The Emperor" loading="lazy"><span>M4A4 <b>The Emperor</b></span></li><li><img src="assets/skins/ak-47-gold-arabesque.png" alt="AK-47 | Gold Arabesque" loading="lazy"><span>AK-47 <b>Gold Arabesque</b></span></li><li><img src="assets/skins/glock-18-vogue.png" alt="Glock-18 | Vogue" loading="lazy"><span>Glock-18 <b>Vogue</b></span></li><li><img src="assets/skins/five-seven-case-hardened.png" alt="Five-SeveN | Case Hardened" loading="lazy"><span>Five-SeveN <b>Case Hardened</b></span></li><li><img src="assets/skins/usp-s-ticket-to-hell.png" alt="USP-S | Ticket to Hell" loading="lazy"><span>USP-S <b>Ticket to Hell</b></span></li><li><img src="assets/skins/mp9-goo.png" alt="MP9 | Goo" loading="lazy"><span>MP9 <b>Goo</b></span></li><li><img src="assets/skins/ak-47-elite-build.png" alt="AK-47 | Elite Build" loading="lazy"><span>AK-47 <b>Elite Build</b></span></li><li><img src="assets/skins/p250-sand-dune.png" alt="P250 | Sand Dune" loading="lazy"><span>P250 <b>Sand Dune</b></span></li></ul>
+  <h3>Case art, ours</h3>
+  <ul class="cases"><li><img src="assets/cases/case-pink.png" alt="Case art, pink accent" loading="lazy"></li><li><img src="assets/cases/case-blue.png" alt="Case art, blue accent" loading="lazy"></li><li><img src="assets/cases/case-gold.png" alt="Case art, gold accent" loading="lazy"></li><li><img src="assets/cases/case-violet.png" alt="Case art, violet accent" loading="lazy"></li></ul>
+</section>
+<section id="icons" class="sec">
+  <h2>Icons</h2>
+  <p class="lead">Solar, Linear style, inline SVG: one stroke, rounded caps, no fills, <code>DESIGN-artifacts.md</code> section 7. Many, and interactive, <code>D-183</code>: grey at rest, white on hover, pink when active. Press any one. Every icon here names the place it is used; an icon with no place is filler and is not drawn.</p>
+  <div class="igs"><div class="ig"><h3>Rail and bar</h3><ul><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274C22 8.77128 22 9.91549 22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039Z"/><path d="M12 15L12 18"/></g></svg><span>Home</span></button></li><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M15.5777 3.38197L17.5777 4.43152C19.7294 5.56066 20.8052 6.12523 21.4026 7.13974C22 8.15425 22 9.41667 22 11.9415V12.0585C22 14.5833 22 15.8458 21.4026 16.8603C20.8052 17.8748 19.7294 18.4393 17.5777 19.5685L15.5777 20.618C13.8221 21.5393 12.9443 22 12 22C11.0557 22 10.1779 21.5393 8.42229 20.618L6.42229 19.5685C4.27063 18.4393 3.19479 17.8748 2.5974 16.8603C2 15.8458 2 14.5833 2 12.0585V11.9415C2 9.41667 2 8.15425 2.5974 7.13974C3.19479 6.12523 4.27063 5.56066 6.42229 4.43152L8.42229 3.38197C10.1779 2.46066 11.0557 2 12 2C12.9443 2 13.8221 2.46066 15.5777 3.38197Z"/><path d="M21 7.5L17 9.5M12 12L3 7.5M12 12V21.5M12 12C12 12 14.7426 10.6287 16.5 9.75C16.6953 9.65237 17 9.5 17 9.5M17 9.5V13M17 9.5L7.5 4.5"/></g></svg><span>Cases</span></button></li><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M20 7L4 7"/><path d="M20 12L4 12"/><path d="M20 17L4 17"/></g></svg><span>Rail toggle</span></button></li><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M1.53479 10.9714C1.60847 9.76255 1.64531 9.15814 1.95854 8.57679C2.24473 8.04563 2.7923 7.53042 3.33988 7.27707C3.93921 6.99979 4.62617 6.99979 6.00008 6.99979C6.51215 6.99979 6.76819 6.99979 7.0162 6.95791C7.26138 6.9165 7.50046 6.84478 7.72795 6.74438C7.95806 6.64283 8.17181 6.50189 8.59932 6.22002L8.81825 6.07566C11.3612 4.39898 12.6327 3.56063 13.7001 3.92487C13.9047 3.9947 14.1028 4.09551 14.2797 4.21984C15.2024 4.86829 15.2725 6.37699 15.4127 9.3944C15.4646 10.5117 15.5 11.4679 15.5 11.9998C15.5 12.5317 15.4646 13.4879 15.4127 14.6052C15.2725 17.6226 15.2024 19.1313 14.2797 19.7797C14.1028 19.9041 13.9047 20.0049 13.7001 20.0747C12.6327 20.4389 11.3612 19.6006 8.81825 17.9239L8.59932 17.7796C8.17181 17.4977 7.95806 17.3567 7.72795 17.2552C7.50046 17.1548 7.26138 17.0831 7.0162 17.0417C6.76819 16.9998 6.51215 16.9998 6.00008 16.9998C4.62617 16.9998 3.93921 16.9998 3.33988 16.7225C2.7923 16.4692 2.24473 15.9539 1.95854 15.4228C1.64531 14.8414 1.60847 14.237 1.53479 13.0282C1.51299 12.6706 1.5 12.3222 1.5 11.9998C1.5 11.6774 1.51299 11.329 1.53479 10.9714Z"/><path d="M20 6C20 6 21.5 7.8 21.5 12C21.5 16.2 20 18 20 18"/><path d="M18 9C18 9 18.5 9.9 18.5 12C18.5 14.1 18 15 18 15"/></g></svg><span>Sound</span></button></li></ul></div><div class="ig"><h3>Header and account</h3><ul><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="M6 8H10"/><path d="M20.8333 9H18.2308C16.4465 9 15 10.3431 15 12C15 13.6569 16.4465 15 18.2308 15H20.8333C20.9167 15 20.9583 15 20.9935 14.9979C21.5328 14.965 21.9623 14.5662 21.9977 14.0654C22 14.0327 22 13.994 22 13.9167V10.0833C22 10.006 22 9.96726 21.9977 9.9346C21.9623 9.43384 21.5328 9.03496 20.9935 9.00214C20.9583 9 20.9167 9 20.8333 9Z"/><path d="M20.965 9C20.8873 7.1277 20.6366 5.97975 19.8284 5.17157C18.6569 4 16.7712 4 13 4L10 4C6.22876 4 4.34315 4 3.17157 5.17157C2 6.34315 2 8.22876 2 12C2 15.7712 2 17.6569 3.17157 18.8284C4.34315 20 6.22876 20 10 20H13C16.7712 20 18.6569 20 19.8284 18.8284C20.6366 18.0203 20.8873 16.8723 20.965 15"/><path stroke-linejoin="round" d="M17.9912 12H18.0002"/></g></svg><span>Balance</span></button></li><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15"/></g></svg><span>Deposit</span></button></li><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="6" r="4"/><path d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z"/></g></svg><span>Account</span></button></li><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M12 8V12L14.5 14.5"/><path d="M4.33776 6.87052L5.60414 5.60414C9.10115 2.10713 14.7996 2.13576 18.3319 5.6681C21.8642 9.20044 21.8929 14.8988 18.3959 18.3959C14.8988 21.8929 9.20044 21.8642 5.6681 18.3319C3.57589 16.2397 2.71285 13.3876 3.08355 10.6831M4.32497 4.32497L4.33776 6.87052L6.88331 6.88331"/></g></svg><span>Roll history</span></button></li><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M13.7654 2.15224C13.3978 2 12.9319 2 12 2C11.0681 2 10.6022 2 10.2346 2.15224C9.74457 2.35523 9.35522 2.74458 9.15223 3.23463C9.05957 3.45834 9.0233 3.7185 9.00911 4.09799C8.98826 4.65568 8.70226 5.17189 8.21894 5.45093C7.73564 5.72996 7.14559 5.71954 6.65219 5.45876C6.31645 5.2813 6.07301 5.18262 5.83294 5.15102C5.30704 5.08178 4.77518 5.22429 4.35436 5.5472C4.03874 5.78938 3.80577 6.1929 3.33983 6.99993C2.87389 7.80697 2.64092 8.21048 2.58899 8.60491C2.51976 9.1308 2.66227 9.66266 2.98518 10.0835C3.13256 10.2756 3.3397 10.437 3.66119 10.639C4.1338 10.936 4.43789 11.4419 4.43786 12C4.43783 12.5581 4.13375 13.0639 3.66118 13.3608C3.33965 13.5629 3.13248 13.7244 2.98508 13.9165C2.66217 14.3373 2.51966 14.8691 2.5889 15.395C2.64082 15.7894 2.87379 16.193 3.33973 17C3.80568 17.807 4.03865 18.2106 4.35426 18.4527C4.77508 18.7756 5.30694 18.9181 5.83284 18.8489C6.07289 18.8173 6.31632 18.7186 6.65204 18.5412C7.14547 18.2804 7.73556 18.27 8.2189 18.549C8.70224 18.8281 8.98826 19.3443 9.00911 19.9021C9.02331 20.2815 9.05957 20.5417 9.15223 20.7654C9.35522 21.2554 9.74457 21.6448 10.2346 21.8478C10.6022 22 11.0681 22 12 22C12.9319 22 13.3978 22 13.7654 21.8478C14.2554 21.6448 14.6448 21.2554 14.8477 20.7654C14.9404 20.5417 14.9767 20.2815 14.9909 19.902C15.0117 19.3443 15.2977 18.8281 15.781 18.549C16.2643 18.2699 16.8544 18.2804 17.3479 18.5412C17.6836 18.7186 17.927 18.8172 18.167 18.8488C18.6929 18.9181 19.2248 18.7756 19.6456 18.4527C19.9612 18.2105 20.1942 17.807 20.6601 16.9999C21.1261 16.1929 21.3591 15.7894 21.411 15.395C21.4802 14.8691 21.3377 14.3372 21.0148 13.9164C20.8674 13.7243 20.6602 13.5628 20.3387 13.3608C19.8662 13.0639 19.5621 12.558 19.5621 11.9999C19.5621 11.4418 19.8662 10.9361 20.3387 10.6392C20.6603 10.4371 20.8675 10.2757 21.0149 10.0835C21.3378 9.66273 21.4803 9.13087 21.4111 8.60497C21.3592 8.21055 21.1262 7.80703 20.6602 7C20.1943 6.19297 19.9613 5.78945 19.6457 5.54727C19.2249 5.22436 18.693 5.08185 18.1671 5.15109C17.9271 5.18269 17.6837 5.28136 17.3479 5.4588C16.8545 5.71959 16.2644 5.73002 15.7811 5.45096C15.2977 5.17191 15.0117 4.65566 14.9909 4.09794C14.9767 3.71848 14.9404 3.45833 14.8477 3.23463C14.6448 2.74458 14.2554 2.35523 13.7654 2.15224Z"/></g></svg><span>Settings</span></button></li></ul></div><div class="ig"><h3>Metadata and badges</h3><ul><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M3 10.4167C3 7.21907 3 5.62028 3.37752 5.08241C3.75503 4.54454 5.25832 4.02996 8.26491 3.00079L8.83772 2.80472C10.405 2.26824 11.1886 2 12 2C12.8114 2 13.595 2.26824 15.1623 2.80472L15.7351 3.00079C18.7417 4.02996 20.245 4.54454 20.6225 5.08241C21 5.62028 21 7.21907 21 10.4167C21 10.8996 21 11.4234 21 11.9914C21 17.6294 16.761 20.3655 14.1014 21.5273C13.38 21.8424 13.0193 22 12 22C10.9807 22 10.62 21.8424 9.89856 21.5273C7.23896 20.3655 3 17.6294 3 11.9914C3 11.4234 3 10.8996 3 10.4167Z"/><path stroke-linejoin="round" d="M9.5 12.4L10.9286 14L14.5 10"/></g></svg><span>Check this round</span></button></li><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M14 11C14 10.4477 14.4477 10 15 10C15.5523 10 16 10.4477 16 11V13C16 13.5523 15.5523 14 15 14C14.4477 14 14 13.5523 14 13V11Z"/><path stroke-linejoin="round" d="M14.0137 17L14.0079 19.0029C14.0065 19.4731 14.0058 19.7081 13.8595 19.8541C13.7131 20 13.478 20 13.0079 20H9.99502C6.21438 20 4.32407 20 3.14958 18.8284C2.34091 18.0218 2.08903 16.8766 2.01058 15.0105C1.99502 14.6405 1.98724 14.4554 2.05634 14.332C2.12545 14.2085 2.40133 14.0545 2.95308 13.7463C3.56586 13.4041 3.98007 12.7503 3.98007 12C3.98007 11.2497 3.56586 10.5959 2.95308 10.2537C2.40133 9.94554 2.12545 9.79147 2.05634 9.66802C1.98724 9.54458 1.99502 9.35954 2.01058 8.98947C2.08903 7.12339 2.34091 5.97823 3.14958 5.17157C4.32407 4 6.21439 4 9.99502 4H13.5052C13.7814 4 14.0056 4.22298 14.0064 4.49855L14.0137 7C14.0137 7.55228 14.4625 8 15.0162 8C15.5698 8 16.0187 7.55228 16.0187 7V4.51618C16.0187 4.23718 16.2482 4.01169 16.5278 4.0189C18.6952 4.0748 19.9727 4.29604 20.8504 5.17157C21.6591 5.97823 21.911 7.12339 21.9894 8.98947C22.005 9.35954 22.0128 9.54458 21.9437 9.66803C21.8745 9.79147 21.5987 9.94554 21.0469 10.2537C20.4341 10.5959 20.0199 11.2497 20.0199 12C20.0199 12.7503 20.4341 13.4041 21.0469 13.7463C21.5987 14.0545 21.8745 14.2085 21.9437 14.332C22.0128 14.4554 22.005 14.6405 21.9894 15.0105C21.911 16.8766 21.6591 18.0218 20.8504 18.8284C20.0433 19.6336 18.8981 19.8854 17.0336 19.9642C16.5623 19.9841 16.3267 19.994 16.1727 19.8464C16.0187 19.6988 16.0187 19.458 16.0187 18.9765V17C16.0187 16.4477 15.5698 16 15.0162 16C14.4625 16 14.0137 16.4477 14.0137 17Z"/></g></svg><span>Tickets</span></button></li><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"/></svg><span>Favorite</span></button></li><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="11.5" cy="11.5" r="9.5"/><path d="M18.2173 18.2178L21.9999 22.0004"/></g></svg><span>Search cases</span></button></li></ul></div><div class="ig"><h3>Buttons and states</h3><ul><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13"/><path stroke-linejoin="round" d="M12 16H12.0001"/></g></svg><span>How it works</span></button></li><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 17V11"/><path stroke-linejoin="round" d="M12 8H12.0001"/></g></svg><span>Before opening</span></button></li><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 16C2 13.1716 2 11.7574 2.87868 10.8787C3.75736 10 5.17157 10 8 10H16C18.8284 10 20.2426 10 21.1213 10.8787C22 11.7574 22 13.1716 22 16C22 18.8284 22 20.2426 21.1213 21.1213C20.2426 22 18.8284 22 16 22H8C5.17157 22 3.75736 22 2.87868 21.1213C2 20.2426 2 18.8284 2 16Z"/><circle cx="12" cy="16" r="2"/><path d="M6 10V8C6 4.68629 8.68629 2 12 2C15.3137 2 18 4.68629 18 8V10"/></g></svg><span>Not launched here</span></button></li><li><button type="button" class="icb" aria-pressed="false"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg><span>Onward</span></button></li></ul></div></div>
+</section>
+<section id="brand" class="sec">
+  <h2>Brand and references</h2>
+  <p class="lead">The brand came ready and was collected, not generated: the colour register, Roboto and the rarity ladder are the baseline's, <code>D-18</code> and <code>D-181</code>. One plate, so there are no rejected plates beside it. What was generated: the depth, icon, UI tone, applications and key visual zones, read for tone only, <code>concept.md</code> section 5. The logo is new, <code>D-184</code>.</p>
+  <div class="logo-row">
+    <figure class="logo-on"><img src="assets/logo/lockup-screen.svg" alt="CS2 Clutch logo, horizontal lockup"><figcaption>The horizontal lockup on the ground, <code>D-184</code>, pink <code>#FB3F8A</code> since <code>D-185</code>. It lives in the rail, never in the header.</figcaption></figure>
+    <figure class="logo-sym"><img src="assets/logo/symbol-screen.svg" alt="CS2 Clutch symbol"><figcaption>The symbol, for the closed rail and the app icon.</figcaption></figure>
+  </div>
+  <figure class="wide"><img src="assets/logo-kit.png" alt="Logo kit: versions, clear space, minimum sizes, colour, backgrounds, misuse, icons" loading="lazy"><figcaption>The logo kit. Clear space is the dot's diameter; the lockup is never under 40px high.</figcaption></figure>
+  <figure class="wide"><img src="assets/brand-plate.png" alt="The collected brand plate" loading="lazy"><figcaption>The collected plate, approved as the language on 19 October 2026. Its copy, its drawn rarity names and its mobile mock with the logo in the header are not product truth, <code>DESIGN-artifacts.md</code> section 8.</figcaption></figure>
+  <h3>References, by what they lend</h3>
+  <p class="small">The look is the baseline's; these only raise its finish, <code>references.md</code>. A technique is used only where it lands on an attribute.</p>
+  <div class="tw"><table class="tbl"><thead><tr><th>#</th><th>Source</th><th>What is taken</th><th>The anxiety it answers</th></tr></thead><tbody><tr><th scope="row">S1</th><td><a href="https://skin.fans/" rel="external nofollow">skin.fans</a></td><td>One radius family</td><td>The Opener: scared off by a platform that "feels slow or visually dead"</td></tr><tr><th scope="row">S2</th><td><a href="https://skin.fans/" rel="external nofollow">skin.fans</a></td><td>Two step layered depth, low and dark</td><td>The same row; baseline.md 13.5 point 8, two shadows in four pages</td></tr><tr><th scope="row">S3</th><td><a href="https://skin.fans/battles" rel="external nofollow">skin.fans</a></td><td>One primary action per screen, lit in its own colour</td><td>Principle 3: the act that spends money is the one thing lit</td></tr><tr><th scope="row">S4</th><td><a href="https://skin.fans/case/void" rel="external nofollow">skin.fans</a></td><td>Rarity in two marks that agree, the line under the name</td><td>research.md 5a, R1: the odds screen teaches the reveal's language</td></tr><tr><th scope="row">C1</th><td><a href="https://skin.club/en" rel="external nofollow">skin.club</a></td><td>A rarity mark that glows</td><td>The Opener, "Pains": reveals that feel "visually flat"</td></tr><tr><th scope="row">C2</th><td><a href="https://skin.club/en/cases/open/cc-a24b34990" rel="external nofollow">skin.club</a></td><td>Price chip beside the act, the age of a figure beside it</td><td>The Researcher: published odds and expected value before deposit</td></tr><tr><th scope="row">R1</th><td><a href="https://refero.design/flows/7776" rel="external nofollow">Carbon, iOS</a></td><td>The outcome as a hold and a one sentence receipt</td><td>cjm-to-be.md T7 and row F1, the deepest pit of the path</td></tr><tr><th scope="row">R2</th><td><a href="https://refero.design/screens/cb4823c5-9ba7-4e42-b449-ad92703737f5" rel="external nofollow">WishWish, iOS</a></td><td>Every item with its chance printed on it</td><td>cjm-to-be.md row D2, published chance per item</td></tr></tbody></table></div>
+</section>
+<section id="components" class="sec">
+  <h2>Components</h2>
+  <p class="lead">Three live pieces of this product, each with the words its wireframe gives it.</p>
+
+  <h3>1. The action button</h3>
+  <p class="small">One height, 56px, a pill, A2. One lit per screen, A3: here the outcome's three acts, <code>wireframes/case-outcome.html</code>, with Open again lit and the other two quiet. Hover, focus and press are live; the row under them freezes each state.</p>
+  <div class="acts"><a class="btn btn-lit" href="../../wireframes/case-account.html">Open again for 12.40&nbsp;coins</a><button class="btn btn-quiet" type="button">Sell for 12.90&nbsp;coins</button><a class="btn btn-quiet" href="../../wireframes/withdraw.html">Send to Steam, &minus;6.70&nbsp;coins</a></div>
+  <div class="states"><span class="st-l">Rest</span><span class="btn btn-lit">Sign in</span><span class="st-l">Hover</span><span class="btn btn-lit is-hover">Sign in</span><span class="st-l">Focus</span><span class="btn btn-lit is-focus">Sign in</span><span class="st-l">Pressed</span><span class="btn btn-lit is-press">Sign in</span></div>
+
+  <h3>2. The item card, with its proof</h3>
+  <p class="small">The won item of phase 3, node 3.6: the art large, the chance it had, its name and wear, the instance receipt, and the proof as a badge that is a control, technique R1, A4 and A5.</p>
+  <div class="won r4">
+    <span class="won-odds">chance on this case <b>14.000&nbsp;%</b></span>
+    <img class="won-art" src="assets/skins/glock-18-water-elemental.png" alt="" loading="lazy">
+    <span class="won-w">Glock-18</span><span class="won-s">Water Elemental</span><span class="won-ax">Minimal Wear · Restricted</span>
+    <p class="won-inst">As of 18 Aug 2026 14:58 · Float <b>0.1174</b> · Pattern <b>418</b> · <a href="#components">Inspect in game</a></p>
+    <p class="won-inst">Value <b class="gold"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>12.90&nbsp;coins</b> · a copy on sale <b>19.60&nbsp;coins</b>, read 18 Aug 2026 14:58</p>
+    <a class="proof" href="../../wireframes/fair-matched.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M3 10.4167C3 7.21907 3 5.62028 3.37752 5.08241C3.75503 4.54454 5.25832 4.02996 8.26491 3.00079L8.83772 2.80472C10.405 2.26824 11.1886 2 12 2C12.8114 2 13.595 2.26824 15.1623 2.80472L15.7351 3.00079C18.7417 4.02996 20.245 4.54454 20.6225 5.08241C21 5.62028 21 7.21907 21 10.4167C21 10.8996 21 11.4234 21 11.9914C21 17.6294 16.761 20.3655 14.1014 21.5273C13.38 21.8424 13.0193 22 12 22C10.9807 22 10.62 21.8424 9.89856 21.5273C7.23896 20.3655 3 17.6294 3 11.9914C3 11.4234 3 10.8996 3 10.4167Z"/><path stroke-linejoin="round" d="M9.5 12.4L10.9286 14L14.5 10"/></g></svg><span>Check this round</span></a>
+  </div>
+
+  <h3>3. The form field</h3>
+  <p class="small">The Steam trade URL, node 5.11, never set. The edge is <code>#CECED4</code>, the only place that value lives, <code>D-186</code>. Save checks it and says what is wrong in the words of the wireframe; try it empty, with any text, then with a real link.</p>
+  <div class="field">
+    <label class="f-l" for="cfg-url">Steam trade URL</label>
+    <p class="f-p">Steam needs this link to send you skins.</p>
+    <textarea class="f-in" id="cfg-url" rows="3" spellcheck="false" autocomplete="off" aria-describedby="cfg-say"></textarea>
+    <p class="f-p"><a href="https://steamcommunity.com/id/me/tradeoffers/privacy" rel="noopener">Where to get this link on Steam</a></p>
+    <div class="f-row"><button class="btn btn-lit" type="button" id="cfg-save">Save trade URL</button><span class="f-when" id="cfg-when">Never set</span></div>
+    <p class="f-say" id="cfg-say" role="status" aria-live="polite"></p>
+    <div class="f-cost"><strong>What this stops right now</strong> Nothing can be sent to Steam until this is set. Your items stay in My items, and everything else works.</div>
+  </div>
+</section>
+</main>
+<script>
+window.NAV_BASE = '../../';
+window.NAV_SECTIONS = [
+  { id: 'live', label: 'Language live' },
+  { id: 'attributes', label: 'Attributes' },
+  { id: 'palette', label: 'Palette' },
+  { id: 'type', label: 'Typography' },
+  { id: 'shape', label: 'Shape' },
+  { id: 'imagery', label: 'Imagery' },
+  { id: 'icons', label: 'Icons' },
+  { id: 'brand', label: 'Brand and references' },
+  { id: 'components', label: 'Components' }
+];
+(function () {
+  document.querySelectorAll('.s-fav, .icb').forEach(function (b) { b.addEventListener('click', function () { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); }); });
+  document.querySelectorAll('a[href="#components"]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); }); });
+  // the trade URL check of wireframes/_nav.js mountSettings, its words unchanged
+  var input = document.getElementById('cfg-url'), save = document.getElementById('cfg-save'), say = document.getElementById('cfg-say'), when = document.getElementById('cfg-when');
+  function refuse(msg) { input.classList.add('is-bad'); input.setAttribute('aria-invalid', 'true'); say.className = 'f-say is-bad'; say.textContent = msg; input.focus(); }
+  save.addEventListener('click', function () {
+    var v = (input.value || '').trim();
+    input.classList.remove('is-bad'); input.removeAttribute('aria-invalid');
+    if (!v) { refuse('Nothing to save yet. Until this is filled in, nothing can be sent to Steam.'); return; }
+    var okPath = v.indexOf('https://steamcommunity.com/tradeoffer/new/') === 0, okPartner = v.indexOf('partner=') !== -1, okToken = v.indexOf('token=') !== -1;
+    if (!okPath || !okPartner || !okToken) {
+      var missing = [];
+      if (!okPath) missing.push('it does not start with the Steam trade offer address');
+      if (!okPartner) missing.push('there is no partner number in it');
+      if (!okToken) missing.push('there is no token in it');
+      refuse('Steam will not accept this one: ' + missing.join(', ') + '. Get a fresh link from Steam and paste it whole.'); return;
+    }
+    say.className = 'f-say is-ok'; say.textContent = 'Saved. Withdrawals go to this address.'; when.textContent = 'Last changed 21 Aug 2026';
+  });
+})();
+</script>
+<script src="../../_nav.js"></script>
+</body>
+</html>

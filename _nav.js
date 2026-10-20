@@ -58,8 +58,8 @@ window.NAV = [
   { label: 'Voice',              pageLabel: 'Voice',     page: 'voice/voice.html',         done: true },
 
   { label: 'Concept', wip: true, children: [
-      { label: 'Directions', page: 'design/concept/directions.html', done: false },
-      { label: 'Concept',    page: 'design/concept/concept.html',    done: false }
+      { label: 'Directions', page: 'design/concept/directions.html', done: true },
+      { label: 'Concept',    page: 'design/concept/concept.html',    done: true }
   ]},
 
   { label: 'UI + Visual',        pageLabel: 'Overview',  page: 'design/overview.html',     done: false },

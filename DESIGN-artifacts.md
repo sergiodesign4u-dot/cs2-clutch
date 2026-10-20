@@ -2,7 +2,7 @@
 
 **What this file is.** The draft design document of stage 06, opened at step 3b on 19 October 2026: the approved brand decisions and the concept language, each value with its origin. It is not the product `DESIGN.md`: stage 07 forms that one from the code of the coloured screens plus this file, and carries every origin across as written. A value with no origin is not entered here.
 
-**Visible place.** `design/concept/concept.html`, built at step 5: palette, type, shape and icons render there live, each with its attribute and origin. Until step 5 this file has no page, the same as `concept.md`.
+**Visible place.** `design/concept/concept.html`, built at step 5: palette, type, shape and icons render there live, each with its attribute and origin, from one `:root` block that carries these names.
 
 **Route.** An inherited visual language, no system, `D-18`, `D-181`, `D-182`. So the plate is one and collected, and **`наявний бренд` outranks `піксель плейта`**: a pixel is taken only where the brand gives no value. Where the baseline gives two answers, the founder picks and the loser is named, `D-181`; those picks are in section 9 and nothing here pretends to have made them.
 
@@ -107,6 +107,15 @@ WCAG 2 ratios, computed from the values above. AA asks 4.5:1 for normal text, 3:
 
 The baseline uses 700 and 900 on buttons with no rule between them, `baseline.md` 13.5 point 3; which button takes which is a step 4 choice. The plate's specimen captions, 400, 700 and 900, are drawn and are not the source.
 
+| Variable | Value | Job | Origin | Attribute |
+|---|---|---|---|---|
+| `--size-xl` | `40px` | case name, the screen title, weight 900 | `рішення користувача`, `D-187` | A3, A4 |
+| `--size-l` | `24px` | section heading, a figure in a panel, weight 900 | `рішення користувача`, `D-187` | A2 |
+| `--size-m` | `18px` | skin name on a card, the price on the act, weight 700 | `рішення користувача`, `D-187` | A4 |
+| `--size-s` | `15px` | body, figures in a card, weight 400 | `рішення користувача`, `D-187` | A5 |
+| `--size-xs` | `13px` | meta, labels, the peg | `рішення користувача`, `D-187` | A3 |
+| `--size-action-label` | `20px` | the label of the one lit action, weight 900, large text | `рішення користувача`, `D-187` | A3 |
+
 **No display face**, `D-182` point 5: the pack's two Google Fonts candidates per role are not drawn. **The type scale is 13, 15, 18, 24, 40**, `рішення користувача`, `D-187`: the baseline's thirteen sizes, `baseline.md` 13.5 point 4, brought to five, with scale carrying the game feel, A3 and A4.
 
 ---
@@ -124,11 +133,21 @@ The founder's direction: rounded, on a three step ladder, small, medium and larg
 
 **The rounded side border in the rarity colour** is in, `D-183` point 2, A4: 4px wide, rounded on its free side, with a glow in its own colour, `D-187`.
 
+| Variable | Value | Job | Origin | Attribute |
+|---|---|---|---|---|
+| `--size-action` | `56px` | the height of every button | `рішення користувача`, `D-187` | A2, A3 |
+| `--size-rarity-edge` | `4px` | the rounded side border in the rarity colour | `рішення користувача`, `D-183`, `D-187` | A4 |
+
 ---
 
 ## 6. Light and depth
 
-Principles only; the values are drawn at step 4 and enter here when chosen.
+The two glows were drawn on The stage and enter with it, `D-187`. The two step depth was not drawn and stays open, section 9.
+
+| Variable | Value | Job | Origin | Attribute |
+|---|---|---|---|---|
+| `--shadow-action` | `0 8px 36px rgba(251, 63, 138, .45)` | the glow of the one lit action | `рішення користувача`, `D-187`; technique S3 | A3 |
+| `--shadow-glow` | `0 0 12px`, in the rarity colour | the glow of a rarity mark | `рішення користувача`, `D-187`; technique C1 | A4 |
 
 - **One lit action per screen**, the pink primary with a glow of its own colour, A3, technique S3. Every other button is quiet.
 - **Rarity glows**: a line in the rarity colour under the item, with a glow of the same colour, A4, techniques S4 and C1.
@@ -165,3 +184,7 @@ Closed by `D-186` on 20 October 2026: body text `#9F9F9F`, muted text `#9E9DB1`,
 Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The stage: type scale 13, 15, 18, 24, 40; one button height, 56px; the label on the pink white, 20px weight 900, large text 3.40:1; the rarity side border 4px with its glow. They enter `design/_theme.css` at step 6 with that origin.
 
 1. **Still open from the baseline's contradictions,** `baseline.md` 13.5: six letter-spacings, five line colours, and two field values outside the palette (`#0F0D3E`, `#332CD1`). Step 6 settles them on the coloured screen.
+2. **Spacing, proposed at step 5:** `--space-1` to `--space-7`, 4, 8, 12, 16, 24, 32, 56px, read from the gaps The stage drew, which also used 10, 14, 18 and 20. Shown on `concept.html` as proposed; the founder confirms or changes it on the coloured screen at step 6.
+3. **Depth for items and containers,** the two step shadow of technique S2: no value drawn yet. Step 6.
+
+
