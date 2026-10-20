@@ -6326,3 +6326,13 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **The cost.** The rarity of a tile now rests on colour as light alone, so on Best drops and the showcase, where there is no dot, two neighbouring tiers read closer together than they did. The conflict with impeccable's floor, which refuses side stripes, is gone with it.
 
+## D-190. Stage 06 step 5: a rarity line along the foot
+
+**Date:** 2026-10-20. **Stage:** 06, step 5. **Decided by:** the founder, offered it after `D-189`: "давай сделаем линию". **Binds:** `design/concept/directions.html`, `design/concept/concept.html`, `DESIGN-artifacts.md` section 5.
+
+**What was decided.** Every rarity surface of The stage carries a 2px line in its rarity colour along its foot: the drop cards, Best drops, the showcase tiles, the won item card and the specimens on the stand. Variable `--size-rarity-line`, `2px`, new. It is the carrier the live feed tile already had, so the feed moves onto the same variable and the language has one rarity line, not two. It is drawn as an inset shadow, so it follows the card's radius at the corners, with a soft glow of the same colour under the card.
+
+**Rejected.** A full-width straight line clipped by the corners, the baseline's look. A thicker line: at 4px it starts to read as the border `D-189` removed.
+
+**The cost.** One more value in the rarity language. It answers the cost of `D-189`: tiers on Best drops and the showcase, which carry no dot, read apart again.
+

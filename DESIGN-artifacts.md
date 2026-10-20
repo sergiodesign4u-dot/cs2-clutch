@@ -131,11 +131,12 @@ The founder's direction: rounded, on a three step ladder, small, medium and larg
 | `--radius-l` | `24px` | `рішення користувача`, `D-186`: a step of our own, the baseline has no larger panel radius; it closes an even ladder 8, 16, 24 | A2 |
 | `--radius-pill` | `999px` | `наявний бренд`, `baseline.md` 13.2: every text button is a full pill, written both `25px` and `999px`; one spelling of one shape, `baseline.md` 13.5 point 2 | A2, A3 |
 
-**The rounded side border in the rarity colour is out**, `D-189`: in by `D-183` point 2 and drawn at 4px by `D-187`, withdrawn by the founder on the drawn cards. Rarity is carried as light, section 6.
+**The rounded side border in the rarity colour is out**, `D-189`: in by `D-183` point 2 and drawn at 4px by `D-187`, withdrawn by the founder on the drawn cards. Rarity is carried as light, section 6, and by **a 2px line in the rarity colour along the foot of every rarity surface**, `D-190`, the carrier the live feed tile already had, drawn as an inset shadow so it follows the radius.
 
 | Variable | Value | Job | Origin | Attribute |
 |---|---|---|---|---|
 | `--size-action` | `56px` | the height of every button | `рішення користувача`, `D-187` | A2, A3 |
+| `--size-rarity-line` | `2px` | the line in the rarity colour along the foot of a card, a Best drops tile, a showcase tile and a feed tile | `рішення користувача`, `D-190`; the feed tile, `D-59` | A4 |
 
 ---
 

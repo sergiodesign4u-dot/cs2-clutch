@@ -44,6 +44,7 @@
   --radius-pill: 999px; /* every text button, the price chip; наявний бренд, baseline.md 13.2 */
   --shadow-action: 0 8px 36px rgba(251, 63, 138, .45); /* the glow of the one lit action; рішення користувача, D-187; references.md S3 */
   --shadow-glow: 0 0 12px; /* rarity glow, in the rarity colour; рішення користувача, D-187; references.md C1 */
+  --size-rarity-line: 2px; /* the line in the rarity colour along the foot of a card; рішення користувача, D-190; the live feed tile, D-59 */
   --mix-rarity-tint: 18%; /* rarity colour in the tint rising from a card's foot; рішення користувача, D-188 */
   --mix-rarity-pad: 42%; /* rarity colour in the lit pad under a skin; рішення користувача, D-188 */
   --font-family: Roboto, sans-serif; /* the one family, 400 500 700 900; наявний бренд, baseline.md 5; D-182 point 5 */
@@ -91,7 +92,7 @@ img { display: block; max-width: 100%; }
 .s-feed { position: relative; background: var(--color-ticker); border-bottom: 1px solid rgba(255,255,255,.06); padding: 10px 0 10px 12px; overflow: hidden; }
 .s-feed-l { position: absolute; top: 0; right: 0; z-index: 1; background: var(--color-pink); color: var(--color-ground); font-size: 13px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; padding: 3px 10px; border-radius: 0 0 0 var(--radius-s); }
 .s-feed-run { list-style: none; display: flex; gap: 8px; }
-.s-feed-run li { flex: none; width: 124px; background: linear-gradient(to top, color-mix(in srgb, var(--r) 30%, transparent), transparent 70%), var(--color-card); border-radius: var(--radius-s); padding: 6px 8px 8px; border-bottom: 2px solid var(--r); display: grid; }
+.s-feed-run li { flex: none; width: 124px; background: linear-gradient(to top, color-mix(in srgb, var(--r) 30%, transparent), transparent 70%), var(--color-card); border-radius: var(--radius-s); padding: 6px 8px 8px; box-shadow: inset 0 calc(-1 * var(--size-rarity-line)) 0 var(--r); display: grid; }
 .s-feed-run img { height: 40px; width: 100%; object-fit: contain; margin-bottom: 2px; }
 .s-feed-w { font-size: 13px; font-weight: 700; color: var(--color-text-hi); line-height: 1.3; }
 .s-feed-s { font-size: 13px; color: var(--color-text-muted); line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -189,6 +190,8 @@ img { display: block; max-width: 100%; }
 /* the chance rides on the art as a tag, the way a drop is read in the game */
 .s-c-figs .s-c-ch { position: absolute; top: 10px; right: 10px; gap: 5px; background: rgba(6,10,30,.72); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-pill); padding: 2px 10px; }
 .s-c-ch dd { font-weight: 700; }
+/* the rarity line along the foot of every rarity surface, the feed's own carrier; inset, so it follows the radius */
+.s-show-run li, .scr .s-best a, .s-card { box-shadow: inset 0 calc(-1 * var(--size-rarity-line)) 0 var(--r), 0 10px 24px -14px var(--r); }
 .s-stamp { font-size: 13px; color: var(--color-text-muted); text-align: right; margin-top: 12px; font-style: italic; }
 @container (max-width: 439px) {
   .s-card { grid-template-columns: 112px 1fr; }
@@ -336,6 +339,7 @@ img { display: block; max-width: 100%; }
 .demo { background: var(--color-card-2); border-radius: var(--radius-l); padding: var(--space-5); font-size: var(--size-xs); }
 .demo h3 { margin-top: 0; }
 .demo p { margin-bottom: var(--space-4); }
+.edge, .won { box-shadow: inset 0 calc(-1 * var(--size-rarity-line)) 0 var(--r), 0 10px 24px -14px var(--r); }
 .edges { display: flex; flex-wrap: wrap; gap: var(--space-2); }
 .edge { position: relative; background: linear-gradient(to top, color-mix(in srgb, var(--r) var(--mix-rarity-tint), transparent), transparent 70%), var(--color-card); border-radius: var(--radius-m); padding: var(--space-3) var(--space-4); color: var(--color-text-hi); font-size: var(--size-xs); }
 
@@ -476,11 +480,11 @@ figure.wide img { width: 100%; border-radius: var(--radius-m); margin-bottom: va
 <section id="attributes" class="sec">
   <h2>Attributes</h2>
   <p class="lead">The thesis of the stage in one table. Every value further down names one of these, and a value with no attribute is invented, <code>concept.md</code> section 3. Accepted by the founder on 19 October 2026.</p>
-  <div class="tw"><table class="tbl"><thead><tr><th>Attribute, this and not that</th><th>From the data</th><th>From the taste</th><th>Technique</th><th>Where on this page</th></tr></thead><tbody><tr><th scope="row"><span class="a-id">A1</span>Alive, not static</th><td>personas.md, The Opener, "Trust triggers": "feels alive"</td><td>"плоское, статичное, скучное"</td><td>S2 depth, C1 glowing rarity</td><td>the drifting showcase, the lit act, rarity glows</td></tr><tr><th scope="row"><span class="a-id">A2</span>Rounded and of one piece, not cut and patched</th><td>baseline.md 13.5 points 1 to 3: ten radii, four button heights</td><td>"острые углы, устаревшее"</td><td>S1 one radius family</td><td>the radius ladder, one button height, one family</td></tr><tr><th scope="row"><span class="a-id">A3</span>Energy in the item and the one action, calm at the money</th><td>CLAUDE.md principles 3 and 4</td><td>"энергичное, привлекающее внимание"</td><td>S3 one lit primary</td><td>Sign in is the only pink; the price chip is quiet gold</td></tr><tr><th scope="row"><span class="a-id">A4</span>Game-like through the skin and its rarity, not decoration with no job</th><td>jtbd.md, the reveal clause; cjm-evidence.md U-13c</td><td>"веселое, игровое"</td><td>S4 line, C1 glow, rarity as light</td><td>real skins, each card lit in its rarity colour</td></tr><tr><th scope="row"><span class="a-id">A5</span>Honest numbers in plain sight, not hidden in the show</th><td>CLAUDE.md principle 1 as limited by D-14</td><td>"чтобы хотелось вернуться"</td><td>C2 price chip and the age of a figure</td><td>price, peg, chance and value on the card, the stamp</td></tr></tbody></table></div>
+  <div class="tw"><table class="tbl"><thead><tr><th>Attribute, this and not that</th><th>From the data</th><th>From the taste</th><th>Technique</th><th>Where on this page</th></tr></thead><tbody><tr><th scope="row"><span class="a-id">A1</span>Alive, not static</th><td>personas.md, The Opener, "Trust triggers": "feels alive"</td><td>"плоское, статичное, скучное"</td><td>S2 depth, C1 glowing rarity</td><td>the drifting showcase, the lit act, rarity glows</td></tr><tr><th scope="row"><span class="a-id">A2</span>Rounded and of one piece, not cut and patched</th><td>baseline.md 13.5 points 1 to 3: ten radii, four button heights</td><td>"острые углы, устаревшее"</td><td>S1 one radius family</td><td>the radius ladder, one button height, one family</td></tr><tr><th scope="row"><span class="a-id">A3</span>Energy in the item and the one action, calm at the money</th><td>CLAUDE.md principles 3 and 4</td><td>"энергичное, привлекающее внимание"</td><td>S3 one lit primary</td><td>Sign in is the only pink; the price chip is quiet gold</td></tr><tr><th scope="row"><span class="a-id">A4</span>Game-like through the skin and its rarity, not decoration with no job</th><td>jtbd.md, the reveal clause; cjm-evidence.md U-13c</td><td>"веселое, игровое"</td><td>S4 line, C1 glow, rarity as light</td><td>real skins, each card lit in its rarity colour with a line along its foot</td></tr><tr><th scope="row"><span class="a-id">A5</span>Honest numbers in plain sight, not hidden in the show</th><td>CLAUDE.md principle 1 as limited by D-14</td><td>"чтобы хотелось вернуться"</td><td>C2 price chip and the age of a figure</td><td>price, peg, chance and value on the card, the stamp</td></tr></tbody></table></div>
   <div class="taste">
     <div><h3>Liked</h3><p><b>skin.fans</b>, primary for finish; <b>skin.club</b>, two details. In the founder's words: "веселое, игровое, активное, привлекающее внимание".</p></div>
     <div><h3>Anti-references</h3><p><b>The baseline as it looks today</b>: dated, sharp corners, flat, static, at the level of finish only. <b>AI slop</b>, read as one test: an element that carries no job and no rarity.</p></div>
-    <div><h3>Kept on purpose</h3><p>Glows and gradients that light one thing, many interactive icons, our own generated case and banner art. <b>Skins are never generated.</b> Coloured side borders were liked at step 2 and withdrawn by the founder at step 5, <code>D-189</code>.</p></div>
+    <div><h3>Kept on purpose</h3><p>Glows and gradients that light one thing, many interactive icons, our own generated case and banner art. <b>Skins are never generated.</b> Coloured side borders were liked at step 2 and withdrawn by the founder at step 5, <code>D-189</code>, for a line along the foot, <code>D-190</code>.</p></div>
   </div>
 </section>
 <section id="palette" class="sec">
@@ -501,7 +505,7 @@ figure.wide img { width: 100%; border-radius: var(--radius-m); margin-bottom: va
   <p class="lead">One radius family, A2, technique S1: every surface sits on a step of it, and every button is a pill of one height, 56px.</p>
   <ul class="radii"><li><span class="rbox" data-r="--radius-s"></span><code>--radius-s</code><b>8px</b><span>small: chips, ticker tiles</span></li><li><span class="rbox" data-r="--radius-m"></span><code>--radius-m</code><b>16px</b><span>medium: cards, flanks, fields</span></li><li><span class="rbox" data-r="--radius-l"></span><code>--radius-l</code><b>24px</b><span>large: the stage, panels</span></li><li><span class="rbox" data-r="--radius-pill"></span><code>--radius-pill</code><b>999px</b><span>every text button, the price chip</span></li></ul>
   <div class="shape-row">
-    <div class="demo"><h3>Rarity as light</h3><p>The rarity colour lights the item, not its frame: a tint rising from the foot of the card, <code>--mix-rarity-tint</code>, and a lit pad under the skin, <code>--mix-rarity-pad</code>, <code>D-188</code>, A4. The side border is gone, <code>D-189</code>: the founder withdrew it on the drawn cards.</p>
+    <div class="demo"><h3>Rarity as light and a line</h3><p>The rarity colour lights the item: a tint rising from the foot of the card, <code>--mix-rarity-tint</code>, and a lit pad under the skin, <code>--mix-rarity-pad</code>, <code>D-188</code>, A4. Along the foot runs a 2px line of the same colour, <code>--size-rarity-line</code>, <code>D-190</code>, the carrier the live feed already had. The side border is gone, <code>D-189</code>.</p>
       <div class="edges"><span class="edge r1">Rarity 1</span><span class="edge r2">Rarity 2</span><span class="edge r3">Rarity 3</span><span class="edge r4">Rarity 4</span><span class="edge r5">Rarity 5</span><span class="edge r6">Rarity 6</span><span class="edge r7">Rarity 7</span></div></div>
     <div class="demo"><h3>The one lit action</h3><p>The pink act glows in its own colour, <code>--shadow-action</code>, technique S3, A3. Every other button is quiet: no glow, no fill of the accent.</p>
       <div class="acts"><a class="btn btn-lit" href="#components">Open for 12.40 coins</a><a class="btn btn-quiet" href="#components">Send to Steam, &minus;6.70 coins</a></div></div>

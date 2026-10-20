@@ -31,7 +31,7 @@ Written on 19 October 2026 from the founder's own words, not inferred. The block
 
 **Liked details, named by the founder.**
 - **Many icons, interactive.** The icon set is a zone of the step 3 plate; how an icon answers a hover or a press is stage 11.
-- **Coloured side borders, rounded.** A coloured edge down one side of a rounded card, as on the references. **Withdrawn by the founder on 20 October 2026, `D-189`**, on seeing it drawn: "мне не нравится бордер слева". The rarity is carried as light instead, `D-188`.
+- **Coloured side borders, rounded.** A coloured edge down one side of a rounded card, as on the references. **Withdrawn by the founder on 20 October 2026, `D-189`**, on seeing it drawn: "мне не нравится бордер слева". The rarity is carried as light instead, `D-188`, and by a 2px line along the foot of the card, `D-190`, picked by the founder: "давай сделаем линию".
 
 **Where this taste meets impeccable's floor.** impeccable, the skill stage 06 runs under from step 3, refuses side stripes and flags glows in its craft floor, `impeccable/reference/degraded/finish-reviewer.md`, step 6 "Floor". The founder's taste wins here, because taste is data and impeccable says how, not what. So both are allowed **only with a job**: the side border carries the item's rarity colour, the glow lights the primary action or a rarity. Step 8's audit reads such a stripe or glow as a decision with this paragraph as its parent, and anything else as a defect.
 
