@@ -6316,3 +6316,13 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 
 **The cost.** The reflection rides on `-webkit-box-reflect` and is absent in Firefox, where the case simply stands on its pad. The ring repeats a number already printed beside it. The 0 to 100 % scale makes the Covert bar a sliver, which is the truth of 4.2 %.
 
+## D-189. Stage 06 step 5: the rarity side border withdrawn
+
+**Date:** 2026-10-20. **Stage:** 06, step 5. **Decided by:** the founder, on the drop cards of `D-188`: "мне не нравится бордер слева". **Binds:** `design/concept/directions.html`, `design/concept/concept.html`, `DESIGN-artifacts.md` sections 5 and 9, `concept.md` taste and A4.
+
+**What was decided.** The 4px rounded side border in the rarity colour leaves The stage: the drop cards, Best drops, the showcase, the won item card and the specimen on the stand. Variable `--size-rarity-edge`, `4px`, is removed: the founder withdrew the liked detail it came from, `D-183` point 2, on seeing it drawn. Rarity is carried by the light `D-188` added, the tint from the card's foot and the lit pad under the skin, plus the tier's dot beside its name. Attribute A4 keeps its thesis and loses this technique, said out loud in `concept.md`.
+
+**Rejected.** A bottom line in the rarity colour, the baseline's carrier: not asked for, and offered to the founder as an option rather than drawn.
+
+**The cost.** The rarity of a tile now rests on colour as light alone, so on Best drops and the showcase, where there is no dot, two neighbouring tiers read closer together than they did. The conflict with impeccable's floor, which refuses side stripes, is gone with it.
+

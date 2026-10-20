@@ -31,7 +31,7 @@ Written on 19 October 2026 from the founder's own words, not inferred. The block
 
 **Liked details, named by the founder.**
 - **Many icons, interactive.** The icon set is a zone of the step 3 plate; how an icon answers a hover or a press is stage 11.
-- **Coloured side borders, rounded.** A coloured edge down one side of a rounded card, as on the references.
+- **Coloured side borders, rounded.** A coloured edge down one side of a rounded card, as on the references. **Withdrawn by the founder on 20 October 2026, `D-189`**, on seeing it drawn: "мне не нравится бордер слева". The rarity is carried as light instead, `D-188`.
 
 **Where this taste meets impeccable's floor.** impeccable, the skill stage 06 runs under from step 3, refuses side stripes and flags glows in its craft floor, `impeccable/reference/degraded/finish-reviewer.md`, step 6 "Floor". The founder's taste wins here, because taste is data and impeccable says how, not what. So both are allowed **only with a job**: the side border carries the item's rarity colour, the glow lights the primary action or a rarity. Step 8's audit reads such a stripe or glow as a decision with this paragraph as its parent, and anything else as a defect.
 
@@ -64,7 +64,7 @@ Five pairs. Each names the research row, the taste and the technique it is built
 | A1 | **Alive, not static** | `personas.md`, The Opener, "Trust triggers": convinced by a platform that "feels alive", scared off by one that "feels slow or visually dead" | "плоское, статичное, скучное"; "иконок должно быть много и ещё и интерактивных" | S2 layered depth, C1 glowing rarity mark |
 | A2 | **Rounded and of one piece, not cut and patched** | `baseline.md` 13.5 points 1 to 3: ten radii, two dialogs in two shapes, four button heights | "острые углы, устаревшее"; `D-182` point 4, small, medium and large | S1 one radius family |
 | A3 | **Energy in the item and the one action, calm at the money** | `CLAUDE.md`, principle 3: "where money is about to be spent, odds, cost and expected value are visible and legible"; principle 4 | "энергичное, привлекающее внимание" | S3 one lit primary, in `#FB3F8A` since `D-185` |
-| A4 | **Game-like through the skin and its rarity, not through decoration with no job** | `jtbd.md`, primary job, the reveal clause; `personas.md`, The Opener, "Pains": "no rarity-tiered animation variation"; `cjm-evidence.md` U-13c: gold on blue "puts me off" | "веселое, игровое"; "бордеры цветные сбоку со скруглениями" | S4 rarity line, C1 glow, a rounded side border in the rarity colour; the gold step never flat on a blue ground |
+| A4 | **Game-like through the skin and its rarity, not through decoration with no job** | `jtbd.md`, primary job, the reveal clause; `personas.md`, The Opener, "Pains": "no rarity-tiered animation variation"; `cjm-evidence.md` U-13c: gold on blue "puts me off" | "веселое, игровое"; the side borders withdrawn, `D-189` | S4 rarity line, C1 glow, rarity as light on the card, `D-188`; the gold step never flat on a blue ground |
 | A5 | **Honest numbers in plain sight, not hidden in the show** | `CLAUDE.md`, principle 1 as limited by `D-14`: published chance and current value at the moment of spending | "чтобы хотелось вернуться": trust is what brings a person back to a money product | C2 price chip and the age of a published figure |
 
 ### 3.1 Where the data and the taste pulled apart, and how it closed
@@ -131,11 +131,11 @@ Five pairs. Each names the research row, the taste and the technique it is built
 
 ## 7. Layout
 
-**Chosen on 20 October 2026: direction 2, The stage, `D-187`**, from the three on `design/concept/directions.html`. The case is the hero on its stage, one pink act, larger cards with a rounded side border in the rarity colour.
+**Chosen on 20 October 2026: direction 2, The stage, `D-187`**, from the three on `design/concept/directions.html`. The case is the hero on its stage, one pink act, larger cards with a rounded side border in the rarity colour, removed by `D-189`.
 
 **A direction owns the visual layer only.** The first drawing put all three on a case layout of its own; the founder asked why the screen carried blocks the baseline does not have, and The stage was redrawn on node 3.3 block for block, with its words from `voice/docs/microcopy.md`. Composition is inherited, `CLAUDE.md`, "Baseline".
 
-**What it fixes.** Type scale 13, 15, 18, 24, 40; one button height, 56px; a white 20px weight 900 label on the pink, large text at 3.40:1; radius M on cards and L on the stage; the 4px rarity edge with its glow. Each value with its origin is in `DESIGN-artifacts.md`.
+**What it fixes.** Type scale 13, 15, 18, 24, 40; one button height, 56px; a white 20px weight 900 label on the pink, large text at 3.40:1; radius M on cards and L on the stage; the 4px rarity edge with its glow, removed by `D-189`. Each value with its origin is in `DESIGN-artifacts.md`.
 
 **Changed after the stand, `D-188`.** The founder picked three of five weak points named back to them. The stage is lit: beams, a pad, a floor line, the case floating over its reflection. Drop cards carry rarity as light as well as the side border, a pad under the skin and a tint from the foot, and fall from about 400px to 280px with the chance as a tag on the art. The case figures are drawn: 40px numbers beside gauges and seals, and each tier's published share as a bar with the observed tick.
 

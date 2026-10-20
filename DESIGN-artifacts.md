@@ -131,12 +131,11 @@ The founder's direction: rounded, on a three step ladder, small, medium and larg
 | `--radius-l` | `24px` | `рішення користувача`, `D-186`: a step of our own, the baseline has no larger panel radius; it closes an even ladder 8, 16, 24 | A2 |
 | `--radius-pill` | `999px` | `наявний бренд`, `baseline.md` 13.2: every text button is a full pill, written both `25px` and `999px`; one spelling of one shape, `baseline.md` 13.5 point 2 | A2, A3 |
 
-**The rounded side border in the rarity colour** is in, `D-183` point 2, A4: 4px wide, rounded on its free side, with a glow in its own colour, `D-187`.
+**The rounded side border in the rarity colour is out**, `D-189`: in by `D-183` point 2 and drawn at 4px by `D-187`, withdrawn by the founder on the drawn cards. Rarity is carried as light, section 6.
 
 | Variable | Value | Job | Origin | Attribute |
 |---|---|---|---|---|
 | `--size-action` | `56px` | the height of every button | `рішення користувача`, `D-187` | A2, A3 |
-| `--size-rarity-edge` | `4px` | the rounded side border in the rarity colour | `рішення користувача`, `D-183`, `D-187` | A4 |
 
 ---
 
@@ -184,7 +183,7 @@ These have more than one answer in the baseline, or none, and are the founder's 
 
 Closed by `D-186` on 20 October 2026: body text `#9F9F9F`, muted text `#9E9DB1`, `#CECED4` for field edges only, `--radius-l` 24px; `#727B8C`, `#A5A5A5`, `#180A35` and `#7E2DC8` are left out of the palette until a screen needs them, the violet failing 3:1 as text.
 
-Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The stage: type scale 13, 15, 18, 24, 40; one button height, 56px; the label on the pink white, 20px weight 900, large text 3.40:1; the rarity side border 4px with its glow. They enter `design/_theme.css` at step 6 with that origin.
+Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The stage: type scale 13, 15, 18, 24, 40; one button height, 56px; the label on the pink white, 20px weight 900, large text 3.40:1; the rarity side border 4px with its glow, removed again by `D-189`. They enter `design/_theme.css` at step 6 with that origin.
 
 1. **Still open from the baseline's contradictions,** `baseline.md` 13.5: six letter-spacings, five line colours, and two field values outside the palette (`#0F0D3E`, `#332CD1`). Step 6 settles them on the coloured screen.
 2. **Spacing, proposed at step 5:** `--space-1` to `--space-7`, 4, 8, 12, 16, 24, 32, 56px, read from the gaps The stage drew, which also used 10, 14, 18 and 20. Shown on `concept.html` as proposed; the founder confirms or changes it on the coloured screen at step 6.
