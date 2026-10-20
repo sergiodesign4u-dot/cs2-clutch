@@ -143,6 +143,8 @@ Five pairs. Each names the research row, the taste and the technique it is built
 
 **Changed on the Home, `D-192`.** The founder looked at the first coloured Home and asked for the baseline's look first: "надо переделивать все, так чтоби єто було похоже прямо на деддискинс хотя би а потом уже отталкиваться что можно улучшить". The copies now carry the baseline's visual layer as it is, with our logo, words, art and pink; the stage, the rarity light and line, the lit action and the figures above the counters wait on the stand, to return one at a time. The attributes do not change: what changed is which of them the Home answers now, A1 and A4 through the art, A5 through the numbers, and A2 and A3 later.
 
+**Second pass on the Home, `D-193`.** The founder found it still far from the baseline's finish and named the icons. Icons are filled now, the ticker drops stand on hexagons, risk reads as three skulls, and eight new Codex images bring the mode cards and the case covers to the baseline's level, every case a different object. A1 answers through the covers, each case its own stage; A4 through the skin laid on each cover. No attribute had to change.
+
 **Rejected.** 1, The shelf, the least lift in finish; 3, The ledger, the calmest, leaving the reveal to carry the energy alone. Both stay on the directions page as shown.
 
 **Visible place.** `design/concept/concept.html`, the stand, built at step 5: the language live first, then the attributes, palette, typography, shape, imagery, icons, brand and references, and three live components.
