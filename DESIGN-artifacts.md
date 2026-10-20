@@ -142,16 +142,19 @@ The founder's direction: rounded, on a three step ladder, small, medium and larg
 
 ## 6. Light and depth
 
-The two glows were drawn on The stage and enter with it, `D-187`. The two step depth was not drawn and stays open, section 9.
+The two glows were drawn on The stage and enter with it, `D-187`; the two rarity mixes and the lit stage enter with `D-188`. The two step depth was not drawn and stays open, section 9.
 
 | Variable | Value | Job | Origin | Attribute |
 |---|---|---|---|---|
 | `--shadow-action` | `0 8px 36px rgba(251, 63, 138, .45)` | the glow of the one lit action | `рішення користувача`, `D-187`; technique S3 | A3 |
 | `--shadow-glow` | `0 0 12px`, in the rarity colour | the glow of a rarity mark | `рішення користувача`, `D-187`; technique C1 | A4 |
+| `--mix-rarity-tint` | `18%` of the rarity colour, rising from a card's foot to clear at 70 % | the rarity carried as light on a card, the showcase and Best drops | `рішення користувача`, `D-188` | A4 |
+| `--mix-rarity-pad` | `42%` of the rarity colour, a radial pad under the skin | the skin lit by its own rarity | `рішення користувача`, `D-188` | A4 |
 
 - **One lit action per screen**, the pink primary with a glow of its own colour, A3, technique S3. Every other button is quiet.
 - **Rarity glows**: a line in the rarity colour under the item, with a glow of the same colour, A4, techniques S4 and C1.
 - **Two step depth**, a low shadow for an item and a softer one for a container, A1, technique S2. Not glass, `D-183` point 1.
+- **The lit stage**, `D-188`: three beams from above in the blue, a pad with two rings under the case and a floor line, the case floating over its reflection. Its job is the hero, A3; the values live in the stage CSS until step 6 moves them into `design/_theme.css`.
 - A glow or gradient with no job is slop, `D-183` point 1.
 
 ---

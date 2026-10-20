@@ -6301,3 +6301,18 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 **Rejected.** 1, The shelf: the least lift in finish. 3, The ledger: the calmest, leaving the reveal to carry all the energy. Both stay on the page as shown, on the withdrawn layout.
 
 **The cost.** Fewer items above the fold at 360 than the shelf would give, and the white label passes AA only as large text, so it may never drop below 18px bold. Which rarity step each wireframe tier takes stays `[?]`.
+
+## D-188. Stage 06 step 5: the stage lit, the drop cards lighter, the case figures drawn
+
+**Date:** 2026-10-20. **Stage:** 06, step 5. **Decided by:** the founder, reading `concept.html`: "четсно мне не нравится многие моменти", then "1, 2 и 4, давай переделывай" against five weak points named back to them. **Binds:** `design/concept/directions.html`, `design/concept/concept.html`, step 6's `design/_theme.css`, `DESIGN-artifacts.md` section 6.
+
+**What was decided.**
+1. **The stage is a stage.** The case floats on a lit pad with two rings, under three beams of light from above, over a floor line, with its reflection. The pad breathes with the float; both stop under reduced motion. Point 1 of the list: the case hung in a blue glow with no floor and no light.
+2. **Drop cards are lighter and carry their rarity as light.** The art sits on a pad lit in the rarity colour, `--mix-rarity-pad` 42 %, and the card takes a tint of the same colour rising from its foot, `--mix-rarity-tint` 18 %, on the showcase, Best drops and every card alike. The chance rides on the art as a tag, the value is the card's figure in gold at 18px, the tier carries a dot of its colour. A desktop card falls from about 400px to about 280px. The rounded side border stays: it is the founder's liked detail, `D-183`, and it is now one of three carriers rather than the only one. Point 2: heavy, alike, rarity read from a thin stripe.
+3. **The case figures are drawn.** Each figure of What this case pays sits at 40px with its unit at 18px, beside a ring gauge where it is a share of a whole (RTP, the chance to get the price back), a gold coin seal for the expected value and a sale seal for the value against a real copy. Published against observed draws each tier's published share as a bar in its colour, 0 to 100 %, with the observed share as a white tick on the same scale. The table stays a table and every number stays text. Point 4: the blocks read as a document, not a game.
+4. **Nothing moved and no word was added.** Blocks, order and strings are node 3.3's; the reflection, the pad, the gauges and the bars are decoration hidden from assistive technology.
+
+**Rejected.** Dropping the side border for a bottom line like the baseline's: it is the founder's liked detail. A perspective grid floor: the synthwave cliché. A diverging bar for −6.2 %: any scale for it would be invented. Points 3 and 5 of the list, the pink act's 3.40:1 label and the faint Live drops tiles, were not picked and stand as they are.
+
+**The cost.** The reflection rides on `-webkit-box-reflect` and is absent in Firefox, where the case simply stands on its pad. The ring repeats a number already printed beside it. The 0 to 100 % scale makes the Covert bar a sliver, which is the truth of 4.2 %.
+

@@ -137,6 +137,8 @@ Five pairs. Each names the research row, the taste and the technique it is built
 
 **What it fixes.** Type scale 13, 15, 18, 24, 40; one button height, 56px; a white 20px weight 900 label on the pink, large text at 3.40:1; radius M on cards and L on the stage; the 4px rarity edge with its glow. Each value with its origin is in `DESIGN-artifacts.md`.
 
+**Changed after the stand, `D-188`.** The founder picked three of five weak points named back to them. The stage is lit: beams, a pad, a floor line, the case floating over its reflection. Drop cards carry rarity as light as well as the side border, a pad under the skin and a tint from the foot, and fall from about 400px to 280px with the chance as a tag on the art. The case figures are drawn: 40px numbers beside gauges and seals, and each tier's published share as a bar with the observed tick.
+
 **Rejected.** 1, The shelf, the least lift in finish; 3, The ledger, the calmest, leaving the reveal to carry the energy alone. Both stay on the directions page as shown.
 
 **Visible place.** `design/concept/concept.html`, the stand, built at step 5: the language live first, then the attributes, palette, typography, shape, imagery, icons, brand and references, and three live components.
