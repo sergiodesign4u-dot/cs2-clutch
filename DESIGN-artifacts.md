@@ -107,7 +107,7 @@ WCAG 2 ratios, computed from the values above. AA asks 4.5:1 for normal text, 3:
 
 The baseline uses 700 and 900 on buttons with no rule between them, `baseline.md` 13.5 point 3; which button takes which is a step 4 choice. The plate's specimen captions, 400, 700 and 900, are drawn and are not the source.
 
-**No display face**, `D-182` point 5: the pack's two Google Fonts candidates per role are not drawn. **The type scale is open:** the baseline uses thirteen sizes, `baseline.md` 13.5 point 4, and bringing them to one value per job is a step 4 choice, section 9.
+**No display face**, `D-182` point 5: the pack's two Google Fonts candidates per role are not drawn. **The type scale is 13, 15, 18, 24, 40**, `рішення користувача`, `D-187`: the baseline's thirteen sizes, `baseline.md` 13.5 point 4, brought to five, with scale carrying the game feel, A3 and A4.
 
 ---
 
@@ -122,7 +122,7 @@ The founder's direction: rounded, on a three step ladder, small, medium and larg
 | `--radius-l` | `24px` | `рішення користувача`, `D-186`: a step of our own, the baseline has no larger panel radius; it closes an even ladder 8, 16, 24 | A2 |
 | `--radius-pill` | `999px` | `наявний бренд`, `baseline.md` 13.2: every text button is a full pill, written both `25px` and `999px`; one spelling of one shape, `baseline.md` 13.5 point 2 | A2, A3 |
 
-**The rounded side border in the rarity colour** is in, `D-183` point 2, A4. Its width and radius are a step 4 choice.
+**The rounded side border in the rarity colour** is in, `D-183` point 2, A4: 4px wide, rounded on its free side, with a glow in its own colour, `D-187`.
 
 ---
 
@@ -162,4 +162,6 @@ These have more than one answer in the baseline, or none, and are the founder's 
 
 Closed by `D-186` on 20 October 2026: body text `#9F9F9F`, muted text `#9E9DB1`, `#CECED4` for field edges only, `--radius-l` 24px; `#727B8C`, `#A5A5A5`, `#180A35` and `#7E2DC8` are left out of the palette until a screen needs them, the violet failing 3:1 as text.
 
-1. **Step 4, the baseline's contradictions,** `baseline.md` 13.5: thirteen type sizes, four button heights, six letter-spacings, five line colours, two field values outside the palette (`#0F0D3E`, `#332CD1`), and the label colour on the pink button.
+Closed by `D-187` on 20 October 2026, the founder's pick of direction 2, The stage: type scale 13, 15, 18, 24, 40; one button height, 56px; the label on the pink white, 20px weight 900, large text 3.40:1; the rarity side border 4px with its glow. They enter `design/_theme.css` at step 6 with that origin.
+
+1. **Still open from the baseline's contradictions,** `baseline.md` 13.5: six letter-spacings, five line colours, and two field values outside the palette (`#0F0D3E`, `#332CD1`). Step 6 settles them on the coloured screen.

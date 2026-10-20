@@ -128,6 +128,166 @@ img { display: block; max-width: 100%; }
 .compare thead th { color: var(--color-text-hi); font-weight: 900; border-top: 0; }
 .compare tbody th { color: var(--color-text-hi); font-weight: 700; }
 
+/* 2 The stage, on the 3.3 skeleton. Scale 13, 15, 18, 24, 40; button 56; radius M 16 on cards, L 24 on the stage */
+.chosen { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-ground); background: var(--color-gold); border-radius: var(--radius-pill); padding: 3px 10px; vertical-align: middle; }
+.upd { border: 1px solid rgba(250,218,98,.4); border-radius: var(--radius-m); padding: 16px 20px; margin: 20px 0 16px; font-size: 15px; }
+.upd b { color: var(--color-gold); }
+.scr { container-type: inline-size; display: flex; flex-direction: column; background: var(--color-ground); border: 1px solid rgba(255,255,255,.06); border-radius: var(--radius-l); overflow: hidden; color: var(--color-text); font-size: 15px; }
+.scr a { color: var(--color-blue); text-underline-offset: 3px; }
+.scr .coin { width: .95em; height: .95em; }
+
+.s-feed { position: relative; background: var(--color-card-2); border-bottom: 1px solid rgba(255,255,255,.06); padding: 10px 0 10px 12px; overflow: hidden; }
+.s-feed-l { position: absolute; top: 0; right: 0; z-index: 1; background: var(--color-pink); color: var(--color-ground); font-size: 11px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; padding: 3px 10px; border-radius: 0 0 0 var(--radius-s); }
+.s-feed-run { list-style: none; display: flex; gap: 8px; }
+.s-feed-run li { flex: none; width: 124px; background: linear-gradient(to top, color-mix(in srgb, var(--r) 30%, transparent), transparent 70%), var(--color-card); border-radius: var(--radius-s); padding: 6px 8px 8px; border-bottom: 2px solid var(--r); display: grid; }
+.s-feed-run img { height: 40px; width: 100%; object-fit: contain; margin-bottom: 2px; }
+.s-feed-w { font-size: 12px; font-weight: 700; color: var(--color-text-hi); line-height: 1.3; }
+.s-feed-s { font-size: 12px; color: var(--color-text-muted); line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.s-body { padding: 24px 32px 40px; }
+.s-crumbrow { display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 13px; }
+.s-crumb { display: flex; flex-wrap: wrap; gap: 6px; color: var(--color-text-muted); }
+.s-crumb a { color: var(--color-text-muted); }
+.s-crumb [aria-current] { color: var(--color-text-hi); }
+.scr .s-how { display: inline-flex; align-items: center; gap: 6px; color: var(--color-text-hi); font-weight: 500; }
+.s-how .ic { width: 16px; height: 16px; color: var(--color-blue); }
+
+.s-head { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; margin: 20px 0 20px; }
+.s-flank { background: var(--color-card); border: 0; border-radius: var(--radius-m); padding: 10px 16px; font-family: inherit; }
+.s-risk { justify-self: start; display: grid; }
+.s-risk-l { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--color-text-muted); }
+.s-risk-v { font-size: 15px; font-weight: 700; color: var(--color-gold); }
+.s-fav { justify-self: end; display: inline-flex; align-items: center; gap: 8px; color: var(--color-text-hi); font-size: 15px; font-weight: 500; cursor: pointer; height: 48px; }
+.s-fav .ic { color: var(--color-gold); }
+.s-fav[aria-pressed="true"] .ic { fill: var(--color-gold); }
+.s-fav:focus-visible, .s-btn:focus-visible { outline: 2px solid var(--color-text-hi); outline-offset: 3px; }
+.s-say { text-align: center; }
+.s-title { color: var(--color-text-hi); font-size: 40px; font-weight: 900; line-height: 1.05; letter-spacing: -.01em; }
+.s-line { font-size: 15px; color: var(--color-text-muted); margin-top: 6px; }
+
+.s-stage { position: relative; border-radius: var(--radius-l); background: radial-gradient(60% 70% at 50% 35%, rgba(101,163,255,.22), transparent 70%), var(--color-card); padding: 24px 0 20px; overflow: hidden; }
+.s-art { display: grid; place-items: center; }
+.s-art img { width: min(340px, 70%); aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-m); -webkit-mask-image: radial-gradient(closest-side, #000 72%, transparent); mask-image: radial-gradient(closest-side, #000 72%, transparent); }
+.s-show { margin-top: 8px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.s-show-run { list-style: none; display: flex; gap: 12px; width: max-content; animation: s-drift 60s linear infinite; }
+.s-show-run li { flex: none; width: 148px; background: var(--color-card-2); border-radius: var(--radius-m); padding: 8px 10px 10px 14px; position: relative; font-size: 13px; color: var(--color-text-hi); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.s-show-run li::before, .s-best a::before, .s-card::before { content: ''; position: absolute; left: 0; top: 12px; bottom: 12px; width: 4px; border-radius: 0 4px 4px 0; background: var(--r); box-shadow: 0 0 12px var(--r); }
+.s-show-run img { height: 64px; width: 100%; object-fit: contain; margin-bottom: 4px; }
+@keyframes s-drift { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .s-show-run { animation: none; } }
+
+.s-commit { display: grid; justify-items: center; gap: 12px; margin-top: 24px; }
+.s-act { display: flex; align-items: stretch; gap: 12px; }
+.s-cost { display: grid; align-content: center; justify-items: center; height: 56px; padding: 0 24px; background: var(--color-card); border-radius: var(--radius-pill); }
+.s-cost-v { display: inline-flex; align-items: center; gap: 6px; color: var(--color-gold); font-size: 18px; font-weight: 900; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.s-cost-c { font-size: 12px; color: var(--color-text-muted); }
+.scr .s-btn { display: inline-flex; align-items: center; justify-content: center; height: 56px; min-width: 200px; padding: 0 36px; background: var(--color-pink); color: var(--color-text-hi); font-size: 20px; font-weight: 900; letter-spacing: .02em; text-transform: uppercase; text-decoration: none; border-radius: var(--radius-pill); box-shadow: 0 8px 36px rgba(251,63,138,.45); transition: transform .15s ease-out, box-shadow .15s ease-out; }
+.scr .s-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 40px rgba(251,63,138,.6); }
+.s-peg { font-size: 13px; color: var(--color-text-muted); text-align: center; font-variant-numeric: tabular-nums; }
+
+.s-info { max-width: 760px; margin: 32px auto 0; display: grid; gap: 12px; }
+.s-prices { border: 1px solid rgba(250,218,98,.35); border-radius: var(--radius-m); padding: 14px 18px; font-size: 13px; line-height: 1.55; }
+.s-prices strong { color: var(--color-gold); text-transform: uppercase; letter-spacing: .04em; font-size: 12px; margin-right: 4px; }
+.s-warn { display: flex; justify-content: center; gap: 8px; font-size: 13px; color: var(--color-text-muted); text-align: center; }
+.s-warn .ic { width: 16px; height: 16px; margin-top: 2px; color: var(--color-gold); }
+.s-warn strong { color: var(--color-text-hi); font-weight: 500; }
+
+.s-sec { margin-top: 56px; scroll-margin-top: 24px; }
+.s-sec-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; margin-bottom: 16px; }
+.s-sec-head h4 { color: var(--color-text-hi); font-size: 24px; font-weight: 900; }
+.s-sub { font-size: 15px; color: var(--color-text-muted); }
+
+.s-best { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.scr .s-best a { position: relative; display: grid; background: var(--color-card); border-radius: var(--radius-m); padding: 12px 12px 12px 18px; text-decoration: none; color: var(--color-text); font-size: 13px; line-height: 1.35; height: 100%; transition: background .15s ease-out; }
+.scr .s-best a:hover { background: var(--color-raised); }
+.s-best img { height: 72px; width: 100%; object-fit: contain; margin-bottom: 6px; filter: drop-shadow(0 8px 14px color-mix(in srgb, var(--r) 40%, transparent)); }
+.s-b-w { color: var(--color-text-muted); }
+.s-b-s { color: var(--color-text-hi); font-weight: 700; font-size: 15px; }
+.s-b-v { display: inline-flex; align-items: center; gap: 5px; color: var(--color-gold); font-weight: 900; font-size: 15px; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.s-b-t { color: var(--color-text-muted); font-size: 12px; }
+
+.s-drops { list-style: none; display: grid; grid-template-columns: 1fr; gap: 12px; }
+@container (min-width: 440px) { .s-drops { grid-template-columns: repeat(2, 1fr); } }
+@container (min-width: 700px) { .s-drops { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+@container (min-width: 1000px) { .s-drops { grid-template-columns: repeat(4, 1fr); } }
+.s-card { position: relative; display: grid; align-content: start; background: var(--color-card); border-radius: var(--radius-m); padding: 16px 16px 16px 20px; }
+.s-c-art { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; margin-bottom: 10px; filter: drop-shadow(0 10px 18px color-mix(in srgb, var(--r) 45%, transparent)); }
+.s-c-txt { display: grid; min-width: 0; }
+.s-c-w { font-size: 13px; color: var(--color-text-muted); }
+.s-c-s { font-size: 18px; font-weight: 700; color: var(--color-text-hi); line-height: 1.25; }
+.s-c-ax { font-size: 13px; color: var(--color-text-muted); margin-top: 2px; }
+.scr .s-mkt { font-size: 13px; margin-top: 4px; }
+.s-c-figs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,.07); }
+.s-c-figs dt { font-size: 12px; color: var(--color-text-muted); }
+.s-c-figs dd { font-size: 15px; font-weight: 700; color: var(--color-text-hi); font-variant-numeric: tabular-nums; }
+.s-c-figs dd.s-gold { display: inline-flex; align-items: center; gap: 5px; color: var(--color-gold); font-weight: 900; }
+.s-c-tk { grid-column: 1 / -1; }
+.s-stamp { font-size: 13px; color: var(--color-text-muted); text-align: right; margin-top: 12px; font-style: italic; }
+@container (max-width: 439px) {
+  .s-card { grid-template-columns: 96px 1fr; gap: 12px; padding: 14px 14px 14px 18px; }
+  .s-c-art { margin: 0; align-self: start; }
+  .s-c-s { font-size: 15px; }
+  .s-c-art { width: 100%; }
+  .s-c-figs { grid-template-columns: 1fr; gap: 4px; }
+  .s-c-figs > div { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .s-c-figs dd { white-space: nowrap; }
+  .s-c-figs .s-c-tk dd { white-space: normal; text-align: right; }
+}
+
+.s-figs { display: grid; grid-template-columns: repeat(4, 1fr); background: var(--color-card); border-radius: var(--radius-m); }
+.s-fig { display: grid; align-content: start; gap: 6px; padding: 20px; border-left: 1px solid rgba(255,255,255,.07); }
+.s-fig:first-child { border-left: 0; }
+.s-fig-v { color: var(--color-text-hi); font-size: 24px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.s-fig-c { font-size: 13px; color: var(--color-text-muted); }
+@container (max-width: 760px) { .s-figs { grid-template-columns: 1fr 1fr; } .s-fig:nth-child(3) { border-left: 0; } .s-fig:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.07); } }
+.s-note { font-size: 13px; color: var(--color-text-muted); margin-top: 12px; }
+
+.s-tw { overflow-x: auto; }
+.s-ladder { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+.s-ladder th, .s-ladder td { text-align: left; padding: 12px 14px; border-top: 1px solid rgba(255,255,255,.07); }
+.s-ladder thead th { border-top: 0; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-text-muted); }
+.s-ladder tbody th { color: var(--color-text-hi); font-weight: 700; white-space: nowrap; }
+.s-ladder td { color: var(--color-text-hi); }
+.s-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--r); box-shadow: 0 0 8px var(--r); margin-right: 10px; }
+
+.s-prose { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 40px; font-size: 15px; line-height: 1.6; }
+.s-prose h5 { color: var(--color-text-hi); font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+
+@container (max-width: 600px) {
+  .s-feed { order: 2; border-bottom: 0; border-top: 1px solid rgba(255,255,255,.06); }
+  .s-body { padding: 16px 16px 32px; }
+  .s-head { grid-template-columns: 1fr 1fr; grid-template-areas: "risk fav" "say say"; margin: 14px 0 16px; }
+  .s-risk { grid-area: risk; } .s-fav { grid-area: fav; } .s-say { grid-area: say; }
+  .s-title { font-size: 32px; }
+  .s-stage { padding: 16px 0 12px; border-radius: var(--radius-m); }
+  .s-show-run li { width: 120px; }
+  .s-show-run img { height: 48px; }
+  .s-commit { justify-items: stretch; }
+  .s-act { width: 100%; }
+  .s-cost { padding: 0 16px; flex: none; }
+  .scr .s-btn { flex: 1; min-width: 0; padding: 0 16px; }
+  .s-sec { margin-top: 40px; }
+  .s-sec-head h4 { font-size: 22px; }
+  .s-best { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .s-figs { grid-template-columns: 1fr 1fr; }
+  .s-fig { padding: 14px; } .s-fig-v { font-size: 20px; }
+  .s-ladder th, .s-ladder td { padding: 10px 4px; font-size: 13px; }
+  .s-ladder thead th { font-size: 11px; letter-spacing: .02em; }
+  .s-dot { width: 8px; height: 8px; margin-right: 5px; }
+  .s-prose { grid-template-columns: 1fr; }
+}
+
+.compose { margin-bottom: 96px; scroll-margin-top: 24px; }
+.compose h2, .notchosen h2 { color: var(--color-text-hi); font-weight: 900; font-size: 28px; margin-bottom: 8px; }
+.compose > p, .notchosen > p { max-width: 760px; font-size: 15px; margin-bottom: 20px; }
+.shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.shots figure { background: var(--color-card); border-radius: var(--radius-m); padding: 12px; }
+.shots img { width: 100%; height: auto; border-radius: var(--radius-s); }
+.shots figcaption { font-size: 13px; color: var(--color-text-muted); margin-top: 10px; }
+.shots figcaption b { color: var(--color-text-hi); }
+@media (max-width: 760px) { .shots { grid-template-columns: 1fr; } }
+.notchosen { scroll-margin-top: 24px; margin-bottom: 40px; }
+
 </style>
 </head>
 <body>
@@ -135,8 +295,28 @@ img { display: block; max-width: 100%; }
 <main>
 <section id="intro" class="intro">
   <h1>Three directions, one brand</h1>
-  <p>The palette, Roboto, the radius ladder and the Solar icons are the same in all three, read from <code>DESIGN-artifacts.md</code>. What changes is composition: density, rhythm, the shape of the item card, where rarity and the price sit. Each one also settles the baseline's contradictions its own way, <code>baseline.md</code> 13.5: thirteen type sizes, four button heights, and a white label on the pink that fails AA.</p>
-  <p class="small">Skins are the real items, images from the Steam CDN. Case art is generated in our own style, <code>D-183</code>. Every figure, the case name and its counts are samples, <code>D-124</code>. Which rarity step each Steam grade takes is an assumption, <code>[?]</code> in <code>DESIGN-artifacts.md</code>. Pick one by number and name.</p>
+  <p>The palette, Roboto, the radius ladder and the Solar icons are the same in all three, read from <code>DESIGN-artifacts.md</code>. What a direction changes is the visual layer: density, rhythm, the shape of the item card, how rarity and the price are marked. Each one also settles the baseline's contradictions its own way, <code>baseline.md</code> 13.5: thirteen type sizes, four button heights, and a white label on the pink that fails AA.</p>
+  <div class="upd"><b>Updated after publication, 20 October 2026.</b> The founder picked <b>2, The stage</b>, <code>D-187</code>, and asked why the screen carried blocks the baseline does not have. The first version drew all three directions on a case layout of its own: the art beside the text, a meta line no node holds, and no Best drops, Skin prices or Before opening. That is neither the baseline's case screen nor node 3.3, and the composition is inherited, <code>CLAUDE.md</code>, Baseline. The stage is now drawn on the 3.3 skeleton, every block in its order with its words from <code>microcopy.md</code>, and only the visual layer is the direction's. Directions 1 and 3 stay below on the old layout as the record of what was not chosen.</div>
+  <p class="small">Skins are the real items, images from the Steam CDN. Case art is generated in our own style, <code>D-183</code>. Which rarity step each tier takes is an assumption, <code>[?]</code> in <code>DESIGN-artifacts.md</code>.</p>
+</section>
+<section id="d2" class="dir d2s">
+  <header class="dir-head"><h2><span class="dn">2</span> The stage <span class="chosen">Chosen, D-187</span></h2>
+  <p>The case is the hero: big art on the stage, one lit act, larger cards with a rounded side border in the rarity colour. Drawn on the case screen exactly as node 3.3 and the wireframe hold it, phase 1, a guest.</p></header>
+  <div class="scr"><section class="s-feed" aria-label="Live drops"><span class="s-feed-l">Live drops</span><ul class="s-feed-run"><li style="--r:#D1273E"><img src="assets/skins/ak-47-redline.png" alt="" loading="lazy"><span class="s-feed-w">AK-47</span><span class="s-feed-s">Redline</span></li><li style="--r:#D1273E"><img src="assets/skins/awp-asiimov.png" alt="" loading="lazy"><span class="s-feed-w">AWP</span><span class="s-feed-s">Asiimov</span></li><li style="--r:#6B42B9"><img src="assets/skins/glock-18-water-elemental.png" alt="" loading="lazy"><span class="s-feed-w">Glock-18</span><span class="s-feed-s">Water Elemental</span></li><li style="--r:#6B42B9"><img src="assets/skins/usp-s-kill-confirmed.png" alt="" loading="lazy"><span class="s-feed-w">USP-S</span><span class="s-feed-s">Kill Confirmed</span></li><li style="--r:#D22BCE"><img src="assets/skins/m4a1-s-hyper-beast.png" alt="" loading="lazy"><span class="s-feed-w">M4A1-S</span><span class="s-feed-s">Hyper Beast</span></li><li style="--r:#D22BCE"><img src="assets/skins/desert-eagle-blaze.png" alt="" loading="lazy"><span class="s-feed-w">Desert Eagle</span><span class="s-feed-s">Blaze</span></li><li style="--r:#3955E8"><img src="assets/skins/mp9-rose-iron.png" alt="" loading="lazy"><span class="s-feed-w">MP9</span><span class="s-feed-s">Rose Iron</span></li><li style="--r:#3955E8"><img src="assets/skins/p250-asiimov.png" alt="" loading="lazy"><span class="s-feed-w">P250</span><span class="s-feed-s">Asiimov</span></li><li style="--r:#D1273E"><img src="assets/skins/awp-neo-noir.png" alt="" loading="lazy"><span class="s-feed-w">AWP</span><span class="s-feed-s">Neo-Noir</span></li></ul></section><div class="s-body"><div class="s-crumbrow"><nav class="s-crumb" aria-label="Breadcrumb"><a href="../../wireframes/index.html">Home</a><span>/</span><a href="../../wireframes/catalogue.html">Cases</a><span>/</span><span aria-current="page">Ironbound</span></nav><a class="s-how" href="#s-how"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M10.125 8.875C10.125 7.83947 10.9645 7 12 7C13.0355 7 13.875 7.83947 13.875 8.875C13.875 9.56245 13.505 10.1635 12.9534 10.4899C12.478 10.7711 12 11.1977 12 11.75V13"/><path stroke-linejoin="round" d="M12 16H12.0001"/></g></svg> How it works</a></div><div class="s-head"><div class="s-flank s-risk"><span class="s-risk-l">Risk</span><span class="s-risk-v">Medium</span></div><div class="s-say"><h3 class="s-title">Ironbound</h3><p class="s-line">Nine items, one open.</p></div><button class="s-flank s-fav" type="button" aria-pressed="false" aria-label="Favorite this case"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"/></svg><span>Favorite</span></button></div><div class="s-stage"><div class="s-art"><img src="assets/cases/case-blue.png" alt="Ironbound case"></div><div class="s-show" aria-hidden="true"><ul class="s-show-run"><li style="--r:#D1273E"><img src="assets/skins/ak-47-redline.png" alt="" loading="lazy"><span>AK-47 Redline</span></li><li style="--r:#D1273E"><img src="assets/skins/awp-asiimov.png" alt="" loading="lazy"><span>AWP Asiimov</span></li><li style="--r:#D22BCE"><img src="assets/skins/m4a1-s-hyper-beast.png" alt="" loading="lazy"><span>M4A1-S Hyper Beast</span></li><li style="--r:#D22BCE"><img src="assets/skins/desert-eagle-blaze.png" alt="" loading="lazy"><span>Desert Eagle Blaze</span></li><li style="--r:#6B42B9"><img src="assets/skins/usp-s-kill-confirmed.png" alt="" loading="lazy"><span>USP-S Kill Confirmed</span></li><li style="--r:#6B42B9"><img src="assets/skins/glock-18-water-elemental.png" alt="" loading="lazy"><span>Glock-18 Water Elemental</span></li><li style="--r:#3955E8"><img src="assets/skins/mp9-rose-iron.png" alt="" loading="lazy"><span>MP9 Rose Iron</span></li><li style="--r:#3955E8"><img src="assets/skins/p250-asiimov.png" alt="" loading="lazy"><span>P250 Asiimov</span></li><li style="--r:#3955E8"><img src="assets/skins/nova-koi.png" alt="" loading="lazy"><span>Nova Koi</span></li><li style="--r:#D1273E"><img src="assets/skins/ak-47-redline.png" alt="" loading="lazy"><span>AK-47 Redline</span></li><li style="--r:#D1273E"><img src="assets/skins/awp-asiimov.png" alt="" loading="lazy"><span>AWP Asiimov</span></li><li style="--r:#D22BCE"><img src="assets/skins/m4a1-s-hyper-beast.png" alt="" loading="lazy"><span>M4A1-S Hyper Beast</span></li><li style="--r:#D22BCE"><img src="assets/skins/desert-eagle-blaze.png" alt="" loading="lazy"><span>Desert Eagle Blaze</span></li><li style="--r:#6B42B9"><img src="assets/skins/usp-s-kill-confirmed.png" alt="" loading="lazy"><span>USP-S Kill Confirmed</span></li><li style="--r:#6B42B9"><img src="assets/skins/glock-18-water-elemental.png" alt="" loading="lazy"><span>Glock-18 Water Elemental</span></li><li style="--r:#3955E8"><img src="assets/skins/mp9-rose-iron.png" alt="" loading="lazy"><span>MP9 Rose Iron</span></li><li style="--r:#3955E8"><img src="assets/skins/p250-asiimov.png" alt="" loading="lazy"><span>P250 Asiimov</span></li><li style="--r:#3955E8"><img src="assets/skins/nova-koi.png" alt="" loading="lazy"><span>Nova Koi</span></li></ul></div></div><div class="s-commit"><div class="s-act"><span class="s-cost"><span class="s-cost-v"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>12.40 coins</span><span class="s-cost-c">Price, one open</span></span><a class="s-btn" href="../../wireframes/signin.html">Sign in</a></div><p class="s-peg">1 coin = $1.00 · <a href="#s-pays">RTP 94.2 %, expected value 11.68 coins</a></p></div><section class="s-info" aria-label="Before you open"><p class="s-prices"><strong>Skin prices.</strong> Values in this case are fixed when the case is priced. Sending an item to Steam buys a real copy at that day's price, and the difference settles against your balance in either direction. <a href="../../wireframes/withdraw.html">How a withdrawal settles</a></p><p class="s-warn"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 17V11"/><path stroke-linejoin="round" d="M12 8H12.0001"/></g></svg><span><strong>Before opening.</strong> Your Steam inventory has to be public and your trade URL set, or an item cannot be sent to you. <a href="../../wireframes/settings.html">Check your settings</a></span></p></section><section class="s-sec"><div class="s-sec-head"><h4>Best drops</h4><p class="s-sub">By value. <a href="#s-observed">What usually drops</a></p></div><ul class="s-best"><li style="--r:#D1273E"><a href="../../wireframes/result.html"><img src="assets/skins/ak-47-redline.png" alt="" loading="lazy"><span class="s-b-w">AK-47</span><span class="s-b-s">Redline</span><span class="s-b-v"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>47.30 coins</span><span class="s-b-t">18 Aug, 14:44</span></a></li><li style="--r:#6B42B9"><a href="../../wireframes/result.html"><img src="assets/skins/usp-s-kill-confirmed.png" alt="" loading="lazy"><span class="s-b-w">USP-S</span><span class="s-b-s">Kill Confirmed</span><span class="s-b-v"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>14.20 coins</span><span class="s-b-t">18 Aug, 14:22</span></a></li><li style="--r:#6B42B9"><a href="../../wireframes/result.html"><img src="assets/skins/glock-18-water-elemental.png" alt="" loading="lazy"><span class="s-b-w">Glock-18</span><span class="s-b-s">Water Elemental</span><span class="s-b-v"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>12.90 coins</span><span class="s-b-t">18 Aug, 14:58</span></a></li><li style="--r:#3955E8"><a href="../../wireframes/result.html"><img src="assets/skins/nova-koi.png" alt="" loading="lazy"><span class="s-b-w">Nova</span><span class="s-b-s">Koi</span><span class="s-b-v"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>7.90 coins</span><span class="s-b-t">18 Aug, 14:39</span></a></li><li style="--r:#3955E8"><a href="../../wireframes/result.html"><img src="assets/skins/mp9-rose-iron.png" alt="" loading="lazy"><span class="s-b-w">MP9</span><span class="s-b-s">Rose Iron</span><span class="s-b-v"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>7.40 coins</span><span class="s-b-t">18 Aug, 14:51</span></a></li><li style="--r:#3955E8"><a href="../../wireframes/result.html"><img src="assets/skins/p250-asiimov.png" alt="" loading="lazy"><span class="s-b-w">P250</span><span class="s-b-s">Asiimov</span><span class="s-b-v"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>6.90 coins</span><span class="s-b-t">18 Aug, 14:31</span></a></li></ul></section><section class="s-sec"><div class="s-sec-head"><h4>What is in this case</h4></div><ul class="s-drops"><li class="s-card" style="--r:#D1273E"><img class="s-c-art" src="assets/skins/ak-47-redline.png" alt="" loading="lazy"><div class="s-c-txt"><span class="s-c-w">AK-47</span><span class="s-c-s">Redline</span><span class="s-c-ax">Field-Tested · StatTrak · Covert</span><a class="s-mkt" href="https://steamcommunity.com/market/" rel="external nofollow">Steam 50.43 coins, 18 Aug 14:02</a><dl class="s-c-figs"><div><dt>Chance</dt><dd>3.180 %</dd></div><div><dt>Value</dt><dd class="s-gold"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>47.30 coins</dd></div><div class="s-c-tk"><dt>Tickets</dt><dd>1 to 3 180</dd></div></dl></div></li><li class="s-card" style="--r:#D1273E"><img class="s-c-art" src="assets/skins/awp-asiimov.png" alt="" loading="lazy"><div class="s-c-txt"><span class="s-c-w">AWP</span><span class="s-c-s">Asiimov</span><span class="s-c-ax">Well-Worn · Covert</span><dl class="s-c-figs"><div><dt>Chance</dt><dd>1.020 %</dd></div><div><dt>Value</dt><dd class="s-gold"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>38.90 coins</dd></div><div class="s-c-tk"><dt>Tickets</dt><dd>3 181 to 4 200</dd></div></dl></div></li><li class="s-card" style="--r:#D22BCE"><img class="s-c-art" src="assets/skins/m4a1-s-hyper-beast.png" alt="" loading="lazy"><div class="s-c-txt"><span class="s-c-w">M4A1-S</span><span class="s-c-s">Hyper Beast</span><span class="s-c-ax">Factory New · Classified</span><dl class="s-c-figs"><div><dt>Chance</dt><dd>4.600 %</dd></div><div><dt>Value</dt><dd class="s-gold"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>24.60 coins</dd></div><div class="s-c-tk"><dt>Tickets</dt><dd>4 201 to 8 800</dd></div></dl></div></li><li class="s-card" style="--r:#D22BCE"><img class="s-c-art" src="assets/skins/desert-eagle-blaze.png" alt="" loading="lazy"><div class="s-c-txt"><span class="s-c-w">Desert Eagle</span><span class="s-c-s">Blaze</span><span class="s-c-ax">Factory New · Classified</span><dl class="s-c-figs"><div><dt>Chance</dt><dd>2.200 %</dd></div><div><dt>Value</dt><dd class="s-gold"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>21.80 coins</dd></div><div class="s-c-tk"><dt>Tickets</dt><dd>8 801 to 11 000</dd></div></dl></div></li><li class="s-card" style="--r:#6B42B9"><img class="s-c-art" src="assets/skins/usp-s-kill-confirmed.png" alt="" loading="lazy"><div class="s-c-txt"><span class="s-c-w">USP-S</span><span class="s-c-s">Kill Confirmed</span><span class="s-c-ax">Minimal Wear · Restricted</span><dl class="s-c-figs"><div><dt>Chance</dt><dd>12.000 %</dd></div><div><dt>Value</dt><dd class="s-gold"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>14.20 coins</dd></div><div class="s-c-tk"><dt>Tickets</dt><dd>11 001 to 23 000</dd></div></dl></div></li><li class="s-card" style="--r:#6B42B9"><img class="s-c-art" src="assets/skins/glock-18-water-elemental.png" alt="" loading="lazy"><div class="s-c-txt"><span class="s-c-w">Glock-18</span><span class="s-c-s">Water Elemental</span><span class="s-c-ax">Minimal Wear · Restricted</span><dl class="s-c-figs"><div><dt>Chance</dt><dd>14.000 %</dd></div><div><dt>Value</dt><dd class="s-gold"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>12.90 coins</dd></div><div class="s-c-tk"><dt>Tickets</dt><dd>23 001 to 37 000</dd></div></dl></div></li><li class="s-card" style="--r:#3955E8"><img class="s-c-art" src="assets/skins/mp9-rose-iron.png" alt="" loading="lazy"><div class="s-c-txt"><span class="s-c-w">MP9</span><span class="s-c-s">Rose Iron</span><span class="s-c-ax">Field-Tested · Mil-Spec</span><dl class="s-c-figs"><div><dt>Chance</dt><dd>22.000 %</dd></div><div><dt>Value</dt><dd class="s-gold"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>7.40 coins</dd></div><div class="s-c-tk"><dt>Tickets</dt><dd>37 001 to 59 000</dd></div></dl></div></li><li class="s-card" style="--r:#3955E8"><img class="s-c-art" src="assets/skins/p250-asiimov.png" alt="" loading="lazy"><div class="s-c-txt"><span class="s-c-w">P250</span><span class="s-c-s">Asiimov</span><span class="s-c-ax">Battle-Scarred · Mil-Spec</span><dl class="s-c-figs"><div><dt>Chance</dt><dd>21.000 %</dd></div><div><dt>Value</dt><dd class="s-gold"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>6.90 coins</dd></div><div class="s-c-tk"><dt>Tickets</dt><dd>59 001 to 80 000</dd></div></dl></div></li><li class="s-card" style="--r:#3955E8"><img class="s-c-art" src="assets/skins/nova-koi.png" alt="" loading="lazy"><div class="s-c-txt"><span class="s-c-w">Nova</span><span class="s-c-s">Koi</span><span class="s-c-ax">Factory New · Mil-Spec</span><dl class="s-c-figs"><div><dt>Chance</dt><dd>20.000 %</dd></div><div><dt>Value</dt><dd class="s-gold"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>7.90 coins</dd></div><div class="s-c-tk"><dt>Tickets</dt><dd>80 001 to 100 000</dd></div></dl></div></li></ul><p class="s-stamp">Last updated 18 Aug 2026 14:02</p></section><section class="s-sec" id="s-pays"><div class="s-sec-head"><h4>What this case pays</h4></div><div class="s-figs"><div class="s-fig"><span class="s-fig-v">94.2 %</span><span class="s-fig-c">Tested RTP, in coins at our values</span></div><div class="s-fig"><span class="s-fig-v">11.68 coins</span><span class="s-fig-c">Expected value per open: every chance above times its value</span></div><div class="s-fig"><span class="s-fig-v">37.000 %</span><span class="s-fig-c">Chance to get back at least its price, 12.40 coins</span></div><div class="s-fig"><span class="s-fig-v">&minus;6.2 %</span><span class="s-fig-c">Our values against a real copy, case average <a href="../../wireframes/withdraw.html">How it settles</a></span></div></div><p class="s-note">Buying an item outright is cheaper on average than opening for it.</p></section><section class="s-sec" id="s-observed"><div class="s-sec-head"><h4>Published against observed</h4><p class="s-sub">What we publish for each tier, and what actually came out.</p></div><div class="s-tw"><table class="s-ladder"><thead><tr><th scope="col">Tier</th><th scope="col">Published</th><th scope="col">Observed</th><th scope="col">Rounds</th></tr></thead><tbody><tr style="--r:#D1273E"><th scope="row"><span class="s-dot"></span>Covert</th><td>4.200 %</td><td>4.06 %</td><td>41 208</td></tr><tr style="--r:#D22BCE"><th scope="row"><span class="s-dot"></span>Classified</th><td>6.800 %</td><td>6.94 %</td><td>41 208</td></tr><tr style="--r:#6B42B9"><th scope="row"><span class="s-dot"></span>Restricted</th><td>26.000 %</td><td>25.71 %</td><td>41 208</td></tr><tr style="--r:#3955E8"><th scope="row"><span class="s-dot"></span>Mil-Spec</th><td>63.000 %</td><td>63.29 %</td><td>41 208</td></tr></tbody></table></div><p class="s-note">Counted since this case launched, never reset. <a href="../../wireframes/fair.html">Provably fair</a></p></section><section class="s-sec" id="s-how"><div class="s-sec-head"><h4>How this case works</h4></div><div class="s-prose"><p>The price buys one round, and the round lands on one item. Every item's chance is printed as a percentage and as a ticket range: the range is what the round resolves against, which is what makes a result checkable.</p><div><h5>How a round is checked</h5><p>The round is fixed before the animation starts and its hash is on screen when you open. After the reveal, one link checks the round against that hash.</p></div></div></section></div></div>
+  <table class="spec"><tbody><tr><th>Composition</th><td>Node 3.3 phase 1 as drawn in <code>wireframes/case.html</code>, block for block and in its order, the baseline's own case screen order, <code>D-30</code> and <code>D-125</code></td></tr><tr><th>Density</th><td>Four cards a row from 1000px of content, three below it, <code>D-132</code>; one at 360, art beside the text</td></tr><tr><th>Type scale</th><td>13, 15, 18, 24, 40. Scale carries the game feel, <code>D-183</code></td></tr><tr><th>Buttons</th><td>One height, 56px; the act is the only pink on screen, white label 20px weight 900, large text 3.40:1</td></tr><tr><th>Radius</th><td>M 16 on cards and flanks, L 24 on the stage and the screen</td></tr><tr><th>Rarity</th><td>A rounded side border in the rarity colour with its glow, on the showcase, Best drops and every card, <code>D-183</code>. Which step each wireframe tier takes is <code>[?]</code></td></tr><tr><th>Words</th><td>Every string from <code>voice/docs/microcopy.md</code> through the wireframe, nothing added. Ironbound and its figures are the wireframe's samples, <code>D-124</code></td></tr><tr><th>Not drawn here</th><td>The rail, the header, the footer and the fixed commit bar at 360: the shell, step 6</td></tr></tbody></table>
+</section>
+<section id="compose" class="compose">
+  <h2>Same composition as the baseline</h2>
+  <p>The baseline's case screen, our wireframe of it, and The stage, top of the page at 1440. The order is one order: risk and title over the stage, the case on it, the act centred under it, the prices box, Best drops, then everything in the case. What the wireframe adds is named in node 3.3 with its decision: the price on the act for a guest, the peg and its route, the case numbers and the published against observed table.</p>
+  <div class="shots">
+    <figure><img src="screens/compose-baseline-1440.png" alt="The baseline's case screen at 1440" loading="lazy"><figcaption><b>The baseline</b>, walked 26 September 2026</figcaption></figure>
+    <figure><img src="screens/compose-wireframe-1440.png" alt="Wireframe of node 3.3 at 1440" loading="lazy"><figcaption><b>Wireframe 3.3</b>, structure and words</figcaption></figure>
+    <figure><img src="screens/compose-stage-1440.png" alt="The stage on node 3.3 at 1440" loading="lazy"><figcaption><b>2 The stage</b>, the visual layer on it</figcaption></figure>
+  </div>
+</section>
+<section id="notchosen" class="notchosen">
+  <h2>Not chosen</h2>
+  <p>Directions 1 and 3 as they were shown, on the layout the update above withdraws. Kept as the record of the choice, <code>D-187</code>.</p>
 </section>
 <section id="d1" class="dir d1">
   <header class="dir-head"><h2><span class="dn">1</span> The shelf</h2><p>Close to the baseline: dense, the drop table as a grid of tiles, every value on the small end of the ladder.</p></header>
@@ -160,29 +340,6 @@ img { display: block; max-width: 100%; }
     </div>
   </div>
   <table class="spec"><tbody><tr><th>Density</th><td>Four to six tiles a row, 12px gaps, as the baseline packs its table</td></tr><tr><th>Type scale</th><td>12, 14, 16, 20, 28. Thirteen baseline sizes become five</td></tr><tr><th>Buttons</th><td>One height, 44px, weight 900; the price chip beside it</td></tr><tr><th>Radius</th><td>S 8 on tiles, M 16 on the case panel</td></tr><tr><th>Rarity</th><td>A bottom glow in the rarity colour and a line under the name, S4 and C1</td></tr><tr><th>Attributes</th><td>A2 one piece, A5 the chance on every tile</td></tr></tbody></table>
-</section>
-<section id="d2" class="dir d2">
-  <header class="dir-head"><h2><span class="dn">2</span> The stage</h2><p>The case is the hero: big art, one lit action, fewer and larger item cards with a rounded side border in the rarity colour.</p></header>
-  <div class="stage">
-    <div class="case">
-  <div class="case-art"><img src="assets/cases/case-blue.png" alt="Sample case art"></div>
-  <div class="case-info">
-    <h3 class="case-name">Night Shift <span class="risk">Medium risk</span></h3>
-    <p class="case-meta"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M3 10.4167C3 7.21907 3 5.62028 3.37752 5.08241C3.75503 4.54454 5.25832 4.02996 8.26491 3.00079L8.83772 2.80472C10.405 2.26824 11.1886 2 12 2C12.8114 2 13.595 2.26824 15.1623 2.80472L15.7351 3.00079C18.7417 4.02996 20.245 4.54454 20.6225 5.08241C21 5.62028 21 7.21907 21 10.4167C21 10.8996 21 11.4234 21 11.9914C21 17.6294 16.761 20.3655 14.1014 21.5273C13.38 21.8424 13.0193 22 12 22C10.9807 22 10.62 21.8424 9.89856 21.5273C7.23896 20.3655 3 17.6294 3 11.9914C3 11.4234 3 10.8996 3 10.4167Z"/><path stroke-linejoin="round" d="M9.5 12.4L10.9286 14L14.5 10"/></g></svg> Provably fair</span><span class="sep"></span><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M20 13.1111C20 20.2222 13.9556 22 10.9333 22C8.28889 22 3 20.2222 3 13.1111C3 10.3295 4.46147 8.46138 5.85996 7.39454C6.63841 6.80069 7.6304 7.39197 7.73017 8.36598L7.816 9.20382C7.92052 10.2241 8.84932 11.0606 9.70932 10.5017C11.3938 9.40705 12 6.7752 12 5.33334V5.00971C12 3.58 13.4438 2.65985 14.6023 3.49767C17.1653 5.35127 20 8.58427 20 13.1111Z"/><path d="M8 18.4445C8 21.2889 10.4889 22 11.7333 22C12.8222 22 15 21.2889 15 18.4445C15 17.3435 14.4107 16.6002 13.8404 16.1713C13.4424 15.872 12.8828 16.1408 12.7459 16.6196C12.5675 17.2437 11.9228 17.636 11.5944 17.0759C11.2941 16.5638 11.2941 15.7957 11.2941 15.3334C11.2941 14.6968 10.6539 14.2847 10.1389 14.6589C9.10649 15.4091 8 16.6815 8 18.4445Z"/></g></svg> 412 opened today</span></p>
-    <div class="case-buy">
-      <span class="price-chip"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg><b>2.40</b><small>Price, one open</small></span>
-      <a class="btn-open" href="#" role="button">Open for 2.40 coins <svg class="ic ic-go" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></a>
-    </div>
-    <p class="peg">1 coin = $1.00 · RTP 92.4 %, expected value 2.22 coins</p>
-    <p class="note">White label on pink at 20px weight 900, large text: 3.40:1 passes the 3:1 floor for large text only.</p>
-  </div>
-</div>
-    <div class="drops">
-      <div class="drops-head"><h4>Every item in this case with its chance</h4><span class="col"><span>Value</span><span>Chance</span></span></div>
-      <ul class="grid"><li class="item" style="--r:#F6C915"><img src="assets/skins/karambit-tiger-tooth.png" alt="★ Karambit | Tiger Tooth" loading="lazy"><span class="i-name"><b>★ Karambit</b> Tiger Tooth</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>1 920.00</span><span class="i-chance">0.05 %</span></li><li class="item" style="--r:#D1273E"><img src="assets/skins/awp-asiimov.png" alt="AWP | Asiimov" loading="lazy"><span class="i-name"><b>AWP</b> Asiimov</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>148.20</span><span class="i-chance">0.60 %</span></li><li class="item" style="--r:#D1273E"><img src="assets/skins/m4a4-the-emperor.png" alt="M4A4 | The Emperor" loading="lazy"><span class="i-name"><b>M4A4</b> The Emperor</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>61.40</span><span class="i-chance">1.50 %</span></li><li class="item" style="--r:#D22BCE"><img src="assets/skins/glock-18-vogue.png" alt="Glock-18 | Vogue" loading="lazy"><span class="i-name"><b>Glock-18</b> Vogue</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>9.85</span><span class="i-chance">6.00 %</span></li><li class="item" style="--r:#6B42B9"><img src="assets/skins/usp-s-ticket-to-hell.png" alt="USP-S | Ticket to Hell" loading="lazy"><span class="i-name"><b>USP-S</b> Ticket to Hell</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>3.10</span><span class="i-chance">14.85 %</span></li><li class="item" style="--r:#6B42B9"><img src="assets/skins/mp9-goo.png" alt="MP9 | Goo" loading="lazy"><span class="i-name"><b>MP9</b> Goo</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>1.20</span><span class="i-chance">27.00 %</span></li><li class="item" style="--r:#3955E8"><img src="assets/skins/ak-47-elite-build.png" alt="AK-47 | Elite Build" loading="lazy"><span class="i-name"><b>AK-47</b> Elite Build</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>0.95</span><span class="i-chance">20.00 %</span></li><li class="item" style="--r:#DDDDDD"><img src="assets/skins/p250-sand-dune.png" alt="P250 | Sand Dune" loading="lazy"><span class="i-name"><b>P250</b> Sand Dune</span><span class="i-price"><svg class="coin" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#FADA62"/><circle cx="8" cy="8" r="4.6" fill="none" stroke="#060A1E" stroke-width="1.4" stroke-opacity=".55"/></svg>0.08</span><span class="i-chance">30.00 %</span></li></ul>
-    </div>
-  </div>
-  <table class="spec"><tbody><tr><th>Density</th><td>Three cards a row on desktop, 20px gaps, more air round the art</td></tr><tr><th>Type scale</th><td>13, 15, 18, 24, 40. Scale carries the game feel, D-183</td></tr><tr><th>Buttons</th><td>One height, 56px; the action is the only pink on screen</td></tr><tr><th>Radius</th><td>M 16 on cards, L 24 on the case panel</td></tr><tr><th>Rarity</th><td>A rounded side border in the rarity colour with its glow, the founder's liked detail, D-183</td></tr><tr><th>Attributes</th><td>A1 alive, A3 energy in the item and the one action</td></tr></tbody></table>
 </section>
 <section id="d3" class="dir d3">
   <header class="dir-head"><h2><span class="dn">3</span> The ledger</h2><p>Numbers first: the drop table as rows, chance and value in aligned columns, the case compact above it.</p></header>
@@ -210,9 +367,9 @@ img { display: block; max-width: 100%; }
 <section id="compare" class="compare">
   <h2>Side by side</h2>
   <div class="tw"><table>
-    <thead><tr><th></th><th>1 The shelf</th><th>2 The stage</th><th>3 The ledger</th></tr></thead>
+    <thead><tr><th></th><th>1 The shelf</th><th>2 The stage, chosen</th><th>3 The ledger</th></tr></thead>
     <tbody>
-      <tr><th>Reads first</th><td>The whole table</td><td>The case and the one action</td><td>The chances and values</td></tr>
+      <tr><th>Reads first</th><td>The whole table</td><td>The case and the one act</td><td>The chances and values</td></tr>
       <tr><th>Closest to</th><td>The baseline as it is</td><td>skin.fans, the finish reference</td><td>The provably fair promise, D-14</td></tr>
       <tr><th>Button label on pink</th><td>Dark, 5.78:1</td><td>White, large text only</td><td>Dark, 5.78:1</td></tr>
       <tr><th>Risk</th><td>Least change from the baseline; least lift in finish</td><td>Most game feel; fewer items above the fold at 360</td><td>Calmest; the reveal has to carry the energy, stage 11</td></tr>
@@ -224,12 +381,15 @@ img { display: block; max-width: 100%; }
 window.NAV_BASE = '../../';
 window.NAV_SECTIONS = [
   { id: 'intro', label: 'Three directions' },
+  { id: 'd2', label: '2 The stage, chosen' },
+  { id: 'compose', label: 'Same composition' },
+  { id: 'notchosen', label: 'Not chosen' },
   { id: 'd1', label: '1 The shelf' },
-  { id: 'd2', label: '2 The stage' },
   { id: 'd3', label: '3 The ledger' },
   { id: 'compare', label: 'Side by side' },
 ];
 document.querySelectorAll('a[href="#"]').forEach(function (a) { a.addEventListener('click', function (e) { e.preventDefault(); }); });
+document.querySelectorAll('.s-fav').forEach(function (b) { b.addEventListener('click', function () { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); }); });
 </script>
 <script src="../../_nav.js"></script>
 </body>

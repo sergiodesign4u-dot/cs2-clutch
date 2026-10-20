@@ -6288,3 +6288,16 @@ The principles that rest on these answers are `voice/docs/voice.md` "Principles"
 **Rejected.** Carrying all three muted greys with named jobs: three values where one serves.
 
 **The cost.** Two baseline values leave the product's surface, and a screen that relied on them is redrawn in the kept ones.
+
+## D-187. Stage 06 step 4: The stage, redrawn on the case screen's own composition
+
+**Date:** 2026-10-20. **Stage:** 06, step 4. **Decided by:** the founder: "2 The stage, как рекомендуешь", then "гоу" to the redraw. **Binds:** `design/concept/directions.html`, step 5's `concept.html`, step 6's `design/_theme.css`, `DESIGN-artifacts.md` sections 4, 5 and 9.
+
+**What was decided.**
+1. **Direction 2, The stage, is the concept's visual layer.** The case is the hero on its stage, one pink act, larger cards with a rounded side border in the rarity colour.
+2. **Its values.** Type scale 13, 15, 18, 24, 40. One button height, 56px. The act's label white, 20px weight 900, large text at 3.40:1. Radius M 16 on cards and flanks, L 24 on the stage. The side border 4px, rounded on its free side, with a glow in its own colour.
+3. **A direction owns the visual layer only.** The founder read the first version and asked why the screen carried blocks the baseline does not have: it had been drawn on a case layout of its own, the art beside the text, a meta line no node holds, and no Best drops, Skin prices or Before opening. Page composition is inherited, `CLAUDE.md`, Baseline, so The stage is redrawn on node 3.3 as `wireframes/case.html` holds it, block for block, with its words from `microcopy.md`. The page shows the baseline, the wireframe and The stage side by side at 1440.
+
+**Rejected.** 1, The shelf: the least lift in finish. 3, The ledger: the calmest, leaving the reveal to carry all the energy. Both stay on the page as shown, on the withdrawn layout.
+
+**The cost.** Fewer items above the fold at 360 than the shelf would give, and the white label passes AA only as large text, so it may never drop below 18px bold. Which rarity step each wireframe tier takes stays `[?]`.
